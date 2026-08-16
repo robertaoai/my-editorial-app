@@ -20,7 +20,7 @@ line 5, Business Case v2.2 line 5.
 
 | File | Document | Version | Lines |
 |---|---|---|---|
-| — | **Project Charter** | v1 | **NOT SUPPLIED — see below** |
+| `project-charter-v1.md` | **Project Charter** (source of truth) | v1, baseline | 60 |
 | `v1-build-readiness-addendum-v1.4.md` | V1 Build Readiness Addendum | v1.4 | 769 |
 | `blueprint-v1.3.md` | Product Blueprint & Implementation Roadmap | v1.3 | 1289 |
 | `business-case-v2.2.md` | Business Case | v2.2 | 324 |
@@ -32,24 +32,31 @@ Blueprint line 719 (development may proceed as a provisional assumption), Addend
 (Assumed defaults may proceed for prototype development), Addendum lines 435–436 (the §6.4
 absence-handling rows that narrow S7's scope to the >48h case).
 
-## Gap: the Project Charter is absent
+## The Charter is now present — conflict X0 is closed
 
-The **Project Charter v1 is not in this folder** because it was not supplied. It is the
-highest-precedence document in the hierarchy above, which means every Charter-derived claim in
-`docs/journal/2026-08-16-sprint-plan.md` is second-hand — quoted through the Addendum,
-Blueprint, and Business Case rather than read directly. This is logged as conflict **X0** in
-that plan.
+The Project Charter v1 was supplied on 2026-08-16, after the sprint plan was first written.
+Conflict **X0** (highest-precedence document unavailable, all Charter claims second-hand) is
+**closed**. Reading it directly confirmed the governing rule verbatim — OD1, OD2, and OD3 are
+Open and blocking sign-off, and OD4's branch ② names an OD2 negative resolution as a
+pre-launch blocker "at any point, including before v1 ships."
 
-Partially mitigating: all three documents present here independently state that the Charter
-holds OD1, OD2, and OD3 as Open, which corroborates the governing rule from three directions.
-It does not replace reading the Charter.
+It also surfaced two conflicts that could not be seen while the Charter was only being quoted
+by the documents below it, both logged in the sprint plan as **X11** and **X12**: the lower
+documents converted a Charter-level *open* independence question into an *unconditional*
+success criterion, and the Charter's workflow description says each review gate is executed by
+a distinct agent, where the Addendum permits one agent to hold several Line 1 gates. On both,
+the Charter governs.
 
-Do not treat this folder as a complete governing set until the Charter is added.
+That is the direct argument for vendoring these files rather than citing them by version: two
+material conflicts existed for as long as the top document was being read through the ones
+beneath it.
 
-Two further documents are referenced by the project but have never been supplied, logged as
-gaps in Entry 006 §7 and carried forward in Entry 007 §3: a **Business Charter** (a separate
-document from the Project Charter — do not conflate them) and an **exit strategy**. Neither
-blocks Phase 0 scaffolding; both are required before a production go-live decision.
+## Gaps that remain
+
+Two documents referenced by the project have still never been supplied, logged in Entry 006 §7
+and carried forward in Entry 007 §3: a **Business Charter** (a separate document from the
+Project Charter above — do not conflate them) and an **exit strategy**. Neither blocks Phase 0
+scaffolding; both are required before a production go-live decision.
 
 ## Related
 

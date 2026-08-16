@@ -5,6 +5,7 @@
 **Precedence for this entry:** Project Charter v1 > V1 Build Readiness Addendum v1.4 > Blueprint v1.3 > Business Case v2.2.
 **Repo:** `robertaoai/my-editorial-app` @ `53ace36` (clean clone, `main`). Local git identity set to `robertanct@yahoo.com.sg` / `robertaoai` per instruction — see conflict **X9** below before the first commit.
 **Supersedes:** None. First sprint plan for this build cycle. Sits below Entry 007 (Phase 0 approval, same date).
+**Revision 2 (2026-08-16, same day):** the Project Charter v1 was supplied after revision 1 was written and is now committed at `docs/source/project-charter-v1.md`. Conflict X0 is closed. Reading the Charter directly opened two new conflicts, X11 and X12, and withdrew one provisional default this plan had set on revision 1. See §9.
 
 ---
 
@@ -17,7 +18,13 @@
 | Entry 007's S7 EMS correction is accurate | **True, independently verified against the Addendum, not against the EMS file's own citation** | Addendum §6.4 line 435 covers the under-48h case (Line 1 continues, Approved jobs still publish); line 436 covers >48h (all Line 2 work stalls). S7's degraded-mode gap is genuinely narrower than Entry 004/006 stated. EMS file line 28 states the same correction; both now checked against the Addendum directly. |
 | Precedence hierarchy is consistent across documents | **True** | Addendum v1.4 line 13, Blueprint v1.3 line 5, Business Case v2.2 line 5 — all state Charter > Addendum > Blueprint > Business Case. |
 | OD3 has no agent headcount number in any of the four documents | **True** | Searched all supplied documents. Addendum §2.2 OD3 names four roles and says "combinable into fewer agents." Business Case v2.2 states explicitly: "Exact agent headcount and per-role distribution are **not specified** in any of the three source documents." No number found. **No number invented here.** |
-| Project Charter v1 was available to read | **FALSE — see X0. The highest-precedence document was not supplied this turn.** | Not present in the supplied file set. `NICF PMP Case Study - Project Charter.docx` in the same folder is an unrelated PMP training artifact, not this project's Charter. Every Charter claim in this plan is second-hand, quoted via the Addendum, Blueprint, and Business Case. |
+| Project Charter v1 was available to read | **Initially FALSE, now TRUE — X0 closed on revision 2** | Not supplied on first pass; supplied later the same day and now committed at `docs/source/project-charter-v1.md`. Every Charter claim below is now first-hand. Reading it closed X0 and opened X11 and X12. |
+| Charter holds OD1, OD2, OD3 as Open and blocking | **True, verbatim** | Charter, "Open — v1 (blocking, ordered)": all three rows `Status = Open`. Category definition: "*Open* = yours to decide, blocks sign-off until answered." The governing rule is confirmed at source, no longer by corroboration. |
+| Charter names an OD2 negative resolution as a pre-launch blocker | **True, verbatim** | Charter, OD4 branch ②: "If OD2 resolves negatively, at any point, including before v1 ships: this is a pre-launch blocker, not a v2-conditional backlog item... must be resolved before shipping, not after." |
+| Charter withholds the agent headcount | **True, verbatim** | Charter, "For:": "Headcount figure withheld pending OD3." Confirms at the highest level that no number exists. **Still none invented.** |
+| Charter states "zero independence bypass" as an unconditional success criterion | **FALSE — the lower documents added that. See X11.** | Charter success criteria list one zero-bypass item: "Zero articles bypass a review *sequence* (independence of judgment, OD2, still open)." The Addendum, Blueprint, and Business Case all state a second, unconditional independence criterion. The Charter does not. |
+| Charter permits one agent to hold several Line 1 gates | **FALSE — the Addendum added that. See X12.** | Charter, "The one workflow": gates are "each executed by a distinct agent or the Chief Editor." Addendum §2.2 and §3.4 permit the same agent across adjacent Line 1 gates. |
+| A2 (prototype stack) is a Charter-level assumption | **False — it is Addendum-level** | The Charter's Assumed table contains exactly one row, A1 (five-gate linear pipeline). A2 through A7 originate in the Addendum §2.1. This lowers the stakes on X6: re-scoping the stack is an Addendum Ratification Log entry, not a Charter act. |
 | The repo's `docs/` plan pack aligns with the four governing documents | **FALSE** | Six substantive conflicts found (X3–X8). The repo plan pack was generated from the app name and summary, not from the four documents. `CLAUDE.md` calls it "a complete, correct plan"; measured against the Addendum, it is not. |
 | The committed seed data satisfies "zero articles bypass review independence" | **FALSE** | `supabase/migrations/0001_init.sql` line 131 seeds `journaled → senior_reviewed` with `gate_role='senior_journalist', actor_type='agent'`. T5 is the Line 2 gate and is human-primary in every governing document. The shipped seed encodes a four-eyes violation. See **X4**. |
 | The committed seed data satisfies "zero articles bypass a review sequence" | **FALSE** | The repo state machine has no `Validated` state, so every seeded article skipped Addendum T2/T3 as separate gates. See **X3**. |
@@ -31,7 +38,7 @@
 
 1. **What gets built:** the Addendum §3.1 five-gate editorial pipeline (T1–T11) on the already-provisioned Next.js + Supabase repo — article intake, a server-enforced sequence guard, Line-assigned executor identity with four-eyes at the T5/T6 Line boundaries, a state/topic/category/Line-filterable board, an append-only who-when-why audit log, and WordPress auto-publish with LinkedIn ManualReady fallback.
 2. **In what order:** S0 reconciliation and config spine → S1 data model and sequence guard → S2 Line assignment and four-eyes → S3 board, filters, audit log → S4 publication and fallback → S5 Line 3, degraded mode, and the Entry 007 S1–S9 rows → S6 auth and RLS lock-down (pre-production only).
-3. **Which OD blocks which sprint:** no OD blocks S0, S1, S3, or S4 from being called done for Phase 0; OD1 and OD2 gate S2 and S6 from being called done for **production**; OD3 blocks exactly two acceptance criteria (S4 agent-failure reassignment, S5 Line 3 executor independence) and those two stop and ask the Chief Editor rather than assume a number; S6 cannot be called done at all until OD1–OD3 are ratified at the Charter level.
+3. **Which OD blocks which sprint:** no OD blocks S0, S1, or S3 from being called done for Phase 0; OD1 and OD2 gate S2 and S6 from being called done for **production**; **OD3 blocks three items** (the S1/S2 Line 1 executor roster, S4 agent-failure reassignment, S5 Line 3 executor independence) and all three stop and ask the Chief Editor rather than assume a number; S6 cannot be called done at all until OD1–OD3 are ratified at the Charter level.
 
 ---
 
@@ -50,8 +57,8 @@ Proposed location: `lib/config/build-config.ts`, read at runtime from env where 
 | `PIPELINE_ACTIVE_STATES` | ordered list of 8 | Addendum §4.1 `article_states`, minus the two side states |
 | `PIPELINE_SIDE_STATES` | `["Needs Revision", "Rejected"]` | Addendum §4.1 |
 | `BOARD_FILTER_DIMENSIONS` | `["state","topic","category","line_assignment"]` | All three documents name exactly these four |
-| `SEQUENCE_BYPASS_TOLERANCE` | 0 | "Zero articles bypass a review sequence" — unconditional |
-| `INDEPENDENCE_BYPASS_TOLERANCE` | 0 | "Zero articles bypass review independence" — unconditional |
+| `SEQUENCE_BYPASS_TOLERANCE` | 0 | "Zero articles bypass a review sequence" — unconditional at Charter level |
+| `INDEPENDENCE_BYPASS_TOLERANCE` | 0 | **Provisional, not unconditional.** Enforced at 0, but the Charter marks independence as pending OD2, so this is reported as provisionally satisfied and never as ratified. See X11. |
 
 ### 3.2 Workflow and operational thresholds
 
@@ -90,7 +97,7 @@ Proposed location: `lib/config/build-config.ts`, read at runtime from env where 
 | `FOUR_EYES_MODE` | `"line_separation"` | OD2 | Provisional per Entry 007. If OD2 resolves negatively this value has no valid replacement — see §6. |
 | `JUDGMENT_INDEPENDENCE_STATUS_VALUES` | `["satisfied","not_applicable","override_not_four_eyes"]` | OD2 | Addendum §4.1. `contingent_on_OD2` and `blocked` stay retired. |
 | `AGENT_HEADCOUNT` | **UNSET** | OD3 | **No number exists in any source document. Not defaulted. Not rounded. Any code path that dereferences this must fail loudly and route to the Chief Editor.** |
-| `LINE1_AGENT_ROSTER` | `["line1-combined"]` | OD3 | One combined Line 1 identity, valid under Addendum §2.2 "combinable into fewer agents." Provisional; not a headcount claim. |
+| `LINE1_AGENT_ROSTER` | **UNSET — see X12** | OD3 | Was `["line1-combined"]` on revision 1, justified by Addendum §2.2 "combinable into fewer agents." The Charter says the opposite: gates are "each executed by a distinct agent." Charter governs on operating model, so the combined default is withdrawn rather than defended. Roster shape is now a Chief Editor answer, not a build assumption. |
 | `LINE3_EXECUTOR_IDENTITY` | **UNSET** | OD3 | Must not equal any Line 1 or Line 2 identity (Addendum §13). Blocked — see §6. |
 | `FLAG_AGENT_ROSTER_MULTI` | `false` | OD3 | Cannot be turned on without a headcount. |
 
@@ -211,7 +218,7 @@ Proposed location: `lib/config/build-config.ts`, read at runtime from env where 
 
 ## 5. Questions that stop the build rather than get guessed
 
-**Q1 (OD3, blocks Sprint 4's reassignment criterion):** how many Line 1 agent instances exist? No number appears in the Charter, Addendum, Blueprint, or Business Case. Until answered, `LINE1_AGENT_ROSTER` holds one combined Line 1 identity — valid under Addendum §2.2 "combinable into fewer agents," and explicitly **not** a headcount claim. No number invented, no round number defaulted.
+**Q1 (OD3, now blocks more than it did on revision 1):** how many Line 1 agent instances exist, and does each Line 1 gate need its own? The Charter's "For:" section states the headcount is "withheld pending OD3," so no number exists at any level. On revision 1 this plan defaulted `LINE1_AGENT_ROSTER` to a single combined Line 1 identity on the Addendum's "combinable" language. **That default is withdrawn** — the Charter says gates are "each executed by a distinct agent," and the Charter governs on operating model (X12). The roster is now UNSET. Note that answering "one distinct agent per gate" would imply at least four Line 1 agents, but that inference is not drawn here: it is exactly the headcount question OD3 asks and the Charter withholds. No number invented, no round number defaulted, and no number back-derived from the workflow description.
 
 **Q2 (OD3, blocks Sprint 5's Line 3 independence):** who or what executes Line 3? It must not share an identity or data path with Line 1 or Line 2. Either supply a headcount that includes a distinct Line 3 instance, or state that Line 3 is human or external for v1.
 
@@ -227,14 +234,15 @@ Proposed location: `lib/config/build-config.ts`, read at runtime from env where 
 | 2 | S2 | T5 executor is human-primary | OD1 | Done for Phase 0 under the Entry 007 provisional value. **Not done for production** until OD1 is ratified at Charter level. |
 | 3 | S2 | HumanOverride path and the Line 2 → Line 1 permission matrix | OD1 | Same. The matrix's shape is an OD1 answer; it ships flagged. |
 | 4 | S2 | Four-eyes evaluator, `FOUR_EYES_MODE = line_separation` | OD2 | Done for Phase 0. **Not done for production** until OD2 is ratified. |
-| 5 | S2 / S3 | "Zero articles bypass review independence" acceptance criterion | OD2 | Testable now, but the criterion only *means* independence if OD2 holds. Recorded as provisionally satisfied, never as ratified. |
+| 5 | S2 / S3 | "Zero articles bypass review independence" acceptance criterion | OD2 | Testable now, but the criterion only *means* independence if OD2 holds. **The Charter does not list it as an unconditional criterion at all (X11).** Recorded as provisionally satisfied, never as ratified, never as unconditional. |
 | 6 | S3 | Line-assignment board filter | OD1, OD2 | Implementation not gated; the filter's governance meaning is. Ships either way. |
-| 7 | S4 | Agent-failure reassignment to another Line 1 agent (Addendum §3.4) | **OD3** | **Blocked.** Cannot be built or tested without a real headcount. Sprint 4 is done-with-exception; see Q1. |
-| 8 | S5 | Line 3 executor identity distinct from Line 1 and Line 2 | **OD3** | **Blocked.** See Q2. |
-| 9 | S5 | `FLAG_AGENT_ROSTER_MULTI`, per-role agent distribution | **OD3** | Cannot be enabled. Stays off. |
-| 10 | S5 | G9 Line-separation verification | OD2 | This is OD2's trip-wire. If it fires, item 11 applies. |
-| 11 | S6 | Entire sprint | OD1, OD2, OD3 | **Cannot be called done at all** while any of the three is unratified. Plus G10, plus the Entry 007 §3 gaps. |
-| 12 | All | Production go-live | OD1, OD2, OD3 | Gated. Phase 0 is not. |
+| 7 | S1 / S2 | Line 1 executor roster — one agent across gates, or one per gate | **OD3, raised in severity by X12** | **Now blocks earlier than revision 1 assumed.** Sprint 1 can seed and transition with a single identity for demo purposes, but Sprint 2 cannot fix the executor model without knowing whether distinct-agent-per-gate is required. See Q1. |
+| 8 | S4 | Agent-failure reassignment to another Line 1 agent (Addendum §3.4) | **OD3** | **Blocked.** Cannot be built or tested without a real headcount. Sprint 4 is done-with-exception; see Q1. |
+| 9 | S5 | Line 3 executor identity distinct from Line 1 and Line 2 | **OD3** | **Blocked.** See Q2. |
+| 10 | S5 | `FLAG_AGENT_ROSTER_MULTI`, per-role agent distribution | **OD3** | Cannot be enabled. Stays off. |
+| 11 | S5 | G9 Line-separation verification | OD2 | This is OD2's trip-wire. If it fires, item 12 applies. |
+| 12 | S6 | Entire sprint | OD1, OD2, OD3 | **Cannot be called done at all** while any of the three is unratified. Plus G10, plus the Entry 007 §3 gaps. |
+| 13 | All | Production go-live | OD1, OD2, OD3 | Gated. Phase 0 is not. Confirmed at source: the Charter defines Open as "blocks sign-off until answered." |
 
 ### The OD2 stop condition, stated once, precisely
 
@@ -253,13 +261,43 @@ As of Entry 007 (2026-08-16), OD2 has **not** resolved negatively; it is resolve
 
 Ordered by build impact. Nothing here was silently resolved in favour of whichever reading was easier to build.
 
-### X0 — The Project Charter was not supplied (highest severity)
+### X0 — The Project Charter was not supplied — **CLOSED on revision 2**
 
-The instruction names the Project Charter as source of truth and the first document to read. It was not in the supplied file set. `NICF PMP Case Study - Project Charter.docx` in the same folder is unrelated PMP training material. **Every Charter-derived claim in this plan is second-hand**, quoted through the Addendum, Blueprint, and Business Case — which is precisely the "trust a citation because it has a line number" failure mode this project has forbidden since Entry 001.
+**Original finding (revision 1):** the Charter, named as source of truth and the first document to read, was not in the supplied file set, so every Charter-derived claim in this plan was second-hand — the exact "trust a citation because it has a line number" failure mode this project has forbidden since Entry 001.
 
-Mitigating, but not resolving: all three lower documents independently state that the Charter holds OD1–OD3 Open, which corroborates the governing rule three ways. Entry 006 §7 logged the Charter as present "in context (document 4, this session)" — a prior session, not this one.
+**Closed 2026-08-16:** the Charter was supplied and is committed at `docs/source/project-charter-v1.md`. Reading it directly confirmed the governing rule at source rather than by corroboration: OD1, OD2, OD3 all `Status = Open`, under a category definition that reads "blocks sign-off until answered"; OD4 branch ② names an OD2 negative resolution as a pre-launch blocker "at any point, including before v1 ships"; and the headcount is "withheld pending OD3."
 
-**Action:** supply the Charter before Sprint 2 is signed off. Nothing in Sprints 0–1 depends on Charter text beyond the governing rule already stated.
+**What closing it cost:** two conflicts that were invisible while the top document was being read through the ones beneath it — **X11** and **X12** below. Both are cases where a lower document is more permissive than the Charter, and on both the Charter governs. This is the argument for keeping the governing set complete and in-repo rather than citing it by version.
+
+### X11 — The lower documents made a Charter-level open question into an unconditional criterion (new, high severity)
+
+The Charter lists exactly one zero-bypass success criterion, and hedges it explicitly:
+
+> Zero articles bypass a review *sequence* (independence of judgment, OD2, still open)
+
+The Addendum §1, Blueprint §8, and Business Case each state a **second** criterion the Charter does not contain: "Zero articles bypass review **independence** (four-eyes at Line boundaries: **unconditional** — satisfied by Line separation per Three Lines Model)."
+
+So a question the Charter marks Open, and describes as "load-bearing: every 'zero bypass' claim below is only as true as this answer," was converted downstream into an unconditional, already-satisfied acceptance criterion. **The Charter governs.** Independence cannot be an unconditional criterion while OD2 is Open at Charter level.
+
+This is the same overclaim pattern the project has now caught four times — v1.1 (D1–D4 labelled "Ratified"), v2.0 (OD3 "Resolved"), v2.1 (OD3 "Resolved" again), and now OD2's success criterion. The first three were caught on decision *status*; this one hid in a *success criterion*, which is why it survived three review passes.
+
+**Build impact:** the enforcement code does not change — `INDEPENDENCE_BYPASS_TOLERANCE` stays 0 and four-eyes is still enforced at T5/T6. What changes is the claim made about it. No sprint may report "zero independence bypass" as satisfied without the pending-OD2 qualifier, and no acceptance test may be marked green on that criterion in an unqualified way.
+
+### X12 — Charter says distinct agent per gate; Addendum permits one agent across gates (new, high severity)
+
+Charter, "The one workflow (must work v1)":
+
+> it moves through four review gates, **each executed by a distinct agent** or the Chief Editor
+
+Addendum §2.2 says the four Line 1 roles are "combinable into fewer agents"; §3.4 and §6.3 say the same agent may execute adjacent Line 1 gates, and that this is the standard rule rather than an exception; Blueprint §2.1 says "Same agent may hold multiple Line 1 roles."
+
+These do not agree. Business Case v2.2's own precedence note settles which kind of conflict this is: "Where the Charter and Addendum conflict on **operating model**, the Charter governs; where they conflict on **build mechanics**, the Addendum governs." Who executes which gate is operating model. **The Charter governs.**
+
+**Build impact, and a correction to revision 1 of this plan:** revision 1 set `LINE1_AGENT_ROSTER` to a single combined Line 1 identity, citing the Addendum's "combinable" language. That default is **withdrawn**, not defended — it rested on a lower document contradicting a higher one, which is the thing this plan is supposed to catch. The roster is now UNSET and the question routes to the Chief Editor (Q1).
+
+Note carefully what is *not* concluded here. "One distinct agent per gate" would imply at least four Line 1 agents. That inference is **not** drawn, because it is precisely the headcount question OD3 asks and the Charter explicitly withholds. A number derived from the workflow sentence would still be an invented number.
+
+**Interaction with OD2:** this also sharpens OD2. The Charter's OD2 asks whether "a distinct agent provide[s] distinct judgment sufficient to satisfy four-eyes" — a question about *distinct agents*. The Addendum answered a different question, whether *Line separation* satisfies four-eyes, and then retired agent-instance distinctness as an enforcement mechanism entirely (§6.3, "Retired from v1.3"). That may well be the better answer, but it is a substitution of the question, made below the level at which the question was asked. Flagged for the Chief Editor; not resolved here.
 
 ### X1 — OD3 status: Addendum and Blueprint say Resolved; Business Case v2.2 and the governing rule say Open
 
@@ -322,6 +360,8 @@ The provisioned repo is Next.js only, on Supabase-hosted Postgres, on Vercel —
 
 A2 is an **Assumed** default, unratified, and explicitly overridable; ITIL 4 "start where you are" argues for keeping what is already provisioned and working. But that is a decision, not an observation, and it belongs in the Ratification Log rather than in a silent substitution.
 
+**Lowered in severity on revision 2:** now that the Charter is readable, its Assumed table contains exactly one row — A1, the five-gate pipeline. A2 through A7 originate in the Addendum §2.1, not the Charter. Re-scoping the stack is therefore an Addendum-level Ratification Log entry and touches no Charter text at all, which makes Q3 a smaller decision than it looked on revision 1.
+
 **Recommendation (Chief Editor's call, Q3):** re-scope A2 to A2′ — Next.js route handlers and server actions on Supabase Postgres, publication retry via a database-backed job table plus scheduled invocation instead of Redis/Celery. Blocks nothing before Sprint 4; the data model and pipeline logic are stack-agnostic. **Do not** rebuild on FastAPI without a dated decision, and **do not** treat the provisioned stack as ratified because it happens to be what exists.
 
 ### X7 — Demo-first and permissive RLS versus unconditional independence
@@ -334,7 +374,7 @@ A2 is an **Assumed** default, unratified, and explicitly overridable; ITIL 4 "st
 
 ### X8 — Stripe scaffolding versus the v1 no-monetization scope
 
-The repo ships `app/api/stripe/checkout`, `/portal`, `/webhooks`, `lib/stripe/`, and seven Stripe env keys. Business Case v1 non-goals: "No monetization features." The repo's own `docs/PRD.md` non-goals agree. Adjacent but distinct: Entry 006 §13 removed fundraising from the editorial workflow entirely, pending separate legal and compliance review.
+The repo ships `app/api/stripe/checkout`, `/portal`, `/webhooks`, `lib/stripe/`, and seven Stripe env keys. **"No monetization features" is a Charter-level v1 exclusion**, not just a Business Case one — confirmed on revision 2 in the Charter's "Deliberately NOT in v1" list. The Business Case and the repo's own `docs/PRD.md` non-goals agree. Adjacent but distinct: Entry 006 §13 removed fundraising from the editorial workflow entirely, pending separate legal and compliance review.
 
 Template residue, not a governance decision. **Remove in Sprint 0**; do not wire, do not add the env keys.
 
@@ -392,3 +432,4 @@ Config-driven does not mean uncommitted, and provisional does not mean unratifie
 ## 9. Changelog
 
 - 2026-08-16: Entry created. Cloned `robertaoai/my-editorial-app` at `53ace36`; set local git identity per instruction (see X9). Read the Addendum v1.4, Blueprint v1.3, and Business Case v2.2 in full and verified Blueprint line 719 and Addendum line 768 verbatim; independently re-verified Entry 007's S7 EMS correction against Addendum §6.4 lines 435–436 rather than against the EMS file's own citation. **Logged X0: the Project Charter, the highest-precedence document and the first one instructed to be read, was not supplied this turn — all Charter claims in this plan are second-hand.** Produced a seven-sprint plan (S0–S6) targeting the success scenario, with every numeric target extracted into a named config variable and every OD1/OD2/OD3-derived value behind a flag. Recorded twelve points where OD status affects sprint completion and stated the OD2 pre-launch stop condition and its downstream halt list. Logged eleven conflicts (X0–X10) between the governing documents, the repo, and the governing rule — including X4, a four-eyes violation already committed in `0001_init.sql` seed data, and X3, a state machine missing three Addendum states. `AGENT_HEADCOUNT` left UNSET: no number exists in any of the four documents, none invented, none defaulted to a round figure. No code written, no migration applied, no env pulled, no commit, no push.
+- 2026-08-16 (revision 2, same day): Project Charter v1 supplied and committed to `docs/source/`. **X0 closed** — the governing rule, the OD2 pre-launch stop, and the withheld headcount are now confirmed at source rather than by corroboration through the three lower documents. Reading the Charter directly surfaced two conflicts that were invisible while it was only being quoted: **X11**, the lower documents converted the Charter's Open independence question into an unconditional success criterion (the same overclaim pattern caught three times before on decision status, this time hiding in a success criterion); and **X12**, the Charter requires a distinct agent per review gate where the Addendum permits one agent across adjacent Line 1 gates. On both, the Charter governs. **Withdrew revision 1's `LINE1_AGENT_ROSTER` default** of a single combined Line 1 identity — it rested on the Addendum contradicting the Charter, which is the thing this plan exists to catch — and set it UNSET pending Q1. Re-labelled `INDEPENDENCE_BYPASS_TOLERANCE` from unconditional to provisional; enforcement is unchanged, the claim made about it is not. Raised OD3 from blocking two items to three, adding the S1/S2 executor roster. Lowered X6's severity (A2 is Addendum-level, not Charter-level — the Charter's Assumed table has one row) and raised X8's (no-monetization is a Charter-level exclusion). Still no code written, no migration applied, no env pulled, no push.
