@@ -6,10 +6,11 @@
 
 **Build authorization:** None
 **Relationship to the governed product:** This proposal does **not** replace, branch, or redefine My-Editorial-App. It preserves the original customer problem, core objects, URL-based application entry point, trend intelligence, five-gate workflow, single Chief Editor operating model, and current Sprint 1. It adds a temporary manual way to find real inputs, serve a small number of paying professionals, and return evidence to the existing governance and development process.
+**Portfolio relationship:** P0-EVR is a time-boxed evidence lane within the [Alpha Portfolio](alpha-portfolio-business-continuity-implementation-plan.md). The Alpha Portfolio is the continuing business; the original My-Editorial-App initiative is its temporary zero-to-one anchor project.
 
 ## 1. Clarified prompt
 
-> Prepare a simple Board-approval proposal for a manual **Professional Evidence Review Proof of Concept** that exercises the existing My-Editorial-App design rather than creating a new product. A trigger may originate from the Chief Editor's online research, a public discussion board such as Reddit or Quora, or a natural person who commissions an evidence-aware article. Every trigger is converted manually into the same v1 input: a public article or source URL. At the Reporter gate, the existing design tags the topic, source, relevance, and trend signal; the item then follows the unchanged five-gate editorial workflow. The virtual Chief Journalist assists with the approved deterministic checks, while the human Chief Editor makes the final `Publish/Hold/Escalate` decision, subject to Board oversight for high-liability matters. Every engagement that reaches `Publish` produces the same publishable-article artifact. Store that article only in the internal `MVP` folder; put the supporting briefcase artifacts, including explainable public content, in the client-facing `POC` folder. Before delivery, the Chief Editor verifies that the publishable article is absent from the `POC` folder. Run 5–10 low-liability engagements manually, charge outside the application for the completed outcome, and use the resulting operational and customer evidence to inform—never silently amend—the PRD, Charter, traceability, and development plan. Apply ITIL value co-creation and continual-feedback principles. Do not build or modify governing documents under this proposal.
+> Prepare a simple Board-approval proposal for a manual **Professional Evidence Review Proof of Concept** that exercises the existing My-Editorial-App design rather than creating a new product. A trigger may originate from the Chief Editor's online research, a public discussion board such as Reddit or Quora, or a natural person who commissions an evidence-aware article. Every trigger is converted manually into the same v1 input: a public article or source URL. At the Reporter gate, the existing design tags the topic, source, relevance, and trend signal; the item then follows the unchanged five-gate editorial workflow. The virtual Chief Journalist assists with the approved deterministic checks, while the human Chief Editor makes the final `Publish/Hold/Escalate` decision, subject to Board oversight for high-liability matters. Every engagement that reaches `Publish` produces the same publishable-article artifact. Store that article only in the internal `MVP` folder; put the supporting briefcase artifacts, including explainable public content, in the client-facing `POC` folder. Before delivery, the Chief Editor verifies that the publishable article is absent from the `POC` folder. Run 5–10 low-liability engagements manually, charge outside the application for the completed outcome, and use the resulting operational and customer evidence to inform downstream decisions, anchor-project closure, or a separately chartered Alpha Portfolio project—never to rewrite the approved `PRD.md` or frozen Project Charter. Apply ITIL value co-creation and continual-feedback principles. Do not build or modify governing documents under this proposal.
 
 ## 2. Resolution requested
 
@@ -55,7 +56,7 @@ The practical response to high stakes is therefore to preserve the product, narr
 | v1 monetization boundary | No monetization features | Unchanged; manual invoicing/payment is an operating activity, not a product feature |
 | Sprint 1 | Existing data-model and sequence-guard work | Unchanged by this proposal |
 
-Any later change to these items requires the normal approval and traceability process. PoC observations alone have no amending authority.
+Any later change to these items requires the normal approval, traceability, and portfolio project-assignment process. PoC observations alone have no amending authority. The approved `PRD.md` and frozen Project Charter preserve the original zero-to-one decision basis; later evidence is recorded downstream or in a newly chartered project.
 
 ## 5. Trigger-source model
 
@@ -262,9 +263,9 @@ The PoC is valuable because it produces evidence across the **existing** workflo
 |---|---|---|
 | Manual wording/checklist improvement | Judgment-rule/SOP log | Chief Editor unless risk envelope changes |
 | Defect in an existing requirement or acceptance criterion | Requirements feedback register and traceability impact | Existing document owner/approver |
-| New customer-derived product capability | Customer Request → Product Scope proposal | Board/Chief Editor approval before PRD amendment |
+| New customer-derived product capability | Dated Customer Request → Product Scope proposal | Board/Chief Editor approval and assignment to an authorized existing or newly chartered project; do not rewrite the historical `PRD.md` |
 | Delivery, tool, test, or operational support need | Project Scope proposal | Approved development planning |
-| Change to mission, authority, risk appetite, or the five-gate model | Charter/governance decision | Board ratification before downstream changes |
+| Change to mission, authority, risk appetite, or the five-gate model | Portfolio/governance decision | Board ratification and, where the original baseline cannot carry the change, a new project charter; do not edit the frozen Charter |
 
 ### 10.3 Governed handoff to development
 
@@ -274,11 +275,12 @@ Engagement evidence
     → requirement/decision identifier
     → impact review across Charter, PRD, traceability, architecture, data, security, tests, and tasks
     → Board/owner approval where required
-    → approved backlog or sprint change
+    → assignment to AP-01 closure work, operations, or a newly chartered Alpha Portfolio project
+    → approved backlog or sprint change inside that authority
     → development team
 ```
 
-Authority continues to flow downward. A customer comment, payment, or PoC lesson may initiate a change request, but it cannot silently rewrite the Charter, PRD, or Sprint 1.
+Authority continues to flow downward. A customer comment, payment, or PoC lesson may initiate a dated change request, but it cannot rewrite the frozen Charter or approved `PRD.md`, silently alter Sprint 1, or assign work to a project that has not accepted it.
 
 ## 11. Success, continuation, and stop logic
 
@@ -300,8 +302,8 @@ The Board then chooses one of four actions:
 
 1. **Continue unchanged** — evidence supports the original plan and manual offer.
 2. **Tune operations only** — improve SOP/rules without changing Product Scope.
-3. **Approve specific governed changes** — amend only traceable requirements supported by evidence.
-4. **Pause or stop** — payment, outcomes, capacity, or risk do not justify continuation.
+3. **Approve specific governed changes** — change only authorized derived controls, or assign new scope to a separately chartered Alpha Portfolio project.
+4. **Close, pause, or stop** — close the anchor project when its obligations are satisfied/accepted/transferred, or stop investment when payment, outcomes, capacity, or risk do not justify continuation.
 
 No vanity metric, expression of enthusiasm, or unpaid interest is sufficient by itself.
 
@@ -350,8 +352,8 @@ Prepare only:
 
 - Present the 5–10-engagement evidence report.
 - Route approved change requests through the governed document hierarchy.
-- Give the development team only approved, traceable changes.
-- Continue the original Sprint 1 unless the Board separately approves an amendment.
+- Give the development team only approved, traceable work assigned to a project with authority to accept it.
+- Preserve the original Sprint 1 baseline. If it cannot carry safe continuation or closure, ask the Alpha Portfolio Board to charter a narrower project rather than rewriting the original approval.
 
 ## 13. Board approval form
 
@@ -847,3 +849,40 @@ Future revisions must preserve:
 - artifact observability versus automated decision authority;
 - the five-layer horizon versus present PoC scope; and
 - manual learning evidence versus build authorization.
+
+## 25. Alpha Portfolio boundary and anchor-project closure addendum
+
+The PoC is evidence for the business portfolio; it is not a request to make the original project contain the whole business.
+
+The structural boundaries are:
+
+| Container | Role | PoC relationship |
+|---|---|---|
+| Alpha Portfolio | Continuing business, investment, risk, and benefits container | Receives the PoC evidence and makes the closure/branch decision |
+| AP-01 anchor project | Temporary original My-Editorial-App zero-to-one initiative | Retains its approved `PRD.md`, frozen Charter, KPIs, and closure duties |
+| P0-EVR | Time-boxed manual evidence lane | Exercises the same workflow and returns case/customer evidence without changing AP-01 |
+| AP-02 continuity project | Conditional new project limited to approved work | Exists only if the Board charters it after identifying work AP-01 cannot safely complete or carry |
+| AP-OD4 | Conditional separate Proposer → Critics → Judge system project | Exists only if the retained OD4 trigger fires, the remedy is selected, and the Board separately authorizes it |
+
+After the evidence window, the Board should not leave AP-01 open indefinitely while adding work to it. It should choose one explicit branch:
+
+1. close AP-01 and transfer the accepted capability to operations;
+2. grant a short, bounded extension against named closure evidence;
+3. charter AP-02 for only approved continuity work and assign each residual gap explicitly;
+4. if an existing OD4 trigger fires, evaluate a separately chartered AP-OD4 project or another remedy; or
+5. stop further investment, preserve evidence, and close or transfer every residual obligation.
+
+Project closure does not mean the business closes, the product disappears, or the original go-to-market approval was wrong. It means the Alpha Portfolio has converted the project's evidence into an accepted capability, an owned residual, a transfer, or a stop decision.
+
+OD4 remains exactly **Proposer → Critics → Judge**. Judgment-rule approval is a separate Chief Editor/Board institutional function outside both the phase-gate system and a future OD4 system. The system applying a rule cannot be the sole authority approving the rule governing itself.
+
+## 26. Portfolio-boundary approval addendum
+
+| ID | Decision requested | Status |
+|---|---|---|
+| B-P0-19 | Recognize P0-EVR as a time-boxed Alpha Portfolio evidence lane supporting AP-01 closure, not as authority to rewrite `PRD.md` or the frozen Charter | Pending |
+| B-P0-20 | Require a fixed portfolio closure/branch decision after the evidence window and prohibit indefinite AP-01 scope accumulation | Pending |
+| B-P0-21 | Permit an AP-02 continuity project only through a new Board-approved charter limited to approved work, with every AP-01 dependency and residual gap assigned explicitly | Pending |
+| B-P0-22 | Retain OD4 as Proposer → Critics → Judge; require a separate AP-OD4 project if its existing trigger fires and the remedy is selected; keep judgment-rule approval outside both systems | Pending |
+
+These four decisions add portfolio containment. They do not authorize code, change the original project baseline, adopt OD4, or create AP-02/AP-OD4.

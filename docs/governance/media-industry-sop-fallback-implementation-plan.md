@@ -3,10 +3,11 @@
 **Status:** Planning only — do not build, migrate, or change runtime behaviour from this document.  
 **Inputs reviewed:** `docs/Modular_PRD.md`, `docs/governance/requirements-traceability-map.md`, Charter OD2/OD4, and the current Graphify knowledge graph.  
 **Objective:** Preserve publishing continuity while reducing preventable contractual exposure, corrections, retractions, and whole-pipeline halts; protect confidential sources and whistleblowers where the story serves the editorial mission and a documented public-interest test.
+**Portfolio boundary:** This plan is subordinate to the [Alpha Portfolio continuity and project-closure plan](alpha-portfolio-business-continuity-implementation-plan.md); it does not change the approved `PRD.md`, frozen Charter, or retained meaning of OD4.
 
 ## 1. Clarified prompt
 
-> Review FB-01 through FB-08 and prepare a documentation-only implementation plan. Use a defensible media-industry house SOP as the fallback wherever the project has an unresolved judgment or governance rule. Treat CR-06 newsworthiness/trend signals and CR-14 tagging as linked, core media-domain capabilities with a human/manual fallback when AI is unavailable. Redesign FR-04 so role-appropriate editorial review occurs at every phase gate, with fine-tuned judgment rules supporting—not replacing—the Chief Editor's accountable publish/hold decision. Redesign FR-05 so a negative or unknown OD2 result triggers a risk-based evidence and escalation loop rather than an automatic halt of all publishing. Keep regulatory/court-ordered retraction as a separate post-publication workflow. Add a Project Scope key for every specification in the backward trace that lacks a Customer Request anchor. Include controls for contractual/liquidated-damages exposure, correction-before-retraction, continuity, and confidential-source/whistleblower protection. Do not implement code or database changes.
+> Review FB-01 through FB-08 and prepare a documentation-only implementation plan. Use a defensible media-industry house SOP as the fallback wherever the project has an unresolved judgment or governance rule. Treat CR-06 newsworthiness/trend signals and CR-14 tagging as linked, core media-domain capabilities with a human/manual fallback when AI is unavailable. Redesign FR-04 so role-appropriate editorial review occurs at every phase gate, with fine-tuned judgment rules supporting—not replacing—the Chief Editor's accountable publish/hold decision. Redesign FR-05 so an unknown or inadequately evidenced OD2 status triggers a risk-based evidence and escalation loop, while an authorized negative OD2 resolution retains the Charter's pre-launch hard stop and requires a separately authorized portfolio remedy. Keep regulatory/court-ordered retraction as a separate post-publication workflow. Add a Project Scope key for every specification in the backward trace that lacks a Customer Request anchor. Include controls for contractual/liquidated-damages exposure, correction-before-retraction, continuity, and confidential-source/whistleblower protection. Do not implement code or database changes.
 
 ## 2. Primary goal
 
@@ -39,7 +40,8 @@ The current feedback register treats CR-06 as a partly deliverable scoring featu
 | Human | Chief Editor judgment | Accountable human evaluation under uncertainty | A promise of zero risk |
 | Institutional | Business alignment | Editorial mission, audience relevance, contractual duties, lawful continuity, and stated risk appetite | Commercial convenience or suppression of unwelcome facts |
 | Institutional | House SOP | A codified coordination and control system derived from public standards | A universal law or substitute for counsel |
-| Institutional | OD4 judgment rules | Versioned decision criteria and escalation logic used by agents and the Chief Editor | An autonomous publisher or a human conscience |
+| Institutional | Judgment-rule governance under PSK-09 | Chief Editor/Board-controlled criteria, versions, evaluation, escalation, and rollback outside the systems applying the rules | OD4, an autonomous publisher, or a human conscience |
+| System | OD4 — Proposer → Critics → Judge | A separately governed intra-node judgment system, considered only under its retained Charter trigger and a new project authorization | House SOP, rule-approval authority, or a replacement for the inter-node phase gates |
 | Institutional | Source protection | Access controls, promises, minimization, secure handling, and escalation | Automatic publication of every allegation |
 
 **Preserved boundary:** a confidential-source promise and the source's safety cannot be overridden merely because disclosure would be commercially convenient. “Business alignment” must be evaluated as editorial mission plus public interest and legal duty, not short-term reputational preference.
@@ -64,7 +66,7 @@ These are a **fallback design basis**, not legal advice and not proof that a par
 | Feedback | Current issue | Planned disposition | Scope/decision effect |
 |---|---|---|---|
 | FB-01 | Five customer gate names versus ten internal states | Keep one canonical internal state machine and map each internal state to one user-facing phase-gate label. Add a glossary; do not force the customer to use database vocabulary | Documentation normalization; no product-scope change |
-| FB-02 | “Zero bypasses” split into sequence and OD2-dependent independence; negative OD2 currently implies pre-launch stop | Preserve sequence enforcement. Replace the undifferentiated negative path with the compensating-control ladder in §9. A system-wide stop occurs only for systemic control failure; normal uncertainty causes an item-level hold/escalation | Requires Charter/OD2/OD4 decision; cannot be changed silently downstream |
+| FB-02 | “Zero bypasses” split into sequence and OD2-dependent independence; negative OD2 currently implies pre-launch stop | Preserve sequence enforcement. Use the compensating-control ladder in §9 for uncertainty that does not constitute a negative OD2 resolution. Outside the Charter's OD2-negative hard stop, a whole-service stop occurs only for a defined systemic control failure; OD2-negative may trigger consideration of OD4 or another separately authorized remedy | Requires dated OD2 downstream decision and portfolio authority; Charter/OD4 text remains unchanged |
 | FB-03 | Line filter added without explicit customer request | Retain as a Project Scope governance/operations view. It may remain an admin/audit filter without becoming a customer-facing MVP promise | Reclassify; no customer change request unless cost/timeline materially changes |
 | FB-04 | Six unanchored specifications | Retain them only through explicit Project Scope keys PSK-01…06 in §8. Disclose product-visible effects, cost, and schedule; do not mislabel them as Customer Request | Backward trace repair |
 | FB-05 | CR-14 has no FR | Plan FR-14 in §7. AI is preferred execution, not the requirement itself; manual/rules fallback is mandatory | Close as planned Product Scope gap linked to CR-06 and CR-14 |
@@ -86,7 +88,7 @@ Plan a structured assessment with independently visible dimensions:
 | Novelty/development | What is new relative to prior coverage? | Link prior article/topic lineage |
 | Source authority | Is the source positioned to know, and is it primary or independently credible? | Investigator assigns source tier with evidence |
 | Corroboration/momentum | Is the signal isolated, repeated, or independently confirmed? | Record corroborating sources; absence lowers confidence but does not fabricate certainty |
-| Editorial mission fit | Does the story advance the publication's stated editorial purpose? | Chief Editor-approved rubric, versioned under OD4 |
+| Editorial mission fit | Does the story advance the publication's stated editorial purpose? | Chief Editor-approved rubric, versioned under PSK-09 external judgment-rule governance |
 
 The output is a **newsworthiness profile plus rationale**, not a single magical score. A score may summarize dimensions for ordering work, but it must not auto-advance a gate or substitute for verification.
 
@@ -119,11 +121,11 @@ This preserves the distinction between:
 - **final accountable risk disposition** — Chief Editor;
 - **regulatory/court-ordered retraction** — separate workflow with its own authority and audit trail.
 
-The current “T5 review is executed by a Line 2 human” wording should not be deleted until the Charter/OD1 consequences are decided. The planned change must be routed as a governance amendment, not smuggled into a lower document.
+The current “T5 review is executed by a Line 2 human” wording should not be deleted until the OD1 consequences are decided through the authorized downstream process. Any derived-control change must be traceable to that dated decision; the frozen Charter and approved `PRD.md` remain unchanged.
 
-### 7.2 FR-05 — negative/unknown OD2 fallback
+### 7.2 FR-05 — uncertain OD2 evidence path and negative OD2 hard stop
 
-OD2 should answer whether the configured review structure produces sufficiently independent judgment. If the answer is negative or confidence is inadequate, the fallback should add **evidence and challenge**, not merely add another identical model call.
+OD2 should answer whether the configured review structure produces sufficiently independent judgment. While the answer is still unknown or the evidence is inadequate, provisional evaluation should add **evidence and challenge**, not merely add another identical model call. If the authorized OD2 resolution is negative, these compensating controls do not convert it into an affirmative result: the Charter's pre-launch hard stop applies, and the Alpha Portfolio must select a separately authorized remedy, which may include considering retained OD4.
 
 Planned compensating controls:
 
@@ -132,11 +134,13 @@ Planned compensating controls:
 3. seek and record a fair opportunity to reply for materially criticized subjects;
 4. surface conflicts, source motives, missing evidence, and rule exceptions to the Chief Editor;
 5. use a different reviewer, toolchain, prompt/rule set, or external expert where material independence is needed;
-6. hold only the affected article when material risk remains unresolved;
-7. continue unrelated articles through the pipeline; and
+6. hold only the affected article when the uncertainty is article-specific rather than a negative OD2 resolution or systemic control failure;
+7. continue unrelated articles only while the provisional operating boundary and system controls remain valid; and
 8. feed overrides, corrections, complaints, retractions, and near misses into rule calibration.
 
-OD4 should become the governed owner of the **judgment-rule lifecycle**—proposal, critique, approval, versioning, evaluation, and rollback—not an autonomous replacement for the Chief Editor.
+OD4 remains **Proposer → Critics → Judge**, a separately governed system considered only when its existing Charter trigger fires and the Alpha Portfolio authorizes a new project. It must not be relabeled as judgment-rule governance.
+
+The **judgment-rule lifecycle**—proposal, critique, approval, versioning, evaluation, and rollback—belongs to PSK-09 under a Chief Editor/Board authority system outside both the existing phase-gate workflow and any future OD4 system. The system applying a rule may propose evidence about that rule, but it cannot be the sole approver of the rule governing itself.
 
 ## 8. Project Scope keys for unanchored specifications
 
@@ -164,7 +168,7 @@ Partial anchors should show both sides rather than forcing one label:
 | Specification | Customer anchor | Project Scope support |
 |---|---|---|
 | FR-04 | CR-10 | PSK-09; role/governance allocation remains OD1-linked |
-| FR-05 | CR-19 | PSK-02 and PSK-09; OD2/OD4 govern the mechanism |
+| FR-05 | CR-19 | PSK-02 and PSK-09; OD2 governs the independence decision, while OD4 remains a separate conditional remedy only if its retained trigger fires |
 | FR-10 | CR-12 | PSK-04 for correction/remedy implications after confirmation |
 
 ## 9. Planned editorial decision and remedy ladder
@@ -187,7 +191,7 @@ flowchart TD
     M -->|integrity cannot be restored| T["Editorial retraction"]
     M -->|binding regulator/court order| O["ComplyWithOrder workflow"]
 
-    U --> F["Feed outcome into OD4 rule calibration"]
+    U --> F["Feed outcome into PSK-09 external rule governance"]
     K --> F
     T --> F
     O --> F
@@ -195,7 +199,7 @@ flowchart TD
     H --> F
 ```
 
-The key continuity rule is **article isolation**: `Hold` stops the affected item, not the whole publication pipeline. A global halt requires a systemic condition such as compromised credentials, corrupted audit integrity, a broken gate-control mechanism, or a binding order affecting the service as a whole.
+The key continuity rule for article-specific uncertainty is **article isolation**: `Hold` stops the affected item, not the whole publication pipeline. This rule does not override the Charter's negative-OD2 hard stop. Outside that branch, a global halt requires a systemic condition such as compromised credentials, corrupted audit integrity, a broken gate-control mechanism, or a binding order affecting the service as a whole.
 
 ## 10. Confidential-source and whistleblower lane
 
@@ -239,12 +243,12 @@ No requirement should claim “liquidated damages reduced” until the relevant 
 | Treat trend score as truth | Popularity/readership fit and factual reliability are different properties | Separate newsworthiness profile from verification status |
 | Require AI specifically | Makes the business capability disappear when a model fails or confidence is low | Executor-neutral requirement with human/rules fallback |
 | Promise risk-free decisions | Conceals residual uncertainty and creates an impossible assurance claim | Risk disposition with evidence, residual-risk statement, and accountable owner |
-| Let every OD2 concern stop all publishing | Converts article risk into business-wide outage | Item-level hold plus systemic-halt criteria |
+| Treat every article-level OD2 concern as a formal negative OD2 resolution—or use compensating controls to ignore a formal negative result | Either converts ordinary uncertainty into outage or weakens the Charter hard stop | Item-level evidence/hold while OD2 is unknown; dated authority decision for OD2; hard stop and portfolio remedy if negative |
 | Add more identical agents and call it independence | Shared model/rules can reproduce the same blind spot | Heterogeneous challenge, corroboration, external expertise, and measured disagreement quality |
 | Treat retraction as the default correction | Destroys continuity and weakens the audit trail when a correction would restore integrity | Update → clarification → correction → retraction ladder |
 | Subordinate source safety to “business alignment” | Collapses a human safety obligation into commercial preference and destroys institutional trust | Public-interest/mission test separated from commercial benefit; promises and access controls |
 | Call every legal exposure “liquidated damages” | Contract damages, defamation, privacy, regulatory sanctions, and court orders have different triggers | Contract register plus jurisdiction-specific legal taxonomy |
-| Tune OD4 rules directly on production outcomes | Encodes past mistakes and business pressure without independent validation | Versioned evaluation set, approval, shadow testing, drift monitoring, and rollback |
+| Let the work system or a future OD4 system tune and approve its own governing rules directly from production outcomes | Encodes past mistakes and business pressure without independent authority or validation | PSK-09 external rule authority, versioned evaluation set, approval, shadow testing, drift monitoring, and rollback |
 
 ## 13. Implementation sequence — documentation and design only
 
@@ -253,12 +257,12 @@ No requirement should claim “liquidated damages reduced” until the relevant 
 1. Confirm the publication's operating jurisdictions, regulator/platform exposure, applicable contracts, and access to external counsel.
 2. Decide whether the Chief Editor is the final `Publish/Hold/Escalate` authority and whether Chief Journalist approval is advisory or operational.
 3. Decide OD2's compensating-control threshold and the exact systemic conditions that halt all publishing.
-4. Reframe OD4 as judgment-rule governance and define who may approve rule versions.
+4. Retain OD4 as Proposer → Critics → Judge; define PSK-09 judgment-rule governance outside the work/OD4 systems and identify who may approve rule versions.
 5. Ratify the house SOP baseline and its precedence relative to customer requests, law, contracts, platform rules, and editorial independence.
 
 **Exit:** signed decision packet; no governing document silently changed.
 
-### Phase P1 — requirements and traceability amendments
+### Phase P1 — authorized downstream requirements and traceability changes
 
 1. Add FR-14 and its CR-06/CR-14 traces.
 2. Rewrite FR-04 and FR-05 only after P0 decisions.
@@ -280,7 +284,7 @@ Design, but do not migrate:
 - correction/clarification/retraction/order remedy types;
 - confidential-source identity vault/reference separation;
 - contract-trigger and cure/escalation records; and
-- OD4 rule-version evaluation, approval, monitoring, and rollback metadata.
+- PSK-09 rule-version evaluation, external approval, monitoring, and rollback metadata; plus an explicit field showing whether an OD4 Charter trigger has fired.
 
 **Exit:** reviewed model and threat/privacy analysis; no schema applied.
 
@@ -291,14 +295,14 @@ Define scenarios before build:
 1. “apple versus pear” readership mismatch is rejected or retagged;
 2. AI tagging unavailable routes to human/rules fallback without losing CR-06;
 3. popular but unreliable content scores high on trend and fails verification;
-4. OD2 negative triggers challenge/corroboration and only item-level hold;
+4. article-specific independence uncertainty triggers challenge/corroboration and item-level hold, while an authorized negative OD2 resolution triggers the Charter hard stop and separate remedy decision;
 5. unrelated articles continue while one article is held;
 6. whistleblower allegation is protected, corroborated, and right-of-reply handled without identity leakage;
 7. a correctable factual error produces a visible correction, not retraction;
 8. wholly unreliable content produces editorial retraction;
 9. regulator/court order uses the separate `ComplyWithOrder` workflow;
 10. contract trigger alerts before the cure/notice deadline; and
-11. OD4 rule update fails shadow evaluation and rolls back without affecting live decisions.
+11. a PSK-09 rule update fails shadow evaluation and rolls back without affecting live decisions; neither the phase-gate system nor a future OD4 system can approve its own rule change.
 
 **Exit:** approved test plan and named evidence for every control.
 
@@ -317,12 +321,11 @@ Future revisions must preserve these distinctions:
 - correction versus retraction versus compliance with an external order;
 - public-interest source protection versus commercial preference;
 - contract liquidated damages versus tort/regulatory/legal exposure;
-- OD4 rule automation versus human decision authority; and
+- retained OD4 Proposer → Critics → Judge system versus external PSK-09 judgment-rule authority; and
 - Customer Request anchors versus Project Scope support keys.
 
 ## 15. Current state
 
 The strongest current synthesis is a continuous editorial risk-control system: CR-06 and CR-14 identify worthwhile coverage; every phase gate contributes evidence and challenge; the Chief Editor makes an accountable risk disposition; OD2 weakness invokes compensating controls rather than indiscriminate shutdown; post-publication remedies are graduated; and source protection is both a human-safety obligation and institutional trust infrastructure.
 
-The unresolved issues are authoritative rather than technical: jurisdiction, contracts, legal escalation ownership, the Chief Editor/Chief Journalist decision boundary, OD2's acceptable compensating controls, and OD4 rule ownership. Those must be decided before implementation.
-
+The unresolved issues are authoritative rather than technical: jurisdiction, contracts, legal escalation ownership, the Chief Editor/Chief Journalist decision boundary, OD2's acceptable compensating controls, and external PSK-09 rule ownership. OD4's meaning is not unresolved: it remains Proposer → Critics → Judge, separately considered only if its existing trigger fires and the Alpha Portfolio authorizes a distinct project. The authoritative gaps must be decided, accepted, or transferred through the portfolio closure process before implementation.

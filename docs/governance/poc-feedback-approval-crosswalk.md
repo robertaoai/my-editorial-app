@@ -4,10 +4,11 @@
 **Change class:** Governance analysis and approval planning only  
 **Build authorization:** None  
 **Governing-document amendment:** None  
+**Portfolio relationship:** Evidence input to the [Alpha Portfolio continuity and closure plan](alpha-portfolio-business-continuity-implementation-plan.md)
 
 ## 1. Clarified prompt
 
-> Review the proposed Professional Evidence Review Proof of Concept against §5, “Revised feedback-register dispositions,” of the Media-Industry SOP Fallback Implementation Plan. For every feedback item and unresolved operating decision, identify: (1) what evidence the PoC can produce; (2) what the Board, Chief Editor, or Charter owner may approve using that evidence; (3) what the PoC cannot establish; (4) the artifact required to close the gap; and (5) the no-build sequence for reaching a controlled decision. Preserve the original My-Editorial-App product and workflow. Do not treat PoC observations, customer payment, or operational convenience as authority to amend the PRD, Charter, requirements, traceability, or SOP.
+> Review the proposed Professional Evidence Review Proof of Concept against §5, “Revised feedback-register dispositions,” of the Media-Industry SOP Fallback Implementation Plan. For every feedback item and unresolved operating decision, identify: (1) what evidence the PoC can produce; (2) what the Board, Chief Editor, or Charter-level authority may approve using that evidence; (3) what the PoC cannot establish; (4) the artifact required to close or transfer the gap; and (5) the no-build sequence for reaching a controlled decision. Preserve the original My-Editorial-App product and workflow, the approved `PRD.md`, and the frozen Project Charter. Do not treat PoC observations, customer payment, or operational convenience as authority to rewrite those historical baselines. Record later learning in dated downstream decisions, traceability, editable derived documents, project closure, or a newly chartered Alpha Portfolio project.
 
 ## 2. Executive finding
 
@@ -21,9 +22,9 @@ The governing distinction is:
 PoC case evidence
     → supports a documented decision
     → the authorized owner approves or rejects that decision
-    → the approved change is made in the governing document
+    → the result is recorded in an authorized downstream artifact or new project baseline
     → traceability and acceptance evidence are updated
-    → only then may the corresponding gap be marked closed
+    → only then may the corresponding gap be marked closed, accepted, or transferred
 ```
 
 Three propositions must therefore remain separate:
@@ -32,7 +33,7 @@ Three propositions must therefore remain separate:
 2. **Approved:** the authorized owner accepted a disposition or policy response.
 3. **Closed:** the approved text, trace, control, and verification artifact now exist.
 
-The PoC most directly helps approve CR-06/CR-14 treatment, FR-14 wording, phase-gate evidence, and the practical Chief Editor/virtual Chief Journalist boundary. It can inform—but cannot settle by observation alone—OD1, OD2, OD3, Charter amendment, legal exposure, systemic halt thresholds, or SOP precedence.
+The PoC most directly helps approve CR-06/CR-14 treatment, FR-14 wording, phase-gate evidence, and the practical Chief Editor/virtual Chief Journalist boundary. It can inform—but cannot settle by observation alone—OD1, OD2, OD3, legal exposure, systemic halt thresholds, or SOP precedence. Resolving those decisions uses dated downstream acts and portfolio closure/transfer decisions; it does not require editing the frozen Charter or approved `PRD.md`.
 
 ## 3. Approval-readiness summary
 
@@ -40,7 +41,7 @@ The PoC most directly helps approve CR-06/CR-14 treatment, FR-14 wording, phase-
 |---|---|---|
 | Ready for documentation decision now | FB-01, FB-03, FB-04, FB-08 | Approve the disposition and authorize controlled document work; PoC evidence is useful confirmation, not a prerequisite |
 | Validate through PoC before final requirement wording | FB-05, FB-06 | Approve the direction provisionally; use case evidence to refine acceptance criteria before closing the gap |
-| Requires authority decision plus PoC evidence | FB-02, FR-04, FR-05, OD1, OD2, judgment-rule governance | Approve a bounded interim rule before live cases; ratify or revise it after the PoC; amend the Charter or controlling requirement explicitly |
+| Requires authority decision plus PoC evidence | FB-02, FR-04, FR-05, OD1, OD2, judgment-rule governance | Approve a bounded interim rule before live cases; ratify or revise it through a dated downstream decision; preserve the Charter/`PRD.md` baseline and amend only authorized derived controls |
 | Remains an open dependency or owned risk | FB-07, jurisdiction/contract/counsel coverage, OD3, rare systemic-failure calibration | Accept the proposed risk treatment without representing that the underlying gap is closed |
 
 No feedback item should move directly from `Open` to `Closed` merely because the PoC proposal is approved.
@@ -82,9 +83,9 @@ The PoC reduces ambiguity by producing real examples for the glossary. It is not
 | Question | Review |
 |---|---|
 | What the PoC can show | Whether every case follows the sequence; where distinct challenge changes a disposition; how often items are returned, held, escalated, or overridden; whether unrelated work can continue safely |
-| What may be approved | An interim compensating-control ladder, item isolation as the default, and a narrow list of systemic conditions that halt all publishing |
+| What may be approved | While OD2 remains unknown: an interim evidence/challenge ladder and article isolation. Separately: the retained OD2-negative Charter hard stop and a narrow list of other systemic conditions that halt the affected publishing service |
 | What it cannot prove | That 5–10 cases establish reliable independence, catch rare failures, or determine every systemic halt threshold |
-| Closure artifact | Explicit OD2 decision, approved Charter/requirement amendment, tested control cases, and a named owner for threshold revision |
+| Closure artifact | Explicit dated OD2 downstream decision, authorized derived control, tested control cases, and a named owner for threshold revision; no Charter edit |
 | Recommended status | **Conditional authority decision; remain open until OD2 and its controlling text are approved** |
 
 The PoC should distinguish:
@@ -93,7 +94,7 @@ The PoC should distinguish:
 - **judgment independence:** the challenge is meaningfully different rather than a repeated model answer; and
 - **system continuity:** an affected article is held without unnecessarily stopping unrelated work.
 
-Because rare systemic failures are unlikely to occur in a small live cohort, the Board should review tabletop evidence for compromised credentials, corrupted audit integrity, a broken gate control, and a binding service-wide order.
+Article isolation is not a workaround for an authorized negative OD2 resolution. If OD2 resolves negatively, the frozen Charter's pre-launch hard stop applies and the Alpha Portfolio must choose a separately authorized remedy. Because rare systemic failures are unlikely to occur in a small live cohort, the Board should also review tabletop evidence for compromised credentials, corrupted audit integrity, a broken gate control, and a binding service-wide order.
 
 ### FB-03 — line filter without a customer request
 
@@ -203,30 +204,31 @@ PoC cases can show workload, disagreement, override, and missing-evidence patter
 
 **Pre-PoC decision required:** approve this boundary as an interim operating rule so live cases have an accountable decision maker.
 
-**Closure condition:** amend the Charter and FR-04 explicitly, including which role reviews each gate, what “final” means, and how Board intervention is recorded without erasing Chief Editor accountability.
+**Closure condition:** record a dated Charter-authority decision downstream and update FR-04 or another authorized derived control, including which role reviews each gate, what “final” means, and how Board intervention is recorded without erasing Chief Editor accountability. The frozen Charter text remains unchanged.
 
-### 7.3 OD2 — compensating-control threshold and system-wide halt
+### 7.3 OD2 — uncertain evidence path, negative hard stop, and systemic halt
 
 Use PoC cases to record when distinct challenge changes the evidence or outcome. Supplement live work with tabletop tests because the cohort is too small for rare systemic events.
 
-**Recommended interim threshold:** an item may not advance when a material claim lacks adequate provenance/corroboration, a fair-response duty is unresolved, a conflict or source risk is material, required rights are absent, or the independence mechanism produces no meaningful challenge. The item is returned, held, or escalated; unrelated items continue.
+**Recommended interim threshold while OD2 is still unknown:** an item may not advance when a material claim lacks adequate provenance/corroboration, a fair-response duty is unresolved, a conflict or source risk is material, required rights are absent, or the independence mechanism produces no meaningful challenge. The item is returned, held, or escalated; unrelated items continue only while the provisional system boundary remains authorized.
 
-**Recommended systemic halt candidates:** compromised publishing credentials, corrupted audit integrity, a broken transition/control mechanism, inability to identify the accountable approver, or a binding order affecting the service as a whole.
+**Hard-stop branches:** an authorized negative OD2 resolution invokes the Charter's existing stop and a portfolio remedy decision. Other proposed systemic halt candidates are compromised publishing credentials, corrupted audit integrity, a broken transition/control mechanism, inability to identify the accountable approver, or a binding order affecting the service as a whole.
 
-These are proposed qualitative boundaries, not statistical thresholds. The Board/Charter owner must approve the final rule and name who may declare and lift a system-wide halt.
+These are proposed qualitative boundaries, not statistical thresholds. The Board/Charter-level authority must record the OD2 decision downstream and name who may declare and lift any other system-wide halt. Compensating evidence cannot silently convert a negative OD2 decision into an affirmative one.
 
-### 7.4 Judgment-rule governance and the OD4 collision
+### 7.4 Retained OD4 and external judgment-rule governance
 
-The current Charter's OD4 means **Proposer → Critics → Judge**, rejected for v1 and conditionally deferred. The fallback plan uses “OD4” for the broader **judgment-rule lifecycle**: proposal, critique, approval, versioning, evaluation, and rollback. These are related but not identical decisions.
+The current Charter's OD4 means **Proposer → Critics → Judge**, rejected for v1 and conditionally deferred. That meaning is retained. OD4 is a potential separate intra-node judgment system whose output is handed to the existing inter-node phase-gate workflow. It is not the name of the broader institutional judgment-rule lifecycle.
 
-Silently reusing OD4 would create a false resolution. The Board should choose one of two explicit paths:
+The earlier fallback wording that called rule governance “OD4” was a category error. It made one automated system appear to define, apply, test, and approve its own rules. The corrected structure has three boxes:
 
-1. **Preferred:** create a new decision, such as `BD-JRG-01`, for judgment-rule governance while preserving OD4's existing meaning; or
-2. amend the Charter deliberately to redefine/split OD4, preserving its history and branch conditions.
+1. the existing phase-gate work and successor-review system;
+2. the separate OD4 Proposer → Critics → Judge system, only if an existing trigger fires and a new Alpha Portfolio project authorizes it; and
+3. the Chief Editor/Board authority system that approves judgment rules and risk boundaries from outside both software systems.
 
-The PoC can provide rule-version, exception, override, correction, and rollback evidence. It cannot authorize the new governance model.
+The PoC can provide rule-version, exception, override, correction, and rollback evidence. It cannot authorize OD4, change its trigger, or approve the rules governing either system.
 
-**Recommended authority split:** Chief Editor owns editorial rule content and routine version approval inside a Board-approved risk envelope; the Board approves material changes to authority, liability boundary, rights, source protection, independence, systemic halt, and external-publication policy.
+**Recommended authority split:** Chief Editor owns editorial rule content and routine version approval inside a Board-approved risk envelope; the Board approves material changes to authority, liability boundary, rights, source protection, independence, systemic halt, external-publication policy, and any separate OD4 project. This decision should be recorded under a portfolio control identifier rather than by redefining OD4.
 
 ### 7.5 House SOP precedence
 
@@ -258,9 +260,9 @@ The following proposed resolutions are intentionally separate from the existing 
 | MFB-01 | Approve the canonical state-to-five-phase map and glossary direction | Accepts FB-01 disposition; authorizes documentation work only |
 | MFB-02 | Approve the Project Scope classification and PSK-01 through PSK-09 definitions | Accepts FB-03/FB-04 disposition; does not create Customer Request provenance |
 | MFB-03 | Approve FR-14 direction and CR-06/CR-14 as core Product Scope activities with manual fallback | Accepts FB-05/FB-06 direction; final wording remains controlled |
-| MFB-04 | Approve the interim Chief Editor final-authority/virtual Chief Journalist advisory boundary and route OD1/FR-04 amendment | Enables accountable PoC operation; does not itself amend the Charter |
-| MFB-05 | Approve a provisional OD2 compensating ladder, item isolation, and named systemic-halt conditions | Enables bounded testing; OD2 remains open until Charter decision and control evidence |
-| MFB-06 | Create `BD-JRG-01` for judgment-rule governance, or explicitly amend/split OD4 | Prevents silent redefinition of existing OD4 |
+| MFB-04 | Approve the interim Chief Editor final-authority/virtual Chief Journalist advisory boundary and route a dated OD1 decision plus authorized FR-04 update | Enables accountable PoC operation while the Charter remains frozen |
+| MFB-05 | While OD2 is unknown, approve a provisional evidence/challenge ladder and item isolation; retain the negative-OD2 hard stop and name other systemic-halt conditions | Enables bounded testing without weakening the frozen Charter; OD2 remains open until a dated authorized decision and control evidence |
+| MFB-06 | Retain OD4 as Proposer → Critics → Judge; approve external judgment-rule governance under a separate portfolio control; require a separately chartered project if an OD4 trigger fires | Prevents silent redefinition and prevents either software system from self-authorizing its rules |
 | MFB-07 | Ratify the house-SOP precedence proposal subject to contract/jurisdiction review | Provides an interim conflict path; unknown legal authority remains `UNSET` |
 | MFB-08 | Approve FB-07 risk treatment while leaving Business Charter, jurisdiction, contract, and counsel gaps open | Accepts an owned dependency; does not certify legal readiness |
 | MFB-09 | Approve atomic drafting and controlled re-anchoring; defer OD3 pending workload evidence | Accepts FB-08 rule while preserving hashes/history; keeps OD3 explicit |
@@ -314,7 +316,7 @@ Tabletop results reveal policy gaps; they do not prove production reliability.
 1. Compare observed evidence against each row in §§5–7.
 2. Record dissent, sample limitations, unresolved exposure, and proposed rule changes.
 3. Decide each feedback item and open decision separately.
-4. Authorize only the approved PRD, Charter, requirement, traceability, SOP, and test-plan edits.
+4. Preserve `PRD.md` and the frozen Charter; authorize only approved downstream decision, derived requirement, traceability, SOP, and test-plan changes, or initiate a separately chartered Alpha Portfolio project.
 5. Recalculate traces and hashes under change control.
 6. Mark a gap closed only when its closure artifact exists and has been reviewed.
 
@@ -339,7 +341,7 @@ The Board review should preserve these limitations:
 
 Approve the PoC as a bounded evidence-gathering lane **only if** its preconditions establish an accountable Chief Editor, advisory virtual Chief Journalist, item-level hold default, narrow system-halt authority, low-liability boundary, rights/originality checks, and explicit no-build/no-auto-publication limits.
 
-Approve FB-01, FB-03, FB-04, and FB-08 as documentation/control dispositions now. Approve the direction of FB-05 and FB-06 and use PoC evidence to refine their atomic acceptance criteria. Treat FB-02, FR-04, FR-05, OD1, OD2, and judgment-rule governance as explicit authority decisions. Accept FB-07 as an open dependency with bounded risk treatment, not as a closed legal/governance gap. Defer OD3 until role/workload evidence exists.
+Approve FB-01, FB-03, FB-04, and FB-08 as documentation/control dispositions now. Approve the direction of FB-05 and FB-06 and use PoC evidence to refine their atomic acceptance criteria. Treat FB-02, FR-04, FR-05, OD1, OD2, and judgment-rule governance as explicit downstream authority decisions. Preserve OD4 as the separate Proposer → Critics → Judge system and consider it only through its existing trigger plus a new portfolio project authorization. Accept FB-07 as an open dependency with bounded risk treatment, not as a closed legal/governance gap. Defer or transfer OD3 until role/workload evidence exists.
 
 This approach keeps the business experiment simple and practical while preventing operational evidence from being mistaken for Charter, legal, customer, or Board authority.
 
@@ -347,10 +349,12 @@ This approach keeps the business experiment simple and practical while preventin
 
 This review reads, but does not amend:
 
+- [Alpha Portfolio Business-Continuity and Project-Closure Plan](alpha-portfolio-business-continuity-implementation-plan.md)
 - [Board Proposal — Professional Evidence Review PoC](board-proposal-professional-evidence-review-poc.md)
 - [Media-Industry SOP Fallback Implementation Plan](media-industry-sop-fallback-implementation-plan.md)
 - [Requirements Traceability Map](requirements-traceability-map.md)
+- [Original approved demand — PRD.md](../PRD.md)
 - [Modular PRD](../Modular_PRD.md)
 - [Project Charter v1](../source/project-charter-v1.md)
 
-If this crosswalk conflicts with an approved governing document, the approved governing document controls until its authorized owner records a change. Terms such as `MFB-*` and `BD-JRG-01` are proposed decision identifiers only and have no authority until adopted.
+If this crosswalk conflicts with an approved governing document, the approved governing document controls. Later evidence is recorded downstream or in a new project baseline rather than rewriting the frozen Charter or approved `PRD.md`. Terms such as `MFB-*` are proposed decision identifiers only and have no authority until adopted.
