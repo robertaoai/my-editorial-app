@@ -175,6 +175,8 @@ Every engagement that reaches `Publish` produces two deliberately separated fold
 - source-quality and relevance review;
 - counterarguments and alternative interpretations;
 - uncertainty and missing-evidence assessment;
+- originality/prior-publication search record;
+- Client-First Exclusivity Window record;
 - explainable public content;
 - reusable publishing template; and
 - Chief Editor `Publish/Hold/Escalate` record.
@@ -182,7 +184,8 @@ Every engagement that reaches `Publish` produces two deliberately separated fold
 **`MVP` folder — internal artifact:**
 
 - the final publishable article; and
-- the folder-separation/package-validation record.
+- the folder-separation/package-validation record; and
+- the exclusivity hold/release status.
 
 The two folders carry the same engagement identifier. The publishable article must not be copied, linked, embedded, or exported into the client-facing `POC` folder.
 
@@ -197,7 +200,9 @@ The two folders carry the same engagement identifier. The publishable article mu
 - confidential-source or whistleblower publication without safe handling and escalation;
 - use of private, deleted, paywalled, or restricted material without appropriate rights;
 - promises of guaranteed accuracy, reach, reputation, legal safety, or business results;
-- delivery of the My-Editorial-App-created publishable article as part of the PoC client package; and
+- a guarantee that the client will be the first publisher worldwide;
+- delivery of the My-Editorial-App-created publishable article as part of the PoC client package;
+- automatic publication or reuse of the withheld `MVP` article after the exclusivity window; and
 - any schema, migration, PRD, Charter, architecture, or Sprint 1 change.
 
 ## 9. Decision rights and risk control
@@ -206,10 +211,10 @@ The two folders carry the same engagement identifier. The publishable article mu
 
 | Actor | Authority | Limit |
 |---|---|---|
-| Chief Editor | Final ordinary `Publish/Hold/Escalate`; owns editorial judgment and judgment-rule versions | Cannot waive Board-defined high-liability escalation or represent public information as legal clearance |
-| Board of Directors | Approves PoC, risk appetite, spending boundary, and high-liability envelope; may require hold or escalation | Should not force publication against a Chief Editor hold or force confidential-source disclosure without lawful process and external advice |
+| Chief Editor | Final ordinary `Publish/Hold/Escalate`; owns editorial judgment and judgment-rule versions; validates originality and enforces the active client-first hold | Cannot waive Board-defined high-liability escalation, shorten a contractual window unilaterally, or represent public information as legal clearance |
+| Board of Directors | Approves PoC, risk appetite, spending boundary, high-liability envelope, and default exclusivity policy; may require hold or escalation | Should not force publication against a Chief Editor hold, authorize disguised reuse, or force confidential-source disclosure without lawful process and external advice |
 | Virtual Chief Journalist | Runs approved deterministic final checks and recommends a disposition | No publication authority, self-modification, or gate-bypass authority |
-| Commissioning customer | Contributes requirements and materials and receives the validated `POC` folder | Does not receive the internal publishable article and cannot compel unsupported claims, removal of uncertainty, or bypass of service holds |
+| Commissioning customer | Contributes requirements/materials, receives the validated `POC` folder, and receives the agreed first-publication opportunity | Does not receive the internal publishable article and cannot compel unsupported claims, removal of uncertainty, or bypass of service holds |
 
 For high-liability items, release requires two keys: Chief Editor editorial approval plus Board risk acceptance or an approved external-review outcome. Either may hold or escalate; neither may force release alone.
 
@@ -246,6 +251,8 @@ The PoC is valuable because it produces evidence across the **existing** workflo
 - hold/escalate reason;
 - customer revisions and rejected claims;
 - payment completion, price objection, acceptance, publication/reuse, referral, and repeat request;
+- originality-search results, attribution changes, and similarity/rights holds;
+- exclusivity-window start/end, extensions, early release, client first-publication outcome, and any breach;
 - correction, complaint, retraction, privacy, source-safety, or platform event; and
 - which work was repeatable versus dependent on Chief Editor judgment.
 
@@ -284,6 +291,8 @@ After 5–10 engagements, the Board receives a short evidence report addressing:
 | Does trend rating improve selection? | Chief Editor corrections and customer/audience fit |
 | Do the gates improve the output? | Material issues found, returns, holds, corrections, and accepted changes |
 | Does folder separation work? | Chief Editor checklist results, packaging defects, near-misses, and unintended article disclosure |
+| Does the originality control work? | Prior coverage found, attribution/rewrite actions, unresolved similarity holds, and later complaints |
+| Does the client-first window create fair practical value? | Client publication within the window, extensions, early releases, disputes, and post-window decisions |
 | Is the service operationally survivable? | Active time, elapsed time, rework, external cost, and Chief Editor bottlenecks |
 | What should development learn? | Repeated steps, defects, do-not-automate judgments, and traceable change proposals |
 
@@ -312,6 +321,8 @@ Prepare only:
 - trigger and URL provenance record;
 - existing trend/relevance worksheet;
 - claim/evidence/counterargument/uncertainty template;
+- originality/prior-publication search and attribution record;
+- Client-First Exclusivity Window record;
 - Chief Editor decision and escalation record;
 - manual `POC`/`MVP` folder manifest and exclusion checklist;
 - customer feedback/outcome record; and
@@ -325,6 +336,7 @@ Prepare only:
 - Use the unchanged URL intake and gate sequence.
 - Charge manually and record the actual outcome.
 - On `Publish`, create the final publishable article, store it in `MVP`, assemble `POC` from the supporting artifacts, and have the Chief Editor validate the exclusion before client delivery.
+- Activate the exact client-first window stated before payment and hold external use of the `MVP` article for that period.
 - Do not automate discovery, payment, publication, or approval.
 
 ### Stage 3 — weekly Chief Editor review
@@ -374,6 +386,10 @@ Approval evidence must identify the approver, date, conditions, dissent, spendin
 | Build accounts or payments to test demand | Selling the service versus monetization software | Charge outside the app during the PoC |
 | Advertise a finished article and then withhold it | Sales promise versus actual client entitlement | Disclose the `POC` package and article exclusion before payment |
 | Treat placement in `MVP` as permission to publish client-derived material | Artifact custody versus copyright, license, consent, and publication authority | Record rights and obtain separate publication authorization |
+| Call the exclusivity window an automatic “fair trade” right | House commercial policy versus law and contract | Use an explicit engagement term with dates, scope, exceptions, and jurisdiction review |
+| Treat a web search as proof of originality or clearance | Discovery evidence versus editorial/legal judgment | Search twice, record limitations, inspect expression/structure, attribute, and hold unresolved similarity |
+| Publish the withheld `MVP` article when the window expires | End of exclusivity versus permission and independent authorship | Open a new workflow with a new angle, evidence, artifacts, gates, and approval |
+| Change only wording and call it a different approach | Independent reporting versus disguised reuse | Require a materially different audience need, question/development, structure, and verified source base |
 | Let Board pressure or cash pressure force publication | Institutional survival versus editorial evidence | Two-key high-liability release; either authority may hold |
 | Treat virtual-agent confidence as approval | Analysis mechanism versus accountable judgment | Chief Editor remains final human decision-maker |
 
@@ -427,6 +443,83 @@ Editorial-Briefcase-{engagement-id}/
 These are operating labels, not repository folders, application routes, database tables, or authorization to implement storage. To avoid accidental disclosure, the Chief Editor shares only the `POC` folder—never the briefcase root—and records the completed separation check.
 
 Before payment, the engagement record must state plainly that the client receives the `POC` folder and does not receive the My-Editorial-App-created publishable article. Folder placement does not decide copyright, license, or ownership. Those rights and any permission to reuse or publish client-derived material must be recorded separately; without that permission, the `MVP` article remains an internal validation artifact.
+
+### 16.4 Originality, client-first exclusivity, and post-window coverage
+
+#### Clarified requirement
+
+> Treat plagiarism as a recognized editorial misconduct risk to prevent, not as an accepted media practice. Perform and record a prior-publication/originality search before `Publish`. Because the client has paid for the PoC outcome, give the client a contract-defined first-publication opportunity during a **Client-First Exclusivity Window**. Keep the My-Editorial-App-created article in `MVP` and do not publish, license, syndicate, or release it during that window. After the window expires, the Chief Editor may reassess the topic's newsworthiness. If it remains newsworthy, open a new editorial workflow for an independently sourced, materially different approach; do not automatically publish or lightly paraphrase the withheld `MVP` article. Continue to honor attribution, copyright/license, confidentiality, source-protection, and platform obligations.
+
+#### Terminology correction
+
+Use **Client-First Exclusivity Window**, not “warrant period.” “Warrant” or “warranty” could imply a guarantee. The window is a time-limited contractual hold on My-Editorial-App's own publication activity so the client has the first agreed opportunity to publish their independently prepared article.
+
+“Fair trade” in this proposal means a house commercial-fairness principle: the paying client receives a disclosed first-publication opportunity, while the newsroom may later pursue the underlying public topic independently. It is not a claim of a universal media-industry rule and must not be confused with jurisdiction-specific legal doctrines such as fair use or fair dealing.
+
+The commercial consideration is therefore the validated `POC` artifact package plus the agreed client-first opportunity. It is not delivery or transfer of the withheld `MVP` article. This distinction must appear in the offer, payment record, and engagement terms so “paid for the article” does not create a contradictory entitlement.
+
+#### Public SOP baseline
+
+- [Associated Press — Telling the Story](https://www.ap.org/about/news-values-and-principles/telling-the-story/) requires original content, language, and phrasing; prohibits passing another's work off as one's own; calls for credit when another outlet first reported significant work; and requires internet material to be vetted and attributed.
+- [Reuters Journalistic Standards](https://reutersagency.com/about/standards-values/) prohibit fabrication and plagiarism, require attribution for material gathered by others, and call for clear attribution when competitors obtain valuable exclusive news.
+- [WIPO's copyright overview](https://www.wipo.int/en/web/copyright/protection) distinguishes protected expression from underlying ideas, procedures, and methods, while leaving applicable rights to law and contract.
+- AP's published content metadata illustrates that an [embargo or hold-for-release uses an explicit release date/time](https://developer.ap.org/ap-media-api/agent/Content_Metadata_Fields.htm), rather than an assumed indefinite custom.
+
+These sources support an originality-and-attribution control plus an explicit time window. They do not create a contract for this business, determine the applicable jurisdiction, or guarantee that reuse is lawful.
+
+#### Mandatory publication/originality search
+
+Perform the search twice: at intake/drafting and again immediately before Chief Editor `Publish`.
+
+Record:
+
+1. distinctive phrases, proposed headline terms, key claims, source URLs, and prior topic lineage searched;
+2. search services and internal archives checked;
+3. date/time, reviewer, and material results;
+4. similarities in wording, structure, sourcing, framing, or unique analysis;
+5. required attribution, quotation, license, rewrite, or removal action; and
+6. the Chief Editor's `Clear`, `Revise`, `Hold`, or `Escalate` result.
+
+A search result is evidence, not clearance. Searches may miss paywalled, deleted, de-indexed, offline, translated, or restricted material and cannot decide copyright, license, confidentiality, or plagiarism by themselves. If material similarity or rights cannot be resolved, the item is held or escalated.
+
+#### Client-First Exclusivity Window record
+
+The engagement record must define before payment:
+
+- covered engagement, topic, and deliverables;
+- event that starts the window;
+- exact start and end date/time plus time zone;
+- duration, which remains `UNSET` until the Board approves a default or the engagement states one;
+- whether verified client publication ends the window early;
+- extension and written-release method;
+- actions My-Editorial-App must not take during the window;
+- rights, attribution, confidentiality, and source promises that survive expiry; and
+- exceptional hold/escalation route for a binding order or urgent safety/public-interest conflict.
+
+During the window:
+
+- the client receives only the validated `POC` folder;
+- the publishable article remains inside `MVP`;
+- My-Editorial-App does not publish, license, syndicate, sell, leak, or use that article to compete with the client's first-publication opportunity; and
+- no third-party first-publication outcome is guaranteed, because the business cannot control independent publishers or public events.
+
+#### Post-window independent-angle workflow
+
+Expiry ends only the agreed exclusivity hold. It does not erase copyright, confidentiality, source protection, attribution duties, or contractual restrictions and does not authorize automatic release of the original `MVP` article.
+
+If the topic still appears newsworthy, the Chief Editor may:
+
+1. rerun the CR-06/CR-14 newsworthiness and trend assessment;
+2. search for the client's public article and other intervening coverage;
+3. open a **new** briefcase/work identifier linked to the prior topic lineage;
+4. define a materially different audience need, angle, question, or development;
+5. use public or otherwise authorized sources and independently verify material claims;
+6. credit the client's or another outlet's first/significant reporting when relied upon;
+7. create new Claims, Evidence, Uncertainty, Counterargument, Classification, Explainable Draft, and publishable-article artifacts;
+8. run the unchanged full gate sequence and originality search; and
+9. obtain a new Chief Editor `Publish/Hold/Escalate` decision and any required rights/publication authorization.
+
+If there is no material new angle, independent evidence, or continuing newsworthiness, archive the opportunity. Changing a headline, synonyms, paragraph order, or tone is not a different approach.
 
 ## 17. The brutally small Editorial Briefcase MVP
 
@@ -551,10 +644,10 @@ The briefcase is the **work package**; the Article remains the existing publicat
 | Intake / Reporter | Input Card, provenance, topic, source, relevance, trend signal | Existing Reporter/Chief Editor arrangement |
 | Investigator | Claims Ledger and Evidence Map | Existing investigation gate |
 | Journalist | Uncertainty Register, Counterargument Brief, Statement Classification, Explainable Draft | Existing journalism gate |
-| Senior Reviewed | Challenge completeness, contradictions, classifications, and unresolved risk | Existing human-review direction |
+| Senior Reviewed | Challenge completeness, contradictions, classifications, originality/prior-publication search, attribution, and unresolved risk | Existing human-review direction |
 | Virtual Chief Journalist check | Completeness and approved deterministic-rule results | Recommendation only |
 | Chief Editor decision | Entire briefcase, exceptions, overrides, decision rationale, and publication candidate | Final `Publish/Hold/Escalate` authority subject to approved high-liability controls |
-| Package validation after `Publish` | `POC` manifest and `MVP` publishable article | Chief Editor verifies the publishable article is excluded from the client package |
+| Package validation after `Publish` | `POC` manifest, `MVP` publishable article, and Client-First Exclusivity Window record | Chief Editor verifies the article is excluded and the external-publication hold is active |
 
 This is a review lens, not permission to rename gates or introduce new workflow states.
 
@@ -600,7 +693,7 @@ For the Editorial Briefcase, the five business layers are represented by inspect
 | **2. Reasoning** | Test meaning and alternatives | Uncertainty Register, Counterargument Brief, Statement Classification | Assumptions, ambiguity, alternatives, unresolved contradictions, rule version |
 | **3. Decision** | State what follows and why | Client Decision Report, Chief Editor disposition | Conclusion, reason codes, dissent, exception, reviewer, date |
 | **4. Execution** | Define what happens next and learn from it | Evidence requests, correction tasks, client actions, feedback record | Owner, status, due/review point, result, change signal |
-| **5. Publishing** | Convert approved knowledge into public communication | Explainable Draft in `POC`; final publishable article in `MVP` after `Publish` | Version, audience, approvals, folder entitlement, publication target, correction/retraction linkage |
+| **5. Publishing** | Convert approved knowledge into public communication | Explainable Draft in `POC`; final publishable article in `MVP` after `Publish` | Version, audience, originality check, attribution, folder entitlement, exclusivity window, publication authorization/target, correction/retraction linkage |
 
 These artifacts make the editorial system observable without pretending that every judgment can be reduced to a score or exposing raw private reasoning. For each material decision, the system should eventually be able to show:
 
@@ -618,7 +711,7 @@ During the manual PoC, a simple versioned folder or document pack is sufficient.
 
 ### Phase EB-0 — Board addendum approval
 
-- Decide B-P0-11 through B-P0-16 in §22.
+- Decide B-P0-11 through B-P0-18 in §22.
 - Confirm that §§1–15 remain approved or pending on their own terms.
 - Confirm that the briefcase is a manual artifact pack during the PoC.
 - Confirm that both product modes use the same workflow and always create the final article on `Publish`.
@@ -635,10 +728,13 @@ After Board approval, prepare one lightweight template for each artifact:
 5. Counterargument Brief;
 6. Statement Classification;
 7. Explainable Draft;
-8. Client Decision Report; and
+8. Client Decision Report;
 9. Chief Editor disposition and feedback record;
-10. publication-candidate/final-article record; and
-11. two-folder manifest and exclusion-validation checklist.
+10. publication-candidate/final-article record;
+11. two-folder manifest and exclusion-validation checklist;
+12. originality/prior-publication search and attribution record;
+13. Client-First Exclusivity Window record; and
+14. post-window newsworthiness/independent-angle decision record.
 
 Use consistent engagement, claim, source, artifact-version, and decision identifiers. This is document preparation, not application development.
 
@@ -648,12 +744,15 @@ Use consistent engagement, claim, source, artifact-version, and decision identif
 - Link the briefcase to the trigger and any existing article/source URL.
 - Complete the six processing artifacts before delivery.
 - Record `UNANCHORED`, unsupported, uncertain, or disputed material explicitly.
+- Perform and record the originality/prior-publication search during drafting and immediately before `Publish`.
 - Apply Chief Editor review and the existing hold/escalation rules.
 - Create the final publishable article whenever the Chief Editor assigns `Publish`.
 - Place that article only in the internal `MVP` folder.
 - Place the Client Decision Report and agreed supporting artifacts, including explainable public content, in the `POC` folder.
 - Have the Chief Editor inspect the `POC` manifest and exported package, then record that the publishable article is absent.
+- Start the contract-defined Client-First Exclusivity Window and record its exact release time, time zone, scope, and surviving duties.
 - Share only the `POC` folder with the client; never share the briefcase root or `MVP` folder.
+- Keep the `MVP` article under publication hold unless a separately recorded authorization permits an external action.
 
 ### Phase EB-3 — observe the artifacts
 
@@ -665,11 +764,23 @@ For each artifact record:
 - Chief Editor correction;
 - client usefulness and reuse;
 - packaging errors or near-misses involving the withheld article;
+- search results, attribution corrections, similarity concerns, and rights escalations;
+- exclusivity-window extensions, early releases, breaches, and client first-publication outcomes;
 - risk or misunderstanding caused;
 - whether the artifact affected the final decision; and
 - whether the step is repeatable or judgment-dependent.
 
-### Phase EB-4 — decide whether anything deserves software
+### Phase EB-4 — post-window independent-angle decision
+
+- Confirm the exclusivity window has ended by its recorded terms or written release.
+- Recheck surviving confidentiality, source-protection, copyright/license, and contractual duties.
+- Rerun newsworthiness and search for the client's publication and intervening coverage.
+- If still newsworthy, open a new linked briefcase with a materially different angle and independently verified sources.
+- Credit prior significant reporting when relied upon and run the full unchanged workflow.
+- Never release the original withheld `MVP` article merely because the window expired.
+- Archive the opportunity when there is no material new development, angle, or independent evidence.
+
+### Phase EB-5 — decide whether anything deserves software
 
 After 5–10 cases, propose only the smallest repeated artifact operations that reduce effort without weakening accountability. A later build proposal must separately define Product Scope, data model, access, privacy, security, acceptance tests, migration impact, and relationship to the existing Article workflow.
 
@@ -685,6 +796,8 @@ No artifact becomes a feature merely because it appears in this addendum.
 | B-P0-14 | Confirm that a successful `Publish` always creates the publishable article, stores it in `MVP`, excludes it from client-facing `POC`, and requires pre-payment disclosure plus separate external-publication authorization | Pending |
 | B-P0-15 | Approve the five business layers as observability categories with concise rationale—not private model chain-of-thought | Pending |
 | B-P0-16 | Confirm this addendum authorizes manual templates and observation only, with no code, schema, workflow-state, account, payment, or publication change | Pending |
+| B-P0-17 | Approve a contract-defined Client-First Exclusivity Window; leave its default duration `UNSET` until the Board sets it; require exact dates, scope, early-release/extension terms, and surviving duties | Pending |
+| B-P0-18 | Approve the two-stage originality search and the post-window new-workflow rule: reassess newsworthiness, use an independently sourced materially different angle, attribute prior reporting, and never auto-release the original `MVP` article | Pending |
 
 ## 23. Briefcase acceptance checklist
 
@@ -700,11 +813,13 @@ A manual briefcase is complete only when:
 - the Explainable Draft can be traced to the artifacts;
 - the Client Decision Report answers all four required questions;
 - the judgment-rule version, virtual-agent recommendation, Chief Editor decision, exceptions, and date are recorded;
+- the two-stage originality/prior-publication search, material matches, attribution, and disposition are recorded;
 - the final publishable article exists in `MVP` for every successful `Publish` disposition;
 - the `POC` folder contains all approved supporting artifacts, including explainable public content;
 - the client acknowledged before payment that the publishable article is excluded from their package;
 - the Chief Editor has validated that no copy, link, embedding, or export of the publishable article exists in `POC`;
 - rights and external-publication authorization are recorded separately from folder placement;
+- the exclusivity window has an exact start/end/time zone, scope, status, and surviving-duty record;
 - only the `POC` folder is released to the client; and
 - the two folders carry the same engagement identifier and remain traceable to the same workflow.
 
@@ -717,6 +832,11 @@ Future revisions must preserve:
 - explainable public content in `POC` versus publishable news article in `MVP`;
 - creation of the publishable article versus entitlement to receive it;
 - editorial `Publish` status versus authorization to execute an external publication action;
+- plagiarism prevention versus the false claim that a publication search guarantees originality or clearance;
+- public topic/idea versus another person's protected expression, confidential information, or distinctive reporting;
+- Client-First Exclusivity Window versus ownership, permanent suppression, warranty, or universal “fair trade” right;
+- expiry of exclusivity versus expiry of copyright, license, attribution, confidentiality, and source-protection duties;
+- post-window new reporting versus automatic release or cosmetic rewriting of the withheld `MVP` article;
 - evidence trace versus a claim of truth;
 - concise decision rationale versus private chain-of-thought;
 - statement classification versus evidential sufficiency;
