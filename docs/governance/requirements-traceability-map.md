@@ -166,7 +166,7 @@ This is the direction that catches scope the customer is paying for and never re
 | FR-01 | CR-09 | — |
 | FR-02 | CR-10 | Split into two gates per Addendum T2/T3 |
 | FR-03 | CR-10 | — |
-| FR-04 | CR-10 | Customer said "Senior Reviewed"; **human-only execution is the team's, from Charter OD1 and the Three Lines Model** |
+| FR-04 | ⚠ **partial — CR-10** | Customer said "Senior Reviewed"; **human-only execution is the team's, from Charter OD1 and the Three Lines Model** |
 | FR-05 | ⚠ **partial — CR-19 "zero bypasses"** | **Four-eyes at Line boundaries is entirely the governing set's.** The customer asked for no bypasses, not for this mechanism |
 | FR-06 | ⚠ **— none —** | **Addendum §3.3.** The customer's PRD has no return or revision path at all |
 | FR-07 | CR-07, CR-11 | — |
@@ -183,9 +183,9 @@ This is the direction that catches scope the customer is paying for and never re
 
 | Status | Count | Items |
 |---|---|---|
-| Anchored to a customer want | 7 | FR-01, FR-02, FR-03, FR-04, FR-07, FR-08, FR-09 |
-| ⚠ Partially anchored | 3 | FR-05, FR-10, and FR-04's execution constraint |
-| ⚠ **Unanchored** | 5 | **FR-06, FR-11, FR-12, FR-13, NG-10, NG-11** |
+| Anchored to a customer want | 6 | FR-01, FR-02, FR-03, FR-07, FR-08, FR-09 |
+| ⚠ Partially anchored | 3 | FR-04, FR-05, FR-10 |
+| ⚠ **Unanchored** | 6 | **FR-06, FR-11, FR-12, FR-13, NG-10, NG-11** |
 
 > **None of the unanchored items is gold-plating.** Each traces to the Addendum or to Entry 007's Phase 0 approval, and each has a defensible reason. But the customer never asked for them, will use the product, and is funding it. Under the PRD template's own anti-pattern list an unanchored requirement must be *either* connected *or* justified in writing — here it is justified, and the justification has to reach the customer through the sponsor. That is **FB-04**, and it is the single largest feedback item on this map.
 
@@ -245,3 +245,4 @@ Items to route **to the customer via the project sponsor**. None is a defect in 
 
 - **2026-08-16 v1.0:** Created after the Chief Editor corrected the project team's framing of the two requirement documents. The earlier framing judged `PRD.md` by supply-side standards and proposed that `Modular_PRD.md` "governs where they differ" — incoherent under PMI requirements flow, since the project team's document cannot outrank the customer's statement of wants. Replaced with the elaboration-versus-change-request distinction (§1). Anchored all 19 customer statements to SHA-256 content hashes at `53ace36`, built the forward and backward traces, and found: one uncovered customer requirement (CR-14, AI tagging), one partially covered (CR-06, blocked by TC3), and **five specifications with no customer origin** (FR-06, FR-11, FR-12, FR-13, NG-10, NG-11) — all justified, none disclosed. Raised the missing Business Charter from a go-live checklist item to a structural gap, since it is `PRD.md`'s unverifiable upstream. Eight feedback items opened for routing via the sponsor. *(The bolded count above was itself wrong — see v1.1.)*
 - **2026-08-17 v1.1:** An external EMS gap-analysis audit of `Modular_PRD.md` caught a genuine miscount: v1.0 said "five specifications" while listing six (FR-06, FR-11, FR-12, FR-13, NG-10, NG-11). Verified against the register itself — the count is **six items: four functional requirements and two non-goals.** Corrected in §4 (backward-trace table header remains accurate — it never stated a total) and §7's `FB-04` row. This is the same defect class §1 already named as the project's recurring failure mode: a number restated without re-derivation. It reached its own audit trail. See `docs/journal/2026-08-16-sprint-plan.md` for the audit's other findings (Three Lines Model citation currency, the `judgment_independence_status` naming/identity-provenance gap, tool-vs-product scope, blind-first-pass at T5) — none of which are decided in this file.
+- **2026-08-17 v1.2:** Corrected the backward-coverage summary after Graphify-assisted scope normalization. The previous `7 / 3 / 5` counts double-counted FR-04 (once as anchored and again through its execution constraint) and still reported five unanchored items while naming six. Requirements are now counted once at requirement-ID level: **6 fully anchored, 3 partially anchored, 6 unanchored = 15 specifications** (FR-01…FR-13 plus NG-10 and NG-11). FR-04 is correctly marked partially anchored because the customer requested the review gate but not the team's human-only execution constraint.

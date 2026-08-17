@@ -31,7 +31,7 @@
 | **PRD Owner** | Chief Editor (robertaoai) — Line 2, Risk & Compliance |
 | **Reviewers / Approvers** | Chief Editor is the sole human approver. **No Eng Lead, Design Lead, Data Lead, or Legal function exists on this project.** Not an omission — see §0.3 |
 | **Status** | `Draft` — planning only. No application code, no migration applied, no env pulled, no push |
-| **Version** | 1.4 — this document's own lineage; it does not continue `docs/PRD.md`'s version history |
+| **Version** | 1.5 — this document's own lineage; it does not continue `docs/PRD.md`'s version history |
 | **Last Updated** | 2026-08-16 |
 | **Jira Project Key** | **Not provisioned.** Execution tracking is `docs/journal/2026-08-16-sprint-plan.md` §6 (S0–S6) — see §8 |
 | **Confluence / Wiki Link** | **Not provisioned.** This repo's `docs/` is the wiki |
@@ -49,6 +49,7 @@
 | **1.2** | **2026-08-17** | Claude, from a second external review of v1.1's sprint-plan companion, Chief Editor reviewing | **`Q11` was under-costed.** Both mentions of it in the sprint plan called the rename "minutes — a naming confirmation, not a design task," but `NFR-03` ("never null, never inferred at read") directly forbids the null `judgment_independence` value the rename requires, and `AC-07`, `AC-08`, `G-02`, and `FR-05`'s own Outputs line all still assert the retired field name unqualified. Re-costed Q11's row to "minutes to decide, one pass to propagate," and **marked five downstream locations** rather than leaving them silently unqualified while claiming to be the governed spec sprints build against (§0.4). *(This entry's own count was wrong — the fix actually touched six locations, silently dropping `TR-DM-02` from this sentence; and the marker applied was an undefined `⚠⚠`, not the single `⚠` this entry claims. Both corrected in v1.3 — see below.)* **`M1`'s exit criterion corrected**, alongside the sprint plan's matching S1 DoD: it required a live database rejection test while `DEP-05` is deliberately withheld two rows below it in this same document — a live contradiction, not a deferral. Restated as "trigger written and unit-tested; live anon-key behaviour unverified until `DEP-05` is answered." No open decision closed, no Charter text touched, no number invented |
 | **1.3** | **2026-08-17** | Claude, from a third external review, Chief Editor reviewing | **The v1.2 fix introduced an undefined marker and then miscounted its own scope describing it — a third live instance of the project's own named count-drift defect.** Six rows (`G-02`, FR-05's Outputs line, `TR-DM-02`, `NFR-03`, `AC-07`, `AC-08`) had been given a doubled `⚠⚠`, which §0.4 never defined — it defines exactly one marker, single `⚠`, tied explicitly to an OD. §12's ritual ("has its OD moved?") and countermeasure list had no answer for four of the six rows, which have no OD behind them, only `Q11`. Both changelog entries describing the fix said "five" — the sprint-plan entry named all six in its own parenthetical and miscounted anyway; this document's v1.2 entry named only five, silently dropping `TR-DM-02`. **Resolved, not just documented:** confirmed via the pre-existing "Three FRs are provisional… FR-05 (OD2)" note that `G-02` and FR-05's Outputs line carry a genuine second proviso independent of Q11, while the other four have no OD relationship in their own text. Replaced `⚠⚠` throughout with two distinct, defined markers: `⚠` stays OD-only; new `[Q11]` marks rows depending on the Q11 naming decision alone. `G-02` and FR-05's Outputs line now carry both; the other four carry `[Q11]` only. Defined `[Q11]` in §0.4, added a `[Q11]`-specific line to §12's ritual, and named `TR-DM-02`/`NFR-03` explicitly in §12's countermeasure list. Annotated, not rewrote, the v1.2 entry above. No open decision closed, no Charter text touched, no number invented |
 | **1.4** | **2026-08-17** | Claude, from a fourth external review, Chief Editor reviewing | **v1.3's fix was accurate everywhere it touched — the six table rows — but didn't reach every place stating the same fact.** §10's own `Q11` decision-request row, the section a decision-maker reads to decide whether to answer Q11 at all, still said "propagates into five places," still omitted `TR-DM-02` despite naming it in the same row's own "Unblocks" column, and still described every affected row as "marked ⚠ pending Q11" — stale even against v1.3's own fix, since two of the four rows it named (`AC-07`, `AC-08`) had just been correctly changed to `[Q11]`-only. **Fourth live instance of the count-drift defect, this time in the section that decides whether the whole chain of fixes was worth reading.** Corrected: §10's `Q11` row now names all six locations, states the marker split explicitly (⚠ for `G-02`/FR-05's Outputs only, `[Q11]` for all six), and says "six marked rows." Also added a cross-reference to the sprint plan's newly-defined `[S1-IRREVERSIBLE]` marker (§0.4), since that plan's `A21`/`A22`/`Q10`/`Q11` rows had been using a bare, undefined `⚠` that directly contradicted this section's own "never interchangeable" rule the moment the rule was written — same glyph, two files, two meanings, same rows. See sprint plan register row A28. No open decision closed, no Charter text touched, no number invented |
+| **1.5** | **2026-08-17** | Codex, Graphify-assisted requirement reconstruction | **Corrected the scope/type category error in §7.** Functional versus non-functional describes requirement behaviour; Product versus Project Scope describes provenance and purpose. Product Scope now contains customer-anchored functional, non-functional, security, and data requirements. Project Scope now contains unanchored functional requirements and delivery/governance enablers that support the Customer Request indirectly. Mixed rows retain a customer-derived outcome in Product Scope while their implementation mechanism is separated into Project Scope. Added the uncovered CR-14 and partial CR-06 gaps to the scope view; renamed §7.3 so it no longer implies every NFR is Project Scope. No requirement text or customer statement changed |
 
 ### 0.2 Decision Log
 
@@ -421,44 +422,66 @@ The most consequential requirement, and the one most at risk of being quietly ov
 
 ### 7.1 Product Scope Matrix
 
-| FR | Capability | Priority | Persona | Phase | US | AC | Owner | Sprint |
-|---|---|---|---|---|---|---|---|---|
-| FR-01 | Log an article by URL | P0 | Reporter | MVP | US-01 | AC-01, AC-02 | Line 1 | S1 |
-| FR-02 | Validate and investigate as distinct gates | P0 | Investigator | MVP | US-02 | AC-03 | Line 1 | S1 |
-| FR-03 | Draft with meaning-invariance checklist | P0 | Journalist | MVP | US-03 | AC-04 | Line 1 | S1 |
-| FR-04 ⚠ | Line 2 human review at T5 | P0 | Chief Editor | MVP | US-04 | AC-05, AC-06 | Line 2 | S2 |
-| FR-05 ⚠ | Independence classification | P0 | Chief Editor | MVP | US-05 | AC-07, AC-08 | Line 2 | S2 |
-| FR-06 | Return with mandatory reason | P0 | Chief Editor | MVP | US-06 | AC-09, AC-10 | Line 1/2 | S1 |
-| FR-07 | Append-only audit record | P0 | Chief Editor | MVP | US-07 | AC-11, AC-12 | Line 1 | S1 |
-| FR-08 | Filterable board | P0 | Chief Editor | MVP | US-08 | AC-13 | Line 1 | S3 |
-| FR-09 | Publish or mark ManualReady | P0 | Chief Journalist | MVP | US-09 | AC-14, AC-15 | Line 1 | S4 |
-| FR-10 | Confirm manual publish | P1 | Chief Editor | MVP | US-10 | AC-16 | Line 2 | S4 |
-| FR-11 ⚠ | Line 3 triggered audit | P1 | Line 3 | Phase 2 | US-11 | AC-17 | Line 3 | S5 |
-| FR-12 | Degraded mode >48h | P1 | Chief Editor | Phase 2 | US-12 | AC-18 | Line 1 | S5 |
-| FR-13 | Regulatory retraction | P1 | Chief Editor | Phase 2 | US-13 | AC-19 | Line 2 | S5 |
+> **Classification rule.** Requirement type and scope are independent dimensions. A functional requirement is not automatically Product Scope, and a non-functional requirement is not automatically Project Scope. An item belongs in Product Scope when it is anchored to, or is a necessary elaboration of, a Customer Request. Everything else belongs in Project Scope and supports the Customer Request indirectly.
+
+| Requirement | Type | Product capability or quality | Customer anchor | Anchor status | Sprint |
+|---|---|---|---|---|---|
+| FR-01 | Functional | Log an article by URL | CR-09 | Full | S1 |
+| FR-02 | Functional | Validate and investigate as distinct gates | CR-10 | Full | S1 |
+| FR-03 | Functional | Draft with meaning-invariance checklist | CR-10 | Full | S1 |
+| FR-04 ⚠ | Functional | Line 2 review at T5 | CR-10 | **Partial** — the gate is requested; human-only execution is team-added | S2 |
+| FR-05 ⚠ | Functional | Prevent a bypass from being treated as compliant | CR-19 | **Partial** — zero bypasses is requested; the four-eyes mechanism is team-added | S2 |
+| FR-07 | Functional | Preserve who, when, and why for every transition | CR-07, CR-11 | Full | S1 |
+| FR-08 | Functional | Show and filter the editorial board | CR-13 | Full; Line filter is an elaboration | S3 |
+| FR-09 | Functional | Publish to WordPress or mark LinkedIn ManualReady | CR-12 | Full | S4 |
+| FR-10 | Functional | Confirm manual publication with a live URL | CR-12 | **Partial** — necessary elaboration of ManualReady | S4 |
+| NFR-01 | Non-functional — integrity | Reject invalid gate transitions regardless of write path | CR-10, CR-19 | Derived quality; the Postgres-trigger mechanism is Project Scope | S1 |
+| NFR-02 | Non-functional — auditability | Keep the transition history immutable and complete | CR-07, CR-11 | Derived quality | S1 |
+| NFR-05 | Non-functional — resilience | Fail publication safely to ManualReady after bounded retries | CR-12 | Derived quality | S4 |
+| NFR-06 | Non-functional — usability | Render and filter the requested board at the success-scenario volume | CR-13, CR-19 | Derived quality | S3 |
+| NFR-08 | Non-functional — observability | Reconstruct every transition from the log alone | CR-07, CR-11 | Derived quality | S1 |
+| SEC-03 | Non-functional — access control | Restrict the production system to the single Chief Editor account and scoped roles | CR-15 | Derived quality; deliberately deferred to S6 | S6 |
+| TR-DM-01 | Data requirement | Represent articles and trend-signal inputs | CR-03, CR-06 | Direct; CR-06 remains partially implementable | S1 |
+| TR-DM-02 | Data requirement | Represent who, when, why, and actor/Line context for transitions | CR-07, CR-11 | Direct | S1 |
+| TR-DM-03 | Data requirement | Represent per-target WordPress and LinkedIn publication status | CR-08, CR-12 | Direct | S1 |
+| TR-DM-04 | Data requirement | Represent article sources | CR-05 | Direct | S1 |
+| TR-DM-05 | Data requirement | Represent topic taxonomy | CR-04 | Direct | S1 |
+| TR-DM-06 | Data/integrity requirement | Represent the allowed sequential transitions | CR-10, CR-19 | Derived quality | S1 |
+
+#### Product-scope gaps
+
+| Customer request | Missing or incomplete Product Scope | Classification |
+|---|---|---|
+| CR-06 | Trend-signal scoring is not computable on the current schema | Partial non-functional/data requirement — FB-06 |
+| CR-14 | No FR requires AI topic, source, and trend-signal tagging at the Reporter gate | **Missing functional requirement — FB-05** |
 
 ### 7.2 Project Scope Matrix
 
-| Scope ID | Category | Enabler | Target | Serves | Owner | Sprint |
-|---|---|---|---|---|---|---|
-| NFR-01 | Integrity | Postgres transition triggers + `allowed_transitions` | Rejected at DB | FR-02, FR-06 | Line 1 | S1 |
-| NFR-02 | Auditability | Append-only enforcement | UPDATE/DELETE revoked | FR-07 | Line 1 | S1 |
-| NFR-03 | Independence | Independence evaluator | 100% non-null | FR-05 | Line 1 | S2 |
-| NFR-04 | Verifiability | Test runner + CI | Green | **All** | Line 1 | **S0** |
-| NFR-05 | Resilience | Retry job table | Retry honoured | FR-09 | Line 1 | S4 |
-| NFR-06 | Usability | Board and filters | 4 of 4 | FR-08 | Line 1 | S3 |
-| NFR-07 | Secrets | Server-only credentials | 0 in bundle | FR-09 | Line 1 | S4 |
-| NFR-08 | Observability | Complete transition record | 100% | FR-07 | Line 1 | S1 |
-| SEC-01 | Security | Line-exclusivity constraint | Hard block | FR-04, FR-05 | Line 2 | S2 |
-| SEC-02 | Security | Credential isolation | OWASP A02 | FR-09 | Line 1 | S4 |
-| SEC-03 | Security | Auth + scoped RLS | Anonymous cannot execute | All | Line 2 | S6 |
-| TR-DM-01…06 | Data model | Schema extensions + new tables | Migration `0002` | FR-01…FR-10 | Line 1 | S1 |
-| `SHARED-01` | Config | `build-config.ts` + flags — **shared infrastructure, serves every FR** | No literals in logic | All | Line 1 | S0 |
-| `SHARED-02` | Governance | Decision and config logs | Every provisional value traceable to its OD | All | Line 2 | S0 |
+| Scope ID | Requirement type | Supporting item | Why it is Project Scope | Serves | Sprint |
+|---|---|---|---|---|---|
+| FR-06 | Functional | Return with mandatory reason and escalation | No Customer Request origin; Addendum-defined workflow support | CR-10, CR-11 indirectly | S1 |
+| FR-11 ⚠ | Functional | Triggered Line 3 audit | No Customer Request origin; governance assurance | CR-19 indirectly | S5 |
+| FR-12 | Functional | Degraded mode after prolonged Chief Editor absence | No Customer Request origin; operating resilience | CR-10 indirectly | S5 |
+| FR-13 | Functional | Regulatory/court-order retraction | No Customer Request origin; external compliance response | CR-12 indirectly | S5 |
+| NFR-03 | Non-functional — independence | Independence evaluator | Team-selected governance mechanism, not requested by the customer | FR-05 | S2 |
+| NFR-04 | Non-functional — verifiability | Test runner and CI | Delivery assurance; does not change customer-visible product behaviour | All Product Scope | S0 |
+| NFR-07 | Non-functional — secret handling | Server-only credentials | Delivery/security control not stated by the customer | FR-09 | S4 |
+| NFR-01 / implementation clause | Technical enabler | Postgres transition trigger | The Product Scope outcome is rejection of invalid transitions; the database mechanism is a project choice | NFR-01 | S1 |
+| SEC-01 | Security/governance | Line-exclusivity constraint | Team-selected Three Lines control | FR-04, FR-05 | S2 |
+| SEC-02 | Security | Publication credential isolation | Internal implementation control | FR-09 | S4 |
+| SEC-04 | Compliance | GDPR erasure handling | External compliance obligation, unrequested and deferred | TR-DM-01 | Phase 2 |
+| SEC-05 | Compliance | Pre-publication legal review for high-sensitivity content | External assurance obligation with no internal owner | FR-13 | S5 |
+| TR-API-01…04 | Technical | HTTP endpoint contracts | Implementation interface chosen by the project | FR-01…FR-10 | S1–S4 |
+| SHARED-01 | Technical/config | `build-config.ts` and flags | Shared delivery infrastructure | All Product Scope | S0 |
+| SHARED-02 | Governance | Decision and config logs | Shared governance infrastructure | All provisional Product Scope | S0 |
+| NG-10 | Scope control | No confidence-score auto-advance | Team-added constraint preventing a bypass | CR-19 indirectly | S0 |
+| NG-11 | Scope control | No fundraising tied to editorial events | Team-added legal/compliance boundary | Customer Request indirectly | S0 |
 
-### 7.3 Product-to-Project Cross-Reference
+> Data contracts `TR-DM-01…06` remain in Product Scope because the Customer Request explicitly names the tracked objects and workflow semantics. Writing and applying migration `0002` is Project Scope execution work; it does not move those data requirements out of Product Scope.
 
-| FR | Served by | Coverage |
+### 7.3 Functional-to-Quality/Technical Cross-Reference
+
+| Functional requirement | Served or constrained by | Coverage |
 |---|---|---|
 | FR-01 | NFR-04, NFR-08, TR-DM-01, TR-DM-05, SHARED-01 | Covered |
 | FR-02 | **NFR-01**, NFR-04, TR-DM-04, TR-DM-06 | Covered |
