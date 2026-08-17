@@ -368,3 +368,295 @@ Future revisions must preserve these distinctions:
 - raw feedback versus approved requirement change;
 - human survival pressure versus institutional evidence and controls; and
 - public information versus permission, counsel, or clearance.
+
+## 16. Editorial Briefcase addendum
+
+Sections 1–15 remain in force without deletion or replacement. This addendum layers a small set of inspectable work artifacts onto the manual PoC so that the work performed before publication can be reviewed, handed over, and improved.
+
+### 16.1 Clarified prompt for this addendum
+
+> Preserve every existing section of the Board proposal. Add an **Editorial Briefcase** as the manual PoC work package linked to the existing source/article workflow. The briefcase may begin from pasted article text, a LinkedIn post, a claim, a source, an idea, or a professional observation. It must produce six inspectable artifacts—Claims, Evidence, Uncertainty, Counterargument, Classification, and Explainable Draft—and a four-part client report: What we know, What we think, What we do not know, and Why we reached this conclusion. Treat the five deeper business layers—Evidence, Reasoning, Decision, Execution, and Publishing—as judgment-rule observability categories, not as permission to build a large platform. Preserve the existing MVP's publication-ready article workflow. The PoC client receives explainable public content and may use their own process to create a final newsworthy article. Do not build, change the schema, or amend governing documents under this addendum.
+
+### 16.2 Interpretation boundary
+
+The phrase “submit the product without the publishable article to the various news platforms” is ambiguous. This proposal applies the safer coherent interpretation:
+
+> The Editorial Briefcase is **not** submitted directly to a news platform as a finished article. For house publishing, the Chief Editor uses the briefcase inside the existing editorial workflow to produce and approve the publication-ready article. For a client engagement, the PoC stops at explainable public content; the client applies their own editorial process before any external publication.
+
+If the Board intends a different meaning, it should amend this clause expressly before approval.
+
+## 17. The brutally small Editorial Briefcase MVP
+
+The briefcase is a bounded work package, not a second publishing platform. During the PoC it may be maintained manually. This section defines the information and decision artifacts, not a database schema or build backlog.
+
+### 17.1 Input Card
+
+The Chief Editor may paste or record one primary input:
+
+- article;
+- LinkedIn post;
+- claim;
+- source;
+- idea; or
+- professional observation.
+
+The Input Card also records:
+
+- input type;
+- originator and trigger channel;
+- original URL, document reference, or `UNANCHORED` status;
+- date observed;
+- intended audience and desired outcome;
+- relevant rights, privacy, confidentiality, and conflict flags; and
+- the Chief Editor responsible for intake.
+
+A claim, idea, or professional observation may begin as `UNANCHORED`, but it cannot silently become fact or enter the existing publication path. The Chief Editor must locate or receive reviewable sources and satisfy the existing URL-intake rule before the house-publication workflow proceeds.
+
+### 17.2 Processing artifacts
+
+#### Artifact 1 — Claims Ledger
+
+**Question:** What factual or material claims are being made?
+
+Record each material claim separately, with an identifier, exact or normalized wording, origin, affected person or organization, and current status. Compound claims are split so that one supported clause does not hide an unsupported clause.
+
+#### Artifact 2 — Evidence Map
+
+**Question:** What evidence supports or contradicts each claim?
+
+Link every claim to its sources, source position, relevance, independence, recency, rights restrictions, and support/contradiction relationship. An unlinked claim remains unsupported regardless of how plausible it sounds.
+
+#### Artifact 3 — Uncertainty Register
+
+**Question:** What cannot currently be established?
+
+Record missing evidence, unresolved contradictions, ambiguous terms, unavailable participants, timing limits, confidence boundaries, and what evidence would change the assessment. Absence of evidence is not automatically evidence of absence.
+
+#### Artifact 4 — Counterargument Brief
+
+**Question:** What is the strongest reasonable objection or alternative account?
+
+State the strongest good-faith counterargument, the evidence it relies on, how the draft responds, and what remains unresolved. A weak “straw person” objection does not satisfy this artifact.
+
+#### Artifact 5 — Statement Classification
+
+**Question:** What kind of statement is each material sentence?
+
+Classify and visibly distinguish:
+
+- **Fact** — externally verifiable and supported to the stated level;
+- **Interpretation** — meaning inferred from facts using an explicit frame;
+- **Opinion** — a value judgment or preference attributable to a person;
+- **Prediction** — a forward-looking claim dependent on assumptions.
+
+Mixed statements are decomposed. Classification does not prove correctness; it controls how strongly a statement may be written.
+
+#### Artifact 6 — Explainable Draft
+
+**Question:** How can the current assessment be communicated without hiding its basis or uncertainty?
+
+Generate a plain-language draft that links material conclusions to the Claims Ledger, Evidence Map, Uncertainty Register, Counterargument Brief, and Statement Classification. This is explainable public content, not automatically a platform-ready or Chief-Editor-approved news article.
+
+### 17.3 Client Decision Report
+
+The briefcase produces one short report with four required sections:
+
+1. **What we know** — supported facts and their sources.
+2. **What we think** — interpretations, opinions, and the frame used.
+3. **What we do not know** — unresolved uncertainty and missing evidence.
+4. **Why we reached this conclusion** — the evidence, counterargument, judgment rules, and accountable decision basis.
+
+The fourth section records a concise decision rationale. It does not expose private model chain-of-thought. Inspectability comes from sources, rule versions, classifications, reason codes, exceptions, and human decisions.
+
+## 18. Briefcase as work in the existing system
+
+### 18.1 Relationship model
+
+```mermaid
+flowchart LR
+    A["Raw trigger or pasted material"] --> B["Editorial Briefcase"]
+    B --> C1["Claims Ledger"]
+    B --> C2["Evidence Map"]
+    B --> C3["Uncertainty Register"]
+    B --> C4["Counterargument Brief"]
+    B --> C5["Statement Classification"]
+    B --> C6["Explainable Draft"]
+    C1 --> D["Client Decision Report"]
+    C2 --> D
+    C3 --> D
+    C4 --> D
+    C5 --> D
+    C6 --> D
+    D --> E{"Delivery route"}
+    E -->|House editorial route| F["Existing article/source record and five-gate workflow"]
+    F --> G["Chief Editor-approved publishable article"]
+    G --> H["Existing publication target"]
+    E -->|Client PoC route| I["Explainable public content delivered to client"]
+    I --> J["Client's own editorial and publication process"]
+```
+
+The briefcase is the **work package**; the Article remains the existing publication object. In a future approved build, an Article could reference its briefcase, but this proposal does not decide cardinality, storage, migrations, or user interface.
+
+### 18.2 Gate-to-artifact view
+
+| Existing editorial point | Briefcase evidence available to the reviewer | Authority remains |
+|---|---|---|
+| Intake / Reporter | Input Card, provenance, topic, source, relevance, trend signal | Existing Reporter/Chief Editor arrangement |
+| Investigator | Claims Ledger and Evidence Map | Existing investigation gate |
+| Journalist | Uncertainty Register, Counterargument Brief, Statement Classification, Explainable Draft | Existing journalism gate |
+| Senior Reviewed | Challenge completeness, contradictions, classifications, and unresolved risk | Existing human-review direction |
+| Virtual Chief Journalist check | Completeness and approved deterministic-rule results | Recommendation only |
+| Chief Editor decision | Entire briefcase, exceptions, overrides, and decision rationale | Final `Publish/Hold/Escalate` authority subject to approved high-liability controls |
+
+This is a review lens, not permission to rename gates or introduce new workflow states.
+
+## 19. Difference between the existing MVP and the Briefcase PoC
+
+| Dimension | Existing My-Editorial-App MVP | Editorial Briefcase PoC |
+|---|---|---|
+| Primary job | Move a sourced article through editorial gates to a publication-ready outcome | Turn messy material into an inspectable evidence-and-reasoning package |
+| Accepted starting material | URL/article intake under the existing design | Article, LinkedIn post, claim, source, idea, or professional observation |
+| Core work object | Article with workflow state and publication target | Briefcase containing linked judgment artifacts |
+| Editorial endpoint | Chief Editor-approved publishable article | Explainable public content and Client Decision Report |
+| Platform endpoint | WordPress publish or LinkedIn-ready under the existing route | None; the briefcase is not directly published to a news platform |
+| Final transformation | Existing editorial workflow produces the publishable article | Client performs their own later editorial process, unless the work is explicitly routed into the house workflow |
+| Account boundary | Single Chief Editor | Still single Chief Editor; the client receives a deliverable, not an account |
+| Payment | No in-application monetization feature | Manual payment for the service outcome |
+| Shared purpose | Evidence-aware, controlled public knowledge | Improve the evidence and reasoning available before publication |
+
+The two are complementary:
+
+- the **Briefcase PoC** makes pre-publication judgment observable and gives clients a usable reasoning product; and
+- the **existing MVP** governs the final house-publication path.
+
+Neither output should be presented as the other. An explainable draft is not automatically newsworthy, publication-ready, legally safe, or platform-compliant.
+
+## 20. Deeper business architecture as observable artifacts
+
+The long-term architecture remains:
+
+```text
+Evidence → Intelligence → Decision → Action → Learning → Publication
+     ▲                                                        │
+     └──────────────────── measured feedback ─────────────────┘
+```
+
+For the Editorial Briefcase, the five business layers are represented by inspectable artifacts:
+
+| Layer | Purpose | Briefcase artifacts | Observable judgment record |
+|---|---|---|---|
+| **1. Evidence** | Establish the source basis | Input Card, source records, Claims Ledger, Evidence Map | Provenance, source-to-claim links, support/contradiction, rights flags |
+| **2. Reasoning** | Test meaning and alternatives | Uncertainty Register, Counterargument Brief, Statement Classification | Assumptions, ambiguity, alternatives, unresolved contradictions, rule version |
+| **3. Decision** | State what follows and why | Client Decision Report, Chief Editor disposition | Conclusion, reason codes, dissent, exception, reviewer, date |
+| **4. Execution** | Define what happens next and learn from it | Evidence requests, correction tasks, client actions, feedback record | Owner, status, due/review point, result, change signal |
+| **5. Publishing** | Convert approved knowledge into public communication | Explainable Draft; later publication-ready article only on the appropriate route | Version, audience, approvals, publication target, correction/retraction linkage |
+
+These artifacts make the editorial system observable without pretending that every judgment can be reduced to a score or exposing raw private reasoning. For each material decision, the system should eventually be able to show:
+
+- which inputs and sources were used;
+- which approved judgment-rule version ran;
+- which classifications and uncertainty flags resulted;
+- what the virtual agent recommended;
+- what the Chief Editor decided and why;
+- what changed after feedback; and
+- which artifact version supported any publication.
+
+During the manual PoC, a simple versioned folder or document pack is sufficient. The five-layer model is an architectural horizon, not authority to build a giant publishing platform.
+
+## 21. Briefcase-specific implementation plan — no build
+
+### Phase EB-0 — Board addendum approval
+
+- Decide B-P0-11 through B-P0-16 in §22.
+- Confirm that §§1–15 remain approved or pending on their own terms.
+- Confirm that the briefcase is a manual artifact pack during the PoC.
+- Confirm the house-publication route and client-delivery route are distinct.
+
+### Phase EB-1 — manual artifact templates
+
+After Board approval, prepare one lightweight template for each artifact:
+
+1. Input Card;
+2. Claims Ledger;
+3. Evidence Map;
+4. Uncertainty Register;
+5. Counterargument Brief;
+6. Statement Classification;
+7. Explainable Draft;
+8. Client Decision Report; and
+9. Chief Editor disposition and feedback record.
+
+Use consistent engagement, claim, source, artifact-version, and decision identifiers. This is document preparation, not application development.
+
+### Phase EB-2 — run inside the existing manual PoC
+
+- Create one briefcase per engagement.
+- Link the briefcase to the trigger and any existing article/source URL.
+- Complete the six processing artifacts before delivery.
+- Record `UNANCHORED`, unsupported, uncertain, or disputed material explicitly.
+- Apply Chief Editor review and the existing hold/escalation rules.
+- Deliver only the Client Decision Report and agreed supporting artifacts.
+- Do not directly publish the client briefcase.
+
+### Phase EB-3 — observe the artifacts
+
+For each artifact record:
+
+- time to complete;
+- revisions and returns;
+- missing or duplicated information;
+- Chief Editor correction;
+- client usefulness and reuse;
+- risk or misunderstanding caused;
+- whether the artifact affected the final decision; and
+- whether the step is repeatable or judgment-dependent.
+
+### Phase EB-4 — decide whether anything deserves software
+
+After 5–10 cases, propose only the smallest repeated artifact operations that reduce effort without weakening accountability. A later build proposal must separately define Product Scope, data model, access, privacy, security, acceptance tests, migration impact, and relationship to the existing Article workflow.
+
+No artifact becomes a feature merely because it appears in this addendum.
+
+## 22. Board approval addendum
+
+| ID | Decision requested | Status |
+|---|---|---|
+| B-P0-11 | Approve the Editorial Briefcase as the manual PoC work package while retaining §§1–15 | Pending |
+| B-P0-12 | Approve the six input types and require provenance plus `UNANCHORED` handling | Pending |
+| B-P0-13 | Approve Claims, Evidence, Uncertainty, Counterargument, Classification, Explainable Draft, and Client Decision Report as the minimum artifact set | Pending |
+| B-P0-14 | Confirm the client PoC ends at explainable public content and does not directly publish the briefcase to news platforms | Pending |
+| B-P0-15 | Approve the five business layers as observability categories with concise rationale—not private model chain-of-thought | Pending |
+| B-P0-16 | Confirm this addendum authorizes manual templates and observation only, with no code, schema, workflow-state, account, payment, or publication change | Pending |
+
+## 23. Briefcase acceptance checklist
+
+A manual briefcase is complete only when:
+
+- one Input Card identifies the trigger, input type, origin, intended audience, and provenance status;
+- every material claim has a stable identifier and classification;
+- every factual claim is linked to evidence or marked unsupported;
+- contradictory evidence is visible;
+- unresolved uncertainty is explicit;
+- the strongest reasonable counterargument is represented fairly;
+- Fact, Interpretation, Opinion, and Prediction are distinguishable;
+- the Explainable Draft can be traced to the artifacts;
+- the Client Decision Report answers all four required questions;
+- the judgment-rule version, virtual-agent recommendation, Chief Editor decision, exceptions, and date are recorded;
+- the delivery route is explicit; and
+- no client briefcase is mistaken for a final platform-ready article.
+
+## 24. Briefcase preservation layer
+
+Future revisions must preserve:
+
+- work package versus publication object;
+- explainable draft versus publishable news article;
+- evidence trace versus a claim of truth;
+- concise decision rationale versus private chain-of-thought;
+- statement classification versus evidential sufficiency;
+- professional observation versus verified fact;
+- customer delivery versus platform publication;
+- client editorial responsibility versus Chief Editor house-publication authority;
+- artifact observability versus automated decision authority;
+- the five-layer horizon versus present PoC scope; and
+- manual learning evidence versus build authorization.
