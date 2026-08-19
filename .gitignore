@@ -13,3 +13,9 @@ next-env.d.ts
 
 # graphify — generated knowledge graph, rebuildable from docs/ via `/graphify docs`
 .graphify/
+ast.js
+b3.js
+cache.js
+detect.js
+partc.js
+step*.js
