@@ -34,7 +34,13 @@ Executable now. Exact procedure, target text, and verification are in `docs/jour
 
 **Output:** 4 files edited, `Modular_PRD` → v1.6, traceability map → v1.3, one commit.
 
-### T1 — Chief Editor decisions before S0 *(16 items)*
+### T1 — Chief Editor decisions before S0 *(20 items)*
+
+> **T1's first deliverable is its own runbook (`D-21`/`G31`).** T0 has six items and a full procedure with exact text, version discipline, and verification. T1 carries twenty, touches governed documents, and touches the two files every agent reads first — with no procedure at all. Produce the runbook before executing the rest.
+
+**Four items land in a single edit to `CLAUDE.md` and `AGENTS.md`** — repoint off the stale plan pack (`A7`), cover `AGENTS.md` (`G5`), name `docs/v1/` as operative (`D-15`), and state the output contract (`D-20`). One edit, four payloads.
+
+Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` EMS audit citation · `D-19` artifact inventory into each sprint DoD · `D-20` output contract · `D-21` T1 runbook.
 
 | Group | Items | Gates |
 |---|---|---|
@@ -49,7 +55,11 @@ Executable now. Exact procedure, target text, and verification are in `docs/jour
 
 ### S0 — Reconciliation and config spine *(no feature code)*
 
-Config registry with a `PROVISIONAL` marker on every OD-derived value · feature flags · `DECISION_LOG.md` and `CONFIG_LOG.md` · amend `CLAUDE.md` **and `AGENTS.md`** (`A7`, `G5`) · remove Stripe scaffolding (`X8`, `NG-03`) · **verification apparatus** · draft migration `0002` **without applying it**.
+Config registry with a `PROVISIONAL` marker on every OD-derived value · feature flags · `DECISION_LOG.md` and `CONFIG_LOG.md` · remove Stripe scaffolding (`X8`, `NG-03`) · **verification apparatus** · draft migration `0002` **without applying it**.
+
+> **`D-17` — where the draft lives.** `supabase/migrations/` is the directory tooling treats as the apply set, so a draft placed there can be applied by a routine command, a CI step, or another agent following the folder's convention. Hold it outside that path — e.g. `docs/v1/drafts/` — and move it in **as the act of authorizing S1**, once all eight T2 decisions are settled.
+
+*(The `CLAUDE.md`/`AGENTS.md` amendment moved to T1 — it needs the `QE` decision and now carries four payloads. See T1.)*
 
 **DoD:** every number is a named variable with a citation · no success-scenario literal in business logic · `0001_init.sql` unmodified · CI green on an empty suite · no migration applied.
 **OD gating:** none.
