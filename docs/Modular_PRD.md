@@ -31,7 +31,7 @@
 | **PRD Owner** | Chief Editor (robertaoai) — Line 2, Risk & Compliance |
 | **Reviewers / Approvers** | Chief Editor is the sole human approver. **No Eng Lead, Design Lead, Data Lead, or Legal function exists on this project.** Not an omission — see §0.3 |
 | **Status** | `Draft` — planning only. No application code, no migration applied, no env pulled, no push |
-| **Version** | 1.5 — this document's own lineage; it does not continue `docs/PRD.md`'s version history |
+| **Version** | 1.6 — this document's own lineage; it does not continue `docs/PRD.md`'s version history |
 | **Last Updated** | 2026-08-16 |
 | **Jira Project Key** | **Not provisioned.** Execution tracking is `docs/journal/2026-08-16-sprint-plan.md` §6 (S0–S6) — see §8 |
 | **Confluence / Wiki Link** | **Not provisioned.** This repo's `docs/` is the wiki |
@@ -50,6 +50,7 @@
 | **1.3** | **2026-08-17** | Claude, from a third external review, Chief Editor reviewing | **The v1.2 fix introduced an undefined marker and then miscounted its own scope describing it — a third live instance of the project's own named count-drift defect.** Six rows (`G-02`, FR-05's Outputs line, `TR-DM-02`, `NFR-03`, `AC-07`, `AC-08`) had been given a doubled `⚠⚠`, which §0.4 never defined — it defines exactly one marker, single `⚠`, tied explicitly to an OD. §12's ritual ("has its OD moved?") and countermeasure list had no answer for four of the six rows, which have no OD behind them, only `Q11`. Both changelog entries describing the fix said "five" — the sprint-plan entry named all six in its own parenthetical and miscounted anyway; this document's v1.2 entry named only five, silently dropping `TR-DM-02`. **Resolved, not just documented:** confirmed via the pre-existing "Three FRs are provisional… FR-05 (OD2)" note that `G-02` and FR-05's Outputs line carry a genuine second proviso independent of Q11, while the other four have no OD relationship in their own text. Replaced `⚠⚠` throughout with two distinct, defined markers: `⚠` stays OD-only; new `[Q11]` marks rows depending on the Q11 naming decision alone. `G-02` and FR-05's Outputs line now carry both; the other four carry `[Q11]` only. Defined `[Q11]` in §0.4, added a `[Q11]`-specific line to §12's ritual, and named `TR-DM-02`/`NFR-03` explicitly in §12's countermeasure list. Annotated, not rewrote, the v1.2 entry above. No open decision closed, no Charter text touched, no number invented |
 | **1.4** | **2026-08-17** | Claude, from a fourth external review, Chief Editor reviewing | **v1.3's fix was accurate everywhere it touched — the six table rows — but didn't reach every place stating the same fact.** §10's own `Q11` decision-request row, the section a decision-maker reads to decide whether to answer Q11 at all, still said "propagates into five places," still omitted `TR-DM-02` despite naming it in the same row's own "Unblocks" column, and still described every affected row as "marked ⚠ pending Q11" — stale even against v1.3's own fix, since two of the four rows it named (`AC-07`, `AC-08`) had just been correctly changed to `[Q11]`-only. **Fourth live instance of the count-drift defect, this time in the section that decides whether the whole chain of fixes was worth reading.** Corrected: §10's `Q11` row now names all six locations, states the marker split explicitly (⚠ for `G-02`/FR-05's Outputs only, `[Q11]` for all six), and says "six marked rows." Also added a cross-reference to the sprint plan's newly-defined `[S1-IRREVERSIBLE]` marker (§0.4), since that plan's `A21`/`A22`/`Q10`/`Q11` rows had been using a bare, undefined `⚠` that directly contradicted this section's own "never interchangeable" rule the moment the rule was written — same glyph, two files, two meanings, same rows. See sprint plan register row A28. No open decision closed, no Charter text touched, no number invented |
 | **1.5** | **2026-08-17** | Codex, Graphify-assisted requirement reconstruction | **Corrected the scope/type category error in §7.** Functional versus non-functional describes requirement behaviour; Product versus Project Scope describes provenance and purpose. Product Scope now contains customer-anchored functional, non-functional, security, and data requirements. Project Scope now contains unanchored functional requirements and delivery/governance enablers that support the Customer Request indirectly. Mixed rows retain a customer-derived outcome in Product Scope while their implementation mechanism is separated into Project Scope. Added the uncovered CR-14 and partial CR-06 gaps to the scope view; renamed §7.3 so it no longer implies every NFR is Project Scope. No requirement text or customer statement changed |
+| **1.6** | **2026-08-19** | Antigravity | **Three decision-free disclosures, no scope change.** Added the report immutability rule to §6.3 under `PSK-10` — stating the rule the S1 report design must satisfy, explicitly *not* restating `NFR-02`'s `workflow_transitions` wording, which awaits counsel (T2/TX). Disclosed in §0.3 that independent assurance is an Absent function: the Chief Editor's disposition is a management assertion, not an audit opinion; substantive remedy is `Q2`. Annotated `NG-02` as a v1 exclusion so the S1 tenancy boundary does not read as a Charter breach — boundary preserved, no multi-team capability built. No open decision closed, no Charter text touched, no number invented |
 
 ### 0.2 Decision Log
 
@@ -77,6 +78,7 @@ Owners are therefore assigned **by Line**, which is the project's real accountab
 | **Absent** | No such function exists on this project | Design, Legal, GTM, Support/Ops, Data |
 
 **Functions marked Absent are risks, not conveniences.** Legal absence is load-bearing: Entry 006 §13 row S4 requires pre-publication legal review for high-sensitivity content, and Entry 007 removed fundraising from scope pending independent legal review. Neither can be discharged internally.
+**Independent Assurance is Absent.** The Chief Editor disposition is a management assertion, not an independent audit opinion.
 
 ### 0.4 Governing context — what this PRD may and may not do
 
@@ -184,7 +186,7 @@ Every published article carries a complete, tamper-evident record of who reviewe
 | ID | Non-Goal | Rationale | Source |
 |---|---|---|---|
 | `NG-01` | No mobile app — web only | Single operator, desktop workflow | Charter |
-| `NG-02` | No multi-team accounts — one Chief Editor account | Operating model is one human | Charter |
+| `NG-02` | No multi-team accounts — one Chief Editor account | Operating model is one human (**v1 exclusion only**) | Charter |
 | `NG-03` | **No monetization features** | Charter-level v1 exclusion. **The repo currently ships Stripe scaffolding against this** — S0 removes it (X8) | Charter |
 | `NG-04` | No automated Facebook publishing — manual cross-posting only | Requires Meta Business verification | Charter |
 | `NG-05` | No real-time trend-detection algorithm — RSS intake only | Unvalidated; scoring formula is v0 and unreviewed | Charter |
@@ -374,6 +376,7 @@ The most consequential requirement, and the one most at risk of being quietly ov
 | `TR-DM-06` | `allowed_transitions` | from_state, to_state, gate_role, line | **Create — S1.** Backs the NFR-01 trigger; makes the sequence data-driven rather than hard-coded | FR-02, FR-06 |
 
 **Retention:** rejected and archived after `DATA_RETENTION_ARCHIVE_DAYS`; published kept indefinitely; **`workflow_transitions` never deleted.**
+**Report Immutability (PSK-10):** An issued report is never edited and never deleted; a superseded report is answered by issuing a new report citing the original.
 **PII:** articles sourced from individuals on social platforms may carry personal data. GDPR handling is deferred to Phase 2 (Addendum G2) — recorded as an accepted gap, not a solved problem.
 
 ### 6.4 Non-Functional Requirements

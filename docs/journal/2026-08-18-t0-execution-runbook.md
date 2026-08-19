@@ -1,7 +1,7 @@
 # T0 Execution Runbook — Do-Now Documentation Fixes
 
 **Date:** 2026-08-18
-**Status:** Planning only. Proposed text for review before execution. No code, no migration, no schema.
+**Status:** Executed on 2026-08-19. Proposed text has been applied.
 **Scope:** The six `T0` items in `2026-08-18-consolidated-gaps-and-open-questions.md` §3 — every one documentation-only, decision-free, and blocked by nothing.
 **Estimated effort:** one sitting. Four files, seven edits, one commit.
 

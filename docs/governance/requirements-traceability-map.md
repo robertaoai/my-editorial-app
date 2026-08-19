@@ -1,6 +1,6 @@
 # Requirements Traceability Map
-**Version:** v1.1
-**Date:** 2026-08-16
+**Version:** v1.3
+**Date:** 2026-08-19
 **Owner:** Project sponsor (routes between customer and project team)
 **Purpose:** anchor every project-team specification to a customer statement, in both directions.
 
@@ -139,7 +139,7 @@ Read this direction to answer: *"the customer asked for X — where did it go?"*
 | `CR-12` | FR-09, FR-10, AC-14…AC-16 | Covered |
 | `CR-13` | FR-08, AC-13 | Covered, **extended**: customer names three filters; the team adds a fourth, Line assignment. → **FB-03** |
 | `CR-14` | **— none —** | ⚠ **UNCOVERED.** A customer MVP checkbox with no functional requirement in `Modular_PRD.md`. → **FB-05** |
-| `CR-15` | NG-01, NG-02, NG-08; SEC-03 defers auth to S6 | Covered |
+| `CR-15` | NG-01, NG-02, NG-08; SEC-03 defers auth to S6 | Covered (AP-01/MVP only; does not constrain P0-EVR) |
 | `CR-16` | NG-01, NG-02, NG-03 | Covered. NG-03 is reinforced at Charter level |
 | `CR-17` | NG-04, NG-05, NG-06, NG-07 | Covered |
 | `CR-18` | NG-08, NG-09 | Covered |
@@ -246,3 +246,4 @@ Items to route **to the customer via the project sponsor**. None is a defect in 
 - **2026-08-16 v1.0:** Created after the Chief Editor corrected the project team's framing of the two requirement documents. The earlier framing judged `PRD.md` by supply-side standards and proposed that `Modular_PRD.md` "governs where they differ" — incoherent under PMI requirements flow, since the project team's document cannot outrank the customer's statement of wants. Replaced with the elaboration-versus-change-request distinction (§1). Anchored all 19 customer statements to SHA-256 content hashes at `53ace36`, built the forward and backward traces, and found: one uncovered customer requirement (CR-14, AI tagging), one partially covered (CR-06, blocked by TC3), and **five specifications with no customer origin** (FR-06, FR-11, FR-12, FR-13, NG-10, NG-11) — all justified, none disclosed. Raised the missing Business Charter from a go-live checklist item to a structural gap, since it is `PRD.md`'s unverifiable upstream. Eight feedback items opened for routing via the sponsor. *(The bolded count above was itself wrong — see v1.1.)*
 - **2026-08-17 v1.1:** An external EMS gap-analysis audit of `Modular_PRD.md` caught a genuine miscount: v1.0 said "five specifications" while listing six (FR-06, FR-11, FR-12, FR-13, NG-10, NG-11). Verified against the register itself — the count is **six items: four functional requirements and two non-goals.** Corrected in §4 (backward-trace table header remains accurate — it never stated a total) and §7's `FB-04` row. This is the same defect class §1 already named as the project's recurring failure mode: a number restated without re-derivation. It reached its own audit trail. See `docs/journal/2026-08-16-sprint-plan.md` for the audit's other findings (Three Lines Model citation currency, the `judgment_independence_status` naming/identity-provenance gap, tool-vs-product scope, blind-first-pass at T5) — none of which are decided in this file.
 - **2026-08-17 v1.2:** Corrected the backward-coverage summary after Graphify-assisted scope normalization. The previous `7 / 3 / 5` counts double-counted FR-04 (once as anchored and again through its execution constraint) and still reported five unanchored items while naming six. Requirements are now counted once at requirement-ID level: **6 fully anchored, 3 partially anchored, 6 unanchored = 15 specifications** (FR-01…FR-13 plus NG-10 and NG-11). FR-04 is correctly marked partially anchored because the customer requested the review gate but not the team's human-only execution constraint.
+- **2026-08-19 v1.3:** Scoped `CR-15`'s coverage note to AP-01/MVP, so a future reader does not mistake the separately chartered P0-EVR client surface for a breach of the single-account requirement. Also corrected this document's own header, which still declared v1.1 while the changelog already carried a v1.2 entry — the header was not bumped when the Graphify scope normalization landed. Same defect class this file's §1 names as the project's recurring failure mode, this time in the version field itself. No customer statement changed, no content hash affected.

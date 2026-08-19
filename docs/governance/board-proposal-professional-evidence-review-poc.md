@@ -454,7 +454,7 @@ Before payment, the engagement record must state plainly that the client receive
 
 #### Terminology correction
 
-Use **Client-First Exclusivity Window**, not “warrant period.” “Warrant” or “warranty” could imply a guarantee. The window is a time-limited contractual hold on My-Editorial-App's own publication activity so the client has the first agreed opportunity to publish their independently prepared article.
+Use **Client-First Exclusivity Window**, not “warrant period.” This is a **P0-EVR concept only** and must not leak into the shared AP-01 core. “Warrant” or “warranty” could imply a guarantee. The window is a time-limited contractual hold on My-Editorial-App's own publication activity so the client has the first agreed opportunity to publish their independently prepared article.
 
 “Fair trade” in this proposal means a house commercial-fairness principle: the paying client receives a disclosed first-publication opportunity, while the newsroom may later pursue the underlying public topic independently. It is not a claim of a universal media-industry rule and must not be confused with jurisdiction-specific legal doctrines such as fair use or fair dealing.
 

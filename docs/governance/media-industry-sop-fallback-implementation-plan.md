@@ -162,6 +162,7 @@ Additional Project Scope keys required by this plan:
 | PSK-07 | Contractual obligations and liquidated-damages control | Register contracts, trigger clauses, deadlines, rights, approvals, remedies, and evidence of performance |
 | PSK-08 | Confidential-source and whistleblower protection | Secure intake, identity minimization, promise terms, access control, public-interest/harm review, and legal referral |
 | PSK-09 | House SOP and judgment-rule governance | Source standards, rule versions, validation cases, approval, monitoring, calibration, and rollback |
+| PSK-10 | Immutable audit reporting and report reproducibility | An issued report is never edited and never deleted; a superseded report is answered by issuing a new report citing the original |
 
 Partial anchors should show both sides rather than forcing one label:
 

@@ -61,12 +61,7 @@ Every item here is documentation-only, closes a real gap, and is blocked by noth
 
 | Item | Action | Closes |
 |---|---|---|
-| `G4` | Add "coverage scoped to AP-01" to `CR-15`'s row in `requirements-traceability-map.md:142`. Without it, a future reader sees `CR-15` marked Covered and a client surface existing, and reads a violation | `G4` |
-| `G8` | State that the Client-First Exclusivity Window is P0-EVR-only. AP-01's research-discovered articles have no client and no window; unstated, the concept leaks into the shared core | `G8` |
-| `G14` follow-up | Annotate `NG-02` with its v1 scoping. The decision is made — see §10 — but the annotation is outstanding, and it is what stops a future reviewer re-deriving it | `G14` |
-| **Step 1** | Register `PSK-10` — immutable audit reporting and report reproducibility. No Customer Request asks for it; unregistered it is undisclosed funded scope, the defect `FB-04` named | `GA8` |
-| **Step 2** | State the immutability rule once, in the governed spec: *an issued report is never edited and never deleted; a superseded report is answered by issuing a new report that cites the original* | `GA2` (stated half) |
-| **Step 3** | Disclose that the Chief Editor's disposition is a **management assertion** and that no independent audit opinion exists. Disclosure only — the substantive fix is `Q2` in T1 | `GA6` (disclosure) |
+| *(All items closed)* | *(Moved to §10)* | *(See §10)* |
 
 **Standing discipline, not a task:** `G18` — two gap-numbering series exist (`G` here, `GA` in the audit plan). §11 is the cross-reference. Raise any new gap in one series only.
 
@@ -218,8 +213,14 @@ These sit outside the sequence. Nothing in this analysis set can close them, and
 | Revenue rule | *Revenue may attach to the business and to the service. Revenue must never attach to a specific editorial decision.* Satisfies `NG-03` (payment outside the app), `NG-11` (no per-story solicitation), `CR-16` *(governed home still outstanding — `QD`, T1)* |
 | Exclusivity window | Three data points: client-confirmed length, delivery-triggered start, calculated end. **Nothing auto-publishes** — `NG-10`/`TC9` forbid it |
 | `G7` split | Split into `G7a` (manual lane, no build dependency, T3) and `G7b` (systematized exposure, T4/T5). An earlier entry called `G7` "the largest single open work item" without distinguishing halves with **opposite** dependency profiles |
-| **`G21` withdrawn** | The CSV RACI and the gate table describe **different layers**, not competing models: CSV roles are **human** (`A` — Accountable), the five gates are **virtual agents** (`R` — Responsible). With one natural person, all human accountability collapses to the Chief Editor — so `raci-involvement-matrix.md`'s *"A is invariant"* is **correct for v1**. The "conflict" was an artifact of reading both as one layer |
+| `G21` withdrawn | The CSV RACI and the gate table describe **different layers**, not competing models: CSV roles are **human** (`A` — Accountable), the five gates are **virtual agents** (`R` — Responsible). With one natural person, all human accountability collapses to the Chief Editor — so `raci-involvement-matrix.md`'s *"A is invariant"* is **correct for v1**. The "conflict" was an artifact of reading both as one layer |
 | Enum reconciliation | **Withdrawn.** `pub_target` (what the business can automate) and `platform_type` (which channel) are **orthogonal axes**, not duplicates. Merging them would destroy the distinction that makes the manual publication path expressible |
+| `G4` | Added "coverage scoped to AP-01" to `CR-15`'s row in `requirements-traceability-map.md`. |
+| `G8` | Stated that the Client-First Exclusivity Window is P0-EVR-only in `board-proposal-professional-evidence-review-poc.md`. |
+| `G14` follow-up | Annotated `NG-02` with its v1 scoping in `Modular_PRD.md`. |
+| `GA8` (Step 1) | Registered `PSK-10` (immutable audit reporting) in `media-industry-sop-fallback-implementation-plan.md`. |
+| `GA2` (Step 2) | Stated the report immutability rule in `Modular_PRD.md`. |
+| `GA6` (Step 3) | Disclosed that the Chief Editor's disposition is a management assertion in `Modular_PRD.md`. |
 
 ---
 
