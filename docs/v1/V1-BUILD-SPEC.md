@@ -132,3 +132,5 @@ Deferring this behind S0/S1 would stall commercial evidence for no technical rea
 ## 8. Scope limits
 
 Authorizes no code, schema, migration, or deployment. Every sprint above requires its own separate build authorization. Approval of a decision is not permission to implement it.
+
+`D-22`–`D-28` are documentation and governance controls only. They add no product payment feature, financial-accounting feature, automated signature, new application role, or change to the editorial pipeline.

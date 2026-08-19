@@ -1,9 +1,10 @@
 # Alpha Portfolio Business-Continuity and Project-Closure Implementation Plan
 
-**Status:** Draft for Board review  
+**Status:** Approved portfolio planning baseline where the operative Decision Register records an approval; otherwise planning only
 **Change class:** Portfolio, project-closure, and evidence-planning analysis only  
 **Build authorization:** None  
 **Protected baselines:** `docs/PRD.md` and `docs/source/project-charter-v1.md` remain unchanged  
+**Approval record:** `docs/v1/V1-DECISION-REGISTER.md`, including supplemental decisions `D-22`–`D-28` recorded 2026-08-19
 
 ## 1. Clarified prompt
 
@@ -131,6 +132,74 @@ Closing the anchor project means the portfolio has decided that every project ob
 4. **Cancelled:** the value case or safe-delivery condition failed and further investment is stopped.
 
 Closure does not require pretending every business uncertainty has vanished. It requires that no uncertainty remains ownerless or hidden inside an indefinitely open project.
+
+### 6.4 Approved downstream Charter and financial interpretation
+
+This section implements `D-22`–`D-28`. For AP-01 it is a downstream interpretation of the frozen Charter, not an edit to that Charter. A future project charter may include the clauses directly.
+
+#### 6.4.1 Financial terms and reconciliation
+
+| Term | Controlled meaning |
+|---|---|
+| **Provider Cost Baseline** | The provider's approved, time-phased delivery budget: base cost estimate plus contingency reserve for identified risks. It excludes the consumer's management reserve and the provider's margin |
+| **Contract Price/Payment Baseline** | The contractually agreed amount payable by the customer, subject to payment milestones, acceptance terms, and authorized changes |
+| **Legacy Commercial Cost Baseline** | Compatibility label for an older project where “Cost Baseline” meant the customer-payable amount. It maps to the Contract Price/Payment Baseline. New projects may not use this meaning without the qualifier |
+| **Actual Project Cost** | Provider costs actually incurred for the project |
+| **Invoiced Amount** | Amount billed under the contract; it is not automatically cash received or recognized revenue |
+| **Cash Received** | Customer payments actually collected |
+| **Recognized Project Revenue** | Revenue recognized as the contractual performance obligation is satisfied under the applicable accounting policy |
+| **Other-Channel Revenue** | Separately attributable subscription, maintenance, licensing, syndication, or similar revenue. It requires a stated attribution rule and may not be double-counted as project-service revenue |
+| **Contribution Margin** | Attributable recognized revenue less direct and allocated project costs. Use “profit” only after the approved overhead, finance, tax, and other allocation rules are applied |
+| **Business Value** | Evidenced customer or business outcome. Price, cost, cash, or revenue alone does not prove value |
+
+The provider's internal price reconciliation is:
+
+```text
+Base cost estimate
++ identified-risk contingency
+= Provider Cost Baseline
++ provider margin or fee
+= Contract Price/Payment Baseline
+```
+
+A consumer-held management reserve for unforeseen circumstances remains outside that reconciliation. It changes the provider's contract only through an authorized change. The provider plan may show the full internal build-up; a customer-facing document shows only the breakdown the contract or approved disclosure policy requires.
+
+Portfolio profitability reporting keeps separate columns for Provider Cost Baseline, actual cost, Contract Price/Payment Baseline, invoices, cash received, recognized project revenue, other-channel revenue, and contribution margin. This permits older and newer projects to be normalized without retroactively changing their source terminology.
+
+#### 6.4.2 Charter responsibility, accountability, and evidence
+
+| Charter activity | Responsible | Accountable | Required record |
+|---|---|---|---|
+| Prepare and complete the Charter | Project Manager, supported by the assistant | Project Sponsor | Project Manager preparation certification |
+| Authorize business purpose, scope envelope, funding, and project initiation | Project Sponsor | Project Sponsor | Attributable human Sponsor signature |
+| Accept day-to-day project and task management | Project Manager | Project Manager | Attributable human Project Manager signature |
+| Check document readiness | Assistant under Project Manager direction | Project Manager | Machine readiness attestation; not a signature |
+
+**Project Sponsor signature block**
+
+- Project Sponsor Name: Robert Tan
+- Project Sponsor Title: Chief Editor
+- Attestation: authorizes the Charter's business purpose, scope envelope, funding authority, risk acceptance, and authority to initiate the project.
+
+**Project Manager signature block**
+
+- Project Manager Name: Robert Tan
+- Project Manager Title: Chief Editor
+- Attestation: certifies Charter preparation completion and accepts accountability for day-to-day project management, task management, dependency control, cost control, delivery coordination, reporting, and escalation within the authorized Charter.
+
+One Project Manager signature covers both preparation certification and operational role acceptance. It does not need to be duplicated as a third signature.
+
+**Project-management assistant record**
+
+- Assistant: ChatGPT Codex
+- Permitted evidence: document version, timestamp, checks performed, source reconciliation, unresolved conditions, and readiness recommendation.
+- Boundary: the machine readiness attestation is not a human signature, scope or funding approval, liability acceptance, or independent assurance.
+
+For the present zero-to-one business, Robert Tan occupies both named human roles and signs in each capacity. That is an explicit role-concentration exception, not separation of duties. If a rule later requires distinct human occupants, the exception cannot satisfy it; a second authorized human must be appointed.
+
+This project-governance allocation does not alter the editorial task matrix's statement that the Acting Chief Editor is the invariant accountable human for T1–T11. The matrices govern different institutional objects: project authorization and management here, editorial transitions in the RACI document.
+
+Interpretive sources: [PMI cost-baseline explanation](https://www.pmi.org/-/media/pmi/documents/public/pdf/pmbok-standards/errata-sheet-qas-6th.pdf), [PMI fixed-price price build-up and reserve guidance](https://www.pmi.org/learning/library/challenges-fixed-price-contracts-9640), [IFRS 15 revenue overview](https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/), and [OpenAI product-capability overview](https://developers.openai.com/). These sources support terminology and tool capability; they do not replace contract-, jurisdiction-, or accounting-specific review.
 
 ## 7. Anchor-project closure scorecard
 
@@ -314,9 +383,9 @@ To make the plan executable by one accountable person:
 - no high-liability whistleblower or source-protection case is accepted merely to test the control; and
 - personal survival pressure is answered with workload, cash, and risk limits—not by relaxing editorial gates.
 
-## 12. Portfolio decision register proposed for approval
+## 12. Portfolio decisions — operative status recorded elsewhere
 
-| ID | Proposed decision | Effect if approved |
+| ID | Decision | Effect |
 |---|---|---|
 | APD-01 | Recognize the Alpha Portfolio as the continuing business container and AP-01 as its temporary zero-to-one anchor project | Stops the anchor project from becoming the whole business architecture |
 | APD-02 | Freeze `PRD.md` and the v1 Project Charter as the original approved baseline | Later evidence is appended downstream or assigned to a new project |
@@ -329,7 +398,7 @@ To make the plan executable by one accountable person:
 | APD-09 | Approve one-case WIP, cohort, cost, time, topic, rights, and risk stop-loss limits | Makes continuity executable by the Chief Editor |
 | APD-10 | Require a portfolio closure/branch decision after the evidence window | Prevents indefinite analysis and project limbo |
 
-All identifiers and resolutions remain proposals until the Board records a decision, date, conditions, owner, dissent, and review/closure trigger.
+The authoritative approval status and conditions are recorded in `docs/v1/V1-DECISION-REGISTER.md`. This section explains the decisions and does not resubmit or reopen an item already approved there.
 
 ## 13. Guaranteed failure modes
 
@@ -367,11 +436,11 @@ Future revisions must preserve:
 
 The strongest current synthesis is a portfolio with one protected historical anchor, one bounded manual evidence lane, and two conditional branches rather than one overloaded mega-project. AP-01 keeps its approved zero-to-one meaning. P0-EVR produces evidence. AP-02 exists only if the Board needs a narrow continuity vehicle. AP-OD4 exists only if the retained Charter trigger fires and the Board separately authorizes the Proposer → Critics → Judge system.
 
-The open work is institutional rather than technical: approve the portfolio map, define the anchor closure scorecard, decide the PoC bounds, resolve or transfer OD1–OD3 through dated downstream acts, preserve OD4, establish independent rule authority, and set a mandatory closure/branch date.
+The open work is institutional rather than technical: execute the approved portfolio map, define the anchor closure scorecard, settle the still-deferred PoC numbers, resolve or transfer OD1–OD3 through dated downstream acts, preserve OD4, establish independent rule authority, and set a mandatory closure/branch date.
 
 ## 16. Next-step architecture — no build
 
-1. Board reviews APD-01 through APD-10 and records conditions rather than blanket approval.
+1. Use the APD outcomes and conditions already recorded in the operative Decision Register; do not resubmit approved items. Complete only their named follow-ups.
 2. The Chief Editor populates the AP-01 closure scorecard from existing evidence without changing `PRD.md` or the Charter.
 3. The existing PoC decision packet is reconciled to the portfolio map and approved/rejected.
 4. The 5–10-case manual evidence lane runs under one-case WIP and stop-loss limits.
@@ -392,4 +461,4 @@ This plan interprets but does not amend:
 - [Media-Industry SOP fallback plan](media-industry-sop-fallback-implementation-plan.md)
 - [Requirements traceability map](requirements-traceability-map.md)
 
-If this draft conflicts with an approved governing document, the governing document controls. This plan may only become portfolio authority through a recorded Board decision.
+If this plan conflicts with an approved governing document, the governing document controls. Its authority is limited to the decisions and conditions recorded in the operative Decision Register; unrecorded proposals remain non-authoritative.
