@@ -106,6 +106,43 @@ Every conditionally approved item, its follow-up, and where it lands.
 
 **Chief Editor decisions still to make — 16.** `Q0`, `Q2`, `Q3`, `Q4`, `Q5`, `Q6`, `Q8`, `Q11`, `Q12`, `QA3`, `QB`, `QC`, `QD`, `QE`, `G23`, `G24`. See `V1-BUILD-SPEC.md` for which sprint each gates.
 
+## 5.1 Gap disposition — all 40 IDs
+
+**Added 2026-08-18 after a completeness challenge.** The first version of this register absorbed gap *content* without carrying gap *IDs*, so 16 of 40 identifiers had no trace in the operative set and no index survived supersession. A reader following an ID hit a dead end: the operative documents did not carry it, and the document that did was marked non-operative. **Supersession must transfer traceability, not destroy it.**
+
+| ID | Disposition | Where it now lives |
+|---|---|---|
+| `G1`, `G2`, `G13` | **Closed** | `D-01` — tenancy; each customer is its own tenant, engagement is a work-package identifier inside it |
+| `G3` | Open | `C-04` → `QB`, T3 |
+| `G4` | Open | T0 item 1 |
+| `G5` | Open | T1, four-payload edit |
+| `G6` | Open | `D-04` + `QD`, T1 |
+| `G7a` / `G7b` | Open | T3 charter / T4 design, T5 enforcement |
+| `G8` | Open | T0 item 2 |
+| `G9` | Watch | T5, before S4 is specified |
+| `G10` | Open | `QC`, T1 |
+| **`G11`** | **Open — no owner** | **Concurrent Claude/Codex edits to `docs/`. No arbitration rule, no forcing function. Partially mitigated by `D-20`, which puts the output contract where both agents read it — but authority on a conflicting edit remains undecided** |
+| `G12` | **Closed** | The 42 Board items are now approved — §1 |
+| `G14` | Open | T0 item 3 |
+| `G15` | **TX — counsel** | Pairs with `GA5`; do not close one on the other |
+| `G16` | Open | S1 window — `Q10` + `Q11` as one migration |
+| `G17` | Open | S1 window item 2 — `QA3` |
+| **`G18`** | **Standing rule** | **Two gap series exist (`G`, `GA`). Raise any new gap in one series only, and record it in this table. This rule was itself lost in the first supersession — an instance of the drift it warns about** |
+| `G19` | Open | `D-06`, S1 window item 7 |
+| `G20` | Open | `D-11`, S1 window item 8 |
+| `G21` | **Withdrawn** | Human `A` versus agent `R` — different layers, not a conflict — §2 |
+| `G22` | Open | `C-10`, T3 |
+| `G23`…`G31` | Open | `D-10`, `D-09`, `D-15`…`D-21` respectively |
+| `GA1`, `GA3`, `GA4` | Open | S1 window item 3 — report record shape |
+| `GA2` | Open | T0 Step 2 *(stated half)* + S1 window item 4 *(insert/read-only)* |
+| `GA5` | **TX — counsel** | Pairs with `G15` |
+| `GA6` | Open | T0 Step 3 *(disclose)* + `Q2`, T1 *(resolve)* |
+| `GA7` | Open | T3, audit Step 7 — auditor access versus tenant isolation |
+| `GA8` | **Closed on execution** | `D-13` — `PSK-10`, T0 Step 1 |
+| `GA9` | Open | `D-07`, S1 window item 6 |
+
+**Closed: 6** *(`G1`, `G2`, `G12`, `G13`, `GA8`, plus `G21` withdrawn)*. **Escalated to counsel: 2** *(`G15`/`GA5`)*. **Unowned: 1** *(`G11`)*. **Remainder open against a named phase.**
+
 ## 6. Supersession map
 
 The thirteen files below **remain in place as the dated analysis record**. They are the audit trail for how these decisions were reached and must not be deleted. What changes is that they are **no longer operative** — where any of them differs from this register or `V1-BUILD-SPEC.md`, these two documents control.
@@ -119,7 +156,7 @@ The thirteen files below **remain in place as the dated analysis record**. They 
 | `poc-charter-separation-and-revenue-model` | Charter separation; revenue rule | `D-04`, `D-05` |
 | `transition-intent-vocabulary` | `event_type` + 22 intent codes | `D-12`; vocabulary retained by reference |
 | `audit-model-and-remediation-plan` | CPA audit model, `GA1`–`GA9`, Steps 1–11 | `D-13`, `D-14`; steps mapped to phases |
-| `consolidated-gaps-and-open-questions` | Timeline register, `G1`–`G24` | Phase structure carried into the build spec |
+| `consolidated-gaps-and-open-questions` | Timeline register, `G1`–`G24` | Phase structure carried into the build spec. **Retained as the gap-detail record** — §5.1 carries the IDs and dispositions; this file holds each gap's full description and evidence. Same treatment as the T0 runbook: superseded as *operative*, retained as *reference* |
 | `t0-execution-runbook` | Exact T0 edit procedure | **Still executable** — retained as the T0 working procedure |
 | `storyboard-business-and-digital-twin` | Both lanes panel by panel | Confirmed gaps; no decisions of its own |
 | `raci-human-vs-digital-twin` | Human `A` versus agent `R`; `G19`, `G20` | `D-11`; `G21` withdrawn |
