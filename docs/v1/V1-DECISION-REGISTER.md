@@ -205,7 +205,55 @@ Two skills are available. They are not alternatives; only one is compatible with
 
 **The one adaptation required.** `spec-writing`'s structure places Data Models, API Contracts, and UI in the same document. Under `D-30` those belong in `SPECS`. Applied unadapted it would produce a `Fn_Specs` duplicating `SPECS` content — violating the redundancy rule. `FN-GATES-01-05.md` carries them as §9 pointers instead, naming which five components need `SPECS` and why.
 
-**Binding:** `specs-creator` is not to be invoked in this repository. Recorded in `CLAUDE.md` and `AGENTS.md` so the constraint reaches every agent, not only the one that decided it.
+~~**Binding:** `specs-creator` is not to be invoked in this repository.~~ **Superseded same day by `D-32`.**
+
+### `D-32` — amends `D-31`: two-stage spec pipeline
+
+**Chief Editor challenge, 2026-08-19, upheld.** `D-31`'s prohibition rested on a terminology error and was over-broad.
+
+**The terminology correction, recorded so it does not recur:**
+
+| Document | What it actually is |
+|---|---|
+| `docs/PRD.md` | **Project** Requirements Document — the first draft covers **all scopes**, not only the product |
+| `docs/Modular_PRD.md` | **Product** Requirements Document — the product-scoped spec |
+
+`D-31` claimed `specs-creator` "creates PRDs, and `PRD.md` is frozen." That was an **acronym collision, not a real one.** A generated *Product* Requirements Document collides with neither: `PRD.md` is a different artifact class, and `Modular_PRD` already occupies the product tier. **Objection 1 of `D-31` is withdrawn.**
+
+**Objection 3 is also withdrawn.** `specs-creator`'s bundle — overview plus behaviour plus interface — maps onto what `Fn_Specs` needs, because **UX implies behaviour**. The bundling is appropriate at this tier rather than a defeat of change localization.
+
+**Objections 2 and 4 stand, and are addressed by invocation discipline rather than prohibition.**
+
+#### The pipeline
+
+```
+Modular_PRD feature group
+      │
+      ▼
+specs-creator  ──▶ first-draft Fn_Specs      (generate)
+      │
+      ▼
+spec-writing   ──▶ refined Fn_Specs          (fine-tune to standard)
+      │
+      ▼
+D-30 filter    ──▶ SPECS, conditional only   (candidates, then filtered)
+```
+
+#### Binding guardrails
+
+| # | Rule | Addresses |
+|---|---|---|
+| 1 | **Input must be a `Modular_PRD` feature group — never a prose description.** Anchors travel with the input; a free-form description produces unanchored scope | `D-31` objection 2 / `FB-04` |
+| 2 | **Explicit invocation only. Never proactive**, despite the skill's own framing | `D-31` objection 4 / `G11` |
+| 3 | **Emitted tech-spec content is a `SPECS` candidate list, not a `SPECS` document.** Apply `D-30`'s redundancy test to each item; anything `Fn_Specs` already determines is discarded | `D-30` |
+| 4 | **UI stays in `SPECS`.** `Fn_Specs` remains behaviour-focused. *(Chief Editor decision — the UI/UX linkage argued in the challenge was considered and UI placement left unchanged.)* | `D-30` unchanged |
+| 5 | `spec-writing` always runs after generation. `specs-creator` output is a **draft**, never a finished spec | Quality |
+
+#### Why the feature-group input matters
+
+`Modular_PRD` gives the overview of a feature — or a **group of related features that cannot function without each other**. `Fn_Specs` breaks that group down along its own line of logic, one document per group. That is what keeps the pieces composable: each spec is a brick that stands alone because its group's internal dependencies were resolved before it was written. Feeding the generator a loose description instead of a resolved group produces overlap, and overlap is repetition.
+
+**Effect on existing work:** `FN-GATES-01-05.md` is unaffected — it was written from a resolved feature group and keeps UI in `SPECS`. Its §9 filter already implements guardrail 3.
 
 ### Effect on §6.1's freeze
 

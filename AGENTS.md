@@ -31,10 +31,22 @@ Rationale stays in the linked document.
 **Apply proposed text in full.** When executing a runbook, do not summarise or abbreviate —
 `G32` occurred because operative content was dropped that way.
 
-**Spec tooling (`D-31`).** Use the `spec-writing` skill for `Fn_Specs` and `SPECS`. **Never
-invoke `specs-creator`** — it generates a PRD from a description, and `docs/PRD.md` is frozen;
-it would either edit the frozen record or create a competing one. When applying `spec-writing`,
-move Data Models / API Contracts / UI out of `Fn_Specs` and into `SPECS` per `D-30`.
+**Terminology.** `docs/PRD.md` is the **Project** Requirements Document — all scopes, not only
+product. `docs/Modular_PRD.md` is the **Product** Requirements Document. They are different
+artifacts; do not treat the shared acronym as a collision.
+
+**Spec tooling (`D-32`, amends `D-31`).** Two-stage pipeline:
+`Modular_PRD` feature group → `specs-creator` drafts `Fn_Specs` → `spec-writing` refines it →
+`D-30` filter yields `SPECS`, conditionally.
+
+Guardrails, all binding:
+1. Input must be a **`Modular_PRD` feature group, never a prose description** — anchors travel
+   with the input, and a description produces unanchored scope (`FB-04`).
+2. **Explicit invocation only; never proactive**, despite the skill's own framing (`G11`).
+3. Emitted tech-spec content is a **`SPECS` candidate list**, not a `SPECS` document. Apply
+   `D-30`'s redundancy test; discard anything `Fn_Specs` already determines.
+4. **UI stays in `SPECS`.** `Fn_Specs` remains behaviour-focused.
+5. `spec-writing` always runs after generation — `specs-creator` output is a draft.
 
 **Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
 `supabase/migrations/0001_init.sql`.
