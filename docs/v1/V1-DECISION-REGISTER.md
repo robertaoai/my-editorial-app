@@ -440,8 +440,50 @@ Both existing specs are marked **entirely `[V1]`** — both were written within 
 
 | # | Gap | Severity |
 |---|---|---|
-| **`G37`** | **Topic cardinality is contradictory.** `FR-01` and `AC-01` both require **"≥1 topic tag."** The applied schema has `articles.topic_id` as a **single FK with no join table**, so exactly one topic is possible. Meanwhile `trend_signals.signal_type = 'topic_tag'` provides a *second, multi-valued* path. **Two mechanisms, conflicting cardinality, neither authoritative.** `TR-DM-01` and `TR-DM-05` resolve neither | **S1** — a join table after S1 is a migration, not a column |
-| **`G38`** | **UI surfaces carry no requirement.** `ARCHITECTURE.md` §Nav Shell specifies four — Board, Article Detail, Topics, Audit Log. `FR-08` covers the board; `FR-07` covers the audit *record* as data, not a page. **Topics and Audit Log pages have no FR at all** | **DOC** — resolve in `Fn_Specs` or record as out of scope |
+| ~~**`G37`**~~ | ~~Topic cardinality is contradictory~~ — **WITHDRAWN 2026-08-19.** Not a contradiction: **two concepts, not one.** See `D-38` | — |
+| ~~**`G38`**~~ | ~~UI surfaces carry no requirement~~ — **RESOLVED 2026-08-19.** Defaults to `CR-04`, which carries `TR-DM-05` (data) and **no FR**. See `D-38` | Folds into `CR-04` |
+
+### `D-38` — topic semantics and the `CR-04` default
+
+**Chief Editor clarification, 2026-08-19.** Both `G37` and `G38` resolve, and `G37` was my error.
+
+#### `G37` withdrawn — the topic *is* the business
+
+**This is an editorial business, so a topic is not a label; it is the subject.** Two distinct concepts share the word "topic," and I read them as one:
+
+| Concept | Mechanism | Cardinality | Purpose |
+|---|---|---|---|
+| **Subject topic** | `articles.topic_id` — single FK | **Exactly one** | What the article *is about*. One topic to one article is the **start direction** |
+| **Analytical tags** | `trend_signals.signal_type = 'topic_tag'` | **Many** | **Trending analysis and different-angle analysis** — not the article's subject |
+
+The schema is **correct as applied**. A single FK for the subject and a multi-valued signal table for analysis is the right shape, not a conflict.
+
+**What is genuinely imprecise is `FR-01`'s wording.** *"Log an article by URL with ≥1 topic tag"* conflates the two: it reads as cardinality on one concept when there are two. `AC-01` inherits the same phrasing.
+
+> **New item — `G39`:** restate `FR-01`/`AC-01` to separate **exactly one subject topic** from **zero or more analytical tags**. Documentation only, and it belongs in `Fn_Specs` for the gates group. **No schema change** — the schema was never wrong.
+
+#### `G38` resolved — it defaults to `CR-04`
+
+UI surfaces trace back to their originating Customer Request. Verified:
+
+| Surface | CR | Coverage |
+|---|---|---|
+| Board | `CR-13` | `FR-08` ✅ |
+| Article Detail | `CR-10` | `FR-02`, `FR-03` ✅ |
+| Audit Log | `CR-07`, `CR-11` | `FR-07` ✅ |
+| **Topics** | **`CR-04`** | **`TR-DM-05` only — a *data* requirement, no FR** |
+
+`CR-04` is the main CR carrying data coverage without functional coverage. `G38` therefore is not a standalone gap; it **defaults to `CR-04`**, and any Topics-surface work traces there.
+
+*(Distinct from `CR-14`, the one genuinely **uncovered** CR — no FR and no TR — already tracked as `FB-05`.)*
+
+#### Fifth error of the same family
+
+`D-31` (Project vs Product `PRD`) · `D-33` (`app-vision.md` vs `Modular_PRD`) · `pub_target` vs `platform_type` · tracking files vs specs · and now **subject topic vs analytical tag**.
+
+Every one: two concepts sharing a name, read as one thing in conflict with itself. The `D-34`/`D-36` countermeasure is extended a second time —
+
+> **Before recording a contradiction, ask whether one word is carrying two concepts.** In a domain-specific business the domain term usually is: "topic" here means *the editorial subject*, and that is not the same as a tag. `D-22` (cost baseline) remains the precedent.
 
 #### Three tracking tiers, confirmed
 
