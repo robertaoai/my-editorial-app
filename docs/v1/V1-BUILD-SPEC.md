@@ -57,7 +57,7 @@ Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` 
 
 Config registry with a `PROVISIONAL` marker on every OD-derived value · feature flags · `DECISION_LOG.md` and `CONFIG_LOG.md` · remove Stripe scaffolding (`X8`, `NG-03`) · **verification apparatus** · draft migration `0002` **without applying it**.
 
-> **`D-17` — where the draft lives.** `supabase/migrations/` is the directory tooling treats as the apply set, so a draft placed there can be applied by a routine command, a CI step, or another agent following the folder's convention. Hold it outside that path — e.g. `docs/v1/drafts/` — and move it in **as the act of authorizing S1**, once all eight T2 decisions are settled.
+> **`D-17` — where the draft lives.** `supabase/migrations/` is the directory tooling treats as the apply set, so a draft placed there can be applied by a routine command, a CI step, or another agent following the folder's convention. Hold it outside that path — e.g. `docs/v1/drafts/` — and move it in **as the act of authorizing S1**, once **every S1 window decision** is settled (`V1-DECISION-REGISTER.md` §5.15 Stage 4 — the count is not restated here, per `D-54`).
 
 *(The `CLAUDE.md`/`AGENTS.md` amendment moved to T1 — it needs the `QE` decision and now carries four payloads. See T1.)*
 
@@ -66,7 +66,13 @@ Config registry with a `PROVISIONAL` marker on every OD-derived value · feature
 
 ### S1 — Data model and sequence guard
 
-**All eight T2 decisions must be settled before this migration is written.** They alter the same append-only table and cannot be sequenced.
+**Every S1 window decision must be settled before this migration is written.** They alter the same append-only table and cannot be sequenced.
+
+> **The window is listed in `V1-DECISION-REGISTER.md` §5.15 Stage 4 — read it there.** This line previously said *"all eight"*; the count had already changed twice by 2026-08-20 (`G42` in Step 0, `G57` the same day). **A count restated in a second document is the drift mechanism** (`G55`, `G56`, `D-54`).
+
+**Precondition — `SPECS-TRANSITION-ENFORCEMENT` (`D-53`).** `G33b` closed 2026-08-20 (`D-52`): of 18 `SPECS` candidates, 7 absorb into this window, 9 require `SPECS` across 4 documents, 1 is infrastructure ⚙, 1 is blocked by `Q2`. **Exactly one is required before S1** — `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md`, which settles trigger timing, allowed-transitions table shape, and lock behaviour. The other three are sprint-aligned (S3, S4, S5).
+
+**Also blocking — `G57`.** This sprint is instructed to backfill `article_state_v2` *"via the `X3` mapping"*. **No such mapping exists.** Eight values to ten including four renames, and `senior_reviewed`/`chief_approved` sit on opposite sides of the four-eyes boundary — a transposed backfill misattributes which articles crossed the Line boundary, permanently, in an append-only table. **Specify the eight-row mapping as reviewed data before `0002` is written.**
 
 | # | Decision | Source |
 |---|---|---|

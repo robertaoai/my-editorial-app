@@ -45,7 +45,7 @@
 | D-14 | **Report immutability:** an issued report is never edited or deleted; supersede with a new report citing the original | T0 documentation |
 | D-15 | **`docs/v1/` named as operative** in `CLAUDE.md`, `AGENTS.md`, and `docs/README.md` — nothing currently points to it (`G25`) | T1 |
 | D-16 | **EMS audit citation resolved** — retain the report under `docs/governance/`, or annotate both citations to record it as unretained and name what stands in its place. **Never delete the citation** (`G26`) | T1 |
-| D-17 | **Draft migration `0002` held outside `supabase/migrations/`** until all eight T2 decisions are settled. That directory is the apply set; "do not apply" is a note, not a property of the location (`G27`) | S0 |
+| D-17 | **Draft migration `0002` held outside `supabase/migrations/`** until every S1 window decision are settled. That directory is the apply set; "do not apply" is a note, not a property of the location (`G27`) | S0 |
 | D-18 | **The 14 manual PoC templates become an owned work item**, sequenced after the charter and before the first engagement. Chartering authorizes the lane; templates make it operable (`G28`) | T3 |
 | D-19 | **Artifact inventory attached to each sprint's Definition of Done** — a sprint is done when its named files exist, not when its prose is satisfied (`G29`) | T1 |
 | D-20 | **Output contract added to `CLAUDE.md` and `AGENTS.md`** — every analysis response ends with an Approve / Approve-with-conditions / Defer / Reject table in house vocabulary; conditions name their follow-up phase (`G30`) | T1 |
@@ -180,6 +180,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G48` | **Resolved 2026-08-19** | A paid engagement failing the gate — deliver with the finding disclosed. §5.14j, §5.14k, `D-49`/`D-50` |
 | `G49` | **Open** — S3 | Briefcase artifacts specified for POC only; MVP needs them or it cannot tell rework from true negative. §5.14k |
 | `G56` | **Closed 2026-08-20** | §5.15 solve sequence stale — found and repaired in the same pass. See §5.4 |
+| `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
 | `G57` | **Open — new** | The `X3` state backfill mapping is **named but never specified**. S1 is instructed to *"backfill via the `X3` mapping"*; `X3` is a one-line divergence record, not a mapping. §5.14n |
 | `G50` | **Closed 2026-08-20** | Distribution provenance — `D-51`, §5.4, `docs/graph-fragments/README.md` §2 |
 | `G51` | **Closed 2026-08-20** | Curated graph layer rescued to `docs/graph-fragments/` — 61 nodes, 142 edges. §5.4 |
@@ -1330,6 +1331,68 @@ Revoking `DELETE` stops a **statement** from removing a committed row. A transac
 ### Scope limits
 
 Authorizes no code, schema, migration, or deployment. Names no field — `Q11` is open and **irreversible after S1**. `G57` is recorded, **not resolved**.
+
+## 5.14o `D-54` — the propagation rule: a decision lands in every tier that owns a facet of it
+
+**Decision, 2026-08-20.** A decision that **creates, sequences, or retires an artifact** must land in **all three** `docs/v1/` documents **in the same pass** — or state, in the register, why a tier is not affected.
+
+**Closes `G58`.** Recorded because the omission it fixes had already happened seven times in one session.
+
+### What went wrong
+
+| Tracking file | Carried `D-52`, `D-53`, `G33b`, `G55`–`G57`? |
+|---|---|
+| `V1-DECISION-REGISTER.md` | **Yes** — all of them |
+| `V1-BUILD-SPEC.md` | **None** |
+| `V1-ARTIFACT-INVENTORY.md` | **None** — last touched 2026-08-19 |
+| `Modular_PRD` §8 | **None** |
+
+Two specifics: `V1-BUILD-SPEC` still read *"All eight T2 decisions"* — **the exact stale count removed from this register two turns earlier**, fixed in one file and left standing in another. And `V1-ARTIFACT-INVENTORY`, which answers *"what must exist"*, had **no entry** for `docs/fn-specs/`, `docs/specs/`, or `docs/graph-fragments/` — four `Fn_Specs`, the first `SPECS` document, and twelve fragment files, invisible.
+
+### Why it happened — and why tighter scope would not have prevented it
+
+| # | Cause |
+|---|---|
+| 1 | **Completion was reported against the executing agent's own scope, not against artifact state.** *"Done"* meant *the step finished*, never *the tracking set is consistent* |
+| 2 | **§6 says findings are absorbed into "whichever of these three owns the question" — singular.** An artifact-creating decision is owned by **all three**: the register decides it, the build spec sequences it, the inventory lists it. Nothing forced the fan-out |
+| 3 | `G29` **gave every sprint an artifact DoD. A decision never got one.** Landing it in the register therefore looked complete — because in the register it was |
+| 4 | **The drift came from obeying scope.** Each turn was correctly scoped to one approved step; propagation sat outside every step. **Every turn was individually correct and the set drifted anyway** |
+
+> **Cause 4 is the operative one.** Because the drift was produced by *correct* scope discipline, **narrowing scope cannot fix it.** Only an explicit propagation obligation can. That is what this decision is.
+
+### The rule
+
+| Tier | Owns | Must be updated when |
+|---|---|---|
+| `V1-DECISION-REGISTER.md` | What is decided | **Always** |
+| `V1-BUILD-SPEC.md` | What is built, in what order | The decision changes sprint scope, sequence, or a DoD |
+| `V1-ARTIFACT-INVENTORY.md` | What must exist | The decision creates or retires a file |
+| `Modular_PRD` §8 | Build versions and their sprints (`D-35`) | A sprint closes or a tier opens |
+
+**The approve/reject table carries the obligation.** Any row reporting an artifact created, sequenced, or retired must name the tiers updated — or record the tier as *not affected*. **A row that names no tier is not evidence of completion.**
+
+### Counts do not propagate — pointers do
+
+Propagation copies **the fact**, never **the tally.** `V1-BUILD-SPEC`'s *"eight T2 decisions"* is precisely what propagating a count produces: correct when written, wrong within two turns, and wrong in a second location where nobody was looking. **Tiers point at the record; they do not restate it** (`G55`, `G56`).
+
+### First application — this session's decisions, tier by tier
+
+**Applying the rule to the backlog that produced it.** A dash means *verified not affected*, never *not checked*.
+
+| Decision / gap | Register | Build spec | Inventory | `Modular_PRD` §8 |
+|---|---|---|---|---|
+| `D-52` — `G33b` filter | ✅ | ✅ scope | ✅ four `SPECS` rows | ✅ tier opened |
+| `D-53` — `SPECS-TRANSITION-ENFORCEMENT` | ✅ | ✅ S1 precondition | ✅ file row | ✅ tier opened |
+| `G57` — `X3` mapping | ✅ | ✅ S1 blocker | ✅ missing-artifact row | ✅ S1 gate |
+| `G55` — index truncated | ✅ | — *register-internal* | — *no artifact* | — *not a sprint event* |
+| `G56` — solve sequence stale | ✅ | — *register-internal* | — *no artifact* | — *not a sprint event* |
+| `D-54` — this rule | ✅ | — *governs, does not sequence* | — *no artifact* | ✅ propagation recorded |
+
+**Two of six touch every tier. Two touch one.** That asymmetry is the point: the rule is not *"update everything"* — it is *"decide per tier, and say so."* A blanket update would restate register-internal findings in three documents that do not own them, which is `D-30`'s redundancy failure wearing a different hat.
+
+### Scope limits
+
+Closes no Open Decision. Authorizes no code, schema, or migration. Governs documentation propagation only.
 
 ## 5.15 Solve sequence — remaining open gaps
 

@@ -9,6 +9,8 @@
 
 ## 1. Verified current state
 
+> **Propagation scope (`D-54`).** This document answers *"what must exist."* A decision reaches it **only when it creates or retires a file.** Register-governance findings — `G55` and `G56` (index and solve-sequence drift), `D-54` itself — change no artifact and are **recorded here as not affected**, not omitted by oversight. `G33b` reaches this document through `D-52`, which is cited on every `SPECS` row below.
+
 | Artifact | Referenced by | Exists |
 |---|---|---|
 | `lib/config/build-config.ts` | S0 | ❌ |
@@ -23,6 +25,16 @@
 | 14 manual PoC templates | Board proposal Phase EB-1 | ❌ |
 | `supabase/migrations/0001_init.sql` | applied baseline | ✅ **never edit** |
 | `lib/stripe/`, `lib/supabase/` | — | ✅ *(Stripe removed in S0 per `X8`)* |
+| `docs/fn-specs/FN-GATES-01-05.md` | `G33a`, `FR-01`–`FR-05` | ✅ |
+| `docs/fn-specs/FN-PUBLICATION-09-10-13.md` | `G33a`, `FR-09`/`FR-10`/`FR-13` | ✅ |
+| `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` | `G33a`, `FR-07`/`FR-08` | ✅ |
+| `docs/fn-specs/FN-EXCEPTIONS-06-11-12.md` | `G33a`, `FR-06`/`FR-11`/`FR-12` | ✅ |
+| `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` | `D-52`/`D-53` — **S1 precondition** | ✅ |
+| `docs/specs/SPECS-BOARD-QUERY.md` | `D-52`, S3 | ❌ |
+| `docs/specs/SPECS-PUBLICATION.md` | `D-52`, S4 *(five components)* | ❌ |
+| `docs/specs/SPECS-EXCEPTIONS.md` | `D-52`, S5 | ❌ |
+| `docs/graph-fragments/` | `G51` — curated graph layer, rebuild source | ✅ |
+| `X3` eight-row state backfill mapping | `G57`, S1 window | ❌ **blocks `0002`** |
 
 **No broken internal document links** — the docs are self-consistent. The gaps are artifacts that were planned but never created, not references that dangle.
 
@@ -56,7 +68,7 @@ S0 says *"Draft `supabase/migrations/0002_three_lines.sql`. **Write it, do not a
 
 Given `NFR-02` makes `workflow_transitions` append-only and the S1 window carries **eight irreversible decisions**, an accidentally applied draft is materially expensive — and this is precisely the class of risk the S1 one-pass rule exists to prevent.
 
-**Fix:** hold the draft outside the apply path until all eight T2 decisions are settled — e.g. `docs/v1/drafts/0002_three_lines.draft.sql` — and move it into `supabase/migrations/` only as the act of authorizing S1. **Phase: S0** *(location decision, no build)*.
+**Fix:** hold the draft outside the apply path until every S1 window decision is settled (`V1-DECISION-REGISTER.md` §5.15 Stage 4 — count not restated, `D-54`) — e.g. `docs/v1/drafts/0002_three_lines.draft.sql` — and move it into `supabase/migrations/` only as the act of authorizing S1. **Phase: S0** *(location decision, no build)*.
 
 ### `G28` — the 14 manual templates are the real gate on the POC lane
 
@@ -102,7 +114,7 @@ The phase with the most items, the most files, and the widest blast radius is th
 |---|---|---|---|
 | `G25` | Name `docs/v1/` in `CLAUDE.md`, `AGENTS.md`, `docs/README.md` — folds into the `A7`/`G5` edit | **T1** *(corrected from T0)* | Documentation |
 | `G26` | Retain the EMS audit under `docs/governance/`, **or** annotate both citations to record it as unretained and name what stands in its place | **T1** | Documentation |
-| `G27` | Hold draft `0002` outside `supabase/migrations/` until the eight T2 decisions are settled | **S0** | Location decision |
+| `G27` | Hold draft `0002` outside `supabase/migrations/` until the S1 window decisions are settled | **S0** | Location decision |
 | `G28` | Add the 14 PoC templates as a T3 work item with an owner, after the charter, before the first engagement | **T3** | Documentation |
 | `G29` | Attach the artifact inventory to each sprint's DoD | **T1** | Documentation |
 | `G30` | Add the output contract to `CLAUDE.md` and `AGENTS.md`, in the same edit as `G25` | **T1** | Documentation |

@@ -28,6 +28,13 @@ governance** (`D5`). It is **not authoritative.**
 Defer / Reject table in house vocabulary. Each condition names its follow-up phase.
 Rationale stays in the linked document.
 
+**Propagation (`D-54`).** A decision that creates, sequences, or retires an artifact lands in
+**all three** `docs/v1/` documents in the same pass — register (always), build spec (scope,
+sequence, DoD), artifact inventory (files) — plus `Modular_PRD` §8 when a sprint closes or a
+tier opens. State explicitly when a tier is unaffected. **An approve/reject row that names no
+tier is not evidence of completion.** Propagate the *fact*, never the *count*: a restated tally
+is the drift mechanism (`G55`, `G56`, `G58`).
+
 **Apply proposed text in full.** When executing a runbook, do not summarise or abbreviate —
 `G32` occurred because operative content was dropped that way.
 

@@ -1,0 +1,62 @@
+{
+  "_comment": "Fragment 11 — D-54 propagation rule, G58. Merged 2026-08-20.",
+  "nodes": [
+    {
+      "id": "d54_propagation_rule",
+      "label": "D-54 — The Propagation Rule",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14o D-54",
+      "description": "A decision that creates, sequences, or retires an artifact must land in all three docs/v1 documents in the same pass — register always, build spec when scope or sequence or a DoD changes, artifact inventory when a file is created or retired — plus Modular_PRD §8 when a sprint closes or a tier opens. A tier that is unaffected must be stated as such, never left blank. The approve/reject table carries the obligation: a row naming no tier is not evidence of completion.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Closes G58. The rule is not 'update everything' but 'decide per tier, and say so' — a blanket update would restate register-internal findings in three documents that do not own them, which is D-30's redundancy failure in another form. Propagation copies the fact, never the tally."
+    },
+    {
+      "id": "g58_tracking_files_stale",
+      "label": "G58 — Sibling Tracking Files Went Stale",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14o",
+      "description": "D-52, D-53, G33b, G55, G56 and G57 were recorded in V1-DECISION-REGISTER only. V1-BUILD-SPEC, V1-ARTIFACT-INVENTORY and Modular_PRD §8 carried none of them. The inventory, which answers what must exist, had no entry for docs/fn-specs, docs/specs or docs/graph-fragments — four Fn_Specs, the first SPECS document and twelve fragment files, invisible.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Four causes. Completion was reported against the executing agent's own scope rather than artifact state. §6 assigns a finding to whichever document owns the question, singular, while an artifact-creating decision is owned by all three. G29 gave sprints an artifact DoD but decisions never got one. And the drift came from obeying scope: every turn was correctly scoped and the set drifted anyway, which is why narrowing scope cannot fix it."
+    },
+    {
+      "id": "stale_count_five_copies",
+      "label": "One Stale Count, Five Copies, Three Files",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "source_location": "S1, D-17",
+      "description": "The phrase 'eight T2 decisions' appeared five times across V1-BUILD-SPEC, V1-ARTIFACT-INVENTORY and V1-DECISION-REGISTER. The S1 window had already changed twice by 2026-08-20 — G42 in Step 0 and G57 the same day. Each copy was correct when written and wrong within two turns, in locations nobody was looking at. All five replaced with pointers to §5.15 Stage 4.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The concrete demonstration of why D-54 propagates facts and not tallies. Fixing the count in one document two turns earlier left four copies standing; the repair itself would have been incomplete without a sweep."
+    }
+  ],
+  "edges": [
+    { "source": "d54_propagation_rule", "target": "g58_tracking_files_stale", "relation": "closes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14o", "weight": 1 },
+    { "source": "d54_propagation_rule", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14o", "weight": 1 },
+    { "source": "d54_propagation_rule", "target": "v1_build_spec", "relation": "governs", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "S1", "weight": 1 },
+    { "source": "d54_propagation_rule", "target": "claude_repository_instructions", "relation": "carried_by", "confidence": "CURATED", "source_file": "CLAUDE.md", "confidence_score": 1, "source_location": "output contract", "weight": 1 },
+    { "source": "d54_propagation_rule", "target": "agents_repository_instructions", "relation": "carried_by", "confidence": "CURATED", "source_file": "AGENTS.md", "confidence_score": 1, "source_location": "output contract", "weight": 1 },
+    { "source": "d54_propagation_rule", "target": "summary_outlived_source", "relation": "countermeasure_for", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14o", "weight": 1 },
+    { "source": "g58_tracking_files_stale", "target": "summary_outlived_source", "relation": "instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14o", "weight": 1 },
+    { "source": "stale_count_five_copies", "target": "d54_propagation_rule", "relation": "evidence_for", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14o", "weight": 1 },
+    { "source": "stale_count_five_copies", "target": "summary_outlived_source", "relation": "instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "S1", "weight": 1 },
+    { "source": "g58_tracking_files_stale", "target": "index_is_not_the_record", "relation": "related_to", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14o", "weight": 1 }
+  ]
+}
