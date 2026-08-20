@@ -842,6 +842,61 @@ This does not break the design. It means the partitioning mechanism (audit-model
 
 **`G44` — the 90-day clock start.** Listed but not answered: *"non-reply after follow-ups"* still needs a **follow-up count** and **interval**. A business rule needing a number, `UNSET` until decided. Chief Editor's call.
 
+## 5.14f `D-45` — `G44` resolved, `G45` withdrawn, transaction ID as the trace
+
+**Chief Editor direction, 2026-08-19.**
+
+### `G44` — put simply, and resolved
+
+**90 days is the *duration*. The clock start is *which day you begin counting from*.** Those are different questions, and only the second was open.
+
+| Client | Clock starts |
+|---|---|
+| **Non-paying** *(dropped cart)* | **The date they made their request** |
+| **Paying** | **The later of** delivery of the goods and services, **or** their discard request |
+
+**My "needs a follow-up count" was wrong.** Follow-ups happen *during* the 90 days — they are an attempt to convert before it expires, not a determinant of when it opens. **No count is needed and none should be invented.** `G44` closes.
+
+The paying-client rule is the standard PDPA/GDPR shape: the purpose survives until delivery, so the clock cannot start before it — and an explicit discard request cannot start it earlier than the purpose ends. **Whichever is later.**
+
+### `G45` withdrawn — anonymisation is not required
+
+**Anonymisation is only worth doing if something needs to read the de-identified data afterwards. Nothing does.**
+
+The chain, from `D-42`: reports exist for **GRC auditability on retraction**. That concerns **editorial output** — the MVP flow. **There is no report over POC client personal data.** So once the PDPA period elapses there is nothing left that needs to read it.
+
+| Consequence | |
+|---|---|
+| POC flow after the period | Shows **no data recorded** by default |
+| Traceability | The **transaction ID** points to the third-party financial system, which holds the record under its own statutory basis |
+
+**Delete rather than anonymise: simpler, and more compliant.** My anonymisation recommendation was over-engineered — it solved a retrieval problem this product does not have.
+
+**`G45` withdrawn. `G41`'s reason codes return to two**, not three.
+
+### Transaction ID — recorded for the first time
+
+**Verified absent from the entire document set.** It is the minimum fact that preserves traceability after personal data is gone: not personal data itself, and sufficient to reach the third-party system that lawfully retains the financial record.
+
+### Two cautions
+
+**1. "No report exists" is not the same fact as "data was deleted."**
+
+| Fact | Accurate statement |
+|---|---|
+| No report was ever generated for this engagement | *"No report exists for this engagement"* |
+| Personal data was deleted at end of retention | *"Client data was removed on [date] under the PDPA schedule"* |
+
+Rendering the second as *"no data recorded"* would imply **nothing ever happened** — which is `G41`'s exact failure mode, turning lawful deletion into apparent evidence of no activity. **The two reason codes must stay distinct even though both produce an empty screen.**
+
+**2. The transaction ID may be pseudonymous rather than anonymous.**
+
+An identifier that permits re-identification — here, by querying the third-party system — can itself be personal data under PDPA, which reaches identifiers usable to identify an individual **alone or with other information**. The third party holds the underlying record on its own lawful basis, so the data lawfully persists there; **whether this product's pointer is itself personal data is a counsel question**, and a narrow one. Recorded so retaining the ID is a **deliberate** decision rather than an assumed safe default.
+
+### One trade-off, recorded so it is not discovered later as a loss
+
+Deleting rather than anonymising means **engagement analytics are gone permanently** — *"what topics do paying clients commission?"* becomes unanswerable once the period elapses. That is a legitimate choice given no report reads the data, but it is **irreversible**, and the alternative was available. Recorded as deliberate.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
