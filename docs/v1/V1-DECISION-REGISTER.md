@@ -128,16 +128,16 @@ Every conditionally approved item, its follow-up, and where it lands.
 |---|---|---|
 | `G1`, `G2`, `G13` | **Closed** | `D-01` — tenancy; each customer is its own tenant, engagement is a work-package identifier inside it |
 | `G3` | Open | `C-04` → `QB`, T3 |
-| `G4` | Open | T0 item 1 |
-| `G5` | Open | T1, four-payload edit |
+| `G4` | **Closed 2026-08-19** | T0 item 1 executed — `CR-15` coverage scoped to AP-01/MVP |
+| `G5` | **Closed 2026-08-19** | T1 Step 1 executed — `A7` applied to **both** `CLAUDE.md` and `AGENTS.md` |
 | `G6` | Open | `D-04` + `QD`, T1 |
 | `G7a` / `G7b` | Open | T3 charter / T4 design, T5 enforcement |
-| `G8` | Open | T0 item 2 |
+| `G8` | **Closed 2026-08-19** | T0 item 2 executed — exclusivity window scoped P0-EVR-only |
 | `G9` | Watch | T5, before S4 is specified |
 | `G10` | Open | `QC`, T1 |
 | **`G11`** | **Open — no owner** | **Concurrent Claude/Codex edits to `docs/`. No arbitration rule, no forcing function. Partially mitigated by `D-20`, which puts the output contract where both agents read it — but authority on a conflicting edit remains undecided** |
 | `G12` | **Closed** | The 42 Board items are now approved — §1 |
-| `G14` | Open | T0 item 3 |
+| `G14` | **Closed 2026-08-19** | T0 item 3 executed — `NG-02` annotated with its v1 scoping and the tenancy-boundary explanation |
 | `G15` | **TX — counsel** | Pairs with `GA5`; do not close one on the other |
 | `G16` | Open | S1 window — `Q10` + `Q11` as one migration |
 | `G17` | Open | S1 window item 2 — `QA3` |
@@ -146,11 +146,22 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G20` | Open | `D-11`, S1 window item 8 |
 | `G21` | **Withdrawn** | Human `A` versus agent `R` — different layers, not a conflict — §2 |
 | `G22` | Open | `C-10`, T3 |
-| `G23`…`G31` | Open | `D-10`, `D-09`, `D-15`…`D-21` respectively |
+| `G23` | **Closed 2026-08-19** | `D-10` — `FR-13` bypasses deliberation, not publication |
+| `G24` | **Closed 2026-08-19** | `D-09` — mirror boundary stated as own channels only |
+| `G25` | **Closed 2026-08-19** | `D-15` — `docs/v1/` named operative in both agent files |
+| `G26` | **Closed 2026-08-19** | `D-16` — EMS citation annotated as unretained, `A20`–`A28` named in its place |
+| `G27` | Open | `D-17` — draft `0002` location, **S0** |
+| `G28` | Open | `D-18` — the 14 manual PoC templates, **T3** |
+| `G29` | Open | `D-19` — artifact inventory into each sprint DoD, **T1** |
+| `G30` | **Closed 2026-08-19** | `D-20` — output contract in both agent files |
+| `G31` | **Closed 2026-08-19** | `D-21` — T1 execution runbook drafted |
+| `G32` | **Closed 2026-08-19** | T0 under-delivery repaired in place; `Modular_PRD` v1.7 records it |
+| `G33a` | Open — **in progress** | First `Fn_Specs` written (`FN-GATES-01-05`). Remaining feature groups pending |
+| `G33b` | Open — conditional | `SPECS` only where `Fn_Specs` cannot determine implementation (`D-30`) |
 | `GA1`, `GA3`, `GA4` | Open | S1 window item 3 — report record shape |
-| `GA2` | Open | T0 Step 2 *(stated half)* + S1 window item 4 *(insert/read-only)* |
+| `GA2` | **Half closed 2026-08-19** | Stated half done — report immutability rule in `Modular_PRD` §6.3. Insert/read-only half remains S1 window item 4 |
 | `GA5` | **TX — counsel** | Pairs with `G15` |
-| `GA6` | Open | T0 Step 3 *(disclose)* + `Q2`, T1 *(resolve)* |
+| `GA6` | **Half closed 2026-08-19** | Disclosure done — assurance recorded as Absent, with `Q2` remedy and `A23` warning. Substantive remedy remains `Q2`, T1 |
 | `GA7` | Open | T3, audit Step 7 — auditor access versus tenant isolation |
 | `GA8` | **Closed on execution** | `D-13` — `PSK-10`, T0 Step 1 |
 | `GA9` | Open | `D-07`, S1 window item 6 |
