@@ -180,6 +180,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G48` | **Resolved 2026-08-19** | A paid engagement failing the gate — deliver with the finding disclosed. §5.14j, §5.14k, `D-49`/`D-50` |
 | `G49` | **Open** — S3 | Briefcase artifacts specified for POC only; MVP needs them or it cannot tell rework from true negative. §5.14k |
 | `G56` | **Closed 2026-08-20** | §5.15 solve sequence stale — found and repaired in the same pass. See §5.4 |
+| `G59` | **Open — new** | No lockfile committed (`bun.lockb` absent). CI would resolve dependencies fresh every run, so a verdict varies with wall-clock time. Needs bun to generate. T1, with `R3`. §5.14q |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
 | `G57` | **Closed 2026-08-20** | `D-55` §5.14p — eight-row mapping specified as data, **role-keyed**. Overturns `D-53`'s name-keyed draft: `logged`→`Discovered`, `reported`→`Logged`. `Validated` and `Needs Revision` backfill empty |
 | `G50` | **Closed 2026-08-20** | Distribution provenance — `D-51`, §5.4, `docs/graph-fragments/README.md` §2 |
@@ -1448,6 +1449,58 @@ Every article currently at `logged` becomes `Discovered` — **pre-T1**, not pos
 ### Scope limits
 
 Closes `G57`. **Authorizes no migration** — `0002` remains unwritten and `0001` unedited. Names no column beyond the existing `workflow_state`. `X4` *(seed rows executing T5 with an agent)* is **untouched and still open** — this decision maps states, it does not correct executors.
+
+## 5.14q `D-56` — `R3` specified, not installed; `G59` found
+
+**Decision, 2026-08-20, Chief Editor direction.** The verification apparatus is **specified** at `docs/specs/SPECS-VERIFICATION-APPARATUS.md`. **Nothing is installed** — no file created, no package added, no script written. The standing build guardrail governs.
+
+**Classification: Project Scope ⚙** per `D-39`/`D-40`. Build tooling, not a product feature. Generates no `FR`, no `AC`, no `SPECS` candidate.
+
+### Why this is not a fifth `D-52` document
+
+`D-52` filtered **18 candidates named in the four `Fn_Specs`** and yielded four documents. **`R3` was never in that filter** — it is a T1 item and no `Fn_Specs` names it. Different provenance, **no contradiction**: `D-52`'s four remain the complete answer to *"which product features need `SPECS`"*; this answers *"what apparatus lets a sprint be judged."*
+
+> Recorded because a later reader counting five documents in `docs/specs/` would otherwise read `D-52` as violated. **The count is not the rule; the provenance is.** Same class as the seven naming-difference dissolutions already on record.
+
+### What the specification settles
+
+| Component | Resolution |
+|---|---|
+| Runner | `bun test` — **ratifies the declared `packageManager: bun@1.1.30`**, does not re-choose. No new dependency; bun's runner is built in |
+| Layout | `__tests__/` at root, one smoke test. **No placeholders for unbuilt features** — a red-by-default CI becomes an ignored CI within two sprints |
+| CI | Typecheck, lint, and test as **separate explicit steps** |
+| `TC6` | **Not resolved — compensated.** The build flags stay; CI runs the gates itself |
+
+### The failure this specification exists to prevent
+
+`next.config.ts` sets `ignoreBuildErrors: true` and `ignoreDuringBuilds: true` (`TC6`). **A CI job running only `next build` would pass with broken types and lint errors** — green would mean *"the bundler completed"*, not *"the code is sound."*
+
+**Guaranteed to fail:** adding that CI and reporting `R3` complete. The apparatus would exist, report green, and check nothing — **worse than no CI**, because every sprint DoD would then cite a verdict structurally incapable of failing.
+
+**How to avoid it:** SC-4 is the test of the tester. **Break a type deliberately and confirm CI goes red** before trusting any sprint verdict.
+
+### `G59` — no lockfile is committed *(new)*
+
+**Verified absent:** no `bun.lockb`, `package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml`. `bun install` in CI would resolve dependencies **fresh on every run**.
+
+Two consequences: **CI is not reproducible** — the same commit can pass today and fail tomorrow because a transitive dependency published — and **`R3`'s own guarantee is undermined at the root**, since the apparatus meant to make sprints falsifiable would itself be non-deterministic. **A verdict that varies with wall-clock time is not a verdict.**
+
+**Cannot be resolved here:** generating `bun.lockb` requires bun, which is not installed. **Recorded, severity T1, carried with `R3`.**
+
+### Reporting discipline
+
+**bun is not installed on the Chief Editor's machine**, so `bun test` cannot be verified locally and **CI would be its first real execution.** When installed, `R3` is reported as *"written, locally unverified"* until a real CI run is observed — the same wording S1 already carries for `DEP-05`. **Never as done.**
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 |
+|---|---|---|---|---|
+| `D-56` — `R3` specified | ✅ | ✅ T1 note | ✅ spec + two ❌ rows | ✅ S0 gate restated |
+| `G59` — no lockfile | ✅ | ✅ travels with `R3` | ✅ `bun.lockb` row | — *not a sprint or build-version event* |
+
+### Scope limits
+
+Closes `R3` **as a specification only**. Creates no file, installs no package. Does not resolve `TC6`. `G59` recorded, not resolved. **S0 remains gated** until the guardrail is lifted for `R3` — but the gate is now an execution step, not an open design question.
 
 ## 5.15 Solve sequence — remaining open gaps
 

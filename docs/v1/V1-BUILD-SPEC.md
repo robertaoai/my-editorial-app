@@ -50,6 +50,8 @@ Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` 
 | **Wording fixes** | `G23` `FR-13` bypasses deliberation not publication · `G24` mirror boundary is own channels only | Retraction correctness |
 
 > `R3` is the precondition for every sprint having a verdict. There is currently no test runner, no `__tests__/`, no CI, and `next.config.ts` disables type and lint gates at build (`TC6`).
+>
+> **Specified 2026-08-20 — `D-56`, `docs/specs/SPECS-VERIFICATION-APPARATUS.md`.** Runner, layout, CI steps and DoD are settled; **nothing is installed.** Two rules carry forward: CI must run **typecheck and lint as explicit steps**, because `TC6`'s flags make a `next build`-only job green on broken types; and `R3` is reported *"written, locally unverified"* until a real CI run — bun is not installed locally. **`G59` (no lockfile) travels with it.**
 
 ## 4. Build
 

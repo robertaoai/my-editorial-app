@@ -18,8 +18,10 @@
 | `docs/DECISION_LOG.md` | S0, and every provisional value's traceability | ❌ |
 | `docs/CONFIG_LOG.md` | S0, `§10` config-vs-fixed rule | ❌ |
 | `supabase/migrations/0002_*.sql` | S0 draft, S1 apply | ❌ |
-| Test runner + `__tests__/` | `R3`, `NFR-04` | ❌ |
-| `.github/workflows/` CI | `R3`, `TC6` | ❌ |
+| `docs/specs/SPECS-VERIFICATION-APPARATUS.md` | `D-56` — `R3` specification, Project Scope ⚙ | ✅ |
+| Test runner + `__tests__/` | `R3`, `NFR-04` | ❌ **specified, not installed** (`D-56`) |
+| `.github/workflows/` CI | `R3`, `TC6` | ❌ **specified, not installed** (`D-56`) |
+| `bun.lockb` | `G59` — CI reproducibility | ❌ **needs bun to generate** |
 | P0-EVR project charter | `G7a`, T3 | ❌ |
 | P0-EVR PRD | `G7`, T3 | ❌ |
 | 14 manual PoC templates | Board proposal Phase EB-1 | ❌ |

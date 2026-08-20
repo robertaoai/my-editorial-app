@@ -1,0 +1,76 @@
+{
+  "_comment": "Fragment 13 — D-56, R3 verification apparatus specified. G59 found. Merged 2026-08-20.",
+  "nodes": [
+    {
+      "id": "specs_verification_apparatus_doc",
+      "label": "SPECS-VERIFICATION-APPARATUS (document)",
+      "file_type": "document",
+      "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "source_location": "whole document",
+      "description": "The R3 specification: runner (bun test, ratifying the declared packageManager bun@1.1.30), test layout (__tests__ at root, one smoke test, no placeholders), CI with typecheck and lint as separate explicit steps, and the TC6 disposition. Specification only — nothing installed, no package added, no file created.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Project Scope infrastructure per D-39 and D-40, not a product feature. Explicitly not a fifth D-52 document: D-52 filtered 18 candidates named in the four Fn_Specs, and R3 was never in that filter. Different provenance, no contradiction. Recorded because a reader counting five documents in docs/specs would otherwise read D-52 as violated."
+    },
+    {
+      "id": "ci_that_cannot_fail",
+      "label": "A CI That Cannot Fail Is Worse Than None",
+      "file_type": "concept",
+      "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "source_location": "§4.1",
+      "description": "next.config.ts sets ignoreBuildErrors and ignoreDuringBuilds, so a CI job running only next build passes with broken types and lint errors. Green would mean the bundler completed, not that the code is sound. CI must run typecheck and lint as separate explicit steps. TC6 is not resolved by this — it is compensated for in CI, leaving deployment behaviour untouched.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Guaranteed to fail: adding a next-build-only CI and reporting R3 complete. Every sprint DoD would then cite a verdict structurally incapable of failing. SC-4 is the test of the tester — break a type deliberately and confirm CI goes red before trusting any sprint verdict."
+    },
+    {
+      "id": "g59_no_lockfile",
+      "label": "G59 — No Lockfile Committed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14q",
+      "description": "No bun.lockb, package-lock.json, yarn.lock or pnpm-lock.yaml exists in the repository. bun install in CI would resolve dependencies fresh on every run, so the same commit can pass today and fail tomorrow because a transitive dependency published. Cannot be resolved locally — generating the lockfile requires bun, which is not installed.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Undermines R3 at the root: the apparatus meant to make sprints falsifiable would itself be non-deterministic. A verdict that varies with wall-clock time is not a verdict. Severity T1, carried with R3."
+    },
+    {
+      "id": "specified_not_installed",
+      "label": "Specified, Not Installed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14q D-56",
+      "description": "A disposition distinguishing a settled design from a delivered artifact. R3's runner, layout, CI steps and DoD are settled while no file exists. The artifact inventory carries both states at once: the specification present, the runner and CI absent. S0 remains gated, but on an execution step rather than an open design question.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Introduced because the standing build guardrail forbids creating executable and config files while the work of deciding what they should contain is unblocked. Pairs with the reporting discipline: bun is not installed locally, so when R3 is installed it is reported as written, locally unverified until a real CI run — the same wording S1 carries for DEP-05."
+    }
+  ],
+  "edges": [
+    { "source": "specs_verification_apparatus_doc", "target": "v1_decision_register", "relation": "authorized_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14q", "weight": 1 },
+    { "source": "specs_verification_apparatus_doc", "target": "v1_build_spec", "relation": "precondition_for", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "T1", "weight": 1 },
+    { "source": "specs_verification_apparatus_doc", "target": "ci_that_cannot_fail", "relation": "guards_against", "confidence": "CURATED", "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md", "confidence_score": 1, "source_location": "§4.1", "weight": 1 },
+    { "source": "specs_verification_apparatus_doc", "target": "g59_no_lockfile", "relation": "surfaced", "confidence": "CURATED", "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md", "confidence_score": 1, "source_location": "§5", "weight": 1 },
+    { "source": "specs_verification_apparatus_doc", "target": "specified_not_installed", "relation": "carries_disposition", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14q", "weight": 1 },
+    { "source": "specs_verification_apparatus_doc", "target": "d52_g33b_resolved", "relation": "distinct_provenance_from", "confidence": "CURATED", "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md", "confidence_score": 1, "source_location": "§1.1", "weight": 1 },
+    { "source": "specs_verification_apparatus_doc", "target": "d54_propagation_rule", "relation": "propagated_under", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14q", "weight": 1 },
+    { "source": "g59_no_lockfile", "target": "ci_that_cannot_fail", "relation": "compounds", "confidence": "CURATED", "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md", "confidence_score": 1, "source_location": "§5", "weight": 1 },
+    { "source": "specified_not_installed", "target": "specs_transition_enforcement_doc", "relation": "same_disposition_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14q", "weight": 1 }
+  ]
+}
