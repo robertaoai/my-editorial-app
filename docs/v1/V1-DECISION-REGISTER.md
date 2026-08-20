@@ -152,7 +152,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G26` | **Closed 2026-08-19** | `D-16` — EMS citation annotated as unretained, `A20`–`A28` named in its place |
 | `G27` | Open | `D-17` — draft `0002` location, **S0** |
 | `G28` | Open | `D-18` — the 14 manual PoC templates, **T3** |
-| `G29` | Open | `D-19` — artifact inventory into each sprint DoD, **T1** |
+| `G29` | **Closed 2026-08-19** | `D-19` — artifact DoD attached to every sprint in `V1-BUILD-SPEC.md` §5.1. *(Third disposition-drift instance: closed on execution, left Open in the table until a later sweep caught it.)* |
+| `G39` | **Closed 2026-08-19** | Applied to `FN-GATES-01-05` — `FR-01`, `AC-01`, and §3.1 restated to separate one subject topic from many analytical tags; `AC-01a` added |
 | `G30` | **Closed 2026-08-19** | `D-20` — output contract in both agent files |
 | `G31` | **Closed 2026-08-19** | `D-21` — T1 execution runbook drafted |
 | `G32` | **Closed 2026-08-19** | T0 under-delivery repaired in place; `Modular_PRD` v1.7 records it |
@@ -520,6 +521,72 @@ Every one: two concepts sharing a name, read as one thing in conflict with itsel
 - **`G33b` — `SPECS` absent**, and *conditionally required*. Only components whose behaviour `Fn_Specs` cannot fully determine need one. Present candidates are the `TR-DM-01`–`06` data contracts, `TR-API-01`–`04` interface contracts, and the eight S1-window decisions — all of which resolve into schema and cannot be settled by functional description alone.
 
 **`G33a` gates `G33b`, and both gate S1.**
+
+## 5.15 Solve sequence — remaining open gaps
+
+Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
+
+### Stage 1 — no dependency, documentation only *(executable now)*
+
+| Gap | Drafted fix | Status |
+|---|---|---|
+| `G39` | Restate `FR-01`/`AC-01`/§3.1 for one subject topic versus many analytical tags | ✅ **Applied** |
+| `G29` | Artifact DoD per sprint | ✅ **Applied**, disposition corrected |
+
+### Stage 2 — `G33a`, the two remaining feature groups *(executable now; gates `G33b`)*
+
+`D-32` requires features that **cannot function without each other**. Two groups remain:
+
+| Group | Features | Why they group |
+|---|---|---|
+| **Audit & Visibility** | `FR-07`, `FR-08` | `FR-08`'s board cannot function without `FR-07`'s transition record — it displays state, Line, and history. The dependency is **one-way**, which is weaker than the gates and publication groups; recorded rather than hidden |
+| **Exceptions & Continuity** | `FR-06`, `FR-11`, `FR-12` | All answer *"what happens when the normal path does not work"* — return with mandatory reason, risk-triggered Line 3 audit, and degraded mode on prolonged absence |
+
+**Note on `FR-06`:** it is T8, a return *within* the pipeline, so it could sit with the gates. It was not included there, so it belongs here. **Flagged rather than assumed** — if it should join the gates group, that group reopens.
+
+**Drafted structure for both:** the merged `D-33` shape — Overview · User Stories · Requirements · Behaviour · Acceptance Criteria · Edge Cases · Dependencies · Risks · `SPECS` candidate filter. All sections marked `[V1]` per `D-36`.
+
+### Stage 3 — Chief Editor decisions *(two, T1)*
+
+| Gap | Question | Drafted resolution |
+|---|---|---|
+| `G6` | `QD` — where the revenue rule lands so it governs | **`PSK-06`** (editorial-commercial separation) is the closer fit than sprint-plan §11: the rule *is* an editorial-commercial boundary, and `PSK-06` already owns that concern |
+| `G10` | `QC` — domain assignment | Confirm public root for POC and `chief.` for the anchor, **or** invert. The current arrangement gives the root to the subordinate evidence lane; defensible if the public service is the commercial front door, but it should be deliberate |
+
+### Stage 4 — the S1 window *(six gaps, one design pass, T2)*
+
+**These cannot be sequenced** — all alter the same append-only table.
+
+| Gap | Decision |
+|---|---|
+| `G16` | `Q10` + `Q11` designed as one migration |
+| `G17` | `QA3` — typed columns versus versioned JSON payload |
+| `G19` | Notice-as-article: notice type, notice→original reference, inherited targets, derived superseded status |
+| `G20` | Risk-tier dimension on articles |
+| `GA1`, `GA3`, `GA4` | Report record shape — identity, as-at, tenant, template and rule-set versions, frozen snapshot |
+| `GA9` | `on delete restrict` replaces `on delete cascade` |
+
+### Stage 5 — T3, the POC lane *(parallel; no build dependency)*
+
+| Gap | Drafted fix |
+|---|---|
+| `G7a` | Charter the manual P0-EVR lane. **Blocked in practice by `G28`** — chartering authorizes; templates make it operable |
+| `G28` | The 14 manual templates. **The real gate on first revenue** |
+| `G3` | `QB` — state that the P0-EVR charter outranks the board proposal's §8.2 / `B-P0-16` exclusions |
+| `G22` | Expression of Concern — new public-facing editorial act, needs Board (`C-10`) |
+| `GA7` | Auditor access versus tenant isolation — options are a separate audit role, per-tenant scoped reports plus an aggregate view, or per-engagement grant |
+
+### Stage 6 — later, gated
+
+| Gap | Gate |
+|---|---|
+| `G27` | S0 — hold draft `0002` outside the apply path |
+| `G33b` | After `G33a` completes — filter the `SPECS` candidates. **Ten identified so far**, five per existing spec |
+| `G7b` | S2 design, S6 enforcement (`SEC-03`, itself `OD1`–`OD3` gated) |
+
+### The critical path
+
+**`G33a` → `G33b` → S1.** Everything else runs parallel or later. The two remaining `Fn_Specs` are the only work blocking the `SPECS` filter, and the filter is what tells you which of the ten candidates actually need writing before S1.
 
 ## 5.2 Consistency audit — 2026-08-19
 

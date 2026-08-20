@@ -42,7 +42,7 @@ The five gates are the product. Everything else in the system exists to record, 
 
 | ID | Requirement | Gate | Line | Executor |
 |---|---|---|---|---|
-| `FR-01` | Log an article from a URL with ≥1 topic tag and a trend signal; the article enters at the pipeline entry state | T1 | 1 | Agent |
+| `FR-01` `[V1]` | Log an article from a URL with **exactly one subject topic** and a trend signal; the article enters at the pipeline entry state. *(`G39` — restated from "≥1 topic tag", which conflated two concepts; see §3.1)* | T1 | 1 | Agent |
 | `FR-02` | Validate source and confirm trend evidence as **two distinct transitions** (T2, T3), never one | T2, T3 | 1 | Agent |
 | `FR-03` | Draft the editorial adaptation with a completed meaning-invariance checklist and ≥1 publication target | T4 | 1 | Agent |
 | `FR-04` ⚠ | T5 review is executed by a **Line 2 human**; agent contribution is metadata, never the executor | T5 | **2** | **Human** |
@@ -72,7 +72,9 @@ The five gates are the product. Everything else in the system exists to record, 
 
 `Discovered → Logged`
 
-**Required on entry:** `source_url`; ≥1 topic tag; a trend-signal description. Author and publication date are auto-extracted where possible and flagged for Investigator review when extraction fails.
+**Required on entry:** `source_url`; **exactly one subject topic**; a trend-signal description.
+
+> **`G39` — two concepts, one word.** In an editorial business the **topic is the subject**: what the article *is about*. Exactly one, held as `articles.topic_id`. **Analytical tags are separate and many** — `trend_signals` with `signal_type = 'topic_tag'` — and serve trending and different-angle analysis, not subject identity. The original wording *"≥1 topic tag"* read as cardinality on one concept when there are two. **The schema is correct as applied; only the wording was imprecise** (`D-38`). Author and publication date are auto-extracted where possible and flagged for Investigator review when extraction fails.
 
 **Behaviour:**
 1. Reject the URL if an article already exists for it — duplicate intake is refused, not merged.
@@ -145,7 +147,8 @@ Returns (T8) and rejections (T9) may occur at any active state and are specified
 
 | ID | Given | When | Then |
 |---|---|---|---|
-| `AC-01` | A Reporter agent is active | It logs a valid URL with ≥1 topic tag and a trend signal | The article is created at the entry state |
+| `AC-01` `[V1]` | A Reporter agent is active | It logs a valid URL with **exactly one subject topic** and a trend signal | The article is created at the entry state |
+| `AC-01a` `[V1]` | An article exists with a subject topic | Analytical tags are added via `trend_signals` | **Many** are permitted; the subject topic is unchanged. *(`G39` — the two are distinct)* |
 | `AC-02` | An article with URL X exists | A second log of URL X is attempted | The write is **rejected as duplicate**. *Fails today — no unique index* |
 | `AC-03` | An article is at `Logged` | The Investigator validates, then investigates | **Two distinct transitions** are recorded |
 | `AC-04` | An article is at `Investigated` | A Journalist agent drafts | State becomes `Drafted` with non-empty adaptation, ≥1 target, checklist complete |
