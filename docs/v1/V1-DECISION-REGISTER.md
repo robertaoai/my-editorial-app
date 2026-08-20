@@ -784,6 +784,64 @@ PDPA best practice is *"a formal data retention policy mapping record types to l
 
 > Recorded as suggestion. `G44`'s follow-up count is a **Chief Editor** decision; the accounting-record classification remains **counsel** (`Q7`).
 
+## 5.14e `D-44` — payment confirmation, and the two-tier lifecycle
+
+**Chief Editor direction, 2026-08-19.** Resolves `G46`, specifies the lifecycle, and declares a scope boundary that was never stated.
+
+### `G46` resolved — the product holds a **confirmation**, not a payment record
+
+| Concern | Owner |
+|---|---|
+| Payment processing | **Third-party system** |
+| **Financial auditing** | **Third party** — it already has it. Out of scope for this product; a backlog item only if the business ever chooses to do everything itself |
+| **Confirmation that payment completed** | **This product** — the minimum fact it needs |
+
+**Verified: financial auditing has never been declared out of scope anywhere.** Recording it closes an unstated assumption — without it, someone could reasonably read `PSK-10`'s audit reporting as extending to financial records. It does not.
+
+### Payment triggers the workflow — recorded for the first time
+
+**Verified absent from the entire document set.** The causal link:
+
+> **Payment completes → the supplied topic triggers the editorial workflow.**
+
+This connects the commercial act to the editorial act, and it is why the product needs the confirmation at all: not for accounting, but because **it is the start signal**.
+
+### `G47` — paid-but-no-trigger must be detectable *(new)*
+
+If payment completes and **the trigger topic is not captured**, the engagement is paid for and invisible. **This is a POC feature obligation, not a third-party one** — the third party knows payment succeeded; only this product knows whether a workflow started.
+
+**Reconciliation is therefore a product duty:** every confirmed payment must resolve to a trigger, and orphans must surface rather than sit silent. **Severity: T3** — it is a POC-lane obligation.
+
+### The two-tier lifecycle
+
+| Tier | Data | Retention | Then |
+|---|---|---|---|
+| **POC PDPA** | Client identity, contact, brief | **90 days** *(from non-reply after follow-ups — `G44` still open)* | **Archived → anonymised.** The act requires identifiers go; the record may stay |
+| **Trigger-topic flow** | Common to **both** MVP and POC | **5 years** | **Archived first**, then deletion |
+
+**Archival of PDPA data *is* anonymisation.** These are not two operations — the archival is what removes the identifiers, because the act does not permit keeping them.
+
+> **My reading of the second tier, flagged for confirmation:** archive at 5 years anchored to the **published status final date**, then delete **90 days after archival**. That gap makes archival **reversible for a window** before deletion makes it permanent — which is sound, and worth stating as the reason rather than leaving as a coincidence. **If the intent was different, correct this line.**
+
+### One mechanism problem worth naming
+
+**Partitioning and anonymisation operate on different axes:**
+
+| Operation | Acts on |
+|---|---|
+| **Partitioning** | **Rows** — split by period |
+| **Anonymisation** | **Columns** — strip identifiers |
+
+**Detaching a partition moves whole rows, identifiers included.** So *"archive the PDPA partition"* does not anonymise anything by itself — the detached data still carries the identifiers the act requires removing.
+
+**PDPA archival is therefore a two-step operation:** detach the partition, **then** transform it to strip identifiers before retaining. Or anonymise in place before detaching. **Either works; assuming the detach alone is sufficient does not**, and that assumption would leave identifying data sitting in an archive believed to be compliant.
+
+This does not break the design. It means the partitioning mechanism (audit-model §6.2 Method 3) covers the **trigger-topic tier cleanly** and needs a second step for the **PDPA tier**.
+
+### Still open
+
+**`G44` — the 90-day clock start.** Listed but not answered: *"non-reply after follow-ups"* still needs a **follow-up count** and **interval**. A business rule needing a number, `UNSET` until decided. Chief Editor's call.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
