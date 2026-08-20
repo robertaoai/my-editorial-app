@@ -51,7 +51,9 @@ Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` 
 
 > `R3` is the precondition for every sprint having a verdict. There is currently no test runner, no `__tests__/`, no CI, and `next.config.ts` disables type and lint gates at build (`TC6`).
 >
-> **Specified 2026-08-20 — `D-56`, `docs/specs/SPECS-VERIFICATION-APPARATUS.md`.** Runner, layout, CI steps and DoD are settled; **nothing is installed.** Two rules carry forward: CI must run **typecheck and lint as explicit steps**, because `TC6`'s flags make a `next build`-only job green on broken types; and `R3` is reported *"written, locally unverified"* until a real CI run — bun is not installed locally. **`G59` (no lockfile) travels with it.**
+> **`C-14` travels with this item (`D-58`).** `G11`'s detection half — the shared-core hash, the `D-54` tier sweep, the §5.1 duplicate scan, and `missing.js` — is verification apparatus and waits on the same guardrail. **Precedence without detection is inert:** git here has one identity and zero merges, so a conflicting edit is a silent overwrite that nothing announces.
+
+**Specified 2026-08-20 — `D-56`, `docs/specs/SPECS-VERIFICATION-APPARATUS.md`.** Runner, layout, CI steps and DoD are settled; **nothing is installed.** Two rules carry forward: CI must run **typecheck and lint as explicit steps**, because `TC6`'s flags make a `next build`-only job green on broken types; and `R3` is reported *"written, locally unverified"* until a real CI run — bun is not installed locally. **`G59` (no lockfile) travels with it.**
 
 ## 4. Build
 

@@ -31,6 +31,20 @@ Rules:
 - Adding curated concepts is a **merge**, not a build — `graphify build --fragment` cannot merge. Use `docs/graph-fragments/merge7.js` as the reference. `graph.json` stores relationships under `links`; fragments declare them under `edges`. Copying `edges` across unchanged produces degree-zero orphans that fail silently
 - Read `.graphify/GRAPH_REPORT.md` only for broad architecture review or when `query` / `path` / `explain` do not surface enough context
 - After modifying code files in this session, run `npx graphify hook-rebuild` to keep the graph current
+**Arbitration (`D-58`, closes `G11`).** When edits conflict, **`docs/v1/V1-DECISION-REGISTER.md` wins.**
+An edit to any derived tier that contradicts the register loses, no escalation needed — this follows
+from `D-29` (tier precedence) and `D-54` (the register is always updated). If two derived tiers
+conflict and the register is silent, **escalate**: the register has not decided it, and that absence
+is itself the finding. Frozen documents — `docs/PRD.md`, the Charter, `0001_init.sql` — outrank
+everything, unchanged.
+
+**Why this needs saying.** Three agents edit this repo under **one git identity with zero merge
+commits**, so a conflicting edit never appears as a merge conflict — it appears as a **silent
+overwrite**. `G32` was exactly that. Git authorship carries no information here; `graphify
+agent-stats` attributes from CLI transcripts instead. **Detection (`C-14`) is specified but not
+installed** — until it is, run the checks by hand before claiming a shared file is consistent:
+the shared-core hash across the three agent rule files, the `D-54` tier sweep, the §5.1
+duplicate-ID scan, and `docs/graph-fragments/missing.js`.
 
 Gemini / Antigravity specifics:
 - The skill is installed at `~/.gemini/config/skills/graphify/SKILL.md`; the workflow trigger is `/graphify`

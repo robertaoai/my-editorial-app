@@ -135,7 +135,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G8` | **Closed 2026-08-19** | T0 item 2 executed — exclusivity window scoped P0-EVR-only |
 | `G9` | Watch | T5, before S4 is specified |
 | `G10` | Open | `QC`, T1 |
-| **`G11`** | **Open — no owner** | **Concurrent Claude/Codex edits to `docs/`. No arbitration rule, no forcing function. Partially mitigated by `D-20`, which puts the output contract where both agents read it — but authority on a conflicting edit remains undecided** |
+| **`G11`** | **Closed 2026-08-20** | `D-58` §5.14s — **owner: Chief Editor**; **precedence: the register wins**, following from `D-29` and `D-54`. Detection carried forward as `C-14`, *specified, not installed*. **Git cannot attribute edits here** — one identity, zero merges — so conflicts appear as silent overwrites, not merges |
 | `G12` | **Closed** | The 42 Board items are now approved — §1 |
 | `G14` | **Closed 2026-08-19** | T0 item 3 executed — `NG-02` annotated with its v1 scoping and the tenancy-boundary explanation |
 | `G15` | **TX — counsel** | Pairs with `GA5`; do not close one on the other |
@@ -202,7 +202,7 @@ awk '/^## 5.1 Gap disposition/,/^## 5.2/' docs/v1/V1-DECISION-REGISTER.md \
   | grep '^| `G' | grep -cE '\| Open'
 ```
 
-**Categories that need naming rather than counting:** `G15`/`GA5` are escalated to counsel and pair — do not close one on the other. `G11` is the only **unowned** gap. `GA2` and `GA6` are **half closed** — the stated and disclosure halves are done; the substantive halves remain.
+**Categories that need naming rather than counting:** `G15`/`GA5` are escalated to counsel and pair — do not close one on the other. `G11` **was** the only unowned gap — **owned by the Chief Editor since 2026-08-20** (`D-58`). No gap is now unowned. `GA2` and `GA6` are **half closed** — the stated and disclosure halves are done; the substantive halves remain.
 
 ## 2.3 Document intent hierarchy — `D-29`, `D-30`
 
@@ -1574,6 +1574,77 @@ Per `D-29`, **a new capability lands in `Modular_PRD` — tier 2 — and is not 
 
 Closes `Q2`. Unblocks `FR-11`'s **disposition** — not its build; `FR-11` is **not built in v1**. Closes no `OD` — `OD3` remains not closable at scaffolding. Authorizes no code, schema, or migration. `G60` recorded, `FR-14` not written. `GA6`'s *assurance Absent* disclosure is **unchanged**.
 
+## 5.14s `D-58` — `G11` resolved: register precedence, with detection as the open half
+
+**Decision, 2026-08-20, Chief Editor direction. Closes `G11`** — the project's only **unowned** gap since scaffolding.
+
+### Owner
+
+**The Chief Editor.** He is the only human on the project (§0.3), so authority was never genuinely contestable — what was missing is that nobody had **written it down**, which is why `G11` sat unowned while `G32` happened underneath it.
+
+### What the evidence changed about the question
+
+`G11` was framed as *"concurrent edits, no arbitration rule."* Checked against git, that framing is **wrong in a way that matters**:
+
+| Observation | Consequence |
+|---|---|
+| **All commits carry one git identity** | **Git cannot attribute an edit to an agent.** Authorship is uniform across `.claude/`, `.codex/`, and `.agents/` |
+| **Zero merge commits** | Agents never merge. They edit the same files **sequentially, on one branch** |
+| Therefore | **Conflicts never surface as conflicts.** They surface as **silent overwrites** |
+
+**`G32` was not a merge that resolved badly. It was an overwrite nothing detected.** An arbitration rule modelled on merge precedence would therefore never fire — the mechanism it arbitrates does not occur here.
+
+> This is why `graphify agent-stats` attributes from CLI transcripts and states plainly that it is **not git authorship**. In this repository git authorship carries no information.
+
+### The rule — precedence
+
+**`V1-DECISION-REGISTER.md` is authoritative.** An edit to any derived tier that contradicts it **loses**, without human involvement.
+
+**This codifies existing structure rather than inventing a rule.** `D-29` already ranks the tiers; `D-54` already makes the register the tier that is *always* updated. Precedence follows from both. **What was missing was never the ordering — it was saying out loud that the ordering settles conflicts.**
+
+| Conflict | Resolution |
+|---|---|
+| Register versus any `V1-*` tracking file | **Register wins** |
+| Register versus `Fn_Specs` or `SPECS` | **Register wins** |
+| Two derived tiers, register silent | **Escalate** — the register has not decided it yet, which is itself the finding |
+| Anything versus `docs/PRD.md` or the Charter | **Frozen documents win.** Unchanged |
+
+### `C-14` — detection is the half that is not yet solved
+
+**A precedence rule with no detection is inert**, because in this repository nothing announces that a conflict occurred. The rule tells you who wins a fight you never learn about.
+
+Four checks have been run repeatedly by hand this session and each has caught a real defect. **They are the forcing function, and they are proven, not proposed:**
+
+| Check | Caught |
+|---|---|
+| Shared-core hash across the three agent rule files | `G53` — three rule blocks drifted both ways |
+| `D-54` tier sweep — is each ID present in every tier that owns it | `G58` — three tracking files stale |
+| §5.1 duplicate-ID scan | The `G39` row carrying both *Closed* and *Open* |
+| `docs/graph-fragments/missing.js` | Documents absent from the graph |
+
+**Disposition: specified, not installed** — the same wording `D-56` uses for `R3`. Bundling these into a standing script is executable code, which the build guardrail forbids. **Recorded honestly: until the script exists, the forcing function is a procedure someone must remember to run, and a procedure nobody runs is not a forcing function.**
+
+**Follow-up phase:** with `R3`'s installation, since both are verification apparatus and both wait on the same guardrail.
+
+### What is guaranteed to fail
+
+Declaring `G11` closed on the precedence rule alone and treating the repository as safe. **Precedence resolves conflicts that are known. Detection is what makes them known.** `G32`, `G53`, and `G58` were each found by a human noticing — twice by the Chief Editor challenging a completion claim. **That is not a control; it is luck with a good record.**
+
+**How to avoid it:** `G11` closes on the rule and **carries `C-14` forward as the open half**. Any claim that concurrent editing is *"handled"* must name whether detection is installed.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 | Agent files |
+|---|---|---|---|---|---|
+| `D-58` — precedence rule | ✅ | ✅ | — *no artifact* | ✅ | ✅ **shared core** |
+| `C-14` — detection | ✅ | ✅ with `R3` | ✅ script row | ✅ | ✅ shared core |
+
+**The agent files are a required tier for this decision specifically.** A rule governing how agents behave is inert if the agents cannot read it — so it lands in the byte-identical shared core, not only in the register.
+
+### Scope limits
+
+Closes `G11` **on the precedence rule and ownership**. `C-14` remains open — detection is specified, not installed. Authorizes no code. Does not alter frozen-document precedence.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
@@ -1616,7 +1687,7 @@ Ordered by dependency. **Fixes are drafted here so execution does not re-derive 
 |---|---|---|
 | `G6` | `QD` — where the revenue rule lands | `PSK-06` — the rule **is** an editorial-commercial boundary |
 | `G10` | `QC` — domain assignment | Confirm public root for POC and `chief.` for the anchor, **or** invert |
-| `G11` | Arbitration across three concurrent agents | **No owner.** `G32` and `G53` are the observed harms |
+| `G11` | Arbitration across three concurrent agents | ✅ **Closed 2026-08-20** (`D-58`) — register precedence, Chief Editor owns. `C-14` detection carried with `R3` |
 | `Q2` | Line 3 executor | **Blocks `FR-11` entirely** — no executor, no feature. **Not the Chief Editor** (`A23`) |
 
 ### Stage 4 — the S1 window *(one design pass; cannot be sequenced)*

@@ -22,6 +22,7 @@
 | Test runner + `__tests__/` | `R3`, `NFR-04` | ❌ **specified, not installed** (`D-56`) |
 | `.github/workflows/` CI | `R3`, `TC6` | ❌ **specified, not installed** (`D-56`) |
 | `bun.lockb` | `G59` — CI reproducibility | ❌ **needs bun to generate** |
+| Concurrent-edit detection check | `C-14`/`G11` — `D-58`, ships with `R3` | ❌ **specified, not installed** — four proven checks, unbundled |
 | BCP observability surface | `C-13`/`G60` — condition on `D-57`, S3 | ❌ **no `FR` yet** — candidate `FR-14`, lands in `Modular_PRD` §5 per `D-29` |
 | P0-EVR project charter | `G7a`, T3 | ❌ |
 | P0-EVR PRD | `G7`, T3 | ❌ |

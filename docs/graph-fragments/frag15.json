@@ -1,0 +1,78 @@
+{
+  "_comment": "Fragment 15 — D-58, G11 closed. Register precedence, C-14 detection. Merged 2026-08-20.",
+  "nodes": [
+    {
+      "id": "d58_g11_register_precedence",
+      "label": "D-58 — G11 Resolved: Register Precedence",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14s D-58",
+      "description": "Closes G11, the project's only unowned gap. Owner is the Chief Editor, the only human on the project. Precedence: V1-DECISION-REGISTER is authoritative and an edit to any derived tier that contradicts it loses without escalation. Where two derived tiers conflict and the register is silent, escalate — the register has not decided it, and that absence is itself the finding. Frozen documents outrank everything, unchanged.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Codifies existing structure rather than inventing a rule: D-29 already ranks the tiers and D-54 already makes the register the tier always updated. What was missing was never the ordering but saying out loud that the ordering settles conflicts. Authority was never genuinely contestable — nobody had written it down, which is why G11 sat unowned while G32 happened underneath it."
+    },
+    {
+      "id": "silent_overwrite_not_merge_conflict",
+      "label": "Conflicts Here Are Silent Overwrites, Not Merges",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14s",
+      "description": "All commits in this repository carry one git identity and there are zero merge commits. Three agents edit the same files sequentially on one branch, so a conflicting edit never appears as a merge conflict — it appears as a silent overwrite. G32 was exactly that. Git authorship carries no information here, which is why graphify agent-stats attributes from CLI transcripts and states plainly that it is not git authorship.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Reframes G11. An arbitration rule modelled on merge precedence would never fire, because the mechanism it arbitrates does not occur in this repository. The problem is attribution and detection before it is precedence — you cannot arbitrate what you cannot attribute, and nothing currently announces that a conflict happened."
+    },
+    {
+      "id": "c14_conflict_detection",
+      "label": "C-14 — Concurrent-Edit Detection",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14s C-14",
+      "description": "Four checks proven by repeated hand use this session, each having caught a real defect: the shared-core hash across the three agent rule files (caught G53), the D-54 tier sweep (caught G58), the §5.1 duplicate-ID scan (caught the G39 row carrying both Closed and Open), and missing.js for graph coverage. Specified, not installed — bundling them is executable code, which the build guardrail forbids. Ships with R3.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A precedence rule with no detection is inert: it names who wins a fight nobody learns about. Guaranteed to fail is declaring G11 closed on precedence alone and treating the repository as safe. G32, G53 and G58 were each found by a human noticing — twice by the Chief Editor challenging a completion claim. That is not a control; it is luck with a good record."
+    },
+    {
+      "id": "rule_must_reach_its_subjects",
+      "label": "A Rule Governing Agents Must Reach the Agents",
+      "file_type": "concept",
+      "source_file": "CLAUDE.md",
+      "source_location": "shared core, arbitration",
+      "description": "D-58 lands in the byte-identical shared core of CLAUDE.md, AGENTS.md and .agents/rules/graphify.md, not only in the register. The agent files are a required propagation tier for this decision specifically, because a rule about how agents behave is inert if the agents cannot read it.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Extends D-54's propagation rule with a tier it did not originally name. D-54 enumerated the register, build spec, artifact inventory and Modular_PRD section 8; for decisions governing agent behaviour the agent files are a fifth required tier."
+    }
+  ],
+  "edges": [
+    { "source": "d58_g11_register_precedence", "target": "g11_agent_arbitration_unowned", "relation": "closes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14s", "weight": 1 },
+    { "source": "d58_g11_register_precedence", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14s", "weight": 1 },
+    { "source": "d58_g11_register_precedence", "target": "d54_propagation_rule", "relation": "derives_from", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14s", "weight": 1 },
+    { "source": "d58_g11_register_precedence", "target": "silent_overwrite_not_merge_conflict", "relation": "reframed_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14s", "weight": 1 },
+    { "source": "d58_g11_register_precedence", "target": "c14_conflict_detection", "relation": "conditional_on", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14s", "weight": 1 },
+    { "source": "d58_g11_register_precedence", "target": "rule_must_reach_its_subjects", "relation": "propagated_via", "confidence": "CURATED", "source_file": "CLAUDE.md", "confidence_score": 1, "source_location": "shared core", "weight": 1 },
+    { "source": "silent_overwrite_not_merge_conflict", "target": "shared_core_agent_rules", "relation": "explains_need_for", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14s", "weight": 1 },
+    { "source": "c14_conflict_detection", "target": "specs_verification_apparatus_doc", "relation": "ships_with", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "T1", "weight": 1 },
+    { "source": "c14_conflict_detection", "target": "specified_not_installed", "relation": "carries_disposition", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14s", "weight": 1 },
+    { "source": "c14_conflict_detection", "target": "summary_outlived_source", "relation": "detects", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14s", "weight": 1 },
+    { "source": "rule_must_reach_its_subjects", "target": "d54_propagation_rule", "relation": "extends", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14s", "weight": 1 }
+  ]
+}
