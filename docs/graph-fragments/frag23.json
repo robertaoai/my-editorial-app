@@ -14,7 +14,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "Closes G62b as a decision, not a fix. G62a remains open — typecheck still exits 2 with ten errors, so R3 DoD D-4 is still unachievable. Does not settle Q6, though a working ESLint CLI in CI makes eslint.ignoreDuringBuilds far less load-bearing."
+      "rationale": "Closes G62b as a decision, not a fix. G62a remained open at the time of this decision — superseded by D-67, which closed it; R3 DoD D-4 is now blocked solely on creating the config file this decision specifies. Does not settle Q6, though a working ESLint CLI in CI makes eslint.ignoreDuringBuilds far less load-bearing."
     },
     {
       "id": "dropping_lint_was_never_available",

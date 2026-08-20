@@ -22,7 +22,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "§5.14z",
-      "description": "Verified 2026-08-21. bun run typecheck exits 2 with ten implicit-any errors across lib/supabase/middleware.ts and lib/supabase/server.ts, TS7006 twice and TS7031 eight times. bun run lint exits 1: next lint is deprecated and interactive, opening an ESLint configuration wizard, and no ESLint config exists in the repository. Blocks R3 DoD D-4.",
+      "description": "State as at 2026-08-21, before D-67 — superseded on typecheck, still current on lint. bun run typecheck exited 2 with ten implicit-any errors across lib/supabase/middleware.ts and lib/supabase/server.ts, TS7006 twice and TS7031 eight times. bun run lint exits 1: next lint is deprecated and interactive, opening an ESLint configuration wizard, and no ESLint config exists in the repository. Blocked R3 DoD D-4. D-67 closed the typecheck half; the lint half stands until eslint.config.mjs exists.",
       "community": 30,
       "community_name": "Tooling Provenance and Graph Durability",
       "source_url": null,

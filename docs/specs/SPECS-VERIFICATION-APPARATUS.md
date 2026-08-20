@@ -75,11 +75,11 @@ Different provenance, so **no contradiction with `D-52`.** `D-52`'s four remain 
 | Checkout | — | — |
 | Setup bun | pinned to **`1.1.30`** | Match `packageManager` exactly |
 | Install | `bun install` | See `G59` below |
-| **Typecheck** | `bun run typecheck` | `tsc --noEmit`. **⚠ Fails today — `G62`a** |
+| **Typecheck** | `bun run typecheck` | `tsc --noEmit`. **Passes — exit 0 since `D-67`** |
 | **Lint** | `bun run lint` → `eslint .` | **Decided `D-66`** — ESLint CLI, flat config extending `next/core-web-vitals`. **0 findings** measured. Config file is Stage A |
 | Test | `bun test` | SC-1 |
 
-> **Corrected 2026-08-21 (`D-65`) — `[V1]`.** This section listed both commands as if they worked. **Neither does.** The script names were taken from `package.json` and never executed — specified against a summary rather than the thing. `G62` carries the remediation, and **DoD D-4 is unachievable until it closes.**
+> **Corrected 2026-08-21 (`D-65`) — `[V1]`.** This section listed both commands as if they worked. **Neither does.** The script names were taken from `package.json` and never executed — specified against a summary rather than the thing. `G62` carried the remediation. **Typecheck now passes (`D-67`)**; **DoD D-4 is unachievable until `eslint.config.mjs` exists (`D-66`, Stage A)** — one file, with no remediation behind it.
 
 ### 4.1 `TC6` — why typecheck and lint must be explicit CI steps `[V1]`
 
@@ -94,7 +94,7 @@ eslint: { ignoreDuringBuilds: true },
 
 **Disposition — `TC6` is not resolved by this document.** The flags stay as they are; changing deployment behaviour is out of scope here. **CI compensates by running the gates itself**, so verification is restored without touching deploy.
 
-> **`TC6` is not a hypothetical risk — it is an active concealment, and it now has a number.** `ignoreBuildErrors: true` has been hiding **ten real type errors** since scaffolding, in `lib/supabase/middleware.ts` and `lib/supabase/server.ts`. Nothing has ever reported them (`G62`).
+> **`TC6` is not a hypothetical risk — it is an active concealment, and it now has a number.** `ignoreBuildErrors: true` had been hiding **ten real type errors** since scaffolding, in `lib/supabase/middleware.ts` and `lib/supabase/server.ts`. Nothing ever reported them (`G62`). **Fixed by `D-67`** — and the diagnosis changed the finding: they were **two overload-resolution causes**, not ten defects. The concealment was real; its contents were smaller and shallower than the count implied. `ignoreBuildErrors` now **conceals nothing**, which makes `Q6` cheap on the TypeScript side and untouched on the lint side.
 
 > **Guaranteed to fail:** adding CI that runs only `next build`, then reporting `R3` complete. The apparatus exists, reports green, and checks nothing — **worse than no CI**, because sprint DoDs would then cite a verdict that is structurally incapable of failing.
 >

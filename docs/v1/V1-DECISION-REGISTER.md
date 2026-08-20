@@ -189,7 +189,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `X7` | **Open** — S2 → S6 | Demo-first plus permissive RLS versus executor attributability. `D5`. **Mitigated at S2, closes at S6** — the same `TC1` surface `AC-12` sits on |
 | `X8` | **Open** — S0 | Stripe scaffolding versus the Charter-level *"no monetization features"*. `D5`. **Closes on S0** |
 | `G61` | **Closed 2026-08-20** | `D-63` §5.14x — **all eight** `X`-rows backfilled above. *(Corrected: the gap statement said **five**; `X1`, `X2`, and `X6` exist too. Five was the `D5`-family **open** subset, not the series.)* |
-| `G62` | **Part b closed 2026-08-21; part a Open** | **The CI gates `R3` specifies do not pass.** `typecheck` exits 2 with 10 implicit-`any` errors in `lib/supabase/`; `lint` exits 1 — `next lint` is deprecated, **interactive**, and no ESLint config exists. **Blocks `R3` DoD D-4.** §5.14z. **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings** on this codebase. **a still open: 10 type errors** |
+| `G62` | **Part a closed 2026-08-21; part b decided, not applied** | **Opened because the CI gates `R3` specifies did not pass** — `typecheck` exited 2 with 10 implicit-`any` errors in `lib/supabase/`, and `lint` exited 1 because `next lint` is deprecated, **interactive**, and no ESLint config exists. §5.14z. **Today: typecheck passes; lint still cannot run.** **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings**. **a closed by `D-67`** — `satisfies CookieMethodsServer` in two files, 4 lines; `tsc --noEmit` **exits 0**. The ten errors were **two overload-resolution causes**, not ten defects. **D-4 now blocked solely on creating `eslint.config.mjs`** |
 | `G63` | **Open — new** | An **untracked** `.gitattributes` sets `*.md text eol=lf merge=union`. **Union merge concatenates conflicting markdown instead of failing** — in a three-agent repo that silently duplicates index rows, the exact `G39` defect. Cuts against `D-58`. Found incidentally |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
@@ -2131,7 +2131,7 @@ export default [
 
 ### What this does not do
 
-**Creates no file and changes no script.** `G62`a stays open — **typecheck still exits 2**, so `R3` DoD **D-4** remains unachievable. This closes the *decision*, not the gate.
+**Creates no file and changes no script.** `G62`a stays open — **typecheck still exits 2**, so `R3` DoD **D-4** remains unachievable. This closes the *decision*, not the gate. *(Superseded 2026-08-21 by `D-67`: typecheck now exits 0. D-4 is now blocked solely on creating `eslint.config.mjs`.)*
 
 It also does not settle `Q6` *(re-enable `ignoreBuildErrors` and `ignoreDuringBuilds` once CI exists?)*, which stays **open** — though a working ESLint CLI in CI makes `eslint.ignoreDuringBuilds` far less load-bearing.
 
@@ -2144,6 +2144,86 @@ It also does not settle `Q6` *(re-enable `ignoreBuildErrors` and `ignoreDuringBu
 ### Scope limits
 
 Closes `G62`b **as a decision**. Creates no file, installs nothing, changes no script. `G62`a remains open. `AC-NF-03` is **unchanged** — this decision keeps lint in CI rather than amending the criterion away.
+
+## 5.14ac `D-67` — `G62`a closed: the ten type errors were two, and neither was a missing type
+
+**Decision and fix, 2026-08-21. Closes `G62`a.** `tsc --noEmit` now **exits 0**. Build guardrail lifted by the Chief Editor for this item only, as with `G59`; reinstated on completion.
+
+### The recorded count was symptoms, not causes
+
+`D-65` recorded *"ten implicit-`any` errors."* **True as a compiler count, and misleading as a diagnosis** — the compiler counts binding elements, not defects. Five discriminating probes, run **inside the project**:
+
+| Probe | Construct | Result |
+|---|---|---|
+| **P1** | `const p1: SetAllCookies = ...` | **Clean** |
+| **P2** | `const p2: CookieMethodsServer = {...}` | **Clean** |
+| **P3** | Inline object literal into `createServerClient` | **Fails — 4 errors** |
+| **P4** | Pre-annotated object into `createServerClient` | **Clean** |
+| **P5** | `CookieOptions` resolves to a real type | **Clean** |
+
+**Only the inline literal fails.** The library types resolve, `@types/cookie` is installed, nothing is absent.
+
+`createServerClient` declares **two overloads** — one for the deprecated `get`/`set`/`remove` cookie API, one for `getAll`/`setAll`. The code uses the modern API, so the first candidate cannot match, and **TypeScript declines to contextually type an object literal argument across overloads.** Ten errors, **two root causes** — one inline literal per file.
+
+**This changes the disposition.** These were never ten defects in project-authored logic. They are scaffolding written against an overloaded signature, concealed since scaffolding by `ignoreBuildErrors` (`TC6`).
+
+### A method error worth recording
+
+The first probe ran in the scratchpad, **outside the repository**. Module resolution failed with `TS2307`, every type collapsed to `any`, and the probe "reproduced" the defect **for entirely the wrong reason** — it would have confirmed any hypothesis put to it. Re-running it inside the project is what made the result evidence.
+
+> **A probe that cannot fail is not a test.** Same family as `summary_outlived_source`, one step earlier: not a summary outliving its source, but a **measurement detached from its subject**. Recorded because the invalid probe produced output that looked exactly like a successful one.
+
+### The applied patch
+
+**Two files, four lines** — `lib/supabase/middleware.ts` and `lib/supabase/server.ts`:
+
+```diff
+-import { createServerClient } from "@supabase/ssr";
++import { createServerClient, type CookieMethodsServer } from "@supabase/ssr";
+
+-      },
++      } satisfies CookieMethodsServer,
+```
+
+Chosen over annotating the `cookiesToSet` parameter — both typecheck clean — for three reasons:
+
+1. It pins the **whole object** to the library contract, so a future `getAll` error is caught too, not just this one parameter.
+2. It **states which of the two cookie APIs is in use** — the precise ambiguity that caused the defect.
+3. `CookieMethodsServerDeprecated` is slated for removal in the next major, so pinning to `CookieMethodsServer` is durable.
+
+**No dependency added. No runtime change** — `satisfies` is erased at compile time. **No logic touched**: the cookie handling, the `!url || !anonKey` guard and both `catch` blocks are byte-identical.
+
+### Verified, not assumed
+
+| Check | Result |
+|---|---|
+| `tsc --noEmit` | **exit 0**, from exit 2 |
+| `git diff --stat` | 2 files, **4 insertions, 4 deletions** |
+| **Negative test** — destructure a field that does not exist | **`TS2339` raised**; type reported as `{ name: string; value: string; options: Partial<CookieSerializeOptions>; }` |
+
+**The negative test is the one that matters.** A green typecheck is also what a silently-`any` parameter produces. Forcing an error proves contextual typing is **live and narrowed**. The deliberate error was reverted and exit 0 re-confirmed.
+
+### What this does not do
+
+**`R3` DoD D-4 is still unachievable** — but the reason has changed. Typecheck passes; `lint` still cannot run because `eslint.config.mjs` does not exist. **D-4 is now blocked on one uncreated file** (`D-66`, Stage A), not on any remediation.
+
+**`G62` is not fully closed.** Part a is **applied**; part b is **decided but not applied**.
+
+### It makes `Q6` cheap on one side
+
+`Q6` *(re-enable `ignoreBuildErrors` and `ignoreDuringBuilds` once CI exists?)* stays **open**, but its cost has moved: `ignoreBuildErrors` now **conceals nothing** — there is nothing left for it to conceal. Turning it off is a one-line change with zero remediation behind it. `ignoreDuringBuilds` still waits on the config file.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 | `SPECS-VERIFICATION` |
+|---|---|---|---|---|---|
+| `D-67` / `G62`a | ✅ | ✅ Stage A | **— unaffected** | ✅ | ✅ §4 typecheck row |
+
+**Inventory is unaffected and that is stated, not blank.** Both files already existed; the patch creates and retires no artifact. `eslint.config.mjs` remains marked **Stage A, not created**.
+
+### Scope limits
+
+Closes `G62`a only. Creates no file, installs nothing, changes no script, alters no behaviour. `G62`b, `Q6` and `R3` installation all remain open. **The build guardrail is reinstated.**
 
 ## 5.15 Solve sequence — remaining open gaps
 

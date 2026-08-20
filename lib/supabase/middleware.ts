@@ -1,4 +1,4 @@
-import { createServerClient } from "@supabase/ssr";
+import { createServerClient, type CookieMethodsServer } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function updateSession(request: NextRequest) {
@@ -31,7 +31,7 @@ export async function updateSession(request: NextRequest) {
             response.cookies.set(name, value, options),
           );
         },
-      },
+      } satisfies CookieMethodsServer,
     });
 
     // Refresh session so it doesn't expire while user is active

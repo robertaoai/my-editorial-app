@@ -1,0 +1,80 @@
+{
+  "_comment": "Fragment 24 — D-67, G62a closed: ten type errors were two overload-resolution causes. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d67_g62a_closed",
+      "label": "D-67 — G62a Closed, Typecheck Exits 0",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ac D-67",
+      "description": "The ten implicit-any errors in lib/supabase/middleware.ts and lib/supabase/server.ts are fixed with satisfies CookieMethodsServer on the inline cookies object literal — two files, four lines, one import and one clause each. No dependency added and no runtime change, since satisfies is erased at compile time. tsc --noEmit exits 0, from exit 2. The build guardrail was lifted by the Chief Editor for this item only, as with G59, and reinstated on completion.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "satisfies was chosen over annotating the cookiesToSet parameter — both typecheck clean — because it pins the whole object to the library contract rather than one parameter, because it states which of the two cookie APIs is in use, and because CookieMethodsServerDeprecated is slated for removal in the next major. R3 DoD D-4 remains unachievable but the reason has changed: it is now blocked solely on creating eslint.config.mjs, with no remediation behind it."
+    },
+    {
+      "id": "ten_errors_were_two_causes",
+      "label": "The Ten Type Errors Were Two Causes",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ac",
+      "description": "createServerClient declares two overloads, one for the deprecated get/set/remove cookie API and one for getAll/setAll. The code uses the modern API, so the first candidate cannot match, and TypeScript declines to contextually type an object literal argument across overloads. Five discriminating probes isolated it: the exported type alias, an annotated object, and a pre-annotated argument all typecheck clean, and only the inline literal fails. Ten errors, two root causes — one inline literal per file.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The compiler counts binding elements, not defects, so the recorded count of ten was symptoms rather than a diagnosis. This changes the disposition: these were never ten defects in project-authored logic but scaffolding written against an overloaded signature. Nothing was missing — the library types resolve and @types/cookie is installed."
+    },
+    {
+      "id": "probe_that_cannot_fail",
+      "label": "A Probe That Cannot Fail Is Not a Test",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ac",
+      "description": "The first probe ran in the scratchpad, outside the repository. Module resolution failed with TS2307, every type collapsed to any, and the probe reproduced the defect for entirely the wrong reason — it would have confirmed any hypothesis put to it. Re-running it inside the project is what made the result evidence.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Same family as summary_outlived_source but one step earlier: not a summary outliving its source, but a measurement detached from its subject. Recorded because the invalid probe produced output that looked exactly like a successful one, so nothing in the result itself signalled the fault."
+    },
+    {
+      "id": "negative_test_proves_narrowing",
+      "label": "A Green Typecheck Is Also What Silent Any Produces",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ac",
+      "description": "Passing typecheck does not by itself prove the parameter is typed, because a silently-any parameter also passes. Destructuring a field that does not exist raised TS2339 and reported the type as name string, value string, options Partial of CookieSerializeOptions — proving contextual typing is live and narrowed. The deliberate error was then reverted and exit 0 re-confirmed.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The verification that actually discriminates. A green run is consistent with both the fix working and the fix silently doing nothing, so only forcing a failure separates them."
+    }
+  ],
+  "edges": [
+    { "source": "d67_g62a_closed", "target": "g62_ci_gates_fail", "relation": "closes_part_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ac", "weight": 1 },
+    { "source": "d67_g62a_closed", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ac", "weight": 1 },
+    { "source": "d67_g62a_closed", "target": "d65_bundle_rejected", "relation": "advances_stage_a_of", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "Stage A", "weight": 1 },
+    { "source": "d67_g62a_closed", "target": "d66_eslint_cli_decided", "relation": "leaves_as_sole_blocker", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "Stage A", "weight": 1 },
+    { "source": "d67_g62a_closed", "target": "ten_errors_were_two_causes", "relation": "rests_on", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ac", "weight": 1 },
+    { "source": "d67_g62a_closed", "target": "negative_test_proves_narrowing", "relation": "verified_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ac", "weight": 1 },
+    { "source": "d67_g62a_closed", "target": "specs_verification_apparatus_doc", "relation": "updates", "confidence": "CURATED", "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md", "confidence_score": 1, "source_location": "§4", "weight": 1 },
+    { "source": "d67_g62a_closed", "target": "tc6_is_active_concealment", "relation": "empties", "confidence": "CURATED", "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md", "confidence_score": 1, "source_location": "§4.1", "weight": 1 },
+    { "source": "ten_errors_were_two_causes", "target": "specified_against_a_config_file", "relation": "refines", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ac", "weight": 1 },
+    { "source": "probe_that_cannot_fail", "target": "summary_outlived_source", "relation": "sibling_failure_mode_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ac", "weight": 1 },
+    { "source": "probe_that_cannot_fail", "target": "ten_errors_were_two_causes", "relation": "nearly_prevented", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ac", "weight": 1 },
+    { "source": "negative_test_proves_narrowing", "target": "probe_that_cannot_fail", "relation": "answers", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ac", "weight": 1 },
+    { "source": "negative_test_proves_narrowing", "target": "measurement_dissolved_the_question", "relation": "same_discipline_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ac", "weight": 1 }
+  ]
+}
