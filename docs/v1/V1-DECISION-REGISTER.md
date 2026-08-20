@@ -354,11 +354,28 @@ The one objection that survived, now handled by convention:
 
 `Modular_PRD` v1.8 has nothing to do with build `V1`. Writing "version 1" for a build, or "V1.8" for a document, is an error. **`D-22` is the precedent** — two meanings of *cost baseline* required a decision to separate, and this is the same shape.
 
-#### Deferred to the `V1`→`V2` boundary
+#### ~~Deferred to the `V1`→`V2` boundary~~ — **WITHDRAWN 2026-08-19**
 
-`V2` is expected to modify files that frozen `V1` specs describe, leaving those specs **frozen and inaccurate** with nothing marking them — the same failure §5.1 caught, where supersession destroyed traceability instead of transferring it. Three treatments exist (forward pointers · a supersession index · reissue) and none is chosen.
+The concern recorded here was that `V2` would modify files frozen `V1` specs describe, leaving those specs frozen and inaccurate. **It rested on a misreading and does not arise.**
 
-**Deliberately deferred.** It costs nothing while `V2` does not exist, and nothing in `V1` depends on it. **It must be settled before `V2` opens** — recorded here so it is not discovered at the boundary.
+**`V1-*.md` are tracking files, not specs.** The distinction:
+
+| Artifact | Version-scoped? | Freezes? |
+|---|---|---|
+| `V1-DECISION-REGISTER.md`, `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md` | **Yes** — they record what the `V1` sprint decided, built, and required | **Yes**, when `V1` closes |
+| `fn-specs/`, `specs/`, `specs/ux/` | **No** — no spec carries a version prefix | **No** — living documents that `V2` continues to edit |
+
+Freezing `V1-*.md` freezes **the record of a sprint**, not the specifications. There are no frozen specs to go stale, so no supersession treatment is needed and nothing must be settled before `V2` opens.
+
+> **Fourth error of the same family.** `D-31` (Project vs Product `PRD`), `D-33` (`app-vision.md` vs `Modular_PRD`), `pub_target` vs `platform_type`, and now tracking files vs specs. Each time an incompatibility was recorded where the existing structure already resolved it. The `D-34` countermeasure — *check what the unfamiliar label maps to before recording a conflict* — is extended: **also check what artifact class it belongs to.**
+
+#### Three tracking tiers, confirmed
+
+| Tier | Artifact | Lifecycle |
+|---|---|---|
+| **Sprint detail** | `V1-*.md`, later `V2-*.md` | Frozen at sprint close |
+| **Cross-sprint index** | `Modular_PRD` §8.0 | Living |
+| **Project** | Alpha Portfolio plan | Living |
 
 ### Effect on §6.1's freeze
 
