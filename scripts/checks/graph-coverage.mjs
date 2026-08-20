@@ -8,13 +8,33 @@
 // and counting it as a governed document produces a permanent false finding.
 
 import { execFileSync } from "node:child_process";
+import { existsSync } from "node:fs";
 
 const SCRIPT = "docs/graph-fragments/missing.js";
+const GRAPH = ".graphify/graph.json";
 const IGNORE = /^docs\/\.graphify\//;
 
 export function run() {
   const findings = [];
   let out;
+
+  // `.graphify/` is gitignored, so this check's input does not exist on a fresh
+  // clone. That is structural rather than a defect: the graph is a build
+  // artifact, and its curated layer is NOT rebuildable from `docs/` — it merges
+  // only from `docs/graph-fragments/` (`G51`). Rebuilding it in CI would mean
+  // installing graphify and running the merge, which buys nothing the local run
+  // does not already give.
+  //
+  // So this check is LOCAL-ONLY, and it says so rather than failing CI forever
+  // or — worse — reporting a pass it never performed.
+  if (!existsSync(GRAPH)) {
+    return {
+      name: "graph-coverage",
+      findings: [],
+      skipped: true,
+      detail: `SKIPPED — ${GRAPH} absent (gitignored build artifact); run locally`,
+    };
+  }
 
   try {
     out = execFileSync(process.execPath, [SCRIPT], { encoding: "utf8" });

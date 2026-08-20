@@ -19,10 +19,14 @@ import { run as graphCoverage } from "./checks/graph-coverage.mjs";
 const CHECKS = [sharedCoreHash, tierSweep, duplicateIds, graphCoverage];
 
 let failed = 0;
+let skipped = 0;
 
 for (const check of CHECKS) {
-  const { name, findings, detail } = check();
-  if (findings.length === 0) {
+  const { name, findings, detail, skipped: wasSkipped } = check();
+  if (wasSkipped) {
+    skipped++;
+    console.log(`  SKIP  ${name.padEnd(18)} ${detail}`);
+  } else if (findings.length === 0) {
     console.log(`  PASS  ${name.padEnd(18)} ${detail}`);
   } else {
     failed++;
@@ -31,10 +35,15 @@ for (const check of CHECKS) {
   }
 }
 
+// A skip is reported, never silently folded into the pass count. "4/4 passed"
+// when one check never ran is the same overclaim this apparatus exists to catch.
+const ran = CHECKS.length - skipped;
+const tail = skipped > 0 ? ` (${skipped} skipped — see above)` : "";
+
 console.log(
   failed === 0
-    ? `\n${CHECKS.length}/${CHECKS.length} consistency checks passed.`
-    : `\n${failed} of ${CHECKS.length} consistency checks FAILED.`,
+    ? `\n${ran}/${ran} consistency checks passed${tail}.`
+    : `\n${failed} of ${ran} consistency checks FAILED${tail}.`,
 );
 
 process.exit(failed === 0 ? 0 : 1);
