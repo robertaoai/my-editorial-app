@@ -897,6 +897,60 @@ An identifier that permits re-identification — here, by querying the third-par
 
 Deleting rather than anonymising means **engagement analytics are gone permanently** — *"what topics do paying clients commission?"* becomes unanswerable once the period elapses. That is a legitimate choice given no report reads the data, but it is **irreversible**, and the alternative was available. Recorded as deliberate.
 
+## 5.14g `D-46` — POC payment deferred; analytics loss corrected
+
+**Chief Editor direction, 2026-08-19.** **MVP flow is the current focus. POC payment detail is deferred.**
+
+### POC payment workflow — deferred, with its requirement recorded
+
+The POC flow runs **ahead of current work**, so the payment dialogue is not designed now. Recorded for when it is:
+
+- **What was requested and what was paid sit on the same invoice** in the third-party system — one record, not two, which is what prevents divergence.
+- **The transaction ID must be sufficient to link the third-party record to what this product delivers.** Insufficient linkage produces duplicated data, or worse — a **mismatch between what the client paid for and what they requested**.
+- The full workflow drafts when the POC flow is required, together with the transaction-ID pseudonymity question (`D-45`).
+
+### Analytics loss — I overstated it
+
+**Verified against the register:** the **trigger-topic flow is common to both lanes and retained 5 years**. So the topic does **not** disappear at 90 days — only the *personal data* does.
+
+| Question | Survives? |
+|---|---|
+| What topics were commissioned? | ✅ Editorial flow, 5 years |
+| Which topics came from paid engagements? | ⚠️ **Only if a non-personal paid flag was recorded** |
+| Which client commissioned what? | ❌ **Deleted by design — that is the point** |
+| What did they pay, for what? | ✅ Third-party invoice, its own 5-year basis |
+
+**So almost nothing analytical is lost.** What PDPA removes is the person-to-topic link, which is precisely what it exists to remove. My earlier framing — *"engagement analytics are gone permanently"* — was wrong, and it was wrong in the direction that would have justified retaining more personal data than necessary. **That is the worse direction to be wrong in.**
+
+### The residual risk that *is* real
+
+**Verified:** the Alpha Portfolio closure scorecard requires *"Commercial evidence — actual payment/outcome evidence from the bounded PoC, including negative evidence."*
+
+That evidence partly lives in a **third-party system this business does not own**. If the account lapses, the vendor is changed, or the service is decommissioned, **the payment-and-request linkage leaves with it** — and `APD-03`'s closure decision depends on it.
+
+**The failure shape:** not *"we deleted too much"*, but *"the evidence for our own closure decision was never ours to keep."*
+
+### Suggested approach — capture the non-personal facts at intake
+
+At intake, record in **this product's** editorial flow:
+
+| Fact | Personal data? |
+|---|---|
+| Trigger topic | No — already retained 5 years |
+| **Paid / unpaid flag** | **No** |
+| **Transaction ID** | **No** *(pseudonymity caveat, `D-45`)* |
+| Outcome — published, held, withdrawn | No |
+
+**None of these is personal data.** With them recorded:
+
+1. PDPA deletion at 90 days loses **nothing** analytically.
+2. Closure evidence stops depending on a third party's survival.
+3. *"What topics do paying clients commission?"* is answerable **from aggregate facts alone**, which identify nobody.
+
+**Same principle as `D-42`'s classify-at-intake:** derive the fact when it is cheap, not when you need it. **An aggregate about engagements is not personal data** — the analytics were never in tension with PDPA; only the linkage was.
+
+> **Deferred, not decided.** These are POC-flow fields and belong with that workflow's draft. Recorded now so the deletion schedule is designed **around** them rather than discovering afterwards that closure evidence went with the personal data.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
