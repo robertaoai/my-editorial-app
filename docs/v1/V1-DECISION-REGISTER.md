@@ -162,7 +162,6 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G34`–`G36` | **Never assigned** | **Numbering skip, not missing gaps.** The series jumps `G33` → `G37` because new gaps were numbered alongside `D-34`/`D-35`/`D-36` while those were being written. **No gap was lost, closed, or deleted.** Recorded so a reader auditing the sequence does not hunt for three that never existed |
 | `G37` | **Withdrawn** | Two concepts sharing a name — see `D-38` |
 | `G38` | **Resolved** | Defaults to `CR-04` — see `D-38` |
-| `G39` | Open | Restate `FR-01`/`AC-01` to separate **one subject topic** from **many analytical tags**. Documentation only, no schema change — gates `Fn_Specs` |
 | `GA1`, `GA3`, `GA4` | Open | S1 window item 3 — report record shape |
 | `GA2` | **Half closed 2026-08-19** | Stated half done — report immutability rule in `Modular_PRD` §6.3. Insert/read-only half remains S1 window item 4 |
 | `GA5` | **TX — counsel** | Pairs with `G15` |
@@ -170,13 +169,23 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `GA7` | Open | T3, audit Step 7 — auditor access versus tenant isolation |
 | `GA8` | **Closed on execution** | `D-13` — `PSK-10`, T0 Step 1 |
 | `GA9` | Open | `D-07`, S1 window item 6 |
-| `G40`–`G49` | **Recorded elsewhere — not backfilled here** | **This table is incomplete and says so.** All ten are recorded elsewhere: `G41`–`G48` have dedicated detail sections, `G49` is covered under a heading not keyed to its ID, and `G40` exists only as a table row inside §5.14. Backfill is `G55`, Open |
+| `G40` | **Open** — DOC before S3 | `NFR-08` is unbounded: *"every transition reconstructable from the log alone"* carries no retention qualifier, so the product promises what lawful disposal removes. §5.14, detail section added 2026-08-20 |
+| `G41` | **Open** — S3 | Nothing explains **absence**. An empty audit view cannot distinguish *"nothing happened"* from *"records disposed under policy"*. §5.14, §5.14a. Product canary is `AC-12a` |
+| `G42` | **Open** — **S1** | Template-to-field-availability binding: a new report template may not be applied to a period that never recorded its fields. §5.14b, `D-41` |
+| `G43` | **Resolved 2026-08-19** | GRC clock and proof — the deadline arrives with the order. §5.14d, `D-43` |
+| `G44` | **Resolved 2026-08-19** | The 90-day clock start defined. §5.14f, `D-45` |
+| `G45` | **Withdrawn 2026-08-19** | Anonymisation is not required — the transaction ID is the trace. §5.14f, `D-45` |
+| `G46` | **Resolved 2026-08-19** | Retention class — the product holds a payment **confirmation**, not a payment record. §5.14e, `D-44` |
+| `G47` | **Open** | Paid-but-no-trigger must be detectable. §5.14e |
+| `G48` | **Resolved 2026-08-19** | A paid engagement failing the gate — deliver with the finding disclosed. §5.14j, §5.14k, `D-49`/`D-50` |
+| `G49` | **Open** — S3 | Briefcase artifacts specified for POC only; MVP needs them or it cannot tell rework from true negative. §5.14k |
+| `G56` | **Closed 2026-08-20** | §5.15 solve sequence stale — found and repaired in the same pass. See §5.4 |
 | `G50` | **Closed 2026-08-20** | Distribution provenance — `D-51`, §5.4, `docs/graph-fragments/README.md` §2 |
 | `G51` | **Closed 2026-08-20** | Curated graph layer rescued to `docs/graph-fragments/` — 61 nodes, 142 edges. §5.4 |
 | `G52` | **Closed 2026-08-20** | Distribution-specific commands disclosed — `docs/graph-fragments/README.md` §3 |
 | `G53` | **Closed 2026-08-20** | Shared core reconciled across all three agent files, verified byte-identical. §5.4 |
 | `G54` | **Open — deferred by decision** | Upstream command surface unverified; route in `docs/graph-fragments/README.md` §6. Needs a Python toolchain |
-| `G55` | **Open — new** | Backfill `G40`–`G49` into this table. Only `G40` needs a detail section written first; `G49` needs an ID-keyed anchor |
+| `G55` | **Closed 2026-08-20** | All ten backfilled above; `G40` given a detail section, `G49` an ID-keyed anchor, and the duplicate `G39` row removed. §5.4 |
 
 **The table above is authoritative. Counts are deliberately not restated here.**
 
@@ -573,6 +582,25 @@ The product must **never present absence as "nothing happened."** Where records 
 
 This is the reader-facing counterpart to the disposal record in audit Step 10. The disposal record proves what was removed; this states it at the point someone looks for it. **Partitioning (audit-model §6.2 Method 3) is what makes both practical** — a detached partition has a clean period boundary to name.
 
+### `G40` — `NFR-08` is unbounded *(detail, added 2026-08-20)*
+
+**Recorded here because `G55` found it had a table row and nothing else.** It is the only one of `G40`–`G49` that was genuinely bare.
+
+**The defect.** `NFR-08` reads *"every transition reconstructable from the log alone."* It carries **no retention qualifier**. Archival and lawful disposal make that false by design — not by failure.
+
+**Why this is not pedantry.** As written, the product promises something **infrastructure policy is required to remove** (`D-39`). The promise and the policy cannot both hold. An auditor reading `NFR-08` literally would record a control failure the moment retention operates correctly.
+
+| Aspect | Disposition |
+|---|---|
+| Severity | **DOC**, before S3 |
+| Scope | **Project Scope — global** (`D-40`). No CR; default audit practice |
+| Owner | Product — this is a **wording** defect, not an infrastructure one |
+
+**Drafted fix.** Restate `NFR-08` as reconstructable **within the retention window**, with absence outside it **explained rather than silent**.
+
+**Pairs with `G41`.** `G40` bounds the promise; `G41` makes what falls outside the bound legible. Fixing `G40` alone yields a correct promise with an audit view that still renders disposal as an empty list — **which reads as a finding.**
+
+**What is guaranteed to fail:** narrowing `NFR-08` and stopping there. **How to avoid it:** `G40` and `G41` land together or neither lands.
 ## 5.14a `D-40` — scope classification for `D-39`'s gaps
 
 **Chief Editor challenge, 2026-08-19, upheld.** `D-39` recorded `G40` and `G41` as product duties but **assigned neither a scope**. Under `FB-04`'s discipline every specification must anchor to a Customer Request **or** carry a Project Scope Key. That omission is the defect `FB-04` exists to catch, committed in the act of recording two new requirements.
@@ -1135,7 +1163,7 @@ When **all gates fail to find sufficient newsworthiness**, there are two possibl
 
 **Conflating these is the failure mode in both directions.** Always assume process failure and you never accept a true negative — you rework indefinitely on a topic that has nothing in it. Always assume true negative and **you never fix a broken gate**, and the same thin work recurs on every article.
 
-### How the two are told apart — and why `G49` follows
+### `G49` — how the two are told apart, and why the briefcase artifacts follow
 
 **The audit trail alone cannot distinguish them.** The transition record carries who, when, and why — it records *completion*, not *how much was found*. A gate that investigated thoroughly and a gate that skimmed both produce one transition row.
 
@@ -1184,67 +1212,90 @@ Make the rework-versus-negative call **evidence-based rather than a judgement**.
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
 
-### Stage 1 — no dependency, documentation only *(executable now)*
+**Refreshed 2026-08-20 (`G56`).** The prior revision omitted `G40`–`G42`, `G47`, `G49`, `G54`, and `G55`; still staged `G33a` as open after it closed on 2026-08-19; and stated ten `SPECS` candidates where there are **18**. **Do not read a count from this section** — read it from the `Fn_Specs` themselves.
 
-| Gap | Drafted fix | Status |
+### Stage 0 — index integrity *(complete)*
+
+| Gap | Fix | Status |
 |---|---|---|
-| `G39` | Restate `FR-01`/`AC-01`/§3.1 for one subject topic versus many analytical tags | ✅ **Applied** |
-| `G29` | Artifact DoD per sprint | ✅ **Applied**, disposition corrected |
+| `G55` | Backfill `G40`–`G49` into §5.1; write `G40`'s detail section; give `G49` an ID-keyed anchor; drop the duplicate `G39` row | ✅ **Applied 2026-08-20** |
+| `G56` | Refresh this section | ✅ **Applied 2026-08-20** |
 
-### Stage 2 — `G33a`, the two remaining feature groups *(executable now; gates `G33b`)*
+### Stage 1 — documentation only *(complete)*
 
-`D-32` requires features that **cannot function without each other**. Two groups remain:
-
-| Group | Features | Why they group |
+| Gap | Fix | Status |
 |---|---|---|
-| **Audit & Visibility** | `FR-07`, `FR-08` | `FR-08`'s board cannot function without `FR-07`'s transition record — it displays state, Line, and history. The dependency is **one-way**, which is weaker than the gates and publication groups; recorded rather than hidden |
-| **Exceptions & Continuity** | `FR-06`, `FR-11`, `FR-12` | All answer *"what happens when the normal path does not work"* — return with mandatory reason, risk-triggered Line 3 audit, and degraded mode on prolonged absence |
+| `G39` | One subject topic versus many analytical tags | ✅ **Applied** to `FN-GATES-01-05` |
+| `G29` | Artifact DoD per sprint | ✅ **Applied** |
+| `G33a` | All four feature groups specified | ✅ **Closed 2026-08-19** |
 
-**Note on `FR-06`:** it is T8, a return *within* the pipeline, so it could sit with the gates. It was not included there, so it belongs here. **Flagged rather than assumed** — if it should join the gates group, that group reopens.
+### Stage 2 — `G33b`, the critical path *(executable now)*
 
-**Drafted structure for both:** the merged `D-33` shape — Overview · User Stories · Requirements · Behaviour · Acceptance Criteria · Edge Cases · Dependencies · Risks · `SPECS` candidate filter. All sections marked `[V1]` per `D-36`.
+Filter **18 `SPECS` candidates** against `D-30` — 5 gates, 5 publication, 4 audit, 4 exceptions.
 
-### Stage 3 — Chief Editor decisions *(two, T1)*
+> **Expect a small answer.** `FN-GATES-01-05` §9 already records that its five *"map to an item already inside the S1 eight-decision window."* If that holds across all four groups, `G33b` **largely collapses into S1 rather than producing separate documents.** Writing four `SPECS` documents before testing that is the `D-30` redundancy failure in its most expensive form.
+
+**Gates S1.**
+
+### Stage 3 — Chief Editor decisions *(T1, parallel)*
 
 | Gap | Question | Drafted resolution |
 |---|---|---|
-| `G6` | `QD` — where the revenue rule lands so it governs | **`PSK-06`** (editorial-commercial separation) is the closer fit than sprint-plan §11: the rule *is* an editorial-commercial boundary, and `PSK-06` already owns that concern |
-| `G10` | `QC` — domain assignment | Confirm public root for POC and `chief.` for the anchor, **or** invert. The current arrangement gives the root to the subordinate evidence lane; defensible if the public service is the commercial front door, but it should be deliberate |
+| `G6` | `QD` — where the revenue rule lands | `PSK-06` — the rule **is** an editorial-commercial boundary |
+| `G10` | `QC` — domain assignment | Confirm public root for POC and `chief.` for the anchor, **or** invert |
+| `G11` | Arbitration across three concurrent agents | **No owner.** `G32` and `G53` are the observed harms |
+| `Q2` | Line 3 executor | **Blocks `FR-11` entirely** — no executor, no feature. **Not the Chief Editor** (`A23`) |
 
-### Stage 4 — the S1 window *(six gaps, one design pass, T2)*
+### Stage 4 — the S1 window *(one design pass; cannot be sequenced)*
 
-**These cannot be sequenced** — all alter the same append-only table.
+All alter the same append-only table.
 
 | Gap | Decision |
 |---|---|
 | `G16` | `Q10` + `Q11` designed as one migration |
 | `G17` | `QA3` — typed columns versus versioned JSON payload |
-| `G19` | Notice-as-article: notice type, notice→original reference, inherited targets, derived superseded status |
+| `G19` | Notice-as-article: notice type, reference, inherited targets, derived superseded status |
 | `G20` | Risk-tier dimension on articles |
+| `G42` | **Newly surfaced here.** Template-to-field-availability binding — the binding lives on the report record, which S1 creates |
 | `GA1`, `GA3`, `GA4` | Report record shape — identity, as-at, tenant, template and rule-set versions, frozen snapshot |
 | `GA9` | `on delete restrict` replaces `on delete cascade` |
 
-### Stage 5 — T3, the POC lane *(parallel; no build dependency)*
+> `G42` was absent from the prior revision of this section. It is **S1, not S3** — scoping S1 without it repeats `G41`'s mechanism one tier down.
+
+### Stage 5 — the S3 audit surface *(the gaps `G55` was hiding)*
+
+| Gap | Fix |
+|---|---|
+| `G40` | Bound `NFR-08` to the retention window |
+| `G41` | Explain absence — never render disposal as an empty list (`AC-12a`) |
+| `G49` | Briefcase artifacts into `Fn_Specs` for **both lanes** |
+
+**`G40` and `G41` land together or neither lands.**
+
+### Stage 6 — T3, the POC lane *(parallel; no build dependency)*
 
 | Gap | Drafted fix |
 |---|---|
-| `G7a` | Charter the manual P0-EVR lane. **Blocked in practice by `G28`** — chartering authorizes; templates make it operable |
 | `G28` | The 14 manual templates. **The real gate on first revenue** |
-| `G3` | `QB` — state that the P0-EVR charter outranks the board proposal's §8.2 / `B-P0-16` exclusions |
-| `G22` | Expression of Concern — new public-facing editorial act, needs Board (`C-10`) |
-| `GA7` | Auditor access versus tenant isolation — options are a separate audit role, per-tenant scoped reports plus an aggregate view, or per-engagement grant |
+| `G7a` | Charter the manual P0-EVR lane. Blocked in practice by `G28` |
+| `G3` | `QB` — the P0-EVR charter outranks §8.2 / `B-P0-16` exclusions |
+| `G22` | Expression of Concern — needs Board (`C-10`) |
+| `G47` | Paid-but-no-trigger must be detectable |
+| `GA7` | Auditor access versus tenant isolation |
 
-### Stage 6 — later, gated
+### Stage 7 — gated or deferred
 
 | Gap | Gate |
 |---|---|
 | `G27` | S0 — hold draft `0002` outside the apply path |
-| `G33b` | After `G33a` completes — filter the `SPECS` candidates. **Ten identified so far**, five per existing spec |
 | `G7b` | S2 design, S6 enforcement (`SEC-03`, itself `OD1`–`OD3` gated) |
+| `G54` | Needs a Python toolchain — repository owner's call |
 
 ### The critical path
 
-**`G33a` → `G33b` → S1.** Everything else runs parallel or later. The two remaining `Fn_Specs` are the only work blocking the `SPECS` filter, and the filter is what tells you which of the ten candidates actually need writing before S1.
+**`G33b` → S1.** `G33a` closed on 2026-08-19, so the filter is the only work standing between the specs and the S1 design pass.
+
+Everything else runs parallel or later — **except Stage 0, which precedes all of it**, because every stage above is selected from this section and §5.1. Planning from a stale index is how `G40`, `G41`, `G42`, `G47`, and `G49` stayed invisible while all five were Open.
 
 ## 5.2 Consistency audit — 2026-08-19
 
@@ -1350,7 +1401,8 @@ Prior analysis recorded that *"`AGENTS.md` was added later by Codex."* **Wrong.*
 | `G52` | **Closed 2026-08-20** | Nine distribution-specific commands named in the rules without disclosure — `docs/graph-fragments/README.md` §3 |
 | `G53` | **Closed 2026-08-20** | Three drifted rule blocks reconciled to a byte-identical shared core plus a legitimate platform tail. First concrete instance of the `G11` arbitration rule |
 | `G54` | **Open — deferred by decision** | Upstream command surface unverified. Route recorded in `docs/graph-fragments/README.md` §6. Needs a Python toolchain — owner's call, not an oversight |
-| `G55` | **Open — new** | `G40`–`G49` are absent from the §5.1 disposition table. All ten are recorded elsewhere, but the all-IDs index does not reach them. `G40` alone has no detail section; `G49` has treatment but no ID-keyed anchor |
+| `G55` | **Closed 2026-08-20** | `G40`–`G49` were absent from the §5.1 disposition table. All ten backfilled; `G40` given a detail section, `G49` an ID-keyed anchor, and a duplicate `G39` row removed |
+| `G56` | **Closed 2026-08-20** | §5.15 solve sequence stale — omitted seven gaps, staged a closed item as open, and stated ten `SPECS` candidates where there are 18. Found and repaired in the same pass |
 
 ### `G51` — what the exposure actually was
 
@@ -1368,13 +1420,39 @@ Three blocks exist: `CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md`. They 
 
 **Resolution:** a shared core, marked as such and verified byte-identical across all three, plus a declared platform tail. Change all three together or none.
 
-### `G55` — recorded, not repaired
+### `G55` — recorded, then repaired
 
 The §5.1 table is the all-IDs disposition record. It stops at `G39`. This is the **third recurrence** of the disposition-drift pattern already fixed three times in this register, now at a scale of ten.
 
-**Corrected 2026-08-20.** An earlier draft of this section claimed `G40`, `G41`, and `G49` had no detail section. Verified false: `G41` has two (§5.14a), and `G49` is covered under a heading that does not name it. **Only `G40` is genuinely bare.** The error overstated the backfill by two thirds — recorded because an inflated gap is still a wrong gap.
+**Corrected 2026-08-20.** An earlier draft of this section claimed `G40`, `G41`, and `G49` had no detail section. Verified false: `G41` has two (§5.14 and §5.14a), and `G49` is covered under a heading that does not name it. **Only `G40` is genuinely bare.** The error overstated the backfill by two thirds — recorded because an inflated gap is still a wrong gap.
 
-**Not repaired here, deliberately** — the backfill was not in the approved scope, and silently adding `G50`–`G54` rows to a table missing `G40`–`G49` would make it *look* complete while it is not. The table now carries an explicit row naming its own incompleteness. **An artifact that is honest about its gap is safe; one that hides it is not.**
+**Repaired 2026-08-20 (Step 0).** All ten backfilled in one pass, `G40` given the detail section it never had, `G49` an ID-keyed anchor, and a **duplicate `G39` row** removed — the index had carried both *"Closed"* and *"Open"* for the same ID.
+
+**It was deliberately left open for one turn first.** Partial backfill was the trap: adding `G50`–`G54` to a table missing `G40`–`G49` would have made the sequence read `G39` → `G50` and the ten-gap hole would have stopped being visible at all. **A silent hole beats a loud one only for whoever wrote it.**
+
+### `G56` — the solve sequence had drifted further than the index
+
+**Found while planning from it, which is the only way this kind of defect surfaces.**
+
+§5.15 is the **solve sequence** — the section a reader consults to choose what to work next. Three defects:
+
+| Defect | Detail |
+|---|---|
+| **Omission** | `G40`, `G41`, `G42`, `G47`, `G49`, `G54`, `G55` — **seven gaps, five of them Open** |
+| **False pending** | `G33a` still staged as open work. It closed 2026-08-19 |
+| **Stale count** | *"Ten identified so far"* `SPECS` candidates. There are **18** |
+
+**Why this is worse than `G55`, not a smaller version of it.** §5.1 is an **index** — a reader who finds it incomplete goes looking elsewhere. §5.15 is a **plan**. A reader does not audit a plan; they execute it. An omission there is not a lookup failure, it is **work that never gets scheduled**.
+
+**The concrete consequence, had this not been caught:** `G42` is an **S1** gap — the template-to-field-availability binding lives on the report record that S1 creates. It was absent from Stage 4. **S1 would have been scoped, designed, and closed without it**, and the binding would have had to be retrofitted onto an append-only table afterwards.
+
+**Same mechanism, fourth recurrence.** Three disposition-drift instances, the `G32` abbreviation, the false `.gitignore` rebuild claim, the abbreviated `migrate-state` rule, `G55`, and now `G56`. Every one is **a summary that outlived what it summarised.**
+
+**What is guaranteed to fail:** maintaining a hand-written plan that restates what other sections hold, and trusting it because it is the section named "solve sequence".
+
+**How to avoid it:** §5.15 now carries an explicit instruction not to read counts from it. Counts come from the artifacts. **A plan may order work; it may not be the record of what the work is.**
+
+**Disposition: Closed 2026-08-20** — found and repaired in the same pass. Recorded rather than silently fixed, because the recurrence count is the finding.
 
 ## 6. Supersession map
 

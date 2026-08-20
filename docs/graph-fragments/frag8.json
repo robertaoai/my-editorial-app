@@ -1,0 +1,81 @@
+{
+  "_comment": "Fragment 8 — Step 0 index integrity. Merged 2026-08-20. Records G56 and G40's detail; closes G55.",
+  "nodes": [
+    {
+      "id": "g56_solve_sequence_stale",
+      "label": "G56 — Solve Sequence Had Drifted",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.4 G56, §5.15",
+      "description": "Three defects in §5.15, the section a reader consults to choose what to work next. Omission: G40, G41, G42, G47, G49, G54, G55 absent — seven gaps, five of them Open. False pending: G33a still staged as open work after closing 2026-08-19. Stale count: ten SPECS candidates stated where there are 18. Closed 2026-08-20, found and repaired in the same pass.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Worse than G55 rather than a smaller version of it. §5.1 is an index — a reader who finds it incomplete looks elsewhere. §5.15 is a plan; a reader does not audit a plan, they execute it. An omission there is work that never gets scheduled. Concretely: G42 is an S1 gap that was absent from the S1 stage, so S1 would have been scoped and closed without the template-to-field-availability binding, forcing a retrofit onto an append-only table."
+    },
+    {
+      "id": "summary_outlived_source",
+      "label": "A Summary That Outlived What It Summarised",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.4",
+      "description": "The single mechanism behind every consistency defect found in this project: three disposition-drift instances, the G32 abbreviated T0 execution, the false .gitignore rebuild claim, the abbreviated migrate-state rule in .agents, G55's truncated index, and G56's stale plan. In each case a derived restatement continued to assert something its source no longer supported.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The countermeasure is structural, not diligence-based: never restate a count or status that another artifact already holds. Point at it, or compute it. A restated count is the drift mechanism, not a convenience — which is why the graph fragment totals and the register tallies were both removed rather than updated."
+    },
+    {
+      "id": "g40_nfr08_unbounded",
+      "label": "G40 — NFR-08 Is Unbounded",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14 G40 detail",
+      "description": "NFR-08 reads 'every transition reconstructable from the log alone' with no retention qualifier. Archival and lawful disposal make that false by design, not by failure. As written the product promises what infrastructure policy is required to remove. Fix: restate as reconstructable within the retention window, with absence outside it explained rather than silent. Severity DOC, before S3. Project Scope, global.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The only one of G40–G49 that was genuinely bare — a table row and nothing else until G55's backfill. Pairs with G41: G40 bounds the promise, G41 makes what falls outside the bound legible. Fixing G40 alone yields a correct promise with an audit view that still renders lawful disposal as an empty list, which reads as a finding. They land together or neither lands."
+    },
+    {
+      "id": "index_is_not_the_record",
+      "label": "The Index Is Not the Record",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.15 Stage 0",
+      "description": "Operating rule adopted 2026-08-20. §5.1 orders IDs and §5.15 orders work; neither is authoritative about content. Before trusting either, grep the register for the ID. A plan may order work; it may not be the record of what the work is.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Adopted after G55 and G56 showed both navigational sections drifting from the contents they described, while every planning decision was being read off them. Stage 0 of the solve sequence exists to keep them true, and precedes all other stages for that reason."
+    }
+  ],
+  "edges": [
+    { "source": "g56_solve_sequence_stale", "target": "g55_disposition_table_incomplete", "relation": "same_mechanism_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.4", "weight": 1 },
+    { "source": "g56_solve_sequence_stale", "target": "v1_decision_register", "relation": "defect_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.15", "weight": 1 },
+    { "source": "g56_solve_sequence_stale", "target": "tooling_provenance_audit", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.4", "weight": 1 },
+    { "source": "g56_solve_sequence_stale", "target": "summary_outlived_source", "relation": "instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.4", "weight": 1 },
+    { "source": "g55_disposition_table_incomplete", "target": "summary_outlived_source", "relation": "instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.4", "weight": 1 },
+    { "source": "shared_core_agent_rules", "target": "summary_outlived_source", "relation": "instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.4", "weight": 1 },
+    { "source": "curated_graph_layer", "target": "summary_outlived_source", "relation": "instance_of", "confidence": "CURATED", "source_file": "docs/graph-fragments/README.md", "confidence_score": 1, "source_location": "§1", "weight": 1 },
+    { "source": "index_is_not_the_record", "target": "summary_outlived_source", "relation": "countermeasure_for", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.15 Stage 0", "weight": 1 },
+    { "source": "index_is_not_the_record", "target": "g55_disposition_table_incomplete", "relation": "adopted_after", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.15", "weight": 1 },
+    { "source": "index_is_not_the_record", "target": "g56_solve_sequence_stale", "relation": "adopted_after", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.15", "weight": 1 },
+    { "source": "g40_nfr08_unbounded", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14", "weight": 1 },
+    { "source": "g40_nfr08_unbounded", "target": "g55_disposition_table_incomplete", "relation": "surfaced_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14", "weight": 1 },
+    { "source": "g40_nfr08_unbounded", "target": "statutory_retention_floor", "relation": "bounded_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14", "weight": 1 },
+    { "source": "g40_nfr08_unbounded", "target": "separation_of_duties_d39", "relation": "classified_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14", "weight": 1 }
+  ]
+}
