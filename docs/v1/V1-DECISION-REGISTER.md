@@ -1000,6 +1000,62 @@ This does not contradict `D-05` — *"one editorial engine, two exposures, the p
 | POC-specific newsworthiness fields | Backlog, with POC flow |
 | `APD-03` closure-evidence dependency | Backlog, Project Scope |
 
+## 5.14i `D-48` — POC is the minimum path; MVP is POC plus newsworthiness
+
+**Chief Editor direction, 2026-08-19. Refines `D-47`, and inverts which lane is the base.**
+
+### Why POC is the smaller flow, not the larger one
+
+**Newsworthiness is a discovery problem.** It exists because someone must decide *is this worth covering?*
+
+| Lane | Who decided it was worth doing | Newsworthiness gate |
+|---|---|---|
+| **POC** | **The client** — they commissioned it and paid | **Not needed.** Payment is the warrant |
+| **MVP** | **The Chief Editor** — nobody else chose it | **Required.** `CR-06` |
+
+`D-47` framed MVP as the base and POC as *MVP minus external publication*. **That was backwards.** POC is the **minimum trigger flow**; MVP is **POC plus newsworthiness analysis before the publication phase**.
+
+### This is a superset, not a fork
+
+```
+POC   =  trigger → gates → article → deliver reports
+MVP   =  trigger → gates → [newsworthiness] → publish
+              └──────── same core ────────┘
+```
+
+**Neither lane forks the pipeline** — MVP adds a gate. That is a stronger statement than `D-05`'s "two exposures", because a superset needs no second path to maintain.
+
+### The design constraint this creates
+
+> **Newsworthiness must be a separable gate, never inline in publication logic.**
+
+**What fails if it is entangled:** build newsworthiness *inside* the publication path and POC cannot reuse publication without inheriting a gate it should not have. Extracting it later is surgery on the one component both lanes share — and it would be discovered at exactly the point POC is meant to be cheap.
+
+**The cost asymmetry is the familiar one:** separable now is a structural choice costing nothing; separable later is a refactor of shared code. Same shape as the tenancy column and classify-at-intake.
+
+### Consequence for the unwritten requirement
+
+**Verified:** `CR-06` is **partially covered** — the scoring is not computable on the current schema (`TC3`) — and `CR-14` is **uncovered**, with **no FR at all** (`FB-05`). **Newsworthiness appears in no `Fn_Specs`.**
+
+So the gate this decision makes MVP-only **does not exist yet**. That is fortunate: it means the constraint can be honoured in the requirement's first draft rather than retrofitted.
+
+> **When `CR-06`/`CR-14` receive their FR, it must be written as a separable, MVP-only gate.** Recorded here because that FR will be drafted by whoever closes `FB-05`, who may not otherwise know the constraint exists.
+
+### Change-flow rule
+
+| Change originates in | Lands in |
+|---|---|
+| **POC** — the minimum path | **The shared core.** Both lanes inherit it |
+| **Extras** — anything beyond the minimum | **MVP's newsworthiness flow**, before publication |
+
+**A change that would enlarge the core to serve only MVP is the signal to stop** — it belongs in the newsworthiness layer instead. That is the tripwire equivalent of `D-47`'s spec-extension test.
+
+### Effect on `D-47`
+
+`D-47`'s **build order stands**: MVP is being set up now. What changes is the **layering** — build MVP such that the POC-minimum path is the core and newsworthiness is additive. **Build sequence and architectural layering are different questions**, and `D-47` answered only the first.
+
+`D-47`'s prediction is **strengthened, not weakened**: `FN-PUBLICATION-09-10-13` remains the only spec differing by lane, and now the *shape* of the difference is known — it carries an optional gate rather than an alternative path.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
