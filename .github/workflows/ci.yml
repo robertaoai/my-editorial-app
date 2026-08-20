@@ -1,0 +1,43 @@
+# CI — `R3` §4 (`SPECS-VERIFICATION-APPARATUS.md`).
+#
+# Typecheck and lint are SEPARATE steps, not folded into `next build`. `TC6`
+# sets `ignoreBuildErrors` and `ignoreDuringBuilds` in `next.config.ts`, so a
+# build-only job stays green on broken types and unlinted code — it did exactly
+# that while ten real type errors sat in `lib/supabase/` from scaffolding until
+# `D-67`.
+
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    name: Typecheck · Lint · Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          # Pinned to match `packageManager` in package.json exactly.
+          bun-version: 1.1.30
+
+      - name: Install
+        # `--frozen-lockfile` so the 413 packages pinned by `D-64` are what CI
+        # actually installs; a plain `bun install` may resolve past the lockfile
+        # and quietly defeat the pin that `G59` was closed to establish.
+        run: bun install --frozen-lockfile
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Test
+        run: bun test
