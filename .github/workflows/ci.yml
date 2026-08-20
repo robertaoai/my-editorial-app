@@ -41,3 +41,11 @@ jobs:
 
       - name: Test
         run: bun test
+
+      - name: Consistency checks
+        # `C-14` — shared-core hash, `D-54` tier sweep, §5.1 duplicate-ID scan,
+        # graph coverage. `D-58` gave the repository a precedence rule; this is
+        # the detection half, without which that rule is inert. Run last: it
+        # governs the documents, not the code, so a code gate should report
+        # first.
+        run: bun run check
