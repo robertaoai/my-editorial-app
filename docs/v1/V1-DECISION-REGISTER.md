@@ -158,6 +158,10 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G32` | **Closed 2026-08-19** | T0 under-delivery repaired in place; `Modular_PRD` v1.7 records it |
 | `G33a` | Open — **in progress** | First `Fn_Specs` written (`FN-GATES-01-05`). Remaining feature groups pending |
 | `G33b` | Open — conditional | `SPECS` only where `Fn_Specs` cannot determine implementation (`D-30`) |
+| `G34`–`G36` | **Never assigned** | **Numbering skip, not missing gaps.** The series jumps `G33` → `G37` because new gaps were numbered alongside `D-34`/`D-35`/`D-36` while those were being written. **No gap was lost, closed, or deleted.** Recorded so a reader auditing the sequence does not hunt for three that never existed |
+| `G37` | **Withdrawn** | Two concepts sharing a name — see `D-38` |
+| `G38` | **Resolved** | Defaults to `CR-04` — see `D-38` |
+| `G39` | Open | Restate `FR-01`/`AC-01` to separate **one subject topic** from **many analytical tags**. Documentation only, no schema change — gates `Fn_Specs` |
 | `GA1`, `GA3`, `GA4` | Open | S1 window item 3 — report record shape |
 | `GA2` | **Half closed 2026-08-19** | Stated half done — report immutability rule in `Modular_PRD` §6.3. Insert/read-only half remains S1 window item 4 |
 | `GA5` | **TX — counsel** | Pairs with `G15` |
@@ -166,7 +170,18 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `GA8` | **Closed on execution** | `D-13` — `PSK-10`, T0 Step 1 |
 | `GA9` | Open | `D-07`, S1 window item 6 |
 
-**Closed: 6** *(`G1`, `G2`, `G12`, `G13`, `GA8`, plus `G21` withdrawn)*. **Escalated to counsel: 2** *(`G15`/`GA5`)*. **Unowned: 1** *(`G11`)*. **Remainder open against a named phase.**
+**The table above is authoritative. Counts are deliberately not restated here.**
+
+This line previously read *"Closed: 6 (`G1`, `G2`, `G12`, `G13`, `GA8`, plus `G21` withdrawn)"* and was badly stale by the time anyone read it — sixteen rows had closed since. **A restated count is the drift mechanism**, not an incidental victim of it: this project has caught the same defect in `FB-04`, `A11`, `A26`–`A28`, the `TX` phase table, the `T1` item count, and now here.
+
+Derive counts from the table when needed:
+
+```
+awk '/^## 5.1 Gap disposition/,/^## 5.2/' docs/v1/V1-DECISION-REGISTER.md \
+  | grep '^| `G' | grep -cE '\| Open'
+```
+
+**Categories that need naming rather than counting:** `G15`/`GA5` are escalated to counsel and pair — do not close one on the other. `G11` is the only **unowned** gap. `GA2` and `GA6` are **half closed** — the stated and disclosure halves are done; the substantive halves remain.
 
 ## 2.3 Document intent hierarchy — `D-29`, `D-30`
 
