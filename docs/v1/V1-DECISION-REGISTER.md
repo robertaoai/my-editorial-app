@@ -603,6 +603,62 @@ Verified against `media-industry-sop-fallback-implementation-plan.md` §8 — tw
 
 `G41` joins the `FB-04` set — specifications with no customer origin, justified but requiring disclosure through the sponsor. It does **not** change `FB-04`'s existing count of six; it is a **new** unanchored item arising after that count was taken, and must be added when `Q8`/`R5` routes the feedback register.
 
+## 5.14b `D-41` — lifecycle and report versioning are coupled; `PSK-10` confirmed
+
+**Chief Editor argument, 2026-08-19, upheld. My separability test was wrong.**
+
+I tested *"change retention from 5 to 7 years — does report formatting change?"* and concluded no, therefore separable. **The test was too narrow.** The coupling is not formatting; it is **applicability**:
+
+> Retention determines **what data still exists**. Template version determines **what fields it expects**. A template cannot produce a valid report over data whose fields never existed, or over records retention has removed.
+
+So lifecycle and report versioning are **one concern**, and `PSK-10` — *"Immutable audit reporting and report reproducibility"* — carries `G41` correctly. **Confirmed on a sounder basis than either prior argument.**
+
+### The chain
+
+Because reports describe **past events**, the template in force at generation is fixed at that moment and becomes part of the record's lifecycle:
+
+```
+data period  →  fields that existed then
+                      ↓
+             template version applicable
+                      ↓
+        report generated, template version frozen with it
+                      ↓
+     retention window  →  whether the source data still exists
+```
+
+### `G42` — template-to-field-availability binding *(new)*
+
+**Verified absent.** Template version is recorded in the report shape (`GA1`/`GA3`/`GA4`, audit Step 4), but **nothing constrains which template may be applied to which data period.**
+
+**The rule:** a new report defaults to the newest template — **except** where that template requires fields the data period never recorded. **You cannot apply a new template to fields that did not exist yet.**
+
+| Severity | **S1** — the binding lives on the report record, which S1 creates |
+| Scope | **Project Scope — global.** No CR; a default audit-practice requirement, same class as `G41` |
+| Key | `PSK-10` |
+
+### Suggested refinement — unify two causes of absence
+
+`G41` and `G42` are the **same mechanism with two causes**, and treating them as one is cheaper than building two:
+
+| Cause | What the reader must be told |
+|---|---|
+| **Removed** — retention policy disposed of it (`G41`) | Records existed; policy, version, period, archive location |
+| **Never recorded** — the field did not exist in that period (`G42`) | Field was not captured then; template version, period boundary |
+
+Both are *"data you expected is not here."* One surface, one explanation format, two reason codes.
+
+**On blocking versus degrading — I suggest not blocking outright:**
+
+| Missing field is… | Behaviour |
+|---|---|
+| **Optional** to the template's conclusions | **Render, and mark the field** with its reason code. Blocking would make old periods unreportable, which is worse than a marked gap |
+| **Required** for the template's conclusions | **Template not applicable.** Say so explicitly and name which field and period. Degrading here would produce a report whose conclusions rest on absent evidence |
+
+**That distinction is the safety property.** Degrade where absence is cosmetic; refuse where absence would make the report *misleading*. A report that silently omits a field its conclusion depends on is worse than no report — it carries the authority of a document without the evidence behind it.
+
+> **Recorded as a suggestion, not a decision.** The optional-versus-required split requires someone to classify each template field, which is `PSK-09` judgment-rule territory and has no owner assigned yet.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
