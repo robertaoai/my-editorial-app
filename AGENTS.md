@@ -39,9 +39,20 @@ artifacts; do not treat the shared acronym as a collision.
 `templates/PRD.md` as **structural input only** — despite the filename it is a feature-spec
 template, and its User Stories and Risks sections are worth keeping.
 
-**Do not execute `specs-creator`'s workflow.** It declares a dependency chain requiring an
-`app-vision.md` that does not exist here, and mandates a `specs/` directory outside `D-29`'s
-hierarchy. Its `ux.md` template is visual design and does not apply.
+**Tier mapping (`D-34`) — the tool's chain is a labelling map, not a blocker:**
+
+| `specs-creator` | This project |
+|---|---|
+| `app-vision.md` | `docs/Modular_PRD.md` — an app **is** a product |
+| `prd.md` | `docs/v1/fn-specs/` — behaviour, per feature group |
+| `tech-specs.md` | `docs/v1/specs/` — implementation big picture, incl. tech-stack |
+| `ux.md` | `docs/v1/specs/ux/` — UI/UX **per tech-stack** (Vue vs Angular, same behaviour) |
+
+A stack change lands in `specs/`; a stack-specific UI consequence lands in `specs/ux/`. **Neither
+disturbs `fn-specs/`** — behaviour stays stable across a stack pivot.
+
+**Before recording any incompatibility, check what the unfamiliar label maps to.** Three prior
+"conflicts" (`D-31`, `D-33`, `pub_target`/`platform_type`) were all vocabulary, not structure.
 
 Merged structure: Overview · User Stories · Requirements · Behaviour · Acceptance Criteria ·
 Edge Cases · Dependencies · Risks · `SPECS` candidate filter.

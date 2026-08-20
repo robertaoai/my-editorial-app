@@ -295,6 +295,41 @@ D-30 filter    ──▶ SPECS, conditional only   (candidates, then filtered)
 
 > **Worth recording as method:** `D-31` was wrong on analysis, `D-32` was wrong on execution. Neither error surfaced until the tool was actually run against a real feature group. A pipeline that has never been executed is a proposal, not a decision.
 
+### `D-34` — amends `D-33`: the chain is a labelling map, not a blocker
+
+**Chief Editor correction, upheld.** `D-33` reported that `specs-creator`'s dependency chain could not be satisfied because `app-vision.md` does not exist. **It does exist — under a different name.**
+
+| `specs-creator` | This project | Role |
+|---|---|---|
+| `app-vision.md` | **`docs/Modular_PRD.md`** | Product vision. **An app *is* a product** |
+| `prd.md` | **`docs/v1/fn-specs/`** | Feature behaviour, per group |
+| `tech-specs.md` | **`docs/v1/specs/`** | Implementation **big picture**, including tech-stack |
+| `ux.md` | **`docs/v1/specs/ux/`** | UI/UX **per tech-stack** — Vue versus Angular for identical behaviour |
+
+**`D-33` blocker 1 is withdrawn.** Blockers 2 and 3 were also labelling: `specs/` maps to `docs/v1/specs/`, and the template path resolves in the plugin directory rather than the repo.
+
+#### The pattern this makes visible
+
+**Three times now I have mistaken a naming difference for a structural incompatibility:**
+
+| Error | The "conflict" | What it actually was |
+|---|---|---|
+| `D-31` | *"`specs-creator` creates PRDs and `PRD.md` is frozen"* | An acronym collision — Project versus Product |
+| `D-33` | *"`app-vision.md` does not exist"* | It does, named `Modular_PRD` |
+| Publication | *"`pub_target` and `platform_type` mismatch"* | Orthogonal axes, not duplicates |
+
+**The countermeasure:** before recording an incompatibility, check what the unfamiliar label **maps to** in this project. In a repository this heavily governed, most apparent conflicts are vocabulary, and this project already carries `D-22` — dual financial terminology — as a precedent for exactly that.
+
+#### Why the layering matters operationally
+
+A **tech-stack change** lands in `specs/`. A **stack-specific UI consequence** lands in `specs/ux/`. **Neither disturbs `fn-specs/`.** Behaviour stays stable across a stack pivot — which is `D-29`'s change localization producing its intended benefit rather than merely asserting it.
+
+#### Folder structure
+
+`docs/v1/` is the V1 build; `docs/v1/README.md` records the tree. **Folders are organised by tier, not by sprint**, because a feature group routinely spans sprints — `FN-GATES-01-05` spans S1–S2 and `FN-PUBLICATION-09-10-13` spans S4–S5 — and `D-32` makes the group the indivisible unit. The three upper parents carry the sprint tracking: every spec states its sprint in its header, and `V1-BUILD-SPEC.md` §5.1 holds the sprint→artifact index.
+
+> **Flagged for correction if misread:** the instruction was *"put the required folder structure here for by V1 sprints; the upper parents will track the sprints."* This was implemented as **tier folders with sprint tracking in the parents**. If sprint-named folders were intended instead, say so — but note that filing by sprint would split both existing feature groups.
+
 ### Effect on §6.1's freeze
 
 §6.1 froze the operative set at three documents. **That freeze governs consolidation and analysis documents only.** `Fn_Specs` and `SPECS` are a distinct class — implementation specifications, not consolidations — and are admitted by `D-29`. The freeze's purpose stands: no fourth *register* or *analysis* document.
