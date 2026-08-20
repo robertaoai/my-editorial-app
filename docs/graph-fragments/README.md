@@ -4,7 +4,7 @@
 **Tier:** Outside the `D-29` tier stack. This is **tooling**, not a product artifact — it generates no `FR`, no `AC`, and no `SPECS` candidate.
 **Classification:** Project Scope ⚙ — infrastructure-owned, per `D-39` and `D-40`.
 **Status:** Living document. No build-version prefix; does not freeze (`D-36`). All sections `[V1]`.
-**Closes:** `G50`, `G51`, `G52`. **Leaves open:** `G54`.
+**Closes:** `G50`, `G51`, `G52`, and — since 2026-08-20 (`D-60`) — `G54`.
 
 ---
 
@@ -38,7 +38,7 @@ At the 2026-08-20 rescue it was **61 nodes and 142 edges across 7 fragments** �
 | | **Upstream** | **Installed** |
 |---|---|---|
 | Repo | `Graphify-Labs/graphify` | `rhanka/graphify` |
-| Package | PyPI `graphifyy` | npm `@sentropic/graphify` |
+| Package | PyPI `graphifyy` **0.1.14** | npm `@sentropic/graphify` **0.17.1** |
 | Language | Python | TypeScript |
 | Output dir | `graphify-out/` | `.graphify/` |
 | Install | `uv tool install` / `pipx` | `npm install -g` |
@@ -57,13 +57,15 @@ So the relation is **upstream → attributed downstream extension**. The upstrea
 
 ## 3. Commands that are distribution-specific `[V1]` — `G52`
 
-The graphify rules in `CLAUDE.md`, `AGENTS.md`, and `.agents/rules/graphify.md` name these commands. They read as tool-generic. **They are not** — none is documented upstream:
+The graphify rules in `CLAUDE.md`, `AGENTS.md`, and `.agents/rules/graphify.md` name these commands. They read as tool-generic. **Eight of them are not** — verified absent from `graphify/__main__.py` upstream on 2026-08-20 (`D-60`):
 
-`portable-check` · `migrate-state` · `review-delta` · `summary` · `hook-rebuild` · `merge-graphs` · `build --fragment` · `studio` · `ontology`
+`portable-check` · `migrate-state` · `review-delta` · `summary` · `hook-rebuild` · `build` · `studio` · `ontology`
+
+**Corrected:** an earlier revision listed **nine**, including `merge-graphs`. **`merge-graphs` exists upstream.** Presence of the name is **not** equivalence of behaviour — whether upstream's merges the same shapes is unverified and not claimed. And `build` is absent **entirely** upstream, not merely its `--fragment` flag.
 
 Swapping distributions without first re-verifying these **silently invalidates the rule blocks in all three agent files.**
 
-> **Stated honestly — this is a README reading, not a verified command list.** Absence from a README is not absence from a CLI. It sizes the gap; it does not close it. Closing it is **`G54`**, deferred: it needs a Python toolchain, which is a machine-level decision for the repository owner. **`G54` is Open, not dismissed** — §6 records the route.
+> **Source-verified 2026-08-20 (`D-60`).** This was previously a README reading, carried as `G54` and deferred on the assumption that enumerating a CLI required installing it. **It did not** — `Graphify-Labs/graphify` is public, and `graphify/__main__.py` registers the subcommands. **A gap deferred for an environment reason is worth re-examining for a read-only path before carrying it forward.**
 
 ## 4. Rebuilding the curated layer `[V1]`
 
@@ -88,6 +90,7 @@ Merge **in this order** — later fragments reference nodes earlier ones introdu
 | 15 | `frag14.json` | `D-57` — `Q2` resolved, `C-13` BCP surface, `G60` |
 | 16 | `frag15.json` | `D-58` — `G11` closed, register precedence, `C-14` |
 | 17 | `frag16.json` | `D-59` — `G10` closed, one origin two paths, `C-15` |
+| 18 | `frag17.json` | `D-60` — `G54` closed from source |
 
 `merge7.js` is the reference merge script (repo-relative; `merge6.js` is retained for history but hard-codes an absolute path). `missing.js` reports which docs are absent from the graph.
 
@@ -106,20 +109,30 @@ Run all four. A merge is not done until each passes:
 
 **Back up `.graphify/graph.json` before merging.** Every merge in this project has been preceded by one.
 
-## 6. `G54` — the deferred validation route `[V1]`
+## 6. `G54` — closed, and what a swap would actually cost `[V1]`
 
-`G54` asks whether the upstream CLI really lacks the nine commands in §3. It is **deferred, with a route**, so it is evaluable whenever the toolchain question is settled:
+**Closed 2026-08-20 (`D-60`), verified from source with nothing installed.** The route previously recorded here — install `uv`, install `graphifyy` alongside, diff `graphify --help` — **was never necessary.**
 
-1. Install a Python toolchain (`uv` preferred — no system Python required).
-2. `uv tool install graphifyy` into an isolated environment. **Do not uninstall the npm package** — the two must coexist for the comparison to mean anything.
-3. Run `graphify --help` under the upstream binary; diff its command list against §3.
-4. Record the result as a `D-##` decision.
-5. Only then is a swap evaluable. **Until step 4 exists, a swap is not a decision — it is a guess.**
+### The earlier warning here overstated the risk
 
-**What is guaranteed to fail:** uninstalling npm first, then discovering upstream lacks `merge-graphs` and `build --fragment`. At that point the curated layer cannot be re-merged by the remaining tool, and §4's rebuild has no engine. The fragments survive — but nothing installed can consume them.
+This section used to say: *"uninstalling npm first, then discovering upstream lacks `merge-graphs` and `build --fragment`… the curated layer cannot be re-merged by the remaining tool. The fragments survive — but nothing installed can consume them."*
 
-**How to avoid it:** never uninstall before step 4. Coexistence is cheap; recovery is not.
+**That is wrong.** `merge7.js` is **plain Node** — it requires `fs` and `path`, reads and writes JSON, and **never invokes graphify.** The curated layer's rebuild depends on Node, not on either distribution. **The fragments were never stranded.**
+
+### What a swap would actually break
+
+| Breaks | Severity |
+|---|---|
+| `portable-check`, `migrate-state`, `review-delta`, `summary`, `hook-rebuild` | **Confirmed absent upstream.** Five mandated rules become unrunnable |
+| Output location — upstream writes `graphify-out/` | `.gitignore` ignores `.graphify/` only, so generated files would start appearing in `git status` |
+| **Graph schema** — does upstream `graph.json` use `links` and the same node fields? | **Unverified, and the real residual risk.** `merge7.js` depends on that shape, not on the CLI |
+
+**The schema is the exposure, not the command list** — and it was not on the original nine-item list at all. **A risk register that names the wrong risk is worse than a short one**, because it spends attention where nothing is at stake.
+
+### If a swap is ever reconsidered
+
+**Verify the schema first, from source, before anything else.** Command availability is now known; shape compatibility is not. And there is still no reason to uninstall anything — the two distributions can coexist, and `D-51` stands.
 
 ## 7. Scope limits `[V1]`
 
-Closes no Open Decision in the product tier stack. Authorizes no code, schema, or migration. Records tooling provenance only. `G54` remains Open by decision, not by oversight.
+Closes no Open Decision in the product tier stack. Authorizes no code, schema, or migration. Records tooling provenance only. `G54` **closed 2026-08-20** (`D-60`). The graph-schema compatibility question is **newly named and open**, and is the only live item should a swap ever be reconsidered.

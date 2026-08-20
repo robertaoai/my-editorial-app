@@ -1201,7 +1201,7 @@ Make the rework-versus-negative call **evidence-based rather than a judgement**.
 **Grounds, in descending order of hardness:**
 
 1. **The upstream path is not installable here.** `uv`, `pipx`, and `pip` are all absent; `python`/`python3` resolve to the Microsoft Store stub, not an interpreter. Adopting upstream requires a machine-level toolchain install first.
-2. **It would invalidate the rules the project already runs on.** Nine commands the agent files mandate are undocumented upstream: `portable-check`, `migrate-state`, `review-delta`, `summary`, `hook-rebuild`, `merge-graphs`, `build --fragment`, `studio`, `ontology`.
+2. **It would invalidate the rules the project already runs on.** **Eight** commands the agent files mandate are absent upstream: `portable-check`, `migrate-state`, `review-delta`, `summary`, `hook-rebuild`, `build`, `studio`, `ontology`. *(**Corrected 2026-08-20 by `D-60`** — this read *nine* and included `merge-graphs`, which **exists upstream**. Source-verified against `graphify/__main__.py`; `build` is absent entirely, not merely its `--fragment` flag. **The ground is unchanged: the five commands `CLAUDE.md` mandates are all confirmed absent.**)*
 3. **It moves backwards into a layout this project calls legacy.** Upstream writes `graphify-out/`; the rules document `.graphify/` and carry explicit guidance for migrating *out of* `graphify-out`.
 
 > **Stated honestly.** Ground 2 rests on a **README reading, not a verified command list.** Absence from a README is not absence from a CLI. It sizes the gap; it does not close it. **That is exactly why `G54` is Open rather than closed** — the decision is recorded with its weakest evidence named, not hidden.
@@ -1703,6 +1703,70 @@ Treating `C-15` as cosmetic and shipping POC onto the shared origin with real cl
 
 Closes `G10`/`QC`. **Names no domain** — the apex remains `UNSET`. Authorizes no code, route, or deployment change. The route specification belongs in `docs/specs/ux/` per `D-34` and is **not written here**. `C-15` remains open by design.
 
+## 5.14u `D-60` — `G54` closed from source; the swap conclusion holds, one claim did not
+
+**Decision, 2026-08-20. Closes `G54`.** The upstream command surface is verified **from source**, with **nothing installed**.
+
+### The recorded route was never necessary
+
+`docs/graph-fragments/README.md` §6 said `G54` needed a Python toolchain: install `uv`, install `graphifyy` alongside, run `graphify --help`, diff. **That route assumed the only way to enumerate a CLI is to run it.**
+
+`Graphify-Labs/graphify` is public. `graphify/__main__.py` registers the subcommands, and `pyproject.toml` declares the entry point. **Reading them is stronger evidence than a README and needs no machine change** — so the gap that was deferred on a build-guardrail conflict never actually had one.
+
+**Recorded because the pattern matters:** a gap deferred for an environment reason should be re-examined for a read-only path before it is carried forward. This one was carried for two turns unnecessarily.
+
+### Verified result — 8 of 9, not 9 of 9
+
+README §3 listed **nine** commands as distribution-specific. Against `graphify/__main__.py`:
+
+| Command | Upstream | README §3 claim |
+|---|---|---|
+| `portable-check` | absent | ✅ correct |
+| `migrate-state` | absent | ✅ correct |
+| `review-delta` | absent | ✅ correct |
+| `summary` | absent | ✅ correct |
+| `hook-rebuild` | absent *(`hook` exists)* | ✅ correct |
+| `studio` | absent | ✅ correct |
+| `ontology` | absent | ✅ correct |
+| `build` | **absent entirely** | ✅ correct, and stronger than claimed — the claim was about `build --fragment` |
+| `merge-graphs` | **PRESENT** | ❌ **wrong** |
+
+**`merge-graphs` exists upstream.** The nine-command claim is **eight**.
+
+> **Presence of the name is not equivalence of behaviour.** Downstream `merge-graphs` merges `graph.json` files into a cross-repo graph; whether upstream's does the same is **not verified and is not claimed here.** This is the naming-difference discipline applied in the other direction — the seven prior findings were *"different name, same thing"*; this is the risk of *"same name, assumed same thing."*
+
+### `D-51`'s conclusion stands, and its evidence is upgraded
+
+`D-51` ground 2 was recorded as *"a README reading, not a verified command list."* **It is now source-verified.** All five commands `CLAUDE.md` mandates — `portable-check`, `migrate-state`, `review-delta`, `summary`, `hook-rebuild` — are **confirmed absent upstream.** The decision to stay on `@sentropic/graphify` holds on stronger evidence than when it was made.
+
+**Upstream version: `graphifyy` 0.1.14.** *(The `v8` seen earlier is a branch name, not a version. Recorded so the two are not conflated.)*
+
+### A correction that reduces risk rather than adding it
+
+README §6 warned: *"uninstalling npm first, then discovering upstream lacks `merge-graphs` and `build --fragment`. At that point the curated layer cannot be re-merged by the remaining tool."*
+
+**That overstated the exposure.** `docs/graph-fragments/merge7.js` is **plain Node reading and writing JSON** — it calls `fs` and `path` and never invokes graphify at all. **The curated layer's rebuild does not depend on either distribution.** It needs Node, which is present.
+
+What a swap would actually break is **verification and convention**, not rebuild capability:
+
+| Breaks | Why |
+|---|---|
+| `portable-check`, `summary`, `review-delta`, `migrate-state`, `hook-rebuild` | Confirmed absent upstream; five mandated rules become unrunnable |
+| Output location | Upstream writes `graphify-out/`; `.gitignore` ignores `.graphify/` only |
+| Graph schema | **Unverified.** Whether upstream `graph.json` uses `links` and the same node fields is unknown — and `merge7.js` depends on that shape, not on the CLI |
+
+**The real residual risk is the schema, not the commands** — and it was not on the original list.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 | Tooling doc |
+|---|---|---|---|---|---|
+| `D-60` / `G54` closed | ✅ | — *tooling, sequences no sprint* | — *creates no artifact* | ✅ status row | ✅ §2, §3, §6 corrected |
+
+### Scope limits
+
+Closes `G54`. **Installs nothing; changes no distribution.** `D-51` stands — the project remains on `@sentropic/graphify`. Claims **presence** of upstream `merge-graphs`, **not equivalence**. The graph-schema question is newly named and **not resolved**.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
@@ -1792,7 +1856,7 @@ All alter the same append-only table.
 |---|---|
 | `G27` | S0 — hold draft `0002` outside the apply path |
 | `G7b` | S2 design, S6 enforcement (`SEC-03`, itself `OD1`–`OD3` gated) |
-| `G54` | Needs a Python toolchain — repository owner's call |
+| `G54` | ✅ **Closed 2026-08-20** (`D-60`) — verified from source; no toolchain was ever required |
 
 ### The critical path
 
@@ -1905,7 +1969,7 @@ Prior analysis recorded that *"`AGENTS.md` was added later by Codex."* **Wrong.*
 | `G51` | **Closed 2026-08-20** | Curated graph layer not reproducible — 61 nodes and 142 edges across 7 fragments rescued from session-scoped temp storage into `docs/graph-fragments/`; `.gitignore` corrected |
 | `G52` | **Closed 2026-08-20** | Nine distribution-specific commands named in the rules without disclosure — `docs/graph-fragments/README.md` §3 |
 | `G53` | **Closed 2026-08-20** | Three drifted rule blocks reconciled to a byte-identical shared core plus a legitimate platform tail. First concrete instance of the `G11` arbitration rule |
-| `G54` | **Open — deferred by decision** | Upstream command surface unverified. Route recorded in `docs/graph-fragments/README.md` §6. Needs a Python toolchain — owner's call, not an oversight |
+| `G54` | **Closed 2026-08-20** | `D-60` §5.14u — verified **from source**, nothing installed. **8 of 9 confirmed absent; `merge-graphs` exists upstream**, so the nine-command claim was eight. `D-51` holds on stronger evidence |
 | `G55` | **Closed 2026-08-20** | `G40`–`G49` were absent from the §5.1 disposition table. All ten backfilled; `G40` given a detail section, `G49` an ID-keyed anchor, and a duplicate `G39` row removed |
 | `G56` | **Closed 2026-08-20** | §5.15 solve sequence stale — omitted seven gaps, staged a closed item as open, and stated ten `SPECS` candidates where there are 18. Found and repaired in the same pass |
 

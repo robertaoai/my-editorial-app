@@ -1,0 +1,77 @@
+{
+  "_comment": "Fragment 17 — D-60, G54 closed from source. Merged 2026-08-20.",
+  "nodes": [
+    {
+      "id": "d60_g54_source_verified",
+      "label": "D-60 — G54 Closed From Source",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14u D-60",
+      "description": "The upstream command surface verified by reading graphify/__main__.py and pyproject.toml in the public Graphify-Labs repository, with nothing installed. Upstream is graphifyy 0.1.14; the v8 seen earlier is a branch name, not a version. Eight of nine claimed distribution-specific commands are confirmed absent; merge-graphs exists upstream, so the nine-command claim was eight. D-51's decision to stay on the npm distribution holds on stronger evidence than when it was made.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The recorded route said G54 needed a Python toolchain — install uv, install graphifyy alongside, diff graphify --help. That route assumed the only way to enumerate a CLI is to run it. The repository is public and the entry point registers its subcommands, so reading is both stronger evidence than a README and free of any machine change. A gap deferred for an environment reason is worth re-examining for a read-only path before carrying it forward; this one was carried two turns unnecessarily."
+    },
+    {
+      "id": "same_name_assumed_same_thing",
+      "label": "Same Name, Assumed Same Thing",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14u",
+      "description": "merge-graphs exists in both distributions. Downstream's merges graph.json files into a cross-repo graph; whether upstream's does the same is unverified and not claimed. Presence of a name establishes presence, never equivalence of behaviour.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The naming-difference error family running in the opposite direction. The seven prior findings were all different name, same thing — a difference mistaken for a conflict. This is the mirror risk: same name, assumed same thing, where a match is mistaken for equivalence. Both are resolved by checking what the label maps to rather than what it reads like."
+    },
+    {
+      "id": "curated_rebuild_is_tool_independent",
+      "label": "The Curated Rebuild Needs Node, Not Graphify",
+      "file_type": "concept",
+      "source_file": "docs/graph-fragments/README.md",
+      "source_location": "§6",
+      "description": "merge7.js requires fs and path, reads and writes JSON, and never invokes graphify. The curated layer's rebuild therefore depends on Node rather than on either distribution. An earlier warning that uninstalling npm would strand the fragments with nothing able to consume them overstated the exposure.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Correcting a risk downward matters as much as finding one. A risk register that names the wrong risk is worse than a short one, because it spends attention where nothing is at stake. What a swap would actually break is verification and convention — five mandated commands, the output directory, and the graph schema."
+    },
+    {
+      "id": "graph_schema_compatibility_unverified",
+      "label": "Graph Schema Compatibility Is the Real Residual Risk",
+      "file_type": "concept",
+      "source_file": "docs/graph-fragments/README.md",
+      "source_location": "§6",
+      "description": "Whether upstream graph.json stores relationships under links and carries the same node fields is unverified. merge7.js depends on that shape rather than on the CLI, so schema incompatibility, not command availability, is what would actually break a distribution swap. This was absent from the original nine-item risk list entirely.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Named because closing G54 revealed the list had been measuring the wrong thing. Command availability is now known; shape compatibility is not, and it is the only live item should a swap ever be reconsidered. Verify the schema from source first, before anything else."
+    }
+  ],
+  "edges": [
+    { "source": "d60_g54_source_verified", "target": "g54_upstream_verification_deferred", "relation": "closes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14u", "weight": 1 },
+    { "source": "d60_g54_source_verified", "target": "d51_graphify_distribution", "relation": "upgrades_evidence_for", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14u", "weight": 1 },
+    { "source": "d60_g54_source_verified", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14u", "weight": 1 },
+    { "source": "d60_g54_source_verified", "target": "same_name_assumed_same_thing", "relation": "surfaced", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14u", "weight": 1 },
+    { "source": "d60_g54_source_verified", "target": "curated_rebuild_is_tool_independent", "relation": "corrects", "confidence": "CURATED", "source_file": "docs/graph-fragments/README.md", "confidence_score": 1, "source_location": "§6", "weight": 1 },
+    { "source": "d60_g54_source_verified", "target": "graph_schema_compatibility_unverified", "relation": "surfaced", "confidence": "CURATED", "source_file": "docs/graph-fragments/README.md", "confidence_score": 1, "source_location": "§6", "weight": 1 },
+    { "source": "same_name_assumed_same_thing", "target": "attributed_downstream_extension", "relation": "mirror_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14u", "weight": 1 },
+    { "source": "curated_rebuild_is_tool_independent", "target": "curated_graph_layer", "relation": "protects", "confidence": "CURATED", "source_file": "docs/graph-fragments/README.md", "confidence_score": 1, "source_location": "§6", "weight": 1 },
+    { "source": "curated_rebuild_is_tool_independent", "target": "graph_merge_not_build", "relation": "clarifies", "confidence": "CURATED", "source_file": "docs/graph-fragments/README.md", "confidence_score": 1, "source_location": "§4", "weight": 1 },
+    { "source": "graph_schema_compatibility_unverified", "target": "graph_merge_not_build", "relation": "depends_on", "confidence": "CURATED", "source_file": "docs/graph-fragments/README.md", "confidence_score": 1, "source_location": "§6", "weight": 1 }
+  ]
+}
