@@ -1,0 +1,59 @@
+{
+  "_comment": "Fragment 9 — Step 1, G33b resolved. Merged 2026-08-20. Records D-52 and the four SPECS documents.",
+  "nodes": [
+    {
+      "id": "d52_g33b_resolved",
+      "label": "D-52 — G33b Resolved: 18 Candidates, 4 Documents",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14m D-52",
+      "description": "The D-30 redundancy test applied to all 18 SPECS candidates across the four Fn_Specs. Four outcomes: 7 absorbed into the S1 window, 9 requiring SPECS across 4 documents, 1 infrastructure-owned, 1 blocked by Q2. Two of the 18 are the same component named in two specs, so the 18 are 17 distinct. Only SPECS-TRANSITION-ENFORCEMENT is needed before S1.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The D-30 rule working as designed. Writing four SPECS documents mirroring the four Fn_Specs would have produced three documents nothing can act on and seven sections restating S1 window decisions. Mirroring the input structure is the redundancy failure in its most expensive form."
+    },
+    {
+      "id": "specs_transition_enforcement",
+      "label": "SPECS-TRANSITION-ENFORCEMENT — The Only Pre-S1 Document",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14m D-52",
+      "description": "The sequence-enforcement trigger: trigger timing, allowed-transitions table shape, and lock behaviour. The single SPECS document S1 requires. The other three — SPECS-BOARD-QUERY (S3), SPECS-PUBLICATION (S4, five components), SPECS-EXCEPTIONS (S5) — are sprint-aligned and not yet reachable.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "FN-GATES-01-05 §9 claimed all five of its candidates absorb into the S1 window; verified, four do. This is the fifth. Accepting the claim as written would have concluded no SPECS was needed and left the gate sequence — the core invariant of the product — unspecified going into S1."
+    },
+    {
+      "id": "mirroring_input_structure",
+      "label": "Mirroring the Input Structure Is the Redundancy Failure",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14m D-52",
+      "description": "The default failure mode D-30 exists to prevent: producing one output document per input document. Four Fn_Specs do not imply four SPECS. The correct decomposition here is by sprint and mechanism, which yields four documents covering nine components, only one of which is due before S1.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Structurally related to summary_outlived_source: both are cases where a derived artifact takes its shape from its source rather than from what it must determine. One restates counts, the other restates structure; both produce content that cannot be acted on."
+    }
+  ],
+  "edges": [
+    { "source": "d52_g33b_resolved", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14m", "weight": 1 },
+    { "source": "d52_g33b_resolved", "target": "fn_gates_01_05", "relation": "corrects", "confidence": "CURATED", "source_file": "docs/fn-specs/FN-GATES-01-05.md", "confidence_score": 1, "source_location": "§9", "weight": 1 },
+    { "source": "d52_g33b_resolved", "target": "specs_transition_enforcement", "relation": "identifies", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14m", "weight": 1 },
+    { "source": "d52_g33b_resolved", "target": "mirroring_input_structure", "relation": "avoids", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14m", "weight": 1 },
+    { "source": "specs_transition_enforcement", "target": "fn_gates_01_05", "relation": "derived_from", "confidence": "CURATED", "source_file": "docs/fn-specs/FN-GATES-01-05.md", "confidence_score": 1, "source_location": "§9", "weight": 1 },
+    { "source": "mirroring_input_structure", "target": "summary_outlived_source", "relation": "related_to", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14m", "weight": 1 },
+    { "source": "d52_g33b_resolved", "target": "summary_outlived_source", "relation": "surfaced_instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14m", "weight": 1 }
+  ]
+}

@@ -216,7 +216,11 @@ Applying `D-30`: a `SPECS` document is written **only** where behaviour above ca
 | Independence classification storage | Typed columns versus JSON payload changes what is enforceable (`QA3`) |
 | Duplicate refusal | Requires a unique index; `AC-02` fails today for want of one |
 
-**Five components need `SPECS`; the rest do not.** Each maps to an item already inside the S1 eight-decision window — which is the expected result if `Fn_Specs` was written to be sufficient.
+**Five components need `SPECS`; the rest do not.**
+
+> **Corrected 2026-08-20 `[V1]` — `D-52`/`G33b`.** This section previously claimed each of the five *"maps to an item already inside the S1 eight-decision window."* **Verified: four of five do.** The **sequence-enforcement trigger** does not — it is a mechanism design, not a schema decision, and no window item covers it. It is therefore the **only `SPECS` document required before S1** (`SPECS-TRANSITION-ENFORCEMENT`). The window holds **nine** decisions, not eight.
+
+The other four absorb into the S1 window — the expected result if `Fn_Specs` was written to be sufficient.
 
 ## 10. Scope limits
 

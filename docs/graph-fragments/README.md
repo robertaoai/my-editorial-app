@@ -80,6 +80,7 @@ Merge **in this order** — later fragments reference nodes earlier ones introdu
 | 7 | `frag6.json` | `D-39`–`D-50`, lifecycle and compliance |
 | 8 | `frag7.json` | Tooling provenance, graph durability, `D-51`, community 30 |
 | 9 | `frag8.json` | Step 0 index integrity — `G55`, `G56`, `G40` detail |
+| 10 | `frag9.json` | Step 1 — `D-52`, `G33b` resolved, the four `SPECS` documents |
 
 `merge7.js` is the reference merge script (repo-relative; `merge6.js` is retained for history but hard-codes an absolute path). `missing.js` reports which docs are absent from the graph.
 

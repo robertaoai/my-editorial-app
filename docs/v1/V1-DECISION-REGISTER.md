@@ -158,7 +158,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G31` | **Closed 2026-08-19** | `D-21` — T1 execution runbook drafted |
 | `G32` | **Closed 2026-08-19** | T0 under-delivery repaired in place; `Modular_PRD` v1.7 records it |
 | `G33a` | **Closed 2026-08-19** | All four feature groups specified: `FN-GATES-01-05`, `FN-PUBLICATION-09-10-13`, `FN-AUDIT-VISIBILITY-07-08`, `FN-EXCEPTIONS-06-11-12`. **`FR-01`–`FR-13` fully covered.** `G33b`'s filter is now unblocked |
-| `G33b` | Open — conditional | `SPECS` only where `Fn_Specs` cannot determine implementation (`D-30`) |
+| `G33b` | **Closed 2026-08-20** | `D-52` §5.14m — 18 candidates filtered: 7 absorbed into S1, 9 require `SPECS` across **4 documents**, 1 infrastructure ⚙, 1 blocked by `Q2`. **Only `SPECS-TRANSITION-ENFORCEMENT` is needed before S1** |
 | `G34`–`G36` | **Never assigned** | **Numbering skip, not missing gaps.** The series jumps `G33` → `G37` because new gaps were numbered alongside `D-34`/`D-35`/`D-36` while those were being written. **No gap was lost, closed, or deleted.** Recorded so a reader auditing the sequence does not hunt for three that never existed |
 | `G37` | **Withdrawn** | Two concepts sharing a name — see `D-38` |
 | `G38` | **Resolved** | Defaults to `CR-04` — see `D-38` |
@@ -1208,6 +1208,70 @@ Make the rework-versus-negative call **evidence-based rather than a judgement**.
 
 **Note on §6's three-document rule.** `docs/graph-fragments/README.md` is **not** a fourth v1 document. It records tooling provenance, holds no decision, gap disposition, build order, or artifact status, and sits outside the tier stack. The dispositions for `G50`–`G55` are recorded **here**, in this register — which is what §6 requires.
 
+## 5.14m `D-52` — `G33b` resolved: 18 candidates, 4 documents, 1 before S1
+
+**Decision, 2026-08-20.** The `D-30` redundancy test applied to all 18 `SPECS` candidates named across the four `Fn_Specs`. **Closes `G33b`.**
+
+> `D-30`: *"If a behaviour can be defined clearly enough in `Fn_Specs`, then a `SPECS` document for it is redundant and must not be written."*
+
+### The filter — four outcomes, not two
+
+The test does not sort into *write* and *do not write*. Applying it honestly produced **four** dispositions:
+
+| Outcome | Count | Meaning |
+|---|---|---|
+| **Absorbed into S1** | **7** | Already a decision inside the S1 window. A `SPECS` document would restate what the window resolves — redundant under `D-30` |
+| **Requires `SPECS`** | **9** | Behaviour cannot determine implementation. Groups into **4 documents** |
+| **Infrastructure ⚙, not product `SPECS`** | **1** | Append-only enforcement is a grant model. `D-39` — the product has no layer at which to enforce it |
+| **Blocked** | **1** | Line 3 data-path isolation. Unwritable until `Q2` names an executor |
+
+### Absorbed into S1 — 7 candidates, no document
+
+| Candidate | Source | Window item |
+|---|---|---|
+| `TR-DM-01`/`TR-DM-02` schema | Gates | `G16` |
+| `Q11` field naming | Gates | `G16` — `Q10` + `Q11` as one migration |
+| Independence classification storage | Gates | `G17` — `QA3`, typed versus JSON |
+| Duplicate refusal unique index | Gates | `G16` — schema constraint |
+| `TR-DM-02` column set and types | Audit | `G16` — same migration as row 1 |
+| `on delete restrict` migration | Audit | `GA9` |
+| `articles` return columns | Exceptions | `G16` — same migration |
+
+**Two of these are the same candidate named twice** — `TR-DM-02` appears in both the gates and audit specs. The 18 are 17 distinct components.
+
+### Requires `SPECS` — 9 candidates, 4 documents
+
+| Document | Components | Sprint | Needed before S1? |
+|---|---|---|---|
+| `SPECS-TRANSITION-ENFORCEMENT` | Sequence-enforcement trigger — timing, allowed-transitions table shape, lock behaviour | **S1** | **YES — the only one** |
+| `SPECS-BOARD-QUERY` | Board query and index strategy (`NFR-06` render volume) | S3 | No |
+| `SPECS-PUBLICATION` | `TR-DM-03` schema · publish path (`Q3`) · retry scheduler (`Q5`) · credential isolation (`NFR-07`/`SEC-02`) · privileged write path | S4 | No |
+| `SPECS-EXCEPTIONS` | Escalation routing · absence detection | S5 | No |
+
+### The answer
+
+**Eighteen candidates reduce to four documents, and exactly one is needed before S1.**
+
+The other three are sprint-aligned and can be written when their sprint arrives — `SPECS-PUBLICATION` is the largest at five components, and none of it is reachable until S4.
+
+**This is the `D-30` rule working as designed.** Writing four `SPECS` documents now — one per `Fn_Specs`, mirroring the source structure — would have produced three documents nothing can act on and seven sections restating S1 window decisions. **Mirroring the input structure is the redundancy failure in its most expensive form.**
+
+### Correction — `FN-GATES-01-05` §9 overstated its own result
+
+§9 claims its five candidates *"each map to an item already inside the S1 eight-decision window."* **Verified: four of five do.** The **sequence-enforcement trigger** does not — it is a mechanism design (trigger timing, table shape, lock behaviour), not a schema decision, and no window item covers it.
+
+**That one exception is the entire pre-S1 `SPECS` workload.** Had the claim been accepted as written, `G33b` would have concluded *"all candidates absorb into S1, no `SPECS` needed"* — and S1 would have been designed with transition enforcement unspecified. **The gate sequence is the core invariant of the product.**
+
+### Stale count corrected
+
+The S1 window is described as holding **eight** decisions in three places. It holds **nine** — `G42` joined it in Step 0 (`G56`). Corrected here and at source.
+
+**A seventh instance of `summary_outlived_source`**, found while executing the very filter that Step 0 was run to make trustworthy.
+
+### Scope limits
+
+Closes `G33b`. **Authorizes no `SPECS` document to be written** — this decision names which four exist and when each is due. Closes no Open Decision. No code, schema, or migration.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
@@ -1229,13 +1293,20 @@ Ordered by dependency. **Fixes are drafted here so execution does not re-derive 
 | `G29` | Artifact DoD per sprint | ✅ **Applied** |
 | `G33a` | All four feature groups specified | ✅ **Closed 2026-08-19** |
 
-### Stage 2 — `G33b`, the critical path *(executable now)*
+### Stage 2 — `G33b`, the critical path *(complete)*
 
-Filter **18 `SPECS` candidates** against `D-30` — 5 gates, 5 publication, 4 audit, 4 exceptions.
+**Resolved 2026-08-20 — `D-52`, §5.14m.** The 18 candidates filtered against `D-30`:
 
-> **Expect a small answer.** `FN-GATES-01-05` §9 already records that its five *"map to an item already inside the S1 eight-decision window."* If that holds across all four groups, `G33b` **largely collapses into S1 rather than producing separate documents.** Writing four `SPECS` documents before testing that is the `D-30` redundancy failure in its most expensive form.
+| Outcome | Count |
+|---|---|
+| Absorbed into the S1 window — no document | **7** |
+| Requires `SPECS` — **4 documents** | **9** |
+| Infrastructure ⚙, not product `SPECS` | **1** |
+| Blocked by `Q2` | **1** |
 
-**Gates S1.**
+**Only `SPECS-TRANSITION-ENFORCEMENT` is needed before S1.** The other three — `SPECS-BOARD-QUERY` (S3), `SPECS-PUBLICATION` (S4), `SPECS-EXCEPTIONS` (S5) — are sprint-aligned and not yet reachable.
+
+> The *"expect a small answer"* hypothesis held, **but not for the reason stated.** `FN-GATES-01-05` §9 claimed all five of its candidates absorb into the S1 window; four do. The fifth — the **sequence-enforcement trigger** — is the entire pre-S1 workload. Accepting the claim as written would have concluded *"no `SPECS` needed"* and left **the gate sequence, the core invariant of the product, unspecified going into S1.**
 
 ### Stage 3 — Chief Editor decisions *(T1, parallel)*
 
@@ -1293,7 +1364,7 @@ All alter the same append-only table.
 
 ### The critical path
 
-**`G33b` → S1.** `G33a` closed on 2026-08-19, so the filter is the only work standing between the specs and the S1 design pass.
+**`SPECS-TRANSITION-ENFORCEMENT` → S1.** `G33a` closed 2026-08-19 and `G33b` closed 2026-08-20 (`D-52`). The filter is done; **one `SPECS` document now stands between the specs and the S1 design pass** — the sequence-enforcement trigger, the only candidate of 18 that neither absorbs into the window nor defers to a later sprint.
 
 Everything else runs parallel or later — **except Stage 0, which precedes all of it**, because every stage above is selected from this section and §5.1. Planning from a stale index is how `G40`, `G41`, `G42`, `G47`, and `G49` stayed invisible while all five were Open.
 
@@ -1324,7 +1395,7 @@ The functional layer is substantially covered: `Modular_PRD.md` §5–§7 carrie
 
 **There is no technical specification.** Field names, types, constraints, indexes, trigger logic, and API contracts have been deferred to a "Technical Requirements pass" at every point they arose — across the tenancy boundary, the notice-as-article model, the risk tier, the intent vocabulary, the report record, and the publication transaction record. That pass has never been scheduled or owned.
 
-**It is the gating artifact for S1.** The S1 window holds eight decisions that all resolve into schema; without a technical spec they resolve into a migration written directly from prose.
+**It is the gating artifact for S1.** The S1 window holds **nine** decisions that all resolve into schema; without a technical spec they resolve into a migration written directly from prose. *(Count corrected 2026-08-20 — `G42` joined the window in Step 0. `D-52` names the one `SPECS` document S1 requires.)*
 
 ### `G11` escalated — three agents, not two
 
