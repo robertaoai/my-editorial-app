@@ -1105,6 +1105,54 @@ The options are all uncomfortable, which is why it needs deciding **before** the
 
 **Severity: T3** — required before the first paid engagement, and it belongs in the pre-payment disclosure so the client knows the possibility exists before money changes hands.
 
+## 5.14k `D-50` — not-newsworthy is an outcome, not a failure
+
+**Chief Editor direction, 2026-08-19.** Resolves `G48` and extends it to both lanes.
+
+### `G48` resolved — deliver with the finding disclosed
+
+**Applies to MVP as well as POC.** The scenario is the same in both: initial analysis looks promising, the final brief does not sustain newsworthiness.
+
+**"Not newsworthy at time of delivery" is a legitimate terminal outcome.** It is a real professional answer, arrived at by evidence, not a process failure to be hidden.
+
+The evidence zone — public explainable content and reports — is **common to both lanes and accumulates throughout the workflow**, not at delivery. Each gate contributes to it. So the finding is supportable in either lane, because the same evidence was built either way.
+
+### The worst case, and the distinction that governs it
+
+When **all gates fail to find sufficient newsworthiness**, there are two possible causes and they demand opposite responses:
+
+| Cause | What it means | Response |
+|---|---|---|
+| **Process failure** | The gates ran but did not do their job — thin investigation, missed sources, rushed drafting | **Rework.** Forward and backward engineering to surface what caused it |
+| **True negative** | The gates ran properly and the topic is genuinely thin | **Accept and disclose.** An honest answer |
+
+**Conflating these is the failure mode in both directions.** Always assume process failure and you never accept a true negative — you rework indefinitely on a topic that has nothing in it. Always assume true negative and **you never fix a broken gate**, and the same thin work recurs on every article.
+
+### How the two are told apart — and why `G49` follows
+
+**The audit trail alone cannot distinguish them.** The transition record carries who, when, and why — it records *completion*, not *how much was found*. A gate that investigated thoroughly and a gate that skimmed both produce one transition row.
+
+**The briefcase artifacts are what distinguish them:** the Claims Ledger shows how many material claims were found, the Evidence Map how many sources support them, the Uncertainty Register what could not be established. **Thorough work that found little looks entirely different from thin work** — but only in the artifacts, never in the transition log.
+
+> **`G49` — the briefcase artifacts are specified for POC only.** Verified: Claims Ledger, Evidence Map, Uncertainty Register, Counterargument Brief, Statement Classification, and Explainable Draft appear in the PoC proposal and in **no `Fn_Specs` at all**. Since `D-49` establishes the evidence zone as common to both lanes, **MVP needs them too** — and without them **MVP cannot tell rework from true negative.** Severity **S3**, with the audit surface.
+
+### Suggested refinement — sufficiency indicators
+
+Make the rework-versus-negative call **evidence-based rather than a judgement**. The artifacts should carry countable sufficiency signals, not only content:
+
+| Signal | Distinguishes |
+|---|---|
+| Material claims found | A thin topic yields few; thin work yields few **from a rich source** |
+| Sources consulted, and how many were independent | Effort expended |
+| Corroboration achieved versus attempted | Whether the gaps were tested or merely noted |
+| Uncertainties recorded | Thorough work **surfaces** uncertainty; rushed work has none because it did not look |
+
+**The last one is the most diagnostic.** An investigation reporting *no* uncertainties is more suspicious than one reporting many — genuine enquiry finds edges. A gate that returns nothing unresolved has usually not looked hard enough.
+
+### Representation
+
+`NOT_NEWSWORTHY` already exists in the proposed intent vocabulary. The applied schema has only `rejected` with no reason distinction — **the intent code is what makes "rejected for lack of newsworthiness" distinguishable from every other rejection**, which is precisely what `D-12`'s two-level vocabulary was for.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
