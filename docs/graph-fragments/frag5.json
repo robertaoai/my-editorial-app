@@ -1,0 +1,141 @@
+{
+  "nodes": [
+    {
+      "id": "fn_gates_01_05",
+      "label": "Fn_Specs — Editorial Gate Features FR-01..FR-05",
+      "file_type": "document",
+      "source_file": "docs/fn-specs/FN-GATES-01-05.md",
+      "source_location": "",
+      "description": "Functional specification for the five editorial gates. Covers intake, validation and investigation as two distinct transitions, drafting with meaning-invariance, Line 2 human review at T5 with a blind first pass, and independence classification with three outcomes and no silent fourth state. Its section 9 applies the D-30 redundancy filter and names five components that require SPECS.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "fn_publication_09_10_13",
+      "label": "Fn_Specs — Publication Feature Group FR-09, FR-10, FR-13",
+      "file_type": "document",
+      "source_file": "docs/fn-specs/FN-PUBLICATION-09-10-13.md",
+      "source_location": "",
+      "description": "Functional specification for publishing, confirming a manual publish, and order-driven retraction. Grouped because a retraction is a publication and a notice inherits its targets from the original, so FR-13 cannot function without FR-09's target model. First spec written to the merged structure adding User Stories and Risks.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "t1_execution_runbook",
+      "label": "T1 Execution Runbook",
+      "file_type": "document",
+      "source_file": "docs/journal/2026-08-19-t1-execution-runbook.md",
+      "source_location": "",
+      "description": "Step-by-step procedure for all 23 T1 items, fulfilling D-21. Orders the four-payload CLAUDE.md and AGENTS.md edit first as highest leverage, then verification apparatus, ratification, wording fixes, governance placement, the decision batch, and Fn_Specs. Carries the standing constraint to apply proposed text in full, which is the G32 countermeasure.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "intent_hierarchy_d29",
+      "label": "Intent Hierarchy (D-29)",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 2.3",
+      "description": "PRD to Modular_PRD to Fn_Specs to SPECS. Intent flows downward; each tier elaborates the one above and may never contradict it. Change localization is the purpose: a change lands in the tier that owns it and only that document changes.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "specs_redundancy_rule_d30",
+      "label": "SPECS Redundancy Rule (D-30)",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 2.3",
+      "description": "If a behaviour can be defined clearly enough in Fn_Specs, a SPECS document for it is redundant and must not be written. SPECS exists only where functional definition alone cannot determine implementation. This prevents SPECS becoming a restatement layer, which is the mechanism behind the project's recurring drift defect.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "spec_tier_mapping_d34",
+      "label": "Spec Tier Mapping (D-34)",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 2.3",
+      "description": "The specs-creator tool chain is a labelling map, not a blocker. app-vision.md maps to Modular_PRD because an app is a product; prd.md maps to docs/fn-specs; tech-specs.md maps to docs/specs; ux.md maps to docs/specs/ux for UI/UX per tech-stack. A stack change lands in specs and neither disturbs fn-specs.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "two_progress_trackers_d35",
+      "label": "Two Progress Trackers (D-35)",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "section 8.0",
+      "description": "Modular_PRD section 8.0 tracks build versions and their sprints; the Alpha Portfolio plan tracks projects. A sprint stays inside one project and a new project is a portfolio event, so the two trackers do not overlap. Notation is mandatory: V1 and V2 are build versions, 1.7 and 1.8 are document revision lineage, and they are unrelated.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "tracking_vs_specs_d36",
+      "label": "Tracking Files versus Specs (D-36)",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-36",
+      "description": "V1-*.md are tracking files that freeze at sprint close; specs carry no version prefix and never freeze. Specs moved out of the version-named directory so separation is by lifecycle rather than version. Each spec section is marked with the build version that introduced it, and an unmarked change to a V1 section is a defect rather than an update.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "plan_pack_reclassification_d37",
+      "label": "Plan Pack Reclassification (D-37)",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-37",
+      "description": "DATA_MODEL, ARCHITECTURE and TASKS came from the original Q&A flow alongside PRD.md and are frozen candidate references of the same status class. D5's claim that they were generated from the app name is not supportable: they name the exact six gate roles, the full five-gate flow, and the correct provisioned stack. Accurate about the substrate, silent on governance rather than wrong about it.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "topic_semantics_d38",
+      "label": "Topic Semantics (D-38)",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-38",
+      "description": "In an editorial business the topic is the subject, not a label. articles.topic_id is a single foreign key holding exactly one subject topic; trend_signals with signal_type topic_tag hold many analytical tags for trending and angle analysis. Two concepts sharing one word. The schema is correct as applied; FR-01's wording conflates them.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "one_word_two_concepts_pattern",
+      "label": "One Word, Two Concepts — Recurring Error Pattern",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-38",
+      "description": "Five recorded instances of a naming difference being mistaken for a structural incompatibility: Project versus Product PRD, app-vision.md versus Modular_PRD, pub_target versus platform_type, tracking files versus specs, and subject topic versus analytical tag. Countermeasure: before recording a contradiction, check what the unfamiliar label maps to and whether one word is carrying two concepts. D-22's dual financial terminology is the precedent.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    }
+  ],
+  "edges": [
+    { "source": "v1_decision_register", "target": "intent_hierarchy_d29", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 2.3", "weight": 1 },
+    { "source": "v1_decision_register", "target": "specs_redundancy_rule_d30", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 2.3", "weight": 1 },
+    { "source": "v1_decision_register", "target": "spec_tier_mapping_d34", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 2.3", "weight": 1 },
+    { "source": "v1_decision_register", "target": "tracking_vs_specs_d36", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-36", "weight": 1 },
+    { "source": "v1_decision_register", "target": "plan_pack_reclassification_d37", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-37", "weight": 1 },
+    { "source": "v1_decision_register", "target": "topic_semantics_d38", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-38", "weight": 1 },
+    { "source": "v1_decision_register", "target": "one_word_two_concepts_pattern", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-38", "weight": 1 },
+    { "source": "modular_prd", "target": "two_progress_trackers_d35", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/Modular_PRD.md", "source_location": "section 8.0", "weight": 1 },
+    { "source": "intent_hierarchy_d29", "target": "modular_prd", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 2.3", "weight": 1 },
+    { "source": "intent_hierarchy_d29", "target": "fn_gates_01_05", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 2.3", "weight": 1 },
+    { "source": "specs_redundancy_rule_d30", "target": "fn_gates_01_05", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/fn-specs/FN-GATES-01-05.md", "source_location": "section 9", "weight": 1 },
+    { "source": "specs_redundancy_rule_d30", "target": "fn_publication_09_10_13", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/fn-specs/FN-PUBLICATION-09-10-13.md", "source_location": "section 9", "weight": 1 },
+    { "source": "fn_gates_01_05", "target": "s1_migration_decision_window", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/fn-specs/FN-GATES-01-05.md", "source_location": "section 9", "weight": 1 },
+    { "source": "fn_gates_01_05", "target": "topic_semantics_d38", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/fn-specs/FN-GATES-01-05.md", "source_location": "section 3.1", "weight": 1 },
+    { "source": "fn_publication_09_10_13", "target": "notice_as_article_model", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/fn-specs/FN-PUBLICATION-09-10-13.md", "source_location": "section 4.3", "weight": 1 },
+    { "source": "fn_publication_09_10_13", "target": "fn_gates_01_05", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/fn-specs/FN-PUBLICATION-09-10-13.md", "source_location": "section 1", "weight": 1 },
+    { "source": "t1_execution_runbook", "target": "v1_build_spec", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/journal/2026-08-19-t1-execution-runbook.md", "source_location": "section 0", "weight": 1 },
+    { "source": "t1_execution_runbook", "target": "fn_gates_01_05", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/journal/2026-08-19-t1-execution-runbook.md", "source_location": "Step 8", "weight": 1 },
+    { "source": "t1_execution_runbook", "target": "v1_artifact_inventory", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/journal/2026-08-19-t1-execution-runbook.md", "source_location": "Step 5", "weight": 1 },
+    { "source": "tracking_vs_specs_d36", "target": "fn_gates_01_05", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-36", "weight": 1 },
+    { "source": "two_progress_trackers_d35", "target": "alpha_portfolio", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/Modular_PRD.md", "source_location": "section 8.0", "weight": 1 },
+    { "source": "topic_semantics_d38", "target": "one_word_two_concepts_pattern", "relation": "rationale_for", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-38", "weight": 1 },
+    { "source": "spec_tier_mapping_d34", "target": "one_word_two_concepts_pattern", "relation": "rationale_for", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-34", "weight": 1 },
+    { "source": "plan_pack_reclassification_d37", "target": "v1_artifact_inventory", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-37", "weight": 1 },
+    { "source": "specs_redundancy_rule_d30", "target": "psk10_immutable_audit_reporting", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "section 2.3", "weight": 1 }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "nodes": [
+    {
+      "id": "fn_audit_visibility_07_08",
+      "label": "Fn_Specs — Audit & Visibility FR-07, FR-08",
+      "file_type": "document",
+      "source_file": "docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md",
+      "source_location": "",
+      "description": "Functional specification for the append-only transition record and the filterable board. Records a one-way dependency: the board cannot function without the record, but the record stands alone. Carries AC-12 as an infrastructure criterion and AC-12a as the product's canary for explaining absence.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "fn_exceptions_06_11_12",
+      "label": "Fn_Specs — Exceptions & Continuity FR-06, FR-11, FR-12",
+      "file_type": "document",
+      "source_file": "docs/fn-specs/FN-EXCEPTIONS-06-11-12.md",
+      "source_location": "",
+      "description": "Functional specification for return with mandatory reason, risk-triggered Line 3 audit, and degraded mode on prolonged Chief Editor absence. All three answer what happens when the normal path does not work. FR-11 is OD3-gated with no executor until Q2 resolves; every threshold stays UNSET.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "separation_of_duties_d39",
+      "label": "Separation of Duties — Policy is Infrastructure, Explainability is Product",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-39",
+      "description": "Infrastructure owns deletion permission, archival execution and retention compliance. The product owns partition-friendly structure and explaining absence. The product's duty is not to prevent deletion but to remain honest once deletion has happened. AC-12 tests a database grant-and-policy decision the product has no layer to enforce.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance"
+    },
+    {
+      "id": "global_project_scope_d40",
+      "label": "Global Project Scope (D-40)",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-40",
+      "description": "PSK-01 to PSK-06 carry an Indirectly-supports column naming the customer requests they serve. PSK-07 to PSK-10 carry a Purpose column with no customer anchor at all - baseline business and industry obligations existing whether or not a customer asked. Global project scope is an established pattern, not a new category.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance"
+    },
+    {
+      "id": "why_reports_exist_d42",
+      "label": "Why Reports Exist (D-42)",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-42",
+      "description": "Reports exist for auditability of GRC on retraction - change or retract, and the corresponding notifications - to prove the project complied on time, evidenced by a dump of the auditable logs and limited by retention policy. This rationale was absent from the entire document set and is the missing anchor for PSK-10, explainable absence, and template-field binding.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance"
+    },
+    {
+      "id": "three_regimes_two_data_classes",
+      "label": "Three Regimes, Two Data Classes",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-42",
+      "description": "PDPA minimises on personal data; the retention act preserves for five years; GRC compliance preserves and adds a clock. Two data classes: client data exists in P0-EVR only and carries personal data; editorial flow exists in both lanes and carries none. The trigger request has no personal data and defaults to the MVP data flow.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance"
+    },
+    {
+      "id": "pdpa_legal_exception_d43",
+      "label": "PDPA Legal Exception Resolves the Retention Conflict",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-43",
+      "description": "PDPA's retention-limitation duty carries an explicit exception permitting longer retention where another written law requires it, expressly including tax and financial regulation. The framework was never contradictory; a hierarchy had been read as a conflict. Payment made means five years via the exception; request only means ninety days under purpose limitation.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance"
+    },
+    {
+      "id": "two_tier_lifecycle_d44",
+      "label": "Two-Tier Data Lifecycle",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-44",
+      "description": "POC client personal data runs ninety days then is removed. The trigger-topic flow, common to both lanes, runs five years then is archived and later deleted. Partitioning acts on rows by period while anonymisation acts on columns by identifier, so detaching a partition does not anonymise anything by itself.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance"
+    },
+    {
+      "id": "fork_at_publish_d47",
+      "label": "The Lane Fork is at Publish",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-47",
+      "description": "Pre-intake differs but sits outside the system boundary. Gates T1 to T6 are identical and both lanes create the article on a Publish disposition. The divergence is external publication: MVP publishes while POC withholds and delivers explainable content and reports. FN-PUBLICATION is the only lane-varying specification.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "one_gate_two_terminals_d49",
+      "label": "One Gate, Two Terminal Actions",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-49",
+      "description": "Newsworthiness runs in both lanes. MVP asks whether it is worth publishing and publishes on pass; POC asks whether it is worth handing to the paying client and delivers on pass. Same analysis, same gate, different consequence. There is no optional gate and no conditional path, so nothing can accidentally bypass it.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "not_newsworthy_outcome_d50",
+      "label": "Not-Newsworthy is an Outcome, Not a Failure",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-50",
+      "description": "Not newsworthy at time of delivery is a legitimate terminal outcome reached by evidence, applying to both lanes, and delivered with the finding disclosed. Negative evidence is evidence, which the portfolio closure scorecard explicitly requests.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    },
+    {
+      "id": "rework_vs_true_negative",
+      "label": "Rework versus True Negative",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-50",
+      "description": "When all gates fail to find newsworthiness there are two causes demanding opposite responses: process failure requiring rework, or a genuinely thin topic to be accepted and disclosed. The transition log records completion rather than how much was found, so it cannot distinguish them; only the briefcase artifacts can. An investigation reporting no uncertainties is more suspicious than one reporting many.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications"
+    }
+  ],
+  "edges": [
+    { "source": "v1_decision_register", "target": "separation_of_duties_d39", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-39", "weight": 1 },
+    { "source": "v1_decision_register", "target": "global_project_scope_d40", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-40", "weight": 1 },
+    { "source": "v1_decision_register", "target": "why_reports_exist_d42", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-42", "weight": 1 },
+    { "source": "v1_decision_register", "target": "three_regimes_two_data_classes", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-42", "weight": 1 },
+    { "source": "v1_decision_register", "target": "pdpa_legal_exception_d43", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-43", "weight": 1 },
+    { "source": "v1_decision_register", "target": "two_tier_lifecycle_d44", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-44", "weight": 1 },
+    { "source": "v1_decision_register", "target": "fork_at_publish_d47", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-47", "weight": 1 },
+    { "source": "v1_decision_register", "target": "one_gate_two_terminals_d49", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-49", "weight": 1 },
+    { "source": "v1_decision_register", "target": "not_newsworthy_outcome_d50", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-50", "weight": 1 },
+    { "source": "v1_decision_register", "target": "rework_vs_true_negative", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-50", "weight": 1 },
+    { "source": "why_reports_exist_d42", "target": "psk10_immutable_audit_reporting", "relation": "rationale_for", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-42", "weight": 1 },
+    { "source": "why_reports_exist_d42", "target": "notice_as_article_model", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-42", "weight": 1 },
+    { "source": "pdpa_legal_exception_d43", "target": "ga5_retention_erasure_conflict", "relation": "rationale_for", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-43", "weight": 1 },
+    { "source": "pdpa_legal_exception_d43", "target": "statutory_retention_floor", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-43", "weight": 1 },
+    { "source": "three_regimes_two_data_classes", "target": "two_tier_lifecycle_d44", "relation": "rationale_for", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-42", "weight": 1 },
+    { "source": "two_tier_lifecycle_d44", "target": "disposal_record_control", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-44", "weight": 1 },
+    { "source": "separation_of_duties_d39", "target": "fn_audit_visibility_07_08", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-39", "weight": 1 },
+    { "source": "global_project_scope_d40", "target": "psk10_immutable_audit_reporting", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-40", "weight": 1 },
+    { "source": "fork_at_publish_d47", "target": "fn_publication_09_10_13", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-47", "weight": 1 },
+    { "source": "fork_at_publish_d47", "target": "p0_evr_evidence_lane", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-47", "weight": 1 },
+    { "source": "one_gate_two_terminals_d49", "target": "fork_at_publish_d47", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-49", "weight": 1 },
+    { "source": "one_gate_two_terminals_d49", "target": "fn_publication_09_10_13", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-49", "weight": 1 },
+    { "source": "not_newsworthy_outcome_d50", "target": "one_gate_two_terminals_d49", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-50", "weight": 1 },
+    { "source": "not_newsworthy_outcome_d50", "target": "event_type_intent_vocabulary", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-50", "weight": 1 },
+    { "source": "rework_vs_true_negative", "target": "not_newsworthy_outcome_d50", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-50", "weight": 1 },
+    { "source": "rework_vs_true_negative", "target": "fn_audit_visibility_07_08", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-50", "weight": 1 },
+    { "source": "fn_audit_visibility_07_08", "target": "fn_gates_01_05", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md", "source_location": "section 1", "weight": 1 },
+    { "source": "fn_exceptions_06_11_12", "target": "fn_gates_01_05", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/fn-specs/FN-EXCEPTIONS-06-11-12.md", "source_location": "section 1", "weight": 1 },
+    { "source": "fn_audit_visibility_07_08", "target": "specs_redundancy_rule_d30", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md", "source_location": "section 9", "weight": 1 },
+    { "source": "fn_exceptions_06_11_12", "target": "specs_redundancy_rule_d30", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/fn-specs/FN-EXCEPTIONS-06-11-12.md", "source_location": "section 9", "weight": 1 },
+    { "source": "fn_audit_visibility_07_08", "target": "mirror_the_spread_boundary", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md", "source_location": "section 4", "weight": 1 },
+    { "source": "separation_of_duties_d39", "target": "two_tier_lifecycle_d44", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1, "source_file": "docs/v1/V1-DECISION-REGISTER.md", "source_location": "D-39", "weight": 1 }
+  ]
+}

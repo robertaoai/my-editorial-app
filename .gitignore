@@ -11,7 +11,10 @@ npm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# graphify — generated knowledge graph, rebuildable from docs/ via `/graphify docs`
+# graphify — generated knowledge graph. TWO layers, only one of them rebuildable:
+#   EXTRACTED layer — rebuild from docs/ via `/graphify docs`.
+#   CURATED layer   — hand-authored concept nodes. Extraction does NOT regenerate these.
+#                     They rebuild ONLY from docs/graph-fragments/ (tracked). See G51.
 .graphify/
 ast.js
 b3.js

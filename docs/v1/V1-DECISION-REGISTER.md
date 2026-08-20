@@ -170,6 +170,13 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `GA7` | Open | T3, audit Step 7 — auditor access versus tenant isolation |
 | `GA8` | **Closed on execution** | `D-13` — `PSK-10`, T0 Step 1 |
 | `GA9` | Open | `D-07`, S1 window item 6 |
+| `G40`–`G49` | **Recorded elsewhere — not backfilled here** | **This table is incomplete and says so.** These ten are recorded in detail sections (`G42`–`G48`) or inline prose (`G40`, `G41`, `G49`) only. Backfill is `G55`, Open |
+| `G50` | **Closed 2026-08-20** | Distribution provenance — `D-51`, §5.4, `docs/graph-fragments/README.md` §2 |
+| `G51` | **Closed 2026-08-20** | Curated graph layer rescued to `docs/graph-fragments/` — 61 nodes, 142 edges. §5.4 |
+| `G52` | **Closed 2026-08-20** | Distribution-specific commands disclosed — `docs/graph-fragments/README.md` §3 |
+| `G53` | **Closed 2026-08-20** | Shared core reconciled across all three agent files, verified byte-identical. §5.4 |
+| `G54` | **Open — deferred by decision** | Upstream command surface unverified; route in `docs/graph-fragments/README.md` §6. Needs a Python toolchain |
+| `G55` | **Open — new** | Backfill `G40`–`G49` into this table; three of them need a detail section written first |
 
 **The table above is authoritative. Counts are deliberately not restated here.**
 
@@ -1153,6 +1160,26 @@ Make the rework-versus-negative call **evidence-based rather than a judgement**.
 
 `NOT_NEWSWORTHY` already exists in the proposed intent vocabulary. The applied schema has only `rejected` with no reason distinction — **the intent code is what makes "rejected for lack of newsworthiness" distinguishable from every other rejection**, which is precisely what `D-12`'s two-level vocabulary was for.
 
+## 5.14l `D-51` — graphify distribution standardised; upstream swap gated
+
+**Decision, 2026-08-20.** The project standardises on **`@sentropic/graphify`** (npm). The upstream `graphifyy` (PyPI) is **not** adopted, and a swap is **gated on `G54` closing first.**
+
+**Classification: Project Scope ⚙** per `D-39` and `D-40`. Tooling is infrastructure. This decision sits **outside the `D-29` tier stack** and generates no `FR`, no `AC`, and no `SPECS` candidate.
+
+**Grounds, in descending order of hardness:**
+
+1. **The upstream path is not installable here.** `uv`, `pipx`, and `pip` are all absent; `python`/`python3` resolve to the Microsoft Store stub, not an interpreter. Adopting upstream requires a machine-level toolchain install first.
+2. **It would invalidate the rules the project already runs on.** Nine commands the agent files mandate are undocumented upstream: `portable-check`, `migrate-state`, `review-delta`, `summary`, `hook-rebuild`, `merge-graphs`, `build --fragment`, `studio`, `ontology`.
+3. **It moves backwards into a layout this project calls legacy.** Upstream writes `graphify-out/`; the rules document `.graphify/` and carry explicit guidance for migrating *out of* `graphify-out`.
+
+> **Stated honestly.** Ground 2 rests on a **README reading, not a verified command list.** Absence from a README is not absence from a CLI. It sizes the gap; it does not close it. **That is exactly why `G54` is Open rather than closed** — the decision is recorded with its weakest evidence named, not hidden.
+
+**What is guaranteed to fail:** uninstalling the npm package before verifying the upstream surface. If upstream lacks `merge-graphs` and `build --fragment`, the curated layer cannot be re-merged by the remaining tool. The fragments survive; **nothing installed can consume them.**
+
+**How to avoid it:** never uninstall before `G54` closes. Coexistence is cheap; recovery is not.
+
+**Note on §6's three-document rule.** `docs/graph-fragments/README.md` is **not** a fourth v1 document. It records tooling provenance, holds no decision, gap disposition, build order, or artifact status, and sits outside the tier stack. The dispositions for `G50`–`G55` are recorded **here**, in this register — which is what §6 requires.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
@@ -1295,6 +1322,57 @@ Verified by direct check, not by reading the register:
 ### Correction to an earlier claim
 
 Prior analysis recorded that *"`AGENTS.md` was added later by Codex."* **Wrong.** `AGENTS.md` is present in `62c8d8c`, the initial commit, and was revised alongside `CLAUDE.md` at `53ace36`. Both files carry the stale pointer from origin; neither was introduced by a later agent.
+
+## 5.4 Tooling provenance audit — 2026-08-20
+
+**Trigger.** A challenge to whether `@sentropic/graphify` was the correct install, measured against the upstream guide at `Graphify-Labs/graphify`.
+
+**Finding: the install is correct, and the challenge surfaced two larger problems than the one it asked about.**
+
+### What was validated
+
+| Question | Answer |
+|---|---|
+| Which package is installed? | `@sentropic/graphify@0.17.1` (npm, global) — the binary every graph update has run through |
+| Is it the upstream project? | **No.** Upstream is `Graphify-Labs/graphify` — PyPI `graphifyy`, Python, output `graphify-out/` |
+| Is it therefore wrong? | **No.** It is an **attributed downstream extension** — it credits *"Safi Shamsi's graphify"* by name and tracks parity in `UPSTREAM_GAP.md`. `Graphify-Labs` shows contributor `safishamsi` |
+| Do the repos redirect? | No — both resolve independently. Not a moved or renamed repo |
+| Is the upstream's "not affiliated" warning relevant? | **No** — it is scoped to **PyPI** namesquatting and says nothing about npm |
+
+**The seventh instance of the naming-difference error family, and it dissolved like the previous six.** A different repo, language, and package name read as a provenance problem. It is a distribution relationship. The countermeasure in `CLAUDE.md` caught it before it was recorded as an incompatibility.
+
+### Gap dispositions
+
+| ID | Disposition | Where it now lives |
+|---|---|---|
+| `G50` | **Closed 2026-08-20** | Distribution provenance undocumented — `docs/graph-fragments/README.md` §2, plus the shared core in all three agent files |
+| `G51` | **Closed 2026-08-20** | Curated graph layer not reproducible — 61 nodes and 142 edges across 7 fragments rescued from session-scoped temp storage into `docs/graph-fragments/`; `.gitignore` corrected |
+| `G52` | **Closed 2026-08-20** | Nine distribution-specific commands named in the rules without disclosure — `docs/graph-fragments/README.md` §3 |
+| `G53` | **Closed 2026-08-20** | Three drifted rule blocks reconciled to a byte-identical shared core plus a legitimate platform tail. First concrete instance of the `G11` arbitration rule |
+| `G54` | **Open — deferred by decision** | Upstream command surface unverified. Route recorded in `docs/graph-fragments/README.md` §6. Needs a Python toolchain — owner's call, not an oversight |
+| `G55` | **Open — new** | `G40`–`G49` are absent from the §5.1 disposition table. Ten gaps recorded only in detail sections or inline prose; `G40`, `G41`, and `G49` have no detail section at all |
+
+### `G51` — what the exposure actually was
+
+`.graphify/` is gitignored and `git ls-files .graphify` returned **zero**. The curated layer — `D-39`–`D-50`, the `GA5` resolution, the two-tier lifecycle, the fork at publish, communities 28 and 29 — existed **only** in a session-scoped temp directory.
+
+**18% of the graph's nodes and 25% of its links.** Extraction does not regenerate curation, so any rebuild, uninstall, or session expiry would have destroyed it silently — no error, no warning, and a graph that still looked healthy.
+
+`.gitignore` asserted the graph was *"rebuildable from docs/"*. **That claim was false and is now corrected.** It is the load-bearing kind of false: it is the sentence that makes deleting the graph look safe.
+
+### `G53` — the drift was not what it appeared
+
+Three blocks exist: `CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md`. They had drifted **in both directions** — but **not all of the difference was defect.** `AGENTS.md`'s `$graphify` lines are correct **for Codex**, where `/graphify` is unreliable; `.agents` legitimately points at the Gemini skill path. Flattening all three to one text would have destroyed working platform guidance.
+
+**The real defect** was the absence of a **shared core**: `portable-check`, `summary`, and `review-delta` were missing from `.agents` entirely, and its `migrate-state` rule carried an **abbreviated** form of guidance the other two state in full — **the `G32` pattern, in the tooling layer.**
+
+**Resolution:** a shared core, marked as such and verified byte-identical across all three, plus a declared platform tail. Change all three together or none.
+
+### `G55` — recorded, not repaired
+
+The §5.1 table is the all-IDs disposition record. It stops at `G39`. This is the **third recurrence** of the disposition-drift pattern already fixed three times in this register, now at a scale of ten.
+
+**Not repaired here, deliberately** — the backfill was not in the approved scope, and silently adding `G50`–`G54` rows to a table missing `G40`–`G49` would make it *look* complete while it is not. The table now carries an explicit row naming its own incompleteness. **An artifact that is honest about its gap is safe; one that hides it is not.**
 
 ## 6. Supersession map
 
