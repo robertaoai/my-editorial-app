@@ -8,6 +8,6 @@
 import { expect, test } from "bun:test";
 
 test("the test runner executes and TypeScript compiles", () => {
-  const gates: number = ["typecheck", "lint", "test"] as const; // R3 DoD D-5: deliberate type error
+  const gates = ["typecheck", "lint", "test"] as const;
   expect(gates).toHaveLength(3);
 });
