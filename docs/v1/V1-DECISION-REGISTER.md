@@ -182,6 +182,31 @@ Each `SPECS` document opens with an **executive summary** carrying: the componen
 
 This is a genuine constraint, not a preference: it prevents `SPECS` becoming a restatement layer, which is the mechanism behind this project's recurring drift defect — one fact in two documents, one updated and one not.
 
+### `D-31` — spec tooling: use `spec-writing`, never `specs-creator`
+
+Two skills are available. They are not alternatives; only one is compatible with this project's governance.
+
+| | **`spec-writing`** ✅ | **`specs-creator`** ❌ |
+|---|---|---|
+| Nature | A **standard** — templates and structure | A **generator** — emits documents |
+| Input | Existing requirements | A feature **description** |
+| Output | One spec, structured | **PRD + tech spec + UX spec, bundled** |
+| Direction | Transforms downward from requirements | Generates outward from an idea |
+| Trigger | Invoked deliberately | **"Use PROACTIVELY… must be triggered"** |
+
+**Why `specs-creator` fails structurally here — four reasons, any one sufficient:**
+
+1. **It creates PRDs.** `docs/PRD.md` is frozen byte-identical at `53ace36` and is the most protected artifact in the model. A skill whose stated job includes *"Create PRD"* either edits the frozen record or produces a **competing** one — a second PRD in a hierarchy that permits exactly one.
+2. **It generates from a description, not from requirements.** This project's traceability runs the other way: every specification anchors to a `CR-*` or carries a `PSK-*` key. Generating from prose produces precisely the unanchored scope `FB-04` exists to catch — the largest feedback item on the map.
+3. **It bundles three tiers into one act.** `D-29` separates tiers so *"a change lands in the tier that owns it, and only that document changes."* Emitting PRD, tech spec, and UX spec together defeats change localization, which is `D-29`'s purpose rather than a side effect.
+4. **"Use PROACTIVELY" meets `G11`.** Three agents edit this repo with no arbitration rule. A self-triggering generator, in a repo where one agent already silently dropped another's operative content (`G32`), is a live risk and not a theoretical one.
+
+**Why `spec-writing` fits:** it is a standard applied to existing requirements — exactly `Fn_Specs`' job — and it creates nothing on its own.
+
+**The one adaptation required.** `spec-writing`'s structure places Data Models, API Contracts, and UI in the same document. Under `D-30` those belong in `SPECS`. Applied unadapted it would produce a `Fn_Specs` duplicating `SPECS` content — violating the redundancy rule. `FN-GATES-01-05.md` carries them as §9 pointers instead, naming which five components need `SPECS` and why.
+
+**Binding:** `specs-creator` is not to be invoked in this repository. Recorded in `CLAUDE.md` and `AGENTS.md` so the constraint reaches every agent, not only the one that decided it.
+
 ### Effect on §6.1's freeze
 
 §6.1 froze the operative set at three documents. **That freeze governs consolidation and analysis documents only.** `Fn_Specs` and `SPECS` are a distinct class — implementation specifications, not consolidations — and are admitted by `D-29`. The freeze's purpose stands: no fourth *register* or *analysis* document.

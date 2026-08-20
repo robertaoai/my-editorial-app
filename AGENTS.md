@@ -31,6 +31,11 @@ Rationale stays in the linked document.
 **Apply proposed text in full.** When executing a runbook, do not summarise or abbreviate —
 `G32` occurred because operative content was dropped that way.
 
+**Spec tooling (`D-31`).** Use the `spec-writing` skill for `Fn_Specs` and `SPECS`. **Never
+invoke `specs-creator`** — it generates a PRD from a description, and `docs/PRD.md` is frozen;
+it would either edit the frozen record or create a competing one. When applying `spec-writing`,
+move Data Models / API Contracts / UI out of `Fn_Specs` and into `SPECS` per `D-30`.
+
 **Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
 `supabase/migrations/0001_init.sql`.
 
