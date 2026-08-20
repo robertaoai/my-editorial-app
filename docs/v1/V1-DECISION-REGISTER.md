@@ -120,7 +120,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 
 **Chief Editor decisions still to make — 16.** `Q0`, `Q2`, `Q3`, `Q4`, `Q5`, `Q6`, `Q8`, `Q11`, `Q12`, `QA3`, `QB`, `QC`, `QD`, `QE`, `G23`, `G24`. See `V1-BUILD-SPEC.md` for which sprint each gates.
 
-## 5.1 Gap disposition — all 40 IDs
+## 5.1 Gap disposition — every ID
 
 **Added 2026-08-18 after a completeness challenge.** The first version of this register absorbed gap *content* without carrying gap *IDs*, so 16 of 40 identifiers had no trace in the operative set and no index survived supersession. A reader following an ID hit a dead end: the operative documents did not carry it, and the document that did was marked non-operative. **Supersession must transfer traceability, not destroy it.**
 
@@ -181,8 +181,14 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G49` | **Open** — S3 | Briefcase artifacts specified for POC only; MVP needs them or it cannot tell rework from true negative. §5.14k |
 | `G56` | **Closed 2026-08-20** | §5.15 solve sequence stale — found and repaired in the same pass. See §5.4 |
 | `X4` | **Open — specified, not applied** | `D-61` §5.14v — one seed row executes **T5 with an agent**; T5 is Line 2, human-primary. Correction specified. **Closes only with `X5`**, in `0002` |
-| `X3`, `X5`, `X7`, `X8` | **Recorded elsewhere — not backfilled** | **This index does not reach the `X`-series.** They live in `docs/journal/2026-08-16-sprint-plan.md`, which `D5` classifies as non-authoritative. Backfill is `G61`, Open |
-| `G61` | **Open — new** | The `X`-series is absent from this index — five live build divergences tracked only in a journal. `G55`'s mechanism on a different ID series. §5.14v |
+| `X1` | **Closed** | `OD3` recorded *Resolved* in the Addendum and Blueprint but *Open* in the Business Case and Charter. Closed by amendment — `D3` |
+| `X2` | **Resolved — no action** | Business Case implies Chief Journalist before Line 2; the Addendum puts Line 2 at T5. **The Addendum governs**, so build T5 before T6 |
+| `X3` | **Open** — S1 | Repo state machine omits `Discovered`/`Validated`/`Needs Revision` and collapses Addendum T2/T3. `D5`. Mapping specified by `D-55` (`G57`); **closes on `0002`** |
+| `X5` | **Open** — S1 | `workflow_transitions` has no `line_assignment` and no independence field, **so four-eyes cannot be evaluated at all.** `D5`. The field name is `Q11`-blocked (`A21`) — do not write `judgment_independence_status`. **Closes on `0002`; carries `X4` with it (`D-61`)** |
+| `X6` | **Superseded** | Assumed stack versus provisioned repo. Superseded by `A1`/`A2` — `D4`, *not yet closable* |
+| `X7` | **Open** — S2 → S6 | Demo-first plus permissive RLS versus executor attributability. `D5`. **Mitigated at S2, closes at S6** — the same `TC1` surface `AC-12` sits on |
+| `X8` | **Open** — S0 | Stripe scaffolding versus the Charter-level *"no monetization features"*. `D5`. **Closes on S0** |
+| `G61` | **Closed 2026-08-20** | `D-63` §5.14x — **all eight** `X`-rows backfilled above. *(Corrected: the gap statement said **five**; `X1`, `X2`, and `X6` exist too. Five was the `D5`-family **open** subset, not the series.)* |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Open — new** | No lockfile committed (`bun.lockb` absent). CI would resolve dependencies fresh every run, so a verdict varies with wall-clock time. Needs bun to generate. T1, with `R3`. §5.14q |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -1886,6 +1892,43 @@ Specifies `X4`; **applies nothing.** `0001_init.sql` unedited, `0002` unwritten.
 ### Scope limits
 
 Closes `G60`. Authorizes no code, schema, or UI. `C-13` remains an open condition on `D-57` — **the requirement now exists; the surface does not.** `FR-14` is **S3** and gated on nothing further.
+
+## 5.14x `D-63` — the `X`-series backfilled; `G61` closed
+
+**Decision, 2026-08-20. Closes `G61`.** All eight `X`-series divergences now carry rows in §5.1. They were previously recorded **only** in `docs/journal/2026-08-16-sprint-plan.md` — a journal this register classifies as **non-authoritative** under `D5`.
+
+### Correction — the gap statement said five
+
+`G61` was recorded as *"five live build divergences."* **Verified wrong.** The series is `X1`–`X8`, **eight rows.**
+
+**Where the five came from:** the sprint plan's summary line names *"X3/X4/X5/X7/X8"* — the `D5`-family entries that are **still open**. I read a filtered subset as the whole series. `X1` *(closed by amendment, `D3`)*, `X2` *(resolved, no action)*, and `X6` *(superseded by `A1`/`A2`, `D4`)* were never counted.
+
+**This is the third count I have had to correct in this register** — after `G55`'s *"three bare"* which was one, and `D-51`'s *"nine commands"* which was eight. **Every one was a number I derived from a summary rather than from the thing being summarised** — the mechanism `D-54` names and `C-14` is meant to detect.
+
+### What the backfill surfaced
+
+| Row | Why it matters beyond bookkeeping |
+|---|---|
+| `X5` | **Four-eyes cannot be evaluated at all today** — `workflow_transitions` carries neither `line_assignment` nor an independence field. This is the substrate `FR-05` and `OD2` both depend on |
+| `X5` field name | `Q11`-blocked (`A21`). **Do not write `judgment_independence_status`** — it asserts a cognitive fact the code can only prove structurally, and `NFR-02` would make the wrong name permanent |
+| `X7` | Sits on the **same `TC1` surface as `AC-12`** — permissive RLS and no auth. Mitigated at S2, closes only at S6 |
+| `X6` | **Superseded, not closed.** `D4` is *"not yet closable"*, so `X6` cannot be treated as done |
+
+### Two dispositions that are not "open" or "closed"
+
+`X2` is **resolved with no action** — a documented conflict where one source simply governs. `X6` is **superseded** — replaced by a live decision that is itself unresolved.
+
+**Neither fits a binary.** Recording them as *closed* would assert work was done; as *open* would assert work is pending. **Both would be false**, which is why the index now carries their actual disposition instead of forcing them into the two states it already had.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 |
+|---|---|---|---|---|
+| `D-63` / `G61` | ✅ eight rows | ✅ sprint mapping | — *`X8` already carried; no new artifact* | ✅ |
+
+### Scope limits
+
+Closes `G61`. **Indexes existing divergences; resolves none of them.** `X3`, `X4`, `X5`, `X7`, `X8` remain **Open** on their own terms. Authorizes no code, schema, or migration.
 
 ## 5.15 Solve sequence — remaining open gaps
 

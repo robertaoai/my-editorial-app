@@ -59,6 +59,8 @@ Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` 
 
 ### S0 — Reconciliation and config spine *(no feature code)*
 
+**`X`-series sprint mapping (`D-63`, closes `G61`).** The eight divergences are indexed in `V1-DECISION-REGISTER.md` §5.1 and land as: **`X8` → S0** (Stripe scaffolding versus *"no monetization features"*) · **`X3`, `X4`, `X5` → S1**, all in `0002` · **`X7` → mitigated S2, closes S6.** `X1` and `X2` need no build work; `X6` is superseded by `D4`, which is not yet closable.
+
 **Route constants land here (`D-59`, closes `G10`/`QC`).** `EDITORIAL_ROUTE` = `/editorial`, `POC_ROUTE` = `/request-brief`, `DOMAIN_APEX` = **`UNSET`** — no domain is recorded in the corpus and none is invented. **`C-15` (T3)** promotes both lanes to distinct origins before POC holds real client data; the route names are chosen so that promotion is mechanical.
 
 Config registry with a `PROVISIONAL` marker on every OD-derived value · feature flags · `DECISION_LOG.md` and `CONFIG_LOG.md` · remove Stripe scaffolding (`X8`, `NG-03`) · **verification apparatus** · draft migration `0002` **without applying it**.

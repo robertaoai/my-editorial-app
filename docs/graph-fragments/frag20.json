@@ -1,0 +1,78 @@
+{
+  "_comment": "Fragment 20 — D-63, X-series backfilled, G61 closed. Merged 2026-08-20.",
+  "nodes": [
+    {
+      "id": "d63_x_series_backfilled",
+      "label": "D-63 — X-Series Backfilled",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14x D-63",
+      "description": "All eight X-series divergences now carry rows in §5.1. They were previously recorded only in the 2026-08-16 sprint plan, a journal this register classifies as non-authoritative under D5. Closes G61. Indexes existing divergences; resolves none of them.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Sprint mapping now readable from the index rather than a journal: X8 lands at S0, X3, X4 and X5 at S1 in migration 0002, X7 is mitigated at S2 and closes at S6. X1 and X2 need no build work, and X6 is superseded by D4, which is itself not yet closable."
+    },
+    {
+      "id": "third_corrected_count",
+      "label": "The Third Count Derived From a Summary",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14x",
+      "description": "G61 was recorded as five live build divergences. The series is X1 to X8, eight rows. Five was the D5-family still-open subset named in the sprint plan's summary line, read as if it were the whole series. X1 closed by amendment, X2 resolved with no action, and X6 superseded were never counted.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The third count corrected in this register, after G55's three-bare which was one and D-51's nine-commands which was eight. Every one was a number derived from a summary rather than from the thing being summarised — the mechanism D-54 names and C-14 is meant to detect. A count that defines a fixed scope, like T0's six items, is not the same hazard as a count summarising a growing collection."
+    },
+    {
+      "id": "disposition_beyond_open_closed",
+      "label": "Resolved-No-Action and Superseded Are Not Open or Closed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14x",
+      "description": "X2 is resolved with no action — a documented conflict where one source simply governs. X6 is superseded, replaced by a live decision that is itself unresolved. Recording either as closed would assert work was done; as open would assert work is pending. Both would be false.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The index gained two dispositions rather than forcing entries into the two states it already had. A binary that does not fit its contents produces false records, which is the same failure mode as rendering an archived period as an empty list."
+    },
+    {
+      "id": "x5_four_eyes_unevaluable",
+      "label": "X5 — Four-Eyes Cannot Be Evaluated Today",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.1 X5",
+      "description": "workflow_transitions carries neither line_assignment nor any independence field, so the four-eyes property FR-05 and OD2 both depend on cannot be evaluated at all. Closes on migration 0002 and carries X4 with it. The field name is Q11-blocked: do not write judgment_independence_status.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Surfaced by the backfill as more than bookkeeping. The blocked field name asserts a cognitive fact the code can only prove structurally, and NFR-02 would make the wrong name permanent in an append-only table."
+    }
+  ],
+  "edges": [
+    { "source": "d63_x_series_backfilled", "target": "g61_x_series_unindexed", "relation": "closes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14x", "weight": 1 },
+    { "source": "d63_x_series_backfilled", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14x", "weight": 1 },
+    { "source": "d63_x_series_backfilled", "target": "v1_build_spec", "relation": "sprint_mapping_in", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "S0", "weight": 1 },
+    { "source": "d63_x_series_backfilled", "target": "third_corrected_count", "relation": "required", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14x", "weight": 1 },
+    { "source": "d63_x_series_backfilled", "target": "disposition_beyond_open_closed", "relation": "introduced", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14x", "weight": 1 },
+    { "source": "d63_x_series_backfilled", "target": "x5_four_eyes_unevaluable", "relation": "surfaced", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1", "weight": 1 },
+    { "source": "third_corrected_count", "target": "summary_outlived_source", "relation": "instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14x", "weight": 1 },
+    { "source": "third_corrected_count", "target": "c14_conflict_detection", "relation": "detectable_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14x", "weight": 1 },
+    { "source": "x5_four_eyes_unevaluable", "target": "d61_x4_t5_executed_by_agent", "relation": "couples_with", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "S1", "weight": 1 },
+    { "source": "x5_four_eyes_unevaluable", "target": "od2_four_eyes_independence", "relation": "blocks_evaluation_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1", "weight": 1 },
+    { "source": "disposition_beyond_open_closed", "target": "index_is_not_the_record", "relation": "refines", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14x", "weight": 1 }
+  ]
+}
