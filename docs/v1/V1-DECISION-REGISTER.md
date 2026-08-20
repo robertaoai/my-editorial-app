@@ -402,6 +402,47 @@ This extends the discipline already in `requirements-traceability-map.md`, where
 
 Both existing specs are marked **entirely `[V1]`** — both were written within build `V1`.
 
+### `D-37` — plan-pack reclassification; `D5`'s characterisation corrected
+
+**Chief Editor clarification, 2026-08-19.** `docs/DATA_MODEL.md`, `docs/ARCHITECTURE.md`, and `docs/TASKS.md` came from the **original Q&A flow alongside `PRD.md`**. They are **frozen candidate references**, same status class as `PRD.md` — frozen because tracking moved on, not because they are wrong.
+
+#### `D5` overstated the case, and it cost something
+
+`D5` records the plan pack as *"generated at scaffolding time from the app name and summary rather than from the governing documents."* **That is not supportable against the content:**
+
+| Evidence | Cannot come from a name and a one-line summary |
+|---|---|
+| `DATA_MODEL.md` names the exact six `gate_role` values — `reporter`, `investigator`, `journalist`, `senior_journalist`, `chief_journalist`, `chief_editor` | Matches the applied schema **exactly** |
+| `ARCHITECTURE.md` §Key User Action Flow | The full five-gate sequence with per-state transitions |
+| `TASKS.md` Sprint 1 DoD | Effectively `CR-19`'s success scenario, verbatim in substance |
+
+**Where they were right and the governing set was wrong:** `ARCHITECTURE.md` states *"Next.js (App Router) + Supabase (Postgres + RLS) + Vercel"* — **the actual provisioned stack.** `D4` existed only because the Addendum assumed FastAPI, self-hosted Postgres, and Redis/Celery. The plan pack was accurate about the substrate the whole time; `D5`'s framing caused it to be dismissed wholesale rather than mined.
+
+**Corrected status:** frozen candidate references. **Accurate about the substrate, silent on governance** — not "wrong about governance," because they predate it. The sprint plan §4.1 already conceded they are *"authoritative-in-fact about the architecture"*; `D5`'s summary line never caught up.
+
+#### Challenge against current design
+
+| Reference | Claim | Verdict |
+|---|---|---|
+| `ARCHITECTURE.md` | Next.js + Supabase + Vercel | ✅ **Vindicated** — this is the ratified stack |
+| `DATA_MODEL.md` | Six `gate_role` values | ✅ Matches applied schema |
+| `DATA_MODEL.md` | 8 workflow states | ⚠️ Addendum specifies 10 (`X3`). **Note: the applied schema follows the plan pack, so the Addendum is the outlier**, not the schema |
+| `DATA_MODEL.md` | `publication_target` singular | ❌ `TC2` — cannot express "WordPress Published + LinkedIn ManualReady" |
+| `DATA_MODEL.md` | No `actor_id` | ❌ `TC4` — `SC4`'s "who" has nowhere to go |
+| `DATA_MODEL.md` | No `line_assignment` | ❌ `X5` — four-eyes unevaluable |
+| `DATA_MODEL.md`, `ARCHITECTURE.md` | *"transitions validated server-side in `lib/pipeline/`"* | ❌ **`TC1`** — the anon key is public, so application checks are advisory. Enforcement must be in Postgres |
+| `ARCHITECTURE.md` | AI tagging at Reporter gate, listed under "Now" | ⚠️ `CR-14` has **no FR** (`FB-05`). The reference assumed a capability the governed spec never specified — the same gap seen from the other side |
+| `TASKS.md` | Four sprints; v1 milestone at end of Sprint 2 | ❌ Superseded by S0–S6; the success scenario lands at S4 |
+| `TASKS.md` | Sprint 1 DoD: *"advance through all 5 gates"* | ❌ `FR-04` — T5 is human-executed; an agent attempting it is refused |
+| `TASKS.md` | Sprint 4: *"Bulk gate advancement for multi-select"* | 🚩 **Trap.** Bulk advancement bypasses per-gate validation and per-transition logging — a gate bypass under `O-01`/`NG-10`. **Must not be mined from this reference** |
+
+#### New gaps found by this review
+
+| # | Gap | Severity |
+|---|---|---|
+| **`G37`** | **Topic cardinality is contradictory.** `FR-01` and `AC-01` both require **"≥1 topic tag."** The applied schema has `articles.topic_id` as a **single FK with no join table**, so exactly one topic is possible. Meanwhile `trend_signals.signal_type = 'topic_tag'` provides a *second, multi-valued* path. **Two mechanisms, conflicting cardinality, neither authoritative.** `TR-DM-01` and `TR-DM-05` resolve neither | **S1** — a join table after S1 is a migration, not a column |
+| **`G38`** | **UI surfaces carry no requirement.** `ARCHITECTURE.md` §Nav Shell specifies four — Board, Article Detail, Topics, Audit Log. `FR-08` covers the board; `FR-07` covers the audit *record* as data, not a page. **Topics and Audit Log pages have no FR at all** | **DOC** — resolve in `Fn_Specs` or record as out of scope |
+
 #### Three tracking tiers, confirmed
 
 | Tier | Artifact | Lifecycle |
