@@ -189,7 +189,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `X7` | **Open** — S2 → S6 | Demo-first plus permissive RLS versus executor attributability. `D5`. **Mitigated at S2, closes at S6** — the same `TC1` surface `AC-12` sits on |
 | `X8` | **Open** — S0 | Stripe scaffolding versus the Charter-level *"no monetization features"*. `D5`. **Closes on S0** |
 | `G61` | **Closed 2026-08-20** | `D-63` §5.14x — **all eight** `X`-rows backfilled above. *(Corrected: the gap statement said **five**; `X1`, `X2`, and `X6` exist too. Five was the `D5`-family **open** subset, not the series.)* |
-| `G62` | **Open — new** | **The CI gates `R3` specifies do not pass.** `typecheck` exits 2 with 10 implicit-`any` errors in `lib/supabase/`; `lint` exits 1 — `next lint` is deprecated, **interactive**, and no ESLint config exists. **Blocks `R3` DoD D-4.** §5.14z |
+| `G62` | **Part b closed 2026-08-21; part a Open** | **The CI gates `R3` specifies do not pass.** `typecheck` exits 2 with 10 implicit-`any` errors in `lib/supabase/`; `lint` exits 1 — `next lint` is deprecated, **interactive**, and no ESLint config exists. **Blocks `R3` DoD D-4.** §5.14z. **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings** on this codebase. **a still open: 10 type errors** |
 | `G63` | **Open — new** | An **untracked** `.gitattributes` sets `*.md text eol=lf merge=union`. **Union merge concatenates conflicting markdown instead of failing** — in a three-agent repo that silently duplicates index rows, the exact `G39` defect. Cuts against `D-58`. Found incidentally |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
@@ -2070,6 +2070,80 @@ This strengthens the case for explicit CI gates and simultaneously **gives them 
 **Mitigating facts, stated so this is not overstated:** the file is **untracked**, so it affects only this working copy and no clone; and with **zero merge commits** in the repository history, no merge has ever run. **The exposure is latent, not active.**
 
 **Recorded, not resolved.** Two questions belong to the repository owner: whether `.gitattributes` should be tracked at all, and whether `merge=union` should be dropped for `*.md`. **Neither is mine to decide, and neither was in scope.**
+
+## 5.14ab `D-66` — `G62`b decided: migrate to the ESLint CLI, `next/core-web-vitals`
+
+**Decision, 2026-08-21. Closes `G62`b.** Lint moves from `next lint` to the **ESLint CLI** with a flat config extending **`next/core-web-vitals`**.
+
+### Dropping lint was never actually available
+
+`G62`b was framed as *"migrate, **or** drop lint from CI and record why."* **The second option is not a config choice.**
+
+`AC-NF-03` reads: *"A change is pushed · CI runs · **Typecheck, lint, and tests all execute and must pass.**"* Dropping lint would **contradict a recorded acceptance criterion**, which is a `Modular_PRD` tier-2 amendment — not something a CI config decides. **The governing set had already answered this; the option was illusory.**
+
+### The measurement that dissolved the remaining question
+
+The real fork was **which preset** — `next` (Base) or `next/core-web-vitals` (Strict). Strict catches more and therefore usually costs more remediation.
+
+**Measured rather than assumed**, using throwaway configs outside the repository:
+
+| Preset | Files linted | Errors | Warnings |
+|---|---|---|---|
+| `next` | 21 | **0** | **0** |
+| `next/core-web-vitals` | 21 | **0** | **0** |
+
+**Identical. The stricter preset costs nothing on this codebase**, so it is chosen — it is the recommended default and it catches more as the code grows.
+
+> **A question measurement answered for free.** I was about to put Base-versus-Strict to the Chief Editor as a trade-off. **There is no trade-off today.** Worth recording as a counterweight to this project's dominant failure mode: four times a claim was derived from a summary instead of the thing. **Here the thing was checked first, and the question disappeared.**
+
+### `G62`a and `G62`b are different kinds of work
+
+| Part | Nature | Cost |
+|---|---|---|
+| `G62`a — typecheck | **Code fix.** Ten implicit-`any` errors across two `lib/supabase/` files | Real remediation |
+| `G62`b — lint | **Config addition only.** Lint already passes; it has simply never been able to run | **Zero findings to fix** |
+
+**Recorded because the two were bundled as one gap and are not one task.** `G62`b needs one file; `G62`a needs edits to product scaffolding.
+
+### The decided configuration
+
+**File:** `eslint.config.mjs` at the repository root — **not created here.** It is **Stage A execution** (`D-65`) and waits on the build guardrail.
+
+**Shape, verified working against this codebase:**
+
+```
+import { FlatCompat } from "@eslint/eslintrc";
+const compat = new FlatCompat({ baseDirectory: import.meta.dirname });
+export default [
+  { ignores: ["node_modules/**", ".next/**", "docs/**", ".graphify/**"] },
+  ...compat.extends("next/core-web-vitals"),
+];
+```
+
+**Everything it needs is already installed** — `eslint` 9.39.5, `eslint-config-next` 15.5.23, `@eslint/eslintrc` 3.3.6. **No dependency is added.**
+
+**CI step becomes** `bun run lint` with `package.json`'s `lint` script repointed from `next lint` to `eslint .`.
+
+### Two operational notes
+
+1. **bun does not create `.cmd` shims.** `node_modules/.bin` holds `eslint.exe` and `eslint.bunx`. Invoke `node node_modules/eslint/bin/eslint.js` when a shim is needed and absent — the same class of finding as the bun `sh`-shim hang in `D-64`.
+2. **ESLint 9 dropped the `compact` formatter** from core. Use the default or `--format json`.
+
+### What this does not do
+
+**Creates no file and changes no script.** `G62`a stays open — **typecheck still exits 2**, so `R3` DoD **D-4** remains unachievable. This closes the *decision*, not the gate.
+
+It also does not settle `Q6` *(re-enable `ignoreBuildErrors` and `ignoreDuringBuilds` once CI exists?)*, which stays **open** — though a working ESLint CLI in CI makes `eslint.ignoreDuringBuilds` far less load-bearing.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 | `SPECS-VERIFICATION` |
+|---|---|---|---|---|---|
+| `D-66` / `G62`b | ✅ | ✅ Stage A | ✅ `eslint.config.mjs` row | ✅ | ✅ §4 lint row |
+
+### Scope limits
+
+Closes `G62`b **as a decision**. Creates no file, installs nothing, changes no script. `G62`a remains open. `AC-NF-03` is **unchanged** — this decision keeps lint in CI rather than amending the criterion away.
 
 ## 5.15 Solve sequence — remaining open gaps
 

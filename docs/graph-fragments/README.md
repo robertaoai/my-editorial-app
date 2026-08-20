@@ -96,6 +96,7 @@ Merge **in this order** — later fragments reference nodes earlier ones introdu
 | 21 | `frag20.json` | `D-63` — X-series backfilled, `G61` closed |
 | 22 | `frag21.json` | `D-64` — `G59` closed, `bun.lockb` committed |
 | 23 | `frag22.json` | `D-65` — bundle rejected, `G62` CI gates fail, `G63` |
+| 24 | `frag23.json` | `D-66` — `G62`b decided, ESLint CLI |
 
 `merge7.js` is the reference merge script (repo-relative; `merge6.js` is retained for history but hard-codes an absolute path). `missing.js` reports which docs are absent from the graph.
 

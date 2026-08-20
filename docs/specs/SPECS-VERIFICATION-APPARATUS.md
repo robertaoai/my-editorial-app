@@ -76,7 +76,7 @@ Different provenance, so **no contradiction with `D-52`.** `D-52`'s four remain 
 | Setup bun | pinned to **`1.1.30`** | Match `packageManager` exactly |
 | Install | `bun install` | See `G59` below |
 | **Typecheck** | `bun run typecheck` | `tsc --noEmit`. **⚠ Fails today — `G62`a** |
-| **Lint** | *(undecided)* | **⚠ `G62`b.** `next lint` is deprecated and **interactive**; no ESLint config exists |
+| **Lint** | `bun run lint` → `eslint .` | **Decided `D-66`** — ESLint CLI, flat config extending `next/core-web-vitals`. **0 findings** measured. Config file is Stage A |
 | Test | `bun test` | SC-1 |
 
 > **Corrected 2026-08-21 (`D-65`) — `[V1]`.** This section listed both commands as if they worked. **Neither does.** The script names were taken from `package.json` and never executed — specified against a summary rather than the thing. `G62` carries the remediation, and **DoD D-4 is unachievable until it closes.**

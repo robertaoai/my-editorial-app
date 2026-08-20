@@ -23,6 +23,7 @@
 | `.github/workflows/` CI | `R3`, `TC6` | ❌ **specified, not installed** (`D-56`) |
 | `bun.lockb` | `G59` → `D-64` — CI reproducibility | ✅ **413 packages pinned**, `--frozen-lockfile` verified |
 | `docs/specs/ux/` route specification | `G10` → `D-59`, `D-34` — `/editorial` and `/request-brief` | ❌ **directory exists, empty** |
+| `eslint.config.mjs` | `G62`b → `D-66` — flat config, `next/core-web-vitals` | ❌ **Stage A** — decided, not created. 0 findings measured; no dependency needed |
 | Concurrent-edit detection check | `C-14`/`G11` — `D-58`, ships with `R3` | ❌ **specified, not installed** — four proven checks, unbundled |
 | BCP observability surface | `C-13` on `D-57`; `FR-14`/`US-14`/`AC-21`, S3 | ❌ **unbuilt** — `G60` closed 2026-08-20 (`D-62`), so the **requirement now exists**; the surface does not |
 | P0-EVR project charter | `G7a`, T3 | ❌ |

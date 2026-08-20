@@ -1,0 +1,77 @@
+{
+  "_comment": "Fragment 23 — D-66, G62b decided: ESLint CLI with next/core-web-vitals. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d66_eslint_cli_decided",
+      "label": "D-66 — G62b: Migrate to the ESLint CLI",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ab D-66",
+      "description": "Lint moves from next lint to the ESLint CLI with a flat config extending next/core-web-vitals. The package.json lint script repoints from next lint to eslint dot. Everything needed is already installed — eslint 9.39.5, eslint-config-next 15.5.23, @eslint/eslintrc 3.3.6 — so no dependency is added. The config file itself is Stage A and was not created.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Closes G62b as a decision, not a fix. G62a remains open — typecheck still exits 2 with ten errors, so R3 DoD D-4 is still unachievable. Does not settle Q6, though a working ESLint CLI in CI makes eslint.ignoreDuringBuilds far less load-bearing."
+    },
+    {
+      "id": "dropping_lint_was_never_available",
+      "label": "Dropping Lint Was Never Actually an Option",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ab",
+      "description": "G62b was framed as migrate, or drop lint from CI and record why. AC-NF-03 requires that typecheck, lint and tests all execute and must pass, so dropping lint would contradict a recorded acceptance criterion — a Modular_PRD tier-two amendment rather than a CI config choice.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The governing set had already answered the question; the second option was illusory. Recorded so a later reader does not reopen it as though it were open. AC-NF-03 is left unchanged — the decision keeps lint in CI rather than amending the criterion away."
+    },
+    {
+      "id": "measurement_dissolved_the_question",
+      "label": "Measurement Dissolved the Preset Question",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ab",
+      "description": "The real fork was Base versus Strict. Measured with throwaway configs outside the repository: next and next/core-web-vitals each linted 21 files with zero errors and zero warnings. Identical, so the stricter preset costs nothing today and is chosen.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A question measurement answered for free — it was about to be put to the Chief Editor as a trade-off, and there is no trade-off today. Recorded as a counterweight to the project's dominant failure mode: four times a claim was derived from a summary instead of the thing. Here the thing was checked first and the question disappeared."
+    },
+    {
+      "id": "g62a_and_g62b_differ_in_kind",
+      "label": "G62a Is a Code Fix; G62b Is a Config Addition",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ab",
+      "description": "G62a is real remediation — ten implicit-any errors across two lib/supabase files. G62b has zero findings to fix; lint already passes and has simply never been able to run for want of a config. The two were bundled as one gap and are not one task.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Recorded because bundling them would have made Stage A look like uniform remediation work when half of it is a single file with no findings behind it."
+    }
+  ],
+  "edges": [
+    { "source": "d66_eslint_cli_decided", "target": "g62_ci_gates_fail", "relation": "closes_part_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ab", "weight": 1 },
+    { "source": "d66_eslint_cli_decided", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ab", "weight": 1 },
+    { "source": "d66_eslint_cli_decided", "target": "d65_bundle_rejected", "relation": "advances_stage_a_of", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "Stage A", "weight": 1 },
+    { "source": "d66_eslint_cli_decided", "target": "dropping_lint_was_never_available", "relation": "rests_on", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ab", "weight": 1 },
+    { "source": "d66_eslint_cli_decided", "target": "measurement_dissolved_the_question", "relation": "rests_on", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ab", "weight": 1 },
+    { "source": "d66_eslint_cli_decided", "target": "specs_verification_apparatus_doc", "relation": "updates", "confidence": "CURATED", "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md", "confidence_score": 1, "source_location": "§4", "weight": 1 },
+    { "source": "d66_eslint_cli_decided", "target": "g62a_and_g62b_differ_in_kind", "relation": "clarifies", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ab", "weight": 1 },
+    { "source": "measurement_dissolved_the_question", "target": "specified_against_a_config_file", "relation": "counterweight_to", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ab", "weight": 1 },
+    { "source": "measurement_dissolved_the_question", "target": "summary_outlived_source", "relation": "counterweight_to", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ab", "weight": 1 },
+    { "source": "dropping_lint_was_never_available", "target": "team_added_scope_is_disclosed", "relation": "same_tier_discipline_as", "confidence": "CURATED", "source_file": "docs/Modular_PRD.md", "confidence_score": 1, "source_location": "§9.2 AC-NF-03", "weight": 1 }
+  ]
+}
