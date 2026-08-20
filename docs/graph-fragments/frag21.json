@@ -1,0 +1,61 @@
+{
+  "_comment": "Fragment 21 — D-64, G59 closed. bun.lockb committed. First executable artifact. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d64_g59_lockfile_committed",
+      "label": "D-64 — G59 Closed: bun.lockb Committed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14y D-64",
+      "description": "bun 1.1.30 installed to match the declared packageManager, bun install run, and bun.lockb committed at 171,092 bytes covering 344 installs across 413 packages. The first executable artifact produced in this engagement; everything before it was documentation. Satisfies R3 DoD condition D-6.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The build guardrail was lifted for this item alone and remains in force for the test runner, __tests__ and CI. Unlike G54 there was no read-only path: a lockfile is a resolution artifact computed by a package manager against a registry, not something derivable by reading."
+    },
+    {
+      "id": "frozen_lockfile_is_the_real_check",
+      "label": "Generating a Lockfile Proves Less Than Re-Resolving Against It",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14y",
+      "description": "bun install --frozen-lockfile exits 0, meaning a second resolution against the committed lockfile produces no changes. Generating a lockfile proves only that a resolver ran; re-resolving against it proves the lockfile is complete, which is the property G59 existed to establish.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Without a lockfile, CI resolves fresh every run and the same commit can pass today and fail tomorrow because a transitive dependency published. A verdict that varies with wall-clock time is not a verdict. With 413 packages pinned, a CI run judges the commit rather than the day."
+    },
+    {
+      "id": "npm_sh_shim_hangs_under_git_bash",
+      "label": "The npm sh Shim Hangs; the Executable Does Not",
+      "file_type": "concept",
+      "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "source_location": "§5 environment note",
+      "description": "npm places bun on PATH as a POSIX sh shim. Invoked through Git Bash it hangs indefinitely — bun --version returned once then stopped responding, and bun install produced no artifacts across seven minutes. Calling the Windows executable at APPDATA npm node_modules bun bin bun.exe directly returns instantly.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Recorded because it cost two timeouts and will recur. The first hypothesis was that npm had skipped the postinstall script so the real binary was never downloaded; that was wrong — bun.exe was present at 109 MB. Inspecting the filesystem rather than re-running the hanging command is what settled it, the same move that closed G54 by reading source instead of installing a toolchain."
+    }
+  ],
+  "edges": [
+    { "source": "d64_g59_lockfile_committed", "target": "g59_no_lockfile", "relation": "closes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14y", "weight": 1 },
+    { "source": "d64_g59_lockfile_committed", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14y", "weight": 1 },
+    { "source": "d64_g59_lockfile_committed", "target": "specs_verification_apparatus_doc", "relation": "satisfies_dod_of", "confidence": "CURATED", "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md", "confidence_score": 1, "source_location": "§6 D-6", "weight": 1 },
+    { "source": "d64_g59_lockfile_committed", "target": "frozen_lockfile_is_the_real_check", "relation": "verified_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14y", "weight": 1 },
+    { "source": "d64_g59_lockfile_committed", "target": "npm_sh_shim_hangs_under_git_bash", "relation": "surfaced", "confidence": "CURATED", "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md", "confidence_score": 1, "source_location": "§5", "weight": 1 },
+    { "source": "d64_g59_lockfile_committed", "target": "specified_not_installed", "relation": "partially_lifts", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14y", "weight": 1 },
+    { "source": "d64_g59_lockfile_committed", "target": "d54_propagation_rule", "relation": "propagated_under", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14y", "weight": 1 },
+    { "source": "frozen_lockfile_is_the_real_check", "target": "ci_that_cannot_fail", "relation": "guards_against", "confidence": "CURATED", "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md", "confidence_score": 1, "source_location": "§5", "weight": 1 },
+    { "source": "npm_sh_shim_hangs_under_git_bash", "target": "d60_g54_source_verified", "relation": "same_diagnostic_move_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14y", "weight": 1 }
+  ]
+}

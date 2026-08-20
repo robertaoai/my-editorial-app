@@ -190,7 +190,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `X8` | **Open** — S0 | Stripe scaffolding versus the Charter-level *"no monetization features"*. `D5`. **Closes on S0** |
 | `G61` | **Closed 2026-08-20** | `D-63` §5.14x — **all eight** `X`-rows backfilled above. *(Corrected: the gap statement said **five**; `X1`, `X2`, and `X6` exist too. Five was the `D5`-family **open** subset, not the series.)* |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
-| `G59` | **Open — new** | No lockfile committed (`bun.lockb` absent). CI would resolve dependencies fresh every run, so a verdict varies with wall-clock time. Needs bun to generate. T1, with `R3`. §5.14q |
+| `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
 | `G57` | **Closed 2026-08-20** | `D-55` §5.14p — eight-row mapping specified as data, **role-keyed**. Overturns `D-53`'s name-keyed draft: `logged`→`Discovered`, `reported`→`Logged`. `Validated` and `Needs Revision` backfill empty |
 | `G50` | **Closed 2026-08-20** | Distribution provenance — `D-51`, §5.4, `docs/graph-fragments/README.md` §2 |
@@ -1929,6 +1929,58 @@ Closes `G60`. Authorizes no code, schema, or UI. `C-13` remains an open conditio
 ### Scope limits
 
 Closes `G61`. **Indexes existing divergences; resolves none of them.** `X3`, `X4`, `X5`, `X7`, `X8` remain **Open** on their own terms. Authorizes no code, schema, or migration.
+
+## 5.14y `D-64` — `G59` closed: `bun.lockb` committed
+
+**Decision, 2026-08-21, Chief Editor lifted the build guardrail for this item.** `bun.lockb` is generated and committed. **Closes `G59`.**
+
+**This is the first executable artifact produced in this engagement.** Everything before it was documentation.
+
+### What was done
+
+| Step | Result |
+|---|---|
+| bun installed | **1.1.30**, matching the declared `packageManager` exactly |
+| `bun install` | 344 installs across 413 packages, exit 0 |
+| `bun.lockb` | **171,092 bytes**, committed |
+| `bun install --frozen-lockfile` | **exit 0** — the lockfile fully resolves |
+| `git status` | **only** `bun.lockb`; `node_modules/` confirmed ignored |
+
+**The frozen-lockfile check is the one that matters.** Generating a lockfile proves only that a resolver ran. **Re-resolving against it and getting no changes proves it is complete** — which is the property `G59` existed to establish.
+
+### What `G59` was actually about
+
+Without a lockfile, `bun install` in CI resolves fresh on every run. **The same commit could pass today and fail tomorrow** because a transitive dependency published — and **a verdict that varies with wall-clock time is not a verdict.**
+
+That undermined `R3` at the root: the apparatus meant to make sprints falsifiable would itself have been non-deterministic. **413 packages are now pinned**, so a CI run judges the commit rather than the day.
+
+### Environment finding — the Git Bash shim hangs, the executable does not
+
+Recorded because it cost two timeouts and will recur.
+
+npm installs `bun` on PATH as a **POSIX `sh` shim** (`#!/bin/sh`). Invoked through Git Bash it **hung indefinitely** — `bun --version` returned once, then stopped responding, and `bun install` produced no artifacts across seven minutes.
+
+**Calling the Windows executable directly returns instantly:**
+
+```
+$env:APPDATA\npm\node_modules\bun\bin\bun.exe
+```
+
+**Diagnosis note worth keeping:** the first hypothesis was that npm had skipped the `postinstall` script and the real binary was never downloaded. **Wrong** — `bun.exe` was present at 109 MB. **Inspecting the filesystem rather than re-running the hanging command is what settled it.** Same class as `D-60`, where reading source beat installing a toolchain.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 | `SPECS-VERIFICATION-APPARATUS` |
+|---|---|---|---|---|---|
+| `D-64` / `G59` | ✅ | ✅ `R3` DoD D-6 | ✅ `bun.lockb` ✅ | ✅ | ✅ §5 |
+
+### What this does not close
+
+`R3` **remains specified, not installed.** The lockfile is one of its six DoD conditions (**D-6**); the test runner, `__tests__/`, and the CI workflow are still absent, and `C-14`'s detection checks with them. **A lockfile with no CI consuming it is correct but idle** — it earns its value on `R3`'s first run.
+
+### Scope limits
+
+Closes `G59`. Creates exactly one tracked file. **No test runner, no CI, no `0002`.** The build guardrail was lifted for this item only and **remains in force for everything else.**
 
 ## 5.15 Solve sequence — remaining open gaps
 
