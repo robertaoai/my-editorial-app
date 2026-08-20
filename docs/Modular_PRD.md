@@ -78,7 +78,7 @@ Owners are therefore assigned **by Line**, which is the project's real accountab
 | **Absent** | No such function exists on this project | Design, Legal, GTM, Support/Ops, Data |
 
 **Functions marked Absent are risks, not conveniences.** Legal absence is load-bearing: Entry 006 §13 row S4 requires pre-publication legal review for high-sensitivity content, and Entry 007 removed fundraising from scope pending independent legal review. Neither can be discharged internally.
-**Independent Assurance is Absent.** The Chief Editor disposition is a management assertion, not an independent audit opinion.
+**Independent Assurance is Absent.** The Chief Editor disposition is a management assertion, not an independent audit opinion. No independent opinion exists anywhere in the model, so the same party both performs the editorial work and attests to it. Presenting that disposition as independent assurance would misrepresent it. The substantive remedy is `Q2` — Line 3 external, or state plainly that v1 has none — and **not** the Chief Editor, since `A23` records that naming him collides Line 2 with Line 3. **This entry discloses the gap; it does not close it.**
 
 ### 0.4 Governing context — what this PRD may and may not do
 
@@ -186,7 +186,7 @@ Every published article carries a complete, tamper-evident record of who reviewe
 | ID | Non-Goal | Rationale | Source |
 |---|---|---|---|
 | `NG-01` | No mobile app — web only | Single operator, desktop workflow | Charter |
-| `NG-02` | No multi-team accounts — one Chief Editor account | Operating model is one human (**v1 exclusion only**) | Charter |
+| `NG-02` | No multi-team accounts — one Chief Editor account | **v1 exclusion only.** "Operating model is one human" describes v1 and lapses when the business has more people. A tenancy boundary exists in the data model to preserve the option; **no multi-team capability is built, and `NG-02` stands.** Nothing forecloses later accounts for multiple natural persons with roles mapped to virtual agents or phase gates | Charter |
 | `NG-03` | **No monetization features** | Charter-level v1 exclusion. **The repo currently ships Stripe scaffolding against this** — S0 removes it (X8) | Charter |
 | `NG-04` | No automated Facebook publishing — manual cross-posting only | Requires Meta Business verification | Charter |
 | `NG-05` | No real-time trend-detection algorithm — RSS intake only | Unvalidated; scoring formula is v0 and unreviewed | Charter |
@@ -376,7 +376,7 @@ The most consequential requirement, and the one most at risk of being quietly ov
 | `TR-DM-06` | `allowed_transitions` | from_state, to_state, gate_role, line | **Create — S1.** Backs the NFR-01 trigger; makes the sequence data-driven rather than hard-coded | FR-02, FR-06 |
 
 **Retention:** rejected and archived after `DATA_RETENTION_ARCHIVE_DAYS`; published kept indefinitely; **`workflow_transitions` never deleted.**
-**Report Immutability (PSK-10):** An issued report is never edited and never deleted; a superseded report is answered by issuing a new report citing the original.
+**Report Immutability (PSK-10):** An issued report is never edited and never deleted; a superseded report is answered by issuing a new report citing the original. The correction ladder — Clarify → Correction → Retraction — is the editorial restatement mechanism. *This states the rule the design must satisfy; the report record itself is designed in S1 (`GA1`).* **Scope boundary:** this is the **report** rule and does not restate `NFR-02`'s `workflow_transitions` wording, which awaits counsel (T2/TX).
 **PII:** articles sourced from individuals on social platforms may carry personal data. GDPR handling is deferred to Phase 2 (Addendum G2) — recorded as an accepted gap, not a solved problem.
 
 ### 6.4 Non-Functional Requirements

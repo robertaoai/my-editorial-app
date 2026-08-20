@@ -157,6 +157,39 @@ Every conditionally approved item, its follow-up, and where it lands.
 
 **Closed: 6** *(`G1`, `G2`, `G12`, `G13`, `GA8`, plus `G21` withdrawn)*. **Escalated to counsel: 2** *(`G15`/`GA5`)*. **Unowned: 1** *(`G11`)*. **Remainder open against a named phase.**
 
+## 5.2 Consistency audit — 2026-08-19
+
+Three findings from auditing the executed T0 against its runbook.
+
+### `G32` — T0 executed but under-delivered; repaired 2026-08-19
+
+`c1a90c6` marked T0 executed and bumped `Modular_PRD.md` to **v1.6** and the traceability map to **v1.3**. Both bumps stand. But four of six edits were applied in abbreviated form that dropped their **operative** content — not merely their phrasing:
+
+| Step | What was lost | Why it mattered |
+|---|---|---|
+| 1 `PSK-10` | Purpose column filled with the immutability **rule** instead of the key's **scope**; dated provenance note absent | The key no longer defined what it covers, and the `FB-04` rationale was undisclosed |
+| 2 Report immutability | Correction-ladder link and the S1/`GA1` scoping note | The rule floated free of the mechanism that implements it |
+| 3 Assurance disclosure | The `Q2` remedy pointer, the `A23` warning, and "discloses but does not close" | **Most serious.** Stated a problem with no route to its remedy — and without `A23`, a future reader could "fix" it by naming the Chief Editor as Line 3, the exact collision `A23` exists to prevent |
+| 4 `NG-02` | The entire tenancy-boundary explanation, reduced to "(v1 exclusion only)" | That explanation *was* the purpose. A reviewer finding a tenancy column against "no multi-team accounts" still reads a breach |
+
+Steps 5 and 6 landed correctly; Step 5's wording is more concise than proposed and is kept.
+
+**The compounding defect:** `Modular_PRD.md` v1.6's changelog describes three disclosures in full, while the applied text delivered two of them abbreviated. **A governed document's version history claimed content the document did not contain** — this project's signature defect, reaching its own version record.
+
+**Repaired 2026-08-19** by restoring the dropped operative content in place. The version numbers were not re-bumped: v1.6 now contains what its changelog always claimed.
+
+### `G33` — no technical specification exists
+
+The functional layer is substantially covered: `Modular_PRD.md` §5–§7 carries `FR-01`–`FR-13`, the NFR set, `AC-01`–`AC-20`, and `TR-DM-01`–`06`.
+
+**There is no technical specification.** Field names, types, constraints, indexes, trigger logic, and API contracts have been deferred to a "Technical Requirements pass" at every point they arose — across the tenancy boundary, the notice-as-article model, the risk tier, the intent vocabulary, the report record, and the publication transaction record. That pass has never been scheduled or owned.
+
+**It is the gating artifact for S1.** The S1 window holds eight decisions that all resolve into schema; without a technical spec they resolve into a migration written directly from prose.
+
+### `G11` escalated — three agents, not two
+
+`.claude/`, `.codex/`, and now `.agents/` are all configured. `c1a90c6` was authored by a third agent ("Antigravity"), and `D-27` records ChatGPT Codex as a drafting party. **`G32` is the first observed instance of the harm `G11` predicted:** one agent executed another's runbook and silently dropped operative content, with no arbitration rule and no detection mechanism. `G11` moves from *watch* to **open, and now evidenced**.
+
 ## 6. Supersession map
 
 The thirteen files below **remain in place as the dated analysis record**. They are the audit trail for how these decisions were reached and must not be deleted. What changes is that they are **no longer operative** — where any of them differs from this register or `V1-BUILD-SPEC.md`, these two documents control.
