@@ -112,7 +112,7 @@
    "file_type": "concept",
    "source_file": "docs/v1/V1-DECISION-REGISTER.md",
    "source_location": "§5.1 and §5.4",
-   "description": "G40 through G49 are absent from the §5.1 all-IDs disposition table. Ten gaps recorded only in detail sections or inline prose; G40, G41, and G49 have no detail section at all. The third recurrence of the disposition-drift pattern, now at a scale of ten.",
+   "description": "G40 through G49 are absent from the §5.1 all-IDs disposition table. All ten are recorded elsewhere in the register, but the index that claims to carry every ID does not reach them. Only G40 is genuinely bare; G49 has treatment under a heading not keyed to its ID. The third recurrence of the disposition-drift pattern, now at a scale of ten.",
    "community": 30,
    "community_name": "Tooling Provenance and Graph Durability",
    "source_url": null,

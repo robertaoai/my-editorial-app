@@ -170,13 +170,13 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `GA7` | Open | T3, audit Step 7 — auditor access versus tenant isolation |
 | `GA8` | **Closed on execution** | `D-13` — `PSK-10`, T0 Step 1 |
 | `GA9` | Open | `D-07`, S1 window item 6 |
-| `G40`–`G49` | **Recorded elsewhere — not backfilled here** | **This table is incomplete and says so.** These ten are recorded in detail sections (`G42`–`G48`) or inline prose (`G40`, `G41`, `G49`) only. Backfill is `G55`, Open |
+| `G40`–`G49` | **Recorded elsewhere — not backfilled here** | **This table is incomplete and says so.** All ten are recorded elsewhere: `G41`–`G48` have dedicated detail sections, `G49` is covered under a heading not keyed to its ID, and `G40` exists only as a table row inside §5.14. Backfill is `G55`, Open |
 | `G50` | **Closed 2026-08-20** | Distribution provenance — `D-51`, §5.4, `docs/graph-fragments/README.md` §2 |
 | `G51` | **Closed 2026-08-20** | Curated graph layer rescued to `docs/graph-fragments/` — 61 nodes, 142 edges. §5.4 |
 | `G52` | **Closed 2026-08-20** | Distribution-specific commands disclosed — `docs/graph-fragments/README.md` §3 |
 | `G53` | **Closed 2026-08-20** | Shared core reconciled across all three agent files, verified byte-identical. §5.4 |
 | `G54` | **Open — deferred by decision** | Upstream command surface unverified; route in `docs/graph-fragments/README.md` §6. Needs a Python toolchain |
-| `G55` | **Open — new** | Backfill `G40`–`G49` into this table; three of them need a detail section written first |
+| `G55` | **Open — new** | Backfill `G40`–`G49` into this table. Only `G40` needs a detail section written first; `G49` needs an ID-keyed anchor |
 
 **The table above is authoritative. Counts are deliberately not restated here.**
 
@@ -1350,7 +1350,7 @@ Prior analysis recorded that *"`AGENTS.md` was added later by Codex."* **Wrong.*
 | `G52` | **Closed 2026-08-20** | Nine distribution-specific commands named in the rules without disclosure — `docs/graph-fragments/README.md` §3 |
 | `G53` | **Closed 2026-08-20** | Three drifted rule blocks reconciled to a byte-identical shared core plus a legitimate platform tail. First concrete instance of the `G11` arbitration rule |
 | `G54` | **Open — deferred by decision** | Upstream command surface unverified. Route recorded in `docs/graph-fragments/README.md` §6. Needs a Python toolchain — owner's call, not an oversight |
-| `G55` | **Open — new** | `G40`–`G49` are absent from the §5.1 disposition table. Ten gaps recorded only in detail sections or inline prose; `G40`, `G41`, and `G49` have no detail section at all |
+| `G55` | **Open — new** | `G40`–`G49` are absent from the §5.1 disposition table. All ten are recorded elsewhere, but the all-IDs index does not reach them. `G40` alone has no detail section; `G49` has treatment but no ID-keyed anchor |
 
 ### `G51` — what the exposure actually was
 
@@ -1371,6 +1371,8 @@ Three blocks exist: `CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md`. They 
 ### `G55` — recorded, not repaired
 
 The §5.1 table is the all-IDs disposition record. It stops at `G39`. This is the **third recurrence** of the disposition-drift pattern already fixed three times in this register, now at a scale of ten.
+
+**Corrected 2026-08-20.** An earlier draft of this section claimed `G40`, `G41`, and `G49` had no detail section. Verified false: `G41` has two (§5.14a), and `G49` is covered under a heading that does not name it. **Only `G40` is genuinely bare.** The error overstated the backfill by two thirds — recorded because an inflated gap is still a wrong gap.
 
 **Not repaired here, deliberately** — the backfill was not in the approved scope, and silently adding `G50`–`G54` rows to a table missing `G40`–`G49` would make it *look* complete while it is not. The table now carries an explicit row naming its own incompleteness. **An artifact that is honest about its gap is safe; one that hides it is not.**
 
