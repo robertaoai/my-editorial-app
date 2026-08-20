@@ -328,7 +328,37 @@ A **tech-stack change** lands in `specs/`. A **stack-specific UI consequence** l
 
 `docs/v1/` is the V1 build; `docs/v1/README.md` records the tree. **Folders are organised by tier, not by sprint**, because a feature group routinely spans sprints — `FN-GATES-01-05` spans S1–S2 and `FN-PUBLICATION-09-10-13` spans S4–S5 — and `D-32` makes the group the indivisible unit. The three upper parents carry the sprint tracking: every spec states its sprint in its header, and `V1-BUILD-SPEC.md` §5.1 holds the sprint→artifact index.
 
-> **Flagged for correction if misread:** the instruction was *"put the required folder structure here for by V1 sprints; the upper parents will track the sprints."* This was implemented as **tier folders with sprint tracking in the parents**. If sprint-named folders were intended instead, say so — but note that filing by sprint would split both existing feature groups.
+**Confirmed 2026-08-19:** tier folders with sprint tracking in the `V1-*.md` parents is correct.
+
+### `D-35` — two trackers, split by scope
+
+**Chief Editor decision, 2026-08-19.** Progress is tracked in two places, divided by what changes:
+
+| Tracker | Scope | Changes when |
+|---|---|---|
+| **`Modular_PRD` §8.0** | Build versions and their sprints — `V1`, `V2`, `V3`… | A sprint completes or a build version opens |
+| **Alpha Portfolio plan** | Projects — `AP-01`, `AP-02`, `AP-OD4` | A project is chartered, closed, or transferred |
+
+**The dividing principle: a sprint stays inside one project; a new project is a portfolio event.** `V1` and `V2` are sprints of the same project unless the Portfolio charters a new one — so they belong to the product tier, while project transitions belong to the portfolio tier.
+
+This resolves the objection raised against using `Modular_PRD`: *requirements are not progress.* True in general, but sprints deliver `Modular_PRD`'s **own** requirements, so tracking them there does not invert `D-29`'s flow. Project-level tracking would have, which is why it sits at the portfolio instead.
+
+#### Notation — mandatory
+
+The one objection that survived, now handled by convention:
+
+| Form | Means |
+|---|---|
+| **`V1`, `V2`** — capital V, no decimal | **Build version** with its own sprints and frozen `V*-*.md` operative set |
+| **`1.7`, `1.8`** — decimal, no prefix | **A document's own revision lineage** |
+
+`Modular_PRD` v1.8 has nothing to do with build `V1`. Writing "version 1" for a build, or "V1.8" for a document, is an error. **`D-22` is the precedent** — two meanings of *cost baseline* required a decision to separate, and this is the same shape.
+
+#### Deferred to the `V1`→`V2` boundary
+
+`V2` is expected to modify files that frozen `V1` specs describe, leaving those specs **frozen and inaccurate** with nothing marking them — the same failure §5.1 caught, where supersession destroyed traceability instead of transferring it. Three treatments exist (forward pointers · a supersession index · reissue) and none is chosen.
+
+**Deliberately deferred.** It costs nothing while `V2` does not exist, and nothing in `V1` depends on it. **It must be settled before `V2` opens** — recorded here so it is not discovered at the boundary.
 
 ### Effect on §6.1's freeze
 

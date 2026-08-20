@@ -31,7 +31,7 @@
 | **PRD Owner** | Chief Editor (robertaoai) — Line 2, Risk & Compliance |
 | **Reviewers / Approvers** | Chief Editor is the sole human approver. **No Eng Lead, Design Lead, Data Lead, or Legal function exists on this project.** Not an omission — see §0.3 |
 | **Status** | `Draft` — planning only. No application code, no migration applied, no env pulled, no push |
-| **Version** | 1.7 — this document's own lineage; it does not continue `docs/PRD.md`'s version history |
+| **Version** | 1.8 — this document's own lineage; it does not continue `docs/PRD.md`'s version history, and it is **not** a build version — see §8.0 |
 | **Last Updated** | 2026-08-16 |
 | **Jira Project Key** | **Not provisioned.** Execution tracking is `docs/journal/2026-08-16-sprint-plan.md` §6 (S0–S6) — see §8 |
 | **Confluence / Wiki Link** | **Not provisioned.** This repo's `docs/` is the wiki |
@@ -52,6 +52,7 @@
 | **1.5** | **2026-08-17** | Codex, Graphify-assisted requirement reconstruction | **Corrected the scope/type category error in §7.** Functional versus non-functional describes requirement behaviour; Product versus Project Scope describes provenance and purpose. Product Scope now contains customer-anchored functional, non-functional, security, and data requirements. Project Scope now contains unanchored functional requirements and delivery/governance enablers that support the Customer Request indirectly. Mixed rows retain a customer-derived outcome in Product Scope while their implementation mechanism is separated into Project Scope. Added the uncovered CR-14 and partial CR-06 gaps to the scope view; renamed §7.3 so it no longer implies every NFR is Project Scope. No requirement text or customer statement changed |
 | **1.6** | **2026-08-19** | Antigravity | **Three decision-free disclosures, no scope change.** Added the report immutability rule to §6.3 under `PSK-10` — stating the rule the S1 report design must satisfy, explicitly *not* restating `NFR-02`'s `workflow_transitions` wording, which awaits counsel (T2/TX). Disclosed in §0.3 that independent assurance is an Absent function: the Chief Editor's disposition is a management assertion, not an audit opinion; substantive remedy is `Q2`. Annotated `NG-02` as a v1 exclusion so the S1 tenancy boundary does not read as a Charter breach — boundary preserved, no multi-team capability built. No open decision closed, no Charter text touched, no number invented |
 | **1.7** | **2026-08-19** | Claude, T1 runbook Steps 4-5, Chief Editor reviewing | **Two wording corrections and one citation annotation; no scope change.** `G23`: `US-13`'s `regulatory_retraction_order` said it *"bypasses T8 entirely"*, which would skip publishing the retraction notice. Restated so a binding order bypasses **deliberation only** — whether to retract is not open when a court has ordered it — while the notice is still drafted, mirrored to every target the original reached, and logged. `D-16`: annotated the `EMS-Modular-PRD-Gap-Analysis.md` citation to record that the report is **not retained in this repository**, and named the routed findings `A20`–`A28` as what stands in its place; citation preserved, never deleted. Also carries the v1.6 repair recorded under `G32`, where three disclosures had been applied in abbreviated form that dropped the `Q2` remedy pointer, the `A23` warning, the correction-ladder link and the `NG-02` tenancy explanation — all restored without re-bumping, so v1.6 now contains what its own changelog claimed. No open decision closed, no Charter text touched, no number invented |
+| **1.8** | **2026-08-19** | Claude, from Chief Editor direction on build-version tracking | **Added §8.0 build-version tracking (`D-35`). No requirement changed.** This document now tracks **sprints**; the Alpha Portfolio plan tracks **projects**. A sprint stays inside one project, so the two trackers do not overlap. Recorded a notation rule to prevent a collision this project has already had three times: `V1`/`V2` (capital V, no decimal) is a **build version**; `1.7`/`1.8` (decimal, no prefix) is **this document's revision lineage**. They are unrelated — `Modular_PRD` v1.8 has nothing to do with build `V1`. `D-22`, which separated two meanings of *cost baseline*, is the precedent. Also recorded the `V1`→`V2` freeze-integrity question as deliberately deferred: `V2` will modify files that frozen `V1` specs describe, leaving them frozen and inaccurate unless a supersession treatment is chosen. It costs nothing while `V2` does not exist and must be settled before `V2` opens. No open decision closed, no Charter text touched, no number invented |
 
 ### 0.2 Decision Log
 
@@ -560,6 +561,35 @@ The most consequential requirement, and the one most at risk of being quietly ov
 ## 8. Execution Mapping
 
 > **No Jira exists.** Rather than invent keys, execution maps to the sprint plan, which is the real tracker. The template's Epic → Feature → Story → Sub-task hierarchy maps as: **Sprint → FR → US → TR/NFR.**
+
+### 8.0 Build-version tracking — `D-35`
+
+**This document tracks sprints. The Alpha Portfolio tracks projects.** A sprint stays inside one project; a new project is a portfolio event. The two trackers do not overlap.
+
+| Tracker | Scope | Changes when |
+|---|---|---|
+| **`Modular_PRD` §8** *(here)* | Build versions and their sprints — `V1`, `V2`, `V3`… | A sprint completes or a build version opens |
+| **Alpha Portfolio plan** | Projects — `AP-01`, `AP-02`, `AP-OD4` | A project is chartered, closed, or transferred |
+
+#### Notation, to prevent a collision this project has already had three times
+
+| Form | Means | Example |
+|---|---|---|
+| **`V1`, `V2`** — capital V, no decimal | **Build version.** A body of work with its own sprints and its own frozen `V*-*.md` operative set | `V1` = S0–S5 |
+| **`1.7`, `1.8`** — decimal, no prefix | **This document's own revision lineage.** Unrelated to build versions | `Modular_PRD` v1.8 |
+
+`Modular_PRD` v1.8 has nothing to do with build `V1`. Writing "version 1" for a build, or "V1.8" for a document, is an error. The precedent for taking this seriously is `D-22`, where two meanings of *cost baseline* required a decision to separate.
+
+#### Build-version status
+
+| Build | Sprints | Operative set | Status |
+|---|---|---|---|
+| **`V1`** | S0 · S1 · S2 · S3 · S4 · *(S5 beyond v1 scope)* | `docs/v1/V1-*.md` | **Active.** T0 complete; T1 in progress; S0 not started |
+| `V2` | — | `docs/v2/V2-*.md` *(not created)* | Not opened |
+
+**When `V2` opens:** `V1-*.md` freeze, `V2-*.md` becomes the active operative set, and this table records the handover. Both remain inside the same project unless the Alpha Portfolio charters a new one.
+
+> **Open at the `V1`→`V2` boundary, not before.** `V2` is expected to modify files that frozen `V1` specs describe, which would leave those specs frozen *and* inaccurate with nothing marking them. The treatment — forward pointers, a supersession index, or reissue — is undecided. It costs nothing to defer while `V2` does not exist, and it must be settled before `V2` opens. Recorded so it is not discovered at the boundary.
 
 ### 8.1 Sprint → Requirement Mapping
 
