@@ -189,7 +189,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `X7` | **Open** — S2 → S6 | Demo-first plus permissive RLS versus executor attributability. `D5`. **Mitigated at S2, closes at S6** — the same `TC1` surface `AC-12` sits on |
 | `X8` | **Open** — S0 | Stripe scaffolding versus the Charter-level *"no monetization features"*. `D5`. **Closes on S0** |
 | `G61` | **Closed 2026-08-20** | `D-63` §5.14x — **all eight** `X`-rows backfilled above. *(Corrected: the gap statement said **five**; `X1`, `X2`, and `X6` exist too. Five was the `D5`-family **open** subset, not the series.)* |
-| `G62` | **Part a closed 2026-08-21; part b decided, not applied** | **Opened because the CI gates `R3` specifies did not pass** — `typecheck` exited 2 with 10 implicit-`any` errors in `lib/supabase/`, and `lint` exited 1 because `next lint` is deprecated, **interactive**, and no ESLint config exists. §5.14z. **Today: typecheck passes; lint still cannot run.** **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings**. **a closed by `D-67`** — `satisfies CookieMethodsServer` in two files, 4 lines; `tsc --noEmit` **exits 0**. The ten errors were **two overload-resolution causes**, not ten defects. **D-4 now blocked solely on creating `eslint.config.mjs`** |
+| `G62` | **Closed 2026-08-21** | **Opened because the CI gates `R3` specifies did not pass** — `typecheck` exited 2 with 10 implicit-`any` errors in `lib/supabase/`, and `lint` exited 1 because `next lint` is deprecated, **interactive**, and no ESLint config exists. §5.14z. **Today: typecheck passes; lint still cannot run.** **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings**. **a closed by `D-67`** — `satisfies CookieMethodsServer` in two files, 4 lines; `tsc --noEmit` **exits 0**. The ten errors were **two overload-resolution causes**, not ten defects. **Both parts applied by `D-70`** — `eslint.config.mjs` created, `lint` repointed; **27 files, 0 findings**, and CI green on a real run |
 | `G63` | **Open — new** | An **untracked** `.gitattributes` sets `*.md text eol=lf merge=union`. **Union merge concatenates conflicting markdown instead of failing** — in a three-agent repo that silently duplicates index rows, the exact `G39` defect. Cuts against `D-58`. Found incidentally |
 | `G64` | **Specified, not applied — `D-69`** | **`G-02` cannot be computed from its own declared Data Source.** Its Data Source names **one** column *(`judgment_independence_status`, "becomes `line_boundary_crossed`")*, but its definition excludes logged overrides, which needs `not_applicable` and `override_not_four_eyes` told apart — and a boolean maps both to `false`. **Arithmetic on the declared columns, no interpretation required.** *Restated by `D-69`: as opened (§5.14ad) this also claimed an `NFR-03` inference violation — **withdrawn**, "inferred at read" is undefined across the corpus and `NFR-03`'s measured target is "100% non-null", which a boolean meets.* Two shapes specified; the choice is `Q11`'s (`D-68`). Carries `C-16`. **Resolve before the `0002` draft** (`G27`, S0). §5.14ae |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
@@ -2375,6 +2375,92 @@ A first scan reported `C-20` and `C-21` as taken, which would have pushed this c
 ### Scope limits
 
 Specifies `G64` and opens `C-16`. **Chooses no shape, no field name, no enum values.** Amends no `Modular_PRD` requirement text — the `G-02` and `NFR-03` edits are **disclosure notes**, not restatements. `Q11`, `Q10`, `G16`, `X4` and `X5` all remain open. `0001_init.sql` untouched; `0002` unwritten.
+
+## 5.14af `D-70` — Stages A, B and C installed; Stage D recorded as blocked
+
+**Execution, 2026-08-21.** Build guardrail lifted by the Chief Editor for **Stages A, B and C only**; reinstated on completion. **Stage D was requested and is not completable** — see below.
+
+This executes the sequence `D-65` set out. **The verification apparatus is no longer specified-not-installed.**
+
+### What now exists
+
+| Stage | Artifact | Gate result |
+|---|---|---|
+| **A** | `eslint.config.mjs`, `lint` → `eslint .` | **27 files, 0 errors, 0 warnings** |
+| **B** | `__tests__/smoke.test.ts`, `"test": "bun test"`, `.github/workflows/ci.yml` | **1 test passing; CI green on a real run** |
+| **C** | `scripts/check-consistency.mjs` + four checks, wired as `bun run check` | **3 pass in CI, 1 local-only** |
+
+**`R3` DoD — all six satisfied.** D-1 smoke test passes · D-2 `bun test` present · D-3 CI runs typecheck, lint and test as **separate** steps · **D-4 CI green on a real run** · **D-5 demonstrated** · D-6 `G59` closed by `D-64`.
+
+### `C-14` is installed in CI for three checks and local for the fourth
+
+**Stated because "detection is installed" would otherwise overclaim.**
+
+| Check | Runs in CI |
+|---|---|
+| Shared-core hash across the three agent rule files | **Yes** |
+| `D-54` tier sweep | **Yes** |
+| §5.1 duplicate-ID scan | **Yes** |
+| Graph coverage | **No — local only** |
+
+The fourth reads `.graphify/graph.json`, which is **gitignored**, so its input does not exist on a fresh clone. **Structural, not a defect:** the graph is a build artifact whose **curated layer is not rebuildable from `docs/`** — it merges only from `docs/graph-fragments/` (`G51`). It now reports **SKIP with the reason**, and the runner counts skips separately: *"3/3 passed (1 skipped)"*, **never "4/4 passed."** A check that never ran must not be counted as one that passed.
+
+### The tier sweep caught a real defect on its first strict run, and it was mine
+
+`D-65` was marked ✅ propagated to the build spec. **It was absent.** Commit `8b03b7a` — the `D-67` pass, two commits earlier — replaced the only sentence citing it. **A tier claim that was true when written had silently stopped being true.**
+
+**That is exactly the `G58` shape `C-14` exists to catch**, and it was caught by the check rather than by anyone noticing. Citation restored.
+
+> The register's own words on why this matters: *"`G32`, `G53` and `G58` were each found by a human noticing — twice by the Chief Editor challenging a completion claim. That is not a control; it is luck with a good record."* **This is the first defect of that family found by a control.**
+
+### The check was too weak until a negative test broke it
+
+The first tier sweep accepted **any** ID from a row's Item cell. Deliberately breaking `D-66`'s inventory reference **did not fail it** — the row also names `G62`, and `G62` was still present. **A gap reference was masking a decision that never propagated.**
+
+`D-54` requires the **decision** to be traceable, so when a row names a `D-NN` that ID is now required specifically. Re-broken and confirmed failing.
+
+> **A check that cannot fail is not a control** — the same finding as `D-67`'s invalid probe, one layer up. Both passed convincingly while testing nothing.
+
+### Three corrections to `R3`'s own specification
+
+| § | Said | Correction |
+|---|---|---|
+| §2 | *"Nothing is added to `devDependencies`"* | **`@types/bun` is required.** True for the **runner** — bun's is built into the runtime — but not for its **type declarations**. Both `import ... from "bun:test"` and bun's injected globals leave `tsc` unable to resolve the symbols, so typecheck fails and CI goes red. §2 was written **before anything typechecked `__tests__/`**. Types-only, no runtime, so the section's actual claim — that `R3` costs a script entry rather than a toolchain — still holds |
+| §4 | `bun install` | **`bun install --frozen-lockfile`.** `D-64` committed `bun.lockb` to pin the dependency set; a plain install may resolve past the lockfile and quietly defeat the pin `G59` was closed to establish |
+| `D-66` | *"0 errors, 0 warnings"* | **Measured before the config file existed**, so the file was not in its own lint set. On creation it warned on itself (`import/no-anonymous-default-export`). Named the exported array; **0 warnings again, now including itself** |
+
+**The third is the smallest and the most characteristic: installing the thing changed the thing being measured.**
+
+### Stage D — requested, not completable
+
+**No migration was written. `0001_init.sql` is untouched and `supabase/migrations/` still holds it alone.**
+
+`D-17` holds the `0002` draft **outside** `supabase/migrations/` *"until every S1 window decision is settled."* Verified against live §5.1 rows rather than restated:
+
+| Blocker | Verified state |
+|---|---|
+| `Q10` — tool versus product, tenancy column | **Open** |
+| `Q11` — the field name | **Open, deferred past S1** (`D-68`) |
+| `G64` — the field **shape** | **Specified, not applied** (`D-69`) — the choice is `Q11`'s |
+| `G16`, `G17`, `G19`, `G20`, `G42`, `GA1`, `GA3`, `GA4`, `GA9` | **Open** |
+| `GA2` | **Half closed** — the insert/read-only half is still a window item |
+| `C-11`, `C-12` | **Open** — T2, S1 window |
+
+**Completing Stage D would require inventing answers to those decisions, reversing `D-68` one pass after it was made, and writing an irreversible migration against a live provisioned database whose target table `NFR-02` makes append-only.** Recorded as blocked rather than delivered partially and counted as done.
+
+**Stage D is still not waiting on the guardrail.** The guardrail was lifted for A, B and C and would not have unblocked D.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 | `SPECS-VERIFICATION` |
+|---|---|---|---|---|---|
+| `D-70` — Stages A/B/C | ✅ | ✅ | ✅ three rows flip to ✅ | ✅ | ✅ §2, §4, §6 |
+| `C-14` — installed, qualified | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Stage D blocked | ✅ | ✅ | **— unaffected** | ✅ | **— unaffected** |
+
+### Scope limits
+
+Installs the verification apparatus and the detection checks. **Writes no migration, changes no schema, and answers no S1 window decision.** `Q10`, `Q11`, `G64`, `G16` and the rest of the window remain open. `0001_init.sql` untouched. **The build guardrail is reinstated.**
 
 ## 5.15 Solve sequence — remaining open gaps
 

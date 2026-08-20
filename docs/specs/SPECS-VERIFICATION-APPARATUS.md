@@ -47,7 +47,7 @@ Different provenance, so **no contradiction with `D-52`.** `D-52`'s four remain 
 
 **`bun test`.** Not a choice made here — `package.json` already declares `packageManager: bun@1.1.30`, and the T1 runbook names `bun test` on that basis. **This document ratifies an existing declaration rather than selecting a stack.**
 
-**No new dependency.** Bun's test runner is built into the runtime. Nothing is added to `devDependencies`, which is why `R3` costs one config-free script entry rather than a toolchain.
+**No new dependency for the runner.** Bun's test runner is built into the runtime. **Corrected 2026-08-21 (`D-70`):** its **type declarations** are a different matter — `@types/bun` **is** required, because both `import ... from "bun:test"` and bun's injected globals leave `tsc` unable to resolve the symbols, so typecheck fails and CI goes red. This section was written before anything typechecked `__tests__/`. Types-only, no runtime. Nothing else is added to `devDependencies`, which is why `R3` costs one config-free script entry rather than a toolchain.
 
 ```
 "scripts": { "test": "bun test" }
@@ -74,10 +74,11 @@ Different provenance, so **no contradiction with `D-52`.** `D-52`'s four remain 
 |---|---|---|
 | Checkout | — | — |
 | Setup bun | pinned to **`1.1.30`** | Match `packageManager` exactly |
-| Install | `bun install` | See `G59` below |
+| Install | `bun install --frozen-lockfile` | See `G59` below. **Refined 2026-08-21 (`D-70`)** — `D-64` committed `bun.lockb` to pin the dependency set, and a plain install may resolve past the lockfile and quietly defeat that pin |
 | **Typecheck** | `bun run typecheck` | `tsc --noEmit`. **Passes — exit 0 since `D-67`** |
 | **Lint** | `bun run lint` → `eslint .` | **Decided `D-66`** — ESLint CLI, flat config extending `next/core-web-vitals`. **0 findings** measured. Config file is Stage A |
 | Test | `bun test` | SC-1 |
+| **Consistency checks** | `bun run check` | **Added 2026-08-21 (`D-70`)** — `C-14`'s four detection checks, whose follow-up phase was always *"with `R3`'s installation."* Three run here; **graph coverage is local-only**, its input being a gitignored build artifact. Runs last: it governs the documents, not the code |
 
 > **Corrected 2026-08-21 (`D-65`) — `[V1]`.** This section listed both commands as if they worked. **Neither does.** The script names were taken from `package.json` and never executed — specified against a summary rather than the thing. `G62` carried the remediation. **Typecheck now passes (`D-67`)**; **DoD D-4 is unachievable until `eslint.config.mjs` exists (`D-66`, Stage A)** — one file, with no remediation behind it.
 
@@ -124,7 +125,7 @@ eslint: { ignoreDuringBuilds: true },
 | D-5 | **SC-4 demonstrated** — a deliberately broken type turned CI red, and was reverted |
 | D-6 | `G59` resolved or explicitly carried forward |
 
-**Report as *"written, locally unverified"* until D-4 observes a real CI run.** bun's absence locally makes any stronger claim unfounded — the same discipline S1 already carries for `DEP-05`.
+**All six satisfied 2026-08-21 (`D-70`).** D-4 observed green on a real run; D-5 demonstrated by a deliberate type error that turned CI red and was reverted. *(Superseded instruction, retained: report as "written, locally unverified" until D-4 observes a real CI run.)* bun's absence locally makes any stronger claim unfounded — the same discipline S1 already carries for `DEP-05`.
 
 ## 7. Dependencies `[V1]`
 

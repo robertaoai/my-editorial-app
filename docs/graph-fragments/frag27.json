@@ -1,0 +1,312 @@
+{
+  "_comment": "Fragment 27 — D-70, Stages A/B/C installed, Stage D recorded as blocked. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d70_stages_abc_installed",
+      "label": "D-70 — Stages A, B and C Installed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14af D-70",
+      "description": "The verification apparatus is no longer specified-not-installed. Stage A created eslint.config.mjs and repointed the lint script; Stage B installed the bun test runner, a smoke test and .github/workflows/ci.yml with typecheck, lint and test as separate steps; Stage C installed C-14's detection checks at scripts/check-consistency.mjs and wired them into CI. All six R3 definition-of-done conditions are met, with CI green on a real run.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Executes the sequence D-65 set out, in its stated order, with the build guardrail lifted for these three stages only. Stage D was requested in the same pass and is recorded as blocked rather than delivered partially and counted as done."
+    },
+    {
+      "id": "d5_ci_turns_red_demonstrated",
+      "label": "D-5 — CI Was Shown to Turn Red, Not Assumed To",
+      "file_type": "concept",
+      "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "source_location": "§6 D-5",
+      "description": "A deliberate type error was pushed, CI failed at the Typecheck step specifically, and the commit was reverted. Green, then red, then green again across three real runs.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A gate that is present but inert is exactly what TC6's ignoreBuildErrors produced for the ten type errors D-67 fixed — they sat unreported since scaffolding. Observing the gate fail is the only evidence that it is a gate rather than a step that always succeeds."
+    },
+    {
+      "id": "c14_installed_with_a_stated_limit",
+      "label": "C-14 Is Installed in CI for Three Checks, Local for the Fourth",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14af",
+      "description": "Shared-core hash, the D-54 tier sweep and the section 5.1 duplicate-ID scan run in CI. Graph coverage does not: it reads .graphify/graph.json, which is gitignored, so its input does not exist on a fresh clone. It reports SKIP with the reason, and the runner counts skips separately rather than folding them into the pass total.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Structural rather than a defect — the graph is a build artifact whose curated layer is not rebuildable from docs/, merging only from docs/graph-fragments/ under G51. Stated explicitly because a claim that detection is installed would otherwise overclaim, and because reporting three of four as 4/4 passed is the same overclaim this apparatus exists to catch."
+    },
+    {
+      "id": "control_caught_its_first_defect",
+      "label": "The Tier Sweep Caught a Real Defect on Its First Strict Run",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14af",
+      "description": "D-65 was marked propagated to the build spec and was absent from it. Commit 8b03b7a, the D-67 pass two commits earlier, had replaced the only sentence citing it. A tier claim that was true when written had silently stopped being true. The same check then caught a second error in the very pass that installed it: C-14 was marked propagated to SPECS-VERIFICATION-APPARATUS without being mentioned there.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "G32, G53 and G58 were each found by a human noticing, twice by the Chief Editor challenging a completion claim — luck with a good record rather than a control. These are the first defects of that family found by a control instead."
+    },
+    {
+      "id": "a_check_that_cannot_fail",
+      "label": "A Check That Cannot Fail Is Not a Control",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14af",
+      "description": "The first tier sweep accepted any ID from a row's Item cell. Deliberately breaking D-66's inventory reference did not fail it, because the row also names G62 and G62 was still present — a gap reference masking a decision that never propagated. D-54 requires the decision to be traceable, so a D-NN named in a row is now required specifically.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The same finding as D-67's invalid probe, one layer up: both passed convincingly while testing nothing. Found only because the check was deliberately broken to see whether it would notice — which is the negative test the apparatus itself now depends on."
+    },
+    {
+      "id": "installing_changed_what_was_measured",
+      "label": "Installing the Config Changed the Thing Measured",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14af",
+      "description": "D-66 measured both ESLint presets at 21 files, 0 errors, 0 warnings — before eslint.config.mjs existed, so the config file was not in its own lint set. On creation it warned on itself under import/no-anonymous-default-export. Naming the exported array restored 0 warnings, now including the file itself.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The smallest correction of the pass and the most characteristic. The measurement was accurate for what it measured; the act of installing enlarged the set being measured. A prior measurement is evidence about a prior state, not a prediction about the state after the change."
+    },
+    {
+      "id": "stage_d_recorded_as_blocked",
+      "label": "Stage D Was Requested and Is Not Completable",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14af",
+      "description": "D-17 holds the 0002 draft outside supabase/migrations/ until every S1 window decision is settled. Verified against live section 5.1 rows: Q10 open, Q11 open and deferred, G64 specified-not-applied, G16, G17, G19, G20, G42, GA1, GA3, GA4 and GA9 open, GA2 half closed, C-11 and C-12 open. No migration was written and 0001_init.sql is untouched.",
+      "community": 29,
+      "community_name": "Independence and Four-Eyes",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Completing it would mean inventing answers to those decisions, reversing D-68 one pass after it was made, and writing an irreversible migration against a live provisioned database whose target table NFR-02 makes append-only. Stage D was never waiting on the guardrail, so lifting it for A, B and C did not unblock D."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d70_stages_abc_installed",
+      "target": "v1_decision_register",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14af",
+      "weight": 1
+    },
+    {
+      "source": "d70_stages_abc_installed",
+      "target": "d65_bundle_rejected",
+      "relation": "executes_sequence_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "confidence_score": 1,
+      "source_location": "Stages A-D",
+      "weight": 1
+    },
+    {
+      "source": "d70_stages_abc_installed",
+      "target": "d66_eslint_cli_decided",
+      "relation": "applies",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ab",
+      "weight": 1
+    },
+    {
+      "source": "d70_stages_abc_installed",
+      "target": "specs_verification_apparatus_doc",
+      "relation": "installs",
+      "confidence": "CURATED",
+      "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "confidence_score": 1,
+      "source_location": "§6",
+      "weight": 1
+    },
+    {
+      "source": "d70_stages_abc_installed",
+      "target": "d5_ci_turns_red_demonstrated",
+      "relation": "verified_by",
+      "confidence": "CURATED",
+      "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "confidence_score": 1,
+      "source_location": "§6 D-5",
+      "weight": 1
+    },
+    {
+      "source": "d70_stages_abc_installed",
+      "target": "c14_installed_with_a_stated_limit",
+      "relation": "installs",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14af",
+      "weight": 1
+    },
+    {
+      "source": "d70_stages_abc_installed",
+      "target": "stage_d_recorded_as_blocked",
+      "relation": "excludes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14af",
+      "weight": 1
+    },
+    {
+      "source": "d70_stages_abc_installed",
+      "target": "installing_changed_what_was_measured",
+      "relation": "surfaced",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14af",
+      "weight": 1
+    },
+    {
+      "source": "d5_ci_turns_red_demonstrated",
+      "target": "tc6_is_active_concealment",
+      "relation": "answers",
+      "confidence": "CURATED",
+      "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "confidence_score": 1,
+      "source_location": "§4.1",
+      "weight": 1
+    },
+    {
+      "source": "d5_ci_turns_red_demonstrated",
+      "target": "ci_that_cannot_fail",
+      "relation": "refutes_for_this_repo",
+      "confidence": "CURATED",
+      "source_file": "docs/specs/SPECS-VERIFICATION-APPARATUS.md",
+      "confidence_score": 1,
+      "source_location": "§6 D-5",
+      "weight": 1
+    },
+    {
+      "source": "c14_installed_with_a_stated_limit",
+      "target": "c14_conflict_detection",
+      "relation": "installs",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14s",
+      "weight": 1
+    },
+    {
+      "source": "c14_installed_with_a_stated_limit",
+      "target": "curated_graph_layer",
+      "relation": "limited_by",
+      "confidence": "CURATED",
+      "source_file": "docs/graph-fragments/README.md",
+      "confidence_score": 1,
+      "source_location": "§1",
+      "weight": 1
+    },
+    {
+      "source": "control_caught_its_first_defect",
+      "target": "summary_outlived_source",
+      "relation": "first_caught_by_control",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14af",
+      "weight": 1
+    },
+    {
+      "source": "control_caught_its_first_defect",
+      "target": "c14_installed_with_a_stated_limit",
+      "relation": "produced_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14af",
+      "weight": 1
+    },
+    {
+      "source": "a_check_that_cannot_fail",
+      "target": "probe_that_cannot_fail",
+      "relation": "same_finding_one_layer_up",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ac",
+      "weight": 1
+    },
+    {
+      "source": "a_check_that_cannot_fail",
+      "target": "negative_test_proves_narrowing",
+      "relation": "same_discipline_as",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ac",
+      "weight": 1
+    },
+    {
+      "source": "installing_changed_what_was_measured",
+      "target": "measurement_dissolved_the_question",
+      "relation": "qualifies",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ab",
+      "weight": 1
+    },
+    {
+      "source": "stage_d_recorded_as_blocked",
+      "target": "d68_q11_deferred",
+      "relation": "blocked_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ad",
+      "weight": 1
+    },
+    {
+      "source": "stage_d_recorded_as_blocked",
+      "target": "d69_g64_specified",
+      "relation": "blocked_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ae",
+      "weight": 1
+    },
+    {
+      "source": "stage_d_recorded_as_blocked",
+      "target": "x5_four_eyes_unevaluable",
+      "relation": "leaves_open",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.1 X5",
+      "weight": 1
+    }
+  ]
+}

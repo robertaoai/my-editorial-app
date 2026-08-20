@@ -19,12 +19,12 @@
 | `docs/CONFIG_LOG.md` | S0, `§10` config-vs-fixed rule | ❌ |
 | `supabase/migrations/0002_*.sql` | S0 draft, S1 apply | ❌ |
 | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` | `D-56` — `R3` specification, Project Scope ⚙ | ✅ |
-| Test runner + `__tests__/` | `R3`, `NFR-04` | ❌ **specified, not installed** (`D-56`) |
+| Test runner + `__tests__/` | `R3`, `NFR-04` | ✅ **installed 2026-08-21** (`D-70`) — `__tests__/smoke.test.ts`, `bun test`, `.github/workflows/ci.yml`. All six `R3` DoD conditions met |
 | `.github/workflows/` CI | `R3`, `TC6` | ❌ **specified, not installed** (`D-56`) |
 | `bun.lockb` | `G59` → `D-64` — CI reproducibility | ✅ **413 packages pinned**, `--frozen-lockfile` verified |
 | `docs/specs/ux/` route specification | `G10` → `D-59`, `D-34` — `/editorial` and `/request-brief` | ❌ **directory exists, empty** |
-| `eslint.config.mjs` | `G62`b → `D-66` — flat config, `next/core-web-vitals` | ❌ **Stage A** — decided, not created. 0 findings measured; no dependency needed |
-| Concurrent-edit detection check | `C-14`/`G11` — `D-58`, ships with `R3` | ❌ **specified, not installed** — four proven checks, unbundled |
+| `eslint.config.mjs` | `G62`b → `D-66` — flat config, `next/core-web-vitals` | ✅ **created 2026-08-21** (`D-70`) — 27 files, 0 errors, 0 warnings; no dependency added |
+| Concurrent-edit detection check | `C-14`/`G11` — `D-58`, ships with `R3` | ✅ **installed 2026-08-21** (`D-70`) — `scripts/check-consistency.mjs`. **Three checks run in CI; graph coverage is local-only**, its input being a gitignored build artifact. Caught a real `G58`-class defect on its first strict run |
 | BCP observability surface | `C-13` on `D-57`; `FR-14`/`US-14`/`AC-21`, S3 | ❌ **unbuilt** — `G60` closed 2026-08-20 (`D-62`), so the **requirement now exists**; the surface does not |
 | P0-EVR project charter | `G7a`, T3 | ❌ |
 | P0-EVR PRD | `G7`, T3 | ❌ |
