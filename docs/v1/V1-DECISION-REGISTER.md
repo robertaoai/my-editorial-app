@@ -191,7 +191,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G61` | **Closed 2026-08-20** | `D-63` §5.14x — **all eight** `X`-rows backfilled above. *(Corrected: the gap statement said **five**; `X1`, `X2`, and `X6` exist too. Five was the `D5`-family **open** subset, not the series.)* |
 | `G62` | **Part a closed 2026-08-21; part b decided, not applied** | **Opened because the CI gates `R3` specifies did not pass** — `typecheck` exited 2 with 10 implicit-`any` errors in `lib/supabase/`, and `lint` exited 1 because `next lint` is deprecated, **interactive**, and no ESLint config exists. §5.14z. **Today: typecheck passes; lint still cannot run.** **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings**. **a closed by `D-67`** — `satisfies CookieMethodsServer` in two files, 4 lines; `tsc --noEmit` **exits 0**. The ten errors were **two overload-resolution causes**, not ten defects. **D-4 now blocked solely on creating `eslint.config.mjs`** |
 | `G63` | **Open — new** | An **untracked** `.gitattributes` sets `*.md text eol=lf merge=union`. **Union merge concatenates conflicting markdown instead of failing** — in a three-agent repo that silently duplicates index rows, the exact `G39` defect. Cuts against `D-58`. Found incidentally |
-| `G64` | **Open — new** | **`FR-05`'s three independence states cannot be stored in a boolean without read-time inference.** `AC-07` drafts `line_boundary_crossed` as a boolean; `G-02` needs **two distinct false-states** *(no separation, versus a logged override)*; recovering the second requires reading `event_type` alongside it. `NFR-03` forbids inference at read — a **second** conflict its `Q11` row never recorded, alongside the null clause it does. **Must resolve before the `0002` draft is written** (`G27`, S0), not merely before S1 applies it. §5.14ad |
+| `G64` | **Specified, not applied — `D-69`** | **`G-02` cannot be computed from its own declared Data Source.** Its Data Source names **one** column *(`judgment_independence_status`, "becomes `line_boundary_crossed`")*, but its definition excludes logged overrides, which needs `not_applicable` and `override_not_four_eyes` told apart — and a boolean maps both to `false`. **Arithmetic on the declared columns, no interpretation required.** *Restated by `D-69`: as opened (§5.14ad) this also claimed an `NFR-03` inference violation — **withdrawn**, "inferred at read" is undefined across the corpus and `NFR-03`'s measured target is "100% non-null", which a boolean meets.* Two shapes specified; the choice is `Q11`'s (`D-68`). Carries `C-16`. **Resolve before the `0002` draft** (`G27`, S0). §5.14ae |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2252,6 +2252,8 @@ The sprint plan's **S1 migration line already names the fallback**: *"Pending co
 
 **A boolean has one false-state.** Recovering `override_not_four_eyes` means reading `event_type = HumanOverride` alongside it — **inference at read**, which `NFR-03` forbids and which `G-02` would depend on. Three states cannot be stored in a boolean and then honestly reported as not-inferred.
 
+> **Restated 2026-08-21 by `D-69` — the inference limb is withdrawn.** *"Inferred at read"* is **undefined across the corpus**, and `NFR-03`'s measured target is *"100% non-null"*, which a boolean meets. **The surviving defect is narrower and needs no interpretation:** `G-02` cannot be computed from its own declared **single-column** Data Source. See §5.14ae.
+
 **Carried forward as `G64`**, so the deferral does not also defer the finding.
 
 ### What the deferral actually costs today: nothing in schedule terms
@@ -2297,6 +2299,82 @@ Not decided here, recorded so the work is not redone: `G-02` already uses the ph
 ### Scope limits
 
 Records a deferral and opens `G64`. **Decides no field name, no field shape, and no enum values.** Closes nothing: `Q11`, `Q10`, `G16`, `X5` and `X4` all remain open. Authorizes no migration, no schema, no code. `0001_init.sql` untouched.
+
+## 5.14ae `D-69` — `G64` specified: one limb dissolves, the other gets sharper
+
+**Specification, 2026-08-21. `G64` → specified, not applied** (`D-56` disposition). **Decides no field name and no field shape** — `D-68` deferred that one pass ago, and deciding here would reverse it unasked.
+
+### The correction: I overstated `G64` when I opened it
+
+As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
+
+**The limb that dissolves — *"`NFR-03` forbids inference at read."***
+
+| Test | Result |
+|---|---|
+| Is *"inferred at read"* defined anywhere in the corpus? | **No.** Five occurrences across all of `docs/` — `FR-05`'s Outputs line, `NFR-03`, the sprint plan's `Q11` row, a changelog, and my own `G64` text. **Zero definitions** |
+| What does `NFR-03` actually *measure*? | Target **"100% non-null"**, Method **"column constraint."** A boolean satisfies both |
+| Do these documents treat reading a stored column as inference? | **No.** `G-03` computes its metric directly as `event_type = HumanOverride` ÷ all transitions |
+
+**I asserted a violation of an undefined term, against a requirement whose measurable target the boolean actually meets.** That is this project's dominant failure mode pointed the other way: not a summary outliving its source, but **a conflict asserted past what the source says**.
+
+> `CLAUDE.md` carries the standing rule — *"Before recording any incompatibility, check what the unfamiliar label maps to."* Three prior conflicts were vocabulary, not structure. **This is the fourth, and it was mine.**
+
+### The limb that stands, and no longer needs interpreting
+
+**`G-02` cannot be computed from its own declared Data Source.**
+
+| Field | Value |
+|---|---|
+| `G-02` Definition | *"T5/T6 crossings without Line separation, **excluding logged overrides**"* |
+| `G-02` Data Source | `judgment_independence_status` — *"**becomes `line_boundary_crossed` if the rename is confirmed**"*. **One column** |
+| `FR-05` states | `satisfied` · `not_applicable` · `override_not_four_eyes`. **Three** |
+| A boolean | **Two** values. `not_applicable` and `override_not_four_eyes` both map to `false` |
+
+**Excluding logged overrides requires telling those two apart. The declared single column cannot.** `G-02` would need a second column its own Data Source does not name.
+
+**This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
+
+### `C-16` — condition on the `Q11` decision
+
+**`NFR-03` is already slated for rewrite** — `Q11`'s row says it *"needs its own rewrite, not a passthrough."* **That rewrite must either define *"inferred at read"* or drop the clause.**
+
+An undefined term in a governing requirement is not harmless: it is unfalsifiable, so it can neither be satisfied nor breached, and it invites exactly the overreach recorded above. **Follow-up phase: the `Q11` decision, before the S0 `0002` draft.**
+
+### The two shapes, specified — not chosen
+
+| | **Shape 1 — three-valued enum** | **Shape 2 — boolean + `event_type`** |
+|---|---|---|
+| Column | `line_separation`: `crossed` \| `not_applicable` \| `override` | `line_boundary_crossed` boolean |
+| `G-02` computable from its declared Data Source? | **Yes — one column, exactly as declared** | **No — needs a Data Source amendment naming two** |
+| `FR-05`'s three-state classification stored? | **Yes, as a fact** | **Nowhere** — it becomes a derived view |
+| `Modular_PRD` amendments required | `NFR-03` rewrite *(already required)* | `NFR-03` rewrite **plus** `G-02` Data Source |
+| Name matches the documents' own words | `G-02` already says *"without **Line separation**"* | `not_applicable` reads as nonsense against *"crossed"* |
+
+**Shape 1 is the lower-amendment option and the one already spoken in the documents' vocabulary.** Recorded as the specification's recommendation; **the choice belongs to `Q11`**, where `D-68` left it.
+
+### Why this is specified and not decided
+
+The Chief Editor deferred `Q11` one pass ago (`D-68`). `G64`'s resolution *is* a shape choice, and a shape choice is `Q11`'s substance. **Specifying removes the defect from the critical path without reversing a decision that was just made** — the same disposition `R3` carries under `D-56` and `X4` under `D-61`.
+
+### An ID check that caught itself
+
+A first scan reported `C-20` and `C-21` as taken, which would have pushed this condition to `C-22` and left a false gap in the series. **Both were substring matches inside `AC-20` and `AC-21`.** The condition series genuinely tops out at `C-15`, so `C-16` is correct.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` | Sprint plan |
+|---|---|---|---|---|---|
+| `D-69` / `G64` specified | ✅ | ✅ | **— unaffected** | ✅ `G-02` + `NFR-03` notes | ✅ correction |
+| `C-16` opened | ✅ | ✅ | **— unaffected** | ✅ `NFR-03` | — |
+
+**Inventory is unaffected and that is stated, not blank.** No artifact is created, retired or resequenced.
+
+**The sprint plan is corrected, not merely appended to.** The warning written into its S1 migration line one pass ago carried the overstated limb, and an overstatement in the instrument an executor reads is worse than none — it invites the whole warning to be dismissed once the overreach is spotted.
+
+### Scope limits
+
+Specifies `G64` and opens `C-16`. **Chooses no shape, no field name, no enum values.** Amends no `Modular_PRD` requirement text — the `G-02` and `NFR-03` edits are **disclosure notes**, not restatements. `Q11`, `Q10`, `G16`, `X4` and `X5` all remain open. `0001_init.sql` untouched; `0002` unwritten.
 
 ## 5.15 Solve sequence — remaining open gaps
 
