@@ -62,7 +62,7 @@ disturbs `fn-specs/`** — behaviour stays stable across a stack pivot.
 
 Merged structure: Overview · User Stories · Requirements · Behaviour · Acceptance Criteria ·
 Edge Cases · Dependencies · Risks · `SPECS` candidate filter.
-**Reference example:** `docs/v1/fn-specs/FN-PUBLICATION-09-10-13.md`.
+**Reference example:** `docs/fn-specs/FN-PUBLICATION-09-10-13.md`.
 
 Guardrails, all binding:
 1. Input must be a **`Modular_PRD` feature group, never a prose description** — anchors travel
@@ -78,8 +78,10 @@ Guardrails, all binding:
 `supabase/migrations/0001_init.sql`.
 
 ## Build rules (binding — follow in order)
-1. **Read first:** open `docs/PRD.md`, `docs/DATA_MODEL.md`, `docs/ARCHITECTURE.md`, and
-   `docs/TASKS.md` before writing a single line.
+1. **Read first:** `docs/v1/V1-BUILD-SPEC.md` and `docs/v1/V1-DECISION-REGISTER.md`, then the
+   relevant `docs/fn-specs/` for the feature you are touching. **Not the plan pack** — see the
+   header: `DATA_MODEL.md`, `ARCHITECTURE.md`, and `TASKS.md` are accurate about the substrate
+   and wrong about governance (`D5`).
 2. **Confirm the plan** back to me in 2–3 lines (the core objects + the one main workflow) BEFORE coding.
 3. **Build the ONE core engine/verb FIRST, working end-to-end.** Every app has a main action —
    create a proposal, run the quote/simulation, log a change and act on it. Build THAT against the

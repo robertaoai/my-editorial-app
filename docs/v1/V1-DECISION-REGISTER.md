@@ -302,7 +302,7 @@ D-30 filter    ──▶ SPECS, conditional only   (candidates, then filtered)
 | `specs-creator` | This project | Role |
 |---|---|---|
 | `app-vision.md` | **`docs/Modular_PRD.md`** | Product vision. **An app *is* a product** |
-| `prd.md` | **`docs/v1/fn-specs/`** | Feature behaviour, per group |
+| `prd.md` | ~~`docs/v1/fn-specs/`~~ → **`docs/fn-specs/`** *(moved by `D-36`)* | Feature behaviour, per group |
 | `tech-specs.md` | **`docs/v1/specs/`** | Implementation **big picture**, including tech-stack |
 | `ux.md` | **`docs/v1/specs/ux/`** | UI/UX **per tech-stack** — Vue versus Angular for identical behaviour |
 

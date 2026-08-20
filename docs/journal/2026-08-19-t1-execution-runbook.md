@@ -142,7 +142,7 @@ Add: a test runner (`bun test`, matching `packageManager: bun@1.1.30`), one pass
 
 **The largest T1 item and the first artifact v1 actually needs.**
 
-Breaks down `Modular_PRD` §5–§7 into feature-level behaviour: `FR-01`–`FR-13`, the NFR set, `AC-01`–`AC-20`. One document per feature or coherent feature group, under `docs/v1/fn-specs/`.
+Breaks down `Modular_PRD` §5–§7 into feature-level behaviour: `FR-01`–`FR-13`, the NFR set, `AC-01`–`AC-20`. One document per feature or coherent feature group, under `docs/fn-specs/`.
 
 **Per the `D-30` redundancy rule, `Fn_Specs` must be written to be sufficient wherever it can be** — every behaviour fully determined here is a `SPECS` document that never has to exist.
 
@@ -173,7 +173,7 @@ Each opens with an executive summary: component intent, why it exists, success c
 | `grep -ci "output contract" CLAUDE.md AGENTS.md` | `≥1` both |
 | `bun test` | exits 0 |
 | `ls .github/workflows` | CI present |
-| `ls docs/v1/fn-specs/` | non-empty |
+| `ls docs/fn-specs/` | non-empty |
 | `grep -c "23 items" docs/v1/V1-BUILD-SPEC.md` | `1` |
 | `git status --short` | `PRD.md`, Charter, `0001_init.sql` untouched |
 
