@@ -157,7 +157,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G30` | **Closed 2026-08-19** | `D-20` — output contract in both agent files |
 | `G31` | **Closed 2026-08-19** | `D-21` — T1 execution runbook drafted |
 | `G32` | **Closed 2026-08-19** | T0 under-delivery repaired in place; `Modular_PRD` v1.7 records it |
-| `G33a` | Open — **in progress** | First `Fn_Specs` written (`FN-GATES-01-05`). Remaining feature groups pending |
+| `G33a` | **Closed 2026-08-19** | All four feature groups specified: `FN-GATES-01-05`, `FN-PUBLICATION-09-10-13`, `FN-AUDIT-VISIBILITY-07-08`, `FN-EXCEPTIONS-06-11-12`. **`FR-01`–`FR-13` fully covered.** `G33b`'s filter is now unblocked |
 | `G33b` | Open — conditional | `SPECS` only where `Fn_Specs` cannot determine implementation (`D-30`) |
 | `G34`–`G36` | **Never assigned** | **Numbering skip, not missing gaps.** The series jumps `G33` → `G37` because new gaps were numbered alongside `D-34`/`D-35`/`D-36` while those were being written. **No gap was lost, closed, or deleted.** Recorded so a reader auditing the sequence does not hunt for three that never existed |
 | `G37` | **Withdrawn** | Two concepts sharing a name — see `D-38` |
