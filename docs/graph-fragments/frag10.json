@@ -1,0 +1,78 @@
+{
+  "_comment": "Fragment 10 — SPECS-TRANSITION-ENFORCEMENT drafted (D-53) and G57 found. Merged 2026-08-20.",
+  "nodes": [
+    {
+      "id": "specs_transition_enforcement_doc",
+      "label": "SPECS-TRANSITION-ENFORCEMENT (document)",
+      "file_type": "document",
+      "source_file": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md",
+      "source_location": "whole document",
+      "description": "The SPECS tier's first document and the only one required before S1. Settles three things behaviour cannot: trigger timing (two BEFORE UPDATE guards on articles inside one caller transaction), allowed-transitions table shape (a four-kind classification, not a pair list), and lock behaviour (SELECT FOR UPDATE on the article row only). Carries an explicit exclusion list so it does not restate S1 window decisions.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Authorized by D-52. Written to be implementable in the same pass that resolves its blocking dependencies rather than front-running them. The §2 exclusion list exists because specifying G16's column set here would make this the restatement layer D-30 forbids."
+    },
+    {
+      "id": "four_kind_transition_table",
+      "label": "Four-Kind Transition Classification",
+      "file_type": "concept",
+      "source_file": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md",
+      "source_location": "§3.1, §4",
+      "description": "A (from_state, to_state) pair table cannot express the gate set. T8 and T9 take any active state as source; T8a reads its target from the article's own revision_target_state; T10 changes no state; T11 is conditional on being the first live target. Resolved with four kinds — fixed, wildcard_source, dynamic_target, non_transition — and active defined once as a property rather than enumerated per rule.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Enumerating 'any active state' as nine rows per wildcard gate would go stale the moment a state is added — the G55 and G56 drift mechanism one tier down. The non_transition kind exists so T10's exemption is auditable: an undocumented exemption is indistinguishable from a bypass, which O-01 forbids."
+    },
+    {
+      "id": "append_only_versus_rollback",
+      "label": "Append-Only and Rollback Are Not in Conflict",
+      "file_type": "concept",
+      "source_file": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md",
+      "source_location": "§5.1",
+      "description": "Revoking DELETE stops a statement from removing a committed row; a transaction abort is not a statement. A refused transition therefore rolls back the transition row written moments earlier in the same transaction, leaving no orphan. Committing the transition row in its own transaction produces rows for state changes that never happened.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Guaranteed to fail: writing the transition row separately so the attempt is recorded even if refused. The audit record then asserts activity that did not occur — the same class of harm as G41, where absence was rendered as nothing happened. Refused attempts, if kept, belong in a separate table that is not the audit record."
+    },
+    {
+      "id": "g57_x3_backfill_unspecified",
+      "label": "G57 — X3 Backfill Mapping Named but Never Specified",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14n",
+      "description": "S1 is instructed to build article_state_v2 and backfill via the X3 mapping. X3 is a one-line divergence record, not a mapping; no old-to-new table exists in docs. The migration is eight values to ten including four renames, and 'reported' is genuinely ambiguous because 'logged' already claims Logged. Three target states have no source value at all.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Severity S1, not bookkeeping. senior_reviewed and chief_approved sit on opposite sides of the four-eyes boundary — T5 is Line 2, T6 is Line 1. A transposed backfill misattributes which articles crossed the Line boundary and writes that into an append-only table, where NFR-02 makes it permanent. The mapping must be specified as reviewed data before 0002 is written, not inferred inside the migration."
+    }
+  ],
+  "edges": [
+    { "source": "specs_transition_enforcement_doc", "target": "d52_g33b_resolved", "relation": "authorized_by", "confidence": "CURATED", "source_file": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md", "confidence_score": 1, "source_location": "header", "weight": 1 },
+    { "source": "specs_transition_enforcement_doc", "target": "specs_transition_enforcement", "relation": "realises", "confidence": "CURATED", "source_file": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md", "confidence_score": 1, "source_location": "header", "weight": 1 },
+    { "source": "specs_transition_enforcement_doc", "target": "fn_gates_01_05", "relation": "specifies_implementation_of", "confidence": "CURATED", "source_file": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md", "confidence_score": 1, "source_location": "§1", "weight": 1 },
+    { "source": "specs_transition_enforcement_doc", "target": "four_kind_transition_table", "relation": "defines", "confidence": "CURATED", "source_file": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md", "confidence_score": 1, "source_location": "§4", "weight": 1 },
+    { "source": "specs_transition_enforcement_doc", "target": "append_only_versus_rollback", "relation": "defines", "confidence": "CURATED", "source_file": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md", "confidence_score": 1, "source_location": "§5.1", "weight": 1 },
+    { "source": "specs_transition_enforcement_doc", "target": "mirroring_input_structure", "relation": "guards_against", "confidence": "CURATED", "source_file": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md", "confidence_score": 1, "source_location": "§2", "weight": 1 },
+    { "source": "four_kind_transition_table", "target": "summary_outlived_source", "relation": "guards_against", "confidence": "CURATED", "source_file": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md", "confidence_score": 1, "source_location": "§3.1", "weight": 1 },
+    { "source": "g57_x3_backfill_unspecified", "target": "specs_transition_enforcement_doc", "relation": "surfaced_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14n", "weight": 1 },
+    { "source": "g57_x3_backfill_unspecified", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14n", "weight": 1 },
+    { "source": "g57_x3_backfill_unspecified", "target": "v1_build_spec", "relation": "defect_in", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "S1", "weight": 1 },
+    { "source": "append_only_versus_rollback", "target": "psk10_immutable_audit_reporting", "relation": "clarifies", "confidence": "CURATED", "source_file": "docs/specs/SPECS-TRANSITION-ENFORCEMENT.md", "confidence_score": 1, "source_location": "§5.1", "weight": 1 }
+  ]
+}

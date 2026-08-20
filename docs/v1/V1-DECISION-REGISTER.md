@@ -180,6 +180,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G48` | **Resolved 2026-08-19** | A paid engagement failing the gate — deliver with the finding disclosed. §5.14j, §5.14k, `D-49`/`D-50` |
 | `G49` | **Open** — S3 | Briefcase artifacts specified for POC only; MVP needs them or it cannot tell rework from true negative. §5.14k |
 | `G56` | **Closed 2026-08-20** | §5.15 solve sequence stale — found and repaired in the same pass. See §5.4 |
+| `G57` | **Open — new** | The `X3` state backfill mapping is **named but never specified**. S1 is instructed to *"backfill via the `X3` mapping"*; `X3` is a one-line divergence record, not a mapping. §5.14n |
 | `G50` | **Closed 2026-08-20** | Distribution provenance — `D-51`, §5.4, `docs/graph-fragments/README.md` §2 |
 | `G51` | **Closed 2026-08-20** | Curated graph layer rescued to `docs/graph-fragments/` — 61 nodes, 142 edges. §5.4 |
 | `G52` | **Closed 2026-08-20** | Distribution-specific commands disclosed — `docs/graph-fragments/README.md` §3 |
@@ -1272,6 +1273,64 @@ The S1 window is described as holding **eight** decisions in three places. It ho
 
 Closes `G33b`. **Authorizes no `SPECS` document to be written** — this decision names which four exist and when each is due. Closes no Open Decision. No code, schema, or migration.
 
+## 5.14n `D-53` — `SPECS-TRANSITION-ENFORCEMENT` drafted; `G57` found while drafting it
+
+**Drafted 2026-08-20** at `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md`. The one `SPECS` document `D-52` identified as required before S1. **Planning only — no migration authorized.**
+
+### What the document settles
+
+| Component | Resolution |
+|---|---|
+| **Trigger timing** | Two `BEFORE UPDATE` guards on `articles` — sequence validity and record precedence — inside **one** caller transaction |
+| **Allowed-transitions table shape** | A **four-kind classification**, not a pair list: `fixed` · `wildcard_source` · `dynamic_target` · `non_transition` |
+| **Lock behaviour** | `SELECT … FOR UPDATE` on the article row before reading current state. Article row only — never the transitions table |
+
+### Why a `(from_state, to_state)` pair table is insufficient
+
+**The finding that justified writing this document at all.** Four of the eleven gates do not fit a pair table:
+
+- **T8 and T9 take *"any active state"* as their source.** Enumerating that as nine rows each would go stale the moment a state is added — **the `G55`/`G56` drift mechanism, one tier down.** `active` is therefore defined **once, as a property**.
+- **T8a's target is read from the article's own `revision_target_state`** — not knowable from the rule alone.
+- **T10 changes no state.** Forcing it through a state-change guard means inventing a self-transition or granting an exemption — and **an undocumented exemption is indistinguishable from a bypass** (`O-01`).
+- **T11 is conditional** on whether the target is the first live one.
+
+### Append-only and rollback are not in conflict
+
+Revoking `DELETE` stops a **statement** from removing a committed row. A transaction **abort** is not a statement. So a refused transition rolls back the transition row written moments earlier in the same transaction, and **no orphan survives**.
+
+> **Guaranteed to fail:** committing the transition row in its own transaction *"so the attempt is recorded even if refused."* The append-only table then accumulates rows for state changes **that never happened**, and the audit record asserts activity that did not occur — the same class of harm as `G41`, where absence was rendered as *"nothing happened."*
+>
+> **How to avoid it:** one transaction, always. Refused attempts, if they must be kept, belong in a **separate table that is not the audit record.**
+
+### `G57` — the `X3` backfill mapping is named but never specified *(new)*
+
+**Verified absent.** `V1-BUILD-SPEC` and the sprint plan both instruct S1 to build `article_state_v2` and *"backfill via the `X3` mapping."* `X3` is a **one-line divergence record** — *"repo state machine omits Discovered/Validated/Needs Revision and collapses Addendum T2/T3"* — **not a mapping.** No old→new table exists anywhere in `docs/`.
+
+**The migration is eight values to ten, including four renames:**
+
+| `0001` value | Addendum §4.1 target | Confidence |
+|---|---|---|
+| `logged` | Logged | Clear |
+| `reported` | **Validated?** | **Ambiguous** — `logged` already takes Logged, and `X3` says T2/T3 are collapsed |
+| `investigated` | Investigated | Clear |
+| `journaled` | Drafted | Clear — Journalist executes T4 |
+| `senior_reviewed` | Reviewed | Clear — **Line 2** |
+| `chief_approved` | Approved | Clear — **Line 1** |
+| `published` | Published | Clear |
+| `rejected` | Rejected | Clear |
+
+**Three new states have no source value at all:** Discovered, Validated, Needs Revision.
+
+**Why this is severity S1 and not bookkeeping.** `senior_reviewed` and `chief_approved` sit on **opposite sides of the four-eyes boundary** — T5 is Line 2, T6 is Line 1. A backfill that transposes them **misattributes which articles crossed the Line boundary**, and it writes that misattribution into an **append-only** table. `NFR-02` then makes it permanent.
+
+**What is guaranteed to fail:** letting the migration author infer the mapping at write time. `reported` is genuinely ambiguous, and the ambiguity is invisible unless someone compares both enums side by side.
+
+**How to avoid it:** specify the eight-row mapping **as data, reviewed before `0002` is written** — an S1 window item alongside `G16`, not a decision made inside the migration.
+
+### Scope limits
+
+Authorizes no code, schema, migration, or deployment. Names no field — `Q11` is open and **irreversible after S1**. `G57` is recorded, **not resolved**.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
@@ -1304,7 +1363,7 @@ Ordered by dependency. **Fixes are drafted here so execution does not re-derive 
 | Infrastructure ⚙, not product `SPECS` | **1** |
 | Blocked by `Q2` | **1** |
 
-**Only `SPECS-TRANSITION-ENFORCEMENT` is needed before S1.** The other three — `SPECS-BOARD-QUERY` (S3), `SPECS-PUBLICATION` (S4), `SPECS-EXCEPTIONS` (S5) — are sprint-aligned and not yet reachable.
+**Only `SPECS-TRANSITION-ENFORCEMENT` is needed before S1** — **drafted 2026-08-20**, `D-53` §5.14n. The other three — `SPECS-BOARD-QUERY` (S3), `SPECS-PUBLICATION` (S4), `SPECS-EXCEPTIONS` (S5) — are sprint-aligned and not yet reachable.
 
 > The *"expect a small answer"* hypothesis held, **but not for the reason stated.** `FN-GATES-01-05` §9 claimed all five of its candidates absorb into the S1 window; four do. The fifth — the **sequence-enforcement trigger** — is the entire pre-S1 workload. Accepting the claim as written would have concluded *"no `SPECS` needed"* and left **the gate sequence, the core invariant of the product, unspecified going into S1.**
 
@@ -1329,6 +1388,7 @@ All alter the same append-only table.
 | `G20` | Risk-tier dimension on articles |
 | `G42` | **Newly surfaced here.** Template-to-field-availability binding — the binding lives on the report record, which S1 creates |
 | `GA1`, `GA3`, `GA4` | Report record shape — identity, as-at, tenant, template and rule-set versions, frozen snapshot |
+| `G57` | **Newly surfaced 2026-08-20.** The `X3` eight-row state backfill mapping, specified as data before `0002` is written |
 | `GA9` | `on delete restrict` replaces `on delete cascade` |
 
 > `G42` was absent from the prior revision of this section. It is **S1, not S3** — scoping S1 without it repeats `G41`'s mechanism one tier down.
@@ -1395,7 +1455,9 @@ The functional layer is substantially covered: `Modular_PRD.md` §5–§7 carrie
 
 **There is no technical specification.** Field names, types, constraints, indexes, trigger logic, and API contracts have been deferred to a "Technical Requirements pass" at every point they arose — across the tenancy boundary, the notice-as-article model, the risk tier, the intent vocabulary, the report record, and the publication transaction record. That pass has never been scheduled or owned.
 
-**It is the gating artifact for S1.** The S1 window holds **nine** decisions that all resolve into schema; without a technical spec they resolve into a migration written directly from prose. *(Count corrected 2026-08-20 — `G42` joined the window in Step 0. `D-52` names the one `SPECS` document S1 requires.)*
+**It is the gating artifact for S1.** The S1 window holds decisions that all resolve into schema; without a technical spec they resolve into a migration written directly from prose.
+
+> **The count is deliberately not restated here.** It was corrected from eight to nine on 2026-08-20, then `G57` joined the same day. **Read the window from §5.15 Stage 4, which is the record** — a count in prose is the drift mechanism (`G55`, `G56`).
 
 ### `G11` escalated — three agents, not two
 
