@@ -189,6 +189,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `X7` | **Open** — S2 → S6 | Demo-first plus permissive RLS versus executor attributability. `D5`. **Mitigated at S2, closes at S6** — the same `TC1` surface `AC-12` sits on |
 | `X8` | **Open** — S0 | Stripe scaffolding versus the Charter-level *"no monetization features"*. `D5`. **Closes on S0** |
 | `G61` | **Closed 2026-08-20** | `D-63` §5.14x — **all eight** `X`-rows backfilled above. *(Corrected: the gap statement said **five**; `X1`, `X2`, and `X6` exist too. Five was the `D5`-family **open** subset, not the series.)* |
+| `G62` | **Open — new** | **The CI gates `R3` specifies do not pass.** `typecheck` exits 2 with 10 implicit-`any` errors in `lib/supabase/`; `lint` exits 1 — `next lint` is deprecated, **interactive**, and no ESLint config exists. **Blocks `R3` DoD D-4.** §5.14z |
+| `G63` | **Open — new** | An **untracked** `.gitattributes` sets `*.md text eol=lf merge=union`. **Union merge concatenates conflicting markdown instead of failing** — in a three-agent repo that silently duplicates index rows, the exact `G39` defect. Cuts against `D-58`. Found incidentally |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -1981,6 +1983,93 @@ $env:APPDATA\npm\node_modules\bun\bin\bun.exe
 ### Scope limits
 
 Closes `G59`. Creates exactly one tracked file. **No test runner, no CI, no `0002`.** The build guardrail was lifted for this item only and **remains in force for everything else.**
+
+## 5.14z `D-65` — the `R3`+`C-14`+`0002` bundle is rejected; `G62` found
+
+**Analysis, 2026-08-21.** The three remaining items were described as *"a single decision, blocked on the same guardrail."* **They are not one decision, and two of the three are blocked on things the guardrail has nothing to do with.**
+
+### Challenge 1 — `0002` does not belong in this bundle
+
+| Ground | Detail |
+|---|---|
+| **Blocked on `Q11`** | `Q11` (field naming) is **open** — one of sixteen Chief Editor decisions outstanding. `X5` says plainly: **do not write `judgment_independence_status` until `Q11` is confirmed** |
+| **The block is irreversible** | `NFR-02` makes `workflow_transitions` append-only. **A guessed field name ships permanently.** The alternative — omit the independence field — leaves four-eyes unevaluable, which is the exact defect `X5` exists to fix |
+| **Different risk class** | `R3` and `C-14` are reversible tooling: delete a workflow file and the repository is unchanged. `0002` is **a one-way migration against a live provisioned database carrying seed data** |
+
+**Bundling them makes the riskiest item inherit the cadence of the safest.** `0002` is gated on the S1 window and `Q11`, **not on the build guardrail** — lifting the guardrail would not unblock it.
+
+### Challenge 2 — `R3`'s DoD **D-4** is unachievable today, and I specified it without checking
+
+**Both CI gates `SPECS-VERIFICATION-APPARATUS` §4 names fail on the current commit.** Verified 2026-08-21:
+
+| Gate | Result |
+|---|---|
+| `bun run typecheck` | **exit 2 — 10 errors** in `lib/supabase/middleware.ts` and `lib/supabase/server.ts`. TS7006 ×2, TS7031 ×8 — all implicit `any` on Supabase cookie handlers |
+| `bun run lint` | **exit 1.** `next lint` is deprecated **and interactive** — it opens a *"How would you like to configure ESLint?"* wizard. **No ESLint config exists in the repository at all** |
+
+**The lint failure is the worse of the two.** An interactive prompt in CI does not fail cleanly — **it hangs until the job times out**, which reads as an infrastructure fault rather than a code defect.
+
+> **My error, and it is the house error.** `SPECS-VERIFICATION-APPARATUS` §4 lists `bun run typecheck` and `bun run lint` as CI steps. **I took the script names from `package.json` and never ran them** — specified against a summary rather than against the thing summarised. Same mechanism as `G55`, `G56`, `D-51`'s nine-commands, and `G61`'s five-rows. **Fourth instance, first one where the summary was a config file rather than a document.**
+
+### What `TC6` turns out to be hiding
+
+`next.config.ts` sets `ignoreBuildErrors: true`. That was recorded as a **risk**. It is not a risk — **it is an active concealment with measurable content: ten real type errors that the build has been instructed not to report.**
+
+This strengthens the case for explicit CI gates and simultaneously **gives them a prerequisite nobody had scoped.**
+
+### Challenge 3 — `R3` → `C-14` is a sequence, not a pair
+
+`C-14`'s four checks are scripts **CI would run**, so CI must exist first. And DoD **D-5** — *demonstrate a broken type turns CI red* — cannot precede **D-3** and **D-4**. Writing them as *"`R3` + `C-14`"* understates a hard dependency.
+
+### `G62` — the CI gates do not pass *(new)*
+
+**Two remediations, neither previously scoped:**
+
+| Part | Work | Size |
+|---|---|---|
+| **a** | Fix 10 implicit-`any` errors across two `lib/supabase/` files | Bounded — annotate callback parameters |
+| **b** | **Decide the lint story.** Migrate to the ESLint CLI (`@next/codemod next-lint-to-eslint-cli`), or drop lint from CI and record why | **A decision, not a fix** |
+
+**Part b is genuinely open.** `next lint` is deprecated and removed in Next.js 16, so *"keep it as is"* is not a durable option. **Recorded, not decided.**
+
+> Note the code is **scaffolding, not project-authored** — all ten errors sit in Supabase client boilerplate. That makes the fix low-risk, and it makes the concealment worse: **the errors have been there since scaffolding and nothing has ever reported them.**
+
+### The revised sequence
+
+| Stage | Work | Gated on |
+|---|---|---|
+| **A** | `G62`a fix types · `G62`b decide lint | **Nothing** — but the guardrail covers the fix |
+| **B** | `R3` install — D-1 … D-5 | **Stage A.** D-4 is unachievable before it |
+| **C** | `C-14` detection checks | **Stage B** — they run in CI |
+| **D** | `0002` | `Q11` **and** the S1 window. **Not the guardrail** |
+
+**Stage D is not waiting on permission. It is waiting on a decision only the Chief Editor can make.**
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 | `SPECS-VERIFICATION` |
+|---|---|---|---|---|---|
+| `D-65` / `G62` | ✅ | ✅ `R3` prerequisite | — *no artifact* | ✅ | ✅ §4 corrected |
+
+### Scope limits
+
+**Analysis only. Nothing fixed, nothing installed, no file created.** `G62` is recorded, **not resolved**; part b is a decision, not a task. Rejects a **sequencing proposal**, not any of the three items.
+
+## 5.14aa `G63` — `merge=union` on markdown, found incidentally
+
+**2026-08-21, outside the asked scope.** An **untracked** `.gitattributes` is present. It usefully sets `*.lockb binary`. It also sets:
+
+```
+*.md text eol=lf merge=union
+```
+
+**`merge=union` resolves a conflict by keeping *both* sides.** For prose that is merely untidy. **For this register it is corrupting:** a conflicting edit to §5.1 would produce **duplicate rows rather than a conflict** — precisely the `G39` defect that carried both *Closed* and *Open* for one ID until a duplicate scan caught it.
+
+**It cuts directly against `D-58`.** That decision rests on the finding that conflicts here surface as **silent overwrites** because three agents edit sequentially under one identity. `merge=union` adds a second silent failure mode — **silent concatenation** — and unlike an overwrite it leaves no losing version to recover.
+
+**Mitigating facts, stated so this is not overstated:** the file is **untracked**, so it affects only this working copy and no clone; and with **zero merge commits** in the repository history, no merge has ever run. **The exposure is latent, not active.**
+
+**Recorded, not resolved.** Two questions belong to the repository owner: whether `.gitattributes` should be tracked at all, and whether `merge=union` should be dropped for `*.md`. **Neither is mine to decide, and neither was in scope.**
 
 ## 5.15 Solve sequence — remaining open gaps
 

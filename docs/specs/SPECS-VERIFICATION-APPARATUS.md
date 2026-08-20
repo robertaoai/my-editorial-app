@@ -75,9 +75,11 @@ Different provenance, so **no contradiction with `D-52`.** `D-52`'s four remain 
 | Checkout | — | — |
 | Setup bun | pinned to **`1.1.30`** | Match `packageManager` exactly |
 | Install | `bun install` | See `G59` below |
-| **Typecheck** | `bun run typecheck` | **`tsc --noEmit`, already in `package.json`** |
-| **Lint** | `bun run lint` | — |
+| **Typecheck** | `bun run typecheck` | `tsc --noEmit`. **⚠ Fails today — `G62`a** |
+| **Lint** | *(undecided)* | **⚠ `G62`b.** `next lint` is deprecated and **interactive**; no ESLint config exists |
 | Test | `bun test` | SC-1 |
+
+> **Corrected 2026-08-21 (`D-65`) — `[V1]`.** This section listed both commands as if they worked. **Neither does.** The script names were taken from `package.json` and never executed — specified against a summary rather than the thing. `G62` carries the remediation, and **DoD D-4 is unachievable until it closes.**
 
 ### 4.1 `TC6` — why typecheck and lint must be explicit CI steps `[V1]`
 
@@ -91,6 +93,8 @@ eslint: { ignoreDuringBuilds: true },
 **A CI job that only runs `next build` would pass with broken types and lint errors**, because the build has been told to ignore both. Green CI would then mean *"the bundler completed,"* not *"the code is sound."*
 
 **Disposition — `TC6` is not resolved by this document.** The flags stay as they are; changing deployment behaviour is out of scope here. **CI compensates by running the gates itself**, so verification is restored without touching deploy.
+
+> **`TC6` is not a hypothetical risk — it is an active concealment, and it now has a number.** `ignoreBuildErrors: true` has been hiding **ten real type errors** since scaffolding, in `lib/supabase/middleware.ts` and `lib/supabase/server.ts`. Nothing has ever reported them (`G62`).
 
 > **Guaranteed to fail:** adding CI that runs only `next build`, then reporting `R3` complete. The apparatus exists, reports green, and checks nothing — **worse than no CI**, because sprint DoDs would then cite a verdict that is structurally incapable of failing.
 >
