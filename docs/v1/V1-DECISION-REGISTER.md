@@ -191,6 +191,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G61` | **Closed 2026-08-20** | `D-63` §5.14x — **all eight** `X`-rows backfilled above. *(Corrected: the gap statement said **five**; `X1`, `X2`, and `X6` exist too. Five was the `D5`-family **open** subset, not the series.)* |
 | `G62` | **Part a closed 2026-08-21; part b decided, not applied** | **Opened because the CI gates `R3` specifies did not pass** — `typecheck` exited 2 with 10 implicit-`any` errors in `lib/supabase/`, and `lint` exited 1 because `next lint` is deprecated, **interactive**, and no ESLint config exists. §5.14z. **Today: typecheck passes; lint still cannot run.** **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings**. **a closed by `D-67`** — `satisfies CookieMethodsServer` in two files, 4 lines; `tsc --noEmit` **exits 0**. The ten errors were **two overload-resolution causes**, not ten defects. **D-4 now blocked solely on creating `eslint.config.mjs`** |
 | `G63` | **Open — new** | An **untracked** `.gitattributes` sets `*.md text eol=lf merge=union`. **Union merge concatenates conflicting markdown instead of failing** — in a three-agent repo that silently duplicates index rows, the exact `G39` defect. Cuts against `D-58`. Found incidentally |
+| `G64` | **Open — new** | **`FR-05`'s three independence states cannot be stored in a boolean without read-time inference.** `AC-07` drafts `line_boundary_crossed` as a boolean; `G-02` needs **two distinct false-states** *(no separation, versus a logged override)*; recovering the second requires reading `event_type` alongside it. `NFR-03` forbids inference at read — a **second** conflict its `Q11` row never recorded, alongside the null clause it does. **Must resolve before the `0002` draft is written** (`G27`, S0), not merely before S1 applies it. §5.14ad |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2043,7 +2044,7 @@ This strengthens the case for explicit CI gates and simultaneously **gives them 
 | **C** | `C-14` detection checks | **Stage B** — they run in CI |
 | **D** | `0002` | `Q11` **and** the S1 window. **Not the guardrail** |
 
-**Stage D is not waiting on permission. It is waiting on a decision only the Chief Editor can make.**
+**Stage D is not waiting on permission. It is waiting on a decision only the Chief Editor can make.** *(Answered 2026-08-21 by `D-68`: `Q11` is **deferred past S1**. Stage D is now gated on `Q10` and the S1 window, and on `G64` before the `0002` draft is written.)*
 
 ### Tier applicability (`D-54`)
 
@@ -2224,6 +2225,78 @@ Chosen over annotating the `cookiesToSet` parameter — both typecheck clean —
 ### Scope limits
 
 Closes `G62`a only. Creates no file, installs nothing, changes no script, alters no behaviour. `G62`b, `Q6` and `R3` installation all remain open. **The build guardrail is reinstated.**
+
+## 5.14ad `D-68` — `Q11` deferred past S1; the deferral is not neutral, and `G64` is opened
+
+**Chief Editor decision, 2026-08-21.** `Q11` *(field naming for the independence mechanism)* is **deferred past S1**. Recorded as decided. `Q11` stays **Open** — a deferral is a scheduling choice, not a closure, and the Chief Editor decision count is unchanged.
+
+### Deferral does not leave the field undecided
+
+This is the finding that matters, and it was not previously recorded anywhere.
+
+The sprint plan's **S1 migration line already names the fallback**: *"Pending confirmation, write `line_boundary_crossed` + `identity_assurance` instead (`A21`)."* That line is the **instrument an executor actually reads.**
+
+**So deferring `Q11` does not defer the field — it selects the boolean shape by default, with no decision recorded against it.** The sprint plan's own standing constraint (§11) exists for exactly this: *a finding is not routed until it appears in an instrument that is executed against.* Here the reverse holds — **an unrouted decision is being executed by default.**
+
+### The shape that gets selected by default carries a defect
+
+`Q11`'s row concedes **one** conflict with `NFR-03` — it forbids the null `judgment_independence` the rename reserves, so it *"needs its own rewrite, not a passthrough."*
+
+`NFR-03` reads *"never null, **never inferred at read**."* **The second clause is violated too, and nothing records it:**
+
+| Source | What it requires |
+|---|---|
+| `FR-05` behaviour | **Three** states — `satisfied` (L1↔L2 crossed), `not_applicable` (within a Line), `override_not_four_eyes` (outside the target Line) |
+| `AC-07`, already drafted in the new vocabulary | `line_boundary_crossed = true` — **a boolean** |
+| `G-02` metric | *"T5/T6 crossings without Line separation, **excluding logged overrides**"* — needs **two distinct false-states** |
+
+**A boolean has one false-state.** Recovering `override_not_four_eyes` means reading `event_type = HumanOverride` alongside it — **inference at read**, which `NFR-03` forbids and which `G-02` would depend on. Three states cannot be stored in a boolean and then honestly reported as not-inferred.
+
+**Carried forward as `G64`**, so the deferral does not also defer the finding.
+
+### What the deferral actually costs today: nothing in schedule terms
+
+`G16` couples `Q10` and `Q11` as **one migration**. `Q10` *(tool versus product — whether S1 needs a tenancy column)* is **independently open**.
+
+| | Before this decision | After |
+|---|---|---|
+| `0002` blocked on | `Q10` **and** `Q11` | `Q10` |
+
+**`0002` was already blocked by `Q10` alone, so deferring `Q11` delays nothing.** Recorded because the cost of this deferral is easy to overstate — and because it means the reopened window is real, not theoretical.
+
+### The window closes at an event, not a date
+
+`supabase/migrations/` contains **only `0001_init.sql`**. `0002` is unwritten, and `G27` holds its draft outside the apply path at `docs/v1/drafts/` until the S1 window settles.
+
+**Irreversibility begins when the draft is written, not when S1 opens** — that is the first moment a field name is committed to text an executor will apply. `G64` must therefore resolve **before the S0 draft**, which is earlier than `Q11`'s own row implies.
+
+### Verified, not assumed
+
+| Claim | Evidence |
+|---|---|
+| Four-eyes is unevaluable today | `workflow_transitions` has **9 columns** — no `line_assignment`, no independence field, no `actor_id`, no `event_type`. Confirms `X5` |
+| `identity_assurance` is load-bearing, not scope creep | v1 is **demo-first with no login wall**, and `TC1` has the anon key public — so **every v1 actor identity is self-asserted.** `NFR-02` makes the table append-only, so pre-auth rows can never be re-marked; inferring them by timestamp would be inference-at-read again |
+| The rename is already half-applied | `AC-07` and `AC-08` **already carry the new vocabulary**, marked `[Q11]` pending. This is smaller than a fresh rename |
+| `0002` is unwritten | `supabase/migrations/` lists `0001_init.sql` only |
+
+### On the name, if `G64` is later resolved toward an enum
+
+Not decided here, recorded so the work is not redone: `G-02` already uses the phrase *"without **Line separation**."* If the field holds three states, `line_boundary_crossed` is a boolean's name carrying an enum, and `not_applicable` reads as nonsense against *"crossed."* **`line_separation` is the vocabulary these documents already use.**
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8/§10 | Sprint plan |
+|---|---|---|---|---|---|
+| `D-68` / `Q11` deferred | ✅ | ✅ Stage D | **— unaffected** | ✅ | ✅ S1 migration line |
+| `G64` opened | ✅ §5.1 | ✅ | **— unaffected** | ✅ | ✅ |
+
+**Inventory is unaffected and that is stated, not blank.** No artifact is created, retired or resequenced; `0002` keeps its existing **S0 draft, S1 apply** row.
+
+**The sprint plan is propagated to despite being non-authoritative under `D5`**, because its S1 migration line is where the default fallback is instructed. A warning that does not reach the executed instrument is the defect its own §11 names.
+
+### Scope limits
+
+Records a deferral and opens `G64`. **Decides no field name, no field shape, and no enum values.** Closes nothing: `Q11`, `Q10`, `G16`, `X5` and `X4` all remain open. Authorizes no migration, no schema, no code. `0001_init.sql` untouched.
 
 ## 5.15 Solve sequence — remaining open gaps
 

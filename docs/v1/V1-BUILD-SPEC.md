@@ -136,6 +136,8 @@ Deferring this behind S0/S1 would stall commercial evidence for no technical rea
 
 | Sprint | Artifacts that must exist |
 |---|---|
+**`Q11` deferred past S1 (`D-68`), and the deferral is not neutral.** The sprint plan's S1 migration line already instructs the `line_boundary_crossed` fallback, so deferring selects the boolean shape by default. **`G64`** records why that shape is not safe: `FR-05` has three independence states, `G-02` needs two distinct false-states, and a boolean recovers the second only by reading `event_type` alongside it — inference at read, which `NFR-03` forbids. **`G64` must resolve before the `0002` draft is written (`G27`, S0)**, not merely before S1 applies it. `0002` remains blocked by `Q10` regardless (`G16`), so the deferral costs no schedule time.
+
 | **S0** | `lib/config/build-config.ts` · `lib/config/flags.ts` · `docs/DECISION_LOG.md` · `docs/CONFIG_LOG.md` · draft `0002` **held outside** `supabase/migrations/` (`D-17`) · Stripe scaffolding **removed** |
 | **T1 / S0** | Test runner · `__tests__/` with one passing test · `.github/workflows/` CI *(`R3` — currently absent, and the precondition for every DoD below)* |
 | **S1** | `supabase/migrations/0002_*.sql` **applied** · `publication_targets` and `publications` tables exist · `allowed_transitions` exists |
