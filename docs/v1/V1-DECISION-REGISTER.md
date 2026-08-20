@@ -659,6 +659,66 @@ Both are *"data you expected is not here."* One surface, one explanation format,
 
 > **Recorded as a suggestion, not a decision.** The optional-versus-required split requires someone to classify each template field, which is `PSK-09` judgment-rule territory and has no owner assigned yet.
 
+## 5.14c `D-42` — why reports exist; three regimes; two data classes
+
+**Chief Editor clarification, 2026-08-19.** Supplies a rationale the document set never held, and corrects `G40`.
+
+### `PSK-09` and `PSK-10` are linked global Project Scope
+
+`PSK-09` (house SOP and judgment-rule governance) and `PSK-10` (immutable audit reporting) are **both global Project Scope** — baseline obligations with no CR, in the `PSK-07`–`PSK-10` shape. They are **linked**: `PSK-09` governs the rules a report applies; `PSK-10` governs the report that records their application.
+
+**Ownership defaults to the project**, not to a named individual. A prior note treating *"`PSK-09` has no owner"* as a blocker conflated **scope classification** with **task assignment** — a global scope item is owned by the business by default, which is what makes it global.
+
+### Why reports exist — the rationale, recorded for the first time
+
+**Verified absent from the entire document set.** `PSK-10` states *what* a report is; nothing stated *why*.
+
+> **Reports exist for auditability of GRC on retraction** — change or retract, and the corresponding notifications. Their purpose is to **prove this project complied with GRC on time**, evidenced by a dump of the auditable logs. That evidence is in turn **limited by the retention policy**.
+
+This is the missing anchor for `PSK-10`, `G41`, and `G42`: every one of them serves *"can we prove we complied, and when?"*
+
+### Three regimes, pulling in different directions
+
+| Regime | Applies to | Direction |
+|---|---|---|
+| **PDPA** | Personal data only | **Minimise** — retain no longer than needed |
+| **Retention act** (IRAS/ACRA) | Accounting and audit records | **Preserve** — 5-year floor |
+| **GRC compliance** | Retraction evidence and its timeliness | **Preserve, plus a clock** |
+
+`GRC on retraction` is a **third policy**, tracked separately. It was not previously distinguished from statutory retention.
+
+### Two data classes — and this narrows the counsel question sharply
+
+| Class | Where | Personal data | Governed by |
+|---|---|---|---|
+| **Client data** — identity, contact, payment, commissioned brief | **P0-EVR only** | **Yes** | PDPA **and** statutory |
+| **Editorial flow** — trigger request, articles, transitions | **Both lanes** | **No** | Statutory **and** GRC |
+
+**The trigger request carries no personal data**, so it defaults to the MVP data flow. Only POC client data needs a **shorter lifecycle**.
+
+> **This materially narrows `GA5`/`G15`.** The retention-versus-erasure conflict escalated to counsel was framed as a whole-system problem. It is not: **PDPA bites only on POC client personal data.** Editorial data has no personal data, so PDPA does not apply and the statutory floor governs cleanly with no conflict at all. The counsel question shrinks to one narrow class rather than the entire record set.
+
+### Corrections and a new gap
+
+**`G40` corrected.** It said bind `NFR-08` to *"the retention window"* — **singular**. There is no single window. `NFR-08` binds to **the retention window for that data class**.
+
+| # | Gap | Severity |
+|---|---|---|
+| **`G43`** | **No GRC compliance clock or proof requirement.** `US-13`/`FR-13` says a binding order forces retraction *"immediately"*, but nothing defines the timeliness expectation, when the clock starts, or what evidences that it was met. If reports exist to prove timely compliance, **the thing being proved is unspecified** | **DOC → S5** |
+
+### Suggested approach — classify at intake, not at disposal
+
+Rather than one retention policy, a **data-class × regime matrix**. Each class declares which regimes apply, which constraint binds, and the resulting lifecycle.
+
+**The design property that matters: classify when data arrives, not when it is disposed of.**
+
+- Classified **at intake** → retention is deterministic, and every record carries its own class from birth
+- Classified **at disposal** → you are inferring retroactively what a record was, years later, under exactly the conditions where getting it wrong is unrecoverable
+
+**Classification is cheap at intake and expensive at disposal** — the same asymmetry as the tenancy column, and for the same reason: `workflow_transitions` is append-only.
+
+> **Recorded as a suggestion.** The class boundaries are stated above; the binding constraint where PDPA and statutory retention conflict for POC client data remains **counsel territory** (`GA5`/`G15`, `Q7`), now scoped to that one class.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
