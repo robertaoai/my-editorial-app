@@ -951,6 +951,55 @@ At intake, record in **this product's** editorial flow:
 
 > **Deferred, not decided.** These are POC-flow fields and belong with that workflow's draft. Recorded now so the deletion schedule is designed **around** them rather than discovering afterwards that closure evidence went with the personal data.
 
+## 5.14h `D-47` — the fork is at publish; MVP first, then POC
+
+**Chief Editor direction, 2026-08-19.** Locates the lane divergence precisely and sets the build order.
+
+### `APD-03` closure-evidence risk → backlog
+
+The dependency on a third-party system for commercial evidence is **backlogged as Project Scope**. **The customer did not request it, and the financial system is beyond this product's scope** (`D-44`). Recorded as a known, accepted, deferred risk rather than an open gap.
+
+### The trigger record serves both lanes
+
+The trigger already carries the required starting point for **both** flows — `FR-01`'s intake: source URL, subject topic, trend signal.
+
+**Where POC later needs fields MVP does not**, those fields become an **enhanced newsworthiness input** for MVP rather than a second intake path. A client-supplied brief carries context — why it matters, to whom, what prompted it — that `CR-06` newsworthiness assessment could use directly.
+
+> **Backlog, together with the POC flow.** Worth noting the direction it points: `CR-06` is *partially covered* and `CR-14` is *uncovered* (`FB-05`) — the two open Product Scope gaps. POC-supplied context is a plausible input to both, which makes this a backlog item with a real payoff rather than a nicety.
+
+### The fork point — located, and it is one place
+
+**Verified against the storyboard**, which places the split at **Panel B7**, *after* the Publish disposition, with `B1` (commission) and `B2` (manual pre-intake) **outside the system boundary**.
+
+| Phase | MVP | POC |
+|---|---|---|
+| Pre-intake | Research-discovered | Client-commissioned — **outside the system** |
+| **T1–T6 gates** | **Identical** | **Identical** |
+| Publish disposition | Article created | **Article created** |
+| **External publication** | **Publishes** to WordPress / LinkedIn-ready | **Withholds.** Delivers public explainable content and reports |
+
+**Within the system, the only fork is at the publish and delivery phase.** Everything before it is built once.
+
+This does not contradict `D-05` — *"one editorial engine, two exposures, the pipeline is never forked"* — it **locates** the exposure difference, which `D-05` asserted without placing.
+
+### Build order
+
+**MVP base first, then POC.** Once the critical gaps close on the MVP flow, **the MVP flow services the POC flow**, because the only difference is the delivery path.
+
+**The concrete consequence — a checkable prediction:** `FN-PUBLICATION-09-10-13` is the **only** `Fn_Specs` that will need extending for POC. The gates, audit, and exceptions specs are lane-agnostic and should require no change.
+
+> **If POC work later forces a change to any spec other than the publication one, the fork has moved** — and that is the signal to stop and re-examine, not to accommodate it. It would mean the divergence is not where this decision places it.
+
+### Sequencing effect
+
+| Item | Status |
+|---|---|
+| MVP critical gaps | **Current focus** |
+| POC delivery path | After MVP base |
+| POC payment workflow | Deferred (`D-46`) |
+| POC-specific newsworthiness fields | Backlog, with POC flow |
+| `APD-03` closure-evidence dependency | Backlog, Project Scope |
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
