@@ -1,0 +1,147 @@
+{
+ "_comment": "Fragment 16 — D-59, G10 closed. One origin, two paths. C-15. Merged 2026-08-20.",
+ "nodes": [
+  {
+   "id": "d59_one_origin_two_paths",
+   "label": "D-59 — One Origin, Two Paths",
+   "file_type": "concept",
+   "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+   "source_location": "§5.14t D-59",
+   "description": "Closes G10 and QC. The two lanes are separated by path on a single origin rather than by domain: editorial for the five-gate editorial anchor, request-brief for the professional evidence review POC. The apex domain stays UNSET, since no literal domain is recorded anywhere in the corpus and house practice is not to invent an undecided value.",
+   "community": 30,
+   "community_name": "Tooling Provenance and Graph Durability",
+   "source_url": null,
+   "captured_at": null,
+   "author": null,
+   "contributor": null,
+   "rationale": "Chief Editor correction to a drafted recommendation of separate apex domains: that is a hosting decision, and this is one repo and one project. Separate apexes would need a second deployment target or domain-level routing, infrastructure work with no payoff at this stage. Paths cost nothing and are reversible."
+  },
+  {
+   "id": "seniority_question_dissolved",
+   "label": "Neither Lane Holds the Root",
+   "file_type": "concept",
+   "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+   "source_location": "§5.14t",
+   "description": "QC framed the tension as public root for POC inverting project seniority. Assigning the root to neither lane dissolves the question rather than answering it — with no root held by either, neither is subordinate.",
+   "community": 30,
+   "community_name": "Tooling Provenance and Graph Durability",
+   "source_url": null,
+   "captured_at": null,
+   "author": null,
+   "contributor": null,
+   "rationale": "The same class of dissolution as the seven naming-difference findings already on record: the conflict lived in the framing rather than in the structure. QC asked only that the arrangement be conscious rather than inherited, and a path split satisfies that without ranking the lanes."
+  },
+  {
+   "id": "c15_promote_to_distinct_origins",
+   "label": "C-15 — Promote to Distinct Origins",
+   "file_type": "concept",
+   "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+   "source_location": "§5.14t C-15",
+   "description": "One origin means one browser security context: editorial and request-brief share cookies, session storage and local storage, so the browser cannot enforce separation between the lanes. Acceptable while v1 is demo-first with seed data and no login wall. Not acceptable once POC carries real client data, since each paying customer is its own tenant under D-01 and POC holds personal data under PDPA. Fires on first real client data, not on a date.",
+   "community": 29,
+   "community_name": "Data Lifecycle and Compliance",
+   "source_url": null,
+   "captured_at": null,
+   "author": null,
+   "contributor": null,
+   "rationale": "Guaranteed to fail: treating the promotion as cosmetic and shipping POC onto the shared origin with client data. Tenant isolation would then rest on application-layer session handling on an origin the editorial lane also occupies — the same shape as TC1, where the layer being trusted has no more authority than a browser. Route names were chosen so the promotion is mechanical."
+  },
+  {
+   "id": "psk06_carried_by_pages_not_domain",
+   "label": "PSK-06 Now Rests on the Pages, Not the Address Bar",
+   "file_type": "concept",
+   "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+   "source_location": "§5.14t",
+   "description": "PSK-06 is editorial-commercial separation and restricted solicitation. A domain split would have signalled it visibly; adjacent paths on one origin do not. The separation must therefore be carried by the pages: the editorial lane does not solicit, and the paid lane does not present editorial judgment as a purchasable deliverable.",
+   "community": 30,
+   "community_name": "Tooling Provenance and Graph Durability",
+   "source_url": null,
+   "captured_at": null,
+   "author": null,
+   "contributor": null,
+   "rationale": "Not a new requirement — PSK-06 already exists — but choosing paths makes the pages its only enforcement point. Recorded so nobody later assumes a domain boundary was doing work it never did."
+  }
+ ],
+ "edges": [
+  {
+   "source": "d59_one_origin_two_paths",
+   "target": "v1_decision_register",
+   "relation": "recorded_in",
+   "confidence": "CURATED",
+   "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+   "confidence_score": 1,
+   "source_location": "§5.14t",
+   "weight": 1
+  },
+  {
+   "source": "d59_one_origin_two_paths",
+   "target": "seniority_question_dissolved",
+   "relation": "achieves",
+   "confidence": "CURATED",
+   "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+   "confidence_score": 1,
+   "source_location": "§5.14t",
+   "weight": 1
+  },
+  {
+   "source": "d59_one_origin_two_paths",
+   "target": "c15_promote_to_distinct_origins",
+   "relation": "conditional_on",
+   "confidence": "CURATED",
+   "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+   "confidence_score": 1,
+   "source_location": "§5.14t",
+   "weight": 1
+  },
+  {
+   "source": "d59_one_origin_two_paths",
+   "target": "psk06_carried_by_pages_not_domain",
+   "relation": "consequence",
+   "confidence": "CURATED",
+   "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+   "confidence_score": 1,
+   "source_location": "§5.14t",
+   "weight": 1
+  },
+  {
+   "source": "d59_one_origin_two_paths",
+   "target": "v1_build_spec",
+   "relation": "config_lands_in",
+   "confidence": "CURATED",
+   "source_file": "docs/v1/V1-BUILD-SPEC.md",
+   "confidence_score": 1,
+   "source_location": "S0",
+   "weight": 1
+  },
+  {
+   "source": "d59_one_origin_two_paths",
+   "target": "d54_propagation_rule",
+   "relation": "propagated_under",
+   "confidence": "CURATED",
+   "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+   "confidence_score": 1,
+   "source_location": "§5.14t",
+   "weight": 1
+  },
+  {
+   "source": "c15_promote_to_distinct_origins",
+   "target": "fork_at_publish_d47",
+   "relation": "separates_lanes_of",
+   "confidence": "CURATED",
+   "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+   "confidence_score": 1,
+   "source_location": "§5.14t",
+   "weight": 1
+  },
+  {
+   "source": "seniority_question_dissolved",
+   "target": "attributed_downstream_extension",
+   "relation": "same_error_family_as",
+   "confidence": "CURATED",
+   "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+   "confidence_score": 1,
+   "source_location": "§5.14t",
+   "weight": 1
+  }
+ ]
+}

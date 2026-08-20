@@ -59,6 +59,8 @@ Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` 
 
 ### S0 — Reconciliation and config spine *(no feature code)*
 
+**Route constants land here (`D-59`, closes `G10`/`QC`).** `EDITORIAL_ROUTE` = `/editorial`, `POC_ROUTE` = `/request-brief`, `DOMAIN_APEX` = **`UNSET`** — no domain is recorded in the corpus and none is invented. **`C-15` (T3)** promotes both lanes to distinct origins before POC holds real client data; the route names are chosen so that promotion is mechanical.
+
 Config registry with a `PROVISIONAL` marker on every OD-derived value · feature flags · `DECISION_LOG.md` and `CONFIG_LOG.md` · remove Stripe scaffolding (`X8`, `NG-03`) · **verification apparatus** · draft migration `0002` **without applying it**.
 
 > **`D-17` — where the draft lives.** `supabase/migrations/` is the directory tooling treats as the apply set, so a draft placed there can be applied by a routine command, a CI step, or another agent following the folder's convention. Hold it outside that path — e.g. `docs/v1/drafts/` — and move it in **as the act of authorizing S1**, once **every S1 window decision** is settled (`V1-DECISION-REGISTER.md` §5.15 Stage 4 — the count is not restated here, per `D-54`).

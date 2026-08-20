@@ -134,7 +134,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G7a` / `G7b` | Open | T3 charter / T4 design, T5 enforcement |
 | `G8` | **Closed 2026-08-19** | T0 item 2 executed — exclusivity window scoped P0-EVR-only |
 | `G9` | Watch | T5, before S4 is specified |
-| `G10` | Open | `QC`, T1 |
+| `G10` | **Closed 2026-08-20** | `D-59` §5.14t — **one origin, two paths**: `/editorial` (MVP) and `/request-brief` (POC). Apex stays `UNSET`. Seniority question **dissolved** — neither lane holds the root. `C-15` promotes to distinct origins before POC holds real client data |
 | **`G11`** | **Closed 2026-08-20** | `D-58` §5.14s — **owner: Chief Editor**; **precedence: the register wins**, following from `D-29` and `D-54`. Detection carried forward as `C-14`, *specified, not installed*. **Git cannot attribute edits here** — one identity, zero merges — so conflicts appear as silent overwrites, not merges |
 | `G12` | **Closed** | The 42 Board items are now approved — §1 |
 | `G14` | **Closed 2026-08-19** | T0 item 3 executed — `NG-02` annotated with its v1 scoping and the tenancy-boundary explanation |
@@ -1645,6 +1645,64 @@ Declaring `G11` closed on the precedence rule alone and treating the repository 
 
 Closes `G11` **on the precedence rule and ownership**. `C-14` remains open — detection is specified, not installed. Authorizes no code. Does not alter frozen-document precedence.
 
+## 5.14t `D-59` — `G10`/`QC` resolved: one origin, two paths
+
+**Decision, 2026-08-20, Chief Editor direction. Closes `G10`.** The two lanes are separated **by path on a single origin**, not by domain:
+
+| Lane | Route |
+|---|---|
+| **MVP** — the five-gate editorial anchor (`AP-01`) | `/editorial` |
+| **POC** — professional evidence review (`P0-EVR`) | `/request-brief` |
+
+**The apex domain stays `UNSET`.** No literal domain is recorded anywhere in the corpus, and house practice is not to invent a value that has not been decided — the same discipline applied to `RETURN_LIMIT_BEFORE_ESCALATION` and `CHIEF_EDITOR_ABSENCE_DEGRADED_HOURS`. **The pattern is decided; the string is not.**
+
+### Why this replaces the drafted recommendation
+
+The draft recommended **separate apex domains** on `PSK-06` grounds. **Chief Editor correction: that is a hosting decision, and this is one repo and one project.**
+
+The correction holds. Separate apexes would require either a second deployment project or domain-level routing — **infrastructure work with no payoff at the current stage**, on a project whose deploy rule is a single git-driven target. Paths cost nothing, are reversible, and answer what `QC` actually asked: that the arrangement be **conscious** rather than inherited.
+
+**And it dissolves the seniority question rather than answering it.** `QC` framed the tension as *"public root for POC inverts project seniority."* **With no root assigned to either lane, neither is subordinate.** The same class of dissolution as the seven naming-difference findings already on record: the conflict was in the framing, not the structure.
+
+### What choosing paths costs — stated, not buried
+
+**One origin means one browser security context.** `/editorial` and `/request-brief` share cookies, session storage, and local storage. **The browser cannot enforce any separation between the lanes.**
+
+That is **acceptable now and not later**:
+
+| Stage | Assessment |
+|---|---|
+| **v1, demo-first** | **Fine.** No login wall, no real client data, seed data only |
+| **POC carrying real client data** | **Not fine.** Each paying customer is its own tenant (`D-01`) and POC holds personal data under PDPA. Shared origin means tenant session scope overlaps the editorial lane |
+
+**`C-15` — condition on `D-59`.** Promote the lanes to **distinct origins** — subdomains or apexes — **before POC handles real client data.** Follow-up phase: **T3**, with the POC lane charter (`G7a`/`G28`), and no later than the *"lock it down"* sprint that introduces authentication.
+
+**Route names are chosen so the promotion is mechanical.** `/editorial` and `/request-brief` map to `editorial.<apex>` and `request-brief.<apex>` without renaming anything the application depends on.
+
+### The `PSK-06` consequence, which paths do not discharge
+
+`PSK-06` is **editorial-commercial separation and restricted solicitation**. The drafted recommendation leaned on the address bar to signal it. **Paths remove that signal** — same origin, adjacent routes, no visible boundary.
+
+**So the separation must be carried by the pages themselves:** the editorial lane does not solicit, and the paid lane does not present editorial judgment as a purchasable deliverable. **This is not a new requirement — it is `PSK-06` — but choosing paths makes the pages its only enforcement point.** Recorded so nobody later assumes a domain boundary was doing work it never did.
+
+### What is guaranteed to fail
+
+Treating `C-15` as cosmetic and shipping POC onto the shared origin with real client data. **PDPA exposure and tenant isolation would then rest on application-layer session handling on an origin the editorial lane also occupies** — the same shape as `TC1`, where the layer being trusted has no more authority than a browser.
+
+**How to avoid it:** `C-15` fires on **first real client data**, not on a date. The trigger is an event the POC lane charter already has to define.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 |
+|---|---|---|---|---|
+| `D-59` — path separation | ✅ | ✅ route constants, S0 | ✅ ux spec row | ✅ status row |
+| `C-15` — promote to distinct origins | ✅ | ✅ T3 | — *an infrastructure change, not an artifact* | ✅ |
+| Apex `UNSET` | ✅ | ✅ config | — *no artifact until named* | — *not a sprint event* |
+
+### Scope limits
+
+Closes `G10`/`QC`. **Names no domain** — the apex remains `UNSET`. Authorizes no code, route, or deployment change. The route specification belongs in `docs/specs/ux/` per `D-34` and is **not written here**. `C-15` remains open by design.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
@@ -1686,7 +1744,7 @@ Ordered by dependency. **Fixes are drafted here so execution does not re-derive 
 | Gap | Question | Drafted resolution |
 |---|---|---|
 | `G6` | `QD` — where the revenue rule lands | `PSK-06` — the rule **is** an editorial-commercial boundary |
-| `G10` | `QC` — domain assignment | Confirm public root for POC and `chief.` for the anchor, **or** invert |
+| `G10` | `QC` — domain assignment | ✅ **Closed 2026-08-20** (`D-59`) — neither: **one origin, two paths.** `C-15` carries the promotion trigger |
 | `G11` | Arbitration across three concurrent agents | ✅ **Closed 2026-08-20** (`D-58`) — register precedence, Chief Editor owns. `C-14` detection carried with `R3` |
 | `Q2` | Line 3 executor | **Blocks `FR-11` entirely** — no executor, no feature. **Not the Chief Editor** (`A23`) |
 
