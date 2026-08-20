@@ -141,7 +141,7 @@ Deferring this behind S0/S1 would stall commercial evidence for no technical rea
 
 | Item | Why |
 |---|---|
-| S5 — Line 3, degraded mode | `OD3`; `Q1`. **`Q2` answered `D-57`** — v1 has no independent assurance, so **`FR-11` is not built in v1**. Condition `C-13` places a BCP observability surface in **S3**, not S5 — it must exist before the `OD2` evidence it displays matters. **`G60` gates it** — the surface has no `FR` yet (candidate `FR-14`, lands in `Modular_PRD` §5 per `D-29`), so S3 cannot build it until that requirement exists |
+| S5 — Line 3, degraded mode | `OD3`; `Q1`. **`Q2` answered `D-57`** — v1 has no independent assurance, so **`FR-11` is not built in v1**. Condition `C-13` places a BCP observability surface in **S3**, not S5 — it must exist before the `OD2` evidence it displays matters. **`G60` closed 2026-08-20** (`D-62`) — `FR-14`, `US-14`, and `AC-21` now exist in `Modular_PRD`. **S3 is unblocked**; the surface displays observations existing requirements already define and introduces no new measurement or threshold |
 | S6 — auth and scoped RLS | `SEC-03`, gated on `OD1`–`OD3`. **Cannot be called done while they are open** |
 | `G7b` systematized POC exposure | Needs S2 identity, enforcement completes at S6 |
 | Tier 3 Fallout — legal/defamation crises | Generating activities excluded: `NG-11` removes fundraising; PoC §8.2 excludes whistleblower publication without safe handling |

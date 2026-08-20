@@ -92,6 +92,7 @@ Merge **in this order** — later fragments reference nodes earlier ones introdu
 | 17 | `frag16.json` | `D-59` — `G10` closed, one origin two paths, `C-15` |
 | 18 | `frag17.json` | `D-60` — `G54` closed from source |
 | 19 | `frag18.json` | `D-61` — `X4` specified, `G61` X-series unindexed |
+| 20 | `frag19.json` | `D-62` — `FR-14` written, `G60` closed |
 
 `merge7.js` is the reference merge script (repo-relative; `merge6.js` is retained for history but hard-codes an absolute path). `missing.js` reports which docs are absent from the graph.
 

@@ -24,7 +24,7 @@
 | `bun.lockb` | `G59` — CI reproducibility | ❌ **needs bun to generate** |
 | `docs/specs/ux/` route specification | `G10` → `D-59`, `D-34` — `/editorial` and `/request-brief` | ❌ **directory exists, empty** |
 | Concurrent-edit detection check | `C-14`/`G11` — `D-58`, ships with `R3` | ❌ **specified, not installed** — four proven checks, unbundled |
-| BCP observability surface | `C-13`/`G60` — condition on `D-57`, S3 | ❌ **no `FR` yet** — candidate `FR-14`, lands in `Modular_PRD` §5 per `D-29` |
+| BCP observability surface | `C-13` on `D-57`; `FR-14`/`US-14`/`AC-21`, S3 | ❌ **unbuilt** — `G60` closed 2026-08-20 (`D-62`), so the **requirement now exists**; the surface does not |
 | P0-EVR project charter | `G7a`, T3 | ❌ |
 | P0-EVR PRD | `G7`, T3 | ❌ |
 | 14 manual PoC templates | Board proposal Phase EB-1 | ❌ |

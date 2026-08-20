@@ -61,6 +61,7 @@
 | **1.14** | **2026-08-20** | Claude, from Chief Editor direction on `QC` | **Tracking correction, no scope change.** §8 `V1` row records `G10` closed by `D-59` — lanes separated by path on one origin, apex `UNSET`. `C-15` carries promotion to distinct origins before POC holds real client data. |
 | **1.15** | **2026-08-20** | Claude, `G54` source verification | **Tracking correction, no scope change.** §8 `V1` row records `G54` closed by `D-60`. Upstream command surface verified from source rather than by installing a toolchain; `D-51` stands on upgraded evidence. |
 | **1.16** | **2026-08-20** | Claude, `X4` specification | **Tracking correction plus one disclosed index gap.** §8 `V1` row records `X4` specified by `D-61` and coupled to `X5`. `G61` opened: the `X3`/`X4`/`X5`/`X7`/`X8` series is absent from the §5.1 index and tracked only in a journal the governing set calls non-authoritative. |
+| **1.17** | **2026-08-20** | Claude, from Chief Editor direction on the BCP layer | **One new capability, disclosed as Project Scope.** Adds `US-14`, `FR-14`, `AC-21`, a §7.2 Project Scope row, and NFR coverage for a business-continuity observability surface. Closes `G60` (`D-62`). **No Customer Request origin** — it is the compensating control `C-13` attaches to `D-57`, and it is disclosed rather than folded into an existing `CR`. |
 
 ### 0.2 Decision Log
 
@@ -311,6 +312,7 @@ This means **no KPI in §3.2 can be judged before S1 completes**, and the north-
 | `US-11` | Line 3 assurance | As Line 3, I want to audit an article on a risk trigger and report without a data path back to Line 1 or Line 2, so that assurance is not a rubber stamp | P1 ⚠ | FR-11 | AC-17 | US-07 | S5 | **Blocked: executor identity unspecified** (OD3, Q2). If Line 3 shares an identity with Line 1, it is not Line 3 |
 | `US-12` | Chief Editor | As the Chief Editor, I want Line 1 to keep working while I am unavailable, so that my absence delays review rather than halting the pipeline | P1 | FR-12 | AC-18 | US-04 | S5 | Under `CHIEF_EDITOR_ABSENCE_DEGRADED_HOURS` is already covered by Addendum §6.4. **Only the >48h case is new** (Entry 007 S7, EMS-corrected) |
 | `US-13` | Chief Editor | As the Chief Editor, I want an external regulatory or court order to force retraction immediately, so that a binding order is not queued behind internal review | P1 | FR-13 | AC-19 | US-09 | S5 | `regulatory_retraction_order` = true bypasses T8 **deliberation only** — *whether* to retract is not open when a court has ordered it. It does **not** bypass publication mechanics: the retraction notice is still drafted, still mirrored to every target the original reached, and still logged (`G23`). Internal low-risk concerns stay in the normal revision path (Entry 007 S3) |
+| `US-14` | Chief Editor | As the Chief Editor, I want the defined critical continuity conditions shown in one place, so that a condition **nobody is independently watching** is at least **continuously visible** | P1 | FR-14 | AC-21 | FR-06, FR-08, FR-09, FR-12, FR-13 | S3 | A condition that has never fired must render as **not observed**, never blank — an empty reading is indistinguishable from a healthy one |
 
 **Priority discipline.** Ten of thirteen stories are P0. That would normally be P0 inflation — but the MoSCoW test is "if we cut this, does the feature still solve the core problem?" The core problem is compliance absence, so every story on the gate-sequence and audit path is genuinely must-have. The three P1s (US-11, US-12, US-13) are assurance and resilience: the pipeline solves the stated problem without them.
 
@@ -333,6 +335,7 @@ This means **no KPI in §3.2 can be judged before S1 completes**, and the north-
 | `FR-11` ⚠ | Trigger a Line 3 audit on defined risk conditions; Line 3 reports independently | P1 | O-03 | US-11 | AC-17 | Line 3 | S5 | **OD3** |
 | `FR-12` | Operate in degraded mode when the Chief Editor is absent beyond the configured threshold | P1 | O-01 | US-12 | AC-18 | Line 1 | S5 | — |
 | `FR-13` | Force immediate retraction on an external regulatory or court order, bypassing normal revision | P1 | O-01 | US-13 | AC-19 | Line 2 | S5 | — |
+| `FR-14` | Present a business-continuity surface displaying the defined critical observations, each with its current value and when it was last evaluated | P1 | O-01 | US-14 | AC-21 | Line 2 | S3 | — |
 
 > **Three FRs are provisional.** FR-04 (OD1), FR-05 (OD2), FR-11 (OD3). Each is buildable now under Entry 007's Phase 0 provisional acceptance, behind a config flag. **None may be reported as finally satisfied until its OD is ratified at Charter level.**
 
@@ -476,6 +479,7 @@ The most consequential requirement, and the one most at risk of being quietly ov
 | FR-11 ⚠ | Functional | Triggered Line 3 audit | No Customer Request origin; governance assurance | CR-19 indirectly | S5 |
 | FR-12 | Functional | Degraded mode after prolonged Chief Editor absence | No Customer Request origin; operating resilience | CR-10 indirectly | S5 |
 | FR-13 | Functional | Regulatory/court-order retraction | No Customer Request origin; external compliance response | CR-12 indirectly | S5 |
+| FR-14 | Functional | Business-continuity observability surface | **No Customer Request origin.** Chief Editor direction, recorded as condition `C-13` on `D-57` — the compensating control for v1 having no independent assurance | CR-10 indirectly | S3 |
 | NFR-03 | Non-functional — independence | Independence evaluator | Team-selected governance mechanism, not requested by the customer | FR-05 | S2 |
 | NFR-04 | Non-functional — verifiability | Test runner and CI | Delivery assurance; does not change customer-visible product behaviour | All Product Scope | S0 |
 | NFR-07 | Non-functional — secret handling | Server-only credentials | Delivery/security control not stated by the customer | FR-09 | S4 |
@@ -509,6 +513,7 @@ The most consequential requirement, and the one most at risk of being quietly ov
 | FR-11 ⚠ | NFR-08 | **⚠ Under-specified — executor identity unresolved (OD3, Q2). Cannot be estimated** |
 | FR-12 | NFR-05 | Covered |
 | FR-13 | NFR-02, **SEC-05 (unownable)** | **⚠ Under-specified — no legal function** |
+| FR-14 | NFR-05, NFR-08 | Covered — **displays** existing observations; defines no new measurement |
 
 #### Coverage Summary
 
@@ -656,6 +661,7 @@ The most consequential requirement, and the one most at risk of being quietly ov
 | `AC-17` ⚠ | FR-11 | AT-044, AT-074 | A Line 3 trigger condition fires | Line 3 completes its audit | `event_type = Line3Audit`, `line_assignment = Line3`, finding and recommendation recorded, **reported with no shared data path to Line 1 or Line 2**. **Blocked — executor identity unresolved** (OD3) |
 | `AC-18` | FR-12 | — | The Chief Editor has been unavailable beyond `CHIEF_EDITOR_ABSENCE_DEGRADED_HOURS` | Line 1 continues working | Line 1 gates still execute; articles queue at T5; **no publishing occurs**. *Under the threshold is already covered by Addendum §6.4 — only the over case is new* |
 | `AC-19` | FR-13 | — | A published article receives an external regulatory or court order | `regulatory_retraction_order` is set true | Retraction is forced immediately, bypassing T8; the article reaches `Retracted`; the order's issuing authority and date are recorded |
+| `AC-21` | FR-14 | — | The observations defined in `C-13` — `T6→T5` return rate, degraded-mode state, escalation backlog, agent stall, retraction clock, publication retry exhaustion | The business-continuity surface is opened | **Each** is displayed with its current value and its last-evaluated time. A condition never yet observed reads **not observed**, never blank |
 
 ### 9.2 Non-Functional
 

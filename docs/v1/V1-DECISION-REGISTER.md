@@ -183,7 +183,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `X4` | **Open — specified, not applied** | `D-61` §5.14v — one seed row executes **T5 with an agent**; T5 is Line 2, human-primary. Correction specified. **Closes only with `X5`**, in `0002` |
 | `X3`, `X5`, `X7`, `X8` | **Recorded elsewhere — not backfilled** | **This index does not reach the `X`-series.** They live in `docs/journal/2026-08-16-sprint-plan.md`, which `D5` classifies as non-authoritative. Backfill is `G61`, Open |
 | `G61` | **Open — new** | The `X`-series is absent from this index — five live build divergences tracked only in a journal. `G55`'s mechanism on a different ID series. §5.14v |
-| `G60` | **Open — new** | The BCP observability surface (`C-13`) has no `FR`. Candidate `FR-14`; per `D-29` it lands in `Modular_PRD` §5, not `Fn_Specs`. S3. §5.14r |
+| `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Open — new** | No lockfile committed (`bun.lockb` absent). CI would resolve dependencies fresh every run, so a verdict varies with wall-clock time. Needs bun to generate. T1, with `R3`. §5.14q |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
 | `G57` | **Closed 2026-08-20** | `D-55` §5.14p — eight-row mapping specified as data, **role-keyed**. Overturns `D-53`'s name-keyed draft: `logged`→`Discovered`, `reported`→`Logged`. `Validated` and `Needs Revision` backfill empty |
@@ -1836,6 +1836,56 @@ From the Addendum's own T5 row — *"Senior Journalist · **Line 2** · **Human-
 ### Scope limits
 
 Specifies `X4`; **applies nothing.** `0001_init.sql` unedited, `0002` unwritten. Authorizes no migration. `X4` remains **Open — specified, not applied**, and closes only with `X5`. `G61` recorded, **not backfilled**.
+
+## 5.14w `D-62` — `FR-14` written; `G60` closed
+
+**Decision, 2026-08-20. Closes `G60`.** The business-continuity observability surface now has a functional requirement. Written into `Modular_PRD` — **tier 2, which owns new capabilities under `D-29`** — not invented in `Fn_Specs`.
+
+### What was added
+
+| Artifact | Where |
+|---|---|
+| `US-14` | §4 User Stories |
+| `FR-14` | §5 Functional Requirements — P1, S3, Line 2 |
+| `AC-21` | §9.1 Functional acceptance criteria |
+| Project Scope row | §7.2 — **no Customer Request origin** |
+| NFR coverage | `NFR-05`, `NFR-08` |
+
+### Disclosed as Project Scope, not folded into a `CR`
+
+`FR-14` has **no customer origin.** It exists because the Chief Editor attached `C-13` to `D-57` — the compensating control for v1 having no independent assurance.
+
+**It is therefore recorded in §7.2 alongside `FR-11`–`FR-13`, which carry the same disclosure**, rather than attributed to a `CR` that did not ask for it. **Team-added scope is disclosed, never absorbed** — the discipline `FB-03` established when the Line filter was added to the board.
+
+### The acceptance criterion carries `G41`'s rule
+
+`AC-21` requires that a condition **never yet observed reads *not observed*, never blank.**
+
+**An empty reading is indistinguishable from a healthy one.** A surface showing nothing for *escalation backlog* could mean no escalations exist, or that the check never ran — and on a **continuity** surface those two readings demand opposite responses. This is `G41`'s rule (*absence must be explained, never rendered as "nothing happened"*) applied one tier out, from the audit surface to the continuity surface.
+
+### Deliberately narrow
+
+`FR-14` **displays** observations that existing requirements already define. **It defines no new measurement, no new threshold, and no new alerting.** Every one of `C-13`'s six rows is sourced from an existing `FR` or gap: `A17`/`FR-08`, `FR-12`, `FR-06`, the Addendum agent-failure row, `G43`, and `FR-09`/`FR-10`.
+
+**This keeps it a compensating control rather than a new capability with its own scope.** `D-57` is explicit that the surface **is not Line 3 and does not constitute assurance**; a requirement that started defining its own thresholds would drift toward exactly the claim `D-57` forbids.
+
+### A placement error, caught and recorded
+
+`AC-21` was first written into **§9.3 Security**, a five-column table, instead of **§9.1 Functional**, which has six. Caught by a column-count check against neighbouring rows and moved.
+
+**Recorded because the near-miss is instructive:** §9.1, §9.2, and §9.3 are three tables with different shapes, and seven rows carrying five columns initially looked like seven malformed rows. **They were a different table, not a defect** — the eighth instance of the naming-difference family, avoided by checking the structure before naming it.
+
+### Tier applicability (`D-54`)
+
+| Item | `Modular_PRD` | Register | Build spec | Inventory |
+|---|---|---|---|---|
+| `FR-14` / `G60` | ✅ **tier 1 here** — §4, §5, §7.2, §9.1 | ✅ | ✅ S3 unblocked | — *no file created* |
+
+**`Modular_PRD` is the parent for this decision**, not the register. `D-29` puts it above the `V1-*` set for **intent**: a new capability is owned there. The register records that it happened.
+
+### Scope limits
+
+Closes `G60`. Authorizes no code, schema, or UI. `C-13` remains an open condition on `D-57` — **the requirement now exists; the surface does not.** `FR-14` is **S3** and gated on nothing further.
 
 ## 5.15 Solve sequence — remaining open gaps
 

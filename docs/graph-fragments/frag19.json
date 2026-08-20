@@ -1,0 +1,76 @@
+{
+  "_comment": "Fragment 19 — D-62, FR-14 written, G60 closed. Merged 2026-08-20.",
+  "nodes": [
+    {
+      "id": "fr14_bcp_surface_requirement",
+      "label": "FR-14 — Business-Continuity Observability Surface",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "§5 FR-14",
+      "description": "Present a business-continuity surface displaying the defined critical observations, each with its current value and when it was last evaluated. P1, S3, Line 2. Carries US-14 and AC-21, plus a §7.2 Project Scope row and NFR-05 and NFR-08 coverage. Closes G60.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Written into Modular_PRD because D-29 places tier two as the owner of new capabilities; inventing it in Fn_Specs would have put a requirement at the wrong tier. Deliberately narrow: it displays observations existing requirements already define and introduces no new measurement, threshold or alerting, which keeps it a compensating control rather than a capability with its own scope."
+    },
+    {
+      "id": "team_added_scope_is_disclosed",
+      "label": "Team-Added Scope Is Disclosed, Never Absorbed",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "§7.2 Project Scope Matrix",
+      "description": "FR-14 has no Customer Request origin. It exists because the Chief Editor attached C-13 to D-57. It is therefore recorded in the §7.2 Project Scope Matrix alongside FR-11 through FR-13, which carry the same disclosure, rather than attributed to a CR that did not ask for it.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The discipline FB-03 established when the Line filter was added to the board. Attributing team-added scope to an existing CR would make the customer appear to have requested something they did not, and would hide the growth of scope inside a requirement that already had approval."
+    },
+    {
+      "id": "ac21_absence_must_read_not_observed",
+      "label": "AC-21 — Never Observed Must Not Render Blank",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "§9.1 AC-21",
+      "description": "A condition never yet observed must read not observed, never blank. An empty reading is indistinguishable from a healthy one: a surface showing nothing for escalation backlog could mean no escalations exist, or that the check never ran.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "G41's rule applied one tier out, from the audit surface to the continuity surface. On a continuity surface the two readings demand opposite responses, so conflating them is worse than showing nothing at all."
+    },
+    {
+      "id": "three_ac_tables_different_shapes",
+      "label": "Three AC Tables, Three Shapes",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "§9.1, §9.2, §9.3",
+      "description": "Section 9.1 Functional carries six columns including AT source; 9.2 Non-Functional and 9.3 Security carry five. AC-21 was first written into 9.3 and moved to 9.1 after a column-count check against neighbouring rows.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Seven rows carrying five columns initially looked like seven malformed rows. They were a different table, not a defect — the naming-difference error family in structural form, avoided by checking the shape before naming it. The column-count check is what caught both the real placement error and the false one."
+    }
+  ],
+  "edges": [
+    { "source": "fr14_bcp_surface_requirement", "target": "c13_bcp_observability_surface", "relation": "realises", "confidence": "CURATED", "source_file": "docs/Modular_PRD.md", "confidence_score": 1, "source_location": "§5", "weight": 1 },
+    { "source": "fr14_bcp_surface_requirement", "target": "g60_bcp_surface_no_fr", "relation": "closes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14w", "weight": 1 },
+    { "source": "fr14_bcp_surface_requirement", "target": "team_added_scope_is_disclosed", "relation": "disclosed_under", "confidence": "CURATED", "source_file": "docs/Modular_PRD.md", "confidence_score": 1, "source_location": "§7.2", "weight": 1 },
+    { "source": "fr14_bcp_surface_requirement", "target": "ac21_absence_must_read_not_observed", "relation": "verified_by", "confidence": "CURATED", "source_file": "docs/Modular_PRD.md", "confidence_score": 1, "source_location": "§9.1", "weight": 1 },
+    { "source": "fr14_bcp_surface_requirement", "target": "d57_q2_no_independent_assurance", "relation": "compensating_control_for", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14w", "weight": 1 },
+    { "source": "fr14_bcp_surface_requirement", "target": "v1_build_spec", "relation": "scheduled_in", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "S3", "weight": 1 },
+    { "source": "ac21_absence_must_read_not_observed", "target": "compensating_control_not_assurance", "relation": "reinforces", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14w", "weight": 1 },
+    { "source": "three_ac_tables_different_shapes", "target": "attributed_downstream_extension", "relation": "same_error_family_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14w", "weight": 1 },
+    { "source": "team_added_scope_is_disclosed", "target": "global_project_scope_d40", "relation": "instance_of", "confidence": "CURATED", "source_file": "docs/Modular_PRD.md", "confidence_score": 1, "source_location": "§7.2", "weight": 1 }
+  ]
+}
