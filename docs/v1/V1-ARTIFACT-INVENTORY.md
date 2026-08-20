@@ -34,7 +34,7 @@
 | `docs/specs/SPECS-PUBLICATION.md` | `D-52`, S4 *(five components)* | ❌ |
 | `docs/specs/SPECS-EXCEPTIONS.md` | `D-52`, S5 | ❌ |
 | `docs/graph-fragments/` | `G51` — curated graph layer, rebuild source | ✅ |
-| `X3` eight-row state backfill mapping | `G57`, S1 window | ❌ **blocks `0002`** |
+| `X3` eight-row state backfill mapping | `G57` → `D-55`, S1 input | ✅ *(as data in `V1-DECISION-REGISTER.md` §5.14p — no separate file; a second copy would be a restatement, `D-54`)* |
 
 **No broken internal document links** — the docs are self-consistent. The gaps are artifacts that were planned but never created, not references that dangle.
 

@@ -181,7 +181,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G49` | **Open** — S3 | Briefcase artifacts specified for POC only; MVP needs them or it cannot tell rework from true negative. §5.14k |
 | `G56` | **Closed 2026-08-20** | §5.15 solve sequence stale — found and repaired in the same pass. See §5.4 |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
-| `G57` | **Open — new** | The `X3` state backfill mapping is **named but never specified**. S1 is instructed to *"backfill via the `X3` mapping"*; `X3` is a one-line divergence record, not a mapping. §5.14n |
+| `G57` | **Closed 2026-08-20** | `D-55` §5.14p — eight-row mapping specified as data, **role-keyed**. Overturns `D-53`'s name-keyed draft: `logged`→`Discovered`, `reported`→`Logged`. `Validated` and `Needs Revision` backfill empty |
 | `G50` | **Closed 2026-08-20** | Distribution provenance — `D-51`, §5.4, `docs/graph-fragments/README.md` §2 |
 | `G51` | **Closed 2026-08-20** | Curated graph layer rescued to `docs/graph-fragments/` — 61 nodes, 142 edges. §5.4 |
 | `G52` | **Closed 2026-08-20** | Distribution-specific commands disclosed — `docs/graph-fragments/README.md` §3 |
@@ -1311,8 +1311,8 @@ Revoking `DELETE` stops a **statement** from removing a committed row. A transac
 
 | `0001` value | Addendum §4.1 target | Confidence |
 |---|---|---|
-| `logged` | Logged | Clear |
-| `reported` | **Validated?** | **Ambiguous** — `logged` already takes Logged, and `X3` says T2/T3 are collapsed |
+| `logged` | ~~Logged~~ → **`Discovered`** | **Corrected by `D-55`** |
+| `reported` | ~~Validated?~~ → **`Logged`** | **Corrected by `D-55`** — role-keyed, not name-keyed |
 | `investigated` | Investigated | Clear |
 | `journaled` | Drafted | Clear — Journalist executes T4 |
 | `senior_reviewed` | Reviewed | Clear — **Line 2** |
@@ -1320,7 +1320,7 @@ Revoking `DELETE` stops a **statement** from removing a committed row. A transac
 | `published` | Published | Clear |
 | `rejected` | Rejected | Clear |
 
-**Three new states have no source value at all:** Discovered, Validated, Needs Revision.
+**~~Three~~ Two target states have no source value** — `Validated` and `Needs Revision`. *(Corrected by `D-55`: `Discovered` does have a source — repo `logged`.)*
 
 **Why this is severity S1 and not bookkeeping.** `senior_reviewed` and `chief_approved` sit on **opposite sides of the four-eyes boundary** — T5 is Line 2, T6 is Line 1. A backfill that transposes them **misattributes which articles crossed the Line boundary**, and it writes that misattribution into an **append-only** table. `NFR-02` then makes it permanent.
 
@@ -1393,6 +1393,61 @@ Propagation copies **the fact**, never **the tally.** `V1-BUILD-SPEC`'s *"eight 
 ### Scope limits
 
 Closes no Open Decision. Authorizes no code, schema, or migration. Governs documentation propagation only.
+
+## 5.14p `D-55` — the `X3` state backfill mapping, specified as data
+
+**Decision, 2026-08-20, Chief Editor direction. Closes `G57`.** The eight-row mapping is **role-keyed**, not name-keyed.
+
+### The evidence
+
+The seeded `workflow_transitions` rows in `0001_init.sql` carry an executor role on every transition. Aligning on **role** rather than on name similarity settles the mapping deductively:
+
+| Seeded transition | Executor role | Addendum gate with that role | Gate output |
+|---|---|---|---|
+| `null → logged` | `chief_editor`, human | — *(creation, pre-gate)* | — |
+| `logged → reported` | **`reporter`** | **T1** | `Logged` |
+| `reported → investigated` | **`investigator`** | **T2 + T3, collapsed** | `Investigated` |
+| `investigated → journaled` | **`journalist`** | **T4** | `Drafted` |
+| `journaled → senior_reviewed` | **`senior_journalist`** | **T5** | `Reviewed` |
+| `senior_reviewed → chief_approved` | **`chief_journalist`** | **T6** | `Approved` |
+| `chief_approved → published` | `chief_journalist` | **T7** | `Published` |
+
+**T1's executor is the Reporter. The repo's reporter transition produces `reported`. Therefore `reported` is T1's output, and T1's output is `Logged`.** The seed reason strings corroborate: `null → logged` reads *"Article logged by Chief Editor"* — an entry act — while `logged → reported` reads *"AI tagging complete"*, which is the Reporter gate.
+
+### The mapping — total, with no default branch
+
+| `0001` value | → `article_state_v2` | Basis |
+|---|---|---|
+| `logged` | **`Discovered`** | Entry state, before the Reporter acts |
+| `reported` | **`Logged`** | T1 output — Reporter |
+| `investigated` | **`Investigated`** | T2+T3 collapsed — Investigator |
+| `journaled` | **`Drafted`** | T4 — Journalist |
+| `senior_reviewed` | **`Reviewed`** | T5 — Senior Journalist, **Line 2** |
+| `chief_approved` | **`Approved`** | T6 — Chief Journalist, **Line 1** |
+| `published` | **`Published`** | T7 |
+| `rejected` | **`Rejected`** | T9 |
+
+**Eight sources, eight targets, one-to-one.** Two target states have **no source value and must backfill empty**: `Validated` *(T2/T3 were collapsed, so no row ever rested there)* and `Needs Revision` *(T8 does not exist in `0001`)*.
+
+> **The migration must be total.** Every source value maps explicitly; **no `else` or `default` branch.** A default silently buckets any value it does not recognise, and in an append-only table that misfiling is permanent. If a value appears that is not in this table, the migration must **fail loudly**, not guess.
+
+### What this overturns
+
+`D-53` §5.14n drafted this mapping as `logged` → `Logged` *(clear)* and `reported` → `Validated` *(ambiguous)*. **Both are wrong.** Name similarity was doing the work; the executor role was not consulted. Under role alignment `reported` is T1's output, which is `Logged`, and `logged` is the entry state, which is `Discovered`.
+
+**The name-keyed reading required the Reporter gate to produce `Validated`** — but the Addendum assigns T2 (`Logged → Validated`) to the **Investigator**. The reading was self-contradicting and the contradiction was invisible without putting both enums beside the seeded roles.
+
+**This is what `G57` was raised to prevent**, and it nearly happened inside the document that raised it.
+
+### Consequence for the seeded data
+
+Every article currently at `logged` becomes `Discovered` — **pre-T1**, not post-T1. Under the name-keyed reading those same rows would have become `Logged`, asserting that a Reporter gate had executed **when no reporter transition exists for them.** The audit record would have claimed a gate that never ran.
+
+`Validated` backfilling empty is **correct, not a defect** — it is `X3`'s collapsed T2/T3 showing through. It must not be "fixed" by inventing rows.
+
+### Scope limits
+
+Closes `G57`. **Authorizes no migration** — `0002` remains unwritten and `0001` unedited. Names no column beyond the existing `workflow_state`. `X4` *(seed rows executing T5 with an agent)* is **untouched and still open** — this decision maps states, it does not correct executors.
 
 ## 5.15 Solve sequence — remaining open gaps
 

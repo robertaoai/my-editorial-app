@@ -1,0 +1,60 @@
+{
+  "_comment": "Fragment 12 — D-55, the X3 backfill mapping specified as data. G57 closed. Merged 2026-08-20.",
+  "nodes": [
+    {
+      "id": "d55_x3_mapping_role_keyed",
+      "label": "D-55 — X3 Mapping, Role-Keyed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14p D-55",
+      "description": "The eight-row state backfill mapping specified as data and keyed on executor role rather than name similarity. logged to Discovered, reported to Logged, investigated to Investigated, journaled to Drafted, senior_reviewed to Reviewed, chief_approved to Approved, published to Published, rejected to Rejected. Validated and Needs Revision backfill empty. Closes G57.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Deductive rather than inferred: T1's executor is the Reporter, the seeded reporter transition produces 'reported', so 'reported' is T1's output, which the Addendum names Logged. Seed reason strings corroborate — 'Article logged by Chief Editor' is an entry act, 'AI tagging complete' is the Reporter gate."
+    },
+    {
+      "id": "role_key_over_name_similarity",
+      "label": "Role Alignment Beats Name Similarity",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14p",
+      "description": "D-53 drafted the mapping from name resemblance and produced logged to Logged and reported to Validated. Both wrong. The name-keyed reading required the Reporter gate to produce Validated, but the Addendum assigns that transition to the Investigator. The reading was self-contradicting, and the contradiction was invisible without placing both enums beside the seeded executor roles.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The eighth instance of the project's recurring error family — a naming difference read as meaning. Here the harm would have been material rather than clerical: seeded rows at 'logged' would have become 'Logged', asserting a Reporter gate had executed when no reporter transition exists for them. The audit record would have claimed a gate that never ran."
+    },
+    {
+      "id": "total_mapping_no_default",
+      "label": "A Backfill Mapping Must Be Total",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14p",
+      "description": "Every source value maps explicitly and the migration carries no else or default branch. An unrecognised value must fail the migration loudly rather than be bucketed. Validated and Needs Revision backfilling empty is X3's collapsed T2/T3 showing through — correct, and not to be repaired by inventing rows.",
+      "community": 29,
+      "community_name": "Data Lifecycle and Compliance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A default branch silently misfiles what it does not recognise, and in an append-only table NFR-02 makes that misfiling permanent. Failing loudly is recoverable; guessing quietly is not."
+    }
+  ],
+  "edges": [
+    { "source": "d55_x3_mapping_role_keyed", "target": "g57_x3_backfill_unspecified", "relation": "closes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14p", "weight": 1 },
+    { "source": "d55_x3_mapping_role_keyed", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14p", "weight": 1 },
+    { "source": "d55_x3_mapping_role_keyed", "target": "v1_build_spec", "relation": "input_to", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "S1", "weight": 1 },
+    { "source": "d55_x3_mapping_role_keyed", "target": "role_key_over_name_similarity", "relation": "rests_on", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14p", "weight": 1 },
+    { "source": "d55_x3_mapping_role_keyed", "target": "total_mapping_no_default", "relation": "requires", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14p", "weight": 1 },
+    { "source": "d55_x3_mapping_role_keyed", "target": "d54_propagation_rule", "relation": "propagated_under", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14o", "weight": 1 },
+    { "source": "role_key_over_name_similarity", "target": "attributed_downstream_extension", "relation": "same_error_family_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.4", "weight": 1 },
+    { "source": "total_mapping_no_default", "target": "psk10_immutable_audit_reporting", "relation": "protects", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14p", "weight": 1 }
+  ]
+}
