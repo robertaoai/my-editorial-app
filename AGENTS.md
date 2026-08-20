@@ -44,9 +44,15 @@ template, and its User Stories and Risks sections are worth keeping.
 | `specs-creator` | This project |
 |---|---|
 | `app-vision.md` | `docs/Modular_PRD.md` — an app **is** a product |
-| `prd.md` | `docs/v1/fn-specs/` — behaviour, per feature group |
-| `tech-specs.md` | `docs/v1/specs/` — implementation big picture, incl. tech-stack |
-| `ux.md` | `docs/v1/specs/ux/` — UI/UX **per tech-stack** (Vue vs Angular, same behaviour) |
+| `prd.md` | `docs/fn-specs/` — behaviour, per feature group |
+| `tech-specs.md` | `docs/specs/` — implementation big picture, incl. tech-stack |
+| `ux.md` | `docs/specs/ux/` — UI/UX **per tech-stack** (Vue vs Angular, same behaviour) |
+
+**Tracking versus specs (`D-36`).** `docs/v1/V1-*.md` are **tracking files** — they record what a
+sprint decided and **freeze** at sprint close. Specs under `docs/fn-specs/` and `docs/specs/` carry
+**no version prefix and never freeze**; later builds edit them. Each spec section is marked with the
+build version that introduced it — `[V1]`, `[V1→V2]`, `[V2]`. **An unmarked change to a `[V1]`
+section is a defect, not an update.**
 
 A stack change lands in `specs/`; a stack-specific UI consequence lands in `specs/ux/`. **Neither
 disturbs `fn-specs/`** — behaviour stays stable across a stack pivot.

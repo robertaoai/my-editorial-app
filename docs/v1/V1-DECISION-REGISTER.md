@@ -369,6 +369,39 @@ Freezing `V1-*.md` freezes **the record of a sprint**, not the specifications. T
 
 > **Fourth error of the same family.** `D-31` (Project vs Product `PRD`), `D-33` (`app-vision.md` vs `Modular_PRD`), `pub_target` vs `platform_type`, and now tracking files vs specs. Each time an incompatibility was recorded where the existing structure already resolved it. The `D-34` countermeasure — *check what the unfamiliar label maps to before recording a conflict* — is extended: **also check what artifact class it belongs to.**
 
+### `D-36` — specs leave the version folder; sections carry their origin
+
+**Chief Editor approval, 2026-08-19.** Two changes, both following from *tracking files ≠ specs*.
+
+#### Structural: specs move out of `docs/v1/`
+
+Specs correctly carry **no build-version prefix** — they are living — but sat inside a version-named directory. When `V2` opened, every available move would have been wrong: duplicate them into `docs/v2/` and they drift; move them and `V1`'s tracking references orphan; leave them and living documents sit inside a frozen folder.
+
+| Before | After | Lifecycle |
+|---|---|---|
+| `docs/v1/fn-specs/` | **`docs/fn-specs/`** | Living |
+| `docs/v1/specs/` | **`docs/specs/`** | Living |
+| `docs/v1/specs/ux/` | **`docs/specs/ux/`** | Living |
+| `docs/v1/V1-*.md` | *unchanged* | **Frozen at sprint close** |
+
+Specs now never move again, and `docs/v2/` appears beside `docs/v1/` without touching them. Separation is by **lifecycle**, not by version.
+
+#### Convention: section-origin marking
+
+A living document edited across builds loses the record of what each sprint delivered — unless each section says. Every spec section carries its originating build:
+
+| Marker | Meaning |
+|---|---|
+| `[V1]` | Section originated in build `V1` |
+| `[V1→V2]` | Originated in `V1`, materially revised in `V2` |
+| `[V2]` | Added in build `V2` |
+
+**An unmarked change to a `[V1]` section is a defect, not an update.** That rule is what makes per-section content hashing meaningful across builds: without it, a hash mismatch cannot distinguish an authorised revision from silent drift.
+
+This extends the discipline already in `requirements-traceability-map.md`, where `CR-01`–`CR-19` are SHA-256 anchored to customer text at `53ace36`. Same mechanism, applied one tier down.
+
+Both existing specs are marked **entirely `[V1]`** — both were written within build `V1`.
+
 #### Three tracking tiers, confirmed
 
 | Tier | Artifact | Lifecycle |

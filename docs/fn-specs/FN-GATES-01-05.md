@@ -10,6 +10,22 @@
 
 ---
 
+## 0. Section origin — `D-36`
+
+This is a **living** document: it carries no build-version prefix and does not freeze. Each section
+records the build version that introduced it, so the record of what a sprint delivered survives later
+edits. A section revised by a later build keeps its origin and gains a revision note.
+
+| Marker | Meaning |
+|---|---|
+| `[V1]` | Section originated in build `V1` |
+| `[V1→V2]` | Originated in `V1`, materially revised in `V2` |
+| `[V2]` | Section added in build `V2` |
+
+**All sections below are `[V1]`** — this document was written entirely within build `V1`. Later builds
+must mark their additions and revisions rather than editing silently, which is what makes per-section
+content hashing meaningful: an unmarked change to a `[V1]` section is a defect, not an update.
+
 ## 1. Overview
 
 The five gates are the product. Everything else in the system exists to record, display, or publish what they decide.
