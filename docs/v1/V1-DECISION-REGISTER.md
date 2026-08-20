@@ -1056,6 +1056,55 @@ So the gate this decision makes MVP-only **does not exist yet**. That is fortuna
 
 `D-47`'s prediction is **strengthened, not weakened**: `FN-PUBLICATION-09-10-13` remains the only spec differing by lane, and now the *shape* of the difference is known — it carries an optional gate rather than an alternative path.
 
+## 5.14j `D-49` — one gate, two terminal actions
+
+**Chief Editor direction, 2026-08-19. Corrects `D-48`.**
+
+### Newsworthiness runs in **both** lanes
+
+`D-48` concluded POC needs no newsworthiness gate because the client already decided. **That was wrong.** It answered *"is this worth covering?"* and stopped there — but newsworthiness answers a second question that applies regardless of who chose the topic:
+
+> **Is this substantive enough?** For POC, the test is whether the public explainable content and reports could **sustain a newsworthy article**. If they could not, the deliverable is not worth what the client paid.
+
+| Lane | Question the gate answers | Terminal action on pass |
+|---|---|---|
+| **MVP** | Is this worth publishing? | **Publish** |
+| **POC** | Is this worth handing to the paying client? | **Deliver** the explainable content and reports |
+
+**Same analysis. Same gate. Different consequence.**
+
+### This makes the design simpler, not more complex
+
+```
+trigger → gates → article → newsworthiness → ├─ MVP:  publish
+                                             └─ POC:  deliver reports
+```
+
+**There is no optional gate and no conditional path.** The gate always runs; only the terminal action branches on lane.
+
+That is better than `D-48`'s separable-gate design: **a parameterised consequence is cheaper to build and impossible to accidentally skip.** `D-48`'s constraint — *"newsworthiness must be separable so POC can bypass it"* — is **withdrawn**. Nothing bypasses it.
+
+`D-47`'s prediction survives unchanged and is now sharper still: `FN-PUBLICATION-09-10-13` remains the only lane-varying spec, and the variance is **one branch on terminal action**.
+
+### `G48` — a paid engagement that fails the gate *(new)*
+
+**Verified: the PoC proposal has no answer.** It states *"either may hold or escalate; neither may force release alone"* — a disposition, not an outcome. **What happens to a client who has already paid is undefined.**
+
+The options are all uncomfortable, which is why it needs deciding **before** the first engagement rather than during one:
+
+| Option | Consequence |
+|---|---|
+| Deliver anyway | **The gate becomes theatre.** See below |
+| Withhold, no refund | Client paid for nothing |
+| Withhold, refund | Cost absorbed; needs a stop-loss |
+| Deliver with the finding disclosed | Honest; the client learns the topic could not sustain an article — **which is itself a real answer** |
+
+> **The gate is only a control if failing it has teeth.** If *"not worthy"* still ships, `PSK-06`'s editorial-commercial separation is a label rather than a boundary — and commercial pressure to deliver is exactly what it exists to resist. **A gate whose failure changes nothing is not a gate.**
+
+**My recommendation is the fourth option**, and it is not a consolation prize: a client who learns *"we investigated and this could not sustain a newsworthy article, here is the evidence"* has received a genuine professional finding. **Negative evidence is evidence** — the Alpha Portfolio closure scorecard explicitly asks for *"payment/outcome evidence, including negative evidence."*
+
+**Severity: T3** — required before the first paid engagement, and it belongs in the pre-payment disclosure so the client knows the possibility exists before money changes hands.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
