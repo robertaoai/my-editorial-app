@@ -106,6 +106,21 @@ Filterable board (`FR-08`, `CR-13`) · audit view exposing the T6→T5 return ra
 
 Deferring this behind S0/S1 would stall commercial evidence for no technical reason — the manual PoC exists precisely to gather that evidence before the build justifies itself.
 
+## 5.1 Artifact Definition of Done — `D-19` / `G29`
+
+**A sprint is done when its named artifacts exist, not when its description has been satisfied in prose.** Attach these to each sprint's DoD; they are checkable by `ls`, which is the point.
+
+| Sprint | Artifacts that must exist |
+|---|---|
+| **S0** | `lib/config/build-config.ts` · `lib/config/flags.ts` · `docs/DECISION_LOG.md` · `docs/CONFIG_LOG.md` · draft `0002` **held outside** `supabase/migrations/` (`D-17`) · Stripe scaffolding **removed** |
+| **T1 / S0** | Test runner · `__tests__/` with one passing test · `.github/workflows/` CI *(`R3` — currently absent, and the precondition for every DoD below)* |
+| **S1** | `supabase/migrations/0002_*.sql` **applied** · `publication_targets` and `publications` tables exist · `allowed_transitions` exists |
+| **S2** | Blind-first-pass reveal ordering live at T5 · `T6→T5` return events distinctly queryable |
+| **S3** | Board renders and filters on all four dimensions · audit view exposes the `T6→T5` return rate |
+| **S4** | WordPress publish path · LinkedIn `ManualReady` path · T11 manual-confirm path · retry job table |
+
+**Standing rule:** if a sprint's artifacts do not exist, the sprint is not done — regardless of what any narrative says. This exists because `G32` demonstrated that a status line can claim completion the files do not support.
+
 ## 6. Out of scope for v1
 
 | Item | Why |

@@ -35,18 +35,27 @@ Rationale stays in the linked document.
 product. `docs/Modular_PRD.md` is the **Product** Requirements Document. They are different
 artifacts; do not treat the shared acronym as a collision.
 
-**Spec tooling (`D-32`, amends `D-31`).** Two-stage pipeline:
-`Modular_PRD` feature group → `specs-creator` drafts `Fn_Specs` → `spec-writing` refines it →
-`D-30` filter yields `SPECS`, conditionally.
+**Spec tooling (`D-33`, amends `D-32`).** `spec-writing` is the standard. Use `specs-creator`'s
+`templates/PRD.md` as **structural input only** — despite the filename it is a feature-spec
+template, and its User Stories and Risks sections are worth keeping.
+
+**Do not execute `specs-creator`'s workflow.** It declares a dependency chain requiring an
+`app-vision.md` that does not exist here, and mandates a `specs/` directory outside `D-29`'s
+hierarchy. Its `ux.md` template is visual design and does not apply.
+
+Merged structure: Overview · User Stories · Requirements · Behaviour · Acceptance Criteria ·
+Edge Cases · Dependencies · Risks · `SPECS` candidate filter.
+**Reference example:** `docs/v1/fn-specs/FN-PUBLICATION-09-10-13.md`.
 
 Guardrails, all binding:
 1. Input must be a **`Modular_PRD` feature group, never a prose description** — anchors travel
    with the input, and a description produces unanchored scope (`FB-04`).
-2. **Explicit invocation only; never proactive**, despite the skill's own framing (`G11`).
-3. Emitted tech-spec content is a **`SPECS` candidate list**, not a `SPECS` document. Apply
-   `D-30`'s redundancy test; discard anything `Fn_Specs` already determines.
+2. A feature group is features that **cannot function without each other**. Resolve the group's
+   internal dependencies before writing, or specs overlap and overlap is repetition.
+3. Tech content is a **`SPECS` candidate list**, not a `SPECS` document. Apply `D-30`'s
+   redundancy test; discard anything `Fn_Specs` already determines.
 4. **UI stays in `SPECS`.** `Fn_Specs` remains behaviour-focused.
-5. `spec-writing` always runs after generation — `specs-creator` output is a draft.
+5. Omit Technical Stack — added only when the build starts (`D-30`).
 
 **Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
 `supabase/migrations/0001_init.sql`.
