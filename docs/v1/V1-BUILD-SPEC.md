@@ -78,6 +78,8 @@ Config registry with a `PROVISIONAL` marker on every OD-derived value · feature
 
 **Precondition — `SPECS-TRANSITION-ENFORCEMENT` (`D-53`).** `G33b` closed 2026-08-20 (`D-52`): of 18 `SPECS` candidates, 7 absorb into this window, 9 require `SPECS` across 4 documents, 1 is infrastructure ⚙, 1 is blocked by `Q2`. **Exactly one is required before S1** — `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md`, which settles trigger timing, allowed-transitions table shape, and lock behaviour. The other three are sprint-aligned (S3, S4, S5).
 
+**`X4` and `X5` land in the same migration (`D-61`).** One seeded row executes **T5 with an agent**, and T5 is Line 2, human-primary. **Flipping `actor_type` to `human` alone makes the record worse** — it would assert a human executed T5 with no way to say which human, and would discard the fact that an agent assisted. `actor_id`, `assisting_agent_id`, and `line_assignment` are `X5`/`TC4` columns. **`X4` is not independently closable.**
+
 **Backfill input — `G57` closed (`D-55`).** The eight-row `X3` mapping is specified as data in `V1-DECISION-REGISTER.md` §5.14p and is **role-keyed**: `logged`→`Discovered`, `reported`→`Logged`, then `investigated`/`journaled`/`senior_reviewed`/`chief_approved`/`published`/`rejected` to `Investigated`/`Drafted`/`Reviewed`/`Approved`/`Published`/`Rejected`.
 
 **Two rules the migration must honour.** `Validated` and `Needs Revision` **backfill empty** — that is `X3`'s collapsed T2/T3 showing through, not a defect, and must not be repaired by inventing rows. And the mapping is **total: no `else` or `default` branch.** An unrecognised value must fail the migration loudly; a default silently misfiles it, permanently, in an append-only table.

@@ -1,0 +1,77 @@
+{
+  "_comment": "Fragment 18 — D-61, X4 specified; G61 the X-series is unindexed. Merged 2026-08-20.",
+  "nodes": [
+    {
+      "id": "d61_x4_t5_executed_by_agent",
+      "label": "D-61 — X4: One Seed Row Executes T5 With an Agent",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14v D-61",
+      "description": "One seeded transition row moves journaled to senior_reviewed with actor_type agent. Under D-55's role-keyed mapping that is T5, which is Line 2 and human-primary. Specified, not applied — 0001_init.sql is never edited and 0002 is unwritten. Correction: actor_type human, actor_id the Chief Editor, assisting_agent_id for the agent that helped, line_assignment Line 2.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Bounded to exactly one row and one gate. The adjacent senior_reviewed to chief_approved row also carries agent and is correct, because that is T6 on Line 1 where an agent is the specified executor. X4 is not that the seed data uses agents; it is one gate where it must not."
+    },
+    {
+      "id": "x4_couples_to_x5",
+      "label": "X4 Closes With X5 or Not at All",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "source_location": "S1",
+      "description": "Flipping actor_type to human alone produces a worse record, not a better one: it asserts a human executed T5 while giving no way to say which human, and silently discards that an agent assisted. actor_id, assisting_agent_id and line_assignment are all X5 and TC4 columns that do not exist yet, so X4 is not independently closable.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Recorded because the sprint plan lists X4 and X5 as separate line items and nothing said they were coupled. Sequencing them apart would produce an intermediate state in an append-only table that is less truthful than the defect it replaces."
+    },
+    {
+      "id": "false_independence_classification",
+      "label": "A False Four-Eyes Classification Is the Real Harm",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14v",
+      "description": "T5 is the Line 1 to Line 2 crossing carrying four-eyes satisfied under FR-05. A row asserting an agent crossed it alone makes that classification false, and NFR-02 makes transition rows permanent. The second harm is that the shipped demo teaches the inverse of the product's defining property, since the homepage is the working app with seed data.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A third harm was considered and withdrawn: the S1 enforcement trigger fires BEFORE UPDATE on articles, so historical transition rows are never re-validated and the migration is not blocked by them. Claiming otherwise would overstate the risk, the same correction D-60 had to make about the stranded-fragments warning."
+    },
+    {
+      "id": "g61_x_series_unindexed",
+      "label": "G61 — The X-Series Is Not in the Index",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14v",
+      "description": "X3, X4, X5, X7 and X8 have no rows in §5.1. They are recorded in the 2026-08-16 sprint plan, a journal document this register itself classifies as non-authoritative under D5. Five live build divergences tracked only where the governing set says not to look.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "G55's mechanism on a different ID series: the all-IDs index does not reach them. Recorded, not backfilled — adding only X4 to an index missing five would make the series look covered while four stayed invisible, which is the trap G55 named explicitly. The index now carries one row for X4 and one naming the gap, the same shape used for G40 to G49."
+    }
+  ],
+  "edges": [
+    { "source": "d61_x4_t5_executed_by_agent", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14v", "weight": 1 },
+    { "source": "d61_x4_t5_executed_by_agent", "target": "d55_x3_mapping_role_keyed", "relation": "depends_on", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14v", "weight": 1 },
+    { "source": "d61_x4_t5_executed_by_agent", "target": "x4_couples_to_x5", "relation": "constrained_by", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "S1", "weight": 1 },
+    { "source": "d61_x4_t5_executed_by_agent", "target": "false_independence_classification", "relation": "causes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14v", "weight": 1 },
+    { "source": "d61_x4_t5_executed_by_agent", "target": "fn_gates_01_05", "relation": "violates", "confidence": "CURATED", "source_file": "docs/fn-specs/FN-GATES-01-05.md", "confidence_score": 1, "source_location": "§3.4", "weight": 1 },
+    { "source": "d61_x4_t5_executed_by_agent", "target": "specified_not_installed", "relation": "carries_disposition", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14v", "weight": 1 },
+    { "source": "false_independence_classification", "target": "psk10_immutable_audit_reporting", "relation": "corrupts", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14v", "weight": 1 },
+    { "source": "g61_x_series_unindexed", "target": "g55_disposition_table_incomplete", "relation": "same_mechanism_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14v", "weight": 1 },
+    { "source": "g61_x_series_unindexed", "target": "summary_outlived_source", "relation": "instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14v", "weight": 1 },
+    { "source": "g61_x_series_unindexed", "target": "index_is_not_the_record", "relation": "evidence_for", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14v", "weight": 1 }
+  ]
+}

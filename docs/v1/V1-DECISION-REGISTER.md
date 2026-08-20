@@ -180,6 +180,9 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G48` | **Resolved 2026-08-19** | A paid engagement failing the gate — deliver with the finding disclosed. §5.14j, §5.14k, `D-49`/`D-50` |
 | `G49` | **Open** — S3 | Briefcase artifacts specified for POC only; MVP needs them or it cannot tell rework from true negative. §5.14k |
 | `G56` | **Closed 2026-08-20** | §5.15 solve sequence stale — found and repaired in the same pass. See §5.4 |
+| `X4` | **Open — specified, not applied** | `D-61` §5.14v — one seed row executes **T5 with an agent**; T5 is Line 2, human-primary. Correction specified. **Closes only with `X5`**, in `0002` |
+| `X3`, `X5`, `X7`, `X8` | **Recorded elsewhere — not backfilled** | **This index does not reach the `X`-series.** They live in `docs/journal/2026-08-16-sprint-plan.md`, which `D5` classifies as non-authoritative. Backfill is `G61`, Open |
+| `G61` | **Open — new** | The `X`-series is absent from this index — five live build divergences tracked only in a journal. `G55`'s mechanism on a different ID series. §5.14v |
 | `G60` | **Open — new** | The BCP observability surface (`C-13`) has no `FR`. Candidate `FR-14`; per `D-29` it lands in `Modular_PRD` §5, not `Fn_Specs`. S3. §5.14r |
 | `G59` | **Open — new** | No lockfile committed (`bun.lockb` absent). CI would resolve dependencies fresh every run, so a verdict varies with wall-clock time. Needs bun to generate. T1, with `R3`. §5.14q |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -1766,6 +1769,73 @@ What a swap would actually break is **verification and convention**, not rebuild
 ### Scope limits
 
 Closes `G54`. **Installs nothing; changes no distribution.** `D-51` stands — the project remains on `@sentropic/graphify`. Claims **presence** of upstream `merge-graphs`, **not equivalence**. The graph-schema question is newly named and **not resolved**.
+
+## 5.14v `D-61` — `X4` specified: one seed row, and the `X`-series is unindexed
+
+**Decision, 2026-08-20. Specifies `X4`; does not apply it.** `0001_init.sql` is never edited and `0002` is unwritten, so this is **specified, not applied** — the disposition `D-56` established for `R3`.
+
+### The defect, located exactly
+
+One seeded transition row, on article `context-engineering-agentic-systems`:
+
+| Field | Seeded value |
+|---|---|
+| From → to | `journaled` → `senior_reviewed` |
+| Role | `senior_journalist` |
+| `actor_type` | **`agent`** ← the defect |
+| Reason | *"Quality check passed"* |
+
+Under `D-55`'s role-keyed mapping, `journaled` → `senior_reviewed` **is T5** — *Drafted → Reviewed*, **Line 2, human-primary.** `FN-GATES-01-05` §3.4: *"An agent attempting T5 is refused. Line 2 is human-primary. **This is the gate's defining property, not a configuration.**"*
+
+**Bounded: exactly one row, one gate.** The adjacent `senior_reviewed` → `chief_approved` row also carries `agent` — **and is correct.** That is T6, **Line 1**, where an agent is the specified executor. **`X4` is not "the seed data uses agents"; it is one gate where it must not.**
+
+### Two real harms, and one I decline to claim
+
+| # | Harm | Real? |
+|---|---|---|
+| 1 | **The demo teaches the inverse of the product's defining property.** The homepage *is* the working app with seed data, so the shipped demonstration shows an agent having executed the one gate that refuses agents | **Yes** |
+| 2 | **The independence classification would be false.** T5 is the Line 1 → Line 2 crossing carrying four-eyes `satisfied` (`FR-05`). A row asserting an agent crossed it alone makes that classification a lie — and `NFR-02` makes transition rows permanent | **Yes** |
+| 3 | ~~The S1 enforcement trigger will reject these rows~~ | **No** |
+
+**Why harm 3 is withdrawn:** `SPECS-TRANSITION-ENFORCEMENT` §5 fires `BEFORE UPDATE` on `articles`. **Historical transition rows are never re-validated**, so the trigger will not reject them and the migration is not blocked by them. Claiming otherwise would overstate the risk — the same correction `D-60` had to make about the stranded-fragments warning.
+
+**Harm 2 is the one that matters.** It is the same family as `G57`/`D-55`: a Line-boundary crossing attributed to the wrong kind of executor, written into an append-only table.
+
+### The correction
+
+From the Addendum's own T5 row — *"Senior Journalist · **Line 2** · **Human-primary** (Chief Editor), agent-assisted"*:
+
+| Field | Corrected value |
+|---|---|
+| `actor_type` | `human` |
+| `actor_id` | The Chief Editor — the only human on the project (§0.3) |
+| `assisting_agent_id` | The agent that assisted. **Assistance is metadata; the human signs** |
+| `line_assignment` | Line 2 |
+
+### `X4` and `X5` must land in the same migration
+
+**Flipping `actor_type` to `human` alone produces a worse record, not a better one** — it would assert a human executed T5 while providing **no way to say which human**, and would silently discard the fact that an agent assisted.
+
+`actor_id`, `assisting_agent_id`, and `line_assignment` are all `X5`/`TC4` columns that **do not exist yet**. **`X4` is therefore not independently closable: it closes with `X5`, in `0002`, or not at all.** Recorded because the sprint plan lists them as separate line items and nothing said they were coupled.
+
+### `G61` — the `X`-series is not in the index *(new)*
+
+**Verified:** `X3`, `X4`, `X5`, `X7`, and `X8` have **no rows in §5.1**. They are recorded in `docs/journal/2026-08-16-sprint-plan.md` — a journal document, and one this register **itself classifies as non-authoritative** under `D5`.
+
+**So five live build divergences are tracked only where the governing set says not to look.** This is `G55`'s mechanism on a different ID series: the all-IDs index does not reach them.
+
+**Recorded, not backfilled.** Adding only `X4` to an index missing five would make the series *look* covered while four stayed invisible — the trap `G55` named explicitly. §5.1 now carries **one row for `X4` and one naming the gap**, in the same shape used for `G40`–`G49`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 |
+|---|---|---|---|---|
+| `D-61` — `X4` specified | ✅ | ✅ S1 coupling | — *no artifact; `0002` already listed* | ✅ |
+| `G61` — `X`-series unindexed | ✅ | — *an index defect, sequences nothing* | — *no artifact* | ✅ |
+
+### Scope limits
+
+Specifies `X4`; **applies nothing.** `0001_init.sql` unedited, `0002` unwritten. Authorizes no migration. `X4` remains **Open — specified, not applied**, and closes only with `X5`. `G61` recorded, **not backfilled**.
 
 ## 5.15 Solve sequence — remaining open gaps
 
