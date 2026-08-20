@@ -86,10 +86,13 @@ Grouped by state, filterable on every configured dimension. Four are known: **st
 | ID | Given | When | Then |
 |---|---|---|---|
 | `AC-11` | Any transition occurs | It completes | **Exactly one** row precedes the state change, carrying article, executor, type, Line, timestamp, reason |
-| `AC-12` | A transition row exists | UPDATE or DELETE is attempted, **including with the anon key** | The **database** refuses. **Fails today** — `0001` grants `for all using (true)` |
+| `AC-12` ⚙ | A transition row exists | UPDATE or DELETE is attempted, **including with the anon key** | The **database** refuses. **Fails today** — `0001` grants `for all using (true)` |
+| `AC-12a` `[V1]` | Records for a period have been archived or disposed of under policy | The audit surface is opened for that period | It states that records **existed and are no longer retrievable**, names the **policy and version**, the **period**, and the **archive location** if one was taken. **It never renders absence as "nothing happened"** (`G41`) |
 | `AC-13` | `SUCCESS_ARTICLES_LOGGED_MIN` articles span states, topics, categories and Lines | The Chief Editor filters on each dimension | Each filter returns the correct subset |
 
-**`AC-12` is the canary.** If a browser can delete a transition row, `FR-07` has failed regardless of what the application enforces.
+**`AC-12` ⚙ is an infrastructure criterion, not a product one (`D-39`).** It tests a database grant-and-policy decision. `TC1` records that the client holds the same key the server does, so **the product has no layer at which to enforce it** — attempting to satisfy it in application code produces an advisory check mistaken for a control. Marked ⚙ throughout to denote infrastructure ownership.
+
+**`AC-12a` is the product's canary in its place.** The product's duty is not to prevent deletion; it is to **stay honest once deletion has happened**. An audit surface that renders an archived period as an empty list has turned lawful disposal into apparent evidence that nothing occurred — which is worse than showing nothing at all, because it reads as a finding.
 
 ## 6. Edge cases `[V1]`
 

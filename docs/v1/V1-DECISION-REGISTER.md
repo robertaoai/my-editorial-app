@@ -522,6 +522,50 @@ Every one: two concepts sharing a name, read as one thing in conflict with itsel
 
 **`G33a` gates `G33b`, and both gate S1.**
 
+## 5.14 `D-39` — separation of duties: policy is infrastructure, explainability is product
+
+**Chief Editor clarification, 2026-08-19.** Corrects how `AC-12` and `GA9` were framed.
+
+### The split
+
+| Duty | Owner | Why |
+|---|---|---|
+| **Deletion permission** — preventing tampering | **Infrastructure** | A grant-and-policy decision on the database, made by whoever owns it |
+| **Archival execution** | **Infrastructure** — a separate system may perform it | Not an editorial function |
+| **Retention compliance** — statutory floor, erasure duties | **Infrastructure**, with counsel | `Q7` territory |
+| **Partition-friendly structure** so archival and deletion are seamless | **Product** | Audit-model §6.2 Method 3 |
+| **Explaining absence** when data is not retrievable | **Product** | Nobody else is at the surface where a reader sees the hole |
+
+**The product's duty is not to prevent deletion. It is to remain honest once deletion has happened.**
+
+### What this corrects
+
+**`AC-12` was mis-attributed.** It reads *"the database refuses"* — that tests an **infrastructure policy**, not application behaviour. The application has no layer at which to enforce it: `TC1` records that the anon key is public and the client holds the same key the server does. **The product cannot make `AC-12` pass**, and a prior framing that treated it as a product defect assigned the duty to the wrong owner.
+
+`AC-12` remains a valid **system** criterion against `NFR-02`. Its owner is the infrastructure policy. Recorded so nobody attempts to satisfy it in application code, which would produce an advisory check mistaken for a control.
+
+**`GA9` / `D-07` reframed.** `on delete cascade` at `0001_init.sql:43` and `:55` **declares the relationship** — these rows belong to that article — and the direction is accurate at base creation. `0001` and `PRD.md` are frozen and their intention is not reworked.
+
+> **One property worth stating precisely, without disturbing the freeze:** `on delete cascade` declares behaviour as well as relationship — `references articles(id)` alone would declare the relationship. So a cascade path exists that a `DELETE` revocation does not close, because Postgres runs cascade as a referential action rather than a privileged user delete. **That is a fact about the policy layer's coverage, not a defect in the schema.** The infrastructure policy must account for both paths; the product changes nothing.
+
+### Two gaps this opens — both genuinely product duties
+
+| # | Gap | Severity |
+|---|---|---|
+| **`G40`** | **`NFR-08` is unbounded.** It reads *"Every transition reconstructable from the log alone"* with **no retention qualifier**. Archival and lawful disposal make that false by design. As written the product promises something infrastructure policy will remove. Restate as reconstructable **within the retention window**, with absence outside it explained rather than silent | **DOC** — before S3 |
+| **`G41`** | **No requirement covers explaining absence.** Verified: no FR or AC anywhere addresses what a reader sees when data has been archived or disposed of. An audit view showing zero transitions cannot currently distinguish *"nothing happened"* from *"records removed under policy."* **Conflating those two is the failure** — it turns lawful disposal into apparent evidence of no activity | **S3** — with the audit surface |
+
+### Drafted fix for `G41`
+
+The product must **never present absence as "nothing happened."** Where records are not retrievable, the surface states:
+
+1. that records existed and are **no longer retrievable**;
+2. **which policy** removed them — archival or disposal, named and versioned;
+3. the **period** covered;
+4. **where the archive is**, if one was taken.
+
+This is the reader-facing counterpart to the disposal record in audit Step 10. The disposal record proves what was removed; this states it at the point someone looks for it. **Partitioning (audit-model §6.2 Method 3) is what makes both practical** — a detached partition has a clean period boundary to name.
+
 ## 5.15 Solve sequence — remaining open gaps
 
 Ordered by dependency. **Fixes are drafted here so execution does not re-derive them.**
