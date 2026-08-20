@@ -56,6 +56,7 @@
 | **1.9** | **2026-08-20** | Claude, under `D-54` propagation | **Tracking correction, no scope change.** §8 `V1` status row updated to record `G33a`/`G33b` closed and the `SPECS` tier opened. Landed under `D-54`, which requires an artifact-creating decision to reach every tier that owns a facet of it — this row had been stale since `D-52`. |
 | **1.10** | **2026-08-20** | Claude, from Chief Editor direction on the `X3` reading | **Tracking correction, no scope change.** §8 `V1` row records `G57` closed by `D-55`; S1 no longer gated on the backfill mapping. |
 | **1.11** | **2026-08-20** | Claude, from Chief Editor direction on `R3` scope | **Tracking correction, no scope change.** §8 `V1` row records `R3` specified by `D-56`; S0's gate is now installation, not design. |
+| **1.12** | **2026-08-20** | Claude, from Chief Editor direction on `Q2` and the BCP layer | **Tracking correction plus one disclosed capability gap.** §8 `V1` row records `Q2` answered by `D-57`. A business-continuity observability surface is required as condition `C-13`; it has **no functional requirement** — candidate `FR-14`, recorded as `G60` and **not written here**, since a new capability needs a proper §5 pass (`D-29`). |
 
 ### 0.2 Decision Log
 
@@ -587,7 +588,7 @@ The most consequential requirement, and the one most at risk of being quietly ov
 
 | Build | Sprints | Operative set | Status |
 |---|---|---|---|
-| **`V1`** | S0 · S1 · S2 · S3 · S4 · *(S5 beyond v1 scope)* | `docs/v1/V1-*.md` | **Active.** T0 complete · T1 in progress · **planning tiers complete**: `G33a` closed (four `Fn_Specs`, `FR-01`–`FR-13` covered) and `G33b` closed (`D-52` — 18 candidates → 4 `SPECS` documents) · `SPECS` tier opened with `SPECS-TRANSITION-ENFORCEMENT` (`D-53`), the only one S1 requires · S0 not started — `R3` **specified** (`D-56`), installation gated on the build guardrail · `G57` **closed** (`D-55` — `X3` mapping specified as data, role-keyed) · S1 now gated only on its own window decisions |
+| **`V1`** | S0 · S1 · S2 · S3 · S4 · *(S5 beyond v1 scope)* | `docs/v1/V1-*.md` | **Active.** T0 complete · T1 in progress · **planning tiers complete**: `G33a` closed (four `Fn_Specs`, `FR-01`–`FR-13` covered) and `G33b` closed (`D-52` — 18 candidates → 4 `SPECS` documents) · `SPECS` tier opened with `SPECS-TRANSITION-ENFORCEMENT` (`D-53`), the only one S1 requires · S0 not started — `R3` **specified** (`D-56`), installation gated on the build guardrail · `Q2` **answered** (`D-57`) — no independent assurance in v1, conditional on `C-13`'s BCP surface; `FR-11` not built in v1 · `G57` **closed** (`D-55` — `X3` mapping specified as data, role-keyed) · S1 now gated only on its own window decisions |
 | `V2` | — | `docs/v2/V2-*.md` *(not created)* | Not opened |
 
 **When `V2` opens:** `V1-*.md` freeze, `V2-*.md` becomes the active operative set, and this table records the handover. Both remain inside the same project unless the Alpha Portfolio charters a new one.

@@ -85,6 +85,7 @@ Merge **in this order** — later fragments reference nodes earlier ones introdu
 | 12 | `frag11.json` | `D-54` propagation rule, `G58` |
 | 13 | `frag12.json` | `D-55` — `X3` mapping role-keyed, `G57` closed |
 | 14 | `frag13.json` | `D-56` — `R3` specified, `G59` |
+| 15 | `frag14.json` | `D-57` — `Q2` resolved, `C-13` BCP surface, `G60` |
 
 `merge7.js` is the reference merge script (repo-relative; `merge6.js` is retained for history but hard-codes an absolute path). `missing.js` reports which docs are absent from the graph.
 

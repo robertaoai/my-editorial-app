@@ -165,7 +165,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `GA1`, `GA3`, `GA4` | Open | S1 window item 3 — report record shape |
 | `GA2` | **Half closed 2026-08-19** | Stated half done — report immutability rule in `Modular_PRD` §6.3. Insert/read-only half remains S1 window item 4 |
 | `GA5` | **TX — counsel** | Pairs with `G15` |
-| `GA6` | **Half closed 2026-08-19** | Disclosure done — assurance recorded as Absent, with `Q2` remedy and `A23` warning. Substantive remedy remains `Q2`, T1 |
+| `GA6` | **Closed 2026-08-20** | Disclosure stands — assurance **Absent**, unchanged. `Q2` answered by `D-57`: v1 has no independent assurance, conditional on `C-13`'s BCP surface. **The surface is a compensating control, never Line 3** |
 | `GA7` | Open | T3, audit Step 7 — auditor access versus tenant isolation |
 | `GA8` | **Closed on execution** | `D-13` — `PSK-10`, T0 Step 1 |
 | `GA9` | Open | `D-07`, S1 window item 6 |
@@ -180,6 +180,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G48` | **Resolved 2026-08-19** | A paid engagement failing the gate — deliver with the finding disclosed. §5.14j, §5.14k, `D-49`/`D-50` |
 | `G49` | **Open** — S3 | Briefcase artifacts specified for POC only; MVP needs them or it cannot tell rework from true negative. §5.14k |
 | `G56` | **Closed 2026-08-20** | §5.15 solve sequence stale — found and repaired in the same pass. See §5.4 |
+| `G60` | **Open — new** | The BCP observability surface (`C-13`) has no `FR`. Candidate `FR-14`; per `D-29` it lands in `Modular_PRD` §5, not `Fn_Specs`. S3. §5.14r |
 | `G59` | **Open — new** | No lockfile committed (`bun.lockb` absent). CI would resolve dependencies fresh every run, so a verdict varies with wall-clock time. Needs bun to generate. T1, with `R3`. §5.14q |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
 | `G57` | **Closed 2026-08-20** | `D-55` §5.14p — eight-row mapping specified as data, **role-keyed**. Overturns `D-53`'s name-keyed draft: `logged`→`Discovered`, `reported`→`Logged`. `Validated` and `Needs Revision` backfill empty |
@@ -1501,6 +1502,77 @@ Two consequences: **CI is not reproducible** — the same commit can pass today 
 ### Scope limits
 
 Closes `R3` **as a specification only**. Creates no file, installs no package. Does not resolve `TC6`. `G59` recorded, not resolved. **S0 remains gated** until the guardrail is lifted for `R3` — but the gate is now an execution step, not an open design question.
+
+## 5.14r `D-57` — `Q2` resolved: no independent assurance in v1, conditional on a BCP surface
+
+**Decision, 2026-08-20, Chief Editor direction.** **v1 has no independent assurance.** Line 3 has no executor and `FR-11` is **not built in v1**. **Never the Chief Editor** — he is the only human on the project (§0.3), and naming him collides Line 2 with Line 3 (`A23`, `SEC-01`).
+
+**Conditional, not plain.** The Chief Editor attached a condition — `C-13`, a **business-continuity observability surface** that shows the critical observation continuously, and gives future BCP concerns one home.
+
+### The challenge this direction has to survive — and does
+
+**A dashboard executes nothing. Observability is not independence.** `SEC-01` requires Line 3 to share no identity or data path with Lines 1 and 2. A surface read by the Chief Editor is still **Line 2 reading its own evidence**, however well presented.
+
+And the governing set contains a warning aimed squarely at this shape. `Modular_PRD` §1: *"The problem is a **compliance-absence problem, not a dashboard problem**. A tool that surfaced trending articles faster but still permitted an unreviewed publish would fail this PRD entirely."*
+
+**That warning applies here in exactly one way, and it is decisive:** if the surface were treated as *satisfying* `Q2`, this decision would be the error the warning names — better visibility standing in for an absent control. **It is not.** `Q2` is answered *"no independent assurance"*; the surface is a **compensating control** that makes the absence legible and actionable. Same distinction as `AC-12` (infrastructure cannot be discharged in product code, `D-39`) and `G41` (the product's duty is not to prevent deletion but to stay honest once it has happened).
+
+### Why the direction improves on the drafted recommendation
+
+The draft recommended *"no assurance, revisit before V2."* **A condition with a date is a promise; a condition with an artifact is falsifiable.** `C-13` replaces a scheduling intention with a thing that either exists and shows the observation, or does not.
+
+And the second half of the direction — *"so future BCP is in one place"* — is **verified against the corpus, not accepted on assertion**:
+
+| Check | Finding |
+|---|---|
+| Business-continuity requirement anywhere in the governing set | **None.** Zero occurrences of *business continuity*, *BCP*, or *continuity plan* |
+| Continuity conditions in the specs | **Scattered** — escalation, absence, degraded mode, and stall all appear across multiple documents |
+| A home concept | **Exists but has no surface.** `FN-EXCEPTIONS-06-11-12` is titled *"Exceptions & **Continuity**"* and owns `FR-12` |
+| `FR-08`'s board | **Editorial workflow, not continuity.** Filters state, topic, category, Line — none of which is a continuity condition |
+
+**The conditions exist, the group that owns them exists, and nothing displays them.** That is a real gap the direction identifies correctly.
+
+### `C-13` — the condition
+
+**Condition on `D-57`.** v1 discloses no independent assurance **and** provides a business-continuity observability surface carrying, at minimum, the conditions the existing specs already define:
+
+| Observation | Source | Why it is a continuity concern |
+|---|---|---|
+| `T6→T5` return rate | `A17`, `FR-08` | **The `OD2` trip-wire.** A rate that never leaves zero means successor-node review is nominal |
+| Degraded-mode state | `FR-12` | The accountable human is unavailable beyond threshold |
+| Escalation backlog | `FR-06` | Auto-escalations with no destination accumulate silently |
+| Agent stall | Addendum, agent-failure row | An article stops advancing with nobody notified |
+| Retraction clock | `G43` | A binding order carries a deadline |
+| Publication retry exhaustion | `FR-09`/`FR-10` | A target that never went live |
+
+**Nothing here is invented.** Every row is a condition an existing specification already defines and no surface currently shows.
+
+**Follow-up phase:** the surface is specified in **S3** with the audit surface, alongside `G41` and `G49`. Not S5 — it must exist *before* the `OD2` evidence it displays matters.
+
+### Why `OD4` branch ② still binds
+
+The Charter: *"If `OD2` resolves negatively, at any point, including before v1 ships: this is a pre-launch blocker."* **That force is unchanged.** `C-13` does not weaken it — it makes the triggering condition **visible in a named place** rather than inferable from a query nobody is scheduled to run.
+
+**What is guaranteed to fail:** treating the surface as the assurance. The trip-wire would then be watched by the party it audits, and reported as though independently verified. **How to avoid it:** `GA6`'s disclosure stands unchanged — **assurance Absent** — and the surface is described everywhere as a compensating control, never as Line 3.
+
+### `G60` — the BCP surface has no `FR` *(new)*
+
+**Verified:** no functional requirement covers a continuity surface. Candidate **`FR-14`** *(next free number)*.
+
+Per `D-29`, **a new capability lands in `Modular_PRD` — tier 2 — and is not invented in `Fn_Specs`.** Same disposition as `G38`, which resolved by defaulting to an owning `CR` rather than by writing a requirement at the wrong tier. **Recorded, not written:** `FR-14` needs a proper `Modular_PRD` §5 pass, which is beyond *"complete only `Q2`"*.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 |
+|---|---|---|---|---|
+| `D-57` — `Q2` answered | ✅ | ✅ S5 row | ✅ via `C-13` | ✅ status row |
+| `C-13` — BCP surface condition | ✅ | ✅ S3 placement | ✅ artifact row | ✅ status row |
+| `G60` — no `FR` for the surface | ✅ | ✅ gates S3 | ✅ artifact row | ✅ changelog v1.12 |
+| `Q2` itself | ✅ | ✅ | — *a decision, not an artifact* | ✅ |
+
+### Scope limits
+
+Closes `Q2`. Unblocks `FR-11`'s **disposition** — not its build; `FR-11` is **not built in v1**. Closes no `OD` — `OD3` remains not closable at scaffolding. Authorizes no code, schema, or migration. `G60` recorded, `FR-14` not written. `GA6`'s *assurance Absent* disclosure is **unchanged**.
 
 ## 5.15 Solve sequence — remaining open gaps
 

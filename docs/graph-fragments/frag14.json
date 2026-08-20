@@ -1,0 +1,76 @@
+{
+  "_comment": "Fragment 14 — D-57, Q2 resolved; C-13 BCP surface; G60. Merged 2026-08-20.",
+  "nodes": [
+    {
+      "id": "d57_q2_no_independent_assurance",
+      "label": "D-57 — Q2 Resolved: No Independent Assurance in v1",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14r D-57",
+      "description": "v1 has no independent assurance. Line 3 has no executor and FR-11 is not built in v1. Never the Chief Editor — he is the only human on the project, so naming him collides Line 2 with Line 3, the violation SEC-01 exists to prevent. Conditional rather than plain: condition C-13 requires a business-continuity observability surface.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Closes Q2 and GA6. The disclosure that assurance is Absent stands unchanged; what changes is that the absence now carries a compensating control instead of only a promise to revisit."
+    },
+    {
+      "id": "c13_bcp_observability_surface",
+      "label": "C-13 — BCP Observability Surface",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14r C-13",
+      "description": "A business-continuity surface showing the OD2 trip-wire (T6 to T5 return rate), degraded-mode state, escalation backlog, agent stall, retraction clock, and publication retry exhaustion. Every row is a condition an existing specification already defines and no surface currently shows. Placed in S3 with the audit surface, not S5, because it must exist before the OD2 evidence it displays matters.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Chief Editor direction, and an improvement on the drafted recommendation: a condition with a date is a promise, a condition with an artifact is falsifiable. Verified against the corpus — no business-continuity requirement exists anywhere in the governing set, continuity conditions are scattered across escalation, absence, degraded mode and stall, FN-EXCEPTIONS is titled Exceptions and Continuity but has no surface, and FR-08's board is editorial workflow rather than continuity."
+    },
+    {
+      "id": "compensating_control_not_assurance",
+      "label": "A Surface Compensates; It Does Not Assure",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14r",
+      "description": "Observability is not independence. A surface read by the Chief Editor is Line 2 reading its own evidence, however well presented. Modular_PRD §1 warns that the problem is a compliance-absence problem, not a dashboard problem — and that warning binds here in one way: if the surface were treated as satisfying Q2, it would be better visibility standing in for an absent control.",
+      "community": 30,
+      "community_name": "Tooling Provenance and Graph Durability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Same distinction as AC-12, where an infrastructure duty cannot be discharged in product code, and G41, where the product's duty is not to prevent deletion but to stay honest once it has happened. Guaranteed to fail: treating the surface as the assurance, so the trip-wire is watched by the party it audits and reported as independently verified. GA6's Absent disclosure stands unchanged for exactly this reason."
+    },
+    {
+      "id": "g60_bcp_surface_no_fr",
+      "label": "G60 — BCP Surface Has No FR",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14r",
+      "description": "No functional requirement covers a continuity surface. Candidate FR-14, the next free number. Per D-29 a new capability lands in Modular_PRD section 5, tier two, and is not invented in Fn_Specs. Gates S3: the surface cannot be built until the requirement exists.",
+      "community": 28,
+      "community_name": "V1 Functional Specifications",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Same disposition as G38, which resolved by defaulting to an owning CR rather than by writing a requirement at the wrong tier. Recorded, not written — FR-14 needs a proper Modular_PRD section 5 pass, which was beyond the scope of answering Q2."
+    }
+  ],
+  "edges": [
+    { "source": "d57_q2_no_independent_assurance", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14r", "weight": 1 },
+    { "source": "d57_q2_no_independent_assurance", "target": "c13_bcp_observability_surface", "relation": "conditional_on", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14r", "weight": 1 },
+    { "source": "d57_q2_no_independent_assurance", "target": "compensating_control_not_assurance", "relation": "constrained_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14r", "weight": 1 },
+    { "source": "d57_q2_no_independent_assurance", "target": "d54_propagation_rule", "relation": "propagated_under", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14r", "weight": 1 },
+    { "source": "c13_bcp_observability_surface", "target": "g60_bcp_surface_no_fr", "relation": "blocked_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14r", "weight": 1 },
+    { "source": "c13_bcp_observability_surface", "target": "fn_exceptions_06_11_12", "relation": "surfaces_conditions_from", "confidence": "CURATED", "source_file": "docs/fn-specs/FN-EXCEPTIONS-06-11-12.md", "confidence_score": 1, "source_location": "§4", "weight": 1 },
+    { "source": "c13_bcp_observability_surface", "target": "v1_build_spec", "relation": "scheduled_in", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "S3", "weight": 1 },
+    { "source": "compensating_control_not_assurance", "target": "separation_of_duties_d39", "relation": "same_distinction_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14", "weight": 1 },
+    { "source": "g60_bcp_surface_no_fr", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14r", "weight": 1 }
+  ]
+}
