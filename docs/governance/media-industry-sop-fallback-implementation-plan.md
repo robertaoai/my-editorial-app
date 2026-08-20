@@ -202,6 +202,8 @@ flowchart TD
     H --> F
 ```
 
+**Mirror-the-spread boundary (`G24`).** A correction or retraction must reach **every channel the business published to**, evidenced by the publication transaction record — mirror scope is a query, not a recollection. **Third-party amplification is explicitly outside it.** The business can only act on channels it published to; someone else resharing an article is outside its record and its control. Left unstated, the rule reads as an unbounded duty to chase an error across the internet — which cannot be discharged, cannot be evidenced, and would fail an audit precisely because it was promised.
+
 The key continuity rule for article-specific uncertainty is **article isolation**: `Hold` stops the affected item, not the whole publication pipeline. This rule does not override the Charter's negative-OD2 hard stop. Outside that branch, a global halt requires a systemic condition such as compromised credentials, corrupted audit integrity, a broken gate-control mechanism, or a binding order affecting the service as a whole.
 
 ## 10. Confidential-source and whistleblower lane

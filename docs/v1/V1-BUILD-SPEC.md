@@ -34,7 +34,7 @@ Executable now. Exact procedure, target text, and verification are in `docs/jour
 
 **Output:** 4 files edited, `Modular_PRD` → v1.6, traceability map → v1.3, one commit.
 
-### T1 — Chief Editor decisions before S0 *(20 items)*
+### T1 — Chief Editor decisions before S0 *(23 items)*
 
 > **T1's first deliverable is its own runbook (`D-21`/`G31`).** T0 has six items and a full procedure with exact text, version discipline, and verification. T1 carries twenty, touches governed documents, and touches the two files every agent reads first — with no procedure at all. Produce the runbook before executing the rest.
 

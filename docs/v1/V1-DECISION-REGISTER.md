@@ -157,6 +157,44 @@ Every conditionally approved item, its follow-up, and where it lands.
 
 **Closed: 6** *(`G1`, `G2`, `G12`, `G13`, `GA8`, plus `G21` withdrawn)*. **Escalated to counsel: 2** *(`G15`/`GA5`)*. **Unowned: 1** *(`G11`)*. **Remainder open against a named phase.**
 
+## 2.3 Document intent hierarchy — `D-29`, `D-30`
+
+**Chief Editor direction, 2026-08-19.** Establishes the order of source of intent and resolves the spec-class question left open at §6.1.
+
+| # | Tier | Role | Status |
+|---|---|---|---|
+| 1 | **`PRD`** | Project requirements — the customer's original record | ✅ Exists, frozen at `53ace36` |
+| 2 | **`Modular_PRD`** | Modular product requirements — the governed spec | ✅ Exists, v1.6 |
+| 3 | **`Fn_Specs`** | **Functional Specs.** Feature-level breakdown from `Modular_PRD`. **For v1 this is the official spec to create first** | ❌ **Does not exist** |
+| 4 | **`SPECS`** | **Technical Specs.** Component-level technical breakdown of each `Fn_Specs` component | ❌ **Does not exist** |
+
+### `D-29` — the hierarchy and its change rule
+
+Intent flows downward: `PRD` → `Modular_PRD` → `Fn_Specs` → `SPECS`. Each tier elaborates the one above and may never contradict it — the same rule already governing the Charter tier.
+
+**Change localization is the purpose.** A change lands in the tier that owns it, and only that document changes. A behavioural change touches `Fn_Specs`; a component-implementation change touches `SPECS`; neither reaches back up into `Modular_PRD` or `PRD`.
+
+### `D-30` — `SPECS` structure and the redundancy rule
+
+Each `SPECS` document opens with an **executive summary** carrying: the component's intent, why it exists, its success criteria, and its limitations — hardware, libraries, infrastructure. A tech-stack section is added **only when the build starts**, not before.
+
+> **The redundancy rule.** If a behaviour can be defined clearly enough in `Fn_Specs`, then a `SPECS` document for it is **redundant and must not be written.** `SPECS` exists only where functional definition alone cannot determine the implementation.
+
+This is a genuine constraint, not a preference: it prevents `SPECS` becoming a restatement layer, which is the mechanism behind this project's recurring drift defect — one fact in two documents, one updated and one not.
+
+### Effect on §6.1's freeze
+
+§6.1 froze the operative set at three documents. **That freeze governs consolidation and analysis documents only.** `Fn_Specs` and `SPECS` are a distinct class — implementation specifications, not consolidations — and are admitted by `D-29`. The freeze's purpose stands: no fourth *register* or *analysis* document.
+
+### Effect on `G33`
+
+`G33` recorded "no technical specification exists." **Re-shaped, not closed.** The hierarchy makes it two ordered gaps:
+
+- **`G33a` — `Fn_Specs` absent.** The first artifact v1 needs. It breaks down `FR-01`–`FR-13` and the NFR set from `Modular_PRD` §5–§7 into feature-level behaviour.
+- **`G33b` — `SPECS` absent**, and *conditionally required*. Only components whose behaviour `Fn_Specs` cannot fully determine need one. Present candidates are the `TR-DM-01`–`06` data contracts, `TR-API-01`–`04` interface contracts, and the eight S1-window decisions — all of which resolve into schema and cannot be settled by functional description alone.
+
+**`G33a` gates `G33b`, and both gate S1.**
+
 ## 5.2 Consistency audit — 2026-08-19
 
 Three findings from auditing the executed T0 against its runbook.
@@ -189,6 +227,50 @@ The functional layer is substantially covered: `Modular_PRD.md` §5–§7 carrie
 ### `G11` escalated — three agents, not two
 
 `.claude/`, `.codex/`, and now `.agents/` are all configured. `c1a90c6` was authored by a third agent ("Antigravity"), and `D-27` records ChatGPT Codex as a drafting party. **`G32` is the first observed instance of the harm `G11` predicted:** one agent executed another's runbook and silently dropped operative content, with no arbitration rule and no detection mechanism. `G11` moves from *watch* to **open, and now evidenced**.
+
+## 5.3 Drift audit — repo creation versus now
+
+Baseline: `62c8d8c` (2026-08-15, initial) → `53ace36` (2026-08-16, plan pack + `PRD.md` + `0001_init.sql`). Current: `c477000` (2026-08-19) plus one local commit. **21 commits.**
+
+### What did not drift — the frozen baselines held
+
+| Artifact | Status |
+|---|---|
+| `docs/PRD.md` | **Unchanged since `53ace36`** ✅ |
+| `supabase/migrations/0001_init.sql` | **Unchanged since `53ace36`** ✅ |
+| `docs/source/project-charter-v1.md` | Never edited ✅ |
+
+Every discipline this project set for itself on baselines has been kept. That is the audit's cleanest result.
+
+### The actual drift: one layer moved, the other did not
+
+**19 of 21 commits are documentation.** The code layer has not changed since `53ace36` on day two.
+
+| Layer | At creation | Now |
+|---|---|---|
+| Documentation | 10 files, one directory | ~35 files across `docs/`, `docs/source/`, `docs/governance/`, `docs/journal/`, `docs/v1/` |
+| Application code | `app/` + `lib/stripe` + `lib/supabase` | **Identical — zero commits** |
+| Plan pack (7 docs) | Authoritative — *"a complete, correct plan"* | **Untouched, and demoted to `D5`: not in the precedence hierarchy at all** |
+
+**The authority relationship inverted while the artifacts stood still.** At creation the plan pack *was* the plan. It is now a deviation-register row describing an architecture the governing set contradicts — and no one has edited it, because nothing needed to: it simply stopped being authoritative around it.
+
+### Every scaffold-level defect found on day two is still present
+
+Verified by direct check, not by reading the register:
+
+| ID | Defect | Status |
+|---|---|---|
+| `A7` / `G5` | `CLAUDE.md` **and** `AGENTS.md` still say *"a complete, correct plan"*, still point at the demoted pack | **Open** — T1 |
+| `X8` | Stripe scaffolding present against `NG-03`, a **Charter-level** exclusion | **Open** — S0 |
+| `TC6` | `next.config.ts` still disables type and lint gates at build | **Open** — S0 / `Q6` |
+| `TC1` | No privileged write path; anon key public, RLS permissive | **Open** — S1 |
+| `X3` | Schema carries 8 states (`reported`, `journaled`, `senior_reviewed`, `chief_approved`); the Addendum specifies 10 with different names (`Validated`, `Drafted`, `Reviewed`, `Approved`, plus `Discovered`, `Needs Revision`) | **Open** — S1 |
+
+**No new gap IDs are raised by this audit.** Every drift item already has one. That is the finding: the drift is not uncatalogued, it is **uncorrected** — and `A7`/`G5` in particular has now stood for four days while three agents each read the file it misdirects.
+
+### Correction to an earlier claim
+
+Prior analysis recorded that *"`AGENTS.md` was added later by Codex."* **Wrong.** `AGENTS.md` is present in `62c8d8c`, the initial commit, and was revised alongside `CLAUDE.md` at `53ace36`. Both files carry the stale pointer from origin; neither was introduced by a later agent.
 
 ## 6. Supersession map
 

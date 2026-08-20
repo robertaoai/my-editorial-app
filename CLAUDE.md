@@ -2,19 +2,37 @@
 
 AI-driven article tracker that logs URLs, runs a five-gate editorial pipeline with AI tagging, and publishes approved articles to WordPress or marks them LinkedIn-ready — with full audit logging of every gate transition.
 
-## ⚠️ READ THIS BEFORE WRITING ANY CODE
-A complete, correct plan for this app is already committed in `/docs`. Do **not** start
-from the project name, the summary above, or your own assumptions — those will lead you to
-build the wrong thing (e.g. a marketing landing page). Open the plan and build from it:
+## ⚠️ READ THIS BEFORE ANY WORK
 
-- `docs/PRD.md`
-- `docs/ARCHITECTURE.md`
-- `docs/DATA_MODEL.md`
-- `docs/INTELLIGENCE_LAYER.md`
-- `docs/AGENTIC_LAYER.md`
-- `docs/SECURITY.md`
-- `docs/TASKS.md`
-- `docs/TEST_PLAN.md`
+Do **not** start from the project name, the summary above, or your own assumptions — those
+lead to the wrong thing (e.g. a marketing landing page).
+
+**Operative documents — `docs/v1/`:**
+- `V1-DECISION-REGISTER.md` — what is decided, conditions, gap dispositions
+- `V1-BUILD-SPEC.md` — what is built and in what order
+- `V1-ARTIFACT-INVENTORY.md` — what must exist
+
+**Governing set, in precedence order:** `docs/PRD.md` *(customer's frozen record)* →
+`docs/source/project-charter-v1.md` *(frozen)* → `v1-build-readiness-addendum.md` →
+`blueprint.md` → `business-case.md`. Then `docs/Modular_PRD.md` as the governed spec.
+
+**Intent hierarchy (`D-29`):** `PRD` → `Modular_PRD` → `Fn_Specs` → `SPECS`. A change lands
+in the tier that owns it, and only that document changes.
+
+**The plan pack** — `ARCHITECTURE.md`, `DATA_MODEL.md`, `AGENTIC_LAYER.md`,
+`INTELLIGENCE_LAYER.md`, `SECURITY.md`, `TASKS.md`, `TEST_PLAN.md` — was generated at
+scaffolding from the app name. It is **accurate about the substrate and wrong about
+governance** (`D5`). It is **not authoritative.**
+
+**Output contract.** Every analysis response ends with an Approve / Approve-with-conditions /
+Defer / Reject table in house vocabulary. Each condition names its follow-up phase.
+Rationale stays in the linked document.
+
+**Apply proposed text in full.** When executing a runbook, do not summarise or abbreviate —
+`G32` occurred because operative content was dropped that way.
+
+**Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
+`supabase/migrations/0001_init.sql`.
 
 ## Build rules (binding — follow in order)
 1. **Read first:** open `docs/PRD.md`, `docs/DATA_MODEL.md`, `docs/ARCHITECTURE.md`, and

@@ -168,16 +168,16 @@ This is the direction that catches scope the customer is paying for and never re
 | FR-03 | CR-10 | — |
 | FR-04 | ⚠ **partial — CR-10** | Customer said "Senior Reviewed"; **human-only execution is the team's, from Charter OD1 and the Three Lines Model** |
 | FR-05 | ⚠ **partial — CR-19 "zero bypasses"** | **Four-eyes at Line boundaries is entirely the governing set's.** The customer asked for no bypasses, not for this mechanism |
-| FR-06 | ⚠ **— none —** | **Addendum §3.3.** The customer's PRD has no return or revision path at all |
+| FR-06 | ⚠ **Project Scope — PSK-01 — Editorial correction, return, and revision control** | **Addendum §3.3.** The customer's PRD has no return or revision path at all |
 | FR-07 | CR-07, CR-11 | — |
 | FR-08 | CR-13 | Fourth filter added |
 | FR-09 | CR-12 | — |
 | FR-10 | ⚠ partial — CR-12 | Manual confirmation (T11) is implied by "mark LinkedIn-ready" but never stated |
-| FR-11 | ⚠ **— none —** | **Addendum §13, Line 3 assurance.** Not requested |
-| FR-12 | ⚠ **— none —** | **Entry 007 S7, degraded mode.** Not requested |
-| FR-13 | ⚠ **— none —** | **Entry 007 S3, regulatory retraction.** Not requested |
-| NG-10 | ⚠ **— none —** | **TC9.** A team-added non-goal preventing a plan-pack behaviour from being built |
-| NG-11 | ⚠ **— none —** | **Entry 006 §13, Entry 007.** Fundraising removed from workflow |
+| FR-11 | ⚠ **Project Scope — PSK-02 — Independent assurance and high-risk escalation** | **Addendum §13, Line 3 assurance.** Not requested |
+| FR-12 | ⚠ **Project Scope — PSK-03 — Editorial continuity, delegation, and absence handling** | **Entry 007 S7, degraded mode.** Not requested |
+| FR-13 | ⚠ **Project Scope — PSK-04 — Post-publication remedies and regulatory/court-order response** | **Entry 007 S3, regulatory retraction.** Not requested |
+| NG-10 | ⚠ **Project Scope — PSK-05 — Human editorial accountability; no score-driven auto-bypass** | **TC9.** A team-added non-goal preventing a plan-pack behaviour from being built |
+| NG-11 | ⚠ **Project Scope — PSK-06 — Editorial-commercial separation and restricted solicitation** | **Entry 006 §13, Entry 007.** Fundraising removed from workflow |
 
 ### Backward coverage
 
