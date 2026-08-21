@@ -34,7 +34,7 @@ docs/, register, specs               app/, lib/, migrations/0002+   .github/work
      └── handoff, not a commit ────────────┴── handoff, not a commit ────────────┘
 ```
 
-**Phase 1 is current.** Work outside the active lane is **specified, never applied** (`D-56`).
+**Phase 1 is current.** Work outside the active lane is **specified, never applied** (`D-56`). **The rule is unenforced (`D-82`)** — no `CODEOWNERS`, no path rule, no pre-commit hook, and CI runs after a commit lands; a crossing is stopped only by the agent choosing to stop.
 Deployment is Lane C and GitHub — **`main` lagging this branch is expected until Phase 3 and is not
 a defect.** The development lane model is **not** the product Three Lines (`OD1`–`OD3`) and **not**
 `OD4`; `D-75` records why the vocabularies are kept apart.

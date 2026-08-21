@@ -196,6 +196,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G66` | **Closed 2026-08-21** | **`.claude/settings.json` is checked in, shared across three agents, and covered by no `C-14` check.** The shared-core hash compares only the three agent rule files. Demonstrated live 2026-08-21: an invalid-JSON edit **silently disabled both hooks** — Claude Code ignores a settings file it cannot parse, with no error. **Closed by `D-72`** — `scripts/checks/settings-parse.mjs` parse-checks the repo-local cascade and runs in CI. Contents never printed; user-scope file deliberately excluded. §5.14ag, §5.14ah |
 | `G67` | **Open** | **The shared-core hash covers 86 of ~226 lines.** `CLAUDE.md` lines 1–138 are **byte-identical to `AGENTS.md`** but sit outside the `<!-- SHARED CORE` marker, so `shared-core-hash` never compares them — an edit to one reaches one agent only, with nothing detecting it. That is `G53`, in the region `C-14` does not cover. Found by a `/init` pass that proposed regenerating `CLAUDE.md` (`D-76`). **Fix:** extend the check to compare the pre-core preamble across `CLAUDE.md` and `AGENTS.md` (`.agents/rules/graphify.md` has no preamble and must be excluded). **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14al |
 | `G68` | **Open** | **The `D-54` tier sweep cannot see the Tier 1 document.** `scripts/checks/tier-sweep.mjs`'s `TIERS` map has no entry for `docs/governance/alpha-portfolio-business-continuity-implementation-plan.md`, which `D-74` places **above** `Modular_PRD`. A tier column naming it is rejected as unmapped, so propagation into the highest tier in the hierarchy is verified by nobody. Found when `D-79` propagated there and the sweep raised *"tier column not mapped to a document."* **Fix:** add the mapping. **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14am |
+| `G69` | **Open** | **No mechanism enforces the `D-75` lane boundaries.** Verified 2026-08-21: no `CODEOWNERS` at any path, no path-scoped `.claude/rules/`, no `.husky/` or `.pre-commit-config.yaml`, **0 installed git hooks**, and CI triggers `on: push`/`on: pull_request` — after a commit lands. Four crossings by agents that had read the rules are on record (`D-75`, `D-82`). **The bootstrap problem:** every candidate mechanism — `CODEOWNERS` in `.github/`, a pre-commit hook, a path check in `scripts/checks/` — is **Lane C's own surface**, so Lane A can specify enforcement and never apply it. **Fix:** the first control must come from Lane C or the Chief Editor. **Specified, not applied** (`D-75`). §5.14ap |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -3134,3 +3135,56 @@ Verified: emits once, silent on runs 2 and 3, and confirmed live on the call tha
 ### Scope limits
 
 Repairs one hook command. **Closes no gap and opens none.** Changes no rule, no shared-core text, and no hash. Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67`, or `G68` — all still Lane C. Does not address the hook's latency. Authorizes no code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten. **Second repair to `.claude/settings.json` in one day** — the first (`D-71`) followed a hand edit that silently disabled both hooks; this one followed a guard that silently over-fired. Both were invisible until measured.
+
+## 5.14ap `D-82` — `D-75` Cannot Enforce Itself
+
+**Recorded 2026-08-21 by Lane A**, on the Chief Editor's instruction. States a structural property of the lane model. **Does not weaken `D-75`** — it removes an overread of it.
+
+### The finding
+
+`D-75` assigns three lanes and forbids crossing them. **Nothing in this repository enforces that.** Verified 2026-08-21:
+
+| Enforcement surface | State |
+|---|---|
+| `CODEOWNERS` (`.github/`, root, `docs/`) | **absent** |
+| Path-scoped rules (`.claude/rules/` with `paths:`) | **absent** |
+| Pre-commit tooling (`.husky/`, `.pre-commit-config.yaml`) | **absent** |
+| Installed git hooks (`.git/hooks/`, `core.hooksPath`) | **0 installed, default path** |
+| CI (`.github/workflows/ci.yml`) | `on: push`, `on: pull_request` — **runs after a commit lands** |
+
+**The only control is prose in the shared core.** CI verifies; it cannot prevent.
+
+### The evidence is not theoretical
+
+**Four crossings, all by agents that had read the rules.** Commits `24b39fb`–`833f52b` decided `Q10` (the Chief Editor's call), wrote `scripts/checks/docs-drift.mjs` (Lane C), and committed `.gitattributes` (Lane C). Lane A crossed twice more the same day — troubleshooting a CI/CD pipeline belonging to Lane C, and judging Phase 1 against Phase 3's deployment criteria. **Both Lane A crossings were withdrawn; none of the four was prevented.**
+
+### The bootstrap problem
+
+**Every mechanism that would enforce the lane model belongs to Lane C.** `CODEOWNERS` lives in `.github/`; a pre-commit hook is build tooling; a path check would live in `scripts/checks/`. All three are Lane C's surface under `D-75`.
+
+**So Lane A can specify enforcement and can never apply it.** The first real control must be applied by **Lane C or by the Chief Editor**. This is a property of the model as designed, not an oversight — but it means `D-75` is a **duty accepted by each agent**, not a guardrail that holds when one declines.
+
+### Why this matters most in mature repositories
+
+In this repository the *absence* of the artifact is itself a brake: an agent cannot plausibly implement `docs-drift.mjs`'s replacement without the spec, and writing the spec is Lane A's work anyway.
+
+**In a project that already has code, the brake is gone.** The implementation exists, so a Lane C specification reads as a **change request against working code** — complete, actionable, and executable by whichever agent opens it. **The lane model is weakest exactly where an existing codebase makes it most necessary.** Recorded because the natural assumption runs the other way: that a mature repository is the safer case.
+
+### What was fixed here
+
+The shared core and `V1-BUILD-SPEC.md` §2 both asserted the lane rule without qualification. **Both now state that it is unenforced** and that a crossing is stopped only by the agent choosing to stop. Stating the limit is the whole remedy available to Lane A — the same discipline as `C-14`'s local-only limit and `G65`'s arrival-not-correctness limit: **a control whose blind spots are unstated invites the belief that everything it does not report is fine.**
+
+Both tiers were amended in this pass, not one. Correcting a claim in the shared core while leaving the identical claim standing in the build spec is the defect `D-76` committed and `D-79` had to repair.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | Build spec | Inventory | `Modular_PRD` |
+|---|---|---|---|---|---|
+| `D-82` unenforceability | ✅ §5.14ap | ✅ shared core, re-hashed | ✅ §2 phase sequence | **— unaffected** | **— unaffected** |
+| `G69` opened | ✅ §5.1 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Inventory unaffected** — no file created or retired. **`Modular_PRD` unaffected** — the development lane is not a product requirement.
+
+### Scope limits
+
+States a limit and opens `G69`. **Builds no enforcement mechanism** — that is `G69`, and it is Lane C's, which is the entire point of this decision. Changes no lane assignment, no phase order, and no ownership. Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67`, `G68`, or decide `G63`. Authorizes no code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.

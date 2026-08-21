@@ -1,0 +1,75 @@
+{
+  "_comment": "Fragment 35 — D-82, the lane model cannot enforce itself; G69 opened. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d82_lanes_unenforced",
+      "label": "D-82 — D-75 Cannot Enforce Itself",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ap D-82",
+      "description": "D-75 assigns three lanes and forbids crossing them, but nothing in the repository enforces that. Verified 2026-08-21: no CODEOWNERS at any path, no path-scoped rules, no husky or pre-commit config, zero installed git hooks with the default hooks path, and CI triggering on push and pull_request, which runs after a commit lands. The only control is prose in the shared core.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Does not weaken D-75; it removes an overread of it. Four crossings by agents that had already read the rules are on record, two of them by Lane A on the day the lanes were written. CI verifies and cannot prevent."
+    },
+    {
+      "id": "lane_enforcement_bootstrap_problem",
+      "label": "Every Enforcement Surface Belongs to Lane C",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ap",
+      "description": "CODEOWNERS lives in .github, a pre-commit hook is build tooling, and a path check would live in scripts/checks. All three are Lane C's surface under D-75. Lane A can therefore specify enforcement and can never apply it, so the first real control must come from Lane C or from the Chief Editor.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A property of the model as designed rather than an oversight. It means D-75 is a duty each agent accepts, not a guardrail that holds when one declines."
+    },
+    {
+      "id": "lane_model_weakest_in_mature_repos",
+      "label": "The Lane Model Is Weakest Where a Codebase Already Exists",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ap",
+      "description": "In a repository without the implementation, the absence of the artifact is itself a brake. In a project that already has code, a Lane C specification reads as a change request against working code: complete, actionable, and executable by whichever agent opens it.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Recorded because the natural assumption runs the other way, that a mature repository is the safer case. The consequence is that every Lane C specification carries an owning-lane banner and an explicit stop line in the artifact itself, not only in the rule file read at session start."
+    },
+    {
+      "id": "g69_no_enforcement_mechanism",
+      "label": "G69 — No Mechanism Enforces the Lane Boundaries",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.1 G69",
+      "description": "Open gap for the missing control. Candidate mechanisms are CODEOWNERS, a pre-commit path check, or a scripts/checks path rule, each of which sits on Lane C's surface. Specified, not applied.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Opened rather than solved, because solving it from Lane A would itself be the crossing the gap describes."
+    }
+  ],
+  "edges": [
+    { "source": "d82_lanes_unenforced", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ap", "weight": 1 },
+    { "source": "d82_lanes_unenforced", "target": "d75_development_build_lanes", "relation": "states_limit_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ak", "weight": 1 },
+    { "source": "d82_lanes_unenforced", "target": "coverage_stated_not_overread", "relation": "same_discipline_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ah", "weight": 1 },
+    { "source": "d82_lanes_unenforced", "target": "lane_crossing_observed_live", "relation": "explains", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ak", "weight": 1 },
+    { "source": "lane_enforcement_bootstrap_problem", "target": "d82_lanes_unenforced", "relation": "core_finding_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ap", "weight": 1 },
+    { "source": "lane_enforcement_bootstrap_problem", "target": "g69_no_enforcement_mechanism", "relation": "why_it_stays_open", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G69", "weight": 1 },
+    { "source": "lane_model_weakest_in_mature_repos", "target": "d82_lanes_unenforced", "relation": "scope_condition_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ap", "weight": 1 },
+    { "source": "g69_no_enforcement_mechanism", "target": "d82_lanes_unenforced", "relation": "opened_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ap", "weight": 1 }
+  ]
+}
