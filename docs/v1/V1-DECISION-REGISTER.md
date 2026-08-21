@@ -3308,3 +3308,55 @@ Re-probing 40 commits under the corrected map:
 ### Scope limits
 
 Corrects a map and closes `G63`. **Builds no enforcement**; `D-82`'s finding that nothing prevents a crossing stands. Adds no `CODEOWNERS`, installs no hook, sets no branch protection. Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67` or `G68` — now known to be Lane A's, and still open. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+## 5.14as `D-85` — Build Config Stays in Lane A, With the Cost Measured and Accepted
+
+**Decided 2026-08-21 by the Chief Editor.** Amends nothing in `D-84`'s map; records a regression test against it and the disposition chosen.
+
+### The regression, measured
+
+`D-84` assigned build config — `package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, lockfiles — to Lane A as orchestration. A classification probe over eight scenarios found this flags **three classes of ordinary Lane B work** as crossings:
+
+| Build config → | False crossings on ordinary work |
+|---|---|
+| **Lane A** | **3** — `bun add` + the code using it; a `tsconfig` path alias + app code; a `next.config` change + app code |
+| Lane B | 1 — Lane A adding a check script (observed once, `D-70`) |
+| Unmapped | **0** — each touch reported in the detail line, never flagged |
+
+All three attributions correctly flag a genuine A+C crossing (Lane C editing a workflow *and* the Lane A script it calls), so the difference is confined to build config.
+
+### `package.json` is a mixed file — the `G63` lesson, repeated
+
+| Block | Owner |
+|---|---|
+| `dev`, `build`, `start` | Lane B |
+| `lint`, `typecheck`, `test`, `check` | Lane A |
+| `dependencies` (6) | **Lane B, entirely** |
+| `devDependencies` (9) | Mixed — `eslint`, `@types/bun` against `typescript`, `tailwindcss` |
+
+**`G63` closed on the finding that the file is the wrong unit** — `Modular_PRD.md` and the register each carry append-only *and* current-value content, so no per-file merge rule fits. **`D-84` reproduced that error for lane attribution in the same decision that closed `G63`.** Recorded plainly: a lesson learned about one mechanism was not carried across to the other in the same pass.
+
+### The decision
+
+**Lane A retains build config, and the friction is accepted.** The recommendation on the evidence was *unmapped* — zero false positives, with each touch still reported. **The Chief Editor chose Lane A**, and the rationale is consistent with `D-84`'s principle: **Lane A writes what the build consumes.** A dependency entering the tree is an orchestration act, and making it a deliberate, separately-reviewed commit is a feature of that reading rather than an accident of it.
+
+### The cost, stated rather than discovered later
+
+- **Lane B must split commits.** A dependency change lands separately from the code that uses it.
+- **Bisect and review are worse** for it: a commit adding `zod` alone will not build against code that does not exist yet, and the commit that uses it depends on a predecessor.
+- **It fires on routine S1 work**, which is the phase Lane B has not yet started. **The friction is entirely prospective** — one historical commit (`d09563d`) touched both surfaces, because the application is still scaffolding.
+- **The finding is not a verdict.** `lane-boundary` says *"split it, or record the authorization"*; a Lane B dependency commit is expected traffic, not a violation.
+
+**Revisit trigger:** if S1 shows this firing on most Lane B commits, the *unmapped* option remains available and costs one line.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | Build spec | `SPECS-VERIFICATION` | Inventory | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-85` | ✅ §5.14as | ✅ split-commit rule | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Build spec and `SPECS-VERIFICATION` are unaffected** because the map is unchanged — both already name build config under Lane A, and `D-85` confirms rather than moves it. **Agent files are affected** because Lane B reads `AGENTS.md` and must know to split a dependency commit; recording the decision without telling the lane that bears the cost would leave it to be discovered at the first failure.
+
+### Scope limits
+
+Records a regression test and a disposition. **Changes no lane assignment and no map.** Modifies no check — `lane-boundary.mjs` is untouched, and its message already reads as a prompt rather than a verdict. Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67` or `G68`. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.

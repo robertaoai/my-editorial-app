@@ -65,6 +65,13 @@ fixed phase order. Each lane owns a surface; **work outside your lane is *specif
 `bun run check`; Lane A writes what it calls. `D-75`'s original map put `scripts/` and
 `.gitattributes` in Lane C — **corrected**, and two commits it cited as crossings were not.
 
+**Build config is Lane A, and Lane B must split for it (`D-85`).** `package.json`, `tsconfig.json`,
+`eslint.config.mjs`, `next.config.ts` and lockfiles belong to Lane A even though `dependencies` is
+Lane B's in substance. **So `bun add` goes in its own commit, before the commit that uses it** —
+otherwise `lane-boundary` reports an A+B crossing, correctly. This friction was **measured and
+accepted**, not overlooked: a dependency entering the tree is an orchestration act. A finding here
+is expected traffic, not a violation.
+
 **Crossing a lane boundary requires a handoff, not a commit** — record what is done, what is
 specified-not-applied, and what is open, then stop. This is the development analogue of the
 four-eyes rule the governing set imposes at Line boundaries. **Deployment belongs to Lane C and to

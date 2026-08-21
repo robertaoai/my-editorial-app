@@ -1,0 +1,75 @@
+{
+  "_comment": "Fragment 38 — D-85, build config stays in Lane A with the cost measured and accepted. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d85_build_config_stays_lane_a",
+      "label": "D-85 — Build Config Stays in Lane A, Friction Accepted",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14as D-85",
+      "description": "A classification probe over eight scenarios found that assigning build config to Lane A flags three classes of ordinary Lane B work as crossings: bun add plus the code using it, a tsconfig path alias plus app code, and a next.config change plus app code. Unmapped scored zero false positives and Lane B scored one. The Chief Editor kept Lane A.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The rationale is consistent with D-84's principle that Lane A writes what the build consumes. A dependency entering the tree is an orchestration act, and making it a deliberate separately-reviewed commit is a feature of that reading rather than an accident of it. The recommendation on the evidence was unmapped; the decision was the Chief Editor's."
+    },
+    {
+      "id": "package_json_is_a_mixed_file",
+      "label": "package.json Is a Mixed File, Like the Register",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "scripts and dependencies",
+      "description": "dev, build and start are Lane B; lint, typecheck, test and check are Lane A. The six runtime dependencies are entirely Lane B. The nine devDependencies are mixed, with eslint and types for bun against typescript and tailwindcss.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The same structural property that made a per-file merge rule impossible for Modular_PRD and the register. A file carrying two owners cannot be attributed to one without misclassifying the other half."
+    },
+    {
+      "id": "g63_lesson_not_carried_across",
+      "label": "The G63 Lesson Was Not Carried Across in the Same Pass",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14as",
+      "description": "G63 closed on the finding that the file is the wrong unit for a merge attribute, because Modular_PRD and the register each carry append-only and current-value content. D-84 reproduced that error for lane attribution in the very decision that closed G63.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Recorded plainly because a lesson learned about one mechanism was not applied to the adjacent mechanism in the same pass, which is a failure mode distinct from not learning it at all."
+    },
+    {
+      "id": "split_commit_for_dependencies",
+      "label": "bun add Goes in Its Own Commit",
+      "file_type": "concept",
+      "source_file": "CLAUDE.md",
+      "source_location": "shared core, build lanes",
+      "description": "Lane B commits a dependency change separately from the code that uses it, otherwise lane-boundary reports an A plus B crossing, correctly. The cost is that bisect and review are worse, since a commit adding a package will not build against code that does not yet exist.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Written into the shared core because Lane B reads AGENTS.md and bears the cost. Recording the decision without telling the lane that pays for it would leave the rule to be discovered at the first failed check. The friction is entirely prospective: one historical commit touched both surfaces, because the application is still scaffolding."
+    }
+  ],
+  "edges": [
+    { "source": "d85_build_config_stays_lane_a", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14as", "weight": 1 },
+    { "source": "d85_build_config_stays_lane_a", "target": "d84_lane_map_corrected", "relation": "regression_tests", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ar", "weight": 1 },
+    { "source": "package_json_is_a_mixed_file", "target": "g63_closed_on_scoping", "relation": "same_property_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G63", "weight": 1 },
+    { "source": "package_json_is_a_mixed_file", "target": "d85_build_config_stays_lane_a", "relation": "underlies", "confidence": "CURATED", "source_file": "package.json", "confidence_score": 1, "source_location": "scripts", "weight": 1 },
+    { "source": "g63_lesson_not_carried_across", "target": "d84_lane_map_corrected", "relation": "defect_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ar", "weight": 1 },
+    { "source": "g63_lesson_not_carried_across", "target": "summary_outlived_source", "relation": "sibling_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14as", "weight": 1 },
+    { "source": "split_commit_for_dependencies", "target": "d85_build_config_stays_lane_a", "relation": "operationalizes", "confidence": "CURATED", "source_file": "CLAUDE.md", "confidence_score": 1, "source_location": "shared core", "weight": 1 },
+    { "source": "split_commit_for_dependencies", "target": "check_caught_its_own_author", "relation": "same_remedy_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14aq", "weight": 1 }
+  ]
+}
