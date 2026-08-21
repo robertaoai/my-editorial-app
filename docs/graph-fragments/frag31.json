@@ -1,0 +1,77 @@
+{
+  "_comment": "Fragment 31 — D-75, development build lanes. Three Lines applied to the build, not the product. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d75_development_build_lanes",
+      "label": "D-75 — Development Build Lanes (A/B/C)",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ak D-75",
+      "description": "Binding assignment of the three development agents to lettered lanes in a fixed phase order. Lane A is Claude Code (docs, register, specs) in Phase 1; Lane B is Codex (app, lib, migrations 0002+) in Phase 2; Lane C is Antigravity (workflows, checks, gitattributes, deploy gate) in Phase 3. Work outside the active lane is specified, never applied. Crossing a lane boundary requires a handoff, not a commit.",
+      "community": 40,
+      "community_name": "Development Lane Governance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The phase order existed only in the Chief Editor's intent. A grep for orchestrat, role, phase and lane across all four agent rule and workflow files returned zero hits, and the register assigned no agent a role, so an agent that orchestrated and built and touched CI was complying with the build rules rather than disobeying them."
+    },
+    {
+      "id": "lane_vocabulary_kept_distinct",
+      "label": "Lanes Are Lettered So They Cannot Be Confused With the Product's Lines",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ak",
+      "description": "Development lanes are lettered A, B and C. The product's Three Lines are numbered 1, 2 and 3 and are carried by line_assignment, AC-01, AC-05 and AC-17 under OD1 to OD3. Both derive from the same IIA source principle that forbids merging roles, but they govern different subjects and must not be cross-referenced. OD4, Proposer to Critics to Judge, is separate again.",
+      "community": 40,
+      "community_name": "Development Lane Governance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Reusing the numbers would have created one term with two referents in a corpus that cross-references constantly. That is the defect found in D-73's digital twin, where an established phrase meaning virtual agents serving one natural person was reused to mean a multi-tenant product, and the trap warned about at D-31 and D-33."
+    },
+    {
+      "id": "lane_crossing_observed_live",
+      "label": "Three Lane Crossings in Four Commits",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ak",
+      "description": "Commits 24b39fb through 833f52b decided Q10, which is the Chief Editor's call, wrote scripts/checks/docs-drift.mjs, which is Lane C, and committed .gitattributes, which is also Lane C. None was recorded as a crossing. The docs-drift check produced that way cannot fail: nothing writes .graphify/needs_update and it reports PASS synced against a modified document.",
+      "community": 40,
+      "community_name": "Development Lane Governance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Recorded as evidence that the defect is live rather than theoretical. Lane A's own analysis crossed the same boundary twice on the same day, troubleshooting a pipeline belonging to Lane C and judging Phase 1 against Phase 3 deployment criteria, and both were withdrawn."
+    },
+    {
+      "id": "main_lagging_is_expected",
+      "label": "main Lagging the Working Branch Is Expected Until Phase 3",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "source_location": "§2 build-lane phase sequence",
+      "description": "Deployment belongs to Lane C and to GitHub. No agent deploys. The working branch standing many commits ahead of main during Phase 1 is the correct state for a specs-only phase and is explicitly not a defect to report.",
+      "community": 40,
+      "community_name": "Development Lane Governance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Written down because Lane A reported it as a defect once already. Judging a phase against criteria that do not yet apply is a measurement detached from its subject, the same family as the probe that cannot fail."
+    }
+  ],
+  "edges": [
+    { "source": "d75_development_build_lanes", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ak", "weight": 1 },
+    { "source": "d75_development_build_lanes", "target": "three_lines_model", "relation": "derives_principle_from", "confidence": "CURATED", "source_file": "docs/source/v1-build-readiness-addendum.md", "confidence_score": 1, "source_location": "§30, §33", "weight": 1 },
+    { "source": "lane_vocabulary_kept_distinct", "target": "d75_development_build_lanes", "relation": "constrains", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ak", "weight": 1 },
+    { "source": "lane_vocabulary_kept_distinct", "target": "three_lines_model", "relation": "kept_distinct_from", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ak", "weight": 1 },
+    { "source": "lane_crossing_observed_live", "target": "d75_development_build_lanes", "relation": "evidence_for", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ak", "weight": 1 },
+    { "source": "lane_crossing_observed_live", "target": "a_check_that_cannot_fail", "relation": "instance_of", "confidence": "CURATED", "source_file": "scripts/checks/docs-drift.mjs", "confidence_score": 1, "source_location": "L1", "weight": 1 },
+    { "source": "lane_crossing_observed_live", "target": "d72_two_checks_installed", "relation": "regressed_after", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ah", "weight": 1 },
+    { "source": "main_lagging_is_expected", "target": "d75_development_build_lanes", "relation": "clarifies", "confidence": "CURATED", "source_file": "docs/v1/V1-BUILD-SPEC.md", "confidence_score": 1, "source_location": "§2", "weight": 1 },
+    { "source": "main_lagging_is_expected", "target": "probe_that_cannot_fail", "relation": "prevented_an_instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ak", "weight": 1 },
+    { "source": "d75_development_build_lanes", "target": "summary_outlived_source", "relation": "mitigates", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ak", "weight": 1 }
+  ]
+}

@@ -47,6 +47,27 @@ shared-core hash across the three agent rule files, the `D-54` tier sweep, and t
 duplicate-ID scan. Graph coverage is **local-only** — `.graphify/graph.json` is gitignored, so it
 reports SKIP in CI and must be run on a machine that has the graph.
 
+
+**Build lanes (`D-75`, binding).** Three agents work this repo **sequentially, one at a time**, in a
+fixed phase order. Each lane owns a surface; **work outside your lane is *specified, never applied*
+(`D-56`)** — write the spec, hand off, stop.
+
+| Lane | Agent | Rule file | Phase | Owns |
+|:---:|---|---|:---:|---|
+| **A** | Claude Code | `CLAUDE.md` | 1 — now | `docs/`, register, specs, graph curation |
+| **B** | Codex | `AGENTS.md` | 2 — next | `app/`, `lib/`, `components/`, `migrations/0002+` |
+| **C** | Antigravity | `.agents/rules/graphify.md` | 3 — last | `.github/workflows/`, `scripts/checks/`, `.gitattributes`, deploy gate |
+
+**Crossing a lane boundary requires a handoff, not a commit** — record what is done, what is
+specified-not-applied, and what is open, then stop. This is the development analogue of the
+four-eyes rule the governing set imposes at Line boundaries. **Deployment belongs to Lane C and to
+GitHub; no agent deploys, and `main` lagging the working branch is expected until Phase 3 — not a
+defect to report.**
+
+**This is the development lane model — NOT the product's Three Lines** (`OD1`–`OD3`,
+`line_assignment`, `AC-01`/`AC-05`/`AC-17`) and **NOT `OD4`** (Proposer → Critics → Judge). Same
+source principle, **different subject**; lanes are lettered A/B/C so they cannot be confused with
+the product's numbered Line 1/2/3. **Do not cross-reference the two vocabularies.**
 Gemini / Antigravity specifics:
 - The skill is installed at `~/.gemini/config/skills/graphify/SKILL.md`; the workflow trigger is `/graphify`
 - If .graphify/needs_update exists or .graphify/branch.json has stale=true, warn before relying on semantic results and run `/graphify . --update` when appropriate

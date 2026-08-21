@@ -2924,3 +2924,53 @@ Closes no Open Decision. Amends no governing document. Authorizes no code, schem
 
 Because `Q10` (`D-73`) defines the app as a "digital twin of the business," it is a Tier 1 (Alpha Portfolio) structural fact, permanently locked into `alpha-portfolio-business-continuity-implementation-plan.md` §10.
 
+
+## 5.14ak `D-75` — Development Build Lanes (Three Lines applied to the *build*, not the product)
+
+**Decided 2026-08-21 by Chief Editor. Binding.**
+
+Three agents work this repository **sequentially, one at a time, one desktop app at a time**, in a fixed phase order. Until now that order existed only in the Chief Editor's intent: `grep` for `orchestrat|role|phase|lane` across `CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md` and `.agents/workflows/graphify.md` returned **0 hits**, and the register assigned no agent a role. Every agent instead read the build rules' *"build straight through the sprints until the app works end-to-end."* **An agent that orchestrated, built, and touched CI was complying with its instructions, not disobeying them.**
+
+### The lanes
+
+| Lane | Agent | Rule file | Phase | Owns | Must not |
+|:---:|---|---|:---:|---|---|
+| **A** | Claude Code | `CLAUDE.md` | **1 — now** | `docs/`, the register, specs, `graphify` curation | Write app code; author CI/CD; decide Chief Editor questions |
+| **B** | Codex | `AGENTS.md` | **2 — next** | `app/`, `lib/`, `components/`, `supabase/migrations/0002+` | Change scope, the register, or the gates |
+| **C** | Antigravity | `.agents/rules/graphify.md` | **3 — last** | `.github/workflows/`, `scripts/checks/`, `.gitattributes`, the deploy gate | Author specs or amend the register |
+
+The lane-to-rule-file mapping is not new — `scripts/checks/shared-core-hash.mjs` already keys its three per-agent tails to exactly these files (`Claude Code specifics:`, `Codex specifics:`, `Gemini / Antigravity specifics:`). `D-75` names what that structure already assumed.
+
+### The rule
+
+**Work outside your lane is *specified, never applied* (`D-56`).** Write the spec, hand off, stop.
+
+**Crossing a lane boundary requires a handoff, not a commit.** This is the development analogue of the four-eyes rule the governing set already imposes at Line boundaries (`v1-build-readiness-addendum.md` §30, §33). It is why `G32` was possible: `agent-stats` yields **0 facts**, so nothing else marks who did what.
+
+**Deployment belongs to Lane C and to GitHub.** No agent deploys. **`main` lagging the working branch is expected until Phase 3 and is not a defect to report.**
+
+### Vocabulary — deliberately distinct
+
+**This is the development lane model. It is NOT the product's Three Lines** (`OD1`–`OD3`, `line_assignment`, `AC-01`/`AC-05`/`AC-17`) and **NOT `OD4`** (Proposer → Critics → Judge, Alpha Portfolio §9). Same source principle — the IIA Three Lines Model forbids merging roles — **different subject**.
+
+Lanes are lettered **A/B/C** precisely so they cannot be confused with the product's numbered **Line 1/2/3**. Reusing the numbers would have created one term with two referents in a corpus that cross-references constantly — the defect found in `D-73`'s *"digital twin"* and warned about at `D-31`/`D-33`. **Do not cross-reference the two vocabularies.**
+
+### Evidence this was a live defect, not a theoretical one
+
+Commits `24b39fb`–`833f52b` crossed three lanes in four commits: **decided `Q10`** (Chief Editor's call), **wrote `scripts/checks/docs-drift.mjs`** (Lane C), and **committed `.gitattributes`** (Lane C). None was recorded as a crossing. The `docs-drift` check produced that way **cannot fail** — nothing writes `.graphify/needs_update`, and it reports `PASS synced` against a modified document.
+
+Lane A's own analysis on 2026-08-21 crossed the same boundary twice — troubleshooting a CI/CD pipeline that is Lane C's, and judging Phase 1 against Phase 3's deployment criteria. **Both were withdrawn.** The second is recorded because measuring a phase against criteria that do not yet apply is the `probe_that_cannot_fail` family.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | Agent files | `Modular_PRD` §8 |
+|---|---|---|---|---|---|
+| `D-75` lanes | ✅ §5.14ak | ✅ phase sequence | **— unaffected** | ✅ shared core | **— unaffected, deliberately** |
+
+**The inventory is unaffected because `D-75` creates and retires no file** — its own §1 scope note limits it to decisions that do. The claim was corrected before commit rather than satisfied by inserting a row, which is how `D-71` mis-claimed `docs/README.md`.
+
+**`Modular_PRD` is unaffected by design, not by omission.** It is the **Product** Requirements Document; `D-75` governs the **development** lane. Recording build-agent roles there would create exactly the product/development collision this decision exists to prevent.
+
+### Scope limits
+
+Records lane ownership and the handoff rule. **Closes no gap.** Does not repair `agent-stats` (`D-77`), does not repair `docs-drift` or correct the shared core's stale *"Three checks run in CI"* line (`D-78`) — both are named here and **left untouched**, which is the rule this decision installs. Authorizes no code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten. `Q10`'s scope characterization remains as `D-73` left it.

@@ -24,6 +24,21 @@ T0 ──▶ T1 ──▶ S0 ──▶ S1 ──▶ S2 ──▶ S3 ──▶ S4
       runs parallel, no build dependency
 ```
 
+**Build-lane phase sequence (`D-75`, binding).** The sprint sequence above is *what* gets built.
+This is *who* builds it, and in what order:
+
+```
+Phase 1 — Lane A (Claude Code)  ──▶  Phase 2 — Lane B (Codex)  ──▶  Phase 3 — Lane C (Antigravity)
+docs/, register, specs               app/, lib/, migrations/0002+   .github/workflows/, scripts/checks/,
+                                                                   .gitattributes, deploy gate
+     └── handoff, not a commit ────────────┴── handoff, not a commit ────────────┘
+```
+
+**Phase 1 is current.** Work outside the active lane is **specified, never applied** (`D-56`).
+Deployment is Lane C and GitHub — **`main` lagging this branch is expected until Phase 3 and is not
+a defect.** The development lane model is **not** the product Three Lines (`OD1`–`OD3`) and **not**
+`OD4`; `D-75` records why the vocabularies are kept apart.
+
 ## 3. Pre-build
 
 ### T0 — documentation, no decision required *(6 items)*
@@ -171,6 +186,7 @@ Deferring this behind S0/S1 would stall commercial evidence for no technical rea
 6. **`MockPublished` never satisfies `Published`.**
 7. **No invented numbers.** `AGENT_HEADCOUNT` and `LINE1_AGENT_ROSTER` stay `UNSET`.
 8. **One hard stop:** a negative `OD2` resolution is a pre-launch blocker, at any point.
+9. **Stay in your lane (`D-75`).** Specify work belonging to another lane; never apply it. Crossing a lane boundary requires a handoff, not a commit.
 
 ## 8. Scope limits
 
