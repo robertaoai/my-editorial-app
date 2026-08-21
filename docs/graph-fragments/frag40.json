@@ -1,0 +1,76 @@
+{
+  "_comment": "Fragment 40 — D-87, Lane A queue closed: G67, G68, G70, D-78 and D-77. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d87_lane_a_queue_closed",
+      "label": "D-87 — Lane A's Queue Closed, C-14 Now Nine Checks",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14au D-87",
+      "description": "Closes G67 by extending the shared-core hash to the 138-line preamble, G68 by mapping the Tier 1 Alpha Portfolio document, D-78 by repairing docs-drift to compare branch.json lastAnalyzedHead against HEAD, and G70 by adding source-sweep. D-77 is answered and struck rather than repaired. Nine checks run locally, six reach CI.",
+      "community": 44,
+      "community_name": "Verification Apparatus Completion",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Every repaired or added check was negative-tested and restored. The frozen-document signal was tested by perturbing the pin rather than editing a frozen file, so the frozen set was never touched."
+    },
+    {
+      "id": "d77_upstream_slug_defect",
+      "label": "D-77 — agent-stats Fails on an Off-by-One Separator",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14au",
+      "description": "repoSlug maps the repository root to C--git-my-editorial-app, which is exactly the transcript directory Claude Code writes. The filter then requires the directory name to start with that slug plus a hyphen, so dir equals slug is true while dir startsWith slug plus hyphen is false, and every transcript is skipped. An upstream defect in the installed distribution, not a setting on this side.",
+      "community": 44,
+      "community_name": "Verification Apparatus Completion",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The claim was struck rather than worked around: patching a global npm install is not durable, the project forbids swapping distributions, and creating a sibling directory to satisfy the prefix would hide a defect instead of recording it. Attribution is now described as unavailable rather than merely unread."
+    },
+    {
+      "id": "docs_drift_caught_real_staleness",
+      "label": "The Repaired docs-drift Caught a Real Staleness Immediately",
+      "file_type": "concept",
+      "source_file": "scripts/checks/docs-drift.mjs",
+      "source_location": "L1",
+      "description": "On its first live run after repair it reported the graph stale, analyzed at b120c72 while HEAD was 87e62ad. The previous implementation would have reported synced. The check is red between a commit and the next rebuild by design, because the graph genuinely is stale in that window.",
+      "community": 44,
+      "community_name": "Verification Apparatus Completion",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A check that has never failed is not known to work. This one failed a deliberate negative test, was restored, and then caught a real instance within minutes without being prompted."
+    },
+    {
+      "id": "hard_reset_over_dirty_tree",
+      "label": "A Negative Test That Moved HEAD Destroyed Uncommitted Work",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14au",
+      "description": "A negative test used git reset --hard while edits to tracked files were uncommitted, discarding the G67, G68 and D-78 changes and the runner wiring. All were redone from the same content and nothing was lost permanently, but the work was committed before continuing rather than carried further uncommitted.",
+      "community": 44,
+      "community_name": "Verification Apparatus Completion",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Recorded as a procedure rule: negative tests that move HEAD must not run over a dirty tree. The earlier negative tests in the same session used file copies and were safe; the two that used reset were not."
+    }
+  ],
+  "edges": [
+    { "source": "d87_lane_a_queue_closed", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14au", "weight": 1 },
+    { "source": "d87_lane_a_queue_closed", "target": "g67_preamble_unenforced", "relation": "closes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G67", "weight": 1 },
+    { "source": "d87_lane_a_queue_closed", "target": "g68_tier_sweep_blind_to_tier_one", "relation": "closes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G68", "weight": 1 },
+    { "source": "d87_lane_a_queue_closed", "target": "g70_no_source_side_sweep", "relation": "closes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G70", "weight": 1 },
+    { "source": "d77_upstream_slug_defect", "target": "d87_lane_a_queue_closed", "relation": "answered_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14au", "weight": 1 },
+    { "source": "d77_upstream_slug_defect", "target": "d82_lanes_unenforced", "relation": "explains_missing_attribution_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ap", "weight": 1 },
+    { "source": "docs_drift_caught_real_staleness", "target": "a_check_that_cannot_fail", "relation": "remedies", "confidence": "CURATED", "source_file": "scripts/checks/docs-drift.mjs", "confidence_score": 1, "source_location": "L1", "weight": 1 },
+    { "source": "docs_drift_caught_real_staleness", "target": "d87_lane_a_queue_closed", "relation": "outcome_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14au", "weight": 1 },
+    { "source": "hard_reset_over_dirty_tree", "target": "d87_lane_a_queue_closed", "relation": "incident_during", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14au", "weight": 1 }
+  ]
+}

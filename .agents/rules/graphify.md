@@ -40,15 +40,19 @@ everything, unchanged.
 
 **Why this needs saying.** Three agents edit this repo under **one git identity with zero merge
 commits**, so a conflicting edit never appears as a merge conflict — it appears as a **silent
-overwrite**. `G32` was exactly that. Git authorship carries no information here; `graphify
-agent-stats` attributes from CLI transcripts instead. **Detection (`C-14`) is installed** (`D-70`)
-— run `bun run check` before claiming a shared file is consistent. It runs **eight** checks, of
+overwrite**. `G32` was exactly that. Git authorship carries no information here, and **nothing
+currently substitutes for it** — `graphify agent-stats` reports **0 facts**, because its transcript
+filter demands a directory prefixed `<repoSlug>-` while Claude Code names the directory exactly
+`<repoSlug>`, so every transcript is skipped (`D-87`). Treat agent attribution as **unavailable**,
+not merely unread. **Detection (`C-14`) is installed** (`D-70`)
+— run `bun run check` before claiming a shared file is consistent. It runs **nine** checks, of
 which **six reach CI**: the shared-core hash across the three agent rule files, the `D-54` tier
 sweep, the §5.1 duplicate-ID scan, the settings-cascade parse, the decision-status
-cross-reference, and the `D-75` lane-boundary check (`D-83`). **Two cannot run in CI** —
-`graph-coverage` and `docs-drift` both read `.graphify/graph.json`, which is gitignored, so they
-report SKIP and must be run on a machine that has the graph. **A local `8/8` and a CI `6/6` are
-both correct**; neither is the other's failure.
+cross-reference, and the `D-75` lane-boundary check (`D-83`). **Three cannot run in CI** —
+`graph-coverage` and `docs-drift` read gitignored `.graphify/`, and `source-sweep` (`G70`) needs
+per-file history that a depth-1 checkout does not have. All three report SKIP and must be run on a
+machine with the graph and full history. **A local `9/9` and a CI `6/6` are both correct**; neither
+is the other's failure.
 
 
 **Build lanes (`D-75`, binding).** Three agents work this repo **sequentially, one at a time**, in a

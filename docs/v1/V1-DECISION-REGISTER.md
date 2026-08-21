@@ -194,10 +194,10 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G64` | **Specified, not applied — `D-69`** | **`G-02` cannot be computed from its own declared Data Source.** Its Data Source names **one** column *(`judgment_independence_status`, "becomes `line_boundary_crossed`")*, but its definition excludes logged overrides, which needs `not_applicable` and `override_not_four_eyes` told apart — and a boolean maps both to `false`. **Arithmetic on the declared columns, no interpretation required.** *Restated by `D-69`: as opened (§5.14ad) this also claimed an `NFR-03` inference violation — **withdrawn**, "inferred at read" is undefined across the corpus and `NFR-03`'s measured target is "100% non-null", which a boolean meets.* Two shapes specified; the choice is `Q11`'s (`D-68`). Carries `C-16`. **Resolve before the `0002` draft** (`G27`, S0). §5.14ae |
 | `G65` | **Closed 2026-08-21 — narrowed** | **The `D-54` tier sweep verifies a decision *arrived* in a tier, not that the tier is *correct*.** Presence satisfies it; staleness is invisible. Proven twice — `D-70` present 3× in the inventory and `D-57` 4× in `Modular_PRD`, both alongside rows that contradicted them, both passing. **Closed by `D-72` on a narrower promise, stated:** a script cannot validate prose, so `scripts/checks/decision-status.mjs` cross-references **decision status** between the register and `Modular_PRD` §10 in both directions instead. Caught `Q1`/`Q7`/`Q10` live. **The tier sweep still verifies arrival, not correctness.** §5.14ag, §5.14ah |
 | `G66` | **Closed 2026-08-21** | **`.claude/settings.json` is checked in, shared across three agents, and covered by no `C-14` check.** The shared-core hash compares only the three agent rule files. Demonstrated live 2026-08-21: an invalid-JSON edit **silently disabled both hooks** — Claude Code ignores a settings file it cannot parse, with no error. **Closed by `D-72`** — `scripts/checks/settings-parse.mjs` parse-checks the repo-local cascade and runs in CI. Contents never printed; user-scope file deliberately excluded. §5.14ag, §5.14ah |
-| `G67` | **Open** | **The shared-core hash covers 86 of ~226 lines.** `CLAUDE.md` lines 1–138 are **byte-identical to `AGENTS.md`** but sit outside the `<!-- SHARED CORE` marker, so `shared-core-hash` never compares them — an edit to one reaches one agent only, with nothing detecting it. That is `G53`, in the region `C-14` does not cover. Found by a `/init` pass that proposed regenerating `CLAUDE.md` (`D-76`). **Fix:** extend the check to compare the pre-core preamble across `CLAUDE.md` and `AGENTS.md` (`.agents/rules/graphify.md` has no preamble and must be excluded). **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14al |
-| `G68` | **Open** | **The `D-54` tier sweep cannot see the Tier 1 document.** `scripts/checks/tier-sweep.mjs`'s `TIERS` map has no entry for `docs/governance/alpha-portfolio-business-continuity-implementation-plan.md`, which `D-74` places **above** `Modular_PRD`. A tier column naming it is rejected as unmapped, so propagation into the highest tier in the hierarchy is verified by nobody. Found when `D-79` propagated there and the sweep raised *"tier column not mapped to a document."* **Fix:** add the mapping. **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14am |
+| `G67` | **Closed 2026-08-21** | **The shared-core hash covers 86 of ~226 lines.** `CLAUDE.md` lines 1–138 are **byte-identical to `AGENTS.md`** but sit outside the `<!-- SHARED CORE` marker, so `shared-core-hash` never compares them — an edit to one reaches one agent only, with nothing detecting it. That is `G53`, in the region `C-14` does not cover. Found by a `/init` pass that proposed regenerating `CLAUDE.md` (`D-76`). **Fix:** extend the check to compare the pre-core preamble across `CLAUDE.md` and `AGENTS.md` (`.agents/rules/graphify.md` has no preamble and must be excluded). **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14al |
+| `G68` | **Closed 2026-08-21** | **The `D-54` tier sweep cannot see the Tier 1 document.** `scripts/checks/tier-sweep.mjs`'s `TIERS` map has no entry for `docs/governance/alpha-portfolio-business-continuity-implementation-plan.md`, which `D-74` places **above** `Modular_PRD`. A tier column naming it is rejected as unmapped, so propagation into the highest tier in the hierarchy is verified by nobody. Found when `D-79` propagated there and the sweep raised *"tier column not mapped to a document."* **Fix:** add the mapping. **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14am |
 | `G69` | **Closed 2026-08-21 — narrowed, stated** | **No mechanism enforces the `D-75` lane boundaries.** Verified 2026-08-21: no `CODEOWNERS` at any path, no path-scoped `.claude/rules/`, no `.husky/` or `.pre-commit-config.yaml`, **0 installed git hooks**, and CI triggers `on: push`/`on: pull_request` — after a commit lands. Four crossings by agents that had read the rules are on record (`D-75`, `D-82`). **The bootstrap problem:** every candidate mechanism — `CODEOWNERS` in `.github/`, a pre-commit hook, a path check in `scripts/checks/` — is **Lane C's own surface**, so Lane A can specify enforcement and never apply it. **Fix:** the first control must come from Lane C or the Chief Editor. **Closed by `D-83`** on **visibility, not prevention** — `scripts/checks/lane-boundary.mjs` reports a change spanning two lanes; nothing blocks one, and `D-82`'s finding stands. Built by Lane A under explicit Chief Editor authorization, which `D-82` names as one of two ways the first control could arrive. §5.14ap, §5.14aq |
-| `G70` | **Open** | **Nothing verifies that a change in a governing document reached its derived tiers.** `tier-sweep` is **register-driven** — it checks that a *decision* arrived in a named tier. The inverse is unchecked: `docs/source/` and `docs/governance/` can move and no control notices. The portfolio is **living**, not frozen — `alpha-portfolio-business-continuity-implementation-plan.md`, **Tier 1 under `D-74`**, changed 2026-08-21; `requirements-traceability-map.md` 2026-08-20; `raci-involvement-matrix.md` 2026-08-19. **The structural inverse of `G68`:** that gap was *"the sweep cannot see the Tier 1 document when a decision claims it"*; this is *"the sweep never looks at the Tier 1 document at all."* **Fix:** a source-side sweep comparing each governing document's last-commit date against its derived tiers. **`scripts/` is Lane A** (`D-84`) — specified here, not built. §5.14at |
+| `G70` | **Closed 2026-08-21 — heuristic, stated** | **Nothing verifies that a change in a governing document reached its derived tiers.** `tier-sweep` is **register-driven** — it checks that a *decision* arrived in a named tier. The inverse is unchecked: `docs/source/` and `docs/governance/` can move and no control notices. The portfolio is **living**, not frozen — `alpha-portfolio-business-continuity-implementation-plan.md`, **Tier 1 under `D-74`**, changed 2026-08-21; `requirements-traceability-map.md` 2026-08-20; `raci-involvement-matrix.md` 2026-08-19. **The structural inverse of `G68`:** that gap was *"the sweep cannot see the Tier 1 document when a decision claims it"*; this is *"the sweep never looks at the Tier 1 document at all."* **Fix:** a source-side sweep comparing each governing document's last-commit date against its derived tiers. **`scripts/` is Lane A** (`D-84`) — specified here, not built. §5.14at |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -3408,3 +3408,70 @@ This is the structural inverse of `G68`: that gap was *"the sweep cannot see the
 ### Scope limits
 
 Records a principle, corrects a cost, opens `G70`. **Changes no lane assignment and no map** — build config remains Lane A per `D-85`. **Builds no check.** Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67` or `G68`; does not resolve `G54`. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+## 5.14au `D-87` — Lane A's Queue Closed: Four Checks Repaired or Added, One Claim Struck
+
+**Applied 2026-08-21 by Lane A** on the Chief Editor's instruction to work the open queue to closure. Closes `G67`, `G68`, `G70` and `D-78`; answers and closes `D-77`. `C-14` now runs **nine** checks, **six** of which reach CI.
+
+### `D-77` — the answer is an upstream defect, not a misconfiguration
+
+The shared core claimed *"`graphify agent-stats` attributes from CLI transcripts instead"*. It reports **0 facts** across 103 commits, and `sync --full` reports `parsed 5, 0 in-repo`.
+
+**Cause, located precisely.** `repoSlug(repoRoot)` is `repoRoot.replace(/[^A-Za-z0-9]/g, "-")`, which for `C:\git\my-editorial-app` yields `C--git-my-editorial-app` — **exactly** the transcript directory Claude Code writes. But the filter is:
+
+```js
+if (repoSlug2 && !name.startsWith(repoSlug2 + "-")) continue;
+```
+
+`dir === slug` is **true**; `dir.startsWith(slug + "-")` is **false**. The predicate demands a trailing separator that Claude Code never appends, so **every transcript is skipped**. An off-by-one-separator bug in `@sentropic/graphify`, not a setting on this side.
+
+**Disposition: the claim is struck**, not repaired. Patching a global npm install is not durable, `CLAUDE.md` forbids swapping distributions (`G50`, `G52`, `G54`), and inventing a sibling directory to satisfy the prefix would be working around a defect rather than recording it. The shared core now says attribution is **unavailable, not merely unread**, and names the cause so the next reader does not re-derive it. Reporting upstream remains open and is not blocked by anything here.
+
+### `G67` — the preamble is covered
+
+`CLAUDE.md` lines **1–138** were byte-identical to `AGENTS.md` but sat outside the `<!-- SHARED CORE` marker, so `shared-core-hash` never compared them. That region holds *"build straight through the sprints until the app works end-to-end"* — the instruction behind every crossing `D-75` records. **The text most able to cause a crossing was the text nothing protected.**
+
+Core and preamble now report as **separate hashes**, so a reader can tell which region drifted. `.agents/rules/graphify.md` is **excluded by design** — its preamble is 6 lines and never carried the build rules; including it would fail permanently and teach everyone to ignore the check.
+
+### `G68` — the Tier 1 document is mapped
+
+`tier-sweep` had no entry for `alpha-portfolio-business-continuity-implementation-plan.md`, which `D-74` places **above** `Modular_PRD`. A column naming it was **rejected as unknown rather than verified**, so propagation into the highest tier was checked by nobody. Mapped, and **`D-79`'s dropped tier column is restored**.
+
+### `D-78` — `docs-drift` can now fail
+
+It tested for `.graphify/needs_update`, which **nothing writes**: `.git/hooks/` is empty and the only reference in the repository was the check reading it. It reported `PASS synced` against a modified document and stayed "synced" for a full session while the graph was stale.
+
+It now compares `branch.json.lastAnalyzedHead` against `git rev-parse HEAD`, plus the `stale` flag. **It caught a real staleness on its first live run** — HEAD at `87e62ad`, graph analyzed at `b120c72`.
+
+**Known behaviour, not a defect:** this check is red between a commit and the next `hook-rebuild`, because the graph genuinely is stale in that window. One command clears it, and it skips in CI.
+
+### `G70` — the inverse sweep exists
+
+`tier-sweep` is register-driven: it verifies a **decision** reached a tier. Nothing verified that a governing **document** reached its derived tiers, and `docs/governance/` is **living, not frozen**.
+
+`source-sweep` adds two signals: **frozen documents pinned by SHA** (`docs/PRD.md`, the Charter, `0001_init.sql`), and **governing documents that changed after the register last moved**. The second is a heuristic, and the remedy is to record a decision — *"no tier is affected"* being a perfectly good decision to record. That is `D-54`'s state-the-unaffected-tier discipline applied to the source side.
+
+**Zero false positives at HEAD** across 13 governing documents.
+
+### Stated limits
+
+- **`source-sweep` compares commit order, never content** — the same arrival-not-correctness limit `G65` records for the tier sweep.
+- **`source-sweep` skips on a shallow clone.** CI checks out at depth 1. Making it run needs `fetch-depth: 0` in `.github/workflows/ci.yml`, which is **Lane C's** (`D-84`) — **specified here, not applied.** This is the first item to enter Lane C's queue since `D-84` emptied it.
+- **`docs-drift` detects graph staleness, not document correctness.**
+- **Three checks skip in CI**, so a local `9/9` and a CI `6/6` are both correct.
+
+### An error worth recording
+
+An earlier negative test used `git reset --hard` while tracked-file edits were uncommitted, discarding `G67`, `G68`, `D-78` and the runner wiring. All were redone from the same content and nothing was lost permanently, but **the work was committed at `87e62ad` before continuing** rather than carried further uncommitted. Negative tests that move `HEAD` must not run over a dirty tree.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | `SPECS-VERIFICATION` | Inventory | Build spec | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-87` closures | ✅ §5.14au | ✅ core, counts + `D-77` | ✅ §11 | ✅ `source-sweep.mjs` | ✅ §4 check list | **— unaffected** |
+
+**`Modular_PRD` unaffected** — verification tooling is not a product requirement.
+
+### Scope limits
+
+Closes `G67`, `G68`, `G70`, `D-78`, `D-77`. **Adds no enforcement** — `D-82` stands: nothing prevents a crossing. Does not repair `agent-stats` (struck, not fixed) and does not resolve `G54`. Sets no CI depth, adds no `CODEOWNERS`, sets no branch protection. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.

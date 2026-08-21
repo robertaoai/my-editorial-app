@@ -188,3 +188,43 @@ The rule was probed over **40 commits of real history before the check was writt
 2. A single-lane change passes. **Met.**
 3. Runs in CI without skipping. **Met.**
 4. Its own installing pass was split into two commits rather than exempted. **Met** — `2b8334e` (Lane C) precedes the register entry (Lane A).
+
+---
+
+## 11. Checks 1, 7, 8 repaired and check 9 added `[V1]`
+
+**Installed 2026-08-21 (`D-87`)**, closing `G67`, `G68`, `G70` and `D-78`. **Owning lane: A** (`D-84` — `scripts/` is orchestration).
+
+### Check 1 — `shared-core-hash`, preamble coverage `[V1]` (`G67`)
+
+`CLAUDE.md` lines **1–138** were byte-identical to `AGENTS.md` but sat outside the `<!-- SHARED CORE` marker, so nothing compared them. That region holds *"build straight through the sprints until the app works end-to-end"* — the instruction behind every crossing `D-75` records.
+
+Core and preamble now report as **separate hashes**. `.agents/rules/graphify.md` is **excluded by design**: a 6-line preamble that never carried the build rules, and including it would fail permanently.
+
+### Check 2 — `tier-sweep`, Tier 1 mapped `[V1]` (`G68`)
+
+`alpha-portfolio-business-continuity-implementation-plan.md` — **Tier 1 under `D-74`, above `Modular_PRD`** — was unmapped, so a column naming it was **rejected as unknown rather than verified**. Mapped; `D-79`'s dropped column restored.
+
+### Check 7 — `docs-drift`, made able to fail `[V1]` (`D-78`)
+
+It tested for `.graphify/needs_update`, which **nothing writes** — `.git/hooks/` is empty. It reported `PASS synced` against a modified document. Now compares `branch.json.lastAnalyzedHead` against `git rev-parse HEAD`, plus the `stale` flag.
+
+**Red between a commit and the next `hook-rebuild`, by design** — the graph genuinely is stale in that window.
+
+### Check 9 — `source-sweep` `[V1]` (`G70`)
+
+The **inverse** of the tier sweep. `tier-sweep` verifies a *decision* reached a tier; nothing verified a governing *document* reached its derived tiers, and `docs/governance/` is living.
+
+Two signals: **frozen documents pinned by SHA**, and **governing documents that changed after the register last moved**. The second is a heuristic whose remedy is to record a decision — *"no tier is affected"* being a valid one. Zero false positives at HEAD across 13 governing documents.
+
+### Limits `[V1]`
+
+- `source-sweep` compares **commit order, never content** — `G65`'s arrival-not-correctness limit again.
+- `source-sweep` **skips on a shallow clone**. CI checks out at depth 1; making it run needs `fetch-depth: 0` in `.github/workflows/ci.yml`, which is **Lane C's** (`D-84`) — **specified, not applied.**
+- **Three of nine skip in CI.** A local `9/9` and a CI `6/6` are both correct.
+
+### Definition of done `[V1]`
+
+1. Every repaired or added check **negative-tested**; each raised `FAIL` and was restored. **Met.**
+2. The frozen-document signal tested **without editing a frozen file** — the pin was perturbed instead. **Met.**
+3. `docs-drift` proven able to fail, then proven to catch a real staleness on its first live run. **Met.**
