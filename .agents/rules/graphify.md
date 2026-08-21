@@ -98,9 +98,13 @@ It **does not forbid** crossings — most recorded ones were legitimate — and 
 it, after which `lane-boundary` reports the crossing anyway. Activate the hook once with
 `bun run hooks:install`; `bun install` does it too.
 
-**What is still unenforced (`D-82`).** There is no `CODEOWNERS` and no branch protection, and CI
-runs *after* a push. The gate is local. **Treat the rule as a duty, not a guardrail** — if you
-notice you have crossed, say so and withdraw rather than continuing.
+**What is gated, and what is not — `D-82`, closed by `D-89`.** `main` requires a pull request and a passing status
+check, so **CI now runs before a merge, not after it**. **The working branch is ungated** — every
+commit lands directly with nothing but the local hook, and `--no-verify` bypasses that. The merge
+gate also runs only **six of the nine** checks; `graph-coverage`, `docs-drift` and `source-sweep`
+skip in CI, so a merge can pass while the graph is stale. **Local `bun run check` is the only place
+all nine run.** Treat the lane rule as a duty, not a guardrail — if you notice you have crossed,
+say so and withdraw rather than continuing.
 
 **This is the development lane model — NOT the product's Three Lines** (`OD1`–`OD3`,
 `line_assignment`, `AC-01`/`AC-05`/`AC-17`) and **NOT `OD4`** (Proposer → Critics → Judge). Same

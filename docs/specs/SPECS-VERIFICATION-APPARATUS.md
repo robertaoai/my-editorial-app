@@ -156,7 +156,7 @@ eslint: { ignoreDuringBuilds: true },
 
 **Installed 2026-08-21 (`D-83`), closing `G69`.** `scripts/checks/lane-boundary.mjs`.
 
-**Owning lane: C.** Built by **Lane A under explicit Chief Editor authorization** — `D-82` records that every mechanism able to enforce `D-75` sits on Lane C's surface, so Lane A can specify enforcement and never apply it, and names the Chief Editor as one of only two actors who could supply the first control. **Written by the lane it governs**, which a reader should know.
+**Owning lane: C.** Built by **Lane A under explicit Chief Editor authorization** — `D-82` recorded that every mechanism able to enforce `D-75` sat on Lane C's surface. **`D-84` narrowed that** — `scripts/checks/`, pre-commit hooks and `CODEOWNERS` are all Lane A; only branch protection, a repository setting rather than a file, sits outside every lane. `D-82` named the Chief Editor as one of only two actors who could supply the first control. **Written by the lane it governs**, which a reader should know.
 
 ### Behaviour
 
@@ -180,7 +180,7 @@ The rule was probed over **40 commits of real history before the check was writt
 
 - Cannot say **which** agent crossed — attribution is unavailable (`D-77`: `agent-stats` returns 0 facts).
 - Paths outside the lane map are **not lane-attributed**.
-- **Detects; does not prevent.** `D-82` stands unchanged: CI runs after a commit lands. `G69` is closed on **visibility**, narrower than its title, and said so rather than left to be discovered.
+- **Detects; does not prevent.** *(As written. `D-88` added a commit-time gate and `D-89` a merge gate on `main`; **pushes to the working branch remain ungated**.)* `G69` is closed on **visibility**, narrower than its title, and said so rather than left to be discovered.
 
 ### Definition of done `[V1]`
 
@@ -265,7 +265,7 @@ Lane-Crossing: <reason>
 
 ### Limits `[V1]`
 
-- **The gate is local.** CI still runs after a push, and **branch protection is a GitHub setting rather than a file** — outside every lane. `D-82`'s finding is half-answered, not closed.
+- **The gate is local**, and `main` is gated by PR + a required status check (`D-89`) — **but the working branch is not**, and the merge gate runs only six of nine checks. `D-82`'s finding is now-answered, not closed.
 - Direction D detects **contradiction, not correctness** — it cannot tell whether a closure claim is justified, only that two places disagree.
 
 ### Definition of done `[V1]`

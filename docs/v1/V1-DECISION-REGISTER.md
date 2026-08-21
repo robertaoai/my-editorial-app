@@ -199,7 +199,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G69` | **Closed 2026-08-21 — narrowed, stated** | **No mechanism enforces the `D-75` lane boundaries.** Verified 2026-08-21: no `CODEOWNERS` at any path, no path-scoped `.claude/rules/`, no `.husky/` or `.pre-commit-config.yaml`, **0 installed git hooks**, and CI triggers `on: push`/`on: pull_request` — after a commit lands. Four crossings by agents that had read the rules are on record (`D-75`, `D-82`). **The bootstrap problem:** every candidate mechanism — `CODEOWNERS` in `.github/`, a pre-commit hook, a path check in `scripts/checks/` — is **Lane C's own surface**, so Lane A can specify enforcement and never apply it. **Fix:** the first control must come from Lane C or the Chief Editor. **Closed by `D-83`** on **visibility, not prevention** — `scripts/checks/lane-boundary.mjs` reports a change spanning two lanes; nothing blocks one, and `D-82`'s finding stands. Built by Lane A under explicit Chief Editor authorization, which `D-82` names as one of two ways the first control could arrive. §5.14ap, §5.14aq |
 | `G70` | **Closed 2026-08-21 — heuristic, stated** | **Nothing verifies that a change in a governing document reached its derived tiers.** `tier-sweep` is **register-driven** — it checks that a *decision* arrived in a named tier. The inverse is unchecked: `docs/source/` and `docs/governance/` can move and no control notices. The portfolio is **living**, not frozen — `alpha-portfolio-business-continuity-implementation-plan.md`, **Tier 1 under `D-74`**, changed 2026-08-21; `requirements-traceability-map.md` 2026-08-20; `raci-involvement-matrix.md` 2026-08-19. **The structural inverse of `G68`:** that gap was *"the sweep cannot see the Tier 1 document when a decision claims it"*; this is *"the sweep never looks at the Tier 1 document at all."* **Fix:** a source-side sweep comparing each governing document's last-commit date against its derived tiers. **`scripts/` is Lane A** (`D-84`) — specified here, not built. §5.14at |
 | `G71` | **Closed 2026-08-21 — found by the control it added** | **The register contradicted itself and every check passed.** `D-60` closed `G54` in §5.14u and marked its tier table **Register ✅** — but `tier-sweep` maps `register` to `files: []`, *"true by construction"*, so the ✅ proved nothing about §5.1. Index and section sat in **one file giving two answers** for two days. `decision-status` covered only the `Q`-series; gaps had no cross-check. **Closed by `D-88`** — direction D compares every `G`-row's §5.1 status against the sections claiming to close it. **Built before the fix**: on its first run it reported `G54` and nothing else, one finding across 65 gap rows and 14 closure claims. §5.14av |
-| `G72` | **Open** | **Graph-schema compatibility with upstream `graphifyy` is unverified.** `D-60` named it — *"newly named and **not resolved**"* — and `docs/graph-fragments/README.md` §6 calls it *"the real residual risk"* and *"the only live item should a swap ever be reconsidered"*. **It was given no identifier**, so it appeared in no index and no check for two days. `merge7.js` depends on `graph.json` using `links` and the current node fields; whether upstream emits the same shape is unknown. **Not a live risk while `D-51` stands** — the project remains on `@sentropic/graphify` and nothing proposes a swap. **Fix:** verify the schema from source *before* any swap is reconsidered; command availability is already known (`D-60`). §5.14av |
+| `G72` | **Backlog — no work until a related issue surfaces** | **Graph-schema compatibility with upstream `graphifyy` is unverified.** `merge7.js` depends on `graph.json` using `links` and the current node fields; whether upstream emits the same shape is unknown. `D-60` named it *"newly named and **not resolved**"* and `docs/graph-fragments/README.md` §6 calls it *"the real residual risk"* — but it carried **no identifier** for two days, so it reached no index and no check. **The distribution choice is settled and unchanged: `@sentropic/graphify`** (`D-51`), an attributed downstream extension of `Graphify-Labs/graphify`. **Nothing proposes a swap, so this is not a live risk.** Command availability is already known (`D-60`); **schema shape is the thing to verify first** if a swap is ever reconsidered. §5.14av, §5.14aw |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -3535,3 +3535,64 @@ Lane-Crossing: <reason>
 ### Scope limits
 
 Corrects one row, closes `G71`, installs a commit gate, opens `G72`. **Forbids no crossing** and changes no lane assignment. **Adds no CI check** — `C-14` remains nine. Sets no branch protection, adds no `CODEOWNERS`. Does not resolve `G72`, and does not revisit `G54`'s substance, which `D-60` settled. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+## 5.14aw `D-89` — Branch Protection Set; `D-82` Closed With Its Residual; `G72` to Backlog
+
+**Recorded 2026-08-21 by the Chief Editor.** Closes `D-82`'s outstanding half, moves `G72` to backlog, and corrects four restatements that outlived their source.
+
+### What was set, and what this record actually is
+
+**Branch protection on `main`: a pull request is required, and a status check must pass before merge. `main` only** — the working branch stays ungated.
+
+**This is not a measurement.** `gh` is not installed on this machine and no token is present, so branch protection **cannot be verified from here**. This decision records the **Chief Editor's statement** of what is configured. Stated plainly because the alternative — writing it as though it had been checked — is the exact defect this register keeps finding.
+
+### `D-82` closes, and the residual is named
+
+`D-82` held that nothing prevents a crossing: the rule was prose, and CI ran *after* a commit landed. Both halves now have an answer:
+
+| Layer | Control | Since |
+|---|---|---|
+| Local commit | `.githooks/commit-msg` requires a `Lane-Crossing:` trailer | `D-88` |
+| Merge to `main` | PR + required status check — **CI now runs before the merge, not after** | `D-89` |
+| **Push to the working branch** | **nothing** | — |
+
+**The residual is real and deliberate.** Every commit still lands directly on `docs/journal-2026-08-16` with no gate but the local hook, and `--no-verify` bypasses that. For Phase 1 this is the right trade — Lane A commits frequently and a PR per commit would be friction for no benefit. **It stops being the right trade when Lane B starts**, and that is the moment to revisit.
+
+### Three dependencies, checked
+
+**1. The required status check name is fragile.** The CI job is named `Typecheck · Lint · Test`, and those separators are **U+00B7 MIDDLE DOT**, not hyphens or bullets. GitHub matches the required check by that exact string. **If it was typed by hand with any other character, protection is configured and never gates** — a guard that fails open, the `D-81` pattern.
+
+**Verify it**: the required check must read exactly `Typecheck · Lint · Test`. **Recommended fix:** rename the job to something ASCII, e.g. `verify`. `.github/workflows/` is **Lane C's** (`D-84`) — **specified, not applied.** This is Lane C's second queued item.
+
+**2. The merge gate enforces six of nine checks.** `graph-coverage`, `docs-drift` and `source-sweep` all SKIP in CI — the first two read gitignored `.graphify/`, the third needs per-file history a depth-1 checkout lacks. **So a merge to `main` can pass while the graph is stale or a governing document has drifted.** Local `bun run check` remains the only place all nine run.
+
+**3. The merge path changed, and earlier guidance is withdrawn.** Advice given during this session — `git switch main && git merge --ff-only <branch>` then `git push origin main` — **no longer works**: the direct push is now blocked. It was never written into any document, and is corrected here rather than left in conversation.
+
+**The merge to `main` now goes through a pull request.** `main` remains a strict ancestor (**0 behind, 92 ahead**), so the merge is conflict-free and `merge=union` still never fires — `G63`'s scoping stands untouched.
+
+### `G72` — backlog, with the choice recorded
+
+**The distribution decision is settled and unchanged: `@sentropic/graphify`** (`D-51`), an attributed downstream extension of upstream `Graphify-Labs/graphify`. Nothing proposes a swap.
+
+`G72` — graph-schema compatibility with upstream — is therefore **backlog: no work until a related issue surfaces.** It is not a live risk while `D-51` stands, and it is now findable rather than nameless, which was the whole point of opening it. **Command availability is already known** (`D-60`); **schema shape is not**, and that is the thing to verify first if a swap is ever reconsidered.
+
+### Four restatements corrected
+
+`D-82`'s finding was quoted in several derived documents and had gone stale in all of them:
+
+- **The three rule files** said *"there is no `CODEOWNERS` and no branch protection, and CI runs after a push."* Two of those three clauses are now false.
+- **`SPECS-VERIFICATION` §10** said *"`D-82` stands unchanged: CI runs after a commit lands."*
+- **`SPECS-VERIFICATION` §12** said *"branch protection is a GitHub setting rather than a file — outside every lane."* True as a fact, stale as a limit.
+- **`SPECS-VERIFICATION` §10** also still restated `D-82`'s bootstrap claim — *"every mechanism able to enforce `D-75` sits on Lane C's surface"* — which **`D-84` narrowed a day earlier and did not propagate here.** A restatement that outlived a correction, in a document that carries `[V1]` markers precisely so this does not happen.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | `SPECS-VERIFICATION` | Build spec | Inventory | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-89` | ✅ §5.14aw | ✅ protection + residual | ✅ §10, §12 | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Build spec unaffected** — no scope, sequence or DoD moves, and the check count is unchanged at nine. **Inventory unaffected** — no file created or retired; branch protection is a repository setting, not an artifact.
+
+### Scope limits
+
+Records a setting, closes `D-82`, backlogs `G72`. **Verifies nothing** — the protection is asserted, not measured. **Changes no code, no check and no lane assignment.** Does not rename the CI job (Lane C), does not deepen the CI checkout (Lane C), does not resolve `G72`. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
