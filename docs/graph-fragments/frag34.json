@@ -1,0 +1,75 @@
+{
+  "_comment": "Fragment 34 — D-81, a hook guard that failed open. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d81_guard_failed_open",
+      "label": "D-81 — A Hook Guard That Failed Open",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ao D-81",
+      "description": "The PreToolUse Bash hook emitted the same 326-character payload 665 times in one session, about 54,198 estimated tokens, despite a once-per-day guard added the same day. The guard keyed its marker on TMPDIR, which resolves to different filesystems in Git Bash and in the shell Claude Code spawns for hooks, so the marker written by one was never visible to the other. Repaired at commit 5716d56 by replacing touch and a file test with mkdir as an atomic lock, with the marker inside .graphify where the hook already looks.",
+      "community": 42,
+      "community_name": "Hook and Settings Integrity",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Found by a /doctor health check that measured transcript hook records rather than reading the configuration. The marker observed on disk had been created by the verification run, not by the hook, which is what made the original fix look successful."
+    },
+    {
+      "id": "guards_must_fail_closed",
+      "label": "A Guard Whose Failure Mode Is Expensive Must Fail Closed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ao",
+      "description": "The original guard ran the echo whenever its marker test could not confirm suppression, so a broken mechanism selected the costly branch. The replacement uses mkdir, which fails both when the directory exists and when it cannot be created, so a broken mechanism now selects silence instead.",
+      "community": 42,
+      "community_name": "Hook and Settings Integrity",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Stated as a principle rather than a one-off repair because the original was written for the common case and treated the failure path as unreachable. The cost of the open failure was 54,198 estimated tokens in a single session."
+    },
+    {
+      "id": "settings_parse_cannot_see_behaviour",
+      "label": "settings-parse Validates Syntax, Not Hook Behaviour",
+      "file_type": "concept",
+      "source_file": "scripts/checks/settings-parse.mjs",
+      "source_location": "L1",
+      "description": "The leak ran for a full session with all seven consistency checks green, because a hook that emits 665 times is syntactically perfect. A repository check cannot observe hook runtime; that evidence lives in session transcripts, outside any file the checks can read. Recorded as a stated limitation rather than an open gap.",
+      "community": 42,
+      "community_name": "Hook and Settings Integrity",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Same shape as C-14's local-only limit and G65's arrival-not-correctness limit. A control whose blind spots are unstated invites the belief that everything it does not report is fine."
+    },
+    {
+      "id": "two_settings_repairs_one_day",
+      "label": "Two Silent Settings Failures in One Day",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ao",
+      "description": "D-71 followed a hand edit that left .claude/settings.json as invalid JSON and silently disabled both hooks. D-81 followed a guard that silently over-fired. The file is checked in and shared across all three development lanes, so both failures reached every agent.",
+      "community": 42,
+      "community_name": "Hook and Settings Integrity",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Both were invisible until measured. One was caught by a check built the same day; the other was caught only by counting transcript records, which no check does."
+    }
+  ],
+  "edges": [
+    { "source": "d81_guard_failed_open", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ao", "weight": 1 },
+    { "source": "d81_guard_failed_open", "target": "guards_must_fail_closed", "relation": "establishes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ao", "weight": 1 },
+    { "source": "d81_guard_failed_open", "target": "settings_parse_cannot_see_behaviour", "relation": "bounded_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ao", "weight": 1 },
+    { "source": "settings_parse_cannot_see_behaviour", "target": "g66_settings_file_uncovered", "relation": "limits_the_remedy_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G66", "weight": 1 },
+    { "source": "settings_parse_cannot_see_behaviour", "target": "coverage_stated_not_overread", "relation": "same_discipline_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ah", "weight": 1 },
+    { "source": "settings_parse_cannot_see_behaviour", "target": "a_check_that_cannot_fail", "relation": "distinct_from", "confidence": "CURATED", "source_file": "scripts/checks/settings-parse.mjs", "confidence_score": 1, "source_location": "L1", "weight": 1 },
+    { "source": "two_settings_repairs_one_day", "target": "d81_guard_failed_open", "relation": "second_instance_is", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ao", "weight": 1 },
+    { "source": "two_settings_repairs_one_day", "target": "d75_development_build_lanes", "relation": "reaches_every_lane_via", "confidence": "CURATED", "source_file": ".claude/settings.json", "confidence_score": 1, "source_location": "hooks", "weight": 1 }
+  ]
+}

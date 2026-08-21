@@ -3090,3 +3090,47 @@ Every step names the defect it exists to prevent. A procedure whose steps have n
 ### Scope limits
 
 Creates one file. **Closes no gap and changes no rule.** Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67`, or `G68` — all Lane C. Authorizes no code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+## 5.14ao `D-81` — A Hook Guard That Failed Open
+
+**Applied 2026-08-21 by Lane A**, on the Chief Editor's instruction, following a `/doctor` health check. Repairs the `PreToolUse:Bash` hook in `.claude/settings.json` at commit `5716d56`.
+
+### What was measured
+
+In a single session the hook emitted the **same 326-character payload 665 times** — one hash bucket, byte-identical — totalling **216,790 characters ≈ 54,198 est. tokens**. It fired 1,332 times in that session; roughly half carried output.
+
+### The cause
+
+A once-per-day guard had been added earlier the same day and keyed its marker on `${TMPDIR:-/tmp}`. **That path resolves to different filesystems in Git Bash and in the shell Claude Code spawns for hooks.** The marker observed at `/tmp/graphify-hint-2026-08-21` had been created by the *verification* run, not by the hook. `touch` wrote somewhere the test never looked, `[ ! -f "$M" ]` stayed true on every call, and the `echo` ran every time.
+
+**The guard failed open.** When its mechanism broke, the expensive branch is what executed.
+
+### The repair
+
+`mkdir` replaces `touch` + `[ ! -f ]` as an **atomic lock**, and the marker moves inside `.graphify/` — the directory the hook already tests for, so there is **one filesystem and one resolution** rather than two shells disagreeing. `mkdir` fails both when the directory exists *and* when it cannot be created, so the guard now **fails closed**.
+
+**The principle worth keeping: a guard whose failure mode is expensive must fail closed.** The original was written for the common case and silently chose the costly branch whenever its assumption broke.
+
+Payload preserved byte-for-byte (325 chars). The `Read|Glob` hook is untouched (1,004 chars, identical) and no other key changed. The replacement was composed in JavaScript and serialised with `JSON.stringify` — never spliced into a shell line — which is the procedure `D-71` established after a hand edit left this same file as invalid JSON.
+
+Verified: emits once, silent on runs 2 and 3, and confirmed live on the call that applied it. The marker is gitignored under `.graphify/`.
+
+### Stated limitation — why no check caught this
+
+**`C-14`'s `settings-parse` validates that the file *parses*, not that a hook *behaves*.** The leak ran for a full session with **all seven checks green**, because a hook that emits 665 times is syntactically perfect. This is the same shape as `C-14`'s local-only limit and `G65`'s arrival-not-correctness limit: **stated so the coverage is not overread**, not opened as a gap, because a repository check cannot observe hook runtime — that evidence lives in session transcripts, outside any file the checks can read.
+
+### Not fixed
+
+**24 runs exceeded 2 seconds and one reached 71 seconds**, against a configured 5-second timeout. The excess is shell spawn and system contention, **not this command**, and fewer syscalls will not move it. Narrowing the matcher or removing the hook are the only real levers. Recorded rather than quietly folded into the repair, because the token leak and the latency are **two separate defects** in one hook and only one of them is now fixed.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | Agent files | `Modular_PRD` |
+|---|---|---|---|---|---|
+| `D-81` hook repair | ✅ §5.14ao | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Every derived tier is unaffected, and each for a stated reason.** No artifact is created or retired — `.claude/settings.json` already existed — so the **inventory** condition is not met. No scope, sequence, or DoD moves, so the **build spec** is untouched. The repair changes a configuration value, not a rule agents must follow, so the **agent files** stay as they are; adding a "guards must fail closed" line to the shared core would be inventing scope this decision was not given. **`Modular_PRD`** governs the product, not development tooling.
+
+### Scope limits
+
+Repairs one hook command. **Closes no gap and opens none.** Changes no rule, no shared-core text, and no hash. Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67`, or `G68` — all still Lane C. Does not address the hook's latency. Authorizes no code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten. **Second repair to `.claude/settings.json` in one day** — the first (`D-71`) followed a hand edit that silently disabled both hooks; this one followed a guard that silently over-fired. Both were invisible until measured.
