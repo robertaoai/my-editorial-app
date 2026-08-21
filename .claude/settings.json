@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "M=\"${TMPDIR:-/tmp}/graphify-hint-$(date +%F)\"; if [ -f .graphify/graph.json ] && [ ! -f \"$M\" ]; then touch \"$M\"; echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"graphify: knowledge graph at .graphify/. For focused questions, run `graphify query \\\"<question>\\\"` (scoped subgraph, usually much smaller than GRAPH_REPORT.md) instead of grepping raw files. Read GRAPH_REPORT.md only for broad architecture context.\"}}'; fi; true",
+            "command": "M=\".graphify/.hint-$(date +%F)\"; if [ -f .graphify/graph.json ] && mkdir \"$M\" 2>/dev/null; then echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"graphify: knowledge graph at .graphify/. For focused questions, run `graphify query \\\"<question>\\\"` (scoped subgraph, usually much smaller than GRAPH_REPORT.md) instead of grepping raw files. Read GRAPH_REPORT.md only for broad architecture context.\"}}'; fi; true",
             "timeout": 5
           }
         ]
