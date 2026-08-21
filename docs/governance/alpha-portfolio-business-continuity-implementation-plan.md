@@ -462,3 +462,13 @@ This plan interprets but does not amend:
 - [Requirements traceability map](requirements-traceability-map.md)
 
 If this plan conflicts with an approved governing document, the governing document controls. Its authority is limited to the decisions and conditions recorded in the operative Decision Register; unrecorded proposals remain non-authoritative.
+
+## 10. Addendum: Q10 Digital Twin & Product Scope
+
+**Decision Anchor: `D-73` / `D-74`**
+
+The original My-Editorial-App zero-to-one initiative (AP-01) is authorized by the Chief Editor as a *pmulti-tenant product**. It serves as a digital twin of the business itself, requiring account access for various natural person employees to approve and direct nodes in the business.
+
+**Governance Implications:**
+- **POC & MVP Direction:** This product scope foundationally informs the MVP and POC lanes. The MVP (multi-tenant software application) and POC (manual evidence lane) operate within this digital twin paradigm.
+- **Downstream Build:** This business fact mandates that the software build must include tenancy boundaries (e.g., the `0002`migration tenancy column).

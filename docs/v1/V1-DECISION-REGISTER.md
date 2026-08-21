@@ -2900,3 +2900,14 @@ Closes no Open Decision. Amends no governing document. Authorizes no code, schem
 - **Stage D Unblocked:** The `0002` migration **must** now include a tenancy column to support multi-tenancy.
 - **`Q10` Closed:** Removed from the Open Chief Editor decisions list.
 - **`C-14` Scope Updated:** The consistency apparatus now includes a seventh check, `docs-drift.mjs`, which relies on `graphify` to detect unsynced documents.
+
+## 5.14aj `D-74` — Hierarchy of Source Truth & `Q10` Placement
+
+**Decided 2026-08-21 by Chief Editor.** The formal precedence of authority flows downwards in a strict 4-tier hierarchy, which governs how top-level decisions are audited:
+
+1. **Alpha Portfolio (Business Entity):** The continuing business container. Allocates capital, accepts risk, charters projects (`AP-01`). The highest source of truth.
+2. **Project / Customer Scope (Charter, POC, MVP):** Authorized zero-to-one scope and evidence gathering. The **MVP** is the chartered software; the **POC** is a manual evidence lane. Governed by `PRD.md` and the frozen Charter.
+3. **Product Level (Governed Spec):** Translates project constraints into rules. Governed by `Modular_PRD.md` (which tracks Sprints, not projects).
+4. **Execution Level (Sprints & Specs):** Delivery sequence. Governed by `V1-BUILD-SPEC.md` and `docs/specs/`.
+
+Because `Q10` (`D-73`) defines the app as a "digital twin of the business," it is an enterprise structural fact and is permanently locked into the Alpha Portfolio governance level, superseding temporary drafts.

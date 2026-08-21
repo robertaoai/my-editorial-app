@@ -159,4 +159,4 @@ Closes no Open Decision. Amends no governing document. Authorizes no code, schem
 
 | Artifact | Purpose | Status |
 |---|---|---|
-| `docs/journal/Q10-explanation.md` | `Q10` (`D-73`) step-by-step guide | ✅  **Drafted 2026-08-21**. Pending lock-in at the Alpha Portfolio milestone. |
+| `docs/journal/Q10-explanation.md` | `Q10` (`D-73`) step-by-step guide | 🗑️ **Deleted 2026-08-21**. Locked in at the Alpha Portfolio milestone (`D-74`). |
