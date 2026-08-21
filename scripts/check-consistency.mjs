@@ -17,6 +17,7 @@ import { run as duplicateIds } from "./checks/duplicate-ids.mjs";
 import { run as graphCoverage } from "./checks/graph-coverage.mjs";
 import { run as settingsParse } from "./checks/settings-parse.mjs";
 import { run as decisionStatus } from "./checks/decision-status.mjs";
+import { run as laneBoundary } from "./checks/lane-boundary.mjs";
 import { run as docsDrift } from "./checks/docs-drift.mjs";
 
 const CHECKS = [
@@ -26,6 +27,7 @@ const CHECKS = [
   graphCoverage,
   settingsParse, // `G66`
   decisionStatus, // `G65`
+  laneBoundary, // `G69` — see `D-83`; detects the shape of a crossing, not the permission
   docsDrift, // Docs drift check
 ];
 
