@@ -87,6 +87,14 @@ four-eyes rule the governing set imposes at Line boundaries. **Deployment belong
 GitHub; no agent deploys, and `main` lagging the working branch is expected until Phase 3 — not a
 defect to report.**
 
+**Lane B reports through `docs/handoff/` (`D-90`).** `D-75` required a handoff at every lane
+boundary and named no place for it. That place is `docs/handoff/`: copy `TEMPLATE.md` to
+`B-NNN-<slug>.md`, one file per item, kind `dependency` | `spec-defect` |
+`blocked-on-decision` | `finding`. **The directory is unmapped on purpose** — Lane B raises
+entries and Lane A answers them, so attributing it to either side would make the other a
+crossing on every use. Lane A must mark every open entry `Acknowledged` at minimum;
+`bun run check` fails on one left unread. **Acknowledging is not answering** — a queue is fine.
+
 **A crossing must be declared (`D-88`).** `.githooks/commit-msg` blocks a multi-lane commit unless
 its message carries a trailer saying why:
 

@@ -31,7 +31,10 @@ const LANES = [
     lane: "A",
     label: "Claude Code — orchestration",
     test: (p) =>
-      p.startsWith("docs/") ||
+      // `docs/handoff/` is deliberately UNMAPPED (`D-90`): Lane B raises
+      // entries there and Lane A answers them, so attributing it to either
+      // side would make the other a crossing on every ordinary use.
+      (p.startsWith("docs/") && !p.startsWith("docs/handoff/")) ||
       p.startsWith("scripts/") ||
       p.startsWith(".claude/") ||
       p.startsWith(".agents/") ||

@@ -272,3 +272,34 @@ Lane-Crossing: <reason>
 
 1. Direction D built **before** `G54` was corrected, and found it unprompted. **Met.**
 2. Gate tested four ways: single lane allowed; A+B crossing blocked with both lanes named; same crossing allowed once declared; and end-to-end through the real hook, where the commit was **refused and `HEAD` did not move**. **Met.**
+
+---
+
+## 13. Check 10 — the handoff channel `[V1]`
+
+**Installed 2026-08-21 (`D-90`).** `scripts/checks/handoff-response.mjs`. **Owning lane: A.**
+
+`D-75` required a handoff at every lane boundary and **named no location**. Lane B's surface holds nothing in `docs/`, so reporting a spec defect or a blocked dependency meant editing `docs/` — an A+B crossing that `.githooks/commit-msg` blocks. **Lane B could not speak without crossing.**
+
+### Fails on
+
+| Condition | Why |
+|---|---|
+| Malformed entry — no `Kind`, `Status`, or `Lane A` | Cannot be routed or tracked |
+| `Answered` with an empty `Lane A` line | A claim with nothing behind it |
+| **`Open` with no disposition** | The "feedback sits unread" case |
+
+### Deliberately passes on
+
+**An open entry that has been acknowledged.** A queue is healthy, and a check that is red in the normal case is one people stop reading — the reasoning `D-83` used to make `lane-boundary` report rather than forbid. **Acknowledging is not answering.**
+
+### Limits `[V1]`
+
+- **Form, not substance** — it cannot judge whether an answer is correct or a `Withdrawn` justified (`G65`'s limit again).
+- **It cannot make Lane B write an entry.** A blocker never recorded stays invisible.
+- Tracked files only, so it runs in CI — **seven of ten checks now reach CI.**
+
+### Definition of done `[V1]`
+
+1. Negative-tested three ways: open-with-no-disposition `FAIL`; **acknowledged-but-open PASS**; `Answered` with empty response `FAIL`. **Met.**
+2. `docs/handoff/` unmapped in the lane map, so neither side crosses to use it. **Met.**

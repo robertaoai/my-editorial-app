@@ -3596,3 +3596,56 @@ Corrects one row, closes `G71`, installs a commit gate, opens `G72`. **Forbids n
 ### Scope limits
 
 Records a setting, closes `D-82`, backlogs `G72`. **Verifies nothing** — the protection is asserted, not measured. **Changes no code, no check and no lane assignment.** Does not rename the CI job (Lane C), does not deepen the CI checkout (Lane C), does not resolve `G72`. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+## 5.14ax `D-90` — The Handoff Channel: Lane B Can Now Speak Without Crossing
+
+**Applied 2026-08-21 by Lane A** on the Chief Editor's instruction to prepare Lane B's environment before Lane B starts. Creates `docs/handoff/` and `C-14` check 10. Names the location `D-75` required and never specified.
+
+### The gap this closes
+
+`D-75` mandates a handoff at every lane boundary — *"record what is done, what is specified-not-applied, and what is open, then stop"* — and **named no location for it.** No handoff surface existed anywhere in the repository.
+
+Meanwhile Lane B's surface is `app/`, `lib/`, `components/`, `supabase/`, `__tests__/` — **nothing in `docs/`.** So to report a spec defect, request a dependency, or record that it is blocked, Lane B had to edit `docs/`: an A+B crossing that `.githooks/commit-msg` now blocks (`D-88`).
+
+**Lane B could not speak without crossing.** The gate installed one commit earlier would have blocked the first thing Lane B tried to say.
+
+### Ownership — deliberately none, and why that is not the instruction given
+
+The Chief Editor's instruction was a **Lane-B-owned** directory. **Implemented as unmapped instead**, and the deviation is recorded rather than quietly made.
+
+Under Lane-B ownership, **Lane A's reply becomes a crossing on every ordinary use** — a response normally lands with the doc update that answers it, which is Lane A's surface. The channel would fight the gate on precisely the flow it exists to serve.
+
+**Unmapped is the principle this register already settled twice.** `G63`: a per-file merge rule cannot fit a file carrying two kinds of content. `D-85`: `package.json` carries Lane A's scripts and Lane B's dependencies, so attributing it to one misclassifies the other half. **A genuinely joint surface should not be attributed to one owner.** `lane-boundary` reports unmapped paths in its detail line, so nothing here is invisible.
+
+### The shape
+
+**One file per entry**, `B-NNN-<slug>.md`, not a shared log. A single append-only log would mix append-only entries with current-value `Status` fields — the exact mixed-file trap `G63` recorded, and `docs/handoff/` falls under `*.md merge=union`, which is right for the first and wrong for the second.
+
+Four kinds — `dependency`, `spec-defect`, `blocked-on-decision`, `finding` — each routing to a different Lane A action. Three dispositions — `Acknowledged`, `Answered`, `Withdrawn`.
+
+### Check 10 closes the loop
+
+`scripts/checks/handoff-response.mjs` fails on a malformed entry, on `Answered` with an empty response, and on **`Open` with no disposition — the "feedback sits unread" case.**
+
+**It deliberately does not fail on an open entry that has been acknowledged.** A queue is healthy. Failing on one would make `bun run check` red whenever Lane B has a pending request, and a check that is red in the normal case is a check people stop reading — the same reasoning `D-83` used to make `lane-boundary` report a crossing rather than forbid one.
+
+**Acknowledging is not answering.** The check requires that nothing sits unseen; it does not demand a fast answer.
+
+**Negative-tested three ways:** open-with-no-disposition raised `FAIL`; **acknowledged-but-still-open passed**, which is the case most likely to be got wrong; `Answered` with an empty line raised `FAIL`. Probe removed.
+
+### Stated limits
+
+- **Form, not substance.** It cannot tell whether an answer is correct or a `Withdrawn` justified — the arrival-not-correctness limit `G65` records for the tier sweep. Reading the entries is still a person's job.
+- **It cannot make Lane B write an entry.** A blocker Lane B never records is invisible to it.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | `SPECS-VERIFICATION` | Inventory | Build spec | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-90` | ✅ §5.14ax | ✅ channel + kinds | ✅ §13 | ✅ three new files | **— unaffected** | **— unaffected** |
+
+**Build spec unaffected** — no scope, sequence or DoD moves; S0 and S1 are unchanged by this. **`Modular_PRD` unaffected** — a development channel is not a product requirement.
+
+### Scope limits
+
+Creates a channel and a check. **Answers no feedback** — there is none yet, and the first entry is Lane B's to write. **Starts no sprint** and unblocks nothing: S1 remains gated on `Q11` via `G64`. Does not resolve the four gaps this pass surfaced (S0's mixed-lane deliverables, Lane B's missing entry point, `G27`'s unnamed draft location, the stale `AGENTS.md` tail) — those are **drafted, not applied.** Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.

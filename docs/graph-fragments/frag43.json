@@ -1,0 +1,76 @@
+{
+  "_comment": "Fragment 43 — D-90: the handoff channel, Lane B's feedback path. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d90_handoff_channel",
+      "label": "D-90 — The Handoff Channel: Lane B Can Speak Without Crossing",
+      "file_type": "concept",
+      "source_file": "docs/handoff/README.md",
+      "source_location": "§1",
+      "description": "Creates docs/handoff/ as the location D-75 required and never named, plus C-14 check 10. One file per entry, four kinds — dependency, spec-defect, blocked-on-decision, finding — and three dispositions: Acknowledged, Answered, Withdrawn.",
+      "community": 47,
+      "community_name": "Lane B Onboarding",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Lane B's surface holds nothing in docs, so reporting a spec defect or a blocked dependency meant editing docs, which is an A plus B crossing the commit gate now blocks. The gate installed one commit earlier would have blocked the first thing Lane B tried to say."
+    },
+    {
+      "id": "handoff_deliberately_unmapped",
+      "label": "The Channel Belongs to No Lane, On Purpose",
+      "file_type": "concept",
+      "source_file": "scripts/checks/lane-boundary.mjs",
+      "source_location": "LANES",
+      "description": "The instruction was a Lane-B-owned directory. Implemented as unmapped instead, because under Lane B ownership Lane A's reply becomes a crossing on every ordinary use: a response normally lands with the doc update that answers it, which is Lane A's surface. The channel would fight the gate on the flow it exists to serve.",
+      "community": 47,
+      "community_name": "Lane B Onboarding",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The principle this register settled twice already. G63: a per-file merge rule cannot fit a file carrying two kinds of content. D-85: package.json carries Lane A scripts and Lane B dependencies, so attributing it to one misclassifies the other half. A genuinely joint surface should not be attributed to one owner."
+    },
+    {
+      "id": "acknowledging_is_not_answering",
+      "label": "The Check Requires Acknowledgement, Not a Fast Answer",
+      "file_type": "concept",
+      "source_file": "scripts/checks/handoff-response.mjs",
+      "source_location": "L1",
+      "description": "Check 10 fails on an open entry with no Lane A disposition, on a malformed entry, and on an Answered status with an empty response. It deliberately passes on an open entry that has been acknowledged.",
+      "community": 47,
+      "community_name": "Lane B Onboarding",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A queue is healthy. Failing on one would make bun run check red whenever Lane B has a pending request, and a check that is red in the normal case is a check people stop reading. This is the same reasoning D-83 used to make lane-boundary report a crossing rather than forbid one."
+    },
+    {
+      "id": "one_file_per_entry_not_a_log",
+      "label": "One File Per Entry, Because a Log Would Mix Content Kinds",
+      "file_type": "concept",
+      "source_file": "docs/handoff/TEMPLATE.md",
+      "source_location": "template",
+      "description": "Entries are separate files named B-NNN-slug.md rather than appended to a shared log. docs/handoff/ falls under the union merge attribute, which is correct for append-only entries and wrong for the current-value Status field a shared log would carry.",
+      "community": 47,
+      "community_name": "Lane B Onboarding",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The mixed-file trap G63 recorded, applied before it could happen rather than after. Modular_PRD and the register each carry append-only and current-value content together, which is why no per-file merge rule fits them."
+    }
+  ],
+  "edges": [
+    { "source": "d90_handoff_channel", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ax", "weight": 1 },
+    { "source": "d90_handoff_channel", "target": "d75_development_build_lanes", "relation": "completes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ak", "weight": 1 },
+    { "source": "d90_handoff_channel", "target": "lane_gate_declares_rather_than_forbids", "relation": "prevents_blocking", "confidence": "CURATED", "source_file": "scripts/lane-gate.mjs", "confidence_score": 1, "source_location": "L1", "weight": 1 },
+    { "source": "handoff_deliberately_unmapped", "target": "package_json_is_a_mixed_file", "relation": "same_principle_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14as", "weight": 1 },
+    { "source": "handoff_deliberately_unmapped", "target": "d90_handoff_channel", "relation": "design_property_of", "confidence": "CURATED", "source_file": "docs/handoff/README.md", "confidence_score": 1, "source_location": "§2", "weight": 1 },
+    { "source": "acknowledging_is_not_answering", "target": "shape_not_permission", "relation": "same_reasoning_as", "confidence": "CURATED", "source_file": "scripts/checks/lane-boundary.mjs", "confidence_score": 1, "source_location": "L1", "weight": 1 },
+    { "source": "acknowledging_is_not_answering", "target": "d90_handoff_channel", "relation": "enforced_by", "confidence": "CURATED", "source_file": "scripts/checks/handoff-response.mjs", "confidence_score": 1, "source_location": "L1", "weight": 1 },
+    { "source": "one_file_per_entry_not_a_log", "target": "g63_closed_on_scoping", "relation": "applies_lesson_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G63", "weight": 1 },
+    { "source": "one_file_per_entry_not_a_log", "target": "d90_handoff_channel", "relation": "design_property_of", "confidence": "CURATED", "source_file": "docs/handoff/TEMPLATE.md", "confidence_score": 1, "source_location": "template", "weight": 1 }
+  ]
+}
