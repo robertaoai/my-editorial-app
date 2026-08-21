@@ -3048,9 +3048,9 @@ Recorded as a numbering discipline: **`D-77` and `D-78` were already promised** 
 
 ### Tier applicability (`D-54`)
 
-| Item | Register | Build spec | `Modular_PRD` | Inventory | Agent files |
-|---|---|---|---|---|---|
-| `D-79` narrowing | ✅ §5.14am | ✅ §4 stale line | ✅ §10 `Q10` row | **— unaffected** | **— unaffected** |
+| Item | Register | Build spec | Alpha Portfolio | `Modular_PRD` | Inventory | Agent files |
+|---|---|---|---|---|---|---|
+| `D-79` narrowing | ✅ §5.14am | ✅ §4 stale line | ✅ §10 rewritten | ✅ §10 `Q10` row | **— unaffected** | **— unaffected** |
 
 **`alpha-portfolio-business-continuity-implementation-plan.md` §10 was also rewritten**, and is deliberately **not** shown as a tier column. `scripts/checks/tier-sweep.mjs` carries no `TIERS` entry for that document, so a column naming it is **rejected rather than verified** — it was, on the first run of this decision. Adding the column back to satisfy the eye while the sweep ignores it would be a claim with no check behind it. **Opened as `G68`:** the sweep cannot see a Tier 1 document that `D-74` places *above* `Modular_PRD`. `scripts/checks/` is Lane C (`D-75`) — **specified, not applied.**
 

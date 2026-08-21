@@ -29,6 +29,13 @@ const TIERS = [
   // Tooling provenance sits deliberately outside the `D-29` tier stack, but a
   // decision can still declare it, so it must be mappable.
   { match: "tooling doc", files: ["docs/graph-fragments/README.md"] },
+  // `G68`: Tier 1 under `D-74`, ABOVE `Modular_PRD`. It was unmapped, so a
+  // column naming it was rejected as unknown rather than verified — meaning
+  // propagation into the highest tier in the hierarchy was checked by nobody.
+  {
+    match: "alpha portfolio",
+    files: ["docs/governance/alpha-portfolio-business-continuity-implementation-plan.md"],
+  },
   // "Register" is the file being read; a ✅ there is true by construction.
   { match: "register", files: [] },
 ];
