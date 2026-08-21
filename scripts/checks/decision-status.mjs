@@ -82,6 +82,34 @@ function prdRows(prd) {
   return rows;
 }
 
+// `G71` — every `G`-series row in §5.1, mapped to its status cell.
+function gapRows(text) {
+  const out = new Map();
+  const re = /^\|\s*`(G\d+[a-z]?)`\s*\|\s*([^|]+)\|/gm;
+  let m;
+  while ((m = re.exec(text)) !== null) {
+    if (!out.has(m[1])) out.set(m[1], m[2].replace(/\*/g, "").trim());
+  }
+  return out;
+}
+
+// `G71` — sections that assert a gap is closed. Two shapes are used in this
+// register: a `## 5.14x` heading naming the gap and the word "closed", and a
+// scope-limits sentence opening "Closes `GNN`". Deliberately narrow: prose
+// that merely mentions a gap must not read as a closure claim.
+function closureClaims(text) {
+  const out = new Map();
+  const heading = /^##\s+(5\.14\w*)\s+`(D-\d+)`[^\n]*`(G\d+[a-z]?)`[^\n]*\bclosed\b/gim;
+  let m;
+  while ((m = heading.exec(text)) !== null) out.set(m[3], `${m[2]} §${m[1]}`);
+
+  const scope = /\bCloses\s+`(G\d+[a-z]?)`/g;
+  while ((m = scope.exec(text)) !== null) {
+    if (!out.has(m[1])) out.set(m[1], "a scope-limits claim");
+  }
+  return out;
+}
+
 export function run() {
   const findings = [];
   const register = read(REGISTER);
@@ -123,9 +151,30 @@ export function run() {
     }
   }
 
+  // D — `G71`: a gap whose §5.1 status still reads Open while a decision
+  // section in the SAME FILE claims to close it.
+  //
+  // This hid `G54` for two days. `D-60` §5.14u closes it explicitly and even
+  // marks its tier table "Register ✅" — but the tier sweep treats `register`
+  // as true by construction (`files: []`), so a ✅ there proves nothing about
+  // §5.1. The index and the section that contradicts it live in one file, and
+  // nothing compared them.
+  const gaps = gapRows(register);
+  const claimed = closureClaims(register);
+  let gapsCompared = 0;
+
+  for (const [id, status] of gaps) {
+    gapsCompared++;
+    if (/^Open\b/.test(status) && claimed.has(id)) {
+      findings.push(
+        `${id}: §5.1 still reads "Open" but ${claimed.get(id)} claims to close it — same file, two answers`,
+      );
+    }
+  }
+
   return {
     name: "decision-status",
     findings,
-    detail: `${compared} §10 rows vs ${listed.size} listed, ${resolved.size} recorded decided`,
+    detail: `${compared} §10 rows vs ${listed.size} listed, ${resolved.size} decided; ${gapsCompared} gap rows vs ${claimed.size} closure claims`,
   };
 }

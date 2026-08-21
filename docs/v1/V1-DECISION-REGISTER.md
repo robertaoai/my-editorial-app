@@ -198,6 +198,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G68` | **Closed 2026-08-21** | **The `D-54` tier sweep cannot see the Tier 1 document.** `scripts/checks/tier-sweep.mjs`'s `TIERS` map has no entry for `docs/governance/alpha-portfolio-business-continuity-implementation-plan.md`, which `D-74` places **above** `Modular_PRD`. A tier column naming it is rejected as unmapped, so propagation into the highest tier in the hierarchy is verified by nobody. Found when `D-79` propagated there and the sweep raised *"tier column not mapped to a document."* **Fix:** add the mapping. **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14am |
 | `G69` | **Closed 2026-08-21 — narrowed, stated** | **No mechanism enforces the `D-75` lane boundaries.** Verified 2026-08-21: no `CODEOWNERS` at any path, no path-scoped `.claude/rules/`, no `.husky/` or `.pre-commit-config.yaml`, **0 installed git hooks**, and CI triggers `on: push`/`on: pull_request` — after a commit lands. Four crossings by agents that had read the rules are on record (`D-75`, `D-82`). **The bootstrap problem:** every candidate mechanism — `CODEOWNERS` in `.github/`, a pre-commit hook, a path check in `scripts/checks/` — is **Lane C's own surface**, so Lane A can specify enforcement and never apply it. **Fix:** the first control must come from Lane C or the Chief Editor. **Closed by `D-83`** on **visibility, not prevention** — `scripts/checks/lane-boundary.mjs` reports a change spanning two lanes; nothing blocks one, and `D-82`'s finding stands. Built by Lane A under explicit Chief Editor authorization, which `D-82` names as one of two ways the first control could arrive. §5.14ap, §5.14aq |
 | `G70` | **Closed 2026-08-21 — heuristic, stated** | **Nothing verifies that a change in a governing document reached its derived tiers.** `tier-sweep` is **register-driven** — it checks that a *decision* arrived in a named tier. The inverse is unchecked: `docs/source/` and `docs/governance/` can move and no control notices. The portfolio is **living**, not frozen — `alpha-portfolio-business-continuity-implementation-plan.md`, **Tier 1 under `D-74`**, changed 2026-08-21; `requirements-traceability-map.md` 2026-08-20; `raci-involvement-matrix.md` 2026-08-19. **The structural inverse of `G68`:** that gap was *"the sweep cannot see the Tier 1 document when a decision claims it"*; this is *"the sweep never looks at the Tier 1 document at all."* **Fix:** a source-side sweep comparing each governing document's last-commit date against its derived tiers. **`scripts/` is Lane A** (`D-84`) — specified here, not built. §5.14at |
+| `G71` | **Closed 2026-08-21 — found by the control it added** | **The register contradicted itself and every check passed.** `D-60` closed `G54` in §5.14u and marked its tier table **Register ✅** — but `tier-sweep` maps `register` to `files: []`, *"true by construction"*, so the ✅ proved nothing about §5.1. Index and section sat in **one file giving two answers** for two days. `decision-status` covered only the `Q`-series; gaps had no cross-check. **Closed by `D-88`** — direction D compares every `G`-row's §5.1 status against the sections claiming to close it. **Built before the fix**: on its first run it reported `G54` and nothing else, one finding across 65 gap rows and 14 closure claims. §5.14av |
+| `G72` | **Open** | **Graph-schema compatibility with upstream `graphifyy` is unverified.** `D-60` named it — *"newly named and **not resolved**"* — and `docs/graph-fragments/README.md` §6 calls it *"the real residual risk"* and *"the only live item should a swap ever be reconsidered"*. **It was given no identifier**, so it appeared in no index and no check for two days. `merge7.js` depends on `graph.json` using `links` and the current node fields; whether upstream emits the same shape is unknown. **Not a live risk while `D-51` stands** — the project remains on `@sentropic/graphify` and nothing proposes a swap. **Fix:** verify the schema from source *before* any swap is reconsidered; command availability is already known (`D-60`). §5.14av |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -206,7 +208,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G51` | **Closed 2026-08-20** | Curated graph layer rescued to `docs/graph-fragments/` — 61 nodes, 142 edges. §5.4 |
 | `G52` | **Closed 2026-08-20** | Distribution-specific commands disclosed — `docs/graph-fragments/README.md` §3 |
 | `G53` | **Closed 2026-08-20** | Shared core reconciled across all three agent files, verified byte-identical. §5.4 |
-| `G54` | **Open — deferred by decision** | Upstream command surface unverified; route in `docs/graph-fragments/README.md` §6. Needs a Python toolchain |
+| `G54` | **Closed 2026-08-20 (`D-60`) — row corrected 2026-08-21** | **Upstream command surface verified from source, with nothing installed** — the recorded route (install `uv`, install `graphifyy`, diff `--help`) was never necessary. Five commands `CLAUDE.md` mandates are **confirmed absent upstream**; `merge-graphs` **exists** upstream, correcting an earlier claim of nine. **The stranded-fragments warning was withdrawn:** `merge7.js` is plain Node and never invokes graphify, so the curated layer never depended on either distribution. §5.14u, `docs/graph-fragments/README.md` §6. *(This row read **"Open — deferred by decision … needs a Python toolchain"** for two days after `D-60` closed it. `D-60`'s tier table marked the register ✅, but `tier-sweep` treats `register` as true by construction, so the ✅ proved nothing about §5.1. Found by `decision-status` direction D on its first run — see `G71`.)* |
 | `G55` | **Closed 2026-08-20** | All ten backfilled above; `G40` given a detail section, `G49` an ID-keyed anchor, and the duplicate `G39` row removed. §5.4 |
 
 **The table above is authoritative. Counts are deliberately not restated here.**
@@ -3475,3 +3477,61 @@ An earlier negative test used `git reset --hard` while tracked-file edits were u
 ### Scope limits
 
 Closes `G67`, `G68`, `G70`, `D-78`, `D-77`. **Adds no enforcement** — `D-82` stands: nothing prevents a crossing. Does not repair `agent-stats` (struck, not fixed) and does not resolve `G54`. Sets no CI depth, adds no `CODEOWNERS`, sets no branch protection. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+## 5.14av `D-88` — `G54` Row Corrected, `G71` Found and Closed, `D-82` Given Its Prevention Half
+
+**Applied 2026-08-21 by Lane A** on the Chief Editor's instruction to close `G54` and `D-82`. Opens and closes `G71` in one pass; opens `G72`.
+
+### `G54` needed no work — its row was stale
+
+`G54` was **closed 2026-08-20 by `D-60`**, verified from source with nothing installed. `docs/graph-fragments/README.md` §6 has carried the full closure — including that the recorded route (install `uv`, install `graphifyy`, diff `--help`) *"was never necessary"* — for two days.
+
+**§5.1 still read `Open — deferred by decision … Needs a Python toolchain`.** That line was quoted repeatedly during this session as a live blocker. It was not one.
+
+**No Python was ever required.** The correction is a row, not an investigation.
+
+### `G71` — why the register contradicted itself and nothing noticed
+
+`D-60`'s tier table marks **Register ✅**. But `tier-sweep` maps `register` to `files: []` — *"the file being read; a ✅ there is true by construction."* So the ✅ proved nothing about §5.1, and §5.1 and §5.14u sat in **one file giving two answers** with every check green.
+
+`decision-status` covered only the `Q`-series. **Gaps had no equivalent cross-check.**
+
+**Closed in the same pass by direction D**: every `G`-row's §5.1 status against the sections that claim to close it — a `## 5.14x` heading naming the gap with *"closed"*, or a scope-limits sentence opening *"Closes `GNN`"*. Deliberately narrow, so prose that merely mentions a gap does not read as a closure claim.
+
+**Built before the fix, and it earned that order**: on its first run it reported `G54` and **nothing else** — one finding across **65 gap rows and 14 closure claims**. Zero false positives, and the defect was found by the control rather than by the author asserting it.
+
+### `D-82` — the prevention half, without forbidding anything
+
+`D-82` recorded that nothing **prevents** a crossing: `lane-boundary` reports one afterwards, and CI runs after a commit lands. `D-84` then established that a pre-commit hook is orchestration and therefore **Lane A's to build**, which is why this is now possible.
+
+**`.githooks/commit-msg` → `scripts/lane-gate.mjs`.** It does **not forbid crossings** — `D-83` measured that most historical multi-lane commits were legitimate, and a hard block would stop authorised work and be uninstalled within a day. It requires a **declaration**:
+
+```
+Lane-Crossing: <reason>
+```
+
+**Three design choices, each with its reason:**
+
+- **Tracked in `.githooks/`, not `.git/hooks/`.** An uncommitted hook silently protects nobody who has not installed it — the exact failure mode of `needs_update` (`D-78`) and the `${TMPDIR}` marker (`D-81`). Activated by `bun run hooks:install`, also wired to `prepare`.
+- **The classifier is imported from `lane-boundary.mjs`**, now exporting `classify`. A hook carrying its own copy of the lane map would drift from the check silently — the defect this apparatus exists to catch.
+- **`--no-verify` is left open, deliberately.** A gate with no escape is a gate people uninstall. Bypassing hides nothing: `lane-boundary` still reports the crossing afterwards.
+
+**Tested four ways:** single-lane commit allowed; real A+B crossing **blocked**, naming both lanes and the files; the same crossing **allowed once declared**; and end-to-end through the real git hook, where the commit was **refused and `HEAD` did not move**.
+
+**`D-82`'s structural finding is now half-answered, and the half that remains is stated.** Local commits are gated. **CI still runs after a push, and branch protection remains a GitHub setting rather than a file** — outside every lane, and the Chief Editor's.
+
+### `G72` opened — the residual `D-60` named and nobody tracked
+
+`D-60`'s scope limits say *"The graph-schema question is newly named and **not resolved**."* `README.md` §6 calls it *"the real residual risk"* and *"the only live item should a swap ever be reconsidered."* **It was given no identifier**, so it appeared in no index and no check. Recorded as `G72` — **not resolved here**, only made findable.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | `SPECS-VERIFICATION` | Inventory | Build spec | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-88` | ✅ §5.14av | ✅ the gate + trailer | ✅ §12 | ✅ two new files | ✅ §7 invariant 9 | **— unaffected** |
+
+**Agent files are affected** because Lanes B and C will meet this gate and must know the trailer exists. **`Modular_PRD` unaffected** — development tooling is not a product requirement.
+
+### Scope limits
+
+Corrects one row, closes `G71`, installs a commit gate, opens `G72`. **Forbids no crossing** and changes no lane assignment. **Adds no CI check** — `C-14` remains nine. Sets no branch protection, adds no `CODEOWNERS`. Does not resolve `G72`, and does not revisit `G54`'s substance, which `D-60` settled. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.

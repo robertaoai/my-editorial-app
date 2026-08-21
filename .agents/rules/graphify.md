@@ -87,10 +87,20 @@ four-eyes rule the governing set imposes at Line boundaries. **Deployment belong
 GitHub; no agent deploys, and `main` lagging the working branch is expected until Phase 3 — not a
 defect to report.**
 
-**This rule is unenforced (`D-82`).** There is no `CODEOWNERS`, no path rule, no pre-commit hook,
-and CI runs *after* a commit lands. The only thing that stops a crossing is the agent choosing to
-stop — and four crossings by agents that had read this block are on record. **Treat it as a duty,
-not a guardrail.** If you notice you have crossed, say so and withdraw rather than continuing.
+**A crossing must be declared (`D-88`).** `.githooks/commit-msg` blocks a multi-lane commit unless
+its message carries a trailer saying why:
+
+```
+Lane-Crossing: <reason>
+```
+
+It **does not forbid** crossings — most recorded ones were legitimate — and `--no-verify` bypasses
+it, after which `lane-boundary` reports the crossing anyway. Activate the hook once with
+`bun run hooks:install`; `bun install` does it too.
+
+**What is still unenforced (`D-82`).** There is no `CODEOWNERS` and no branch protection, and CI
+runs *after* a push. The gate is local. **Treat the rule as a duty, not a guardrail** — if you
+notice you have crossed, say so and withdraw rather than continuing.
 
 **This is the development lane model — NOT the product's Three Lines** (`OD1`–`OD3`,
 `line_assignment`, `AC-01`/`AC-05`/`AC-17`) and **NOT `OD4`** (Proposer → Critics → Judge). Same

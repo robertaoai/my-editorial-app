@@ -228,3 +228,47 @@ Two signals: **frozen documents pinned by SHA**, and **governing documents that 
 1. Every repaired or added check **negative-tested**; each raised `FAIL` and was restored. **Met.**
 2. The frozen-document signal tested **without editing a frozen file** — the pin was perturbed instead. **Met.**
 3. `docs-drift` proven able to fail, then proven to catch a real staleness on its first live run. **Met.**
+
+---
+
+## 12. Check 6 extended, and the commit gate `[V1]`
+
+**Installed 2026-08-21 (`D-88`)**, closing `G71` and giving `D-82` its prevention half. **Owning lane: A** (`D-84`).
+
+### Check 6 — `decision-status`, direction D `[V1]` (`G71`)
+
+Directions A–C covered the `Q`-series. **Gaps had no cross-check**, and the register contradicted itself for two days: `D-60` §5.14u closed `G54` while §5.1 still read *"Open — deferred by decision … Needs a Python toolchain."*
+
+`D-60`'s tier table marked **Register ✅**, but `tier-sweep` maps `register` to `files: []` — *"true by construction"* — so the ✅ proved nothing about §5.1. **Index and section, one file, two answers, every check green.**
+
+Direction D compares each `G`-row's §5.1 status against sections claiming to close it: a `## 5.14x` heading naming the gap with *"closed"*, or a scope-limits sentence opening *"Closes `GNN`"*. **Narrow on purpose** — prose that merely mentions a gap must not read as a closure claim.
+
+**Built before the fix.** First run: `G54` and nothing else — one finding across **65 gap rows and 14 closure claims**.
+
+### The lane-crossing gate `[V1]` (`D-82`, `D-88`)
+
+`.githooks/commit-msg` → `scripts/lane-gate.mjs`. **Not a `C-14` check** — it runs at commit time, not under `bun run check`. The count stays nine.
+
+It **requires a declaration rather than forbidding a crossing**:
+
+```
+Lane-Crossing: <reason>
+```
+
+| Choice | Reason |
+|---|---|
+| Tracked in `.githooks/`, not `.git/hooks/` | An uncommitted hook silently protects nobody — the `needs_update` (`D-78`) and `${TMPDIR}` (`D-81`) failure mode |
+| Classifier imported from `lane-boundary.mjs` | A hook with its own copy of the lane map would drift from the check silently |
+| `--no-verify` left open | A gate with no escape gets uninstalled; `lane-boundary` reports the crossing afterwards regardless |
+
+**Activate:** `bun run hooks:install` (also wired to `prepare`). **Verify:** `git config core.hooksPath` → `.githooks`.
+
+### Limits `[V1]`
+
+- **The gate is local.** CI still runs after a push, and **branch protection is a GitHub setting rather than a file** — outside every lane. `D-82`'s finding is half-answered, not closed.
+- Direction D detects **contradiction, not correctness** — it cannot tell whether a closure claim is justified, only that two places disagree.
+
+### Definition of done `[V1]`
+
+1. Direction D built **before** `G54` was corrected, and found it unprompted. **Met.**
+2. Gate tested four ways: single lane allowed; A+B crossing blocked with both lanes named; same crossing allowed once declared; and end-to-end through the real hook, where the commit was **refused and `HEAD` did not move**. **Met.**

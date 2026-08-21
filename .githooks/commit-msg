@@ -1,0 +1,9 @@
+#!/bin/sh
+# `D-88` — lane crossing gate. Tracked in the repository, NOT in `.git/hooks/`,
+# so it travels with a clone instead of silently protecting nobody. Activate
+# with `bun run hooks:install` (also wired to `prepare`, so `bun install` does
+# it). Verify with: git config core.hooksPath
+#
+# Never blocks on its own failure: if node is unavailable the commit proceeds.
+command -v node >/dev/null 2>&1 || exit 0
+node scripts/lane-gate.mjs "$1"

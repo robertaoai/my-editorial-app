@@ -36,6 +36,7 @@ const LANES = [
       p.startsWith(".claude/") ||
       p.startsWith(".agents/") ||
       p.startsWith(".codex/") ||
+      p.startsWith(".githooks/") ||
       // `.github/` minus workflows — `CODEOWNERS`, templates — is Lane A's.
       (p.startsWith(".github/") && !isWorkflow(p)) ||
       /^(CLAUDE|AGENTS)\.md$/.test(p) ||
@@ -58,6 +59,24 @@ const LANES = [
 
 function git(args) {
   return execSync(`git ${args}`, { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
+}
+
+// Exported so `.githooks/commit-msg` classifies with the SAME map (`D-88`).
+// A hook carrying its own copy would drift from the check silently, which is
+// the defect this whole apparatus exists to catch.
+export function classify(files) {
+  const byLane = new Map();
+  const unmapped = [];
+  for (const f of files) {
+    const hit = LANES.find((l) => l.test(f));
+    if (!hit) {
+      unmapped.push(f);
+      continue;
+    }
+    if (!byLane.has(hit.lane)) byLane.set(hit.lane, []);
+    byLane.get(hit.lane).push(f);
+  }
+  return { byLane, unmapped, label: (l) => LANES.find((x) => x.lane === l)?.label ?? l };
 }
 
 export function run() {

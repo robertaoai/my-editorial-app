@@ -13,6 +13,8 @@
 
 | Artifact | Referenced by | Exists |
 |---|---|---|
+| `.githooks/commit-msg` | `D-88`, `D-82` | ✅ **Created 2026-08-21.** Lane-crossing gate. **Tracked, not in `.git/hooks/`** — an uncommitted hook protects nobody. Activate with `bun run hooks:install`. |
+| `scripts/lane-gate.mjs` | `D-88` | ✅ **Created 2026-08-21.** The gate behind the hook. Imports `classify` from `lane-boundary.mjs` so gate and check cannot disagree. Requires a `Lane-Crossing:` trailer; does not forbid. |
 | `scripts/checks/source-sweep.mjs` | `D-87`, `G70` | ✅ **Created 2026-08-21.** `C-14` check 9 — the inverse of the tier sweep: did a governing document reach its derived tiers. Skips on a shallow clone. |
 | `scripts/checks/lane-boundary.mjs` | `D-83`, `G69` | ✅ **Created 2026-08-21.** `C-14` check 8 — makes `D-75` lane crossings visible. Detects the shape of a crossing, never the permission. |
 | `.claude/skills/sync-docs/SKILL.md` | `D-80` | ✅ **Created 2026-08-21.** Encodes the `D-54` propagation procedure. **Lane A only** — Claude Code loads `.claude/skills/`; Codex and Antigravity do not. |

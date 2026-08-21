@@ -1,0 +1,92 @@
+{
+  "_comment": "Fragment 41 — D-88: G54 row corrected, G71 found and closed, D-82 given its prevention half, G72 opened. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d88_gate_and_gap_crosscheck",
+      "label": "D-88 — The Commit Gate and the Gap Cross-Check",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14av D-88",
+      "description": "Corrects G54's stale index row, closes G71 by extending decision-status to the G-series, installs a commit-time lane gate answering half of D-82, and opens G72 for the untracked graph-schema residual.",
+      "community": 45,
+      "community_name": "Register Self-Consistency",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Each half was built before the defect it addresses was fixed, so the control found the defect rather than the author asserting it."
+    },
+    {
+      "id": "g54_was_closed_two_days_earlier",
+      "label": "G54 Needed No Work — Its Row Was Stale",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.1 G54",
+      "description": "G54 was closed 2026-08-20 by D-60, verified from source with nothing installed, and the tooling README section 6 carried the full closure for two days. Section 5.1 still read Open, deferred by decision, needs a Python toolchain. That line was quoted repeatedly as a live blocker during the following session. No Python was ever required.",
+      "community": 45,
+      "community_name": "Register Self-Consistency",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "An instance of summary_outlived_source inside the register's own index, and the reason G71 was worth building: the contradiction lived in one file and nothing compared the two halves."
+    },
+    {
+      "id": "g71_register_contradicted_itself",
+      "label": "G71 — Register Tick Is True By Construction, So It Proves Nothing",
+      "file_type": "concept",
+      "source_file": "scripts/checks/decision-status.mjs",
+      "source_location": "direction D",
+      "description": "D-60's tier table marked the Register column done, but tier-sweep maps register to an empty file list because the register is the file being read. A decision can therefore close a gap in its own section while section 5.1 still says Open, and every check passes. Direction D compares each G-row's status against the sections claiming to close it, using headings that name the gap with the word closed and scope-limits sentences opening Closes.",
+      "community": 45,
+      "community_name": "Register Self-Consistency",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "On its first run it reported G54 and nothing else, one finding across 65 gap rows and 14 closure claims. Built before the fix, so the control located the defect instead of confirming a fix already made."
+    },
+    {
+      "id": "lane_gate_declares_rather_than_forbids",
+      "label": "The Gate Requires a Declaration, Not Compliance",
+      "file_type": "concept",
+      "source_file": "scripts/lane-gate.mjs",
+      "source_location": "L1",
+      "description": "A multi-lane commit is blocked unless its message carries a Lane-Crossing trailer giving a reason. Crossings are not forbidden, because D-83 measured that most historical multi-lane commits were legitimate. The hook is tracked in .githooks rather than .git/hooks so it travels with a clone, the classifier is imported from lane-boundary so gate and check cannot disagree, and no-verify is deliberately left open.",
+      "community": 45,
+      "community_name": "Register Self-Consistency",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A hard block would stop authorised work and be uninstalled within a day. An uncommitted hook silently protects nobody, which is the needs_update and TMPDIR marker failure mode. A gate with no escape is a gate people remove, and bypassing hides nothing because lane-boundary still reports the crossing."
+    },
+    {
+      "id": "g72_schema_residual_untracked",
+      "label": "G72 — A Named Risk With No Identifier Reaches No Index",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.1 G72",
+      "description": "D-60 named graph-schema compatibility with upstream graphifyy as newly named and not resolved, and the tooling README calls it the real residual risk and the only live item should a swap be reconsidered. It was given no identifier, so it appeared in no index and no check. merge7.js depends on graph.json using links and the current node fields.",
+      "community": 45,
+      "community_name": "Register Self-Consistency",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Not a live risk while D-51 stands and nothing proposes a swap. Recorded so the residual is findable rather than resolved, since an unidentified risk is invisible to every control the project has."
+    }
+  ],
+  "edges": [
+    { "source": "d88_gate_and_gap_crosscheck", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14av", "weight": 1 },
+    { "source": "d88_gate_and_gap_crosscheck", "target": "d82_lanes_unenforced", "relation": "half_answers", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ap", "weight": 1 },
+    { "source": "g54_was_closed_two_days_earlier", "target": "summary_outlived_source", "relation": "instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G54", "weight": 1 },
+    { "source": "g54_was_closed_two_days_earlier", "target": "g71_register_contradicted_itself", "relation": "found_by", "confidence": "CURATED", "source_file": "scripts/checks/decision-status.mjs", "confidence_score": 1, "source_location": "direction D", "weight": 1 },
+    { "source": "g71_register_contradicted_itself", "target": "g65_narrowed_to_fit", "relation": "same_family_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G65", "weight": 1 },
+    { "source": "g71_register_contradicted_itself", "target": "d88_gate_and_gap_crosscheck", "relation": "closed_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14av", "weight": 1 },
+    { "source": "lane_gate_declares_rather_than_forbids", "target": "shape_not_permission", "relation": "same_principle_as", "confidence": "CURATED", "source_file": "scripts/checks/lane-boundary.mjs", "confidence_score": 1, "source_location": "L1", "weight": 1 },
+    { "source": "lane_gate_declares_rather_than_forbids", "target": "guards_must_fail_closed", "relation": "applies", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ao", "weight": 1 },
+    { "source": "lane_gate_declares_rather_than_forbids", "target": "d88_gate_and_gap_crosscheck", "relation": "installed_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14av", "weight": 1 },
+    { "source": "g72_schema_residual_untracked", "target": "d88_gate_and_gap_crosscheck", "relation": "opened_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14av", "weight": 1 }
+  ]
+}

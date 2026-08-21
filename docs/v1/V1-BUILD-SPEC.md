@@ -188,7 +188,7 @@ Deferring this behind S0/S1 would stall commercial evidence for no technical rea
 6. **`MockPublished` never satisfies `Published`.**
 7. **No invented numbers.** `AGENT_HEADCOUNT` and `LINE1_AGENT_ROSTER` stay `UNSET`.
 8. **One hard stop:** a negative `OD2` resolution is a pre-launch blocker, at any point.
-9. **Stay in your lane (`D-75`).** Specify work belonging to another lane; never apply it. Crossing a lane boundary requires a handoff, not a commit.
+9. **Stay in your lane (`D-75`).** Specify work belonging to another lane; never apply it. Crossing a lane boundary requires a handoff, not a commit. **Enforced at commit time since `D-88`** — `.githooks/commit-msg` requires a `Lane-Crossing: <reason>` trailer on a multi-lane commit. It does not forbid crossings, and `--no-verify` bypasses it; `lane-boundary` still reports one afterwards.
 
 ## 8. Scope limits
 
