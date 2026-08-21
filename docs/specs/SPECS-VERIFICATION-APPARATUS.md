@@ -166,11 +166,11 @@ Lane map, from `D-75` §5.14ak — **ownership, not authorship**:
 
 | Lane | Surface |
 |:---:|---|
-| **A** | `docs/` |
-| **B** | `app/`, `lib/`, `components/`, `supabase/migrations/` |
-| **C** | `.github/`, `scripts/`, `.gitattributes` |
+| **A** | **Orchestration** — `docs/`, `scripts/`, `.claude/`, `.agents/`, `.codex/`, `.github/` *except* `workflows/`, rule files, build config, `.gitattributes` |
+| **B** | `app/`, `lib/`, `components/`, `supabase/`, `__tests__/` |
+| **C** | **`.github/workflows/` only** |
 
-`CLAUDE.md`, `AGENTS.md`, `.agents/`, `.claude/`, `__tests__/` and build config are **shared** — the three rule files are triple-edited by whichever lane records a decision (`D-54`), so counting them would fire on every ordinary pass.
+**Corrected by `D-84`:** the original map put `scripts/` and `.gitattributes` in Lane C. They are orchestration, therefore Lane A. **Nothing is "shared" any more** — every path maps to one lane or is reported as unmapped. Two commits this section cited as crossings, `24b39fb` and `0e3705c`, touched only Lane A surfaces and were never crossings.
 
 ### Why it reports rather than accuses
 

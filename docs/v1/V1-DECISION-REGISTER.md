@@ -190,7 +190,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `X8` | **Open** — S0 | Stripe scaffolding versus the Charter-level *"no monetization features"*. `D5`. **Closes on S0** |
 | `G61` | **Closed 2026-08-20** | `D-63` §5.14x — **all eight** `X`-rows backfilled above. *(Corrected: the gap statement said **five**; `X1`, `X2`, and `X6` exist too. Five was the `D5`-family **open** subset, not the series.)* |
 | `G62` | **Closed 2026-08-21** | **Opened because the CI gates `R3` specifies did not pass** — `typecheck` exited 2 with 10 implicit-`any` errors in `lib/supabase/`, and `lint` exited 1 because `next lint` is deprecated, **interactive**, and no ESLint config exists. §5.14z. **Today: typecheck passes; lint still cannot run.** **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings**. **a closed by `D-67`** — `satisfies CookieMethodsServer` in two files, 4 lines; `tsc --noEmit` **exits 0**. The ten errors were **two overload-resolution causes**, not ten defects. **Both parts applied by `D-70`** — `eslint.config.mjs` created, `lint` repointed; **27 files, 0 findings**, and CI green on a real run |
-| `G63` | **Open — new** | An **untracked** `.gitattributes` sets `*.md text eol=lf merge=union`. **Union merge concatenates conflicting markdown instead of failing** — in a three-agent repo that silently duplicates index rows, the exact `G39` defect. Cuts against `D-58`. Found incidentally |
+| `G63` | **Closed 2026-08-21 — scoped, not removed** | `.gitattributes` set `*.md text eol=lf merge=union` repo-wide. **Union is CORRECT for append-only audit content** — tested on the Chief Editor's rollback lineage (`tag-01` fixed, `tag-02` deployed, `tag-01` merged into `tag-02`), both sides' records survived, and losing an audit record is worse than duplicating one. **It is destructive for current-value content** — tested: a status row merged to `Decided` **and** `Rejected`; a version header appeared twice; and a union-duplicated `CLAUDE.md` sliced identically to a clean one, so `shared-core-hash` **PASSED** on a file holding two full copies of the rules. **The file is the wrong unit** — `Modular_PRD.md` and the register each carry append-only *and* current-value content. **Closed by `D-84`:** union retained, with `docs/v1/**/*.md`, `docs/Modular_PRD.md`, `CLAUDE.md`, `AGENTS.md`, `.agents/**/*.md` scoped to `merge=text`. Verified by `git check-attr`. §5.14ar |
 | `G64` | **Specified, not applied — `D-69`** | **`G-02` cannot be computed from its own declared Data Source.** Its Data Source names **one** column *(`judgment_independence_status`, "becomes `line_boundary_crossed`")*, but its definition excludes logged overrides, which needs `not_applicable` and `override_not_four_eyes` told apart — and a boolean maps both to `false`. **Arithmetic on the declared columns, no interpretation required.** *Restated by `D-69`: as opened (§5.14ad) this also claimed an `NFR-03` inference violation — **withdrawn**, "inferred at read" is undefined across the corpus and `NFR-03`'s measured target is "100% non-null", which a boolean meets.* Two shapes specified; the choice is `Q11`'s (`D-68`). Carries `C-16`. **Resolve before the `0002` draft** (`G27`, S0). §5.14ae |
 | `G65` | **Closed 2026-08-21 — narrowed** | **The `D-54` tier sweep verifies a decision *arrived* in a tier, not that the tier is *correct*.** Presence satisfies it; staleness is invisible. Proven twice — `D-70` present 3× in the inventory and `D-57` 4× in `Modular_PRD`, both alongside rows that contradicted them, both passing. **Closed by `D-72` on a narrower promise, stated:** a script cannot validate prose, so `scripts/checks/decision-status.mjs` cross-references **decision status** between the register and `Modular_PRD` §10 in both directions instead. Caught `Q1`/`Q7`/`Q10` live. **The tier sweep still verifies arrival, not correctness.** §5.14ag, §5.14ah |
 | `G66` | **Closed 2026-08-21** | **`.claude/settings.json` is checked in, shared across three agents, and covered by no `C-14` check.** The shared-core hash compares only the three agent rule files. Demonstrated live 2026-08-21: an invalid-JSON edit **silently disabled both hooks** — Claude Code ignores a settings file it cannot parse, with no error. **Closed by `D-72`** — `scripts/checks/settings-parse.mjs` parse-checks the repo-local cascade and runs in CI. Contents never printed; user-scope file deliberately excluded. §5.14ag, §5.14ah |
@@ -3238,3 +3238,73 @@ Adding this decision to the register while `scripts/` was still uncommitted made
 ### Scope limits
 
 Closes `G69` on visibility. **Builds no blocking control**, adds no `CODEOWNERS`, installs no git hook. Changes no lane assignment, no phase order, no ownership. Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67`, `G68`, or decide `G63`. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+## 5.14ar `D-84` — The Lane Map Was Wrong: Orchestration Is Lane A
+
+**Corrected 2026-08-21 by the Chief Editor.** Supersedes the lane surfaces in `D-75` §5.14ak, narrows `D-82` §5.14ap, withdraws a framing in `D-83` §5.14aq, and closes `G63`.
+
+### The correction
+
+`D-75` assigned `scripts/`, `.gitattributes` and CI to Lane C as one undifferentiated "build tooling" surface. **That was wrong.** Those files are **orchestration**, and orchestration is Lane A. **Lane A writes every dependency before Lane C builds a workflow against it** — CI calls `bun run check`; Lane A writes what it calls.
+
+| Lane | Agent | Surface |
+|:---:|---|---|
+| **A** | Claude Code | `docs/`, `scripts/`, `.claude/`, `.agents/`, `.codex/`, `.github/` **except** `workflows/`, the rule files, and build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `.gitattributes`, `.gitignore`) |
+| **B** | Codex | `app/`, `lib/`, `components/`, `supabase/`, `__tests__/` |
+| **C** | Antigravity | **`.github/workflows/` only** |
+
+**Nothing is "shared" any more.** The previous shared list existed only because the old map left build config unattributed. Every path now maps to one lane or is unmapped, and unmapped paths are reported in the check's detail line rather than passed over.
+
+### History is re-characterised, and two accusations are withdrawn
+
+Re-probing 40 commits under the corrected map:
+
+| Commit | Old map | Corrected |
+|---|---|---|
+| `24b39fb` | **"the recorded crossing"** | **All Lane A** — not a crossing |
+| `0e3705c` | A+C | **All Lane A** — not a crossing |
+| `97b8a7c` | C+A | A+C — genuine (`.github/workflows/`) |
+| `d09563d` | *not flagged* | **A+B+C** — newly visible |
+| `8b03b7a` | A+B | A+B — genuine |
+
+**`24b39fb` is the important one.** `D-75` and `D-82` both cite it as *the* unauthorized crossing, on the grounds that it "wrote `scripts/checks/docs-drift.mjs` (Lane C)" and "committed `.gitattributes` (Lane C)". **Both files were that agent's own surface.** The commit's real defect is unchanged and unrelated: it recorded `Q10` with a characterization contradicting the frozen Charter, which `D-79` corrected. **That is a scope error, not a lane crossing, and the two were conflated.**
+
+`D-82`'s "four crossings by agents that had read the rules" therefore **overstated**. Three multi-lane commits exist, and **all three predate `D-75`** — they cannot have violated a rule that did not yet exist. Recorded as `conflict_asserted_past_source`: a finding asserting more than its source supports.
+
+### `D-82`'s bootstrap problem narrows to almost nothing
+
+`D-82` held that *"every mechanism that would enforce the lane model belongs to Lane C"*. Under the corrected map: `scripts/checks/` is **Lane A**, a pre-commit hook is orchestration and therefore **Lane A**, and `.github/CODEOWNERS` is **Lane A** (`.github/` minus `workflows/`).
+
+**Lane A can build every file-based enforcement control.** What remains outside is **branch protection**, which is a GitHub *setting* rather than a file and belongs to no lane — it is the Chief Editor's. `D-82`'s structural finding that **nothing currently enforces the lanes** stands unchanged; only its claim about *who could ever fix that* was wrong.
+
+### `D-83`'s authorization framing is withdrawn
+
+`D-83` recorded building `scripts/checks/lane-boundary.mjs` as a **sanctioned crossing** requiring Chief Editor authorization. **It was not a crossing.** `scripts/checks/` is Lane A's own surface, and the authorization, while genuinely given, was not needed. The commit split (`2b8334e` → `a8b838e`) was therefore unnecessary — both halves were Lane A. **Harmless, and left in history rather than rewritten.** The check, its probe method, and its stated limits are unaffected.
+
+### `G63` closed — on scoping, not removal
+
+**The Chief Editor's argument for `merge=union` was tested and holds for the content it targets.** Modelling the rollback lineage — `tag-01`, faulty release, roll back and deploy as `tag-02`, fix the `tag-01` line, merge `tag-01` into `tag-02`, then into `main` — both sides' journal records survived. **Losing an audit record is worse than duplicating one**, and a conflict is where a record gets dropped.
+
+**It fails on current-value content**, tested three ways: a status row merged to `Decided` **and** `Rejected`; a version header appeared twice; and a union-duplicated `CLAUDE.md` **sliced identically to a clean one**, so `shared-core-hash` **PASSED** on a file holding two complete copies of the rules — a guard failing open, the `D-81` defect.
+
+**The decisive constraint is that the file is the wrong unit.** `Modular_PRD.md` carries a 29-row append-only changelog *and* current-value §10/§8 tables; the register carries append-only `§5.14*` sections *and* 158 current-value status rows. No per-file rule is right for a whole file.
+
+**Applied:** `*.md merge=union` retained, with `docs/v1/**/*.md`, `docs/Modular_PRD.md`, `CLAUDE.md`, `AGENTS.md` and `.agents/**/*.md` scoped to `merge=text`. Verified with `git check-attr`: journals union, register and rule files conflict visibly. **Residual risk, stated:** the excluded files lose union on their append-only halves too, so a real divergence needs manual changelog reconciliation. That is the correct trade — manual work on the append half, no silent corruption on the value half.
+
+**Reframe worth keeping: union preserves *text*; the commit graph preserves *audit*.** A conflict marker loses nothing from history — both sides remain retrievable, anchored by tags.
+
+### The Lane C queue was wrong too
+
+`D-77`, `D-78`, `G67` and `G68` are all `scripts/` or rule-file work, and `G63` is `.gitattributes`. **All five are Lane A.** The handoff list issued 2026-08-21 assigned every one of them to Lane C and was wrong in the same way this decision corrects. **Lane C's queue is currently empty** — its only surface is `.github/workflows/ci.yml`, and nothing outstanding touches it.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | Build spec | `SPECS-VERIFICATION` | Inventory | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-84` map correction | ✅ §5.14ar | ✅ lane table | ✅ §2 sequence | ✅ §10 map | **— unaffected** | **— unaffected** |
+
+**Inventory unaffected** — no file is created or retired; `.gitattributes` and `lane-boundary.mjs` both already exist and are listed. **`Modular_PRD` unaffected** — development lanes are not product requirements.
+
+### Scope limits
+
+Corrects a map and closes `G63`. **Builds no enforcement**; `D-82`'s finding that nothing prevents a crossing stands. Adds no `CODEOWNERS`, installs no hook, sets no branch protection. Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67` or `G68` — now known to be Lane A's, and still open. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.

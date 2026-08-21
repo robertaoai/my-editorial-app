@@ -16,6 +16,26 @@
 *.scss text eol=lf
 *.json text eol=lf
 *.md text eol=lf merge=union
+
+# ---------------------------------------------------------------------
+# Merge scoping — `G63` / `D-84`. Tested, both behaviours confirmed.
+# ---------------------------------------------------------------------
+# `merge=union` above is correct for APPEND-ONLY audit content: on a
+# rollback lineage (tag-01 fixed, tag-02 deployed) both sides add records
+# and union preserves both. Losing an audit record is worse than
+# duplicating one.
+#
+# It is WRONG for CURRENT-VALUE content. Tested: a status row merges to
+# both `Decided` and `Rejected`; a version header appears twice; and a
+# union-duplicated CLAUDE.md slices identically to a clean one, so
+# shared-core-hash PASSES on a file holding two full copies of the rules.
+# Later rules win, so these fall back to the default 3-way merge, which
+# writes visible conflict markers — failing closed, not open.
+docs/v1/**/*.md      merge=text
+docs/Modular_PRD.md  merge=text
+CLAUDE.md            merge=text
+AGENTS.md            merge=text
+.agents/**/*.md      merge=text
 *.sh text eol=lf
 *.bat text eol=crlf
 

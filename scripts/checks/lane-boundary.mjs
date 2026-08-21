@@ -2,53 +2,59 @@
 //
 // `D-82` recorded that the lane model enforces nothing: no `CODEOWNERS`, no
 // path rule, no pre-commit hook, and CI runs after a commit lands. The only
-// control was prose in the shared core, and four crossings by agents that had
-// read that prose are on record.
+// control is prose in the shared core. This check does not enforce the
+// boundary — it makes a crossing VISIBLE, which is the part that was missing.
 //
-// This check does not enforce the boundary — nothing here can, and `D-82` says
-// why. It makes a crossing VISIBLE, which is the part that was missing.
+// LANE MAP CORRECTED BY `D-84`. The original map put `scripts/` and
+// `.gitattributes` in Lane C. They are **orchestration, and orchestration is
+// Lane A** — Lane A writes every dependency *before* Lane C builds a workflow
+// against it. Lane C owns the GitHub Action files and nothing else.
 //
-// Built by Lane A under explicit Chief Editor authorization (`D-83`), which
-// `D-82` names as one of only two ways the first control could arrive. Written
-// by the lane it governs, which is itself worth knowing when reading it.
+// That correction re-characterised history: two commits the register cited as
+// crossings — `24b39fb` and `0e3705c` — touched only Lane A surfaces and were
+// never crossings at all. See `D-84`.
 //
 // WHAT IT CANNOT DO — stated, not buried:
-//   * It detects the SHAPE of a crossing, never the PERMISSION for one. Three
-//     of the four historical multi-lane commits were authorized at the time.
-//     A finding means "say why", not "you did wrong".
-//   * Attribution is not available (`D-77`: `agent-stats` returns 0 facts), so
-//     the check cannot say WHICH agent crossed — only that one change spans
-//     two lanes' surfaces.
+//   * It detects the SHAPE of a crossing, never the PERMISSION for one. A
+//     finding means "say why", not "you did wrong".
+//   * Attribution is unavailable (`D-77`: `agent-stats` returns 0 facts), so it
+//     cannot say WHICH agent crossed — only that one change spans two lanes.
 //   * Paths outside the lane map are not lane-attributed at all.
 
 import { execSync } from "node:child_process";
 
-// `D-75` §5.14ak. Ownership, not authorship.
+const isWorkflow = (p) => p.startsWith(".github/workflows/");
+
+// `D-75` §5.14ak as corrected by `D-84` §5.14ar. Ownership, not authorship.
 const LANES = [
-  { lane: "A", label: "Claude Code", test: (p) => p.startsWith("docs/") },
+  {
+    lane: "A",
+    label: "Claude Code — orchestration",
+    test: (p) =>
+      p.startsWith("docs/") ||
+      p.startsWith("scripts/") ||
+      p.startsWith(".claude/") ||
+      p.startsWith(".agents/") ||
+      p.startsWith(".codex/") ||
+      // `.github/` minus workflows — `CODEOWNERS`, templates — is Lane A's.
+      (p.startsWith(".github/") && !isWorkflow(p)) ||
+      /^(CLAUDE|AGENTS)\.md$/.test(p) ||
+      /^(\.gitattributes|\.gitignore|package\.json|package-lock\.json|bun\.lockb|tsconfig\.json|eslint\.config\.mjs|next\.config\.ts|postcss\.config\.mjs|README\.md)$/.test(p),
+  },
   {
     lane: "B",
-    label: "Codex",
+    label: "Codex — application",
     test: (p) =>
-      /^(app|lib|components)\//.test(p) || p.startsWith("supabase/migrations/"),
+      /^(app|lib|components)\//.test(p) ||
+      p.startsWith("supabase/") ||
+      p.startsWith("__tests__/"),
   },
-  {
-    lane: "C",
-    label: "Antigravity",
-    test: (p) =>
-      p.startsWith(".github/") || p.startsWith("scripts/") || p === ".gitattributes",
-  },
+  { lane: "C", label: "Antigravity — GitHub Actions", test: isWorkflow },
 ];
 
-// Surfaces no single lane owns. The three rule files are triple-edited by
-// whichever lane records the decision (`D-54`), and build/config churn belongs
-// to no lane. Counting either as a crossing would fire on every ordinary pass.
-const isShared = (p) =>
-  /^(CLAUDE|AGENTS)\.md$/.test(p) ||
-  p.startsWith(".agents/") ||
-  p.startsWith(".claude/") ||
-  p.startsWith("__tests__/") ||
-  /^(package\.json|bun\.lockb|package-lock\.json|tsconfig\.json|next\.config\.ts|eslint\.config\.mjs|postcss\.config\.mjs|\.gitignore|README\.md)$/.test(p);
+// Nothing is "shared" under `D-84`: every orchestration surface belongs to
+// Lane A, so a path either maps to one lane or is unmapped. The previous
+// shared-list existed only because the old map left build config unattributed.
 
 function git(args) {
   return execSync(`git ${args}`, { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
@@ -83,10 +89,13 @@ export function run() {
   }
 
   const byLane = new Map();
+  const unmapped = [];
   for (const f of files) {
-    if (isShared(f)) continue;
     const hit = LANES.find((l) => l.test(f));
-    if (!hit) continue; // unmapped: not lane-attributed, see header
+    if (!hit) {
+      unmapped.push(f);
+      continue;
+    }
     if (!byLane.has(hit.lane)) byLane.set(hit.lane, []);
     byLane.get(hit.lane).push(f);
   }
@@ -98,17 +107,20 @@ export function run() {
       .map((l) => `${l} (${LANES.find((x) => x.lane === l).label})`)
       .join(" + ");
     findings.push(
-      `one change spans lanes ${named} — a crossing under \`D-75\`. Split it, or record the authorization in the register. This is not a verdict: three of four historical multi-lane commits were authorized.`,
+      `one change spans lanes ${named} — a crossing under \`D-75\`. Split it, or record the authorization in the register. This is not a verdict: most historical multi-lane commits were authorized at the time.`,
     );
     for (const [lane, fs] of [...byLane.entries()].sort()) {
-      findings.push(`  Lane ${lane}: ${fs.slice(0, 4).join(", ")}${fs.length > 4 ? ` …and ${fs.length - 4} more` : ""}`);
+      findings.push(
+        `  Lane ${lane}: ${fs.slice(0, 4).join(", ")}${fs.length > 4 ? ` …and ${fs.length - 4} more` : ""}`,
+      );
     }
   }
 
   const touched = [...byLane.keys()].sort().join("+") || "none";
+  const tail = unmapped.length > 0 ? `; unmapped: ${unmapped.slice(0, 3).join(", ")}` : "";
   return {
     name: "lane-boundary",
     findings,
-    detail: `${mode}: lane surfaces touched — ${touched}`,
+    detail: `${mode}: lane surfaces touched — ${touched}${tail}`,
   };
 }

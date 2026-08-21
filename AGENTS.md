@@ -189,9 +189,13 @@ fixed phase order. Each lane owns a surface; **work outside your lane is *specif
 
 | Lane | Agent | Rule file | Phase | Owns |
 |:---:|---|---|:---:|---|
-| **A** | Claude Code | `CLAUDE.md` | 1 — now | `docs/`, register, specs, graph curation |
-| **B** | Codex | `AGENTS.md` | 2 — next | `app/`, `lib/`, `components/`, `migrations/0002+` |
-| **C** | Antigravity | `.agents/rules/graphify.md` | 3 — last | `.github/workflows/`, `scripts/checks/`, `.gitattributes`, deploy gate |
+| **A** | Claude Code | `CLAUDE.md` | 1 — now | **Orchestration** — `docs/`, `scripts/`, `.claude/`, `.agents/`, `.codex/`, `.github/` *except* `workflows/`, the rule files, and build config incl. `.gitattributes` |
+| **B** | Codex | `AGENTS.md` | 2 — next | `app/`, `lib/`, `components/`, `supabase/`, `__tests__/` |
+| **C** | Antigravity | `.agents/rules/graphify.md` | 3 — last | **`.github/workflows/` only** |
+
+**Lane A writes every dependency before Lane C builds a workflow against it (`D-84`).** CI calls
+`bun run check`; Lane A writes what it calls. `D-75`'s original map put `scripts/` and
+`.gitattributes` in Lane C — **corrected**, and two commits it cited as crossings were not.
 
 **Crossing a lane boundary requires a handoff, not a commit** — record what is done, what is
 specified-not-applied, and what is open, then stop. This is the development analogue of the

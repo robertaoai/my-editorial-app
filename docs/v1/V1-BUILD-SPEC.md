@@ -29,12 +29,14 @@ This is *who* builds it, and in what order:
 
 ```
 Phase 1 — Lane A (Claude Code)  ──▶  Phase 2 — Lane B (Codex)  ──▶  Phase 3 — Lane C (Antigravity)
-docs/, register, specs               app/, lib/, migrations/0002+   .github/workflows/, scripts/checks/,
-                                                                   .gitattributes, deploy gate
+ORCHESTRATION                        THE APPLICATION               .github/workflows/ ONLY
+docs/, scripts/, .claude/, .agents/, app/, lib/, components/,
+.github/ except workflows/,          supabase/, __tests__/
+rule files, build config
      └── handoff, not a commit ────────────┴── handoff, not a commit ────────────┘
 ```
 
-**Phase 1 is current.** Work outside the active lane is **specified, never applied** (`D-56`). **The rule is unenforced (`D-82`)** — no `CODEOWNERS`, no path rule, no pre-commit hook, and CI runs after a commit lands; a crossing is stopped only by the agent choosing to stop.
+**Phase 1 is current.** Work outside the active lane is **specified, never applied** (`D-56`). **Lane A writes every dependency before Lane C builds a workflow against it (`D-84`)** — the original map put `scripts/` and `.gitattributes` in Lane C and was corrected. **The rule is unenforced (`D-82`)** — no `CODEOWNERS`, no path rule, no pre-commit hook, and CI runs after a commit lands; a crossing is stopped only by the agent choosing to stop.
 Deployment is Lane C and GitHub — **`main` lagging this branch is expected until Phase 3 and is not
 a defect.** The development lane model is **not** the product Three Lines (`OD1`–`OD3`) and **not**
 `OD4`; `D-75` records why the vocabularies are kept apart.

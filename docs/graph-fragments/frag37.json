@@ -1,0 +1,76 @@
+{
+  "_comment": "Fragment 37 — D-84, the lane map corrected; orchestration is Lane A; G63 closed on scoping. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d84_lane_map_corrected",
+      "label": "D-84 — Orchestration Is Lane A, Not Lane C",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ar D-84",
+      "description": "D-75 assigned scripts/, .gitattributes and CI to Lane C as one undifferentiated build-tooling surface. Those files are orchestration, and orchestration is Lane A. Lane A writes every dependency before Lane C builds a workflow against it: CI calls bun run check, and Lane A writes what it calls. Lane C owns .github/workflows/ and nothing else.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Nothing is shared any more. The previous shared list existed only because the old map left build config unattributed; every path now maps to one lane or is reported as unmapped."
+    },
+    {
+      "id": "two_crossings_withdrawn",
+      "label": "Two Cited Crossings Were Not Crossings",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ar",
+      "description": "Re-probing forty commits under the corrected map, 24b39fb and 0e3705c touched only Lane A surfaces. D-75 and D-82 both cite 24b39fb as the unauthorized crossing on the grounds that it wrote scripts/checks/docs-drift.mjs and committed .gitattributes. Both files were that agent's own surface.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "That commit's real defect is unchanged and unrelated: it recorded Q10 with a characterization contradicting the frozen Charter, which D-79 corrected. A scope error and a lane crossing were conflated. The three genuine multi-lane commits all predate D-75 and cannot have violated a rule that did not exist."
+    },
+    {
+      "id": "bootstrap_problem_narrowed",
+      "label": "Lane A Can Build Every File-Based Control After All",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ar",
+      "description": "Under the corrected map scripts/checks is Lane A, a pre-commit hook is orchestration and therefore Lane A, and .github/CODEOWNERS is Lane A because Lane C owns only workflows. What remains outside is branch protection, a GitHub setting rather than a file, belonging to no lane.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "D-82's structural finding that nothing currently enforces the lanes stands unchanged. Only its claim about who could ever fix that was wrong, and D-83's sanctioned-crossing framing is withdrawn with it: building lane-boundary.mjs was never a crossing."
+    },
+    {
+      "id": "g63_closed_on_scoping",
+      "label": "G63 — Union Is Right for Records and Wrong for Values",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.1 G63",
+      "description": "Tested on the rollback lineage: tag-01 fixed, tag-02 deployed, tag-01 merged into tag-02. Both sides' journal records survived, which is the Chief Editor's argument and it holds. On current-value content it fails: a status row merged to both Decided and Rejected, a version header appeared twice, and a union-duplicated CLAUDE.md sliced identically to a clean one so shared-core-hash passed on a file holding two full copies of the rules.",
+      "community": 42,
+      "community_name": "Hook and Settings Integrity",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The file is the wrong unit: Modular_PRD.md and the register each carry append-only and current-value content together. Closed by scoping rather than removal, with docs/v1, Modular_PRD, the rule files and .agents set to merge=text. Union preserves text; the commit graph preserves audit."
+    }
+  ],
+  "edges": [
+    { "source": "d84_lane_map_corrected", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ar", "weight": 1 },
+    { "source": "d84_lane_map_corrected", "target": "d75_development_build_lanes", "relation": "supersedes_surfaces_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ak", "weight": 1 },
+    { "source": "two_crossings_withdrawn", "target": "lane_crossing_observed_live", "relation": "withdraws", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ar", "weight": 1 },
+    { "source": "two_crossings_withdrawn", "target": "conflict_asserted_past_source", "relation": "instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ar", "weight": 1 },
+    { "source": "two_crossings_withdrawn", "target": "d79_q10_narrowed", "relation": "separates_scope_error_from", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14am", "weight": 1 },
+    { "source": "bootstrap_problem_narrowed", "target": "lane_enforcement_bootstrap_problem", "relation": "narrows", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ap", "weight": 1 },
+    { "source": "bootstrap_problem_narrowed", "target": "d83_lane_boundary_check", "relation": "withdraws_framing_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14aq", "weight": 1 },
+    { "source": "g63_closed_on_scoping", "target": "d84_lane_map_corrected", "relation": "closed_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ar", "weight": 1 },
+    { "source": "g63_closed_on_scoping", "target": "guards_must_fail_closed", "relation": "applies", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ao", "weight": 1 }
+  ]
+}
