@@ -1,0 +1,59 @@
+{
+  "_comment": "Fragment 32 — D-76, agent rule file corrections and G67. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d76_rule_file_corrections",
+      "label": "D-76 — Commands, Phase Framing, and Two Dead Signals",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14al D-76",
+      "description": "Five corrections to the agent rule files, arising from an init pass that proposed regenerating CLAUDE.md. The shared core misstated its own CI coverage as three checks when seven run and five reach CI; commands were undocumented apart from bun run check; phase framing was absent so a sparse app tree read as a build behind schedule; README.md was unlabelled template boilerplate; and a Claude-tail instruction gated on a marker file nothing writes.",
+      "community": 40,
+      "community_name": "Development Lane Governance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Regenerating CLAUDE.md would have overwritten the hash-locked shared core and silently desynced Codex and Antigravity, so the pass was converted from a rewrite to a suggestions review. The stale CI tally sat in the block that replicates to all three agents."
+    },
+    {
+      "id": "g67_preamble_unenforced",
+      "label": "G67 — 138 Identical Lines Outside the Hash Check",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.1 G67",
+      "description": "CLAUDE.md lines 1 to 138 are byte-identical to AGENTS.md but sit outside the SHARED CORE marker, so shared-core-hash never compares them. An edit to one reaches one agent only, with nothing detecting it. The fix is to extend the check to the pre-core preamble across those two files; .agents/rules/graphify.md has no preamble and must be excluded.",
+      "community": 40,
+      "community_name": "Development Lane Governance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "This is G53 in the region C-14 does not cover. The hash guarantees the core is identical, which invites the belief that the whole file is protected. scripts/checks is Lane C, so the repair is specified and not applied."
+    },
+    {
+      "id": "branch_json_is_the_working_signal",
+      "label": "branch.json Is the Drift Signal That Works",
+      "file_type": "concept",
+      "source_file": "CLAUDE.md",
+      "source_location": "Claude Code specifics",
+      "description": ".graphify/needs_update is written only by graphify's git hook, and no git hook is installed here, so its absence carries no information. .graphify/branch.json carries stale, staleReason and lastAnalyzedHead, and lastAnalyzedHead tracked HEAD correctly across this session. Comparing lastAnalyzedHead to git rev-parse HEAD is the check that actually detects a stale graph.",
+      "community": 40,
+      "community_name": "Development Lane Governance",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Supplies the missing repair for docs-drift.mjs, which currently tests for the marker file and therefore cannot fail. Recorded as a handoff because scripts/checks belongs to Lane C under D-75."
+    }
+  ],
+  "edges": [
+    { "source": "d76_rule_file_corrections", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14al", "weight": 1 },
+    { "source": "d76_rule_file_corrections", "target": "d75_development_build_lanes", "relation": "reinforces", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14al", "weight": 1 },
+    { "source": "d76_rule_file_corrections", "target": "summary_outlived_source", "relation": "corrects_an_instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14al", "weight": 1 },
+    { "source": "g67_preamble_unenforced", "target": "d76_rule_file_corrections", "relation": "opened_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G67", "weight": 1 },
+    { "source": "branch_json_is_the_working_signal", "target": "a_check_that_cannot_fail", "relation": "remedies", "confidence": "CURATED", "source_file": "scripts/checks/docs-drift.mjs", "confidence_score": 1, "source_location": "L1", "weight": 1 },
+    { "source": "branch_json_is_the_working_signal", "target": "d76_rule_file_corrections", "relation": "recorded_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14al", "weight": 1 },
+    { "source": "branch_json_is_the_working_signal", "target": "lane_crossing_observed_live", "relation": "hands_off_to_lane_c", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14al", "weight": 1 }
+  ]
+}

@@ -194,6 +194,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G64` | **Specified, not applied — `D-69`** | **`G-02` cannot be computed from its own declared Data Source.** Its Data Source names **one** column *(`judgment_independence_status`, "becomes `line_boundary_crossed`")*, but its definition excludes logged overrides, which needs `not_applicable` and `override_not_four_eyes` told apart — and a boolean maps both to `false`. **Arithmetic on the declared columns, no interpretation required.** *Restated by `D-69`: as opened (§5.14ad) this also claimed an `NFR-03` inference violation — **withdrawn**, "inferred at read" is undefined across the corpus and `NFR-03`'s measured target is "100% non-null", which a boolean meets.* Two shapes specified; the choice is `Q11`'s (`D-68`). Carries `C-16`. **Resolve before the `0002` draft** (`G27`, S0). §5.14ae |
 | `G65` | **Closed 2026-08-21 — narrowed** | **The `D-54` tier sweep verifies a decision *arrived* in a tier, not that the tier is *correct*.** Presence satisfies it; staleness is invisible. Proven twice — `D-70` present 3× in the inventory and `D-57` 4× in `Modular_PRD`, both alongside rows that contradicted them, both passing. **Closed by `D-72` on a narrower promise, stated:** a script cannot validate prose, so `scripts/checks/decision-status.mjs` cross-references **decision status** between the register and `Modular_PRD` §10 in both directions instead. Caught `Q1`/`Q7`/`Q10` live. **The tier sweep still verifies arrival, not correctness.** §5.14ag, §5.14ah |
 | `G66` | **Closed 2026-08-21** | **`.claude/settings.json` is checked in, shared across three agents, and covered by no `C-14` check.** The shared-core hash compares only the three agent rule files. Demonstrated live 2026-08-21: an invalid-JSON edit **silently disabled both hooks** — Claude Code ignores a settings file it cannot parse, with no error. **Closed by `D-72`** — `scripts/checks/settings-parse.mjs` parse-checks the repo-local cascade and runs in CI. Contents never printed; user-scope file deliberately excluded. §5.14ag, §5.14ah |
+| `G67` | **Open** | **The shared-core hash covers 86 of ~226 lines.** `CLAUDE.md` lines 1–138 are **byte-identical to `AGENTS.md`** but sit outside the `<!-- SHARED CORE` marker, so `shared-core-hash` never compares them — an edit to one reaches one agent only, with nothing detecting it. That is `G53`, in the region `C-14` does not cover. Found by a `/init` pass that proposed regenerating `CLAUDE.md` (`D-76`). **Fix:** extend the check to compare the pre-core preamble across `CLAUDE.md` and `AGENTS.md` (`.agents/rules/graphify.md` has no preamble and must be excluded). **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14al |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2974,3 +2975,36 @@ Lane A's own analysis on 2026-08-21 crossed the same boundary twice — troubles
 ### Scope limits
 
 Records lane ownership and the handoff rule. **Closes no gap.** Does not repair `agent-stats` (`D-77`), does not repair `docs-drift` or correct the shared core's stale *"Three checks run in CI"* line (`D-78`) — both are named here and **left untouched**, which is the rule this decision installs. Authorizes no code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten. `Q10`'s scope characterization remains as `D-73` left it.
+
+## 5.14al `D-76` — Agent Rule Files: Commands, Phase Framing, and Two Dead Signals
+
+**Applied 2026-08-21 by Lane A.** Arose from a `/init` pass. `/init` proposes to *regenerate* `CLAUDE.md`; regenerating it would have overwritten the hash-locked shared core and silently desynced Codex and Antigravity. The pass was converted to a suggestions review, and five defects were found.
+
+### What was corrected
+
+**1. The shared core misstated its own CI coverage.** It read *"Three checks run in CI"* and named `graph-coverage` as the sole local-only check. Both were stale: `bun run check` runs **seven** checks, **five** reach CI, and **two** — `graph-coverage` and `docs-drift` — skip because they read gitignored `.graphify/graph.json`. The core now states that **a local `7/7` and a CI `5/5` are both correct**. This is the `G55`/`G56`/`G58` tally mechanism found in the block that replicates to all three agents.
+
+**2. Commands were undocumented.** The core named only `bun run check`. `dev`, `build`, `lint`, `typecheck`, `test`, and the single-file form `bun test __tests__/smoke.test.ts` are now recorded, with `build` marked **not a verification gate** (`TC6` sets `ignoreBuildErrors`/`ignoreDuringBuilds`).
+
+**3. Phase framing was absent from the rule files.** `D-75` records the lanes; nothing told an agent that the sparse `app/` tree is *correct* for Phase 1. An agent reading ten source files and an unwritten `0002` could reasonably conclude the build had fallen behind and start building — which is the `D-75` crossing this decision closes the remaining door on.
+
+**4. `README.md` is template boilerplate.** It opens `# vibe-stack-supabase` and describes a generic Next.js + Supabase starter, unlabelled at the repo root. It is exactly the kind of source this file's own opening warning is about — the same defect `G25` closed for `docs/README.md`. Now named as stack notes only.
+
+**5. A Claude-tail instruction that could never fire.** It gated on `.graphify/needs_update`, which **nothing writes** — `.git/hooks/` is empty and the only reference to that path in the repository is the check that reads it. **`.graphify/branch.json` is the signal that works**: it carries `stale`, `staleReason`, and `lastAnalyzedHead`, and `lastAnalyzedHead` tracked HEAD correctly through this session. The tail now compares `lastAnalyzedHead` against `git rev-parse HEAD`.
+
+### Handoff to Lane C — specified, not applied
+
+Finding 5 supplies the missing repair for `docs-drift.mjs` (`D-78`): **compare `branch.json.lastAnalyzedHead` to `git rev-parse HEAD`**, rather than testing for a marker file no installed hook writes. That is a `scripts/checks/` change and therefore **Lane C's to apply** (`D-75`). Lane A specifies it and stops.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | Build spec | Inventory | `Modular_PRD` §8 |
+|---|---|---|---|---|---|
+| `D-76` core corrections | ✅ §5.14al | ✅ shared core, re-hashed | **— unaffected** | **— unaffected** | **— unaffected** |
+| `G67` opened | ✅ §5.1 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Build spec and inventory are unaffected**: no artifact is created, retired, or resequenced, and no sprint scope moves. `Modular_PRD` is unaffected — these are development-lane rules, not product requirements.
+
+### Scope limits
+
+Corrects documentation only. **Does not repair `scripts/checks/docs-drift.mjs`** — Lane C's, and it still cannot fail. **Does not touch the `agent-stats` claim** in the same paragraph, which remains false at 0 facts (`D-77`); it was outside the `/init` gap list and is deliberately left. Opens `G67`. Authorizes no code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten. Shared core re-hashed `b04dfc7c4061` → `242e7e20fd8a`, 64 → 86 lines across the three files (the 43-line figure predates `D-75`).

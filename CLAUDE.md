@@ -174,10 +174,12 @@ everything, unchanged.
 commits**, so a conflicting edit never appears as a merge conflict — it appears as a **silent
 overwrite**. `G32` was exactly that. Git authorship carries no information here; `graphify
 agent-stats` attributes from CLI transcripts instead. **Detection (`C-14`) is installed** (`D-70`)
-— run `bun run check` before claiming a shared file is consistent. Three checks run in CI: the
-shared-core hash across the three agent rule files, the `D-54` tier sweep, and the §5.1
-duplicate-ID scan. Graph coverage is **local-only** — `.graphify/graph.json` is gitignored, so it
-reports SKIP in CI and must be run on a machine that has the graph.
+— run `bun run check` before claiming a shared file is consistent. It runs **seven** checks, of
+which **five reach CI**: the shared-core hash across the three agent rule files, the `D-54` tier
+sweep, the §5.1 duplicate-ID scan, the settings-cascade parse, and the decision-status
+cross-reference. **Two cannot run in CI** — `graph-coverage` and `docs-drift` both read
+`.graphify/graph.json`, which is gitignored, so they report SKIP and must be run on a machine that
+has the graph. **A local `7/7` and a CI `5/5` are both correct**; neither is the other's failure.
 
 
 **Build lanes (`D-75`, binding).** Three agents work this repo **sequentially, one at a time**, in a
@@ -200,5 +202,25 @@ defect to report.**
 `line_assignment`, `AC-01`/`AC-05`/`AC-17`) and **NOT `OD4`** (Proposer → Critics → Judge). Same
 source principle, **different subject**; lanes are lettered A/B/C so they cannot be confused with
 the product's numbered Line 1/2/3. **Do not cross-reference the two vocabularies.**
+
+**Commands (`D-76`).**
+
+| Command | What it does |
+|---|---|
+| `bun run dev` | `next dev --turbopack` |
+| `bun run build` | `next build` — **not** a verification gate; `TC6` sets `ignoreBuildErrors` and `ignoreDuringBuilds`, so a build stays green on broken types |
+| `bun run lint` | `eslint .` |
+| `bun run typecheck` | `tsc --noEmit` |
+| `bun test` | bun's built-in runner. One file: `bun test __tests__/smoke.test.ts` |
+| `bun run check` | the `C-14` consistency apparatus — see above |
+
+**What this repository currently is.** `docs/` is the artifact. The application is scaffolding —
+roughly ten source files across `app/` and `lib/`, with `supabase/migrations/0002_*.sql` unwritten.
+Phase 1 (Lane A) is specs and governance, **not** code. Do not read the sparse `app/` tree as
+evidence the build has fallen behind; `docs/v1/V1-BUILD-SPEC.md` records where it actually stands.
+
+**`README.md` is template boilerplate.** It opens `# vibe-stack-supabase` and describes a generic
+Next.js + Supabase starter. It is **not descriptive of this project** and is precisely the kind of
+source the warning at the top of this file exists to guard against. Treat it as stack notes only.
 Claude Code specifics:
-- If .graphify/needs_update exists or .graphify/branch.json has stale=true, warn before relying on semantic results and run `/graphify . --update` when appropriate
+- **Graph currency — check at session start.** `.graphify/needs_update` is written only by graphify's git hook, and **no git hook is installed in this repo** (`.git/hooks/` is empty), so its absence is *no signal at all* — do not read it as "synced". The reliable check is `.graphify/branch.json`: compare its `lastAnalyzedHead` against `git rev-parse HEAD`, and read its `stale` flag. If they differ, run `npx graphify hook-rebuild` before relying on `query`/`path`/`explain`. The rebuild preserves the curated layer (verified 2026-08-21), but re-merge `docs/graph-fragments/` if the node count drops.
