@@ -78,7 +78,7 @@ Different provenance, so **no contradiction with `D-52`.** `D-52`'s four remain 
 | **Typecheck** | `bun run typecheck` | `tsc --noEmit`. **Passes — exit 0 since `D-67`** |
 | **Lint** | `bun run lint` → `eslint .` | **Decided `D-66`** — ESLint CLI, flat config extending `next/core-web-vitals`. **0 findings** measured. Config file is Stage A |
 | Test | `bun test` | SC-1 |
-| **Consistency checks** | `bun run check` | **Added 2026-08-21 (`D-70`)** — `C-14`'s four detection checks, whose follow-up phase was always *"with `R3`'s installation."* Three run here; **graph coverage is local-only**, its input being a gitignored build artifact. Runs last: it governs the documents, not the code |
+| **Consistency checks** | `bun run check` | **Added 2026-08-21 (`D-70`), extended to six by `D-72`** — `C-14`'s detection checks, whose follow-up phase was always *"with `R3`'s installation."* Three run here; **graph coverage is local-only**, its input being a gitignored build artifact. Runs last: it governs the documents, not the code |
 
 > **Corrected 2026-08-21 (`D-65`) — `[V1]`.** This section listed both commands as if they worked. **Neither does.** The script names were taken from `package.json` and never executed — specified against a summary rather than the thing. `G62` carried the remediation. **Typecheck now passes (`D-67`)**; **DoD D-4 is unachievable until `eslint.config.mjs` exists (`D-66`, Stage A)** — one file, with no remediation behind it.
 

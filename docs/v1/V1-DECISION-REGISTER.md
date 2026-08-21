@@ -118,7 +118,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `Q7` | `SEC-04`/`SEC-05` ownership — **no owner exists** | Production |
 | `G15` / `GA5` | Data-protection regime; retention versus erasure | Needs external counsel |
 
-**Chief Editor decisions still to make.** `Q0`, `Q3`, `Q4`, `Q5`, `Q6`, `Q8`, `Q11`, `Q12`, `QA3`, `QB`, `QD`, `QE`. **The list is the record; no tally is restated** (`G55`, `G56`, `G58`). *Corrected 2026-08-21 (`D-71`): `Q2` (`D-57`), `QC` (`D-59`), `G23` (`D-10`) and `G24` (`D-09`) were already decided and are removed. The remaining twelve were **not** individually re-verified in that pass.* See `V1-BUILD-SPEC.md` for which sprint each gates.
+**Chief Editor decisions still to make.** `Q0`, `Q1`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q10`, `Q11`, `Q12`, `QA3`, `QB`, `QD`, `QE`. **The list is the record; no tally is restated** (`G55`, `G56`, `G58`). *Corrected 2026-08-21 (`D-71`): `Q2` (`D-57`), `QC` (`D-59`), `G23` (`D-10`) and `G24` (`D-09`) were already decided and are removed. The remaining twelve were **not** individually re-verified in that pass.* *Corrected again 2026-08-21 (`D-72`): the list was wrong in **both** directions — `Q1`, `Q7` and `Q10` were **Open and Chief-Editor-owned but never listed**, `Q10` being the named blocker for Stage D. Found by `decision-status`, which now runs in CI.* See `V1-BUILD-SPEC.md` for which sprint each gates.
 
 ## 5.1 Gap disposition — every ID
 
@@ -192,8 +192,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G62` | **Closed 2026-08-21** | **Opened because the CI gates `R3` specifies did not pass** — `typecheck` exited 2 with 10 implicit-`any` errors in `lib/supabase/`, and `lint` exited 1 because `next lint` is deprecated, **interactive**, and no ESLint config exists. §5.14z. **Today: typecheck passes; lint still cannot run.** **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings**. **a closed by `D-67`** — `satisfies CookieMethodsServer` in two files, 4 lines; `tsc --noEmit` **exits 0**. The ten errors were **two overload-resolution causes**, not ten defects. **Both parts applied by `D-70`** — `eslint.config.mjs` created, `lint` repointed; **27 files, 0 findings**, and CI green on a real run |
 | `G63` | **Open — new** | An **untracked** `.gitattributes` sets `*.md text eol=lf merge=union`. **Union merge concatenates conflicting markdown instead of failing** — in a three-agent repo that silently duplicates index rows, the exact `G39` defect. Cuts against `D-58`. Found incidentally |
 | `G64` | **Specified, not applied — `D-69`** | **`G-02` cannot be computed from its own declared Data Source.** Its Data Source names **one** column *(`judgment_independence_status`, "becomes `line_boundary_crossed`")*, but its definition excludes logged overrides, which needs `not_applicable` and `override_not_four_eyes` told apart — and a boolean maps both to `false`. **Arithmetic on the declared columns, no interpretation required.** *Restated by `D-69`: as opened (§5.14ad) this also claimed an `NFR-03` inference violation — **withdrawn**, "inferred at read" is undefined across the corpus and `NFR-03`'s measured target is "100% non-null", which a boolean meets.* Two shapes specified; the choice is `Q11`'s (`D-68`). Carries `C-16`. **Resolve before the `0002` draft** (`G27`, S0). §5.14ae |
-| `G65` | **Open — new** | **The `D-54` tier sweep verifies a decision *arrived* in a tier, not that the tier is *correct*.** Presence satisfies it; staleness is invisible. Proven twice — `D-70` present 3× in the inventory and `D-57` 4× in `Modular_PRD`, both alongside rows that contradicted them, both passing. **Fix is executable code — specified, not installed.** §5.14ag |
-| `G66` | **Open — new** | **`.claude/settings.json` is checked in, shared across three agents, and covered by no `C-14` check.** The shared-core hash compares only the three agent rule files. Demonstrated live 2026-08-21: an invalid-JSON edit **silently disabled both hooks** — Claude Code ignores a settings file it cannot parse, with no error. A parse check across the settings cascade would catch it. §5.14ag |
+| `G65` | **Closed 2026-08-21 — narrowed** | **The `D-54` tier sweep verifies a decision *arrived* in a tier, not that the tier is *correct*.** Presence satisfies it; staleness is invisible. Proven twice — `D-70` present 3× in the inventory and `D-57` 4× in `Modular_PRD`, both alongside rows that contradicted them, both passing. **Closed by `D-72` on a narrower promise, stated:** a script cannot validate prose, so `scripts/checks/decision-status.mjs` cross-references **decision status** between the register and `Modular_PRD` §10 in both directions instead. Caught `Q1`/`Q7`/`Q10` live. **The tier sweep still verifies arrival, not correctness.** §5.14ag, §5.14ah |
+| `G66` | **Closed 2026-08-21** | **`.claude/settings.json` is checked in, shared across three agents, and covered by no `C-14` check.** The shared-core hash compares only the three agent rule files. Demonstrated live 2026-08-21: an invalid-JSON edit **silently disabled both hooks** — Claude Code ignores a settings file it cannot parse, with no error. **Closed by `D-72`** — `scripts/checks/settings-parse.mjs` parse-checks the repo-local cascade and runs in CI. Contents never printed; user-scope file deliberately excluded. §5.14ag, §5.14ah |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2535,6 +2535,70 @@ Installs the verification apparatus and the detection checks. **Writes no migrat
 ### Scope limits
 
 Corrects six stale claims, opens `G65` and `G66`, and closes `G25` against its full stated scope. **Installs nothing, decides nothing, and reverses no decision.** `Q11`, `Q10`, `G64` and the S1 window all remain exactly as they were.
+
+## 5.14ah `D-72` — `G65` and `G66` closed: two checks installed, and `G65` narrowed to fit
+
+**Installed 2026-08-21.** Build guardrail lifted for these two items only; reinstated on completion. `C-14` now runs **six checks**.
+
+### `G65` could not be built as written
+
+`G65` asked for a check that verifies a tier is **correct**, not merely that a decision **arrived** there. **A script cannot semantically validate prose**, so that framing is not buildable.
+
+**A design was tested and rejected before writing anything:** verify the tier claim against git — did the commit that recorded the decision also touch the claimed tier file? **It catches neither observed defect.** `D-70`'s commit *did* touch the inventory (it flipped three rows; the defect was a fourth it missed), and `D-57`'s *did* touch `Modular_PRD`. Both would pass.
+
+**What is mechanical is a bidirectional cross-reference of decision status** between the two places that record it — the register (§5.14x headings, §5.1's outstanding list) and `Modular_PRD` §10's per-`Q` rows. **Recorded as a scope reduction, not delivered quietly as if it were the original ask.**
+
+### The three disagreements it detects, each observed here
+
+| | Direction | Observed instance |
+|---|---|---|
+| **A** | Register records it decided; §10 still says Open | `Q2` read *"Open"* for a day after `D-57` answered it — while the tier sweep passed, because `D-57` appeared elsewhere in the same file |
+| **B** | Open and Chief-Editor-owned, but absent from §5.1's list | `Q1`, `Q7`, `Q10` — **found live by this check** |
+| **C** | §5.1 lists an ID the register records as decided | `Q2`, `QC`, `G23`, `G24` — corrected by `D-71` |
+
+**Owner is load-bearing in direction B.** `Q9` is Open but owned by *"Customer, via sponsor"*, so its absence from a list of **Chief Editor** decisions is correct. The check excludes it — verified, not assumed.
+
+### `Q10` was missing from the list of what the Chief Editor owes
+
+Direction B's first live catch. **`Q10` is the named blocker for Stage D** — cited repeatedly in `D-70` as the reason `0002` cannot be written — and it was **absent from the one line a decision-maker reads to know what is outstanding.**
+
+**`Q1`, `Q7` and `Q10` are added.** The list was wrong in **both** directions: `D-71` removed four items already decided; this adds three that were never listed. **No tally is restated** (`G55`, `G56`, `G58`).
+
+### `G66` — one file, and it had already bitten
+
+`scripts/checks/settings-parse.mjs` parse-checks the **repo-local** settings cascade: `.claude/settings.json`, `.claude/settings.local.json`, `.mcp.json`. Absent files are valid; all three are optional.
+
+**Contents are never printed** — settings files routinely carry `env` blocks, MCP headers and hook command strings. Only the parser's error position is reported.
+
+**The user-scope file is deliberately not checked.** `~/.claude/settings.json` is per-machine, absent in CI, and not this repository's to police.
+
+### Verified by breaking them, not by watching them pass
+
+| Check | Negative test | Result |
+|---|---|---|
+| `settings-parse` | Replace `.claude/settings.json` with invalid JSON | **FAIL raised**, line number reported |
+| `decision-status` A | Revert `Q2`'s §10 row to *"Open"* | **FAIL raised** |
+| `decision-status` C | Put `Q2` back in §5.1's list | **FAIL raised** |
+| `decision-status` B | *(no test needed)* | **Failing live** on `Q1`/`Q7`/`Q10` |
+
+**Each was restored and the baseline re-confirmed.** A check that has never been seen to fail is not a control — the same rule `D-67` and `D-70` were held to.
+
+**One defect found in my own output by these tests:** `settings-parse` reported *"1 file(s) parse clean"* **while failing**. The detail line now reads *"N of M file(s) INVALID"*.
+
+### What is still not checked
+
+**Stated so coverage is not overread.** `decision-status` compares **status labels**, not the substance behind them — it cannot tell whether a decision was *correctly* decided, only whether the two records agree. The `QA3`/`QB`/`QD`/`QE` series has no `Modular_PRD` §10 row, so **direction B cannot see it**; those four rest on manual review. And the tier sweep still verifies **arrival**, not correctness — `G65` closes on a narrower promise than it opened with.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` §8 | `SPECS-VERIFICATION` |
+|---|---|---|---|---|---|
+| `D-72` / `G65`, `G66` | ✅ | ✅ | ✅ detection row | ✅ | ✅ §4 CI table |
+| `Q1`/`Q7`/`Q10` added | ✅ §5.1 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+### Scope limits
+
+Closes `G65` *(narrowed, stated)* and `G66`. Adds three IDs to §5.1's list. **Decides none of them** — `Q1`, `Q7` and `Q10` are now visible, not answered. `Q10` still blocks Stage D. **The build guardrail is reinstated.**
 
 ## 5.15 Solve sequence — remaining open gaps
 

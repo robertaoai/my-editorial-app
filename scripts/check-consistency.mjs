@@ -15,8 +15,17 @@ import { run as sharedCoreHash } from "./checks/shared-core-hash.mjs";
 import { run as tierSweep } from "./checks/tier-sweep.mjs";
 import { run as duplicateIds } from "./checks/duplicate-ids.mjs";
 import { run as graphCoverage } from "./checks/graph-coverage.mjs";
+import { run as settingsParse } from "./checks/settings-parse.mjs";
+import { run as decisionStatus } from "./checks/decision-status.mjs";
 
-const CHECKS = [sharedCoreHash, tierSweep, duplicateIds, graphCoverage];
+const CHECKS = [
+  sharedCoreHash,
+  tierSweep,
+  duplicateIds,
+  graphCoverage,
+  settingsParse, // `G66`
+  decisionStatus, // `G65`
+];
 
 let failed = 0;
 let skipped = 0;
