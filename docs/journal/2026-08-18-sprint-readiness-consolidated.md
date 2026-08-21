@@ -165,3 +165,19 @@ S0 and S1 are clean: the OD-gating table (§4 above) already states S1 is "not g
 ---
 
 *This entry is analysis only. It closes no open decision, ratifies nothing, and amends no governing document. It is not committed as part of being written.*
+
+## 10. Zero-to-One Business Baseline
+
+This section consolidates and clarifies the --existing-- zuro-to-one business-governance rules scattered across the portfolio. It creates no new requirements, but normalizes the rules among the Alpha Portfolio, OPs constraints, and technical limits.
+
+### 10a. The Zero-to-One Business Taxonomy (Parent)
+- **Alpha Portfolio:** The continuing business/investment container.
+- **AP-01 Anchor Project:** The zero-to-one digital twin product (acting as a multi-tenant application per `D-73`/`D-74`).
+- **P0-EVR (POC):** The manual evidence lane used to prove value before major build phases.
+
+### 10b. Zero-to-One Operating Constraints (Child)
+- **Zero-to-One Role Concentration:** As a zero-to-one business with one natural person, all human accountabilities collapse to the Chief Editor. Digital twin roles (reporter, investigator, etc.) act purely as virtual agents.
+- **OD4 Boundary:** The `Proposer → Critics → Judge` system is excluded from the default zero-to-one operating baseline. It remains a separate project requiring distinct Alpha Portfolio authorization.
+
+### 10c. Zero-to-One Technical Exclusions (Child)
+- **Data Temporal History:** Maintaining full temporal history on tables (like `topics`, `sources`) is explicitly excluded as it requires "considerably more machinery than a zero-to-one business needs."
