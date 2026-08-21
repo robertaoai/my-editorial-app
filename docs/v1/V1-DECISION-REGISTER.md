@@ -195,6 +195,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G65` | **Closed 2026-08-21 — narrowed** | **The `D-54` tier sweep verifies a decision *arrived* in a tier, not that the tier is *correct*.** Presence satisfies it; staleness is invisible. Proven twice — `D-70` present 3× in the inventory and `D-57` 4× in `Modular_PRD`, both alongside rows that contradicted them, both passing. **Closed by `D-72` on a narrower promise, stated:** a script cannot validate prose, so `scripts/checks/decision-status.mjs` cross-references **decision status** between the register and `Modular_PRD` §10 in both directions instead. Caught `Q1`/`Q7`/`Q10` live. **The tier sweep still verifies arrival, not correctness.** §5.14ag, §5.14ah |
 | `G66` | **Closed 2026-08-21** | **`.claude/settings.json` is checked in, shared across three agents, and covered by no `C-14` check.** The shared-core hash compares only the three agent rule files. Demonstrated live 2026-08-21: an invalid-JSON edit **silently disabled both hooks** — Claude Code ignores a settings file it cannot parse, with no error. **Closed by `D-72`** — `scripts/checks/settings-parse.mjs` parse-checks the repo-local cascade and runs in CI. Contents never printed; user-scope file deliberately excluded. §5.14ag, §5.14ah |
 | `G67` | **Open** | **The shared-core hash covers 86 of ~226 lines.** `CLAUDE.md` lines 1–138 are **byte-identical to `AGENTS.md`** but sit outside the `<!-- SHARED CORE` marker, so `shared-core-hash` never compares them — an edit to one reaches one agent only, with nothing detecting it. That is `G53`, in the region `C-14` does not cover. Found by a `/init` pass that proposed regenerating `CLAUDE.md` (`D-76`). **Fix:** extend the check to compare the pre-core preamble across `CLAUDE.md` and `AGENTS.md` (`.agents/rules/graphify.md` has no preamble and must be excluded). **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14al |
+| `G68` | **Open** | **The `D-54` tier sweep cannot see the Tier 1 document.** `scripts/checks/tier-sweep.mjs`'s `TIERS` map has no entry for `docs/governance/alpha-portfolio-business-continuity-implementation-plan.md`, which `D-74` places **above** `Modular_PRD`. A tier column naming it is rejected as unmapped, so propagation into the highest tier in the hierarchy is verified by nobody. Found when `D-79` propagated there and the sweep raised *"tier column not mapped to a document."* **Fix:** add the mapping. **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14am |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2923,7 +2924,7 @@ Closes no Open Decision. Amends no governing document. Authorizes no code, schem
 
 **Gap noted:** the POC does not yet have its own Modular PRD. This is expected — P0-EVR is a manual evidence lane with 22 pending Board decisions (`B-P0-01`–`B-P0-22`), none approved.
 
-Because `Q10` (`D-73`) defines the app as a "digital twin of the business," it is a Tier 1 (Alpha Portfolio) structural fact, permanently locked into `alpha-portfolio-business-continuity-implementation-plan.md` §10.
+Because `Q10` fixes the product-scope boundary, it is a Tier 1 (Alpha Portfolio) structural fact, locked into `alpha-portfolio-business-continuity-implementation-plan.md` §10. **The locked fact is `D-79`'s, not `D-73`'s** — `0002` carries a tenancy column to preserve the option, `NG-02` stands, and no multi-team capability is built. The original wording quoted `D-73`'s *"digital twin of the business"* in the multi-tenant sense; that sense is withdrawn (`D-79`).
 
 
 ## 5.14ak `D-75` — Development Build Lanes (Three Lines applied to the *build*, not the product)
@@ -3008,3 +3009,84 @@ Finding 5 supplies the missing repair for `docs-drift.mjs` (`D-78`): **compare `
 ### Scope limits
 
 Corrects documentation only. **Does not repair `scripts/checks/docs-drift.mjs`** — Lane C's, and it still cannot fail. **Does not touch the `agent-stats` claim** in the same paragraph, which remains false at 0 facts (`D-77`); it was outside the `/init` gap list and is deliberately left. Opens `G67`. Authorizes no code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten. Shared core re-hashed `b04dfc7c4061` → `242e7e20fd8a`, 64 → 86 lines across the three files (the 43-line figure predates `D-75`).
+
+## 5.14am `D-79` — `Q10` Narrowed: the Column Without the Charter Breach
+
+**Applied 2026-08-21 by Lane A, on the Chief Editor's instruction given 2026-08-21.** Supersedes the *characterization* in `D-73` §5.14ai. **Does not reverse the Chief Editor's decision** — the practical output is unchanged.
+
+### What `Q10` decides
+
+`supabase/migrations/0002_*.sql` **carries a tenancy column**, so the option is preserved before the append-only table exists. That is the whole of what the S1 window required: a column now, or a migration of an append-only table later.
+
+### What it does not decide
+
+- **`NG-02` stands.** No multi-team capability is built.
+- **Access control stays at `SEC-03`, S6**, and remains blocked while `OD1`–`OD3` are unratified.
+- **v1 remains single-account.** No employee accounts are authorized by this decision.
+
+### Why the narrowing was required
+
+`D-73` recorded the application as *"a multi-tenant **Product** … requires account access for natural person employees."* `docs/source/project-charter-v1.md:53` reads **"No multi-team accounts, one 'Chief Editor' account."** The Charter is **frozen**, and under `D-58` frozen documents *"outrank everything, unchanged."* The register arbitrates between derived tiers; it cannot decide a frozen constraint away. As recorded, `D-73` was the edit that loses.
+
+**The reconciliation already existed and nothing needed overturning.** `Modular_PRD` v1.6 annotated `NG-02`:
+
+> *"A tenancy boundary exists in the data model to preserve the option; **no multi-team capability is built, and `NG-02` stands.**"*
+
+`D-73` granted materially more than the question it answered required, and three things followed from the excess: it pulled auth ahead of `SEC-03`, it collided with the demo-first no-login-wall rule in the agent files, and it reused *"digital twin"* — established at `docs/journal/2026-08-18-raci-human-vs-digital-twin.md:34` as **virtual agents serving one natural person** — to mean many employees. One term, two referents. **`D-79` restores the established sense.**
+
+### Stage D is not unblocked
+
+`D-73` recorded *"Stage D Unblocked."* `V1-BUILD-SPEC.md`, edited in the same commit, said `0002` *"remains blocked by `Q11`."* Both cannot hold. **`Q10` was a blocker, not the only one.** `0002` remains blocked on `Q11`'s deferred shape via `G64` (`D-68`, `D-69`) — which must resolve **before the `0002` draft is written** (`G27`) — and on the open S1 window.
+
+### How this decision was lost once
+
+The narrowing was approved by the Chief Editor at the start of the 2026-08-21 session and **was not applied**. `D-75` was earmarked for it in the plan, then **spent on the development build lanes** three turns later; the work went with the number. **An approved human decision is the most expensive thing this repository can drop** — it is not recoverable by re-reading a source, because the source was a person.
+
+Recorded as a numbering discipline: **`D-77` and `D-78` were already promised** in §5.14ak and §5.14al to the `agent-stats` and `docs-drift` repairs. This decision therefore takes **`D-79`**. A forward-referenced number is a commitment, not a placeholder.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | `Modular_PRD` | Inventory | Agent files |
+|---|---|---|---|---|---|
+| `D-79` narrowing | ✅ §5.14am | ✅ §4 stale line | ✅ §10 `Q10` row | **— unaffected** | **— unaffected** |
+
+**`alpha-portfolio-business-continuity-implementation-plan.md` §10 was also rewritten**, and is deliberately **not** shown as a tier column. `scripts/checks/tier-sweep.mjs` carries no `TIERS` entry for that document, so a column naming it is **rejected rather than verified** — it was, on the first run of this decision. Adding the column back to satisfy the eye while the sweep ignores it would be a claim with no check behind it. **Opened as `G68`:** the sweep cannot see a Tier 1 document that `D-74` places *above* `Modular_PRD`. `scripts/checks/` is Lane C (`D-75`) — **specified, not applied.**
+
+`Modular_PRD` §10's `Q10` row states the decision's outcome and moves with it. The **inventory is unaffected** — no file is created or retired; `0002` was already listed. **Agent files are unaffected** — this is a product-scope fact, not a development-lane rule.
+
+### Scope limits
+
+Narrows a characterization. **Decides no field name, no field shape, and no enum values** — `Q11` remains deferred (`D-68`). Closes `Q10` as already closed by `D-73`; **re-opens nothing**. `D-74`'s tier hierarchy stands; only its Tier-1 lock text moves, because it quotes `D-73` verbatim. Authorizes no code, schema, migration, or deployment. **`0001_init.sql` untouched; `0002` still unwritten.** The frozen Charter and `docs/PRD.md` are unchanged and were not edited.
+
+## 5.14an `D-80` — `/sync-docs` Skill: the Propagation Procedure, Made Runnable
+
+**Applied 2026-08-21 by Lane A.** Creates `.claude/skills/sync-docs/SKILL.md`.
+
+### Why the generic instruction was not enough
+
+The conventional form — *"update `CLAUDE.md` or the relevant `.md` spec files so you don't make that mistake again"* — misfires here in two documented ways:
+
+1. **`CLAUDE.md` is one of three files sharing a hash-locked core.** Editing it alone either fails `bun run check` or, if the edit lands in the unprotected preamble, **desyncs Codex with nothing detecting it** (`G67`).
+2. **"Relevant `.md` files" is the vagueness `D-54` exists to remove.** `D-76` corrected a stale CI tally in the shared core and left the identical claim standing in `V1-BUILD-SPEC.md` — every check green. `D-79` corrected it.
+
+### What the skill encodes
+
+Lane check before anything else (`D-75`); a **decision-number availability check** before claiming one; search the **claim, not the ID** (`G65`); the `D-54` tier table with *state every unaffected tier*; the shared-core triple edit; **propagate the fact, never the tally** (`G55`, `G56`, `G58`); `merge7.js` rather than `build --fragment` (`G51`); `bun run check` with the **7 local / 5 CI** asymmetry stated; a **negative test**; graph sync via `branch.json.lastAnalyzedHead`; and a closing report of **what was left untouched and why**.
+
+Every step names the defect it exists to prevent. A procedure whose steps have no attached failure is one nobody can evaluate.
+
+### Known limit, stated
+
+`.claude/skills/` is read by **Claude Code only**. Codex and Antigravity do not load it, so this is **Lane A's tool, not a shared control**. The binding rules it encodes live in the shared core and the register, which all three agents read; the skill is a convenience over them, never a substitute. If Lanes B and C need the same procedure, it belongs in the shared core — not copied into `.codex/` or `.agents/`, which would create a fourth place for the same rule to drift.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Inventory | Build spec | `Modular_PRD` | Agent files |
+|---|---|---|---|---|---|
+| `D-80` skill | ✅ §5.14an | ✅ new file row | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Inventory is affected because a file is created** — the condition its own §1 scope note sets. **Build spec is unaffected**: no scope, sequence, or DoD moves; the skill automates an existing procedure rather than adding a step. **Agent files are unaffected** — the rules are already there; this does not restate them.
+
+### Scope limits
+
+Creates one file. **Closes no gap and changes no rule.** Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67`, or `G68` — all Lane C. Authorizes no code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.

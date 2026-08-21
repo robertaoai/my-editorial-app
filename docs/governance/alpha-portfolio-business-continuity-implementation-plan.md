@@ -465,11 +465,13 @@ If this plan conflicts with an approved governing document, the governing docume
 
 ## 10. Addendum: Q10 Digital Twin & Product Scope
 
-**Decision Anchor: `D-73` / `D-74`**
+**Decision Anchor: `D-73`, narrowed by `D-79`**
 
-The original My-Editorial-App zero-to-one initiative (AP-01) is authorized by the Chief Editor as a **multi-tenant product**. It serves as a digital twin of the business itself, requiring account access for various natural person employees to approve and direct nodes in the business.
+The original My-Editorial-App zero-to-one initiative (AP-01) carries a **tenancy boundary in its data model**, authorized by the Chief Editor so the option is preserved before the append-only transition table exists. **`NG-02` stands: no multi-team capability is built, and v1 remains a single Chief Editor account.**
+
+> **Corrected 2026-08-21 (`D-79`).** This section previously read *"authorized … as a multi-tenant product … requiring account access for various natural person employees."* That contradicted the **frozen** Charter (`project-charter-v1.md:53` — no multi-team accounts, one Chief Editor account), which outranks the Decision Register under `D-58`. It also reused *"digital twin"* against its established sense in `docs/journal/2026-08-18-raci-human-vs-digital-twin.md` — **virtual agents serving one natural person** — to mean many employees. The practical outcome is unchanged: the column lands in `0002` either way.
 
 **Governance Implications:**
-- **POC & MVP Direction:** This product scope foundationally informs the MVP and POC lanes. The MVP (multi-tenant software application, governed by `Modular_PRD`) and POC (manual evidence lane, which similarly would have its own Modular PRD) operate within this digital twin paradigm.
-- **Downstream Build:** This business fact mandates that the software build must include tenancy boundaries (e.g., the `0002` migration tenancy column).
+- **POC & MVP Direction:** This scope boundary informs the MVP and POC lanes. The MVP (governed by `Modular_PRD`) and POC (manual evidence lane, which similarly would have its own Modular PRD) both operate under the **single-account** v1 boundary; the tenancy column preserves a later option without opening one now.
+- **Downstream Build:** The `0002` migration must include the tenancy column. It must **not** add accounts, roles, or auth surface — those remain `SEC-03` at S6, blocked while `OD1`–`OD3` are unratified.
 - **OD4:** The `Proposer → Critics → Judge` system is a separate system yet still part of `Modular_PRD`. Its judgment rules are determined at the MVP phase as success criteria; deferred because the MVP is not yet built.

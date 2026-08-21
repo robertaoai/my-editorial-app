@@ -13,6 +13,7 @@
 
 | Artifact | Referenced by | Exists |
 |---|---|---|
+| `.claude/skills/sync-docs/SKILL.md` | `D-80` | ✅ **Created 2026-08-21.** Encodes the `D-54` propagation procedure. **Lane A only** — Claude Code loads `.claude/skills/`; Codex and Antigravity do not. |
 | `lib/config/build-config.ts` | S0 | ❌ |
 | `lib/config/flags.ts` | S0 | ❌ |
 | `docs/DECISION_LOG.md` | S0, and every provisional value's traceability | ❌ |

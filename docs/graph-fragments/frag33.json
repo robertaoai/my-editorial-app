@@ -1,0 +1,76 @@
+{
+  "_comment": "Fragment 33 — D-79 Q10 narrowed, D-80 sync-docs skill, G68 opened. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d79_q10_narrowed",
+      "label": "D-79 — Q10 Narrowed: the Column Without the Charter Breach",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14am D-79",
+      "description": "Supersedes D-73's characterization without reversing the Chief Editor's decision. The 0002 migration carries a tenancy column so the option is preserved before the append-only table exists. NG-02 stands, no multi-team capability is built, and access control remains at SEC-03 and S6. Stage D is not unblocked: Q11's deferred shape via G64 and the open S1 window still gate 0002.",
+      "community": 41,
+      "community_name": "Product Scope Boundary",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "D-73 recorded the app as a multi-tenant product requiring employee accounts, contradicting the frozen Charter line 53 which allows one Chief Editor account. Frozen documents outrank the register under D-58, so the register edit was the one that loses. The reconciliation already existed in Modular_PRD v1.6 and the practical output, the column, is unchanged either way."
+    },
+    {
+      "id": "approved_decision_dropped",
+      "label": "An Approved Human Decision Was Dropped With Its Number",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14am",
+      "description": "The narrowing was approved by the Chief Editor at the start of the 2026-08-21 session and was not applied. D-75 was earmarked for it in the plan, then spent on the development build lanes three turns later, and the work went with the number. A forward-referenced number is a commitment, not a placeholder.",
+      "community": 41,
+      "community_name": "Product Scope Boundary",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "An approved human decision is the most expensive thing this repository can drop, because it is not recoverable by re-reading a source. The source was a person. D-77 and D-78 were already promised in scope-limit paragraphs, so the narrowing took D-79."
+    },
+    {
+      "id": "d80_sync_docs_skill",
+      "label": "D-80 — /sync-docs Skill",
+      "file_type": "concept",
+      "source_file": ".claude/skills/sync-docs/SKILL.md",
+      "source_location": "frontmatter",
+      "description": "Encodes the D-54 propagation procedure as a runnable skill: lane check first, decision-number availability check, search the claim rather than the ID, the tier table with every unaffected tier stated, the shared-core triple edit, propagate the fact never the tally, merge7.js rather than build --fragment, seven local and five CI checks, a negative test, graph sync via branch.json lastAnalyzedHead, and a closing report of what was left untouched.",
+      "community": 41,
+      "community_name": "Product Scope Boundary",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The generic instruction to update CLAUDE.md and relevant spec files misfires here: CLAUDE.md is one of three hash-locked files, and relevant spec files is the vagueness D-54 exists to remove. Every step names the defect it prevents, because a procedure whose steps have no attached failure is one nobody can evaluate."
+    },
+    {
+      "id": "g68_tier_sweep_blind_to_tier_one",
+      "label": "G68 — The Tier Sweep Cannot See the Tier 1 Document",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.1 G68",
+      "description": "tier-sweep.mjs has no TIERS entry for the Alpha Portfolio business-continuity plan, which D-74 places above Modular_PRD. A tier column naming it is rejected as unmapped, so propagation into the highest tier in the hierarchy is verified by nobody. Found when D-79 propagated there and the sweep raised tier column not mapped to a document.",
+      "community": 41,
+      "community_name": "Product Scope Boundary",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Recorded rather than worked around. Adding the column back to satisfy the eye while the sweep ignores it would be a claim with no check behind it, which is the shape of the defects this apparatus exists to catch. scripts/checks is Lane C, so the fix is specified and not applied."
+    }
+  ],
+  "edges": [
+    { "source": "d79_q10_narrowed", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14am", "weight": 1 },
+    { "source": "d79_q10_narrowed", "target": "q10_missing_from_what_is_owed", "relation": "resolves_scope_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14am", "weight": 1 },
+    { "source": "d79_q10_narrowed", "target": "summary_outlived_source", "relation": "corrects_an_instance_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14am", "weight": 1 },
+    { "source": "approved_decision_dropped", "target": "d79_q10_narrowed", "relation": "explains_delay_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14am", "weight": 1 },
+    { "source": "approved_decision_dropped", "target": "d75_development_build_lanes", "relation": "number_consumed_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ak", "weight": 1 },
+    { "source": "d80_sync_docs_skill", "target": "approved_decision_dropped", "relation": "guards_against", "confidence": "CURATED", "source_file": ".claude/skills/sync-docs/SKILL.md", "confidence_score": 1, "source_location": "§2", "weight": 1 },
+    { "source": "d80_sync_docs_skill", "target": "d76_rule_file_corrections", "relation": "generalizes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14an", "weight": 1 },
+    { "source": "g68_tier_sweep_blind_to_tier_one", "target": "g65_narrowed_to_fit", "relation": "same_family_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G68", "weight": 1 },
+    { "source": "g68_tier_sweep_blind_to_tier_one", "target": "d79_q10_narrowed", "relation": "found_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14am", "weight": 1 }
+  ]
+}
