@@ -154,3 +154,9 @@ Opening those two files four times is four chances to leave them inconsistent �
 ## 5. Scope limits
 
 Closes no Open Decision. Amends no governing document. Authorizes no code, schema, migration, or deployment. `G26`'s resolution must not delete or rewrite the existing citations — annotation only, per this project's amendment discipline.
+
+## Temporary / Draft Artifacts
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| `docs/journal/Q10-explanation.md` | `Q10` (`D-73`) step-by-step guide | ✅  **Drafted 2026-08-21**. Pending lock-in at the Alpha Portfolio milestone. |

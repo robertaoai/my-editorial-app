@@ -118,7 +118,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `Q7` | `SEC-04`/`SEC-05` ownership — **no owner exists** | Production |
 | `G15` / `GA5` | Data-protection regime; retention versus erasure | Needs external counsel |
 
-**Chief Editor decisions still to make.** `Q0`, `Q1`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q10`, `Q11`, `Q12`, `QA3`, `QB`, `QD`, `QE`. **The list is the record; no tally is restated** (`G55`, `G56`, `G58`). *Corrected 2026-08-21 (`D-71`): `Q2` (`D-57`), `QC` (`D-59`), `G23` (`D-10`) and `G24` (`D-09`) were already decided and are removed. The remaining twelve were **not** individually re-verified in that pass.* *Corrected again 2026-08-21 (`D-72`): the list was wrong in **both** directions — `Q1`, `Q7` and `Q10` were **Open and Chief-Editor-owned but never listed**, `Q10` being the named blocker for Stage D. Found by `decision-status`, which now runs in CI.* See `V1-BUILD-SPEC.md` for which sprint each gates.
+**Chief Editor decisions still to make.** `Q0`, `Q1`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q11`, `Q12`, `QA3`, `QB`, `QD`, `QE`. **The list is the record; no tally is restated** (`G55`, `G56`, `G58`). *Corrected 2026-08-21 (`D-71`): `Q2` (`D-57`), `QC` (`D-59`), `G23` (`D-10`) and `G24` (`D-09`) were already decided and are removed. The remaining twelve were **not** individually re-verified in that pass.* *Corrected again 2026-08-21 (`D-72`): the list was wrong in **both** directions — `Q1`, `Q7` and `Q10` were **Open and Chief-Editor-owned but never listed**, `Q10` being the named blocker for Stage D. Found by `decision-status`, which now runs in CI.* *Updated 2026-08-21 (`D-73`): `Q10` is decided and unblocks Stage D.* See `V1-BUILD-SPEC.md` for which sprint each gates.
 
 ## 5.1 Gap disposition — every ID
 
@@ -2538,7 +2538,7 @@ Corrects six stale claims, opens `G65` and `G66`, and closes `G25` against its f
 
 ## 5.14ah `D-72` — `G65` and `G66` closed: two checks installed, and `G65` narrowed to fit
 
-**Installed 2026-08-21.** Build guardrail lifted for these two items only; reinstated on completion. `C-14` now runs **six checks**.
+**Installed 2026-08-21.** Build guardrail lifted for these two items only; reinstated on completion. `C-14` now runs **seven checks** (`D-73` added the 7th).
 
 ### `G65` could not be built as written
 
@@ -2891,3 +2891,12 @@ The thirteen files below **remain in place as the dated analysis record**. They 
 ## 7. Scope limits
 
 Closes no Open Decision. Amends no governing document. Authorizes no code, schema, migration, or deployment — approval of a *decision* is not authorization to *build* it. `OD1`–`OD3` remain open; the `OD2` negative-resolution hard stop stands exactly as the Charter writes it.
+
+## 5.14ai `D-73` — `Q10` Decided: Product Scope, Stage D Unblocked
+
+**Decided 2026-08-21 by Chief Editor.** The application is a multi-tenant **Product**, functioning as a digital twin of the business from zero to one. It requires account access for natural person employees and will proceed under an MVP and POC direction.
+
+### Impact
+- **Stage D Unblocked:** The `0002` migration **must** now include a tenancy column to support multi-tenancy.
+- **`Q10` Closed:** Removed from the Open Chief Editor decisions list.
+- **`C-14` Scope Updated:** The consistency apparatus now includes a seventh check, `docs-drift.mjs`, which relies on `graphify` to detect unsynced documents.

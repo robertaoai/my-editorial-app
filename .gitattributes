@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------------
+# 1. Global Defaults & Line Ending Normalization
+# ---------------------------------------------------------------------
+# Handle line endings automatically for text files
+* text=auto
+
+# ---------------------------------------------------------------------
+# 2. Source Code & Text Files (Enforce LF for Unix compatibility)
+# ---------------------------------------------------------------------
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.html text eol=lf diff=html
+*.css text eol=lf diff=css
+*.scss text eol=lf
+*.json text eol=lf
+*.md text eol=lf merge=union
+*.sh text eol=lf
+*.bat text eol=crlf
+
+# ---------------------------------------------------------------------
+# 3. Binary Files (Prevent Git from changing line endings)
+# ---------------------------------------------------------------------
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.lockb binary
+
+# ---------------------------------------------------------------------
+# 4. Large File Storage (Git LFS) tracking
+# ---------------------------------------------------------------------
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+
+# ---------------------------------------------------------------------
+# 5. Platforms & Tooling Customization (GitHub/GitLab)
+# ---------------------------------------------------------------------
+# Hide lock files and generated files from diffs and stats
+package-lock.json linguist-generated
+pnpm-lock.yaml linguist-generated
+yarn.lock linguist-generated
+*.min.js linguist-generated
+
+# Exclude documentation or test directories from release archives
+/docs export-ignore
+/tests export-ignore

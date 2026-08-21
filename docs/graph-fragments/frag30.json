@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    {
+      "id": "Q10-explanation.md",
+      "type": "document",
+      "description": "Draft Q10 step-by-step explanation guide, deferred to Alpha Portfolio",
+      "source_file": "docs/journal/Q10-explanation.md"
+    }
+  ],
+  "edges": []
+}
