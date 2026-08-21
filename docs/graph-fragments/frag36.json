@@ -1,0 +1,76 @@
+{
+  "_comment": "Fragment 36 — D-83, G69 closed on visibility; the lane-boundary check. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d83_lane_boundary_check",
+      "label": "D-83 — G69 Closed: Crossings Made Visible, Not Prevented",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14aq D-83",
+      "description": "Creates scripts/checks/lane-boundary.mjs as C-14 check 8. Reads the working tree when dirty, so a crossing is actionable before it enters history, and HEAD when clean, which is what CI sees. It never skips, unlike graph-coverage and docs-drift. On a finding it names both lanes and the files on each side.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "scripts/checks is Lane C's surface, so this was built by Lane A under explicit Chief Editor authorization, which D-82 names as one of only two ways the first lane control could arrive. The authorization is recorded because a sanctioned crossing and an unremarked one are the whole subject of D-82."
+    },
+    {
+      "id": "shape_not_permission",
+      "label": "The Check Detects the Shape of a Crossing, Never the Permission",
+      "file_type": "concept",
+      "source_file": "scripts/checks/lane-boundary.mjs",
+      "source_location": "L1",
+      "description": "A probe ran the proposed rule over 40 commits of real history before the check was written. Four spanned lanes, all genuine, zero false positives, and three of the four were authorized at the time. The finding message therefore says split it or record the authorization, rather than reporting a violation.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A control that reads as an accusation gets suppressed rather than answered. The probe-before-build discipline is the same one that rejected G65's same-commit git design, which was appealing, cheap and wrong."
+    },
+    {
+      "id": "check_caught_its_own_author",
+      "label": "The Check Flagged Its Own Installing Pass",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14aq",
+      "description": "Writing the register entry while scripts/ was still uncommitted made the pass an A plus C crossing, and the check said so. The commit was split: 2b8334e carries the Lane C change alone and the register entry follows as Lane A.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The demonstration is that the split happened, not that the check was quiet. Exempting the installing pass would have made the control advisory from its first use."
+    },
+    {
+      "id": "g69_closed_on_visibility",
+      "label": "G69 Closed on Visibility, Which Is Narrower Than Its Title",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.1 G69",
+      "description": "The gap asked for a mechanism enforcing the lane boundaries. What was built reports a crossing; it does not block one. D-82's finding stands unchanged, because CI runs after a commit lands and nothing here prevents it.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Stated in the closure rather than left for a reader to discover, which is the defect G25 turned out to be when it closed against two of three named targets and the closure text named only the two."
+    }
+  ],
+  "edges": [
+    { "source": "d83_lane_boundary_check", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14aq", "weight": 1 },
+    { "source": "d83_lane_boundary_check", "target": "g69_no_enforcement_mechanism", "relation": "closes", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G69", "weight": 1 },
+    { "source": "d83_lane_boundary_check", "target": "lane_enforcement_bootstrap_problem", "relation": "resolved_by_authorization", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ap", "weight": 1 },
+    { "source": "d83_lane_boundary_check", "target": "c14_installed_with_a_stated_limit", "relation": "extends", "confidence": "CURATED", "source_file": "scripts/check-consistency.mjs", "confidence_score": 1, "source_location": "L1", "weight": 1 },
+    { "source": "shape_not_permission", "target": "d83_lane_boundary_check", "relation": "design_property_of", "confidence": "CURATED", "source_file": "scripts/checks/lane-boundary.mjs", "confidence_score": 1, "source_location": "L1", "weight": 1 },
+    { "source": "shape_not_permission", "target": "git_commit_design_rejected", "relation": "same_discipline_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ah", "weight": 1 },
+    { "source": "check_caught_its_own_author", "target": "d83_lane_boundary_check", "relation": "first_use_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14aq", "weight": 1 },
+    { "source": "g69_closed_on_visibility", "target": "g65_narrowed_to_fit", "relation": "same_pattern_as", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ah", "weight": 1 },
+    { "source": "g69_closed_on_visibility", "target": "d82_lanes_unenforced", "relation": "leaves_standing", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14ap", "weight": 1 }
+  ]
+}

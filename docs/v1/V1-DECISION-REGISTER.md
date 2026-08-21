@@ -196,7 +196,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G66` | **Closed 2026-08-21** | **`.claude/settings.json` is checked in, shared across three agents, and covered by no `C-14` check.** The shared-core hash compares only the three agent rule files. Demonstrated live 2026-08-21: an invalid-JSON edit **silently disabled both hooks** — Claude Code ignores a settings file it cannot parse, with no error. **Closed by `D-72`** — `scripts/checks/settings-parse.mjs` parse-checks the repo-local cascade and runs in CI. Contents never printed; user-scope file deliberately excluded. §5.14ag, §5.14ah |
 | `G67` | **Open** | **The shared-core hash covers 86 of ~226 lines.** `CLAUDE.md` lines 1–138 are **byte-identical to `AGENTS.md`** but sit outside the `<!-- SHARED CORE` marker, so `shared-core-hash` never compares them — an edit to one reaches one agent only, with nothing detecting it. That is `G53`, in the region `C-14` does not cover. Found by a `/init` pass that proposed regenerating `CLAUDE.md` (`D-76`). **Fix:** extend the check to compare the pre-core preamble across `CLAUDE.md` and `AGENTS.md` (`.agents/rules/graphify.md` has no preamble and must be excluded). **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14al |
 | `G68` | **Open** | **The `D-54` tier sweep cannot see the Tier 1 document.** `scripts/checks/tier-sweep.mjs`'s `TIERS` map has no entry for `docs/governance/alpha-portfolio-business-continuity-implementation-plan.md`, which `D-74` places **above** `Modular_PRD`. A tier column naming it is rejected as unmapped, so propagation into the highest tier in the hierarchy is verified by nobody. Found when `D-79` propagated there and the sweep raised *"tier column not mapped to a document."* **Fix:** add the mapping. **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14am |
-| `G69` | **Open** | **No mechanism enforces the `D-75` lane boundaries.** Verified 2026-08-21: no `CODEOWNERS` at any path, no path-scoped `.claude/rules/`, no `.husky/` or `.pre-commit-config.yaml`, **0 installed git hooks**, and CI triggers `on: push`/`on: pull_request` — after a commit lands. Four crossings by agents that had read the rules are on record (`D-75`, `D-82`). **The bootstrap problem:** every candidate mechanism — `CODEOWNERS` in `.github/`, a pre-commit hook, a path check in `scripts/checks/` — is **Lane C's own surface**, so Lane A can specify enforcement and never apply it. **Fix:** the first control must come from Lane C or the Chief Editor. **Specified, not applied** (`D-75`). §5.14ap |
+| `G69` | **Closed 2026-08-21 — narrowed, stated** | **No mechanism enforces the `D-75` lane boundaries.** Verified 2026-08-21: no `CODEOWNERS` at any path, no path-scoped `.claude/rules/`, no `.husky/` or `.pre-commit-config.yaml`, **0 installed git hooks**, and CI triggers `on: push`/`on: pull_request` — after a commit lands. Four crossings by agents that had read the rules are on record (`D-75`, `D-82`). **The bootstrap problem:** every candidate mechanism — `CODEOWNERS` in `.github/`, a pre-commit hook, a path check in `scripts/checks/` — is **Lane C's own surface**, so Lane A can specify enforcement and never apply it. **Fix:** the first control must come from Lane C or the Chief Editor. **Closed by `D-83`** on **visibility, not prevention** — `scripts/checks/lane-boundary.mjs` reports a change spanning two lanes; nothing blocks one, and `D-82`'s finding stands. Built by Lane A under explicit Chief Editor authorization, which `D-82` names as one of two ways the first control could arrive. §5.14ap, §5.14aq |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -3188,3 +3188,53 @@ Both tiers were amended in this pass, not one. Correcting a claim in the shared 
 ### Scope limits
 
 States a limit and opens `G69`. **Builds no enforcement mechanism** — that is `G69`, and it is Lane C's, which is the entire point of this decision. Changes no lane assignment, no phase order, and no ownership. Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67`, `G68`, or decide `G63`. Authorizes no code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+## 5.14aq `D-83` — `G69` Closed: Crossings Made Visible, Not Prevented
+
+**Applied 2026-08-21 by Lane A under explicit Chief Editor authorization.** Creates `scripts/checks/lane-boundary.mjs` at commit `2b8334e`. Closes `G69`.
+
+### The authorization matters, and is recorded
+
+`scripts/checks/` is **Lane C's surface**. `D-82` established that every mechanism capable of enforcing `D-75` belongs to Lane C, so Lane A can specify enforcement and never apply it — and named **the Chief Editor as one of only two actors** who could supply the first control. That authorization was given. **This is a sanctioned crossing, not an unremarked one**, and the distinction is the whole subject of `D-82`.
+
+### The design was tested before it was written
+
+`G65`'s same-commit git design was appealing, cheap, and wrong, and was rejected only because it was tested against the defects it claimed to catch. The same discipline applied here: a probe ran the proposed rule over **40 commits of real history** before any check existed.
+
+| Commit | Lanes | Authorized at the time? |
+|---|---|---|
+| `24b39fb` | C+A | **No** — the crossing `D-75` records |
+| `0e3705c` | A+C | Yes — guardrail lifted for `G65`/`G66` |
+| `97b8a7c` | C+A | Yes — Stages A/B/C approved |
+| `8b03b7a` | A+B | Yes — `G62a` fix approved |
+
+**Four of forty, all genuine, zero false positives.** And the result settled the design: three of the four were authorized, so **the check detects the *shape* of a crossing and never the *permission* for one.** A finding means *"say why"*, not *"you did wrong"* — and the message says so, because a control that reads as an accusation gets suppressed rather than answered.
+
+### What it does
+
+Reads the **working tree when dirty** — so a crossing is actionable *before* it enters history — and **`HEAD` when clean**, which is what CI sees on a fresh checkout. It therefore **never skips**, unlike `graph-coverage` and `docs-drift`. On a finding it names both lanes and the files on each side.
+
+The three agent rule files, `.claude/`, `__tests__/` and build config are treated as **shared**: the rule files are triple-edited by whichever lane records the decision (`D-54`), so counting them would fire on every ordinary pass.
+
+### Stated limits
+
+- **Shape, not permission** — as above.
+- **It cannot say *which* agent crossed.** Attribution is unavailable: `agent-stats` returns 0 facts (`D-77`).
+- **Paths outside the lane map are not lane-attributed** at all.
+- **It detects; it does not prevent.** `D-82`'s finding stands unchanged — CI runs after a commit lands, and nothing here blocks one. `G69` is closed on **visibility**, which is narrower than the gap's title suggests, and that narrowing is stated here rather than left for a reader to discover — the defect `G25` turned out to be.
+
+### It caught its own author
+
+Adding this decision to the register while `scripts/` was still uncommitted made the pass an **A+C crossing**, and the check said so. The commit was therefore **split**: `2b8334e` carries the Lane C change alone, and this entry follows as Lane A. **The demonstration is that the split happened, not that the check was quiet.**
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Inventory | `SPECS-VERIFICATION` | Build spec | Agent files | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-83` / `G69` | ✅ §5.14aq | ✅ new file row | ✅ §10 | ✅ §4 check list | ✅ shared core | **— unaffected** |
+
+**Inventory is affected** — `scripts/checks/lane-boundary.mjs` is created, the condition its §1 scope note sets. **`Modular_PRD` is unaffected** — development tooling is not a product requirement.
+
+### Scope limits
+
+Closes `G69` on visibility. **Builds no blocking control**, adds no `CODEOWNERS`, installs no git hook. Changes no lane assignment, no phase order, no ownership. Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67`, `G68`, or decide `G63`. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.

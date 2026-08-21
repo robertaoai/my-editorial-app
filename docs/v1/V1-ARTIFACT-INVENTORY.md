@@ -13,6 +13,7 @@
 
 | Artifact | Referenced by | Exists |
 |---|---|---|
+| `scripts/checks/lane-boundary.mjs` | `D-83`, `G69` | ✅ **Created 2026-08-21.** `C-14` check 8 — makes `D-75` lane crossings visible. Detects the shape of a crossing, never the permission. |
 | `.claude/skills/sync-docs/SKILL.md` | `D-80` | ✅ **Created 2026-08-21.** Encodes the `D-54` propagation procedure. **Lane A only** — Claude Code loads `.claude/skills/`; Codex and Antigravity do not. |
 | `lib/config/build-config.ts` | S0 | ❌ |
 | `lib/config/flags.ts` | S0 | ❌ |

@@ -42,12 +42,13 @@ everything, unchanged.
 commits**, so a conflicting edit never appears as a merge conflict — it appears as a **silent
 overwrite**. `G32` was exactly that. Git authorship carries no information here; `graphify
 agent-stats` attributes from CLI transcripts instead. **Detection (`C-14`) is installed** (`D-70`)
-— run `bun run check` before claiming a shared file is consistent. It runs **seven** checks, of
-which **five reach CI**: the shared-core hash across the three agent rule files, the `D-54` tier
-sweep, the §5.1 duplicate-ID scan, the settings-cascade parse, and the decision-status
-cross-reference. **Two cannot run in CI** — `graph-coverage` and `docs-drift` both read
-`.graphify/graph.json`, which is gitignored, so they report SKIP and must be run on a machine that
-has the graph. **A local `7/7` and a CI `5/5` are both correct**; neither is the other's failure.
+— run `bun run check` before claiming a shared file is consistent. It runs **eight** checks, of
+which **six reach CI**: the shared-core hash across the three agent rule files, the `D-54` tier
+sweep, the §5.1 duplicate-ID scan, the settings-cascade parse, the decision-status
+cross-reference, and the `D-75` lane-boundary check (`D-83`). **Two cannot run in CI** —
+`graph-coverage` and `docs-drift` both read `.graphify/graph.json`, which is gitignored, so they
+report SKIP and must be run on a machine that has the graph. **A local `8/8` and a CI `6/6` are
+both correct**; neither is the other's failure.
 
 
 **Build lanes (`D-75`, binding).** Three agents work this repo **sequentially, one at a time**, in a

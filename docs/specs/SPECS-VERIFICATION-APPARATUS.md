@@ -149,3 +149,42 @@ eslint: { ignoreDuringBuilds: true },
 ## 9. Scope limits `[V1]`
 
 **Creates no file, installs no package, adds no script — except `bun.lockb`**, produced under `D-64` when the guardrail was lifted for `G59` alone. Authorizes no code, schema, or migration. Does not resolve `TC6` — it compensates for it in CI. `G59` is recorded, not resolved. Installation remains gated on the standing build guardrail being lifted for `R3`.
+
+---
+
+## 10. `C-14` check 8 — lane boundary `[V1]`
+
+**Installed 2026-08-21 (`D-83`), closing `G69`.** `scripts/checks/lane-boundary.mjs`.
+
+**Owning lane: C.** Built by **Lane A under explicit Chief Editor authorization** — `D-82` records that every mechanism able to enforce `D-75` sits on Lane C's surface, so Lane A can specify enforcement and never apply it, and names the Chief Editor as one of only two actors who could supply the first control. **Written by the lane it governs**, which a reader should know.
+
+### Behaviour
+
+Reads the **working tree when dirty** — a crossing is then actionable before it enters history — and **`HEAD` when clean**, which is what CI sees on a fresh checkout. It therefore **never skips**, unlike `graph-coverage` and `docs-drift`. Verified compatible with `actions/checkout@v4`'s shallow clone: `git show --name-only HEAD` resolves at depth 1.
+
+Lane map, from `D-75` §5.14ak — **ownership, not authorship**:
+
+| Lane | Surface |
+|:---:|---|
+| **A** | `docs/` |
+| **B** | `app/`, `lib/`, `components/`, `supabase/migrations/` |
+| **C** | `.github/`, `scripts/`, `.gitattributes` |
+
+`CLAUDE.md`, `AGENTS.md`, `.agents/`, `.claude/`, `__tests__/` and build config are **shared** — the three rule files are triple-edited by whichever lane records a decision (`D-54`), so counting them would fire on every ordinary pass.
+
+### Why it reports rather than accuses
+
+The rule was probed over **40 commits of real history before the check was written** — the discipline that rejected `G65`'s same-commit design. Four commits spanned lanes, all genuine, **zero false positives**; **three of the four were authorized at the time**. So the check detects the **shape** of a crossing and never the **permission** for one, and its message says *"split it, or record the authorization"* rather than reporting a violation. **A control that reads as an accusation gets suppressed rather than answered.**
+
+### Limits `[V1]`
+
+- Cannot say **which** agent crossed — attribution is unavailable (`D-77`: `agent-stats` returns 0 facts).
+- Paths outside the lane map are **not lane-attributed**.
+- **Detects; does not prevent.** `D-82` stands unchanged: CI runs after a commit lands. `G69` is closed on **visibility**, narrower than its title, and said so rather than left to be discovered.
+
+### Definition of done `[V1]`
+
+1. A working-tree change spanning two lanes raises a finding naming both lanes and the files. **Met** — negative-tested, A+C.
+2. A single-lane change passes. **Met.**
+3. Runs in CI without skipping. **Met.**
+4. Its own installing pass was split into two commits rather than exempted. **Met** — `2b8334e` (Lane C) precedes the register entry (Lane A).
