@@ -467,8 +467,9 @@ If this plan conflicts with an approved governing document, the governing docume
 
 **Decision Anchor: `D-73` / `D-74`**
 
-The original My-Editorial-App zero-to-one initiative (AP-01) is authorized by the Chief Editor as a *pmulti-tenant product**. It serves as a digital twin of the business itself, requiring account access for various natural person employees to approve and direct nodes in the business.
+The original My-Editorial-App zero-to-one initiative (AP-01) is authorized by the Chief Editor as a **multi-tenant product**. It serves as a digital twin of the business itself, requiring account access for various natural person employees to approve and direct nodes in the business.
 
 **Governance Implications:**
-- **POC & MVP Direction:** This product scope foundationally informs the MVP and POC lanes. The MVP (multi-tenant software application) and POC (manual evidence lane) operate within this digital twin paradigm.
-- **Downstream Build:** This business fact mandates that the software build must include tenancy boundaries (e.g., the `0002`migration tenancy column).
+- **POC & MVP Direction:** This product scope foundationally informs the MVP and POC lanes. The MVP (multi-tenant software application, governed by `Modular_PRD`) and POC (manual evidence lane, which similarly would have its own Modular PRD) operate within this digital twin paradigm.
+- **Downstream Build:** This business fact mandates that the software build must include tenancy boundaries (e.g., the `0002` migration tenancy column).
+- **OD4:** The `Proposer → Critics → Judge` system is a separate system yet still part of `Modular_PRD`. Its judgment rules are determined at the MVP phase as success criteria; deferred because the MVP is not yet built.

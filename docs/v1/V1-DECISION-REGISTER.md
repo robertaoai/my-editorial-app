@@ -2901,13 +2901,26 @@ Closes no Open Decision. Amends no governing document. Authorizes no code, schem
 - **`Q10` Closed:** Removed from the Open Chief Editor decisions list.
 - **`C-14` Scope Updated:** The consistency apparatus now includes a seventh check, `docs-drift.mjs`, which relies on `graphify` to detect unsynced documents.
 
-## 5.14aj `D-74` — Hierarchy of Source Truth & `Q10` Placement
+## 5.14aj `D-74` — Hierarchy of Source Truth & `Q10` Placement *(corrected 2026-08-21)*
 
-**Decided 2026-08-21 by Chief Editor.** The formal precedence of authority flows downwards in a strict 4-tier hierarchy, which governs how top-level decisions are audited:
+**Decided 2026-08-21 by Chief Editor. Corrected same day:** the original entry recorded only 4 tiers, flattening a structure already established by `D-29`, `D-34`, `D-35`, and `D-36`. This is the same family of error as `D-31`/`D-33` — mistaking a naming difference for a structural incompatibility, then compounding it by inventing a simplified structure instead of mapping to the one that already existed.
 
-1. **Alpha Portfolio (Business Entity):** The continuing business container. Allocates capital, accepts risk, charters projects (`AP-01`). The highest source of truth.
-2. **Project / Customer Scope (Charter, POC, MVP):** Authorized zero-to-one scope and evidence gathering. The **MVP** is the chartered software; the **POC** is a manual evidence lane. Governed by `PRD.md` and the frozen Charter.
-3. **Product Level (Governed Spec):** Translates project constraints into rules. Governed by `Modular_PRD.md` (which tracks Sprints, not projects).
-4. **Execution Level (Sprints & Specs):** Delivery sequence. Governed by `V1-BUILD-SPEC.md` and `docs/specs/`.
+**The full hierarchy, reconciled against existing decisions:**
 
-Because `Q10` (`D-73`) defines the app as a "digital twin of the business," it is an enterprise structural fact and is permanently locked into the Alpha Portfolio governance level, superseding temporary drafts.
+| Tier | Name | What it governs | Frozen? | Decision |
+|:---:|---|---|---|---|
+| **1** | **Alpha Portfolio** | Business-level direction and BRD. The continuing business/investment container | Living | `D-35`, `D-73` |
+| **2** | **PRD.md** | Current project requirements. Frozen because it carries the BRD tied to the Alpha Portfolio. A different project gets a different PRD | **Frozen** | Governing set |
+| **3** | **Business Case** (`business-case.md`) | Also frozen — part of the governing set below the Charter | **Frozen** | Governing set |
+| **4** | **Modular_PRD** | Current project's product development (MVP). Tracks sprints (`D-35`). The governed spec. OD4 (`Proposer → Critics → Judge`) is a **separate system** yet still part of this tier — its judgment rules are determined at the MVP phase as success criteria; deferred because the MVP is not yet built | Living | `D-29`, `D-35` |
+| **5** | **POC** (P0-EVR) | Similarly would have its own Modular PRD. A manual evidence lane within the Alpha Portfolio | Living | Board proposals |
+| **6** | **fn-specs** (labelled `prd.md` in `specs-creator` per `D-34`) | The tech-spec — all behaviours, interface-agnostic. Includes only the corresponding UX behaviours for `SPECS` candidate filtering. The link between tech-spec + specs + ux | Living | `D-29`, `D-34` |
+| **7** | **specs** | Implementation of one specific component. If behaviour at fn-specs is clear enough, this is **redundant** (`D-30`). The agnostic UI-to-UX link for that component | Living | `D-30`, `D-34`, `D-36` |
+| **8** | **ux** (`specs/ux/`) | The specific UI/UX implementation due to limitations of the framework used (e.g., Vue.js, Angular.js, Python) | Living | `D-34`, `D-36` |
+
+**Change localization (`D-29`).** A tech-stack change lands in `specs/`. A stack-specific UI consequence lands in `specs/ux/`. Neither disturbs `fn-specs/`. Behaviour stays stable across a stack pivot.
+
+**Gap noted:** the POC does not yet have its own Modular PRD. This is expected — P0-EVR is a manual evidence lane with 22 pending Board decisions (`B-P0-01`–`B-P0-22`), none approved.
+
+Because `Q10` (`D-73`) defines the app as a "digital twin of the business," it is a Tier 1 (Alpha Portfolio) structural fact, permanently locked into `alpha-portfolio-business-continuity-implementation-plan.md` §10.
+

@@ -168,16 +168,28 @@ S0 and S1 are clean: the OD-gating table (§4 above) already states S1 is "not g
 
 ## 10. Zero-to-One Business Baseline
 
-This section consolidates and clarifies the --existing-- zuro-to-one business-governance rules scattered across the portfolio. It creates no new requirements, but normalizes the rules among the Alpha Portfolio, OPs constraints, and technical limits.
+This section consolidates the existing zero-to-one business-governance rules scattered across the portfolio. It creates no new requirements, but normalizes the hierarchy and its constraints using the terminology already established by `D-29`, `D-34`, `D-35`, `D-36`, and `D-73`/`D-74`.
 
-### 10a. The Zero-to-One Business Taxonomy (Parent)
-- **Alpha Portfolio:** The continuing business/investment container.
-- **AP-01 Anchor Project:** The zero-to-one digital twin product (acting as a multi-tenant application per `D-73`/`D-74`).
-- **P0-EVR (POC):** The manual evidence lane used to prove value before major build phases.
+### 10a. The Full Hierarchy of Source Truth (Parent)
+
+| Tier | Name | What it governs | Frozen? |
+|:---:|---|---|---|
+| **1** | **Alpha Portfolio** | Business-level direction and BRD. The continuing business/investment container | Living |
+| **2** | **PRD.md** | Current project requirements. Frozen because it carries the BRD tied to the Alpha Portfolio. A different project gets a different PRD | **Frozen** |
+| **3** | **Business Case** | Also frozen — part of the governing set below the Charter | **Frozen** |
+| **4** | **Modular_PRD** | Current project's product development (MVP). Tracks sprints. OD4 is a separate system yet still part of this tier — deferred because the MVP is not yet built | Living |
+| **5** | **POC** (P0-EVR) | Similarly would have its own Modular PRD. A manual evidence lane within the Alpha Portfolio | Living |
+| **6** | **fn-specs** | The tech-spec — all behaviours, interface-agnostic. The link between tech-spec + specs + ux | Living |
+| **7** | **specs** | Implementation of one specific component. Redundant if fn-specs is clear enough (`D-30`) | Living |
+| **8** | **ux** (`specs/ux/`) | The specific UI/UX implementation due to framework limitations (e.g., Vue.js, Angular.js) | Living |
 
 ### 10b. Zero-to-One Operating Constraints (Child)
 - **Zero-to-One Role Concentration:** As a zero-to-one business with one natural person, all human accountabilities collapse to the Chief Editor. Digital twin roles (reporter, investigator, etc.) act purely as virtual agents.
-- **OD4 Boundary:** The `Proposer → Critics → Judge` system is excluded from the default zero-to-one operating baseline. It remains a separate project requiring distinct Alpha Portfolio authorization.
+- **OD4 Deferred:** The `Proposer → Critics → Judge` system is a separate system yet still part of `Modular_PRD`. Its judgment rules are originally determined at the MVP phase as success criteria. Since the MVP is not yet built, OD4 cannot proceed — it is **deferred**, not excluded.
 
 ### 10c. Zero-to-One Technical Exclusions (Child)
 - **Data Temporal History:** Maintaining full temporal history on tables (like `topics`, `sources`) is explicitly excluded as it requires "considerably more machinery than a zero-to-one business needs."
+
+### 10d. Gaps (Child)
+- **POC Modular PRD:** P0-EVR does not yet have its own Modular PRD. Expected — 22 Board decisions are still pending.
+
