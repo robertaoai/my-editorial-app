@@ -118,7 +118,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `Q7` | `SEC-04`/`SEC-05` ownership — **no owner exists** | Production |
 | `G15` / `GA5` | Data-protection regime; retention versus erasure | Needs external counsel |
 
-**Chief Editor decisions still to make — 16.** `Q0`, `Q2`, `Q3`, `Q4`, `Q5`, `Q6`, `Q8`, `Q11`, `Q12`, `QA3`, `QB`, `QC`, `QD`, `QE`, `G23`, `G24`. See `V1-BUILD-SPEC.md` for which sprint each gates.
+**Chief Editor decisions still to make.** `Q0`, `Q3`, `Q4`, `Q5`, `Q6`, `Q8`, `Q11`, `Q12`, `QA3`, `QB`, `QD`, `QE`. **The list is the record; no tally is restated** (`G55`, `G56`, `G58`). *Corrected 2026-08-21 (`D-71`): `Q2` (`D-57`), `QC` (`D-59`), `G23` (`D-10`) and `G24` (`D-09`) were already decided and are removed. The remaining twelve were **not** individually re-verified in that pass.* See `V1-BUILD-SPEC.md` for which sprint each gates.
 
 ## 5.1 Gap disposition — every ID
 
@@ -148,7 +148,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G22` | Open | `C-10`, T3 |
 | `G23` | **Closed 2026-08-19** | `D-10` — `FR-13` bypasses deliberation, not publication |
 | `G24` | **Closed 2026-08-19** | `D-09` — mirror boundary stated as own channels only |
-| `G25` | **Closed 2026-08-19** | `D-15` — `docs/v1/` named operative in both agent files |
+| `G25` | **Closed 2026-08-21 — reopened and closed properly** | `D-15` named `docs/v1/` operative in the two agent files, but `G25`'s own Fix named **three** targets and `docs/README.md` had **0** references — the *"what governs what"* map omitted the operative tier entirely. **`D-71` added the `v1/` row.** Closed against all three |
 | `G26` | **Closed 2026-08-19** | `D-16` — EMS citation annotated as unretained, `A20`–`A28` named in its place |
 | `G27` | Open | `D-17` — draft `0002` location, **S0** |
 | `G28` | Open | `D-18` — the 14 manual PoC templates, **T3** |
@@ -192,6 +192,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G62` | **Closed 2026-08-21** | **Opened because the CI gates `R3` specifies did not pass** — `typecheck` exited 2 with 10 implicit-`any` errors in `lib/supabase/`, and `lint` exited 1 because `next lint` is deprecated, **interactive**, and no ESLint config exists. §5.14z. **Today: typecheck passes; lint still cannot run.** **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings**. **a closed by `D-67`** — `satisfies CookieMethodsServer` in two files, 4 lines; `tsc --noEmit` **exits 0**. The ten errors were **two overload-resolution causes**, not ten defects. **Both parts applied by `D-70`** — `eslint.config.mjs` created, `lint` repointed; **27 files, 0 findings**, and CI green on a real run |
 | `G63` | **Open — new** | An **untracked** `.gitattributes` sets `*.md text eol=lf merge=union`. **Union merge concatenates conflicting markdown instead of failing** — in a three-agent repo that silently duplicates index rows, the exact `G39` defect. Cuts against `D-58`. Found incidentally |
 | `G64` | **Specified, not applied — `D-69`** | **`G-02` cannot be computed from its own declared Data Source.** Its Data Source names **one** column *(`judgment_independence_status`, "becomes `line_boundary_crossed`")*, but its definition excludes logged overrides, which needs `not_applicable` and `override_not_four_eyes` told apart — and a boolean maps both to `false`. **Arithmetic on the declared columns, no interpretation required.** *Restated by `D-69`: as opened (§5.14ad) this also claimed an `NFR-03` inference violation — **withdrawn**, "inferred at read" is undefined across the corpus and `NFR-03`'s measured target is "100% non-null", which a boolean meets.* Two shapes specified; the choice is `Q11`'s (`D-68`). Carries `C-16`. **Resolve before the `0002` draft** (`G27`, S0). §5.14ae |
+| `G65` | **Open — new** | **The `D-54` tier sweep verifies a decision *arrived* in a tier, not that the tier is *correct*.** Presence satisfies it; staleness is invisible. Proven twice — `D-70` present 3× in the inventory and `D-57` 4× in `Modular_PRD`, both alongside rows that contradicted them, both passing. **Fix is executable code — specified, not installed.** §5.14ag |
+| `G66` | **Open — new** | **`.claude/settings.json` is checked in, shared across three agents, and covered by no `C-14` check.** The shared-core hash compares only the three agent rule files. Demonstrated live 2026-08-21: an invalid-JSON edit **silently disabled both hooks** — Claude Code ignores a settings file it cannot parse, with no error. A parse check across the settings cascade would catch it. §5.14ag |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2461,6 +2463,78 @@ The first tier sweep accepted **any** ID from a row's Item cell. Deliberately br
 ### Scope limits
 
 Installs the verification apparatus and the detection checks. **Writes no migration, changes no schema, and answers no S1 window decision.** `Q10`, `Q11`, `G64`, `G16` and the rest of the window remain open. `0001_init.sql` untouched. **The build guardrail is reinstated.**
+
+## 5.14ag `D-71` — six stale claims corrected; the check that should have caught them cannot
+
+**Correction pass, 2026-08-21.** Six claims across four documents had stopped being true. **All six survived a passing `C-14` run**, and that is the finding worth more than the six fixes.
+
+### The parent defect — `G65`: the tier sweep verifies arrival, not correctness
+
+`D-54` propagation is checked by asking whether a decision ID **appears** in each tier it claims. **Presence satisfies the check. Staleness is invisible to it.**
+
+| Decision | Tier claim | What the document actually said |
+|---|---|---|
+| `D-70` | ✅ Inventory | Present **3×** — yet the `.github/workflows/` row still read *"specified, not installed"* |
+| `D-57` | ✅ `Modular_PRD` | Present **4×** — yet §10's `Q2` row still read *"Open"* |
+
+**Both pass. Both were wrong.** `C-14` reported *4/4 consistency checks passed* with both defects live.
+
+**`G65` is opened, not fixed.** The remedy is a stricter check — verifying that a decision's *claim* about a tier matches that tier's *content* — and that is executable code, which the build guardrail covers. **Recorded so the limitation is not mistaken for coverage.**
+
+> Any future claim that propagation is *"verified"* must say which kind: **arrival** (checked today) or **correctness** (not checked).
+
+### `G66` — a shared file with no coverage at all
+
+`.claude/settings.json` is **checked in and shared across all three agents**, and **no `C-14` check covers it.** The shared-core hash compares only the three agent rule files.
+
+**Demonstrated live this pass, not hypothesised.** A hand edit left the file as invalid JSON. Claude Code **silently ignores a settings file it cannot parse**, so *both* hooks were disabled — with no error, no warning, and no check that would have noticed. The only symptom was the absence of hook output, which looks identical to a hook that simply had nothing to say.
+
+**This is the `D-58` failure mode in a file `D-58` never considered:** a silent overwrite, undetected. A JSON parse check across the settings cascade is one line and would have caught it.
+
+### The six corrections
+
+| # | Was | Now | Where |
+|---|---|---|---|
+| 1 | `.github/workflows/` CI *"specified, not installed"* | **Installed** (`D-70`), CI green | Inventory |
+| 2 | `bun.lockb` *"413 packages pinned"* | **415 packages, 346 installs** — `@types/bun` added by `D-70` | Inventory |
+| 3 | *"Planning only. No build authorized."* | **Build authorized and executed** for Stages A–C | Inventory header |
+| 4 | *"There is currently no test runner, no `__tests__/`, no CI"* ×3 | **All three exist**; corrected in place | Build spec |
+| 5 | *"Chief Editor decisions still to make — 16"* | `Q2`, `QC`, `G23`, `G24` **already decided** — removed | §5.1 |
+| 6 | `Q2` *"Open"* | **Answered by `D-57`** | `Modular_PRD` §10 |
+
+**Item 5 is the most consequential**: §5.1's opening line is what a decision-maker reads to know what they still owe, and it listed four decisions they had already made. **The tally is not restated** — the list is the record (`G55`, `G56`, `G58`). Only the four verified-decided items were removed; the remaining twelve were **not** individually re-verified in this pass, and that is stated rather than implied.
+
+### `G25` — reopened, then closed against all three targets
+
+`G25` was marked **Closed 2026-08-19**. Its own Fix named **three** targets: `CLAUDE.md`, `AGENTS.md`, **and** `docs/README.md`.
+
+| Target | References to `docs/v1/` before this pass |
+|---|---|
+| `CLAUDE.md` | 5 |
+| `AGENTS.md` | 5 |
+| `docs/README.md` | **0** |
+
+**Two of three, closed anyway** — and the missing one is the *"what governs what"* authority map, whose table listed `source/`, `governance/`, `journal/` and *"this folder"* with **no `v1/` row at all.** The exact defect `G25` describes was still live inside a gap marked closed.
+
+**Closed properly:** `docs/README.md` now carries a `v1/` row naming the register, build spec and inventory, and stating that the register wins when derived tiers conflict (`D-58`).
+
+### What this pass does not do
+
+**Fixes no code.** `G65`'s stricter check and `G66`'s settings parse check are both **specified, not installed** — the guardrail covers them. **Closes no Chief Editor decision** and re-verifies none of the twelve remaining ones.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` |
+|---|---|---|---|---|
+| `D-71` — six corrections | ✅ | ✅ 3 claims | ✅ header + 2 rows | ✅ §8, §10 |
+| `G65`, `G66` opened | ✅ §5.1 | **— unaffected** | **— unaffected** | ✅ §8 |
+| `G25` closed properly | ✅ §5.1 | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**`docs/README.md` is deliberately absent from that table.** It is the docs **entry point**, not a `D-54` tier — no `FR`, no `AC`, no sprint sequence. The `v1/` row landed there because that is where `G25`’s defect lived, and the closure is traceable through §5.1 and this section rather than through a tier claim.
+
+### Scope limits
+
+Corrects six stale claims, opens `G65` and `G66`, and closes `G25` against its full stated scope. **Installs nothing, decides nothing, and reverses no decision.** `Q11`, `Q10`, `G64` and the S1 window all remain exactly as they were.
 
 ## 5.15 Solve sequence — remaining open gaps
 

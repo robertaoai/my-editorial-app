@@ -1,7 +1,7 @@
 # V1 Artifact Inventory — What Must Exist
 
-**Date:** 2026-08-18
-**Status:** Planning only. No build authorized.
+**Date:** 2026-08-18 · **last corrected 2026-08-21** (`D-71`)
+**Status:** Planning, plus **Stages A–C built** — the build guardrail was lifted for the verification apparatus only (`D-70`) and reinstated. Feature code remains unauthorized.
 **Purpose:** Every file the v1 plan assumes will exist, its phase, and whether it exists today. Verified by direct filesystem check, not by reading the plan.
 **Companions:** `V1-DECISION-REGISTER.md` (approvals), `V1-BUILD-SPEC.md` (sequence).
 
@@ -20,8 +20,8 @@
 | `supabase/migrations/0002_*.sql` | S0 draft, S1 apply | ❌ |
 | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` | `D-56` — `R3` specification, Project Scope ⚙ | ✅ |
 | Test runner + `__tests__/` | `R3`, `NFR-04` | ✅ **installed 2026-08-21** (`D-70`) — `__tests__/smoke.test.ts`, `bun test`, `.github/workflows/ci.yml`. All six `R3` DoD conditions met |
-| `.github/workflows/` CI | `R3`, `TC6` | ❌ **specified, not installed** (`D-56`) |
-| `bun.lockb` | `G59` → `D-64` — CI reproducibility | ✅ **413 packages pinned**, `--frozen-lockfile` verified |
+| `.github/workflows/` CI | `R3`, `TC6` | ✅ **installed 2026-08-21** (`D-70`) — `ci.yml` runs install, typecheck, lint, test and `bun run check` as separate steps; **green on a real run**. *Row corrected by `D-71` — it read "not installed" for a day while `D-70` sat in three other rows of this table (`G65`).* |
+| `bun.lockb` | `G59` → `D-64` — CI reproducibility | ✅ **415 packages, 346 installs**, `--frozen-lockfile` verified in CI. *Was "413 packages" until `D-71`: `D-70` added `@types/bun` and the count was not carried through.* |
 | `docs/specs/ux/` route specification | `G10` → `D-59`, `D-34` — `/editorial` and `/request-brief` | ❌ **directory exists, empty** |
 | `eslint.config.mjs` | `G62`b → `D-66` — flat config, `next/core-web-vitals` | ✅ **created 2026-08-21** (`D-70`) — 27 files, 0 errors, 0 warnings; no dependency added |
 | Concurrent-edit detection check | `C-14`/`G11` — `D-58`, ships with `R3` | ✅ **installed 2026-08-21** (`D-70`) — `scripts/check-consistency.mjs`. **Three checks run in CI; graph coverage is local-only**, its input being a gitignored build artifact. Caught a real `G58`-class defect on its first strict run |

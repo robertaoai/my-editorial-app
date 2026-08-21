@@ -41,10 +41,11 @@ everything, unchanged.
 **Why this needs saying.** Three agents edit this repo under **one git identity with zero merge
 commits**, so a conflicting edit never appears as a merge conflict — it appears as a **silent
 overwrite**. `G32` was exactly that. Git authorship carries no information here; `graphify
-agent-stats` attributes from CLI transcripts instead. **Detection (`C-14`) is specified but not
-installed** — until it is, run the checks by hand before claiming a shared file is consistent:
-the shared-core hash across the three agent rule files, the `D-54` tier sweep, the §5.1
-duplicate-ID scan, and `docs/graph-fragments/missing.js`.
+agent-stats` attributes from CLI transcripts instead. **Detection (`C-14`) is installed** (`D-70`)
+— run `bun run check` before claiming a shared file is consistent. Three checks run in CI: the
+shared-core hash across the three agent rule files, the `D-54` tier sweep, and the §5.1
+duplicate-ID scan. Graph coverage is **local-only** — `.graphify/graph.json` is gitignored, so it
+reports SKIP in CI and must be run on a machine that has the graph.
 
 Gemini / Antigravity specifics:
 - The skill is installed at `~/.gemini/config/skills/graphify/SKILL.md`; the workflow trigger is `/graphify`
