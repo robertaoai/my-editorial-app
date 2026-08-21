@@ -13,6 +13,7 @@
 
 | Artifact | Referenced by | Exists |
 |---|---|---|
+| `docs/v1/drafts/README.md` | `D-91`, `G27`, `D-17` | ✅ **Created 2026-08-21.** The hold location for migrations that must not be applied. **The path was asserted in `D-68`'s rationale and never decided**; `D-91` records it. `0002_three_lines.sql.draft` is **not yet written** — `G64`/`Q11` gate it |
 | `docs/handoff/README.md` | `D-90`, `D-75` | ✅ **Created 2026-08-21.** The handoff location `D-75` required and never named. **Unmapped by design** — Lane B raises, Lane A answers. |
 | `docs/handoff/TEMPLATE.md` | `D-90` | ✅ **Created 2026-08-21.** Entry template. One file per item, not a shared log — a log would mix append-only content with current-value status (`G63`). |
 | `scripts/checks/handoff-response.mjs` | `D-90` | ✅ **Created 2026-08-21.** `C-14` check 10 — fails on an open entry with no Lane A disposition. Does **not** fail on acknowledged-but-open; a queue is healthy. |
@@ -23,8 +24,8 @@
 | `.claude/skills/sync-docs/SKILL.md` | `D-80` | ✅ **Created 2026-08-21.** Encodes the `D-54` propagation procedure. **Lane A only** — Claude Code loads `.claude/skills/`; Codex and Antigravity do not. |
 | `lib/config/build-config.ts` | S0 | ❌ |
 | `lib/config/flags.ts` | S0 | ❌ |
-| `docs/DECISION_LOG.md` | S0, and every provisional value's traceability | ❌ |
-| `docs/CONFIG_LOG.md` | S0, `§10` config-vs-fixed rule | ❌ |
+| `docs/DECISION_LOG.md` | S0, and every provisional value's traceability | ✅ **Created 2026-08-21** (`D-91`). The ratification ledger — **not a second register**; it cites `V1-DECISION-REGISTER.md`, never restates it. §3 is empty, and **the emptiness is the finding**: `OD1`–`OD3` have never been ratified |
+| `docs/CONFIG_LOG.md` | S0, `§10` config-vs-fixed rule | ✅ **Created 2026-08-21** (`D-91`). Every configurable value with its source citation and OD dependency. **Lane A owns the content**; Lane B implements the rows in `lib/config/build-config.ts` |
 | `supabase/migrations/0002_*.sql` | S0 draft, S1 apply | ❌ |
 | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` | `D-56` — `R3` specification, Project Scope ⚙ | ✅ |
 | Test runner + `__tests__/` | `R3`, `NFR-04` | ✅ **installed 2026-08-21** (`D-70`) — `__tests__/smoke.test.ts`, `bun test`, `.github/workflows/ci.yml`. All six `R3` DoD conditions met |
@@ -128,7 +129,7 @@ The phase with the most items, the most files, and the widest blast radius is th
 |---|---|---|---|
 | `G25` | Name `docs/v1/` in `CLAUDE.md`, `AGENTS.md`, `docs/README.md` — folds into the `A7`/`G5` edit | **T1** *(corrected from T0)* | Documentation |
 | `G26` | Retain the EMS audit under `docs/governance/`, **or** annotate both citations to record it as unretained and name what stands in its place | **T1** | Documentation |
-| `G27` | Hold draft `0002` outside `supabase/migrations/` until the S1 window decisions are settled | **S0** | Location decision |
+| `G27` | **Closed `D-91`** — the location is `docs/v1/drafts/`, and `docs/v1/drafts/README.md` now exists. The register already asserted this path in `D-68`'s rationale and never decided it | **S0** | Location decision — **made** |
 | `G28` | Add the 14 PoC templates as a T3 work item with an owner, after the charter, before the first engagement | **T3** | Documentation |
 | `G29` | Attach the artifact inventory to each sprint's DoD | **T1** | Documentation |
 | `G30` | Add the output contract to `CLAUDE.md` and `AGENTS.md`, in the same edit as `G25` | **T1** | Documentation |
@@ -144,7 +145,7 @@ The phase with the most items, the most files, and the widest blast radius is th
 | **T1** | 16 → **20** (`G25`, `G26`, `G29`, `G30`, `G31`) |
 | **T2** | unchanged — 8 |
 | **T3** | 5 + Board packet → **6 + Board packet** (`G28`) |
-| **S0** | gains `G27`'s location decision |
+| **S0** | `G27`'s location decision **made** — `docs/v1/drafts/` (`D-91`) |
 
 **T1 is now the heaviest phase and the only one without a runbook** — which is what `G31` exists to fix, and why it should be T1's first output rather than its last.
 

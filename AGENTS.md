@@ -271,8 +271,62 @@ evidence the build has fallen behind; `docs/v1/V1-BUILD-SPEC.md` records where i
 Next.js + Supabase starter. It is **not descriptive of this project** and is precisely the kind of
 source the warning at the top of this file exists to guard against. Treat it as stack notes only.
 Codex specifics:
+
+**You are Lane B. Start here.**
+
+**Your job is application code.** `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`.
+Everything above this line is the shared core, identical in all three agents' rule files; the
+part that governs *you* is `D-75` (lanes), `D-86` (Lane A provisions, you build) and `D-90`
+(how you report a problem).
+
+**Start at S0.** `docs/v1/V1-BUILD-SPEC.md` §5.1 lists what S0 must produce. **Your S0
+deliverables are exactly three:**
+
+1. `lib/config/build-config.ts` — implements every row of `docs/CONFIG_LOG.md`, with a
+   `PROVISIONAL` marker on each OD-derived value.
+2. `lib/config/flags.ts` — the flags named in `docs/CONFIG_LOG.md` §6.
+3. Remove the Stripe scaffolding — `app/api/stripe/*`, `lib/stripe/`, Stripe keys in
+   `.env.example` (`X8`, `NG-03`).
+
+**`docs/DECISION_LOG.md` and `docs/CONFIG_LOG.md` are NOT yours** — Lane A wrote them ahead of
+you (`D-91`) precisely so S0 is a single-lane sprint. Read `CONFIG_LOG.md`; do not edit it.
+
+**The `0002` draft is not yours yet.** It is blocked on `Q11` via `G64`, and its hold location
+is `docs/v1/drafts/` (`D-91`). Do not write it, and do not put anything in
+`supabase/migrations/` — that directory is the apply set.
+
+**DoD for your part of S0:** every value in `CONFIG_LOG.md` exists as a named variable with its
+citation; `grep` finds no success-scenario literal in business logic; `0001_init.sql`
+unmodified; `bun test` and CI pass; no migration applied.
+
+**Four rules that will otherwise cost you a rejected commit:**
+
+- **Never run `bun add`.** Dependencies are Lane A's (`D-86`). Need one? Raise a
+  `docs/handoff/` entry of kind `dependency` and stop. Lane A provisions it; you resume.
+- **Never edit build config** — `package.json`, `tsconfig.json`, `eslint.config.mjs`,
+  `next.config.ts`, lockfiles. Also Lane A's.
+- **Never edit `docs/` except `docs/handoff/`.** That is the one place you write prose.
+- **Run `bun run check` before committing.** `.githooks/commit-msg` blocks a commit spanning
+  two lanes unless it carries a `Lane-Crossing: <reason>` trailer (`D-88`). Activate the hook
+  once with `bun run hooks:install`.
+
+**Governance reaches you as a flag, not a document (`D-86`).** When a check fires, fix the code
+it names. You are **not** expected to read `V1-DECISION-REGISTER.md` or decide scope. If a check
+names something you cannot fix in your own lane, that is a `docs/handoff/` entry, not a
+workaround.
+
+**How to raise anything** — copy `docs/handoff/TEMPLATE.md` to `docs/handoff/B-NNN-<slug>.md`,
+kind `dependency` | `spec-defect` | `blocked-on-decision` | `finding`, then stop and wait.
+**A blocked handoff is the correct outcome, not a failure** — `D-86` accepts a blocking wait
+over a split commit. Lane A must acknowledge every open entry; `bun run check` fails on one
+left unread.
+
+**Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
+`supabase/migrations/0001_init.sql`. **Never put secrets in frontend code.**
+
+Graphify, for this agent:
 - The reliable explicit skill invocation is `$graphify ...`; do not rely on `/graphify ...`
 - `$graphify ...` is a Codex skill trigger, not a Bash subcommand like `graphify .`
 - A successful TypeScript-backed Codex build should leave `.graphify/.graphify_runtime.json` with `runtime: typescript`
 - If the user asks to build, update, query, path, or explain the graph, use the installed `graphify` skill instead of ad-hoc file traversal
-- If .graphify/needs_update exists or .graphify/branch.json has stale=true, warn before relying on semantic results and run the graphify skill with --update when appropriate
+- **Graph currency.** `.graphify/needs_update` is written only by graphify's git hook, and **no git hook is installed in this repo**, so its absence is *no signal at all* — do not read it as "synced" (`D-87`, `D-91`). The reliable check is `.graphify/branch.json`: compare `lastAnalyzedHead` against `git rev-parse HEAD` and read the `stale` flag. If they differ, run the graphify skill with `--update` before relying on semantic results.

@@ -150,7 +150,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G24` | **Closed 2026-08-19** | `D-09` — mirror boundary stated as own channels only |
 | `G25` | **Closed 2026-08-21 — reopened and closed properly** | `D-15` named `docs/v1/` operative in the two agent files, but `G25`'s own Fix named **three** targets and `docs/README.md` had **0** references — the *"what governs what"* map omitted the operative tier entirely. **`D-71` added the `v1/` row.** Closed against all three |
 | `G26` | **Closed 2026-08-19** | `D-16` — EMS citation annotated as unretained, `A20`–`A28` named in its place |
-| `G27` | Open | `D-17` — draft `0002` location, **S0** |
+| `G27` | **Closed 2026-08-21 — `D-91`** | `D-17` — draft `0002` location, **S0**. **The path was asserted and never decided.** `D-68`'s rationale (§5.14) wrote *"`G27` holds its draft outside the apply path at `docs/v1/drafts/`"* — a location referred to in prose, with **no directory, no row, and no closure**, for as long as this row read Open. `D-91` adopts that path rather than inventing a second one (`D-58`: the register wins) and creates `docs/v1/drafts/README.md`. The draft file itself stays unwritten — `G64`/`Q11` still gate it. §5.14ay |
 | `G28` | Open | `D-18` — the 14 manual PoC templates, **T3** |
 | `G29` | **Closed 2026-08-19** | `D-19` — artifact DoD attached to every sprint in `V1-BUILD-SPEC.md` §5.1. *(Third disposition-drift instance: closed on execution, left Open in the table until a later sweep caught it.)* |
 | `G39` | **Closed 2026-08-19** | Applied to `FN-GATES-01-05` — `FR-01`, `AC-01`, and §3.1 restated to separate one subject topic from many analytical tags; `AC-01a` added |
@@ -200,6 +200,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G70` | **Closed 2026-08-21 — heuristic, stated** | **Nothing verifies that a change in a governing document reached its derived tiers.** `tier-sweep` is **register-driven** — it checks that a *decision* arrived in a named tier. The inverse is unchecked: `docs/source/` and `docs/governance/` can move and no control notices. The portfolio is **living**, not frozen — `alpha-portfolio-business-continuity-implementation-plan.md`, **Tier 1 under `D-74`**, changed 2026-08-21; `requirements-traceability-map.md` 2026-08-20; `raci-involvement-matrix.md` 2026-08-19. **The structural inverse of `G68`:** that gap was *"the sweep cannot see the Tier 1 document when a decision claims it"*; this is *"the sweep never looks at the Tier 1 document at all."* **Fix:** a source-side sweep comparing each governing document's last-commit date against its derived tiers. **`scripts/` is Lane A** (`D-84`) — specified here, not built. §5.14at |
 | `G71` | **Closed 2026-08-21 — found by the control it added** | **The register contradicted itself and every check passed.** `D-60` closed `G54` in §5.14u and marked its tier table **Register ✅** — but `tier-sweep` maps `register` to `files: []`, *"true by construction"*, so the ✅ proved nothing about §5.1. Index and section sat in **one file giving two answers** for two days. `decision-status` covered only the `Q`-series; gaps had no cross-check. **Closed by `D-88`** — direction D compares every `G`-row's §5.1 status against the sections claiming to close it. **Built before the fix**: on its first run it reported `G54` and nothing else, one finding across 65 gap rows and 14 closure claims. §5.14av |
 | `G72` | **Backlog — no work until a related issue surfaces** | **Graph-schema compatibility with upstream `graphifyy` is unverified.** `merge7.js` depends on `graph.json` using `links` and the current node fields; whether upstream emits the same shape is unknown. `D-60` named it *"newly named and **not resolved**"* and `docs/graph-fragments/README.md` §6 calls it *"the real residual risk"* — but it carried **no identifier** for two days, so it reached no index and no check. **The distribution choice is settled and unchanged: `@sentropic/graphify`** (`D-51`), an attributed downstream extension of `Graphify-Labs/graphify`. **Nothing proposes a swap, so this is not a live risk.** Command availability is already known (`D-60`); **schema shape is the thing to verify first** if a swap is ever reconsidered. §5.14av, §5.14aw |
+| `G73` | **Open — residual of `D-91`, no control proposed** | **A correction to one agent's rule-file tail reaches one agent, and nothing detects the divergence.** `D-87` struck the dead `.graphify/needs_update` instruction from `CLAUDE.md`'s tail; `AGENTS.md` and `.agents/rules/graphify.md` carried it for four days. **`shared-core-hash` compares only the region between the markers** — tails are excluded **by design**, since they differ per agent and hashing them would fail on every legitimate difference. `G53` named the same shape for the shared region and was closed by hashing it; **that instrument does not transfer here.** `D-91` fixed the instance in both files. **No check is proposed** — a control that fires on every intended difference is worse than none (`D-83`'s reasoning). Recorded so the next per-agent correction is known to need manual propagation |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2343,6 +2344,14 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
+### `C-17` — `CONFIG_LOG.md` and `build-config.ts` are uncoupled
+
+**Opened by `D-91`. Phase: S0.** Lane A owns every row of `docs/CONFIG_LOG.md`; Lane B owns `lib/config/build-config.ts`. **Nothing pairs them**, so a variable can be added to one and missed in the other with all checks green — and the split ownership `D-91` introduced is exactly what makes the drift silent rather than obvious to one author.
+
+**Fix:** a `C-14` check comparing the two in **both directions** — a `CONFIG_LOG.md` row with no declaration, and a declaration with no row. The bidirectional shape is `decision-status`'s (`G65`, `G71`), and it matters for the same reason: a one-way check licenses the other direction.
+
+**Deliberately not built by `D-91`.** `build-config.ts` does not exist, so the check would pass on every run without ever reading a variable — a `probe_that_cannot_fail`. **It must land in the same pass as `build-config.ts`**, never before.
+
 ### `C-16` — condition on the `Q11` decision
 
 **`NFR-03` is already slated for rewrite** — `Q11`'s row says it *"needs its own rewrite, not a passthrough."* **That rewrite must either define *"inferred at read"* or drop the clause.**
@@ -3649,3 +3658,127 @@ Four kinds — `dependency`, `spec-defect`, `blocked-on-decision`, `finding` —
 ### Scope limits
 
 Creates a channel and a check. **Answers no feedback** — there is none yet, and the first entry is Lane B's to write. **Starts no sprint** and unblocks nothing: S1 remains gated on `Q11` via `G64`. Does not resolve the four gaps this pass surfaced (S0's mixed-lane deliverables, Lane B's missing entry point, `G27`'s unnamed draft location, the stale `AGENTS.md` tail) — those are **drafted, not applied.** Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+---
+
+## 5.14ay `D-91` — Lane B Made Startable: S0 Single-Laned, an Entry Point Written, `G27` Closed
+
+**Applies the four gaps `D-90` surfaced and left drafted.** `D-90` built the channel Lane B
+reports *through*; none of it made Lane B able to *start*. These four would each have bitten on
+its first day, and the first three are one dependency chain, not four independent fixes.
+
+### The parent: S0's deliverables mixed lanes
+
+`V1-BUILD-SPEC.md` §5.1 listed S0 as `lib/config/build-config.ts` · `lib/config/flags.ts` ·
+`docs/DECISION_LOG.md` · `docs/CONFIG_LOG.md` · draft `0002` · Stripe removal.
+
+**Two of those are `docs/`, which is Lane A.** Lane B's very first sprint therefore required a
+lane crossing — and one commit earlier, `D-88` installed a hook that blocks exactly that. **The
+gate and the sprint plan were in direct contradiction, and nothing detected it** because
+`lane-boundary` classifies commits, not plans. A sprint plan is not a commit until someone
+executes it, which is the moment the contradiction would have surfaced: at Lane B's first
+`git commit`, with the work already done.
+
+**Resolved by ownership, not by permission.** The two logs are **not shared artifacts Lane B
+happens to write** — their content is citation into the governing set and `OD` dependency,
+which is governance. Under `D-86` Lane B is explicitly *not* expected to read the register. **A
+lane cannot own a file whose content it is instructed not to understand.**
+
+So Lane A owns both logs **content included**, and provisioned them ahead of the sprint — the
+`D-86` principle extended from dependencies to governance content. Lane B implements
+`CONFIG_LOG.md`'s rows in `build-config.ts`; it does not author them. S0's row is now **split by
+lane**, with Lane A's half already ✅.
+
+**This is not `docs/handoff/`'s answer reused.** That directory is unmapped because Lane B
+raises and Lane A answers, so either attribution makes the other side a crossing. Here there is
+no such symmetry: **one lane writes, the other reads.** Ownership is the right instrument, and
+using the unmapped device again would have been pattern-matching, not reasoning.
+
+### What the logs actually say — and one thing worth stating plainly
+
+`CONFIG_LOG.md` carries every configurable value with its source and OD. `DECISION_LOG.md` is
+the **ratification ledger**, and it is deliberately **not** a second register: it cites
+`V1-DECISION-REGISTER.md` and never restates it. A `DECISION_LOG.md` that paraphrased the
+register would be `summary_outlived_source` by construction.
+
+**Its §3 ratification table is empty, and the emptiness is the finding.** `OD1`–`OD3` have
+gated this build since the Charter and **not one has been ratified.** Two values —
+`DATA_RETENTION_ARCHIVE_DAYS` (`A6`) and `SCORING_REVIEW_THRESHOLD_ARTICLES` (`A4`) — are live
+in Phase 0 with nobody's approval behind them. Both facts were true before this pass; neither
+had a surface that showed them.
+
+### `G27` closed — a location asserted, never decided
+
+`D-68`'s rationale states *"`G27` holds its draft outside the apply path at
+`docs/v1/drafts/`."* **The §5.1 row said `Open`, the inventory said "Location decision", and the
+directory did not exist.** The register had answered the question in a paragraph about something
+else and never recorded the answer as an answer.
+
+**This is `D-90`'s defect in a second instance** — `D-75` required a handoff and named no place;
+`D-17` required a hold and its place was named only in passing. Both were found the same way:
+by trying to use the thing.
+
+`D-91` adopts `docs/v1/drafts/` rather than proposing an alternative. **The register wins
+(`D-58`)**, and an unrecorded assertion in the register still outranks a derived tier's
+preference. *(An earlier draft of this pass proposed `docs/specs/drafts/` and was wrong to —
+it would have created a second location for one artifact.)* The directory now exists with a
+`README.md`; **the draft file itself stays unwritten**, since `G64`/`Q11` still gate it.
+
+The `.sql.draft` double extension is deliberate: a `.sql` file is something a runner eventually
+runs. **"Do not apply" is a note; a location and an extension are properties.**
+
+### Lane B had no entry point
+
+`AGENTS.md`'s Codex tail was **five lines, all of them about graphify.** Nothing said what Lane
+B's surface is, where to start, what its first sprint delivers, that `bun add` is forbidden, or
+that `docs/handoff/` exists. **The shared core told Lane B what it may not do; nothing told it
+what to do.**
+
+Rewritten as an entry point: the three S0 deliverables, the DoD, the four rules that would
+otherwise cost a rejected commit, and the handoff procedure. **"A blocked handoff is the correct
+outcome, not a failure"** is stated explicitly — `D-86` accepts a blocking wait over a split
+commit, and an agent that does not know that will work around the block instead.
+
+### The stale tail — `D-87`'s fix reached one file of three
+
+`D-87` struck the `.graphify/needs_update` instruction from `CLAUDE.md`'s tail: nothing writes
+that file in this repo, so its absence is no signal. **`AGENTS.md` and `.agents/rules/graphify.md`
+kept it** — the shared-core hash compares only the region between the markers, and **tails are
+excluded by design**, so a per-agent correction propagates to nobody.
+
+Both now carry the corrected `branch.json` check. **The exclusion is not a defect to fix** —
+tails differ per agent by definition, and hashing them would fail on every legitimate difference.
+**The residual stands: a correction to one tail reaches one agent, and no control detects it.**
+Recorded as `G73` rather than papered over.
+
+### What this does not do
+
+**Does not start S0.** Lane A's half of S0 exists; Lane B's does not, and Phase 2 has not opened.
+**Unblocks no migration** — `0002` remains gated on `Q11` via `G64`, and `docs/v1/drafts/` being
+ready changes only where the draft will sit, not whether it may be written. **Ratifies nothing** —
+`DECISION_LOG.md` §3 is empty and `OD1`–`OD3` are exactly as open as before. Authorizes no
+product code, schema, or deployment. `0001_init.sql` untouched.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | Inventory | Build spec | `SPECS-VERIFICATION` | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| S0 single-laned | ✅ §5.14ay | ✅ Lane B tail | ✅ both log rows | ✅ §S0 split by lane | **— unaffected** | **— unaffected** |
+| `G27` closed | ✅ §5.1 + §5.14ay | **— unaffected** | ✅ row + S0 effect | ✅ draft path named | **— unaffected** | **— unaffected** |
+| Lane B entry point | ✅ §5.14ay | ✅ `AGENTS.md` tail | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| Stale tail struck | ✅ §5.14ay | ✅ two tails | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `G73` opened | ✅ §5.1 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**`SPECS-VERIFICATION-APPARATUS.md` unaffected** — no check was added or changed by this pass.
+**`Modular_PRD` unaffected** — none of this is a product requirement; §8 does not move because no
+sprint closed and no tier opened.
+
+### Condition carried forward
+
+**`C-17` — the coupling between `CONFIG_LOG.md` and `build-config.ts` is unchecked.** Lane A
+owns the rows and Lane B owns the code, so the two can drift with every check green. The fix is
+a `C-14` check pairing each `CONFIG_LOG.md` variable against a declaration in
+`lib/config/build-config.ts` in both directions. **Not built here on purpose:**
+`build-config.ts` does not exist, so the check would pass vacuously on every run — a
+`probe_that_cannot_fail`, which is the thing this apparatus exists to prevent. **Install it in
+the same pass that lands `build-config.ts`.** Phase: **S0**.

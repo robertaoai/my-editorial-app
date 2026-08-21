@@ -140,4 +140,4 @@ Next.js + Supabase starter. It is **not descriptive of this project** and is pre
 source the warning at the top of this file exists to guard against. Treat it as stack notes only.
 Gemini / Antigravity specifics:
 - The skill is installed at `~/.gemini/config/skills/graphify/SKILL.md`; the workflow trigger is `/graphify`
-- If .graphify/needs_update exists or .graphify/branch.json has stale=true, warn before relying on semantic results and run `/graphify . --update` when appropriate
+- **Graph currency.** `.graphify/needs_update` is written only by graphify's git hook, and **no git hook is installed in this repo**, so its absence is *no signal at all* — do not read it as "synced" (`D-87`, `D-91`). The reliable check is `.graphify/branch.json`: compare `lastAnalyzedHead` against `git rev-parse HEAD` and read the `stale` flag. If they differ, run `/graphify . --update` before relying on semantic results.

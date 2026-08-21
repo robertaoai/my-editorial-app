@@ -90,6 +90,8 @@ Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` 
 
 Config registry with a `PROVISIONAL` marker on every OD-derived value · feature flags · `DECISION_LOG.md` and `CONFIG_LOG.md` · remove Stripe scaffolding (`X8`, `NG-03`) · **verification apparatus** · draft migration `0002` **without applying it**.
 
+**S0 is a single-lane sprint as of `D-91`.** Its deliverable list previously mixed Lane A files (`docs/DECISION_LOG.md`, `docs/CONFIG_LOG.md`) with Lane B files in one sprint, so Lane B would have crossed a lane boundary on its first day. **Lane A has written both logs ahead of the sprint** — the `D-86` provisioning principle applied to governance content, not just to dependencies. Lane B implements `CONFIG_LOG.md`'s rows; it does not author them.
+
 > **`D-17` — where the draft lives.** `supabase/migrations/` is the directory tooling treats as the apply set, so a draft placed there can be applied by a routine command, a CI step, or another agent following the folder's convention. Hold it outside that path — e.g. `docs/v1/drafts/` — and move it in **as the act of authorizing S1**, once **every S1 window decision** is settled (`V1-DECISION-REGISTER.md` §5.15 Stage 4 — the count is not restated here, per `D-54`).
 
 *(The `CLAUDE.md`/`AGENTS.md` amendment moved to T1 — it needs the `QE` decision and now carries four payloads. See T1.)*
@@ -157,7 +159,8 @@ Deferring this behind S0/S1 would stall commercial evidence for no technical rea
 |---|---|
 **`Q11` deferred past S1 (`D-68`), and the deferral is not neutral.** The sprint plan's S1 migration line already instructs the `line_boundary_crossed` fallback, so deferring selects the boolean shape by default. **`G64`** records why that shape is not safe, **restated by `D-69`**: `G-02`'s Data Source names **one** column, but its definition excludes logged overrides, which requires `not_applicable` and `override_not_four_eyes` to be distinguishable — and a boolean maps both to `false`. **`G-02` cannot be computed from its own declared Data Source.** *(As first opened, `G64` also claimed an `NFR-03` inference violation. **Withdrawn** — "inferred at read" is undefined across the corpus, and `NFR-03`'s measured target is "100% non-null", which a boolean meets. `C-16` carries the undefined term.)* **`G64` is specified, not applied** — two shapes are set out and the choice belongs to `Q11` (`D-68`). **`G64` must resolve before the `0002` draft is written (`G27`, S0)**, not merely before S1 applies it. `0002` remains blocked by `Q11`, but `Q10` is closed (`D-73`). *(Note: The final Q10 explanation document is pending lock-in at the Alpha Portfolio milestone).*
 
-| **S0** | `lib/config/build-config.ts` · `lib/config/flags.ts` · `docs/DECISION_LOG.md` · `docs/CONFIG_LOG.md` · draft `0002` **held outside** `supabase/migrations/` (`D-17`) · Stripe scaffolding **removed** |
+| **S0 — Lane A, provisioned ahead** | `docs/DECISION_LOG.md` · `docs/CONFIG_LOG.md` · `docs/v1/drafts/` *(the hold location, `G27` closed)* — **all three exist as of 2026-08-21 (`D-91`)** |
+| **S0 — Lane B** | `lib/config/build-config.ts` · `lib/config/flags.ts` · draft `0002` **held outside** `supabase/migrations/` (`D-17`), at `docs/v1/drafts/0002_three_lines.sql.draft` · Stripe scaffolding **removed** |
 | **T1 / S0** | Test runner · `__tests__/` with one passing test · `.github/workflows/` CI *(`R3` — **installed 2026-08-21**, `D-70`; the precondition for every DoD below is met)* |
 | **S1** | `supabase/migrations/0002_*.sql` **applied** · `publication_targets` and `publications` tables exist · `allowed_transitions` exists |
 | **S2** | Blind-first-pass reveal ordering live at T5 · `T6→T5` return events distinctly queryable |
