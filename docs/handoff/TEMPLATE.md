@@ -1,6 +1,6 @@
-# B-NNN — <one-line title>
+# B-NNN | C-NNN — <one-line title>
 
-- **Raised:** YYYY-MM-DD by Lane B
+- **Raised:** YYYY-MM-DD by Lane B | Lane C
 - **Kind:** dependency | spec-defect | blocked-on-decision | finding
 - **Blocks:** <what you cannot do until this is answered — or `nothing, reporting only`>
 - **Status:** Open
@@ -20,12 +20,17 @@ quoted. For blocked-on-decision: which decision, and what you would do under eac
 <Carried on elsewhere, stubbed it, stopped. If you stopped, say so — a blocking handoff is a
 recorded cost (`D-86`), not a failure.>
 
+**Lane C: do not work around a missing dependency inside the workflow.** Inlining what should
+be a script produces a CI job that passes while calling something no one else can run — the
+`probe_that_cannot_fail` shape, in the one place nothing downstream re-checks.
+
 ---
 
 <!--
 Kinds, and what Lane A does with each:
 
-  dependency          Lane A provisions it. Lane B never runs `bun add` (`D-86`).
+  dependency          Lane A provisions it. Lane B never runs `bun add` (`D-86`); Lane C
+                      never adds a script, config file or tool a workflow calls (`D-84`).
   spec-defect         Two governed documents disagree. Lane A arbitrates via the register
                       (`D-58`) and propagates per `D-54`.
   blocked-on-decision A Chief Editor decision is missing. Lane A surfaces it in §5.1.

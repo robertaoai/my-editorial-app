@@ -1,4 +1,11 @@
-// `C-14` check 10 — `D-90`: does Lane B's feedback get read?
+// `C-14` check 10 — `D-90`: does a build lane's feedback get read?
+//
+// EXTENDED BY `D-92` to Lane C. As written for `D-90` the filename filter was
+// `/^B-d+/`, so a `C-NNN` entry was not merely unchecked — it was INVISIBLE.
+// The check would have reported "no entries" while Lane C's blocker sat in the
+// directory, which is the exact failure this check exists to prevent, aimed at
+// the one lane it did not cover. A control scoped to one lane is a control that
+// cannot fail for the others.
 //
 // `D-75` required a handoff at every lane boundary and named no location for
 // it. `docs/handoff/` is that location. This check closes the loop: without
@@ -13,7 +20,7 @@
 //
 // WHAT IT DELIBERATELY DOES NOT FAIL ON:
 //   * an open entry that HAS been acknowledged. A queue is healthy. Failing on
-//     one would make `bun run check` red whenever Lane B has a pending request,
+//     one would make `bun run check` red whenever a lane has a pending request,
 //     and a check that is red in the normal case is a check people stop
 //     reading — the reasoning `D-83` used to make `lane-boundary` report a
 //     crossing rather than forbid one.
@@ -23,6 +30,8 @@
 //     correct, or whether a `Withdrawn` was justified — the same
 //     arrival-not-correctness limit `G65` records for the tier sweep.
 //   * Reading the entries is still a person's job.
+//   * It cannot make a lane write an entry. A blocker never recorded is
+//     invisible to it.
 //
 // Tracked files only, so it runs in CI.
 
@@ -48,7 +57,9 @@ export function run() {
     };
   }
 
-  const entries = readdirSync(DIR).filter((f) => /^B-\d+.*\.md$/.test(f));
+  // `B-` is Lane B (`D-90`), `C-` is Lane C (`D-92`). Lane A does not raise
+  // entries here — it answers them; a Lane A concern goes in the register.
+  const entries = readdirSync(DIR).filter((f) => /^[BC]-\d+.*\.md$/.test(f));
   const findings = [];
   let open = 0;
   let answered = 0;

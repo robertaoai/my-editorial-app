@@ -45,14 +45,16 @@ currently substitutes for it** — `graphify agent-stats` reports **0 facts**, b
 filter demands a directory prefixed `<repoSlug>-` while Claude Code names the directory exactly
 `<repoSlug>`, so every transcript is skipped (`D-87`). Treat agent attribution as **unavailable**,
 not merely unread. **Detection (`C-14`) is installed** (`D-70`)
-— run `bun run check` before claiming a shared file is consistent. It runs **nine** checks, of
-which **six reach CI**: the shared-core hash across the three agent rule files, the `D-54` tier
-sweep, the §5.1 duplicate-ID scan, the settings-cascade parse, the decision-status
-cross-reference, and the `D-75` lane-boundary check (`D-83`). **Three cannot run in CI** —
-`graph-coverage` and `docs-drift` read gitignored `.graphify/`, and `source-sweep` (`G70`) needs
-per-file history that a depth-1 checkout does not have. All three report SKIP and must be run on a
-machine with the graph and full history. **A local `9/9` and a CI `6/6` are both correct**; neither
-is the other's failure.
+— run `bun run check` before claiming a shared file is consistent. **The runner prints the
+total; this file does not restate it** (`G75`, `D-92`) — a tally here is the drift mechanism
+`G55`, `G56` and `G58` name, and it drifted twice before being removed.
+
+**Three checks cannot run in CI, and the rule is what they read, not their number:**
+`graph-coverage` and `docs-drift` read gitignored `.graphify/`, so a fresh checkout has no input;
+`source-sweep` (`G70`) needs per-file history that a depth-1 checkout does not have. All three
+report SKIP and must be run on a machine with the graph and full history. **Everything else runs
+in both places.** A local total and a lower CI total are therefore **both correct** — they differ
+by exactly those three, and neither is the other's failure.
 
 
 **Build lanes (`D-75`, binding).** Three agents work this repo **sequentially, one at a time**, in a
@@ -87,8 +89,8 @@ four-eyes rule the governing set imposes at Line boundaries. **Deployment belong
 GitHub; no agent deploys, and `main` lagging the working branch is expected until Phase 3 — not a
 defect to report.**
 
-**Lane B reports through `docs/handoff/` (`D-90`).** `D-75` required a handoff at every lane
-boundary and named no place for it. That place is `docs/handoff/`: copy `TEMPLATE.md` to
+**Lane B and Lane C report through `docs/handoff/` (`D-90`, widened by `G74`/`D-92`).** `D-75`
+required a handoff at every lane boundary and named no place for it. That place is `docs/handoff/`: copy `TEMPLATE.md` to
 `B-NNN-<slug>.md`, one file per item, kind `dependency` | `spec-defect` |
 `blocked-on-decision` | `finding`. **The directory is unmapped on purpose** — Lane B raises
 entries and Lane A answers them, so attributing it to either side would make the other a
@@ -103,15 +105,15 @@ Lane-Crossing: <reason>
 ```
 
 It **does not forbid** crossings — most recorded ones were legitimate — and `--no-verify` bypasses
-it, after which `lane-boundary` reports the crossing anyway. Activate the hook once with
+it, after which `lane-boundary` (`D-83`) reports the crossing anyway — it **reports** a crossing
+rather than forbidding one, because most recorded crossings were legitimate. Activate the hook once with
 `bun run hooks:install`; `bun install` does it too.
 
 **What is gated, and what is not — `D-82`, closed by `D-89`.** `main` requires a pull request and a passing status
 check, so **CI now runs before a merge, not after it**. **The working branch is ungated** — every
 commit lands directly with nothing but the local hook, and `--no-verify` bypasses that. The merge
-gate also runs only **six of the nine** checks; `graph-coverage`, `docs-drift` and `source-sweep`
-skip in CI, so a merge can pass while the graph is stale. **Local `bun run check` is the only place
-all nine run.** Treat the lane rule as a duty, not a guardrail — if you notice you have crossed,
+gate **skips `graph-coverage`, `docs-drift` and `source-sweep`**, so a merge can pass while the
+graph is stale. **Local `bun run check` is the only place every check runs.** Treat the lane rule as a duty, not a guardrail — if you notice you have crossed,
 say so and withdraw rather than continuing.
 
 **This is the development lane model — NOT the product's Three Lines** (`OD1`–`OD3`,
@@ -139,5 +141,49 @@ evidence the build has fallen behind; `docs/v1/V1-BUILD-SPEC.md` records where i
 Next.js + Supabase starter. It is **not descriptive of this project** and is precisely the kind of
 source the warning at the top of this file exists to guard against. Treat it as stack notes only.
 Gemini / Antigravity specifics:
+
+**You are Lane C. Your work order is `.github/WORKFLOWS-SPEC.md`. Read it before editing a
+workflow.**
+
+**You own `.github/workflows/` and nothing else.** Not `scripts/`, not `package.json`, not
+`.gitattributes` — `D-75`'s original map placed some of those here and **`D-84` corrected it.**
+Everything above this line is the shared core, identical in all three agents' rule files.
+
+**Phase 3 — last.** Lane A (orchestration) runs first, Lane B (application code) second. If
+Lane B's sprint has not closed, **your phase has not opened**; check `docs/v1/V1-BUILD-SPEC.md`
+rather than inferring from the state of `app/`.
+
+**Two items are queued for you**, both specified in `.github/WORKFLOWS-SPEC.md` §4:
+`fetch-depth: 0` so `source-sweep` runs in CI, and renaming the CI job to ASCII so the required
+status check cannot silently fail to match. **The second cannot be completed by you alone** —
+it needs a branch-protection change that is a repository-settings act, and doing half of it
+blocks every pull request. Raise it, do not push it.
+
+**Four rules that will otherwise cost you a rejected commit or a false green:**
+
+- **Never add what a workflow calls.** Scripts, config files, tools and lockfile flags are
+  Lane A's (`D-84`). Need one? Raise a `docs/handoff/C-NNN-<slug>.md` entry of kind
+  `dependency` and stop. **Do not inline it in the workflow** — that produces a job which
+  passes while calling something nobody else can run.
+- **Never fix a SKIP by making a check pass vacuously.** `graph-coverage`, `docs-drift` and
+  `source-sweep` skip in CI because of what they read, not because they are broken. **A CI
+  total below the local total is correct.** A check that cannot fail is worse than no check.
+- **`bun run build` is not a verification gate.** `TC6` disables the type and lint gates at
+  build, so typecheck and lint stay **separate steps**.
+- **Never assert how many checks there are.** `D-92` removed those tallies from four documents
+  after they drifted; `bun run check` prints the total.
+
+**Deployment is GitHub's, not yours.** Vercel deploys from `main` on push; **no agent deploys**,
+and `main` lagging the working branch is expected until Phase 3 — not a defect to report.
+
+**A real run, or it is not done.** A valid-looking YAML file is not evidence. `R3` required both
+a green run *and* a deliberately broken type turning CI red — **the second is the test of the
+tester.**
+
+**Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
+`supabase/migrations/0001_init.sql`. **Never put a secret in a workflow file** — use repository
+secrets, and never echo one into a log.
+
+Graphify, for this agent:
 - The skill is installed at `~/.gemini/config/skills/graphify/SKILL.md`; the workflow trigger is `/graphify`
 - **Graph currency.** `.graphify/needs_update` is written only by graphify's git hook, and **no git hook is installed in this repo**, so its absence is *no signal at all* — do not read it as "synced" (`D-87`, `D-91`). The reliable check is `.graphify/branch.json`: compare `lastAnalyzedHead` against `git rev-parse HEAD` and read the `stale` flag. If they differ, run `/graphify . --update` before relying on semantic results.

@@ -177,14 +177,16 @@ currently substitutes for it** — `graphify agent-stats` reports **0 facts**, b
 filter demands a directory prefixed `<repoSlug>-` while Claude Code names the directory exactly
 `<repoSlug>`, so every transcript is skipped (`D-87`). Treat agent attribution as **unavailable**,
 not merely unread. **Detection (`C-14`) is installed** (`D-70`)
-— run `bun run check` before claiming a shared file is consistent. It runs **nine** checks, of
-which **six reach CI**: the shared-core hash across the three agent rule files, the `D-54` tier
-sweep, the §5.1 duplicate-ID scan, the settings-cascade parse, the decision-status
-cross-reference, and the `D-75` lane-boundary check (`D-83`). **Three cannot run in CI** —
-`graph-coverage` and `docs-drift` read gitignored `.graphify/`, and `source-sweep` (`G70`) needs
-per-file history that a depth-1 checkout does not have. All three report SKIP and must be run on a
-machine with the graph and full history. **A local `9/9` and a CI `6/6` are both correct**; neither
-is the other's failure.
+— run `bun run check` before claiming a shared file is consistent. **The runner prints the
+total; this file does not restate it** (`G75`, `D-92`) — a tally here is the drift mechanism
+`G55`, `G56` and `G58` name, and it drifted twice before being removed.
+
+**Three checks cannot run in CI, and the rule is what they read, not their number:**
+`graph-coverage` and `docs-drift` read gitignored `.graphify/`, so a fresh checkout has no input;
+`source-sweep` (`G70`) needs per-file history that a depth-1 checkout does not have. All three
+report SKIP and must be run on a machine with the graph and full history. **Everything else runs
+in both places.** A local total and a lower CI total are therefore **both correct** — they differ
+by exactly those three, and neither is the other's failure.
 
 
 **Build lanes (`D-75`, binding).** Three agents work this repo **sequentially, one at a time**, in a
@@ -219,8 +221,8 @@ four-eyes rule the governing set imposes at Line boundaries. **Deployment belong
 GitHub; no agent deploys, and `main` lagging the working branch is expected until Phase 3 — not a
 defect to report.**
 
-**Lane B reports through `docs/handoff/` (`D-90`).** `D-75` required a handoff at every lane
-boundary and named no place for it. That place is `docs/handoff/`: copy `TEMPLATE.md` to
+**Lane B and Lane C report through `docs/handoff/` (`D-90`, widened by `G74`/`D-92`).** `D-75`
+required a handoff at every lane boundary and named no place for it. That place is `docs/handoff/`: copy `TEMPLATE.md` to
 `B-NNN-<slug>.md`, one file per item, kind `dependency` | `spec-defect` |
 `blocked-on-decision` | `finding`. **The directory is unmapped on purpose** — Lane B raises
 entries and Lane A answers them, so attributing it to either side would make the other a
@@ -235,15 +237,15 @@ Lane-Crossing: <reason>
 ```
 
 It **does not forbid** crossings — most recorded ones were legitimate — and `--no-verify` bypasses
-it, after which `lane-boundary` reports the crossing anyway. Activate the hook once with
+it, after which `lane-boundary` (`D-83`) reports the crossing anyway — it **reports** a crossing
+rather than forbidding one, because most recorded crossings were legitimate. Activate the hook once with
 `bun run hooks:install`; `bun install` does it too.
 
 **What is gated, and what is not — `D-82`, closed by `D-89`.** `main` requires a pull request and a passing status
 check, so **CI now runs before a merge, not after it**. **The working branch is ungated** — every
 commit lands directly with nothing but the local hook, and `--no-verify` bypasses that. The merge
-gate also runs only **six of the nine** checks; `graph-coverage`, `docs-drift` and `source-sweep`
-skip in CI, so a merge can pass while the graph is stale. **Local `bun run check` is the only place
-all nine run.** Treat the lane rule as a duty, not a guardrail — if you notice you have crossed,
+gate **skips `graph-coverage`, `docs-drift` and `source-sweep`**, so a merge can pass while the
+graph is stale. **Local `bun run check` is the only place every check runs.** Treat the lane rule as a duty, not a guardrail — if you notice you have crossed,
 say so and withdraw rather than continuing.
 
 **This is the development lane model — NOT the product's Three Lines** (`OD1`–`OD3`,

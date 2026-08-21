@@ -1,4 +1,4 @@
-# Handoff — how Lane B talks back
+# Handoff — how a build lane talks back
 
 `D-75` requires a handoff at every lane boundary — *"record what is done, what is
 specified-not-applied, and what is open, then stop"* — and named **no location for it**.
@@ -6,30 +6,41 @@ This directory is that location (`D-90`).
 
 ## Why it exists
 
-Lane B's surface is `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`. **Nothing in
-`docs/`.** Before this directory existed, Lane B could not report a spec defect or request a
-dependency without editing `docs/`, which is an A+B crossing that `.githooks/commit-msg` now
-blocks. **Lane B could not speak without crossing.**
+**Neither build lane owns anything in `docs/`.** Lane B's surface is `app/`, `lib/`,
+`components/`, `supabase/`, `__tests__/`; Lane C's is `.github/workflows/` **and nothing else**.
+Without this directory neither could report a spec defect or request a dependency without
+editing `docs/` — a crossing that `.githooks/commit-msg` now blocks. **Neither lane could speak
+without crossing.**
+
+**Opened for Lane B by `D-90`, extended to Lane C by `D-92`.** The extension was not a widening
+of scope: as first written the check's filename filter matched `B-` only, so a `C-NNN` entry was
+**invisible** — the check would report *"no entries"* with Lane C's blocker sitting in the
+directory. **A control scoped to one lane cannot fail for the others.**
 
 ## Ownership — deliberately none
 
-`docs/handoff/` is **unmapped**: it belongs to no lane. Lane B writes entries; Lane A writes
-responses; neither is a crossing.
+`docs/handoff/` is **unmapped**: it belongs to no lane. Lane B and Lane C write entries; Lane A
+writes responses; neither is a crossing.
 
-That is not an oversight. Assigning it to Lane B would mean **Lane A's reply — which normally
-lands with the doc update it triggers — became a crossing on every use.** The channel would
+That is not an oversight. Assigning it to a build lane would mean **Lane A's reply — which
+normally lands with the doc update it triggers — became a crossing on every use**, and with two
+raising lanes it could not be assigned to one of them anyway. The channel would
 fight the gate on its own intended purpose. `G63` and `D-85` both settled the same principle:
 **a genuinely joint surface should not be attributed to one owner.** `lane-boundary` reports
 unmapped paths in its detail line, so nothing here is invisible.
 
-## Raising an entry — Lane B
+## Raising an entry — Lane B and Lane C
 
-Copy `TEMPLATE.md` to `B-NNN-<short-slug>.md`, using the next free number. **One file per
+Copy `TEMPLATE.md` to `B-NNN-<short-slug>.md` (Lane B) or `C-NNN-<short-slug>.md` (Lane C),
+using the next free number **in your own series** — the two series are independent. **One file per
 item** — not a shared log. A single append-only log would mix append-only entries with
 current-value status fields, which is exactly the mixed-file trap `G63` recorded.
 
 **Then stop and continue with other work if you can.** A blocked entry is a request, not a
-negotiation. `D-86`: Lane A provisions, Lane B builds.
+negotiation. `D-86`: Lane A provisions, Lane B builds. `D-84` says the same of Lane C — **Lane A
+writes every dependency before Lane C builds a workflow against it**, so a workflow that needs a
+script, a config file or a permission Lane A has not written is a `dependency` entry, never an
+improvisation inside the workflow.
 
 ## Answering — Lane A
 

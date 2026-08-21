@@ -13,10 +13,11 @@
 
 | Artifact | Referenced by | Exists |
 |---|---|---|
+| `.github/WORKFLOWS-SPEC.md` | `D-92`, `D-84` | ✅ **Created 2026-08-21.** Lane C's work order — the surface it owns, what Lane A guarantees CI can call, the SKIP contract, and two queued items. **`.github/` minus workflows is Lane A's**, so the spec sits one directory above what it governs |
 | `docs/v1/drafts/README.md` | `D-91`, `G27`, `D-17` | ✅ **Created 2026-08-21.** The hold location for migrations that must not be applied. **The path was asserted in `D-68`'s rationale and never decided**; `D-91` records it. `0002_three_lines.sql.draft` is **not yet written** — `G64`/`Q11` gate it |
 | `docs/handoff/README.md` | `D-90`, `D-75` | ✅ **Created 2026-08-21.** The handoff location `D-75` required and never named. **Unmapped by design** — Lane B raises, Lane A answers. |
 | `docs/handoff/TEMPLATE.md` | `D-90` | ✅ **Created 2026-08-21.** Entry template. One file per item, not a shared log — a log would mix append-only content with current-value status (`G63`). |
-| `scripts/checks/handoff-response.mjs` | `D-90` | ✅ **Created 2026-08-21.** `C-14` check 10 — fails on an open entry with no Lane A disposition. Does **not** fail on acknowledged-but-open; a queue is healthy. |
+| `scripts/checks/handoff-response.mjs` | `D-90`, `G74` | ✅ **Created 2026-08-21.** `C-14` check 10 — fails on an open entry with no Lane A disposition. Does **not** fail on acknowledged-but-open; a queue is healthy. |
 | `.githooks/commit-msg` | `D-88`, `D-82` | ✅ **Created 2026-08-21.** Lane-crossing gate. **Tracked, not in `.git/hooks/`** — an uncommitted hook protects nobody. Activate with `bun run hooks:install`. |
 | `scripts/lane-gate.mjs` | `D-88` | ✅ **Created 2026-08-21.** The gate behind the hook. Imports `classify` from `lane-boundary.mjs` so gate and check cannot disagree. Requires a `Lane-Crossing:` trailer; does not forbid. |
 | `scripts/checks/source-sweep.mjs` | `D-87`, `G70` | ✅ **Created 2026-08-21.** `C-14` check 9 — the inverse of the tier sweep: did a governing document reach its derived tiers. Skips on a shallow clone. |

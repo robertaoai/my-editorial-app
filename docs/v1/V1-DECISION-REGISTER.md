@@ -201,6 +201,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G71` | **Closed 2026-08-21 — found by the control it added** | **The register contradicted itself and every check passed.** `D-60` closed `G54` in §5.14u and marked its tier table **Register ✅** — but `tier-sweep` maps `register` to `files: []`, *"true by construction"*, so the ✅ proved nothing about §5.1. Index and section sat in **one file giving two answers** for two days. `decision-status` covered only the `Q`-series; gaps had no cross-check. **Closed by `D-88`** — direction D compares every `G`-row's §5.1 status against the sections claiming to close it. **Built before the fix**: on its first run it reported `G54` and nothing else, one finding across 65 gap rows and 14 closure claims. §5.14av |
 | `G72` | **Backlog — no work until a related issue surfaces** | **Graph-schema compatibility with upstream `graphifyy` is unverified.** `merge7.js` depends on `graph.json` using `links` and the current node fields; whether upstream emits the same shape is unknown. `D-60` named it *"newly named and **not resolved**"* and `docs/graph-fragments/README.md` §6 calls it *"the real residual risk"* — but it carried **no identifier** for two days, so it reached no index and no check. **The distribution choice is settled and unchanged: `@sentropic/graphify`** (`D-51`), an attributed downstream extension of `Graphify-Labs/graphify`. **Nothing proposes a swap, so this is not a live risk.** Command availability is already known (`D-60`); **schema shape is the thing to verify first** if a swap is ever reconsidered. §5.14av, §5.14aw |
 | `G73` | **Open — residual of `D-91`, no control proposed** | **A correction to one agent's rule-file tail reaches one agent, and nothing detects the divergence.** `D-87` struck the dead `.graphify/needs_update` instruction from `CLAUDE.md`'s tail; `AGENTS.md` and `.agents/rules/graphify.md` carried it for four days. **`shared-core-hash` compares only the region between the markers** — tails are excluded **by design**, since they differ per agent and hashing them would fail on every legitimate difference. `G53` named the same shape for the shared region and was closed by hashing it; **that instrument does not transfer here.** `D-91` fixed the instance in both files. **No check is proposed** — a control that fires on every intended difference is worse than none (`D-83`'s reasoning). Recorded so the next per-agent correction is known to need manual propagation |
+| `G74` | **Closed 2026-08-21 — found by using the control from a new direction** | **`C-14` check 10 was scoped to one lane.** `handoff-response` filtered entry filenames on `B-` alone, so a `C-NNN` entry was **invisible** — the check would report *"channel installed, no entries yet"* with Lane C's blocker sitting in the directory. **The exact failure the check exists to prevent, aimed at the one lane it did not cover.** `D-90` reasoned about *acknowledged versus answered* and not at all about *whose entries count*. Filter widened to `[BC]-`; **negative-tested both directions.** Lane A raises nothing here, so `A-` is deliberately excluded. §5.14az |
+| `G75` | **Closed 2026-08-21 — the rule was three paragraphs above the violation** | **Four documents asserted the number of `C-14` checks as a literal, and all four were wrong.** `V1-BUILD-SPEC.md` was wrong **twice in one sentence** — *"Extended to nine"* beside *"a local `8/8`"*. `G55`, `G56` and `G58` all record the same mechanism, **propagate the fact never the tally**, and `CLAUDE.md`/`AGENTS.md`/`.agents/rules/graphify.md` state that rule and then carry a tally. **Not fixed by correcting the number** — a corrected number drifts at the next check. Tallies removed and replaced with the rule that determines CI coverage: **what a check reads.** Prerequisite for Lane C's `fetch-depth: 0`, which changes the CI total. §5.14az |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2344,6 +2346,14 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
+### `C-18` — the CI job rename needs a paired act no lane owns
+
+**Opened by `D-92`. Phase: Lane C, Phase 3.** The CI job is named `Typecheck · Lint · Test` with **U+00B7 MIDDLE DOT** separators, and GitHub matches a required status check by that exact string — so if the protection rule was typed by hand with any other character, **protection is configured and never gates**, the `D-81` fail-open pattern.
+
+**The rename and the branch-protection rule must change together.** Rename first and the required check never reports, so **every pull request blocks indefinitely** — failing *closed*, which is the safe direction, and still a stoppage.
+
+**The protection rule is a repository-settings act, and no lane owns it.** `D-89` set the current one by hand. **Lane C raises a `blocked-on-decision` handoff entry naming both exact strings and waits for confirmation before pushing the rename.** Specified, not applied (`D-56`).
+
 ### `C-17` — `CONFIG_LOG.md` and `build-config.ts` are uncoupled
 
 **Opened by `D-91`. Phase: S0.** Lane A owns every row of `docs/CONFIG_LOG.md`; Lane B owns `lib/config/build-config.ts`. **Nothing pairs them**, so a variable can be added to one and missed in the other with all checks green — and the split ownership `D-91` introduced is exactly what makes the drift silent rather than obvious to one author.
@@ -3782,3 +3792,113 @@ a `C-14` check pairing each `CONFIG_LOG.md` variable against a declaration in
 `build-config.ts` does not exist, so the check would pass vacuously on every run — a
 `probe_that_cannot_fail`, which is the thing this apparatus exists to prevent. **Install it in
 the same pass that lands `build-config.ts`.** Phase: **S0**.
+
+---
+
+## 5.14az `D-92` — Lane C's Environment: the Channel Widened, the Tallies Removed, a Work Order Written
+
+**The Lane C counterpart of `D-90` + `D-91`, and it did not consist of copying them.** Two of
+the four items are defects in controls installed by those very decisions — found only because
+preparing a second lane exercised them from a direction the first never did.
+
+### The parent: the channel could not hear Lane C
+
+`docs/handoff/` was built for Lane B. Its check filtered filenames on `B-` alone, so **a
+`C-NNN` entry was not merely unchecked — it was invisible.** `handoff-response` would have
+reported *"channel installed, no entries yet"* with Lane C's blocker sitting in the directory.
+
+**That is the precise failure the check exists to prevent, aimed at the one lane it did not
+cover.** `D-90` reasoned carefully about *acknowledged-versus-answered* and not at all about
+*whose entries count* — a control scoped to one lane **cannot fail for the others**, and a
+control that cannot fail is the shape this apparatus exists to catch.
+
+Filter widened to `[BC]-`, `README.md` and `TEMPLATE.md` generalised to both lanes. **Negative
+tested both directions:** an open unacknowledged `C-001` raised `FAIL`; the same entry
+acknowledged passed. Probe removed.
+
+**Lane A raises nothing here.** It answers. A Lane A concern belongs in the register, so the
+filter covers `B-` and `C-` and deliberately not `A-`.
+
+### The tallies had to go before Lane C could be told anything true
+
+**`bun run check` runs a number of checks, and four documents asserted that number as a
+literal.** All four were wrong. The build spec was wrong **twice in one sentence**: *"Extended
+to nine"* followed by *"a local `8/8`"*.
+
+`G55`, `G56` and `G58` all record the same mechanism — **propagate the fact, never the tally** —
+and the two rule files that state that rule **carried a tally three paragraphs later.**
+
+**The fix is not a corrected number.** A corrected number drifts again at the next check.
+Removed from the shared core, the build spec and `SPECS-VERIFICATION-APPARATUS.md`, and replaced
+with **the rule that determines CI coverage: what a check reads.** `graph-coverage` and
+`docs-drift` need gitignored `.graphify/`; `source-sweep` needs full history. Those three SKIP;
+everything else runs. **A CI total below the local total differs by exactly those three.**
+
+**This was a hard prerequisite, not tidying.** Lane C's first queued item — `fetch-depth: 0` —
+**changes how many checks run in CI.** Landing it first would have made four documents wrong,
+including both rule files every agent reads first.
+
+### Lane C had no work order and no entry point
+
+The two items queued for Lane C since `D-87` and `D-89` existed **only as prose inside register
+sections about other things** — the same defect `G27` carried, now on the execution side.
+Under `D-86`'s principle a build lane is not expected to read the register; **Lane C therefore
+had no way to learn what it owed.**
+
+`.github/WORKFLOWS-SPEC.md` is that work order. **`.github/` minus workflows is Lane A's**
+(`D-84`), so the spec sits one directory above the surface it governs: single-lane for its
+author, unmissable for its reader.
+
+`.agents/rules/graphify.md`'s tail was three lines, all graphify — **exactly what `AGENTS.md`
+was before `D-91`.** Rewritten as an entry point: the surface, the phase, the two queued items,
+four rules, and the handoff procedure.
+
+### `C-Q2` cannot be finished by any agent — `C-18`
+
+The CI job is named `Typecheck · Lint · Test` with **U+00B7 MIDDLE DOT** separators, and GitHub
+matches a required check by that exact string. Renaming it to ASCII removes a guard that
+**fails open** if the protection rule was ever typed by hand.
+
+**But the rename and the protection rule must change together.** Rename first and the required
+check never reports, so **every pull request blocks indefinitely.** That fails *closed*, which
+is the safe direction — and is still a stoppage.
+
+**The protection rule is a repository-settings act. No lane owns it**; `D-89` set the current
+one by hand. Recorded as `C-18`: Lane C raises a `blocked-on-decision` entry naming both exact
+strings and waits for confirmation. **Specified, not applied** (`D-56`).
+
+### What this does not do
+
+**Does not open Phase 3.** Lane C runs last; Lane B has not started, let alone closed.
+**Applies neither queued item** — both are Lane C's to apply, and this pass writing them would
+be the crossing it exists to prevent. **Changes no workflow file**; `ci.yml` is untouched.
+**Answers no handoff entry** — there are still none. Authorizes no code, schema, migration, or
+deployment. `0001_init.sql` untouched; `0002` unwritten; S1 still gated on `Q11` via `G64`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | `SPECS-VERIFICATION` | Inventory | Build spec | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Channel widened to Lane C (`G74`) | ✅ §5.14az | ✅ core unchanged, Lane C tail | **— unaffected** | ✅ `WORKFLOWS-SPEC` row | **— unaffected** | **— unaffected** |
+| Tallies removed (`G75`) | ✅ §5.14az | ✅ all three, core rehashed | ✅ §4 row | **— unaffected** | ✅ §3 line | **— unaffected** |
+| Lane C work order | ✅ §5.14az | ✅ Lane C tail points at it | **— unaffected** | ✅ new file | **— unaffected** | **— unaffected** |
+| `C-18` opened | ✅ §5.14az + conditions | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**`Modular_PRD` unaffected** — CI and lane channels are development apparatus, not product
+requirements; §8 does not move because no sprint closed and no tier opened. **Build spec
+unaffected by the channel widening** — no scope, sequence or DoD moves.
+
+**Shared-core hash changes to `daefb779944a`** — the tally removal edits the hashed region, so
+all three rule files were rewritten together. A one-file edit would have failed check 1, which
+is the control working.
+
+### An unadvertised cost of deleting a tally — worth knowing before the next one
+
+**Decision anchors travelled inside the sentences that carried the counts.** Removing the
+tallies silently removed `D-83` from all three rule files and `D-72` from
+`SPECS-VERIFICATION-APPARATUS.md` — **two tier claims that had been true for days regressed as a
+side effect of a correctness fix.**
+
+`tier-sweep` caught both, one run apart, and both were fixed by **restoring the reference, never
+by dropping the claim.** Recorded because the same thing will happen to anyone deleting prose
+from a governed document: **check what the sentence was anchoring before deleting it.**
