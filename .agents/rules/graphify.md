@@ -65,12 +65,17 @@ fixed phase order. Each lane owns a surface; **work outside your lane is *specif
 `bun run check`; Lane A writes what it calls. `D-75`'s original map put `scripts/` and
 `.gitattributes` in Lane C — **corrected**, and two commits it cited as crossings were not.
 
-**Build config is Lane A, and Lane B must split for it (`D-85`).** `package.json`, `tsconfig.json`,
-`eslint.config.mjs`, `next.config.ts` and lockfiles belong to Lane A even though `dependencies` is
-Lane B's in substance. **So `bun add` goes in its own commit, before the commit that uses it** —
-otherwise `lane-boundary` reports an A+B crossing, correctly. This friction was **measured and
-accepted**, not overlooked: a dependency entering the tree is an orchestration act. A finding here
-is expected traffic, not a violation.
+**Lane A provisions ahead; Lane B responds to flags (`D-86`).** Lane A installs the toolchain and
+**every dependency before Lane B needs it** — bun and its 413 pinned packages were provisioned this
+way (`D-64`). `package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts` and lockfiles
+are Lane A's, so **Lane B does not run `bun add` at all**; it requests, Lane A provisions, Lane B
+builds. **Governance reaches Lane B as a flag, not as a document** — when a check fires, fix the
+code it names; you are not expected to read the register or decide scope.
+
+**The cost is a blocking handoff, not a split commit (`D-86` correcting `D-85`).** If Lane B needs a
+dependency mid-work it stops and waits. That lands on throughput, not on `git bisect`. `D-85`
+originally said Lane B should split its commits — **that assumed Lane B edits build config, which
+under this principle it never does.**
 
 **Crossing a lane boundary requires a handoff, not a commit** — record what is done, what is
 specified-not-applied, and what is open, then stop. This is the development analogue of the

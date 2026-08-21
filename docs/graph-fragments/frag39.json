@@ -1,0 +1,75 @@
+{
+  "_comment": "Fragment 39 — D-86, Lane A provisions ahead; D-85's cost corrected; G70 opened. Merged 2026-08-21.",
+  "nodes": [
+    {
+      "id": "d86_lane_a_provisions_ahead",
+      "label": "D-86 — Lane A Provisions Ahead, Lane B Responds to Flags",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14at D-86",
+      "description": "Lane A installs the toolchain and every dependency before Lane B needs it, so Lane B does not run bun add at all: it requests, Lane A provisions, Lane B builds. Governance reaches Lane B as a flag rather than as a document, so when a check fires Lane B fixes the code the flag names and is not expected to read the register or decide scope.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Not new behaviour. D-64 closed G59 by installing bun 1.1.30 and committing a lockfile with 413 pinned packages, and Lane A also wrote the ESLint config, the CI workflow, all eight C-14 checks and the test directory. Provisioning-ahead was the observed practice; only the principle was missing, and its absence let D-85 reason about a world this repository does not operate in."
+    },
+    {
+      "id": "d85_cost_corrected",
+      "label": "The Cost Is a Blocking Handoff, Not a Split Commit",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14at",
+      "description": "D-85 accepted friction on the premise that Lane B must split its commits, separating a dependency change from the code using it. That premise assumes Lane B edits build config, which under D-86 it never does. The real cost is that Lane B stops and waits when it discovers a dependency mid-work, which lands on throughput rather than on bisect or review quality.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "D-85's disposition is unchanged and strengthened: keeping build config in Lane A is coherent precisely because Lane A provisions it in advance. Only the stated cost was wrong, and correcting it before S1 is cheaper than discovering it during S1."
+    },
+    {
+      "id": "lane_a_intake_loop",
+      "label": "Lane A's Intake Loop Has Two Halves, Neither Mechanized",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14at",
+      "description": "Lane A's retrospective and regression cycle is driven by new governance arriving from the libraries in use, and by updates in the portfolio of governing documents. Nothing watches upstream libraries, which is G54, already open and deferred on a Python toolchain. Nothing verifies portfolio propagation, which is G70.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Named rather than duplicated: the library half already had a gap, so pointing at G54 avoids a second identifier for the same finding. The portfolio half had none."
+    },
+    {
+      "id": "g70_no_source_side_sweep",
+      "label": "G70 — Nothing Checks That a Governing Document Reached Its Tiers",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.1 G70",
+      "description": "tier-sweep is register-driven: it verifies a decision arrived in a named tier. The inverse is unchecked. The governance half of the portfolio is living, not frozen: the Alpha Portfolio plan, Tier 1 under D-74, changed on 2026-08-21, the traceability map on 2026-08-20 and the RACI matrix on 2026-08-19.",
+      "community": 43,
+      "community_name": "Lane Enforcement",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The structural inverse of G68. That gap was that the sweep cannot see the Tier 1 document when a decision claims it; this is that the sweep never looks at the Tier 1 document at all. scripts is Lane A under D-84, so this is specified and not built in the same pass."
+    }
+  ],
+  "edges": [
+    { "source": "d86_lane_a_provisions_ahead", "target": "v1_decision_register", "relation": "recorded_in", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14at", "weight": 1 },
+    { "source": "d86_lane_a_provisions_ahead", "target": "d85_build_config_stays_lane_a", "relation": "strengthens", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14as", "weight": 1 },
+    { "source": "d85_cost_corrected", "target": "split_commit_for_dependencies", "relation": "supersedes", "confidence": "CURATED", "source_file": "CLAUDE.md", "confidence_score": 1, "source_location": "shared core", "weight": 1 },
+    { "source": "d85_cost_corrected", "target": "d86_lane_a_provisions_ahead", "relation": "follows_from", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14at", "weight": 1 },
+    { "source": "lane_a_intake_loop", "target": "d86_lane_a_provisions_ahead", "relation": "part_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14at", "weight": 1 },
+    { "source": "lane_a_intake_loop", "target": "g70_no_source_side_sweep", "relation": "portfolio_half_is", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G70", "weight": 1 },
+    { "source": "g70_no_source_side_sweep", "target": "g68_tier_sweep_blind_to_tier_one", "relation": "structural_inverse_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.1 G68", "weight": 1 },
+    { "source": "g70_no_source_side_sweep", "target": "alpha_portfolio_continuity_plan", "relation": "unverified_tier_of", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14aj", "weight": 1 }
+  ]
+}

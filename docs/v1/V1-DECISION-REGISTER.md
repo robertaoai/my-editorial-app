@@ -197,6 +197,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G67` | **Open** | **The shared-core hash covers 86 of ~226 lines.** `CLAUDE.md` lines 1–138 are **byte-identical to `AGENTS.md`** but sit outside the `<!-- SHARED CORE` marker, so `shared-core-hash` never compares them — an edit to one reaches one agent only, with nothing detecting it. That is `G53`, in the region `C-14` does not cover. Found by a `/init` pass that proposed regenerating `CLAUDE.md` (`D-76`). **Fix:** extend the check to compare the pre-core preamble across `CLAUDE.md` and `AGENTS.md` (`.agents/rules/graphify.md` has no preamble and must be excluded). **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14al |
 | `G68` | **Open** | **The `D-54` tier sweep cannot see the Tier 1 document.** `scripts/checks/tier-sweep.mjs`'s `TIERS` map has no entry for `docs/governance/alpha-portfolio-business-continuity-implementation-plan.md`, which `D-74` places **above** `Modular_PRD`. A tier column naming it is rejected as unmapped, so propagation into the highest tier in the hierarchy is verified by nobody. Found when `D-79` propagated there and the sweep raised *"tier column not mapped to a document."* **Fix:** add the mapping. **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14am |
 | `G69` | **Closed 2026-08-21 — narrowed, stated** | **No mechanism enforces the `D-75` lane boundaries.** Verified 2026-08-21: no `CODEOWNERS` at any path, no path-scoped `.claude/rules/`, no `.husky/` or `.pre-commit-config.yaml`, **0 installed git hooks**, and CI triggers `on: push`/`on: pull_request` — after a commit lands. Four crossings by agents that had read the rules are on record (`D-75`, `D-82`). **The bootstrap problem:** every candidate mechanism — `CODEOWNERS` in `.github/`, a pre-commit hook, a path check in `scripts/checks/` — is **Lane C's own surface**, so Lane A can specify enforcement and never apply it. **Fix:** the first control must come from Lane C or the Chief Editor. **Closed by `D-83`** on **visibility, not prevention** — `scripts/checks/lane-boundary.mjs` reports a change spanning two lanes; nothing blocks one, and `D-82`'s finding stands. Built by Lane A under explicit Chief Editor authorization, which `D-82` names as one of two ways the first control could arrive. §5.14ap, §5.14aq |
+| `G70` | **Open** | **Nothing verifies that a change in a governing document reached its derived tiers.** `tier-sweep` is **register-driven** — it checks that a *decision* arrived in a named tier. The inverse is unchecked: `docs/source/` and `docs/governance/` can move and no control notices. The portfolio is **living**, not frozen — `alpha-portfolio-business-continuity-implementation-plan.md`, **Tier 1 under `D-74`**, changed 2026-08-21; `requirements-traceability-map.md` 2026-08-20; `raci-involvement-matrix.md` 2026-08-19. **The structural inverse of `G68`:** that gap was *"the sweep cannot see the Tier 1 document when a decision claims it"*; this is *"the sweep never looks at the Tier 1 document at all."* **Fix:** a source-side sweep comparing each governing document's last-commit date against its derived tiers. **`scripts/` is Lane A** (`D-84`) — specified here, not built. §5.14at |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -3360,3 +3361,50 @@ All three attributions correctly flag a genuine A+C crossing (Lane C editing a w
 ### Scope limits
 
 Records a regression test and a disposition. **Changes no lane assignment and no map.** Modifies no check — `lane-boundary.mjs` is untouched, and its message already reads as a prompt rather than a verdict. Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67` or `G68`. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+## 5.14at `D-86` — Lane A Provisions Ahead; `D-85`'s Cost Corrected; the Intake Loop Named
+
+**Recorded 2026-08-21 by the Chief Editor.** States a principle Lane A has been following since `D-64` but never wrote down, corrects the cost analysis in `D-85` §5.14as, and names the two upstream sources that drive Lane A's own retrospective cycle. Opens `G70`.
+
+### The principle
+
+**Lane A provisions the toolchain and every dependency before Lane B needs it. Lane B writes code and responds to flags.**
+
+This is not new behaviour. `D-64` closed `G59` by installing bun 1.1.30 and committing `bun.lockb` with **413 packages pinned** and `--frozen-lockfile` exiting 0. Lane A also wrote `eslint.config.mjs`, the CI workflow, all eight `C-14` checks, and `__tests__/`. **Provisioning-ahead was the observed practice; only the principle was missing** — and its absence is what allowed `D-85` to reason about a world this repository does not operate in.
+
+**Governance reaches Lane B as a flag, not as a document.** When a check fires, Lane B fixes the code the flag names. It is not expected to read the register, resolve a tier question, or decide scope. That is the whole purpose of the lane split.
+
+### `D-85`'s cost was wrong
+
+`D-85`, recorded the same day, accepted friction on the premise that **"Lane B must split commits"** — a dependency change landing separately from the code that uses it.
+
+**That premise assumes Lane B edits build config. Under this principle it never does.** The three false-crossing classes measured in `D-85` — `bun add` + code, a `tsconfig` alias + code, a `next.config` change + code — **only arise if Lane B is the one making those edits.** There is no split for Lane B to make.
+
+**The real cost is a blocking handoff, not commit hygiene.** When Lane B discovers a dependency it needs mid-work, it stops and waits for Lane A to provision it. That lands on **throughput**, not on `git bisect` or review quality.
+
+**`D-85`'s disposition is unchanged and, in fact, strengthened.** Keeping build config in Lane A is coherent precisely *because* Lane A provisions it in advance. Only the stated cost was wrong, and it is corrected here rather than left to be discovered in S1.
+
+### Lane A's intake loop — named, and unmechanized
+
+Lane A's own retrospective and regression cycle is driven by two upstream sources. **Neither is currently detected by anything.**
+
+**1. New governance from the libraries in use.** Nothing watches upstream for convention or rule changes that would alter what this repository should require. `G54` is already open on exactly this — graphify's upstream command surface is unverified, deferred on a Python toolchain. **No new gap is opened; `G54` is the library half of this loop** and is named as such here rather than duplicated.
+
+**2. Updates in the governing document portfolio.** The portfolio is **13 documents**, and the `docs/governance/` half is **living, not frozen**. `alpha-portfolio-business-continuity-implementation-plan.md` — **Tier 1 under `D-74`** — changed on 2026-08-21; `requirements-traceability-map.md` on 2026-08-20; `raci-involvement-matrix.md` on 2026-08-19.
+
+**`tier-sweep` is register-driven.** It verifies that a *decision* reached a named tier. **Nothing verifies the inverse** — that a change in a governing document reached its derived tiers. The highest tier in the hierarchy can move and no check notices. **Opened as `G70`.**
+
+This is the structural inverse of `G68`: that gap was *"the sweep cannot see the Tier 1 document when a decision claims it."* This one is *"the sweep never looks at the Tier 1 document at all."*
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | Build spec | Inventory | `SPECS-VERIFICATION` | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-86` principle + cost correction | ✅ §5.14at | ✅ shared core, replaces `D-85` text | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `G70` opened | ✅ §5.1 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Build spec is unaffected** — it carries no split-commit text (verified: 0 occurrences) and no scope, sequence or DoD moves. **Inventory unaffected** — `G70` is specified, not built, so no file is created. **`SPECS-VERIFICATION` unaffected** — no check is added or changed; when `G70` is built it will need a section there, and that is a later pass.
+
+### Scope limits
+
+Records a principle, corrects a cost, opens `G70`. **Changes no lane assignment and no map** — build config remains Lane A per `D-85`. **Builds no check.** Does not repair `agent-stats` (`D-77`), `docs-drift` (`D-78`), `G67` or `G68`; does not resolve `G54`. Authorizes no product code, schema, migration, or deployment. `0001_init.sql` untouched; `0002` unwritten.
