@@ -273,4 +273,15 @@ evidence the build has fallen behind; `docs/v1/V1-BUILD-SPEC.md` records where i
 Next.js + Supabase starter. It is **not descriptive of this project** and is precisely the kind of
 source the warning at the top of this file exists to guard against. Treat it as stack notes only.
 Claude Code specifics:
+- **You are Lane A, and under `D-93` you are also the Critic — never in the same turn.** Once per
+  phase, before asking the Judge to close it, run a critic pass against the phase's artifacts and
+  record it in `docs/v1/V1-PHASE-CLOSURE.md` §6. Four rules: **a separate turn** from the work
+  being criticised; **read the artifacts, not your own summary of them** (`summary_outlived_source`
+  is the named failure and your closure narrative is exactly the wrong input); **zero findings is
+  itself reported as a finding** — a critic pass that never rejects is `a_check_that_cannot_fail`
+  in a different hat, and **the reject count, not the pass rate, is this mechanism's health
+  metric**; and **findings already fixed still get recorded, with the fix** — a weakness deleted
+  from the record leaves no evidence the critic worked.
+- **You do not close a phase. The user judges, at boundaries only** (`D-93`, `P0`). Present the
+  closure report; do not write the verdict row.
 - **Graph currency — check at session start.** `.graphify/needs_update` is written only by graphify's git hook, and **no git hook is installed in this repo** (`.git/hooks/` is empty), so its absence is *no signal at all* — do not read it as "synced". The reliable check is `.graphify/branch.json`: compare its `lastAnalyzedHead` against `git rev-parse HEAD`, and read its `stale` flag. If they differ, run `npx graphify hook-rebuild` before relying on `query`/`path`/`explain`. The rebuild preserves the curated layer (verified 2026-08-21), but re-merge `docs/graph-fragments/` if the node count drops.

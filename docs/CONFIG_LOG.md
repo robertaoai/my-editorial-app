@@ -116,9 +116,71 @@ Published · `OD4` stays rejected for v1 · fundraising stays out of the editori
 
 **Adjusting any of these is a Charter-level act, not a config edit.**
 
-## 6. Feature flags — `lib/config/flags.ts`
+## 6. Routes — `D-59`, added 2026-08-21 (`D-93`, raised as `B-002`)
 
-`FLAG_FOUR_EYES_LINE_SEPARATION` · `FLAG_LINE2_HUMAN_PRIMARY` · `FLAG_AGENT_ROSTER_MULTI` ·
-`FLAG_LINE3_ENABLED` · `FLAG_S1` … `FLAG_S9`.
+**One origin, two paths.** `D-59` resolved `G10`/`QC`: the MVP and the POC share an origin and
+are separated by path, so neither lane holds the root and the seniority question dissolves.
 
-`FLAG_LINE3_ENABLED` is `false` and stays false in v1 — `S5` is out of scope (`Q2`, `D-57`).
+| Variable | Value | Source | Provisional |
+|---|---|---|---|
+| `EDITORIAL_ROUTE` | `/editorial` | `D-59` — the MVP lane | No |
+| `POC_ROUTE` | `/request-brief` | `D-59` — the POC lane | No |
+| `DOMAIN_APEX` | **UNSET** | `D-59` — **neither lane holds the root**, deliberately | n/a — `UNSET` is the decision |
+
+**`DOMAIN_APEX` is `UNSET` by decision, not by omission.** Rule 2 applies without exception: do
+not default it to either route.
+
+**`C-15` carries the follow-up** — promote the two lanes to **distinct origins** (subdomains or
+apexes) **before the POC handles real client data**. Phase: `T3`, with the POC lane charter, and
+no later than the *"lock it down"* sprint. **Path separation is a v1 arrangement, not the end
+state.**
+
+## 7. Feature flags — `lib/config/flags.ts`
+
+**Canonical names arbitrated 2026-08-21 (`D-93`, raised as `B-002`).** The sprint plan named
+these flags twice — as `FLAG_S1`…`FLAG_S9` in the S0 deliverable list (§S0) and as semantic names
+in §7. **§7 wins**: it carries each flag's definition and enablement condition, while §S0's list
+is an abbreviation of it. **The abbreviated form is not a second naming scheme and must not be
+implemented.**
+
+### 7.1 Stored flags
+
+| Flag | Phase 0 | Source | Enablement condition |
+|---|---|---|---|
+| `FLAG_AGENT_ROSTER_MULTI` | `false` | `OD3`, §4 above | Cannot be enabled without an `AGENT_HEADCOUNT` |
+| `FLAG_LINE3_ENABLED` | `false` | `Q2`, `D-57` | **Stays false in v1** — `S5` is out of scope; v1 has no independent assurance |
+
+### 7.2 Derived flags — **not stored**
+
+**`FLAG_FOUR_EYES_LINE_SEPARATION` and `FLAG_LINE2_HUMAN_PRIMARY` are derived views, never
+independent values.** Lane B asked which they were, and the answer matters: storing them beside
+`FOUR_EYES_MODE` and `LINE2_EXECUTOR_TYPE` would create **two sources of truth for one fact**,
+which is the drift mechanism this project has recorded repeatedly.
+
+| Flag | Derivation |
+|---|---|
+| `FLAG_FOUR_EYES_LINE_SEPARATION` | `FOUR_EYES_MODE === "line_separation"` |
+| `FLAG_LINE2_HUMAN_PRIMARY` | `LINE2_EXECUTOR_TYPE === "human_primary"` |
+
+**Ratifying `OD1` or `OD2` therefore moves one value, not two.** That is the whole point of §4's
+rule — a ratification is a config edit plus a `DECISION_LOG.md` line.
+
+### 7.3 Sprint flags — semantic names, all `false` in Phase 0
+
+**Every one is `false`, and every one enables at `S5`, which is out of scope for v1.** They are
+declared so the behaviour they gate has a named switch rather than an inline condition.
+
+| Flag | What it gates |
+|---|---|
+| `FLAG_S1_CONFIDENCE_FLOOR` | Low `reviewer_confidence` forces a Line 2 flag at `T5` |
+| `FLAG_S2_PLAN_DEVIATION` | `plan_deviation` on angle drift, visible to Line 2 |
+| `FLAG_S3_RETRACTION` | `Retracted` state; `regulatory_retraction_order` bypasses `T8` when true |
+| `FLAG_S4_PREPUB_LEGAL` | Pre-publication legal review ahead of emergency bypass |
+| `FLAG_S5_ACTING_EDITOR` | `chief_editor_acting_status`, `loa_start`, `loa_end`, `board_approval_ref`, auto-revert |
+| `FLAG_S6_RISK_AT_INTAKE` | `risk_stratification` computed at `T1`, not `T5` |
+| `FLAG_S7_DEGRADED_MODE` | Degraded mode **>48h only** — Addendum §6.4 covers under-48h |
+| `FLAG_S8_ATTESTATION` | `publication_readiness_attestation` required at `T5`/`T6` |
+| `FLAG_S9_AUTO_PASS` | Automated 100% pass to a knowledge base; human Line 3 stays risk-triggered |
+
+**Declaring a flag is not building what it gates.** None of the behaviour above exists, and a
+flag flipped to `true` today would gate nothing.

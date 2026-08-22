@@ -3,6 +3,7 @@
 - **Raised:** YYYY-MM-DD by Lane B | Lane C
 - **Kind:** dependency | spec-defect | blocked-on-decision | finding
 - **Blocks:** <what you cannot do until this is answered — or `nothing, reporting only`>
+- **Reopens-Phase:** <1 | 2 | 3, only if the work this needs belongs to a phase already closed — otherwise omit the line entirely>
 - **Status:** Open
 - **Lane A:** <empty until acknowledged>
 

@@ -27,7 +27,7 @@
 | `lib/config/flags.ts` | S0 | ❌ |
 | `docs/DECISION_LOG.md` | S0, and every provisional value's traceability | ✅ **Created 2026-08-21** (`D-91`). The ratification ledger — **not a second register**; it cites `V1-DECISION-REGISTER.md`, never restates it. §3 is empty, and **the emptiness is the finding**: `OD1`–`OD3` have never been ratified |
 | `docs/CONFIG_LOG.md` | S0, `§10` config-vs-fixed rule | ✅ **Created 2026-08-21** (`D-91`). Every configurable value with its source citation and OD dependency. **Lane A owns the content**; Lane B implements the rows in `lib/config/build-config.ts` |
-| `supabase/migrations/0002_*.sql` | S0 draft, S1 apply | ❌ |
+| `supabase/migrations/0002_*.sql` | **S1 apply — not an S0 artifact** (`D-93`, raised as `B-001`) | ❌ **Correctly absent.** S0 delivers the **hold location** (`docs/v1/drafts/`), not the draft. `D-91`: the draft *"stays unwritten"* while `G64`/`Q11` gate it, and writing it is the pre-authorization act for S1 rather than evidence that S0 is done |
 | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` | `D-56` — `R3` specification, Project Scope ⚙ | ✅ |
 | Test runner + `__tests__/` | `R3`, `NFR-04` | ✅ **installed 2026-08-21** (`D-70`) — `__tests__/smoke.test.ts`, `bun test`, `.github/workflows/ci.yml`. All six `R3` DoD conditions met |
 | `.github/workflows/` CI | `R3`, `TC6` | ✅ **installed 2026-08-21** (`D-70`) — `ci.yml` runs install, typecheck, lint, test and `bun run check` as separate steps; **green on a real run**. *Row corrected by `D-71` — it read "not installed" for a day while `D-70` sat in three other rows of this table (`G65`).* |

@@ -2346,6 +2346,43 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
+### `C-21` — `G75` removed one tally and did not sweep for others
+
+**Opened by `D-93` as critic-pass finding `F6`. Phase: next Lane A pass.** The shared core states
+*"bun and its **413** pinned packages"*. Removing `stripe` under `B-003` **happened not to change
+that number** — luck, not design. **A routine dependency change can invalidate a literal in the
+file every agent reads first, and nothing detects it.**
+
+**Fix:** sweep the governed set for remaining numeric literals that describe a mutable state, and
+either remove them on `G75`'s pattern — state the rule, not the count — or bind each to a check.
+**Removal is preferred**; a check over a tally is a check that must be maintained in step with
+the thing it counts.
+
+### `C-20` — phase order is required and unenforced
+
+**Opened by `D-93` as critic-pass finding `F4`. Phase: before Phase 2 closes.** `D-75` requires
+the lanes to run **sequentially, one at a time**, and **Phase 2 began while Phase 1 was open.**
+Nothing detected it, because nothing records phase state in a form a check can read — and until
+`V1-PHASE-CLOSURE.md` existed, nothing recorded it at all.
+
+**This is `D-82` in the phase dimension rather than the surface dimension.** `lane-boundary`
+detects a commit spanning two surfaces; **no control detects a phase spanning two lanes in time.**
+
+**Fix:** make §5's phase register machine-readable and compare the committing lane against the
+open phase. **Deliberately not built now** — with one phase open and its register a day old, the
+check would have a single row to read and no closed phase to contradict.
+
+### `C-19` — `Reopens-Phase:` is unenforced until a phase closes
+
+**Opened by `D-93`. Phase: the pass that closes the first phase.** The return-path field is
+recorded in the template and the README and **no check reads it.** With no phase closed, a check
+would pass on every run without reading anything — a `probe_that_cannot_fail`, the same reasoning
+that deferred `C-17`.
+
+**Fix:** when the first phase closes, extend check 10 — an entry naming a closed phase must be
+`Open` or `Answered`, and that phase's §5 row must read **Reopened**. **Install it in the same
+pass that closes the phase, never before.**
+
 ### `C-18` — the CI job rename needs a paired act no lane owns
 
 **Opened by `D-92`. Phase: Lane C, Phase 3.** The CI job is named `Typecheck · Lint · Test` with **U+00B7 MIDDLE DOT** separators, and GitHub matches a required status check by that exact string — so if the protection rule was typed by hand with any other character, **protection is configured and never gates**, the `D-81` fail-open pattern.
@@ -3902,3 +3939,126 @@ side effect of a correctness fix.**
 `tier-sweep` caught both, one run apart, and both were fixed by **restoring the reference, never
 by dropping the claim.** Recorded because the same thing will happen to anyone deleting prose
 from a governed document: **check what the sentence was anchoring before deleting it.**
+
+---
+
+## 5.14ba `D-93` — The Missing Critic: Phase Closure, the Return Path, and the First Proof
+
+**Closes the last structural hole in `D-75`.** The development lane model had **three proposers
+and no critic**: Lane A wrote the specs, wrote the checks that verify the specs, and judged
+whether its own output passed. `D-82` recorded this as *"`D-75` cannot enforce itself"* and it
+was never closed, because **no check can close it** — every control detects **shape**, never
+**judgment**.
+
+### The roles, and why the Critic is not a fourth agent
+
+| Role | Held by | Cadence |
+|---|---|---|
+| Proposer | Lanes A, B, C | continuous, within surface |
+| **Critic** | **Lane A, on a separate turn** | once per phase |
+| **Judge** | **the user** | once per phase boundary — three times in the build |
+
+**A fourth agent was considered and rejected.** It would add a fourth surface, a fourth set of
+crossing boundaries and a fourth phase — the cure becoming the disease, which the proposal named
+as its own first risk. **The cost of role-instead-of-agent is stated rather than hidden: the
+critic shares the proposer's blind spots.** Three mitigations: the separate turn, the reject
+budget, and a Judge who is someone else entirely.
+
+**The Judge acts at boundaries only.** Per-decision judging degrades to a rubber stamp — the
+failure mode this apparatus exists to catch, arriving by convenience rather than by drift.
+
+### What now closes a phase — four conditions, not three
+
+`D-19` gave sprints an artifact Definition of Done. **Phases never got one**, so a phase ended
+when Lane A said it ended — **`G32`'s shape one level up.** `V1-PHASE-CLOSURE.md` §1 sets four
+conditions: artifacts exist, every handoff entry has reached a **terminal** disposition, a critic
+pass is recorded, and the Judge approves.
+
+**Condition 2 deliberately raises the bar check 10 sets.** During a phase, `Acknowledged` and
+still `Open` passes — a queue is healthy and a permanently red check is an ignored check. **At a
+boundary it does not pass.** Acknowledging is not answering, and a phase boundary is precisely
+where that distinction is supposed to bite.
+
+### The return path — `Reopens-Phase:`
+
+**Phases run 1 → 2 → 3; findings do not.** A Phase 2 finding can require Lane A work in a closed
+phase, and until now the only options were an **undeclared reopening or a dropped finding.** One
+template field records it; the phase's register row is marked **Reopened**, citing the entry.
+
+**A reopened phase is not a failure.** A phase never reopened across a whole build more likely
+means findings were dropped than that none existed.
+
+**No check enforces this, deliberately (`C-19`).** No phase is closed, so a check would pass on
+every run without reading anything — `probe_that_cannot_fail`, the reasoning that already
+deferred `C-17`.
+
+### The proof of concept — and it did not go the flattering way
+
+**Lane B started Phase 2 and, before writing code, filed three entries.** That ordering matters:
+**the feedback channel was exercised before the first line of application code existed**, which
+is the strongest available evidence that `D-90`/`D-92` built the right thing.
+
+All three were **defects in Lane A's own output**, and all three stand:
+
+- **`B-001`** — `D-91` **made a derived tier contradict the register in the same pass that wrote
+  the register's text.** The register said the `0002` draft *"stays unwritten"*; the build spec
+  row `D-91` wrote listed the draft path as an **S0 Lane B artifact**. `D-58` applied: the
+  register wins. S0 delivers the **hold location**, not the draft.
+- **`B-002`** — **`CONFIG_LOG.md` declared itself authoritative while incomplete.** No rows for
+  `EDITORIAL_ROUTE`, `POC_ROUTE` or `DOMAIN_APEX` — all decided by `D-59` — and `FLAG_S1`…`FLAG_S9`
+  with neither canonical names nor Phase 0 values. **"Rows are authoritative" plus a missing row
+  is an instruction to stop**, which is exactly what Lane B did rather than inventing values.
+- **`B-003`** — Lane A **removed a dependency's consumers and left the dependency.** `stripe`
+  remained in `package.json` and the lockfile, both Lane A's under `D-86`.
+
+**Three arbitrations were required to answer them**, and each is recorded where it belongs rather
+than in this section: the `D-58` precedence call (`B-001`); **§7 semantic flag names beat the
+§S0 abbreviation**, because §7 carries the definitions and enablement conditions (`B-002`); and
+**`FLAG_FOUR_EYES_LINE_SEPARATION` / `FLAG_LINE2_HUMAN_PRIMARY` are derived views, never stored**
+— two sources of truth for one fact is the drift mechanism, and ratifying `OD1`/`OD2` must move
+one value, not two.
+
+### What the critic pass found that Lane B did not
+
+- **`F4` → `C-20`. Phase 2 began before Phase 1 closed.** `D-75` requires sequential phases and
+  nothing enforces the order. **`D-82` in the phase dimension rather than the surface dimension.**
+- **`F5`. Lane A shipped three defects into a phase it was about to declare complete and its own
+  checks caught none of them.** Every check verifies **arrival**; none verifies **correctness**.
+  `G65` recorded that limit for one check — **it is a property of the whole apparatus**, and
+  stating it is the honest disposition, not a defect to fix.
+- **`F6` → `C-21`. `G75` removed one tally and did not sweep for others.** The shared core still
+  states *"413 pinned packages"*. Removing `stripe` **happened not to change it** — luck, not
+  design.
+
+### What this does not do
+
+**Does not close Phase 1** — condition 4 is unmet and the verdict row is empty by design; Lane A
+does not write it. **Does not start or close any sprint.** S0's Lane B artifacts are Lane B's and
+`0002` stays unwritten — `Q11`/`G64` gate it exactly as before. **Adds no check** and authorizes
+no schema, migration or deployment. `0001_init.sql` untouched.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | Inventory | Build spec | `Modular_PRD` |
+|---|---|---|---|---|---|
+| Critic + Judge roles | ✅ §5.14ba | ✅ `CLAUDE.md` tail (Lane A only) | ✅ new file | **— unaffected** | **— unaffected** |
+| Phase closure conditions | ✅ §5.14ba | **— unaffected** | ✅ new file | **— unaffected** | **— unaffected** |
+| Return path | ✅ §5.14ba | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `B-001` corrected | ✅ §5.14ba | **— unaffected** | ✅ `0002` row | ✅ S0 Lane B row | **— unaffected** |
+| `B-002` answered | ✅ §5.14ba | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `B-003` answered | ✅ §5.14ba | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `C-19`, `C-20`, `C-21` | ✅ conditions | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**`docs/handoff/` carries no column, and that is deliberate.** All three entries are marked
+`Answered` with their dispositions, and the return-path field is in `TEMPLATE.md` and `README.md`
+— but **the channel is not a tier under `D-29`.** Giving it a tier column would assert a
+precedence position it does not hold. `tier-sweep` rejected the column on exactly that ground,
+which is the check being right rather than inconvenient.
+
+**`Modular_PRD` §8 unaffected throughout** — no sprint closed and no tier opened; the critic role
+is development apparatus, not a product requirement. **`CONFIG_LOG.md` is not a tier** — it is
+Lane A's authoritative surface, updated directly.
+
+**`P3` lands in `CLAUDE.md`'s tail, not the shared core.** The critic pass is a Lane A ritual;
+Lanes B and C do not perform it, and putting it in the hashed region would tell them to.
+**Accepted cost: `G73` — a tail edit propagates to nobody.**

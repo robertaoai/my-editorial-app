@@ -42,6 +42,21 @@ writes every dependency before Lane C builds a workflow against it**, so a workf
 script, a config file or a permission Lane A has not written is a `dependency` entry, never an
 improvisation inside the workflow.
 
+## When your entry needs work in a phase that already closed — `D-93`
+
+**Phases run 1 → 2 → 3; findings do not.** A Phase 2 finding can require Lane A work in a phase
+already declared closed. Add one line:
+
+```
+- **Reopens-Phase:** 1
+```
+
+Lane A marks that phase **Reopened** in `docs/v1/V1-PHASE-CLOSURE.md` §5, citing your entry.
+**A reopened phase is not a failure** — it is the return path working. Before `D-93` the only
+options were an undeclared reopening or a dropped finding.
+
+**Omit the line entirely** when the work belongs to the current phase, which is the normal case.
+
 ## Answering — Lane A
 
 Fill the `Lane A` line. Three dispositions:

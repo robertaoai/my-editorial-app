@@ -160,7 +160,17 @@ Deferring this behind S0/S1 would stall commercial evidence for no technical rea
 **`Q11` deferred past S1 (`D-68`), and the deferral is not neutral.** The sprint plan's S1 migration line already instructs the `line_boundary_crossed` fallback, so deferring selects the boolean shape by default. **`G64`** records why that shape is not safe, **restated by `D-69`**: `G-02`'s Data Source names **one** column, but its definition excludes logged overrides, which requires `not_applicable` and `override_not_four_eyes` to be distinguishable — and a boolean maps both to `false`. **`G-02` cannot be computed from its own declared Data Source.** *(As first opened, `G64` also claimed an `NFR-03` inference violation. **Withdrawn** — "inferred at read" is undefined across the corpus, and `NFR-03`'s measured target is "100% non-null", which a boolean meets. `C-16` carries the undefined term.)* **`G64` is specified, not applied** — two shapes are set out and the choice belongs to `Q11` (`D-68`). **`G64` must resolve before the `0002` draft is written (`G27`, S0)**, not merely before S1 applies it. `0002` remains blocked by `Q11`, but `Q10` is closed (`D-73`). *(Note: The final Q10 explanation document is pending lock-in at the Alpha Portfolio milestone).*
 
 | **S0 — Lane A, provisioned ahead** | `docs/DECISION_LOG.md` · `docs/CONFIG_LOG.md` · `docs/v1/drafts/` *(the hold location, `G27` closed)* — **all three exist as of 2026-08-21 (`D-91`)** |
-| **S0 — Lane B** | `lib/config/build-config.ts` · `lib/config/flags.ts` · draft `0002` **held outside** `supabase/migrations/` (`D-17`), at `docs/v1/drafts/0002_three_lines.sql.draft` · Stripe scaffolding **removed** |
+| **S0 — Lane B** | `lib/config/build-config.ts` · `lib/config/flags.ts` · Stripe scaffolding **removed** |
+
+**The `0002` draft is NOT an S0 artifact — corrected 2026-08-21 (`D-93`, raised as `B-001`).** As
+first written this row listed `docs/v1/drafts/0002_three_lines.sql.draft` among S0's Lane B
+deliverables, while `D-91` — set in the same pass — says the draft *"stays unwritten, since
+`G64`/`Q11` still gate it."* **A derived tier was made to contradict the register by the decision
+that wrote the register's text.** `D-58` arbitrates: the register wins.
+
+**What S0 delivers is the hold location, not the draft.** `docs/v1/drafts/` exists; the file does
+not. **Writing the draft is the pre-authorization act for S1** — irreversibility begins when a
+field name is committed to text an executor will apply — **not evidence required to close S0.**
 | **T1 / S0** | Test runner · `__tests__/` with one passing test · `.github/workflows/` CI *(`R3` — **installed 2026-08-21**, `D-70`; the precondition for every DoD below is met)* |
 | **S1** | `supabase/migrations/0002_*.sql` **applied** · `publication_targets` and `publications` tables exist · `allowed_transitions` exists |
 | **S2** | Blind-first-pass reveal ordering live at T5 · `T6→T5` return events distinctly queryable |
