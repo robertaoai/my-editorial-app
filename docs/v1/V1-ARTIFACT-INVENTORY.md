@@ -13,6 +13,9 @@
 
 | Artifact | Referenced by | Exists |
 |---|---|---|
+| `docs/v1/V1-PHASE-CLOSURE.md` | `D-93`, `D-94` | ✅ **Created 2026-08-21, extended 2026-08-22.** Phase closure conditions, the Phase 1 artifact manifest (§5A), the phase-start rule (§5B), the critic pass and the Judge record. **The Judge deferred the first submission because §5A did not exist** |
+| `scripts/checks/phase-manifest.mjs` | `D-94` | ✅ **Created 2026-08-22.** `C-14` check 11 — every manifest path exists and is tracked. **Negative-tested four ways**; a scope exclusion deliberately does not fire on presence |
+| `.agents/skills/sync-docs/SKILL.md` | `B-005` | ❌ **Removed 2026-08-22.** A divergent Codex-adapted duplicate of the tracked skill. Two copies of one procedure is the drift mechanism, and `D-54` propagation is Lane A work Lane B never performs (`D-86`) |
 | `.github/WORKFLOWS-SPEC.md` | `D-92`, `D-84` | ✅ **Created 2026-08-21.** Lane C's work order — the surface it owns, what Lane A guarantees CI can call, the SKIP contract, and two queued items. **`.github/` minus workflows is Lane A's**, so the spec sits one directory above what it governs |
 | `docs/v1/drafts/README.md` | `D-91`, `G27`, `D-17` | ✅ **Created 2026-08-21.** The hold location for migrations that must not be applied. **The path was asserted in `D-68`'s rationale and never decided**; `D-91` records it. `0002_three_lines.sql.draft` is **not yet written** — `G64`/`Q11` gate it |
 | `docs/handoff/README.md` | `D-90`, `D-75` | ✅ **Created 2026-08-21.** The handoff location `D-75` required and never named. **Unmapped by design** — Lane B raises, Lane A answers. |
@@ -22,7 +25,7 @@
 | `scripts/lane-gate.mjs` | `D-88` | ✅ **Created 2026-08-21.** The gate behind the hook. Imports `classify` from `lane-boundary.mjs` so gate and check cannot disagree. Requires a `Lane-Crossing:` trailer; does not forbid. |
 | `scripts/checks/source-sweep.mjs` | `D-87`, `G70` | ✅ **Created 2026-08-21.** `C-14` check 9 — the inverse of the tier sweep: did a governing document reach its derived tiers. Skips on a shallow clone. |
 | `scripts/checks/lane-boundary.mjs` | `D-83`, `G69` | ✅ **Created 2026-08-21.** `C-14` check 8 — makes `D-75` lane crossings visible. Detects the shape of a crossing, never the permission. |
-| `.claude/skills/sync-docs/SKILL.md` | `D-80` | ✅ **Created 2026-08-21.** Encodes the `D-54` propagation procedure. **Lane A only** — Claude Code loads `.claude/skills/`; Codex and Antigravity do not. |
+| `.claude/skills/sync-docs/SKILL.md` | `D-80`, `D-94`, `B-005` | ✅ **Created 2026-08-21, corrected 2026-08-22.** Encodes the `D-54` propagation procedure. **Lane A only** — Claude Code loads `.claude/skills/`; Codex and Antigravity do not. **It carried `D-75`'s pre-`D-84` lane map and obsolete check tallies for days** — *the procedure that teaches propagation was never propagated to.* Now **cites** the shared core's lane map instead of restating it |
 | `lib/config/build-config.ts` | S0 | ❌ |
 | `lib/config/flags.ts` | S0 | ❌ |
 | `docs/DECISION_LOG.md` | S0, and every provisional value's traceability | ✅ **Created 2026-08-21** (`D-91`). The ratification ledger — **not a second register**; it cites `V1-DECISION-REGISTER.md`, never restates it. §3 is empty, and **the emptiness is the finding**: `OD1`–`OD3` have never been ratified |
@@ -31,10 +34,10 @@
 | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` | `D-56` — `R3` specification, Project Scope ⚙ | ✅ |
 | Test runner + `__tests__/` | `R3`, `NFR-04` | ✅ **installed 2026-08-21** (`D-70`) — `__tests__/smoke.test.ts`, `bun test`, `.github/workflows/ci.yml`. All six `R3` DoD conditions met |
 | `.github/workflows/` CI | `R3`, `TC6` | ✅ **installed 2026-08-21** (`D-70`) — `ci.yml` runs install, typecheck, lint, test and `bun run check` as separate steps; **green on a real run**. *Row corrected by `D-71` — it read "not installed" for a day while `D-70` sat in three other rows of this table (`G65`).* |
-| `bun.lockb` | `G59` → `D-64` — CI reproducibility | ✅ **415 packages, 346 installs**, `--frozen-lockfile` verified in CI. *Was "413 packages" until `D-71`: `D-70` added `@types/bun` and the count was not carried through.* |
+| `bun.lockb` | `G59` → `D-64` — CI reproducibility | ✅ **`--frozen-lockfile` resolves completely and is verified in CI.** *No package count is recorded here (`G75`, `C-21`, `D-94`): this cell said "413" until `D-71` corrected it to "415", and `D-94` removed `stripe`. **A tally that has already drifted twice is the drift mechanism, not a fact.** `bun install` prints the number.* |
 | `docs/specs/ux/` route specification | `G10` → `D-59`, `D-34` — `/editorial` and `/request-brief` | ❌ **directory exists, empty** |
 | `eslint.config.mjs` | `G62`b → `D-66` — flat config, `next/core-web-vitals` | ✅ **created 2026-08-21** (`D-70`) — 27 files, 0 errors, 0 warnings; no dependency added |
-| Concurrent-edit detection check | `C-14`/`G11` — `D-58`, ships with `R3` | ✅ **installed 2026-08-21** (`D-70`, extended by `D-72`) — `scripts/check-consistency.mjs`, now **six checks**: shared-core hash, `D-54` tier sweep, §5.1 duplicate scan, graph coverage, settings-cascade parse (`G66`) and decision-status cross-reference (`G65`). **Five run in CI; graph coverage is local-only**, its input being a gitignored build artifact. Caught a real `G58`-class defect on its first strict run |
+| Concurrent-edit detection check | `C-14`/`G11` — `D-58`, ships with `R3` | ✅ **installed 2026-08-21** (`D-70`), extended repeatedly since — by `D-72`, `D-73`, `D-83`, `D-87`, `D-90`, `D-92` and `D-94` — `scripts/check-consistency.mjs`. **No count is recorded here (`G75`, `C-21`, `D-94`)**; this cell said "six checks, five in CI" long after both were wrong, and `bun run check` prints the total. **What determines CI coverage is what a check reads**: `graph-coverage` and `docs-drift` need gitignored `.graphify/`, `source-sweep` needs full history — those three SKIP and the rest run. Caught a real `G58`-class defect on its first strict run |
 | BCP observability surface | `C-13` on `D-57`; `FR-14`/`US-14`/`AC-21`, S3 | ❌ **unbuilt** — `G60` closed 2026-08-20 (`D-62`), so the **requirement now exists**; the surface does not |
 | P0-EVR project charter | `G7a`, T3 | ❌ |
 | P0-EVR PRD | `G7`, T3 | ❌ |

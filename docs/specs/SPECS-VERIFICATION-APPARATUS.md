@@ -303,3 +303,39 @@ Lane-Crossing: <reason>
 
 1. Negative-tested three ways: open-with-no-disposition `FAIL`; **acknowledged-but-open PASS**; `Answered` with empty response `FAIL`. **Met.**
 2. `docs/handoff/` unmapped in the lane map, so neither side crosses to use it. **Met.**
+
+## 14. Check 11 — the phase artifact manifest `[V1]`
+
+**Added by `D-94`, 2026-08-22, to answer a Judge deferral.** `V1-PHASE-CLOSURE.md` §1 condition 1
+required an artifact list *"checkable by `ls`"* and **no list existed**, so the condition could
+not fail — `a_check_that_cannot_fail` inside the document written one pass earlier to prevent
+that shape. The Judge caught it; neither the raising lane nor the critic pass did.
+
+**What it reads.** The `§5A` manifest sections of `V1-PHASE-CLOSURE.md`. Each table row whose
+first cell is a backticked path is a manifest entry.
+
+**What it fails on:**
+
+- a manifest path that does not exist
+- a manifest path that exists but is **untracked** — it cannot belong to a reproducible closure
+  snapshot (`B-005`)
+- a manifest section present with **no rows** — an empty list satisfies *"every path exists"*
+  trivially
+- an exclusion recorded **Removed** whose file is present and tracked
+
+**What it deliberately does not do.**
+
+- **It cannot check completeness**, and nothing can — completeness is a judgment about what a
+  phase was chartered to produce. That is `C-22`, and **the control for it is the Judge.**
+- It does not compare the manifest against `V1-ARTIFACT-INVENTORY.md`. The inventory is the
+  **living** record and the manifest a **snapshot**; comparing them would report drift that is
+  correct by design.
+
+**Negative-tested four ways, all probes removed.** The instructive one is the third: **a scope
+exclusion must not fire on presence.** The first implementation flagged `.github/workflows/ci.yml`
+— correctly excluded as **Lane C's** artifact — because it conflated *"this was removed"* with
+*"this belongs to another phase."* **A check that reports a disagreement true by design teaches
+people to ignore it**, which is the `D-83` reasoning that made `lane-boundary` report rather than
+forbid.
+
+**Runs in CI** — tracked files only, no graph input, no history requirement.

@@ -21,11 +21,17 @@ CI tally in the shared core and left the identical claim standing in
 Name what changed — bug fix, architecture pattern, or decision — and identify the
 **lane** that owns the surface (`D-75`):
 
-| Lane | Agent | Owns |
+**Read the lane map from the shared core in `CLAUDE.md`, never from here.** This section used to
+restate it, and the restatement went stale: it kept `D-75`'s original map — which put
+`scripts/` and `.gitattributes` in Lane C — for four days after **`D-84` moved them to Lane A**,
+while every check stayed green. **A procedure that restates the map will drift from it; one that
+cites the map cannot.** Same rule as §6 below, applied to a table instead of a number.
+
+| Lane | Agent | Shape of the surface |
 |:---:|---|---|
-| **A** | Claude Code | `docs/`, the register, specs, graph curation |
-| **B** | Codex | `app/`, `lib/`, `components/`, `supabase/migrations/0002+` |
-| **C** | Antigravity | `.github/workflows/`, `scripts/checks/`, `.gitattributes`, deploy gate |
+| **A** | Claude Code | **Orchestration** — governance, tooling, build config |
+| **B** | Codex | **Application code** |
+| **C** | Antigravity | **GitHub Actions, and nothing else** |
 
 **If the fix is not in your lane: write the specification, hand off, and stop.** Record
 it as *specified, not applied* (`D-56`). Do not apply it because it is small.
@@ -96,11 +102,17 @@ Confirm node count rises and **dangling stays 0**.
 ## 8. Verify — and negative-test
 
 ```bash
-bun run check      # 7 checks locally, 5 in CI
+bun run check
 ```
 
-`graph-coverage` and `docs-drift` read gitignored `.graphify/graph.json`, so they SKIP in
-CI. **A local `7/7` and a CI `5/5` are both correct.**
+**No total appears here, and none should be added** (`G75`, `D-92`). This block carried
+`7 checks locally, 5 in CI` long after both were wrong — **the propagation procedure violating
+its own §6 two sections later.** The runner prints the total.
+
+**What determines CI coverage is what a check reads, not its number.** `graph-coverage` and
+`docs-drift` read gitignored `.graphify/`; `source-sweep` needs full history that a depth-1
+checkout lacks. Those three SKIP in CI and the rest run, so **a lower CI total is correct, not a
+regression.**
 
 Then **break the new claim and confirm the check fails**, and restore. A green check is
 also what a check that cannot fail produces — `docs-drift` has reported `PASS synced`

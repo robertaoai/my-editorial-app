@@ -85,12 +85,139 @@ run without reading anything — a `probe_that_cannot_fail`, the same reasoning 
 
 | Phase | Lane | Status | Closed | Judge | Reopened by |
 |---|---|---|:---:|---|---|
-| **1 — Orchestration** | A | **Open — closure pending** | — | — | — |
-| **2 — Application** | B | **Started 2026-08-21** | — | — | — |
+| **1 — Orchestration** | A | **Open — `DEFER` returned 2026-08-22, resubmission prepared** | — | Robert Tan — **`DEFER`**, §6.4 | `B-004`, `B-005` |
+| **2 — Application** | B | **Started early at `43c51ce`; further work deferred** | — | — | — |
 | **3 — CI/CD** | C | Not started | — | — | — |
 
 **Phase 2 started while Phase 1 is open, and that is a finding, not a note.** `D-75` says the
 lanes run *sequentially, one at a time*. See §6.
+
+**Reconciled 2026-08-22 (`D-94`, raised as `B-004`). Four statements in this file described the
+same state and could not all be true:** this row said *"closure pending"*, §6.4 said *"Pending"*
+beneath a filled `DEFER` verdict, this row's Judge field was blank while a Judge had ruled, and
+Phase 2 read *"Started"* with no record of what started it.
+
+**§5B resolves it:** a phase starts at the first authorized change to that lane's surface, and
+`43c51ce` was that change. **Phase 2 started early — the fact is preserved, never re-described.**
+
+**`DEFER` is not a failed close.** It is the Judge exercising the role `D-93` created, on the
+first occasion it existed to be exercised.
+
+## 5A. Phase 1 artifact manifest — `D-94`
+
+**The Judge deferred Phase 1 because this did not exist.** §1 condition 1 says *"its artifact
+list exists — checkable by `ls`"* and **no artifact list was ever written.** The condition was
+asserted and never evidenced: `a_check_that_cannot_fail` inside the closure specification itself,
+one pass after that specification was written to prevent exactly this.
+
+**What this manifest is.** The governance artifacts **Phase 1 was chartered to produce** — not
+every file on Lane A's surface. `V1-ARTIFACT-INVENTORY.md` remains the **living** record and this
+is a **snapshot**; where they differ, the inventory is current and this is history.
+**`phase-manifest` (`C-14` check 11) verifies every path below exists**, so the list is checked
+rather than claimed.
+
+### 5A.1 Governance tracking
+
+| Path | Delivers |
+|---|---|
+| `docs/v1/V1-DECISION-REGISTER.md` | The arbitration authority (`D-58`) |
+| `docs/v1/V1-BUILD-SPEC.md` | Scope, sequence, sprint DoD |
+| `docs/v1/V1-ARTIFACT-INVENTORY.md` | What must exist |
+| `docs/v1/V1-PHASE-CLOSURE.md` | This file — phase closure, critic pass, Judge record |
+| `docs/v1/drafts/README.md` | The hold location for migrations that must not be applied (`G27`) |
+
+### 5A.2 Lane A's authoritative surfaces
+
+| Path | Delivers |
+|---|---|
+| `docs/CONFIG_LOG.md` | Every configurable value, its source, its `OD` |
+| `docs/DECISION_LOG.md` | The ratification ledger |
+
+### 5A.3 The handoff channel
+
+| Path | Delivers |
+|---|---|
+| `docs/handoff/README.md` | How a build lane talks back (`D-90`, `D-92`) |
+| `docs/handoff/TEMPLATE.md` | Entry template, including `Reopens-Phase:` |
+
+### 5A.4 Rule files and lane environments
+
+| Path | Delivers |
+|---|---|
+| `CLAUDE.md` | Lane A rule file + shared core + critic discipline |
+| `AGENTS.md` | Lane B rule file + shared core + Lane B entry point |
+| `.agents/rules/graphify.md` | Lane C rule file + shared core + Lane C entry point |
+| `.github/WORKFLOWS-SPEC.md` | Lane C's work order |
+| `.claude/skills/sync-docs/SKILL.md` | The `D-54` propagation procedure |
+| `.claude/settings.json` | Session hooks (`D-81`) |
+| `.codex/hooks.json` | Codex hook configuration |
+
+### 5A.5 Detection apparatus — `C-14`
+
+| Path | Delivers |
+|---|---|
+| `scripts/check-consistency.mjs` | The runner |
+| `scripts/checks/shared-core-hash.mjs` | Rule-file core + preamble identity |
+| `scripts/checks/tier-sweep.mjs` | `D-54` arrival, register → tiers |
+| `scripts/checks/source-sweep.mjs` | The inverse — governing docs → tiers (`G70`) |
+| `scripts/checks/duplicate-ids.mjs` | §5.1 ID collisions |
+| `scripts/checks/decision-status.mjs` | Bidirectional decision/gap cross-reference |
+| `scripts/checks/graph-coverage.mjs` | Every `docs/` file reachable in the graph |
+| `scripts/checks/docs-drift.mjs` | Graph vs `HEAD` |
+| `scripts/checks/settings-parse.mjs` | Settings cascade parses |
+| `scripts/checks/lane-boundary.mjs` | `D-75` crossings made visible |
+| `scripts/checks/handoff-response.mjs` | Lane feedback gets read |
+| `scripts/checks/phase-manifest.mjs` | **This manifest is real** (`D-94`) |
+| `scripts/lane-gate.mjs` | Commit-time lane classification (`D-88`) |
+| `.githooks/commit-msg` | The declared-crossing gate |
+
+### 5A.6 Deliberately NOT in the manifest
+
+**Naming what is excluded is half of a manifest's value.**
+
+| Path | Why excluded |
+|---|---|
+| `.agents/skills/sync-docs/SKILL.md` | **Removed** — a divergent duplicate of the tracked skill (`B-005`, §6.1 `F7`) |
+| `.github/workflows/ci.yml` | **Lane C's surface.** Present and working, but Phase 3's artifact, not Phase 1's |
+| `docs/graph-fragments/frag*.json` | Curated-graph inputs, appended continuously; not a fixed deliverable |
+| `docs/journal/`, `docs/source/`, `docs/governance/` | Inputs Phase 1 consumed, not artifacts it produced |
+| `lib/`, `app/`, `__tests__/` | Lane B's surface — see §5B on the Phase 2 overlap |
+
+## 5B. Phase boundaries — when a phase starts — `D-94`, raised as `B-004`
+
+**A phase starts at the first authorized change to that lane's owned surface after the preceding
+Judge boundary is accepted.** Two consequences, and the second is the one that was wrong here:
+
+1. **Readiness feedback does not start a phase.** Read-only analysis and handoff entries from the
+   lane that must execute a proposal are **evidence about what will deterministically fail** —
+   not permission to begin. `B-001`–`B-003` did not start Phase 2.
+2. **Commit `43c51ce` did.** It added `lib/config/build-config.ts` and
+   `__tests__/build-config.test.ts` and removed the Stripe handlers, library and environment
+   keys. **Phase 2 started early, and part of non-feature S0 was completed.**
+
+**The accurate state is not "Lane B never started."** It is: *readiness feedback came first,
+partial S0 implementation followed, feature development did not start, and further Lane B work is
+deferred pending the Phase 1 verdict.*
+
+**`43c51ce` is preserved as historical evidence and is not rewritten.** Re-describing a landed
+commit as something else would be the audit-trail defect this project's own product forbids.
+
+### 5B.1 The proposal contract — what a Lane A proposal must state
+
+Raised by `B-004` and adopted. Every Lane A proposal names: **intended outcome · deterministic
+failure condition · cause · preventive control · observable success criterion · proving evidence
+or negative test · owner · return path.**
+
+Lane B implements **only accepted semantics** and raises missing authority rather than guessing.
+Lane C automates the accepted evidence and **proves a deliberate failure stops the gate** — the
+`SC-4` discipline, which is the test of the tester.
+
+### 5B.2 Residual risk, and a limit no process can move
+
+**The Judge accepts residual risk. An agent cannot.** No agent in this repository acquires human
+*skin in the game*, and none can accept legal, financial, or editorial liability. **That is why
+the Judge is a person and why the role could not have been given to a fourth agent** — the
+rejected option in `D-93` would have failed on this ground even if it had failed on no other.
 
 ## 6. Phase 1 — critic pass
 
@@ -106,6 +233,8 @@ below was deleted for being fixed in the same pass.
 | **F3** | **Lane A removed a dependency's consumers and left the dependency.** S0 required Stripe scaffolding removed; `package.json` and the lockfile still carried `stripe`, and those are Lane A's under `D-86`. Lane B could complete only its own half and had to stop | **`B-003`, raised by Lane B** | Corrected — see `D-93` |
 | **F4** | **Phase 2 began before Phase 1 closed.** `D-75` requires sequential phases; nothing enforces the order, and no artifact said Phase 1 was still open. **`D-82` recorded that the lane model cannot enforce itself; this is that gap in the phase dimension rather than the surface dimension** | Lane A critic pass | **Open** — `C-20` |
 | **F5** | **Lane A shipped three defects into a phase it was about to declare complete, and its own checks caught none of them.** Every check verifies *arrival* — that a claim reached a tier, that a file exists, that a hash matches. **None verifies that what arrived is correct.** The `G65` arrival-not-correctness limit was recorded for one check and is in fact a property of the whole apparatus | Lane A critic pass | **Open — stated limit**, not a defect to fix |
+| **F7** | **The closure specification asserted a condition it never evidenced.** §1 condition 1 requires an artifact list *"checkable by `ls`"* and **no list was written** — so condition 1 could not fail, one pass after this document was created to stop exactly that. **Found by the Judge, on the first occasion the role existed.** Neither Lane B nor the critic pass caught it: the critic read the artifacts the phase produced and never asked whether the list of them existed | **Judge — `DEFER`, 2026-08-22** | Corrected — §5A, and `phase-manifest` (check 11) makes it falsifiable |
+| **F8** | **A divergent duplicate of the propagation skill was untracked, and the tracked original was stale.** `.agents/skills/sync-docs/SKILL.md` was a Codex-adapted copy in which `CLAUDE.md` had been swapped to `AGENTS.md` mechanically, producing *"`AGENTS.md`, `AGENTS.md`, `.agents/rules/graphify.md`"* as the triple edit and *"Lane A — Codex"* as the lane map. **Following it found worse:** the tracked `.claude/skills/sync-docs/SKILL.md` **still carried `D-75`'s pre-`D-84` lane map** — `scripts/` and `.gitattributes` in Lane C — **and the obsolete `7/7` / `5/5` tallies.** *The procedure that teaches propagation was never propagated to* | **`B-005`, raised by Lane B** | Duplicate removed; original corrected to **cite** the lane map rather than restate it |
 | **F6** | **`G75` was closed for check counts and the same class survives elsewhere.** The shared core states *"bun and its 413 pinned packages"*. Removing `stripe` this pass **happened not to change that number** — which is luck, not design: a routine dependency change can invalidate a literal in the file every agent reads first, and **nothing detects it.** `G75` removed one tally and did not sweep for others | Lane A critic pass | **Open** — `C-21` |
 
 ### 6.2 What the critic pass did not find
@@ -118,16 +247,24 @@ cover, so a critic pass finding nothing there is **the controls working, not the
 
 | Measure | Phase 1 |
 |---|---|
-| Handoff entries raised | 3 — all three `Answered` in the same pass |
-| **Blocking waits** — a lane stopped and waited | **2** (`B-002`, `B-003`) |
-| Findings raised by **another lane** | 3 |
-| Findings raised by the **critic pass** | 3 |
+| Handoff entries raised | `B-001`–`B-005`, all `Answered` |
+| **Blocking waits** — a lane stopped and waited | `B-002`, `B-003`, `B-004` |
+| Findings raised by **another lane** | `F1`, `F2`, `F3`, `F8` |
+| Findings raised by the **critic pass** | `F4`, `F5`, `F6` |
+| Findings raised by the **Judge** | `F7` |
 | **Findings dismissed** | **0** — every one stands, see §6.1 |
-| Defects in Lane A's own output | **3 of 6** (`F1`, `F2`, `F3`) |
+| Defects in Lane A's own output | `F1`, `F2`, `F3`, `F7`, `F8` |
+| **Phases reopened** | **1** — Phase 1, by `B-004` and `B-005` |
 | Residuals carried past closure | `C-19`, `C-20`, `C-21`, `C-17`, `C-18`, `G73`, `G72` |
 
-**Two of three entries were blocking waits.** `D-86` accepted that cost explicitly — a blocking
-wait over a split commit — and **this is the first time it has been counted rather than assumed.**
+**Most entries were blocking waits.** `D-86` accepted that cost explicitly — a blocking wait over
+a split commit — and **this is the first time it has been recorded rather than assumed.**
+
+**The Judge found what neither the raising lane nor the critic found**, and the reason is
+instructive: **the critic read the artifacts the phase produced and never asked whether the list
+of them existed.** A critic reading artifacts checks the contents of a set; only someone asked to
+*accept* the set asks whether the set is defined. **That is an argument for the Judge being a
+separate role, made by the first exercise of it.**
 
 **Half the findings are defects in Lane A's own output, and Lane B found all three of them.**
 That is the single strongest piece of evidence for `D-93`: the critic role was not added because
@@ -138,10 +275,71 @@ contained three contradictions its author could not see and a reader found immed
 critic agrees with everything is the failure mode; a pass in which the author accepts everything
 is a weaker version of the same thing. **The Judge should treat unanimity as a question.**
 
-### 6.4 Judge
+### 6.4 Verification snapshot — `D-94`
 
-**Pending.** Phase 1 does not close until the row below is filled.
+**The Judge's second deferral condition.** The previous submission reported *"10/10 checks pass"*
+in a chat message and nowhere in this document. **A verdict cannot rest on evidence the record
+does not hold.**
+
+| Item | Value |
+|---|---|
+| Verified | 2026-08-22, on the tree committed as the resubmission |
+| Branch | `docs/journal-2026-08-16` |
+| Predecessor commit | `eb1549d` — the submission the Judge deferred |
+| Consistency checks | **11/11 pass**, `bun run check` |
+| Check added this pass | `phase-manifest` — **negative-tested four ways**, §6.5 |
+| Manifest paths verified | 30, with 3 declared exclusions |
+| Curated graph | rebuilt and re-merged; `docs-drift` reports synced at `HEAD` |
+| Untracked files in the governed set | **none** — `.agents/skills/` removed (`F8`) |
+
+**Reproduce it with two commands**, both of which fail loudly rather than silently:
+
+```bash
+bun run check
+```
+
+```bash
+npx graphify hook-rebuild
+```
+
+**Three checks report SKIP in CI and run only here** — `graph-coverage` and `docs-drift` read
+gitignored `.graphify/`, `source-sweep` needs full history. **A lower CI total is correct, not a
+regression**, and no total is restated in this document beyond this snapshot's own dated row.
+
+### 6.5 Negative tests for `phase-manifest`
+
+**A check installed to satisfy a deferral is exactly the check most likely to be ceremonial.**
+Four tests, all run, all probes removed:
+
+| Test | Expected | Result |
+|---|---|---|
+| A manifest path that does not exist | FAIL | ✅ named the path |
+| An exclusion recorded **Removed** but present and tracked | FAIL | ✅ named the contradiction |
+| A **scope** exclusion present and tracked (`ci.yml`) | **PASS** | ✅ did not fire — presence says nothing about scope |
+| A manifest section with no rows | FAIL | ✅ an empty list would satisfy *"every path exists"* trivially |
+
+**The third test is the one that matters.** The first implementation flagged `ci.yml` — correctly
+excluded as Lane C's artifact — because it conflated *"this was removed"* with *"this belongs to
+another phase."* **A check that reports a disagreement true by design teaches people to ignore
+it.**
+
+### 6.6 Judge
+
+**Resubmitted 2026-08-22.** Phase 1 does not close until a new row is added below. **`DEFER` is
+recorded permanently; it is not overwritten by the resubmission** — an issued verdict is
+superseded by a new one, never edited.
 
 | Judged by | Date | Verdict | Conditions |
 |---|---|---|---|
-| — | — | — | — |
+| Robert Tan | 2026-08-22 | **DEFER** | No exact Phase 1 artifact manifest and reviewed verification snapshot are identified. Reconcile the Phase 1/Phase 2 status, verify the corrected manifest, rerun Graphify and the consistency checks, and resubmit. |
+| — | — | *awaiting the resubmission verdict* | — |
+
+**Every deferral condition, and where it was answered:**
+
+| Condition | Answered in |
+|---|---|
+| No exact Phase 1 artifact manifest | **§5A** — 30 paths, 3 declared exclusions, verified by check 11 |
+| No reviewed verification snapshot | **§6.4** — dated, commit-pinned, reproducible in two commands |
+| Reconcile the Phase 1 / Phase 2 status | **§5 and §5B** — four contradictory statements resolved by one phase-start rule |
+| Verify the corrected manifest | **§6.5** — `phase-manifest` installed and negative-tested four ways |
+| Rerun Graphify and the consistency checks | **§6.4** — 11/11, graph rebuilt and re-merged |

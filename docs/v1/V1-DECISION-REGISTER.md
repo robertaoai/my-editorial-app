@@ -2346,6 +2346,19 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
+### `C-22` — the manifest's completeness is unverifiable by construction
+
+**Opened by `D-94`. Phase: every phase boundary.** `phase-manifest` proves every listed path
+exists. **Nothing proves the list is complete** — completeness is a judgment about what a phase
+was chartered to produce, and no check can hold it.
+
+**This is not a defect to fix; it is the boundary of what detection can do**, and it is the same
+boundary `F5` records for the apparatus as a whole: **every check verifies arrival, none verifies
+correctness.** Stated so that a green check 11 is never read as *"the manifest is right."*
+
+**The control is the Judge**, which is why the role exists (`D-93`) and why its first exercise
+found precisely this class of gap (`F7`).
+
 ### `C-21` — `G75` removed one tally and did not sweep for others
 
 **Opened by `D-93` as critic-pass finding `F6`. Phase: next Lane A pass.** The shared core states
@@ -4062,3 +4075,124 @@ Lane A's authoritative surface, updated directly.
 **`P3` lands in `CLAUDE.md`'s tail, not the shared core.** The critic pass is a Lane A ritual;
 Lanes B and C do not perform it, and putting it in the hashed region would tell them to.
 **Accepted cost: `G73` — a tail edit propagates to nobody.**
+
+---
+
+## 5.14bb `D-94` — The First Deferral Answered: a Manifest That Exists, a Phase-Start Rule, a Duplicate Removed
+
+**The Judge deferred Phase 1 and was right to.** `D-93` created the Judge role one pass earlier;
+**its first exercise found a defect neither the raising lane nor the critic pass found**, which is
+the strongest evidence available that the role was worth creating.
+
+### What the Judge caught — `F7`
+
+**The closure specification asserted a condition it could not fail.** §1 condition 1 requires an
+artifact list *"checkable by `ls`"*. **No list was ever written.** So condition 1 was satisfied by
+assertion — `a_check_that_cannot_fail`, **inside the document created one pass earlier to prevent
+exactly that shape.**
+
+**Why the critic missed it, and this is the useful part.** The critic pass read the artifacts the
+phase produced and asked whether each was sound. **It never asked whether the *set* of them was
+defined.** A critic reading artifacts checks the contents of a set; **only the party asked to
+*accept* the set asks whether the set exists.** That is a structural argument for the Judge being
+a separate role rather than a stricter critic, and it was produced by the mechanism's first use
+rather than by reasoning about it.
+
+**Answered by §5A** — 30 paths across five categories, three declared exclusions, and
+**`phase-manifest` (`C-14` check 11)** to make the list falsifiable. **Negative-tested four ways**
+(§6.5). The third test is the one that matters: the first implementation flagged `ci.yml` —
+correctly excluded as **Lane C's** artifact — because it conflated *"this was removed"* with
+*"this belongs to another phase."* **A check that reports a disagreement true by design teaches
+people to ignore it.**
+
+**`§5A.6` exists because naming what is excluded is half of a manifest's value.** A list with no
+stated boundary cannot be wrong.
+
+### The phase-start rule — `B-004`
+
+**A phase starts at the first authorized change to that lane's owned surface after the preceding
+Judge boundary is accepted.**
+
+Two consequences:
+
+1. **Readiness feedback does not start a phase.** Read-only analysis and handoff entries from the
+   lane that must execute a proposal are **evidence about what will deterministically fail**, not
+   permission to begin. `B-001`–`B-003` did not start Phase 2.
+2. **`43c51ce` did.** It landed `lib/config/build-config.ts`, a test, and the Stripe removal.
+   **Phase 2 started early and part of non-feature S0 completed.**
+
+**The commit is preserved, not re-described.** Re-labelling a landed commit as something else
+would be the audit-trail defect this project's own product forbids — an issued record is
+superseded, never edited. **The same rule now governs the Judge's own verdict:** the `DEFER` row
+stays permanently and the resubmission adds a row rather than replacing one.
+
+**`B-004`'s proposal contract is adopted verbatim** (§5B.1): every Lane A proposal states
+intended outcome, deterministic failure condition, cause, preventive control, observable success
+criterion, proving evidence or negative test, owner, and return path. **Lane C's half of it —
+prove a deliberate failure stops the gate — is `SC-4`**, which `R3` already required and which is
+the test of the tester.
+
+### A limit no process can move — §5B.2
+
+**The Judge accepts residual risk. An agent cannot.** No agent here acquires human *skin in the
+game*, and none can accept legal, financial, or editorial liability. **`D-93` rejected the
+fourth-agent option on cost-and-complexity grounds; it would have failed on this ground alone.**
+Recorded because the cheap reading of `D-93` is *"a critic is a role, so a judge could be too"* —
+and it could not.
+
+### Four statements, one state — `§5` reconciled
+
+The closure document simultaneously said Phase 1 was *"closure pending"*, said §6.4 was
+*"Pending"* **beneath a filled `DEFER` verdict**, left the phase register's Judge field **blank
+while a Judge had ruled**, and recorded Phase 2 as *"Started"* with no record of what started it.
+**Four assertions about one state, and no check compares prose to prose.**
+
+### `B-005` — a duplicate, not a new artifact
+
+`.agents/skills/sync-docs/SKILL.md` was untracked and contradicted the lane map. **It was a
+Codex-adapted copy of the tracked `.claude/skills/sync-docs/SKILL.md`**, produced by swapping
+`CLAUDE.md` → `AGENTS.md` mechanically — which is precisely what generated *"`AGENTS.md`,
+`AGENTS.md`, `.agents/rules/graphify.md`"* as the triple edit and *"Lane A — Codex"* as the map.
+
+**Removed rather than corrected.** Two copies of one procedure is the drift mechanism, and
+repairing the copy would have preserved it. **It should not have existed at all:** `D-54`
+propagation is Lane A work, and under `D-86` governance reaches Lane B as a **flag, not a
+procedure**.
+
+**Following the finding surfaced worse.** The **tracked** original still carried `D-75`'s
+pre-`D-84` lane map — `scripts/` and `.gitattributes` in Lane C — **and** the obsolete `7/7` /
+`5/5` tallies. **The procedure that teaches propagation had never been propagated to.** `C-21`
+predicted this class one pass earlier and named the wrong instance.
+
+**Repaired structurally, not textually.** §1 now **cites** the shared core's lane map instead of
+restating it, and §8 carries no total. **A procedure that restates a governed fact will drift
+from it; one that cites it cannot** — `G75`'s lesson applied to a table rather than a number.
+
+### The verification snapshot — the Judge's second condition
+
+The previous submission reported *"10/10 checks pass"* **in a chat message and nowhere in the
+record.** **A verdict cannot rest on evidence the record does not hold.** §6.4 now carries a
+dated, commit-pinned snapshot reproducible in two commands.
+
+### What this does not do
+
+**Does not close Phase 1.** The verdict row is empty and Lane A does not write it. **Does not
+restart Phase 2** — further Lane B work stays deferred pending the verdict. **Does not rewrite
+`43c51ce`** or any landed commit. **Does not open Phase 3.** Authorizes no schema, migration or
+deployment; `0001_init.sql` untouched, `0002` unwritten, S1 gated on `Q11` via `G64`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | Inventory | Build spec | `SPECS-VERIFICATION` | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Phase 1 manifest | ✅ §5.14bb | **— unaffected** | ✅ closure row | **— unaffected** | ✅ check 11 | **— unaffected** |
+| `phase-manifest` check | ✅ §5.14bb | **— unaffected** | ✅ new file | **— unaffected** | ✅ check 11 | **— unaffected** |
+| Phase-start rule | ✅ §5.14bb | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `sync-docs` disposition | ✅ §5.14bb | **— unaffected** | ✅ removal + repair rows | **— unaffected** | **— unaffected** | **— unaffected** |
+| Verification snapshot | ✅ §5.14bb | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Agent files unaffected throughout** — the shared core does not change, and `CLAUDE.md`'s tail
+already carries the critic discipline from `D-93`. **`.claude/skills/sync-docs/SKILL.md` is not a
+tier**; it is a Lane A procedure corrected directly. **Build spec unaffected** — no scope,
+sequence or DoD moves; the phase-start rule governs *when a phase begins*, not *what a sprint
+delivers*. **`Modular_PRD` §8 unaffected** — no sprint closed, no tier opened.

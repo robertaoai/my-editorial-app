@@ -20,6 +20,7 @@ import { run as decisionStatus } from "./checks/decision-status.mjs";
 import { run as laneBoundary } from "./checks/lane-boundary.mjs";
 import { run as sourceSweep } from "./checks/source-sweep.mjs";
 import { run as handoffResponse } from "./checks/handoff-response.mjs";
+import { run as phaseManifest } from "./checks/phase-manifest.mjs";
 import { run as docsDrift } from "./checks/docs-drift.mjs";
 
 const CHECKS = [
@@ -32,6 +33,7 @@ const CHECKS = [
   laneBoundary, // `G69` — see `D-83`; detects the shape of a crossing, not the permission
   sourceSweep, // `G70` — the inverse of the tier sweep; see `D-87`
   handoffResponse, // `D-90` — does Lane B's feedback get read
+  phaseManifest, // `D-94` — is the phase artifact manifest real
   docsDrift, // Docs drift check
 ];
 

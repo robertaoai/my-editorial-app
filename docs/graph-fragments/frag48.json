@@ -1,0 +1,25 @@
+{
+  "_comment": "Fragment 48 — B-005 entry node, so the handoff entry itself is reachable in the curated graph. Merged 2026-08-22.",
+  "nodes": [
+    {
+      "id": "b005_untracked_duplicate_skill",
+      "label": "B-005 — Disposition the Untracked sync-docs Skill",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-005-untracked-sync-docs-skill.md",
+      "source_location": "B-005",
+      "description": "Lane B found an untracked skill file outside the reviewed commit that contradicted the governing lane map, and refused to treat it as closure evidence. Answered by removing it as a divergent duplicate and repairing the tracked original.",
+      "community": 49,
+      "community_name": "Phase Closure and Critique",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Lane B declined to edit, stage, delete or rely on a file outside its lane, and raised the disposition to the lane that owns it. Following the finding surfaced a worse one in the tracked original that Lane B could not see from its own surface."
+    }
+  ],
+  "edges": [
+    { "source": "b005_untracked_duplicate_skill", "target": "propagation_procedure_never_propagated_to", "relation": "surfaced", "confidence": "CURATED", "source_file": ".claude/skills/sync-docs/SKILL.md", "confidence_score": 1, "source_location": "§1", "weight": 1 },
+    { "source": "b005_untracked_duplicate_skill", "target": "d94_first_deferral_answered", "relation": "answered_by", "confidence": "CURATED", "source_file": "docs/v1/V1-DECISION-REGISTER.md", "confidence_score": 1, "source_location": "§5.14bb", "weight": 1 },
+    { "source": "b005_untracked_duplicate_skill", "target": "reopens_phase_return_path", "relation": "uses", "confidence": "CURATED", "source_file": "docs/handoff/B-005-untracked-sync-docs-skill.md", "confidence_score": 1, "source_location": "Reopens-Phase", "weight": 1 }
+  ]
+}
