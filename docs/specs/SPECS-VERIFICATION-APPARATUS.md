@@ -339,3 +339,60 @@ people to ignore it**, which is the `D-83` reasoning that made `lane-boundary` r
 forbid.
 
 **Runs in CI** — tracked files only, no graph input, no history requirement.
+## 15. Check 12 — the config-to-code coupling `[V1]`
+
+**`C-17`, installed 2026-08-22 by `D-95` (raised as `B-007`).** `D-91` split ownership — Lane A
+owns every row of `docs/CONFIG_LOG.md`, Lane B owns `lib/config/*.ts` — and `C-17` opened in the
+same pass saying *install the check in the pass that lands `build-config.ts`*. **That pass was
+`43c51ce` and the check was not installed**, so the split that created the risk ran a full cycle
+with nothing watching it.
+
+**Why the application test was not enough.** `__tests__/build-config.test.ts` asserts that
+declarations **already in the code** cite `CONFIG_LOG.md`. **It cannot fail when an authoritative
+row is missing from the code** — and that is the direction that matters, because it is the one
+where Lane A publishes a value and Lane B never implements it. A one-way check licenses the other
+direction; the same lesson `G65` and `G71` recorded for `decision-status`.
+
+**What it fails on — both directions:**
+
+- an authoritative `CONFIG_LOG.md` variable with no declaration in `lib/config/`
+- a governed declaration in `lib/config/` with no `CONFIG_LOG.md` row
+
+**What it deliberately does not do:**
+
+- **It does not compare values.** A row says `5`; the code may legitimately read `5` from an env
+  var or a derived expression. Comparing text would report drift that is correct by design.
+- **It does not require `lib/config/` to exist.** Before Lane B's phase opens there is nothing to
+  couple, and a check red on a legitimately absent directory is a check people stop reading.
+- **`§7.2` derived views are excluded.** `FLAG_FOUR_EYES_LINE_SEPARATION` and
+  `FLAG_LINE2_HUMAN_PRIMARY` are computed from `FOUR_EYES_MODE` and `LINE2_EXECUTOR_TYPE`;
+  demanding their own declarations would require exactly the duplication `D-94` refused.
+- **Two structural identifiers are excluded and named in the source** — the registry export and
+  its `UNSET` sentinel. **An exclusion list is a place drift hides**, so it is kept to two entries
+  and adding to it requires stating why in the file.
+
+**Negative-tested in both directions.** On its first run it reported **thirteen** authoritative
+rows with no code — the routes and the canonical sprint flags — and found two `CONFIG_LOG.md`
+defects Lane A had shipped: a value stated only in prose, and a compound cell naming two variables
+with the second abbreviated.
+
+**`bun run check` is red because of those thirteen, and the red is correct: S0 is not done.**
+
+**Runs in CI** — tracked files only, no graph input, no history requirement.
+### 13.1 `C-19` — `Reopens-Phase:` enforcement `[V1]`
+
+**Added to check 10 on 2026-08-22 by `D-95` (raised as `B-010`).** `D-93` created the field and
+deferred the check because no phase had closed, which would have made it vacuous. **`C-19` was
+then carried as a residual past closure while also saying it must land in the closing pass —
+`B-010` was right that those are incompatible.**
+
+**The deferral reasoning was already stale.** The error the check catches — a `Reopens-Phase:`
+naming a phase that never closed — **does not require a closed phase to exist.** `B-004` and
+`B-005` carried exactly that, so the check was non-vacuous the moment it was written.
+
+**It fails on:** a `Reopens-Phase:` naming no number; naming a phase absent from the register;
+or naming a phase that has never closed. **Reopening presupposes a closure**; a finding against an
+open phase is an ordinary entry and needs no field.
+
+**Negative-tested three ways**, including the positive case: with the register temporarily showing
+Phase 1 closed, the same entry passes and the detail line reports it as a reopening.

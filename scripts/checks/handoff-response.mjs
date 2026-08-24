@@ -39,6 +39,32 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const DIR = "docs/handoff";
+const CLOSURE = "docs/v1/V1-PHASE-CLOSURE.md";
+
+// `C-19` (`D-95`, raised as `B-010`) — `Reopens-Phase:` enforcement.
+//
+// `D-93` added the field and deferred the check because no phase had closed,
+// which would have made it vacuous. `B-010` showed that reasoning was already
+// stale: the field can be WRONGLY used before any phase closes, and it was —
+// `B-004` and `B-005` carried `Reopens-Phase: 1` against a phase that never
+// closed. **Reopening presupposes a closure.** The check is non-vacuous
+// because the error it catches does not require a closed phase to exist.
+//
+// Reads §5's phase register: a row is closed when its `Closed` cell holds
+// anything other than a dash.
+function closedPhases() {
+  if (!existsSync(CLOSURE)) return null;
+  const closed = new Set();
+  const seen = new Set();
+  for (const line of readFileSync(CLOSURE, "utf8").split("\n")) {
+    // | **1 — Orchestration** | A | status | closed | judge | reopened |
+    const m = /^\|\s*\*\*(\d)\s*—[^|]*\|[^|]*\|[^|]*\|([^|]*)\|/.exec(line);
+    if (!m) continue;
+    seen.add(m[1]);
+    if (!/^[\s—–-]*$/.test(m[2])) closed.add(m[1]);
+  }
+  return seen.size === 0 ? null : { closed, seen };
+}
 
 // `Acknowledged`, `Answered`, `Withdrawn` — anything else is not a disposition.
 const DISPOSITIONS = /^(Acknowledged|Answered|Withdrawn)\b/i;
@@ -61,6 +87,8 @@ export function run() {
   // entries here — it answers them; a Lane A concern goes in the register.
   const entries = readdirSync(DIR).filter((f) => /^[BC]-\d+.*\.md$/.test(f));
   const findings = [];
+  const phases = closedPhases();
+  let reopening = 0;
   let open = 0;
   let answered = 0;
   let withdrawn = 0;
@@ -78,6 +106,25 @@ export function run() {
     const kind = field(text, "Kind");
     const status = field(text, "Status");
     const response = field(text, "Lane A");
+    const reopens = field(text, "Reopens-Phase");
+
+    // `C-19`. A missing field is the normal case and never a finding.
+    if (reopens !== null && reopens !== "") {
+      const phase = reopens.trim().replace(/[^0-9]/g, "");
+      if (!phase) {
+        findings.push(`${path}: **Reopens-Phase:** "${reopens}" names no phase number`);
+      } else if (phases === null) {
+        findings.push(`${path}: **Reopens-Phase:** ${phase} — no phase register found in ${CLOSURE}`);
+      } else if (!phases.seen.has(phase)) {
+        findings.push(`${path}: **Reopens-Phase:** ${phase} — no such phase in the register`);
+      } else if (!phases.closed.has(phase)) {
+        findings.push(
+          `${path}: **Reopens-Phase:** ${phase} — but phase ${phase} has never closed. Reopening presupposes a closure; a finding against an open phase is an ordinary entry and needs no field.`,
+        );
+      } else {
+        reopening++;
+      }
+    }
 
     if (!kind) findings.push(`${path}: no **Kind:** field — cannot route it`);
     if (!status) {
@@ -118,7 +165,7 @@ export function run() {
   const detail =
     entries.length === 0
       ? "channel installed, no entries yet"
-      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn`;
+      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn${reopening ? `, ${reopening} reopening a closed phase` : ""}`;
 
   return { name: "handoff-response", findings, detail };
 }

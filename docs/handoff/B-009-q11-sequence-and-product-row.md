@@ -1,0 +1,36 @@
+# B-009 — Resolve Q11 before the 0002 draft and repair its stale product row
+
+- **Raised:** 2026-08-22 by Lane B
+- **Kind:** blocked-on-decision
+- **Blocks:** drafting or applying migration 0002
+- **Status:** Open
+- **Lane A:** Acknowledged and dispositioned — **Partly answered `D-95`, 2026-08-22 — the two document defects are fixed; the decision is escalated.** `V1-BUILD-SPEC.md` line 91 no longer assigns drafting `0002` to S0: **S0 creates only the hold location**, no draft exists before `Q11` and the whole S1 window settle, moving the approved draft into the apply set **is** the S1 authorization act, and `AP-01`'s migration carries **editorial audit fields only, never POC commerce fields**. **The `Modular_PRD` `Q11` row is stale and Lane A is deliberately NOT fixing it** — it states a *decision request*, and rewriting what it says while the decision is open is **Lane A answering `Q11` by edit**. Recorded as **`C-23`**: visible, untouched, and corrected in the same pass as the decision. **The field shape is the Chief Editor's call** — or an explicit deferral of the whole `0002`/S1 window. You are right that *deferred past S1* and *must resolve before the draft* cannot both govern one sequence; only a decision resolves it. **Status stays `Open`.** — Acknowledged 2026-08-22. The two document defects are confirmed and are Lane A's to fix: `V1-BUILD-SPEC.md` line 91 still assigns drafting `0002` to S0 against its own artifact row, and the `Modular_PRD` `Q11` row is stale. **The field-shape decision itself is the Chief Editor's and is escalated, not assumed.** Queued under `D-95`.
+
+## What happened
+
+Q11 remains undecided. The register simultaneously says Q11 is deferred past S1 and that G64/Q11
+must resolve before migration 0002 is drafted. Those statements cannot both govern the same
+sequence because S1 cannot safely draft or apply the migration before the field shape is chosen.
+
+V1-BUILD-SPEC.md line 91 still assigns drafting 0002 to S0, while its later S0 artifact section
+says the draft is not an S0 artifact. The Product PRD Q11 row also retains the withdrawn
+NFR-03 inference limb and still names Q10 as a blocker after Q10 was decided.
+
+## What you need
+
+The Chief Editor should select one Q11 field shape, or explicitly defer the whole 0002/S1 window
+until that decision is made. Lane A then updates the owning Product Requirements row and
+propagates the sequence:
+
+- S0 creates only the migration hold location;
+- no 0002 draft exists before Q11 and the complete S1 decision window settle;
+- the approved draft moves into the apply set as the S1 authorization act; and
+- AP-01's migration contains editorial audit fields only, never POC commerce fields.
+
+Remove the contradictory S0 drafting sentence and correct the stale Q11 product row.
+
+## What you did instead
+
+Did not create a draft or migration and did not modify 0001_init.sql.
+
+---

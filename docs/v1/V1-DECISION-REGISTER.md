@@ -2346,6 +2346,20 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
+### `C-23` — the `Modular_PRD` `Q11` row is stale and Lane A must not fix it
+
+**Opened by `D-95`, raised as `B-009`. Phase: with the `Q11` decision.** The `Modular_PRD` `Q11`
+row retains the **withdrawn `NFR-03` inference limb** (`D-69` withdrew it) and **still names
+`Q10` as a blocker** after `Q10` was decided (`D-73`, narrowed `D-79`).
+
+**Both are genuinely stale, and Lane A is still not correcting them.** The row states a *decision
+request*. Rewriting what a decision request says — while the decision is open — is **Lane A
+answering `Q11` by edit**, which is the failure `D-58` and the intent hierarchy exist to prevent.
+
+**Fix:** the Chief Editor selects a `Q11` field shape, or explicitly defers the whole `0002`/S1
+window. **Lane A then updates the owning `Modular_PRD` row in the same pass** and propagates the
+sequence under `D-54`. Until then the staleness is **recorded here, visible, and untouched.**
+
 ### `C-22` — the manifest's completeness is unverifiable by construction
 
 **Opened by `D-94`. Phase: every phase boundary.** `phase-manifest` proves every listed path
@@ -4196,3 +4210,144 @@ already carries the critic discipline from `D-93`. **`.claude/skills/sync-docs/S
 tier**; it is a Lane A procedure corrected directly. **Build spec unaffected** — no scope,
 sequence or DoD moves; the phase-start rule governs *when a phase begins*, not *what a sprint
 delivers*. **`Modular_PRD` §8 unaffected** — no sprint closed, no tier opened.
+
+---
+
+## 5.14bc `D-95` — The Omitted Judge Packet: `D-94`'s Resubmission Was Not Closable
+
+**`B-006` is the durable record of a Judge packet that never reached the channel.** Lane A saw
+only the `DEFER` row and answered the two entries in front of it; the broader closure review
+against `eb1549d` was never dispositioned. **`B-006`–`B-010` are Lane B's transcription of it.**
+
+**All ten of `B-006`'s items were verified against the artifacts before any was accepted. All ten
+stand.** That verification mattered: `B-008` turned out to require a Chief Editor decision Lane A
+must not make, and saying so is only possible after reading rather than agreeing.
+
+### The parent: a control installed to stop a silent gap had one
+
+**`phase-manifest` silently dropped every compound-path row.** `§5A.6` declares five exclusion
+rows; the check reported **three**, because the pattern anchored a single backticked token
+immediately before the closing pipe and a cell naming three paths matched nothing at all.
+
+**A row that fails to parse produced no finding — it produced silence.** That is the precise
+defect the check was installed one pass earlier to prevent, in the check itself. Fixed by
+collecting **every** backticked path in the first cell, and a first cell with **no** path is now
+reported rather than skipped. **Two new negative tests**: a compound row whose *second* path is
+missing, and a row naming no path. The exclusion count moved from 3 to 9.
+
+### `D-94` replaced four contradictions with a fifth
+
+`B-006` items 5 and 6, and both are Lane A's.
+
+**The phase-start rule contradicted its own application.** `§5B` said a phase starts *"after the
+preceding Judge boundary is accepted"* and then said `43c51ce` — which predates any acceptance —
+started Phase 2. **An act cannot open a phase by a rule it violates.**
+
+**The normalized state is less flattering than the one it replaces:** *unauthorized Lane B
+implementation activity occurred at `43c51ce`; **Phase 2 was never validly opened.*** The commit
+stands as immutable history; only its **interpretation** is corrected, which is the only
+correction an append-only record permits.
+
+**Phase 1 was never "Reopened" either.** `D-94` marked it reopened by `B-004`/`B-005` — but
+**reopening presupposes a closure that never happened.** Those were findings against an *open*
+phase, which needs no mechanism. **The `Reopens-Phase:` fields were added by Lane A, not by Lane
+B**, so removing them corrects Lane A's own annotation rather than editing a raised entry.
+
+**§4 now distinguishes four states** — readiness feedback, unauthorized lane activity, a validly
+opened phase, and a reopening — because **conflating them is what produced the contradiction.**
+
+### `C-19` installed, and `B-010` was right that it could not wait
+
+`C-19` said *install it in the pass that closes the first phase*, and `D-94` simultaneously
+carried it as *a residual past closure*. **Those are incompatible**, and `B-010` said so.
+
+**The deferral reasoning was also already stale.** `D-93` deferred the check because no phase had
+closed, which would make it vacuous — but **the error it catches does not require a closed phase
+to exist.** `B-004` and `B-005` carried `Reopens-Phase: 1` against a phase that never closed, and
+the check reports exactly that. **Negative-tested three ways**, including the positive case where
+a genuinely closed phase must pass.
+
+### `C-17` installed — the direction the existing test could not see
+
+`C-17` said *install it in the pass that lands `build-config.ts`*. **That pass was `43c51ce` and
+Lane A did not**, so the split ownership `D-91` created ran a full cycle unwatched (`B-007`).
+
+**The existing application test asserts that declarations already in the code cite
+`CONFIG_LOG.md`.** It cannot fail when an authoritative row is missing **from** the code — and
+that is the direction that matters, because it is the one where Lane A publishes and Lane B never
+implements. `config-coupling` fails **both** ways; **negative-tested in both.**
+
+**It found thirteen real gaps immediately, and `bun run check` is red because of them.** The
+routes and the canonical flag set are declared authoritative and unimplemented. **That red is
+correct: S0 is not done.** Softening it would be the ceremonial-check failure this apparatus
+exists to catch.
+
+**It also found two `CONFIG_LOG.md` defects Lane A had shipped:** `SCORE_FORMULA_VERSION` stated
+only in prose, and `CATEGORY_BALANCE_WINDOW_DAYS · _ARTICLE_THRESHOLD` written as **one compound
+cell naming two variables with the second abbreviated** — the same compound-cell blindness as the
+manifest parser, in the document rather than the code. **A value stated in a sentence is not an
+authoritative row, and an abbreviated name is not a name.**
+
+### `C-21` finally swept — the tally was in the file every agent reads first
+
+`C-21` named the class one pass earlier and Lane A fixed only some instances. **All three rule
+files still said "413 pinned packages."** Removed; the shared core now states the rule and
+`bun install` prints the number. **Core hash `a94aa18ee984`.**
+
+### The remaining corrections
+
+- **Conditions 2, 3 and 4 cited §3** — the critic-pass *discipline*, not the evidence (`B-006`
+  item 4). **A condition that cites the wrong section cannot be checked by the person it is
+  written for**, and the Judge is exactly that person. Condition 3 now also says **"against the
+  final artifact set"**: the resubmission's critic pass predated the manifest, the new check and
+  the skill repair, so it certified work it had never seen (`B-006` item 1).
+- **The inventory marked `lib/config/build-config.ts` absent while it existed** (`B-006` item 2).
+  **No check compares a row's mark against the filesystem.** `flags.ts` is the genuinely absent
+  one, correctly so — Lane B refused a placeholder because existence would imply decisions.
+- **The build spec never linked the phase contract** (`B-006` item 3). `D-94` called it unaffected
+  on the reasoning that phases and sprints are different scopes. **True, and not a reason to hide
+  the link** — sequence lives here.
+- **`§5A.6` cited `F7` for an `F8` finding**, and the measurements prose said *"half … all three"*
+  after the finding set grew past three (`B-006` item 7). **A count restated beside a growing list
+  is `G55`'s mechanism, in the section that reports counts.**
+- **The build spec still assigned drafting `0002` to S0** while its own artifact row said the
+  opposite (`B-009`). S0 creates **only** the hold location.
+
+### What Lane A refused to decide
+
+**`B-008` — the later POC payment, cart, account and drain model.** None of its vocabulary
+appears in any authoritative document. `NG-03` excludes monetization at Charter level and `X8`
+removed the Stripe scaffolding, so **option 1 (record as deferred scope) is consistent with the
+frozen set and option 2 (authorize POC scope) is a Charter-level act.** **Escalated to the Chief
+Editor at the Alpha Portfolio parent level. Lane A infers no authority from conversation.**
+
+**`B-009` — the `Q11` field shape.** The two *document* defects are Lane A's and are fixed. **The
+shape decision is the Chief Editor's**; the register's two statements — `Q11` deferred past S1,
+and `G64`/`Q11` must resolve before the `0002` draft — **cannot both govern the same sequence**,
+and only a decision resolves that.
+
+### What this does not do
+
+**Does not close Phase 1** and **does not perform the new critic pass.** `B-006` item 1 requires a
+critic pass **against the final artifact set**, and `D-93`'s first rule is that it runs **on a
+separate turn from the work being criticised.** This pass *is* that work. **A critic pass
+appended here would be the exact defect the rule forbids** — so it is the next turn's, not this
+one's, and Phase 1 cannot be resubmitted before it.
+
+**Does not validly open Phase 2** or treat S0 as complete. **Does not decide `B-008` or `Q11`.**
+Authorizes no schema, migration or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | Inventory | Build spec | `SPECS-VERIFICATION` | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Manifest parser repaired | ✅ §5.14bc | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §14 | **— unaffected** |
+| Phase-state contradictions | ✅ §5.14bc | **— unaffected** | ✅ `build-config` row | ✅ phase-contract link | **— unaffected** | **— unaffected** |
+| `C-19` installed | ✅ §5.14bc | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §13 | **— unaffected** |
+| `C-17` installed | ✅ §5.14bc | **— unaffected** | ✅ new file | **— unaffected** | ✅ §15 | **— unaffected** |
+| `C-21` swept | ✅ §5.14bc | ✅ all three, core rehashed | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `0002` not an S0 artifact | ✅ §5.14bc | **— unaffected** | **— unaffected** | ✅ §S0 both places | **— unaffected** | **— unaffected** |
+
+**`Modular_PRD` unaffected** — no sprint closed and no tier opened. **Its `Q11` row is stale
+(`B-009`) and is *not* corrected here**: the row states a decision, and **editing it before the
+Chief Editor decides would be Lane A answering `Q11` by edit.** Carried as `C-23`.

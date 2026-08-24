@@ -11,10 +11,20 @@ level up.
 
 | # | Condition | Checkable by |
 |---|---|---|
-| 1 | Its **artifact list exists** — every named file present | `ls`, per `D-19` |
-| 2 | Every handoff entry raised against it has reached a **terminal disposition** — `Answered` or `Withdrawn` | `bun run check` (check 10) plus §3's table |
-| 3 | A **critic pass** has been performed **on a separate turn**, and its weakness list is recorded in §3 | the recorded list |
-| 4 | **The Judge approves at the boundary** | the signed row in §3 |
+| 1 | Its **artifact list exists** — every named file present | **§5A**, verified by `phase-manifest` (check 11) |
+| 2 | Every handoff entry raised against it has reached a **terminal disposition** — `Answered` or `Withdrawn` | `bun run check` (check 10) plus **§6.3** |
+| 3 | A **critic pass** has been performed **on a separate turn against the final artifact set**, and its weakness list is recorded | **§6.1** |
+| 4 | **The Judge approves at the boundary** | the verdict row in **§6.6** |
+
+**Section references corrected 2026-08-22 (`D-95`, raised as `B-006` item 4).** Conditions 2, 3
+and 4 all pointed at **§3**, which is the critic-pass *discipline*, not the evidence. **A
+condition that cites the wrong section cannot be checked by the person it is written for** — and
+the Judge is exactly that person.
+
+**Condition 3 now says "against the final artifact set" explicitly** (`B-006` item 1). The
+previous resubmission carried a critic pass dated **before** the manifest, the new check and the
+skill repair existed, so condition 3 was satisfied by a pass that had never seen most of what it
+was certifying.
 
 **Condition 2 raises the bar that check 10 sets.** During a phase, `Acknowledged` and still
 `Open` passes — a queue is healthy, and a check red in the normal case is one people stop
@@ -77,16 +87,30 @@ The named phase's §5 row is then marked **Reopened**, with the entry cited. **A
 not a failure** — it is the return path working. A phase that is never reopened across a whole
 build is more likely to mean findings were dropped than that none existed.
 
-**No check enforces this yet, deliberately.** No phase is closed, so a check would pass on every
-run without reading anything — a `probe_that_cannot_fail`, the same reasoning that deferred
-`C-17`. **Install it in the pass that closes the first phase**, carried as `C-19`.
+**Four states, and only the fourth is a reopening** — added 2026-08-22 (`D-95`, raised as
+`B-004` and `B-010`). Conflating them is what produced the `D-94` contradiction:
+
+| State | What it is | Opens a phase? |
+|---|---|---|
+| **Readiness feedback** | Read-only analysis; a handoff entry from the lane that must execute a proposal | **No** — it is evidence about what will deterministically fail |
+| **Unauthorized lane activity** | A change to a lane's surface before its phase was validly opened | **No** — `43c51ce` is this |
+| **Validly opened phase** | The first authorized change **after the preceding Judge boundary was accepted** | **Yes** |
+| **Reopening** | A finding requiring work in a phase **that previously closed** | n/a — the phase reverts to open |
+
+**`Reopens-Phase:` applies only to the fourth row.** A finding against a phase that is merely
+*open* needs no mechanism; it is an ordinary entry.
+
+**`C-19` enforcement installed 2026-08-22** (`D-95`, raised as `B-010`). It is **no longer
+vacuous**: `B-004` and `B-005` carried `Reopens-Phase: 1` against a phase that never closed, and
+the check reports exactly that. **`C-19` could not be both "install it in the closing pass" and
+"a residual carried past closure"** — `B-010` was right that those are incompatible.
 
 ## 5. Phase register
 
 | Phase | Lane | Status | Closed | Judge | Reopened by |
 |---|---|---|:---:|---|---|
-| **1 — Orchestration** | A | **Open — `DEFER` returned 2026-08-22, resubmission prepared** | — | Robert Tan — **`DEFER`**, §6.4 | `B-004`, `B-005` |
-| **2 — Application** | B | **Started early at `43c51ce`; further work deferred** | — | — | — |
+| **1 — Orchestration** | A | **Open — never closed.** `DEFER` returned 2026-08-22; resubmission in preparation | — | Robert Tan — **`DEFER`**, §6.6 | **n/a — see below** |
+| **2 — Application** | B | **Not validly opened.** Unauthorized implementation activity occurred at `43c51ce`; further work deferred | — | — | — |
 | **3 — CI/CD** | C | Not started | — | — | — |
 
 **Phase 2 started while Phase 1 is open, and that is a finding, not a note.** `D-75` says the
@@ -97,8 +121,22 @@ same state and could not all be true:** this row said *"closure pending"*, §6.4
 beneath a filled `DEFER` verdict, this row's Judge field was blank while a Judge had ruled, and
 Phase 2 read *"Started"* with no record of what started it.
 
-**§5B resolves it:** a phase starts at the first authorized change to that lane's surface, and
-`43c51ce` was that change. **Phase 2 started early — the fact is preserved, never re-described.**
+**Corrected again 2026-08-22 (`D-95`, raised as `B-006` items 5 and 6). The previous
+reconciliation replaced four contradictory statements with a fifth contradiction.** It said a
+phase starts *"after the preceding Judge boundary is accepted"* **and** that `43c51ce` — which
+predates any acceptance — started Phase 2. **Both cannot hold: an act cannot open a phase by a
+rule it violates.**
+
+**The normalized state, and it is less flattering:** *unauthorized Lane B implementation activity
+occurred at `43c51ce`; **Phase 2 was never validly opened.*** The commit stands as immutable
+history and its **interpretation** is corrected prospectively — which is the only correction an
+append-only record permits.
+
+**Phase 1 is not "Reopened" either.** `D-94` recorded it as reopened by `B-004`/`B-005`, but
+**reopening presupposes a closure that never happened.** The `Reopens-Phase:` field is for a
+phase that closed; those two entries were **findings against an open phase**, which needs no
+mechanism at all. The register's *Reopened by* cell now reads **n/a**, and §4's own wording is
+tightened below.
 
 **`DEFER` is not a failed close.** It is the Judge exercising the role `D-93` created, on the
 first occasion it existed to be exercised.
@@ -177,7 +215,7 @@ rather than claimed.
 
 | Path | Why excluded |
 |---|---|
-| `.agents/skills/sync-docs/SKILL.md` | **Removed** — a divergent duplicate of the tracked skill (`B-005`, §6.1 `F7`) |
+| `.agents/skills/sync-docs/SKILL.md` | **Removed** — a divergent duplicate of the tracked skill (`B-005`, §6.1 **`F8`**) |
 | `.github/workflows/ci.yml` | **Lane C's surface.** Present and working, but Phase 3's artifact, not Phase 1's |
 | `docs/graph-fragments/frag*.json` | Curated-graph inputs, appended continuously; not a fixed deliverable |
 | `docs/journal/`, `docs/source/`, `docs/governance/` | Inputs Phase 1 consumed, not artifacts it produced |
@@ -266,10 +304,14 @@ of them existed.** A critic reading artifacts checks the contents of a set; only
 *accept* the set asks whether the set is defined. **That is an argument for the Judge being a
 separate role, made by the first exercise of it.**
 
-**Half the findings are defects in Lane A's own output, and Lane B found all three of them.**
-That is the single strongest piece of evidence for `D-93`: the critic role was not added because
-a process document recommended it, but because **the phase about to be declared complete
-contained three contradictions its author could not see and a reader found immediately.**
+**Most findings are defects in Lane A's own output, and another lane or the Judge found every one
+of them.** *(This paragraph said "half … all three of them" after the finding set had grown past
+three — `B-006` item 7. **A count restated beside a list that grows is `G55`'s mechanism in
+prose**, and it appeared in the very section that reports the finding counts.)*
+
+That is the strongest evidence for `D-93`: the critic role was not added because a process
+document recommended it, but because **the phase about to be declared complete contained
+contradictions its author could not see and readers found immediately.**
 
 **Zero findings were dismissed — and that is reported, not celebrated.** A pass in which the
 critic agrees with everything is the failure mode; a pass in which the author accepts everything

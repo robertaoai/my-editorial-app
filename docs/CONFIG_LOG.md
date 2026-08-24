@@ -64,8 +64,13 @@ granularity, roles versus transitions. This has been mistaken for a contradictio
 
 ## 3. Scoring — Addendum §5, formula version pinned
 
-`SCORE_FORMULA_VERSION = "v0"`. The formula is pinned by version so a scoring change is a
-version bump with a `DECISION_LOG.md` line, not a silent recalculation of history.
+The formula is pinned by version so a scoring change is a version bump with a `DECISION_LOG.md`
+line, not a silent recalculation of history.
+
+*Two rows below were added 2026-08-22 (`D-95`, raised as `B-007`): `SCORE_FORMULA_VERSION` stated
+only in prose, and `CATEGORY_BALANCE_WINDOW_DAYS · _ARTICLE_THRESHOLD` written as one compound
+cell naming two variables with the second abbreviated. **`config-coupling` found both** — a value
+stated in a sentence is not an authoritative row, and an abbreviated name is not a name.*
 
 | Variable | Value | Source |
 |---|---|---|
@@ -78,7 +83,9 @@ version bump with a `DECISION_LOG.md` line, not a silent recalculation of histor
 | `REVIEWER_CONFIDENCE_WEIGHTS` | 1.0 / 0.6 / 0.3 | Addendum §5 |
 | `PRIORITY_BANDS` | <0.4 / 0.4–0.7 / >0.7 | Addendum §5 |
 | `DISPLAY_PRIORITY_MIX` | .5 / .5 | Addendum §5 |
-| `CATEGORY_BALANCE_WINDOW_DAYS` · `_ARTICLE_THRESHOLD` | 7 · 3 | Addendum §5 |
+| `CATEGORY_BALANCE_WINDOW_DAYS` | 7 | Addendum §5 |
+| `CATEGORY_BALANCE_ARTICLE_THRESHOLD` | 3 | Addendum §5 |
+| `SCORE_FORMULA_VERSION` | `"v0"` | Addendum §5 — pinned so a scoring change is a version bump with a `DECISION_LOG.md` line, never a silent recalculation of history |
 
 **`TC3` blocks this section.** The scoring inputs do not exist in `0001_init.sql` —
 `sources.reliability_tier`, `articles.source_id`, `trend_signals.engagement_metrics`,

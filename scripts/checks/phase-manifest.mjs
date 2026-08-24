@@ -38,7 +38,19 @@ const DOC = "docs/v1/V1-PHASE-CLOSURE.md";
 // cannot accidentally contribute rows.
 const SECTION = /^#{2,4}\s+5A\.(\d)\b/;
 const END = /^#{2,4}\s+5B\b/;
-const ROW = /^\|\s*`([^`]+)`\s*\|/;
+// A manifest row's first cell may name MORE THAN ONE path — `§5A.6` has rows
+// like "`docs/journal/`, `docs/source/`, `docs/governance/`". The original
+// pattern anchored a single backticked token immediately before the closing
+// pipe, so **every compound row was silently dropped**: the manifest declared
+// five exclusions and the check reported three (`B-006` item 8).
+//
+// A check installed to stop a silent gap had one. Rows are now split on the
+// first cell and EVERY backticked path in it is collected, and `ROW_ANY`
+// exists so a first cell containing no backticks at all is reported rather
+// than skipped.
+const FIRST_CELL = /^\|([^|]*)\|/;
+const PATH_IN_CELL = /`([^`]+)`/g;
+const ROW_ANY = /^\|(?!\s*[-: ]+\s*\|)/;
 
 function tracked(path) {
   try {
@@ -68,6 +80,7 @@ export function run() {
   const bySub = new Map();
   // path -> was it excluded as a REMOVAL rather than as out-of-scope
   const excludedAsRemoved = new Map();
+  const malformed = [];
 
   for (const line of lines) {
     if (END.test(line)) break;
@@ -78,12 +91,26 @@ export function run() {
       continue;
     }
     if (sub === null) continue;
-    const row = ROW.exec(line);
-    if (row) {
-      bySub.get(sub).push(row[1]);
-      if (sub === 6) {
-        excludedAsRemoved.set(row[1], /\bremoved\b/i.test(line.slice(row[0].length)));
+    if (!ROW_ANY.test(line)) continue;
+
+    const cell = FIRST_CELL.exec(line);
+    if (!cell) continue;
+
+    // A header row ("| Path | Delivers |") has no backticks; so does a
+    // malformed one. Distinguish them: a header is exactly the known
+    // heading text, anything else with no path is reported.
+    const paths = [...cell[1].matchAll(PATH_IN_CELL)].map((m) => m[1]);
+    if (paths.length === 0) {
+      if (!/^\s*(path|artifact)\s*$/i.test(cell[1])) {
+        malformed.push(`§5A.${sub}: "${cell[1].trim()}" — a manifest row whose first cell names no path`);
       }
+      continue;
+    }
+
+    const rest = line.slice(cell[0].length);
+    for (const p of paths) {
+      bySub.get(sub).push(p);
+      if (sub === 6) excludedAsRemoved.set(p, /\bremoved\b/i.test(rest));
     }
   }
 
@@ -96,6 +123,8 @@ export function run() {
       detail: "manifest absent",
     };
   }
+
+  findings.push(...malformed.map((m) => `${DOC} ${m}`));
 
   let listed = 0;
   let excluded = 0;

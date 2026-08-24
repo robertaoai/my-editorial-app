@@ -204,8 +204,9 @@ fixed phase order. Each lane owns a surface; **work outside your lane is *specif
 `.gitattributes` in Lane C — **corrected**, and two commits it cited as crossings were not.
 
 **Lane A provisions ahead; Lane B responds to flags (`D-86`).** Lane A installs the toolchain and
-**every dependency before Lane B needs it** — bun and its 413 pinned packages were provisioned this
-way (`D-64`). `package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts` and lockfiles
+**every dependency before Lane B needs it** — bun and its pinned dependency set were provisioned
+this way (`D-64`). **No package count appears here** (`G75`, `C-21`): a dependency change moves it
+and nothing detects that, and it had already drifted once. `bun install` prints the number. `package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts` and lockfiles
 are Lane A's, so **Lane B does not run `bun add` at all**; it requests, Lane A provisions, Lane B
 builds. **Governance reaches Lane B as a flag, not as a document** — when a check fires, fix the
 code it names; you are not expected to read the register or decide scope.

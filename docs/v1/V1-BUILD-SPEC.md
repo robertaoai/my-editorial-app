@@ -88,7 +88,21 @@ Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` 
 
 **Route constants land here (`D-59`, closes `G10`/`QC`).** `EDITORIAL_ROUTE` = `/editorial`, `POC_ROUTE` = `/request-brief`, `DOMAIN_APEX` = **`UNSET`** — no domain is recorded in the corpus and none is invented. **`C-15` (T3)** promotes both lanes to distinct origins before POC holds real client data; the route names are chosen so that promotion is mechanical.
 
-Config registry with a `PROVISIONAL` marker on every OD-derived value · feature flags · `DECISION_LOG.md` and `CONFIG_LOG.md` · remove Stripe scaffolding (`X8`, `NG-03`) · **verification apparatus** · draft migration `0002` **without applying it**.
+Config registry with a `PROVISIONAL` marker on every OD-derived value · feature flags · `DECISION_LOG.md` and `CONFIG_LOG.md` · remove Stripe scaffolding (`X8`, `NG-03`) · **verification apparatus** · **the `0002` hold location, not the draft** (corrected `D-95`; see below).
+
+**The `0002` draft is NOT part of S0 — corrected 2026-08-22 (`D-95`, raised as `B-009`).** The
+sentence above still listed *"draft migration `0002` without applying it"* among S0's contents
+while §5.1's artifact row said the opposite. **S0 creates only the hold location**
+(`docs/v1/drafts/`); **no `0002` draft exists before `Q11` and the whole S1 decision window
+settle**, and moving the approved draft into the apply set **is** the S1 authorization act.
+**`AP-01`'s migration carries editorial audit fields only — never POC commerce fields.**
+
+**Phase boundaries govern this sequence — `D-93`, `D-94`, `D-95`.** `docs/v1/V1-PHASE-CLOSURE.md`
+holds the phase-closure contract (§1), the Phase 1 artifact manifest (§5A) and the phase-start
+rule (§5B). **A sprint's Definition of Done does not close a phase, and a phase boundary does not
+close a sprint** — the two are different scopes, and `D-94` wrongly called this document
+unaffected on that basis (`B-006` item 3). **The link is the propagation**: sequence lives here,
+so a rule about when a lane may begin belongs in the reader's line of sight.
 
 **S0 is a single-lane sprint as of `D-91`.** Its deliverable list previously mixed Lane A files (`docs/DECISION_LOG.md`, `docs/CONFIG_LOG.md`) with Lane B files in one sprint, so Lane B would have crossed a lane boundary on its first day. **Lane A has written both logs ahead of the sprint** — the `D-86` provisioning principle applied to governance content, not just to dependencies. Lane B implements `CONFIG_LOG.md`'s rows; it does not author them.
 
