@@ -152,6 +152,62 @@ Project Charter v1            ← source of truth; frozen; OD1–OD3 Open
 
 ---
 
+### 0.6 Dependency module index — `D-98`
+
+**Added 2026-08-22 on Chief Editor direction.** The structure above **conflates three tiers** —
+Alpha **Portfolio**, the **Project** (`docs/PRD.md`), and this **Product** requirements document —
+and a reader arriving at a requirement cannot tell which tier owns it. **This index is the
+separation**, and it is the anchor a module's `Fn_Specs` attach to.
+
+**Why an index rather than more sections.** A second product's requirements written *inside* this
+document would inherit the MVP's `FR`/`US`/`AC` namespace and its `⚠`/`[Q11]` markers, and every
+propagation ritual would silently sweep both. **Modules are indexed here and specified in their
+own documents**; only the index row lives in this file.
+
+| Tier | Owns | Document | Never |
+|---|---|---|---|
+| **Portfolio** | Cross-project continuity, closure, business case | `docs/governance/alpha-portfolio-business-continuity-implementation-plan.md` *(Tier 1, `D-74`)* | Product behaviour |
+| **Project** | All scopes — commercial, operational, product | `docs/PRD.md` *(**frozen**)* + `docs/source/project-charter-v1.md` *(**frozen**)* | Edited by any agent |
+| **Product** | Behaviour of **one** product module | this document, per module below | Portfolio or project scope |
+
+#### 0.6.1 Module register
+
+| Module | Product | Status | Requirements live in | `Fn_Specs` |
+|---|---|---|---|---|
+| **`M-MVP`** | Editorial pipeline — the five-gate tracker | **Active** | **§1–§12 of this document** | `docs/fn-specs/FN-*` — four, `FR-01`–`FR-13` |
+| **`M-POC`** | **P0-EVR** — Professional Evidence Review | **Indexed, unspecified** | *not yet written* — see below | *none; blocked on the row above* |
+
+**`M-MVP` is retroactive labelling, not a change.** Everything §1 onward already describes one
+product; it now has a name so a second one can be distinguished from it. **No requirement text
+moves and no ID changes.**
+
+#### 0.6.2 `M-POC` — P0-EVR, the first indexed module
+
+**Named from its history of introduction, which is where its authority comes from.** The manual
+P0-EVR lane was chartered as a **portfolio-level business-continuity measure**, not as a product
+feature — that origin is why it may exist while `NG-03` holds, and why it cannot be specified by
+copying MVP requirements.
+
+| | |
+|---|---|
+| **Origin** | `docs/governance/board-proposal-professional-evidence-review-poc.md` — the P0-EVR manual evidence lane |
+| **Charter item** | `G7a` — charter the manual lane, phase **T3** |
+| **Boundaries** | `B-P0-06`'s ten: topic in/out list · spend cap · time stop-loss · payment mechanics · cohort and WIP limit · originality-search sign-off · exclusivity window · named escalation contact · `Q7` legal placeholder · fixed review date |
+| **Route** | `/request-brief` (`D-59`) — one origin, two paths; `/editorial` is `M-MVP`'s |
+| **What it sells** | **Exactly one item: publicly-expandable content with a report** (`D-96`), entering at the trigger and traversing **the same gates** — one engine, two exposures |
+| **Excluded** | `B-008`'s cart, payment-provider config, event/obligation drains, async account claiming, delivery portal, provider-ID split — **not adopted** (`D-96`) |
+
+**What this index does and does not authorize.** It **creates the anchor** an `M-POC` `Fn_Spec`
+requires, satisfying the guardrail that spec input be *a feature group, never a prose
+description*. It **does not** write `M-POC`'s requirements, and **`Fn_Specs` cannot be drafted
+from this row alone** — a module index entry is a pointer, not a feature group. **The next
+artifact is `M-POC`'s own requirements document**, drafted from the four sources above.
+
+**`NG-03` is untouched.** `M-POC` is indexed as deferred scope; **no monetization capability is
+authorized, specified, or built**, and no `M-POC` field goes near `AP-01`'s `Q11`/`0002`.
+
+---
+
 ## 1. Executive Summary
 
 For a single Chief Editor curating trending articles across professional-certification and AI topics, finding and vetting material consumes 3–5 hours per week across LinkedIn, Facebook, blogs, and guest platforms — and, more consequentially, nothing structurally prevents an unreviewed article from going live. This PRD defines a five-gate editorial pipeline in which virtual agents execute operational work under the Three Lines Model, every state transition is logged with who, when, and why, and independence is enforced at the Line 1 / Line 2 boundary. The primary success signal is **zero articles reaching publication without passing every gate in sequence**, with the time saving as the secondary benefit.

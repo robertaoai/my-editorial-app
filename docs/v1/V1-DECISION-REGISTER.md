@@ -4591,3 +4591,109 @@ open Phase 2** or authorize Lane B to act. Authorizes no schema, migration or de
 **Inventory unaffected** — no file created or retired. **`Modular_PRD` §8 unaffected** — no sprint
 closed and no tier opened; the `Q11` change is a **§10 decision-request status**, not a
 requirement amendment.
+
+---
+
+## 5.14bf `D-98` — Condition 5 Rescoped, Both Exits Retired, and the Module Index That Anchors the POC
+
+**Two Judge clarifications, and the first one dissolved a problem rather than solving it.**
+
+### The deadlock was never structural
+
+**Asked: "which phases require exit 1 and exit 2?" Answer: none of them — and the question is
+what exposed why.**
+
+**Condition 5 was mis-scoped by Lane A when written.** *"The sprint the phase enables is
+complete"* was read as *the sprint in its entirety*. **The evidence against that reading was
+already in the file every agent reads first:**
+
+> `CLAUDE.md`: **"Phase 1 (Lane A) is specs and governance, *not* code."**
+
+**A phase whose charter excludes code cannot carry a closure condition that requires code.**
+Under the corrected reading, exit 2 is **the definition, not an exception**, and exit 1 is not
+needed anywhere.
+
+| Phase | Lane owed | Exit |
+|---|---|---|
+| **1 — Orchestration** | S0's governance half — `CONFIG_LOG.md`, `DECISION_LOG.md`, the `0002` hold location. **Complete** | **None** |
+| **2 — Application** | S0's code half, then S1–S4. **Entirely within its own lane** | **None** |
+| **3 — CI/CD** | `C-Q1` and `C-Q2` in `.github/workflows/` | **None of these two.** `C-Q2` waits on `C-18`, a settings act **no lane owns** |
+
+**Exit 1 is withdrawn, not merely un-chosen.** It would have created a standing precedent —
+authorizing a lane to act inside an unopened phase — **to solve a problem that did not exist.**
+Recorded so it is not reached for the next time a boundary looks stuck.
+
+**Lane A had proposed exit 2 and given the wrong reason for it.** `§1.2` argued it as a cost — *"a
+partial re-adoption of the position the ruling rejected"* — when it was simply **the correct
+reading of Lane A's own condition.** `D-96`'s ruling stands untouched; only Lane A's scoping of it
+was wrong.
+
+**The generalized rule, now binding:**
+
+> **Condition 5 is satisfied by the sprint work the closing phase's own lane owed.** Work the
+> sprint assigns to a different lane belongs to *that* lane's phase and is carried as named
+> opening debt — never as a blocker on a phase forbidden to perform it.
+
+**This is the third time a Lane A condition has demanded something its own rules forbid.**
+`C-19` was required in the closing pass *and* carried past closure; `C-17` was to land in a pass
+Lane A does not own; condition 5 required code from the phase defined as not-code. **The pattern
+is writing a condition without checking it against the constraint one paragraph up.**
+
+### The module index — `Modular_PRD` §0.6
+
+**The POC's `Fn_Spec` was blocked because the POC had no feature group to anchor to.** The
+Chief Editor's direction resolves it at the structural level rather than by exception: **the
+document conflates Portfolio, Project and Product**, and an index that separates them gives each
+module a named anchor.
+
+**Why an index rather than more sections — and this is the load-bearing part.** A second product's
+requirements written *inside* this document would inherit the MVP's `FR`/`US`/`AC` namespace and
+its `⚠`/`[Q11]` markers, and **every propagation ritual would silently sweep both.** Modules are
+**indexed here and specified in their own documents**; only the index row lives in the PRD.
+
+**`M-MVP` is retroactive labelling, not a change** — everything from §1 already described one
+product; it now has a name so a second can be distinguished. **No requirement text moves, no ID
+changes.**
+
+**`M-POC` is P0-EVR, named from its history of introduction, which is where its authority comes
+from.** The manual lane was chartered as a **portfolio-level business-continuity measure**, not a
+product feature. **That origin is why it may exist while `NG-03` holds**, and why it cannot be
+specified by copying MVP requirements. Its four sources are named in the row: the board proposal,
+`G7a`'s charter item, `B-P0-06`'s ten boundaries, and `D-59`'s `/request-brief` path.
+
+**What the index does not do, stated because the temptation is obvious.** It creates the **anchor**
+an `Fn_Spec` requires — **it is not itself a feature group.** A module index entry is a pointer.
+**`M-POC`'s `Fn_Specs` still cannot be drafted from this row**; the next artifact is `M-POC`'s own
+requirements document. **`NG-03` is untouched** and no monetization capability is authorized,
+specified or built.
+
+### Status of the two items the Judge's note names
+
+**`Q11`'s field shape is decided** (`D-97`, three-value status) — it is **no longer** what stands
+between here and a complete S0. **What stands there now is the 13 unimplemented `CONFIG_LOG.md`
+rows, and they are Lane B's**, carried as Phase 2's opening debt under the rescoped condition 5.
+
+**Lane C still holds exactly two items**, unchanged and specified in `.github/WORKFLOWS-SPEC.md`
+§4: `fetch-depth: 0`, and the ASCII job rename that `C-18` blocks.
+
+### What this does not do
+
+**Does not close Phase 1** — condition 4 is the Judge's and condition 2 waits on `B-010`'s `C-20`.
+**Does not write `M-POC`'s requirements or any `Fn_Spec`.** **Does not open Phase 2.** **Does not
+decide `Q11`'s naming half.** Authorizes no schema, migration, deployment or monetization
+capability. `0001_init.sql` untouched; `0002` unwritten.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | `Modular_PRD` | Build spec | Inventory | Agent files |
+|---|---|---|---|---|---|
+| Condition 5 rescoped | ✅ §5.14bf | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| Exits retired | ✅ §5.14bf | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| Module index + `M-POC` | ✅ §5.14bf | ✅ §0.6 | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Build spec unaffected** — no scope, sequence or DoD moves; the rescoping changes *who owes* a
+condition, not what any sprint delivers. **Inventory unaffected** — no file created or retired;
+`M-POC`'s requirements document does not yet exist and is **not** inventoried before it is
+authorized. **Agent files unaffected** — `CLAUDE.md`'s phase wording was already correct and is
+what corrected the condition. **`Modular_PRD` §8 unaffected** — no sprint closed, no tier opened;
+§0.6 is document control, not a requirement change.

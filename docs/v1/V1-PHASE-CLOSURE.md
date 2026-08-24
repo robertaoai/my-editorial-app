@@ -17,7 +17,7 @@ one held elsewhere.)*
 | 2 | Every handoff entry raised against it has reached a **terminal disposition** — `Answered` or `Withdrawn` | `bun run check` (check 10); the entries themselves in `docs/handoff/` |
 | 3 | A **critic pass** has been performed **on a separate turn against the final artifact set**, and its weakness list is recorded | **§6.1b** — the pass against `de3b7df`. §6.1 is the earlier pass, superseded not deleted |
 | 4 | **The Judge approves at the boundary** | the verdict row in **§6.6** |
-| 5 | **The sprint the phase enables is complete** — Phase 1 ⇒ S0 (Judge ruling, `D-96`) | `config-coupling` green; see **§1.1** |
+| 5 | **The sprint work this phase's own lane owed is complete** — Phase 1 ⇒ S0's governance half (Judge ruling `D-96`, scoped by `D-98`) | **§1.1a**. Work the sprint assigns to another lane is that lane's phase debt, not this phase's blocker |
 
 **Section references corrected 2026-08-22 (`D-95`, raised as `B-006` item 4).** Conditions 2, 3
 and 4 all pointed at **§3**, which is the critic-pass *discipline*, not the evidence. **A
@@ -59,14 +59,58 @@ background residual: **it is a closure blocker with a name.**
 same defect `43c51ce` already committed. **Closing Phase 1 requires work only Lane B may do, and
 Lane B may not act until Phase 1 closes.**
 
-**This is a genuine deadlock and it is the Judge's to break**, not Lane A's to route around. Three
-exits exist, and Lane A recommends the second:
+**Superseded by `D-98` — see §1.1a.** The deadlock was not structural: **condition 5 was
+mis-scoped by Lane A**, and a phase whose charter excludes code cannot carry a closure condition
+that requires code. **Exit 1 is withdrawn; exit 2 turned out to be the correct reading rather than
+an exception.** The three exits are retained below as the record of how it was analysed while the
+error stood.
+
+**This was recorded as a genuine deadlock for the Judge to break**, not Lane A's to route around.
+Three exits were offered, and Lane A recommended the second:
 
 | Exit | What it costs |
 |---|---|
 | Judge authorizes a **scoped Lane B pass** for S0's remaining config work, explicitly bounded, before Phase 1 closes | One declared, recorded exception to phase order |
 | Judge **accepts Phase 1 on the orchestration artifacts** and moves S0's completion into Phase 2's opening | Phase 1's DoD stops meaning "S0 done"; sprints and phases decouple again |
 | Lane A implements the 13 rows | **Rejected — a lane crossing into `lib/`, and the reason `D-75` exists** |
+
+## 1.1a What condition 5 actually means — `D-98`, and it retires both exits
+
+**Asked: "which phases require exit 1 and exit 2?" The answer is neither, and the question is what
+exposed why.**
+
+**Condition 5 was mis-scoped when written.** It said *"the sprint the phase enables is complete"*
+and was read as *the sprint in its entirety*. **The correct reading is the sprint work this
+phase's own lane owed** — and the evidence was already in the file every agent reads first:
+
+> `CLAUDE.md`: **"Phase 1 (Lane A) is specs and governance, *not* code."**
+
+**A phase whose charter excludes code cannot have a closure condition that requires code.**
+Under the corrected reading, exit 2 is **not an exception — it is the definition**, and exit 1 is
+not needed at all.
+
+| Phase | Lane | What its lane owed the sprint | Exit needed |
+|---|---|---|---|
+| **1 — Orchestration** | A | S0's governance half: `CONFIG_LOG.md`, `DECISION_LOG.md`, the `0002` hold location. **Complete** | **None** — condition 5 is met once read correctly |
+| **2 — Application** | B | S0's code half — `build-config.ts`, `flags.ts`, the routes and canonical flags — then S1–S4 | **None** — entirely within its own lane, so condition 5 is directly satisfiable |
+| **3 — CI/CD** | C | `.github/workflows/` only: `C-Q1` `fetch-depth: 0`, `C-Q2` the ASCII job rename | **None of these two.** `C-Q2` is blocked by `C-18` — a branch-protection act **no lane owns** |
+
+**So the deadlock was never structural.** It was a scoping error in Lane A's own condition, and
+`§1.2`'s exit 2 was the right answer for the wrong reason: **not a concession, a correction.**
+
+**Exit 1 is withdrawn, not merely un-chosen.** Authorizing a lane to act inside an unopened phase
+would have created a standing precedent to solve a problem that did not exist. **Recorded so it
+is not reached for the next time a boundary looks stuck.**
+
+**`C-18` is a different species and stays open.** It needs a repository-settings act, which is
+neither a lane's work nor a phase exception — it is the Judge's, and `D-96` §5B.2 already records
+why an agent cannot hold it.
+
+**The generalized rule, now binding:**
+
+> **Condition 5 is satisfied by the sprint work the closing phase's own lane owed.** Work the
+> sprint assigns to a *different* lane belongs to *that* lane's phase and is carried forward as
+> named opening debt — never as a blocker on a phase that may not perform it.
 
 ## 1.2 The proposal put to the Judge — `D-97`
 
@@ -181,7 +225,7 @@ the check reports exactly that. **`C-19` could not be both "install it in the cl
 
 | Phase | Lane | Status | Closed | Judge | Reopened by |
 |---|---|---|:---:|---|---|
-| **1 — Orchestration** | A | **Open — never closed.** `DEFER` returned 2026-08-22; resubmission in preparation | — | Robert Tan — **`DEFER`**, §6.6 | **n/a — see below** |
+| **1 — Orchestration** | A | **Open — conditions 1, 3 and 5 met; 2 met but for `B-010`; 4 is the Judge's** | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6; resubmitted | **n/a — never closed** |
 | **2 — Application** | B | **Not validly opened.** Unauthorized implementation activity occurred at `43c51ce`; further work deferred | — | — | — |
 | **3 — CI/CD** | C | Not started | — | — | — |
 
