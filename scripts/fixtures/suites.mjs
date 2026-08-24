@@ -146,16 +146,32 @@ export async function phaseScope(results) {
     }
   }
 
-  await fixture(results, {
-    name: "phase scope: a terminal Phase 1 entry stops blocking",
-    modulePath: CHECK("closure-readiness.mjs"),
-    mutate: () => {
-      write(CLOSURE, closePhase1(orig));
-      write(p1, p1Orig.replace(/^- \*\*Resolution:\*\*.*$/m, "- **Resolution:** Withdrawn"));
-    },
-    restore,
-    expect: "B-016",
-  });
+  // Making the entry terminal must silence the gate FOR THAT ENTRY. Other
+  // Phase 1 entries are still open and still fail, so "no findings at all" is
+  // the wrong assertion — and asserting it that way is how this fixture was
+  // first written, which is why it missed (`D-106`). The claim is narrow:
+  // B-017 specifically stops being named.
+  {
+    write(CLOSURE, closePhase1(orig));
+    write(p1, p1Orig.replace(/^- \*\*Resolution:\*\*.*$/m, "- **Resolution:** Withdrawn"));
+    try {
+      const mod = await import(`${CHECK("closure-readiness.mjs")}?t=${Date.now()}`);
+      const out = mod.run();
+      const stillNamed = out.findings.some((f) => f.includes("B-017"));
+      const gateStillLive = out.findings.some((f) => f.includes("claims closure"));
+      results.push({
+        name: "phase scope: a terminal Phase 1 entry stops blocking",
+        ok: !stillNamed && gateStillLive,
+        detail: stillNamed
+          ? "B-017 is terminal and the gate still names it"
+          : gateStillLive
+            ? "B-017 silenced while the gate stays live for the others"
+            : "the gate went silent entirely — that is a disabled gate, not a satisfied one",
+      });
+    } finally {
+      restore();
+    }
+  }
 }
 
 /** `D-102`, raised as `B-014` and `B-018` — exactly one propagation runbook. */
