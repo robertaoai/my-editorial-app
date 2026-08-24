@@ -943,7 +943,7 @@ were introduced by the corrections it reviewed.
 
 ### 6.4e Snapshot — 2026-08-24 (`D-106`)
 
-**Commit:** `PIN-D106` · **Suite:** 15 of 16 · **Fixtures:** 30 of 30 · **Graph:** rebuilt, see `docs-drift`.
+**Commit:** `9876049` · **Suite:** 15 of 16 · **Fixtures:** 30 of 30 · **Graph:** rebuilt, see `docs-drift`.
 
 **This is the first snapshot whose reproduce block is entirely inside the repository:**
 
