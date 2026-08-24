@@ -16,6 +16,26 @@
 // Escape hatch, deliberately left open: `git commit --no-verify`. A gate with
 // no escape is a gate people uninstall. The crossing is still reported by
 // `lane-boundary` afterwards, so bypassing hides nothing.
+//
+// `D-105` — WHAT COUNTS AS A TRAILER IS GIT'S DEFINITION, NOT A REGEX.
+//
+// As first written this gate accepted `Lane-Crossing:` ANYWHERE in the message
+// body, using `/^\s*Lane-Crossing:\s*\S+/m`. **Git's own trailer parser reads
+// only the LAST paragraph**, so a declaration followed by a blank line and a
+// `Co-Authored-By:` block is not a trailer at all:
+//
+//     $ git log -1 --format='%(trailers:key=Lane-Crossing)' d6d406a
+//     (empty)
+//
+// **Every crossing declared since `D-88` installed this gate had that shape** —
+// including the commit that installed it. `git log --grep` found three; git's
+// trailer parser found none. **The gate accepted a declaration that no audit
+// tool can find**, which is the reporting half of `D-88` failing silently while
+// the blocking half worked.
+//
+// So the check is now git's: `git interpret-trailers --parse` produces exactly
+// the trailer block git itself would, and the gate reads that. **The gate and
+// every downstream tool now agree by construction rather than by coincidence.**
 
 import { readFileSync } from "node:fs";
 import { execSync } from "node:child_process";
@@ -52,13 +72,30 @@ try {
   process.exit(0);
 }
 
-// Ignore comment lines git appends to the template.
-const body = message
-  .split("\n")
-  .filter((l) => !l.startsWith("#"))
-  .join("\n");
+// Ask GIT what the trailers are. Falling back to the whole body would restore
+// the defect this replaced, so a parse failure declines to confirm instead.
+let trailers = "";
+try {
+  trailers = execSync(`git interpret-trailers --parse "${msgPath}"`, {
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "ignore"],
+  });
+} catch {
+  trailers = "";
+}
 
-if (/^\s*Lane-Crossing:\s*\S+/m.test(body)) {
+const declared = /^Lane-Crossing:\s*\S+/m.test(trailers);
+
+// Declared somewhere in the body but NOT in the trailer block — the `d6d406a`
+// shape. Named specifically, because "add a trailer" is unhelpful advice to
+// someone who believes they already did.
+const bodyOnly =
+  !declared &&
+  /^\s*Lane-Crossing:\s*\S+/m.test(
+    message.split("\n").filter((l) => !l.startsWith("#")).join("\n"),
+  );
+
+if (declared) {
   const lanes = [...byLane.keys()].sort().join("+");
   console.error(`lane-gate: crossing ${lanes} declared — allowed.`);
   process.exit(0);
@@ -66,6 +103,14 @@ if (/^\s*Lane-Crossing:\s*\S+/m.test(body)) {
 
 const named = [...byLane.keys()].sort().map((l) => `${l} (${label(l)})`).join(" + ");
 console.error("");
+if (bodyOnly) {
+  console.error("  lane-gate: a `Lane-Crossing:` line is present but it is NOT in the trailer block.");
+  console.error("  Git reads only the LAST paragraph as trailers, so this declaration is invisible to");
+  console.error("  `git log --format='%(trailers)'` and to every audit built on it (`D-105`).");
+  console.error("");
+  console.error("  Fix: move it next to `Co-Authored-By:` with NO blank line between them.");
+  console.error("");
+}
 console.error(`  lane-gate: this commit spans lanes ${named} — a crossing under \`D-75\`.`);
 for (const [lane, files] of [...byLane.entries()].sort()) {
   console.error(`      Lane ${lane}: ${files.slice(0, 4).join(", ")}${files.length > 4 ? ` …and ${files.length - 4} more` : ""}`);

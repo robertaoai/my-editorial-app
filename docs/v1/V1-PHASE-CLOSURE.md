@@ -380,7 +380,7 @@ handover is the moment that becomes a gap**, not a theoretical one.
 | Lane | Phase | State | Selected | Closed | Judge | Reopened by |
 |:---:|---|---|---|:---:|---|---|
 | **A** | **1 — Orchestration** | **`Active`.** Reselected at the second Sprint boundary (`D-104`). Closes last (`D-99`). Condition 1 met; **2 NOT met** — 10 entries are `Applied`, not `Verified` (`D-102`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | Robert Tan, 2026-08-24 — **out of `Active`** (`D-103`), then **back into `Active`** (`D-104`) | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
-| **B** | **2 — Application** | **`Eligible`.** **Its `D-103` turn produced no commits — the work order is UNSTARTED and stands unchanged**: the 13 `CONFIG_LOG.md` rows (`config-coupling` still red), then `flags.ts`, then the `C-26` verification pass. **Nothing is re-specified and nothing is withdrawn** | Robert Tan, 2026-08-24 — **into `Active`** (`D-103`), then **out** (`D-104`), **no work performed** | — | Standing project approval | — |
+| **B** | **2 — Application** | **`Eligible`.** **Its `D-103` turn produced no commits and no turn report (`C-28`) — the work order is UNSTARTED and stands unchanged**: the 13 `CONFIG_LOG.md` rows (`config-coupling` still red), then `flags.ts`, then the `C-26` verification pass. **Nothing is re-specified and nothing is withdrawn** | Robert Tan, 2026-08-24 — **into `Active`** (`D-103`), then **out** (`D-104`). **No turn report was raised, and `no work performed` is LANE A'S OBSERVATION of the commit log, not Lane B's report** (`D-105` `F30`) | — | Standing project approval | — |
 | **C** | **3 — CI/CD** | **`Blocked` on `C-18`** for `C-Q2`; **`Eligible`** for `C-Q1` (`fetch-depth: 0`). **`C-24` and `C-25` are added blockers** on the required-check transition (`D-102`) | — not selected | — | Standing project approval | — |
 
 **Phase 1 stays OPEN through every handover.** It closes last (`D-99`), and a lane leaving `Active` is a statement about committing, never about phase openness. **The state column carries STATES and nothing else** — that sentence used to live inside Lane A's cell, where `lane-state` correctly read it as the row claiming two states at once (`D-104`). A cell that explains itself cannot be parsed as a value.
@@ -666,6 +666,34 @@ defect source is its own corrections.*
 **Condition 3 remains NOT MET.** A Lane A critic pass against the `D-102` commit is owed on a
 later turn, and only that pass can set it.
 
+### 6.1d Fourth critic pass — Lane A, 2026-08-24, against `D-102`–`D-104` at `8cc9885`
+
+**This is the Lane A pass `D-102` owed and `D-103` and `D-104` inherited.** Performed on a
+separate turn from all three (`D-93` rule 1), against the committed artifacts rather than the
+closure narratives (rule 2). **Eight findings, none dismissed** — the reject count is this
+mechanism's health metric, not the pass rate.
+
+| # | Finding | Status |
+|---|---|---|
+| **F28** | **The declared lane crossing is invisible to git.** `lane-gate` accepted `Lane-Crossing:` anywhere in the message body via a regex; **git's trailer parser reads only the last paragraph**, and `D-102`'s declaration sat above a blank line and a `Co-Authored-By:` block. `git log -1 --format='%(trailers:key=Lane-Crossing)' d6d406a` returns **empty**. `git log --grep` finds three declared crossings in this repository's history; **git's own parser finds none — a 3-of-3 failure since `D-88` installed the gate, including the commit that installed it.** The blocking half worked and the audit half never has | **Fixed** — the gate now asks `git interpret-trailers --parse`, so it and every downstream tool agree by construction. A body-only declaration is rejected **with that specific message**, because *"add a trailer"* is useless advice to someone who believes they did |
+| **F29** | **Lane B left `Active` with no handover, and the work order told it not to write one.** `D-75` requires a handoff at every lane boundary. `LANE-B-WORK-ORDER.md` §5 said *"Raise nothing special — your `Status: Open` entries are the report."* **A lane that opens no entries then produces an empty report, which is indistinguishable from a lane that never ran.** We cannot tell from this repository whether Lane B ran and found nothing, started and failed, or never started | **Fixed in the instruction, NOT in the record.** §5 now requires a turn report **especially when nothing was done**. The `D-103` turn itself has no report and cannot acquire one retroactively — recorded as **`C-28`** |
+| **F30** | **Lane A wrote Lane B's turn record.** §5's Lane B row reads *"no work performed"* — **that is Lane A's observation, not Lane B's report**, and it was presented as a neutral fact. This is `B-013` item 4's defect — a resolution written by the side that wrote the fix — **in a new place, three passes after it was recorded** | **Fixed** — the cell now attributes the observation |
+| **F31** | **`G78` recurred inside the pass that closed it.** `D-104` installed `channel-docs` to stop channel documents going unread — and **hard-coded two filenames**. `docs/LANE-B-WORK-ORDER.md` had been created one pass earlier and `.github/WORKFLOWS-SPEC.md` two decisions before that; **neither was read by anything.** Worse: **the unread file contained `F29`'s defect.** The document carrying the fault was the one the new control could not see | **Fixed** — the document set is now **derived by glob**, so a fifth instruction document is covered on the day it is written. On its first widened run it found a restated tally in **each** work order, one of them written by `D-103` |
+| **F32** | **No verification snapshot for `D-103` or `D-104`.** §6.4, §6.4b and §6.4c exist; the two passes after them have none. A closure file that snapshots some passes and not others cannot answer *"what was the state at commit X"* — the question the snapshots exist for | **Fixed** — §6.4d covers this pass and names the omission rather than backfilling invented figures for passes that were never measured |
+| **F33** | **The closure file's own sections are out of order.** §6.4a sits **after** §6.4c; §6.1 has no §6.1a while §6.4 has an §6.4a. A reader scanning for §6.4a after §6.4 does not find it | **Recorded, not fixed.** Reordering rewrites anchors that other documents cite, and the citations are correct. **The lettering is append-order, not reading-order — stated here so it stops looking like an error** |
+| **F34** | **`lane-state` cannot detect a lane that left `Active` without reporting.** It checks that exactly one lane is `Active`, which is what `D-103` asked of it. The `D-104` boundary passed green with the whole of `F29` in it | **Not fixable by a check, and that is the finding.** A control cannot fail against an agent that never ran. The register records the absence and names whose observation it is (`F30`); **that is a record, not a gate**, and calling it a gate would be `probe_that_cannot_fail` |
+| **F35** | **`channel-docs` couples the template to the checks, and does not look at entries.** `C-001` carries a `- **Lane C:**` field that the template does not declare and no check reads. An entry can carry undeclared fields indefinitely | **Recorded, not fixed.** Entries legitimately carry ad-hoc prose fields, and failing on them would fire on the normal case (`D-83`). **The template↔check coupling is the load-bearing half; the entry↔template half is not** |
+
+**Five of the eight are defects introduced by the passes that were correcting the previous
+eleven** — F29, F30, F31, F32 and the F28 regression that `D-102`'s own trailer demonstrated.
+**That ratio is `G77` holding steady, not improving**, and it is recorded rather than narrated
+away.
+
+**The most instructive is F31.** `D-104` closed *"a control blind to the file that governs its
+subject"* and shipped a control blind to two files that govern its subject — **while one of them
+contained the next finding.** A hard-coded list of things to watch is the same defect as a
+filename filter; the fix in both cases was to derive the set rather than enumerate it.
+
 ### 6.2 What the critic pass did not find
 
 **Withdrawn 2026-08-22 as critic-pass finding `F16`.** This section read: *"Nothing about the
@@ -825,6 +853,45 @@ node docs/graph-fragments/merge7.js docs/graph-fragments/frag57.json
 **This pass is work, and its critic pass is owed on a separate turn (`D-93` rule 1).** §6.1c was
 performed by Lane B against `983f058`; **a Lane A pass against this commit is what condition 3
 still waits on.**
+
+### 6.4d Snapshot — 2026-08-24 (`D-105`), the Lane A critic pass
+
+**Commit:** `PIN-D105` · **Graph:** see below · **Suite:** 15 of 16 pass.
+
+**`D-103` and `D-104` have no snapshot of their own and are not given one here.** Backfilling
+figures for passes that were never measured would invent a record; **the omission is `F32` and it
+is named rather than papered over.** This snapshot covers the state at this commit only.
+
+| Check | Result |
+|---|---|
+| `shared-core-hash` | PASS — core `a8173008845e`; **unchanged across `D-102`–`D-105`**, which is the `D-101` design working: a Sprint boundary touches one document |
+| `tier-sweep` | PASS |
+| `duplicate-ids` | PASS |
+| `graph-coverage` | PASS — 0 absent |
+| `settings-parse` | PASS |
+| `decision-status` | PASS |
+| `lane-boundary` | PASS — single lane (A) |
+| `source-sweep` | PASS |
+| `handoff-response` | PASS |
+| `phase-manifest` | PASS |
+| `config-coupling` | **FAIL — correctly.** The 13 unimplemented `CONFIG_LOG.md` rows are Lane B's assigned work and have been since `D-102`. **It has now been red across four passes**, which is itself worth reading: `C-26` and this row are the same fact seen from two directions |
+| `closure-readiness` | PASS — **applied 10, verified 0** |
+| `docs-drift` | PASS |
+| `sync-docs-unique` | PASS |
+| `lane-state` | PASS — Active: A |
+| `channel-docs` | PASS — **four channel documents, derived**, where it read two before `F31` |
+
+**Reproduce:**
+
+```
+bun run check
+sh negtest5.sh   # the lane-gate fixtures, in the scratchpad
+```
+
+**This pass is itself work, and `D-93` rule 1 applies to it as it did to the three it reviewed.**
+Its critic pass is owed on a later turn. **That is not a formality here** — every one of the four
+recorded passes has found defects in the pass before it, and five of this pass's eight findings
+were introduced by the corrections it reviewed.
 
 ### 6.4a Graph portability — `B-011` repair 6, checked 2026-08-24
 

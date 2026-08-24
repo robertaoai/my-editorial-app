@@ -51,6 +51,25 @@ const README = "docs/handoff/README.md";
 const TEMPLATE = "docs/handoff/TEMPLATE.md";
 const CHECK_DIR = "scripts/checks";
 
+// `D-105`. THE DOCUMENT SET IS DERIVED, NOT LISTED.
+//
+// As first written this check named exactly two files. **`D-103` had created a
+// third instruction document — `docs/LANE-B-WORK-ORDER.md` — one pass earlier,
+// and `D-92` a fourth in `.github/WORKFLOWS-SPEC.md`. Neither was read by
+// anything**, which is `G78` verbatim: the gap this check exists to close,
+// recurring inside the pass that closed it.
+//
+// **And the unread file was not incidental.** The work order's closing section
+// told Lane B to *"raise nothing special"* at the end of its turn — the
+// instruction that produced `D-105`'s missing handover. **The document carrying
+// the defect was the one the new control could not see.**
+//
+// So the set is a glob: every non-entry markdown file in the channel, plus any
+// work order. **A fifth instruction document is covered on the day it is
+// written**, which a hard-coded list can never promise.
+const WORK_ORDER = /(WORK-ORDER|WORKFLOWS-SPEC)\.md$/;
+const CHANNEL_DIR = "docs/handoff";
+
 // Fields a person fills in and no check reads, deliberately. Naming them here
 // is the point: an unlisted unread field is a finding, not a shrug.
 const HUMAN_ONLY = new Map([
@@ -86,6 +105,33 @@ function fieldsRead(src) {
   const out = new Set();
   for (const m of src.matchAll(/field(?:Present)?\(\s*text\s*,\s*"([A-Za-z][A-Za-z -]*)"/g)) out.add(m[1]);
   return out;
+}
+
+/**
+ * Every instruction document in the channel — derived.
+ *
+ * Non-entry markdown in `docs/handoff/`, plus work orders wherever they live.
+ * `docs/` and `.github/` are scanned one level deep, which is where every work
+ * order sits and is deliberately not recursive: a deep scan would sweep the
+ * whole corpus and the tally rule would fire on prose it was never meant for.
+ */
+function channelDocs() {
+  const out = new Set([README, TEMPLATE]);
+  try {
+    for (const f of readdirSync(CHANNEL_DIR)) {
+      if (f.endsWith(".md") && !/^[BC]-\d+/.test(f)) out.add(`${CHANNEL_DIR}/${f}`);
+    }
+  } catch {
+    /* the directory is checked for existence below */
+  }
+  for (const dir of ["docs", ".github"]) {
+    try {
+      for (const f of readdirSync(dir)) if (WORK_ORDER.test(f)) out.add(`${dir}/${f}`);
+    } catch {
+      /* absent is not a finding here — `phase-manifest` owns existence */
+    }
+  }
+  return [...out].filter((p) => existsSync(p)).sort();
 }
 
 /** Fields the template declares. */
@@ -144,8 +190,9 @@ export function run() {
     );
   }
 
-  // --- C. no prose tallies ------------------------------------------------
-  for (const [path, text] of [[README, readme], [TEMPLATE, template]]) {
+  // --- C. no prose tallies, across EVERY channel document -----------------
+  const docs = channelDocs();
+  for (const [path, text] of docs.map((p) => [p, readFileSync(p, "utf8")])) {
     for (const m of text.matchAll(TALLY)) {
       findings.push(
         `${path}: "${m[0]}" is a restated count — propagate the fact, never the tally (\`G55\`, \`G56\`, \`G58\`, \`G75\`). Name them instead of counting them`,
@@ -156,6 +203,6 @@ export function run() {
   return {
     name: "channel-docs",
     findings,
-    detail: `${implemented.size} resolution(s), ${declared.size} template field(s), ${read.size} read by checks, ${HUMAN_ONLY.size} human-only`,
+    detail: `${docs.length} channel doc(s) [${docs.join(", ")}]; ${implemented.size} resolution(s), ${declared.size} template field(s), ${read.size} read by checks, ${HUMAN_ONLY.size} human-only`,
   };
 }

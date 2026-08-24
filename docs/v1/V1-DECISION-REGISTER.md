@@ -206,6 +206,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G76` | **Closed 2026-08-24 — the control layer's own green was false** | **Both handoff checks read the NEXT metadata line as a missing field's value.** The pattern `^-\s*\*\*Name:\*\*\s*(.*)$` uses `\s`, which matches a **newline**, so a blank field followed by another field captured that following line. `B-013`, `B-014` and `B-015` shipped with blank `Kind` values and `handoff-response` reported **PASS** on all three. **This is not a checking gap but a checking LIE** — every claim in this apparatus about the channel is read through these two functions, so the defect invalidated the evidence for the other six entries at once. **Three copies of the parser existed**, across `handoff-response`, `closure-readiness` and their duplicated phase-register readers; one line-bounded copy now lives in `scripts/checks/handoff-fields.mjs`. **Reproduced before and after, and negative-tested seven ways.** §5.14bj |
 | `G77` | **Open — structural, no control proposed** | **This repository's dominant defect source is its own corrections.** §6.1b recorded six of eight findings as defects introduced by the passes correcting the previous ten. §6.1c records **seven of eleven** the same way, and the pass that repaired `B-013` shipped `B-017` and `B-018` — one of which (`G76`) is a false green inside a check written to stop false greens. **`G56` names *restatement* as a drift mechanism; this is the same shape one level up: re-derivation.** No control is proposed, because a check that fires on "a correction introduced something" fires on the normal case (`D-83`). **What works is what caught these: an independent lane reviewing the repair, and negative fixtures written before the check is believed** — fixture 10 found what review did not. Recorded so the ratio is tracked rather than rediscovered |
 | `G78` | **Closed 2026-08-24 — found by reading the directory, not by any check** | **The channel's own documentation was the one file nothing read.** `handoff-response` filters entry filenames on `^[BC]-d+`, so `docs/handoff/README.md` and `TEMPLATE.md` were invisible to it; `phase-manifest` asserted only that they exist and `graph-coverage` only that they were in the graph. **The README drifted through `D-101`, `D-102` and `D-103` with every check green**, ending up without `Applied` — the state most entries carried — with two prose tallies, with the pre-`D-102` meaning of `Verified`, with a gate description that predated phase scoping, and with no mention of the `D-103` carve-out that makes the channel usable during a handover. **`G74`'s shape one level up:** that control was scoped to one lane and blind to the other; this one was scoped to entries and blind to the file governing entries. **Closed by `channel-docs` (check 16)**, which couples both files to the check sources in both directions and **caught three further defects nobody had reported, including one written by the repair pass itself.** §5.14bl |
+| `G79` | **Closed 2026-08-24 — the audit half of `D-88` had never worked** | **The lane-crossing gate accepted a declaration that git cannot parse as a trailer.** `lane-gate` matched `Lane-Crossing:` anywhere in the message body; **git reads only the last paragraph as trailers**, so a declaration above a blank line and a `Co-Authored-By:` block is not a trailer at all. `git log --grep` finds three declared crossings in this repository; `git log --format='%(trailers:key=Lane-Crossing)'` finds **none** — three of three since `D-88`, **including the commit that installed the gate.** `D-88`'s blocking half worked throughout; its stated audit path — *"the crossing is still reported afterwards, so bypassing hides nothing"* — **was never true.** Fixed at the source of truth: the gate now asks `git interpret-trailers --parse`, so it and every downstream tool agree by construction. **The three historical commits are deliberately not amended** — `git log --grep` is the audit path for anything before this decision. Negative-tested three ways. §5.14bm |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2348,6 +2349,14 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 **Excluding logged overrides requires telling those two apart. The declared single column cannot.** `G-02` would need a second column its own Data Source does not name.
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
+
+### `C-28` — Lane B's `D-103` turn has no handover
+
+**Opened by `D-105`. Phase: 2.** `D-75` requires a handoff at every lane boundary. Lane B held `Active` for the whole of `D-103` and left **no commits and no artifact** — and `LANE-B-WORK-ORDER.md` §5 had told it to raise nothing.
+
+**It cannot be produced retroactively**, so this is carried rather than closed. The instruction is repaired: §5 now requires a turn report **especially when nothing was done**.
+
+**Closes when the next Lane B turn ends with a report.** If Lane B never runs again, **`C-28` is the record that a turn was granted and nothing came back** — which is the fact worth keeping.
 
 ### `C-27` — the Sprint boundary is becoming a per-task toggle
 
@@ -5556,3 +5565,119 @@ costs nothing is a handover that stops meaning anything.
 core; hash unchanged at `a8173008845e`, and a Sprint boundary touching three rule files would be
 the duplication `D-101` removed. **Build spec unaffected** — no artifact created, sequenced or
 retired. **`Modular_PRD` unaffected** — no sprint closed, no tier opened.
+
+---
+
+## 5.14bm `D-105` — The Declared Crossing Git Could Not See, and the Handover That Left No Trace
+
+**The Lane A critic pass `D-102` owed, `D-103` inherited and `D-104` inherited again.** Performed
+on a separate turn from all three (`D-93` rule 1), against the committed artifacts rather than the
+closure narratives (rule 2). **Eight findings, none dismissed** — recorded in
+`V1-PHASE-CLOSURE.md` §6.1d.
+
+### The parent: `D-88`'s gate has never produced a declaration git can read
+
+`lane-gate` accepted `Lane-Crossing:` **anywhere in the commit message**, using a regex over the
+whole body. **Git's trailer parser reads only the last paragraph.** `D-102`'s declaration sat
+above a blank line and a `Co-Authored-By:` block, so:
+
+```
+$ git log -1 --format='%(trailers:key=Lane-Crossing)' d6d406a
+(empty)
+```
+
+**`git log --grep` finds three declared crossings in this repository. Git's own parser finds
+none.** Three of three, since `D-88` installed the gate — **including `e675cc7`, the commit that
+installed it.**
+
+**`D-88` has two halves and only one of them ever worked.** The blocking half did its job: the
+gate stopped an undeclared crossing and required a reason. **The audit half — *"the crossing is
+still reported afterwards, so bypassing hides nothing"* — was never true**, because the
+declaration it points at is not a trailer. **A tool that accepts a declaration no audit can find
+is the reporting failure `D-82` recorded, inside the control built to close it.**
+
+**Fixed at the source of truth rather than the symptom.** The gate now asks
+`git interpret-trailers --parse`, which produces exactly the block git itself would. **The gate
+and every downstream tool now agree by construction instead of by coincidence.** A body-only
+declaration is rejected **with that specific diagnosis** — *"add a trailer"* is unhelpful advice
+to an author who believes they already did.
+
+**The three historical commits are NOT amended.** History here is append-only and rewriting three
+commits to fix a trailer would cost more than it records. **`git log --grep='Lane-Crossing'` is
+the audit path for anything before this decision**, and that is stated so a future reader does not
+conclude no crossing was ever declared.
+
+### The child: a lane held `Active` for a whole turn and left no trace
+
+**`D-75` requires a handoff at every lane boundary** — *record what is done, what is
+specified-not-applied, and what is open, then stop.* **Lane B held `Active` for the whole of
+`D-103` and produced no commits and no artifact of any kind.**
+
+**And Lane A had told it not to.** `LANE-B-WORK-ORDER.md` §5 read:
+
+> *"Raise nothing special. **Your `Status: Open` entries in `docs/handoff/` are the report.**"*
+
+**A lane that opens no entries produces an empty report, and an empty report is indistinguishable
+from a lane that never ran.** Nothing in this repository can tell whether Lane B ran and found
+nothing, started and hit a problem, or never started at all. **Open entries are a backlog, not a
+handover** — `D-100` made that explicit for the backlog and `D-103`'s work order quietly used one
+as the other.
+
+**Repaired in the instruction, and NOT in the record.** §5 now requires a turn report — kind
+`finding`, stating done / specified-not-applied / open — **especially when nothing was done**,
+because *nothing happened* is a fact about the sprint worth knowing and may mean the work order was
+unclear or the turn never began. **The `D-103` turn itself cannot acquire a report retroactively**
+and is carried as **`C-28`**.
+
+### And Lane A wrote Lane B's turn record
+
+§5's Lane B row said *"no work performed"* as if it were a neutral fact. **It is Lane A's
+observation of the commit log, not Lane B's report** — which is `B-013` item 4's defect, *a
+resolution written by the side that wrote the fix*, **in a new place three passes after it was
+recorded.** The cell now attributes it.
+
+**No check can close this, and saying so is the honest disposition.** A control cannot fail
+against an agent that never ran. **The register records the absence; that is a record, not a
+gate**, and calling it a gate would be `probe_that_cannot_fail`.
+
+### `G78` recurred inside the pass that closed it
+
+**`D-104` installed `channel-docs` so channel documents would stop going unread — and hard-coded
+two filenames.** `docs/LANE-B-WORK-ORDER.md` had existed for one pass; `.github/WORKFLOWS-SPEC.md`
+for thirteen decisions. **Neither was read by anything.**
+
+**The unread file contained the defect above.** `F29` lived in `LANE-B-WORK-ORDER.md` §5 — the
+document the new control could not see.
+
+> **A hard-coded list of things to watch is the same defect as a filename filter.** `G74` was a
+> filter that excluded a lane; `G78` was a filter that excluded the instructions; **this was a
+> list that excluded the newest instructions.** The fix each time is to **derive the set, not
+> enumerate it.**
+
+The document set is now a glob — non-entry markdown in the channel, plus any work order — so **a
+fifth instruction document is covered on the day it is written.** On its first widened run it
+found a restated tally in **each** work order, **one of them written by `D-103`.**
+
+### Conditions opened
+
+| | |
+|---|---|
+| **`C-28`** | **Lane B's `D-103` turn has no handover.** It cannot be produced retroactively. **Carried, not closed** — the next Lane B turn ends with a report under the amended §5, and `C-28` closes when one exists. If Lane B never runs again, `C-28` is the record that a turn was granted and nothing came back |
+
+### Gaps opened
+
+**`G79`** — §5.1.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Trailer parsed by git | ✅ §5.14bm | **— unaffected** | **— unaffected** | ✅ `lane-gate.mjs` row | ✅ §6.1d, §6.4d | **— unaffected** |
+| Turn report required | ✅ §5.14bm, `C-28` | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5, §6.1d | **— unaffected** |
+| Channel doc set derived | ✅ §5.14bm | **— unaffected** | **— unaffected** | ✅ `channel-docs.mjs` row | ✅ §6.1d | **— unaffected** |
+| Critic pass recorded | ✅ §5.14bm | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §6.1d | **— unaffected** |
+
+**Agent files unaffected** — the crossing rule they state is unchanged; **what changed is where the
+declaration must sit, and the gate enforces that rather than the prose.** Core hash unchanged at
+`a8173008845e`. **Build spec unaffected** — no artifact created, sequenced or retired.
+**`Modular_PRD` unaffected** — no sprint closed, no tier opened.

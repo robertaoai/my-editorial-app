@@ -1,6 +1,8 @@
 # `LANE-B-WORK-ORDER.md` — Lane B's work order
 
-**Written by Lane A, 2026-08-24 (`D-103`). Lane B is `Active` as of this Sprint boundary.**
+**Written by Lane A, 2026-08-24 (`D-103`). Amended `D-105`.**
+
+> **Status: Lane B is NOT currently `Active`.** Its `D-103` turn produced no commits and `D-104` returned `Active` to Lane A. **The work below is unchanged and unstarted** — nothing is re-specified, nothing is withdrawn. The live lane state is `docs/v1/V1-PHASE-CLOSURE.md` §5 and **not this file**; a status copied into a second document is the drift mechanism this corpus keeps recording (`G55`).
 
 **You do not need to read the decision register.** `D-86` is binding: governance reaches you as a
 **flag, not a document**. This file is where Lane A writes down what the flags mean and what is
@@ -17,7 +19,7 @@ already provisioned, so that the register stays Lane A's problem.
 | | |
 |---|---|
 | **You may commit.** | Exactly one lane may, and it is you until the next Sprint boundary |
-| **Lane A may not.** | Lane A is now `Eligible`. It can still read, and it can still write in `docs/handoff/` — that carve-out exists so acknowledging your entries is never blocked |
+| **Whichever lane is not `Active` may not commit.** | It can still read, and it can still write in `docs/handoff/` — that carve-out exists so acknowledging your entries is never blocked (`D-103`). **Which lane that is lives in §5 of the phase closure file, not here** |
 | **Phase 1 is still open.** | It closes last (`D-99`). Lane A going `Eligible` is not Phase 1 closing, and nothing about your work depends on it closing |
 | **`main` is not your problem.** | No agent deploys. `main` lagging the working branch is expected |
 
@@ -123,7 +125,7 @@ mechanism's health metric.
 bun run check
 ```
 
-**Two checks are expected to have opinions about you:**
+**`config-coupling` and `lane-boundary` are the checks with opinions about you:**
 
 - **`config-coupling`** — red now, green when §2.1 is done. That is your definition of done.
 - **`lane-boundary`** — reports a crossing if a commit touches more than one lane's surfaces.
@@ -138,8 +140,31 @@ avoid one.
 
 ---
 
-## 5. When you are done
+## 5. When your turn ends — **raise a turn report. This is required** (`D-105`)
 
-Raise nothing special. **Your `Status: Open` entries in `docs/handoff/` are the report** — Lane A
-reads them when it is next `Active`. The Chief Editor selects the next `Active` lane at the
-Sprint boundary; **you do not hand `Active` to anyone yourself.**
+> **This section previously said *"Raise nothing special — your `Status: Open` entries are the
+> report."* That was wrong and it caused a real failure.** Lane B held `Active` for the whole of
+> `D-103` and left no artifact of any kind, because it opened no entries. **An empty report and a
+> lane that never ran are indistinguishable in the repository**, and `D-75` requires a handoff at
+> every lane boundary — *record what is done, what is specified-not-applied, and what is open, then
+> stop.* Open entries are **not** that record.
+
+**Before your turn ends, raise one entry: kind `finding`, titled as your turn report.** It states
+the three things `D-75` names:
+
+| | |
+|---|---|
+| **Done** | What you completed, with commits. **"Nothing" is a valid and important answer** |
+| **Specified, not applied** | What you worked out but could not land, and why (`D-56`) |
+| **Open** | What you are handing back — including anything you disagree with |
+
+**Raise it especially when you did nothing.** A turn that produced no work is a fact about the
+sprint worth knowing — it may mean the work order was unclear, the environment was broken, or the
+turn never started. **Silence records none of those, and Lane A cannot tell them apart.**
+
+**No check can compel this**, and that is stated rather than papered over: a control cannot fail
+against an agent that never ran. **The register records the absence instead** — if a turn ends with
+no report, §5's `Selected` cell says so, and it says whose observation that is.
+
+**You do not hand `Active` to anyone yourself.** The Chief Editor selects the next `Active` lane at
+the Sprint boundary.

@@ -43,7 +43,7 @@ something nobody else can run: green CI that checks something no local run repro
 
 ## 3. The SKIP contract — read this before touching `bun run check`
 
-**Three checks cannot run in a default CI checkout, and the reason is what they read, not their
+**`graph-coverage`, `docs-drift` and `source-sweep` cannot run in a default CI checkout, and the reason is what they read, not their
 number.**
 
 | Check | Why it skips in CI |
