@@ -207,6 +207,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G77` | **Open — structural, no control proposed** | **This repository's dominant defect source is its own corrections.** §6.1b recorded six of eight findings as defects introduced by the passes correcting the previous ten. §6.1c records **seven of eleven** the same way, and the pass that repaired `B-013` shipped `B-017` and `B-018` — one of which (`G76`) is a false green inside a check written to stop false greens. **`G56` names *restatement* as a drift mechanism; this is the same shape one level up: re-derivation.** No control is proposed, because a check that fires on "a correction introduced something" fires on the normal case (`D-83`). **What works is what caught these: an independent lane reviewing the repair, and negative fixtures written before the check is believed** — fixture 10 found what review did not. Recorded so the ratio is tracked rather than rediscovered |
 | `G78` | **Closed 2026-08-24 — found by reading the directory, not by any check** | **The channel's own documentation was the one file nothing read.** `handoff-response` filters entry filenames on `^[BC]-d+`, so `docs/handoff/README.md` and `TEMPLATE.md` were invisible to it; `phase-manifest` asserted only that they exist and `graph-coverage` only that they were in the graph. **The README drifted through `D-101`, `D-102` and `D-103` with every check green**, ending up without `Applied` — the state most entries carried — with two prose tallies, with the pre-`D-102` meaning of `Verified`, with a gate description that predated phase scoping, and with no mention of the `D-103` carve-out that makes the channel usable during a handover. **`G74`'s shape one level up:** that control was scoped to one lane and blind to the other; this one was scoped to entries and blind to the file governing entries. **Closed by `channel-docs` (check 16)**, which couples both files to the check sources in both directions and **caught three further defects nobody had reported, including one written by the repair pass itself.** §5.14bl |
 | `G79` | **Closed 2026-08-24 — the audit half of `D-88` had never worked** | **The lane-crossing gate accepted a declaration that git cannot parse as a trailer.** `lane-gate` matched `Lane-Crossing:` anywhere in the message body; **git reads only the last paragraph as trailers**, so a declaration above a blank line and a `Co-Authored-By:` block is not a trailer at all. `git log --grep` finds three declared crossings in this repository; `git log --format='%(trailers:key=Lane-Crossing)'` finds **none** — three of three since `D-88`, **including the commit that installed the gate.** `D-88`'s blocking half worked throughout; its stated audit path — *"the crossing is still reported afterwards, so bypassing hides nothing"* — **was never true.** Fixed at the source of truth: the gate now asks `git interpret-trailers --parse`, so it and every downstream tool agree by construction. **The three historical commits are deliberately not amended** — `git log --grep` is the audit path for anything before this decision. Negative-tested three ways. §5.14bm |
+| `G80` | **Closed 2026-08-24 — the defence against ceremonial checks was itself unverifiable** | **Fourteen claims of *"negative-tested N ways"* across the register and the inventory, and not one fixture in the repository.** Every suite ran once in a session scratchpad and what survived was the sentence saying it passed. `V1-PHASE-CLOSURE.md` §6.4d instructed the reader to run `sh negtest5.sh   # in the scratchpad` — **a reproduction step pointing outside the repository.** `summary_outlived_source`: the record of the test outlived the test. **This matters more than a missing test normally would**: `bun run check` proves the checks pass on a healthy repository, and **the fixtures are the only evidence they FAIL on an unhealthy one** — the property every claim in this register rests on. `probe_that_cannot_fail` is recorded here five times and **the defence against it could not be re-run by anyone.** Closed by `scripts/fixtures/` and `bun run fixtures`: six suites, thirty fixtures, each asserting the intended FINDING rather than merely a failure, refusing to run on a dirty tree, and reporting a failed restore as its own failure. **They found a defect in themselves on the first tracked run.** §5.14bn |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -5681,3 +5682,102 @@ found a restated tally in **each** work order, **one of them written by `D-103`.
 declaration must sit, and the gate enforces that rather than the prose.** Core hash unchanged at
 `a8173008845e`. **Build spec unaffected** — no artifact created, sequenced or retired.
 **`Modular_PRD` unaffected** — no sprint closed, no tier opened.
+
+---
+
+## 5.14bn `D-106` — The Fixtures Were Never in the Repository, and Lane B Is Ready to Be Selected
+
+**The Lane A critic pass over `D-105`**, on a separate turn (`D-93` rule 1), against the committed
+artifacts (rule 2). **Five findings, none dismissed** — `V1-PHASE-CLOSURE.md` §6.1e. **Three of
+the five were introduced by `D-105` itself.**
+
+### The parent: fourteen claims of "negative-tested" with nothing runnable behind them
+
+The register and the inventory assert *"negative-tested N ways"* **fourteen times**. **Not one
+fixture was in the repository.** Every suite ran once, in a session scratchpad that is deleted with
+the session, and **what survived was the sentence saying it passed.**
+
+`V1-PHASE-CLOSURE.md` §6.4d made it explicit:
+
+> *"**Reproduce:** `bun run check` · `sh negtest5.sh   # the lane-gate fixtures, in the
+> scratchpad`"*
+
+**A reproduction instruction pointing outside the repository.** This is `summary_outlived_source`
+in its purest form — **the record of the test outlived the test** — and it sat inside the section
+whose entire purpose is reproducibility.
+
+**Why it matters more than a missing test usually would.** `bun run check` proves the checks pass
+on a healthy repository. **The fixtures are the only evidence they FAIL on an unhealthy one**, and
+that is the property every claim in this register rests on. `probe_that_cannot_fail` is recorded
+here five times; **the defence against it was itself unverifiable.**
+
+**Fixed: `scripts/fixtures/`, run with `bun run fixtures`.** Six suites, thirty fixtures. Three
+properties are deliberate:
+
+| | |
+|---|---|
+| **Every suite opens with a positive control** | A suite with no green case proves only that a check *can* fail. A check that fails on everything is as useless as one that fails on nothing |
+| **Fixtures assert the FINDING, not merely a failure** | A check failing for the wrong reason satisfies a naive fixture — and this apparatus has produced that exact defect twice (`phase-manifest`, `sync-docs-unique`) |
+| **It refuses to run on a dirty tree, and reports a failed restore as its own failure** | These mutate real tracked files. A crash mid-fixture on a dirty tree leaves edits indistinguishable from the author's work, and **a fixture suite that leaves damage behind costs more than it proves** |
+
+**They found a defect in themselves on the first tracked run.** Porting one fixture out of the
+scratchpad had turned a narrow assertion — *"this entry stops being named"* — into a wrong one:
+*"a different entry appears."* **It reported `MISS` rather than passing quietly**, which is what
+the positive-control discipline is for.
+
+### `D-105` introduced three of the five findings
+
+| | |
+|---|---|
+| **A shell string where every sibling used an array** | `lane-gate` interpolated the message path into `execSync`. Breaks on a space, worse on a quote. **The pass fixing the gate added the defect** |
+| **A gate that blocks on its own failure** | A `git interpret-trailers` failure read as *"no declaration"* and blocked a correctly declared crossing — **against the principle stated at the top of `.githooks/commit-msg`**. The fallback now **replicates git's rule** (the trailer block is the last paragraph) rather than abandoning it or reverting to the whole body, and **announces itself** |
+| **A required field with no answerable value** | `D-105` made a turn report mandatory; `D-104` defines `Phase:` as *the phase that owns the correction*; **a report on your own turn is not a correction.** Settled: **a turn report carries the reporting lane's own phase** |
+
+### And a procedure that existed only in memory
+
+**Two Sprint boundaries have been performed and there was no written procedure for one.** Both had
+defects, neither was hard, and **both were performed from memory because there was nothing to
+perform them from.** §5.2 now records the steps — and **marks the three unenforceable ones as
+unenforceable**, so a green `lane-state` is never read as evidence the boundary was done properly.
+
+### Lane B's eligibility — assessed, and the answer is yes
+
+**`C-28` is about the turn that already happened and is not a blocker on the next one.** Reviewed
+against what Lane B would actually hit:
+
+| | |
+|---|---|
+| **State** | `Eligible` in §5, which is the only place it lives |
+| **Work order** | Current. Amended by `D-105` (turn report required) and `D-106` (its `Phase`) |
+| **Dependencies** | **None outstanding.** The `CONFIG_LOG.md` declarations and `flags.ts` need no package Lane A has not provisioned; `build-config.ts` exists and `bun install --frozen-lockfile` is clean |
+| **Definition of done** | Machine-checkable: `config-coupling` goes green, and it names all thirteen rows on every run |
+| **`C-26` independence** | **Sound.** Lane B raised the ten entries and Lane A fixed them, so Lane B verifying them is independent *of the fixer*, which is what the condition requires. `Verified-By: Lane B` is accepted |
+| **Boundary duty** | Now stated: raise a turn report, `Phase: 2`, **even if nothing was done** |
+| **Blocked on** | **Nothing.** `Q11`'s open naming half blocks `0002` only, which is not in Lane B's work order |
+
+**Selecting Lane B is the Chief Editor's act and this decision does not perform it.** `D-106`
+records that **nothing on Lane A's side is outstanding**, which was not true before `D-105` and
+`D-106`: the work order told Lane B to leave no handover, and the field it now requires had no
+answerable value.
+
+### Conditions
+
+**None opened.** `C-26`, `C-27` and `C-28` are unchanged and unclosed.
+
+### Gaps opened
+
+**`G80`** — §5.1.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Fixtures tracked | ✅ §5.14bn | **— unaffected** | **— unaffected** | ✅ `scripts/fixtures/` | ✅ §6.1e, §6.4d reproduce block, §6.4e | **— unaffected** |
+| `lane-gate` hardened | ✅ §5.14bn | **— unaffected** | **— unaffected** | ✅ its row | ✅ §6.1e | **— unaffected** |
+| Turn report `Phase` | ✅ §5.14bn | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §6.1e | **— unaffected** |
+| Sprint boundary procedure | ✅ §5.14bn | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5.2 | **— unaffected** |
+| Lane B eligibility | ✅ §5.14bn | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected; §5 changes only when the Chief Editor selects** | **— unaffected** |
+
+**Agent files unaffected** — no lane map, lane state or shared-core change; hash unchanged at
+`a8173008845e`. **Build spec unaffected** — no artifact created, sequenced or retired; the fixtures
+are apparatus. **`Modular_PRD` unaffected** — no sprint closed, no tier opened.

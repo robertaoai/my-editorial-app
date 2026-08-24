@@ -82,6 +82,8 @@ fact is the drift mechanism this corpus keeps recording. So `Phase:` carries the
 and re-file it when that part is complete. `B-016` is the live example: its parent finding needed
 a Lane A arbitration, which has happened, so the residual is Lane C's and it now reads `Phase: 3`.
 
+**A turn report is the exception, and it has its own rule** (`D-106`). A report on your own turn is not a correction, so *"the phase that owns the correction"* has no value to give. **File it against your own lane's phase** — Lane B → `2`, Lane C → `3` — because anything it hands back belongs to that lane until someone re-files it.
+
 **This matters because closure gating reads it.** `closure-readiness` fires only for entries filed
 against the phase being closed — see below.
 

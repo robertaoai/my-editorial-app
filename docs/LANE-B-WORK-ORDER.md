@@ -158,6 +158,8 @@ the three things `D-75` names:
 | **Specified, not applied** | What you worked out but could not land, and why (`D-56`) |
 | **Open** | What you are handing back — including anything you disagree with |
 
+**File it `Phase: 2` — your own lane's phase.** `D-104` defines `Phase:` as *the phase that owns the correction*, and a turn report is not a correction, so that definition has nothing to give it. **`D-106` settles it: a turn report carries the reporting lane's own phase.** Without this the field would be required and unanswerable.
+
 **Raise it especially when you did nothing.** A turn that produced no work is a fact about the
 sprint worth knowing — it may mean the work order was unclear, the environment was broken, or the
 turn never started. **Silence records none of those, and Lane A cannot tell them apart.**

@@ -455,6 +455,31 @@ tightened below.
 **`DEFER` is not a failed close.** It is the Judge exercising the role `D-93` created, on the
 first occasion it existed to be exercised.
 
+### 5.2 Performing a Sprint boundary — `D-106`
+
+**Two boundaries have been performed and both had defects.** `D-103` handed `Active` to a lane
+with no requirement to report back; `D-104` took it away and recorded the outgoing lane's turn in
+the incoming lane's words. **Neither was a hard problem — both were performed from memory**, and
+there was nothing to perform them from.
+
+| | Step | Checked by |
+|---|---|---|
+| **1** | **The outgoing lane raises its turn report** — kind `finding`, stating done / specified-not-applied / open. **Required even when nothing was done** (`D-105`) | **Nothing.** A control cannot fail against an agent that never ran |
+| **2** | **If no report exists, record the absence and say whose observation it is.** Not *"no work performed"* as a neutral fact — name the lane that observed it | **Nothing** — this is the step `D-105` `F30` exists because of |
+| **3** | The Chief Editor names the incoming lane | **Nothing** — it is a judgement, not a derivation |
+| **4** | **Update §5 in one edit**: outgoing → `Eligible`, `Blocked` or `Done`; incoming → `Active`; **both `Selected` cells** | `lane-state` (check 15) fails on not-exactly-one `Active` |
+| **5** | **The state column carries states and nothing else.** Explanation goes below the table | `lane-state` fails a cell claiming `Active` and another state |
+| **6** | `bun run check` | itself |
+| **7** | Record the boundary in the register with a decision number | `tier-sweep`, once the decision names its tiers |
+
+**Steps 1–3 are unenforceable and that is stated rather than hidden.** The mechanical half — one
+`Active` lane, a legible state column — is checked; **the half that carries the meaning is a
+duty.** Treating the green check as evidence the boundary was performed properly is exactly the
+`arrival_not_correctness` reading this apparatus keeps having to correct.
+
+**A boundary is not a per-task toggle** (`C-27`). Two in one day, one producing no work, is the
+pattern to watch for.
+
 ## 5A. Phase 1 artifact manifest — `D-94`
 
 **The Judge deferred Phase 1 because this did not exist.** §1 condition 1 says *"its artifact
@@ -694,6 +719,29 @@ subject"* and shipped a control blind to two files that govern its subject — *
 contained the next finding.** A hard-coded list of things to watch is the same defect as a
 filename filter; the fix in both cases was to derive the set rather than enumerate it.
 
+### 6.1e Fifth critic pass — Lane A, 2026-08-24, against `D-105` at `7644ba1`
+
+**Separate turn from `D-105` (`D-93` rule 1), against the committed artifacts (rule 2). Five
+findings, none dismissed.** The first is the largest thing this apparatus has been wrong about.
+
+| # | Finding | Status |
+|---|---|---|
+| **F36** | **Every "negative-tested" claim in the corpus was unreproducible.** The register and the inventory make **fourteen** claims of the form *"negative-tested N ways"* and **not one fixture was tracked.** They ran once, in a session scratchpad, and what survived was the sentence saying they passed. §6.4d went further and instructed the reader to run `sh negtest5.sh   # in the scratchpad` — **a reproduction step pointing outside the repository.** `summary_outlived_source`, exactly: **the record of the test outlived the test** | **Fixed** — `scripts/fixtures/`, `bun run fixtures`, **30 fixtures across six suites**, every one a positive control plus real mutations of the real tree |
+| **F37** | **`lane-gate` interpolated the commit-message path into a shell command line.** `execSync(\`git interpret-trailers --parse "${msgPath}"\`)` breaks on a path containing a space and does worse with one containing a quote. **Every other subprocess call in this apparatus already passed arguments separately** — this one, added in the pass that was fixing the gate, did not | **Fixed** — `execFileSync` with an argument array |
+| **F38** | **`lane-gate` began blocking on its own failure.** A `git interpret-trailers` failure set the trailers to empty, which reads as *"no declaration"* and **blocks a correctly declared crossing**. That converts a tooling failure into a work stoppage, **against the principle stated at the top of `.githooks/commit-msg`** — *never blocks on its own failure* | **Fixed** — the fallback **replicates git's rule** (the trailer block is the last paragraph) rather than abandoning it or reverting to the whole body, which would restore `D-105`'s defect. **It announces itself**, so a degraded run is visible |
+| **F39** | **The turn report `D-105` made mandatory had no answerable `Phase:`.** `D-104` defines `Phase:` as *the phase that owns the correction*; **a report on your own turn is not a correction.** Check 10 requires a valid `Phase`, so the newly required artifact could not be written without guessing | **Fixed** — a turn report carries the **reporting lane's own phase**, recorded in the README and the work order |
+| **F40** | **Two Sprint boundaries have been performed and there is no written procedure for one.** Both had defects — `D-103` handed `Active` to a lane with no duty to report back, `D-104` recorded the outgoing lane's turn in the incoming lane's words. **Neither was hard; both were performed from memory, and there was nothing to perform them from** | **Fixed** — §5.2, which **marks the three unenforceable steps as unenforceable** rather than implying the green check covers them |
+
+**Three of the five — F37, F38, F39 — were introduced by `D-105` itself**, the pass that found five
+defects in the three before it. **`G77` is not improving and this is the fifth consecutive
+recording of it.**
+
+**F36 is the one that changes what the rest of this file means.** Fourteen claims about checks'
+ability to fail were, until this pass, **assertions with nothing runnable behind them** — including
+claims made by passes that were themselves auditing unfounded claims. The fixtures found **one
+defect in themselves on their first tracked run**: a port from the scratchpad had turned a narrow
+assertion into a wrong one, and it was reported as `MISS` rather than passing quietly.
+
 ### 6.2 What the critic pass did not find
 
 **Withdrawn 2026-08-22 as critic-pass finding `F16`.** This section read: *"Nothing about the
@@ -885,13 +933,28 @@ is named rather than papered over.** This snapshot covers the state at this comm
 
 ```
 bun run check
-sh negtest5.sh   # the lane-gate fixtures, in the scratchpad
+bun run fixtures
 ```
 
 **This pass is itself work, and `D-93` rule 1 applies to it as it did to the three it reviewed.**
 Its critic pass is owed on a later turn. **That is not a formality here** — every one of the four
 recorded passes has found defects in the pass before it, and five of this pass's eight findings
 were introduced by the corrections it reviewed.
+
+### 6.4e Snapshot — 2026-08-24 (`D-106`)
+
+**Commit:** `PIN-D106` · **Suite:** 15 of 16 · **Fixtures:** 30 of 30 · **Graph:** rebuilt, see `docs-drift`.
+
+**This is the first snapshot whose reproduce block is entirely inside the repository:**
+
+```
+bun run check
+bun run fixtures
+```
+
+**`config-coupling` is red for the fifth consecutive pass.** It has been the only failure since `D-102`, it names the same thirteen rows every time, and it is Lane B's assigned work. **A red that persists across five passes is worth naming as a fact about the sprint rather than re-reporting as a defect** — it is the same fact `C-26` records from the other direction.
+
+**This pass is work and its own critic pass is owed on a later turn.** Every one of the five recorded passes has found defects in the pass before it, and **three of this pass's five findings were introduced by the pass it reviewed.**
 
 ### 6.4a Graph portability — `B-011` repair 6, checked 2026-08-24
 
