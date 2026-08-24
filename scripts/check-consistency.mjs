@@ -26,6 +26,7 @@ import { run as closureReadiness } from "./checks/closure-readiness.mjs";
 import { run as docsDrift } from "./checks/docs-drift.mjs";
 import { run as syncDocsUnique } from "./checks/sync-docs-uniqueness.mjs";
 import { run as laneState } from "./checks/lane-state.mjs";
+import { run as channelDocs } from "./checks/channel-docs.mjs";
 
 const CHECKS = [
   sharedCoreHash,
@@ -43,6 +44,7 @@ const CHECKS = [
   docsDrift, // Docs drift check
   syncDocsUnique, // `D-102` — exactly one sync-docs runbook, tracked or untracked
   laneState, // `D-103` — exactly one lane is `Active`; a half-applied handover fails
+  channelDocs, // `D-104` — the channel README/template coupled to the checks that enforce them
 ];
 
 let failed = 0;

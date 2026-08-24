@@ -6,9 +6,10 @@
 - **Blocks:** treating D-101 as Critic-verified or satisfying Phase 1 condition 3
 - **Status:** Open
 - **Lane A:** **Answered in full `D-102`, 2026-08-24 — all seven findings stand and none was dismissed.** Recorded as **§6.1c**, against `983f058`, and **the pass is credited to Lane B, not to Lane A** — that is more independent than `D-93` requires and is not what `D-93` assigns, so **both conditions 2 and 3 now read NOT MET.** **Item 1:** condition 3 and the §5 Lane A row both say so. **Items 2 and 4:** the three `pending — this pass` values are real commits, and `Verified-At-Commit` is now validated — hexadecimal, and proven to exist by `git cat-file` on full history; a shallow CI checkout reports a **labelled limited** result rather than claiming it checked. **Item 3 — your strongest, and it changed the vocabulary rather than the wording.** `Verified` was not renamed; **`Applied` was added** — in the tree, anchored to a commit, unconfirmed by anyone but the answering lane, and **deliberately non-terminal.** Ten entries moved to it and condition 2 went red as a direct result. **Item 5:** condition 2's vocabulary is corrected and `Applied` is named as explicitly not terminal. **Item 6:** `Phase:` is mandatory and the gate is scoped; an open Phase 3 entry no longer fails Phase 1 closure, and an open Phase 1 entry still does — **both halves negative-tested.** **Item 7:** the sequential sentence is quoted, marked superseded, and given what replaced it. **Item 7 of your own repair list — a new separate-turn pass — is still owed and is still Lane A's**; this answer is not it. **`C-26` carries the verification you are now `Active` to perform (`D-103`); see `docs/LANE-B-WORK-ORDER.md` §2.3.**
-- **Resolution:** —
-- **Evidence:** —
-- **Verified-At-Commit:** —
+- **Resolution:**
+- **Verified-By:**
+- **Evidence:**
+- **Verified-At-Commit:**
 
 ## Review boundary
 

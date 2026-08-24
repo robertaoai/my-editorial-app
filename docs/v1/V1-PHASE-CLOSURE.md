@@ -379,13 +379,23 @@ handover is the moment that becomes a gap**, not a theoretical one.
 
 | Lane | Phase | State | Selected | Closed | Judge | Reopened by |
 |:---:|---|---|---|:---:|---|---|
-| **A** | **1 — Orchestration** | **`Eligible`.** Handed over at the Sprint boundary (`D-103`). **Phase 1 stays OPEN** — it closes last (`D-99`), and `Eligible` is about committing, not about phase openness. Condition 1 met; **2 NOT met** — 10 entries are `Applied`, not `Verified` (`D-102`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | Robert Tan, 2026-08-24 — **out of `Active`** | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
-| **B** | **2 — Application** | **`Active`.** Selected at the Sprint boundary (`D-103`). Work order: **`docs/LANE-B-WORK-ORDER.md`** — the 13 unimplemented `CONFIG_LOG.md` rows, then `flags.ts`, then the `C-26` verification pass | Robert Tan, 2026-08-24 — **into `Active`** | — | Standing project approval | — |
+| **A** | **1 — Orchestration** | **`Active`.** Reselected at the second Sprint boundary (`D-104`). Closes last (`D-99`). Condition 1 met; **2 NOT met** — 10 entries are `Applied`, not `Verified` (`D-102`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | Robert Tan, 2026-08-24 — **out of `Active`** (`D-103`), then **back into `Active`** (`D-104`) | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
+| **B** | **2 — Application** | **`Eligible`.** **Its `D-103` turn produced no commits — the work order is UNSTARTED and stands unchanged**: the 13 `CONFIG_LOG.md` rows (`config-coupling` still red), then `flags.ts`, then the `C-26` verification pass. **Nothing is re-specified and nothing is withdrawn** | Robert Tan, 2026-08-24 — **into `Active`** (`D-103`), then **out** (`D-104`), **no work performed** | — | Standing project approval | — |
 | **C** | **3 — CI/CD** | **`Blocked` on `C-18`** for `C-Q2`; **`Eligible`** for `C-Q1` (`fetch-depth: 0`). **`C-24` and `C-25` are added blockers** on the required-check transition (`D-102`) | — not selected | — | Standing project approval | — |
+
+**Phase 1 stays OPEN through every handover.** It closes last (`D-99`), and a lane leaving `Active` is a statement about committing, never about phase openness. **The state column carries STATES and nothing else** — that sentence used to live inside Lane A's cell, where `lane-state` correctly read it as the row claiming two states at once (`D-104`). A cell that explains itself cannot be parsed as a value.
 
 **Exactly one lane is `Active`, and the Chief Editor selects it at each Sprint boundary.**
 `Eligible` means *specified and permitted, not currently committing* — **not** *waiting for a phase
 to close.* **Enforced since `D-103` by `lane-state` (check 15)**: not-exactly-one `Active` fails.
+
+> **Two Sprint boundaries in one day, and that is worth a line rather than a shrug (`D-104`).**
+> `D-103` selected Lane B; Lane B committed nothing; `D-104` selected Lane A back. **The
+> mechanism is being used as a per-task toggle rather than as a Sprint boundary**, and the word
+> *Sprint* means less each time it is. **No minimum is imposed** — the Chief Editor owns the
+> cadence and a short cycle is legitimate under `D-100` — but the drift is recorded as `C-27`
+> so it is visible if it continues. **A handover that costs nothing is a handover that
+> stops meaning anything.**
 
 ### 5.1 What `Active` does and does not bar — `D-103`
 
@@ -480,8 +490,8 @@ rather than claimed.
 
 | Path | Delivers |
 |---|---|
-| `docs/handoff/README.md` | How a build lane talks back (`D-90`, `D-92`) |
-| `docs/handoff/TEMPLATE.md` | Entry template, including `Reopens-Phase:` |
+| `docs/handoff/README.md` | How a build lane talks back (`D-90`, `D-92`). **Was the one file in the channel nothing read** until `D-104` |
+| `docs/handoff/TEMPLATE.md` | Entry template — the fields, the kinds, and the resolution vocabulary. **Coupled to the checks by `channel-docs`** (`D-104`) |
 
 ### 5A.4 Rule files and lane environments
 
@@ -515,6 +525,7 @@ rather than claimed.
 | `scripts/checks/config-coupling.mjs` | `CONFIG_LOG.md` <-> `lib/config/`, both directions (`C-17`) |
 | `scripts/checks/sync-docs-uniqueness.mjs` | Exactly one propagation runbook exists (`D-102`) |
 | `scripts/checks/lane-state.mjs` | Exactly one lane is `Active` (`D-103`) |
+| `scripts/checks/channel-docs.mjs` | The channel README and template coupled to the checks, both directions (`D-104`) |
 | `scripts/checks/phase-manifest.mjs` | **This manifest is real** (`D-94`) |
 | `scripts/lane-gate.mjs` | Commit-time lane classification (`D-88`) |
 | `.githooks/commit-msg` | The declared-crossing gate |
@@ -889,6 +900,19 @@ uniqueness check passed with the canonical skill **deleted from disk**, because 
 --cached` reports the INDEX. A check written specifically to stop a false green shipped with one,
 and **the fixture caught what the review did not** — which is the entire argument for writing
 fixtures before believing a check.
+
+**`D-104` fixtures — `channel-docs` (check 16).** Six, positive control first.
+
+| Test | Expected | Result |
+|---|---|---|
+| The repaired README and template | **PASS** | ✅ |
+| README drops a resolution the check implements | FAIL | ✅ **this is the `D-102` drift, reproduced** |
+| Template drops a resolution the check implements | FAIL | ✅ |
+| Template declares a field no check reads | FAIL | ✅ |
+| Template drops a field the checks read | FAIL | ✅ |
+| A prose tally returns to the README | FAIL | ✅ |
+
+**The check found three defects before any fixture ran**, which is the stronger evidence: a dead resolution word (`awaiting`) that had never reached either document, **its own doc comment being read as implementation**, and **a tally written by the repair pass itself**. It then fired on the `§5` edit made minutes later, where a state cell explained itself and read as a row claiming two states. **The document was wrong and the check was right.**
 
 ### 6.6 Judge
 

@@ -13,6 +13,7 @@
 
 | Artifact | Referenced by | Exists |
 |---|---|---|
+| `scripts/checks/channel-docs.mjs` | `D-104`, `G78` | ✅ **Created 2026-08-24.** `C-14` check 16 — `docs/handoff/README.md` and `TEMPLATE.md` coupled to the check sources in **both directions**: resolution vocabulary, declared-versus-read fields, and no prose tallies. **These two files were the only part of the channel nothing read**, and the README had drifted three decisions behind the entries it governs |
 | `scripts/checks/lane-state.mjs` | `D-103` | ✅ **Created 2026-08-24.** `C-14` check 15 — exactly one lane is `Active`. **The four-state model had never been exercised**: Lane A was `Active` from the moment the table was written, so the invariant held by inertia. The first Sprint-boundary handover is two edits, and a half-applied one — two `Active` rows, or none — was invisible to every other check. Negative-tested six ways |
 | `docs/LANE-B-WORK-ORDER.md` | `D-103` | ✅ **Created 2026-08-24.** Lane B's work order. `C-26` lived in the register, which `D-86` says Lane B does not read — **`B-011`'s parent defect one pass later.** Same arrangement `.github/WORKFLOWS-SPEC.md` uses for Lane C |
 | `scripts/checks/handoff-fields.mjs` | `D-102`, `B-017` | ✅ **Created 2026-08-24.** The channel's **one** metadata parser and phase-register reader. Both checks wrote the field pattern with `s*`, which matches a **newline**, so a blank field captured the NEXT metadata line — three entries shipped with blank `Kind` and check 10 reported PASS. Line-bounded, single copy, reproduced before and after |

@@ -2,7 +2,7 @@
 
 - **Raised:** YYYY-MM-DD by Lane B | Lane C
 - **Kind:** dependency | spec-defect | blocked-on-decision | finding
-- **Phase:** <1 | 2 | 3 — REQUIRED. Closure gating is phase-scoped, and an entry with no phase blocks nothing and is checked by nothing (`D-102`)>
+- **Phase:** <1 | 2 | 3 — REQUIRED. The phase that owns the CORRECTION, not the one you work in and not the one you are blocked on; `Blocks:` already carries that. See `README.md` (`D-104`)>
 - **Blocks:** <what you cannot do until this is answered — or `nothing, reporting only`>
 - **Reopens-Phase:** <1 | 2 | 3, only if the work this needs belongs to a phase already closed — otherwise omit the line entirely>
 - **Status:** Open

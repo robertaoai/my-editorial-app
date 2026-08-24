@@ -29,6 +29,22 @@ fight the gate on its own intended purpose. `G63` and `D-85` both settled the sa
 **a genuinely joint surface should not be attributed to one owner.** `lane-boundary` reports
 unmapped paths in its detail line, so nothing here is invisible.
 
+## This directory stays writable when your lane is not `Active` — `D-103`
+
+**Exactly one lane is `Active` at a time and only that lane may commit** (`D-101`; the live state
+is `V1-PHASE-CLOSURE.md` §5). **This directory is the carve-out.** Raising, acknowledging and
+answering are permitted **regardless of which lane is `Active`.**
+
+**That is not a softening, it is what makes the channel work.** `handoff-response` fails on an
+entry nobody has read. If `Active` barred the answering lane from writing here, the suite would
+show a red **that no permitted act could clear** — and a check that is red in the normal case is a
+check people stop reading (`D-83`).
+
+**What is NOT carved out: a dependency.** `package.json`, the lockfiles and the build config are
+Lane A's, so a dependency you need while Lane A is not `Active` **genuinely waits**. `D-86` says
+Lane A provisions *ahead* precisely so this is rare. **The entry stops that item, not your lane** —
+raise it and carry on with everything else.
+
 ## Raising an entry — Lane B and Lane C
 
 Copy `TEMPLATE.md` to `B-NNN-<short-slug>.md` (Lane B) or `C-NNN-<short-slug>.md` (Lane C),
@@ -41,6 +57,33 @@ negotiation. `D-86`: Lane A provisions, Lane B builds. `D-84` says the same of L
 writes every dependency before Lane C builds a workflow against it**, so a workflow that needs a
 script, a config file or a permission Lane A has not written is a `dependency` entry, never an
 improvisation inside the workflow.
+
+### `Phase:` names the phase that owns the CORRECTION — `D-104`
+
+**Not the phase you are working in, and not the phase your work is blocked on.** The field was
+mandatory from `D-102` and undefined until `D-104`, which left three readings live at once.
+
+**The reason this reading wins is structural: `Blocks:` already carries the blocking relation.**
+A `Phase:` that meant *"what this blocks"* would be a second copy of `Blocks:`, and a duplicated
+fact is the drift mechanism this corpus keeps recording. So `Phase:` carries the other half —
+**whose artifacts are wrong, and therefore whose phase cannot close while this is open.**
+
+| | |
+|---|---|
+| **1** | The correction lands in Lane A's orchestration: `docs/`, `scripts/`, the rule files, build config |
+| **2** | The correction lands in Lane B's application code |
+| **3** | The correction lands in Lane C's workflows — or in the repository settings that gate them |
+
+**Worked example.** `B-002` reported missing values in `CONFIG_LOG.md`. It **blocks** Lane B's
+`flags.ts`, which is Phase 2 work — and the file that was wrong is Lane A's, so it is filed
+**`Phase: 1`**. `Blocks:` records the Phase 2 consequence; `Phase:` records who must fix it.
+
+**When a correction genuinely spans phases**, file it against the phase that must act **first**,
+and re-file it when that part is complete. `B-016` is the live example: its parent finding needed
+a Lane A arbitration, which has happened, so the residual is Lane C's and it now reads `Phase: 3`.
+
+**This matters because closure gating reads it.** `closure-readiness` fires only for entries filed
+against the phase being closed — see below.
 
 ## When your entry needs work in a phase that already closed — `D-93`
 
@@ -56,6 +99,8 @@ Lane A marks that phase **Reopened** in `docs/v1/V1-PHASE-CLOSURE.md` §5, citin
 options were an undeclared reopening or a dropped finding.
 
 **Omit the line entirely** when the work belongs to the current phase, which is the normal case.
+**No phase has ever closed**, so today the line is always omitted — using it now fails the check,
+deliberately: reopening presupposes a closure (`C-19`).
 
 ## This directory is the backlog — `D-100`
 
@@ -73,7 +118,7 @@ for how you use this channel:
 **No separate backlog file exists, deliberately.** These entries **are** the backlog; a second
 artifact listing them would be a restatement, and restatements drift.
 
-## Response is not closure — `D-101`
+## Response is not closure — `D-101`, hardened by `D-102`
 
 **`Answered` proves Lane A replied. It does not prove the defect was corrected, and it never
 did.** Check 10 tests **receipt**; that is deliberate and unchanged. What was missing is the other
@@ -83,26 +128,34 @@ half: a state that says *this is actually finished, and here is what proves it.*
 |---|---|---|
 | `Open` | Raised, not yet dispositioned | **No** |
 | `Answered` | Lane A replied | **No** — a reply is not a fix |
-| **`Verified`** | Corrected **and** the correction is evidenced | **Yes** |
+| **`Applied`** | Corrected in the tree at a named commit, **and nobody independent has confirmed it** | **No — deliberately** |
+| **`Verified`** | Confirmed by a **named actor who is not the answering side**, at a commit that **exists** | **Yes** |
 | **`Deferred`** | Real, not now — **`Follow-up-Tier` required** | **Yes**, once the tier is named |
 | **`Withdrawn`** | Not a defect, with the reason | **Yes** |
 | **`Superseded`** | Overtaken by a later decision — **`Superseded-By` required** | **Yes** |
 
-**Five fields carry the closure state**, and they live in the entry rather than in a second
-document: `Resolution` · `Evidence` · `Verified-At-Commit` · `Follow-up-Tier` ·
-`Superseded-By`.
+**`Applied` exists because `Verified` was being written by the side that wrote the fix** (`B-013`).
+`D-101` derived the word from a field Lane A filled in for itself. **Recording an honest `Applied`
+costs a red condition; recording an unearned `Verified` costs the meaning of the word.**
 
-**The closure view is derived, never hand-maintained.** `closure-readiness` (`C-14` check 13)
-reads these fields and reports the matrix. **There is no second backlog file** — that would
-restate the entries, and restatements drift (`G55`).
+**The closure state lives in the entry**, carried by `Resolution`, `Evidence`, `Verified-By`,
+`Verified-At-Commit`, `Follow-up-Tier` and `Superseded-By` — **not in a second document.**
+`closure-readiness` (`C-14` check 13) reads those fields and reports the matrix. **There is no
+second backlog file** — that would restate the entries, and restatements drift (`G55`).
 
-**The check is silent until a closure is claimed.** It fires only when the phase register marks a
-phase closed, and then it fails on any blocking entry that is merely `Open` or `Answered`. **A full
-backlog during a sprint is still healthy**; an unverified blocker at a Judge boundary is not.
+**`Verified-At-Commit` must be a commit that exists.** Hexadecimal, and proven with `git cat-file`
+on a full-history run; `pending` is not a commit. On a shallow CI checkout the check reports a
+**clearly labelled limited** result rather than claiming it verified existence.
+
+**The check is silent until a closure is claimed, and then it is PHASE-SCOPED.** It fires when the
+phase register marks a phase closed, and fails on entries **filed against that phase** that are
+merely `Open`, `Answered` or `Applied`. **An open entry filed against a different phase does not
+fail this one** (`B-013`). A full backlog during a sprint is still healthy; an unverified blocker
+at a Judge boundary is not.
 
 ## Answering — Lane A
 
-Fill the `Lane A` line. Three dispositions:
+Fill the `Lane A` line. The dispositions are `Acknowledged`, `Answered` and `Withdrawn`:
 
 | Disposition | Means |
 |---|---|
@@ -114,19 +167,33 @@ Fill the `Lane A` line. Three dispositions:
 it does **not** demand a fast answer, because a queue is healthy and a red check over a healthy
 queue teaches people to ignore the check.
 
-## What the check enforces
+**Write an answer so it does not silently go false.** An answer is an append-only record of what
+was said *then*. Present-tense claims about other entries age badly — `B-011`'s answer said
+*"`B-009` is `Verified`"* and stayed on the page after `D-102` made it `Applied`. **Date the claim
+or name the decision, and append a correction rather than editing history.**
+
+## What the checks enforce
 
 `scripts/checks/handoff-response.mjs` (`C-14` check 10) fails on:
 
-- a malformed entry — missing `Kind`, `Status`, or `Lane A`
+- a malformed entry — a missing **or blank** `Kind`, `Status`, `Lane A`, or `Phase`
+- a `Phase` naming no row in the phase register
 - `Status: Answered` with an empty `Lane A` line — a claim with nothing behind it
 - `Status: Open` with **no acknowledgement** — the "feedback sits unread" case
 
-It reports open-but-acknowledged entries in its detail line **without failing**. It reads
-tracked files only, so it runs in CI.
+`closure-readiness.mjs` (check 13) validates the closure fields on every run, and gates by phase
+when a closure is claimed. `channel-docs.mjs` (check 16) couples **this file and the template** to
+the checks above, in both directions — it exists because these two files were the only part of the
+channel nothing read, and they drifted three decisions behind the entries they govern (`D-104`).
+
+**A blank field is not an empty value.** The parser is line-bounded: horizontal whitespace may
+follow the marker, a newline may not. It used to cross the line break and read the *next* field as
+the missing one's value, so `B-013`, `B-014` and `B-015` shipped with blank `Kind` and the check reported PASS
+(`B-017`). **The green did not describe the files being judged.**
 
 ## What it does not do
 
-It checks **form, not substance**. It cannot tell whether an answer is correct, or whether a
-`Withdrawn` was justified — the same arrival-not-correctness limit `G65` records for the tier
-sweep. Reading the entries is still a person's job.
+It checks **form, not substance**. It cannot tell whether an answer is correct, whether a
+`Withdrawn` was justified, or whether the actor named in `Verified-By` did any reading — the same
+arrival-not-correctness limit `G65` records for the tier sweep and `C-22` records for the manifest.
+**Reading the entries is still a person's job.**

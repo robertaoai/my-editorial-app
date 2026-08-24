@@ -77,7 +77,11 @@ const TERMINAL = new Set(["verified", "deferred", "withdrawn", "superseded"]);
 // satisfy a phase-closure condition. Recording ten honest `Applied` rows costs
 // a red condition; recording ten unearned `Verified` rows costs the meaning of
 // the word.
-const PROVISIONAL = new Set(["applied", "awaiting"]);
+// `awaiting` was a second word for the same state and is REMOVED (`D-104`):
+// `channel-docs` reported it as a resolution the README and template did not
+// offer, which was true — nothing had ever offered it, because `Applied`
+// replaced it in the same pass that introduced it.
+const PROVISIONAL = new Set(["applied"]);
 
 // A commit identifier, not "a string with no spaces in it". The previous test
 // accepted `not-a-sha`; `B-017` item 5 demonstrated it.

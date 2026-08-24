@@ -205,6 +205,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G75` | **Closed 2026-08-21 — the rule was three paragraphs above the violation** | **Four documents asserted the number of `C-14` checks as a literal, and all four were wrong.** `V1-BUILD-SPEC.md` was wrong **twice in one sentence** — *"Extended to nine"* beside *"a local `8/8`"*. `G55`, `G56` and `G58` all record the same mechanism, **propagate the fact never the tally**, and `CLAUDE.md`/`AGENTS.md`/`.agents/rules/graphify.md` state that rule and then carry a tally. **Not fixed by correcting the number** — a corrected number drifts at the next check. Tallies removed and replaced with the rule that determines CI coverage: **what a check reads.** Prerequisite for Lane C's `fetch-depth: 0`, which changes the CI total. §5.14az |
 | `G76` | **Closed 2026-08-24 — the control layer's own green was false** | **Both handoff checks read the NEXT metadata line as a missing field's value.** The pattern `^-\s*\*\*Name:\*\*\s*(.*)$` uses `\s`, which matches a **newline**, so a blank field followed by another field captured that following line. `B-013`, `B-014` and `B-015` shipped with blank `Kind` values and `handoff-response` reported **PASS** on all three. **This is not a checking gap but a checking LIE** — every claim in this apparatus about the channel is read through these two functions, so the defect invalidated the evidence for the other six entries at once. **Three copies of the parser existed**, across `handoff-response`, `closure-readiness` and their duplicated phase-register readers; one line-bounded copy now lives in `scripts/checks/handoff-fields.mjs`. **Reproduced before and after, and negative-tested seven ways.** §5.14bj |
 | `G77` | **Open — structural, no control proposed** | **This repository's dominant defect source is its own corrections.** §6.1b recorded six of eight findings as defects introduced by the passes correcting the previous ten. §6.1c records **seven of eleven** the same way, and the pass that repaired `B-013` shipped `B-017` and `B-018` — one of which (`G76`) is a false green inside a check written to stop false greens. **`G56` names *restatement* as a drift mechanism; this is the same shape one level up: re-derivation.** No control is proposed, because a check that fires on "a correction introduced something" fires on the normal case (`D-83`). **What works is what caught these: an independent lane reviewing the repair, and negative fixtures written before the check is believed** — fixture 10 found what review did not. Recorded so the ratio is tracked rather than rediscovered |
+| `G78` | **Closed 2026-08-24 — found by reading the directory, not by any check** | **The channel's own documentation was the one file nothing read.** `handoff-response` filters entry filenames on `^[BC]-d+`, so `docs/handoff/README.md` and `TEMPLATE.md` were invisible to it; `phase-manifest` asserted only that they exist and `graph-coverage` only that they were in the graph. **The README drifted through `D-101`, `D-102` and `D-103` with every check green**, ending up without `Applied` — the state most entries carried — with two prose tallies, with the pre-`D-102` meaning of `Verified`, with a gate description that predated phase scoping, and with no mention of the `D-103` carve-out that makes the channel usable during a handover. **`G74`'s shape one level up:** that control was scoped to one lane and blind to the other; this one was scoped to entries and blind to the file governing entries. **Closed by `channel-docs` (check 16)**, which couples both files to the check sources in both directions and **caught three further defects nobody had reported, including one written by the repair pass itself.** §5.14bl |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2347,6 +2348,14 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 **Excluding logged overrides requires telling those two apart. The declared single column cannot.** `G-02` would need a second column its own Data Source does not name.
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
+
+### `C-27` — the Sprint boundary is becoming a per-task toggle
+
+**Opened by `D-104`. Phase: the operating model.** Two boundaries were declared in one day and the first produced no commits. **The mechanism is being used to switch who may edit, rather than to mark a cycle.**
+
+**Watch, do not gate.** A check enforcing a minimum cycle length would fire on the legitimate short cycle, which is the property that makes a control get ignored (`D-83`). **The Chief Editor owns the cadence** and `D-100` explicitly permits short ones.
+
+**What to look for:** a boundary declared to unblock a single edit, repeatedly. **A handover that costs nothing is a handover that stops meaning anything**, and the vocabulary — `Active`, Sprint, boundary — quietly stops describing the thing it names.
 
 ### `C-26` — ten entries are `Applied`, and Phase 1's condition 2 needs them `Verified`
 
@@ -5416,3 +5425,134 @@ hash unchanged at `a8173008845e`** — a Sprint boundary that edited three rule 
 duplication `D-101` removed. **Build spec unaffected** — no artifact created, sequenced or retired;
 `LANE-B-WORK-ORDER.md` restates no scope, it points at `CONFIG_LOG.md` and the entries.
 **`Modular_PRD` unaffected** — no sprint closed and no tier opened.
+
+---
+
+## 5.14bl `D-104` — The Channel's Own Documentation Was the One File Nothing Read
+
+**Judge ruling, 2026-08-24: Lane A reselected `Active`** at a second Sprint boundary, to repair
+findings from a review of `docs/handoff/`. **Lane B's `D-103` turn produced no commits; its work
+order is UNSTARTED and stands unchanged.**
+
+### The parent: a control scoped to entries, blind to the file that governs entries
+
+`docs/handoff/README.md` and `TEMPLATE.md` are **the only files in the channel that nothing
+read.** `handoff-response` filters entry filenames on `^[BC]-\d+`, so both are invisible to it;
+`phase-manifest` asserts only that they **exist**; `graph-coverage` only that they are **in the
+graph**.
+
+**The README drifted through `D-101`, `D-102` and `D-103` with every check green**, and ended up
+describing a vocabulary the directory no longer used:
+
+| # | The README said | Actually |
+|---|---|---|
+| 1 | Terminal states are `Verified` / `Deferred` / `Withdrawn` / `Superseded` | **`Applied` absent** — the state **most entries in the directory carry** |
+| 2 | *"**Five fields** carry the closure state"* | `Verified-By` missing — **and it is a prose tally, `G75`'s exact mechanism** |
+| 3 | `Verified` closes a phase | Only with an **independent** `Verified-By` (`D-102`) |
+| 4 | The check fails on missing `Kind`, `Status`, `Lane A` | **`Phase` missing**, and blank-versus-absent undistinguished |
+| 5 | Closure fails on *"any blocking entry"* | **Phase-scoped** since `D-102` |
+| 6 | *"**Three** dispositions"* | Another prose tally |
+| 7 | *(silent)* | The **`D-103` `Active` carve-out** — the rule that makes this channel usable during a handover — was not in the channel's own README |
+
+**This is `G74`'s shape one level up.** That gap was a control scoped to one lane and blind to the
+other. This was a control scoped to entries and blind to the file that tells people how to write
+entries.
+
+### The control — `channel-docs`, `C-14` check 16
+
+**Three couplings, all derived from source. Nothing in it is a restatement**, which is what
+distinguishes it from the tally it exists to prevent:
+
+| | Couples |
+|---|---|
+| **A** | **Resolution vocabulary, both directions.** Every resolution `closure-readiness` implements must be named in the README *and* the template; every resolution the template offers must be implemented |
+| **B** | **Fields, both directions.** Every `- **X:**` the template declares must be read by some check; every field a check reads must be declared by the template. **Human-only fields are excluded BY NAME with a reason** — an unlisted unread field is a finding, not a shrug |
+| **C** | **No prose tallies** in either file |
+
+**A one-way check licenses the other direction** — the reasoning `G65`, `G71` and `C-17` all
+record, and the shape `config-coupling` already uses.
+
+**It caught four of the seven defects, and it caught three more nobody had reported:**
+
+| Found | What it was |
+|---|---|
+| `awaiting` in `closure-readiness` | **A second word for `Applied`.** It was introduced and superseded in the same pass (`D-102`) and never reached the README or the template, because nothing had ever offered it. **Removed** |
+| Its own doc comment | The check read **itself** as implementation: a comment naming an accessor call was reported as a field the template failed to declare. **A check that reads its own documentation as source is measuring itself.** Self excluded |
+| A tally in the rewritten README | *"three entries shipped with blank `Kind`"* — **written by the repair pass, caught by the check installed in the same pass.** Fixed by taking the check's own advice: **name them instead of counting them** |
+
+**And it fired on the `§5` edit made minutes later**, where Lane A's state cell explained itself
+and read as a row claiming `Active` **and** `Eligible`. **The check was right and the document was
+wrong**: a state column carries states, and the explanation moved below the table.
+
+**What it cannot do, stated rather than buried.** Defects 3, 5 and 7 above are **semantic** — a
+paragraph that describes a gate's old behaviour, or omits a rule entirely, reads exactly like one
+that does not. **A check cannot read a paragraph for correctness.** `C-22`, and the control is the
+reader. It also has a **known false-positive class**: a *historical* count does not drift and rule
+C fires on one anyway. **Left blunt on purpose** — the fix it forces produces better prose every
+time.
+
+### `Phase:` gets the definition it never had — and Lane A's own review was wrong about it
+
+**`D-102` made `Phase:` mandatory and never said what it meant.** Three readings were live: the
+phase you work in, the phase you are blocked on, the phase that must fix it.
+
+> **The `docs/handoff/` review reported `B-002` and `B-007` as MISLABELLED. That finding is
+> withdrawn.** It assumed the *"phase you are blocked on"* reading without deciding it, and acting
+> on it would have re-filed two correct entries into the wrong phase.
+
+**The deciding argument is structural: `Blocks:` already carries the blocking relation.** A
+`Phase:` meaning *"what this blocks"* would be a second copy of `Blocks:`, and a duplicated fact is
+the drift mechanism this register records five times over. **So `Phase:` carries the other half —
+whose artifacts are wrong, and therefore whose phase cannot close while this is open.**
+
+**That is also the only reading that makes closure condition 2 mean anything**: *"every entry
+raised against it"* is about defects in **that phase's own artifacts**, not about who is
+inconvenienced. Under it, **`B-002` and `B-007` were correctly filed all along** — they block Lane
+B's Phase 2 work and the file that was wrong is Lane A's.
+
+**Split corrections file against the phase that must act first, and re-file when that part is
+done.** `B-016` is the live example and now correctly reads `Phase: 3`.
+
+### The rest of the review, applied
+
+| Finding | Disposition |
+|---|---|
+| `B-013`, `B-014`, `B-015`, `C-001` had **no `Verified-By:` line at all** | **Added.** Unchecked today because it is only required once a resolution is `Verified` — so it would have surfaced at the **first verification**, which is the worst moment |
+| Two placeholder conventions for "absent" — `—` and blank | **Normalised to blank.** Both parsed as absent, so nothing was broken; the directory was teaching two conventions |
+| **`B-011`'s answer said *"`B-009` is `Verified`"*** and stayed on the page after `D-102` made it `Applied` | **Corrected by APPENDING, not editing.** An answer is an append-only record of what was said then. The README now tells answerers to date the claim or name the decision |
+| `B-004` and `B-008` | **No change — they are the model.** `Superseded` with the overtaking decision named and evidence explaining what advanced past them |
+
+### Two Sprint boundaries in one day — `C-27`
+
+`D-103` selected Lane B; Lane B committed nothing; `D-104` selected Lane A back. **The mechanism
+is being used as a per-task toggle rather than as a Sprint boundary, and the word *Sprint* means
+less each time it is.**
+
+**No minimum is imposed** — the Chief Editor owns the cadence and short cycles are legitimate
+under `D-100`. **Recorded as `C-27` so the drift is visible if it continues.** A handover that
+costs nothing is a handover that stops meaning anything.
+
+### Conditions opened
+
+| | |
+|---|---|
+| **`C-27`** | **The Sprint boundary is being used as a per-task toggle.** Two in one day, one of them producing no work. Watch, do not gate — a minimum cycle length imposed by a check would fire on the legitimate case |
+
+### Gaps opened
+
+**`G78`** — §5.1.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Lane A reselected `Active` | ✅ §5.14bl | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5 | **— unaffected** |
+| `channel-docs` check 16 | ✅ §5.14bl | **— unaffected** | **— unaffected** | ✅ the check file | ✅ §5A.5, §6.5 | **— unaffected** |
+| `Phase:` definition | ✅ §5.14bl | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| README + template repair | ✅ §5.14bl | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5A.3 description | **— unaffected** |
+| `awaiting` removed | ✅ §5.14bl | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Agent files unaffected** — nothing here changes the lane map, the lane states or the shared
+core; hash unchanged at `a8173008845e`, and a Sprint boundary touching three rule files would be
+the duplication `D-101` removed. **Build spec unaffected** — no artifact created, sequenced or
+retired. **`Modular_PRD` unaffected** — no sprint closed, no tier opened.

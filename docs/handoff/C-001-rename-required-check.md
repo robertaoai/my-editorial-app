@@ -7,6 +7,7 @@
 - **Lane A:** **Acknowledged and partly answered `D-102`, 2026-08-24.** **Corrected in this entry:** raiser was recorded as Lane B for a `C-` entry; Phase was 1 for Phase 3 work; and the old context was written without its **U+00B7 MIDDLE DOT** separators, which is the exact defect `C-18` exists to prevent. **The ruleset finding outranks the rename** and is recorded in §5.14bj — renaming a required context inside a rule that targets no branches changes nothing. **The Judge confirms Lane C performed the live verification**, so the claim is authoritative; the evidence is held outside the repository and that is recorded as **`C-25`**, not resolved by assertion. **The compatibility job as written cannot prove verification — `C-24`, and it blocks the settings act rather than the commit.**
 - **Lane C:**
 - **Resolution:**
+- **Verified-By:**
 - **Evidence:**
 - **Verified-At-Commit:**
 
