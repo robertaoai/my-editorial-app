@@ -2346,7 +2346,15 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
-### `C-23` — the `Modular_PRD` `Q11` row is stale and Lane A must not fix it
+### `C-23` — **CLOSED 2026-08-22 (`D-97`), exactly as written**
+
+**The row is corrected, in the same pass the Judge picked a shape.** Both stale claims struck: the
+withdrawn *"inference at read"* limb (`D-69`), and *"`0002` remains blocked by `Q10`"* after `Q10`
+was decided (`D-73`, `D-79`). **Lane A left them standing for a full cycle on purpose** —
+rewriting an open decision request is answering it by edit — and that restraint is what made the
+correction safe rather than pre-emptive. *The condition as opened is retained below.*
+
+### `C-23` (as opened) — the `Modular_PRD` `Q11` row is stale and Lane A must not fix it
 
 **Opened by `D-95`, raised as `B-009`. Phase: with the `Q11` decision.** The `Modular_PRD` `Q11`
 row retains the **withdrawn `NFR-03` inference limb** (`D-69` withdrew it) and **still names
@@ -2531,7 +2539,8 @@ The first tier sweep accepted **any** ID from a row's Item cell. Deliberately br
 | Blocker | Verified state |
 |---|---|
 | `Q10` — tool versus product, tenancy column | **Open** |
-| `Q11` — the field name | **Open, deferred past S1** (`D-68`) |
+| `Q11` — the field **shape** | **Decided 2026-08-22 (`D-97`)** — three-value status, not a boolean. `G64`'s surviving limb answered |
+| `Q11` — the field **name** | **Open.** `D-97` decided the shape only; the rename is a separate half |
 | `G64` — the field **shape** | **Specified, not applied** (`D-69`) — the choice is `Q11`'s |
 | `G16`, `G17`, `G19`, `G20`, `G42`, `GA1`, `GA3`, `GA4`, `GA9` | **Open** |
 | `GA2` | **Half closed** — the insert/read-only half is still a window item |
@@ -4457,3 +4466,128 @@ correct disposition rather than an omission.
 
 **`V1-PHASE-CLOSURE.md` is not a `tier-sweep` tier** and carries condition 5 directly; it is
 Lane A's phase record, not a governed tier under `D-29`.
+
+---
+
+## 5.14be `D-97` — The Second Critic Pass, the Deadlock Proposal, and `Q11`'s Shape
+
+**Three things the Judge asked for, and one it did not ask for that had to come first.**
+
+### The question that unblocked everything: what was stopping the critic pass?
+
+**Nothing.** `D-93` requires the pass to run **on a separate turn from the work being
+criticised** — and by the time the previous report said *"next turn"*, `D-95` and `D-96` were
+already committed history (`79bb2a6`, `90f89ba`, `de3b7df`). **The qualifying separate turn had
+arrived and Lane A kept deferring into it.**
+
+**A rule that defers correctly once will defer incorrectly forever if nobody asks when it stops
+applying.** The Judge asked; the pass ran. Recorded because the failure shape — *a correct
+constraint restated past the condition that made it correct* — is this project's dominant one
+wearing procedural clothes.
+
+### The pass itself — eight findings, and the headline is uncomfortable
+
+`V1-PHASE-CLOSURE.md` §6.1b, run against `de3b7df`. **Six of the eight are defects introduced by
+the two passes that were correcting the previous ones**, and three are **recurrences of classes
+already named and fixed once**:
+
+| Class | First instance | Recurrence |
+|---|---|---|
+| Restated tally | `G75` — check counts in four documents | **`F9`** — *"The four conditions"* heading above a table of five, added by `D-96` |
+| Wrong anchor | `B-006` item 4 — conditions citing §3 | **`F11`** — condition 2 re-pointed at §6.3, *Measurements*, in the fix for the first |
+| Stale pin | `B-006` item 9 — snapshot naming only a predecessor | **`F14`** — snapshot still naming `79bb2a6` after the set moved twice |
+
+**The correction rate is not yet below the defect-introduction rate**, and that is the finding
+this pass most wants read. `F10` and `F16` are open; the rest are fixed and recorded with their
+fixes per `D-93` rule 4.
+
+**`F16` is the one worth arguing with.** `V1-PHASE-CLOSURE.md` is both a manifest entry and the
+document asserting the manifest, so **check 11 verifying this file exists is true whenever the
+check can run at all.** The file does belong in the manifest; the limit is stated so a green
+check 11 is never read as independent confirmation. It joins `C-22`.
+
+**`§6.2` was withdrawn rather than deleted.** It claimed the first pass *"found nothing about the
+checks themselves … the controls working, not the critic looking."* **That was false within a
+day** — `phase-manifest` was silently dropping rows and `C-17` was uninstalled. **A clean bill of
+health that ages into a false claim is worse than none**, because it tells the next reader a
+region has been examined when it has not.
+
+### The deadlock proposal — `§1.2`
+
+**Asked "what is the proposal to approve?" — Lane A proposes exit 2:** close Phase 1 on its
+orchestration artifacts and move S0's remaining configuration work into Phase 2's opening scope,
+with `config-coupling` carried **explicitly as Phase 2's opening debt** rather than silenced.
+
+**Why not exit 1.** Authorizing Lane B to act inside an unopened phase **legitimises exactly what
+`43c51ce` did wrong.** Once phase order admits a "just this once", the deadlock recurs at every
+boundary and the exception becomes the procedure.
+
+**Why this is not a climbdown from `D-96`.** The ruling stands. What exit 2 corrects is **a
+scoping error in Lane A's own reading of it**: Phase 1 is the *orchestration* phase, and
+orchestration's S0 duty was to publish authoritative rows — which it did. **Condition 5 as first
+written demanded that a phase finish work its own lane is forbidden to touch.**
+
+**The cost, stated rather than sold.** Phase 1's DoD stops meaning *"S0 is done"* and starts
+meaning *"S0's Lane A half is done."* **Sprints and phases decouple again** — the position `D-94`
+assumed and `D-96` overturned — so this is a **partial re-adoption of what the ruling rejected**,
+and it should be judged as that.
+
+### `Q11` — Shape B accepted, and `C-23` closed with it
+
+**The Chief Editor accepted Shape B: a three-value status, not a boolean.** `satisfied` |
+`not_applicable` | `override_not_four_eyes`, as `FR-05` already states. `G64` is answered on the
+limb that survived `D-69`: **`G-02` excludes logged overrides, that requires two of the three
+values to be distinguishable, and a boolean maps both to `false`.**
+
+**`C-23` closes in the same pass, exactly as it was written to.** The `Modular_PRD` `Q11` row
+carried two stale claims — the **withdrawn** *"second `NFR-03` conflict — inference at read"* limb
+(`D-69`), and *"`0002` remains blocked by `Q10`"* after `Q10` was decided (`D-73`, `D-79`). Lane B
+reported both as `B-009`; **Lane A left them untouched for a full cycle on purpose**, because
+rewriting an open decision request is answering it by edit. **They are corrected now, with the
+decision, which is what `C-23` promised.**
+
+**The naming half of `Q11` stays open, and that is a narrowing not an oversight.** The row's
+original proposal bundled a *shape* change with a *rename* — `line_boundary_crossed` plus
+`identity_assurance` plus a reserved `judgment_independence`. **Shape B decides the shape only.**
+Whether the column is also renamed for mechanism-accuracy is a separate call, and deciding it
+here would be Lane A reading approval of one half as approval of both.
+
+### POC work "up to `Fn_Spec`" — authorized, and blocked one tier up
+
+**The Judge authorized POC specification work bounded at `Fn_Spec`**, on the stated grounds that
+tech-spec and UX lack the clarity to proceed. **Lane A cannot execute it as literally stated**,
+and the reason is a binding guardrail rather than a preference:
+
+> *"Input must be a `Modular_PRD` feature group, never a prose description — anchors travel with
+> the input, and a description produces unanchored scope (`FB-04`)."*
+
+**The POC has no feature group in `Modular_PRD`.** One changelog mention, no `FR`, no `US`, no
+`AC`. Writing an `Fn_Spec` from the ruling's prose is **precisely `FB-04`**, and `specs-creator`'s
+own rule forbids a spec whose dependency does not exist.
+
+**So "up to `Fn_Spec`" necessarily includes the tier above it**, and that is a larger act than the
+phrase suggests: **adding a POC feature group to the governed product spec.** Lane A will not
+assume authorization for a `Modular_PRD` scope addition from a sentence about `Fn_Specs`.
+**Put back to the Judge**, with the source material named: the P0-EVR board proposal,
+`B-P0-06`'s ten boundaries, `G7a`'s charter item, and `D-59`'s `/request-brief` path.
+
+### What this does not do
+
+**Does not close Phase 1** — condition 4 is the Judge's and condition 5 depends on the deadlock
+decision. **Does not decide `Q11`'s name.** **Does not write any POC specification.** **Does not
+open Phase 2** or authorize Lane B to act. Authorizes no schema, migration or deployment;
+`0001_init.sql` untouched, `0002` unwritten.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | `Modular_PRD` | Build spec | Inventory | Agent files |
+|---|---|---|---|---|---|
+| Second critic pass | ✅ §5.14be | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| Deadlock proposal | ✅ §5.14be | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `Q11` shape accepted | ✅ §5.14be + §5.1 | ✅ §10 row, `C-23` closed | **— unaffected** | **— unaffected** | **— unaffected** |
+| POC `Fn_Spec` blocked one tier up | ✅ §5.14be | **— unaffected until the Judge rules** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Build spec unaffected** — no scope, sequence or DoD moves until the deadlock exit is chosen.
+**Inventory unaffected** — no file created or retired. **`Modular_PRD` §8 unaffected** — no sprint
+closed and no tier opened; the `Q11` change is a **§10 decision-request status**, not a
+requirement amendment.

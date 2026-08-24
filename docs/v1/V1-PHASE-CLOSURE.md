@@ -5,7 +5,7 @@
 nothing, so a phase ended when Lane A said it ended — **the same shape `G32` exploited**, one
 level up.
 
-## 1. The four conditions
+## 1. The closure conditions
 
 **A phase is closed when all five hold.** *(Four until the Judge added the fifth on 2026-08-22 —
 `D-96`, §1.1. The number is stated here because this table **is** the list, not a restatement of
@@ -14,8 +14,8 @@ one held elsewhere.)*
 | # | Condition | Checkable by |
 |---|---|---|
 | 1 | Its **artifact list exists** — every named file present | **§5A**, verified by `phase-manifest` (check 11) |
-| 2 | Every handoff entry raised against it has reached a **terminal disposition** — `Answered` or `Withdrawn` | `bun run check` (check 10) plus **§6.3** |
-| 3 | A **critic pass** has been performed **on a separate turn against the final artifact set**, and its weakness list is recorded | **§6.1** |
+| 2 | Every handoff entry raised against it has reached a **terminal disposition** — `Answered` or `Withdrawn` | `bun run check` (check 10); the entries themselves in `docs/handoff/` |
+| 3 | A **critic pass** has been performed **on a separate turn against the final artifact set**, and its weakness list is recorded | **§6.1b** — the pass against `de3b7df`. §6.1 is the earlier pass, superseded not deleted |
 | 4 | **The Judge approves at the boundary** | the verdict row in **§6.6** |
 | 5 | **The sprint the phase enables is complete** — Phase 1 ⇒ S0 (Judge ruling, `D-96`) | `config-coupling` green; see **§1.1** |
 
@@ -67,6 +67,41 @@ exits exist, and Lane A recommends the second:
 | Judge authorizes a **scoped Lane B pass** for S0's remaining config work, explicitly bounded, before Phase 1 closes | One declared, recorded exception to phase order |
 | Judge **accepts Phase 1 on the orchestration artifacts** and moves S0's completion into Phase 2's opening | Phase 1's DoD stops meaning "S0 done"; sprints and phases decouple again |
 | Lane A implements the 13 rows | **Rejected — a lane crossing into `lib/`, and the reason `D-75` exists** |
+
+## 1.2 The proposal put to the Judge — `D-97`
+
+**Asked directly: "what is the proposal to approve?" This is it, in one sentence.**
+
+> **Approve exit 2: close Phase 1 on its orchestration artifacts, and move S0's remaining
+> configuration work into Phase 2's opening scope.**
+
+**What you would be approving, concretely:**
+
+| | |
+|---|---|
+| **Phase 1 closes on** | the `§5A` manifest — governance tracking, Lane A's authoritative surfaces, the handoff channel, three rule files, twelve checks and the commit gate |
+| **Condition 5 is read as** | *the sprint work this phase was responsible for producing* — the `CONFIG_LOG.md` rows themselves, which **exist and are complete** — **not** their implementation in `lib/`, which is Lane B's |
+| **Phase 2 opens with** | the 13 unimplemented rows as its **first** deliverable, ahead of any feature work |
+| **`config-coupling` stays red** | until Lane B lands them, and the red is **carried explicitly as Phase 2's opening debt**, not silenced |
+
+**Why this over exit 1.** Exit 1 authorizes Lane B to act inside an unopened phase — **a declared
+exception that legitimises the exact thing `43c51ce` did wrong.** Once phase order admits a
+"just this once", the deadlock recurs at every boundary and the exception becomes the procedure.
+
+**Why this is not a climbdown from the ruling.** The ruling — *a phase cannot close while the
+sprint it enables is incomplete* — **stands unchanged.** What exit 2 fixes is a scoping error in
+Lane A's reading of it: **Phase 1 is the orchestration phase, and orchestration's S0 duty was to
+publish authoritative rows, which it did.** Implementation was never Phase 1's to complete, and
+condition 5 as first written demanded that a phase finish work its own lane is forbidden to touch.
+
+**The cost, stated.** Phase 1's Definition of Done stops meaning *"S0 is done"* and starts meaning
+*"S0's Lane A half is done."* **Sprints and phases decouple again** — which is what `D-94` assumed
+and `D-96` overturned, so this is a **partial** re-adoption of the position the ruling rejected,
+and the Judge should see it as that rather than as a neutral tidy-up.
+
+**If the Judge prefers exit 1**, Lane A will record it as a bounded, single-use authorization
+naming the exact files and the closing condition, and `C-20`'s phase-order check must land in the
+same pass so the exception cannot silently become the norm.
 
 ## 2. The roles — `D-93`, resolving `P0`
 
@@ -308,29 +343,71 @@ below was deleted for being fixed in the same pass.
 | **F3** | **Lane A removed a dependency's consumers and left the dependency.** S0 required Stripe scaffolding removed; `package.json` and the lockfile still carried `stripe`, and those are Lane A's under `D-86`. Lane B could complete only its own half and had to stop | **`B-003`, raised by Lane B** | Corrected — see `D-93` |
 | **F4** | **Phase 2 began before Phase 1 closed.** `D-75` requires sequential phases; nothing enforces the order, and no artifact said Phase 1 was still open. **`D-82` recorded that the lane model cannot enforce itself; this is that gap in the phase dimension rather than the surface dimension** | Lane A critic pass | **Open** — `C-20` |
 | **F5** | **Lane A shipped three defects into a phase it was about to declare complete, and its own checks caught none of them.** Every check verifies *arrival* — that a claim reached a tier, that a file exists, that a hash matches. **None verifies that what arrived is correct.** The `G65` arrival-not-correctness limit was recorded for one check and is in fact a property of the whole apparatus | Lane A critic pass | **Open — stated limit**, not a defect to fix |
+| **F6** | **`G75` was closed for check counts and the same class survives elsewhere.** The shared core states *"bun and its 413 pinned packages"*. Removing `stripe` this pass **happened not to change that number** — which is luck, not design: a routine dependency change can invalidate a literal in the file every agent reads first, and **nothing detects it.** `G75` removed one tally and did not sweep for others | Lane A critic pass | **Open** — `C-21` |
 | **F7** | **The closure specification asserted a condition it never evidenced.** §1 condition 1 requires an artifact list *"checkable by `ls`"* and **no list was written** — so condition 1 could not fail, one pass after this document was created to stop exactly that. **Found by the Judge, on the first occasion the role existed.** Neither Lane B nor the critic pass caught it: the critic read the artifacts the phase produced and never asked whether the list of them existed | **Judge — `DEFER`, 2026-08-22** | Corrected — §5A, and `phase-manifest` (check 11) makes it falsifiable |
 | **F8** | **A divergent duplicate of the propagation skill was untracked, and the tracked original was stale.** `.agents/skills/sync-docs/SKILL.md` was a Codex-adapted copy in which `CLAUDE.md` had been swapped to `AGENTS.md` mechanically, producing *"`AGENTS.md`, `AGENTS.md`, `.agents/rules/graphify.md`"* as the triple edit and *"Lane A — Codex"* as the lane map. **Following it found worse:** the tracked `.claude/skills/sync-docs/SKILL.md` **still carried `D-75`'s pre-`D-84` lane map** — `scripts/` and `.gitattributes` in Lane C — **and the obsolete `7/7` / `5/5` tallies.** *The procedure that teaches propagation was never propagated to* | **`B-005`, raised by Lane B** | Duplicate removed; original corrected to **cite** the lane map rather than restate it |
-| **F6** | **`G75` was closed for check counts and the same class survives elsewhere.** The shared core states *"bun and its 413 pinned packages"*. Removing `stripe` this pass **happened not to change that number** — which is luck, not design: a routine dependency change can invalidate a literal in the file every agent reads first, and **nothing detects it.** `G75` removed one tally and did not sweep for others | Lane A critic pass | **Open** — `C-21` |
+
+### 6.1b Second critic pass — 2026-08-22, against the artifact set at `de3b7df`
+
+**This is the pass `B-006` item 1 required and condition 3 names.** It is a separate turn from the
+work it criticises: `D-95` and `D-96` are committed history (`79bb2a6`, `90f89ba`, `de3b7df`), and
+this pass read the artifacts rather than the closure narrative about them.
+
+**What was stopping it: nothing.** The previous report said *"next turn"* twice while the
+qualifying separate turn had already arrived. **A rule that defers correctly once will defer
+incorrectly forever if nobody asks when it stops applying** — and the Judge asked.
+
+| # | Finding | Disposition |
+|---|---|---|
+| **F9** | **`§1`'s heading read "The four conditions" above a table of five**, in a document whose next paragraph explains why restated counts drift. **The heading was a tally**, and it went stale in the same pass that added condition 5 (`D-96`, one pass ago) | Fixed — heading now names no count |
+| **F10** | **Condition 5 presents as checkable something §1.1 documents as impossible.** A reader of `§1` alone sees *"`config-coupling` green"*; only `§1.1` reveals that **only Lane B can make it green and Lane B may not act.** The condition table is what a Judge checks against — **an unsatisfiable condition stated without its blocker is a gate that silently never opens** | **Open** — resolved by the deadlock decision, §1.2 |
+| **F11** | **Condition 2 pointed at `§6.3`**, which is *Measurements*, not disposition evidence. **`D-95` corrected these pointers and introduced a new wrong one in the same fix** — the anchor-class defect, third recurrence | Fixed — now cites check 10 and the entries |
+| **F12** | **`§6.3`'s measurements are stale.** They enumerate `B-001`–`B-005` and stop; `B-006`–`B-010` and findings `F7`–`F8` landed afterwards. **Condition 2 cited this section as its evidence while it was missing half the entries** | Fixed — §6.3 rewritten |
+| **F13** | **`§6.1`'s finding table runs `F1`…`F5`, `F7`, `F8`, `F6`.** `F7`/`F8` were inserted above `F6` rather than after it. Cosmetic in isolation, and **this is the table the Judge reads to decide** | Fixed — reordered |
+| **F14** | **`§6.4` pins `79bb2a6` while the artifact set has moved twice since** (`90f89ba`, `de3b7df`). Condition 3 requires a pass *against the final artifact set*; **a snapshot naming an older commit reproduces the exact defect `B-006` item 1 raised** | Fixed — re-pinned, §6.4 |
+| **F15** | **`§6.2` claimed the critic pass "found nothing about the checks themselves … the controls working."** That reassurance is now false: `B-006` found `phase-manifest` **silently dropping compound rows**, and `C-17`'s complete absence went unnoticed for a full cycle. **A clean bill of health that ages into a false claim is worse than none** | Fixed — §6.2 rewritten |
+| **F16** | **`V1-PHASE-CLOSURE.md` is both a manifest entry and the document asserting the manifest.** Check 11 verifying this file exists is **true whenever the check can run at all.** Not a defect to remove — the file does belong in the manifest — but a **stated limit**, so a green check 11 is never read as independent confirmation | **Open — stated limit** |
+
+**Eight findings, none dismissed, and six of the eight are defects introduced by the two passes
+that were correcting the previous ones.** That is the honest headline: **the correction rate is
+not yet below the defect-introduction rate.** `F9`, `F11` and `F14` are each a *recurrence of a
+class already named and fixed once* — restated tally, wrong anchor, stale pin.
+
+**What this pass deliberately did not do.** It did not re-examine the checks' source, the curated
+graph, or the lane map, and **it did not review the POC and `Q11` work performed later in this
+same turn** — that work is outside this pass's artifact set and is owed a pass of its own.
 
 ### 6.2 What the critic pass did not find
 
-**Nothing about the checks themselves, the graph, or the lane map.** That is worth stating
-plainly rather than presenting as a clean bill: those are the parts the existing controls already
-cover, so a critic pass finding nothing there is **the controls working, not the critic looking**.
+**Withdrawn 2026-08-22 as critic-pass finding `F16`.** This section read: *"Nothing about the
+checks themselves, the graph, or the lane map … the controls working, not the critic looking."*
+
+**That was false within a day.** `B-006` found `phase-manifest` **silently dropping every
+compound-path row**, and `C-17` had gone uninstalled for a full cycle with nothing noticing.
+**The controls were not working; the critic was not looking.**
+
+**Kept rather than deleted**, because `D-93` rule 4 requires a weakness to leave evidence. **A
+clean bill of health that ages into a false claim is worse than none** — it tells the next reader
+a region has been examined when it has not.
+
+**What the second pass genuinely did not examine:** the checks' source code, the curated graph,
+the lane map, and the POC/`Q11` work performed later in the same turn. **Not examined is not the
+same as sound**, and this section now says only the first.
 
 ### 6.3 Measurements — `P4`
 
 | Measure | Phase 1 |
 |---|---|
-| Handoff entries raised | `B-001`–`B-005`, all `Answered` |
-| **Blocking waits** — a lane stopped and waited | `B-002`, `B-003`, `B-004` |
+| Handoff entries raised | `B-001`–`B-010`. `B-006` and `B-010` remain `Open`; the rest `Answered` |
+| **Blocking waits** — a lane stopped and waited | `B-002`, `B-003`, `B-004`, `B-006`, `B-007`, `B-009` |
 | Findings raised by **another lane** | `F1`, `F2`, `F3`, `F8` |
-| Findings raised by the **critic pass** | `F4`, `F5`, `F6` |
-| Findings raised by the **Judge** | `F7` |
-| **Findings dismissed** | **0** — every one stands, see §6.1 |
-| Defects in Lane A's own output | `F1`, `F2`, `F3`, `F7`, `F8` |
-| **Phases reopened** | **1** — Phase 1, by `B-004` and `B-005` |
-| Residuals carried past closure | `C-19`, `C-20`, `C-21`, `C-17`, `C-18`, `G73`, `G72` |
+| Findings raised by the **critic pass** | `F4`, `F5`, `F6`, and `F9`–`F16` in the second pass |
+| Findings raised by the **Judge** | `F7`, plus the three rulings in `D-96` |
+| **Defects introduced by a correcting pass** | `F9`, `F11`, `F12`, `F13`, `F14`, `F16` — **six of the second pass's eight** |
+| **Findings dismissed** | **0** — every one stands, see §6.1 and §6.1b |
+| Defects in Lane A's own output | `F1`, `F2`, `F3`, `F7`, `F8`, and all eight of `F9`–`F16` |
+| **Phases reopened** | **0.** *Recorded as 1 until `D-95`: Phase 1 never closed, and reopening presupposes a closure* |
+| Residuals carried past closure | `C-17` **closed**; `C-18`, `C-19` **closed**, `C-20`, `C-21` **closed**, `C-22`, `C-23`, `G72`, `G73` |
 
 **Most entries were blocking waits.** `D-86` accepted that cost explicitly — a blocking wait over
 a split commit — and **this is the first time it has been recorded rather than assumed.**
@@ -365,7 +442,9 @@ does not hold.**
 | Branch | `docs/journal-2026-08-16` |
 | Judge deferred | **`eb1549d`** — the submission that returned `DEFER` |
 | First resubmission | **`b163075`** (`D-94`) — **not closable**; `B-006` found ten defects in it |
-| **Verification commit** | **`79bb2a6`** (`D-95`) — the commit this snapshot pins, named exactly (`B-006` item 9) |
+| Second resubmission | **`79bb2a6`** (`D-95`) — corrected `B-006`'s ten items; still not closable |
+| Judge rulings | **`de3b7df`** (`D-96`) — condition 5 added, POC classified, `Q11` direction proposed |
+| **Critic-pass commit** | **`de3b7df`** — the artifact set §6.1b was run against, named exactly. *Re-pinned 2026-08-22 as finding `F14`: this row named `79bb2a6` after the set had moved twice, reproducing the very defect `B-006` item 1 raised* |
 | Consistency checks | **11 of 12 pass.** `config-coupling` **fails, correctly** — see below |
 | Checks added since the deferral | `phase-manifest` (11), `config-coupling` (12), `C-19` folded into 10 |
 | Manifest paths verified | **30 paths, 9 exclusion paths** — *was 3 until the parser was repaired (`B-006` item 8)* |
