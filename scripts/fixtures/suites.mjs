@@ -228,10 +228,11 @@ export async function laneState(results) {
   await fixture(results, {
     name: "lane-state: TWO lanes are Active — the other half",
     modulePath: CHECK("lane-state.mjs"),
-    mutate: () => {
-      const other = activeLane() === "A" ? "**`Eligible`.** **Its `D-103` turn" : "**`Eligible`.** Handed over";
-      write(CLOSURE, orig.replace(other, other.replace("**`Eligible`.**", "**`Active`.**")));
-    },
+    // Structural target, not prose. This fixture broke when `D-108` rewrote the
+    // row it keyed on — the third time a fixture missed because the document it
+    // mutates had moved. Matching the CELL survives a rewording.
+    mutate: () =>
+      write(CLOSURE, orig.replace(/\| \*\*B\*\* \| \*\*2 — Application\*\* \|[^|]*\|/, "| **B** | **2 — Application** | **`Active`** |")),
     restore,
     expect: "lanes are `Active`",
   });
