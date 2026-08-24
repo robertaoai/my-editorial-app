@@ -6,6 +6,11 @@
 - **Reopens-Phase:** <1 | 2 | 3, only if the work this needs belongs to a phase already closed — otherwise omit the line entirely>
 - **Status:** Open
 - **Lane A:** <empty until acknowledged>
+- **Resolution:** <Verified | Deferred | Withdrawn | Superseded — omit while Open or merely Answered>
+- **Evidence:** <what proves it; a check name, a test, a file, a commit>
+- **Verified-At-Commit:** <the commit the evidence was observed at>
+- **Follow-up-Tier:** <required if Resolution is Deferred: the sprint, phase or tier that owns it>
+- **Superseded-By:** <required if Resolution is Superseded: the decision that overtook it>
 
 ## What happened
 

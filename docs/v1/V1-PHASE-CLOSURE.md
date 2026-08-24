@@ -366,12 +366,21 @@ the check reports exactly that. **`C-19` could not be both "install it in the cl
 "a residual carried past closure"** — `B-010` was right that those are incompatible.
 
 ## 5. Phase register
+**Lane state vocabulary — `D-101`, raised as `B-011`.** `Open` was ambiguous: it could mean
+eligible, executing, or permitted-concurrently, and those differ operationally while the corpus
+still requires one desktop app at a time. **Four states replace it**, and **this table is the only
+place live lane state lives** — the rule files define the vocabulary and deliberately no longer
+carry `1 — now` / `2 — next`.
 
-| Phase | Lane | Status | Closed | Judge | Reopened by |
-|---|---|---|:---:|---|---|
-| **1 — Orchestration** | A | **Open, and closes last (`D-99`).** Conditions 1, 2 and 3 met; **5 waits on Lanes B and C**; 4 is the Judge's | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
-| **2 — Application** | B | **OPEN — permission to proceed granted 2026-08-22 (`D-100`).** First work: the 13 unimplemented `CONFIG_LOG.md` rows, then `flags.ts` | — | Standing project approval (`D-100`) | — |
-| **3 — CI/CD** | C | **OPEN — permission to proceed granted 2026-08-22 (`D-100`).** Two items in `.github/WORKFLOWS-SPEC.md` §4; `C-Q2` still waits on `C-18` | — | Standing project approval (`D-100`) | — |
+| Lane | Phase | State | Closed | Judge | Reopened by |
+|:---:|---|---|:---:|---|---|
+| **A** | **1 — Orchestration** | **`Active`.** Closes last (`D-99`): conditions 1, 2 and 3 met; **5 waits on Lanes B and C**; 4 is the Judge's | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
+| **B** | **2 — Application** | **`Eligible`.** Permitted (`D-100`); first work is the 13 unimplemented `CONFIG_LOG.md` rows, then `flags.ts` | — | Standing project approval | — |
+| **C** | **3 — CI/CD** | **`Blocked` on `C-18`** for `C-Q2`; **`Eligible`** for `C-Q1` (`fetch-depth: 0`) | — | Standing project approval | — |
+
+**Exactly one lane is `Active`, and the Chief Editor selects it at each Sprint boundary.**
+`Eligible` means *specified and permitted, not currently committing* — **not** *waiting for a phase
+to close.*
 
 **Phase 2 started while Phase 1 is open, and that is a finding, not a note.** `D-75` says the
 lanes run *sequentially, one at a time*. See §6.
@@ -647,6 +656,25 @@ a placeholder `flags.ts` that Lane B correctly refused (`B-002`).
 
 **A snapshot that reported green here would be the more dangerous artifact.**
 
+### 6.4b Snapshot refreshed — 2026-08-24 (`D-101`)
+
+| Item | Value |
+|---|---|
+| Reviewed commit | **`3713c8f`** — the tree this pass's checks ran against before committing |
+| Consistency suite | **12 of 13 pass.** `config-coupling` fails on the 13 unimplemented `CONFIG_LOG.md` rows — **Lane B's opening work, not a defect in the check** |
+| Checks added since the last snapshot | `closure-readiness` (13) |
+| Handoff closure matrix | **12 entries: 10 `Verified`, 2 `Superseded`, 0 `Open`, 0 merely `Answered`** — derived by check 13, not hand-maintained |
+| Graph | rebuilt and re-merged; `docs-drift` synced |
+| Graph portability | **`portable-check` non-zero on gitignored build output only** — see §6.4a |
+| Lane state | A `Active` · B `Eligible` · C `Blocked` on `C-18` / `Eligible` for `C-Q1` |
+
+**Condition 3's evidence is `§6.1b`, the second critic pass, plus this pass's own findings** —
+which are recorded in the register at `§5.14bi` rather than here, because **this pass was work,
+and its critic pass is owed on a separate turn** (`D-93` rule 1).
+
+**Phase 1 still does not close.** Conditions 1, 2 and 3 are met; **condition 5 waits on Lanes B
+and C**, and condition 4 is the Judge's.
+
 **Condition 3 is NOT met at this commit.** The critic pass on record predates the manifest, both
 new checks and the skill repair, and `D-93` requires a pass **on a separate turn** from the work
 being criticised. **`79bb2a6` is that work.** Phase 1 is therefore **not resubmitted** by this
@@ -665,6 +693,24 @@ npx graphify hook-rebuild
 **Three checks report SKIP in CI and run only here** — `graph-coverage` and `docs-drift` read
 gitignored `.graphify/`, `source-sweep` needs full history. **A lower CI total is correct, not a
 regression**, and no total is restated in this document beyond this snapshot's own dated row.
+
+### 6.4a Graph portability — `B-011` repair 6, checked 2026-08-24
+
+**`npx graphify portable-check .graphify` reports absolute paths and exits non-zero.** Recorded
+rather than presented as clean, with the reason it is not a defect:
+
+| Reported | Disposition |
+|---|---|
+| `manifest.json` and `studio/*` carry `C:/git/my-editorial-app/...` | **`.graphify/` is gitignored** (`.gitignore:18`) and **zero files under it are tracked.** Nothing unportable is committed |
+| `studio/graph.json` labels `/sync-docs`, `/doctor` | **Not paths — skill names** the scanner reads as absolute. A false positive in the tool |
+
+**The committed graph layer is `docs/graph-fragments/`, and it carries repo-relative paths only.**
+That is the artifact the rule protects; the build products under `.graphify/` are rebuilt per
+machine and never committed.
+
+**Stated so a future reader does not "fix" this.** Making `portable-check .graphify` exit zero
+would mean rewriting untracked build output to satisfy a check whose purpose is to keep
+*committed* artifacts portable.
 
 ### 6.5 Negative tests for `phase-manifest`
 

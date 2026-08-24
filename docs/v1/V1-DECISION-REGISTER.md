@@ -4916,3 +4916,132 @@ scheduled rather than rescheduling it. **Inventory unaffected** — no file crea
 **deliberately so**: the backlog is an existing directory. **Agent files unaffected** — the lane
 rules are unchanged; what changed is the model those rules sit inside, and it lives in
 `V1-PHASE-CLOSURE.md` §0 where the Judge reads it.
+
+---
+
+## 5.14bi `D-101` — `D-100` Propagated, Response Separated From Closure, `Q11`'s Shape Reaches the Build Spec
+
+**`B-011` and `B-012`. Both stand, and `B-011` item 4 names a `D-54` violation Lane A committed in
+the pass that invoked `D-54`.**
+
+### The parent: `D-100` changed the model and marked its executors unaffected
+
+**`D-100` withdrew strict phase serialization, opened two phases, and redefined what a handoff
+means — then recorded the Build Spec and all three agent rule files as *unaffected*.** They said
+the opposite: *sequentially, one at a time, in a fixed phase order*, Lane A *"1 — now"*, Lane B
+*"2 — next"*, and `V1-BUILD-SPEC.md` §2 *"Phase 1 is current."*
+
+**The register wins under `D-58` — and that is exactly the wrong comfort here.** Lane B's own
+instructions say governance reaches it **as a flag, not a document**, and that it is **not
+expected to read the register** (`D-86`). **A ruling the executing agent cannot see has not been
+propagated; it has been filed.**
+
+**`B-011` calls the result a deterministic instruction conflict rather than a risk, and it is
+right:** follow `AGENTS.md` and wait for a gate that no longer exists; follow `D-100` and resume —
+**either action violates an operative instruction.**
+
+### The model, adopted as `B-011` recommended it
+
+**Exactly one lane is `Active`; the others are `Eligible`.** The Chief Editor selects the Active
+lane at each Sprint boundary.
+
+| State | Means |
+|---|---|
+| `Active` | The one lane permitted to commit |
+| `Eligible` | Specified and permitted, **not currently committing** — *not* waiting for a gate |
+| `Blocked` | Waiting on a named item |
+| `Done` | Definition of Done met and accepted |
+
+**The one-desktop, one-agent-at-a-time constraint remains, and is now stated rather than implied.**
+`B-011` asked explicitly; the answer is that it is physical and unchanged. **What `D-100` removed
+was the *queue*, not the *serialization*.**
+
+**Propagated in one pass**: the shared core in all three rule files, `V1-BUILD-SPEC.md` §2, and
+`V1-PHASE-CLOSURE.md` §5. **The rule files no longer carry lane state at all** — they define the
+vocabulary and point at §5. **Removing the duplicate is stronger than checking it** (`G55`), which
+is why `B-011`'s fixture for *"register and rule file disagree"* is answered by deletion rather
+than by a control: **there is no longer a second copy to disagree.**
+
+### `D-86`'s "stop and wait" versus `D-100`'s backlog — resolved, not chosen between
+
+`D-86` said a lane that needs a dependency **stops and waits**; `D-100` said feedback enters the
+backlog while work continues. **Both are right about different entries.** The earlier wording
+**generalised a blocking dependency into a rule about every handoff.** Now per-entry: a blocking
+entry stops *that item*; a non-blocking one goes to the top of the backlog and work carries on.
+
+### Response is not closure — `B-011` children 2 and 5
+
+**`D-100` used "all answered" as evidence that Phase 1's condition 2 was met. A reply is not a
+fix.** Check 10 tests **receipt** — deliberately, and unchanged.
+
+**Five fields, in the entry rather than in a second document**: `Resolution`, `Evidence`,
+`Verified-At-Commit`, `Follow-up-Tier`, `Superseded-By`. Terminal resolutions are `Verified`,
+`Deferred` (tier required), `Withdrawn`, `Superseded` (decision required).
+
+**`closure-readiness` (`C-14` check 13)** derives the matrix from those fields — **no second
+backlog file**, per `B-011` repair 6. **It is silent until a phase claims closure**, then fails on
+any entry that is merely `Open` or `Answered`. **A full backlog during a sprint stays healthy; an
+unverified blocker at a Judge boundary does not.**
+
+**All twelve entries now carry a closure state.** `B-004` and `B-008` are **`Superseded` with the
+overtaking decision named** — `B-011`'s child 5 was right that both had been advanced past their
+recorded dispositions and nothing said so.
+
+**Negative-tested**: Phase 1 marked closed with one entry's `Resolution` removed **fails**, naming
+the entry. Probes removed.
+
+### Three positional-parsing defects in a row, and the third changed the approach
+
+**Installing check 13 reproduced a defect twice before it worked**, and the sequence is the
+finding:
+
+| # | Defect |
+|---|---|
+| 1 | `phase-manifest` dropped compound-path rows (`B-006` item 8) |
+| 2 | The new detector scanned the whole file and matched **`§1.1a`'s three-column table**, reading its *Exit* column as `Closed` |
+| 3 | Scoping to `§5` fixed that — then **`§5` gained a Lane column and every fixed index shifted** |
+
+**Both detectors now read the register by column NAME from its header row.** A header-driven
+parser cannot be broken by adding a column. **Three instances is where the approach changes, not
+the pattern** — and the second and third were introduced by Lane A inside this pass.
+
+**An orphaned table header was also left in `§5`** when its rows were reshaped, and it silently
+defeated the parser by being found first. **Removed.**
+
+### `B-012` — the same paragraph, reported twice
+
+`B-009` raised it, `D-97` decided the shape, and `V1-BUILD-SPEC.md` still said `Q11` was *deferred
+past S1* with the boolean fallback selected by default. **A register decision that does not reach
+the tier an author reads is not a decision yet** — the same lesson as the parent, one tier down.
+
+Repairs 1–3 applied: the decided three-value shape, the **name** stated separately as open with
+`identity_assurance` and the reserved instrument, and `0002` still blocked. The *"`G64` is
+specified, not applied"* sentence — which survived `D-97` by two days — is corrected. **`D-68`'s
+deferral is reconciled rather than contradicted**: `G27` requires `G64` resolved before the draft,
+which is earlier than S1, so **the deferral was of the naming half and only that half survives.**
+
+**Repair 4: the six `[Q11]` markers are deliberately NOT cleared.** Their naming dependency is
+open, and clearing them would be the shape-decided-therefore-question-closed conflation this entry
+reports.
+
+**Repair 5: no new check, and the reason is structural.** Detecting *"the Build Spec calls a
+register-decided question deferred"* requires parsing decision status from prose in a third tier;
+`decision-status` already does two and **a third grammar to guess at buys less than it costs.**
+**This class is `C-22` — arrival, not correctness — and the control is the reader.** Recorded
+rather than papered over.
+
+### Tier applicability (`D-54`) — and the `D-100` record it corrects
+
+| Item | Register | Build spec | Agent files | Inventory | `Modular_PRD` |
+|---|---|---|---|---|---|
+| Lane-state model | ✅ §5.14bi | ✅ §2 restated | ✅ **all three, core re-synced** | **— unaffected** | **— unaffected** |
+| Response-vs-closure fields | ✅ §5.14bi | **— unaffected** | **— unaffected** | ✅ check 13 + template | **— unaffected** |
+| `Q11` shape reaches the Build Spec | ✅ §5.14bi | ✅ the paragraph | **— unaffected** | **— unaffected** | **— already correct** |
+| Parser defects | ✅ §5.14bi | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+> **`D-100`'s tier table is corrected by this row, not rewritten.** It recorded *"Build spec —
+> unaffected"* and *"Agent files — unaffected"* for a decision that changed the sequence and the
+> meaning of a handoff. **Both were affected. `D-101` is where they actually land.**
+
+**Inventory affected** — check 13 is a new file. **`Modular_PRD` unaffected** — no sprint closed,
+no tier opened, and its `Q11` row was already correct; **the drift was in the Build Spec only.**

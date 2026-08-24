@@ -73,6 +73,33 @@ for how you use this channel:
 **No separate backlog file exists, deliberately.** These entries **are** the backlog; a second
 artifact listing them would be a restatement, and restatements drift.
 
+## Response is not closure — `D-101`
+
+**`Answered` proves Lane A replied. It does not prove the defect was corrected, and it never
+did.** Check 10 tests **receipt**; that is deliberate and unchanged. What was missing is the other
+half: a state that says *this is actually finished, and here is what proves it.*
+
+| Status | Means | Enough to close a phase? |
+|---|---|---|
+| `Open` | Raised, not yet dispositioned | **No** |
+| `Answered` | Lane A replied | **No** — a reply is not a fix |
+| **`Verified`** | Corrected **and** the correction is evidenced | **Yes** |
+| **`Deferred`** | Real, not now — **`Follow-up-Tier` required** | **Yes**, once the tier is named |
+| **`Withdrawn`** | Not a defect, with the reason | **Yes** |
+| **`Superseded`** | Overtaken by a later decision — **`Superseded-By` required** | **Yes** |
+
+**Five fields carry the closure state**, and they live in the entry rather than in a second
+document: `Resolution` · `Evidence` · `Verified-At-Commit` · `Follow-up-Tier` ·
+`Superseded-By`.
+
+**The closure view is derived, never hand-maintained.** `closure-readiness` (`C-14` check 13)
+reads these fields and reports the matrix. **There is no second backlog file** — that would
+restate the entries, and restatements drift (`G55`).
+
+**The check is silent until a closure is claimed.** It fires only when the phase register marks a
+phase closed, and then it fails on any blocking entry that is merely `Open` or `Answered`. **A full
+backlog during a sprint is still healthy**; an unverified blocker at a Judge boundary is not.
+
 ## Answering — Lane A
 
 Fill the `Lane A` line. Three dispositions:

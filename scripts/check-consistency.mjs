@@ -22,6 +22,7 @@ import { run as sourceSweep } from "./checks/source-sweep.mjs";
 import { run as handoffResponse } from "./checks/handoff-response.mjs";
 import { run as phaseManifest } from "./checks/phase-manifest.mjs";
 import { run as configCoupling } from "./checks/config-coupling.mjs";
+import { run as closureReadiness } from "./checks/closure-readiness.mjs";
 import { run as docsDrift } from "./checks/docs-drift.mjs";
 
 const CHECKS = [
@@ -36,6 +37,7 @@ const CHECKS = [
   handoffResponse, // `D-90` — does Lane B's feedback get read
   phaseManifest, // `D-94` — is the phase artifact manifest real
   configCoupling, // `C-17`/`D-95` — do the config rows and the code match, both ways
+  closureReadiness, // `D-101` — response is not closure; silent until closure is claimed
   docsDrift, // Docs drift check
 ];
 

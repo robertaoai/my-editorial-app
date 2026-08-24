@@ -36,7 +36,12 @@ rule files, build config
      └── handoff, not a commit ────────────┴── handoff, not a commit ────────────┘
 ```
 
-**Phase 1 is current.** Work outside the active lane is **specified, never applied** (`D-56`). **Lane A writes every dependency before Lane C builds a workflow against it (`D-84`)** — the original map put `scripts/` and `.gitattributes` in Lane C and was corrected. **The rule is unenforced (`D-82`)** — no `CODEOWNERS`, no path rule, no pre-commit hook, and CI runs after a commit lands; a crossing is stopped only by the agent choosing to stop.
+**Lane A is `Active`; Lanes B and C are `Eligible` (`D-101`).** *This paragraph read "Phase 1 is
+current" and presented a strict `A → B → C` gate — superseded by `D-100`'s continuous cycle and
+given precise states by `D-101`, raised as `B-011`.* **Exactly one lane is `Active` at a time** —
+one desktop app, unchanged — and **the other lanes are `Eligible`, not queued behind a gate.**
+**The live state is `V1-PHASE-CLOSURE.md` §5 and nowhere else**; this document does not restate it.
+Work outside the active lane is **specified, never applied** (`D-56`). **Lane A writes every dependency before Lane C builds a workflow against it (`D-84`)** — the original map put `scripts/` and `.gitattributes` in Lane C and was corrected. **The rule is unenforced (`D-82`)** — no `CODEOWNERS`, no path rule, no pre-commit hook, and CI runs after a commit lands; a crossing is stopped only by the agent choosing to stop.
 Deployment is Lane C and GitHub — **`main` lagging this branch is expected until Phase 3 and is not
 a defect.** The development lane model is **not** the product Three Lines (`OD1`–`OD3`) and **not**
 `OD4`; `D-75` records why the vocabularies are kept apart.
@@ -171,7 +176,29 @@ Deferring this behind S0/S1 would stall commercial evidence for no technical rea
 
 | Sprint | Artifacts that must exist |
 |---|---|
-**`Q11` deferred past S1 (`D-68`), and the deferral is not neutral.** The sprint plan's S1 migration line already instructs the `line_boundary_crossed` fallback, so deferring selects the boolean shape by default. **`G64`** records why that shape is not safe, **restated by `D-69`**: `G-02`'s Data Source names **one** column, but its definition excludes logged overrides, which requires `not_applicable` and `override_not_four_eyes` to be distinguishable — and a boolean maps both to `false`. **`G-02` cannot be computed from its own declared Data Source.** *(As first opened, `G64` also claimed an `NFR-03` inference violation. **Withdrawn** — "inferred at read" is undefined across the corpus, and `NFR-03`'s measured target is "100% non-null", which a boolean meets. `C-16` carries the undefined term.)* **`G64` is specified, not applied** — two shapes are set out and the choice belongs to `Q11` (`D-68`). **`G64` must resolve before the `0002` draft is written (`G27`, S0)**, not merely before S1 applies it. `0002` remains blocked by `Q11`, but `Q10` is closed (`D-73`). *(Note: The final Q10 explanation document is pending lock-in at the Alpha Portfolio milestone).*
+**`Q11`'s SHAPE is decided: a three-value status (`D-97`).** `satisfied` | `not_applicable` |
+`override_not_four_eyes`, as `FR-05` already states and `Modular_PRD` §10 now records.
+**`G64` is answered, not merely specified.**
+
+> **Corrected 2026-08-24 (`D-101`, raised as `B-012`).** This paragraph said `Q11` was *"deferred
+> past S1"* and that the deferral *"selects the boolean shape by default"* — **the superseded state
+> `B-009` was raised to remove, still sending a future `0002` author toward the boolean while the
+> register sent them toward the status column.** Both cannot satisfy `G-02`.
+
+**`D-68` deferred `Q11` past S1; `D-97` then decided the shape anyway**, because `G27` requires
+`G64` resolved *before the `0002` draft*, which is earlier than S1. **The deferral was of the
+naming half, and only that half survives it.**
+
+**The NAME remains open, and the two questions were conflated here.** Whether the column is
+renamed for mechanism-accuracy — plus `identity_assurance` and a reserved `judgment_independence`
+— is a separate decision. **A deferral of the name is not a deferral of the shape**, and the
+boolean fallback is no longer reachable by default.
+
+**`0002` stays blocked** until the naming decision **and** the rest of the S1 decision window
+settle. **S0 creates only the hold location** (`docs/v1/drafts/`).
+
+**Why the boolean cannot work, retained because the reasoning is what makes the shape binding**
+(`G64`, restated by `D-69`): `G-02`'s Data Source names **one** column, but its definition excludes logged overrides, which requires `not_applicable` and `override_not_four_eyes` to be distinguishable — and a boolean maps both to `false`. **`G-02` cannot be computed from its own declared Data Source.** *(As first opened, `G64` also claimed an `NFR-03` inference violation. **Withdrawn** — "inferred at read" is undefined across the corpus, and `NFR-03`'s measured target is "100% non-null", which a boolean meets. `C-16` carries the undefined term.)* **`G64` was *specified, not applied* until `D-97` chose between the two shapes; it is now applied.** *(This sentence read "specified, not applied … the choice belongs to `Q11`" for two days after `D-97` made that choice — `B-012`.)* **`0002` remains blocked — by `Q11`'s open NAMING half and the rest of the S1 window, not by its shape.** `Q10` is closed (`D-73`). *(Note: The final Q10 explanation document is pending lock-in at the Alpha Portfolio milestone).*
 
 | **S0 — Lane A, provisioned ahead** | `docs/DECISION_LOG.md` · `docs/CONFIG_LOG.md` · `docs/v1/drafts/` *(the hold location, `G27` closed)* — **all three exist as of 2026-08-21 (`D-91`)** |
 | **S0 — Lane B** | `lib/config/build-config.ts` · `lib/config/flags.ts` · Stripe scaffolding **removed** |

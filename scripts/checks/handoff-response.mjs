@@ -52,18 +52,50 @@ const CLOSURE = "docs/v1/V1-PHASE-CLOSURE.md";
 //
 // Reads §5's phase register: a row is closed when its `Closed` cell holds
 // anything other than a dash.
+// Reads `§5`'s phase register by COLUMN NAME, not position.
+//
+// Three positional-parsing defects preceded this: `phase-manifest` dropped
+// compound rows, this detector matched `§1.1a`'s three-column table, and then
+// `§5` gained a Lane column and shifted every index. **A header-driven parser
+// cannot be broken by adding a column**, which is why the approach changed
+// rather than the pattern.
+function phaseRows(text) {
+  const lines = text.split("\n");
+  const start = lines.findIndex((l) => /^#{2,3}\s+5\.\s+Phase register/.test(l));
+  if (start < 0) return [];
+  const rest = lines.slice(start + 1);
+  const end = rest.findIndex((l) => /^#{2,3}\s/.test(l));
+  const block = end < 0 ? rest : rest.slice(0, end);
+
+  const cells = (l) => l.split("|").slice(1, -1).map((c) => c.trim());
+  const header = block.find((l) => /^\|/.test(l) && /Closed/i.test(l) && /Phase/i.test(l));
+  if (!header) return [];
+  const cols = cells(header).map((c) => c.replace(/\*/g, "").toLowerCase());
+  const iPhase = cols.findIndex((c) => c.startsWith("phase"));
+  const iClosed = cols.findIndex((c) => c.startsWith("closed"));
+  if (iPhase < 0 || iClosed < 0) return [];
+
+  const out = [];
+  for (const l of block) {
+    if (!/^\|/.test(l) || l === header) continue;
+    if (/^\|[\s:|-]+\|?$/.test(l)) continue; // separator
+    const c = cells(l);
+    if (c.length <= Math.max(iPhase, iClosed)) continue;
+    const n = (c[iPhase].match(/\d/) || [])[0];
+    if (!n) continue;
+    out.push({ phase: n, closed: !/^[\s—–-]*$/.test(c[iClosed]) });
+  }
+  return out;
+}
+
 function closedPhases() {
   if (!existsSync(CLOSURE)) return null;
-  const closed = new Set();
-  const seen = new Set();
-  for (const line of readFileSync(CLOSURE, "utf8").split("\n")) {
-    // | **1 — Orchestration** | A | status | closed | judge | reopened |
-    const m = /^\|\s*\*\*(\d)\s*—[^|]*\|[^|]*\|[^|]*\|([^|]*)\|/.exec(line);
-    if (!m) continue;
-    seen.add(m[1]);
-    if (!/^[\s—–-]*$/.test(m[2])) closed.add(m[1]);
-  }
-  return seen.size === 0 ? null : { closed, seen };
+  const rows = phaseRows(readFileSync(CLOSURE, "utf8"));
+  if (rows.length === 0) return null;
+  return {
+    seen: new Set(rows.map((r) => r.phase)),
+    closed: new Set(rows.filter((r) => r.closed).map((r) => r.phase)),
+  };
 }
 
 // `Acknowledged`, `Answered`, `Withdrawn` — anything else is not a disposition.

@@ -189,15 +189,28 @@ in both places.** A local total and a lower CI total are therefore **both correc
 by exactly those three, and neither is the other's failure.
 
 
-**Build lanes (`D-75`, binding).** Three agents work this repo **sequentially, one at a time**, in a
-fixed phase order. Each lane owns a surface; **work outside your lane is *specified, never applied*
+**Build lanes (`D-75`, binding; lane state per `D-101`).** Three agents share this repo. **Exactly
+one lane is `Active` at a time** — that constraint is physical, one desktop app at a time, and it
+has not changed. **What changed (`D-100`) is that the other lanes are `Eligible`, not queued
+behind a gate.** Each lane owns a surface; **work outside your lane is *specified, never applied*
 (`D-56`)** — write the spec, hand off, stop.
 
-| Lane | Agent | Rule file | Phase | Owns |
-|:---:|---|---|:---:|---|
-| **A** | Claude Code | `CLAUDE.md` | 1 — now | **Orchestration** — `docs/`, `scripts/`, `.claude/`, `.agents/`, `.codex/`, `.github/` *except* `workflows/`, the rule files, and build config incl. `.gitattributes` |
-| **B** | Codex | `AGENTS.md` | 2 — next | `app/`, `lib/`, `components/`, `supabase/`, `__tests__/` |
-| **C** | Antigravity | `.agents/rules/graphify.md` | 3 — last | **`.github/workflows/` only** |
+| State | Means |
+|---|---|
+| **`Active`** | The one lane currently permitted to commit. **The Chief Editor selects it at each Sprint boundary** |
+| **`Eligible`** | Backlog open, work specified, **not currently committing.** Not "waiting for a phase to close" |
+| **`Blocked`** | Waiting on a named item — a dependency, a decision, or an act no lane owns |
+| **`Done`** | Its Definition of Done is met and the Judge has accepted it |
+
+**The live lane state is `docs/v1/V1-PHASE-CLOSURE.md` §5 and nowhere else.** This table defines
+the vocabulary; it does not record which lane is Active, because a status duplicated into a rule
+file is the drift mechanism (`G55`).
+
+| Lane | Agent | Rule file | Owns |
+|:---:|---|---|---|
+| **A** | Claude Code | `CLAUDE.md` | **Orchestration** — `docs/`, `scripts/`, `.claude/`, `.agents/`, `.codex/`, `.github/` *except* `workflows/`, the rule files, and build config incl. `.gitattributes` |
+| **B** | Codex | `AGENTS.md` | `app/`, `lib/`, `components/`, `supabase/`, `__tests__/` |
+| **C** | Antigravity | `.agents/rules/graphify.md` | **`.github/workflows/` only** |
 
 **Lane A writes every dependency before Lane C builds a workflow against it (`D-84`).** CI calls
 `bun run check`; Lane A writes what it calls. `D-75`'s original map put `scripts/` and
@@ -211,10 +224,19 @@ are Lane A's, so **Lane B does not run `bun add` at all**; it requests, Lane A p
 builds. **Governance reaches Lane B as a flag, not as a document** — when a check fires, fix the
 code it names; you are not expected to read the register or decide scope.
 
-**The cost is a blocking handoff, not a split commit (`D-86` correcting `D-85`).** If Lane B needs a
-dependency mid-work it stops and waits. That lands on throughput, not on `git bisect`. `D-85`
-originally said Lane B should split its commits — **that assumed Lane B edits build config, which
-under this principle it never does.**
+**The cost is a handoff, not a split commit (`D-86` correcting `D-85`; narrowed by `D-101`).** If
+Lane B needs a dependency mid-work it raises a `docs/handoff/` entry. **Whether it then stops is a
+question about that one item, not about the lane:**
+
+| The entry | What the lane does |
+|---|---|
+| **Blocks the work in hand** | Stop *that item*, carry on with anything else in scope |
+| **Does not block it** | **Carry on.** The entry goes to the top of the backlog and is refined later |
+
+**`D-86` said "stops and waits" and `D-100` says feedback enters the backlog while work
+continues. Both are right about different entries** — the earlier wording generalised a blocking
+dependency into a rule about every handoff. `D-85` originally said Lane B should split its
+commits — **that assumed Lane B edits build config, which under this principle it never does.**
 
 **Crossing a lane boundary requires a handoff, not a commit** — record what is done, what is
 specified-not-applied, and what is open, then stop. This is the development analogue of the
