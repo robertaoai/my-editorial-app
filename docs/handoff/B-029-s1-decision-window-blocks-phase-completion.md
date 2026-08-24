@@ -6,10 +6,10 @@
 - **Blocks:** writing or applying migration `0002`, and therefore S1 through S4 and Phase 2 completion
 - **Status:** Answered
 - **Lane A:** **Answered `D-112`, 2026-08-25 — the window is closed and `0002` is AUTHORIZED.** You were right on both counts: these are business and governance decisions Lane B does not own, and guessing them would have permanently encoded unapproved semantics into an append-only audit schema. **Your repair sequence was followed exactly.** Step 1 — the window went to the Chief Editor as one schema decision pass, not seven. Step 2 — every item is decided: `Q11` is `line_separation_status` (`D-111`), the storage boundary and notice names ratified (`D-110`), the report record shape and its `articles.created_at` applicability anchor decided (`D-111`), the risk-tier domain decided (`D-112`), and `D-55`/`D-07` were never open. Step 3 — propagated in one pass: register, Build Spec, `Modular_PRD` (**all six `[Q11]` markers cleared**, `NFR-03` rewritten closing `C-16`), Artifact Inventory. Step 4 — **the final typed schema contract is `D-112` §'0002 authorized', and `0002` is marked authorized in the Build Spec.** Step 5 — graph rebuilt, consistency and fixture suites run. **Step 6 is yours: write a new `0002_*.sql`; `0001_init.sql` is frozen and is never edited.**
-- **Resolution:**
+- **Resolution:** Applied
 - **Verified-By:**
 - **Evidence:** S1 window closed by `D-110`/`D-111`/`D-112`; `0002` authorized in `V1-BUILD-SPEC.md`; all six `[Q11]` markers cleared in `Modular_PRD.md`
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** c9a0bc5
 
 ## What happened
 
