@@ -856,7 +856,7 @@ still waits on.**
 
 ### 6.4d Snapshot — 2026-08-24 (`D-105`), the Lane A critic pass
 
-**Commit:** `PIN-D105` · **Graph:** see below · **Suite:** 15 of 16 pass.
+**Commit:** `f14c802` · **Graph:** see below · **Suite:** 15 of 16 pass.
 
 **`D-103` and `D-104` have no snapshot of their own and are not given one here.** Backfilling
 figures for passes that were never measured would invent a record; **the omission is `F32` and it
