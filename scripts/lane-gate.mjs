@@ -38,7 +38,7 @@
 // every downstream tool now agree by construction rather than by coincidence.**
 
 import { readFileSync } from "node:fs";
-import { execSync } from "node:child_process";
+import { execSync, execFileSync } from "node:child_process";
 import { classify } from "./checks/lane-boundary.mjs";
 
 const msgPath = process.argv[2];
@@ -72,16 +72,43 @@ try {
   process.exit(0);
 }
 
-// Ask GIT what the trailers are. Falling back to the whole body would restore
-// the defect this replaced, so a parse failure declines to confirm instead.
-let trailers = "";
+// Ask GIT what the trailers are — `execFileSync` with an argument ARRAY, never
+// a shell string. The first version interpolated the message path into a
+// command line, which breaks on a path containing a space and does worse with
+// one containing a quote. Every other subprocess call in this apparatus already
+// passed its arguments separately; this one did not (`D-106`).
+let trailers = null;
 try {
-  trailers = execSync(`git interpret-trailers --parse "${msgPath}"`, {
+  trailers = execFileSync("git", ["interpret-trailers", "--parse", msgPath], {
     encoding: "utf8",
     stdio: ["ignore", "pipe", "ignore"],
   });
 } catch {
-  trailers = "";
+  trailers = null; // git could not tell us — degraded mode below
+}
+
+// DEGRADED MODE, and it is deliberately not "assume the worst" (`D-106`).
+//
+// The first version treated a parse failure as "no declaration" and blocked.
+// **That turns a TOOLING failure into a work stoppage**, and this file's own
+// principle — stated at the top of `.githooks/commit-msg` — is that the gate
+// never blocks on its own failure. But falling back to the WHOLE BODY would
+// restore the exact defect `D-105` removed.
+//
+// So the fallback replicates git's rule rather than abandoning it: the trailer
+// block is the LAST paragraph. It is announced, so a degraded run is visible
+// instead of silent.
+let degraded = false;
+if (trailers === null) {
+  degraded = true;
+  const paragraphs = message
+    .split("\n")
+    .filter((l) => !l.startsWith("#"))
+    .join("\n")
+    .trimEnd()
+    .split(/\n\s*\n/);
+  trailers = paragraphs.length ? paragraphs[paragraphs.length - 1] : "";
+  console.error("  lane-gate: `git interpret-trailers` unavailable — using a local last-paragraph parse.");
 }
 
 const declared = /^Lane-Crossing:\s*\S+/m.test(trailers);

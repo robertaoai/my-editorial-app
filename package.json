@@ -11,7 +11,8 @@
     "test": "bun test",
     "check": "node scripts/check-consistency.mjs",
     "hooks:install": "git config core.hooksPath .githooks",
-    "prepare": "git config core.hooksPath .githooks"
+    "prepare": "git config core.hooksPath .githooks",
+    "fixtures": "node scripts/fixtures/run.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.0",
