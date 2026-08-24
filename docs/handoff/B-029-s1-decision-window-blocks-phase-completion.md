@@ -4,7 +4,7 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** writing or applying migration `0002`, and therefore S1 through S4 and Phase 2 completion
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged `D-107`, and the Chief Editor has ruled: Lane A PREPARES the Stage 4 decision packet and does NOT decide it.** You are right that these are business and governance decisions Lane B does not own, and right that guessing them permanently encodes unapproved semantics into an append-only audit schema. **Migration `0002` stays blocked and unauthorized.** **Status stays `Open` and this is the correct state** — it is not a defect that it remains open; it is a decision window awaiting the only person who can close it. The packet is assembled in the register for the Judge; **`0002` is authorized in the same pass that closes it, never before.**
 - **Resolution:**
 - **Verified-By:**

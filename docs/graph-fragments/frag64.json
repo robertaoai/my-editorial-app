@@ -1,0 +1,187 @@
+{
+  "_comment": "Fragment 64 — D-108: the lane lock as a state machine; status versus resolution; the rejection link. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d108_lock_is_a_state_machine",
+      "label": "D-108 — The Lane Lock Is a State Machine",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bp",
+      "description": "One lane runs and the others are blocked on that named run; when it completes the lock is free and they become selectable. Two configurations are legal and a selectable lane beside a running one is not.",
+      "community": 58,
+      "community_name": "Exclusive Lock",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The previous ruling let a lane begin without being selected, which is the reading under which a turn was started, doubted and abandoned. The change is empirical rather than theoretical: the rules kept not being applied."
+    },
+    {
+      "id": "the_loosening_was_the_defect",
+      "label": "The Loosening Was the Defect, Not the Rule",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-033-return-control-to-lane-a-without-lane-c-crossing.md",
+      "source_location": "B-033",
+      "description": "The shared rule files always said only the running lane may commit. The phase register was changed to say otherwise, and the checker preserved the contradiction rather than detecting it.",
+      "community": 58,
+      "community_name": "Exclusive Lock",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The correction removes drift instead of creating it, because the tier that was never edited was the one that was right. A row could hold two lock states, a selectable row beside a running one passed, and a blocked row with no run passed."
+    },
+    {
+      "id": "a_boundary_only_one_lane_can_record",
+      "label": "A Boundary Only One Lane Can Record Must Not Require That Lane to Hold the Lock",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "source_location": "§5",
+      "description": "The register recording which lane runs belongs to the orchestration lane, so a departing build lane had no way to record its own return.",
+      "community": 58,
+      "community_name": "Exclusive Lock",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Resolved by the same carve-out shape the handoff directory already uses: the tracking edit is permitted at a boundary regardless of who holds the lock. Holding the pen at a boundary is not holding the lock."
+    },
+    {
+      "id": "status_and_resolution_answer_different_questions",
+      "label": "Twenty Entries Said Open and Were Not",
+      "file_type": "concept",
+      "source_file": "docs/handoff/README.md",
+      "source_location": "Response is not closure",
+      "description": "Status records whether a reply exists; resolution records whether the item is finished. Twenty entries carried a full reply and still read as open, so every report of queue depth was wrong.",
+      "community": 58,
+      "community_name": "Exclusive Lock",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A count that flatters is worse than no count, so the queue depth now reports the unresolved total beside the open total. Zero open on its own reads as an empty backlog and the backlog was not empty."
+    },
+    {
+      "id": "the_link_is_the_record",
+      "label": "A Rejected Entry Had No Way to Say So",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-007-config-log-code-coupling.md",
+      "source_location": "Examined-By",
+      "description": "Three entries awaiting verification had been examined and refused, each in a separate entry, and nothing in the refused entry said so.",
+      "community": 58,
+      "community_name": "Exclusive Lock",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "No rejection resolution exists yet, so inventing a state would be worse than recording the fact. The field names the actor and links the entry carrying the rejection."
+    },
+    {
+      "id": "one_window_is_not_one_semantic_class",
+      "label": "One Migration Window Is Not One Semantic Class",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-032-separate-state-control-from-report-data.md",
+      "source_location": "B-032",
+      "description": "Seven open schema items share a migration window. They divide into lifecycle state, per-transition control evidence, editorial and analytics and report data, and the storage and integrity rules beneath all three.",
+      "community": 58,
+      "community_name": "Exclusive Lock",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Treating every status-like value as part of the lifecycle would create competing truths about what state a thing is in; treating every non-state item as analytics would hide two infrastructure decisions. The classification decides the schema, where the grouping decided only the sequencing."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d108_lock_is_a_state_machine",
+      "target": "v1_decision_register",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bp",
+      "weight": 1
+    },
+    {
+      "source": "d108_lock_is_a_state_machine",
+      "target": "eligible_means_offered",
+      "relation": "supersedes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bp",
+      "weight": 1
+    },
+    {
+      "source": "the_loosening_was_the_defect",
+      "target": "d108_lock_is_a_state_machine",
+      "relation": "reported_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bp",
+      "weight": 1
+    },
+    {
+      "source": "the_loosening_was_the_defect",
+      "target": "an_empty_report_and_a_lane_that_never_ran",
+      "relation": "explains",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bp",
+      "weight": 1
+    },
+    {
+      "source": "a_boundary_only_one_lane_can_record",
+      "target": "a_lane_never_needed_to_hand_back_control",
+      "relation": "completes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bp",
+      "weight": 1
+    },
+    {
+      "source": "a_boundary_only_one_lane_can_record",
+      "target": "active_bars_committing_not_looking",
+      "relation": "same_shape_as",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bp",
+      "weight": 1
+    },
+    {
+      "source": "status_and_resolution_answer_different_questions",
+      "target": "applied_is_not_verified",
+      "relation": "extends",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bp",
+      "weight": 1
+    },
+    {
+      "source": "the_link_is_the_record",
+      "target": "b024_gap_closed_with_defect_inside",
+      "relation": "records_outcome_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bp",
+      "weight": 1
+    },
+    {
+      "source": "one_window_is_not_one_semantic_class",
+      "target": "the_stage_four_window_is_one_pass",
+      "relation": "refines",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bp",
+      "weight": 1
+    }
+  ]
+}

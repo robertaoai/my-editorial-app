@@ -209,6 +209,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G79` | **Closed 2026-08-24 — the audit half of `D-88` had never worked** | **The lane-crossing gate accepted a declaration that git cannot parse as a trailer.** `lane-gate` matched `Lane-Crossing:` anywhere in the message body; **git reads only the last paragraph as trailers**, so a declaration above a blank line and a `Co-Authored-By:` block is not a trailer at all. `git log --grep` finds three declared crossings in this repository; `git log --format='%(trailers:key=Lane-Crossing)'` finds **none** — three of three since `D-88`, **including the commit that installed the gate.** `D-88`'s blocking half worked throughout; its stated audit path — *"the crossing is still reported afterwards, so bypassing hides nothing"* — **was never true.** Fixed at the source of truth: the gate now asks `git interpret-trailers --parse`, so it and every downstream tool agree by construction. **The three historical commits are deliberately not amended** — `git log --grep` is the audit path for anything before this decision. Negative-tested three ways. §5.14bm |
 | `G80` | **Closed 2026-08-24 — the defence against ceremonial checks was itself unverifiable** | **Fourteen claims of *"negative-tested N ways"* across the register and the inventory, and not one fixture in the repository.** Every suite ran once in a session scratchpad and what survived was the sentence saying it passed. `V1-PHASE-CLOSURE.md` §6.4d instructed the reader to run `sh negtest5.sh   # in the scratchpad` — **a reproduction step pointing outside the repository.** `summary_outlived_source`: the record of the test outlived the test. **This matters more than a missing test normally would**: `bun run check` proves the checks pass on a healthy repository, and **the fixtures are the only evidence they FAIL on an unhealthy one** — the property every claim in this register rests on. `probe_that_cannot_fail` is recorded here five times and **the defence against it could not be re-run by anyone.** Closed by `scripts/fixtures/` and `bun run fixtures`: six suites, thirty fixtures, each asserting the intended FINDING rather than merely a failure, refusing to run on a dirty tree, and reporting a failed restore as its own failure. **They found a defect in themselves on the first tracked run.** §5.14bn |
 | `G81` | **Closed 2026-08-24 — a gap recorded as closed with the same defect still live inside it** | **`D-106` set out to back fourteen "negative-tested N ways" claims with tracked fixtures, wrote suites for six checks, and left `config-coupling` and `C-19` with none** — the two that `B-007` and `B-010` cite as their evidence. `G80` recorded that the record of a test had outlived the test; **two of those records outlived the fix as well**, and the register said the gap was closed. Found by Lane B (`B-024`, `B-025`) reviewing Lane A's pass, not by Lane A. **The general shape: a fix that enumerates its targets closes the gap only for the ones it enumerated**, which is `G74`, `G78` and `G79` again — and `D-105` had already drawn that lesson and applied it to `channel-docs` alone. Closed by both suites, each with a positive control. §5.14bo |
+| `G82` | **Closed 2026-08-25 — the loosening was the defect, not the rule** | **`D-107` redefined `Eligible` as *offered, may begin without a further act*, so two lanes could each believe they were permitted to work.** That is the reading under which a turn was started, doubted and abandoned (`D-105` `F29`), and `lane-state` preserved the contradiction rather than detecting it: a row could be `Blocked` AND `Eligible`, an `Eligible` row beside an `Active` one passed, and a `Blocked` row with no active run passed. **The rule files never drifted — they always said only the `Active` lane may commit, and §5 was the deviation.** Judge ruling `D-108` restores exclusivity and makes the lock a state machine with two legal configurations: one `Active` with the rest `Blocked`, or none `Active` with the rest `Eligible`. **Reported by Lane B as `B-033`, which named all three checker gaps correctly.** §5.14bp |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -5898,3 +5899,126 @@ three are correctly rejected pending the fixtures this decision adds. `C-27`, `C
 lives; core hash unchanged at `a8173008845e`. **Build spec unaffected** — S0's scope did not
 change; its Lane B half is now implemented rather than re-specified. **`Modular_PRD` unaffected** —
 no sprint closed and no tier opened; **the Stage 4 items change it only once decided.**
+
+---
+
+## 5.14bp `D-108` — The Lane Lock Is a State Machine; the Tracking Files Said Twenty Things Were Open
+
+**Judge ruling, 2026-08-24, in the Chief Editor's own terms:** *"the rules kept not being applied
+hence the change to keep only one active … when active the other are blocked; until lane
+completion then the other lanes are set eligible."* **This supersedes `D-107`'s definition of
+`Eligible`.**
+
+### The parent: `D-107` loosened the lock and the loosening is what failed
+
+`D-101` said **only the `Active` lane may commit.** `D-107` arbitrated that `Eligible` meant
+*offered — may begin and commit without a further boundary act*, to explain how Lane B could work
+while Lane A held `Active`.
+
+**That reading is now withdrawn, and the reason is empirical rather than theoretical.** It is
+exactly the reading under which a turn was **started, doubted and abandoned** (`D-105` `F29`), and
+under which two lanes could each believe they were permitted to work.
+
+| State | Means | May commit? |
+|---|---|:---:|
+| **`Active`** | This lane is **running** | **Yes — only this lane** |
+| **`Blocked`** | Another lane is `Active`; the row **names that run** | No |
+| **`Eligible`** | The active turn has **completed** and the lock is **free** | No — not until selected |
+| **`Done`** | Definition of Done met and accepted | No |
+
+**Two legal configurations, and both matter:** *one `Active`, the rest `Blocked`* is a turn in
+progress; *no `Active`, the rest `Eligible`* is the gap between turns. **`Eligible` beside an
+`Active` is the illegal one.**
+
+**Lane B and Lane C become `Active` exactly as Lane A does** — the Chief Editor selects, that lane
+runs and commits, the others are `Blocked` on the named run, and on completion everyone unfinished
+returns to `Eligible`. **There is no lane that only ever waits.**
+
+### `B-033` was right about the checker, and about all three of its gaps
+
+`lane-state` required one `Active` and **preserved every other contradiction**. Closed:
+
+| Gap | Now |
+|---|---|
+| A row could be `Blocked` **and** `Eligible` | **One lock state per row.** Lane C's item-level blockers — `C-18`, `C-24`, `C-25` — are **work conditions** and live in those conditions, not in the lock column |
+| `Eligible` beside `Active` passed | **Fails**, naming the reading that caused it |
+| `Blocked` with no `Active` run passed | **Fails** — blocked on nothing |
+
+**`no lane Active` is no longer a finding.** `D-103` made it one when it was a half-applied
+handover; under the ruling it is the **between-turns state**, and the fixture asserting it was
+removed rather than left to enforce a superseded rule.
+
+### `B-028` resolved, because it became load-bearing
+
+A lane cannot make itself `Active` — §5 is Lane A's surface. `D-105` said *the Chief Editor
+authorizes and the `Active` lane records it*, which **fails when the outgoing `Active` lane is the
+one that cannot write there.**
+
+> **Carve-out, the same shape `docs/handoff/` already uses: Lane A may edit §5's lane rows at a
+> boundary regardless of which lane holds the lock.** A boundary that only one lane can record
+> must not require that lane to hold the lock in order to record it. **Nothing else is carved out**
+> — holding the pen at a boundary is not holding the lock.
+
+### The routing half of `B-033` is NOT adopted
+
+`B-033` also reports an A→B→C route with returns C→B→A and no direct A↔C. **The ruling is about
+exclusivity, not adjacency.** Adopting the route would make **Lane A answering `C-001` a
+violation**, and would send a packet B→C→B→A — **two extra crossings that change no evidence**,
+which is `B-033`'s own argument against routing, applied one step further.
+
+### The tracking files: twenty entries said `Open` and were not
+
+**`Status` and `Resolution` answer different questions** and `D-101` separated them for this
+reason: `Status` is *has Lane A replied*, `Resolution` is *is it finished*. **Twenty entries
+carried a full Lane A answer and still read `Open`**, so every report of queue depth was wrong.
+
+**Corrected — and the honest picture is less flattering, which is the point:**
+
+| Before | After |
+|---|---|
+| *"20 open, 12 answered"* | *"0 open, 34 answered; **22 still carry NO resolution**"* |
+
+**`0 open` on its own reads as an empty backlog.** It is not, so the queue depth now reports the
+unresolved count beside it. **A number that flatters is worse than no number.**
+
+### A rejected entry had no way to say so
+
+`B-007`, `B-010` and `B-011` are `Applied`. **Lane B examined all three and rejected them** — in
+`B-024`, `B-025` and `B-023`. **Nothing in the rejected entry said so**, so a reader saw a fix
+awaiting verification and could not tell it had already been refused.
+
+**There is still no `Rejected` resolution** (`D-105` P2, drafted and not built). **`Examined-By:`
+records the fact without inventing the state**: it names the actor and links the entry that
+carries the rejection. **The link is the record.**
+
+### `B-032` — the schema packet gets its frame
+
+**The most useful thing this channel has produced.** `B-029` grouped seven items because they
+share one migration window; **`B-032` shows they do not share one semantic class** — which is what
+decides the schema rather than merely the sequencing. **Its four-part model is adopted as the
+frame** for the decision packet, and its classification table is carried into it unchanged.
+**No decision is taken and `0002` stays unauthorized.**
+
+### Conditions
+
+**None opened.** `C-26` unchanged — 7 verified, 3 rejected pending re-verification. `C-27`,
+`C-28` unchanged.
+
+### Gaps opened
+
+**`G82`** — §5.1.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Lock state machine | ✅ §5.14bp | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5 | **— unaffected** |
+| `lane-state` hardened | ✅ §5.14bp | **— unaffected** | **— unaffected** | ✅ its row | ✅ §6.5 fixtures | **— unaffected** |
+| Boundary carve-out | ✅ §5.14bp | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5 | **— unaffected** |
+| `Status`/`Examined-By` | ✅ §5.14bp | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Agent files unaffected — and this is worth stating rather than assuming.** The rule files say
+*only the `Active` lane may commit*, which `D-107` had contradicted and this ruling **restores**.
+**They were right and §5 was the deviation**, so the correction removes drift instead of creating
+it. Core hash unchanged at `a8173008845e`. **Build spec and `Modular_PRD` unaffected** — no
+artifact created or retired, no sprint closed, no tier opened.

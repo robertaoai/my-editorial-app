@@ -226,13 +226,6 @@ export async function laneState(results) {
     shouldPass: true,
   });
   await fixture(results, {
-    name: "lane-state: NO lane is Active — a half-applied handover",
-    modulePath: CHECK("lane-state.mjs"),
-    mutate: () => write(CLOSURE, orig.replace(/\*\*`Active`\.\*\*/, "**`Eligible`.**")),
-    restore,
-    expect: "NO lane is `Active`",
-  });
-  await fixture(results, {
     name: "lane-state: TWO lanes are Active — the other half",
     modulePath: CHECK("lane-state.mjs"),
     mutate: () => {
@@ -241,6 +234,42 @@ export async function laneState(results) {
     },
     restore,
     expect: "lanes are `Active`",
+  });
+  // `D-108` — the illegal state, and the one that actually happened.
+  await fixture(results, {
+    name: "lane-state: a lane is Eligible while another is Active",
+    modulePath: CHECK("lane-state.mjs"),
+    mutate: () =>
+      write(CLOSURE, orig.replace(/\| \*\*B\*\* \| \*\*2 — Application\*\* \|[^|]*\|/, "| **B** | **2 — Application** | **`Eligible`** |")),
+    restore,
+    expect: "only when the lock is FREE",
+  });
+  // The between-turns state is LEGAL — a fixture set that only forbids would
+  // make "no lane Active" look like a defect, which it is not.
+  await fixture(results, {
+    name: "lane-state: between turns — no Active, all Eligible",
+    modulePath: CHECK("lane-state.mjs"),
+    mutate: () =>
+      write(
+        CLOSURE,
+        orig
+          .replace(/\| \*\*A\*\* \| \*\*1 — Orchestration\*\* \|[^|]*\|/, "| **A** | **1 — Orchestration** | **`Eligible`** |")
+          .replace(/\| \*\*B\*\* \| \*\*2 — Application\*\* \|[^|]*\|/, "| **B** | **2 — Application** | **`Eligible`** |")
+          .replace(/\| \*\*C\*\* \| \*\*3 — CI\/CD\*\* \|[^|]*\|/, "| **C** | **3 — CI/CD** | **`Eligible`** |"),
+      ),
+    restore,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "lane-state: Blocked while NO lane is Active",
+    modulePath: CHECK("lane-state.mjs"),
+    mutate: () =>
+      write(
+        CLOSURE,
+        orig.replace(/\| \*\*A\*\* \| \*\*1 — Orchestration\*\* \|[^|]*\|/, "| **A** | **1 — Orchestration** | **`Eligible`** |"),
+      ),
+    restore,
+    expect: "while NO lane is `Active`",
   });
   await fixture(results, {
     name: "lane-state: a state outside the four",

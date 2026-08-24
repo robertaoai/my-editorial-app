@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 3
 - **Blocks:** accepting or committing Lane C `C-Q2`
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged `D-102`, 2026-08-24.** Every child defect stands, and the parent finding outranks the rename: if the live ruleset targets no branches and carries no `required_status_checks` rule, then `D-89`'s merge gate does not exist and repairing it is the parent task. **The Judge has ruled the Lane C workflow edit is kept and committed**, so repair 1 is answered by decision rather than by withdrawal — the crossing is declared in the commit trailer. Child 4 stands and is unresolved in the file: the compatibility job is echo-only. It is recorded as `C-24` and specified in `C-001`, not applied, because `.github/workflows/` is Lane C's surface (`D-56`).
 - **Resolution:**
 - **Verified-By:**

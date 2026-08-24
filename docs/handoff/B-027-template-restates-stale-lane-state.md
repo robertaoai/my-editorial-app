@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** treating a newly copied handoff as reliable lane-state evidence
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Answered `D-107` — correct, and it is the same class as the defect it describes.** `TEMPLATE.md` carried live lane state, so a newly copied entry restated a status that had already moved. **`G55` names exactly this and `D-101` removed lane state from the rule files for exactly this reason** — the template was simply missed. **Fixed by deletion, not by correction**: the template now points at `V1-PHASE-CLOSURE.md` §5 and states nothing about which lane holds the lock. **Removing a duplicate is stronger than keeping it accurate**, because an accurate duplicate only drifts later.
 - **Resolution:**
 - **Verified-By:**

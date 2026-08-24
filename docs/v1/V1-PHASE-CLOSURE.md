@@ -380,13 +380,65 @@ handover is the moment that becomes a gap**, not a theoretical one.
 | Lane | Phase | State | Selected | Closed | Judge | Reopened by |
 |:---:|---|---|---|:---:|---|---|
 | **A** | **1 — Orchestration** | **`Active`.** Reselected at the second Sprint boundary (`D-104`). Closes last (`D-99`). Condition 1 met; **2 NOT met** — 10 entries are `Applied`, not `Verified` (`D-102`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | Robert Tan, 2026-08-24 — **out of `Active`** (`D-103`), then **back into `Active`** (`D-104`) | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
-| **B** | **2 — Application** | **`Eligible`.** **Its `D-103` turn produced no commits and no turn report (`C-28`) — the work order is UNSTARTED and stands unchanged**: the 13 `CONFIG_LOG.md` rows (`config-coupling` still red), then `flags.ts`, then the `C-26` verification pass. **Nothing is re-specified and nothing is withdrawn** | Robert Tan, 2026-08-24 — **into `Active`** (`D-103`), then **out** (`D-104`). **No turn report was raised, and `no work performed` is LANE A'S OBSERVATION of the commit log, not Lane B's report** (`D-105` `F30`) | — | Standing project approval | — |
-| **C** | **3 — CI/CD** | **`Blocked` on `C-18`** for `C-Q2`; **`Eligible`** for `C-Q1` (`fetch-depth: 0`). **`C-24` and `C-25` are added blockers** on the required-check transition (`D-102`) | — not selected | — | Standing project approval | — |
+| **B** | **2 — Application** | **`Blocked`** on Lane A's active run (`D-108`). Its S0 work is complete and committed at `ea84281` **Its `D-103` turn produced no commits and no turn report (`C-28`) — the work order is UNSTARTED and stands unchanged**: the 13 `CONFIG_LOG.md` rows (`config-coupling` still red), then `flags.ts`, then the `C-26` verification pass. **Nothing is re-specified and nothing is withdrawn** | Robert Tan, 2026-08-24 — **into `Active`** (`D-103`), then **out** (`D-104`). **No turn report was raised, and `no work performed` is LANE A'S OBSERVATION of the commit log, not Lane B's report** (`D-105` `F30`) | — | Standing project approval | — |
+| **C** | **3 — CI/CD** | **`Blocked`** on Lane A's active run (`D-108`). **A row carries ONE state**: its own item-level blockers — `C-18`, `C-24`, `C-25` for `C-Q2`, with `C-Q1` ready — are work conditions and live in those conditions, not in the lock column (`B-033`) | — not selected | — | Standing project approval | — |
 
 **Phase 1 stays OPEN through every handover.** It closes last (`D-99`), and a lane leaving `Active` is a statement about committing, never about phase openness. **The state column carries STATES and nothing else** — that sentence used to live inside Lane A's cell, where `lane-state` correctly read it as the row claiming two states at once (`D-104`). A cell that explains itself cannot be parsed as a value.
 
 **Exactly one lane is `Active`, and the Chief Editor selects it at each Sprint boundary.**
-**`Eligible` means the handover is OFFERED: the lane may BEGIN work and commit its own surfaces without a further boundary act** (`D-107`, arbitrating `B-019`/`B-023`). It is **not** *waiting for a phase to close*, and it is **not** *forbidden to work*. **`Active` names the lane that owns the boundary record and the governing tiers.**
+**The lane lock is a state machine — Judge ruling, `D-108`. This supersedes `D-107`'s definition
+of `Eligible`.**
+
+> **Why it changed: the rules kept not being applied.** `D-107` made `Eligible` mean *offered, may
+> begin without a further act*, which left two lanes able to believe they could work. **The lock
+> is now exclusive and the vocabulary says so.**
+
+| State | Means | May commit? |
+|---|---|:---:|
+| **`Active`** | **This lane is RUNNING.** Exactly one, or none between turns | **Yes — only this lane** |
+| **`Blocked`** | Another lane is `Active`. **The row names that run** | No |
+| **`Eligible`** | The active turn has COMPLETED and the lock is free. **This lane may be selected** | No — not until selected |
+| **`Done`** | Definition of Done met and accepted by the Judge | No |
+
+**The cycle, and it is the whole model:**
+
+```
+   Chief Editor selects            active lane completes
+          │                                  │
+          ▼                                  ▼
+   one lane Active  ───────────────►  no lane Active
+   others Blocked                     unfinished lanes Eligible
+          ▲                                  │
+          └──────────────────────────────────┘
+```
+
+**Both halves are legal states, and that is deliberate.** *One `Active`, the rest `Blocked`* is a
+turn in progress. *No `Active`, the rest `Eligible`* is the gap between turns, when the lock is
+free and the Chief Editor has not yet selected. **What is illegal is a lane `Eligible` while
+another is `Active`** — that was the `D-107` reading, and it is what let a turn be started, doubted
+and abandoned.
+
+**Lane B and Lane C become `Active` the same way Lane A does.** There is no lane that only ever
+waits: the Chief Editor selects, the selected lane runs and commits, the others are `Blocked` on
+that named run, and on completion everyone unfinished returns to `Eligible`.
+
+### The boundary edit — `B-028` resolved, and it had to be
+
+**A lane cannot make itself `Active`**: §5 is Lane A's surface, so Lane B could report its turn
+complete and had no way to record the return. `D-105` left that as *"the Chief Editor authorizes
+and the `Active` lane records it"*, which fails when the outgoing `Active` lane is the one that
+cannot write here.
+
+**Resolved by carve-out, the same shape `docs/handoff/` already uses:**
+
+> **Lane A may edit §5's lane rows at a boundary regardless of which lane is `Active`.** It is a
+> tracking edit, not implementation, and **a boundary that only one lane can record must not
+> require that lane to hold the lock in order to record it.**
+
+**Nothing else in this file, and nothing outside it, is carved out.** Lane A holding the pen at a
+boundary is not Lane A holding the lock.
+
+
 
 > **This corrects a contradiction that cost an entire turn.** `D-101` said *only the `Active` lane may commit*; `D-103` then offered Lane B a turn while Lane A held `Active`. **Lane B read the rule, concluded it could not begin, and produced nothing** (`D-105` `F29`). **The rule was wrong, not the lane.**
 

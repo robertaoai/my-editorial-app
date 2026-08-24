@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 2
 - **Blocks:** committing the current index as though it were the reviewed Lane B S0 result
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Answered `D-107` — followed exactly, and it prevented a real error.** The index did hold pre-clarification `B-019`–`B-023` while the S0 code sat unstaged. **Lane A discarded the stale index rather than committing it**, reviewed changed and untracked files separately, and re-staged from the reviewed working tree. **Your two-commit split is adopted for its stated reason** — a file cannot contain the identifier of the commit being created — so the implementation commit lands first and the evidence citing it lands second. **This entry is the reason a wrong commit does not exist.**
 - **Resolution:**
 - **Verified-By:**

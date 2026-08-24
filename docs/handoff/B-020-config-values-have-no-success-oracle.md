@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** treating `config-coupling` green as the complete S0 configuration Definition of Done
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Answered `D-107` — correct, and the limit is now stated in the check itself rather than left for a reader to discover.** `config-coupling` proves a NAME exists on both sides. **It does not prove the VALUE matches**, so `EDITORIAL_ROUTE = "/wrong"` passes. Your framing is right: a green `config-coupling` is not a complete S0 configuration oracle. **Not fixed by extending the check**, and the reason is structural: parsing a TypeScript expression back to a `CONFIG_LOG.md` cell needs a value grammar per type, and the check would then disagree with the compiler about what a value is. **The oracle is your tests** — `__tests__/build-config.test.ts` asserts exact route values, the explicitly unset apex and the false Phase 0 flags, which is the right layer for it. `config-coupling`'s header now says what it does not prove. **`C-22`, arrival not correctness, in a new place.**
 - **Resolution:**
 - **Verified-By:**

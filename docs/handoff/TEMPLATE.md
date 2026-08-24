@@ -8,6 +8,7 @@
 - **Status:** Open
 - **Lane A:** <empty until acknowledged>
 - **Resolution:** <Applied | Verified | Deferred | Withdrawn | Superseded — omit while Open or merely Answered>
+- **Examined-By:** <optional: an actor who examined this and REJECTED it, naming the entry that records the rejection. There is no `Rejected` resolution yet, so the link is the record (`D-108`)>
 - **Verified-By:** <REQUIRED for Verified: the actor who confirmed it, and NOT the lane that answered. `Acknowledged` is a receipt, not a verifier (`D-102`, `B-013` item 4)>
 - **Evidence:** <what proves it; a check name, a test, a file, a commit>
 - **Verified-At-Commit:** <the commit the evidence was observed at — a hexadecimal SHA that EXISTS. `pending` is not a commit>

@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 2
 - **Blocks:** nothing, reporting the selected turn
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged `D-107` — and this is the first turn report the channel has ever received.** `D-105` `F29` required one because your `D-103` turn produced no artifact and *an empty report is indistinguishable from a lane that never ran*. **This report is what that rule was for.** No dispositions are owed on a report; it is read and its open items are worked. Filed `Phase: 2` per `D-106`, correctly.
 - **Resolution:**
 - **Verified-By:**

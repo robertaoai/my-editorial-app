@@ -82,6 +82,7 @@ export function run() {
   let open = 0;
   let answered = 0;
   let withdrawn = 0;
+  let unresolved = 0;
 
   for (const file of entries) {
     const path = join(DIR, file);
@@ -94,6 +95,9 @@ export function run() {
     }
 
     const kind = field(text, "Kind");
+    // `D-108`: `0 open` reads as an empty backlog. It is not — most entries are
+    // answered and UNRESOLVED, which is the state `D-101` separated out.
+    if (!field(text, "Resolution")) unresolved++;
     const status = field(text, "Status");
     const response = field(text, "Lane A");
     const reopens = field(text, "Reopens-Phase");
@@ -178,7 +182,7 @@ export function run() {
   const detail =
     entries.length === 0
       ? "channel installed, no entries yet"
-      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn${reopening ? `, ${reopening} reopening a closed phase` : ""}`;
+      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn; ${unresolved} still carry NO resolution${reopening ? `, ${reopening} reopening a closed phase` : ""}`;
 
   return { name: "handoff-response", findings, detail };
 }

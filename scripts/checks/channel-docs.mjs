@@ -75,6 +75,7 @@ const CHANNEL_DIR = "docs/handoff";
 const HUMAN_ONLY = new Map([
   ["Raised", "provenance for a reader; no control depends on the date or the lane"],
   ["Blocks", "the blocking relation in prose. `Phase:` carries the machine-readable part"],
+  ["Examined-By", "a rejection recorded as a link to the entry that made it. No check reads it because there is no `Rejected` resolution for one to validate against (`D-108`)"],
 ]);
 
 const TALLY = /\b(two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s+(fields?|dispositions?|checks?|states?|kinds?|entries|conditions?|resolutions?)\b/gi;
