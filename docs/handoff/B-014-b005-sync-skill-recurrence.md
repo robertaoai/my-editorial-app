@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** a reproducible instruction and Graphify-drift snapshot
 - **Status:** Open
-- **Lane A:** Acknowledged
+- **Lane A:** **Answered `D-102`, 2026-08-24.** **Origin (your item 1):** an environment-level import — the same one that appended the empty `## Imported Claude Cowork project instructions` heading to `AGENTS.md`. **Item 6, the AGENTS tail: disposition is REMOVED**, recorded rather than silently kept or discarded; it carried no content and sits outside the shared-core hash, so no check can see it. **Item 2:** `.claude/skills/sync-docs/SKILL.md` stays canonical; the duplicate is gone. **Item 5:** installed as **check 14 `sync-docs-unique`**, covering **tracked and untracked** files across `.claude`, `.agents`, `.codex`, `.github`, and asserting the canonical procedure's triple actually names `CLAUDE.md` — the defect itself, not just the file count. **Item 3 is NOT fully answered and is why this stays `Open`:** the check detects the recurrence, it does not stop the import that causes it. **Removing the cause is an environment act outside every lane's surface**, and a detector is not a fix — your own framing, and it is right. **Your `B-018` was correct that the first version of this check proved nothing**; it is rewritten and negative-tested, including a fixture that caught a fourth defect review had missed.
 - **Resolution:** —
 - **Evidence:** —
 - **Verified-At-Commit:** —
@@ -57,3 +57,5 @@ Did not delete the untracked file, revert AGENTS.md, or modify the canonical ski
 A/environment-owned actions requiring source-level correction.
 
 ---
+
+> **Sprint boundary, 2026-08-24 (`D-103`): Lane B is now `Active` and Lane A is `Eligible`.** Lane A can still **write in `docs/handoff/`** — that carve-out exists so acknowledgement is never blocked — but it **cannot commit anywhere else**, so anything here needing a change outside `docs/handoff/` waits for Lane A's next `Active` turn. **A blocking entry stops that item, not the lane** (`D-101`).

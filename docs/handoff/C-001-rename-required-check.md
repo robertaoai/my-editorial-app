@@ -92,3 +92,5 @@ is receipt, not authorization — `B-016` child 5 is right that the workflow was
 entry was merely acknowledged. **The Judge has since ruled the edit is kept and committed**, with
 the crossing declared under `D-88`; that ruling authorizes the commit and does **not** close this
 entry.
+
+> **Sprint boundary, 2026-08-24 (`D-103`): Lane B is now `Active` and Lane A is `Eligible`.** Lane A can still **write in `docs/handoff/`** — that carve-out exists so acknowledgement is never blocked — but it **cannot commit anywhere else**, so anything here needing a change outside `docs/handoff/` waits for Lane A's next `Active` turn. **A blocking entry stops that item, not the lane** (`D-101`).

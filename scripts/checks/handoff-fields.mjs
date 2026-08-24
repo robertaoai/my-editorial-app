@@ -69,7 +69,7 @@ const CLOSURE = "docs/v1/V1-PHASE-CLOSURE.md";
  * index. **A header-driven parser cannot be broken by adding a column**, which
  * is why the approach changed rather than the pattern.
  */
-export function phaseRows(text) {
+export function registerRows(text) {
   const lines = text.split("\n");
   const start = lines.findIndex((l) => /^#{2,3}\s+5\.\s+Phase register/.test(l));
   if (start < 0) return [];
@@ -80,20 +80,31 @@ export function phaseRows(text) {
   const cells = (l) => l.split("|").slice(1, -1).map((c) => c.trim());
   const header = block.find((l) => /^\|/.test(l) && /Closed/i.test(l) && /Phase/i.test(l));
   if (!header) return [];
-  const cols = cells(header).map((c) => c.replace(/\*/g, "").toLowerCase());
-  const iPhase = cols.findIndex((c) => c.startsWith("phase"));
-  const iClosed = cols.findIndex((c) => c.startsWith("closed"));
-  if (iPhase < 0 || iClosed < 0) return [];
+  const cols = cells(header).map((c) => c.replace(/\*/g, "").trim().toLowerCase());
 
   const out = [];
   for (const l of block) {
     if (!/^\|/.test(l) || l === header) continue;
     if (/^\|[\s:|-]+\|?$/.test(l)) continue; // separator
     const c = cells(l);
-    if (c.length <= Math.max(iPhase, iClosed)) continue;
-    const n = (c[iPhase].match(/\d/) || [])[0];
+    if (c.length < cols.length) continue;
+    const row = {};
+    cols.forEach((name, i) => (row[name] = c[i]));
+    out.push(row);
+  }
+  return out;
+}
+
+/** Phase number + whether its `Closed` cell holds anything but a dash. */
+export function phaseRows(text) {
+  const out = [];
+  for (const row of registerRows(text)) {
+    const phaseCell = Object.keys(row).find((k) => k.startsWith("phase"));
+    const closedCell = Object.keys(row).find((k) => k.startsWith("closed"));
+    if (!phaseCell || !closedCell) continue;
+    const n = (row[phaseCell].match(/\d/) || [])[0];
     if (!n) continue;
-    out.push({ phase: n, closed: !/^[\s—–-]*$/.test(c[iClosed]) });
+    out.push({ phase: n, closed: !/^[\s—–-]*$/.test(row[closedCell]) });
   }
   return out;
 }

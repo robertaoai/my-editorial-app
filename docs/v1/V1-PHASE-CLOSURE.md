@@ -372,15 +372,41 @@ still requires one desktop app at a time. **Four states replace it**, and **this
 place live lane state lives** — the rule files define the vocabulary and deliberately no longer
 carry `1 — now` / `2 — next`.
 
-| Lane | Phase | State | Closed | Judge | Reopened by |
-|:---:|---|---|:---:|---|---|
-| **A** | **1 — Orchestration** | **`Active`.** Closes last (`D-99`): condition 1 met; **2 NOT met** — 10 entries are `Applied`, not `Verified` (`D-102`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
-| **B** | **2 — Application** | **`Eligible`.** Permitted (`D-100`); first work is the 13 unimplemented `CONFIG_LOG.md` rows, then `flags.ts` | — | Standing project approval | — |
-| **C** | **3 — CI/CD** | **`Blocked` on `C-18`** for `C-Q2`; **`Eligible`** for `C-Q1` (`fetch-depth: 0`) | — | Standing project approval | — |
+**Sprint-boundary handover, `D-103`, 2026-08-24.** The `Selected` column exists because the
+previous table recorded a state with **no provenance** — Lane A had been `Active` since the
+table was written, so nothing had ever needed to say who put it there or when. **The first
+handover is the moment that becomes a gap**, not a theoretical one.
+
+| Lane | Phase | State | Selected | Closed | Judge | Reopened by |
+|:---:|---|---|---|:---:|---|---|
+| **A** | **1 — Orchestration** | **`Eligible`.** Handed over at the Sprint boundary (`D-103`). **Phase 1 stays OPEN** — it closes last (`D-99`), and `Eligible` is about committing, not about phase openness. Condition 1 met; **2 NOT met** — 10 entries are `Applied`, not `Verified` (`D-102`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | Robert Tan, 2026-08-24 — **out of `Active`** | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
+| **B** | **2 — Application** | **`Active`.** Selected at the Sprint boundary (`D-103`). Work order: **`docs/LANE-B-WORK-ORDER.md`** — the 13 unimplemented `CONFIG_LOG.md` rows, then `flags.ts`, then the `C-26` verification pass | Robert Tan, 2026-08-24 — **into `Active`** | — | Standing project approval | — |
+| **C** | **3 — CI/CD** | **`Blocked` on `C-18`** for `C-Q2`; **`Eligible`** for `C-Q1` (`fetch-depth: 0`). **`C-24` and `C-25` are added blockers** on the required-check transition (`D-102`) | — not selected | — | Standing project approval | — |
 
 **Exactly one lane is `Active`, and the Chief Editor selects it at each Sprint boundary.**
 `Eligible` means *specified and permitted, not currently committing* — **not** *waiting for a phase
-to close.*
+to close.* **Enforced since `D-103` by `lane-state` (check 15)**: not-exactly-one `Active` fails.
+
+### 5.1 What `Active` does and does not bar — `D-103`
+
+**Three carve-outs, and none of them is a softening.** A handover that barred these would stop
+the machinery the handover exists to serve.
+
+| Act | Permitted while not `Active`? | Why |
+|---|:---:|---|
+| **Writing in `docs/handoff/`** — raising, acknowledging, answering | **YES** | The directory is **unmapped on purpose** (`D-90`). Check 10 fails on an entry left unread; **if the answering lane could not write, the check would be unsatisfiable for whichever lane is working** — a red that no permitted act can clear is the `D-83` failure |
+| **Provisioning a dependency Lane B requests** (`D-86`) | **NO — and this is a real stop** | `package.json` and the lockfiles are Lane A's surface. A dependency request **blocks that item**, not the lane (`D-101`); Lane B carries on with everything else and the request is answered when Lane A is next `Active` |
+| **Reading anything** | **YES** | `Active` is the permission to **commit**. It was never a permission to look |
+
+**The dependency stop is deliberate and is the price of one-agent-at-a-time.** `D-86` says Lane A
+provisions **ahead**; the whole point of provisioning ahead is that a mid-sprint request should be
+rare. **If it is not rare, that is the finding** — and the entry records the cost rather than
+hiding it.
+
+**What `lane-state` does NOT check, stated so nobody assumes it does:** that the lane making a
+commit is the `Active` one. That needs `lane-boundary`'s surface map, and it would fail on the
+**handover commit itself** — the one commit that must be made by the lane going *out* of
+`Active`. **Specified, not built** (`D-56`).
 
 > **SUPERSEDED — historical, 2026-08-22. Retained as the record of finding `F4`, not as
 > current state (`D-102`, raised as `B-013` item 7).**
@@ -448,6 +474,7 @@ rather than claimed.
 |---|---|
 | `docs/CONFIG_LOG.md` | Every configurable value, its source, its `OD` |
 | `docs/DECISION_LOG.md` | The ratification ledger |
+| `docs/LANE-B-WORK-ORDER.md` | Lane B's work order (`D-103`) — the `WORKFLOWS-SPEC.md` arrangement, one lane over |
 
 ### 5A.3 The handoff channel
 
@@ -487,6 +514,7 @@ rather than claimed.
 | `scripts/checks/closure-readiness.mjs` | Response is not closure (`D-101`), phase-scoped and commit-proving (`D-102`) |
 | `scripts/checks/config-coupling.mjs` | `CONFIG_LOG.md` <-> `lib/config/`, both directions (`C-17`) |
 | `scripts/checks/sync-docs-uniqueness.mjs` | Exactly one propagation runbook exists (`D-102`) |
+| `scripts/checks/lane-state.mjs` | Exactly one lane is `Active` (`D-103`) |
 | `scripts/checks/phase-manifest.mjs` | **This manifest is real** (`D-94`) |
 | `scripts/lane-gate.mjs` | Commit-time lane classification (`D-88`) |
 | `.githooks/commit-msg` | The declared-crossing gate |
@@ -842,6 +870,19 @@ restore.**
 | Phase 1 closed, an **open Phase 1** entry | FAIL | ✅ named the entry |
 | Phase 1 closed, an **open Phase 3** entry | **PASS** | ✅ did not fire — `B-013` item 6 |
 | Phase 1 closed, that entry made terminal | **PASS** | ✅ the gate goes quiet |
+
+**`D-103` fixtures — `lane-state` (check 15).** Six, and **the first is the positive control**: a fixture set with no green case proves only that the check can fail, never that it can pass.
+
+| Test | Expected | Result |
+|---|---|---|
+| The live register as committed | **PASS** | ✅ stays green |
+| **No** lane is `Active` — the handover applied halfway | FAIL | ✅ named it as a half-applied boundary |
+| **Two** lanes are `Active` — the other half | FAIL | ✅ named both lanes |
+| A state outside the four (`Paused`) | FAIL | ✅ |
+| `Blocked` naming nothing it is blocked on | FAIL | ✅ a status word with no referent |
+| One cell claiming `Active` **and** another state | FAIL | ✅ `Active` is not divisible |
+
+**The third fixture also failed on its first run — as a defect in the FIXTURE, not the check.** It replaced part of a cell and left `Eligible` behind in the same cell, so the check was right to stay quiet. **A fixture is code and gets the same suspicion the check does.**
 
 **Fixture 10 failed on its first run, and that is the entry worth reading.** The rewritten
 uniqueness check passed with the canonical skill **deleted from disk**, because `git ls-files

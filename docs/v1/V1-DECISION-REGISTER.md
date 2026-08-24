@@ -5294,3 +5294,125 @@ the lane states, or the shared core; the core hash is unchanged at `a8173008845e
 **`Modular_PRD` unaffected** — no sprint closed and no tier opened. **Build spec unaffected** —
 no artifact created, sequenced or retired; the two new check files are apparatus, recorded in the
 inventory and the Phase 1 manifest.
+
+---
+
+## 5.14bk `D-103` — The First Sprint-Boundary Handover: Lane B Is `Active`
+
+**Judge ruling, 2026-08-24: `P0` only.** Lane B is selected `Active` at this Sprint boundary; Lane
+A goes `Eligible`. **`P1`–`P3` of the `C-26` fix are drafted and deliberately NOT built.**
+
+### What was actually decided, and what it is not
+
+`D-101` created four lane states and made `V1-PHASE-CLOSURE.md` §5 the only place live state
+lives. **It has never been exercised.** Lane A had been `Active` since the table was written, so
+*"exactly one lane is `Active`"* was true **by inertia** rather than by any act or any control.
+
+**This is the first handover, and a handover is two edits — one lane out, one lane in.**
+
+| | |
+|---|---|
+| **Decided** | Lane B may commit until the next Sprint boundary. Lane A may not |
+| **NOT decided** | **Phase 1 does not close.** It closes last (`D-99`), and `Eligible` is a statement about committing, not about phase openness. Conditions 2 and 3 stay NOT MET (`D-102`) |
+| **NOT decided** | **`C-26` is not closed by this.** `P0` gives Lane B the *permission* to record a verification; it does not give verification the ability to *fail* — see below |
+
+### Three gaps the handover itself opens, and how each is closed
+
+**A status flip is one line. The three consequences of it are not, and two of them would have
+stopped the machinery this decision exists to serve.**
+
+#### 1. Lane A could not have answered a handoff — and check 10 would have gone permanently red
+
+`handoff-response` **fails on an entry left unread**. If `Active` barred Lane A from writing in
+`docs/handoff/`, then the moment Lane B raised anything, the suite would show a red **that no
+permitted act could clear**. A check that is red in the normal case is a check people stop reading
+— `D-83`'s reasoning, and this would have been its cleanest instance.
+
+**Closed by stating the carve-out** (§5.1 of the closure file): **`docs/handoff/` is writable
+regardless of `Active`.** This is not a new exception. **The directory has been unmapped since
+`D-90`, on purpose** — attributing it to either lane would make the other a crossing on every use.
+`D-103` says out loud what that already implied.
+
+#### 2. A mid-sprint dependency request now genuinely stops — and that stop is kept
+
+`package.json` and the lockfiles are Lane A's, and Lane A cannot commit. **So a dependency Lane B
+needs mid-sprint is blocked until Lane A is next `Active`.**
+
+**This one is NOT carved out, and the reasoning is the opposite of gap 1.** `D-86` says Lane A
+provisions **ahead**; the entire purpose of provisioning ahead is that this should be rare.
+**Carving it out would remove the pressure that keeps it rare** and would hand a second lane write
+access to build config — the silent-overwrite condition `CLAUDE.md` opens with. **`D-101` already
+scopes the cost correctly: the entry stops *that item*, not the lane.**
+
+**If it turns out not to be rare, that is a finding about how far ahead Lane A provisioned**, and
+the handoff entry is where it gets recorded rather than absorbed.
+
+#### 3. Nothing could detect a half-applied handover — `lane-state`, check 15
+
+**Two `Active` rows means two agents believe they may commit. Zero means the work stops and the
+table does not say why.** Neither was visible to anything: **`lane-boundary` reads SURFACES, not
+states**, and would report a perfectly clean single-lane commit from a lane with no permission to
+make one.
+
+**Installed and negative-tested six ways** — the live register stays green, and **both halves of a
+broken handover fail**, along with a state outside the four, a `Blocked` naming nothing, and an
+`Active` cell that also claims another state.
+
+**What it deliberately does NOT do, stated so nobody assumes otherwise:** it does not check that
+the lane making a commit is the `Active` one. That needs `lane-boundary`'s surface map, **and it
+would fail on the handover commit itself** — the one commit that must legitimately be made by the
+lane going *out* of `Active`. **Specified, not built** (`D-56`). It also cannot tell whether the
+Chief Editor really made the selection; `Selected` is prose written by whoever edits the table
+(`C-22`).
+
+### The work order — and why it is not a handoff entry
+
+**`docs/LANE-B-WORK-ORDER.md`.** Lane B needs to be told what to do, and `C-26` — the thing it is
+being told — **lives in this register, which `D-86` says Lane B is not expected to read.**
+
+> **`C-26` as written repeats `B-011`'s parent defect one pass later: a ruling filed where its
+> executor cannot see it.** Recorded plainly rather than quietly fixed.
+
+**Three ways to close that, and the middle one is chosen:**
+
+| Option | Verdict |
+|---|---|
+| Leave `C-26` in the register | **Rejected** — that is the defect |
+| **A Lane A-owned work order in `docs/`** | **Chosen.** Exactly the arrangement `.github/WORKFLOWS-SPEC.md` uses for Lane C (`D-92`): a spec beside the surface it specifies, single-lane for its author, obvious to its reader |
+| An `A-NNN` reverse handoff channel | **Deferred — it is `P1`, and the Judge scoped this to `P0`.** It also needs `D-90`'s *"Lane A does not raise entries here"* corrected, `ENTRY_FILE` widened, and check 10's disposition field generalised to the counterpart lane. **Three coupled changes is not a `P0`** |
+
+**`B-013`, `B-014` and `B-015` are answered in full in the same pass** — `D-102` answered them
+substantively and left them carrying a bare `Acknowledged`, **which is `B-017` child 3's defect one
+field over: a receipt displayed where a disposition belongs.** All three stay `Open`, each for a
+reason named in its own entry.
+
+### What Lane B is `Active` to do
+
+| | Work | Done when |
+|---|---|---|
+| **1** | The 13 unimplemented `CONFIG_LOG.md` declarations | `config-coupling` goes green — it is red right now and the red is correct |
+| **2** | `lib/config/flags.ts` | The inventory's genuinely-absent file exists |
+| **3** | **The `C-26` verification pass** over the ten `Applied` entries | Each is `Verified` with an independent verifier and the commit **read**, or a **new entry** records the rejection |
+
+**On item 3 there is no `Rejected` resolution, and Lane B is told so explicitly.** `P2` would have
+added one; the Judge scoped this to `P0`. **The interim rule is that a failed verification is
+raised as a NEW entry, never absorbed by editing the old one** — because an entry left `Applied`
+after being checked destroys the evidence that it was checked. **A pass that verifies ten and
+rejects none is `a_check_that_cannot_fail` in a reviewer's hat**, and `D-93` names the reject count
+as the health metric.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Lane B selected `Active` | ✅ §5.14bk | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5, with `Selected` provenance | **— unaffected** |
+| `Active` carve-outs | ✅ §5.14bk | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5.1 | **— unaffected** |
+| `lane-state` check 15 | ✅ §5.14bk | **— unaffected** | **— unaffected** | ✅ the check file | ✅ §5A.5, §6.5 | **— unaffected** |
+| `LANE-B-WORK-ORDER.md` | ✅ §5.14bk | **— unaffected** | **— unaffected** | ✅ the file | ✅ §5A.2 | **— unaffected** |
+
+**Agent files unaffected, and that is the `D-101` design working rather than an omission.** The
+rule files stopped carrying lane state precisely so a handover would touch **one** document. **Core
+hash unchanged at `a8173008845e`** — a Sprint boundary that edited three rule files would be the
+duplication `D-101` removed. **Build spec unaffected** — no artifact created, sequenced or retired;
+`LANE-B-WORK-ORDER.md` restates no scope, it points at `CONFIG_LOG.md` and the entries.
+**`Modular_PRD` unaffected** — no sprint closed and no tier opened.
