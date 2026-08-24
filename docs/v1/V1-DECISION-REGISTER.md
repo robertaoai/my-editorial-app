@@ -118,7 +118,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `Q7` | `SEC-04`/`SEC-05` ownership — **no owner exists** | Production |
 | `G15` / `GA5` | Data-protection regime; retention versus erasure | Needs external counsel |
 
-**Chief Editor decisions still to make.** `Q0`, `Q1`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q11`, `Q12`, `QA3`, `QB`, `QD`, `QE`. **The list is the record; no tally is restated** (`G55`, `G56`, `G58`). *Corrected 2026-08-21 (`D-71`): `Q2` (`D-57`), `QC` (`D-59`), `G23` (`D-10`) and `G24` (`D-09`) were already decided and are removed. The remaining twelve were **not** individually re-verified in that pass.* *Corrected again 2026-08-21 (`D-72`): the list was wrong in **both** directions — `Q1`, `Q7` and `Q10` were **Open and Chief-Editor-owned but never listed**, `Q10` being the named blocker for Stage D. Found by `decision-status`, which now runs in CI.* *Updated 2026-08-21 (`D-73`): `Q10` is decided and unblocks Stage D.* See `V1-BUILD-SPEC.md` for which sprint each gates.
+**Chief Editor decisions still to make.** `Q0`, `Q1`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q11`, `Q12`, `QB`, `QD`, `QE`. **The list is the record; no tally is restated** (`G55`, `G56`, `G58`). *Corrected 2026-08-21 (`D-71`): `Q2` (`D-57`), `QC` (`D-59`), `G23` (`D-10`) and `G24` (`D-09`) were already decided and are removed. *Corrected again 2026-08-25 (`D-110`): `QA3` is decided and removed.* The remaining twelve were **not** individually re-verified in that pass.* *Corrected again 2026-08-21 (`D-72`): the list was wrong in **both** directions — `Q1`, `Q7` and `Q10` were **Open and Chief-Editor-owned but never listed**, `Q10` being the named blocker for Stage D. Found by `decision-status`, which now runs in CI.* *Updated 2026-08-21 (`D-73`): `Q10` is decided and unblocks Stage D.* See `V1-BUILD-SPEC.md` for which sprint each gates.
 
 ## 5.1 Gap disposition — every ID
 
@@ -140,9 +140,9 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G14` | **Closed 2026-08-19** | T0 item 3 executed — `NG-02` annotated with its v1 scoping and the tenancy-boundary explanation |
 | `G15` | **TX — counsel** | Pairs with `GA5`; do not close one on the other |
 | `G16` | Open | S1 window — `Q10` + `Q11` as one migration |
-| `G17` | Open | S1 window item 2 — `QA3` |
+| `G17` | **Closed 2026-08-25 (`D-110`)** | `QA3` ratified as a typed/versioned BOUNDARY, not a global format: typed for anything in a constraint, transition, permission, filter, join, retention rule or binding; versioned JSON only for an immutable report or brief body, with a typed `schema_version`. **JSON is never the source of truth for a gate.** Reframed by `B-032`. §5.14bq |
 | **`G18`** | **Standing rule** | **Two gap series exist (`G`, `GA`). Raise any new gap in one series only, and record it in this table. This rule was itself lost in the first supersession — an instance of the drift it warns about** |
-| `G19` | Open | `D-06`, S1 window item 7 |
+| `G19` | **Closed 2026-08-25 (`D-110`)** | Notice-as-article physical names ratified — `articles.article_kind` and `articles.original_article_id`; `Retracted` is NOT an eleventh state and the retraction condition is derived. **Inherited targets were already decided by `D-08`** and implemented in `FN-PUBLICATION` §4.3, which `B-032` never cited. §5.14bq |
 | `G20` | Open | `D-11`, S1 window item 8 |
 | `G21` | **Withdrawn** | Human `A` versus agent `R` — different layers, not a conflict — §2 |
 | `G22` | Open | `C-10`, T3 |
@@ -2637,7 +2637,9 @@ The first tier sweep accepted **any** ID from a row's Item cell. Deliberately br
 | `Q11` — the field **shape** | **Decided 2026-08-22 (`D-97`)** — three-value status, not a boolean. `G64`'s surviving limb answered |
 | `Q11` — the field **name** | **Open.** `D-97` decided the shape only; the rename is a separate half |
 | `G64` — the field **shape** | **Specified, not applied** (`D-69`) — the choice is `Q11`'s |
-| `G16`, `G17`, `G19`, `G20`, `G42`, `GA1`, `GA3`, `GA4`, `GA9` | **Open** |
+| `G17`, `G19` | **Decided `D-110`** |
+| `G57`, `GA9` | **No decision remains** — `D-55` supplies the total backfill map, `D-07` selects `on delete restrict`; both are implementation |
+| `G16` (`Q11` name), `G20` (risk tier), `G42`+`GA1`/`GA3`/`GA4` (report binding) | **Open — the three that remain** |
 | `GA2` | **Half closed** — the insert/read-only half is still a window item |
 | `C-11`, `C-12` | **Open** — T2, S1 window |
 
@@ -2845,8 +2847,8 @@ All alter the same append-only table.
 | Gap | Decision |
 |---|---|
 | `G16` | **`Q11` only — `Q10` was decided by `D-73`/`D-79`.** The remaining half is `Q11`'s column NAME; its shape is fixed by `D-97` |
-| `G17` | `QA3` — typed columns versus versioned JSON payload |
-| `G19` | Notice-as-article: notice type, reference, inherited targets, derived superseded status |
+| `G17` | ✅ **Decided `D-110`** — typed/versioned boundary ratified |
+| `G19` | ✅ **Decided `D-110`** — physical names ratified; inherited targets were already `D-08` |
 | `G20` | Risk-tier dimension on articles |
 | `G42` | **Newly surfaced here.** Template-to-field-availability binding — the binding lives on the report record, which S1 creates |
 | `GA1`, `GA3`, `GA4` | Report record shape — identity, as-at, tenant, template and rule-set versions, frozen snapshot |
@@ -6022,3 +6024,79 @@ frame** for the decision packet, and its classification table is carried into it
 **They were right and §5 was the deviation**, so the correction removes drift instead of creating
 it. Core hash unchanged at `a8173008845e`. **Build spec and `Modular_PRD` unaffected** — no
 artifact created or retired, no sprint closed, no tier opened.
+
+---
+
+## 5.14bq `D-110` — `QA3` and Notice-as-Article Ratified
+
+**Judge rulings, 2026-08-25.** Two of the S1 window's items are settled. **No migration is
+authorized by this decision** — `0002` waits on the three that remain.
+
+### `QA3` — the typed/versioned boundary, ratified
+
+**Not a global format choice.** The question `B-032` reframed and the Chief Editor approved:
+
+| Form | Applies to |
+|---|---|
+| **Typed columns** | Anything participating in a **constraint, state transition, permission, filter, join, retention rule, or binding** — lifecycle states, transition-control status, risk tier, identifiers, foreign keys, timestamps, and **every version identifier** |
+| **Versioned JSON** | **Only** the immutable explanatory body of a report or brief, always carrying a typed `schema_version` |
+
+> **`JSON is never the source of truth for a gate, a state transition, a referential relationship,
+> or a board filter.`**
+
+**This was the parent of the remaining three decisions and is why it was ruled first.** §5.14's
+own dependency table records `G17` as gating *"independence classification storage"* — which is
+`Q11`'s column. **Ruling `Q11`'s name before `QA3` would have presumed a typed answer to an
+unmade decision.**
+
+**What it buys:** later growth in a report body is a **write, not a migration** on an append-only
+table. **What the rejected alternatives cost:** all-typed makes every future report field a
+migration; all-JSON leaves `Q11` unconstrainable, makes `G-02` uncomputable by query, and would
+have **reversed `D-97`**.
+
+### Notice-as-article — the physical names, ratified
+
+**`D-06` was never reopened**: a notice is an ordinary article citing the original, running the
+same five gates, creating **no new article states**. Ratified now is only its physical form:
+
+| Column | Shape |
+|---|---|
+| `articles.article_kind` | `standard` \| `retraction_notice` |
+| `articles.original_article_id` | nullable for a standard article, **required** for a notice |
+
+**`Retracted` is NOT added to `article_state_v2`.** It would be an eleventh lifecycle state
+against `D-06` and the accepted transition specification — and it is the intuitive wrong move,
+because *retracted* sounds like a state. **The original's retraction condition is DERIVED** from a
+published notice and its publication records; it is never stored.
+
+### `G19` had four parts and the proposal named three — the fourth was already decided
+
+**`B-032` addressed notice type, reference and derived-superseded status, and never mentioned
+inherited targets.** Checked before ratifying rather than after: **`D-08` decides it**, and
+`FN-PUBLICATION-09-10-13.md` §4.3 already implements the rule — *targets are inherited from the
+original's transaction record; mirror scope is **derived, never recalled***.
+
+**So ratifying the two names does not close `G19` with a hole.** Recorded because `B-032` never
+cites `D-08`, and a later reader comparing the proposal against `G19`'s four parts would
+reasonably have concluded one was dropped.
+
+### Filing — these are register decisions, not ledger entries
+
+**`DECISION_LOG.md` is scoped** to ratification events for decisions that gate a **config value**,
+and to `OD1`–`OD3`. **A schema-shape ratification filed there would be the wrong tier**, and would
+start the second-decision-register drift that file's own header forbids.
+
+### Gaps closed
+
+**`G17`** and **`G19`** — §5.1.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `QA3` ratified | ✅ §5.14bq, §5.1 `G17`, §5.15 | **— unaffected until `0002`** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `QA3` is a register-only ID and appears nowhere in §10** |
+| Notice names ratified | ✅ §5.14bq, §5.1 `G19`, §5.15 | **— unaffected until `0002`** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected — `D-06` is unchanged and no requirement text moves** |
+
+**Build spec unaffected and that is deliberate**: both are schema shapes that land when `0002` is
+authorized, and `0002` is not. **Writing them into the build spec now would record work as
+sequenced that is still blocked on three decisions.**

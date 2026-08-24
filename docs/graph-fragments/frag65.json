@@ -1,0 +1,152 @@
+{
+  "_comment": "Fragment 65 — D-110: the storage boundary and the notice names ratified. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d110_qa3_and_notice_ratified",
+      "label": "D-110 — The Storage Boundary and the Notice Names Ratified",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bq",
+      "description": "Two of the schema window items are settled: the typed-versus-versioned storage boundary, and the physical names for representing a retraction notice as an ordinary article.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Neither reopened an existing decision. The storage question was reframed from picking one global format to ratifying a boundary, and the notice model itself was already decided; only its physical form was outstanding."
+    },
+    {
+      "id": "typed_for_enforcement_json_for_the_body",
+      "label": "Typed for Anything Enforced, Versioned JSON Only for an Immutable Body",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bq",
+      "description": "Anything participating in a constraint, transition, permission, filter, join, retention rule or binding is a typed column. A serialized body carries a typed schema version and is never the source of truth for a gate.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "It places each data class in the form its behaviour requires rather than choosing one global format. Growth in an explanatory body becomes a write instead of a migration on an append-only table."
+    },
+    {
+      "id": "ratify_the_parent_before_its_children",
+      "label": "The Storage Rule Was Ruled First Because It Gates the Others",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bq",
+      "description": "The dependency table records the storage question as gating where the independence classification lives, which is the column whose name is still open.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Ruling the column name first would have presumed a typed answer to an unmade decision, leaving the later rulings conditional on something nobody had settled."
+    },
+    {
+      "id": "retracted_is_not_an_eleventh_state",
+      "label": "Retracted Is Not an Eleventh Lifecycle State",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bq",
+      "description": "A retraction notice is an ordinary article with a kind discriminator and a reference to the original. The original's retraction condition is derived from a published notice and its publication records.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "It is the intuitive wrong move because retracted sounds like a state, and adding it would contradict both the retraction decision and the accepted transition specification."
+    },
+    {
+      "id": "the_fourth_part_was_already_decided",
+      "label": "The Proposal Named Three of Four Parts and the Fourth Was Already Decided",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-032-separate-state-control-from-report-data.md",
+      "source_location": "§3.3",
+      "description": "The notice gap names four things and the recommendation addressed three, never mentioning inherited publication targets.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "An earlier decision settles it and the publication specification already implements the rule that targets are derived from the original transaction record and never recalled. Checked before ratifying rather than after, because a later reader comparing proposal against gap would reasonably have concluded a part was dropped."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d110_qa3_and_notice_ratified",
+      "target": "v1_decision_register",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bq",
+      "weight": 1
+    },
+    {
+      "source": "d110_qa3_and_notice_ratified",
+      "target": "one_window_is_not_one_semantic_class",
+      "relation": "applies",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bq",
+      "weight": 1
+    },
+    {
+      "source": "typed_for_enforcement_json_for_the_body",
+      "target": "d110_qa3_and_notice_ratified",
+      "relation": "ratified_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bq",
+      "weight": 1
+    },
+    {
+      "source": "ratify_the_parent_before_its_children",
+      "target": "typed_for_enforcement_json_for_the_body",
+      "relation": "ordering_rationale_for",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bq",
+      "weight": 1
+    },
+    {
+      "source": "ratify_the_parent_before_its_children",
+      "target": "markers_stay_until_the_naming_half_closes",
+      "relation": "gates",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bq",
+      "weight": 1
+    },
+    {
+      "source": "retracted_is_not_an_eleventh_state",
+      "target": "d110_qa3_and_notice_ratified",
+      "relation": "ratified_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bq",
+      "weight": 1
+    },
+    {
+      "source": "the_fourth_part_was_already_decided",
+      "target": "the_stage_four_window_is_one_pass",
+      "relation": "narrows",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bq",
+      "weight": 1
+    }
+  ]
+}
