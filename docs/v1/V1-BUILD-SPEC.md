@@ -202,7 +202,8 @@ field name is committed to text an executor will apply — **not evidence requir
 | `G7b` systematized POC exposure | Needs S2 identity, enforcement completes at S6 |
 | Tier 3 Fallout — legal/defamation crises | Generating activities excluded: `NG-11` removes fundraising; PoC §8.2 excludes whistleblower publication without safe handling |
 | Multi-team accounts | `NG-02` v1 lock. Tenancy boundary exists; **no capability is built** |
-| Monetization features | `NG-03`, Charter-level. Revenue is a business activity, never a product feature (`D-04`) |
+| Monetization features | `NG-03`, Charter-level. Revenue is a business activity, never a product feature (`D-04`). **Judge ruling 2026-08-22 (`D-96`) — what `NG-03` actually decided:** the POC commercial flow is **original project scope**, present from scaffolding (Stripe shipped in `0001`-era `package.json` and was removed by `X8` in S0). `NG-03` is a **simplification for the current stage — practical, not permanent.** It is not evidence that a POC flow was invented later or lies outside the project |
+| **POC commercial flow — deferred scope, shape now decided** | **One engine, two exposures** (`§7` invariant 1; `D-59` one origin, two paths). The **MVP** and **POC** are two flows of the same editorial brief, and the POC sells **exactly one item: publicly-expandable content with a report**, entering at the trigger and traversing **the same phase gates** — no separate pipeline, no second state machine. **`B-008`'s elaborate model is NOT adopted** — no `cart_id`, no payment-provider config, no payment or obligation drains, no asynchronous account claiming or delivery portal. **Deferred, not authorized:** no charter, PRD, spec, config row, or migration authority is created here, and **no POC commercial field goes near `AP-01`'s `Q11`/`0002`** |
 | Auto-advance on confidence score | `NG-10`/`TC9`. Fixed, not configurable |
 
 ## 7. Standing invariants

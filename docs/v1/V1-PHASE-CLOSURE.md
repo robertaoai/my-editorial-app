@@ -7,7 +7,9 @@ level up.
 
 ## 1. The four conditions
 
-**A phase is closed when all four hold. Not three.**
+**A phase is closed when all five hold.** *(Four until the Judge added the fifth on 2026-08-22 —
+`D-96`, §1.1. The number is stated here because this table **is** the list, not a restatement of
+one held elsewhere.)*
 
 | # | Condition | Checkable by |
 |---|---|---|
@@ -15,6 +17,7 @@ level up.
 | 2 | Every handoff entry raised against it has reached a **terminal disposition** — `Answered` or `Withdrawn` | `bun run check` (check 10) plus **§6.3** |
 | 3 | A **critic pass** has been performed **on a separate turn against the final artifact set**, and its weakness list is recorded | **§6.1** |
 | 4 | **The Judge approves at the boundary** | the verdict row in **§6.6** |
+| 5 | **The sprint the phase enables is complete** — Phase 1 ⇒ S0 (Judge ruling, `D-96`) | `config-coupling` green; see **§1.1** |
 
 **Section references corrected 2026-08-22 (`D-95`, raised as `B-006` item 4).** Conditions 2, 3
 and 4 all pointed at **§3**, which is the critic-pass *discipline*, not the evidence. **A
@@ -30,6 +33,40 @@ was certifying.
 `Open` passes — a queue is healthy, and a check red in the normal case is one people stop
 reading. **At closure it does not pass.** Acknowledging is not answering, and the difference is
 exactly what a phase boundary is for.
+
+## 1.1 Sprint completeness gates the phase — Judge ruling, 2026-08-22 (`D-96`)
+
+**The Judge ruled: S0 incompleteness blocks Phase 1.**
+
+This was a real open question, not a formality. **Phases and sprints are different scopes** — the
+argument for letting them float free is that a phase governs *which lane may act* while a sprint
+governs *what gets built*, and `D-94` used exactly that reasoning to call the build spec
+unaffected. **The ruling closes it in the other direction:** Phase 1 cannot close while the sprint
+it was supposed to enable is incomplete.
+
+**What this makes concrete.** `config-coupling` (check 12) reports **13 authoritative
+`CONFIG_LOG.md` rows with no implementation** — the two routes, `DOMAIN_APEX`,
+`FLAG_LINE3_ENABLED` and the nine sprint flags. Under this ruling that red check is not a
+background residual: **it is a closure blocker with a name.**
+
+**Condition 5, added to §1:**
+
+> **5. The sprint the phase enables is complete** — for Phase 1, S0. `bun run check` must be
+> green on `config-coupling`, because a red one *is* the statement that S0 is unfinished.
+
+**The uncomfortable consequence, stated rather than buried.** Phase 2 was never validly opened
+(§5B), so **Lane B cannot implement the 13 rows without acting outside an opened phase** — the
+same defect `43c51ce` already committed. **Closing Phase 1 requires work only Lane B may do, and
+Lane B may not act until Phase 1 closes.**
+
+**This is a genuine deadlock and it is the Judge's to break**, not Lane A's to route around. Three
+exits exist, and Lane A recommends the second:
+
+| Exit | What it costs |
+|---|---|
+| Judge authorizes a **scoped Lane B pass** for S0's remaining config work, explicitly bounded, before Phase 1 closes | One declared, recorded exception to phase order |
+| Judge **accepts Phase 1 on the orchestration artifacts** and moves S0's completion into Phase 2's opening | Phase 1's DoD stops meaning "S0 done"; sprints and phases decouple again |
+| Lane A implements the 13 rows | **Rejected — a lane crossing into `lib/`, and the reason `D-75` exists** |
 
 ## 2. The roles — `D-93`, resolving `P0`
 

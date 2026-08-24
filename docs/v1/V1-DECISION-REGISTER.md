@@ -4351,3 +4351,109 @@ Authorizes no schema, migration or deployment. `0001_init.sql` untouched; `0002`
 **`Modular_PRD` unaffected** — no sprint closed and no tier opened. **Its `Q11` row is stale
 (`B-009`) and is *not* corrected here**: the row states a decision, and **editing it before the
 Chief Editor decides would be Lane A answering `Q11` by edit.** Carried as `C-23`.
+
+---
+
+## 5.14bd `D-96` — Three Judge Rulings: Sprint Gates Phase, the POC Is Original Scope, `Q11` Gets a Design Direction
+
+**The Judge ruled on all three items Lane A escalated in `D-95`.** Recorded here because two of
+the three **correct Lane A**, not Lane B.
+
+### 1. S0 incompleteness blocks Phase 1 — the parent, and it creates a deadlock
+
+**Ruling: a phase cannot close while the sprint it enables is incomplete.** Added as
+**condition 5** in `V1-PHASE-CLOSURE.md` §1.
+
+**This was a real question, not a formality.** Phases and sprints are different scopes — a phase
+governs *which lane may act*, a sprint governs *what gets built* — and **`D-94` used exactly that
+reasoning to call the build spec unaffected**. The ruling closes it the other way.
+
+**Concretely:** `config-coupling`'s 13 unimplemented `CONFIG_LOG.md` rows stop being a background
+residual and become **a closure blocker with a name**.
+
+**And it produces a deadlock Lane A will not route around.** Phase 2 was never validly opened
+(§5B), so **Lane B cannot implement those rows without acting outside an opened phase — the same
+defect `43c51ce` already committed.** Closing Phase 1 requires work only Lane B may do; Lane B may
+not act until Phase 1 closes.
+
+**Three exits, and Lane A recommends the second:** a scoped, declared Lane B pass before closure;
+**or** accepting Phase 1 on its orchestration artifacts and moving S0's completion into Phase 2's
+opening; **or** Lane A implementing the rows — **rejected, that is a crossing into `lib/` and the
+reason `D-75` exists.** The deadlock is stated rather than engineered away, because the way out
+is a Judge decision about scope, not a Lane A decision about paths.
+
+### 2. `B-008` — the POC is original scope, and Lane A's framing was wrong
+
+**Lane A wrote that *"none of this vocabulary appears in any authoritative document"* and treated
+the model as potentially invented.** The Judge corrected it: **the POC commercial flow is original
+project scope.** Stripe shipped in `package.json` from scaffolding and `X8` removed it during S0 —
+**the removal is evidence the flow existed, not evidence it never did.**
+
+**`NG-03` is a simplification for the current stage — practical, not permanent.** Lane A had been
+reading a scoping decision as a denial of existence. **That is `conflict_asserted_past_source` in
+its second recorded instance**: the source says *not now*; Lane A heard *not real*.
+
+**What the ruling decides about shape, and it is a simplification rather than an expansion:**
+the MVP and the POC are **two flows of one editorial brief** — one engine, two exposures (`§7`
+invariant 1, `D-59`'s one origin and two paths) — and the POC sells **exactly one item:
+publicly-expandable content with a report**, entering at the trigger and traversing **the same
+phase gates**.
+
+**`B-008`'s elaborate model is not adopted.** No `cart_id`, no `DEFAULT_POC_PAYMENT_PROVIDER`, no
+`PAYMENT_EVENT_DRAIN` or `POC_OBLIGATION_DRAIN`, no asynchronous account claiming or delivery
+portal, no provider-ID versus editorial-ID split. **The simplification of what is sold had never
+actually been performed, and this ruling performs it.**
+
+**Deferred, not authorized.** No POC Charter, PRD, traceability, spec, UX, config row or migration
+authority is created; **no POC commercial field goes near `AP-01`'s `Q11`/`0002`.** *Lane A read
+this as classification. If the Judge intended to authorize POC specification work, that is a
+larger act and is not assumed here.*
+
+### 3. `Q11` — the design direction, and why only one shape survives
+
+**Lane B stopped coding because the design was unclear, which was correct** — coding against a
+guessed field shape is exactly what `G64` exists to prevent.
+
+| Shape | What it is | Verdict |
+|---|---|---|
+| **A** | boolean `line_boundary_crossed` — **what the sprint plan's S1 migration line selects by default if nobody decides** | **Fails `G-02`** |
+| **B** | three-value status matching `FR-05`: `satisfied` \| `not_applicable` \| `override_not_four_eyes` | **Recommended** |
+
+**The reason is arithmetic, not preference.** `G-02` is *"T5/T6 crossings without Line separation,
+**excluding logged overrides**."* Excluding logged overrides requires telling `not_applicable` and
+`override_not_four_eyes` apart, **and a boolean maps both to `false`.** Under Shape A `G-02` cannot
+be computed from its own declared Data Source and would need a second column that Data Source does
+not name. **Shape B needs no second column**, and a crossing boolean — if any reader wants one —
+is a **derived view**, never a stored duplicate (`CONFIG_LOG.md` §7.2).
+
+**The sequence contradiction `B-009` identified is resolved in one direction.** *Deferred past S1*
+and *must resolve before the `0002` draft* cannot both govern, because **the draft is the earlier
+event**. S0 creates only the hold location; no draft exists before `Q11` and the whole S1 window
+settle; moving the approved draft into the apply set **is** the S1 authorization act.
+
+**`C-23` stays open by design.** The stale `Modular_PRD` `Q11` row is corrected **in the same pass
+the Judge picks a shape** — editing an open decision request is answering it by edit.
+
+### What this does not do
+
+**Does not close Phase 1** — condition 5 is now unmet by name, and the deadlock above is
+unresolved. **Does not perform the critic pass** (`B-006` item 1): `D-93` requires a separate turn
+from the work being criticised, and this pass is that work. **Does not decide `Q11`** — it
+proposes. **Does not authorize POC specification or any build.** Authorizes no schema, migration
+or deployment. `0001_init.sql` untouched; `0002` unwritten.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | Agent files | `Modular_PRD` |
+|---|---|---|---|---|---|
+| Condition 5 — sprint gates phase | ✅ §5.14bd | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `B-008` POC classification | ✅ §5.14bd | ✅ §6 two rows | **— unaffected** | **— unaffected** | **— unaffected** |
+| `Q11` design direction | ✅ §5.14bd | ✅ S0/S1 sequence already corrected | **— unaffected** | **— unaffected** | **— `C-23`, deliberately untouched** |
+
+**Inventory unaffected** — no file is created or retired by any of the three rulings. **Agent files
+unaffected** — no rule changes for any lane. **`Modular_PRD` is affected and deliberately not
+edited**, which is `C-23` and is the one case where naming the tier and not writing it is the
+correct disposition rather than an omission.
+
+**`V1-PHASE-CLOSURE.md` is not a `tier-sweep` tier** and carries condition 5 directly; it is
+Lane A's phase record, not a governed tier under `D-29`.
