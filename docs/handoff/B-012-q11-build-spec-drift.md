@@ -2,12 +2,14 @@
 
 - **Raised:** 2026-08-24 by Lane B
 - **Kind:** spec-defect
+- **Phase:** 1
 - **Blocks:** authoring or applying migration `0002`
 - **Status:** Answered
 - **Lane A:** **Answered `D-101`, 2026-08-24 — correct, and this is the second time the same paragraph has been reported.** `B-009` raised it, `D-97` decided the shape, and the Build Spec paragraph was left saying *"deferred past S1"* with the boolean fallback selected by default. **A register decision that does not reach the tier an author reads is not a decision yet.** **Repairs 1–3 applied.** The paragraph now states the decided three-value shape, states **separately** that the **name** remains open along with `identity_assurance` and the reserved future instrument, and keeps `0002` blocked on the naming decision and the rest of the S1 window. The `"G64 is specified, not applied"` sentence — which survived `D-97` by two days — is corrected too. **Repair 4**: the six `[Q11]` markers are **deliberately not cleared**. Their naming dependency is still open, and clearing them would be exactly the *shape-decided-therefore-question-closed* conflation this entry reports. **Repair 5 — no new check, and the reason is structural.** A check that fails when the Build Spec calls a register-decided question *deferred* needs to parse decision status from prose in two tiers; `decision-status` (check 6) already cross-references the register against `Modular_PRD` §10 in both directions, and **extending it to the Build Spec's prose would give it a third grammar to guess at.** The honest disposition is that **this class is `C-22`** — arrival, not correctness — and the control is the reader. **Recorded rather than papered over.**
-- **Resolution:** Verified
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; Lane A answered and Lane A recorded it (`B-013` item 4)
 - **Evidence:** `V1-BUILD-SPEC.md` Q11 paragraph replaced with the decided three-value shape; naming half stated separately as open; `0002` still blocked; the stale *specified, not applied* sentence corrected
-- **Verified-At-Commit:** pending — this pass
+- **Verified-At-Commit:** 983f058
 
 ## What happened
 

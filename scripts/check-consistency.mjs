@@ -24,6 +24,7 @@ import { run as phaseManifest } from "./checks/phase-manifest.mjs";
 import { run as configCoupling } from "./checks/config-coupling.mjs";
 import { run as closureReadiness } from "./checks/closure-readiness.mjs";
 import { run as docsDrift } from "./checks/docs-drift.mjs";
+import { run as syncDocsUnique } from "./checks/sync-docs-uniqueness.mjs";
 
 const CHECKS = [
   sharedCoreHash,
@@ -39,6 +40,7 @@ const CHECKS = [
   configCoupling, // `C-17`/`D-95` — do the config rows and the code match, both ways
   closureReadiness, // `D-101` — response is not closure; silent until closure is claimed
   docsDrift, // Docs drift check
+  syncDocsUnique,
 ];
 
 let failed = 0;

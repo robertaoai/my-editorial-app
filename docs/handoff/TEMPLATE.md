@@ -2,13 +2,15 @@
 
 - **Raised:** YYYY-MM-DD by Lane B | Lane C
 - **Kind:** dependency | spec-defect | blocked-on-decision | finding
+- **Phase:** <1 | 2 | 3 — REQUIRED. Closure gating is phase-scoped, and an entry with no phase blocks nothing and is checked by nothing (`D-102`)>
 - **Blocks:** <what you cannot do until this is answered — or `nothing, reporting only`>
 - **Reopens-Phase:** <1 | 2 | 3, only if the work this needs belongs to a phase already closed — otherwise omit the line entirely>
 - **Status:** Open
 - **Lane A:** <empty until acknowledged>
-- **Resolution:** <Verified | Deferred | Withdrawn | Superseded — omit while Open or merely Answered>
+- **Resolution:** <Applied | Verified | Deferred | Withdrawn | Superseded — omit while Open or merely Answered>
+- **Verified-By:** <REQUIRED for Verified: the actor who confirmed it, and NOT the lane that answered. `Acknowledged` is a receipt, not a verifier (`D-102`, `B-013` item 4)>
 - **Evidence:** <what proves it; a check name, a test, a file, a commit>
-- **Verified-At-Commit:** <the commit the evidence was observed at>
+- **Verified-At-Commit:** <the commit the evidence was observed at — a hexadecimal SHA that EXISTS. `pending` is not a commit>
 - **Follow-up-Tier:** <required if Resolution is Deferred: the sprint, phase or tier that owns it>
 - **Superseded-By:** <required if Resolution is Superseded: the decision that overtook it>
 
@@ -41,6 +43,18 @@ Kinds, and what Lane A does with each:
                       (`D-58`) and propagates per `D-54`.
   blocked-on-decision A Chief Editor decision is missing. Lane A surfaces it in §5.1.
   finding             Something true and useful that is nobody's blocker yet.
+
+Resolutions, and which of them close anything:
+
+  Applied             The fix is in the tree at a named commit and NOBODY INDEPENDENT has
+                      confirmed it. Deliberately NOT terminal — it does not satisfy a phase
+                      closure condition (`D-102`).
+  Verified            Confirmed by a named actor who is not the answering side, at a commit
+                      that exists. Terminal.
+  Deferred            Terminal, and requires `Follow-up-Tier` — a deferral with no owner is
+                      a drop.
+  Withdrawn           Terminal. The raiser or the register retracted it.
+  Superseded          Terminal, and requires `Superseded-By` — the decision that overtook it.
 
 Do not edit another entry's file. One file per item keeps status edits from colliding —
 `docs/handoff/` is under `*.md merge=union`, which is right for append-only content and wrong

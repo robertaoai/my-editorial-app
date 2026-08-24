@@ -13,6 +13,8 @@
 
 | Artifact | Referenced by | Exists |
 |---|---|---|
+| `scripts/checks/handoff-fields.mjs` | `D-102`, `B-017` | ✅ **Created 2026-08-24.** The channel's **one** metadata parser and phase-register reader. Both checks wrote the field pattern with `s*`, which matches a **newline**, so a blank field captured the NEXT metadata line — three entries shipped with blank `Kind` and check 10 reported PASS. Line-bounded, single copy, reproduced before and after |
+| `scripts/checks/sync-docs-uniqueness.mjs` | `D-102`, `B-014`, `B-018` | ✅ **Created 2026-08-24.** `C-14` check 14 — exactly one `sync-docs` runbook, tracked **or untracked**, and its triple must name `CLAUDE.md`. **Its first version was a false green three ways and its rewrite a fourth**, caught by its own fixture: `git ls-files --cached` reports the index, so it passed with the canonical file deleted |
 | `scripts/checks/closure-readiness.mjs` | `D-101`, `B-011` | ✅ **Created 2026-08-24.** `C-14` check 13 — **response is not closure.** Derives the closure matrix from the handoff entries; **silent until a phase claims closure**, then fails on any entry that is merely `Open` or `Answered`. Negative-tested. **No second backlog file** (`B-011` repair 6) |
 | `docs/modules/M-POC-REQUIREMENTS.md` | `D-99`, `Modular_PRD` §0.6.2 | ✅ **Created 2026-08-22.** The `M-POC` feature group an `Fn_Spec` must anchor to. **Own ID namespace** so no `M-MVP` identifier is reused. **`NG-03` untouched** — payment is an operating activity outside the application |
 | `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md` | `D-99`, `PR-01`–`PR-13` | ✅ **Created 2026-08-22.** `M-POC` engagement behaviour. **`SPECS` candidate list deliberately empty** — the next tier is blocked by a decision, not an omission |

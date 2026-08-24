@@ -67,8 +67,8 @@ one held elsewhere.)*
 | # | Condition | Checkable by |
 |---|---|---|
 | 1 | Its **artifact list exists** — every named file present | **§5A**, verified by `phase-manifest` (check 11) |
-| 2 | Every handoff entry raised against it has reached a **terminal disposition** — `Answered` or `Withdrawn` | `bun run check` (check 10); the entries themselves in `docs/handoff/` |
-| 3 | A **critic pass** has been performed **on a separate turn against the final artifact set**, and its weakness list is recorded | **§6.1b** — the pass against `de3b7df`. §6.1 is the earlier pass, superseded not deleted |
+| 2 | Every handoff entry **raised against it** has reached a **terminal disposition** — `Verified`, `Deferred` (with an owner), `Withdrawn`, or `Superseded` (with the overtaking decision). **`Applied` is deliberately NOT terminal** (`D-102`): it means the fix is in the tree and nobody independent has confirmed it | `closure-readiness` (check 13), **phase-scoped** since `D-102`; the entries themselves in `docs/handoff/` |
+| 3 | A **critic pass** has been performed **on a separate turn against the final artifact set**, and its weakness list is recorded. **NOT MET (`D-102`, raised as `B-013`)** — §6.1b reviewed `de3b7df`, which is not the final set; the pass against `983f058` was performed by **Lane B**, and `D-93` assigns the Critic role to Lane A | **§6.1c** — Lane B's independent review of `983f058`. **§6.1b** reviewed `de3b7df`; **§6.1** is earlier still, superseded not deleted |
 | 4 | **The Judge approves at the boundary** | the verdict row in **§6.6** |
 | 5 | **The sprint work is complete — including other lanes' work against this phase's specs.** For Phase 1: all specs written, **and** Lanes B and C complete with no outstanding gaps (`D-96`, rescoped by `D-98`, **restored and widened by `D-99`**) | **§1.1b** |
 
@@ -374,7 +374,7 @@ carry `1 — now` / `2 — next`.
 
 | Lane | Phase | State | Closed | Judge | Reopened by |
 |:---:|---|---|:---:|---|---|
-| **A** | **1 — Orchestration** | **`Active`.** Closes last (`D-99`): conditions 1, 2 and 3 met; **5 waits on Lanes B and C**; 4 is the Judge's | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
+| **A** | **1 — Orchestration** | **`Active`.** Closes last (`D-99`): condition 1 met; **2 NOT met** — 10 entries are `Applied`, not `Verified` (`D-102`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
 | **B** | **2 — Application** | **`Eligible`.** Permitted (`D-100`); first work is the 13 unimplemented `CONFIG_LOG.md` rows, then `flags.ts` | — | Standing project approval | — |
 | **C** | **3 — CI/CD** | **`Blocked` on `C-18`** for `C-Q2`; **`Eligible`** for `C-Q1` (`fetch-depth: 0`) | — | Standing project approval | — |
 
@@ -382,8 +382,17 @@ carry `1 — now` / `2 — next`.
 `Eligible` means *specified and permitted, not currently committing* — **not** *waiting for a phase
 to close.*
 
-**Phase 2 started while Phase 1 is open, and that is a finding, not a note.** `D-75` says the
-lanes run *sequentially, one at a time*. See §6.
+> **SUPERSEDED — historical, 2026-08-22. Retained as the record of finding `F4`, not as
+> current state (`D-102`, raised as `B-013` item 7).**
+>
+> *"Phase 2 started while Phase 1 is open, and that is a finding, not a note. `D-75` says the
+> lanes run sequentially, one at a time. See §6."*
+>
+> **What replaced it.** `D-99` made Phase 1 an envelope that opens first and closes last, so a
+> later phase running inside it is the DESIGN. `D-100` then removed the queue: Lane B is
+> `Eligible`, not out of turn. **`D-75`'s serialization survives as one lane `Active` at a
+> time** — a constraint on COMMITTING, not on which phases are open. Sitting immediately below
+> the four-state table, the original sentence read as an operative contradiction of it.
 
 **Reconciled 2026-08-22 (`D-94`, raised as `B-004`). Four statements in this file described the
 same state and could not all be true:** this row said *"closure pending"*, §6.4 said *"Pending"*
@@ -474,6 +483,10 @@ rather than claimed.
 | `scripts/checks/settings-parse.mjs` | Settings cascade parses |
 | `scripts/checks/lane-boundary.mjs` | `D-75` crossings made visible |
 | `scripts/checks/handoff-response.mjs` | Lane feedback gets read |
+| `scripts/checks/handoff-fields.mjs` | **One** line-bounded metadata parser for the channel (`D-102`) |
+| `scripts/checks/closure-readiness.mjs` | Response is not closure (`D-101`), phase-scoped and commit-proving (`D-102`) |
+| `scripts/checks/config-coupling.mjs` | `CONFIG_LOG.md` <-> `lib/config/`, both directions (`C-17`) |
+| `scripts/checks/sync-docs-uniqueness.mjs` | Exactly one propagation runbook exists (`D-102`) |
 | `scripts/checks/phase-manifest.mjs` | **This manifest is real** (`D-94`) |
 | `scripts/lane-gate.mjs` | Commit-time lane classification (`D-88`) |
 | `.githooks/commit-msg` | The declared-crossing gate |
@@ -573,6 +586,46 @@ class already named and fixed once* — restated tally, wrong anchor, stale pin.
 **What this pass deliberately did not do.** It did not re-examine the checks' source, the curated
 graph, or the lane map, and **it did not review the POC and `Q11` work performed later in this
 same turn** — that work is outside this pass's artifact set and is owed a pass of its own.
+
+### 6.1c Third review — 2026-08-24, against the artifact set at `983f058` (`B-013`)
+
+**Performed by Lane B, not by Lane A, and that distinction is the finding before any of the
+others.** `D-101` recorded that its own work was owed a critic pass on a later turn and — in the
+same artifact — recorded Phase 1's condition 3 as **met**. **A condition requiring a pass against
+the final artifact set cannot be satisfied by the pass that preceded that set.** §6.1b reviewed
+`de3b7df`; `D-101` shipped at `983f058`.
+
+**Lane B performed the pass instead.** That is *more* independent than `D-93` requires, and it is
+**not what `D-93` assigns** — the Critic role is Lane A's. So condition 3 is recorded **NOT MET**
+on both counts, and this section is the reason rather than a substitute for it.
+
+| # | Finding | Status |
+|---|---|---|
+| **F17** | **Condition 3 contradicted its own evidence.** §5 and §6.4b said condition 3 was met while §6.4b also said the pass was owed. Asking the Judge produced two answers from one artifact | **Fixed** — condition 3 and the §5 Lane A row both read NOT MET |
+| **F18** | **Three `Verified` entries had no verification commit.** `B-009`, `B-011`, `B-012` read `Verified-At-Commit: pending — this pass`. **`pending` is not a commit and cannot anchor re-performance** | **Fixed** — `983f058`, and the field is now validated |
+| **F19** | **The check accepted that state.** `closure-readiness` required `Evidence` for a `Verified` entry and never read `Verified-At-Commit` at all. It reported ten verified entries, three of which had no anchor | **Fixed** — hex required, existence proven on full history, shallow CI labelled as limited |
+| **F20** | **`Verified-By` was proposed and dropped.** `B-011` asked for it; `D-101` adopted five fields and omitted the one that made the word mean something. The answering lane wrote its own verdict | **Fixed structurally** — `Applied` is now the honest state and ten rows carry it; `Verified` requires a named independent actor |
+| **F21** | **Condition 2 kept the old vocabulary.** The table the Judge reads said terminal meant `Answered` or `Withdrawn` while `D-101` had replaced both | **Fixed** — and `Applied` is named as explicitly non-terminal |
+| **F22** | **The closure gate was not phase-scoped.** Any phase closing required *every* entry in the directory to be terminal, so a Phase 3 item could fail Phase 1's boundary. The rule said *"raised against it"*; the check had no field to read that from | **Fixed** — `Phase:` is mandatory and the gate is scoped; both halves negative-tested |
+| **F23** | **A superseded sentence sat in current-state prose.** Immediately below the four-state table: *"Phase 2 started while Phase 1 is open… `D-75` says sequentially, one at a time"* — contradicting the table above it | **Fixed** — quoted, marked superseded, with what replaced it |
+
+**Lane B raised three more entries against the repairs themselves** — `B-016`, `B-017`, `B-018` —
+and `B-017` is the most serious thing found in this cycle:
+
+| # | Finding | Status |
+|---|---|---|
+| **F24** | **The metadata parser read the NEXT line as a missing value.** `\s*` after the field marker crosses a newline, so a blank `Kind` followed by `- **Phase:** 1` returned `"- **Phase:** 1"`. Three entries shipped with blank `Kind` and check 10 reported PASS. **The green did not describe the files being judged** | **Fixed** — one line-bounded parser in `handoff-fields.mjs`; reproduced before and after |
+| **F25** | **The first uniqueness check was a false green three ways.** It shelled out to Unix `grep` (absent on Windows) and swallowed the error; its detail said `1 canonical skill found` for *any* count including zero; and it never asserted the canonical procedure existed at all | **Fixed** — pure JS discovery, enumeration failure is a FAILURE, and zero/wrong-path/duplicate are three findings |
+| **F26** | **The rewritten check still passed with the canonical file deleted** — `git ls-files --cached` reports the index, not the disk. **Found by its own fixture 10**, not by review | **Fixed** — existence on disk required |
+| **F27** | **`B-014`: the duplicate `sync-docs` skill returned untracked**, carrying the same triple that omits `CLAUDE.md`. Untracked and outside `docs/`, so `graph-coverage` and `source-sweep` are both blind to it | **Fixed** — check 14 covers tracked *and* untracked, plus the triple's content |
+
+**Reject count, which `D-93` names as this mechanism's health metric: 11 findings, 0 dismissed.**
+**Seven of the eleven are defects introduced by the two passes that were correcting the previous
+ten** — the same ratio §6.1b recorded, which is itself the finding: *this repository's dominant
+defect source is its own corrections.*
+
+**Condition 3 remains NOT MET.** A Lane A critic pass against the `D-102` commit is owed on a
+later turn, and only that pass can set it.
 
 ### 6.2 What the critic pass did not find
 
@@ -694,6 +747,47 @@ npx graphify hook-rebuild
 gitignored `.graphify/`, `source-sweep` needs full history. **A lower CI total is correct, not a
 regression**, and no total is restated in this document beyond this snapshot's own dated row.
 
+### 6.4c Snapshot refreshed — 2026-08-24 (`D-102`)
+
+**Commit:** `PIN-D102` · **Graph:** 817 nodes / 1582 links (`frag56`, `frag57`) · **Suite:** 12 of
+14 pass.
+
+| Check | Result |
+|---|---|
+| `shared-core-hash` | PASS — core `a8173008845e` across 3 files; **unchanged**, because nothing here touches the lane model |
+| `tier-sweep` | PASS — 158 tier claims verified |
+| `duplicate-ids` | PASS — 87 rows, 87 distinct |
+| `graph-coverage` | PASS — 0 of 80 `docs/` files absent |
+| `settings-parse` | PASS |
+| `decision-status` | PASS — 72 gap rows against 16 closure claims |
+| `lane-boundary` | **FAIL — the declared A+C crossing.** Judge-authorised 2026-08-24; trailer under `D-88`. `D-83`: it **reports** a crossing, it does not forbid one |
+| `source-sweep` | PASS |
+| `handoff-response` | PASS — 19 entries, 7 open, 12 answered |
+| `phase-manifest` | PASS — 34 paths, 9 exclusions |
+| `config-coupling` | **FAIL — correctly.** The 13 unimplemented `CONFIG_LOG.md` rows are Lane B's opening work. **Softening this would be the ceremonial-check failure** |
+| `closure-readiness` | PASS — **applied 10, open 7, superseded 2.** `verified 0` |
+| `docs-drift` | PASS |
+| `sync-docs-unique` | PASS — canonical path, no duplicates across `.claude`, `.agents`, `.codex`, `.github` |
+
+**`verified 0` is the honest number and it is the point.** Before this pass the same matrix read
+**`verified 10`**, every one of them on the answering lane's own say-so. **Nothing was
+un-fixed** — the ten fixes are all still in the tree at their commits. What changed is that the
+register stopped claiming an independence it never had.
+
+**Two conditions that were recorded met are now recorded NOT met** — condition 2 (ten `Applied`
+entries) and condition 3 (§6.1c). **A closure report that gets shorter after a review is working.**
+
+**Reproduce in two commands:**
+
+```
+bun run check
+node docs/graph-fragments/merge7.js docs/graph-fragments/frag57.json
+```
+
+**This pass is work, and its critic pass is owed on a separate turn (`D-93` rule 1).** §6.1c was
+performed by Lane B against `983f058`; **a Lane A pass against this commit is what condition 3
+still waits on.**
+
 ### 6.4a Graph portability — `B-011` repair 6, checked 2026-08-24
 
 **`npx graphify portable-check .graphify` reports absolute paths and exits non-zero.** Recorded
@@ -728,6 +822,33 @@ Four tests, all run, all probes removed:
 excluded as Lane C's artifact — because it conflated *"this was removed"* with *"this belongs to
 another phase."* **A check that reports a disagreement true by design teaches people to ignore
 it.**
+
+**`D-102` fixtures — `B-017` repair 7 and `B-018` repair 5.** Eleven for the two rewritten checks
+plus three for phase scoping. **All fourteen mutate the real tree, run the real check, and
+restore.**
+
+| Test | Expected | Result |
+|---|---|---|
+| Blank `Kind` directly above another field | FAIL | ✅ named it BLANK, not absent — the newline-borrowing case |
+| Blank `Phase` | FAIL | ✅ |
+| `Phase` naming no row in the register | FAIL | ✅ |
+| `Verified-At-Commit: not-a-sha` | FAIL | ✅ not a commit identifier |
+| A well-formed hex SHA that does not exist | FAIL | ✅ no such commit in this repository |
+| `Verified-At-Commit: pending — this pass` | FAIL | ✅ read as absent, not as a value |
+| `Verified-By: Acknowledged` on a `Verified` row | FAIL | ✅ receipt is not verification |
+| A malformed `Resolution` while **no** phase is closed | FAIL | ✅ malformed state no longer waits for the Judge boundary |
+| An untracked duplicate `sync-docs/SKILL.md` | FAIL | ✅ |
+| The canonical `sync-docs/SKILL.md` deleted | FAIL | ✅ **only after fixing the check** — see below |
+| The canonical procedure with `CLAUDE.md` removed from its triple | FAIL | ✅ the `B-005` defect itself |
+| Phase 1 closed, an **open Phase 1** entry | FAIL | ✅ named the entry |
+| Phase 1 closed, an **open Phase 3** entry | **PASS** | ✅ did not fire — `B-013` item 6 |
+| Phase 1 closed, that entry made terminal | **PASS** | ✅ the gate goes quiet |
+
+**Fixture 10 failed on its first run, and that is the entry worth reading.** The rewritten
+uniqueness check passed with the canonical skill **deleted from disk**, because `git ls-files
+--cached` reports the INDEX. A check written specifically to stop a false green shipped with one,
+and **the fixture caught what the review did not** — which is the entire argument for writing
+fixtures before believing a check.
 
 ### 6.6 Judge
 

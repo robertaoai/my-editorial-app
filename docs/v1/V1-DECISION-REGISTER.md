@@ -203,6 +203,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G73` | **Open — residual of `D-91`, no control proposed** | **A correction to one agent's rule-file tail reaches one agent, and nothing detects the divergence.** `D-87` struck the dead `.graphify/needs_update` instruction from `CLAUDE.md`'s tail; `AGENTS.md` and `.agents/rules/graphify.md` carried it for four days. **`shared-core-hash` compares only the region between the markers** — tails are excluded **by design**, since they differ per agent and hashing them would fail on every legitimate difference. `G53` named the same shape for the shared region and was closed by hashing it; **that instrument does not transfer here.** `D-91` fixed the instance in both files. **No check is proposed** — a control that fires on every intended difference is worse than none (`D-83`'s reasoning). Recorded so the next per-agent correction is known to need manual propagation |
 | `G74` | **Closed 2026-08-21 — found by using the control from a new direction** | **`C-14` check 10 was scoped to one lane.** `handoff-response` filtered entry filenames on `B-` alone, so a `C-NNN` entry was **invisible** — the check would report *"channel installed, no entries yet"* with Lane C's blocker sitting in the directory. **The exact failure the check exists to prevent, aimed at the one lane it did not cover.** `D-90` reasoned about *acknowledged versus answered* and not at all about *whose entries count*. Filter widened to `[BC]-`; **negative-tested both directions.** Lane A raises nothing here, so `A-` is deliberately excluded. §5.14az |
 | `G75` | **Closed 2026-08-21 — the rule was three paragraphs above the violation** | **Four documents asserted the number of `C-14` checks as a literal, and all four were wrong.** `V1-BUILD-SPEC.md` was wrong **twice in one sentence** — *"Extended to nine"* beside *"a local `8/8`"*. `G55`, `G56` and `G58` all record the same mechanism, **propagate the fact never the tally**, and `CLAUDE.md`/`AGENTS.md`/`.agents/rules/graphify.md` state that rule and then carry a tally. **Not fixed by correcting the number** — a corrected number drifts at the next check. Tallies removed and replaced with the rule that determines CI coverage: **what a check reads.** Prerequisite for Lane C's `fetch-depth: 0`, which changes the CI total. §5.14az |
+| `G76` | **Closed 2026-08-24 — the control layer's own green was false** | **Both handoff checks read the NEXT metadata line as a missing field's value.** The pattern `^-\s*\*\*Name:\*\*\s*(.*)$` uses `\s`, which matches a **newline**, so a blank field followed by another field captured that following line. `B-013`, `B-014` and `B-015` shipped with blank `Kind` values and `handoff-response` reported **PASS** on all three. **This is not a checking gap but a checking LIE** — every claim in this apparatus about the channel is read through these two functions, so the defect invalidated the evidence for the other six entries at once. **Three copies of the parser existed**, across `handoff-response`, `closure-readiness` and their duplicated phase-register readers; one line-bounded copy now lives in `scripts/checks/handoff-fields.mjs`. **Reproduced before and after, and negative-tested seven ways.** §5.14bj |
+| `G77` | **Open — structural, no control proposed** | **This repository's dominant defect source is its own corrections.** §6.1b recorded six of eight findings as defects introduced by the passes correcting the previous ten. §6.1c records **seven of eleven** the same way, and the pass that repaired `B-013` shipped `B-017` and `B-018` — one of which (`G76`) is a false green inside a check written to stop false greens. **`G56` names *restatement* as a drift mechanism; this is the same shape one level up: re-derivation.** No control is proposed, because a check that fires on "a correction introduced something" fires on the normal case (`D-83`). **What works is what caught these: an independent lane reviewing the repair, and negative fixtures written before the check is believed** — fixture 10 found what review did not. Recorded so the ratio is tracked rather than rediscovered |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2346,6 +2348,52 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
+### `C-26` — ten entries are `Applied`, and Phase 1's condition 2 needs them `Verified`
+
+**Opened by `D-102`. Phase: Phase 1 closure.** `Applied` means the fix is in the tree at a named
+commit and **nobody independent has confirmed it**. Ten entries carry it, and it is deliberately
+**non-terminal**, so condition 2 is **not met**.
+
+**The natural verifier is Lane B**, which raised every one of them and has already demonstrated
+the capability — `B-013` is a verification pass that **rejected** the claims it examined, which is
+the only kind of verification worth having.
+
+**Not solvable by Lane A.** A resolution written and verified by the same side is what `B-013`
+item 4 reports; **Lane A marking its own ten entries `Verified` would be that defect performed
+deliberately.**
+
+### `C-25` — the live-ruleset evidence is held outside the repository
+
+**Opened by `D-102`, raised as `B-016` child 3. Phase: Lane C, Phase 3.** `C-001` reports the
+live `main` ruleset as dormant, citing `live.json` and screenshots. **The Judge confirms Lane C
+performed the verification, so the claim is authoritative** — and **no such evidence exists in the
+repository**, so a later reader cannot reproduce it.
+
+**This matters because `D-89` has the same shape.** `B-015` observes that `D-89` was *"asserted,
+never verified"*; accepting `C-001` on the same footing would repeat the pattern one level up.
+
+**Fix:** record date, actor, repository, branch target, **exact** required context, expected
+GitHub App source, and durable evidence from a protected test PR — then `D-89` is restored or
+retired **on evidence**, not on memory.
+
+### `C-24` — the compatibility `verify` job cannot prove verification
+
+**Opened by `D-102`, raised as `B-016` child 4. Phase: Lane C, Phase 3.** `.github/workflows/ci.yml`
+declares `compatibility_verify` with `name: verify`, `needs: verify`, and a single `echo` step.
+
+**`needs:` without `if:` means the job is SKIPPED — not failed — when the job it depends on
+fails.** It does not run and it echoes nothing. **GitHub accepts a skipped context for a required
+check.** So the `verify` context can report acceptably while typecheck, lint, tests and
+`bun run check` have **not** passed.
+
+**What this condition blocks is the SETTINGS act, not the commit.** The file is committed on the
+Judge's ruling; **`verify` must not be made a required context until the job's result mirrors the
+real one.**
+
+**Fix, specified and not applied (`D-56` — `.github/workflows/` is Lane C's):** an unconditional
+reporting step — `if: always()` — that **fails unless `needs.verify.result == 'success'`**. An
+echo-only job is insufficient by construction.
+
 ### `C-23` — **CLOSED 2026-08-22 (`D-97`), exactly as written**
 
 **The row is corrected, in the same pass the Judge picked a shape.** Both stale claims struck: the
@@ -2442,7 +2490,11 @@ pass that closes the phase, never before.**
 
 ### `C-18` — the CI job rename needs a paired act no lane owns
 
-**Opened by `D-92`. Phase: Lane C, Phase 3.** The CI job is named `Typecheck · Lint · Test` with **U+00B7 MIDDLE DOT** separators, and GitHub matches a required status check by that exact string — so if the protection rule was typed by hand with any other character, **protection is configured and never gates**, the `D-81` fail-open pattern.
+**Opened by `D-92`. Phase: Lane C, Phase 3. Failure direction CORRECTED by `D-102`, raised as `B-015`.** The CI job is named `Typecheck · Lint · Test` with **U+00B7 MIDDLE DOT** separators, and GitHub matches a required status check by that exact string. If the protection rule names any other character sequence, **the required context never reports, stays pending, and BLOCKS THE MERGE.**
+
+> **The original text said the opposite** — *"protection is configured and never gates"*, the `D-81` fail-**open** pattern — and a later edit appended *"fail-closed (blocks merge)"* to the same sentence, leaving it asserting **both directions for one mechanism**. **`B-015` is right and GitHub's documentation is unambiguous: a required check that never reports blocks the merge.** The business consequence is preserved — **delivery stops** — but it stops *visibly*, which is the safe direction.
+
+**A far larger question now sits above this one.** `C-001` reports that the live ruleset targets **no branches** and carries **no `required_status_checks` rule at all**. **If that holds, `C-18` is a child task**: renaming a required context inside a rule that gates nothing changes nothing. See **`C-25`** and §5.14bj.
 
 **The rename and the branch-protection rule must change together.** Rename first and the required check never reports, so **every pull request blocks indefinitely** — failing *closed*, which is the safe direction, and still a stoppage.
 
@@ -5045,3 +5097,200 @@ rather than papered over.
 
 **Inventory affected** — check 13 is a new file. **`Modular_PRD` unaffected** — no sprint closed,
 no tier opened, and its `Q11` row was already correct; **the drift was in the Build Spec only.**
+
+---
+
+## 5.14bj `D-102` — The Merge Gate May Not Exist, the Control Layer Had a False Green, and `Verified` Was the Answering Lane's Own Word
+
+**Seven entries: `B-013`, `B-014`, `B-015`, `B-016`, `B-017`, `B-018`, `C-001`. Every one stands.
+Six of the seven report defects in `D-101` or in the uncommitted pass that was repairing `D-101`
+— which is the shape of this cycle and is recorded as `G77` rather than narrated away.**
+
+### The parent: `D-89`'s merge gate may not exist at all
+
+**`C-001` reports that the live `main` ruleset targets ZERO branches** — a malformed include
+string, `"refs/heads/\"main\", \"releases/**/*\""`, which matches nothing — **and contains no
+`required_status_checks` rule whatsoever.** If that holds, then:
+
+> **`D-82`, closed by `D-89`, records that *"`main` requires a pull request and a passing status
+> check, so CI now runs before a merge, not after it."* **That sentence describes a gate that,
+> on this evidence, is not in force.**
+
+**This outranks the job rename by a wide margin.** `C-18`, `C-Q2`, `B-015` and `B-016` are all
+about renaming a required context; **renaming a check inside a rule that gates nothing is a child
+task.** Repairing the rule is the parent.
+
+**The Judge confirms Lane C performed the verification.** The evidence — `live.json` and
+screenshots — is **held outside the repository**, so the claim is authoritative and **not
+reproducible by a later reader**. That gap is recorded as **`C-25`** rather than resolved by
+assertion: `D-89` was itself *"asserted, never verified"* (`B-015`), and repeating the pattern one
+level up would be `conflict_asserted_past_source` a third time.
+
+### `B-013` — a critic pass cannot certify the artifact set that followed it
+
+**`D-101` recorded, in one artifact, that its own critic pass was owed on a later turn AND that
+Phase 1's condition 3 was met.** §6.1b reviewed `de3b7df`; `D-101` shipped at `983f058`. **Asking
+the Judge whether condition 3 was met produced two answers from the same document.**
+
+**Condition 3 is now NOT MET, and so is condition 2.** Recorded in `V1-PHASE-CLOSURE.md` §6.1c.
+
+**Lane B performed the separate-turn pass.** That is *more* independent than `D-93` requires and
+**is not what `D-93` assigns** — the Critic role is Lane A's. Both facts are recorded; neither is
+allowed to stand in for the other.
+
+### `Applied` — the state that was actually true
+
+**`B-011` asked for `Verified-By`. `D-101` adopted five fields and dropped that one.** The
+uncommitted repair pass then supplied it as `Verified-By: Acknowledged` — **a receipt state
+wearing the word "verified"** — across ten entries, and defaulted the template to it.
+
+**Rather than weaken `Verified`, `D-102` adds `Applied`:** the fix is in the tree and anchored to
+a commit, and **nobody independent has confirmed it.** It is deliberately **non-terminal**, so it
+does not satisfy a closure condition.
+
+| | Means | Terminal? |
+|---|---|:---:|
+| **`Applied`** | In the tree, anchored to a commit, **unconfirmed by anyone but the answering lane** | **No** |
+| **`Verified`** | Confirmed by a **named actor who is not the answering side**, at a commit that **exists** | Yes |
+| **`Deferred`** | Owned by a named tier | Yes |
+| **`Withdrawn`** | The raiser or the register retracted it | Yes |
+| **`Superseded`** | A named decision overtook it | Yes |
+
+**Ten entries moved from `Verified` to `Applied`, and Phase 1's condition 2 went red as a direct
+result.** That is the point. **Recording ten honest `Applied` rows costs a red condition;
+recording ten unearned `Verified` rows costs the meaning of the word** — and the register would
+have carried the second kind indefinitely, because nothing could tell them apart.
+
+**Three entries also read `Verified-At-Commit: pending — this pass`.** `pending` is not a commit.
+The check never read the field at all, so it reported ten verified entries while three had no
+anchor. Now: hexadecimal required, **existence proven by `git cat-file` on full history**, and a
+shallow CI checkout reports a **clearly labelled limited result** rather than claiming the commit
+was checked.
+
+### `B-017` — the control layer itself had a false green
+
+**This is the most serious finding in the cycle, and it invalidates the evidence every other
+entry rests on.** Both channel checks wrote their field pattern as `^-\s*\*\*Name:\*\*\s*(.*)$`.
+**`\s` matches a newline.** So a blank field followed by another field returns the NEXT LINE as
+its value:
+
+| Input | Old pattern | Line-bounded |
+|---|---|---|
+| a blank `Kind` line above `- **Phase:** 1` | `"- **Phase:** 1"` | `""` |
+
+**`B-013`, `B-014` and `B-015` shipped with blank `Kind` values and check 10 reported PASS.** The
+green did not describe the files being judged. **Reproduced before the fix and after it** — not
+reasoned about.
+
+**The parser now lives once**, in `scripts/checks/handoff-fields.mjs`, together with the phase
+register reader that had been copied verbatim into both checks. **Three copies of a parser is
+three chances to fix a bug twice**, which is exactly what happened across `D-95`, `D-101` and this
+pass.
+
+**`Phase:` is now mandatory and validated against the register.** `B-013` item 6 and `B-017`
+item 4 are the same defect from two directions: the gate was global, so a Phase 3 entry could fail
+Phase 1's boundary; and an entry with no legible phase **vanished from every gate silently**.
+Both halves negative-tested — an open Phase 3 entry does **not** fail Phase 1 closure, and an open
+Phase 1 entry does.
+
+### `B-014` and `B-018` — the removed duplicate came back, and its detector was ceremonial
+
+**`B-005` deleted `.agents/skills/sync-docs/SKILL.md` as a divergent duplicate. It returned**,
+untracked, carrying the same defect: a "shared-core triple" reading `AGENTS.md`, `AGENTS.md`,
+`.agents/rules/graphify.md` — **an instruction to propagate to two files and silently skip
+`CLAUDE.md`.** Untracked and outside `docs/`, so `graph-coverage` and `source-sweep` are both
+blind to it: **the repository passes every governed check while an active procedure instructs an
+incomplete propagation.**
+
+**The first check written to catch it was a false green three ways** (`B-018`), and each is a
+different way to be green for no reason:
+
+| # | Mechanism |
+|---|---|
+| 1 | It shelled out to Unix `grep`. On Windows the command does not exist, the `catch` swallowed the error, and **discovery failing was indistinguishable from discovering nothing** |
+| 2 | Its detail line read `1 canonical skill found` for **every** count that was not greater than one — **including zero** |
+| 3 | It tested only for duplicates and **never asserted the canonical procedure existed at all** |
+
+**And the rewrite shipped with a fourth**, caught by its own fixture rather than by review:
+`git ls-files --cached` reports the **index**, so the check passed with the canonical file
+**deleted from disk**. **A check written specifically to stop a false green had one.**
+
+**Origin of the recurrence, per `B-014` item 1:** an environment-level import — the same one that
+appended the empty `## Imported Claude Cowork project instructions` heading to `AGENTS.md`.
+**Disposition of that heading, recorded rather than silently kept or discarded (`B-014` item 6):
+REMOVED.** It carried no content, sits outside the shared-core hash, and no check can see it.
+
+### `B-015`, `B-016`, `C-001` — the rename, and what the Judge ruled
+
+**`C-18`'s failure direction was wrong and is corrected.** A required status check that never
+reports stays **pending**, and a pending required check **blocks the merge**. The old text said
+*"protection is configured and never gates"* — fail-**open** — and the uncommitted pass appended
+*"fail-closed (blocks merge)"* to the same sentence, leaving it asserting both. **One direction
+now, stated once:** an absent or misnamed required context **fails closed**. Delivery stops; it
+does not silently pass.
+
+**Judge ruling, 2026-08-24: the Lane C workflow edit is KEPT and committed**, with the crossing
+declared in the commit trailer under `D-88`. **`B-016` repair 1 — withdraw it and preserve it as
+a proposal — is therefore answered by decision rather than by withdrawal.**
+
+**`B-016` child 4 stands and is NOT resolved by that ruling, and this is stated plainly because
+the ruling's stated reason does not match the file.** The Judge's reason was that *"if it failed
+that new step would echo a failure reason."* The committed job is:
+
+```
+compatibility_verify:
+  name: verify
+  needs: verify
+  steps:
+    - run: echo "This job provides the 'verify' status context…"
+```
+
+**`needs: verify` with no `if:` means that when the real job FAILS, this job is SKIPPED — it does
+not run, and it echoes nothing.** GitHub accepts a skipped context for a required check. **So a
+`verify` context can go green without typecheck, lint, tests or `bun run check` having passed** —
+`D-81`'s fail-open pattern, in the one place the repository is trying to close it.
+
+**Recorded as `C-24`, specified and not applied.** `.github/workflows/` is Lane C's surface
+(`D-56`), and Lane A does not author there. **The dangerous act is not committing this file — it
+is making `verify` a required context while the job is shaped this way**, and `C-24` blocks that
+act rather than the commit.
+
+**`C-001`'s own defects are corrected**: raiser (Lane C, not Lane B), Phase (3, not 1), the exact
+old context preserved with its **U+00B7 MIDDLE DOT** separators, and the evidence recorded as
+external and non-reproducible.
+
+### The lane crossing, declared
+
+**This commit spans Lane A and Lane C**, and `lane-boundary` reports it. **Declared under `D-88`
+with a `Lane-Crossing:` trailer, on the Judge's instruction.** `D-83`'s reasoning is unchanged:
+the check **reports** a crossing rather than forbidding one, because most recorded crossings were
+legitimate — and this one was authorised in the turn that produced it.
+
+### Conditions opened
+
+| | |
+|---|---|
+| **`C-24`** | **The compatibility `verify` job cannot prove verification.** `needs:` without `if:` makes it skip — not fail — when the real job fails. **Blocks making `verify` a required context**, not the commit. Lane C implements an unconditional reporting step that fails unless `needs.verify.result == 'success'` |
+| **`C-25`** | **The live-ruleset evidence is held outside the repository.** `C-001`'s claim is the Judge's and is authoritative; **a later reader cannot reproduce it.** Record date, actor, branch target, exact required context and expected GitHub App source durably before `D-89` is either restored or retired |
+| **`C-26`** | **Ten entries are `Applied`, and Phase 1's condition 2 cannot be met until they are `Verified` by a named actor who is not the answering lane.** The natural verifier is Lane B, which raised them |
+
+### Gaps opened
+
+**`G76`** and **`G77`** — §5.1.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Merge gate may not exist | ✅ §5.14bj, `C-25` | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `Applied` state + `Verified-By` | ✅ §5.14bj | **— unaffected** | **— unaffected** | ✅ check + template rows | ✅ conditions 2 and 3, §5 | **— unaffected** |
+| Line-bounded parser | ✅ §5.14bj | **— unaffected** | **— unaffected** | ✅ `handoff-fields.mjs` | ✅ §5A.5, §6.5 | **— unaffected** |
+| `sync-docs` uniqueness | ✅ §5.14bj | **— unaffected** | **— unaffected** | ✅ check 14 | ✅ §5A.5 | **— unaffected** |
+| `C-18` failure direction | ✅ §5.14bj + `C-18` | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| Condition 3 NOT MET | ✅ §5.14bj | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §6.1c | **— unaffected** |
+
+**Agent files unaffected and that is checked, not assumed** — nothing here changes the lane map,
+the lane states, or the shared core; the core hash is unchanged at `a8173008845e`.
+**`Modular_PRD` unaffected** — no sprint closed and no tier opened. **Build spec unaffected** —
+no artifact created, sequenced or retired; the two new check files are apparatus, recorded in the
+inventory and the Phase 1 manifest.

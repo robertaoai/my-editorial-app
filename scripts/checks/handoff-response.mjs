@@ -13,7 +13,8 @@
 // while every check passed.
 //
 // WHAT IT FAILS ON:
-//   * a malformed entry — missing `Kind`, `Status`, or `Lane A`
+//   * a malformed entry — missing or BLANK `Kind`, `Status`, `Lane A`, or
+//     `Phase`; or a `Phase` naming no row in the register (`D-102`, `B-017`)
 //   * `Status: Answered` with an empty `Lane A` line — a claim with nothing
 //     behind it
 //   * `Status: Open` with NO acknowledgement — the "feedback sits unread" case
@@ -33,13 +34,20 @@
 //   * It cannot make a lane write an entry. A blocker never recorded is
 //     invisible to it.
 //
+// `D-102`, raised as `B-017`: this check reported PASS on three entries whose
+// `Kind` was blank, because its field pattern used `\s*` and stepped over the
+// newline into the next metadata line. **The metadata parser now lives in
+// `handoff-fields.mjs`** — line-bounded, one copy, shared with check 13. The
+// same file also owns the phase register reader, which had been copied here
+// and into check 13 verbatim.
+//
 // Tracked files only, so it runs in CI.
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { CLOSURE_PATH as CLOSURE, ENTRY_FILE, field, fieldPresent, phaseSets } from "./handoff-fields.mjs";
 
 const DIR = "docs/handoff";
-const CLOSURE = "docs/v1/V1-PHASE-CLOSURE.md";
 
 // `C-19` (`D-95`, raised as `B-010`) — `Reopens-Phase:` enforcement.
 //
@@ -50,61 +58,11 @@ const CLOSURE = "docs/v1/V1-PHASE-CLOSURE.md";
 // closed. **Reopening presupposes a closure.** The check is non-vacuous
 // because the error it catches does not require a closed phase to exist.
 //
-// Reads §5's phase register: a row is closed when its `Closed` cell holds
-// anything other than a dash.
-// Reads `§5`'s phase register by COLUMN NAME, not position.
-//
-// Three positional-parsing defects preceded this: `phase-manifest` dropped
-// compound rows, this detector matched `§1.1a`'s three-column table, and then
-// `§5` gained a Lane column and shifted every index. **A header-driven parser
-// cannot be broken by adding a column**, which is why the approach changed
-// rather than the pattern.
-function phaseRows(text) {
-  const lines = text.split("\n");
-  const start = lines.findIndex((l) => /^#{2,3}\s+5\.\s+Phase register/.test(l));
-  if (start < 0) return [];
-  const rest = lines.slice(start + 1);
-  const end = rest.findIndex((l) => /^#{2,3}\s/.test(l));
-  const block = end < 0 ? rest : rest.slice(0, end);
-
-  const cells = (l) => l.split("|").slice(1, -1).map((c) => c.trim());
-  const header = block.find((l) => /^\|/.test(l) && /Closed/i.test(l) && /Phase/i.test(l));
-  if (!header) return [];
-  const cols = cells(header).map((c) => c.replace(/\*/g, "").toLowerCase());
-  const iPhase = cols.findIndex((c) => c.startsWith("phase"));
-  const iClosed = cols.findIndex((c) => c.startsWith("closed"));
-  if (iPhase < 0 || iClosed < 0) return [];
-
-  const out = [];
-  for (const l of block) {
-    if (!/^\|/.test(l) || l === header) continue;
-    if (/^\|[\s:|-]+\|?$/.test(l)) continue; // separator
-    const c = cells(l);
-    if (c.length <= Math.max(iPhase, iClosed)) continue;
-    const n = (c[iPhase].match(/\d/) || [])[0];
-    if (!n) continue;
-    out.push({ phase: n, closed: !/^[\s—–-]*$/.test(c[iClosed]) });
-  }
-  return out;
-}
-
-function closedPhases() {
-  if (!existsSync(CLOSURE)) return null;
-  const rows = phaseRows(readFileSync(CLOSURE, "utf8"));
-  if (rows.length === 0) return null;
-  return {
-    seen: new Set(rows.map((r) => r.phase)),
-    closed: new Set(rows.filter((r) => r.closed).map((r) => r.phase)),
-  };
-}
-
+// Reads `§5`'s phase register BY COLUMN NAME — see `handoff-fields.mjs`, which
+// carries that reader and the three positional-parsing defects that produced
+// it. Nothing about it is duplicated here any more.
 // `Acknowledged`, `Answered`, `Withdrawn` — anything else is not a disposition.
 const DISPOSITIONS = /^(Acknowledged|Answered|Withdrawn)\b/i;
-
-function field(text, name) {
-  const m = new RegExp(`^-\\s*\\*\\*${name}:\\*\\*\\s*(.*)$`, "mi").exec(text);
-  return m ? m[1].trim() : null;
-}
 
 export function run() {
   if (!existsSync(DIR)) {
@@ -117,9 +75,9 @@ export function run() {
 
   // `B-` is Lane B (`D-90`), `C-` is Lane C (`D-92`). Lane A does not raise
   // entries here — it answers them; a Lane A concern goes in the register.
-  const entries = readdirSync(DIR).filter((f) => /^[BC]-\d+.*\.md$/.test(f));
+  const entries = readdirSync(DIR).filter((f) => ENTRY_FILE.test(f));
   const findings = [];
-  const phases = closedPhases();
+  const phases = phaseSets();
   let reopening = 0;
   let open = 0;
   let answered = 0;
@@ -158,7 +116,28 @@ export function run() {
       }
     }
 
-    if (!kind) findings.push(`${path}: no **Kind:** field — cannot route it`);
+    if (!kind) {
+      findings.push(
+        fieldPresent(text, "Kind")
+          ? `${path}: **Kind:** is present but BLANK — cannot route it. (This is the case that used to read the next line and pass: \`B-017\`.)`
+          : `${path}: no **Kind:** field — cannot route it`,
+      );
+    }
+
+    // `B-017` repair 3. Phase-scoped closure gating is only as good as the
+    // field it scopes by. A missing or unknown `Phase` used to remove the
+    // entry from every gate SILENTLY, so a real blocker could disappear from
+    // the phase it blocks. It fails here, immediately — not at the boundary.
+    const phaseVal = field(text, "Phase");
+    if (!phaseVal) {
+      findings.push(
+        `${path}: no **Phase:** value — closure gating is phase-scoped, and an entry with no phase blocks nothing and is checked by nothing`,
+      );
+    } else if (phases === null) {
+      findings.push(`${path}: **Phase:** ${phaseVal} — no phase register found in ${CLOSURE}`);
+    } else if (!phases.seen.has(phaseVal.replace(/[^0-9]/g, ""))) {
+      findings.push(`${path}: **Phase:** "${phaseVal}" — no such phase in the register`);
+    }
     if (!status) {
       findings.push(`${path}: no **Status:** field — cannot tell if it is live`);
       continue;
@@ -168,7 +147,9 @@ export function run() {
       continue;
     }
 
-    const acknowledged = DISPOSITIONS.test(response);
+    // Dispositions are routinely written bold — `**Acknowledged ...**`. The
+    // marker is emphasis, not content, so it is stripped before the test.
+    const acknowledged = DISPOSITIONS.test(response.replace(/^[*_\s]+/, ""));
 
     if (/^Open\b/i.test(status)) {
       open++;

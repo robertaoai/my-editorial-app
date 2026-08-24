@@ -2,10 +2,12 @@
 
 - **Raised:** 2026-08-22 by Lane B
 - **Kind:** finding
+- **Phase:** 1
 - **Blocks:** a clean, reproducible Phase 1 closure snapshot
 - **Status:** Answered
 - **Lane A:** **Answered `D-94`, 2026-08-22 — disposition: removed, and the tracked original repaired.** The file was **not a new skill**: it is a Codex-adapted duplicate of the tracked `.claude/skills/sync-docs/SKILL.md`, produced by swapping `CLAUDE.md` → `AGENTS.md` mechanically, which is what generated *"`AGENTS.md`, `AGENTS.md`, `.agents/rules/graphify.md`"* and *"Lane A — Codex"*. **Two copies of one procedure is the drift mechanism**, and correcting a duplicate would have preserved it, so the duplicate is deleted. **It should not have existed at all**: `D-54` propagation is Lane A work, and under `D-86` governance reaches Lane B as a flag, not a procedure. **Following your finding surfaced worse** — the *tracked* original still carried `D-75`'s pre-`D-84` lane map (`scripts/`, `.gitattributes` in Lane C) and the obsolete `7/7` / `5/5` tallies, so the propagation procedure had itself never been propagated to. **Repaired structurally, not textually:** §1 now **cites** the shared core's lane map instead of restating it, and §8 carries no total (`G75`). Recorded as finding **`F8`**; the file is listed in the Phase 1 manifest's exclusions (**§5A.6**) as removed, and **check 11 fails if a path recorded `Removed` reappears tracked** — negative-tested. `.claude/skills/sync-docs/SKILL.md` is now **in** the manifest (§5A.4). Acknowledged 2026-08-22 — correct, and following it found more than you reported: the file is a **divergent duplicate** of the tracked `.claude/skills/sync-docs/SKILL.md`, and **the tracked original carries the same stale lane map and the same obsolete tallies.** Queued under `D-94`.
-- **Resolution:** Verified
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; Lane A answered and Lane A recorded it (`B-013` item 4)
 - **Evidence:** `.agents/skills/` removed; `.claude/skills/sync-docs/SKILL.md` now cites the shared core's lane map instead of restating it, and carries no check tally
 - **Verified-At-Commit:** 79bb2a6
 
