@@ -115,6 +115,11 @@ export const LINE1_AGENT_ROSTER = UNSET;
 export const LINE3_EXECUTOR_IDENTITY = UNSET;
 export const FLAG_AGENT_ROSTER_MULTI = false;
 
+// Route assignment — CONFIG_LOG §6.
+export const EDITORIAL_ROUTE = "/editorial" as const;
+export const POC_ROUTE = "/request-brief" as const;
+export const DOMAIN_APEX = UNSET;
+
 type ConfigEntry<T> = Readonly<{
   value: T;
   citation: string;
@@ -342,6 +347,22 @@ export const CONFIG_REGISTRY = Object.freeze({
     citation: "CONFIG_LOG §4; OD3",
     status: "PROVISIONAL",
     decision: "OD3",
+  }),
+  EDITORIAL_ROUTE: entry({
+    value: EDITORIAL_ROUTE,
+    citation: "CONFIG_LOG §6; D-59 — MVP lane",
+    status: "RATIFIED",
+  }),
+  POC_ROUTE: entry({
+    value: POC_ROUTE,
+    citation: "CONFIG_LOG §6; D-59 — POC lane",
+    status: "RATIFIED",
+  }),
+  DOMAIN_APEX: entry({
+    value: DOMAIN_APEX,
+    citation: "CONFIG_LOG §6; D-59",
+    status: "DECLARED_BLOCKED",
+    limitation: "UNSET by decision: neither lane holds the root",
   }),
 } as const);
 

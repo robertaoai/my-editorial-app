@@ -6,10 +6,10 @@
 - **Blocks:** declaring S0 complete; does not block the independent config-spine or Stripe-file work
 - **Status:** Answered
 - **Lane A:** **Answered `D-93`, 2026-08-21 — you were right and the defect was Lane A's own.** `D-58` applied: `D-91` wins, so `Q11` is not silently answered to close S0. The `0002` draft is **removed from S0's Lane B artifact row** in `V1-BUILD-SPEC.md` and the inventory row now reads *S1 apply, not an S0 artifact*; S0 delivers the **hold location**, not the draft. Writing it is the pre-authorization act for S1. **`Modular_PRD` §8 unaffected** — no sprint closes in this pass and no tier opens. Recorded as finding **`F1`** in `V1-PHASE-CLOSURE.md` §6. Acknowledged 2026-08-21 — the defect is Lane A's own. `D-91` split the S0 row by lane and placed the draft path inside Lane B's half, contradicting the same decision's *"stays unwritten"*. Queued for correction under `D-93`.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; Lane A answered and Lane A recorded it (`B-013` item 4)
+- **Resolution:** Verified
+- **Verified-By:** Lane B
 - **Evidence:** `V1-BUILD-SPEC.md` §5.1 S0 Lane B row no longer lists the `0002` draft; inventory row reads *S1 apply — not an S0 artifact*
-- **Verified-At-Commit:** eb1549d
+- **Verified-At-Commit:** 67706ca
 
 ## What happened
 
@@ -45,4 +45,3 @@ Continued with the independent Lane B S0 work. Did not choose a Q11 field name, 
 storage representation, and did not create or apply any migration.
 
 ---
-

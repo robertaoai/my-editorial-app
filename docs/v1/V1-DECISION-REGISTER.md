@@ -208,6 +208,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G78` | **Closed 2026-08-24 — found by reading the directory, not by any check** | **The channel's own documentation was the one file nothing read.** `handoff-response` filters entry filenames on `^[BC]-d+`, so `docs/handoff/README.md` and `TEMPLATE.md` were invisible to it; `phase-manifest` asserted only that they exist and `graph-coverage` only that they were in the graph. **The README drifted through `D-101`, `D-102` and `D-103` with every check green**, ending up without `Applied` — the state most entries carried — with two prose tallies, with the pre-`D-102` meaning of `Verified`, with a gate description that predated phase scoping, and with no mention of the `D-103` carve-out that makes the channel usable during a handover. **`G74`'s shape one level up:** that control was scoped to one lane and blind to the other; this one was scoped to entries and blind to the file governing entries. **Closed by `channel-docs` (check 16)**, which couples both files to the check sources in both directions and **caught three further defects nobody had reported, including one written by the repair pass itself.** §5.14bl |
 | `G79` | **Closed 2026-08-24 — the audit half of `D-88` had never worked** | **The lane-crossing gate accepted a declaration that git cannot parse as a trailer.** `lane-gate` matched `Lane-Crossing:` anywhere in the message body; **git reads only the last paragraph as trailers**, so a declaration above a blank line and a `Co-Authored-By:` block is not a trailer at all. `git log --grep` finds three declared crossings in this repository; `git log --format='%(trailers:key=Lane-Crossing)'` finds **none** — three of three since `D-88`, **including the commit that installed the gate.** `D-88`'s blocking half worked throughout; its stated audit path — *"the crossing is still reported afterwards, so bypassing hides nothing"* — **was never true.** Fixed at the source of truth: the gate now asks `git interpret-trailers --parse`, so it and every downstream tool agree by construction. **The three historical commits are deliberately not amended** — `git log --grep` is the audit path for anything before this decision. Negative-tested three ways. §5.14bm |
 | `G80` | **Closed 2026-08-24 — the defence against ceremonial checks was itself unverifiable** | **Fourteen claims of *"negative-tested N ways"* across the register and the inventory, and not one fixture in the repository.** Every suite ran once in a session scratchpad and what survived was the sentence saying it passed. `V1-PHASE-CLOSURE.md` §6.4d instructed the reader to run `sh negtest5.sh   # in the scratchpad` — **a reproduction step pointing outside the repository.** `summary_outlived_source`: the record of the test outlived the test. **This matters more than a missing test normally would**: `bun run check` proves the checks pass on a healthy repository, and **the fixtures are the only evidence they FAIL on an unhealthy one** — the property every claim in this register rests on. `probe_that_cannot_fail` is recorded here five times and **the defence against it could not be re-run by anyone.** Closed by `scripts/fixtures/` and `bun run fixtures`: six suites, thirty fixtures, each asserting the intended FINDING rather than merely a failure, refusing to run on a dirty tree, and reporting a failed restore as its own failure. **They found a defect in themselves on the first tracked run.** §5.14bn |
+| `G81` | **Closed 2026-08-24 — a gap recorded as closed with the same defect still live inside it** | **`D-106` set out to back fourteen "negative-tested N ways" claims with tracked fixtures, wrote suites for six checks, and left `config-coupling` and `C-19` with none** — the two that `B-007` and `B-010` cite as their evidence. `G80` recorded that the record of a test had outlived the test; **two of those records outlived the fix as well**, and the register said the gap was closed. Found by Lane B (`B-024`, `B-025`) reviewing Lane A's pass, not by Lane A. **The general shape: a fix that enumerates its targets closes the gap only for the ones it enumerated**, which is `G74`, `G78` and `G79` again — and `D-105` had already drawn that lesson and applied it to `channel-docs` alone. Closed by both suites, each with a positive control. §5.14bo |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -5781,3 +5782,119 @@ answerable value.
 **Agent files unaffected** — no lane map, lane state or shared-core change; hash unchanged at
 `a8173008845e`. **Build spec unaffected** — no artifact created, sequenced or retired; the fixtures
 are apparatus. **`Modular_PRD` unaffected** — no sprint closed, no tier opened.
+
+---
+
+## 5.14bo `D-107` — Lane B's First Delivered Turn, and Lane A Takes Over the Stuck Items
+
+**Lane B worked and reported.** Thirteen entries, `B-019`–`B-031`, plus the S0 configuration code.
+**Judge rulings, 2026-08-24:** Lane A reconciles and commits the work as a declared crossing; Lane
+A prepares the Stage 4 decision packet without deciding it; Lane A arbitrates the lane-model
+proposal.
+
+### The parent: `D-106` recorded `G80` closed while two of its fourteen claims stayed unbacked
+
+**`B-024` and `B-025` are correct and they land on Lane A's most recent pass.** `D-106` set out to
+back fourteen *"negative-tested N ways"* claims with tracked fixtures, wrote suites for six checks,
+and **left `config-coupling` and `C-19` with none** — the two that `B-007` and `B-010` cite as
+their evidence.
+
+> **A gap recorded as closed, with the same defect still live inside it.** `G80` said the record of
+> the test had outlived the test; **two of those records outlived it through the fix as well.**
+
+**Fixed: both suites now exist.** `config-coupling` — positive control, an authoritative row with
+no declaration, a declaration with no row, and the `§7.2` derived-view exclusion that **must not**
+fire. `C-19` — positive control, a phase that never closed, a value naming no phase number, and a
+phase absent from the register. **Lane B's rejections of `B-007` and `B-010` stand and are not
+reversed by Lane A**; they are Lane B's to re-verify against tracked evidence.
+
+### `B-021` happened to Lane A on the turn that answered it
+
+Lane B reported that the fixture runner guards a dirty **start** and not a concurrent reader.
+**On this turn Lane A ran the fixtures with a `git stash` interleaved, a `channel-docs` fixture
+deleted the `Phase:` line from `TEMPLATE.md`, and the restore did not take.**
+
+**The runner detected it and printed `working tree restored: NO`. Lane A read that line and
+proceeded.** The finding is therefore sharper than filed: **the control existed and was skimmed
+past.** A true statement nobody acts on is not a control. **Fixed by naming the files** rather than
+reporting a boolean. **True concurrency safety is NOT added** — a lock file is a fifth thing to
+maintain for a command one agent runs at a time; the honest scope is *do not run anything else
+while fixtures run*, and a violation is now legible after the fact.
+
+### Arbitration — the lane model, adopted in substance and rejected in form
+
+**`B-019` and `B-023` identify a real contradiction that cost a whole turn.** `D-101` said
+*exactly one lane is `Active` and only that lane may commit*; `D-103` then offered Lane B a turn
+while Lane A held `Active`. **Both cannot hold.**
+
+**Adopted:** **`Eligible` means the handover is OFFERED — the lane may begin work and commit its
+own surfaces without a further boundary act.** `Active` names the lane that owns the boundary
+record and the governing tiers.
+
+**Rejected: the second vocabulary.** `Active` | `Eligible` | `None` | `Done` beside ready |
+blocked | verified | complete is **eight terms for a two-agent handover**, and this register
+records a restated status drifting five separate times — `G55`, `G56`, `G58`, `G75`, and `B-027`
+in this very batch. **`None` is rejected specifically**: a lane that is not offered is `Blocked` on
+a named item or `Done`; if neither, it is `Eligible`. **The work condition is not a new field
+because it already exists** — it is the `Resolution` on the entries and the content of the turn
+report. Putting it in §5 would be the duplication `D-101` removed from the rule files.
+
+### The rest of the batch
+
+| | |
+|---|---|
+| **`B-020`** | **Right: `config-coupling` proves names, not values.** `EDITORIAL_ROUTE = "/wrong"` passes. **Not fixed by extending the check** — comparing a TypeScript expression to a markdown cell needs a value grammar per type and would put the check in disagreement with the compiler. **The oracle is Lane B's tests**, which assert the exact strings. The limit is now stated in the check's own header |
+| **`B-027`** | **Lane A's own bug.** The `D-103` handover-note script matched `TEMPLATE.md` alongside the entries, so the reusable template carried live lane state and **manufactured a false historical claim on every copy.** Fixed **by deletion** — an accurate duplicate only drifts later |
+| **`B-028`** | **Dissolved rather than solved.** Lane B cannot return `Active` because §5 is Lane A's surface — **and it never needed to.** A lane does not hand `Active` to anyone; the Chief Editor authorizes the boundary and the `Active` lane records it. What a lane owes is the turn report, in the channel it can always write |
+| **`B-030`** | **Followed exactly, and it prevented a real error.** The index held pre-clarification `B-019`–`B-023` while the S0 code sat unstaged. **The stale index was discarded, not committed**; the packet was re-staged from a reviewed working tree, and implementation is split from evidence because a commit cannot contain its own identifier |
+| **`B-031`** | **Sound, and superseded in its routing only.** It assumes two Lane B turns; the Judge directed a Lane A takeover instead. **§§3–6 are adopted as procedure and Lane A executed them.** **§8 survives intact** — the second takeover, gated on `B-029`, is still how S1–S4 begin |
+
+### `B-029` — the Stage 4 decision packet, prepared and NOT decided
+
+**Judge ruling: Lane A assembles, the Chief Editor decides.** Migration `0002` stays **blocked and
+unauthorized**. `B-029` stays `Open`, **and that is the correct state** — a decision window
+awaiting the only person who can close it is not a defect.
+
+| # | Open item | Why it cannot be guessed |
+|---|---|---|
+| **1** | **`Q11`'s stored field NAME** | Shape is decided (`D-97`): `satisfied` \| `not_applicable` \| `override_not_four_eyes`. **The name is not.** `identity_assurance` is reserved. A guessed name is permanent in an append-only audit table |
+| **2** | **`QA3`: typed columns vs versioned JSON** | Determines whether later questions are migrations or writes. **The cheapest decision now and the most expensive to reverse** |
+| **3** | **Notice-as-article** | Whether a retraction notice is a row in the same table or a distinct kind. Changes every query that counts published work |
+| **4** | **Risk tier** | Its values and whether it is stored or derived. `CONFIG_LOG.md` §7.2's rule says a derived view is never stored |
+| **5** | **Report-record shape and binding** | What a report binds to, and whether the binding survives a retraction |
+| **6** | **Approved-state backfill** | What existing rows become under the ten-state model. `0001` carries eight |
+| **7** | **`on delete restrict`** | Whether the audit trail may ever lose a parent row. **Interacts with `PR-12` folder separation** |
+
+**All seven alter the same append-only schema, so they are one pass, not seven.** Deciding them
+piecemeal produces a migration per decision against a table that must not churn.
+
+### The crossing, declared
+
+**This commit spans Lane A and Lane B.** Lane B wrote `lib/config/build-config.ts`,
+`lib/config/flags.ts` and `__tests__/build-config.test.ts` and could not commit them; **Lane A
+commits them on the Judge's instruction with a `Lane-Crossing:` trailer** under `D-88` — in the
+trailer block, where `D-105` established git can actually read it. **Lane B's authorship is stated
+in the message.** The code is **kept, not rewritten**: `config-coupling` passes on it.
+
+### Conditions
+
+**None opened.** `C-26` advances — **seven of the ten entries are now `Verified` by Lane B**, and
+three are correctly rejected pending the fixtures this decision adds. `C-27`, `C-28` unchanged.
+
+### Gaps opened
+
+**`G81`** — §5.1.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Two missing fixtures | ✅ §5.14bo | **— unaffected** | **— unaffected** | ✅ `scripts/fixtures/` row | ✅ §6.1f | **— unaffected** |
+| `Eligible` = offered | ✅ §5.14bo | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5 | **— unaffected** |
+| Lane B's S0 code | ✅ §5.14bo | **— unaffected; S0 scope unchanged** | **— unaffected** | ✅ `flags.ts` now present | **— unaffected** | **— unaffected** |
+| Stage 4 packet | ✅ §5.14bo | **— unaffected until decided** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected until decided** |
+
+**Agent files unaffected** — the lane map is unchanged and §5 remains the only place lane state
+lives; core hash unchanged at `a8173008845e`. **Build spec unaffected** — S0's scope did not
+change; its Lane B half is now implemented rather than re-specified. **`Modular_PRD` unaffected** —
+no sprint closed and no tier opened; **the Stage 4 items change it only once decided.**

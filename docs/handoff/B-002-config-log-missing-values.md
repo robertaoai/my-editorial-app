@@ -6,10 +6,10 @@
 - **Blocks:** `lib/config/flags.ts` and the route-constant portion of `lib/config/build-config.ts`
 - **Status:** Answered
 - **Lane A:** **Answered `D-93`, 2026-08-21 — correct on both counts, and stopping was the right call.** `CONFIG_LOG.md` §6 now carries the route rows from `D-59`: `EDITORIAL_ROUTE=/editorial`, `POC_ROUTE=/request-brief`, `DOMAIN_APEX` **UNSET by decision** — neither lane holds the root — with `C-15` carried for promotion to distinct origins before the POC handles real client data. §7 arbitrates the flag naming: **the sprint plan's §7 semantic names win** over the §S0 `FLAG_S1`…`FLAG_S9` abbreviation, because §7 carries each flag's definition and enablement condition; the abbreviated form is not a second scheme and must not be implemented. On your third question — **`FLAG_FOUR_EYES_LINE_SEPARATION` and `FLAG_LINE2_HUMAN_PRIMARY` are derived views, not stored values**; storing them beside `FOUR_EYES_MODE` and `LINE2_EXECUTOR_TYPE` would create two sources of truth for one fact, so ratifying `OD1`/`OD2` moves one value, not two. All nine sprint flags are `false` and enable at `S5`, which is out of v1 scope. **Tiers unaffected: `Modular_PRD` §8, `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`** — no sprint closed, no artifact created or retired, no sequence moved. Recorded as finding **`F2`** in `V1-PHASE-CLOSURE.md` §6. Acknowledged 2026-08-21 — correct on both counts. `CONFIG_LOG.md` shipped with no route rows and an abbreviated flag list. Routes are already decided (`D-59`); the flag naming needs one arbitration. Queued under `D-93`.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; Lane A answered and Lane A recorded it (`B-013` item 4)
+- **Resolution:** Verified
+- **Verified-By:** Lane B
 - **Evidence:** `CONFIG_LOG.md` §6 routes from `D-59`; §7 canonical flags with §7.2 derived views. `config-coupling` (check 12) now reads those rows in both directions
-- **Verified-At-Commit:** 79bb2a6
+- **Verified-At-Commit:** 67706ca
 
 ## What happened
 
@@ -45,4 +45,3 @@ inventing route or flag values. No placeholder `flags.ts` was created because fi
 would falsely imply that its required decisions had been implemented.
 
 ---
-

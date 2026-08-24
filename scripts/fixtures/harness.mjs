@@ -35,10 +35,30 @@ export async function runCheck(modulePath) {
 }
 
 export function treeIsClean() {
+  return dirtyPaths().length === 0;
+}
+
+/**
+ * The paths git currently reports as changed.
+ *
+ * `D-107`, raised as `B-021`. The runner used to report a boolean at the end —
+ * *"working tree restored: NO"* — and on the turn `B-021` was being answered
+ * **that line appeared, was read, and was proceeded past.** A fixture had
+ * deleted a required field from `TEMPLATE.md` and the restore was defeated by a
+ * concurrent `git stash` in the same session.
+ *
+ * **A true statement nobody acts on is not a control.** Naming the files makes
+ * the damage impossible to skim past, and turns "something is dirty" into
+ * "these bytes are not what you left".
+ */
+export function dirtyPaths() {
   try {
-    return execFileSync("git", ["status", "--porcelain"], { encoding: "utf8" }).trim() === "";
+    return execFileSync("git", ["status", "--porcelain"], { encoding: "utf8" })
+      .split("\n")
+      .map((l) => l.slice(3).trim())
+      .filter(Boolean);
   } catch {
-    return false;
+    return ["<git status unavailable>"];
   }
 }
 

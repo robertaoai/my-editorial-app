@@ -17,6 +17,22 @@
 //     `lib/config/`
 //   * a governed declaration in `lib/config/` with no `CONFIG_LOG.md` row
 //
+// IT PROVES NAMES, NOT VALUES — `D-107`, raised as `B-020`.
+//
+// Both directions above are about a NAME existing on both sides. **Nothing
+// here compares the value.** `EDITORIAL_ROUTE = "/wrong"` passes: the row
+// exists, the declaration exists, and they disagree.
+//
+// **So a green `config-coupling` is not a complete configuration oracle**, and
+// reading it as one is the failure `B-020` names. Not fixed by extending this
+// check: comparing a TypeScript expression against a markdown cell needs a
+// value grammar per type, and the check would then disagree with the compiler
+// about what a value is.
+//
+// **The oracle is the tests.** `__tests__/build-config.test.ts` asserts the
+// exact route strings, the explicitly unset apex and the false Phase 0 flags —
+// the right layer for a value assertion. `C-22`, arrival not correctness.
+//
 // WHAT IT DELIBERATELY DOES NOT DO:
 //   * It does not compare VALUES. A row says `5`; the code may legitimately
 //     read `5` from an env var, a derived expression, or a typed constant.

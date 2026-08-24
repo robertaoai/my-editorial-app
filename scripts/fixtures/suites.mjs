@@ -378,6 +378,103 @@ export async function laneGate(results) {
   }
 }
 
+/**
+ * `C-17` / `D-95` — `CONFIG_LOG.md` ↔ `lib/config/`, both directions.
+ *
+ * **`D-106` claimed `G80` closed and left this check with no fixture at all** —
+ * along with `C-19` below. `B-007` and `B-010` cite exactly these two as their
+ * negative-test evidence, so **two of the fourteen claims `D-106` set out to
+ * back were still unbacked when it recorded the gap as closed.** Raised by Lane
+ * B as `B-024` and `B-025`, and they are right (`D-107`).
+ */
+export async function configCoupling(results) {
+  const LOG = "docs/CONFIG_LOG.md";
+  const BUILD = "lib/config/build-config.ts";
+  const log0 = read(LOG);
+  const build0 = read(BUILD);
+  const restore = () => { write(LOG, log0); write(BUILD, build0); };
+
+  await fixture(results, {
+    name: "config-coupling: the live pair, unmutated",
+    modulePath: CHECK("config-coupling.mjs"),
+    mutate: () => {},
+    restore,
+    shouldPass: true,
+  });
+
+  // The direction `C-17` was opened for: a published value nobody implemented.
+  // The pre-existing test could not fail here, which is why `C-17` exists.
+  await fixture(results, {
+    name: "config-coupling: an authoritative row with no declaration",
+    modulePath: CHECK("config-coupling.mjs"),
+    mutate: () =>
+      write(LOG, log0.replace(/^\| `SUCCESS_ARTICLES_LOGGED_MIN`/m, "| `FIXTURE_UNIMPLEMENTED_VALUE` | 1 | fixture | — | No |\n| `SUCCESS_ARTICLES_LOGGED_MIN`")),
+    restore,
+    expect: "FIXTURE_UNIMPLEMENTED_VALUE",
+  });
+
+  // And the inverse, which a one-way check would license.
+  await fixture(results, {
+    name: "config-coupling: a declaration with no authoritative row",
+    modulePath: CHECK("config-coupling.mjs"),
+    mutate: () => write(BUILD, `${build0}\nexport const FIXTURE_UNDOCUMENTED_VALUE = 1;\n`),
+    restore,
+    expect: "FIXTURE_UNDOCUMENTED_VALUE",
+  });
+
+  // `D-94`'s rule: a derived view must NOT be required to have a declaration.
+  // Without this the check would push Lane B into storing two sources of truth.
+  await fixture(results, {
+    name: "config-coupling: a §7.2 derived view needs no declaration",
+    modulePath: CHECK("config-coupling.mjs"),
+    mutate: () => {},
+    restore,
+    shouldPass: true,
+  });
+}
+
+/**
+ * `C-19` / `D-95` — `Reopens-Phase:` cannot name a phase that never closed.
+ *
+ * The other claim `D-106` left unbacked (`B-025`). Reopening presupposes a
+ * closure, and **no phase has ever closed**, so every use is currently an
+ * error — which is exactly why the check is not vacuous.
+ */
+export async function reopensPhase(results) {
+  const orig = read(ENTRY);
+  const restore = () => write(ENTRY, orig);
+  const withField = (v) => orig.replace(/^(- \*\*Status:\*\*.*)$/m, `$1\n- **Reopens-Phase:** ${v}`);
+
+  await fixture(results, {
+    name: "C-19: the live entries carry no Reopens-Phase",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => {},
+    restore,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "C-19: Reopens-Phase names a phase that never closed",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, withField("1")),
+    restore,
+    expect: "has never closed",
+  });
+  await fixture(results, {
+    name: "C-19: Reopens-Phase names no phase at all",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, withField("soon")),
+    restore,
+    expect: "names no phase number",
+  });
+  await fixture(results, {
+    name: "C-19: Reopens-Phase names a phase not in the register",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, withField("9")),
+    restore,
+    expect: "no such phase in the register",
+  });
+}
+
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
   ["phase-scoped closure gating (`D-102`)", phaseScope],
@@ -385,4 +482,6 @@ export const SUITES = [
   ["lane state (`D-103`)", laneState],
   ["channel documentation (`D-104`)", channelDocs],
   ["lane crossing declaration (`D-105`)", laneGate],
+  ["config coupling (`C-17`, raised as `B-024`)", configCoupling],
+  ["reopens-phase (`C-19`, raised as `B-025`)", reopensPhase],
 ];

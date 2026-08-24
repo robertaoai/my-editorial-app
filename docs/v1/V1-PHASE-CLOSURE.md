@@ -386,8 +386,11 @@ handover is the moment that becomes a gap**, not a theoretical one.
 **Phase 1 stays OPEN through every handover.** It closes last (`D-99`), and a lane leaving `Active` is a statement about committing, never about phase openness. **The state column carries STATES and nothing else** — that sentence used to live inside Lane A's cell, where `lane-state` correctly read it as the row claiming two states at once (`D-104`). A cell that explains itself cannot be parsed as a value.
 
 **Exactly one lane is `Active`, and the Chief Editor selects it at each Sprint boundary.**
-`Eligible` means *specified and permitted, not currently committing* — **not** *waiting for a phase
-to close.* **Enforced since `D-103` by `lane-state` (check 15)**: not-exactly-one `Active` fails.
+**`Eligible` means the handover is OFFERED: the lane may BEGIN work and commit its own surfaces without a further boundary act** (`D-107`, arbitrating `B-019`/`B-023`). It is **not** *waiting for a phase to close*, and it is **not** *forbidden to work*. **`Active` names the lane that owns the boundary record and the governing tiers.**
+
+> **This corrects a contradiction that cost an entire turn.** `D-101` said *only the `Active` lane may commit*; `D-103` then offered Lane B a turn while Lane A held `Active`. **Lane B read the rule, concluded it could not begin, and produced nothing** (`D-105` `F29`). **The rule was wrong, not the lane.**
+
+> **A second axis was proposed and rejected** (`B-023`). Lock state beside a work condition is eight terms for a two-agent handover, and a restated status has drifted five times in this corpus. **The work condition already exists** — it is the `Resolution` on the entries and the content of the turn report. **Enforced since `D-103` by `lane-state` (check 15)**: not-exactly-one `Active` fails.
 
 > **Two Sprint boundaries in one day, and that is worth a line rather than a shrug (`D-104`).**
 > `D-103` selected Lane B; Lane B committed nothing; `D-104` selected Lane A back. **The

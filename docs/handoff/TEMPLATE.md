@@ -60,5 +60,3 @@ Do not edit another entry's file. One file per item keeps status edits from coll
 `docs/handoff/` is under `*.md merge=union`, which is right for append-only content and wrong
 for shared status fields (`G63`).
 -->
-
-> **Sprint boundary, 2026-08-24 (`D-103`): Lane B is now `Active` and Lane A is `Eligible`.** Lane A can still **write in `docs/handoff/`** — that carve-out exists so acknowledgement is never blocked — but it **cannot commit anywhere else**, so anything here needing a change outside `docs/handoff/` waits for Lane A's next `Active` turn. **A blocking entry stops that item, not the lane** (`D-101`).

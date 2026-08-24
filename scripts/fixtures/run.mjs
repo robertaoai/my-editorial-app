@@ -9,7 +9,7 @@
 // against a synthetic copy proves the check works on the copy — and it is why
 // this refuses to start unless the tree is clean.
 
-import { treeIsClean } from "./harness.mjs";
+import { treeIsClean, dirtyPaths } from "./harness.mjs";
 import { SUITES } from "./suites.mjs";
 
 if (!treeIsClean()) {
@@ -44,12 +44,22 @@ for (const [name, suite] of SUITES) {
 
 // A suite that leaves the tree dirty has cost more than it proved, so this is
 // reported as a failure of the fixtures themselves, not as a finding.
-const clean = treeIsClean();
+const leftDirty = dirtyPaths();
+const clean = leftDirty.length === 0;
 const bad = results.filter((r) => !r.ok).length;
 
 console.log("");
 console.log(`  ${results.length - bad}/${results.length} fixtures behaved as intended`);
-console.log(`  working tree restored: ${clean ? "yes" : "NO — inspect `git status` before continuing"}`);
+if (clean) {
+  console.log("  working tree restored: yes");
+} else {
+  console.log("  working tree restored: NO — these files are NOT what you left:");
+  for (const p of leftDirty) console.log(`      ${p}`);
+  console.log("");
+  console.log("  A fixture mutated them and the restore did not take. Inspect and revert");
+  console.log("  BEFORE committing anything — the damage is silent inside a large diff.");
+  console.log("  `B-021` predicted this and it happened on the turn that answered it.");
+}
 console.log("");
 
 process.exit(bad || failedSuite || !clean ? 1 : 0);
