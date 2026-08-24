@@ -17,7 +17,7 @@ one held elsewhere.)*
 | 2 | Every handoff entry raised against it has reached a **terminal disposition** — `Answered` or `Withdrawn` | `bun run check` (check 10); the entries themselves in `docs/handoff/` |
 | 3 | A **critic pass** has been performed **on a separate turn against the final artifact set**, and its weakness list is recorded | **§6.1b** — the pass against `de3b7df`. §6.1 is the earlier pass, superseded not deleted |
 | 4 | **The Judge approves at the boundary** | the verdict row in **§6.6** |
-| 5 | **The sprint work this phase's own lane owed is complete** — Phase 1 ⇒ S0's governance half (Judge ruling `D-96`, scoped by `D-98`) | **§1.1a**. Work the sprint assigns to another lane is that lane's phase debt, not this phase's blocker |
+| 5 | **The sprint work is complete — including other lanes' work against this phase's specs.** For Phase 1: all specs written, **and** Lanes B and C complete with no outstanding gaps (`D-96`, rescoped by `D-98`, **restored and widened by `D-99`**) | **§1.1b** |
 
 **Section references corrected 2026-08-22 (`D-95`, raised as `B-006` item 4).** Conditions 2, 3
 and 4 all pointed at **§3**, which is the critic-pass *discipline*, not the evidence. **A
@@ -74,7 +74,12 @@ Three exits were offered, and Lane A recommended the second:
 | Judge **accepts Phase 1 on the orchestration artifacts** and moves S0's completion into Phase 2's opening | Phase 1's DoD stops meaning "S0 done"; sprints and phases decouple again |
 | Lane A implements the 13 rows | **Rejected — a lane crossing into `lib/`, and the reason `D-75` exists** |
 
-## 1.1a What condition 5 actually means — `D-98`, and it retires both exits
+## 1.1a What condition 5 actually means — `D-98`. **SUPERSEDED by `D-99`, §1.1b**
+
+> **Retained as the record of a wrong turn, per `D-93` rule 4.** Lane A narrowed condition 5 to
+> escape a deadlock; the Judge rejected the escape. **The deadlock was in the phase-START rule,
+> and this section loosened the phase-CLOSE condition instead** — weakening the model exactly
+> where it needed to stay strict. Read §1.1b for the governing text; everything below is history.
 
 **Asked: "which phases require exit 1 and exit 2?" The answer is neither, and the question is what
 exposed why.**
@@ -111,6 +116,68 @@ why an agent cannot hold it.
 > **Condition 5 is satisfied by the sprint work the closing phase's own lane owed.** Work the
 > sprint assigns to a *different* lane belongs to *that* lane's phase and is carried forward as
 > named opening debt — never as a blocker on a phase that may not perform it.
+
+## 1.1b The phase model corrected — Judge ruling, `D-99`. **This supersedes `D-98`.**
+
+**Ruling: Phase 1 cannot close until all specs are written *and* Lane B and Lane C have completed
+their tasks and the gaps those specs surfaced.**
+
+**`D-98`'s rescoping is withdrawn.** Lane A narrowed condition 5 to *"the sprint work this
+phase's own lane owed"* in order to escape a deadlock. **The Judge rejected the escape and the
+reason is instructive: Lane A fixed the wrong rule.**
+
+### Where the deadlock actually came from
+
+| Rule | `D-98` assumed | Correct |
+|---|---|---|
+| **Phase CLOSE** — condition 5 | Only your own lane's half | **The whole sprint, including other lanes' work against your specs** |
+| **Phase START** — §5B | A phase opens after the preceding phase's Judge boundary is accepted | **A phase opens when the specs its lane needs are accepted** |
+
+**The deadlock lived in the START rule, not the CLOSE condition**, and `D-98` loosened the close
+condition to compensate. **Loosening the wrong rule made the model weaker in exactly the place it
+needed to stay strict** — a governance phase that closes before its governance has been executed
+against has proven nothing.
+
+### Phase 1 opens first and closes last
+
+**Phase 1 is an envelope, not a segment.** Orchestration is not finished when the specs are
+written; **it is finished when the specs have survived execution.**
+
+| Phase | Opens when | Closes when |
+|---|---|---|
+| **1 — Orchestration** | **First.** At project start | **Last.** All specs written, **and** Lanes B and C complete against them with no outstanding gaps |
+| **2 — Application** | The specs Lane B needs are accepted by the Judge — **not** when Phase 1 closes | Its own tasks and its gaps are complete |
+| **3 — CI/CD** | The specs and dependencies Lane C needs are accepted — **not** when Phase 2 closes | Its own tasks and its gaps are complete |
+
+**`D-75`'s "sequential, one at a time" is unchanged.** Lanes still act one at a time; what changes
+is that **a lane's turn begins on spec acceptance rather than on a predecessor's closure.**
+
+### What this makes of `43c51ce`
+
+**Still unauthorized, and now for a narrower reason.** Under the corrected start rule Lane B did
+not need Phase 1 to close — but it did need **its specs accepted at a Judge boundary**, and none
+had been. **The record in §5B stands**; only the reason changes from *"Phase 1 had not closed"* to
+*"no spec acceptance had occurred."*
+
+### `C-20` — what it must enforce
+
+**Not strict serialization. The feedback cycle:**
+
+```
+Lane A writes specs → Judge accepts → Lane B / Lane C execute
+        ↑                                        ↓
+        └──────── gaps return via docs/handoff/ ─┘
+                  Lane A corrects; Phase 1 closes when the cycle is quiet
+```
+
+**A check must therefore verify, per lane:** that the lane's phase has an accepted spec boundary
+before its first commit, and that **no handoff entry raised against its specs is still open when
+Phase 1 is proposed for closure.** The second half is `C-19`'s register plus check 10's status
+field — **most of the machinery already exists**; what is missing is the acceptance record.
+
+**Still not installed, and now for a stated reason:** **no spec-acceptance boundary has ever been
+recorded**, so the check has nothing to read on its primary input. **`C-20` blocks on the Judge
+recording the first acceptance**, not on Lane A writing code.
 
 ## 1.2 The proposal put to the Judge — `D-97`
 
@@ -225,9 +292,9 @@ the check reports exactly that. **`C-19` could not be both "install it in the cl
 
 | Phase | Lane | Status | Closed | Judge | Reopened by |
 |---|---|---|:---:|---|---|
-| **1 — Orchestration** | A | **Open — conditions 1, 3 and 5 met; 2 met but for `B-010`; 4 is the Judge's** | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6; resubmitted | **n/a — never closed** |
-| **2 — Application** | B | **Not validly opened.** Unauthorized implementation activity occurred at `43c51ce`; further work deferred | — | — | — |
-| **3 — CI/CD** | C | Not started | — | — | — |
+| **1 — Orchestration** | A | **Open, and closes last (`D-99`).** Conditions 1 and 3 met; 2 waits on `B-010`; **5 waits on Lanes B and C**; 4 is the Judge's | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
+| **2 — Application** | B | **Not validly opened** — no spec-acceptance boundary has been recorded (`D-99`). Unauthorized activity occurred at `43c51ce` | — | — | — |
+| **3 — CI/CD** | C | **Not opened** — same reason; two items specified in `.github/WORKFLOWS-SPEC.md` §4 | — | — | — |
 
 **Phase 2 started while Phase 1 is open, and that is a finding, not a note.** `D-75` says the
 lanes run *sequentially, one at a time*. See §6.

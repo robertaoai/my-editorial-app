@@ -13,6 +13,8 @@
 
 | Artifact | Referenced by | Exists |
 |---|---|---|
+| `docs/modules/M-POC-REQUIREMENTS.md` | `D-99`, `Modular_PRD` §0.6.2 | ✅ **Created 2026-08-22.** The `M-POC` feature group an `Fn_Spec` must anchor to. **Own ID namespace** so no `M-MVP` identifier is reused. **`NG-03` untouched** — payment is an operating activity outside the application |
+| `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md` | `D-99`, `PR-01`–`PR-13` | ✅ **Created 2026-08-22.** `M-POC` engagement behaviour. **`SPECS` candidate list deliberately empty** — the next tier is blocked by a decision, not an omission |
 | `docs/v1/V1-PHASE-CLOSURE.md` | `D-93`, `D-94` | ✅ **Created 2026-08-21, extended 2026-08-22.** Phase closure conditions, the Phase 1 artifact manifest (§5A), the phase-start rule (§5B), the critic pass and the Judge record. **The Judge deferred the first submission because §5A did not exist** |
 | `scripts/checks/config-coupling.mjs` | `C-17`, `D-95`, `B-007` | ✅ **Created 2026-08-22.** `C-14` check 12 — the `CONFIG_LOG.md` ↔ `lib/config/` coupling, failing in **both** directions. **`C-17` said install it in the pass that landed `build-config.ts`; that pass happened and it was not installed.** Found 13 unimplemented authoritative rows and 2 `CONFIG_LOG.md` defects on its first run |
 | `scripts/checks/phase-manifest.mjs` | `D-94`, `D-95` | ✅ **Created 2026-08-22.** `C-14` check 11 — every manifest path exists and is tracked. **Negative-tested four ways**; a scope exclusion deliberately does not fire on presence |

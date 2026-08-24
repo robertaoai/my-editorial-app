@@ -4697,3 +4697,111 @@ condition, not what any sprint delivers. **Inventory unaffected** — no file cr
 authorized. **Agent files unaffected** — `CLAUDE.md`'s phase wording was already correct and is
 what corrected the condition. **`Modular_PRD` §8 unaffected** — no sprint closed, no tier opened;
 §0.6 is document control, not a requirement change.
+
+---
+
+## 5.14bg `D-99` — Phase 1 Closes Last, and `M-POC` Gets Its Requirements and `Fn_Spec`
+
+**Two rulings. The first reverses `D-98`, which was Lane A's own work one pass earlier.**
+
+### The phase model — `D-98` withdrawn
+
+**Ruling: Phase 1 cannot close until all specs are written *and* Lanes B and C have completed
+their tasks and the gaps those specs surfaced.**
+
+**`D-98` narrowed condition 5 to escape a deadlock and the Judge rejected the escape.** The
+reason is worth recording precisely, because it is a diagnosis rather than a preference:
+
+| Rule | `D-98` assumed | Correct (`D-99`) |
+|---|---|---|
+| Phase **CLOSE** | only your own lane's half | **the whole sprint, including other lanes' work against your specs** |
+| Phase **START** | opens when the preceding phase's Judge boundary is accepted | **opens when the specs its lane needs are accepted** |
+
+**The deadlock lived in the START rule and Lane A loosened the CLOSE condition instead** —
+**weakening the model in exactly the place it needed to stay strict.** A governance phase that
+closes before its governance has been executed against **has proven nothing**.
+
+**Phase 1 is an envelope, not a segment: it opens first and closes last.** Orchestration is
+finished when the specs have **survived execution**, not when they are written.
+
+**`D-75`'s "sequential, one at a time" is unchanged.** What changes is that **a lane's turn begins
+on spec acceptance, not on a predecessor's closure** — which is what makes Phases 2 and 3 able to
+run at all while Phase 1 stays open.
+
+**`43c51ce` remains unauthorized, for a narrower reason.** Lane B did not need Phase 1 to close —
+it needed **its specs accepted at a Judge boundary**, and none had been. The record stands; only
+the reason changes.
+
+**This is the second time in three passes that a Lane A rule has been corrected by the Judge
+rather than by a control**, and both times the error was **writing a condition without checking it
+against a constraint already in the governing set**. `D-98` even cited `CLAUDE.md`'s *"specs and
+governance, not code"* as its evidence — and drew the wrong inference from it.
+
+### `C-20` — what it must enforce, and why it still cannot be built
+
+**Not strict serialization. The feedback cycle:** Lane A writes specs → Judge accepts → Lanes B
+and C execute → gaps return through `docs/handoff/` → Lane A corrects → **Phase 1 closes when the
+cycle is quiet.**
+
+A check must verify, per lane: **an accepted spec boundary exists before that lane's first
+commit**, and **no handoff entry raised against its specs is still open** when Phase 1 is proposed
+for closure. **Most of the machinery exists** — the phase register from `C-19`, the status field
+from check 10.
+
+**What is missing is the acceptance record.** **No spec-acceptance boundary has ever been
+recorded**, so the check has nothing to read on its primary input. **`C-20` now blocks on the
+Judge recording a first acceptance, not on Lane A writing code** — which is a materially different
+and more honest statement than the one it carried before.
+
+### `M-POC` — requirements and `Fn_Spec` written
+
+**Authorized by the Judge.** Two artifacts, and **nothing below the `Fn_Specs` tier.**
+
+**`docs/modules/M-POC-REQUIREMENTS.md`** supplies the feature group the index row could only point
+at. **Its own ID namespace** — `PO`/`PR`/`PU`/`PA`/`PX`/`PB` — so no `M-MVP` identifier is reused,
+moved or renumbered, and no propagation ritual sweeps both modules.
+
+**Three requirements carry the module**, and each exists to stop a specific failure:
+
+- **`PR-01` invariance.** An engagement traverses the **unchanged** gates with the same sequence
+  enforcement and transition logging. **The standing "never fork the pipeline" invariant, restated
+  as a module requirement** so a future spec cannot quietly introduce a parallel path.
+- **`PR-12` folder separation.** The publishable article **must not be copied, linked, embedded or
+  exported into the client-facing folder.** **A spec that satisfies every other requirement and
+  leaks the article has failed the module.**
+- **`PR-13` boundaries.** No engagement begins until all ten `B-P0-06` values are real. **All ten
+  are currently unset** — recorded as a gate rather than as an oversight.
+
+**`NG-03` is untouched.** Payment is an **operating activity performed outside the application**,
+traced by an external transaction identifier — the board proposal's own framing, preserved.
+**`B-008`'s cart, provider config, drains, account claiming and portal remain unadopted.**
+
+**`docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md`** takes §3–§5 as its feature group — **invariance,
+the engagement, and folder separation cannot function without each other**, which is what makes
+them one group rather than three specs restating one another.
+
+**Two things it deliberately does not do.** `Hold` and `Escalate` route to **`M-MVP`'s existing
+exception behaviour** and are **not respecified — a module variant of an existing exception path
+would be a fork.** And its **`SPECS` candidate list is empty by ruling**, not by omission: the
+Judge found insufficient clarity for tech-spec and UX, so **the next tier is blocked by a decision
+that has not been made, not by a gap in this document.**
+
+### What this does not do
+
+**Does not close Phase 1** — condition 5 now explicitly waits on Lanes B and C. **Does not open
+Phase 2 or 3** — no spec-acceptance boundary has been recorded. **Does not authorize any build,
+sprint, migration, schema change, UI, or monetization capability.** **Does not install `C-20`.**
+`0001_init.sql` untouched; `0002` unwritten.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | `Modular_PRD` | Inventory | Build spec | `Fn_Specs` | Agent files |
+|---|---|---|---|---|---|---|
+| Phase model corrected | ✅ §5.14bg | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `C-20` rescoped | ✅ §5.14bg + `C-20` | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `M-POC` requirements | ✅ §5.14bg | ✅ §0.6.2 row points to it | ✅ new file | **— unaffected** | **— unaffected** | **— unaffected** |
+| `M-POC` `Fn_Spec` | ✅ §5.14bg | **— unaffected** | ✅ new file | **— unaffected** | ✅ the file itself | **— unaffected** |
+
+**Build spec unaffected** — `M-POC` is **deferred scope**; no sprint, sequence or DoD moves, and
+writing requirements is not scheduling work. **`Modular_PRD` §8 unaffected** — no sprint closed
+and no tier opened for `M-MVP`. **Agent files unaffected** — no rule changes for any lane.
