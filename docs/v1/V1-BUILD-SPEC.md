@@ -102,6 +102,18 @@ while §5.1's artifact row said the opposite. **S0 creates only the hold locatio
 settle**, and moving the approved draft into the apply set **is** the S1 authorization act.
 **`AP-01`'s migration carries editorial audit fields only — never POC commerce fields.**
 
+> **AUTHORIZED 2026-08-25 (`D-112`). The S1 decision window is closed and `D-17`'s hold is
+> released.** `0002_*.sql` may now be created in `supabase/migrations/`; **`0001_init.sql`
+> remains frozen and is never edited.** The typed schema contract is `D-112` — `Q11` closed as
+> `line_separation_status` (`D-111`), the risk-tier domain closed (`D-112`, `C-29`), the report
+> record and its template-applicability anchor closed (`D-111`), the notice discriminator and
+> storage boundary ratified (`D-110`), the backfill map `D-55` and `ON DELETE RESTRICT` `D-07`.
+>
+> **Lane A does not write it.** `supabase/` is Lane B's surface; Lane A's obligation under
+> `B-029` was the contract, and that obligation is discharged. **Authorization removes the block —
+> it does not schedule S2–S4 and does not make `0002` correct.** `B-031` §8's gate still governs
+> when Lane B takes the second turn.
+
 **Phase boundaries govern this sequence — `D-93`, `D-94`, `D-95`.** `docs/v1/V1-PHASE-CLOSURE.md`
 holds the phase-closure contract (§1), the Phase 1 artifact manifest (§5A) and the phase-start
 rule (§5B). **A sprint's Definition of Done does not close a phase, and a phase boundary does not

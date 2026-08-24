@@ -143,7 +143,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G17` | **Closed 2026-08-25 (`D-110`)** | `QA3` ratified as a typed/versioned BOUNDARY, not a global format: typed for anything in a constraint, transition, permission, filter, join, retention rule or binding; versioned JSON only for an immutable report or brief body, with a typed `schema_version`. **JSON is never the source of truth for a gate.** Reframed by `B-032`. §5.14bq |
 | **`G18`** | **Standing rule** | **Two gap series exist (`G`, `GA`). Raise any new gap in one series only, and record it in this table. This rule was itself lost in the first supersession — an instance of the drift it warns about** |
 | `G19` | **Closed 2026-08-25 (`D-110`)** | Notice-as-article physical names ratified — `articles.article_kind` and `articles.original_article_id`; `Retracted` is NOT an eleventh state and the retraction condition is derived. **Inherited targets were already decided by `D-08`** and implemented in `FN-PUBLICATION` §4.3, which `B-032` never cited. §5.14bq |
-| `G20` | **Open — SHAPE decided, residual named** | Typed `articles.risk_tier` approved (`D-111`); **the vocabulary, assignment authority, propose-and-confirm mechanism and provenance fields are NOT decided** and are carried as `C-29`. **`0002` may not be authorized while this is open** |
+| `G20` | **Closed 2026-08-25 (`D-112`)** | Typed `articles.risk_tier` approved (`D-111`); **the vocabulary, assignment authority, propose-and-confirm mechanism and provenance fields are NOT decided** and are carried as `C-29`. **`0002` may not be authorized while this is open** |
 | `G21` | **Withdrawn** | Human `A` versus agent `R` — different layers, not a conflict — §2 |
 | `G22` | Open | `C-10`, T3 |
 | `G23` | **Closed 2026-08-19** | `D-10` — `FR-13` bypasses deliberation, not publication |
@@ -2353,7 +2353,9 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
-### `C-29` — `G20`'s residual: a typed column with an undefined domain
+### `C-29` — **CLOSED 2026-08-25 (`D-112`)** — the domain is decided: three values, asymmetric authority, manual in v1, four typed provenance fields. §5.14bs
+
+### `C-29` (as opened) — `G20`'s residual: a typed column with an undefined domain
 
 **Opened by `D-111`. Phase: 1, then `0002`.** `articles.risk_tier` is approved as a typed column that is never a lifecycle state and never silently recomputed. **Its DOMAIN is undecided** — the tier vocabulary, who may assign or change a tier, whether a rule proposes while the Chief Editor confirms, and the provenance needed to reconstruct an assigned value.
 
@@ -2537,7 +2539,9 @@ pass that closes the phase, never before.**
 
 **Deliberately not built by `D-91`.** `build-config.ts` does not exist, so the check would pass on every run without ever reading a variable — a `probe_that_cannot_fail`. **It must land in the same pass as `build-config.ts`**, never before.
 
-### `C-16` — condition on the `Q11` decision
+### `C-16` — **CLOSED 2026-08-25 (`D-112`)** — `NFR-03` rewritten. The undefined clause was **dropped, not defined**: `D-69` found it measured by nothing, and an unfalsifiable requirement can be neither satisfied nor breached. §5.14bs
+
+### `C-16` (as opened) — condition on the `Q11` decision
 
 **`NFR-03` is already slated for rewrite** — `Q11`'s row says it *"needs its own rewrite, not a passthrough."* **That rewrite must either define *"inferred at read"* or drop the clause.**
 
@@ -2648,7 +2652,8 @@ The first tier sweep accepted **any** ID from a row's Item cell. Deliberately br
 | `G17`, `G19` | **Decided `D-110`** |
 | `G57`, `GA9` | **No decision remains** — `D-55` supplies the total backfill map, `D-07` selects `on delete restrict`; both are implementation |
 | `G16`, `G42`, `GA1`/`GA3`/`GA4` | **Decided `D-111`** |
-| `G20` | **Residual only** — shape decided, vocabulary/authority/provenance open as `C-29`. **The last thing blocking `0002`** |
+| `G20` | ✅ **Decided `D-112`** — three-value vocabulary, asymmetric authority, manual in v1, four typed provenance fields |
+| **The S1 window** | ✅ **CLOSED. `0002` authorized `D-112`** |
 | `GA2` | **Half closed** — the insert/read-only half is still a window item |
 | `C-11`, `C-12` | **Open** — T2, S1 window |
 
@@ -2858,7 +2863,7 @@ All alter the same append-only table.
 | `G16` | ✅ **Decided `D-111` — `line_separation_status`.** Was: `Q11` only — `Q10` was decided by `D-73`/`D-79`.** The remaining half is `Q11`'s column NAME; its shape is fixed by `D-97` |
 | `G17` | ✅ **Decided `D-110`** — typed/versioned boundary ratified |
 | `G19` | ✅ **Decided `D-110`** — physical names ratified; inherited targets were already `D-08` |
-| `G20` | Risk-tier dimension on articles |
+| `G20` | ✅ **Decided `D-112`** — typed `articles.risk_tier`, three values, never a lifecycle state |
 | `G42` | ✅ **Decided `D-111`** — anchored on `articles.created_at`; no backward application |
 | `GA1`, `GA3`, `GA4` | ✅ **Decided `D-111`** — typed anchors, immutable snapshot |
 | `G57` | **Newly surfaced 2026-08-20.** The `X3` eight-row state backfill mapping, specified as data before `0002` is written |
@@ -6222,3 +6227,77 @@ residual.**
 **Build spec unaffected throughout, and deliberately.** Every item here is a schema shape that
 lands when `0002` is authorized. **`0002` is not authorized**, and recording these as sequenced
 work would claim a migration is scheduled while a condition still blocks it.
+
+---
+
+## 5.14bs `D-112` — The S1 Window Is Closed and Migration `0002` Is Authorized
+
+**Judge rulings, 2026-08-25, closing `C-29`.** **Every item in the S1 window is now settled**, so
+`D-17`'s hold condition — *"until every S1 window decision is settled"* — is met. **`0002` is
+authorized.**
+
+### `C-29` closed — the risk-tier domain
+
+| | Ruling |
+|---|---|
+| **Vocabulary** | `standard` \| `sensitive` \| `high_sensitivity` — **three values.** `SEC-05` needs exactly one threshold; more create thresholds nobody defined, fewer cannot express the trigger |
+| **Authority** | **Asymmetric: anyone logging may RAISE a tier; only the Chief Editor may LOWER it.** Raising is a safety act and must never be blocked; lowering removes a control and is a decision |
+| **Propose-and-confirm** | **Not in v1.** `FLAG_S6_RISK_AT_INTAKE` already exists, is `false`, and enables at S5 — **v1 is manual assignment**, and building the mechanism now would implement behind a false flag |
+| **Provenance** | `risk_tier_assigned_by` · `risk_tier_assigned_at` · `risk_tier_reason` · `risk_tier_ruleset_version` (**null in v1**, no rule proposes). All typed per `D-110` — they carry audit reconstruction, so none is JSON |
+
+**The asymmetry is the load-bearing part.** Both symmetric alternatives fail: *Chief Editor only*
+means a reporter who spots risk cannot flag it, and *anyone may change* means a control can be
+silently removed. **`G20` closes.**
+
+### `Q11`'s propagation performed — all six markers cleared, `C-16` closed
+
+`D-111` decided the name and deferred propagation to the `0002` pass. **This is that pass.**
+
+| Row | What changed |
+|---|---|
+| `TR-DM-02` | The field is `line_separation_status`; **no longer blocked** |
+| `NFR-03` | **Rewritten, closing `C-16`.** *"Never inferred at read"* is **DROPPED, not defined** — `D-69` found the term undefined corpus-wide and measured by nothing, and **an unfalsifiable requirement can be neither satisfied nor breached.** What survives is what the Method can test |
+| `AC-07`, `AC-08` | Field name only. **The values `satisfied` and `override_not_four_eyes` were never retired** — `D-97` kept them, and the rows had said otherwise |
+| `G-02` | Data Source names the real column. **The boolean caveat is gone because the boolean was refused**, so `G-02` computes from one field and needs no amendment. **`G64` closes** |
+| `FR-05` Outputs | One typed output, not two. `identity_assurance` is separate provenance |
+
+**`G-02` and `FR-05` keep their `⚠`** — that is an independent `OD2` tie and was never `Q11`'s.
+
+### `0002` authorized — and what authorization does and does not mean
+
+**Authorized:** the hold in `D-17` is released. `0002_*.sql` may be created in
+`supabase/migrations/`, and **`0001_init.sql` is never edited** — it stays frozen.
+
+**Lane A does not write it.** `supabase/` is Lane B's surface. **Lane A's obligation under
+`B-029` repair 4 was to supply the final typed schema contract, and this decision is that
+contract:**
+
+| Object | Contract |
+|---|---|
+| `workflow_transitions` | `+ actor_id`, `line_assignment`, **`line_separation_status`** typed non-null (`satisfied` \| `not_applicable` \| `override_not_four_eyes`), `identity_assurance`, `event_type`, `agent_id`, `agent_run_id`, `supervising_human_id`, `assisting_agent_id`, `actor_type`. **`article_id` uses `ON DELETE RESTRICT`** (`D-07`) |
+| `articles` | **`article_kind`** (`standard` \| `retraction_notice`), **`original_article_id`** nullable/required-for-notice, **`risk_tier`** (`standard` \| `sensitive` \| `high_sensitivity`) plus its four provenance columns, **tenancy column** (`D-73`/`D-79`) |
+| `article_state_v2` | The ten-state lifecycle. **`Retracted` is NOT a state** (`D-110`); backfill is `D-55`'s total map with **no default branch** — an unknown old value fails loudly |
+| Report record | Immutable: identity, `article_id`, as-at transition anchor, tenant, template version, judgment-rule version, JSON schema version, frozen snapshot, optional `supersedes_report_id` |
+| Template applicability | Anchored on **`articles.created_at`**; **no backward application** (`D-111`) |
+| Storage form | **`D-110`'s boundary**: typed for anything enforced; versioned JSON only for an immutable body, with a typed `schema_version` |
+
+**What authorization does NOT mean.** It does not schedule S2–S4, and it does not make `0002`
+correct — **it removes the block.** `B-031` §8's gate still governs when Lane B takes the second
+turn, and the migration is verified by Lane B's tests, not by this decision.
+
+### Gaps and conditions closed
+
+**`G20`**, **`G64`** — §5.1. **`C-29`** and **`C-16`** — closed above. **The S1 window carries no
+open item.**
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `C-29` closed | ✅ §5.14bs, §5.1 `G20` | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ risk-tier rows |
+| `Q11` propagation | ✅ §5.14bs | ✅ the `Q11` row | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **all six markers cleared** |
+| **`0002` authorized** | ✅ §5.14bs | ✅ **S1 unblocked — the first build-spec change these decisions have earned** | **— unaffected** | ✅ `0002` becomes an expected artifact | **— unaffected** | ✅ `TR-DM-02` |
+
+> **The build spec was recorded *unaffected* by `D-110` and `D-111` on the stated ground that both
+> were shapes landing when `0002` was authorized. `0002` is now authorized, so it is affected —
+> and saying so here is what makes those two earlier rows honest rather than convenient.**

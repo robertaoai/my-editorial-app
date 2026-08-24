@@ -1,0 +1,177 @@
+{
+  "_comment": "Fragment 67 — D-112: the window closes, the migration is authorized, the markers clear. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d112_window_closed_migration_authorized",
+      "label": "D-112 — The Schema Window Is Closed and the Migration Is Authorized",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bs",
+      "description": "Every item in the window is settled, so the hold that kept the draft outside the apply set is released. The orchestration lane supplies the typed contract and does not write the migration.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Authorization removes the block. It does not schedule the later stages and does not make the migration correct; the build lane verifies it with its own tests."
+    },
+    {
+      "id": "raising_is_safety_lowering_is_a_decision",
+      "label": "Anyone May Raise a Risk Tier; Only the Chief Editor May Lower It",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "SEC-05",
+      "description": "The classification vocabulary has three values and its assignment authority is deliberately asymmetric.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Both symmetric alternatives fail: restricting assignment means someone who spots risk cannot flag it, and allowing anyone to change it means a control can be silently removed. Raising is a safety act and must never be blocked."
+    },
+    {
+      "id": "do_not_build_behind_a_false_flag",
+      "label": "Do Not Build the Mechanism Behind a Flag That Is False",
+      "file_type": "concept",
+      "source_file": "docs/CONFIG_LOG.md",
+      "source_location": "§7.3",
+      "description": "A rule proposing a risk value while the Chief Editor confirms is governed by a sprint flag that is disabled and enables in a later stage, so the first version assigns manually.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Implementing the proposal mechanism now would put working code behind a flag whose stated behaviour does not exist in this version, which is what the flag was set false to prevent."
+    },
+    {
+      "id": "an_unfalsifiable_requirement_is_dropped",
+      "label": "An Unfalsifiable Requirement Is Dropped, Not Defined",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "NFR-03",
+      "description": "The independence requirement carried a clause using a term undefined anywhere in the corpus and measured by nothing. The rewrite removes it rather than inventing a definition.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A requirement that can be neither satisfied nor breached is not a requirement. What survives is what the stated measurement method can actually test."
+    },
+    {
+      "id": "the_markers_cleared_in_one_pass",
+      "label": "The Provisional Markers Cleared in One Pass",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "markers",
+      "description": "Six rows carried a marker pending the naming decision. All six cleared together once the name was decided, including the metric whose data source had named the retired field.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Clearing them individually as each was noticed is how a half-propagated decision looks identical to a whole one. Two rows keep a separate warning marker because it records an independent open-decision tie."
+    },
+    {
+      "id": "a_tier_claim_that_had_not_landed",
+      "label": "A Tier Claimed Affected Before the Edit Was Made",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bs",
+      "description": "The propagation table marked the product specification as updated for the risk-tier condition while that document still said nothing about it.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The sweep that verifies propagation caught it, which is the defect that control exists for. The claim was made true by making the edit rather than by softening the claim."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d112_window_closed_migration_authorized",
+      "target": "v1_decision_register",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bs",
+      "weight": 1
+    },
+    {
+      "source": "d112_window_closed_migration_authorized",
+      "target": "d111_s1_window_closes_except_one",
+      "relation": "completes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bs",
+      "weight": 1
+    },
+    {
+      "source": "raising_is_safety_lowering_is_a_decision",
+      "target": "a_typed_column_with_an_undefined_domain",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bs",
+      "weight": 1
+    },
+    {
+      "source": "do_not_build_behind_a_false_flag",
+      "target": "raising_is_safety_lowering_is_a_decision",
+      "relation": "scopes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bs",
+      "weight": 1
+    },
+    {
+      "source": "an_unfalsifiable_requirement_is_dropped",
+      "target": "the_column_names_what_can_be_proven",
+      "relation": "completes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bs",
+      "weight": 1
+    },
+    {
+      "source": "the_markers_cleared_in_one_pass",
+      "target": "the_column_names_what_can_be_proven",
+      "relation": "propagates",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bs",
+      "weight": 1
+    },
+    {
+      "source": "a_tier_claim_that_had_not_landed",
+      "target": "d112_window_closed_migration_authorized",
+      "relation": "defect_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bs",
+      "weight": 1
+    },
+    {
+      "source": "a_tier_claim_that_had_not_landed",
+      "target": "corrections_are_the_dominant_defect_source",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bs",
+      "weight": 1
+    }
+  ]
+}
