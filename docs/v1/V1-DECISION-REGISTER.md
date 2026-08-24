@@ -143,7 +143,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G17` | **Closed 2026-08-25 (`D-110`)** | `QA3` ratified as a typed/versioned BOUNDARY, not a global format: typed for anything in a constraint, transition, permission, filter, join, retention rule or binding; versioned JSON only for an immutable report or brief body, with a typed `schema_version`. **JSON is never the source of truth for a gate.** Reframed by `B-032`. §5.14bq |
 | **`G18`** | **Standing rule** | **Two gap series exist (`G`, `GA`). Raise any new gap in one series only, and record it in this table. This rule was itself lost in the first supersession — an instance of the drift it warns about** |
 | `G19` | **Closed 2026-08-25 (`D-110`)** | Notice-as-article physical names ratified — `articles.article_kind` and `articles.original_article_id`; `Retracted` is NOT an eleventh state and the retraction condition is derived. **Inherited targets were already decided by `D-08`** and implemented in `FN-PUBLICATION` §4.3, which `B-032` never cited. §5.14bq |
-| `G20` | Open | `D-11`, S1 window item 8 |
+| `G20` | **Open — SHAPE decided, residual named** | Typed `articles.risk_tier` approved (`D-111`); **the vocabulary, assignment authority, propose-and-confirm mechanism and provenance fields are NOT decided** and are carried as `C-29`. **`0002` may not be authorized while this is open** |
 | `G21` | **Withdrawn** | Human `A` versus agent `R` — different layers, not a conflict — §2 |
 | `G22` | Open | `C-10`, T3 |
 | `G23` | **Closed 2026-08-19** | `D-10` — `FR-13` bypasses deliberation, not publication |
@@ -162,7 +162,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G34`–`G36` | **Never assigned** | **Numbering skip, not missing gaps.** The series jumps `G33` → `G37` because new gaps were numbered alongside `D-34`/`D-35`/`D-36` while those were being written. **No gap was lost, closed, or deleted.** Recorded so a reader auditing the sequence does not hunt for three that never existed |
 | `G37` | **Withdrawn** | Two concepts sharing a name — see `D-38` |
 | `G38` | **Resolved** | Defaults to `CR-04` — see `D-38` |
-| `GA1`, `GA3`, `GA4` | Open | S1 window item 3 — report record shape |
+| `GA1`, `GA3`, `GA4` | **Closed 2026-08-25 (`D-111`)** | Report record shape approved — identity, `article_id`, as-at transition anchor, tenant, template and rule-set versions, JSON schema version, frozen snapshot, optional `supersedes_report_id`. Typed per `D-110`. §5.14br |
 | `GA2` | **Half closed 2026-08-19** | Stated half done — report immutability rule in `Modular_PRD` §6.3. Insert/read-only half remains S1 window item 4 |
 | `GA5` | **TX — counsel** | Pairs with `G15` |
 | `GA6` | **Closed 2026-08-20** | Disclosure stands — assurance **Absent**, unchanged. `Q2` answered by `D-57`: v1 has no independent assurance, conditional on `C-13`'s BCP surface. **The surface is a compensating control, never Line 3** |
@@ -171,7 +171,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `GA9` | Open | `D-07`, S1 window item 6 |
 | `G40` | **Open** — DOC before S3 | `NFR-08` is unbounded: *"every transition reconstructable from the log alone"* carries no retention qualifier, so the product promises what lawful disposal removes. §5.14, detail section added 2026-08-20 |
 | `G41` | **Open** — S3 | Nothing explains **absence**. An empty audit view cannot distinguish *"nothing happened"* from *"records disposed under policy"*. §5.14, §5.14a. Product canary is `AC-12a` |
-| `G42` | **Open** — **S1** | Template-to-field-availability binding: a new report template may not be applied to a period that never recorded its fields. §5.14b, `D-41` |
+| `G42` | **Closed 2026-08-25 (`D-111`)** — **S1** | Template-to-field-availability binding: a new report template may not be applied to a period that never recorded its fields. §5.14b, `D-41` |
 | `G43` | **Resolved 2026-08-19** | GRC clock and proof — the deadline arrives with the order. §5.14d, `D-43` |
 | `G44` | **Resolved 2026-08-19** | The 90-day clock start defined. §5.14f, `D-45` |
 | `G45` | **Withdrawn 2026-08-19** | Anonymisation is not required — the transaction ID is the trace. §5.14f, `D-45` |
@@ -2353,7 +2353,15 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
-### `C-28` — Lane B's `D-103` turn has no handover
+### `C-29` — `G20`'s residual: a typed column with an undefined domain
+
+**Opened by `D-111`. Phase: 1, then `0002`.** `articles.risk_tier` is approved as a typed column that is never a lifecycle state and never silently recomputed. **Its DOMAIN is undecided** — the tier vocabulary, who may assign or change a tier, whether a rule proposes while the Chief Editor confirms, and the provenance needed to reconstruct an assigned value.
+
+**A column whose type is settled and whose domain is not is a text field with a hopeful name.** `SEC-05` — pre-publication legal review for high-sensitivity content — **cannot trigger without a vocabulary to trigger on**, and `FR-11` and `B-P0-06` depend on the same dimension.
+
+**`0002` may not be authorized while this is open.** It is the last item in the S1 window.
+
+
 
 **Opened by `D-105`. Phase: 2.** `D-75` requires a handoff at every lane boundary. Lane B held `Active` for the whole of `D-103` and left **no commits and no artifact** — and `LANE-B-WORK-ORDER.md` §5 had told it to raise nothing.
 
@@ -2639,7 +2647,8 @@ The first tier sweep accepted **any** ID from a row's Item cell. Deliberately br
 | `G64` — the field **shape** | **Specified, not applied** (`D-69`) — the choice is `Q11`'s |
 | `G17`, `G19` | **Decided `D-110`** |
 | `G57`, `GA9` | **No decision remains** — `D-55` supplies the total backfill map, `D-07` selects `on delete restrict`; both are implementation |
-| `G16` (`Q11` name), `G20` (risk tier), `G42`+`GA1`/`GA3`/`GA4` (report binding) | **Open — the three that remain** |
+| `G16`, `G42`, `GA1`/`GA3`/`GA4` | **Decided `D-111`** |
+| `G20` | **Residual only** — shape decided, vocabulary/authority/provenance open as `C-29`. **The last thing blocking `0002`** |
 | `GA2` | **Half closed** — the insert/read-only half is still a window item |
 | `C-11`, `C-12` | **Open** — T2, S1 window |
 
@@ -2846,12 +2855,12 @@ All alter the same append-only table.
 
 | Gap | Decision |
 |---|---|
-| `G16` | **`Q11` only — `Q10` was decided by `D-73`/`D-79`.** The remaining half is `Q11`'s column NAME; its shape is fixed by `D-97` |
+| `G16` | ✅ **Decided `D-111` — `line_separation_status`.** Was: `Q11` only — `Q10` was decided by `D-73`/`D-79`.** The remaining half is `Q11`'s column NAME; its shape is fixed by `D-97` |
 | `G17` | ✅ **Decided `D-110`** — typed/versioned boundary ratified |
 | `G19` | ✅ **Decided `D-110`** — physical names ratified; inherited targets were already `D-08` |
 | `G20` | Risk-tier dimension on articles |
-| `G42` | **Newly surfaced here.** Template-to-field-availability binding — the binding lives on the report record, which S1 creates |
-| `GA1`, `GA3`, `GA4` | Report record shape — identity, as-at, tenant, template and rule-set versions, frozen snapshot |
+| `G42` | ✅ **Decided `D-111`** — anchored on `articles.created_at`; no backward application |
+| `GA1`, `GA3`, `GA4` | ✅ **Decided `D-111`** — typed anchors, immutable snapshot |
 | `G57` | **Newly surfaced 2026-08-20.** The `X3` eight-row state backfill mapping, specified as data before `0002` is written |
 | `GA9` | `on delete restrict` replaces `on delete cascade` |
 
@@ -6100,3 +6109,116 @@ start the second-decision-register drift that file's own header forbids.
 **Build spec unaffected and that is deliberate**: both are schema shapes that land when `0002` is
 authorized, and `0002` is not. **Writing them into the build spec now would record work as
 sequenced that is still blocked on three decisions.**
+
+---
+
+## 5.14br `D-111` — The S1 Window Closes Except One Residual
+
+**Judge rulings, 2026-08-25.** Decisions 1, 3a, 3b and 3c are settled; decision 2 is settled in
+**shape only** and its residual is named rather than absorbed. **`0002` is still not authorized** —
+it is authorized in the pass that closes `G20`'s residual.
+
+### 1 · `Q11` — the column is `line_separation_status`
+
+**Approved.** `workflow_transitions.line_separation_status`, typed and non-null, carrying the
+`D-97` values `satisfied` | `not_applicable` | `override_not_four_eyes`.
+
+**The name states what the system can prove structurally.** `judgment_independence_status` was
+rejected because the code only ever writes a structural fact — **that was `Q11`'s original defect
+and it is now closed rather than renamed around.** `line_boundary_crossed` was rejected as the
+boolean `D-97` already refused; **a crossing boolean is a derived view, never a stored duplicate.**
+
+`identity_assurance` remains **separate executor-provenance data**; `judgment_independence` stays
+**reserved and null** until an instrument exists.
+
+**Propagation is one pass across the six marked locations** — `TR-DM-02`, `NFR-03`, `AC-07`,
+`AC-08`, `G-02`, `FR-05`'s Outputs line — **and it happens when `0002` is authorized, not now.**
+`NFR-03` still needs its own rewrite rather than a passthrough (`C-16`).
+
+### 3a · Report record shape — approved
+
+Immutable record, typed anchors per `D-110`'s boundary: identity · `article_id` · an **as-at
+transition anchor** · tenant · template version · judgment-rule version · JSON schema version ·
+frozen snapshot · optional `supersedes_report_id`.
+
+**`D-14` is the rule this makes enforceable** — an issued report is never edited or deleted; you
+supersede with a new report citing the original.
+
+### 3b · Template applicability is anchored on the article's trigger creation date
+
+**Approved, in the Chief Editor's terms:** report template versions are **auditable and
+successive** — a new version **always replaces the old going forward** — and **the fields a report
+carries exist only per its template version**, so **the template version schema is what records
+which fields are required.**
+
+> **A template version may NOT be applied backward.** The applicability anchor is the **article's
+> trigger creation date** — `articles.created_at`, the transaction line of the article flow — and
+> **not** the report generation date.
+
+**Why the trigger date is the safer anchor, and this is the reasoning that decides it:** the
+question a reader must answer later is *were these fields required when this work happened*. The
+generation date answers *when did someone press the button*, which drifts freely from the work.
+**Chronology of the article flow is the only anchor that stays true when a report is regenerated.**
+
+**This closes `G42`** — *"a new report template may not be applied to a period that never recorded
+its fields."* The constraint now has both a home (3a's `template version`) and an anchor.
+
+### 3c · A retraction never detaches a report
+
+**Approved.** **Retraction cannot remove a report's link**, because the linkage runs through the
+article's originating record and exists **for auditability**, which a retraction is precisely the
+event that makes matter most.
+
+**What "the editorial brief" means here — checked, because it could have meant a table.**
+`D-59` records the MVP and POC as *"two flows of one editorial brief"*, and the Board proposal's
+**§16.3 explicitly withholds storage authorization** for the Editorial Briefcase: *"operating
+labels, not repository folders, application routes, database tables, or authorization to implement
+storage."*
+
+> **Ruled: the brief is the ARTICLE'S ORIGINATING TRIGGER RECORD — the existing `articles` row —
+> not the P0-EVR Briefcase.** All reports created under an article flow link to it via
+> `article_id`, anchored at `articles.created_at`.
+
+**So no new table is created and §16.3 is not amended.** Had this been read the other way, `0002`
+would have authorized storage the Board proposal withholds — **the reason it was asked rather than
+inferred.**
+
+**A retraction creates new evidence; the prior report stays bound** to the article and to the
+point-in-time record on which it was issued.
+
+### 2 · Risk tier — shape approved, **residual open and named**
+
+**Approved:** typed `articles.risk_tier`, **never** in `article_state_v2`, **never silently
+recomputed after publication**. A calculated current-risk view is derived from recorded inputs,
+never stored beside an independently editable duplicate.
+
+**NOT approved, because it was not asked:** the tier **vocabulary**, the **assignment authority**,
+the **propose-and-confirm mechanism**, and the **provenance fields**.
+
+> **`G20` therefore does NOT close here.** Recording it closed on a shape-only ruling would be the
+> defect `D-109` had just finished correcting — a settled-looking row hiding an open question.
+> **Carried as `C-29`.**
+
+### Gaps closed
+
+**`G16`** (`Q11`'s name), **`G42`**, **`GA1`/`GA3`/`GA4`** — §5.1. **`G20` remains open on its
+residual.**
+
+### Conditions opened
+
+| | |
+|---|---|
+| **`C-29`** | **`G20`'s residual: tier vocabulary, assignment authority, propose-and-confirm, provenance.** The shape is decided and the content is not. **`0002` may not be authorized while this is open** — `risk_tier`'s type is settled but its domain is not, and a column with an undefined domain is a text field with a hopeful name |
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `Q11` name | ✅ §5.14br, §5.1 `G16` | **— unaffected until `0002`** | **— unaffected** | **— unaffected** | **— unaffected** | **— on the `0002` pass**: six `[Q11]` markers clear together |
+| Report shape + binding | ✅ §5.14br, §5.1 | **— unaffected until `0002`** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| Brief = originating record | ✅ §5.14br | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected; §16.3 NOT amended** |
+| Risk-tier residual | ✅ §5.14br, `C-29` | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Build spec unaffected throughout, and deliberately.** Every item here is a schema shape that
+lands when `0002` is authorized. **`0002` is not authorized**, and recording these as sequenced
+work would claim a migration is scheduled while a condition still blocks it.

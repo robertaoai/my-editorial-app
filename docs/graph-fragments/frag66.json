@@ -1,0 +1,177 @@
+{
+  "_comment": "Fragment 66 — D-111: the schema window closes except the risk-tier residual. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d111_s1_window_closes_except_one",
+      "label": "D-111 — The Schema Window Closes Except One Residual",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14br",
+      "description": "The transition-control column name, the report record shape, template applicability and retraction behaviour are settled. The risk dimension is settled in shape only.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Recording the risk dimension as closed on a shape-only ruling would be the defect the previous decision had just finished correcting: a settled-looking row hiding an open question."
+    },
+    {
+      "id": "the_column_names_what_can_be_proven",
+      "label": "The Column Names What the System Can Prove",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14br",
+      "description": "The transition-control column takes the name describing structural line separation rather than the one describing independence of judgment.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The code only ever writes a structural fact, and the table is append-only, so a name asserting a cognitive fact would have been permanently wrong. This closes the original defect rather than renaming around it."
+    },
+    {
+      "id": "chronology_of_the_work_not_the_button",
+      "label": "Applicability Is Anchored on When the Work Started, Not When the Report Was Generated",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14br",
+      "description": "Report template versions are successive and auditable, each declaring the fields it requires, and none may be applied backward. The anchor is the originating article record creation time.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The question a later reader must answer is whether these fields were required when the work happened. A generation date answers only when someone pressed the button, and drifts freely from the work; the flow chronology stays true when a report is regenerated."
+    },
+    {
+      "id": "a_retraction_creates_evidence_it_does_not_remove_it",
+      "label": "A Retraction Creates Evidence Rather Than Removing It",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14br",
+      "description": "A retraction never detaches an issued report. The linkage runs through the originating article record and exists for auditability.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Retraction is precisely the event that makes the prior record matter most, so severing the link at that moment would destroy the evidence at the point of maximum need."
+    },
+    {
+      "id": "the_brief_is_the_originating_record",
+      "label": "The Brief Is the Originating Record, Not a New Table",
+      "file_type": "concept",
+      "source_file": "docs/governance/board-proposal-professional-evidence-review-poc.md",
+      "source_location": "§16.3",
+      "description": "The briefcase is defined as an operating label and explicitly not a database table or authorization to implement storage, while a separate decision describes both flows as two exposures of one editorial brief.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Read the other way the migration would have authorised storage the board proposal withholds. Resolving it to the existing originating row means no new table and no amendment."
+    },
+    {
+      "id": "a_typed_column_with_an_undefined_domain",
+      "label": "A Typed Column With an Undefined Domain Is a Text Field With a Hopeful Name",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "C-29",
+      "description": "The risk dimension is approved as typed, never a lifecycle state, and never silently recomputed. Its vocabulary, assignment authority, proposal mechanism and provenance remain undecided.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The dependent control for pre-publication legal review cannot trigger without a vocabulary to trigger on, so the migration stays unauthorised until the domain is settled."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d111_s1_window_closes_except_one",
+      "target": "v1_decision_register",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14br",
+      "weight": 1
+    },
+    {
+      "source": "d111_s1_window_closes_except_one",
+      "target": "d110_qa3_and_notice_ratified",
+      "relation": "builds_on",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14br",
+      "weight": 1
+    },
+    {
+      "source": "the_column_names_what_can_be_proven",
+      "target": "markers_stay_until_the_naming_half_closes",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14br",
+      "weight": 1
+    },
+    {
+      "source": "the_column_names_what_can_be_proven",
+      "target": "typed_for_enforcement_json_for_the_body",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14br",
+      "weight": 1
+    },
+    {
+      "source": "chronology_of_the_work_not_the_button",
+      "target": "d111_s1_window_closes_except_one",
+      "relation": "ruled_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14br",
+      "weight": 1
+    },
+    {
+      "source": "a_retraction_creates_evidence_it_does_not_remove_it",
+      "target": "retracted_is_not_an_eleventh_state",
+      "relation": "consistent_with",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14br",
+      "weight": 1
+    },
+    {
+      "source": "the_brief_is_the_originating_record",
+      "target": "a_retraction_creates_evidence_it_does_not_remove_it",
+      "relation": "anchors",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14br",
+      "weight": 1
+    },
+    {
+      "source": "a_typed_column_with_an_undefined_domain",
+      "target": "d111_s1_window_closes_except_one",
+      "relation": "residual_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14br",
+      "weight": 1
+    }
+  ]
+}
