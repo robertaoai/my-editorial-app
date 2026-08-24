@@ -2633,7 +2633,7 @@ The first tier sweep accepted **any** ID from a row's Item cell. Deliberately br
 
 | Blocker | Verified state |
 |---|---|
-| `Q10` — tool versus product, tenancy column | **Open** |
+| `Q10` — tool versus product, tenancy column | **Decided (`D-73`), narrowed (`D-79`)** — `0002` carries a tenancy column to preserve the option; `NG-02` stands. **This row read `Open` until `D-109`**, which is why the S1 window looked one decision larger than it is |
 | `Q11` — the field **shape** | **Decided 2026-08-22 (`D-97`)** — three-value status, not a boolean. `G64`'s surviving limb answered |
 | `Q11` — the field **name** | **Open.** `D-97` decided the shape only; the rename is a separate half |
 | `G64` — the field **shape** | **Specified, not applied** (`D-69`) — the choice is `Q11`'s |
@@ -2844,7 +2844,7 @@ All alter the same append-only table.
 
 | Gap | Decision |
 |---|---|
-| `G16` | `Q10` + `Q11` designed as one migration |
+| `G16` | **`Q11` only — `Q10` was decided by `D-73`/`D-79`.** The remaining half is `Q11`'s column NAME; its shape is fixed by `D-97` |
 | `G17` | `QA3` — typed columns versus versioned JSON payload |
 | `G19` | Notice-as-article: notice type, reference, inherited targets, derived superseded status |
 | `G20` | Risk-tier dimension on articles |

@@ -134,7 +134,7 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 
 | # | Decision | Source |
 |---|---|---|
-| 1 | `Q11` field rename → `line_boundary_crossed` + `identity_assurance`, reserve `judgment_independence` | Propagates to six documented locations |
+| 1 | `Q11` field **name** — the SHAPE is decided (`D-97`: three-value status). **`line_boundary_crossed` is the REJECTED boolean fallback and is not the work item**; `identity_assurance` remains separate executor-provenance data and a reserved `judgment_independence` stays null | Propagates to six documented locations. **Row corrected `D-109`** — it had survived `D-97` and been reported three times (`B-009`, `B-012`, `B-032`) |
 | 2 | `QA3` typed columns versus versioned JSON payload | Enforcement and filtering only work on typed columns |
 | 3 | Report record shape — identity, as-at, tenant, template + rule-set version, frozen snapshot | Audit Step 4 |
 | 4 | Which tables become insert/read-only — **including publication records** | Audit Step 5, `C-11` |
