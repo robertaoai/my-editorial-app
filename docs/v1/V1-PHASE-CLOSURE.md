@@ -325,14 +325,28 @@ does not hold.**
 
 | Item | Value |
 |---|---|
-| Verified | 2026-08-22, on the tree committed as the resubmission |
 | Branch | `docs/journal-2026-08-16` |
-| Predecessor commit | `eb1549d` — the submission the Judge deferred |
-| Consistency checks | **11/11 pass**, `bun run check` |
-| Check added this pass | `phase-manifest` — **negative-tested four ways**, §6.5 |
-| Manifest paths verified | 30, with 3 declared exclusions |
-| Curated graph | rebuilt and re-merged; `docs-drift` reports synced at `HEAD` |
+| Judge deferred | **`eb1549d`** — the submission that returned `DEFER` |
+| First resubmission | **`b163075`** (`D-94`) — **not closable**; `B-006` found ten defects in it |
+| **Verification commit** | **`79bb2a6`** (`D-95`) — the commit this snapshot pins, named exactly (`B-006` item 9) |
+| Consistency checks | **11 of 12 pass.** `config-coupling` **fails, correctly** — see below |
+| Checks added since the deferral | `phase-manifest` (11), `config-coupling` (12), `C-19` folded into 10 |
+| Manifest paths verified | **30 paths, 9 exclusion paths** — *was 3 until the parser was repaired (`B-006` item 8)* |
+| Curated graph | rebuilt and re-merged; `docs-drift` synced at `HEAD` |
 | Untracked files in the governed set | **none** — `.agents/skills/` removed (`F8`) |
+
+**`bun run check` is RED, deliberately and truthfully.** `config-coupling` reports **13
+authoritative `CONFIG_LOG.md` rows with no implementation** — the two routes, `DOMAIN_APEX`,
+`FLAG_LINE3_ENABLED` and the nine sprint flags. **That is not a defect in the check; it is S0
+being incomplete.** Making it green would require either deleting authoritative rows or accepting
+a placeholder `flags.ts` that Lane B correctly refused (`B-002`).
+
+**A snapshot that reported green here would be the more dangerous artifact.**
+
+**Condition 3 is NOT met at this commit.** The critic pass on record predates the manifest, both
+new checks and the skill repair, and `D-93` requires a pass **on a separate turn** from the work
+being criticised. **`79bb2a6` is that work.** Phase 1 is therefore **not resubmitted** by this
+snapshot — the snapshot records what a resubmission will have to certify.
 
 **Reproduce it with two commands**, both of which fail loudly rather than silently:
 
