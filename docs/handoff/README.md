@@ -57,6 +57,22 @@ options were an undeclared reopening or a dropped finding.
 
 **Omit the line entirely** when the work belongs to the current phase, which is the normal case.
 
+## This directory is the backlog — `D-100`
+
+**The operating model is Scrum, not a stage gate** (`V1-PHASE-CLOSURE.md` §0). Three consequences
+for how you use this channel:
+
+1. **Feedback against running work does not halt it.** Raise the entry and **carry on** unless you
+   are genuinely blocked. A spec that turns out to have a gap is **refined**, not invalidated.
+2. **A new entry goes to the top of the backlog.** Feedback on work already running is the most
+   perishable information in the cycle — it is worth more now than after the surrounding work has
+   moved on.
+3. **A full backlog is not a defect.** `bun run check` reports the queue depth and **does not fail
+   on a healthy queue**. Only an entry nobody has looked at fails it.
+
+**No separate backlog file exists, deliberately.** These entries **are** the backlog; a second
+artifact listing them would be a restatement, and restatements drift.
+
 ## Answering — Lane A
 
 Fill the `Lane A` line. Three dispositions:

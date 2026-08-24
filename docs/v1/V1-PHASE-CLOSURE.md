@@ -5,6 +5,59 @@
 nothing, so a phase ended when Lane A said it ended — **the same shape `G32` exploited**, one
 level up.
 
+## 0. The operating model — Judge ruling, `D-100`. **Read this before §1**
+
+**This is an approved project.** The spec-acceptance boundary **is not a fresh approval gate** —
+it exists only to let Lane B or Lane C **proceed with work**. The approval is standing; the
+boundary is permission to start, not permission to exist.
+
+**The cycle across Lanes A, B and C is continuous.** It does not stop at a phase edge:
+
+```
+Lane A writes / refines specs
+        │
+        ▼
+   permission to proceed  ──►  Lane B / Lane C work
+        ▲                              │
+        │                              ▼
+   backlog refinement  ◄──  feedback, gaps, defects
+```
+
+**Feedback arriving against running work goes to the top of the backlog.** It **does not halt the
+work and does not invalidate the spec.** This is Scrum, not a stage gate — and the backlog is
+where a gap is held while it waits its turn.
+
+**Gaps close progressively, through spec refinement.** The governing phrases are already in this
+project's own vocabulary: **"keep things simple and practical"**, and ITIL 4's **"start where you
+are"**, which the sprint plan cites at S0.
+
+### What this corrects — stated plainly, because it is Lane A's error
+
+**Lane A had been building a stage-gate model onto a project the Judge runs as Scrum.** Phase
+closure conditions, exits, deadlocks, serialization enforcement — **each was a reasonable answer
+to the wrong question.** The symptoms were visible for three passes and read as individual
+defects rather than as one mismatch:
+
+| Symptom | What it actually was |
+|---|---|
+| A deadlock between "Phase 1 must close" and "Lane B may not act" | A stage gate imposed on a continuous cycle |
+| `C-20` designed to enforce strict serialization | **Enforcing the opposite of the operating model** |
+| Feedback treated as reopening a phase | Feedback is a **backlog item** |
+| Escalating every gap to the Judge before proceeding | Refinement is continuous; **the Judge rules at boundaries, not at every gap** |
+
+**`C-20` is withdrawn, not deferred** — see `§1.3`. **A control that enforces something the
+operating model does not want is worse than a missing one.**
+
+### The backlog
+
+**`docs/handoff/` already is the backlog.** Entries are raised by a working lane, dispositioned by
+Lane A, and ordered by whoever is refining. **No new artifact is created for this** — adding one
+would repeat the mistake this ruling corrects.
+
+**`bun run check` reports the queue depth; it does not fail on a healthy one.** That was already
+right (`D-90`), and it is right for the same reason Scrum does not treat a full backlog as a
+defect.
+
 ## 1. The closure conditions
 
 **A phase is closed when all five hold.** *(Four until the Judge added the fifth on 2026-08-22 —
@@ -179,6 +232,30 @@ field — **most of the machinery already exists**; what is missing is the accep
 recorded**, so the check has nothing to read on its primary input. **`C-20` blocks on the Judge
 recording the first acceptance**, not on Lane A writing code.
 
+## 1.3 `C-20` withdrawn — `D-100`
+
+**`C-20` was to make the phase register machine-readable and compare the committing lane against
+the open phase — enforcing that lanes act strictly one phase at a time.**
+
+**The operating model does not want that.** Lanes A, B and C run a **continuous cycle**; feedback
+against running work is a backlog item, not a serialization violation. **A check enforcing strict
+phase order would fire on the normal case** — the exact property that makes a control get ignored,
+which this project has recorded twice (`D-83`, `D-90`).
+
+**Withdrawn, not deferred.** Deferral implies it becomes correct later; it does not. **It was
+built to enforce the opposite of how this project works.**
+
+**What survives from `F4`, the finding that opened it.** The observation stands — *nothing records
+phase state in a form a check can read* — and it is now **satisfied by §5's register plus check
+10's status field**, which together answer the only question that matters under the corrected
+model: **has feedback raised against a lane's specs reached a disposition?** That is check 10's
+job and it already does it.
+
+**What is genuinely unenforced, and stays that way on purpose:** nothing prevents a lane from
+working before permission is recorded. **`43c51ce` is the one instance**, and under `D-100` the
+remedy is a backlog entry, not a control. **The project is approved; the boundary orders work, it
+does not authorize existence.**
+
 ## 1.2 The proposal put to the Judge — `D-97`
 
 **Asked directly: "what is the proposal to approve?" This is it, in one sentence.**
@@ -292,9 +369,9 @@ the check reports exactly that. **`C-19` could not be both "install it in the cl
 
 | Phase | Lane | Status | Closed | Judge | Reopened by |
 |---|---|---|:---:|---|---|
-| **1 — Orchestration** | A | **Open, and closes last (`D-99`).** Conditions 1 and 3 met; 2 waits on `B-010`; **5 waits on Lanes B and C**; 4 is the Judge's | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
-| **2 — Application** | B | **Not validly opened** — no spec-acceptance boundary has been recorded (`D-99`). Unauthorized activity occurred at `43c51ce` | — | — | — |
-| **3 — CI/CD** | C | **Not opened** — same reason; two items specified in `.github/WORKFLOWS-SPEC.md` §4 | — | — | — |
+| **1 — Orchestration** | A | **Open, and closes last (`D-99`).** Conditions 1, 2 and 3 met; **5 waits on Lanes B and C**; 4 is the Judge's | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
+| **2 — Application** | B | **OPEN — permission to proceed granted 2026-08-22 (`D-100`).** First work: the 13 unimplemented `CONFIG_LOG.md` rows, then `flags.ts` | — | Standing project approval (`D-100`) | — |
+| **3 — CI/CD** | C | **OPEN — permission to proceed granted 2026-08-22 (`D-100`).** Two items in `.github/WORKFLOWS-SPEC.md` §4; `C-Q2` still waits on `C-18` | — | Standing project approval (`D-100`) | — |
 
 **Phase 2 started while Phase 1 is open, and that is a finding, not a note.** `D-75` says the
 lanes run *sequentially, one at a time*. See §6.

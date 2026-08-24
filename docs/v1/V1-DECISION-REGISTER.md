@@ -2393,7 +2393,29 @@ either remove them on `G75`'s pattern — state the rule, not the count — or b
 **Removal is preferred**; a check over a tally is a check that must be maintained in step with
 the thing it counts.
 
-### `C-20` — phase order is required and unenforced
+### `C-20` — **WITHDRAWN 2026-08-22 (`D-100`)**
+
+**Not deferred — withdrawn.** Deferral implies it becomes correct later. It does not.
+
+**`C-20` was to enforce that lanes act strictly one phase at a time.** The Judge has ruled the
+operating model is **Scrum, not a stage gate**: Lanes A, B and C run a **continuous cycle**, and
+feedback against running work is a **backlog item**, not a serialization violation. **A check
+enforcing strict phase order would fire on the normal case** — the property that makes a control
+get ignored, recorded twice already (`D-83`, `D-90`).
+
+**A control that enforces the opposite of how the project works is worse than a missing one.**
+
+**What survives from `F4`, the finding that opened it.** The observation — *nothing records phase
+state in a form a check can read* — is now **satisfied by `V1-PHASE-CLOSURE.md` §5 plus check
+10's status field**, which together answer the only question the corrected model asks: **has
+feedback raised against a lane's specs reached a disposition?**
+
+**What stays unenforced on purpose:** nothing prevents a lane working before permission is
+recorded. **`43c51ce` is the single instance**, and the remedy is a backlog entry, not a control.
+
+*The condition as opened is retained below.*
+
+### `C-20` (as opened) — phase order is required and unenforced
 
 **Opened by `D-93` as critic-pass finding `F4`. Phase: before Phase 2 closes.** `D-75` requires
 the lanes to run **sequentially, one at a time**, and **Phase 2 began while Phase 1 was open.**
@@ -4805,3 +4827,92 @@ sprint, migration, schema change, UI, or monetization capability.** **Does not i
 **Build spec unaffected** — `M-POC` is **deferred scope**; no sprint, sequence or DoD moves, and
 writing requirements is not scheduling work. **`Modular_PRD` §8 unaffected** — no sprint closed
 and no tier opened for `M-MVP`. **Agent files unaffected** — no rule changes for any lane.
+
+---
+
+## 5.14bh `D-100` — The Operating Model Is Scrum, and Lane A Had Been Building a Stage Gate
+
+**One ruling, and it reframes three passes of work rather than adding to them.**
+
+### What the Judge ruled
+
+**This is an approved project.** The spec-acceptance boundary **is not a fresh approval gate** —
+it exists only to let Lane B or Lane C **proceed with work**. The approval is standing; the
+boundary orders work, it does not authorize existence.
+
+**The cycle across Lanes A, B and C is continuous.** Feedback arriving against running work goes
+**to the top of the backlog** — it does **not** halt the work and does **not** invalidate the
+spec. **Gaps close progressively, through spec refinement.** The governing phrases are this
+project's own: **"keep things simple and practical"**, and ITIL 4's **"start where you are"**,
+which the sprint plan already cites at S0.
+
+### What it corrects, and the correction is Lane A's to own
+
+**Lane A had been building a stage-gate model onto a project the Judge runs as Scrum.** Phase
+closure conditions, exits, a deadlock, serialization enforcement — **each was a competent answer
+to the wrong question**, and the symptoms were visible for three passes while being read as
+separate defects:
+
+| Symptom | What it actually was |
+|---|---|
+| A deadlock between *"Phase 1 must close"* and *"Lane B may not act"* | A stage gate imposed on a continuous cycle |
+| `C-20` designed to enforce strict serialization | **A control enforcing the opposite of the operating model** |
+| Feedback treated as reopening a phase | Feedback is a **backlog item** |
+| Every gap escalated to the Judge before proceeding | Refinement is continuous; the Judge rules **at boundaries, not at every gap** |
+
+**This is the third consecutive pass in which a Lane A rule was corrected by the Judge rather than
+by a control** — `D-98`'s rescoping, `D-99`'s start rule, and now the model underneath both.
+**The common cause is now visible and is not "insufficient rigour":** Lane A kept adding
+governance where the answer was less of it. **`D-93`'s critic role cannot catch this class**,
+because a critic checks work against its own model's rules; **only someone outside the model can
+say the model is wrong.** That is what the Judge role is for, and it is the strongest evidence yet
+that it could not have been a fourth agent.
+
+### The immediate consequences
+
+**Phase 2 and Phase 3 are OPEN.** Permission to proceed is granted under the standing approval.
+Lane B's first work is the **13 unimplemented `CONFIG_LOG.md` rows**, then `flags.ts`; Lane C's is
+its two `.github/WORKFLOWS-SPEC.md` §4 items, with `C-Q2` still waiting on `C-18`.
+
+**`C-20` is withdrawn**, not deferred. What survives from `F4` is satisfied by §5's register plus
+check 10.
+
+**`B-010` is answered**, and the backlog is now **clear — ten entries, all answered.** Phase 1's
+condition 2 is met.
+
+**`43c51ce` is reclassified.** Under this model it is **work ahead of a recorded permission inside
+an approved project** — a process-recording gap whose remedy is a backlog entry, **not the
+phase-validity crisis three passes treated it as.** The historical record stands unedited; only
+its characterisation changes, which is the only correction an append-only record permits.
+
+### `docs/handoff/` is the backlog — and no new artifact is created
+
+**The channel already is the backlog.** Entries are raised by a working lane, dispositioned by
+Lane A, ordered by whoever is refining. **A separate backlog file would restate them, and
+restatements drift** — the mistake this ruling corrects, repeated in miniature.
+
+**Check 10 was already right for this model.** It reports queue depth and **does not fail on a
+healthy queue** (`D-90`) — the same reason Scrum does not treat a full backlog as a defect.
+
+### What this does not do
+
+**Does not close Phase 1** — condition 5 still waits on Lanes B and C completing, and condition 4
+is the Judge's. **Does not install any check** — and **not installing one is the correct response
+to this ruling**, not an omission. **Does not authorize a sprint, migration, schema change, UI, or
+monetization capability.** **Does not amend `M-POC`'s requirements or `Fn_Spec`.**
+`0001_init.sql` untouched; `0002` unwritten.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` | Agent files |
+|---|---|---|---|---|---|
+| Operating model recorded | ✅ §5.14bh | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `C-20` withdrawn | ✅ §5.14bh + `C-20` | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| Phases 2 and 3 opened | ✅ §5.14bh | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| Backlog semantics | ✅ §5.14bh | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Build spec unaffected** — no scope, sequence or DoD moves; opening a phase permits work already
+scheduled rather than rescheduling it. **Inventory unaffected** — no file created or retired, and
+**deliberately so**: the backlog is an existing directory. **Agent files unaffected** — the lane
+rules are unchanged; what changed is the model those rules sit inside, and it lives in
+`V1-PHASE-CLOSURE.md` §0 where the Judge reads it.
