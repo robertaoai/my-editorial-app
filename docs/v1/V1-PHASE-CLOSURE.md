@@ -749,8 +749,7 @@ regression**, and no total is restated in this document beyond this snapshot's o
 
 ### 6.4c Snapshot refreshed — 2026-08-24 (`D-102`)
 
-**Commit:** `PIN-D102` · **Graph:** 817 nodes / 1582 links (`frag56`, `frag57`) · **Suite:** 12 of
-14 pass.
+**Commit:** `d6d406a` · **Graph:** 832 nodes / 1616 links after rebuild (`frag56`, `frag57` merged at 817/1582; the curated layer survived the rebuild, `G51`) · **Suite:** 13 of 14 pass.
 
 | Check | Result |
 |---|---|
@@ -760,7 +759,7 @@ regression**, and no total is restated in this document beyond this snapshot's o
 | `graph-coverage` | PASS — 0 of 80 `docs/` files absent |
 | `settings-parse` | PASS |
 | `decision-status` | PASS — 72 gap rows against 16 closure claims |
-| `lane-boundary` | **FAIL — the declared A+C crossing.** Judge-authorised 2026-08-24; trailer under `D-88`. `D-83`: it **reports** a crossing, it does not forbid one |
+| `lane-boundary` | PASS **after the commit; it reported the A+C crossing in the working tree beforehand.** Judge-authorised 2026-08-24; declared with a `Lane-Crossing:` trailer under `D-88`. `D-83`: it **reports** a crossing, it does not forbid one |
 | `source-sweep` | PASS |
 | `handoff-response` | PASS — 19 entries, 7 open, 12 answered |
 | `phase-manifest` | PASS — 34 paths, 9 exclusions |
