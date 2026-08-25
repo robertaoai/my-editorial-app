@@ -6454,6 +6454,19 @@ never leave it has stopped measuring the backlog.** Closed by a `turn-report` `K
 and 13 both read: **excluded from the unresolved count, reported as its own number.** `B-037` asked
 for both halves and only one of them is about tidiness.
 
+**Both are negative-tested, and the harness had to change to make it possible.** `bun run fixtures`
+could only ever assert on a check's **findings**. `G83` lived in the **detail line** — the finding
+fired correctly and the count did not — so **the entire class of "the summary is wrong" was
+untestable in this apparatus**, and every existing fixture passed while `handoff-response` reported
+`0 open` with four unread entries. `fixture()` now accepts `expectDetail`.
+
+> **`G81` recorded that a fix which enumerates its targets closes the gap only for the ones it
+> enumerated, and `G83`/`G84` were about to ship with no fixture at all** — that defect exactly, one
+> pass later. Four fixtures added, including a **positive control**: the same entry as an ordinary
+> kind must still be counted unresolved, without which the exclusion fixture proves only that a
+> number can be made smaller. **No fixture count is restated here** (`G75`, `C-21`) — the runner
+> prints it.
+
 ### Lane B raised these correctly, and the mechanism it used is worth naming
 
 **Lane B was `Blocked` throughout and wrote four entries anyway.** That is §5.1's carve-out working
