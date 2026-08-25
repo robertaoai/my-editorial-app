@@ -279,10 +279,44 @@ export async function syncDocs(results) {
 }
 
 /** `D-103` — exactly one lane is `Active`. */
+/**
+ * `D-103`/`D-108` — the lane lock as a state machine.
+ *
+ * LANE-AGNOSTIC BY CONSTRUCTION (`G91`, `D-117`). Every mutation below used to
+ * name a lane letter, which silently assumed Lane A held the lock. **The first
+ * time the lock moved, three of these fixtures would have stopped testing what
+ * their names claim** — one would have produced a single `Active` instead of
+ * two, and two would have fired a different finding than the one asserted.
+ *
+ * That is `D-106`'s lesson repeating: *retarget at structure, not at a live
+ * value.* A fixture suite that only works while one particular lane is `Active`
+ * is a suite that breaks on **the exact event it exists to protect** — the
+ * boundary. The suite now reads which lane holds the lock and mutates by role.
+ */
 export async function laneState(results) {
   const orig = read(CLOSURE);
   const restore = () => write(CLOSURE, orig);
-  const activeLane = () => (/\| \*\*A\*\* \| \*\*1 — Orchestration\*\* \| \*\*`Active`/.test(orig) ? "A" : "B");
+
+  // Replace a lane row's STATE cell, leaving Phase and every trailing column
+  // untouched. Anchored on the lane letter, so no phase label is hard-coded.
+  const row = (L) => new RegExp(`^\\| \\*\\*${L}\\*\\* \\|([^|]*)\\|([^|]*)\\|`, "m");
+  const setState = (text, L, state) =>
+    text.replace(row(L), (_m, phase) => `| **${L}** | ${phase.trim()} | ${state} |`);
+  const stateOf = (L) => (row(L).exec(orig) ?? [])[2] ?? "";
+
+  const LANES = ["A", "B", "C"];
+  const active = LANES.find((L) => /`Active`/.test(stateOf(L)));
+  // Between turns there is no `Active` lane and these fixtures have no role to
+  // mutate. Saying so beats emitting confident nonsense.
+  if (!active) {
+    results.push({
+      name: "lane-state: suite requires a turn in progress",
+      ok: false,
+      detail: "no lane is `Active` in the live register — the role-based mutations have no subject",
+    });
+    return;
+  }
+  const others = LANES.filter((L) => L !== active);
 
   await fixture(results, {
     name: "lane-state: the live register, unmutated",
@@ -292,71 +326,53 @@ export async function laneState(results) {
     shouldPass: true,
   });
   await fixture(results, {
-    name: "lane-state: TWO lanes are Active — the other half",
+    name: `lane-state: TWO lanes are Active (${active} + ${others[0]})`,
     modulePath: CHECK("lane-state.mjs"),
-    // Structural target, not prose. This fixture broke when `D-108` rewrote the
-    // row it keyed on — the third time a fixture missed because the document it
-    // mutates had moved. Matching the CELL survives a rewording.
-    mutate: () =>
-      write(CLOSURE, orig.replace(/\| \*\*B\*\* \| \*\*2 — Application\*\* \|[^|]*\|/, "| **B** | **2 — Application** | **`Active`** |")),
+    mutate: () => write(CLOSURE, setState(orig, others[0], "**`Active`**")),
     restore,
     expect: "lanes are `Active`",
   });
-  // `D-108` — the illegal state, and the one that actually happened.
   await fixture(results, {
-    name: "lane-state: a lane is Eligible while another is Active",
+    name: `lane-state: ${others[0]} is Eligible while ${active} is Active`,
     modulePath: CHECK("lane-state.mjs"),
-    mutate: () =>
-      write(CLOSURE, orig.replace(/\| \*\*B\*\* \| \*\*2 — Application\*\* \|[^|]*\|/, "| **B** | **2 — Application** | **`Eligible`** |")),
+    mutate: () => write(CLOSURE, setState(orig, others[0], "**`Eligible`**")),
     restore,
-    expect: "only when the lock is FREE",
+    expect: "is `Eligible` while lane",
   });
-  // The between-turns state is LEGAL — a fixture set that only forbids would
-  // make "no lane Active" look like a defect, which it is not.
   await fixture(results, {
     name: "lane-state: between turns — no Active, all Eligible",
     modulePath: CHECK("lane-state.mjs"),
     mutate: () =>
       write(
         CLOSURE,
-        orig
-          .replace(/\| \*\*A\*\* \| \*\*1 — Orchestration\*\* \|[^|]*\|/, "| **A** | **1 — Orchestration** | **`Eligible`** |")
-          .replace(/\| \*\*B\*\* \| \*\*2 — Application\*\* \|[^|]*\|/, "| **B** | **2 — Application** | **`Eligible`** |")
-          .replace(/\| \*\*C\*\* \| \*\*3 — CI\/CD\*\* \|[^|]*\|/, "| **C** | **3 — CI/CD** | **`Eligible`** |"),
+        LANES.reduce((t, L) => setState(t, L, "**`Eligible`**"), orig),
       ),
     restore,
     shouldPass: true,
   });
   await fixture(results, {
-    name: "lane-state: Blocked while NO lane is Active",
+    name: `lane-state: ${others[0]} is Blocked while NO lane is Active`,
     modulePath: CHECK("lane-state.mjs"),
-    mutate: () =>
-      write(
-        CLOSURE,
-        orig.replace(/\| \*\*A\*\* \| \*\*1 — Orchestration\*\* \|[^|]*\|/, "| **A** | **1 — Orchestration** | **`Eligible`** |"),
-      ),
+    mutate: () => write(CLOSURE, setState(orig, active, "**`Eligible`**")),
     restore,
     expect: "while NO lane is `Active`",
   });
   await fixture(results, {
-    name: "lane-state: a state outside the four",
+    name: `lane-state: ${others[1]} carries a state outside the four`,
     modulePath: CHECK("lane-state.mjs"),
-    mutate: () =>
-      write(CLOSURE, orig.replace(/\| \*\*C\*\* \| \*\*3 — CI\/CD\*\* \|[^|]*\|/, "| **C** | **3 — CI/CD** | **`Paused`** |")),
+    mutate: () => write(CLOSURE, setState(orig, others[1], "**`Paused`**")),
     restore,
     expect: "no recognised state",
   });
   await fixture(results, {
-    name: "lane-state: Blocked naming nothing it is blocked on",
+    name: `lane-state: ${others[1]} is Blocked naming nothing it is blocked on`,
     modulePath: CHECK("lane-state.mjs"),
-    mutate: () =>
-      write(CLOSURE, orig.replace(/\| \*\*C\*\* \| \*\*3 — CI\/CD\*\* \|[^|]*\|/, "| **C** | **3 — CI/CD** | **`Blocked`** |")),
+    mutate: () => write(CLOSURE, setState(orig, others[1], "**`Blocked`**")),
     restore,
     expect: "names nothing it is blocked on",
   });
 }
 
-/** `D-104` — the channel documentation coupled to the checks. */
 export async function channelDocs(results) {
   const r0 = read(README);
   const t0 = read(TEMPLATE);
