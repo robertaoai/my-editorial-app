@@ -106,8 +106,34 @@ which is the governed form of both.
 **Your parent-first sequence:** verify the authorization packet → draft and test `0002` → report S1
 evidence and the `DEP-05` limitation → **S2 only after S1 is accepted.**
 
-**Claim S1 as *"trigger written and unit-tested; live-DB behaviour unverified"*.** `DEP-05` is
-unanswered, so live anon-key behaviour cannot be proven from here. **Never claim it fully done.**
+### 2.2a `C-33` — the local database is provisioned; the test is yours to run
+
+**`B-044` was accepted in full** (`D-118`): `__tests__/s1-schema.test.ts` asserts on migration
+**text** and never starts a database, so the DoD phrase is **not yet earned**. **`D-120` supplies
+the runner and it needs no credentials.**
+
+| | |
+|---|---|
+| **Provisioned for you** | `supabase` CLI (devDependency, `2.115.0`) · `bun run db:start` / `db:stop` / `db:reset` · `.gitignore` for `supabase/.temp/` and `supabase/.branches/` |
+| **Yours to run** | **`supabase init`** — it writes `supabase/config.toml`, and `supabase/` is your surface. Lane A supplies the tool and does not run it (`D-86`) |
+| **The database** | **Disposable and separate from `main`/production.** Apply `0001` then `0002` to it, run the contract, destroy it. **Never point this at the provisioned project** |
+
+> **`DEP-05` does not block this.** It withholds *"Supabase credentials pulled to `.env.local`"* —
+> the **hosted** project, and nothing else. **A local stack uses none of them.**
+
+**The eight-case contract is `C-33`, and it is your own list from `B-044`:** valid
+`Logged → Validated` with exactly one preceding transition · `Logged → Drafted` rejected · a state
+change with no transition rejected · agent execution of T5 rejected · a concurrent duplicate rolled
+back with no orphan transition · UPDATE and DELETE rejected on every insert/read-only table ·
+approval without an eager target rejected · publication without a same-transaction live event
+rejected.
+
+**Keep `__tests__/s1-schema.test.ts`** and label it a **static migration-contract test**. It is
+useful and it is not the thing `C-33` asks for.
+
+**Then the claim becomes:** *"local PostgreSQL unit-tested; live Supabase anon-key behaviour
+unverified."* `DEP-05` is unanswered, so live anon-key behaviour cannot be proven from here.
+**Never claim it fully done.**
 
 **S2–S4 stay unscheduled.** `D-112` authorized a migration, not a sprint plan.
 

@@ -171,7 +171,18 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 
 **Also in S1:** ten-state enum via `article_state_v2` · tenancy boundary (`D-01`) · `actor_id` (`TC4`) · `sources.reliability_tier`, `articles.source_id`, `topics.evolves_from`, trend-signal fields, unique index on `articles.url` (`TC3`, `TC5`) · `publication_targets` + `publications` (`TC2`, `D-08`) · revoke UPDATE and DELETE on `workflow_transitions` · correct the seed rows executing T5 with an agent (`X4`) · **sequence enforcement in Postgres, not application code** (`TC1`).
 
-**DoD:** trigger written and unit-tested; `Logged → Drafted` rejected at the database. **Live anon-key behaviour stays unverified until `DEP-05` is answered** — claim S1 done as *"trigger written and unit-tested; live-DB behaviour unverified,"* never as fully done.
+**DoD:** trigger written and **unit-tested against a local or branch Postgres instance**; `Logged → Drafted` rejected at the database. **Live anon-key behaviour stays unverified until `DEP-05` is answered** — claim S1 done as *"trigger written and unit-tested; live-DB behaviour unverified,"* never as fully done.
+
+> **The qualifier was missing here for three months (`G94`, `D-120`).** `A26a` corrected this DoD on
+> 2026-08-17 — its own note calls the prior wording *"a live contradiction, not a deferral"* — and
+> the correction reached `sprint-plan` §353 and `Modular_PRD` `M1` **and not this document, which is
+> the one a build lane reads.** Every check passed throughout.
+
+> **The runner (`D-120`).** `DEP-05` withholds *"Supabase credentials pulled to `.env.local`"* — **the
+> hosted project, and nothing else.** The dev environment is **separate from `main`/production** and
+> its database is **disposable**: `vercel dev` for the app, `supabase init` / `bun run db:start` for
+> the database. The CLI is provisioned; **`supabase init` is Lane B's act** because `supabase/` is
+> its surface.
 
 > ⛔ **`C-33` — this DoD phrase is NOT yet earned (`D-118`, raised by Lane B as `B-044`).** `0002` is
 > drafted at `d826b53` and its test **asserts on migration TEXT**: it never starts PostgreSQL,

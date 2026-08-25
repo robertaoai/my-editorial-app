@@ -22,3 +22,11 @@ cache.js
 detect.js
 partc.js
 step*.js
+
+# Supabase CLI local development stack (`D-120`).
+# `supabase init` and `supabase start` write these; they are machine-local
+# runtime state for the DISPOSABLE dev database and never describe the
+# provisioned project. `supabase/migrations/` and `supabase/config.toml` ARE
+# tracked — the migrations are the artifact and the config is the contract.
+supabase/.temp/
+supabase/.branches/

@@ -221,6 +221,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G91` | **Closed 2026-08-25 (`D-117`) — a fixture suite that breaks on the event it protects** | **Every lane-state fixture named a lane letter, silently assuming Lane A held the lock.** Moving it would have broken three: setting `B` `Active` when `B` already is produces **one** `Active` rather than two, and the *Eligible-beside-Active* and *Blocked-with-no-Active* cases would each have fired a **different finding than the one asserted** — passing while testing nothing. `D-106` drew this lesson once, *retarget at structure not at a live value*, and applied it to the documents the fixtures mutate **and not to the lane identity inside them.** **Fixed BEFORE the boundary, not after**; the suite reads which lane holds the lock and mutates by role. §5.14bx |
 | `G92` | **Closed 2026-08-25 (`D-118`) — a tier column nothing could verify, invisible because nobody had ever ticked it** | **`tier-sweep` had no mapping for the "Phase closure" column.** `V1-PHASE-CLOSURE.md` is a governed tracking file that decisions routinely claim to affect — lane rows, boundary procedure, the artifact manifest, critic passes — and **a claim about it was exactly as checkable as any other and was checked by nothing.** It stayed invisible because the sweep only fails on a ✅ and **every prior decision wrote *"— unaffected"* there**, which it skips by design; the FIRST tick reported the column as unknown rather than verifying it. **Same shape as `B-045` one check over**: `channel-docs` couples four channel documents in both directions and `V1-PHASE-CLOSURE.md` is in neither set, which is why its §5.2 step 1 could drift to a retired kind while the four coupled documents all agreed. **A document that is the subject of claims and the member of no coupling set is unverifiable by construction.** §5.14by |
 | `G93` | **Closed 2026-08-25 (`D-119`) — a fixture that asserted a live count** | **`D-113`s `G83`/`G84` fixtures assert on a check detail line, and did it with absolute literals.** **The channel grows**, so two turns later both fixtures failed **while the check was working perfectly.** This is `C-21`s tally problem **inside the apparatus built to catch it**, and it is `G91`s lesson one file over: `G91` was *a fixture must not name a lane*; this is *a fixture must not name a count*; **both are the same rule — assert a RELATIONSHIP, not a live value.** Closed by deriving the baseline from the live channel with the channel own parser and asserting `base` and `base + 1`: **the mutation moves exactly one counter by one**, which is the property actually under test and was never the literal. §5.14bz |
+| `G94` | **Closed 2026-08-25 (`D-120`) — a correction that reached two tiers and missed the one a build lane reads** | **`A26a`, 2026-08-17, corrected the S1 Definition of Done** because the prior wording required a live database while `DEP-05` was withheld — its own note calls that *a live contradiction, not a deferral*. The corrected phrase, **unit-tested against a local or branch Postgres instance**, landed in `sprint-plan` §353 and in `Modular_PRD` `M1`. **`V1-BUILD-SPEC.md` kept the bare phrase *trigger written and unit-tested* for three months** and every check passed throughout. **The missed tier is the operative build document**, so Lane B built a static contract test against a DoD that never said which database — which is why `B-044` is a finding and not a violation. `G65` again, and **the oldest instance in this register by a wide margin**: arrival is checked, staleness is not, and a qualifier removed from one tier leaves the others agreeing with each other. Corrected here; the runner is now named. §5.14ca |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -7304,3 +7305,95 @@ check could catch it, and did not amend. **It then happened twice more in the ne
 
 Changes one fixture helper and records one habit. No decision reversed, no gap reopened, no lane
 selected, no schema touched.
+
+---
+
+## 5.14ca `D-120` — The Dev Environment Is Separate; `C-33`'s Runner Is Local and Needs No Credentials
+
+**Judge direction, 2026-08-25.** Records the development-environment boundary, provisions the
+toolchain `C-33` needs, and **corrects a Build Spec DoD that lost a qualifier the rest of the corpus
+has carried since 2026-08-17.**
+
+### The rulings
+
+| | |
+|---|---|
+| **Dev is separate from `main` / production** | The development database is **disposable**. The provisioned Supabase project is not a dev target |
+| **Dev setup is `vercel dev` + `supabase init`** | The app runs locally against a local stack; the CLI supplies the database |
+
+### `C-33`'s runner needs no credentials, and `DEP-05` never said otherwise
+
+**`DEP-05` reads: *"Supabase credentials pulled to `.env.local`"* — deliberately withheld.** That is
+**the hosted project**, and it is the only thing it withholds.
+
+> **A local stack from `supabase init` / `supabase start` uses none of it.** So the local PostgreSQL
+> test `B-044` asked for was never blocked by `DEP-05`, and **`C-33` is discharged by Lane B without
+> a decision from anyone.** The two unverified things `B-044` separated stay separated: **live
+> anon-key behaviour remains unverified**; local database behaviour becomes verifiable now.
+
+### The Build Spec lost `A26a`'s qualifier and Lane B read it literally
+
+**`A26a`, 2026-08-17, corrected the S1 DoD** — its own note says the prior wording *"was a live
+contradiction, not a deferral"*, because it required a live database while `DEP-05` was withheld:
+
+| Tier | S1 DoD reads |
+|---|---|
+| `sprint-plan` §353 | *"unit-tested against a **local or branch Postgres instance**"* |
+| `Modular_PRD` M1 | *"Trigger written and unit-tested; live anon-key DB rejection unverified until `DEP-05`"* |
+| **`V1-BUILD-SPEC.md` S1** | ⛔ *"trigger written and unit-tested"* — **the qualifier never arrived** |
+
+> **This is why `B-044` is a finding rather than a violation.** Lane B built against the **operative
+> build document**, which never said *which database*, and then audited its own work down. **The
+> correction was made in two tiers and missed the third**, and the missed one is the one a build
+> lane reads. `G65` again — arrival is checked, staleness is not — **and this instance is three
+> months older than any other in this register.**
+
+**Corrected here.** `C-33` keeps the eight-case contract and now names the runner.
+
+### Provisioned, ahead — `D-86` performed rather than deferred
+
+| | |
+|---|---|
+| `supabase` CLI | **devDependency**, installed and verified at `2.115.0` |
+| `db:start` · `db:stop` · `db:reset` | Script wrappers, so Lane B calls a **stable name** rather than a binary path |
+| `.gitignore` | `supabase/.temp/`, `supabase/.branches/` — machine-local runtime state |
+
+**`supabase/migrations/` and `supabase/config.toml` stay TRACKED** — the migrations are the artifact
+and the config is the contract. **Only the CLI's scratch state is ignored.**
+
+> **`supabase init` is Lane B's act, not Lane A's.** It writes `supabase/config.toml`, and
+> `supabase/` is Lane B's surface. **Lane A supplies the tool; Lane B runs it** — `D-86`'s division
+> exactly, and the reason Lane A did not run `init` while holding the pen.
+
+### What this does not do
+
+**`0002` is NOT applied — not locally, not to the provisioned project.** Lane B applies it to a
+disposable database as part of `C-33` and destroys it. **The provisioned Supabase database is
+untouched by this decision**, and `0001_init.sql` stays frozen.
+
+**`C-32` is unaffected and unmoved.** The five operative values it waits on are business values —
+the 90-day ratification, each record class's bounded minimum, the archive operator and location
+class, restoration authority, and later disposal authority. **A development environment supplies
+none of them**, and `B-040`'s runbook still cannot run without Lane A inventing policy.
+
+### Gaps and conditions
+
+**Opened:** `G94` — the Build Spec's S1 DoD lost `A26a`'s *"local or branch Postgres"* qualifier for
+**three months**, and every check passed throughout. **Closed in this pass.**
+**Narrowed:** `C-33` — its runner is named and provisioned; **what remains is Lane B running it.**
+**Unchanged:** `C-32` open on five business values; `C-26`, `C-27`, `C-28`; `G87`, `G88`, `G89`,
+`G90`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Dev/prod separation | ✅ §5.14ca | ✅ **S1 DoD names the runner** | **— unaffected** | ✅ **`package.json` gains the CLI and three scripts** | **— unaffected** | **— unaffected: no requirement changes; a dev environment is not product behaviour** |
+| `G94` | ✅ §5.14ca, §5.1 | ✅ **the qualifier restored** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `M1` already carries the corrected wording, which is the point** |
+| CLI provisioned | ✅ §5.14ca | **— unaffected** | **— unaffected** | ✅ toolchain row | **— unaffected** | **— unaffected** |
+
+### Scope limits
+
+**Applies no migration and starts no database.** Provisions a tool, adds three script names, and
+ignores two scratch directories. **No lane selected, no phase closed, no policy approved.**
+`0001_init.sql` untouched; the provisioned Supabase project untouched.
