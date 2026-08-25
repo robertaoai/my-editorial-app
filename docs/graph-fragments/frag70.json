@@ -1,0 +1,217 @@
+{
+  "_comment": "Fragment 70 — D-115: the current set as the compliance regime's terminus; archival and disposal as external acts; the word that carried two meanings. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d115_the_current_set_is_the_terminus",
+      "label": "D-115 — The Current Set Is Where the Compliance Regime Reaches",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bv",
+      "description": "The compliance regime governing retraction binds work while it is current. Moving work out of the current set ends that regime's reach, because retraction and amendment are acts performed on current work.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "This is the terminus the regime appeared to lack. It supplies a deadline for performing an act and no period for keeping the evidence, so it looked open-ended; bounding it by currency rather than by age is what closes it."
+    },
+    {
+      "id": "moving_and_deleting_are_not_the_same_act",
+      "label": "Moving Out of the Working Set Is Not Deleting",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "§6.3",
+      "description": "The threshold that moves finished work out of the working set was compared against the statutory floor that governs destruction, as though both measured the same act.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A period that destroys nothing has no reason to meet a destruction floor. The comparison was category-wrong and was retracted at every site that carried it, rather than softened."
+    },
+    {
+      "id": "a_word_load_bearing_in_two_tiers_defined_in_none",
+      "label": "A Word Load-Bearing in Two Governed Tiers and Defined in Neither",
+      "file_type": "concept",
+      "source_file": "docs/journal/2026-08-18-audit-model-and-remediation-plan.md",
+      "source_location": "Step 9",
+      "description": "The remediation step instructing the definition also instructed a threshold that only makes sense under the opposite definition, so one sentence contradicted itself and nothing downstream could tell which reading was meant.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "An undefined term does not fail a check. It propagates, and each reader resolves it differently; the contradiction surfaced only when two readings were compared side by side."
+    },
+    {
+      "id": "two_regimes_of_different_reach_look_like_an_inconsistency",
+      "label": "Two Regimes of Different Reach Read as One Inconsistency",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "§6.3",
+      "description": "Rejected work moves out of the working set after a period; published work does not. That was read as an inconsistent rule, and it is two regimes with different reach: work that never published can never be retracted, and work that stays current stays retractable.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The condition raised against it was opened on a premise that turned out to be wrong, and opening it was still correct: the reasoning that dissolved it did not exist until the cross-reference was performed."
+    },
+    {
+      "id": "stopping_a_lie_makes_a_new_case_reachable",
+      "label": "Stopping a Lie Makes a New Case Reachable",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bv",
+      "description": "While the rule promised that records were never removed, a published item never left the working set and remained actionable forever. Restating it to permit lawful end-of-life removal made a late obligation arriving against removed work newly possible.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The gap is the honest consequence of the correction, not a defect in it. It is recorded and deferred rather than absorbed, because handling work never originated in this system is a different intake shape."
+    },
+    {
+      "id": "a_criterion_whose_input_nothing_supplies",
+      "label": "A First-Version Criterion Whose Input Nothing Supplies",
+      "file_type": "concept",
+      "source_file": "docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md",
+      "source_location": "AC-12a",
+      "description": "The audit surface must state that records existed and are no longer retrievable, naming the policy, version, period and archive location of an act that happens outside this system and is never reported to it.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The same shape as the earlier finding that a classification depends on a fact the product does not hold, one tier down, and resolved the same way: the fact must be supplied rather than inferred. The mechanism was specified in a working journal and never adopted."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d115_the_current_set_is_the_terminus",
+      "target": "v1_decision_register",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bv",
+      "weight": 1
+    },
+    {
+      "source": "d115_the_current_set_is_the_terminus",
+      "target": "the_three_regimes_do_not_share_a_shape",
+      "relation": "answers",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bv",
+      "weight": 1
+    },
+    {
+      "source": "d115_the_current_set_is_the_terminus",
+      "target": "d114_classification_adopted_window_closed",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bv",
+      "weight": 1
+    },
+    {
+      "source": "moving_and_deleting_are_not_the_same_act",
+      "target": "immutability_and_retention_are_different_properties",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/Modular_PRD.md",
+      "confidence_score": 1,
+      "source_location": "§6.3",
+      "weight": 1
+    },
+    {
+      "source": "moving_and_deleting_are_not_the_same_act",
+      "target": "d115_the_current_set_is_the_terminus",
+      "relation": "recorded_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bv",
+      "weight": 1
+    },
+    {
+      "source": "a_word_load_bearing_in_two_tiers_defined_in_none",
+      "target": "moving_and_deleting_are_not_the_same_act",
+      "relation": "root_cause_of",
+      "confidence": "CURATED",
+      "source_file": "docs/journal/2026-08-18-audit-model-and-remediation-plan.md",
+      "confidence_score": 1,
+      "source_location": "Step 9",
+      "weight": 1
+    },
+    {
+      "source": "a_word_load_bearing_in_two_tiers_defined_in_none",
+      "target": "a_classification_that_never_reached_a_governed_tier",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/journal/2026-08-18-audit-model-and-remediation-plan.md",
+      "confidence_score": 1,
+      "source_location": "§5.3",
+      "weight": 1
+    },
+    {
+      "source": "two_regimes_of_different_reach_look_like_an_inconsistency",
+      "target": "d115_the_current_set_is_the_terminus",
+      "relation": "resolved_by",
+      "confidence": "CURATED",
+      "source_file": "docs/Modular_PRD.md",
+      "confidence_score": 1,
+      "source_location": "§6.3",
+      "weight": 1
+    },
+    {
+      "source": "stopping_a_lie_makes_a_new_case_reachable",
+      "target": "d114_classification_adopted_window_closed",
+      "relation": "consequence_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bv",
+      "weight": 1
+    },
+    {
+      "source": "stopping_a_lie_makes_a_new_case_reachable",
+      "target": "d115_the_current_set_is_the_terminus",
+      "relation": "recorded_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bv",
+      "weight": 1
+    },
+    {
+      "source": "a_criterion_whose_input_nothing_supplies",
+      "target": "d115_the_current_set_is_the_terminus",
+      "relation": "found_by",
+      "confidence": "CURATED",
+      "source_file": "docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md",
+      "confidence_score": 1,
+      "source_location": "AC-12a",
+      "weight": 1
+    },
+    {
+      "source": "a_criterion_whose_input_nothing_supplies",
+      "target": "a_classification_that_never_reached_a_governed_tier",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bv",
+      "weight": 1
+    }
+  ]
+}
