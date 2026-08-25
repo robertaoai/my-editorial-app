@@ -743,9 +743,6 @@ export async function tierSweep(results) {
   const restore = () => write(CLOSURE, orig);
   const origReg = read(REGISTER);
   const restoreReg = () => write(REGISTER, origReg);
-  // Read live rather than hardcoded (`G93`'s lesson) — the register grows.
-  const { run: runTierSweep } = await import(CHECK("tier-sweep.mjs"));
-  const baseClaims = Number(/^(\d+) tier claims verified$/.exec(runTierSweep().detail)?.[1] ?? NaN);
 
   await fixture(results, {
     name: "tier-sweep: the live register, unmutated",
@@ -773,22 +770,24 @@ export async function tierSweep(results) {
   // pass. Constructed because no live row currently exercises it — the backtest
   // proved the covered path correct; this proves the UNcovered path degrades
   // safely rather than being untested by omission.
+  //
+  // First attempt used the "Register" column, whose tier maps to `files: []` —
+  // and `checked` only increments INSIDE the loop over `tier.files`, so that
+  // column can never be counted at all regardless of the fallback. Caught by
+  // this very fixture MISSing on its first run: `189` stayed `189`. Rebuilt
+  // against "Build spec", a tier with a real target file, using `G00` —
+  // confirmed absent from it — so the fallback path is provably REACHED and
+  // EVALUATED: a finding proves that far more directly than a count would.
   await fixture(results, {
     name: "tier-sweep: a checkmarked row before any decision heading exists",
     modulePath: CHECK("tier-sweep.mjs"),
     mutate: () => {
       const table =
-        "\n| Item | Register |\n|---|---|\n| pre-heading probe (`G00`) | ✅ nowhere real |\n";
+        "\n| Item | Build spec |\n|---|---|\n| pre-heading probe (`G00`) | ✅ nowhere real |\n";
       write(REGISTER, table + origReg);
     },
     restore: restoreReg,
-    // "register" maps to `files: []`, true by construction — so a checkmark
-    // there can never FAIL regardless of which fallback resolved, and passing
-    // alone would not distinguish "scanned and vacuously true" from "silently
-    // skipped". The claim COUNT rising by exactly one is the proof it was
-    // actually reached and counted, not skipped.
-    shouldPass: true,
-    expectDetail: Number.isNaN(baseClaims) ? undefined : `${baseClaims + 1} tier claims verified`,
+    expect: "marked ✅ for",
   });
 }
 

@@ -7911,10 +7911,17 @@ at least one decision heading. That branch degrades to the pre-`G98` behavior (a
 by construction, but *by construction* is exactly the claim `D-125`'s own probe failure showed
 cannot be trusted unverified.
 
-> **A synthetic fixture inserts a checkmarked row ahead of every real heading** and asserts the tier
-> claim count rises by exactly one, read live rather than hardcoded (`G93`). Passing alone would not
-> distinguish "reached and vacuously true" from "silently skipped" — "register" maps to `files: []`,
-> true by construction — so the **count**, not the pass/fail, is the proof.
+> **A synthetic fixture inserts a checkmarked row ahead of every real heading, mapped to a real
+> tier target and a probe ID confirmed absent from it, and asserts a finding names it.** The first
+> attempt mapped the row to the "Register" column instead and asserted the claim COUNT would rise —
+> **it did not, and the fixture correctly reported MISS.** `checked` only increments inside the loop
+> over a tier's `files`, and "Register" maps to `files: []` — that column can never be counted, by
+> a completely different mechanism than the one under test. **The fixture caught a defect in
+> itself before it could certify anything**, which is the same shape `F36` recorded for the very
+> first tracked fixture run: a port turned a narrow assertion into a wrong one, reported as `MISS`
+> rather than passing quietly. Rebuilt against "Build spec", a tier with a real file — a finding
+> naming the probe proves the fallback path was reached and evaluated more directly than a count
+> would have.
 
 ### What this pass is and is not
 
