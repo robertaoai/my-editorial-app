@@ -1,0 +1,87 @@
+{
+  "_comment": "Fragment 82 — D-126: G98 backtested across the register's full history, and a stress-test fixture that caught a defect in itself before it could certify anything. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "a_fix_backtested_against_its_own_full_history",
+      "label": "A Fix Backtested Against Every Case It Has Ever Governed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14cg",
+      "description": "A propagation-tracking repair scoped to the one section that exposed it was replayed against every historical row it could ever have touched, rather than trusted on the strength of the one case that motivated it.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A fix proven on the case that found it is proven once. Replaying it against the full corpus the mechanism has ever governed is what distinguishes a fix that happens to work here from one that generalizes, and zero mismatches across a large historical set is meaningfully stronger evidence than a single passing fixture."
+    },
+    {
+      "id": "a_stress_test_fixture_caught_a_bug_in_itself",
+      "label": "A Stress-Test Fixture Caught a Defect in Itself Before Certifying Anything",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14cg",
+      "description": "A new fixture built to cover an untested code branch asserted a metric that could not move for a completely unrelated structural reason, and reported the mismatch rather than a false pass, before the branch itself had been exercised correctly.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The fixture's own MISS is the mechanism working exactly as designed: a fabricated test that silently passed on the wrong basis would have certified nothing while looking like coverage. Rebuilding it against a target whose failure is directly observable turned an incidental metric into direct evidence."
+    }
+  ],
+  "edges": [
+    {
+      "source": "a_fix_backtested_against_its_own_full_history",
+      "target": "a_fallback_accepted_a_pre_existing_mention",
+      "relation": "verifies",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cg",
+      "weight": 1
+    },
+    {
+      "source": "a_fix_backtested_against_its_own_full_history",
+      "target": "the_critic_pass_owed_and_finally_run",
+      "relation": "follows_from",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cg",
+      "weight": 1
+    },
+    {
+      "source": "a_stress_test_fixture_caught_a_bug_in_itself",
+      "target": "a_probe_that_silently_measured_the_old_rule",
+      "relation": "recurrence_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cg",
+      "weight": 1
+    },
+    {
+      "source": "a_stress_test_fixture_caught_a_bug_in_itself",
+      "target": "checks_tier_sweep",
+      "relation": "implemented_in",
+      "confidence": "CURATED",
+      "source_file": "scripts/fixtures/suites.mjs",
+      "confidence_score": 1,
+      "source_location": "tierSweep",
+      "weight": 1
+    },
+    {
+      "source": "a_fix_backtested_against_its_own_full_history",
+      "target": "a_stress_test_fixture_caught_a_bug_in_itself",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cg",
+      "weight": 1
+    }
+  ]
+}
