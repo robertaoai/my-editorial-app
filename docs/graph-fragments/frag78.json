@@ -1,0 +1,127 @@
+{
+  "_comment": "Fragment 78 — D-123: one canonical report per run, and a condition closed on its own named evidence four passes late. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "contemporaneous_is_not_independent",
+      "label": "Contemporaneous Is Not Independent",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-053-two-turn-reports-for-one-lb-s1-01-run.md",
+      "source_location": "spec defect",
+      "description": "Two turn reports committed in the same commit and acknowledged at the same boundary were counted as two turns because nothing named the run they shared. One superseded the other in substance without either being marked as such.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A report count that does not equal a turn count cannot be used to reconstruct handovers. Naming the run and requiring exactly one live canonical report per run makes the count trustworthy again."
+    },
+    {
+      "id": "a_condition_outlived_its_own_named_evidence",
+      "label": "A Condition Outlived the Evidence Its Own Rule Named",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-052-c28-remains-open-after-qualifying-turn-report.md",
+      "source_location": "spec defect",
+      "description": "A carried condition stated its own forward closure rule in plain prose. The exact event the rule named occurred and was accepted four decisions earlier, and the condition was still read as open in every one of them.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "No check parses a condition's own closure sentence against the corpus's events; the apparatus verifies fields, not prose. Reading the register's own sentence against its own conditions is still a person's job, and this pass it was Lane B's."
+    },
+    {
+      "id": "reclassification_is_not_rewrite_when_narrative_survives",
+      "label": "A Reclassification Is Not a Rewrite When the Narrative Survives It",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-043-s1-schema-draft-turn-report.md",
+      "source_location": "superseded",
+      "description": "A turn report's Kind was changed to finding and its Resolution set to Superseded so that exactly one canonical turn report exists per run, while its raised date, author, and original What-happened narrative were left untouched.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The same scope a prior retroactive Kind conversion used. The distinction the corpus draws is between editing routing metadata and editing the historical claim; only the first is permitted after the fact."
+    },
+    {
+      "id": "two_shapes_for_one_semantic_kind_checked_equivalent",
+      "label": "Two Shapes For One Semantic Kind, Checked and Found Currently Equivalent",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-051-retrospective-turn-report-conversion-left-closure-fields.md",
+      "source_location": "spec defect",
+      "description": "A retroactive Kind conversion left blank closure-only fields on two reports while later reports of the same kind omitted them entirely. Every script that reads the channel was checked and treats an absent line and a blank one identically, so the claimed failure had not yet occurred; the shape was normalized anyway.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Confirming a claimed defect is not live before fixing it is the difference between a corrected severity and an uncritical fix. Two representations of one semantic thing is still the drift shape this project keeps finding under other names, so it was normalized regardless of current impact."
+    }
+  ],
+  "edges": [
+    {
+      "source": "contemporaneous_is_not_independent",
+      "target": "the_reader_was_the_lane_that_could_not_commit",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-053-two-turn-reports-for-one-lb-s1-01-run.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    },
+    {
+      "source": "reclassification_is_not_rewrite_when_narrative_survives",
+      "target": "contemporaneous_is_not_independent",
+      "relation": "resolves",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-043-s1-schema-draft-turn-report.md",
+      "confidence_score": 1,
+      "source_location": "superseded",
+      "weight": 1
+    },
+    {
+      "source": "a_condition_outlived_its_own_named_evidence",
+      "target": "contemporaneous_is_not_independent",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cd",
+      "weight": 1
+    },
+    {
+      "source": "a_condition_outlived_its_own_named_evidence",
+      "target": "the_reader_was_the_lane_that_could_not_commit",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-052-c28-remains-open-after-qualifying-turn-report.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    },
+    {
+      "source": "two_shapes_for_one_semantic_kind_checked_equivalent",
+      "target": "a_flag_that_contradicts_its_own_data",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-051-retrospective-turn-report-conversion-left-closure-fields.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    },
+    {
+      "source": "two_shapes_for_one_semantic_kind_checked_equivalent",
+      "target": "checks_handoff_response",
+      "relation": "implemented_in",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/handoff-response.mjs",
+      "confidence_score": 1,
+      "source_location": "duplicate-run branch",
+      "weight": 1
+    }
+  ]
+}
