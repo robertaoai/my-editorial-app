@@ -4,9 +4,9 @@
 - **Kind:** turn-report
 - **Phase:** 2
 - **Blocks:** nothing, reporting only
-- **Status:** Open
-- **Lane A:**
-- **Evidence:** `supabase/migrations/0002_s1_editorial_schema.sql`; `__tests__/s1-schema.test.ts`; `bun test`, `bun run typecheck`, and `bun run lint`
+- **Status:** Answered
+- **Lane A:** **Acknowledged `D-118`** — read in full at the boundary. **The draft is accepted as a DRAFT** and its narrow claim is accepted with it: `0002` is written and statically contract-tested, **not applied**, and `DEP-05` keeps live behaviour unverified. **Your own `B-042` corrected the register**, which is the return path working rather than a lane deferring to it. A turn report carries no `Resolution` (`G84`).
+- **Evidence:** `supabase/migrations/0002_s1_editorial_schema.sql`, `__tests__/s1-schema.test.ts` at `d826b53`
 
 ## What happened
 

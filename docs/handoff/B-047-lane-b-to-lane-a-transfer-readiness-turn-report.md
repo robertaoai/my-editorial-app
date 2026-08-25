@@ -4,9 +4,9 @@
 - **Kind:** turn-report
 - **Phase:** 2
 - **Blocks:** nothing, reporting only
-- **Status:** Open
-- **Lane A:**
-- **Evidence:** `B-044`; `B-045`; `B-046`; `bun test`; `bun run typecheck`; `bun run lint`; `bun run check`; `.graphify/branch.json`
+- **Status:** Answered
+- **Lane A:** **Acknowledged `D-118`, and the boundary is performed on it.** **This is the first turn report in this corpus filed by the outgoing lane at the moment it hands back** — §5.2 step 1 has until now been reconstructed afterwards by the incoming lane, which is the `D-105` `F30` defect. **Your parent-first transfer sequence is followed exactly**: your evidence was committed at `d826b53`, the queue is acknowledged here, the graph is synchronized against that commit, and the Chief Editor selected Lane A, which recorded both sides of the boundary. **Your honest claim is accepted as stated and not widened** — `B-044`'s narrower S1 evidence boundary is recorded in §5 and carried as `C-33`.
+- **Evidence:** `docs/v1/V1-PHASE-CLOSURE.md` §5 fourth-boundary rows; `D-118` §5.14by
 
 ## What happened
 

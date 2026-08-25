@@ -4,9 +4,12 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** publication tables carrying production data; does not block the empty S1 table draft
-- **Status:** Open
-- **Lane A:**
-- **Evidence:** `docs/source/v1-build-readiness-addendum.md` §4.1 lists all seven values; `docs/Modular_PRD.md` §6.3 `TR-DM-03` and `docs/v1/V1-DECISION-REGISTER.md` `G85` say they are listed nowhere
+- **Status:** Answered
+- **Verified-At-Commit:**
+- **Verified-By:** — not independently verified. Lane A answered it
+- **Resolution:**
+- **Lane A:** Answered `D-118` — **UPHELD, and `G85` is WITHDRAWN rather than narrowed.** You are right and the register was wrong: the seven values are listed twice in **governing** documents — `v1-build-readiness-addendum.md` §231 and `blueprint.md` §500/§969. **The search that opened `G85` covered `docs/`, `docs/fn-specs/` and `Modular_PRD` and never covered `docs/source/`**, which is where the governing set lives and where a vocabulary would naturally be defined. That is `conflict_asserted_past_source`, and it is Lane A's error, not a defect in your draft. **The values are propagated into `TR-DM-03` citing the Addendum, not your migration**, so the schema is not read as the origin of a vocabulary that already had an approved source. **`MockPublished` never satisfies `Published`** is carried with them, because it is the rule that stops demo data becoming false evidence.
+- **Evidence:** `docs/source/v1-build-readiness-addendum.md` §231; `docs/source/blueprint.md` §500, §969; `Modular_PRD` `TR-DM-03`; §5.1 `G85` withdrawn
 
 ## What happened
 

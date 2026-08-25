@@ -172,6 +172,13 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 **Also in S1:** ten-state enum via `article_state_v2` · tenancy boundary (`D-01`) · `actor_id` (`TC4`) · `sources.reliability_tier`, `articles.source_id`, `topics.evolves_from`, trend-signal fields, unique index on `articles.url` (`TC3`, `TC5`) · `publication_targets` + `publications` (`TC2`, `D-08`) · revoke UPDATE and DELETE on `workflow_transitions` · correct the seed rows executing T5 with an agent (`X4`) · **sequence enforcement in Postgres, not application code** (`TC1`).
 
 **DoD:** trigger written and unit-tested; `Logged → Drafted` rejected at the database. **Live anon-key behaviour stays unverified until `DEP-05` is answered** — claim S1 done as *"trigger written and unit-tested; live-DB behaviour unverified,"* never as fully done.
+
+> ⛔ **`C-33` — this DoD phrase is NOT yet earned (`D-118`, raised by Lane B as `B-044`).** `0002` is
+> drafted at `d826b53` and its test **asserts on migration TEXT**: it never starts PostgreSQL,
+> applies `0001` then `0002`, invokes the trigger, or observes a rollback. **A text assertion stays
+> green while the SQL is syntactically invalid.** **Two unverified things are held apart**: `DEP-05`
+> permits **live anon-key** behaviour to remain unverified; a **local PostgreSQL** unit test needs no
+> credentials and is still required. `C-33` carries the eight-case contract.
 **OD gating:** none. Sequence enforcement is a Charter-level invariant.
 
 ### S2 — Line assignment and four-eyes

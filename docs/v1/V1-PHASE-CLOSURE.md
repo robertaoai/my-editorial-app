@@ -379,9 +379,19 @@ handover is the moment that becomes a gap**, not a theoretical one.
 
 | Lane | Phase | State | Selected | Closed | Judge | Reopened by |
 |:---:|---|---|---|:---:|---|---|
-| **A** | **1 — Orchestration** | **`Blocked`** on the Lane B run `LB-S1-01` (`D-108`). Its turn completed at the third Sprint boundary and **released the lock** (`D-117`). Closes last (`D-99`). Condition 1 met; **2 NOT met** — `Applied` entries await their raiser (`C-26`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | Robert Tan, 2026-08-24 — into `Active` (`D-104`); **out of `Active` 2026-08-25 (`D-117`)** — run complete, lock released | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
-| **B** | **2 — Application** | **`Active`** — run `LB-S1-01` (`D-117`). **The only lane that may commit.** S0 is complete at `ea84281`; `0002` is **unconditional** (`D-114`) and its contract is `D-112` + `D-114` + `Modular_PRD` §6.3. Work order: `docs/LANE-B-WORK-ORDER.md` §2.2–§2.3. **`C-32` is NOT a dependency of `0002`** (`B-039`) | **Robert Tan, 2026-08-25 — into `Active` (`D-117`).** Selection confirmed this turn and **deliberately not backdated**: `B-038` cited a selection that had not yet been made, and the Chief Editor ruled *"it was implied — record it as made now"* | — | Standing project approval | — |
-| **C** | **3 — CI/CD** | **`Blocked`** on the Lane B run `LB-S1-01` (`D-108`). **A row carries ONE state**: its own item-level blockers — `C-18`, `C-24`, `C-25` for `C-Q2`, with `C-Q1` ready — are work conditions and live in those conditions, not in the lock column (`B-033`) | — not selected | — | Standing project approval | — |
+| **A** | **1 — Orchestration** | **`Active`** — run `LA-P1-04` (`D-118`). **The only lane that may commit.** Closes last (`D-99`). Condition 1 met; **2 NOT met** — `Applied` entries await their raiser (`C-26`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | **Robert Tan, 2026-08-25 — into `Active` (`D-118`)**, the fourth Sprint boundary. Lane B's run `LB-S1-01` completed and released the lock; the Chief Editor then selected Lane A | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
+| **B** | **2 — Application** | **`Blocked`** on the Lane A run `LA-P1-04` (`D-108`). Run `LB-S1-01` **completed** — `0002_s1_editorial_schema.sql` drafted with contract tests at `d826b53`, reported in `B-043` and `B-047`. **Its S1 claim is deliberately narrow**: the trigger has a **static contract test, not a database-executed one** (`B-044`), so the DoD phrase *"trigger written and unit-tested"* is **NOT yet earned** and is carried as **`C-33`** | Robert Tan, 2026-08-25 — into `Active` (`D-117`), then **out 2026-08-25 (`D-118`)** on its own transfer-readiness report `B-047` | — | Standing project approval | — |
+| **C** | **3 — CI/CD** | **`Blocked`** on the Lane A run `LA-P1-04` (`D-108`). **A row carries ONE state**: its own item-level blockers — `C-18`, `C-24`, `C-25` for `C-Q2`, with `C-Q1` ready — are work conditions and live in those conditions, not in the lock column (`B-033`) | — not selected | — | Standing project approval | — |
+
+> **Fourth Sprint boundary — 2026-08-25 (`D-118`, raised as `B-047`). TWO events, recorded as two.**
+> **(1)** Lane B's run `LB-S1-01` **completed** and released the lock — reported by the outgoing
+> lane itself in `B-047`, which is the first time step 1 of §5.2 has been performed by the lane it
+> names rather than reconstructed afterwards.
+> **(2)** The **Chief Editor selected Lane A**, now sole `Active` on run `LA-P1-04`.
+>
+> **What is accepted and what is not.** Lane B's draft `0002` is accepted as a DRAFT. **`B-044`'s
+> narrower claim is accepted with it**: the S1 test asserts on migration TEXT and never starts
+> PostgreSQL, so *"trigger written and unit-tested"* is **not earned** and is not recorded.
 
 > **Third Sprint boundary — 2026-08-25 (`D-117`, raised as `B-038`). TWO events, recorded as two.**
 > **(1)** Lane A's run completed and **released the lock**, making every unfinished lane `Eligible`.
@@ -531,7 +541,7 @@ there was nothing to perform them from.
 
 | | Step | Checked by |
 |---|---|---|
-| **1** | **The outgoing lane raises its turn report** — kind `finding`, stating done / specified-not-applied / open. **Required even when nothing was done** (`D-105`) | **Nothing.** A control cannot fail against an agent that never ran |
+| **1** | **The outgoing lane raises its turn report** — **`Kind: turn-report`**, filed against **its own lane's phase** (`D-106`) and carrying **no `Resolution`** (`G84`), stating done / specified-not-applied / open. **Required even when nothing was done** (`D-105`). *(This step read `kind finding` until `D-118`, raised as `B-045` — the shape `G84` retired. A lane following it literally would file an entry that can never be resolved, reproducing the defect.)* | **Nothing.** A control cannot fail against an agent that never ran |
 | **2** | **If no report exists, record the absence and say whose observation it is.** Not *"no work performed"* as a neutral fact — name the lane that observed it | **Nothing** — this is the step `D-105` `F30` exists because of |
 | **3** | The Chief Editor names the incoming lane | **Nothing** — it is a judgement, not a derivation |
 | **4** | **Update §5 in one edit**: outgoing → `Eligible`, `Blocked` or `Done`; incoming → `Active`; **both `Selected` cells** | `lane-state` (check 15) fails on not-exactly-one `Active` |

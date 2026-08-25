@@ -212,13 +212,14 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G82` | **Closed 2026-08-25 — the loosening was the defect, not the rule** | **`D-107` redefined `Eligible` as *offered, may begin without a further act*, so two lanes could each believe they were permitted to work.** That is the reading under which a turn was started, doubted and abandoned (`D-105` `F29`), and `lane-state` preserved the contradiction rather than detecting it: a row could be `Blocked` AND `Eligible`, an `Eligible` row beside an `Active` one passed, and a `Blocked` row with no active run passed. **The rule files never drifted — they always said only the `Active` lane may commit, and §5 was the deviation.** Judge ruling `D-108` restores exclusivity and makes the lock a state machine with two legal configurations: one `Active` with the rest `Blocked`, or none `Active` with the rest `Eligible`. **Reported by Lane B as `B-033`, which named all three checker gaps correctly.** §5.14bp |
 | `G83` | **Closed 2026-08-25 — the summary line was wrong in the direction that hides work** | **`handoff-response` reported `0 open` with four unread entries in the directory.** The branch handling a blank `Lane A` field called `continue` **before any counter ran**, so an entry in exactly the state this check exists to catch — feedback sitting unread — was counted in no bucket at all. `closure-readiness` printed `open 4` in the same run: **two checks disagreed about one directory and nothing compares them.** It also misdescribed the file, saying the field did not exist when it was present and blank; `fieldPresent()` was written for that distinction in `D-102` and used for `Kind` and not here. **A control whose one-line summary understates the backlog is worse than no summary**, because the number is what people read instead of the directory. §5.14bt
 | `G84` | **Closed 2026-08-25 — a report can never leave the backlog it was counted in** | **A turn report is mechanically indistinguishable from an unresolved defect.** `D-105` requires one at every lane boundary and `D-106` files it under the reporting lane's phase, but **there is nothing in a report to resolve**, so it can never carry a terminal `Resolution` — and four of them sat permanently inside *"still carry NO resolution"*. **A backlog figure that includes items which can never leave it has stopped measuring the backlog.** Closed by a `turn-report` `Kind` that checks 10 and 13 both read: **excluded from the unresolved count, reported as its own number** — `B-037` named both halves, and only one of them is about tidiness. §5.14bt
-| `G85` | **Open 2026-08-25 — a count restated across four tiers with no members behind it** | `TR-DM-03` says *"seven-value status enum"* in `Modular_PRD`, `FN-PUBLICATION`, the sprint plan and two journal entries. **The seven values are listed nowhere in the corpus** — only `ManualReady`, `Published`, `Failed` and `MockPublished` appear in prose, which is **four**. This is `G55`/`G56`/`G58`'s drift mechanism applied to a **schema domain**: Lane B cannot write the enum from the governed set, and a reader auditing it finds a number with nothing under it. **Not `0002`-blocking** — `D-114` 5c-3 makes publication state an append-only EVENT type and `FN-PUBLICATION` determines the values behaviourally — **but it must be written before the publication tables carry data.** §5.14bu |
+| `G85` | **WITHDRAWN 2026-08-25 (`D-118`, raised as `B-042`) — the gap was asserted past its source** | **The claim was that `TR-DM-03`'s *"seven-value status enum"* named a count whose members were listed nowhere in the corpus. They are listed, twice, in GOVERNING documents**: `v1-build-readiness-addendum.md` §231 and `blueprint.md` §500/§969 — `Pending`, `Published`, `Failed`, `Scheduled`, `Cancelled`, `ManualReady`, `MockPublished`. **The search that opened `G85` covered `docs/`, `docs/fn-specs/` and `Modular_PRD` and never covered `docs/source/`**, which is where the governing set lives and where a vocabulary would naturally be defined. `conflict_asserted_past_source`, and **the fourth instance of a claim made from an incomplete sweep**. **Found by Lane B while implementing against it** — it used the seven Addendum members and reported the register as wrong, which is the return path working. **Values propagated to `TR-DM-03` citing the Addendum, not the migration**, so the schema is not mistaken for the origin of a business vocabulary that already had an approved source. §5.14by |
 | `G86` | **Closed 2026-08-25 (`D-115`) — a word carrying two meanings in governed tiers, defined in none** | **"Archived" is load-bearing in `Modular_PRD` §6.3 and in `AC-12a`, and no governed document said what it meant.** Audit **Step 9** instructed the definition — *"redefine 'archived' as retrievable rather than deleted"* — **and that redefinition was never performed.** The cost was not theoretical: **Step 9 contradicts itself in a single sentence**, telling the reader to set the value *at or above the statutory floor* **and** that archived means retrievable — *a period that disposes of nothing has no reason to meet a disposal floor.* `D-114` then compared 90 days to the five-year floor and called it twenty times too small, **which is comparing a move to a deletion**; retracted at three sites. **Closed by defining it in §6.3: moved and still retrievable, never deleted, and EXTERNAL to this system.** §5.14bv |
 | `G87` | **Open — BACKLOG FEATURE, not v1** | **A retraction order for an article no longer in the current set has no path.** GRC on retraction binds data **while it is current** (`D-115`); archival ends its reach, so an order arriving afterwards has nothing to act on. **`D-114` created the reachability**: while `NFR-02` read *"never deleted"*, a published article never left the current set and retraction was always possible — restating it as *"not less than the statutory period; disposal only under a documented, approved policy"* made disposal permissible. **This is the honest consequence of stopping the lie, not a defect in the restatement.** Deferred because handling work **never triggered from this system** is a different intake shape, not a variation on the existing flow. §5.14bv |
 | `G88` | **Open — the input to a `[V1]` criterion that nothing supplies** | **`AC-12a` requires the audit surface to state that records *"existed and are no longer retrievable"*, naming the policy and version, the period, and the archive location.** Under `D-115` the act producing those facts is **external to this system**, and **nothing tells the product it happened.** *This is `G46`'s shape one tier down* — *"retention class depends on a fact the product does not hold"* — and `G46` was resolved by ruling the fact must be **supplied to** the product rather than inferred by it. **The mechanism exists on paper and was never adopted**: the audit model §6.3's **disposal record**, written before the act, stored outside the table it describes, itself immutable. **The second unadopted §-section this thread has found**, after §5.3. **`G41`'s unmet dependency.** §5.14bv |
 | `G89` | **Open 2026-08-25 — a derived tier created a `[V1]` commitment and nothing noticed** | **Nothing verifies that an acceptance criterion has a parent.** `Modular_PRD` carries 27 `AC-` rows including `AC-14`–`AC-21`, so `D-29` gives the series to that tier. The `Fn_Specs` introduce exactly two suffixed criteria and **neither has an upstream row** — but only one has a decision behind it: `AC-01a` was created by `G39`'s closure, which names it; **`AC-12a` appears in this register only as a REFERENCE** — *"product canary is `AC-12a`"* — **never as something a decision created.** `tier-sweep` reads decision IDs and cannot see this, because there is no decision to read. **`AC-12a` is promoted by `D-116`; the CONTROL gap is what stays open** — the next criterion written into a `Fn_Spec` will be just as invisible. §5.14bw |
 | `G90` | **Open 2026-08-25 — the one field that describes acts outside the repository, and nothing reads it** | **An entry's `Evidence` line can assert an act that never happened.** `closure-readiness` proves `Verified-At-Commit` names a real commit; **no check reads `Evidence` at all.** Live instance: `B-038` carried *"Evidence: Chief Editor selection, 2026-08-25"* when **no selection had been made** — the transcript held Lane A saying selection was *available*. **It nearly moved the lane lock**, and what stopped it was Lane A asking the Chief Editor rather than reading the file. `arrival_not_correctness` (`C-22`, `F5`) in the field that by construction points OUTSIDE the tree. **The remedy is a person, not a check** — an assertion about what the Judge said cannot be verified from the repository, and building a probe that pretends otherwise would be `probe_that_cannot_fail`. Recorded so the limit is not mistaken for coverage. §5.14bx |
 | `G91` | **Closed 2026-08-25 (`D-117`) — a fixture suite that breaks on the event it protects** | **Every lane-state fixture named a lane letter, silently assuming Lane A held the lock.** Moving it would have broken three: setting `B` `Active` when `B` already is produces **one** `Active` rather than two, and the *Eligible-beside-Active* and *Blocked-with-no-Active* cases would each have fired a **different finding than the one asserted** — passing while testing nothing. `D-106` drew this lesson once, *retarget at structure not at a live value*, and applied it to the documents the fixtures mutate **and not to the lane identity inside them.** **Fixed BEFORE the boundary, not after**; the suite reads which lane holds the lock and mutates by role. §5.14bx |
+| `G92` | **Closed 2026-08-25 (`D-118`) — a tier column nothing could verify, invisible because nobody had ever ticked it** | **`tier-sweep` had no mapping for the "Phase closure" column.** `V1-PHASE-CLOSURE.md` is a governed tracking file that decisions routinely claim to affect — lane rows, boundary procedure, the artifact manifest, critic passes — and **a claim about it was exactly as checkable as any other and was checked by nothing.** It stayed invisible because the sweep only fails on a ✅ and **every prior decision wrote *"— unaffected"* there**, which it skips by design; the FIRST tick reported the column as unknown rather than verifying it. **Same shape as `B-045` one check over**: `channel-docs` couples four channel documents in both directions and `V1-PHASE-CLOSURE.md` is in neither set, which is why its §5.2 step 1 could drift to a retired kind while the four coupled documents all agreed. **A document that is the subject of claims and the member of no coupling set is unverifiable by construction.** §5.14by |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2361,6 +2362,32 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 **Excluding logged overrides requires telling those two apart. The declared single column cannot.** `G-02` would need a second column its own Data Source does not name.
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
+
+### `C-33` — the S1 trigger has a static contract test, not a database-executed one
+
+**Opened by `D-118`, 2026-08-25, raised by Lane B as `B-044` against its own work.** 
+`__tests__/s1-schema.test.ts` **asserts on migration TEXT**. It never starts PostgreSQL, applies
+`0001` then `0002`, invokes the trigger, or observes a rollback. **A text assertion stays green
+while the SQL is syntactically invalid** — `probe_that_cannot_fail`, in the one place the
+product's core sequence invariant lives.
+
+> **Two different unverified things, held apart for the first time.** `DEP-05` withholds Supabase
+> credentials, so **live anon-key behaviour may remain unverified**. A **local or branch PostgreSQL**
+> unit test needs no credentials and is **still required**. The governed DoD distinguished them and
+> nothing in the corpus had.
+
+**So the S1 DoD phrase *"trigger written and unit-tested"* is NOT earned and is not recorded.**
+§5's Lane B row carries the narrow claim. **`B-044`'s eight-case list is the adopted test
+contract**: valid `Logged → Validated` with exactly one preceding transition; `Logged → Drafted`
+rejected; a state change with no transition rejected; agent execution of T5 rejected; a concurrent
+duplicate rolled back with no orphan transition; UPDATE and DELETE rejected on every
+insert/read-only table; approval without an eager target rejected; and publication without a
+same-transaction live publication event rejected.
+
+**Closes when a disposable PostgreSQL runs `0001` then `0002` and those eight behave**, with the
+report reading *"local PostgreSQL unit-tested; live Supabase anon-key behaviour unverified"*.
+**Lane B's surface, Lane B's work** — and it may need a dependency, which is Lane A's to provision
+(`D-86`).
 
 ### `C-32` — the Project Scope retention and archival policy is **owed**
 
@@ -7118,3 +7145,111 @@ class, a period, a trigger or a disposal authority. No migration, no schema, no 
 > **This is Lane A's last commit of the turn.** After the boundary rows below, **Lane B holds the
 > lock.** Lane A may still read anything and may still write in `docs/handoff/` (§5.1), and **may
 > not commit** until the Chief Editor selects it again.
+
+---
+
+## 5.14by `D-118` — The Fourth Boundary; `G85` Withdrawn; Lane B's S1 Claim Kept Narrow
+
+**Lane A pass, 2026-08-25, answering `B-040`–`B-047`.** Records the fourth Sprint boundary,
+**withdraws a gap Lane A opened from an incomplete search**, accepts Lane B's deliberately narrow
+S1 claim, and fixes a boundary runbook that had drifted from its own channel.
+
+### The boundary — and the first one performed as written
+
+| | |
+|---|---|
+| **(1)** | Lane B's run `LB-S1-01` **completed and released the lock** — reported by the outgoing lane itself in `B-047` |
+| **(2)** | The **Chief Editor selected Lane A**, now sole `Active` on run `LA-P1-04` |
+
+> **`B-047` is the first turn report in this corpus filed by the outgoing lane at the moment it
+> hands back.** §5.2 step 1 has always been reconstructed afterwards by the *incoming* lane — which
+> is `D-105`'s `F30` defect, recorded twice and never yet absent. **The step worked because the lane
+> performed it, not because anything compelled it**; no control can, and §5.2 says so.
+
+### `G85` is WITHDRAWN — Lane A asserted it past its source
+
+**`G85` claimed `TR-DM-03`'s *"seven-value status enum"* named a count whose members were listed
+nowhere in the corpus. They are listed twice, in GOVERNING documents:**
+
+| Source | |
+|---|---|
+| `v1-build-readiness-addendum.md` §231 | `Pending` · `Published` · `Failed` · `Scheduled` · `Cancelled` · `ManualReady` · `MockPublished` |
+| `blueprint.md` §500, §969 | the same seven, plus the rule that **`MockPublished` never satisfies `Published`** |
+
+**The search that opened `G85` covered `docs/`, `docs/fn-specs/` and `Modular_PRD` — and never
+covered `docs/source/`**, which is where the governing set lives and where a vocabulary would
+naturally be defined. `conflict_asserted_past_source`, and **the register's own countermeasure
+names it**: *before recording a conflict, check whether the existing structure already resolves it.*
+
+> **Found by Lane B while building against the gap.** It used the seven Addendum members, then
+> reported that the register contradicted a higher-precedence document. **That is the return path
+> working** — a build lane correcting the governing tier rather than encoding its error.
+
+**Propagated citing the Addendum, never the migration**, so `0002` is not read as the origin of a
+business vocabulary that already had an approved source.
+
+### Lane B's S1 claim is kept narrow, on Lane B's own evidence — `C-33`
+
+**`B-044` audited Lane B's own work and reported it short of the phrase it was entitled to claim.**
+
+`__tests__/s1-schema.test.ts` **asserts on migration TEXT**. It never starts PostgreSQL, never
+applies `0001` then `0002`, never invokes the trigger, never observes a rollback. **A text assertion
+stays green while the SQL is syntactically invalid** — `probe_that_cannot_fail`, in the one place
+the product's core sequence invariant lives.
+
+> **The governed DoD already distinguished two things and nothing had held them apart:** the **live
+> anon-key** test, which `DEP-05` permits to remain unverified, and a **local PostgreSQL** unit
+> test, which is still required. **`B-044` is the first entry to separate them.**
+
+**So the DoD phrase *"trigger written and unit-tested"* is NOT recorded.** §5's Lane B row carries
+the narrow claim so no later reader inherits the wider one, and **`B-044`'s eight-case list is
+adopted as the test contract** rather than re-derived.
+
+### `B-045` — the boundary runbook had drifted from its own channel
+
+**§5.2 step 1 said the outgoing lane files kind `finding`** — the shape `G84` retired. **A lane
+following the parent runbook literally would file an entry that can never carry a `Resolution`**,
+inflating the unresolved backlog and reproducing the exact defect `G84` closed.
+
+**Why nothing caught it.** `channel-docs` couples the README, the template, the work order and the
+workflows spec in both directions — **and `V1-PHASE-CLOSURE.md` is not in that set.** The four
+coupled documents all agreed; the fifth, which is the one a lane reads *at the boundary*, did not.
+**Corrected to `Kind: turn-report`, own-phase, no `Resolution`.**
+
+### The graphify pair — one real limit, one transient state
+
+| | |
+|---|---|
+| **`B-041`** | **Correct, and narrower than stated.** Extraction currency, semantic completion and portability are three properties, and conflating them turns a green query into a false synchronization claim. **But `portable-check`'s findings sit in `.graphify/manifest.json` and `studio/`, which are gitignored**; the rule governs artifacts *proposed or committed*, and **the only graph artifacts this repository commits are `docs/graph-fragments/*.json`**, which carry no paths. **A standing limit, not a blocker** |
+| **`B-046`** | **Withdrawn as a defect, kept as the procedure.** The null branch record was real when written and **no longer holds** — `lastAnalyzedHead` is `d826b53`, `stale` false, `docs-drift` green. `.graphify/` is gitignored machine-local state, **repaired by any later hook run and leaving no trace it happened**, which is precisely why recording it was right: the entry is the only evidence the window existed |
+
+### `B-040` acknowledged and deliberately NOT executed
+
+**The Chief Editor approved `B-039`'s framework. Five operative values remain unsupplied** — the
+90-day ratification, each record class's bounded minimum, the archive operator/location class,
+restoration authority, and later disposal authority.
+
+> **Applying the runbook now would have Lane A invent them**, which is the failure `D-116`
+> re-tiered to prevent. **`C-32` stays open on named values.** `RET-EDITORIAL` / `0.1-provisional`
+> is recorded as a **proposed** label, not adopted.
+
+### Gaps and conditions
+
+**Withdrawn:** `G85` — asserted past its source.
+**Opened:** `C-33` — the S1 trigger has no database-executed test, so the DoD phrase is unearned.
+**Unchanged:** `C-32` open on named values; `G87`, `G88`, `G89`, `G90`; `C-26`, `C-27`, `C-28`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Fourth boundary | ✅ §5.14by | **— unaffected: a boundary moves no sprint** | **— unaffected: the lane MAP is unchanged** | **— unaffected** | ✅ **§5 rows and §5.2 step 1** | **— unaffected** |
+| `G85` withdrawn | ✅ §5.14by, §5.1 | **— unaffected: no sequence changes; the values were always approved** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **`TR-DM-03` carries the seven members** |
+| `C-33` opened | ✅ §5.14by, §3 | ✅ **S1's DoD phrase is not yet earned** | **— unaffected** | **— unaffected** | ✅ §5 Lane B row | **— unaffected** |
+| `B-045` fix | ✅ §5.14by | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **§5.2 step 1** | **— unaffected** |
+
+### Scope limits
+
+**Approves no retention policy and executes no part of `B-040`.** Applies no migration and starts no
+database — **`C-33` is opened, not discharged.** `0001_init.sql` untouched; `0002` remains a draft
+in `supabase/migrations/` and is **not applied**. No phase closed.

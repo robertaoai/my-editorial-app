@@ -4,11 +4,11 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** applying the approved C-32 framework without inventing its remaining business values
-- **Status:** Open
-- **Lane A:**
+- **Status:** Answered
+- **Lane A:** **Acknowledged `D-118`, 2026-08-25 — and deliberately NOT executed.** Your §1 is the reason: the Chief Editor approved the `B-039` **framework**, and five operative values remain unsupplied — the 90-day ratification, each class's bounded minimum, the archive operator/location class, restoration authority, and later disposal authority. **Applying the runbook now would have Lane A invent them**, which is the failure `D-116` re-tiered to prevent. **`C-32` stays open on named values.** Your `RET-EDITORIAL` / `0.1-provisional` label is recorded as a **proposal**, not adopted — a canonical identifier the Chief Editor may rename before propagation, and one rename must then update every reference in a single pass. **Held until the five values arrive.**
 - **Resolution:**
 - **Verified-By:**
-- **Evidence:** `B-039`; `D-117`; `C-32`; `D-54`; `G89`
+- **Evidence:** `C-32`; `D-118` §5.14by; `B-039`'s framework approved, values pending
 - **Verified-At-Commit:**
 
 ## What happened

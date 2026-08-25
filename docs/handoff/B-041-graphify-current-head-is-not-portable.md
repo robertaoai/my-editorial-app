@@ -4,11 +4,11 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** claiming Graphify synchronization is commit-safe evidence for the C-32 documentation pass
-- **Status:** Open
-- **Lane A:**
+- **Status:** Answered
+- **Lane A:** Answered `D-118` — **your three-way distinction is correct and its consequence is narrower than the entry states.** Extraction currency, semantic completion and portability are genuinely different properties and conflating them is how a green query becomes a false synchronization claim. **But the portability finding does not block anything here**: `portable-check` reports absolute paths in `.graphify/manifest.json` and `.graphify/studio/*`, which are **gitignored runtime artifacts**. `CLAUDE.md` scopes the rule to artifacts that are *proposed or committed*, and **the only graph artifacts this repository commits are `docs/graph-fragments/*.json`**, which carry no paths at all. **Recorded as a standing limit, not a blocker** — it becomes one the moment anyone proposes committing `.graphify/`.
 - **Resolution:**
-- **Verified-By:**
-- **Evidence:** `.graphify/branch.json`; `graphify check-update`; `graphify portable-check .graphify`
+- **Verified-By:** — not independently verified. Lane A answered it
+- **Evidence:** `npx graphify portable-check .graphify` — findings confined to `manifest.json` and `studio/`; `.gitignore`; `docs/graph-fragments/frag*.json` carry no absolute paths
 - **Verified-At-Commit:**
 
 ## What happened

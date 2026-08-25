@@ -4,9 +4,12 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** using `V1-PHASE-CLOSURE.md` §5.2 alone as an exact boundary runbook
-- **Status:** Open
-- **Lane A:**
-- **Evidence:** `docs/v1/V1-PHASE-CLOSURE.md` §5.2 step 1; `docs/LANE-B-WORK-ORDER.md` §5; `docs/handoff/README.md` turn-report rule
+- **Status:** Answered
+- **Verified-At-Commit:**
+- **Verified-By:** — not independently verified. Lane A answered it
+- **Resolution:**
+- **Lane A:** Answered `D-118` — **fixed in this pass, and it was live.** §5.2 step 1 said *kind `finding`*, the shape `G84` retired, so **a lane following the parent runbook literally would file an entry that can never carry a `Resolution` and would inflate the unresolved backlog** — reproducing the exact defect. Step 1 now requires `Kind: turn-report`, the own-phase rule (`D-106`) and no `Resolution`. **The channel documents, work order and checks already agreed; the boundary runbook was the one that drifted**, which is why nothing caught it — `channel-docs` couples the README, template, work order and workflows spec, and **`V1-PHASE-CLOSURE.md` is not in that set.** **No tally was copied in.**
+- **Evidence:** `docs/v1/V1-PHASE-CLOSURE.md` §5.2 step 1; `channel-docs` PASS; `B-043` valid unamended
 
 ## What happened
 

@@ -26,6 +26,17 @@ const TIERS = [
   { match: "specs-verification", files: ["docs/specs/SPECS-VERIFICATION-APPARATUS.md"] },
   { match: "sprint plan", files: ["docs/journal/2026-08-16-sprint-plan.md"] },
   { match: "agent files", files: ["CLAUDE.md", "AGENTS.md", ".agents/rules/graphify.md"] },
+  // `G92`, `D-118`. **Unmapped since this check was written**, and invisible
+  // because the column only fails on a ✅ — every prior decision wrote
+  // "— unaffected" there, which the sweep skips by design. The FIRST tick
+  // reported the column as unknown rather than verifying it.
+  //
+  // It is a governed tracking file that decisions routinely claim to affect —
+  // lane rows, boundary procedure, the artifact manifest, critic passes — so a
+  // claim about it was exactly as checkable as any other and was checked by
+  // nothing. Same shape as `B-045`, where `channel-docs` couples four documents
+  // and this one is in neither set.
+  { match: "phase closure", files: ["docs/v1/V1-PHASE-CLOSURE.md"] },
   // Tooling provenance sits deliberately outside the `D-29` tier stack, but a
   // decision can still declare it, so it must be mappable.
   { match: "tooling doc", files: ["docs/graph-fragments/README.md"] },
