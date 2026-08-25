@@ -1,0 +1,242 @@
+{
+  "_comment": "Fragment 69 — D-114: immutability and retention separated; the classification promoted from journal to governed tier; the three regimes do not share a shape. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d114_classification_adopted_window_closed",
+      "label": "D-114 — The Classification Is Adopted and the Window Genuinely Closes",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bu",
+      "description": "The two items that had never been put to the decision-maker are disposed: one ruled in full, one ruled with its numeric threshold deferred to a named owner. A single sub-item is carried and shown not to block.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The distinction from the earlier premature closure is not that fewer items are open, but that each one has a stated disposition: ruled, or deferred with an owner, or carried with a demonstration that it blocks nothing."
+    },
+    {
+      "id": "immutability_and_retention_are_different_properties",
+      "label": "Immutability and Retention Are Different Properties",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "§6.3",
+      "description": "One asks whether a row may change during its life; the other asks how long it must exist at all. A table may forbid change for its whole retention life and still be lawfully disposed of at end of life under policy.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Conflating them produced the retention-versus-erasure contradiction that was escalated for external advice. The append-only rule said 'never deleted', which promised permanence the law does not require and disposal policy will eventually contradict."
+    },
+    {
+      "id": "the_declaration_is_not_the_control",
+      "label": "Revoking the Grant Declares It; the Trigger Enforces It",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "§6.3 enforcement",
+      "description": "Removing write permission binds ordinary roles and not the table owner or the privileged service identity, and the publication route introduces exactly that identity. A trigger binds every role.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Both are kept because they answer different questions: one is the declaration an auditor reads, the other is the control that survives a privileged session. Neither stops a deliberate disabling by whoever holds the key, and that residual is governance rather than schema."
+    },
+    {
+      "id": "an_eager_row_is_what_makes_absence_speak",
+      "label": "An Eager Row Is What Makes a Non-Attempt Visible",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "TR-DM-03",
+      "description": "Append-only events make a failed attempt evidence. They do not make an attempt that was never made evidence, because nothing is written. Creating the target row at approval turns a non-attempt into a row with no events.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "This is the explainable-absence problem inside one table. A row not written at approval cannot be reconstructed later, because nothing else records which targets were intended."
+    },
+    {
+      "id": "the_three_regimes_do_not_share_a_shape",
+      "label": "The Three Retention Regimes Do Not Share a Shape",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bu",
+      "description": "Two regimes supply a period measured from a record's age. The third supplies a deadline for performing an act, and no period at all for keeping the evidence of it — so it is anchored to an event that may never occur, with no terminus.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Assigning one regime per table works for editorial data and breaks for the commercial record, where paid and unpaid rows fall under different regimes in the same table. That table is deliberately outside this migration, which is why the framing holds for its scope."
+    },
+    {
+      "id": "a_classification_that_never_reached_a_governed_tier",
+      "label": "A Classification That Never Reached a Governed Tier",
+      "file_type": "concept",
+      "source_file": "docs/journal/2026-08-18-audit-model-and-remediation-plan.md",
+      "source_location": "§5.3",
+      "description": "An eleven-row table-by-table analysis of immutability and retention had existed for a week in a working journal, and the remediation step instructing its adoption had never been performed. No governed document cited it.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The item was recorded as undecided when it was in fact decided and unadopted. Analysis sitting in a tier nothing cites is indistinguishable from analysis nobody did, which is why the decision promotes it rather than restating it."
+    },
+    {
+      "id": "a_count_with_no_members",
+      "label": "A Count Restated Across Four Tiers With No Members Behind It",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "TR-DM-03",
+      "description": "A status vocabulary is described by its size in four separate documents and its members are listed in none of them; fewer than that many appear anywhere in prose.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The same drift mechanism the corpus records for tallies, applied to a schema domain. The build lane cannot write the vocabulary from the governed set, and a reader auditing it finds a number with nothing underneath."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d114_classification_adopted_window_closed",
+      "target": "v1_decision_register",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bu",
+      "weight": 1
+    },
+    {
+      "source": "d114_classification_adopted_window_closed",
+      "target": "d113_the_window_was_not_closed",
+      "relation": "completes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bu",
+      "weight": 1
+    },
+    {
+      "source": "d114_classification_adopted_window_closed",
+      "target": "one_window_two_keyings_no_mapping",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bu",
+      "weight": 1
+    },
+    {
+      "source": "immutability_and_retention_are_different_properties",
+      "target": "d114_classification_adopted_window_closed",
+      "relation": "scopes",
+      "confidence": "CURATED",
+      "source_file": "docs/Modular_PRD.md",
+      "confidence_score": 1,
+      "source_location": "§6.3",
+      "weight": 1
+    },
+    {
+      "source": "immutability_and_retention_are_different_properties",
+      "target": "a_retention_class_cannot_be_backfilled",
+      "relation": "qualifies",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bu",
+      "weight": 1
+    },
+    {
+      "source": "the_declaration_is_not_the_control",
+      "target": "immutability_and_retention_are_different_properties",
+      "relation": "implements",
+      "confidence": "CURATED",
+      "source_file": "docs/Modular_PRD.md",
+      "confidence_score": 1,
+      "source_location": "§6.3",
+      "weight": 1
+    },
+    {
+      "source": "an_eager_row_is_what_makes_absence_speak",
+      "target": "d114_classification_adopted_window_closed",
+      "relation": "answered_by",
+      "confidence": "CURATED",
+      "source_file": "docs/Modular_PRD.md",
+      "confidence_score": 1,
+      "source_location": "TR-DM-03",
+      "weight": 1
+    },
+    {
+      "source": "the_three_regimes_do_not_share_a_shape",
+      "target": "d114_classification_adopted_window_closed",
+      "relation": "carried_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bu",
+      "weight": 1
+    },
+    {
+      "source": "the_three_regimes_do_not_share_a_shape",
+      "target": "immutability_and_retention_are_different_properties",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bu",
+      "weight": 1
+    },
+    {
+      "source": "a_classification_that_never_reached_a_governed_tier",
+      "target": "d114_classification_adopted_window_closed",
+      "relation": "adopted_by",
+      "confidence": "CURATED",
+      "source_file": "docs/journal/2026-08-18-audit-model-and-remediation-plan.md",
+      "confidence_score": 1,
+      "source_location": "§5.3",
+      "weight": 1
+    },
+    {
+      "source": "a_classification_that_never_reached_a_governed_tier",
+      "target": "summary_outlived_source",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bu",
+      "weight": 1
+    },
+    {
+      "source": "a_count_with_no_members",
+      "target": "d114_classification_adopted_window_closed",
+      "relation": "found_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bu",
+      "weight": 1
+    },
+    {
+      "source": "a_count_with_no_members",
+      "target": "corrections_are_the_dominant_defect_source",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/Modular_PRD.md",
+      "confidence_score": 1,
+      "source_location": "TR-DM-03",
+      "weight": 1
+    }
+  ]
+}
