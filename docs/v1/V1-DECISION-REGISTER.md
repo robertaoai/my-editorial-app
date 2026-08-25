@@ -220,6 +220,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G90` | **Open 2026-08-25 — the one field that describes acts outside the repository, and nothing reads it** | **An entry's `Evidence` line can assert an act that never happened.** `closure-readiness` proves `Verified-At-Commit` names a real commit; **no check reads `Evidence` at all.** Live instance: `B-038` carried *"Evidence: Chief Editor selection, 2026-08-25"* when **no selection had been made** — the transcript held Lane A saying selection was *available*. **It nearly moved the lane lock**, and what stopped it was Lane A asking the Chief Editor rather than reading the file. `arrival_not_correctness` (`C-22`, `F5`) in the field that by construction points OUTSIDE the tree. **The remedy is a person, not a check** — an assertion about what the Judge said cannot be verified from the repository, and building a probe that pretends otherwise would be `probe_that_cannot_fail`. Recorded so the limit is not mistaken for coverage. §5.14bx |
 | `G91` | **Closed 2026-08-25 (`D-117`) — a fixture suite that breaks on the event it protects** | **Every lane-state fixture named a lane letter, silently assuming Lane A held the lock.** Moving it would have broken three: setting `B` `Active` when `B` already is produces **one** `Active` rather than two, and the *Eligible-beside-Active* and *Blocked-with-no-Active* cases would each have fired a **different finding than the one asserted** — passing while testing nothing. `D-106` drew this lesson once, *retarget at structure not at a live value*, and applied it to the documents the fixtures mutate **and not to the lane identity inside them.** **Fixed BEFORE the boundary, not after**; the suite reads which lane holds the lock and mutates by role. §5.14bx |
 | `G92` | **Closed 2026-08-25 (`D-118`) — a tier column nothing could verify, invisible because nobody had ever ticked it** | **`tier-sweep` had no mapping for the "Phase closure" column.** `V1-PHASE-CLOSURE.md` is a governed tracking file that decisions routinely claim to affect — lane rows, boundary procedure, the artifact manifest, critic passes — and **a claim about it was exactly as checkable as any other and was checked by nothing.** It stayed invisible because the sweep only fails on a ✅ and **every prior decision wrote *"— unaffected"* there**, which it skips by design; the FIRST tick reported the column as unknown rather than verifying it. **Same shape as `B-045` one check over**: `channel-docs` couples four channel documents in both directions and `V1-PHASE-CLOSURE.md` is in neither set, which is why its §5.2 step 1 could drift to a retired kind while the four coupled documents all agreed. **A document that is the subject of claims and the member of no coupling set is unverifiable by construction.** §5.14by |
+| `G93` | **Closed 2026-08-25 (`D-119`) — a fixture that asserted a live count** | **`D-113`s `G83`/`G84` fixtures assert on a check detail line, and did it with absolute literals.** **The channel grows**, so two turns later both fixtures failed **while the check was working perfectly.** This is `C-21`s tally problem **inside the apparatus built to catch it**, and it is `G91`s lesson one file over: `G91` was *a fixture must not name a lane*; this is *a fixture must not name a count*; **both are the same rule — assert a RELATIONSHIP, not a live value.** Closed by deriving the baseline from the live channel with the channel own parser and asserting `base` and `base + 1`: **the mutation moves exactly one counter by one**, which is the property actually under test and was never the literal. §5.14bz |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -7253,3 +7254,53 @@ restoration authority, and later disposal authority.
 **Approves no retention policy and executes no part of `B-040`.** Applies no migration and starts no
 database — **`C-33` is opened, not discharged.** `0001_init.sql` untouched; `0002` remains a draft
 in `supabase/migrations/` and is **not applied**. No phase closed.
+
+---
+
+## 5.14bz `D-119` — Two Recurrences in Lane A's Own Apparatus
+
+**Lane A correction, 2026-08-25, same pass as `D-118`.** Both items are repeats of defects this
+register had already named, **committed by the lane that named them**, one and two turns later.
+
+### `G93` — a fixture asserting a live count
+
+**`D-113`'s `G83`/`G84` fixtures assert on `handoff-response`'s detail line, and did it with
+absolute literals** — *"0 still carry NO resolution; 3 turn report(s)"*. **The channel grows.** Two
+turns later there were 48 entries, 4 turn reports and 1 unresolved, and **both fixtures failed while
+the check was working perfectly.**
+
+> **This is `C-21`'s tally problem inside the apparatus built to catch it**, and it is `G91`'s
+> lesson one file over. `G91` was *a fixture must not name a lane*; this is *a fixture must not name
+> a count*. **Both are the same rule: assert a RELATIONSHIP, not a live value.**
+
+**Fixed by deriving the baseline from the live channel** with the channel's own parser, then
+asserting `base` and `base + 1`. **The mutation moves exactly one counter by one**, which is the
+property actually under test and was never the literal.
+
+### The `git add -A` recurrence — stated, because I said it once and did it again
+
+**`D-117` self-reported that `424219a` carried two files its message did not describe**, said no
+check could catch it, and did not amend. **It then happened twice more in the next pass** —
+`frag73.json` swept into an evidence commit, and before that the same pattern.
+
+> **Once is a slip; three times is a habit, and the honest fix is not a check.** `git add -A` is
+> convenient exactly when the tree holds more than the thing being committed, which is the moment it
+> is wrong. **Staging explicitly from here.** Recorded rather than quietly corrected, because a
+> register that only carries other lanes' mistakes is not describing this repository.
+
+### Gaps
+
+**Opened and closed:** `G93`. **No condition opened** — the habit is a duty, not a control, and
+`C-22`'s limit already covers the class.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `G93` | ✅ §5.14bz, §5.1 | **— unaffected** | **— unaffected** | ✅ **`scripts/fixtures/` — the row already records the suite's properties** | **— unaffected** | **— unaffected** |
+| Staging habit | ✅ §5.14bz | **— unaffected** | **— unaffected: it is a duty, not a rule a lane can be checked against** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+### Scope limits
+
+Changes one fixture helper and records one habit. No decision reversed, no gap reopened, no lane
+selected, no schema touched.

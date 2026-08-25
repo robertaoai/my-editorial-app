@@ -7,6 +7,8 @@
 
 import { execFileSync } from "node:child_process";
 import { fixture, read, write, existsSync, rmSync, mkdirSync } from "./harness.mjs";
+import { readdirSync, readFileSync } from "node:fs";
+import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
 
 const CHECK = (n) => new URL(`../checks/${n}`, import.meta.url).href;
 
@@ -22,8 +24,33 @@ const README = "docs/handoff/README.md";
 const TEMPLATE = "docs/handoff/TEMPLATE.md";
 const CANON = ".claude/skills/sync-docs/SKILL.md";
 
+/**
+ * The live channel's counts, READ rather than restated (`G93`, `D-119`).
+ *
+ * The `G83`/`G84` fixtures asserted absolute literals — "0 still carry NO
+ * resolution; 3 turn report(s)". **The channel grows, so the literals went
+ * stale within two turns**, which is `C-21`'s tally problem inside the very
+ * apparatus that exists to catch it, and `G91`'s lesson one file over:
+ * **a fixture must assert a RELATIONSHIP, not a live value.**
+ */
+function channelBaseline() {
+  let unresolved = 0;
+  let reports = 0;
+  for (const f of readdirSync("docs/handoff").filter((x) => ENTRY_FILE.test(x))) {
+    const t = readFileSync("docs/handoff/" + f, "utf8");
+    const kind = field(t, "Kind");
+    const isReport = kind !== null && /^turn-report/i.test(kind);
+    if (isReport) reports++;
+    else if (!field(t, "Resolution")) unresolved++;
+  }
+  return { unresolved, reports };
+}
+
 /** `D-102`, raised as `B-013` and `B-017` — entry metadata and closure fields. */
 export async function handoffFields(results) {
+  // `ENTRY` currently resolves and is not a turn report, so each mutation below
+  // moves exactly one counter by one. Asserted as base±1, never as a literal.
+  const base = channelBaseline();
   const orig = read(ENTRY);
   const restore = () => write(ENTRY, orig);
   const verified = (by, at) =>
@@ -107,7 +134,7 @@ export async function handoffFields(results) {
       ),
     restore,
     shouldPass: true,
-    expectDetail: "0 still carry NO resolution; 3 turn report(s)",
+    expectDetail: `${base.unresolved} still carry NO resolution; ${base.reports + 1} turn report(s)`,
   });
   // The positive control for the exclusion. The SAME entry, unresolved, as an
   // ordinary kind — it must land in the count. Without this the fixture above
@@ -124,7 +151,7 @@ export async function handoffFields(results) {
       ),
     restore,
     shouldPass: true,
-    expectDetail: "1 still carry NO resolution",
+    expectDetail: `${base.unresolved + 1} still carry NO resolution`,
   });
   await fixture(results, {
     name: "closure: Verified-At-Commit is not hexadecimal",
