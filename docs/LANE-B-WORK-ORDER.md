@@ -270,16 +270,19 @@ one run look like two. It states the three things `D-75` names:
 
 **And omit the `Resolution` field entirely — do not include the line, even blank** (`G84`, `D-113`,
 normalized `D-123`, enforced `D-124`). There is nothing in a report to resolve, so it never reaches
-a terminal state — which is why it needed its own `Kind` rather than a convention. The same goes
-for `Verified-By` and `Verified-At-Commit`. **`bun run check` now rejects all three on a turn
-report even when blank**, so a copied legacy field turns the suite red instead of passing silently.
+a terminal state — which is why it needed its own `Kind` rather than a convention. **Filed as a
+`finding` it was indistinguishable from an unresolved defect**, and four reports sat permanently
+inside the *"still carry NO resolution"* figure. The checks now exclude turn reports from that
+count and **report them as their own number**, so yours is neither noise nor invisible at a
+boundary.
+
+The same omission applies to `Verified-By` and `Verified-At-Commit`. **`bun run check` now rejects
+all three on a turn report even when blank** (`D-124`), so a copied legacy field turns the suite
+red instead of passing silently.
 
 **Keep `Evidence`, filled.** `D-123` wrongly listed it among the omitted fields while designating
 `B-047` — which carries one — as the canonical report. **A turn report exists to name what the turn
-produced**; a blank `Evidence` fails, an absent one is permitted, and a filled one is what you want. **Filed as a `finding` it was indistinguishable from an unresolved defect**, and four
-reports sat permanently inside the *"still carry NO resolution"* figure. The checks now exclude
-turn reports from that count and **report them as their own number**, so yours is neither noise nor
-invisible at a boundary.
+produced**; a blank `Evidence` fails, an absent one is permitted, and a filled one is what you want.
 
 **A turn report is not where you raise a problem.** If your turn found a defect, that is a separate
 `spec-defect` entry: the report says a turn happened, the defect asks for a fix. **`B-034`–`B-037`

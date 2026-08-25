@@ -18,6 +18,19 @@
 //   * `Status: Answered` with an empty `Lane A` line — a claim with nothing
 //     behind it
 //   * `Status: Open` with NO acknowledgement — the "feedback sits unread" case
+//   * a `Kind: turn-report` with a missing, blank, unregistered, or duplicate
+//     `Run:` (`D-123`, `D-124`) — see `runRegistry()` below
+//   * a `Kind: turn-report` carrying `Resolution`, `Verified-By`, or
+//     `Verified-At-Commit`, even blank, or a blank `Evidence` (`D-124`) — see
+//     `CLOSURE_ONLY` below
+//
+// `D-124`, raised as `B-055`'s own critic pass (`D-93`): this list went stale
+// the moment the two rules above it were added, which is the exact
+// `arrival_not_correctness` shape this check exists to catch — turned on its
+// own header. **Nothing coupled this comment to the code below it**;
+// `channel-docs` (check 16) couples the README and template to the checks, but
+// a check's own prose about itself is read by nothing. Kept current by hand;
+// not solved.
 //
 // WHAT IT DELIBERATELY DOES NOT FAIL ON:
 //   * an open entry that HAS been acknowledged. A queue is healthy. Failing on

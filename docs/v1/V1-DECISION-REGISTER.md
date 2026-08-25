@@ -7835,3 +7835,43 @@ claim about a new edit; the enclosing section's decision is now required.
 **Assigns run identifiers; creates no report for `LB-S0-01`** — that absence is `C-28`'s evidence
 and stays. **Edits no migration and no test**; `0002`'s index removal remains specified, not
 applied. Approves no retention value; `C-32` untouched. No lane selected, no phase closed.
+
+---
+
+## 5.14cf `D-125` — The Owed Critic Pass; Two Defects in Lane A's Own Last Two Edits
+
+**Lane A pass, 2026-08-25.** After `D-122`, `D-123` and `D-124` each corrected the pass immediately
+before it, the Judge asked for the owed critic pass (`D-93`) rather than more forward work. **Run
+on a separate turn, against the committed artifacts** (`D-93` rules 1–2), recorded in
+`V1-PHASE-CLOSURE.md` §6.1f.
+
+**Two findings, `F41` and `F42`, both fixed.** `F41`: `D-124`'s edit to `LANE-B-WORK-ORDER.md` §5
+inserted a paragraph between a sentence and the clause it completed, leaving an orphaned
+non-sequitur — confirmed against `git log -p`, restored. `F42`: `handoff-response.mjs`'s own
+*"WHAT IT FAILS ON"* header comment went stale the instant `D-123`/`D-124` added two new failure
+modes, because **nothing couples a check's own header to its own code** — `channel-docs` couples
+the README and template, not a check's prose about itself. Both are Lane A's, in the two most
+recent passes.
+
+**Zero findings would itself have been reportable under `D-93` rule 3** — noted, not triggered,
+since genuine defects were found.
+
+### Gaps
+
+**None opened.** No check gap: `F42` names a coupling that does not exist and is not proposed as
+one — a check verifying its own comments against its own code is not a control this apparatus
+builds, consistent with `D-93` rule 2 already requiring a human to read source over summary.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-125` / `F41`, `F42` | ✅ §5.14cf | **— unaffected** | **— unaffected** | **— unaffected: no file created or retired** | ✅ §6.1f | **— unaffected** |
+
+### Scope limits
+
+**Fixes two prose/comment defects; touches no check's enforced behavior** — `handoff-response.mjs`'s
+logic is unchanged, only its header comment. **Does not re-examine** the run-identifier assignment
+logic beyond `RUN_ID`'s regex, `tier-sweep`'s `sectionDecision` fallback against heading shapes
+other than the one tested, or anything outside the `D-121`–`D-124` chain. No lane selected, no
+phase closed, no retention value approved.

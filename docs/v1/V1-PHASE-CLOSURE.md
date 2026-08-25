@@ -859,6 +859,31 @@ claims made by passes that were themselves auditing unfounded claims. The fixtur
 defect in themselves on their first tracked run**: a port from the scratchpad had turned a narrow
 assertion into a wrong one, and it was reported as `MISS` rather than passing quietly.
 
+### 6.1f Sixth critic pass — Lane A, 2026-08-25, against `D-121`–`D-124` at `da99f0d` (`D-125`)
+
+**Separate turn from all four decisions (`D-93` rule 1), against the committed artifacts, not a
+summary of them (rule 2). Requested by the Judge after three consecutive passes — `D-122`,
+`D-123`, `D-124` — each found defects in the pass immediately before it.** Two findings, both in
+Lane A's own two most recent edits, both fixed in this turn.
+
+| # | Finding | Status |
+|---|---|---|
+| **F41** | **`LANE-B-WORK-ORDER.md` §5 carried an orphaned sentence.** *"Filed as a `finding` it was indistinguishable from an unresolved defect, and four reports sat permanently…"* originally completed the `G84` explanation directly above it. `D-124`'s edit inserted a new `Evidence` paragraph **between** that sentence and its subject, so the committed text read as a non-sequitur following *"a filled one is what you want."* Confirmed against `git log -p`: the sentence has not moved since `D-105`; two edits landed content around it without rejoining it to its clause | **Fixed** — the sentence restored beside the explanation it completes; the `Verified-By`/`Verified-At-Commit` and `Evidence` points each given their own paragraph |
+| **F42** | **`handoff-response.mjs`'s own "WHAT IT FAILS ON" header went stale the instant `D-123` and `D-124` added two new failure modes below it.** The list still named only the four checks from `D-102`. `channel-docs` (check 16) couples the README and template to the checks that implement them; **nothing couples a check's own header comment to its own code** — the identical `arrival_not_correctness` shape this apparatus names everywhere else, this time inside the artifact meant to prevent it | **Fixed** — the two new failure modes added to the list, with a note that the coupling remains manual: `channel-docs` does not reach a check's own prose about itself |
+
+**Both are Lane A's, and both are in the two most recent passes — not a third-party's.** `D-93`
+rule 3 requires zero findings to be reported as a finding in its own right; that does not apply
+here, since the pass did find genuine defects, but the alternative reading is worth stating: **a
+critic pass that finds nothing on the fourth try in a row would itself be the more alarming
+result**, given the density of defects the three passes before it were finding.
+
+**What this pass did NOT re-examine**, stated per `D-93` rule 4's discipline of naming scope
+honestly: the run-identifier table's assignment logic beyond `RUN_ID`'s regex (spot-checked, not
+exhaustively traced against every historical run); the fixture suite's coverage of `tier-sweep`'s
+`sectionDecision` fallback against headings shaped differently from `## 5.14ce` (only that exact
+shape was tested); and everything outside the `D-121`–`D-124` chain, which `D-93` rule 1 requires
+be a separate turn from whatever comes next.
+
 ### 6.2 What the critic pass did not find
 
 **Withdrawn 2026-08-22 as critic-pass finding `F16`.** This section read: *"Nothing about the
