@@ -224,6 +224,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G94` | **Closed 2026-08-25 (`D-120`) — a correction that reached two tiers and missed the one a build lane reads** | **`A26a`, 2026-08-17, corrected the S1 Definition of Done** because the prior wording required a live database while `DEP-05` was withheld — its own note calls that *a live contradiction, not a deferral*. The corrected phrase, **unit-tested against a local or branch Postgres instance**, landed in `sprint-plan` §353 and in `Modular_PRD` `M1`. **`V1-BUILD-SPEC.md` kept the bare phrase *trigger written and unit-tested* for three months** and every check passed throughout. **The missed tier is the operative build document**, so Lane B built a static contract test against a DoD that never said which database — which is why `B-044` is a finding and not a violation. `G65` again, and **the oldest instance in this register by a wide margin**: arrival is checked, staleness is not, and a qualifier removed from one tier leaves the others agreeing with each other. Corrected here; the runner is now named. §5.14ca |
 | `G95` | **Open 2026-08-25 — the mechanism is established; its composition is not** | **A brief is identified by a hash of its key fields (`D-121`), and which fields compose it is unspecified.** **The mechanism is not new here**: `requirements-traceability-map.md` already hashes customer sentences in `PRD.md` so drift is detectable, for the stated reason that *the customer may edit it at any time, in any order, without telling the project team — that is their right*, and it carries a drift procedure and a change-control step. **Applying that to briefs extends a running pattern rather than inventing one.** What is missing is the field list and the collision semantics: whether two identical briefs from different submitters collide, whether the source reference participates, and whether a hash changes when a brief is edited before its first gate. **Not `0002`-blocking** — the guard is a surface behaviour (`D-121`), and no column depends on it until the guard is built. §5.14cb |
 | `G96` | **Open 2026-08-25 — a field with no column, and no way to populate it truthfully until S6** | **`articles` carries no submitter.** `0002` adds eighteen columns and none of them is one; `source_author` is the SOURCE article's author, a different person. `articles.user_id` exists in `0001` — nullable, no foreign key, untouched by `0002`, and documented only in the **plan pack**, which is explicitly not authoritative (`D5`), for *owner scoping* rather than submission. **The role is specified**: `SEC-03` names *the single Chief Editor account and scoped roles*, `NG-02` scopes multi-team accounts out of **v1 only**, and `D-73` made the application multi-tenant. **The harder half is that until S6 the value cannot be trusted** — `X7` and `Modular_PRD` §445 record that no API authentication exists in Phase 0 and **executor identity is self-asserted**. **That is why `D-121` puts the duplicate guard at the surface**: enforcing it in the database would build a control on a field the system itself calls self-asserted. §5.14cb |
+| `G97` | **Closed 2026-08-25 (`D-122`, raised as `B-050`) — a record that contradicts itself, and a withdrawal made on one observation** | **`npx graphify hook-rebuild` intermittently writes `branchName: null` and `lastAnalyzedHead: null` over a good record while leaving `stale: false` untouched** — so the flag reports healthy and the data reports that nothing was ever analyzed. `graphify state status` shows `gitDir` and `commonGitDir` null alongside it: **the tool loses its git context and overwrites.** **`B-046` reported this and `D-118` withdrew it because the state had recovered** — which is `arrival_not_correctness` applied to Lane A’s own verification: **one later observation cannot distinguish repaired from intermittent**, and re-running the rebuild this pass repopulated the record correctly. **The severity is narrower than reported and the narrowing is the point**: `docs-drift` compares `lastAnalyzedHead` against HEAD and honours `stale` only when explicitly `true`, **so the check is not fooled and failed correctly.** The exposure is to a READER who sees `stale: false` and believes it — `G90` shape, a field a person reads and a control does not. **Closed by making the check own output teach the reader**: a null record now names the self-contradiction, because *"run hook-rebuild"* is the remedy for ordinary staleness and merely the **cause** of this one. **No fixture** — reproducing a non-deterministic external tool would be a probe that passes by luck. §5.14cc |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -7506,3 +7507,105 @@ executor identity is self-asserted, so any value it carries is a claim rather th
 **Edits no migration and no test.** `0002`'s index removal is **specified and handed to Lane B**;
 `0001_init.sql` untouched. **Approves no retention value** — `C-32` is untouched by this decision.
 No lane selected, no phase closed, and **no journal rewritten**.
+
+---
+
+## 5.14cc `D-122` — Three Defects in `D-121`'s Own Pass, All Found by Lane B
+
+**Lane A correction, 2026-08-25, answering `B-048`, `B-049` and `B-050`.** Every one is Lane A's,
+two were created **in the pass immediately before**, and the third shows a withdrawal that was
+premature.
+
+### `B-048` — the Build Spec required and forbade the same index, nine lines apart
+
+**`D-121` added a removal block to S1 and left `"unique index on `articles.url` (`TC3`, `TC5`)"`
+standing in the same section's *"Also in S1"* list.** Both instructions cannot be applied.
+
+> **Register precedence resolves it** — `D-58` makes the register win, so removal governs — **and
+> that is not good enough.** `D-86` says governance reaches Lane B as a **flag, not a document**,
+> and the operative build document is what a build lane reads. **A contradiction a lane must
+> arbitrate is a contradiction Lane A failed to resolve.**
+
+**Lane B applied precedence during review and stopped before editing Lane A's document** — exactly
+right, and the reason the wrong index was not restored.
+
+### `B-049` — the work order reopened a gap that had been withdrawn
+
+**`D-118` withdrew `G85` and propagated the seven publication values into `TR-DM-03`.** The work
+order still told Lane B the values were *"listed nowhere"* and asked it to derive them and raise a
+`spec-defect`.
+
+> **This is `B-035` exactly, one pass on.** `D-113` fixed a work order whose instructions had
+> outlived their source and recorded *"a work order exists so the build lane need not read the
+> register, which means it inherits every propagation failure silently."* **The same document
+> inherited the next one.**
+>
+> **Left as a completed note rather than deleted**, so a reader can tell **finished** from
+> **withdrawn** — the discipline `D-113` established for S0 and did not apply here.
+
+**Its cost, had Lane B followed it:** re-raising `B-042` under a new number, and treating the
+migration as the origin of a vocabulary `D-118` had just ruled it was not.
+
+### `B-050` — `B-046` was withdrawn on one observation, and the condition recurs
+
+**`B-046` reported `.graphify/branch.json` reset to nulls. `D-118` withdrew it because the state had
+recovered.** **`B-050` reproduced it, and it was live at the start of this pass:**
+
+```
+lastAnalyzedHead: null   branchName: null   stale: false
+```
+
+> **The withdrawal was `arrival_not_correctness` applied to Lane A's own verification.** I checked
+> the state **once**, found it healthy, and concluded the defect was gone. **A single later
+> observation cannot distinguish "repaired" from "intermittent"**, and this one is intermittent:
+> re-running `hook-rebuild` this pass **repopulated** the record correctly.
+
+**Characterised rather than guessed.** `graphify state status` shows `gitDir: null` and
+`commonGitDir: null` alongside the nulled branch record — **the tool loses its git context and
+writes nulls over a good record, while leaving `stale: false` untouched.**
+
+**The severity is narrower than `B-050` states, and the narrowing is the useful part.**
+`docs-drift` compares `lastAnalyzedHead` against HEAD and honours `stale` only when it is explicitly
+`true` — **so the check is not fooled and did fail correctly this pass.** The exposure is entirely
+to a **reader** who sees `stale: false` and believes it. **`G90`'s shape**: a field a person reads
+and a control does not.
+
+**Fixed by making the check's own output teach the reader** — a null record now gets its own
+message naming the self-contradiction, because *"run `hook-rebuild`"* is the remedy for ordinary
+staleness and merely the **cause** of this one. **No fixture is added**: reproducing a
+non-deterministic external tool would be a probe that passes by luck.
+
+**The standing procedure, from `B-046` and unchanged:** commit first, update against the committed
+HEAD, re-merge `docs/graph-fragments/`, **verify `lastAnalyzedHead` equals HEAD**, then re-run
+coverage and drift. **`hook-rebuild` alone is not evidence of currency.**
+
+### What these three have in common
+
+**All three were found by a lane that could not commit**, reviewing a pass that had just landed.
+**None was found by a check** — `bun run check` was green on the Build Spec contradiction and on the
+stale work order, because **neither is a claim any check reads.**
+
+> **`C-22`'s limit, stated for the third time and now with three instances behind it:** every check
+> here verifies **arrival**, and none verifies that two instructions in one document can both be
+> obeyed. **The control is a reader**, and this pass the reader was Lane B.
+
+### Gaps
+
+**Opened and closed:** `G97` — `hook-rebuild` intermittently nulls the branch record while leaving
+`stale: false`; the check now names the self-contradiction rather than reporting ordinary staleness.
+**Reopened in substance:** `B-046`'s finding, whose withdrawal is corrected here.
+**Unchanged:** `C-32`, `C-33`, `G87`, `G88`, `G89`, `G90`, `G95`, `G96`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `B-048` | ✅ §5.14cc | ✅ **the contradictory item removed** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `TR-DM-01` already carries the removal** |
+| `B-049` | ✅ §5.14cc | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `TR-DM-03` already carries the values** |
+| `G97` | ✅ §5.14cc, §5.1 | **— unaffected** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | **— unaffected** |
+
+### Scope limits
+
+**Edits no migration and no test.** `0002`'s index removal remains **specified, not applied** —
+`supabase/` is Lane B's. Approves no retention value; `C-32` untouched. No lane selected, no phase
+closed, **and no journal rewritten**.

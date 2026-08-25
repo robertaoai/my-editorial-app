@@ -178,7 +178,7 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 > executor identity is self-asserted, so the database is not a place this guard can honestly live.
 > **Lane B removes the line and tests the guard's absence, not its presence.**
 
-**Also in S1:** ten-state enum via `article_state_v2` · tenancy boundary (`D-01`) · `actor_id` (`TC4`) · `sources.reliability_tier`, `articles.source_id`, `topics.evolves_from`, trend-signal fields, unique index on `articles.url` (`TC3`, `TC5`) · `publication_targets` + `publications` (`TC2`, `D-08`) · revoke UPDATE and DELETE on `workflow_transitions` · correct the seed rows executing T5 with an agent (`X4`) · **sequence enforcement in Postgres, not application code** (`TC1`).
+**Also in S1:** ten-state enum via `article_state_v2` · tenancy boundary (`D-01`) · `actor_id` (`TC4`) · `sources.reliability_tier`, `articles.source_id`, `topics.evolves_from`, trend-signal fields (`TC3`, `TC5`) — **and NO unique index on the source reference; see the block above (`D-121`, raised as `B-048`)** · `publication_targets` + `publications` (`TC2`, `D-08`) · revoke UPDATE and DELETE on `workflow_transitions` · correct the seed rows executing T5 with an agent (`X4`) · **sequence enforcement in Postgres, not application code** (`TC1`).
 
 **DoD:** trigger written and **unit-tested against a local or branch Postgres instance**; `Logged → Drafted` rejected at the database. **Live anon-key behaviour stays unverified until `DEP-05` is answered** — claim S1 done as *"trigger written and unit-tested; live-DB behaviour unverified,"* never as fully done.
 

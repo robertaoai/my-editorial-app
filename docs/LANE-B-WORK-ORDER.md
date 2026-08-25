@@ -98,10 +98,14 @@ which is the governed form of both.
 
 - **`C-31`** — whether retention on `articles` varies by final status. **Open, and it does not block
   you.** Do not add a `retention_class` column; if you think one is needed, **raise it**.
-- **`G85`** — the *"seven-value status enum"* is named in four documents and **its seven values are
-  listed nowhere.** Derive the event types from `FN-PUBLICATION`'s behaviour, **and raise a
-  `spec-defect` entry naming the values you derived** so the governed set gains them rather than
-  your code becoming the only record. **Do not treat your own choice as the specification.**
+- **`G85` — WITHDRAWN and DONE. Nothing here is owed** (`D-118`, raised by you as `B-042`). This
+  entry told you the seven publication values were listed nowhere and asked you to derive them.
+  **That was wrong**: they are in `v1-build-readiness-addendum.md` §231 and `blueprint.md`
+  §500/§969, and `TR-DM-03` now carries them citing the **Addendum**, not the migration. **Use
+  `Pending` · `Published` · `Failed` · `Scheduled` · `Cancelled` · `ManualReady` · `MockPublished`,
+  and `MockPublished` never satisfies `Published`.** *(Kept as a completed note rather than deleted,
+  so a reader can tell **finished** from **withdrawn** — `B-049` reported this instruction still
+  reading live after `D-118` retired it.)*
 
 **Your parent-first sequence:** verify the authorization packet → draft and test `0002` → report S1
 evidence and the `DEP-05` limitation → **S2 only after S1 is accepted.**

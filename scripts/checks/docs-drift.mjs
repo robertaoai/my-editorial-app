@@ -57,7 +57,24 @@ export function run() {
   const analyzed = String(state.lastAnalyzedHead || "");
   const short = (s) => (s ? s.slice(0, 7) : "(none)");
 
-  if (analyzed !== head) {
+  // `G97`, raised as `B-050`. A RECORD THAT CONTRADICTS ITSELF GETS ITS OWN
+  // MESSAGE. `hook-rebuild` intermittently writes `branchName: null` and
+  // `lastAnalyzedHead: null` over a good record **while leaving `stale: false`**
+  // — so the flag says healthy and the data says nothing was ever analyzed.
+  //
+  // This check is not fooled: it compares `lastAnalyzedHead` against HEAD and
+  // ignores the flag unless it is explicitly `true`. **A reader is fooled**, and
+  // that is the whole risk — `stale: false` beside a null head reads as synced
+  // to a person and as stale to the check.
+  //
+  // So the two cases are reported differently. Ordinary staleness names a real
+  // commit to re-analyze; a null record names the self-contradiction, because
+  // "run hook-rebuild" is the fix for one and merely the *cause* of the other.
+  if (!analyzed) {
+    findings.push(
+      `graphify's branch record has NO analyzed commit${state.stale === false ? " while still reporting `stale: false`" : ""} — the record contradicts itself and nothing has been verified against HEAD ${short(head)}. \`hook-rebuild\` intermittently nulls \`branchName\` and \`lastAnalyzedHead\` over a good record (\`G97\`); re-run it and CONFIRM \`lastAnalyzedHead\` equals HEAD before claiming the graph is current.`,
+    );
+  } else if (analyzed !== head) {
     findings.push(
       `graph is STALE — last analyzed ${short(analyzed)}, HEAD is ${short(head)}. Run \`npx graphify hook-rebuild\`, then re-merge \`docs/graph-fragments/\` if the curated node count drops (\`G51\`).`,
     );
