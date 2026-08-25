@@ -69,8 +69,16 @@ export function dirtyPaths() {
  * not merely on "it failed" is deliberate — a check that fails for the wrong
  * reason passes a naive fixture, and this apparatus has produced that exact
  * defect twice (`phase-manifest`, `sync-docs-unique`).
+ *
+ * `expectDetail` is a substring of the check's DETAIL line, and it may be given
+ * with `shouldPass` — `G83`, `D-113`. **Until this existed, an entire class of
+ * defect was untestable here**: `handoff-response` reported `0 open` with four
+ * unread entries, and every fixture passed, because a fixture could only ever
+ * look at findings. **The detail line is what a human reads instead of the
+ * directory**, so a wrong count there is a control defect, not cosmetics — and
+ * it must be assertable like any other.
  */
-export async function fixture(results, { name, modulePath, mutate, restore, expect, shouldPass = false }) {
+export async function fixture(results, { name, modulePath, mutate, restore, expect, expectDetail, shouldPass = false }) {
   try {
     mutate();
   } catch (e) {
@@ -79,7 +87,21 @@ export async function fixture(results, { name, modulePath, mutate, restore, expe
   }
   try {
     const out = await runCheck(modulePath);
-    if (shouldPass) {
+    if (expectDetail !== undefined) {
+      const seen = out.detail ?? "";
+      const detailOk = seen.includes(expectDetail);
+      const findingsOk = shouldPass ? out.findings.length === 0 : out.findings.some((f) => f.includes(expect ?? ""));
+      const ok = detailOk && findingsOk;
+      results.push({
+        name,
+        ok,
+        detail: ok
+          ? `detail reports "${expectDetail}"`
+          : !detailOk
+            ? `detail does not contain "${expectDetail}" — got: ${seen}`
+            : `detail matched but findings did not: ${out.findings[0] ?? "none"}`,
+      });
+    } else if (shouldPass) {
       const ok = out.findings.length === 0;
       results.push({ name, ok, detail: ok ? "stays green" : `unexpected finding: ${out.findings[0]}` });
     } else {

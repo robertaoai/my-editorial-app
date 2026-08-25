@@ -60,6 +60,72 @@ export async function handoffFields(results) {
     restore,
     expect: "no such phase in the register",
   });
+  // `G83`, `D-113`. AN OPEN ENTRY WITH A BLANK `Lane A` MUST BE COUNTED OPEN.
+  // The branch handling that case used to `continue` before any counter ran, so
+  // the check reported `0 open` with four unread entries in the directory —
+  // **the one line a human reads, wrong in the direction that hides work.**
+  // Asserting on the FINDING alone would still have passed: the finding fired,
+  // the count did not. This is the first fixture in the apparatus to assert on a
+  // detail line, and the defect is why the harness gained `expectDetail`.
+  await fixture(results, {
+    name: "handoff: an unread entry is COUNTED open, not merely reported",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () =>
+      write(
+        ENTRY,
+        orig
+          .replace(/^- \*\*Status:\*\*.*$/m, "- **Status:** Open")
+          .replace(/^- \*\*Lane A:\*\*.*$/m, "- **Lane A:**"),
+      ),
+    restore,
+    expect: "present but BLANK",
+    expectDetail: "1 open",
+  });
+  // The other half. A blank `Lane A` is an UNFINISHED entry; an absent one is a
+  // MALFORMED file, and they need different messages because they need
+  // different repairs. `fieldPresent()` existed for exactly this and this
+  // caller did not use it.
+  await fixture(results, {
+    name: "handoff: an ABSENT Lane A line is malformed, not merely blank",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, orig.replace(/^- \*\*Lane A:\*\*.*$\n/m, "")),
+    restore,
+    expect: "no **Lane A:** field",
+  });
+  // `G84`, `D-113`. A turn report can never carry a terminal `Resolution`, so
+  // it must not be counted among the entries that lack one. Asserting the
+  // EXCLUSION rather than the presence of a message: the bug was arithmetic.
+  await fixture(results, {
+    name: "handoff: a turn-report is excluded from the unresolved count",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () =>
+      write(
+        ENTRY,
+        orig
+          .replace(/^- \*\*Kind:\*\*.*$/m, "- **Kind:** turn-report")
+          .replace(/^- \*\*Resolution:\*\*.*$/m, "- **Resolution:**"),
+      ),
+    restore,
+    shouldPass: true,
+    expectDetail: "0 still carry NO resolution; 3 turn report(s)",
+  });
+  // The positive control for the exclusion. The SAME entry, unresolved, as an
+  // ordinary kind — it must land in the count. Without this the fixture above
+  // proves only that a number can be made smaller.
+  await fixture(results, {
+    name: "handoff: the same entry as a finding IS counted unresolved",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () =>
+      write(
+        ENTRY,
+        orig
+          .replace(/^- \*\*Kind:\*\*.*$/m, "- **Kind:** finding")
+          .replace(/^- \*\*Resolution:\*\*.*$/m, "- **Resolution:**"),
+      ),
+    restore,
+    shouldPass: true,
+    expectDetail: "1 still carry NO resolution",
+  });
   await fixture(results, {
     name: "closure: Verified-At-Commit is not hexadecimal",
     modulePath: CHECK("closure-readiness.mjs"),
