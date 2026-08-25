@@ -379,9 +379,21 @@ handover is the moment that becomes a gap**, not a theoretical one.
 
 | Lane | Phase | State | Selected | Closed | Judge | Reopened by |
 |:---:|---|---|---|:---:|---|---|
-| **A** | **1 — Orchestration** | **`Active`.** Reselected at the second Sprint boundary (`D-104`). Closes last (`D-99`). Condition 1 met; **2 NOT met** — 10 entries are `Applied`, not `Verified` (`D-102`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | Robert Tan, 2026-08-24 — **out of `Active`** (`D-103`), then **back into `Active`** (`D-104`) | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
-| **B** | **2 — Application** | **`Blocked`** on Lane A's active run (`D-108`). Its S0 work is complete and committed at `ea84281` **Its `D-103` turn produced no commits and no turn report (`C-28`) — the work order is UNSTARTED and stands unchanged**: the 13 `CONFIG_LOG.md` rows (`config-coupling` still red), then `flags.ts`, then the `C-26` verification pass. **Nothing is re-specified and nothing is withdrawn** | Robert Tan, 2026-08-24 — **into `Active`** (`D-103`), then **out** (`D-104`). **No turn report was raised, and `no work performed` is LANE A'S OBSERVATION of the commit log, not Lane B's report** (`D-105` `F30`) | — | Standing project approval | — |
-| **C** | **3 — CI/CD** | **`Blocked`** on Lane A's active run (`D-108`). **A row carries ONE state**: its own item-level blockers — `C-18`, `C-24`, `C-25` for `C-Q2`, with `C-Q1` ready — are work conditions and live in those conditions, not in the lock column (`B-033`) | — not selected | — | Standing project approval | — |
+| **A** | **1 — Orchestration** | **`Blocked`** on the Lane B run `LB-S1-01` (`D-108`). Its turn completed at the third Sprint boundary and **released the lock** (`D-117`). Closes last (`D-99`). Condition 1 met; **2 NOT met** — `Applied` entries await their raiser (`C-26`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | Robert Tan, 2026-08-24 — into `Active` (`D-104`); **out of `Active` 2026-08-25 (`D-117`)** — run complete, lock released | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
+| **B** | **2 — Application** | **`Active`** — run `LB-S1-01` (`D-117`). **The only lane that may commit.** S0 is complete at `ea84281`; `0002` is **unconditional** (`D-114`) and its contract is `D-112` + `D-114` + `Modular_PRD` §6.3. Work order: `docs/LANE-B-WORK-ORDER.md` §2.2–§2.3. **`C-32` is NOT a dependency of `0002`** (`B-039`) | **Robert Tan, 2026-08-25 — into `Active` (`D-117`).** Selection confirmed this turn and **deliberately not backdated**: `B-038` cited a selection that had not yet been made, and the Chief Editor ruled *"it was implied — record it as made now"* | — | Standing project approval | — |
+| **C** | **3 — CI/CD** | **`Blocked`** on the Lane B run `LB-S1-01` (`D-108`). **A row carries ONE state**: its own item-level blockers — `C-18`, `C-24`, `C-25` for `C-Q2`, with `C-Q1` ready — are work conditions and live in those conditions, not in the lock column (`B-033`) | — not selected | — | Standing project approval | — |
+
+> **Third Sprint boundary — 2026-08-25 (`D-117`, raised as `B-038`). TWO events, recorded as two.**
+> **(1)** Lane A's run completed and **released the lock**, making every unfinished lane `Eligible`.
+> **(2)** The **Chief Editor selected Lane B**, which is now the sole `Active` lane on run `LB-S1-01`.
+>
+> **They land in one commit because the Judge supplied both acts, and the record keeps both** — a
+> bare replacement of the final value would make *release* and *selection* indistinguishable, and
+> `lane-state` reads the current state only and could never tell them apart (`C-22`).
+>
+> **The selection is dated to this turn and is not backdated.** `B-038` asserted *"Chief Editor
+> selection, 2026-08-25"* in its `Evidence` line **before any selection had been made** — Lane A
+> put the question rather than acting on the entry (`G90`).
 
 **Phase 1 stays OPEN through every handover.** It closes last (`D-99`), and a lane leaving `Active` is a statement about committing, never about phase openness. **The state column carries STATES and nothing else** — that sentence used to live inside Lane A's cell, where `lane-state` correctly read it as the row claiming two states at once (`D-104`). A cell that explains itself cannot be parsed as a value.
 

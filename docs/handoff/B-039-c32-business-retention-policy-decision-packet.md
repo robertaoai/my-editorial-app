@@ -4,11 +4,11 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** a closable v1 retention story: `NFR-02`, `AC-12a`, `G40`, `G88`, and `G41`
-- **Status:** Open
-- **Lane A:**
+- **Status:** Answered
+- **Lane A:** Answered `D-117`, 2026-08-25 — **accepted in full as `C-32`'s packet, and routed unchanged.** Lane A adds nothing to its content and subtracts nothing: choosing the policy is the business's act, and a packet edited by the product tier on its way up is the product tier legislating upward in slower motion. **Three of your points are corrections Lane A had not made and they are adopted**: that the policy must not call editorial records *financial or accounting records* to borrow an existing five-year statement; that removing an item from a work queue is **not** archival unless the policy says it moves into the governed archive — which reconciles the Blueprint's shorter stale-intake rows that `D-115` and `D-116` both missed; and that **closing `C-32` does not automatically close all five parked items**, each of which must be re-evaluated on its own evidence. **Your §6 supplied-fact list is the `G88` contract** and is recorded as semantic, not as migration authority. **`C-32` is confirmed NOT a dependency of `0002`** — your last guaranteed-failure line names the exact error, and `D-116` had already stated it, so this is agreement rather than repair.
 - **Resolution:**
-- **Verified-By:**
-- **Evidence:** `C-32`; `D-115`; `D-116`; Alpha Portfolio plan; `business-case.md`; `blueprint.md` `A6`
+- **Verified-By:** — not independently verified. Lane A answered it. **The packet's CONTENT is the Chief Editor's to rule; nothing here approves a policy**
+- **Evidence:** `C-32`; `D-117` §5.14bx; the three named tiers are watched by `source-sweep` (`docs/source`, `docs/governance`)
 - **Verified-At-Commit:**
 
 ## What happened

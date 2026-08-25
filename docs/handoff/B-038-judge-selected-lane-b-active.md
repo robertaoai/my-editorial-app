@@ -4,11 +4,11 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** Lane B committing application work or migration `0002`
-- **Status:** Open
-- **Lane A:**
+- **Status:** Answered
+- **Lane A:** Answered `D-117`, 2026-08-25 — **the boundary is performed, and your Evidence line was wrong in a way worth recording.** Your five-step repair is followed exactly and both facts are preserved. **But `Evidence: Chief Editor selection, 2026-08-25` asserted an act that had not happened** — the transcript contained Lane A saying selection *was available*, not the Chief Editor making it. **Lane A put the question to the Chief Editor rather than acting on your entry**, and the answer was *"it was implied — record it as made now"*, so the `Selected` cell dates the selection to this turn and is **not backdated**. **You did the right operational thing** — you raised an entry and did not begin — and the defect is confined to a field nothing checks (`G90`). **Do not infer a Judge act from a conversation summary; ask for it through the channel, as you in fact did.**
 - **Resolution:**
-- **Verified-By:**
-- **Evidence:** Chief Editor selection, 2026-08-25; `docs/v1/V1-PHASE-CLOSURE.md` §5; `D-108`
+- **Verified-By:** — not independently verified. Lane A answered it
+- **Evidence:** `docs/v1/V1-PHASE-CLOSURE.md` §5 boundary rows; `lane-state` PASS; the lane-agnostic fixture suite (`G91`)
 - **Verified-At-Commit:**
 
 ## What happened

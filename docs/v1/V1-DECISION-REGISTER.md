@@ -217,6 +217,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G87` | **Open — BACKLOG FEATURE, not v1** | **A retraction order for an article no longer in the current set has no path.** GRC on retraction binds data **while it is current** (`D-115`); archival ends its reach, so an order arriving afterwards has nothing to act on. **`D-114` created the reachability**: while `NFR-02` read *"never deleted"*, a published article never left the current set and retraction was always possible — restating it as *"not less than the statutory period; disposal only under a documented, approved policy"* made disposal permissible. **This is the honest consequence of stopping the lie, not a defect in the restatement.** Deferred because handling work **never triggered from this system** is a different intake shape, not a variation on the existing flow. §5.14bv |
 | `G88` | **Open — the input to a `[V1]` criterion that nothing supplies** | **`AC-12a` requires the audit surface to state that records *"existed and are no longer retrievable"*, naming the policy and version, the period, and the archive location.** Under `D-115` the act producing those facts is **external to this system**, and **nothing tells the product it happened.** *This is `G46`'s shape one tier down* — *"retention class depends on a fact the product does not hold"* — and `G46` was resolved by ruling the fact must be **supplied to** the product rather than inferred by it. **The mechanism exists on paper and was never adopted**: the audit model §6.3's **disposal record**, written before the act, stored outside the table it describes, itself immutable. **The second unadopted §-section this thread has found**, after §5.3. **`G41`'s unmet dependency.** §5.14bv |
 | `G89` | **Open 2026-08-25 — a derived tier created a `[V1]` commitment and nothing noticed** | **Nothing verifies that an acceptance criterion has a parent.** `Modular_PRD` carries 27 `AC-` rows including `AC-14`–`AC-21`, so `D-29` gives the series to that tier. The `Fn_Specs` introduce exactly two suffixed criteria and **neither has an upstream row** — but only one has a decision behind it: `AC-01a` was created by `G39`'s closure, which names it; **`AC-12a` appears in this register only as a REFERENCE** — *"product canary is `AC-12a`"* — **never as something a decision created.** `tier-sweep` reads decision IDs and cannot see this, because there is no decision to read. **`AC-12a` is promoted by `D-116`; the CONTROL gap is what stays open** — the next criterion written into a `Fn_Spec` will be just as invisible. §5.14bw |
+| `G90` | **Open 2026-08-25 — the one field that describes acts outside the repository, and nothing reads it** | **An entry's `Evidence` line can assert an act that never happened.** `closure-readiness` proves `Verified-At-Commit` names a real commit; **no check reads `Evidence` at all.** Live instance: `B-038` carried *"Evidence: Chief Editor selection, 2026-08-25"* when **no selection had been made** — the transcript held Lane A saying selection was *available*. **It nearly moved the lane lock**, and what stopped it was Lane A asking the Chief Editor rather than reading the file. `arrival_not_correctness` (`C-22`, `F5`) in the field that by construction points OUTSIDE the tree. **The remedy is a person, not a check** — an assertion about what the Judge said cannot be verified from the repository, and building a probe that pretends otherwise would be `probe_that_cannot_fail`. Recorded so the limit is not mistaken for coverage. §5.14bx |
+| `G91` | **Closed 2026-08-25 (`D-117`) — a fixture suite that breaks on the event it protects** | **Every lane-state fixture named a lane letter, silently assuming Lane A held the lock.** Moving it would have broken three: setting `B` `Active` when `B` already is produces **one** `Active` rather than two, and the *Eligible-beside-Active* and *Blocked-with-no-Active* cases would each have fired a **different finding than the one asserted** — passing while testing nothing. `D-106` drew this lesson once, *retarget at structure not at a live value*, and applied it to the documents the fixtures mutate **and not to the lane identity inside them.** **Fixed BEFORE the boundary, not after**; the suite reads which lane holds the lock and mutates by role. §5.14bx |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -7006,3 +7008,113 @@ period, and designs no backlog feature. No migration, no schema, no lane selecte
 `0001_init.sql` untouched. **`0002`'s authorization is unaffected** — it was unconditional before
 this decision and remains so, and none of `C-32`'s content is schema. `C-26`, `C-27`, `C-28`
 unchanged.
+
+---
+
+## 5.14bx `D-117` — The Boundary Is Performed; `C-32`'s Packet Is Routed Unchanged
+
+**Lane A's closing pass, 2026-08-25, answering `B-038` and `B-039`.** Performs the Sprint boundary,
+routes the `C-32` decision packet to the Chief Editor without editing it, and records three
+defects — **two of them Lane A's own.**
+
+### The boundary — both facts preserved, and the selection is NOT backdated
+
+**`B-038` asked for the `D-108` boundary and specified it correctly.** Two logical events land in
+one commit because the Judge supplied both acts, **and the record keeps both** — a bare replacement
+would make *release* and *selection* indistinguishable.
+
+| | |
+|---|---|
+| **1 — Lane A's run completed** | The lock was released; every unfinished lane became `Eligible` |
+| **2 — The Chief Editor selected Lane B** | Confirmed 2026-08-25, **dated to this turn** |
+| **Result** | **Lane B is `Active`.** Lane A and Lane C are `Blocked` on that one named run |
+
+> **`B-038`'s `Evidence` line asserted an act that had not happened.** It read *"Chief Editor
+> selection, 2026-08-25"*; what the transcript contained was **Lane A saying selection was
+> available**, and the Chief Editor quoting that back without making it. **Lane A put the question
+> rather than acting on the entry**, and the answer was *"it was implied — record it as made now."*
+>
+> **Lane B did the right operational thing** — raised an entry, did not begin, did not commit. **The
+> defect is confined to a field nothing checks**, and that field nearly moved the lock. `G90`.
+
+### `C-32`'s packet is routed unchanged, and three of its points correct Lane A
+
+**`B-039` is accepted in full and edited in no respect.** Choosing the policy is the business's act;
+**a packet revised by the product tier on its way up is the product tier legislating upward in
+slower motion.**
+
+**Three of its points are corrections Lane A had not made:**
+
+| | |
+|---|---|
+| The policy **must not call editorial records *"financial or accounting records"*** to borrow an existing five-year statement | Lane A had identified the mismatch (`D-116`) and had not said *"do not resolve it by relabelling"* |
+| **Removing an item from a work queue is not archival** unless the policy says it moves into the governed archive | **This reconciles the Blueprint's shorter stale-intake rows, which `D-115` and `D-116` both missed** while defining archival |
+| **Closing `C-32` does not automatically close all five parked items** | `C-32` says none *can close before* it exists; `B-039` adds that none closes *because* it does. **Each is re-evaluated on its own evidence** |
+
+**`B-039` §6 is the `G88` contract** — the supplied-fact interface, recorded as **semantic, not
+migration authority**. **`C-32` is confirmed not a dependency of `0002`**, which `D-116` had already
+stated; this is agreement, not repair.
+
+> **The structural point worth keeping.** `C-32`'s owner is *the business*, which has **no lane, no
+> surface and no channel** — and Lane B routed it anyway by expressing an owed document as a
+> `blocked-on-decision` entry. **That is the channel working at a boundary nobody designed it for.**
+> And the three receiving tiers are already watched: `source-sweep` covers `docs/source` and
+> `docs/governance`, so content arriving in any of them requires a recorded decision. **No new
+> tracking is needed and none is added.**
+
+### Two defects of Lane A's own, recorded because the alternative is a tidier and falser history
+
+**`G91` — the lane-state fixtures assumed Lane A held the lock.** Every mutation named a lane
+letter. **Moving the lock would have silently broken three of them**: setting `B` `Active` when `B`
+is already `Active` produces **one** `Active` rather than two, and the *Eligible-beside-Active* and
+*Blocked-with-no-Active* cases would each have fired a different finding than the one asserted.
+
+> **A fixture suite that works only while one particular lane is `Active` breaks on the exact event
+> it exists to protect.** `D-106` drew this lesson once — *retarget at structure, not at a live
+> value* — and applied it to the documents the fixtures mutate, **not to the lane identity inside
+> them.** Fixed before the boundary, not after: the suite now reads which lane holds the lock and
+> mutates by **role**.
+
+**And the sweep caught a third, mid-pass.** `G91`'s tier row claimed the **inventory** was affected
+before the edit existed — the same defect `tier-sweep` caught in `D-112`, made true rather than
+softened. **The inventory row it landed in carried *"six suites, thirty fixtures"* and was stale
+within a day.** That tally is **removed rather than corrected** (`G75`, `C-21`: *removal is
+preferred; a check over a tally must be maintained in step with the thing it counts*). **The runner
+prints both numbers.**
+
+**A commit message that did not describe its commit.** `424219a` carries the fixture fix **and
+Lane B's `B-038` and `B-039`**, swept in by `git add -A`; its message mentions only the fixtures.
+**Not amended** — the record of the error outlives a tidy history, and this file exists because that
+trade has been got wrong before. **No check could have caught it**: `lane-boundary` reads surfaces,
+`lane-gate` reads trailers, and **nothing verifies that a message describes the files it touches.**
+That is not a buildable check — a message is prose — and it is stated rather than opened as a gap.
+
+### Gaps
+
+**Opened:** `G90` — **an entry's `Evidence` field can assert an act that never happened, and
+nothing checks it.** `closure-readiness` proves `Verified-At-Commit` names a real commit; **no check
+reads `Evidence` at all.** `B-038` is the live instance and it nearly moved the lane lock.
+`arrival_not_correctness` (`C-22`, `F5`) in the one field that describes acts outside the
+repository — **and the remedy is a person, not a check**, because an assertion about what the Judge
+said cannot be verified from the tree.
+**`G91`** — closed by the lane-agnostic suite.
+**Unchanged:** `C-32` and its five parked items; `G87`, `G88`, `G89`; `C-26`, `C-27`, `C-28`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Boundary performed | ✅ §5.14bx | **— unaffected: a lane boundary moves no sprint** | **— unaffected: the lane MAP is unchanged; only which lane holds the lock moved** | **— unaffected** | ✅ **§5 lane rows — the whole point** | **— unaffected** |
+| `B-039` routed | ✅ §5.14bx, `C-32` | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: nothing is approved, so no requirement moves** |
+| `G90` opened | ✅ §5.14bx, §5.1 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `G91` closed | ✅ §5.14bx, §5.1 | **— unaffected** | **— unaffected** | ✅ **`scripts/fixtures/suites.mjs`** | **— unaffected** | **— unaffected** |
+
+### Scope limits — and what Lane A may no longer do
+
+**Approves no policy.** `B-039`'s content is the Chief Editor's; nothing here rules on a record
+class, a period, a trigger or a disposal authority. No migration, no schema, no phase closed.
+`0001_init.sql` untouched. **`0002` stays unconditional and independent of `C-32`.**
+
+> **This is Lane A's last commit of the turn.** After the boundary rows below, **Lane B holds the
+> lock.** Lane A may still read anything and may still write in `docs/handoff/` (§5.1), and **may
+> not commit** until the Chief Editor selects it again.
