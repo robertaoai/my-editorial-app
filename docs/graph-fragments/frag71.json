@@ -1,0 +1,192 @@
+{
+  "_comment": "Fragment 71 — D-116: retention as a business obligation rather than a product one; the product owns only the absence; a commitment made by a derived tier. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d116_the_product_owns_only_the_absence",
+      "label": "D-116 — The Product Owns Only the Absence",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bw",
+      "description": "Retention and archival leave the product tier entirely. What stays behind is a single presentational duty: when records are missing from a view, the view says so rather than showing an empty list.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The product does not set the period, does not perform the move, and does not decide what binds the obligation. Separating the duty it can discharge from the ones it cannot is what makes the remaining requirement testable."
+    },
+    {
+      "id": "a_scope_key_with_no_change_request_is_the_business_s",
+      "label": "A Scope Key With No Change Request Belongs to the Business",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bw",
+      "description": "Two governance scope keys are baseline obligations carrying no change request, which places them at the highest portfolio record rather than in any product document, with their detail in the business case and the blueprint.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Default ownership by the business is what makes a scope item global. The open question about what binds retention was the product tier attempting to answer something one tier above it."
+    },
+    {
+      "id": "a_condition_can_close_by_re_tiering",
+      "label": "A Condition Can Close by Re-Tiering Rather Than by Being Answered",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bw",
+      "description": "The remaining question under the retention condition was not open so much as mis-addressed. Moving it to the tier that owns it closes the condition without anyone answering it, and the content is carried forward under a new owner.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Closing by re-tiering is only honest when the content is re-homed rather than dropped, which is why a successor condition names the receiving documents and the items that still point at it."
+    },
+    {
+      "id": "an_anchor_that_names_nothing_is_a_floor_of_zero",
+      "label": "An Anchor That Names Nothing Is a Floor of Zero",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "NFR-02",
+      "description": "The auditability rule was restated to require retention for not less than the statutory period, and no statute is named anywhere in the corpus for this class of data — so the clause bound nothing and the whole constraint fell onto a policy that does not exist.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The wording it replaced was false but safe. Correcting it was right and opened an exposure underneath, and a correction that creates one without saying so is how the next reader inherits it silently."
+    },
+    {
+      "id": "a_derived_tier_made_a_first_version_commitment",
+      "label": "A Derived Tier Made a First-Version Commitment and Nothing Noticed",
+      "file_type": "concept",
+      "source_file": "docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md",
+      "source_location": "AC-12a",
+      "description": "An acceptance criterion marked for the first release was written into a behaviour spec with no parent row in the tier that owns the series and no decision creating it. A sibling criterion in another behaviour spec has a creating decision, which is what makes the difference visible.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The propagation sweep verifies that decision identifiers arrive in the tiers they claim, and cannot see this at all, because there is no decision to read. Promoting the criterion fixes the instance; the control gap is what remains open."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d116_the_product_owns_only_the_absence",
+      "target": "v1_decision_register",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bw",
+      "weight": 1
+    },
+    {
+      "source": "d116_the_product_owns_only_the_absence",
+      "target": "d115_the_current_set_is_the_terminus",
+      "relation": "completes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bw",
+      "weight": 1
+    },
+    {
+      "source": "d116_the_product_owns_only_the_absence",
+      "target": "a_criterion_whose_input_nothing_supplies",
+      "relation": "narrows",
+      "confidence": "CURATED",
+      "source_file": "docs/Modular_PRD.md",
+      "confidence_score": 1,
+      "source_location": "AC-12a",
+      "weight": 1
+    },
+    {
+      "source": "a_scope_key_with_no_change_request_is_the_business_s",
+      "target": "d116_the_product_owns_only_the_absence",
+      "relation": "grounds",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bw",
+      "weight": 1
+    },
+    {
+      "source": "a_condition_can_close_by_re_tiering",
+      "target": "d116_the_product_owns_only_the_absence",
+      "relation": "recorded_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bw",
+      "weight": 1
+    },
+    {
+      "source": "a_condition_can_close_by_re_tiering",
+      "target": "a_scope_key_with_no_change_request_is_the_business_s",
+      "relation": "applies",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bw",
+      "weight": 1
+    },
+    {
+      "source": "an_anchor_that_names_nothing_is_a_floor_of_zero",
+      "target": "d114_classification_adopted_window_closed",
+      "relation": "defect_in",
+      "confidence": "CURATED",
+      "source_file": "docs/Modular_PRD.md",
+      "confidence_score": 1,
+      "source_location": "NFR-02",
+      "weight": 1
+    },
+    {
+      "source": "an_anchor_that_names_nothing_is_a_floor_of_zero",
+      "target": "stopping_a_lie_makes_a_new_case_reachable",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bw",
+      "weight": 1
+    },
+    {
+      "source": "an_anchor_that_names_nothing_is_a_floor_of_zero",
+      "target": "d116_the_product_owns_only_the_absence",
+      "relation": "corrected_by",
+      "confidence": "CURATED",
+      "source_file": "docs/Modular_PRD.md",
+      "confidence_score": 1,
+      "source_location": "NFR-02",
+      "weight": 1
+    },
+    {
+      "source": "a_derived_tier_made_a_first_version_commitment",
+      "target": "d116_the_product_owns_only_the_absence",
+      "relation": "found_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bw",
+      "weight": 1
+    },
+    {
+      "source": "a_derived_tier_made_a_first_version_commitment",
+      "target": "g65_sweep_checks_arrival_not_correctness",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bw",
+      "weight": 1
+    }
+  ]
+}
