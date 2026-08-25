@@ -1,0 +1,217 @@
+{
+  "_comment": "Fragment 79 — D-124: a claimed propagation the sweep agreed with, a required key that was optional, and a rule that condemned its own exemplar. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "a_fallback_accepted_a_pre_existing_mention",
+      "label": "A Fallback Accepted a Pre-Existing Mention as Proof of a New Edit",
+      "file_type": "concept",
+      "source_file": "scripts/checks/tier-sweep.mjs",
+      "source_location": "Item-cell fallback",
+      "description": "The propagation sweep demanded a decision identifier only when the row's Item cell named one; otherwise any identifier in that cell sufficed. A condition already mentioned in the target file from an earlier pass therefore satisfied a claim about an edit that was never made.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "This is the exact failure the sweep was built to catch, arriving through the fallback built into it. The repair takes the owning decision from the enclosing section heading, so a row that names only an entry or a gap is still held to its decision."
+    },
+    {
+      "id": "the_obvious_patch_was_weaker_not_stronger",
+      "label": "The Obvious Patch Was Weaker, Not Stronger",
+      "file_type": "concept",
+      "source_file": "scripts/checks/tier-sweep.mjs",
+      "source_location": "candidate selection",
+      "description": "Adding the owning decision to the list of acceptable identifiers would have loosened the control rather than tightening it, because the membership test succeeds if any candidate matches. The decision has to replace the fallback, not join it.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A control whose test is existential gets weaker with every additional way to satisfy it. Recorded because the tempting one-line change looks like a tightening and is its opposite."
+    },
+    {
+      "id": "a_probe_that_silently_measured_the_old_rule",
+      "label": "A Probe That Silently Measured the Old Rule",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ce",
+      "description": "A dry run built by string-patching a copy of the check reported no new failures, which was read as the corpus already satisfying the stricter rule. Shell quoting had eaten the patch's escape sequences and its capture group, so the copy never applied the change it was built to test.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The real run then found three false claims the probe had reported clean. A green that confirms what was hoped is the one to re-run, and a probe assembled by patching must first be shown to catch a case it is known to catch."
+    },
+    {
+      "id": "a_required_key_implemented_as_optional",
+      "label": "A Required Key Implemented as Optional",
+      "file_type": "concept",
+      "source_file": "scripts/checks/handoff-response.mjs",
+      "source_location": "run branch",
+      "description": "The run identifier was mandated in three documents and read only when present, so a report omitting it passed and never entered the uniqueness map. The duplicate control could reject a repeated key while being unable to require the key whose uniqueness it protected.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Identifiers are now assigned in the live phase record and copied into the report rather than minted by it, and missing, blank, unregistered and duplicate values all fail. Two legacy reports had been demonstrating the passing shape."
+    },
+    {
+      "id": "a_rule_that_condemned_its_own_exemplar",
+      "label": "A Rule That Condemned Its Own Exemplar",
+      "file_type": "concept",
+      "source_file": "docs/handoff/README.md",
+      "source_location": "turn-report contract",
+      "description": "The prose banning closure fields from a turn report listed the evidence field among them, in the same pass that designated as canonical a report which carries a filled evidence line. A later entry inherited the list and asked for enforcement while also requiring every existing canonical report to pass.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A report exists to name what the turn produced, so evidence is the report's point rather than a closure claim. The prose was corrected to match the accepted entries instead of the entries being altered to match the prose."
+    },
+    {
+      "id": "a_rule_in_prose_with_the_control_deferred",
+      "label": "A Rule Installed in Prose With Its Control Deferred Has Not Landed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ce",
+      "description": "One decision wrote three rules into governing documents and implemented none of them as a check. The next review found each rule violable while every consistency check stayed green.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Third consecutive pass whose own output was corrected by the lane holding no lock. The pattern is specific enough to state as a rule about decisions rather than as a series of individual defects."
+    }
+  ],
+  "edges": [
+    {
+      "source": "a_fallback_accepted_a_pre_existing_mention",
+      "target": "a_rule_in_prose_with_the_control_deferred",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ce",
+      "weight": 1
+    },
+    {
+      "source": "a_fallback_accepted_a_pre_existing_mention",
+      "target": "a_condition_outlived_its_own_named_evidence",
+      "relation": "enabled",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/tier-sweep.mjs",
+      "confidence_score": 1,
+      "source_location": "Item-cell fallback",
+      "weight": 1
+    },
+    {
+      "source": "the_obvious_patch_was_weaker_not_stronger",
+      "target": "a_fallback_accepted_a_pre_existing_mention",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/tier-sweep.mjs",
+      "confidence_score": 1,
+      "source_location": "candidate selection",
+      "weight": 1
+    },
+    {
+      "source": "a_probe_that_silently_measured_the_old_rule",
+      "target": "arrival_not_correctness_is_apparatus_wide",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ce",
+      "weight": 1
+    },
+    {
+      "source": "a_probe_that_silently_measured_the_old_rule",
+      "target": "a_fallback_accepted_a_pre_existing_mention",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ce",
+      "weight": 1
+    },
+    {
+      "source": "a_required_key_implemented_as_optional",
+      "target": "contemporaneous_is_not_independent",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/handoff-response.mjs",
+      "confidence_score": 1,
+      "source_location": "run branch",
+      "weight": 1
+    },
+    {
+      "source": "a_required_key_implemented_as_optional",
+      "target": "a_rule_in_prose_with_the_control_deferred",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ce",
+      "weight": 1
+    },
+    {
+      "source": "a_rule_that_condemned_its_own_exemplar",
+      "target": "two_shapes_for_one_semantic_kind_checked_equivalent",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/README.md",
+      "confidence_score": 1,
+      "source_location": "turn-report contract",
+      "weight": 1
+    },
+    {
+      "source": "a_rule_that_condemned_its_own_exemplar",
+      "target": "a_rule_in_prose_with_the_control_deferred",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ce",
+      "weight": 1
+    },
+    {
+      "source": "a_rule_in_prose_with_the_control_deferred",
+      "target": "the_reader_was_the_lane_that_could_not_commit",
+      "relation": "recurrence_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ce",
+      "weight": 1
+    },
+    {
+      "source": "a_fallback_accepted_a_pre_existing_mention",
+      "target": "checks_tier_sweep",
+      "relation": "implemented_in",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/tier-sweep.mjs",
+      "confidence_score": 1,
+      "source_location": "Item-cell fallback",
+      "weight": 1
+    },
+    {
+      "source": "a_required_key_implemented_as_optional",
+      "target": "checks_handoff_response",
+      "relation": "implemented_in",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/handoff-response.mjs",
+      "confidence_score": 1,
+      "source_location": "run branch",
+      "weight": 1
+    }
+  ]
+}
