@@ -2,6 +2,7 @@
 
 - **Raised:** 2026-08-24 by Lane B
 - **Kind:** turn-report
+- **Run:** LB-S0-02 — assigned 2026-08-25 (`D-124`, raised as `B-055`) from the run table in `V1-PHASE-CLOSURE.md` §5.0a; the readiness-review turn held without the lock
 - **Phase:** 2
 - **Blocks:** nothing, reporting the selected turn
 - **Status:** Answered

@@ -75,8 +75,22 @@ export function run() {
 
   const lines = text.split("\n");
   let checked = 0;
+  // `G98`, `D-124` (raised as `B-054`). The decision that OWNS the table, taken
+  // from the enclosing section heading — because the Item cell usually names an
+  // entry or a gap and not the decision, and the fallback for that case was
+  // "any ID in the cell appears anywhere in the file".
+  //
+  // `D-123` claimed a Phase-closure edit it never made. Its Item cell read
+  // "`B-052` / `C-28` closure"; `C-28` was ALREADY mentioned in that file from
+  // an earlier decision, so a PRE-EXISTING mention satisfied a claim about a
+  // NEW edit and the sweep went green on a propagation that had not happened.
+  // **That is `G58` — the exact failure this check was built for — arriving
+  // through the fallback path built into it.**
+  let sectionDecision = null;
 
   for (let i = 0; i < lines.length; i++) {
+    const heading = /^#{2,3}\s+5\.[^\s]*\s+`(D-\d+)`/.exec(lines[i]);
+    if (heading) sectionDecision = heading[1];
     if (!/^\|\s*Item\s*\|/i.test(lines[i])) continue;
 
     const headers = lines[i].split("|").slice(1, -1).map((h) => h.trim());
@@ -110,8 +124,13 @@ export function run() {
           // Item cell names one, demand that ID specifically — accepting any ID
           // in the cell lets a gap reference mask a decision that never
           // propagated, which is the exact shape of `G58`.
+          // `G98`: prefer the Item cell's own decision, else the SECTION's —
+          // and fall back to the row's other IDs only when neither exists.
+          // Adding the section ID to the list would have been WEAKER, not
+          // stronger: the test below is `.some()`, so every extra candidate is
+          // another way to pass.
           const decision = ids.find((id) => /^D-\d+$/.test(id));
-          const required = decision ? [decision] : ids;
+          const required = decision ? [decision] : sectionDecision ? [sectionDecision] : ids;
           const present = required.some((id) => body.includes(id));
           if (!present) {
             findings.push(

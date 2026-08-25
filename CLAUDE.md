@@ -218,7 +218,7 @@ file is the drift mechanism (`G55`).
 
 **Lane A provisions ahead; Lane B responds to flags (`D-86`).** Lane A installs the toolchain and
 **every dependency before Lane B needs it** — bun and its pinned dependency set were provisioned
-this way (`D-64`). **No package count appears here** (`G75`, `C-21`): a dependency change moves it
+this way (`D-64`). **No package count appears here** (`G75`, `C-21`, `D-95`): a dependency change moves it
 and nothing detects that, and it had already drifted once. `bun install` prints the number. `package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts` and lockfiles
 are Lane A's, so **Lane B does not run `bun add` at all**; it requests, Lane A provisions, Lane B
 builds. **Governance reaches Lane B as a flag, not as a document** — when a check fires, fix the
@@ -247,7 +247,7 @@ defect to report.**
 **Lane B and Lane C report through `docs/handoff/` (`D-90`, widened by `G74`/`D-92`).** `D-75`
 required a handoff at every lane boundary and named no place for it. That place is `docs/handoff/`: copy `TEMPLATE.md` to
 `B-NNN-<slug>.md`, one file per item, kind `dependency` | `spec-defect` |
-`blocked-on-decision` | `finding` | `turn-report` (`G84` — a report carries no `Resolution`, and is
+`blocked-on-decision` | `finding` | `turn-report` (`G84`, `D-113` — a report carries no `Resolution`, and is
 counted separately rather than as an unresolved defect). **The directory is unmapped on purpose** — Lane B raises
 entries and Lane A answers them, so attributing it to either side would make the other a
 crossing on every use. Lane A must mark every open entry `Acknowledged` at minimum;

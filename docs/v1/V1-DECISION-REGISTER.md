@@ -7713,3 +7713,125 @@ sentences against its own conditions, that found the sentence had already been s
 **Creates no `D-103` report, retroactively or otherwise** — the absence stays the evidence.
 **Reclassifies `B-043`'s routing fields only** — its narrative, author, and raised date are
 unedited. Approves no retention value; `C-32` untouched. No lane selected, no phase closed.
+
+---
+
+## 5.14ce `D-124` — `D-123` Claimed a Tier It Never Edited, and the Sweep Agreed
+
+**Lane A correction, 2026-08-25, answering `B-054`, `B-055` and `B-056`.** All three are defects in
+`D-123` — **the pass immediately before, for the third consecutive time** (`D-122` recorded the same
+of `D-121`). Two of them say the same thing in different registers: **`D-123` wrote rules into prose
+and installed nothing that could enforce them.**
+
+### Parent — `B-054`: a propagation claimed, not performed, and a check that agreed
+
+**`D-123`'s tier table marked the `C-28` row ✅ for Phase closure. Commit `ed256d2` never touched
+`V1-PHASE-CLOSURE.md`.** Its live Lane B row still named `B-043` and `B-047` symmetrically — the
+exact conflation `D-123` existed to remove — and carried no `C-28` closure at all.
+
+> **This is `G58`, the failure `tier-sweep` was built to catch, arriving through the fallback built
+> into `tier-sweep`.** The check requires *"at least one ID from the row's Item cell appears in the
+> mapped document"*. That row's Item cell read `` `B-052` / `C-28` closure `` — **no decision ID**,
+> so the fallback accepted any of them, and **`C-28` was already in the file from an earlier pass.**
+> A pre-existing mention satisfied a claim about a new edit.
+
+**Both halves are repaired.** §5's Lane B row now distinguishes **`B-043` as the schema work
+evidence** from **`B-047` as the sole canonical handover**; a new §5 subsection records **`C-28`
+closed prospectively on `D-118`/`B-047`**, restating that run `LB-S0-01` produced no handover and
+that none is created for it. **`G98`** closes the check: the decision is now taken from the
+**enclosing section heading** when the Item cell names none.
+
+> **The obvious patch was the wrong one.** Adding the section's decision to the candidate list
+> makes the sweep **weaker** — the test is `.some()`, so every extra candidate is another way to
+> pass. It replaces the fallback rather than joining it.
+
+**On its first real run the stricter rule found three false claims, not one.** `D-123`'s was the
+reported one; **`D-122` claimed a Build Spec edit and cited only `D-121` in the file, and `D-95` and
+`D-113` each claimed all three rule files while citing only a condition or a gap there.** Every one
+of those edits had actually been made — **what was missing was traceability, which is the half of
+`D-54` that says propagate the fact *and* make it findable.** All three are now cited at the
+target rather than softened in the table.
+
+> **The probe run and the real run disagreed, and the real one is right.** A dry run over the
+> register reported **zero** new failures, which read as *the corpus already satisfies this*. It
+> did not. The probe was a string-patched copy built through a shell heredoc, and the quoting ate
+> the patch: its heading regex lost every `\s` escape and its capture group entirely, so
+> `sectionDecision` was never assigned and the copy **silently kept measuring the old rule.**
+>
+> **A green that tells you what you hoped is the one to re-run.** This is `arrival_not_correctness`
+> inside the tooling built to detect it — and the second time this corpus has had a shell heredoc
+> corrupt an escape sequence into a passing no-op (`D-119`'s literal backspace byte). **The lesson
+> is not "check twice"; it is that a probe must be able to fail** — one built by patching a copy
+> should be proven to catch a case it is known to catch before its silence is believed.
+
+### Child — `B-055`: the key the uniqueness control protects was optional
+
+**`D-123` required `Run:` in the README, the template and the work order, and implemented
+`if (run)`.** A report with no run passed and never entered the duplicate map. **The control could
+reject a repeated key but not require the key** — and `B-022` and `B-026`, carrying no run,
+demonstrated the passing shape a future report could copy.
+
+**Run identifiers are now assigned in the live phase record** (§5.0a), not minted by the report:
+
+| | |
+|---|---|
+| **`LB-S0-01`** | the `D-103` turn — **no report, permanently** (`C-28`) |
+| **`LB-S0-02`** | `B-022` · **`LB-S0-03`** `B-026` · **`LB-S1-01`** `B-047` |
+
+**`LB-S0-01` is listed precisely because it has no report.** A table of only the runs that reported
+would hide the `C-28` absence at the one place a reader counts handovers — `B-053`'s
+`report count ≠ turn count` defect, running the other way.
+
+**The check now fails on missing, blank, unregistered and duplicate runs**, keyed on the leading
+identifier token rather than the whole line, so two reports on one run cannot differ by a comment
+and both pass. **A superseded supporting finding may still cite its run** — `B-043` does — and is
+not counted, because a superseded report is reclassified `Kind: finding` and only turn reports
+enter the map.
+
+### Child — `B-056`: the normalized shape had no control, **and the shape itself was wrong**
+
+**`B-056` is upheld: nothing detected a regression.** A copied legacy field returns, `field()` maps
+it to `null`, and every check stays green. Fixed with `fieldPresent`, which sees a **blank** marker
+— precisely the state `B-051` reported.
+
+> **But `B-056` asks for all four fields, and that is `D-123`'s error, inherited.** `D-123` wrote
+> that a turn report omits `Resolution`, `Verified-By`, **`Evidence`** and `Verified-At-Commit`.
+> **`B-047` — the report `D-123` designated canonical in the same pass — carries a filled
+> `Evidence:` line.** The rule as written condemned the entry it had just made authoritative, and
+> `B-056`'s own success criterion (*"all existing canonical turn reports pass"*) contradicts its
+> own repair.
+>
+> **Ruled: `Evidence` is not a closure field on a report — it is the report's point.** A turn
+> report exists to say what the turn produced. **Three markers are rejected**; `Evidence` is
+> permitted and **must not be blank**, which is what `B-051` actually complained about. The prose
+> in the register, README, template and work order is corrected to match the entries.
+
+### What these three have in common
+
+**`D-123` is the third consecutive pass whose own output was corrected by the lane that could not
+commit.** The pattern is now specific enough to name: **a decision that installs a rule in prose
+and defers the control is a decision that has not landed.** `B-055` and `B-056` are the same defect
+in two fields; `B-054` is that defect inside the check that was supposed to catch it.
+
+**`C-22`'s limit, fourth instance — and the reader keeps being Lane B.**
+
+### Gaps
+
+**Opened and closed:** `G98` — `tier-sweep`'s Item-cell fallback let a pre-existing ID satisfy a
+claim about a new edit; the enclosing section's decision is now required.
+**Unchanged:** `C-26`, `C-27`; `C-32` and its parked values; `G87`, `G88`, `G89`, `G90`, `G95`,
+`G96`. **`C-28` remains closed** (`D-123`) and is now propagated.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `B-054` / `G98` | ✅ §5.14ce | **— unaffected** | **— unaffected: a check script, not the three lane rule files — `scripts/checks/tier-sweep.mjs`** | **— unaffected: no file created or retired** | ✅ **§5 Lane B row and the `C-28` closure subsection — the edit `D-123` claimed** | **— unaffected** |
+| `B-055` | ✅ §5.14ce | **— unaffected** | **— unaffected** | **— unaffected: no file created or retired** | ✅ **§5.0a, the run identifier table** | **— unaffected** |
+| `B-056` | ✅ §5.14ce | **— unaffected** | **— unaffected: channel docs — see prose for `README.md`, `TEMPLATE.md`, `LANE-B-WORK-ORDER.md` §5** | **— unaffected: no file created or retired** | **— unaffected** | **— unaffected** |
+
+### Scope limits
+
+**Assigns run identifiers; creates no report for `LB-S0-01`** — that absence is `C-28`'s evidence
+and stays. **Edits no migration and no test**; `0002`'s index removal remains specified, not
+applied. Approves no retention value; `C-32` untouched. No lane selected, no phase closed.

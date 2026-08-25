@@ -380,7 +380,7 @@ handover is the moment that becomes a gap**, not a theoretical one.
 | Lane | Phase | State | Selected | Closed | Judge | Reopened by |
 |:---:|---|---|---|:---:|---|---|
 | **A** | **1 — Orchestration** | **`Active`** — run `LA-P1-04` (`D-118`). **The only lane that may commit.** Closes last (`D-99`). Condition 1 met; **2 NOT met** — `Applied` entries await their raiser (`C-26`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | **Robert Tan, 2026-08-25 — into `Active` (`D-118`)**, the fourth Sprint boundary. Lane B's run `LB-S1-01` completed and released the lock; the Chief Editor then selected Lane A | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
-| **B** | **2 — Application** | **`Blocked`** on the Lane A run `LA-P1-04` (`D-108`). Run `LB-S1-01` **completed** — `0002_s1_editorial_schema.sql` drafted with contract tests at `d826b53`, reported in `B-043` and `B-047`. **Its S1 claim is deliberately narrow**: the trigger has a **static contract test, not a database-executed one** (`B-044`), so the DoD phrase *"trigger written and unit-tested"* is **NOT yet earned** and is carried as **`C-33`** | Robert Tan, 2026-08-25 — into `Active` (`D-117`), then **out 2026-08-25 (`D-118`)** on its own transfer-readiness report `B-047` | — | Standing project approval | — |
+| **B** | **2 — Application** | **`Blocked`** on the Lane A run `LA-P1-04` (`D-108`). Run `LB-S1-01` **completed** — `0002_s1_editorial_schema.sql` drafted with contract tests at `d826b53`. **Its completion and handover are reported by `B-047`, the sole canonical turn report for this run** (`D-123`); **`B-043` is the schema work evidence**, superseded by `B-047` and not a second handover (`D-124`, raised as `B-054`). **Its S1 claim is deliberately narrow**: the trigger has a **static contract test, not a database-executed one** (`B-044`), so the DoD phrase *"trigger written and unit-tested"* is **NOT yet earned** and is carried as **`C-33`** | Robert Tan, 2026-08-25 — into `Active` (`D-117`), then **out 2026-08-25 (`D-118`)** on its own transfer-readiness report `B-047` | — | Standing project approval | — |
 | **C** | **3 — CI/CD** | **`Blocked`** on the Lane A run `LA-P1-04` (`D-108`). **A row carries ONE state**: its own item-level blockers — `C-18`, `C-24`, `C-25` for `C-Q2`, with `C-Q1` ready — are work conditions and live in those conditions, not in the lock column (`B-033`) | — not selected | — | Standing project approval | — |
 
 > **Fourth Sprint boundary — 2026-08-25 (`D-118`, raised as `B-047`). TWO events, recorded as two.**
@@ -392,6 +392,46 @@ handover is the moment that becomes a gap**, not a theoretical one.
 > **What is accepted and what is not.** Lane B's draft `0002` is accepted as a DRAFT. **`B-044`'s
 > narrower claim is accepted with it**: the S1 test asserts on migration TEXT and never starts
 > PostgreSQL, so *"trigger written and unit-tested"* is **not earned** and is not recorded.
+>
+> **One canonical report per run — `D-123`, applied here by `D-124` (raised as `B-054`).** `B-043`
+> and `B-047` were both filed for `LB-S1-01` and this note previously named them symmetrically.
+> **`B-047` is the canonical handover**; `B-043` is the schema work evidence it supersedes.
+
+### `C-28` — CLOSED 2026-08-25, prospectively, on `D-118` / `B-047`
+
+**Both facts are kept, and they are not the same fact.** Run **`LB-S0-01`** — Lane B's turn under
+`D-103` — **produced no handover, and no report is created for it retroactively.** That absence is
+permanent historical evidence and is what `C-28` was opened to preserve.
+
+**What closed is the forward half only.** `C-28`'s own rule read *"closes when the next Lane B turn
+ends with a report."* `B-047` is that report, filed by the outgoing lane at the boundary `D-118`
+performed — so *"a turn was granted and nothing came back"* is no longer the current state.
+**The condition is not closed by producing the missing report; it is closed by the control it
+installed having since operated.** Recorded in the register at §5.14cd (`D-123`) and §5.14ce
+(`D-124`).
+
+### 5.0a Run identifiers — `D-124`, raised as `B-055`
+
+**A turn report names the run it reports** (`D-123`). The identifier is
+`L<lane><sprint>-<ordinal>`, **scoped to the sprint, not to the lane's lifetime** — which is why
+Lane B's S1 turn is `LB-S1-01` and not its fourth run overall. It is assigned here, in the live
+phase record, and copied into the report; **the report does not mint its own.**
+
+| Run | Lane | Turn | Report |
+|---|:---:|---|---|
+| **`LB-S0-01`** | B | The `D-103` turn — selected, produced nothing | **NONE, permanently — `C-28`** |
+| **`LB-S0-02`** | B | The `D-106` readiness review, held without the lock | `B-022` |
+| **`LB-S0-03`** | B | The S0 worktree turn — `build-config.ts`, `flags.ts` | `B-026` |
+| **`LB-S1-01`** | B | The S1 schema draft | `B-047` — canonical; `B-043` is its work evidence |
+| **`LA-P1-04`** | A | The current Lane A run | in progress |
+
+> **`LB-S0-01` is listed precisely because it has no report.** A run table that only lists runs
+> which reported would make the `C-28` absence invisible at exactly the place a reader counts
+> handovers — the `report count ≠ turn count` failure `B-053` raised, in the other direction.
+>
+> **Lane A's identifier is phase-scoped (`LA-P1-04`) and Lane B's is sprint-scoped.** That is
+> recorded, not corrected: Lane A's work is phase-continuous orchestration and Lane B's is
+> sprint-delimited application. **Both are stable, and neither is restated anywhere else.**
 
 > **Third Sprint boundary — 2026-08-25 (`D-117`, raised as `B-038`). TWO events, recorded as two.**
 > **(1)** Lane A's run completed and **released the lock**, making every unfinished lane `Eligible`.

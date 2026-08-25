@@ -105,11 +105,25 @@ phase, and an ordinal is enough (`LB-S1-01`). **A second live `turn-report` nami
 claimed by another is a channel-check failure** unless the earlier one carries
 `Resolution: Superseded` or `Withdrawn`.
 
-**A turn report carries no closure field at all — omit the line, do not leave it blank.**
-`Resolution`, `Verified-By`, `Evidence`, and `Verified-At-Commit` do not apply to a report; write
-the entry without those four lines rather than with them empty. (Two early reports, `B-022` and
-`B-026`, were retroactively converted from `finding` and kept the blank lines from that shape;
-`D-123` removed them — the shape was stale, not the claim.)
+**You do not mint the identifier — Lane A assigns it** in `V1-PHASE-CLOSURE.md` §5.0a and you copy
+it (`D-124`, raised as `B-055`). **Missing, blank, unregistered and duplicate all fail**; `D-123`
+required the field in prose and implemented `if (run)`, so a report that simply omitted it passed
+and never entered the uniqueness map at all. If your run has no row yet, raise it — **that is a
+`dependency` entry, not a value to invent.**
+
+**A turn report carries no closure field — omit the line, do not leave it blank.**
+`Resolution`, `Verified-By`, and `Verified-At-Commit` do not apply to a report; write the entry
+without those three lines rather than with them empty. **`handoff-response` rejects each of them
+even when blank** (`D-124`, raised as `B-056`) — a blank marker is exactly the regression the
+value parser cannot see. (Two early reports, `B-022` and `B-026`, were retroactively converted
+from `finding` and kept the blank lines from that shape; `D-123` removed them — the shape was
+stale, not the claim.)
+
+> **`Evidence` is NOT one of them, and `D-123` got this wrong.** It listed `Evidence` alongside
+> `Resolution`, `Verified-By` and `Verified-At-Commit` while designating `B-047` — which carries a
+> filled `Evidence:` line — as the canonical report, so the rule condemned its own exemplar.
+> **A report exists to say what the turn produced, and `Evidence` is where it says it.** Keep it,
+> filled; a blank one fails.
 
 **This matters because closure gating reads it.** `closure-readiness` fires only for entries filed
 against the phase being closed — see below.

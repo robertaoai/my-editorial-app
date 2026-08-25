@@ -253,11 +253,12 @@ avoid one.
 > stop.* Open entries are **not** that record.
 
 **Before your turn ends, raise one entry: `Kind: turn-report`, titled as your turn report.**
-**Name your run** — add `Run:` with a short stable identifier (lane, phase, ordinal — e.g.
-`LB-S1-01`) right after `Kind:`. Two turn reports on the same run are not two turns (`D-123`,
-raised as `B-053`); if your turn continues a run already reported, use the same `Run:` value and
-expect the earlier report to be superseded rather than treated as a separate handover. It
-states the three things `D-75` names:
+**Name your run** — add `Run:` right after `Kind:`, **copied from the run table in
+`V1-PHASE-CLOSURE.md` §5.0a.** You do not invent it: Lane A assigns run identifiers there, and a
+value that is missing, blank, absent from that table, or already claimed by another live report
+**fails `bun run check`** (`D-123`, `D-124`, raised as `B-053` and `B-055`). If your run has no row
+yet, **raise a `dependency` entry** — a report that mints its own identifier is the shape that made
+one run look like two. It states the three things `D-75` names:
 
 | | |
 |---|---|
@@ -268,9 +269,14 @@ states the three things `D-75` names:
 **File it `Phase: 2` — your own lane's phase.** `D-104` defines `Phase:` as *the phase that owns the correction*, and a turn report is not a correction, so that definition has nothing to give it. **`D-106` settles it: a turn report carries the reporting lane's own phase.** Without this the field would be required and unanswerable.
 
 **And omit the `Resolution` field entirely — do not include the line, even blank** (`G84`, `D-113`,
-normalized `D-123`). There is nothing in a report to resolve, so it never reaches a terminal state
-— which is why it needed its own `Kind` rather than a convention. The same goes for `Verified-By`,
-`Evidence`, and `Verified-At-Commit`: a turn report carries none of the four. **Filed as a `finding` it was indistinguishable from an unresolved defect**, and four
+normalized `D-123`, enforced `D-124`). There is nothing in a report to resolve, so it never reaches
+a terminal state — which is why it needed its own `Kind` rather than a convention. The same goes
+for `Verified-By` and `Verified-At-Commit`. **`bun run check` now rejects all three on a turn
+report even when blank**, so a copied legacy field turns the suite red instead of passing silently.
+
+**Keep `Evidence`, filled.** `D-123` wrongly listed it among the omitted fields while designating
+`B-047` — which carries one — as the canonical report. **A turn report exists to name what the turn
+produced**; a blank `Evidence` fails, an absent one is permitted, and a filled one is what you want. **Filed as a `finding` it was indistinguishable from an unresolved defect**, and four
 reports sat permanently inside the *"still carry NO resolution"* figure. The checks now exclude
 turn reports from that count and **report them as their own number**, so yours is neither noise nor
 invisible at a boundary.

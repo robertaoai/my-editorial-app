@@ -46,8 +46,46 @@ function channelBaseline() {
   return { unresolved, reports };
 }
 
+/**
+ * The run identifiers, READ from the two places that own them (`D-124`).
+ *
+ * `G91` and `G93` both record the same lesson from the other direction: a
+ * fixture that hardcodes a live value goes stale the moment the corpus moves.
+ * A run that is free today is taken the moment Lane B files its next report, so
+ * **which** run is free is derived, never written down here.
+ */
+function runFacts() {
+  const table = readFileSync(CLOSURE, "utf8");
+  const start = table.split("\n").findIndex((l) => /^#{2,4}\s+5\.0a\b/.test(l));
+  const rest = table.split("\n").slice(start + 1);
+  const end = rest.findIndex((l) => /^#{2,4}\s/.test(l));
+  const block = (end < 0 ? rest : rest.slice(0, end)).join("\n");
+  const assigned = [...block.matchAll(/`([^`]+)`/g)]
+    .map((m) => m[1].trim())
+    .filter((v) => /^L[A-C]-[A-Z]\d+-\d+$/.test(v));
+
+  const used = new Set();
+  for (const f of readdirSync("docs/handoff").filter((x) => ENTRY_FILE.test(x))) {
+    const t = readFileSync("docs/handoff/" + f, "utf8");
+    const kind = field(t, "Kind");
+    if (kind === null || !/^turn-report/i.test(kind)) continue;
+    const run = field(t, "Run");
+    if (run) used.add(run.split(/[\s—–,;]/)[0]);
+  }
+  const free = assigned.find((r) => !used.has(r));
+  const taken = assigned.find((r) => used.has(r));
+  if (!free || !taken) {
+    throw new Error(
+      "fixtures: §5.0a must assign at least one run a report uses and one it does not; " +
+        `assigned=${assigned.join(",")} used=${[...used].join(",")}`,
+    );
+  }
+  return { free, taken };
+}
+
 /** `D-102`, raised as `B-013` and `B-017` — entry metadata and closure fields. */
 export async function handoffFields(results) {
+  const { free: FREE_RUN, taken: TAKEN_RUN } = runFacts();
   // `ENTRY` currently resolves and is not a turn report, so each mutation below
   // moves exactly one counter by one. Asserted as base±1, never as a literal.
   const base = channelBaseline();
@@ -58,6 +96,17 @@ export async function handoffFields(results) {
       .replace(/^- \*\*Resolution:\*\*.*$/m, "- **Resolution:** Verified")
       .replace(/^- \*\*Verified-By:\*\*.*$/m, `- **Verified-By:** ${by}`)
       .replace(/^- \*\*Verified-At-Commit:\*\*.*$/m, `- **Verified-At-Commit:** ${at}`);
+  // A VALID turn report built from the live entry (`D-124`): the kind changes,
+  // a run is named, and the three closure-only markers are REMOVED rather than
+  // blanked — blank is precisely what `B-051` reported and `B-056` asked to be
+  // made detectable. `Evidence` stays, filled, because a report points at what
+  // the turn produced.
+  const asTurnReport = (run) =>
+    orig
+      .replace(/^- \*\*Kind:\*\*.*$/m, `- **Kind:** turn-report\n- **Run:** ${run}`)
+      .replace(/^- \*\*Resolution:\*\*.*$\n?/m, "")
+      .replace(/^- \*\*Verified-By:\*\*.*$\n?/m, "")
+      .replace(/^- \*\*Verified-At-Commit:\*\*.*$\n?/m, "");
 
   await fixture(results, {
     name: "handoff: the live entries, unmutated",
@@ -122,19 +171,83 @@ export async function handoffFields(results) {
   // `G84`, `D-113`. A turn report can never carry a terminal `Resolution`, so
   // it must not be counted among the entries that lack one. Asserting the
   // EXCLUSION rather than the presence of a message: the bug was arithmetic.
+  //
+  // `D-124`: this fixture used to set `Kind: turn-report` and blank the
+  // `Resolution`, leaving `Verified-By` and `Verified-At-Commit` standing and
+  // naming no run. **That shape is now itself a failure**, so the fixture builds
+  // a VALID report — which is the coupling working: a rule with no fixture to
+  // break is a rule nothing holds in place.
   await fixture(results, {
     name: "handoff: a turn-report is excluded from the unresolved count",
     modulePath: CHECK("handoff-response.mjs"),
-    mutate: () =>
-      write(
-        ENTRY,
-        orig
-          .replace(/^- \*\*Kind:\*\*.*$/m, "- **Kind:** turn-report")
-          .replace(/^- \*\*Resolution:\*\*.*$/m, "- **Resolution:**"),
-      ),
+    mutate: () => write(ENTRY, asTurnReport(FREE_RUN)),
     restore,
     shouldPass: true,
     expectDetail: `${base.unresolved} still carry NO resolution; ${base.reports + 1} turn report(s)`,
+  });
+  // `D-124`, raised as `B-055` — the key the uniqueness control protects was
+  // itself optional. Missing and blank are SEPARATE fixtures because they are
+  // separate repairs and the check gives them different messages.
+  await fixture(results, {
+    name: "handoff: a turn-report naming NO run",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, asTurnReport(FREE_RUN).replace(/^- \*\*Run:\*\*.*$\n/m, "")),
+    restore,
+    expect: "no **Run:** field",
+  });
+  await fixture(results, {
+    name: "handoff: a turn-report whose run is BLANK",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, asTurnReport("")),
+    restore,
+    expect: "present but BLANK",
+  });
+  await fixture(results, {
+    name: "handoff: a turn-report minting a run the phase record never assigned",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, asTurnReport("LB-S9-99")),
+    restore,
+    expect: "is not in the run table",
+  });
+  await fixture(results, {
+    name: "handoff: two canonical turn-reports naming one run",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, asTurnReport(TAKEN_RUN)),
+    restore,
+    expect: "duplicates the canonical turn report",
+  });
+  // `D-124`, raised as `B-056`. Tested per marker: `D-123` normalized the shape
+  // and installed nothing that could detect a regression, so each prohibited
+  // field gets its own proof that its return turns the suite red — including
+  // when it comes back BLANK, which `field()` cannot see by construction.
+  for (const marker of ["Resolution", "Verified-By", "Verified-At-Commit"]) {
+    await fixture(results, {
+      name: `handoff: a turn-report carrying a blank ${marker}`,
+      modulePath: CHECK("handoff-response.mjs"),
+      mutate: () =>
+        write(ENTRY, asTurnReport(FREE_RUN).replace(/^- \*\*Phase:\*\*/m, `- **${marker}:**\n- **Phase:**`)),
+      restore,
+      expect: `a turn report carries no **${marker}:**`,
+    });
+  }
+  // The positive control for the set above — `Evidence` is PERMITTED on a
+  // report and only its blankness is a defect. Without this the six fixtures
+  // prove only that fields can be banned, not that the right ones were.
+  await fixture(results, {
+    name: "handoff: a turn-report keeps a FILLED Evidence line",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () =>
+      write(ENTRY, asTurnReport(FREE_RUN).replace(/^- \*\*Evidence:\*\*.*$/m, "- **Evidence:** the S0 packet")),
+    restore,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "handoff: a turn-report whose Evidence is blank",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () =>
+      write(ENTRY, asTurnReport(FREE_RUN).replace(/^- \*\*Evidence:\*\*.*$/m, "- **Evidence:**")),
+    restore,
+    expect: "BLANK on a turn report",
   });
   // The positive control for the exclusion. The SAME entry, unresolved, as an
   // ordinary kind — it must land in the count. Without this the fixture above
@@ -614,8 +727,41 @@ export async function reopensPhase(results) {
   });
 }
 
+/**
+ * `G98`, `D-124` (raised as `B-054`) — the tier sweep's fallback.
+ *
+ * The sweep required "at least one ID from the row's Item cell appears in the
+ * mapped document". Item cells usually name an ENTRY or a CONDITION, not the
+ * decision — so a condition already mentioned in the target file from an
+ * earlier pass satisfied a claim about a NEW edit. `D-123` went green on a
+ * Phase-closure propagation it never performed.
+ */
+export async function tierSweep(results) {
+  const orig = read(CLOSURE);
+  const restore = () => write(CLOSURE, orig);
+
+  await fixture(results, {
+    name: "tier-sweep: the live register, unmutated",
+    modulePath: CHECK("tier-sweep.mjs"),
+    mutate: () => {},
+    restore,
+    shouldPass: true,
+  });
+  // The `B-054` shape exactly: the decision's own citation is removed from the
+  // tier it claims to have edited, while the row's CONDITION id stays behind —
+  // which is what used to rescue the claim.
+  await fixture(results, {
+    name: "tier-sweep: a claimed tier edit whose decision never landed there",
+    modulePath: CHECK("tier-sweep.mjs"),
+    mutate: () => write(CLOSURE, orig.replace(/D-124/g, "D-000")),
+    restore,
+    expect: "marked ✅ for",
+  });
+}
+
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
+  ["tier sweep fallback (`G98`, raised as `B-054`)", tierSweep],
   ["phase-scoped closure gating (`D-102`)", phaseScope],
   ["sync-docs uniqueness (`D-102`)", syncDocs],
   ["lane state (`D-103`)", laneState],

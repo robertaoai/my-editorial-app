@@ -64,6 +64,45 @@ const DIR = "docs/handoff";
 // `Acknowledged`, `Answered`, `Withdrawn` — anything else is not a disposition.
 const DISPOSITIONS = /^(Acknowledged|Answered|Withdrawn)\b/i;
 
+// `D-124`, raised as `B-056`. CLOSURE-ONLY MARKERS A TURN REPORT MAY NOT CARRY.
+//
+// `Evidence` is deliberately NOT in this set, and that is a correction to
+// `D-123`'s own prose. `D-123` listed four fields; `B-047` — the canonical turn
+// report it designated in the same pass — carries a FILLED `Evidence:` line, so
+// the rule as written condemned the entry it had just made canonical. `B-056`
+// inherited the list and asked for all four while also requiring every existing
+// canonical report to pass; those cannot both hold. A report's whole job is to
+// point at what the turn produced, so `Evidence` is permitted — and must not be
+// blank, which was `B-051`'s actual complaint.
+const CLOSURE_ONLY = ["Resolution", "Verified-By", "Verified-At-Commit"];
+
+// `D-124`, raised as `B-055`. The run identifiers are ASSIGNED in the live phase
+// record (`§5.0a`) and copied into a report — a report does not mint its own.
+// Parsed by matching backticked identifiers inside that section rather than by
+// column position: three positional-parsing defects preceded this approach in
+// `handoff-fields.mjs`, and a header-driven table here would break on a column
+// being added exactly as that one did.
+const RUN_ID = /^L[A-C]-[A-Z]\d+-\d+$/;
+
+function runRegistry() {
+  let text;
+  try {
+    text = readFileSync(CLOSURE, "utf8");
+  } catch {
+    return null;
+  }
+  const lines = text.split("\n");
+  const start = lines.findIndex((l) => /^#{2,4}\s+5\.0a\b/.test(l));
+  if (start < 0) return null;
+  const rest = lines.slice(start + 1);
+  const end = rest.findIndex((l) => /^#{2,4}\s/.test(l));
+  const block = (end < 0 ? rest : rest.slice(0, end)).join("\n");
+  const ids = new Set(
+    [...block.matchAll(/`([^`]+)`/g)].map((m) => m[1].trim()).filter((v) => RUN_ID.test(v)),
+  );
+  return ids.size === 0 ? null : ids;
+}
+
 export function run() {
   if (!existsSync(DIR)) {
     return {
@@ -124,17 +163,60 @@ export function run() {
     // marked superseded in place — which means every remaining `turn-report` is
     // live by construction, and two of them sharing a `Run:` is unconditionally
     // the duplicate this decision closed.
+    //
+    // `D-124`, raised as `B-055`: this branch used to read `if (run)`, so a
+    // report with NO `Run:` passed and never entered the map. **The duplicate
+    // check could reject a repeated key but not require the key whose
+    // uniqueness it protects** — the control was optional at exactly the point
+    // it had to be mandatory, and the two legacy reports demonstrated the
+    // passing shape a future report could copy.
     if (isTurnReport) {
       const run = field(text, "Run");
-      if (run) {
-        const prior = runsSeen.get(run);
+      if (!run) {
+        findings.push(
+          fieldPresent(text, "Run")
+            ? `${path}: **Run:** is present but BLANK — a turn report names the run it reports (\`D-123\`). Assign one from the run table in ${CLOSURE} §5.0a.`
+            : `${path}: no **Run:** field — a turn report names the run it reports (\`D-123\`), and without it the one-report-per-run control cannot see this entry at all. Assign one from the run table in ${CLOSURE} §5.0a.`,
+        );
+      } else {
+        // The value carries explanatory prose after the identifier, so the KEY
+        // is the leading token — comparing whole lines would let two reports on
+        // one run differ by a comment and both pass.
+        const id = run.split(/[\s—–,;]/)[0];
+        const registry = runRegistry();
+        if (registry && !registry.has(id)) {
+          findings.push(
+            `${path}: **Run:** "${id}" is not in the run table at ${CLOSURE} §5.0a — a report copies an ASSIGNED identifier and does not mint its own (\`D-124\`). Add the run there first, or correct the value.`,
+          );
+        }
+        const prior = runsSeen.get(id);
         if (prior) {
           findings.push(
-            `${path}: **Run:** "${run}" duplicates the canonical turn report at ${prior} — one run gets one turn report (\`D-123\`). Reclassify the earlier or later one \`Kind: finding\`, \`Resolution: Superseded\`, \`Superseded-By:\` the report that stands.`,
+            `${path}: **Run:** "${id}" duplicates the canonical turn report at ${prior} — one run gets one turn report (\`D-123\`). Reclassify the earlier or later one \`Kind: finding\`, \`Resolution: Superseded\`, \`Superseded-By:\` the report that stands.`,
           );
         } else {
-          runsSeen.set(run, path);
+          runsSeen.set(id, path);
         }
+      }
+
+      // `D-124`, raised as `B-056`. `D-123` normalized the shape and installed
+      // NOTHING that could detect its violation — a copied legacy field returns,
+      // the parser maps it to `null`, and the suite stays green. Tested with
+      // `fieldPresent`, not `field`: a BLANK marker is the exact regression
+      // `B-051` reported, and `field()` cannot see it by construction.
+      for (const name of CLOSURE_ONLY) {
+        if (fieldPresent(text, name)) {
+          findings.push(
+            `${path}: a turn report carries no **${name}:** — there is nothing in a report to resolve (\`G84\`, \`D-123\`). Remove the line; blank is not omitted.`,
+          );
+        }
+      }
+      // Permitted, but not as an empty marker — `B-051`'s complaint was blank
+      // fields, and a blank `Evidence` on a report points at nothing.
+      if (fieldPresent(text, "Evidence") && !field(text, "Evidence")) {
+        findings.push(
+          `${path}: **Evidence:** is present but BLANK on a turn report — name what the turn produced, or remove the line.`,
+        );
       }
     }
 
