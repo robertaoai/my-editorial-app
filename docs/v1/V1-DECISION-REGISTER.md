@@ -7875,3 +7875,69 @@ logic is unchanged, only its header comment. **Does not re-examine** the run-ide
 logic beyond `RUN_ID`'s regex, `tier-sweep`'s `sectionDecision` fallback against heading shapes
 other than the one tested, or anything outside the `D-121`–`D-124` chain. No lane selected, no
 phase closed, no retention value approved.
+
+---
+
+## 5.14cg `D-126` — `G98` Backtested Across the Register's Full History; One Untested Branch Closed
+
+**Lane A pass, 2026-08-25, on the Judge's instruction to stress-test and backtest the `D-125`
+fix before treating it as settled.** `D-125` scoped itself explicitly to the one section it fixed;
+this pass is the deferred verification.
+
+### Parent — the backtest: does `sectionDecision` resolve correctly everywhere it has ever run?
+
+**Every checkmarked row in every tier-applicability table in the register's history, replayed
+against the current fallback.** Not a sample: the register was walked top to bottom exactly as
+`tier-sweep` walks it, and every row carrying a ✅ was recorded against the decision the fallback
+would assign it.
+
+> **105 rows carry a ✅ across the register's history. 74 have no `D-` id in their own Item cell and
+> depend on `sectionDecision`. Zero mismatches** — every one resolves to the decision whose section
+> it is actually inside, including across a heading that names a gap rather than a decision (`G63`
+> at §5.14aa, between two real decisions) without the tracking leaking across it.
+
+**One thing checked and found NOT to be a bug.** The `B-054`-shape fixture mutates
+`V1-PHASE-CLOSURE.md`, not the register — that looked like a wrong-file bug on inspection. It is
+not: `tier-sweep` verifies a claim against the **target file the tier maps to**, and "Phase closure"
+maps to `V1-PHASE-CLOSURE.md`, so the fixture is correctly exercising that specific verification
+path. Run in isolation, confirmed: unmutated is 0 findings, mutated is exactly the 2 rows that cite
+`D-124` for that tier. **Verified rather than assumed, in both directions** — the same discipline
+`D-124`'s own probe failure argued for.
+
+### Child — the stress test: the one branch the backtest could not reach
+
+**No live row exercises `sectionDecision === null`** — every real table in the register sits after
+at least one decision heading. That branch degrades to the pre-`G98` behavior (any ID in the cell)
+by construction, but *by construction* is exactly the claim `D-125`'s own probe failure showed
+cannot be trusted unverified.
+
+> **A synthetic fixture inserts a checkmarked row ahead of every real heading** and asserts the tier
+> claim count rises by exactly one, read live rather than hardcoded (`G93`). Passing alone would not
+> distinguish "reached and vacuously true" from "silently skipped" — "register" maps to `files: []`,
+> true by construction — so the **count**, not the pass/fail, is the proof.
+
+### What this pass is and is not
+
+**Backtest, not audit.** It confirms the fallback's OWN prior claims resolve consistently; it does
+not re-verify that those 105 claims were substantively true — `C-22`'s limit stands, checked form
+not re-checked content. **Stress test, not fuzzing.** One constructed adversarial case for the one
+structurally distinct untested path, not a generated corpus — the backtest already exhausted the
+paths any real edit has taken.
+
+### Gaps
+
+**None opened, none closed.** `G98` remains closed (`D-125`); this pass is its verification, not a
+new finding.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-126` | ✅ §5.14cg | **— unaffected** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | **— unaffected** |
+
+### Scope limits
+
+**Adds one fixture; changes no check's enforced behavior.** Backtests `tier-sweep`'s fallback only —
+does not backtest `handoff-response.mjs`'s `Run:`/`CLOSURE_ONLY` enforcement against history, since
+those are new rules with no pre-`D-124` corpus to replay them against. No lane selected, no phase
+closed, no retention value approved.

@@ -736,9 +736,16 @@ export async function reopensPhase(results) {
  * earlier pass satisfied a claim about a NEW edit. `D-123` went green on a
  * Phase-closure propagation it never performed.
  */
+const REGISTER = "docs/v1/V1-DECISION-REGISTER.md";
+
 export async function tierSweep(results) {
   const orig = read(CLOSURE);
   const restore = () => write(CLOSURE, orig);
+  const origReg = read(REGISTER);
+  const restoreReg = () => write(REGISTER, origReg);
+  // Read live rather than hardcoded (`G93`'s lesson) — the register grows.
+  const { run: runTierSweep } = await import(CHECK("tier-sweep.mjs"));
+  const baseClaims = Number(/^(\d+) tier claims verified$/.exec(runTierSweep().detail)?.[1] ?? NaN);
 
   await fixture(results, {
     name: "tier-sweep: the live register, unmutated",
@@ -748,14 +755,40 @@ export async function tierSweep(results) {
     shouldPass: true,
   });
   // The `B-054` shape exactly: the decision's own citation is removed from the
-  // tier it claims to have edited, while the row's CONDITION id stays behind —
-  // which is what used to rescue the claim.
+  // TARGET tier's own file (`D-124` mapped to "Phase closure" is
+  // `V1-PHASE-CLOSURE.md`, not this file) while the register row still claims
+  // ✅ for it — which is what used to be rescued by any other ID in the cell.
   await fixture(results, {
     name: "tier-sweep: a claimed tier edit whose decision never landed there",
     modulePath: CHECK("tier-sweep.mjs"),
     mutate: () => write(CLOSURE, orig.replace(/D-124/g, "D-000")),
     restore,
     expect: "marked ✅ for",
+  });
+  // `D-125`'s critic pass backtested `sectionDecision` against all 74 live rows
+  // that depend on it — zero mismatches — but zero of those rows exercise the
+  // OTHER branch: a row appearing before any decision heading has been seen at
+  // all, where `sectionDecision` is still `null` and the check must fall back
+  // to the pre-`G98` behavior (any ID in the cell) rather than crash or silently
+  // pass. Constructed because no live row currently exercises it — the backtest
+  // proved the covered path correct; this proves the UNcovered path degrades
+  // safely rather than being untested by omission.
+  await fixture(results, {
+    name: "tier-sweep: a checkmarked row before any decision heading exists",
+    modulePath: CHECK("tier-sweep.mjs"),
+    mutate: () => {
+      const table =
+        "\n| Item | Register |\n|---|---|\n| pre-heading probe (`G00`) | ✅ nowhere real |\n";
+      write(REGISTER, table + origReg);
+    },
+    restore: restoreReg,
+    // "register" maps to `files: []`, true by construction — so a checkmark
+    // there can never FAIL regardless of which fallback resolved, and passing
+    // alone would not distinguish "scanned and vacuously true" from "silently
+    // skipped". The claim COUNT rising by exactly one is the proof it was
+    // actually reached and counted, not skipped.
+    shouldPass: true,
+    expectDetail: Number.isNaN(baseClaims) ? undefined : `${baseClaims + 1} tier claims verified`,
   });
 }
 
