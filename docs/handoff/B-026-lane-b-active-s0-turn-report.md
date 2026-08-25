@@ -1,7 +1,7 @@
 # B-026 — Lane B selected S0 worktree turn report
 
 - **Raised:** 2026-08-24 by Lane B
-- **Kind:** finding
+- **Kind:** turn-report
 - **Phase:** 2
 - **Blocks:** nothing, reporting the Lane B run
 - **Status:** Answered

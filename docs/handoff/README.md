@@ -84,6 +84,20 @@ a Lane A arbitration, which has happened, so the residual is Lane C's and it now
 
 **A turn report is the exception, and it has its own rule** (`D-106`). A report on your own turn is not a correction, so *"the phase that owns the correction"* has no value to give. **File it against your own lane's phase** — Lane B → `2`, Lane C → `3` — because anything it hands back belongs to that lane until someone re-files it.
 
+**And it now has its own `Kind` — `turn-report` (`G84`, raised as `B-037` item 3).** Filed as a
+`finding` it was **mechanically indistinguishable from an unresolved defect**, and since it can
+never carry a `Resolution` — there is nothing in a report to resolve — four of them sat permanently
+in the "still carry NO resolution" figure. **A backlog number that includes items which can never
+leave it has stopped measuring the backlog.**
+
+> **Excluded from the unresolved count, never from the evidence.** `handoff-response` reports turn
+> reports as their own number and `closure-readiness` gives them their own tally key, so a report
+> neither inflates the defect backlog nor disappears from a boundary. `B-037` named both halves and
+> only one of them is about tidiness.
+
+**Do not use `turn-report` for anything you want answered.** If your turn found a defect, that is a
+separate `spec-defect` entry — the report says a turn happened, the defect asks for a fix.
+
 **This matters because closure gating reads it.** `closure-readiness` fires only for entries filed
 against the phase being closed — see below.
 

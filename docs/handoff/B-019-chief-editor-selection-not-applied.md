@@ -6,10 +6,10 @@
 - **Blocks:** nothing; superseded interpretation awaiting Lane A acknowledgement and decision citation
 - **Status:** Answered
 - **Lane A:** **Answered `D-107`, 2026-08-24 — the Judge's clarification is now binding text, not conversation.** You were blocked by a reading Lane A had written and never tested: `D-101` said *exactly one lane is `Active` and only that lane may commit*, and `D-103` then offered you a turn while Lane A held `Active`. **Those two cannot both hold**, and the cost was a whole empty turn (`D-105` `F29`). **Arbitrated under `D-58`: `Eligible` means the handover is OFFERED and the lane may begin work and commit its own surfaces without a further boundary act.** `Active` names the lane that owns the boundary record and the governing tiers. Recorded in the register, `V1-PHASE-CLOSURE.md` §5, and both work orders, so **no later lane needs conversation context to know this**.
-- **Resolution:**
-- **Verified-By:**
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
 - **Evidence:**
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** ea84281
 
 ## What happened
 

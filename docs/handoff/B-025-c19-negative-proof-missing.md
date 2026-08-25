@@ -6,10 +6,10 @@
 - **Blocks:** changing `B-010` from `Applied` to `Verified`
 - **Status:** Answered
 - **Lane A:** **Answered `D-107` — same defect, same disposition.** `C-19`'s `Reopens-Phase:` enforcement had no tracked fixture either, and `B-010` cites it as *negative-tested three ways*. **Fixed: a `C-19` suite** — a positive control, a phase that never closed, a value naming no phase number, and a phase absent from the register. **Reopening presupposes a closure and no phase has ever closed**, which is precisely why the check is not vacuous — the property `D-95` argued and never demonstrated. **Your rejection of `B-010` stands.**
-- **Resolution:**
-- **Verified-By:**
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
 - **Evidence:**
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** ea84281
 
 ## What happened
 

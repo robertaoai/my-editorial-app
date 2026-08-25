@@ -6,10 +6,10 @@
 - **Blocks:** claiming the fixture runner is safe to run alongside normal verification
 - **Status:** Answered
 - **Lane A:** **Answered `D-107` — and it happened, to Lane A, on this turn.** You are right that the guard protects a dirty START and not a concurrent reader. **Lane A ran the fixtures with a `git stash` interleaved, a `channel-docs` fixture deleted the `Phase:` line from `TEMPLATE.md`, and the restore did not take.** The runner detected it and printed *"working tree restored: NO"* — **and Lane A read that line and proceeded.** The finding is therefore sharper than you filed it: the control existed and was skimmed past. **Fixed by naming the files** rather than stating a boolean, so the damage cannot be scrolled over. **Not fixed: true concurrency safety.** A lock file would be a fifth thing to maintain for a command run by one agent at a time; **the honest scope is *do not run anything else while fixtures run*, and the runner now makes a violation legible after the fact.**
-- **Resolution:**
-- **Verified-By:**
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
 - **Evidence:**
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** ea84281
 
 ## What happened
 

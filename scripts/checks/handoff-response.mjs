@@ -83,6 +83,7 @@ export function run() {
   let answered = 0;
   let withdrawn = 0;
   let unresolved = 0;
+  let reports = 0;
 
   for (const file of entries) {
     const path = join(DIR, file);
@@ -95,9 +96,25 @@ export function run() {
     }
 
     const kind = field(text, "Kind");
+
+    // `G84`, raised as `B-037` item 3. A TURN REPORT IS A RECORD, NOT A
+    // CORRECTION. `D-105` requires one at every lane boundary and `D-106` files
+    // it under the reporting lane's own phase — but there is nothing in it to
+    // resolve, so it can never carry a terminal `Resolution`, and it was
+    // therefore counted forever among the entries that "still carry NO
+    // resolution". Four of them sat in that number. **A backlog figure that
+    // permanently includes items which cannot leave it stops measuring the
+    // backlog**, and the fix is a kind the checks can see, not a convention.
+    //
+    // It is EXCLUDED from the unresolved tally and REPORTED separately — never
+    // dropped. `B-037` names both halves: a report must not inflate the
+    // unresolved backlog, and must not disappear from boundary evidence either.
+    const isTurnReport = kind !== null && /^turn-report\b/i.test(kind);
+    if (isTurnReport) reports++;
+
     // `D-108`: `0 open` reads as an empty backlog. It is not — most entries are
     // answered and UNRESOLVED, which is the state `D-101` separated out.
-    if (!field(text, "Resolution")) unresolved++;
+    if (!field(text, "Resolution") && !isTurnReport) unresolved++;
     const status = field(text, "Status");
     const response = field(text, "Lane A");
     const reopens = field(text, "Reopens-Phase");
@@ -146,8 +163,31 @@ export function run() {
       findings.push(`${path}: no **Status:** field — cannot tell if it is live`);
       continue;
     }
+
+    // `G83`, raised as `B-037`. THIS BRANCH USED TO `continue` BEFORE ANY
+    // COUNTER RAN. So an entry with a blank `Lane A` — which is precisely the
+    // "feedback sitting unread" case this check exists for — was counted in no
+    // bucket at all, and the detail line read `0 open` with FOUR unread entries
+    // in the directory. **The one line a human reads was wrong in the direction
+    // that hides work**, and `closure-readiness` said `open 4` in the same run.
+    // Two checks disagreeing about the same directory is how the defect
+    // surfaced; nothing in either check compares them.
+    //
+    // It also misdescribed the file. `- **Lane A:**` was PRESENT and blank, and
+    // the message said the field did not exist — `fieldPresent()` was written
+    // for exactly this distinction (`D-102`) and was used for `Kind` and not
+    // here. A malformed file and an unfinished entry need different messages
+    // because they need different repairs.
     if (response === null) {
-      findings.push(`${path}: no **Lane A:** field — nowhere to record a disposition`);
+      if (/^Open\b/i.test(status)) open++;
+      else if (/^Answered\b/i.test(status)) answered++;
+      else if (/^Withdrawn\b/i.test(status)) withdrawn++;
+
+      findings.push(
+        fieldPresent(text, "Lane A")
+          ? `${path}: **Lane A:** is present but BLANK — ${status} with no disposition. Add \`Acknowledged\` at minimum; answering can wait, seeing it cannot.`
+          : `${path}: no **Lane A:** field — nowhere to record a disposition`,
+      );
       continue;
     }
 
@@ -182,7 +222,7 @@ export function run() {
   const detail =
     entries.length === 0
       ? "channel installed, no entries yet"
-      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn; ${unresolved} still carry NO resolution${reopening ? `, ${reopening} reopening a closed phase` : ""}`;
+      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn; ${unresolved} still carry NO resolution${reports ? `; ${reports} turn report(s) excluded from that count (G84)` : ""}${reopening ? `, ${reopening} reopening a closed phase` : ""}`;
 
   return { name: "handoff-response", findings, detail };
 }

@@ -1,7 +1,7 @@
 # B-022 — Lane B D-106 readiness-review turn report
 
 - **Raised:** 2026-08-24 by Lane B
-- **Kind:** finding
+- **Kind:** turn-report
 - **Phase:** 2
 - **Blocks:** nothing, reporting the selected turn
 - **Status:** Answered

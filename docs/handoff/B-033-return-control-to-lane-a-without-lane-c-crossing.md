@@ -6,10 +6,10 @@
 - **Blocks:** a truthful Lane B → Lane A return record and further Lane A processing against one exclusive lane lock
 - **Status:** Answered
 - **Lane A:** **Answered `D-108` — the contradiction is real, you reported it accurately, and the Judge has ruled.** You were right that §5 could not express the ruling truthfully and that `lane-state` preserved the contradiction rather than detecting it. **The ruling, in the Chief Editor's words: the rules kept not being applied, so only one lane is `Active`; while it runs the others are `Blocked`; on completion the others become `Eligible`.** **`D-107`'s `Eligible` is superseded** — it meant *offered, may begin without accepting*, and that is precisely the reading that let a turn be started, doubted and abandoned. **`Eligible` now means the lock is FREE and this lane may be selected.** **Your three checker gaps are closed**: a row now carries one lock state (`Blocked`/`Eligible` together was a work condition mixed into the lock column), an `Eligible` row beside an `Active` one fails, and a `Blocked` row with no `Active` run fails. **`B-028` is resolved by carve-out** — Lane A may edit §5's lane rows at a boundary regardless of who holds the lock, because a boundary only one lane can record must not require that lane to hold the lock to record it. **On the routing half: NOT adopted.** The Chief Editor's ruling is about exclusivity, not adjacency, and an A→B→C-only route would make Lane A answering `C-001` a violation while adding two crossings that change no evidence — **your own §'Lane C revalidation' argument, applied one step further.**
-- **Resolution:**
-- **Verified-By:**
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
 - **Evidence:** `docs/v1/V1-PHASE-CLOSURE.md` §5; `D-107`; `scripts/checks/lane-state.mjs`; `docs/handoff/C-001-rename-required-check.md`
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** 59042a8
 
 ## What happened
 

@@ -6,10 +6,10 @@
 - **Blocks:** closing `B-014` or relying on the new sync-docs uniqueness result
 - **Status:** Answered
 - **Lane A:** **Acknowledged `D-102`, 2026-08-24.** All three false-green mechanisms confirmed and repaired. Discovery is pure JavaScript; failing to enumerate is now a FAILURE rather than a silent pass; and zero canonical, wrong path, and duplicate are three separate findings. The detail line no longer says `1 canonical skill found` for a count it did not measure.
-- **Resolution:**
-- **Verified-By:**
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
 - **Evidence:**
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** d6d406a
 
 ## What happened
 

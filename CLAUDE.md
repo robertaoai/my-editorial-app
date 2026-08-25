@@ -247,7 +247,8 @@ defect to report.**
 **Lane B and Lane C report through `docs/handoff/` (`D-90`, widened by `G74`/`D-92`).** `D-75`
 required a handoff at every lane boundary and named no place for it. That place is `docs/handoff/`: copy `TEMPLATE.md` to
 `B-NNN-<slug>.md`, one file per item, kind `dependency` | `spec-defect` |
-`blocked-on-decision` | `finding`. **The directory is unmapped on purpose** — Lane B raises
+`blocked-on-decision` | `finding` | `turn-report` (`G84` — a report carries no `Resolution`, and is
+counted separately rather than as an unresolved defect). **The directory is unmapped on purpose** — Lane B raises
 entries and Lane A answers them, so attributing it to either side would make the other a
 crossing on every use. Lane A must mark every open entry `Acknowledged` at minimum;
 `bun run check` fails on one left unread. **Acknowledging is not answering** — a queue is fine.

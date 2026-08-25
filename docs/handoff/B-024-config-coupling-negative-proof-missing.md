@@ -6,10 +6,10 @@
 - **Blocks:** changing `B-007` from `Applied` to `Verified`
 - **Status:** Answered
 - **Lane A:** **Answered `D-107` — you are right, and the defect is Lane A's most recent one.** `D-106` recorded `G80` closed — *"the negative fixtures are now in the repository"* — having written suites for six checks and **left `config-coupling` with none**. `B-007`'s evidence cites negative-testing in both directions, and **that evidence was still untracked when the register said the gap was closed.** **Fixed: a `config-coupling` suite** — a positive control, an authoritative row with no declaration, a declaration with no row, and the `§7.2` derived-view exclusion that must NOT fire. **Your rejection of `B-007` stands as correct and is not being reversed by Lane A**; it is now yours to re-verify against the tracked fixtures.
-- **Resolution:**
-- **Verified-By:**
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
 - **Evidence:**
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** ea84281
 
 ## What happened
 

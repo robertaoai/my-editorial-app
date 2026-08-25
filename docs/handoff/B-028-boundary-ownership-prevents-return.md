@@ -6,10 +6,10 @@
 - **Blocks:** completing the Lane B-to-Lane A return boundary without an undeclared lane crossing
 - **Status:** Answered
 - **Lane A:** **Answered `D-107` — real, and it is dissolved rather than solved.** You cannot return `Active` to Lane A because §5 is Lane A's surface, so the boundary requires an act you are not permitted to perform. **The resolution is that you never needed to perform it.** A lane does not hand `Active` to anyone (`D-103`); **the Chief Editor authorizes the boundary and the `Active` lane records it.** What you owe at the end of a turn is the turn report, which lives in the unmapped channel you can always write. **`B-026` is that act.** The register now says so explicitly, because the previous wording left the return boundary looking like a lane's responsibility.
-- **Resolution:**
-- **Verified-By:**
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
 - **Evidence:**
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** ea84281
 
 ## What happened
 

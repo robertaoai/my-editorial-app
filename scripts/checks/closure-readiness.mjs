@@ -133,7 +133,24 @@ export function run() {
     const resolution = field(text, "Resolution");
     const phase = field(text, "Phase");
 
-    const key = resolution ? resolution.split(/[\s—-]/)[0].toLowerCase() : status || "unknown";
+    // `G84`, raised as `B-037` item 3. A turn report records that a lane's turn
+    // happened and what came of it (`D-105`, `D-106`). **There is nothing in it
+    // to resolve**, so it can never reach a terminal `Resolution` — yet the
+    // gate below demanded one of every entry filed against a closing phase.
+    // Excluding it by kind is the only mechanical way to tell it apart from an
+    // unresolved defect; leaving it as a `finding` made the two indistinguishable
+    // and put four permanently-unresolvable rows in the closure backlog.
+    //
+    // It keeps its OWN tally key, so it stays in the boundary evidence rather
+    // than vanishing from it — `B-037` requires both halves.
+    const entryKind = field(text, "Kind");
+    const isTurnReport = entryKind !== null && /^turn-report\b/i.test(entryKind);
+
+    const key = isTurnReport
+      ? "turn-report"
+      : resolution
+        ? resolution.split(/[\s—-]/)[0].toLowerCase()
+        : status || "unknown";
     tally.set(key, (tally.get(key) ?? 0) + 1);
 
     // `B-017` item 4. An entry with no legible phase used to vanish from every
@@ -143,6 +160,9 @@ export function run() {
     const gated = phaseKnown && closed.has(phase);
 
     if (!resolution) {
+      // `G84`. A turn report needs no resolution and is not a gap in the record.
+      // It is still counted above, and check 10 still enforces its metadata.
+      if (isTurnReport) continue;
       if (gated) {
         findings.push(
           `${path}: no **Resolution:** — phase ${phase} claims closure and this entry is only "${status || "unset"}". A reply is not a fix.`,

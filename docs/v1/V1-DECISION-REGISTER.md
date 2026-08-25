@@ -139,11 +139,11 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G12` | **Closed** | The 42 Board items are now approved — §1 |
 | `G14` | **Closed 2026-08-19** | T0 item 3 executed — `NG-02` annotated with its v1 scoping and the tenancy-boundary explanation |
 | `G15` | **TX — counsel** | Pairs with `GA5`; do not close one on the other |
-| `G16` | Open | S1 window — `Q10` + `Q11` as one migration |
+| `G16` | **Closed 2026-08-25 (`D-111`)** — row corrected `D-113` | **Both halves are decided**: `Q10` by `D-73`, narrowed by `D-79` — `0002` carries a tenancy column; `Q11`'s name by `D-111` — `line_separation_status`. **This row still read `Open` after `D-111` closed it.** The closure was written into §5.14br's *Gaps closed* line and never propagated here — `G65` again: the tier sweep verifies that a decision ID **arrives**, and cannot see that a row it did not touch has gone stale |
 | `G17` | **Closed 2026-08-25 (`D-110`)** | `QA3` ratified as a typed/versioned BOUNDARY, not a global format: typed for anything in a constraint, transition, permission, filter, join, retention rule or binding; versioned JSON only for an immutable report or brief body, with a typed `schema_version`. **JSON is never the source of truth for a gate.** Reframed by `B-032`. §5.14bq |
 | **`G18`** | **Standing rule** | **Two gap series exist (`G`, `GA`). Raise any new gap in one series only, and record it in this table. This rule was itself lost in the first supersession — an instance of the drift it warns about** |
 | `G19` | **Closed 2026-08-25 (`D-110`)** | Notice-as-article physical names ratified — `articles.article_kind` and `articles.original_article_id`; `Retracted` is NOT an eleventh state and the retraction condition is derived. **Inherited targets were already decided by `D-08`** and implemented in `FN-PUBLICATION` §4.3, which `B-032` never cited. §5.14bq |
-| `G20` | **Closed 2026-08-25 (`D-112`)** | Typed `articles.risk_tier` approved (`D-111`); **the vocabulary, assignment authority, propose-and-confirm mechanism and provenance fields are NOT decided** and are carried as `C-29`. **`0002` may not be authorized while this is open** |
+| `G20` | **Closed 2026-08-25 (`D-112`)** — row corrected `D-113` | Typed `articles.risk_tier` (`D-111`), and its domain closed by `D-112`: **three values** `standard` \| `sensitive` \| `high_sensitivity`; **asymmetric authority** — anyone may RAISE, only the Chief Editor may LOWER; **manual in v1**, `FLAG_S6_RISK_AT_INTAKE` false until S5; **four typed provenance columns**, `risk_tier_ruleset_version` null in v1. `C-29` closed. **This cell previously carried `D-111`'s body under `D-112`'s heading** — "NOT decided … `0002` may not be authorized while this is open" — so one row held two verdicts. `D-112` rewrote the status and left the text; §5.14bs was right and this row was not |
 | `G21` | **Withdrawn** | Human `A` versus agent `R` — different layers, not a conflict — §2 |
 | `G22` | Open | `C-10`, T3 |
 | `G23` | **Closed 2026-08-19** | `D-10` — `FR-13` bypasses deliberation, not publication |
@@ -191,7 +191,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G61` | **Closed 2026-08-20** | `D-63` §5.14x — **all eight** `X`-rows backfilled above. *(Corrected: the gap statement said **five**; `X1`, `X2`, and `X6` exist too. Five was the `D5`-family **open** subset, not the series.)* |
 | `G62` | **Closed 2026-08-21** | **Opened because the CI gates `R3` specifies did not pass** — `typecheck` exited 2 with 10 implicit-`any` errors in `lib/supabase/`, and `lint` exited 1 because `next lint` is deprecated, **interactive**, and no ESLint config exists. §5.14z. **Today: typecheck passes; lint still cannot run.** **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings**. **a closed by `D-67`** — `satisfies CookieMethodsServer` in two files, 4 lines; `tsc --noEmit` **exits 0**. The ten errors were **two overload-resolution causes**, not ten defects. **Both parts applied by `D-70`** — `eslint.config.mjs` created, `lint` repointed; **27 files, 0 findings**, and CI green on a real run |
 | `G63` | **Closed 2026-08-21 — scoped, not removed** | `.gitattributes` set `*.md text eol=lf merge=union` repo-wide. **Union is CORRECT for append-only audit content** — tested on the Chief Editor's rollback lineage (`tag-01` fixed, `tag-02` deployed, `tag-01` merged into `tag-02`), both sides' records survived, and losing an audit record is worse than duplicating one. **It is destructive for current-value content** — tested: a status row merged to `Decided` **and** `Rejected`; a version header appeared twice; and a union-duplicated `CLAUDE.md` sliced identically to a clean one, so `shared-core-hash` **PASSED** on a file holding two full copies of the rules. **The file is the wrong unit** — `Modular_PRD.md` and the register each carry append-only *and* current-value content. **Closed by `D-84`:** union retained, with `docs/v1/**/*.md`, `docs/Modular_PRD.md`, `CLAUDE.md`, `AGENTS.md`, `.agents/**/*.md` scoped to `merge=text`. Verified by `git check-attr`. §5.14ar |
-| `G64` | **Specified, not applied — `D-69`** | **`G-02` cannot be computed from its own declared Data Source.** Its Data Source names **one** column *(`judgment_independence_status`, "becomes `line_boundary_crossed`")*, but its definition excludes logged overrides, which needs `not_applicable` and `override_not_four_eyes` told apart — and a boolean maps both to `false`. **Arithmetic on the declared columns, no interpretation required.** *Restated by `D-69`: as opened (§5.14ad) this also claimed an `NFR-03` inference violation — **withdrawn**, "inferred at read" is undefined across the corpus and `NFR-03`'s measured target is "100% non-null", which a boolean meets.* Two shapes specified; the choice is `Q11`'s (`D-68`). Carries `C-16`. **Resolve before the `0002` draft** (`G27`, S0). §5.14ae |
+| `G64` | **Closed 2026-08-25 (`D-112`)** — row corrected `D-113` | **`G-02` now computes from one column.** `D-97` chose the three-value shape, `D-111` the name `line_separation_status`, and `D-112` cleared `G-02`'s Data Source so it names the real column with no boolean caveat: `not_applicable` and `override_not_four_eyes` are distinguishable from one field, which is exactly what the metric's exclusion of logged overrides required. **This row still read *"Specified, not applied"* and still named `judgment_independence_status` and the rejected boolean** — both retired. Original text follows, for the reasoning: **`G-02` cannot be computed from its own declared Data Source.** Its Data Source names **one** column *(`judgment_independence_status`, "becomes `line_boundary_crossed`")*, but its definition excludes logged overrides, which needs `not_applicable` and `override_not_four_eyes` told apart — and a boolean maps both to `false`. **Arithmetic on the declared columns, no interpretation required.** *Restated by `D-69`: as opened (§5.14ad) this also claimed an `NFR-03` inference violation — **withdrawn**, "inferred at read" is undefined across the corpus and `NFR-03`'s measured target is "100% non-null", which a boolean meets.* Two shapes specified; the choice is `Q11`'s (`D-68`). Carries `C-16`. **Resolve before the `0002` draft** (`G27`, S0). §5.14ae |
 | `G65` | **Closed 2026-08-21 — narrowed** | **The `D-54` tier sweep verifies a decision *arrived* in a tier, not that the tier is *correct*.** Presence satisfies it; staleness is invisible. Proven twice — `D-70` present 3× in the inventory and `D-57` 4× in `Modular_PRD`, both alongside rows that contradicted them, both passing. **Closed by `D-72` on a narrower promise, stated:** a script cannot validate prose, so `scripts/checks/decision-status.mjs` cross-references **decision status** between the register and `Modular_PRD` §10 in both directions instead. Caught `Q1`/`Q7`/`Q10` live. **The tier sweep still verifies arrival, not correctness.** §5.14ag, §5.14ah |
 | `G66` | **Closed 2026-08-21** | **`.claude/settings.json` is checked in, shared across three agents, and covered by no `C-14` check.** The shared-core hash compares only the three agent rule files. Demonstrated live 2026-08-21: an invalid-JSON edit **silently disabled both hooks** — Claude Code ignores a settings file it cannot parse, with no error. **Closed by `D-72`** — `scripts/checks/settings-parse.mjs` parse-checks the repo-local cascade and runs in CI. Contents never printed; user-scope file deliberately excluded. §5.14ag, §5.14ah |
 | `G67` | **Closed 2026-08-21** | **The shared-core hash covers 86 of ~226 lines.** `CLAUDE.md` lines 1–138 are **byte-identical to `AGENTS.md`** but sit outside the `<!-- SHARED CORE` marker, so `shared-core-hash` never compares them — an edit to one reaches one agent only, with nothing detecting it. That is `G53`, in the region `C-14` does not cover. Found by a `/init` pass that proposed regenerating `CLAUDE.md` (`D-76`). **Fix:** extend the check to compare the pre-core preamble across `CLAUDE.md` and `AGENTS.md` (`.agents/rules/graphify.md` has no preamble and must be excluded). **`scripts/checks/` is Lane C — specified, not applied** (`D-75`). §5.14al |
@@ -210,6 +210,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G80` | **Closed 2026-08-24 — the defence against ceremonial checks was itself unverifiable** | **Fourteen claims of *"negative-tested N ways"* across the register and the inventory, and not one fixture in the repository.** Every suite ran once in a session scratchpad and what survived was the sentence saying it passed. `V1-PHASE-CLOSURE.md` §6.4d instructed the reader to run `sh negtest5.sh   # in the scratchpad` — **a reproduction step pointing outside the repository.** `summary_outlived_source`: the record of the test outlived the test. **This matters more than a missing test normally would**: `bun run check` proves the checks pass on a healthy repository, and **the fixtures are the only evidence they FAIL on an unhealthy one** — the property every claim in this register rests on. `probe_that_cannot_fail` is recorded here five times and **the defence against it could not be re-run by anyone.** Closed by `scripts/fixtures/` and `bun run fixtures`: six suites, thirty fixtures, each asserting the intended FINDING rather than merely a failure, refusing to run on a dirty tree, and reporting a failed restore as its own failure. **They found a defect in themselves on the first tracked run.** §5.14bn |
 | `G81` | **Closed 2026-08-24 — a gap recorded as closed with the same defect still live inside it** | **`D-106` set out to back fourteen "negative-tested N ways" claims with tracked fixtures, wrote suites for six checks, and left `config-coupling` and `C-19` with none** — the two that `B-007` and `B-010` cite as their evidence. `G80` recorded that the record of a test had outlived the test; **two of those records outlived the fix as well**, and the register said the gap was closed. Found by Lane B (`B-024`, `B-025`) reviewing Lane A's pass, not by Lane A. **The general shape: a fix that enumerates its targets closes the gap only for the ones it enumerated**, which is `G74`, `G78` and `G79` again — and `D-105` had already drawn that lesson and applied it to `channel-docs` alone. Closed by both suites, each with a positive control. §5.14bo |
 | `G82` | **Closed 2026-08-25 — the loosening was the defect, not the rule** | **`D-107` redefined `Eligible` as *offered, may begin without a further act*, so two lanes could each believe they were permitted to work.** That is the reading under which a turn was started, doubted and abandoned (`D-105` `F29`), and `lane-state` preserved the contradiction rather than detecting it: a row could be `Blocked` AND `Eligible`, an `Eligible` row beside an `Active` one passed, and a `Blocked` row with no active run passed. **The rule files never drifted — they always said only the `Active` lane may commit, and §5 was the deviation.** Judge ruling `D-108` restores exclusivity and makes the lock a state machine with two legal configurations: one `Active` with the rest `Blocked`, or none `Active` with the rest `Eligible`. **Reported by Lane B as `B-033`, which named all three checker gaps correctly.** §5.14bp |
+| `G83` | **Closed 2026-08-25 — the summary line was wrong in the direction that hides work** | **`handoff-response` reported `0 open` with four unread entries in the directory.** The branch handling a blank `Lane A` field called `continue` **before any counter ran**, so an entry in exactly the state this check exists to catch — feedback sitting unread — was counted in no bucket at all. `closure-readiness` printed `open 4` in the same run: **two checks disagreed about one directory and nothing compares them.** It also misdescribed the file, saying the field did not exist when it was present and blank; `fieldPresent()` was written for that distinction in `D-102` and used for `Kind` and not here. **A control whose one-line summary understates the backlog is worse than no summary**, because the number is what people read instead of the directory. §5.14bt
+| `G84` | **Closed 2026-08-25 — a report can never leave the backlog it was counted in** | **A turn report is mechanically indistinguishable from an unresolved defect.** `D-105` requires one at every lane boundary and `D-106` files it under the reporting lane's phase, but **there is nothing in a report to resolve**, so it can never carry a terminal `Resolution` — and four of them sat permanently inside *"still carry NO resolution"*. **A backlog figure that includes items which can never leave it has stopped measuring the backlog.** Closed by a `turn-report` `Kind` that checks 10 and 13 both read: **excluded from the unresolved count, reported as its own number** — `B-037` named both halves, and only one of them is about tidiness. §5.14bt
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2353,6 +2355,28 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
+### `C-30` — the S1 window has two unruled items, and `0002`'s authorization rests on them
+
+**Opened by `D-113`, 2026-08-25. Phase: 1, then `0002`.** `D-112` released `D-17`'s hold on the
+stated ground that *"every S1 window decision is settled"*. **Build Spec §S1 items 4 and 5 were
+never put to the Judge:**
+
+| | Unruled | Carried by |
+|---|---|---|
+| **4** | Which tables become **insert/read-only**, including publication records and the physical enforcement of report immutability | `GA2`'s open half, `C-11` |
+| **5** | The **retention floor** and per-table retention classification | audit Step 9, with `C-12` beside it |
+
+**The authorization is PROVISIONAL, not withdrawn.** `D-112`'s typed schema contract stands and
+every field in it was properly ruled. **Lane B is not selected and no `0002_*.sql` is written**
+until the Judge rules these two or explicitly removes them from `0002`'s scope with a named later
+owner.
+
+> **The two do not carry the same deferral risk.** A later `REVOKE` touches no data. **A retention
+> class cannot be backfilled onto rows already written** — there is no authority to invent the class
+> of a record that already exists. Deferring item 5 defers it *with data loss already implied*, and
+> `C-12` follows it for the same reason: a non-performance row absent at insert time cannot be
+> reconstructed, which is `G41` exactly.
+
 ### `C-29` — **CLOSED 2026-08-25 (`D-112`)** — the domain is decided: three values, asymmetric authority, manual in v1, four typed provenance fields. §5.14bs
 
 ### `C-29` (as opened) — `G20`'s residual: a typed column with an undefined domain
@@ -2647,15 +2671,17 @@ The first tier sweep accepted **any** ID from a row's Item cell. Deliberately br
 |---|---|
 | `Q10` — tool versus product, tenancy column | **Decided (`D-73`), narrowed (`D-79`)** — `0002` carries a tenancy column to preserve the option; `NG-02` stands. **This row read `Open` until `D-109`**, which is why the S1 window looked one decision larger than it is |
 | `Q11` — the field **shape** | **Decided 2026-08-22 (`D-97`)** — three-value status, not a boolean. `G64`'s surviving limb answered |
-| `Q11` — the field **name** | **Open.** `D-97` decided the shape only; the rename is a separate half |
+| `Q11` — the field **name** | ✅ **Decided `D-111`** — `line_separation_status`. Row corrected `D-113`; it read `Open` for a day after `D-111` ruled it |
 | `G64` — the field **shape** | **Specified, not applied** (`D-69`) — the choice is `Q11`'s |
 | `G17`, `G19` | **Decided `D-110`** |
 | `G57`, `GA9` | **No decision remains** — `D-55` supplies the total backfill map, `D-07` selects `on delete restrict`; both are implementation |
 | `G16`, `G42`, `GA1`/`GA3`/`GA4` | **Decided `D-111`** |
 | `G20` | ✅ **Decided `D-112`** — three-value vocabulary, asymmetric authority, manual in v1, four typed provenance fields |
-| **The S1 window** | ✅ **CLOSED. `0002` authorized `D-112`** |
-| `GA2` | **Half closed** — the insert/read-only half is still a window item |
+| Build Spec S1 item **4** — which tables become insert/read-only | ⛔ **NEVER RULED.** `C-11` and `GA2`'s open half. `D-110`–`D-112` did not reach it |
+| Build Spec S1 item **5** — retention floor and table classification | ⛔ **NEVER RULED.** Audit Step 9; `C-12` sits beside it |
+| `GA2` | **Half closed** — the insert/read-only half is item 4, still open |
 | `C-11`, `C-12` | **Open** — T2, S1 window |
+| **The S1 window** | ⚠️ **NOT closed — corrected `D-113`.** `D-112` recorded it CLOSED having ruled items 1, 2, 3, 6, 7 and 8; **items 4 and 5 were never put to the Judge.** `D-17`'s hold reads *"until every S1 window decision is settled"*, so **`0002`'s authorization is PROVISIONAL** until they are. §5.14bt |
 
 **Completing Stage D would require inventing answers to those decisions, reversing `D-68` one pass after it was made, and writing an irreversible migration against a live provisioned database whose target table `NFR-02` makes append-only.** Recorded as blocked rather than delivered partially and counted as done.
 
@@ -2860,7 +2886,15 @@ All alter the same append-only table.
 
 | Gap | Decision |
 |---|---|
-| `G16` | ✅ **Decided `D-111` — `line_separation_status`.** Was: `Q11` only — `Q10` was decided by `D-73`/`D-79`.** The remaining half is `Q11`'s column NAME; its shape is fixed by `D-97` |
+> **⚠️ THIS TABLE IS INCOMPLETE, AND THAT IS HOW `D-112` CLOSED THE WINDOW ON A FALSE PREMISE
+> (`D-113`).** It is keyed by **gap**; `V1-BUILD-SPEC.md` §S1 keys the same window by **numbered
+> item**; **neither list cites the other.** `GA2` is a gap, §5.1 labels it *"S1 window item 4"*, and
+> **it was never a row here.** `C-11` and `C-12` could not be rows at all — they are conditions, and
+> this table has no column for one. **Both lists were internally consistent and disagreed about
+> membership**, so a reader checking either one saw a complete window. The missing rows are added
+> below, and the two enumerations now name each other.
+
+| `G16` | ✅ **Decided `D-111` — `line_separation_status`.** Both halves closed: `Q10` by `D-73`/`D-79`, the column NAME by `D-111`. Its shape was fixed by `D-97`. *(This cell read "the remaining half is `Q11`'s column NAME" after `D-111` had supplied it — corrected `D-113`.)* |
 | `G17` | ✅ **Decided `D-110`** — typed/versioned boundary ratified |
 | `G19` | ✅ **Decided `D-110`** — physical names ratified; inherited targets were already `D-08` |
 | `G20` | ✅ **Decided `D-112`** — typed `articles.risk_tier`, three values, never a lifecycle state |
@@ -2868,8 +2902,18 @@ All alter the same append-only table.
 | `GA1`, `GA3`, `GA4` | ✅ **Decided `D-111`** — typed anchors, immutable snapshot |
 | `G57` | **Newly surfaced 2026-08-20.** The `X3` eight-row state backfill mapping, specified as data before `0002` is written |
 | `GA9` | `on delete restrict` replaces `on delete cascade` |
+| **`GA2`** — *added `D-113`* | ⛔ **OPEN.** Its **stated** half closed 2026-08-19 (report immutability in `Modular_PRD` §6.3); its **insert/read-only** half is **Build Spec S1 item 4** and has never been ruled |
+| **`C-11`** — *added `D-113`* | ⛔ **OPEN.** Publication records insert/read-only, decided alongside audit **Step 5**. Same item 4 |
+| **`C-12`** — *added `D-113`* | ⛔ **OPEN.** The record must evidence **non-performance**, raising `TR-DM-03` from tracking to completeness evidence. Sits beside **item 5** |
+| **Build Spec S1 item 5** — *added `D-113`* | ⛔ **OPEN.** Retention floor and table classification, audit **Step 9**. `D-42` supplies the class-from-intake principle; **no floor and no table classification has been ruled** |
 
 > `G42` was absent from the prior revision of this section. It is **S1, not S3** — scoping S1 without it repeats `G41`'s mechanism one tier down.
+
+> **The two enumerations are now bound to each other.** `V1-BUILD-SPEC.md` §S1's eight numbered
+> items map here as: **1** `G16` · **2** `G17` · **3** `GA1`/`GA3`/`GA4` + `G42` · **4** `GA2` +
+> `C-11` · **5** item 5 + `C-12` · **6** `GA9` · **7** `G19` · **8** `G20`. Plus `G57`, which joined
+> in Step 0 and belongs to no numbered item. **A window described in two keyings and no mapping is
+> a window nobody can count**, and that is exactly what happened.
 
 ### Stage 5 — the S3 audit surface *(the gaps `G55` was hiding)*
 
@@ -6301,3 +6345,169 @@ open item.**
 > **The build spec was recorded *unaffected* by `D-110` and `D-111` on the stated ground that both
 > were shapes landing when `0002` was authorized. `0002` is now authorized, so it is affected —
 > and saying so here is what makes those two earlier rows honest rather than convenient.**
+
+---
+
+## 5.14bt `D-113` — The S1 Window Was Not Closed; `0002`'s Authorization Is Provisional
+
+**Lane A correction pass, 2026-08-25, raised by Lane B as `B-034`–`B-037`.** `D-112` recorded the
+S1 window CLOSED and released `D-17`'s hold. **Two of the window's items had never been put to the
+Judge.** This decision corrects the register, downgrades the authorization to **PROVISIONAL**, opens
+`C-30`, and carries the packet the Judge needs to close it properly.
+
+**It rules nothing.** The two open items are Chief Editor decisions and are presented, not decided
+(`D-93`, `P0`).
+
+### The root cause — one window, two keyings, no mapping
+
+**Neither list was wrong. They disagreed about membership, and nothing compared them.**
+
+| | Keyed by | Contains |
+|---|---|---|
+| `V1-DECISION-REGISTER.md` §5.15 **Stage 4** | **gap** — `G16`, `G17`, `G19`, `G20`, `G42`, `GA1`/`GA3`/`GA4`, `G57`, `GA9` | eight rows, **all ✅** |
+| `V1-BUILD-SPEC.md` **§S1** | **numbered item** — 1–8 | items **4** and **5** never ruled |
+
+`D-112` read the gap-keyed table, saw eight ticks, and closed the window. **A reader checking either
+list alone saw a complete window**, which is why this survived a `tier-sweep` that passed on every
+run — the sweep verifies that a decision ID **arrives** in a tier, and `G65` records that staleness
+is invisible to it. **This is `G65`'s fourth instance and its most expensive.**
+
+> **`GA2` is the proof it was structural rather than careless.** It is a gap, in the `GA` series,
+> and §5.1 labels it *"Insert/read-only half remains **S1 window item 4**"* — **in the window, by
+> name, in the same document** — and it was never a row in the gap-keyed table. `C-11` and `C-12`
+> could not be rows there at all: they are **conditions**, and the table has no column for one.
+
+**Fixed by binding the two enumerations to each other**, item-to-gap, in §5.15 Stage 4. A window
+described in two keyings with no mapping is a window nobody can count.
+
+### What is still open — and this is the packet, not the ruling
+
+| | Item | What already exists | What is genuinely undecided |
+|---|---|---|---|
+| **4** | Which tables become **insert/read-only** — `GA2`'s open half, `C-11` | `NFR-02` makes the audit table append-only, and Build Spec §S1's *"Also in S1"* line already commits to **revoking UPDATE and DELETE on `workflow_transitions`**. `D-14` forbids editing or deleting an issued report | **Publication records** (`C-11`, audit Step 5), and **the report record's physical immutability** — `D-111` §3a fixed its SHAPE; nothing states how UPDATE/DELETE are revoked, whether by grant, trigger or RLS |
+| **5** | **Retention floor and table classification** — audit Step 9, with `C-12` beside it | `D-42` supplies the data-class × regime matrix and *"every record carries its retention class from intake"*. `D-44` resolved `G46` — the product holds a payment **confirmation**, not a payment record | **The floor itself** — no number, no per-table classification. `G40` is open and records that `NFR-08`'s *"reconstructable from the log alone"* carries **no retention qualifier**, so the product currently promises what lawful disposal removes |
+| — | **`C-12`** — the record evidences **non-performance** | `TR-DM-03` tracks publication outcomes | Whether a **failed or unperformed** attempt is a row. Today it is inferred from absence, and absence is exactly what `G41` records the product cannot explain |
+
+**The two items do not carry the same deferral risk, and that is the decision-relevant fact.**
+
+> **Item 4 is cheaply deferrable. Item 5 is not.** A `REVOKE` is a later migration touching no data.
+> **A `retention_class` column added after an append-only table holds rows cannot be backfilled** —
+> there is no authority to invent the class of a record already written. If item 5 is deferred, it
+> is deferred **with data loss already implied**.
+
+**`C-12` follows item 5's fate for the same reason**: a non-performance row that does not exist at
+insert time cannot be reconstructed later, and `G41` names precisely that — an empty view cannot
+distinguish *nothing happened* from *the record is gone*.
+
+### Four stale rows corrected — every one produced by `D-110`–`D-112`'s own passes
+
+| Row | Read | Now |
+|---|---|---|
+| §5.1 `G16` | **`Open`** | Closed `D-111`; both halves decided |
+| §5.1 `G20` | `D-112`'s **heading** over `D-111`'s **body** — *"NOT decided … `0002` may not be authorized while this is open"* | One verdict. **`D-112` rewrote the status and left the text** |
+| §5.1 `G64` | *"Specified, not applied"*, naming `judgment_independence_status` and the rejected boolean | Closed `D-112`; both names retired |
+| §5.15 `Q11` name | **`Open`** | Decided `D-111` |
+
+**All four were written by the passes that closed them.** A decision that closes a gap in its own
+narrative section and does not touch the gap table leaves the table asserting the opposite —
+and `tier-sweep` reports ✅ because the decision ID **is** present in the tier.
+
+### `0002` — PROVISIONAL, and what that permits
+
+**The hold is not reinstated and the authorization is not withdrawn.** `D-112`'s typed schema
+contract stands: every field in it was properly ruled, and nothing here reverses `D-110`, `D-111` or
+`D-112`.
+
+**What changes is the claim attached to it.** `D-17` releases on *"every S1 window decision is
+settled"*, and two are not, so the authorization rests on a premise that is false. It is marked
+**PROVISIONAL** in the Build Spec and here:
+
+- **Lane B is NOT selected** while it stands provisional. `B-031` §8's gate is not met after all.
+- **No `0002_*.sql` is written**, by any lane. `0001_init.sql` remains frozen.
+- **`B-029` and `B-032` keep `Resolution: Applied` at `c9a0bc5`** — the contract they asked for was
+  delivered and is in the tree. **What is provisional is its completeness, not its content**, and
+  rewriting an accurate `Applied` row would destroy the evidence that it was checked.
+
+### `C-30` opened
+
+| | |
+|---|---|
+| **`C-30`** | **Build Spec S1 items 4 and 5 are unruled: insert/read-only table classification (`GA2`'s open half, `C-11`) and the retention floor and table classification (`C-12` beside it).** `0002`'s authorization is PROVISIONAL until the Judge rules them or explicitly removes them from `0002`'s scope with a named later owner. **A silent deferral is not available for item 5** — a retention class cannot be backfilled onto rows already written |
+
+### Two control defects found while reading the channel — `G83`, `G84`
+
+**Neither was raised. Both were found by running the check and disbelieving its summary line.**
+
+**`G83` — `handoff-response` reported `0 open` with four unread entries in the directory.** The
+branch handling a blank `Lane A` field `continue`d **before any counter ran**, so the entry landed
+in no bucket. **The one line a human reads was wrong in the direction that hides work**, and
+`closure-readiness` printed `open 4` in the same run. **Two checks disagreed about one directory and
+nothing compares them.** It also misdescribed the file — the field was present and blank, and the
+message said it did not exist; `fieldPresent()` was written for that distinction in `D-102` and used
+for `Kind` and not here.
+
+**`G84` — a turn report is indistinguishable from an unresolved defect.** `D-105` requires one at
+every lane boundary and `D-106` files it under the reporting lane's phase, but there is **nothing in
+a report to resolve**, so it can never carry a terminal `Resolution` — and four of them sat
+permanently inside *"still carry NO resolution"*. **A backlog figure that includes items which can
+never leave it has stopped measuring the backlog.** Closed by a `turn-report` `Kind` that checks 10
+and 13 both read: **excluded from the unresolved count, reported as its own number.** `B-037` asked
+for both halves and only one of them is about tidiness.
+
+### Lane B raised these correctly, and the mechanism it used is worth naming
+
+**Lane B was `Blocked` throughout and wrote four entries anyway.** That is §5.1's carve-out working
+exactly as designed — writing in `docs/handoff/` is permitted from any lane at any time, precisely
+so that a lane which cannot commit can still report. **It read the work order, disbelieved it against
+the register, and stopped before drafting a migration.**
+
+> **Compare `D-103`, where Lane B read a contradictory rule, concluded it could not begin, and
+> produced nothing at all** (`D-105` `F29`). **The difference is the entries** — the same situation,
+> and this time it left a record.
+
+**`C-28` does NOT close here, and the temptation to close it is the point.** It closes *"when the
+next Lane B **turn** ends with a report"*, and **Lane B held no turn** — it was `Blocked`
+throughout. Four good entries are not a turn report, and counting them as one would close a
+condition on a run that never happened. **This paragraph was drafted the other way and corrected
+before commit**, which is the same defect this decision exists to fix, three sections earlier.
+
+**No turn report is owed for it.** Lane B never held the lock, so no turn ended — the work order's
+§5 requirement is scoped to a turn, and this was not one. **The gap that leaves is real**: nothing
+in the work order tells a lane what to do when it is offered work and the table says it is `Blocked`.
+`B-034` is that missing procedure, written by the lane that needed it.
+
+### Gaps and conditions
+
+**Closed:** `G83`, `G84` — §5.1.
+**Opened:** `C-30`. **Corrected:** `G16`, `G20`, `G64`, `Q11`-name, and the Stage 4 window table.
+**`G65` recurs** and stays open — this is its fourth instance.
+**Unchanged and explicitly not closed:** `C-26`, `C-27`, `C-28`. **`C-28` in particular** — Lane B
+held no turn, so no turn ended, so nothing discharges it.
+
+**The backlog is dispositioned, and `B-037` item 4 is what asked for it.** Every answered entry now
+carries a `Resolution` anchored to the commit its answering decision landed at — `d6d406a` for
+`D-102`, `ea84281` for `D-107`, `59042a8` for `D-108`. **`B-016` and `C-001` are `Deferred` to
+Phase 3 with Lane C named**, because their work is not Phase 1's to discharge and a deferral with no
+owner is a drop. **Everything else is `Applied`, which is deliberately non-terminal** — Lane B
+raised them and Lane B verifies them, and `Applied` is the honest word until it does.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Window not closed | ✅ §5.14bt, §5.15 Stage 4 | ✅ **the AUTHORIZED block becomes PROVISIONAL** | **— unaffected** | **— unaffected: `0002` remains an expected artifact; what changed is when it may be written, not whether it exists** | **— unaffected** | **— unaffected: no requirement text moves. `D-112`'s six `[Q11]` clearances were correctly ruled and stand** |
+| Four stale rows | ✅ §5.1, §5.15 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `C-30` opened | ✅ §5.14bt, §3 | ✅ S1 gating | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `G83` | ✅ §5.14bt, §5.1 | **— unaffected** | **— unaffected: it is a counting defect inside `handoff-response`. No rule, no channel document and no lane instruction changes** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `G84` | ✅ §5.14bt, §5.1 | **— unaffected** | ✅ **all three rule files** — `turn-report` joins the shared-core kind vocabulary, plus `docs/handoff/README.md`, `TEMPLATE.md` and `docs/LANE-B-WORK-ORDER.md` §5 | **— unaffected: no file is created or retired** | **— unaffected** | **— unaffected** |
+
+**`Modular_PRD` is unaffected throughout and that is deliberate.** Items 4 and 5 are storage and
+retention decisions; **until they are ruled there is no requirement text to change**, and writing
+one now would record a decision the Judge has not made.
+
+### Scope limits
+
+**Rules nothing. Reverses nothing.** `D-110`, `D-111` and `D-112`'s rulings all stand exactly as
+made. Writes no migration, changes no schema, selects no lane, and closes no phase. `0001_init.sql`
+untouched. **Lane A remains `Active`** — the boundary edit is not performed here, because releasing
+the lock would offer Lane B a packet this decision has just marked provisional.
