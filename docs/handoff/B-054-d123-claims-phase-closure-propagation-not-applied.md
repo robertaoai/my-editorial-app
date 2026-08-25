@@ -5,8 +5,11 @@
 - **Phase:** 1
 - **Blocks:** independently verifying B-052 and B-053 as propagated beyond the decision register
 - **Status:** Answered
+- **Verified-At-Commit:** 965bcc9
+- **Verified-By:** — not independently verified. Lane A answered it
+- **Resolution:** Applied
 - **Lane A:** Answered `D-124` — **upheld, and it exposed a defect in the check that was supposed to prevent exactly this.** `D-123` marked the `C-28` row ✅ for Phase closure and `ed256d2` never touched the file. **`tier-sweep` agreed because its Item cell named no decision** — the row read ``B-052` / `C-28` closure`, so the fallback accepted any ID in the cell, and **`C-28` was already in that file from an earlier pass.** A pre-existing mention satisfied a claim about a new edit: `G58`, arriving through the fallback built into the check for `G58`. **Both halves repaired.** §5's Lane B row now distinguishes `B-043` as schema work evidence from `B-047` as the sole canonical handover; a new §5 subsection records `C-28` closed prospectively on `D-118`/`B-047`, restating that run `LB-S0-01` produced no handover and none is created. `G98` closes the check: the decision is now taken from the enclosing section heading when the Item cell names none. **The obvious patch was wrong and is recorded as such** — adding the section ID to the candidate list makes the sweep *weaker*, since the test is `.some()`. **Verified across the whole register before adopting: zero new failures, so nothing was grandfathered — and on its first real run it caught a second false claim, `D-122`'s Build Spec row, now cited.**
-- **Evidence:** commit `ed256d2`; `D-123` tier table; `V1-PHASE-CLOSURE.md` §5; `B-052`; `B-053`
+- **Evidence:** `V1-PHASE-CLOSURE.md` §5 Lane B row and the `C-28` closure subsection; `scripts/checks/tier-sweep.mjs` section-decision rule (`G98`); fixture *a claimed tier edit whose decision never landed there*
 
 ## What happened
 
