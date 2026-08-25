@@ -96,8 +96,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | C-08 | `MFB-05` | Compensating controls must **never** convert a negative `OD2` into an affirmative one. Charter hard stop survives | **TX** — closes with `OD2` |
 | C-09 | `MFB-07` | A working default, **not legal advice**. Subject to contract and jurisdiction review | **TX** — needs `Q7` counsel |
 | C-10 | `G22` Expression of Concern | **New public-facing editorial act.** Needs separate Board approval plus a fifth intent code | **T3** |
-| C-11 | Publication records insert/read-only | Decide alongside audit **Step 5** | **T2** — S1 window |
-| C-12 | Record evidences **non-performance** | Raises `TR-DM-03`'s bar from tracking to completeness evidence. Size in the S1 pass | **T2** — S1 window |
+| C-11 | Publication records insert/read-only | **CLOSED 2026-08-25 (`D-114`)** — append-only status **events**, never a mutable status column, so retry and partial-failure history survives | **Discharged** |
+| C-12 | Record evidences **non-performance** | **CLOSED 2026-08-25 (`D-114`)** — `publication_targets` rows created **eagerly at approval**. Events make a *failure* evidence; only an eager row makes a *non-attempt* evidence, which is `G41` inside this table | **Discharged** |
 
 **Four conditions close only when an Open Decision closes** — `C-03`, `C-07`, `C-08`, `C-09`. None is dischargeable inside v1.
 
@@ -163,7 +163,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G37` | **Withdrawn** | Two concepts sharing a name — see `D-38` |
 | `G38` | **Resolved** | Defaults to `CR-04` — see `D-38` |
 | `GA1`, `GA3`, `GA4` | **Closed 2026-08-25 (`D-111`)** | Report record shape approved — identity, `article_id`, as-at transition anchor, tenant, template and rule-set versions, JSON schema version, frozen snapshot, optional `supersedes_report_id`. Typed per `D-110`. §5.14br |
-| `GA2` | **Half closed 2026-08-19** | Stated half done — report immutability rule in `Modular_PRD` §6.3. Insert/read-only half remains S1 window item 4 |
+| `GA2` | **CLOSED 2026-08-25 (`D-114`)** | **Both halves done.** The *stated* half closed 2026-08-19 — report immutability in `Modular_PRD` §6.3. The **insert/read-only** half is ruled by `D-114`: `publications`/`publication_targets` and the report record are insert/read-only, enforced by `REVOKE` **and** a `BEFORE UPDATE OR DELETE` trigger, because `REVOKE` alone does not bind the owner or `service_role` and `TR-API-03` introduces exactly that connection at S4. §5.14bu |
 | `GA5` | **TX — counsel** | Pairs with `G15` |
 | `GA6` | **Closed 2026-08-20** | Disclosure stands — assurance **Absent**, unchanged. `Q2` answered by `D-57`: v1 has no independent assurance, conditional on `C-13`'s BCP surface. **The surface is a compensating control, never Line 3** |
 | `GA7` | Open | T3, audit Step 7 — auditor access versus tenant isolation |
@@ -212,6 +212,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G82` | **Closed 2026-08-25 — the loosening was the defect, not the rule** | **`D-107` redefined `Eligible` as *offered, may begin without a further act*, so two lanes could each believe they were permitted to work.** That is the reading under which a turn was started, doubted and abandoned (`D-105` `F29`), and `lane-state` preserved the contradiction rather than detecting it: a row could be `Blocked` AND `Eligible`, an `Eligible` row beside an `Active` one passed, and a `Blocked` row with no active run passed. **The rule files never drifted — they always said only the `Active` lane may commit, and §5 was the deviation.** Judge ruling `D-108` restores exclusivity and makes the lock a state machine with two legal configurations: one `Active` with the rest `Blocked`, or none `Active` with the rest `Eligible`. **Reported by Lane B as `B-033`, which named all three checker gaps correctly.** §5.14bp |
 | `G83` | **Closed 2026-08-25 — the summary line was wrong in the direction that hides work** | **`handoff-response` reported `0 open` with four unread entries in the directory.** The branch handling a blank `Lane A` field called `continue` **before any counter ran**, so an entry in exactly the state this check exists to catch — feedback sitting unread — was counted in no bucket at all. `closure-readiness` printed `open 4` in the same run: **two checks disagreed about one directory and nothing compares them.** It also misdescribed the file, saying the field did not exist when it was present and blank; `fieldPresent()` was written for that distinction in `D-102` and used for `Kind` and not here. **A control whose one-line summary understates the backlog is worse than no summary**, because the number is what people read instead of the directory. §5.14bt
 | `G84` | **Closed 2026-08-25 — a report can never leave the backlog it was counted in** | **A turn report is mechanically indistinguishable from an unresolved defect.** `D-105` requires one at every lane boundary and `D-106` files it under the reporting lane's phase, but **there is nothing in a report to resolve**, so it can never carry a terminal `Resolution` — and four of them sat permanently inside *"still carry NO resolution"*. **A backlog figure that includes items which can never leave it has stopped measuring the backlog.** Closed by a `turn-report` `Kind` that checks 10 and 13 both read: **excluded from the unresolved count, reported as its own number** — `B-037` named both halves, and only one of them is about tidiness. §5.14bt
+| `G85` | **Open 2026-08-25 — a count restated across four tiers with no members behind it** | `TR-DM-03` says *"seven-value status enum"* in `Modular_PRD`, `FN-PUBLICATION`, the sprint plan and two journal entries. **The seven values are listed nowhere in the corpus** — only `ManualReady`, `Published`, `Failed` and `MockPublished` appear in prose, which is **four**. This is `G55`/`G56`/`G58`'s drift mechanism applied to a **schema domain**: Lane B cannot write the enum from the governed set, and a reader auditing it finds a number with nothing under it. **Not `0002`-blocking** — `D-114` 5c-3 makes publication state an append-only EVENT type and `FN-PUBLICATION` determines the values behaviourally — **but it must be written before the publication tables carry data.** §5.14bu |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2355,7 +2356,33 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
-### `C-30` — the S1 window has two unruled items, and `0002`'s authorization rests on them
+### `C-31` — 5a: does retention on `articles` vary by final status? **Non-blocking**
+
+**Opened by `D-114`, 2026-08-25. Phase: 1.** `Modular_PRD` §6.3 says *"rejected and archived after
+`DATA_RETENTION_ARCHIVE_DAYS`; published kept indefinitely"* — **a per-row rule.** The audit model
+§5.1 says that contradicts *"traceable regardless of final status"*, because *"an auditor's first
+question is usually about what was rejected, not what sailed through."*
+
+**It does not block `0002`, and the reason is demonstrated, not asserted:** `articles` is mutable by
+design and carries its own state, so its retention class is derivable from the row at any later
+date. **No append-only table in `0002` has status-varying retention.** The un-backfillable argument
+belongs to `G46`'s POC payment status, on a table this migration does not create.
+
+**Three questions, in order** — see §5.14bu for the three-regime analysis behind them:
+
+1. **Does the statutory 5-year floor reach editorial-flow data at all?** `D-42` says editorial flow
+   is governed by *"Statutory and GRC"*; audit Step 6 scopes that floor to *"financial and
+   accounting records"*. **Editorial flow is not a financial record.**
+2. **If GRC governs, does its retention get a terminus?** GRC supplies a **clock, not a period** —
+   `D-43`'s *"the deadline arrives with the order"* governs how fast a retraction is performed, not
+   how long its evidence is kept. **Event-anchored, and today with no end.**
+3. **Does either answer change `0002`?** Provisional reading: **no.** If that is wrong, it shows here.
+
+**Carries `G40`**, which it inherits and does not resolve.
+
+### `C-30` — **CLOSED 2026-08-25 (`D-114`)** — item 4 ruled in full; item 5's classification ruled, its floor deferred with a named owner, 5a carried as `C-31`. §5.14bu
+
+### `C-30` (as opened) — the S1 window has two unruled items, and `0002`'s authorization rests on them
 
 **Opened by `D-113`, 2026-08-25. Phase: 1, then `0002`.** `D-112` released `D-17`'s hold on the
 stated ground that *"every S1 window decision is settled"*. **Build Spec §S1 items 4 and 5 were
@@ -2677,11 +2704,11 @@ The first tier sweep accepted **any** ID from a row's Item cell. Deliberately br
 | `G57`, `GA9` | **No decision remains** — `D-55` supplies the total backfill map, `D-07` selects `on delete restrict`; both are implementation |
 | `G16`, `G42`, `GA1`/`GA3`/`GA4` | **Decided `D-111`** |
 | `G20` | ✅ **Decided `D-112`** — three-value vocabulary, asymmetric authority, manual in v1, four typed provenance fields |
-| Build Spec S1 item **4** — which tables become insert/read-only | ⛔ **NEVER RULED.** `C-11` and `GA2`'s open half. `D-110`–`D-112` did not reach it |
-| Build Spec S1 item **5** — retention floor and table classification | ⛔ **NEVER RULED.** Audit Step 9; `C-12` sits beside it |
-| `GA2` | **Half closed** — the insert/read-only half is item 4, still open |
-| `C-11`, `C-12` | **Open** — T2, S1 window |
-| **The S1 window** | ⚠️ **NOT closed — corrected `D-113`.** `D-112` recorded it CLOSED having ruled items 1, 2, 3, 6, 7 and 8; **items 4 and 5 were never put to the Judge.** `D-17`'s hold reads *"until every S1 window decision is settled"*, so **`0002`'s authorization is PROVISIONAL** until they are. §5.14bt |
+| Build Spec S1 item **4** — which tables become insert/read-only | ✅ **Ruled `D-114`** — publications and the report record insert/read-only, enforced by `REVOKE` **and** a trigger. `C-11` and `GA2` both closed |
+| Build Spec S1 item **5** — retention floor and table classification | ✅ **Disposed `D-114`** — §5.3's classification **adopted**; the floor **deferred with a named owner** and `DATA_RETENTION_ARCHIVE_DAYS = 90` **not ratified**; **5a carried as `C-31`, non-blocking** |
+| `GA2` | ✅ **Closed `D-114`** — both halves |
+| `C-11`, `C-12` | ✅ **Closed `D-114`** — append-only events, and eager target rows at approval |
+| **The S1 window** | ✅ **CLOSED 2026-08-25 (`D-114`).** `D-112` had recorded it closed with items 4 and 5 never put to the Judge (`D-113`); **both are now disposed** — one ruled, one ruled-and-deferred-with-owners. **`0002`'s authorization is unconditional.** `C-31` remains open and is shown not to block: `articles` is mutable and self-describing, and no append-only table in `0002` has status-varying retention. §5.14bu |
 
 **Completing Stage D would require inventing answers to those decisions, reversing `D-68` one pass after it was made, and writing an irreversible migration against a live provisioned database whose target table `NFR-02` makes append-only.** Recorded as blocked rather than delivered partially and counted as done.
 
@@ -2902,10 +2929,10 @@ All alter the same append-only table.
 | `GA1`, `GA3`, `GA4` | ✅ **Decided `D-111`** — typed anchors, immutable snapshot |
 | `G57` | **Newly surfaced 2026-08-20.** The `X3` eight-row state backfill mapping, specified as data before `0002` is written |
 | `GA9` | `on delete restrict` replaces `on delete cascade` |
-| **`GA2`** — *added `D-113`* | ⛔ **OPEN.** Its **stated** half closed 2026-08-19 (report immutability in `Modular_PRD` §6.3); its **insert/read-only** half is **Build Spec S1 item 4** and has never been ruled |
-| **`C-11`** — *added `D-113`* | ⛔ **OPEN.** Publication records insert/read-only, decided alongside audit **Step 5**. Same item 4 |
-| **`C-12`** — *added `D-113`* | ⛔ **OPEN.** The record must evidence **non-performance**, raising `TR-DM-03` from tracking to completeness evidence. Sits beside **item 5** |
-| **Build Spec S1 item 5** — *added `D-113`* | ⛔ **OPEN.** Retention floor and table classification, audit **Step 9**. `D-42` supplies the class-from-intake principle; **no floor and no table classification has been ruled** |
+| **`GA2`** — *added `D-113`* | ✅ **CLOSED `D-114`.** Its *stated* half closed 2026-08-19; its **insert/read-only** half is ruled — the report record is insert/read-only, enforced by `REVOKE` and a trigger |
+| **`C-11`** — *added `D-113`* | ✅ **CLOSED `D-114`.** Publication state is an append-only **event**, never a mutable status column |
+| **`C-12`** — *added `D-113`* | ✅ **CLOSED `D-114`.** `publication_targets` rows created **eagerly at approval**, so a non-attempt is a row with no events rather than an absence |
+| **Build Spec S1 item 5** — *added `D-113`* | ✅ **DISPOSED `D-114`.** §5.3's classification adopted; the floor **deferred with a named owner**; **5a carried as `C-31`**, non-blocking |
 
 > `G42` was absent from the prior revision of this section. It is **S1, not S3** — scoping S1 without it repeats `G41`'s mechanism one tier down.
 
@@ -6524,3 +6551,162 @@ one now would record a decision the Judge has not made.
 made. Writes no migration, changes no schema, selects no lane, and closes no phase. `0001_init.sql`
 untouched. **Lane A remains `Active`** — the boundary edit is not performed here, because releasing
 the lock would offer Lane B a packet this decision has just marked provisional.
+
+---
+
+## 5.14bu `D-114` — Item 4 Ruled in Full, the Table Classification Adopted, 5a Carried
+
+**Judge rulings, 2026-08-25.** Closes `C-30`, `C-11`, `C-12` and `GA2`. **`0002`'s authorization
+becomes unconditional.** One sub-item — **5a** — is carried as `C-31` and **does not block**, for a
+reason demonstrated below rather than asserted.
+
+### What was ruled
+
+| | Ruling |
+|---|---|
+| **4a** | `publications` and `publication_targets` are **insert/read-only**. Closes `C-11` |
+| **4b** | The **report record** is insert/read-only, carrying the frozen snapshot |
+| **4c** | Enforced by **`REVOKE UPDATE, DELETE` *and* a `BEFORE UPDATE OR DELETE` trigger** |
+| **5c-1** | **§5.3's table-by-table classification is adopted** and promoted into `Modular_PRD` §6.3 |
+| **5c-2** | **`trend_signals` is append-only** |
+| **5c-3** | Publication state is **append-only status events**, never a mutable status column |
+| **5b** | The floor number is **deferred with a named owner**. **`DATA_RETENTION_ARCHIVE_DAYS = 90` is NOT ratified** |
+| **`C-12`** | `publication_targets` rows are created **eagerly at approval** |
+| **`NFR-02`** | *"never deleted"* is restated per audit Step 6 |
+
+### `C-30` closes — and this is not `D-112`'s error repeated
+
+**`D-112` closed a window having never put two of its items to the Judge.** The distinction here is
+not that fewer items are open; it is *how* each one is disposed:
+
+| Item | Disposition |
+|---|---|
+| Item 4 | **Ruled in full** — 4a, 4b, 4c |
+| Item 5, classification | **Ruled** — §5.3 adopted |
+| Item 5, floor number | **Deferred, with a named owner.** `C-30`'s own closure condition permits exactly this |
+| **5a** | **Carried as `C-31`**, and shown below not to block |
+
+> **The demonstration, because a claim of "non-blocking" is worth nothing without one.** 5a asks
+> whether `articles` needs a per-row retention class **written at intake**. `articles` is **mutable
+> by design** (`TR-DM-01`, §5.3) and **carries its own state**, so its retention class is derivable
+> from the row itself at any later date. **The un-backfillable argument that made item 5 blocking
+> does not apply to it** — that argument is about a fact the product never holds, which is `G46`'s
+> POC payment status, on a table `0002` does not create.
+>
+> **Checked rather than assumed: no append-only table in `0002` has status-varying retention.**
+> `workflow_transitions`, `publications`, `publication_targets` and the report record each carry one
+> retention answer for every row. **Only `articles` varies, and only `articles` is mutable.**
+
+### Item 4's enforcement — `REVOKE` declares, the trigger enforces, and neither is the real control
+
+**Both, because they answer different questions.** `REVOKE` is the declaration an auditor reads;
+the trigger is the control that survives a privileged session. **`REVOKE` alone does not bind the
+table owner or `service_role`**, and `TR-API-03` introduces exactly that connection at S4 — *"the
+first genuine need for `SUPABASE_SERVICE_ROLE_KEY`"*.
+
+**What neither does, stated rather than buried.** A deliberate `DISABLE TRIGGER` by whoever holds
+the key defeats both. The audit model's §6.1 names that as the actual control point:
+
+> *"If the same person operates the pipeline and holds the key that bypasses its protections, then
+> append-only is a **promise, not a control**."* — and §0.3 records **one human** on this project.
+
+**That is a governance control, not a schema one**, and `0002` cannot supply it. **Recorded as a
+residual, not solved** — the same discipline `AC-12` established: infrastructure duties are not
+discharged in product code (`D-39`).
+
+### `C-12` — events were necessary and not sufficient
+
+**Append-only events make a FAILURE evidence. They do not make a NON-ATTEMPT evidence** — a target
+nobody tried produces no event, and absence cannot distinguish *nothing happened* from *nothing was
+recorded*. **That is `G41` in the publication table.**
+
+**`TR-DM-03`'s two-table shape already carries the fix and nothing had ever said so.** With
+`publication_targets` rows created **eagerly at approval**, a target that was never attempted exists
+as a row with no events — **non-performance becomes queryable rather than inferred.** Created
+lazily on first attempt, it does not exist at all.
+
+**Eager creation is not deferrable**: a target row not written at approval cannot be reconstructed,
+because nothing else records which targets were *intended*.
+
+### 5a carried as `C-31` — the three regimes do not share a shape
+
+**The Chief Editor's framing is that each regime carries its own retention period, assigned per
+table.** Applied to `D-42`'s three regimes it holds structurally, and it surfaces a hole that the
+per-row-column framing had hidden:
+
+| Regime | Direction | Period it supplies |
+|---|---|---|
+| **PDPA** | Minimise | **90 days** after non-reply (`D-43`) |
+| **Retention act — IRAS/ACRA** | Preserve | **5 years**, a floor |
+| **GRC on retraction** | Preserve **plus a clock** | **None** |
+
+**Only two of the three supply a number, and the third is not merely missing one — it is a
+different shape.** `D-43` records that *"the deadline arrives with the order"*: GRC's clock governs
+**how fast a retraction must be performed**, not **how long its evidence is kept**. A retraction
+order can arrive years after publication, so GRC retention is **event-anchored with no terminus**,
+while the other two are **age-anchored**. *A single class-to-period map cannot express the third.*
+
+**And the two governing documents disagree about whether the floor even reaches editorial data:**
+
+| Says | |
+|---|---|
+| `D-42`'s data-class table | Editorial flow is governed by **"Statutory and GRC"** |
+| Audit Step 6 | The 5-year floor covers **"financial and accounting records"**, enforced by IRAS and ACRA for tax and corporate compliance |
+
+**Editorial flow is not a financial record.** So either *"Statutory"* means something for editorial
+data that nothing names, **or the floor does not bind it — leaving GRC, which supplies no number,
+as the only regime, and editorial retention undefined.** *That second branch is `G40` verbatim:*
+`NFR-08` *"carries no retention qualifier, so the product promises what lawful disposal removes."*
+
+**Where the framing breaks, and it breaks usefully.** *One regime per table* holds for every
+editorial table. It fails for **POC engagement records — paid falls under the retention act, unpaid
+under PDPA, in the same table** — which is `G46` exactly, and **that table is not in `0002`.** The
+framing works for this migration's scope *because* of what the migration excludes.
+
+**Three questions `C-31` must answer, in order:**
+
+1. **Does the statutory floor reach editorial-flow data at all?** Everything else depends on it.
+2. **If GRC is the governing regime, does its retention get a terminus** — or is it open-ended?
+3. **Does either answer change `0002`?** *Provisional reading: no.* Nothing in v1 disposes of
+   anything, `articles` is self-describing, and no append-only table varies. **If that reading is
+   wrong, question 3 is where it will show.**
+
+### Gaps
+
+**Closed:** `GA2` — its insert/read-only half is ruled by 4a and 4b, so both halves are now done.
+**Opened:** `G85` — `TR-DM-03` says *"seven-value status enum"* in four documents and **the seven
+values are listed nowhere**; only four appear anywhere in prose. **A count restated across four
+tiers with no members behind it** is `G55`/`G56`/`G58`'s mechanism applied to a schema domain.
+Lane B cannot write the enum from the corpus. **Not `0002`-blocking** — 5c-3 makes state an event
+type, and `FN-PUBLICATION` determines the values behaviourally — but it must be written before the
+publication tables carry data.
+**Unchanged:** `G40` — `C-31` inherits it and does not resolve it.
+
+### Conditions
+
+**Closed:** `C-11`, `C-12`, `C-30`.
+**Opened:** `C-31` — 5a, per-row retention classification on `articles`. **Explicitly non-blocking**;
+see the demonstration above.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Item 4 ruled | ✅ §5.14bu, §5.1 `GA2` | ✅ S1 item 4 row | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §6.3 classification, `TR-DM-03` |
+| §5.3 adopted | ✅ §5.14bu | ✅ S1 item 5 row | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **§6.3 gains the classification table** |
+| `C-12` eager rows | ✅ §5.14bu, §3 | ✅ S1 item 5 row | **— unaffected** | **— unaffected** | **— unaffected** | ✅ `TR-DM-03` |
+| `NFR-02` restated | ✅ §5.14bu | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **`NFR-02` and §6.3 Retention** |
+| `C-30` closed, `0002` unconditional | ✅ §5.14bu, §3 | ✅ **the PROVISIONAL block is lifted** | **— unaffected** | **— unaffected: `0002` was already an expected artifact** | **— unaffected** | **— unaffected** |
+| `C-31` opened | ✅ §5.14bu, §3 | ✅ named as non-blocking | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **the §6.3 Retention sentence is FLAGGED, not rewritten** |
+| `G85` | ✅ §5.14bu, §5.1 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ `TR-DM-03` carries the flag |
+
+> **The `Modular_PRD` Retention sentence is flagged and NOT rewritten, deliberately.** *"Rejected and
+> archived after `DATA_RETENTION_ARCHIVE_DAYS`; published kept indefinitely"* is precisely the
+> status-varying rule `C-31` exists to decide. **Rewriting it here would rule 5a while recording
+> that 5a is carried** — the shape `D-113` spent a whole pass correcting.
+
+### Scope limits
+
+Writes no migration and applies no schema. **Lane A does not write `0002`** — `supabase/` is Lane
+B's. `0001_init.sql` untouched. **No lane is selected and no boundary edit is performed**; Lane A
+remains `Active`. `C-26`, `C-27`, `C-28` are unchanged and unclosed.

@@ -450,12 +450,41 @@ The most consequential requirement, and the one most at risk of being quietly ov
 |---|---|---|---|---|
 | `TR-DM-01` | `articles` | + `revision_reason`, `revision_target_state`, `return_count`, `emergency_publish`, `source_id`, `source_author`, `source_published_date`, `editorial_angle`, `editorial_adaptation`, **`risk_tier`** (`standard` | `sensitive` | `high_sensitivity` — typed, **never a lifecycle state**, never silently recomputed after publication; `D-11`, domain decided `D-112` closing `C-29`) with **`risk_tier_assigned_by`, `risk_tier_assigned_at`, `risk_tier_reason`, `risk_tier_ruleset_version`** (null in v1), **`article_kind`** (`standard` | `retraction_notice`) and **`original_article_id`** (`D-110`); **unique index on `url`**; ten-state enum | **Extend — S1.** Current enum omits `Discovered`, `Validated`, `Needs Revision` and collapses T2/T3 (X3) | FR-01…FR-06 |
 | `TR-DM-02` | `workflow_transitions` | + `actor_id`, `line_assignment`, `line_separation_status` **(`Q11` CLOSED — `D-97` the three-value shape, `D-111` the name. Typed and non-null per `D-110`.)**, `identity_assurance`, `event_type`, `agent_id`, `agent_run_id`, `supervising_human_id`, `assisting_agent_id`; `actor_type` + `system` | **Extend — S1. No longer blocked**; `0002` authorized by `D-112`. No executor identity column exists at all (TC4) | FR-05, FR-07 |
-| `TR-DM-03` | `publication_targets`, `publications` | Per-article, per-target status across the seven-value enum, retry count, `published_url` | **Create — S1.** A single `publication_target` enum cannot represent "WordPress Published + LinkedIn ManualReady" (TC2) | FR-09, FR-10 |
+| `TR-DM-03` | `publication_targets`, `publications` | Per-article, per-target status, retry count, `published_url`. **Append-only status EVENTS, never a mutable status column** (`D-114` 5c-3) — otherwise retry and partial-failure history is lost. **`publication_targets` rows are created EAGERLY at approval** (`D-114`, closing `C-12`): a target that was never attempted is then a row with **no events**, so non-performance is queryable rather than inferred from absence. **`G85`: the "seven-value enum" is named in four tiers and its seven values are listed nowhere** — Lane B derives them from `FN-PUBLICATION`'s behaviour; they must be written before these tables carry data | **Create — S1.** A single `publication_target` enum cannot represent "WordPress Published + LinkedIn ManualReady" (TC2) | FR-09, FR-10 |
 | `TR-DM-04` | `sources` | + `reliability_tier`, `ingestion_method`; unique on name | **Extend — S1.** Absence blocks T2's required fields and the trend-score tier weight (TC3) | FR-02 |
 | `TR-DM-05` | `topics` | + `evolves_from`, `evolution_notes`, `scope_boundary` | **Extend — S1.** Absence blocks editorial-priority lineage depth (TC3) | FR-01 |
 | `TR-DM-06` | `allowed_transitions` | from_state, to_state, gate_role, line | **Create — S1.** Backs the NFR-01 trigger; makes the sequence data-driven rather than hard-coded | FR-02, FR-06 |
 
-**Retention:** rejected and archived after `DATA_RETENTION_ARCHIVE_DAYS`; published kept indefinitely; **`workflow_transitions` never deleted.**
+#### Table classification — immutability and retention *(adopted `D-114`, closing `GA2` and `C-11`)*
+
+**Two different properties, kept apart deliberately** — conflating them is what produced the `GA5`
+contradiction. **Immutability** asks whether a row may change *during its life*; **retention** asks
+how long it must exist *at all*. A table may forbid UPDATE and DELETE for its whole retention life
+and still be lawfully disposed of at end of life under policy.
+
+| Table | Immutability | Note |
+|---|---|---|
+| `workflow_transitions` | **Append-only** (`NFR-02`) | Already correct |
+| **`publications` / `publication_targets`** | **Append-only status events** | A mutable status column loses retry and partial-failure history. Targets created **eagerly at approval** |
+| **Report record** | **Insert/read-only** | Carries the frozen snapshot (`D-111` §3a, `D-14`) |
+| **`trend_signals`** | **Append-only** | If signals were recomputed in place, the newsworthiness decision behind `CR-06` becomes unexplainable |
+| `allowed_transitions` | **Effective-dated** | An audit must show which rules were in force *then*, not now (`PSK-09`) |
+| `articles` | **Mutable by design** | `revision_reason`, `return_count`, changing state. **This is *why* reports carry frozen snapshots rather than references** |
+| `topics`, `sources` | Mutable master data | Resolved values are **frozen into the report snapshot** — a renamed topic or re-tiered source must not silently rewrite historical reports |
+
+**Enforcement:** `REVOKE UPDATE, DELETE` **and** a `BEFORE UPDATE OR DELETE` trigger. `REVOKE`
+is the declaration; the trigger is what survives a privileged session, since `REVOKE` does not bind
+the table owner or `service_role` and `TR-API-03` introduces exactly that connection at S4.
+**Neither stops a deliberate `DISABLE TRIGGER` by whoever holds the key** — that control is
+governance, not schema, and is recorded rather than solved.
+
+**Retention:** **`workflow_transitions` is retained for not less than the statutory period; disposal
+only under a documented, approved policy** — restated `D-114` from *"never deleted"*, because
+**append-only immutability and infinite retention are different properties** and the old wording
+conflated them. ⚠️ **`C-31` — the clause *"rejected and archived after
+`DATA_RETENTION_ARCHIVE_DAYS`; published kept indefinitely"* is a per-row rule that may contradict
+*"traceable regardless of final status"*, and it is FLAGGED, not yet rewritten.** The value **90 is
+unratified and twenty times below the five-year statutory floor** — do not ratify it as written.
 **Report Immutability (PSK-10):** An issued report is never edited and never deleted; a superseded report is answered by issuing a new report citing the original. The correction ladder — Clarify → Correction → Retraction — is the editorial restatement mechanism. *This states the rule the design must satisfy; the report record itself is designed in S1 (`GA1`).* **Scope boundary:** this is the **report** rule and does not restate `NFR-02`'s `workflow_transitions` wording, which awaits counsel (T2/TX).
 **PII:** articles sourced from individuals on social platforms may carry personal data. GDPR handling is deferred to Phase 2 (Addendum G2) — recorded as an accepted gap, not a solved problem.
 
@@ -466,7 +495,7 @@ The most consequential requirement, and the one most at risk of being quietly ov
 | ID | Category | Requirement | Target | Measurement | FRs | Constraint |
 |---|---|---|---|---|---|---|
 | `NFR-01` | **Integrity** | Gate sequence enforced by a Postgres trigger, not application code | Invalid transition rejected **at the database**, including a direct anon-key write | Attempt the bypass with the Supabase JS client and assert rejection | FR-02, FR-06 | **TC1** |
-| `NFR-02` | Auditability | `workflow_transitions` append-only; the transition row precedes the state change | UPDATE and DELETE revoked; 0 orphan state changes | Permission check + reconciliation query | FR-07 | TC1 |
+| `NFR-02` | Auditability | `workflow_transitions` append-only; the transition row precedes the state change. **Retained for not less than the statutory period; disposal only under a documented, approved policy** *(restated `D-114` from "never deleted" — immutability and infinite retention are different properties, and only the first is a database control)* | UPDATE and DELETE revoked **by grant AND by trigger**; 0 orphan state changes | Permission check + reconciliation query | FR-07 | TC1 |
 | `NFR-03` | Independence | `line_separation_status` is computed on every transition and is never null **(rewritten `D-112`, closing `C-16`. The "never inferred at read" clause is DROPPED, not defined: `D-69` found the term undefined anywhere in this corpus and measured by nothing, and an unfalsifiable requirement can be neither satisfied nor breached. What survives is what the Method can actually test.)** | 100% non-null | Column constraint | FR-05 | **`Q11` closed.** `identity_assurance` is separate executor provenance and carries its own non-null rule; `judgment_independence` stays reserved and null until an instrument exists, which is deliberately the opposite of this requirement and not a breach of it |
 | `NFR-04` | Verifiability | Test runner and CI exist before any sprint claims a DoD | `bun test` and CI green | CI status | All | **TC6** |
 | `NFR-05` | Resilience | Publication retries to `PUBLISH_RETRY_MAX`, then ManualReady | Retry honoured; **backoff interval is aspirational — no scheduler exists** | Job table inspection | FR-09 | **TC7** |

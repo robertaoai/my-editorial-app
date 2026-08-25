@@ -9,7 +9,7 @@
 
 > **What `D-113` corrected, so you can tell this revision from the one you disbelieved:** S0 is
 > recorded complete (`ea84281`, `config-coupling` green, `flags.ts` present) instead of outstanding;
-> `0002` is **PROVISIONAL** (`C-30`) instead of "still blocked on `Q11`'s name", which `D-111`
+> `0002` was **PROVISIONAL** (`C-30`) instead of "still blocked on `Q11`'s name", which `D-111`
 > answered; and §2.3's verification list is **generated from the files** instead of naming a
 > ten-entry set that is no longer the queue.
 
@@ -72,27 +72,44 @@ in the tree and `config-coupling` (check 12) is **green**. Nothing here is outst
 **`config-coupling` fails in both directions**, so if you add a declaration with no `CONFIG_LOG.md`
 row it goes red. If you think a row is missing, **raise it — do not add the declaration.**
 
-### 2.2 `0002_*.sql` — **NOT yet yours to write** (`C-30`)
+### 2.2 `0002_*.sql` — **yours to write. `C-30` is closed** (`D-114`)
 
-**The window is not closed and the authorization is PROVISIONAL** — `D-113`, raised by you as
-`B-036`. `D-112` released `D-17`'s hold on the stated ground that every S1 window decision was
-settled; **Build Spec items 4 and 5 were never put to the Judge.**
+**The window is genuinely closed and the authorization is unconditional.** `B-036` was upheld:
+`D-112` had released the hold with Build Spec items 4 and 5 never put to the Judge. **Both are now
+disposed** — item 4 ruled in full, item 5's classification ruled and its floor deferred to a named
+owner. **`0001_init.sql` is frozen and is never edited.**
+
+**Read the contract in three places and nowhere else:** `D-112` §5.14bs for the typed columns,
+`D-114` §5.14bu for immutability and retention, and **`Modular_PRD` §6.3's classification table**,
+which is the governed form of both.
+
+**What `D-114` added that you must build to:**
 
 | | |
 |---|---|
-| **Item 4** | Which tables become insert/read-only, incl. publication records and the physical enforcement of report immutability — `GA2`'s open half, `C-11` |
-| **Item 5** | The retention floor and per-table classification — audit Step 9, with `C-12` beside it |
+| **Insert/read-only** | `workflow_transitions`, `publications`/`publication_targets`, the report record. **`articles` is NOT** — it mutates by design |
+| **Enforcement** | **`REVOKE UPDATE, DELETE` *and* a `BEFORE UPDATE OR DELETE` trigger.** Both. `REVOKE` does not bind the owner or `service_role`, and S4 introduces that connection |
+| **Publication state** | **Append-only events**, never a mutable status column |
+| **`publication_targets`** | Rows created **eagerly at approval**, so a never-attempted target is a row with no events rather than an absence |
+| **`trend_signals`** | **Append-only.** Do not recompute in place |
+| **`allowed_transitions`** | **Effective-dated** |
 
-**Do not draft, and do not pre-position a draft.** `D-17` holds it outside `supabase/migrations/`
-because that directory is the apply set. **`0001_init.sql` is frozen and is never edited**, under
-every state of `C-30`.
+**Two things deliberately NOT in your scope, so you do not invent them:**
 
-**When `C-30` is ruled**, your parent-first sequence is: **verify the authorization packet →
-draft and test `0002` → report S1 evidence and the `DEP-05` limitation → S2 only after S1 is
-accepted.** **S2–S4 stay unscheduled** — `D-112` authorized a migration, not a sprint plan.
+- **`C-31`** — whether retention on `articles` varies by final status. **Open, and it does not block
+  you.** Do not add a `retention_class` column; if you think one is needed, **raise it**.
+- **`G85`** — the *"seven-value status enum"* is named in four documents and **its seven values are
+  listed nowhere.** Derive the event types from `FN-PUBLICATION`'s behaviour, **and raise a
+  `spec-defect` entry naming the values you derived** so the governed set gains them rather than
+  your code becoming the only record. **Do not treat your own choice as the specification.**
+
+**Your parent-first sequence:** verify the authorization packet → draft and test `0002` → report S1
+evidence and the `DEP-05` limitation → **S2 only after S1 is accepted.**
 
 **Claim S1 as *"trigger written and unit-tested; live-DB behaviour unverified"*.** `DEP-05` is
 unanswered, so live anon-key behaviour cannot be proven from here. **Never claim it fully done.**
+
+**S2–S4 stay unscheduled.** `D-112` authorized a migration, not a sprint plan.
 
 ### 2.3 The verification pass — **the queue is generated, not restated**
 
@@ -146,7 +163,7 @@ mechanism's health metric.
 | **Toolchain** | bun, pinned. `bun install --frozen-lockfile` is clean |
 | **Commands** | `bun run dev` · `bun run build` · `bun run lint` · `bun run typecheck` · `bun test` · `bun run check` |
 | **Database** | Schema applied; `supabase/migrations/0001_init.sql` is **frozen — never edit it** |
-| **`0002`** | **PROVISIONAL — see §2.2** (`C-30`, `D-113`). `Q11` is **fully decided**: the shape by `D-97` — `satisfied` \| `not_applicable` \| `override_not_four_eyes` — and the **name** by `D-111`, `line_separation_status`. The typed schema contract is `D-112` and it stands. **What is unruled is Build Spec S1 items 4 and 5**, so the window is not closed and the hold location is still `docs/v1/drafts/`. *(This row read "still blocked … its name is still open" for a day after `D-111` supplied the name — `B-035`.)* |
+| **`0002`** | ✅ **UNCONDITIONAL — see §2.2** (`D-114` closing `C-30`). `Q11` is fully decided: the shape by `D-97` — `satisfied` | `not_applicable` | `override_not_four_eyes` — and the name by `D-111`, `line_separation_status`. **The contract is `D-112` for typed columns, `D-114` for immutability and retention, and `Modular_PRD` §6.3's classification table as the governed form of both.** `0002_*.sql` goes in `supabase/migrations/`; the `docs/v1/drafts/` hold is discharged. *(This row read "still blocked … its name is still open" for a day after `D-111` supplied the name — `B-035`; then PROVISIONAL until `D-114`.)* |
 
 **`bun run build` is not a verification gate.** `TC6` sets `ignoreBuildErrors` and
 `ignoreDuringBuilds`, so a build stays green on broken types. **`bun run typecheck` is the gate.**

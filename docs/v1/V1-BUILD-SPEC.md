@@ -102,28 +102,21 @@ while §5.1's artifact row said the opposite. **S0 creates only the hold locatio
 settle**, and moving the approved draft into the apply set **is** the S1 authorization act.
 **`AP-01`'s migration carries editorial audit fields only — never POC commerce fields.**
 
-> **⚠️ PROVISIONAL — corrected 2026-08-25 (`D-113`, raised as `B-036`). The S1 window is NOT
-> closed.** `D-112` ruled items **1, 2, 3, 6, 7 and 8** below. **Items 4 and 5 were never put to
-> the Judge** — insert/read-only table classification (`GA2`'s open half, `C-11`) and the retention
-> floor and table classification (`C-12` beside it). `D-17` releases on *"until every S1 window
-> decision is settled"*, so **the release rests on a false premise.** Carried as `C-30`.
+> **✅ UNCONDITIONAL 2026-08-25 (`D-114`). `C-30` is closed and the S1 window is genuinely closed.**
+> `D-112` had recorded it closed while **items 4 and 5 had never been put to the Judge** (`D-113`).
+> Both are now disposed: **item 4 ruled in full**, and **item 5's classification ruled with its
+> floor deferred to a named owner.** One sub-item, **5a**, is carried as `C-31` and **does not
+> block** — `articles` is mutable and carries its own state, so its retention class is derivable at
+> any later date, and **no append-only table in `0002` has status-varying retention.**
 >
-> **What that means in practice: no `0002_*.sql` is written by any lane, and Lane B is not selected,
-> until `C-30` is ruled** — either by deciding items 4 and 5, or by explicitly removing them from
-> `0002`'s scope with a named later owner. **`0001_init.sql` remains frozen regardless.**
->
-> **How it happened, because it will otherwise recur:** the register's §5.15 Stage 4 window table is
-> keyed by **gap** and this table is keyed by **numbered item**, and **neither cited the other**.
-> `GA2` is a gap that §5.1 labels *"S1 window item 4"* and it was never a row in the gap-keyed
-> table; `C-11` and `C-12` are conditions and could not be rows there at all. Both lists were
-> internally consistent. `D-113` binds them item-to-gap.
->
-> **The contract below is NOT withdrawn and nothing in `D-110`–`D-112` is reversed.** Every field it
-> names was properly ruled; what is provisional is the window's **completeness**, not the contract's
-> content.
+> **How the earlier failure happened, because it will otherwise recur:** the register's §5.15 Stage
+> 4 window table is keyed by **gap** and this table is keyed by **numbered item**, and **neither
+> cited the other**. `GA2` is a gap that §5.1 labels *"S1 window item 4"* and it was never a row in
+> the gap-keyed table; `C-11` and `C-12` are conditions and could not be rows there at all. Both
+> lists were internally consistent and disagreed about membership. `D-113` binds them item-to-gap.
 
-> **AUTHORIZED 2026-08-25 (`D-112`) — read the correction above first.** `D-17`'s hold was
-> released here. `0002_*.sql` may be created in `supabase/migrations/` **once `C-30` is ruled**;
+> **AUTHORIZED 2026-08-25 (`D-112`), unconditional since `D-114`.** `D-17`'s hold is
+> released. `0002_*.sql` may be created in `supabase/migrations/`;
 > **`0001_init.sql`
 > remains frozen and is never edited.** The typed schema contract is `D-112` — `Q11` closed as
 > `line_separation_status` (`D-111`), the risk-tier domain closed (`D-112`, `C-29`), the report
@@ -170,8 +163,8 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 | 1 | `Q11` field **name** — the SHAPE is decided (`D-97`: three-value status). **`line_boundary_crossed` is the REJECTED boolean fallback and is not the work item**; `identity_assurance` remains separate executor-provenance data and a reserved `judgment_independence` stays null | Propagates to six documented locations. **Row corrected `D-109`** — it had survived `D-97` and been reported three times (`B-009`, `B-012`, `B-032`) |
 | 2 | `QA3` typed columns versus versioned JSON payload | Enforcement and filtering only work on typed columns |
 | 3 | Report record shape — identity, as-at, tenant, template + rule-set version, frozen snapshot | Audit Step 4 |
-| 4 | ⛔ **UNRULED (`C-30`, `D-113`).** Which tables become insert/read-only — **including publication records**, and how report immutability is physically enforced. `NFR-02` and the *"Also in S1"* line below already commit to revoking UPDATE and DELETE on `workflow_transitions`; **nothing covers publication or report records** | Audit Step 5, `C-11`, `GA2`'s open half |
-| 5 | ⛔ **UNRULED (`C-30`, `D-113`).** Retention floor and table classification. `D-42` supplies the class-from-intake principle; **no floor and no per-table classification exists.** `C-12` — the record evidencing **non-performance** — sits beside it. **This one is not safely deferrable**: a retention class cannot be backfilled onto rows already written | Audit Step 9, `C-12` |
+| 4 | ✅ **RULED `D-114`.** Insert/read-only: `workflow_transitions` (already `NFR-02`), **`publications`/`publication_targets`** and the **report record**. `articles` **cannot** be — it mutates by design, which is *why* reports carry frozen snapshots. **Enforced by `REVOKE UPDATE, DELETE` AND a `BEFORE UPDATE OR DELETE` trigger** — `REVOKE` alone does not bind the owner or `service_role`, and `TR-API-03` introduces exactly that connection at S4 | Audit Step 5; `C-11` and `GA2` closed |
+| 5 | ✅ **DISPOSED `D-114`.** §5.3's **table-by-table classification is adopted** into `Modular_PRD` §6.3. The **floor is deferred with a named owner** and **`DATA_RETENTION_ARCHIVE_DAYS = 90` is NOT ratified** — the statutory floor is five years and 90 days is twenty times below it. **5a is carried as `C-31` and does not block.** `C-12` closed: `publication_targets` rows are created **eagerly at approval**, so a non-attempt is a row with no events rather than an absence | Audit Step 9; `C-12` closed |
 | 6 | Cascade behaviour — **`on delete restrict`** (`D-07`) | Audit Step 11, `GA9` |
 | 7 | **`G19`** notice-as-article — notice type, notice→original reference, inherited targets, derived superseded status | `D-06` |
 | 8 | **`G20`** risk-tier dimension on articles | `D-11` |
