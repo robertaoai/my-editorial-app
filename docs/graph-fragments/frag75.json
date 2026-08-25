@@ -1,0 +1,147 @@
+{
+  "_comment": "Fragment 75 — D-120: the disposable development environment; a withheld credential narrower than it reads; a correction that reached two tiers and missed the third. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d120_the_development_database_is_disposable",
+      "label": "D-120 — The Development Database Is Disposable and Separate",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "source_location": "S1 runner",
+      "description": "Development runs against a local stack started from the command line, separate from the deployed branch and from the provisioned project. The database it creates exists to be applied to, tested against, and destroyed.",
+      "community": 63,
+      "community_name": "Build Sequence",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Separating the environment is what makes an irreversible migration testable at all. Applying it to a disposable database costs nothing to get wrong; applying it to the provisioned one is the act nobody has authorized."
+    },
+    {
+      "id": "a_withheld_credential_narrower_than_it_reads",
+      "label": "A Withheld Credential Narrower Than It Reads",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ca",
+      "description": "The withheld dependency is the hosted project's credentials pulled into a local environment file, and nothing else. A locally started stack uses none of them, so the database test that appeared blocked was never blocked.",
+      "community": 63,
+      "community_name": "Build Sequence",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A withheld item read broadly stops work it never named. Reading it narrowly separates what genuinely cannot be verified — behaviour against the real project — from what can be verified today and had simply never been attempted."
+    },
+    {
+      "id": "a_correction_that_missed_the_tier_that_is_read",
+      "label": "A Correction That Reached Two Tiers and Missed the One That Is Read",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "source_location": "S1 DoD",
+      "description": "A completion criterion was corrected because it required a live database while the credentials for one were deliberately withheld. The corrected wording landed in the planning journal and the product specification, and not in the build sequence.",
+      "community": 63,
+      "community_name": "Build Sequence",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The missed document is the one a build lane actually reads, so a lane could satisfy the operative text with a test that starts no database and contradict nothing. The propagation sweep verifies that an identifier arrives, never that a phrase removed from one tier is missing from another."
+    },
+    {
+      "id": "the_tool_is_supplied_the_command_is_not_run",
+      "label": "The Tool Is Supplied; the Command Is Not Run",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+      "source_location": "local dev stack",
+      "description": "The orchestration lane installs the command-line tool, the script names that wrap it, and the ignore entries for its scratch state. Initialising the project writes a file on the build lane's own surface, so the build lane runs it.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Provisioning ahead exists so a mid-sprint request is rare, and it stops precisely at the surface boundary. Tracked migrations and the configuration file are artifacts; only the tool's runtime scratch is ignored."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d120_the_development_database_is_disposable",
+      "target": "v1_build_spec",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "confidence_score": 1,
+      "source_location": "S1 runner",
+      "weight": 1
+    },
+    {
+      "source": "a_withheld_credential_narrower_than_it_reads",
+      "target": "a_lane_audited_its_own_claim_downward",
+      "relation": "unblocks",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ca",
+      "weight": 1
+    },
+    {
+      "source": "a_withheld_credential_narrower_than_it_reads",
+      "target": "d120_the_development_database_is_disposable",
+      "relation": "recorded_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ca",
+      "weight": 1
+    },
+    {
+      "source": "a_correction_that_missed_the_tier_that_is_read",
+      "target": "g65_sweep_checks_arrival_not_correctness",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "confidence_score": 1,
+      "source_location": "S1 DoD",
+      "weight": 1
+    },
+    {
+      "source": "a_correction_that_missed_the_tier_that_is_read",
+      "target": "a_lane_audited_its_own_claim_downward",
+      "relation": "explains",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ca",
+      "weight": 1
+    },
+    {
+      "source": "a_correction_that_missed_the_tier_that_is_read",
+      "target": "a_derived_instruction_outlived_its_source",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ca",
+      "weight": 1
+    },
+    {
+      "source": "the_tool_is_supplied_the_command_is_not_run",
+      "target": "d120_the_development_database_is_disposable",
+      "relation": "implements",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+      "confidence_score": 1,
+      "source_location": "local dev stack",
+      "weight": 1
+    },
+    {
+      "source": "the_tool_is_supplied_the_command_is_not_run",
+      "target": "d117_the_boundary_kept_both_facts",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-ARTIFACT-INVENTORY.md",
+      "confidence_score": 1,
+      "source_location": "local dev stack",
+      "weight": 1
+    }
+  ]
+}
