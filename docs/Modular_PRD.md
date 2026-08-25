@@ -481,10 +481,35 @@ governance, not schema, and is recorded rather than solved.
 **Retention:** **`workflow_transitions` is retained for not less than the statutory period; disposal
 only under a documented, approved policy** — restated `D-114` from *"never deleted"*, because
 **append-only immutability and infinite retention are different properties** and the old wording
-conflated them. ⚠️ **`C-31` — the clause *"rejected and archived after
-`DATA_RETENTION_ARCHIVE_DAYS`; published kept indefinitely"* is a per-row rule that may contradict
-*"traceable regardless of final status"*, and it is FLAGGED, not yet rewritten.** The value **90 is
-unratified and twenty times below the five-year statutory floor** — do not ratify it as written.
+conflated them.
+
+**"Archived" means MOVED AND STILL RETRIEVABLE — never deleted** *(defined `D-115`, closing `G86`;
+the word was used here and in `AC-12a` and defined nowhere)*. **Archival and disposal are both
+EXTERNAL to this system** — operations on the database substrate, not product behaviour. The
+application neither archives nor disposes; `DATA_RETENTION_ARCHIVE_DAYS = 90` **describes an
+external archival boundary**, not a disposal date, and remains unratified because nobody has put it
+to the Chief Editor (`A6`).
+
+**Rejected work archives; published work does not — and that is two regimes, not an inconsistency**
+*(resolved `D-115`)*. **GRC on retraction binds data while it is in the CURRENT set**, so:
+
+| | |
+|---|---|
+| **Rejected → archived** after `DATA_RETENTION_ARCHIVE_DAYS` | It was never published, so **no retraction can ever apply** and GRC never attaches. Archival moves it; retrievability keeps the audit chain intact |
+| **Published → kept indefinitely** | It stays current, so **GRC always attaches and retraction is always possible** |
+
+> ⚠️ **`G87` — a retraction order for an article no longer in the current set has no path, and is a
+> BACKLOG FEATURE, not v1.** It became reachable only when `NFR-02` stopped saying *"never deleted"*:
+> disposal is now permissible, and an order arriving afterwards has nothing to act on. Handling work
+> never triggered from this system is a different intake shape.
+
+> ⚠️ **`G88` — `AC-12a` requires this product to state the policy, version, period and archive
+> location of an external act it is never told about.** `G46`'s shape one tier down. The audit
+> model's **disposal record** is the unadopted mechanism.
+
+**`C-31` remains open on one question only:** does the five-year statutory floor reach editorial-flow
+data at all? `D-42` assigns it *"Statutory and GRC"*; audit Step 6 scopes that floor to *"financial
+and accounting records"*, and editorial flow is not one.
 **Report Immutability (PSK-10):** An issued report is never edited and never deleted; a superseded report is answered by issuing a new report citing the original. The correction ladder — Clarify → Correction → Retraction — is the editorial restatement mechanism. *This states the rule the design must satisfy; the report record itself is designed in S1 (`GA1`).* **Scope boundary:** this is the **report** rule and does not restate `NFR-02`'s `workflow_transitions` wording, which awaits counsel (T2/TX).
 **PII:** articles sourced from individuals on social platforms may carry personal data. GDPR handling is deferred to Phase 2 (Addendum G2) — recorded as an accepted gap, not a solved problem.
 

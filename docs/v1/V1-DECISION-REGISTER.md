@@ -213,6 +213,9 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G83` | **Closed 2026-08-25 — the summary line was wrong in the direction that hides work** | **`handoff-response` reported `0 open` with four unread entries in the directory.** The branch handling a blank `Lane A` field called `continue` **before any counter ran**, so an entry in exactly the state this check exists to catch — feedback sitting unread — was counted in no bucket at all. `closure-readiness` printed `open 4` in the same run: **two checks disagreed about one directory and nothing compares them.** It also misdescribed the file, saying the field did not exist when it was present and blank; `fieldPresent()` was written for that distinction in `D-102` and used for `Kind` and not here. **A control whose one-line summary understates the backlog is worse than no summary**, because the number is what people read instead of the directory. §5.14bt
 | `G84` | **Closed 2026-08-25 — a report can never leave the backlog it was counted in** | **A turn report is mechanically indistinguishable from an unresolved defect.** `D-105` requires one at every lane boundary and `D-106` files it under the reporting lane's phase, but **there is nothing in a report to resolve**, so it can never carry a terminal `Resolution` — and four of them sat permanently inside *"still carry NO resolution"*. **A backlog figure that includes items which can never leave it has stopped measuring the backlog.** Closed by a `turn-report` `Kind` that checks 10 and 13 both read: **excluded from the unresolved count, reported as its own number** — `B-037` named both halves, and only one of them is about tidiness. §5.14bt
 | `G85` | **Open 2026-08-25 — a count restated across four tiers with no members behind it** | `TR-DM-03` says *"seven-value status enum"* in `Modular_PRD`, `FN-PUBLICATION`, the sprint plan and two journal entries. **The seven values are listed nowhere in the corpus** — only `ManualReady`, `Published`, `Failed` and `MockPublished` appear in prose, which is **four**. This is `G55`/`G56`/`G58`'s drift mechanism applied to a **schema domain**: Lane B cannot write the enum from the governed set, and a reader auditing it finds a number with nothing under it. **Not `0002`-blocking** — `D-114` 5c-3 makes publication state an append-only EVENT type and `FN-PUBLICATION` determines the values behaviourally — **but it must be written before the publication tables carry data.** §5.14bu |
+| `G86` | **Closed 2026-08-25 (`D-115`) — a word carrying two meanings in governed tiers, defined in none** | **"Archived" is load-bearing in `Modular_PRD` §6.3 and in `AC-12a`, and no governed document said what it meant.** Audit **Step 9** instructed the definition — *"redefine 'archived' as retrievable rather than deleted"* — **and that redefinition was never performed.** The cost was not theoretical: **Step 9 contradicts itself in a single sentence**, telling the reader to set the value *at or above the statutory floor* **and** that archived means retrievable — *a period that disposes of nothing has no reason to meet a disposal floor.* `D-114` then compared 90 days to the five-year floor and called it twenty times too small, **which is comparing a move to a deletion**; retracted at three sites. **Closed by defining it in §6.3: moved and still retrievable, never deleted, and EXTERNAL to this system.** §5.14bv |
+| `G87` | **Open — BACKLOG FEATURE, not v1** | **A retraction order for an article no longer in the current set has no path.** GRC on retraction binds data **while it is current** (`D-115`); archival ends its reach, so an order arriving afterwards has nothing to act on. **`D-114` created the reachability**: while `NFR-02` read *"never deleted"*, a published article never left the current set and retraction was always possible — restating it as *"not less than the statutory period; disposal only under a documented, approved policy"* made disposal permissible. **This is the honest consequence of stopping the lie, not a defect in the restatement.** Deferred because handling work **never triggered from this system** is a different intake shape, not a variation on the existing flow. §5.14bv |
+| `G88` | **Open — the input to a `[V1]` criterion that nothing supplies** | **`AC-12a` requires the audit surface to state that records *"existed and are no longer retrievable"*, naming the policy and version, the period, and the archive location.** Under `D-115` the act producing those facts is **external to this system**, and **nothing tells the product it happened.** *This is `G46`'s shape one tier down* — *"retention class depends on a fact the product does not hold"* — and `G46` was resolved by ruling the fact must be **supplied to** the product rather than inferred by it. **The mechanism exists on paper and was never adopted**: the audit model §6.3's **disposal record**, written before the act, stored outside the table it describes, itself immutable. **The second unadopted §-section this thread has found**, after §5.3. **`G41`'s unmet dependency.** §5.14bv |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2368,17 +2371,21 @@ design and carries its own state, so its retention class is derivable from the r
 date. **No append-only table in `0002` has status-varying retention.** The un-backfillable argument
 belongs to `G46`'s POC payment status, on a table this migration does not create.
 
-**Three questions, in order** — see §5.14bu for the three-regime analysis behind them:
+**NARROWED TO ONE QUESTION by `D-115`, 2026-08-25.** Two of the three are answered — see §5.14bv:
 
-1. **Does the statutory 5-year floor reach editorial-flow data at all?** `D-42` says editorial flow
-   is governed by *"Statutory and GRC"*; audit Step 6 scopes that floor to *"financial and
-   accounting records"*. **Editorial flow is not a financial record.**
-2. **If GRC governs, does its retention get a terminus?** GRC supplies a **clock, not a period** —
-   `D-43`'s *"the deadline arrives with the order"* governs how fast a retraction is performed, not
-   how long its evidence is kept. **Event-anchored, and today with no end.**
-3. **Does either answer change `0002`?** Provisional reading: **no.** If that is wrong, it shows here.
+| | |
+|---|---|
+| **q1 — does the statutory 5-year floor reach editorial-flow data at all?** | ⛔ **OPEN.** `D-42` assigns editorial flow *"Statutory and GRC"*; audit Step 6 scopes that floor to *"financial and accounting records"*, and **editorial flow is not one** |
+| **q2 — does GRC retention get a terminus?** | ✅ **Ruled `D-115`: archival.** GRC binds data while it is in the **current set**; an archived article cannot be retracted through the publication flow, because retraction and amendment are acts on current work |
+| **q3 — does either answer change `0002`?** | ✅ **Demonstrated no.** **Archival and disposal are EXTERNAL** — operations on the database substrate, not product behaviour. The acts q1 governs are not in this product's surface at all, the same shape as `AC-12` (`D-39`) |
 
-**Carries `G40`**, which it inherits and does not resolve.
+**The premise this condition was opened on turned out to be wrong, and it was still worth opening.**
+`C-31` assumed §6.3's status-varying sentence was a defect. `D-115` shows it is **the correct
+expression of two regimes with different reach** — rejected work never publishes so GRC never
+attaches; published work stays current so retraction stays possible. **The reasoning that dissolves
+it did not exist until the cross-reference was performed.**
+
+**Carries `G40`** on q1, which it inherits and does not resolve.
 
 ### `C-30` — **CLOSED 2026-08-25 (`D-114`)** — item 4 ruled in full; item 5's classification ruled, its floor deferred with a named owner, 5a carried as `C-31`. §5.14bu
 
@@ -6570,7 +6577,7 @@ reason demonstrated below rather than asserted.
 | **5c-1** | **§5.3's table-by-table classification is adopted** and promoted into `Modular_PRD` §6.3 |
 | **5c-2** | **`trend_signals` is append-only** |
 | **5c-3** | Publication state is **append-only status events**, never a mutable status column |
-| **5b** | The floor number is **deferred with a named owner**. **`DATA_RETENTION_ARCHIVE_DAYS = 90` is NOT ratified** |
+| **5b** | The floor number is **deferred with a named owner**. **`DATA_RETENTION_ARCHIVE_DAYS = 90` stays unratified** *(this row read "twenty times below the five-year statutory floor" — **retracted by `D-115`**: the floor governs disposal, 90 days governs archival, and the two were compared as if they measured the same act. It is unratified because nobody put it to the Chief Editor, `A6`)* |
 | **`C-12`** | `publication_targets` rows are created **eagerly at approval** |
 | **`NFR-02`** | *"never deleted"* is restated per audit Step 6 |
 
@@ -6710,3 +6717,134 @@ see the demonstration above.
 Writes no migration and applies no schema. **Lane A does not write `0002`** — `supabase/` is Lane
 B's. `0001_init.sql` untouched. **No lane is selected and no boundary edit is performed**; Lane A
 remains `Active`. `C-26`, `C-27`, `C-28` are unchanged and unclosed.
+
+---
+
+## 5.14bv `D-115` — GRC's Terminus Is Archival; Archival and Disposal Are External
+
+**Judge rulings, 2026-08-25, cross-referencing `Modular_PRD` §6.3's retention sentence against
+`C-31`.** Narrows `C-31` from three questions to one, resolves §6.3's sentence, **retracts a claim
+`D-114` made about `DATA_RETENTION_ARCHIVE_DAYS`**, and opens three gaps the cross-reference
+surfaced.
+
+### The rulings
+
+| | Ruling |
+|---|---|
+| **GRC's terminus** | **GRC on retraction binds data while it is in the CURRENT set.** Archival ends its reach — an archived article cannot be retracted through the publication flow, because retraction and amendment are acts *on current work* |
+| **Archival and disposal are EXTERNAL** | Both are operations on the Supabase/Postgres substrate, **not product behaviour**. The application neither archives nor disposes |
+| **`DATA_RETENTION_ARCHIVE_DAYS = 90`** | The **external archival period**. It is a boundary in an outside process, **not a disposal date** |
+| **Disposal** | Derives from the **three-regime classification**, per class — and is also external |
+| **Retraction of data no longer in the system** | **BACKLOG FEATURE.** Deferred, not designed. `G87` |
+
+### `D-114` claimed 90 days was twenty times below the statutory floor. **Retracted.**
+
+**The comparison is category-wrong, not merely arguable.** The five-year floor governs **disposal**;
+90 days governs **archival**, and under this ruling archival is an external state boundary that
+disposes of nothing. **Comparing them is comparing a move to a deletion.**
+
+**And the corpus already disagreed with itself about which the variable was** — `D-114` picked one
+side without noticing there were two:
+
+| Source | Reads `DATA_RETENTION_ARCHIVE_DAYS` as |
+|---|---|
+| `blueprint.md` `A6`, `D8` | **Auto-archive** — the same mechanism as *"Discovered items auto-archived after 48 hours"*. A workflow move |
+| Audit **Step 9** | *"Set at or above the statutory floor"* — a **disposal** threshold |
+
+> **Step 9 contradicts itself in one sentence.** It says *set it at or above the statutory floor*
+> **and** *redefine "archived" as retrievable rather than deleted* — **and a period that disposes of
+> nothing has no reason to meet a disposal floor.** Recorded as `G86`.
+
+**Retracted at all three sites that carried it**: §5.14bu's ruling table, `V1-BUILD-SPEC.md` S1 item
+5, and `Modular_PRD` §6.3. **The value stays unratified** — that was and remains correct, for the
+different reason that no one has put it to the Chief Editor (`DECISION_LOG.md`, `A6`).
+
+### §6.3's retention sentence — resolved, and it was less wrong than it looked
+
+**The audit model §5.1 objected that archiving rejected work *"breaks the audit chain precisely
+where it is most interesting."* That objection was against archiving-as-DELETION.** With archival
+defined as *moved, still retrievable*, it dissolves:
+
+| Clause | Under this ruling |
+|---|---|
+| *"rejected and archived after `DATA_RETENTION_ARCHIVE_DAYS`"* | **Correct.** Rejected work was never published, so no retraction can ever apply to it, and GRC never attaches. Archival moves it; retrievability preserves the chain |
+| *"published kept indefinitely"* | **Correct, and load-bearing.** Published work stays current, so **GRC always attaches and retraction is always possible** |
+| *"`workflow_transitions` never deleted"* | Already restated by `D-114` |
+
+> **So the status-varying rule is not a defect. It is the correct expression of two regimes with
+> different reach** — and `C-31` was opened on the assumption that it was a defect. **The
+> assumption was wrong and the condition was still worth opening**, because the reasoning that
+> dissolves it did not exist until this cross-reference was performed.
+
+### `C-31` narrows to one question
+
+| | Was | Now |
+|---|---|---|
+| **q1** — does the statutory floor reach editorial-flow data? | Open | **Still open.** `D-42` assigns editorial flow to *"Statutory and GRC"*; Step 6 scopes that floor to *"financial and accounting records"*, and editorial flow is not one |
+| **q2** — does GRC retention get a terminus? | Open | ✅ **Ruled: archival** |
+| **q3** — does either answer change `0002`? | Provisional *no* | ✅ **Demonstrated no.** Archival and disposal are **external**, so neither act is in the product's surface at all |
+
+**q3 is now stronger than "non-blocking".** It is not that `0002` can be written before the answer;
+it is that **the acts the answer governs happen outside the system entirely** — the same shape as
+`AC-12`, where an infrastructure duty cannot be discharged in product code (`D-39`).
+
+### Three gaps the cross-reference surfaced
+
+**`G86` — "archived" is used in governed tiers and defined in none.** `Modular_PRD` §6.3 and
+`AC-12a` both turn on it; audit Step 9 instructed the definition — *"redefine 'archived' as
+retrievable rather than deleted"* — **and that redefinition was never performed in any governed
+document.** The word has carried two meanings the whole time, which is what let Step 9 contradict
+itself. **Fixed here**: defined in §6.3.
+
+**`G87` — a retraction order for an article no longer in the current set has no path.** Named by
+the Chief Editor and **deferred as a backlog feature**. Its trigger condition is worth stating
+precisely, because it did not exist a day ago:
+
+> **`D-114` created it.** While `NFR-02` read *"never deleted"*, a published article never left the
+> current set and retraction was always reachable. `D-114` restated that as *"not less than the
+> statutory period; disposal only under a documented, approved policy"* — **so disposal became
+> permissible, and a retraction order arriving afterwards has nothing to act on.**
+
+**Not a defect in `D-114`** — the restatement was correct and the old wording promised a permanence
+the law does not require. **The gap is the honest consequence of stopping the lie**, and it is
+recorded rather than absorbed. **Not v1**: it needs a path for work never triggered from this
+system, which is a different intake shape.
+
+**`G88` — nothing tells the product that an external archival happened.** `AC-12a` is a **`[V1]`**
+criterion requiring the audit surface to state that records *"existed and are no longer
+retrievable"*, naming **the policy and version, the period, and the archive location.** **The
+product holds none of those facts**, and under this ruling the act that produces them happens
+outside it.
+
+> **This is `G46`'s shape exactly** — *"retention class depends on a fact the product does not
+> hold"* — one tier down, and `G46` was resolved by ruling that the fact must be **supplied to** the
+> product rather than inferred by it. **The mechanism already exists on paper and was never
+> adopted**: the audit model §6.3's **disposal record** — written *before* the act, stored outside
+> the table it describes, itself immutable, naming scope, period, policy version, authorizing party,
+> date, mechanism and archive location. **It is the second unadopted §-section this thread has
+> found**, after §5.3.
+
+### Gaps and conditions
+
+**Opened:** `G86` *(closed in this pass)*, `G87` *(backlog, not v1)*, `G88`.
+**Narrowed:** `C-31` — q2 ruled, q3 demonstrated, **q1 alone remains.**
+**Unchanged:** `G40` — `C-31` q1 still carries it. `G41` — `G88` is its unmet dependency.
+**Retracted:** `D-114`'s floor comparison, at all three sites.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| GRC terminus ruled | ✅ §5.14bv, `C-31` | **— unaffected: no sequence or artifact moves** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §6.3 retention resolved |
+| Archival/disposal external | ✅ §5.14bv | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §6.3 |
+| **Floor comparison retracted** | ✅ §5.14bv, §5.14bu | ✅ **S1 item 5 row corrected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **§6.3 corrected** |
+| `G86` opened and closed | ✅ §5.14bv, §5.1 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **§6.3 defines "archived"** |
+| `G87` backlog | ✅ §5.14bv, §5.1 | **— unaffected: it is not v1 work and sequencing it would claim otherwise** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: no v1 requirement changes** |
+| `G88` opened | ✅ §5.14bv, §5.1 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `AC-12a` is unchanged; what is missing is its input, and naming a mechanism here would decide `G88` rather than open it** |
+
+### Scope limits
+
+**Adopts no disposal record and designs no backlog feature.** `G87` and `G88` are opened, not
+solved. No migration, no schema, no lane selected, no phase closed. `0001_init.sql` untouched.
+**`0002`'s authorization is unaffected** — it was unconditional before this decision and remains so.
+`C-26`, `C-27`, `C-28` unchanged.
