@@ -1,0 +1,182 @@
+{
+  "_comment": "Fragment 72 — D-117: the boundary as two preserved facts; an owed document routed as a decision; the evidence field nothing reads; the suite that would have broken on the event it protects. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d117_the_boundary_kept_both_facts",
+      "label": "D-117 — The Boundary Recorded Both Facts, Not the Final Value",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "source_location": "§5",
+      "description": "A handover is two events: the running lane completing and releasing the lock, and the decision-maker selecting the next one. They landed in one commit and the record keeps them apart.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The check that guards the lock reads the current state only, so it could never distinguish a release from a selection. Writing only the final value would have destroyed the difference at the one moment it matters."
+    },
+    {
+      "id": "an_asserted_authorisation_that_had_not_happened",
+      "label": "An Entry Asserted an Authorisation That Had Not Happened",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-038-judge-selected-lane-b-active.md",
+      "source_location": "Evidence",
+      "description": "A build lane recorded a decision-maker's selection as evidence when what existed was a statement that the selection was available. Nothing in the apparatus reads that field, and acting on it would have moved the lock.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The lane behaved correctly at every operational step - it raised an entry and did not begin. What stopped the error was the orchestration lane asking the decision-maker rather than reading the file, which is a person acting as the control because no check can verify a claim about something said outside the repository."
+    },
+    {
+      "id": "an_owed_document_routed_as_a_decision",
+      "label": "An Owed Document Routed as a Decision",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-039-c32-business-retention-policy-decision-packet.md",
+      "source_location": "packet",
+      "description": "The obligation now sits with the business, which has no lane, no surface and no channel. Expressing the owed document as a decision request made it routable through the existing feedback directory.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The channel worked at a boundary nobody designed it for, and the receiving documents are already watched by the source sweep, so the obligation is trackable without inventing a second mechanism."
+    },
+    {
+      "id": "a_packet_edited_on_its_way_up_is_legislating_upward",
+      "label": "A Packet Edited on Its Way Up Is Legislating Upward in Slower Motion",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bx",
+      "description": "The decision packet was routed to the business unchanged. Three of its points corrected the orchestration lane rather than the other way round, including one that reconciles rows two earlier decisions had both missed.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Choosing the policy is the business's act. Revising the packet before sending it would be the product tier deciding the content by degrees, which is the failure the re-tiering was performed to prevent."
+    },
+    {
+      "id": "a_suite_that_breaks_on_the_event_it_protects",
+      "label": "A Suite That Would Have Broken on the Event It Protects",
+      "file_type": "concept",
+      "source_file": "scripts/fixtures/suites.mjs",
+      "source_location": "lane state",
+      "description": "Every negative test for the lock named a specific lane, silently assuming one of them held it. At the first handover three of them would have kept passing while testing something other than what their names claim.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The lesson had already been drawn once - target structure rather than a live value - and had been applied to the documents the fixtures mutate but not to the identity written inside them. Fixed before the handover rather than discovered after it."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d117_the_boundary_kept_both_facts",
+      "target": "d108_lock_is_a_state_machine",
+      "relation": "applies",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "confidence_score": 1,
+      "source_location": "§5",
+      "weight": 1
+    },
+    {
+      "source": "d117_the_boundary_kept_both_facts",
+      "target": "the_lock_table_is_the_lock",
+      "relation": "resolves",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "confidence_score": 1,
+      "source_location": "§5",
+      "weight": 1
+    },
+    {
+      "source": "an_asserted_authorisation_that_had_not_happened",
+      "target": "d117_the_boundary_kept_both_facts",
+      "relation": "found_by",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-038-judge-selected-lane-b-active.md",
+      "confidence_score": 1,
+      "source_location": "Evidence",
+      "weight": 1
+    },
+    {
+      "source": "an_asserted_authorisation_that_had_not_happened",
+      "target": "arrival_not_correctness_is_apparatus_wide",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bx",
+      "weight": 1
+    },
+    {
+      "source": "an_owed_document_routed_as_a_decision",
+      "target": "a_scope_key_with_no_change_request_is_the_business_s",
+      "relation": "implements",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-039-c32-business-retention-policy-decision-packet.md",
+      "confidence_score": 1,
+      "source_location": "packet",
+      "weight": 1
+    },
+    {
+      "source": "an_owed_document_routed_as_a_decision",
+      "target": "d116_the_product_owns_only_the_absence",
+      "relation": "serves",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bx",
+      "weight": 1
+    },
+    {
+      "source": "a_packet_edited_on_its_way_up_is_legislating_upward",
+      "target": "an_owed_document_routed_as_a_decision",
+      "relation": "governs",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bx",
+      "weight": 1
+    },
+    {
+      "source": "a_packet_edited_on_its_way_up_is_legislating_upward",
+      "target": "d117_the_boundary_kept_both_facts",
+      "relation": "recorded_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bx",
+      "weight": 1
+    },
+    {
+      "source": "a_suite_that_breaks_on_the_event_it_protects",
+      "target": "d117_the_boundary_kept_both_facts",
+      "relation": "precondition_of",
+      "confidence": "CURATED",
+      "source_file": "scripts/fixtures/suites.mjs",
+      "confidence_score": 1,
+      "source_location": "lane state",
+      "weight": 1
+    },
+    {
+      "source": "a_suite_that_breaks_on_the_event_it_protects",
+      "target": "a_check_that_cannot_fail",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bx",
+      "weight": 1
+    }
+  ]
+}
