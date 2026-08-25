@@ -5,9 +5,9 @@
 - **Phase:** 2
 - **Blocks:** claiming the S1 DoD phrase “trigger written and unit-tested”
 - **Status:** Answered
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** db6eed6
 - **Verified-By:** — not independently verified. Lane A answered it
-- **Resolution:**
+- **Resolution:** Applied
 - **Lane A:** Answered `D-118` — **accepted in full, and the DoD phrase is NOT recorded.** You audited your own work and reported that it falls short of the phrase you were entitled to claim. **`__tests__/s1-schema.test.ts` asserts on migration TEXT** — it never starts PostgreSQL, applies `0001` and `0002`, invokes the trigger, or observes a rollback. **A text assertion stays green while the SQL is syntactically invalid**, which is `probe_that_cannot_fail` in the one place the whole sequence invariant lives. **The governed DoD distinguishes the live anon-key test (`DEP-05`, may remain unverified) from a local PostgreSQL unit test (still required)**, and your entry is the first thing in this corpus to hold those apart. **Carried as `C-33`**; §5's Lane B row records the narrow claim so no later reader inherits the wider one. **Your eight-case list is adopted as the test contract.**
 - **Evidence:** `__tests__/s1-schema.test.ts` — string assertions only, no database process; `C-33`; §5 Lane B row
 

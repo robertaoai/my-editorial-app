@@ -1,0 +1,182 @@
+{
+  "_comment": "Fragment 73 — D-118: the fourth boundary; a gap asserted past its source and withdrawn; a lane auditing its own work down; a tier column nothing could verify. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d118_the_outgoing_lane_reported_itself_out",
+      "label": "D-118 — The Outgoing Lane Reported Itself Out",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "source_location": "§5",
+      "description": "The fourth handover was performed as its procedure is written: the lane finishing the work filed its own transfer report at the moment it handed back, rather than having its turn reconstructed afterwards by whoever came next.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Every earlier handover had the incoming lane describe the outgoing one's turn in its own words, which is a recorded defect. Nothing can compel the step; it worked because the lane performed it."
+    },
+    {
+      "id": "a_gap_asserted_past_its_own_source",
+      "label": "A Gap Asserted Past Its Own Source",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14by",
+      "description": "A gap claimed that a status vocabulary's members were listed nowhere in the corpus. They are listed twice, in governing documents that the search which opened the gap never covered.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The sweep covered the product and behaviour tiers and skipped the governing source directory, which is exactly where a business vocabulary would be defined. The register's own countermeasure names this: before recording a conflict, check whether the existing structure already resolves it."
+    },
+    {
+      "id": "the_build_lane_corrected_the_governing_tier",
+      "label": "The Build Lane Corrected the Governing Tier",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-042-publication-event-vocabulary-governed-sync.md",
+      "source_location": "finding",
+      "description": "Implementing against a recorded gap, the build lane used the approved vocabulary from the higher-precedence document and reported that the register contradicted it, rather than encoding the register's error into schema.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The values were propagated citing the approved source rather than the migration, so the schema is not later read as the origin of a business vocabulary that already had one."
+    },
+    {
+      "id": "a_lane_audited_its_own_claim_downward",
+      "label": "A Lane Audited Its Own Claim Downward",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-044-s1-trigger-has-static-not-postgres-test.md",
+      "source_location": "finding",
+      "description": "The lane that wrote the migration reported that its test asserts on migration text and never starts a database, so the completion phrase it was entitled to claim is not earned.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A text assertion stays green while the statements are syntactically invalid, in the one place the core sequence invariant lives. It also separates two unverified things that had been conflated: withheld live credentials, which may stay unverified, and a local database test, which needs none and is still required."
+    },
+    {
+      "id": "a_document_in_no_coupling_set_is_unverifiable",
+      "label": "A Document in No Coupling Set Is Unverifiable by Construction",
+      "file_type": "concept",
+      "source_file": "scripts/checks/tier-sweep.mjs",
+      "source_location": "tier map",
+      "description": "The phase-closure tracking file is the subject of routine propagation claims and belonged to no coupling set. The sweep had no mapping for its column, and the omission stayed invisible because the check only fails on an affirmative claim and every prior decision had written 'unaffected' there.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The same file's boundary procedure had drifted to a retired entry shape while the four documents that ARE coupled all agreed, which is the same absence one check over. Mapping it caught a real omission on its first run."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d118_the_outgoing_lane_reported_itself_out",
+      "target": "d117_the_boundary_kept_both_facts",
+      "relation": "follows",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "confidence_score": 1,
+      "source_location": "§5",
+      "weight": 1
+    },
+    {
+      "source": "d118_the_outgoing_lane_reported_itself_out",
+      "target": "d108_lock_is_a_state_machine",
+      "relation": "applies",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "confidence_score": 1,
+      "source_location": "§5",
+      "weight": 1
+    },
+    {
+      "source": "a_gap_asserted_past_its_own_source",
+      "target": "d118_the_outgoing_lane_reported_itself_out",
+      "relation": "withdrawn_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14by",
+      "weight": 1
+    },
+    {
+      "source": "a_gap_asserted_past_its_own_source",
+      "target": "a_count_with_no_members",
+      "relation": "supersedes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14by",
+      "weight": 1
+    },
+    {
+      "source": "the_build_lane_corrected_the_governing_tier",
+      "target": "a_gap_asserted_past_its_own_source",
+      "relation": "found",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-042-publication-event-vocabulary-governed-sync.md",
+      "confidence_score": 1,
+      "source_location": "finding",
+      "weight": 1
+    },
+    {
+      "source": "a_lane_audited_its_own_claim_downward",
+      "target": "probe_that_cannot_fail",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-044-s1-trigger-has-static-not-postgres-test.md",
+      "confidence_score": 1,
+      "source_location": "finding",
+      "weight": 1
+    },
+    {
+      "source": "a_lane_audited_its_own_claim_downward",
+      "target": "d118_the_outgoing_lane_reported_itself_out",
+      "relation": "accepted_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14by",
+      "weight": 1
+    },
+    {
+      "source": "a_document_in_no_coupling_set_is_unverifiable",
+      "target": "g65_sweep_checks_arrival_not_correctness",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/tier-sweep.mjs",
+      "confidence_score": 1,
+      "source_location": "tier map",
+      "weight": 1
+    },
+    {
+      "source": "a_document_in_no_coupling_set_is_unverifiable",
+      "target": "d118_the_outgoing_lane_reported_itself_out",
+      "relation": "closed_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14by",
+      "weight": 1
+    },
+    {
+      "source": "a_document_in_no_coupling_set_is_unverifiable",
+      "target": "a_derived_tier_made_a_first_version_commitment",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14by",
+      "weight": 1
+    }
+  ]
+}

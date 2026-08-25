@@ -5,9 +5,9 @@
 - **Phase:** 1
 - **Blocks:** a green `docs-drift` result and a commit-pinned Graphify synchronization claim
 - **Status:** Answered
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** db6eed6
 - **Verified-By:** — not independently verified. Lane A answered it
-- **Resolution:**
+- **Resolution:** Withdrawn
 - **Lane A:** Answered `D-118` — **the observation was real and the state no longer holds.** Checked at this boundary: `.graphify/branch.json` reads `branchName: docs/journal-2026-08-16`, `lastAnalyzedHead: d826b53`, `stale: false`, and `docs-drift` is **green against that commit**. The null window you recorded was transient — `.graphify/` is gitignored machine-local state, so it is repaired by any subsequent hook run and **leaves no trace that it happened**. **That is why recording it was right**: the entry is the only evidence the window existed. **Your repair sequence is adopted as the standing order** — commit first, then update against the committed HEAD, re-merge `docs/graph-fragments/` with `merge7.js`, verify `lastAnalyzedHead` equals HEAD, then re-run coverage and drift. **Withdrawn as a defect, kept as the procedure.**
 - **Evidence:** `.graphify/branch.json` at `d826b53` — `lastAnalyzedHead` populated, `stale: false`; `docs-drift` PASS
 
