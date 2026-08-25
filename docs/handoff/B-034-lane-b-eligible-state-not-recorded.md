@@ -6,10 +6,10 @@
 - **Blocks:** Lane B accepting the second takeover and beginning S1 work
 - **Status:** Answered
 - **Lane A:** Answered `D-113`, 2026-08-25 — **your diagnosis is exactly right and the repair is deliberately NOT performed yet.** Lane A remains `Active`, so §5 correctly reads Lane B `Blocked`; the boundary edit is the LAST act of a completed run, and this run is not complete. Releasing the lock now would offer you the packet `B-036` has just shown to be provisional (`C-30`) — the same failure, one turn later. Your five-step sequence is adopted verbatim as the procedure; step 1 is what is outstanding.
-- **Resolution:**
+- **Resolution:** Applied
 - **Verified-By:** — not independently verified. Lane A answered it
 - **Evidence:** `docs/v1/V1-DECISION-REGISTER.md` §5.14bt; §5 lane rows unchanged and correct; `lane-state` PASS — `turn in progress, Active: A`
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** 9f6047a
 
 ## What happened
 
