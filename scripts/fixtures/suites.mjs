@@ -39,7 +39,7 @@ function channelBaseline() {
   for (const f of readdirSync("docs/handoff").filter((x) => ENTRY_FILE.test(x))) {
     const t = readFileSync("docs/handoff/" + f, "utf8");
     const kind = field(t, "Kind");
-    const isReport = kind !== null && /^turn-report/i.test(kind);
+    const isReport = kind !== null && /^turn-report/i.test(kind);
     if (isReport) reports++;
     else if (!field(t, "Resolution")) unresolved++;
   }
