@@ -1,0 +1,112 @@
+{
+  "_comment": "Fragment 80 — D-124's three raising entries, anchored to their own files so the coverage check can see them. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "verification_withheld_on_a_claimed_propagation",
+      "label": "Verification Withheld on a Propagation That Was Claimed But Not Made",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-054-d123-claims-phase-closure-propagation-not-applied.md",
+      "source_location": "spec defect",
+      "description": "The reviewing lane accepted a decision's ruling while refusing to confirm the propagation it declared, having checked the named commit and found the target file untouched.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Accepting a ruling and verifying its propagation are separate acts, and separating them is what surfaced a false tier claim that the sweep had passed. The live phase record, not the register, is what a reader consults for current lane state."
+    },
+    {
+      "id": "the_legacy_entries_demonstrated_the_passing_shape",
+      "label": "The Legacy Entries Demonstrated the Shape That Passes",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-055-turn-report-run-field-is-required-only-in-prose.md",
+      "source_location": "spec defect",
+      "description": "Two older reports carried no run identifier and passed every check, so the corpus contained a working example of the omission a new rule was supposed to forbid.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A rule contradicted by a passing example in the same repository will be copied rather than followed. Assigning identifiers to the legacy reports removed the counterexample at the same time as the check began requiring the field."
+    },
+    {
+      "id": "a_shape_adopted_without_a_control_can_regress",
+      "label": "A Shape Adopted Without a Control Can Regress Silently",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-056-turn-report-closure-field-omission-is-unenforced.md",
+      "source_location": "spec defect",
+      "description": "Files and prose were normalized to one metadata shape while nothing could detect a violation, because the value parser maps a blank field and an absent field to the same result by design.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The entry narrowed its own predecessor's prospective claim to the current, narrower failure. Detecting presence rather than value is what the repair required, and the field list it inherited turned out to condemn the canonical exemplar."
+    }
+  ],
+  "edges": [
+    {
+      "source": "verification_withheld_on_a_claimed_propagation",
+      "target": "a_fallback_accepted_a_pre_existing_mention",
+      "relation": "found",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-054-d123-claims-phase-closure-propagation-not-applied.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    },
+    {
+      "source": "verification_withheld_on_a_claimed_propagation",
+      "target": "a_condition_outlived_its_own_named_evidence",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-054-d123-claims-phase-closure-propagation-not-applied.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    },
+    {
+      "source": "the_legacy_entries_demonstrated_the_passing_shape",
+      "target": "a_required_key_implemented_as_optional",
+      "relation": "found",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-055-turn-report-run-field-is-required-only-in-prose.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    },
+    {
+      "source": "a_shape_adopted_without_a_control_can_regress",
+      "target": "a_rule_that_condemned_its_own_exemplar",
+      "relation": "found",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-056-turn-report-closure-field-omission-is-unenforced.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    },
+    {
+      "source": "a_shape_adopted_without_a_control_can_regress",
+      "target": "two_shapes_for_one_semantic_kind_checked_equivalent",
+      "relation": "recurrence_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-056-turn-report-closure-field-omission-is-unenforced.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    },
+    {
+      "source": "a_shape_adopted_without_a_control_can_regress",
+      "target": "a_rule_in_prose_with_the_control_deferred",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-056-turn-report-closure-field-omission-is-unenforced.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    }
+  ]
+}
