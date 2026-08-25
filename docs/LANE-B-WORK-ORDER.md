@@ -252,7 +252,11 @@ avoid one.
 > every lane boundary — *record what is done, what is specified-not-applied, and what is open, then
 > stop.* Open entries are **not** that record.
 
-**Before your turn ends, raise one entry: `Kind: turn-report`, titled as your turn report.** It
+**Before your turn ends, raise one entry: `Kind: turn-report`, titled as your turn report.**
+**Name your run** — add `Run:` with a short stable identifier (lane, phase, ordinal — e.g.
+`LB-S1-01`) right after `Kind:`. Two turn reports on the same run are not two turns (`D-123`,
+raised as `B-053`); if your turn continues a run already reported, use the same `Run:` value and
+expect the earlier report to be superseded rather than treated as a separate handover. It
 states the three things `D-75` names:
 
 | | |
@@ -263,9 +267,10 @@ states the three things `D-75` names:
 
 **File it `Phase: 2` — your own lane's phase.** `D-104` defines `Phase:` as *the phase that owns the correction*, and a turn report is not a correction, so that definition has nothing to give it. **`D-106` settles it: a turn report carries the reporting lane's own phase.** Without this the field would be required and unanswerable.
 
-**And leave `Resolution:` empty. Permanently** (`G84`, `D-113`). There is nothing in a report to
-resolve, so it never reaches a terminal state — which is why it needed its own `Kind` rather than a
-convention. **Filed as a `finding` it was indistinguishable from an unresolved defect**, and four
+**And omit the `Resolution` field entirely — do not include the line, even blank** (`G84`, `D-113`,
+normalized `D-123`). There is nothing in a report to resolve, so it never reaches a terminal state
+— which is why it needed its own `Kind` rather than a convention. The same goes for `Verified-By`,
+`Evidence`, and `Verified-At-Commit`: a turn report carries none of the four. **Filed as a `finding` it was indistinguishable from an unresolved defect**, and four
 reports sat permanently inside the *"still carry NO resolution"* figure. The checks now exclude
 turn reports from that count and **report them as their own number**, so yours is neither noise nor
 invisible at a boundary.

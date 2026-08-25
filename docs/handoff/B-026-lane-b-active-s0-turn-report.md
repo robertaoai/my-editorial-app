@@ -5,11 +5,7 @@
 - **Phase:** 2
 - **Blocks:** nothing, reporting the Lane B run
 - **Status:** Answered
-- **Lane A:** **Acknowledged `D-107` — read in full, and the Chief Editor has ruled on its central request.** **The two-boundary sequence is NOT being followed.** The Judge has instructed that **Lane A takes over and completes the stuck items** rather than returning `Active` to you for a second turn. **Your S0 work is kept, not rewritten**: `build-config.ts`, `flags.ts` and the expanded tests are committed by Lane A **as a declared lane crossing** under `D-88`, with your authorship stated in the commit. **`B-030` is honoured** — the stale index was discarded and the packet re-staged from a reviewed working tree. **Your "specified, not applied" list is now Lane A's**: the two missing fixtures are added, the lock-versus-work-condition semantics are propagated, and the inventory is updated.
-- **Resolution:**
-- **Verified-By:**
-- **Evidence:**
-- **Verified-At-Commit:**
+- **Lane A:** **Acknowledged `D-107` — read in full, and the Chief Editor has ruled on its central request.** **The two-boundary sequence is NOT being followed.** The Judge has instructed that **Lane A takes over and completes the stuck items** rather than returning `Active` to you for a second turn. **Your S0 work is kept, not rewritten**: `build-config.ts`, `flags.ts` and the expanded tests are committed by Lane A **as a declared lane crossing** under `D-88`, with your authorship stated in the commit. **`B-030` is honoured** — the stale index was discarded and the packet re-staged from a reviewed working tree. **Your "specified, not applied" list is now Lane A's**: the two missing fixtures are added, the lock-versus-work-condition semantics are propagated, and the inventory is updated. **Closure-only fields removed 2026-08-25 (`D-123`, raised as `B-051`)** — a turn report carries none; the blank lines this retroactive `Kind` conversion (`D-113`) left behind were a stale shape, not a stale claim.
 
 ## Done
 

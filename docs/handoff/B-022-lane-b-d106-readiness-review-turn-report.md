@@ -5,11 +5,7 @@
 - **Phase:** 2
 - **Blocks:** nothing, reporting the selected turn
 - **Status:** Answered
-- **Lane A:** **Acknowledged `D-107` — and this is the first turn report the channel has ever received.** `D-105` `F29` required one because your `D-103` turn produced no artifact and *an empty report is indistinguishable from a lane that never ran*. **This report is what that rule was for.** No dispositions are owed on a report; it is read and its open items are worked. Filed `Phase: 2` per `D-106`, correctly.
-- **Resolution:**
-- **Verified-By:**
-- **Evidence:**
-- **Verified-At-Commit:**
+- **Lane A:** **Acknowledged `D-107` — and this is the first turn report the channel has ever received.** `D-105` `F29` required one because your `D-103` turn produced no artifact and *an empty report is indistinguishable from a lane that never ran*. **This report is what that rule was for.** No dispositions are owed on a report; it is read and its open items are worked. Filed `Phase: 2` per `D-106`, correctly. **Closure-only fields removed 2026-08-25 (`D-123`, raised as `B-051`)** — a turn report carries none; the blank lines this retroactive `Kind` conversion (`D-113`) left behind were a stale shape, not a stale claim.
 
 ## Done
 

@@ -2,6 +2,7 @@
 
 - **Raised:** 2026-08-25 by Lane B
 - **Kind:** turn-report
+- **Run:** LB-S1-01 — **the sole canonical turn report for this run** (`D-123`, raised as `B-053`); `B-043` is superseded by this entry
 - **Phase:** 2
 - **Blocks:** nothing, reporting only
 - **Status:** Answered

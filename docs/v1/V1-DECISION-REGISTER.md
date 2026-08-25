@@ -2485,6 +2485,8 @@ owner.
 
 **Closes when the next Lane B turn ends with a report.** If Lane B never runs again, **`C-28` is the record that a turn was granted and nothing came back** — which is the fact worth keeping.
 
+**CLOSED 2026-08-25 (`D-123`, raised as `B-052`).** `B-047` is that report, filed at the boundary `D-118` performed. The historical fact is unchanged and restated, not replaced: `D-103`'s turn produced no handover, and no `D-103` report was created retroactively. What closed is the forward condition — a later turn did come back. See §5.14cd.
+
 ### `C-27` — the Sprint boundary is becoming a per-task toggle
 
 **Opened by `D-104`. Phase: the operating model.** Two boundaries were declared in one day and the first produced no commits. **The mechanism is being used to switch who may edit, rather than to mark a cycle.**
@@ -5815,7 +5817,7 @@ found a restated tally in **each** work order, **one of them written by `D-103`.
 
 | | |
 |---|---|
-| **`C-28`** | **Lane B's `D-103` turn has no handover.** It cannot be produced retroactively. **Carried, not closed** — the next Lane B turn ends with a report under the amended §5, and `C-28` closes when one exists. If Lane B never runs again, `C-28` is the record that a turn was granted and nothing came back |
+| **`C-28`** | **CLOSED 2026-08-25 (`D-123`).** Lane B's `D-103` turn has no handover and none is created retroactively — that absence remains the historical record. The forward condition this row carried ("closes when the next Lane B turn ends with a report") is satisfied by `B-047` at the `D-118` boundary; see §5.14cd |
 
 ### Gaps opened
 
@@ -7609,3 +7611,105 @@ stale work order, because **neither is a claim any check reads.**
 **Edits no migration and no test.** `0002`'s index removal remains **specified, not applied** —
 `supabase/` is Lane B's. Approves no retention value; `C-32` untouched. No lane selected, no phase
 closed, **and no journal rewritten**.
+
+---
+
+## 5.14cd `D-123` — One Canonical Report Per Run; `C-28` Closes on `D-118`/`B-047`
+
+**Lane A correction, 2026-08-25, answering `B-051`, `B-052` and `B-053`.** All three trace to one
+root: the corpus never named which record is authoritative when more than one document could claim
+the same event. **Parent-first, because `B-052`'s repair is not writable until `B-053`'s is.**
+
+### Parent — `B-053`: two turn reports, one run
+
+**`B-043` and `B-047` were both committed at `d826b53` and both acknowledged at the one boundary
+`D-118` records for `LB-S1-01`.** Contemporaneous is not independent: no release or Chief Editor
+selection separates them, and the work order requires **one** entry before a turn ends. `B-047`
+supersedes `B-043` in substance — it includes the same work, adds the review findings (`B-044`,
+`B-045`, `B-046`), and is the entry that actually requests the boundary.
+
+> **`B-047` is designated the sole canonical `turn-report` for `LB-S1-01`.** `B-043` is
+> **reclassified `Kind: finding`, `Resolution: Superseded`, `Superseded-By: B-047`** — the historical
+> file, its raised date, its author, and its "What happened" narrative are untouched; only the
+> routing fields change, the same scope `D-113`'s retroactive `finding → turn-report` conversion
+> used on `B-022`/`B-026`. **A reclassification is not a rewrite when the narrative survives it.**
+
+**Every future turn report names its run.** A `Run:` field is added to `TEMPLATE.md` and
+`docs/handoff/README.md`, required for `Kind: turn-report` only. `B-047` gains `Run: LB-S1-01`
+retroactively as the worked example; `B-043` gains it too, so the superseded record still states
+what it was contemporaneous with.
+
+**A channel check now rejects two live canonical turn reports naming the same run.**
+`handoff-response.mjs` reads `Run:` on every `turn-report` entry and flags a second one whose
+`Resolution` is not `Superseded`/`Withdrawn`. It cannot detect a **missing** `Run:` on legacy
+entries as an error — `B-022` and `B-026` predate the field and report different runs (`D-103`'s
+empty turn and the later S0 worktree turn) by narrative alone — so the check only fires the
+duplicate case, and only among entries that carry the field.
+
+### Child — `B-052`: `C-28` never closed against its own named evidence
+
+**`C-28`'s own closure rule** (§5.14bm, restated at line 2486) **is: "closes when the next Lane B
+turn ends with a report."** `B-047` is that report, filed at the boundary `D-118` performed. The
+register nonetheless still carried `C-28` as unchanged through `D-119`–`D-122` — four passes past
+its own qualifying event.
+
+> **`C-28` is CLOSED, 2026-08-25, on `D-118`/`B-047`.** The historical fact it protects is
+> unchanged and restated, not replaced: **`D-103`'s turn produced no handover, and no `D-103`
+> report is created retroactively — the absence stays the evidence.** What changes is that the
+> **forward condition** — "and nothing came back" — is no longer true. `B-047` is what came back,
+> two turns later, at the first boundary the outgoing lane itself requested.
+
+**Both facts are kept, and they are not the same fact.** The closure line at §5.14bm (line 2486)
+gains a dated closure note rather than an edit to its own claim; the condition table entry
+(line 5818, `D-119`'s carry-forward) is updated from "unchanged" to "closed" here, not silently
+left to read stale the way `B-045` found the boundary procedure and `B-048` found the Build Spec.
+
+### `B-051`: two shapes for one semantic kind
+
+**`D-113` changed `B-022` and `B-026` from `Kind: finding` to `Kind: turn-report` and changed only
+the `Kind` line.** Both still carry four blank closure-only fields (`Resolution`, `Verified-By`,
+`Evidence`, `Verified-At-Commit`); `B-043` and `B-047` — written directly as `turn-report` — omit
+them entirely. **Checked against every script that reads this channel, the two shapes are
+currently equivalent**: `handoff-fields.mjs`'s `field()` returns `null` for an absent line and for
+a blank one alike, by construction (its own header names this exactly: *"a caller asking `is this
+filled in` gets one answer, not three"*), and both `handoff-response.mjs` and `closure-readiness.mjs`
+exclude every `turn-report` from the unresolved count regardless of which shape it uses. **`B-051`'s
+"guaranteed failure" is prospective, not live — no parser here currently distinguishes them.**
+
+> **Normalized anyway, because a maintained corpus with two representations of one semantic thing
+> is the drift shape this project keeps finding under other names.** The four blank closure-only
+> fields are removed from `B-022` and `B-026`. Nothing about their `Kind`, `Phase`, `Status`,
+> narrative, or `Lane A` acknowledgement changes.
+
+**The work order's wording is corrected to match.** §5 said *"leave `Resolution:` empty.
+Permanently"* — true in effect but names a blank field where the canonical shape omits the field.
+Replaced with *"omit the `Resolution` field entirely — do not include the line."* The README's
+existing wording (*"it takes NO `Resolution`"*) already matched the omission reading and is
+unchanged.
+
+### What these three have in common
+
+**None was a defect in a check — `bun run check` was green throughout.** `B-051` is a shape
+inconsistency no script reads differently (yet); `B-052` and `B-053` are readings of prose no
+script parses at all — `C-28`'s closure rule and a report's relationship to its run are stated in
+sentences, not fields. **The apparatus verifies fields. It was Lane B, reading the register's own
+sentences against its own conditions, that found the sentence had already been satisfied.**
+
+### Gaps
+
+**None opened.** **Closed:** `C-28`, 2026-08-25, on `D-118`/`B-047` (above). **Unchanged:** `C-26`,
+`C-27`; `C-32` and its parked values; `G87`, `G88`, `G89`, `G90`, `G95`, `G96`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `B-051` | ✅ §5.14cd | **— unaffected** | **— unaffected: channel docs, not the three lane rule files — see prose above for `README.md`, `TEMPLATE.md`, `LANE-B-WORK-ORDER.md` §5** | **— unaffected: no file created or retired** | **— unaffected** | **— unaffected** |
+| `B-053` | ✅ §5.14cd | **— unaffected** | **— unaffected: channel docs and a check script, not the three lane rule files — see prose above for `README.md`, `TEMPLATE.md`, `scripts/checks/handoff-response.mjs`** | **— unaffected: no file created or retired** | **— unaffected** | **— unaffected** |
+| `B-052` / `C-28` closure | ✅ §5.14cd, line 2486 note, line 5818 updated | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5 note citing `D-123` | **— unaffected** |
+
+### Scope limits
+
+**Creates no `D-103` report, retroactively or otherwise** — the absence stays the evidence.
+**Reclassifies `B-043`'s routing fields only** — its narrative, author, and raised date are
+unedited. Approves no retention value; `C-32` untouched. No lane selected, no phase closed.

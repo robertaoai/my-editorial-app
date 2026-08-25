@@ -84,6 +84,13 @@ export function run() {
   let withdrawn = 0;
   let unresolved = 0;
   let reports = 0;
+  // `D-123`, raised as `B-053`: two turn reports for one run (`B-043`/`B-047`,
+  // both committed at `d826b53` for `LB-S1-01`) read as two turns when nothing
+  // named the run they shared. `Run:` is optional — legacy reports predate it —
+  // but when two LIVE (non-superseded/withdrawn) turn reports both name the
+  // SAME run, that is the exact duplicate this decision closed and a repeat is
+  // a channel-check failure, not a second read of the corpus.
+  const runsSeen = new Map(); // run -> path of the first live turn-report claiming it
 
   for (const file of entries) {
     const path = join(DIR, file);
@@ -111,6 +118,25 @@ export function run() {
     // unresolved backlog, and must not disappear from boundary evidence either.
     const isTurnReport = kind !== null && /^turn-report\b/i.test(kind);
     if (isTurnReport) reports++;
+
+    // `D-123`. A turn-report carries no `Resolution` by design, so a superseded
+    // one is reclassified `Kind: finding` (the `B-043` precedent) rather than
+    // marked superseded in place — which means every remaining `turn-report` is
+    // live by construction, and two of them sharing a `Run:` is unconditionally
+    // the duplicate this decision closed.
+    if (isTurnReport) {
+      const run = field(text, "Run");
+      if (run) {
+        const prior = runsSeen.get(run);
+        if (prior) {
+          findings.push(
+            `${path}: **Run:** "${run}" duplicates the canonical turn report at ${prior} — one run gets one turn report (\`D-123\`). Reclassify the earlier or later one \`Kind: finding\`, \`Resolution: Superseded\`, \`Superseded-By:\` the report that stands.`,
+          );
+        } else {
+          runsSeen.set(run, path);
+        }
+      }
+    }
 
     // `D-108`: `0 open` reads as an empty backlog. It is not — most entries are
     // answered and UNRESOLVED, which is the state `D-101` separated out.

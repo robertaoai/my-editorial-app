@@ -2,6 +2,7 @@
 
 - **Raised:** YYYY-MM-DD by Lane B | Lane C
 - **Kind:** dependency | spec-defect | blocked-on-decision | finding | turn-report
+- **Run:** <turn-report ONLY: a short stable identifier for the run this reports, e.g. `LB-S1-01`. A second live turn-report naming a run already claimed fails the channel check (`D-123`). Omit for every other `Kind`>
 - **Phase:** <1 | 2 | 3 — REQUIRED. The phase that owns the CORRECTION, not the one you work in and not the one you are blocked on; `Blocks:` already carries that. See `README.md` (`D-104`)>
 - **Blocks:** <what you cannot do until this is answered — or `nothing, reporting only`>
 - **Reopens-Phase:** <1 | 2 | 3, only if the work this needs belongs to a phase already closed — otherwise omit the line entirely>
@@ -46,10 +47,15 @@ Kinds, and what Lane A does with each:
   finding             Something true and useful that is nobody's blocker yet.
   turn-report         The record of your own turn, required at every lane boundary
                       (`D-105`). It carries YOUR lane's phase (`D-106`) and it takes NO
-                      `Resolution` — there is nothing in it to resolve. `G84`: filed as a
-                      `finding` it was indistinguishable from an unresolved defect, and four
-                      of them sat permanently in the unresolved backlog. Checks 10 and 13
-                      now count it separately rather than dropping it.
+                      `Resolution` — there is nothing in it to resolve. Omit the
+                      `Resolution`, `Verified-By`, `Evidence`, and `Verified-At-Commit`
+                      lines entirely rather than leaving them blank (`D-123`). `G84`: filed
+                      as a `finding` it was indistinguishable from an unresolved defect, and
+                      four of them sat permanently in the unresolved backlog. Checks 10 and
+                      13 now count it separately rather than dropping it. Add a `Run:` line
+                      naming your run (e.g. `LB-S1-01`) right after `Kind:` — a second live
+                      turn report naming the same run fails the channel check (`D-123`,
+                      raised as `B-053`).
 
 Resolutions, and which of them close anything:
 

@@ -98,6 +98,19 @@ leave it has stopped measuring the backlog.**
 **Do not use `turn-report` for anything you want answered.** If your turn found a defect, that is a
 separate `spec-defect` entry — the report says a turn happened, the defect asks for a fix.
 
+**A turn report names its run — `Run:` (`D-123`, raised as `B-053`).** `B-043` and `B-047` were
+both filed for the same `LB-S1-01` run and, absent anything naming that, read as two turns instead
+of one report and one superseded finding about it. Use a short stable identifier — lane letter,
+phase, and an ordinal is enough (`LB-S1-01`). **A second live `turn-report` naming a `Run:` already
+claimed by another is a channel-check failure** unless the earlier one carries
+`Resolution: Superseded` or `Withdrawn`.
+
+**A turn report carries no closure field at all — omit the line, do not leave it blank.**
+`Resolution`, `Verified-By`, `Evidence`, and `Verified-At-Commit` do not apply to a report; write
+the entry without those four lines rather than with them empty. (Two early reports, `B-022` and
+`B-026`, were retroactively converted from `finding` and kept the blank lines from that shape;
+`D-123` removed them — the shape was stale, not the claim.)
+
 **This matters because closure gating reads it.** `closure-readiness` fires only for entries filed
 against the phase being closed — see below.
 
