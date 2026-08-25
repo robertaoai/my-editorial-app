@@ -1,0 +1,112 @@
+{
+  "_comment": "Fragment 81 — D-125: the owed critic pass, and a comment header uncoupled from the code beneath it. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "the_critic_pass_owed_and_finally_run",
+      "label": "The Critic Pass Was Owed and Finally Run",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "source_location": "§6.1f",
+      "description": "After three consecutive passes each corrected the one immediately before it, the Judge asked for the standing critic pass rather than another forward pass. Run on a separate turn against the committed artifacts, it found two defects in the two most recent edits, both fixed.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The Judge's instruction to stop and audit rather than keep building is the operating model working as designed, and the pass finding real defects in the immediately preceding work is what makes it worth running rather than ceremonial."
+    },
+    {
+      "id": "a_paragraph_inserted_between_a_sentence_and_its_clause",
+      "label": "A Paragraph Inserted Between a Sentence and the Clause It Completed",
+      "file_type": "concept",
+      "source_file": "docs/LANE-B-WORK-ORDER.md",
+      "source_location": "§5",
+      "description": "A prior edit added new content in the middle of an existing paragraph rather than after it, leaving the original closing sentence stranded as a non-sequitur following unrelated text.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Confirmed against version history rather than assumed from the current text alone, which is what distinguished it from a stylistic complaint. Restored by rejoining the sentence to its explanation and giving the inserted content its own paragraph."
+    },
+    {
+      "id": "a_checks_own_header_uncoupled_from_its_code",
+      "label": "A Check's Own Header Comment Is Uncoupled From Its Own Code",
+      "file_type": "concept",
+      "source_file": "scripts/checks/handoff-response.mjs",
+      "source_location": "WHAT IT FAILS ON",
+      "description": "A check's descriptive comment listing its failure modes went stale the moment two new failure modes were added below it, because the coupling control in this apparatus binds external documents to checks and not a check's own prose about itself.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The same drift this apparatus catches everywhere else, found this time inside the artifact meant to prevent it. Left uncoupled by design rather than built into a new control, since a check verifying its own comments is not the shape of control this project builds; kept current by the reading a critic pass performs."
+    }
+  ],
+  "edges": [
+    {
+      "source": "the_critic_pass_owed_and_finally_run",
+      "target": "a_rule_in_prose_with_the_control_deferred",
+      "relation": "follows_from",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "confidence_score": 1,
+      "source_location": "§6.1f",
+      "weight": 1
+    },
+    {
+      "source": "the_critic_pass_owed_and_finally_run",
+      "target": "a_paragraph_inserted_between_a_sentence_and_its_clause",
+      "relation": "found",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "confidence_score": 1,
+      "source_location": "§6.1f",
+      "weight": 1
+    },
+    {
+      "source": "the_critic_pass_owed_and_finally_run",
+      "target": "a_checks_own_header_uncoupled_from_its_code",
+      "relation": "found",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "confidence_score": 1,
+      "source_location": "§6.1f",
+      "weight": 1
+    },
+    {
+      "source": "a_paragraph_inserted_between_a_sentence_and_its_clause",
+      "target": "a_rule_that_condemned_its_own_exemplar",
+      "relation": "recurrence_of",
+      "confidence": "CURATED",
+      "source_file": "docs/LANE-B-WORK-ORDER.md",
+      "confidence_score": 1,
+      "source_location": "§5",
+      "weight": 1
+    },
+    {
+      "source": "a_checks_own_header_uncoupled_from_its_code",
+      "target": "checks_channel_docs",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/handoff-response.mjs",
+      "confidence_score": 1,
+      "source_location": "WHAT IT FAILS ON",
+      "weight": 1
+    },
+    {
+      "source": "a_checks_own_header_uncoupled_from_its_code",
+      "target": "checks_handoff_response",
+      "relation": "implemented_in",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/handoff-response.mjs",
+      "confidence_score": 1,
+      "source_location": "WHAT IT FAILS ON",
+      "weight": 1
+    }
+  ]
+}
