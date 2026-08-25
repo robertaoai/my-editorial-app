@@ -1,0 +1,197 @@
+{
+  "_comment": "Fragment 76 — D-121: a brief identified by its own hash; a guard that cannot live in the database until identity can be trusted; three claims asserted from an incomplete sweep. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d121_a_brief_is_identified_by_its_own_hash",
+      "label": "D-121 — A Brief Is Identified by Its Own Hash, Not by Its Source",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14cb",
+      "description": "The record opened by a commission or a manual submission is the brief itself. Its identity is a hash of its own key fields, and the external thing it examines is an attribute rather than a name.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The earlier ruling had already made the record the brief. A uniqueness constraint on the external reference implemented the opposite reading, so one subject could be examined on only one occasion, ever."
+    },
+    {
+      "id": "an_occasion_is_not_its_subject",
+      "label": "An Occasion Is Not Its Subject",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "FR-01",
+      "description": "Intake carries a source reference, a subject topic and a trend signal — three attributes of one occasion. Making the source reference unique across all history turns an attribute into the identity of the occasion that carries it.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Two commissions on one source are two occasions and must be two records. The same reading also frees the source from having to be a web address at all, which a client-commissioned brief may not have."
+    },
+    {
+      "id": "a_guard_cannot_outrank_the_identity_it_keys_on",
+      "label": "A Guard Cannot Be Stronger Than the Identity It Keys On",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14cb",
+      "description": "The duplicate check refuses the same submitter raising the same brief on the same day, and it lives at the interface rather than in the database, because until authentication exists the submitter is self-asserted.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Two independent arguments reach the same layer: creation must never be blocked because a brief may always be raised manually, and a database constraint keyed on a field the system itself calls a claim would be a control resting on nothing."
+    },
+    {
+      "id": "the_mechanism_was_already_running_elsewhere",
+      "label": "The Mechanism Was Already Running Elsewhere",
+      "file_type": "concept",
+      "source_file": "docs/governance/requirements-traceability-map.md",
+      "source_location": "anchors",
+      "description": "Hashing a record so that a later change is detectable is not new here: customer requirement sentences are already anchored that way, with a drift procedure and a change-control step, because the customer may revise them at any time without notice.",
+      "community": 19,
+      "community_name": "Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Applying the same idea to briefs extends a pattern this project already operates. What is genuinely missing is the field composition and the collision semantics, not the concept."
+    },
+    {
+      "id": "a_scope_boundary_read_as_a_prohibition",
+      "label": "A Scope Boundary Read as a Prohibition",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": "NG-03",
+      "description": "An exclusion recorded as applying to the first version was quoted without that qualifier, turning a boundary that lapses into a permanent ban and putting a backlog feature in apparent conflict with the charter.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A sibling exclusion carries the identical shape and says explicitly that it lapses. Dropping one word from a quoted row is the same class of error as asserting a gap without sweeping the tier where its answer lives."
+    },
+    {
+      "id": "the_stale_row_was_the_evidence_cited",
+      "label": "The Stale Row Was the Evidence Cited",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.1 divergences",
+      "description": "A divergence between the repository and the charter had been closed and independently verified, and its row still read open. It surfaced because the decision-maker cited that scaffolding as evidence for an unrelated point.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The propagation sweep confirms that an identifier arrives in the tier that claims it and cannot see a row that has stopped being true. Every instance of this family has been found by a person noticing, not by a control."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d121_a_brief_is_identified_by_its_own_hash",
+      "target": "v1_decision_register",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cb",
+      "weight": 1
+    },
+    {
+      "source": "an_occasion_is_not_its_subject",
+      "target": "d121_a_brief_is_identified_by_its_own_hash",
+      "relation": "grounds",
+      "confidence": "CURATED",
+      "source_file": "docs/Modular_PRD.md",
+      "confidence_score": 1,
+      "source_location": "FR-01",
+      "weight": 1
+    },
+    {
+      "source": "an_occasion_is_not_its_subject",
+      "target": "a_draft_accepted_as_a_draft",
+      "relation": "amends",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "confidence_score": 1,
+      "source_location": "S1",
+      "weight": 1
+    },
+    {
+      "source": "a_guard_cannot_outrank_the_identity_it_keys_on",
+      "target": "d121_a_brief_is_identified_by_its_own_hash",
+      "relation": "implements",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cb",
+      "weight": 1
+    },
+    {
+      "source": "a_guard_cannot_outrank_the_identity_it_keys_on",
+      "target": "the_declaration_is_not_the_control",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cb",
+      "weight": 1
+    },
+    {
+      "source": "the_mechanism_was_already_running_elsewhere",
+      "target": "d121_a_brief_is_identified_by_its_own_hash",
+      "relation": "precedent_for",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/requirements-traceability-map.md",
+      "confidence_score": 1,
+      "source_location": "anchors",
+      "weight": 1
+    },
+    {
+      "source": "the_mechanism_was_already_running_elsewhere",
+      "target": "a_gap_asserted_past_its_own_source",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cb",
+      "weight": 1
+    },
+    {
+      "source": "a_scope_boundary_read_as_a_prohibition",
+      "target": "a_gap_asserted_past_its_own_source",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/Modular_PRD.md",
+      "confidence_score": 1,
+      "source_location": "NG-03",
+      "weight": 1
+    },
+    {
+      "source": "the_stale_row_was_the_evidence_cited",
+      "target": "g65_sweep_checks_arrival_not_correctness",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.1",
+      "weight": 1
+    },
+    {
+      "source": "the_stale_row_was_the_evidence_cited",
+      "target": "d121_a_brief_is_identified_by_its_own_hash",
+      "relation": "corrected_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.1",
+      "weight": 1
+    }
+  ]
+}
