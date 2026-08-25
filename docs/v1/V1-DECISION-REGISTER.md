@@ -216,6 +216,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G86` | **Closed 2026-08-25 (`D-115`) — a word carrying two meanings in governed tiers, defined in none** | **"Archived" is load-bearing in `Modular_PRD` §6.3 and in `AC-12a`, and no governed document said what it meant.** Audit **Step 9** instructed the definition — *"redefine 'archived' as retrievable rather than deleted"* — **and that redefinition was never performed.** The cost was not theoretical: **Step 9 contradicts itself in a single sentence**, telling the reader to set the value *at or above the statutory floor* **and** that archived means retrievable — *a period that disposes of nothing has no reason to meet a disposal floor.* `D-114` then compared 90 days to the five-year floor and called it twenty times too small, **which is comparing a move to a deletion**; retracted at three sites. **Closed by defining it in §6.3: moved and still retrievable, never deleted, and EXTERNAL to this system.** §5.14bv |
 | `G87` | **Open — BACKLOG FEATURE, not v1** | **A retraction order for an article no longer in the current set has no path.** GRC on retraction binds data **while it is current** (`D-115`); archival ends its reach, so an order arriving afterwards has nothing to act on. **`D-114` created the reachability**: while `NFR-02` read *"never deleted"*, a published article never left the current set and retraction was always possible — restating it as *"not less than the statutory period; disposal only under a documented, approved policy"* made disposal permissible. **This is the honest consequence of stopping the lie, not a defect in the restatement.** Deferred because handling work **never triggered from this system** is a different intake shape, not a variation on the existing flow. §5.14bv |
 | `G88` | **Open — the input to a `[V1]` criterion that nothing supplies** | **`AC-12a` requires the audit surface to state that records *"existed and are no longer retrievable"*, naming the policy and version, the period, and the archive location.** Under `D-115` the act producing those facts is **external to this system**, and **nothing tells the product it happened.** *This is `G46`'s shape one tier down* — *"retention class depends on a fact the product does not hold"* — and `G46` was resolved by ruling the fact must be **supplied to** the product rather than inferred by it. **The mechanism exists on paper and was never adopted**: the audit model §6.3's **disposal record**, written before the act, stored outside the table it describes, itself immutable. **The second unadopted §-section this thread has found**, after §5.3. **`G41`'s unmet dependency.** §5.14bv |
+| `G89` | **Open 2026-08-25 — a derived tier created a `[V1]` commitment and nothing noticed** | **Nothing verifies that an acceptance criterion has a parent.** `Modular_PRD` carries 27 `AC-` rows including `AC-14`–`AC-21`, so `D-29` gives the series to that tier. The `Fn_Specs` introduce exactly two suffixed criteria and **neither has an upstream row** — but only one has a decision behind it: `AC-01a` was created by `G39`'s closure, which names it; **`AC-12a` appears in this register only as a REFERENCE** — *"product canary is `AC-12a`"* — **never as something a decision created.** `tier-sweep` reads decision IDs and cannot see this, because there is no decision to read. **`AC-12a` is promoted by `D-116`; the CONTROL gap is what stays open** — the next criterion written into a `Fn_Spec` will be just as invisible. §5.14bw |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2359,7 +2360,28 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
-### `C-31` — 5a: does retention on `articles` vary by final status? **Non-blocking**
+### `C-32` — the Project Scope retention and archival policy is **owed**
+
+**Opened by `D-116`, 2026-08-25. Owner: the business.** Retention and archival are **Project Scope
+obligations with no CR**, so they sit at the **highest record** and their detail sits below it:
+
+| Document | Owes |
+|---|---|
+| **Alpha Portfolio plan** — Tier 1, `D-74`, above `Modular_PRD` | The obligation itself: that retention and archival are governed, and by whom |
+| `docs/source/business-case.md` §Compliance & Governance Disclosures | The policy detail |
+| `docs/source/blueprint.md` `A6` | Reconciliation of the 90-day archival row with the policy |
+
+**Five open items point at it and none can close before it exists:** `NFR-02`'s re-anchored floor ·
+`AC-12a`'s *"policy and version"* · `G40`'s unbounded `NFR-08` promise · `G88`'s supplied fact ·
+`G41`'s explainable absence.
+
+> **Deliberately not written by Lane A.** These are the governing source set above `Modular_PRD`.
+> **An owed entry with a named home is trackable; a source document edited on Lane A's own
+> initiative is the product tier legislating upward.**
+
+### `C-31` — **CLOSED 2026-08-25 (`D-116`) — by RE-TIERING, not by being answered.** q1 was never a product question: retention is Project Scope with no CR, owned at the Alpha Portfolio record. q2 and q3 stand answered by `D-115`. Content moves to `C-32`. §5.14bw
+
+### `C-31` (as opened) — 5a: does retention on `articles` vary by final status? **Non-blocking**
 
 **Opened by `D-114`, 2026-08-25. Phase: 1.** `Modular_PRD` §6.3 says *"rejected and archived after
 `DATA_RETENTION_ARCHIVE_DAYS`; published kept indefinitely"* — **a per-row rule.** The audit model
@@ -6848,3 +6870,139 @@ outside it.
 solved. No migration, no schema, no lane selected, no phase closed. `0001_init.sql` untouched.
 **`0002`'s authorization is unaffected** — it was unconditional before this decision and remains so.
 `C-26`, `C-27`, `C-28` unchanged.
+
+---
+
+## 5.14bw `D-116` — Retention and Archival Are Project Scope; the Product Owns Only the Absence
+
+**Judge rulings, 2026-08-25.** **`C-31` closes by RE-TIERING, not by being answered.** Retention and
+archival leave the product tier entirely; what stays behind is one presentational duty.
+
+### The rulings
+
+| | Ruling |
+|---|---|
+| **Retention and archival are PROJECT SCOPE** | Baseline obligations with **no CR**, so they sit at the **highest record — the Alpha Portfolio plan**, Tier 1 under `D-74`, above `Modular_PRD` |
+| **Detail lands below it** | `business-case.md` §Compliance & Governance Disclosures and `blueprint.md` `A6`. **Owed, not written** — carried as `C-32` |
+| **"What binds editorial retention" is BEYOND PRODUCT SCOPE** | It is not a product question and `Modular_PRD` must not answer it |
+| **The product's stake is the UI/UX of missing data** | Already raised, now **refined by the 90-day archival** — the concrete case that reaches a v1 screen |
+
+### `C-31` closes by re-tiering, and that is a different act from answering
+
+**`C-31` q1 asked: does the five-year statutory floor reach editorial-flow data?** The evidence
+pointed at *no statute is named anywhere*, and **the question was mis-tiered rather than merely
+open.**
+
+> **`PSK-09` and `PSK-10` are global Project Scope with no CR** (`D-42`), and a scope key with no
+> Change Request is **owned by the business by default — that is what makes it global.** Retention
+> and archival are the operational half of `PSK-10`. **They were never the product's to decide**,
+> and `C-31` q1 was the product tier trying to answer a question one tier up.
+
+**q2 and q3 stay answered** (`D-115`): GRC's terminus is archival; archival and disposal are
+external. **q1 is withdrawn from the product tier** and becomes `C-32`'s content.
+
+### I recommended the wrong tier one turn ago, and this corrects it
+
+**Last turn's `q1-a` recommendation was: *"write a house retention policy as a governed artifact"*,
+and I placed it in the product's document set.** That is the wrong tier. A house retention policy
+is a **business obligation under a scope key with no CR**, so it belongs at the portfolio record and
+its detail in the business case — **not in `docs/specs/` and not in `Modular_PRD`.**
+
+**The substance of the recommendation survives; only its address changes.** The policy still has to
+exist before `NFR-02`, `AC-12a`, `G40` and `G88` have anything to point at.
+
+### `NFR-02` re-anchored — the floor it named may name nothing
+
+**`D-114` restated `NFR-02` as *"retained for not less than the statutory period"*.** With no
+statute named for editorial-flow data, **that clause has a floor of zero**, and the whole constraint
+falls onto *"approved policy"* — which does not yet exist.
+
+**Re-anchored to the Project Scope policy** rather than to a statute the corpus never names. **The
+product does not set the period and does not perform the disposal**; it states which policy governs
+and defers the number to it.
+
+> **The old wording — *"never deleted"* — was a lie, but a safe one. `D-114`'s correction was right
+> and opened a hole beneath itself.** Recorded plainly, because a correction that creates an
+> exposure and does not say so is how the next reader inherits it silently.
+
+### `AC-12a` promoted to `Modular_PRD` — and it never had a decision behind it
+
+**Two defects, and the second is the one that matters.**
+
+`Modular_PRD` carries **27 `AC-` rows** including `AC-14`–`AC-21`, so the acceptance-criteria series
+lives there. The `Fn_Specs` introduce exactly two suffixed criteria:
+
+| | Creating decision |
+|---|---|
+| `AC-01a` | ✅ `G39`'s closure names it: *"`FR-01`, `AC-01`, and §3.1 restated; **`AC-01a` added**"* |
+| **`AC-12a`** | ⛔ **None.** It appears in the register only as a **reference** — *"product canary is `AC-12a`"* — never as something a decision created |
+
+> **A `[V1]` commitment was made by a derived tier, with no decision behind it and no parent above
+> it.** `D-29` gives the AC series to `Modular_PRD`; `D-54` requires the creation to propagate.
+> **Neither happened, and `tier-sweep` cannot see it** — it verifies decision IDs, not AC-series
+> membership. Opened as `G89`.
+
+**Promoted, and refined to the case the Chief Editor named**: the 90-day archival of rejected work
+is the concrete, v1-reachable instance of missing data reaching a screen.
+
+### `G88` narrows to one supplied fact
+
+**The product does not archive, does not dispose, and does not set the period.** What it needs is
+**one input: that a period was archived, and under which policy version.**
+
+> **This is `G46`'s resolution shape exactly.** `G46` found that *"retention class depends on a fact
+> the product does not hold"* and was resolved by ruling that the fact is **supplied to** the
+> product rather than inferred by it. **Same answer here.**
+
+**And `AC-12a`'s two limbs are not the same problem** — `D-115` separated the acts, and the
+criterion still bundles them:
+
+| Limb | Product can know? | Reachable in v1? |
+|---|---|---|
+| **Archived** — moved, still retrievable | **Depends where the archive goes** — undefined, and it is a Project Scope fact | ✅ **Yes** — the 90-day archival of rejected work |
+| **Disposed** — gone | **No.** Needs the supplied fact | ❌ **No** — nothing in v1 disposes |
+
+**The archived limb is the v1 requirement.** The disposed limb waits on `C-32`.
+
+### Conditions
+
+**Closed:** `C-31` — **by re-tiering.** Its q1 is not a product question; q2 and q3 stand answered.
+**Opened:** `C-32` — the Project Scope retention and archival policy is **owed**: the Alpha
+Portfolio plan as the highest record, `business-case.md` §Compliance & Governance Disclosures and
+`blueprint.md` `A6` for the detail. **`NFR-02`, `AC-12a`, `G40`, `G88` and `G41` all point at it and
+none can close before it exists.** **Owner: the business, under a scope key with no CR.**
+
+### Gaps
+
+**Opened:** `G89` — **nothing verifies that an acceptance criterion has a parent.** `tier-sweep`
+reads decision IDs; no check asks whether an `AC-` in a `Fn_Spec` exists in `Modular_PRD`, so a
+derived tier can create a `[V1]` commitment and nothing notices. **`AC-12a` is the live instance and
+`AC-01a` is the counter-example that proves the difference** — one has a creating decision, the
+other does not.
+**Narrowed:** `G88` — to a single supplied fact, and split by limb.
+**Unchanged:** `G40` — still open, now explicitly dependent on `C-32`; `G41` — `G88` remains its
+dependency; `G87` — backlog, untouched.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Retention is Project Scope | ✅ §5.14bw, `C-32` | **— unaffected: no sprint gains or loses work** | **— unaffected** | **— unaffected: the owed documents already exist; no artifact is created or retired** | **— unaffected** | ✅ §6.3 defers the period upward |
+| `C-31` closed by re-tiering | ✅ §5.14bw, §3 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §6.3's open question is withdrawn |
+| `NFR-02` re-anchored | ✅ §5.14bw | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **`NFR-02` row and §6.3** |
+| `AC-12a` promoted | ✅ §5.14bw, §5.1 `G89` | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **new `AC-12a` row beside `AC-12`** |
+| `G89` opened | ✅ §5.14bw, §5.1 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: it is a control gap over the tier relationship, not a requirement** |
+
+> **The Alpha Portfolio, `business-case.md` and `blueprint.md` are NOT edited by this decision, and
+> that is the Chief Editor's instruction rather than an omission.** They are the governing source
+> set above `Modular_PRD`; `C-32` records what they owe and names the sections. **An owed entry with
+> a named home is trackable. An entry written into a source document on Lane A's own initiative
+> would be the product tier legislating upward.**
+
+### Scope limits
+
+**Writes nothing into the governing source set.** Adopts no disposal record, sets no retention
+period, and designs no backlog feature. No migration, no schema, no lane selected, no phase closed.
+`0001_init.sql` untouched. **`0002`'s authorization is unaffected** — it was unconditional before
+this decision and remains so, and none of `C-32`'s content is schema. `C-26`, `C-27`, `C-28`
+unchanged.
