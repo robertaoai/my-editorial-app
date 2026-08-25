@@ -5,9 +5,9 @@
 - **Phase:** 1
 - **Blocks:** treating docs/LANE-B-WORK-ORDER.md §2.2 as a current gap list
 - **Status:** Answered
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** 5f86ef1
 - **Verified-By:** — not independently verified. Lane A answered it
-- **Resolution:**
+- **Resolution:** Applied
 - **Lane A:** Answered `D-122` — **upheld, and this is `B-035` one pass on.** `D-118` withdrew `G85` and propagated the seven values into `TR-DM-03`; the work order kept telling you they were *"listed nowhere"* and asked you to derive them and raise a defect. **`D-113` fixed this document for exactly this reason and recorded why** — *a work order exists so the build lane need not read the register, which means it inherits every propagation failure silently.* **It then inherited the next one.** Replaced with a **completed note**, not deleted, so a reader can tell *finished* from *withdrawn* — the discipline `D-113` set for S0 and Lane A did not apply here. **Had you followed it you would have re-raised `B-042` under a new number and treated the migration as the origin of a vocabulary `D-118` had just ruled it was not.**
 - **Evidence:** `docs/LANE-B-WORK-ORDER.md` §2.2 — `G85` recorded withdrawn, values cite the Addendum via `TR-DM-03`
 

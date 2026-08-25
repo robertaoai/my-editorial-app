@@ -1,0 +1,182 @@
+{
+  "_comment": "Fragment 77 — D-122: a document that required and forbade the same thing; a derived instruction inheriting the next propagation failure; a withdrawal made on one observation. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "one_document_required_and_forbade_the_same_thing",
+      "label": "One Document Required and Forbade the Same Thing, Nine Lines Apart",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-048-build-spec-restates-removed-url-index.md",
+      "source_location": "spec defect",
+      "description": "A correction was added to the build sequence and the instruction it reversed was left standing in the same section's implementation list. Both cannot be applied.",
+      "community": 63,
+      "community_name": "Build Sequence",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Precedence resolves it on paper, and that is not enough: governance is supposed to reach a build lane as a flag rather than a document to arbitrate. A contradiction a lane must resolve is one the orchestration lane failed to."
+    },
+    {
+      "id": "a_work_order_inherits_every_propagation_failure",
+      "label": "A Work Order Inherits Every Propagation Failure Silently",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-049-work-order-reopens-withdrawn-g85.md",
+      "source_location": "spec defect",
+      "description": "The document written so a build lane need not read the register kept instructing work on a gap that had been withdrawn, and would have had the lane re-raise a report it had already filed and won.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The same document was repaired once before for the same reason, and the reasoning recorded then explains this recurrence exactly. Completed items are kept as completed notes rather than deleted, so a reader can tell finished from withdrawn."
+    },
+    {
+      "id": "one_observation_cannot_distinguish_repaired_from_intermittent",
+      "label": "One Observation Cannot Distinguish Repaired From Intermittent",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-050-hook-rebuild-resets-graphify-branch-metadata.md",
+      "source_location": "finding",
+      "description": "A finding was withdrawn because the condition it reported had cleared when checked later. Reproducing it showed the condition returns, so the withdrawal tested the wrong property.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Checking once and finding health is the same arrival-not-correctness limit the apparatus records everywhere else, turned on the orchestration lane's own verification. The finding was right and its disposition was not."
+    },
+    {
+      "id": "a_flag_that_contradicts_its_own_data",
+      "label": "A Flag That Contradicts Its Own Data",
+      "file_type": "concept",
+      "source_file": "scripts/checks/docs-drift.mjs",
+      "source_location": "null record",
+      "description": "The graph tool intermittently loses its version-control context and overwrites a good currency record with empty values while leaving its healthy flag untouched, so the flag reports fine and the data reports that nothing was ever analysed.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The check compares the analysed commit against the current one and ignores the flag unless it says stale, so the control was never fooled — only a reader. The remedy is to make the check's own message name the contradiction, since rerunning the tool is the fix for ordinary staleness and the cause of this one."
+    },
+    {
+      "id": "the_reader_was_the_lane_that_could_not_commit",
+      "label": "The Control Was a Reader, and the Reader Could Not Commit",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14cc",
+      "description": "Three defects in a just-landed pass were all found by the lane holding no lock, reviewing rather than building. The consistency suite was green on two of them.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "No check verifies that two instructions in one document can both be obeyed, or that a derived instruction still matches its source. The limit is recorded and this is the instance that shows what fills it: a second party who reads."
+    }
+  ],
+  "edges": [
+    {
+      "source": "one_document_required_and_forbade_the_same_thing",
+      "target": "d121_a_brief_is_identified_by_its_own_hash",
+      "relation": "defect_in",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-048-build-spec-restates-removed-url-index.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    },
+    {
+      "source": "a_work_order_inherits_every_propagation_failure",
+      "target": "a_derived_instruction_outlived_its_source",
+      "relation": "recurrence_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-049-work-order-reopens-withdrawn-g85.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    },
+    {
+      "source": "a_work_order_inherits_every_propagation_failure",
+      "target": "a_gap_asserted_past_its_own_source",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cc",
+      "weight": 1
+    },
+    {
+      "source": "one_observation_cannot_distinguish_repaired_from_intermittent",
+      "target": "a_transient_state_that_leaves_no_trace",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-050-hook-rebuild-resets-graphify-branch-metadata.md",
+      "confidence_score": 1,
+      "source_location": "finding",
+      "weight": 1
+    },
+    {
+      "source": "one_observation_cannot_distinguish_repaired_from_intermittent",
+      "target": "arrival_not_correctness_is_apparatus_wide",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cc",
+      "weight": 1
+    },
+    {
+      "source": "a_flag_that_contradicts_its_own_data",
+      "target": "one_observation_cannot_distinguish_repaired_from_intermittent",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/docs-drift.mjs",
+      "confidence_score": 1,
+      "source_location": "null record",
+      "weight": 1
+    },
+    {
+      "source": "a_flag_that_contradicts_its_own_data",
+      "target": "checks_docs_drift",
+      "relation": "implemented_in",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/docs-drift.mjs",
+      "confidence_score": 1,
+      "source_location": "null record",
+      "weight": 1
+    },
+    {
+      "source": "the_reader_was_the_lane_that_could_not_commit",
+      "target": "one_document_required_and_forbade_the_same_thing",
+      "relation": "found",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cc",
+      "weight": 1
+    },
+    {
+      "source": "the_reader_was_the_lane_that_could_not_commit",
+      "target": "the_build_lane_corrected_the_governing_tier",
+      "relation": "recurrence_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cc",
+      "weight": 1
+    },
+    {
+      "source": "the_reader_was_the_lane_that_could_not_commit",
+      "target": "a_check_that_cannot_fail",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cc",
+      "weight": 1
+    }
+  ]
+}

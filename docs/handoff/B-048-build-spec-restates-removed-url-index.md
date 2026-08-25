@@ -5,9 +5,9 @@
 - **Phase:** 1
 - **Blocks:** using the S1 Build Spec paragraph as one internally consistent implementation list
 - **Status:** Answered
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** 5f86ef1
 - **Verified-By:** — not independently verified. Lane A answered it
-- **Resolution:**
+- **Resolution:** Applied
 - **Lane A:** Answered `D-122` — **upheld, and it is Lane A's defect from the pass immediately before.** `D-121` added the removal block and left *"unique index on `articles.url` (`TC3`, `TC5`)"* standing nine lines later in the same section. **Register precedence resolves it and that is not good enough**: `D-86` says governance reaches you as a **flag, not a document**, and the Build Spec is what you read — **a contradiction you have to arbitrate is one Lane A failed to resolve.** Your repair is applied exactly: the item is removed from *"Also in S1"*, the removal block is the sole current instruction, and **`TC5`'s journal row is untouched** because it records what was true when found. **You applied precedence during review and stopped before editing Lane A's document — that is why the wrong index was not restored.**
 - **Evidence:** `docs/v1/V1-BUILD-SPEC.md` S1 — one instruction; `docs/journal/2026-08-16-sprint-plan.md` `TC5` unchanged
 
