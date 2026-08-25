@@ -187,7 +187,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `X5` | **Open** — S1 | `workflow_transitions` has no `line_assignment` and no independence field, **so four-eyes cannot be evaluated at all.** `D5`. The field name is `Q11`-blocked (`A21`) — do not write `judgment_independence_status`. **Closes on `0002`; carries `X4` with it (`D-61`)** |
 | `X6` | **Superseded** | Assumed stack versus provisioned repo. Superseded by `A1`/`A2` — `D4`, *not yet closable* |
 | `X7` | **Open** — S2 → S6 | Demo-first plus permissive RLS versus executor attributability. `D5`. **Mitigated at S2, closes at S6** — the same `TC1` surface `AC-12` sits on |
-| `X8` | **Open** — S0 | Stripe scaffolding versus the Charter-level *"no monetization features"*. `D5`. **Closes on S0** |
+| `X8` | **CLOSED 2026-08-25 (`D-121`)** — row corrected | Stripe scaffolding versus the Charter-level *"no monetization features"*. **`D5`. Removed and verified**: `B-003` is `Verified` at `67706ca`, and Stripe is absent from `package.json`, `app/` and `lib/`. **This row read `Open — S0` for weeks after the divergence closed**, and the Chief Editor found it by citing the Stripe scaffolding as evidence that payment is a backlog feature — **the row they cited was the stale one.** `G65` again: arrival is checked, staleness is not. **`NG-03` is a *v1* exclusion**, so payment remaining on the backlog is consistent with it and was never in tension. §5.14cb |
 | `G61` | **Closed 2026-08-20** | `D-63` §5.14x — **all eight** `X`-rows backfilled above. *(Corrected: the gap statement said **five**; `X1`, `X2`, and `X6` exist too. Five was the `D5`-family **open** subset, not the series.)* |
 | `G62` | **Closed 2026-08-21** | **Opened because the CI gates `R3` specifies did not pass** — `typecheck` exited 2 with 10 implicit-`any` errors in `lib/supabase/`, and `lint` exited 1 because `next lint` is deprecated, **interactive**, and no ESLint config exists. §5.14z. **Today: typecheck passes; lint still cannot run.** **b decided by `D-66`** — ESLint CLI, `next/core-web-vitals`, **0 findings**. **a closed by `D-67`** — `satisfies CookieMethodsServer` in two files, 4 lines; `tsc --noEmit` **exits 0**. The ten errors were **two overload-resolution causes**, not ten defects. **Both parts applied by `D-70`** — `eslint.config.mjs` created, `lint` repointed; **27 files, 0 findings**, and CI green on a real run |
 | `G63` | **Closed 2026-08-21 — scoped, not removed** | `.gitattributes` set `*.md text eol=lf merge=union` repo-wide. **Union is CORRECT for append-only audit content** — tested on the Chief Editor's rollback lineage (`tag-01` fixed, `tag-02` deployed, `tag-01` merged into `tag-02`), both sides' records survived, and losing an audit record is worse than duplicating one. **It is destructive for current-value content** — tested: a status row merged to `Decided` **and** `Rejected`; a version header appeared twice; and a union-duplicated `CLAUDE.md` sliced identically to a clean one, so `shared-core-hash` **PASSED** on a file holding two full copies of the rules. **The file is the wrong unit** — `Modular_PRD.md` and the register each carry append-only *and* current-value content. **Closed by `D-84`:** union retained, with `docs/v1/**/*.md`, `docs/Modular_PRD.md`, `CLAUDE.md`, `AGENTS.md`, `.agents/**/*.md` scoped to `merge=text`. Verified by `git check-attr`. §5.14ar |
@@ -222,6 +222,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G92` | **Closed 2026-08-25 (`D-118`) — a tier column nothing could verify, invisible because nobody had ever ticked it** | **`tier-sweep` had no mapping for the "Phase closure" column.** `V1-PHASE-CLOSURE.md` is a governed tracking file that decisions routinely claim to affect — lane rows, boundary procedure, the artifact manifest, critic passes — and **a claim about it was exactly as checkable as any other and was checked by nothing.** It stayed invisible because the sweep only fails on a ✅ and **every prior decision wrote *"— unaffected"* there**, which it skips by design; the FIRST tick reported the column as unknown rather than verifying it. **Same shape as `B-045` one check over**: `channel-docs` couples four channel documents in both directions and `V1-PHASE-CLOSURE.md` is in neither set, which is why its §5.2 step 1 could drift to a retired kind while the four coupled documents all agreed. **A document that is the subject of claims and the member of no coupling set is unverifiable by construction.** §5.14by |
 | `G93` | **Closed 2026-08-25 (`D-119`) — a fixture that asserted a live count** | **`D-113`s `G83`/`G84` fixtures assert on a check detail line, and did it with absolute literals.** **The channel grows**, so two turns later both fixtures failed **while the check was working perfectly.** This is `C-21`s tally problem **inside the apparatus built to catch it**, and it is `G91`s lesson one file over: `G91` was *a fixture must not name a lane*; this is *a fixture must not name a count*; **both are the same rule — assert a RELATIONSHIP, not a live value.** Closed by deriving the baseline from the live channel with the channel own parser and asserting `base` and `base + 1`: **the mutation moves exactly one counter by one**, which is the property actually under test and was never the literal. §5.14bz |
 | `G94` | **Closed 2026-08-25 (`D-120`) — a correction that reached two tiers and missed the one a build lane reads** | **`A26a`, 2026-08-17, corrected the S1 Definition of Done** because the prior wording required a live database while `DEP-05` was withheld — its own note calls that *a live contradiction, not a deferral*. The corrected phrase, **unit-tested against a local or branch Postgres instance**, landed in `sprint-plan` §353 and in `Modular_PRD` `M1`. **`V1-BUILD-SPEC.md` kept the bare phrase *trigger written and unit-tested* for three months** and every check passed throughout. **The missed tier is the operative build document**, so Lane B built a static contract test against a DoD that never said which database — which is why `B-044` is a finding and not a violation. `G65` again, and **the oldest instance in this register by a wide margin**: arrival is checked, staleness is not, and a qualifier removed from one tier leaves the others agreeing with each other. Corrected here; the runner is now named. §5.14ca |
+| `G95` | **Open 2026-08-25 — the mechanism is established; its composition is not** | **A brief is identified by a hash of its key fields (`D-121`), and which fields compose it is unspecified.** **The mechanism is not new here**: `requirements-traceability-map.md` already hashes customer sentences in `PRD.md` so drift is detectable, for the stated reason that *the customer may edit it at any time, in any order, without telling the project team — that is their right*, and it carries a drift procedure and a change-control step. **Applying that to briefs extends a running pattern rather than inventing one.** What is missing is the field list and the collision semantics: whether two identical briefs from different submitters collide, whether the source reference participates, and whether a hash changes when a brief is edited before its first gate. **Not `0002`-blocking** — the guard is a surface behaviour (`D-121`), and no column depends on it until the guard is built. §5.14cb |
+| `G96` | **Open 2026-08-25 — a field with no column, and no way to populate it truthfully until S6** | **`articles` carries no submitter.** `0002` adds eighteen columns and none of them is one; `source_author` is the SOURCE article's author, a different person. `articles.user_id` exists in `0001` — nullable, no foreign key, untouched by `0002`, and documented only in the **plan pack**, which is explicitly not authoritative (`D5`), for *owner scoping* rather than submission. **The role is specified**: `SEC-03` names *the single Chief Editor account and scoped roles*, `NG-02` scopes multi-team accounts out of **v1 only**, and `D-73` made the application multi-tenant. **The harder half is that until S6 the value cannot be trusted** — `X7` and `Modular_PRD` §445 record that no API authentication exists in Phase 0 and **executor identity is self-asserted**. **That is why `D-121` puts the duplicate guard at the surface**: enforcing it in the database would build a control on a field the system itself calls self-asserted. §5.14cb |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -3105,7 +3107,7 @@ Verified by direct check, not by reading the register:
 | ID | Defect | Status |
 |---|---|---|
 | `A7` / `G5` | `CLAUDE.md` **and** `AGENTS.md` still say *"a complete, correct plan"*, still point at the demoted pack | **Open** — T1 |
-| `X8` | Stripe scaffolding present against `NG-03`, a **Charter-level** exclusion | **Open** — S0 |
+| `X8` | Stripe scaffolding present against `NG-03`, a **Charter-level v1** exclusion | ✅ **CLOSED `D-121`** — removed at `B-003`, `Verified` `67706ca`; absent from the tree. Row corrected; it read `Open — S0` after the fact |
 | `TC6` | `next.config.ts` still disables type and lint gates at build | **Open** — S0 / `Q6` |
 | `TC1` | No privileged write path; anon key public, RLS permissive | **Open** — S1 |
 | `X3` | Schema carries 8 states (`reported`, `journaled`, `senior_reviewed`, `chief_approved`); the Addendum specifies 10 with different names (`Validated`, `Drafted`, `Reviewed`, `Approved`, plus `Discovered`, `Needs Revision`) | **Open** — S1 |
@@ -7397,3 +7399,110 @@ none of them**, and `B-040`'s runbook still cannot run without Lane A inventing 
 **Applies no migration and starts no database.** Provisions a tool, adds three script names, and
 ignores two scratch directories. **No lane selected, no phase closed, no policy approved.**
 `0001_init.sql` untouched; the provisioned Supabase project untouched.
+
+---
+
+## 5.14cb `D-121` — A Brief Is Identified by Its Own Hash, Not by Its Source
+
+**Judge rulings across four passes, 2026-08-25, consolidated here.** Settles what identifies an
+editorial trigger, moves the duplicate guard to the layer that can honestly hold it, **retracts
+three Lane A claims**, and corrects a divergence row that closed weeks ago.
+
+### The rulings
+
+| | Ruling |
+|---|---|
+| **A brief's identity** | A **hash of its key fields** — **not** the source reference. The source *"can be a URL or other reference"* |
+| **The submitter** | The **authenticated account** — POC users and the Chief Editor. Part of the brief's own details |
+| **The guard** | **Same submitter + same brief + same day** is refused. **Same brief on a different day is permitted** |
+| **Its layer** | **UI/UX on the POC surface.** Trigger creation is never blocked — the Chief Editor may always submit a brief manually to trigger the MVP flow |
+| **`articles_url_uidx`** | **Specified for removal.** It keys the identity of an *occasion* on the identity of a *subject* |
+
+### Why the guard cannot be a database constraint, argued twice and agreeing
+
+**The Chief Editor's route:** the original flow always permits a brief to be triggered, so nothing
+may block creation. The guard is an interface courtesy that stops a customer paying twice for the
+same brief on one day.
+
+**The corpus's route:** `X7` and `Modular_PRD` §445 — *"No API authentication exists in Phase 0…
+every endpoint is anonymous. **Executor identity is self-asserted until S6.**"*
+
+> **A guard keyed on the submitter cannot be trustworthy before the submitter can be trusted.**
+> Enforcing it in the database would make a control out of a field the system itself calls
+> self-asserted — `AC-12`'s shape, one tier over. **UI/UX is not the weaker option here; it is the
+> only honest one available in v1.**
+
+### `articles` is per-occasion, and that is `D-111`'s own ruling
+
+`D-111`: **the brief IS the article's originating trigger record — the existing `articles` row**;
+*"no new table is created and §16.3 is not amended."* The Chief Editor's *"one record for each
+payment"* therefore means **one `articles` row per commission.**
+
+**Two commissions on one source produce two rows sharing a source reference — which is exactly what
+a unique index on it forbids.** The register held both readings and the migration implemented the
+one `D-111` did not choose:
+
+| Reading | `articles` is | Index |
+|---|---|---|
+| **A** | the **subject** record | correct |
+| **B** — **`D-111`, ruled** | the **trigger/brief** record | **wrong** |
+
+**The fix is subtractive**: no new table, no storage authorization, §16.3 untouched. **And payment
+stays outside the system** — `D-59` places commissioning at `B1`/`B2` outside the boundary, `D-44`
+gives the product a **confirmation** rather than a payment record.
+
+### Three Lane A claims retracted
+
+**All three were asserted from an incomplete sweep, which is `G85`'s failure mode repeating in the
+same week.**
+
+| Claim | Correction |
+|---|---|
+| *"The brief hash exists nowhere"* | **The mechanism is established in this project's own governance.** `requirements-traceability-map.md` hashes customer sentences in `PRD.md` — *"the customer may edit `PRD.md` at any time… **that is their right**"* — with a drift procedure and change control. **Applying it to briefs extends a running pattern.** Absent is the brief-hash *composition*, not the idea — `G95` |
+| *"The submitter exists nowhere"* | **`SEC-03` specifies *"the single Chief Editor account and scoped roles"*; `NG-02` scopes multi-team accounts out of **v1 only**; `D-73` made the application multi-tenant.** Absent is the **column**, and the authentication that would populate it truthfully — `G96` |
+| *"`NG-03` excludes monetization"* | **It reads *"Charter-level **v1** exclusion"***, the same shape as `NG-02`'s *"v1 exclusion only… lapses"*. **Payment as an ongoing backlog feature is consistent with `NG-03` as written**, and dropping the "v1" turned a scope boundary into a prohibition |
+
+### `X8` corrected — the divergence closed and the row did not move
+
+**`B-003` is `Verified` at `67706ca`, and Stripe is absent from `package.json`, `app/` and
+`lib/`.** `X8` read **"Open — S0"** in **two** places. **`G65` again**, and the Chief Editor found
+it by citing the Stripe scaffolding as evidence that payment is backlog — **the row they cited was
+the stale one.**
+
+### What changes where — and what Lane A does not touch
+
+| Tier | Change |
+|---|---|
+| `Modular_PRD` `FR-01` | The source is **a URL or another reference** |
+| `Modular_PRD` `AC-02` | Re-keyed to **submitter + brief hash + same day**, at the **surface**, with the S6 caveat |
+| `Modular_PRD` `TR-DM-01` | Carries the **submitter** and **brief hash** as `G95`/`G96` |
+| `V1-BUILD-SPEC.md` S1 | `articles_url_uidx` specified for removal |
+| **`supabase/migrations/0002` line 131** | ⛔ **SPECIFIED, NOT APPLIED** (`D-56`). `supabase/` is **Lane B's surface** |
+
+> **`TC5` inverts and is NOT rewritten.** It sits in `docs/journal/2026-08-16-sprint-plan.md` and
+> records a point-in-time finding: *"no unique index on `articles.url` → `AT-004` cannot pass."*
+> **Under this decision the index is the defect and its absence is correct.** A journal records what
+> was found when; **editing it would destroy the evidence that the finding was once true.** The
+> inversion is recorded here and cited from `AC-02`.
+
+### Gaps
+
+**Opened:** `G95` — the brief hash's **composition** is unspecified: which fields compose it, and
+what a collision means. **`G96`** — no submitter column exists on `articles`, and until **S6**
+executor identity is self-asserted, so any value it carries is a claim rather than a fact.
+**Corrected:** `X8`.
+**Unchanged:** `C-32` and its five values; `C-33`; `G87`, `G88`, `G89`, `G90`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Brief identity + guard | ✅ §5.14cb | ✅ S1 index note | **— unaffected** | **— unaffected: no file is created or retired** | **— unaffected** | ✅ `FR-01`, `AC-02` |
+| `X8` corrected | ✅ §5.14cb, §5.1, §5.15 | **— unaffected: `X8` closed on S0 and S0 is complete** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `NG-03`'s row already reads "v1 exclusion"** |
+| `G95`, `G96` | ✅ §5.14cb, §5.1 | **— unaffected: neither is v1 work until the guard is built** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ `TR-DM-01` |
+
+### Scope limits
+
+**Edits no migration and no test.** `0002`'s index removal is **specified and handed to Lane B**;
+`0001_init.sql` untouched. **Approves no retention value** — `C-32` is untouched by this decision.
+No lane selected, no phase closed, and **no journal rewritten**.

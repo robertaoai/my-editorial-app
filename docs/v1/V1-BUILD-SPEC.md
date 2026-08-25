@@ -169,6 +169,15 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 | 7 | **`G19`** notice-as-article — notice type, notice→original reference, inherited targets, derived superseded status | `D-06` |
 | 8 | **`G20`** risk-tier dimension on articles | `D-11` |
 
+> ⛔ **`articles_url_uidx` is SPECIFIED FOR REMOVAL (`D-121`) and Lane A has not applied it** —
+> `supabase/` is Lane B's surface (`D-56`). `0002` line 131 creates a unique index on the source
+> reference. **The `articles` row is the editorial brief and the trigger** (`D-111`), one per
+> commission or manual submission, so **two commissions on one source are two rows** and a unique
+> index on the source forbids the second. **The duplicate guard is instead same submitter + same
+> brief hash + same day, at the surface** — trigger creation is never blocked, and until **S6**
+> executor identity is self-asserted, so the database is not a place this guard can honestly live.
+> **Lane B removes the line and tests the guard's absence, not its presence.**
+
 **Also in S1:** ten-state enum via `article_state_v2` · tenancy boundary (`D-01`) · `actor_id` (`TC4`) · `sources.reliability_tier`, `articles.source_id`, `topics.evolves_from`, trend-signal fields, unique index on `articles.url` (`TC3`, `TC5`) · `publication_targets` + `publications` (`TC2`, `D-08`) · revoke UPDATE and DELETE on `workflow_transitions` · correct the seed rows executing T5 with an agent (`X4`) · **sequence enforcement in Postgres, not application code** (`TC1`).
 
 **DoD:** trigger written and **unit-tested against a local or branch Postgres instance**; `Logged → Drafted` rejected at the database. **Live anon-key behaviour stays unverified until `DEP-05` is answered** — claim S1 done as *"trigger written and unit-tested; live-DB behaviour unverified,"* never as fully done.

@@ -131,6 +131,28 @@ rejected.
 **Keep `__tests__/s1-schema.test.ts`** and label it a **static migration-contract test**. It is
 useful and it is not the thing `C-33` asks for.
 
+### 2.2b One change to `0002` before you test it — `D-121`
+
+**Remove line 131, `create unique index articles_url_uidx on articles (url)`.** Lane A specified
+this and did **not** apply it: `supabase/` is your surface (`D-56`).
+
+**Why, in one line:** the `articles` row **is** the editorial brief and the trigger (`D-111`), one
+per commission or manual submission — so **two commissions on one source are two rows**, and a
+unique index on the source forbids the second.
+
+> **The duplicate guard did not disappear; it moved.** It is **same submitter + same brief hash +
+> same day**, refused **at the surface**. **Trigger creation is never blocked** — the Chief Editor
+> may always submit a brief manually. And until **S6** there is no API authentication and executor
+> identity is **self-asserted** (`X7`), so a submitter-keyed database constraint would build a
+> control on a field this system calls a claim.
+
+**Two things you must NOT invent:** `brief_hash`'s field composition (`G95`) and the **submitter**
+column (`G96`). Both are open. **Add neither column** — if `C-33`'s tests need one, raise it.
+
+**Your eight-case contract changes by one:** the duplicate case now tests that **a second brief on
+the same source is ACCEPTED**, not rejected. `AC-02` is re-keyed and `TC5` inverts — it recorded the
+index's *absence* as the defect, and the index is now the defect.
+
 **Then the claim becomes:** *"local PostgreSQL unit-tested; live Supabase anon-key behaviour
 unverified."* `DEP-05` is unanswered, so live anon-key behaviour cannot be proven from here.
 **Never claim it fully done.**
