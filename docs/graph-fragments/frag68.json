@@ -1,0 +1,252 @@
+{
+  "_comment": "Fragment 68 — D-113: the window was not closed; two enumerations of one window; the lock table is the lock; two counting defects in the feedback channel. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "d113_the_window_was_not_closed",
+      "label": "D-113 — The Window Was Not Closed and the Authorization Is Provisional",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bt",
+      "description": "The prior decision recorded the schema window closed and released the hold on the migration. Two of the window's items had never been put to the decision-maker, so the release rested on a premise that was false.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The authorization is downgraded rather than withdrawn: every field in the typed contract was properly ruled, and what is provisional is the window's completeness, not the contract's content. Nothing already decided is reversed."
+    },
+    {
+      "id": "one_window_two_keyings_no_mapping",
+      "label": "One Window, Two Keyings, and No Mapping Between Them",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-036-s1-window-still-lists-open-items.md",
+      "source_location": "root cause",
+      "description": "The register enumerates the schema window by gap identifier; the build sequence enumerates the same window by numbered item; neither list cites the other. Both were internally consistent and disagreed about membership.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A reader checking either list alone saw a complete window. One item was a gap the register itself labels as belonging to the window and it was never a row in the gap-keyed table; two others were conditions, which that table has no column for. The fix is to bind the two enumerations to each other, not to lengthen one."
+    },
+    {
+      "id": "a_retention_class_cannot_be_backfilled",
+      "label": "A Retention Class Cannot Be Backfilled Onto Rows Already Written",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "source_location": "the unruled items",
+      "description": "Of the two unruled items, revoking write access later is a migration that touches no data, while classifying retention later has no source of truth: nobody may invent the class of a record that already exists.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Two open items that look alike carry different deferral risk, and that asymmetry is the decision-relevant fact. Deferring the second defers it with data loss already implied, and the same reasoning binds the condition requiring a record of non-performance."
+    },
+    {
+      "id": "the_lock_table_is_the_lock",
+      "label": "The Lock Table Is the Lock, Not the Conversation",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-034-lane-b-eligible-state-not-recorded.md",
+      "source_location": "required repair",
+      "description": "A lane was told it could begin while the single authoritative state record still showed it blocked on another lane's run. It reported the contradiction from the always-open feedback directory and stopped rather than resolving it on its own authority.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Releasing the lock is the last act of a completed run, not a courtesy extended early. Releasing it here would have handed the waiting lane the very packet that had just been shown provisional — the same failure one turn later."
+    },
+    {
+      "id": "a_derived_instruction_outlived_its_source",
+      "label": "A Derived Instruction Outlived Every Source It Was Derived From",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-035-lane-b-work-order-is-stale.md",
+      "source_location": "staleness",
+      "description": "The document through which governance reaches the build lane still called completed work outstanding, called a decided field name open, restated a verification list that no longer matched the directory, and headed itself with a lane status its own preamble disclaimed.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A work order exists so the build lane need not read the register, which means it inherits every propagation failure silently. The rewrite removes the copied status entirely and generates the verification queue from the files rather than restating a count."
+    },
+    {
+      "id": "a_backlog_that_counts_what_cannot_leave_it",
+      "label": "A Backlog That Counts Items Which Can Never Leave It",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-037-answered-handoffs-lack-terminal-dispositions.md",
+      "source_location": "item 3",
+      "description": "A report on a lane's own turn is a record, not a correction, so it can never reach a terminal disposition — yet it was filed under the same kind as a defect and counted permanently among the unresolved.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Fixed with a kind the checks can read rather than a convention. It is excluded from the unresolved count and reported as its own number: a report must neither inflate the defect backlog nor disappear from boundary evidence, and only the first half is about tidiness."
+    },
+    {
+      "id": "two_checks_disagreed_about_one_directory",
+      "label": "Two Checks Disagreed About One Directory and Nothing Compared Them",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14bt",
+      "description": "One check reported no unread feedback while four entries sat unread, because the branch handling a blank response field returned before any counter ran. A second check reported the correct figure in the same run.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The summary line is what people read instead of the directory, so a control that understates its own backlog is worse than no summary. It also misdescribed the file, reporting a field as absent when it was present and blank — a distinction the shared parser already provided and this caller did not use."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d113_the_window_was_not_closed",
+      "target": "v1_decision_register",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bt",
+      "weight": 1
+    },
+    {
+      "source": "d113_the_window_was_not_closed",
+      "target": "d112_window_closed_migration_authorized",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bt",
+      "weight": 1
+    },
+    {
+      "source": "one_window_two_keyings_no_mapping",
+      "target": "d113_the_window_was_not_closed",
+      "relation": "root_cause_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-036-s1-window-still-lists-open-items.md",
+      "confidence_score": 1,
+      "source_location": "root cause",
+      "weight": 1
+    },
+    {
+      "source": "one_window_two_keyings_no_mapping",
+      "target": "g65_sweep_checks_arrival_not_correctness",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bt",
+      "weight": 1
+    },
+    {
+      "source": "one_window_two_keyings_no_mapping",
+      "target": "one_window_is_not_one_semantic_class",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.15",
+      "weight": 1
+    },
+    {
+      "source": "a_retention_class_cannot_be_backfilled",
+      "target": "d113_the_window_was_not_closed",
+      "relation": "scopes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "confidence_score": 1,
+      "source_location": "S1",
+      "weight": 1
+    },
+    {
+      "source": "a_retention_class_cannot_be_backfilled",
+      "target": "v1_build_spec",
+      "relation": "recorded_in",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-BUILD-SPEC.md",
+      "confidence_score": 1,
+      "source_location": "S1",
+      "weight": 1
+    },
+    {
+      "source": "the_lock_table_is_the_lock",
+      "target": "d108_lock_is_a_state_machine",
+      "relation": "applies",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-034-lane-b-eligible-state-not-recorded.md",
+      "confidence_score": 1,
+      "source_location": "required repair",
+      "weight": 1
+    },
+    {
+      "source": "the_lock_table_is_the_lock",
+      "target": "d113_the_window_was_not_closed",
+      "relation": "answered_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bt",
+      "weight": 1
+    },
+    {
+      "source": "a_derived_instruction_outlived_its_source",
+      "target": "summary_outlived_source",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-035-lane-b-work-order-is-stale.md",
+      "confidence_score": 1,
+      "source_location": "staleness",
+      "weight": 1
+    },
+    {
+      "source": "a_derived_instruction_outlived_its_source",
+      "target": "a_work_order_beats_a_register_entry",
+      "relation": "qualifies",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-035-lane-b-work-order-is-stale.md",
+      "confidence_score": 1,
+      "source_location": "staleness",
+      "weight": 1
+    },
+    {
+      "source": "a_backlog_that_counts_what_cannot_leave_it",
+      "target": "d113_the_window_was_not_closed",
+      "relation": "answered_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bt",
+      "weight": 1
+    },
+    {
+      "source": "two_checks_disagreed_about_one_directory",
+      "target": "a_check_that_cannot_fail",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bt",
+      "weight": 1
+    },
+    {
+      "source": "two_checks_disagreed_about_one_directory",
+      "target": "d113_the_window_was_not_closed",
+      "relation": "found_by",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14bt",
+      "weight": 1
+    }
+  ]
+}
