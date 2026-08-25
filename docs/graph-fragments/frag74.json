@@ -1,0 +1,177 @@
+{
+  "_comment": "Fragment 74 — coverage for the six Lane B entries frag73 did not source, each carrying the concept that entry actually contributes. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "a_framework_approved_is_not_values_supplied",
+      "label": "A Framework Approved Is Not Its Values Supplied",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-040-c32-docs-and-checks-application-runbook.md",
+      "source_location": "application sequence",
+      "description": "The decision-maker approved the shape of a business policy and left five operative values open. A runbook drafted to apply that policy is therefore held rather than executed, because executing it would require the orchestration lane to choose the missing values.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Recording the framework as approved while a placeholder remains would read as a closed policy. The condition stays open on named values, and the proposed identifier is recorded as a proposal rather than adopted."
+    },
+    {
+      "id": "currency_completion_and_portability_are_three_things",
+      "label": "Currency, Semantic Completion and Portability Are Three Properties",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-041-graphify-current-head-is-not-portable.md",
+      "source_location": "finding",
+      "description": "A knowledge graph can match the current commit, still have descriptions pending, and still contain machine-specific paths. Treating a successful query as evidence of all three merges properties that fail independently.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The portability finding is real and its consequence is narrow: the offending paths live in ignored runtime files, and the only graph artifacts this repository commits carry no paths at all. A standing limit rather than a blocker."
+    },
+    {
+      "id": "a_draft_accepted_as_a_draft",
+      "label": "A Draft Accepted as a Draft",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-043-s1-schema-draft-turn-report.md",
+      "source_location": "turn report",
+      "description": "The authorized schema was written and contract-tested and not applied. The report states that boundary rather than the completion it might have claimed, and names the withheld credentials that keep live behaviour unverified.",
+      "community": 59,
+      "community_name": "Schema Window",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Accepting a draft as a draft costs nothing and keeps the record true. The same report also carries the lane's own correction of the governing tier, which is the return path rather than deference."
+    },
+    {
+      "id": "the_runbook_drifted_from_its_own_channel",
+      "label": "The Boundary Runbook Drifted From Its Own Channel",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-045-sprint-boundary-procedure-restates-retired-report-kind.md",
+      "source_location": "spec defect",
+      "description": "The procedure a lane reads at a handover still named a report shape that had been retired, so a lane following it literally would file an entry that can never reach a terminal state.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The four documents coupled by the channel check all agreed with each other. The fifth, which is the one consulted at the moment it matters, belongs to no coupling set and was free to drift."
+    },
+    {
+      "id": "a_transient_state_that_leaves_no_trace",
+      "label": "A Transient State That Would Have Left No Trace",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-046-graphify-branch-currency-record-reset-to-null.md",
+      "source_location": "finding",
+      "description": "The graph's branch-currency record briefly reported no analyzed commit. Because that record is ignored machine-local state, any later run repairs it and nothing preserves evidence that the window occurred.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Withdrawn as a defect and kept as the procedure: commit first, update against the committed head, re-merge the curated fragments, verify the record names that commit, then re-run coverage and drift. The entry is the only record the window existed."
+    },
+    {
+      "id": "the_outgoing_lane_writes_its_own_exit",
+      "label": "The Outgoing Lane Writes Its Own Exit",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-047-lane-b-to-lane-a-transfer-readiness-turn-report.md",
+      "source_location": "transfer readiness",
+      "description": "The lane finishing its run filed the transfer report itself, listing what was done, what was specified but not applied, and what remained open, and named the sequence by which the handover should be recorded.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Every earlier handover had the incoming lane describe the outgoing one's turn. No control can compel the step, so a handover performed as written is evidence about the lane rather than about the apparatus."
+    }
+  ],
+  "edges": [
+    {
+      "source": "a_framework_approved_is_not_values_supplied",
+      "target": "an_owed_document_routed_as_a_decision",
+      "relation": "continues",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-040-c32-docs-and-checks-application-runbook.md",
+      "confidence_score": 1,
+      "source_location": "application sequence",
+      "weight": 1
+    },
+    {
+      "source": "a_framework_approved_is_not_values_supplied",
+      "target": "a_packet_edited_on_its_way_up_is_legislating_upward",
+      "relation": "applies",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14by",
+      "weight": 1
+    },
+    {
+      "source": "currency_completion_and_portability_are_three_things",
+      "target": "checks_docs_drift",
+      "relation": "qualifies",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-041-graphify-current-head-is-not-portable.md",
+      "confidence_score": 1,
+      "source_location": "finding",
+      "weight": 1
+    },
+    {
+      "source": "a_transient_state_that_leaves_no_trace",
+      "target": "currency_completion_and_portability_are_three_things",
+      "relation": "refines",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-046-graphify-branch-currency-record-reset-to-null.md",
+      "confidence_score": 1,
+      "source_location": "finding",
+      "weight": 1
+    },
+    {
+      "source": "a_draft_accepted_as_a_draft",
+      "target": "a_lane_audited_its_own_claim_downward",
+      "relation": "bounded_by",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-043-s1-schema-draft-turn-report.md",
+      "confidence_score": 1,
+      "source_location": "turn report",
+      "weight": 1
+    },
+    {
+      "source": "the_runbook_drifted_from_its_own_channel",
+      "target": "a_document_in_no_coupling_set_is_unverifiable",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-045-sprint-boundary-procedure-restates-retired-report-kind.md",
+      "confidence_score": 1,
+      "source_location": "spec defect",
+      "weight": 1
+    },
+    {
+      "source": "the_outgoing_lane_writes_its_own_exit",
+      "target": "d118_the_outgoing_lane_reported_itself_out",
+      "relation": "evidences",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-047-lane-b-to-lane-a-transfer-readiness-turn-report.md",
+      "confidence_score": 1,
+      "source_location": "transfer readiness",
+      "weight": 1
+    },
+    {
+      "source": "the_outgoing_lane_writes_its_own_exit",
+      "target": "the_lock_table_is_the_lock",
+      "relation": "complements",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-047-lane-b-to-lane-a-transfer-readiness-turn-report.md",
+      "confidence_score": 1,
+      "source_location": "transfer readiness",
+      "weight": 1
+    }
+  ]
+}
