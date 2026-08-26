@@ -1,0 +1,102 @@
+{
+  "_comment": "Fragment 94 — D-137: an answer that addressed half its entry and closed it, a true word read as a property it does not cover, and a tool's self-report taken as fact. Merged 2026-08-26.",
+  "nodes": [
+    {
+      "id": "an_answer_that_addressed_half_its_entry_and_closed_it",
+      "label": "An Answer That Addressed Half Its Entry and Closed It",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-041-graphify-current-head-is-not-portable.md",
+      "source_location": "Required repair item 1",
+      "description": "An entry separated three properties and said explicitly that one does not prove the others; the answering decision addressed one of them in full and correct detail, said nothing about a second, and recorded the entry as applied, leaving the untouched half indistinguishable from a settled one.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A thorough answer to part of a question reads as a thorough answer to the question. The entry that named the distinction was the only place the omission was visible, and nothing re-reads a closed entry against the answer it received."
+    },
+    {
+      "id": "a_true_word_read_as_a_property_it_does_not_cover",
+      "label": "A True Word Read as a Property It Does Not Cover",
+      "file_type": "concept",
+      "source_file": "scripts/checks/docs-drift.mjs",
+      "source_location": "the synced detail line",
+      "description": "A control compared the analysis head against the current commit and reported the graph synced, which was accurate about extraction currency and silent about whether descriptions and labels had ever been ingested, so a green line was read as a guarantee the control never made.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The check was correct and its wording was correct; the defect was in the reading. A single word covering one of three properties invites the other two to be assumed, which is why the entry that separated them had to be written before the gap could be seen at all."
+    },
+    {
+      "id": "a_tools_self_report_taken_as_fact",
+      "label": "A Tool's Self-Report Taken as Fact",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "G101",
+      "description": "A generator reported how much work was outstanding by counting the files present rather than the live cycle, and separately declared the language of content it had misdetected, so following either report literally would have overstated the task and written names in the wrong language.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Tool output is data to be checked, not an instruction to be obeyed. Both errors were caught the same way — comparing the report against the artifact it described — and the second mattered most because executing the first literally would have overwritten hand-authored content."
+    }
+  ],
+  "edges": [
+    {
+      "source": "an_answer_that_addressed_half_its_entry_and_closed_it",
+      "target": "an_absent_field_suppressed_the_check_on_itself",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-041-graphify-current-head-is-not-portable.md",
+      "confidence_score": 1,
+      "source_location": "Required repair item 1",
+      "weight": 1
+    },
+    {
+      "source": "a_true_word_read_as_a_property_it_does_not_cover",
+      "target": "checks_docs_drift",
+      "relation": "implemented_in",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/docs-drift.mjs",
+      "confidence_score": 1,
+      "source_location": "the synced detail line",
+      "weight": 1
+    },
+    {
+      "source": "a_true_word_read_as_a_property_it_does_not_cover",
+      "target": "summary_outlived_source",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/docs-drift.mjs",
+      "confidence_score": 1,
+      "source_location": "the synced detail line",
+      "weight": 1
+    },
+    {
+      "source": "a_tools_self_report_taken_as_fact",
+      "target": "one_observation_cannot_distinguish_repaired_from_intermittent",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "G101",
+      "weight": 1
+    },
+    {
+      "source": "a_tools_self_report_taken_as_fact",
+      "target": "an_answer_that_addressed_half_its_entry_and_closed_it",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "G101",
+      "weight": 1
+    }
+  ]
+}
