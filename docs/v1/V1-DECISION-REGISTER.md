@@ -222,7 +222,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G92` | **Closed 2026-08-25 (`D-118`) — a tier column nothing could verify, invisible because nobody had ever ticked it** | **`tier-sweep` had no mapping for the "Phase closure" column.** `V1-PHASE-CLOSURE.md` is a governed tracking file that decisions routinely claim to affect — lane rows, boundary procedure, the artifact manifest, critic passes — and **a claim about it was exactly as checkable as any other and was checked by nothing.** It stayed invisible because the sweep only fails on a ✅ and **every prior decision wrote *"— unaffected"* there**, which it skips by design; the FIRST tick reported the column as unknown rather than verifying it. **Same shape as `B-045` one check over**: `channel-docs` couples four channel documents in both directions and `V1-PHASE-CLOSURE.md` is in neither set, which is why its §5.2 step 1 could drift to a retired kind while the four coupled documents all agreed. **A document that is the subject of claims and the member of no coupling set is unverifiable by construction.** §5.14by |
 | `G93` | **Closed 2026-08-25 (`D-119`) — a fixture that asserted a live count** | **`D-113`s `G83`/`G84` fixtures assert on a check detail line, and did it with absolute literals.** **The channel grows**, so two turns later both fixtures failed **while the check was working perfectly.** This is `C-21`s tally problem **inside the apparatus built to catch it**, and it is `G91`s lesson one file over: `G91` was *a fixture must not name a lane*; this is *a fixture must not name a count*; **both are the same rule — assert a RELATIONSHIP, not a live value.** Closed by deriving the baseline from the live channel with the channel own parser and asserting `base` and `base + 1`: **the mutation moves exactly one counter by one**, which is the property actually under test and was never the literal. §5.14bz |
 | `G94` | **Closed 2026-08-25 (`D-120`) — a correction that reached two tiers and missed the one a build lane reads** | **`A26a`, 2026-08-17, corrected the S1 Definition of Done** because the prior wording required a live database while `DEP-05` was withheld — its own note calls that *a live contradiction, not a deferral*. The corrected phrase, **unit-tested against a local or branch Postgres instance**, landed in `sprint-plan` §353 and in `Modular_PRD` `M1`. **`V1-BUILD-SPEC.md` kept the bare phrase *trigger written and unit-tested* for three months** and every check passed throughout. **The missed tier is the operative build document**, so Lane B built a static contract test against a DoD that never said which database — which is why `B-044` is a finding and not a violation. `G65` again, and **the oldest instance in this register by a wide margin**: arrival is checked, staleness is not, and a qualifier removed from one tier leaves the others agreeing with each other. Corrected here; the runner is now named. §5.14ca |
-| `G95` | **Open 2026-08-25 — narrowed 2026-08-25 (`D-132`): one of three sub-questions Chief-Editor-answered, two are Lane A's technical call** | **A brief is identified by a hash of its key fields (`D-121`), and which fields compose it is unspecified.** Three sub-questions were named: **(1) do different submitters collide** — **ANSWERED by `D-131`: no, records stay separate, never merged.** **(2) does the source reference participate** and **(3) does the hash change on a pre-gate edit** — **both technical hash-mechanics questions, not business policy**; `D-121` already ceded the guard's overall design to Lane A, and neither (2) nor (3) turns on anything only the business can decide. **Not `0002`-blocking.** §5.14cb, §5.14cm |
+| `G95` | **Closed 2026-08-25 (`D-133`)** | **A brief is identified by a hash of its key fields (`D-121`).** Three sub-questions: **(1) different submitters collide?** No — `D-131`, records stay separate. **(2) does the source reference participate?** **Yes, as the primary/anchor field** — if framing text were hashed, a different-angle resubmission on the same source would never collide and `D-127`'s reuse-window would gate nothing. **(3) does the hash change on a pre-gate edit?** **Only if the source reference itself changes** — framing/notes are not hashed, so editing them is inert by construction; a genuine source correction recomputes live until the first gate. §5.14cb, §5.14cm, §5.14cn |
 | `G96` | **Open 2026-08-25 — clarified 2026-08-25 (`D-132`): blocked on `S6` build sequencing, not a missing Chief Editor ruling** | **`articles` carries no submitter column**, and **the value cannot be trusted until `S6` authentication exists** (`X7`, `Modular_PRD` §445 — executor identity is self-asserted in Phase 0). **The role is already specified** (`SEC-03`); **`D-131`** additionally rules the column must distinguish channel, not just identity, once built. **Nothing here is the Chief Editor's to answer** — this gap closes when `S6` is built, a sequencing matter, not a decision. §5.14cb, §5.14cm |
 | `G97` | **Closed 2026-08-25 (`D-122`, raised as `B-050`) — a record that contradicts itself, and a withdrawal made on one observation** | **`npx graphify hook-rebuild` intermittently writes `branchName: null` and `lastAnalyzedHead: null` over a good record while leaving `stale: false` untouched** — so the flag reports healthy and the data reports that nothing was ever analyzed. `graphify state status` shows `gitDir` and `commonGitDir` null alongside it: **the tool loses its git context and overwrites.** **`B-046` reported this and `D-118` withdrew it because the state had recovered** — which is `arrival_not_correctness` applied to Lane A’s own verification: **one later observation cannot distinguish repaired from intermittent**, and re-running the rebuild this pass repopulated the record correctly. **The severity is narrower than reported and the narrowing is the point**: `docs-drift` compares `lastAnalyzedHead` against HEAD and honours `stale` only when explicitly `true`, **so the check is not fooled and failed correctly.** The exposure is to a READER who sees `stale: false` and believes it — `G90` shape, a field a person reads and a control does not. **Closed by making the check own output teach the reader**: a null record now names the self-contradiction, because *"run hook-rebuild"* is the remedy for ordinary staleness and merely the **cause** of this one. **No fixture** — reproducing a non-deterministic external tool would be a probe that passes by luck. §5.14cc |
 | `G98` | **Opened and closed 2026-08-25 (`D-124`) — a propagation fallback that trusted any ID in the cell** | **`tier-sweep` required a decision ID only when the Item cell named one; otherwise it accepted ANY ID in the cell.** `D-123` claimed a Phase-closure edit it never made, and a condition already mentioned in that file from an earlier pass satisfied the claim — `G58`, arriving through the fallback built to catch `G58`. **Closed by taking the owning decision from the enclosing section heading** rather than joining it to the existing candidates — a joined list would have made the sweep weaker, since its test is `.some()`. **Backtested against the full register at `D-126`**: 105 checkmarked rows, 74 depending on the fallback, zero mismatches; the stress-test fixture for the one untested branch (no heading seen yet) caught a defect in itself before certifying anything, recorded there rather than repeated here. §5.14ce |
@@ -8341,3 +8341,74 @@ what remains and who owns it. `C-32` unchanged.
 **Answers nothing.** Reframes ownership only — `G95`'s two remaining sub-questions and `G96`'s `S6`
 dependency are unchanged in substance, only in whose queue they sit. `C-32`'s five values are
 untouched. No lane selected, no phase closed.
+
+---
+
+## 5.14cn `D-133` — `G95` Closed as Lane A's Own Call; `C-32`'s Lower-Stakes Items Get Recommended Defaults
+
+**Lane A pass, 2026-08-25.** `D-132` said two of `G95`'s sub-questions were Lane A's technical call
+and three of `C-32`'s five values were the business's alone. This pass **makes the first call and
+drafts recommended defaults for the parts of the second that follow from the operating model already
+on record** — leaving the parts that carry real business risk untouched.
+
+### Parent — `G95` closes: source reference is the hash's anchor field, framing is not
+
+**Reasoned from decisions already on record, not invented fresh.**
+
+> **Does the source reference participate?** **Yes — it is the primary field, and effectively the
+> only one.** `D-127`'s reuse-window governs *"reuse of the topic for a different angle"* after
+> `REUSE-WINDOW-90`. If the hash included the angle/framing text, two submissions on the **same**
+> source with **different** framing would already produce different hashes and never collide —
+> **the reuse-window would have nothing left to gate.** For the window to mean anything, the hash
+> must key on the **source reference alone**, so same-source resubmissions collide regardless of
+> framing, and the 90-day clock is what separates a legitimate reuse from a same-day duplicate.
+>
+> **Does the hash change on a pre-gate edit?** **Only when the source reference itself changes.**
+> Framing, notes, and draft text are **not hashed**, so editing them before the first gate leaves
+> the hash untouched by construction — there is nothing there to destabilize. A correction to the
+> **source reference itself** (wrong link, wrong article) is a genuine identity change and
+> **recomputes the hash live** up to the first gate, after which `D-121`'s guard freezes it.
+>
+> **One implementation note for whoever builds this, not a new question**: normalize the source
+> reference (canonical URL form, strip tracking parameters) before hashing, so two links to the
+> same article do not produce two hashes by accident.
+
+**`G95` CLOSED.** Sub-question 1 was `D-131`'s; sub-questions 2 and 3 are this decision's.
+
+### Child — `C-32`: recommended defaults for the three items the operating model already answers
+
+**Not a ruling — a draft the Chief Editor can approve in one word or amend.** Items 3–5 of `B-039`
+all ask *who* is authorized to do something, and `B-040`'s own draft text already states **the
+Chief Editor is the accountable owner while the business has one natural person, with no
+segregation of duties** (`D-127` row 5's disclosure ruling says the same thing from the audit
+side). That fact answers *who*, for these three, on its own:
+
+| Item | Recommended default |
+|---|---|
+| Archive operator/location | The hosted Supabase project's own infrastructure — archival is external to the application (`D-115`), and no second operator exists yet |
+| Restoration authority | The Chief Editor, sole operator, may authorize restoring an archived record to the current set |
+| Disposal authority | The Chief Editor, sole operator, may authorize disposal later; each act is documented with a reason (no disposal occurs in v1) |
+
+**Items 1 and 2 are NOT defaulted — real business judgment.** The 90-day number carries actual
+statutory-exposure and business-risk tradeoffs; the per-class bounded minimum is five separate
+judgment calls. **Neither is Lane A's to suggest a number for.**
+
+**Added to `B-039` as recommended defaults, clearly marked as suggestions, not rulings** — approving
+all three in one line closes 3/5 of the packet.
+
+### Gaps
+
+**Closed:** `G95` (`D-133`, sub-questions 2–3; sub-question 1 was `D-131`'s). **Unchanged:** `C-32`'s
+items 1–2; `G96`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-133` / `G95` | ✅ §5.14cn, §5.1 | **— unaffected: no code until the guard is built** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | ✅ **`TR-DM-01`'s `brief_hash` note updated from "composition unspecified" to the closed answer** |
+
+### Scope limits
+
+**Closes `G95` only.** Proposes, does not decide, three of `C-32`'s five items — items 1–2 remain
+entirely open, real business judgment, no default offered. No schema, no migration, no code written.
+No lane selected, no phase closed.

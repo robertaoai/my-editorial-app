@@ -46,6 +46,20 @@ five values in the short form — answer these and the detail sections follow au
 maps to exactly one of `NFR-02`, `AC-12a`, `G40`, `G88`, `G41`, and each closes independently as its
 own answer arrives.
 
+**Recommended defaults for three of the five (added `D-133`) — approve or amend, not a ruling.**
+Items 3–5 all ask *who* is authorized to do something, and the operating model already on record
+answers that: one natural person, no segregation of duties, the Chief Editor accountable throughout.
+
+| Item | Recommended default |
+|---|---|
+| 3. Archive operator/location | The hosted Supabase project's own infrastructure — archival is external to the application, and no second operator exists |
+| 4. Restoration authority | The Chief Editor, sole operator |
+| 5. Disposal authority | The Chief Editor, sole operator; each act documented with a reason |
+
+**Items 1 and 2 are NOT defaulted.** The 90-day number and each class's minimum period carry real
+statutory-exposure and business-risk judgment — approving all three defaults above in one line
+still leaves those two as the genuine open questions.
+
 ## Decisions the Chief Editor must make, parent first
 
 ### 1. Ratify ownership and authority
