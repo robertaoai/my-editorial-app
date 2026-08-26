@@ -1,0 +1,57 @@
+{
+  "_comment": "Fragment 83 — D-127: two windows sharing one name, separated; a member restored to five by discovering it never had a sixth. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "two_windows_shared_one_variable_name",
+      "label": "Two Different Windows Shared One Variable Name",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ch",
+      "description": "A data-deletion period governed by PDPA and an editorial topic-reuse eligibility window had both been called ninety days in conversation, and treating them as one variable produced a conflation that a naming decision resolved rather than a substantive dispute.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Confirmed against the already-ratified retention decision rather than assumed: one window was already settled and unaffected, the other had never been formally ruled at all despite being discussed alongside the first. Naming both precisely is what let the conflation be resolved without reopening either."
+    },
+    {
+      "id": "a_conflation_named_and_excluded_not_a_member_removed",
+      "label": "A Conversational Conflation Named and Excluded, Not a Member Removed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ch",
+      "description": "A concern widely assumed to be part of a five-item tracked condition was never actually one of its named items. Restructuring the condition meant confirming the five stood unchanged and stating explicitly that the sixth concern had never belonged there, rather than removing and renumbering a real member.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The safer reading of an ambiguous restructuring request is the one that changes the fewest already-recorded facts. Checking which reading was actually true, rather than picking whichever was easier to write, is what kept a five-item condition from acquiring a false history of having had six."
+    }
+  ],
+  "edges": [
+    {
+      "source": "two_windows_shared_one_variable_name",
+      "target": "the_reader_was_the_lane_that_could_not_commit",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ch",
+      "weight": 1
+    },
+    {
+      "source": "a_conflation_named_and_excluded_not_a_member_removed",
+      "target": "two_windows_shared_one_variable_name",
+      "relation": "resolves",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ch",
+      "weight": 1
+    }
+  ]
+}
