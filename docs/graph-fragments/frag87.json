@@ -1,0 +1,67 @@
+{
+  "_comment": "Fragment 87 — D-131: a ruling that confirmed an existing model rather than replacing it, and a new channel absorbed into a key already built to hold it. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "a_ruling_confirmed_the_existing_model_rather_than_replacing_it",
+      "label": "A New Ruling Confirmed an Existing Model Instead of Replacing It",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14cl",
+      "description": "A business ruling that different submitters must never share one record or clock turned out to already be true under an identity key adopted in an earlier decision, so the new ruling restated the architecture's own consequence rather than introducing a requirement Lane A had to design against.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Checking a new instruction against the mechanism already adopted before treating it as new scope is what distinguishes a restatement from a requirement. Recording that distinction explicitly is what keeps a later reader from believing two separate decisions independently invented the same rule."
+    },
+    {
+      "id": "a_gap_stayed_open_by_naming_what_still_lacked_an_answer",
+      "label": "A Gap Stayed Open by Naming Precisely What Its Own Ruling Did Not Supply",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14cl",
+      "description": "A ruling that closed the condition carrying two adjacent gaps' shared precondition was recorded as unblocking rather than answering either gap, since the precondition's answer supplied new inputs to each without supplying either gap's own remaining question.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Closing the precondition and closing the dependents are different acts, and conflating them would have closed two open questions on the strength of an answer that did not actually supply either one's content. The distinction kept two still-open items from being marked closed on borrowed credit."
+    }
+  ],
+  "edges": [
+    {
+      "source": "a_ruling_confirmed_the_existing_model_rather_than_replacing_it",
+      "target": "a_required_key_implemented_as_optional",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cl",
+      "weight": 1
+    },
+    {
+      "source": "a_gap_stayed_open_by_naming_what_still_lacked_an_answer",
+      "target": "a_gap_checked_for_duplication_before_being_recorded",
+      "relation": "follows_from",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cl",
+      "weight": 1
+    },
+    {
+      "source": "a_ruling_confirmed_the_existing_model_rather_than_replacing_it",
+      "target": "an_ask_sized_to_the_question_not_to_precedent",
+      "relation": "follows_from",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cl",
+      "weight": 1
+    }
+  ]
+}
