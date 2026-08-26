@@ -228,6 +228,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G98` | **Opened and closed 2026-08-25 (`D-124`) — a propagation fallback that trusted any ID in the cell** | **`tier-sweep` required a decision ID only when the Item cell named one; otherwise it accepted ANY ID in the cell.** `D-123` claimed a Phase-closure edit it never made, and a condition already mentioned in that file from an earlier pass satisfied the claim — `G58`, arriving through the fallback built to catch `G58`. **Closed by taking the owning decision from the enclosing section heading** rather than joining it to the existing candidates — a joined list would have made the sweep weaker, since its test is `.some()`. **Backtested against the full register at `D-126`**: 105 checkmarked rows, 74 depending on the fallback, zero mismatches; the stress-test fixture for the one untested branch (no heading seen yet) caught a defect in itself before certifying anything, recorded there rather than repeated here. §5.14ce |
 | `G99` | **Closed 2026-08-25 (`D-131`) — Chief Editor ruled all three questions** | **Three legitimate channels named** (Chief Editor manual, POC payment, trend/fade-analysis-informed drafting — closed set for v1); **uniform reuse-eligibility treatment**, no channel bypasses `REUSE-WINDOW-90`; **different-submitter reuse is legitimate, no detection built**, with each channel's day-count kept separate rather than merged. **Confirms `D-121`'s submitter+hash+day key** rather than changing it. `G95`/`G96` are **unblocked, not answered** — carried forward with the third channel and the separate-record instruction as new inputs. §5.14cl |
 | `G100` | **Opened and closed 2026-08-26 (`D-136`, raised as `B-057`) — a count inside the condition that gates phase closure** | **`C-26` read *“ten entries are `Applied`”* from `D-102` onward, in its heading and its opening paragraph.** `closure-readiness` **never gated ten**: it gates *every entry raised against the closing phase*, a set that grew with each correction Lane A applied, so the condition and its own control had long since parted. **A reader sizing Phase 1's remaining work from `C-26` would have sized it at ten.** `G55`, `G56`, `G58` and `G75` all name restatement as this corpus's drift mechanism; **this is the first recorded instance inside a closure condition.** **`G75` forbids correcting the number** — a corrected tally drifts at the next entry — so the tally is **removed and replaced by the rule that determines it**, with the figure left to the check that prints it every run. **`D-102`'s own record keeps *“ten”* untouched** (`D-104`: an answer is append-only). **`V1-PHASE-CLOSURE.md` was checked and is clean** — its Lane A row already stated the fact without the count, so the drift existed in exactly one place. §5.14cq |
+| `G101` | **Opened and closed 2026-08-26 (`D-137`) — four defects in the pending-semantic mechanism, found by executing it** | **(1) The pending marker counts FILES, not the live cycle** — live batches read *“1 of 12”* while seven stale orphans read *“13 of 19”*, overstating the work by more than half; Lane B repeated the inflated figure, correctly, because it is what the tool reports. **(2) Answering the orphans would have overwritten curated descriptions** — one names a hand-authored node, making *“fill every pending batch”* destructive when executed literally (`G51` in a new shape). **(3) Six communities were tagged `lang=pt` on plainly English content**, and the instruction demands the name be written *“in EXACTLY that language”* — obeying it would have put Portuguese names on English governance clusters. **(4) 825 entity nodes are undescribed BY DESIGN** under an anti-hallucination policy, so *“every node described”* is unsatisfiable and `B-041`'s *“no pending batch or community ingestion”* wording is kept. **(1) and (3) are one shape: a tool's self-report taken as fact; (2) is why it matters.** §5.14cr |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -8717,3 +8718,77 @@ place. Checking the sibling before assuming symmetry is what kept this from beco
 condition closed. **`C-32`'s deferred remainder is untouched**: the partition/classification column
 stays specified to Lane B, and the external archival, restoration and disposal processes stay
 Project Scope, post-launch. **No entry was moved to `Verified`** — that word belongs to Lane B.
+
+## 5.14cr `D-137` — `B-041`'s Unanswered Half: Semantic Completion Done, and Four Defects in the Mechanism That Reports It
+
+**Lane B declined to verify `B-040` and named the reason:** `B-040`'s own success criteria end
+with *"Graphify is semantically current and portable before graph artifacts are proposed"*, and
+that criterion was never met. **Lane B was right, and the miss is Lane A's.**
+
+**`D-118` answered half of `B-041` and closed it as though it had answered all of it.** `B-041`
+separated three properties — **extraction currency, semantic completion, portability** — and said
+plainly that one does not prove the others. `D-118` addressed **portability** in full and correct
+detail, ruled it non-blocking, and **said nothing whatever about semantic completion.** Required
+repair item 1 — *"complete the pending semantic update"* — sat undone.
+
+**The consequence is not hypothetical.** `D-135` and `D-136` each proposed and committed curated
+graph fragments while the semantic layer was pending. **That is the precise sequence `B-040`'s
+criterion forbids**, performed twice, by the passes that cited the criterion.
+
+**Why nothing caught it.** `docs-drift` compares `lastAnalyzedHead` to `git rev-parse HEAD` and
+reports **synced**, which is true and is about extraction currency alone. **The word "synced" was
+read as the property `B-041` had already warned it does not cover.** No check reads
+`.graphify_describe_pending`; the state was reported only by a command nobody was required to run.
+
+### What was owed, and what was done
+
+| Item | State |
+|---|---|
+| Description batches filled and ingested | ✅ every node in the live cycle |
+| Community labels written and ingested | ✅ every community |
+| `graphify check-update` reports current | ✅ **no pending batch or community ingestion** |
+| Curated layer preserved | ✅ node and link counts unchanged; hand-authored descriptions intact |
+| Portability re-checked | ✅ unchanged — `manifest.json` and `studio/*` only |
+| `B-040` / `B-057` moved to `Verified` | ❌ **not Lane A's to do, and deliberately not done** |
+
+**No tally appears above** (`G55`, `G75`). `graphify check-update` prints the state; the ingest
+prints the counts.
+
+### `G101` — four defects in the pending-semantic mechanism, found by executing it
+
+| # | Defect | Why it matters |
+|---|---|---|
+| 1 | **The pending marker counts FILES, not the live cycle.** The live batches were headed *"1 of 12"*; seven Aug-22 orphans headed *"13 of 19"* sat beside them | The reported figure overstated the work by more than half, and **Lane B's report repeated it** — correctly, since it is what the tool says |
+| 2 | **Answering the orphans would have damaged the curated layer.** One names a node whose description is hand-authored | *"Fill and ingest the pending batches"*, executed literally against every file present, **overwrites curated content** — the `G51` loss in a new shape |
+| 3 | **Six communities were tagged `lang=pt` on plainly English content** — `DATA_MODEL.md`, `smoke.test.ts`, the Modular PRD cluster | The instruction says to write the name *"in EXACTLY that language."* **Obeying it would have put Portuguese names on English governance clusters.** Tool output is data, not a directive |
+| 4 | **825 entity nodes are left undescribed BY DESIGN**, under an anti-hallucination policy for nodes with no grounding | *"Every node described"* is **not a satisfiable criterion.** `B-041`'s own wording — *"no pending batch or community ingestion"* — is the correct one and is kept |
+
+**Defects 1 and 3 are the same shape:** a tool's self-report taken as fact. **Defect 2 is why that
+matters** — the literal execution was destructive, and only checking the batch headers against the
+live node count caught it.
+
+### The limit, stated rather than buried
+
+**`.graphify/` is gitignored, so none of this semantic work is a tracked commit.** It is
+reproducible only by running `graphify check-update` on a machine holding the graph — the same
+local-only class as `graph-coverage`, `docs-drift` and `source-sweep`. **A fresh checkout has no
+semantic layer and cannot be given one from the repository**, and no check can assert otherwise
+without becoming `probe_that_cannot_fail`.
+
+### Gaps
+
+**Opened and closed:** `G101` — §5.1. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`;
+`AC-12a`, `G88`, `G41`, `G87`, `G89`, `G96`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `B-041` completed | ✅ §5.14cr | **— unaffected: no scope, sequence or DoD change** | **— unaffected** | **— unaffected: `.graphify/` is untracked and is not an inventory artifact** | **— unaffected** | **— unaffected** |
+| `G101` | ✅ §5.14cr, §5.1 | **— unaffected** | **— unaffected: the graph rules already say the curated layer does not rebuild (`G51`); this adds no rule, it records how the tool misreports** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+### Scope limits
+
+**Writes no code, no schema, no migration, no check.** **`B-040` and `B-057` remain `Applied` and
+are deliberately not advanced** — `C-26` disqualifies Lane A from verifying its own entries by
+name, and Lane B's sequence is adopted as written. No lane selected, no phase closed.
