@@ -1,0 +1,67 @@
+{
+  "_comment": "Fragment 84 — D-128: an act the product cannot perform under any window makes a false dichotomy dissolve, and one clock is used for two consequences without either being derived from the other. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "an_act_the_product_cannot_perform_under_any_window",
+      "label": "A Question Presupposed an Act the Product Cannot Perform Under Any Window",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ci",
+      "description": "A question asking which of two windows triggers an external act was reframed once it was noticed that neither window can trigger that act, because triggering it is not an action available to the product at all, regardless of which clock is used.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The question as posed had no correct answer because both of its options shared a false premise. Reframing to the narrower, answerable question underneath it is what let an already-decided architecture close a business-scope question without a new ruling."
+    },
+    {
+      "id": "one_clock_two_consequences_neither_derived_from_the_other",
+      "label": "One Clock Serving Two Consequences, Neither Derived From the Other",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ci",
+      "description": "A single day-count computed from one event was found to plausibly serve both a product-computed workflow permission and the boundary of an external, unconfirmed process, and the closing constraint requires the two consequences to remain independently displayed rather than one being inferred from the other's elapsing.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Sharing a clock is a legitimate design efficiency; treating one consequence as proof of the other is not, because one side of the pair is confirmed by the product's own computation and the other requires a supplied fact the product does not hold. Naming the coupling explicitly is what keeps a later UI implementation from quietly inferring what the architecture requires to be supplied."
+    }
+  ],
+  "edges": [
+    {
+      "source": "an_act_the_product_cannot_perform_under_any_window",
+      "target": "two_windows_shared_one_variable_name",
+      "relation": "resolves",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ci",
+      "weight": 1
+    },
+    {
+      "source": "one_clock_two_consequences_neither_derived_from_the_other",
+      "target": "an_act_the_product_cannot_perform_under_any_window",
+      "relation": "follows_from",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ci",
+      "weight": 1
+    },
+    {
+      "source": "one_clock_two_consequences_neither_derived_from_the_other",
+      "target": "verification_withheld_on_a_claimed_propagation",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ci",
+      "weight": 1
+    }
+  ]
+}
