@@ -225,6 +225,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G95` | **Open 2026-08-25 — the mechanism is established; its composition is not** | **A brief is identified by a hash of its key fields (`D-121`), and which fields compose it is unspecified.** **The mechanism is not new here**: `requirements-traceability-map.md` already hashes customer sentences in `PRD.md` so drift is detectable, for the stated reason that *the customer may edit it at any time, in any order, without telling the project team — that is their right*, and it carries a drift procedure and a change-control step. **Applying that to briefs extends a running pattern rather than inventing one.** What is missing is the field list and the collision semantics: whether two identical briefs from different submitters collide, whether the source reference participates, and whether a hash changes when a brief is edited before its first gate. **Not `0002`-blocking** — the guard is a surface behaviour (`D-121`), and no column depends on it until the guard is built. §5.14cb |
 | `G96` | **Open 2026-08-25 — a field with no column, and no way to populate it truthfully until S6** | **`articles` carries no submitter.** `0002` adds eighteen columns and none of them is one; `source_author` is the SOURCE article's author, a different person. `articles.user_id` exists in `0001` — nullable, no foreign key, untouched by `0002`, and documented only in the **plan pack**, which is explicitly not authoritative (`D5`), for *owner scoping* rather than submission. **The role is specified**: `SEC-03` names *the single Chief Editor account and scoped roles*, `NG-02` scopes multi-team accounts out of **v1 only**, and `D-73` made the application multi-tenant. **The harder half is that until S6 the value cannot be trusted** — `X7` and `Modular_PRD` §445 record that no API authentication exists in Phase 0 and **executor identity is self-asserted**. **That is why `D-121` puts the duplicate guard at the surface**: enforcing it in the database would build a control on a field the system itself calls self-asserted. §5.14cb |
 | `G97` | **Closed 2026-08-25 (`D-122`, raised as `B-050`) — a record that contradicts itself, and a withdrawal made on one observation** | **`npx graphify hook-rebuild` intermittently writes `branchName: null` and `lastAnalyzedHead: null` over a good record while leaving `stale: false` untouched** — so the flag reports healthy and the data reports that nothing was ever analyzed. `graphify state status` shows `gitDir` and `commonGitDir` null alongside it: **the tool loses its git context and overwrites.** **`B-046` reported this and `D-118` withdrew it because the state had recovered** — which is `arrival_not_correctness` applied to Lane A’s own verification: **one later observation cannot distinguish repaired from intermittent**, and re-running the rebuild this pass repopulated the record correctly. **The severity is narrower than reported and the narrowing is the point**: `docs-drift` compares `lastAnalyzedHead` against HEAD and honours `stale` only when explicitly `true`, **so the check is not fooled and failed correctly.** The exposure is to a READER who sees `stale: false` and believes it — `G90` shape, a field a person reads and a control does not. **Closed by making the check own output teach the reader**: a null record now names the self-contradiction, because *"run hook-rebuild"* is the remedy for ordinary staleness and merely the **cause** of this one. **No fixture** — reproducing a non-deterministic external tool would be a probe that passes by luck. §5.14cc |
+| `G98` | **Closed 2026-08-25 (`D-125`) — a propagation fallback that trusted any ID in the cell** | **`tier-sweep` required a decision ID only when the Item cell named one; otherwise it accepted ANY ID in the cell.** `D-123` claimed a Phase-closure edit it never made, and a condition already mentioned in that file from an earlier pass satisfied the claim — `G58`, arriving through the fallback built to catch `G58`. **Closed by taking the owning decision from the enclosing section heading** rather than joining it to the existing candidates — a joined list would have made the sweep weaker, since its test is `.some()`. **Backtested against the full register at `D-126`**: 105 checkmarked rows, 74 depending on the fallback, zero mismatches; the stress-test fixture for the one untested branch (no heading seen yet) caught a defect in itself before certifying anything, recorded there rather than repeated here. §5.14ce |
+| `G99` | **Open 2026-08-25 — the trigger-identity question, separated from retention as intake design** | **Who or what constitutes a legitimate new trigger** — distinct from `REUSE-WINDOW-90`'s reuse-eligibility clock (`D-127`/`D-128`) and distinct from `RET-POC-90`'s deletion clock (`D-43`) — is unruled. **Not a duplicate of `G95` or `G96`**, though adjacent: `G95` is the brief-hash's field composition (a mechanism question) and `G96` is the missing submitter column (a storage question, blocked on S6 auth); `G99` is upstream of both — **which sources of triggering count as legitimate at all** is a precondition for deciding what a hash should treat as identical and what a submitter column should record. **Filed against intake design, not `C-32`** — this is workflow policy, not a retention obligation. §5.14ch |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -8094,3 +8096,62 @@ legitimate new trigger.
 business content, unaffected. **No UI is built here** — the decoupling constraint is recorded for
 whoever builds the reuse-eligibility and archival-absence surfaces later. No lane selected, no
 phase closed, no retention value approved.
+
+---
+
+## 5.14cj `D-129` — Propagation Freshness: `B-039`/`B-040` Updated; `G98`/`G99` Added to §5.1; No New Ruling
+
+**Lane A pass, 2026-08-25, checking the two items the Chief Editor named as still open — `C-32`'s
+five values and the day-count, and `G99`** — for propagation gaps rather than re-deciding either.
+**Nothing here rules a business value, and `G99` is not answered.**
+
+### Parent — `C-32`'s already-routed packet had gone stale under its own feet
+
+**`B-039` (the decision packet) and `B-040` (the application runbook) were both written before
+`D-127`/`D-128` named the two 90s and closed rows 3–4.** Item 3 of `B-039` still asked the Chief
+Editor to *"ratify or replace the 90-day archival boundary"* using only the bare number, with no
+reference to the naming or the architectural finding that this number likely serves two independent
+consequences.
+
+> **Fixed additively, not rewritten** — per the request to keep this simple: a cross-reference block
+> added to `B-039` item 3 and `B-040`'s record-class table row, naming `DATA_RETENTION_ARCHIVE_DAYS`
+> explicitly, distinguishing it from the already-settled `RET-POC-90`, and stating that the
+> workflow use (`REUSE-WINDOW-90`) does **not** wait on this ratification — only the archival meaning
+> of the number does. `B-040`'s structural-coupling-check spec gains one more required failure case:
+> the `D-128` decoupling constraint, so whoever eventually writes
+> `scripts/checks/retention-policy-coupling.mjs` builds it in from the start rather than discovering
+> it later.
+
+**`C-32`'s actual five values remain exactly as `B-040` already lists them** — the 90-day
+ratification, each class's bounded minimum, the archive operator/location class, restoration
+authority, and later disposal authority. **None is decided here. None is Lane A's to decide.**
+
+### Child — `G99`: not a duplicate of `G95`/`G96`, and now findable
+
+**Checked against `G95` and `G96` before recording anything**, since the user's instruction to avoid
+duplicates makes this the load-bearing question. `G95` is the brief-hash's field composition
+(mechanism); `G96` is the missing submitter column, blocked on S6 auth (storage). **`G99` is
+neither — it is upstream of both**: which sources of triggering count as legitimate at all is a
+precondition for what a hash should treat as identical and what a submitter column should record.
+**Confirmed distinct, not merged.**
+
+**The propagation gap**: `G99` was opened in `D-127` but, like `G98` before it, never reached §5.1 —
+the table whose own heading claims *"every ID."* **Both added here**, matching `G95`/`G96`'s and
+`G97`'s existing entries in shape and citation.
+
+### Gaps
+
+**None opened, none closed.** `G98` and `G99` gain §5.1 rows; their substance is unchanged from
+where `D-125` and `D-127` left them. `G95`, `G96` confirmed distinct from `G99`, unaffected.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-129` | ✅ §5.14cj, §5.1 | **— unaffected** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | **— unaffected: no requirement changes, only cross-references added to already-routed channel entries** |
+
+### Scope limits
+
+**Decides no business value, answers no gap.** `B-039`/`B-040` gain pointers, not new asks — the
+five values and the day-count are exactly as open as before this pass. `G99` stays open. No lane
+selected, no phase closed.

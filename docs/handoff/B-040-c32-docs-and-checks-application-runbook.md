@@ -106,7 +106,7 @@ platform-rule change.
 | Record class | Current-set rule | Archive trigger | Minimum retained period | Disposal authority |
 |---|---|---|---|---|
 | Published editorial records and correction/retraction evidence | Remain current while correction or retraction must remain possible | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` |
-| Rejected, abandoned, and unpublished editorial work | `CHIEF-EDITOR-DECISION-REQUIRED` | Ratify or replace the proposed 90 days and name its start event | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` |
+| Rejected, abandoned, and unpublished editorial work | `CHIEF-EDITOR-DECISION-REQUIRED` | Ratify or replace the proposed 90 days (named `DATA_RETENTION_ARCHIVE_DAYS`, `D-127`/`D-128` — distinct from `RET-POC-90`, likely the same clock as the workflow's `REUSE-WINDOW-90`) and name its start event | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` |
 | Append-only transitions, reports, publication targets, and publication events | Remain linked to their originating editorial record | Follow the originating record without breaking the chain | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` |
 | Sources and personal data supporting editorial work | Limited to the approved editorial and evidential purpose | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` |
 | POC payment-confirmation/commercial records | Outside the v1 editorial migration; governed before commercial activation | Deferred to the commercial policy | Deferred | Deferred |
@@ -186,8 +186,11 @@ Create `scripts/checks/retention-policy-coupling.mjs` and add it to
    Business Case;
 6. the Blueprint's 48-hour/seven-day cleanup described as governed archival without a supplied
    archive fact;
-7. `0002`, a migration, or an S1 gate naming `C-32` as a dependency; and
-8. `AC-12a` present without a creating decision/parent, preserving `G89`'s direction.
+7. `0002`, a migration, or an S1 gate naming `C-32` as a dependency;
+8. `AC-12a` present without a creating decision/parent, preserving `G89`'s direction; and
+9. **added `D-128`** — a reuse-eligibility UI element deriving its state from the archival-absence
+   fact (`G41`/`G88`), or vice versa, even where both surfaces share `DATA_RETENTION_ARCHIVE_DAYS`
+   as their underlying clock. The two must remain independently sourced.
 
 It must deliberately not decide whether a period is legally sufficient. A parser cannot perform
 legal judgment, and a check that pretends it can is worse than no check.

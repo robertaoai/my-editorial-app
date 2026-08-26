@@ -53,6 +53,17 @@ Define its start event and exclusions. Reconcile it with the Blueprint's shorter
 cleanup periods: removing an item from an active work queue is not archival unless the policy says
 it is moved into the governed archive.
 
+> **Added 2026-08-25 (`D-127`, `D-128`), after this item was routed — the number this item asks
+> about is now named.** `DATA_RETENTION_ARCHIVE_DAYS` is distinct from `RET-POC-90` (`D-43`'s
+> dropped-cart PDPA deletion — already settled, unaffected by this packet). It is **very likely the
+> same clock** as `REUSE-WINDOW-90` (editorial topic-reuse eligibility), which `D-127` already ruled
+> **without needing the Chief Editor** — reuse eligibility is workflow/intake design, not a
+> retention obligation, so it does not wait on this item. **What still needs ratification here is
+> only the number and its archival meaning**, not the workflow use of it. `D-128` additionally rules
+> that once ratified, the reuse-eligibility surface and the archival-absence surface (item 6 below)
+> must remain **visibly independent UI elements even if they share this clock** — neither may be
+> inferred from the other elapsing.
+
 Published work remains in the current set while correction or retraction must remain possible,
 unless the policy supplies a different current-set exit rule.
 
