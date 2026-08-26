@@ -107,6 +107,17 @@ case: each `docs/handoff/B-NNN-*.md` is covered by one hand-authored concept nod
 **rebuild first, then merge** — a fragment cannot edge to a source file the extracted layer has not
 seen yet.
 
+**Semantic completion is the LAST action of a pass, because every rebuild undoes it.** `hook-rebuild`
+and `graphify update` both re-extract, and re-extraction **drops the ingested descriptions for
+extracted nodes** — curated fragment descriptions survive, extracted ones do not — after which
+`check-update` reports pending again. So: **commit everything, rebuild once at the final HEAD, merge
+fragments, then fill and ingest, then stop.** A rebuild after the ingest silently reverses it, and
+`docs-drift` will still say *synced*, because it compares heads and never reads the semantic state.
+
+**If a rebuild has already dropped them, do not re-author.** The newest dated backup —
+`.graphify/<date>/graph.json` — still holds the pre-rebuild descriptions, and they can be replayed
+into the regenerated `batch-*.json` files by id.
+
 ## 8. Verify — and negative-test
 
 ```bash
