@@ -229,6 +229,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G99` | **Closed 2026-08-25 (`D-131`) — Chief Editor ruled all three questions** | **Three legitimate channels named** (Chief Editor manual, POC payment, trend/fade-analysis-informed drafting — closed set for v1); **uniform reuse-eligibility treatment**, no channel bypasses `REUSE-WINDOW-90`; **different-submitter reuse is legitimate, no detection built**, with each channel's day-count kept separate rather than merged. **Confirms `D-121`'s submitter+hash+day key** rather than changing it. `G95`/`G96` are **unblocked, not answered** — carried forward with the third channel and the separate-record instruction as new inputs. §5.14cl |
 | `G100` | **Opened and closed 2026-08-26 (`D-136`, raised as `B-057`) — a count inside the condition that gates phase closure** | **`C-26` read *“ten entries are `Applied`”* from `D-102` onward, in its heading and its opening paragraph.** `closure-readiness` **never gated ten**: it gates *every entry raised against the closing phase*, a set that grew with each correction Lane A applied, so the condition and its own control had long since parted. **A reader sizing Phase 1's remaining work from `C-26` would have sized it at ten.** `G55`, `G56`, `G58` and `G75` all name restatement as this corpus's drift mechanism; **this is the first recorded instance inside a closure condition.** **`G75` forbids correcting the number** — a corrected tally drifts at the next entry — so the tally is **removed and replaced by the rule that determines it**, with the figure left to the check that prints it every run. **`D-102`'s own record keeps *“ten”* untouched** (`D-104`: an answer is append-only). **`V1-PHASE-CLOSURE.md` was checked and is clean** — its Lane A row already stated the fact without the count, so the drift existed in exactly one place. §5.14cq |
 | `G101` | **Opened and closed 2026-08-26 (`D-137`) — defects in the pending-semantic mechanism, found by executing it** | **(1) The pending marker counts FILES, not the live cycle** — live batches read *“1 of 12”* while seven stale orphans read *“13 of 19”*, overstating the work by more than half; Lane B repeated the inflated figure, correctly, because it is what the tool reports. **(2) Answering the orphans would have overwritten curated descriptions** — one names a hand-authored node, making *“fill every pending batch”* destructive when executed literally (`G51` in a new shape). **(3) Six communities were tagged `lang=pt` on plainly English content**, and the instruction demands the name be written *“in EXACTLY that language”* — obeying it would have put Portuguese names on English governance clusters. **(4) 825 entity nodes are undescribed BY DESIGN** under an anti-hallucination policy, so *“every node described”* is unsatisfiable and `B-041`'s *“no pending batch or community ingestion”* wording is kept. **(5) The ingest does not survive the next rebuild** — re-extraction drops every extracted node's description while `docs-drift` still reports *synced*, so **semantic completion is the LAST action of a pass, not a step inside it**; the recovery is to replay the dated `.graphify/` backup rather than re-author. **(1) and (3) are one shape: a tool's self-report taken as fact; (2) is why it matters; (5) cost this pass a full cycle.** §5.14cr |
+| `G102` | **Opened and closed 2026-08-26 (`D-138`) — the outgoing lane owes a turn report and Lane A has nowhere to file one** | **`§5.2` step 1 requires the outgoing lane to raise a `Kind: turn-report` entry, *“required even when nothing was done”* (`D-105`) — and `docs/handoff/` is closed to Lane A twice over:** its README scopes raising to Lane B and Lane C, and `ENTRY_FILE` matches `/^[BC]-d+.*.md$/`, so an `A-` file is **silently ignored, not rejected**. Lane A could file one and **no control would read it** — `a_check_that_cannot_fail`, in the step that hands over the lock. **Not new**: Lane A was outgoing at `D-117` and filed nothing, and every *“outgoing lane files its report”* reference in the corpus resolves to `B-047`, a Lane B entry. **Ruled by the Chief Editor: Lane A’s turn report IS the boundary decision section in the register**, cited from `§5.0a`’s `Report` column — no new artifact, no channel change, and `D-117`/`D-118` had already done it in prose. **Opening the channel to `A-NNN` was rejected**: it would make Lane A both raiser and answerer in one directory, undoing the attribution `D-90` avoided. **Remains a duty, not a checked control**, and is recorded as such. §5.14cs |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -8803,3 +8804,91 @@ without becoming `probe_that_cannot_fail`.
 **Writes no code, no schema, no migration, no check.** **`B-040` and `B-057` remain `Applied` and
 are deliberately not advanced** — `C-26` disqualifies Lane A from verifying its own entries by
 name, and Lane B's sequence is adopted as written. No lane selected, no phase closed.
+
+## 5.14cs `D-138` — Why Lane A Cannot Verify Its Own Entries, and the One Gap on the Path That Could
+
+**Asked:** explain, step by step, how `B-040` and `B-057` actually reach `Verified`, given that Lane
+A is disqualified from doing it.
+
+### The disqualification is two independent barriers, not one convention
+
+| Barrier | What it is |
+|---|---|
+| **Mechanical** | `closure-readiness` tests `Verified-By` against `NOT_AN_INDEPENDENT_VERIFIER` and rejects `lane a`, `claude code`, `self`, `same`, `acknowledged`, `answered`. Writing `Verified-By: Lane A` turns `bun run check` **red**, with the message *"is the answering side or a receipt state, not an independent verifier"* |
+| **Governance** | `C-26` names Lane A as unable to solve it, and **`D-102` created `Applied` for exactly this purpose** — the honest word for a fix nobody independent has confirmed. `B-013` item 4 is the report that made it necessary |
+
+**Neither can be worked around by wording.** A `Verified-By` value crafted to slip past the regex
+would be the defect the regex exists to catch, performed knowingly.
+
+### `G102` — the outgoing lane owes a turn report, and Lane A has nowhere to file one
+
+**Found while tracing the path, not by looking for it.** `§5.2` step 1 requires the outgoing lane to
+raise a `Kind: turn-report` entry, *"required even when nothing was done"* (`D-105`). **The next
+boundary has Lane A outgoing.**
+
+**`docs/handoff/` is closed to Lane A twice over.** Its README scopes raising to *"Lane B and Lane
+C"*, and `ENTRY_FILE` matches `/^[BC]-\d+.*\.md$/` — so an `A-` file is **silently ignored, not
+rejected.** Lane A could file a turn report there and **no control would ever read it**:
+`a_check_that_cannot_fail`, in the step that hands over the lock.
+
+**This is not new.** Lane A was the outgoing lane at `D-117` and filed nothing. Every *"the outgoing
+lane files its report"* reference in this corpus resolves to **`B-047`, a Lane B entry.** The Lane A
+case was never given a location, and nothing detected the omission — step 1's own `Checked by`
+column reads *"Nothing."*
+
+**Chief Editor's ruling, 2026-08-26: Lane A's turn report IS the boundary decision section in this
+register**, cited from `§5.0a`'s `Report` column. **No new artifact and no channel change** —
+`D-117` and `D-118` already recorded Lane A's turns here in prose; the ruling names that as the
+location and makes the citation required. **Rejected: opening `docs/handoff/` to `A-NNN` entries**,
+which would make Lane A both raiser and answerer in one directory and undo the attribution `D-90`
+deliberately avoided. **It remains a duty, not a checked control**, and is recorded as such.
+
+### The path to `Verified`, parent first
+
+| # | Step | Who | Enforced by |
+|:---:|---|---|---|
+| **1** | Lane A completes `LA-P1-04` and writes its turn report as the boundary decision section | Lane A | **Nothing** — a duty (`G102`) |
+| **2** | **Name the incoming lane** | **Chief Editor** | **Nothing** — *"a judgement, not a derivation"* |
+| **3** | `§5` updated in ONE edit: A → `Eligible`, B → `Active`, both `Selected` cells | Lane A | `lane-state` — fails on not-exactly-one `Active` |
+| **4** | Lane B's run identifier assigned in `§5.0a` **at the boundary, not before** | Lane A | **Nothing** — pre-dating it is `G90` |
+| **5** | Lane B generates its queue from the files and verifies each entry **against the artifacts, not the `Evidence` line** | Lane B | `closure-readiness` on the result |
+| **6** | Lane B files its turn report in `docs/handoff/` | Lane B | `handoff-response` |
+| **7** | Boundary recorded in the register with a decision number | Lane A | `tier-sweep` |
+
+**Steps 1, 2 and 4 are unenforceable.** That is stated here rather than discovered later.
+
+### `B-040` and `B-057` are not a task of their own
+
+**Every entry now carrying `Applied` was raised by Lane B**, so every one of them is Lane B's to
+verify — and `docs/LANE-B-WORK-ORDER.md` `§2.3` already scopes the pass that way: *"every entry you
+raised whose `Resolution` reads `Applied`."* **No instruction naming these two is added**, because
+the generated queue already contains them and a second list is the `G55` drift mechanism.
+
+**The figure is not written here** (`G75`, `C-21`). `bun run check` prints it, and `§2.3` says so.
+
+> **The practical consequence for the boundary.** Selecting Lane B to verify **two** entries would
+> spend a Sprint boundary on a fraction of the queue and require another for the rest — the
+> *"boundary used as a per-task toggle"* pattern `C-27` exists to watch for. **Phase 1's condition 2
+> needs the Phase-1 entries as a set**, not two of them.
+
+**Which sprint the run identifier belongs to is a boundary decision, not a fact to look up.**
+Identifiers are sprint-scoped (`D-124`), Lane B's last was `LB-S1-01`, and whether the next is
+`LB-S1-02` or `LB-S2-01` follows from the sprint the Chief Editor opens.
+
+### Gaps
+
+**Opened and closed:** `G102` — §5.1. **Unchanged:** `C-26` open — **this decision does not advance
+it**; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, `G41`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `G102` — Lane A's turn report location | ✅ §5.14cs, §5.1 | **— unaffected: no scope, sequence or DoD change** | **— unaffected: the rule files carry no boundary procedure; §5.2 is the only one** | **— unaffected: no file created or retired, which is the point of the ruling** | ✅ **§5.2 step 1 and the §5.0a `Report` note** | **— unaffected** |
+| The path to `Verified` | ✅ §5.14cs | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **restates no procedure — §5.2 remains the only one** | **— unaffected** |
+
+### Scope limits
+
+**No boundary is performed by this decision.** No lane state changes, no run identifier is
+assigned, no entry moves to `Verified`, no phase closes. **`docs/handoff/README.md` and `TEMPLATE.md`
+are deliberately untouched** — the channel stays Lane B and Lane C, which is what the ruling chose.

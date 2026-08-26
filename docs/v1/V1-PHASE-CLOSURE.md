@@ -425,6 +425,13 @@ phase record, and copied into the report; **the report does not mint its own.**
 | **`LB-S1-01`** | B | The S1 schema draft | `B-047` — canonical; `B-043` is its work evidence |
 | **`LA-P1-04`** | A | The current Lane A run | in progress |
 
+> **How the `Report` cell is filled differs by lane, and that is deliberate (`D-138`).** A build
+> lane cites its `docs/handoff/` turn report — `B-047` for `LB-S1-01`. **Lane A cites the register
+> section of the boundary decision that closed its run**, because the channel is closed to it and an
+> `A-` entry would be read by nothing. **`in progress` is the correct value until the boundary is
+> actually performed** — writing a citation for a boundary the Chief Editor has not yet declared is
+> `G90`, which this corpus has already committed once.
+
 > **`LB-S0-01` is listed precisely because it has no report.** A run table that only lists runs
 > which reported would make the `C-28` absence invisible at exactly the place a reader counts
 > handovers — the `report count ≠ turn count` failure `B-053` raised, in the other direction.
@@ -581,7 +588,7 @@ there was nothing to perform them from.
 
 | | Step | Checked by |
 |---|---|---|
-| **1** | **The outgoing lane raises its turn report** — **`Kind: turn-report`**, filed against **its own lane's phase** (`D-106`) and carrying **no `Resolution`** (`G84`), stating done / specified-not-applied / open. **Required even when nothing was done** (`D-105`). *(This step read `kind finding` until `D-118`, raised as `B-045` — the shape `G84` retired. A lane following it literally would file an entry that can never be resolved, reproducing the defect.)* | **Nothing.** A control cannot fail against an agent that never ran |
+| **1** | **The outgoing lane raises its turn report** — **`Kind: turn-report`**, filed against **its own lane's phase** (`D-106`) and carrying **no `Resolution`** (`G84`), stating done / specified-not-applied / open. **Required even when nothing was done** (`D-105`). *(This step read `kind finding` until `D-118`, raised as `B-045` — the shape `G84` retired. A lane following it literally would file an entry that can never be resolved, reproducing the defect.)* **Lane A is the exception, and it is now stated rather than assumed (`D-138`, `G102`).** `docs/handoff/` is closed to Lane A — its README scopes raising to Lane B and Lane C, and `ENTRY_FILE` matches `[BC]` only, so an `A-` file is **silently ignored, not rejected**. **When Lane A is the outgoing lane, its turn report IS the boundary decision section in the register**, and §5.0a's `Report` column cites that section by number. **No second artifact is created** — `D-117` and `D-118` already recorded Lane A's turns there in prose; this names the practice and makes the citation required. | **Nothing.** A control cannot fail against an agent that never ran |
 | **2** | **If no report exists, record the absence and say whose observation it is.** Not *"no work performed"* as a neutral fact — name the lane that observed it | **Nothing** — this is the step `D-105` `F30` exists because of |
 | **3** | The Chief Editor names the incoming lane | **Nothing** — it is a judgement, not a derivation |
 | **4** | **Update §5 in one edit**: outgoing → `Eligible`, `Blocked` or `Done`; incoming → `Active`; **both `Selected` cells** | `lane-state` (check 15) fails on not-exactly-one `Active` |
