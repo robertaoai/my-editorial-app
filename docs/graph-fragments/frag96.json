@@ -1,0 +1,67 @@
+{
+  "_comment": "Fragment 96 — D-139/G103: a citation applied to a failure it does not name, and a single hot file exposing a narrow window on every run. Merged 2026-08-26.",
+  "nodes": [
+    {
+      "id": "a_citation_applied_to_a_failure_it_does_not_name",
+      "label": "A Citation Applied to a Failure It Does Not Name",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "D-139",
+      "description": "A prior finding correctly named a failure caused by a second process touching the tree, and a later turn invoked that finding's scope to explain a failure that occurred with no second process running at all, so the citation was accurate about its own subject and wrong about the one it was applied to.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The two failures share a symptom, a tree left dirty after a fixture run, which is exactly what makes the wrong citation plausible. Naming the difference in prose, rather than quietly reusing the earlier finding, is what let the actual cause receive its own narrow fix instead of being absorbed into an existing but unrelated backlog item."
+    },
+    {
+      "id": "one_file_reused_across_a_fifth_of_the_suite",
+      "label": "One File Reused Across a Fifth of the Suite",
+      "file_type": "concept",
+      "source_file": "scripts/fixtures/suites.mjs",
+      "source_location": "ENTRY",
+      "description": "A single tracked file was chosen as the mutation target for roughly a fifth of a sixty-two fixture suite, so a millisecond-scale filesystem lock landing on any file at all was, by simple exposure, most likely to land on that one, and it did, twice, on the same path.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A repeated failure on the same path reads as a pattern worth investigating in the file itself, when the simpler explanation was exposure: convenience concentrated write traffic on one path, and the transient error was equally likely everywhere but only visible where it was tried most."
+    }
+  ],
+  "edges": [
+    {
+      "source": "a_citation_applied_to_a_failure_it_does_not_name",
+      "target": "a_true_word_read_as_a_property_it_does_not_cover",
+      "relation": "recurrence_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "D-139",
+      "weight": 1
+    },
+    {
+      "source": "one_file_reused_across_a_fifth_of_the_suite",
+      "target": "one_observation_cannot_distinguish_repaired_from_intermittent",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "scripts/fixtures/suites.mjs",
+      "confidence_score": 1,
+      "source_location": "ENTRY",
+      "weight": 1
+    },
+    {
+      "source": "a_citation_applied_to_a_failure_it_does_not_name",
+      "target": "one_file_reused_across_a_fifth_of_the_suite",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "D-139",
+      "weight": 1
+    }
+  ]
+}
