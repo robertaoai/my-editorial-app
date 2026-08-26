@@ -9,7 +9,7 @@
 - **Resolution:** Applied
 - **Verified-By:** — none yet. You raised it; you are the independent verifier
 - **Evidence:** `B-040`; `D-134`; `D-135`; `closure-readiness` current detail; `B-040` header block; `C-26` and `G100` in the register (`D-136`)
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** fd36fc6
 
 ## What happened
 
