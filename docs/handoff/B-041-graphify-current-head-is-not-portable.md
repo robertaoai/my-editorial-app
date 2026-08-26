@@ -9,7 +9,7 @@
 - **Resolution:** Applied
 - **Verified-By:** — not independently verified. Lane A answered it
 - **Evidence:** `npx graphify portable-check .graphify` — findings confined to `manifest.json` and `studio/`; `.gitignore`; `docs/graph-fragments/frag*.json` carry no absolute paths; `npx graphify check-update` reports the graph current; zero undescribed nodes and zero generic community labels in `.graphify/graph.json`; node and link counts unchanged across the ingest
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** 3e98451
 
 ## What happened
 
