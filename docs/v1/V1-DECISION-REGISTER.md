@@ -2415,6 +2415,25 @@ obligations with no CR**, so they sit at the **highest record** and their detail
 > **An owed entry with a named home is trackable; a source document edited on Lane A's own
 > initiative is the product tier legislating upward.**
 
+### `C-34` — trigger-identity legitimacy is **owed**
+
+**Opened by `D-130`, 2026-08-25. Owner: the business/Chief Editor.** Carries `G99` — sized to the
+one question it actually is, not `C-32`'s policy-framework shape.
+
+**Three questions, and answering them closes it:**
+
+1. Which channels may originate a new editorial trigger — Chief Editor manual submission, POC
+   payment, others? Is this the closed set for v1?
+2. Are all channels equally legitimate, or does the originating channel affect how the
+   reuse-eligibility guard (`REUSE-WINDOW-90`, `D-127`) treats the brief?
+3. If a different submitter or POC account triggers the same underlying topic within the reuse
+   window, is that legitimate (the business does not prevent paying for research on another day),
+   or does it need detection — and if so, at what layer?
+
+**Precondition for `G95` and `G96`, not a duplicate.** `G95` needs to know what counts as "the same
+trigger" before fixing the hash's field list; `G96` needs to know whether channel identity is part
+of what a submitter column must distinguish.
+
 ### `C-31` — **CLOSED 2026-08-25 (`D-116`) — by RE-TIERING, not by being answered.** q1 was never a product question: retention is Project Scope with no CR, owned at the Alpha Portfolio record. q2 and q3 stand answered by `D-115`. Content moves to `C-32`. §5.14bw
 
 ### `C-31` (as opened) — 5a: does retention on `articles` vary by final status? **Non-blocking**
@@ -8160,3 +8179,53 @@ selected, no phase closed.
 > origin as `D-125`. **`G98` was opened and closed in `D-124`**; `D-125` is the critic pass that
 > found defects in `D-124`'s own edits and named `F41`/`F42`, not `G98`. Both citations fixed. No
 > other content changes.
+
+---
+
+## 5.14ck `D-130` — What `C-32` and `G99` Each Need Supplied, Consolidated and Made Answerable
+
+**Lane A pass, 2026-08-25.** Both items are genuinely blocked on input only the Chief Editor or the
+business can supply. This decision does not supply either input — it makes each ask **findable in
+one place, at the size the question actually is.**
+
+### Parent — `C-32`: the ask already exists in full; nothing new is written here
+
+**`B-039` and `B-040` already carry the complete packet and runbook.** Writing a second version
+here would be exactly the restated-tally shape this corpus keeps correcting under other names.
+**Consolidated pointer only:**
+
+| Need | Where the full ask lives |
+|---|---|
+| The five business values *(90-day ratification, per-class bounded minimum, archive operator/location, restoration authority, disposal authority)* | `docs/handoff/B-039` §§1–7, `B-040`'s record-class table |
+| What happens once supplied | `B-040`'s nine-step application runbook |
+
+**Nothing here is answerable by Lane A.** `B-039`/`B-040` are current as of `D-129`'s cross-reference
+update; no further freshening is needed until a new decision touches this territory again.
+
+### Child — `G99` opens `C-34`, sized to the question it actually is
+
+**No packet has ever asked the Chief Editor about `G99`**, unlike `C-32`. Confirmed by search: no
+`docs/handoff/` entry names it. **`C-32`'s five-value shape would be disproportionate** — `G99` is
+one narrower question, not a policy framework, so it is opened directly as a condition rather than
+routed through a packet Lane A cannot itself raise (`docs/handoff/` is Lane B/C → Lane A only,
+`D-90`).
+
+**`C-34` opened, carrying `G99`'s three questions in full** — see the condition itself, filed
+alongside `C-32`/`C-33` rather than restated here.
+
+### Gaps
+
+**None opened, none closed.** `C-34` opened as the condition carrying `G99`'s three questions.
+`C-32` unchanged — no new ask, no restated one.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-130` / `C-34` | ✅ §5.14ck, §3 | **— unaffected** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | **— unaffected: intake design, not a product requirement, until answered** |
+
+### Scope limits
+
+**Answers neither `C-32` nor `C-34`.** Supplies no business value, no channel policy, no detection
+rule. `C-34`'s three questions are the entirety of what this pass adds — everything else is a
+pointer to already-existing content. No lane selected, no phase closed.
