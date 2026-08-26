@@ -1,0 +1,67 @@
+{
+  "_comment": "Fragment 85 — D-129: a routed packet that went stale under its own feet, and a new gap checked for duplication before being recorded. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "a_routed_packet_went_stale_under_its_own_feet",
+      "label": "A Routed Business-Decision Packet Went Stale Under Its Own Feet",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-039-c32-business-retention-policy-decision-packet.md",
+      "source_location": "item 3",
+      "description": "A packet already sent to a decision-maker referenced a value by its bare number, and two later passes named and architecturally resolved part of that same number's meaning without the packet being told.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A packet is a snapshot handed to someone outside the repository's edit cycle, so it cannot self-update the way an internal document can. Checking whether an already-routed ask still matches current terminology is a distinct propagation surface from checking whether internal documents agree with each other, and it was overlooked by every check built for the latter."
+    },
+    {
+      "id": "a_gap_checked_for_duplication_before_being_recorded",
+      "label": "A New Gap Checked Against Its Neighbors Before Being Recorded",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14cj",
+      "description": "Before adding a newly opened gap to the tracking table, its relationship to two topically adjacent gaps was verified rather than assumed, confirming it named a distinct upstream question rather than restating either.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "An instruction to avoid duplicates is only honored by checking, not by asserting distinctness after the fact. The check found the new item was a genuine precondition of the two neighbors rather than an overlap, which is the difference between adding tracked scope and adding tracked noise."
+    }
+  ],
+  "edges": [
+    {
+      "source": "a_routed_packet_went_stale_under_its_own_feet",
+      "target": "two_windows_shared_one_variable_name",
+      "relation": "follows_from",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-039-c32-business-retention-policy-decision-packet.md",
+      "confidence_score": 1,
+      "source_location": "item 3",
+      "weight": 1
+    },
+    {
+      "source": "a_routed_packet_went_stale_under_its_own_feet",
+      "target": "one_clock_two_consequences_neither_derived_from_the_other",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-040-c32-docs-and-checks-application-runbook.md",
+      "confidence_score": 1,
+      "source_location": "coupling-check spec",
+      "weight": 1
+    },
+    {
+      "source": "a_gap_checked_for_duplication_before_being_recorded",
+      "target": "the_reader_was_the_lane_that_could_not_commit",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cj",
+      "weight": 1
+    }
+  ]
+}
