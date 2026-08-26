@@ -478,17 +478,23 @@ the table owner or `service_role` and `TR-API-03` introduces exactly that connec
 **Neither stops a deliberate `DISABLE TRIGGER` by whoever holds the key** — that control is
 governance, not schema, and is recorded rather than solved.
 
-**Retention:** **`workflow_transitions` is retained for not less than the statutory period; disposal
-only under a documented, approved policy** — restated `D-114` from *"never deleted"*, because
-**append-only immutability and infinite retention are different properties** and the old wording
-conflated them.
+**Retention:** **`workflow_transitions` is retained per the governing policy
+(`RET-EDITORIAL 0.1-provisional`, `docs/source/business-case.md` §Compliance & Governance
+Disclosures — ruled in full `D-134`), not less than its ruled minimum for the originating record's
+class; disposal only under that same documented, approved policy** — restated `D-114` from *"never
+deleted"*, because **append-only immutability and infinite retention are different properties** and
+the old wording conflated them. **The period itself is not restated here** — cited from the Business
+Case, per `D-54`'s discipline against copying a value across tiers (`NFR-02` closed, `D-134`,
+wording applied `D-135`).
 
 **"Archived" means MOVED AND STILL RETRIEVABLE — never deleted** *(defined `D-115`, closing `G86`;
 the word was used here and in `AC-12a` and defined nowhere)*. **Archival and disposal are both
 EXTERNAL to this system** — operations on the database substrate, not product behaviour. The
-application neither archives nor disposes; `DATA_RETENTION_ARCHIVE_DAYS = 90` **describes an
-external archival boundary**, not a disposal date, and remains unratified because nobody has put it
-to the Chief Editor (`A6`).
+application neither archives nor disposes; `DATA_RETENTION_ARCHIVE_DAYS` **describes an external
+archival boundary**, not a disposal date, and is **RATIFIED at 5 years** for rejected/unpublished
+editorial work (`D-134`, house-policy placeholder, amendable — `A6`). **Confirmed independent of
+the workflow's `REUSE-WINDOW-90`** (90 days) — not the same clock, `D-134` correcting `D-128`'s
+earlier guess.
 
 **Rejected work archives; published work does not — and that is two regimes, not an inconsistency**
 *(resolved `D-115`)*. **GRC on retraction binds data while it is in the CURRENT set**, so:
@@ -503,19 +509,23 @@ to the Chief Editor (`A6`).
 > disposal is now permissible, and an order arriving afterwards has nothing to act on. Handling work
 > never triggered from this system is a different intake shape.
 
-> ⚠️ **`G88` — `AC-12a` requires this product to state the policy, version, period and archive
-> location of an external act it is never told about.** `G46`'s shape one tier down. The audit
-> model's **disposal record** is the unadopted mechanism.
+> ⚠️ **`G88` — partially answered, `D-134`.** `AC-12a` requires this product to state the policy,
+> version, period and archive location of an external act it is never told about. **The semantic
+> contract now exists in full** — the Business Case's *"Supplied absence fact"* section names every
+> field an external act must supply. **What remains open**: the mechanism that actually supplies it
+> at runtime is deferred (Project Scope, until the product is live, `D-134`), so the product still
+> holds no live instance of this fact. `G46`'s shape one tier down, narrowed but not closed.
 
 **Retention and archival are PROJECT SCOPE, not product scope** *(`D-116`, closing `C-31` by
 re-tiering)*. `PSK-09` and `PSK-10` are global scope keys **with no CR**, and a scope key with no
 Change Request is owned by the business by default. **This document does not set the retention
-period, does not perform archival, and does not answer what binds editorial retention** — that is
-owed at the Alpha Portfolio record with detail in the business case and blueprint (`C-32`).
+period and does not perform archival** — the values are ruled at the Alpha Portfolio record with
+detail in the business case and blueprint (`C-32` answered in full, `D-134`); this document cites
+them, it does not restate them.
 
 **What the product owns is the ABSENCE** — that when data is missing from a view, the view says so
-rather than rendering it as nothing having happened. That is `AC-12a`, and the **90-day archival of
-rejected work is its concrete v1 case.**
+rather than rendering it as nothing having happened. That is `AC-12a`, and the **5-year archival of
+rejected work (`D-134`) is its concrete v1 case.**
 **Report Immutability (PSK-10):** An issued report is never edited and never deleted; a superseded report is answered by issuing a new report citing the original. The correction ladder — Clarify → Correction → Retraction — is the editorial restatement mechanism. *This states the rule the design must satisfy; the report record itself is designed in S1 (`GA1`).* **Scope boundary:** this is the **report** rule and does not restate `NFR-02`'s `workflow_transitions` wording, which awaits counsel (T2/TX).
 **PII:** articles sourced from individuals on social platforms may carry personal data. GDPR handling is deferred to Phase 2 (Addendum G2) — recorded as an accepted gap, not a solved problem.
 
@@ -532,7 +542,7 @@ rejected work is its concrete v1 case.**
 | `NFR-05` | Resilience | Publication retries to `PUBLISH_RETRY_MAX`, then ManualReady | Retry honoured; **backoff interval is aspirational — no scheduler exists** | Job table inspection | FR-09 | **TC7** |
 | `NFR-06` | Usability | Board renders and filters `SUCCESS_ARTICLES_LOGGED_MIN` articles without pagination | 4 of 4 dimensions operational | Manual + integration test | FR-08 | — |
 | `NFR-07` | Secret handling | Publication credentials server-side only, never client-bundled | 0 secrets in the client bundle | Bundle inspection | FR-09 | — |
-| `NFR-08` | Observability | Every transition reconstructable from the log alone | 100% carry who, when, why | Query | FR-07 | TC4 |
+| `NFR-08` | Observability | Every transition reconstructable from the log alone **within the governing retention policy** (`RET-EDITORIAL 0.1-provisional`, `C-32` closed `D-134`); absence outside that window is explained, not silent (`AC-12a`) — bounded, `G40` closed `D-134`, wording applied `D-135` | 100% carry who, when, why, within the retained window | Query | FR-07 | TC4 |
 
 > **NFR-01 is the load-bearing one, and it is forced rather than chosen.** The anon key is public, RLS is permissive, `lib/supabase/server.ts` uses the anon key too, and Phase 0 has no auth — so no layer above the database holds more authority than a browser. Application-layer validation is advisory here. O-01 is only achievable in Postgres.
 
@@ -782,7 +792,7 @@ rejected work is its concrete v1 case.**
 | `AC-10` | FR-06 | AT-014 | An article has been returned to the same state `RETURN_LIMIT_BEFORE_ESCALATION` times | A further return is attempted | It auto-escalates to the Chief Editor for a reject-or-keep decision |
 | `AC-11` | FR-07 | AT-040 | Any transition occurs | It completes | Exactly one transition row precedes the state change, carrying article, executor, type, Line, from, to, decision, reason, timestamp, independence status — **no nulls** |
 | `AC-12` | FR-07 | AT-041 | A transition row exists | UPDATE or DELETE is attempted, including with the anon key | The database refuses. **Fails today** (`G-06`) |
-| `AC-12a` | FR-07 | — | Records for a period are **missing from a view** — in v1 this is the **90-day archival of rejected work**, which is external to this system (`D-115`) | The board or audit surface is opened for that period | It states that records **existed and are not shown here**, and names the governing policy and version, the period, and where they went. **It never renders absence as "nothing happened"** (`G41`). *(Promoted from `FN-AUDIT-VISIBILITY-07-08` by `D-116`: it was a `[V1]` commitment made in a derived tier with **no creating decision** — `G89`. Its **archived** limb is the v1 requirement; its **disposed** limb waits on `C-32`, since nothing in v1 disposes. The policy it names is Project Scope, owed at `C-32`.)* |
+| `AC-12a` | FR-07 | — | Records for a period are **missing from a view** — in v1 this is the **5-year archival of rejected/unpublished editorial work** (ruled `D-134`), which is external to this system (`D-115`) | The board or audit surface is opened for that period | It states that records **existed and are not shown here**, and names the governing policy and version, the period, and where they went — the fields are fully specified in `RET-EDITORIAL`'s *"Supplied absence fact"* section. **It never renders absence as "nothing happened"** (`G41`). *(Promoted from `FN-AUDIT-VISIBILITY-07-08` by `D-116`: it was a `[V1]` commitment made in a derived tier with **no creating decision** — `G89`, still open. Its **archived** limb is the v1 requirement; its **disposed** limb has a ruled policy (`D-134`) but no v1 disposal act. **Testable acceptance criterion — not yet built or tested; the ruling supplies its input, not its implementation.**)* |
 | `AC-13` | FR-08 | AT-050…AT-053 | `SUCCESS_ARTICLES_LOGGED_MIN` articles span states, topics, categories, and Lines | The Chief Editor filters on each dimension | Only matching articles show; a no-match filter shows an explicit empty state |
 | `AC-14` | FR-09 | AT-020 | An article is `Approved` with a WordPress target | The publication job runs | The post is created; `published_url` is stored; the target is `Published`; the article becomes `Published` |
 | `AC-15` | FR-09 | AT-021, AT-023 | An article has WordPress and LinkedIn targets and WordPress succeeds while LinkedIn does not | The job completes | WordPress is `Published`, LinkedIn is `Failed` or `ManualReady`, **both statuses held simultaneously**, article `Published`. **Not representable today** (TC2) |

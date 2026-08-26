@@ -791,9 +791,96 @@ export async function tierSweep(results) {
   });
 }
 
+const RETENTION_CHK = "scripts/checks/retention-policy-coupling.mjs";
+const ALPHA = "docs/governance/alpha-portfolio-business-continuity-implementation-plan.md";
+const BUSINESS_CASE = "docs/source/business-case.md";
+const BLUEPRINT = "docs/source/blueprint.md";
+const MODULAR_PRD = "docs/Modular_PRD.md";
+
+/** `D-134` — `RET-EDITORIAL` coupled across the four tiers that cite it. */
+export async function retentionPolicyCoupling(results) {
+  const bcOrig = read(BUSINESS_CASE);
+  const alphaOrig = read(ALPHA);
+  const blueprintOrig = read(BLUEPRINT);
+  const prdOrig = read(MODULAR_PRD);
+  const restoreAll = () => {
+    write(BUSINESS_CASE, bcOrig);
+    write(ALPHA, alphaOrig);
+    write(BLUEPRINT, blueprintOrig);
+    write(MODULAR_PRD, prdOrig);
+  };
+
+  await fixture(results, {
+    name: "retention-policy-coupling: the live corpus, unmutated",
+    modulePath: CHECK("retention-policy-coupling.mjs"),
+    mutate: () => {},
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "retention-policy-coupling: version disagreement across tiers (2)",
+    modulePath: CHECK("retention-policy-coupling.mjs"),
+    mutate: () =>
+      write(
+        BUSINESS_CASE,
+        bcOrig.replace("### RET-EDITORIAL 0.1-provisional", "### RET-EDITORIAL 0.2-final"),
+      ),
+    restore: restoreAll,
+    expect: "version disagreement",
+  });
+  await fixture(results, {
+    name: "retention-policy-coupling: archive directly defined as delete (4)",
+    modulePath: CHECK("retention-policy-coupling.mjs"),
+    mutate: () =>
+      write(
+        ALPHA,
+        alphaOrig.replace(
+          "### 6.5 Retention and archival governance",
+          "Archival is deletion.\n\n### 6.5 Retention and archival governance",
+        ),
+      ),
+    restore: restoreAll,
+    expect: "directly defined as delete/dispose",
+  });
+  await fixture(results, {
+    name: "retention-policy-coupling: a period copied into the Blueprint uncited (5)",
+    modulePath: CHECK("retention-policy-coupling.mjs"),
+    mutate: () =>
+      write(
+        BLUEPRINT,
+        blueprintOrig.replace(
+          "| A6 | Data retention |",
+          "| A6 | Data retention | Rejected work is archived after 5 years. |\n| A6-old | Data retention |",
+        ),
+      ),
+    restore: restoreAll,
+    expect: "no RET-EDITORIAL citation on the same line",
+  });
+  // Deliberately mutates `V1-BUILD-SPEC.md` (Lane A's own surface), never the
+  // `0002` migration itself (Lane B's, `D-56`) — check 7 fires on either, and
+  // a fixture that briefly touched Lane B's real schema file would risk
+  // looking like a lane crossing if `B-021`'s restore-failure class hit it.
+  const buildSpecOrig = read("docs/v1/V1-BUILD-SPEC.md");
+  await fixture(results, {
+    name: "retention-policy-coupling: Build Spec gates S1 on C-32 as a dependency (7)",
+    modulePath: CHECK("retention-policy-coupling.mjs"),
+    mutate: () => write("docs/v1/V1-BUILD-SPEC.md", buildSpecOrig + "\nS1 blocks and gates on C-32.\n"),
+    restore: () => write("docs/v1/V1-BUILD-SPEC.md", buildSpecOrig),
+    expect: "dependency/gate on S1",
+  });
+  await fixture(results, {
+    name: "retention-policy-coupling: AC-12a with no D-116 citation anywhere (8)",
+    modulePath: CHECK("retention-policy-coupling.mjs"),
+    mutate: () => write(MODULAR_PRD, prdOrig.replace(/D-116/g, "D-000")),
+    restore: restoreAll,
+    expect: "no occurrence citing its creating decision",
+  });
+}
+
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
   ["tier sweep fallback (`G98`, raised as `B-054`)", tierSweep],
+  ["retention policy coupling (`D-134`)", retentionPolicyCoupling],
   ["phase-scoped closure gating (`D-102`)", phaseScope],
   ["sync-docs uniqueness (`D-102`)", syncDocs],
   ["lane state (`D-103`)", laneState],

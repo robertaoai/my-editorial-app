@@ -201,6 +201,21 @@ This project-governance allocation does not alter the editorial task matrix's st
 
 Interpretive sources: [PMI cost-baseline explanation](https://www.pmi.org/-/media/pmi/documents/public/pdf/pmbok-standards/errata-sheet-qas-6th.pdf), [PMI fixed-price price build-up and reserve guidance](https://www.pmi.org/learning/library/challenges-fixed-price-contracts-9640), [IFRS 15 revenue overview](https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/), and [OpenAI product-capability overview](https://developers.openai.com/). These sources support terminology and tool capability; they do not replace contract-, jurisdiction-, or accounting-specific review.
 
+### 6.5 Retention and archival governance — `C-32`
+
+Retention and archival are Project Scope obligations under `PSK-10` and have no Customer Request
+anchor. The business owns the policy; the product does not set retention periods or perform
+archival or disposal.
+
+The Chief Editor is the accountable policy owner while the business has one natural person. A
+future Board assumes approval authority when constituted. External counsel, regulator orders,
+contracts, platform duties, active holds, and correction/retraction obligations may require an
+amendment or exception.
+
+The operative detail is `RET-EDITORIAL` version `0.1-provisional` in `docs/source/business-case.md`
+§Compliance & Governance Disclosures — all operative values ruled 2026-08-25 (`D-134`).
+`docs/source/blueprint.md` A6 records its delivery interpretation.
+
 ## 7. Anchor-project closure scorecard
 
 ### 7.1 Original success evidence

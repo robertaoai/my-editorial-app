@@ -47,6 +47,11 @@ const TIERS = [
     match: "alpha portfolio",
     files: ["docs/governance/alpha-portfolio-business-continuity-implementation-plan.md"],
   },
+  // `D-134`, `B-040` §8: named as required tiers for `C-32`'s retention
+  // policy but never mappable before — a claim about either was checked by
+  // nothing, same shape as `G92`'s Phase-closure gap one row up.
+  { match: "business case", files: ["docs/source/business-case.md"] },
+  { match: "blueprint", files: ["docs/source/blueprint.md"] },
   // "Register" is the file being read; a ✅ there is true by construction.
   { match: "register", files: [] },
 ];

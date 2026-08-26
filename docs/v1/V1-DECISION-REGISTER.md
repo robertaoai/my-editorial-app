@@ -169,8 +169,8 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `GA7` | Open | T3, audit Step 7 — auditor access versus tenant isolation |
 | `GA8` | **Closed on execution** | `D-13` — `PSK-10`, T0 Step 1 |
 | `GA9` | Open | `D-07`, S1 window item 6 |
-| `G40` | **Open** — DOC before S3 | `NFR-08` is unbounded: *"every transition reconstructable from the log alone"* carries no retention qualifier, so the product promises what lawful disposal removes. §5.14, detail section added 2026-08-20 |
-| `G41` | **Open** — S3 | Nothing explains **absence**. An empty audit view cannot distinguish *"nothing happened"* from *"records disposed under policy"*. §5.14, §5.14a. Product canary is `AC-12a` |
+| `G40` | **Closed 2026-08-25 (`D-135`)** | `NFR-08` was unbounded: *"every transition reconstructable from the log alone"* carried no retention qualifier. **Bounded** — now reads *"within the governing retention policy"*, citing `RET-EDITORIAL` without copying its period. §5.14, detail section added 2026-08-20, closed §5.14cp |
+| `G41` | **Open — documentation complete, UI not built** | Nothing explains **absence**. An empty audit view cannot distinguish *"nothing happened"* from *"records disposed under policy"*. `D-134`/`D-135` supply the policy text and field list `AC-12a` needs to state; **the UI behavior itself is unbuilt** — this closes when the view is built and tested, not before. §5.14, §5.14a, §5.14cp. Product canary is `AC-12a` |
 | `G42` | **Closed 2026-08-25 (`D-111`)** — **S1** | Template-to-field-availability binding: a new report template may not be applied to a period that never recorded its fields. §5.14b, `D-41` |
 | `G43` | **Resolved 2026-08-19** | GRC clock and proof — the deadline arrives with the order. §5.14d, `D-43` |
 | `G44` | **Resolved 2026-08-19** | The 90-day clock start defined. §5.14f, `D-45` |
@@ -215,7 +215,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G85` | **WITHDRAWN 2026-08-25 (`D-118`, raised as `B-042`) — the gap was asserted past its source** | **The claim was that `TR-DM-03`'s *"seven-value status enum"* named a count whose members were listed nowhere in the corpus. They are listed, twice, in GOVERNING documents**: `v1-build-readiness-addendum.md` §231 and `blueprint.md` §500/§969 — `Pending`, `Published`, `Failed`, `Scheduled`, `Cancelled`, `ManualReady`, `MockPublished`. **The search that opened `G85` covered `docs/`, `docs/fn-specs/` and `Modular_PRD` and never covered `docs/source/`**, which is where the governing set lives and where a vocabulary would naturally be defined. `conflict_asserted_past_source`, and **the fourth instance of a claim made from an incomplete sweep**. **Found by Lane B while implementing against it** — it used the seven Addendum members and reported the register as wrong, which is the return path working. **Values propagated to `TR-DM-03` citing the Addendum, not the migration**, so the schema is not mistaken for the origin of a business vocabulary that already had an approved source. §5.14by |
 | `G86` | **Closed 2026-08-25 (`D-115`) — a word carrying two meanings in governed tiers, defined in none** | **"Archived" is load-bearing in `Modular_PRD` §6.3 and in `AC-12a`, and no governed document said what it meant.** Audit **Step 9** instructed the definition — *"redefine 'archived' as retrievable rather than deleted"* — **and that redefinition was never performed.** The cost was not theoretical: **Step 9 contradicts itself in a single sentence**, telling the reader to set the value *at or above the statutory floor* **and** that archived means retrievable — *a period that disposes of nothing has no reason to meet a disposal floor.* `D-114` then compared 90 days to the five-year floor and called it twenty times too small, **which is comparing a move to a deletion**; retracted at three sites. **Closed by defining it in §6.3: moved and still retrievable, never deleted, and EXTERNAL to this system.** §5.14bv |
 | `G87` | **Open — BACKLOG FEATURE, not v1** | **A retraction order for an article no longer in the current set has no path.** GRC on retraction binds data **while it is current** (`D-115`); archival ends its reach, so an order arriving afterwards has nothing to act on. **`D-114` created the reachability**: while `NFR-02` read *"never deleted"*, a published article never left the current set and retraction was always possible — restating it as *"not less than the statutory period; disposal only under a documented, approved policy"* made disposal permissible. **This is the honest consequence of stopping the lie, not a defect in the restatement.** Deferred because handling work **never triggered from this system** is a different intake shape, not a variation on the existing flow. §5.14bv |
-| `G88` | **Open — the input to a `[V1]` criterion that nothing supplies** | **`AC-12a` requires the audit surface to state that records *"existed and are no longer retrievable"*, naming the policy and version, the period, and the archive location.** Under `D-115` the act producing those facts is **external to this system**, and **nothing tells the product it happened.** *This is `G46`'s shape one tier down* — *"retention class depends on a fact the product does not hold"* — and `G46` was resolved by ruling the fact must be **supplied to** the product rather than inferred by it. **The mechanism exists on paper and was never adopted**: the audit model §6.3's **disposal record**, written before the act, stored outside the table it describes, itself immutable. **The second unadopted §-section this thread has found**, after §5.3. **`G41`'s unmet dependency.** §5.14bv. **`D-128` scoping note, corrected `D-134`**: the reuse-eligibility window (`REUSE-WINDOW-90`, 90 days) and this gap's archival-absence surface (5 years, `D-134`) run on **different periods, not a shared clock as first guessed** — and remain **independent UI elements** regardless: reuse eligibility elapsing is never evidence for this gap's *"existed and is no longer retrievable"* claim, which still needs its own supplied fact |
+| `G88` | **Open — the input to a `[V1]` criterion that nothing supplies** | **`AC-12a` requires the audit surface to state that records *"existed and are no longer retrievable"*, naming the policy and version, the period, and the archive location.** Under `D-115` the act producing those facts is **external to this system**, and **nothing tells the product it happened.** *This is `G46`'s shape one tier down* — *"retention class depends on a fact the product does not hold"* — and `G46` was resolved by ruling the fact must be **supplied to** the product rather than inferred by it. **The mechanism exists on paper and was never adopted**: the audit model §6.3's **disposal record**, written before the act, stored outside the table it describes, itself immutable. **The second unadopted §-section this thread has found**, after §5.3. **`G41`'s unmet dependency.** §5.14bv. **`D-128` scoping note, corrected `D-134`**: the reuse-eligibility window (`REUSE-WINDOW-90`, 90 days) and this gap's archival-absence surface (5 years, `D-134`) run on **different periods, not a shared clock as first guessed** — and remain **independent UI elements** regardless: reuse eligibility elapsing is never evidence for this gap's *"existed and is no longer retrievable"* claim, which still needs its own supplied fact. **Narrowed 2026-08-25 (`D-135`), not closed**: the semantic contract this gap asks for now exists in full — `RET-EDITORIAL`'s *"Supplied absence fact"* section names every field. **What remains open is the supply mechanism itself**, deferred (Project Scope, post-launch, `D-134`) — the product still holds no live instance of the fact. §5.14cp |
 | `G89` | **Open 2026-08-25 — a derived tier created a `[V1]` commitment and nothing noticed** | **Nothing verifies that an acceptance criterion has a parent.** `Modular_PRD` carries 27 `AC-` rows including `AC-14`–`AC-21`, so `D-29` gives the series to that tier. The `Fn_Specs` introduce exactly two suffixed criteria and **neither has an upstream row** — but only one has a decision behind it: `AC-01a` was created by `G39`'s closure, which names it; **`AC-12a` appears in this register only as a REFERENCE** — *"product canary is `AC-12a`"* — **never as something a decision created.** `tier-sweep` reads decision IDs and cannot see this, because there is no decision to read. **`AC-12a` is promoted by `D-116`; the CONTROL gap is what stays open** — the next criterion written into a `Fn_Spec` will be just as invisible. §5.14bw |
 | `G90` | **Open 2026-08-25 — the one field that describes acts outside the repository, and nothing reads it** | **An entry's `Evidence` line can assert an act that never happened.** `closure-readiness` proves `Verified-At-Commit` names a real commit; **no check reads `Evidence` at all.** Live instance: `B-038` carried *"Evidence: Chief Editor selection, 2026-08-25"* when **no selection had been made** — the transcript held Lane A saying selection was *available*. **It nearly moved the lane lock**, and what stopped it was Lane A asking the Chief Editor rather than reading the file. `arrival_not_correctness` (`C-22`, `F5`) in the field that by construction points OUTSIDE the tree. **The remedy is a person, not a check** — an assertion about what the Judge said cannot be verified from the repository, and building a probe that pretends otherwise would be `probe_that_cannot_fail`. Recorded so the limit is not mistaken for coverage. §5.14bx |
 | `G91` | **Closed 2026-08-25 (`D-117`) — a fixture suite that breaks on the event it protects** | **Every lane-state fixture named a lane letter, silently assuming Lane A held the lock.** Moving it would have broken three: setting `B` `Active` when `B` already is produces **one** `Active` rather than two, and the *Eligible-beside-Active* and *Blocked-with-no-Active* cases would each have fired a **different finding than the one asserted** — passing while testing nothing. `D-106` drew this lesson once, *retarget at structure not at a live value*, and applied it to the documents the fixtures mutate **and not to the lane identity inside them.** **Fixed BEFORE the boundary, not after**; the suite reads which lane holds the lock and mutates by role. §5.14bx |
@@ -8500,3 +8500,107 @@ Business Case, Blueprint, the five consumers, the structural coupling check) is 
 but **not executed in this pass** — that is its own substantial piece of work. No schema, no
 migration applied — only the partition column is specified, and only to Lane B's work order. No
 lane selected, no phase closed.
+
+---
+
+## 5.14cp `D-135` — `B-040`'s Runbook Applied in Full: Documents Written, Check Installed
+
+**Lane A pass, 2026-08-25.** `B-040`'s nine-step runbook, unblocked by `D-134`, is applied in this
+pass, parent-first as the runbook itself specifies. `RET-EDITORIAL` is no longer a proposal — it is
+written, ratified, cross-cited, and structurally enforced.
+
+### Parent — Steps 1–4: the four tiers, each citing the one canonical detail
+
+**Step 1** — canonical identifier confirmed: `RET-EDITORIAL 0.1-provisional`, status updated from
+*"framework approved, values pending"* to **ratified in full** (`D-134`). **Step 2** — Alpha
+Portfolio §6.5 added, obligation and accountable owner only, no period restated. **Step 3** — the
+Business Case's `RET-EDITORIAL` section written in full: every `CHIEF-EDITOR-DECISION-REQUIRED`
+placeholder replaced with `D-134`'s ruled value, plus the account/login class `D-134` added beyond
+the original five. **Step 4** — Blueprint A6, D8, and G1 all point to `RET-EDITORIAL` rather than
+restating a number; the two queue-cleanup rows (weekly stale-item sweep, 48-hour Discovered dwell)
+relabelled **queue cleanup, not archival** (`D-115`/`D-116` had already named this defect; it had
+never been fixed at its source until now).
+
+**One real defect found and fixed while executing, not invented for this decision**: the Blueprint's
+own dwell-time table used *"Auto-archive"* for a **work-queue removal**, exactly the conflation
+`D-115` warned against. `D-116` had already ruled the distinction; the Blueprint text itself had
+never been corrected.
+
+### Child — Step 5: the five consumers, each re-evaluated on its own evidence
+
+| Item | Disposition |
+|---|---|
+| `NFR-02` | **CLOSED.** Cites `RET-EDITORIAL`, states the bounded rule, copies no period |
+| `AC-12a` | **NOT closed.** Cites `RET-EDITORIAL` and the complete supplied-fact field list; **the acceptance criterion itself is untested** — a documentation input, not a passing test |
+| `G40` | **CLOSED.** `NFR-08` now reads *"within the governing retention policy"*, bounded, no period copied |
+| `G88` | **NOT closed, narrowed.** The semantic contract exists in full; **the supply mechanism is deferred** (Project Scope, post-launch, `D-134`) — no live fact exists yet |
+| `G41` | **NOT closed.** Documentation complete; **the UI itself is unbuilt** |
+
+**Per the runbook's own discipline**: closing `C-32` did not auto-close all five. Two closed on
+documentation grounds (`NFR-02`, `G40` — both were wording defects, fully fixable by text); three
+stayed open because their bar is testable/built behavior, which this pass does not construct.
+
+### Child — Steps 6–8: the structural coupling check, installed and verified against itself
+
+**`scripts/checks/retention-policy-coupling.mjs` created**, all nine failure modes from `B-040` §6
+implemented, wired into `check-consistency.mjs` as check 17. **Not trusted on the strength of
+writing it** — run against the freshly-written corpus (positive control, zero findings) and against
+six adversarial mutations, one per representative failure mode, before being treated as real:
+
+> **Three defects the check found in itself, not in the corpus**, all before any commit. Its first
+> "archive equals delete" pattern matched on mere proximity, flagging the Alpha Portfolio's
+> legitimate *"archival is external... disposal is separate"* sentence as if it defined one as the
+> other — tightened to require a direct equating relationship. Its first numeric-period scan flagged
+> Blueprint scoring-formula day-counts (`"decays to 0 after 7 days"`) that have nothing to do with
+> retention — scoped to lines that actually mention archival or retention. **Run against the real,
+> unmutated corpus** (not an adversarial test), it then flagged this very decision's own narration
+> — *"every `CHIEF-EDITOR-DECISION-REQUIRED` placeholder replaced"* — as if the placeholder it
+> quotes were still live, because it scanned the register's prose alongside the four tiers that
+> actually must not contain one. **The register narrates history; it is not itself a tier the
+> marker's presence means anything in.** Fixed by scanning only the four required tiers for a live
+> placeholder, while still reading the register for the separate closure claim.
+
+**Tier mapping extended** (`tier-sweep.mjs`): *"business case"* and *"blueprint"* were named by
+`B-040` §8 as required tiers but had no mapping — same shape `G92` found for Phase closure. Added,
+verified against the whole register before adopting (no new failures on the existing corpus).
+
+### Fixtures — Step 7
+
+Six fixtures added: the positive control, plus one per representative failure mode (version
+disagreement, direct archive/delete equation, uncited Blueprint period, Build-Spec dependency
+language, missing `D-116` citation). **Deliberately does not mutate the real `0002` migration** —
+even restored, a fixture briefly touching Lane B's schema file would risk reading as a lane crossing
+if `B-021`'s restore-failure class hit it mid-run; the equivalent Build-Spec-side trigger is used
+instead, since check 7 fires on either.
+
+### One correction this pass made to its own immediately-preceding work
+
+**A mistake in my own git usage, caught and recovered, not hidden.** A `git checkout --` issued to
+restore a test mutation **discarded the entire uncommitted Business Case section** written earlier
+in this same pass — the file reverted to its pre-`D-135` state before anything had been committed.
+Caught immediately by checking `git status` rather than assuming the command did what was intended;
+the section was rewritten from the content already composed, this time also fixing the backtick
+placement that had caused the coupling check's version-detection regex to silently miss the
+section's own header on the first attempt.
+
+### Gaps
+
+**Closed:** `NFR-02`, `G40`. **Narrowed, not closed:** `AC-12a`, `G88`, `G41` — see Step 5 table.
+**Unchanged:** `G87`, `G89`, `G95`'s composition (closed earlier, `D-133`), `G96`, `G99` (closed,
+`D-131`).
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Business case | Blueprint | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|---|---|
+| `D-135` | ✅ §5.14cp | **— unaffected: no code, schema, or sequence change** | ✅ `RET-EDITORIAL` section written in full | ✅ A6/D8/G1 repointed; queue-cleanup rows relabelled | **— unaffected** | ✅ new check + fixture suite rows | **— unaffected: `V1-PHASE-CLOSURE.md` not touched this pass** | ✅ `NFR-02`, `NFR-08`, `AC-12a`, retention/archival prose all updated |
+
+**Alpha Portfolio** (Tier 1, `D-74`, above `Modular_PRD`, not a standard tier-sweep column until
+this pass): ✅ §6.5 added, obligation and owner only.
+
+### Scope limits
+
+**Writes no code, no schema, no migration.** The partition/classification column remains specified
+to Lane B (`D-134` §2.2c), not applied here. `C-32`'s external archival job, restoration process,
+and disposal process remain deferred, Project Scope, post-launch. `AC-12a`, `G88`, `G41` remain
+open pending built/tested behavior. No lane selected, no phase closed.

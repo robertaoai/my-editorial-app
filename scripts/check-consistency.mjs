@@ -27,6 +27,7 @@ import { run as docsDrift } from "./checks/docs-drift.mjs";
 import { run as syncDocsUnique } from "./checks/sync-docs-uniqueness.mjs";
 import { run as laneState } from "./checks/lane-state.mjs";
 import { run as channelDocs } from "./checks/channel-docs.mjs";
+import { run as retentionPolicyCoupling } from "./checks/retention-policy-coupling.mjs";
 
 const CHECKS = [
   sharedCoreHash,
@@ -45,6 +46,7 @@ const CHECKS = [
   syncDocsUnique, // `D-102` — exactly one sync-docs runbook, tracked or untracked
   laneState, // `D-103` — exactly one lane is `Active`; a half-applied handover fails
   channelDocs, // `D-104` — the channel README/template coupled to the checks that enforce them
+  retentionPolicyCoupling, // `D-134` — RET-EDITORIAL coupled across the four tiers that cite it
 ];
 
 let failed = 0;

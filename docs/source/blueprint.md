@@ -68,7 +68,7 @@ These are defaults applied so the document has something to build against. They 
 | A3 | Publication target for Week 1 | WordPress auto-publish + LinkedIn manual fallback | WordPress REST API is straightforward; LinkedIn depends on OAuth review. |
 | A4 | Trend scoring formula | Simple weighted sum (§11) | Starting assumption, not validated. Review after 50+ scored articles. |
 | A5 | Notification mechanism | In-app only for Week 1 | Email and Slack in Week 4–6. |
-| A6 | Data retention | Auto-archive rejected/archived after 90 days; published articles kept indefinitely | Conservative default. |
+| A6 | Data retention | Governed by `RET-EDITORIAL 0.1-provisional` (`docs/source/business-case.md` §Compliance & Governance Disclosures). Archival is an external, retrievable move; disposal is separate and absent from v1. Rejected/unpublished archival is 5 years, a house-policy placeholder; published records are kept 5 years minimum, current while correction/retraction remains possible. **Not** the workflow's `REUSE-WINDOW-90` (90 days) — confirmed independent, `D-134` | Ratified `D-134`, applied to this tier by `D-135`, 2026-08-25. |
 | A7 | Bookmarklet | Copy-paste URL form only for Week 1 | Bookmarklet in Week 2–3. |
 
 #### Resolved via Three Lines Model (This Revision)
@@ -119,7 +119,7 @@ Resolution is not ratification. OD1–OD3 are structurally resolved but remain u
 | A3 | WordPress auto + LinkedIn manual | Assumed | N/A | No | Prototype may proceed as provisional assumption |
 | A4 | Simple weighted sum scoring | Assumed | N/A | No | Prototype may proceed; review after 50+ articles |
 | A5 | In-app notifications only | Assumed | N/A | No | Prototype may proceed with in-app only |
-| A6 | 90-day auto-archive | Assumed | N/A | No | Prototype may proceed as provisional assumption |
+| A6 | Data retention (`RET-EDITORIAL 0.1-provisional`) | Assumed → Resolved | **Yes** — Chief Editor ruling, `D-134` | **Yes** — 2026-08-25 | Governed by the Business Case's `RET-EDITORIAL` section; not a 90-day figure — see A6 above |
 | A7 | Copy-paste URL form only | Assumed | N/A | No | Prototype may proceed with copy-paste form |
 | OD1 | Chief Editor = Chief Journalist? | Resolved (Three Lines Model) | **Yes** — Chief Editor = Line 2, Chief Journalist = Line 1, no float | No | T6 executor is Line 1 Chief Journalist (agent). T5 executor is Line 2 Senior Journalist (human-primary). |
 | OD2 | Agent judgment independence? | Resolved (Three Lines Model) | **Yes** — satisfied by Line separation | No | Four-eyes enforced at Line boundaries, unconditional. |
@@ -174,7 +174,7 @@ These items are not out of V1 entirely, but are deferred from Week 1 to later ph
 |------|------------|--------|
 | Bookmarklet (browser bookmarklet for article logging) | Week 2-3 | Addendum D6 |
 | Email and Slack notifications | Week 4-6 | Addendum D7 |
-| Automated data retention (90-day auto-archive) | Week 4-6 | Addendum D8 |
+| External archive integration | **Deferred, not v1 product behavior** — Project Scope, deferred until the product is live (`D-134`); no Week 4-6 build item | Addendum D8, `RET-EDITORIAL 0.1-provisional` |
 
 ---
 
@@ -608,14 +608,14 @@ Competitive Gaming (AI fills player slots)
 | Daily (afternoon) | Reporters scan LinkedIn, Facebook, and blogs for trending posts not caught by RSS | Reporters |
 | Weekly (Monday) | Watchlist review — each topic's top sources are checked for new publications | Investigators |
 | Weekly (Wednesday) | Trend signal review — investigator confirms which "Discovered" items have genuine trend evidence | Investigators |
-| Weekly (Friday) | Stale item cleanup — "Discovered" items older than 7 days with no trend signal are archived | System (automated) |
+| Weekly (Friday) | Stale item **queue cleanup** — "Discovered" items older than 7 days with no trend signal are removed from the work queue. **This is queue cleanup, not governed archival** (`D-115`/`D-116`/`D-134`) unless it also produces the governed external archive fact | System (automated) |
 | As-needed | Manual article logging via bookmarklet from any browser | Any team member |
 
 **Review SLA** — items in each state have a maximum dwell time before escalation:
 
 | State | Max Dwell Time | Escalation Action |
 |-------|---------------|------------------|
-| Discovered | 48 hours | Auto-archive if no trend signal confirmed |
+| Discovered | 48 hours | Remove from queue if no trend signal confirmed (**queue cleanup, not archival** — `D-115`/`D-134`) |
 | Logged | 24 hours | Notify investigator team |
 | Validated | 48 hours | Notify senior journalist |
 | Investigated | 72 hours | Notify journalist team |
@@ -728,7 +728,7 @@ All decisions below are **Recommended (not ratified)** until formally signed off
 | D5 | Four-eyes exception policy | **Closed.** Superseded by Three Lines Model — Line separation replaces headcount as independence criterion. The prior "fewer than 5 active role holders" exception no longer applies. | No | Chief Journalist | Closed (v1.3) |
 | D6 | Bookmarklet capture method | Copy-paste URL form only for Week 1 (bookmarklet in Week 2-3) | No | Developer | Recommended — not ratified |
 | D7 | Notification mechanism | In-app only for Week 1 (email/Slack in Week 4-6) | No | Developer | Recommended — not ratified |
-| D8 | Data retention policy | Auto-archive after 90 days (rejected/archived only; published articles kept indefinitely) | No | PM | Recommended — not ratified |
+| D8 | Data retention policy | **Superseded.** Points to A6 / `RET-EDITORIAL 0.1-provisional`, ratified `D-134` — not a separate policy source | No | PM | Superseded, see A6 |
 
 ### API Constraints to Note
 
@@ -1118,7 +1118,7 @@ Sourced from Addendum v1.4 §9. These items are documented for traceability but 
 
 | # | Item | Description | Target Phase |
 |---|------|-------------|-------------|
-| G1 | Data retention policy | Auto-archive rejected/archived articles after 90 days; published articles kept indefinitely | Week 4-6 |
+| G1 | Data retention policy | **Superseded.** Points to A6 / `RET-EDITORIAL 0.1-provisional`, ratified `D-134` — not a separate policy source | Ratified, see A6 |
 | G2 | GDPR/privacy considerations | Articles sourced from individuals on social platforms need consent tracking for publication | Phase 2 |
 | G3 | Blueprint versioning | Add semantic versioning to blueprint; version increments on any invariant change | **Executed** — Blueprint is v1.3 with changelog |
 | G4 | Taxonomy change workflow | Chief Editor proposes new topic → review → approval; `evolves_from` and `evolution_notes` required | Week 4-6 |

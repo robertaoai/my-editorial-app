@@ -191,6 +191,72 @@ Guest platforms are tracked as publication targets with manual submission status
 
 **Acceptance test gap:** The acceptance test suite includes AT-040 (audit trail verification for state transitions) and AT-042 (emergency bypass audit verification). T11's manual-confirm path is covered by AT-022 (Chief Editor enters published_url for ManualReady target). The guest-platform-specific audit path is functionally identical to the LinkedIn ManualReady path tested by AT-022.
 
+### RET-EDITORIAL 0.1-provisional — Retention, Archival, and Explainable Absence (`C-32`)
+
+**Status:** All operative values ruled by the Chief Editor, 2026-08-25 (`D-134`), written here in
+full by `D-135`.
+
+**Accountable owner:** Chief Editor. A future Board assumes approval authority when constituted.
+The policy is reviewed at least annually and immediately on first external-counsel engagement,
+jurisdiction change, regulator order, new customer contract, POC payment activation, or material
+platform-rule change.
+
+**Definitions**
+
+- Current set: records available to the live editorial correction/retraction workflow.
+- Archived: moved out of the current set by an external process, still retrievable with its audit
+  relationships intact. Archival is not deletion.
+- Disposed: irreversibly removed by an authorized external process with evidence retained according
+  to the governing policy. V1 performs no disposal.
+- Queue cleanup: removal from an active work queue. It is not archival unless a governed archive
+  move is also recorded.
+- `RET-POC-90` / `REUSE-WINDOW-90`: two distinct 90-day windows (`D-127`, confirmed independent by
+  `D-134`) — `RET-POC-90` is a PDPA data-deletion period (`D-43`); `REUSE-WINDOW-90` is an editorial
+  workflow permission, not a retention period. Neither is this policy's 5-year archival figure.
+
+| Record class | Current-set rule | Archive trigger | Minimum retained period | Disposal authority |
+|---|---|---|---|---|
+| Published editorial records and correction/retraction evidence | Remain current while correction or retraction must remain possible; GRC always attaches | Not archived while current — no rejection event applies | RET-EDITORIAL: **5 years** (`D-134`, financial-policy default) | Chief Editor, sole operator; each act documented with a reason |
+| Rejected, abandoned, and unpublished editorial work | Moves out of current view once archived | RET-EDITORIAL: **5 years** — house-policy placeholder pending specific GRC rules, explicitly amendable (`D-134`). **Not** the reuse-eligibility window: `REUSE-WINDOW-90` (90 days) is confirmed independent, unaffected by this figure | RET-EDITORIAL: **5 years** (`D-134`) | Chief Editor, sole operator; each act documented with a reason |
+| Append-only transitions, reports, publication targets, and publication events | Remain linked to their originating editorial record | Follow the originating record without breaking the chain | RET-EDITORIAL: matches the originating record's class — 5 years either way (`D-134`) | Chief Editor, sole operator |
+| Sources and personal data supporting editorial work | Limited to the approved editorial and evidential purpose | Not a separate class — editorial-flow data carries no personal data (`D-42`); source references follow their article's own row above | RET-EDITORIAL: follows the originating article's class | Chief Editor, sole operator |
+| POC payment-confirmation/commercial records | Outside the v1 editorial migration; governed before commercial activation | Deferred to the commercial policy | RET-EDITORIAL: **5 years** (`D-134`, confirms `D-43`'s existing IRAS/ACRA rule — not a new number) | Deferred to commercial-activation policy |
+| **Account/login records** (added `D-134`, not one of the original five) | Governed by **access control** (enabled/disabled), not a retention clock | **On user request only**: the clock starts from whichever is **later** — the POC delivery-package date or the request date — **plus `RET-POC-90`** (90 days, `D-43`, unchanged) | RET-EDITORIAL: `RET-POC-90` from the later start event, on request; otherwise indefinite while the account is active | Chief Editor, sole operator |
+
+The policy does not characterize editorial records as financial or accounting records merely to
+borrow a statutory period. **The 5-year figures above are house-policy risk controls, not statutory
+conclusions** — adopted because no specific GRC rule exists yet, and reviewed when counsel becomes
+available or GRC rules are supplied.
+
+**Partition/classification column.** Every record above carries a class value set once, at intake
+(`D-42`, `D-134`) — specified to Lane B in `LANE-B-WORK-ORDER.md` §2.2c. This is the input the
+external archival process reads; it is not itself the archival mechanism.
+
+**External archive control**
+
+- Operator/location class: the hosted Supabase project's own infrastructure — archival is external
+  to the application, and no second operator exists (`D-134`).
+- Retrieval authority: Chief Editor, sole operator.
+- Restoration authority: Chief Editor, sole operator (`D-134`).
+- Integrity requirement: preserve article, transition, report, source, and publication links.
+- **Deferred**: the actual external archive job, restoration process, and disposal process are
+  **Project Scope, deferred until the product is live** (`D-134`) — there is no data yet to act on.
+  Only the intake-time partition column above is not deferred.
+
+**Supplied absence fact**
+
+An external archival or disposal act supplies: affected record or period identifier; archived or
+disposed classification; effective timestamp; actor and authority; reason; policy ID and version;
+archive reference and retrievability when archived; and disposal-evidence reference when disposed.
+This is a semantic interface (`G88`'s contract), not authorization for a new migration.
+
+**Precedence and holds**
+
+Law, regulator orders, contracts, platform duties, active disputes, legal or regulatory holds,
+whistleblower protection, warranty obligations, and correction/retraction duties override the
+ordinary schedule. An override is recorded with authority, reason, affected scope, start time, and
+review/expiry event.
+
 ### Ratification Log
 
 Assumed defaults (A1–A7) remain unratified. OD1 and OD2 are **resolved** (via Three Lines Model mapping) but **unratified**. OD3 is **partially resolved** — framework accepted, exact headcount deferred — and remains **open**. A resolution is not a ratification; an open decision is not a resolution. The Chief Editor must sign off in a discrete, dated event for each to move from resolved/open to ratified. A recommendation, assumed default, or structural resolution does not become a ratified decision by being labeled one. The full ratification log is maintained in Addendum v1.4 §2.4.
