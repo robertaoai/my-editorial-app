@@ -1,0 +1,57 @@
+{
+  "_comment": "Fragment 86 — D-130: two blocked-on-input items sized to what they actually need, one of them missing its ask entirely until now. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "an_ask_sized_to_the_question_not_to_precedent",
+      "label": "An Ask Sized to the Question It Actually Is, Not to Its Neighbor's Precedent",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ck",
+      "description": "A newly opened business-facing condition was given a three-question shape instead of copying the multi-section policy-framework shape of the topically adjacent condition it followed, because the question itself was narrower than the precedent it sat beside.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Matching a new item's shape to its nearest precedent rather than to what it actually requires produces asks that are either bloated or under-specified. Checking which one before drafting is what let a one-question gap stay a one-question ask instead of inheriting a five-value framework it did not need."
+    },
+    {
+      "id": "the_raising_channel_a_lane_cannot_use_for_itself",
+      "label": "A Channel That Only Runs One Direction Was Nearly Used the Wrong Way",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ck",
+      "description": "The first plan for surfacing a business-facing ask used the same directional channel a build lane uses to reach the orchestration lane, before noticing the orchestration lane cannot raise entries on that channel for itself and redirecting to the register's own condition mechanism instead.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The handoff channel's one-directional design is already established elsewhere in this corpus; the near-miss here is a reminder that a structural rule has to be re-checked at the point of use, not merely known in the abstract, and that the register itself is the correct surface for a Lane A-originated ask."
+    }
+  ],
+  "edges": [
+    {
+      "source": "an_ask_sized_to_the_question_not_to_precedent",
+      "target": "one_clock_two_consequences_neither_derived_from_the_other",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ck",
+      "weight": 1
+    },
+    {
+      "source": "the_raising_channel_a_lane_cannot_use_for_itself",
+      "target": "a_gap_checked_for_duplication_before_being_recorded",
+      "relation": "follows_from",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ck",
+      "weight": 1
+    }
+  ]
+}
