@@ -227,6 +227,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G97` | **Closed 2026-08-25 (`D-122`, raised as `B-050`) — a record that contradicts itself, and a withdrawal made on one observation** | **`npx graphify hook-rebuild` intermittently writes `branchName: null` and `lastAnalyzedHead: null` over a good record while leaving `stale: false` untouched** — so the flag reports healthy and the data reports that nothing was ever analyzed. `graphify state status` shows `gitDir` and `commonGitDir` null alongside it: **the tool loses its git context and overwrites.** **`B-046` reported this and `D-118` withdrew it because the state had recovered** — which is `arrival_not_correctness` applied to Lane A’s own verification: **one later observation cannot distinguish repaired from intermittent**, and re-running the rebuild this pass repopulated the record correctly. **The severity is narrower than reported and the narrowing is the point**: `docs-drift` compares `lastAnalyzedHead` against HEAD and honours `stale` only when explicitly `true`, **so the check is not fooled and failed correctly.** The exposure is to a READER who sees `stale: false` and believes it — `G90` shape, a field a person reads and a control does not. **Closed by making the check own output teach the reader**: a null record now names the self-contradiction, because *"run hook-rebuild"* is the remedy for ordinary staleness and merely the **cause** of this one. **No fixture** — reproducing a non-deterministic external tool would be a probe that passes by luck. §5.14cc |
 | `G98` | **Opened and closed 2026-08-25 (`D-124`) — a propagation fallback that trusted any ID in the cell** | **`tier-sweep` required a decision ID only when the Item cell named one; otherwise it accepted ANY ID in the cell.** `D-123` claimed a Phase-closure edit it never made, and a condition already mentioned in that file from an earlier pass satisfied the claim — `G58`, arriving through the fallback built to catch `G58`. **Closed by taking the owning decision from the enclosing section heading** rather than joining it to the existing candidates — a joined list would have made the sweep weaker, since its test is `.some()`. **Backtested against the full register at `D-126`**: 105 checkmarked rows, 74 depending on the fallback, zero mismatches; the stress-test fixture for the one untested branch (no heading seen yet) caught a defect in itself before certifying anything, recorded there rather than repeated here. §5.14ce |
 | `G99` | **Closed 2026-08-25 (`D-131`) — Chief Editor ruled all three questions** | **Three legitimate channels named** (Chief Editor manual, POC payment, trend/fade-analysis-informed drafting — closed set for v1); **uniform reuse-eligibility treatment**, no channel bypasses `REUSE-WINDOW-90`; **different-submitter reuse is legitimate, no detection built**, with each channel's day-count kept separate rather than merged. **Confirms `D-121`'s submitter+hash+day key** rather than changing it. `G95`/`G96` are **unblocked, not answered** — carried forward with the third channel and the separate-record instruction as new inputs. §5.14cl |
+| `G100` | **Opened and closed 2026-08-26 (`D-136`, raised as `B-057`) — a count inside the condition that gates phase closure** | **`C-26` read *“ten entries are `Applied`”* from `D-102` onward, in its heading and its opening paragraph.** `closure-readiness` **never gated ten**: it gates *every entry raised against the closing phase*, a set that grew with each correction Lane A applied, so the condition and its own control had long since parted. **A reader sizing Phase 1's remaining work from `C-26` would have sized it at ten.** `G55`, `G56`, `G58` and `G75` all name restatement as this corpus's drift mechanism; **this is the first recorded instance inside a closure condition.** **`G75` forbids correcting the number** — a corrected tally drifts at the next entry — so the tally is **removed and replaced by the rule that determines it**, with the figure left to the check that prints it every run. **`D-102`'s own record keeps *“ten”* untouched** (`D-104`: an answer is append-only). **`V1-PHASE-CLOSURE.md` was checked and is clean** — its Lane A row already stated the fact without the count, so the drift existed in exactly one place. §5.14cq |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -2532,19 +2533,27 @@ owner.
 
 **What to look for:** a boundary declared to unblock a single edit, repeatedly. **A handover that costs nothing is a handover that stops meaning anything**, and the vocabulary — `Active`, Sprint, boundary — quietly stops describing the thing it names.
 
-### `C-26` — ten entries are `Applied`, and Phase 1's condition 2 needs them `Verified`
+### `C-26` — every `Applied` entry awaits its raiser, and Phase 1's condition 2 needs them `Verified`
 
 **Opened by `D-102`. Phase: Phase 1 closure.** `Applied` means the fix is in the tree at a named
-commit and **nobody independent has confirmed it**. Ten entries carry it, and it is deliberately
-**non-terminal**, so condition 2 is **not met**.
+commit and **nobody independent has confirmed it**. It is deliberately **non-terminal**, so
+condition 2 is **not met** for as long as any entry raised against Phase 1 still carries it.
 
 **The natural verifier is Lane B**, which raised every one of them and has already demonstrated
 the capability — `B-013` is a verification pass that **rejected** the claims it examined, which is
 the only kind of verification worth having.
 
 **Not solvable by Lane A.** A resolution written and verified by the same side is what `B-013`
-item 4 reports; **Lane A marking its own ten entries `Verified` would be that defect performed
+item 4 reports; **Lane A marking its own entries `Verified` would be that defect performed
 deliberately.**
+
+> **The tally is removed, not corrected — `G100`, 2026-08-26 (`D-136`), raised as `B-057`.** This
+> condition read *“ten entries”* from `D-102` onward, while `closure-readiness` has always gated
+> **every entry raised against the closing phase** — a set that grows with each correction Lane A
+> applies, and one that parted from `D-102`'s ten long ago. **`G75` forbids the obvious repair**: a
+> corrected number drifts at the next entry, exactly as four documents' check counts did. **The scope
+> is stated as a rule; the figure is printed by the check on every run.** `D-102`'s own record keeps
+> *“ten”* untouched — an answer is an append-only statement of what was true when it was written.
 
 ### `C-25` — the live-ruleset evidence is held outside the repository
 
@@ -8604,3 +8613,107 @@ this pass): ✅ §6.5 added, obligation and owner only.
 to Lane B (`D-134` §2.2c), not applied here. `C-32`'s external archival job, restoration process,
 and disposal process remain deferred, Project Scope, post-launch. `AC-12a`, `G88`, `G41` remain
 open pending built/tested behavior. No lane selected, no phase closed.
+
+## 5.14cq `D-136` — The Handoff Backlog Read End to End: `B-040` Classified, `B-057` Answered, and a Count Found Inside the Condition That Governs Counting
+
+**Asked:** read `docs/handoff/` as a whole, explain it, find the gaps, draft the fixes.
+
+**The directory answered on its own.** Lane B had left four files staged and uncommitted — three
+verifications and one new entry raised against Lane A — and that uncommitted state was itself the
+first finding: **git is the source of truth here, and `bun run fixtures` refuses a dirty tree**, so
+Lane B's work was both at risk and blocking the suite. It is committed first, attributed to Lane B,
+before any Lane A content was written on top of it.
+
+### The parent defect, and the child it produced
+
+**`B-040` — the entry that owns `D-135`'s entire nine-step application — carried a blank
+`Resolution:`, `Verified-By:` and `Verified-At-Commit:`.** The `Lane A:` field asserted the work in
+prose and classified it nowhere. **`Answered` proves Lane A replied; it proves nothing else**, and
+`closure-readiness` correctly reported one answered non-report entry with no resolution.
+
+**The cause is mechanical, not editorial.** This corpus applies a two-commit evidence pattern — a
+first commit records `Applied`, a second fills in the hash the first could not know about itself.
+**`D-135` made the first commit and never made the second.** Nothing detected it at the time because
+the check that would have fired needs a `Resolution` to validate the commit *against*, and a blank
+`Resolution` skips that branch entirely. **The absence of the claim suppressed the check on the
+claim** — the same shape as `G84`, one field lower.
+
+**Lane B found it and raised `B-057`.** That is the mechanism working: Lane A applied, Lane B read
+the tracker rather than the prose, and the gap between them is exactly what `docs/handoff/` exists
+to surface.
+
+| Repair | State |
+|---|---|
+| `B-040` records `Resolution: Applied` at `50772f1` | ✅ Applied |
+| `B-040` names **all three** commits, not one | ✅ **Correction to `B-057`, in its favour** — see below |
+| `B-040`'s `Verified-By` left open for Lane B | ✅ `D-102` forbids Lane A verifying its own application |
+| `B-057` answered, `Applied`, its own `Verified-By` left for Lane B | ✅ Applied |
+| No separate closure spreadsheet or tally introduced | ✅ **`B-057` asked for this explicitly, and it is the load-bearing half** |
+
+**`B-057` asked for `Verified-At-Commit: 50772f1`, and `50772f1` alone would have misdirected the
+verification pass.** `D-135`'s application spans three commits: `50772f1` (the nine steps),
+**`0cbcee5` (step 7's two fixture defects, corrected only afterwards)** and `b14bc49` (the curated
+merge). A verifier reading `50772f1` would find two fixtures still wrong and reasonably reject work
+that was in fact repaired. **All three are named in the entry.** The resolution anchor stays
+`50772f1`, because that is where the change landed.
+
+### `G100` — the condition that governs the `Applied` backlog states the backlog as a number
+
+**`B-057`'s closing instruction — *"do not create a separate closure spreadsheet or tally"* — is
+what exposed this.** Applying that principle to the condition `B-057` reports into, rather than only
+to `B-057` itself, found the rule already broken one level up.
+
+**`C-26` reads *"Ten entries are `Applied`"*, in its heading and its opening paragraph.** It has
+read that since `D-102` opened it. **`closure-readiness` has never gated ten entries**: it gates
+*every entry raised against the closing phase*, a set that has grown with every correction Lane A
+has applied since. **The condition and the control it describes had parted company**, and the
+condition is the one a reader consults.
+
+**`G75` settles the repair, and forbids the obvious one.** Four documents once asserted the number
+of `C-14` checks as a literal and all four were wrong; the ruling then was that **correcting a
+number only delays the next drift**, and the tally must be *replaced by the rule that determines
+it*. **Applied here identically**: `C-26`'s heading and paragraph now state the scope as a rule —
+every entry raised against Phase 1 that still carries `Applied` — and the figure is left to the
+check, which prints it on every run.
+
+**`D-102`'s own record is left untouched.** *"Ten"* was true when `D-102` wrote it. An answer is an
+append-only statement of what was true at the time (`D-104`), and editing history to match the
+present is the failure `B-011`'s own correction note exists to prevent.
+
+> **Why this one matters more than its size suggests.** `C-26` is the condition standing between
+> Phase 1 and closure. **A reader consulting it to size the remaining work would have sized it at
+> ten** and found the boundary immovable for reasons the condition did not explain. `G55`, `G56`,
+> `G58` and `G75` all name restatement as this corpus's drift mechanism; **this is the first
+> recorded instance of it inside a closure condition.**
+
+### What is NOT fixed, and cannot be by Lane A
+
+**The `Applied` backlog itself.** Every Phase-1 entry still carrying `Applied` needs an independent
+verifier, and **Lane A is structurally disqualified** — `C-26`'s own text says marking its own
+entries `Verified` is `B-013` item 4's defect performed deliberately. **Lane B is the verifier**, and
+Lane B is currently `Blocked` on Lane A's run. **This is a Sprint-boundary scheduling matter for the
+Chief Editor, not a documentation defect**, and it is recorded rather than repaired.
+
+### Gaps
+
+**Opened and closed:** `G100` — §5.1. **Unchanged:** `C-26` remains **open** and is now stated as a
+rule rather than a count; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, `G41`, `G87`, `G89`, `G96`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `B-040` classified, `B-057` answered | ✅ §5.14cq | **— unaffected: no scope, sequence or DoD change** | **— unaffected: no rule text changes; the `Acknowledged`-at-minimum duty already covers it** | **— unaffected: no file created or retired** | **— unaffected: §5's Lane A row already states condition 2 as a rule with no tally** | **— unaffected: no requirement text moves** |
+| `G100` — `C-26`'s tally removed | ✅ §5.14cq, §5.1, `C-26` | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: the condition is named there, its count never was** | **— unaffected** |
+
+**Phase closure is genuinely unaffected and that is worth stating explicitly.** `V1-PHASE-CLOSURE.md`
+§5's Lane A row reads *"condition 2 NOT met — `Applied` entries await their raiser (`C-26`)"*. **It
+already carried the fact and never the count**, so the drift `G100` records existed in exactly one
+place. Checking the sibling before assuming symmetry is what kept this from becoming a two-file fix.
+
+### Scope limits
+
+**Writes no code, no schema, no migration, no check.** No lane selected, no phase closed, no
+condition closed. **`C-32`'s deferred remainder is untouched**: the partition/classification column
+stays specified to Lane B, and the external archival, restoration and disposal processes stay
+Project Scope, post-launch. **No entry was moved to `Verified`** — that word belongs to Lane B.
