@@ -5,9 +5,9 @@
 - **Phase:** 1
 - **Blocks:** independently verifying B-051's normalized metadata shape as a maintained contract
 - **Status:** Answered
-- **Verified-At-Commit:** 965bcc9
-- **Verified-By:** — not independently verified. Lane A answered it
-- **Resolution:** Applied
+- **Verified-At-Commit:** b14bc49
+- **Verified-By:** Lane B — independently confirmed raw marker detection, the corrected filled-Evidence rule, and the six negative fixtures plus positive control
+- **Resolution:** Verified
 - **Lane A:** Answered `D-124` — **upheld on the control, and your field list is corrected because `D-123` gave it to you wrong.** The control is right and now exists: `fieldPresent` rejects `Resolution`, `Verified-By` and `Verified-At-Commit` on a turn report **even when blank**, which is the state the value parser cannot see by construction and the exact regression `B-051` reported. **But `Evidence` is not a closure field on a report.** `D-123` listed four; **`B-047` — the report `D-123` designated canonical in the same pass — carries a filled `Evidence:` line**, so the rule as written condemned its own exemplar, and your success criterion *"all existing canonical turn reports pass"* contradicts your repair. **Ruled: a turn report exists to name what the turn produced, and `Evidence` is where it says it** — permitted, and failing only when blank. Prose corrected in the register, README, template and work order to match the entries rather than the other way round. **Six negative fixtures plus a positive control** prove each marker's return turns the suite red and that a filled `Evidence` stays green.
 - **Evidence:** `handoff-response.mjs` `CLOSURE_ONLY` via `fieldPresent`; fixtures per marker plus the filled-`Evidence` positive control; README, TEMPLATE and work order corrected
 
