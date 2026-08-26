@@ -1,0 +1,77 @@
+{
+  "_comment": "Fragment 95 — D-138 / G102: a channel closed to the very lane that owes a report into it, and a file filter that ignores rather than rejects what it does not match. Merged 2026-08-26.",
+  "nodes": [
+    {
+      "id": "a_channel_closed_to_the_lane_that_owes_the_report",
+      "label": "A Channel Closed to the Lane That Owes the Report",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "source_location": "5.2 step 1",
+      "description": "A handover procedure required the outgoing lane to file a turn report even when nothing was done, while the only directory that holds turn reports was scoped by both its own documentation and its file filter to the two other lanes, so the orchestrating lane owed a report it had no place to put.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The obligation and the channel were written by different decisions and neither one re-read the other. It stayed invisible because the lane it applied to had handed over only once, and the step that would have caught the omission is itself recorded as checked by nothing."
+    },
+    {
+      "id": "a_filter_that_ignores_rather_than_rejects",
+      "label": "A Filter That Ignores Rather Than Rejects",
+      "file_type": "concept",
+      "source_file": "scripts/checks/handoff-fields.mjs",
+      "source_location": "ENTRY_FILE",
+      "description": "The pattern selecting which files count as handoff entries admits two lane prefixes and simply does not match a third, so a correctly written entry under the unmatched prefix would be passed over by every check in silence rather than reported as malformed.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A filter cannot distinguish a file that should not be there from one it was never taught to see. Rejection would have surfaced the design gap on first use; ignoring meant the author would believe the entry had been filed and no control would ever say otherwise."
+    }
+  ],
+  "edges": [
+    {
+      "source": "a_channel_closed_to_the_lane_that_owes_the_report",
+      "target": "a_check_that_cannot_fail",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "confidence_score": 1,
+      "source_location": "5.2 step 1",
+      "weight": 1
+    },
+    {
+      "source": "a_filter_that_ignores_rather_than_rejects",
+      "target": "checks_handoff_fields",
+      "relation": "implemented_in",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/handoff-fields.mjs",
+      "confidence_score": 1,
+      "source_location": "ENTRY_FILE",
+      "weight": 1
+    },
+    {
+      "source": "a_filter_that_ignores_rather_than_rejects",
+      "target": "an_absent_field_suppressed_the_check_on_itself",
+      "relation": "recurrence_of",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/handoff-fields.mjs",
+      "confidence_score": 1,
+      "source_location": "ENTRY_FILE",
+      "weight": 1
+    },
+    {
+      "source": "a_channel_closed_to_the_lane_that_owes_the_report",
+      "target": "a_filter_that_ignores_rather_than_rejects",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-PHASE-CLOSURE.md",
+      "confidence_score": 1,
+      "source_location": "5.2 step 1",
+      "weight": 1
+    }
+  ]
+}
