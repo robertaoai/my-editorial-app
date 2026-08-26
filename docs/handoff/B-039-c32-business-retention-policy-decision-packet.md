@@ -23,6 +23,29 @@ period was archived or disposed, why, when, and under which policy version. Migr
 remains unconditional because archival and disposal are external operations and this packet adds no
 schema requirement.
 
+## Plain-language summary — answer these five, in this order (added `D-131`)
+
+**The seven numbered sections below are the complete, precise version.** This block is the same
+five values in the short form — answer these and the detail sections follow automatically.
+
+1. **The 90-day number.** Do you approve **90 days** as the point at which a rejected/unpublished
+   editorial piece moves out of active view (archived, not deleted, still retrievable)? If not,
+   what number? *(This is `DATA_RETENTION_ARCHIVE_DAYS` — separate from the reuse-eligibility clock,
+   which already uses this same window per an earlier ruling.)*
+2. **Minimum keep-time per record type.** For each of: published articles · rejected/unpublished
+   work · the append-only activity log · source/personal data · POC payment records — how long must
+   each be kept, at minimum, before archival or disposal can even be considered?
+3. **Who holds archived data, and where?** Once something is archived, who is the responsible
+   party/system, and in what kind of storage?
+4. **Who can bring archived data back?** If an archived record needs to be restored to active use,
+   who is allowed to approve that?
+5. **Who can eventually delete data?** Nothing is deleted in v1, but the policy needs a named
+   authority for later — who will be allowed to authorize disposal when the time comes?
+
+**Answering all five closes `C-32`.** Partial answers still help — each of the five items below
+maps to exactly one of `NFR-02`, `AC-12a`, `G40`, `G88`, `G41`, and each closes independently as its
+own answer arrives.
+
 ## Decisions the Chief Editor must make, parent first
 
 ### 1. Ratify ownership and authority
