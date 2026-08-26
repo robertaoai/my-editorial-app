@@ -6,7 +6,7 @@
 // useless as one that fails on nothing.
 
 import { execFileSync } from "node:child_process";
-import { fixture, read, write, existsSync, rmSync, mkdirSync } from "./harness.mjs";
+import { fixture, read, write, withRetry, TRANSIENT_CODES, existsSync, rmSync, mkdirSync } from "./harness.mjs";
 import { readdirSync, readFileSync } from "node:fs";
 import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
 
@@ -877,6 +877,87 @@ export async function retentionPolicyCoupling(results) {
   });
 }
 
+/**
+ * `D-139` — `withRetry` tested directly, not through a check module.
+ *
+ * The failure this answers: a single-process write hit a millisecond-scale
+ * Windows lock (`EBUSY`/`UNKNOWN`) with no concurrent process running, and
+ * the fixture runner reported it as ten unrelated MISSes cascading from one
+ * root cause. Three shapes must all hold, or the fix is worse than nothing:
+ * a transient error that clears within the retry budget must succeed: a
+ * persistent one must still fail rather than hang or loop forever; and a
+ * non-transient error must fail on the FIRST attempt, never retried, so a
+ * genuinely missing file reports immediately instead of stalling.
+ */
+function retryResilience(results) {
+  {
+    let calls = 0;
+    const out = withRetry(() => {
+      calls++;
+      if (calls < 3) {
+        const e = new Error("simulated transient lock");
+        e.code = "EBUSY";
+        throw e;
+      }
+      return "ok";
+    });
+    const ok = out === "ok" && calls === 3;
+    results.push({
+      name: "withRetry: a transient error clearing within budget succeeds",
+      ok,
+      detail: ok ? `succeeded on attempt ${calls}` : `got "${out}" after ${calls} call(s)`,
+    });
+  }
+  {
+    let calls = 0;
+    let threw = null;
+    try {
+      withRetry(() => {
+        calls++;
+        const e = new Error("simulated persistent lock");
+        e.code = "EBUSY";
+        throw e;
+      });
+    } catch (e) {
+      threw = e;
+    }
+    const ok = threw !== null && threw.code === "EBUSY" && calls === 4;
+    results.push({
+      name: "withRetry: a persistent transient error still fails, bounded",
+      ok,
+      detail: ok ? `threw after ${calls} attempt(s), not masked` : `calls=${calls} threw=${threw ? threw.code : "none"}`,
+    });
+  }
+  {
+    let calls = 0;
+    let threw = null;
+    try {
+      withRetry(() => {
+        calls++;
+        const e = new Error("simulated missing file");
+        e.code = "ENOENT";
+        throw e;
+      });
+    } catch (e) {
+      threw = e;
+    }
+    const ok = threw !== null && threw.code === "ENOENT" && calls === 1;
+    results.push({
+      name: "withRetry: a non-transient error fails on the first attempt, never retried",
+      ok,
+      detail: ok ? "failed immediately, no retry spent on a real error" : `calls=${calls} threw=${threw ? threw.code : "none"}`,
+    });
+  }
+  {
+    const ok = TRANSIENT_CODES.has("EBUSY") && TRANSIENT_CODES.has("UNKNOWN") && !TRANSIENT_CODES.has("ENOENT");
+    results.push({
+      name: "withRetry: the transient set names EBUSY/UNKNOWN, excludes ENOENT",
+      ok,
+      detail: ok ? "set is exactly the observed transient class" : `set=${[...TRANSIENT_CODES].join(",")}`,
+    });
+  }
+}
+
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
   ["tier sweep fallback (`G98`, raised as `B-054`)", tierSweep],
@@ -888,4 +969,5 @@ export const SUITES = [
   ["lane crossing declaration (`D-105`)", laneGate],
   ["config coupling (`C-17`, raised as `B-024`)", configCoupling],
   ["reopens-phase (`C-19`, raised as `B-025`)", reopensPhase],
+  ["fixture retry resilience (`D-139`, raised against this session's own run)", retryResilience],
 ];

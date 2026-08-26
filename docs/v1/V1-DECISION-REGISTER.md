@@ -230,6 +230,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G100` | **Opened and closed 2026-08-26 (`D-136`, raised as `B-057`) — a count inside the condition that gates phase closure** | **`C-26` read *“ten entries are `Applied`”* from `D-102` onward, in its heading and its opening paragraph.** `closure-readiness` **never gated ten**: it gates *every entry raised against the closing phase*, a set that grew with each correction Lane A applied, so the condition and its own control had long since parted. **A reader sizing Phase 1's remaining work from `C-26` would have sized it at ten.** `G55`, `G56`, `G58` and `G75` all name restatement as this corpus's drift mechanism; **this is the first recorded instance inside a closure condition.** **`G75` forbids correcting the number** — a corrected tally drifts at the next entry — so the tally is **removed and replaced by the rule that determines it**, with the figure left to the check that prints it every run. **`D-102`'s own record keeps *“ten”* untouched** (`D-104`: an answer is append-only). **`V1-PHASE-CLOSURE.md` was checked and is clean** — its Lane A row already stated the fact without the count, so the drift existed in exactly one place. §5.14cq |
 | `G101` | **Opened and closed 2026-08-26 (`D-137`) — defects in the pending-semantic mechanism, found by executing it** | **(1) The pending marker counts FILES, not the live cycle** — live batches read *“1 of 12”* while seven stale orphans read *“13 of 19”*, overstating the work by more than half; Lane B repeated the inflated figure, correctly, because it is what the tool reports. **(2) Answering the orphans would have overwritten curated descriptions** — one names a hand-authored node, making *“fill every pending batch”* destructive when executed literally (`G51` in a new shape). **(3) Six communities were tagged `lang=pt` on plainly English content**, and the instruction demands the name be written *“in EXACTLY that language”* — obeying it would have put Portuguese names on English governance clusters. **(4) 825 entity nodes are undescribed BY DESIGN** under an anti-hallucination policy, so *“every node described”* is unsatisfiable and `B-041`'s *“no pending batch or community ingestion”* wording is kept. **(5) The ingest does not survive the next rebuild** — re-extraction drops every extracted node's description while `docs-drift` still reports *synced*, so **semantic completion is the LAST action of a pass, not a step inside it**; the recovery is to replay the dated `.graphify/` backup rather than re-author. **(1) and (3) are one shape: a tool's self-report taken as fact; (2) is why it matters; (5) cost this pass a full cycle.** §5.14cr |
 | `G102` | **Opened and closed 2026-08-26 (`D-138`) — the outgoing lane owes a turn report and Lane A has nowhere to file one** | **`§5.2` step 1 requires the outgoing lane to raise a `Kind: turn-report` entry, *“required even when nothing was done”* (`D-105`) — and `docs/handoff/` is closed to Lane A twice over:** its README scopes raising to Lane B and Lane C, and `ENTRY_FILE` matches `/^[BC]-d+.*.md$/`, so an `A-` file is **silently ignored, not rejected**. Lane A could file one and **no control would read it** — `a_check_that_cannot_fail`, in the step that hands over the lock. **Not new**: Lane A was outgoing at `D-117` and filed nothing, and every *“outgoing lane files its report”* reference in the corpus resolves to `B-047`, a Lane B entry. **Ruled by the Chief Editor: Lane A’s turn report IS the boundary decision section in the register**, cited from `§5.0a`’s `Report` column — no new artifact, no channel change, and `D-117`/`D-118` had already done it in prose. **Opening the channel to `A-NNN` was rejected**: it would make Lane A both raiser and answerer in one directory, undoing the attribution `D-90` avoided. **Remains a duty, not a checked control**, and is recorded as such. §5.14cs |
+| `G103` | **Opened and closed 2026-08-26 (`D-139`) — a single-process transient filesystem lock, distinct from `B-021`'s concurrency class** | **The prior turn cited `B-021`'s scope for a failure `B-021` does not describe.** `B-021` names a SECOND process touching the tree while fixtures run; the observed failure was the fixture runner ALONE hitting a millisecond-scale OS lock (`EBUSY`/`UNKNOWN`) on its own write, no concurrent process involved — the same *true-word-misread-as-wider-coverage* shape `D-137`/`G101` named one layer over. **`B-001` was hit twice not by chance**: it is the single file reused across roughly twenty of the sixty-two fixtures, the highest write exposure of any tracked path. **Fixed narrowly**: `harness.mjs`'s `read`/`write` retry only `EBUSY`/`UNKNOWN`/`EPERM`, bounded at four attempts with backoff; `ENOENT` and everything else still fails immediately. **Not `B-021`'s unbuilt lock** — items 2–5 of that entry's required repair remain unbuilt and unaddressed. **Proven by four fixtures against `withRetry` directly**: transient-clears-within-budget succeeds; persistent-transient still fails, not masked; non-transient fails on the first attempt. §5.14ct |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -8892,3 +8893,72 @@ it**; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, `G41`.
 **No boundary is performed by this decision.** No lane state changes, no run identifier is
 assigned, no entry moves to `Verified`, no phase closes. **`docs/handoff/README.md` and `TEMPLATE.md`
 are deliberately untouched** — the channel stays Lane B and Lane C, which is what the ruling chose.
+
+## 5.14ct `D-139` — A Citation Corrected, and a Single-Process Transient Lock Given a Bounded Retry
+
+**Asked:** explain the prior turn's closing note — *"traced it to the originating line before
+re-running, per `B-021`'s documented scope"* — and fix the gap it names.
+
+### The citation was imprecise, and it is corrected here rather than left standing
+
+**`B-021` documents a different failure than the one that occurred.** `B-021`'s class is a SECOND
+PROCESS touching the tracked tree while fixtures run — a concurrent `git stash`, a concurrent
+check, a second fixture invocation — and its own required repair says so explicitly: *"do not run
+anything else while fixtures run."* **Nothing else was running.** What happened was a single
+process — the fixture runner alone — hitting a transient filesystem error
+(`UNKNOWN: unknown error, open '...'`) on its own write, with no concurrent actor at all.
+
+**Citing `B-021`'s scope for a different failure class is exactly `B-041`'s lesson one layer over**
+(`D-137`, `G101`) — a true, correct answer read as covering a property it does not. **Corrected
+here, in prose, per house discipline: an answer is append-only** (`D-104`) — `B-021`'s own entry is
+untouched, because it was accurate about what it named at the time it named it.
+
+### Why `B-001` specifically, twice
+
+**Not chance.** `ENTRY = "docs/handoff/B-001-s0-completion-boundary.md"` in `scripts/fixtures/
+suites.mjs` is the single file reused as the mutation target across roughly twenty of the sixty-two
+fixtures — by far the highest write exposure of any tracked file in a run. A momentary OS-level
+lock (antivirus scan, search indexer) has more chances to land on that one file than on any other,
+which is why the cascade repeated on the same path both times rather than scattering.
+
+### The fix — bounded, in Lane A's own surface, not a concurrency lock
+
+**`scripts/fixtures/harness.mjs`'s `read`/`write` now retry a TRANSIENT error only**, up to four
+attempts with a short backoff (`Atomics.wait`, synchronous — `mutate()`/`restore()` are sync
+closures, so an async retry would change every fixture's shape). **The transient set is narrow:**
+`EBUSY`, `UNKNOWN`, `EPERM` — the observed Windows lock signatures. **Everything else, `ENOENT`
+included, still fails on the first attempt** — a genuinely missing file must not stall behind a
+retry budget meant for a lock that clears in milliseconds.
+
+**This is explicitly NOT `B-021`'s unbuilt concurrency lock.** `B-021`'s required repair items 2–5
+— an exclusive repository-local lock, a disposable worktree, a second-writer failure mode — remain
+unbuilt and are not addressed here. **What this closes is narrower and cheaper**: the single-process
+write that has no protection at all against a millisecond-scale OS hiccup, which is what actually
+occurred, twice, in this session.
+
+**Proven, not merely written.** `scripts/fixtures/suites.mjs` gains `retryResilience`, four
+assertions run directly against `withRetry` (exported for this purpose) rather than through a check
+module — the three failure shapes that would each make the fix wrong in a different way: a
+transient error clearing within budget succeeds; a persistent transient error still fails, bounded,
+not masked; a non-transient error fails on the first attempt, never retried.
+
+### Gaps
+
+**Opened and closed:** `G103` — §5.1. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`,
+`G88`, `G41`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-139` — retry fix + citation correction | ✅ §5.14ct | **— unaffected: no scope, sequence or DoD change** | **— unaffected** | ✅ `scripts/fixtures/` row's citation list extended | **— unaffected** | **— unaffected** |
+| `G103` | ✅ §5.14ct, §5.1 | **— unaffected** | **— unaffected** | **— unaffected: no file created or retired, `harness.mjs` and `suites.mjs` already inventoried under `scripts/fixtures/`** | **— unaffected** | **— unaffected** |
+
+**No count is restated** (`G75`, `C-21`) — the inventory row already states this rule and gains
+only a citation, not a number. `bun run fixtures` prints the total.
+
+### Scope limits
+
+**`B-021` is not reopened and its unbuilt items are not built here.** True concurrency safety —
+an exclusive lock, a disposable worktree — remains future work, unchanged in scope from `B-021`'s
+own accounting. **No boundary is performed, no lane state changes, no entry moves to `Verified`.**

@@ -25,8 +25,50 @@
 import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync, existsSync, rmSync, mkdirSync } from "node:fs";
 
-export const read = (p) => readFileSync(p, "utf8");
-export const write = (p, s) => writeFileSync(p, s);
+/**
+ * `D-139`, raised against this session's own fixture run. **Not `B-021`'s
+ * class** — `B-021` is a second PROCESS touching the tree while fixtures run;
+ * this is a SINGLE process hitting a transient OS-level lock on its own
+ * write, no concurrent process involved. Windows reports these as `EBUSY` or
+ * the catch-all `UNKNOWN`, typically an antivirus scan or the search indexer
+ * holding the handle for a few milliseconds. `ENOENT` and everything else is
+ * NOT retried — a genuinely missing file must fail immediately, not stall.
+ */
+export const TRANSIENT_CODES = new Set(["EBUSY", "UNKNOWN", "EPERM"]);
+const RETRY_ATTEMPTS = 4;
+const RETRY_BASE_MS = 50;
+
+/** A synchronous sleep — `mutate()`/`restore()` are sync closures, so retry
+ * inside `read`/`write` cannot be async without changing every fixture's
+ * shape. `Atomics.wait` blocks the thread without a child process. */
+function sleepSync(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+/**
+ * Retries a synchronous filesystem op on a TRANSIENT error only, bounded.
+ * A persistent lock still throws after `RETRY_ATTEMPTS` — this narrows a
+ * false MISS on a millisecond-scale hiccup; it does not mask a real one, and
+ * it is not `B-021`'s unbuilt concurrency lock. Exported so the fixture
+ * suite can assert the three shapes directly: transient-then-succeeds,
+ * transient-exhausted, and non-transient-immediate.
+ */
+export function withRetry(fn) {
+  let lastErr;
+  for (let attempt = 0; attempt < RETRY_ATTEMPTS; attempt++) {
+    try {
+      return fn();
+    } catch (e) {
+      lastErr = e;
+      if (!TRANSIENT_CODES.has(e.code) || attempt === RETRY_ATTEMPTS - 1) throw e;
+      sleepSync(RETRY_BASE_MS * (attempt + 1));
+    }
+  }
+  throw lastErr;
+}
+
+export const read = (p) => withRetry(() => readFileSync(p, "utf8"));
+export const write = (p, s) => withRetry(() => writeFileSync(p, s));
 
 /** Load a check fresh each time — module caching would hide the mutation. */
 export async function runCheck(modulePath) {
