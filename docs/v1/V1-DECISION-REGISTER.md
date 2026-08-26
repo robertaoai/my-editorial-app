@@ -215,7 +215,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G85` | **WITHDRAWN 2026-08-25 (`D-118`, raised as `B-042`) — the gap was asserted past its source** | **The claim was that `TR-DM-03`'s *"seven-value status enum"* named a count whose members were listed nowhere in the corpus. They are listed, twice, in GOVERNING documents**: `v1-build-readiness-addendum.md` §231 and `blueprint.md` §500/§969 — `Pending`, `Published`, `Failed`, `Scheduled`, `Cancelled`, `ManualReady`, `MockPublished`. **The search that opened `G85` covered `docs/`, `docs/fn-specs/` and `Modular_PRD` and never covered `docs/source/`**, which is where the governing set lives and where a vocabulary would naturally be defined. `conflict_asserted_past_source`, and **the fourth instance of a claim made from an incomplete sweep**. **Found by Lane B while implementing against it** — it used the seven Addendum members and reported the register as wrong, which is the return path working. **Values propagated to `TR-DM-03` citing the Addendum, not the migration**, so the schema is not mistaken for the origin of a business vocabulary that already had an approved source. §5.14by |
 | `G86` | **Closed 2026-08-25 (`D-115`) — a word carrying two meanings in governed tiers, defined in none** | **"Archived" is load-bearing in `Modular_PRD` §6.3 and in `AC-12a`, and no governed document said what it meant.** Audit **Step 9** instructed the definition — *"redefine 'archived' as retrievable rather than deleted"* — **and that redefinition was never performed.** The cost was not theoretical: **Step 9 contradicts itself in a single sentence**, telling the reader to set the value *at or above the statutory floor* **and** that archived means retrievable — *a period that disposes of nothing has no reason to meet a disposal floor.* `D-114` then compared 90 days to the five-year floor and called it twenty times too small, **which is comparing a move to a deletion**; retracted at three sites. **Closed by defining it in §6.3: moved and still retrievable, never deleted, and EXTERNAL to this system.** §5.14bv |
 | `G87` | **Open — BACKLOG FEATURE, not v1** | **A retraction order for an article no longer in the current set has no path.** GRC on retraction binds data **while it is current** (`D-115`); archival ends its reach, so an order arriving afterwards has nothing to act on. **`D-114` created the reachability**: while `NFR-02` read *"never deleted"*, a published article never left the current set and retraction was always possible — restating it as *"not less than the statutory period; disposal only under a documented, approved policy"* made disposal permissible. **This is the honest consequence of stopping the lie, not a defect in the restatement.** Deferred because handling work **never triggered from this system** is a different intake shape, not a variation on the existing flow. §5.14bv |
-| `G88` | **Open — the input to a `[V1]` criterion that nothing supplies** | **`AC-12a` requires the audit surface to state that records *"existed and are no longer retrievable"*, naming the policy and version, the period, and the archive location.** Under `D-115` the act producing those facts is **external to this system**, and **nothing tells the product it happened.** *This is `G46`'s shape one tier down* — *"retention class depends on a fact the product does not hold"* — and `G46` was resolved by ruling the fact must be **supplied to** the product rather than inferred by it. **The mechanism exists on paper and was never adopted**: the audit model §6.3's **disposal record**, written before the act, stored outside the table it describes, itself immutable. **The second unadopted §-section this thread has found**, after §5.3. **`G41`'s unmet dependency.** §5.14bv |
+| `G88` | **Open — the input to a `[V1]` criterion that nothing supplies** | **`AC-12a` requires the audit surface to state that records *"existed and are no longer retrievable"*, naming the policy and version, the period, and the archive location.** Under `D-115` the act producing those facts is **external to this system**, and **nothing tells the product it happened.** *This is `G46`'s shape one tier down* — *"retention class depends on a fact the product does not hold"* — and `G46` was resolved by ruling the fact must be **supplied to** the product rather than inferred by it. **The mechanism exists on paper and was never adopted**: the audit model §6.3's **disposal record**, written before the act, stored outside the table it describes, itself immutable. **The second unadopted §-section this thread has found**, after §5.3. **`G41`'s unmet dependency.** §5.14bv. **`D-128` scoping note**: the reuse-eligibility window and this gap's archival-absence surface share one underlying day-count but are **independent UI elements** — reuse eligibility elapsing is never evidence for this gap's *"existed and is no longer retrievable"* claim, which still needs its own supplied fact |
 | `G89` | **Open 2026-08-25 — a derived tier created a `[V1]` commitment and nothing noticed** | **Nothing verifies that an acceptance criterion has a parent.** `Modular_PRD` carries 27 `AC-` rows including `AC-14`–`AC-21`, so `D-29` gives the series to that tier. The `Fn_Specs` introduce exactly two suffixed criteria and **neither has an upstream row** — but only one has a decision behind it: `AC-01a` was created by `G39`'s closure, which names it; **`AC-12a` appears in this register only as a REFERENCE** — *"product canary is `AC-12a`"* — **never as something a decision created.** `tier-sweep` reads decision IDs and cannot see this, because there is no decision to read. **`AC-12a` is promoted by `D-116`; the CONTROL gap is what stays open** — the next criterion written into a `Fn_Spec` will be just as invisible. §5.14bw |
 | `G90` | **Open 2026-08-25 — the one field that describes acts outside the repository, and nothing reads it** | **An entry's `Evidence` line can assert an act that never happened.** `closure-readiness` proves `Verified-At-Commit` names a real commit; **no check reads `Evidence` at all.** Live instance: `B-038` carried *"Evidence: Chief Editor selection, 2026-08-25"* when **no selection had been made** — the transcript held Lane A saying selection was *available*. **It nearly moved the lane lock**, and what stopped it was Lane A asking the Chief Editor rather than reading the file. `arrival_not_correctness` (`C-22`, `F5`) in the field that by construction points OUTSIDE the tree. **The remedy is a person, not a check** — an assertion about what the Judge said cannot be verified from the repository, and building a probe that pretends otherwise would be `probe_that_cannot_fail`. Recorded so the limit is not mistaken for coverage. §5.14bx |
 | `G91` | **Closed 2026-08-25 (`D-117`) — a fixture suite that breaks on the event it protects** | **Every lane-state fixture named a lane letter, silently assuming Lane A held the lock.** Moving it would have broken three: setting `B` `Active` when `B` already is produces **one** `Active` rather than two, and the *Eligible-beside-Active* and *Blocked-with-no-Active* cases would each have fired a **different finding than the one asserted** — passing while testing nothing. `D-106` drew this lesson once, *retarget at structure not at a live value*, and applied it to the documents the fixtures mutate **and not to the lane identity inside them.** **Fixed BEFORE the boundary, not after**; the suite reads which lane holds the lock and mutates by role. §5.14bx |
@@ -7977,7 +7977,7 @@ those decisions changes here.**
 | **0** | The two 90s are different categories — a workflow-eligibility window versus a data-deletion period. **The prior single variable name was the defect**; nothing about either window's substance was ever wrong |
 | **1** | ⬆️ **Leaves `C-32` — `REUSE-WINDOW-90` was never one of `C-32`'s five named items and does not become one.** Reuse eligibility is intake/workflow design, not a retention obligation. Its surface is **`C-13`** — the same BCP dashboard condition already tracks a business-continuity surface, and reuse-eligibility display belongs on it rather than opening a new one |
 | **2** | `RET-POC-90` is **settled** (`D-43`, `D-45`) — confirmed unaffected, not reopened |
-| **3–4** | **Void.** The remaining live question both folded into: **does `REUSE-WINDOW-90` also function as `C-32`'s archival trigger**, or are the two windows independent events? **Gated, not answered** — this is a business-scope question (`C-32`'s owner), not Lane A's to rule |
+| **3–4** | **Void.** The remaining live question both folded into: **does `REUSE-WINDOW-90` also function as `C-32`'s archival trigger**, or are the two windows independent events? **CLOSED ARCHITECTURALLY 2026-08-25 (`D-128`)** — the product cannot trigger archival under any window (`D-115`), so the two are one clock and two independent consequences by design, never one inferred from the other. The floor NUMBER stays gated on `C-32`, unaffected |
 | **5** | **Disclosure is not a discretionary choice.** One-person operating model, no segregation of duties — the product **states whatever the business supplies** (`G88`'s unmet dependency, `G41`'s absence-explanation) and never selects or judges what to disclose |
 | **new** | **The trigger-identity question is separated from all five above — it is intake design, not retention.** Who or what constitutes a legitimate new trigger (distinct from `REUSE-WINDOW-90`'s reuse-eligibility and distinct from `RET-POC-90`'s deletion clock) opens as its own gap, `G99`, filed against intake design |
 
@@ -8016,5 +8016,81 @@ general enough to host this without redefinition. **Zero contradictions found.**
 
 **No schema, no migration, no code.** `C-32`'s five named items and their business-value dependency
 are untouched — this decision names and separates vocabulary, it does not supply a retention value.
-`REUSE-WINDOW-90` vs `C-32`'s archival-trigger question (rows 3–4) stays gated, not answered — still
-the business's to rule. No lane selected, no phase closed.
+`REUSE-WINDOW-90` vs `C-32`'s archival-trigger question (rows 3–4) — **closed architecturally at
+`D-128`, one pass later**; not reopened here. No lane selected, no phase closed.
+
+---
+
+## 5.14ci `D-128` — Rows 3–4 Close Architecturally; the Two 90s Are One Clock, Two Consequences
+
+**Lane A pass, 2026-08-25, cross-referencing `D-127` rows 3–4 against decisions already on record.**
+The Chief Editor's own cross-reference is correct: rows 3–4 do not need a new business ruling — the
+architecture that answers them was already decided, across three separate passes, and simply had
+not been connected to this specific question until now.
+
+### Parent — rows 3–4 close: the product never triggers archival, either way
+
+**The question as framed** (`D-127`): *does `REUSE-WINDOW-90` also function as `C-32`'s archival
+trigger, or are the two windows independent events?* **The framing itself presupposes the product
+can trigger archival. It cannot, under any window** — `D-115` ruled archival categorically
+**external**: *"the application neither archives nor disposes."* `DATA_RETENTION_ARCHIVE_DAYS = 90`
+is *"a boundary in an outside process, not a disposal date."* No window the product computes can be
+an archival trigger, because triggering archival is not an act available to the product at all.
+
+> **What the cross-reference actually resolves is narrower and answerable now**: are
+> `REUSE-WINDOW-90` and `DATA_RETENTION_ARCHIVE_DAYS` the **same numeric configuration value**, read
+> from two angles? **Very likely yes** — `D-116` already names the connection without formalizing
+> it: *"the product's stake is the UI/UX of missing data … refined by the 90-day archival."* One
+> clock, computed once from a brief's rejection timestamp, serves two independent consequences:
+
+| Consequence | Where decided | Nature |
+|---|---|---|
+| **Reuse eligibility unlocks** | This decision, confirming `D-127` row 1 | **Product-computed.** The system holds the rejection timestamp and can compute the boundary itself |
+| **External archival is expected to have occurred** | `D-115` | **Not product-computed.** An outside process; the product does not perform it and cannot confirm it fired on schedule |
+
+**Rows 3–4 CLOSE on this architecture**, not on a new numeric ruling: **the two consequences share
+one clock by design efficiency, and remain independent acts** — the product's own reuse-window
+computation is never evidence that external archival actually occurred. **The unratified number
+itself (`C-32`'s floor) is unaffected** — this closes the *shape* of the relationship, not its
+value.
+
+### A gap the cross-reference surfaces, named rather than silently assumed away
+
+**If `REUSE-WINDOW-90` unlocking is ever read by the UI as proof archival happened, that violates
+`D-115`'s own architecture.** `G88` already rules the product needs a **supplied fact**, not an
+inference, to state anything about archival — *"nothing tells the product it happened."* A
+UI element that shows *"archived"* because the reuse-window elapsed would be inferring exactly the
+fact `G88` says must be supplied. **Not a new gap** — it is `G88` applied to a design temptation this
+cross-reference makes visible for the first time, so it is recorded as a scoping note on `G88`
+rather than a new number, consistent with this corpus's own discipline against opening a gap for a
+restatement.
+
+> **The fix, stated as a constraint rather than a feature**: the reuse-eligibility surface and the
+> archival-absence surface (`G41`/`G88`, still gated on `C-32`'s supplied fact) **must remain visibly
+> separate UI elements**, even though they may share one underlying day-count. Neither may be
+> derived from the other.
+
+### Child — `G99` confirmed, unaffected
+
+**The trigger-identity question stays exactly as `D-127` opened it**: filed against intake design,
+not retention, and not touched by this pass. Nothing here bears on who or what constitutes a
+legitimate new trigger.
+
+### Gaps
+
+**None opened.** **`G88` scoping note added** — the reuse/archival decoupling constraint above.
+**Unchanged:** `G99`; `C-32`'s five named items and floor value; `C-26`, `C-27`, `C-28`; `G40`,
+`G41`, `G87`, `G89`, `G90`, `G95`, `G96`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-128` | ✅ §5.14ci | **— unaffected: no schema or code changes** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | **— unaffected: `C-32`'s owed documents are unchanged; this closes an architectural relationship already implied by `D-115`/`D-116`, not a new requirement** |
+
+### Scope limits
+
+**Closes rows 3–4's SHAPE, not `C-32`'s floor number** — the actual day-count remains unratified
+business content, unaffected. **No UI is built here** — the decoupling constraint is recorded for
+whoever builds the reuse-eligibility and archival-absence surfaces later. No lane selected, no
+phase closed, no retention value approved.
