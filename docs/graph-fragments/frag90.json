@@ -1,0 +1,77 @@
+{
+  "_comment": "Fragment 90 — D-134: a hypothesis a decision-maker's own answer disproved, and a deferred mechanism whose one non-deferrable prerequisite was specified anyway. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "a_hypothesis_the_rulers_own_answer_disproved",
+      "label": "A Working Hypothesis the Decision-Maker's Own Answer Disproved",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14co",
+      "description": "A prior decision had guessed two related numbers were actually one shared value read from two angles, and built a UI-independence constraint partly on that guess. Asking the decision-maker directly, rather than letting the guess stand unquestioned, produced two genuinely separate figures and required correcting every place the guess had been written down.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A plausible architectural guess is still a guess until the party who actually sets the number confirms it, and treating it as settled would have let two independent business figures silently masquerade as one. Asking before recording the new ruling is what surfaced the need to correct three separate places the earlier guess had propagated to."
+    },
+    {
+      "id": "one_non_deferrable_piece_specified_inside_a_deferred_mechanism",
+      "label": "One Non-Deferrable Piece Specified Inside an Otherwise Deferred Mechanism",
+      "file_type": "concept",
+      "source_file": "docs/LANE-B-WORK-ORDER.md",
+      "source_location": "§2.2c",
+      "description": "A business ruling deferred an entire operational mechanism until after launch, since there was no data yet for it to act on, while explicitly calling out that the mechanism's classification input should still be captured at the moment each record is created, because that input becomes expensive to reconstruct once the deferred mechanism eventually needs it.",
+      "community": 46,
+      "community_name": "Lane Model",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Deferring a mechanism and deferring its inputs are different decisions, and collapsing them would have let a cheap-now, expensive-later classification step slip past launch by accident. Naming the one piece that is not deferred, inside an instruction that defers everything else, is what kept the distinction from being lost in translation to the build lane."
+    }
+  ],
+  "edges": [
+    {
+      "source": "a_hypothesis_the_rulers_own_answer_disproved",
+      "target": "one_clock_two_consequences_neither_derived_from_the_other",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14co",
+      "weight": 1
+    },
+    {
+      "source": "a_hypothesis_the_rulers_own_answer_disproved",
+      "target": "two_windows_shared_one_variable_name",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14co",
+      "weight": 1
+    },
+    {
+      "source": "one_non_deferrable_piece_specified_inside_a_deferred_mechanism",
+      "target": "defaults_offered_only_where_an_existing_fact_already_answered",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/LANE-B-WORK-ORDER.md",
+      "confidence_score": 1,
+      "source_location": "§2.2c",
+      "weight": 1
+    },
+    {
+      "source": "one_non_deferrable_piece_specified_inside_a_deferred_mechanism",
+      "target": "reasoned_from_what_would_make_a_decided_window_meaningless",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/LANE-B-WORK-ORDER.md",
+      "confidence_score": 1,
+      "source_location": "§2.2c",
+      "weight": 1
+    }
+  ]
+}
