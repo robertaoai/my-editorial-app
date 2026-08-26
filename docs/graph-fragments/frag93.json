@@ -1,0 +1,42 @@
+{
+  "_comment": "Fragment 93 — D-136: B-057's own concept. A lane withheld verification of a large application because the record that owns it classified nothing, while the prose above it claimed everything. Merged 2026-08-26.",
+  "nodes": [
+    {
+      "id": "an_application_claimed_in_prose_and_classified_nowhere",
+      "label": "An Application Claimed in Prose and Classified Nowhere",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-057-b040-application-left-closure-metadata-blank.md",
+      "source_location": "Required repair",
+      "description": "A nine-step application was asserted in full inside the answering field of the handoff that owned it, while that handoff's resolution, verifier and commit fields stayed blank, so the tracker reported an answered entry with no disposition and the raising lane declined to verify the work until its own record classified it.",
+      "community": 58,
+      "community_name": "Community 58",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A reply and a resolution are different artifacts, and only one of them a later reader can count. Withholding verification until the record says what state the work is in is the correct response rather than an obstruction, because verifying against prose would make the tracker decorative."
+    }
+  ],
+  "edges": [
+    {
+      "source": "an_application_claimed_in_prose_and_classified_nowhere",
+      "target": "verification_withheld_on_a_claimed_propagation",
+      "relation": "recurrence_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-057-b040-application-left-closure-metadata-blank.md",
+      "confidence_score": 1,
+      "source_location": "What Lane B did instead",
+      "weight": 1
+    },
+    {
+      "source": "an_application_claimed_in_prose_and_classified_nowhere",
+      "target": "an_absent_field_suppressed_the_check_on_itself",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-057-b040-application-left-closure-metadata-blank.md",
+      "confidence_score": 1,
+      "source_location": "Guaranteed failure",
+      "weight": 1
+    }
+  ]
+}
