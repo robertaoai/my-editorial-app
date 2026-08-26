@@ -1,0 +1,67 @@
+{
+  "_comment": "Fragment 88 — D-132: two open items reframed by ownership rather than by content, and one of them found never to have been the decision-maker's to answer at all. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "reframed_by_ownership_not_by_content",
+      "label": "Two Open Gaps Reframed by Ownership, Not by Content",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14cm",
+      "description": "Before asking a decision-maker for more input, the remaining sub-questions of two open gaps were checked against what a just-issued ruling had already settled and against who actually held each remaining question, revealing that neither gap's substance had changed but the party who owed an answer had.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A gap's tracked status can go stale in its ownership even while its content stays accurate, and that staleness costs a decision-maker's attention the same way a stale ask does. Checking ownership before escalating is what kept a near-zero-input request from being framed as though it needed a ruling."
+    },
+    {
+      "id": "a_gap_was_never_the_decision_makers_to_answer",
+      "label": "A Gap's Own Text Had Already Said It Was a Sequencing Dependency",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14cm",
+      "description": "A gap framed as waiting on a business decision had stated its actual blocker — a piece of infrastructure not yet built — in its own original text from the moment it was opened, and no pass before this one had read that sentence as dispositive.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The evidence that a question was never a decision was present at the point the question was first recorded, not discovered by new analysis. Naming it required re-reading an existing entry for what it already said rather than producing new information."
+    }
+  ],
+  "edges": [
+    {
+      "source": "reframed_by_ownership_not_by_content",
+      "target": "a_ruling_confirmed_the_existing_model_rather_than_replacing_it",
+      "relation": "follows_from",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cm",
+      "weight": 1
+    },
+    {
+      "source": "a_gap_was_never_the_decision_makers_to_answer",
+      "target": "reframed_by_ownership_not_by_content",
+      "relation": "instance_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cm",
+      "weight": 1
+    },
+    {
+      "source": "a_gap_was_never_the_decision_makers_to_answer",
+      "target": "the_reader_was_the_lane_that_could_not_commit",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cm",
+      "weight": 1
+    }
+  ]
+}
