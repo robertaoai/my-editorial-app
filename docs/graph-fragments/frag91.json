@@ -1,0 +1,77 @@
+{
+  "_comment": "Fragment 91 — D-135: a runbook applied in full, a pre-existing conflation fixed at its source while executing, and a fixture whose expectation string diverged from the check's real output. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "a_pre_existing_conflation_fixed_while_executing_something_else",
+      "label": "A Pre-Existing Documented Conflation Fixed While Executing an Unrelated Runbook",
+      "file_type": "concept",
+      "source_file": "docs/source/blueprint.md",
+      "source_location": "Discovered-state dwell rows",
+      "description": "A prior decision had already named a work-queue removal being described with the same word as a governed archival move, and that specific text was never corrected at its source until a later runbook, executing something else entirely, happened to touch the same file and fixed it in passing.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A decision that names a defect does not repair the document it was found in; someone still has to open that file and change the words. Recording that the fix happened as a side effect of unrelated work, rather than claiming it as new analysis, keeps the credit and the timeline honest."
+    },
+    {
+      "id": "a_fixture_expectation_string_diverged_from_real_output",
+      "label": "A Fixture's Expected Substring Diverged From the Check's Actual Wording",
+      "file_type": "concept",
+      "source_file": "scripts/fixtures/suites.mjs",
+      "source_location": "retentionPolicyCoupling",
+      "description": "A fixture asserting that a check produces a specific finding used a paraphrase of that finding's wording rather than an exact substring, so the fixture failed even though the check itself was already firing correctly on the mutation.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A fixture proves nothing about the check when its own assertion is wrong; the miss here was in the test, not the mechanism under test, and confirming that distinction before editing anything is what kept a working check from being weakened to satisfy a mistaken expectation."
+    }
+  ],
+  "edges": [
+    {
+      "source": "a_pre_existing_conflation_fixed_while_executing_something_else",
+      "target": "one_clock_two_consequences_neither_derived_from_the_other",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/source/blueprint.md",
+      "confidence_score": 1,
+      "source_location": "Discovered-state dwell rows",
+      "weight": 1
+    },
+    {
+      "source": "a_fixture_expectation_string_diverged_from_real_output",
+      "target": "a_stress_test_fixture_caught_a_bug_in_itself",
+      "relation": "recurrence_of",
+      "confidence": "CURATED",
+      "source_file": "scripts/fixtures/suites.mjs",
+      "confidence_score": 1,
+      "source_location": "retentionPolicyCoupling",
+      "weight": 1
+    },
+    {
+      "source": "a_fixture_expectation_string_diverged_from_real_output",
+      "target": "checks_retention_policy_coupling",
+      "relation": "implemented_in",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/retention-policy-coupling.mjs",
+      "confidence_score": 1,
+      "source_location": "check 3 and check 7",
+      "weight": 1
+    },
+    {
+      "source": "a_pre_existing_conflation_fixed_while_executing_something_else",
+      "target": "reframed_by_ownership_not_by_content",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/source/blueprint.md",
+      "confidence_score": 1,
+      "source_location": "Discovered-state dwell rows",
+      "weight": 1
+    }
+  ]
+}
