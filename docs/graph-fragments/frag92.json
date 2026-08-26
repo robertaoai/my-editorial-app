@@ -1,0 +1,77 @@
+{
+  "_comment": "Fragment 92 — D-136: a blank field that suppressed the check that would have caught it, and a frozen tally found inside the condition gating phase closure. Merged 2026-08-26.",
+  "nodes": [
+    {
+      "id": "an_absent_field_suppressed_the_check_on_itself",
+      "label": "A Blank Field Suppressed the Check That Would Have Caught It",
+      "file_type": "concept",
+      "source_file": "scripts/checks/closure-readiness.mjs",
+      "source_location": "the !resolution early return",
+      "description": "A handoff entry recorded its correction in prose and left the resolution field blank, and the control that validates a resolution's commit anchor returns early when there is no resolution to validate, so the entry never reached the branch that would have demanded the anchor.",
+      "community": 10,
+      "community_name": "Detection",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A control keyed on the presence of a claim cannot see a claim that was never made. Omission is the one input shape that silences it, which makes an unfilled field structurally quieter than a wrong one and is why the omission was found by a reader rather than by the suite."
+    },
+    {
+      "id": "a_tally_inside_the_condition_that_gates_closure",
+      "label": "A Frozen Count Inside the Condition Gating Phase Closure",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "C-26",
+      "description": "The condition standing between a phase and its closure stated its scope as a specific number of entries, while the control it describes gated every entry raised against the phase, so the two parted as more entries were applied and a reader sizing the remaining work from the condition would have sized it at the opening figure.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The repair is not a corrected number, because a corrected number drifts at the next entry. Replacing the tally with the rule that determines it, and leaving the figure to the check that prints it on every run, removes the surface the drift needs."
+    }
+  ],
+  "edges": [
+    {
+      "source": "an_absent_field_suppressed_the_check_on_itself",
+      "target": "checks_closure_readiness",
+      "relation": "implemented_in",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/closure-readiness.mjs",
+      "confidence_score": 1,
+      "source_location": "the !resolution early return",
+      "weight": 1
+    },
+    {
+      "source": "an_absent_field_suppressed_the_check_on_itself",
+      "target": "a_check_that_cannot_fail",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "scripts/checks/closure-readiness.mjs",
+      "confidence_score": 1,
+      "source_location": "the !resolution early return",
+      "weight": 1
+    },
+    {
+      "source": "a_tally_inside_the_condition_that_gates_closure",
+      "target": "stale_count_five_copies",
+      "relation": "recurrence_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "C-26",
+      "weight": 1
+    },
+    {
+      "source": "a_tally_inside_the_condition_that_gates_closure",
+      "target": "b027_template_restates_state",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "C-26",
+      "weight": 1
+    }
+  ]
+}
