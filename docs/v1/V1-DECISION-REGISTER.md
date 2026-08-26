@@ -7948,3 +7948,73 @@ new finding.
 does not backtest `handoff-response.mjs`'s `Run:`/`CLOSURE_ONLY` enforcement against history, since
 those are new rules with no pre-`D-124` corpus to replay them against. No lane selected, no phase
 closed, no retention value approved.
+
+---
+
+## 5.14ch `D-127` — The Two 90s Renamed and Separated; `C-32` Restructured; No Schema Change
+
+**Chief Editor ruling, 2026-08-25.** Two different windows have both been called *"90 days"* since
+the pre-`D-116` discussion, and treating them as one variable is what produced the conflation this
+decision resolves. **Backtested against the corpus before adoption** — see the check at the end of
+this section.
+
+### `RET-POC-90` and `REUSE-WINDOW-90` — the two 90s, named and separated
+
+| Name | What it governs | Where it was already decided |
+|---|---|---|
+| **`RET-POC-90`** | PDPA purpose-limitation deletion for an **unpaid POC request** — *"delete 90 days after non-reply, following follow-ups"* | `D-43` §"PDPA contains its own exception" — **already settled**, unaffected by this decision |
+| **`REUSE-WINDOW-90`** | The editorial window after a brief's **rejection** during which the **same source topic may be reused** for a different angle | Raised conversationally alongside `D-116`'s *"90-day archival"* refinement but **never itself formally ruled** — this decision is that ruling |
+
+**Confirmed against the register rather than assumed**: `D-43` line 832 names `RET-POC-90` exactly
+— *"Request only, no payment (dropped-cart) → Delete 90 days after non-reply."* `D-45` (`G44`/`G45`,
+transaction ID as the trace) is the evidentiary mechanism behind that same window. **Neither of
+those decisions changes here.**
+
+### Consolidated — `C-32`'s six rows
+
+| # | State |
+|---|---|
+| **0** | The two 90s are different categories — a workflow-eligibility window versus a data-deletion period. **The prior single variable name was the defect**; nothing about either window's substance was ever wrong |
+| **1** | ⬆️ **Leaves `C-32` — `REUSE-WINDOW-90` was never one of `C-32`'s five named items and does not become one.** Reuse eligibility is intake/workflow design, not a retention obligation. Its surface is **`C-13`** — the same BCP dashboard condition already tracks a business-continuity surface, and reuse-eligibility display belongs on it rather than opening a new one |
+| **2** | `RET-POC-90` is **settled** (`D-43`, `D-45`) — confirmed unaffected, not reopened |
+| **3–4** | **Void.** The remaining live question both folded into: **does `REUSE-WINDOW-90` also function as `C-32`'s archival trigger**, or are the two windows independent events? **Gated, not answered** — this is a business-scope question (`C-32`'s owner), not Lane A's to rule |
+| **5** | **Disclosure is not a discretionary choice.** One-person operating model, no segregation of duties — the product **states whatever the business supplies** (`G88`'s unmet dependency, `G41`'s absence-explanation) and never selects or judges what to disclose |
+| **new** | **The trigger-identity question is separated from all five above — it is intake design, not retention.** Who or what constitutes a legitimate new trigger (distinct from `REUSE-WINDOW-90`'s reuse-eligibility and distinct from `RET-POC-90`'s deletion clock) opens as its own gap, `G99`, filed against intake design |
+
+**`C-32`'s five named items are UNCHANGED**: `NFR-02`'s re-anchored floor · `AC-12a`'s *"policy and
+version"* · `G40`'s unbounded `NFR-08` promise · `G88`'s supplied fact · `G41`'s explainable absence.
+**Row 1 was never a sixth member being removed — it was a conversational conflation being named and
+excluded**, which is why nothing here re-tiers or renumbers the original five.
+
+### Workflow-level scoping only — no schema change
+
+**`REUSE-WINDOW-90`'s eligibility check is scoped to OPEN (non-terminal-state) briefs.** A brief in
+a closed state does not block a new trigger on the same source; only a currently-open one does.
+**This is the existing UI/UX guard's scope, not a database constraint** — `D-121` already rejected a
+DB-level partial unique index in favor of the submitter+hash+day guard, and nothing here reverses
+that. `supabase/migrations/0002_s1_editorial_schema.sql` is **not touched by this decision.**
+
+### Backtest — does this restructuring contradict anything already recorded?
+
+**Swept every passage citing `C-32`, `C-13`, `D-43`, `D-45`, `D-116`, `G40`, `G41`, `G88` across the
+register.** No passage asserts `C-32` has six items, asserts `REUSE-WINDOW-90` was ever formally
+ruled, or assigns `C-13` a conflicting meaning — `C-13` (`D-57`) is *"BCP surface condition"*,
+general enough to host this without redefinition. **Zero contradictions found.**
+
+### Gaps
+
+**Opened:** `G99` — the trigger-identity question, filed against intake design, not retention.
+**Unchanged:** `C-32`'s five named items; `C-26`, `C-27`, `C-28`; `G87`, `G89`, `G90`, `G95`, `G96`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-127` / `G99` | ✅ §5.14ch, §5.1 | **— unaffected: no code or schema changes** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | **— unaffected: reuse-eligibility is intake design, and `C-32`'s owed policy documents are unchanged** |
+
+### Scope limits
+
+**No schema, no migration, no code.** `C-32`'s five named items and their business-value dependency
+are untouched — this decision names and separates vocabulary, it does not supply a retention value.
+`REUSE-WINDOW-90` vs `C-32`'s archival-trigger question (rows 3–4) stays gated, not answered — still
+the business's to rule. No lane selected, no phase closed.
