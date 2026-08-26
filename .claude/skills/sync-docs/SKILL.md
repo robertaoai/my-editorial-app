@@ -99,6 +99,14 @@ Fragments declare relationships under `edges`; `graph.json` stores them under `l
 `graphify build --fragment` cannot merge and will produce silent degree-zero orphans.
 Confirm node count rises and **dangling stays 0**.
 
+**A NEW markdown file under `docs/` needs a curated node of its own, pointing at it via
+`source_file`.** `graph-coverage` reads the **curated** layer, so `hook-rebuild` alone never clears
+a new file no matter how many times it is run — and a fragment that merges cleanly while pointing
+somewhere else leaves the check red with nothing obviously wrong. Handoff entries are the usual
+case: each `docs/handoff/B-NNN-*.md` is covered by one hand-authored concept node. Order the pass
+**rebuild first, then merge** — a fragment cannot edge to a source file the extracted layer has not
+seen yet.
+
 ## 8. Verify — and negative-test
 
 ```bash
