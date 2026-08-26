@@ -150,8 +150,12 @@ unique index on the source forbids the second.
 > identity is **self-asserted** (`X7`), so a submitter-keyed database constraint would build a
 > control on a field this system calls a claim.
 
-**Two things you must NOT invent:** `brief_hash`'s field composition (`G95`) and the **submitter**
-column (`G96`). Both are open. **Add neither column** — if `C-33`'s tests need one, raise it.
+**One of two things you must not invent is now specified, the other is still open.**
+`brief_hash`'s field composition is **closed** (`G95`, `D-133`) — hash of the normalized source
+reference alone, nothing else. **The submitter column (`G96`) is still open**, blocked on `S6`.
+**Add neither column to `0002` unless `C-33`'s tests need one** — a closed specification is not the
+same as an authorized migration change; if you need either column to make the eight cases pass,
+raise it rather than adding it unasked.
 
 **Your eight-case contract changes by one:** the duplicate case now tests that **a second brief on
 the same source is ACCEPTED**, not rejected. `AC-02` is re-keyed and `TC5` inverts — it recorded the
@@ -162,6 +166,28 @@ unverified."* `DEP-05` is unanswered, so live anon-key behaviour cannot be prove
 **Never claim it fully done.**
 
 **S2–S4 stay unscheduled.** `D-112` authorized a migration, not a sprint plan.
+
+### 2.2c A partition/classification column — `D-134`
+
+**The Chief Editor ruled `C-32` in full and named this need across every record class**: *"record
+will have [a] column to partition data to help archival/retention/disposal, which is external
+system."* `D-42` already argued the same thing on its own terms — *"classify at intake, not at
+disposal … classification is cheap at intake and expensive at disposal."*
+
+**Add one column to `articles`**: a record-class/partition value, set at intake, never inferred
+later. The classes are named in `D-134`: published · rejected/unpublished · (POC payment records
+live outside `articles` — do not conflate that class with this table). **You choose the concrete
+column name and type** (an enum or a short text code is both reasonable); what matters is that it
+is written once, at creation, and never recomputed from other state.
+
+**This is NOT the retention period itself.** The column records *which class a row belongs to*; the
+external archival/retention/disposal process (deferred, Project Scope, per `D-134`) is what later
+reads the class and applies the ruled period (5 years for editorial, per `D-134`) to it. **Do not
+build the archival job** — that is explicitly deferred until the product is live.
+
+**Add a test asserting the column is set on every insert path** `0002` creates, and that it is
+never null. **Not `DEP-05`-blocked** — this is a static schema/trigger property, the same shape as
+`C-33`'s other cases.
 
 ### 2.3 The verification pass — **the queue is generated, not restated**
 

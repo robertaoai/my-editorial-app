@@ -25,13 +25,34 @@ schema requirement.
 
 ## Plain-language summary — answer these five, in this order (added `D-131`)
 
-**The seven numbered sections below are the complete, precise version.** This block is the same
-five values in the short form — answer these and the detail sections follow automatically.
+**ALL FIVE NOW RULED — `D-134`, 2026-08-25.** `C-32`'s packet is answered in full. Kept below for
+the record; see `D-134` for the complete ruling and headline structure.
+
+1. ~~**The 90-day number.**~~ **RULED: 5 years** for rejected/unpublished editorial archival — a
+   house-policy placeholder, amendable, explicitly *not* the same clock as the reuse-eligibility
+   window (`REUSE-WINDOW-90`, confirmed independent at 90 days, `D-134` correcting `D-128`'s guess).
+2. ~~**Minimum keep-time per record type.**~~ **RULED**: published and rejected/unpublished
+   editorial — 5 years, tied to each article's append-only activity log; POC payment records —
+   5 years (financial policy, confirms `D-43`); account/login records — no separate clock,
+   superseded by access control, except on user request (later of delivery/request date + 90-day
+   `RET-POC-90`).
+3. ~~**Who holds archived data, and where?**~~ **CONFIRMED**: the hosted Supabase infrastructure.
+4. ~~**Who can bring archived data back?**~~ **CONFIRMED**: the Chief Editor, sole operator.
+5. ~~**Who can eventually delete data?**~~ **CONFIRMED**: the Chief Editor, sole operator, each act
+   documented — **with the clarification that the operational mechanism (items 3–5) is Project
+   Scope, deferred until the product is live**; only the intake-time partition/classification
+   column is not deferred (specified to Lane B, `D-134`).
+
+**`C-32`'s packet is answered.** Per `B-040`'s own discipline, this does not auto-close `NFR-02`,
+`AC-12a`, `G40`, `G88`, `G41` — each is independently re-evaluated once `B-040`'s runbook actually
+writes the governing documents.
+
+<details>
+<summary>Original five-question form, preserved for the record</summary>
 
 1. **The 90-day number.** Do you approve **90 days** as the point at which a rejected/unpublished
    editorial piece moves out of active view (archived, not deleted, still retrievable)? If not,
-   what number? *(This is `DATA_RETENTION_ARCHIVE_DAYS` — separate from the reuse-eligibility clock,
-   which already uses this same window per an earlier ruling.)*
+   what number?
 2. **Minimum keep-time per record type.** For each of: published articles · rejected/unpublished
    work · the append-only activity log · source/personal data · POC payment records — how long must
    each be kept, at minimum, before archival or disposal can even be considered?
@@ -42,25 +63,11 @@ five values in the short form — answer these and the detail sections follow au
 5. **Who can eventually delete data?** Nothing is deleted in v1, but the policy needs a named
    authority for later — who will be allowed to authorize disposal when the time comes?
 
-**Answering all five closes `C-32`.** Partial answers still help — each of the five items below
-maps to exactly one of `NFR-02`, `AC-12a`, `G40`, `G88`, `G41`, and each closes independently as its
-own answer arrives.
-
-**Recommended defaults for three of the five (added `D-133`) — approve or amend, not a ruling.**
-Items 3–5 all ask *who* is authorized to do something, and the operating model already on record
-answers that: one natural person, no segregation of duties, the Chief Editor accountable throughout.
-
-| Item | Recommended default |
-|---|---|
-| 3. Archive operator/location | The hosted Supabase project's own infrastructure — archival is external to the application, and no second operator exists |
-| 4. Restoration authority | The Chief Editor, sole operator |
-| 5. Disposal authority | The Chief Editor, sole operator; each act documented with a reason |
-
-**Items 1 and 2 are NOT defaulted.** The 90-day number and each class's minimum period carry real
-statutory-exposure and business-risk judgment — approving all three defaults above in one line
-still leaves those two as the genuine open questions.
+</details>
 
 ## Decisions the Chief Editor must make, parent first
+
+**Superseded by `D-134` — kept below only as the detailed record of what was asked.**
 
 ### 1. Ratify ownership and authority
 

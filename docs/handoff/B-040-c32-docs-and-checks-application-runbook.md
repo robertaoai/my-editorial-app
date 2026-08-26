@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** applying the approved C-32 framework without inventing its remaining business values
 - **Status:** Answered
-- **Lane A:** **Acknowledged `D-118`, 2026-08-25 — and deliberately NOT executed.** Your §1 is the reason: the Chief Editor approved the `B-039` **framework**, and five operative values remain unsupplied — the 90-day ratification, each class's bounded minimum, the archive operator/location class, restoration authority, and later disposal authority. **Applying the runbook now would have Lane A invent them**, which is the failure `D-116` re-tiered to prevent. **`C-32` stays open on named values.** Your `RET-EDITORIAL` / `0.1-provisional` label is recorded as a **proposal**, not adopted — a canonical identifier the Chief Editor may rename before propagation, and one rename must then update every reference in a single pass. **Held until the five values arrive.**
+- **Lane A:** **Acknowledged `D-118`, 2026-08-25 — and deliberately NOT executed.** Your §1 is the reason: the Chief Editor approved the `B-039` **framework**, and five operative values remain unsupplied — the 90-day ratification, each class's bounded minimum, the archive operator/location class, restoration authority, and later disposal authority. **Applying the runbook now would have Lane A invent them**, which is the failure `D-116` re-tiered to prevent. **`C-32` stays open on named values.** Your `RET-EDITORIAL` / `0.1-provisional` label is recorded as a **proposal**, not adopted — a canonical identifier the Chief Editor may rename before propagation, and one rename must then update every reference in a single pass. **Held until the five values arrive.** **All five arrived 2026-08-25 (`D-134`) — this runbook is UNBLOCKED, and applying it is real, substantial work not yet performed: Alpha Portfolio §6.5, the Business Case's `RET-EDITORIAL` section, Blueprint A6, the five-consumer re-evaluation, and the structural coupling check + fixtures. Still held — pending its own execution pass, not pending values any more.**
 - **Resolution:**
 - **Verified-By:**
 - **Evidence:** `C-32`; `D-118` §5.14by; `B-039`'s framework approved, values pending
@@ -106,7 +106,7 @@ platform-rule change.
 | Record class | Current-set rule | Archive trigger | Minimum retained period | Disposal authority |
 |---|---|---|---|---|
 | Published editorial records and correction/retraction evidence | Remain current while correction or retraction must remain possible | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` |
-| Rejected, abandoned, and unpublished editorial work | `CHIEF-EDITOR-DECISION-REQUIRED` | Ratify or replace the proposed 90 days (named `DATA_RETENTION_ARCHIVE_DAYS`, `D-127`/`D-128` — distinct from `RET-POC-90`, likely the same clock as the workflow's `REUSE-WINDOW-90`) and name its start event | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` |
+| Rejected, abandoned, and unpublished editorial work | `CHIEF-EDITOR-DECISION-REQUIRED` | **RULED `D-134`: 5 years** — house-policy placeholder pending specific GRC rules, amendable. Distinct from `RET-POC-90` and from the workflow's `REUSE-WINDOW-90` (90 days, unaffected — confirmed independent, not the same clock) | **RULED `D-134`: 5 years** | `CHIEF-EDITOR-DECISION-REQUIRED` |
 | Append-only transitions, reports, publication targets, and publication events | Remain linked to their originating editorial record | Follow the originating record without breaking the chain | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` |
 | Sources and personal data supporting editorial work | Limited to the approved editorial and evidential purpose | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` | `CHIEF-EDITOR-DECISION-REQUIRED` |
 | POC payment-confirmation/commercial records | Outside the v1 editorial migration; governed before commercial activation | Deferred to the commercial policy | Deferred | Deferred |
@@ -188,9 +188,11 @@ Create `scripts/checks/retention-policy-coupling.mjs` and add it to
    archive fact;
 7. `0002`, a migration, or an S1 gate naming `C-32` as a dependency;
 8. `AC-12a` present without a creating decision/parent, preserving `G89`'s direction; and
-9. **added `D-128`** — a reuse-eligibility UI element deriving its state from the archival-absence
-   fact (`G41`/`G88`), or vice versa, even where both surfaces share `DATA_RETENTION_ARCHIVE_DAYS`
-   as their underlying clock. The two must remain independently sourced.
+9. **added `D-128`, corrected `D-134`** — a reuse-eligibility UI element deriving its state from
+   the archival-absence fact (`G41`/`G88`), or vice versa. **The two run on different periods**
+   (`REUSE-WINDOW-90` = 90 days, editorial archival = 5 years, ruled `D-134`) — not a shared clock
+   as first guessed — but the independence requirement holds regardless of whether the numbers
+   ever coincide. The two must remain independently sourced.
 
 It must deliberately not decide whether a period is legally sufficient. A parser cannot perform
 legal judgment, and a check that pretends it can is worse than no check.
