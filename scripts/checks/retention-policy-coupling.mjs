@@ -169,7 +169,12 @@ export function run() {
 
   // 7. no migration or S1 gate may name C-32 as a dependency.
   const buildSpecBody = contents(BUILD_SPEC);
-  if (buildSpecBody && /C-32[^\n]{0,60}\b(depend|dependency|gate|gates|gating|blocks|blocked)\b/i.test(buildSpecBody)) {
+  const gateWords = "(depend|dependency|gate|gates|gating|blocks|blocked)";
+  if (
+    buildSpecBody &&
+    (new RegExp(`C-32[^\\n]{0,60}\\b${gateWords}\\b`, "i").test(buildSpecBody) ||
+      new RegExp(`\\b${gateWords}\\b[^\\n]{0,60}C-32`, "i").test(buildSpecBody))
+  ) {
     findings.push(`${BUILD_SPEC}: C-32 appears described as a dependency/gate on S1 (7)`);
   }
   const migrationBody = contents(MIGRATION);

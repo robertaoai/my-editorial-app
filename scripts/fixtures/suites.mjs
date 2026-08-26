@@ -873,7 +873,7 @@ export async function retentionPolicyCoupling(results) {
     modulePath: CHECK("retention-policy-coupling.mjs"),
     mutate: () => write(MODULAR_PRD, prdOrig.replace(/D-116/g, "D-000")),
     restore: restoreAll,
-    expect: "no occurrence citing its creating decision",
+    expect: "without any occurrence citing its creating decision",
   });
 }
 
