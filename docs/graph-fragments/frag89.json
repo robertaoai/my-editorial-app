@@ -1,0 +1,67 @@
+{
+  "_comment": "Fragment 89 — D-133: an identity field's role reasoned from what would make an already-decided window meaningless if it were excluded, and defaults offered only where the answer already followed from a fact already on record. Merged 2026-08-25.",
+  "nodes": [
+    {
+      "id": "reasoned_from_what_would_make_a_decided_window_meaningless",
+      "label": "A Field's Role Reasoned From What Would Make an Already-Decided Window Meaningless",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14cn",
+      "description": "Whether an identity hash should include free-form framing text was settled by checking what would happen to an already-ruled eligibility window if it did: a hash sensitive to framing would let every resubmission escape the window it was built to gate, so the window's own prior ruling determined the hash's composition without a new business input.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A technical design question can sometimes be closed by tracing its consequence back through an already-ratified decision rather than by asking for new input. Finding the field composition that keeps the existing eligibility window meaningful is a stronger justification than an arbitrary implementation choice would have been."
+    },
+    {
+      "id": "defaults_offered_only_where_an_existing_fact_already_answered",
+      "label": "Recommended Defaults Offered Only Where an Existing Fact Already Answered the Question",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-039-c32-business-retention-policy-decision-packet.md",
+      "source_location": "recommended defaults",
+      "description": "Three of five business-facing questions asking who holds a given authority were given suggested answers because the one-person operating model already on record answered the who directly, while the two questions carrying real numeric business-risk judgment were left with no suggestion at all.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Offering a default is only safe where the answer is already implied by a fact the business itself established, not where it would substitute Lane A's judgment for a risk-bearing decision. The split between defaulted and non-defaulted items is the boundary between reducing a decision-maker's workload and quietly making the decision for them."
+    }
+  ],
+  "edges": [
+    {
+      "source": "reasoned_from_what_would_make_a_decided_window_meaningless",
+      "target": "two_windows_shared_one_variable_name",
+      "relation": "follows_from",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cn",
+      "weight": 1
+    },
+    {
+      "source": "reasoned_from_what_would_make_a_decided_window_meaningless",
+      "target": "a_required_key_implemented_as_optional",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14cn",
+      "weight": 1
+    },
+    {
+      "source": "defaults_offered_only_where_an_existing_fact_already_answered",
+      "target": "reframed_by_ownership_not_by_content",
+      "relation": "follows_from",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-039-c32-business-retention-policy-decision-packet.md",
+      "confidence_score": 1,
+      "source_location": "recommended defaults",
+      "weight": 1
+    }
+  ]
+}
