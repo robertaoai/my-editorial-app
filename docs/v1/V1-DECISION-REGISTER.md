@@ -9023,3 +9023,62 @@ lived inside `B-032`'s required repair rather than the gap table. **Unchanged:**
 **Writes no code, no schema, no migration.** `B-032` is not reopened, not edited, not moved to
 `Verified` — that word belongs to Lane B, and this decision changes nothing about who verifies what.
 No lane selected, no phase closed, no other `AC-` row touched.
+
+## 5.14cv `D-141` — A Second Site of the Same Defect, Found by Widening the Sweep the Skill Re-Run Required
+
+**Asked:** re-run the System Encyclopedia extraction skill against `docs/` (excluding `docs/handoff/`).
+
+### The re-run's own methodology, taken seriously, is what found this
+
+Producing an updated encyclopedia meant confirming the corpus was unchanged since the prior read
+before reusing that read — and confirming it meant a fresh sweep for every remaining live instance
+of the framing `D-140` had just corrected in one place, rather than assuming one fix closed the
+class. **`grep` across every non-handoff `.md` file for the literal string `` `Retracted` `` found
+two more, in a file the original pass never opened.**
+
+### `docs/CONFIG_LOG.md` — a live authoritative reference, not history
+
+`CONFIG_LOG.md`'s own header states its authority without qualification: *"Rows are authoritative;
+the code implements them"* and *"Lane A owns this file, content included"* (`D-91`). Its
+`FLAG_S3_RETRACTION` row read: *"`Retracted` state; `regulatory_retraction_order` bypasses `T8` when
+true"* — the same abolished framing `AC-19` carried, in the document a build engineer reads to know
+what a flag actually gates, before writing the code that implements it.
+
+**Fixed.** The row now states the corrected model: deliberation-only bypass, a retraction notice
+via `article_kind`, no eleventh state, citing `D-06`/`D-110`.
+
+### `docs/journal/2026-08-16-sprint-plan.md` — checked, and correctly left alone
+
+The same string appears at line 435, describing the same flag identically. **This is not fixed, and
+should not be.** `docs/README.md`'s own taxonomy classifies `journal/` as *"dated build-readiness
+entries... records decisions; documents do not ratify themselves"* — a historical record, the same
+category as `entry006` and `entry007`, both of which carry the identical pre-reframe language and
+are correctly left as a snapshot of what Entry 007 decided on 2026-08-16, two days before `D-06`
+superseded it. **Rewriting a dated journal entry to match a later decision is the failure this
+project's own append-only discipline exists to prevent** — it would make the record of what was
+decided *when* unreconstructable. The distinguishing test applied: does the document declare itself
+authoritative and living (`CONFIG_LOG.md`, explicitly), or dated and historical (`journal/`,
+explicitly, per `docs/README.md`)? Only the first is corrected.
+
+**Confirmed via the same sweep: every other `` `Retracted` `` occurrence in the corpus is either
+already-correct usage** (the register's own repeated *"`Retracted` is NOT a state"*, `D-114`'s
+unrelated "a value was retracted" sense, `raci-human-vs-digital-twin.md`'s already-post-reframe
+*"no Corrected, no Retracted"* line) **or the retraction-as-publication journal entry's own
+old-framing/corrected-framing contrast table**, which uses the old term deliberately, as a labelled
+contrast, not as a live claim.
+
+### Gaps
+
+**Closed:** the `CONFIG_LOG.md` `FLAG_S3_RETRACTION` residual of the same class `D-140` closed in
+`Modular_PRD.md`. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, `G41`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-141` — `CONFIG_LOG.md` corrected | ✅ §5.14cv | **— unaffected: no scope, sequence or DoD change** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | **— unaffected: already corrected under `D-140`** |
+
+### Scope limits
+
+**Writes no code.** `docs/journal/2026-08-16-sprint-plan.md` and `entry007` are deliberately
+untouched — dated history, not living reference. No lane selected, no phase closed.

@@ -181,7 +181,7 @@ declared so the behaviour they gate has a named switch rather than an inline con
 |---|---|
 | `FLAG_S1_CONFIDENCE_FLOOR` | Low `reviewer_confidence` forces a Line 2 flag at `T5` |
 | `FLAG_S2_PLAN_DEVIATION` | `plan_deviation` on angle drift, visible to Line 2 |
-| `FLAG_S3_RETRACTION` | `Retracted` state; `regulatory_retraction_order` bypasses `T8` when true |
+| `FLAG_S3_RETRACTION` | `regulatory_retraction_order` bypasses **deliberation only**, not `T8`'s publication mechanics; forces a retraction notice (`article_kind`), never an eleventh `Retracted` state (`D-06`, `D-110`) *(corrected `D-141` — this row still described Entry 007's pre-`D-06` design)* |
 | `FLAG_S4_PREPUB_LEGAL` | Pre-publication legal review ahead of emergency bypass |
 | `FLAG_S5_ACTING_EDITOR` | `chief_editor_acting_status`, `loa_start`, `loa_end`, `board_approval_ref`, auto-revert |
 | `FLAG_S6_RISK_AT_INTAKE` | `risk_stratification` computed at `T1`, not `T5` |
