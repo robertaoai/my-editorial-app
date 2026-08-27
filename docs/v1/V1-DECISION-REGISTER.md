@@ -9082,3 +9082,50 @@ contrast, not as a live claim.
 
 **Writes no code.** `docs/journal/2026-08-16-sprint-plan.md` and `entry007` are deliberately
 untouched — dated history, not living reference. No lane selected, no phase closed.
+
+## 5.14cw `D-142` — The Fifth Boundary; `LA-P1-04` Closes, Lane B Selected on `LB-S1-02`
+
+**Lane A run `LA-P1-04`, closed 2026-08-27, filed as its own turn report per `D-138`'s ruling that
+this section is where an outgoing Lane A files it.** The run reviewed `docs/handoff/` end to end,
+confirmed graphify currency against HEAD, and checked the corpus for the vocabulary-drift pattern
+`D-38` names — no code, schema, or migration touched.
+
+### The boundary — performed as `D-138` sequenced it, parent first
+
+| # | Step | Result |
+|:---:|---|---|
+| **1** | Lane A completes `LA-P1-04`, files this section as its turn report | All 58 `docs/handoff/` entries read: `Status: Answered` on every one, no entry left `Open`. `.graphify/branch.json.lastAnalyzedHead` (`948bb6f`) matches `HEAD` — no drift, no rebuild needed. Only live vocabulary-drift precedent on record (`pub_target`/`platform_type`, `D-38`) is already closed historical precedent, not an open gap |
+| **2** | Chief Editor names the incoming lane | **Robert Tan selects Lane B**, to continue its own surface (`app/`, `lib/`, `components/`, `supabase/`, `__tests__/`) |
+| **3** | `§5` updated in one edit | `V1-PHASE-CLOSURE.md` §5: A → `Blocked` (`Eligible` applies only when the lock is entirely free, per `D-108` — not the case while B runs), B → `Active`, both `Selected` cells |
+| **4** | Lane B's run identifier assigned | `LB-S1-02` — continuing Sprint 1 (`C-33`'s database-executed trigger test remains open and unassigned to any run until now) |
+
+### What this is not
+
+**Not a Phase 1 closure.** §1's five conditions are unchanged and untouched by this decision —
+`D-100` already ruled that framework does not gate a lane handover, only a full phase close, and
+this decision does not attempt the latter. Lane A returns to `Blocked` on Lane B's run, not
+`Done` — `Eligible` applies only when the lock is entirely free (`D-108`), which it is not while
+`LB-S1-02` runs. Lane A **closes last** (`D-99`), unaffected here. **Condition 2's `C-26`
+disqualification stands** — this run verified the handoff channel's *shape* (every entry
+answered), not the *content* of any individual `Applied` entry, which only an independent
+verifier can move to `Verified`.
+
+**Not a critic pass against condition 3.** No new artifact set was produced this run to critique;
+§6.1f remains the latest recorded pass.
+
+### Gaps
+
+**Opened:** none. **Closed:** none. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`,
+`G88`, `G41`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Fifth boundary — `LA-P1-04` closes, `LB-S1-02` opens | ✅ §5.14cw | **— unaffected: no scope or DoD change, `LB-S1-02` continues S1's existing item list** | **— unaffected: the lane MAP is unchanged** | **— unaffected** | ✅ **§5 rows and §5.0a run table** | **— unaffected** |
+
+### Scope limits
+
+**Writes no code, no schema, no migration, no check.** No `docs/handoff/` entry is dispositioned or
+moved toward `Verified` by this decision — that remains Lane B's own act on its own queue. Phase 1
+is not closed.
