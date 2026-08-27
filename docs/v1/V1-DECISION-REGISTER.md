@@ -8962,3 +8962,64 @@ only a citation, not a number. `bun run fixtures` prints the total.
 **`B-021` is not reopened and its unbuilt items are not built here.** True concurrency safety —
 an exclusive lock, a disposable worktree — remains future work, unchanged in scope from `B-021`'s
 own accounting. **No boundary is performed, no lane state changes, no entry moves to `Verified`.**
+
+## 5.14cu `D-140` — `AC-19` Corrected: A Required Repair From `B-032` That Was Never Applied
+
+**Asked:** read a self-authored System Encyclopedia extract of the requirements corpus, treat its
+Consistency & Contradiction Audit findings as gaps, fix what is genuinely fixable.
+
+### The extract found five things. Four needed no action; one was real and live
+
+| # | Finding | Disposition |
+|---|---|---|
+| 1 | `Modular_PRD.md` `AC-19` retained the pre-`D-06` "article reaches `Retracted`" framing while `FN-PUBLICATION-09-10-13.md`'s own `AC-19` had the corrected text | **Real, live, fixed — this decision** |
+| 2 | `D-48`→`D-49` newsworthiness reversal left a visible seam for a reader stopping at `D-48` | **No action** — the register is append-only by design; a superseded decision correctly stays readable, and `D-49` states the reversal in its own text |
+| 3 | The Addendum's "unconditional" independence overclaim survived three reviews before `D1` fixed it | **No action** — already resolved, cited here only as a pattern the extract itself flagged correctly |
+| 4 | "Resolved" means two different things (structural resolution vs. ratification) under one column header | **No action** — the Addendum's own prose defends against exactly this misread; a table-header rename is a judgement call for whoever next revises that document, not a defect to correct unilaterally |
+| 5 | No dedicated glossary entry separates Trend Score from Editorial Priority | **No action** — preventive-only; the extract itself is now that glossary entry |
+
+**Only #1 was a genuine, unaddressed defect**, and it was not new — it had already been named.
+
+### `B-032` named this exact gap, 2026-08-24, and its own required repair was never fully applied
+
+`B-032`'s §4 item 5 read: *"`Modular_PRD` `AC-19` says the original article reaches `Retracted`, but
+`D-06` and `SPECS-TRANSITION-ENFORCEMENT` say there are no new article states... Register precedence
+rejects the eleventh-state reading; Lane A must propagate the correction at the tier that owns
+`AC-19`."* Required repair item 3 restated it explicitly: *"it updates `Modular_PRD` where `Q11` and
+`AC-19` own contradictory requirement language."*
+
+**`B-032` carries `Resolution: Applied`.** Its evidence line cites the S1 window closure and the six
+`[Q11]` markers cleared — **all true, and all about `Q11`.** `AC-19` is a second, separate item in the
+same required-repair list, and nothing in `B-032`'s evidence touches it. **The entry's overall
+`Applied` state was accurate about most of what it covers and silent about one item inside it** —
+the same shape as `D-136`'s finding about `B-040`, one tier down: a resolution correctly describing
+the bulk of the work can still leave a named sub-item undone with nothing to flag it.
+
+**`B-032` is not reopened or edited.** An answer is append-only (`D-104`); this decision supplies the
+missing half as new work, cited back to the entry that first named it.
+
+### The fix
+
+`Modular_PRD.md` `AC-19`'s `Then` clause is rewritten to match `FN-PUBLICATION-09-10-13.md`'s own
+`AC-19` and the settled design (`D-06` notice-as-article, `D-08` inherited targets, `G23`/`D-10`
+deliberation-only bypass, `D-112`'s adopted fields `article_kind`/`original_article_id`, no eleventh
+state). **The order's issuing-authority-and-date requirement is preserved** — it was correct and is
+not part of the contradiction.
+
+### Gaps
+
+**Closed:** the `B-032` item 5 / `AC-19` residual, previously untracked as its own gap ID since it
+lived inside `B-032`'s required repair rather than the gap table. **Unchanged:** `C-26` open; `C-27`,
+`C-33`, `C-34`; `AC-12a`, `G88`, `G41`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-140` — `AC-19` corrected | ✅ §5.14cu | **— unaffected: no scope, sequence or DoD change** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | ✅ `AC-19`'s `Then` clause rewritten |
+
+### Scope limits
+
+**Writes no code, no schema, no migration.** `B-032` is not reopened, not edited, not moved to
+`Verified` — that word belongs to Lane B, and this decision changes nothing about who verifies what.
+No lane selected, no phase closed, no other `AC-` row touched.
