@@ -283,10 +283,28 @@ field name is committed to text an executor will apply — **not evidence requir
 | S6 — auth and scoped RLS | `SEC-03`, gated on `OD1`–`OD3`. **Cannot be called done while they are open** |
 | `G7b` systematized POC exposure | Needs S2 identity, enforcement completes at S6 |
 | Tier 3 Fallout — legal/defamation crises | Generating activities excluded: `NG-11` removes fundraising; PoC §8.2 excludes whistleblower publication without safe handling |
-| Multi-team accounts | `NG-02` v1 lock. Tenancy boundary exists; **no capability is built** |
-| Monetization features | `NG-03`, Charter-level. Revenue is a business activity, never a product feature (`D-04`). **Judge ruling 2026-08-22 (`D-96`) — what `NG-03` actually decided:** the POC commercial flow is **original project scope**, present from scaffolding (Stripe shipped in `0001`-era `package.json` and was removed by `X8` in S0). `NG-03` is a **simplification for the current stage — practical, not permanent.** It is not evidence that a POC flow was invented later or lies outside the project |
-| **POC commercial flow — deferred scope, shape now decided** | **One engine, two exposures** (`§7` invariant 1; `D-59` one origin, two paths). The **MVP** and **POC** are two flows of the same editorial brief, and the POC sells **exactly one item: publicly-expandable content with a report**, entering at the trigger and traversing **the same phase gates** — no separate pipeline, no second state machine. **`B-008`'s elaborate model is NOT adopted** — no `cart_id`, no payment-provider config, no payment or obligation drains, no asynchronous account claiming or delivery portal. **Deferred, not authorized:** no charter, PRD, spec, config row, or migration authority is created here, and **no POC commercial field goes near `AP-01`'s `Q11`/`0002`** |
+| Multi-team accounts | `NG-02` v1 lock, Charter-level, standing per `D-79`. Tenancy boundary exists; **no capability is built.** **Ready when:** `OD1`–`OD3` resolve — same trigger as `S6` below, not a separate one. **`M-POC`'s scoped client-account variant found and backlogged here too** (`D-145`) — one future item, not two |
+| `S6` — auth and scoped RLS | `SEC-03`, gated on `OD1`–`OD3`. **Ready when:** all three resolve — **the general case `Multi-team accounts` above is a scoped instance of** |
+| Monetization features | `NG-03`, Charter-level. Revenue is a business activity, never a product feature (`D-04`). **Judge ruling 2026-08-22 (`D-96`) — what `NG-03` actually decided:** the POC commercial flow is **original project scope**, present from scaffolding (Stripe shipped in `0001`-era `package.json` and was removed by `X8` in S0, **verified `67706ca`, `B-003`**). `NG-03` is a **simplification for the current stage — practical, not permanent.** It is not evidence that a POC flow was invented later or lies outside the project. **Ready when:** the Charter's `NG-03` is amended — not resolvable inside `docs/v1/` or `Modular_PRD` |
+| **POC commercial flow — deferred scope, shape now decided** | **One engine, two exposures** (`§7` invariant 1; `D-59` one origin, two paths). The **MVP** and **POC** are two flows of the same editorial brief, and the POC sells **exactly one item: publicly-expandable content with a report**, entering at the trigger and traversing **the same phase gates** — no separate pipeline, no second state machine. **`B-008`'s elaborate model is NOT adopted** — no `cart_id`, no payment-provider config, no payment or obligation drains, no asynchronous account claiming or delivery portal. **Deferred, not authorized:** no charter, PRD, spec, config row, or migration authority is created here, and **no POC commercial field goes near `AP-01`'s `Q11`/`0002`**. **Ready when:** `G7a` charters the manual lane and `B-P0-06`'s ten boundaries carry real values — tracked at `§5` above, not restated here |
 | Auto-advance on confidence score | `NG-10`/`TC9`. Fixed, not configurable |
+
+### 6.1 Backlog path — how an item in this table returns to a sprint (`D-147`)
+
+**Not a new mechanism — naming the one already in use**, so it is repeatable instead of
+reconstructed per item. Four steps, each already demonstrated somewhere in this table or its
+sources:
+
+| # | Step | Example already in this corpus |
+|---|---|---|
+| 1 | **Record the exclusion here**, with a rationale — Charter-level items also get a row in `Modular_PRD.md` §2.5's Non-Goals table | Every row above |
+| 2 | **Preserve the option where reversal would otherwise be expensive** — decided case by case, not automatic | `0002`'s tenancy column, kept for `NG-02` (`Q10`, `D-73`/`D-79`) |
+| 3 | **State a "Ready when" condition** — the Scrum-standard piece this table was missing until now; every row above carries one as of this edit | `S6`'s `OD1`–`OD3` already had one; the others are added here |
+| 4 | **Record the disposition in the Decision Register** whenever the item is actively re-checked** — not on a schedule, only when someone asks | `D-121` (`X8`/`NG-03`), `D-145` (`NG-02`) |
+
+**What this is not.** Not a ranked product backlog, not a new file, not a promise of order. It is
+the **condition** that makes an item **eligible** to be proposed for a sprint — a Chief Editor
+still chooses when, exactly as `D-101` already governs sprint boundaries.
 
 ## 7. Standing invariants
 

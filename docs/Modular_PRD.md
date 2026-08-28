@@ -265,7 +265,7 @@ Every published article carries a complete, tamper-evident record of who reviewe
 |---|---|---|---|
 | `NG-01` | No mobile app — web only | Single operator, desktop workflow | Charter |
 | `NG-02` | No multi-team accounts — one Chief Editor account | **v1 exclusion only.** "Operating model is one human" describes v1 and lapses when the business has more people. A tenancy boundary exists in the data model to preserve the option; **no multi-team capability is built, and `NG-02` stands.** Nothing forecloses later accounts for multiple natural persons with roles mapped to virtual agents or phase gates. **Backlogged candidate for that later account set (`D-145`, 2026-08-28):** a scoped, read-only client account for `M-POC` engagement delivery — raised, evaluated, correctly not built while `NG-02` holds | Charter |
-| `NG-03` | **No monetization features** | Charter-level v1 exclusion. **The repo currently ships Stripe scaffolding against this** — S0 removes it (X8) | Charter |
+| `NG-03` | **No monetization features** | Charter-level v1 exclusion. **Stripe scaffolding shipped against this and was removed** — `X8`, closed `D-121`, verified `67706ca` (`B-003`). *Row corrected `D-147`: previously read present-tense, as if removal were still pending — the same staleness class `G65` names* | Charter |
 | `NG-04` | No automated Facebook publishing — manual cross-posting only | Requires Meta Business verification | Charter |
 | `NG-05` | No real-time trend-detection algorithm — RSS intake only | Unvalidated; scoring formula is v0 and unreviewed | Charter |
 | `NG-06` | No multi-language support | — | Charter |

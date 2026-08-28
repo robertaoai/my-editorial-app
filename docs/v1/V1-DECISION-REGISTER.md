@@ -9351,3 +9351,59 @@ contract in `SPECS-PUBLICATION.md` §3 is the same regardless of which runtime r
 
 **Writes no code.** Does not reopen `Q5` or the invocation contract. `TC8`'s deploy-pipeline cost
 is accepted, not mitigated — no mitigation is specified here.
+
+## 5.14db `D-147` — The Backlog Path Named; Three Items Given a "Ready When" Condition
+
+**Asked:** across three items that turned out to be out-of-v1-scope (`D-144`, `D-145`, `D-146`),
+is there an established path back from "excluded" to "buildable," or does one need inventing per
+Scrum/Agile practice?
+
+### Found: the path already existed, in `V1-BUILD-SPEC.md` §6
+
+**`§6 "Out of scope for v1"` is already this project's backlog** — an `{Item, Why}` table, present
+since the document's own drafting, not created by this decision. `NG-02`, `NG-03`, `S6`, and the
+POC commercial flow were already rows in it. **What was missing, inconsistently, was a "Ready
+when" condition** — Scrum's Definition of Ready, stated for `S6` (`OD1`–`OD3`) but not for the
+others. `§6.1` names the four-step pattern explicitly and adds the missing condition to every row.
+
+**Nothing new was built to answer this.** No backlog file, no second tracking mechanism — adding
+one would have been the `G55`/`G56` drift pattern, a fact in two places.
+
+### The three items, resolved as one finding each, not three new rules
+
+| Item | Where it already lived | "Ready when," now stated |
+|---|---|---|
+| **Login/account (POC or MVP) flow** | `NG-02` (Non-Goals, Charter) + `S6` (§6) — **the same future item**, not two | `OD1`–`OD3` resolve. `M-POC`'s scoped client-account variant (`D-145`) is `S6`'s eventual scope, not a parallel path |
+| **Payment flow** | `NG-03` (Non-Goals, Charter) | The Charter's `NG-03` is amended — outside any agent's authority, unchanged from `D-121`/`D-144` |
+| **`M-POC`'s own build/`SPECS` readiness** | `§5`'s T3 parallel track + `G7a` + `B-P0-06` | `G7a` charters the manual lane and `B-P0-06`'s ten boundaries carry real values — already the most concrete condition of the three, just not previously cross-referenced from `§6` |
+
+**The login-account and payment items are both Charter-gated** (`NG-02`, `NG-03`) — their "ready
+when" is **an act only the Chief Editor can perform outside this repository's docs tier.** The
+`M-POC`-readiness item is **not** Charter-gated; its ten boundaries are ordinary decisions,
+answerable inside this project whenever the Chief Editor chooses to.
+
+### A staleness defect found and fixed in the same pass
+
+**`Modular_PRD.md`'s own `NG-03` row (§2.5) read present-tense** — *"the repo currently ships
+Stripe scaffolding... S0 removes it"* — long after `X8` closed (`D-121`, verified `67706ca`).
+`V1-BUILD-SPEC.md`'s `NG-03` row already had the correct, closed framing; `Modular_PRD.md`'s did
+not. **The exact `G65` staleness class** — arrival was checked when `D-121` landed, this second
+copy was not. Corrected to match.
+
+### Gaps
+
+**Opened:** none. **Closed:** none — no item here was ready to close; each got a stated
+condition instead. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, `G41`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Backlog path named, `§6.1` added | ✅ §5.14db | ✅ **§6 rows given "Ready when"; §6.1 added** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | **— unaffected: no `FR`/`US`/`AC` change** |
+| `NG-03` staleness fixed | ✅ §5.14db | **— unaffected: this document's `NG-03` row was already correct** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ **§2.5 `NG-03` row corrected** |
+
+### Scope limits
+
+**Writes no code, no schema, no Charter edit, no new file.** Does not resolve `NG-02`, `NG-03`, or
+`M-POC` readiness — states what would resolve each, resolves none of them. Does not create a
+ranked product backlog or an order of execution among the three items.
