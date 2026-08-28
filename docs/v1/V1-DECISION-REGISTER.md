@@ -9407,3 +9407,65 @@ condition instead. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`,
 **Writes no code, no schema, no Charter edit, no new file.** Does not resolve `NG-02`, `NG-03`, or
 `M-POC` readiness — states what would resolve each, resolves none of them. Does not create a
 ranked product backlog or an order of execution among the three items.
+
+## 5.14dc `D-148` — `D-147`'s Backlog Path Moved to the Living Tier; `V1-BUILD-SPEC.md` Was the Wrong Home
+
+**Asked:** for the two items that are excluded from v1 entirely (`NG-02`, `NG-03`) rather than
+merely pending within it, does recording their backlog condition in `V1-BUILD-SPEC.md` survive
+that file's own eventual freeze — and if not, where does it need to live so ad-hoc Scrum/Agile
+refinement can keep happening across whichever version is current?
+
+### The defect in `D-147`
+
+**`D-36` was already stated in `CLAUDE.md` and not checked against `D-147`'s own placement.**
+`docs/v1/V1-*.md` files **freeze at sprint close** — an accurate rule this decision applied to
+every other document in the corpus and missed applying to the document it was editing. Writing
+the reusable four-step procedure and the "Ready when" conditions into `V1-BUILD-SPEC.md` §6.1 put
+a cross-version mechanism inside a file that will stop being editable once v1 closes. **A `v2`
+Chief Editor checking whether `NG-02` is ready would find a frozen v1 snapshot, not a live
+answer** — the same shape of problem `D-36` exists to prevent one tier up.
+
+### The distinction that resolves it: excluded-from-v1 versus not-yet-done-in-v1
+
+**Not every item in `§6`'s table has this problem — only the ones actually deferred past v1.**
+
+| Item | Class | Where its condition now lives |
+|---|---|---|
+| `NG-02` (accounts, incl. `S6`) | **Excluded from v1 entirely** — Charter-level, no v1 sprint builds it | `Modular_PRD.md` §2.5, moved here (`D-148`) |
+| `NG-03` (monetization) | **Excluded from v1 entirely** — Charter-level | `Modular_PRD.md` §2.5, moved here (`D-148`) |
+| `M-POC` build/`SPECS` readiness (`G7a`/`B-P0-06`) | **Sequenced *within* v1** — `T3`, `§5` | **Unmoved.** `T3` is part of v1's own build spec, not deferred past it; `V1-BUILD-SPEC.md` freezing with an accurate record of its own phase is correct, not a defect |
+
+**The test, stated once so it doesn't need re-deriving per item:** *does this item's condition
+need to be checkable after v1 freezes?* If yes, it belongs in the living tier. If the item is
+simply unfinished v1 work, the v1 tracking file is exactly where it should be recorded.
+
+### What moved, parent first
+
+| # | Change | File |
+|---|---|---|
+| 1 | `NG-02`, `NG-03` rows gain an explicit **"Ready when"** clause | `Modular_PRD.md` §2.5 |
+| 2 | New `§2.5.1` — the four-step backlog-path procedure, canonical, living | `Modular_PRD.md` |
+| 3 | `§6`'s `NG-02`/`S6`/`NG-03` rows trimmed to cite `§2.5.1` instead of restating it | `V1-BUILD-SPEC.md` |
+| 4 | `§6.1` rewritten as a pointer to `Modular_PRD.md` §2.5.1, kept rather than deleted so a reader who remembers it here finds where it went | `V1-BUILD-SPEC.md` |
+
+**Nothing about the three items' actual conditions changed** — `NG-02` still needs `OD1`–`OD3` or
+a direct Charter edit; `NG-03` still needs a direct Charter edit; `M-POC` readiness is unaffected.
+Only where the living copy of that fact resides changed.
+
+### Gaps
+
+**Opened:** none. **Closed:** none — this is a placement correction, not a resolution of any
+backlogged item. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, `G41`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Backlog path moved to living tier | ✅ §5.14dc | ✅ **§6 rows trimmed, §6.1 rewritten as a pointer** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | ✅ **§2.5 `NG-02`/`NG-03` rows gain "Ready when"; §2.5.1 added, canonical** |
+
+### Scope limits
+
+**Writes no code, no schema, no Charter edit.** Does not change what `NG-02`, `NG-03`, or `M-POC`
+readiness actually require — only where that requirement is authoritatively recorded. Does not
+move or restructure any other `§6` row, and does not touch `M-POC-REQUIREMENTS.md` or
+`FN-POC-ENGAGEMENT-01-13.md`, neither of which restated the moved content.

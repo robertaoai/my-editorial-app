@@ -264,8 +264,8 @@ Every published article carries a complete, tamper-evident record of who reviewe
 | ID | Non-Goal | Rationale | Source |
 |---|---|---|---|
 | `NG-01` | No mobile app — web only | Single operator, desktop workflow | Charter |
-| `NG-02` | No multi-team accounts — one Chief Editor account | **v1 exclusion only.** "Operating model is one human" describes v1 and lapses when the business has more people. A tenancy boundary exists in the data model to preserve the option; **no multi-team capability is built, and `NG-02` stands.** Nothing forecloses later accounts for multiple natural persons with roles mapped to virtual agents or phase gates. **Backlogged candidate for that later account set (`D-145`, 2026-08-28):** a scoped, read-only client account for `M-POC` engagement delivery — raised, evaluated, correctly not built while `NG-02` holds | Charter |
-| `NG-03` | **No monetization features** | Charter-level v1 exclusion. **Stripe scaffolding shipped against this and was removed** — `X8`, closed `D-121`, verified `67706ca` (`B-003`). *Row corrected `D-147`: previously read present-tense, as if removal were still pending — the same staleness class `G65` names* | Charter |
+| `NG-02` | No multi-team accounts — one Chief Editor account | **v1 exclusion only.** "Operating model is one human" describes v1 and lapses when the business has more people. A tenancy boundary exists in the data model to preserve the option; **no multi-team capability is built, and `NG-02` stands.** Nothing forecloses later accounts for multiple natural persons with roles mapped to virtual agents or phase gates. **Backlogged candidate for that later account set (`D-145`, 2026-08-28):** a scoped, read-only client account for `M-POC` engagement delivery — raised, evaluated, correctly not built while `NG-02` holds. **Ready when** (`D-148`): `OD1`–`OD3` resolve, **or** the Charter's line 53 is amended directly — whichever comes first | Charter |
+| `NG-03` | **No monetization features** | Charter-level v1 exclusion. **Stripe scaffolding shipped against this and was removed** — `X8`, closed `D-121`, verified `67706ca` (`B-003`). *Row corrected `D-147`: previously read present-tense, as if removal were still pending — the same staleness class `G65` names*. **Ready when** (`D-148`): the Charter's line 54 is amended directly — no other trigger resolves it, since nothing else in the governing set gates in-app monetization | Charter |
 | `NG-04` | No automated Facebook publishing — manual cross-posting only | Requires Meta Business verification | Charter |
 | `NG-05` | No real-time trend-detection algorithm — RSS intake only | Unvalidated; scoring formula is v0 and unreviewed | Charter |
 | `NG-06` | No multi-language support | — | Charter |
@@ -274,6 +274,32 @@ Every published article carries a complete, tamper-evident record of who reviewe
 | `NG-09` | No Proposer / Critics / Judge governance model | OD4, Resolved-rejected for v1, with a two-branch reopening condition | Charter |
 | `NG-10` | **No auto-advance on confidence score** | `INTELLIGENCE_LAYER.md` specifies "0.6 minimum to auto-advance." Every gate has a named executor; auto-advancing past one is a gate bypass by definition and would violate O-01 | TC9 — **new non-goal, added to prevent a specified behaviour from being built** |
 | `NG-11` | **No fundraising or solicitation tied to editorial events** | Removed from the workflow entirely; requires independent legal and compliance review before any tooling | Entry 006 §13, Entry 007 |
+
+### 2.5.1 Backlog path — how a Non-Goal returns (`D-148`)
+
+**Lives here, not in `docs/v1/`, because this table must outlive v1.** `D-36` freezes every
+`docs/v1/V1-*.md` file at its sprint's close; a mechanism meant to still be checkable in v2, v3,
+or whenever a "Ready when" condition actually resolves cannot be authored only in a document that
+will stop being edited. **This document carries no version prefix and never freezes** — the
+correct, and only, place for backlog state meant to survive the version that raised it.
+
+**Four steps**, none of them new — named here so they are repeatable rather than reconstructed
+per item:
+
+| # | Step |
+|---|---|
+| 1 | **Record the exclusion**, with a rationale, in this table |
+| 2 | **Preserve the option** in the data model where reversal would otherwise be expensive — decided case by case, not automatic (example: `0002`'s tenancy column, kept for `NG-02`) |
+| 3 | **State a "Ready when" condition** — added to every applicable row above as of `D-148` |
+| 4 | **Record the disposition in `V1-DECISION-REGISTER.md`** whenever an item is actively re-checked — not on a schedule, only when someone asks (example: `D-121`, `D-145`) |
+
+**A version's own `V1-BUILD-SPEC.md` §6 cites this table; it does not restate it.** That
+document's *"out of scope for v1"* list is a legitimate, version-scoped snapshot — accurate about
+what v1 excluded — but the living condition that says when an exclusion stops applying belongs
+here, where it can still be read and refined after that snapshot freezes. **This is also where
+ad-hoc Scrum/Agile backlog refinement happens** — any Non-Goal above can be re-evaluated at any
+time, independent of which version's sprint is currently active, because nothing about editing
+this table depends on a sprint being open.
 
 ### 2.6 Strategy-to-Execution Traceability Ladder
 
