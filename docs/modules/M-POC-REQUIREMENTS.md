@@ -67,6 +67,13 @@ and publication targets are unchanged. **`M-POC` adds no table and no column to 
 **`PR-03` — Single Chief Editor account boundary holds.** Commissioning professionals **do not
 receive application accounts**. `NG-02` is untouched.
 
+> **Backlogged, not built (`D-145`, 2026-08-28).** A scoped, read-only client account — limited to
+> the commissioning professional's own engagement's client package — was raised and evaluated.
+> **`NG-02` is Charter-level** (`Modular_PRD.md` §2.5), confirmed standing as recently as `D-79`,
+> and outranks this document; `PR-03` cannot lift it. Recorded here as the next-available-sprint
+> candidate `NG-02`'s own row already anticipates — *"nothing forecloses later accounts for
+> multiple natural persons"* — not as a v1 requirement.
+
 ## 4. The engagement — behaviour requirements
 
 | ID | Requirement |
@@ -78,6 +85,8 @@ receive application accounts**. `NG-02` is untouched.
 | `PR-08` | **Payment is an operating activity performed outside the application.** A third-party transaction identifier is the trace. **No in-app payment, cart, subscription, or account-claiming capability exists or is specified** |
 | `PR-09` | A **Client-First Exclusivity Window** is recorded per engagement, with an explicit hold/release status |
 | `PR-10` | An **originality / prior-publication search** is performed and its record retained, with named sign-off |
+| `PR-14` | **Added `D-145`, 2026-08-28.** When an engagement reaches full pipeline completion — the same completion `PR-01`'s unforked engine already requires for an ordinary article — the Chief Editor's existing UI shows **both** folders together: the client package and the publishable article, under the one engagement identifier (`PA-02`). `PR-12`'s separation is unaffected — this is Chief-Editor **visibility** of both folders, not the article moving into the client-facing one |
+| `PR-15` | **Added `D-145`, 2026-08-28.** `MockPublished` (`publication_event_type`, already fixed and non-configurable per `FN-PUBLICATION-09-10-13.md` §3.3.2) is reserved for a `M-POC`-engaged article, and fires **only once `PR-14`'s full-completion condition holds** — evidence sufficient to have drafted a genuinely publishable article, without the article being pushed to a real publish target |
 
 ## 5. Folder separation — the requirement most likely to be got wrong
 
@@ -113,6 +122,8 @@ client-facing `POC` folder.** Both folders carry the same engagement identifier.
 | `PA-04` | The exclusivity window's hold/release status is recorded and current |
 | `PA-05` | No application account exists for any commissioning professional |
 | `PA-06` | **No payment capability exists in the application** — the payment trace is an external identifier |
+| `PA-07` | **Added `D-145`.** At full pipeline completion, the Chief-Editor UI shows both folders for the engagement, under one identifier, without the publishable article entering the client-facing folder |
+| `PA-08` | **Added `D-145`.** For a `M-POC`-engaged article, `MockPublished` is recorded if and only if `PA-07`'s full-completion condition holds |
 
 ## 8. Exclusions — carried verbatim in substance from the board proposal §8.2
 
@@ -125,6 +136,11 @@ external-review route.
 **Also excluded, by `D-96`:** `cart_id` · `DEFAULT_POC_PAYMENT_PROVIDER` · `PAYMENT_EVENT_DRAIN` ·
 `POC_OBLIGATION_DRAIN` · asynchronous account claiming · delivery portal · provider-ID versus
 editorial-ID separation. **`B-008`'s model is not adopted.**
+
+**`delivery portal` re-evaluated and left excluded (`D-145`, 2026-08-28).** A scoped client
+delivery view was raised; it is gated by `NG-02` (Charter, "one Chief Editor account"), not by
+this list, and `NG-02` outranks it — see the `PR-03` note in §3. Left here unchanged because the
+gate is Charter-level, not because this exclusion list was re-affirmed on its own terms.
 
 ## 9. Boundaries that must carry real values before any engagement — `B-P0-06`
 

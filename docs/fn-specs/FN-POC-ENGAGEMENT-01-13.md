@@ -42,13 +42,15 @@ Chief Editor gets PoC evidence directly comparable with ordinary output.
 | **F6** | An **exclusivity window** is recorded with an explicit hold/release status (`PR-09`) |
 | **F7** | An **originality / prior-publication search** record is retained with named sign-off (`PR-10`) |
 | **F8** | The **payment trace is an external transaction identifier**, recorded against the engagement (`PR-08`) |
+| **F9** | **Added `D-145`, 2026-08-28.** At full pipeline completion, the Chief-Editor UI shows both folders for the engagement together, under one identifier (`PR-14`) |
+| **F10** | **Added `D-145`.** `MockPublished` is recorded for a `M-POC`-engaged article if and only if F9's full-completion condition holds (`PR-15`) |
 
 ### 3.2 Non-functional
 
 | # | Constraint |
 |---|---|
 | **N1** | **No new core record type.** No table, no column, no state (`PR-02`) |
-| **N2** | **No application account** for a commissioning professional (`PR-03`) |
+| **N2** | **No application account** for a commissioning professional (`PR-03`). **Backlogged, not built** (`D-145`) — `NG-02` is Charter-level and gates this, not a module-level decision |
 | **N3** | An engagement's transitions must be **structurally indistinguishable** from an ordinary article's (`PA-01`) |
 
 ### 3.3 Constraints and assumptions
@@ -99,9 +101,31 @@ embedded, or exported into the client-facing `POC` folder* (`PR-12`).
 downstream handling is **`M-MVP`'s existing exception behaviour** (`FN-EXCEPTIONS-06-11-12`) and
 is not respecified — **an `M-POC` variant of an existing exception path would be a fork.**
 
+### 4.4 Chief-Editor visibility at full completion — added `D-145`, 2026-08-28 `[V1]`
+
+**Both folders, one view, no new account.** `PR-14` and `PR-15` resolve a question raised while
+scoping buyer delivery: whether a client-facing account is needed for the client to receive their
+package. It is not — delivery is through the Chief Editor, who already has full application
+access (`PU-02`), not through a second account type (`N2`, `NG-02`).
+
+**The rule.** When an engagement's article reaches the same full-completion point an ordinary
+article reaches — all gates passed, `Chief Approved` and beyond — the Chief-Editor UI shows **both**
+the client package and the publishable article together, under the one engagement identifier.
+Before that point, only the client package exists to show. **`PR-12`'s invariant is unchanged**:
+the publishable article is never copied, linked, or embedded into the client-facing folder — this
+is the Chief Editor's own view of two folders that already exist side by side (`PA-02`), not a
+merge of them.
+
+**`MockPublished` is the publication-side signal that full completion happened.** It is `M-MVP`'s
+existing, fixed, non-configurable event type (`FN-PUBLICATION-09-10-13.md` §3.3.2) — this module
+adds no new state or event type (`PR-01`, `N1`). For a `M-POC`-engaged article, it is recorded
+precisely when `F9`'s condition holds: evidence sufficient for a genuinely publishable article
+exists, without the article being pushed to a real target, because the engagement is evidence
+review, not a live publish.
+
 ## 5. Acceptance criteria
 
-`PA-01`–`PA-06` as stated in `M-POC-REQUIREMENTS.md` §7. **Testable restatement, no new ids:**
+`PA-01`–`PA-08` as stated in `M-POC-REQUIREMENTS.md` §7. **Testable restatement, no new ids:**
 
 | Given | When | Then |
 |---|---|---|
@@ -109,6 +133,8 @@ is not respecified — **an `M-POC` variant of an existing exception path would 
 | an engagement in progress | its transitions are queried | they are structurally indistinguishable from an ordinary article's |
 | any engagement | the application is inspected | **no account exists for the commissioning professional and no payment capability exists** |
 | any of the ten `B-P0-06` boundaries unset | an engagement is attempted | **it does not begin** |
+| an engagement's article reaches full pipeline completion (`PA-07`) | the Chief Editor opens the engagement | **both folders are visible together**, under one identifier, article still absent from the client-facing folder |
+| a `M-POC`-engaged article reaches full pipeline completion (`PA-08`) | the publication event is recorded | it is `MockPublished`, never a live-target `Published` |
 
 ## 6. Edge cases
 
@@ -138,6 +164,7 @@ is not respecified — **an `M-POC` variant of an existing exception path would 
 | **The article leaks into the client folder** | The module's core commercial boundary is gone and cannot be recalled | `PR-12` stated as an invariant; `PA-02` tests it |
 | Engagements begin with boundaries unset | Unbounded spend, time and legal exposure | `PR-13`; all ten currently unset |
 | `M-POC` fields drift into `AP-01`'s schema | `NG-03` and the frozen migration are breached | `N1`; `D-96` already forbids it explicitly |
+| A client-facing delivery feature is built to satisfy `F9`/`F10` | `NG-02` (Charter, one Chief-Editor account) is breached | `D-145` backlogs it explicitly; `F9`/`F10` are Chief-Editor-only by design, not a stand-in for client delivery |
 
 ## 9. `SPECS` candidate filter
 

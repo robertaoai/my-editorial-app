@@ -23,7 +23,7 @@ Living document; no build-version prefix, does not freeze. **All sections `[V1]`
 
 **Two of five.** The fn-spec named five components needing `SPECS`. This document covers exactly two — publish path and retry scheduler — because `D-143` ruled only those two. Credential isolation, the `TC1` privileged-write-path amendment, and `TR-DM-03`'s schema shape are **out of scope here**, per §2.
 
-**Why `pg_cron` and an Edge Function, not a Route Handler.** `D-143`'s reasoning, not restated in full: a Postgres-native scheduler cannot call a Vercel Route Handler directly, so ruling `Q5` as `pg_cron` constrained `Q3` toward an Edge Function — and both sit on infrastructure `D-120` already provisioned, adding no new dependency.
+**Why `pg_cron` and an Edge Function, not a Route Handler.** `pg_cron` sits on infrastructure `D-120` already provisioned, adding no new scheduling dependency. **The Edge Function choice is a decision, not a technical requirement** (corrected `D-146`): `pg_net`'s `net.http_post` means `pg_cron` could reach a Vercel Route Handler directly, and `TC8` (`Modular_PRD.md` §6) recommended exactly that, to avoid a second deploy pipeline and secret store outside `CLAUDE.md`'s deploy-by-git rule. The Chief Editor ruled Edge Function anyway and accepted that cost — `Q3`'s decided answer, not a default.
 
 ## 2. Scope `[V1]`
 

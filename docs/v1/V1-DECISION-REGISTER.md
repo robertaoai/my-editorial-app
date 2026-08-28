@@ -9243,3 +9243,111 @@ applicable**, which is a different disposition from opening and closing a gap ag
 **unaffected and remain in force** — this decision adds no account, no portal, no payment path.
 The `Fn_Spec`/`Modular_PRD` edit needed to make this behavior authoritative below the register
 tier is not performed by this decision.
+
+## 5.14cz `D-145` — `Fn_Spec` Follow-Up Written; `NG-02` Found and Backlogged, Not Lifted
+
+**Closes `D-144`'s open follow-up.** `M-POC-REQUIREMENTS.md` and `FN-POC-ENGAGEMENT-01-13.md` now
+carry the Chief-Editor visibility rule and `MockPublished` trigger condition as `Fn_Spec`-tier
+behavior. One correction to `D-144`'s own framing surfaced along the way, and one Charter-level
+conflict was found and correctly not resolved by this decision.
+
+### Correction to `D-144`'s framing
+
+**`D-144` said this needed "a `Modular_PRD` feature-group entry" per `D-33` guardrail 1.** That
+generalized the wrong process. `D-98` (`Modular_PRD.md` §0.6) already established `M-POC`'s
+specific path: **modules are specified in their own requirements document, not inside
+`Modular_PRD`** — `M-POC-REQUIREMENTS.md` **is** `M-POC`'s feature-group input, established when it
+was written (`D-99`), not a new Modular_PRD section. Writing FR/US/AC entries into `Modular_PRD`
+for `M-POC` would have reproduced exactly what `D-98` exists to prevent — a second product's
+requirements inheriting `M-MVP`'s namespace.
+
+### What was drafted, parent first
+
+| # | Artifact | What changed |
+|---|---|---|
+| 1 | `M-POC-REQUIREMENTS.md` | `PR-14` (Chief-Editor visibility at full completion), `PR-15` (`MockPublished` trigger), `PA-07`/`PA-08` (their acceptance criteria). `PR-03` note and `D-96` exclusion-list note both record the `NG-02` finding below, not a lift |
+| 2 | `FN-POC-ENGAGEMENT-01-13.md` | `F9`/`F10` (behaviour), new §4.4, `PA-07`/`PA-08` restated in §5, a risk row naming the `NG-02` boundary explicitly |
+| 3 | `Modular_PRD.md` | `NG-02`'s row (§2.5) gets a backlog pointer to this decision, using its own existing forward-looking clause rather than new language |
+
+### `NG-02` — found, not resolved, and correctly so
+
+**Raised across the conversation that led here: a scoped, read-only client account for engagement
+delivery.** Checked against `Modular_PRD.md` §2.5: `NG-02` is **Charter-level** — "no multi-team
+accounts — one Chief Editor account" — and `Q10`'s row confirms it standing as recently as `D-79`.
+`M-POC-REQUIREMENTS.md`'s own `PA-05`/`PX-02` and `D-96`'s delivery-portal exclusion are
+**downstream restatements of `NG-02`**, not independent module-level choices — lifting them
+without lifting `NG-02` would leave the module document contradicting the Charter it cites.
+
+**Disposition: backlogged, not built, not specified.** `NG-02`'s row already anticipated this —
+*"nothing forecloses later accounts for multiple natural persons"* — so the backlog pointer
+extends existing language rather than inventing a new mechanism. **No Charter edit is made or
+proposed here**; that remains outside any agent's authority per `CLAUDE.md`.
+
+### A second finding, surfaced and resolved in the same pass: `Q3`/`Q5` propagation gap
+
+**`D-143` marked `Modular_PRD` "unaffected."** Wrong — `Modular_PRD.md` §10 carries its own `Q3`
+and `Q5` rows, both still reading `Open` after `D-143` ruled them. Fixed in this pass, and a
+further defect found while fixing it: `D-143`'s reasoning that `pg_cron` "cannot call a Route
+Handler directly" doesn't hold — `pg_net`'s `net.http_post` can call any HTTPS endpoint, which is
+exactly what `TC8` (§6) already recommended, specifically to avoid a second deploy pipeline
+against `CLAUDE.md`'s deploy-by-git rule. **Carried forward to `D-146`**, not resolved here.
+
+### Gaps
+
+**Opened:** none — `NG-02` was already Charter-standing, not newly found as a gap. **Closed:**
+none. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, `G41`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `Fn_Spec` follow-up written | ✅ §5.14cz | **— unaffected: T3 parallel track, no sprint sequence change** | **— unaffected** | **— unaffected: no file created or retired, `M-POC-REQUIREMENTS.md`/`FN-POC-ENGAGEMENT-01-13.md` already existed** | **— unaffected** | ✅ **`NG-02` row backlog pointer, `Q3`/`Q5` propagation gap closed** |
+
+### Scope limits
+
+**Writes no code, no schema, no UI, no Charter edit.** `NG-02`, `PA-05`, `PX-02`, `D-96`'s
+delivery-portal item all remain **in force, unchanged**. Does not resolve the `Q3` reasoning
+defect found above — that is `D-146`.
+
+## 5.14da `D-146` — `Q3` Reasoning Corrected; Edge Function Kept, Knowingly
+
+**Asked, having found the defect while writing `D-145`:** `pg_cron`+`pg_net` can reach a Route
+Handler directly, and `TC8` already recommended one to avoid a second deploy pipeline. Does
+`D-143`'s `Q3` ruling still hold?
+
+### The correction
+
+**`D-143`'s stated reason for Edge Function was wrong.** `pg_net`'s `net.http_post` makes an
+outbound HTTPS call to any URL — a Vercel Route Handler included. `pg_cron` scheduling a Route
+Handler invocation is technically viable; **Edge Function was never a requirement `Q5` forced,
+only a choice `D-143` mis-described as one.**
+
+### The ruling, re-affirmed with the correct reasoning
+
+**Chief Editor ruling, 2026-08-28: Edge Function stands.** Presented with the corrected picture —
+`TC8`'s objection is real, and choosing Edge Function means a second deploy pipeline and secret
+store outside `CLAUDE.md`'s deploy-by-git rule — **the Chief Editor accepted that cost rather than
+reverting to a Route Handler.** `Q3`'s answer is unchanged; the reasoning behind it is not.
+
+### What changed as a result
+
+`Modular_PRD.md` `Q3`'s row and `docs/specs/SPECS-PUBLICATION.md` §1 both corrected to state the
+accurate reasoning — `pg_net` makes Route Handler viable, Edge Function is chosen knowingly, not
+because `pg_cron` requires it. No other content in either document changes; the invocation
+contract in `SPECS-PUBLICATION.md` §3 is the same regardless of which runtime receives the call.
+
+### Gaps
+
+**Opened:** none — this is a reasoning correction, not a new defect class. **Closed:** none.
+**Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, `G41`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `Q3` reasoning corrected | ✅ §5.14da | **— unaffected: no scope or DoD change** | **— unaffected** | **— unaffected: `SPECS-PUBLICATION.md` already existed, `D-143`** | **— unaffected** | ✅ **`Q3` row corrected** |
+
+### Scope limits
+
+**Writes no code.** Does not reopen `Q5` or the invocation contract. `TC8`'s deploy-pipeline cost
+is accepted, not mitigated — no mitigation is specified here.
