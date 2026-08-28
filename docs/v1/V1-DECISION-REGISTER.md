@@ -9185,3 +9185,61 @@ now ruled. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, 
 **Writes no code.** The Edge Function and `pg_cron` job are Lane B's surface (`supabase/`,
 `app/`) to build, not Lane A's to implement. Does not resolve credential isolation, the `TC1`
 privileged-path amendment, or `Q11`-class naming. Does not authorize applying `0002`.
+
+## 5.14cy `D-144` — Chief-Editor Delivery Clarified; `D-96`'s Portal Exclusion Confirmed Unaffected
+
+**Chief Editor ruling, 2026-08-28, across three exchanges.** What started as a request for a
+buyer-facing download UI narrowed, on inspection, to a clarification of who already sees what
+through the existing Chief-Editor-facing UI — no new account, no new portal.
+
+### What was checked and found not to apply
+
+Two candidate conflicts were raised and resolved without needing an exception:
+
+| Candidate conflict | Resolution |
+|---|---|
+| `X8`/`NG-03` — Stripe removed, monetization excluded at Charter level | **Does not apply.** Payment for a `M-POC` engagement completes **before** the `articles` record exists — `PA-06`'s *"payment trace is an external identifier"* already says this. No in-app payment is requested or needed |
+| `D-96`'s "delivery portal" exclusion, `PA-05`/`PX-02` (no client/buyer account) | **Does not apply.** Delivery is to the **Chief Editor**, an internal actor already inside the application per `PU-02`, through the UI that already exists. No client account, no client-facing portal is added. `D-96`, `PA-05`, `PX-02` are **unaffected and remain in force** |
+
+### What is clarified — Chief-Editor UI visibility, not a new artifact or table
+
+**For a `M-POC`-engaged article, the Chief Editor sees the client package (explainable content +
+evidence ledger, `PR-11`'s POC folder) through the existing UI.** If the same article — one engine,
+`PR-01` — **also reaches full pipeline completion**, the publishable article (`PR-11`'s MVP folder)
+becomes visible **alongside** it, in the same Chief-Editor view. `PR-12`'s separation still holds:
+this is Chief-Editor **visibility** of both folders under one engagement identifier (`PA-02`), not
+the publishable article being copied, linked, or embedded **into** the client-facing folder — the
+folders remain what they are; only what the Chief Editor can see together changes.
+
+**`MockPublished`'s completion-gated trigger** (`V1-DECISION-REGISTER.md`, prior turn's audit,
+not yet a register entry until now) is confirmed on the same basis: reserved for a POC-triggered
+article, fired only once the pipeline has reached full completion — the same event that makes the
+publishable article visible to the Chief Editor per the paragraph above. One condition, two
+consequences, not two separate rules.
+
+### What this decision does not do
+
+**Does not edit `M-POC-REQUIREMENTS.md`, `FN-POC-ENGAGEMENT-01-13.md`, or `Modular_PRD.md`.**
+Per `D-33` guardrail 1, a `Fn_Spec` change requires a `Modular_PRD` feature-group input, not a
+prose description — none exists yet for this UI-visibility behavior. This decision **records the
+ruling and clears the two candidate conflicts**; writing it into `Fn_Specs` is a named follow-up,
+not performed here.
+
+### Gaps
+
+**Opened:** none. **Closed:** none — the two candidate conflicts are resolved as **not
+applicable**, which is a different disposition from opening and closing a gap against them.
+**Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, `G41`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Chief-Editor delivery clarified | ✅ §5.14cy | **— unaffected: no scope or DoD change** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | **— open follow-up: needs a feature-group entry before `Fn_Specs` can be edited (`D-33` guardrail 1); not performed here** |
+
+### Scope limits
+
+**Writes no code, no schema, no UI.** `D-96`, `PA-05`, `PX-02`, `PA-06`, `PX-03` are confirmed
+**unaffected and remain in force** — this decision adds no account, no portal, no payment path.
+The `Fn_Spec`/`Modular_PRD` edit needed to make this behavior authoritative below the register
+tier is not performed by this decision.
