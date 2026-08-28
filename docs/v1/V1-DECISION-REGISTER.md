@@ -6217,7 +6217,7 @@ frame** for the decision packet, and its classification table is carried into it
 
 | Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
 |---|---|---|---|---|---|---|
-| Lock state machine | ✅ §5.14bp | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5 | **— unaffected** |
+| Lock state machine | ✅ §5.14bp | ⚠ **claimed unaffected — WRONG, corrected `D-152`** | ⚠ **claimed unaffected — WRONG, corrected `D-152`** | **— unaffected** | ✅ §5 | **— unaffected** |
 | `lane-state` hardened | ✅ §5.14bp | **— unaffected** | **— unaffected** | ✅ its row | ✅ §6.5 fixtures | **— unaffected** |
 | Boundary carve-out | ✅ §5.14bp | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §5 | **— unaffected** |
 | `Status`/`Examined-By` | ✅ §5.14bp | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
@@ -6227,6 +6227,17 @@ frame** for the decision packet, and its classification table is carried into it
 **They were right and §5 was the deviation**, so the correction removes drift instead of creating
 it. Core hash unchanged at `a8173008845e`. **Build spec and `Modular_PRD` unaffected** — no
 artifact created or retired, no sprint closed, no tier opened.
+
+> **Corrected 2026-08-29 (`D-152`, raised in `B-033`'s verification review). The claim above was
+> half right, and the half it checked is exactly what hid the other half.** The rule files' *commit
+> rule* was correct and this ruling did restore it. But their **state table** carried `D-107`'s
+> superseded `Eligible` — *"backlog open, work specified, not currently committing"* — which is the
+> reading this ruling replaced. **A tier was marked unaffected on the strength of one correct
+> sentence, while another sentence in the same file still carried the meaning being superseded.**
+> `G65`'s arrival-not-correctness class, in the tier column rather than a gap row. **The Build Spec
+> carried it too**, and additionally named which lane held which state while claiming not to restate
+> live state. Both corrected by `D-152`. **The row above stands unedited** — an answer is
+> append-only (`D-104`) — and the tier cells are annotated rather than rewritten.
 
 ---
 
@@ -9630,3 +9641,137 @@ staging.
 | Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
 |---|---|---|---|---|---|---|
 | Out-of-turn commit, five named files | ✅ §5.14df | **— unaffected: `D-150`'s own edit is the change, not this authorization** | **— unaffected: an instance is not a rule** | **— unaffected** | **— unaffected: lane state untouched, Lane A stays `Blocked`** | **— unaffected** |
+
+---
+
+## 5.14dg `D-152` — `D-108` Reached the Register and the Phase Record and Not the Files Agents Read
+
+**Raised by Lane B**, in `B-033`'s verification review of 2026-08-29, while examining an entry it
+had itself raised and Lane A had answered. **`Applied` was correctly kept, and the residue named.**
+
+### The defect
+
+**`D-108` ruled the lane lock exclusive** — one lane `Active`, every other unfinished lane
+`Blocked` on its named run, `Eligible` only once the lock is free. **It landed in the register and
+in `V1-PHASE-CLOSURE.md` §5. It did not land in the three files every agent reads first, nor in the
+Build Spec.**
+
+| Where | Carried |
+|---|---|
+| Shared core — `CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md` | *"the other lanes are `Eligible`, not queued behind a gate"* and a state table defining `Eligible` as *"backlog open, work specified, not currently committing"* — **`D-107`'s superseded reading** |
+| `V1-BUILD-SPEC.md` §2 | The same obsolete semantics, **plus** *"Lane A is `Active`; Lanes B and C are `Eligible`"* — naming live state in the sentence before *"this document does not restate it"* |
+
+### Why it survived — the half-check
+
+**`D-108`'s own tier table said "Agent files unaffected", and gave a reason that was true.** The
+rule files say *only the `Active` lane may commit*; `D-107` had contradicted that and `D-108`
+restored it. **That sentence was checked and was right.** The state table three lines below it was
+not checked and was wrong.
+
+> **A tier marked unaffected on the strength of one correct sentence, while another sentence in the
+> same file still carries the meaning being superseded.** This is `G65`'s arrival-not-correctness
+> class relocated: not a gap row gone stale, but a **tier-applicability cell** asserted from a
+> partial read. **The `D-54` sweep cannot catch it** — it verifies that a decision arrived in a
+> tier, and here the honest answer was *"it should have arrived and did not."*
+
+### Applied, parent first
+
+| # | Change | File |
+|---|---|---|
+| 1 | **`D-108`'s "Agent files unaffected" annotated**, its tier cells marked ⚠ wrong; the row itself unedited (`D-104`: an answer is append-only) | `V1-DECISION-REGISTER.md` |
+| 2 | **§2's obsolete semantics corrected**, and the live-state naming removed — it contradicted its own next sentence | `V1-BUILD-SPEC.md` |
+| 3 | **Shared core corrected in all three files in one pass**, byte-identical: `Blocked` is now *"another lane is `Active` — the row names that run"*, `Eligible` is *"the lock is FREE… never while another lane is `Active`"*, plus the two-legal-configurations rule | `CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md` |
+
+**Not changed, deliberately:** `V1-PHASE-CLOSURE.md` §5 and the `lane-state` fixtures — **both were
+already correct**, which is why the drift was invisible to the checks. `B-033`'s verification review
+says so explicitly, and its own §3 item 4 (extend `lane-state.mjs`) is **already satisfied by
+`D-108`** and not re-done here.
+
+### What this does not do
+
+**Records no lane-state change.** Lane B remains `Active` on `LB-S1-02`; Lane A and Lane C remain
+`Blocked`. **This corrects the vocabulary agents read, not the lock they read it about.** `B-033`'s
+routing half stays **not adopted** (`D-108`), and `C-001`, `C-18`, `C-24`, `C-25` remain open Phase 3
+work untouched by this pass.
+
+### Gaps
+
+**Opened:** none. **Closed:** none — `B-033` stays `Applied`; **its raiser verifies, not its
+answerer** (`D-102`, `D-138`), and Lane B is `Active` and able to. **Unchanged:** `C-26`, `C-27`,
+`C-33`, `C-34`; `G105`, `G107`, `G41`, `G88`, `AC-12a`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-108` semantics propagated | ✅ §5.14dg + §5.14bp annotation | ✅ **§2 corrected** | ✅ **all three, byte-identical** | **— unaffected: no file created or retired** | **— unaffected: §5 was already correct** | **— unaffected** |
+
+### Scope limits
+
+**Writes no code, no schema, no Charter edit, and changes no lane's state.** Does not re-open
+`D-107`, does not adopt `B-033`'s routing proposal, and does not verify `B-033` — that is Lane B's,
+as its raiser.
+
+---
+
+## 5.14dh `D-153` — The Third Out-of-Turn Commit; the `Eligible` Half Is Refused, With Its Reason
+
+**Two instructions were given together on 2026-08-29: commit Lane A's orchestration and governance
+work, and mark Lane A `Eligible`. The first is performed. The second is refused, and refusing it is
+the point of this row.**
+
+### The commit — performed
+
+`D-151` said *"a third occurrence needs a third instruction."* This is it. Same conditions as
+`D-149` and `D-151`: Lane A is `Blocked`, Lane B is sole `Active` on `LB-S1-02` (`D-142`), and
+`D-101` permits only the `Active` lane to commit. **All five files are Lane A's own surface** —
+`lane-boundary` reports *"lane surfaces touched — A"*, so nothing crosses and no `Lane-Crossing:`
+trailer applies. **Scoped to these five files, once.** Carries `D-152`: the three rule files, the
+Build Spec, and the register.
+
+### The `Eligible` half — refused
+
+**Marking Lane A `Eligible` while Lane B is `Active` is the exact configuration `D-108` outlawed**,
+and which this same pass wrote into the rule files: *"a lane `Eligible` beside an `Active` one is
+illegal."* `lane-state` (check 15) enforces it and would fail. **Performing it would break, in one
+commit, the rule that commit exists to propagate.**
+
+**The lock has not been released.** `LB-S1-02` has **no turn report** — `B-044` references the run
+but is `Kind: finding`, not `turn-report` — and §5.0a's `Report` column reads `in progress`. No
+boundary has occurred, so there is nothing for Lane A to record.
+
+**What would actually make Lane A `Eligible`**, in order, per `G102`'s path — **and Lane A performs
+none of steps 1–2**:
+
+| # | Step | Who |
+|:---:|---|---|
+| 1 | `LB-S1-02` completes; **Lane B files its turn report** in `docs/handoff/`, citing the run id | **Lane B** |
+| 2 | The lock is released — at which point **every unfinished lane becomes `Eligible`, not Lane A alone** | Follows from 1 |
+| 3 | **The Chief Editor names the incoming lane** — *"a judgement, not a derivation"* | **Chief Editor** |
+| 4 | §5 updated in ONE edit: outgoing → `Eligible`/`Blocked`/`Done`, incoming → `Active`, both `Selected` cells | Lane A, under the boundary carve-out |
+
+**Steps 1 and 3 are unenforceable by design** (`G102`) — no check produces them, only the lane and
+the person do. **`G90` is the specific trap here**: `B-038` once asserted a Chief Editor selection
+in its `Evidence` line *before any selection had been made*, and it nearly moved the lock. **A
+boundary recorded before the acts that constitute it is fabricated history**, which is why this row
+records the refusal rather than performing the edit.
+
+### If a boundary was intended
+
+**Then the missing artifact is Lane B's turn report, not Lane A's state edit.** Lane B is `Active`
+and able to file it. Once it exists and the Chief Editor names the incoming lane, step 4 is a
+single edit Lane A may make under the boundary carve-out regardless of who holds the lock (`D-108`,
+`B-028` resolved).
+
+### Gaps
+
+**Opened:** none. **Closed:** none. **Unchanged:** every open item; **no lane state is altered by
+this decision** — Lane A stays `Blocked`, Lane B stays `Active` on `LB-S1-02`, Lane C stays
+`Blocked`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Third out-of-turn commit | ✅ §5.14dh | **— unaffected: `D-152`'s edit is the change, not this authorization** | **— unaffected: an instance is not a rule** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `Eligible` request refused | ✅ §5.14dh | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: §5 deliberately untouched, which is the refusal** | **— unaffected** |

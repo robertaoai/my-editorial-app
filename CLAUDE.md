@@ -189,18 +189,24 @@ in both places.** A local total and a lower CI total are therefore **both correc
 by exactly those three, and neither is the other's failure.
 
 
-**Build lanes (`D-75`, binding; lane state per `D-101`).** Three agents share this repo. **Exactly
+**Build lanes (`D-75`, binding; lane state per `D-108`).** Three agents share this repo. **Exactly
 one lane is `Active` at a time** — that constraint is physical, one desktop app at a time, and it
-has not changed. **What changed (`D-100`) is that the other lanes are `Eligible`, not queued
-behind a gate.** Each lane owns a surface; **work outside your lane is *specified, never applied*
-(`D-56`)** — write the spec, hand off, stop.
+has not changed. **While that lane runs, every other unfinished lane is `Blocked` on its named
+run** (`D-108`, superseding `D-107`); a lane becomes `Eligible` only once the lock is released.
+Each lane owns a surface; **work outside your lane is *specified, never applied* (`D-56`)** —
+write the spec, hand off, stop.
 
 | State | Means |
 |---|---|
-| **`Active`** | The one lane currently permitted to commit. **The Chief Editor selects it at each Sprint boundary** |
-| **`Eligible`** | Backlog open, work specified, **not currently committing.** Not "waiting for a phase to close" |
-| **`Blocked`** | Waiting on a named item — a dependency, a decision, or an act no lane owns |
+| **`Active`** | **This lane is RUNNING** and holds the commit lock. Exactly one, or none between turns. **The Chief Editor selects it at each Sprint boundary** |
+| **`Blocked`** | **Another lane is `Active` — the row names that run**; or the lane waits on a named dependency, decision, or act no lane owns |
+| **`Eligible`** | **The lock is FREE** — the active turn completed and this lane may be selected. **Never while another lane is `Active`** |
 | **`Done`** | Its Definition of Done is met and the Judge has accepted it |
+
+**Two legal configurations, and only two.** One lane `Active` with the rest `Blocked` — a turn in
+progress. No lane `Active` with the unfinished lanes `Eligible` — the gap between turns. **A lane
+`Eligible` beside an `Active` one is illegal**: that was `D-107`s reading, and it is what let a
+turn be started, doubted and abandoned.
 
 **The live lane state is `docs/v1/V1-PHASE-CLOSURE.md` §5 and nowhere else.** This table defines
 the vocabulary; it does not record which lane is Active, because a status duplicated into a rule

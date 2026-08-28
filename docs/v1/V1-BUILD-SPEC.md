@@ -36,11 +36,14 @@ rule files, build config
      └── handoff, not a commit ────────────┴── handoff, not a commit ────────────┘
 ```
 
-**Lane A is `Active`; Lanes B and C are `Eligible` (`D-101`).** *This paragraph read "Phase 1 is
-current" and presented a strict `A → B → C` gate — superseded by `D-100`'s continuous cycle and
-given precise states by `D-101`, raised as `B-011`.* **Exactly one lane is `Active` at a time** —
-one desktop app, unchanged — and **the other lanes are `Eligible`, not queued behind a gate.**
-**The live state is `V1-PHASE-CLOSURE.md` §5 and nowhere else**; this document does not restate it.
+**Exactly one lane is `Active` at a time** — one desktop app, unchanged — and **while it runs the
+other unfinished lanes are `Blocked` on its named run** (`D-108`, superseding `D-107`); a lane
+becomes `Eligible` only once the lock is released. *This paragraph read "Phase 1 is current" and
+presented a strict `A → B → C` gate — superseded by `D-100`'s continuous cycle, given precise
+states by `D-101`, and corrected to the exclusive lock by `D-108`. It also **named which lanes held
+which state while claiming not to restate live state** — the naming is removed (`D-152`, raised in
+`B-033`'s verification review).* **The live state is `V1-PHASE-CLOSURE.md` §5 and nowhere else**;
+this document does not restate it.
 Work outside the active lane is **specified, never applied** (`D-56`). **Lane A writes every dependency before Lane C builds a workflow against it (`D-84`)** — the original map put `scripts/` and `.gitattributes` in Lane C and was corrected. **The rule is unenforced (`D-82`)** — no `CODEOWNERS`, no path rule, no pre-commit hook, and CI runs after a commit lands; a crossing is stopped only by the agent choosing to stop.
 Deployment is Lane C and GitHub — **`main` lagging this branch is expected until Phase 3 and is not
 a defect.** The development lane model is **not** the product Three Lines (`OD1`–`OD3`) and **not**
