@@ -231,6 +231,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G101` | **Opened and closed 2026-08-26 (`D-137`) — defects in the pending-semantic mechanism, found by executing it** | **(1) The pending marker counts FILES, not the live cycle** — live batches read *“1 of 12”* while seven stale orphans read *“13 of 19”*, overstating the work by more than half; Lane B repeated the inflated figure, correctly, because it is what the tool reports. **(2) Answering the orphans would have overwritten curated descriptions** — one names a hand-authored node, making *“fill every pending batch”* destructive when executed literally (`G51` in a new shape). **(3) Six communities were tagged `lang=pt` on plainly English content**, and the instruction demands the name be written *“in EXACTLY that language”* — obeying it would have put Portuguese names on English governance clusters. **(4) 825 entity nodes are undescribed BY DESIGN** under an anti-hallucination policy, so *“every node described”* is unsatisfiable and `B-041`'s *“no pending batch or community ingestion”* wording is kept. **(5) The ingest does not survive the next rebuild** — re-extraction drops every extracted node's description while `docs-drift` still reports *synced*, so **semantic completion is the LAST action of a pass, not a step inside it**; the recovery is to replay the dated `.graphify/` backup rather than re-author. **(1) and (3) are one shape: a tool's self-report taken as fact; (2) is why it matters; (5) cost this pass a full cycle.** §5.14cr |
 | `G102` | **Opened and closed 2026-08-26 (`D-138`) — the outgoing lane owes a turn report and Lane A has nowhere to file one** | **`§5.2` step 1 requires the outgoing lane to raise a `Kind: turn-report` entry, *“required even when nothing was done”* (`D-105`) — and `docs/handoff/` is closed to Lane A twice over:** its README scopes raising to Lane B and Lane C, and `ENTRY_FILE` matches `/^[BC]-d+.*.md$/`, so an `A-` file is **silently ignored, not rejected**. Lane A could file one and **no control would read it** — `a_check_that_cannot_fail`, in the step that hands over the lock. **Not new**: Lane A was outgoing at `D-117` and filed nothing, and every *“outgoing lane files its report”* reference in the corpus resolves to `B-047`, a Lane B entry. **Ruled by the Chief Editor: Lane A’s turn report IS the boundary decision section in the register**, cited from `§5.0a`’s `Report` column — no new artifact, no channel change, and `D-117`/`D-118` had already done it in prose. **Opening the channel to `A-NNN` was rejected**: it would make Lane A both raiser and answerer in one directory, undoing the attribution `D-90` avoided. **Remains a duty, not a checked control**, and is recorded as such. §5.14cs |
 | `G103` | **Opened and closed 2026-08-26 (`D-139`) — a single-process transient filesystem lock, distinct from `B-021`'s concurrency class** | **The prior turn cited `B-021`'s scope for a failure `B-021` does not describe.** `B-021` names a SECOND process touching the tree while fixtures run; the observed failure was the fixture runner ALONE hitting a millisecond-scale OS lock (`EBUSY`/`UNKNOWN`) on its own write, no concurrent process involved — the same *true-word-misread-as-wider-coverage* shape `D-137`/`G101` named one layer over. **`B-001` was hit twice not by chance**: it is the single file reused across roughly twenty of the sixty-two fixtures, the highest write exposure of any tracked path. **Fixed narrowly**: `harness.mjs`'s `read`/`write` retry only `EBUSY`/`UNKNOWN`/`EPERM`, bounded at four attempts with backoff; `ENOENT` and everything else still fails immediately. **Not `B-021`'s unbuilt lock** — items 2–5 of that entry's required repair remain unbuilt and unaddressed. **Proven by four fixtures against `withRetry` directly**: transient-clears-within-budget succeeds; persistent-transient still fails, not masked; non-transient fails on the first attempt. §5.14ct |
+| `G104` | **Closed 2026-08-28 (`D-149`) — commit authorized out of turn, not by Lane A becoming `Active`** | `INTELLIGENCE_LAYER.md`'s Scoring Rules specify **"0.6 minimum to auto-advance,"** contradicting `NG-10` (`Modular_PRD` §2.5: no confidence score may ever auto-advance a gate — auto-advancing past a named executor is a gate bypass by definition). **Annotated in place, citing this row**; the offending line itself stands unchanged — plan-pack reconciliation remains Sprint 0 work per `docs/README.md`, not this pass's to perform. **Not a `docs/handoff/` item** — that channel is closed to Lane A by design (`G102`, `D-138`); this is Lane A's own gap, tracked here instead. *(Originally opened as blocked on the commit window: Lane A `Blocked`, Lane B sole `Active` on `LB-S1-02` (`D-142`), `D-101` permits only the `Active` lane to commit. That premise did not hold — closure came from a direct Chief Editor instruction to commit, not from a Sprint boundary. See `D-149`.)* §5.14dd |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -9469,3 +9470,52 @@ backlogged item. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`, `
 readiness actually require — only where that requirement is authoritatively recorded. Does not
 move or restructure any other `§6` row, and does not touch `M-POC-REQUIREMENTS.md` or
 `FN-POC-ENGAGEMENT-01-13.md`, neither of which restated the moved content.
+
+---
+
+## 5.14dd `D-149` — Lane A Commits Its Own Pending Work While Formally `Blocked`, on Direct Chief Editor Instruction
+
+**Asked, mid-audit:** `G104` recorded a gap Lane A found and annotated but could not commit —
+`D-101` permits only the `Active` lane to commit, and Lane A's row read `Blocked` on `LB-S1-02`
+(`D-142`). The Chief Editor directed the commit anyway. Does that reopen `D-101`, or is it a
+narrower thing?
+
+### What the Chief Editor ruled
+
+**A narrower thing.** `D-101`'s purpose is preventing two lanes from writing to the same surface
+at once with no merge commit to catch the collision — that risk does not exist here. Both pending
+files (`INTELLIGENCE_LAYER.md`, `V1-DECISION-REGISTER.md`) are Lane A's own surface;
+`lane-boundary` already confirms the working tree touches **only** Lane A (checked before this
+ruling, re-checked after). **This is not `D-107`'s precedent** — there, Lane A (then `Active`)
+committed Lane B's code on the Judge's instruction, a genuine cross-lane act needing a
+`Lane-Crossing:` trailer. Here Lane A commits its own docs while `Blocked`, and nothing crosses.
+
+**Scoped narrowly, on purpose.** This authorizes committing the two named pending files, once,
+under this instruction. It does **not** make Lane A `Active`, does **not** change `§5`'s state
+table — Lane A's row still reads `Blocked` on `LB-S1-02` after this commit lands — and does
+**not** stand as a general rule that Lane A may commit its own work whenever it is `Blocked`.
+The next time this needs to happen, it needs its own instruction, not a citation to this one.
+
+### Why this was worth a decision rather than a quiet commit
+
+**Because the register would otherwise go stale the moment it landed.** `G104`'s own closing
+condition said *"closes when Lane A is next `Active`"* — untrue the instant this commits under a
+different mechanism. Recording the actual mechanism here is what keeps that row honest, rather
+than repeating the exact defect (`G65`, `G71`, `G94`, and others) this corpus keeps finding: a
+closing condition that stopped matching how the thing actually closed.
+
+### Gaps
+
+**Closed:** `G104` — §5.1, this row.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Out-of-turn commit authorized, scoped to two named files | ✅ §5.14dd, `G104` | **— unaffected** | **— unaffected: no lane rule changed, an instance is not a rule** | **— unaffected: no file created or retired** | **— unaffected: `§5`'s lane-state table is untouched, Lane A stays `Blocked`** | **— unaffected** |
+
+### Scope limits
+
+**Authorizes exactly two commits, once.** Does not reopen `D-101`, does not touch `§5`'s lane
+state, does not authorize any other pending Lane A work to commit under this citation, and does
+not change what makes Lane A `Eligible` — that remains `G102`'s seven-step path, unaffected here.
