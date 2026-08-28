@@ -83,3 +83,19 @@ mechanism for Lane A to repair.
 ---
 
 > **Sprint boundary, 2026-08-24 (`D-103`): Lane B is now `Active` and Lane A is `Eligible`.** Lane A can still **write in `docs/handoff/`** — that carve-out exists so acknowledgement is never blocked — but it **cannot commit anywhere else**, so anything here needing a change outside `docs/handoff/` waits for Lane A's next `Active` turn. **A blocking entry stops that item, not the lane** (`D-101`).
+
+## Post-verification fixture gap — 2026-08-29
+
+Promoting this entry from `Applied` to `Verified` exposed a stale fixture dependency. The
+`phaseScope` suite hard-codes `B-017` as its non-terminal Phase-1 control but does not create that
+state; it inherits the live `Resolution`. Once this entry became terminal, the fixture could no
+longer distinguish “Phase 3 correctly ignored” from “the phase gate did not run” and the final
+suite reported **65/66**.
+
+**This does not reopen the parser repair.** The live consistency suite remains 17/17 and the
+handoff metadata group remains 22/22. It is a Lane A fixture defect.
+
+**Draft owner fix — Lane A:** in `phaseScope`, derive a local copy of `p1Orig` whose `Resolution`
+is explicitly `Applied`, write that copy before the first two scoping assertions, and restore the
+original bytes afterward. The fixture must manufacture the non-terminal precondition it claims
+to test rather than borrowing mutable backlog state. Then rerun all 66 fixtures.
