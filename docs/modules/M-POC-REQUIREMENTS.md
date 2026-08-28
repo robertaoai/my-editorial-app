@@ -137,6 +137,12 @@ external-review route.
 `POC_OBLIGATION_DRAIN` · asynchronous account claiming · delivery portal · provider-ID versus
 editorial-ID separation. **`B-008`'s model is not adopted.**
 
+**Return path** (`D-150`, closing `G106`): the two conditions that would bring this set back are
+stated once, in `V1-BUILD-SPEC.md` §6's *"POC built commercial model"* row — **cited here, never
+restated.** This list previously carried no return condition at all, which is what left the set in
+a dead end nothing would re-check; a second copy of the condition would be the `G55` drift
+mechanism that produced that dead end.
+
 **`delivery portal` re-evaluated and left excluded (`D-145`, 2026-08-28).** A scoped client
 delivery view was raised; it is gated by `NG-02` (Charter, "one Chief Editor account"), not by
 this list, and `NG-02` outranks it — see the `PR-03` note in §3. Left here unchanged because the

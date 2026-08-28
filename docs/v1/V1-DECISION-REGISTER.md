@@ -231,7 +231,10 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `G101` | **Opened and closed 2026-08-26 (`D-137`) — defects in the pending-semantic mechanism, found by executing it** | **(1) The pending marker counts FILES, not the live cycle** — live batches read *“1 of 12”* while seven stale orphans read *“13 of 19”*, overstating the work by more than half; Lane B repeated the inflated figure, correctly, because it is what the tool reports. **(2) Answering the orphans would have overwritten curated descriptions** — one names a hand-authored node, making *“fill every pending batch”* destructive when executed literally (`G51` in a new shape). **(3) Six communities were tagged `lang=pt` on plainly English content**, and the instruction demands the name be written *“in EXACTLY that language”* — obeying it would have put Portuguese names on English governance clusters. **(4) 825 entity nodes are undescribed BY DESIGN** under an anti-hallucination policy, so *“every node described”* is unsatisfiable and `B-041`'s *“no pending batch or community ingestion”* wording is kept. **(5) The ingest does not survive the next rebuild** — re-extraction drops every extracted node's description while `docs-drift` still reports *synced*, so **semantic completion is the LAST action of a pass, not a step inside it**; the recovery is to replay the dated `.graphify/` backup rather than re-author. **(1) and (3) are one shape: a tool's self-report taken as fact; (2) is why it matters; (5) cost this pass a full cycle.** §5.14cr |
 | `G102` | **Opened and closed 2026-08-26 (`D-138`) — the outgoing lane owes a turn report and Lane A has nowhere to file one** | **`§5.2` step 1 requires the outgoing lane to raise a `Kind: turn-report` entry, *“required even when nothing was done”* (`D-105`) — and `docs/handoff/` is closed to Lane A twice over:** its README scopes raising to Lane B and Lane C, and `ENTRY_FILE` matches `/^[BC]-d+.*.md$/`, so an `A-` file is **silently ignored, not rejected**. Lane A could file one and **no control would read it** — `a_check_that_cannot_fail`, in the step that hands over the lock. **Not new**: Lane A was outgoing at `D-117` and filed nothing, and every *“outgoing lane files its report”* reference in the corpus resolves to `B-047`, a Lane B entry. **Ruled by the Chief Editor: Lane A’s turn report IS the boundary decision section in the register**, cited from `§5.0a`’s `Report` column — no new artifact, no channel change, and `D-117`/`D-118` had already done it in prose. **Opening the channel to `A-NNN` was rejected**: it would make Lane A both raiser and answerer in one directory, undoing the attribution `D-90` avoided. **Remains a duty, not a checked control**, and is recorded as such. §5.14cs |
 | `G103` | **Opened and closed 2026-08-26 (`D-139`) — a single-process transient filesystem lock, distinct from `B-021`'s concurrency class** | **The prior turn cited `B-021`'s scope for a failure `B-021` does not describe.** `B-021` names a SECOND process touching the tree while fixtures run; the observed failure was the fixture runner ALONE hitting a millisecond-scale OS lock (`EBUSY`/`UNKNOWN`) on its own write, no concurrent process involved — the same *true-word-misread-as-wider-coverage* shape `D-137`/`G101` named one layer over. **`B-001` was hit twice not by chance**: it is the single file reused across roughly twenty of the sixty-two fixtures, the highest write exposure of any tracked path. **Fixed narrowly**: `harness.mjs`'s `read`/`write` retry only `EBUSY`/`UNKNOWN`/`EPERM`, bounded at four attempts with backoff; `ENOENT` and everything else still fails immediately. **Not `B-021`'s unbuilt lock** — items 2–5 of that entry's required repair remain unbuilt and unaddressed. **Proven by four fixtures against `withRetry` directly**: transient-clears-within-budget succeeds; persistent-transient still fails, not masked; non-transient fails on the first attempt. §5.14ct |
-| `G104` | **Closed 2026-08-28 (`D-149`) — commit authorized out of turn, not by Lane A becoming `Active`** | `INTELLIGENCE_LAYER.md`'s Scoring Rules specify **"0.6 minimum to auto-advance,"** contradicting `NG-10` (`Modular_PRD` §2.5: no confidence score may ever auto-advance a gate — auto-advancing past a named executor is a gate bypass by definition). **Annotated in place, citing this row**; the offending line itself stands unchanged — plan-pack reconciliation remains Sprint 0 work per `docs/README.md`, not this pass's to perform. **Not a `docs/handoff/` item** — that channel is closed to Lane A by design (`G102`, `D-138`); this is Lane A's own gap, tracked here instead. *(Originally opened as blocked on the commit window: Lane A `Blocked`, Lane B sole `Active` on `LB-S1-02` (`D-142`), `D-101` permits only the `Active` lane to commit. That premise did not hold — closure came from a direct Chief Editor instruction to commit, not from a Sprint boundary. See `D-149`.)* §5.14dd |
+| `G106` | **Closed 2026-08-29 (`D-150`) — the row is split and the two-condition rule is recorded in the living tier** §5.14de | `V1-BUILD-SPEC.md` §6's *"POC commercial flow — deferred scope"* row covers **both** the manual P0-EVR lane **and** `B-008`'s built commercial model (`cart_id`, payment-provider config, payment/obligation drains, asynchronous account claiming, delivery portal, provider-ID split — *"NOT adopted"* per `D-96`). It carries **one** condition: *"Ready when `G7a` charters the manual lane and `B-P0-06`'s ten boundaries carry real values."* **Those two gate the manual lane only.** `B-008`'s own option 2 and `D-96` require something categorically different for the built model — *"a separate POC Charter and Product Requirements"*, explicitly **a Charter-level act**. **The failure mode is silent and directional:** when `G7a` and `B-P0-06` resolve, the row reads ready and the built half rides along on a condition that was never about it. **Second landing site, same defect:** `M-POC-REQUIREMENTS.md` §8's exclusion list names the same items with **no return condition at all** — `D-145` noted the asymmetry without closing it (*"Left here unchanged because the gate is Charter-level, not because this exclusion list was re-affirmed on its own terms"*). **`D-148` applied its own test correctly and to the wrong scope**: it asked *"does this condition need to be checkable after v1 freezes?"*, answered **no** for `M-POC` readiness because that is sequenced within v1 (`T3`) — which is true of the **manual lane** and false of the **built model**, which needs a new Charter and is therefore past-v1 by construction. **Sharpened while drafting the fix — the built model needs TWO conditions, and naming one hides the other.** A prohibition being **lifted** is not the same act as scope being **authorized**. `NG-02` and `NG-03` already carry their own `Ready when` (`D-148`) and would lift the *prohibition* on accounts and monetization; **neither authorizes anyone to build a cart** — that is `B-008` option 2's separate POC Charter and PRD, a distinct Charter-level act at Alpha Portfolio level. **`D-145` used only the first framing** (*"gated by `NG-02`"*) and `D-96`/`B-008` only the second; **both are right and each alone is incomplete.** **Draft fix, parent first:** ① record the two-condition rule in `Modular_PRD` §2.5.1 — the living tier, since it outlives v1 and generalises beyond this item; ② split `V1-BUILD-SPEC.md` §6's row in two — manual lane keeps `G7a`+`B-P0-06`; the built model cites §2.5's `NG-02`/`NG-03` for the lift **and** the POC Charter for the authorization; ③ `M-POC` §8's exclusion line **cites** that row rather than restating it (`D-54`, `G55`). **Not applied — `Modular_PRD` and `V1-BUILD-SPEC.md` are governed tiers and this is a scope placement, not a Lane A correction.** |
+| `G107` | **Open 2026-08-29 — `D-148`'s "Ready when" discipline is prose-only and no check enforces it** | `G106` passed **17/17 consistency checks** while carrying a deferred item with no applicable return condition. **Nothing in `C-14` reads backlog rows**: `tier-sweep` verifies a decision *arrived* in a tier, `decision-status` cross-references `Q`-row and `G`-row status, and neither looks at whether a deferred row states how it comes back. **A deferral with no return path is a drop**, which is the whole reason `D-147`/`D-148` created the discipline — and the discipline has no control. **Why the obvious check does not work:** a rule demanding *"every excluded row has a `Ready when`"* would fire on `NG-10`, which **correctly** has none — it is a permanent constraint on behaviour, not a deferred feature (see `G105`). **Applicability is judgment, and a check that cannot make it would be `a_check_that_cannot_fail` in the other direction.** **Draft fix — check the marker, never the judgment:** require each row in the governed backlog tables to carry **either** a `Ready when` **or** an explicit *"no `Ready when` — <reason>"*, the same shape as `handoff-response` requiring a disposition rather than judging its correctness. Mechanical, and it makes the `NG-10` case a declared state instead of an absence indistinguishable from an oversight. **Specified, not built** — `scripts/checks/` is Lane A's surface (`D-84`) but this needs the marker convention agreed first. |
+| `G105` | **Open 2026-08-28 — corrected: the real dependency is `FB-05`/`CR-14`, not a `Ready when` on `NG-10`** | *(Originally opened asking whether `NG-10` needs a Charter-amendment-only `Ready when`, matching `NG-03`'s shape. That was the wrong question.)* `INTELLIGENCE_LAYER.md`'s auto-advance line already carries a tracking identifier: **`TC9`** (`docs/journal/2026-08-16-sprint-plan.md` §4.2 — *"Auto-advance is a gate bypass by definition... must not be built"*), folded into Deviation Register row `D5` (*"closes across S0–S6"*). **Unlike `X8`** (Stripe scaffolding, explicitly assigned `→ S0` because removal was a concrete action), **`TC9` has no scheduled sprint, because none is needed** — the fix is passive: don't build the forbidden behaviour when the real feature is eventually built. **`NG-10` needs no `Ready when` at all** — it is not a deferred feature waiting to return like `NG-02`/`NG-03`; it is a permanent constraint on *how* any future auto-advance-adjacent feature must behave, for as long as `O-01` holds. **The genuine open dependency is `FB-05`**: `CR-14` (AI tagging/scoring at the Reporter gate — the feature `INTELLIGENCE_LAYER.md` describes) has no functional requirement yet, and no sprint currently builds Reporter-gate intelligence at all. **Its decision request is `Q9`** (`Modular_PRD` §10 — *"In or out of v1?"*, owner: **customer via the project sponsor**, blocking *"whether an FR is added before S1"*), which is what actually closes `FB-05`; `NG-10` is unaffected either way, since it constrains *how* the feature behaves rather than *whether* it is built. There is no "next sprint" to name — not `S2`, not `V2` — until `Q9` is answered and a sprint is actually assigned; naming one now would be exactly the invented-number this corpus forbids. **Closes when `Q9` is answered and `FB-05` gains a named sprint, not before.** **Propagated to `INTELLIGENCE_LAYER.md`'s `Change Log / Handoff / QA` section**, which had carried `G104`'s superseded *"reconciling it is Sprint 0 work"* — true of the plan pack generally, false for `TC9` specifically, and stale from the moment this row was written (`G65` again, in Lane A's own two-turn-old edit). |
+| `G104` | **Closed 2026-08-28 (`D-149`) — commit authorized out of turn, not by Lane A becoming `Active`** | `INTELLIGENCE_LAYER.md`'s Scoring Rules specify **"0.6 minimum to auto-advance,"** contradicting `NG-10` (`Modular_PRD` §2.5: no confidence score may ever auto-advance a gate — auto-advancing past a named executor is a gate bypass by definition). **Annotated in a dedicated `Change Log / Handoff / QA` section, citing this row** — moved out of the inline `Scoring Rules (rule-based, v1)` section on Chief Editor direction, since sitting inline under a heading naming "v1" made a cross-document disagreement (this non-governing file versus the real v1 spec) read as a v1 self-contradiction. The offending line itself stands unchanged — plan-pack reconciliation remains Sprint 0 work per `docs/README.md`, not this pass's to perform. **Not a `docs/handoff/` item** — that channel is closed to Lane A by design (`G102`, `D-138`); this is Lane A's own gap, tracked here instead. *(Originally opened as blocked on the commit window: Lane A `Blocked`, Lane B sole `Active` on `LB-S1-02` (`D-142`), `D-101` permits only the `Active` lane to commit. That premise did not hold — closure came from a direct Chief Editor instruction to commit, not from a Sprint boundary. See `D-149`.)* §5.14dd |
 | `G60` | **Closed 2026-08-20** | `D-62` §5.14w — `FR-14` written into `Modular_PRD` §5 with `US-14`, `AC-21`, and a §7.2 Project Scope row. **No Customer Request origin — disclosed, not absorbed.** S3 |
 | `G59` | **Closed 2026-08-21** | `D-64` §5.14y — `bun.lockb` generated with bun 1.1.30 and committed. **413 packages pinned**; `--frozen-lockfile` exits 0, proving the lockfile resolves completely. Satisfies `R3` DoD **D-6** |
 | `G58` | **Closed 2026-08-20** | Decisions landed in the register only; three sibling tracking files went stale. `D-54` §5.14o — the propagation rule |
@@ -9519,3 +9522,111 @@ closing condition that stopped matching how the thing actually closed.
 **Authorizes exactly two commits, once.** Does not reopen `D-101`, does not touch `§5`'s lane
 state, does not authorize any other pending Lane A work to commit under this citation, and does
 not change what makes Lane A `Eligible` — that remains `G102`'s seven-step path, unaffected here.
+
+---
+
+## 5.14de `D-150` — A Prohibition Lifted Is Not Scope Authorized; `G106`'s Row Is Split
+
+**Asked:** `B-008`'s POC commercial model — cart, payment provider, drains, delivery portal — was
+raised by Lane B, ruled not-adopted by `D-96`, superseded by `D-99`, and then could not be found
+during backlog refinement. The handoff channel worked. Where did the content go?
+
+### What was actually wrong
+
+**`V1-BUILD-SPEC.md` §6 carried one row for two deferred items.** *"POC commercial flow — deferred
+scope"* covered **both** the manual P0-EVR lane **and** `B-008`'s built model, under a single
+condition: *"Ready when `G7a` charters the manual lane and `B-P0-06`'s ten boundaries carry real
+values."*
+
+**Those two gate the manual lane only.** `B-008`'s own option 2 and `D-96` require something
+categorically different for the built model — *"a separate POC Charter and Product Requirements"*,
+explicitly a Charter-level act. **The failure mode is silent and directional:** when `G7a` and
+`B-P0-06` resolve, the row reads ready and the built half rides along on a condition that was never
+about it.
+
+**Second landing site, same defect.** `M-POC-REQUIREMENTS.md` §8 named the identical items with
+**no return condition at all**. `D-145` noticed the asymmetry and did not close it.
+
+### The distinction this decision records
+
+**A prohibition being *lifted* is not the same act as scope being *authorized*.** `NG-02` and
+`NG-03` carry their own `Ready when` (`D-148`) and would lift the prohibition on accounts and
+monetization; **neither authorizes anyone to build a cart.** That is the separate POC Charter.
+
+**`D-145` used only the first framing and `D-96` only the second. Both are correct and each alone
+is incomplete** — which is precisely how an item ends up looking ready while its real gate is
+untouched.
+
+### Why `D-148` did not catch it
+
+**`D-148` applied its own test correctly, to the wrong scope.** It asked *"does this condition need
+to be checkable after v1 freezes?"* and answered **no** for `M-POC` readiness, because that is
+sequenced within v1 at `T3`. **True of the manual lane; false of the built model**, which needs a
+new Charter and is past-v1 by construction. The test was right; the item it was applied to was two
+items.
+
+### Applied, parent first
+
+| # | Change | File |
+|---|---|---|
+| 1 | **§2.5.1 gains step 5** — state both conditions where an item has two. The rule, in the living tier, because it generalises and must outlive v1 | `Modular_PRD.md` |
+| 2 | **§6's row split in two** — manual lane keeps `G7a`+`B-P0-06`; the built model cites §2.5's `NG-02`/`NG-03` for the lift **and** the POC Charter for the authorization | `V1-BUILD-SPEC.md` |
+| 3 | **§8's exclusion list gains a return-path pointer** to that row — **cited, never restated** | `M-POC-REQUIREMENTS.md` |
+
+**No scope is authorized and no exclusion is lifted.** `B-008`'s model remains not-adopted;
+`NG-02` and `NG-03` stand. Only the conditions under which they would return are now stated
+completely.
+
+### Gaps
+
+**Closed:** `G106` — §5.1. **Open, deliberately:** `G107` — the `Ready when` discipline still has
+**no check**. This decision makes the convention concrete enough to build against; it does not
+build it. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, `G41`, `G105`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Two-condition rule | ✅ §5.14de | ✅ **§6 row split** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | ✅ **§2.5.1 step 5** |
+| `M-POC` return path | ✅ §5.14de | **— unaffected: the condition lives in §6, cited from the module** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+### Scope limits
+
+**Writes no code, no schema, no Charter edit.** Does not authorize the POC build, does not lift
+`NG-02` or `NG-03`, does not create a POC Charter, and does not decide whether one should be
+sought. Records only what would have to be true for the question to reopen.
+
+---
+
+## 5.14df `D-151` — The Second Out-of-Turn Commit, Recorded Rather Than Cited
+
+**`D-149` authorized exactly two files, once, and said in terms that *"the next time this needs to
+happen, it needs its own instruction, not a citation to this one."*** This is that instruction,
+given by the Chief Editor on 2026-08-29, and this row is the record it requires.
+
+**Same conditions, same reasoning, larger set.** Lane A remains `Blocked` — Lane B is sole `Active`
+on `LB-S1-02` (`D-142`) — and `D-101` permits only the `Active` lane to commit. **All five files are
+Lane A's own surface**, confirmed by `lane-boundary` reporting *"lane surfaces touched — A"* before
+the commit; **nothing crosses**, so this is not `D-107`'s cross-lane precedent and carries no
+`Lane-Crossing:` trailer.
+
+| File | Carries |
+|---|---|
+| `INTELLIGENCE_LAYER.md` | The `NG-10` note relocated out of *"Scoring Rules (rule-based, v1)"* into its own `Change Log / Handoff / QA` section, and corrected off `G104`'s superseded *"Sprint 0 work"* claim (`G105`) |
+| `Modular_PRD.md` | §2.5.1 step 5 — the two-condition rule (`D-150`) |
+| `V1-BUILD-SPEC.md` | §6's row split in two (`D-150`) |
+| `M-POC-REQUIREMENTS.md` | §8's return-path pointer (`D-150`) |
+| `V1-DECISION-REGISTER.md` | `G105`, `G106` (closed), `G107` opened; `D-150`; this row |
+
+**Scoped exactly as `D-149` was.** Authorizes these five files, once. **Does not make Lane A
+`Active`**, does not touch `§5`'s lane-state table — Lane A's row still reads `Blocked` after this
+lands — and does not stand as a general permission. A third occurrence needs a third instruction.
+
+**Gaps:** none opened, none closed. **Verification:** `bun run check` **17/17** immediately before
+staging.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Out-of-turn commit, five named files | ✅ §5.14df | **— unaffected: `D-150`'s own edit is the change, not this authorization** | **— unaffected: an instance is not a rule** | **— unaffected** | **— unaffected: lane state untouched, Lane A stays `Blocked`** | **— unaffected** |

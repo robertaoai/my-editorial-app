@@ -283,7 +283,7 @@ or whenever a "Ready when" condition actually resolves cannot be authored only i
 will stop being edited. **This document carries no version prefix and never freezes** — the
 correct, and only, place for backlog state meant to survive the version that raised it.
 
-**Four steps**, none of them new — named here so they are repeatable rather than reconstructed
+**Five steps**, none of them new — named here so they are repeatable rather than reconstructed
 per item:
 
 | # | Step |
@@ -292,6 +292,7 @@ per item:
 | 2 | **Preserve the option** in the data model where reversal would otherwise be expensive — decided case by case, not automatic (example: `0002`'s tenancy column, kept for `NG-02`) |
 | 3 | **State a "Ready when" condition** — added to every applicable row above as of `D-148` |
 | 4 | **Record the disposition in `V1-DECISION-REGISTER.md`** whenever an item is actively re-checked — not on a schedule, only when someone asks (example: `D-121`, `D-145`) |
+| 5 | **State BOTH conditions where an item has two** — added `D-150`, closing `G106`. **A prohibition being *lifted* is not the same act as scope being *authorized*.** `NG-02`/`NG-03`'s own "Ready when" lifts a prohibition; **it does not authorize anyone to build the thing.** Where a separate charter, PRD, or approval is also required, name it alongside. **An item with one condition stated and the other unnamed reads ready when it is not** — the live instance was `B-008`'s POC commercial model, carried under the manual lane's condition alone |
 
 **A version's own `V1-BUILD-SPEC.md` §6 cites this table; it does not restate it.** That
 document's *"out of scope for v1"* list is a legitimate, version-scoped snapshot — accurate about
