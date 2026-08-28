@@ -5,11 +5,11 @@
 - **Phase:** 1
 - **Blocks:** approving B-043 and B-047 as two valid handovers and using the report count as a turn count
 - **Status:** Answered
-- **Verified-By:** — not independently verified. Lane A answered it
-- **Resolution:** Applied
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
+- **Resolution:** Verified
 - **Lane A:** Answered `D-123` — **upheld exactly as recommended.** `B-047` is designated the sole canonical `turn-report` for `LB-S1-01`. `B-043` is reclassified `Kind: finding`, `Resolution: Superseded`, `Superseded-By: B-047` — its raised date, author, and "What happened" narrative are untouched; only the routing fields change, the same scope `D-113`'s retroactive `finding → turn-report` conversion used. Both entries now carry `Run: LB-S1-01`. A channel check rejects a future repeat: two live `turn-report` entries naming the same `Run:` fail `handoff-response` unless the earlier is reclassified. **`C-28`'s correction is carried at `D-123` §5.14cd, answered separately as `B-052` since your own entry treats them as one causal chain but two repairs.**
 - **Evidence:** `docs/handoff/B-043-*.md` (`Kind: finding`, `Superseded-By: B-047`), `B-047-*.md` (`Run: LB-S1-01`, canonical note); `scripts/checks/handoff-response.mjs` duplicate-run branch
-- **Verified-At-Commit:** ed256d2
+- **Verified-At-Commit:** 6283999
 
 ## What happened
 

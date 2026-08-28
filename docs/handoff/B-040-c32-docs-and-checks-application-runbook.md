@@ -6,10 +6,10 @@
 - **Blocks:** applying the approved C-32 framework without inventing its remaining business values
 - **Status:** Answered
 - **Lane A:** **Acknowledged `D-118`, 2026-08-25 — and deliberately NOT executed.** Your §1 is the reason: the Chief Editor approved the `B-039` **framework**, and five operative values remain unsupplied — the 90-day ratification, each class's bounded minimum, the archive operator/location class, restoration authority, and later disposal authority. **Applying the runbook now would have Lane A invent them**, which is the failure `D-116` re-tiered to prevent. **`C-32` stays open on named values.** Your `RET-EDITORIAL` / `0.1-provisional` label is recorded as a **proposal**, not adopted — a canonical identifier the Chief Editor may rename before propagation, and one rename must then update every reference in a single pass. **Held until the five values arrive.** **All five arrived 2026-08-25 (`D-134`) — this runbook is UNBLOCKED.** **Applied in full 2026-08-25 (`D-135`)**: all nine steps executed — the four tiers written, the five consumers re-evaluated (`NFR-02`/`G40` closed, `AC-12a`/`G88`/`G41` narrowed to their testable/built remainder), the structural coupling check installed and verified against six adversarial mutations, tier mapping extended, fixtures added. **Closure metadata recorded 2026-08-26 (`D-136`), raised as `B-057`.** The two-commit evidence pattern's second commit never happened, so this entry asserted the work in prose and classified it nowhere — `Answered` proves Lane A replied, and that is all it proves. **`Applied` at `50772f1`**, where the nine steps landed. **Step 7's fixtures were corrected at `0cbcee5`** and the curated-graph merge is `b14bc49`: a verification pass reading only `50772f1` would find two fixture defects still live, so all three commits are named rather than one. **`Verified-By` is left for Lane B** — Lane A verifying its own application is the `D-102` defect performed deliberately.
-- **Resolution:** Applied
-- **Verified-By:** — none yet. Lane B raised `B-040` and is the independent verifier; this field stays open until it reports
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
 - **Evidence:** `C-32`; `D-134` (values); `D-135` §5.14cp (application); `scripts/checks/retention-policy-coupling.mjs`; `docs/source/business-case.md` `RET-EDITORIAL` section
-- **Verified-At-Commit:** 50772f1
+- **Verified-At-Commit:** 6283999
 
 ## What happened
 

@@ -6,10 +6,10 @@
 - **Blocks:** treating a newly copied handoff as reliable lane-state evidence
 - **Status:** Answered
 - **Lane A:** **Answered `D-107` — correct, and it is the same class as the defect it describes.** `TEMPLATE.md` carried live lane state, so a newly copied entry restated a status that had already moved. **`G55` names exactly this and `D-101` removed lane state from the rule files for exactly this reason** — the template was simply missed. **Fixed by deletion, not by correction**: the template now points at `V1-PHASE-CLOSURE.md` §5 and states nothing about which lane holds the lock. **Removing a duplicate is stronger than keeping it accurate**, because an accurate duplicate only drifts later.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
-- **Evidence:**
-- **Verified-At-Commit:** ea84281
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
+- **Evidence:** `TEMPLATE.md` contains no current lane holder; `channel-docs` PASS and its tracked fixture group is 6/6
+- **Verified-At-Commit:** 6283999
 
 ## What happened
 

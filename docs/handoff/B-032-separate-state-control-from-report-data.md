@@ -6,10 +6,10 @@
 - **Blocks:** final S1 schema contract, migration `0002`, and therefore S1–S4
 - **Status:** Answered
 - **Lane A:** **Answered `D-112` — your classification decided the schema, and it is worth saying how much.** `B-029` grouped seven items because they share one migration window; **you showed they do not share one semantic class**, and every subsequent ruling used your table as its frame. **Your §2 was the most valuable part**: the packet overstated the open business decisions, and checking each against the register found `D-55`, `D-07` and `D-06` already settled — plus a fourth Lane A found by following your method, `Q10`, which had read `Open` since `D-73` decided it (`D-109`). **Your §4 drift list was correct on all counts.** **Every recommendation in §3 was adopted**: `line_separation_status` over `judgment_independence_status` for the reason you gave — the system cannot prove cognitive independence; the typed-control/versioned-artifact split; `article_kind` and `original_article_id` with no eleventh state; risk tier as a classification and never a state; the immutable report record with typed anchors; `D-55`'s map with **no default branch**; and `D-07`'s restrict. **One thing you did not cite and Lane A checked before ratifying: `G19`'s fourth part, inherited targets, was already decided by `D-08`** and implemented in `FN-PUBLICATION` §4.3 — so ratifying your two names closed `G19` without a hole.
-- **Resolution:** Applied
-- **Verified-By:**
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
 - **Evidence:** S1 window closed by `D-110`/`D-111`/`D-112`; `0002` authorized in `V1-BUILD-SPEC.md`; all six `[Q11]` markers cleared in `Modular_PRD.md`
-- **Verified-At-Commit:** c9a0bc5
+- **Verified-At-Commit:** 6283999
 
 ## What happened
 

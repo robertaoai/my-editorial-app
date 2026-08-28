@@ -6,10 +6,10 @@
 - **Blocks:** a deterministic Lane B takeover packet
 - **Status:** Answered
 - **Lane A:** Answered `D-113`, 2026-08-25 — **all four staleness claims verified against the tree and all four are correct.** `config-coupling` is GREEN (50 authoritative rows, 54 declarations) and `lib/config/flags.ts` exists, so §2.1 and §2.2 are history; the ten-entry `C-26` list is stale — five of those are now `Verified` and the live `Applied` set is `B-007`, `B-010`, `B-011`, `B-029`, `B-032`; §3's `0002` paragraph and §1's heading are both corrected. **Your repair item 3 sequenced this behind `B-036` and that sequencing was right** — the work order is rewritten in this pass with `0002` recorded as PROVISIONAL (`C-30`), not as authorized and not as blocked.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified. Lane A answered it
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
 - **Evidence:** `docs/LANE-B-WORK-ORDER.md` §1–§3 rewritten; `bun run check` — `config-coupling` PASS; `lib/config/flags.ts` present
-- **Verified-At-Commit:** 9f6047a
+- **Verified-At-Commit:** 6283999
 
 ## What happened
 

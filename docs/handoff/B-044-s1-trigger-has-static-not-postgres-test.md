@@ -57,3 +57,13 @@ no database ever ran it.
 
 Recorded the evidence boundary and retained the passing static contract test. No database was
 started and no dependency or build configuration was added during this closure audit.
+
+## Verification review — 2026-08-29
+
+**Keep `Applied`.** The static contract suite passes, but no PostgreSQL process applied
+`0001` + `0002` and exercised the trigger. `C-33` therefore remains the active child of the
+current `LB-S1-02` run.
+
+**Draft Lane B fix:** execute the eight database cases already specified in this entry against a
+disposable PostgreSQL database, prove rollback leaves no orphan transition, and keep live
+Supabase anon-key behavior explicitly unverified until credentials are available.

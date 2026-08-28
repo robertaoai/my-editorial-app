@@ -5,11 +5,11 @@
 - **Phase:** 1
 - **Blocks:** treating every retrospective handover record as conforming to the current turn-report contract
 - **Status:** Answered
-- **Verified-By:** — not independently verified. Lane A answered it
-- **Resolution:** Applied
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
+- **Resolution:** Verified
 - **Lane A:** Answered `D-123` — **upheld on the shape, corrected on the severity.** Checked against every script that reads this channel, `field()` in `handoff-fields.mjs` returns `null` for an absent line and a blank one alike **by construction**, and both `handoff-response` and `closure-readiness` exclude every `turn-report` from the unresolved tally regardless of which shape it used — **your "guaranteed failure" has not happened yet, because nothing here currently distinguishes the two shapes.** Normalized anyway: two representations of one semantic thing is the drift shape this project keeps finding under other names. The four blank closure-only fields are removed from `B-022` and `B-026`; nothing about their `Kind`, `Phase`, `Status`, narrative, or acknowledgement changes. The work order's "leave `Resolution:` empty. Permanently" is replaced with "omit the field entirely" so it names the same shape the README already implied.
 - **Evidence:** `docs/handoff/B-022-*.md`, `B-026-*.md` — four blank lines removed; `docs/handoff/README.md`, `TEMPLATE.md`, `docs/LANE-B-WORK-ORDER.md` §5 — wording normalized
-- **Verified-At-Commit:** ed256d2
+- **Verified-At-Commit:** 6283999
 
 ## What happened
 

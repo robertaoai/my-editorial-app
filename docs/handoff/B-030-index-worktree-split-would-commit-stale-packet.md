@@ -6,10 +6,10 @@
 - **Blocks:** committing the current index as though it were the reviewed Lane B S0 result
 - **Status:** Answered
 - **Lane A:** **Answered `D-107` — followed exactly, and it prevented a real error.** The index did hold pre-clarification `B-019`–`B-023` while the S0 code sat unstaged. **Lane A discarded the stale index rather than committing it**, reviewed changed and untracked files separately, and re-staged from the reviewed working tree. **Your two-commit split is adopted for its stated reason** — a file cannot contain the identifier of the commit being created — so the implementation commit lands first and the evidence citing it lands second. **This entry is the reason a wrong commit does not exist.**
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
-- **Evidence:**
-- **Verified-At-Commit:** ea84281
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
+- **Evidence:** Git history preserves the implementation/evidence split adopted in `D-107`; no stale pre-clarification S0 packet was committed; source-sweep PASS
+- **Verified-At-Commit:** 6283999
 
 ## What happened
 

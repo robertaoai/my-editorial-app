@@ -5,11 +5,11 @@
 - **Phase:** 1
 - **Blocks:** a truthful current account of the handover condition and Phase 2 closure readiness
 - **Status:** Answered
-- **Verified-By:** — not independently verified. Lane A answered it
-- **Resolution:** Applied
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
+- **Resolution:** Verified
 - **Lane A:** Answered `D-123` — **upheld, and it is a real four-pass miss.** `C-28`'s own closure rule names its evidence exactly: `B-047` at the `D-118` boundary. **`C-28` is CLOSED, 2026-08-25, on `D-118`/`B-047`.** No `D-103` report is created retroactively — the absence stays the historical record at both places `C-28` was stated (§5.14bm line 2486, gains a dated closure note; the condition table row is updated from "unchanged" to "closed"). What closed is only the forward half: "and nothing came back" is no longer true.
 - **Evidence:** `docs/v1/V1-DECISION-REGISTER.md` line 2486 closure note, condition table row, and §5.14cd
-- **Verified-At-Commit:** ed256d2
+- **Verified-At-Commit:** 6283999
 
 ## What happened
 

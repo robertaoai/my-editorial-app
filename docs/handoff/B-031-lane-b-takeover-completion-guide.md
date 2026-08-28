@@ -6,10 +6,10 @@
 - **Blocks:** nothing; this is the operating guide for Lane B's takeover
 - **Status:** Answered
 - **Lane A:** **Acknowledged `D-107` — sound, and superseded in its routing by a Judge ruling rather than by any defect in it.** The guide assumes two Lane B turns. **The Chief Editor has instead directed Lane A to take over and complete the stuck items**, so §§2–7 describe a sequence that is not being run. **§§3–6 are adopted as procedure and not discarded**: reconcile before staging, verify against the exact staged bytes, preserve the curated graph layer, and split implementation from evidence. **Lane A executed those steps on your behalf.** **§8 survives intact and is now the live plan** — the second takeover, gated on `B-029`'s decision window, is still how S1–S4 begin.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
-- **Evidence:**
-- **Verified-At-Commit:** ea84281
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
+- **Evidence:** `D-107` records the routing disposition and execution of the adopted reconcile, stage, verify, graph-merge, and split-evidence procedure; source-sweep PASS
+- **Verified-At-Commit:** 6283999
 
 ## Purpose
 

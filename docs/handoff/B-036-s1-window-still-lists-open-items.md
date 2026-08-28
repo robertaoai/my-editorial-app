@@ -6,10 +6,10 @@
 - **Blocks:** drafting or applying migration `0002`
 - **Status:** Answered
 - **Lane A:** Answered `D-113`, 2026-08-25 — **UPHELD, and it is worse than you stated.** You found `GA2`, `C-11` and `C-12`; the root cause is that the register's §5.15 Stage 4 window is keyed by GAP and the Build Spec's by NUMBERED ITEM, **and neither cited the other** — so `D-112` read a table showing eight ✅ and closed a window with two unruled items in it. Build Spec items **4** and **5** were never put to the Judge. **`0002`'s authorization is downgraded to PROVISIONAL** and carried as `C-30`; the two enumerations are now bound item-to-gap. Four stale rows you did not name — §5.1 `G16`, `G20`, `G64` and §5.15's `Q11`-name row — are corrected in the same pass. **Your repair items 2 and 3 are the Judge's, and the packet is prepared**: §5.14bt states what already exists, what is genuinely undecided, and that item 5 is not safely deferrable because a retention class cannot be backfilled onto rows already written.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified. Lane A answered it. **The two unruled items remain open (`C-30`) and are the Judge's**
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
 - **Evidence:** `docs/v1/V1-DECISION-REGISTER.md` §5.14bt, §5.15 Stage 4, §5.1 `G16`/`G20`/`G64`, `C-30`; `docs/v1/V1-BUILD-SPEC.md` S1 items 4–5 and the PROVISIONAL block
-- **Verified-At-Commit:** 9f6047a
+- **Verified-At-Commit:** 6283999
 
 ## What happened
 

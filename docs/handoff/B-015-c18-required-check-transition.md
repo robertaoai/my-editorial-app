@@ -8,7 +8,7 @@
 - **Lane A:** **Answered `D-102`, 2026-08-24 — and your item 2 outranked everything else in the entry.** **Failure direction corrected:** an absent or misnamed required context never reports, stays **pending**, and **BLOCKS the merge**. The old text said the opposite and an intervening edit appended the correction to the same sentence, leaving `C-18` asserting **both directions for one mechanism**. Now stated once. **Your item 3 — no `C-NNN` handoff existed — is answered by `C-001`**, whose own defects are corrected in that file: raiser, Phase, and the **U+00B7 MIDDLE DOT** separators that the first version dropped from the very string `C-18` exists to protect. **Item 1 is where this got larger than you framed it.** `C-001`'s live-settings review reports the ruleset targeting **no branches** and carrying **no `required_status_checks` rule at all** — so `D-89`'s merge gate may not be in force, and **renaming a context inside a rule that gates nothing is a child task.** Recorded as **`C-25`** (the evidence is held outside the repository and is not reproducible) and **`C-24`** (the compatibility job is skipped rather than failed when the real job fails, so the new context can go green proving nothing). **Item 4's compatibility sequence is sound and unchanged** — it becomes executable once the rule targets `main` and the job mirrors the real result. **Stays `Open`: the settings act and the protected-PR test are the Chief Editor's and have not happened.**
 - **Resolution:** Applied
 - **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
-- **Evidence:**
+- **Evidence:** Failure semantics corrected and `C-001` exists; `B-016` and `C-001` defer the remaining live-settings and compatibility transition to Phase 3
 - **Verified-At-Commit:** d6d406a
 
 ## What happened
@@ -77,3 +77,12 @@ respectively.
 ---
 
 > **Sprint boundary, 2026-08-24 (`D-103`): Lane B is now `Active` and Lane A is `Eligible`.** Lane A can still **write in `docs/handoff/`** — that carve-out exists so acknowledgement is never blocked — but it **cannot commit anywhere else**, so anything here needing a change outside `docs/handoff/` waits for Lane A's next `Active` turn. **A blocking entry stops that item, not the lane** (`D-101`).
+
+## Verification review — 2026-08-29
+
+**Keep `Applied`.** The documentation defect and missing handoff are corrected. The parent
+outcome is not complete because the live ruleset evidence, failure-mirroring compatibility job,
+protected-PR proof, and final context rename remain deferred through `B-016` / `C-001`.
+
+**Draft Phase 3 order:** verify the live `main` ruleset first; make the compatibility job mirror
+the real result; prove the new context on a protected PR; then remove the old middle-dot context.

@@ -57,3 +57,13 @@ semantic synchronization while descriptions remain pending.
 Recorded the three separate Graphify properties and stopped before mutating graph artifacts.
 
 ---
+
+## Verification review — 2026-08-29
+
+**Keep `Applied`.** Extraction and semantic ingestion are current, but `graphify portable-check
+.graphify` still reports non-portable runtime state. Those files are gitignored, so this does not
+authorize committing them and does not negate query currency.
+
+**Draft owner fix — Graphify/runtime follow-up:** reproduce the state in a disposable directory,
+separate commit-candidate artifacts from runtime output, and require portable-check to pass for
+the exact proposed commit set. Do not commit `.graphify` runtime files.

@@ -48,3 +48,12 @@ fails or gives a misleading outcome because the lifecycle comparison has no anal
 
 Recorded the observed recurrence, did not edit the gitignored Graphify runtime state, and withheld
 the synchronization claim.
+
+## Verification review — 2026-08-29
+
+**Keep `Applied`.** `docs-drift` currently passes and the null-record diagnostic exists, but
+one healthy observation cannot close an intermittent state-reset defect.
+
+**Draft owner fix — Graphify/runtime follow-up:** reproduce the lifecycle transition in a
+disposable state directory, prevent a non-null analyzed HEAD becoming null, and verify topology,
+semantic ingestion, curated-fragment preservation, and branch metadata as separate properties.

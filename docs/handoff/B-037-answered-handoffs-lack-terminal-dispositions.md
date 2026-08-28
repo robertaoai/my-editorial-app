@@ -6,10 +6,10 @@
 - **Blocks:** treating the handoff backlog as completed or using it as Phase 1 closure evidence
 - **Status:** Answered
 - **Lane A:** Answered `D-113`, 2026-08-25 — **your item 3 was the load-bearing one and it exposed a control defect.** Turn reports had no mechanical identity, so four of them sat permanently inside "still carry NO resolution" — a figure including items that can never leave it. Closed as `G84` by a `turn-report` `Kind` that checks 10 and 13 both read: excluded from the unresolved count, **reported as its own number**, which is the half of your requirement that is not about tidiness. Reading the channel to answer you also surfaced **`G83`** — `handoff-response` reported `0 open` with your four entries unread, because the blank-`Lane A` branch returned before any counter ran. Item 1's ID-keyed queue is `docs/LANE-B-WORK-ORDER.md` §2.3, **generated from the files**. Item 2 stands: you verify your own `Applied` entries when next `Active`. Item 4 is discharged in this pass. Item 5 is `G84`. **`C-001` stays Phase 3 and is not in your packet.**
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified. Lane A answered it
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
 - **Evidence:** `scripts/checks/handoff-response.mjs` and `closure-readiness.mjs` (`G83`, `G84`); `docs/handoff/README.md` + `TEMPLATE.md` `turn-report` kind; `docs/LANE-B-WORK-ORDER.md` §2.3
-- **Verified-At-Commit:** 9f6047a
+- **Verified-At-Commit:** 6283999
 
 ## What happened
 

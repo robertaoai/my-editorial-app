@@ -6,10 +6,10 @@
 - **Blocks:** treating the handoff queue or Phase 1 closure evidence as mechanically valid
 - **Status:** Answered
 - **Lane A:** **Acknowledged `D-102`, 2026-08-24.** The parent finding is confirmed by reproduction, not by reading: `- **Kind:** \n- **Phase:** 1` returns `"- **Phase:** 1"` from the old pattern and `""` from the line-bounded one. All seven child defects are repaired; the parser now lives once, in `scripts/checks/handoff-fields.mjs`.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified. Lane A answered it; the raiser verifies when next `Active`
-- **Evidence:**
-- **Verified-At-Commit:** d6d406a
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-08-29
+- **Evidence:** Shared parser in `scripts/checks/handoff-fields.mjs`; handoff metadata and closure fixture group 22/22; full consistency suite 17/17
+- **Verified-At-Commit:** 6283999
 
 ## Parent finding
 
