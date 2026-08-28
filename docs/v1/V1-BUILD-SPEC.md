@@ -215,6 +215,8 @@ Filterable board (`FR-08`, `CR-13`) · audit view exposing the T6→T5 return ra
 
 `publication_targets`/`publications` in use · WordPress publish or LinkedIn `ManualReady` · T10 auto-fallback · T11 Chief Editor manual confirm · bounded retry (`NFR-05`) · credentials server-side only (`NFR-07`, `SEC-02`) · **first genuine use of `SUPABASE_SERVICE_ROLE_KEY`** — the architecture's first privileged path (`TC1`).
 
+**`Q3`/`Q5` ruled (`D-143`): Supabase Edge Function is the publish path; `pg_cron` is the retry scheduler.** `docs/specs/SPECS-PUBLICATION.md` specifies both. **Still open before S4 builds:** credential isolation design (`NFR-07`/`SEC-02`) and the `TC1` privileged-write-path amendment — `D-143` ruled the runtime, not these two.
+
 **Note:** `FR-09` automates WordPress, but the recommended first channel is LinkedIn (`ManualReady`, no automation) — see `G9` before specifying S4.
 
 ## 5. Parallel track — T3, the POC lane

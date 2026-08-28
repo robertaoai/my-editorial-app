@@ -9129,3 +9129,59 @@ verifier can move to `Verified`.
 **Writes no code, no schema, no migration, no check.** No `docs/handoff/` entry is dispositioned or
 moved toward `Verified` by this decision — that remains Lane B's own act on its own queue. Phase 1
 is not closed.
+
+## 5.14cx `D-143` — `Q3`/`Q5` Ruled Together: Edge Function Publish Path, `pg_cron` Retry Scheduler
+
+**Chief Editor ruling, 2026-08-28.** `FN-PUBLICATION-09-10-13.md` §7 left both Open, and the prior
+turn's audit found them **coupled, not independent** — whichever fires the retry determines what
+can receive it. Ruled as one boundary rather than two.
+
+### The ruling
+
+| Question | Answer |
+|---|---|
+| `Q3` — publish path | **Supabase Edge Function**, not a Next.js Route Handler |
+| `Q5` — retry scheduler | **`pg_cron`**, scheduling the Edge Function invocation |
+
+### Why together, and why this pairing
+
+**A Postgres-native scheduler cannot call a Vercel Route Handler directly.** `pg_cron` fires inside
+Postgres; its only native reach is a Postgres function or an HTTP call the extension makes itself.
+Deciding `Q5` as `pg_cron` therefore constrains `Q3` toward an Edge Function — the two could not be
+ruled to different runtimes without adding a bridge neither `FN-PUBLICATION-09-10-13.md` nor the
+provisioned stack calls for.
+
+**Least new infrastructure, on what is already provisioned.** `D-120` provisioned the Supabase CLI
+and local dev stack for `C-33`'s runner; `pg_cron` is a Postgres extension on the same already-
+provisioned database, not a new service. **This ruling adds no new dependency** — it selects among
+what `D-120` already stood up.
+
+### What this does and does not settle
+
+**Settled:** the runtime and firing mechanism for `FR-09`'s publish attempt and `NFR-05`'s bounded
+retry. `PUBLISH_RETRY_BACKOFF_MINUTES = 5` (`CONFIG_LOG.md`) now has something to fire it.
+
+**Not settled by this ruling — three of the fn-spec's five `SPECS`-requiring components remain
+open:** credential isolation (`NFR-07`/`SEC-02` — where the Edge Function's own secrets live, a
+separate design), the privileged write path review (`SUPABASE_SERVICE_ROLE_KEY`'s first genuine
+use amends `TC1`'s finding, per `FN-PUBLICATION-09-10-13.md` §9 — a `TC1` amendment, not a
+consequence of this ruling), and `TR-DM-03`'s schema shape (**already substantially answered** by
+`publication_targets`/`publications` in `0002_s1_editorial_schema.sql`, drafted at `d826b53` —
+restated here as unaffected, not reopened).
+
+### Gaps
+
+**Opened:** none — `Q3`/`Q5` were already-open questions, not gaps. **Closed:** `Q3`, `Q5` — both
+now ruled. **Unchanged:** `C-26` open; `C-27`, `C-33`, `C-34`; `AC-12a`, `G88`, `G41`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `Q3`/`Q5` ruled | ✅ §5.14cx | ✅ **§S4 — publish path and retry scheduler named** | **— unaffected** | ✅ **`docs/specs/SPECS-PUBLICATION.md` created** (publish-path and retry-scheduler components only) | **— unaffected: no lane or boundary change** | **— unaffected: behaviour (`FR-09`, `NFR-05`) is unchanged, only its implementation is now named** |
+
+### Scope limits
+
+**Writes no code.** The Edge Function and `pg_cron` job are Lane B's surface (`supabase/`,
+`app/`) to build, not Lane A's to implement. Does not resolve credential isolation, the `TC1`
+privileged-path amendment, or `Q11`-class naming. Does not authorize applying `0002`.

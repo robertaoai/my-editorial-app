@@ -63,7 +63,7 @@
 | `docs/fn-specs/FN-EXCEPTIONS-06-11-12.md` | `G33a`, `FR-06`/`FR-11`/`FR-12` | ✅ |
 | `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` | `D-52`/`D-53` — **S1 precondition** | ✅ |
 | `docs/specs/SPECS-BOARD-QUERY.md` | `D-52`, S3 | ❌ |
-| `docs/specs/SPECS-PUBLICATION.md` | `D-52`, S4 *(five components)* | ❌ |
+| `docs/specs/SPECS-PUBLICATION.md` | `D-52`, S4 *(five components)* | ✅ **Created 2026-08-28 (`D-143`).** Two of the five: publish path (Edge Function) and retry scheduler (`pg_cron`). **Three remain unwritten**: credential isolation (`NFR-07`/`SEC-02`), the `TC1` privileged-write-path amendment, and `TR-DM-03`'s schema shape — the last already substantially answered by `0002_s1_editorial_schema.sql`, not restated here |
 | `docs/specs/SPECS-EXCEPTIONS.md` | `D-52`, S5 | ❌ |
 | `docs/graph-fragments/` | `G51` — curated graph layer, rebuild source | ✅ |
 | `X3` eight-row state backfill mapping | `G57` → `D-55`, S1 input | ✅ *(as data in `V1-DECISION-REGISTER.md` §5.14p — no separate file; a second copy would be a restatement, `D-54`)* |
