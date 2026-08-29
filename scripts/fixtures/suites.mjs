@@ -472,15 +472,29 @@ export async function laneState(results) {
     restore,
     expect: "lanes are `Active`",
   });
+  // `D-156` inverted three of these against `D-108` (`G110`). Kept as fixtures
+  // rather than deleted: the pairs below are the proof the inversion took
+  // effect, and a deleted negative test leaves no evidence either way.
   await fixture(results, {
-    name: `lane-state: ${others[0]} is Eligible while ${active} is Active`,
+    name: `lane-state: ONE Eligible beside Active is the nomination (${others[0]} offered while ${active} runs)`,
     modulePath: CHECK("lane-state.mjs"),
     mutate: () => write(CLOSURE, setState(orig, others[0], "**`Eligible`**")),
     restore,
-    expect: "is `Eligible` while lane",
+    shouldPass: true,
   });
   await fixture(results, {
-    name: "lane-state: between turns — no Active, all Eligible",
+    name: `lane-state: TWO lanes are Eligible (${others[0]} + ${others[1]})`,
+    modulePath: CHECK("lane-state.mjs"),
+    mutate: () =>
+      write(
+        CLOSURE,
+        others.reduce((t, L) => setState(t, L, "**`Eligible`**"), orig),
+      ),
+    restore,
+    expect: "lanes are `Eligible`",
+  });
+  await fixture(results, {
+    name: "lane-state: NO lane is Active — every lane Eligible",
     modulePath: CHECK("lane-state.mjs"),
     mutate: () =>
       write(
@@ -488,14 +502,14 @@ export async function laneState(results) {
         LANES.reduce((t, L) => setState(t, L, "**`Eligible`**"), orig),
       ),
     restore,
-    shouldPass: true,
+    expect: "NO lane is `Active`",
   });
   await fixture(results, {
-    name: `lane-state: ${others[0]} is Blocked while NO lane is Active`,
+    name: `lane-state: NO lane is Active — ${active} steps out with others Blocked`,
     modulePath: CHECK("lane-state.mjs"),
     mutate: () => write(CLOSURE, setState(orig, active, "**`Eligible`**")),
     restore,
-    expect: "while NO lane is `Active`",
+    expect: "NO lane is `Active`",
   });
   await fixture(results, {
     name: `lane-state: ${others[1]} carries a state outside the four`,

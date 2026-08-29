@@ -110,43 +110,52 @@ export function run() {
   // being selected*, and two lanes could believe they were permitted to work —
   // **the reading that let a turn be started, doubted and abandoned.**
   //
-  // The Judge's ruling makes the legal states explicit, and there are exactly
-  // two of them:
+  // **`D-156` supersedes `D-108`'s reading of `Eligible`** (`G110`). `B-033`
+  // carried two renderings of one clarification and `D-108` adopted the wrong
+  // one, making `Eligible` a POST-RELEASE state for every lane at once. It is
+  // a NOMINATION state for exactly one:
   //
-  //   * A TURN IN PROGRESS — one `Active`, every other unfinished lane
-  //     `Blocked` on that named run.
-  //   * BETWEEN TURNS — no `Active`, every unfinished lane `Eligible`.
+  //   * `Active`   — exactly one, ALWAYS. Lane A holds it by default, because
+  //                  orchestration and governance cannot otherwise proceed.
+  //   * `Eligible` — at most ONE: the nominated next holder, offered the lock
+  //                  but not yet executing. Legal beside an `Active` lane —
+  //                  that pairing IS the handover offer.
+  //   * `Blocked`  — not selected, because another lane holds `Active` or
+  //                  `Eligible`.
   //
-  // **`Eligible` beside an `Active` is the illegal state**, and it is the one
-  // that actually happened. So `no lane Active` is no longer a finding on its
-  // own: it is the between-turns state, and what makes it wrong is a `Blocked`
-  // row naming a run that is not happening.
+  // Three inversions against `D-108`, each deliberate: zero `Active` now
+  // fails, `Eligible` beside `Active` no longer fails, and a second `Eligible`
+  // newly fails. `D-108`'s invariant survives — one lane commits, and a lane
+  // is never permitted to work merely by not being blocked.
   if (seen.length > 1) {
     findings.push(
       `${CLOSURE} §5: ${seen.length} lanes are \`Active\` — ${seen.join(", ")}. **Exactly one lane runs at a time**; two agents believing they may commit is the silent-overwrite condition \`CLAUDE.md\` opens with`,
     );
   }
 
-  const inProgress = seen.length === 1;
-  for (const { lane, states } of laneStates) {
-    if (states.includes("Active")) continue;
-    if (inProgress && states.includes("Eligible")) {
-      findings.push(
-        `${CLOSURE} §5: lane ${lane} is \`Eligible\` while lane ${seen[0]} is \`Active\`. **A lane is \`Eligible\` only when the lock is FREE** (\`D-108\`) — while a turn runs, every other unfinished lane is \`Blocked\` on it. This exact reading let a turn be started, doubted and abandoned`,
-      );
-    }
-    if (!inProgress && states.includes("Blocked")) {
-      findings.push(
-        `${CLOSURE} §5: lane ${lane} is \`Blocked\` while NO lane is \`Active\`. **Blocked names an active run** (\`D-108\`); with the lock free there is no run to be blocked on, so this lane is \`Eligible\` or \`Done\``,
-      );
-    }
+  if (seen.length === 0) {
+    findings.push(
+      `${CLOSURE} §5: NO lane is \`Active\`. **Exactly one lane always holds the lock** (\`D-156\`) — there is no between-turns gap to rest in, and **Lane A holds \`Active\` by default** when no handover names a successor, because orchestration and governance cannot otherwise proceed`,
+    );
   }
+
+  const eligible = laneStates
+    .filter(({ states }) => states.includes("Eligible"))
+    .map(({ lane }) => lane);
+
+  if (eligible.length > 1) {
+    findings.push(
+      `${CLOSURE} §5: ${eligible.length} lanes are \`Eligible\` — ${eligible.join(", ")}. **\`Eligible\` is the SELECTION step and names at most ONE lane** (\`D-156\`); several at once names no successor at all, which is the gap \`D-155\` fell into`,
+    );
+  }
+
+  const inProgress = seen.length === 1;
 
   return {
     name: "lane-state",
     findings,
     detail: inProgress
-      ? `${rows.length} lane row(s); turn in progress — Active: ${seen[0]}`
-      : `${rows.length} lane row(s); between turns — lock free, no lane Active`,
+      ? `${rows.length} lane row(s); Active: ${seen[0]}${eligible.length ? `; Eligible (nominated): ${eligible[0]}` : "; no successor nominated"}`
+      : `${rows.length} lane row(s); NO lane Active — illegal under D-156`,
   };
 }

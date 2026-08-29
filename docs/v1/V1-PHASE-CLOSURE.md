@@ -379,9 +379,9 @@ handover is the moment that becomes a gap**, not a theoretical one.
 
 | Lane | Phase | State | Selected | Closed | Judge | Reopened by |
 |:---:|---|---|---|:---:|---|---|
-| **A** | **1 — Orchestration** | **`Blocked`** on the Lane B run `LB-S1-02` (`D-108`) — `LA-P1-04` closed (`D-142`). Closes last (`D-99`). Condition 1 met; **2 NOT met** — `Applied` entries await their raiser (`C-26`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | Robert Tan, 2026-08-27 — released the lock (`D-142`), the fifth Sprint boundary. Filed its own turn report per `D-138` | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
-| **B** | **2 — Application** | **`Active`** — run `LB-S1-02` (`D-142`). **The only lane that may commit.** Run `LB-S1-01` **completed** — `0002_s1_editorial_schema.sql` drafted with contract tests at `d826b53`. **Its completion and handover are reported by `B-047`, the sole canonical turn report for this run** (`D-123`); **`B-043` is the schema work evidence**, superseded by `B-047` and not a second handover (`D-124`, raised as `B-054`). **Its S1 claim is deliberately narrow**: the trigger has a **static contract test, not a database-executed one** (`B-044`), so the DoD phrase *"trigger written and unit-tested"* is **NOT yet earned** and is carried as **`C-33`** — `LB-S1-02` continues against it | **Robert Tan, 2026-08-27 — into `Active` (`D-142`)**, the fifth Sprint boundary. Lane A's run `LA-P1-04` completed and released the lock; the Chief Editor then selected Lane B | — | Standing project approval | — |
-| **C** | **3 — CI/CD** | **`Blocked`** on the Lane B run `LB-S1-02` (`D-108`). **A row carries ONE state**: its own item-level blockers — `C-18`, `C-24`, `C-25` for `C-Q2`, with `C-Q1` ready — are work conditions and live in those conditions, not in the lock column (`B-033`) | — not selected | — | Standing project approval | — |
+| **A** | **1 — Orchestration** | **`Active`** — holds the lock **by default** (`D-156`): `LB-S1-02` completed naming no successor, and there is no no-`Active` state to rest in. Not self-selection — the rule names the default holder. Closes last (`D-99`). Condition 1 met; **2 NOT met** — `Applied` entries await their raiser (`C-26`); **3 NOT met** — §6.1c; **5 waits on Lanes B and C**; 4 is the Judge's | Robert Tan, 2026-08-27 — released the lock (`D-142`), the fifth Sprint boundary. Filed its own turn report per `D-138` | — | Robert Tan — **`DEFER`** 2026-08-22, §6.6 | **n/a — never closed** |
+| **B** | **2 — Application** | **`Blocked`** on the Lane A run (`D-156`) — **not selected; no successor was nominated at handover.** **`LB-S1-02` COMPLETED**, reported by `B-059`. Its S1 claim is accepted narrowly: **local PostgreSQL unit-tested; live hosted anon-key behaviour unverified under `DEP-05`.** `C-33` is satisfied — the trigger now has a database-executed test, not only a static one, closing the gap `B-044` opened. Run `LB-S1-01` **completed** — `0002_s1_editorial_schema.sql` drafted with contract tests at `d826b53`. **Its completion and handover are reported by `B-047`, the sole canonical turn report for this run** (`D-123`); **`B-043` is the schema work evidence**, superseded by `B-047` and not a second handover (`D-124`, raised as `B-054`). **Its S1 claim is deliberately narrow**: the trigger has a **static contract test, not a database-executed one** (`B-044`), so the DoD phrase *"trigger written and unit-tested"* is **NOT yet earned** and is carried as **`C-33`** — `LB-S1-02` continues against it | **Robert Tan, 2026-08-27 — into `Active` (`D-142`)**, the fifth Sprint boundary. Lane A's run `LA-P1-04` completed and released the lock; the Chief Editor then selected Lane B | — | Standing project approval | — |
+| **C** | **3 — CI/CD** | **`Blocked`** on the Lane A run (`D-156`). **A row carries ONE state**: its own item-level blockers — `C-18`, `C-24`, `C-25` for `C-Q2`, with `C-Q1` ready — are work conditions and live in those conditions, not in the lock column (`B-033`) | — not selected | — | Standing project approval | — |
 
 > **Fourth Sprint boundary — 2026-08-25 (`D-118`, raised as `B-047`). TWO events, recorded as two.**
 > **(1)** Lane B's run `LB-S1-01` **completed** and released the lock — reported by the outgoing
@@ -396,6 +396,21 @@ handover is the moment that becomes a gap**, not a theoretical one.
 > **One canonical report per run — `D-123`, applied here by `D-124` (raised as `B-054`).** `B-043`
 > and `B-047` were both filed for `LB-S1-01` and this note previously named them symmetrically.
 > **`B-047` is the canonical handover**; `B-043` is the schema work evidence it supersedes.
+
+> **Sixth Sprint boundary — 2026-08-29 (`D-155`). ONE event, and recording only one is the point.**
+> Lane B's run `LB-S1-02` **completed and released the lock**, reported by `B-059` — the outgoing
+> lane filing its own report, as `§5.2` step 1 requires and as `B-047` first did.
+>
+> **No incoming lane was selected.** The Chief Editor released the lock without naming a successor,
+> so the table now shows the second legal configuration: **no lane `Active`, every unfinished lane
+> `Eligible`** (`D-108`). All three lanes moved, and that is forced rather than chosen —
+> `lane-state` fails a `Blocked` row while no lane is `Active`, because **`Blocked` names an active
+> run** and with the lock free there is no run to name.
+>
+> **Selection remains outstanding and is not implied by this row.** `Eligible` means *may be
+> selected*, never *is running*; recording a selection that has not happened is `G90`. **`B-059`'s
+> narrow S1 claim is accepted as written** — local PostgreSQL unit-tested, live hosted behaviour
+> unverified under `DEP-05` — and `C-33` is satisfied.
 
 > **Fifth Sprint boundary — 2026-08-27 (`D-142`). TWO events, recorded as two.**
 > **(1)** Lane A's run `LA-P1-04` **completed** and released the lock — filed as this section's own
@@ -435,7 +450,7 @@ phase record, and copied into the report; **the report does not mint its own.**
 | **`LB-S0-03`** | B | The S0 worktree turn — `build-config.ts`, `flags.ts` | `B-026` |
 | **`LB-S1-01`** | B | The S1 schema draft | `B-047` — canonical; `B-043` is its work evidence |
 | **`LA-P1-04`** | A | The fourth-boundary Lane A run — handoff channel review, graphify currency, vocabulary sweep | §5.14cw (`D-142`) |
-| **`LB-S1-02`** | B | Continuing S1 — `C-33`'s database-executed trigger test, and the remaining S1 window items | in progress |
+| **`LB-S1-02`** | B | Continuing S1 — `C-33`'s database-executed trigger test, and the remaining S1 window items | `B-059` — **completed 2026-08-29**, lock released (`D-155`) |
 
 > **How the `Report` cell is filled differs by lane, and that is deliberate (`D-138`).** A build
 > lane cites its `docs/handoff/` turn report — `B-047` for `LB-S1-01`. **Lane A cites the register

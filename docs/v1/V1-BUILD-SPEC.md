@@ -37,10 +37,13 @@ rule files, build config
 ```
 
 **Exactly one lane is `Active` at a time** — one desktop app, unchanged — and **while it runs the
-other unfinished lanes are `Blocked` on its named run** (`D-108`, superseding `D-107`); a lane
-becomes `Eligible` only once the lock is released. *This paragraph read "Phase 1 is current" and
+other lanes are `Blocked`** unless one is nominated `Eligible` as its successor (`D-156`,
+superseding `D-108` — `Eligible` is the selection step, at most one, and Lane A holds `Active`
+by default). *This paragraph read "Phase 1 is current" and
 presented a strict `A → B → C` gate — superseded by `D-100`'s continuous cycle, given precise
-states by `D-101`, and corrected to the exclusive lock by `D-108`. It also **named which lanes held
+states by `D-101`, corrected to the exclusive lock by `D-108`, and corrected again by `D-156` —
+`D-108` had made `Eligible` a post-release state for every lane at once, removing the nomination
+step (`G110`). It also **named which lanes held
 which state while claiming not to restate live state** — the naming is removed (`D-152`, raised in
 `B-033`'s verification review).* **The live state is `V1-PHASE-CLOSURE.md` §5 and nowhere else**;
 this document does not restate it.
