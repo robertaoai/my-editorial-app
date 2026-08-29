@@ -128,8 +128,6 @@ alter table articles
     (risk_tier_assigned_at is not null and risk_tier_assigned_by is not null and risk_tier_reason is not null)
   );
 
-create unique index articles_url_uidx on articles (url);
-
 alter table sources
   add column reliability_tier reliability_tier,
   add column ingestion_method ingestion_method;
@@ -360,7 +358,10 @@ begin
     where target.article_id = old.id
       and event.event_type = 'Published'
       and event.published_url is not null
-      and event.xmin::text::bigint = (txid_current() % 4294967296)
+      -- A visible row whose creating transaction is still in progress is ours:
+      -- MVCC hides rows from every other uncommitted transaction. This remains
+      -- correct when the caller uses a savepoint and xmin holds a subtransaction ID.
+      and pg_xact_status(event.xmin::text::xid8) = 'in progress'
   ) then
     raise exception 'Published requires a live publication event in the same transaction'
       using errcode = '23514';
@@ -391,7 +392,10 @@ begin
   where wt.article_id = old.id
     and wt.from_state = old.workflow_state
     and wt.to_state = new.workflow_state
-    and wt.xmin::text::bigint = (txid_current() % 4294967296);
+    -- Do not compare xmin to txid_current(): a savepoint gives inserted rows a
+    -- subtransaction ID while txid_current() returns the top-level ID. MVCC
+    -- visibility plus an in-progress xmin identifies this transaction safely.
+    and pg_xact_status(wt.xmin::text::xid8) = 'in progress';
 
   if matching_transition_count <> 1 then
     raise exception 'article transition requires exactly one preceding audit row in the same transaction; found %',

@@ -87,8 +87,10 @@ describe("S1 editorial schema migration", () => {
 
   test("requires one preceding same-transaction audit row", () => {
     expect(migration).toContain("matching_transition_count <> 1");
-    expect(migration).toContain("wt.xmin::text::bigint");
-    expect(migration).toContain("txid_current() % 4294967296");
+    expect(migration).toContain("wt.xmin::text::xid8");
+    expect(migration).toContain("event.xmin::text::xid8");
+    expect(migration).toContain("pg_xact_status");
+    expect(migration).not.toContain("txid_current() % 4294967296");
     expect(migration).toContain("rule.required_role = wt.gate_role");
     expect(migration).toContain("rule.required_line = wt.line_assignment");
     expect(migration).toContain("rule.required_actor_type = wt.actor_type");
@@ -121,6 +123,13 @@ describe("S1 editorial schema migration", () => {
 
   test("does not introduce the deferred articles retention class", () => {
     expect(migration).not.toContain("retention_class");
+  });
+
+  test("allows separate commissions to reuse the same source URL", () => {
+    expect(migration).not.toContain("articles_url_uidx");
+    expect(migration).not.toMatch(
+      /create\s+unique\s+index[\s\S]{0,100}on\s+articles\s*\(\s*url\s*\)/i,
+    );
   });
 
   test("does not modify or recreate the frozen baseline migration", () => {
