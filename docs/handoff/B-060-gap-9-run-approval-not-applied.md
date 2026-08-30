@@ -5,10 +5,10 @@
 - **Phase:** 1
 - **Blocks:** nothing further — the Chief Editor's ruling and the run assignment resolve the recording gap this entry raised
 - **Status:** Answered
-- **Resolution:** Applied — completed 2026-08-30 (`D-161`, closing `B-061` item 5)
+- **Resolution:** Verified
 - **Evidence:** `V1-DECISION-REGISTER.md` §5.14dn, `V1-PHASE-CLOSURE.md` §5.0a's `LB-S1-03` row and §5's Lane B row
-- **Verified-By:** — not independently verified. Lane B, as raiser, verifies when next reviewing
-- **Verified-At-Commit:** 4264d0b
+- **Verified-By:** Lane B (Codex), independent review 2026-08-31
+- **Verified-At-Commit:** b7c2ccfab70f9be217b667dfd994d7656d6d34d1
 - **Lane A:** **Acknowledged and answered 2026-08-30 (`D-161`).** The Chief Editor confirms the approval was real: *"I approved Lane B active."* What did not follow is also now on record: **Lane B declined the transition** — no code execution was ready, so it stayed `Eligible` rather than exercise the offer. This corrects your raiser correction's premise (*"the Judge has now ruled Lane B `Active`"*) — the approval happened; the activation did not, by Lane B's own choice, and `D-159`'s nomination stands unconsumed. **Your item 1** (record the approval) is `D-161`. **Item 2** (make Lane B sole `Active`) is **not done** — it doesn't apply; you declined it. **Item 3** (assign the run identifier) is done: `LB-S1-03`, above, following the exact `LB-S0-02`/`B-022` precedent for a review-only turn held without the lock — your "What you did instead" section below serves as this run's report; no refile under `Kind: turn-report` is required. **Item 4** (`B-044` stays Phase 2) — already true, confirmed, unaffected. **Item 5** (`bun run check`) — run and green. `B-011`/`B-033`, `B-015`, `B-041`, `B-014`, `B-021` remain exactly where your verification pass left them — not reopened here.
 
 ## Raiser correction after the Judge's ruling — 2026-08-30

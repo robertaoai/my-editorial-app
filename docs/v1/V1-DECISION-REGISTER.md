@@ -10384,3 +10384,92 @@ build-packet scope, not the six anchors `docs/ENCYCLOPEDIA-SYNC.md` tracks.
 the route/action remain Lane B's to write once nominated. This entry does not change lane state,
 does not nominate Lane B `Eligible`, and does not rule on `SEC-06`'s re-anchor — it only names
 that gap and its owner.
+
+---
+
+## 5.14ds `D-166` — `SEC-06` Anchored to the 2024 GIAS, Not a "2026 Standards"; Remaining `D-165` Drift Closed, Closing `B-065`
+
+**Lane A correction, 2026-08-31, from Lane B's source-verification review of the `SEC-06` gap
+`D-165` opened.** Corrects a naming error in the gap `D-165` itself opened (there is no separate
+"2026 IIA Standards" edition) and finishes propagating `D-165`'s `SEC-01` correction into two
+locations it missed.
+
+### The source, corrected
+
+**There is no 2026 IIA Standards edition.** The current, operative core is the IIA *Global
+Internal Audit Standards* (IPPF 2024), issued 9 January 2024, effective 9 January 2025 — verified
+against the attached PDF/Markdown and the IIA's own catalogue
+(<https://www.theiia.org/en/content/standards/complete-global-internal-audit-standards/>).
+`D-163`'s and `D-165`'s "2026 Statement of Position" phrasing named the wrong document type and
+edition; retired from every current-value location. Supplementary IIA material (Statements of
+Position, Topical Requirements, practice guidance, tools) issued or updated through 2026 is **not**
+adopted as a system requirement this phase — future reference only, unless a later governing
+decision names its scope, owner, phase, and acceptance evidence.
+
+### `SEC-06`, replaced
+
+`Modular_PRD.md` `SEC-06`'s row is replaced with Lane B's proposed operative meaning: organizational
+assurance evidenced by a documented mandate, board-equivalent reporting path, scope/method/
+conclusion autonomy, unrestricted evidence read access, protection from undue influence, and
+disclosed impairment safeguards (Standards 2.2, 7.1, 9.5). Status stays **specified, not built,
+absent for v1** — `FR-11`'s risk-triggered per-article check is an additional project control and
+cannot by itself discharge `SEC-06`. Standard 8.4 (external quality assessment) stays part of the
+core Standards but out of the `SEC-06` system row until a later phase operationalizes an internal
+audit function.
+
+### Residual `D-165` drift, closed
+
+Two current-value locations `D-165` did not reach:
+
+1. `Modular_PRD.md` §6.5's explanatory footnote still said *"the Responsible party never equals
+   the Accountable party at a Line boundary"* — restated to the successor-node rule, matching the
+   already-corrected `SEC-01` row.
+2. The M2 (§7.4) and S2 (§8.1) status rows still read *"blocked on `Q12`, `Q1`, both open Chief
+   Editor decisions"* after `D-163` closed both for Phase 0. Restated to name S2 Unit 1 as
+   authorized and Unit 2 as not yet authorized, `Q1`'s production half unchanged with `OD3`.
+
+Line 3's Persona row (§4) said assurance works by *"sharing no data path with Line 1 or Line 2"* —
+backwards against Standards 7.1/9.5, which require evidence access and coordination. Restated to
+unrestricted read access plus an independent reporting/authority path, with Lines 1/2 barred from
+controlling scope or conclusions, not from all data contact.
+
+### Boundaries confirmed unaffected — not reopened
+
+Per Lane B's own confirmation, none of the following change: `Q11`'s closed three-value shape
+(`D-97`/`D-111`); S0's completion (`D-95`) — `Q11` was an S1 migration decision, not a last S0
+field; every existing table's generated UUID primary key (no no-op migration); POC payment,
+manual and outside the application until `NG-02`/`NG-03` lift and a separate POC Charter/PRD
+authorizes it; and Lane C's `fetch-depth: 0` / status-context items, Phase 3, untouched here.
+
+### `B-062`/`B-063` closure status, unchanged
+
+Both remain `Resolution: Applied`, not `Verified` — `Applied` was always the correct, non-terminal
+resolution (fix in tree, not independently confirmed), and this entry does not upgrade either to
+`Verified`. `B-065`'s point that they cannot be `Verified` "from their response text" was already
+satisfied by using `Applied`; it is recorded here so the distinction is explicit, not inferred.
+
+### Gaps
+
+**Closed:** `B-065`'s parent finding (no "2026 Standards" edition exists) and its listed residual
+`D-165` drift (§6.5 footnote, M2/S2 status rows, Line 3 persona row). **Opened:** none — the
+`SEC-06` row is now specified against a real, current source; building the assurance function
+itself remains unscheduled future work (`M5`/S5), unchanged. **Unchanged:** `Q11`, S0, UUID
+schema rule, POC payment, Lane C — confirmed, not reopened.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `SEC-06` re-anchored to 2024 GIAS | ✅ §5.14ds | **— unaffected: S2 Unit 1 sequence unchanged** | **— unaffected** | **— unaffected: no new assurance artifact created** | **— unaffected** | ✅ `SEC-06` row, §6.5 footnote, §4 Line 3 persona row |
+| M2/S2 status Q12/Q1 restated | ✅ §5.14ds | **— unaffected: already correct in `V1-BUILD-SPEC.md`/`LANE-B-WORK-ORDER.md` per `D-165`** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §7.4 M2 row, §8.1 S2 row |
+| `SEC-01`/`SEC-06`/`FR-11` separation stated explicitly | ✅ §5.14ds | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §6.5 footnote |
+| `B-062`/`B-063` remain `Applied`, not `Verified` | ✅ §5.14ds (clarifying, no status change) | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Encyclopedia:** Entry mapping unaffected — this correction touches `SEC-06`'s source citation
+and residual drift cleanup, not the six anchors `docs/ENCYCLOPEDIA-SYNC.md` tracks.
+
+### Scope limits
+
+**Corrects a source citation and finishes a propagation sweep; authorizes no new code, schema, or
+build.** Does not schedule `M5`/S5 (the assurance function itself), does not touch `Q11`, S0,
+Lane C, or POC payment, and does not change `B-062`/`B-063`'s resolution state.

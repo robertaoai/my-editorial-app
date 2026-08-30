@@ -1,0 +1,67 @@
+{
+  "_comment": "Fragment 103 — curated nodes for B-065 (SEC-06's 2026-Standards naming error and residual D-165 drift) and its D-166 correction. Same G109-class extraction gap as every new docs/handoff/ file. Merged 2026-08-31.",
+  "nodes": [
+    {
+      "id": "b065_sec06_2026_iia_reanchor_and_d165_verification",
+      "label": "B-065: SEC-06 Needs the Core GIAS Anchor, D-165 Not Yet Verifiable",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-065-sec-06-2026-iia-reanchor-and-d165-verification.md",
+      "source_location": "whole document",
+      "description": "D-163/D-165 tracked a '2026 IIA Statement of Position' re-anchor for SEC-06 as a separate task, but no such 2026 Standards edition exists. The current operative core is the IIA Global Internal Audit Standards (IPPF 2024), issued 9 January 2024, effective 9 January 2025. B-065 also found two current-value locations D-165's SEC-01 correction never reached: Modular_PRD's Section 6.5 footnote still restated the wrong R-never-equals-A rationale, and the M2/S2 status rows still named Q12/Q1 as open after D-163 closed them for Phase 0. Closed by D-166, which replaced the SEC-06 row with a source-correct operative meaning, fixed both residual locations, and confirmed Q11/S0/UUID/payment/Lane C boundaries stay closed.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": "https://www.theiia.org/en/content/standards/complete-global-internal-audit-standards/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A gap opened as 'read the newer source and re-anchor to it' can itself be wrong about which source is newer or whether it exists at all -- closing D-165's SEC-06 gap required checking the IIA's actual catalogue, not just executing the reading task as specified."
+    },
+    {
+      "id": "d166_sec06_anchored_to_2024_gias",
+      "label": "D-166: SEC-06 Anchored to the 2024 GIAS, Residual D-165 Drift Closed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14ds",
+      "description": "Lane A correction closing B-065. Retires the non-existent '2026 IIA Standards' phrasing from every current-value location; replaces Modular_PRD's SEC-06 row with an operative meaning sourced to the 2024 Global Internal Audit Standards (Standards 2.2, 7.1, 9.5); fixes the Section 6.5 footnote's R-never-equals-A restatement and the M2/S2 status rows' stale Q12/Q1-open language; states SEC-01/SEC-06/FR-11's separation explicitly; and confirms B-062/B-063 correctly remain Applied, not Verified.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A propagation sweep (D-54) that touches the primary row but misses an explanatory footnote or a status column leaves exactly the kind of contradiction a later reviewer finds and a naive reader trusts -- D-166 exists because D-165's own sweep undercounted its blast radius by two locations."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b065_sec06_2026_iia_reanchor_and_d165_verification",
+      "target": "d165_three_defects_in_d163_d164_corrected",
+      "relation": "raised_against",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-065-sec-06-2026-iia-reanchor-and-d165-verification.md",
+      "confidence_score": 1,
+      "source_location": "Parent finding",
+      "weight": 1
+    },
+    {
+      "source": "d166_sec06_anchored_to_2024_gias",
+      "target": "b065_sec06_2026_iia_reanchor_and_d165_verification",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ds",
+      "weight": 1
+    },
+    {
+      "source": "d166_sec06_anchored_to_2024_gias",
+      "target": "d165_three_defects_in_d163_d164_corrected",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14ds",
+      "weight": 1
+    }
+  ]
+}

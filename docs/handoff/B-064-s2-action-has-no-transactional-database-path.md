@@ -12,8 +12,9 @@ transaction. The direct-PostgreSQL-client alternative is declined — a second d
 and a build-config/dependency change out of proportion to Unit 1. `LANE-B-WORK-ORDER.md` §2.2d
 step 3 now specifies this. The migration and route/action remain Lane B's to write once
 nominated; this entry authorizes the boundary, not the implementation.
-- **Resolution:** Applied
-- **Verified-At-Commit:** ee9bbc722968f9a675ffd59181c5e35212bad9a9
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent plan review 2026-08-31
+- **Verified-At-Commit:** b7c2ccfab70f9be217b667dfd994d7656d6d34d1
 - **Evidence:** `LANE-B-WORK-ORDER.md` §2.2d step 3; `V1-DECISION-REGISTER.md` §5.14dq step 3; `supabase/migrations/0002_s1_editorial_schema.sql` lines 307–411; repository search finds no existing transition RPC or direct PostgreSQL transaction client; Supabase JavaScript transaction and RPC documentation cited below
 
 ## What happened
@@ -58,4 +59,3 @@ metadata, and rollback of both writes on any error.
 
 Stopped the application portion of the packet. The database-only AC-05/AC-06 verification remains
 conceptually separable, but this planning turn performs no test or implementation.
-
