@@ -10045,3 +10045,65 @@ cited not reopened), `G109` (unrelated extraction defect).
 **Corrects one document's instruction language and records the correction.** Does not nominate,
 select, or authorize any Lane B execution; does not open a new channel; does not reopen `D-137`'s
 Graphify ruling — only cites it correctly where the external analysis had misstated it.
+
+---
+
+## 5.14dn `D-161` — The Judge Approved Lane B `Active`; Lane B Declined the Transition, and Its Review-Only Turn Is Recorded as `LB-S1-03`
+
+**Chief Editor ruling, 2026-08-30: "I approved Lane B active; Lane B rejected active state due to
+no code execution ready."** The approval is real and is recorded as such — it is not the
+unconfirmed self-report `B-060` made. What did not follow from it is also recorded: Lane B,
+offered the transition, **declined to enter `Active`** because the packet it held was verification
+of existing evidence (`B-058`, `B-044`) and one new finding (`B-060`), not an application-code
+execution run. **Lane B remains `Eligible`** (`D-159`) — the approval did not lapse or get
+rejected by Lane A; the nominated lane itself chose not to exercise it.
+
+### This has exact precedent — `LB-S0-02`
+
+**§5.0a already names a run held without the lock**: *"The `D-106` readiness review, held without
+the lock,"* reported by `B-022`, which itself states *"No application code was changed because the
+repository has not yet applied the Chief Editor's selection. This report distinguishes a completed
+review-only turn from a lane that never ran."* Today's turn is the same shape — reviewed and
+verified without holding `Active` — so it is recorded the same way: a sprint-scoped run ID,
+assigned here and cited in the entry, not minted by Lane B.
+
+### The run
+
+| Run | Lane | Turn | Report |
+|---|:---:|---|---|
+| **`LB-S1-03`** | B | Verification-only turn on the Gap 9 packet, held without the lock: independently verified `B-058` and Phase-2 `B-044`, kept `B-015`/`B-041`/`B-014`/`B-021` at `Applied` (their own success criteria unmet), filed `B-060` | `B-060` — filed `Kind: blocked-on-decision`, not `turn-report`; its "What you did instead" section carries the report content, and is cited as such rather than requiring a refile |
+
+### Why `B-060` is cited despite the wrong `Kind`
+
+`B-060`'s premise (*"the Judge has now ruled Lane B `Active`"*) was written before this ruling
+existed and does not hold as stated — B-060 is corrected below, not reopened as a fresh error.
+Refiling it under `Kind: turn-report` to match the template exactly would be process for its own
+sake; the entry already carries done/open content in the shape `D-75` requires, and citing it
+serves the same reader who would read a differently-labeled one. **Should a future review-only
+turn want a clean `Kind: turn-report` entry, `B-022` remains the reference shape.**
+
+### What this does not do
+
+**Does not make Lane B `Active`.** `D-159`'s nomination stands unconsumed. **Does not owe a
+Sprint-boundary edit** — §5's lane-state row is unchanged; only §5.0a's run table gains a row, the
+same scope `LB-S0-02` had. **Does not reopen `B-058` or `B-044`'s `Verified` dispositions** — those
+stand on their own evidence, independent of whether the turn that produced them is named `LB-S1-03`
+or left unnamed; naming it only makes the turn traceable, per Lane B's own stated concern about
+silent tracking.
+
+### Gaps
+
+**Opened:** none. **Closed:** none. **Unchanged:** all Gap 9 dispositions from the prior turn's
+packet stand as verified/kept by Lane B's own turn.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Approval recorded; decline recorded; `LB-S1-03` assigned | ✅ §5.14dn | **— unaffected: no scope or DoD change** | **— unaffected** | **— unaffected: no artifact created** | ✅ **§5.0a run table gains one row** | **— unaffected** |
+
+### Scope limits
+
+**Names an approval, a decline, and a run identifier. Authorizes no execution.** Does not change
+Lane B's lock state, does not close any Gap 9 item beyond what Lane B's own verification already
+closed, and does not require a `Kind: turn-report` refile of `B-060`.

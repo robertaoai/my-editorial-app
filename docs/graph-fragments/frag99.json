@@ -1,0 +1,32 @@
+{
+  "_comment": "Fragment 99 — B-060: Judge activation approved, Lane B declined it, recorded as LB-S1-03 (D-161). Left absent from the graph by the same G109-class extraction gap as B-058/B-059. Merged 2026-08-30.",
+  "nodes": [
+    {
+      "id": "judge_activation_approved_and_declined_recorded_as_a_review_only_turn",
+      "label": "Judge Activation Approved and Declined, Recorded as a Review-Only Turn",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-060-gap-9-run-approval-not-applied.md",
+      "source_location": "whole document",
+      "description": "Lane B raised a recording gap after asserting the Judge had ruled it Active. The Chief Editor confirmed the approval was real but that Lane B itself declined the transition, since the Gap 9 packet was verification work rather than an application-code execution run. D-161 recorded both the approval and the decline, and assigned LB-S1-03 as a review-only turn held without the lock, following the exact LB-S0-02/B-022 precedent rather than inventing a new mechanism.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A lane offered activation is not obligated to take it, and declining is not a failure to record — it is a fact worth recording precisely so a docs-only pass is not silently indistinguishable from either an unrun turn or a full execution run. The entry's own premise (an already-applied activation) did not survive the Chief Editor's clarification, and was corrected in place rather than reopened as a fresh error."
+    }
+  ],
+  "edges": [
+    {
+      "source": "judge_activation_approved_and_declined_recorded_as_a_review_only_turn",
+      "target": "next_16_invalidates_the_lane_a_owned_next_config_eslint_field",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-060-gap-9-run-approval-not-applied.md",
+      "confidence_score": 1,
+      "source_location": "What happened",
+      "weight": 1
+    }
+  ]
+}
