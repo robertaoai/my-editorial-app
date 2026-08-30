@@ -10107,3 +10107,60 @@ packet stand as verified/kept by Lane B's own turn.
 **Names an approval, a decline, and a run identifier. Authorizes no execution.** Does not change
 Lane B's lock state, does not close any Gap 9 item beyond what Lane B's own verification already
 closed, and does not require a `Kind: turn-report` refile of `B-060`.
+
+---
+
+## 5.14do `D-162` — B-061's Multi-Tier Drift Corrected; the Next Code Unit Stays Undefined
+
+**Chief Editor-directed review, 2026-08-30, following `LB-S1-03`'s review-only turn.** Lane B's
+next review tested a different question than Gap 9 or `D-161`: whether the documents and
+dependencies a future Lane B code-creation run would read are themselves current. They were not.
+Consolidated into `B-061`, fact-checked against the repository before acting (grep, filesystem,
+and `git log` — not accepted from the entry's own claims).
+
+### `G112` — opened and partially closed: eight Lane B-facing inputs described pre-S1 state after S1 completed
+
+| Input | Stale claim | Corrected to |
+|---|---|---|
+| Shared core (`CLAUDE.md`/`AGENTS.md`/`.agents/rules/graphify.md`) | *"`0002_*.sql` unwritten"* | `0002_s1_editorial_schema.sql` exists, applied, local-PostgreSQL-tested |
+| `AGENTS.md` Codex-specific §1 | *"Start at S0"*, *"`0002`... blocked on `Q11` via `G64`"*, no pointer to `LANE-B-WORK-ORDER.md` | S0 marked historical (`<details>`), false blocker removed, work order named as the living source |
+| `V1-BUILD-SPEC.md` (three passages) | *"Stage D not unblocked... `0002` blocked on `Q11`'s deferred shape"* | Correction notes appended (history preserved, not rewritten) — `Q11` decided, S1 window closed, `0002` applied |
+| `V1-ARTIFACT-INVENTORY.md` (four rows) | `flags.ts` "genuinely absent" (exists since `43c51ce`); `build-config.ts` "incomplete" (route constants exist, `config-coupling` green); `0002` "correctly absent" (written and applied); `docs/specs/ux/` "exists, empty" (does not exist) | All four corrected to filesystem-verified state |
+| `Modular_PRD.md` §7.4/§8 (two tables + one long-form cell) | M0/S0, M1/S1 read *"Not started"*; `0002` still described blocked | Marked **Done** with the narrow S1 caveat preserved; S2 marked blocked on `Q12`/`Q1` specifically, not generically unstarted |
+| `docs/fn-specs/FN-GATES-01-05.md` (three passages) | `[Q11]` naming *"pending"*; `AC-02` requires a unique index Lane B's own `D-121` retired | Named column, decided name; `AC-02` rewritten to the actual accepted behaviour and the real duplicate key |
+| `docs/CONFIG_LOG.md` | *"`G64`/`Q11` govern the column's shape... which is why `0002` is blocked"* | Corrected; symbol rename noted as a separate, not-yet-done pass |
+| `docs/DECISION_LOG.md` | `Q11` row: *"Open, deferred past S1... blocks the `0002` draft"* | Corrected to decided/applied |
+
+**Not corrected, and stated why:** the config constant `JUDGMENT_INDEPENDENCE_STATUS_VALUES` in
+`lib/config/build-config.ts` keeps its name — a symbol rename to match `line_separation_status`
+is a separate, code-touching pass outside this docs-only review's surface, and is noted as pending
+rather than silently left inconsistent.
+
+### The parent gap does not close here, and should not
+
+**`B-061`'s item 1 — no next Lane B code unit is defined — is correctly still open.** `Q12`
+(the IIA Statement of Position re-anchoring, blocking S2's Line-exclusivity build) and `Q1`
+(Line 1 roster shape) are both genuine Chief Editor decisions this pass cannot make. Fixing eight
+documents' stale claims does not manufacture a deterministic S2 packet; it only ensures that once
+one exists, the inputs describing it will be true. **`B-061`'s item 4 — whether S2's blind-review/
+reveal needs a stack-specific UX spec — is also correctly left open**, for the same reason:
+`docs/specs/ux/`'s absence is now recorded accurately, but deciding whether to create it is a
+scoping judgment for whoever defines the S2 packet, not a fact this pass corrects.
+
+### Gaps
+
+**Opened and partially closed:** `G112` — the eight-input drift is corrected; the parent
+(next-code-unit definition) and the S2 UX-spec question remain open, both correctly, both
+Chief-Editor-owned. **Unchanged:** `Q12`, `Q1`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Eight-input drift correction | ✅ §5.14do, `G112` | ✅ **three passages corrected** | ✅ **shared core (byte-identical) + `AGENTS.md`'s own S0 section** | ✅ **four rows corrected** | **— unaffected: already correct (§5 live table)** | ✅ **§7.4/§8 corrected** |
+
+### Scope limits
+
+**Corrects documentation to match filesystem/register truth. Defines no next code unit, decides
+no `Q12`/`Q1`, creates no UX spec, renames no code symbol.** Does not change Lane B's lock state
+(`Eligible`, unchanged) or nominate/select/activate anything.

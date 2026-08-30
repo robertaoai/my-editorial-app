@@ -87,6 +87,12 @@ Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` 
 
 **Stages A, B and C are installed — 2026-08-21 (`D-70`), executing the sequence `D-65` set out.** `eslint.config.mjs` created and the `lint` script repointed to `eslint .` (21 files, 0 findings); `R3` installed — `__tests__/smoke.test.ts`, `bun test`, and `.github/workflows/ci.yml` running typecheck, lint and test as separate steps; `C-14`'s detection checks installed at `scripts/check-consistency.mjs` and wired into CI. **Extended since** — `G66` a settings-cascade JSON parse check, `G65` a bidirectional decision-status cross-reference between the register and `Modular_PRD` §10, `D-73` a docs-drift check via `graphify` (`D-72`/`D-73`); `G69` a lane-boundary check and `G70` a source-side sweep (`D-83`/`D-87`); `D-90` a handoff-response check, extended to Lane C by `D-92`. **The running total is not recorded here** (`G75`, `D-92`) — this sentence carried `"nine"` and `"a local 8/8"` **simultaneously**, which is `G55`/`G56`/`G58`'s drift mechanism inside a single sentence. `bun run check` prints the total. **Three checks skip in CI** — `graph-coverage` and `docs-drift` read gitignored `.graphify/`, `source-sweep` needs full history — so a CI total below the local one is correct, not a regression. **CI is green on a real run.** **Stage D is not unblocked** (`D-79`): `0002` remains blocked on `Q11`'s deferred shape via `G64`, which must resolve before the `0002` draft is written (`G27`), and on the open S1 window. `Q10` is closed and contributes a tenancy column — nothing more.
 
+> **Corrected 2026-08-30 (`D-161`, closing `B-061`) — this paragraph is 2026-08-21 history, not
+> current state.** `Q11`'s shape and name are both decided (`D-97`, `D-111` — `line_separation_status`);
+> `G64` closed (`D-112`); the S1 window closed with `0002`'s authorization unconditional (`D-114`).
+> `0002_s1_editorial_schema.sql` is written, applied, and `C-33`'s PostgreSQL trigger test passes.
+> **Stage D is unblocked on the S1 shape question and remains blocked only on `Q12`/`Q1` for S2.**
+
 *Superseded state, retained for the record:* `bun run lint` formerly **exited 1** — `next lint` is deprecated and **interactive**, and **an interactive prompt in CI hangs rather than fails**. *"CI green on the current commit"* is blocked solely on that file.
 
 **`G59` closed 2026-08-21** (`D-64`) — `bun.lockb` is committed and `--frozen-lockfile` exits 0, so `R3` DoD **D-6** is satisfied and CI will judge the commit rather than the day. **The other five DoD conditions remain open.**
@@ -260,6 +266,13 @@ settle. **S0 creates only the hold location** (`docs/v1/drafts/`).
 
 **Why the boolean cannot work, retained because the reasoning is what makes the shape binding**
 (`G64`, restated by `D-69`): `G-02`'s Data Source names **one** column, but its definition excludes logged overrides, which requires `not_applicable` and `override_not_four_eyes` to be distinguishable — and a boolean maps both to `false`. **`G-02` cannot be computed from its own declared Data Source.** *(As first opened, `G64` also claimed an `NFR-03` inference violation. **Withdrawn** — "inferred at read" is undefined across the corpus, and `NFR-03`'s measured target is "100% non-null", which a boolean meets. `C-16` carries the undefined term.)* **`G64` was *specified, not applied* until `D-97` chose between the two shapes; it is now applied.** *(This sentence read "specified, not applied … the choice belongs to `Q11`" for two days after `D-97` made that choice — `B-012`.)* **`0002` remains blocked — by `Q11`'s open NAMING half and the rest of the S1 window, not by its shape.** `Q10` is closed (`D-73`). *(Note: The final Q10 explanation document is pending lock-in at the Alpha Portfolio milestone).*
+
+> **Corrected 2026-08-30 (`D-161`, closing `B-061`) — this and the two preceding paragraphs are
+> history.** `Q11`'s NAME is decided (`D-111` — `line_separation_status`), the S1 window closed
+> (`D-114`), and `0002` is no longer blocked. `0002_s1_editorial_schema.sql` exists, is applied,
+> and `build-config.ts`'s field remains named `JUDGMENT_INDEPENDENCE_STATUS_VALUES` pending a
+> separate symbol-rename pass — the stored column name (`line_separation_status`) and the config
+> constant name are not required to match.
 
 | **S0 — Lane A, provisioned ahead** | `docs/DECISION_LOG.md` · `docs/CONFIG_LOG.md` · `docs/v1/drafts/` *(the hold location, `G27` closed)* — **all three exist as of 2026-08-21 (`D-91`)** |
 | **S0 — Lane B** | `lib/config/build-config.ts` · `lib/config/flags.ts` · Stripe scaffolding **removed** |

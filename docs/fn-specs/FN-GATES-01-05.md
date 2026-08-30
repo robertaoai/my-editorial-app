@@ -127,7 +127,7 @@ Every transition carries an independence classification. Three outcomes, and **n
 
 **The requirement is the third value.** An override is *permitted* and must be *visible as an override*. Silently recording it as compliant is the failure this feature exists to prevent.
 
-> **`[Q11]` naming decision pending.** The field name asserting this is unresolved: `judgment_independence_status` claims a cognitive fact the system can only prove structurally. Proposed split — `line_boundary_crossed` (mechanism, always knowable) + `identity_assurance` (`self_asserted` | `authenticated`) + reserve `judgment_independence` null until an instrument exists. **Irreversible after S1** — the table is append-only.
+> **`[Q11]` decided (`D-97`, `D-111`) — corrected 2026-08-30 (`D-161`, closing `B-061`).** `judgment_independence_status` claimed a cognitive fact the system can only prove structurally, which is why it was renamed. **The decided column is `line_separation_status`**, typed `satisfied` | `not_applicable` | `override_not_four_eyes` (`D-97`'s shape, `D-111`'s name) — asserting the mechanism (which Line executed the gate), not a claim of cognitive independence. `identity_assurance` remains reserved and unbuilt; no `judgment_independence` field exists. **Applied in `0002_s1_editorial_schema.sql`**, written after S1's window closed (`D-114`) — no longer reversibility-pending.
 
 ## 4. User flow
 
@@ -149,7 +149,7 @@ Returns (T8) and rejections (T9) may occur at any active state and are specified
 |---|---|---|---|
 | `AC-01` `[V1]` | A Reporter agent is active | It logs a valid URL with **exactly one subject topic** and a trend signal | The article is created at the entry state |
 | `AC-01a` `[V1]` | An article exists with a subject topic | Analytical tags are added via `trend_signals` | **Many** are permitted; the subject topic is unchanged. *(`G39` — the two are distinct)* |
-| `AC-02` | An article with URL X exists | A second log of URL X is attempted | The write is **rejected as duplicate**. *Fails today — no unique index* |
+| `AC-02` | An article with URL X exists | A second log of URL X is attempted | **Corrected 2026-08-30 (`D-121`, closing `B-061`'s finding) — the original criterion is retired, not merely unmet.** The article row **is** the editorial commission (`D-111`); two commissions on one source are two rows, so **the second log is ACCEPTED**, not rejected. The duplicate guard moved to same submitter + same brief hash + same day, refused at the surface (`G95`, `D-121`, `D-133`) — a different key than this row originally named |
 | `AC-03` | An article is at `Logged` | The Investigator validates, then investigates | **Two distinct transitions** are recorded |
 | `AC-04` | An article is at `Investigated` | A Journalist agent drafts | State becomes `Drafted` with non-empty adaptation, ≥1 target, checklist complete |
 | `AC-05` ⚠ | An article is at `Drafted` | The Chief Editor executes T5 | State becomes `Reviewed`; executor recorded as human |
@@ -211,10 +211,10 @@ Applying `D-30`: a `SPECS` document is written **only** where behaviour above ca
 | Component | Why functional definition is insufficient |
 |---|---|
 | `TR-DM-01`/`TR-DM-02` schema | Column types, the ten-state enum migration path, and the tenancy boundary are not derivable from behaviour |
-| `[Q11]` field naming | Names a claim the system can prove only structurally; **irreversible after S1** |
+| `[Q11]` field naming | **Decided** (`D-97`, `D-111`) — `line_separation_status`, applied in `0002`. Historical: named a claim the system can prove only structurally |
 | Sequence-enforcement trigger | "Reject invalid transitions" does not specify trigger timing, the allowed-transitions table shape, or lock behaviour |
 | Independence classification storage | Typed columns versus JSON payload changes what is enforceable (`QA3`) |
-| Duplicate refusal | Requires a unique index; `AC-02` fails today for want of one |
+| Duplicate refusal | **Corrected 2026-08-30 (`D-121`, closing `B-061`)** — retired, not a unique index: `AC-02` above records the actual key (submitter + brief hash + day) |
 
 **Five components need `SPECS`; the rest do not.**
 

@@ -1,0 +1,32 @@
+{
+  "_comment": "Fragment 100 — B-061/D-162: eight Lane B-facing inputs still described pre-S1 state after S1 completed, corrected in one pass; the next code unit stays undefined pending Q12/Q1. Left absent from the graph by the same G109-class extraction gap. Merged 2026-08-30.",
+  "nodes": [
+    {
+      "id": "eight_lane_b_facing_inputs_described_pre_s1_state_after_s1_completed",
+      "label": "Eight Lane B-Facing Inputs Described Pre-S1 State After S1 Completed",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-061-lane-b-code-build-readiness-inputs-have-drifted.md",
+      "source_location": "whole document",
+      "description": "Lane B reviewed whether the documents and dependencies a future Lane B code-creation run would read were current, after D-161 confirmed no execution run was ready. They were not: the shared core, AGENTS.md's own S0 kickoff section, V1-BUILD-SPEC.md, V1-ARTIFACT-INVENTORY.md, Modular_PRD.md's status tables, FN-GATES-01-05.md, CONFIG_LOG.md, and DECISION_LOG.md all still described Q11 as open, 0002 as blocked or unwritten, or artifacts as absent that had existed since S0/S1 completed. A green consistency suite proved the documents were connected, not that their sentences were true. D-162 fact-checked and corrected all eight against the filesystem and register.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Mechanical consistency checks (tier-sweep, decision-status) verify that a decision arrived in a tier, not that the tier's sentences are still true afterward — a gap this corpus has named before (G65) but not this widely at once. The parent gap (no next Lane B code unit defined, blocked on Q12/Q1) and the S2 UX-spec question were deliberately left open rather than resolved, since both are genuine Chief Editor decisions no documentation correction can substitute for."
+    }
+  ],
+  "edges": [
+    {
+      "source": "eight_lane_b_facing_inputs_described_pre_s1_state_after_s1_completed",
+      "target": "judge_activation_approved_and_declined_recorded_as_a_review_only_turn",
+      "relation": "follows_from",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-061-lane-b-code-build-readiness-inputs-have-drifted.md",
+      "confidence_score": 1,
+      "source_location": "What happened",
+      "weight": 1
+    }
+  ]
+}

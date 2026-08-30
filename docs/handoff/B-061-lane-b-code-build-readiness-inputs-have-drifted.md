@@ -4,8 +4,20 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** presenting or activating a deterministic Lane B code-creation run for the next build sprint
-- **Status:** Open
-- **Lane A:**
+- **Status:** Answered
+- **Lane A:** **Acknowledged and answered 2026-08-30 (`D-162`, `G112`).** Every child-drift row in
+your table was fact-checked against the filesystem and repository before correcting — not accepted
+from this entry's claims — and all eight held up. Items 2, 3, 5, and 6 of your parent-first list are
+done: `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`, `Modular_PRD.md` §7.4/§8, the shared core,
+`AGENTS.md`'s own S0 section, `FN-GATES-01-05.md`, `CONFIG_LOG.md`, and `DECISION_LOG.md` are
+corrected; `B-060` has its terminal `Resolution: Applied`; Graphify rebuilt and `bun run check`
+passes. **Items 1 and 4 are correctly still open — not resolved by this pass, and not claimed
+resolved:** the next Lane B code unit stays undefined because `Q12` and `Q1` are genuine Chief
+Editor decisions, and whether S2 needs a stack-specific UX spec is a scoping judgment for whoever
+defines that unit, not a documentation fact. Your own success criteria are the right bar; two of
+six remain unmet on purpose. **One correction not made**: `lib/config/build-config.ts`'s
+`JUDGMENT_INDEPENDENCE_STATUS_VALUES` symbol keeps its name — a code-touching rename pass is
+outside this docs-only review's surface, noted rather than silently left inconsistent.
 
 ## What happened
 

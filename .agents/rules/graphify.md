@@ -170,9 +170,11 @@ the product's numbered Line 1/2/3. **Do not cross-reference the two vocabularies
 | `bun run check` | the `C-14` consistency apparatus — see above |
 
 **What this repository currently is.** `docs/` is the artifact. The application is scaffolding —
-roughly ten source files across `app/` and `lib/`, with `supabase/migrations/0002_*.sql` unwritten.
-Phase 1 (Lane A) is specs and governance, **not** code. Do not read the sparse `app/` tree as
-evidence the build has fallen behind; `docs/v1/V1-BUILD-SPEC.md` records where it actually stands.
+roughly ten source files across `app/` and `lib/`, plus `supabase/migrations/0002_s1_editorial_schema.sql`
+— written, applied, and local-PostgreSQL-tested (`D-114`, `D-121`); live Supabase anon-key behaviour
+remains unverified under `DEP-05`. Phase 1 (Lane A) is specs and governance, **not** code. Do not
+read the sparse `app/` tree as evidence the build has fallen behind; `docs/v1/V1-BUILD-SPEC.md`
+records where it actually stands.
 
 **`README.md` is template boilerplate.** It opens `# vibe-stack-supabase` and describes a generic
 Next.js + Supabase starter. It is **not descriptive of this project** and is precisely the kind of

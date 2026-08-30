@@ -302,9 +302,11 @@ the product's numbered Line 1/2/3. **Do not cross-reference the two vocabularies
 | `bun run check` | the `C-14` consistency apparatus — see above |
 
 **What this repository currently is.** `docs/` is the artifact. The application is scaffolding —
-roughly ten source files across `app/` and `lib/`, with `supabase/migrations/0002_*.sql` unwritten.
-Phase 1 (Lane A) is specs and governance, **not** code. Do not read the sparse `app/` tree as
-evidence the build has fallen behind; `docs/v1/V1-BUILD-SPEC.md` records where it actually stands.
+roughly ten source files across `app/` and `lib/`, plus `supabase/migrations/0002_s1_editorial_schema.sql`
+— written, applied, and local-PostgreSQL-tested (`D-114`, `D-121`); live Supabase anon-key behaviour
+remains unverified under `DEP-05`. Phase 1 (Lane A) is specs and governance, **not** code. Do not
+read the sparse `app/` tree as evidence the build has fallen behind; `docs/v1/V1-BUILD-SPEC.md`
+records where it actually stands.
 
 **`README.md` is template boilerplate.** It opens `# vibe-stack-supabase` and describes a generic
 Next.js + Supabase starter. It is **not descriptive of this project** and is precisely the kind of
@@ -318,8 +320,20 @@ Everything above this line is the shared core, identical in all three agents' ru
 part that governs *you* is `D-75` (lanes), `D-86` (Lane A provisions, you build) and `D-90`
 (how you report a problem).
 
-**Start at S0.** `docs/v1/V1-BUILD-SPEC.md` §5.1 lists what S0 must produce. **Your S0
-deliverables are exactly three:**
+**Read `docs/LANE-B-WORK-ORDER.md` — it is the living source of what to do next, not this
+section** (`D-161`, closing `B-061`). This section's S0 steps below are **history**: S0 completed
+(`lib/config/build-config.ts`, `lib/config/flags.ts`, Stripe removal — all landed and
+`config-coupling` green), `0002_s1_editorial_schema.sql` is written and applied with `C-33`'s
+PostgreSQL trigger test passing, and `0002` is **not** blocked on `Q11` — `D-111` named the
+column `line_separation_status` and `D-112`/`D-114` closed its authorization unconditionally.
+**The next Lane B code unit is not yet defined** — `V1-BUILD-SPEC.md` §8 requires a fresh build
+authorization per sprint, and S2 is blocked on `Q12` (Line-exclusivity citation) and `Q1`, both
+still open Chief Editor decisions. Do not infer a next step from the steps below; read the work
+order for the current state.
+
+<details>
+<summary>Historical — S0's original three deliverables, completed and superseded, kept for
+provenance only</summary>
 
 1. `lib/config/build-config.ts` — implements every row of `docs/CONFIG_LOG.md`, with a
    `PROVISIONAL` marker on each OD-derived value.
@@ -327,16 +341,14 @@ deliverables are exactly three:**
 3. Remove the Stripe scaffolding — `app/api/stripe/*`, `lib/stripe/`, Stripe keys in
    `.env.example` (`X8`, `NG-03`).
 
-**`docs/DECISION_LOG.md` and `docs/CONFIG_LOG.md` are NOT yours** — Lane A wrote them ahead of
-you (`D-91`) precisely so S0 is a single-lane sprint. Read `CONFIG_LOG.md`; do not edit it.
+`docs/DECISION_LOG.md` and `docs/CONFIG_LOG.md` were not Lane B's to write — Lane A wrote them
+ahead of Lane B (`D-91`) precisely so S0 was a single-lane sprint.
 
-**The `0002` draft is not yours yet.** It is blocked on `Q11` via `G64`, and its hold location
-is `docs/v1/drafts/` (`D-91`). Do not write it, and do not put anything in
-`supabase/migrations/` — that directory is the apply set.
+</details>
 
-**DoD for your part of S0:** every value in `CONFIG_LOG.md` exists as a named variable with its
-citation; `grep` finds no success-scenario literal in business logic; `0001_init.sql`
-unmodified; `bun test` and CI pass; no migration applied.
+**DoD for the completed S0 work:** every value in `CONFIG_LOG.md` exists as a named variable
+with its citation; `grep` finds no success-scenario literal in business logic; `0001_init.sql`
+unmodified; `bun test` and CI pass. **Met.**
 
 **Four rules that will otherwise cost you a rejected commit:**
 

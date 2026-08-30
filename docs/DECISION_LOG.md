@@ -98,4 +98,4 @@ one moves a `CONFIG_LOG.md` row, and someone reading this file will look for the
 | `Q5` — scheduler | Register, open (`TC7`) | `PUBLISH_RETRY_BACKOFF_MINUTES` has nothing to fire it |
 | `Q6` — re-enable build gates | Register, open (`TC6`) | Not a config value; `bun run build` is not a verification gate |
 | `Q10` — tenancy column | **Closed `D-73`, narrowed `D-79`** | Contributes a tenancy column to `0002` and nothing more |
-| `Q11` — judgment-independence field shape | **Open, deferred past S1** (`D-68`); `G64` records why the default shape is unsafe | **Blocks the `0002` draft** — `JUDGMENT_INDEPENDENCE_STATUS_VALUES` has three values and a boolean carries two |
+| `Q11` — judgment-independence field shape | **Decided** (`D-97`'s shape, `D-111`'s name — `line_separation_status`) *(corrected 2026-08-30, `D-161`/`B-061`)* | No longer blocks `0002` — written and applied in `0002_s1_editorial_schema.sql` |
