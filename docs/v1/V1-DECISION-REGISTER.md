@@ -118,7 +118,7 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `Q7` | `SEC-04`/`SEC-05` ownership — **no owner exists** | Production |
 | `G15` / `GA5` | Data-protection regime; retention versus erasure | Needs external counsel |
 
-**Chief Editor decisions still to make.** `Q0`, `Q1`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q11`, `Q12`, `QB`, `QD`, `QE`. **The list is the record; no tally is restated** (`G55`, `G56`, `G58`). *Corrected 2026-08-21 (`D-71`): `Q2` (`D-57`), `QC` (`D-59`), `G23` (`D-10`) and `G24` (`D-09`) were already decided and are removed. *Corrected again 2026-08-25 (`D-110`): `QA3` is decided and removed.* The remaining twelve were **not** individually re-verified in that pass.* *Corrected again 2026-08-21 (`D-72`): the list was wrong in **both** directions — `Q1`, `Q7` and `Q10` were **Open and Chief-Editor-owned but never listed**, `Q10` being the named blocker for Stage D. Found by `decision-status`, which now runs in CI.* *Updated 2026-08-21 (`D-73`): `Q10` is decided and unblocks Stage D.* See `V1-BUILD-SPEC.md` for which sprint each gates.
+**Chief Editor decisions still to make.** `Q0`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q11`, `QB`, `QD`, `QE`. **The list is the record; no tally is restated** (`G55`, `G56`, `G58`). *Corrected 2026-08-21 (`D-71`): `Q2` (`D-57`), `QC` (`D-59`), `G23` (`D-10`) and `G24` (`D-09`) were already decided and are removed. *Corrected again 2026-08-25 (`D-110`): `QA3` is decided and removed.* The remaining twelve were **not** individually re-verified in that pass.* *Corrected again 2026-08-21 (`D-72`): the list was wrong in **both** directions — `Q1`, `Q7` and `Q10` were **Open and Chief-Editor-owned but never listed**, `Q10` being the named blocker for Stage D. Found by `decision-status`, which now runs in CI.* *Updated 2026-08-21 (`D-73`): `Q10` is decided and unblocks Stage D.* *Corrected 2026-08-30 (`D-163`): `Q1` (Phase-0 combinable-instance ruling) and `Q12` (`SEC-01` re-sourced to the RACI, no longer an IIA citation) are decided and removed. `Q11` remains listed despite being closed at `D-111`/`D-112` — not individually re-verified in this pass either; flagged, not corrected, to avoid the exact restatement-without-re-derivation pattern `G55`/`G56`/`G58` name.* See `V1-BUILD-SPEC.md` for which sprint each gates.
 
 ## 5.1 Gap disposition — every ID
 
@@ -10164,3 +10164,66 @@ Chief-Editor-owned. **Unchanged:** `Q12`, `Q1`.
 **Corrects documentation to match filesystem/register truth. Defines no next code unit, decides
 no `Q12`/`Q1`, creates no UX spec, renames no code symbol.** Does not change Lane B's lock state
 (`Eligible`, unchanged) or nominate/select/activate anything.
+
+---
+
+## 5.14dp `D-163` — `Q12` and `Q1` Ruled: `SEC-01` Was Never an IIA Rule, and Phase 0 Allows Combinable Instances
+
+**Chief Editor ruling, 2026-08-30, from an external consultation delivered as backlog refinement
+(same pattern as `D-158`/`D-160`, not a handoff), fact-checked before recording.**
+
+### The conflation `Q12` was actually about
+
+`SEC-01` read *"Line 1 and Line 2 roles are never held by the same identity"*, sourced to *"Three
+Lines Model (IIA, 2020, updated 2024)."* `Q12` asked whether the 2026 IIA Statement of Position
+(superseding the cited 2020/2024 text) still supports the rule. **The real defect was one level
+up: `SEC-01` was never an IIA rule.** It is the daily editorial four-eyes control — the
+Responsible party (R) never equals the Accountable party (A) at a Line boundary — and that comes
+from the project's own RACI design, not from external governance-assurance literature. Verified
+against `docs/governance/raci-involvement-matrix.md` §4, which already states RACI and the Three
+Lines Model are *"complementary, not competing"* and had never been reconciled with `SEC-01`'s
+wrong citation.
+
+**Checked, not assumed:** `docs/governance/raci-involvement-matrix.md` §4 and `RACI-02` both exist
+and say what the consultation claimed before this ruling relied on them.
+
+### The ruling — `Q12`, verbatim intent
+
+`SEC-01` is re-sourced to the editorial RACI (four-eyes, R ≠ A) and no longer cites the IIA. The
+Three Lines Model is split into its own requirement, `SEC-06` (organizational assurance, Line 3
+independent of Lines 1+2) — a real, separate concern `SEC-01` never actually depended on. The
+2026 Statement of Position's currency is now `SEC-06`'s question, not `SEC-01`'s, and re-anchoring
+the exact citation date is **not done here** — reading the 2026 text remains a separate task.
+
+### The ruling — `Q1`
+
+`docs/governance/raci-involvement-matrix.md`'s `RACI-02` constrains **roles**, not **instances**:
+*"one Responsible role per task"* says nothing about how many agent instances exist. **For Phase 0
+only**, one agent instance may hold multiple Line 1 roles across gates (Reporter at T1,
+Investigator at T2, etc.), provided each gate records the distinct role and executor it acted as.
+**Production inherits the Charter's one-agent-per-gate default until `OD3` ratifies otherwise** —
+this is Phase-0 scope, not a Charter amendment, and does not answer `OD3`.
+
+### What this unblocks, and what it does not
+
+**Unblocks `SEC-01`/S2** — no longer gated on `Q12`. **`Q1`'s Phase-0 half is answered**; its
+production half stays with `OD3`, unchanged. **Does not itself define S2's next Lane B code
+unit** — that is a separate act, tracked next as `D-164`, closing the parent gap `D-162`/`B-061`
+left open.
+
+### Gaps
+
+**Closed:** `Q12`, `Q1` (Phase-0 scope). **Opened:** none. **Unchanged:** `OD3` (Q1's production
+half), the 2026 IIA citation's exact re-anchoring (a reading task, not decided here).
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `Q12`/`Q1` rulings, `SEC-01`/`SEC-06` split | ✅ §5.14dp | **— unaffected: no scope/sequence change yet** — see `D-164` | **— unaffected** | **— unaffected: no artifact created** | **— unaffected** | ✅ `SEC-01`/`SEC-06` rows, `§10` `Q1`/`Q12` rows, `§5.1`-equivalent decision list |
+
+### Scope limits
+
+**Rules two Chief Editor decisions and re-sources one requirement's citation. Authorizes no
+build.** `V1-BUILD-SPEC.md` §8 still requires a separate build authorization per sprint — this
+entry is not that authorization; `D-164` is.
