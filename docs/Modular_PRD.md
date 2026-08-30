@@ -243,7 +243,7 @@ Every published article carries a complete, tamper-evident record of who reviewe
 | **Investigator agent** | Verification — validates source, confirms trend evidence | Line 1 | Source metadata and reliability tier available to validate against | **Blocked: `sources.reliability_tier` does not exist** (TC3) |
 | **Journalist agent** | Standards fit — drafts the editorial adaptation | Line 1 | Preserve the original's meaning while adapting it | — |
 | **Chief Journalist agent** | Operational final approval at T6 | Line 1 | Confirm all prior gates before releasing to publication | — |
-| **Line 3 assurance** | Independent audit, triggered by risk signal | Line 3 | Unrestricted read access to relevant evidence and an independent reporting/authority path — Lines 1/2 cannot control its scope or conclusions (`D-166`) | **Blocked: executor identity unspecified** (OD3, Q2) |
+| **Line 3 assurance** | Independent audit, triggered by risk signal | Line 3 | Unrestricted read access to relevant evidence and an independent reporting/authority path — Lines 1/2 cannot control its scope or conclusions (`D-166`) | **Not built in v1** (`D-57`, answering `Q2`) — v1 discloses no independent assurance; `C-13`'s BCP surface is a compensating control, never Line 3. Governed by the Three Lines Model's `OD4` branch ②, not `OD3` (`OD3` is agent headcount/roster shape, unrelated to whether Line 3 exists) (`D-167`) |
 | *Reader — Agile/DevOps/ITIL professional* | Consumes published output | — | Timely, verified certification content | Not a system user; no requirement in this release |
 | *Reader — AI practitioner* | Consumes published output | — | Discourse on agentic systems, guardrails, context engineering | Not a system user; no requirement in this release |
 
@@ -403,7 +403,7 @@ This means **no KPI in §3.2 can be judged before S1 completes**, and the north-
 | `US-08` | Chief Editor | As the Chief Editor, I want to filter the board by state, topic, category, and Line, so that I can steer without opening the database | P0 | FR-08 | AC-13 | US-07 | S3 | Filter with no matches → explicit empty state, not a blank board |
 | `US-09` | Chief Journalist agent | As a Chief Journalist agent, I want approval to trigger publication to WordPress or mark LinkedIn ready, so that approved work ships without manual re-entry | P0 | FR-09 | AC-14, AC-15 | US-05 | S4 | Credentials absent → `MockPublished`, which does **not** satisfy Published. Partial failure across targets → **not representable today** (TC2) |
 | `US-10` | Chief Editor | As the Chief Editor, I want to confirm a manual LinkedIn publish by entering the live URL, so that manual targets are audited identically to automated ones | P1 | FR-10 | AC-16 | US-09 | S4 | First live URL flips the article to `Published`; subsequent targets do not |
-| `US-11` | Line 3 assurance | As Line 3, I want to audit an article on a risk trigger and report without a data path back to Line 1 or Line 2, so that assurance is not a rubber stamp | P1 ⚠ | FR-11 | AC-17 | US-07 | S5 | **Blocked: executor identity unspecified** (OD3, Q2). If Line 3 shares an identity with Line 1, it is not Line 3 |
+| `US-11` | Line 3 assurance | As Line 3, I want to audit an article on a risk trigger and report without a data path back to Line 1 or Line 2, so that assurance is not a rubber stamp | P1 ⚠ | FR-11 | AC-17 | US-07 | S5 | **Not built in v1** (`D-57`, answering `Q2`) — `OD4` branch ②, not `OD3`. If Line 3 ever exists, it must not share an identity with Line 1 |
 | `US-12` | Chief Editor | As the Chief Editor, I want Line 1 to keep working while I am unavailable, so that my absence delays review rather than halting the pipeline | P1 | FR-12 | AC-18 | US-04 | S5 | Under `CHIEF_EDITOR_ABSENCE_DEGRADED_HOURS` is already covered by Addendum §6.4. **Only the >48h case is new** (Entry 007 S7, EMS-corrected) |
 | `US-13` | Chief Editor | As the Chief Editor, I want an external regulatory or court order to force retraction immediately, so that a binding order is not queued behind internal review | P1 | FR-13 | AC-19 | US-09 | S5 | `regulatory_retraction_order` = true bypasses T8 **deliberation only** — *whether* to retract is not open when a court has ordered it. It does **not** bypass publication mechanics: the retraction notice is still drafted, still mirrored to every target the original reached, and still logged (`G23`). Internal low-risk concerns stay in the normal revision path (Entry 007 S3) |
 | `US-14` | Chief Editor | As the Chief Editor, I want the defined critical continuity conditions shown in one place, so that a condition **nobody is independently watching** is at least **continuously visible** | P1 | FR-14 | AC-21 | FR-06, FR-08, FR-09, FR-12, FR-13 | S3 | A condition that has never fired must render as **not observed**, never blank — an empty reading is indistinguishable from a healthy one |
@@ -426,12 +426,12 @@ This means **no KPI in §3.2 can be judged before S1 completes**, and the north-
 | `FR-08` | Present a board grouped by state and filterable on every `BOARD_FILTER_DIMENSIONS` value | P0 | O-05 | US-08 | AC-13 | Line 1 | S3 | — |
 | `FR-09` | On approval, publish to WordPress or mark a target ManualReady with formatted content; per-target status | P0 | O-04 | US-09 | AC-14, AC-15 | Line 1 | S4 | — |
 | `FR-10` | Confirm a manual publish by entering a live URL; article becomes Published on the first live target | P1 | O-02, O-04 | US-10 | AC-16 | Line 2 | S4 | — |
-| `FR-11` ⚠ | Trigger a Line 3 audit on defined risk conditions; Line 3 reports independently | P1 | O-03 | US-11 | AC-17 | Line 3 | S5 | **OD3** |
+| `FR-11` ⚠ | Trigger a Line 3 audit on defined risk conditions; Line 3 reports independently | P1 | O-03 | US-11 | AC-17 | Line 3 | S5 | **Not built in v1 (`D-57`); governed by `OD4` branch ②, not `OD3`** |
 | `FR-12` | Operate in degraded mode when the Chief Editor is absent beyond the configured threshold | P1 | O-01 | US-12 | AC-18 | Line 1 | S5 | — |
 | `FR-13` | Force immediate retraction on an external regulatory or court order, bypassing normal revision | P1 | O-01 | US-13 | AC-19 | Line 2 | S5 | — |
 | `FR-14` | Present a business-continuity surface displaying the defined critical observations, each with its current value and when it was last evaluated | P1 | O-01 | US-14 | AC-21 | Line 2 | S3 | — |
 
-> **Three FRs are provisional.** FR-04 (OD1), FR-05 (OD2), FR-11 (OD3). Each is buildable now under Entry 007's Phase 0 provisional acceptance, behind a config flag. **None may be reported as finally satisfied until its OD is ratified at Charter level.**
+> **Two FRs are provisional and buildable now.** FR-04 (`OD1`), FR-05 (`OD2`) — each buildable under Entry 007's Phase 0 provisional acceptance, behind a config flag; neither may be reported as finally satisfied until its OD is ratified at Charter level. **FR-11 is not provisional-and-buildable — it is decided not built in v1** (`D-57`), governed by the Three Lines Model's `OD4` branch ② (triggered if `OD2` resolves negatively), not `OD3` (agent headcount/roster shape, a separate open question `FR-11`'s build status no longer depends on).
 
 ### FR-05 detail — independence classification
 
@@ -677,7 +677,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 | FR-08 | NFR-06, NFR-04 | Covered |
 | FR-09 | NFR-05, NFR-07, SEC-02, TR-DM-03 | Covered |
 | FR-10 | NFR-02, TR-DM-03 | Covered |
-| FR-11 ⚠ | NFR-08 | **⚠ Under-specified — executor identity unresolved (OD3, Q2). Cannot be estimated** |
+| FR-11 ⚠ | NFR-08 | **⚠ Not built in v1 (`D-57`, answering `Q2`) — `OD4` branch ②, not `OD3`. Cannot be estimated while undecided whether a later phase builds it** |
 | FR-12 | NFR-05 | Covered |
 | FR-13 | NFR-02, **SEC-05 (unownable)** | **⚠ Under-specified — no legal function** |
 | FR-14 | NFR-05, NFR-08 | Covered — **displays** existing observations; defines no new measurement |
@@ -687,7 +687,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 | Status | Count | FRs |
 |---|---|---|
 | **Covered** | 11 | FR-01…FR-10, FR-12 |
-| **Under-specified** | 2 | FR-11 (OD3), FR-13 (no legal owner) |
+| **Under-specified** | 2 | FR-11 (decided not built in v1, `D-57`; `OD4` branch ②, not `OD3`), FR-13 (no legal owner) |
 | **Uncovered** | 0 | — |
 
 > Both under-specified FRs are P1 and land in S5. Neither blocks the MVP milestone. Both are blockers for their own estimation — they should not be sprint-planned until Q2 and SEC-05's ownership are resolved.
@@ -712,7 +712,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 |---|---|---|---|---|---|
 | `DEP-01` | **OD1 ratified at Charter level** | Governance | Chief Editor | M2 production done; M6 | **Open** |
 | `DEP-02` | **OD2 ratified at Charter level** | Governance | Chief Editor | M2 production done; M6. **Negative resolution = pre-launch stop** | **Open** |
-| `DEP-03` | **OD3 — agent headcount and roster shape** | Governance | Chief Editor | FR-11, M4 reassignment, M6 | **Open — no number exists at any level** |
+| `DEP-03` | **OD3 — agent headcount and roster shape** | Governance | Chief Editor | M4 reassignment, M6 | **Open — no number exists at any level.** `FR-11` no longer depends on this: `D-57` already decided it is not built in v1, independent of headcount (`D-167`) |
 | `DEP-04` | Q0 — A2 ratification recorded in the Ratification Log, and Blueprint/Business Case amended off FastAPI | Governance | Chief Editor | Deviation register D4's closure | **Open — minutes to resolve** |
 | `DEP-05` | Supabase credentials pulled to `.env.local` | Technical | Line 1 | M1 | **Deliberately withheld under the current plan** |
 | `DEP-06` | WordPress application password | Technical | Line 2 | M4 real publish *(mock mode works without)* | Not started |
@@ -792,7 +792,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 | `XF-03` | Engineering | Amend `CLAUDE.md` — it directs agents to the plan pack as authoritative and carries a superseded git identity | Line 1 | Not started | — |
 | `XF-04` | Engineering | Stand up test runner and CI | Line 1 | Not started | — |
 | `XF-05` | Engineering | Write `0002_three_lines.sql`. **Do not apply** | Line 1 | Not started | XF-04 |
-| `XF-06` | Governance | Answer Q1 and Q2, or state Line 3 is human/external for v1 | Chief Editor | Not started | OD3 |
+| `XF-06` | Governance | Answer Q1 and Q2, or state Line 3 is human/external for v1 | Chief Editor | **Done — Q1 answered Phase-0 (`D-163`), Q2 answered (`D-57`): Line 3 absent for v1** | — |
 | `XF-07` | Governance | Decide Q4 — G9 scope as the OD2 detector | Chief Editor | Not started | — |
 | `XF-08` | Engineering | Decide Q3 and Q5 — publish path, retry scheduler | Line 1 | Not started | — |
 | `XF-09` | **Legal — absent** | SEC-04 GDPR erasure; SEC-05 pre-publication review | **Unowned** | **Blocked** | DEP-08 |

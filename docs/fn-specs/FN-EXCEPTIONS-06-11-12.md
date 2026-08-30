@@ -22,7 +22,7 @@ Living document; no build-version prefix, does not freeze. **All sections `[V1]`
 
 > **`FR-06`'s placement, resolved not assumed.** `FR-06` is **T8** — *any active state → Needs Revision* — available at every gate but **not a gate itself**. The gates group (`FR-01`–`FR-05`) covers T1–T6, the forward path. T8 is the backward path. It belongs here. *(Flagged during sequencing; resolved on the reasoning that T8's executor is "any authorized role for the current state," which makes it a property of every gate rather than a member of the sequence.)*
 
-**Two of the three are `OD`-gated and cannot complete in v1:** `FR-11` depends on `OD3`, and `FR-12` depends on a threshold `OD1` informs. Recorded so neither is mistaken for buildable now.
+**`FR-12` depends on a threshold `OD1` informs and cannot complete in v1.** `FR-11` is no longer `OD`-blocked in the open sense — `D-57` decided it directly: **not built in v1**, v1 discloses no independent assurance, `C-13`'s BCP surface is a compensating control, never Line 3. That decision sits under the Three Lines Model's `OD4` branch ② (triggered if `OD2` resolves negatively), not `OD3` — `OD3` is agent headcount/roster shape, a separate question `FR-11`'s status no longer depends on (`D-167`).
 
 ## 2. User stories `[V1]`
 
@@ -41,7 +41,7 @@ Living document; no build-version prefix, does not freeze. **All sections `[V1]`
 | ID | Requirement | Line | Sprint | OD |
 |---|---|---|---|---|
 | `FR-06` | Return an article to a prior state with a **mandatory reason**; auto-escalate at the return limit | 1/2 | S1 | — |
-| `FR-11` ⚠ | Trigger a **Line 3** audit on defined risk conditions; Line 3 reports **independently** | 3 | S5 | **`OD3`** |
+| `FR-11` ⚠ | Trigger a **Line 3** audit on defined risk conditions; Line 3 reports **independently** | 3 | S5 | **Not built in v1 (`D-57`); `OD4` branch ②, not `OD3`** |
 | `FR-12` | Operate in **degraded mode** when the Chief Editor is absent beyond the configured threshold | 1 | S5 | — |
 
 ### 3.2 Constraints `[V1]`
@@ -66,7 +66,7 @@ Available from **any active state**, executed by any role authorized for that st
 
 **The reason is permanent.** Revision reasons are undeletable — `US-06`'s "permanent" is a durability requirement carried by `NFR-02`, not a UI note.
 
-### 4.2 `FR-11` — risk-triggered independent audit ⚠ *(`OD3`)*
+### 4.2 `FR-11` — risk-triggered independent audit ⚠ *(not built in v1, `D-57`)*
 
 Line 3 audits on **defined risk conditions**, not on a standing schedule, and reports **independently**.
 
@@ -77,7 +77,7 @@ Line 3 audits on **defined risk conditions**, not on a standing schedule, and re
 | Reporting | Independent. Findings do not route back through the audited Lines |
 | Record | `event_type = Line3Audit`, `line_assignment = Line 3` |
 
-> **Blocked, and named as blocked.** `Q2` asks whether Line 3 is **external** for v1 or whether v1 states plainly it has **no independent assurance**. **Not the Chief Editor** — `A23`. Until `Q2` and `OD3` resolve, `FR-11` has no executor, and `GA6` already discloses that no independent opinion exists anywhere in the model.
+> **Decided, and named as decided.** `Q2` asked whether Line 3 is **external** for v1 or whether v1 states plainly it has **no independent assurance**. `D-57` answered: v1 has **no independent assurance**, conditional on `C-13`'s BCP surface (a compensating control, never Line 3). **Not the Chief Editor** — `A23`. `FR-11` has no executor and is **not built in v1**; `GA6` already discloses that no independent opinion exists anywhere in the model. The Three Lines Model's `OD4` branch ② still binds if `OD2` resolves negatively — this is unrelated to `OD3` (headcount/roster).
 
 ### 4.3 `FR-12` — degraded mode *(absence)*
 
@@ -118,8 +118,8 @@ When the Chief Editor is unavailable beyond `CHIEF_EDITOR_ABSENCE_DEGRADED_HOURS
 | `RETURN_LIMIT_BEFORE_ESCALATION` | Config, `FR-06` | `UNSET` — S0 |
 | `CHIEF_EDITOR_ABSENCE_DEGRADED_HOURS` | Config, `FR-12` | `UNSET` — S0 |
 | `articles.revision_reason`, `revision_target_state`, `return_count` | Schema, `FR-06` | S1 |
-| `Q2` Line 3 executor | **Blocks `FR-11` entirely** | **Open** — T1 |
-| `OD3` | Roster and Line 3 identity | **Not closable at scaffolding** |
+| `Q2` Line 3 executor | Decided `FR-11` not built in v1 | **Answered (`D-57`)** |
+| `OD3` | Roster/headcount — no longer gates `FR-11`'s status | **Open, unrelated to `FR-11`** |
 | `event_type` vocabulary | `Line3Audit` value | S1 (`D-12`) |
 
 ## 8. Risks `[V1]`
@@ -129,7 +129,7 @@ When the Chief Editor is unavailable beyond `CHIEF_EDITOR_ABSENCE_DEGRADED_HOURS
 | Reason defaulted rather than refused | The permanent record carries a placeholder where a judgement belongs | Reject at write (`AC-09`) |
 | Return limit invented rather than configured | A guessed number governs escalation | `UNSET` until decided |
 | Degraded mode permits bypass | Absence becomes a gate-skip route — the exact failure `O-01` forbids | Line 1 advances, **T5 waits** |
-| `FR-11` built without a Line 3 executor | An audit feature nothing can execute; independence asserted, not delivered | `Q2` first |
+| `FR-11` claimed built or satisfied in v1 | Contradicts `D-57`'s decision that it is not built; independence asserted, not delivered | Keep status **not built in v1**, `GA6`'s disclosure standing |
 | Escalation with nowhere to escalate | Silent discard | Record the trigger regardless |
 
 ## 9. `SPECS` candidate filter — `D-30` `[V1]`
@@ -150,4 +150,4 @@ mandatory-reason refusal · per-target-state counting · auto-escalate at limit 
 
 ## 10. Scope limits `[V1]`
 
-Closes no Open Decision. `FR-11` remains `OD3`-gated and has **no executor until `Q2` resolves**. Authorizes no code, schema, or migration. Every threshold stays `UNSET`; **no number is invented here**.
+Closes no Open Decision here — `Q2` was already closed by `D-57`, applied to this document by `D-167`. `FR-11` has no executor and is **not built in v1**, governed by the Three Lines Model's `OD4` branch ②, not `OD3`. Authorizes no code, schema, or migration. Every threshold stays `UNSET`; **no number is invented here**.

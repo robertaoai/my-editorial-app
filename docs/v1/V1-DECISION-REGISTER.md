@@ -10473,3 +10473,62 @@ and residual drift cleanup, not the six anchors `docs/ENCYCLOPEDIA-SYNC.md` trac
 **Corrects a source citation and finishes a propagation sweep; authorizes no new code, schema, or
 build.** Does not schedule `M5`/S5 (the assurance function itself), does not touch `Q11`, S0,
 Lane C, or POC payment, and does not change `B-062`/`B-063`'s resolution state.
+
+---
+
+## 5.14dt `D-167` — `FR-11`/Line 3 Corrected: `Q2` Was Already Answered, and It Is `OD4`, Not `OD3`
+
+**Chief Editor clarification, 2026-08-31, consolidating the `D-165`/`D-166` review chain.** The
+Chief Editor named the specific defect directly: *"Line 3 assurance" is for `OD4` under the Three
+Lines Model* — not `OD3`. Fact-checked before recording, not accepted on assertion.
+
+### What was actually wrong
+
+Two compounding errors, found together:
+
+1. **`Q2` (Line 3's executor) was already answered.** `D-57`, 2026-08-20, decided it: v1 has no
+   independent assurance, `FR-11` is not built in v1, conditional on `C-13`'s BCP compensating
+   control. Yet six current-value locations still read "blocked," "open," or "no executor until
+   `Q2` resolves" — `Modular_PRD.md`'s Line 3 persona row (§4), `US-11` (§9), `FR-11`'s requirement
+   row and its "three FRs are provisional" footnote (§5), the traceability table (§7.2, two rows),
+   `DEP-03`'s blocking list (§7.4), `XF-06` (§10); and `FN-EXCEPTIONS-06-11-12.md` throughout
+   (§0, §3.1, §4.2 heading and body, §7 dependency table, §8 risk row, §10 scope limits).
+2. **The OD tag was wrong even before `D-57`.** `D-57` itself says *"why `OD4` branch ② still
+   binds"* — the Charter's pre-launch-blocker branch, triggered if `OD2` resolves negatively — is
+   what governs Line 3/`SEC-06`'s fate under the Three Lines Model. `OD3` (per the Charter,
+   verbatim) is *"what does the agent headcount figure count, and how does it distribute across
+   the 4 agent-holdable roles"* — a real, separate, still-open question that was never about
+   whether Line 3 exists, only about roster shape if it ever did.
+
+### The correction
+
+Every location named above is restated: `FR-11`/Line 3 is **not built in v1** (`D-57`, closing
+`Q2`), governed by the Three Lines Model's `OD4` branch ②, and `OD3` is removed from every
+place that named it as Line 3's blocker — `OD3` keeps its own, real, unrelated meaning
+(headcount/roster shape, `DEP-03`, still open) and no longer double-duties as `FR-11`'s gate.
+`XF-06` is marked done (`Q1` Phase-0 per `D-163`, `Q2` per `D-57`). `V1-BUILD-SPEC.md`'s
+"gate later sprints" list strikes `Q2`/`Q12` as answered rather than restating them as open.
+
+### Gaps
+
+**Closed:** the `OD3`/`OD4` misattribution and the six-plus-location `Q2`-still-open drift, across
+both `Modular_PRD.md` (tier 2) and `FN-EXCEPTIONS-06-11-12.md` (`Fn_Specs`, per `D-36` — a living
+document, not frozen, so this correction is a normal update, not a defect against the tier rule).
+**Opened:** none — `M5`/S5 (building the assurance function itself) remains unscheduled future
+work, unchanged. **Unchanged:** `D-57`'s substantive ruling (no independent assurance in v1,
+`C-13` compensating control), `OD3`'s own open headcount question, `OD2`'s open status.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` | `Fn_Specs` |
+|---|---|---|---|---|---|---|---|
+| `FR-11`/Line 3 restated not-built, `OD4` not `OD3` | ✅ §5.14dt | ✅ "gate later sprints" row | **— unaffected** | **— unaffected: no artifact created** | **— unaffected** | ✅ §4, §5, §7.2, §7.4, §10 | ✅ `FN-EXCEPTIONS-06-11-12.md` §0, §3.1, §4.2, §7, §8, §10 |
+| `DEP-03` decoupled from `FR-11` | ✅ §5.14dt | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §7.4 `DEP-03` row | **— unaffected** |
+
+**Encyclopedia:** Entry mapping unaffected.
+
+### Scope limits
+
+**Restates an already-decided requirement's status correctly and fixes its OD attribution;
+authorizes no new code, decides no new question.** `Q2`, `OD2`, `OD3`, and `OD4` branch ① (`NG-09`)
+all keep their existing rulings/status, unchanged.

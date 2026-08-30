@@ -1,0 +1,42 @@
+{
+  "_comment": "Fragment 104 — curated node for D-167 (FR-11/Line 3 corrected: Q2 was already answered by D-57, and the governing OD is OD4 under the Three Lines Model, not OD3). Chief Editor clarification consolidating the D-165/D-166 chain. Merged 2026-08-31.",
+  "nodes": [
+    {
+      "id": "d167_fr11_line3_od4_not_od3",
+      "label": "D-167: FR-11/Line 3 Corrected -- Q2 Already Answered, OD4 Not OD3",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14dt",
+      "description": "Chief Editor clarification: 'Line 3 assurance' is governed by the Three Lines Model's OD4 branch two, not OD3. Verification found two compounding errors: Q2 (Line 3's executor question) was already answered by D-57 on 2026-08-20 -- v1 has no independent assurance, FR-11 not built, C-13's BCP surface is a compensating control -- yet six-plus current-value locations in Modular_PRD and the FN-EXCEPTIONS-06-11-12 Fn_Spec still called it open or blocked; and even before D-57, the OD tag was wrong, since D-57 itself invokes OD4 branch two (the Charter's pre-launch blocker triggered if OD2 resolves negatively), while OD3 is the Charter's separate, still-open agent-headcount-and-roster-shape question that was never about whether Line 3 exists.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A decision can be fully answered in the register and still read as open everywhere a downstream document cites it, if propagation only ever touched the row that provoked the original review -- this is the same failure shape as D-165's missed footnote, at wider scope: six-plus locations across two tiers, not two."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d167_fr11_line3_od4_not_od3",
+      "target": "commit:repo:github.com/robertaoai/my-editorial-app@85a7ff90753e4ee3ca67facbd0d37824f523f271",
+      "relation": "corrects_drift_after",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dt",
+      "weight": 1
+    },
+    {
+      "source": "d167_fr11_line3_od4_not_od3",
+      "target": "d166_sec06_anchored_to_2024_gias",
+      "relation": "same_pattern_as",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dt",
+      "weight": 1
+    }
+  ]
+}
