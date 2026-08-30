@@ -1,6 +1,6 @@
 # `LANE-B-WORK-ORDER.md` — Lane B's work order
 
-**Written by Lane A, 2026-08-24 (`D-103`). Amended `D-105`, `D-106`. Rewritten `D-113`, 2026-08-25, raised by Lane B as `B-035`.**
+**Written by Lane A, 2026-08-24 (`D-103`). Amended `D-105`, `D-106`. Rewritten `D-113`, 2026-08-25, raised by Lane B as `B-035`. §2.3 amended `D-160`, 2026-08-30 — provenance/responsibility/route added to the verification instruction.**
 
 > **This file records no lane status at all, and that is the change.** The previous revision opened
 > with one and headed §1 *"You are `Active`"* — **a status copied into a second document is the
@@ -207,6 +207,29 @@ agree** — check 10 used to report `0 open` while check 13 reported `open 4`, b
 means *the fix is in the tree at a named commit, and nobody but the lane that wrote it has said it
 works.* **You are the independent verifier**, and Phase 1's condition 2 cannot be met until each is
 `Verified` or rejected.
+
+**Authorship of the current content is not the test — independence from the correction is**
+(`D-160`, closing `G111`). You did not write `next.config.ts`'s fix in `B-058`, but you raised the
+finding and are the one who did not write the *answer* — that is what qualifies you to verify it.
+The same logic extends to any Lane B-**facing** document, regardless of who authored it: this work
+order, a decision's Lane B-facing instructions, or Lane A's response text appended inside your own
+entries. If asked to review one, the test is *"did I write the correction being checked,"* never
+*"did I write the document."*
+
+**What each artifact routes to:**
+
+| Artifact | Originator | What you validate | If it holds | If it does not |
+|---|---|---|---|---|
+| `LANE-B-WORK-ORDER.md` (this file) | Lane A | Whether you can execute it without contradiction | Say so briefly; no artifact required | Raise a `spec-defect` entry |
+| A `B-NNN` entry you raised, now `Applied` | You raised it, Lane A answered inside it | Whether Lane A's correction actually satisfies the entry | `Resolution: Verified`, per §2.3 above | Do **not** edit the old entry — raise a new one recording the failed verification |
+| Register/decision text reaching you | Lane A | Whether it correctly reaches your instructions | Advisory feedback, may stay conversational | `spec-defect`, if it requires Lane A action |
+| An application artifact's evidence claim | You or Lane A | Whether the named evidence actually proves the claim | Verification evidence, recorded where the claim lives | A new `finding` — never rewrite the original entry's history |
+
+**Routing rule for a docs-only review with no run held:** no nomination or `Active` transition is
+needed, no run ID is assigned, and no turn report is owed — a turn report is owed only for a turn
+you actually held (§5). An actionable defect still goes in `docs/handoff/B-NNN-*` per the carve-out
+above; advisory feedback that requests no correction may stay conversational unless the Chief
+Editor asks for a durable artifact. Reference an existing gap rather than re-filing it.
 
 **How to verify one:**
 
