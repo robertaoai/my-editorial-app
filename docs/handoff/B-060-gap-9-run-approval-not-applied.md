@@ -1,11 +1,24 @@
-# B-060 — Gap 9 verification run approval is not applied to the live lane state
+# B-060 — Judge activation in the runnable lane is not recordable by the current run procedure
 
 - **Raised:** 2026-08-30 by Lane B
 - **Kind:** blocked-on-decision
 - **Phase:** 1
-- **Blocks:** executing the approved Gap 9 verification packet for `B-058`, `B-015`, `B-041`, `B-014`, `B-021`, and Phase-2-scoped `B-044`
+- **Blocks:** assigning the run identifier and filing the required terminal turn report; it does not block the Judge-approved verification work
 - **Status:** Open
 - **Lane A:**
+
+## Raiser correction after the Judge's ruling — 2026-08-30
+
+The original filing incorrectly treated Lane A's stale phase table as a precondition that could
+veto the Judge's act. The Judge has now ruled Lane B `Active` in this Lane B session. Only the
+nominated runnable lane can receive the Judge's approval changing its state from `Eligible` to
+`Active`; Lane A nominates, but does not pre-approve or activate the nominated lane.
+
+Therefore the approval is the boundary event and the live table is evidence that must catch up.
+Lane B proceeded with the named packet. The remaining gap is narrower: §5.0a requires Lane A to
+preassign a run identifier, while the corrected activation model makes the executable approval
+occur inside Lane B after nomination. Lane B must not invent the missing identifier, so it cannot
+yet file the schema-valid terminal turn report.
 
 ## What happened
 
@@ -16,29 +29,31 @@ record has not applied an executable handover: `V1-PHASE-CLOSURE.md` §5 still r
 this packet.
 
 `D-159` and `D-160` both state explicitly that the nomination authorizes no Lane B execution.
-Under `D-156`, approval of the nominated lane is the separate act that makes Lane B `Active`, makes
-every other lane `Blocked`, and locks the named run. `LANE-B-WORK-ORDER.md` §1 requires Lane B to
-read that live record rather than begin from conversation alone.
+Under the Judge's 2026-08-30 ruling, approval of the nominated lane is the separate act that makes
+Lane B `Active`, makes every other lane `Blocked`, and locks the run. That approval can occur only
+in the nominated runnable lane. `LANE-B-WORK-ORDER.md` §1 and the §5.0a preassignment rule do not
+yet express how Lane A records that already-effective event without becoming the approving actor.
 
 This is not a duplicate of `B-019` or `B-034`: both are terminal and were superseded under earlier
-lane-state models. This entry concerns the unperformed approval step in the current `D-156` model
-after the valid `D-159` nomination and the `D-160` assignment correction.
+lane-state models. After the raiser correction, this entry concerns the recording/run-ID
+circularity exposed by the valid `D-159` nomination, the `D-160` assignment correction, and the
+Judge's later activation inside Lane B.
 
 ## What you need
 
-1. If the Chief Editor's instruction to proceed is the approval of Lane B's `D-159` nomination,
-   record that approval as the next decision and apply the boundary in one edit.
+1. Record the Judge's already-effective 2026-08-30 approval as the next decision; do not recast
+   Lane A as the approving actor.
 2. Update `V1-PHASE-CLOSURE.md` §5 so Lane B is the sole `Active` lane and Lanes A and C are
-   `Blocked` on the same named verification run.
-3. Assign that run identifier in §5.0a before Lane B begins; Lane B does not mint it.
-4. Preserve `B-044` as Phase 2 work so it does not gate Phase 1 closure.
-5. Run `bun run check` and confirm `lane-state` reports Lane B as the sole `Active` lane.
-
-If the instruction was not intended as approval of an executable run, leave the current lane state
-unchanged and classify the packet as backlog refinement only; Lane B will not edit the six entries.
+   `Blocked` for this verification run.
+3. Assign the run identifier in §5.0a and return it to Lane B so Lane B can file the required turn
+   report. Amend the procedure so future identifiers can be attached immediately after in-lane
+   approval without making the stale table a veto or requiring Lane B to mint an ID.
+4. Preserve `B-044` as Phase 2 work so it does not gate or reopen Phase 1.
+5. Run `bun run check` and confirm the recorded lane state matches the Judge's act.
 
 ## What you did instead
 
-Read the six entries and Lane A's `D-160` correction, confirmed the live lock and run registry, and
-stopped before changing any existing handoff resolution. No verification was claimed and no run ID
-was invented.
+Accepted the Judge's activation, verified the six entries in parent-before-child order, promoted
+only `B-058` and Phase-2 `B-044`, and kept `B-015`, `B-041`, `B-014`, and `B-021` at `Applied`
+because their own success criteria remain unmet. Lane B did not invent a run ID or impersonate Lane
+A's recordkeeping role.

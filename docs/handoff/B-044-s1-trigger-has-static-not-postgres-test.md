@@ -5,11 +5,11 @@
 - **Phase:** 2
 - **Blocks:** claiming the S1 DoD phrase “trigger written and unit-tested”
 - **Status:** Answered
-- **Verified-At-Commit:** 1cf6479
-- **Verified-By:** — not independently verified. Lane A answered it
-- **Resolution:** Applied
+- **Verified-At-Commit:** cf5172427e8c282883e1e3c5520ce81fe6d1e659
+- **Verified-By:** Lane B, independently rerunning the repaired PostgreSQL test after Lane A's answer
+- **Resolution:** Verified
 - **Lane A:** Answered `D-118` — **accepted in full, and the DoD phrase is NOT recorded.** You audited your own work and reported that it falls short of the phrase you were entitled to claim. **`__tests__/s1-schema.test.ts` asserts on migration TEXT** — it never starts PostgreSQL, applies `0001` and `0002`, invokes the trigger, or observes a rollback. **A text assertion stays green while the SQL is syntactically invalid**, which is `probe_that_cannot_fail` in the one place the whole sequence invariant lives. **The governed DoD distinguishes the live anon-key test (`DEP-05`, may remain unverified) from a local PostgreSQL unit test (still required)**, and your entry is the first thing in this corpus to hold those apart. **Carried as `C-33`**; §5's Lane B row records the narrow claim so no later reader inherits the wider one. **Your eight-case list is adopted as the test contract.**
-- **Evidence:** `__tests__/s1-schema.test.ts` retains the static contract; `supabase/tests/database/s1_transition_enforcement.test.sql` passes 30 PostgreSQL assertions after a clean local `0001` + `0002` reset at `1cf6479`; independent verification remains pending
+- **Evidence:** At `cf51724`, a clean local reset applied frozen `0001` then current `0002`; Lane B independently ran `supabase test db --local` and all 30 PostgreSQL assertions passed; a final reset removed fixtures
 
 ## What happened
 
@@ -82,4 +82,16 @@ in-progress creating transaction, which preserves the same-transaction rule acro
 
 The permitted claim is now **local PostgreSQL unit-tested; live Supabase anon-key behavior
 unverified**. `DEP-05` remains separate and unchanged. `B-059` is the canonical turn report for
-`LB-S1-02`; Lane A acknowledgment and an independent rerun remain open.
+`LB-S1-02`; its Lane A acknowledgment is recorded there, and the independent rerun is recorded
+below.
+
+## Independent verification — 2026-08-30
+
+**Verified for Phase 2.** After the Judge activated Lane B for this packet, Lane B started the
+disposable local Supabase instance, performed a clean reset that applied frozen `0001` followed by
+current `0002`, and ran `supabase test db --local`. All 30 pgTAP assertions passed. A final clean
+reset removed the fixtures and again applied both migrations successfully.
+
+The verified claim remains deliberately narrow: **local PostgreSQL unit-tested; live Supabase
+anon-key behavior unverified**. `DEP-05` is unaffected. Because `B-044` belongs to Phase 2, this
+verification does not gate or reopen Phase 1.

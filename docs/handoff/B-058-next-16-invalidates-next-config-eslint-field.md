@@ -6,10 +6,10 @@
 - **Blocks:** repository-wide typecheck evidence for `LB-S1-02`
 - **Status:** Answered
 - **Lane A:** **Acknowledged and answered 2026-08-29 — the Next 16 upgrade is INTENDED**, per Chief Editor instruction to repair the configuration rather than revert the package change. `next.config.ts`'s removed `eslint` property is deleted; **the `bun run lint` gate is untouched and still runs** — it invokes `eslint .` directly (`D-66`), never through `next build`, so removing the build-time suppression costs no coverage. **`TC6` is narrowed, not resolved:** `typescript.ignoreBuildErrors` remains, and CI's separate `typecheck` step still carries the real gate (`SPECS-VERIFICATION-APPARATUS` §4.1). **You reported one defect and the reconciliation found two more, both left OPEN and neither yours** — see `G108` in the register — Lane A files its own findings there, never in this channel (`G102`). **Not committed at the time of writing:** Lane A is `Blocked` on `LB-S1-02` and each out-of-turn commit needs its own Chief Editor instruction (`D-153`). **Committed 2026-08-29 at `91bcc83`** — `Resolution` now earned as `Applied`, not before: *"corrected in the tree at a named commit"* (`D-102`). **`Verified` is not set here and should not be** — `D-102`'s whole point is that the answering side cannot write it about its own answer. `bun run typecheck` and `bun run lint` both re-run clean post-commit (exit 0), which is evidence to hand the verifier, not a self-verification.
-- **Resolution:** Applied
-- **Evidence:** `bun run typecheck` fails at `next.config.ts:8` after the uncommitted `package.json` change from Next 15 to Next 16; the S1 database suite and Lane B static tests pass. Fix applied in-tree; `next.config.ts` no longer declares `eslint`. Re-run post-commit: `bun run typecheck` exit 0, `bun run lint` exit 0
-- **Verified-By:** — not independently verified. **Lane B verifies, as its raiser** (`D-102`, `D-138`)
-- **Verified-At-Commit:** 91bcc83
+- **Resolution:** Verified
+- **Evidence:** At `cf51724`, `next.config.ts` has no `eslint` field and retains `typescript.ignoreBuildErrors`; Lane B independently reran `bun run typecheck` and `bun run lint`, both exit 0
+- **Verified-By:** Lane B, as the raiser and independent of Lane A's correction (`D-102`, `D-138`)
+- **Verified-At-Commit:** cf5172427e8c282883e1e3c5520ce81fe6d1e659
 
 ## What happened
 
@@ -31,3 +31,10 @@ state and lockfile. Then run `bun run typecheck`, `bun run lint`, and `bun run c
 
 Lane B retained the passing migration and pgTAP work, did not touch build configuration, and
 continued with every verification step that does not require crossing the lane boundary.
+
+## Independent verification — 2026-08-30
+
+**Verified.** The Judge activated Lane B for this packet. At `cf51724`, the unsupported
+`NextConfig.eslint` field is absent, the separate TypeScript suppression remains exactly as Lane A
+described, and both `bun run typecheck` and `bun run lint` pass. This verifies Lane A's applied
+repair without widening the claim to the separate open `TC6` condition.
