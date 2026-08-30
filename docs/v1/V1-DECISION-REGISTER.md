@@ -10520,10 +10520,14 @@ work, unchanged. **Unchanged:** `D-57`'s substantive ruling (no independent assu
 
 ### Tier applicability (`D-54`)
 
-| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` | `Fn_Specs` |
-|---|---|---|---|---|---|---|---|
-| `FR-11`/Line 3 restated not-built, `OD4` not `OD3` | ✅ §5.14dt | ✅ "gate later sprints" row | **— unaffected** | **— unaffected: no artifact created** | **— unaffected** | ✅ §4, §5, §7.2, §7.4, §10 | ✅ `FN-EXCEPTIONS-06-11-12.md` §0, §3.1, §4.2, §7, §8, §10 |
-| `DEP-03` decoupled from `FR-11` | ✅ §5.14dt | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §7.4 `DEP-03` row | **— unaffected** |
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `FR-11`/Line 3 restated not-built, `OD4` not `OD3` | ✅ §5.14dt | ✅ `D-167` in the "gate later sprints" row | **— unaffected** | **— unaffected: no artifact created** | **— unaffected** | ✅ §4, §5, §7.2, §7.4, §10 |
+| `DEP-03` decoupled from `FR-11` | ✅ §5.14dt | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §7.4 `DEP-03` row |
+
+**`Fn_Specs` (not a tracked `D-54` tier — cited, not propagation-checked):** `FN-EXCEPTIONS-06-11-12.md`
+§0, §3.1, §4.2, §7, §8, §10 corrected in the same pass, per `D-36` (a living document, not frozen —
+normal update, not a tier-propagation defect).
 
 **Encyclopedia:** Entry mapping unaffected.
 
