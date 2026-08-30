@@ -13,6 +13,7 @@ and a build-config/dependency change out of proportion to Unit 1. `LANE-B-WORK-O
 step 3 now specifies this. The migration and route/action remain Lane B's to write once
 nominated; this entry authorizes the boundary, not the implementation.
 - **Resolution:** Applied
+- **Verified-At-Commit:** ee9bbc722968f9a675ffd59181c5e35212bad9a9
 - **Evidence:** `LANE-B-WORK-ORDER.md` §2.2d step 3; `V1-DECISION-REGISTER.md` §5.14dq step 3; `supabase/migrations/0002_s1_editorial_schema.sql` lines 307–411; repository search finds no existing transition RPC or direct PostgreSQL transaction client; Supabase JavaScript transaction and RPC documentation cited below
 
 ## What happened

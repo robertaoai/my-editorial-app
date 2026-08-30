@@ -15,6 +15,7 @@ restated as decided (`D-97`/`D-111`); only computation/validation ownership is o
 the M2/production-done caveat are stated in `LANE-B-WORK-ORDER.md` §2.2d and `V1-BUILD-SPEC.md`
 S2.
 - **Resolution:** Applied
+- **Verified-At-Commit:** ee9bbc722968f9a675ffd59181c5e35212bad9a9
 - **Evidence:** `V1-DECISION-REGISTER.md` §5.14dq (`D-164`); `V1-BUILD-SPEC.md` S2; `LANE-B-WORK-ORDER.md` §2.2d; `Modular_PRD.md` FR-04/FR-05/FR-06 and M2; `FN-GATES-01-05.md` §§3.4–3.5, 5, 9–10; `V1-ARTIFACT-INVENTORY.md` `docs/specs/ux/` row
 
 ## What happened

@@ -14,6 +14,7 @@ opened as a named, owned gap in `D-165`, not left as an untracked "separate task
 Spec/`FN-GATES`; the Addendum/Blueprint/Business Case/RACI's own §4 current-value paragraphs are
 folded into the same `SEC-06` gap rather than treated as separately closed.
 - **Resolution:** Applied
+- **Verified-At-Commit:** ee9bbc722968f9a675ffd59181c5e35212bad9a9
 - **Evidence:** `V1-DECISION-REGISTER.md` §5.14dp (`D-163`); `docs/governance/raci-involvement-matrix.md` §§1.1, 2.1, 4; `Modular_PRD.md` `SEC-01`/`SEC-06`; source sweep recorded below
 
 ## What happened
