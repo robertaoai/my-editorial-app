@@ -9940,3 +9940,51 @@ selection that has not happened) is exactly the failure mode an unstated identit
 **Names an identity, decides no work.** Does not change who selects lanes or accepts phases —
 only confirms they are the same person acting in different named roles. Does not retroactively
 validate or invalidate any prior Judge/Chief Editor act; those stand on their own record.
+
+---
+
+## 5.14dl `D-159` — The Seventh Boundary; Lane B Nominated `Eligible` Beside Lane A `Active`
+
+**Chief Editor ruling, 2026-08-30: "approve nominate lane b eligible."** Lane A holds `Active`
+by default (`D-156`), no successor having been named at the sixth boundary. This decision names
+one.
+
+### The act, performed as `D-156` defines it
+
+| # | Step | Result |
+|:---:|---|---|
+| **1** | Chief Editor nominates the incoming lane | **Robert Tan nominates Lane B `Eligible`** — the selection step, not yet execution |
+| **2** | `§5` updated | `V1-PHASE-CLOSURE.md` §5: A stays `Active` (unchanged — nomination does not release the lock), B → `Eligible`, C stays `Blocked` |
+
+### What this is, precisely, under `D-156`
+
+**`Eligible` beside `Active` is legal, and is the only way to nominate** — this is the exact
+inversion `D-156` made against the retired `D-108` reading. Lane A does **not** move to `Blocked`
+or release the commit lock by this act alone; that happens only when the Chief Editor **approves**
+the nomination, which is a separate, later act (`D-156`: "approving it makes that lane `Active`
+and every other lane `Blocked`"). Until then, Lane A may continue committing.
+
+### What this is not
+
+**Not a handover.** No lane becomes `Active` here, none becomes `Blocked` for a new reason, and
+Phase 1's five conditions (§1) are untouched. **Not Gap 9's verification packet authorized to
+run** — the packet drafted in this session's prior turn remains a proposal; Lane B may execute it
+only once actually selected `Active`, per that turn's own §6 instruction. This entry nominates;
+it does not select.
+
+### Gaps
+
+**Opened:** none. **Closed:** none. **Unchanged:** all open gaps and conditions from the sixth
+boundary.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Seventh boundary — Lane B nominated `Eligible` | ✅ §5.14dl | **— unaffected: no scope or DoD change** | **— unaffected: the lane MAP is unchanged** | **— unaffected** | ✅ **§5 row B updated** | **— unaffected** |
+
+### Scope limits
+
+**Names a nomination, authorizes no work.** Does not select Lane B `Active`, does not release
+Lane A's lock, does not authorize execution of the Gap 9 verification packet or any other Lane B
+task. The next act — approving this nomination — is the Chief Editor's, at a future boundary.
