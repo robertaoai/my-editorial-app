@@ -10227,3 +10227,67 @@ half), the 2026 IIA citation's exact re-anchoring (a reading task, not decided h
 **Rules two Chief Editor decisions and re-sources one requirement's citation. Authorizes no
 build.** `V1-BUILD-SPEC.md` §8 still requires a separate build authorization per sprint — this
 entry is not that authorization; `D-164` is.
+
+---
+
+## 5.14dq `D-164` — S2 Phase-0 Build Authorized: Verify First, the Trigger Is Already Written
+
+**Chief Editor ruling, 2026-08-30, following `D-163`.** Closes `D-162`/`B-061`'s open parent gap
+— *"no next Lane B code unit is defined"* — for S2's Phase-0 scope only.
+
+### The discovery that reshapes the packet
+
+**`0002_s1_editorial_schema.sql`'s `enforce_article_state_transition` trigger already enforces
+the entire T1–T11 gate sequence**, including `FR-04`'s T5 rule: `allowed_transitions` names T5
+`required_role: senior_journalist`, `required_line: Line2`, `required_actor_type: human`,
+`human_only: true` — an agent-executed T5 fails the trigger's `human_only` check today, in the
+database, unconditionally. **This was built and applied during S1**, for the sequence-guard
+requirement `C-33` tested, and nobody has verified it also satisfies `FR-04`/`AC-05`/`AC-06`,
+which is a different requirement riding on the same mechanism. `line_separation_status` is written
+by whoever inserts the `workflow_transitions` row — the trigger checks a matching row exists, it
+does not compute the classification itself.
+
+**This means S2's shortest editorial path is a verification-first unit, the same shape as
+`C-33`**: prove the existing trigger satisfies `AC-05`/`AC-06` before writing any new database
+logic, then build the minimal application surface currently missing entirely (`roughly ten source
+files`, no UI).
+
+### The authorized packet — parent first
+
+| # | Step | Depends on |
+|---|---|---|
+| **1** | **Database-executed verification**, `C-33`'s pattern: prove `AC-05` (Chief Editor executes T5 → `Reviewed`, executor recorded human) and `AC-06` (an agent-attempted T5 → refused, the canary — `FR-04` has failed regardless of any other test if this fails) against the existing trigger, disposable local Postgres, no schema change unless verification finds a real gap | none |
+| **2** | If verification finds `line_separation_status` is not correctly asserted at T5/T6, extend the same test to `AC-07`/`AC-08` and specify (not necessarily build) how the classification is computed | 1 |
+| **3** | Minimal application surface: one route/action letting the Chief Editor execute T5 on a `Drafted` article, writing `workflow_transitions` (`gate_role: senior_journalist`, `line_assignment: Line2`, `actor_type: human`) and the `articles.workflow_state` update in one transaction, per the trigger's same-transaction requirement | 1 |
+| **4** | `US-04`'s DoD: agent assistance recorded as `assisting_agent_id`, never as executor | 3 |
+
+**Explicitly excluded from this packet**: T6 (`FR-06`, already S1-scoped per `Modular_PRD` M1, not
+S2), a board/list UI, publication, and `NFR-03`'s full independence-classification behaviour
+beyond what step 2 specifies. **`OD1`/`OD2` provisionality stands** — `FR-04`/`FR-05` are
+Phase-0-done only, per `Modular_PRD`'s own M2 exit criteria; production done still needs both
+ratified.
+
+### Why this is authorization, not a decision
+
+`V1-BUILD-SPEC.md` §8 requires a separate build authorization per sprint. `Q12`/`Q1` (`D-163`)
+removed the blockers; this entry is the authorization itself — naming the sprint scope, owned
+files, and DoD `LANE-B-WORK-ORDER.md` §2.2d now carries in full — **not** §2.3, which is the
+verification pass and stays untouched by this entry.
+
+### Gaps
+
+**Closed:** `D-162`/`B-061`'s parent gap, for S2 Phase-0 only. **Opened:** none — the verification
+step may surface new ones, not invented ahead of running it.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| S2 Phase-0 authorized | ✅ §5.14dq | ✅ **§8 sprint authorization, S2 row** | **— unaffected** | **— unaffected: no artifact created yet** | **— unaffected: no lane-state change** | **— unaffected: already correct after `D-163`** |
+| S2 packet | **— cited, not restated** | **— cited, not restated** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+### Scope limits
+
+**Authorizes a build; does not perform it.** Writes no test, no application code, no migration.
+Lane B executes only once nominated `Eligible` and the Judge approves `Active` for a named run —
+this entry does not nominate or select.

@@ -215,9 +215,17 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 
 ### S2 — Line assignment and four-eyes
 
-Actor context on every action · four-eyes evaluator behind `FOUR_EYES_MODE` · **T5 is Line 2, human-executed** · **blind first pass at T5** — Line 2 records its disposition *before* the Line 1 recommendation is revealed, without which agreement cannot be distinguished from anchoring · T6 validates against T5's recorded fields, not a boolean · **T6→T5 return rate logged distinctly** · `EmergencyBypass` as `event_type` · hard block on one identity holding both Line 1 and Line 2 roles (`SEC-01`, subject to `Q12(b)`).
+Actor context on every action · four-eyes evaluator behind `FOUR_EYES_MODE` · **T5 is Line 2, human-executed** · **blind first pass at T5** — Line 2 records its disposition *before* the Line 1 recommendation is revealed, without which agreement cannot be distinguished from anchoring · T6 validates against T5's recorded fields, not a boolean · **T6→T5 return rate logged distinctly** · `EmergencyBypass` as `event_type` · hard block on one identity holding both Line 1 and Line 2 roles (`SEC-01`).
 
 **OD gating:** `OD1`/`OD2` gate **production** done, not Phase 0 done. **A negative `OD2` voids this sprint's model entirely.**
+
+> **Corrected 2026-08-30 (`D-163`, `D-164`, closing `B-061`'s open parent gap).** `Q12` is decided
+> — `SEC-01` no longer cites the IIA, so the *"subject to `Q12(b)`"* qualifier above is stale and
+> removed. **This full section describes S2's eventual complete scope; it is not what is
+> authorized to build first.** `D-164` authorizes a narrower Phase-0 packet — verify the T5
+> human-only trigger already built in `0002`, then the minimal application surface to execute it —
+> specified in `LANE-B-WORK-ORDER.md` §2.2d. Blind first pass, T6 validation, the return-rate log,
+> and `EmergencyBypass` remain unauthorized until a later packet names them.
 
 ### S3 — Board, filters, audit log
 

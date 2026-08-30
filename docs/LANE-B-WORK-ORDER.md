@@ -189,6 +189,41 @@ build the archival job** — that is explicitly deferred until the product is li
 never null. **Not `DEP-05`-blocked** — this is a static schema/trigger property, the same shape as
 `C-33`'s other cases.
 
+### 2.2d S2, Phase 0 — the shortest editorial path (`D-164`, closing `D-162`/`B-061`'s open gap)
+
+**`Q12` and `Q1` are decided** (`D-163`) — `SEC-01` no longer blocks on the IIA citation, and Phase
+0 allows one agent instance across multiple Line 1 roles. **This is your next code unit.**
+
+**Read this before writing anything: `0002_s1_editorial_schema.sql`'s
+`enforce_article_state_transition` trigger already enforces `FR-04`'s T5 rule.**
+`allowed_transitions` names T5 `required_role: senior_journalist`, `required_line: Line2`,
+`required_actor_type: human`, `human_only: true` — an agent-executed T5 fails today, in the
+database, unconditionally. **This was built during S1 for `C-33`'s sequence guard; nobody has
+verified it also satisfies `FR-04`.** `line_separation_status` is written by whoever inserts the
+`workflow_transitions` row — the trigger checks a matching row exists, it does not compute the
+classification.
+
+**Parent-first, `C-33`'s shape — verify before you build:**
+
+1. **Database-executed verification.** Prove `AC-05` (Chief Editor executes T5 on a `Drafted`
+   article → `Reviewed`, executor recorded human) and `AC-06` (an agent-attempted T5 → refused —
+   **the canary; `FR-04` has failed regardless of any other test if this fails**) against the
+   existing trigger, disposable local Postgres. **No schema change unless verification finds a
+   real gap** — you are testing what already exists, not writing new enforcement.
+2. **If `line_separation_status` is not correctly asserted at T5**, extend the test to `AC-07`/
+   `AC-08` and raise a `finding` specifying how the classification should be computed — do not
+   build the computation without raising it first; the shape is undecided.
+3. **Minimal application surface.** One route/action letting the Chief Editor execute T5 on a
+   `Drafted` article: write `workflow_transitions` (`gate_role: senior_journalist`,
+   `line_assignment: Line2`, `actor_type: human`) and the `articles.workflow_state` update in
+   **one transaction**, per the trigger's same-transaction requirement (`pg_xact_status`).
+4. **`US-04`'s DoD**: agent assistance recorded as `assisting_agent_id`, never as executor.
+
+**Explicitly excluded from this packet** — do not absorb them: T6 (`FR-06` is S1-scoped, not S2),
+any board/list UI, publication, and `NFR-03`'s full independence-classification behaviour beyond
+what step 2 specifies. **`OD1`/`OD2` provisionality stands** — this is Phase-0 done only;
+production done needs both ratified (`Modular_PRD` M2).
+
 ### 2.3 The verification pass — **the queue is generated, not restated**
 
 **`C-26` asked for ten. Ten is no longer the number, and no number is written here** (`G75`, `C-21`
