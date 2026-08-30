@@ -324,3 +324,11 @@ Claude Code specifics:
 - **You do not close a phase. The user judges, at boundaries only** (`D-93`, `P0`). Present the
   closure report; do not write the verdict row.
 - **Graph currency — check at session start.** `.graphify/needs_update` is written only by graphify's git hook, and **no git hook is installed in this repo** (`.git/hooks/` is empty), so its absence is *no signal at all* — do not read it as "synced". The reliable check is `.graphify/branch.json`: compare its `lastAnalyzedHead` against `git rev-parse HEAD`, and read its `stale` flag. If they differ, run `npx graphify hook-rebuild` before relying on `query`/`path`/`explain`. The rebuild preserves the curated layer (verified 2026-08-21), but re-merge `docs/graph-fragments/` if the node count drops.
+- **Encyclopedia sync — check when closing a decision.** The Editorial Pipeline Encyclopedia is a
+  Claude Artifact, not a repo file — no check here can read or diff it. `docs/ENCYCLOPEDIA-SYNC.md`
+  maps each of its 6 entries to the files/sections/decisions it depends on. When a decision's own
+  `Tier applicability` table touches one of those, note `Encyclopedia: Entry N affected` (or
+  `unaffected`) in that same table — it rides the `D-54` propagation habit already running on every
+  decision, not a separate process. Actually updating the artifact is a distinct, opt-in act: read
+  it in full first, update only the flagged entries, republish to the same URL, then update the
+  ledger's `Last verified at`.

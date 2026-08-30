@@ -1,0 +1,32 @@
+{
+  "_comment": "Fragment 101 — docs/ENCYCLOPEDIA-SYNC.md: the sync ledger for the Editorial Pipeline Encyclopedia artifact, mapping each entry to what it depends on and when it was last verified. Left absent from the graph by the same G109-class extraction gap seen on new docs/handoff/ files. Merged 2026-08-30.",
+  "nodes": [
+    {
+      "id": "encyclopedia_sync_ledger_for_an_artifact_outside_the_repo",
+      "label": "Encyclopedia Sync Ledger for an Artifact Outside the Repo",
+      "file_type": "concept",
+      "source_file": "docs/ENCYCLOPEDIA-SYNC.md",
+      "source_location": "whole document",
+      "description": "The Editorial Pipeline Encyclopedia is a Claude Artifact, not a repo file, so no check in this repository can read or diff its content against docs/. This ledger tracks, per entry, which files/sections/decisions it depends on and the commit it was last verified against — the same shape as .graphify/branch.json's lastAnalyzedHead, applied to something no tool here can actually inspect. The habit it establishes: when closing a decision whose Tier applicability table touches a cited file, note whether an encyclopedia entry is affected, riding the D-54 propagation habit already running on every decision rather than adding a new process.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Staleness that can't be mechanically checked still needs to be visible, or it silently accumulates the same way six documents drifted from S1's actual completion before B-061 caught it. A ledger that names its own last-verified commit turns an unenforceable sync problem into a queue a reader can act on, rather than a fact nobody can check."
+    }
+  ],
+  "edges": [
+    {
+      "source": "encyclopedia_sync_ledger_for_an_artifact_outside_the_repo",
+      "target": "eight_lane_b_facing_inputs_described_pre_s1_state_after_s1_completed",
+      "relation": "same_pattern_as",
+      "confidence": "CURATED",
+      "source_file": "docs/ENCYCLOPEDIA-SYNC.md",
+      "confidence_score": 1,
+      "source_location": "How to use this file",
+      "weight": 1
+    }
+  ]
+}
