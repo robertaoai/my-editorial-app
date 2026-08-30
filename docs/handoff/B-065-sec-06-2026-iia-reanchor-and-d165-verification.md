@@ -20,7 +20,7 @@ already satisfied; recorded explicitly in `D-166` rather than left implicit.
 - **Verified-By:**
 - **Evidence:** `Modular_PRD.md` `SEC-06` row (§6.5), the §6.5 footnote, the §4 Line 3 persona
   row, §7.4 M2 row, §8.1 S2 row; `V1-DECISION-REGISTER.md` §5.14ds (`D-166`)
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** 7b9b8d6a6608fe78f0c68ca5184b7ba129efdcb0
 
 ## Parent finding
 
