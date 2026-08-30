@@ -71,6 +71,11 @@ write the spec, hand off, stop.
 | **`Eligible`** | **The SELECTION step** — nominated as next holder, offered the lock, **not yet executing. At most ONE lane, or none** |
 | **`Done`** | Its Definition of Done is met and the Judge has accepted it |
 
+**Chief Editor and Judge are the same entity, "the user" (`D-158`).** The table above uses both
+names without linking them; `D-158` decides they are the same natural person, role-contextual
+not identity-based, for the duration of v1 — Chief Editor governs lane selection above, Judge
+governs phase-`Done` acceptance elsewhere in this file.
+
 **The handover sequence (`D-156`, correcting `D-108` — see `G110`).** **Exactly one lane is
 `Active`, always** — never zero, and **Lane A holds it by default**, because orchestration and
 governance cannot otherwise proceed. **`Eligible` is the SELECTION step: at most ONE lane**,

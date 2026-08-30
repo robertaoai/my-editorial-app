@@ -1,0 +1,47 @@
+{
+  "_comment": "Fragment 98 — B-058/B-059: the Next 16 config reconciliation and its LB-S1-02 database verification turn report, both left absent from the curated graph after being answered. Merged 2026-08-30.",
+  "nodes": [
+    {
+      "id": "next_16_invalidates_the_lane_a_owned_next_config_eslint_field",
+      "label": "Next 16 Invalidates the Lane A-Owned Next Config ESLint Field",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-058-next-16-invalidates-next-config-eslint-field.md",
+      "source_location": "whole document",
+      "description": "An uncommitted package.json change to Next 16.3.3 made next.config.ts's removed NextConfig.eslint property fail typecheck. Both files are Lane A-owned build configuration under D-86, so Lane B could not fix either or decide whether the upgrade was intended. Lane A confirmed the upgrade was intended per Chief Editor instruction, deleted the eslint property, and verified the separate bun run lint gate (D-66, invoked directly, never through next build) was untouched.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A dependency handoff correctly stopped at the lane boundary: Lane B named the exact failing line and left the toolchain reconciliation to the file's owner rather than guessing at intent. Applied 2026-08-29 at 91bcc83; two further build-config defects surfaced during reconciliation and were filed separately as G108, not answered in this channel (G102)."
+    },
+    {
+      "id": "lb_s1_02_database_verification_turn_report",
+      "label": "LB-S1-02 Database Verification Turn Report",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-059-lb-s1-02-database-verification-turn-report.md",
+      "source_location": "whole document",
+      "description": "Lane B's turn report for LB-S1-02: the C-33 database-executed transition-guard test replaced a top-level transaction-ID comparison with a savepoint-safe MVCC check, after discovering xmin may hold a subtransaction ID while txid_current() returns the top-level ID — a defect only reachable by executing against real PostgreSQL, which is exactly what C-33 existed to force. Reports live hosted Supabase behaviour still unverified under DEP-05, and names B-058's build-config condition as the one thing outside Lane B's own surface.",
+      "community": 8,
+      "community_name": "Decision Register",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A turn report that is reporting-only (Blocks: nothing) still names the exact checks it expects to go red on the answering side, and Lane A's acknowledgement confirmed all three named conditions (handoff-response, graph-coverage, docs-drift) were in fact the ones failing — the report predicted its own consequences accurately."
+    }
+  ],
+  "edges": [
+    {
+      "source": "next_16_invalidates_the_lane_a_owned_next_config_eslint_field",
+      "target": "lb_s1_02_database_verification_turn_report",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-059-lb-s1-02-database-verification-turn-report.md",
+      "confidence_score": 1,
+      "source_location": "Lane A acknowledgement",
+      "weight": 1
+    }
+  ]
+}

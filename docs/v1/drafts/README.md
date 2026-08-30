@@ -16,7 +16,7 @@ until every S1 window decision has settled.
 
 | File | Status |
 |---|---|
-| `0002_three_lines.sql.draft` | **Not yet written.** Blocked on `Q11` via `G64` |
+| `0002_three_lines.sql.draft` | **Not yet written.** `G64` and `Q11` are both resolved (`D-112`, `D-111`) and the S1 window's `C-30` closed with authorization unconditional (`D-114`) — the naming/schema blockers are gone. **Not written because Lane B, who owns this artifact, is `Blocked`** (`D-156`), not because of `Q11`/`G64` |
 
 **The extension is `.sql.draft`, not `.sql`.** A `.sql` file is something a tool will
 eventually run; the double extension makes the file inert to every runner and to editor

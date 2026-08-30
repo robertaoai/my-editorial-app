@@ -9892,3 +9892,51 @@ perform off its own completion of a blocker. The parent is cleared; the nominati
 
 **Regenerates a lockfile only.** No application code, no schema, no lane nomination, no
 `Verified` disposition written by the answering side.
+
+---
+
+## 5.14dk `D-158` — Judge, Chief Editor, and "the User" Are the Same Entity, for v1
+
+**Chief Editor ruling, 2026-08-30, confirmed live in chat — not adopted from the external
+analysis's own self-reported claim that the ruling had already been given.** An external
+Aristotelian-Move critique (Lane C consultation output, delivered as refinement feedback per
+`D-90`/consultation practice, not a handoff) surfaced a hidden identity ambiguity: three role
+names — **Chief Editor** (Charter), **Judge** (`D-93` line 4298), **the user** (`D-93`, same
+line: *"Judge — the user"*) — are used across the governing set and are *practised* as
+equivalent (Robert Tan appears in both the `Selected` and `Judge` columns of §5, e.g. row 382
+above) but were never **decided** as equivalent. Every prior identity risk in this project was
+hunted aggressively (`D-58` git authorship, `D-92` package tallies, `D-87` transcript naming,
+`G110` `D-108`/`D-156`); this one had not been.
+
+### The ruling
+
+1. **Judge, Chief Editor, and "the user" are the same natural person** (Robert Tan) for the
+   duration of v1.
+2. **Chief Editor governs** Active-lane selection, at Sprint boundaries (`D-156`).
+3. **Judge governs** phase-`Done` acceptance, deferral, and residual-risk acceptance, at Phase
+   boundaries (`D-93`).
+4. **Both are the same person** — the separation above is **role-contextual, not
+   identity-based.** Naming the role in force at a given act (e.g. "the Chief Editor selected
+   Lane A" vs "the Judge accepted Phase 1") remains meaningful and should still be used; it is
+   not a claim of a second person.
+5. **This equivalence is a v1 constraint.** If the project scales past one person holding all
+   three roles, the roles separate, and that separation requires a new decision — this entry
+   does not pre-authorize it.
+
+### Why this needed a decision rather than staying implicit
+
+An implicit equivalence is unauditable: "the Judge accepted it" and "the Chief Editor selected
+it" cannot be checked against each other without a decided identity, and `G90` (recording a
+selection that has not happened) is exactly the failure mode an unstated identity invites.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files (shared core) | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Identity equivalence | ✅ §5.14dk | **— unaffected**: does not reference these roles directly | ✅ one sentence, lane-handover section, `CLAUDE.md`/`AGENTS.md`/`.agents/rules/graphify.md` | **— unaffected**: no artifact created | **— unaffected**: §5 already names Robert Tan in both columns by practice; this entry is what makes that practice decided | **— unaffected** |
+
+### Scope limits
+
+**Names an identity, decides no work.** Does not change who selects lanes or accepts phases —
+only confirms they are the same person acting in different named roles. Does not retroactively
+validate or invalidate any prior Judge/Chief Editor act; those stand on their own record.

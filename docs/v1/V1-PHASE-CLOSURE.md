@@ -402,10 +402,13 @@ handover is the moment that becomes a gap**, not a theoretical one.
 > lane filing its own report, as `§5.2` step 1 requires and as `B-047` first did.
 >
 > **No incoming lane was selected.** The Chief Editor released the lock without naming a successor,
-> so the table now shows the second legal configuration: **no lane `Active`, every unfinished lane
-> `Eligible`** (`D-108`). All three lanes moved, and that is forced rather than chosen —
-> `lane-state` fails a `Blocked` row while no lane is `Active`, because **`Blocked` names an active
-> run** and with the lock free there is no run to name.
+> so the table showed **no lane `Active`, every unfinished lane `Eligible`** — legal under `D-108`,
+> the rule in force that day.
+>
+> **Corrected by `D-156` (2026-08-29, same day): that configuration is not legal after all** — a
+> zero-`Active` gap and multiple simultaneous `Eligible` rows were the wrong reading of the source
+> clarification (`G110`). Under `D-156`, no successor named means **Lane A takes `Active` by
+> default**; Lanes B and C are `Blocked`, not `Eligible`. The table reflects the corrected state.
 >
 > **Selection remains outstanding and is not implied by this row.** `Eligible` means *may be
 > selected*, never *is running*; recording a selection that has not happened is `G90`. **`B-059`'s
@@ -481,42 +484,45 @@ phase record, and copied into the report; **the report does not mint its own.**
 
 **Phase 1 stays OPEN through every handover.** It closes last (`D-99`), and a lane leaving `Active` is a statement about committing, never about phase openness. **The state column carries STATES and nothing else** — that sentence used to live inside Lane A's cell, where `lane-state` correctly read it as the row claiming two states at once (`D-104`). A cell that explains itself cannot be parsed as a value.
 
-**Exactly one lane is `Active`, and the Chief Editor selects it at each Sprint boundary.**
-**The lane lock is a state machine — Judge ruling, `D-108`. This supersedes `D-107`'s definition
-of `Eligible`.**
+**Exactly one lane is `Active`, always — never zero — and Lane A holds it by default.**
+**The lane lock is a state machine — Judge ruling, `D-156`, correcting `D-108`.** `D-108`
+over-corrected `D-107`'s definition of `Eligible` into a post-release state held by every
+unfinished lane at once, which removed the nomination step entirely and left the successor
+unnamed (`G110`). `D-156` restores `Eligible` as the single nomination step.
 
-> **Why it changed: the rules kept not being applied.** `D-107` made `Eligible` mean *offered, may
-> begin without a further act*, which left two lanes able to believe they could work. **The lock
-> is now exclusive and the vocabulary says so.**
+> **Why it changed, twice.** `D-107` made `Eligible` mean *offered, may begin without a further
+> act*. `D-108` corrected that but went too far — *no lane `Active`, every unfinished lane
+> `Eligible`* — which `D-155` then legally produced and which turned out to be the wrong reading
+> of the same source clarification (`G110`). `D-156` is the second correction in one day.
 
 | State | Means | May commit? |
 |---|---|:---:|
-| **`Active`** | **This lane is RUNNING.** Exactly one, or none between turns | **Yes — only this lane** |
-| **`Blocked`** | Another lane is `Active`. **The row names that run** | No |
-| **`Eligible`** | The active turn has COMPLETED and the lock is free. **This lane may be selected** | No — not until selected |
+| **`Active`** | The lane currently holding the commit lock. **Exactly one, always — never zero.** Lane A holds it by default, because orchestration and governance cannot otherwise proceed | **Yes — only this lane** |
+| **`Eligible`** | **The selection step** — one lane nominated as the next holder, offered the lock but **not yet executing**. **At most one, or none** | No — not until approved |
+| **`Blocked`** | The lane is not selected, because another lane already holds `Active` **or** `Eligible` | No |
 | **`Done`** | Definition of Done met and accepted by the Judge | No |
 
-**The cycle, and it is the whole model:**
+**The handover, and it is the whole model:**
 
 ```
-   Chief Editor selects            active lane completes
+   Eligible lane approved           lane runs to completion
           │                                  │
           ▼                                  ▼
-   one lane Active  ───────────────►  no lane Active
-   others Blocked                     unfinished lanes Eligible
+   it becomes Active  ──────────────►  completion approved,
+   others Blocked                      successor named Eligible
           ▲                                  │
           └──────────────────────────────────┘
 ```
 
-**Both halves are legal states, and that is deliberate.** *One `Active`, the rest `Blocked`* is a
-turn in progress. *No `Active`, the rest `Eligible`* is the gap between turns, when the lock is
-free and the Chief Editor has not yet selected. **What is illegal is a lane `Eligible` while
-another is `Active`** — that was the `D-107` reading, and it is what let a turn be started, doubted
-and abandoned.
+**`Eligible` beside `Active` is legal, and is the only way to nominate** — that inverts the
+`D-108` reading. **Two or more `Eligible` is illegal**, and **zero `Active` is illegal**: Lane A
+defaults into the lock rather than the lock going unheld. Naming the successor is part of
+approving the handover, not a later step.
 
 **Lane B and Lane C become `Active` the same way Lane A does.** There is no lane that only ever
 waits: the Chief Editor selects, the selected lane runs and commits, the others are `Blocked` on
-that named run, and on completion everyone unfinished returns to `Eligible`.
+that named run, and on completion the handover names one successor `Eligible` — not every
+unfinished lane at once.
 
 ### The boundary edit — `B-028` resolved, and it had to be
 
