@@ -189,7 +189,7 @@ build the archival job** — that is explicitly deferred until the product is li
 never null. **Not `DEP-05`-blocked** — this is a static schema/trigger property, the same shape as
 `C-33`'s other cases.
 
-### 2.2d S2, Phase 0 — the shortest editorial path (`D-164`, closing `D-162`/`B-061`'s open gap)
+### 2.2d S2 Unit 1, Phase 0 — the shortest editorial path (`D-164`/`D-165`, closing `D-162`/`B-061`'s open gap)
 
 **`Q12` and `Q1` are decided** (`D-163`) — `SEC-01` no longer blocks on the IIA citation, and Phase
 0 allows one agent instance across multiple Line 1 roles. **This is your next code unit.**
@@ -211,18 +211,29 @@ classification.
    existing trigger, disposable local Postgres. **No schema change unless verification finds a
    real gap** — you are testing what already exists, not writing new enforcement.
 2. **If `line_separation_status` is not correctly asserted at T5**, extend the test to `AC-07`/
-   `AC-08` and raise a `finding` specifying how the classification should be computed — do not
-   build the computation without raising it first; the shape is undecided.
+   `AC-08` and raise a `finding` specifying how the classification is computed and validated — the
+   three-value shape and field name are **already decided** (`D-97`, `D-111`); only computation/
+   validation ownership is open. Do not build the computation without raising it first.
 3. **Minimal application surface.** One route/action letting the Chief Editor execute T5 on a
    `Drafted` article: write `workflow_transitions` (`gate_role: senior_journalist`,
    `line_assignment: Line2`, `actor_type: human`) and the `articles.workflow_state` update in
-   **one transaction**, per the trigger's same-transaction requirement (`pg_xact_status`).
+   **one transaction**, per the trigger's same-transaction requirement (`pg_xact_status`). **The
+   transaction boundary is a new, security-invoker Postgres function** (validates caller input,
+   inserts exactly one transition, updates the article, returns the resulting state, all in one
+   transaction; explicit `EXECUTE` grants, not the broad default), delivered in a new Lane B
+   migration and invoked via `supabase.rpc(...)`. Ordinary sequential Supabase JS calls do not
+   share a transaction and cannot satisfy the trigger's same-transaction check (`D-165`,
+   closing `B-064`).
 4. **`US-04`'s DoD**: agent assistance recorded as `assisting_agent_id`, never as executor.
 
-**Explicitly excluded from this packet** — do not absorb them: T6 (`FR-06` is S1-scoped, not S2),
-any board/list UI, publication, and `NFR-03`'s full independence-classification behaviour beyond
-what step 2 specifies. **`OD1`/`OD2` provisionality stands** — this is Phase-0 done only;
-production done needs both ratified (`Modular_PRD` M2).
+This is **S2 Unit 1** — the packet above, and nothing more. **Explicitly excluded from Unit 1** —
+do not absorb them: T6 (`FR-05`, `AC-07`/`AC-08`, S2 — deferred to **S2 Unit 2**, not S1-scoped;
+`FR-06`/S1 is the separate T8 return-to-a-prior-state feature), blind disposition-before-reveal at
+T5, the T6→T5 return event/rate, any board/list UI, publication, and `NFR-03`'s full
+independence-classification behaviour beyond what step 2 specifies. **Neither Unit 1 nor Unit 2
+alone earns `Modular_PRD` M2 or production done** (`D-165`, closing `B-063`). **`OD1`/`OD2`
+provisionality stands** — this is Phase-0 done only; production done needs both ratified
+(`Modular_PRD` M2).
 
 ### 2.3 The verification pass — **the queue is generated, not restated**
 

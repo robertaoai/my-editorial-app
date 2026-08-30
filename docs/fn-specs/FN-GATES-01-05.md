@@ -154,8 +154,8 @@ Returns (T8) and rejections (T9) may occur at any active state and are specified
 | `AC-04` | An article is at `Investigated` | A Journalist agent drafts | State becomes `Drafted` with non-empty adaptation, ≥1 target, checklist complete |
 | `AC-05` ⚠ | An article is at `Drafted` | The Chief Editor executes T5 | State becomes `Reviewed`; executor recorded as human |
 | `AC-06` ⚠ | An article is at `Drafted` | **An agent attempts T5** | **The transition is refused** |
-| `AC-07` `[Q11]` | An article is at `Reviewed` | A Chief Journalist agent executes T6 | State becomes `Approved`; boundary crossing recorded |
-| `AC-08` `[Q11]` | An article is at `Reviewed` | The Chief Editor executes T6, a Line 1 gate | Allowed, but recorded as an **override** |
+| `AC-07` | An article is at `Reviewed` | A Chief Journalist agent executes T6 | State becomes `Approved`; boundary crossing recorded |
+| `AC-08` | An article is at `Reviewed` | The Chief Editor executes T6, a Line 1 gate | Allowed, but recorded as an **override** |
 
 **`AC-06` is the canary.** If an agent can execute T5, `FR-04` has failed regardless of what any other test reports.
 
@@ -224,4 +224,4 @@ The other four absorb into the S1 window — the expected result if `Fn_Specs` w
 
 ## 10. Scope limits
 
-Closes no Open Decision. `FR-04` and `FR-05` remain `OD`-provisional. Authorizes no code, schema, or migration. Field names shown are proposals pending `Q11`. `FB-05`'s missing trend-signal provenance is **recorded, not resolved** — it must be settled before S1.
+Closes no Open Decision. `FR-04` and `FR-05` remain `OD`-provisional. Authorizes no code, schema, or migration. Field names shown are decided (`Q11` closed by `D-97`/`D-111`) and applied in `0002`. `FB-05`'s missing trend-signal provenance is **recorded, not resolved** — it must be settled before S1.

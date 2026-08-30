@@ -579,7 +579,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 
 | ID | Requirement | Standard | FRs | Owner | Status |
 |---|---|---|---|---|---|
-| `SEC-01` | Line 1 and Line 2 roles are never held by the same identity | Editorial RACI — four-eyes at the Line 1/Line 2 boundary, R ≠ A (`D-163`, closing `Q12`) | FR-04, FR-05 | Line 2 | Drafted — S2 |
+| `SEC-01` | Line 1 and Line 2 roles are never held by the same identity | Editorial RACI — four-eyes across a Line boundary, `R(prior task) ≠ R(this task)` (e.g. `R(T4) ≠ R(T5)`); **not** `R ≠ A` within one task — at T5, `R = A` by design and that is expected (`D-163`/`D-165`, closing `Q12`) | FR-04, FR-05 | Line 2 | Drafted — S2 |
 | `SEC-02` | Publication credentials in server env only | OWASP A02 | FR-09 | Line 1 | Drafted — S4 |
 | `SEC-03` | RLS replaced with owner- and role-scoped policies; only Line 2 executes T5 and T11 | — | All | Line 2 | **S6 — cannot be called done while OD1–OD3 are unratified** |
 | `SEC-04` | GDPR Art. 17 erasure for personal data in sourced articles | GDPR Art. 17 | FR-01 | **Absent — no legal function** | **Deferred to Phase 2** (Addendum G2) |

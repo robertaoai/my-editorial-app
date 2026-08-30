@@ -219,13 +219,15 @@ Actor context on every action · four-eyes evaluator behind `FOUR_EYES_MODE` · 
 
 **OD gating:** `OD1`/`OD2` gate **production** done, not Phase 0 done. **A negative `OD2` voids this sprint's model entirely.**
 
-> **Corrected 2026-08-30 (`D-163`, `D-164`, closing `B-061`'s open parent gap).** `Q12` is decided
-> — `SEC-01` no longer cites the IIA, so the *"subject to `Q12(b)`"* qualifier above is stale and
-> removed. **This full section describes S2's eventual complete scope; it is not what is
-> authorized to build first.** `D-164` authorizes a narrower Phase-0 packet — verify the T5
-> human-only trigger already built in `0002`, then the minimal application surface to execute it —
-> specified in `LANE-B-WORK-ORDER.md` §2.2d. Blind first pass, T6 validation, the return-rate log,
-> and `EmergencyBypass` remain unauthorized until a later packet names them.
+> **Corrected 2026-08-30/31 (`D-163`, `D-164`, `D-165`, closing `B-061`'s open parent gap).**
+> `Q12` is decided — `SEC-01` no longer cites the IIA, so the *"subject to `Q12(b)`"* qualifier
+> above is stale and removed. **This full section describes S2's eventual complete scope; it is
+> not what is authorized to build first.** `D-164`/`D-165` authorize **S2 Unit 1** — verify the T5
+> human-only trigger already built in `0002`, then the minimal application surface to execute it
+> through a security-invoker Postgres function called via `supabase.rpc()` — specified in
+> `LANE-B-WORK-ORDER.md` §2.2d. **S2 Unit 2** (not yet authorized) owns T6 (`FR-05`, `AC-07`/
+> `AC-08` — not `FR-06`, which is the separate S1 T8 return feature), blind first pass, the
+> `T6→T5` return-rate log, and `EmergencyBypass`. Neither unit alone earns M2 or production done.
 
 ### S3 — Board, filters, audit log
 

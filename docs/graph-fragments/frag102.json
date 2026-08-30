@@ -1,0 +1,132 @@
+{
+  "_comment": "Fragment 102 — curated nodes for B-062/B-063/B-064 (Lane B's docs-only critic pass on D-163/D-164) and their D-165 correction. Left absent from the extracted graph by the same G109-class gap seen on every new docs/handoff/ file. Merged 2026-08-31.",
+  "nodes": [
+    {
+      "id": "b062_raci_source_contradicts_q12_rationale",
+      "label": "B-062: D-163's RACI Source Contradicts Its Own Q12 Rationale",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-062-d163-raci-source-contradicts-q12-rationale.md",
+      "source_location": "whole document",
+      "description": "D-163 re-sourced SEC-01 to the editorial RACI and stated the rule as 'R never equals A at a Line boundary.' The cited RACI (raci-involvement-matrix.md) says the opposite at T5: R = A there by design, and four-eyes is instead satisfied by R(T4) != R(T5) across successive executors. SEC-01's behaviour was never wrong; only D-163's derivation sentence mis-stated its own source. Closed by D-165, which corrected Modular_PRD's SEC-01 Standard column to the successor-node rule and opened a separate, named gap for the still-undone 2026 IIA Statement of Position re-anchor for SEC-06.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A citation can be present, specific, and still wrong about what it proves — graph-coverage and the D-54 tier sweep both check that a source is named, neither checks that the named source says what the citing text claims. That gap is exactly how D-163 passed propagation while misreading its own RACI."
+    },
+    {
+      "id": "b063_s2_packet_maps_wrong_requirement",
+      "label": "B-063: D-164's S2 Packet Maps T6 to the Wrong Requirement",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-063-d164-s2-packet-maps-the-wrong-requirement.md",
+      "source_location": "whole document",
+      "description": "D-164 excluded T6 from its S2 packet by calling it 'FR-06, already S1-scoped.' Modular_PRD places T6's AC-07/AC-08 under FR-05 (S2); FR-06 is the separate T8 return-to-a-prior-state feature (S1). D-165 renamed the authorized packet 'S2 Unit 1' and named an unauthorized 'S2 Unit 2' owning T6, AC-07/AC-08, the T6-to-T5 return event, and blind first pass, so neither unit alone can be mistaken for full S2/M2 completion.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "An exclusion list is a scope-control device only if the requirement ID on each excluded item is correct; a wrong ID lets the excluded work quietly disappear from both units instead of landing in the one that should own it."
+    },
+    {
+      "id": "b064_s2_action_has_no_transactional_path",
+      "label": "B-064: The S2 Action Has No Transactional Database Path",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-064-s2-action-has-no-transactional-database-path.md",
+      "source_location": "whole document",
+      "description": "D-164 step 3 asked a Next.js route/action to write workflow_transitions and update articles.workflow_state in one transaction, but the repo had no RPC/database function and ordinary sequential supabase-js calls each commit separately -- guaranteed to fail enforce_article_state_transition's same-transaction check. D-165 authorized a security-invoker Postgres function delivered in a new Lane B migration, invoked via supabase.rpc(), as the transaction boundary; declined the alternative direct-PostgreSQL-client path as a disproportionate Lane A dependency change.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Authorizing a build step that names no executable path is not yet a build authorization -- it just relocates the missing decision one level down, where it will surface as a failed trigger test instead of a planning gap.",
+      "supabase_docs": [
+        "https://supabase.com/docs/reference/javascript/using-modifiers-rollback",
+        "https://supabase.com/docs/reference/javascript/rpc",
+        "https://supabase.com/docs/guides/database/functions"
+      ]
+    },
+    {
+      "id": "d165_three_defects_in_d163_d164_corrected",
+      "label": "D-165: Three Defects in D-163/D-164 Corrected",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14dr",
+      "description": "Lane A correction closing B-062, B-063, and B-064 without rewriting D-163's or D-164's historical text. Corrects SEC-01's rationale to the successor-node four-eyes rule in Modular_PRD, renames D-164's packet 'S2 Unit 1' and names an unauthorized 'S2 Unit 2' owning T6/AC-07/AC-08, and authorizes a security-invoker Postgres RPC as Unit 1 step 3's transaction boundary. Opens one new named gap: the 2026 IIA Statement of Position re-anchor for SEC-06, owned by Lane A, not yet done.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Correcting a decision's current-value consequences without editing its historical record keeps the register append-only and auditable, while still stopping a wrong derivation from propagating into the next sprint's build packet."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b062_raci_source_contradicts_q12_rationale",
+      "target": "commit:repo:github.com/robertaoai/my-editorial-app@85a7ff90753e4ee3ca67facbd0d37824f523f271",
+      "relation": "raised_against",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-062-d163-raci-source-contradicts-q12-rationale.md",
+      "confidence_score": 1,
+      "source_location": "Evidence",
+      "weight": 1
+    },
+    {
+      "source": "b063_s2_packet_maps_wrong_requirement",
+      "target": "commit:repo:github.com/robertaoai/my-editorial-app@026ceee9c235781841812114daa9b49f944b4e04",
+      "relation": "raised_against",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-063-d164-s2-packet-maps-the-wrong-requirement.md",
+      "confidence_score": 1,
+      "source_location": "Evidence",
+      "weight": 1
+    },
+    {
+      "source": "b064_s2_action_has_no_transactional_path",
+      "target": "commit:repo:github.com/robertaoai/my-editorial-app@026ceee9c235781841812114daa9b49f944b4e04",
+      "relation": "raised_against",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-064-s2-action-has-no-transactional-database-path.md",
+      "confidence_score": 1,
+      "source_location": "Evidence",
+      "weight": 1
+    },
+    {
+      "source": "d165_three_defects_in_d163_d164_corrected",
+      "target": "b062_raci_source_contradicts_q12_rationale",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dr",
+      "weight": 1
+    },
+    {
+      "source": "d165_three_defects_in_d163_d164_corrected",
+      "target": "b063_s2_packet_maps_wrong_requirement",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dr",
+      "weight": 1
+    },
+    {
+      "source": "d165_three_defects_in_d163_d164_corrected",
+      "target": "b064_s2_action_has_no_transactional_path",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dr",
+      "weight": 1
+    }
+  ]
+}

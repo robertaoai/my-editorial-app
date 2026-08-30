@@ -10291,3 +10291,96 @@ step may surface new ones, not invented ahead of running it.
 **Authorizes a build; does not perform it.** Writes no test, no application code, no migration.
 Lane B executes only once nominated `Eligible` and the Judge approves `Active` for a named run —
 this entry does not nominate or select.
+
+---
+
+## 5.14dr `D-165` — Three Defects in `D-163`/`D-164` Corrected, Closing `B-062`, `B-063`, `B-064`
+
+**Lane A correction, 2026-08-31, from Lane B's docs-only review of `D-163`/`D-164`.** Does not
+reopen or rewrite either entry's historical text — both stay as the record of what was ruled and
+when. This entry corrects three current-value defects those rulings introduced, all fact-checked
+against their own cited sources before recording, not accepted from Lane B's claims.
+
+### 1. `SEC-01`'s rationale, corrected (`B-062`)
+
+`D-163`'s stated derivation — *"R never equals A at a Line boundary"* — is false on its own cited
+source. `docs/governance/raci-involvement-matrix.md` §2 states plainly that at **T5**, `R = A`
+(the Acting Chief Editor is both), and that four-eyes holds anyway because **`R(T4) = Journalist
+agent ≠ R(T5) = Acting Chief Editor`** — separation across successive executors at the boundary,
+not `R ≠ A` inside one task. `SEC-01`'s *behaviour* was always correct; only the register's
+rationale sentence mis-stated its own source. **Corrected in `Modular_PRD.md` `SEC-01`'s Standard
+column** to the successor-node rule, `R(prior task) ≠ R(this task)`, with `R = A` at T5 named as
+expected, not a violation.
+
+The 2026 IIA Statement of Position re-anchor for `SEC-06` that `D-163` left as *"a separate
+task"* is **not completed by this entry** — it remains a named, open gap: **owner** Lane A,
+**tier** `SEC-06` (`Modular_PRD.md` §6.5) plus the Addendum/Blueprint/Business Case/RACI current-
+value paragraphs that still attribute an absolute same-actor prohibition to the superseded 2020/
+2024 Three Lines text, **Definition of Done** — read the current IIA Statement of Position
+(<https://www.theiia.org/en/resources/statements-of-position>), re-anchor `SEC-06`'s citation to
+it or record why the existing citation still holds, and normalize the four current-value
+documents named above (historical changelog text may stay historical). Tracked as a `finding` for
+a later Phase 1 turn; it does not block S2 Unit 1.
+
+### 2. S2 packet re-scoped, T6 re-attributed (`B-063`)
+
+`D-164`'s exclusion list said T6 was `FR-06`, already S1-scoped. It is not: `AC-07`/`AC-08` (T6's
+classification and override criteria) are `FR-05`, and `Modular_PRD.md` §8.1's S2 row already
+carries `FR-04`/`FR-05`. `FR-06` (`Modular_PRD.md` line 424) is the T8 return-to-a-prior-state
+feature, S1. The authorized packet is renamed **S2 Unit 1** (`LANE-B-WORK-ORDER.md` §2.2d,
+`V1-BUILD-SPEC.md` S2 note, both corrected). **S2 Unit 2** — not authorized by this entry — owns
+T6 validation, `AC-07`/`AC-08`, the distinct `T6→T5` return event/rate, blind disposition-before-
+reveal at T5, and the remainder of `NFR-03`. Neither unit alone satisfies `Modular_PRD` M2 or
+counts as production done.
+
+Blind-review-before-reveal (`FR-04`'s disposition-before-recommendation-reveal behaviour) is
+**excluded from Unit 1** and assigned to Unit 2; no stack-specific `docs/specs/ux/` artifact is
+authorized yet because no UI is authorized yet. `LANE-B-WORK-ORDER.md`'s `line_separation_status`
+line is corrected: the three-value shape and field name are decided (`D-97`, `D-111`); only
+computation/validation ownership is the open question. `FN-GATES-01-05.md`'s stale `[Q11]` tags
+on `AC-07`/`AC-08` and its *"pending `Q11`"* closing line are removed — `Q11` is closed and
+already applied in `0002`.
+
+### 3. Transaction boundary authorized for Unit 1 step 3 (`B-064`)
+
+The existing `enforce_article_state_transition` trigger requires the `workflow_transitions`
+insert and the `articles.workflow_state` update in one PostgreSQL transaction. Two sequential
+`supabase-js` calls cannot satisfy that — each commits separately, so the trigger's same-
+transaction check is guaranteed to fail. **Authorized path:** a new, security-invoker Postgres
+function, delivered in a new Lane B migration (`0003_*`), that validates caller input, inserts
+exactly one transition row, updates the article, and returns the resulting state — all in one
+transaction — invoked from the route/action via `supabase.rpc(...)`. `EXECUTE` privileges must be
+granted explicitly, not left at the broad default. This is a build-specification choice within
+Lane A's `SPECS`/migration-authorization scope, not a new Chief Editor ruling; it does not touch
+`app/`, `lib/`, or `components/`, which stay Lane B's. The alternative Lane B raised — a direct
+server-side PostgreSQL transaction client and `DATABASE_URL` path — is **not** authorized: it is a
+second database access path and a Lane A dependency/build-config change, out of proportion to
+what Unit 1 needs.
+
+### Gaps
+
+**Closed:** `B-062`, `B-063`, `B-064` (the packet-scope and transaction-boundary defects each
+raised). **Opened:** the `SEC-06` 2026 IIA re-anchor, named above, owner Lane A, no Definition-of-
+Done deadline set beyond "before `SEC-06` is claimed current." **Unchanged:** `D-163`'s and
+`D-164`'s historical text; `Q1`'s `OD3` production half; S2 Unit 2's authorization, which remains
+future work.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `SEC-01` rationale correction | ✅ §5.14dr | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ `SEC-01` Standard column, §6.5 |
+| S2 Unit 1/Unit 2 split, T6 re-attribution | ✅ §5.14dr | ✅ S2 note corrected | **— unaffected** | **— unaffected: no artifact created yet** | **— unaffected: no lane-state change** | **— unaffected: FR-05/FR-06 mapping already correct at source** |
+| Transaction boundary (RPC) authorized | ✅ §5.14dr | **— cited in `LANE-B-WORK-ORDER.md` §2.2d, not restated** | **— unaffected** | **— will gain the `0003_*` migration row once written — not yet, no code produced here** | **— unaffected** | **— unaffected** |
+| `[Q11]`/pending-language cleanup | ✅ §5.14dr | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `Modular_PRD` already carried the closed state** |
+| `SEC-06` 2026 IIA re-anchor | **— opened here, not closed** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected until the sweep completes** |
+
+**Encyclopedia:** Entry mapping unaffected — this correction touches requirement rationale and
+build-packet scope, not the six anchors `docs/ENCYCLOPEDIA-SYNC.md` tracks.
+
+### Scope limits
+
+**Corrects rationale and packet scope; authorizes no new code.** The `0003_*` RPC migration and
+the route/action remain Lane B's to write once nominated. This entry does not change lane state,
+does not nominate Lane B `Eligible`, and does not rule on `SEC-06`'s re-anchor — it only names
+that gap and its owner.
