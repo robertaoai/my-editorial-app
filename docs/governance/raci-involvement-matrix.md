@@ -1,21 +1,23 @@
 # RACI Involvement Matrix
-**Version:** v1.3 — **proposed, not ratified**
+**Version:** v1.4 — **proposed, not ratified**
 **Date:** 2026-08-16, amended 2026-08-31
 **Origin:** Chief Editor, 2026-08-16, reframing OD2 and OD4
 **Status:** Recorded for ratification. **Closes nothing** beyond `RACI-03`/`RACI-04` (`D-170`,
 §5 below). OD1, OD2, OD3, OD4 remain as the Charter has them until the Chief Editor signs off in the
 Addendum §2.4 Ratification Log.
 
-> **Target order decided, not yet in force (`D-170`, 2026-08-31).** The Chief Editor decided a target
-> gate order — `T5` becomes Chief Editorial Desk review, `T6` becomes the human Chief Editor's final
-> decision — answering `docs/handoff/B-068-*.md` `F2`. **§2.1 and §3 below still describe the current,
-> build-authorized order** (`T5`=human Chief Editor, `T6`=Chief Journalist agent), which
-> `V1-DECISION-REGISTER.md` `D-170` deliberately left unrewritten: `V1-BUILD-SPEC.md`'s "S2" sequencing
-> is already authorized (`D-164`/`D-165`) against this current order, and rewriting the proof below
-> without rewriting that authorization in the same pass would itself create a fresh cross-document
-> contradiction. §2.1's successor-node-review proof will need re-derivation for the target order — it is
-> not a relabeling, since which node reviews which flips — as part of `B068-F6`/`F7`. Until a fresh build
-> authorization supersedes it, **build against the current order below, not the target.**
+> **Target order decided; EXPLICIT S2 HOLD on both orders (`D-170`, then `D-171`, 2026-08-31).** The
+> Chief Editor decided a target gate order — `T5` becomes Chief Editorial Desk review, `T6` becomes the
+> human Chief Editor's final decision — answering `docs/handoff/B-068-*.md` `F2`. **§2.1 and §3 below
+> still describe the current order** (`T5`=human Chief Editor, `T6`=Chief Journalist agent).
+> `V1-DECISION-REGISTER.md` `D-170` deliberately left them unrewritten — rewriting the proof below
+> without rewriting `V1-BUILD-SPEC.md`'s authorization in the same pass would have created a fresh
+> cross-document contradiction. §2.1's successor-node-review proof needs re-derivation for the target
+> order — not a relabeling, since which node reviews which flips — as part of `B068-F6`/`F7`; `D-171`
+> drafted the target Line/executor matrix and control shape (`V1-DECISION-REGISTER.md` §5.14dx) but has
+> not yet rewritten this proof with it. **`D-171` also corrected `D-170`'s narrower stance: neither order
+> is currently build-authorized.** `V1-BUILD-SPEC.md`'s `D-164`/`D-165` authorization is held for both the
+> current order below and the target order until `F6` lands and a fresh build authorization selects one.
 
 ---
 
@@ -218,6 +220,11 @@ Unresolved, each one collapses back onto the same single human. **A business in 
 
 ## 8. Changelog
 
+- **2026-08-31 v1.4:** `D-171`, answering Lane B's `B068-R8` completion review, places an explicit S2
+  hold on **both** the current and target `T5`/`T6` orders (correcting `D-170`'s narrower stance, which
+  left the current order build-authorized) and drafts `F6`'s target Line/executor matrix, human-only
+  canary relocation, blind-review event sequence, and `T6→T5` return-metric redefinition
+  (`V1-DECISION-REGISTER.md` §5.14dx). §2.1/§3 below are still not rewritten — that remains `F6`/`F7`.
 - **2026-08-31 v1.3:** `D-170`, answering `docs/handoff/B-068-*.md` `F5`, closes `RACI-03` (measurement
   point named: the `T6→T5` return rate `V1-BUILD-SPEC.md` §"S2" already logs) and `RACI-04` (RACI's
   "one role per task" and the Charter's "distinct agent" constrain different things and do not

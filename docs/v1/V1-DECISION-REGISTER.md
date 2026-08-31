@@ -10833,3 +10833,101 @@ guardrail 1; its `Defer` row). `F3` (persona table split), `F4` (CSV crosswalk),
 behavior/AC) are undone; `F7` (full propagation, Graphify merge, independent verification) cannot start
 until they are. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`
 (Lane B surface) or `.github/workflows/` (Lane C surface).
+
+## 5.14dx `D-171` — Explicit S2 Hold Placed; `F6` Line/Executor Matrix, Canary, Blind Review, Return Metric, Overrides, and Gate-Count Terms Drafted
+
+**Chief Editor ruling, 2026-08-31, on Lane B's independent completion review of `D-170` (`B-068` §9,
+`B068-R1`–`R9`).** Lane B's review verified `D-170`'s `F1`/`F2`/`F5` application from files and found the
+most serious residual risk was its own: `D-170` left `V1-BUILD-SPEC.md`'s current-order S2 sequencing
+build-authorized (`D-164`/`D-165`) with no explicit statement that the order is now superseded as the
+decided target (`B068-R8`). Silence is not authorization, but nothing said so — Lane B could read the
+absence of a hold as license to build the current order in good faith, creating avoidable migration, UI,
+and test rework once `F6`/`F7` later supersede it.
+
+### The decision
+
+1. **Explicit S2 hold, superseding `D-170`'s narrower stance.** No `T5`/`T6`-sensitive route, RPC, UI,
+   migration, or test — against **either** the current or the target order — starts until `F6` lands and a
+   fresh, separate build authorization selects one contract. `D-170`'s Scope limits ("Lane B builds against
+   the current `T5`/`T6` order until a fresh authorization adopts the target order") is corrected: the
+   current order was never re-affirmed as safe to build once a different order was decided as target: both
+   are held. Work that is genuinely order-independent must be named explicitly by whoever proposes it;
+   nothing is order-independent by default.
+2. **`F6`'s Line/executor matrix, drafted** (`B068-R5`), derived from already-governed rules, not invented:
+
+   | Transition | Judgment | Target role | `required_line` | `executor_type` | `line_separation_status` |
+   |---|---|---|---|---|---|
+   | T1 | `EG1` | Reporter | Line 1 | agent | `satisfied` — first node, no predecessor |
+   | T2+T3 | `EG2` | Investigator | Line 1 | agent | `satisfied` — predecessor Reporter, distinct role |
+   | T4 | `EG3` | Journalist | Line 1 | agent | `satisfied` — predecessor Investigator, distinct role |
+   | T5 | `EG4` | Chief Editorial Desk | Line 1 | agent | `satisfied` — predecessor Journalist, distinct role |
+   | T6 | `EG5` | Chief Editor | **Line 2** | **human** | `satisfied` — successor to `EG4`; `raci-involvement-matrix.md` §4 fixes `A`/Line 2 to the Acting Chief Editor specifically, so only the human final decision can carry Line 2, not Chief Editorial Desk |
+   | Delivery | — | System | — | system | `not_applicable` — no editorial authority, per `B-068` §5 `B068-F6` target table |
+
+   **Derivation, not invention:** `raci-involvement-matrix.md` §4 already states "`A` sits in Line 2 —
+   always the Acting Chief Editor"; a Chief Editorial Desk workcell is not the Acting Chief Editor, so it
+   cannot be Line 2 under the existing rule regardless of which `T` it occupies. This also names a structural
+   change the target order makes, not only a role swap: the **current** order has Line 2 (human) reviewed by
+   a Line 1 agent (`T6` validates `T5`); the **target** order has Line 1 (agent) reviewed by Line 2 (human) —
+   the accountable human moves from mid-chain to final sign-off. Both satisfy successor-node four-eyes; they
+   are not the same control shape.
+3. **`F6`'s human-only canary, moved, not duplicated** (`B068-R6`). The current `AC-06` refusal (agent
+   attempts human-only `T5`) is retired, not retained beside a new one — a target build must refuse an
+   agent-attempted `EG5`/`T6`, not `EG4`/`T5`. Exactly one human-only canary exists at a time, anchored to
+   whichever transition is `required_line = Line 2` under the contract actually authorized to build.
+4. **`F6`'s blind-review sequence, defined as an ordered event pair** (`B068-R6`): `EG4_disposition_sealed`
+   (Chief Editorial Desk's recommendation recorded, not yet visible to `EG5`) must precede
+   `EG5_reveal_and_decide` (the human Chief Editor's view of `EG4`'s recommendation, followed by the human's
+   own disposition). A "blind" label with no stored ordering between these two events proves nothing; the
+   ordering itself is the control.
+5. **`F6`'s `T6→T5` return metric, re-derived for the target actor direction** (`B068-R6`). The event and its
+   log requirement are preserved (`V1-BUILD-SPEC.md` §"S2" already names it), but its *meaning* inverts:
+   currently it measures how often an agent (`T6`) challenges the accountable human's judgment (`T5`) —
+   evidence of the human's authority gradient. Under the target order it measures how often the accountable
+   human (`T6`) returns work to the Chief Editorial Desk agent (`T5`) — evidence of the desk's quality, not
+   the human's diligence. Same event name, opposite evidentiary claim; the target contract must state which
+   one it is testing before the metric is built.
+6. **`F6`'s overrides, defined** (`B068-R6`): under the target contract, the human Chief Editor executing an
+   authorized `EG5`/`T6` decision is ordinary operation, not an override. An override (`O`, `D-170` §5.1) is
+   an unauthorized role or Line substitution — for example, the Chief Editor deciding at `EG4`'s position
+   before `EG4` has run, or any actor other than the Acting Chief Editor exercising `O`. Anything not meeting
+   that definition is refused outright, not silently permitted as a "final say."
+7. **`F6`'s gate-count terms, separated** (`B068-R7`), as future contract candidates only — `lib/config/build-config.ts`'s current `PIPELINE_GATE_COUNT = 6` is **not changed** by this decision:
+   `EDITORIAL_JUDGMENT_GATE_COUNT = 5` (`EG1`–`EG5`) and `FORWARD_EDITORIAL_TRANSITION_COUNT = 6`
+   (`T1`–`T6`) name the two granularities `D-170`'s "five judgment gates" language now adds to the two
+   `CONFIG_LOG.md`/`A4` already resolved (Charter's 4 review roles versus the Addendum's 6 transitions).
+   Introducing the config change itself is `F7`/fresh-build-authorization work, not this decision.
+
+### What remains open
+
+Gate evidence and negative-test detail (`B068-F6` item 7) and delivery-node protection's exact mutation
+refusal (item 8) are **not drafted here** — both need `F4`'s route/operation crosswalk to name real
+evidence anchors and executor identities first, rather than invented placeholders. `F3` (persona/executor/
+node catalogs) and `F4` (CSV crosswalk) remain fully open and undone. `F7` cannot start until they are.
+
+### Gaps
+
+**Addressed:** `B068-R8` (explicit hold placed), `B068-R5` (Line/executor matrix drafted), `B068-R6`
+(canary, blind review, return metric, overrides drafted), `B068-R7` (gate-count terms named, not yet
+built). **Still open:** `B068-R1`–`R4` (`F3`/`F4`, untouched by this decision), `B068-R9` (Graphify
+currency — addressed separately, see Tier applicability). **Unchanged:** `D-170`'s `F1`/`F5` rulings,
+`D-165`–`D-169`, and every item `B-068` §3's drift table already marked unaffected.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-171` explicit S2 hold (both orders) | ✅ §5.14dx | ✅ hold note ahead of "S2", superseding the `D-170` note | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: no FR/AC rewrite yet** |
+| `D-171` `F6` Line/executor matrix, canary, blind review, return metric, overrides drafted | ✅ §5.14dx | **— not yet: draft only, no S2 rewrite** | **— unaffected** | **— unaffected** | **— unaffected** | **— not yet: `FR-04`/`FR-05`/`AC-05`–`AC-08` restatement remains `F7`** |
+| `D-171` gate-count terms named as future candidates | ✅ §5.14dx | **— unaffected: `lib/config/build-config.ts` not touched** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Handoff tracking:** `B-068` stays `Open`. Its Lane A field is updated to record this decision and the
+hold. Resolution stays blank.
+
+### Scope limits
+
+**Drafts `F6` content and places a hold; builds nothing, authorizes no code.** The Line/executor matrix,
+canary, blind-review sequence, return-metric redefinition, and override rule are drafts for `F6`'s eventual
+FR/AC rewrite, not that rewrite itself — `Modular_PRD.md`, `FN-GATES`, and the RACI proof are not edited by
+this decision. `F3`, `F4`, gate evidence/negative tests, and delivery-node protection remain open. `F7`'s
+propagation, Graphify sync, and independent verification cannot start until `F3`/`F4`/`F6` are complete.

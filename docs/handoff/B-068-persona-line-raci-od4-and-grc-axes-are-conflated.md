@@ -9,11 +9,17 @@
 - **Status:** Open
 - **Lane A:** Acknowledged 2026-08-31 — critic pass complete (§8). Chief Editor decided `F1`/`F2`/`F5`
   the same day; recorded as `V1-DECISION-REGISTER.md` `D-170` and propagated into
-  `raci-involvement-matrix.md` (v1.3 — `RACI-03`/`RACI-04` closed, §5.1 authority contract added,
-  target-order note) and `V1-BUILD-SPEC.md` (target-pending note ahead of "S2"; DoD text itself left
-  unchanged and remains the authorized build contract — see `D-170`'s Scope limits for why). `F3`
-  (persona split), `F4` (CSV crosswalk), and `F6` (target-node behavior/AC) are undone; `F7`'s full
-  propagation, Graphify merge, and independent verification cannot start until they are.
+  `raci-involvement-matrix.md` and `V1-BUILD-SPEC.md`. Lane B's independent completion review (§9,
+  `B068-R1`–`R9`) verified that application and found `D-170` had left the current `T5`/`T6` order
+  build-authorized despite being superseded as the decided target (`B068-R8`). Chief Editor corrected
+  this the same day: `V1-DECISION-REGISTER.md` `D-171` places an **explicit S2 hold on both orders**
+  (neither is currently safe to build) and drafts `F6`'s target Line/executor matrix, human-only canary
+  relocation, blind-review event sequence, and `T6→T5` return-metric redefinition — propagated into
+  `raci-involvement-matrix.md` (v1.4) and `V1-BUILD-SPEC.md`'s S2 hold note. Gate evidence/negative
+  tests and delivery-node protection (§9.4 Parent 3 items 7–8) remain undrafted — they need `F4`'s
+  crosswalk first. `F3` (persona split) and `F4` (CSV crosswalk) are fully undone; `F7`'s full
+  propagation, fresh build authorization, Graphify sync, and independent verification cannot start
+  until they are.
 - **Resolution:**
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `docs/Modular_PRD.md` §2.3 and
@@ -86,7 +92,7 @@
 | `Modular_PRD.md` §2.3 personas | **DRIFTED** | Current actors, future Line 3, audiences, phase gates, and institutional actors are mixed; EW, Line, RACI, gate, and OD4 boundaries are not explicit |
 | Governed T5/T6 role contract | **DRIFTED against clarified target; still current until superseded** | Current: T5 human Chief Editor, T6 Chief Journalist agent/final approval. Target: Chief Editorial Desk before a human Chief Editor final gate |
 | Attached Sheet 1/Sheet 2 mapping | **UNKNOWN / not adopted** | Sheet 2 lacks stable parent keys; multi-`R`, missing-`R`, blank-cell, and local-versus-parent `A` rules require normalization |
-| Graphify coverage for B-068 | **DRIFTED by design while open/untracked** | Graphify is current to committed HEAD, but this untracked handoff is absent. Source application and graph rebuild belong at final Lane A propagation |
+| Graphify coverage for B-068 | **IN SYNC for coverage; DRIFTED for currency** | Curated B-068/D-170 nodes exist and `graph-coverage` passes, but local Graphify was last analyzed at `35a2d0c` while HEAD is `0496895`; `docs-drift` fails and semantic refresh remains pending. Final rebuild/re-merge belongs to `F7` |
 
 Any `DRIFTED` or `UNKNOWN` row above blocks this handoff's verification, but does not reopen the
 preserved D-165–D-169 baseline.
@@ -188,3 +194,195 @@ Findings, recorded per `D-93` whether or not they change the outcome:
 Zero critic findings would itself be reported as a finding (`D-93`); four were found and are folded
 into `F2` and `F5` above as added dependencies, not new fix IDs — `F2`/`F5` already own that
 propagation surface.
+
+## 9. Lane B completion review — `F3` / `F4` / `F6` / `F7` remain open
+
+### 9.1 Normalized request
+
+> Verify Lane A's `D-170` application from files, preserve decided `F1`/`F2`/`F5`, and refine only
+> open `F3`/`F4`/`F6`/`F7`. Separate personas from logical nodes and executors; reconcile the CSVs
+> without importing guesses; derive target behavior, negative tests, and success criteria from
+> deterministic failures; prevent an obsolete-order build; then define the exact propagation and
+> Graphify closure sequence. Plan only.
+
+No clarification is needed to produce this review. The desired target order is decided. The open
+questions below concern the target's Line/executor/behavior contract and the CSV's missing
+relationships; they must be answered by the named fix rather than guessed in this handoff.
+
+### 9.2 Verified current state
+
+| Item | State | File evidence |
+|---|---|---|
+| `F1` — eight-axis parent ontology | **Decided, preserve** | `D-170` introduces EW and prohibits derivation across axes |
+| `F2` — five judgments plus Delivery Node; target T5/T6 roles | **Decided target, not build-authorized** | `D-170`; target-pending notes in Build Spec and RACI |
+| `F5` — `A`/`O`/`EA` authority | **Decided, preserve** | RACI v1.3 §5.1; `RACI-03`/`RACI-04` closed |
+| `F3` — persona/node/executor split | **Open** | `Modular_PRD.md` §2.3 still describes the current T5 Chief Editor/T6 Chief Journalist arrangement and places Line 3 assurance beside personas |
+| `F4` — factory crosswalk | **Open** | No governed Sheet 1 route ↔ Sheet 2 operation relationship exists |
+| `F6` — target behavior and AC | **Open** | `Modular_PRD`, `FN-GATES`, RACI §2.1/§3 and Build Spec still intentionally specify the current order |
+| `F7` — propagation and verification | **Open** | Full local suite passes 16/17; only `docs-drift` fails because Graphify analyzed `35a2d0c`, not HEAD `0496895` |
+
+### 9.3 Additional findings — folded into the existing four fixes
+
+These are refinements, not duplicate fix IDs.
+
+| Review ID | Open fix | Gap found | Guaranteed failure |
+|---|---|---|---|
+| `B068-R1` | `F3` | An Editorial Virtual Node Agent is a logical workcell, not a persona or executor identity | Putting it in the persona table recreates the category error `F3` is meant to remove; an agent label can impersonate a human gate |
+| `B068-R2` | `F3` | Current build actors and decided-target actors are different populations until `F7` supplies fresh authorization | Replacing “current” rows with target rows now makes documentation claim behavior the authorized build contract still rejects |
+| `B068-R3` | `F4` | A single `parent_lane_id` is insufficient when an operation such as final sign-off can apply to several factory routes | The same operation is duplicated under several parents or arbitrarily attached to one, and the copies drift |
+| `B068-R4` | `F4` | Parent-route `A` and child-operation `A` are different scopes; a local `A` must not erase route accountability | Inheritance produces two competing `A` values or silently removes the parent authority |
+| `B068-R5` | `F6` | `D-170` decides target roles but not each target transition's Project IIA Line or allowed executor type | `required_line`, `line_separation_status`, four-eyes, and override tests cannot be derived safely from job titles |
+| `B068-R6` | `F6` | The role inversion moves the human-only canary, may move blind disposition, and changes what `T6→T5` returns prove | Keeping current ACs makes a valid target T5 agent fail, permits an invalid T6 agent, and reports the old authority-gradient meaning under a new actor direction |
+| `B068-R7` | `F6`/`F7` | `PIPELINE_GATE_COUNT = 6` counts T1–T6 transitions, while `D-170` now governs five judgment gates plus Delivery | A test or UI can truthfully display six “gates” while the business contract truthfully says five; both pass their own source |
+| `B068-R8` | `F7` | D-170 leaves current S2 work authorized even though its T5/T6 order is already superseded as the decided target | Lane B can legitimately build the obsolete order before `F6`/`F7`, creating avoidable migration, UI, and test rework |
+| `B068-R9` | `F7` | Curated graph coverage was added, but graph currency and semantic ingestion are incomplete | Queries can return B-068/D-170 while omitting the commit that added their curated source; coverage passes while `docs-drift` correctly fails |
+
+### 9.4 Revised parent-first completion plan
+
+#### Parent 1 — complete `F3`: separate people, executors, nodes, and lifecycle state
+
+Replace the proposed “three persona tables” with four small catalogs so the target is not presented
+as current behavior:
+
+| Catalog | Contains | Required status field |
+|---|---|---|
+| **System users/personas** | Chief Editor as the sole current human user; readers as audiences, not users | `current` / `audience` |
+| **Executor roles** | Reporter, Investigator, Journalist, Chief Editorial Desk, Chief Editor, System; allowed `executor_type` recorded separately | `current` / `decided_target` |
+| **Editorial gate nodes** | `EG1`–`EG5` and Delivery Node; inputs, outputs, and permitted executor role references | `decided_target`, never “persona” |
+| **External/deferred capabilities** | GRC `EA`, Line 3 assurance, and OD4 Proposer/Critics/Judge | `external` / `not_built_v1` / `deferred` |
+
+`F3` succeeds only when:
+
+1. the current T5/T6 actors remain visibly current until fresh authorization;
+2. the target actors are marked `decided_target`, not current or built;
+3. every node references an allowed executor role and type but no hard-coded natural/service
+   identity;
+4. the Chief Editor target node requires a human executor; agent assistance is metadata only;
+5. Delivery is a system node with no editorial authority; and
+6. Line 3 and OD4 cannot appear as current users or satisfy an editorial gate.
+
+#### Parent 2 — complete `F4`: normalize factory routes before mapping operations
+
+`F4` now depends on `F3`'s canonical role identifiers. Use three normalized sets, not a copied wide
+CSV table:
+
+| Set | Minimum fields |
+|---|---|
+| Route master — Sheet 1 | `route_id`, canonical name, Tier/fallout/regulatory class, route-level `R/A/C/I`, external `EA`, provenance |
+| Operation master — Sheet 2 | `operation_id`, canonical name, `atomic` / `milestone` / `control_point`, local RACI, provenance |
+| Route-operation crosswalk | `route_id`, `operation_id`, applicability/status, route `A`, local operation `A`, effective operation decision path, evidence status |
+
+Do not force one parent where the operation is reusable. A route-operation join preserves one
+operation definition across several routes. Local operation `A` governs that operation; route `A`
+continues to govern the route. A blank child `A` inherits the route `A` only after a route-operation
+row exists. `R`, `C`, `I`, and blank external-GRC cells never inherit silently.
+
+The following source questions remain `UNVERIFIED` until the crosswalk answers them:
+
+| CSV issue | Rows affected | Required disposition |
+|---|---|---|
+| Multiple `R`, not labelled milestone | Daily Story Pitch; Deep Fact-Checking; Drafting Standard News Copy | Mark milestone and decompose, or correct to one atomic `R` |
+| Multiple `R`, labelled milestone | Complex Investigative Series; Legal/Ethical/Risk Review | Decompose into atomic operations before system requirements use them |
+| No local `A` | Drafting Standard News Copy | Link route and inherit route `A`, or supply a local operation `A` |
+| No `R` | Final Publication Sign-Off | Name the evidence preparer/executor or authorize a documented `R = A` exception |
+| Ambiguous or reusable parent | Deep Fact-Checking; Drafting; First-Line Copy Editing; Legal/Ethical Review; Final Sign-Off; Crisis Management | Link every applicable route explicitly; do not choose from the title |
+| Blank GRC cells | Sheet 2 except Crisis Management | Define blank as `not_applicable`, `unknown`, or omitted; do not backfill `I` |
+
+`F4` succeeds when every operation has at least one explicit route relationship, every atomic
+operation has one `R` and one effective decision path, both authority scopes remain visible, and
+all unresolved source meanings are recorded `UNVERIFIED` rather than guessed.
+
+#### Parent 3 — complete `F6`: re-derive behavior; do not swap labels
+
+Map the decided five judgments to stable transitions before rewriting any requirement:
+
+| Judgment | Stable transition(s) | Target role already decided | Still must be decided in `F6` |
+|---|---|---|---|
+| `EG1` | T1 | Reporter | executor type, Line, entry/exit evidence |
+| `EG2` | T2 + T3 | Investigator | atomic validation/investigation evidence and one gate result |
+| `EG3` | T4 | Journalist | peer-review evidence and return result |
+| `EG4` | T5 | Chief Editorial Desk | Project IIA Line, executor type, blind/reveal behavior, return conditions |
+| `EG5` | T6 | Chief Editor | Project IIA Line, human-only rule, final decision/override semantics |
+| Delivery | T7 and target-specific publication actions | System | immutable editorial input and execution-only output |
+
+F6 must then draft one coherent replacement contract across FR-04/FR-05, AC-05–AC-08, NFR-03,
+the RACI proof, gate Fn_Spec, and S2 plan:
+
+1. **Line/executor matrix first.** Record `required_line`, allowed `executor_type`, predecessor
+   identity rule, and whether each transition's `line_separation_status` is `satisfied`,
+   `not_applicable`, or `override_not_four_eyes`. Never infer a Line from “Chief.”
+2. **Move the human-only canary deliberately.** If T6 is the human final gate, an agent-attempted
+   T6 must be refused. Retire—not silently retain—AC-06's current agent-at-T5 refusal.
+3. **Define blind review as an event sequence.** Decide whether the target human records a sealed
+   preliminary disposition before the T5 recommendation is revealed, then confirms or returns after
+   reveal. A “blind” label without stored ordering cannot prove independence from anchoring.
+4. **Re-derive return metrics.** Preserve a T6→T5 return event, but rename/redefine its metric for
+   the target actor direction. It no longer proves an agent will challenge an accountable human.
+5. **Re-derive overrides.** A target Chief Editor executing authorized T6 is not an override. Define
+   which unauthorized role/Line substitutions create an override and which must be refused outright.
+6. **Separate counts.** Replace the ambiguous planning name with
+   `EDITORIAL_JUDGMENT_GATE_COUNT = 5` and `FORWARD_EDITORIAL_TRANSITION_COUNT = 6` as future contract
+   candidates; preserve current code until a build is separately authorized.
+7. **Finish gate evidence.** Each gate needs entry evidence, checklist/rule version, allowed
+   disposition, mandatory reason and evidence anchors, exit, return target, and negative test.
+   Criminality, money laundering, corruption, and defamation must distinguish allegation, evidence,
+   inference, project finding, and external determination.
+8. **Protect delivery.** Delivery consumes the immutable final editorial disposition and writes
+   execution outcomes only. Any editorial change opens a governed return/new workflow.
+
+F6 is complete only when deliberately reintroducing the current T5-human/T6-agent assignment,
+allowing an agent at target T6, revealing the T5 recommendation before the sealed human
+disposition, using one identity at adjacent review nodes, or calling delivery a sixth judgment gate
+causes a named acceptance test to fail for the intended reason.
+
+#### Parent 4 — complete `F7`: hold obsolete work, propagate, sync, verify
+
+1. **Place a target-sensitive S2 hold first.** Until F6 lands and a fresh authorization selects the
+   target contract, no T5/T6 route, RPC, UI, migration, or test should be started against either
+   order. Name any genuinely order-independent S2 work explicitly; silence is not authorization.
+2. **Propagate the target fact, not restated counts.** Minimum affected set:
+   Decision Register; Build Spec; Artifact Inventory if F4/F6 creates an artifact; `Modular_PRD`
+   §2.3, FR-04/FR-05, AC-05–AC-08, NFR-03, M2/S2 and traceability; RACI §2.1/§3/§5; `FN-GATES`;
+   `CONFIG_LOG`/`DECISION_LOG`; Requirements Traceability Map; affected Addendum/Blueprint/Business
+   Case current-value sections; Encyclopedia flag; and B-068 tracking. Frozen Charter stays unchanged.
+3. **Record artifacts once.** If F4 becomes a new governed crosswalk file or F6 creates a new
+   versioned spec, apply `D-54` to Register, Build Spec, and Artifact Inventory in the same pass.
+4. **Issue a fresh build authorization or retain an explicit hold.** Do not leave the current order
+   authorized beside a target specification without naming which one Lane B must implement.
+5. **Synchronize Graphify after the final docs commit.** Run the hook rebuild, re-merge every curated
+   fragment including `frag107`, complete pending descriptions/labels, confirm
+   `lastAnalyzedHead = HEAD`, run the commit-safe portable check, and do not commit local scratch,
+   branch/worktree, cache, or transcript paths.
+6. **Verify from failure.** Run the full suite, semantic queries for all eight axes and both order
+   states, and an independent review that attempts the F3/F4/F6 failures above. Only then give B-068
+   a terminal Resolution and verification commit.
+
+### 9.5 Failure-derived closure criteria
+
+| Deliberate failure | Closure oracle |
+|---|---|
+| Target node is placed in the persona table as an autonomous actor | Semantic review rejects it; node catalog requires a separate executor reference |
+| Target role is displayed as current before authorization | Lifecycle-status check rejects `current` without the fresh authorization ID |
+| Reusable Sheet 2 operation is copied under multiple routes | Crosswalk uniqueness test requires one operation definition plus route-operation joins |
+| Local `A` erases route `A` | Authority-path test requires both scoped authorities to remain traceable |
+| Line is inferred from Chief Editor/Chief Editorial Desk title | Contract validation rejects a transition with no explicit `required_line` |
+| Agent executes target T6 | Human-only target canary refuses the transition and records no state change |
+| Same identity executes adjacent review nodes | Successor-identity control refuses the second transition |
+| Recommendation is visible before blind disposition | Ordering proof fails because no sealed preliminary event precedes reveal |
+| Current T6→T5 metric meaning is reused after role inversion | Metric-contract test rejects the old label/denominator against target actor roles |
+| System delivery changes an editorial decision | Delivery authorization refuses the mutation and records execution failure only |
+| `PIPELINE_GATE_COUNT = 6` is presented as six judgment gates | Terminology/config check requires separate judgment-gate and transition counts |
+| Lane B begins target-sensitive S2 before F6/F7 | Work-order/lane review finds no valid fresh authorization and blocks the item |
+| Graph contains B-068 but analyzed HEAD differs | `docs-drift` fails; coverage alone cannot close F7 |
+
+## 10. Current approve / reject summary
+
+| Decision | Tier | Follow-up phase |
+|---|---|---|
+| **Approve** — preserve `D-170` decisions for F1/F2/F5 | Decision Register / RACI | Phase 1 preservation; no reopening |
+| **Approve-with-conditions** — `F3` persona/executor/node repair | Product Requirements | Phase 1; use separate catalogs and lifecycle states |
+| **Approve-with-conditions** — `F4` factory crosswalk | RACI/governance source | Phase 1; route-operation joins, scoped authority, no guessed blanks |
+| **Approve-with-conditions** — `F6` target behavior and AC | Product Requirements / Fn_Specs / Build Spec | Phase 1; decide Line/executor matrix and re-derive canary, blind review, returns, overrides, and counts |
+| **Reject** — starting target-sensitive S2 against the current or target order before F6/F7 | Build authorization | Immediate hold until a fresh authorization selects one contract |
+| **Reject verification** — F7 is incomplete | Handoff / Graphify / checks | `docs-drift` remains red; full propagation and independent review outstanding |
+| **Defer** — implementation | Lane B code/schema/UI/tests | No build in this pass |
