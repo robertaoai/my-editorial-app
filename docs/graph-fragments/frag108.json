@@ -1,0 +1,52 @@
+{
+  "_comment": "Fragment 108 — curated node for D-171 (explicit S2 hold on both T5/T6 orders; F6 Line/executor matrix, canary, blind review, return metric, and override rule drafted), correcting D-170's narrower stance per Lane B's B068-R8 completion review. Merged 2026-08-31.",
+  "nodes": [
+    {
+      "id": "d171_explicit_s2_hold_and_f6_draft",
+      "label": "D-171: Explicit S2 Hold; F6 Line/Executor Matrix Drafted",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14dx",
+      "description": "Chief Editor decision correcting D-170's narrower stance, answering Lane B's independent completion review of B-068 (B068-R8). D-170 left V1-BUILD-SPEC.md's current T5/T6 order build-authorized (D-164/D-165) even though a different order was decided as target -- silence was not authorization, but nothing said so, and Lane B could have built the already-superseded order in good faith. D-171 places an explicit hold on BOTH the current and target order: no T5/T6-sensitive route, RPC, UI, migration, or test starts until F6 lands and a fresh build authorization selects one contract. Also drafts F6 content: a Line/executor matrix for EG1-EG5 plus Delivery, derived from raci-involvement-matrix.md Section 4's existing rule that Line 2/Accountable sits only with the Acting Chief Editor (so Chief Editorial Desk at target T5 must be Line 1, not Line 2); relocates the human-only canary from T5 to T6; defines the blind-review sequence as an ordered event pair (disposition sealed, then reveal-and-decide); redefines the T6-to-T5 return metric for the inverted actor direction; and defines which role/Line substitutions count as an override. Gate evidence/negative tests and delivery-node protection remain undrafted, pending F4's CSV crosswalk. F3 and F4 remain fully open.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A decision that names a target without withdrawing authorization for the order it replaces leaves a gap exactly the size of 'silence' -- the next agent to read the build spec has no textual signal that the current order is no longer safe to build, and will reasonably read the absence of a hold as permission."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d171_explicit_s2_hold_and_f6_draft",
+      "target": "d170_editorial_operating_model_adopted",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dx",
+      "weight": 1
+    },
+    {
+      "source": "d171_explicit_s2_hold_and_f6_draft",
+      "target": "b068_persona_line_raci_od4_grc_conflated",
+      "relation": "partially_answers",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dx",
+      "weight": 1
+    },
+    {
+      "source": "d171_explicit_s2_hold_and_f6_draft",
+      "target": "raci_matrix_doc",
+      "relation": "amends",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/raci-involvement-matrix.md",
+      "confidence_score": 1,
+      "source_location": "title-block note, §8 v1.4 changelog",
+      "weight": 1
+    }
+  ]
+}
