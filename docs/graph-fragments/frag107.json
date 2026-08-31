@@ -1,0 +1,77 @@
+{
+  "_comment": "Fragment 107 — curated nodes for B-068 (persona/Line/RACI/OD4/GRC axis conflation) and its D-170 partial decision (F1/F2/F5 decided; F3/F4/F6/F7 undone). Same G109-class extraction gap as every new docs/handoff/ file. Merged 2026-08-31.",
+  "nodes": [
+    {
+      "id": "b068_persona_line_raci_od4_grc_conflated",
+      "label": "B-068: Persona/Line/RACI/OD4/GRC Axes Conflated",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-068-persona-line-raci-od4-and-grc-axes-are-conflated.md",
+      "source_location": "whole document",
+      "description": "Lane B consolidated finding: one overloaded Line column in Modular_PRD.md Section 2.3 and raci-involvement-matrix.md carried Editorial Workflow, IIA Line, phase gate, task RACI, factory Tier, development Lane, task authority, and OD4's deferred-remedy role at once. Proposes seven ordered fixes (B068-F1-F7); F1/F2/F5 name a Chief Editor decision. Includes a Lane A critic pass (Section 8, D-93) adding two dependencies: F2 must update raci-involvement-matrix.md's successor-node-review proof, and F5 must resolve RACI-03/RACI-04 in the same pass rather than as a competing decision.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A persona/RACI table that mixes workflow, control position, sequence, and authority in one column is a semantic drift that no structural check catches -- it reads as internally consistent while quietly deciding several unrelated questions at once, which is exactly what a downstream CSV import or gate-order build would inherit silently."
+    },
+    {
+      "id": "d170_editorial_operating_model_adopted",
+      "label": "D-170: Editorial Operating Model Adopted (F1/F2/F5 Decided)",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14dw",
+      "description": "Chief Editor decision answering B-068's F1/F2/F5. Adopts an eight-axis Editorial Operating Model (Editorial Workflow EW1-EW3 newly introduced, IIA Line, phase gate, task RACI, factory Tier, development Lane, task authority, OD4 -- none derived from another). Decides the target gate order: five judgment gates plus optional Delivery Node, T5 reassigned to Chief Editorial Desk review, T6 to the human Chief Editor's final decision. Decides the authority contract (task A, internal override O, external authority EA), closing raci-involvement-matrix.md's RACI-03 and RACI-04 in the same pass. Deliberately does NOT rewrite V1-BUILD-SPEC.md's already-authorized S2 sequencing or raci-involvement-matrix.md's current task matrix/successor-node-review proof, because V1-BUILD-SPEC.md's S2 unit 1/2 (D-164/D-165) is already build-authorized against the current T5/T6 order -- rewriting the RACI proof without rewriting Build Spec in the same breath would have created a fresh cross-document contradiction. Both are flagged target-pending instead. F3 (persona table split), F4 (CSV crosswalk), and F6 (target-node behavior/AC) remain undone; B-068 stays Open.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Deciding a target state and rewriting the document that currently governs a live, already-authorized build are two different acts -- collapsing them mid-propagation is how a decision record ends up contradicting the build spec it was meant to keep synchronized with."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b068_persona_line_raci_od4_grc_conflated",
+      "target": "d169_d168_propagation_completed",
+      "relation": "cites",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-068-persona-line-raci-od4-and-grc-axes-are-conflated.md",
+      "confidence_score": 1,
+      "source_location": "Evidence line",
+      "weight": 1
+    },
+    {
+      "source": "b068_persona_line_raci_od4_grc_conflated",
+      "target": "raci_matrix_doc",
+      "relation": "raised_against",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-068-persona-line-raci-od4-and-grc-axes-are-conflated.md",
+      "confidence_score": 1,
+      "source_location": "§1 scope declaration",
+      "weight": 1
+    },
+    {
+      "source": "d170_editorial_operating_model_adopted",
+      "target": "b068_persona_line_raci_od4_grc_conflated",
+      "relation": "partially_answers",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dw",
+      "weight": 1
+    },
+    {
+      "source": "d170_editorial_operating_model_adopted",
+      "target": "raci_matrix_doc",
+      "relation": "amends",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/raci-involvement-matrix.md",
+      "confidence_score": 1,
+      "source_location": "§5.1, §5 RACI-03/RACI-04",
+      "weight": 1
+    }
+  ]
+}
