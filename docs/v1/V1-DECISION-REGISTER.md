@@ -10719,3 +10719,117 @@ invariant it protects (owner/attribution claims must name their actual source) b
 the check `B067-F8` reserves for a later, separately authorized pass. Independent verification of
 `B-062`/`B-065`/`B-066` (`B067-F6`) is Lane B's or another independent reviewer's work, not performed
 here.
+
+## 5.14dw `D-170` — Editorial Operating Model Adopted: Separate Axes, Target Gate Order, and Authority Contract Decided, Answering `B-068` `F1`/`F2`/`F5`
+
+**Chief Editor ruling, 2026-08-31, on Lane A's consolidated review of `B-068` (Lane B's persona/RACI/
+`OD4`/GRC conflation finding, itself consolidating prior business clarification and two attached CSVs).**
+`B-068` §2 found that one overloaded `Line` column in `Modular_PRD.md` §2.3 and
+`docs/governance/raci-involvement-matrix.md` was carrying editorial workflow, IIA control position,
+phase-gate sequence, task authority, factory tier, development lane, and `OD4`'s deferred-remedy role
+at once. It proposed seven ordered fixes (`B068-F1`–`F7`); three name a Chief Editor decision
+(`F1`, `F2`, `F5`) and were decided in this session. `F3`, `F4`, `F6`, `F7` remain undecided/undone —
+see Scope limits.
+
+### The decision
+
+1. **`F1` — Editorial Operating Model adopted, as proposed.** Eight axes are now distinct and none is
+   derived from another: **Editorial Workflow** (`EW1`/`EW2`/`EW3` — new; mirrors manual work; never an
+   IIA Line or a workflow state), **Project IIA Line** (`Line 1`/`Line 2`/`Line 3` — control
+   classification, `D-166`), **phase gate** (`T1`–`T11`/`EG1`–`EG5`), **task RACI** (per-task `R`/`A`,
+   `raci-involvement-matrix.md`), **factory Tier** (`Tier 1`/`2`/`3` plus fallout/regulatory route,
+   Sheet 1 candidate), **development Lane** (`Lane A`/`B`/`C`, `D-75` — never a product actor), **task
+   authority** (see decision 3), and **`OD4`** (Proposer/Critics/Judge, deferred remedy, `D-168`/`D-169`
+   — never a Line or an `EW`). `EW` did not previously exist in any governed or source document
+   (`B068-C4`); this decision **introduces** it, it does not un-conflate an existing usage — no prior
+   text is corrected by adding it.
+2. **`F2` — Target gate order decided.** Five editorial judgment gates (`EG1`–`EG5`) plus an optional
+   Delivery Node that never carries editorial authority, per `B-068` §5's `B068-F6` target-contract
+   table. The stable `T`-identifier sequence is retained; **within it, the target reassigns `T5` to
+   Chief Editorial Desk review (Tier 2/3 accountable workcell, not a seniority grade) and `T6` to the
+   human Chief Editor's final decision** — inverting the currently-authorized `T5`=human-Chief-Editor /
+   `T6`=Chief-Journalist-agent order.
+3. **`F5` — Authority contract decided, closing `raci-involvement-matrix.md` `RACI-03`/`RACI-04` in the
+   same pass rather than as a competing decision (`B068-C2`).** Per task: `A` (Accountable) is the
+   Acting Chief Editor, unchanged from the existing matrix. Two additions: an exceptional **internal
+   override `O`** — Chief Editor only, reasoned, append-only, and internal — and **external GRC
+   authority `EA`** — a government institution or regulator's acceptance/mandate, which an internal `O`
+   can never override. `Informed` (`I`) alone carries no authority. `RACI-04` closes: "one role only per
+   task" (RACI) and the Charter's "each executed by a distinct agent" (agent identity) are both true and
+   do not conflict — RACI constrains the *role* filling a task, the Charter constrains *which agent
+   instance* may fill it; neither is derived from the other. `RACI-03` closes narrowly, as its own text
+   proposed: the authority gradient is measured by the `T6→T5` return rate already logged in
+   `V1-BUILD-SPEC.md` (§"S2"), not assumed; this decision does not itself supply a return-rate figure.
+
+### What is decided versus what remains undone
+
+**Decided now:** the eight-axis model exists and is governed (`F1`); the target gate order and `T5`/
+`T6` role reassignment are the *decided target* (`F2`); the task/override/external authority contract
+is decided and `RACI-03`/`RACI-04` close (`F5`).
+
+**Not done by this decision — deferred to `B068-F3`/`F4`/`F6`/`F7`, unauthorized until then:**
+- `Modular_PRD.md` §2.3's persona table is **not yet split** into current system/gate actors, external
+  stakeholders/audiences, and deferred `OD4`/Line 3 capabilities (`F3`). It still reads as before this
+  decision.
+- The Sheet 1/Sheet 2 CSV crosswalk is **not reconciled** (`F4`). The CSVs remain business evidence, not
+  an adopted RACI source.
+- **No behavior or acceptance criteria are drafted** for `EG1`–`EG5`/Delivery Node (`F6`).
+- `V1-BUILD-SPEC.md`'s "S2" language — *"T5 is Line 2, human-executed," "blind first pass at T5," "T6
+  validates against T5,"* the `T6→T5` return-rate log, and its `D-164`/`D-165` build authorization — is
+  **left exactly as written and remains the currently authorized build contract.** It is **not**
+  rewritten to the target order in this pass. Rewriting it is `F6`/`F7` work, gated on drafting the
+  target nodes' behavior/AC first; doing it now, before that draft exists, would silently invalidate
+  Lane B's already-authorized S2 sequencing without a fresh build authorization — exactly what `B-068`
+  §0's guardrails and its `Defer` row forbid. `raci-involvement-matrix.md` §3's task matrix and §2.1's
+  successor-node-review proof are likewise **left as currently written** (they still describe the
+  current `T5`=human/`T6`=agent order); only §5's `RACI-03`/`RACI-04` rows are amended, since those are
+  what `F5` specifically closes. A superseding-target note is added at both locations (see Tier
+  applicability) so neither document goes quiet about which order currently governs a build versus
+  which order is decided-but-not-yet-authorized-to-build.
+
+This is a deliberate, narrower propagation than `B-068`'s originally amended `F2`/`F5` verification text
+requested ("`raci-involvement-matrix.md` §2.1/§3 no longer assert the superseded order," "in the same
+pass"). Discovered mid-propagation: `V1-BUILD-SPEC.md`'s S2 sequencing is built directly on the current
+order and is separately, already build-authorized (`D-164`/`D-165`); rewriting the RACI matrix's task
+table to the target order without rewriting Build Spec in the same breath would itself create a fresh
+cross-document contradiction — the exact failure `D-54` exists to prevent. Flagging both as
+target-pending-`F6`/`F7`, rather than rewriting one and not the other, is the corrected propagation.
+`B-068`'s `F2`/`F5` rows are not re-edited to match — this entry is the authoritative record of the
+narrower scope actually applied.
+
+### Gaps
+
+**Addressed, not closed:** `B068-G1` (parent ontology — `F1` decided), `B068-G2` (gate count/order —
+`F2` decided), `B068-G5` (authority model — `F5` decided). **Still open:** `B068-G3` (persona/workcell/
+executor conflation — needs `F3`), `B068-G4` (CSV import — needs `F4`), `B068-G6` (node behavior/AC —
+needs `F6`), `B068-G7` (propagation/Graphify/independent verification — needs `F7`). **Unchanged:**
+`D-165`–`D-169` stand exactly as decided; `Q11`, `S0`, existing table UUIDs, POC payment, and Lane C
+items remain unaffected per `B-068` §3's own drift table — this decision does not reopen any of them.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Eight-axis Editorial Operating Model adopted, `EW` introduced (`F1`) | ✅ §5.14dw | **— unaffected: no sequence/DoD change** | **— unaffected** | **— unaffected: no artifact created** | **— unaffected** | **— not yet: `§2.3` split is `F3`, undone** |
+| Target gate order / `T5`↔`T6` reassignment decided (`F2`) | ✅ §5.14dw | **flagged, not rewritten** — target-pending note added ahead of the "S2" block; current DoD text unchanged and remains build-authorized | **— unaffected** | **— unaffected** | **— unaffected** | **— not yet: `FR-04`/`FR-05`/`AC-05`–`AC-08` restatement is `F6`/`F7`, undone** |
+| Authority contract (`A`/`O`/`EA`) decided; `RACI-03`/`RACI-04` closed (`F5`) | ✅ §5.14dw | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: RACI matrix is `docs/governance/`, not `Modular_PRD`** |
+
+**`raci-involvement-matrix.md` (not a tracked `D-54` tier — cited, not propagation-checked, same
+disposition as `Fn_Specs` under `D-36`):** §5's `RACI-03`/`RACI-04` rows amended in the same pass with
+their closing disposition; a target-pending note added ahead of §2.1/§3; the task matrix (§3) and the
+successor-node-review proof (§2.1) themselves are **not rewritten** — see "What remains undone" above.
+Version bumped to v1.3 with a changelog entry per its existing §8 pattern.
+
+**Handoff tracking:** `B-068`'s Status stays `Open` — `F3`/`F4`/`F6`/`F7` are undone and its own §1
+"definition of closed" is not met. Its Resolution field stays blank (per the handoff template's
+enum — no `Applied`/`Verified` claim until `F7`). Its Lane A field is updated to record this decision.
+
+### Scope limits
+
+**Decides `F1`/`F2`/`F5` only; authorizes no code, schema, migration, or build change.** `V1-BUILD-SPEC.md`'s
+authorized S2 sequencing is unchanged and remains the current build contract — Lane B builds against the
+current `T5`/`T6` order until a fresh, separate build authorization adopts the target order (`B-068` §0
+guardrail 1; its `Defer` row). `F3` (persona table split), `F4` (CSV crosswalk), and `F6` (target-node
+behavior/AC) are undone; `F7` (full propagation, Graphify merge, independent verification) cannot start
+until they are. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`
+(Lane B surface) or `.github/workflows/` (Lane C surface).

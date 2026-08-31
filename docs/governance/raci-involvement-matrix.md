@@ -1,8 +1,21 @@
 # RACI Involvement Matrix
-**Version:** v1.2 — **proposed, not ratified**
-**Date:** 2026-08-16
+**Version:** v1.3 — **proposed, not ratified**
+**Date:** 2026-08-16, amended 2026-08-31
 **Origin:** Chief Editor, 2026-08-16, reframing OD2 and OD4
-**Status:** Recorded for ratification. **Closes nothing.** OD1, OD2, OD3, OD4 remain as the Charter has them until the Chief Editor signs off in the Addendum §2.4 Ratification Log.
+**Status:** Recorded for ratification. **Closes nothing** beyond `RACI-03`/`RACI-04` (`D-170`,
+§5 below). OD1, OD2, OD3, OD4 remain as the Charter has them until the Chief Editor signs off in the
+Addendum §2.4 Ratification Log.
+
+> **Target order decided, not yet in force (`D-170`, 2026-08-31).** The Chief Editor decided a target
+> gate order — `T5` becomes Chief Editorial Desk review, `T6` becomes the human Chief Editor's final
+> decision — answering `docs/handoff/B-068-*.md` `F2`. **§2.1 and §3 below still describe the current,
+> build-authorized order** (`T5`=human Chief Editor, `T6`=Chief Journalist agent), which
+> `V1-DECISION-REGISTER.md` `D-170` deliberately left unrewritten: `V1-BUILD-SPEC.md`'s "S2" sequencing
+> is already authorized (`D-164`/`D-165`) against this current order, and rewriting the proof below
+> without rewriting that authorization in the same pass would itself create a fresh cross-document
+> contradiction. §2.1's successor-node-review proof will need re-derivation for the target order — it is
+> not a relabeling, since which node reviews which flips — as part of `B068-F6`/`F7`. Until a fresh build
+> authorization supersedes it, **build against the current order below, not the target.**
 
 ---
 
@@ -119,9 +132,23 @@ Recorded so the framework is not over-read.
 |---|---|---|
 | `RACI-01` | **C and I are unassigned.** Who is Consulted, who is Informed, per task? | Not stated by the Chief Editor and **not invented here.** The Addendum §3.1 notification column implies some Informed parties; that is not the same as an assignment |
 | `RACI-02` | **OD3's number is still open.** "One role per task" constrains the *shape* — one Responsible role per task — but says nothing about how many agent *instances* exist, or whether one instance may hold different roles across different articles | RACI assigns roles, not instances. **No headcount is back-derived from this matrix**, and none may be |
-| `RACI-03` | **The authority gradient: will a Responsible agent return work to the Accountable human?** Successor-node review means T6 reviews T5, so the human is never the sole reviewer — the earlier framing of this risk ("a lax accountable human makes four-eyes nominal") misdescribed the role and is withdrawn | What remains is narrower and **falsifiable**: if **T6 never returns to T5**, successor review is nominal at that boundary. Measure the T6→T5 return rate. This replaces both "do agents think alike?" and "is the human diligent?", neither of which could be tested |
-| `RACI-04` | **"One role only per task" versus D2.** This points at deviation register D2's closing condition (a) — distinct agent per gate, matching Charter text. But RACI constrains roles, and the Charter's phrase "each executed by a distinct agent" names agents | Close enough to be worth deciding, not close enough to close silently. **Chief Editor's call** |
+| `RACI-03` | ~~**The authority gradient: will a Responsible agent return work to the Accountable human?**~~ **Closed `D-170`, 2026-08-31.** Measured by the `T6→T5` return rate, which `V1-BUILD-SPEC.md` §"S2" already logs distinctly as a build requirement — this matrix does not itself supply a return-rate figure, it names where the figure is measured | Falsifiable as originally framed: if `T6` never returns to `T5`, successor review is nominal at that boundary. No longer open — the measurement point is decided, not the outcome |
+| `RACI-04` | ~~**"One role only per task" versus D2.**~~ **Closed `D-170`, 2026-08-31.** Both are true and do not conflict: RACI's "one role only per task" constrains the *role* filling a task; the Charter's "each executed by a distinct agent" constrains *which agent instance* may fill it. Neither is derived from the other — deviation register D2's closing condition (a) is satisfied by the agent-identity reading, independently of RACI's role reading | Decided per `docs/handoff/B-068-*.md` `F5`, folded into the same authority-contract decision rather than closed separately (`B068-C2`) |
 | `RACI-05` | **Nothing here is ratified.** OD1, OD2, OD3, OD4 stand as the Charter has them | Ratification is a discrete, dated act in Addendum §2.4. A framework recorded is not a decision made |
+
+### 5.1 Authority contract (`D-170`, 2026-08-31 — answers `docs/handoff/B-068-*.md` `F5`)
+
+Extends `A` beyond a single letter, without changing who holds it:
+
+| Letter | Holder | Rule |
+|---|---|---|
+| **`A`** | Acting Chief Editor | Unchanged from §1 — per task, exactly one, invariant |
+| **`O`** — internal override | Chief Editor only | Exceptional, reasoned, **append-only** (never erases the original `R`/`A` record), and **internal only** — cannot be used against `EA` |
+| **`EA`** — External Authority | A government institution or regulator | External GRC acceptance or mandate. **An internal `O` can never override an `EA` decision** |
+
+`I` (Informed) alone carries no authority under this contract — restated from §1, not new. This
+table does not assign `C`/`I` per task (`RACI-01` stays open) and does not create a headcount
+(`RACI-02` stays open).
 
 ---
 
@@ -191,6 +218,15 @@ Unresolved, each one collapses back onto the same single human. **A business in 
 
 ## 8. Changelog
 
+- **2026-08-31 v1.3:** `D-170`, answering `docs/handoff/B-068-*.md` `F5`, closes `RACI-03` (measurement
+  point named: the `T6→T5` return rate `V1-BUILD-SPEC.md` §"S2" already logs) and `RACI-04` (RACI's
+  "one role per task" and the Charter's "distinct agent" constrain different things and do not
+  conflict) — added §5.1's `A`/`O`/`EA` authority contract. `D-170` also decided a **target** gate order
+  (`T5`→Chief Editorial Desk, `T6`→human Chief Editor, `B068-F2`) but deliberately did **not** rewrite
+  §2.1's successor-node-review proof or §3's task matrix to it — see the note under the title. Both
+  still describe the current, build-authorized order; rewriting them without a matching
+  `V1-BUILD-SPEC.md` update would itself create a fresh cross-document contradiction. `RACI-01`,
+  `RACI-02`, `RACI-05` remain open; nothing here is ratified.
 - **2026-08-19 v1.2:** Added §1.1 to prevent the editorial statement “A is invariant” from being overextended to Project Charter authorization or day-to-day project management. Linked the separately approved Sponsor, Project Manager, role-concentration, and assistant-attestation controls in `D-25`–`D-28`. No editorial task assignment changed; the matrix remains proposed and closes no Open Decision.
 - **2026-08-16 v1.1:** **Three corrections from the Chief Editor, two of them to claims v1.0 got wrong.** (1) **Successor-node review** — one agent per node, next node is the default reviewer — is the mechanism delivering four-eyes, and it is *already specified* in the Addendum §3.1 required-fields column (T2 confirms T1's logging; T6's field is literally "All prior gate criteria confirmed," so T6 reviews T5). v1.0 missed this and consequently claimed Line 3 was "the only control covering the two tasks where R = A." **Withdrawn:** where R = A at T5, its successor T6 assures it, and Line 3 is additional risk-triggered assurance over the chain rather than a patch. T11 remains successor-less but its exposure is clerical, not judgmental — the approval it records already passed T5 and T6. (2) **RACI-03 rewritten.** v1.0 framed the residual risk as "a lax accountable human makes four-eyes nominal," which misdescribes the role — the human previews an already-reviewed chain and approves against audience rules and regulations, and was never the sole reviewer. The real residual is the **authority gradient**: will a Responsible agent return work to the Accountable human? Unlike its predecessors this is falsifiable — **if T6 never returns to T5, successor review is nominal at that boundary.** (3) **No Charter amendment required.** v1.0 claimed OD4's positive trigger needed one; Addendum §15 states that resolving the Charter's Open decisions by subsequent analysis *is* the Charter's intended process, so it is documented downstream instead. Added §6.1 — **OD4 is intra-node, the phase gates are inter-node** — which dissolves the "OD4 replaces the pipeline" tension: OD4 changes how a node reaches its answer and hands off to a successor that reviews it exactly as before. Added §6.2 and §7.1 recording why all four ODs are business viability conditions: unresolved, each collapses back onto the one natural person, and a business where one person performs every role does not scale.
 - **2026-08-16 v1.0:** Created from the Chief Editor's reframing of OD2 as a RACI involvement question — Accountable is the Acting Chief Editor, Responsible is the agent, one role per task — and of OD4 as the autonomy extension reached once judgment rules are codified as SOPs. Drafted the T1–T11 task matrix. Surfaced that **R = A at T5 and T11**, which does not break four-eyes (that control operates across tasks, not within one) but does identify the two tasks where Line 3 is the only assurance over the accountable party. Separated accountability separation (R ≠ A, per task) from four-eyes (R execute ≠ R review, across tasks) so the two controls are not conflated. Recorded six open items, including that **no headcount is derivable from this matrix** and that the OD2 risk moves rather than disappears — from agent similarity to accountable-party diligence. **Nothing ratified, no Charter text changed, no open decision closed.**

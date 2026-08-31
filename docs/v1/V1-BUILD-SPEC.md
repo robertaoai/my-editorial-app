@@ -215,6 +215,15 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 
 ### S2 — Line assignment and four-eyes
 
+> **Target order decided, not authorized to build (`D-170`, 2026-08-31, answering `B-068` `F2`).**
+> The Chief Editor decided a *target* gate order — `T5` becomes Chief Editorial Desk review, `T6`
+> becomes the human Chief Editor's final decision — inverting this section's `T5`=human/`T6`=agent
+> assignment below. **This section is unchanged and remains the current, authorized build contract**
+> (`D-164`/`D-165`); the target order is not built against until a fresh, separate build
+> authorization supersedes S2 Unit 1/Unit 2 below, per `docs/handoff/B-068-*.md` §0's "Defer" rule.
+> Rewriting this DoD is `B068-F6`/`F7` work, gated on drafting the target nodes' behavior/acceptance
+> criteria first.
+
 Actor context on every action · four-eyes evaluator behind `FOUR_EYES_MODE` · **T5 is Line 2, human-executed** · **blind first pass at T5** — Line 2 records its disposition *before* the Line 1 recommendation is revealed, without which agreement cannot be distinguished from anchoring · T6 validates against T5's recorded fields, not a boolean · **T6→T5 return rate logged distinctly** · `EmergencyBypass` as `event_type` · hard block on one identity holding both Line 1 and Line 2 roles (`SEC-01`).
 
 **OD gating:** `OD1`/`OD2` gate **production** done, not Phase 0 done. **A negative `OD2` voids this sprint's model entirely.**

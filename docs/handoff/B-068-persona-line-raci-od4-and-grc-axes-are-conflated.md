@@ -7,10 +7,13 @@
   role order, importing the attached RACI CSVs, or claiming the persona and control vocabulary is
   normalized across Lanes A/B/C
 - **Status:** Open
-- **Lane A:** Acknowledged 2026-08-31 — critic pass complete (§8). CSV hashes and `D-163`–`D-169`
-  citations independently verified against `docs/v1/V1-DECISION-REGISTER.md` and both source
-  files; both match as stated. `F1`/`F2`/`F5` require a Chief Editor decision before Lane A
-  propagates — not yet made.
+- **Lane A:** Acknowledged 2026-08-31 — critic pass complete (§8). Chief Editor decided `F1`/`F2`/`F5`
+  the same day; recorded as `V1-DECISION-REGISTER.md` `D-170` and propagated into
+  `raci-involvement-matrix.md` (v1.3 — `RACI-03`/`RACI-04` closed, §5.1 authority contract added,
+  target-order note) and `V1-BUILD-SPEC.md` (target-pending note ahead of "S2"; DoD text itself left
+  unchanged and remains the authorized build contract — see `D-170`'s Scope limits for why). `F3`
+  (persona split), `F4` (CSV crosswalk), and `F6` (target-node behavior/AC) are undone; `F7`'s full
+  propagation, Graphify merge, and independent verification cannot start until they are.
 - **Resolution:**
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `docs/Modular_PRD.md` §2.3 and
