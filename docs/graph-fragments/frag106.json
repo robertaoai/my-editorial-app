@@ -1,0 +1,67 @@
+{
+  "_comment": "Fragment 106 — curated nodes for B-067 (D-168's propagation was still incomplete) and its D-169 correction. Same G109-class extraction gap as every new docs/handoff/ file. Merged 2026-08-31.",
+  "nodes": [
+    {
+      "id": "b067_d168_propagation_and_control_owner_remain_incomplete",
+      "label": "B-067: D-168 Propagation and Control-Owner Gaps Remain",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-067-d168-propagation-and-control-owner-remain-incomplete.md",
+      "source_location": "whole document",
+      "description": "D-168 correctly restated FR-11/Line 3's disposition and OD4's deferred-remedy meaning, but five sub-gaps remained where the corrected parent relation had not reached current-value text: the Addendum/Blueprint/Business Case still called the project's own SEC-01 identity rule a Three Lines Model requirement and structural Line separation proof of distinct judgment; OD4's 'Judge = Line 3' default-mapping note stood unqualified in three source documents; the Build Spec opening, FN-EXCEPTIONS-06-11-12 Section 4.2, and Modular_PRD's Q12 closure text retained retired framings; G-05/AS-02/RK-01 named an absent Line 3 as their owner and Q4 tied the detector to excluded FR-11/M5 scope; and DECISION_LOG/CONFIG_LOG still read Q1 as wholly open under OD3 rather than Phase-0-decided.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A parent correction that fixes the decision register and the requirement it governs can still leave the same error alive in the surrounding source documents and derived tables -- propagation completeness has to be checked location by location, not assumed from the parent decision's own text."
+    },
+    {
+      "id": "d169_d168_propagation_completed",
+      "label": "D-169: D-168's Propagation Completed",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14dv",
+      "description": "Lane A correction closing B-067. Restates SEC-01 as the project's own RACI-sourced rule rather than a Three Lines Model requirement across the Addendum, Blueprint, and Business Case; corrects the claim that structural Line separation proves distinct judgment to name that outcome as OD2, open; removes OD4's unqualified 'Judge = Line 3' default mapping from the three source documents; fixes the Build Spec opening, FN-EXCEPTIONS Section 4.2, and Modular_PRD's Q12 closure text; reassigns G-05/AS-02/RK-01's owner from the non-existent Line 3 to 'no independent owner, FR-14/Line 2 compensating control'; decouples Q4 from excluded FR-11/M5 scope; and separates Q1's decided Phase-0 rule from its open production half in DECISION_LOG/CONFIG_LOG. B-063/B-064 remain Verified, not reopened.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Six of the nine locations corrected here predate D-168 itself -- they were never touched by the OD4/Line-3 fix because they describe a different but related error (misattributing a project-owned rule to an external standard, and treating separation as proof rather than mechanism), which is exactly the kind of adjacent drift a parent-first propagation sweep exists to catch before it is mistaken for already closed."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b067_d168_propagation_and_control_owner_remain_incomplete",
+      "target": "d168_od4_deferred_remedy_not_line3_governor",
+      "relation": "raised_against",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-067-d168-propagation-and-control-owner-remain-incomplete.md",
+      "confidence_score": 1,
+      "source_location": "Parent finding",
+      "weight": 1
+    },
+    {
+      "source": "d169_d168_propagation_completed",
+      "target": "b067_d168_propagation_and_control_owner_remain_incomplete",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dv",
+      "weight": 1
+    },
+    {
+      "source": "d169_d168_propagation_completed",
+      "target": "d168_od4_deferred_remedy_not_line3_governor",
+      "relation": "completes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dv",
+      "weight": 1
+    }
+  ]
+}

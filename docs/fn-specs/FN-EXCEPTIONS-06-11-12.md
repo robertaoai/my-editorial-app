@@ -77,7 +77,7 @@ Line 3 audits on **defined risk conditions**, not on a standing schedule, and re
 | Reporting | Independent. Findings do not route back through the audited Lines |
 | Record | `event_type = Line3Audit`, `line_assignment = Line 3` |
 
-> **Decided, and named as decided.** `Q2` asked whether Line 3 is **external** for v1 or whether v1 states plainly it has **no independent assurance**. `D-57` answered: v1 has **no independent assurance**, conditional on `C-13`'s BCP surface (a compensating control, never Line 3). **Not the Chief Editor** — `A23`. `FR-11` has no executor and is **not built in v1**; `GA6` already discloses that no independent opinion exists anywhere in the model. The Three Lines Model's `OD4` branch ② still binds if `OD2` resolves negatively — this is unrelated to `OD3` (headcount/roster).
+> **Decided, and named as decided.** `Q2` asked whether Line 3 is **external** for v1 or whether v1 states plainly it has **no independent assurance**. `D-57` answered: v1 has **no independent assurance**, conditional on `C-13`'s BCP surface (a compensating control, never Line 3). **Not the Chief Editor** — `A23`. `FR-11` has no executor and is **not built in v1**; `GA6` already discloses that no independent opinion exists anywhere in the model. The Charter's `OD4` branch ② still binds if `OD2` resolves negatively — a trigger that reopens a remedy decision, not a Three Lines Model role and not an automatic authorization of OD4 or Line 3 (`D-168`). This is unrelated to `OD3` (headcount/roster).
 
 ### 4.3 `FR-12` — degraded mode *(absence)*
 

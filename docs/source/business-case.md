@@ -109,7 +109,7 @@ The pipeline maps onto the Three Lines Model (IIA, updated 2020). This is a real
 
 **Line 3 trigger conditions:** Activated when Line 2's risk signal crosses a threshold, or the topic is flagged novel/controversial. Does not run on every article — runs only where risk warrants it. This is standard risk-based audit planning, not a novel mechanism.
 
-**Why Line separation satisfies four-eyes:** The Three Lines Model requires structural separation between Line 1 (doing the work) and Line 2 (overseeing the work). The same person can never hold both — this is a hard requirement of the standard, not a project-specific invention. Agents in different Lines provide genuinely distinct judgment because their reporting lines, objectives, and oversight structures are separated by design.
+**Why Line separation is the project's four-eyes mechanism:** Line 1 (doing the work) and Line 2 (overseeing the work) are structurally separated — the same person can never hold both. This is the project's own RACI-sourced rule (`SEC-01`, `D-163`), not a Three Lines Model requirement. **Whether structural separation makes agents in different Lines produce genuinely distinct judgment is `OD2` — open, and not resolved by the separation itself** (`AS-02`); reporting lines and oversight structures being separated by design is a necessary condition for distinct judgment, not proof of it.
 
 ---
 
@@ -146,7 +146,7 @@ These are defaults applied so the document has something to build against. They 
 
 | # | Decision | Resolution | Trigger to Revisit |
 |---|----------|-----------|-------------------|
-| OD4 | Adopt Proposer → Critics → Judge, replacing the linear pipeline | Rejected for v1 (consistent with A1). Deferred to v2, conditional. | Two branches: (1) OD2 resolved affirmatively (Line separation satisfies four-eyes) and the pipeline ships — revisit only if logged data shows Line separation failing to catch errors in practice. (2) If Line separation fails to hold in production (e.g., agents in different Lines produce identical judgments due to shared training data), this is a **pre-launch blocker** — re-evaluate before shipping. If neither branch fires, OD4 stays backlogged. **New note:** If Proposer/Critics/Judge is ever adopted in v2, map it directly onto Three Lines (Proposer = Line 1, Critics = Line 2, Judge = Line 3) rather than treating it as a separate novel architecture. |
+| OD4 | Adopt Proposer → Critics → Judge, replacing the linear pipeline | Rejected for v1 (consistent with A1). Deferred to v2, conditional. | Two branches: (1) OD2 resolved affirmatively (Line separation satisfies four-eyes) and the pipeline ships — revisit only if logged data shows Line separation failing to catch errors in practice. (2) If Line separation fails to hold in production (e.g., agents in different Lines produce identical judgments due to shared training data), this is a **pre-launch blocker** — re-evaluate before shipping. If neither branch fires, OD4 stays backlogged. **Note:** OD4 remains a separately authorized system distinct from Line 3, `SEC-06`, and `FR-11` (`D-168`) — a branch firing reopens the remedy decision, it does not select OD4 or authorize Line 3. If Proposer/Critics/Judge is ever adopted, its Judge component does not thereby become Line 3 assurance; each would require its own separate authorization. |
 
 ---
 
@@ -158,7 +158,7 @@ The four-eyes principle is enforced at Line boundaries. Independence comes from 
 
 **What is unconditional:**
 - Gate sequence enforcement — no article can skip a state
-- Line separation — the same person/agent cannot hold both Line 1 and Line 2 roles (Three Lines Model hard requirement)
+- Line separation — the same person/agent cannot hold both Line 1 and Line 2 roles (the project's own RACI-sourced rule, `SEC-01`/`D-163`, not a Three Lines Model requirement)
 - Four-eyes at Line boundaries — transitions crossing from Line 1 to Line 2 (T5: Drafted → Reviewed) and returning Line 2 to Line 1 (T6: Reviewed → Approved) require executors from different Lines
 
 **What is not required:**

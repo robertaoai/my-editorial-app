@@ -13,7 +13,7 @@
 
 > Chief Editor pastes a URL → article enters pipeline → passes all five gates with logged transitions → Chief Journalist approves → article publishes to WordPress (or is marked LinkedIn-ready). Board shows 5+ articles/week, 2+ published, every transition visible, **zero bypasses**.
 
-**v1 = sprints S0 through S4.** S5 (Line 3, degraded mode) and S6 (auth lockdown) are beyond v1 and gated on `OD1`–`OD3`.
+**v1 = sprints S0 through S4.** S5 (Line 3, degraded mode) and S6 (auth lockdown) are beyond v1. S6 is gated on `OD1`–`OD3`; S5's Line 3/`FR-11` portion is governed directly by `D-57`, not `OD3` or `OD4` (`D-168`, `D-169`) — only its degraded-mode portion depends on `Q1`'s production half (`OD3`).
 
 ## 2. Sequence
 

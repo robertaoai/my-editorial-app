@@ -10637,3 +10637,85 @@ correction's propagation; authorizes no new code, schema, migration, or build wo
 table, identity field, `OD4` engine, or S5 implementation is created. `OD2`, `OD3`, `OD4` branch ①
 (`NG-09`), and `D-57`'s substantive ruling all keep their existing status, unchanged. `G113` is
 opened and deferred, not closed, by this decision.
+
+## 5.14dv `D-169` — `D-168`'s Propagation Completed: Source Documents, Absent-Owner Rows, and Q1/Q12 Drift Closed, Closing `B-067`
+
+**Lane A correction, 2026-08-31, from Lane B's consolidated review of `D-168` (`B-067`).** `D-168`
+correctly restated `FR-11`/Line 3's disposition and `OD4`'s deferred-remedy meaning, but Lane B's
+sweep found five further sub-gaps where the corrected parent relation had not yet reached
+current-value text: the source documents still described the project's own `SEC-01` identity rule
+as a Three Lines Model requirement and structural Line separation as guaranteeing distinct
+judgment; `OD4`'s "Judge = Line 3" default-mapping note stood unqualified in three source
+documents; the Build Spec opening, `FN-EXCEPTIONS-06-11-12.md` §4.2, and `Modular_PRD.md`'s `Q12`
+answer retained retired framings; `G-05`/`AS-02`/`RK-01` named an absent Line 3 as their owner and
+`Q4` tied the detector to excluded `FR-11`/M5 scope; and `DECISION_LOG.md`/`CONFIG_LOG.md` still
+read `Q1` as wholly open under `OD3` rather than Phase-0-decided with only its production half open.
+
+### The correction
+
+None of these are new rulings — each restates an already-decided fact to the location that had not
+caught up:
+
+1. **`SEC-01` is project-owned, not a Three Lines Model requirement.** The Addendum, Blueprint, and
+   Business Case's "hard requirement of the Three Lines Model" / "of the standard" framing for the
+   same-identity separation rule is replaced with its actual source: the project's own RACI design
+   (`SEC-01`, `D-163`).
+2. **Structural separation does not prove distinct judgment.** Text claiming agents in different
+   Lines "provide genuinely distinct judgment because ... separated by design" is corrected to name
+   that outcome as `OD2` — open, not resolved by separation alone (`AS-02`).
+3. **`OD4`'s Judge component does not default onto Line 3.** The three source documents' note that
+   adopting Proposer→Critics→Judge should "map it directly onto Three Lines (... Judge = Line 3)"
+   is replaced with `D-168`'s standing rule: OD4 remains separately authorized from Line 3, `SEC-06`,
+   and `FR-11`; a branch firing reopens a remedy decision, it does not select OD4 or authorize Line 3.
+4. **`G-05`, `AS-02`, and `RK-01` have no independent owner in v1.** Their Owner columns are
+   corrected from `Line 3` (which does not exist in v1) to: no independent owner; `FR-14`/Line 2
+   observes and escalates as a compensating control, never as Line 3. `Q4`'s dependency column is
+   decoupled from `FR-11`/M5, which `D-57`/`D-168` already exclude from v1.
+5. **`Q1`'s Phase-0 answer and its open production half are distinct.** `DECISION_LOG.md` and
+   `CONFIG_LOG.md` are corrected to state the decided Phase-0 rule (`D-163`: one agent instance may
+   hold multiple Line 1 roles if each gate records role and executor) separately from the still-open
+   production roster question (`OD3`), matching `Modular_PRD.md`'s existing `Q1` row.
+6. **`Modular_PRD.md`'s `Q12` answer is restated to the corrected `SEC-01` rule** — successor-node
+   separation, `R(prior task) ≠ R(this task)`, not `R ≠ A` within one task — matching `D-165`'s
+   correction, which a stale restatement in `Q12`'s own closure text had not picked up.
+
+### Gaps
+
+**Closed:** `B067-G1`–`G4` — the source-document semantic drift, the direct child-row drift in the
+Build Spec/`FN-EXCEPTIONS`/`Q12`/`Q1` logs, the absent-owner misattribution on `G-05`/`AS-02`/`RK-01`
+and `Q4`'s stale dependency, and the Encyclopedia's pending republication (still flagged, not yet
+republished — no new gap). **Opened:** none. **Unchanged, per `B067-F8`:** `G113` stays a Lane A
+tooling backlog item, not built or reassigned by this decision. **Unchanged:** `D-57`'s ruling,
+`D-165`'s `SEC-01` reading, `D-166`'s `SEC-06` anchor, `D-168`'s `OD4`/Line 3 separation, `B-063`'s
+and `B-064`'s `Verified` status (not reopened).
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Source docs: `SEC-01` re-sourced from Three Lines Model to RACI; structural separation ≠ proven distinct judgment | ✅ §5.14dv | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: source docs are `docs/source/`, not `Modular_PRD`** |
+| `OD4`'s "Judge = Line 3" default mapping removed from source docs | ✅ §5.14dv | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| Build Spec opening; `FN-EXCEPTIONS` §4.2; `Q12` answer restated | ✅ §5.14dv | ✅ opening line | **— unaffected** | **— unaffected** | **— unaffected** | ✅ `Q12` row |
+| `G-05`/`AS-02`/`RK-01` owner corrected; `Q4` decoupled from `FR-11`/M5 | ✅ §5.14dv | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ metrics/assumptions/risk tables, `Q4` row |
+| `Q1` Phase-0/production split restated in `DECISION_LOG`/`CONFIG_LOG` | ✅ §5.14dv | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: logs are `docs/DECISION_LOG.md`/`docs/CONFIG_LOG.md`** |
+
+**`Fn_Specs` (not a tracked `D-54` tier — cited, not propagation-checked):**
+`FN-EXCEPTIONS-06-11-12.md` §4.2 corrected in the same pass, per `D-36`.
+
+**Encyclopedia:** **Entry 05 remains affected** — `D-168` already flagged it and it has not been
+republished; this decision adds no new dependency, it corrects text the entry's own owning
+documents contained. Ledger unchanged beyond that existing flag.
+
+**Handoff tracking:** `B-067` acknowledged and applied by this decision. `B-062`/`B-065`/`B-066`
+stay `Resolution: Applied` — this decision does not verify them. `B-063`/`B-064` remain `Verified`,
+not reopened, per `B067-F6`'s explicit instruction and `D-101`'s rule that `Verified` is terminal.
+
+### Scope limits
+
+**Completes `D-168`'s propagation into source documents, absent-owner rows, and `Q1`/`Q12` logs;
+authorizes no new code, schema, migration, or build work.** No Line 3 table, identity field, `OD4`
+engine, or S5 implementation is created. `G113` remains open and deferred — this decision states the
+invariant it protects (owner/attribution claims must name their actual source) but does not build
+the check `B067-F8` reserves for a later, separately authorized pass. Independent verification of
+`B-062`/`B-065`/`B-066` (`B067-F6`) is Lane B's or another independent reviewer's work, not performed
+here.

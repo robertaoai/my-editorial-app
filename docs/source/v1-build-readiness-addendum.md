@@ -125,7 +125,7 @@ Business Case v2.1 introduces a Three Lines Model resolution for OD1–OD3. The 
 
 | # | Decision | Resolution | Trigger to Revisit |
 |---|----------|-----------|-------------------|
-| OD4 | Adopt Proposer → Critics → Judge, replacing the linear pipeline | Rejected for v1 (consistent with A1). Deferred to v2, conditional. | **Two branches:** (1) If Line separation satisfies four-eyes and the pipeline ships — revisit only if logged data shows Line separation failing to catch errors it should catch. (2) If Line separation fails to hold in production (e.g., agents in different Lines produce identical judgments due to shared training data), this is a **pre-launch blocker** — re-evaluate before shipping. If neither branch fires, OD4 stays backlogged. **Note:** If Proposer/Critics/Judge is ever adopted in v2, map it directly onto Three Lines (Proposer = Line 1, Critics = Line 2, Judge = Line 3) rather than treating it as a separate novel architecture. |
+| OD4 | Adopt Proposer → Critics → Judge, replacing the linear pipeline | Rejected for v1 (consistent with A1). Deferred to v2, conditional. | **Two branches:** (1) If Line separation satisfies four-eyes and the pipeline ships — revisit only if logged data shows Line separation failing to catch errors it should catch. (2) If Line separation fails to hold in production (e.g., agents in different Lines produce identical judgments due to shared training data), this is a **pre-launch blocker** — re-evaluate before shipping. If neither branch fires, OD4 stays backlogged. **Note:** OD4 remains a separately authorized system distinct from Line 3, `SEC-06`, and `FR-11` (`D-168`) — a branch firing reopens the remedy decision, it does not select OD4 or authorize Line 3. If Proposer/Critics/Judge is ever adopted, its Judge component does not thereby become Line 3 assurance; each would require its own separate authorization. |
 
 ### 2.4 Ratification Log
 
@@ -203,7 +203,7 @@ The ratified stack (A2) is: A React/Next.js frontend hosted on Vercel (utilizing
 | Within-Line 1 transitions | Four-eyes is `not_applicable` for T1→T2, T2→T3, T3→T4 — all are within Line 1. The same agent may execute multiple Line 1 gates. This is the standard rule under the Three Lines Model, not an exception. |
 | Chief Editor executing a Line 1 gate | The Chief Editor sits in Line 2. If the Chief Editor executes a Line 1 gate (e.g., stepping in when no Line 1 agent is available), the audit log records `event_type = HumanOverride` with `judgment_independence_status = override_not_four_eyes`. The transition is allowed; four-eyes is not satisfied. The system never silently treats an override as compliant. |
 | Emergency publish | Chief Editor can bypass the four-eyes check (Line-separation enforcement) only by setting `emergency_publish = true` with mandatory reason. This bypass does **not** skip phase gates, required fields, audit logging, or publication confirmation, and does **not** grant role permissions. Audit log records `event_type = EmergencyBypass` (§4.1 enum, PascalCase) with reason string containing `emergency_bypass` (lowercase, descriptive label, not enum value). These are distinct fields. |
-| Line 2 executor also in Line 1 | **Forbidden.** The Three Lines Model requires structural separation — the same person/agent cannot hold both Line 1 and Line 2 roles. The Chief Editor (Line 2) cannot also be the Chief Journalist (Line 1). This is a hard requirement of the standard. |
+| Line 2 executor also in Line 1 | **Forbidden.** The same person/agent cannot hold both Line 1 and Line 2 roles. The Chief Editor (Line 2) cannot also be the Chief Journalist (Line 1). This is the project's own RACI-sourced four-eyes rule (`SEC-01`, `D-163`), not a Three Lines Model requirement. |
 | Agent failure or unavailability | If a Line 1 agent fails, the article stalls and the Chief Editor is notified. The Chief Editor may execute the stalled Line 1 gate via explicit override (logged as HumanOverride, `override_not_four_eyes`). Alternatively, if OD3 permits multiple agent instances, the article can be reassigned to another Line 1 agent. |
 | Chief Editor rejection after all gates | **Normal T9 rejection:** Chief Journalist (Line 1) rejects at T6 (Reviewed → Approved). **Chief Editor veto:** Chief Editor (Line 2) may veto an approval by returning the article via T8 with Line 2 finding as reason — this is a Line 2 override, logged with `event_type = HumanOverride`. Rejection routes to Needs Revision; article returns to Journalist for re-drafting. Prior approvals are noted as superseded. |
 
@@ -374,7 +374,7 @@ display_priority = (trend_score × 0.5) + (editorial_priority × 0.5)
 | Senior Journalist | **Line 2 — Risk & Compliance** | Accountability (quality, compliance, governance review) | **Human-primary** (Chief Editor), agent-assisted | T5 (Line 1 → Line 2) = `satisfied` |
 | Line 3 — Independent Assurance | **Line 3** | Risk-based audit (triggered conditionally) | Independent — unrestricted read access to relevant evidence and an independent reporting/authority path; Lines 1/2 cannot control its scope or conclusions (`D-166`) | Reports separately; not part of standing pipeline |
 
-> **Key constraint:** The same person/agent cannot hold both Line 1 and Line 2 roles. This is a hard requirement of the Three Lines Model. The Chief Editor (Line 2) cannot also be the Chief Journalist (Line 1).
+> **Key constraint:** The same person/agent cannot hold both Line 1 and Line 2 roles. This is the project's own RACI-sourced four-eyes rule (`SEC-01`, `D-163`), not a Three Lines Model requirement. The Chief Editor (Line 2) cannot also be the Chief Journalist (Line 1).
 
 ### 6.2 Permission Matrix
 
@@ -676,7 +676,7 @@ Line 1: T6 (Chief Journalist)
 System: T7 (automated publication)
 ```
 
-**Why Line separation satisfies four-eyes:** The Three Lines Model requires structural separation between Line 1 (doing the work) and Line 2 (overseeing the work). The same person can never hold both — this is a hard requirement of the standard. Agents in different Lines provide genuinely distinct judgment because their reporting lines, objectives, and oversight structures are separated by design.
+**Why Line separation is the project's four-eyes mechanism:** Line 1 (doing the work) and Line 2 (overseeing the work) are structurally separated — the same person can never hold both. This is the project's own RACI-sourced rule (`SEC-01`, `D-163`), not a Three Lines Model requirement. **Whether structural separation makes agents in different Lines produce genuinely distinct judgment is `OD2` — open, and not resolved by the separation itself** (`AS-02`); reporting lines and oversight structures being separated by design is a necessary condition for distinct judgment, not proof of it.
 
 **Why T3 is not an exemption:** Under v1.3, T3 (same investigator validates + investigates) was treated as a special-case exception. Under the Three Lines Model, it is the standard rule — four-eyes applies at Line boundaries, not within Lines. Both validation and investigation are Line 1 operational functions.
 

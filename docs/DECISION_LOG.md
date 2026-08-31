@@ -94,7 +94,7 @@ one moves a `CONFIG_LOG.md` row, and someone reading this file will look for the
 
 | Item | Where it is decided | Effect on config |
 |---|---|---|
-| `Q1` — Line 1 roster shape | Register §5.1, needs `OD3` | `LINE1_AGENT_ROSTER` stays `UNSET` |
+| `Q1` — Line 1 roster shape | **Phase 0 decided** (`D-163`): one agent instance may hold multiple Line 1 roles if each gate records role and executor. **Production half needs `OD3`** | `LINE1_AGENT_ROSTER` stays `UNSET` |
 | `Q2` — Line 3 executor | **Answered `D-57`** — v1 has no independent assurance; `FR-11` not built | `LINE3_EXECUTOR_IDENTITY` stays `UNSET` and stays declared |
 | `Q5` — scheduler | Register, open (`TC7`) | `PUBLISH_RETRY_BACKOFF_MINUTES` has nothing to fire it |
 | `Q6` — re-enable build gates | Register, open (`TC6`) | Not a config value; `bun run build` is not a verification gate |
