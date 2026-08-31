@@ -25,7 +25,7 @@
   `V1-BUILD-SPEC.md` scope and S5 rows; `FN-EXCEPTIONS-06-11-12.md`;
   `CONFIG_LOG.md`; `DECISION_LOG.md`; Addendum, Blueprint, Business Case, RACI, Alpha Portfolio
   continuity plan, and Encyclopedia sync record
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** b6128f1
 
 ## Primary goal
 
