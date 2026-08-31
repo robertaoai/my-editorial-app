@@ -1,5 +1,5 @@
 # RACI Involvement Matrix
-**Version:** v1.5 — **proposed, not ratified**
+**Version:** v1.6 — **proposed, not ratified**
 **Date:** 2026-08-16, amended 2026-08-31
 **Origin:** Chief Editor, 2026-08-16, reframing OD2 and OD4
 **Status:** Recorded for ratification. **Closes nothing** beyond `RACI-03`/`RACI-04` (`D-170`,
@@ -234,23 +234,39 @@ table is prohibited elsewhere in this project's documents.
 | `ROLE-DESK-EDITOR` | Desk Editor | Distinct factory/CSV role; not an alias of Chief Editorial Desk/Desk Chief | Factory route/operation role only, unless separately governed |
 | `ROLE-CHIEF-EDITOR` | Chief Editor | CSV alias: Editor-in-Chief; human system user | Current `T5`/target `T6`/`EG5` |
 | `ROLE-SYSTEM-DELIVERY` | System delivery executor | Not a persona or an editorial judge | Delivery only |
-| `ROLE-EXTERNAL-GRC` | External authority (`EA`) | CSV column "Gov Institution (GRC)"; never an internal role | Route/operation `A` on regulatory routes only; never a `T`/`EG` executor |
 
-Each row carries `actor_class`, allowed `executor_type`, current transition (if any), target
-transition (if any), current lifecycle, target lifecycle, aliases, and an authority reference —
-tracked in the crosswalk (`F4`), not duplicated here. No RACI letter is assigned globally on this
-table; RACI is always scoped by relationship (`system_transition` / `factory_route` /
-`factory_operation` / `external_authority` — `F4`).
+**Corrected 2026-08-31 (`B068-R18`, folded into `F4`).** `ROLE-EXTERNAL-GRC` previously appeared here,
+modeling the external regulator as an internal `ROLE-*`. **Removed** — an external institution is not
+an internal executor role, and its presence here collided with `Modular_PRD.md` §2.3.1's own `EXT-GRC`
+ID for the same party. The external regulator's one canonical ID is `EXT-GRC` (`Modular_PRD.md` §2.3.1);
+its involvement is always recorded as `EA` (`D-170` §5.1), never as an internal `A`, `R`, `C`, or `I` —
+see `factory-route-operation-crosswalk.md`'s assignment shape.
+
+**This catalog normalizes identity only** — canonical ID, name, required distinctions, and current/
+target gate eligibility. It does **not** yet carry `actor_class`, `executor_type`, or a lifecycle field
+per row (corrected 2026-08-31, `B068-R19` — an earlier version of this note promised those fields
+without adding them). That fuller eligibility contract is `F6` work, once `F4`'s route/operation
+crosswalk exists to ground it in real evidence rather than placeholders. No RACI letter is assigned
+globally on this table; RACI is always scoped by relationship (`raci_scope`:
+`system_transition` / `factory_route` / `factory_operation` — `external_authority` is `EA` against
+`EXT-GRC`, never a `raci_scope` of its own — see `factory-route-operation-crosswalk.md`).
 
 Verified against both attached CSVs' full header rows (Reporter, Investigator, Journalist, Senior
-Journalist, Chief Journalist, Desk Editor, Editor-in-Chief, Gov Institution (GRC)): all eight source
-columns resolve to a row above (`Chief Journalist` → `ROLE-CHIEF-EDITORIAL-DESK`'s alias; `Editor-in-Chief`
-→ `ROLE-CHIEF-EDITOR`'s alias). None is `UNMAPPED`.
+Journalist, Chief Journalist, Desk Editor, Editor-in-Chief, Gov Institution (GRC)): seven source
+columns resolve to an internal `ROLE-*` row above (`Chief Journalist` → `ROLE-CHIEF-EDITORIAL-DESK`'s
+alias; `Editor-in-Chief` → `ROLE-CHIEF-EDITOR`'s alias); the eighth, "Gov Institution (GRC)", resolves
+to `Modular_PRD.md` §2.3.1's `EXT-GRC`, not to a row in this catalog. **Eight canonical internal
+`ROLE-*` rows** (corrected from the previous "ten," which both miscounted the table — it displayed nine
+— and wrongly included the external party as if it were an internal role).
 
 ---
 
 ## 9. Changelog
 
+- **2026-08-31 v1.6:** `D-174`, answering Lane B's `B068-R18`/`R19` completion review, removes
+  `ROLE-EXTERNAL-GRC` (an external party is not an internal role; it collided with `Modular_PRD.md`
+  §2.3.1's `EXT-GRC`) and corrects the catalog's row count and its overstated field claims. Eight
+  canonical internal `ROLE-*` rows, identity-only.
 - **2026-08-31 v1.5:** `F3` draft — added §8's executor role catalog, verified against both attached
   CSVs' full header rows; every source role column resolves to one canonical row, none `UNMAPPED`.
 - **2026-08-31 v1.4:** `D-171`, answering Lane B's `B068-R8` completion review, places an explicit S2

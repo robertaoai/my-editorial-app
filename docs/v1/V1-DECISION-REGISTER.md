@@ -11070,3 +11070,69 @@ no code.** The route-operation join, six named operation dispositions, `F6` item
 delivery protection — both need the join for real evidence anchors), and `F7` remain open. `D-171`'s S2
 hold is unaffected and not reopened. This decision does not touch `app/`, `lib/`, `components/`,
 `supabase/`, `__tests__/`, or `.github/workflows/`.
+
+## 5.14e0 `D-174` — Four `D-173` Completion Defects Corrected: `raci_scope`, External-Authority Identity, Role-Catalog Overstatement, Verification Framing
+
+**Lane A correction, 2026-08-31, from Lane B's independent completion review of `D-173` (`B-068` §13,
+`B068-R17`–`R20`).** `D-173` claimed structural properties its own artifacts did not have. Verified
+against the files before correcting — all four confirmed:
+
+1. **`raci_scope` was claimed, never written** (`B068-R17`). `D-173`'s register text described a scope
+   key "named in the crosswalk's origin note," but `factory-route-operation-crosswalk.md` contained no
+   `raci_scope` field anywhere, and its `C`/`I` cells were display-name prose, not canonical party IDs.
+   Corrected: the crosswalk's new §0 defines the assignment shape (`raci_scope`, `subject_id`,
+   `involvement_code`, `party_id`, `source_code`, `verification_status`); §1/§2 apply it to every route
+   and operation row, replacing prose names with canonical `ROLE-*`/`EXT-GRC` IDs throughout, including
+   `C`/`I` cells.
+2. **External authority was modeled as an internal role** (`B068-R18`). `raci-involvement-matrix.md` §8
+   carried `ROLE-EXTERNAL-GRC`, colliding with `Modular_PRD.md` §2.3.1's own `EXT-GRC` ID for the same
+   external regulator, and letting the crosswalk record its involvement as an ordinary `A`. Corrected:
+   `ROLE-EXTERNAL-GRC` is removed from the role catalog (`raci-involvement-matrix.md` v1.6); the
+   crosswalk's `ROUTE-FALLOUT-3`, `ROUTE-GRC`, and `OP-CRISIS` rows now carry `party_id = EXT-GRC`,
+   `involvement_code = EA`, with the CSV's original `A` mark preserved only as `source_code`.
+3. **The role catalog overstated its own content** (`B068-R19`). It claimed ten rows and undelivered
+   `actor_class`/`executor_type`/lifecycle fields; it displayed nine, and none of those fields. Corrected:
+   eight canonical internal `ROLE-*` rows (nine minus the removed `ROLE-EXTERNAL-GRC`), and the catalog
+   now states plainly that it normalizes identity only — the fuller eligibility contract is `F6` work,
+   not duplicated here as an unmet promise.
+4. **`D-173` overstated `F4`'s verification state** (`B068-R20`). Its heading read "masters verified"
+   and its close-out said "six [operations] need a decision," both misleading: the operation master is
+   mostly `UNVERIFIED`, and **all eight** operations — including the two row-shape-clean ones — still
+   need an explicit route disposition, not only the six with row-shape issues. Corrected: the
+   crosswalk's heading and §2 now state the true count (2 of 8 operations `VERIFIED` at the row-shape
+   level; 8 of 8 need §3's route join regardless), and §5 replaces v0.1's binary route-applicability
+   ask with the `required`/`optional`/`conditional`/`not_applicable` shape Lane B's `B068-R20` repair
+   specified, plus explicit confirmation of the conservative defaults (§4) rather than assuming them.
+
+**None of this reopens `D-170`–`D-172`'s business rulings or `F3`'s identity/node separation** — these
+are documentary-normalization corrections to `F4`'s propagation artifacts, the same class as Parent A
+in Lane B's own repair plan, not a new business decision.
+
+### Gaps
+
+**Addressed:** `B068-R17` (`raci_scope` now genuinely present, `C`/`I` canonicalized), `B068-R18`
+(`EXT-GRC`/`EA` replaces the internal `ROLE-EXTERNAL-GRC`), `B068-R19` (role-catalog count and field
+claims corrected), `B068-R20` (verification framing corrected; route-applicability request upgraded to
+the four-value shape). **Unchanged:** `D-170`–`D-172`'s rulings, `F3`'s identity/node separation,
+`D-171`'s S2 hold. **Still open:** the route-operation join itself (crosswalk §5.A, 8×7 dispositions),
+the four conservative-default confirmations (§5.B), `F6` items 7–8, `F7`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `raci_scope` assignment shape added; `C`/`I` canonicalized | ✅ §5.14e0 | **— unaffected** | **— unaffected** | **— unaffected: existing file, no new artifact** | **— unaffected** | **— unaffected: `docs/governance/`** |
+| `ROLE-EXTERNAL-GRC` removed; `EXT-GRC`/`EA` used instead | ✅ §5.14e0 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `Modular_PRD.md`'s `EXT-GRC` row is unedited, already correct** |
+| Role catalog count/field claims corrected | ✅ §5.14e0 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `F4` verification framing corrected; route-applicability request upgraded | ✅ §5.14e0 | **— unaffected** | **— unaffected** | **— unaffected: existing file, no new artifact** | **— unaffected** | **— unaffected** |
+
+**Handoff tracking:** `B-068` stays `Open`. Its Lane A field is updated to record these corrections and
+the outstanding §5 request.
+
+### Scope limits
+
+**Corrects four propagation defects in `F4`'s artifacts; builds nothing, authorizes no code, does not
+reopen `D-170`–`D-173`'s business rulings.** The route-operation join and its four default
+confirmations remain Chief Editor input (crosswalk §5) — this decision structures the request, it does
+not supply the answers. `F6` items 7–8 and `F7` remain blocked on that join. This decision does not
+touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or `.github/workflows/`.

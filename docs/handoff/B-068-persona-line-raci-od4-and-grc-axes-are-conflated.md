@@ -8,21 +8,18 @@
   normalized across Lanes A/B/C
 - **Status:** Open
 - **Lane A:** Acknowledged 2026-08-31 — critic pass complete (§8). `F1`/`F2`/`F5` decided (`D-170`);
-  `D-171` placed an explicit S2 hold on both `T5`/`T6` orders and drafted `F6` content. Lane B's
-  independent review of `D-171` (§11, `B068-R10`–`R16`) found two control defects — `line_separation_status`
-  over-marked as `satisfied` for non-crossing transitions, and a two-event blind-review pair that didn't
-  prove the human's independent judgment. Judge approved the corrections plus applying `F3` and `F4`'s
-  masters: `V1-DECISION-REGISTER.md` `D-172` corrects both defects against `FR-05`/`SEC-01` and the
-  existing S2 blind-first-pass rule. `D-173` **applies `F3`** — executor role catalog
-  (`raci-involvement-matrix.md` §8, ten roles including `Senior Journalist`/`Desk Editor`, `B068-R12`
-  fixed), persona/role/node split (`Modular_PRD.md` §2.3.1, current table unedited per `B068-R2`), and
-  the editorial node catalog (`FN-GATES-01-05.md` §11) — and **partially applies `F4`**: both CSVs read
-  directly, route master fully `VERIFIED` (`docs/governance/factory-route-operation-crosswalk.md` §1),
-  operation master mostly `UNVERIFIED` (§2, matching Lane B's prediction), and the route-operation join
-  left deliberately empty (§3) — no CSV column states it and guessing from titles is forbidden; six named
-  Chief Editor decisions (§4) are required to close it. Gate evidence/negative tests and delivery
-  protection (`F6` items 7–8) remain blocked on that join. `F7` cannot start until `F4`'s join and
-  remaining `F6` are complete.
+  `D-171` S2 hold; `D-172` corrected two `D-171` control defects; `D-173` applied `F3` and `F4`'s
+  masters. Lane B's independent review of `D-173` (§13, `B068-R17`–`R20`) found four completion
+  defects in those artifacts — a claimed `raci_scope` field that didn't exist, the external regulator
+  modeled as an internal `ROLE-*` (colliding with `Modular_PRD.md`'s own `EXT-GRC`), an overstated role
+  catalog (claimed 10 rows/fields it didn't have), and `F4`'s verification status overstated (framed as
+  "6 operations need a decision" when all 8 need a route disposition). `V1-DECISION-REGISTER.md`
+  `D-174` corrects all four: `factory-route-operation-crosswalk.md` (v0.2) now defines and uses a real
+  `raci_scope`/`party_id` assignment shape throughout, `ROLE-EXTERNAL-GRC` is removed from
+  `raci-involvement-matrix.md` (v1.6, now 8 canonical roles, identity-only), and the crosswalk's §5
+  restates the Chief Editor request as an 8×7 `required`/`optional`/`conditional`/`not_applicable`
+  route-applicability matrix plus four conservative-default confirmations — still outstanding. `F6`
+  items 7–8 and `F7` remain blocked on that input.
 - **Resolution:**
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `docs/Modular_PRD.md` §2.3 and
@@ -92,17 +89,19 @@
 | Existing table identities | **IN SYNC — unaffected** | Every current table already has a generated UUID primary key. A future-table rule may be recorded later; no no-op migration is justified |
 | POC payment | **IN SYNC — unaffected** | Payment remains manual/outside the application. There is no payment feature to disable or field to add in this phase |
 | Lane C items | **IN SYNC — unaffected** | `fetch-depth: 0` and the exact middle-dot status context remain separate Phase 3/Lane C work |
-| `Modular_PRD.md` §2.3 personas | **DRIFTED** | Current actors, future Line 3, audiences, phase gates, and institutional actors are mixed; EW, Line, RACI, gate, and OD4 boundaries are not explicit |
-| Governed T5/T6 role contract | **DRIFTED against clarified target; still current until superseded** | Current: T5 human Chief Editor, T6 Chief Journalist agent/final approval. Target: Chief Editorial Desk before a human Chief Editor final gate |
-| Attached Sheet 1/Sheet 2 mapping | **UNKNOWN / not adopted** | Sheet 2 lacks stable parent keys; multi-`R`, missing-`R`, blank-cell, and local-versus-parent `A` rules require normalization |
-| Graphify coverage for B-068 | **IN SYNC for coverage; DRIFTED for currency** | Curated B-068/D-170/D-171 fragments exist and `graph-coverage` passes, but local Graphify was last analyzed at `3474019` while HEAD is `f922290`; semantic refresh also remains pending. Final rebuild/re-merge belongs to `F7` |
+| `Modular_PRD.md` §2.3 personas | **IN SYNC for `F3`; current/target split preserved** | `D-173` added §2.3.1's persona/role/node split while retaining §2.3 as the current-build record |
+| Governed T5/T6 role contract | **HELD, not build-authorized** | `D-171` holds both orders; `D-172` corrected the target Line-separation and blind-review drafts. Remaining FR/AC propagation still belongs to `F6`/`F7` |
+| Attached Sheet 1/Sheet 2 mapping | **PARTIALLY APPLIED** | `D-173` created the route and operation masters. The route-operation join and unresolved operation dispositions remain open; see §13 for structural defects found in the applied masters |
+| Graphify coverage for B-068 | **IN SYNC at committed HEAD** | `.graphify/branch.json` records `lastAnalyzedHead = 7e0d544`, matching HEAD, with `stale: false`. A later Lane A source commit must be synchronized again during `F7` |
 
 Any `DRIFTED` or `UNKNOWN` row above blocks this handoff's verification, but does not reopen the
 preserved D-165–D-169 baseline.
 
 ## 4. Deduplicated gap list
 
-The IDs below are local to B-068 and are not new Decision Register `G` numbers.
+The IDs below are local to B-068 and are not new Decision Register `G` numbers. This table records
+the original pre-`D-170` baseline; use §13 for the current post-`D-173` state rather than reopening
+items already settled by `D-172`/`D-173`.
 
 | Gap ID | Description | Lane origin | Evidence | Parent dependency | Severity |
 |---|---|---|---|---|---|
@@ -198,7 +197,10 @@ Zero critic findings would itself be reported as a finding (`D-93`); four were f
 into `F2` and `F5` above as added dependencies, not new fix IDs — `F2`/`F5` already own that
 propagation surface.
 
-## 9. Lane B completion review — `F3` / `F4` / `F6` / `F7` remain open
+## 9. Historical Lane B completion review — superseded by `D-172`/`D-173`
+
+The state statements in §§9–12 are preserved as the critic record that produced `D-171`–`D-173`.
+They are not current status. Current status and the remaining repair are in §13.
 
 ### 9.1 Normalized request
 
@@ -390,7 +392,7 @@ causes a named acceptance test to fail for the intended reason.
 | **Reject verification** — F7 is incomplete | Handoff / Graphify / checks | `docs-drift` remains red; full propagation and independent review outstanding |
 | **Defer** — implementation | Lane B code/schema/UI/tests | No build in this pass |
 
-## 11. Lane B review of `D-171` — task ahead is `F3 → F4 → remaining F6 → F7`
+## 11. Historical Lane B review of `D-171` — corrected/applied in part by `D-172`/`D-173`
 
 ### 11.1 Normalized request and current boundary
 
@@ -584,7 +586,7 @@ Coverage alone is insufficient.
 | F7 begins while F3/F4 or corrected F6 is open | Handoff dependency check rejects closure |
 | Graph node exists but analyzed HEAD differs | `docs-drift` remains red; F7 cannot verify |
 
-## 12. D-171 review approve / reject summary
+## 12. Historical D-171 review approve / reject summary
 
 | Decision | Tier | Follow-up phase |
 |---|---|---|
@@ -595,3 +597,107 @@ Coverage alone is insufficient.
 | **Reject as drafted** — D-171 blind-review event pair | NFR-03 / acceptance behavior | Replace with human preliminary → reveal → final decision sequence |
 | **Reject verification** — F7 cannot start | Handoff / Graphify | F3, F4 and corrected/complete F6 remain open; graph currency/semantics pending |
 | **Defer** — all implementation | Lane B code/schema/UI/tests | Fresh authorization only after F7 |
+
+## 13. Current completion review after `D-172`/`D-173`
+
+### 13.1 Normalized request and settled boundary
+
+> Preserve `D-172` and completed `F3`; do not repeat §§9–12. Review `D-173` and the applied `F4`
+> artifact for structural completeness, reduce the remaining Chief Editor input to the smallest
+> parent-first decision set, derive negative success criteria, and keep `F6`/`F7` and implementation
+> held until those decisions land.
+
+Settled: `D-172`'s Line-separation and three-event blind-review corrections; `D-173`'s persona,
+executor-title, and node separation; the source transcription of Sheet 1 and Sheet 2; and Graphify
+currency at committed HEAD `7e0d544`. Open: normalized `F4`, `F6` items 7–8, and `F7`.
+
+Graphify's extraction is current and the local consistency suite is green, but `check-update` reports
+pending semantic ingestion after the last rebuild. Per `B-041`/`D-137`, semantic ingestion is the last
+action of `F7`, after the final source commit. `portable-check` findings in ignored runtime state remain
+the existing `B-041` standing limit; portability is assessed against any exact artifact set proposed
+for commit, not used to create a duplicate B-068 gap.
+
+### 13.2 New gaps — fold into existing `F4`, do not create duplicate fix IDs
+
+| Review ID | Finding | Guaranteed failure | Draft repair |
+|---|---|---|---|
+| `B068-R17` | `D-173` says the crosswalk names `raci_scope`, but `factory-route-operation-crosswalk.md` contains no such field. Its `C`/`I` assignments also remain display-name prose rather than canonical party IDs | Transition `A`, route `A`, operation `A`, and external authority cannot be distinguished or validated; aliases re-enter through prose | Replace wide/prose RACI cells with assignment rows carrying `raci_scope`, subject ID, involvement code, canonical party ID, source code, provenance, and verification status |
+| `B068-R18` | External GRC appears as `ROLE-EXTERNAL-GRC` in route/operation `A` columns, while the product catalog uses `EXT-GRC` and `D-170` defines external authority as `EA`, not internal `A` | An external institution is modeled as an internal executor role; internal override/permission logic can accidentally treat `EA` as ordinary `A` | Use external party `EXT-GRC` with normalized involvement `EA`; preserve the CSV's source `A` in `source_code`, never as the effective internal code |
+| `B068-R19` | The F3 role catalog says every row carries actor/executor/lifecycle/authority fields, but its table does not expose those fields; `D-173` also says “ten” rows while the catalog displays nine | A title catalog is mistaken for an executable eligibility contract, and a restated count drifts without identifying a missing role | Remove the count claim; either add the promised explicit fields in the owning catalog or state that F3 normalized identity only and leave eligibility/lifecycle to the node and assignment catalogs |
+| `B068-R20` | `D-173`'s heading says route/operation masters are verified, although six operation rows are `UNVERIFIED`; the crosswalk says six operations need decisions even though all eight still need route applicability | Readers can close F4 after fixing six row shapes while the entire join remains empty | Rename the state: route master source-verified; operation master captured with two verified and unresolved rows; all operations require explicit route dispositions |
+
+These are propagation/completion defects in `F4`; they do not reopen the business rulings in
+`D-170`–`D-172` or the identity separation already achieved by `F3`.
+
+### 13.3 Parent-first decision architecture
+
+#### Parent A — normalize authority before deciding routes
+
+Adopt one assignment shape for all factory RACI facts:
+
+| Field | Rule |
+|---|---|
+| `raci_scope` | `factory_route` or `factory_operation`; `system_transition` remains in its existing governing source |
+| `subject_id` | Canonical `ROUTE-*` or `OP-*` ID |
+| `involvement_code` | `R`, `A`, `C`, `I`, `O`, or `EA`; `EA` is never stored as `A` |
+| `party_id` | Canonical `ROLE-*` for internal actors or `EXT-GRC` for the external institution |
+| `source_code` | Original CSV mark, including source `A` for GRC, retained without changing the normalized meaning |
+| `provenance` / `verification_status` | Source file/cell or Chief Editor decision, plus `VERIFIED`, `DECIDED`, or `UNVERIFIED` |
+
+This parent is documentary normalization, not a new business decision. It must land before route
+joins so every later choice has one stable meaning.
+
+#### Parent B — route applicability packet
+
+For each of the eight `OP-*` rows, the Chief Editor supplies one disposition for each of the seven
+`ROUTE-*` rows: `required`, `optional`, `conditional`, or `not_applicable`. A `conditional` entry must
+name its trigger. This single matrix answers the old question 1 without title matching and permits
+an operation to be reused without copying its definition.
+
+#### Child B1 — operation work-design packet
+
+After Parent B, decide only the unresolved operation shapes:
+
+1. `OP-PITCH` and `OP-RESEARCH`: name one atomic `R`, or classify as milestones and enumerate children;
+2. `OP-DRAFT`: name a local `A`, or explicitly inherit the applicable route's `A` per join row;
+3. `OP-COMPLEX-SERIES` and `OP-LEGAL-RISK`: enumerate atomic children and one `R` per child; and
+4. `OP-FINAL-SIGNOFF`: name its `R`, or approve a scoped `R = A` exception with its compensating
+   successor/independent-review control.
+
+Until decided, use conservative planning values: `milestone_pending_decomposition`, `A = unknown`,
+and `R = unknown`. Do not silently choose one of several source roles, inherit authority, or grant an
+`R = A` exception.
+
+#### Child B2 — external-authority packet
+
+For blank Sheet 2 GRC cells, the recommended evidence-preserving value is `unknown`, not
+`not_applicable` and not `I`: the source provides no blank-cell convention. The Chief Editor may later
+decide `not_applicable` per operation, but omission cannot prove it. `OP-CRISIS` retains source `A` as
+provenance and normalizes its effective relationship to `EXT-GRC` as `EA`.
+
+### 13.4 Failure-derived success criteria
+
+| Deliberate failure | Required rejection/proof |
+|---|---|
+| Assignment omits `raci_scope` | Crosswalk validation rejects it |
+| `EXT-GRC` is stored as internal `A` or a `ROLE-*` executor | Authority validation rejects it; only `EA` may reference the external party |
+| `C`/`I` contains an unresolved display title | Canonical-party referential check fails |
+| An operation has no disposition for a route | Join completeness fails; F4 remains open |
+| `conditional` has no trigger | Join validation rejects the row |
+| Multi-`R` source row is presented as atomic | Atomicity check rejects it until one `R` or decomposed children exist |
+| Missing local `A` silently inherits | Effective-authority check rejects inheritance without an explicit join decision |
+| `R = A` is inferred for final sign-off | Separation check rejects it without the approved exception and compensating control |
+| Blank GRC cell becomes `I` or `not_applicable` without a decision | Provenance check rejects the value |
+| F6 route evidence is drafted from an `UNVERIFIED` join | Dependency check keeps F6 items 7–8 held |
+| A source edit lands but Graphify's analyzed HEAD differs | `docs-drift` fails and F7 cannot verify |
+
+### 13.5 Current approve / reject summary
+
+| Decision | Tier | Follow-up phase |
+|---|---|---|
+| **Approve** — `D-172` corrections and completed F3 identity/node separation | Decision Register / Product Requirements / RACI / FN-GATES | Preserve; do not repeat |
+| **Approve-with-conditions** — `D-173`'s source masters | RACI/governance | Remaining F4; repair `R17`–`R20` before relying on the masters as normalized contracts |
+| **Approve-with-conditions** — three-packet decision architecture | RACI/governance | Parent A, then Parent B, then children B1/B2 |
+| **Reject verification** — F4 closure | Handoff / RACI | Route join empty; operation and authority semantics unresolved |
+| **Reject verification** — F6 items 7–8 and F7 closure | Product Requirements / Fn_Specs / tracking / Graphify | Complete normalized F4 first, then propagate and independently verify |
+| **Defer** — implementation and fresh build authorization | Lane B code/schema/UI/tests | D-171 hold remains until F7 closes |
