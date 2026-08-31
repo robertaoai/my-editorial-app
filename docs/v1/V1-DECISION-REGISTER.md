@@ -10375,8 +10375,8 @@ future work.
 | `[Q11]`/pending-language cleanup | ✅ §5.14dr | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `Modular_PRD` already carried the closed state** |
 | `SEC-06` 2026 IIA re-anchor | **— opened here, not closed** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected until the sweep completes** |
 
-**Encyclopedia:** Entry mapping unaffected — this correction touches requirement rationale and
-build-packet scope, not the six anchors `docs/ENCYCLOPEDIA-SYNC.md` tracks.
+**Encyclopedia:** **Entry 01 affected** — its rule bullet stated the same wrong "R never equals A"
+derivation this entry corrects. Updated to v14 (`docs/ENCYCLOPEDIA-SYNC.md`, `D-167`'s pass).
 
 ### Scope limits
 
@@ -10465,8 +10465,8 @@ schema rule, POC payment, Lane C — confirmed, not reopened.
 | `SEC-01`/`SEC-06`/`FR-11` separation stated explicitly | ✅ §5.14ds | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §6.5 footnote |
 | `B-062`/`B-063` remain `Applied`, not `Verified` | ✅ §5.14ds (clarifying, no status change) | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
 
-**Encyclopedia:** Entry mapping unaffected — this correction touches `SEC-06`'s source citation
-and residual drift cleanup, not the six anchors `docs/ENCYCLOPEDIA-SYNC.md` tracks.
+**Encyclopedia:** **Entry 01 affected** — depends on `Modular_PRD.md` §6.5 `SEC-06`, corrected
+here. Updated to v14 (`docs/ENCYCLOPEDIA-SYNC.md`).
 
 ### Scope limits
 
@@ -10529,7 +10529,9 @@ work, unchanged. **Unchanged:** `D-57`'s substantive ruling (no independent assu
 §0, §3.1, §4.2, §7, §8, §10 corrected in the same pass, per `D-36` (a living document, not frozen —
 normal update, not a tier-propagation defect).
 
-**Encyclopedia:** Entry mapping unaffected.
+**Encyclopedia:** **Entry 05 affected** — depends on `Modular_PRD.md` §4 (Line 3 persona) and §5
+(`FR-11`), both corrected here. Updated to v14, Judge-approved, republished to the same URL
+(`docs/ENCYCLOPEDIA-SYNC.md`).
 
 ### Scope limits
 

@@ -29,11 +29,11 @@ against.
 
 | Entry | Depends on (files/sections) | Depends on (decisions) | Last verified at |
 |---|---|---|---|
-| **01 · Four-eyes independence** (line separation) | `docs/Modular_PRD.md` §6.5 (`SEC-01`/`SEC-06`), §5 (`FR-05`); `docs/fn-specs/FN-GATES-01-05.md` §3.4; `docs/governance/raci-involvement-matrix.md` §4; `docs/source/blueprint.md` §2.3, §4.7; `docs/source/business-case.md` (Addendum §6.1 equivalent); `supabase/migrations/0002_s1_editorial_schema.sql` (`allowed_transitions`, `enforce_article_state_transition`, `workflow_transitions.line_separation_status`) | `D-97`, `D-111`, `D-112`, `D-163`, `D-164` | `026ceee` |
+| **01 · Four-eyes independence** (line separation) | `docs/Modular_PRD.md` §6.5 (`SEC-01`/`SEC-06`), §5 (`FR-05`); `docs/fn-specs/FN-GATES-01-05.md` §3.4; `docs/governance/raci-involvement-matrix.md` §2, §4; `docs/source/blueprint.md` §2.3, §4.7; `docs/source/business-case.md` (Addendum §6.1 equivalent); `supabase/migrations/0002_s1_editorial_schema.sql` (`allowed_transitions`, `enforce_article_state_transition`, `workflow_transitions.line_separation_status`) | `D-97`, `D-111`, `D-112`, `D-163`, `D-164`, `D-165`, `D-166` | `556a9d5` |
 | **02 · Resolved vs. ratified** | `docs/source/v1-build-readiness-addendum.md` §11, §2.4 (Ratification Log); `docs/Modular_PRD.md` §0.2, §0.4, §12 | — (none landed since v12) | `f7b3aea` |
 | **03 · Newsworthiness vs. trend score vs. editorial priority** | `docs/source/blueprint.md` §11.3; `docs/governance/media-industry-sop-fallback-implementation-plan.md` §6.1; `docs/Modular_PRD.md` (`NG-10`, `CR-06`/`FB-06` disposition, §2.5.1) | `D-148` | `f7b3aea` |
 | **04 · Article state vs. publication status** | `docs/source/blueprint.md` §4.5; `docs/fn-specs/FN-PUBLICATION-09-10-13.md` §3.3.2; `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md` §4.4; `docs/specs/SPECS-PUBLICATION.md` §3 | `D-114` | `f7b3aea` |
-| **05 · The independent-assurance cluster** (successor review, Line 3, `OD4`) | `docs/governance/raci-involvement-matrix.md` §2.1, §6.1, changelog v1.1; `docs/governance/poc-feedback-approval-crosswalk.md` §7.4 | — | `f7b3aea` |
+| **05 · The independent-assurance cluster** (successor review, Line 3, `OD4`) | `docs/governance/raci-involvement-matrix.md` §2.1, §6.1, changelog v1.1; `docs/governance/poc-feedback-approval-crosswalk.md` §7.4; `docs/Modular_PRD.md` §4 (Line 3 persona), §5 (`FR-11`), §6.5 (`SEC-06`) | `D-57`, `D-166`, `D-167` | `556a9d5` |
 | **06 · `CR-14`** (Reporter-gate tagging) | `docs/PRD.md:23` (frozen); `docs/source/blueprint.md` §2.3; `docs/fn-specs/FN-GATES-01-05.md` §3.1, §6, §7; `docs/Modular_PRD.md` §2.5.1; `docs/governance/requirements-traceability-map.md` §4, §7 | `D-150` (`P1`–`P3` applied) | `f7b3aea` |
 
 **Findings section (`AF-01`…`AF-11`) and the Judge decision guide are reviewed opportunistically**
@@ -47,3 +47,4 @@ resolved and reclassified in the same v13 pass that updated Entry 01, from the s
 |---|---|---|
 | v12 | Baseline — all 6 entries, `CR-14` ruled | `f7b3aea` |
 | v13 | Entry 01 + `AF-01` updated against `D-163` (`SEC-01` re-sourced to RACI, `SEC-06` split out) and `D-164` (T5 trigger already built in `0002`) | `026ceee` |
+| v14 | Judge-approved. Entry 01's rule bullet corrected (`D-165`) — the register's own re-sourcing rationale ("R never equals A at a Line boundary") contradicted its cited RACI source; restated as successor-node separation, `R(T4) ≠ R(T5)`, with `R = A` at `T5` itself the expected shape. `SEC-06` re-anchored to the 2024 GIAS, not a non-existent "2026 Statement of Position" (`D-166`). Entry 05 corrected: Line 3's build status is `OD4` branch ②, not `OD3`; `Q2` already answered by `D-57` — v1 has no independent assurance, `FR-11` not built (`D-167`) | `556a9d5` |
