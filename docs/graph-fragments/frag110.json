@@ -1,0 +1,52 @@
+{
+  "_comment": "Fragment 110 — curated node for D-174 (corrects four D-173 completion defects: raci_scope, external-authority identity, role-catalog overstatement, verification framing), per Lane B's B068-R17-R20 review. Merged 2026-08-31.",
+  "nodes": [
+    {
+      "id": "d174_f4_completion_defects_corrected",
+      "label": "D-174: F4 Completion Defects Corrected (raci_scope, EXT-GRC)",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14e0",
+      "description": "Lane A correction from Lane B's independent completion review of D-173 (B068-R17-R20), all four verified against the actual files before fixing. raci_scope was claimed in D-173's register text but never written into factory-route-operation-crosswalk.md -- added a real assignment shape (raci_scope, subject_id, involvement_code, party_id, source_code, verification_status) applied throughout, replacing prose C/I names with canonical IDs. The external regulator was modeled as an internal ROLE-EXTERNAL-GRC, colliding with Modular_PRD.md's own EXT-GRC ID for the same party -- removed from the role catalog; the crosswalk now uses EXT-GRC with involvement_code=EA, preserving the CSV's source A mark only as source_code. The role catalog claimed ten rows and fields (actor_class, executor_type, lifecycle) it didn't have, displayed nine and none of those fields -- corrected to eight canonical roles, identity-only. D-173 said six operations needed a decision when all eight need a route disposition, not just the six with row-shape issues -- crosswalk v0.2 corrects the framing and upgrades the route-applicability request to required/optional/conditional/not_applicable per operation-route pair, plus explicit confirmation of conservative defaults. None of this reopens D-170-D-172's business rulings or F3's identity separation.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A document that describes a field it doesn't contain, or a role catalog that promises fields it doesn't display, is a second-order version of the same drift the project's own G55/G56/G58 name for restated counts -- the claim and the artifact diverge quietly, and only reading the actual file rather than trusting the description catches it."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d174_f4_completion_defects_corrected",
+      "target": "d173_f3_applied_f4_masters_applied",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e0",
+      "weight": 1
+    },
+    {
+      "source": "d174_f4_completion_defects_corrected",
+      "target": "factory_route_operation_crosswalk_doc",
+      "relation": "amends",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/factory-route-operation-crosswalk.md",
+      "confidence_score": 1,
+      "source_location": "§0-§5, v0.2",
+      "weight": 1
+    },
+    {
+      "source": "d174_f4_completion_defects_corrected",
+      "target": "raci_matrix_doc",
+      "relation": "amends",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/raci-involvement-matrix.md",
+      "confidence_score": 1,
+      "source_location": "§8, v1.6",
+      "weight": 1
+    }
+  ]
+}
