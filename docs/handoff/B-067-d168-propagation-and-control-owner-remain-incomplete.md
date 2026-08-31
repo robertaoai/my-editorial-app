@@ -21,7 +21,7 @@
 - **Evidence:** `D-163`–`D-169` in `V1-DECISION-REGISTER.md`; `B-062`–`B-067`;
   commits `b6128f1`, `938e049`, and `cb42cae`; frozen Charter OD2/OD4; current Build,
   Product, functional, source, log, RACI, Encyclopedia, and Graphify records cited below
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** 47accdc
 
 ## 1. Scope declaration
 
