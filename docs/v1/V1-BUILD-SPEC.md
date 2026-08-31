@@ -73,7 +73,7 @@ Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` 
 | Group | Items | Gates |
 |---|---|---|
 | **No dependency, start now** | `R3` test runner + CI · `G5`/`QE` extend `A7` to `AGENTS.md` · `Q0` record `A2` ratification · `R2` close `D4` | Every later DoD |
-| **Gate later sprints** | ~~`Q2` Line 3 executor~~ answered, `D-57`/`D-167` · `Q3` publish path · `Q4` OD2 trip-wire scope · `Q5` retry scheduler · `Q6` build gates · ~~`Q12` Three Lines re-citation~~ answered, `D-163` | S2, S4, S5 |
+| **Gate later sprints** | ~~`Q2` Line 3 executor~~ answered, `D-57`/`D-167`/`D-168` · `Q3` publish path · `Q4` OD2 trip-wire scope · `Q5` retry scheduler · `Q6` build gates · ~~`Q12` Three Lines re-citation~~ answered, `D-163` | S2, S4, S5 |
 | **Governance placement** | `QD` revenue rule home · `QC` domain assignment · `Q8`/`R5` route `FB-01`–`08` · `R4` propagate `PSK-01`–`10` | Scope disclosure |
 | **Wording fixes** | `G23` `FR-13` bypasses deliberation not publication · `G24` mirror boundary is own channels only | Retraction correctness |
 
@@ -308,7 +308,7 @@ field name is committed to text an executor will apply — **not evidence requir
 
 | Item | Why |
 |---|---|
-| S5 — Line 3, degraded mode | `OD3`; `Q1`. **`Q2` answered `D-57`** — v1 has no independent assurance, so **`FR-11` is not built in v1**. Condition `C-13` places a BCP observability surface in **S3**, not S5 — it must exist before the `OD2` evidence it displays matters. **`G60` closed 2026-08-20** (`D-62`) — `FR-14`, `US-14`, and `AC-21` now exist in `Modular_PRD`. **S3 is unblocked**; the surface displays observations existing requirements already define and introduces no new measurement or threshold |
+| S5 — Line 3, degraded mode | `Q1` (degraded-mode roster). **`Q2` answered `D-57`** — v1 has no independent assurance, so **`FR-11` is not built in v1**, governed directly by `D-57`; neither `OD3` (roster shape) nor `OD4` (deferred Proposer→Critics→Judge remedy) governs that disposition (`D-168`). Condition `C-13` places a BCP observability surface in **S3**, not S5 — it must exist before the `OD2` evidence it displays matters. **`G60` closed 2026-08-20** (`D-62`) — `FR-14`, `US-14`, and `AC-21` now exist in `Modular_PRD`. **S3 is unblocked**; the surface displays observations existing requirements already define and introduces no new measurement or threshold |
 | S6 — auth and scoped RLS | `SEC-03`, gated on `OD1`–`OD3`. **Cannot be called done while they are open** |
 | `G7b` systematized POC exposure | Needs S2 identity, enforcement completes at S6 |
 | Tier 3 Fallout — legal/defamation crises | Generating activities excluded: `NG-11` removes fundraising; PoC §8.2 excludes whistleblower publication without safe handling |

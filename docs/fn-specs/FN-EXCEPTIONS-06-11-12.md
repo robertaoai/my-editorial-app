@@ -22,7 +22,7 @@ Living document; no build-version prefix, does not freeze. **All sections `[V1]`
 
 > **`FR-06`'s placement, resolved not assumed.** `FR-06` is **T8** — *any active state → Needs Revision* — available at every gate but **not a gate itself**. The gates group (`FR-01`–`FR-05`) covers T1–T6, the forward path. T8 is the backward path. It belongs here. *(Flagged during sequencing; resolved on the reasoning that T8's executor is "any authorized role for the current state," which makes it a property of every gate rather than a member of the sequence.)*
 
-**`FR-12` depends on a threshold `OD1` informs and cannot complete in v1.** `FR-11` is no longer `OD`-blocked in the open sense — `D-57` decided it directly: **not built in v1**, v1 discloses no independent assurance, `C-13`'s BCP surface is a compensating control, never Line 3. That decision sits under the Three Lines Model's `OD4` branch ② (triggered if `OD2` resolves negatively), not `OD3` — `OD3` is agent headcount/roster shape, a separate question `FR-11`'s status no longer depends on (`D-167`).
+**`FR-12` depends on a threshold `OD1` informs and cannot complete in v1.** `FR-11` is no longer `OD`-blocked in the open sense — `D-57` decided it directly: **not built in v1**, v1 discloses no independent assurance, `C-13`'s BCP surface is a compensating control, never Line 3. That decision is governed directly by `D-57`, not by `OD3` (agent headcount/roster shape) or `OD4` (the Charter's deferred Proposer→Critics→Judge remedy, triggerable but never self-authorizing) — neither OD is `FR-11`'s dependency (`D-167`, corrected `D-168`).
 
 ## 2. User stories `[V1]`
 
@@ -41,7 +41,7 @@ Living document; no build-version prefix, does not freeze. **All sections `[V1]`
 | ID | Requirement | Line | Sprint | OD |
 |---|---|---|---|---|
 | `FR-06` | Return an article to a prior state with a **mandatory reason**; auto-escalate at the return limit | 1/2 | S1 | — |
-| `FR-11` ⚠ | Trigger a **Line 3** audit on defined risk conditions; Line 3 reports **independently** | 3 | S5 | **Not built in v1 (`D-57`); `OD4` branch ②, not `OD3`** |
+| `FR-11` ⚠ | Trigger a **Line 3** audit on defined risk conditions; Line 3 reports **independently** | 3 | S5 | **Not built in v1 (`D-57`); governed directly by `D-57`, not `OD3` or `OD4`** (`D-168`) |
 | `FR-12` | Operate in **degraded mode** when the Chief Editor is absent beyond the configured threshold | 1 | S5 | — |
 
 ### 3.2 Constraints `[V1]`
@@ -150,4 +150,4 @@ mandatory-reason refusal · per-target-state counting · auto-escalate at limit 
 
 ## 10. Scope limits `[V1]`
 
-Closes no Open Decision here — `Q2` was already closed by `D-57`, applied to this document by `D-167`. `FR-11` has no executor and is **not built in v1**, governed by the Three Lines Model's `OD4` branch ②, not `OD3`. Authorizes no code, schema, or migration. Every threshold stays `UNSET`; **no number is invented here**.
+Closes no Open Decision here — `Q2` was already closed by `D-57`, applied to this document by `D-167`/`D-168`. `FR-11` has no executor and is **not built in v1**, governed directly by `D-57`, not `OD3` or `OD4`. Authorizes no code, schema, or migration. Every threshold stays `UNSET`; **no number is invented here**.

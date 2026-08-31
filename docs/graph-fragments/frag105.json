@@ -1,0 +1,67 @@
+{
+  "_comment": "Fragment 105 — curated nodes for B-066 (D-167 confused OD4 with Line 3) and its D-168 correction. Same G109-class extraction gap as every new docs/handoff/ file. Merged 2026-08-31.",
+  "nodes": [
+    {
+      "id": "b066_d167_confuses_od4_with_line3",
+      "label": "B-066: D-167 Confuses OD4 with Line 3",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-066-d167-confuses-od4-with-line3.md",
+      "source_location": "whole document",
+      "description": "D-167 correctly closed the false OD3 dependency on FR-11/Line 3's build status, but introduced a second category error in its place: it called the frozen Charter's OD4 (a deferred Proposer -> Critics -> Judge remedy, not a Three Lines Model role) the thing 'Line 3 assurance is for.' The error propagated into Modular_PRD, V1-BUILD-SPEC, and FN-EXCEPTIONS-06-11-12. Nine specific gaps were found, including US-11/AC-17 still saying 'no shared data path,' the Addendum/Blueprint/Business Case retaining the same data-isolation phrasing D-166 had already corrected in Modular_PRD, and config/decision logs sourcing Line 3 identity to OD3.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A correction that repairs one category error by substituting a second, unrelated category error is not caught by structural checks -- bun run check passed with the wrong OD4/Line-3 relationship live, because it validates cross-reference presence, not semantic correctness."
+    },
+    {
+      "id": "d168_od4_deferred_remedy_not_line3_governor",
+      "label": "D-168: OD4 Is a Deferred Remedy, Not Line 3's Governor",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14du",
+      "description": "Lane A correction closing B-066. States that FR-11's v1 disposition is governed directly by D-57/Q2, not by OD3 or OD4; OD4 remains the Charter's deferred Proposer -> Critics -> Judge remedy, triggerable by its own branch conditions but never self-authorizing OD4, Line 3, or SEC-06. Propagates the correction to Modular_PRD (US-11, AC-17, FR-11 rows), V1-BUILD-SPEC (S5 row), FN-EXCEPTIONS-06-11-12, the Addendum/Blueprint/Business Case (evidence-access wording completing D-166's correction), CONFIG_LOG/DECISION_LOG (LINE3_EXECUTOR_IDENTITY re-sourced from OD3 to D-57), and flags Encyclopedia Entry 05 as affected. D-165's SEC-01 reading and D-166's SEC-06/GIAS-2024 anchor stand unchanged.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Replacing every reference to a wrong dependency with a different OD number repairs the vocabulary without re-deriving ownership from the Charter -- the fix has to state the direct governing decision (D-57), not just pick a different OD to blame."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b066_d167_confuses_od4_with_line3",
+      "target": "d167_fr11_line3_od4_not_od3",
+      "relation": "raised_against",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-066-d167-confuses-od4-with-line3.md",
+      "confidence_score": 1,
+      "source_location": "Parent finding",
+      "weight": 1
+    },
+    {
+      "source": "d168_od4_deferred_remedy_not_line3_governor",
+      "target": "b066_d167_confuses_od4_with_line3",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14du",
+      "weight": 1
+    },
+    {
+      "source": "d168_od4_deferred_remedy_not_line3_governor",
+      "target": "d167_fr11_line3_od4_not_od3",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14du",
+      "weight": 1
+    }
+  ]
+}

@@ -10538,3 +10538,79 @@ normal update, not a tier-propagation defect).
 **Restates an already-decided requirement's status correctly and fixes its OD attribution;
 authorizes no new code, decides no new question.** `Q2`, `OD2`, `OD3`, and `OD4` branch ① (`NG-09`)
 all keep their existing rulings/status, unchanged.
+
+## 5.14du `D-168` — `D-167` Corrected: `OD4` Is a Deferred Remedy, Not Line 3's Governor
+
+**Lane A correction, 2026-08-31, from Lane B's independent review of `D-167` (`B-066`).** `D-167`
+repaired the false `OD3` dependency correctly but introduced a second category error in its place:
+it called `OD4` the thing "Line 3 assurance is for... under the Three Lines Model," and propagated
+that into `Modular_PRD.md`, `V1-BUILD-SPEC.md`, and `FN-EXCEPTIONS-06-11-12.md`. `D-165`/`D-166`'s
+sound findings — `SEC-01` successor-node separation, the GIAS-2024 anchor for `SEC-06`, `Q2`'s
+closure by `D-57` — are preserved without change.
+
+### What was actually wrong
+
+The frozen Charter defines `OD4` as a **separate, deferred system decision**: whether to replace
+the linear five-gate pipeline with a Proposer → Critics → Judge architecture. It is not a Three
+Lines Model role, not Line 3, not `SEC-06`, and not the dependency that decides whether `FR-11` is
+built. `OD4`'s branch ② is a **trigger that reopens a remedy decision** if `OD2` resolves
+negatively — it does not select `OD4`, charter an `OD4` project, or authorize Line 3. `D-57`
+already governs `FR-11`'s v1 disposition directly, independent of both `OD3` and `OD4`: no
+independent assurance, not built in v1.
+
+### The correction
+
+`FR-11`'s v1 disposition is governed directly by `D-57`/`Q2`: no independent assurance, not built
+in v1. Neither `OD3` nor `OD4` governs that disposition. `OD4` remains the Charter's deferred
+Proposer → Critics → Judge remedy — triggerable by its own branch conditions, never
+self-authorizing `OD4`, Line 3, or `SEC-06`. Any future `OD4` system and any future Line 3/`FR-11`
+capability each require their own separate authorization, executor, mandate, reporting path, and
+acceptance evidence; one does not silently authorize the other. `D-165`'s `SEC-01` reading and
+`D-166`'s `SEC-06`/GIAS-2024 anchor and evidence-access correction stand unchanged — this decision
+corrects only `D-167`'s `OD4` attribution and finishes the propagation it left incomplete
+(`US-11`/`AC-17`'s stale "no shared data path" and `OD3`-sourced blocked wording; `V1-BUILD-SPEC.md`
+S5's `OD3`/`OD4` gate framing; `FN-EXCEPTIONS-06-11-12.md`'s `OD4`-as-governor wording; the
+Addendum/Blueprint/Business Case acceptance-test rows; `CONFIG_LOG.md`/`DECISION_LOG.md`'s
+`OD3`-sourced `LINE3_EXECUTOR_IDENTITY`; and Encyclopedia Entry 05).
+
+### Gaps
+
+**Closed:** the `OD4`-as-Line-3-governor category error `D-167` introduced, and the incomplete
+propagation of `D-166`'s evidence-access correction into `US-11`/`AC-17` and the source documents.
+**Opened:** none — `M5`/S5 remains unscheduled future work, unchanged; any future `OD4` or Line
+3/`FR-11` build still requires its own fresh authorization, which this decision does not supply.
+**Unchanged:** `D-57`'s substantive ruling, `D-165`'s `SEC-01` reading, `D-166`'s `SEC-06` anchor,
+`OD2`'s and `OD3`'s open status, `OD4` branch ① (`NG-09`).
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `FR-11`/Line 3 disposition sourced directly to `D-57`, not `OD3` or `OD4` | ✅ §5.14du | ✅ S5 row: `OD3`/`OD4` gates removed | **— unaffected** | **— unaffected: no artifact created** | **— unaffected** | ✅ §4, §5, §7.2, §7.4, §9, §10 |
+| `US-11`/`AC-17` evidence-access wording completes `D-166`'s correction | ✅ §5.14du (clarifying, no new ruling) | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §9 `US-11`, §10 `AC-17` |
+| `B-062`/`B-065` remain `Applied`, not `Verified` | ✅ §5.14du (clarifying, no status change) | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**`Fn_Specs` (not a tracked `D-54` tier — cited, not propagation-checked):**
+`FN-EXCEPTIONS-06-11-12.md` §0, §3.1, §4.2, §7, §8, §10 corrected in the same pass, per `D-36`.
+
+**Governing sources (frozen Charter unchanged; these are living project documents, not the
+Charter):** `docs/source/v1-build-readiness-addendum.md`, `docs/source/blueprint.md`,
+`docs/source/business-case.md` — acceptance-test rows (`AT-044`, `AT-074`) restated to match
+`D-166`'s evidence-access correction; `docs/CONFIG_LOG.md`/`docs/DECISION_LOG.md` —
+`LINE3_EXECUTOR_IDENTITY` re-sourced from `OD3` to `D-57`.
+
+**Encyclopedia:** **Entry 05 affected** — depends on `Modular_PRD.md` §4 (Line 3 persona) and §5
+(`FR-11`), both corrected here. Ledger flagged in `docs/ENCYCLOPEDIA-SYNC.md`; republishing the
+Claude Artifact itself is a separate, opt-in act per `CLAUDE.md`'s Encyclopedia-sync rule, not
+performed by this decision.
+
+**Handoff tracking:** `B-066` acknowledged and applied by this decision. `B-062`/`B-065` stay
+`Resolution: Applied` — this decision does not verify them; it removes the `D-167` error their
+verification would otherwise inherit.
+
+### Scope limits
+
+**Corrects a category error in `D-167`'s parent relation and completes an already-decided
+correction's propagation; authorizes no new code, schema, migration, or build work.** No Line 3
+table, identity field, `OD4` engine, or S5 implementation is created. `OD2`, `OD3`, `OD4` branch ①
+(`NG-09`), and `D-57`'s substantive ruling all keep their existing status, unchanged.

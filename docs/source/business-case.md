@@ -27,7 +27,7 @@ This is not a "need a dashboard" problem — it is a compliance-absence problem.
 
 - **Chief Editor** (human, Line 2) — the sole human operator. Sits in Line 2 (Risk & Compliance). Performs or directly supervises the Senior Journalist role (Accountability function). Does not float across gates — Three Lines Model forbids the same person holding both Line 1 and Line 2 roles, because self-review across Lines is a known Three Lines Model violation.
 - **Line 1 agents** — execute operational roles: Reporter (Origination), Investigator (Verification), Journalist (Standards fit), and Chief Journalist (operational final approval). Agent-primary, human spot-check optional. Same agent may hold multiple Line 1 roles.
-- **Line 3** (Independent Assurance) — risk-based audit, triggered only when Line 2's risk signal crosses a threshold or the topic is flagged novel/controversial. Must report independently — no shared data path back into Line 1 or Line 2's self-assessment, or it stops being Line 3 and becomes a rubber stamp.
+- **Line 3** (Independent Assurance) — risk-based audit, triggered only when Line 2's risk signal crosses a threshold or the topic is flagged novel/controversial. Must report independently, with unrestricted read access to relevant evidence and an independent reporting/authority path — Lines 1 and 2 cannot control its scope or conclusions, or it stops being Line 3 and becomes a rubber stamp (`D-166`).
 
 **Secondary audience:** Agile/DevOps/ITIL professionals seeking certification insights, and AI practitioners tracking public discourse on agentic systems, guardrails, and context engineering.
 
@@ -105,7 +105,7 @@ The pipeline maps onto the Three Lines Model (IIA, updated 2020). This is a real
 |---|---|---|---|---|
 | **Line 1 — Operations** | Origination, Verification, Standards fit, operational approval | Reporter, Investigator, Journalist, Chief Journalist | Agent-primary, human spot-check optional | Not required within same Line (T3 exemption: same agent may validate + investigate) |
 | **Line 2 — Risk & Compliance** | Accountability (regulation, compliance, governance as one continuous check) | Senior Journalist | Human-primary (Chief Editor), agent-assisted | Required at Line 1 → Line 2 crossing (T5) and Line 2 → Line 1 return (T6) |
-| **Line 3 — Independent Assurance** | Risk-based audit (triggered conditionally) | — (triggered function, not a standing role) | Independent — must not share data/reporting lines with Line 1 or Line 2 | Reports separately; not part of the standing pipeline |
+| **Line 3 — Independent Assurance** | Risk-based audit (triggered conditionally) | — (triggered function, not a standing role) | Independent — unrestricted read access to relevant evidence and an independent reporting/authority path; Lines 1/2 cannot control its scope or conclusions (`D-166`) | Reports separately; not part of the standing pipeline |
 
 **Line 3 trigger conditions:** Activated when Line 2's risk signal crosses a threshold, or the topic is flagged novel/controversial. Does not run on every article — runs only where risk warrants it. This is standard risk-based audit planning, not a novel mechanism.
 
@@ -284,7 +284,7 @@ Assumed defaults (A1–A7) remain unratified. OD1 and OD2 are **resolved** (via 
 | Invented term | Replaced by | Why |
 |---|---|---|
 | Confidence ranking | Risk-based audit trigger | Standard internal audit practice — audit engagements prioritized by risk score, not run uniformly on everything |
-| Directional distinctness | Three Lines Model separation | Already a hard requirement of the Three Lines Model — Line 3 must not share data or reporting lines with Line 1/2 |
+| Directional distinctness | Three Lines Model separation | Already a hard requirement of the Three Lines Model — Line 3 has unrestricted read access to relevant evidence and an independent reporting/authority path; Lines 1/2 cannot control its scope or conclusions (`D-166`) |
 | Conditional distinctness | Three Lines Model separation | Same — no separate concept needed |
 | Gate collapse | Line consolidation | Same Line, same function, fewer agents |
 | `contingent_on_OD2` (field value) | `satisfied` or `not_applicable` | OD2 resolved — independence is satisfied by Line separation, not contingent on a future decision |

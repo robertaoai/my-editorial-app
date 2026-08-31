@@ -48,7 +48,7 @@ The V1 system operates with **one human Chief Editor** (Line 2 — Risk & Compli
 
 - **Chief Editor** (human, Line 2) — the sole human operator. Sits in Line 2 (Risk & Compliance). Performs or directly supervises the Senior Journalist role (Accountability function). Does not float across gates — the Three Lines Model forbids the same person holding both Line 1 and Line 2 roles, because self-review across Lines is a known Three Lines Model violation.
 - **Line 1 agents** — execute operational roles: Reporter (Origination), Investigator (Verification), Journalist (Standards fit), and Chief Journalist (operational final approval). Agent-primary, human spot-check optional. Same agent may hold multiple Line 1 roles.
-- **Line 3** (Independent Assurance) — risk-based audit, triggered only when Line 2's risk signal crosses a threshold or the topic is flagged novel/controversial. Must report independently — no shared data path back into Line 1 or Line 2's self-assessment, or it stops being Line 3 and becomes a rubber stamp.
+- **Line 3** (Independent Assurance) — risk-based audit, triggered only when Line 2's risk signal crosses a threshold or the topic is flagged novel/controversial. Must report independently, with unrestricted read access to relevant evidence and an independent reporting/authority path — Lines 1 and 2 cannot control its scope or conclusions, or it stops being Line 3 and becomes a rubber stamp (`D-166`).
 - **Five fixed roles** — Reporter, Investigator, Journalist, Senior Journalist, Chief Journalist. These are logical pipeline roles, not human job titles. The same agent may hold multiple Line 1 roles. The Chief Editor (Line 2) cannot hold any Line 1 role.
 
 > **Key distinction:** The blueprint previously assumed a human editorial team of 5–7 journalists. Under the Charter and Three Lines Model, this is replaced by the agent-directed model above. All references to "team members," "role holders," and "users" in the Addendum-derived sections below should be read as agents or the Chief Editor under this model, unless explicitly noted.
@@ -100,7 +100,7 @@ Under the Three Lines Model, the five pipeline roles map to Lines and executors 
 | Journalist | Line 1 — Operations | Standards fit (draft editorial adaptation) | Agent-primary | N/A within Line 1 |
 | Chief Journalist | Line 1 — Operations | Operational final approval | Agent-primary | T6 (Line 2 → Line 1) = `satisfied` |
 | Senior Journalist | **Line 2 — Risk & Compliance** | Accountability (quality, compliance, governance review) | **Human-primary** (Chief Editor), agent-assisted | T5 (Line 1 → Line 2) = `satisfied` |
-| Line 3 — Independent Assurance | **Line 3** | Risk-based audit (triggered conditionally) | Independent — must not share data/reporting lines with Line 1 or Line 2 | Reports separately; not part of standing pipeline |
+| Line 3 — Independent Assurance | **Line 3** | Risk-based audit (triggered conditionally) | Independent — unrestricted read access to relevant evidence and an independent reporting/authority path; Lines 1/2 cannot control its scope or conclusions (`D-166`) | Reports separately; not part of standing pipeline |
 
 > **Key constraint:** The same person/agent cannot hold both Line 1 and Line 2 roles. This is a hard requirement of the Three Lines Model. The Chief Editor (Line 2) cannot also be the Chief Journalist (Line 1).
 
@@ -328,7 +328,7 @@ THEN
 >
 > **Line 2 is human-primary:** The Senior Journalist role (Line 2) is executed by the Chief Editor (human), with agent assistance. This means T5 (Line 1 → Line 2) always crosses from agent to human — four-eyes is satisfied by both Line separation and human/agent distinction.
 >
-> **Line 3 is independent:** Line 3 (Independent Assurance) does not share data or reporting lines with Line 1 or Line 2. If it did, it would stop being Line 3 and become a rubber stamp. Line 3 reports separately and is not part of the standing pipeline. See §16 for trigger rules.
+> **Line 3 is independent:** Line 3 (Independent Assurance) has unrestricted read access to relevant evidence and an independent reporting/authority path — Lines 1 and 2 cannot control its scope or conclusions (`D-166`). If they could, it would stop being Line 3 and become a rubber stamp. Line 3 reports separately and is not part of the standing pipeline. See §16 for trigger rules.
 
 ### 4.8 Permission Matrix
 
@@ -1080,7 +1080,7 @@ Sourced from Addendum v1.4 §8. 40 acceptance tests across 8 categories, in Give
 | AT-041 | Article is returned with revision reason | Return completes | Revision reason is visible to all roles on the board; reason is permanent in audit trail |
 | AT-042 | Chief Editor uses emergency publish bypass | Bypass executes | Audit log: `event_type = EmergencyBypass`, `line_assignment = Line2`, reason string with `emergency_bypass` flag; all notified |
 | AT-043 | Chief Editor (Line 2) executes a Line 1 gate | Human override executes | Audit log: `event_type = HumanOverride`, `judgment_independence_status = override_not_four_eyes`, gate executed, reason, timestamp |
-| AT-044 | Line 3 audit is triggered on an article | Line 3 completes audit | Audit log: `event_type = Line3Audit`, `line_assignment = Line3`, finding, recommendation, timestamp; Line 3 reports independently — no shared data path to Line 1 or Line 2 |
+| AT-044 | Line 3 audit is triggered on an article | Line 3 completes audit | Audit log: `event_type = Line3Audit`, `line_assignment = Line3`, finding, recommendation, timestamp; Line 3 reports independently, with unrestricted read access to relevant evidence and an independent reporting/authority path — Lines 1/2 cannot control its scope or conclusions (`D-166`) |
 
 ### 14.6 Board and Filtering (P1)
 
@@ -1107,7 +1107,7 @@ Sourced from Addendum v1.4 §8. 40 acceptance tests across 8 categories, in Give
 | AT-071 | Any Line 1 agent performs a state transition | Transition completes | Audit log entry includes `actor_type = Agent`, `line_assignment = Line1`, agent_id, agent_run_id; supervising_human_id is set to the Chief Editor |
 | AT-072 | Chief Editor (Line 2) performs a state transition directly | Transition completes | Audit log entry includes `actor_type = Human`, `line_assignment = Line2`; agent_id and agent_run_id are null |
 | AT-073 | Article moves through all gates T1-T6 in sequence | Each transition is attempted in order | No transition is blocked by sequence enforcement; all gates are passed in order; T5 and T6 record `judgment_independence_status = satisfied` (Line boundary crossings) |
-| AT-074 | Line 3 audit is triggered | Line 3 completes audit | Audit log: `event_type = Line3Audit`, `line_assignment = Line3`, finding, recommendation, timestamp; Line 3 reports independently — no shared data path to Line 1 or Line 2 |
+| AT-074 | Line 3 audit is triggered | Line 3 completes audit | Audit log: `event_type = Line3Audit`, `line_assignment = Line3`, finding, recommendation, timestamp; Line 3 reports independently, with unrestricted read access to relevant evidence and an independent reporting/authority path — Lines 1/2 cannot control its scope or conclusions (`D-166`) |
 | AT-075 | Tagging is performed at the Reporter stage | Reporter agent (Line 1) processes an article | Tags are assigned by the agent, not by the Chief Editor; Chief Editor's role is review (Line 2), not tagging |
 
 ---
@@ -1147,7 +1147,7 @@ Line 3 (Independent Assurance) is a risk-based audit function, triggered conditi
 
 ### Line 3 Independence Requirements
 
-- Line 3 must **not** share data or reporting lines with Line 1 or Line 2 — if it does, it stops being Line 3 and becomes a rubber stamp
+- Line 3 has unrestricted read access to relevant evidence and an independent reporting/authority path — if Lines 1 or 2 could control its scope or conclusions, it would stop being Line 3 and become a rubber stamp (`D-166`)
 - Line 3 reports independently to the Chief Editor (not through Line 1 or Line 2)
 - Line 3 findings are logged as `event_type = Line3Audit` with `line_assignment = Line3`
 - Line 3 can recommend article recall (T8 Return) if a critical issue is found post-publication
@@ -1163,7 +1163,7 @@ The pipeline maps onto the Three Lines Model (IIA, July 2020, updated September 
 |---|---|---|---|---|
 | **Line 1 — Operations** | Origination, Verification, Standards fit, operational approval | Reporter, Investigator, Journalist, Chief Journalist | Agent-primary, human spot-check optional | Not required within same Line (T1–T4 all within Line 1) |
 | **Line 2 — Risk & Compliance** | Accountability (regulation, compliance, governance as one continuous check) | Senior Journalist | Human-primary (Chief Editor), agent-assisted | Required at Line 1 → Line 2 boundary (T5) and Line 2 → Line 1 boundary (T6) |
-| **Line 3 — Independent Assurance** | Risk-based audit (triggered conditionally) | — (triggered function, not a standing role) | Independent — must not share data/reporting lines with Line 1 or Line 2 | Reports separately; not part of standing pipeline |
+| **Line 3 — Independent Assurance** | Risk-based audit (triggered conditionally) | — (triggered function, not a standing role) | Independent — unrestricted read access to relevant evidence and an independent reporting/authority path; Lines 1/2 cannot control its scope or conclusions (`D-166`) | Reports separately; not part of standing pipeline |
 
 **Pipeline Line flow:**
 ```

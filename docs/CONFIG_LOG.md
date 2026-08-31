@@ -105,7 +105,7 @@ what could change it. Ratification lands in `DECISION_LOG.md`, not here.
 | `JUDGMENT_INDEPENDENCE_STATUS_VALUES` | `["satisfied","not_applicable","override_not_four_eyes"]` | `OD2` | Addendum §4.1. `contingent_on_OD2` and `blocked` stay **retired**. **`G64`/`Q11` decided the shape and name** (`D-97`, `D-111` — stored column `line_separation_status`); `0002` is written and applied, no longer blocked *(corrected 2026-08-30, `D-161`/`B-061`)*. This config constant's own name is unchanged pending a separate symbol-rename pass |
 | `AGENT_HEADCOUNT` | **UNSET** | `OD3` | No number exists at any level. **Not defaulted, not rounded, not back-derived from "four review gates"** |
 | `LINE1_AGENT_ROSTER` | **UNSET** | `OD3` | Register `D2`. Phase 0 may run a single Line 1 identity for demo purposes; every transition logs `line_assignment` and `agent_id`, so shared executors are visible in data. Roster *shape* is a Chief Editor answer — `Q1` |
-| `LINE3_EXECUTOR_IDENTITY` | **UNSET** | `OD3` | Must not equal any Line 1 or Line 2 identity (Addendum §13). `Q2` — **answered `D-57`: v1 has no independent assurance, so `FR-11` is not built.** The variable stays `UNSET` and stays declared |
+| `LINE3_EXECUTOR_IDENTITY` | **UNSET** | `D-57` | Must not equal any Line 1 or Line 2 identity (Addendum §13). `Q2` — **answered `D-57`: v1 has no independent assurance, so `FR-11` is not built.** Governed directly by `D-57`, not `OD3` or `OD4` (`D-168`). The variable stays `UNSET` and stays declared, pending a fresh future authorization if Line 3 is ever built |
 | `FLAG_AGENT_ROSTER_MULTI` | `false` | `OD3` | Cannot be enabled without a headcount |
 
 **Deliberately not set — do not add it.** There is **no Line 3 sampling percentage.** Entry

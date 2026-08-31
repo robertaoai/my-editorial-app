@@ -50,8 +50,9 @@ ratified. Only §3 records ratification.
 |---|---|---|---|---|
 | `OD1` | Does a distinct executor type provide Line 2 judgment? | **Open — not closable at scaffolding** | ❌ | `LINE2_EXECUTOR_TYPE`, `LINE2_MAY_EXECUTE_LINE1_GATES` |
 | `OD2` | Does Line separation satisfy four-eyes? | **Open** | ❌ | `FOUR_EYES_MODE`, `JUDGMENT_INDEPENDENCE_STATUS_VALUES`, `INDEPENDENCE_BYPASS_TOLERANCE`'s reporting |
-| `OD3` | Line 1 roster, Line 3 identity, headcount | **Open** | ❌ | `AGENT_HEADCOUNT`, `LINE1_AGENT_ROSTER`, `LINE3_EXECUTOR_IDENTITY`, `FLAG_AGENT_ROSTER_MULTI` — **all `UNSET`** |
+| `OD3` | Line 1 roster, headcount — **not** Line 3 identity (`D-168`) | **Open** | ❌ | `AGENT_HEADCOUNT`, `LINE1_AGENT_ROSTER`, `FLAG_AGENT_ROSTER_MULTI` — **all `UNSET`** |
 | `OD4` | Proposer → Critics → Judge | **Rejected for v1, retained and deferred** | n/a | Nothing in v1 |
+| `D-57` | Line 3 executor / `FR-11` build status | **Answered — not built in v1** | ❌ | `LINE3_EXECUTOR_IDENTITY` — **`UNSET`**, governed directly by `D-57`, not `OD3` or `OD4` (`D-168`) |
 
 **One hard stop.** `OD2` resolving negatively is a **pre-launch blocker** — there is no valid
 replacement for `FOUR_EYES_MODE = "line_separation"` (sprint plan §8). Planning proceeds because
