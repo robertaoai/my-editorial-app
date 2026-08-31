@@ -1,0 +1,102 @@
+{
+  "_comment": "Fragment 109 — curated nodes for D-172 (corrects two D-171 control defects), D-173 (applies F3, F4's masters), and the new factory-route-operation-crosswalk.md artifact. Merged 2026-08-31.",
+  "nodes": [
+    {
+      "id": "d172_line_separation_and_blind_review_corrected",
+      "label": "D-172: Line-Separation and Blind-Review Defects Corrected",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14dy",
+      "description": "Chief Editor decision correcting two D-171 drafting defects found by Lane B's independent review (B068-R10/R11). D-171's target Line/executor matrix marked T1-T5 all line_separation_status=satisfied; corrected against FR-05/SEC-01 (satisfied applies only to a genuine Line-boundary crossing -- at T5, R=A by design, not a crossing) so only T6 (Line 1 to Line 2) is satisfied, T1-T5 and Delivery are not_applicable. D-171's blind-review pair (EG4 recommendation sealed, then EG5 reveal-and-decide) proved only that the recommendation existed first, not that the human formed an independent preliminary judgment; corrected to three ordered events (EG5 preliminary disposition sealed before seeing EG4's recommendation, EG4 recommendation revealed, EG5 final decision recorded), matching V1-BUILD-SPEC.md's existing blind-first-pass rule. D-171's explicit S2 hold and target role/executor naming are unchanged.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A control that seals a recommendation before reveal proves only sequencing of the recommendation, not independence of the reviewer's own judgment -- the two are easy to conflate because both involve an event happening 'before' something, but only the reviewer's own preliminary disposition sealed first actually rules out anchoring."
+    },
+    {
+      "id": "d173_f3_applied_f4_masters_applied",
+      "label": "D-173: F3 Applied; F4 Route/Operation Masters Applied",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14dz",
+      "description": "Chief Editor decision applying B-068's F3 (persona/executor/node catalog split) and F4's masters (route and operation normalization from both attached CSVs, read directly). F3: executor role catalog added to raci-involvement-matrix.md section 8 with ten canonical roles including Senior Journalist and Desk Editor (both real CSV columns Lane B's original draft omitted, B068-R12); Modular_PRD.md section 2.3.1 splits system user, audience, external, deferred, executor role, and logical node without editing the original section 2.3 table (B068-R2); FN-GATES-01-05.md section 11 adds the editorial node catalog marked [V1] per D-36, leaving sections 1-10 unedited. F4: docs/governance/factory-route-operation-crosswalk.md created as a new artifact -- route master fully VERIFIED (all 7 Sheet 1 routes have exactly one R and one A), operation master mostly UNVERIFIED (2 of 8 Sheet 2 operations are clean; 6 need a Chief Editor decision on multi-R rows, a missing A, and undecomposed milestones). The route-operation join is deliberately left empty because no CSV column states it and B-068's own guardrail forbids inferring it from titles; six specific Chief Editor decisions are named instead of guessed.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Two CSVs can each look internally consistent while the relationship between them is genuinely undetermined -- filling that gap with a plausible-looking guess from row titles would make the crosswalk appear complete while smuggling an unverified fact into a governed document, which is worse than leaving it visibly open."
+    },
+    {
+      "id": "factory_route_operation_crosswalk_doc",
+      "label": "Factory Route/Operation Crosswalk",
+      "file_type": "document",
+      "source_file": "docs/governance/factory-route-operation-crosswalk.md",
+      "source_location": "whole document",
+      "description": "Reconciles, does not import, the two attached Editorial_Stage_Task CSVs per B-068's F4. Section 1: route master, all 7 Sheet 1 routes VERIFIED with one R and one A each. Section 2: operation master, all 8 Sheet 2 operations -- 2 VERIFIED (First-Line Copy Editing, Crisis Management), 6 UNVERIFIED (multiple R with no milestone marker, a missing A, or an undecomposed milestone). Section 3: the route-operation join is deliberately left empty, since no CSV column states it and title-matching is forbidden. Section 4: six named Chief Editor decisions required to close F4.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Created 2026-08-31 by D-173; a new markdown file under docs/ needs its own curated node pointing at it via source_file for graph-coverage to see it."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d172_line_separation_and_blind_review_corrected",
+      "target": "d171_explicit_s2_hold_and_f6_draft",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dy",
+      "weight": 1
+    },
+    {
+      "source": "d173_f3_applied_f4_masters_applied",
+      "target": "b068_persona_line_raci_od4_grc_conflated",
+      "relation": "partially_answers",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dz",
+      "weight": 1
+    },
+    {
+      "source": "d173_f3_applied_f4_masters_applied",
+      "target": "raci_matrix_doc",
+      "relation": "amends",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/raci-involvement-matrix.md",
+      "confidence_score": 1,
+      "source_location": "§8",
+      "weight": 1
+    },
+    {
+      "source": "d173_f3_applied_f4_masters_applied",
+      "target": "factory_route_operation_crosswalk_doc",
+      "relation": "creates",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dz",
+      "weight": 1
+    },
+    {
+      "source": "factory_route_operation_crosswalk_doc",
+      "target": "raci_matrix_doc",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/factory-route-operation-crosswalk.md",
+      "confidence_score": 1,
+      "source_location": "§1-§2, ROLE-* references",
+      "weight": 1
+    }
+  ]
+}
