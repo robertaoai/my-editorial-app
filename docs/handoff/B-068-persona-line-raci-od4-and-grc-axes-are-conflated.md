@@ -7,19 +7,22 @@
   role order, importing the attached RACI CSVs, or claiming the persona and control vocabulary is
   normalized across Lanes A/B/C
 - **Status:** Open
-- **Lane A:** Acknowledged 2026-08-31 — critic pass complete (§8). Chief Editor decided `F1`/`F2`/`F5`
-  the same day; recorded as `V1-DECISION-REGISTER.md` `D-170` and propagated into
-  `raci-involvement-matrix.md` and `V1-BUILD-SPEC.md`. Lane B's independent completion review (§9,
-  `B068-R1`–`R9`) verified that application and found `D-170` had left the current `T5`/`T6` order
-  build-authorized despite being superseded as the decided target (`B068-R8`). Chief Editor corrected
-  this the same day: `V1-DECISION-REGISTER.md` `D-171` places an **explicit S2 hold on both orders**
-  (neither is currently safe to build) and drafts `F6`'s target Line/executor matrix, human-only canary
-  relocation, blind-review event sequence, and `T6→T5` return-metric redefinition — propagated into
-  `raci-involvement-matrix.md` (v1.4) and `V1-BUILD-SPEC.md`'s S2 hold note. Gate evidence/negative
-  tests and delivery-node protection (§9.4 Parent 3 items 7–8) remain undrafted — they need `F4`'s
-  crosswalk first. `F3` (persona split) and `F4` (CSV crosswalk) are fully undone; `F7`'s full
-  propagation, fresh build authorization, Graphify sync, and independent verification cannot start
-  until they are.
+- **Lane A:** Acknowledged 2026-08-31 — critic pass complete (§8). `F1`/`F2`/`F5` decided (`D-170`);
+  `D-171` placed an explicit S2 hold on both `T5`/`T6` orders and drafted `F6` content. Lane B's
+  independent review of `D-171` (§11, `B068-R10`–`R16`) found two control defects — `line_separation_status`
+  over-marked as `satisfied` for non-crossing transitions, and a two-event blind-review pair that didn't
+  prove the human's independent judgment. Judge approved the corrections plus applying `F3` and `F4`'s
+  masters: `V1-DECISION-REGISTER.md` `D-172` corrects both defects against `FR-05`/`SEC-01` and the
+  existing S2 blind-first-pass rule. `D-173` **applies `F3`** — executor role catalog
+  (`raci-involvement-matrix.md` §8, ten roles including `Senior Journalist`/`Desk Editor`, `B068-R12`
+  fixed), persona/role/node split (`Modular_PRD.md` §2.3.1, current table unedited per `B068-R2`), and
+  the editorial node catalog (`FN-GATES-01-05.md` §11) — and **partially applies `F4`**: both CSVs read
+  directly, route master fully `VERIFIED` (`docs/governance/factory-route-operation-crosswalk.md` §1),
+  operation master mostly `UNVERIFIED` (§2, matching Lane B's prediction), and the route-operation join
+  left deliberately empty (§3) — no CSV column states it and guessing from titles is forbidden; six named
+  Chief Editor decisions (§4) are required to close it. Gate evidence/negative tests and delivery
+  protection (`F6` items 7–8) remain blocked on that join. `F7` cannot start until `F4`'s join and
+  remaining `F6` are complete.
 - **Resolution:**
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `docs/Modular_PRD.md` §2.3 and
@@ -92,7 +95,7 @@
 | `Modular_PRD.md` §2.3 personas | **DRIFTED** | Current actors, future Line 3, audiences, phase gates, and institutional actors are mixed; EW, Line, RACI, gate, and OD4 boundaries are not explicit |
 | Governed T5/T6 role contract | **DRIFTED against clarified target; still current until superseded** | Current: T5 human Chief Editor, T6 Chief Journalist agent/final approval. Target: Chief Editorial Desk before a human Chief Editor final gate |
 | Attached Sheet 1/Sheet 2 mapping | **UNKNOWN / not adopted** | Sheet 2 lacks stable parent keys; multi-`R`, missing-`R`, blank-cell, and local-versus-parent `A` rules require normalization |
-| Graphify coverage for B-068 | **IN SYNC for coverage; DRIFTED for currency** | Curated B-068/D-170 nodes exist and `graph-coverage` passes, but local Graphify was last analyzed at `35a2d0c` while HEAD is `0496895`; `docs-drift` fails and semantic refresh remains pending. Final rebuild/re-merge belongs to `F7` |
+| Graphify coverage for B-068 | **IN SYNC for coverage; DRIFTED for currency** | Curated B-068/D-170/D-171 fragments exist and `graph-coverage` passes, but local Graphify was last analyzed at `3474019` while HEAD is `f922290`; semantic refresh also remains pending. Final rebuild/re-merge belongs to `F7` |
 
 Any `DRIFTED` or `UNKNOWN` row above blocks this handoff's verification, but does not reopen the
 preserved D-165–D-169 baseline.
@@ -386,3 +389,209 @@ causes a named acceptance test to fail for the intended reason.
 | **Reject** — starting target-sensitive S2 against the current or target order before F6/F7 | Build authorization | Immediate hold until a fresh authorization selects one contract |
 | **Reject verification** — F7 is incomplete | Handoff / Graphify / checks | `docs-drift` remains red; full propagation and independent review outstanding |
 | **Defer** — implementation | Lane B code/schema/UI/tests | No build in this pass |
+
+## 11. Lane B review of `D-171` — task ahead is `F3 → F4 → remaining F6 → F7`
+
+### 11.1 Normalized request and current boundary
+
+> Verify D-171 from files; preserve its explicit S2 hold and sound target decisions; correct any
+> semantic defect before it propagates; then draft F3's persona/executor/node catalogs so F4 can
+> reconcile the two CSVs without aliases, authority-scope collisions, guessed parentage, or copied
+> operations. Use those outputs to finish F6's evidence/delivery rules. Start F7 only after F3/F4/F6
+> are complete. Plan only; no build.
+
+`D-171` correctly closes `B068-R8`: neither current nor target T5/T6 order is build-authorized.
+It also drafts the target roles, Lines, executor types, canary location, return direction, override
+concept, and two count names. F3 and F4 remain entirely open. F7 cannot start.
+
+### 11.2 New findings — no duplicate fix IDs
+
+| Review ID | Existing owner | Finding | Why it is guaranteed to fail |
+|---|---|---|---|
+| `B068-R10` | remaining `F6` | D-171 marks T1 through T5 `line_separation_status = satisfied`, including first-node and same-Line transitions | Q11/FR-05 defines `satisfied` only for a Line boundary. T1 and target T2–T5 are Line 1 and must be `not_applicable`; distinct role is not Line separation, and Phase 0 may reuse one agent instance across roles |
+| `B068-R11` | remaining `F6` | D-171's blind pair seals the **EG4 desk recommendation**, then reveals it to EG5 before the human decides | This proves only that the recommendation was stored first. It does not prove the human formed a preliminary judgment before seeing it, so anchoring remains indistinguishable from agreement |
+| `B068-R12` | `F3` | The proposed executor catalog omits `Senior Journalist` and `Desk Editor`, both present in the CSV source and explicitly distinct from Chief Editorial Desk | F4 cannot map all source columns and will either drop roles or recreate the forbidden Chief Journalist/Senior/Desk equivalence |
+| `B068-R13` | `F3`/`F4` | D-170's “A is Acting Chief Editor” applies to the system transition RACI, while Sheet 1/2 assign different factory route/operation `A` roles | A single undifferentiated `A` field makes D-170 and the CSVs contradict. One scope will silently overwrite the other |
+| `B068-R14` | `F4` | F4's earlier single `parent_lane_id` rule still cannot represent reusable operations such as final sign-off across several routes | Duplicated operation definitions drift, or one arbitrary route becomes the false universal parent |
+| `B068-R15` | remaining `F6` | D-171 says all remaining gate evidence needs F4, but core gate evidence and route-specific overlays are different layers | Waiting on factory routing to define universal gate entry/exit rules hides which evidence is invariant and encourages route names to become behavior |
+| `B068-R16` | `F7` | Curated D-171 coverage exists, but Graphify analyzed `3474019` while HEAD is `f922290`; semantic ingestion is pending | Graph queries can contain the D-171 node yet still fail currency. Coverage is not synchronization |
+
+### 11.3 Correct D-171's two control defects before propagation
+
+The D-171 target matrix should be corrected in the next Lane A decision/application pass, not copied
+into F3 or F6:
+
+| Transition | Target Line movement | Correct `line_separation_status` |
+|---|---|---|
+| T1 / EG1 | Entry; no predecessor | `not_applicable` |
+| T2 / EG2 validation | Line 1 → Line 1 | `not_applicable` |
+| T3 / EG2 investigation | Line 1 → Line 1 | `not_applicable` |
+| T4 / EG3 | Line 1 → Line 1 | `not_applicable` |
+| T5 / EG4 | Line 1 → Line 1 | `not_applicable` |
+| T6 / EG5 | Line 1 → Line 2 | `satisfied`, only if predecessor/executor controls also pass |
+| Delivery | System action, no editorial Line | `not_applicable` |
+
+Role separation and executor-identity separation remain separately testable controls; neither may be
+stored as a false Line crossing.
+
+The blind-review proof needs three ordered events, not D-171's current pair:
+
+1. `EG5_preliminary_disposition_sealed` — the human Chief Editor sees the evidence package but not
+   EG4's recommendation and records a preliminary disposition and reason;
+2. `EG4_recommendation_revealed_to_EG5` — reveal occurs only after the sealed event; and
+3. `EG5_final_decision_recorded` — the human confirms, changes with a reason, or returns to EG4.
+
+Any missing or reversed event fails the anchoring-control proof. EG4's recommendation must already
+exist to complete T5, but visibility—not existence—is what remains withheld until step 2.
+
+An internal override `O` must not become a gate-bypass alias. Chief Editor intervention before the
+required EG4 record exists is refused. A permitted override acts on an existing internal decision,
+records authority and reason append-only, and cannot override external `EA`.
+
+### 11.4 `F3` draft — canonical catalogs that unblock F4
+
+F3 is documentary normalization, not database design. Put each fact in its owning catalog and refer
+to stable IDs elsewhere.
+
+#### A. Product personas and stakeholders — `Modular_PRD.md` §2.3
+
+| ID | Canonical name | Kind | System status |
+|---|---|---|---|
+| `USR-CHIEF-EDITOR` | Chief Editor | Human system user | Present; current and target T5/T6 contracts both held |
+| `AUD-PROFESSIONAL` | Agile/DevOps/ITIL professional reader | Audience | Not a system user |
+| `AUD-AI-PRACTITIONER` | AI practitioner reader | Audience | Not a system user |
+| `EXT-GRC` | Government Institution / regulator | External authority/stakeholder | No internal persona or access right by default |
+| `CAP-LINE3` | Independent Line 3 assurance | Deferred capability | Not built in v1; no executor |
+| `ARCH-OD4` | Proposer / Critics / Judge | Deferred architecture | Not a persona, gate, EW, or Line mapping |
+
+#### B. Business/executor role catalog — RACI-owned
+
+| ID | Canonical role | Required distinction / aliases | Gate eligibility |
+|---|---|---|---|
+| `ROLE-REPORTER` | Reporter | — | T1 / EG1 |
+| `ROLE-INVESTIGATOR` | Investigator | — | T2+T3 / EG2 |
+| `ROLE-JOURNALIST` | Journalist | — | T4 / EG3 |
+| `ROLE-SENIOR-JOURNALIST` | Senior Journalist | Distinct from Chief Editorial Desk and Desk Editor | Factory operation only unless separately governed |
+| `ROLE-CHIEF-EDITORIAL-DESK` | Chief Editorial Desk | Business aliases: Chief Journalist, Desk Chief; **not** Desk Editor | Current T6 role / target T5 / EG4 |
+| `ROLE-DESK-EDITOR` | Desk Editor | Distinct factory role; not an alias of Desk Chief | Factory route/operation role only unless separately governed |
+| `ROLE-CHIEF-EDITOR` | Chief Editor | CSV alias: Editor-in-Chief; human user | Current T5 / target T6 / EG5 |
+| `ROLE-SYSTEM-DELIVERY` | System delivery executor | Not a persona or editorial judge | Delivery only |
+
+Each role row needs `actor_class`, allowed `executor_type`, current transition, target transition,
+current lifecycle, target lifecycle, aliases, and authority-reference fields. Do not assign a RACI
+letter globally; RACI is scoped by relationship/task.
+
+#### C. Editorial node catalog — `FN-GATES`-owned skeleton
+
+| Node | Transition mapping | Target executor role | Lifecycle |
+|---|---|---|---|
+| EG1 | T1 | `ROLE-REPORTER` | `decided_target_held` |
+| EG2 | T2+T3 | `ROLE-INVESTIGATOR` | `decided_target_held` |
+| EG3 | T4 | `ROLE-JOURNALIST` | `decided_target_held` |
+| EG4 | T5 | `ROLE-CHIEF-EDITORIAL-DESK` | `decided_target_held` |
+| EG5 | T6 | `ROLE-CHIEF-EDITOR` | `decided_target_held`; human executor required |
+| Delivery | T7/publication actions | `ROLE-SYSTEM-DELIVERY` | no editorial authority |
+
+Use explicit lifecycle values: `current_documented_held`, `decided_target_held`, `external`,
+`not_built_v1`, and `deferred`. Bare `current` or `active` is forbidden while D-171's hold stands.
+
+F3 succeeds when every named source role maps to one canonical role or an explicit `UNMAPPED`, no
+logical node is called a persona, current and target assignments cannot be confused, and F4 can
+reference role IDs without title matching.
+
+### 11.5 `F4` draft — scoped RACI and route-operation crosswalk
+
+#### Separate RACI scopes first
+
+| Scope | Question | Authority rule |
+|---|---|---|
+| `system_transition` | Who executes/accounts for T1–T11? | Existing governed transition RACI; D-170's Acting Chief Editor `A` applies here |
+| `factory_route` | Who owns the outcome of one Sheet 1 Tier/fallout/regulatory route? | Sheet 1 candidate RACI; varies by route |
+| `factory_operation` | Who owns/executes one Sheet 2 operation inside an applicable route? | Local operation RACI; blank local `A` may inherit route `A` only through an explicit relationship |
+| `external_authority` | Who can impose/accept an external mandate? | `EA`; never replaced by internal `A` or `O` |
+
+This scope key is mandatory on every RACI assignment. It reconciles rather than averages D-170 and
+the CSVs.
+
+#### Canonical crosswalk shape
+
+| Set | Fields |
+|---|---|
+| Route master | `route_id`, source label, route class, route RACI by canonical role ID, `EA`, evidence status |
+| Operation master | `operation_id`, source label, `atomic` / `milestone` / `control_point`, local RACI by canonical role ID, evidence status |
+| Route-operation join | `route_id`, `operation_id`, applicability, route `A`, local operation `A`, effective decision path, provenance, verification status |
+
+Use proposed stable route IDs for drafting only: `ROUTE-PROD-1/2/3`, `ROUTE-FALLOUT-1/2/3`, and
+`ROUTE-GRC`. Use one operation definition for each Sheet 2 row (`OP-PITCH`, `OP-RESEARCH`,
+`OP-DRAFT`, `OP-COMPLEX-SERIES`, `OP-COPY-EDIT`, `OP-LEGAL-RISK`, `OP-FINAL-SIGNOFF`, `OP-CRISIS`).
+The route-operation join—not duplicate operation rows—expresses reuse.
+
+#### Source dispositions required before F4 closes
+
+| Source issue | Status now | Required fix |
+|---|---|---|
+| Daily Pitch, Deep Fact-Checking, and Drafting each contain multiple `R` without a milestone marker | `UNVERIFIED` | Correct to one atomic `R` or mark/decompose the milestone |
+| Complex Series and Legal/Risk are marked multi-task milestones | Known milestone | Decompose into atomic operation children with one `R` each |
+| Drafting has no local `A` | Known absence | Link applicable route(s), then inherit route `A`, or supply an explicit local `A` |
+| Final Sign-Off has no `R` and may apply to many routes | `UNVERIFIED` control-point shape | Name its preparer/executor or authorize a scoped `R = A` exception; use route joins |
+| Legal/Risk and Crisis can map to fallout, regulatory, or both | `UNVERIFIED` | Chief Editor decides applicable route joins; title matching is prohibited |
+| Blank GRC cells | Undefined source convention | Choose `not_applicable`, `unknown`, or omitted; never infer `I` |
+| Parent and local `A` differ | Expected scoped authority | Retain both and record the decision path; never overwrite either |
+
+F4 succeeds when every operation has one canonical definition, one or more explicit applicable
+routes, atomic children with one `R`, a scoped effective decision path, and no unresolved cell
+presented as fact.
+
+### 11.6 Remaining F6 and F7 after F3/F4
+
+F6 core gate rules do not depend on a factory route: mandatory reason/evidence anchors, no bypass,
+append-only events, human-only EG5, corrected Line separation, the three-event blind sequence, and
+delivery's no-editorial-mutation rule are universal. F4 supplies only route-specific evidence
+overlays and executor-role references. Keep those layers separate.
+
+After F3/F4 land, finish F6 by:
+
+1. correcting D-171's Line-separation and blind-event defects above;
+2. defining universal gate entry/exit/return/negative criteria once;
+3. attaching route-specific evidence overlays through F4 joins, without duplicating gates; and
+4. specifying Delivery refusal: it consumes the immutable EG5 result, and any editorial mutation is
+   rejected or routed into a new governed workflow.
+
+Only then may F7 start. Its first pass applies the facts across the Decision Register, Build Spec,
+Artifact Inventory where an artifact is created, Modular PRD, RACI, FN-GATES, config/decision logs,
+traceability, current-value source documents, Encyclopedia flag, and B-068. The fresh build
+authorization must select exactly one T5/T6 contract; until then D-171's hold remains.
+
+Graphify closes last: rebuild after the final docs commit, re-merge `frag107` and `frag108` plus all
+other curated fragments, complete pending semantic descriptions/labels, prove
+`lastAnalyzedHead = HEAD`, pass the commit-safe portable check, and run the full consistency suite.
+Coverage alone is insufficient.
+
+### 11.7 Failure-derived success criteria
+
+| Deliberate failure | Required rejection/proof |
+|---|---|
+| Same-Line target T2–T5 is written `satisfied` | Contract test rejects it; only T6 may be `satisfied` in the target flow |
+| Human sees EG4 recommendation before sealing a preliminary view | Blind-order test fails because the preliminary event does not precede reveal |
+| Desk Editor is aliased to Desk Chief/Chief Editorial Desk | Role-catalog uniqueness/alias review rejects the mapping |
+| Senior Journalist disappears from F3 | CSV-column coverage fails; every source role must map or read `UNMAPPED` |
+| Transition `A` and factory route `A` share one unscoped field | RACI validation rejects the assignment without `raci_scope` |
+| One reusable operation is copied into several routes | Crosswalk uniqueness rejects duplicate operation definitions |
+| Blank GRC cell becomes `I` | Source-evidence validation rejects any inferred value |
+| Final Sign-Off remains without `R` | Atomic-operation validation refuses completion or requires an approved exception |
+| Route-specific evidence rewrites a universal gate | Layering check rejects route fields in the core node definition |
+| Delivery changes EG5's editorial disposition | Authorization refuses the write and preserves the approved record |
+| F7 begins while F3/F4 or corrected F6 is open | Handoff dependency check rejects closure |
+| Graph node exists but analyzed HEAD differs | `docs-drift` remains red; F7 cannot verify |
+
+## 12. D-171 review approve / reject summary
+
+| Decision | Tier | Follow-up phase |
+|---|---|---|
+| **Approve** — D-171's explicit hold and target role/Line/executor direction | Decision Register / Build Spec | Preserve; no build |
+| **Approve-with-conditions** — F3 catalog draft | Product Requirements / RACI / FN-GATES | Apply first; include every CSV role and lifecycle state |
+| **Approve-with-conditions** — F4 scoped crosswalk draft | RACI/governance | Apply after F3; use route-operation joins and scoped RACI |
+| **Reject as drafted** — D-171 same-Line transitions marked `satisfied` | FR-05 / Q11 semantics | Correct in remaining F6 before propagation |
+| **Reject as drafted** — D-171 blind-review event pair | NFR-03 / acceptance behavior | Replace with human preliminary → reveal → final decision sequence |
+| **Reject verification** — F7 cannot start | Handoff / Graphify | F3, F4 and corrected/complete F6 remain open; graph currency/semantics pending |
+| **Defer** — all implementation | Lane B code/schema/UI/tests | Fresh authorization only after F7 |

@@ -225,3 +225,36 @@ The other four absorb into the S1 window — the expected result if `Fn_Specs` w
 ## 10. Scope limits
 
 Closes no Open Decision. `FR-04` and `FR-05` remain `OD`-provisional. Authorizes no code, schema, or migration. Field names shown are decided (`Q11` closed by `D-97`/`D-111`) and applied in `0002`. `FB-05`'s missing trend-signal provenance is **recorded, not resolved** — it must be settled before S1.
+
+## 11. Editorial node catalog `[V1]` — `F3` draft, `D-171`/`D-172`
+
+**Added 2026-08-31, `docs/handoff/B-068-*.md` `F3`.** Sections 1–10 above describe the currently
+governed `T1`–`T6` gates and remain unedited — under `D-171`'s explicit S2 hold, they are the *record
+of what is currently specified*, not a claim about what is safe to build against without a fresh
+authorization. This section adds the separate **logical node catalog** `B-068`'s terminology map
+requires (§2: an Editorial Virtual Node Agent is a logical workcell, not a persona or an executor
+identity) and marks each node's lifecycle explicitly so a reader cannot mistake a decided target for
+current behaviour.
+
+| Node | Transition mapping | Target executor role (`ROLE-*`, see `raci-involvement-matrix.md` §8) | Lifecycle |
+|---|---|---|---|
+| `EG1` | `T1` | `ROLE-REPORTER` | `decided_target_held` |
+| `EG2` | `T2`+`T3` | `ROLE-INVESTIGATOR` | `decided_target_held` |
+| `EG3` | `T4` | `ROLE-JOURNALIST` | `decided_target_held` |
+| `EG4` | `T5` | `ROLE-CHIEF-EDITORIAL-DESK` | `decided_target_held` |
+| `EG5` | `T6` | `ROLE-CHIEF-EDITOR` | `decided_target_held`; human executor required, refused otherwise |
+| Delivery | `T7`/publication actions | `ROLE-SYSTEM-DELIVERY` | no editorial authority; `not_applicable` Line |
+
+**Lifecycle values, used exactly as named — no bare `current` or `active` while `D-171`'s hold stands:**
+`current_documented_held` (Sections 1–10's `T1`–`T6` gates, still the only documented-and-once-authorized
+order, currently held), `decided_target_held` (this table — decided, not build-authorized), `external`,
+`not_built_v1`, `deferred`.
+
+An Editorial Virtual Node Agent (this table) is never a persona and never a system user — see
+`Modular_PRD.md` §2.3's catalog split and `raci-involvement-matrix.md` §6's role catalog for those.
+`EG4`'s and `EG5`'s target Line/executor-type/blind-review/return-metric/override content is `D-172`
+(`V1-DECISION-REGISTER.md` §5.14dy), not restated here to avoid a second copy drifting from the first.
+
+**Not in this table:** gate entry/exit evidence, checklist versions, negative tests, and delivery's
+mutation-refusal rule — `B-068` `F6` items 7–8, blocked on `F4`'s route/operation crosswalk for real
+evidence anchors rather than invented placeholders.

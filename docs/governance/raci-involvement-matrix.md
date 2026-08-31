@@ -1,5 +1,5 @@
 # RACI Involvement Matrix
-**Version:** v1.4 — **proposed, not ratified**
+**Version:** v1.5 — **proposed, not ratified**
 **Date:** 2026-08-16, amended 2026-08-31
 **Origin:** Chief Editor, 2026-08-16, reframing OD2 and OD4
 **Status:** Recorded for ratification. **Closes nothing** beyond `RACI-03`/`RACI-04` (`D-170`,
@@ -218,8 +218,41 @@ Unresolved, each one collapses back onto the same single human. **A business in 
 
 ---
 
-## 8. Changelog
+## 8. Executor role catalog (`F3` draft, 2026-08-31 — `docs/handoff/B-068-*.md`)
 
+**RACI-owned.** Every role a Sheet 1/Sheet 2 column name or a current/target `T`/`EG` node can
+reference resolves to exactly one row here or an explicit `UNMAPPED` — title matching against this
+table is prohibited elsewhere in this project's documents.
+
+| ID | Canonical role | Required distinction / aliases | Gate eligibility |
+|---|---|---|---|
+| `ROLE-REPORTER` | Reporter | — | `T1`/`EG1` |
+| `ROLE-INVESTIGATOR` | Investigator | — | `T2`+`T3`/`EG2` |
+| `ROLE-JOURNALIST` | Journalist | — | `T4`/`EG3` |
+| `ROLE-SENIOR-JOURNALIST` | Senior Journalist | Distinct from Chief Editorial Desk and Desk Editor; a Sheet 1/2 CSV column in its own right | Factory route/operation role only, unless separately governed for a `T`/`EG` node |
+| `ROLE-CHIEF-EDITORIAL-DESK` | Chief Editorial Desk | Business aliases: Chief Journalist, Desk Chief. **Not** Desk Editor — a distinct CSV column | Current `T6` role; target `T5`/`EG4` |
+| `ROLE-DESK-EDITOR` | Desk Editor | Distinct factory/CSV role; not an alias of Chief Editorial Desk/Desk Chief | Factory route/operation role only, unless separately governed |
+| `ROLE-CHIEF-EDITOR` | Chief Editor | CSV alias: Editor-in-Chief; human system user | Current `T5`/target `T6`/`EG5` |
+| `ROLE-SYSTEM-DELIVERY` | System delivery executor | Not a persona or an editorial judge | Delivery only |
+| `ROLE-EXTERNAL-GRC` | External authority (`EA`) | CSV column "Gov Institution (GRC)"; never an internal role | Route/operation `A` on regulatory routes only; never a `T`/`EG` executor |
+
+Each row carries `actor_class`, allowed `executor_type`, current transition (if any), target
+transition (if any), current lifecycle, target lifecycle, aliases, and an authority reference —
+tracked in the crosswalk (`F4`), not duplicated here. No RACI letter is assigned globally on this
+table; RACI is always scoped by relationship (`system_transition` / `factory_route` /
+`factory_operation` / `external_authority` — `F4`).
+
+Verified against both attached CSVs' full header rows (Reporter, Investigator, Journalist, Senior
+Journalist, Chief Journalist, Desk Editor, Editor-in-Chief, Gov Institution (GRC)): all eight source
+columns resolve to a row above (`Chief Journalist` → `ROLE-CHIEF-EDITORIAL-DESK`'s alias; `Editor-in-Chief`
+→ `ROLE-CHIEF-EDITOR`'s alias). None is `UNMAPPED`.
+
+---
+
+## 9. Changelog
+
+- **2026-08-31 v1.5:** `F3` draft — added §8's executor role catalog, verified against both attached
+  CSVs' full header rows; every source role column resolves to one canonical row, none `UNMAPPED`.
 - **2026-08-31 v1.4:** `D-171`, answering Lane B's `B068-R8` completion review, places an explicit S2
   hold on **both** the current and target `T5`/`T6` orders (correcting `D-170`'s narrower stance, which
   left the current order build-authorized) and drafts `F6`'s target Line/executor matrix, human-only

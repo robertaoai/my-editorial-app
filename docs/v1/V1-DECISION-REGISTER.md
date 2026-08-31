@@ -10931,3 +10931,142 @@ canary, blind-review sequence, return-metric redefinition, and override rule are
 FR/AC rewrite, not that rewrite itself — `Modular_PRD.md`, `FN-GATES`, and the RACI proof are not edited by
 this decision. `F3`, `F4`, gate evidence/negative tests, and delivery-node protection remain open. `F7`'s
 propagation, Graphify sync, and independent verification cannot start until `F3`/`F4`/`F6` are complete.
+
+## 5.14dy `D-172` — Two `D-171` Control Defects Corrected: Line-Separation Semantics and the Blind-Review Event Sequence
+
+**Chief Editor ruling, 2026-08-31, on Lane B's independent review of `D-171` (`B-068` §11, `B068-R10`/`R11`),
+approved as "F6 — correction on FR-05/Q11, NFR-03/acceptance behaviour."** `D-171`'s target Line/executor
+matrix marked `T1`–`T5` all `line_separation_status = satisfied`; its blind-review draft sealed only `EG4`'s
+recommendation, then let `EG5` reveal-and-decide as one step. Both are wrong against already-governed rules,
+not new judgment calls — verified against source before correcting:
+
+1. **`FR-05` (`docs/Modular_PRD.md` §"FR-05 detail") classifies independence as `satisfied`,
+   `not_applicable`, or `override_not_four_eyes` — a value about a **Line boundary being crossed**, not
+   about every transition having *a* role. `SEC-01` confirms the shape: *"at `T5`, `R = A` by design and
+   that is expected"* — i.e. no crossing is asserted merely because a transition has a distinct executor.
+   `D-171`'s target matrix is corrected:
+
+   | Transition | Target Line movement | Corrected `line_separation_status` |
+   |---|---|---|
+   | `T1`/`EG1` | Entry; no predecessor | `not_applicable` |
+   | `T2`/`EG2` (validation) | Line 1 → Line 1 | `not_applicable` |
+   | `T3`/`EG2` (investigation) | Line 1 → Line 1 | `not_applicable` |
+   | `T4`/`EG3` | Line 1 → Line 1 | `not_applicable` |
+   | `T5`/`EG4` | Line 1 → Line 1 | `not_applicable` |
+   | `T6`/`EG5` | Line 1 → Line 2 | `satisfied` — the only genuine target-order Line crossing, and only if predecessor/executor-identity controls also pass |
+   | Delivery | System action, no editorial Line | `not_applicable` |
+
+   Role separation (distinct executor per node) and executor-identity separation (`SEC-01`'s "no one
+   identity holds adjacent review nodes") remain real, separately-testable controls — they are not
+   Line separation and must never be stored as a false Line crossing.
+
+2. **The blind-review proof needs three ordered events, not two.** `V1-BUILD-SPEC.md`'s existing S2
+   language already requires *"Line 2 records its disposition before the Line 1 recommendation is
+   revealed"* — a human preliminary judgment, not just a stored recommendation. `D-171`'s pair
+   (`EG4_disposition_sealed`, `EG5_reveal_and_decide`) proves only that `EG4`'s recommendation existed
+   before reveal, not that the human formed an independent view first — anchoring stays indistinguishable
+   from agreement. Corrected to three events:
+
+   1. `EG5_preliminary_disposition_sealed` — the human Chief Editor reviews the evidence package, **not**
+      `EG4`'s recommendation, and records a preliminary disposition and reason;
+   2. `EG4_recommendation_revealed_to_EG5` — reveal happens only after event 1 is sealed;
+   3. `EG5_final_decision_recorded` — the human confirms, changes with a reason, or returns to `EG4`.
+
+   `EG4`'s recommendation must already exist to complete `T5` — existence is not what is withheld;
+   **visibility** to `EG5` is, until after event 1.
+
+3. **The override definition (`D-170` §5.1 `O`) is sharpened, not changed:** an internal `O` may act only
+   on an existing internal decision (i.e., after `EG4`'s record exists) and never substitutes for it —
+   Chief Editor intervention before `EG4`'s record exists is refused, not treated as an early override.
+
+### Gaps
+
+**Addressed:** `B068-R10` (Line-separation semantics corrected against `FR-05`/`SEC-01`), `B068-R11`
+(blind-review sequence corrected to three events against the existing S2 rule). **Unchanged:** `D-171`'s
+explicit S2 hold (both orders), its target roles/executors/gate-count naming, and `D-170`'s `F1`/`F5`
+rulings — none of those are reopened. **Still open:** `F3`, `F4`, gate evidence/negative tests, delivery
+protection, `F7`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-172` Line-separation matrix corrected | ✅ §5.14dy | **— not yet: draft only, no S2 rewrite while hold stands** | **— unaffected** | **— unaffected** | **— unaffected** | **— not yet: `AC-07`/`AC-08` restatement remains `F7`** |
+| `D-172` three-event blind-review sequence corrected | ✅ §5.14dy | **— not yet: draft only** | **— unaffected** | **— unaffected** | **— unaffected** | **— not yet: remains `F7`** |
+
+**Handoff tracking:** `B-068` stays `Open`. Its Lane A field is updated to record this correction.
+
+### Scope limits
+
+**Corrects two `D-171` drafting defects; builds nothing, authorizes no code, does not reopen the S2 hold
+or `F1`/`F2`/`F5`.** `raci-involvement-matrix.md`'s §2.1/§3 proof is still not rewritten with either the
+`D-171` or the `D-172`-corrected content — that remains `F6`'s FR/AC rewrite, gated on `F3`/`F4` per
+`B-068` §11.6. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or
+`.github/workflows/`.
+
+## 5.14dz `D-173` — `F3` Applied; `F4`'s Route/Operation Masters Verified, Join Blocked on Chief Editor Decisions
+
+**Chief Editor ruling, 2026-08-31, approving "F3 — apply first, include every source role and lifecycle;
+F4 — apply after F3 with scoped RACI and route-operation join," on Lane A's application of Lane B's `F3`
+draft (`B-068` §11.4) and both attached CSVs read directly (not only their hashes).**
+
+### `F3` applied
+
+1. **Executor role catalog** (`raci-involvement-matrix.md` §8, v1.5): ten canonical `ROLE-*`/`EXT-*` rows,
+   including `ROLE-SENIOR-JOURNALIST` and `ROLE-DESK-EDITOR` — both real, distinct CSV columns Lane B's
+   original `F3` draft omitted (`B068-R12`). Verified against both CSVs' full header rows: **all eight
+   source role columns resolve to a catalog row; none is `UNMAPPED`.**
+2. **Persona/role/node split** (`Modular_PRD.md` §2.3.1, v1.29): separates system user (`USR-*`), audience/
+   external/deferred (`AUD-*`/`EXT-*`/`CAP-*`/`ARCH-*`), executor role, and logical gate node. §2.3's
+   original table is **unedited** — it remains the current-build record, not silently replaced by target
+   content (`B068-R2`).
+3. **Editorial node catalog** (`FN-GATES-01-05.md` §11, marked `[V1]`, new section — Sections 1–10 unedited
+   per `D-36`'s freeze rule): `EG1`–`EG5`/Delivery mapped to `T`-transitions and target `ROLE-*` executors,
+   each lifecycle-tagged `decided_target_held` so it cannot be read as current build behaviour.
+
+### `F4` partially applied
+
+4. **Route master** (`docs/governance/factory-route-operation-crosswalk.md` §1, new artifact): all seven
+   Sheet 1 routes, `VERIFIED` — every row carries exactly one `R` and one `A`, no blank cells, no
+   ambiguity. No disposition decision was needed.
+5. **Operation master** (same file, §2): all eight Sheet 2 operations. Two (`OP-COPY-EDIT`, `OP-CRISIS`)
+   are `VERIFIED` — single `R`, single `A`. **Six are `UNVERIFIED`**, matching what Lane B's source-issue
+   table predicted and confirming it against the CSV directly: `OP-PITCH`/`OP-RESEARCH` (multiple `R`, no
+   milestone marker), `OP-DRAFT` (multiple `R`, no `A` at all), `OP-COMPLEX-SERIES`/`OP-LEGAL-RISK`
+   (milestone, children not enumerated), `OP-FINAL-SIGNOFF` (no `R` at all).
+6. **Route-operation join left empty, deliberately** (§3). No CSV column states which operations apply to
+   which routes; `B-068` §11.5 and this document's own §0 guardrail forbid inferring it from route/
+   operation titles, however suggestive. Filling it with a plausible guess would make `F4` look closed
+   while smuggling an unverified fact into a governed document — the exact failure the guardrail exists to
+   block. Six Chief Editor decisions are named explicitly (crosswalk §4) rather than guessed.
+
+### Gaps
+
+**Addressed:** `B068-R12` (`Senior Journalist`/`Desk Editor` added to the role catalog), `B068-R13`
+(RACI scope key — `system_transition`/`factory_route`/`factory_operation`/`external_authority` — named in
+the crosswalk's origin note, preventing `D-170`'s transition-RACI `A` from colliding with route/operation
+`A`), `B068-R14` (route-operation join modeled as many-to-many via §3's join table, not a single
+`parent_lane_id`). **Confirmed, not newly found:** the six `UNVERIFIED` operation rows match Lane B's
+`B-068` §11.5 source-issue table exactly, now verified against the CSV directly rather than Lane B's
+paraphrase of it. **Still open:** the route-operation join itself (six Chief Editor decisions, crosswalk
+§4), `F6` items 7–8 (blocked on this join), `F7`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `F3` executor role catalog | ✅ §5.14dz | **— unaffected** | **— unaffected** | **— unaffected: no new file, `raci-involvement-matrix.md` already inventoried** | **— unaffected** | **— unaffected: RACI matrix is `docs/governance/`** |
+| `F3` persona/role/node split | ✅ §5.14dz | **— unaffected** | **— unaffected** | **— unaffected: no new file** | **— unaffected** | ✅ §2.3.1, v1.29 changelog |
+| `F3` editorial node catalog | ✅ §5.14dz | **— unaffected** | **— unaffected** | **— unaffected: `FN-GATES-01-05.md` already inventoried** | **— unaffected** | **— unaffected: `Fn_Specs` per `D-36`, not this tier** |
+| `F4` route/operation masters; new artifact `factory-route-operation-crosswalk.md` | ✅ §5.14dz | **— unaffected** | **— unaffected** | ✅ new file created | **— unaffected** | **— unaffected: `docs/governance/`, not `Modular_PRD`** |
+
+**Handoff tracking:** `B-068` stays `Open`. Its Lane A field is updated to record `F3` applied and `F4`
+partially applied.
+
+### Scope limits
+
+**Applies `F3` fully; applies `F4`'s masters, leaves its join open pending Chief Editor decisions; builds
+no code.** The route-operation join, six named operation dispositions, `F6` items 7–8 (gate evidence,
+delivery protection — both need the join for real evidence anchors), and `F7` remain open. `D-171`'s S2
+hold is unaffected and not reopened. This decision does not touch `app/`, `lib/`, `components/`,
+`supabase/`, `__tests__/`, or `.github/workflows/`.

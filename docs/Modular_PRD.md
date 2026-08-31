@@ -73,6 +73,7 @@
 | **1.26** | **2026-08-21** | Claude, `D-71` correction pass | **Six corrections and two gaps opened, no scope change.** §10's `Q2` row is corrected from "Open" to answered by `D-57`; §8's `V1` row records `D-71`. The pattern matters more than the fixes: all six stale claims passed a `C-14` run, because the `D-54` tier sweep verifies that a decision **arrived** in a tier, not that the tier is **correct** — opened as `G65`. `G66` opened: `.claude/settings.json` is checked in and shared across three agents with no check covering it, demonstrated live when an invalid-JSON edit silently disabled both hooks. `G25` reopened and closed properly — `docs/README.md` had zero references to `docs/v1/`. No open decision closed, no field shape chosen, no Charter text touched, no number invented — and §5.1's decision tally is removed rather than restated. |
 | **1.27** | **2026-08-21** | Claude, `D-72` | **Two checks installed, no scope change and no decision made.** §8's `V1` row records `G65` and `G66` closed. `G65` is closed on a **narrower promise than it opened with**, and that is stated rather than glossed: a script cannot semantically validate prose, so the check cross-references decision **status** between the register and this document's §10 in both directions. Its first live catch was that `Q1`, `Q7` and `Q10` are Open and Chief-Editor-owned but were absent from §5.1's outstanding list — `Q10` being the named blocker for Stage D. Those three are now listed; **none of them is decided**. No Charter text touched, no number invented, no tally restated. |
 | **1.28** | **2026-08-21** | Claude, `D-73` | **One major decision recorded, Stage D unblocked.** §10's `Q10` row is closed (`D-73`): the application is a multi-tenant "Product" functioning as a digital twin of the business, requiring account access for natural person employees. The `0002` schema migration **must** include a tenancy column. |
+| **1.29** | **2026-08-31** | Claude, `F3` draft, `docs/handoff/B-068-*.md` | **§2.3 split, not rewritten.** Added §2.3.1: separates system user (`USR-*`), audience/external/deferred (`AUD-*`/`EXT-*`/`CAP-*`/`ARCH-*`), executor role, and logical gate node into distinct catalogs — §2.3's own table conflated all four in one `Persona`/`Line` column (`B-068` §2). §2.3's table is unedited and remains the current-build record; the four agent rows' canonical definitions moved to `raci-involvement-matrix.md` §8, their target node mapping to `FN-GATES-01-05.md` §11. No FR/AC/NFR text changed; `D-171`'s S2 hold is not reopened. |
 
 ### 0.2 Decision Log
 
@@ -246,6 +247,34 @@ Every published article carries a complete, tamper-evident record of who reviewe
 | **Line 3 assurance** | Independent audit, triggered by risk signal | Line 3 | Unrestricted read access to relevant evidence and an independent reporting/authority path — Lines 1/2 cannot control its scope or conclusions (`D-166`) | **Not built in v1** (`D-57`, answering `Q2`) — v1 discloses no independent assurance; `C-13`'s BCP surface is a compensating control, never Line 3. Governed directly by `D-57`; neither `OD3` (agent headcount/roster shape) nor `OD4` (deferred Proposer→Critics→Judge remedy) governs this disposition (`D-168`) |
 | *Reader — Agile/DevOps/ITIL professional* | Consumes published output | — | Timely, verified certification content | Not a system user; no requirement in this release |
 | *Reader — AI practitioner* | Consumes published output | — | Discourse on agentic systems, guardrails, context engineering | Not a system user; no requirement in this release |
+
+#### 2.3.1 Persona/role/node catalog split (`F3`, 2026-08-31 — `docs/handoff/B-068-*.md`, `D-171`–`D-173`)
+
+**The table above is unedited and remains the current-build record** — it still describes the
+build-authorized `T`/Line assignment (`D-171`'s S2 hold covers whether it may be built next, not
+whether it is accurately described here). What the table conflates, per `B-068` §2's terminology
+finding: a **system user** (a human with an account and needs), an **executor role** (a business
+function a gate node can be filled by), and a **logical gate node** (`FN-GATES-01-05.md` §11) are one
+column here. Split, without deleting or reordering the table above:
+
+| ID | Canonical name | Kind | System status |
+|---|---|---|---|
+| `USR-CHIEF-EDITOR` | Chief Editor | Human system user | Present. Current `T5`/target `T6` contract both held pending `D-171`'s hold |
+| `AUD-PROFESSIONAL` | Agile/DevOps/ITIL professional reader | Audience | Not a system user, matches the table row above |
+| `AUD-AI-PRACTITIONER` | AI practitioner reader | Audience | Not a system user, matches the table row above |
+| `EXT-GRC` | Government Institution / regulator | External authority/stakeholder (`EA`, `D-170` §5.1) | No internal persona or access right by default |
+| `CAP-LINE3` | Independent Line 3 assurance | Deferred capability | Not built in v1 (`D-57`), matches the table row above |
+| `ARCH-OD4` | Proposer / Critics / Judge | Deferred architecture | Not a persona, gate, `EW`, or Line mapping (`D-168`) |
+
+The four agent rows above the readers (Reporter, Investigator, Journalist, Chief Journalist) are
+**executor roles**, not personas — they have no account, no need of their own, and exist to be
+assigned to a gate node. Their canonical definitions moved to
+`docs/governance/raci-involvement-matrix.md` §8's role catalog (`ROLE-REPORTER`,
+`ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK` — the current build's "Chief
+Journalist agent" is that catalog's `ROLE-CHIEF-EDITORIAL-DESK` alias), which node they fill is
+`FN-GATES-01-05.md` §11 (current: Sections 1–10 above it; target: §11's `decided_target_held` table).
+No row in this subsection is presented as current build behaviour unless the table above already
+says so — `USR-CHIEF-EDITOR`'s "target `T6` contract" is `decided_target_held`, not built.
 
 ### 2.4 Strategic Objectives
 
