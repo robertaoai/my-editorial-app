@@ -10577,10 +10577,11 @@ Addendum/Blueprint/Business Case acceptance-test rows; `CONFIG_LOG.md`/`DECISION
 
 **Closed:** the `OD4`-as-Line-3-governor category error `D-167` introduced, and the incomplete
 propagation of `D-166`'s evidence-access correction into `US-11`/`AC-17` and the source documents.
-**Opened:** none — `M5`/S5 remains unscheduled future work, unchanged; any future `OD4` or Line
-3/`FR-11` build still requires its own fresh authorization, which this decision does not supply.
-**Unchanged:** `D-57`'s substantive ruling, `D-165`'s `SEC-01` reading, `D-166`'s `SEC-06` anchor,
-`OD2`'s and `OD3`'s open status, `OD4` branch ① (`NG-09`).
+**Opened:** `G113` — no automated check catches an OD-misattribution-style semantic error, verified
+by a negative test (below); deferred, not blocking. `M5`/S5 remains unscheduled future work,
+unchanged; any future `OD4` or Line 3/`FR-11` build still requires its own fresh authorization,
+which this decision does not supply. **Unchanged:** `D-57`'s substantive ruling, `D-165`'s `SEC-01`
+reading, `D-166`'s `SEC-06` anchor, `OD2`'s and `OD3`'s open status, `OD4` branch ① (`NG-09`).
 
 ### Tier applicability (`D-54`)
 
@@ -10589,6 +10590,7 @@ propagation of `D-166`'s evidence-access correction into `US-11`/`AC-17` and the
 | `FR-11`/Line 3 disposition sourced directly to `D-57`, not `OD3` or `OD4` | ✅ §5.14du | ✅ S5 row: `OD3`/`OD4` gates removed | **— unaffected** | **— unaffected: no artifact created** | **— unaffected** | ✅ §4, §5, §7.2, §7.4, §9, §10 |
 | `US-11`/`AC-17` evidence-access wording completes `D-166`'s correction | ✅ §5.14du (clarifying, no new ruling) | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ §9 `US-11`, §10 `AC-17` |
 | `B-062`/`B-065` remain `Applied`, not `Verified` | ✅ §5.14du (clarifying, no status change) | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `G113` opened: no check catches OD-misattribution semantic drift; backlog, not scheduled | ✅ §5.14du | ✅ §6 backlog row | **— unaffected** | **— unaffected: no artifact created** | **— unaffected** | **— unaffected** |
 
 **`Fn_Specs` (not a tracked `D-54` tier — cited, not propagation-checked):**
 `FN-EXCEPTIONS-06-11-12.md` §0, §3.1, §4.2, §7, §8, §10 corrected in the same pass, per `D-36`.
@@ -10608,9 +10610,30 @@ performed by this decision.
 `Resolution: Applied` — this decision does not verify them; it removes the `D-167` error their
 verification would otherwise inherit.
 
+### `G113` — opened, deferred: no automated check catches an OD-misattribution-style semantic error
+
+**Opened 2026-08-31, verified by negative test.** `D-167` shipped with `bun run check` green while
+misattributing Line 3/`FR-11` to `OD4`. After applying `D-168`'s correction, the exact retired
+wording (`AC-17`'s "no shared data path... Blocked — executor identity unresolved (OD3)") was
+reintroduced into `Modular_PRD.md` and the full 17-check suite was rerun: **it stayed 17/17 green**
+— `tier-sweep` verifies that a citation *arrives* somewhere, not that its content is correct (`G65`
+already names this limit for that specific check), and no other check reads OD-attribution
+semantics at all. The bad text was then restored to `D-168`'s corrected wording and the suite
+reconfirmed 17/17. This is a real, general gap, not specific to `OD3`/`OD4`: **any decision that
+restates which open decision governs a requirement can drift back to a wrong attribution with
+every check staying green.**
+
+**Deferred, not blocking.** `scripts/checks/` is Lane A's surface (`D-84`, correcting `D-75`'s
+original Lane C assignment), so building this is this lane's own future work, not a cross-lane
+handoff. No phase gates on it — v1's five checks that read `OD`/decision-attribution text
+(`tier-sweep`, `decision-status`, `source-sweep`, `docs-drift`, `closure-readiness`) already exist
+and are unaffected; this asks for a *new* check, not a fix to one of them. Recorded in
+`V1-BUILD-SPEC.md` §6 as backlog for a later sprint, not scheduled against S0–S5.
+
 ### Scope limits
 
 **Corrects a category error in `D-167`'s parent relation and completes an already-decided
 correction's propagation; authorizes no new code, schema, migration, or build work.** No Line 3
 table, identity field, `OD4` engine, or S5 implementation is created. `OD2`, `OD3`, `OD4` branch ①
-(`NG-09`), and `D-57`'s substantive ruling all keep their existing status, unchanged.
+(`NG-09`), and `D-57`'s substantive ruling all keep their existing status, unchanged. `G113` is
+opened and deferred, not closed, by this decision.
