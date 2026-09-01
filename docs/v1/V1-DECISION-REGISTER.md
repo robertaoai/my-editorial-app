@@ -11256,7 +11256,11 @@ code.** `F4`'s route-operation matrix is explicitly not approved by this decisio
 `D-171`'s S2 hold is unaffected. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`,
 `__tests__/`, or `.github/workflows/`.
 
-## 5.14e2 `D-176` — `F4` Route-Operation Applicability Decided: `B-068` §14.4 Approved, Sequencing Fields Drafted, Closing `B068-R22`/`R23`/`R33`
+## 5.14e2 `D-176` — `F4` Route-Operation Applicability Decided: `B-068` §14.4 Approved, Sequencing Fields Drafted, Closing `B068-R22`/`R33`
+
+> **Heading corrected 2026-09-02 (`D-177`, `B068-R39`).** This heading originally also claimed
+> "Closing `B068-R23`" — wrong; the decision's own Gaps and Scope-limits sections below correctly
+> left `R23` open. `R23` was not closed until `D-177` §18.4 supplied its route-basis behavior.
 
 **Chief Editor ruling, 2026-09-01, on `B-068` §14.4/§17.4's completion packet.**
 
@@ -11318,3 +11322,110 @@ acceptance-criteria draft (including `B068-R23`, `R26`, `R27`, `R35`, `R36`) and
 Graphify-sync/independent-verification/fresh-build-authorization remain separate, unstarted work, per
 `B-068` §17.5/§17.6. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`,
 `__tests__/`, or `.github/workflows/`.
+
+## 5.14e3 `D-177` — `F6` Behavior/Acceptance Contract Adopted; `D-176` Heading Corrected; Build-Readiness Boundary Added
+
+**Lane A decision, 2026-09-02, adopting `B-068` §18's F6 draft.** §18's own scope explicitly assigns
+this to Lane A ("Approve-with-conditions... Lane A decides §18.4–§18.6"), unlike earlier B-068 items
+that named the Chief Editor — this is behavior/acceptance elaboration of already-decided business
+rules (`D-170`–`D-176`), not a new business ambiguity. Verified `§18`'s content is derived from, and
+consistent with, those prior decisions before adopting it; no new business ruling is made here.
+
+### `B068-R39` corrected
+
+`D-176`'s heading claimed "Closing `B068-R23`" while its own Gaps/Scope-limits sections correctly left
+`R23` open — corrected in `D-176`'s heading above. `R23` closes now, by this decision, via §18.4's
+route-basis behavior (below).
+
+### `F6` behavior contract adopted (`B-068` §18.4–§18.6, not restated in full here to avoid a second
+copy drifting from the first — see that section for the complete gate-behavior table, blind-review
+order, return/rerun rules, external-authority ordering, and twelve candidate `F6-AC-*` behaviors)
+
+1. **Route-basis semantics, closing `B068-R23`.** `newsworthiness_disposition` is one outcome family
+   with a mandatory, route-dependent `evidence_basis` field: daily relevance (`ROUTE-PROD-1`), trend/
+   fade significance (`ROUTE-PROD-2`/`PROD-3`), internal legal/remedial judgment (`ROUTE-FALLOUT-1`/
+   `FALLOUT-2`), or external institutional finding/mandate (`ROUTE-FALLOUT-3`/`GRC`). Adopted exactly
+   as `B-068` §18.4 states it.
+2. **Parallel `T5` aggregation, closing `B068-R41`.** Each required `T5` reviewer produces one
+   separately attributable, immutable judgment act (role, executor identity, evidence, recommendation,
+   reason, sealed time); a deterministic **non-judgment join** — chooses no winner, impersonates no
+   reviewer — completes the single `T5`/`EG4` stage once every required act exists. This does not add a
+   sixth gate and does not collapse two reviewers onto one executor field.
+3. **Bundle-reveal event corrected, closing `B068-R35`.** `D-175`'s `EG5_recommendation_revealed_to_EG5`
+   (wrong — names `EG5` as both source and receiver) is replaced by one canonical event,
+   `T5_review_bundle_revealed_to_EG5`. The old name survives only as historical-correction prose, never
+   as a second live event.
+4. **Canonical blind-review order, four events:** every required `T5` review sealed → human reviews
+   underlying evidence *without* the `T5` recommendations and seals
+   `EG5_preliminary_disposition_sealed` → `T5_review_bundle_revealed_to_EG5` → human records
+   `EG5_final_decision_recorded`. No other live reveal-event name is permitted.
+5. **Return/rerun rules, closing `B068-R36`.** Scoped by what the return actually invalidates: a single
+   reviewer's own defect reruns only that reviewer against the unchanged sibling report; a shared-
+   evidence/route defect invalidates the bundle and reruns every required upstream work and `T5`
+   review; a route change recomputes `F4` applicability/cardinality from scratch, never carrying prior
+   sufficiency forward; a post-reveal disposition-only change appends a new reasoned `T6` record without
+   rewriting `T5` history. Every prior report/bundle version remains retrievable, never presented as
+   current.
+6. **External-authority ordering, closing `B068-R26`/`R42`.** `external_trigger_record` (may select/
+   reclassify the route; not itself a judgment) is separated from `external_acceptance_or_mandate_record`
+   (required before Delivery on routes that need it) — `D-176`'s crosswalk already separates these
+   record shapes implicitly through `EA`/`source_code`; this decision makes the two-record separation an
+   explicit `F6` rule. Internal `O` appends a reasoned change to an existing internal decision only —
+   never supplies missing evidence, never replaces `EA`, never overrides an external mandate.
+7. **Operation-to-gate evidence overlay, closing `B068-R27`.** Each `EG1`–`EG5`/Delivery stage's entry
+   evidence, permitted executor, completion evidence, and refusal condition are named against `F4`'s
+   applicable/triggered operations (`B-068` §18.4's table) — gate behavior depends on evidence status,
+   never on an operation's title.
+8. **Twelve candidate acceptance behaviors** (`F6-AC-A` through `F6-AC-L`, `B-068` §18.6) are adopted as
+   the acceptance-criteria draft. Final governed `AC-*` identifiers are assigned at `F7` propagation, not
+   here, to avoid colliding with existing rows before the propagation pass that actually edits
+   `Modular_PRD.md`.
+
+### `B068-R40` — build-readiness boundary added
+
+**"`F4` is propagation-complete" is not "build-ready."** `F4`'s confirmed conservative placeholders
+(`OP-PITCH`/`OP-RESEARCH`'s multiple `R`, `OP-DRAFT`'s unknown `A`, `OP-COMPLEX-SERIES`/`OP-LEGAL-RISK`'s
+undecomposed milestones, `OP-FINAL-SIGNOFF`'s unknown `R`) remain visible **build-readiness holds**, not
+resolved facts. **A fresh build authorization may not enable a route with a required or triggered
+operation whose executor, accountability, or atomic completion contract is still unresolved.** This
+rule does not resolve any placeholder — it only forbids treating an unresolved one as executable.
+
+### What remains explicitly undone
+
+**No FR/AC/RACI/Build-Spec text is rewritten by this decision.** `Modular_PRD.md` FR-04/FR-05/
+AC-05–AC-08, `raci-involvement-matrix.md` §2.1/§3, `FN-GATES-01-05.md`'s behavioral sections, and
+`V1-BUILD-SPEC.md`'s S2 DoD remain exactly as `D-171` through `D-176` left them — that rewrite is `F7`
+propagation (`B-068` §18.7), a separate pass, not attempted here. `B068-R37` (marking historical
+sections), Graphify's final sync, the independent-review pass, and any fresh build authorization are
+likewise unstarted. `D-171`'s explicit S2 hold is unaffected and not reopened.
+
+### Gaps
+
+**Addressed:** `B068-R23`, `R26`, `R27`, `R35`, `R36`, `R39`, `R40`, `R41`, `R42`. **Unchanged:**
+`D-170`–`D-176`'s rulings, `D-171`'s S2 hold. **Still open:** `B068-R37` (historical marking), `F7`'s
+full propagation/Graphify-sync/independent-verification, any fresh build authorization.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-176` heading corrected (`B068-R39`) | ✅ §5.14e2 note | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `F6` behavior/acceptance contract adopted (§18.4–§18.6) | ✅ §5.14e3 | **— not yet: S2 DoD unrewritten, `F7` work** | **— unaffected** | **— unaffected** | **— unaffected** | **— not yet: FR-04/FR-05/AC-05–AC-08 unrewritten, `F7` work** |
+| `B068-R40` build-readiness boundary | ✅ §5.14e3 | **— not yet: `F7` work** | **— unaffected** | **— unaffected** | **— unaffected** | **— not yet: `F7` work** |
+
+**`raci-involvement-matrix.md`/`FN-GATES-01-05.md` (not tracked `D-54` tiers — cited, same disposition
+as `Fn_Specs` under `D-36`):** neither is edited by this decision; both remain exactly as `D-175` left
+them, pending `F7`.
+
+**Handoff tracking:** `B-068` stays `Open`. Its Lane A field is updated to record `F6`'s adoption and
+what remains for `R37`/`F7`.
+
+### Scope limits
+
+**Adopts `F6`'s behavior/acceptance contract as decided content; corrects one heading defect; adds one
+build-readiness boundary rule. Rewrites no governed FR/AC/RACI/Build-Spec text, builds no code,
+authorizes no implementation.** `D-171`'s S2 hold is unaffected and not reopened. `B068-R37`'s
+historical-marking housekeeping and `F7`'s full propagation, Graphify synchronization, independent
+verification, and fresh build authorization remain separate, unstarted work, per `B-068` §18.7. This
+decision does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or
+`.github/workflows/`.
