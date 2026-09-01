@@ -11429,3 +11429,112 @@ historical-marking housekeeping and `F7`'s full propagation, Graphify synchroniz
 verification, and fresh build authorization remain separate, unstarted work, per `B-068` §18.7. This
 decision does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or
 `.github/workflows/`.
+
+## 5.14e4 `D-178` — `F7` Propagation: `D-177` Corrected and Extended, Then Propagated Into `V1-ARTIFACT-INVENTORY.md`, `V1-BUILD-SPEC.md`, `Modular_PRD.md`, `FN-GATES-01-05.md`, `raci-involvement-matrix.md`
+
+**Lane A decision, 2026-09-02, on `B-068` §19's F7 propagation plan.** Verified `B068-R43`–`R46`
+against the actual files before correcting — all four confirmed real (`V1-ARTIFACT-INVENTORY.md`'s
+crosswalk row still read "deliberately empty," unedited since `D-173`, despite `D-176` deciding it).
+
+### `B068-R43`–`R46` corrected
+
+1. **`D-177`'s "four events" corrected to a route-dependent event sequence** (`B068-R43`). A fixed
+   count cannot represent one sealed `T5` review on a production route and two on a fallout/GRC route.
+   Governed sequence, order preserved from `D-177`, count no longer fixed: one
+   `T5_review_sealed` event per required reviewer (one or two, per `raci-involvement-matrix.md` §8's
+   cardinality table) → one `T5_review_bundle_sealed` non-judgment join event, provable and naming
+   every contributing review → `EG5_preliminary_disposition_sealed` → `T5_review_bundle_revealed_to_EG5`
+   → `EG5_final_decision_recorded`.
+2. **Acceptance-ownership crosswalk adopted** (`B068-R44`, `B-068` §19.2's table) — the twelve
+   `F6-AC-*` behaviors route to their actual owning FR/Fn_Spec rather than all being forced into
+   `FR-04`/`FR-05`: `F6-AC-A`→`FR-01`/`FN-GATES` intake; `F6-AC-B`→ each consuming gate's FR plus a
+   shared `FN-GATES` overlay; `F6-AC-C`→`V1-BUILD-SPEC` readiness DoD (a planning refusal, not a
+   runtime AC); `F6-AC-D`–`F`→`FR-04`, `AC-05`/`AC-06` family; `F6-AC-G`–`I`→`FR-05`, `AC-07`/`AC-08`
+   family; `F6-AC-J`→`FR-06`/`FN-EXCEPTIONS-06-11-12.md`; `F6-AC-K`→`FR-13` or the GRC-route acceptance
+   owner, never buried inside `FR-05`; `F6-AC-L`→`FR-09`/`FR-10`/`FN-PUBLICATION-09-10-13.md`. Existing
+   `AC-*` numbers are preserved; new cases use suffix IDs, never renumbering.
+3. **`V1-ARTIFACT-INVENTORY.md`'s crosswalk row corrected** (`B068-R45`) — see propagation below; the
+   fact is propagated once, not restated as a second row.
+4. **`[V1→V2]` avoided** (`B068-R46`). No V2 build exists. `FN-GATES-01-05.md` §§1–10 stay `[V1]`
+   historical current-build evidence; the target contract is added as an explicitly-sourced, clearly
+   build-held amendment, not a `[V1→V2]` claim.
+
+### Propagation (`D-54`)
+
+**`V1-ARTIFACT-INVENTORY.md`:** the `factory-route-operation-crosswalk.md` row is corrected — the join
+is no longer empty; `D-176` decided its applicability (43 rows) and sequencing; `D-176`/`D-177`
+confirmed the conservative operation-shape placeholders as a standing, not pending, disposition. No
+new artifact row is added.
+
+**`V1-BUILD-SPEC.md`:** S2's hold note is extended (not replaced) with the target DoD `D-177`/`D-178`
+now supply — route-dependent `T5` reviewer cardinality, separately attributable reviews, the
+non-judgment bundle join, human-only `T6`, the route-dependent blind sequence, scoped returns, the
+external-authority ordering, operation-evidence consumption, and the unresolved-operation build-
+readiness hold. **This is a target DoD, not an authorization** — `D-171`'s hold stands untouched.
+
+**`Modular_PRD.md`:** `FR-04`, `FR-05`, `US-04`, `US-05`, `G-02`, `G-05`, `SEC-01`, `AC-05`–`AC-08`,
+§2.3.1, and §8's S2/M2 status row each receive an inline correction annotation — none is silently
+rewritten (this document's own established convention throughout its v1.1–v1.29 changelog: annotate,
+never silently overwrite) — stating: (a) the current text describes the pre-`D-171` order and remains
+historically accurate for what was specified then; (b) `D-171`'s explicit S2 hold means neither the
+current nor the target order is presently build-authorized, so "S2 Unit 1 authorized" (§8) is corrected
+to reflect the hold; (c) the target contract, where one is decided, is `D-175`–`D-178`, not restated in
+full inline.
+
+**`FN-GATES-01-05.md`:** §11's "F6 blocked on F4" note is corrected — `F4` and `F6` are both now
+decided (`D-176`, `D-177`); §11 gains a pointer to `D-178`'s route-dependent event sequence, replacing
+the stale blocking note.
+
+**`raci-involvement-matrix.md`:** the target-order note (title block) is extended with a pointer to
+`D-178`'s corrected event sequence. §2.1/§3's actual successor-node proof is **not** rewritten by this
+decision — `D-171`'s original reasoning (rewriting the build-facing proof without a fresh build
+authorization risks the same cross-document contradiction already avoided twice) still applies, and
+`§19.4`'s Parent 2 item 4 rewrite is deferred to the pass that actually issues that authorization.
+
+**Terminology (`B-068` §19.4 Parent 3):** `EDITORIAL_JUDGMENT_STAGE_COUNT` (five), `FORWARD_TRANSITION_COUNT`
+(six), and `T5_REVIEW_ACT_CARDINALITY` (route-dependent, one or two) are recorded as three separate
+measures, never interchangeable. `CONFIG_LOG.md` and `lib/config/build-config.ts`'s coupled rename
+around `PIPELINE_GATE_COUNT` is **not performed here** — it is Lane B code, requires the S2 hold to
+lift first, and is out of Lane A's surface.
+
+### `B068-R37` — historical marking applied
+
+A reading-order notice is added before `B-068` §9; §14 and §17's headings are corrected to name what
+supersedes them (`D-176`, `D-177`). §§9–13, §15, §16 keep their existing historical framing —
+unedited, per `B-068` §19.3's "smallest safe" instruction.
+
+### Gaps
+
+**Addressed:** `B068-R43`, `R44`, `R45`, `R46`. **Unchanged:** `D-170`–`D-177`'s rulings, `D-171`'s S2
+hold (extended with a target DoD, not lifted). **Still open:** Graphify final synchronization at this
+decision's own commit (addressed procedurally below, not by this entry's text), independent
+verification (a separate actor's turn, not Lane A's), any fresh build authorization.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-178` event sequence corrected (`B068-R43`) | ✅ §5.14e4 | ✅ S2 target DoD extended | **— unaffected** | **— unaffected** | **— unaffected: `D-178` does not close a phase** | **— unaffected: event names are not `Modular_PRD` content** |
+| `D-178` acceptance-ownership crosswalk (`B068-R44`) | ✅ §5.14e4 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ AC-05–AC-08 annotations, §8 status |
+| `D-178` inventory crosswalk row corrected (`B068-R45`) | ✅ §5.14e4 | **— unaffected** | **— unaffected** | ✅ row corrected | **— unaffected** | **— unaffected** |
+| `D-178` `[V1→V2]` avoided; target amendment added (`B068-R46`) | ✅ §5.14e4 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `FN-GATES` is `Fn_Specs`, not this tier** |
+
+**`raci-involvement-matrix.md`/`FN-GATES-01-05.md` (not tracked `D-54` tiers — cited, same disposition
+as `Fn_Specs` under `D-36`):** both amended per Propagation above; §2.1/§3's build-facing proof is
+explicitly **not** rewritten — deferred to the fresh-authorization pass.
+
+**Handoff tracking:** `B-068` is marked `Applied` after this decision's commit, source edits, and
+curated-fragment merge are complete and the full local suite passes at that final `HEAD` — by Lane A.
+`Verified` requires a separate actor's separate-turn review; Lane A does not set it (`B-068` §19.4 item
+6).
+
+### Scope limits
+
+**Corrects `D-177`'s event-count defect, assigns acceptance ownership, propagates decided facts into
+`V1-ARTIFACT-INVENTORY.md`, `V1-BUILD-SPEC.md`, `Modular_PRD.md`, and `FN-GATES-01-05.md`; extends but
+does not rewrite `raci-involvement-matrix.md`'s build-facing proof; builds no code, authorizes no
+implementation.** `D-171`'s S2 hold is unaffected and not reopened. `lib/config/build-config.ts` and
+`CONFIG_LOG.md`'s coupled rename is explicitly deferred — Lane B surface, gated on the hold lifting.
+Independent verification and any fresh build authorization remain separate, unstarted work. This
+decision does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or
+`.github/workflows/`.

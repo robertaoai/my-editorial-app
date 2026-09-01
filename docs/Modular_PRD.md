@@ -74,6 +74,7 @@
 | **1.27** | **2026-08-21** | Claude, `D-72` | **Two checks installed, no scope change and no decision made.** §8's `V1` row records `G65` and `G66` closed. `G65` is closed on a **narrower promise than it opened with**, and that is stated rather than glossed: a script cannot semantically validate prose, so the check cross-references decision **status** between the register and this document's §10 in both directions. Its first live catch was that `Q1`, `Q7` and `Q10` are Open and Chief-Editor-owned but were absent from §5.1's outstanding list — `Q10` being the named blocker for Stage D. Those three are now listed; **none of them is decided**. No Charter text touched, no number invented, no tally restated. |
 | **1.28** | **2026-08-21** | Claude, `D-73` | **One major decision recorded, Stage D unblocked.** §10's `Q10` row is closed (`D-73`): the application is a multi-tenant "Product" functioning as a digital twin of the business, requiring account access for natural person employees. The `0002` schema migration **must** include a tenancy column. |
 | **1.29** | **2026-08-31** | Claude, `F3` draft, `docs/handoff/B-068-*.md` | **§2.3 split, not rewritten.** Added §2.3.1: separates system user (`USR-*`), audience/external/deferred (`AUD-*`/`EXT-*`/`CAP-*`/`ARCH-*`), executor role, and logical gate node into distinct catalogs — §2.3's own table conflated all four in one `Persona`/`Line` column (`B-068` §2). §2.3's table is unedited and remains the current-build record; the four agent rows' canonical definitions moved to `raci-involvement-matrix.md` §8, their target node mapping to `FN-GATES-01-05.md` §11. No FR/AC/NFR text changed; `D-171`'s S2 hold is not reopened. |
+| **1.30** | **2026-09-02** | Claude, `D-178`, `F7` propagation, `docs/handoff/B-068-*.md` §19 | **`F7` propagation pass — annotations, not rewrites, per this document's own established convention.** Two corrections: (1) §2.3.1 repeated the exact alias error `D-175` had already corrected — "Chief Journalist agent" was described as `ROLE-CHIEF-EDITORIAL-DESK`'s alias; it is `ROLE-CHIEF-JOURNALIST`, its own role. (2) §8's M2/S2 status row said "S2 Unit 1 authorized," stale since `D-171` held both the current and target order. Corrected. Added one consolidated note near FR-04/FR-05 (§0.4) — not eight per-row annotations — stating neither order is presently build-authorized regardless of Entry 007's Phase 0 provisional-acceptance path; `US-04`, `US-05`, `G-02`, `G-05`, `SEC-01`, `AC-05`–`AC-08` covered by reference, not restated. No FR/AC/NFR requirement text itself changed; `D-171`'s S2 hold is not reopened, and no build is authorized. |
 
 ### 0.2 Decision Log
 
@@ -248,7 +249,7 @@ Every published article carries a complete, tamper-evident record of who reviewe
 | *Reader — Agile/DevOps/ITIL professional* | Consumes published output | — | Timely, verified certification content | Not a system user; no requirement in this release |
 | *Reader — AI practitioner* | Consumes published output | — | Discourse on agentic systems, guardrails, context engineering | Not a system user; no requirement in this release |
 
-#### 2.3.1 Persona/role/node catalog split (`F3`, 2026-08-31 — `docs/handoff/B-068-*.md`, `D-171`–`D-173`)
+#### 2.3.1 Persona/role/node catalog split (`F3`, 2026-08-31 — `docs/handoff/B-068-*.md`, `D-171`–`D-173`, `D-175`–`D-178`)
 
 **The table above is unedited and remains the current-build record** — it still describes the
 build-authorized `T`/Line assignment (`D-171`'s S2 hold covers whether it may be built next, not
@@ -269,12 +270,16 @@ column here. Split, without deleting or reordering the table above:
 The four agent rows above the readers (Reporter, Investigator, Journalist, Chief Journalist) are
 **executor roles**, not personas — they have no account, no need of their own, and exist to be
 assigned to a gate node. Their canonical definitions moved to
-`docs/governance/raci-involvement-matrix.md` §8's role catalog (`ROLE-REPORTER`,
-`ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK` — the current build's "Chief
-Journalist agent" is that catalog's `ROLE-CHIEF-EDITORIAL-DESK` alias), which node they fill is
-`FN-GATES-01-05.md` §11 (current: Sections 1–10 above it; target: §11's `decided_target_held` table).
-No row in this subsection is presented as current build behaviour unless the table above already
-says so — `USR-CHIEF-EDITOR`'s "target `T6` contract" is `decided_target_held`, not built.
+`docs/governance/raci-involvement-matrix.md` §8's role catalog: `ROLE-REPORTER`, `ROLE-INVESTIGATOR`,
+`ROLE-JOURNALIST`, and the current build's "Chief Journalist agent" is `ROLE-CHIEF-JOURNALIST`.
+**Corrected 2026-09-02 (`D-175`, `D-178`) — `ROLE-CHIEF-JOURNALIST` is not an alias of
+`ROLE-CHIEF-EDITORIAL-DESK`.** An earlier version of this row claimed it was; the two are separate,
+independently `EG4`-eligible roles with route-dependent target cardinality (`raci-involvement-matrix.md`
+§8's cardinality table) — one, the other, or both in parallel depending on route. Which node each role
+fills is `FN-GATES-01-05.md` §11 (current: Sections 1–10 above it; target: §11's `decided_target_held`
+table, now route-dependent per `D-175`). No row in this subsection is presented as current build
+behaviour unless the table above already says so — `USR-CHIEF-EDITOR`'s "target `T6` contract" is
+`decided_target_held`, not built.
 
 ### 2.4 Strategic Objectives
 
@@ -461,6 +466,16 @@ This means **no KPI in §3.2 can be judged before S1 completes**, and the north-
 | `FR-14` | Present a business-continuity surface displaying the defined critical observations, each with its current value and when it was last evaluated | P1 | O-01 | US-14 | AC-21 | Line 2 | S3 | — |
 
 > **Two FRs are provisional and buildable now.** FR-04 (`OD1`), FR-05 (`OD2`) — each buildable under Entry 007's Phase 0 provisional acceptance, behind a config flag; neither may be reported as finally satisfied until its OD is ratified at Charter level. **FR-11 is not provisional-and-buildable — it is decided not built in v1** (`D-57`), governed directly by `D-57`, not `OD3` (agent headcount/roster shape) or `OD4` (the Charter's deferred Proposer→Critics→Judge remedy, triggerable but not self-authorizing) — neither OD is `FR-11`'s dependency (`D-168`).
+>
+> **Correction 2026-09-02 (`D-178`, `B-068` §19, `B068-R44`) — "buildable now" no longer holds for either.**
+> `FR-04`'s "T5 review is executed by a Line 2 human" and `FR-05`'s independence classification both
+> describe the **pre-`D-171` current order** (still accurate as a historical record of what was
+> specified). `D-171` placed an explicit S2 hold on **both** the current order above and the target
+> order (`T6` human-final; `T5` route-dependent `ROLE-CHIEF-EDITORIAL-DESK`/`ROLE-CHIEF-JOURNALIST`
+> cardinality, `D-175`–`D-178`) — **neither is presently build-authorized**, regardless of the
+> Entry 007 Phase 0 provisional-acceptance path named above. `US-04`, `US-05`, `G-02`, `G-05`, `SEC-01`,
+> and `AC-05`–`AC-08` below carry the same historical-versus-held distinction; none is restated per
+> row. `V1-BUILD-SPEC.md` S2's `D-178` note carries the target DoD.
 
 ### FR-05 detail — independence classification
 
@@ -729,7 +744,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 |---|---|---|---|---|
 | **M0 — Foundation** (S0) | SHARED-01, SHARED-02, NFR-04 | Q0 | Config spine exists; **CI green**; no literals in logic; Stripe removed | **Done** *(corrected 2026-08-30, `D-161`/`B-061`)* |
 | **M1 — Core pipeline** (S1) | FR-01, FR-02, FR-03, FR-06, FR-07; TR-DM-01…06; NFR-01, NFR-02, NFR-08 | M0 | **Trigger written and unit-tested; live anon-key DB rejection unverified until `DEP-05` is answered (A26a — the exit criterion as originally written required a live database while `DEP-05` is deliberately withheld, which is a contradiction, not a deferral).** AC-01…AC-04, AC-09…AC-12 pass against the unit-tested trigger | **Done — local PostgreSQL unit-tested (`C-33`); live anon-key behaviour unverified under `DEP-05`, per exit criteria** *(corrected 2026-08-30, `D-161`/`B-061`)* |
-| **M2 — Independence** (S2) | FR-04, FR-05; NFR-03, SEC-01 | M1; Q1 | AC-05…AC-08 pass. **Phase 0 done only — production done needs OD1 and OD2 ratified** | `Q12`/`Q1` Phase-0 closed (`D-163`) — **S2 Unit 1 authorized** (`D-164`/`D-165`); Unit 2 (T6, `AC-07`/`AC-08`, return event) not yet authorized. `Q1` production half stays with `OD3` |
+| **M2 — Independence** (S2) | FR-04, FR-05; NFR-03, SEC-01 | M1; Q1 | AC-05…AC-08 pass. **Phase 0 done only — production done needs OD1 and OD2 ratified** | `Q12`/`Q1` Phase-0 closed (`D-163`). **Corrected 2026-09-02 (`D-178`, `B-068` §19): "S2 Unit 1 authorized" is stale.** `D-164`/`D-165`'s Unit 1/Unit 2 authorization is **held for both the current and the target order** (`D-171`, extended `D-172`/`D-175`/`D-177`) — neither is presently build-authorized. A target DoD exists (`V1-BUILD-SPEC.md` S2's `D-178` note) but requires a fresh, separate authorization before either unit resumes. `Q1` production half stays with `OD3` |
 | **M3 — Visibility** (S3) | FR-08; NFR-06 | M1 | AC-13 passes; K-04 at 4 of 4 | Not started |
 | **M4 — Publication** (S4) | FR-09, FR-10; NFR-05, NFR-07, SEC-02 | M1; Q3, Q5 | AC-14…AC-16 pass; K-02 met. **Done-with-exception: reassignment deferred to OD3** | Not started |
 | **M5 — Assurance** (S5) | FR-11, FR-12, FR-13 | M2; Q2, Q4 | AC-17…AC-19 pass; every Entry 007 row flag-mapped | Not started |

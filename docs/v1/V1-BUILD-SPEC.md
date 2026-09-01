@@ -229,6 +229,21 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 > authorization. Rewriting this DoD is `B068-F6`/`F7` work; `D-171`/`D-172`/`D-175` drafted the target
 > Line/executor matrix, canary, blind-review sequence (now bundle-aware), return-metric redefinition,
 > override rule, and route-dependent cardinality but did not yet rewrite this section with them.
+>
+> **Target DoD, recorded 2026-09-02 (`D-178`) — a target, still not an authorization; the hold above is
+> unaffected.** Once a fresh authorization selects the target order, S2's DoD becomes: route-dependent
+> `T5` reviewer cardinality (one reviewer on a production route, `ROLE-CHIEF-EDITORIAL-DESK` and
+> `ROLE-CHIEF-JOURNALIST` in parallel on a fallout/GRC route — `raci-involvement-matrix.md` §8) · each
+> required review separately attributable (own executor, evidence, recommendation, reason, seal time) ·
+> a deterministic non-judgment `T5_review_bundle_sealed` join completing the single `T5` stage, never a
+> second gate · human-only `T6`, refused for any agent attempt · blind order:
+> `T5_review_sealed`(×1 or ×2) → `T5_review_bundle_sealed` → `EG5_preliminary_disposition_sealed` →
+> `T5_review_bundle_revealed_to_EG5` → `EG5_final_decision_recorded` · scoped return/rerun (single-
+> reviewer defect reruns only that reviewer; shared-evidence defect invalidates the bundle) ·
+> `external_trigger_record` separated from `external_acceptance_or_mandate_record`; internal `O` never
+> replaces `EA` · consuming gates refuse on missing required operation evidence, not on operation title ·
+> a route may not be enabled while any of its required/triggered operations has an unresolved executor,
+> accountability, or atomic-completion contract (`D-177`, `B068-R40`).
 
 Actor context on every action · four-eyes evaluator behind `FOUR_EYES_MODE` · **T5 is Line 2, human-executed** · **blind first pass at T5** — Line 2 records its disposition *before* the Line 1 recommendation is revealed, without which agreement cannot be distinguished from anchoring · T6 validates against T5's recorded fields, not a boolean · **T6→T5 return rate logged distinctly** · `EmergencyBypass` as `event_type` · hard block on one identity holding both Line 1 and Line 2 roles (`SEC-01`).
 

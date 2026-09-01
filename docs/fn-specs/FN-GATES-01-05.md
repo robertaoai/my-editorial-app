@@ -226,7 +226,7 @@ The other four absorb into the S1 window — the expected result if `Fn_Specs` w
 
 Closes no Open Decision. `FR-04` and `FR-05` remain `OD`-provisional. Authorizes no code, schema, or migration. Field names shown are decided (`Q11` closed by `D-97`/`D-111`) and applied in `0002`. `FB-05`'s missing trend-signal provenance is **recorded, not resolved** — it must be settled before S1.
 
-## 11. Editorial node catalog `[V1]` — `F3` draft, `D-171`/`D-172`/`D-175`
+## 11. Editorial node catalog `[V1]` — `F3` draft, `D-171`/`D-172`/`D-175`–`D-178`
 
 **Added 2026-08-31, `docs/handoff/B-068-*.md` `F3`.** Sections 1–10 above describe the currently
 governed `T1`–`T6` gates and remain unedited — under `D-171`'s explicit S2 hold, they are the *record
@@ -256,6 +256,11 @@ An Editorial Virtual Node Agent (this table) is never a persona and never a syst
 `D-172`/`D-175` (`V1-DECISION-REGISTER.md` §5.14dy, §5.14e1), not restated here to avoid a second copy
 drifting from the first.
 
-**Not in this table:** gate entry/exit evidence, checklist versions, negative tests, and delivery's
-mutation-refusal rule — `B-068` `F6` items 7–8, blocked on `F4`'s route/operation crosswalk for real
-evidence anchors rather than invented placeholders.
+**Corrected 2026-09-02 (`D-178`).** The line below previously read "gate entry/exit evidence... `B-068`
+`F6` items 7–8, blocked on `F4`'s route/operation crosswalk" — stale: `F4` (`D-176`) and `F6` (`D-177`,
+`D-178`) are both now decided. Gate entry/exit evidence, checklist versions, negative tests, and
+delivery's mutation-refusal rule are `D-177`/`D-178`'s behavior contract (`V1-DECISION-REGISTER.md`
+§5.14e3, §5.14e4; `B-068` §18.4/§19.4) and the route-dependent event sequence
+(`T5_review_sealed`(×1 or ×2) → `T5_review_bundle_sealed` → `EG5_preliminary_disposition_sealed` →
+`T5_review_bundle_revealed_to_EG5` → `EG5_final_decision_recorded`) — not restated in this table to
+avoid a second copy drifting from the first, and not yet built while `D-171`'s hold stands.

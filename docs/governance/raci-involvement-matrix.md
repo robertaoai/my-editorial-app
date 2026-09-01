@@ -22,6 +22,16 @@ Addendum §2.4 Ratification Log.
 > them. **Neither order is currently build-authorized** (`D-171`). `V1-BUILD-SPEC.md`'s `D-164`/`D-165`
 > authorization is held for both the current order below and the target order until `F6` lands and a
 > fresh build authorization selects one.
+>
+> **`F6` landed 2026-09-02 (`D-177`, corrected `D-178`) — §2.1/§3 still not rewritten.** The target
+> blind-review proof is a **route-dependent event sequence**, not a fixed count: one
+> `T5_review_sealed` per required reviewer (one on a production route, two in parallel on a fallout/
+> GRC route) → one `T5_review_bundle_sealed` non-judgment join → `EG5_preliminary_disposition_sealed`
+> → `T5_review_bundle_revealed_to_EG5` → `EG5_final_decision_recorded` (`V1-DECISION-REGISTER.md`
+> §5.14e4). §2.1/§3's actual successor-node-review proof remains unrewritten — `D-171`'s original
+> reasoning still applies: rewriting the build-facing proof before a fresh build authorization exists
+> risks the exact cross-document contradiction already avoided twice. That rewrite is deferred to the
+> pass that issues the fresh authorization.
 
 ---
 
