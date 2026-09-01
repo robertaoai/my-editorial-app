@@ -1,23 +1,27 @@
 # RACI Involvement Matrix
-**Version:** v1.6 — **proposed, not ratified**
+**Version:** v1.7 — **proposed, not ratified**
 **Date:** 2026-08-16, amended 2026-08-31
 **Origin:** Chief Editor, 2026-08-16, reframing OD2 and OD4
 **Status:** Recorded for ratification. **Closes nothing** beyond `RACI-03`/`RACI-04` (`D-170`,
 §5 below). OD1, OD2, OD3, OD4 remain as the Charter has them until the Chief Editor signs off in the
 Addendum §2.4 Ratification Log.
 
-> **Target order decided; EXPLICIT S2 HOLD on both orders (`D-170`, then `D-171`, 2026-08-31).** The
-> Chief Editor decided a target gate order — `T5` becomes Chief Editorial Desk review, `T6` becomes the
-> human Chief Editor's final decision — answering `docs/handoff/B-068-*.md` `F2`. **§2.1 and §3 below
-> still describe the current order** (`T5`=human Chief Editor, `T6`=Chief Journalist agent).
-> `V1-DECISION-REGISTER.md` `D-170` deliberately left them unrewritten — rewriting the proof below
-> without rewriting `V1-BUILD-SPEC.md`'s authorization in the same pass would have created a fresh
+> **Target order decided; EXPLICIT S2 HOLD on both orders (`D-170`, `D-171`, corrected `D-175`,
+> 2026-08-31).** The Chief Editor decided a target gate order — `T6` holds the human Chief Editor's
+> final decision; `T5` holds **two distinct, independently eligible reviewer roles** (Chief Editorial
+> Desk, Chief Journalist — not aliases, `D-175` correcting `D-170`'s category error), required
+> singly or in parallel depending on route (§8's cardinality table) — answering
+> `docs/handoff/B-068-*.md` `F2`. **§2.1 and §3 below still describe the current order** (`T5`=human
+> Chief Editor, `T6`=Chief Journalist agent, and do not yet reflect the two-role split at all).
+> `V1-DECISION-REGISTER.md` `D-170`/`D-175` deliberately left them unrewritten — rewriting the proof
+> below without rewriting `V1-BUILD-SPEC.md`'s authorization in the same pass would create a fresh
 > cross-document contradiction. §2.1's successor-node-review proof needs re-derivation for the target
-> order — not a relabeling, since which node reviews which flips — as part of `B068-F6`/`F7`; `D-171`
-> drafted the target Line/executor matrix and control shape (`V1-DECISION-REGISTER.md` §5.14dx) but has
-> not yet rewritten this proof with it. **`D-171` also corrected `D-170`'s narrower stance: neither order
-> is currently build-authorized.** `V1-BUILD-SPEC.md`'s `D-164`/`D-165` authorization is held for both the
-> current order below and the target order until `F6` lands and a fresh build authorization selects one.
+> order, including the parallel-bundle case — as part of `B068-F6`/`F7`; `D-171`/`D-172`/`D-175`
+> drafted the target Line/executor matrix, control shape, and route-dependent cardinality
+> (`V1-DECISION-REGISTER.md` §5.14dx, §5.14dy, §5.14e1) but have not yet rewritten this proof with
+> them. **Neither order is currently build-authorized** (`D-171`). `V1-BUILD-SPEC.md`'s `D-164`/`D-165`
+> authorization is held for both the current order below and the target order until `F6` lands and a
+> fresh build authorization selects one.
 
 ---
 
@@ -229,11 +233,26 @@ table is prohibited elsewhere in this project's documents.
 | `ROLE-REPORTER` | Reporter | — | `T1`/`EG1` |
 | `ROLE-INVESTIGATOR` | Investigator | — | `T2`+`T3`/`EG2` |
 | `ROLE-JOURNALIST` | Journalist | — | `T4`/`EG3` |
-| `ROLE-SENIOR-JOURNALIST` | Senior Journalist | Distinct from Chief Editorial Desk and Desk Editor; a Sheet 1/2 CSV column in its own right | Factory route/operation role only, unless separately governed for a `T`/`EG` node |
-| `ROLE-CHIEF-EDITORIAL-DESK` | Chief Editorial Desk | Business aliases: Chief Journalist, Desk Chief. **Not** Desk Editor — a distinct CSV column | Current `T6` role; target `T5`/`EG4` |
-| `ROLE-DESK-EDITOR` | Desk Editor | Distinct factory/CSV role; not an alias of Chief Editorial Desk/Desk Chief | Factory route/operation role only, unless separately governed |
+| `ROLE-SENIOR-JOURNALIST` | Senior Journalist | Distinct from Chief Editorial Desk and Desk Editor; a Sheet 1/2 CSV column in its own right. Starts every route's `EW` — a trigger, not a gate or task accountability (`D-175`) | Factory route/operation role only, unless separately governed for a `T`/`EG` node |
+| `ROLE-CHIEF-EDITORIAL-DESK` | Chief Editorial Desk | Business alias: Desk Chief. **Not** Chief Journalist, and **not** Desk Editor — three distinct roles (`D-175` corrects `D-170`'s alias error) | Current `T6` role; target `T5`/`EG4`, route-dependent (`D-175` — see cardinality table below) |
+| `ROLE-CHIEF-JOURNALIST` | Chief Journalist | Distinct from Chief Editorial Desk (`D-175`, `B068-G2` — previously wrongly aliased to it by `D-170`) | Target `T5`/`EG4`, route-dependent (`D-175`) |
+| `ROLE-DESK-EDITOR` | Desk Editor | Distinct factory/CSV role; not an alias of Chief Editorial Desk/Desk Chief. Remains `ROUTE-PROD-1`'s accountable route `A` — unaffected by Chief Editorial Desk's `T5` review function (`D-175`, closes `B068-R22`) | Factory route/operation role only, unless separately governed |
 | `ROLE-CHIEF-EDITOR` | Chief Editor | CSV alias: Editor-in-Chief; human system user | Current `T5`/target `T6`/`EG5` |
 | `ROLE-SYSTEM-DELIVERY` | System delivery executor | Not a persona or an editorial judge | Delivery only |
+
+**`T5`/`EG4` cardinality is route-dependent, not a single fixed role (`D-175`, correcting `D-170`'s `F2`
+alias error).** `ROLE-CHIEF-EDITORIAL-DESK` and `ROLE-CHIEF-JOURNALIST` are independently eligible;
+which one(s) a route requires:
+
+| Route family | Required `T5`/`EG4` reviewer(s) |
+|---|---|
+| `ROUTE-PROD-1` | `ROLE-CHIEF-EDITORIAL-DESK` only |
+| `ROUTE-PROD-2` / `ROUTE-PROD-3` | `ROLE-CHIEF-JOURNALIST` only |
+| `ROUTE-FALLOUT-1` / `ROUTE-FALLOUT-2` | Both, in parallel — sibling executions inside one `T5` stage, sealed into one `T5_parallel_review_bundle` |
+| `ROUTE-FALLOUT-3` / `ROUTE-GRC` | Both, in parallel, plus `EXT-GRC`'s external `EA` boundary (`D-174`) |
+
+This does not change the gate count — a route with two required `T5` reviewers still has one `T5`/
+`EG4` stage, never two sequential gates.
 
 **Corrected 2026-08-31 (`B068-R18`, folded into `F4`).** `ROLE-EXTERNAL-GRC` previously appeared here,
 modeling the external regulator as an internal `ROLE-*`. **Removed** — an external institution is not
@@ -253,16 +272,22 @@ globally on this table; RACI is always scoped by relationship (`raci_scope`:
 
 Verified against both attached CSVs' full header rows (Reporter, Investigator, Journalist, Senior
 Journalist, Chief Journalist, Desk Editor, Editor-in-Chief, Gov Institution (GRC)): seven source
-columns resolve to an internal `ROLE-*` row above (`Chief Journalist` → `ROLE-CHIEF-EDITORIAL-DESK`'s
-alias; `Editor-in-Chief` → `ROLE-CHIEF-EDITOR`'s alias); the eighth, "Gov Institution (GRC)", resolves
-to `Modular_PRD.md` §2.3.1's `EXT-GRC`, not to a row in this catalog. **Eight canonical internal
-`ROLE-*` rows** (corrected from the previous "ten," which both miscounted the table — it displayed nine
-— and wrongly included the external party as if it were an internal role).
+columns resolve to their own internal `ROLE-*` row above (`Chief Journalist` → `ROLE-CHIEF-JOURNALIST`,
+its own row as of `D-175`, not an alias; `Editor-in-Chief` → `ROLE-CHIEF-EDITOR`'s alias); the eighth,
+"Gov Institution (GRC)", resolves to `Modular_PRD.md` §2.3.1's `EXT-GRC`, not to a row in this catalog.
+**Nine canonical internal `ROLE-*` rows** (`D-175` adds `ROLE-CHIEF-JOURNALIST`, previously wrongly
+aliased to `ROLE-CHIEF-EDITORIAL-DESK` by `D-170`; corrected from `D-174`'s "eight").
 
 ---
 
 ## 9. Changelog
 
+- **2026-08-31 v1.7:** `D-175`, confirmed directly by the Chief Editor, corrects `D-170`'s category
+  error: Chief Editorial Desk and Chief Journalist are two distinct, independently `EG4`-eligible
+  roles, not aliases. Adds `ROLE-CHIEF-JOURNALIST` (§8, nine roles now); records the route-dependent
+  `T5`/`EG4` cardinality table; confirms `ROUTE-PROD-1`'s `A` stays `ROLE-DESK-EDITOR` (`B068-R22`
+  closed, no crosswalk edit needed). §2.1/§3's actual gate-order proof remains unrewritten — still `F6`
+  work, per `D-171`'s original reasoning.
 - **2026-08-31 v1.6:** `D-174`, answering Lane B's `B068-R18`/`R19` completion review, removes
   `ROLE-EXTERNAL-GRC` (an external party is not an internal role; it collided with `Modular_PRD.md`
   §2.3.1's `EXT-GRC`) and corrects the catalog's row count and its overstated field claims. Eight

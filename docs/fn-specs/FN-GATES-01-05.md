@@ -226,7 +226,7 @@ The other four absorb into the S1 window — the expected result if `Fn_Specs` w
 
 Closes no Open Decision. `FR-04` and `FR-05` remain `OD`-provisional. Authorizes no code, schema, or migration. Field names shown are decided (`Q11` closed by `D-97`/`D-111`) and applied in `0002`. `FB-05`'s missing trend-signal provenance is **recorded, not resolved** — it must be settled before S1.
 
-## 11. Editorial node catalog `[V1]` — `F3` draft, `D-171`/`D-172`
+## 11. Editorial node catalog `[V1]` — `F3` draft, `D-171`/`D-172`/`D-175`
 
 **Added 2026-08-31, `docs/handoff/B-068-*.md` `F3`.** Sections 1–10 above describe the currently
 governed `T1`–`T6` gates and remain unedited — under `D-171`'s explicit S2 hold, they are the *record
@@ -241,7 +241,7 @@ current behaviour.
 | `EG1` | `T1` | `ROLE-REPORTER` | `decided_target_held` |
 | `EG2` | `T2`+`T3` | `ROLE-INVESTIGATOR` | `decided_target_held` |
 | `EG3` | `T4` | `ROLE-JOURNALIST` | `decided_target_held` |
-| `EG4` | `T5` | `ROLE-CHIEF-EDITORIAL-DESK` | `decided_target_held` |
+| `EG4` | `T5` | Route-dependent: `ROLE-CHIEF-EDITORIAL-DESK` and/or `ROLE-CHIEF-JOURNALIST`, singly or in parallel — never aliases (`D-175`; cardinality table `raci-involvement-matrix.md` §8) | `decided_target_held` |
 | `EG5` | `T6` | `ROLE-CHIEF-EDITOR` | `decided_target_held`; human executor required, refused otherwise |
 | Delivery | `T7`/publication actions | `ROLE-SYSTEM-DELIVERY` | no editorial authority; `not_applicable` Line |
 
@@ -251,9 +251,10 @@ order, currently held), `decided_target_held` (this table — decided, not build
 `not_built_v1`, `deferred`.
 
 An Editorial Virtual Node Agent (this table) is never a persona and never a system user — see
-`Modular_PRD.md` §2.3's catalog split and `raci-involvement-matrix.md` §6's role catalog for those.
-`EG4`'s and `EG5`'s target Line/executor-type/blind-review/return-metric/override content is `D-172`
-(`V1-DECISION-REGISTER.md` §5.14dy), not restated here to avoid a second copy drifting from the first.
+`Modular_PRD.md` §2.3.1's catalog split and `raci-involvement-matrix.md` §8's role catalog for those.
+`EG4`'s and `EG5`'s target Line/executor-type/blind-review/return-metric/override content is
+`D-172`/`D-175` (`V1-DECISION-REGISTER.md` §5.14dy, §5.14e1), not restated here to avoid a second copy
+drifting from the first.
 
 **Not in this table:** gate entry/exit evidence, checklist versions, negative tests, and delivery's
 mutation-refusal rule — `B-068` `F6` items 7–8, blocked on `F4`'s route/operation crosswalk for real

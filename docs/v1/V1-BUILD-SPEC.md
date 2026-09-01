@@ -215,17 +215,20 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 
 ### S2 — Line assignment and four-eyes
 
-> **EXPLICIT S2 HOLD (`D-171`, 2026-08-31, correcting `D-170`'s narrower stance, answering `B068-R8`).**
-> The Chief Editor decided a *target* gate order — `T5` becomes Chief Editorial Desk review, `T6`
-> becomes the human Chief Editor's final decision — inverting this section's `T5`=human/`T6`=agent
-> assignment below. **`D-164`/`D-165`'s S2 Unit 1/Unit 2 authorization is held for BOTH orders — the
-> current order below is no longer safe to build once a different order was decided as target.** No
-> `T5`/`T6`-sensitive route, RPC, UI, migration, or test starts against either order until `F6` lands
-> and a fresh, separate build authorization selects one contract, per `docs/handoff/B-068-*.md` §0's
-> "Defer" rule. Work that is genuinely order-independent must be named explicitly by whoever proposes
-> it — silence is not authorization. Rewriting this DoD is `B068-F6`/`F7` work; `D-171` drafted the
-> target Line/executor matrix, canary, blind-review sequence, return-metric redefinition, and override
-> rule but did not yet rewrite this section with them.
+> **EXPLICIT S2 HOLD (`D-171`, 2026-08-31, correcting `D-170`'s narrower stance, answering `B068-R8`;
+> target corrected `D-175`).** The Chief Editor decided a *target* gate order — `T6` holds the human
+> Chief Editor's final decision; `T5` holds **two distinct, independently eligible reviewer roles**
+> (Chief Editorial Desk, Chief Journalist — not aliases, `D-175`), required singly or in parallel
+> depending on route (`raci-involvement-matrix.md` §8's cardinality table) — inverting this section's
+> `T5`=human/`T6`=agent assignment below and splitting its single assumed `T5` role in two.
+> **`D-164`/`D-165`'s S2 Unit 1/Unit 2 authorization is held for BOTH orders — the current order below
+> is no longer safe to build once a different order was decided as target.** No `T5`/`T6`-sensitive
+> route, RPC, UI, migration, or test starts against either order until `F6` lands and a fresh, separate
+> build authorization selects one contract, per `docs/handoff/B-068-*.md` §0's "Defer" rule. Work that
+> is genuinely order-independent must be named explicitly by whoever proposes it — silence is not
+> authorization. Rewriting this DoD is `B068-F6`/`F7` work; `D-171`/`D-172`/`D-175` drafted the target
+> Line/executor matrix, canary, blind-review sequence (now bundle-aware), return-metric redefinition,
+> override rule, and route-dependent cardinality but did not yet rewrite this section with them.
 
 Actor context on every action · four-eyes evaluator behind `FOUR_EYES_MODE` · **T5 is Line 2, human-executed** · **blind first pass at T5** — Line 2 records its disposition *before* the Line 1 recommendation is revealed, without which agreement cannot be distinguished from anchoring · T6 validates against T5's recorded fields, not a boolean · **T6→T5 return rate logged distinctly** · `EmergencyBypass` as `event_type` · hard block on one identity holding both Line 1 and Line 2 roles (`SEC-01`).
 

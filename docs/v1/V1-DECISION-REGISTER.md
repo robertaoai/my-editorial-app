@@ -11136,3 +11136,122 @@ reopen `D-170`–`D-173`'s business rulings.** The route-operation join and its 
 confirmations remain Chief Editor input (crosswalk §5) — this decision structures the request, it does
 not supply the answers. `F6` items 7–8 and `F7` remain blocked on that join. This decision does not
 touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or `.github/workflows/`.
+
+## 5.14e1 `D-175` — `D-170`'s `F2` Premise Corrected: `T5` Holds Two Distinct, Non-Alias Reviewer Roles With Route-Dependent Cardinality; `D-171`/`D-172` Re-Derived
+
+**Chief Editor clarification, 2026-08-31, confirmed directly in this session (`B-068` §16, `B068-G2`
+executive guide), correcting a category error `D-170` introduced and `D-171`/`D-172` inherited.**
+
+### The error, and what corrects it
+
+`D-170`'s `F2` treated **Chief Editorial Desk** as a renamed **Chief Journalist** — one role, aliased,
+occupying `T5` alone opposite the human Chief Editor at `T6`. That was wrong. **The two are separate,
+independently gate-eligible roles.** The Chief Editor confirms directly:
+
+- **`T6` was always the destination for the human Chief Editor's final in-system judgment** — `D-170`'s
+  direction (human moves to `T6`, an agent-eligible role reviews at `T5`) was correct and is
+  **unchanged and not reopened**.
+- **What `T5` means was wrong.** `T5` is not one aliased role; it holds **Chief Editorial Desk and
+  Chief Journalist as two distinct nodes**, each independently `EG4`-eligible, combined by
+  **route-dependent cardinality**:
+
+  | Route family | Required `T5`/`EG4` reviewer(s) |
+  |---|---|
+  | `ROUTE-PROD-1` | `ROLE-CHIEF-EDITORIAL-DESK` only |
+  | `ROUTE-PROD-2` / `ROUTE-PROD-3` | `ROLE-CHIEF-JOURNALIST` only |
+  | `ROUTE-FALLOUT-1` / `ROUTE-FALLOUT-2` | **Both, in parallel** — sibling executions inside one `T5`
+    stage, never two sequential gates, sealed into one immutable `T5_parallel_review_bundle` |
+  | `ROUTE-FALLOUT-3` / `ROUTE-GRC` | **Both, in parallel**, plus `EXT-GRC`'s external `EA`/source `A`
+    boundary (unchanged from `D-174`) |
+
+  This does **not** change the gate count (`D-170`'s "five judgment gates" stands: `EG1`–`EG5` plus
+  Delivery) — a route with two required `T5` reviewers still has one `T5`/`EG4` stage, not two.
+- **`ROUTE-PROD-1`'s authority is unambiguous, confirmed directly:** `ROLE-DESK-EDITOR` remains the
+  route's accountable `A` exactly as `D-174`'s crosswalk already states. `ROLE-CHIEF-EDITORIAL-DESK` is
+  the `T5` gate-review function only — a logical node assignment, not a route-accountability claim.
+  Closes `B068-R22` without touching `factory-route-operation-crosswalk.md` §1, which was already
+  correct.
+- **A new upstream rule, confirmed directly:** a Senior Journalist action starts every route's `EW`
+  before `T1`–`T4`'s common validation sequence. This is a **trigger**, not a gate and not task
+  accountability in its own right — recorded here because neither CSV states a universal start-trigger
+  field; this clarification is the rule's governing source.
+- **Terminology, confirmed directly:** "Lane D" in prior informal usage meant an **External Execution
+  Environment (`ENV-EXT`)** — infrastructure/service context — never a fourth development-ownership
+  lane. `Lane A`/`B`/`C` and `D-75`/`D-156`'s state machine are **unchanged**; `ENV-EXT` never holds
+  the commit lock, is never `Active`/`Eligible`/`Blocked`/`Done`, and owns no repository surface. No
+  rule-file, handoff, or CI amendment is authorized by this fact. Closes `B068-R33`.
+
+### `D-171`/`D-172` re-derived against the corrected model
+
+1. **Role catalog split** (`raci-involvement-matrix.md` §8): `ROLE-CHIEF-JOURNALIST` added as its own
+   canonical row — **removed as an alias** of `ROLE-CHIEF-EDITORIAL-DESK`. Nine canonical internal
+   `ROLE-*` rows (eight plus this addition).
+2. **Line/executor matrix** (`D-171`'s original table, §5.14dx): the single `T5`/`EG4` row is replaced
+   by the route-dependent cardinality table above. `required_line`/`executor_type`/
+   `line_separation_status` are unchanged in kind (Line 1, agent, `not_applicable` — only `T6` is a
+   genuine Line crossing, `D-172` unaffected) but now apply per required reviewer, not per a single
+   assumed role.
+3. **Blind-review sequence** (`D-172`'s three-event correction): unchanged in structure, corrected in
+   scope — `EG5_recommendation_revealed_to_EG5`'s reveal step now reveals the **complete sealed `T5`
+   bundle** (one report on production routes, both linked reports on fallout/GRC routes) only after
+   `EG5_preliminary_disposition_sealed`. `T6` cannot start until every required report for the route
+   exists — no winner, fallback order, or silent merge between two reports.
+4. **Human-only canary**: unchanged — still anchored to `T6`/`EG5`, the only Line-crossing transition.
+5. **`FN-GATES-01-05.md` §11**: `EG4`'s "Target executor role" cell is corrected from the single
+   `ROLE-CHIEF-EDITORIAL-DESK` to "route-dependent: `ROLE-CHIEF-EDITORIAL-DESK` and/or
+   `ROLE-CHIEF-JOURNALIST`, per the cardinality table above."
+6. **`raci-involvement-matrix.md`'s target-order note and `V1-BUILD-SPEC.md`'s S2 hold note**: both
+   corrected from "T5 becomes Chief Editorial Desk review" (implying a single, exclusive role) to name
+   the two-role, route-dependent structure. Neither document's actual `T1`–`T6`/S2 build-facing content
+   is rewritten — `D-171`'s hold and the "flag, don't rewrite" reasoning stand unchanged; only the
+   *description of the target* is corrected, matching what `D-171`/`D-172` already did for the reasons
+   they already gave.
+
+### What remains explicitly open — not decided by this session
+
+- **`F4`'s 8×7 route-applicability matrix** (`B-068` §14.4) is **not approved** — confirmed directly
+  this session. It stays a draft proposal; `factory-route-operation-crosswalk.md` §3/§5 remain open
+  exactly as `D-174` left them. This decision does not write it in.
+- **`F6`'s full behavior/acceptance-criteria draft** (gate evidence, negative tests, the
+  `T5_parallel_review_bundle`'s exact schema, delivery protection) is **not drafted here** — real
+  design work, appropriately scoped as its own pass once `F4`'s join exists to ground it.
+- **`F7`'s propagation, Graphify semantic ingestion, and fresh build authorization** remain
+  unstarted — gated on `F4` and the full `F6` draft, per `B-068`'s own repeated closure definition.
+- `D-171`'s explicit S2 hold is **unaffected and not reopened** by any of the above.
+
+### Gaps
+
+**Addressed:** the `D-170` `F2` category error (Chief Editorial Desk/Chief Journalist alias, corrected
+to two distinct roles with route-dependent cardinality), `B068-R21` (`OD4` is not the pipeline's cause
+or governor — restated, not reopened, `D-168`/`D-169` stand), `B068-R22` (`ROUTE-PROD-1` authority —
+`ROLE-DESK-EDITOR` stays route `A`), `B068-R25` (`EA` is never inheritable as a local operation `A` —
+restated from `D-174`, not a new rule), `B068-R33` (`ENV-EXT` terminology). **Still open:** `B068-R23`,
+`R24`, `R26`, `R27` (route-level newsworthiness-versus-remediation framing, join sequencing fields,
+override-timing detail, operation-evidence-to-gate overlay) — real `F4`/`F6` content, not decided this
+session. **Unchanged:** `D-170`'s `F1`/`F5` rulings, `D-171`'s S2 hold, `D-174`'s `F4`-artifact
+corrections, `D-165`–`D-169`.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-175` `T5` two-role, route-dependent cardinality corrected | ✅ §5.14e1 | ✅ S2 hold note corrected | **— unaffected** | **— unaffected** | **— unaffected** | **— not yet: `FR-04`/`FR-05`/`AC-05`–`AC-08` restatement remains `F7`** |
+| `ROLE-CHIEF-JOURNALIST` split from `ROLE-CHIEF-EDITORIAL-DESK` | ✅ §5.14e1 | **— unaffected** | **— unaffected** | **— unaffected: existing file** | **— unaffected** | **— unaffected: RACI matrix is `docs/governance/`** |
+| `ROUTE-PROD-1` authority (`B068-R22`) closed, no crosswalk edit needed | ✅ §5.14e1 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `ENV-EXT`/`B068-R33` terminology fact | ✅ §5.14e1 | **— unaffected** | **— unaffected: `D-75`/`D-156` state machine unchanged, no rule-file edit authorized** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**`raci-involvement-matrix.md`/`FN-GATES-01-05.md` (not tracked `D-54` tiers — cited, same disposition
+as `Fn_Specs` under `D-36`):** role catalog split (§8), `EG4` target-executor cell corrected (`FN-GATES`
+§11), target-order note corrected (title-block note). Actual `T1`–`T6`/§2.1/§3 build-facing content
+remains unrewritten, per `D-171`'s original reasoning.
+
+**Handoff tracking:** `B-068` stays `Open`. Its Lane A field is updated to record this correction and
+what remains open.
+
+### Scope limits
+
+**Corrects `D-170`'s `F2` premise and re-derives `D-171`/`D-172` to match; builds nothing, authorizes no
+code.** `F4`'s route-operation matrix is explicitly not approved by this decision. `F6`'s full draft,
+`F7`'s propagation/sync/verification, and any fresh build authorization remain separate, unstarted work.
+`D-171`'s S2 hold is unaffected. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`,
+`__tests__/`, or `.github/workflows/`.

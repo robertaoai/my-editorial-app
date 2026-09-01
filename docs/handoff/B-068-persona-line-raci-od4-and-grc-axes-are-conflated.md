@@ -8,18 +8,23 @@
   normalized across Lanes A/B/C
 - **Status:** Open
 - **Lane A:** Acknowledged 2026-08-31 — critic pass complete (§8). `F1`/`F2`/`F5` decided (`D-170`);
-  `D-171` S2 hold; `D-172` corrected two `D-171` control defects; `D-173` applied `F3` and `F4`'s
-  masters. Lane B's independent review of `D-173` (§13, `B068-R17`–`R20`) found four completion
-  defects in those artifacts — a claimed `raci_scope` field that didn't exist, the external regulator
-  modeled as an internal `ROLE-*` (colliding with `Modular_PRD.md`'s own `EXT-GRC`), an overstated role
-  catalog (claimed 10 rows/fields it didn't have), and `F4`'s verification status overstated (framed as
-  "6 operations need a decision" when all 8 need a route disposition). `V1-DECISION-REGISTER.md`
-  `D-174` corrects all four: `factory-route-operation-crosswalk.md` (v0.2) now defines and uses a real
-  `raci_scope`/`party_id` assignment shape throughout, `ROLE-EXTERNAL-GRC` is removed from
-  `raci-involvement-matrix.md` (v1.6, now 8 canonical roles, identity-only), and the crosswalk's §5
-  restates the Chief Editor request as an 8×7 `required`/`optional`/`conditional`/`not_applicable`
-  route-applicability matrix plus four conservative-default confirmations — still outstanding. `F6`
-  items 7–8 and `F7` remain blocked on that input.
+  `D-171` S2 hold; `D-172` corrected two `D-171` control defects; `D-173` applied `F3`/`F4` masters;
+  `D-174` corrected four `D-173` completion defects (`raci_scope`, `EXT-GRC`, role-catalog count,
+  verification framing). **§16's `B068-G2` guide identified a deeper category error in `D-170`'s `F2`
+  premise, confirmed directly by the Chief Editor this session:** Chief Editorial Desk and Chief
+  Journalist are two distinct, independently `EG4`-eligible roles, not aliases — `T5`'s required
+  reviewer(s) are route-dependent (one role on production routes, both in parallel on fallout/GRC
+  routes), while `T6` remains the human Chief Editor's final decision exactly as `D-170` already
+  targeted. `V1-DECISION-REGISTER.md` `D-175` records this and re-derives `D-171`/`D-172` against it:
+  `raci-involvement-matrix.md` (v1.7) adds `ROLE-CHIEF-JOURNALIST` as its own role and the cardinality
+  table; `FN-GATES-01-05.md` §11 and `V1-BUILD-SPEC.md`'s S2 hold note are corrected to match. Also
+  confirmed directly: `ROUTE-PROD-1`'s `A` stays `ROLE-DESK-EDITOR` (`B068-R22` closed, no crosswalk
+  edit needed), and "Lane D" meant `ENV-EXT` — an external execution environment, never a fourth
+  development lane; `D-75`/`D-156` are unchanged (`B068-R33` closed). **Confirmed still open, not
+  decided this session:** `F4`'s 8×7 route-applicability matrix (§14.4) remains an unapproved draft —
+  the crosswalk's join stays exactly as `D-174` left it. `F6`'s full behavior/AC draft, `F7`'s
+  propagation/Graphify-sync/independent-verification, and any fresh build authorization remain
+  unstarted, real follow-on work — not attempted in this pass.
 - **Resolution:**
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `docs/Modular_PRD.md` §2.3 and
@@ -92,7 +97,7 @@
 | `Modular_PRD.md` §2.3 personas | **IN SYNC for `F3`; current/target split preserved** | `D-173` added §2.3.1's persona/role/node split while retaining §2.3 as the current-build record |
 | Governed T5/T6 role contract | **HELD, not build-authorized** | `D-171` holds both orders; `D-172` corrected the target Line-separation and blind-review drafts. Remaining FR/AC propagation still belongs to `F6`/`F7` |
 | Attached Sheet 1/Sheet 2 mapping | **PARTIALLY APPLIED** | `D-173` created the route and operation masters. The route-operation join and unresolved operation dispositions remain open; see §13 for structural defects found in the applied masters |
-| Graphify coverage for B-068 | **IN SYNC at committed HEAD** | `.graphify/branch.json` records `lastAnalyzedHead = 7e0d544`, matching HEAD, with `stale: false`. A later Lane A source commit must be synchronized again during `F7` |
+| Graphify coverage for B-068 | **DRIFTED for currency after `D-174` graph-fragment commit** | `.graphify/branch.json` records `lastAnalyzedHead = 3e10767`, while HEAD is `86f7cc7`; its `stale: false` flag is contradicted by the hashes and is not evidence of currency. Lane A must synchronize after the next source decision and again at final `F7` |
 
 Any `DRIFTED` or `UNKNOWN` row above blocks this handoff's verification, but does not reopen the
 preserved D-165–D-169 baseline.
@@ -598,7 +603,10 @@ Coverage alone is insufficient.
 | **Reject verification** — F7 cannot start | Handoff / Graphify | F3, F4 and corrected/complete F6 remain open; graph currency/semantics pending |
 | **Defer** — all implementation | Lane B code/schema/UI/tests | Fresh authorization only after F7 |
 
-## 13. Current completion review after `D-172`/`D-173`
+## 13. Historical completion review after `D-172`/`D-173` — corrected by `D-174`
+
+`D-174` applied `B068-R17`–`R20`. Preserve this section as the critic record; use §14 for current
+status and the new Chief Editor workflow clarification.
 
 ### 13.1 Normalized request and settled boundary
 
@@ -701,3 +709,377 @@ provenance and normalizes its effective relationship to `EXT-GRC` as `EA`.
 | **Reject verification** — F4 closure | Handoff / RACI | Route join empty; operation and authority semantics unresolved |
 | **Reject verification** — F6 items 7–8 and F7 closure | Product Requirements / Fn_Specs / tracking / Graphify | Complete normalized F4 first, then propagate and independently verify |
 | **Defer** — implementation and fresh build authorization | Lane B code/schema/UI/tests | D-171 hold remains until F7 closes |
+
+## 14. Current review of the work-order → route → operation clarification
+
+### 14.1 Normalized request
+
+> Treat the Chief Editor's new text as a proposed business-workflow clarification, not as a completed
+> 8×7 route join. Preserve `D-174`. Separate route classification, factory operations, phase-gate
+> judgment, internal accountability, external authority, OD4, and evidence recording. Draft a
+> conservative route-operation matrix for approval, identify the one remaining authority ambiguity,
+> and keep `F4`/`F6`/`F7` and implementation open until the Chief Editor confirms it.
+
+### 14.2 Correct parent workflow
+
+```text
+Work order created
+  → factory route selected (`ROUTE-*`, never a development Lane)
+  → required/conditional Sheet 2 operations scheduled and executed
+  → each operation records its local internal A, or an explicitly approved internal route-A inheritance
+  → operation evidence is reviewed at the applicable EG1–EG5 handoff defined later by F6
+  → external routes obtain `EXT-GRC`/`EA` acceptance after the internal judgment chain
+  → Delivery consumes the immutable approved/accepted result
+  → every selection, reclassification, operation, judgment, override, acceptance, and delivery event is append-only
+```
+
+If risk changes the route, the original route is not overwritten. Record a new route-selection event,
+its trigger, prior route, new route, decision-maker, and evidence.
+
+### 14.3 Semantic corrections and new gaps — fold into existing `F4`/`F6`
+
+| Review ID | What is unclear or unsafe | Guaranteed failure | Draft repair |
+|---|---|---|---|
+| `B068-R21` | “OD4 requires the judgment-rules template” can read as OD4 causing or governing the six-node pipeline | Reintroduces the category error corrected by `D-168`: a deferred intra-node remedy becomes a dependency of the inter-node gates | Five judgment gates plus Delivery stand independently. Codified judgment rules may later make OD4 executable inside a node, but OD4 remains separately authorized and does not create Gate 6 |
+| `B068-R22` | “Chief Editorial Desk — ROUTE-PROD-1” conflicts with Sheet 1's verified route `A = ROLE-DESK-EDITOR`; “Chief Journalist” is already an alias of Chief Editorial Desk, not another tier role | Either the verified Sheet 1 authority is silently overwritten, or one canonical role is duplicated into two identities | Keep route A, gate executor, and newsworthiness reviewer as separate fields. Chief Editor must say whether the PROD-1 statement replaces route A or merely names a reviewer. Preserve Chief Journalist as the alias of `ROLE-CHIEF-EDITORIAL-DESK` unless explicitly superseded |
+| `B068-R23` | “Newsworthy ranking” is applied to production, fallout, and GRC routes as though they make the same decision | Legal remediation and external regulatory acceptance are misreported as editorial popularity judgments; evidence and authority become indefensible | Production routes record newsworthiness/trend-decay judgment; fallout routes record remediation/risk disposition; `ROUTE-FALLOUT-3`/`ROUTE-GRC` record external acceptance/mandate plus judicial or GRC institutional-record references |
+| `B068-R24` | The 8×7 applicability matrix does not record station order, repetition, or rerouting | A factory knows which stations exist but not what runs first, what may repeat, or whether crisis work runs under the old route | After applicability is approved, add `stage_order`, `repeatable`, `entry_trigger`, `completion_evidence`, and `reroute_target` to each applicable join; do not use Sheet 2 row order as an unstated sequence |
+| `B068-R25` | “Local A, or inherited parent A” is unsafe when the route parent carries external `EA` | An internal drafting/review operation inherits accountability from an external institution, making the regulator appear to execute or manage internal work | Only an internal route `A` may be inherited, and only through an explicit join decision. `EA` is never inheritable; operations on an external-authority route require a named internal `A` before external acceptance |
+| `B068-R26` | “Internal override or external acceptance” sounds mutually exclusive and records evidence only at the end | An override bypasses a required operation or external acceptance, or earlier decisions disappear behind the final record | Internal `O` may amend an existing internal disposition with reason; it never substitutes for missing work and never overrides `EA`. Record append-only evidence at every step, not only final acceptance |
+| `B068-R27` | The summary places Sheet 2 stations and the six nodes in one flow but does not map operation evidence to a gate handoff | Implementers either run all gates after all work, duplicate a gate per route, or let a gate pass without the station evidence it is meant to review | F4 owns route applicability/order; F6 owns a separate operation-evidence → gate entry/exit overlay. Universal EG1–EG5 behavior remains defined once |
+
+### 14.4 Proposed 8×7 applicability matrix — decision draft, not source fact
+
+This matrix is a conservative operating-policy proposal derived from the clarified factory flow. It
+does not claim the CSVs contain these relationships. Lane A may write it into the crosswalk only after
+the Chief Editor approves or amends it.
+
+| Operation | `PROD-1` | `PROD-2` | `PROD-3` | `FALLOUT-1` | `FALLOUT-2` | `FALLOUT-3` | `GRC` |
+|---|---|---|---|---|---|---|---|
+| `OP-PITCH` | `required` | `required` | `required` | `not_applicable` | `not_applicable` | `not_applicable` | `not_applicable` |
+| `OP-RESEARCH` | `conditional:C1` | `required` | `required` | `conditional:C1` | `required` | `required` | `required` |
+| `OP-DRAFT` | `required` | `required` | `required` | `conditional:C2` | `required` | `conditional:C2` | `conditional:C3` |
+| `OP-COMPLEX-SERIES` | `not_applicable` | `conditional:C4` | `conditional:C4` | `not_applicable` | `not_applicable` | `not_applicable` | `not_applicable` |
+| `OP-COPY-EDIT` | `required` | `required` | `required` | `required` | `required` | `conditional:C2` | `conditional:C3` |
+| `OP-LEGAL-RISK` | `conditional:C5` | `conditional:C5` | `required` | `conditional:C5` | `required` | `required` | `required` |
+| `OP-FINAL-SIGNOFF` | `required` | `required` | `required` | `required` | `required` | `required` | `required` |
+| `OP-CRISIS` | `not_applicable` | `not_applicable` | `not_applicable` | `not_applicable` | `required` | `required` | `conditional:C6` |
+
+Trigger definitions:
+
+| Trigger | Exact condition |
+|---|---|
+| `C1` | Material facts are disputed, source confidence is below the route threshold, or a downstream finding requires deep re-verification |
+| `C2` | The route must issue or amend a public correction, retraction, legal response, or other external editorial artifact |
+| `C3` | The GRC route requires a formal submission, licensing response, or public-facing compliance artifact |
+| `C4` | The work order is explicitly classified as a multi-part enterprise/investigative series |
+| `C5` | A documented legal, ethical, manipulation, money-laundering, corruption, defamation, or regulatory-risk signal is present |
+| `C6` | A regulatory breach, enforcement action, licensing incident, or regulator-directed retraction requires crisis handling |
+
+`optional` is deliberately unused: an untriggered optional station has no deterministic completion
+rule. If the Chief Editor wants discretion, it should be expressed as `conditional` with a named
+trigger or approving role.
+
+Production-route crisis signals do not execute `OP-CRISIS` under the production route. They create an
+append-only reclassification into the appropriate fallout/regulatory route, after which that route's
+matrix applies.
+
+### 14.5 Route disposition authority — what the clarification does decide
+
+| Route family | Decision being made | Authority interpretation |
+|---|---|---|
+| `ROUTE-PROD-1` | Low-impact daily-news newsworthiness, including trend-over-fade | **Unclear:** Sheet 1 says route `A = ROLE-DESK-EDITOR`; the new text names Chief Editorial Desk. Do not overwrite either until the Chief Editor distinguishes route A from reviewer |
+| `ROUTE-PROD-2` / `ROUTE-PROD-3` | Enterprise/investigative newsworthiness and trend-over-fade | `ROLE-CHIEF-EDITORIAL-DESK` is the route A; “Chief Journalist” remains its alias |
+| `ROUTE-FALLOUT-1` / `ROUTE-FALLOUT-2` | Internal remediation, correction/retraction, and risk disposition | `ROLE-CHIEF-EDITOR` is internal route A; this is not a newsworthiness score |
+| `ROUTE-FALLOUT-3` / `ROUTE-GRC` | External legal/regulatory acceptance or mandate | `EXT-GRC` carries `EA`, using referenced judicial/GRC institutional records; internal work still needs internal executors and A |
+
+### 14.6 Failure-derived success criteria
+
+| Deliberate failure | Required rejection/proof |
+|---|---|
+| OD4 is cited as the source or governor of a gate/node | Ontology check rejects the dependency; OD4 may appear only as separately authorized intra-node architecture |
+| “production lane” is stored as Lane 1/2/3 or Lane A/B/C | Vocabulary check rejects it; only `ROUTE-*` is accepted |
+| Chief Journalist and Chief Editorial Desk receive separate canonical IDs | Alias uniqueness rejects the duplicate unless a new Chief Editor ruling supersedes F3 |
+| PROD-1's route A changes without resolving Desk Editor versus Chief Editorial Desk | Authority-diff review rejects propagation |
+| Fallout/GRC result is stored only as a newsworthiness ranking | Evidence-schema review rejects it; remediation or external-acceptance fields are required |
+| An operation inherits `EXT-GRC`/`EA` as local A | Authority validation rejects the assignment |
+| A conditional join lacks its named trigger | Join validation rejects it |
+| A crisis signal mutates a production route in place | Audit test requires a new route-selection event preserving the former route |
+| A route lists applicable operations but no order/completion evidence | F4 remains planning-incomplete and F6 evidence overlays stay held |
+| An operation is treated as a gate, or all operations are assumed to precede every gate | Layering check rejects it until F6 names the operation-evidence → gate handoff |
+| Internal override removes history or bypasses `EA` | Authorization refuses the action and append-only history remains unchanged |
+| Graphify analyzed HEAD differs from Git HEAD | `docs-drift` fails; F7 cannot verify |
+
+### 14.7 Current approve / reject summary
+
+| Decision | Tier | Follow-up phase |
+|---|---|---|
+| **Approve** — `D-174` corrections | Decision Register / RACI / governance crosswalk | Preserve; do not repeat `R17`–`R20` |
+| **Approve-with-conditions** — corrected factory workflow and proposed applicability matrix | RACI/governance | Chief Editor confirms §14.4 and resolves PROD-1 authority in §14.5 |
+| **Approve-with-conditions** — conservative defaults from crosswalk §4 | RACI/governance | Confirm no silent A inheritance, no inferred `R = A`, unknown blank GRC, and held milestone decomposition |
+| **Reject** — OD4 as the cause/governor of the six nodes | Product architecture | Preserve five inter-node judgments plus Delivery; OD4 remains separate/intra-node and deferred |
+| **Reject verification** — F4/F6/F7 closure | Handoff / Product Requirements / Fn_Specs / Graphify | Await route-matrix approval, operation sequencing/design, PROD-1 authority answer, propagation, sync, and independent review |
+| **Defer** — implementation | Lane B code/schema/UI/tests | `D-171` hold remains; no build authorization |
+
+## 15. `B068-G1` only — business-governance parent contract
+
+### 15.1 Normalized request and scope boundary
+
+> Close one conceptual block at a time, beginning with `B068-G1`. Define how the manual Editorial
+> Workflow is mirrored into the product; how Project IIA Lines, RACI, external GRC, editorial nodes,
+> OD4, the appointed Chief Editor, development lanes, and external servers relate without becoming
+> the same thing; and define the minimum decision report needed by the one accountable natural
+> person. Draft only. Do not decide the open F4 matrix, F6 behavior, or any build work in this pass.
+
+`D-170` adopted eight separate axes and therefore **addressed** `B068-G1`; it did not define all of
+their relationships. This section supplies the missing parent relationship contract. It does not
+reopen `D-170`–`D-174` and does not close child gaps `G2`–`G7`.
+
+### 15.2 Parent governance model — one layer, one job
+
+| Layer | Canonical meaning | What it may reference | What it never becomes |
+|---|---|---|---|
+| Manual business workflow | The human newsroom practice being mirrored | Source CSVs, policies, institutional evidence | A system permission or development lane |
+| Editorial Workflow (`EW`) | The product's stable mirror of that manual flow | `EW1`–`EW3`, gate evidence, factory work | An IIA Line, RACI letter, route, or database state |
+| Factory route/operation | Which work order applies and which stations perform it | `ROUTE-*`, `OP-*`, scoped RACI | A phase gate or development lane |
+| Task RACI | Who performs, answers for, is consulted on, or is informed about one atomic task | Canonical role/party IDs and task scope | A global title hierarchy or IIA assurance model |
+| Project IIA Lines | Internal operations/oversight/independent-assurance classification | Line assignment and separation evidence | Editorial sequence, RACI, external regulator, or OD4 |
+| External GRC | External acceptance, mandate, or institutional assurance evidence | `EXT-GRC`, `EA`, judicial/GRC record references | Internal `A`, Line 3 by default, persona, or node agent |
+| Editorial gate node | Logical workcell that applies one governed judgment | EG node, EW stage, Line, executor role, evidence | Persona, natural person, or OD4 agent |
+| Editorial virtual-node agent | Agent instance executing an eligible node role | Node assignment and RACI `R` | Internal `A`, Chief Editor account, or external authority |
+| OD4 virtual agents | Future Proposer/Critics/Judge reasoning inside one node | Codified judgment template and separate authorization | Phase gates, Project Judge, Line 3, GRC, or a v1 feature |
+| Human appointment | Time-bounded assignment of a natural person to a stable role | Chief Editor/Judge/user role and authority record | A hard-coded name used as permission logic |
+| Development Lane | Ownership of project work and the commit lock | Lane A/B/C under `D-75`/`D-156` | Product workflow, server, user, or business role |
+| External Execution Environment (`ENV-EXT`) | External server/service where authorized work runs | Host/service identity, data boundary, connection evidence | Development Lane; the governed development set remains Lane A/B/C |
+
+Relationships are explicit, but identities are not inferred: an EG node may reference an EW stage,
+IIA Line and RACI role without those fields becoming synonyms.
+
+### 15.3 Editorial Workflow mirror
+
+The minimum EW semantics consistent with the clarified five-gate target are:
+
+| EW stage | Manual purpose mirrored | Target node coverage | Project IIA relationship |
+|---|---|---|---|
+| `EW1` — evidence production | Originate, validate and develop the editorial evidence | `EG1` Reporter, `EG2` Investigator, `EG3` Journalist | Line 1 operations |
+| `EW2` — editorial-desk review | Review the work product, rank production newsworthiness where applicable, and recommend/return | `EG4` Chief Editorial Desk | Line 1 operations with a distinct node/executor control |
+| `EW3` — accountable human disposition | Human final decision, internal override when permitted, escalation, and release/hold | `EG5` Chief Editor | Line 2 management/oversight |
+| Delivery | Execute the immutable approved disposition | Delivery Node | No editorial Line or authority |
+
+Line 3 remains a deferred independent-assurance capability (`D-57`/`D-166`). External GRC remains
+outside the Project IIA Lines. Neither is an EW stage.
+
+### 15.4 Source RACI versus effective v1 RACI — the multiple-`A` repair
+
+The two CSVs and the system must not share one undifferentiated `A` column:
+
+| View | Meaning of `A` | Required handling |
+|---|---|---|
+| CSV/source organization | The human role the manual or target newsroom associates with a route/task | Preserve as `source_accountability_role`; evidence/consultation only, not a v1 permission grant |
+| Target multi-person organization | The accountable role after the business appoints distinct natural people | Deferred target mapping; still exactly one effective internal `A` per atomic task |
+| Current v1 collapsed organization | One natural person occupies the internal accountable roles | `ROLE-CHIEF-EDITOR` is the effective internal accountable role; its current appointment holder is Robert Tan under `D-158` |
+| Virtual-agent execution | The eligible agent performs the work | Agent carries scoped `R`, never internal `A` merely because it executes a node |
+| External authority | Government institution/regulator accepts or mandates | `EXT-GRC` carries `EA`, never internal `A`; Chief Editor remains accountable for the organization's internal response |
+
+Therefore the route crosswalk needs both `source_accountability_role` and
+`effective_v1_accountable_role`. Multiple source `A` roles are not multiple simultaneous v1
+accountable people. Within the current system, every atomic internal task resolves to exactly one
+effective internal `A`; an external route may additionally require one `EA`.
+
+### 15.5 Separate the problem box from the decision box
+
+Use one **Chief Editor Decision Brief** with two linked, independently retained records:
+
+| Record | Contains | Must not contain/do |
+|---|---|---|
+| Problem / Evidence Record | Work order, route and EW stage; issue/question; facts and sources; trend/risk indicators; missing or disputed evidence; agent recommendations; gate/Line/RACI provenance | Must not present a recommendation as the human or external decision; must not be overwritten when a decision changes |
+| Decision / Disposition Record | Decision-maker role and appointment; `approve`/`return`/`hold`/`escalate`; reason; relied-on evidence anchors; conditions; internal `O` if used; external `EA` status if required; next action; timestamp | Must not rewrite the problem/evidence record, erase earlier dispositions, let `I` act, or let internal `O` replace `EA` |
+
+The brief simplifies what Robert Tan must read without hiding disagreement: show the requested
+decision first, then exception/risk summary, evidence anchors, agent recommendation, assurance and
+authority status, and the append-only history. The report is a projection over source records, not a
+second mutable truth store.
+
+### 15.6 Appointment and identity semantics
+
+`D-158` already decides that Robert Tan is the v1 natural person acting contextually as **the user**,
+**Chief Editor**, and **Project Judge**. Preserve the role names because their acts differ:
+
+- Chief Editor selects development-lane boundaries and makes editorial dispositions;
+- Project Judge accepts/defers phase completion and residual risk; and
+- the user is the authenticated human principal when the product later enforces identity.
+
+The implementation must eventually authorize a stable role/appointment identifier, not compare the
+display name `Robert Tan`. A replacement appointment must change the holder without rewriting RACI,
+EW, gate, or report semantics. An OD4 `Judge` is a future reasoning component and never inherits the
+Project Judge/Chief Editor identity from the shared word “Judge.”
+
+### 15.7 New completion findings — fold into `B068-G1`, no duplicate parent gaps
+
+| Review ID | Gap | Guaranteed failure | Draft repair |
+|---|---|---|---|
+| `B068-R28` | `D-170` introduced `EW1`–`EW3` without governing their stage meanings or node mapping | EW becomes another decorative column whose values differ by document | Adopt §15.3's stable EW definitions; changes require a decision, not title matching |
+| `B068-R29` | D-174's CSV crosswalk can still be read as effective v1 authorization because source `A` and current accountable appointment are not separate fields | Desk Editor/Chief Editorial Desk/Chief Editor appear as competing current users or permission holders | Add `source_accountability_role` and `effective_v1_accountable_role`; collapse current internal A to Chief Editor while retaining the source organization |
+| `B068-R30` | “IIA is ops governance and external GRC assurance” can make external GRC a Project IIA Line or default Line 3 | Internal independence and external legal authority become falsely interchangeable | Project IIA Lines govern internal control classification; external GRC stays `EXT-GRC`/`EA` outside the Lines |
+| `B068-R31` | “The app will have OD4 virtual agents” states a deferred architecture as present scope | A v1 implementation or permission path is created without the Charter trigger and fresh authorization | Permit only an architecture reference/judgment-template compatibility note; OD4 agents remain `deferred`, not built |
+| `B068-R32` | Natural person, user account, Chief Editor role, and Project Judge role may be collapsed into the literal name Robert Tan | Changing the person breaks permissions/history, or an audit cannot identify which authority context was exercised | Store/report role, appointment, person identity and display name separately; D-158 supplies the current linkage |
+| `B068-R33` | **Resolved by Judge clarification:** “Lane D” meant an external server/execution environment, and “Lane A/Lane B/Lane B” meant Lane A/B/C | If the retired wording returns, the three-lane commit lock gains an ungoverned participant with no surface, rule file, state, or handoff | Canonical term is `External Execution Environment` (`ENV-EXT`). Development ownership remains exactly Lane A/B/C; no D-75/D-156 amendment is created or required |
+| `B068-R34` | A simplified report can merge the reported problem, agent recommendation and accountable decision into one mutable narrative | The system cannot prove what was known before the decision or whether the human independently decided | Use §15.5's linked Problem/Evidence and Decision/Disposition records with append-only history |
+
+### 15.8 Failure-derived success criteria for `B068-G1`
+
+| Deliberate failure | Required rejection/proof |
+|---|---|
+| One field accepts `EW1`, `Line 1`, `A`, `EG1`, `Tier 1`, or `Lane A` interchangeably | Vocabulary/schema contract rejects the value outside its owning axis |
+| An EW stage has no stable purpose or node mapping | Traceability review rejects the stage |
+| Two effective internal `A` assignments exist for one atomic task | RACI validation rejects the task; source/target role references do not count as effective assignments |
+| A CSV source `A` automatically grants a v1 permission | Authorization review rejects the mapping without the effective-accountability decision |
+| External GRC is stored as Line 3 or internal `A` | Assurance/authority validation rejects it; only `EXT-GRC`/`EA` is valid |
+| A virtual-node agent or OD4 agent becomes the Chief Editor/user by role-name inference | Identity and executor-type checks refuse the assignment |
+| OD4 is marked present/built under this clarification | Scope check rejects it until a separate fresh authorization exists |
+| The name Robert Tan appears as a permission rule | Identity review rejects name-based authorization; a stable appointment/principal reference is required |
+| Problem evidence changes when a later decision changes | Append-only test rejects the mutation and preserves both records |
+| A decision brief hides a dissenting agent result, missing evidence, override, or required EA | Report-completeness check rejects the brief |
+| An external server is recorded as Lane D | Vocabulary/lane-state review rejects the lane claim; only `ENV-EXT` is valid and development remains Lane A/B/C |
+| Graphify analyzed HEAD differs from Git HEAD | `docs-drift` remains red; `F7` cannot verify |
+
+### 15.9 Current approve / reject summary — `B068-G1` only
+
+| Decision | Tier | Follow-up phase |
+|---|---|---|
+| **Approve-with-conditions** — `B068-G1` parent governance contract | Decision Register / Product Requirements / RACI / Fn_Specs | Lane A records §15.2–§15.6 before claiming G1 closed |
+| **Approve-with-conditions** — current v1 single-effective-A model | RACI/governance | Preserve CSV A as source/target evidence; effective internal A is Chief Editor; external GRC is EA |
+| **Approve-with-conditions** — Chief Editor Decision Brief | Product Requirements / Fn_Specs | F6 defines fields and negative acceptance tests; no UI/build in this pass |
+| **Approve** — `ENV-EXT` terminology and Lane A/B/C correction | Development governance / environment vocabulary | Lane A records the fact; D-75/D-156 remain unchanged |
+| **Reject** — external GRC as Project IIA Line/Line 3 | Governance / assurance | Preserve `EXT-GRC`/`EA` outside Project IIA Lines |
+| **Reject** — OD4 agents as current v1 scope | Product architecture | Keep deferred until its own trigger and authorization |
+| **Reject** — server/environment called Lane D | Development governance | Retire the label; use `ENV-EXT` |
+| **Reject verification** — B-068 closure | Handoff / Graphify | Child gaps G2–G7, source propagation, graph sync and independent review remain open |
+| **Defer** — implementation | Lane B code/schema/UI/tests | Planning only; `D-171` hold remains |
+
+### 15.10 Judge clarification — `ENV-EXT`, no fourth development lane
+
+**Judge approved:** “Lane D” means an **External Execution Environment (`ENV-EXT`)**, not a fourth
+development-ownership lane. The repeated “Lane B” in “Lane A/Lane B/Lane B” was a wording error; the
+intended and governed development set is **Lane A/Lane B/Lane C**.
+
+Consequences:
+
+1. `ENV-EXT` identifies infrastructure/service context only. It never becomes `Active`, `Eligible`,
+   `Blocked`, or `Done`, never holds the commit lock, and owns no repository surface.
+2. Lane A/B/C and their existing D-75/D-156 state machine remain unchanged; no rule-file, handoff,
+   ownership, or CI amendment is authorized by this clarification.
+3. Any future external host/service requirement records environment identity, connection boundary,
+   data classification, credential owner, evidence, and failure behavior under its owning feature or
+   technical specification—not as a new lane.
+4. Reintroducing “Lane D” for an environment is a vocabulary defect and fails §15.8's negative test.
+
+This closes `B068-R33`'s clarification dependency. It does not close `B068-G1` until Lane A propagates
+the full §15 parent contract, and it does not advance F4, F6, F7, or implementation.
+
+## 16. `B068-G2` executive guide — assuming `B068-G1` is complete
+
+### Executive summary
+
+The earlier `G2` guide inherited a category error from `D-170`: it treated **Chief Editorial Desk**
+as a replacement name for **Chief Journalist**, then described the target as a T5/T6 inversion. The
+Chief Editor's clarification corrects that premise. For `B068-G2`, this section supersedes the
+earlier alias/inversion statements in this handoff; Lane A must propagate the correction into their
+owning tiers rather than treating both versions as valid:
+
+- the intended order was already **T5 Chief Journalist agent → T6 Chief Editor human**;
+- the natural person at T6 must remain the last in-system editorial judgment;
+- the CSV/RACI work introduced **Chief Editorial Desk as an additional, separate T5 reviewer**,
+  not an alias for or replacement of Chief Journalist;
+- production routes select the reviewer assigned to their route; fallout/GRC routes run **both T5
+  reviewers concurrently** because neither one alone owns the route's accountable weighting; and
+- the parallel reviews are sibling executions inside one T5 stage. They are never two consecutive
+  gates and neither review overwrites the other.
+
+The stable shape is therefore:
+
+> Senior Journalist starts the EW → T1–T4 standard validation → required T5 review set → Chief Editor at T6 → Delivery
+
+Delivery remains a processing node with no editorial authority. The block is no longer “which role
+comes last?”—that is settled as the human Chief Editor. The block is to correct the singular-T5
+contract, its parallel join rule and its evidence bundle before F6/F7 or a fresh build authorization.
+
+“News” and “newsworthy” are not interchangeable workflow actions: **newsworthiness judgment** is the
+recorded decision; **News** is the resulting content classification when that judgment permits it.
+Every route produces a newsworthiness disposition, but the evidence basis differs by route.
+
+### Route and authority boundary
+
+| Route family | Required T5 review set | Accountable newsworthiness basis | T6 and external-authority boundary |
+|---|---|---|---|
+| `ROUTE-PROD-1` | **Chief Editorial Desk** only | Low-impact daily-news newsworthiness | Human Chief Editor records the final T6 disposition |
+| `ROUTE-PROD-2` / `ROUTE-PROD-3` | **Chief Journalist** only | Enterprise/investigative trend-over-fade ranking | Human Chief Editor records the final T6 disposition |
+| `ROUTE-FALLOUT-1` / `ROUTE-FALLOUT-2` | **Chief Editorial Desk + Chief Journalist in parallel** | Chief Editor weighs both briefs for legal/defamation, remediation and reputational newsworthiness | Human Chief Editor is the route-accountable and final T6 decision-maker |
+| `ROUTE-FALLOUT-3` / `ROUTE-GRC` | **Chief Editorial Desk + Chief Journalist in parallel** | External judicial/GRC institutional record supplies the accountable external finding or mandate | `EXT-GRC` holds external `EA`/source `A`; human Chief Editor records and enforces the final in-system T6 disposition without impersonating or overriding the institution |
+
+“Accountable judgment node” means an **EW decision-source node**, not one universal actor type. An
+internal node maps separately to an eligible human or agent executor. The External GRC node is an
+immutable, record-backed external-authority input with no application executor; it is never an
+autonomous virtual agent.
+
+The Senior Journalist's EW-start action is a **trigger**, not another gate and not automatic task
+accountability. It starts the same T1–T4 validation sequence for every route. The two CSVs remain
+source RACI evidence, but they do not themselves contain a universal start-trigger field; this Chief
+Editor clarification is therefore the governing source for that rule and must be cited as such.
+
+For a two-review T5, both reports must be separately sealed and linked into one immutable
+`T5_parallel_review_bundle`. T6 cannot start until both required reports exist. There is no winner,
+fallback order or silent merge: the human Chief Editor sees both briefs, their evidence anchors and
+any disagreement before recording the final disposition.
+
+### IIA boundary
+
+The **2024 GIAS** is the core standards source. The project's simplified **Project IIA Lines** are an
+internal control-classification lens used to help the Chief Editor apply and evidence those standards.
+They are not an external organization, an external rule record, or external `A`/`EA`. Judicial and
+GRC institutions remain outside the Project IIA Lines; their records may trigger or constrain T6 but
+do not become Line 3, a virtual-node agent, or the Chief Editor.
+
+### Lane A closure sequence
+
+1. Correct `D-170`'s `F2` premise: this is not a T5/T6 inversion; it is a route-dependent T5 review
+   set followed by the existing human-last T6 invariant.
+2. Give Chief Editorial Desk and Chief Journalist distinct logical node IDs, then map each node to
+   its eligible executor role separately; retire every alias statement that merges either layer.
+3. Record the seven-route T5 cardinality above: one required reviewer on each production route and
+   both reviewers in parallel on each fallout/GRC route. Record executor type, Project IIA Line,
+   evidence, completion join, return target and lifecycle.
+4. Define the Senior Journalist EW-start event and prove it triggers—not replaces—the common T1–T4
+   validation sequence.
+5. Re-derive `D-171`/`D-172` against the required T5 review set. Preserve the T6 human-only canary and
+   three-event blind-review mechanism, but reveal the complete sealed T5 bundle only after the human
+   preliminary disposition. Do not claim a Line crossing for an external trigger without an internal
+   predecessor/Line proof.
+6. Complete F6 behavior/acceptance criteria and F7 atomic propagation, synchronize Graphify, then
+   seek a fresh build authorization. The `D-171` build hold remains until that sequence completes.
+
+**Guaranteed failure:** retaining one `Chief Editorial Desk / Chief Journalist` identity destroys
+the two-brief control; treating parallel T5 reviews as two sequential gates changes the governed gate
+count; allowing T6 after only one required brief makes timing choose the evidence; replacing T6 with
+external GRC makes the application falsely exercise institutional authority; and calling external
+rules “IIA Line 3” collapses internal control classification into external legal authority.
+
+**Success criterion:** production routes require the one assigned T5 report; fallout/GRC routes
+require both parallel reports before T6; Chief Editorial Desk and Chief Journalist remain distinct
+nodes with explicit executor-role mappings;
+the Senior Journalist trigger produces the common T1–T4 evidence chain; every route ends its
+in-system judgment at human T6; external `EA` remains outside the workflow while its institutional
+record and trigger are linked; Project IIA Line and external-rule provenance are stored separately;
+Delivery cannot change a disposition; and no implementation starts before F6/F7 and fresh
+authorization.
+
+| Decision | Tier | Follow-up phase |
+|---|---|---|
+| **Approve** — human Chief Editor remains the final T6 judgment for every workflow | Decision Register / Product Requirements / Fn_Specs | Correct `D-170`/`D-171` premise and preserve the human-only canary |
+| **Approve** — T5 production selection and fallout/GRC parallel cardinality | Route crosswalk / gate contract | One production reviewer; both fallout/GRC reviewers; one logical T5 stage |
+| **Approve-with-conditions** — Senior Journalist starts every EW | Product Requirements / Fn_Specs / RACI | Record it as a Chief Editor rule because the CSV has no universal trigger field; define event/evidence and preserve T1–T4 |
+| **Approve** — Project IIA Lines and external GRC authority remain separate | Governance / assurance / authority | Preserve internal Line evidence and external `EA` provenance as separate fields |
+| **Reject** — Chief Editorial Desk as an alias or replacement for Chief Journalist | All governed tiers | Assign distinct node IDs and separate executor-role mappings |
+| **Reject** — concurrent T5 briefs represented as sequential gates, overwrite, or first-result-wins | Product behavior / audit | Require an immutable two-report bundle and an all-required join |
+| **Reject** — external institution represented as T6 executor, Project IIA Line 3, or internal `A` | Authority / audit | Chief Editor executes internally; `EXT-GRC` remains external `EA`/source `A` |
+| **Defer** — implementation and fresh build authorization | Lane B code/schema/UI/tests | `D-171` hold remains through F6/F7 and Graphify synchronization |
