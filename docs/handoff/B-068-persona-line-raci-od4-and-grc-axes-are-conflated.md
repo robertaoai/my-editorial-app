@@ -20,11 +20,17 @@
   table; `FN-GATES-01-05.md` §11 and `V1-BUILD-SPEC.md`'s S2 hold note are corrected to match. Also
   confirmed directly: `ROUTE-PROD-1`'s `A` stays `ROLE-DESK-EDITOR` (`B068-R22` closed, no crosswalk
   edit needed), and "Lane D" meant `ENV-EXT` — an external execution environment, never a fourth
-  development lane; `D-75`/`D-156` are unchanged (`B068-R33` closed). **Confirmed still open, not
-  decided this session:** `F4`'s 8×7 route-applicability matrix (§14.4) remains an unapproved draft —
-  the crosswalk's join stays exactly as `D-174` left it. `F6`'s full behavior/AC draft, `F7`'s
-  propagation/Graphify-sync/independent-verification, and any fresh build authorization remain
-  unstarted, real follow-on work — not attempted in this pass.
+  development lane; `D-75`/`D-156` are unchanged (`B068-R33` closed). **`V1-DECISION-REGISTER.md`
+  `D-176` (2026-09-01): the Chief Editor approved §14.4's 8×7 route-applicability matrix exactly as
+  drafted** — written into `factory-route-operation-crosswalk.md` (v0.3) §3.1 as 43 decided join rows,
+  with §3.2 adding Lane A-drafted per-operation sequencing fields. §4's four conservative authority
+  defaults are confirmed as standing dispositions (not individually deciding each operation shape was
+  itself the confirmed choice). **`F4` is complete for Lane A propagation purposes.** Still open:
+  `B068-R23` (route-basis newsworthiness framing, FR/AC-adjacent — deferred to the `F6` pass),
+  `B068-R26`/`R27`/`R35`/`R36` (`F6` scope), `B068-R37` (historical-marking housekeeping, deferred to
+  `F7`), `B068-R38` (Graphify currency). `F6`'s full behavior/AC draft, `F7`'s propagation/Graphify-
+  sync/independent-verification, and any fresh build authorization remain unstarted, real follow-on
+  work — not attempted in this pass.
 - **Resolution:**
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `docs/Modular_PRD.md` §2.3 and
@@ -1083,3 +1089,134 @@ authorization.
 | **Reject** — concurrent T5 briefs represented as sequential gates, overwrite, or first-result-wins | Product behavior / audit | Require an immutable two-report bundle and an all-required join |
 | **Reject** — external institution represented as T6 executor, Project IIA Line 3, or internal `A` | Authority / audit | Chief Editor executes internally; `EXT-GRC` remains external `EA`/source `A` |
 | **Defer** — implementation and fresh build authorization | Lane B code/schema/UI/tests | `D-171` hold remains through F6/F7 and Graphify synchronization |
+
+## 17. Lane A completion guide after `D-175` — `F4` → `F6` → `F7`
+
+### 17.1 Normalized request
+
+> Treat the Chief Editor's direct §16 clarification as the authority Lane A said it could not
+> independently verify. Preserve the decision history rather than rewriting it retroactively. Confirm
+> what `D-175` has already corrected, then close only the remaining `F4`, `F6` and `F7` work in that
+> dependency order. Draft governance and acceptance contracts only; authorize no implementation.
+
+### 17.2 Parent conflict — closed by `D-175`, do not re-litigate
+
+The concern quoted by Lane A was valid **before** direct confirmation: §16 and `D-170` described
+mutually exclusive T5 models. It is no longer an open authority question. The Chief Editor supplied
+the clarification directly, and Lane A recorded it in `D-175` with source-tier corrections.
+
+| Earlier statement | Current disposition | Required handling |
+|---|---|---|
+| `D-170`: target ends with human Chief Editor at T6 | **Preserved** | T6 remains the final human in-system judgment |
+| `D-170`: Chief Editorial Desk and Chief Journalist are one aliased T5 role | **Corrected by `D-175`** | Two distinct T5-eligible nodes/roles with route-dependent cardinality |
+| `D-171`: neither current nor target order may be built | **Preserved** | S2 hold remains until F6/F7 and fresh authorization |
+| `D-172`: Line-crossing and three-event blind-review controls | **Preserved and widened** | Apply them to the complete required T5 review set |
+
+“Correct `D-170`” means **record and propagate a superseding correction**, not delete or silently
+rewrite the historical decision. `D-175` already performs that correction. A new decision should not
+repeat it unless it fixes a separate defect below.
+
+**Guaranteed failure:** treating both versions as simultaneously current makes route selection
+nondeterministic; deleting `D-170` destroys decision provenance; and reverting `D-175` recreates the
+Chief Editorial Desk/Chief Journalist alias defect.
+
+### 17.3 Remaining gaps — no duplicate parents
+
+| Gap | Current evidence | Draft disposition |
+|---|---|---|
+| `B068-R23` — one word, different route judgments | `D-175` still marks it open, while §16 now supplies the Chief Editor's direct clarification | Close in the next Lane A decision: `newsworthiness_disposition` is the common outcome; its evidence basis is daily relevance (`PROD-1`), trend/fade (`PROD-2/3`), Chief-Editor legal/remedial judgment (`FALLOUT-1/2`), or external institutional finding/mandate (`FALLOUT-3/GRC`) |
+| `B068-R24` — applicable operations have no governed order/completion contract | Crosswalk §3 is empty and §5 is unanswered | Complete under F4 with explicit applicability, trigger, order, repeatability, completion evidence and reroute behavior |
+| `B068-R26` — override timing and external acceptance remain underspecified | `O` cannot override `EA`, but the exact allowed sequence is absent | Complete under F6: internal decisions/overrides stay append-only; required external evidence is linked before final disposition; no internal action replaces external authority |
+| `B068-R27` — operation evidence is not mapped to gate entry/exit | F4 and EG1–EG5 exist as separate catalogs only | Complete under F6 after F4: map evidence requirements, not operation titles, to each gate boundary |
+| `B068-R35` — `D-175` names the reveal event `EG5_recommendation_revealed_to_EG5` | `D-172` correctly names `EG4_recommendation_revealed_to_EG5`; EG5 is the receiver, not the recommendation source | Correct the event to a bundle-aware name such as `T5_review_bundle_revealed_to_EG5`; retain aliases only as historical provenance, never two live event types |
+| `B068-R36` — a dual-review return is undefined | T6 may return to EG4, but no rule says whether one or both T5 reports must rerun | F6 must name the return target set, invalidated evidence, rerun join condition and retained prior bundle |
+| `B068-R37` — historical §14 claims remain readable as current | §14 still says the two T5 roles are aliases and PROD-1 authority is unclear; `D-175` supersedes both | F7 marks those rows historical/superseded or adds an unmissable `D-175` correction pointer; do not leave contradictory unqualified guidance |
+| `B068-R38` — Graphify is behind the source tree | `.graphify/branch.json` analyzed `989c45f`; current HEAD is `da2d477` | F7 rebuilds after the final source edit, re-merges curated fragments if required, and proves analyzed HEAD equals final HEAD |
+
+### 17.4 Parent 1 — finish `F4`
+
+Lane A first presents one small Chief Editor decision packet based on
+`factory-route-operation-crosswalk.md` §5:
+
+1. approve or amend every operation-to-route disposition in §14.4;
+2. for each `conditional` relationship, preserve a named, testable trigger;
+3. confirm the conservative authority defaults: no silent `A` inheritance, no inherited `EA`, no
+   inferred `R = A`, blank GRC cells remain `unknown` until decided, and undecomposed milestones stay
+   held;
+4. resolve the operation shapes already listed in crosswalk §4—do not create a second list; and
+5. for each applicable join, add `stage_order`, `repeatable`, `entry_trigger`,
+   `completion_evidence`, and `reroute_target`.
+
+**F4 succeeds when:** every route-operation relationship has one explicit disposition and provenance;
+every applicable atomic task has an effective internal `A` and executable `R`; milestone children are
+named or remain visibly held; external `EA` is never inherited as internal accountability; and a
+route change appends a new selection event rather than mutating history.
+
+### 17.5 Parent 2 — finish `F6` after `F4`
+
+Draft one behavior/acceptance contract, without choosing storage or UI:
+
+1. Senior Journalist starts EW; the trigger cannot skip or substitute for T1–T4.
+2. Production routes require their assigned single T5 report; fallout/GRC routes require both T5
+   reports. T6 is blocked until the complete required review set is sealed.
+3. The human Chief Editor seals a preliminary disposition before the T5 review set is revealed, then
+   records the final T6 decision. Correct `B068-R35`'s event name in the same pass.
+4. Conflicting T5 briefs remain separately visible; there is no automatic winner, overwrite or
+   first-result-wins behavior.
+5. Define `B068-R36`'s return/rerun behavior. Earlier reports and bundles remain append-only.
+6. Attach the F4 operation evidence required at each gate entry/exit and state the refusal when
+   required or triggered evidence is absent.
+7. Preserve route-specific newsworthiness evidence and keep `EXT-GRC`'s institutional record/`EA`
+   separate from the Chief Editor's internal T6 disposition and Project IIA Line.
+8. Delivery consumes the approved immutable disposition and must refuse any editorial mutation.
+
+`T5_parallel_review_bundle` is a **logical evidence-set label until implementation is authorized**,
+not an approved table, column or schema object.
+
+**F6 succeeds when:** every gate has entry evidence, permitted executor, decision/reason, exit,
+return/rerun rule and negative test; the human-only T6 canary remains; all-required T5 joins are
+enforced; blind-review ordering is provable; missing external authority blocks only routes that
+require it; and Delivery cannot change judgment.
+
+### 17.6 Parent 3 — finish `F7`
+
+After F4 and F6 are decided:
+
+1. propagate the facts atomically under `D-54`: Decision Register, Build Spec and Artifact Inventory
+   in the same pass when artifact/sequence/DoD facts change; then the owning Product Requirements,
+   RACI, Fn_Specs, configuration/log and handoff sections;
+2. preserve historical decisions and mark superseded guidance explicitly—never maintain two
+   unqualified target contracts;
+3. verify every source-to-derived relationship, including the Senior Journalist trigger, T5
+   cardinality, route evidence basis, T6 human boundary, `O`/`EA`, return behavior and Delivery;
+4. rebuild Graphify only after the final source edit, preserve the curated layer, run
+   `portable-check`, and prove analyzed HEAD equals final Git HEAD;
+5. run the complete local consistency suite and an independent failure-oracle review; and
+6. only after those pass, give B-068 a terminal handoff disposition and request a separate fresh
+   build authorization.
+
+### 17.7 Failure-derived closure tests
+
+| Deliberate failure | Required rejection/proof |
+|---|---|
+| Both `D-170`'s alias model and `D-175`'s split model appear current | Precedence review selects `D-175`; F7 rejects the unqualified older claim |
+| One operation-route pair is blank or a conditional lacks a trigger | F4 join validation fails |
+| An applicable operation lacks order or completion evidence | F4 remains open and its F6 overlay cannot pass |
+| Fallout/GRC reaches T6 with only one required T5 report | All-required join refuses T6 |
+| The first parallel report overwrites or wins over the second | Append-only/bundle test fails |
+| T6 returns work but the required rerun set is undefined | F6 acceptance review rejects the contract |
+| `EG5_recommendation_revealed_to_EG5` becomes a live event | Event-catalog check rejects the wrong source; one canonical bundle-reveal event remains |
+| External GRC becomes an application executor, internal `A`, or Project IIA Line 3 | Authority/ontology validation rejects it |
+| Delivery changes a newsworthiness disposition | Delivery mutation test refuses the action |
+| Graphify analyzed HEAD differs from final Git HEAD | `docs-drift` fails; F7 and handoff verification remain open |
+
+### 17.8 Approve / reject summary
+
+| Decision | Tier | Follow-up phase |
+|---|---|---|
+| **Approve** — `D-175` resolves the `D-170` authority conflict | Decision Register / RACI / FN-GATES / Build Spec hold | Preserve; do not unwind or duplicate |
+| **Approve-with-conditions** — close `B068-R23` from the direct route-basis clarification | Decision Register / Product Requirements / Fn_Specs | Next Lane A decision; propagate during F6/F7 |
+| **Approve-with-conditions** — F4 route-operation and work-design packet | RACI/governance crosswalk | Chief Editor approves/amends §14.4 and crosswalk §4/§5 |
+| **Approve-with-conditions** — F6 behavior/acceptance contract | Product Requirements / Fn_Specs / Build Spec | After F4; close `R26`, `R27`, `R35`, `R36` |
+| **Reject verification** — F7 or B-068 closure now | Tracking / handoff / Graphify | `R37`/`R38`, propagation and independent review remain open |
+| **Defer** — implementation and fresh build authorization | Lane B code/schema/UI/tests | Only after F7 earns closure |

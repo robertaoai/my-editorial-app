@@ -11255,3 +11255,66 @@ code.** `F4`'s route-operation matrix is explicitly not approved by this decisio
 `F7`'s propagation/sync/verification, and any fresh build authorization remain separate, unstarted work.
 `D-171`'s S2 hold is unaffected. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`,
 `__tests__/`, or `.github/workflows/`.
+
+## 5.14e2 `D-176` — `F4` Route-Operation Applicability Decided: `B-068` §14.4 Approved, Sequencing Fields Drafted, Closing `B068-R22`/`R23`/`R33`
+
+**Chief Editor ruling, 2026-09-01, on `B-068` §14.4/§17.4's completion packet.**
+
+### The decision
+
+1. **§14.4's 8×7 route-applicability matrix (`ROUTE-*` × `OP-*`, `required`/`conditional`/
+   `not_applicable`, triggers `C1`–`C6`) is approved exactly as drafted.** Written into
+   `factory-route-operation-crosswalk.md` §3.1 as 43 decided join rows (every unlisted pair is
+   `not_applicable`; `optional` remains unused by design — an untriggered optional station has no
+   deterministic completion rule).
+2. **§4/§5.B's four conservative authority defaults are confirmed as standing dispositions, not
+   proposals:** blank Sheet 2 GRC cells are `unknown`; no `A` inherits silently, including `OP-DRAFT`'s
+   — §3.1's new routing does **not** itself authorize inheritance, which stays a separate, undecided
+   item; no `R = A` exception is granted without explicit approval (`OP-FINAL-SIGNOFF`); `OP-COMPLEX-
+   SERIES`/`OP-LEGAL-RISK` stay `milestone_pending_decomposition` until children are enumerated. The
+   Chief Editor confirmed the placeholder approach itself, rather than deciding each of §4's four
+   operation-shape items individually — that remains open, by choice, not oversight.
+3. **Per-operation sequencing fields authorized as a Lane A draft**
+   (`stage_order`/`repeatable`/`entry_trigger`/`completion_evidence`/`reroute_target`,
+   `factory-route-operation-crosswalk.md` §3.2), derived from `B-068` §14.2's workflow order, §14.4's
+   triggers, and Sheet 2's row order — not CSV fact, amendable like any Lane A draft. Applied per
+   operation (sequencing is a property of the task, not of which route runs it), not per the 43
+   individual joins, to avoid an unwieldy and redundant grid.
+4. **`ROUTE-PROD-1`'s route `A` is confirmed unaffected** by `T5`/`EG4`'s Chief Editorial Desk review
+   function — `ROLE-DESK-EDITOR` stays route-accountable; Chief Editorial Desk's function is the gate
+   review only. Closes `B068-R22`. No crosswalk §1 edit was needed; this decision records the
+   confirmation `D-175` had already flagged as pending.
+5. **`B068-R33` closes formally** (recorded provisionally in `D-175`; confirmed complete here): "Lane
+   D" meant `ENV-EXT`, never a fourth development lane. No further action.
+
+### Gaps
+
+**Addressed:** `B068-R22` (`ROUTE-PROD-1` authority), `B068-R24` (route-operation order/repetition/
+completion-evidence contract — `§3.2`), `B068-R33` (`ENV-EXT`, formal close). **Confirmed as a standing
+disposition, not closed:** §4's four operation-shape items — conservative placeholders remain by
+choice. **Still open, unchanged:** `B068-R23` (route-level newsworthiness-versus-remediation framing —
+`B-068` §17.3 supplies the closing text but it is not propagated by this decision; deferred to the same
+pass as `F6`, since it is FR/AC-adjacent content, not a crosswalk fact), `B068-R26`, `R27`, `R35`,
+`R36` (`F6` scope), `B068-R37` (historical-marking housekeeping — deferred to `F7` per its own
+definition), `B068-R38` (Graphify currency — addressed separately below).
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `F4` route-applicability matrix decided (43 joins) | ✅ §5.14e2 | **— unaffected: no S2 rewrite while `D-171`'s hold stands** | **— unaffected** | **— unaffected: existing file** | **— unaffected** | **— unaffected: `docs/governance/`** |
+| Conservative authority defaults confirmed as standing | ✅ §5.14e2 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| Per-operation sequencing fields drafted | ✅ §5.14e2 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `ROUTE-PROD-1` authority confirmed (`B068-R22`) | ✅ §5.14e2 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**Handoff tracking:** `B-068` stays `Open`. Its Lane A field is updated to record `F4`'s completion for
+Lane A propagation purposes and what remains for `F6`/`F7`.
+
+### Scope limits
+
+**Decides `F4`'s route-operation applicability and sequencing; confirms conservative defaults as
+standing; builds nothing, authorizes no code.** `D-171`'s S2 hold is unaffected. `F6`'s full behavior/
+acceptance-criteria draft (including `B068-R23`, `R26`, `R27`, `R35`, `R36`) and `F7`'s propagation/
+Graphify-sync/independent-verification/fresh-build-authorization remain separate, unstarted work, per
+`B-068` §17.5/§17.6. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`,
+`__tests__/`, or `.github/workflows/`.
