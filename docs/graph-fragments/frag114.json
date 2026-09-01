@@ -1,0 +1,72 @@
+{
+  "_comment": "Fragment 114 — curated node for D-178 (F7 propagation: corrects D-177's fixed-event-count defect with a route-dependent event sequence, assigns F6-AC-* acceptance ownership, propagates decided facts into V1-ARTIFACT-INVENTORY.md, V1-BUILD-SPEC.md, Modular_PRD.md, FN-GATES-01-05.md; extends but does not rewrite raci-involvement-matrix.md's build-facing proof; applies B068-R37 historical marking to B-068). Merged 2026-09-02.",
+  "nodes": [
+    {
+      "id": "d178_f7_propagation_event_sequence_corrected",
+      "label": "D-178: F7 Propagation, Event-Count Defect Corrected",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14e4",
+      "description": "Lane A decision on B-068 S19's F7 propagation plan. Verified B068-R43-R46 against the actual files before correcting -- all four confirmed real, including V1-ARTIFACT-INVENTORY.md's crosswalk row still saying the F4 join was deliberately empty, unedited since D-173 despite D-176 deciding it. Corrects D-177's fixed four-event blind-review claim, which cannot represent a route-dependent parallel T5 review set, to a route-dependent sequence: one T5_review_sealed event per required reviewer (one on a production route, two in parallel on a fallout/GRC route), then one T5_review_bundle_sealed non-judgment join event, then the existing three-event blind sequence (EG5_preliminary_disposition_sealed, T5_review_bundle_revealed_to_EG5, EG5_final_decision_recorded). Adopts an acceptance-ownership crosswalk so the twelve F6-AC-* behaviors route to their actual owning FR/Fn_Spec rather than all being forced into FR-04/FR-05. Avoids an unauthorized [V1->V2] marker since no V2 build exists, adding an explicitly-sourced build-held target amendment instead. Propagates into V1-ARTIFACT-INVENTORY.md (crosswalk row corrected), V1-BUILD-SPEC.md (S2 target DoD added, D-171's hold unaffected), Modular_PRD.md (one consolidated correction note near FR-04/FR-05 per this document's own established annotate-don't-rewrite convention; also fixes S2.3.1's stale claim that Chief Journalist is an alias of Chief Editorial Desk, the exact error D-175 already corrected, found repeated here), FN-GATES-01-05.md S11 (stale F6-blocked-on-F4 note corrected), and raci-involvement-matrix.md (title-block note extended with the event sequence; S2.1/S3's build-facing successor-node proof deliberately not rewritten -- that remains the fresh-build-authorization pass). Applies B068-R37 historical marking to B-068 itself: a reading-order notice before its S9, and S14/S17 headings corrected to name what supersedes them. B-068 marked Status: Answered, Resolution: Applied -- Lane A cannot self-verify; independent verification remains a separate actor's turn.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A fixed event count is an implicit single-executor assumption wearing a different disguise than the one already caught in D-175 -- both times the fix was route-dependent cardinality, and both times the bug survived one full decision cycle before an independent reviewer caught it by checking the actual mechanism rather than trusting the count."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d178_f7_propagation_event_sequence_corrected",
+      "target": "d177_f6_behavior_contract_adopted",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e4",
+      "weight": 1
+    },
+    {
+      "source": "d178_f7_propagation_event_sequence_corrected",
+      "target": "d176_f4_route_applicability_decided",
+      "relation": "extends",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e4, propagation",
+      "weight": 1
+    },
+    {
+      "source": "d178_f7_propagation_event_sequence_corrected",
+      "target": "b068_persona_line_raci_od4_grc_conflated",
+      "relation": "answers",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e4",
+      "weight": 1
+    },
+    {
+      "source": "d178_f7_propagation_event_sequence_corrected",
+      "target": "raci_matrix_doc",
+      "relation": "amends",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/raci-involvement-matrix.md",
+      "confidence_score": 1,
+      "source_location": "title-block note",
+      "weight": 1
+    },
+    {
+      "source": "d178_f7_propagation_event_sequence_corrected",
+      "target": "d171_explicit_s2_hold_and_f6_draft",
+      "relation": "confirms",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e4, scope limits",
+      "weight": 1
+    }
+  ]
+}
