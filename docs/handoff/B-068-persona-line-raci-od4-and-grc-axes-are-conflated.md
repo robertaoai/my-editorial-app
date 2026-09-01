@@ -23,13 +23,13 @@
   turn — Lane A marks `Applied`, never `Verified`), Graphify final sync at this commit, and any fresh
   build authorization.
 - **Resolution:** Applied
+- **Verified-At-Commit:** e6b29c4
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `D-170`–`D-178` in `V1-DECISION-REGISTER.md`;
   `docs/Modular_PRD.md` §2.3/§2.3.1/§0.4/§8 and FR-04/FR-05/AC-05–AC-08;
   `docs/governance/raci-involvement-matrix.md` (v1.7+); `docs/governance/factory-route-operation-
   crosswalk.md` (v0.3); `docs/fn-specs/FN-GATES-01-05.md` §11; `docs/v1/V1-BUILD-SPEC.md` S2;
-  `docs/v1/V1-ARTIFACT-INVENTORY.md`; frozen Charter `OD4`; commit `77cacd3` (`D-178` source edit —
-  see `git log` for the exact hash this session's final commit lands at);
+  `docs/v1/V1-ARTIFACT-INVENTORY.md`; frozen Charter `OD4`; commit `e6b29c4` (`D-178` source edit);
   `Editorial_Stage_Task - Sheet1.csv` SHA-256
   `E7B063DCD594D585C5A8BE1FFAD8842E09FC120964A88CE72E51362CEE02D730`; and
   `Editorial_Stage_Task - Sheet2.csv` SHA-256
