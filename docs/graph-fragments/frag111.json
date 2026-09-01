@@ -1,0 +1,72 @@
+{
+  "_comment": "Fragment 111 — curated node for D-175 (corrects D-170's F2 category error: Chief Editorial Desk and Chief Journalist are two distinct, route-dependent T5 reviewer roles, not aliases; T6 remains the human Chief Editor). Confirmed directly by the Chief Editor, per B-068 SS16's B068-G2 executive guide. Merged 2026-09-01.",
+  "nodes": [
+    {
+      "id": "d175_t5_dual_role_cardinality_corrected",
+      "label": "D-175: T5 Dual-Role, Route-Dependent Cardinality Corrected",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14e1",
+      "description": "Chief Editor clarification, confirmed directly in session, correcting a category error D-170 introduced and D-171/D-172 inherited: D-170's F2 treated Chief Editorial Desk as a renamed Chief Journalist -- one aliased role occupying T5 alone opposite the human Chief Editor at T6. Corrected: the two are separate, independently EG4-eligible roles. T6 was always the destination for the human Chief Editor's final in-system judgment -- D-170's direction (human moves to T6, agent-eligible role reviews at T5) was correct and is unchanged. What T5 means was wrong: it holds Chief Editorial Desk and Chief Journalist as two distinct nodes with route-dependent cardinality -- ROUTE-PROD-1 requires Chief Editorial Desk only, ROUTE-PROD-2/PROD-3 require Chief Journalist only, ROUTE-FALLOUT-1/FALLOUT-2 and ROUTE-FALLOUT-3/GRC require both in parallel as sibling executions inside one T5 stage, sealed into one T5_parallel_review_bundle, never two sequential gates. Gate count is unchanged (five judgment gates plus Delivery). Also confirmed directly: ROUTE-PROD-1's route A stays ROLE-DESK-EDITOR (Chief Editorial Desk is the T5 review function only, not a route-accountability claim, closing B068-R22); a Senior Journalist action starts every route's EW as a trigger before T1-T4's common validation, recorded because neither CSV states a universal start-trigger field; and Lane D in prior informal usage meant an External Execution Environment (ENV-EXT), never a fourth development lane -- Lane A/B/C and D-75/D-156 are unchanged, closing B068-R33. Re-derives D-171/D-172: role catalog split (ROLE-CHIEF-JOURNALIST added, no longer an alias), Line/executor matrix now route-dependent, blind-review sequence now bundle-aware (reveals the complete sealed T5 bundle only after the human's own preliminary disposition). Explicitly not decided this session: F4's 8x7 route-applicability matrix stays an unapproved draft; F6's full behavior/AC draft, F7's propagation/Graphify-sync/independent-verification, and any fresh build authorization remain unstarted.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Two roles that share a review function at the same pipeline stage look like the same role from a distance -- especially when one CSV column literally reads as a business alias of the other -- and only checking whether both are independently eligible with different route-dependent cardinality catches that they are not synonyms but a genuinely two-seat control."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d175_t5_dual_role_cardinality_corrected",
+      "target": "d170_editorial_operating_model_adopted",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e1",
+      "weight": 1
+    },
+    {
+      "source": "d175_t5_dual_role_cardinality_corrected",
+      "target": "d171_explicit_s2_hold_and_f6_draft",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e1",
+      "weight": 1
+    },
+    {
+      "source": "d175_t5_dual_role_cardinality_corrected",
+      "target": "d172_line_separation_and_blind_review_corrected",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e1",
+      "weight": 1
+    },
+    {
+      "source": "d175_t5_dual_role_cardinality_corrected",
+      "target": "b068_persona_line_raci_od4_grc_conflated",
+      "relation": "partially_answers",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e1",
+      "weight": 1
+    },
+    {
+      "source": "d175_t5_dual_role_cardinality_corrected",
+      "target": "raci_matrix_doc",
+      "relation": "amends",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/raci-involvement-matrix.md",
+      "confidence_score": 1,
+      "source_location": "§8, v1.7",
+      "weight": 1
+    }
+  ]
+}
