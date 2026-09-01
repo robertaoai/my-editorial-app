@@ -1,0 +1,62 @@
+{
+  "_comment": "Fragment 113 — curated node for D-177 (adopts B-068 S18's F6 behavior/acceptance contract as Lane A's own decision; corrects D-176's heading bug on B068-R23; adds the build-readiness boundary rule). Merged 2026-09-02.",
+  "nodes": [
+    {
+      "id": "d177_f6_behavior_contract_adopted",
+      "label": "D-177: F6 Behavior/Acceptance Contract Adopted",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14e3",
+      "description": "Lane A decision adopting B-068 S18.4-S18.6's F6 draft, which S18 explicitly scopes to Lane A rather than the Chief Editor since it is specification elaboration of already-decided business rules (D-170-D-176), not a new business ambiguity. Corrects D-176's heading bug first (B068-R39): the heading claimed B068-R23 closed while the decision's own body left it open. Adopts: route-basis newsworthiness_disposition semantics with a mandatory route-dependent evidence_basis field, closing B068-R23; a parallel-T5 non-judgment aggregation join so two required reviewers (production routes: one; fallout/GRC routes: both in parallel) produce separately attributable judgment acts completed by one deterministic join rather than being collapsed onto one executor field or creating a sixth gate, closing B068-R41; the corrected bundle-reveal event name T5_review_bundle_revealed_to_EG5 replacing D-175's wrong EG5-to-EG5 naming, closing B068-R35; a four-event canonical blind-review order; scoped return/rerun rules distinguishing single-reviewer defects from shared-evidence defects from route changes from post-reveal disposition-only changes, closing B068-R36; separated external_trigger_record from external_acceptance_or_mandate_record so an external institution's initiating signal and its later binding acceptance are never one mutable record, closing B068-R26/R42; an operation-to-gate evidence overlay so gate behavior depends on evidence status rather than operation titles, closing B068-R27; twelve candidate F6-AC-* acceptance behaviors; and an explicit build-readiness boundary rule stating that F4's propagation-complete status is never build-ready while a required or triggered operation's executor, accountability, or atomic completion contract remains an unresolved conservative placeholder, closing B068-R40. No FR/AC/RACI/Build-Spec text is rewritten by this decision -- Modular_PRD.md, raci-involvement-matrix.md's SS2.1/SS3 proof, and V1-BUILD-SPEC.md's S2 DoD remain exactly as D-171 through D-176 left them; that rewrite is F7 propagation, a separate pass. B068-R37 (marking historical B-068 sections), Graphify's final synchronization, independent verification, and any fresh build authorization remain unstarted.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A decision document that names its own conclusion in the heading and then contradicts it in the body is read differently by whoever stops at the heading versus whoever reads the whole section -- exactly the kind of divergence a downstream propagation pass inherits silently unless the heading itself is corrected, not just the body."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d177_f6_behavior_contract_adopted",
+      "target": "d176_f4_route_applicability_decided",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e3, B068-R39 correction",
+      "weight": 1
+    },
+    {
+      "source": "d177_f6_behavior_contract_adopted",
+      "target": "d175_t5_dual_role_cardinality_corrected",
+      "relation": "extends",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e3, item 2",
+      "weight": 1
+    },
+    {
+      "source": "d177_f6_behavior_contract_adopted",
+      "target": "d172_line_separation_and_blind_review_corrected",
+      "relation": "extends",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e3, item 4",
+      "weight": 1
+    },
+    {
+      "source": "d177_f6_behavior_contract_adopted",
+      "target": "b068_persona_line_raci_od4_grc_conflated",
+      "relation": "partially_answers",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e3",
+      "weight": 1
+    }
+  ]
+}
