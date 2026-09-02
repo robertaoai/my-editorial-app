@@ -191,8 +191,18 @@ never null. **Not `DEP-05`-blocked** — this is a static schema/trigger propert
 
 ### 2.2d S2 Unit 1, Phase 0 — the shortest editorial path (`D-164`/`D-165`, closing `D-162`/`B-061`'s open gap)
 
+> **Historical and held — not your next code unit (added 2026-09-02, `B068-R61`/`docs/handoff/
+> B-070-*.md`).** This packet implements the historical human-`T5`/agent-`T6` order. `D-171`
+> (2026-08-31) held it — and the target order `D-175`–`D-181` later decided — pending a fresh,
+> separate build authorization; `B-068`/`B-069` closing `Verified` at `335564e` does **not** lift
+> that hold or authorize S2 (`docs/handoff/B-070-*.md`, this file's own reasoning). **Do not build
+> this packet.** It is kept below for its still-valid `C-33`/trigger-verification reasoning
+> (steps 1–2), not as a live instruction. Your actual next code unit, if and when one is
+> authorized, will be named here by section number — check `docs/handoff/B-070-*.md` and
+> `V1-PHASE-CLOSURE.md` §5 first; do not infer it from this packet's presence.
+
 **`Q12` and `Q1` are decided** (`D-163`) — `SEC-01` no longer blocks on the IIA citation, and Phase
-0 allows one agent instance across multiple Line 1 roles. **This is your next code unit.**
+0 allows one agent instance across multiple Line 1 roles.
 
 **Read this before writing anything: `0002_s1_editorial_schema.sql`'s
 `enforce_article_state_transition` trigger already enforces `FR-04`'s T5 rule.**

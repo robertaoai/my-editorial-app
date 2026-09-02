@@ -1,0 +1,42 @@
+{
+  "_comment": "Fragment 118 — curated node for B-070 (B-068/B-069 closed Verified, but docs/LANE-B-WORK-ORDER.md S2.2d still called the D-171-held historical T5/T6 packet Lane B's next code unit; corrected to historical/held, with a fresh S2 authorization left as an open Chief Editor choice between two drafted options). Merged 2026-09-02.",
+  "nodes": [
+    {
+      "id": "b070_work_order_stale_s2_instruction_corrected",
+      "label": "B-070: Work Order's Stale S2 Instruction Corrected; Fresh Authorization Left Open",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md",
+      "source_location": "whole document",
+      "description": "Lane B finding: after B-068/B-069 closed Verified at 335564e, docs/LANE-B-WORK-ORDER.md S2.2d still told Lane B the historical D-164/D-165 human-T5/agent-T6 packet was its next code unit -- but D-171 held that packet pending the target order, and D-175 through D-181 later decided and corrected the target order without ever lifting the hold. Verifying a handoff record is not the same act as authorizing a build. Lane A corrected the immediate hazard: S2.2d now carries a historical/held notice, the next-code-unit claim is removed, and the section points to this handoff and V1-PHASE-CLOSURE.md S5 instead. The Chief Editor was asked whether a fresh bounded S2 authorization should be recorded now (a no-route-enablement T5/T6 control unit) or held until all six UNVERIFIED operation shapes in the factory-route-operation-crosswalk (including OP-FINAL-SIGNOFF, which has no R at all in source) are resolved, and asked for both options to be drafted for Lane B's independent review rather than one being selected yet. Neither option is applied; no new decision record was written, Modular_PRD/Build-Spec/Register are untouched, and Lane B's lane state stays Eligible, not Active.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A handoff record moving to Verified answers exactly the question it was raised to answer -- whether the correction was independently confirmed -- and nothing more; treating that closure as build authorization would let a superseded instruction slip past every governance layer this project's own history shows are needed precisely because a status copied into a second document is the drift mechanism this corpus keeps re-discovering."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b070_work_order_stale_s2_instruction_corrected",
+      "target": "d181_d180_residual_defects_corrected_current_anchor",
+      "relation": "raised_against",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md",
+      "confidence_score": 1,
+      "source_location": "What happened",
+      "weight": 1
+    },
+    {
+      "source": "b070_work_order_stale_s2_instruction_corrected",
+      "target": "b068_persona_line_raci_od4_grc_conflated",
+      "relation": "relates_to",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md",
+      "confidence_score": 1,
+      "source_location": "What happened",
+      "weight": 1
+    }
+  ]
+}
