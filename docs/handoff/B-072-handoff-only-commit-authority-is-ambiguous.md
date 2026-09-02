@@ -127,3 +127,88 @@ so this file does not duplicate the T5/T6 findings.
 | **Defer** | `Blocked`-lane handoff-only commits | Not included in the Chief Editor's stated `Active`/`Eligible` scope | Separate Judge decision only if needed |
 | **Reject** | Broad non-active commit authority | Would create concurrent implementation authority and defeat `D-156` | Keep all non-handoff paths under the sole `Active` lane |
 | **Reject** | Graph/check exemption for handoff commits | Would preserve the file while hiding it from the consuming review path | Lane A sync before the next completion or approval claim |
+
+## Independent review of the proposed journal/changelog/BDD additions — 2026-09-03
+
+**Judge approval: none.** The controlling request says plans are still pending review. The proposal
+to add journal cross-references, a central/tier changelog and per-document BDD lines is therefore
+reviewed as Lane A analysis, not as an approved extension of B-072.
+
+### Findings — parent first
+
+| Finding | What is unclear or duplicated | Guaranteed failure if unchanged | Draft fix |
+|---|---|---|---|
+| `B072-R1` — the proposal solves a different problem | B-072 concerns who may make a handoff-only commit while another lane holds the work-product lock. Journal cross-references, changelogs and per-document QA concern general documentation traceability | B-072 can never close cleanly because its smallest commit-authority fix becomes dependent on a repository-wide documentation regime | Keep B-072 bounded to handoff-only commit authority, staging, push/equality, independent verification and Graphify handback. Evaluate broader traceability separately only after evidence shows the current mechanisms cannot answer a concrete question |
+| `B072-R2` — a new changelog re-derives existing evidence | The repository already has Git history, the Decision Register, per-document changelogs, D-54 propagation tables and handoff evidence. Mechanically copying the same write set into another changelog creates a new current-value copy | The central and source changelogs will disagree on the first partial edit or corrected decision, recreating the tally/restatement drift this repository repeatedly prohibits | Reject a new global/per-tier changelog for B-072. Prefer one decision ID in the commit message and the existing decision's authoritative propagation table; consumers follow links rather than copied rows |
+| `B072-R3` — the proposed journal relation is underspecified and retroactive | `Refines`, `Retrospective on`, and `none` do not cover multiple decisions, a decision request without a D-ID, or an entry that both analyzes and executes. It is unclear whether all historical journals must be rewritten | Authors will choose different relations for the same entry, while `none` makes a formally valid but untraceable record; a bulk historical rewrite also changes evidence after the fact | If later justified, add one optional repeatable `Related:` list for **new or materially edited** journal entries only, with typed targets such as `decision:D-…` or `handoff:B-…`; never retrofit untouched history. This is not required to close B-072 |
+| `B072-R4` — per-document BDD uses the wrong test unit | A document is an evidence carrier, not always a behavior. `bun run check` and a negative behavioral test may apply to a change packet or feature but not to every edited governance file | Writers invent meaningless Given/When/Then lines, duplicate the same test across files, or treat prose presence as behavioral verification | Keep BDD/negative tests at the requirement, feature, tool or decision-application packet that owns the behavior. A document edit cites that test; it does not clone it |
+| `B072-R5` — Graphify handback assumes Lane A is always Active | B-072 permits an Active or Eligible Lane B/C handoff commit, but Child 2 assigns synchronization to “the current Active Lane A.” Lane A will not be Active in every legal case | A valid handoff-only commit can leave `docs-drift` red with no actor explicitly permitted and responsible for the local-only refresh | Define two cases: the handoff committer may refresh ignored `.graphify/` state using already-approved tooling and no tracked edit; any required fragment/tool/source change remains Lane A work and blocks approval until Lane A next holds or receives a narrow explicit exception |
+
+### Minimal B-072 success criteria
+
+1. An `Active` or `Eligible` Lane B/C actor can commit and push only its own explicit
+   `docs/handoff/B-NNN-*.md` or `C-NNN-*.md` paths without gaining implementation authority.
+2. The hook/check refuses channel control files, another lane's handoff, governed docs, code,
+   tooling and mixed staged sets.
+3. `Applied` and `Verified` remain different actors; Git authorship is not lane attribution.
+4. Push/equality is confirmed before consumption. Local Graphify refresh may change ignored state
+   only; tracked Graphify corrections return to Lane A and block the next approval claim.
+5. No journal-header, duplicate-changelog or per-document BDD regime is required to close B-072.
+
+### Independent-review approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve-with-conditions** | Development-lane governance / B-072 core | The work-product-lock versus handoff-journal-permission distinction is the smallest valid fix | Judge confirms `Active` + `Eligible` scope; Lane A applies the original parent and safe-commit controls plus `B072-R5` |
+| **Reject** | B-072 scope | Journal cross-reference, central/per-tier changelog and per-document BDD additions are unrelated and duplicative | Remove from B-072; raise separately only with a demonstrated traceability failure |
+| **Defer** | `Blocked`-lane commit permission | Still outside the stated scope | Separate Judge ruling if later required |
+| **Reject** | Any product/build authorization | B-072 changes reporting mechanics only | Keep lane state and product work unchanged |
+
+## Judge clarification — `Eligible` and `Active` handoff commits (2026-09-03)
+
+**Judge ruling received.** “Lane A selected” is normalized to the existing authority model:
+the Chief Editor/Judge selects or nominates the lane; Lane A records that selection in the live
+phase table. This preserves `D-158`/`D-156` and prevents the orchestration lane from becoming the
+decision owner.
+
+### Current target rule
+
+| Lane state | Work-product authority | `docs/handoff/` authority | Required completion behavior |
+|---|---|---|---|
+| **`Eligible` Lane B/C** | None. Selection does not authorize execution or any owned code/workflow surface | May edit, commit and push **only its own explicit `B-NNN-*.md` or `C-NNN-*.md` entries** | Records review/clarification evidence without changing lane state; no broad staging and no mixed-path commit |
+| **`Active` Lane B/C** | May execute and commit only the surface already owned by that lane | May update, commit and push its own handoff entries alongside the completed bounded task | On each bounded task completion, update the existing relevant handoff/turn report, then commit and push the task transaction; do not mint a duplicate entry merely to report the same task |
+| **`Blocked` Lane B/C** | None | May still draft/raise under the existing writable-channel rule, but durable commit permission is not added by this ruling | Wait for `Eligible`/`Active`, or obtain a separate explicit exception |
+
+### What this ruling does not change
+
+- Exactly one lane remains `Active` and holds the work-product commit lock.
+- `Eligible` remains one selected successor, never concurrent implementation authority.
+- An `Eligible` commit containing code, governed docs, Graphify tooling, channel controls, another
+  lane's entry or an unrelated file must fail.
+- `Applied` remains the answering actor's status; only an independent actor may record `Verified`.
+- Active-lane completion updates amend the relevant handoff or turn report; “one task completion”
+  does not mean “one new handoff file.”
+
+### Parent-first application plan for Lane A
+
+1. Record the decision in the Decision Register, distinguishing the **Eligible handoff-only
+   exception** from the **Active lane's existing work-product authority plus reporting duty**.
+2. Update `V1-PHASE-CLOSURE.md` §5.1, `docs/handoff/README.md` and the three shared rule files with
+   identical wording; the Chief Editor selects and Lane A records.
+3. Update Lane B/C work orders with explicit-path staging, task-completion handoff update, immediate
+   push and remote-equality checks.
+4. Update the commit hook/check so the narrow Eligible exception accepts only the lane's own
+   `B-NNN-*.md`/`C-NNN-*.md` paths and rejects mixed or broad staged sets.
+5. Specify Graphify handback separately: ignored local graph refresh may follow a handoff commit;
+   any tracked fragment/tool/source correction remains Lane A work before the next approval claim.
+6. Independently test one allowed Eligible handoff-only commit, one allowed Active task-plus-handoff
+   transaction, and refusals for code, channel controls, another lane's entry and a mixed staged set.
+
+### Clarification approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Development-lane governance | Eligible Lane B/C may commit/push only its own handoff entries; no execution authority | Lane A applies steps 1–6, then independent review |
+| **Approve** | Active-lane reporting | Active Lane B/C updates the relevant handoff at each bounded task completion and commits/pushes the task transaction | Lane A applies steps 1–6, then independent review |
+| **Reject** | Selection semantics | Lane A does not independently choose the successor; the Chief Editor/Judge chooses and Lane A records | Preserve `D-156`/`D-158` authority |
+| **Defer** | Blocked-lane durable commits | Not granted by this ruling | Separate Judge decision only if needed |

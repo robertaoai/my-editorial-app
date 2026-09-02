@@ -903,3 +903,223 @@ propagation set is complete or that the new merger enforces the semantic contrac
 | **Approve-with-conditions** | Lane A Draft 9 | Core T5/T6, four-identifier, two-feature and four-authorization structure remains usable | Apply `B071-R61`–`R66` parent-first in Draft 10 |
 | **Reject** | `AUTH-DOC` approval now | Governing propagation, T6 authentication, spec ownership and verification semantics remain incomplete | Lane A Draft 10, pushed shared baseline, then Lane B independent plan review |
 | **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation and lane transition | `D-171` remains binding; this round authorizes no implementation | Only after corrected `AUTH-DOC` is applied and independently Verified |
+
+## Round 10 independent review — Lane A Draft 10 and tooling commit `a309ba3`
+
+**Judge approval: none for Draft 10 or `AUTH-DOC`.** The request supplying Lane A's handback says
+this explicitly; the contradictory sentence in this file's Lane A field and Lane A's summary is an
+unverified claim, not decision evidence. Local `HEAD` and `origin/docs/journal-2026-08-16` both
+resolve to `a309ba3`. Graphify still analyzes `838baff`, so the full local suite is 16/17 with
+`docs-drift` as the sole failure. The only unrelated working-tree item is the pre-existing untracked
+`package-lock.json`, which was not examined or staged.
+
+### Round 10 findings — parent first
+
+| Finding | What remains unclear or contradictory | Guaranteed failure if unchanged | Draft fix |
+|---|---|---|---|
+| `B071-R67` — approval provenance is false | The live Lane A field says “The Judge approved Draft 10,” while the controlling request says “Judge Approved: none since still pending review of plans first.” Draft 10 also labels the R62 policy “decided” without a decision-register entry or direct ruling | A proposal can be promoted into governing behavior merely because its drafter calls it approved; every later `AUTH-*` gate then rests on invented authority | Append a factual correction and change current-value metadata to “Draft 10 proposed; Round 10 reviewed; Judge approval none.” Preserve the earlier claim as historical evidence of the defect, never as authority |
+| `B071-R68` — the pre-`AUTH-DOC` circular gate has returned | Draft 10's “Round 10 — outstanding, before this revision reaches the Judge” requires every R61 target file to **carry** its overlay and requires `docs/specs/README.md` to **match** the new convention. Those are §7 application edits, and §7 remains gated on `AUTH-DOC` | Waiting for approval fails the checklist; satisfying the checklist first applies disputed content without approval. The plan again has no legal execution order | Make Round 10 plan-review-only: verify that §7 names exact future edits. Move “files carry/match” and all post-write evidence exclusively to the applied-state checklist after `AUTH-DOC` |
+| `B071-R69` — the demo-first rule is treated as a business decision | “No login wall in v1” says when authentication is built; it does not choose whether pre-auth T6 is disabled, demonstrative/non-operative, or performed through another trusted mechanism. Lane A selected one branch and called it decided | An infrastructure sequencing rule silently determines publication authority. The Judge may approve a plan believing the T6 policy was still open while the proposed decision already fixes it | Present the branches to the Judge. Lane B recommends the bounded option already drafted—pre-auth T6 may be demonstrative but never operative—but it stays **proposed** until expressly approved |
+| `B071-R70` — T6 is conflated with publication | Proposed D-182 says an authenticated T6 closes `Drafted → Reviewed → Published`. The governed state machine defines T6 as `Reviewed → Approved`; T7 performs automated `Approved → Published`, and T11 may promote on the first manually confirmed live target | Implementers can publish directly from T6, bypass publication-target evidence and the T7/T11 controls while claiming compliance with D-182 | State only: authenticated T6 may perform `Reviewed → Approved`. Publication remains exclusively under the existing T7/T10/T11 feature group and its live-target rules |
+| `B071-R71` — R61 is not yet an executable propagation plan | The success criterion requires one clause-level treatment per affected file, but §7 combines six heterogeneous files in one row with no exact paths/anchors and proposes a single forward notice despite multiple operative tables, tests and narrative rules in those files | A top-of-file notice can coexist with executable current-value rows and acceptance tests that still require human T5/agent T6; a search cannot prove which clauses became historical | Split the combined row by exact path and anchor. For each current-value clause choose `replace`, `[V1→V2] target overlay`, or `historical notice`; name the negative search that proves no unmarked operative contradiction remains |
+| `B071-R72` — R66 remains false-green and its lifecycle is stale | The commit added no tracked tests. `--verify-only` no longer writes, but it first overlays the fragment onto an in-memory candidate and then compares that candidate to the same fragment, so a stale real graph can still pass. `--all` checks cross-fragment whole-object conflicts only; it does not compare all fragment-owned fields with the graph or validate global dangling edges. The final write is direct, not atomic. Draft 10 still describes these defects as “remaining” even though Lane A's summary calls all six fixes complete | A stale graph passes verify-only because the expected values were injected before comparison; an all-fragment audit can be green without semantic parity; a partial disk write can corrupt the graph; and no regression suite prevents recurrence | Separate `verifyExisting(graph, fragment)` from `buildCandidate`; `--verify-only` must compare the untouched graph. Make `--all` validate global endpoints and semantic parity under field-level ownership, not whole-object equality. Write temp-then-rename after validation and re-read. Add tracked automated tests for stale-field failure, no-write verification, dangling edges, same/cross-fragment overlap, atomic failure and update-in-place. Then update Draft 10's lifecycle text and independently rerun them |
+
+### Draft 11 success criteria
+
+1. Current metadata says Draft 10 is proposed and independently reviewed; Judge approval remains
+   none until a direct ruling is recorded.
+2. The checklist that precedes `AUTH-DOC` is text-only. Actual tier edits and their evidence appear
+   only in the post-approval applied-state checklist.
+3. The Judge explicitly chooses the pre-authentication T6 policy; the plan does not derive it from
+   the demo-first build rule.
+4. T6 ends at `Approved`. T7/T10/T11 remain the only governed publication mechanisms.
+5. Each R61 file has an exact path, anchor, treatment and negative search in the proposed write set.
+6. Graph verification compares untouched state, audits all fragments and endpoints, writes
+   atomically, and has tracked negative tests. Graphify then analyzes the same pushed HEAD.
+7. `D-171` remains binding; no `AUTH-*`, S2, lane-state, release or deployment authority is implied.
+
+### Round 10 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Git/GitHub evidence | Draft 10/tooling commit `a309ba3` is pushed and local/remote match | Preserve as Round 10 review base |
+| **Approve** | `B071-R64`/`R65` plan corrections | Canonical sibling node and completed-precondition wording are corrected | Preserve in Draft 11 |
+| **Approve-with-conditions** | R61/R63 planning direction | Governing propagation and exact identity-spec ownership are directionally sound but not yet executable clause by clause | Apply `B071-R71` in Draft 11 |
+| **Reject** | Draft 10 approval / `AUTH-DOC` now | Approval provenance, gate order, T6 semantics and Graphify proof are defective | Lane A Draft 11, pushed/synced, then independent review |
+| **Reject** | Graphify verification claim | `docs-drift` is red and `merge7.js` still verifies a self-overlaid candidate without tracked tests | Apply `B071-R72`, rebuild/re-merge, run full suite |
+| **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 and lane transition | `D-171` remains binding; no implementation is authorized | Only after `AUTH-DOC` is applied and independently Verified |
+
+## Judge decision packet — pre-authentication T6 policy
+
+- **Kind:** blocked-on-decision within existing `B-071`; no new handoff
+- **Decision owner:** Judge / Chief Editor (the same natural person under `D-158`)
+- **Decision required before:** Draft 11 can be approved for `AUTH-DOC`
+- **Does not authorize:** implementation, route activation, publication, lane transition or `D-171`
+  relaxation
+
+### What happened
+
+Draft 10 selected a pre-authentication T6 policy and called it “decided,” but no Judge ruling exists.
+The infrastructure rule “demo-first, no login wall in v1” does not answer the business-control
+question. It says when authentication is built; it does not say whether an unauthenticated action
+may authorize an article.
+
+Three facts are already fixed and are not part of the choice:
+
+1. `T6` is the natural-person Chief Editor's final editorial judgment.
+2. `T6` changes only `Reviewed → Approved`; it never changes an article to `Published`.
+3. T7/T10/T11 and the publication-target evidence govern publication separately.
+
+### What the Judge must choose
+
+| Option | Simple rule | Benefit | Cost/risk | Lane B recommendation |
+|---|---|---|---|---|
+| **A — demonstrate T6, but do not make it operative before authentication** | The Chief Editor may exercise the T6 UI in the open demo. The resulting evidence is visibly `self_asserted`/demo-only. It does **not** create the authoritative `Reviewed → Approved` transition, trigger publication, or satisfy `AUTH-ROUTE` | Preserves an end-to-end UI demonstration without pretending the natural person was authenticated | Requires the UI and evidence view to distinguish “demonstrated judgment” from “operative approval” | **Approve — recommended** |
+| **B — disable T6 until authentication exists** | The demo stops after T5. T6 controls are disabled until an authenticated Chief Editor session exists | Simplest and strongest assurance boundary | The open demo cannot demonstrate the final Chief Editor action | Approve only if assurance is more important than demonstrating the full workflow |
+| **C — allow `self_asserted` T6 to approve** | An unauthenticated caller claiming the Chief Editor role may create `Reviewed → Approved` | Fastest apparent workflow completion | Does not prove a natural person acted; any caller or agent can claim the role; creates false approval evidence and can unlock downstream publication | **Reject** |
+
+**Recommended ruling:** approve Option A, reject Option C, and retain Option B only as the fallback
+if a safe demo-only record cannot be represented without changing authoritative workflow state.
+
+### What is guaranteed to fail without this ruling
+
+- Treating `executor_principal_key`, an AI badge, a role label or a browser session as proof of
+  authentication. They identify or label an executor; they do not prove the Chief Editor logged in.
+- Writing the canonical `Reviewed → Approved` transition and merely adding a “demo” label afterward.
+  The authoritative state has already changed, so the label cannot make it non-operative.
+- Triggering T7 or creating publication-ready evidence from a pre-authentication T6 demonstration.
+- Saying T6 reaches `Published`; that bypasses the separate publication feature group.
+- Showing no visible distinction between a demonstration and an authenticated approval.
+
+### Success criteria if the Judge approves Option A
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T6-PREAUTH-01` | The article is `Reviewed` and no authenticated Chief Editor principal exists | A user exercises the T6 demo control | A visibly demo-only, `self_asserted` record may be retained, but the authoritative article state remains `Reviewed` |
+| `T6-PREAUTH-02` | A pre-authentication T6 demonstration exists | Publication or `AUTH-ROUTE` eligibility is evaluated | The demonstration contributes no approval evidence and the action is refused |
+| `T6-PREAUTH-03` | A caller supplies a Chief Editor role label or `executor_principal_key` without authenticated assurance | The caller attempts operative T6 | Refused; identifiers and labels do not substitute for authentication |
+| `T6-AUTH-01` | The article is `Reviewed` and the natural-person Chief Editor is authenticated | The Chief Editor approves at T6 | Exactly one authoritative `Reviewed → Approved` transition is appended with the authenticated principal and required T5 evidence references |
+| `T6-AUTH-02` | An authenticated T6 has produced `Approved` | Publication eligibility is evaluated | The existing T7/T10/T11 rules decide publication; T6 itself never records `Published` |
+| `T6-AGENT-01` | Any virtual agent or system principal attempts operative T6 | The request is evaluated | Refused even if the agent has a valid system-attested identity or attempt badge |
+
+### Parent-first drafting steps after the Judge rules
+
+1. **Decision first:** Draft 11 records the chosen option in proposed `D-182`, corrects the false
+   “decided/approved” metadata, and states T6 as `Reviewed → Approved` only.
+2. **Product behavior second:** the proposed `Modular_PRD` and `FN-GATES` edits distinguish
+   demonstration evidence from an authoritative transition and carry the negative criteria above.
+3. **Technical/UI representation third:** the proposed transition-enforcement and Chief Editor UX
+   specs define how the demo is visibly labeled and prevented from changing canonical state. They
+   must reuse the eventual governed evidence model rather than invent a field in this handoff.
+4. **Publication boundary fourth:** the publication Fn_Spec remains unchanged in ownership; it only
+   consumes an authenticated `Approved` state under its existing T7/T10/T11 rules.
+5. **Independent review last:** Lane B verifies the Draft 11 text. Only then may the Judge consider
+   `AUTH-DOC`; implementation remains separately gated by `AUTH-F1`/`AUTH-F2`/`AUTH-ROUTE`.
+
+### Judge response — concise
+
+| Decision | Tier | Status if selected | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Pre-authentication T6 policy | **Option A:** demo-only evidence; no authoritative transition or publication effect | Lane A Draft 11, then Lane B independent review |
+| **Approve-with-conditions** | Pre-authentication T6 policy | **Option B:** disable T6 until authentication; accept incomplete open-demo workflow | Lane A Draft 11, then Lane B independent review |
+| **Reject** | Pre-authentication T6 policy | **Option C:** never allow `self_asserted` operative approval | Preserve as a negative requirement in Draft 11 |
+| **Defer** | Implementation and route activation | No option authorizes code, S2 or a lane transition | After `AUTH-DOC` is applied and independently Verified |
+
+## Judge clarification — editorial flow and route-gated GRC assurance (2026-09-03)
+
+**Judge ruling received.** This corrects the prior decision packet's assumption that every article
+has a universal human-final-judgment T6. The earlier packet remains historical evidence; the model
+below is the current target for Draft 11.
+
+### Normalized routing rule
+
+| Route family | GRC is route/stage `A`? | Editorial flow | GRC-assurance flow `T6` |
+|---|:---:|---|:---:|
+| `ROUTE-PROD-1` | No | T1 → T2 → T3 → T4 → T5 | Not required |
+| `ROUTE-PROD-2` | No | T1 → T2 → T3 → T4 → T5 | Not required |
+| `ROUTE-PROD-3` | No | T1 → T2 → T3 → T4 → T5 | Not required |
+| `ROUTE-FALLOUT-1` | No | T1 → T2 → T3 → T4 → T5 | Not required |
+| `ROUTE-FALLOUT-2` | No | T1 → T2 → T3 → T4 → T5 | Not required |
+| `ROUTE-FALLOUT-3` | **Yes — external GRC** | T1 → T2 → T3 → T4 → T5 | **Required after T5** |
+| `ROUTE-GRC` | **Yes — external GRC** | T1 → T2 → T3 → T4 → T5 | **Required after T5** |
+
+### Ontology correction
+
+1. **Editorial flow is universal:** every article completes T1–T5. Its route-specific accountable
+   role is resolved from the Sheet 1 RACI; external GRC is not `A` on the five non-GRC-accountable
+   route families above.
+2. **Assurance flow is conditional:** only articles on `ROUTE-FALLOUT-3` or `ROUTE-GRC` enter T6,
+   because external GRC is `A` for those route/stage decisions.
+3. **T5 is editorial, not assurance:** Draft 10's universal `T5-ASSURANCE-PREPARATION` premise must
+   not remain as a required three-act completion unit on every route. Any evidence prepared for GRC
+   belongs to the conditional assurance branch, not the universal editorial gate.
+4. **External accountability stays external:** the Chief Editor, a virtual agent, an
+   `executor_principal_key` or an authenticated recorder cannot substitute for external GRC's `A`.
+   Authentication proves who recorded/submitted evidence; it does not prove the institution
+   accepted it.
+5. **IIA, OD4 and GRC remain different:** this T6 is the route-triggered GRC-assurance workflow. It
+   is not IIA Line 3, not OD4 Proposer/Critics/Judge, and not a generic “assurance” stage for every
+   article.
+
+### Effect on the pre-authentication T6 question
+
+The question now applies only to `ROUTE-FALLOUT-3` and `ROUTE-GRC`:
+
+- **Recommended before authentication:** the UI may demonstrate preparation/submission of the GRC
+  assurance packet, but the record is visibly `self_asserted`/demo-only and cannot complete T6,
+  claim external GRC acceptance, or unlock downstream delivery/publication.
+- **After authentication:** an authenticated Chief Editor may record or submit the internal action,
+  but T6 still completes only when the governed external GRC acceptance evidence exists.
+- **Always reject:** treating the Chief Editor's authentication, an agent badge, or a local approval
+  as external GRC acceptance.
+
+One drafting detail remains for Lane A to make explicit from the RACI source: the responsible
+internal executor for the GRC packet on each of the two affected routes. That `R` prepares or records
+the evidence; it never becomes the external `A`.
+
+### Guaranteed failures if Draft 10 is only patched superficially
+
+- Leaving Assurance Preparation inside universal T5 sends all seven route families through a GRC
+  control that the RACI assigns to only two.
+- Leaving T6 as the Chief Editor's universal final editorial judgment makes external GRC `A` either
+  redundant or silently replaced by the internal user.
+- Allowing a non-GRC route to require T6 blocks ordinary editorial completion on an authority that
+  has no accountability assignment there.
+- Allowing a GRC-accountable route to bypass T6 permits delivery without the accountable external
+  institution's evidence.
+- Treating authenticated recording as institutional acceptance proves the recorder, not the
+  external decision.
+
+### Draft 11 success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `FLOW-EDITORIAL-01` | An article belongs to any of the seven routes | Its workflow is initialized | T1–T5 are required exactly once as the universal editorial flow |
+| `FLOW-GRC-01` | Route is `ROUTE-PROD-1/2/3` or `ROUTE-FALLOUT-1/2` | T5 completes | T6 is `not_applicable`; no GRC-accountability wait is created |
+| `FLOW-GRC-02` | Route is `ROUTE-FALLOUT-3` or `ROUTE-GRC` | T5 completes | T6 becomes required and downstream delivery remains held |
+| `FLOW-GRC-03` | T6 is required but only internal preparation, a self-asserted action or a Chief Editor approval exists | T6 completion is evaluated | Refused; none substitutes for external GRC acceptance evidence |
+| `FLOW-GRC-04` | T6 is required and valid external GRC acceptance evidence is recorded with provenance | T6 completion is evaluated | T6 may complete; the evidence remains append-only and attributable to the external authority and the internal recorder separately |
+| `FLOW-GRC-05` | A non-GRC route completes T5 | Publication/delivery eligibility is evaluated | Existing editorial/publication rules apply without manufacturing a T6 record |
+
+### Parent-first correction plan
+
+1. Rewrite proposed `D-182`'s parent flow: universal editorial T1–T5, conditional T6 only for the
+   two GRC-accountable routes; remove universal T5 Assurance Preparation.
+2. Resolve the RACI-derived internal `R` for each affected T6 route while preserving external GRC
+   as the sole route/stage `A`.
+3. Redraft the route-operation crosswalk and Fn_Spec behavior before revising acceptance criteria;
+   cardinality and `not_applicable` follow from the route matrix above.
+4. Redraft the pre-authentication policy around **recording/submission versus external acceptance**,
+   not around a universal Chief Editor approval.
+5. Propagate only after the corrected Draft 11 passes independent review and the Judge separately
+   grants `AUTH-DOC`; implementation remains separately authorized.
+
+### Clarification approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Business workflow / RACI routing | T1–T5 universal; T6 required only for `ROUTE-FALLOUT-3` and `ROUTE-GRC` | Lane A Draft 11, then independent review |
+| **Approve** | External accountability | GRC remains external `A`; internal identities never substitute for its acceptance | Lane A Draft 11, then independent review |
+| **Reject** | Draft 10 parent model | Universal T5 Assurance Preparation and universal Chief-Editor T6 are superseded by this clarification | Reconstruct Draft 11 parent-first |
+| **Defer** | Exact internal T6 `R` mapping | Must be copied from the Sheet 1 RACI for each affected route, not inferred | Lane A Draft 11 evidence table |
+| **Defer** | Implementation, `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE` and lane transition | This ruling changes the plan only; `D-171` remains binding | After corrected `AUTH-DOC` is applied and independently Verified |
