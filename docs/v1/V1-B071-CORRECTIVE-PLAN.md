@@ -18,7 +18,7 @@ correction is already applied at `d3cadda`; this plan cites it and does not writ
 **Approver:** Judge/Chief Editor — same person, `D-158`.
 
 **Source:** `docs/handoff/B-071-*.md` in full, including all completed independent-review rounds
-(`B071-R1`–`R60`), the Chief Editor's direct clarification (`B071-R22`), and the Judge's direct
+(`B071-R1`–`R66`), the Chief Editor's direct clarification (`B071-R22`), and the Judge's direct
 four-identifier ruling (§"Judge clarification — executor identity and attempt-badge exposure").
 
 **Authorization vocabulary (`B071-R30`, scoped `B071-R39`):** this plan's four approval checkpoints
@@ -100,17 +100,33 @@ record of what was corrected, and is explicitly non-operative (`B071-R39`).
   rebuild (`R54`); and replaces "person"/"account" language describing virtual-agent execution with
   "executor principal"/`executor_principal_key` in §4, reserving natural-person/account language for
   the Chief Editor and `T6` (`R55`).
-- **Draft 9 (this revision; its evidence is the commit containing this paragraph, following pushed
-  Draft 8 `d3898db`):** incorporates round-8 review
-  `B071-R56`–`R60`. Splits the single circular checklist into a plan-review checklist, an optional
-  Graphify tooling/status precondition, and an applied-state verification checklist, so no item
-  gates `AUTH-DOC` on work that §7/§8 gate on `AUTH-DOC` already being granted (`R56`); corrects
-  this file's and B-071's lifecycle metadata to name pushed `d3898db` as Draft 8's evidence (`R57`);
+- **Draft 9 (`838baff`, committed and pushed):** incorporates round-8 review `B071-R56`–`R60`.
+  Splits the single circular checklist into a plan-review checklist, an optional Graphify
+  tooling/status precondition, and an applied-state verification checklist, so no item gates
+  `AUTH-DOC` on work that §7/§8 gate on `AUTH-DOC` already being granted (`R56`); corrects this
+  file's and B-071's lifecycle metadata to name pushed `d3898db` as Draft 8's evidence (`R57`);
   finishes the `R49`/`R55` language replacement in §3's refusal condition and §4's verification line
   (`R58`); names both proposed spec artifacts under their governed path conventions and adds the
   identity spec's `D-30` redundancy-test condition to Inventory (`R59`); and replaces the
-  unqualified "rebuild now" instruction with the named tooling precondition, so Graphify's
-  known-stale state is never called complete or safe without it (`R60`).
+  unqualified "rebuild now" instruction with the named tooling precondition (`R60`). The Judge
+  separately authorized the Graphify tooling/status precondition in this same commit: `merge7.js`
+  fixed to a deterministic upsert with a semantic-equality check, `frag119.json`'s B-071/plan nodes
+  refreshed to status-only Draft-9/`R1`–`R60` text.
+- **Draft 10 (this revision; its evidence is the commit containing this paragraph, following pushed
+  Draft 9 `838baff`):** incorporates round-9 review `B071-R61`–`R66`. Adds a forward-notice/
+  target-overlay write-set row for every affected non-frozen governing/derived file the propagation
+  set previously omitted (`R61`); decides the `T6` pre-authentication trust boundary — `self_asserted`
+  demo `T6` events cannot satisfy publication or `AUTH-ROUTE`, only `authenticated` `T6` can, per
+  `CLAUDE.md`'s binding demo-first/no-login-wall v1 rule (`R62`); resolves the identity-spec `D-30`
+  redundancy test explicitly (`SPECS-TRANSITION-ENFORCEMENT.md` excludes column/type ownership by
+  its own stated scope) and fixes `docs/specs/README.md`'s naming convention to match the plural
+  `SPECS-*` files that already exist (`R63`); replaces the last operative prose reference to "Chief
+  Journalist review node" with `NODE-CHIEF-JOURNALIST-REVIEW` in proposed `D-182` (`R64`); corrects
+  §7/§8 to describe the Graphify tooling/status precondition as completed at `838baff`, not
+  future/conditional work (`R65`); and records `merge7.js`'s remaining verifier defects — mutates
+  before verifying, drops dangling edges from its own check, no cross-fragment check, undefined
+  fragment-owned-field scope — as required ordinary Lane A tooling work with four named negative
+  tests, independent of the completed precondition (`R66`).
 
 **Artifact classification and propagation (`B071-R8`, `R16`):** this file is a `docs/v1/` tracking
 artifact under `D-36`, the same class as `V1-PHASE-CLOSURE.md`. It is registered in
@@ -157,9 +173,10 @@ not reopened, consistent with every decision in the `D-172`–`D-181` chain.
    `ROUTE-PROD-1`; Chief Journalist for the other named routes. A fallback reviewer is an internal
    judgment preparer, never a replacement for the route's human or external RACI `A`.
 2. `T5-ASSURANCE-PREPARATION` runs on **every** route, not only where Editorial Review selects
-   Desk Editor (`B071-R18`): the Editorial Desk Review node (mapped to `ROLE-DESK-EDITOR`) and the
-   Chief Journalist review node each seal a separately attributable brief on every route. It is
-   internal preparation, not independent Line 3 assurance.
+   Desk Editor (`B071-R18`): `NODE-EDITORIAL-DESK-REVIEW` (mapped to `ROLE-DESK-EDITOR`) and
+   `NODE-CHIEF-JOURNALIST-REVIEW` (mapped to `ROLE-CHIEF-JOURNALIST`, `B071-R64` — this operative
+   clause was still prose before Draft 10) each seal a separately attributable brief on every route.
+   It is internal preparation, not independent Line 3 assurance.
 3. Both T5 workstreams are held before `T6`. A report cannot satisfy both merely because the same
    role participated; every act carries a distinct workstream/purpose code, and the two Assurance
    Preparation acts additionally carry distinct, system-attested `executor_principal_key` values —
@@ -169,6 +186,17 @@ not reopened, consistent with every decision in the `D-172`–`D-181` chain.
    final `T6` disposition remain refused. The complete T5 packet supplies the judgment-rule inputs
    OD4 would require before any future automation; OD4 remains deferred and is not a pipeline
    stage.
+
+   **Pre-authentication trust boundary (`B071-R62`, decided):** `CLAUDE.md`'s binding v1 build rule
+   is demo-first with no login wall — authenticated identity is explicitly deferred to a later
+   "Lock it down" sprint, before real users/data. Given that, operative `T6` cannot be made to
+   *require* authenticated identity in v1 without contradicting a binding project rule. The decision
+   is therefore the other branch: **every pre-authentication `T6` event is recorded as
+   `identity_assurance: self_asserted`, visibly labeled demo/non-operative, and cannot satisfy
+   publication or `AUTH-ROUTE`.** Only a `T6` event whose `identity_assurance` is `authenticated`
+   (post-lockdown) can close a route's `Drafted → Reviewed → Published` transition for real. A
+   client-supplied human-role label without `authenticated` assurance must fail a negative test that
+   asserts it cannot produce an operative `T6` event.
 5. Sheet 1 `A` owns route/stage accountability. Sheet 2 `A` owns task accountability; where a task
    has no local `A`, the governed parent/milestone/stage `A` supplies the effective task `A`.
    Neither scope overwrites the other; each scope has exactly one effective `A`.
@@ -446,7 +474,9 @@ enforce:
   pre-Delivery/Delivery transition, never Final Sign-Off or `T6` (`B071-R37`)
 - Unresolved disagreement between workstreams
 - The human-only `T6` control — UI refuses submission of `T6`/publication disposition from an
-  agent; only a natural-person Chief Editor action satisfies it
+  agent; only a natural-person Chief Editor action satisfies it; and (`B071-R62`) a visible
+  demo/`self_asserted` badge on any pre-authentication `T6` event, with publication/`AUTH-ROUTE`
+  actions disabled until that event's `identity_assurance` is `authenticated`
 
 Marked `[V1]` per `D-36`'s spec versioning convention; new file, not an edit to an existing `[V1]`
 section. **Represents** the actor/node/Final-Sign-Off rules defined in §1–§3; never their origin
@@ -461,15 +491,17 @@ Single-pass sweep per `D-54`, once §1–§6 are Judge-approved (`AUTH-DOC`):
 |---|---|
 | `V1-DECISION-REGISTER.md` | Add `D-182`: decision content (§1), corrected dependency order, clause-level lifecycle table, this plan's own artifact-creation fact, UX artifact creation fact, explicit `D-171` hold preservation |
 | `V1-BUILD-SPEC.md` | Three-act target DoD; Final-Sign-Off-before-T5 sequence; this plan's sequencing fact; UX artifact sequencing fact — no implementation authorization, hold stays |
-| `V1-ARTIFACT-INVENTORY.md` | Add `docs/specs/ux/UX-CHIEF-EDITOR-PUBLICATION-WORKSPACE.md`; add `docs/specs/SPECS-IDENTITY-ATTESTATION.md` **only if** the `D-30` redundancy test in §7's `SPECS`-candidate row finds no existing owner (`B071-R59` — the prior draft omitted this file from Inventory entirely); mark this plan's own row historical/superseded (**never removed** — `B071-R16`) |
-| `Modular_PRD.md` | Owning sections: `US-04a`/`US-05a`, `FR-04a`/`FR-05a`, `AC-05a`–`AC-08a`, `G-05a`, `SEC-01a`/`SEC-03a`, any T5 prerequisite in `AC-22`; **and** (`B071-R53`) `TR-DM-02`/the identity NFR for the four identifiers — one stable `executor_principal_key` per tenant/agent, one unique `agent_attempt_badge_id` per attempt, exactly one `executor_principal_key` per badge, many badges per key, immutable historical linkage, no client-supplied attestation. §8 separately records the UX tier/file opening and unchanged S2 hold — §8 does not own the User Story rows themselves (`B071-R20` corrects the prior draft's wrong mapping) |
-| `FN-GATES-01-05.md` | §11: actor/node mapping, three acts (every route), join, blind order, consuming evidence; **and** (`B071-R53`) behavior/refusal rules for the four identifiers — comparison object, retry continuity, `self_asserted` rejection |
+| `V1-ARTIFACT-INVENTORY.md` | Add `docs/specs/ux/UX-CHIEF-EDITOR-PUBLICATION-WORKSPACE.md` and `docs/specs/SPECS-IDENTITY-ATTESTATION.md` (`B071-R59`/`R63` — the `D-30` redundancy test is resolved, not conditional; both files are created); mark this plan's own row historical/superseded (**never removed** — `B071-R16`) |
+| `Modular_PRD.md` | Owning sections: `US-04a`/`US-05a`, `FR-04a`/`FR-05a`, `AC-05a`–`AC-08a`, `G-05a`, `SEC-01a`/`SEC-03a`, any T5 prerequisite in `AC-22`; **and** (`B071-R53`) `TR-DM-02`/the identity NFR for the four identifiers — one stable `executor_principal_key` per tenant/agent, one unique `agent_attempt_badge_id` per attempt, exactly one `executor_principal_key` per badge, many badges per key, immutable historical linkage, no client-supplied attestation; **and** (`B071-R62`) the `T6` pre-authentication trust-boundary rule — `self_asserted`/demo `T6` cannot satisfy publication or `AUTH-ROUTE`, only `authenticated` `T6` can. §8 separately records the UX tier/file opening and unchanged S2 hold — §8 does not own the User Story rows themselves (`B071-R20` corrects the prior draft's wrong mapping) |
+| `FN-GATES-01-05.md` | §11: actor/node mapping, three acts (every route), join, blind order, consuming evidence; **and** (`B071-R53`) behavior/refusal rules for the four identifiers — comparison object, retry continuity, `self_asserted` rejection; **and** (`B071-R62`) the `T6` `self_asserted`-vs-`authenticated` refusal rule and its negative test |
+| `v1-build-readiness-addendum.md`, `blueprint.md`, `business-case.md`, `docs/README.md`, `SPECS-TRANSITION-ENFORCEMENT.md`, the media-industry fallback plan | (`B071-R61`) One forward-notice/target-overlay row per file, naming the retired human-T5/agent-T6 description as historical and pointing at `D-182`'s T5/T6 model as current. Frozen `docs/PRD.md`/Charter are excluded — never edited |
 | `FN-EXCEPTIONS-06-11-12.md` | Three-act-aware invalidation/rerun; external-trigger vs. external-acceptance separation (`B071-R20` — omitted entirely from the prior draft) |
 | `FN-PUBLICATION-09-10-13.md` | External acceptance at its governed pre-Delivery point and Delivery refusal, without moving that requirement into Final Sign-Off (`B071-R20` — omitted entirely from the prior draft) |
 | `raci-involvement-matrix.md` | §§3.1/8: scoped `A` resolution, Final Sign-Off ordering, all-route Desk Review mapping, three T5 acts, one join |
 | `factory-route-operation-crosswalk.md` | §§2–4: same content as above, crosswalk form |
-| `docs/specs/SPECS-IDENTITY-ATTESTATION.md` (new — named path, `B071-R59`) | (`B071-R53`) Physical storage, key constraints, and server-only issuance for the four identifiers; owning migration for adding `system_attested` to `identity_assurance` (`B071-R52`) — not `0002`. Before creating it, apply the `D-30` redundancy test — if an existing `SPECS-*` file already owns this content, extend that file and do not create a new one |
-| `docs/graph-fragments/merge7.js` | (`B071-R54`) Deterministic upsert (update fragment-owned fields for an existing node ID/edge key; fail on conflicting duplicate definitions) plus the semantic-equality check against `.graphify/graph.json` — committed in the same pass as the source/fragment edits, before any rebuild |
+| `docs/specs/SPECS-IDENTITY-ATTESTATION.md` (new, decided — `B071-R59`, `R63`) | (`B071-R53`) Physical storage, key constraints, and server-only issuance for the four identifiers; owning migration for adding `system_attested` to `identity_assurance` (`B071-R52`) — not `0002`. `D-30` redundancy test resolved, not deferred: `SPECS-TRANSITION-ENFORCEMENT.md` explicitly excludes "column sets, types, nullability" and "typed columns versus JSON payload" from its own scope, so it cannot own this content; no other existing `SPECS-*` file addresses identity storage. One new file is warranted |
+| `docs/specs/README.md` (`B071-R63`) | Fix line 13's documented convention from singular `docs/specs/SPEC-*.md` to plural `docs/specs/SPECS-*.md`, matching the three files that already exist (`SPECS-PUBLICATION.md`, `SPECS-TRANSITION-ENFORCEMENT.md`, `SPECS-VERIFICATION-APPARATUS.md`) and the new `SPECS-IDENTITY-ATTESTATION.md` — the index was contradicting reality, not the other way around |
+| `docs/graph-fragments/merge7.js` | (`B071-R54`) **Deterministic-upsert and semantic-equality-check foundation already completed and committed at `838baff`** (the Graphify tooling/status precondition). (`B071-R66`, remaining, ordinary Lane A work — not gated on `AUTH-DOC`): gate the write behind a true read-only `--verify-only` mode; fail closed on dangling fragment edges instead of dropping them from the check; add an all-fragment audit; explicitly enumerate which fields are fragment-owned versus Graphify-derived; add the four named negative tests (no-write verify-only, dangling-edge failure, same/cross-fragment conflict failure, update-in-place still works) |
 | `B-070` | **Already applied at `d3cadda` — cite, do not edit again.** Its forward notice already records the options-superseded/feature-split correction; this pass only references it (`B071-R33`) |
 | `LANE-B-WORK-ORDER.md` | Fix §1's stale `Eligible` definition (`B071-R7`) |
 | `B-071` (this handoff's own record) | Lane A answer recorded; `Resolution: Applied` set once this plan's actual §1–§8 packet propagates at the named commit; **never self-`Verified`** — that mark is Lane B's independent review alone (`B071-R33`, corrected `B071-R42`) |
@@ -479,20 +511,20 @@ Single-pass sweep per `D-54`, once §1–§6 are Judge-approved (`AUTH-DOC`):
 
 Strict order — do not interleave:
 
-1. Edit all §7-approved source tiers, `docs/graph-fragments/frag119.json` (add the `D-182`
+1. Edit all §7-approved source tiers and `docs/graph-fragments/frag119.json` (add the `D-182`
    decision node; transition the `B-071` and this-plan lifecycle-status nodes from
    `Open`/`DRAFT`/`proposed` to `Applied`/`historical` as §7 makes true; preserve the existing edge
-   to `D-171`), **and** `docs/graph-fragments/merge7.js` itself (`B071-R54` — the deterministic
-   upsert and semantic-equality-check fix belongs in this same edit set, not scheduled for after
-   the commit that is supposed to be complete).
-2. Commit that complete packet — source, curated fragment, and the fixed `merge7.js` together, in
-   one Lane A pass. Nothing in step 1 is left uncommitted.
+   to `D-171`). `docs/graph-fragments/merge7.js`'s deterministic-upsert foundation is already
+   committed (`838baff`, `B071-R65`) — if `B071-R66`'s remaining verifier fixes are not yet
+   committed, they must land in this same edit set, not scheduled for after this commit.
+2. Commit that complete packet — source and curated fragment together (plus `merge7.js` only if
+   `R66`'s fixes are still pending), in one Lane A pass. Nothing in step 1 is left uncommitted.
 3. `npx graphify hook-rebuild` against that commit; re-merge `docs/graph-fragments/` **every time**,
-   not only if the curated node count drops (`B071-R35`, corrected `B071-R46`). Because `merge7.js`
-   was fixed and committed in step 1, this rebuild now performs a deterministic upsert instead of
-   skipping existing IDs. A same-node-count rebuild is not sufficient evidence of a synced
-   description; the semantic-equality check between every tracked fragment-owned field and
-   `.graphify/graph.json` must pass, and a required direct edit of `.graphify/graph.json` after this
+   not only if the curated node count drops (`B071-R35`, corrected `B071-R46`). The deterministic
+   upsert (fixed at `838baff`) performs an update, not a skip, on existing IDs. A same-node-count
+   rebuild is not sufficient evidence of a synced description; the semantic-equality check between
+   every tracked fragment-owned field and `.graphify/graph.json` must pass in its corrected,
+   non-mutating form (`B071-R66`), and a required direct edit of `.graphify/graph.json` after this
    step counts as this check failing, not as a workaround.
 4. `bun run check` — full suite green, including `docs-drift` (`lastAnalyzedHead = HEAD`)
    (`B071-R15`: a red `graph-coverage` or `docs-drift` is never accepted as evidence of safety).
@@ -581,6 +613,39 @@ name pushed `d3898db` as Draft 8's evidence. `R58` finishes the `R49`/`R55` lang
 governed conventions. `R60` is addressed by the tooling precondition below, not by an unqualified
 rebuild.
 
+**Round 9 (Lane B, reviewing pushed Draft 9 + Graphify precondition at `838baff`) — completed:**
+`B071-R61`–`R66` incorporated into this draft (10). Adds forward-notice write-set rows for the
+editable governing/derived files the propagation set omitted (`R61`); decides the `T6`
+pre-authentication trust boundary in favor of visible `self_asserted`/demo status, consistent with
+this project's binding demo-first v1 rule (`R62`); resolves the identity-spec `D-30` redundancy test
+and fixes `docs/specs/README.md`'s naming convention (`R63`); replaces the last operative prose node
+reference with `NODE-CHIEF-JOURNALIST-REVIEW` (`R64`); corrects §7/§8 to describe the Graphify
+precondition as completed, not pending (`R65`); and records `merge7.js`'s remaining verifier
+defects as required tooling work with named negative tests (`R66`).
+
+### Round 10 — outstanding, before this revision reaches the Judge for `AUTH-DOC`
+
+- [ ] Every editable governing/derived file `B071-R61` named carries a forward-notice/target-overlay
+      row naming the current T5/T6 model as target and the old human-T5/agent-T6 text as historical;
+      frozen `docs/PRD.md`/Charter remain untouched
+- [ ] Operative `T6` text states the `self_asserted`-demo/`authenticated`-operative split with no
+      contradiction, and a negative test proves a client-supplied human label without `authenticated`
+      assurance cannot produce an operative `T6` event
+- [ ] `docs/specs/SPECS-IDENTITY-ATTESTATION.md` is named as a decided (not conditional) new file;
+      `docs/specs/README.md`'s naming convention matches the plural `SPECS-*` files that exist
+- [ ] No operative text names an actor/node in prose where a canonical ID (`ROLE-*`/`NODE-*`) is
+      required; grep for "Chief Journalist review node" outside historical citations returns nothing
+- [ ] §7/§8 and the precondition section describe the Graphify tooling/status precondition as
+      completed at `838baff`; no sentence re-schedules `merge7.js`'s deterministic-upsert foundation
+      as future `AUTH-DOC` work or calls the current graph unconditionally stale
+- [ ] `merge7.js`'s four named negative tests (no-write verify-only, dangling-edge failure,
+      same/cross-fragment conflict failure, update-in-place still works) exist and pass; the
+      fragment-owned-vs-Graphify-derived field boundary is explicit in code or comments
+- [ ] All prior-round checklist items (Rounds 1–9) remain true — this round adds to, and does not
+      reopen, what was already closed
+- [ ] This revision is pushed to `origin/docs/journal-2026-08-16` and confirmed identical before
+      round 10 or `AUTH-DOC` is marked satisfied
+
 ### Plan-review checklist — gates reaching the Judge for `AUTH-DOC` (text-only; no §7/§8 execution required)
 
 - [ ] No occurrence of "Gate A", "Gate B1", "Gate B2" or "Route Activation Gate" remains in
@@ -628,24 +693,22 @@ rebuild.
       passing plan-review checklist is sufficient to bring `AUTH-DOC` to the Judge; graph currency
       is tracked separately below and is **not** a precondition of plan-review approval
 
-### Graphify tooling/status precondition — optional, separately authorizable, may precede `AUTH-DOC` (`B071-R56`, `R60`)
+### Graphify tooling/status precondition — completed at `838baff` (`B071-R56`, `R60`, closed by `R65`)
 
-This is a distinct, narrower ask than `AUTH-DOC`. If the Judge grants it, Lane A may, **before**
-`AUTH-DOC`:
+This was a distinct, narrower ask than `AUTH-DOC`, and the Judge granted it once. It is **done, not
+pending** (`B071-R65` — this section previously described completed work as still conditional,
+which risked either re-running finished tooling work or falsely calling the current graph stale).
+At commit `838baff`, Lane A: fixed `merge7.js` to a deterministic upsert with a semantic-equality
+check; updated `frag119.json`'s B-071/plan description to that round's status, without adding the
+`D-182` decision node or any `Applied`/`historical` transition; rebuilt, re-merged, and confirmed
+`docs-drift` cleared and the semantic-equality check passed at that commit. §7/§8 below cite this
+completed tool rather than scheduling `merge7.js` as future `AUTH-DOC` work.
 
-1. Fix `merge7.js` to a deterministic upsert with the semantic-equality check (as specified in §7's
-   row for that file), and commit the fix.
-2. Update `frag119.json`'s B-071/plan description to the current review round and Draft number,
-   status-only (`Open`/`DRAFT`/`proposed` labels, `AUTH-*` vocabulary, "Judge approval: identifier
-   ruling only, no `AUTH-DOC`") — **without** adding the `D-182` decision node and without
-   transitioning any node to `Applied`/`historical`, since those steps assert the disputed ontology
-   as decided and remain reserved for §8 after `AUTH-DOC`.
-3. Rebuild, re-merge, and confirm `docs-drift` clears and the semantic-equality check passes at
-   that commit.
-
-Granting this precondition does not grant `AUTH-DOC`, does not apply `D-182`, and does not move any
-lane state. Declining it leaves the graph stale (a known, explained gap) with no effect on whether
-the plan-review checklist above can pass.
+That said, `B071-R66` found the shipped verifier's guarantee narrower than its own success message
+claimed — see the negative-test items in the applied-state checklist below. The precondition itself
+(status-only sync, no `D-182`) remains correctly bounded and does not need re-authorization; only
+the verifier's remaining defects need a further tooling fix, tracked as ordinary Lane A work, not a
+new precondition ask.
 
 ### Applied-state verification checklist — runs only after `AUTH-DOC` is granted and Lane A executes §7/§8
 

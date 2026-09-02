@@ -6,30 +6,31 @@
 - **Blocks:** terminal verification of `B-070`; any fresh S2 authorization; Lane B beginning
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
 - **Status:** Open
-- **Lane A:** Acknowledged 2026-09-02. Commit `cd08c5b` (Round 8 review in this file, plus new item
-  `B-072` on handoff-only commit authority) is **pushed** — local `HEAD` equals
-  `origin/docs/journal-2026-08-16` at `cd08c5b`. Implementation plan at
-  `docs/v1/V1-B071-CORRECTIVE-PLAN.md` is now **Draft 9**; its evidence is the commit containing this
-  paragraph, following pushed Draft 8 (`d3898db`) (`B071-R57` — the prior header both understated
-  Draft 8's push status at the time and used "uncommitted" wording for Draft 9 that would go stale
-  the moment this paragraph was committed; this wording is written to remain true after commit).
-  Draft 8 incorporated round-7 review `B071-R50`–`R55` in full. Draft 9 incorporates round-8 review
-  `B071-R56`–`R60`: splits the single circular pre-`AUTH-DOC` checklist into a text-only plan-review
-  checklist, an optional separately-authorizable Graphify tooling/status precondition, and a
-  post-`AUTH-DOC` applied-state verification checklist, so no item requires §7/§8 execution before
-  `AUTH-DOC` while §7/§8 themselves remain gated on `AUTH-DOC` (`R56`); corrects this header and the
-  plan's lifecycle metadata (`R57`); finishes the `R49`/`R55` language replacement in §3's refusal
-  condition and §4's verification line (`R58`); names both proposed spec artifacts under their
-  governed path conventions — `docs/specs/ux/UX-CHIEF-EDITOR-PUBLICATION-WORKSPACE.md` and (subject
-  to a `D-30` redundancy test) `docs/specs/SPECS-IDENTITY-ATTESTATION.md` (`R59`); and replaces the
-  unqualified "rebuild now" instruction with the named tooling precondition (`R60`). **The Judge
-  separately authorized the narrow Graphify tooling/status precondition** (this paragraph's commit):
-  `merge7.js` is repaired to a deterministic upsert with a semantic-equality check, and
-  `frag119.json`'s B-071/plan nodes are refreshed to Draft 9/`R1`–`R60` status — without adding a
-  `D-182` node or any `Applied`/`Verified` transition. `AUTH-DOC` itself remains unapproved; `D-171`
-  remains fully binding. This precondition commit is pushed only after the post-commit rebuild,
-  re-merge, semantic-equality check, and full local suite (including `docs-drift`) are green at that
-  commit — never before.
+- **Lane A:** Acknowledged 2026-09-02. Commits `cd08c5b` (Round 8 review + `B-072`) and `838baff`
+  (Draft 9 + the Judge-authorized Graphify tooling/status precondition) and `6fb32ea` (Round 9
+  review) are all **pushed** — local `HEAD` equals `origin/docs/journal-2026-08-16`. Implementation
+  plan at `docs/v1/V1-B071-CORRECTIVE-PLAN.md` is now **Draft 10**; its evidence is the commit
+  containing this paragraph, following pushed Draft 9 (`838baff`). Draft 9 incorporated round-8
+  review `B071-R56`–`R60` in full, and the Graphify tooling/status precondition it authorized is
+  completed (deterministic-upsert `merge7.js`, `frag119.json` refreshed to status-only text, no
+  `D-182`). Draft 10 incorporates round-9 review `B071-R61`–`R66`: adds a forward-notice write-set
+  row for every editable governing/derived file the propagation set had omitted — `blueprint.md`,
+  `business-case.md`, `v1-build-readiness-addendum.md`, `docs/README.md`,
+  `SPECS-TRANSITION-ENFORCEMENT.md`, the media-industry fallback plan (`R61`); **decides** the `T6`
+  pre-authentication trust boundary — every pre-authentication `T6` event is `self_asserted`/demo,
+  visibly labeled, and cannot satisfy publication or `AUTH-ROUTE`; only `authenticated` `T6` can,
+  consistent with this project's binding demo-first v1 rule deferring login to a later sprint
+  (`R62`); resolves the identity-spec `D-30` redundancy test as decided, not conditional —
+  `SPECS-TRANSITION-ENFORCEMENT.md` excludes column/type ownership by its own stated scope — and
+  fixes `docs/specs/README.md`'s documented naming convention to match the plural `SPECS-*` files
+  that already exist (`R63`); replaces the last operative prose node reference with
+  `NODE-CHIEF-JOURNALIST-REVIEW` (`R64`); corrects §7/§8 to describe the Graphify precondition as
+  completed at `838baff`, not future/conditional work (`R65`); and records `merge7.js`'s remaining
+  verifier defects — mutates the graph before a `--verify-only` check reads it, drops dangling edges
+  from its own check instead of failing on them, no cross-fragment conflict check, undefined
+  fragment-owned-field scope — as ordinary Lane A tooling work with four named negative tests,
+  independent of the completed precondition (`R66`). **The Judge approved Draft 10 with these
+  corrections as proposed.** `AUTH-DOC` itself remains unapproved; `D-171` remains fully binding.
 - **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`), round 2 (Lane
   B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
   clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), round 4 (Lane B,
@@ -37,10 +38,12 @@
   reviewing Draft 5 at `5bd9b90`, findings `B071-R38`–`R44`), round 6 (Lane B, reviewing Draft 6 at
   `2d3bd49`, findings `B071-R45`–`R49`, plus the Judge's direct four-identifier clarification),
   round 7 (Lane B, reviewing the uncommitted Draft 7 worktree over `2d3bd49`, findings
-  `B071-R50`–`R55`), and round 8 (Lane B, reviewing committed/pushed Draft 8 at `d3898db`, findings
-  `B071-R56`–`R60`, recorded in pushed commit `cd08c5b`) all consolidated below. No separate `B-072`
-  *T5/T6 ontology* item was ever minted — `B-072` as filed is a distinct governance topic
-  (handoff-only commit authority), not a duplicate of this thread.
+  `B071-R50`–`R55`), round 8 (Lane B, reviewing committed/pushed Draft 8 at `d3898db`, findings
+  `B071-R56`–`R60`, recorded in pushed commit `cd08c5b`), and round 9 (Lane B, reviewing pushed
+  Draft 9 + Graphify precondition at `838baff`, findings `B071-R61`–`R66`, recorded in pushed commit
+  `6fb32ea`) all consolidated below. No separate `B-072` *T5/T6 ontology* item was ever minted —
+  `B-072` as filed is a distinct governance topic (handoff-only commit authority), not a duplicate of
+  this thread.
 - **Evidence:** `docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md` Options A/B;
   `docs/v1/V1-DECISION-REGISTER.md` `D-171`, `D-175`–`D-181`;
   `docs/v1/V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes";
