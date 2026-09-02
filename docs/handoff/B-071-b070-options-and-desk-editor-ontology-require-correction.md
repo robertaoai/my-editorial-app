@@ -6,10 +6,11 @@
 - **Blocks:** terminal verification of `B-070`; any fresh S2 authorization; Lane B beginning
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
 - **Status:** Open
-- **Lane A:** Acknowledged 2026-09-02. Queued — the corrective packet (steps 1-9) requires Judge
-  authorship of step 1 (new T5/T6 decision) and Judge authorization of step 9 (lane transition)
-  before Lane A drafts or applies the remaining tiers. No governed tier changed by this
-  acknowledgment.
+- **Lane A:** Acknowledged 2026-09-02. Implementation plan drafted at
+  `docs/v1/V1-B071-CORRECTIVE-PLAN.md`, consolidating steps 1-9 into reviewable sections. DRAFT
+  only — no governed tier (Register, Build Spec, Inventory, Modular_PRD, FN-GATES, RACI,
+  crosswalk, `B-070`, work order) has been edited. Awaiting independent review (plan's own
+  checklist) and Judge approval before §2-§8 execute or §9's lane transition is authorized.
 - **Evidence:** `docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md` Options A/B;
   `docs/v1/V1-DECISION-REGISTER.md` `D-171`, `D-175`–`D-181`;
   `docs/v1/V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes";
