@@ -1450,3 +1450,121 @@ state. Those are Draft 11 specification tasks, not further Judge questions.
 | **Reject** | GRC route behavior | Deferral of UI as permission to bypass T6 or external GRC evidence | Preserve the route hold in Draft 11 |
 | **Reject** | State/data mapping | Writing editorial `Approved` into a publication-target status or treating assurance `Reviewed` as T6 approval | Correct field ownership in Draft 11 |
 | **Defer** | Detailed assurance UI/UX and implementation | Separate feature; no build authorization is granted by this ruling | After editorial POC scope is approved and the assurance feature is independently specified |
+
+## Judge clarification — Option A is an operational POC, not a non-operative mock (2026-09-03)
+
+**Judge ruling received: Option A is approved with corrected semantics.** The earlier
+pre-authentication packet conflated lack of authentication with lack of operation. This product is a
+zero-to-one business: the demo is the working operational flow used first as an internal POC/MVP for
+the Chief Editor and later as a client-facing POC. It is not a disconnected preview and it must not
+stop before its approved, in-scope job is complete.
+
+The old Option A wording remains historical but is superseded where it says a pre-authentication
+action is “non-operative,” cannot update canonical POC state, or must leave the article at
+`Reviewed`. Those claims would reproduce the empty-demo failure forbidden by the project's binding
+demo-first rule.
+
+### Normalized boundaries
+
+| Boundary | What the POC must do | What the POC must not claim |
+|---|---|---|
+| Functional operation | Execute real forms, decisions, state changes, evidence writes, reloads and artifact generation against POC data | That a screen-only interaction or unpersisted preview is an operational workflow |
+| Editorial authority | Let the natural-person Chief Editor complete the in-scope editorial decision and persist `Reviewed → Approved` | That `self_asserted` proves an authenticated production identity |
+| Identity assurance | Record the pre-authentication actor as `self_asserted` and make that limitation visible in audit evidence | That a role label, principal key, agent badge or browser session is authentication |
+| Publication evidence | Produce the downloadable Public Explainable Content with report and use the governed mock publication outcome where live credentials are absent | That `MockPublished` satisfies `Published` or proves a live external-target result |
+| External GRC authority | Preserve external GRC as the accountable institution and keep its evidence distinct from the Chief Editor's internal action | That an operational POC event is real external GRC acceptance, licensing or mandate evidence |
+| Development authorization | Keep `AUTH-DOC`, `AUTH-F1`, `AUTH-F2` and `AUTH-ROUTE` under the existing Judge/phase process | That any runtime event—demo or production—can grant a development authorization |
+
+“Operational” and “authoritative” therefore answer different questions. The POC is operational
+inside its declared POC data and execution boundary. Its `self_asserted`, mock and simulated evidence
+remains non-production evidence and cannot be presented as authenticated identity, live publication
+or an external institution's act.
+
+### Product-maturity sequence
+
+1. **Internal POC/MVP:** the Chief Editor can perform the complete approved editorial flow, persist
+   the decision and download the explainable-content report using POC/seed data.
+2. **Client POC:** clients can experience that same operational flow with visibly bounded POC data
+   and evidence; this is product validation, not a production-authority claim.
+3. **Production:** authentication, real-user/data controls, live publication credentials and any
+   required external GRC integration provide the additional evidence needed for production claims.
+
+The detailed assurance/T6 UI remains the separate backlog feature established by the preceding
+ruling. Its deferral narrows the **current** operational POC to the editorial feature; it does not
+make that feature non-operative. When the assurance feature is later demonstrated, its internal POC
+acts may also execute and persist, but any simulated institutional response must remain distinct from
+real external GRC acceptance.
+
+### Direct corrections required in Draft 11
+
+1. Replace “demo-only/non-operative” with **“operational POC; self-asserted and non-production.”**
+2. Replace `T6-PREAUTH-01`'s “authoritative article state remains Reviewed” rule. In the current
+   editorial POC, the human Chief Editor's in-scope action persists the article's editorial
+   `Reviewed → Approved` transition.
+3. Remove the claim that a runtime T6 or editorial event can satisfy or fail `AUTH-ROUTE`.
+   `AUTH-ROUTE` is a development-governance authorization, not product workflow state.
+4. Preserve `identity_assurance = self_asserted` on pre-authentication evidence. It describes the
+   strength of actor proof; it must not disable the approved POC workflow.
+5. Preserve the existing publication boundary: the report URL is a real downloadable POC artifact;
+   `MockPublished` remains distinct from a live-target `Published` result.
+6. Preserve the GRC boundary: neither editorial approval nor a future self-asserted internal T6 POC
+   act constitutes external GRC acceptance.
+
+### What remains unclear
+
+No further Judge choice blocks the current editorial POC plan. The later client-POC and assurance
+features still need to specify whether they use only mock targets or any sandbox/live integration,
+and how simulated external-GRC responses are labeled and stored. Those questions belong to their
+own feature specifications and must not delay Draft 11's editorial POC correction.
+
+### Guaranteed failures if “demo” remains conflated with “non-operative”
+
+- Leaving canonical POC state at `Reviewed` after the Chief Editor approves produces a demonstration
+  that cannot complete the product's main job.
+- Allowing buttons to show success without persisted state and reload evidence creates a front-end
+  mock, contrary to the binding working-app rule.
+- Treating `self_asserted` as either “no action allowed” or “fully authenticated” collapses identity
+  strength into workflow permission; one blocks the POC and the other fabricates trust.
+- Treating the downloadable report or `MockPublished` event as live publication creates false
+  external evidence.
+- Treating a simulated GRC response as institutional acceptance transfers accountability from the
+  external organization into the app.
+- Letting product runtime evidence satisfy `AUTH-ROUTE` mixes application state with development
+  governance and makes lane authorization data-dependent.
+
+### Draft 11 success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `POC-OPS-01` | The open POC has approved seed/POC data and no login wall | The Chief Editor completes the in-scope editorial flow | Every action persists, survives reload and is visible in its append-only evidence trail |
+| `POC-OPS-02` | Article editorial workflow is `Reviewed` | The natural-person Chief Editor records editorial approval | The canonical POC article workflow becomes `Approved`; the event is visibly `self_asserted` until authentication exists |
+| `POC-OPS-03` | The POC/report generation succeeds | The Chief Editor opens the publication section | A working URL downloads the Public Explainable Content with report and retains article/decision provenance |
+| `POC-ID-01` | A pre-authentication human action is stored | Audit evidence is viewed | It identifies the asserted principal and `self_asserted` assurance without describing the actor as authenticated |
+| `POC-PUB-01` | No live publication credentials or successful live-target result exists | Publication outcome is evaluated | The outcome may be `MockPublished` but never `Published`; the mock outcome does not satisfy live publication criteria |
+| `POC-GRC-01` | An editorial POC event or future internal T6 POC event exists | External GRC evidence is evaluated | The event cannot satisfy external acceptance; real and simulated institutional evidence remain distinguishable |
+| `POC-GOV-01` | Any product workflow event exists | A development authorization is evaluated | It has no effect on `AUTH-DOC`, `AUTH-F1`, `AUTH-F2` or `AUTH-ROUTE`; only the governed Judge process changes those states |
+
+### Parent-first correction plan
+
+1. Correct proposed `D-182`: Option A means operational POC with self-asserted/non-production
+   evidence, not non-operative demonstration evidence.
+2. Replace the superseded pre-authentication criteria and remove the runtime/`AUTH-ROUTE` category
+   error before propagating any child requirement.
+3. Align the Product/Fn_Spec criteria with the operational editorial state transition, persistent
+   evidence and downloadable POC/report artifact.
+4. Align UI language with the three evidence boundaries: editorial approval, assurance status and
+   publication-target outcome.
+5. Keep the detailed assurance UI as a separately owned backlog feature and carry forward the
+   external-GRC non-substitution rule.
+6. Independently review Draft 11, then seek `AUTH-DOC`; implementation remains separately gated.
+
+### Clarification approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Product strategy / POC | Option A is the operational zero-to-one product flow, first for the Chief Editor and later for clients | Lane A Draft 11 |
+| **Approve** | Editorial Product behavior | A self-asserted Chief Editor action may persist the editorial `Reviewed → Approved` transition inside the POC boundary | Lane A Draft 11 |
+| **Approve-with-conditions** | Identity and evidence | Pre-authentication operation remains visibly `self_asserted`; POC/mock evidence cannot be represented as authenticated, live or externally accepted | Product/Fn_Spec acceptance criteria before `AUTH-DOC` |
+| **Reject** | Superseded Option A semantics | “Demo-only” as non-operative UI, unchanged canonical POC state or disabled end-to-end workflow | Remove from Draft 11 |
+| **Reject** | Governance conflation | Runtime events satisfying `AUTH-ROUTE`, `MockPublished` satisfying `Published`, or internal events satisfying external GRC acceptance | Preserve as negative requirements |
+| **Defer** | Detailed assurance UI, client-integration mode and implementation | Separate feature decisions; this ruling approves the plan semantics only | After corrected Draft 11 is independently reviewed and `AUTH-DOC` is granted |
