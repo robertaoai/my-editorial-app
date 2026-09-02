@@ -11,8 +11,22 @@ one only if the Judge approves it after independent review (see §Approval Gate)
 **Approver:** Judge/Chief Editor — same person, `D-158`.
 
 **Source:** `docs/handoff/B-071-*.md`, §"What you need" (steps 1–9) and §"Normalized target model
-supplied by the Judge." This plan consolidates that table into reviewable units; it does not
-introduce new findings.
+supplied by the Judge." This plan consolidates that table into reviewable units.
+
+**Revision note (incorporates independent review `B071-R8`–`R14`):** Lane B's independent review
+of the first draft (commit `80c8f38`) found the artifact classification, verification claim,
+approval-boundary wording, act cardinality, lifecycle dispositions, and Final Sign-Off conditions
+all needed correction before this plan is reliable input to a Judge decision. Consolidated into
+`B-071` rather than a separate handoff — no `B-072` was minted. This revision applies all seven
+corrections; see the changed sections below and the review's own record in `B-071` for the
+original findings.
+
+**Artifact classification (`B071-R8`):** this file is itself a `docs/v1/` tracking artifact under
+`D-36`, the same class as `V1-PHASE-CLOSURE.md` and `docs/v1/drafts/README.md` — both of which
+carry `V1-ARTIFACT-INVENTORY.md` rows. A row has been added for this file in the same pass as this
+revision (§7 also lists it). It is **not** a fourth independent tracker: it exists to support one
+`B-071` correction and is retired — row removed or marked historical — when `D-182` is recorded
+and propagated, so the correction has exactly one live source, not two.
 
 ---
 
@@ -29,7 +43,7 @@ no `R`.* Partially supersedes `D-175`–`D-181` — see supersession table below
 `D-171`'s S2 hold, which stays unaffected and not reopened, consistent with every decision in the
 `D-172`–`D-181` chain.
 
-### Proposed decision content (verbatim text for the register, pending Judge wording)
+### Proposed decision content (normalized draft derived from the Judge's clarifications, not verbatim register text — `B071-R10`)
 
 1. `T5-EDITORIAL-REVIEW` is a single route-selected virtual review: Desk Editor for
    `ROUTE-PROD-1`; Chief Journalist for the other named routes. A fallback reviewer is an internal
@@ -53,6 +67,13 @@ no `R`.* Partially supersedes `D-175`–`D-181` — see supersession table below
 
 ### Supersession table (draft — Judge confirms retained/re-derived/superseded per clause)
 
+**Caution (`B071-R12`):** the "Retained"/"orthogonal" dispositions below reflect a read of what
+`D-176`–`D-180` decided, not a completed clause-by-clause re-verification against those decisions'
+actual text under the three-act model in §4. Do not treat this table as settled until the §7
+drafting pass re-checks each row — in particular, event *prerequisites* and bundle-membership
+detail tied to the old one/two cardinality may need re-derivation even where the higher-level
+disposition ("retained") turns out correct.
+
 | Clause | Origin | Disposition under `D-182` |
 |---|---|---|
 | Two-role, route-dependent T5 cardinality (by route family) | `D-175` | **Superseded** — replaced by two-workstream model (§4 below), not route-family cardinality |
@@ -74,7 +95,13 @@ no `R`.* Partially supersedes `D-175`–`D-181` — see supersession table below
 | Canonical actor role | — | `ROLE-DESK-EDITOR` (sole canonical Desk Editor actor; unchanged from CSVs) |
 | Workcell/review node | `ROLE-CHIEF-EDITORIAL-DESK` (executor role) | `NODE-EDITORIAL-DESK-REVIEW` (virtual node, mapped to `ROLE-DESK-EDITOR` for `ROUTE-PROD-1`; not a second actor identity) |
 | Chief Journalist | — | Stays distinct; unaffected |
-| Display aliases | `Editorial Desk Editor`, `Desk Chief` | Optional display aliases for `ROLE-DESK-EDITOR` only if the Judge separately approves; not new IDs |
+| Display aliases | `Editorial Desk Editor`, `Desk Chief`, `Chief Editorial Desk` | `Chief Editorial Desk` is the node/workcell display label for `NODE-EDITORIAL-DESK-REVIEW`, not a dropped term (`B071-R14` — the first draft omitted it from this row). `Editorial Desk Editor`/`Desk Chief` remain optional actor display aliases for `ROLE-DESK-EDITOR` only if the Judge separately approves; none are new IDs |
+
+**Ownership of the actor/node distinction (`B071-R14`):** the rule that one actor role maps to one
+review node is stated here and in §1/§3 — Product/Fn_Spec (`Modular_PRD.md`, `FN-GATES-01-05.md`)
+is where it becomes governed functional behavior. The `docs/specs/ux/` file in §6 **represents**
+that rule (labels, refusal states); it never originates it. If UX text and Fn_Spec text disagree
+after §7's propagation, Fn_Spec wins and UX is corrected, not the reverse.
 
 **Files to edit (not yet edited):** `docs/governance/raci-involvement-matrix.md` §§3.1/8,
 `docs/governance/factory-route-operation-crosswalk.md` §§2–4, `docs/fn-specs/FN-GATES-01-05.md`
@@ -91,17 +118,51 @@ prose.
 - `OP-FINAL-SIGNOFF` carries `R = not_applicable`, not `unknown` — it is an approval control over
   prior `R` work, not a work task needing its own executor.
 
+**Testable refusal conditions (`B071-R13` — `R = not_applicable` alone is not enough to implement
+against):** a `OP-FINAL-SIGNOFF` act is refused, not merely deferred, when any of the following
+holds:
+
+- Required prior `R` evidence (the three acts in §4) is incomplete for the route.
+- The effective task `A` resolves to zero or to more than one person (§3's Sheet1/Sheet2 rule must
+  yield exactly one).
+- The signer is an agent, not a natural person.
+- A route that requires external acceptance or mandate has no such record attached.
+
+A valid sign-off is append-only, records signer/authority/evidence-set/timestamp/decision, and
+closes only its own workflow stage — it does not imply or record external GRC acceptance, which
+remains a separate external record where the route requires one.
+
 **Files to edit:** `docs/governance/factory-route-operation-crosswalk.md` (remove "missing `R`
-unresolved" marking on `OP-FINAL-SIGNOFF`), `docs/governance/raci-involvement-matrix.md` (Sheet1/
-Sheet2 `A` separation note).
+unresolved" marking on `OP-FINAL-SIGNOFF`; add the refusal conditions above), `docs/governance/
+raci-involvement-matrix.md` (Sheet1/Sheet2 `A` separation note).
 
 **Verification:** crosswalk no longer lists `OP-FINAL-SIGNOFF`'s `R` as unresolved; route/stage
-`A` and task `A` are independently queryable in the matrix.
+`A` and task `A` are independently queryable in the matrix; each refusal condition above has a
+corresponding negative test.
 
-## §4 — Two-workstream cardinality (depends on §2, §3)
+## §4 — Two-workstream cardinality, stated as a three-act completion unit (depends on §2, §3;
+corrected by `B071-R11`)
 
 Replace route-family one/two T5 cardinality with the two workstreams from §1 (`T5-EDITORIAL-
-REVIEW`, `T5-ASSURANCE-PREPARATION`). Re-derive:
+REVIEW`, `T5-ASSURANCE-PREPARATION`), stated as an exact act count so an implementation cannot
+deduplicate by role:
+
+**Every route requires exactly three separately sealed acts, each with its own evidence ID and
+workstream/purpose code:**
+
+1. One `T5-EDITORIAL-REVIEW` act — route-selected executor (Desk Editor for `ROUTE-PROD-1`, Chief
+   Journalist otherwise).
+2. One `T5-ASSURANCE-PREPARATION` act from the Editorial Desk Review node.
+3. One `T5-ASSURANCE-PREPARATION` act from the Chief Journalist review node.
+
+The same person may hold the role behind two of these acts (e.g. Chief Journalist performs both
+the route's Editorial Review and its own Assurance Preparation act on a non-`ROUTE-PROD-1` route).
+**Role identity performing two acts never collapses them into one, and never counts as
+independence-by-difference** — the acts are distinguished by workstream/purpose code and evidence
+ID, not by who performed them. Exactly one deterministic join reads all three sealed acts and
+performs `Drafted → Reviewed`; the join fires once and only once all three exist.
+
+Re-derive against this three-act unit:
 
 - Bundle membership (which artifacts satisfy `Drafted → Reviewed`)
 - Return/rerun behavior
@@ -113,8 +174,9 @@ REVIEW`, `T5-ASSURANCE-PREPARATION`). Re-derive:
 `docs/fn-specs/FN-GATES-01-05.md`, `docs/v1/V1-BUILD-SPEC.md` §"S2 — Line assignment and
 four-eyes" (target DoD only — `D-171`'s hold means no S2 rewrite/authorization here).
 
-**Verification:** exactly one join performs `Drafted → Reviewed`; both Assurance Preparation
-briefs are separately attributable; no report satisfies both workstreams by reuse.
+**Verification:** exactly one join performs `Drafted → Reviewed`, firing once per route; all three
+acts carry distinct evidence IDs; no evidence ID or purpose code satisfies two acts even when the
+same person performed them.
 
 ## §5 — Redraft B-070's two options (depends on §4)
 
@@ -160,6 +222,7 @@ Single-pass sweep per `D-54`, once §1–§6 are Judge-approved:
 | `B-070` | Correction section appended (§5) |
 | `LANE-B-WORK-ORDER.md` | Fix §1's stale `Eligible` definition (`B071-R7` — independent of the
   ontology fix, but bundled here since it's in the same propagation pass) |
+| `V1-ARTIFACT-INVENTORY.md` (this file's own row) | Retire or mark historical — this plan supported one `B-071` correction, not a permanent fourth tracker (`B071-R8`) |
 
 ## §8 — Commit, graph sync, verification handback (depends on §7)
 
@@ -173,25 +236,36 @@ Single-pass sweep per `D-54`, once §1–§6 are Judge-approved:
 
 ## Independent Review (Lane B) — checklist
 
-Before this plan reaches the Judge for approval, Lane B (or another actor who did not draft it)
-should confirm:
+**Round 1 (commit `80c8f38`) — completed, findings `B071-R8`–`R14` incorporated into this
+revision:** artifact classification, verification-result accuracy, approval-boundary wording, act
+cardinality, lifecycle-disposition caution, Final Sign-Off testability, and terminology/UX
+ownership. See `B-071`'s "Consolidated independent review" section for the original findings.
 
-- [ ] §1's proposed decision text matches the "Normalized target model supplied by the Judge" in
-      `B-071` verbatim, with no drift introduced during consolidation
-- [ ] The supersession table's dispositions (retained/re-derived/superseded) are individually
-      correct against `D-175`–`D-181`'s actual clauses, not just B-071's summary of them
+**Round 2 — outstanding, before this revision reaches the Judge for Gate A:**
+
+- [ ] This revision's §1 decision text and §4 three-act model match `B-071`'s "Normalized target
+      model" with no drift introduced during consolidation
+- [ ] The supersession table's dispositions are individually correct against `D-175`–`D-181`'s
+      actual clauses — the caution note added under `B071-R12` has not yet been resolved by a
+      clause-level check, only flagged
 - [ ] §2–§6 leave no clause dangling — every superseded clause in §1 has a corresponding
       corrected treatment somewhere in §2–§6
-- [ ] `D-171`'s S2 hold is genuinely unaffected by every section (matches the pattern every prior
-      decision in this chain has held)
-- [ ] §7's tier list is complete against `D-54`'s propagation requirement — no governed tier that
-      currently cites the old ontology is missing
-- [ ] Nothing in §1–§7 authorizes S2 implementation or moves Lane B from `Eligible`
+- [ ] `D-171`'s S2 hold is genuinely unaffected by every section
+- [ ] §7's tier list, including the new Inventory row, is complete against `D-54`'s propagation
+      requirement
+- [ ] Nothing in §1–§8 authorizes S2 implementation or moves Lane B from `Eligible` — Gate A and
+      Gate B stay separate
+- [ ] The new `V1-ARTIFACT-INVENTORY.md` row for this file is itself correct and does not overstate
+      this plan's status as a standing tracker
 
-## Approval Gate
+## Approval Gate — split per `B071-R10`
 
-**This plan is not actioned until the Judge approves it, after the independent review above.**
-Judge approval here means: (a) confirms or amends §1's decision text, (b) authorizes Lane A to
-execute §2–§8 as a single propagation pass, and (c) separately — per `B-071` step 9 — authorizes
-one named Lane B implementation unit and the `Eligible`→`Active` transition. (a)+(b) and (c) are
-distinct approvals; approving the plan does not itself authorize S2 work.
+**Two separate Judge approvals, never conflated:**
+
+| Gate | Covers | Authorizes | Does NOT authorize |
+|---|---|---|---|
+| **Gate A** | §1's decision text (confirm or amend), §2–§8 as one documentation/Graphify propagation pass | Lane A to write `D-182`, the ontology relabel, accountability model, three-act cardinality, redrafted `B-070` options, and the UX spec — all documentation, no product code | S2 implementation; any lane-state change |
+| **Gate B** | `B-071` step 9, after Gate A's pass is independently `Verified` | The Judge selecting the corrected `B-070` option and moving Lane B `Eligible`→`Active` for one named run | Nothing further — this is the terminal authorization for the implementation unit named |
+
+Gate A must reach `Verified` (independent confirmation, not Lane A's own `Applied`) before Gate B
+is even proposed. Approving Gate A is a documentation decision; it never doubles as Gate B.

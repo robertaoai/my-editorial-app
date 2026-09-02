@@ -11,6 +11,8 @@
   only — no governed tier (Register, Build Spec, Inventory, Modular_PRD, FN-GATES, RACI,
   crosswalk, `B-070`, work order) has been edited. Awaiting independent review (plan's own
   checklist) and Judge approval before §2-§8 execute or §9's lane transition is authorized.
+- **Independent-Review:** Lane B reviewed the Lane A draft at `80c8f38` on 2026-09-02. Corrections
+  are consolidated in this same handoff below; no separate `B-072` item is retained.
 - **Evidence:** `docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md` Options A/B;
   `docs/v1/V1-DECISION-REGISTER.md` `D-171`, `D-175`–`D-181`;
   `docs/v1/V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes";
@@ -131,3 +133,64 @@ source/derived tier, did not create a Graphify fragment, did not authorize or bu
 move Lane B from `Eligible`. `B-070` remains `Resolution: Applied`, not `Verified`; `D-171` remains
 fully binding until Lane A records and propagates a corrected target and the Judge separately
 authorizes one implementation unit.
+
+## Consolidated independent review of Lane A's draft plan
+
+This section incorporates the proposed `B-072` review into `B-071`. It supplements the existing
+steps 1–9 without repeating the target model above. The `B-072` draft was never committed, so its
+number is not minted and no supersession record is required.
+
+### Findings added by independent review
+
+| Finding | What is unclear or incorrect | Guaranteed failure if unchanged | Required correction |
+|---|---|---|---|
+| `B071-R8` — draft artifact classification | `V1-B071-CORRECTIVE-PLAN.md` says no governed tier was touched, but a `V1-*` file under `docs/v1/` is itself a tracking artifact under `D-36` | A fourth operative tracker exists without a Register, Build Spec or Inventory fact; B-071 and the plan duplicate the same correction | Keep `B-071` as the sole handoff. When `D-182` is applied, retire the duplicate draft and record that artifact fact in the same `D-54` pass. If the Judge wants a permanent fourth tracker instead, authorize and propagate it explicitly |
+| `B071-R9` — verification result | Lane A reported 16/17 with only graph coverage failing | The approval relies on false evidence: independent execution at HEAD `80c8f38` passed 15/17; `graph-coverage` omitted B-071 and its plan, and `docs-drift` showed analyzed `d64739c` versus HEAD `80c8f38` | Treat both as failures. A draft/open graph node records lifecycle status, not approval; synchronize only after the source correction is final |
+| `B071-R10` — approval boundary | The plan says Judge approval includes item (c), then says item (c) is separate and plan approval does not authorize S2 | A documentation approval can be misread as an `Eligible`→`Active` transition and fresh build authorization | Split into Gate A (Phase 1 documentation correction only) and later Gate B (one named implementation unit and lane transition after independent verification) |
+| `B071-R11` — T5 completion unit | The plan names two workstreams but does not state the exact act cardinality when one role appears in both | A role-based implementation will deduplicate participation and accept an incomplete packet while reviewer-count checks pass | Require three separately sealed acts on every route: one route-selected Editorial Review act plus two Assurance Preparation acts; no evidence ID or purpose may satisfy two acts |
+| `B071-R12` — lifecycle dispositions | The plan calls all `D-177`/`D-178` event clauses orthogonal and all 43 `D-176` joins retained | Old route-dependent bundle prerequisites can remain active under the new three-act model | Retain blind/reveal ordering, attribution, one completion transition and D-176 applicability dispositions; re-derive event prerequisites, bundle membership and any Final-Sign-Off completion/evidence semantics |
+| `B071-R13` — Final Sign-Off acceptance | `R = not_applicable` is decided, but the plan's verification only removes the old “missing R” label | Sign-off can occur before prior work, resolve zero or multiple effective `A`, or falsely imply external GRC acceptance | Specify prior-work completion, exactly one effective task `A`, signer/authority/evidence/time/decision fields, distinct external acceptance, stage-only closure and refusal cases |
+| `B071-R14` — terminology and UX ownership | The plan omits `Chief Editorial Desk` from its alias row and lets the proposed UX file appear to originate refusal behavior | Actor and node can reconflate; a UI document can become the only source of a business rule | Canonical actor `ROLE-DESK-EDITOR`; node `NODE-EDITORIAL-DESK-REVIEW`; `Chief Editorial Desk` is a node/workcell display label; functional behavior originates in Product/Fn_Spec and UX only represents it |
+
+### Parent-first amendment to the existing steps 1–9
+
+1. **Approval and artifact boundary first:** amend the proposed `D-182` wording from “verbatim” to
+   “normalized draft derived from the Judge's clarifications”; resolve `B071-R8`; split Gate A from
+   Gate B. No code or lane transition is part of Gate A.
+2. **Then define the completion invariant:** every route requires exactly one Editorial Review act
+   and two Assurance Preparation acts, each with a unique evidence ID, workstream/purpose code and
+   seal. One deterministic join performs `Drafted → Reviewed` only after all three exist.
+3. **Then correct lifecycle and acceptance ownership:** reclassify the affected `D-176`–`D-180`
+   clauses retained/re-derived/superseded at clause level. Map behavior to the owning Product
+   requirement and feature group before assuming the same `AC-05a`–`AC-08a` identities survive.
+4. **Then make Final Sign-Off testable:** refuse it when prior required `R` evidence is incomplete,
+   effective task `A` is zero/multiple, the signer is an agent, or required external acceptance is
+   absent. A valid sign-off is append-only and closes only its respective workflow stage.
+5. **Then normalize downstream presentation:** actor, node, workstream, task `A`, stage `A`, T6
+   internal judgment and external authority remain separate. Product/Fn_Spec owns behavior; the new
+   UX artifact consumes it. If that UX tier/file opens, `Modular_PRD.md` §8 and all three trackers
+   receive the artifact fact in the same pass.
+6. **Finally synchronize one HEAD:** commit source plus curated fragments, rebuild and re-merge
+   Graphify, run the full suite without a later tracked commit, push, and return that exact commit to
+   Lane B. Lane A may mark its work `Applied`; only the independent review may mark it `Verified`.
+
+### Additional success criteria
+
+- All seven routes prove exactly **1 Editorial Review act + 2 Assurance Preparation acts**, three
+  unique evidence records, no cross-purpose reuse and no early `Drafted → Reviewed` transition.
+- The same Desk Editor or Chief Journalist may perform acts in two workstreams, but role identity
+  never collapses the acts or proves independence.
+- Only the natural-person Chief Editor records T6; internal T6 never impersonates external GRC
+  authority or constitutes external acceptance.
+- Every retained earlier clause is textually unaffected; every changed clause has one current
+  anchor; active documents do not cite superseded route-cardinality rules.
+- `graph-coverage` includes B-071 and every retained planning artifact; `docs-drift` reports
+  `lastAnalyzedHead = HEAD`; the full suite is green at the exact independently reviewed commit.
+
+### Clear Judge decision gate
+
+| Decision | Tier | Meaning | Follow-up phase |
+|---|---|---|---|
+| **Approve-with-conditions** | Phase 1 documentation plan | Lane A may incorporate `B071-R8`–`R14` and apply the corrected documentation/Graphify packet only; no product code or lane transition | Lane A correction, then Lane B independent verification |
+| **Reject** | Current `V1-B071-CORRECTIVE-PLAN.md` wording | Do not apply it unchanged because its artifact status, evidence result, act cardinality and approval boundary are unreliable | Revise under this consolidated B-071 record |
+| **Defer** | S2 implementation and Lane B activation | `D-171` and Lane B's current `Eligible` state remain unchanged | Separate Gate B after terminal verification |
