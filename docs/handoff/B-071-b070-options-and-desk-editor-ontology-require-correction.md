@@ -801,3 +801,50 @@ and [AI Act Service Desk Article 50 text](https://ai-act-service-desk.ec.europa.
 | **Reject** | Article 50 external-reader token blocker | No direct external-reader interaction is in governed scope; no fifth token is required here | Replace with Chief-Editor direct-interaction disclosure; assess publication labelling separately |
 | **Reject** | Commit now / `AUTH-DOC` approval now | Live metadata, identity storage ownership, assurance vocabulary and Graphify ordering remain contradictory | Hold commit; Draft 8, then Lane B Round 8 review |
 | **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation and lane transition | No authorization exists; `D-171` remains fully binding | Only after corrected `AUTH-DOC` is applied and independently Verified |
+
+## Round 8 independent review — Lane A Draft 8 at `d3898db`
+
+**Reviewed state, 2026-09-02.** Local HEAD and
+`origin/docs/journal-2026-08-16` both resolve to `d3898db`; the push condition is met. The commit
+touches only this handoff and `V1-B071-CORRECTIVE-PLAN.md`. The working tree contains only the
+pre-existing untracked `package-lock.json`, which was not examined or staged. The full local
+consistency suite passes every check except `docs-drift`: Graphify analyzes `2d3bd49`, while HEAD
+is `d3898db`. `frag119.json` still describes `R1`–`R44`/Draft 6. This is a known state, not
+completion evidence.
+
+### Round 8 findings — parent first
+
+| Finding | What remains unclear or contradictory | Guaranteed failure if unchanged | Draft fix |
+|---|---|---|---|
+| `B071-R56` — pre-approval review and post-approval application form a circular gate | The Round 8 checklist says it must complete **before** the plan reaches the Judge for `AUTH-DOC`, but that same checklist requires the `merge7.js` repair, `frag119.json` lifecycle change, rebuild and green suite. Sections 7–8 authorize those acts only **after** `AUTH-DOC` | No literal execution order can pass. Applying the files first pre-empts the Judge; waiting for approval leaves Round 8 incomplete, so the plan never reaches the Judge | Split two gates explicitly: (1) independent **plan review** of the pushed draft; (2) after Judge approval, Lane A **application**, graph sync and independent applied-state verification. If current-draft graph currency is required before plan approval, authorize only the graph-tooling/status repair as a named precondition; it must not apply `D-182` or any disputed target contract |
+| `B071-R57` — the live lifecycle metadata became stale at the commit it describes | B-071's header and the plan's Draft 8 revision note still say Draft 8 is uncommitted/unpushed over `2d3bd49`; B-071's Draft 8 success criterion still describes Draft 8 as pending. The actual shared commit is pushed `d3898db` | A reviewer can wait for work already done, review the wrong base, or treat the current Draft 8 as an uncommitted proposal that may change beneath the review | Append the factual correction without rewriting history: Draft 7 was an uncommitted intermediate; Draft 8 is committed and pushed at `d3898db`; Round 8 is this review; Judge approval remains limited to the identifier ruling and does not include `AUTH-DOC` |
+| `B071-R58` — the `R49`/`R55` semantic replacement is still incomplete | Operative plan §3 refuses Final Sign-Off when task `A` resolves to multiple **persons** and describes its signer as “not necessarily a natural person”; §4 verification still says “even when the same person performed them”; the Round 8 checklist still tests “two labels on one account” | Implementers can again treat Final Sign-Off as human-only, or compare a login account/person instead of `executor_principal_key`. The negative test then passes or fails for the wrong identity object | Use **accountable principal** throughout Final Sign-Off. Use **executor principal**/`executor_principal_key` throughout virtual-agent execution and its negative test. Reserve **natural-person Chief Editor** for `T6` and direct-interaction disclosure. Historical finding quotations may retain the old terms when marked historical |
+| `B071-R59` — the two proposed technical artifacts are not named consistently | §6 proposes `docs/specs/ux/chief-editor-publication-workspace.md`, while `docs/specs/README.md` requires `docs/specs/ux/UX-*.md`. Section 7 also says only “`SPECS` candidate (new)” for the identifier storage contract, names no path, and the Inventory action adds only the UX file | Lane A can create two differently named UX artifacts, omit the identity spec from inventory, or put schema rules into an arbitrary existing spec. `D-54` propagation cannot prove which artifact was created | Name both target paths before approval. Use the governed `UX-*` convention for the workspace file. Either name one exact `docs/specs/SPEC-*.md` identity/attestation file and add it to Inventory, or prove by the `D-30` redundancy test that no new technical spec is needed and remove “new” |
+| `B071-R60` — Graphify is stale, not safely complete | Lane A's handback calls the `docs-drift` failure “expected, not a problem,” but Draft 8 itself retains `B071-R15`: a red `docs-drift` is never safety/completion evidence. `merge7.js` still skips existing node/edge keys, and `frag119.json` is two review rounds behind | Rebuilding now can preserve stale semantics with the same node count; leaving it indefinitely makes graph queries return Draft 6 while the reviewed source is Draft 8 | Do not call the current state complete and do not rebuild with the known skip-on-existing merger. After `R56` chooses the lawful gate, fix and commit deterministic upsert plus semantic equality, update the status-only fragment without asserting `D-182`, rebuild/re-merge, require `lastAnalyzedHead = HEAD`, and rerun the full suite |
+
+### Round 8 success criteria for Draft 9
+
+1. One acyclic sequence distinguishes plan review, Judge approval, applied-state verification and
+   later feature/route authorizations.
+2. Every live lifecycle statement names pushed commit `d3898db` as Draft 8's evidence and names
+   the later Draft 9 commit only after it exists.
+3. Final Sign-Off compares one effective accountable principal; Assurance Preparation compares
+   two distinct, system-attested `executor_principal_key` values. No operative person/account
+   wording changes either rule.
+4. Both proposed spec artifacts have exact governed paths, and Inventory treatment follows from
+   whether each file is actually created.
+5. Graphify's tracked fragment and rebuilt graph are semantically equal at one committed HEAD;
+   the full local suite is green before applied-state verification.
+6. No step applies `D-182`, starts S2, changes lane state, or authorizes `AUTH-F1`, `AUTH-F2` or
+   `AUTH-ROUTE` before its named approval.
+
+### Round 8 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Handoff evidence | Draft 8 is committed and pushed at `d3898db`; the unrelated `package-lock.json` remains outside the packet | Preserve as the Round 8 review base |
+| **Approve-with-conditions** | Lane A corrective plan | T5/T6, four-identifier, two-feature and four-authorization models survive; `B071-R56`–`R60` must be incorporated | Lane A Draft 9, then independent plan re-review |
+| **Approve-with-conditions** | Graphify tooling precondition | A narrow `merge7.js` upsert/equality repair may precede `AUTH-DOC` only if separately Judge-authorized and it represents Draft/Open lifecycle status without applying `D-182` | Lane A tooling/status-only pass, then full local verification |
+| **Reject** | `AUTH-DOC` approval now | The gate is circular, lifecycle text is stale, operative identity terms remain mixed, and new spec paths are incomplete | Correct Draft 9 first |
+| **Reject** | Current Graphify completion claim | `docs-drift` fails and the curated source still describes Draft 6 | Tooling repair, status-fragment update, rebuild/re-merge and semantic check |
+| **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation and lane transition | `D-171` remains binding; this is review evidence only | After corrected `AUTH-DOC` is applied and independently Verified |
