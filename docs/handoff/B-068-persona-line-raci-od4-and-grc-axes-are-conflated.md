@@ -8,28 +8,32 @@
   normalized across Lanes A/B/C
 - **Status:** Answered
 - **Lane A:** Acknowledged 2026-08-31 — critic pass complete (§8). **Full decision chain:** `D-170`
-  (`F1`/`F2`/`F5`) → `D-171` (S2 hold) → `D-172` (Line-separation/blind-review fix) → `D-173` (`F3`
-  applied, `F4` masters) → `D-174` (`F4`-artifact fixes) → `D-175` (Chief Editorial Desk/Chief
-  Journalist are two distinct roles) → `D-176` (`F4`'s 8×7 route-applicability matrix decided) →
-  `D-177` (`F6` behavior/acceptance contract adopted) → `D-178` (`F6`'s event-count defect corrected,
-  first propagation pass) → `D-179` (independent review corrected: `D-178`'s propagation was
-  pointer-only, not actual target content; real target text now added to `Modular_PRD.md`
-  (`FR-04a`/`FR-05a`/`AC-05a`–`AC-08a`, old rows marked historical), `FN-GATES-01-05.md` §11.1,
-  `FN-EXCEPTIONS-06-11-12.md` §11, `FN-PUBLICATION-09-10-13.md` §11, and
-  `raci-involvement-matrix.md` §3.1 — a target proof placed alongside, not over, the current-build
-  §2.1/§3). Full reasoning for each decision lives in `V1-DECISION-REGISTER.md`
-  §5.14dw–§5.14e5, not restated here. **Current state:** `F1`–`F6` decided and actually propagated
-  into every owning document. `D-171`'s S2 hold stands, unaffected throughout — every new target
-  passage states plainly it is not build-authorized. Still open: independent re-review of `D-179`'s
-  propagation, Graphify final sync at final commit, remote push, and any fresh build authorization.
+  (`F1`/`F2`/`F5`, now carries a `D-180` current-anchor notice) → `D-171` (S2 hold) → `D-172`
+  (Line-separation/blind-review fix) → `D-173` (`F3` applied, `F4` masters) → `D-174` (`F4`-artifact
+  fixes) → `D-175` (Chief Editorial Desk/Chief Journalist are two distinct roles) → `D-176` (`F4`'s
+  8×7 route-applicability matrix decided) → `D-177` (`F6` contract adopted) → `D-178` (event-count
+  fix, first propagation — later found pointer-only) → `D-179` (real target content added to
+  `Modular_PRD.md`, `FN-GATES-01-05.md`, `FN-EXCEPTIONS-06-11-12.md`, `FN-PUBLICATION-09-10-13.md`,
+  `raci-involvement-matrix.md` §3.1) → `D-180` (independent re-review found three residual defects,
+  all corrected: `AC-08a` re-owned `FR-05a`→`FR-06`; four missing target ACs added (`AC-01a`,
+  `AC-14a`, `AC-16a`, plus `US-04a`/`US-05a`'s dependency chain fixed); `G-05a`/`SEC-01a`/`SEC-03a`
+  target rows added; the RACI matrix's two-`R`-on-one-task defect split into sibling acts `T5a`/`T5b`;
+  and `B-069`'s current-anchor notice added to `D-170`). Full reasoning for each decision lives in
+  `V1-DECISION-REGISTER.md` §5.14dw–§5.14e6, not restated here. **Current state:** `F1`–`F6` decided
+  and propagated; three rounds of independent review each found real gaps, each corrected. `D-171`'s
+  S2 hold stands, unaffected throughout. Still open: independent re-review of `D-180` itself, Graphify
+  final sync at final commit, remote push, and any fresh build authorization.
 - **Resolution:** Applied
-- **Examined-By:** Lane B independent review, 2026-09-02 — `D-178`'s "propagated" claim rejected as
-  pointer-only; `D-179` supplies actual propagation; re-review of `D-179` outstanding
-- **Verified-At-Commit:** 84dfb21
+- **Examined-By:** Lane B independent reviews, 2026-09-02 — `D-178` rejected as pointer-only (§20);
+  `D-179` materially improved propagation but had three residual defects (§21); `D-180` corrects all
+  three — re-review of `D-180` outstanding
+- **Verified-At-Commit:** PENDING-COMMIT
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
-  `docs/handoff/B-062-*.md` through `B-067-*.md`; `D-170`–`D-179` in `V1-DECISION-REGISTER.md`;
-  `docs/Modular_PRD.md` §2.3/§2.3.1/§0.4/§8 and `FR-04`/`FR-04a`/`FR-05`/`FR-05a`/`AC-05`–`AC-08a`;
-  `docs/governance/raci-involvement-matrix.md` (v1.8, §3.1); `docs/governance/factory-route-operation-
+  `docs/handoff/B-062-*.md` through `B-067-*.md`; `D-170`–`D-180` in `V1-DECISION-REGISTER.md`;
+  `docs/handoff/B-069-*.md`; `docs/Modular_PRD.md` §2.3/§2.3.1/§0.4/§8 and
+  `FR-04`/`FR-04a`/`FR-05`/`FR-05a`/`FR-06`/`AC-01a`/`AC-05`–`AC-08a`/`AC-14a`/`AC-16a`/`G-05a`/
+  `SEC-01a`/`SEC-03a`; `docs/governance/raci-involvement-matrix.md` (v1.9, §3.1);
+  `docs/governance/factory-route-operation-
   crosswalk.md` (v0.3); `docs/fn-specs/FN-GATES-01-05.md` §11/§11.1; `docs/fn-specs/
   FN-EXCEPTIONS-06-11-12.md` §11; `docs/fn-specs/FN-PUBLICATION-09-10-13.md` §11;
   `docs/v1/V1-BUILD-SPEC.md` S2; `docs/v1/V1-ARTIFACT-INVENTORY.md`; frozen Charter `OD4`;
@@ -1695,4 +1699,105 @@ must consume this proof; it must not create it.
 | **Approve** — `D-178` event-sequence correction, inventory correction, version boundary and R37 marking | Decision Register / Build Spec / Inventory / handoff | Preserve; no repeat work |
 | **Approve-with-conditions** — F7's remaining propagation | Product Requirements / Fn_Specs / RACI | Apply `B068-R47`–`R49` in one Lane A pass |
 | **Reject verification** — B-068 terminal closure | Handoff / Graphify | Owner specs and RACI remain incomplete; Graphify is stale at final HEAD |
+| **Defer** — implementation, config/code rename and fresh S2 authorization | Lane A→Lane B / S2 | Only after corrected F7 is pushed and independently verified |
+
+## 21. Independent re-review of `D-179` — substantive propagation, residual defects
+
+### 21.1 Verdict
+
+> Re-perform §20's failure tests against the final pushed `D-179` tree. Verify actual target content,
+> authority separation, requirement ownership, build-held status, Graphify currency and the final
+> evidence anchor. Mark B-068 `Verified` only if every test passes. Build nothing.
+
+**Verdict: keep `Status: Answered` and `Resolution: Applied`; reject `Verified`.** The branch is now
+pushed and `D-179` supplies real target text in the five owner files. It correctly resolves the
+pointer-only defect and the proof-versus-authorization circularity. Three residual specification
+defects and the existing Graphify-currency gap remain; none requires a new Chief Editor business
+choice.
+
+| Review layer | Result | Evidence |
+|---|---|---|
+| Remote handoff | **Pass** | Local and `origin/docs/journal-2026-08-16` both resolve to `a506db7` |
+| Historical/target split | **Pass in US/FR/AC rows** | Old rows are explicitly historical/held; target rows are `decided_target_held` |
+| Owner-file content | **Pass for presence** | Gate, exception, publication and RACI target sections now contain behavior, not only pointers |
+| No-build boundary | **Pass** | Every new target section preserves `D-171`'s hold |
+| Acceptance ownership/completeness | **Fail** | Several adopted `F6-AC-*` behaviors have no governed Product AC; scoped return is still linked to `FR-05a`, not its decided `FR-06` owner |
+| Target metrics/security | **Fail** | `G-05`, `SEC-01` and `SEC-03` still state the old human-T5/agent-T6 model without target rows |
+| Target RACI shape | **Fail** | One fallout/GRC T5 task carries two Responsible roles although the same matrix requires exactly one R per task; §4 still says T5 is Line 2 |
+| Graphify final currency | **Fail** | Analyzed `73a205d`; final Git HEAD `a506db7`; full suite fails only `docs-drift` |
+| Verification anchor | **Not yet eligible** | `Verified-At-Commit: 84dfb21` is the source commit, not a final independently passing commit |
+
+### 21.2 Residual findings — smallest non-duplicative set
+
+| Review ID | Gap | Guaranteed failure | Draft repair |
+|---|---|---|---|
+| `B068-R50` | D-179 added six target Product ACs, but the adopted EW-start, cross-gate evidence, external-authority and Delivery acceptance behaviors remain only in Fn_Spec prose; `AC-08a`'s return behavior is linked to `FR-05a` instead of its decided `FR-06` owner. Target US dependencies also point to historical US rows | Requirement queries cannot trace every adopted acceptance behavior to a Product FR/AC; a return implementation follows independence instead of exceptions; the target story chain traverses superseded requirements | Add suffixed Product ACs under the decided owners without renumbering existing IDs; move/supersede the return AC under FR-06; make `US-04a` depend on `US-03` and `US-05a` on `US-04a` |
+| `B068-R51` | The Product target rows changed the gate order, but `G-05`, its instrumentation trigger, `SEC-01` and `SEC-03` still encode the old order | Metrics measure the wrong event; SEC-01 says R=A at T5 while the target makes R=A at T6; access-control planning grants Line 2 T5 and omits human T6 | Preserve old rows as historical/held and add target semantics: agreement is measured after the blind T6 sequence against the sealed T5 review set; target separation covers T4→each T5 reviewer and each T5 reviewer→T6; Line 2 executes T6/T11, not target T5 |
+| `B068-R52` | The target RACI row models “both reviewers” as two R holders on one T5 task, contradicting its own “exactly one R per task” rule; the proof also labels `R(T4) ≠ R(T5)` as a T5→T6 boundary, and §4 retains the old Line placement unqualified | RACI loses its one-R invariant, attribution scope becomes ambiguous, and the proof can pass while comparing the wrong boundary | Model each required T5 review as its own sibling judgment task/act with exactly one R and one scoped A; let the non-judgment join alone complete the T5 stage with no R/A. Prove T4→each T5 act and each T5 act→T6 separately; add an explicit target §4 Line/RACI placement alongside the historical one |
+
+`B068-R38` remains the sole Graphify gap; it is reused rather than duplicated. `B068-R47`–`R49`
+remain materially answered by D-179 and are not reopened — R50–R52 are defects in the new target
+content itself.
+
+### 21.3 Parent-first correction plan
+
+#### Parent 1 — one correcting decision
+
+Record a new Lane A decision that accepts D-179's valid propagation, corrects only R50–R52, and
+preserves D-171's hold. Do not call F7 complete until the source changes below land in the same pass.
+
+#### Parent 2 — finish Product ownership and target semantics
+
+1. Add governed target ACs for the accepted behaviors still represented only in Fn_Spec prose:
+   EW start under FR-01; consuming-gate evidence under the applicable gate FRs; scoped return under
+   FR-06; external authority under its GRC/retraction owner; Delivery mutation refusal under
+   FR-09/FR-10. Suffix IDs are preferred; AC-09 onward is not renumbered.
+2. Mark `AC-08a` superseded by the FR-06-owned return criterion, or correct its owner with explicit
+   provenance. Do not leave the same return behavior live under two FRs.
+3. Correct target story dependencies: `US-04a → US-03`; `US-05a → US-04a`.
+4. Add target/held metric and security rows or explicit target clauses:
+   - `G-02`: only the target T6 Line crossing can be `satisfied`;
+   - `G-05`: compare the sealed human preliminary disposition with the sealed T5 recommendation set
+     after reveal, retaining per-reviewer disagreement; evaluate at T6, not T5;
+   - `SEC-01`: require identity separation across T4→each T5 act and each T5 act→T6; target R=A is at
+     T6, not T5;
+   - `SEC-03`: target Line 2 execution is T6/T11; target T5 reviewers remain Line 1.
+
+#### Parent 3 — repair the RACI task boundary
+
+Replace the one fallout/GRC row with route-conditioned sibling review acts. Each act has one R, one
+scoped A, its own evidence and seal event. The T5 bundle join has no R, no A and no judgment; it merely
+confirms the route-required act set and completes the single logical stage. Update the proof and §4's
+target Line/RACI statements without erasing the historical matrix.
+
+#### Parent 4 — synchronize and re-verify once
+
+Commit the corrected source and fragment set, push it, then run Graphify at that final commit and
+re-merge curated fragments. If another tracked commit follows, synchronize again. Verification
+requires `lastAnalyzedHead = HEAD`, all local checks passing, and an independent Lane B review of the
+same final pushed commit. Only then replace the metadata with `Verified-By: Lane B`, the final commit,
+`Resolution: Verified`, and a terminal verified Status.
+
+### 21.4 Failure-derived re-review tests
+
+| Deliberate failure | Required result |
+|---|---|
+| Remove the register and query only Product ACs for EW start, return, external authority or Delivery refusal | Every adopted behavior still resolves to an owning FR/AC; absence rejects F7 |
+| Follow target user-story dependencies | The chain reaches current target/prerequisite stories, never a historical held story |
+| Classify scoped T6 return as FR-05 independence | Traceability rejects it; return/rerun is owned by FR-06 |
+| Evaluate G-05 at T5 | Metric definition rejects the event; the blind target comparison is available only through T6 |
+| Reuse SEC-01's “R=A at T5” sentence for the target | Target security rule rejects it; R=A moves to human T6 |
+| Assign Line 2 to target T5 through SEC-03 or RACI §4 | Target Line rule rejects it |
+| Put both T5 reviewers in one RACI task row | Exactly-one-R validation fails; sibling acts are required |
+| Treat the bundle join as R, A, reviewer or an additional gate | RACI/gate proof rejects it |
+| Compare T4→T5 while claiming to prove T5→T6 | Boundary proof fails and names both required comparisons |
+| Verify `84dfb21` or `73a205d` while final HEAD is later | Evidence-anchor/Graphify review fails |
+
+### 21.5 Independent approve / reject summary
+
+| Decision | Tier | Follow-up phase |
+|---|---|---|
+| **Approve** — preserve D-179's real owner-file content, historical/target split, pushed state and no-build hold | Product Requirements / Fn_Specs / RACI / handoff | No repeat work |
+| **Approve-with-conditions** — finish R50–R52 | Product Requirements / metrics-security / RACI | One Lane A correction pass, then final graph sync |
+| **Reject verification** — B-068 terminal closure | Handoff / Graphify | Target traceability, metric/security semantics, RACI cardinality and final graph currency still fail |
 | **Defer** — implementation, config/code rename and fresh S2 authorization | Lane A→Lane B / S2 | Only after corrected F7 is pushed and independently verified |

@@ -10722,6 +10722,23 @@ here.
 
 ## 5.14dw `D-170` — Editorial Operating Model Adopted: Separate Axes, Target Gate Order, and Authority Contract Decided, Answering `B-068` `F1`/`F2`/`F5`
 
+> **Partial-supersession notice, added 2026-09-02 (`D-180`, `docs/handoff/B-069-*.md`).** `D-170` is
+> closed as a decision record; not every clause below is still current. Cite `D-180` — the current
+> anchor — for T5/T6 shape, build status, or the return-metric interpretation. Cite `D-170` only for
+> historical provenance.
+>
+> | `D-170` clause | Lifecycle |
+> |---|---|
+> | `F1` eight-axis separation | **Retained** |
+> | `F2` — human Chief Editor at `T6` | **Retained**, confirmed by `D-175` |
+> | `F2` — single Chief Editorial Desk role at `T5` | **Superseded** by `D-175` (two distinct roles, route-dependent) |
+> | `F5` core `A`/`O`/`EA` authority contract | **Retained** |
+> | `F5` return-metric interpretation | **Re-derived** by `D-171`/`D-180` |
+> | Scope statement leaving the historical order build-authorized | **Superseded** by `D-171` (explicit hold on both orders) |
+>
+> Do not copy the full target contract here — that duplication is its own drift surface. `D-180` and
+> `raci-involvement-matrix.md` §3.1 carry it.
+
 **Chief Editor ruling, 2026-08-31, on Lane A's consolidated review of `B-068` (Lane B's persona/RACI/
 `OD4`/GRC conflation finding, itself consolidating prior business clarification and two attached CSVs).**
 `B-068` §2 found that one overloaded `Line` column in `Modular_PRD.md` §2.3 and
@@ -11623,3 +11640,78 @@ unaffected and not reopened — every new target passage is explicitly `decided_
 current-build claim. Independent re-review, Graphify's final synchronization at this decision's own
 commit, remote push, and any fresh build authorization remain separate, unstarted work. This decision
 does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or `.github/workflows/`.
+
+## 5.14e6 `D-180` — `B068-R50`–`R52` Corrected; `D-170` Given a Current Anchor and Partial-Supersession Notice
+
+**Chief Editor ruling, 2026-09-02, on `B-068` §21's independent re-review of `D-179` and
+`docs/handoff/B-069-*.md`'s decision-lifecycle finding.** Both accepted without dispute — verified
+against the actual files before correcting; all three residual defects confirmed real.
+
+### `B068-R50` — acceptance ownership completed
+
+1. **`AC-08a` re-owned from `FR-05a` to `FR-06`** (return/rerun is `FR-06`'s domain, not independence
+   classification) — `Modular_PRD.md`'s `FR-06` row now lists it; `FR-05a`'s AC list never included it.
+2. **Four target ACs added** for behaviors that existed only as Fn_Spec prose: `AC-01a` (`FR-01`, `EW`
+   start), `AC-14a` (`FR-09`, Delivery mutation refusal), `AC-16a` (`FR-10`, external-acceptance
+   prerequisite). Cross-gate evidence consumption is stated once in `FN-GATES-01-05.md` §11.1, not
+   duplicated per gate FR, per this document's own "propagate the fact, not the count" convention.
+3. **Target story dependencies corrected**: `US-04a` now depends on `US-03` (was `US-04`, a historical
+   row); `US-05a` now depends on `US-04a` (was `US-05`). A target trace no longer crosses into
+   superseded stories.
+
+### `B068-R51` — target metric/security rows added
+
+`G-05` (`[historical_current_documented_held]`, both occurrences) gains `G-05a`: compared at `T6` after
+`T5_review_bundle_revealed_to_EG5`, per-reviewer disagreement retained, never at `T5`. `SEC-01` gains
+`SEC-01a`: separation proven across `T4`→each required `T5` act and each act→`T6`; target `R=A` is at
+`T6`. `SEC-03` gains `SEC-03a`: target `T5` act(s) execute as Line 1; `T6`/`T11` remain Line 2. All four
+new rows are `[decided_target_held]`; none is build-authorized (`D-171`).
+
+### `B068-R52` — RACI task boundary corrected
+
+`raci-involvement-matrix.md` §3.1's fallout/GRC `T5` row modeled two `R` holders on one task,
+contradicting the matrix's own one-`R`-per-task rule (§3). Split into sibling acts `T5a`
+(`ROLE-CHIEF-EDITORIAL-DESK`) and `T5b` (`ROLE-CHIEF-JOURNALIST`), each with exactly one `R`; the
+bundle join is now explicit that it is not a task and holds no `R`/`A`. The successor-review proof
+states `T4`→each act and each act→`T6` as two separate comparisons rather than one collapsed
+statement. A target §4 Line-placement note is added alongside the historical one.
+
+### `docs/handoff/B-069-*.md` — `D-170` given a current anchor and partial-supersession notice
+
+A notice is added directly above `D-170`'s body (§5.14dw) classifying each clause current/retained,
+re-derived, or superseded, and naming `D-180` as the current T5/T6 citation. `D-170`'s body is
+**unedited** — the notice does not rewrite history, and does not copy the full target contract (that
+duplication is its own drift surface; `raci-involvement-matrix.md` §3.1 carries it).
+
+### Gaps
+
+**Addressed:** `B068-R50`, `R51`, `R52`; `B-069`'s decision-lifecycle finding (current anchor
+established). **Unchanged:** `D-170`–`D-179`'s rulings, `D-171`'s S2 hold. **Still open:** `B068-R38`
+(Graphify currency — addressed procedurally below), independent re-review of this correction, remote
+push, any fresh build authorization.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-180` `B068-R50` acceptance ownership completed | ✅ §5.14e6 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ `AC-08a`/`AC-01a`/`AC-14a`/`AC-16a`, `US-04a`/`US-05a` dependency fix |
+| `D-180` `B068-R51` target metric/security rows | ✅ §5.14e6 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ `G-05a`, `SEC-01a`, `SEC-03a` |
+| `D-180` `B068-R52` RACI task boundary corrected | ✅ §5.14e6 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: RACI matrix is `docs/governance/`** |
+| `D-180` `D-170` current anchor and supersession notice | ✅ §5.14e6, `D-170` note | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**`raci-involvement-matrix.md`/`FN-GATES-01-05.md`/`FN-EXCEPTIONS-06-11-12.md`/`FN-PUBLICATION-09-10-13.md`
+(not tracked `D-54` tiers — cited, same disposition as `Fn_Specs` under `D-36`):** RACI matrix amended
+per `B068-R52` above; the other three are cited (their `D-179` content already covers the behaviors
+`AC-01a`/`AC-14a`/`AC-16a` now reference), not further edited.
+
+**Handoff tracking:** `B-068` stays `Status: Answered`, `Resolution: Applied` — corrected content, not a
+`Verified` claim. `B-069` is acknowledged and answered by this decision.
+
+### Scope limits
+
+**Corrects three residual specification defects in `D-179`'s target content and gives `D-170` a current
+anchor; builds no code, authorizes no implementation.** `D-171`'s S2 hold is unaffected and not
+reopened — every corrected/added passage remains `decided_target_held`. Independent re-review,
+Graphify's final synchronization at this decision's own commit, remote push, and any fresh build
+authorization remain separate, unstarted work. This decision does not touch `app/`, `lib/`,
+`components/`, `supabase/`, `__tests__/`, or `.github/workflows/`.

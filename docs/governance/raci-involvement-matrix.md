@@ -1,5 +1,5 @@
 # RACI Involvement Matrix
-**Version:** v1.8 — **proposed, not ratified**
+**Version:** v1.9 — **proposed, not ratified**
 **Date:** 2026-08-16, amended 2026-08-31
 **Origin:** Chief Editor, 2026-08-16, reframing OD2 and OD4
 **Status:** Recorded for ratification. **Closes nothing** beyond `RACI-03`/`RACI-04` (`D-170`,
@@ -130,24 +130,39 @@ build authorization consumes this proof; it does not need this proof to already 
 of being *granted* — the two are sequenced together, not circular, once the target proof is available
 as build-held planning rather than an assertion of current permission.
 
+**Corrected 2026-09-02 (`D-180`, `B068-R52`).** The table below previously modeled "both reviewers" as
+two `R` holders on one `T5` task row — contradicting this matrix's own "one `R` and one `A` per task"
+rule (§3). Each required `T5` review is now its own task/act, exactly one `R` each; the bundle join is
+a separate, non-task row with no `R`/`A` of its own.
+
 | Task | Transition | R — Responsible | Line | A — Accountable |
 |---|---|---|---|---|
 | T1–T4 | Discovered → Drafted | Reporter / Investigator / Journalist agents | 1 | Acting Chief Editor |
 | **T5** (production route) | **Drafted → Reviewed** | The route-assigned single reviewer: `ROLE-CHIEF-EDITORIAL-DESK` (`ROUTE-PROD-1`) or `ROLE-CHIEF-JOURNALIST` (`ROUTE-PROD-2`/`PROD-3`) | 1 | Acting Chief Editor |
-| **T5** (fallout/GRC route) | **Drafted → Reviewed** | Both `ROLE-CHIEF-EDITORIAL-DESK` and `ROLE-CHIEF-JOURNALIST`, in parallel, each a separately attributable act | 1 | Acting Chief Editor |
-| **T5 join** | *(no state change)* | A deterministic non-judgment `T5_review_bundle_sealed` join — chooses no winner, holds no `R` or `A` of its own | — | — |
+| **T5a** (fallout/GRC route) | **Drafted → Reviewed** (sibling act 1 of 2) | `ROLE-CHIEF-EDITORIAL-DESK` — one `R`, this act only | 1 | Acting Chief Editor |
+| **T5b** (fallout/GRC route) | **Drafted → Reviewed** (sibling act 2 of 2) | `ROLE-CHIEF-JOURNALIST` — one `R`, this act only | 1 | Acting Chief Editor |
+| **T5 join** | *(no state change; not a task)* | A deterministic non-judgment `T5_review_bundle_sealed` join confirming every route-required act exists — no `R`, no `A`, no judgment | — | — |
 | **T6** | **Reviewed → Approved** | **Acting Chief Editor** *(human-only; refused for any agent)* | **2** | Acting Chief Editor **← R = A, by design — see §2** |
 | T7–T11 | *(unchanged from §3)* | *(unchanged from §3)* | *(unchanged)* | Acting Chief Editor |
 
-**Target successor-review proof:** four-eyes holds across every required `T5`→`T6` boundary —
-`R(T4) ≠ R(T5)` for each required reviewer, and `R(T5) ≠ R(T6)` because the human Chief Editor differs
-from every required `T5` executor by construction (the join has no executor identity of its own to
-collide with). Where two `T5` reviewers are required, each remains independently attributable in the
-bundle; the join does not average, select, or discard either report — disagreement between them is
-preserved and resolved only by the human's reasoned `T6` decision (`Modular_PRD.md` `AC-07b`). This
-inverts which boundary carries the human: **the current order's four-eyes sits at T4→T5 and T5→T6
-around a human T5; the target's sits at T4→T5 and T5→T6 around human T6** — the mechanism (successor
-reviews predecessor) is the same property in both orders, applied to a different node.
+**Target successor-review proof, two boundaries stated separately:**
+
+1. **`R(T4) ≠ R(each required T5 act)`** — the Journalist agent (or Investigator, per route) at `T4`
+   never also executes `T5`/`T5a`/`T5b`.
+2. **`R(each required T5 act) ≠ R(T6)`** — the human Chief Editor differs from every required `T5`
+   executor by construction; the join has no executor identity of its own to collide with.
+
+Where two acts are required (`T5a`/`T5b`), each remains independently attributable; the join does not
+average, select, or discard either report — disagreement between them is preserved and resolved only
+by the human's reasoned `T6` decision (`Modular_PRD.md` `AC-07b`). This inverts which boundary carries
+the human relative to the current order: **the current order's four-eyes sits at T4→T5 and T5→T6
+around a human T5; the target's sits at T4→(each T5 act) and (each T5 act)→T6 around human T6** — the
+mechanism (successor reviews predecessor) is the same property in both orders, applied to a different
+node and, on fallout/GRC routes, to two sibling acts instead of one.
+
+**Target §4 Line/RACI placement, stated alongside the historical one:** target `T5`/`T5a`/`T5b` sit in
+**Line 1** (agent-executed review acts); target `T6`/`T11` sit in **Line 2** (`SEC-03a`,
+`Modular_PRD.md`). §4 above describes the current order (`T5`=Line 2) and is unedited.
 
 **T11** is unchanged from §3 — its exposure and clerical-not-judgmental character do not depend on
 which order governs T5/T6.
@@ -323,6 +338,13 @@ aliased to `ROLE-CHIEF-EDITORIAL-DESK` by `D-170`; corrected from `D-174`'s "eig
 
 ## 9. Changelog
 
+- **2026-09-02 v1.9:** `D-180`, from an independent re-review of `D-179` (`B-068` §21, `B068-R52`),
+  corrects §3.1's target task matrix: the fallout/GRC `T5` row modeled two `R` holders on one task,
+  contradicting this matrix's own one-`R`-per-task rule. Split into sibling acts `T5a`
+  (`ROLE-CHIEF-EDITORIAL-DESK`) and `T5b` (`ROLE-CHIEF-JOURNALIST`), each with exactly one `R`; the
+  bundle join is now explicitly not a task. The successor-review proof now states the `T4`→`T5-act` and
+  `T5-act`→`T6` boundaries separately rather than as one collapsed statement. Adds a target §4 Line
+  placement note alongside the historical one.
 - **2026-09-02 v1.8:** `D-179`, from an independent review of `D-178` (`B-068` §20, `B068-R48`), adds
   §3.1: a target task matrix and successor-review proof, placed alongside §2.1/§3 rather than
   rewriting them. Resolves the "proof waits for authorization, authorization needs the proof" gate by
