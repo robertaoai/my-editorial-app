@@ -6,7 +6,8 @@
 - **Blocks:** durable handoff tracking by an `Eligible` or running build lane without an ad hoc
   commit exception; no product implementation is blocked
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-09-02. Queued pending the Judge's scope confirmation (Approve-with-
+  conditions row below); no rule file, check, plan, or application code has been changed yet.
 - **Evidence:** `docs/handoff/README.md` §"This directory stays writable when your lane is not
   Active"; `docs/v1/V1-PHASE-CLOSURE.md` §§5/5.1; `D-103`, `D-156`; the Chief Editor's direct
   clarification of 2026-09-02

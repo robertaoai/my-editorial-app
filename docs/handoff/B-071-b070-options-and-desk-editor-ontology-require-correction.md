@@ -6,37 +6,41 @@
 - **Blocks:** terminal verification of `B-070`; any fresh S2 authorization; Lane B beginning
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
 - **Status:** Open
-- **Lane A:** Acknowledged 2026-09-02. Implementation plan at `docs/v1/V1-B071-CORRECTIVE-PLAN.md`
-  is now **Draft 8, uncommitted in the working tree over shared predecessor `2d3bd49`** (`B071-R50`
-  — the previous header text describing Draft 6 as "not yet pushed" was itself stale the moment
-  Draft 6 was committed at `2d3bd49`, and Draft 7 claimed this header was corrected when it was not;
-  this line is the actual correction). Draft 7 (uncommitted) incorporated round-6 review
-  `B071-R45`–`R49` and the Judge's four-identifier ruling (`agent_id`/`agent_run_id`/
-  `agent_attempt_badge_id`/`executor_principal_key`, `self_asserted` rejected for executor
-  comparison). Draft 8 (also uncommitted, layered on Draft 7) incorporates round-7 review
-  `B071-R50`–`R55`: corrects this header and the plan's own Source/revision-history metadata
-  (`R50`, this edit); removes the invented fifth Article-50 external-reader token — the governed
-  direct interaction is the Chief Editor and the virtual agents, not an external reader, and
-  publication-text labelling under Article 50(4) is a separate future question (`R51`); adds
-  `system_attested` to the target `identity_assurance` vocabulary alongside `self_asserted` and
-  `authenticated`, without touching the applied `0002` migration (`R52`); adds the four
-  identifiers' Product/Fn_Spec/`SPECS`-candidate ownership to the §7 write set instead of leaving
-  them contract-less (`R53`); moves `merge7.js`'s upsert fix and its semantic-equality check into
-  §7/§8's committed write set, ahead of any rebuild, instead of scheduling them after the commit
-  that must contain them (`R54`); and replaces "person"/"account" language describing virtual-agent
-  execution with "executor principal"/`executor_principal_key`, reserving natural-person/account
-  language for the Chief Editor and `T6` (`R55`). **Nothing here is committed or pushed.** Round
-  7/8 cannot be marked `Verified` until a commit is on `origin/docs/journal-2026-08-16` and
-  confirmed identical; committing and pushing require the user's explicit go-ahead and have not
-  been requested yet.
+- **Lane A:** Acknowledged 2026-09-02. Commit `cd08c5b` (Round 8 review in this file, plus new item
+  `B-072` on handoff-only commit authority) is **pushed** — local `HEAD` equals
+  `origin/docs/journal-2026-08-16` at `cd08c5b`. Implementation plan at
+  `docs/v1/V1-B071-CORRECTIVE-PLAN.md` is now **Draft 9**; its evidence is the commit containing this
+  paragraph, following pushed Draft 8 (`d3898db`) (`B071-R57` — the prior header both understated
+  Draft 8's push status at the time and used "uncommitted" wording for Draft 9 that would go stale
+  the moment this paragraph was committed; this wording is written to remain true after commit).
+  Draft 8 incorporated round-7 review `B071-R50`–`R55` in full. Draft 9 incorporates round-8 review
+  `B071-R56`–`R60`: splits the single circular pre-`AUTH-DOC` checklist into a text-only plan-review
+  checklist, an optional separately-authorizable Graphify tooling/status precondition, and a
+  post-`AUTH-DOC` applied-state verification checklist, so no item requires §7/§8 execution before
+  `AUTH-DOC` while §7/§8 themselves remain gated on `AUTH-DOC` (`R56`); corrects this header and the
+  plan's lifecycle metadata (`R57`); finishes the `R49`/`R55` language replacement in §3's refusal
+  condition and §4's verification line (`R58`); names both proposed spec artifacts under their
+  governed path conventions — `docs/specs/ux/UX-CHIEF-EDITOR-PUBLICATION-WORKSPACE.md` and (subject
+  to a `D-30` redundancy test) `docs/specs/SPECS-IDENTITY-ATTESTATION.md` (`R59`); and replaces the
+  unqualified "rebuild now" instruction with the named tooling precondition (`R60`). **The Judge
+  separately authorized the narrow Graphify tooling/status precondition** (this paragraph's commit):
+  `merge7.js` is repaired to a deterministic upsert with a semantic-equality check, and
+  `frag119.json`'s B-071/plan nodes are refreshed to Draft 9/`R1`–`R60` status — without adding a
+  `D-182` node or any `Applied`/`Verified` transition. `AUTH-DOC` itself remains unapproved; `D-171`
+  remains fully binding. This precondition commit is pushed only after the post-commit rebuild,
+  re-merge, semantic-equality check, and full local suite (including `docs-drift`) are green at that
+  commit — never before.
 - **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`), round 2 (Lane
   B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
   clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), round 4 (Lane B,
   reviewing Draft 4 at shared HEAD `d3cadda`, findings `B071-R30`–`R37`), round 5 (Lane B,
   reviewing Draft 5 at `5bd9b90`, findings `B071-R38`–`R44`), round 6 (Lane B, reviewing Draft 6 at
-  `2d3bd49`, findings `B071-R45`–`R49`, plus the Judge's direct four-identifier clarification), and
+  `2d3bd49`, findings `B071-R45`–`R49`, plus the Judge's direct four-identifier clarification),
   round 7 (Lane B, reviewing the uncommitted Draft 7 worktree over `2d3bd49`, findings
-  `B071-R50`–`R55`) all consolidated below. No separate `B-072` item was ever minted.
+  `B071-R50`–`R55`), and round 8 (Lane B, reviewing committed/pushed Draft 8 at `d3898db`, findings
+  `B071-R56`–`R60`, recorded in pushed commit `cd08c5b`) all consolidated below. No separate `B-072`
+  *T5/T6 ontology* item was ever minted — `B-072` as filed is a distinct governance topic
+  (handoff-only commit authority), not a duplicate of this thread.
 - **Evidence:** `docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md` Options A/B;
   `docs/v1/V1-DECISION-REGISTER.md` `D-171`, `D-175`–`D-181`;
   `docs/v1/V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes";
