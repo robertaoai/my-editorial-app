@@ -824,8 +824,11 @@ its intent is preserved, correctly split, in the plan-review/applied-state check
 Independent review (`docs/handoff/B-071-*.md` §"Independent review — Draft 10 and the post-Draft-10
 Judge clarifications") found Draft 10 **not approvable**: none of `B071-R67`–`R72` was fully closed,
 and five further Judge rulings materially superseded its parent T5/T6 model. New findings
-`B071-R73`–`R76` were recorded. **The Judge approved proceeding directly to Draft 11, superseding
-Draft 10 in full**, rather than patching it child-first. This draft (11) is that response.
+`B071-R73`–`R76` were recorded. **The Judge authorized Lane A to prepare Draft 11 directly,
+superseding Draft 10 in full** (not artifact-level approval of Draft 11 itself — see the
+approval-provenance correction in `docs/handoff/B-071-*.md`), rather than patching it child-first.
+This draft (11) was that response; Round 11 review subsequently found it not yet executable for
+`AUTH-DOC` (`B071-R67`–`R83`).
 
 ### Round 11 — outstanding, before this revision reaches the Judge for `AUTH-DOC`
 

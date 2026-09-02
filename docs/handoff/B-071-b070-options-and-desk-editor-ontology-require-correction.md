@@ -6,31 +6,28 @@
 - **Blocks:** terminal verification of `B-070`; any fresh S2 authorization; Lane B beginning
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
 - **Status:** Open
-- **Lane A:** Acknowledged 2026-09-02. Commits `cd08c5b` (Round 8 review + `B-072`) and `838baff`
-  (Draft 9 + the Judge-authorized Graphify tooling/status precondition) and `6fb32ea` (Round 9
-  review) are all **pushed** — local `HEAD` equals `origin/docs/journal-2026-08-16`. Implementation
-  plan at `docs/v1/V1-B071-CORRECTIVE-PLAN.md` is now **Draft 10**; its evidence is the commit
-  containing this paragraph, following pushed Draft 9 (`838baff`). Draft 9 incorporated round-8
-  review `B071-R56`–`R60` in full, and the Graphify tooling/status precondition it authorized is
-  completed (deterministic-upsert `merge7.js`, `frag119.json` refreshed to status-only text, no
-  `D-182`). Draft 10 incorporates round-9 review `B071-R61`–`R66`: adds a forward-notice write-set
-  row for every editable governing/derived file the propagation set had omitted — `blueprint.md`,
-  `business-case.md`, `v1-build-readiness-addendum.md`, `docs/README.md`,
-  `SPECS-TRANSITION-ENFORCEMENT.md`, the media-industry fallback plan (`R61`); **decides** the `T6`
-  pre-authentication trust boundary — every pre-authentication `T6` event is `self_asserted`/demo,
-  visibly labeled, and cannot satisfy publication or `AUTH-ROUTE`; only `authenticated` `T6` can,
-  consistent with this project's binding demo-first v1 rule deferring login to a later sprint
-  (`R62`); resolves the identity-spec `D-30` redundancy test as decided, not conditional —
-  `SPECS-TRANSITION-ENFORCEMENT.md` excludes column/type ownership by its own stated scope — and
-  fixes `docs/specs/README.md`'s documented naming convention to match the plural `SPECS-*` files
-  that already exist (`R63`); replaces the last operative prose node reference with
-  `NODE-CHIEF-JOURNALIST-REVIEW` (`R64`); corrects §7/§8 to describe the Graphify precondition as
-  completed at `838baff`, not future/conditional work (`R65`); and records `merge7.js`'s remaining
-  verifier defects — mutates the graph before a `--verify-only` check reads it, drops dangling edges
-  from its own check instead of failing on them, no cross-fragment conflict check, undefined
-  fragment-owned-field scope — as ordinary Lane A tooling work with four named negative tests,
-  independent of the completed precondition (`R66`). **The Judge approved Draft 10 with these
-  corrections as proposed.** `AUTH-DOC` itself remains unapproved; `D-171` remains fully binding.
+- **Lane A:** Acknowledged 2026-09-02. **Approval-provenance corrected retroactively per the Judge's
+  provenance rule** (§"Judge ruling — approval-provenance for direct instructions," below): every
+  "the Judge approved Draft N" statement previously written in this field is corrected to the precise
+  form the rule requires. What actually occurred, restated:
+  - The narrow Graphify tooling/status precondition (`merge7.js` fix + `frag119.json` status refresh,
+    committed and pushed at `838baff`): **Judge approval received in the current conversation for
+    that specific bounded action, pending durable registration** — not `AUTH-DOC`, not approval of
+    Draft 9 as a packet.
+  - Draft 10: **Judge authorized Lane A to prepare Draft 10** incorporating `B071-R61`–`R66` — not
+    "the Judge approved Draft 10" as a consolidated artifact. Round 10 independent review
+    subsequently found Draft 10 not approvable for `AUTH-DOC`.
+  - Draft 11: **Judge authorized Lane A to prepare Draft 11 directly, superseding Draft 10** —
+    likewise not artifact-level approval. Round 11 independent review found Draft 11 not yet
+    executable for `AUTH-DOC` (`B071-R67`–`R83`).
+  - The stable-T5/T6-UI-shell clarification (commit `7797139`): **Judge clarification received**
+    (explains meaning/requirements; does not itself authorize an action).
+  Implementation plan at `docs/v1/V1-B071-CORRECTIVE-PLAN.md` is Draft 11 pending Draft 12 (not yet
+  produced). No commit's push status is asserted here beyond git's own record — see repository state
+  for current HEAD/remote. **`AUTH-DOC` remains unapproved by any of the above; `D-171` remains fully
+  binding.** No statement in this field implies Decision-Register-level durable approval, independent
+  verification, artifact approval, push authority, or authority for a different checkpoint than the
+  one named (provenance rule, point 2).
 - **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`), round 2 (Lane
   B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
   clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), round 4 (Lane B,
@@ -1836,9 +1833,13 @@ Judge question.
 
 ## Lane A response — Draft 11 produced, supersedes Draft 10
 
-**Judge approved proceeding directly to Draft 11, superseding Draft 10, per the Round 10 closure
-audit above.** `docs/v1/V1-B071-CORRECTIVE-PLAN.md` is now Draft 11. Every finding `B071-R67`–`R76`
-is addressed:
+**Correction (applying the Judge's approval-provenance rule retroactively):** the original wording
+here said "the Judge approved proceeding directly to Draft 11." The precise statement is **Judge
+authorized Lane A to prepare Draft 11 directly, superseding Draft 10**, per the Round 10 closure
+audit above — an authorization to prepare a revision, not artifact-level approval of Draft 11 itself.
+`docs/v1/V1-B071-CORRECTIVE-PLAN.md` was Draft 11. Round 11 independent review subsequently found it
+not yet executable for `AUTH-DOC` (`B071-R67`–`R83`); Draft 12 is pending. Findings `B071-R67`–`R76`
+that Draft 11 addressed:
 
 - `R67`: the plan's own header now states approval as none and separates Judge clarifications
   (inputs) from plan approval.
@@ -2056,3 +2057,56 @@ representing a placeholder as a completed assurance control.
 | **Reject** | Placeholder-as-capability | A visible T6 section cannot prove T6 completion, external acceptance, Delivery eligibility, or `AUTH-ROUTE` readiness | Negative criteria in Draft 12 |
 | **Defer** | Detailed T6 storage and interaction | Outside the current editorial proof; no storage shape or result enum is authorized by this clarification | Later assurance feature |
 | **Defer** | Draft 11 / `AUTH-DOC`, push, implementation and lane transition | This clarification corrects the plan only; the Round 11 rejection and `D-171` hold remain | Draft 12 and independent re-review |
+
+## Judge ruling — approval-provenance for direct real-time instructions (2026-09-03)
+
+**Judge approval received in the current conversation for adopting this provenance rule as binding
+on how Lane A records every future direct Judge instruction across `docs/handoff/` and
+`docs/v1/`, pending durable registration.** This directly answers the recurring defect (`B071-R45`,
+`R57`, `R67`) where a real-time chat instruction was written as "the Judge approved Draft N" and the
+next independent-review round correctly found that unverifiable against any durable record.
+
+### The rule
+
+1. A direct real-time Judge instruction is valid authority when it explicitly names: the object or
+   immutable revision; the authorized action; the scope and exclusions; the applicable authorization
+   checkpoint, if any.
+2. Before it is durably recorded, describe it as: *"Judge approval received in the current
+   conversation for [specific action], pending durable registration."* This permits only the
+   explicitly authorized action. It is not durable shared evidence, independent verification,
+   approval of the resulting artifact, push authority, or authority for another checkpoint.
+3. Use *"Judge clarification received"* when the message explains meaning or supplies requirements
+   but does not explicitly authorize an action.
+4. Distinguish: "Judge authorized Lane A to prepare Draft 11" / "Judge approved Draft 11 at commit
+   `<sha>`" / "Judge granted `AUTH-DOC` for the packet at commit `<sha>`" / "Judge authorized push of
+   commit `<sha>`." None implies another.
+5. Lane A records an explicit approval in the next available Decision Register entry and propagates
+   it as required. After that commit, use: *"Judge approval recorded by `D-NNN` at commit `<sha>`."*
+6. Independent review verifies that the recorded decision and its application match the Judge's
+   instruction. It does not recreate, replace, or retrospectively grant the approval.
+7. Approval of one revision never transfers automatically to a later draft. Material changes require
+   renewed approval of the new immutable revision.
+
+### Applied retroactively in this same pass
+
+The header ("Lane A:" field) and the "Lane A response — Draft 11 produced" section above are
+corrected to use points 2 and 4's precise vocabulary instead of the prior unqualified "the Judge
+approved Draft N" statements. `docs/v1/V1-B071-CORRECTIVE-PLAN.md`'s Draft 11 revision-history entry
+is corrected the same way.
+
+### Durable registration — open, not yet done
+
+Per point 5, this rule itself should reach the next available Decision Register entry
+(`docs/v1/V1-DECISION-REGISTER.md`, next available `D-183` — `D-182` is T5/T6's proposed, not-yet-
+applied entry). **That Register write has not been made** — it is a governed-tier edit this plan has
+consistently reserved for an authorized propagation pass, and this rule is a process decision rather
+than a `D-182`-scoped product one. Whether to add it now, standalone, or bundle it into the eventual
+`AUTH-DOC` propagation pass is the Judge's call, not inferred here.
+
+### Approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Approval-provenance rule (points 1–7) | Received this conversation for the stated scope, pending durable registration | Governs all future Lane A approval statements immediately |
+| **Approve** | Retroactive correction of the three flagged statements | Applied in this same pass | Closed |
+| **Defer** | Decision-Register entry for this rule itself | Not yet written; timing is the Judge's call | Judge specifies: now, standalone, or bundled with `AUTH-DOC` |
