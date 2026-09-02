@@ -212,3 +212,119 @@ decision owner.
 | **Approve** | Active-lane reporting | Active Lane B/C updates the relevant handoff at each bounded task completion and commits/pushes the task transaction | Lane A applies steps 1–6, then independent review |
 | **Reject** | Selection semantics | Lane A does not independently choose the successor; the Chief Editor/Judge chooses and Lane A records | Preserve `D-156`/`D-158` authority |
 | **Defer** | Blocked-lane durable commits | Not granted by this ruling | Separate Judge decision only if needed |
+
+## Independent review under `D-183` — one decision, one SOP (2026-09-03)
+
+- **Review baseline:** local `8cbb3b7`; remote `7797139`. `D-183` exists in the local Decision
+  Register and governs this review under `D-58`, but its commit and this B-072 review are not yet
+  shared remote evidence.
+- **Review role:** Lane B, independent of Lane A's B-072 analysis.
+- **Approval state:** the Judge has supplied lane-state semantics as a clarification input. B-072
+  itself, its propagation packet, Eligible-lane push authority, and any implementation remain
+  unapproved.
+- **Result:** **approve the narrow work-lock/journal-permission distinction in principle; reject the
+  repeated SOP shape.** One open Judge decision remains: whether Eligible handoff-only authority is
+  local commit only or standing commit-and-push authority.
+
+### What happened
+
+B-072 correctly separates the Active lane's work-product lock from a narrow handoff-journal
+permission. It then states substantially the same protocol in its original children, success
+criteria, independent-review criteria, Judge-clarification table, and application plan, while also
+proposing copies in the phase table, three rule files, and two work orders. That repetition would
+make B-072 a second operating manual and make every shortened copy a future drift point.
+
+`D-183` adds one more required distinction: **commit authority and push authority are separate
+acts.** The Judge's prior clarification explicitly gives an Eligible Lane B/C actor handoff-only
+commit authority, while its Active-lane clause explicitly says commit/push. B-072 currently expands
+Eligible to “commit and push” without a separately explicit push instruction. The business reason
+for standing Eligible push authority is strong—handoff evidence is not shared between lanes until
+it reaches the remote—but that outcome must be approved, not inferred.
+
+### Findings — parent first
+
+| Finding | What is unclear or duplicated | Guaranteed failure if unchanged | Smallest fix |
+|---|---|---|---|
+| `B072-R6` — clarification is still worded as approval | The current section says “Judge ruling received” and its table says `Approve`, although the source instruction clarified `Eligible`/`Active` meanings and did not approve B-072's complete application packet | A semantic input becomes authorization to edit rule files, hooks and phase tracking—the same approval inheritance `D-183` rejects | Label the source “Judge clarification received.” State B-072 plan approval `none` until the Judge explicitly approves the exact decision scope |
+| `B072-R7` — Eligible commit silently inherits push authority | The source wording grants Eligible handoff-only commit authority; B-072's target rule and tests say commit **and push**. Active explicitly carries both | An Eligible lane can make an external write that was never authorized, or Lane A can reject every remote handoff because the local/remote rule has no valid source | Ask one explicit Judge question: standing Eligible handoff-only commit+push, or local commit with separate per-push approval. Do not infer either from Active authority |
+| `B072-R8` — B-072 repeats its own SOP | Safe staging, status separation, push/equality, Graphify handback and tests are restated in several sections | The copies will diverge on allowed paths, actor states or ordering; a later reader can select whichever copy permits the desired action | Preserve earlier sections as historical analysis. Add one forward notice saying the applied decision and canonical SOP supersede every operative copy in B-072 |
+| `B072-R9` — propagation proposes many SOP owners | The Decision Register, phase table, shared rules and lane work orders are all told to carry procedure | A correction needs synchronized edits across unrelated documents, recreating the restatement drift prohibited by `D-54`/`G55`/`G56`/`G58` | Make `docs/handoff/README.md` the sole operative SOP. The register owns decision/rationale; phase closure owns the state/permission summary; shared rules and work orders carry one short boundary plus a link only |
+| `B072-R10` — Graphify sequencing can be mistaken for handoff verification | A handoff commit necessarily moves HEAD; B-072 alternates between immediate local refresh and a green full-suite condition before consumption | The handoff author may imply `Verified` merely by rebuilding ignored graph state, or every valid journal commit appears invalid until Lane A can repair tracked graph content | The canonical SOP must say: commit/push records evidence, never verifies it; temporary `docs-drift` is disclosed; final consuming approval requires same-HEAD Graphify plus the full suite; tracked graph/tool corrections stay Lane A work |
+
+### One-place ownership model
+
+| Artifact | Owns | Must not repeat |
+|---|---|---|
+| Decision Register, next approved decision | Authority, scope, exclusions, affected prior decisions, tier applicability | Step-by-step staging/push SOP |
+| `docs/handoff/README.md` | **The one canonical handoff transaction SOP:** permitted actors/paths, exact-path staging, commit/push rule, remote equality, status separation, Graphify handback, failure behavior | Decision rationale or copied history |
+| `V1-PHASE-CLOSURE.md` §5.1 | Live lane state and a compact permission summary that links to the SOP | Staging commands, test cases, Graphify procedure |
+| Three shared rule files | One byte-identical narrow exception and canonical SOP link | Full procedure |
+| Lane B/C work orders | A short duty to follow the canonical SOP | A second lane-specific copy |
+| Commit hook/checks | Executable enforcement and negative tests | Human-facing policy prose |
+| B-072 | Historical problem, review findings, Judge decision request, and final resolution/forward link | A live SOP after the rule is applied |
+
+### Parent-first corrective plan
+
+1. **Judge decides the last policy variable:** whether Eligible Lane B/C receives standing authority
+   to push its own handoff-only commit, or must obtain explicit per-push approval.
+2. **Decision first:** Lane A records the approved work-lock/journal-permission rule in the next
+   Decision Register entry, following `D-183` wording. It names the exact state, path pattern,
+   commit permission, push permission, exclusions, and canonical SOP owner.
+3. **One SOP:** update `docs/handoff/README.md` once with the complete transaction protocol. Use
+   explicit paths; reject channel controls, another lane's handoff, code, governed docs, tooling,
+   unrelated files, and mixed staged sets.
+4. **References, not copies:** update Phase Closure, shared rules, and work orders only with their
+   owned fact and a link to the canonical SOP.
+5. **Enforce:** make the hook/check derive the permitted path/state rule from the decision; test one
+   allowed Eligible journal transaction, one Active task-plus-handoff transaction, and refusals for
+   every excluded path/mixed set.
+6. **Evidence order:** a handoff transaction records `Applied`/review evidence only. Confirm remote
+   equality if push is authorized. Before the next consuming approval, synchronize Graphify at the
+   same HEAD, run the full suite, and obtain independent verification.
+7. **Close without duplication:** append B-072's resolution and a forward link to the decision and
+   canonical SOP. Mark every earlier protocol block historical/non-operative; do not rewrite or
+   republish it elsewhere.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-SC1` | B-072 is reviewed | Approval provenance is inspected | Lane semantics are labeled `Judge clarification received`; no text treats them as approval of B-072 or its application packet |
+| `B072-SC2` | An Eligible Lane B/C actor has changed only its own handoff entry | Commit and push permissions are evaluated | Commit is permitted; push follows the exact Judge-selected rule and is never inherited from Active authority |
+| `B072-SC3` | Any actor needs the handoff transaction steps | The procedure is located | One canonical operative copy exists in `docs/handoff/README.md`; every other tier links to it and carries only its owned fact |
+| `B072-SC4` | A staged set contains any non-owned handoff path, channel control, code, governed doc, tool, unrelated file or mixed set | Commit is attempted | The transaction fails before commit; broad staging never becomes compliant by message wording |
+| `B072-SC5` | A handoff-only commit has moved HEAD | Completion is claimed | The entry may be durable/Applied, but not Verified; stale Graphify is disclosed and the next consuming approval waits for same-HEAD graph/full-suite evidence |
+| `B072-SC6` | B-072 is closed | Its operative instructions are searched | Only the forward decision/SOP link is current; earlier repeated protocol blocks are explicitly historical and are not copied into new documents |
+
+### Judge decision required — Eligible push only
+
+**Recommended:** grant standing push authority with the same narrow path restriction. A local commit
+protects the current machine; a pushed commit protects the lane-to-lane handoff. The permission still
+does not confer implementation authority, another path, self-verification, or lane-state change.
+
+```text
+Judge Approved: An Eligible Lane B or Lane C actor may commit and push only its own explicit
+docs/handoff/B-NNN-*.md or C-NNN-*.md entry. This standing handoff-journal permission authorizes no
+other path, broad or mixed staging, implementation, lane transition, Applied→Verified promotion, or
+deployment. The canonical transaction SOP is owned only by docs/handoff/README.md; other governed
+tiers record their owned fact and link to it rather than repeating the SOP.
+```
+
+If standing push is rejected, use this instead:
+
+```text
+Judge Approved: An Eligible Lane B or Lane C actor may commit locally only its own explicit
+docs/handoff/B-NNN-*.md or C-NNN-*.md entry. Each push requires a separate explicit Judge
+authorization naming the commit. Active-lane commit/push authority remains unchanged.
+```
+
+### Independent-review approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve-with-conditions** | Development-lane governance / B-072 core | The work-product-lock versus handoff-journal distinction is sound; Eligible push remains undecided | Judge selects one push rule, then Lane A records the decision |
+| **Approve** | Handoff process ownership | `docs/handoff/README.md` is the single canonical SOP owner; all other tiers link and carry only their own fact | Lane A application after explicit approval |
+| **Reject** | SOP duplication | B-072, Phase Closure, shared rules and work orders must not each reproduce the full protocol | Forward-link historical copies to the canonical SOP |
+| **Reject** | Approval inheritance | A Judge clarification, Eligible commit authority, or Active push authority cannot approve B-072 or grant Eligible push implicitly | Apply `D-183` |
+| **Defer** | B-072 application, hook/check changes and Graphify sync | The push variable and B-072 decision packet are not yet explicitly approved | After the Judge selects the exact Eligible push rule |
+| **Defer** | Product implementation, lane transition and deployment | B-072 governs reporting mechanics only | Separate bounded authorization |
