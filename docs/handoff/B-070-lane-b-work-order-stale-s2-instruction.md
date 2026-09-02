@@ -91,3 +91,39 @@ decision record, did not touch `V1-DECISION-REGISTER.md`/`V1-BUILD-SPEC.md`/`Mod
 and did not move Lane B's lane state — all of that depends on which option above the Chief Editor
 selects, which remains open. `D-171`'s hold stands, fully binding, until a fresh decision says
 otherwise.
+
+## Forward cross-reference — partial-answer boundary (2026-09-02)
+
+This append-only notice is current. It preserves the historical body above while preventing
+`Status: Answered` or `Resolution: Applied` from being read as approval of every requested act.
+
+| B-070 part | Current disposition | Current record |
+|---|---|---|
+| Stale “next code unit” instruction in `LANE-B-WORK-ORDER.md` | **Applied.** This is the correction covered by B-070's `Resolution: Applied` and evidence commit `1f77cfc` | B-070 |
+| Option A versus Option B choice | **Superseded as a choice.** The valid content describes two different features, not mutually exclusive alternatives | `B-071` `B071-R22` and later review rounds |
+| Fresh S2 authorization | **Deferred.** No bounded implementation unit, route activation or lane transition is authorized by B-070 | `B-071` corrected Gate A → Gate B1/Gate B2 → Route Activation structure; `D-171` remains binding |
+| Terminal independent verification of the replacement model | **Open.** It must assess the corrected, pushed documentation HEAD, not infer closure from this notice | `B-071` |
+
+The two feature scopes retained from the historical options are:
+
+1. **Feature 1 — shared T5/T6 judgment control:** three attributable T5 acts, one non-judgment
+   completion join, blind reveal order and human-only T6; it enables no route.
+2. **Feature 2 — factory-route operations/readiness:** route-specific operation, executor,
+   accountability and atomic-completion contracts; it does not replace Feature 1.
+
+A separate Route Activation Gate requires both applicable feature dependencies to be verified for
+one named route. Completing either feature alone does not activate a route, release a build or lift
+`D-171` globally.
+
+### Failure and success boundary
+
+- **Guaranteed failure:** selecting Option A or Option B, treating `Answered` as fresh build
+  authorization, or using B-070's applied work-order correction as evidence that both features are
+  complete.
+- **Success:** active documents contain no A-or-B choice; each feature has its own scope,
+  acceptance criteria, exclusions, Definition of Done and bounded authorization; `D-171` is
+  narrowed only by an explicit later decision; the exact corrected HEAD is pushed, synchronized
+  with Graphify and independently reviewed.
+
+No `B-072` is required for this clarification. `B-071` is the sole current handoff record for the
+replacement model and its remaining corrections.
