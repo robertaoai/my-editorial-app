@@ -25,7 +25,7 @@
 - **Resolution:** Applied
 - **Examined-By:** Lane B independent review, 2026-09-02 — `D-178`'s "propagated" claim rejected as
   pointer-only; `D-179` supplies actual propagation; re-review of `D-179` outstanding
-- **Verified-At-Commit:** e6b29c4
+- **Verified-At-Commit:** 84dfb21
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `D-170`–`D-179` in `V1-DECISION-REGISTER.md`;
   `docs/Modular_PRD.md` §2.3/§2.3.1/§0.4/§8 and `FR-04`/`FR-04a`/`FR-05`/`FR-05a`/`AC-05`–`AC-08a`;
