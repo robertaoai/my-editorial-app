@@ -1123,3 +1123,117 @@ the evidence; it never becomes the external `A`.
 | **Reject** | Draft 10 parent model | Universal T5 Assurance Preparation and universal Chief-Editor T6 are superseded by this clarification | Reconstruct Draft 11 parent-first |
 | **Defer** | Exact internal T6 `R` mapping | Must be copied from the Sheet 1 RACI for each affected route, not inferred | Lane A Draft 11 evidence table |
 | **Defer** | Implementation, `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE` and lane transition | This ruling changes the plan only; `D-171` remains binding | After corrected `AUTH-DOC` is applied and independently Verified |
+
+## Judge clarification — T5/T6 publication-workspace layering (2026-09-03)
+
+**Judge ruling received.** This refines the preceding route-gated clarification. The earlier phrase
+“T5 is editorial, not assurance” is narrowed: **T5 contains assurance preparation, but no human
+assurance judgment.** T6 contains the human assurance judgment. Preparation, judgment, external
+accountability and Delivery are separate acts.
+
+### Current target flow
+
+```text
+T1–T4 editorial preparation
+        ↓
+T5 evidence workstreams
+  ├─ Editorial Review: one route-selected virtual reviewer
+  └─ Assurance Preparation: Desk Editor + Chief Journalist in parallel
+        ↓
+Combined judgment packet
+        ↓
+T5 publication workspace: human Chief Editor EDITORIAL judgment
+  └─ Assurance section is view-only
+        ↓
+Route decision
+  ├─ GRC is not A: assurance judgment not applicable
+  └─ GRC is A: T6 required
+        ↓
+T6 publication workspace: human Chief Editor ASSURANCE judgment
+        ↓
+Delivery: POC/public explainable content plus report
+```
+
+### Layer contract
+
+| Layer | Who acts | What it does | What it must not claim |
+|---|---|---|---|
+| T5 Editorial Review | One route-selected virtual reviewer | Produces the route-specific editorial review brief | Final human editorial judgment |
+| T5 Assurance Preparation | `ROLE-DESK-EDITOR` and `ROLE-CHIEF-JOURNALIST` in parallel | Produces two separately attributable assurance-preparation briefs for the combined packet | Human assurance judgment, external GRC acceptance or IIA Line 3 assurance |
+| T5 Chief Editor UI | Natural-person Chief Editor | Makes the final **editorial** judgment in the publication workspace | Assurance approval; the assurance section is view-only here |
+| T6 Chief Editor UI | Natural-person Chief Editor, only where the route requires T6 | Makes the internal **assurance** judgment using the sealed packet | Acting as external GRC `A` or directly publishing content |
+| External GRC record | External accountable institution on `ROUTE-FALLOUT-3`/`ROUTE-GRC` | Supplies the external acceptance/mandate provenance required by the route | Being replaced by the Chief Editor's internal judgment or authentication |
+| Delivery | System/manual publication mechanisms | Produces POC/public explainable content with its report and executes existing target outcomes | Editing either judgment or treating T6 itself as publication |
+
+### Route application
+
+- All seven routes execute both T5 preparation workstreams and expose one combined packet to the
+  Chief Editor.
+- `ROUTE-PROD-1/2/3` and `ROUTE-FALLOUT-1/2`: the Chief Editor makes the T5 editorial judgment;
+  the assurance section remains view-only and T6 assurance judgment is `not_applicable`.
+- `ROUTE-FALLOUT-3` and `ROUTE-GRC`: after the T5 editorial judgment, the T6 assurance control is
+  enabled. Delivery remains held until the required internal assurance judgment and the separately
+  attributable external GRC acceptance/mandate evidence both exist.
+
+### Publication, amendment and retraction boundary
+
+“Publication section” names the Chief Editor's workspace location; it does not mean that T5 or T6
+publishes. Delivery continues to use the governed publication mechanisms. The MVP assurance view
+may display amendment/retraction evidence and outcomes, but it does not collapse those operations
+into T6. A retraction notice remains a new governed article/publication record under `FR-13`; an
+amendment follows its governed correction path. Neither silently edits the original report or T6
+judgment.
+
+### One remaining state-machine decision for Draft 11
+
+The current state model fixes T5 as `Drafted → Reviewed` and T6 as `Reviewed → Approved`. The Judge
+has now ruled that non-GRC routes require no T6 **assurance judgment**, but those routes still need a
+defined path from `Reviewed` to `Approved`. Lane A must present, not infer, one of these:
+
+| Option | State behavior | Trade-off | Lane B recommendation |
+|---|---|---|---|
+| **S-A — retain the state model** | T5 human editorial judgment produces `Reviewed`. On a non-GRC route, the system records assurance as `not_applicable` and performs the existing `Reviewed → Approved` finalization without showing a T6 assurance-judgment UI. On a GRC route, that transition waits for the human T6 assurance judgment plus external evidence | Preserves the ten-state model and makes non-applicability explicit, but the transition event must not be described as a human assurance judgment on non-GRC routes | **Recommend** |
+| **S-B — make T5 route-dependent** | T5 moves non-GRC routes directly to `Approved`, while GRC routes stop at `Reviewed` for T6 | Matches the visible UI literally, but changes T5's fixed state pair and creates route-dependent transition semantics across existing specs/tests | Reject unless the state model is deliberately redesigned |
+
+### Guaranteed failures if these layers collapse
+
+- Treating either virtual brief as the Chief Editor's judgment lets preparation approve itself.
+- Letting the T5 assurance panel accept edits creates a second hidden assurance decision before T6.
+- Running a human T6 assurance judgment on every route contradicts the route-level GRC `A` matrix.
+- Omitting a non-GRC `Reviewed → Approved` rule leaves five route families unable to reach Delivery.
+- Calling T6 “publication” bypasses T7/T10/T11 and their publication-target evidence.
+- Calling Chief Editor T6 judgment “GRC acceptance” moves external accountability inside the app.
+- Treating Retraction/Amend as a T6 state mutation destroys the append-only correction model.
+
+### Draft 11 success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `UX-T5-01` | Both T5 workstreams have sealed their required briefs | The Chief Editor opens the publication workspace | Editorial evidence is actionable for the T5 judgment; assurance evidence is visible but read-only |
+| `UX-T5-02` | The Chief Editor completes the T5 editorial judgment | The record is appended | It is labeled editorial, cites the combined packet, and cannot satisfy T6 or external GRC acceptance |
+| `UX-T6-01` | Route is one of the five non-GRC-accountable routes | The article completes T5 | No human T6 assurance UI is required; the selected state option handles approval without inventing assurance |
+| `UX-T6-02` | Route is `ROUTE-FALLOUT-3` or `ROUTE-GRC` | T5 editorial judgment completes | T6 assurance UI becomes actionable; Delivery stays held |
+| `UX-T6-03` | T6 is required | The Chief Editor reviews the packet | The assurance section permits a distinct human assurance judgment without changing the sealed T5 briefs |
+| `UX-T6-04` | Internal T6 judgment exists but external GRC evidence is absent | Delivery is attempted | Refused; internal judgment never substitutes for external `A` |
+| `DELIVERY-01` | All route-required editorial, assurance and external evidence exists | Delivery begins | Delivery consumes immutable judgments and produces the POC/public explainable content plus report under existing publication rules |
+| `CORRECTION-01` | An amendment or retraction is required after Delivery | The correction is initiated | A governed correction/retraction record is created; original judgments and reports remain immutable |
+
+### Parent-first correction plan
+
+1. Draft 11 first replaces the conflicting parent clauses with the flow and layer contract above.
+2. The Judge selects state option S-A or S-B; Lane A may not infer it from the UI diagram.
+3. Only then redraft T5/T6 acceptance criteria, route crosswalk cardinality and UI states.
+4. Keep external GRC evidence and Delivery as separate downstream prerequisites.
+5. Independently review Draft 11 before `AUTH-DOC`; implementation and route activation remain
+   separately gated.
+
+### Clarification approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | T5 Product/UI behavior | Two virtual preparation workstreams feed one human Chief Editor editorial judgment; assurance view is read-only | Lane A Draft 11 |
+| **Approve** | T6 Product/UI behavior | Human Chief Editor assurance judgment is distinct and route-gated; external GRC `A` remains separate | Lane A Draft 11 |
+| **Approve** | Delivery/correction boundary | Delivery consumes immutable judgments; Retraction/Amend remain governed downstream records | Lane A Draft 11 |
+| **Approve-with-conditions** | State transition model | Select S-A to preserve fixed states while recording non-GRC assurance as `not_applicable` | Judge selection, then Draft 11 |
+| **Reject** | Conflated model | T5/T6 as publication actions, T5 editable assurance judgment, or Chief Editor as external GRC acceptance | Remove from Draft 11 |
+| **Defer** | Implementation and route activation | `D-171` remains binding | After corrected `AUTH-DOC` is applied and independently Verified |
