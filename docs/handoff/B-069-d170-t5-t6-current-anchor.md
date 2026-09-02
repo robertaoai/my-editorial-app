@@ -10,10 +10,15 @@
   packet's Parent 2 lifecycle table, without editing `D-170`'s body or copying the full target
   contract. `D-180` also applies `B-068` §21's `R50`–`R52` corrections in the same pass (Parent 3).
   `D-171`'s hold is unaffected. Graphify sync and independent re-review remain separate, unstarted
-  work (Parent 4).
+  work (Parent 4). **Superseded 2026-09-02 (`D-181`):** independent re-review of `D-180` found the
+  anchor notice itself needed four corrections (`B068-R53`–`R56`); `D-181` is now the current T5/T6
+  anchor and appended its own "Anchor update" subsection below (`D-170`'s body remains unedited).
 - **Resolution:** Applied
-- **Verified-At-Commit:** 7e37919
-- **Evidence:** `V1-DECISION-REGISTER.md` `D-170`, `D-171`, `D-175`, `D-179`; `B-068` §21 (`B068-R50`–`R52`); local `docs-drift` result at HEAD `a506db7`
+- **Verified-At-Commit:** 9006f4d — the `D-181` application commit; not a `Verified` claim
+  (`Resolution` stays `Applied`), only the commit where this evidence is currently observable
+- **Evidence:** `V1-DECISION-REGISTER.md` `D-170`, `D-171`, `D-175`, `D-179`, `D-180`, `D-181`
+  (§5.14e7); `B-068` §21 (`B068-R50`–`R52`), §22 (`B068-R53`–`R56`); local `docs-drift` result
+  synced at HEAD `9006f4d`
 
 ## What happened
 

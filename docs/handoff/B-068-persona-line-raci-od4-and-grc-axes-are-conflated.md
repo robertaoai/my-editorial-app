@@ -18,21 +18,31 @@
   all corrected: `AC-08a` re-owned `FR-05a`→`FR-06`; four missing target ACs added (`AC-01a`,
   `AC-14a`, `AC-16a`, plus `US-04a`/`US-05a`'s dependency chain fixed); `G-05a`/`SEC-01a`/`SEC-03a`
   target rows added; the RACI matrix's two-`R`-on-one-task defect split into sibling acts `T5a`/`T5b`;
-  and `B-069`'s current-anchor notice added to `D-170`). Full reasoning for each decision lives in
-  `V1-DECISION-REGISTER.md` §5.14dw–§5.14e6, not restated here. **Current state:** `F1`–`F6` decided
-  and propagated; three rounds of independent review each found real gaps, each corrected. `D-171`'s
-  S2 hold stands, unaffected throughout. Still open: independent re-review of `D-180` itself, Graphify
-  final sync at final commit, remote push, and any fresh build authorization.
+  and `B-069`'s current-anchor notice added to `D-170`) → `D-181` (independent re-review of `D-180`
+  found four further residual defects, `B068-R53`–`R56`, recorded in §22; all corrected — `AC-22`
+  added for consuming-gate evidence; the colliding Product `AC-01a` renumbered `AC-01b`; target
+  `G-02a` added; the `T5`/`T5a`/`T5b` state-transition contradiction fixed so review acts seal
+  judgment only and the join alone transitions state; current T5/T6 anchor moves from `D-180` to
+  `D-181`). Full reasoning for each decision lives in `V1-DECISION-REGISTER.md` §5.14dw–§5.14e7, not
+  restated here. **Current state:** `F1`–`F6` decided and propagated; four rounds of independent
+  review each found real gaps, each corrected. `D-171`'s S2 hold stands, unaffected throughout.
+  Graphify sync and remote push are complete as of `D-181` (commit `9006f4d`, superseded by this
+  correction's own commit below). Still open: independent re-review of `D-181`'s correction, and any
+  fresh build authorization.
 - **Resolution:** Applied
 - **Examined-By:** Lane B independent reviews, 2026-09-02 — `D-178` rejected as pointer-only (§20);
   `D-179` materially improved propagation but had three residual defects (§21); independent re-review
-  of `D-180` rejects verification and records the remaining defects in §22
-- **Verified-At-Commit:** 7e37919
+  of `D-180` rejected verification and recorded four remaining defects in §22 (`B068-R53`–`R56`),
+  corrected by `D-181` (§22.8); this round's independent review found three lifecycle-record defects
+  in `D-181`'s own tracking (`B068-R57`–`R59`, this section), corrected in place; independent review
+  of the corrected tree remains open
+- **Verified-At-Commit:** 9006f4d — the `D-181` application commit; not a `Verified` claim (`Resolution`
+  stays `Applied`), only the commit where this evidence is currently observable
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
-  `docs/handoff/B-062-*.md` through `B-067-*.md`; `D-170`–`D-180` in `V1-DECISION-REGISTER.md`;
-  `docs/handoff/B-069-*.md`; `docs/Modular_PRD.md` §2.3/§2.3.1/§0.4/§8 and
-  `FR-04`/`FR-04a`/`FR-05`/`FR-05a`/`FR-06`/`AC-01a`/`AC-05`–`AC-08a`/`AC-14a`/`AC-16a`/`G-05a`/
-  `SEC-01a`/`SEC-03a`; `docs/governance/raci-involvement-matrix.md` (v1.9, §3.1);
+  `docs/handoff/B-062-*.md` through `B-067-*.md`; `D-170`–`D-181` in `V1-DECISION-REGISTER.md`
+  (`D-181` at §5.14e7); `docs/handoff/B-069-*.md`; `docs/Modular_PRD.md` §2.3/§2.3.1/§0.4/§8 and
+  `FR-04`/`FR-04a`/`FR-05`/`FR-05a`/`FR-06`/`AC-01b`/`AC-05`–`AC-08a`/`AC-14a`/`AC-16a`/`AC-22`/
+  `G-05a`/`G-02a`/`SEC-01a`/`SEC-03a`; `docs/governance/raci-involvement-matrix.md` (v1.9, §3.1);
   `docs/governance/factory-route-operation-
   crosswalk.md` (v0.3); `docs/fn-specs/FN-GATES-01-05.md` §11/§11.1; `docs/fn-specs/
   FN-EXCEPTIONS-06-11-12.md` §11; `docs/fn-specs/FN-PUBLICATION-09-10-13.md` §11;
@@ -1971,7 +1981,9 @@ This is final feedback on the draft plan, not authorization to apply D-181 or bu
 - `V1-DECISION-REGISTER.md`: new §5.14e7 (`D-181`); forward notice added above `D-180`'s body
   (§5.14e6, not rewritten); `D-170`'s notice (§5.14dw) redirected to `D-181`.
 - `docs/handoff/B-069-*.md`: anchor-update note appended (unedited above it).
-- No `B-070` created. `V1-ARTIFACT-INVENTORY.md` untouched — no file created or retired.
+- No `B-070` created. `V1-ARTIFACT-INVENTORY.md` untouched — no *new inventoried artifact* was
+  created or retired; `frag117.json` was created, and the existing `docs/graph-fragments/` row
+  (`G51`) already tracks that directory as a collection, not a per-file listing (`B068-R59`).
 
 This entry (`B-068` §22) is answered by this subsection; §22–§22.7 are unedited above it. `B-068`
 stays `Status: Answered`, `Resolution: Applied` — independent Lane B re-review of this final tree,

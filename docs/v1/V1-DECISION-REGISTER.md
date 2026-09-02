@@ -11797,3 +11797,14 @@ corrected/added passage remains `decided_target_held`. Independent re-review, Gr
 synchronization at this decision's own commit, remote push, and any fresh build authorization remain
 separate, unstarted work. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`,
 `__tests__/`, or `.github/workflows/`.
+
+### Correction, added 2026-09-02 (`B068-R57`)
+
+Two phrases above are imprecise, found by independent re-review (`B-068` §22, this round). The
+opening paragraph's *"`docs/handoff/B-069-*.md` tracking unaffected"* and the Handoff-tracking
+paragraph's *"`B-069` is unedited"* both meant that **`B-069`'s prior body was preserved
+unchanged** — they did not mean no commit touched the file. Git evidence (commit `9006f4d`) shows
+this decision appended a new "Anchor update" subsection to `B-069`. Restated precisely: **`B-069`'s
+prior body was preserved unchanged; a new `D-181` anchor-update subsection was appended.** Neither
+phrase above is rewritten — this note stands alongside them, per this decision's own append-only
+convention for correcting itself.
