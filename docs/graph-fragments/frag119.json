@@ -21,7 +21,7 @@
       "file_type": "document",
       "source_file": "docs/v1/V1-B071-CORRECTIVE-PLAN.md",
       "source_location": "",
-      "description": "Status: DRAFT, proposed, not applied to any governed tier. Consolidates B-071's corrective packet (proposed D-182 decision text, ontology relabel, three-act T5 completion unit, Final Sign-Off refusal conditions, redrafted/superseded B-070 options split into two feature units per B071-R22, and a full propagation write set) into one plan awaiting independent review and a split Gate A / Gate B1 / Gate B2 Judge approval. Registered in V1-ARTIFACT-INVENTORY.md as a temporary tracking artifact supporting one correction (B071-R8), to be retired or marked historical once D-182 lands.",
+      "description": "Status: DRAFT, proposed. Its proposal content (D-182 decision text, ontology relabel, three-act T5 completion unit, Final Sign-Off correction, B-070 feature split per B071-R22, full propagation write set) is unapplied to any governed tier; the file's own existence as an artifact is applied (V1-ARTIFACT-INVENTORY.md row) per B071-R23. Awaiting independent review and a four-way Gate A / Gate B1 / Gate B2 / Route Activation Gate Judge approval structure (B071-R25-R27). To be retired or marked historical, never deleted, once D-182 lands.",
       "community": 3,
       "community_name": "Requirements Traceability",
       "source_url": null,
@@ -44,7 +44,7 @@
     {
       "source": "v1_b071_corrective_plan_draft",
       "target": "b071_ontology_correction_handoff",
-      "relation": "implements_plan_for",
+      "relation": "proposes_resolution_for",
       "confidence": "CURATED",
       "source_file": "docs/v1/V1-B071-CORRECTIVE-PLAN.md",
       "source_location": "",

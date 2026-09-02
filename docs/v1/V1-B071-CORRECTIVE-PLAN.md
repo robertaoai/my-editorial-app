@@ -1,6 +1,10 @@
 # V1-B071-CORRECTIVE-PLAN — T5/T6 Ontology Correction: Implementation Plan (DRAFT)
 
-**Status: DRAFT — not applied to any governed tier.** This file exists so the corrective packet
+**Status: DRAFT.** Split per `B071-R23`: **the proposal content below (the `D-182` decision text,
+ontology relabel, Final Sign-Off correction, propagation) is unapplied to any governed tier.** This
+file's own *existence* is a real artifact fact, and that fact **is applied** — `V1-ARTIFACT-
+INVENTORY.md` carries its row now; `V1-DECISION-REGISTER.md`/`V1-BUILD-SPEC.md` propagation of that
+same fact is pending Gate A (§7). This file exists so the corrective packet
 `docs/handoff/B-071-b070-options-and-desk-editor-ontology-require-correction.md` describes can be
 reviewed as one connected plan before any of it is written into `V1-DECISION-REGISTER.md`,
 `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`, `Modular_PRD.md`, `FN-GATES-01-05.md`,
@@ -17,11 +21,18 @@ approves it after independent review (see §Approval Gate).
 **Revision history:**
 - Draft 1 (`80c8f38`): consolidated steps 1–9 from B-071's original findings.
 - Draft 2 (`c6afdd0`): incorporated round-1 review `B071-R8`–`R14`.
-- **Draft 3 (this revision):** incorporates round-2 review `B071-R15`–`R21` and the Chief Editor's
+- Draft 3 (`2147636`): incorporated round-2 review `B071-R15`–`R21` and the Chief Editor's
   `B071-R22` clarification that B-070's two options are not alternatives but two separate
-  features. This is the largest structural change: §5 no longer redrafts two options — it retires
-  the either/or framing and defines two independently-scoped feature units. Gate B splits into
-  Gate B1/B2 accordingly.
+  features — §5 retired the either/or framing; Gate B split into B1/B2.
+- **Draft 4 (this revision):** incorporates round-3 review `B071-R23`–`R29`: splits "applied" into
+  artifact-fact-applied vs. proposal-content-unapplied (`R23`); removes the external-acceptance
+  contradiction from Final Sign-Off's refusal list (`R24`); states explicitly that Gate A
+  verification does **not** lift `D-171` (`R25`); adds a third **Route Activation Gate** so Gate B2
+  and route enablement stop being conflated (`R26`); narrows Gate B1 to a shared component + test
+  matrix, never named-route authorization (`R27`); corrects the graph edge semantics in
+  `frag119.json` (`R28`). `R29` (push/remote-equality) is a process condition on when round 3/Gate A
+  can be marked `Verified`, not a content change — flagged in §Approval Gate, not fixed by editing
+  this file.
 
 **Artifact classification and propagation (`B071-R8`, `R16`):** this file is a `docs/v1/` tracking
 artifact under `D-36`, the same class as `V1-PHASE-CLOSURE.md`. It is registered in
@@ -145,18 +156,23 @@ shows both Assurance Preparation acts required, not just `ROUTE-PROD-1`.
   (`B071-R17` — corrects the prior draft, which placed it after T5 and inherited T6's human-only
   rule onto it).
 
-**Testable refusal conditions (`B071-R13`):** a `OP-FINAL-SIGNOFF` act is refused, not merely
-deferred, when any of the following holds:
+**Testable refusal conditions (`B071-R13`, corrected by `B071-R24`):** a `OP-FINAL-SIGNOFF` act is
+refused, not merely deferred, when either of the following holds — **external acceptance is
+deliberately not in this list** (see below):
 
 - Required prior Sheet 2 `R` evidence is incomplete for the route.
 - The effective task `A` resolves to zero or to more than one person.
-- A route that requires external acceptance or mandate has no such record attached **at its own
-  governed point** (normally before Delivery — not a Final-Sign-Off precondition).
 
-A valid sign-off is append-only, records signer/authority/evidence-set/timestamp/decision, and
-closes only its own workflow stage. Its signer is the resolved effective task `A` — an agent may
-hold that role where the task itself permits an agent `R`/`A`; **only `T6` is categorically
-human-only.** Final Sign-Off never records or implies external GRC acceptance.
+A valid sign-off is append-only, records accountable actor/authority scope/evidence-IDs/timestamp/
+decision, and closes only its own workflow stage. Its signer is the resolved effective task `A` —
+not necessarily a natural person; **only `T6` is categorically human-only.** Final Sign-Off never
+depends on T5, T6, or external acceptance, and never records or implies external GRC acceptance.
+
+**External acceptance lives elsewhere, only (`B071-R24`):** the earlier draft listed a missing
+external-acceptance record as a Final-Sign-Off refusal condition, then separately said it wasn't a
+Final-Sign-Off precondition — a direct contradiction that would recreate the circular dependency
+`B071-R17` removed. External acceptance/mandate is refused, and blocks only, the route's governed
+pre-Delivery/Delivery act — never Final Sign-Off.
 
 **Files to edit:** `docs/governance/factory-route-operation-crosswalk.md` (remove "missing `R`
 unresolved" marking on `OP-FINAL-SIGNOFF`; reorder it before the T5 row; add refusal conditions
@@ -299,32 +315,56 @@ into B1/B2 with each one named and bounded.
 as a choice; it retires the either/or framing and defines Feature 1 / Feature 2 as separately
 scoped, separately authorized units.
 
-**Round 3 — outstanding, before this revision reaches the Judge for Gate A:**
+**Round 3 (Lane B, `2147636`) — completed:** `B071-R23`–`R29` incorporated into this draft (4):
+split applied-artifact-fact vs. unapplied-content status (`R23`), removed the Final-Sign-Off
+external-acceptance contradiction (`R24`), made `D-171` non-expiry explicit (`R25`), separated
+route activation into its own gate (`R26`), narrowed Gate B1 away from named routes (`R27`),
+corrected the graph edge semantics (`R28`). `R29` (local HEAD `2147636` was not yet on
+`origin/docs/journal-2026-08-16`) is a process condition tracked in the Approval Gate below, not a
+content fix.
 
-- [ ] §1's corrected dependency order and three-act model match `B-071`'s round-2 findings with no
+**Round 4 — outstanding, before this revision reaches the Judge for Gate A:**
+
+- [ ] §1's corrected dependency order and three-act model match `B-071`'s round-3 findings with no
       drift introduced during consolidation
 - [ ] The clause-level lifecycle table (§1) is independently checked against `D-175`–`D-181`'s
       actual text, not just this plan's restatement of it
-- [ ] §5's Feature 1/Feature 2 split leaves no gap — nothing in B-070's original two options is
-      lost or duplicated between the two features
+- [ ] §5's Feature 1/Feature 2 split leaves no gap, and Gate B2 no longer implies route activation
 - [ ] §7's write set is complete — no governed tier citing the old ontology, the old Final
-      Sign-Off position, or the old B-070 either/or framing is missing
+      Sign-Off position, the old B-070 either/or framing, or the old three-gate (rather than
+      four-gate) structure is missing
 - [ ] Nothing in §1–§8 authorizes S2 implementation or moves Lane B from `Eligible`; Gate A, Gate
-      B1 and Gate B2 stay three separate approvals
-- [ ] `docs/graph-fragments/frag119.json`'s two nodes represent status only and assert no disputed
-      ontology content as decided
+      B1, Gate B2 and the Route Activation Gate stay four separate approvals
+- [ ] `docs/graph-fragments/frag119.json`'s two nodes and their edge represent status only, assert
+      no disputed ontology content as decided, and no longer claim the plan "implements" B-071
+- [ ] This revision is pushed to `origin/docs/journal-2026-08-16` and confirmed identical before
+      round 4 or Gate A is marked `Verified` (`B071-R29`)
 
-## Approval Gate — Gate A / Gate B1 / Gate B2 (`B071-R10`, split further by `B071-R21`, `R22`)
+## Approval Gate — Gate A / Gate B1 / Gate B2 / Route Activation Gate (`B071-R10`, `R21`, `R22`,
+restructured by `B071-R25`–`R27`)
 
-**Three separate Judge approvals, never conflated:**
+```text
+Gate A — documentation and Graphify only
+  ↓ independently Verified — D-171 NOT lifted by this alone (B071-R25)
+Gate B1 — Feature 1: shared T5/T6 judgment-control implementation
+  ↘
+    Route Activation Gate — one named route only, after both dependencies Verified
+  ↗
+Gate B2 — Feature 2: bounded factory-route capability implementation
+```
+
+**Four separate Judge approvals, never conflated:**
 
 | Gate | Covers | Authorizes | Does NOT authorize |
 |---|---|---|---|
-| **Gate A** | §1's decision text, §2–§8 as one documentation/Graphify propagation pass | Lane A to write `D-182` and propagate it per §7 — all documentation, no product code | S2 implementation; any lane-state change |
-| **Gate B1** | One bounded Feature 1 (T5/T6 judgment control) implementation unit, named routes/exclusions/tests/DoD | The Judge moving Lane B `Eligible`→`Active` for that named unit only | Route activation; Feature 2 work; any route enablement |
-| **Gate B2** | One bounded Feature 2 (factory-route operations/readiness) implementation unit or one named route, requiring its own resolved operation shapes and Gate B1 verified | The Judge authorizing that named unit/route only | Production, fallout, GRC, release or deployment beyond what is explicitly named |
+| **Gate A** | §1's decision text, §2–§8 as one documentation/Graphify propagation pass | Lane A to write `D-182` and propagate it per §7 — all documentation, no product code | S2 implementation; any lane-state change; does **not** lift `D-171` for any scope (`B071-R25`) |
+| **Gate B1** | One bounded Feature 1 (shared T5/T6 judgment control) implementation unit — its component scope, a seven-route *test* matrix, exclusions and DoD. **Never named routes for enablement** (`B071-R27` — route names in tests are coverage, not authorization) | The Judge narrowing `D-171` and moving Lane B `Eligible`→`Active` for that named unit only | Route activation; Feature 2 work; any route enablement |
+| **Gate B2** | One bounded Feature 2 (factory-route operations/readiness) implementation unit — builds capability only, independent of Gate B1 to *start* (`B071-R26`) | The Judge narrowing `D-171` and authorizing that named capability-build unit only | Route activation on its own; production, fallout, GRC, release or deployment |
+| **Route Activation Gate** | One named route, requiring Gate B1 **and** Gate B2 independently `Verified` for that route, its resolved operation shapes, and external-authority prerequisites | The Judge enabling exactly that one named route | Any other route; release; deployment; treating either feature gate alone as sufficient |
 
-Gate A must reach `Verified` (independent confirmation, not Lane A's own `Applied`) before either
-Gate B1 or Gate B2 is proposed. Gate B1 and Gate B2 are independent of each other except that route
-activation (neither gate alone) requires both. No gate's approval is unrestricted terminal
-authority — each names its unit, exclusions, tests and DoD explicitly (`B071-R21`).
+Gate A must reach `Verified` before any Gate B is proposed, and `2147636` (or its successor) must
+be pushed and confirmed identical on the remote branch before that `Verified` mark is recorded
+(`B071-R29`) — a local-only pass is not shared evidence. Gate B1 and Gate B2 may each proceed
+independently once Gate A is `Verified`; only the Route Activation Gate requires both. No gate's
+approval is unrestricted terminal authority — each names its unit, exclusions, tests and DoD
+explicitly.
