@@ -6,13 +6,16 @@
 - **Blocks:** terminal verification of `B-070`; any fresh S2 authorization; Lane B beginning
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
 - **Status:** Open
-- **Lane A:** Acknowledged 2026-09-02. Implementation plan drafted at
-  `docs/v1/V1-B071-CORRECTIVE-PLAN.md`, consolidating steps 1-9 into reviewable sections. DRAFT
-  only — no governed tier (Register, Build Spec, Inventory, Modular_PRD, FN-GATES, RACI,
-  crosswalk, `B-070`, work order) has been edited. Awaiting independent review (plan's own
-  checklist) and Judge approval before §2-§8 execute or §9's lane transition is authorized.
-- **Independent-Review:** Lane B reviewed the Lane A draft at `80c8f38` on 2026-09-02. Corrections
-  are consolidated in this same handoff below; no separate `B-072` item is retained.
+- **Lane A:** Acknowledged 2026-09-02. Implementation plan at `docs/v1/V1-B071-CORRECTIVE-PLAN.md`,
+  now on its third revision incorporating `B071-R8`–`R22` in full, including the Chief Editor's
+  clarification that B-070's options are two separate features, not alternatives (§5 rewritten;
+  Gate B split into B1/B2). DRAFT only — no governed tier beyond the plan file, this handoff, and
+  the Inventory row (`B071-R8`/`R16`) has been edited. `B-071` and the plan are now represented as
+  lifecycle-status graph nodes (`docs/graph-fragments/frag119.json`, `B071-R15`). Awaiting round-3
+  independent review and Gate A Judge approval.
+- **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`) and round 2 (Lane
+  B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
+  clarification) both consolidated below. No separate `B-072` item was ever minted.
 - **Evidence:** `docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md` Options A/B;
   `docs/v1/V1-DECISION-REGISTER.md` `D-171`, `D-175`–`D-181`;
   `docs/v1/V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes";
@@ -194,3 +197,179 @@ number is not minted and no supersession record is required.
 | **Approve-with-conditions** | Phase 1 documentation plan | Lane A may incorporate `B071-R8`–`R14` and apply the corrected documentation/Graphify packet only; no product code or lane transition | Lane A correction, then Lane B independent verification |
 | **Reject** | Current `V1-B071-CORRECTIVE-PLAN.md` wording | Do not apply it unchanged because its artifact status, evidence result, act cardinality and approval boundary are unreliable | Revise under this consolidated B-071 record |
 | **Defer** | S2 implementation and Lane B activation | `D-171` and Lane B's current `Eligible` state remain unchanged | Separate Gate B after terminal verification |
+
+## Round 2 independent review — Lane A revision `c6afdd0`
+
+Lane B checked the revised plan against `D-175`–`D-181`, the crosswalk, Product/Fn_Spec target
+rows, Graphify and the full local consistency suite. The revision corrects `B071-R8`–`R14`
+directionally, but Gate A is still **not approval-ready**. Keep this review in B-071; do not mint a
+second handoff.
+
+### New findings
+
+| Finding | What is unclear or incorrect | Guaranteed failure if unchanged | Draft fix |
+|---|---|---|---|
+| `B071-R15` — Graphify failure is not expected | Graphify is current at `c6afdd0`, but `graph-coverage` cannot find B-071 or its inventoried plan. Lane A says representing disputed content would pre-empt the Judge | Round 2 cannot use Graphify to find the very draft it must review; a repository check stays red by design | Curate B-071 as `Open` and the plan as `DRAFT/proposed`, with edges to `D-171` and proposed `D-182`. Lifecycle labels represent status; they do not approve content. Require the full suite green before Gate A |
+| `B071-R16` — plan-artifact propagation remains incomplete | The plan now has an Inventory row, while its header still says no governed tier was touched. Its creation fact is absent from the Register and Build Spec, and retirement says “row removed or marked historical” | `D-54` is satisfied in only one of three trackers; deletion of the row would erase artifact history | State that the proposal's *content* is unapplied but the plan artifact is inventoried. Propagate its creation/temporary sequencing through all three trackers. On `D-182`, keep the file and Inventory row, mark both historical/superseded; do not remove the row |
+| `B071-R17` — Final Sign-Off is ordered backwards and inherits T6 rules | Plan §3 requires the three T5 acts and a natural-person signer before `OP-FINAL-SIGNOFF`; the crosswalk places Final Sign-Off immediately before the T5 review set. External acceptance is governed before Delivery, not universally before this sign-off | Circular wait: Final Sign-Off waits for T5 while T5 waits for the signed package. Valid task `A` agents are also refused by a human-only rule that belongs solely to T6 | Final Sign-Off approves completion evidence from prior applicable Sheet 2 `R` operations and closes that workstage; T5 consumes its signed package. Its signer is the one effective task `A` and is not automatically human-only. Keep external acceptance as a distinct prerequisite at its governed stage, normally before Delivery. T6 alone requires the natural-person Chief Editor |
+| `B071-R18` — Assurance Preparation has an executor hole | The node is mapped to `ROLE-DESK-EDITOR` only for `ROUTE-PROD-1`, but its Assurance Preparation act is required on all seven routes | Six routes require an act no executor is authorized to perform; implementations will either omit it or invent a role | Map `NODE-EDITORIAL-DESK-REVIEW` to `ROLE-DESK-EDITOR` for Assurance Preparation on every route. Route selection affects only the single Editorial Review act. The two Assurance Preparation sibling acts must use the Desk Editor and Chief Journalist roles/nodes respectively |
+| `B071-R19` — “caution” does not resolve lifecycle dispositions | The supersession table still labels `D-176` and `D-177`/`D-178` broadly retained/orthogonal, then warns that those labels may be wrong | Lane A can propagate a table it already knows is unverified, leaving old cardinality, evidence and readiness clauses active | Replace the caution with the clause-level disposition table below before Gate A |
+| `B071-R20` — propagation write set is incomplete | §4 says metrics/security/returns are re-derived but omits their owning rows/files. §7 maps `Modular_PRD.md §8` to User Story edits, which do not live in §8, and omits the Exceptions and Publication Fn_Specs | Product, behavior, UX and external-acceptance contracts diverge while tier-sweep still passes citation presence | Add the complete owner/write-set below. Record the UX tier/file opening in §8; edit User Stories and requirements in their owning Product sections |
+| `B071-R21` — Gate B says “nothing further” | The phrase can be read as unrestricted terminal authority after one unit is named | A bounded S2 unit can silently become route enablement, release or deployment authority | Gate B must name one implementation unit, included routes, exclusions, tests and DoD; explicitly exclude other routes, production enablement, release and deployment unless separately named |
+
+### Clause-level lifecycle disposition required by `B071-R19`
+
+| Origin | Retain | Re-derive or supersede |
+|---|---|---|
+| `D-175` | Human Chief Editor at T6; one T5 stage; Senior Journalist EW trigger; route/stage `A`; `ENV-EXT`; T5 Line 1/T6 Line 2 placement | `ROLE-CHIEF-EDITORIAL-DESK`; route-family one/two-reviewer cardinality; any claim that node labels prove actor separation |
+| `D-176` | The 43 applicability dispositions; blank external-source cells remaining `unknown`; undecomposed milestone holds; `ROUTE-PROD-1` route `A`; `ENV-EXT` | “No `A` inherits” becomes the governed local-task-else-parent rule; Final Sign-Off missing-`R` hold becomes `R = not_applicable`; Final Sign-Off sequence/evidence row is re-derived |
+| `D-177`/`D-178` | Route-basis semantics; canonical reveal-event name; blind/reveal ordering; external-trigger versus external-acceptance separation; one non-judgment completion join; historical `[V1]` treatment | T5 event count/prerequisites/bundle membership; return/rerun scope; affected evidence overlay; T5 cardinality measure; readiness row removing Final Sign-Off's missing-`R` hold |
+| `D-179`/`D-180` | Historical/target marking method; human-only `AC-06a`; blind-order/disagreement intent; `AC-08a` ownership by `FR-06`; unaffected EW/Delivery/external-acceptance IDs; `SEC-03a` Line placement | `US-04a`/`US-05a`, `FR-04a`/`FR-05a`, `AC-05a`/`AC-05b` and bundle-dependent AC text; `G-05a`; `SEC-01a`; RACI T5 acts and successor proof |
+| `D-181` | `AC-01b`; `G-02a`; consuming-evidence `AC-22` outside changed T5 prerequisites; join-only ownership of `Drafted → Reviewed` | D-181 as current anchor; any route-dependent one/two-act prerequisite within `AC-22` or the join contract |
+
+### Correct dependency order for Final Sign-Off and T5
+
+```text
+Applicable Sheet 2 work with R
+  → completion evidence sealed
+  → OP-FINAL-SIGNOFF by exactly one effective task A (R = not_applicable)
+  → signed workstage package
+  → T5 Editorial Review (one route-selected act)
+     + T5 Assurance Preparation (Desk Editor act and Chief Journalist act)
+  → one non-judgment three-act join: Drafted → Reviewed
+  → human-only T6 Chief Editor judgment
+  → external acceptance/mandate at its governed point where required
+  → Delivery
+```
+
+The same role/identity may perform the route-selected Editorial Review and that role's own
+Assurance Preparation act, but these remain different evidence records and purposes. The two
+Assurance Preparation siblings are different role/node assignments; relabeling one executor cannot
+satisfy both.
+
+### Complete Gate A write set required by `B071-R20`
+
+1. `V1-DECISION-REGISTER.md`: `D-182`, clause-level lifecycle table, temporary-plan artifact fact,
+   UX artifact creation, and explicit `D-171` hold preservation.
+2. `V1-BUILD-SPEC.md`: three-act target DoD, Final-Sign-Off-before-T5 sequence, temporary-plan
+   sequencing, UX artifact sequencing, no implementation authorization.
+3. `V1-ARTIFACT-INVENTORY.md`: keep the plan row and later mark it historical; add the approved UX
+   artifact. Never remove the historical plan row.
+4. `Modular_PRD.md` owning sections: `US-04a`/`US-05a`, `FR-04a`/`FR-05a`, `AC-05a`–`AC-08a`,
+   `G-05a`, `SEC-01a`/`SEC-03a`, and any T5 prerequisite in `AC-22`. §8 separately records the UX
+   tier/file opening and unchanged S2 hold; it does not own the User Story rows.
+5. `FN-GATES-01-05.md`: actor/node mapping, three acts, join, blind order and consuming evidence.
+6. `FN-EXCEPTIONS-06-11-12.md`: three-act-aware invalidation/rerun and external-trigger separation.
+7. `FN-PUBLICATION-09-10-13.md`: external acceptance at its governed pre-Delivery point and Delivery
+   refusal, without moving that requirement into Final Sign-Off.
+8. RACI matrix and factory crosswalk: scoped `A` resolution, Final Sign-Off ordering, all-route Desk
+   Review mapping, three T5 acts and the one join.
+9. Chief Editor UX spec, B-070 correction and Lane B work order, followed by draft-status Graphify
+   nodes, one final rebuild and independent verification of the exact pushed HEAD.
+
+### Round 2 success criteria
+
+- The full consistency suite is green before Gate A; a red `graph-coverage` result is not accepted as
+  evidence of safety.
+- Final Sign-Off depends only on its applicable prior operation work, never on T5 or T6; only T6 is
+  categorically human-only.
+- Every route resolves one Desk Editor Assurance Preparation act and one Chief Journalist Assurance
+  Preparation act, plus one route-selected Editorial Review act, before the single join.
+- The two Assurance Preparation sibling assignments cannot collapse to one executor under two
+  labels; cross-workstream reuse never reuses an evidence ID or purpose.
+- External acceptance remains separately attributable and occurs at its governed route/stage point;
+  internal sign-off or T6 never impersonates it.
+- Every artifact creation/retirement fact reaches all three V1 trackers; historical rows are marked,
+  not removed.
+- Gate A authorizes documentation/Graphify only. Gate B remains absent until Gate A is independently
+  Verified and then authorizes only its explicitly named implementation unit.
+
+### Round 2 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve-with-conditions** | Lane A Gate A revision | `B071-R8`–`R14` improved the plan, but `B071-R15`–`R21` must be incorporated first | Lane A round-2 correction, then Lane B independent review |
+| **Reject** | Current Gate A approval | The dependency cycle, incomplete lifecycle table/write set and red graph make the current text unsafe to approve | Re-draft under this B-071 section |
+| **Defer** | Gate B / S2 / lane transition | `D-171` remains binding; no build authorization exists | Only after Gate A is terminally Verified |
+
+## Chief Editor clarification — B-070's two options are superseded as options
+
+**Clarification supplied directly after the round-two review:** B-070 Option A and Option B solve
+different features. They are not mutually exclusive alternatives and the Judge must not be asked to
+select one instead of the other.
+
+### `B071-R22` — a feature boundary was represented as a decision choice
+
+| B-070 wording | Actual feature | Correct disposition |
+|---|---|---|
+| Option A — bounded unit now | T5/T6 judgment-control feature: three T5 acts, one join, human T6, audit evidence; no route enablement | **Superseded as an option.** Preserve its corrected functional scope as the first bounded implementation unit after Gate A is Verified |
+| Option B — wait for all operation shapes | Factory-route operations/readiness feature: resolve each route's applicable task executor, accountability and atomic completion contract, then integrate/enable that route | **Superseded as an option and as a global wait.** Preserve the underlying work as a separate feature unit; it neither replaces nor blocks specification of the judgment-control feature |
+
+The valid content survives; only the false either/or is retired. B-070's already-applied correction
+to the stale “next code unit” instruction remains valid and is not reopened. Lane A should append a
+forward notice to B-070 rather than rewriting its historical body or changing the whole handoff's
+`Resolution: Applied`.
+
+### Replacement parent-first work structure
+
+1. **Parent — Gate A documentation correction:** approve and apply the corrected `D-182` ontology,
+   lifecycle table, Final-Sign-Off ordering, acceptance ownership, complete propagation set and
+   Graphify representation. Preserve `D-171` until independently verified.
+2. **Child Feature 1 — T5/T6 judgment control:** after Gate A is Verified, a separate bounded
+   authorization may build the three attributable T5 acts, the one non-judgment completion join,
+   blind reveal order and human-only T6. It enables no production, fallout or GRC route.
+3. **Child Feature 2 — factory route operations/readiness:** resolve the operation-shape holds and
+   implement route-specific execution/readiness. Its specification can progress independently, but
+   a route cannot be enabled until both its own operation contract and the shared judgment-control
+   dependency are verified.
+4. **Route activation:** authorize one named route at a time, with its required/conditional
+   operations, external-authority prerequisites, tests, exclusions and DoD. This is not implied by
+   completing either child feature alone.
+
+### Guaranteed failures if the two-option framing remains
+
+- Choosing Option A falsely rejects the route-operations feature even though the system still needs
+  it later.
+- Choosing Option B falsely blocks the independent judgment-control feature on unrelated operation
+  shapes.
+- Marking either option “done” can be misread as completing both features.
+- A single Gate B can silently authorize route enablement when only the shared T5/T6 control was
+  reviewed.
+
+### Required edits to the existing Lane A draft plan
+
+1. Replace §5 “Redraft B-070's two options” with **“Supersede the false options; define two feature
+   units.”** Do not recommend or select either one.
+2. Replace singular Gate B with:
+   - **Gate B1:** one bounded T5/T6 judgment-control implementation unit; no route activation.
+   - **Gate B2:** one bounded factory-route/readiness implementation unit or one named route;
+     requires its own resolved operation shapes and verified dependencies.
+3. Amend `D-182`'s lifecycle notice so B-070's option text is historical/superseded while its stale-
+   work-order correction remains Applied.
+4. Update `V1-BUILD-SPEC.md`, `Modular_PRD.md` §8 and `LANE-B-WORK-ORDER.md` to sequence both child
+   features separately. Do not restate a combined tally.
+5. Give each feature its own scope, exclusions, AC ownership, DoD and authorization. A dependency
+   link may connect them; one feature's completion must never serve as evidence that the other is
+   complete.
+
+### Success criteria for the replacement
+
+- No active document asks the Judge to choose B-070 Option A **or** Option B.
+- The judgment-control feature and factory-route feature have different names, scopes, ACs, DoD and
+  authorization records.
+- Feature 1 can be implemented and tested with every route disabled.
+- Feature 2 cannot enable a route until that route's operation shapes and the shared judgment-control
+  dependency are both verified.
+- `D-171` is lifted only for the specifically authorized unit; it is never lifted globally by
+  approving documentation.
+- Completion of either feature alone cannot satisfy the other feature's acceptance criteria or
+  authorize production, fallout, GRC, release or deployment.
+
+### Clarification approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | B-070 option lifecycle | Supersede both as alternatives; preserve their valid content as two separate feature units | Lane A Gate A revision |
+| **Approve-with-conditions** | Feature sequencing | Judgment control first as the shared bounded unit; route readiness separately, with route activation requiring both verified dependencies | Build Spec/Product sequencing during Gate A |
+| **Reject** | Either/or selection | The Judge is not selecting Option A versus Option B | Remove from every approval form |
+| **Defer** | Gate B1, Gate B2 and route activation | No implementation authorization or lane transition is granted here | Separate decisions after Gate A is Verified |
