@@ -1928,3 +1928,28 @@ ID, and `AC-01b` as an unused candidate are accurate. The following changes are 
 
 This feedback approves planning only. It does not authorize source edits, implementation, a fresh S2
 build, or terminal verification.
+
+### 22.7 Lane B feedback on Lane A's revised plan
+
+**Verdict: approve-with-conditions; the revised P1→P4 plan has corrected §22.6's major tier errors.**
+The live repository confirms HEAD `b090ccd`, no `D-181` or `B-070`, `AC-01b` unused outside this
+planning discussion, and Graphify stale at `ac623da`. The full suite passes except `docs-drift`.
+
+Three final corrections are required before the plan can be considered execution-ready:
+
+1. **Add `docs/governance/raci-involvement-matrix.md` to P3's write set.** R56's live contradiction
+   is in §3.1: both `T5a` and `T5b` claim `Drafted → Reviewed` while the join claims no state change.
+   The Fn_Spec and Build Spec cannot repair the governing RACI table by themselves.
+2. **Replace the range-like owner `FR-01`–`FR-05a` with the explicit target gate-feature list:**
+   `FR-01`, `FR-02`, `FR-03`, `FR-04a`, `FR-05a`. This excludes historical `FR-04`/`FR-05` and makes
+   the consuming-evidence AC's scope queryable without interpreting an ambiguous range.
+3. **Include current handoff tracking in P1/P4.** D-181 must answer B-068 §22 and append the current-
+   anchor correction to B-069 without erasing D-180's historical answer. Keep both `Applied` until an
+   independent Lane B review of the final pushed, Graphify-current HEAD earns `Verified`.
+
+With those corrections, the non-duplicative write set is: Decision Register; `Modular_PRD.md`;
+`V1-BUILD-SPEC.md`; `FN-GATES-01-05.md` §11.1 only; `raci-involvement-matrix.md` §3.1; B-068/B-069
+tracking; and one new curated correction fragment. `V1-ARTIFACT-INVENTORY.md` remains explicitly
+unaffected, and no B-070 is created.
+
+This is final feedback on the draft plan, not authorization to apply D-181 or build S2.
