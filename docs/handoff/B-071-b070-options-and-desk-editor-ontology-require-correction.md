@@ -1863,3 +1863,90 @@ is addressed:
 Not committed or pushed as part of this response beyond what the working tree already carries.
 `AUTH-DOC` remains unapproved; `D-171` remains fully binding. Ready for Lane B's Round 11 independent
 plan review.
+
+## Independent review — Draft 11 (Round 11, 2026-09-03)
+
+- **Review baseline:** local `8986ac6`; remote `9efc086`. The local branch is three commits ahead;
+  Draft 11 and this review are not shared remote evidence.
+- **Review role:** Lane B, independent of Lane A's Draft 11.
+- **Approval state:** **none**. Direct Judge clarifications are source inputs, not approval of the
+  consolidated plan. This review authorizes no push, `AUTH-DOC`, governed-tier edit, implementation,
+  route activation, or lane transition.
+- **Result:** **reject Draft 11 for `AUTH-DOC` in its current form**. Its parent direction is usable,
+  but the approval provenance, current/deferred feature boundary, T6 dependency order, state
+  ownership, and propagation instructions are not yet mutually executable. `B071-R72` also remains
+  open exactly as Draft 11 acknowledges.
+
+### Existing-finding closure audit
+
+| Finding | Round 11 status | Evidence and disposition |
+|---|---|---|
+| `B071-R67` — approval provenance | **Open; recurred** | The plan header correctly says approval is none, but B-071's live Lane A field still says “The Judge approved Draft 10,” the Lane A response says the Judge approved proceeding to Draft 11, and Draft 11's revision history repeats that claim. Replace current-value metadata with “Draft 11 produced from direct clarifications; plan approval none.” Preserve prior wording only as labeled historical defect evidence. |
+| `B071-R68` — circular plan review | **Closed in plan text** | The pre-`AUTH-DOC` checklist is now text-only. Remote equality is a shared-evidence condition before verification, not permission to apply §7. Do not turn it into authority to push; push authorization remains a separate lane-governance act. |
+| `B071-R69` — operational pre-authentication behavior | **Closed as policy text** | Draft 11 now consistently permits real, persisted, visibly `self_asserted`, non-production actions and keeps runtime events separate from development authorization. Feature sequencing remains open under `B071-R77`. |
+| `B071-R70` / `B071-R73` — parent T5/T6 model | **Partially closed** | The two human judgments are now named separately and publication remains downstream. The dependency diagram still makes external GRC evidence appear to hold T6, and §3/checklist still say only T6 is human-only. Correct under `B071-R78`/`R79`. |
+| `B071-R71` — clause-executable propagation | **Open** | Exact treatments were added for the six previously combined files, but several other §7 rows still name broad documents/sections without one anchor, treatment, owner, and negative search per affected clause. The new report gate also lacks exact owning requirement/AC identifiers and version-overlay treatment. Correct under `B071-R81`. |
+| `B071-R72` — Graphify verifier | **Open; specified, not applied** | `merge7.js` still builds the overlaid candidate before verification and writes `graph.json` directly; no atomic replace/re-read or tracked negative-test suite exists. Its header nevertheless says all R66 defects are fixed. Do not call R72 applied or use this verifier as terminal parity evidence. |
+| `B071-R74` — current UI versus assurance backlog | **Partially closed** | §6 makes the intended UI cut, but §5 and the Approval Gate still put conditional T6 inside `AUTH-F1`, and §6a does not actually name an assurance-backlog feature or authorization owner. Correct under `B071-R77`. |
+| `B071-R75` — additive report gate | **Partially closed** | The plan preserves the existing `PR-13` boundaries and adds the report conjunctively. Exact Product/Fn_Spec ownership and version treatment remain incomplete under `B071-R81`. |
+| `B071-R76` — Markable/Marketable substitution | **Closed for vocabulary preservation only** | “Minimum Markable Feature” is now quoted and definition-pending. An undefined phrase still cannot be an executable completion measure; use observable report evidence until the Judge defines it (`B071-R82`). |
+
+### New Round 11 findings
+
+| Finding | What is unclear | Guaranteed failure if unchanged | Smallest Draft 12 fix |
+|---|---|---|---|
+| `B071-R77` — `AUTH-F1` still combines the current editorial proof with the deferred assurance feature | §6 defers the Chief Editor T6 controls, external-GRC capture, and assurance interactions, while §5/Approval Gate define `AUTH-F1` as the complete shared T5/T6 unit. §6 says §6a names the backlog feature, but §6a names only the maturity/report gate | Either the detailed assurance work continues delaying the Judge-approved `M-MVP` editorial flow, or Lane B is told to complete T6 without its interface and evidence-capture contract | Keep current `AUTH-F1` limited to the operable `M-MVP` editorial proof: T1–T5 preparation, the route-selected review, both Assurance Preparation acts, their sealed/read-only projection, Chief Editor editorial approval, and report. Name one later assurance feature/authorization for conditional T6 and external-GRC UI. If the Judge instead keeps T6 in `AUTH-F1`, remove the backlog claim and fully specify T6 now; both cannot be true |
+| `B071-R78` — the human-only rule contradicts itself | §1 correctly makes both `T5-EDITORIAL-APPROVAL` and `T6-ASSURANCE-JUDGMENT` human-only. §3 says “only T6,” and the plan-review checklist permits “natural person” only in the T6 rule | A valid requirement or negative test for human Chief Editor editorial approval will fail the plan's own checklist, or an agent will be allowed to approve editorial content | State one invariant everywhere: exactly the two named judgment events are natural-person Chief Editor acts; Final Sign-Off and virtual-agent preparation use accountable/executor principals, not a human-only rule |
+| `B071-R79` — external evidence is attached to the wrong transition in the parent flow | §1 point 5 and §4a say Delivery waits for internal T6 plus external GRC evidence, and §1 point 8 says missing external evidence never refuses T6. The dependency diagram instead says T6 is “held pending” that evidence | T6 and external acceptance can deadlock or implementation can reject T6 for a condition governed only at pre-Delivery/Delivery | Allow required T6 to complete independently over the sealed packet. Evaluate external GRC evidence separately. Refuse only the governed pre-Delivery/Delivery transition until both records exist |
+| `B071-R80` — `assurance_status` has no owning contract | The phrase began as a read-only UI label, but Draft 11 promotes it to a state axis/enum and says the T5 join sets it. No current Product/data-model/spec owner defines storage, event derivation, legal transitions, or the future T6 result value | Implementers will invent a database field or compute different values; the UI, event log, tests, and later migration will disagree while each appears locally correct | Recommended for current `M-MVP`: define `Assurance status: reviewed` as a derived read-only projection of the two sealed T5 Assurance Preparation acts, not a persisted enum. The later assurance feature owns the T6 judgment-result vocabulary. If persistence is required now, add its Product requirement, data/SPECS owner, migration owner, transition table, and refusal tests to §7 before `AUTH-DOC` |
+| `B071-R81` — the write set is not yet executable for every affected owner | Broad rows remain for `Modular_PRD`, three Fn_Specs, RACI, crosswalk, and V1 tracking; the new `M-MVP` report/`M-POC` gate rows name files but not stable requirement/AC identifiers or `[V1→V2]` treatment | Lane A can apply only part of the ontology, silently overwrite a `[V1]` clause, or make the report replace rather than supplement `PR-13` | Give every affected file one exact stable anchor, owner, treatment (`replace`, target overlay, historical notice, create), and negative search. Give the `M-MVP` report one Product AC and the `M-POC` refusal one target requirement/AC that explicitly requires **PR-13 and report**. State that Artifact Inventory is unaffected unless a repository file is created |
+| `B071-R82` — a definition-pending phrase is still treated as a completion bar | The plan properly refuses to define “Minimum Markable Feature,” yet uses it to explain what the report proves | No reviewer can objectively prove the named bar, so `M-POC` admission can pass or fail by interpretation | Until separately defined, make the executable gate only: successful report generation, article/decision provenance, and all existing `PR-13` boundaries. Keep “Minimum Markable Feature” as non-normative quoted rationale, not a test predicate |
+| `B071-R83` — Draft 11 has small structural regressions | §1 says downstream §§2–9 although the plan ends at §8; §7 has a duplicated stray `B071-R20` line; the Draft 11 commit message says R67–R76 were “applied” although R72 remains open | Review automation and readers will search for a nonexistent §9, malformed text can enter an applied packet, and an open tooling defect is reported closed | Change §§2–9 to §§2–8, remove the duplicate line, and describe R72 as “specified/open,” never applied |
+
+### Parent-first Draft 12 corrective plan
+
+1. **Authority and status first:** close `R67` in every live metadata location. Say direct Judge
+   clarifications informed Draft 11; do not say the Judge approved Draft 10 or authorized Draft 11.
+2. **Choose one feature boundary (`R77`):** recommended — current `AUTH-F1` is the editorial
+   `M-MVP` proof; conditional T6/external-GRC interaction is one named later assurance feature. If
+   T6 remains in `AUTH-F1`, withdraw the deferral and specify it completely now.
+3. **Regenerate the parent contract (`R78`–`R80`):** both named Chief Editor judgments are
+   human-only; T6 never waits on external acceptance; Delivery evaluates the two records; current
+   Assurance status is derived unless persistence is explicitly authorized.
+4. **Make propagation executable (`R81`):** assign stable anchors, treatments, owners, version
+   overlays, and negative searches to every affected file. Keep the report gate additive to `PR-13`.
+5. **Make tests observable (`R82`):** gate `M-POC` on the report's successful provenance-linked
+   existence and the existing boundaries, not an undefined label.
+6. **Repair plan integrity (`R83`):** correct the section range, duplicate line, and R72 lifecycle
+   wording. R72's tooling implementation remains a separately tracked Lane A task.
+7. **Independent text re-review:** review Draft 12 before `AUTH-DOC`. Do not edit governed tiers,
+   rebuild/merge the graph, or exercise an implementation authorization during plan review.
+8. **Only after Judge approval:** Lane A may apply the approved §7 packet, commit it, repair/test
+   R72 if separately authorized, rebuild/re-merge Graphify at the final source commit, run the full
+   suite, push when lane governance authorizes it, and return the shared commit for Lane B
+   verification. `D-171` stays binding unless a later bounded authorization narrows it.
+
+### Draft 12 success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `PLAN12-AUTH-01` | Draft 12 is opened | Every live approval/status field is read | Plan approval is `none`; direct clarifications are inputs only; no text asserts approval to draft, apply, push, or build |
+| `PLAN12-SCOPE-01` | Current and deferred features are compared | `AUTH-F1` scope is traced | One authorization owns one executable feature; no deferred T6 UI is required to complete the current editorial proof |
+| `PLAN12-HUMAN-01` | Either Chief Editor judgment is attempted by an agent | Actor rules are evaluated | Both named judgment events refuse the agent; Final Sign-Off and virtual preparation remain principal-based rather than human-only |
+| `PLAN12-GRC-01` | Required internal T6 completes but external evidence is absent | The next transition is evaluated | T6 evidence persists; only pre-Delivery/Delivery is refused until separately attributable external evidence exists |
+| `PLAN12-STATE-01` | Current `M-MVP` shows Assurance status | Its source is traced | `reviewed` is reproducibly derived from both sealed T5 Assurance Preparation acts, or a fully owned persistent-state contract is explicitly present—never an implicit field |
+| `PLAN12-PROP-01` | Any §7 target is selected | Its planned edit is inspected | Exact path, stable anchor, owner, treatment, version marking, negative search, and affected/unaffected tier are stated |
+| `PLAN12-MATURITY-01` | `M-POC` start is attempted | Admission is evaluated | Every existing `PR-13` boundary and the successfully generated provenance-linked `M-MVP` report are required; “Minimum Markable Feature” is not an executable predicate while undefined |
+| `PLAN12-GRAPH-01` | Graphify currency or semantic parity is claimed | Evidence is inspected | HEAD equals `lastAnalyzedHead`, and terminal parity is not claimed from `merge7.js` until R72's untouched-state, atomic-write, and negative-test requirements pass |
+
+### Round 11 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Product ontology direction | Separate editorial approval, conditional GRC-route assurance, external accountability, and downstream publication are the right parent concepts | Preserve in Lane A Draft 12 |
+| **Approve-with-conditions** | Current `M-MVP` scope | Approve the editorial proof and read-only assurance projection only after `R77`/`R80` give them one unambiguous feature and state owner | Lane A Draft 12, then independent review |
+| **Approve-with-conditions** | `M-MVP → M-POC` report gate | Direction is sound when the observable report requirement is additive to `PR-13` and the undefined Markable phrase is non-normative | Lane A Draft 12 |
+| **Reject** | Draft 11 / `AUTH-DOC` | R67 and R71 remain open; R77–R83 make the current packet non-executable | Supersede with Draft 12 and re-review |
+| **Reject verification** | Graphify parity / B-071 closure | Graph analyzed `838baff` while reviewed HEAD is `8986ac6`; R72 remains unimplemented | Lane A repair/test, final-HEAD rebuild, then independent Lane B verification |
+| **Defer** | Push | Local branch is ahead of remote and this review grants no external-write authority | Active Lane A obtains/uses the applicable push authorization |
+| **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation and lane transition | `D-171` remains binding; no plan or implementation authorization exists | After corrected `AUTH-DOC` is applied and independently Verified |
