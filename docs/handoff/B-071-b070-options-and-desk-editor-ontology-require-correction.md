@@ -7,18 +7,25 @@
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
 - **Status:** Open
 - **Lane A:** Acknowledged 2026-09-02. Implementation plan at `docs/v1/V1-B071-CORRECTIVE-PLAN.md`
-  is now Draft 4, incorporating `B071-R8`–`R29` and the Chief Editor's `B071-R22` clarification in
-  full. Draft 4 splits "applied" into artifact-fact-applied vs. proposal-content-unapplied
-  (`R23`), removes the Final-Sign-Off external-acceptance contradiction (`R24`), states `D-171` is
-  not lifted by Gate A alone (`R25`), and restructures approval into four gates — Gate A, Gate B1,
-  Gate B2, and a new Route Activation Gate — so route enablement can no longer be read into Gate B2
-  (`R26`/`R27`). Graph edge corrected to `proposes_resolution_for` (`R28`). **Not yet pushed** — per
-  `B071-R29`, round 4/Gate A cannot be marked `Verified` until this commit (or its successor) is on
-  `origin/docs/journal-2026-08-16` and confirmed identical; pushing requires the user's explicit
-  go-ahead and has not been requested yet.
-- **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`) and round 2 (Lane
+  is now Draft 5, incorporating `B071-R8`–`R37` and the Chief Editor's `B071-R22` clarification in
+  full. Draft 5 renames the four approval checkpoints `AUTH-DOC`/`AUTH-F1`/`AUTH-F2`/`AUTH-ROUTE`
+  to remove the collision with development Lanes A/B/C (`R30`); removes the residual sentence
+  implying `D-171` expires once documentation verification completes (`R31`); states `AUTH-F1` and
+  `AUTH-F2` may be selected independently but never exercised concurrently (`R32`); completes the
+  §7 write set with B-071's and the plan's own post-application lifecycle updates and stops a
+  second B-070 edit from being scheduled (`R33`); corrects review-round and commit metadata
+  (`R34`); specifies the `frag119.json` update the `AUTH-DOC` documentation pass must perform
+  (`R35`); adds a testable executor-identity separation requirement, with negative test, between
+  the two Assurance Preparation acts (`R36`); and restates the external-acceptance refusal
+  condition to name the governed pre-Delivery/Delivery transition, not the external record, as the
+  thing refused (`R37`). **Not yet pushed** — round 5/`AUTH-DOC` cannot be marked `Verified` until
+  this commit (or its successor) is on `origin/docs/journal-2026-08-16` and confirmed identical;
+  pushing requires the user's explicit go-ahead and has not been requested yet.
+- **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`), round 2 (Lane
   B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
-  clarification) both consolidated below. No separate `B-072` item was ever minted.
+  clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), and round 4 (Lane B,
+  reviewing Draft 4 at shared HEAD `d3cadda`, findings `B071-R30`–`R37`) all consolidated below.
+  No separate `B-072` item was ever minted.
 - **Evidence:** `docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md` Options A/B;
   `docs/v1/V1-DECISION-REGISTER.md` `D-171`, `D-175`–`D-181`;
   `docs/v1/V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes";
