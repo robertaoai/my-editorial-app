@@ -1,0 +1,97 @@
+{
+  "_comment": "Fragment 116 — curated nodes for D-180 (corrects D-179's three residual defects: B068-R50 AC ownership, R51 target metric/security rows, R52 RACI task-boundary split) and B-069 (D-170 partial-supersession notice, current T5/T6 anchor). Merged 2026-09-02.",
+  "nodes": [
+    {
+      "id": "d180_residual_defects_corrected_d170_anchored",
+      "label": "D-180: R50-R52 Corrected; D-170 Given a Current Anchor",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14e6",
+      "description": "Chief Editor ruling on B-068 S21's independent re-review of D-179 and B-069's decision-lifecycle finding. Both accepted without dispute, all verified against the actual files before correcting. B068-R50: AC-08a (return/rerun behavior) was attached to FR-05a (independence classification) instead of its actual owner FR-06 -- re-owned. Four target ACs added that existed only as Fn_Spec prose: AC-01a (FR-01, EW start), AC-14a (FR-09, Delivery mutation refusal), AC-16a (FR-10, external-acceptance prerequisite). US-04a/US-05a's dependency chain corrected to stop pointing at historical stories. B068-R51: G-05, SEC-01, SEC-03 only encoded the old human-T5/agent-T6 order with no target counterpart -- added G-05a (evaluated at T6 after bundle reveal, not T5), SEC-01a (T4-to-each-T5-act and each-act-to-T6 separation, target R=A at T6), SEC-03a (target T5 acts are Line 1, T6/T11 stay Line 2). B068-R52: the target RACI matrix modeled two required T5 reviewers as two R holders on one task, contradicting its own one-R-per-task rule -- split into sibling acts T5a (Chief Editorial Desk) and T5b (Chief Journalist), each with exactly one R; the bundle join is now explicit that it is not a task and holds no R or A. Also answers B-069: D-170 is closed but only partially superseded, and a reader landing on it could retrieve obsolete T5/build-status claims with no signal -- added a partial-supersession notice directly above D-170's body classifying each clause current/retained/re-derived/superseded and naming D-180 as the current T5/T6 anchor. D-170's body is unedited and the full target contract is not copied in, avoiding a second drift surface. All new content stays decided_target_held; D-171's S2 hold is unaffected.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A decision record that is closed but only partially superseded is a worse navigation trap than one that is wholly current or wholly retired -- a reader has no signal that some clauses still govern and others don't, and the fix is a lifecycle notice at the point of entry rather than a rewrite that would destroy the provenance the record exists to preserve."
+    },
+    {
+      "id": "b069_d170_t5_t6_current_anchor",
+      "label": "B-069: D-170 Needs a Current T5/T6 Anchor",
+      "file_type": "concept",
+      "source_file": "docs/handoff/B-069-d170-t5-t6-current-anchor.md",
+      "source_location": "whole document",
+      "description": "Lane B finding: D-170 is closed as a decision record, but closed does not say which of its clauses remain current. Its body still directly states a single Chief Editorial Desk reviewer at T5 and says the historical T5/T6 order remains build-authorized -- both later superseded by D-171 and D-175. A reader or search result landing on D-170 could retrieve superseded T5 and build-status claims without encountering the correcting decisions, while treating the whole decision as superseded would also be wrong since its F1 axis separation and core F5 A/O/EA authority contract remain valid. Answered by D-180, which adds a partial-supersession notice directly above D-170's body without rewriting it.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A decision that is neither wholly current nor wholly superseded needs a lifecycle classification, not a binary status -- collapsing closed/current/build-held/verified into one label is exactly the kind of drift this project's own decision register has caught before under other names."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d180_residual_defects_corrected_d170_anchored",
+      "target": "d179_f7_real_propagation_not_pointers",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e6",
+      "weight": 1
+    },
+    {
+      "source": "d180_residual_defects_corrected_d170_anchored",
+      "target": "d170_editorial_operating_model_adopted",
+      "relation": "anchors",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dw partial-supersession notice",
+      "weight": 1
+    },
+    {
+      "source": "d180_residual_defects_corrected_d170_anchored",
+      "target": "raci_matrix_doc",
+      "relation": "amends",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/raci-involvement-matrix.md",
+      "confidence_score": 1,
+      "source_location": "§3.1, v1.9",
+      "weight": 1
+    },
+    {
+      "source": "d180_residual_defects_corrected_d170_anchored",
+      "target": "b068_persona_line_raci_od4_grc_conflated",
+      "relation": "answers",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e6",
+      "weight": 1
+    },
+    {
+      "source": "b069_d170_t5_t6_current_anchor",
+      "target": "d170_editorial_operating_model_adopted",
+      "relation": "raised_against",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-069-d170-t5-t6-current-anchor.md",
+      "confidence_score": 1,
+      "source_location": "What happened",
+      "weight": 1
+    },
+    {
+      "source": "d180_residual_defects_corrected_d170_anchored",
+      "target": "b069_d170_t5_t6_current_anchor",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e6",
+      "weight": 1
+    }
+  ]
+}
