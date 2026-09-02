@@ -135,13 +135,19 @@ two `R` holders on one `T5` task row — contradicting this matrix's own "one `R
 rule (§3). Each required `T5` review is now its own task/act, exactly one `R` each; the bundle join is
 a separate, non-task row with no `R`/`A` of its own.
 
+**Corrected 2026-09-02 (`D-181`, `B068-R56`).** The table previously gave both `T5a` and `T5b` the
+`Drafted → Reviewed` transition while also saying the join makes no state change — two rows and the
+join could not all be true at once, and concurrent acts would have raced to perform the same
+transition. Each review act now seals a judgment only; article state stays `Drafted` until the join,
+and the join alone performs the single transition, once every route-required act is sealed.
+
 | Task | Transition | R — Responsible | Line | A — Accountable |
 |---|---|---|---|---|
 | T1–T4 | Discovered → Drafted | Reporter / Investigator / Journalist agents | 1 | Acting Chief Editor |
-| **T5** (production route) | **Drafted → Reviewed** | The route-assigned single reviewer: `ROLE-CHIEF-EDITORIAL-DESK` (`ROUTE-PROD-1`) or `ROLE-CHIEF-JOURNALIST` (`ROUTE-PROD-2`/`PROD-3`) | 1 | Acting Chief Editor |
-| **T5a** (fallout/GRC route) | **Drafted → Reviewed** (sibling act 1 of 2) | `ROLE-CHIEF-EDITORIAL-DESK` — one `R`, this act only | 1 | Acting Chief Editor |
-| **T5b** (fallout/GRC route) | **Drafted → Reviewed** (sibling act 2 of 2) | `ROLE-CHIEF-JOURNALIST` — one `R`, this act only | 1 | Acting Chief Editor |
-| **T5 join** | *(no state change; not a task)* | A deterministic non-judgment `T5_review_bundle_sealed` join confirming every route-required act exists — no `R`, no `A`, no judgment | — | — |
+| **T5** (production route) | *(seals judgment; article state stays `Drafted`)* | The route-assigned single reviewer: `ROLE-CHIEF-EDITORIAL-DESK` (`ROUTE-PROD-1`) or `ROLE-CHIEF-JOURNALIST` (`ROUTE-PROD-2`/`PROD-3`) | 1 | Acting Chief Editor |
+| **T5a** (fallout/GRC route) | *(seals judgment; article state stays `Drafted`)* (sibling act 1 of 2) | `ROLE-CHIEF-EDITORIAL-DESK` — one `R`, this act only | 1 | Acting Chief Editor |
+| **T5b** (fallout/GRC route) | *(seals judgment; article state stays `Drafted`)* (sibling act 2 of 2) | `ROLE-CHIEF-JOURNALIST` — one `R`, this act only | 1 | Acting Chief Editor |
+| **T5 join** | **Drafted → Reviewed** — the single stage-completing transition, performed once every route-required act above is sealed | A deterministic non-judgment `T5_review_bundle_sealed` join confirming every route-required act exists — no `R`, no `A`, no judgment | — | — |
 | **T6** | **Reviewed → Approved** | **Acting Chief Editor** *(human-only; refused for any agent)* | **2** | Acting Chief Editor **← R = A, by design — see §2** |
 | T7–T11 | *(unchanged from §3)* | *(unchanged from §3)* | *(unchanged)* | Acting Chief Editor |
 

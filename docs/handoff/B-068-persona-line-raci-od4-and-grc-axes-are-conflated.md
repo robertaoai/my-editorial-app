@@ -1953,3 +1953,28 @@ tracking; and one new curated correction fragment. `V1-ARTIFACT-INVENTORY.md` re
 unaffected, and no B-070 is created.
 
 This is final feedback on the draft plan, not authorization to apply D-181 or build S2.
+
+### 22.8 `D-181` applied
+
+**Chief Editor (Judge) approved application, 2026-09-02.** `D-181` (`V1-DECISION-REGISTER.md`
+§5.14e7) applies the write set exactly as corrected across §22.5–§22.7:
+
+- `Modular_PRD.md`: `AC-22` added (`R53`, gate feature-group `FR-01`/`FR-02`/`FR-03`/`FR-04a`/
+  `FR-05a`, cites `FN-GATES-01-05.md` §11.1); `AC-01a`→`AC-01b` renumber (`R54`); `G-02a` added to
+  both the metrics and instrumentation tables (`R55`).
+- `FN-GATES-01-05.md` §11.1 only: header and all three behavior rows updated to match (`R53`,
+  `R54`, `R56`).
+- `raci-involvement-matrix.md` §3.1: `T5`/`T5a`/`T5b` no longer claim the transition; the join
+  alone performs `Drafted → Reviewed` (`R56`).
+- `V1-BUILD-SPEC.md`: target S2 DoD gains a substantive clause stating the same T5 transition rule
+  (`R56`).
+- `V1-DECISION-REGISTER.md`: new §5.14e7 (`D-181`); forward notice added above `D-180`'s body
+  (§5.14e6, not rewritten); `D-170`'s notice (§5.14dw) redirected to `D-181`.
+- `docs/handoff/B-069-*.md`: anchor-update note appended (unedited above it).
+- No `B-070` created. `V1-ARTIFACT-INVENTORY.md` untouched — no file created or retired.
+
+This entry (`B-068` §22) is answered by this subsection; §22–§22.7 are unedited above it. `B-068`
+stays `Status: Answered`, `Resolution: Applied` — independent Lane B re-review of this final tree,
+followed by Graphify resync at the resulting HEAD, is required before either `B-068` or `B-069` may
+move to `Verified`. No application code, schema, or S2 build was touched; `D-171`'s hold is
+unaffected.

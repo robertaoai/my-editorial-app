@@ -263,13 +263,15 @@ only to `D-177`/`D-178`'s behavior contract without stating it here — an indep
 ### 11.1 Target behavior and acceptance — `[decided_target_held]`, `D-179`
 
 Not build-authorized while `D-171`'s hold stands. Covers what this Fn_Spec owns; `Modular_PRD.md`'s
-`FR-04a`/`FR-05a`/`AC-05a`–`AC-08a` own the requirement/AC identifiers this elaborates.
+`FR-04a`/`FR-05a`/`AC-05a`–`AC-08a` own the requirement/AC identifiers this elaborates, along with
+`AC-01b` (`FR-01`, `EW` start — renumbered from the colliding `AC-01a` by `D-181`) and `AC-22`
+(`FR-01`/`FR-02`/`FR-03`/`FR-04a`/`FR-05a`, consuming-gate evidence — added `D-181`).
 
 | Behavior | Rule | Refusal condition |
 |---|---|---|
-| `EW` start | A Senior Journalist action emits the start trigger; it cannot itself advance `T1`–`T4` | Trigger attempts to skip or replace any of `T1`–`T4` |
-| Consuming-gate evidence | Each of `EG1`–`EG5` requires its applicable `F4` operation evidence (or an explicit not-applicable/untriggered disposition) before it may complete | Required or triggered operation evidence is missing, or a `milestone_pending_decomposition` placeholder is presented as complete |
-| `T5`/`EG4` cardinality and join | Route-dependent: one sealed `T5_review_sealed` (production route) or two in parallel (fallout/GRC route), then one `T5_review_bundle_sealed` non-judgment join completing the single `T5` stage | A required reviewer is missing; the join chooses a winner, impersonates a reviewer, or is treated as a second gate |
+| `EW` start | A Senior Journalist action emits the start trigger; it cannot itself advance `T1`–`T4` | Trigger attempts to skip or replace any of `T1`–`T4` (`Modular_PRD.md` `AC-01b`) |
+| Consuming-gate evidence | Each of `EG1`–`EG5` requires its applicable `F4` operation evidence (or an explicit not-applicable/untriggered disposition) before it may complete | Required or triggered operation evidence is missing, or a `milestone_pending_decomposition` placeholder is presented as complete (`Modular_PRD.md` `AC-22`) |
+| `T5`/`EG4` cardinality and join | Route-dependent: one sealed `T5_review_sealed` (production route) or two in parallel (fallout/GRC route). **Each sealed act records its judgment; the article remains `Drafted`.** The `T5_review_bundle_sealed` non-judgment join then performs the single `Drafted → Reviewed` transition, immediately once every route-required act is sealed — no other step changes article state at this stage (`D-181`, `B068-R56`; `raci-involvement-matrix.md` §3.1 carries the RACI table) | A required reviewer is missing; a sealed act itself changes article state; the join chooses a winner, impersonates a reviewer, or is treated as a second gate |
 | Blind `T6` order | `EG5_preliminary_disposition_sealed` before `T5_review_bundle_revealed_to_EG5` before `EG5_final_decision_recorded`; only a human executor is eligible | Reveal precedes the preliminary seal; an agent attempts `T6` |
 
 Delivery's mutation-refusal rule and the external-authority record separation are owned by

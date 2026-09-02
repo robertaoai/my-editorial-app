@@ -120,3 +120,12 @@ Lane B consolidated the current/historical distinction and the parent-first corr
 while leaving `B-068` §21 as the authoritative detailed finding and failure-test packet. No Product
 Requirement, Fn_Spec, RACI, decision-register, Graphify, configuration, schema, or application change
 was applied. T5/T6-sensitive implementation remains stopped under `D-171`.
+
+## Anchor update, 2026-09-02 (`D-181`)
+
+`D-180` answered this item and named itself the current T5/T6 anchor. Independent re-review
+(`B-068` §22) found four residual defects in `D-180`'s own correction; `D-181` corrects them
+(`B068-R53`–`R56`) and is now the current T5/T6 anchor. `D-170`'s partial-supersession notice
+(`V1-DECISION-REGISTER.md` §5.14dw) and `D-180`'s own forward notice (§5.14e6) both redirect to
+`D-181`; neither historical body is rewritten. This entry is unedited above this section — the
+anchor moves by notice, not by rewriting a prior answer.

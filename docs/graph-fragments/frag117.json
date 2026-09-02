@@ -1,0 +1,72 @@
+{
+  "_comment": "Fragment 117 — curated node for D-181 (corrects D-180's own residual defects found by independent re-review B-068 §22: B068-R53 missing consuming-gate evidence Product AC, R54 AC-01a ID collision, R55 incomplete target G-02 clause, R56 T5a/T5b state-transition contradiction). Current T5/T6 anchor moves from D-180 to D-181. Merged 2026-09-02.",
+  "nodes": [
+    {
+      "id": "d181_d180_residual_defects_corrected_current_anchor",
+      "label": "D-181: D-180's R53-R56 Corrected; Current T5/T6 Anchor",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14e7",
+      "description": "Chief Editor ruling answering B-068 S22's independent re-review of D-180. Three prior planning rounds with Lane B (B-068 S22.5-S22.7) corrected the proposed write set before any file was touched; this decision applies the corrected set. B068-R53: Modular_PRD.md gains AC-22, a governed Product AC for consuming-gate evidence, scoped to the explicit gate feature-group list FR-01/FR-02/FR-03/FR-04a/FR-05a (not a range), citing FN-GATES-01-05.md S11.1 for elaboration rather than duplicating it. B068-R54: D-180 had created a Product AC-01a for the EW-start trigger that collided with the existing Fn_Spec AC-01a (the G39 analytical-tag criterion) -- renumbered the Product criterion to AC-01b; the Fn_Spec AC-01a is untouched. B068-R55: Modular_PRD.md gains G-02a, the target-held independence-bypass metric -- only T6 may be satisfied, T1-T5 and Delivery are not_applicable, a logged override remains override_not_four_eyes. B068-R56: raci-involvement-matrix.md S3.1 had given both T5a and T5b the Drafted to Reviewed transition while also saying the join makes no state change -- mutually inconsistent and a race condition if built. Corrected so every T5/T5a/T5b act seals judgment only, article state stays Drafted, and the T5_review_bundle_sealed join alone performs the single transition once every route-required act is sealed; FN-GATES-01-05.md S11.1 and V1-BUILD-SPEC.md's target S2 DoD restate the same rule. D-180's B068-R50-R52 corrections are preserved unedited (forward notice added above its body, not a rewrite); D-171's S2 hold is unaffected and not reopened. No B-070 created (B-068 S22 is the sole handoff item per Lane B); V1-ARTIFACT-INVENTORY.md untouched since no file was created or retired.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A correcting decision that itself introduces new defects needs the same discipline applied to it that found the original defects -- three rounds of Lane B review before any file changed, and a forward notice rather than a rewrite of the decision being corrected, so provenance survives two supersession hops instead of collapsing into one edited record."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d181_d180_residual_defects_corrected_current_anchor",
+      "target": "d180_residual_defects_corrected_d170_anchored",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e7",
+      "weight": 1
+    },
+    {
+      "source": "d181_d180_residual_defects_corrected_current_anchor",
+      "target": "d170_editorial_operating_model_adopted",
+      "relation": "anchors",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14dw partial-supersession notice",
+      "weight": 1
+    },
+    {
+      "source": "d181_d180_residual_defects_corrected_current_anchor",
+      "target": "raci_matrix_doc",
+      "relation": "amends",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/raci-involvement-matrix.md",
+      "confidence_score": 1,
+      "source_location": "§3.1",
+      "weight": 1
+    },
+    {
+      "source": "d181_d180_residual_defects_corrected_current_anchor",
+      "target": "b068_persona_line_raci_od4_grc_conflated",
+      "relation": "answers",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e7",
+      "weight": 1
+    },
+    {
+      "source": "d181_d180_residual_defects_corrected_current_anchor",
+      "target": "b069_d170_t5_t6_current_anchor",
+      "relation": "closes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e7",
+      "weight": 1
+    }
+  ]
+}

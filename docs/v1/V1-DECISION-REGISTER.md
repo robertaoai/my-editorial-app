@@ -10722,10 +10722,11 @@ here.
 
 ## 5.14dw `D-170` — Editorial Operating Model Adopted: Separate Axes, Target Gate Order, and Authority Contract Decided, Answering `B-068` `F1`/`F2`/`F5`
 
-> **Partial-supersession notice, added 2026-09-02 (`D-180`, `docs/handoff/B-069-*.md`).** `D-170` is
-> closed as a decision record; not every clause below is still current. Cite `D-180` — the current
-> anchor — for T5/T6 shape, build status, or the return-metric interpretation. Cite `D-170` only for
-> historical provenance.
+> **Partial-supersession notice, added 2026-09-02 (`D-180`, `docs/handoff/B-069-*.md`; anchor moved to
+> `D-181` 2026-09-02, correcting `D-180`'s own residual defects, `B-068` §22).** `D-170` is closed as a
+> decision record; not every clause below is still current. Cite `D-181` — the current anchor — for
+> T5/T6 shape, build status, or the return-metric interpretation. Cite `D-170` only for historical
+> provenance.
 >
 > | `D-170` clause | Lifecycle |
 > |---|---|
@@ -11643,6 +11644,14 @@ does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or `.gi
 
 ## 5.14e6 `D-180` — `B068-R50`–`R52` Corrected; `D-170` Given a Current Anchor and Partial-Supersession Notice
 
+> **Forward notice, added 2026-09-02 (`D-181`).** This decision's `B068-R50`–`R52` corrections stand
+> and are not rewritten below. Independent re-review (`B-068` §22) found four further defects in this
+> decision's own correction: a missing governed Product AC for consuming-gate evidence (`R53`), a
+> reused `AC-01a` ID colliding with the historical Fn_Spec analytical-tag criterion (`R54`), an
+> incomplete target `G-02` clause (`R55`), and a `T5a`/`T5b` state-transition contradiction (`R56`).
+> `D-181` corrects all four and is the current T5/T6 citation; cite this decision (`D-180`) only for
+> `B068-R50`–`R52`'s still-valid content and for historical provenance.
+
 **Chief Editor ruling, 2026-09-02, on `B-068` §21's independent re-review of `D-179` and
 `docs/handoff/B-069-*.md`'s decision-lifecycle finding.** Both accepted without dispute — verified
 against the actual files before correcting; all three residual defects confirmed real.
@@ -11715,3 +11724,76 @@ reopened — every corrected/added passage remains `decided_target_held`. Indepe
 Graphify's final synchronization at this decision's own commit, remote push, and any fresh build
 authorization remain separate, unstarted work. This decision does not touch `app/`, `lib/`,
 `components/`, `supabase/`, `__tests__/`, or `.github/workflows/`.
+
+## 5.14e7 `D-181` — `B068-R53`–`R56` Corrected; Current T5/T6 Anchor Moves From `D-180`
+
+**Chief Editor ruling, 2026-09-02, answering `B-068` §22's independent re-review of `D-180`
+(`docs/handoff/B-069-*.md` tracking unaffected).** Three prior planning rounds with Lane B (`B-068`
+§22.5–§22.7) corrected the write set before any file was touched; this decision applies the
+corrected set. `D-180`'s `B068-R50`–`R52` corrections are preserved unedited (forward notice added
+above, §5.14e6); `D-171`'s S2 hold is unaffected and not reopened.
+
+### `B068-R53` — governed Product AC added for consuming-gate evidence
+
+`Modular_PRD.md` gains `AC-22` `[decided_target_held]`, scoped to the explicit gate feature-group
+list `FR-01`, `FR-02`, `FR-03`, `FR-04a`, `FR-05a` (not a range — historical `FR-04`/`FR-05` are
+excluded), citing `FN-GATES-01-05.md` §11.1 for elaboration rather than duplicating its table. A
+Product-only trace can now show that missing or placeholder required operation evidence refuses gate
+completion, without reading the Fn_Spec first.
+
+### `B068-R54` — `AC-01a` ID collision corrected
+
+`Modular_PRD.md`'s `EW`-start Product criterion — created as `AC-01a` by `D-180` — collided with the
+existing Fn_Spec `AC-01a` (`FN-GATES-01-05.md` §3.1, the analytical-tag criterion `G39` created).
+Renumbered to `AC-01b`; `FR-01`'s row and `FN-GATES-01-05.md` §11.1's header both updated to match.
+The Fn_Spec `AC-01a` is untouched — it never shared this row's meaning, only the ID string.
+
+### `B068-R55` — target `G-02` semantics added
+
+`Modular_PRD.md` gains `G-02a` `[decided_target_held]`: only `T6` may be `satisfied`; `T1`–`T5` and
+Delivery are `not_applicable`; a logged override remains `override_not_four_eyes`. The historical
+`G-02` row is marked with its target counterpart so it is no longer read as covering the target order
+by default. Both the metrics table and the instrumentation table gain the new row.
+
+### `B068-R56` — T5 state-transition contradiction corrected
+
+`raci-involvement-matrix.md` §3.1 previously gave both `T5a` and `T5b` the `Drafted → Reviewed`
+transition while also stating the join makes no state change — mutually inconsistent, and a race
+condition if built as written. Corrected: every `T5`/`T5a`/`T5b` act now seals its judgment while
+article state stays `Drafted`; the `T5_review_bundle_sealed` join alone performs the single
+`Drafted → Reviewed` transition, once every route-required act is sealed. `FN-GATES-01-05.md` §11.1
+and `V1-BUILD-SPEC.md`'s target S2 DoD restate the same rule so no two governing documents disagree.
+
+### Gaps
+
+**Addressed:** `B068-R53`, `R54`, `R55`, `R56`. **Unchanged:** `D-170`–`D-180`'s rulings, `D-171`'s
+S2 hold, `D-180`'s `B068-R50`–`R52` content. **Still open:** Graphify currency (addressed
+procedurally below — this decision's own commit is the sync point), independent Lane B re-review of
+this correction, remote push, any fresh build authorization.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-181` `B068-R53` consuming-gate evidence AC | ✅ §5.14e7 | **— unaffected** | **— unaffected** | **— unaffected: no file created or retired** | **— unaffected** | ✅ `AC-22` |
+| `D-181` `B068-R54` `AC-01a`→`AC-01b` renumber | ✅ §5.14e7 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ `AC-01b`, `FR-01` row |
+| `D-181` `B068-R55` target `G-02a` | ✅ §5.14e7 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ `G-02a`, both tables |
+| `D-181` `B068-R56` T5 transition ownership | ✅ §5.14e7 | ✅ target S2 DoD, substantive | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: RACI matrix is `docs/governance/`** |
+| `D-181` current T5/T6 anchor moves from `D-180` | ✅ §5.14e7, `D-170`/`D-180` notices | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+**`FN-GATES-01-05.md`/`raci-involvement-matrix.md` (not tracked `D-54` tiers — amended directly, same
+disposition as `Fn_Specs`/governance docs under `D-36`):** `FN-GATES-01-05.md` §11.1 amended per
+`B068-R53`/`R54`/`R56` above; `raci-involvement-matrix.md` §3.1 amended per `B068-R56`.
+
+**Handoff tracking:** `B-068` stays `Status: Answered`, `Resolution: Applied` — `D-181` answers §22
+by appending a new subsection (§22.8), not rewriting §22's prior rounds. `B-069` is unedited; its
+anchor now resolves through `D-180`'s forward notice to `D-181`.
+
+### Scope limits
+
+**Corrects four residual specification defects in `D-180`'s own correction; builds no code,
+authorizes no implementation.** `D-171`'s S2 hold is unaffected and not reopened — every
+corrected/added passage remains `decided_target_held`. Independent re-review, Graphify's final
+synchronization at this decision's own commit, remote push, and any fresh build authorization remain
+separate, unstarted work. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`,
+`__tests__/`, or `.github/workflows/`.

@@ -236,7 +236,12 @@ so a rule about when a lane may begin belongs in the reader's line of sight.
 > `ROLE-CHIEF-JOURNALIST` in parallel on a fallout/GRC route — `raci-involvement-matrix.md` §8) · each
 > required review separately attributable (own executor, evidence, recommendation, reason, seal time) ·
 > a deterministic non-judgment `T5_review_bundle_sealed` join completing the single `T5` stage, never a
-> second gate · human-only `T6`, refused for any agent attempt · blind order:
+> second gate · **each individual `T5` review act (single or parallel) records its sealed judgment
+> without changing article state — the article remains `Drafted` until the join fires; the
+> `T5_review_bundle_sealed` join itself performs the one `Drafted → Reviewed` transition, immediately
+> once every route-required act is sealed, and owns no editorial `R`/`A` or judgment of its own
+> (`D-181`, `B068-R56`, corrected `D-180`; `raci-involvement-matrix.md` §3.1 carries the table)** ·
+> human-only `T6`, refused for any agent attempt · blind order:
 > `T5_review_sealed`(×1 or ×2) → `T5_review_bundle_sealed` → `EG5_preliminary_disposition_sealed` →
 > `T5_review_bundle_revealed_to_EG5` → `EG5_final_decision_recorded` · scoped return/rerun (single-
 > reviewer defect reruns only that reviewer; shared-evidence defect invalidates the bundle) ·
