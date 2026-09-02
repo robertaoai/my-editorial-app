@@ -328,3 +328,103 @@ authorization naming the commit. Active-lane commit/push authority remains uncha
 | **Reject** | Approval inheritance | A Judge clarification, Eligible commit authority, or Active push authority cannot approve B-072 or grant Eligible push implicitly | Apply `D-183` |
 | **Defer** | B-072 application, hook/check changes and Graphify sync | The push variable and B-072 decision packet are not yet explicitly approved | After the Judge selects the exact Eligible push rule |
 | **Defer** | Product implementation, lane transition and deployment | B-072 governs reporting mechanics only | Separate bounded authorization |
+
+## Independent review addendum — request, refinement, and execution layers (2026-09-03)
+
+- **Requested method:** the user named a `req-exection-box` skill. No skill with that name or the
+  likely `req-execution-box` spelling exists in the available skill catalog or repository. This
+  addendum therefore applies only the user-supplied **request-box / execution-box distinction** and
+  the repository's existing rules; it does not claim undisclosed skill instructions as authority.
+- **Scope:** improves how Lane A routes documentation and backlog refinement while completing
+  `B072-R9`'s one-place ownership model. It does not add a second B-072 problem, a new folder, a new
+  backlog, an `A-NNN` channel, or another SOP.
+- **Approval state:** analysis only. The Eligible-push decision and B-072 application remain
+  unapproved exactly as stated above.
+
+### Primary goal
+
+Make the boundary between **a request that may be refined** and **work authorized for execution**
+visible in the existing documents. The project already has both mechanisms but spreads their meaning
+across the handoff README, phase flow, Decision Register, Build Spec, work order, and journals. The
+fix is a routing map and canonical links—not another container called a “box.”
+
+### Existing structure, normalized
+
+| Layer | Existing canonical artifact | What enters | What leaves | Authority |
+|---|---|---|---|---|
+| **Request intake** | The current conversation for Judge/customer input; `docs/handoff/B-NNN-*.md` or `C-NNN-*.md` for Lane B/C feedback | Clarification, finding, dependency, decision request, turn evidence | One classified request with owner, impact and evidence | Records input; does not authorize itself |
+| **Backlog refinement** | The same handoff entry for Lane B/C-originated work; the relevant Decision Register gap/boundary section for Lane A/Judge-originated work | Open request and evidence | Answered, narrowed, proposed, deferred, withdrawn, superseded, or ready for decision | `docs/handoff/` is already the backlog; no second list |
+| **Decision** | `V1-DECISION-REGISTER.md` | Explicit Judge approval satisfying `D-183`, or a governed disposition | Durable decision, scope, exclusions and affected tiers | Register wins among derived tiers under `D-58` |
+| **Execution planning** | `V1-BUILD-SPEC.md`, Artifact Inventory when a file is created/retired, Phase Closure live state, and the selected lane's work order | Approved decision and bounded authorization | Named work unit, sequence, DoD, lane holder and exclusions | Planning does not itself grant another authorization |
+| **Execution evidence** | Git commit, the originating handoff/turn report, checks and Graphify at the same HEAD | Completed bounded work | `Applied`, then independent `Verified` or another refinement request | Author cannot self-verify |
+| **Journal/source memory** | `docs/journal/`, `docs/source/`, `docs/governance/` | Dated analysis, context, fact checks and historical rationale | Evidence cited by a handoff or decision | Input only; a journal never ratifies, queues, authorizes or reports live state |
+
+### How the existing handoff template supplies the request layer
+
+No new `Request-Box`, `Execution-Box`, `Ready`, or `Approval` field is required. The template already
+separates the needed facts:
+
+| Existing field/section | Request/refinement function | Must not be used as |
+|---|---|---|
+| `Kind` | Classifies the request or report | Authorization state |
+| `Phase` | Names the phase owning the correction | Current lane state or execution order |
+| `Blocks` | States the consequence if unresolved | A reason to halt unrelated work |
+| `Status` / `Lane A` | Records receipt and response | Proof the fix was applied |
+| `Resolution` / `Follow-up-Tier` / `Superseded-By` | Records lifecycle disposition | Judge approval or independent evidence by itself |
+| `Evidence` / `Verified-At-Commit` / `Verified-By` | Connects execution back to the request and proves independent review | Permission to begin execution |
+| `What happened` / `What you need` | Defines the problem and requested decision | A copied SOP or implementation runbook |
+| `What you did instead` | Records bounded fallback or stop | A silent workaround |
+
+### Findings — do not expand B-072's closure scope
+
+| Finding | Gap | Guaranteed failure | Smallest documentation fix |
+|---|---|---|---|
+| `B072-R11` — request and execution are visually adjacent but semantically implicit | Phase Closure shows `backlog refinement → permission to proceed → work`, but the document map does not name which artifact owns each transition | A journal proposal or answered handoff can be mistaken for executable authority | Add one compact request→refinement→decision→execution→evidence routing map to `docs/README.md`, whose existing purpose is “what governs what”; link to canonical owners rather than copying their procedures |
+| `B072-R12` — journals can be promoted into live tracking | `docs/README.md` correctly calls journals dated build-readiness entries, but older wording says they “record decisions”; no adjacent sentence says they cannot own current backlog, authorization or lane state | A dated analysis can be cited as though it granted permission, or must be continually edited to remain current—destroying its historical value | Clarify once in the document map: journals preserve source analysis/rationale; operative decisions live in the register, live backlog in handoffs, and execution state in Phase Closure/work orders. Do not bulk-edit historical journals |
+| `B072-R13` — Lane A request routing could reopen a rejected channel | A generic “request box” can be read as authority to add `A-NNN` entries even though `D-138` rejected that shape | Lane A becomes both raiser and answerer in the same channel; channel checks ignore or misclassify the new series | Preserve the existing asymmetry: Lane B/C feedback uses handoffs; Lane A's own boundary/turn record uses the Decision Register; direct Judge input is classified under `D-183` and routed to the relevant existing item |
+| `B072-R14` — adding box-state fields would duplicate lifecycle | The handoff template already carries type, owner, blocker, response, resolution and evidence. A new Request/Execution flag would overlap several fields | One row says “Execution” while `Status: Open`, no decision exists, or the lane is not Active; readers choose the permissive field | Change no template field for this model. Execution readiness is derived only from a recorded decision plus the required bounded authorization and live lane state |
+| `B072-R15` — promotion from refined request to execution needs one explicit rule | The artifacts exist, but no single short statement says an answered/refined request is still non-executable until its governing approval and lane conditions exist | “Lane A answered” or “plan drafted” becomes permission to apply, repeating `R67` at the workflow level | In the canonical routing map state: refinement may draft a solution; execution begins only when the Decision Register records the applicable Judge act under `D-183`, the bounded authorization is satisfied, and Phase Closure names the executing lane state |
+
+### Parent-first Lane A documentation refinement
+
+This is a child of B-072's approved one-place model and **not** an additional B-072 closure gate:
+
+1. **Decision:** the eventual B-072 register entry records only the handoff commit/push decision,
+   scope and canonical-owner map. It cites `D-183`; it does not reproduce the transaction SOP.
+2. **Structural map:** `docs/README.md` gains one compact request→refinement→decision→execution→
+   evidence diagram/table and the journal non-authority clarification (`R11`–`R15`). This is document
+   taxonomy, not the handoff transaction procedure.
+3. **One SOP:** `docs/handoff/README.md` remains the sole owner of the detailed handoff transaction
+   protocol and explains how its existing template fields support intake, refinement and evidence.
+4. **Backlog:** `V1-PHASE-CLOSURE.md` keeps its existing feedback loop and “handoffs are the backlog”
+   rule. Add at most a link to the structural map/SOP; create no second queue or copied procedure.
+5. **Lane A/Judge route:** retain `D-138`: Lane A boundary reporting stays in the register; no
+   `A-NNN`, refinement directory, or Lane A self-handoff is created.
+6. **Journals:** make no retrospective/bulk edits. Future journal entries may be cited as `Evidence`
+   or decision inputs, but never carry live status, approval, lane state, or duplicated backlog rows.
+7. **Execution:** Build Spec, Inventory, Phase Closure and work orders receive only facts they own
+   when an approved request affects them; none becomes another request ledger.
+8. **Verification:** negative-check that a journal entry, `Status: Answered`, proposed plan, or
+   `Eligible` nomination alone cannot satisfy an execution precondition.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-BOX-01` | Any new input arrives | Its route is selected | Judge/customer input follows `D-183`; Lane B/C feedback uses one existing handoff; Lane A's own boundary record uses the register; no duplicate request artifact is created |
+| `B072-BOX-02` | A handoff is acknowledged or answered | Execution eligibility is evaluated | Receipt/refinement alone grants no application, commit outside the handoff exception, push, lane transition or build authority |
+| `B072-BOX-03` | A journal entry contains a recommendation or historical decision discussion | Current authority is evaluated | The consumer follows its citation to the current Decision Register entry; the journal itself cannot satisfy the authority check |
+| `B072-BOX-04` | A request is approved for execution | The execution packet is inspected | The register records the Judge act, the bounded authorization and live lane state are identifiable, and each execution/tracking artifact carries only its owned fact |
+| `B072-BOX-05` | A reader needs the transaction procedure | Repository docs are searched | Exactly one operative SOP is found in `docs/handoff/README.md`; `docs/README.md` supplies only the structural routing map and other files link |
+| `B072-BOX-06` | Work completes or fails review | Evidence returns | The originating handoff/decision is updated or a non-duplicate refinement is appended; `Applied` and independent `Verified` remain distinct |
+
+### Addendum approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve-with-conditions** | Lane A documentation architecture | Make request/refinement/decision/execution/evidence ownership explicit without creating new boxes or ledgers | Apply only with the approved B-072 documentation pass |
+| **Approve** | Backlog refinement | Existing `docs/handoff/` entries remain the backlog for Lane B/C feedback; refine in place and avoid duplicate items | Canonical handoff SOP |
+| **Approve** | Journal treatment | Journals remain dated source memory/evidence, never live backlog, authority or execution state | One clarification in `docs/README.md`; no historical rewrite |
+| **Approve** | Template structure | Existing template fields already carry request classification, impact, lifecycle and evidence | No template-schema change required |
+| **Reject** | New artifacts | No request-box folder, execution-box folder, central backlog, journal changelog, `A-NNN` channel or per-document BDD copy | Preserve `D-138`, `D-160` and B072-R1–R4 |
+| **Defer** | Application of this addendum | It depends on the still-open B-072 Eligible-push decision and explicit approval of the B-072 packet | Judge decision, Lane A application, independent review |
