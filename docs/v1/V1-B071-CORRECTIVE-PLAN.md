@@ -1,6 +1,16 @@
 # V1-B071-CORRECTIVE-PLAN — T5/T6 Ontology Correction: Implementation Plan (DRAFT)
 
-**Status: DRAFT.** Split per `B071-R23`: **the proposal content below (the `D-182` decision text,
+**Status: DRAFT 11. Plan approval: none (`B071-R67`).** Draft 10 is reviewed and **superseded as a
+draft** — it is not, and was never validly, Judge-approved; a prior revision of this file's own
+header incorrectly asserted approval, which is corrected here rather than rewritten away (the false
+claim is historical evidence of the defect `B071-R67` names, not authority). The numerous "Judge
+clarification" and "Judge decision packet" sections in `docs/handoff/B-071-*.md` **are** direct
+Judge rulings and are used as Draft 11's inputs; they are inputs to this plan, not a substitute for
+approving this plan as a consolidated packet. Those two governance acts are different (per the
+independent review at `docs/handoff/B-071-*.md` §"Independent review — Draft 10 and the
+post-Draft-10 Judge clarifications").
+
+Split per `B071-R23`: **the proposal content below (the `D-182` decision text,
 ontology relabel, Final Sign-Off correction, propagation) is unapplied to any governed tier.** This
 file's own *existence* is a real artifact fact, and that fact **is applied** — `V1-ARTIFACT-
 INVENTORY.md` carries its row now; `V1-DECISION-REGISTER.md`/`V1-BUILD-SPEC.md` propagation of that
@@ -18,8 +28,13 @@ correction is already applied at `d3cadda`; this plan cites it and does not writ
 **Approver:** Judge/Chief Editor — same person, `D-158`.
 
 **Source:** `docs/handoff/B-071-*.md` in full, including all completed independent-review rounds
-(`B071-R1`–`R66`), the Chief Editor's direct clarification (`B071-R22`), and the Judge's direct
-four-identifier ruling (§"Judge clarification — executor identity and attempt-badge exposure").
+(`B071-R1`–`R76`) and every named Judge clarification/decision-packet section: the Chief Editor's
+`B071-R22` clarification; the four-identifier ruling; "Option A is an operational POC, not a
+non-operative mock"; "`M-MVP` proof first, `M-POC` client proof later"; "the downloadable report is
+an `M-MVP` artifact, gating `M-POC` start"; "editorial flow and route-gated GRC assurance"; "T5/T6
+publication-workspace layering"; "editorial approval state and assurance-review status"; and
+"POC-first Chief Editor UI scope". Each is a direct ruling used as an input here — none of them, nor
+Draft 10, constitutes approval of this plan as a packet (`B071-R67`).
 
 **Authorization vocabulary (`B071-R30`, scoped `B071-R39`):** this plan's four approval checkpoints
 are named `AUTH-DOC`, `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`. Every **operative** instruction in this
@@ -127,6 +142,27 @@ record of what was corrected, and is explicitly non-operative (`B071-R39`).
   before verifying, drops dangling edges from its own check, no cross-fragment check, undefined
   fragment-owned-field scope — as required ordinary Lane A tooling work with four named negative
   tests, independent of the completed precondition (`R66`).
+- **Draft 11 (this revision, `2467f2e` review baseline — supersedes Draft 10 in full per the Round
+  10 closure audit, `B071-R67`–`R76`):** Draft 10 was found not approvable — none of `B071-R67`–`R72`
+  was fully closed, and five post-Draft-10 Judge rulings materially changed the parent model. This
+  draft: states plan approval as none and separates Judge clarifications (inputs) from plan approval
+  (`R67`); retires the old circular pre-`AUTH-DOC` checklist as historical, keeping only the
+  text-only plan-review checklist (`R68`); replaces the superseded "demo-only/non-operative"
+  pre-authentication model with the Judge's corrected ruling — Option A is an **operational** POC:
+  `self_asserted`/non-production identity, but real persisted state, real evidence, real generated
+  artifacts (`R69`); rewrites the parent flow so **editorial approval** (a new, distinct event —
+  `T5-EDITORIAL-APPROVAL`, `workflow_state: Reviewed → Approved`) is separate from **`T6` assurance
+  judgment**, which is conditional on `ROUTE-FALLOUT-3`/`ROUTE-GRC` only; publication remains
+  exclusively T7/T10/T11's (`R70`, `R73`); splits every affected governing/derived file into its own
+  exact-path/anchor/treatment row instead of one combined catch-all (`R71`); specifies the Graphify
+  verifier's remaining defects precisely — untouched-graph comparison, atomic write, tracked negative
+  tests — as the bar for treating it as terminal evidence, without re-claiming it as already safe
+  (`R72`); adds the approved POC-first UI/backlog split — current `M-MVP` editorial UI now, detailed
+  `T6` assurance UI as a separate backlog feature, GRC-route Delivery hold preserved (`R74`); adds the
+  `M-MVP`/`M-POC` maturity model, module-qualified terminology, and the `M-MVP` report as an
+  *additive* `M-POC`-start gate beside existing `PR-13` (`R75`); and restores the Judge's exact
+  phrase **"Minimum Markable Feature"**, quoted, `definition_pending` — the prior turn's unauthorized
+  substitution to "Minimum Marketable Feature (MMF)" is corrected and is not used operatively (`R76`).
 
 **Artifact classification and propagation (`B071-R8`, `R16`):** this file is a `docs/v1/` tracking
 artifact under `D-36`, the same class as `V1-PHASE-CLOSURE.md`. It is registered in
@@ -162,10 +198,21 @@ depends on both §2 (who) and §3 (Final Sign-Off's actual position in the seque
 ## §1 — Proposed decision (Lane A drafts; Judge originates/approves)
 
 **Proposed register entry:** `D-182` — *T5/T6 corrective ruling: Desk Editor is one actor role,
-Editorial Desk Review is a separate node required on every route, T5 is a three-act completion
-unit, Final Sign-Off precedes T5 and carries no `R` of its own.* Partially supersedes
-`D-175`–`D-181` at clause level (table below). Does **not** touch `D-171`'s S2 hold, unaffected and
-not reopened, consistent with every decision in the `D-172`–`D-181` chain.
+Editorial Desk Review and Chief Journalist Review are separate nodes required on every route, T5 is
+a universal three-act completion unit feeding a distinct editorial-approval event, and `T6` is a
+conditional GRC-route-only assurance judgment. Final Sign-Off precedes T5 and carries no `R` of its
+own.* Partially supersedes `D-175`–`D-181` at clause level (table below). Does **not** touch
+`D-171`'s S2 hold, unaffected and not reopened, consistent with every decision in the `D-172`–`D-181`
+chain.
+
+**Parent-model rewrite notice (`B071-R73`):** points 1–3 below are unchanged from Draft 10 (the
+three-act T5 unit survives intact — all seven routes still execute both preparation workstreams).
+Points 4–6 are **rewritten**, not patched: Draft 10 treated `T6` as the universal Chief Editor
+judgment that itself closed `Drafted → Reviewed → Published`. Five Judge rulings since Draft 10
+(route-gated GRC assurance; T5/T6 publication-workspace layering; editorial-approval/assurance-status
+state axes; Option A's operational semantics; POC-first UI scope) replace that with the model below.
+Every downstream section (§2–§9) is regenerated from this rewritten parent, not patched independently
+(`B071-R73`'s required fix).
 
 ### Proposed decision content (normalized draft derived from the Judge's clarifications, not verbatim register text — `B071-R10`)
 
@@ -174,44 +221,56 @@ not reopened, consistent with every decision in the `D-172`–`D-181` chain.
    judgment preparer, never a replacement for the route's human or external RACI `A`.
 2. `T5-ASSURANCE-PREPARATION` runs on **every** route, not only where Editorial Review selects
    Desk Editor (`B071-R18`): `NODE-EDITORIAL-DESK-REVIEW` (mapped to `ROLE-DESK-EDITOR`) and
-   `NODE-CHIEF-JOURNALIST-REVIEW` (mapped to `ROLE-CHIEF-JOURNALIST`, `B071-R64` — this operative
-   clause was still prose before Draft 10) each seal a separately attributable brief on every route.
-   It is internal preparation, not independent Line 3 assurance.
-3. Both T5 workstreams are held before `T6`. A report cannot satisfy both merely because the same
-   role participated; every act carries a distinct workstream/purpose code, and the two Assurance
-   Preparation acts additionally carry distinct, system-attested `executor_principal_key` values —
-   one executor cannot satisfy both by relabeling, retrying, or asserting an unverified identity
-   (`B071-R36`, `R47`, and see §3/§4's testable requirement and the identifier model below).
-4. `T6` remains the natural-person Chief Editor's final judgment. Agent attempts to record the
-   final `T6` disposition remain refused. The complete T5 packet supplies the judgment-rule inputs
-   OD4 would require before any future automation; OD4 remains deferred and is not a pipeline
-   stage.
-
-   **Pre-authentication trust boundary (`B071-R62`, decided):** `CLAUDE.md`'s binding v1 build rule
-   is demo-first with no login wall — authenticated identity is explicitly deferred to a later
-   "Lock it down" sprint, before real users/data. Given that, operative `T6` cannot be made to
-   *require* authenticated identity in v1 without contradicting a binding project rule. The decision
-   is therefore the other branch: **every pre-authentication `T6` event is recorded as
-   `identity_assurance: self_asserted`, visibly labeled demo/non-operative, and cannot satisfy
-   publication or `AUTH-ROUTE`.** Only a `T6` event whose `identity_assurance` is `authenticated`
-   (post-lockdown) can close a route's `Drafted → Reviewed → Published` transition for real. A
-   client-supplied human-role label without `authenticated` assurance must fail a negative test that
-   asserts it cannot produce an operative `T6` event.
-5. Sheet 1 `A` owns route/stage accountability. Sheet 2 `A` owns task accountability; where a task
+   `NODE-CHIEF-JOURNALIST-REVIEW` (mapped to `ROLE-CHIEF-JOURNALIST`, `B071-R64`) each seal a
+   separately attributable brief on every route. It is internal preparation, not independent Line 3
+   assurance, and it produces no human judgment by itself.
+3. Both T5 workstreams are held before the editorial-approval event (point 4). A report cannot
+   satisfy both merely because the same role participated; every act carries a distinct
+   workstream/purpose code, and the two Assurance Preparation acts additionally carry distinct,
+   system-attested `executor_principal_key` values — one executor cannot satisfy both by
+   relabeling, retrying, or asserting an unverified identity (`B071-R36`, `R47`).
+4. **`T5-EDITORIAL-APPROVAL`** (new identifier — `B071-R70`, `R73`: this act was previously and
+   incorrectly named `T6`) is the natural-person Chief Editor's editorial judgment, made in the
+   publication workspace once both T5 workstreams are sealed. It is universal — every route requires
+   it. It moves the article's **`workflow_state`** axis `Reviewed → Approved`. It is categorically
+   human-only; agent attempts to record it are refused. It never itself publishes: T7/T10/T11 own
+   all publication-target outcomes downstream (`B071-R70`).
+5. **`T6-ASSURANCE-JUDGMENT`** is conditional: required only on `ROUTE-FALLOUT-3` and `ROUTE-GRC`,
+   where external GRC is the route/stage `A` (`B071-R73`, per the route-gated GRC clarification). On
+   the five other routes it does not occur — `assurance_status` remains `reviewed` (set once both
+   T5 Assurance Preparation acts seal) and is never promoted to `approved` or `not_applicable`; no
+   text may claim a human assurance decision occurred there. Where required, `T6-ASSURANCE-JUDGMENT`
+   is the natural-person Chief Editor's internal assurance judgment over the sealed packet; Delivery
+   remains held until both that internal judgment **and** the separately attributable, append-only
+   external GRC acceptance/mandate evidence exist. Internal identity — an authenticated Chief Editor,
+   an `executor_principal_key`, an agent badge — never substitutes for external GRC's acceptance
+   (`B071-R73`, external-accountability rule). The exact resulting `assurance_status` enum value for
+   a completed GRC-route `T6-ASSURANCE-JUDGMENT` is an **open Draft 12 specification detail**, not
+   invented here — do not assume it becomes `approved`.
+6. **Operational-POC semantics (`B071-R69`, Judge-corrected Option A):** neither `T5-EDITORIAL-
+   APPROVAL` nor `T6-ASSURANCE-JUDGMENT` is disabled or non-operative before authentication exists.
+   Both execute for real: they persist their state transition/judgment, survive reload, and appear
+   in append-only evidence, using POC/seed data inside the declared demo boundary. Pre-authentication
+   events are recorded as `identity_assurance: self_asserted` and are visibly labeled as such — that
+   label describes identity **strength**, not workflow **permission**; it must never disable the
+   approved flow, and it must never be presented as authenticated identity, live publication, or
+   external GRC acceptance. No product runtime event of any kind — authenticated or not — has any
+   effect on `AUTH-DOC`, `AUTH-F1`, `AUTH-F2`, or `AUTH-ROUTE`; those remain exclusively the governed
+   Judge/phase development-authorization process (`B071-R69`'s category-error fix).
+7. Sheet 1 `A` owns route/stage accountability. Sheet 2 `A` owns task accountability; where a task
    has no local `A`, the governed parent/milestone/stage `A` supplies the effective task `A`.
    Neither scope overwrites the other; each scope has exactly one effective `A`.
-6. `OP-FINAL-SIGNOFF` is a task-level approval control that **precedes** T5, not a step after it
+8. `OP-FINAL-SIGNOFF` is a task-level approval control that **precedes** T5, not a step after it
    (`B071-R17`): it signs completion evidence from prior applicable Sheet 2 `R` work. Its signer is
    the one effective task `A`, resolved to exactly one **accountable principal** — not automatically
-   a natural person; human-only is a `T6`-specific rule and does not inherit to Final Sign-Off
-   (`B071-R49` — "person"/"whichever person" is corrected to "accountable principal" everywhere in
-   this plan except the `T6` rule itself). `R = not_applicable` for the sign-off control itself,
-   not `unknown`. The required external acceptance/mandate record is a separate, separately
+   a natural person; human-only is a `T5-EDITORIAL-APPROVAL`/`T6-ASSURANCE-JUDGMENT`-specific rule
+   and does not inherit to Final Sign-Off (`B071-R49`). `R = not_applicable` for the sign-off control
+   itself, not `unknown`. The required external acceptance/mandate record is a separate, separately
    attributable, append-only record at its own governed point (normally before Delivery); when it
    is missing or invalid, only the governed pre-Delivery/Delivery transition is refused — never
-   Final Sign-Off and never `T6` (`B071-R24`, restated `B071-R37`).
+   Final Sign-Off, `T5-EDITORIAL-APPROVAL`, or `T6-ASSURANCE-JUDGMENT` (`B071-R24`, restated `R37`).
 
-### Corrected dependency order (`B071-R17`)
+### Corrected dependency order (`B071-R17`, route flow rewritten `B071-R70`/`R73`)
 
 ```text
 Applicable Sheet 2 work with R
@@ -222,26 +281,31 @@ Applicable Sheet 2 work with R
      + T5 Assurance Preparation (Desk Editor act and Chief Journalist act, every route,
        distinct system-attested executor_principal_key values required between the two acts —
        B071-R36, R47)
-  → one non-judgment three-act join: Drafted → Reviewed
-  → human-only T6 Chief Editor judgment
+  → one non-judgment three-act join: workflow_state Drafted → Reviewed; assurance_status → reviewed
+  → human-only T5-EDITORIAL-APPROVAL (Chief Editor): workflow_state Reviewed → Approved
+  → route decision:
+       non-GRC (5 routes): no further human judgment; assurance_status stays reviewed
+       GRC (ROUTE-FALLOUT-3, ROUTE-GRC): human-only T6-ASSURANCE-JUDGMENT required, held
+         pending separately attributable external GRC acceptance/mandate evidence
   → external acceptance/mandate at its governed point where required — its absence refuses only
-    the governed pre-Delivery/Delivery transition, never Final Sign-Off or T6 (B071-R37)
-  → Delivery
+    the governed pre-Delivery/Delivery transition, never Final Sign-Off, T5-EDITORIAL-APPROVAL, or
+    T6-ASSURANCE-JUDGMENT (B071-R37)
+  → Delivery (T7/T10/T11 — the only owners of any publication-target outcome, B071-R70)
 ```
 
-Only `T6` is categorically human-only. Final Sign-Off's signer is whichever accountable principal
-resolves as the one effective task `A` (`B071-R49`); the same role/identity may perform the
-route-selected Editorial Review and its own Assurance Preparation act, but these remain different
-evidence records and purposes — one executor cannot satisfy both Assurance Preparation acts by
-relabeling, retrying, or self-asserting an identity, and this is a stated, testable requirement, not
-a stylistic caution (`B071-R36`, `R47`).
+Only `T5-EDITORIAL-APPROVAL` and `T6-ASSURANCE-JUDGMENT` are categorically human-only. Final
+Sign-Off's signer is whichever accountable principal resolves as the one effective task `A`
+(`B071-R49`); the same role/identity may perform the route-selected Editorial Review and its own
+Assurance Preparation act, but these remain different evidence records and purposes — one executor
+cannot satisfy both Assurance Preparation acts by relabeling, retrying, or self-asserting an
+identity, and this is a stated, testable requirement, not a stylistic caution (`B071-R36`, `R47`).
 
 ### Clause-level lifecycle disposition (`B071-R19` — replaces the prior "caution, not yet
 resolved" note with an actual per-clause table)
 
 | Origin | Retain | Re-derive or supersede |
 |---|---|---|
-| `D-175` | Human Chief Editor at T6; one T5 stage; Senior Journalist EW trigger; route/stage `A`; `ENV-EXT`; T5 Line 1/T6 Line 2 placement | `ROLE-CHIEF-EDITORIAL-DESK`; route-family one/two-reviewer cardinality; any claim that node labels prove actor separation |
+| `D-175` | Human Chief Editor judgment exists in the flow (now split: `T5-EDITORIAL-APPROVAL` universal, `T6-ASSURANCE-JUDGMENT` conditional — `B071-R70`/`R73`); one T5 stage; Senior Journalist EW trigger; route/stage `A`; `ENV-EXT`; Line placement | `ROLE-CHIEF-EDITORIAL-DESK`; route-family one/two-reviewer cardinality; any claim that node labels prove actor separation; universal `T6` as a single undifferentiated human judgment |
 | `D-176` | The 43 applicability dispositions; blank external-source cells remaining `unknown`; undecomposed milestone holds; `ROUTE-PROD-1` route `A`; `ENV-EXT` | "No `A` inherits" becomes the governed local-task-else-parent rule; Final Sign-Off missing-`R` hold becomes `R = not_applicable`; Final Sign-Off sequence/evidence row is re-derived (now precedes T5) |
 | `D-177`/`D-178` | Route-basis semantics; canonical reveal-event name; blind/reveal ordering; external-trigger versus external-acceptance separation; one non-judgment completion join; historical `[V1]` treatment | T5 event count/prerequisites/bundle membership; return/rerun scope; affected evidence overlay; T5 cardinality measure (now three acts); readiness row removing Final Sign-Off's missing-`R` hold |
 | `D-179`/`D-180` | Historical/target marking method; human-only `AC-06a`; blind-order/disagreement intent; `AC-08a` ownership by `FR-06`; unaffected EW/Delivery/external-acceptance IDs; `SEC-03a` Line placement | `US-04a`/`US-05a`, `FR-04a`/`FR-05a`, `AC-05a`/`AC-05b` and bundle-dependent AC text; `G-05a`; `SEC-01a`; RACI T5 acts and successor proof |
@@ -262,6 +326,14 @@ verification (`AUTH-DOC`) never narrows it (`B071-R25`, restated `B071-R31`).
 | Chief Journalist's Assurance Preparation node | — (previously prose only — `B071-R48`) | `NODE-CHIEF-JOURNALIST-REVIEW`, mapped only to `ROLE-CHIEF-JOURNALIST`. Both this node and `NODE-EDITORIAL-DESK-REVIEW` are child workcells of the one `EG4`/`T5` stage — naming the sibling node does not create a second gate or serial review (`B071-R48`) |
 | Chief Journalist | — | Stays distinct; performs the route-selected Editorial Review act on non-`ROUTE-PROD-1` routes AND its own Assurance Preparation act (`NODE-CHIEF-JOURNALIST-REVIEW`) on every route |
 | Display aliases | `Editorial Desk Editor`, `Desk Chief`, `Chief Editorial Desk` | `Chief Editorial Desk` is the node/workcell display label for `NODE-EDITORIAL-DESK-REVIEW`, not a dropped term (`B071-R14`). `Editorial Desk Editor`/`Desk Chief` remain optional actor display aliases for `ROLE-DESK-EDITOR` only if the Judge separately approves; none are new IDs |
+| `T6` (event identifier) | Universal Chief Editor judgment closing `Drafted → Reviewed → Published` | Split in two (`B071-R70`, `R73`): `T5-EDITORIAL-APPROVAL` (universal, `workflow_state: Reviewed → Approved`) and `T6-ASSURANCE-JUDGMENT` (conditional, `ROUTE-FALLOUT-3`/`ROUTE-GRC` only, internal assurance decision). Neither reaches `Published` — T7/T10/T11 own that |
+
+**T5/T6 layer contract (Judge clarification — "T5/T6 publication-workspace layering"):** T5 has
+three sub-layers, all still named `T5-*`: `T5-EDITORIAL-REVIEW`, `T5-ASSURANCE-PREPARATION` (two
+acts), and `T5-EDITORIAL-APPROVAL` (the Chief Editor's editorial judgment). `T6-ASSURANCE-JUDGMENT`
+is a separate, conditional stage entered only after `T5-EDITORIAL-APPROVAL` on GRC-accountable
+routes. The assurance section of the Chief Editor's `T5` publication workspace is **view-only**; it
+never accepts edits or a decision at that layer.
 
 **Ownership of the actor/node distinction (`B071-R14`):** the rule that one actor role maps to one
 review node is stated here and in §1/§3 — Product/Fn_Spec (`Modular_PRD.md`, `FN-GATES-01-05.md`)
@@ -412,6 +484,41 @@ even when the same executor principal performed them (`B071-R58`); the two Assur
 system-attested `executor_principal_key` values on every route, verified by the negative test in
 §3; a `self_asserted` value fails that test even when the other fields are already distinct.
 
+### §4a — `T5-EDITORIAL-APPROVAL` and conditional `T6-ASSURANCE-JUDGMENT` (new — `B071-R70`, `R73`)
+
+**`T5-EDITORIAL-APPROVAL`** fires once the three-act join above completes. It is a fourth, distinct
+act — never counted toward or satisfied by the three-act join itself:
+
+- Actor: natural-person Chief Editor only; agent attempts are refused.
+- Effect: article `workflow_state: Reviewed → Approved`. Append-only event, cites the combined T5
+  packet. Never writes any publication-target field.
+- Operational semantics (`B071-R69`): executes and persists for real inside the POC/demo boundary;
+  pre-authentication events carry `identity_assurance: self_asserted` and are visibly labeled as
+  such, but the transition is not blocked, disabled, or reversed because of that label.
+- Universal: required on all seven routes.
+
+**`T6-ASSURANCE-JUDGMENT`** is conditional and, where required, follows `T5-EDITORIAL-APPROVAL`:
+
+| Route | `T6-ASSURANCE-JUDGMENT` | Delivery holds on |
+|---|:---:|---|
+| `ROUTE-PROD-1/2/3`, `ROUTE-FALLOUT-1/2` | Not required | Existing T7/T10/T11 rules only |
+| `ROUTE-FALLOUT-3`, `ROUTE-GRC` | **Required** | The internal judgment **and** separately attributable external GRC acceptance/mandate evidence |
+
+Same actor/operational rules as `T5-EDITORIAL-APPROVAL` (natural-person-only, `self_asserted` when
+pre-authentication, real persisted evidence). It never records external GRC's acceptance itself —
+that remains a separate, externally-attributable record. Its exact `assurance_status` output value
+is an open Draft 12 specification detail (§1, point 5) — this plan does not invent one.
+
+**Files to edit:** `docs/Modular_PRD.md` (name the `T5-EDITORIAL-APPROVAL` event/transition and its
+`AC`; state the `T6-ASSURANCE-JUDGMENT` route condition), `docs/fn-specs/FN-GATES-01-05.md` (route
+branch logic, human-only refusal tests for both acts), `docs/governance/factory-route-operation-
+crosswalk.md` (route matrix above).
+
+**Verification:** `STATE-EDITORIAL-01`/`STATE-ASSURANCE-01`/`STATE-GRC-01`/`FLOW-GRC-01`–`05` (as
+specified in the Judge clarifications) each have a corresponding acceptance test; no non-GRC route
+can produce a `T6-ASSURANCE-JUDGMENT` event; no route reaches a publication-target outcome from
+either act directly.
+
 ## §5 — Supersede the false either/or; define two feature units (depends on §4; replaces the prior
 "redraft B-070's two options" — `B071-R22`, Chief Editor clarification)
 
@@ -421,7 +528,7 @@ content is preserved as separate feature units:
 
 | B-070 wording | Actual feature | Correct disposition |
 |---|---|---|
-| Option A — bounded unit now | **Feature 1 — T5/T6 judgment control:** three T5 acts, one join, human-only T6, audit evidence; no route enablement | Superseded as an option. Preserved as the corrected scope of the first bounded implementation unit (`AUTH-F1`) |
+| Option A — bounded unit now | **Feature 1 — T5/T6 judgment control:** three T5 acts, one join, universal `T5-EDITORIAL-APPROVAL`, conditional `T6-ASSURANCE-JUDGMENT`, audit evidence; no route enablement (`B071-R70` terminology) | Superseded as an option. Preserved as the corrected scope of the first bounded implementation unit (`AUTH-F1`) |
 | Option B — wait for all operation shapes | **Feature 2 — factory-route operations/readiness:** resolve each route's applicable task executor, accountability and atomic completion contract, then integrate/enable that route | Superseded as an option and as a global wait. Preserved as a separate feature unit (`AUTH-F2`); it neither replaces nor blocks Feature 1's specification |
 
 B-070's already-`Applied` correction to the stale "next code unit" instruction is **not reopened**
@@ -437,8 +544,9 @@ B-070's forward notice (see §7 — no further edit to `B-070` is scheduled by t
    unit each names — all unnamed scope stays held (`B071-R25`, restated `B071-R31`).
 2. **Child — `AUTH-F1`, Feature 1 (T5/T6 judgment control):** after `AUTH-DOC` is `Verified`, a
    separate bounded authorization may build the three attributable T5 acts, the one non-judgment
-   completion join, blind/reveal order and human-only T6. Enables no production, fallout or GRC
-   route.
+   completion join, blind/reveal order, universal `T5-EDITORIAL-APPROVAL`, and conditional
+   `T6-ASSURANCE-JUDGMENT` for the two GRC-accountable routes' test coverage. Enables no production,
+   fallout or GRC route.
 3. **Child — `AUTH-F2`, Feature 2 (factory-route operations/readiness):** resolve operation-shape
    holds and implement route-specific execution/readiness. Specification can proceed independently
    of `AUTH-F1`, but a route cannot be enabled until both its own operation contract (`AUTH-F2`) and
@@ -458,29 +566,100 @@ possible to state which authorization a given change consumed.
 carries its correction section (append-only convention for handoff entries; applied at `d3cadda`).
 This plan cites that section; it does not append to it again (`B071-R33`).
 
-## §6 — Chief Editor publication-workspace UX spec (depends on §4)
+## §6 — Chief Editor `M-MVP` editorial UI scope (depends on §4, §4a; scope-cut per `B071-R74`, POC-first UI ruling)
 
 New file: `docs/specs/ux/UX-CHIEF-EDITOR-PUBLICATION-WORKSPACE.md` (`B071-R59` — corrects the prior
-lower-case path, which violated `docs/specs/README.md`'s governed `docs/specs/ux/UX-*.md`
-convention). Must show, and the UI must
-enforce:
+lower-case path). **Current scope is the `M-MVP` editorial flow only** (`B071-R74`) — the earlier
+full assurance/`T6` workspace design is retired from this spec's current-scope section and moved to
+one separate backlog feature (§6a names it). Must show, and the UI must enforce:
 
-- Both T5 workstreams (Editorial Review, Assurance Preparation) and their separate attribution,
-  including the distinct `executor_principal_key` requirement between the two Assurance Preparation
-  acts, and the Chief-Editor-facing identity display (AI identity, role/node, `executor_principal_key`
-  — never raw `agent_id`/`agent_run_id`/`agent_attempt_badge_id` outside an authorized audit view)
-- Authority provenance (task `A` vs. route/stage `A` vs. external authority)
-- Required external evidence/acceptance records, and that their absence blocks only the governed
-  pre-Delivery/Delivery transition, never Final Sign-Off or `T6` (`B071-R37`)
-- Unresolved disagreement between workstreams
-- The human-only `T6` control — UI refuses submission of `T6`/publication disposition from an
-  agent; only a natural-person Chief Editor action satisfies it; and (`B071-R62`) a visible
-  demo/`self_asserted` badge on any pre-authentication `T6` event, with publication/`AUTH-ROUTE`
-  actions disabled until that event's `identity_assurance` is `authenticated`
+**Current (`M-MVP`) scope:**
+
+- The main trigger details and the sealed T5 packet (both workstreams' evidence, read-only)
+- `Publication status` — a human-facing projection of the article's `workflow_state`
+  (`Reviewed`/`Approved`), never the publication-target status
+- The `T5-EDITORIAL-APPROVAL` control: only a natural-person Chief Editor action satisfies it; a
+  visible `self_asserted`/pre-authentication badge when applicable, per `B071-R69` **without**
+  disabling the control — the action persists for real either way
+- A read-only `Assurance status` field showing `reviewed` once both T5 Assurance Preparation acts
+  are sealed — explicitly labeled as T5 preparation status, never implying a `T6` or external GRC
+  decision occurred
+- One clearly labeled downloadable URL for the `M-MVP` Public Explainable Content with report, shown
+  only after successful generation, with article/decision provenance; a defined pending/failure
+  state when the report doesn't yet exist (§6a names its owning artifact contract)
+- The Chief-Editor-facing identity display (AI identity, role/node, `executor_principal_key` — never
+  raw `agent_id`/`agent_run_id`/`agent_attempt_badge_id` outside an authorized audit view)
+- On `ROUTE-FALLOUT-3`/`ROUTE-GRC`: Delivery stays refused while `T6-ASSURANCE-JUDGMENT` and its
+  required external GRC evidence remain incomplete — the deferred `T6` UI (§6a) must never be read
+  as removing this hold
+
+**Deferred to the separate backlog feature named in §6a — not in this spec's current scope:**
+
+- Detailed assurance evidence/brief views beyond the status summary
+- The Chief Editor's `T6-ASSURANCE-JUDGMENT` UI controls
+- External GRC acceptance/mandate evidence capture and provenance UI
+- Assurance-specific refusal, amendment and retraction interactions
+- The complete assurance audit view alongside the publication record
 
 Marked `[V1]` per `D-36`'s spec versioning convention; new file, not an edit to an existing `[V1]`
-section. **Represents** the actor/node/Final-Sign-Off rules defined in §1–§3; never their origin
-(`B071-R14`).
+section. **Represents** the actor/node/Final-Sign-Off/state-axis rules defined in §1–§4a; never
+their origin (`B071-R14`).
+
+**Files to edit:** `docs/Modular_PRD.md` (current-scope `AC`s only; do not describe the deferred
+assurance UI as in-scope), `docs/specs/ux/UX-CHIEF-EDITOR-PUBLICATION-WORKSPACE.md` (new, as above).
+
+**Verification:** `UX-POC-01`–`04`, `UX-ASSURANCE-01`–`02`, `BACKLOG-ASSURANCE-01` (as specified in
+the POC-first UI Judge clarification) each have a corresponding acceptance test; no current-scope
+screen requires the deferred assurance UI to function; the GRC-route hold is independently testable
+without that deferred UI existing.
+
+## §6a — `M-MVP`/`M-POC` maturity model and the report-gate precondition (new — `B071-R75`, `R76`)
+
+**Maturity sequence (Judge clarification — "`M-MVP` proof first, `M-POC` client proof later"):**
+
+```text
+Operational demo condition
+      ↓
+M-MVP — Chief Editor proves the editorial workflow and its evidence
+      ↓
+M-POC — clients test the value of an evidence-review engagement (same engine, no forked pipeline)
+      ↓
+Production — additional identity, live-target and external-authority controls
+```
+
+`M-MVP` and `M-POC` are governed module identifiers, not generic "POC" language. Every operative
+instruction in this plan and its downstream propagation must name `M-MVP` or `M-POC` where a module
+boundary, output, or audience is meant; bare "POC" is used only where the text explicitly means the
+generic validation purpose.
+
+**Downloadable-report ownership and the `M-POC` start gate (Judge clarification — "the downloadable
+report is an `M-MVP` artifact, gating `M-POC` start"):**
+
+- The Public Explainable Content with report is an **`M-MVP`** common-engine artifact. Its current
+  audience is the Chief Editor. No `M-POC` engagement field, client folder, `/request-brief` linkage,
+  payment trace, or client-package data may attach to it or its generation record.
+- `M-POC` engagement start requires **both** of the following — additive, neither replacing the
+  other:
+  1. The existing governed `PR-13` boundaries (`docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md`) — all ten
+     `B-P0-06` boundaries hold a real value.
+  2. Successful, provenance-linked generation of the `M-MVP` report.
+- **Terminology hold (`B071-R76`):** the Judge's ruling names this completion bar **"Minimum
+  Markable Feature"** — quoted verbatim, `definition_pending`. A prior turn substituted "Minimum
+  Marketable Feature (MMF)" and used it operatively without authority; that substitution is
+  withdrawn here. Do not use "MMF" or "Marketable" in any operative criterion, file, or acceptance
+  test until the Judge confirms the intended term or its measurement.
+
+**Files to edit:** `docs/modules/M-POC-REQUIREMENTS.md` (add the `M-MVP` report as an additional,
+additive start precondition beside `PR-13`; do not restate or replace `PR-13`'s ten boundaries),
+`docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md` (target overlay naming the new precondition and its
+refusal behavior when the report is absent/failed), `docs/Modular_PRD.md` (owning `AC` for the
+`M-MVP` report's generation/provenance contract, distinct from `M-POC`'s requirements).
+
+**Verification:** `MATURITY-TERM-01`, `MATURITY-MVP-01`/`02`, `MATURITY-POC-01`/`02`,
+`MATURITY-EVIDENCE-01`, `MATURITY-GATE-01`–`03` (as specified in the two maturity-model Judge
+clarifications) each have a corresponding acceptance test; no test or requirement uses "Marketable"
+or "MMF" operatively; `M-POC` start is refused if either the `PR-13` boundaries or the `M-MVP` report
+precondition is unmet, independently of the other.
 
 ## §7 — Complete propagation write set (depends on §1–§6; replaces the prior partial list —
 `B071-R20`, completed `B071-R33`)
@@ -492,9 +671,17 @@ Single-pass sweep per `D-54`, once §1–§6 are Judge-approved (`AUTH-DOC`):
 | `V1-DECISION-REGISTER.md` | Add `D-182`: decision content (§1), corrected dependency order, clause-level lifecycle table, this plan's own artifact-creation fact, UX artifact creation fact, explicit `D-171` hold preservation |
 | `V1-BUILD-SPEC.md` | Three-act target DoD; Final-Sign-Off-before-T5 sequence; this plan's sequencing fact; UX artifact sequencing fact — no implementation authorization, hold stays |
 | `V1-ARTIFACT-INVENTORY.md` | Add `docs/specs/ux/UX-CHIEF-EDITOR-PUBLICATION-WORKSPACE.md` and `docs/specs/SPECS-IDENTITY-ATTESTATION.md` (`B071-R59`/`R63` — the `D-30` redundancy test is resolved, not conditional; both files are created); mark this plan's own row historical/superseded (**never removed** — `B071-R16`) |
-| `Modular_PRD.md` | Owning sections: `US-04a`/`US-05a`, `FR-04a`/`FR-05a`, `AC-05a`–`AC-08a`, `G-05a`, `SEC-01a`/`SEC-03a`, any T5 prerequisite in `AC-22`; **and** (`B071-R53`) `TR-DM-02`/the identity NFR for the four identifiers — one stable `executor_principal_key` per tenant/agent, one unique `agent_attempt_badge_id` per attempt, exactly one `executor_principal_key` per badge, many badges per key, immutable historical linkage, no client-supplied attestation; **and** (`B071-R62`) the `T6` pre-authentication trust-boundary rule — `self_asserted`/demo `T6` cannot satisfy publication or `AUTH-ROUTE`, only `authenticated` `T6` can. §8 separately records the UX tier/file opening and unchanged S2 hold — §8 does not own the User Story rows themselves (`B071-R20` corrects the prior draft's wrong mapping) |
-| `FN-GATES-01-05.md` | §11: actor/node mapping, three acts (every route), join, blind order, consuming evidence; **and** (`B071-R53`) behavior/refusal rules for the four identifiers — comparison object, retry continuity, `self_asserted` rejection; **and** (`B071-R62`) the `T6` `self_asserted`-vs-`authenticated` refusal rule and its negative test |
-| `v1-build-readiness-addendum.md`, `blueprint.md`, `business-case.md`, `docs/README.md`, `SPECS-TRANSITION-ENFORCEMENT.md`, the media-industry fallback plan | (`B071-R61`) One forward-notice/target-overlay row per file, naming the retired human-T5/agent-T6 description as historical and pointing at `D-182`'s T5/T6 model as current. Frozen `docs/PRD.md`/Charter are excluded — never edited |
+| `Modular_PRD.md` | Owning sections: `US-04a`/`US-05a`, `FR-04a`/`FR-05a`, `AC-05a`–`AC-08a`, `G-05a`, `SEC-01a`/`SEC-03a`, any T5 prerequisite in `AC-22`; **and** (`B071-R53`) `TR-DM-02`/the identity NFR for the four identifiers; **and** (`B071-R70`, `R73`) name the new `T5-EDITORIAL-APPROVAL` event/transition and its `AC`, state the `T6-ASSURANCE-JUDGMENT` route condition, and remove any `AC` implying `T6` itself reaches `Published`; **and** (`B071-R75`) the `M-MVP` report's generation/provenance `AC`, distinct from `M-POC`'s requirements. §8 separately records the UX tier/file opening and unchanged S2 hold — §8 does not own the User Story rows themselves (`B071-R20` corrects the prior draft's wrong mapping) |
+| `FN-GATES-01-05.md` | §11: actor/node mapping, three acts (every route), join, blind order, consuming evidence; **and** (`B071-R53`) behavior/refusal rules for the four identifiers — comparison object, retry continuity, `self_asserted` rejection; **and** (`B071-R70`) route-branch logic distinguishing universal `T5-EDITORIAL-APPROVAL` from conditional `T6-ASSURANCE-JUDGMENT`, with negative tests for both (agent attempts refused; non-GRC routes cannot produce a `T6-ASSURANCE-JUDGMENT` event) |
+| `docs/modules/M-POC-REQUIREMENTS.md` (`B071-R75`, new row) | Add the `M-MVP` report as an additional, additive `M-POC` engagement-start precondition beside the existing `PR-13` ten-boundary rule — do not restate or replace `PR-13` |
+| `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md` (`B071-R75`, new row) | Target overlay at the `PR-13` constraint (L58) naming the new conjunctive precondition and its refusal behavior when the `M-MVP` report is absent or failed |
+| `docs/source/v1-build-readiness-addendum.md` L30, L82, L141, L164–165 (`B071-R61`, `R71`) | These rows/blockquotes state T5=Line 2/human-primary (Senior Journalist), T6=Line 1/agent (Chief Journalist) — the opposite Line/actor pairing from `D-182`. `[V1→V2]` target overlay at each anchor: preserve as historical Three-Lines-Model text (OD1 remains "Open at Charter level" per L141 — this plan does not resolve OD1), add a target note pointing to `D-182`'s `T5-EDITORIAL-APPROVAL`/`T6-ASSURANCE-JUDGMENT` model. Negative search: no unmarked current-value row may assert T5 is exclusively Line-2/human or T6 is exclusively Line-1/agent without the target-overlay note beside it |
+| `docs/source/blueprint.md` L84, L101–102, L109, L124 (`B071-R61`, `R71`) | Same Three-Lines T5/T6 Line-crossing model as the addendum. Same treatment: `[V1→V2]` target overlay at each anchor, OD1 left open, note pointing to `D-182` |
+| `docs/source/business-case.md` L53, L107, L162, L188 (`B071-R61`, `R71`) | Same model, plus L188's "T6 executor approval" phrase in the guest-platform publication paragraph. Same treatment; L188 additionally needs a note that `D-182`'s `T5-EDITORIAL-APPROVAL`/`T6-ASSURANCE-JUDGMENT` never themselves write `Published` — T7/T10/T11 do |
+| `docs/README.md` L43 (`B071-R61`, `R71`) | States "T5 is the Line 2 gate and is human-primary in every governing document" as a current-value claim. Target overlay noting `D-182` as the current T5/T6 model; do not delete the historical claim |
+| `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` L73 (`B071-R61`, `R71`) | Table row "`T6 \| Reviewed \| Approved \| Fixed pair · Line 1`" is a current-value enforcement claim, not narrative — requires a `[V1→V2]` target-overlay row, not just a top-of-file notice, since this file's own state-machine table is what `bun run check`-style tooling would read |
+| `docs/governance/media-industry-sop-fallback-implementation-plan.md` L124 (`B071-R61`, `R71`) | Already says the "T5 review is executed by a Line 2 human" wording should not be deleted until OD1 is resolved through the authorized downstream process — this plan **adds** the `D-182` target note beside it without deleting it, consistent with that file's own instruction |
+| Frozen `docs/PRD.md`, the Charter | Excluded — never edited, per binding rule | — |
 | `FN-EXCEPTIONS-06-11-12.md` | Three-act-aware invalidation/rerun; external-trigger vs. external-acceptance separation (`B071-R20` — omitted entirely from the prior draft) |
 | `FN-PUBLICATION-09-10-13.md` | External acceptance at its governed pre-Delivery point and Delivery refusal, without moving that requirement into Final Sign-Off (`B071-R20` — omitted entirely from the prior draft) |
 | `raci-involvement-matrix.md` | §§3.1/8: scoped `A` resolution, Final Sign-Off ordering, all-route Desk Review mapping, three T5 acts, one join |
@@ -623,28 +810,49 @@ reference with `NODE-CHIEF-JOURNALIST-REVIEW` (`R64`); corrects §7/§8 to descr
 precondition as completed, not pending (`R65`); and records `merge7.js`'s remaining verifier
 defects as required tooling work with named negative tests (`R66`).
 
-### Round 10 — outstanding, before this revision reaches the Judge for `AUTH-DOC`
+### Round 10, part 1 — historical, retired (`B071-R68`)
 
-- [ ] Every editable governing/derived file `B071-R61` named carries a forward-notice/target-overlay
-      row naming the current T5/T6 model as target and the old human-T5/agent-T6 text as historical;
-      frozen `docs/PRD.md`/Charter remain untouched
-- [ ] Operative `T6` text states the `self_asserted`-demo/`authenticated`-operative split with no
-      contradiction, and a negative test proves a client-supplied human label without `authenticated`
-      assurance cannot produce an operative `T6` event
-- [ ] `docs/specs/SPECS-IDENTITY-ATTESTATION.md` is named as a decided (not conditional) new file;
-      `docs/specs/README.md`'s naming convention matches the plural `SPECS-*` files that exist
-- [ ] No operative text names an actor/node in prose where a canonical ID (`ROLE-*`/`NODE-*`) is
-      required; grep for "Chief Journalist review node" outside historical citations returns nothing
-- [ ] §7/§8 and the precondition section describe the Graphify tooling/status precondition as
-      completed at `838baff`; no sentence re-schedules `merge7.js`'s deterministic-upsert foundation
-      as future `AUTH-DOC` work or calls the current graph unconditionally stale
-- [ ] `merge7.js`'s four named negative tests (no-write verify-only, dangling-edge failure,
-      same/cross-fragment conflict failure, update-in-place still works) exist and pass; the
-      fragment-owned-vs-Graphify-derived field boundary is explicit in code or comments
-- [ ] All prior-round checklist items (Rounds 1–9) remain true — this round adds to, and does not
-      reopen, what was already closed
+The checklist that previously stood here required governing/derived files to **carry** overlays, an
+identity spec to **exist**, naming conventions to **match**, and tooling tests to **exist** — all §7/§8
+application outcomes — as conditions for reaching the Judge for `AUTH-DOC`, while §7/§8 themselves
+are gated on `AUTH-DOC` already being granted. That circularity (`B071-R68`) meant no literal
+execution order could satisfy it. It is retired as historical evidence of the defect, not deleted;
+its intent is preserved, correctly split, in the plan-review/applied-state checklists below.
+
+### Round 10, part 2 — Draft 10 rejected as a packet; `B071-R67`–`R76` recorded
+
+Independent review (`docs/handoff/B-071-*.md` §"Independent review — Draft 10 and the post-Draft-10
+Judge clarifications") found Draft 10 **not approvable**: none of `B071-R67`–`R72` was fully closed,
+and five further Judge rulings materially superseded its parent T5/T6 model. New findings
+`B071-R73`–`R76` were recorded. **The Judge approved proceeding directly to Draft 11, superseding
+Draft 10 in full**, rather than patching it child-first. This draft (11) is that response.
+
+### Round 11 — outstanding, before this revision reaches the Judge for `AUTH-DOC`
+
+- [ ] The plan-review checklist below contains no item requiring §7/§8 execution (re-verifying
+      `B071-R68`'s fix survived this rewrite)
+- [ ] `T5-EDITORIAL-APPROVAL` and `T6-ASSURANCE-JUDGMENT` are named consistently as two distinct
+      events everywhere in §1/§2/§4a; no operative text uses bare `T6` for the universal editorial
+      transition
+- [ ] `T6-ASSURANCE-JUDGMENT` is stated as conditional on `ROUTE-FALLOUT-3`/`ROUTE-GRC` only, in
+      every place the route matrix is restated (§1, §4a, §7)
+- [ ] No text claims `T5-EDITORIAL-APPROVAL` or `T6-ASSURANCE-JUDGMENT` reaches `Published`;
+      publication remains exclusively T7/T10/T11-owned
+- [ ] Pre-authentication behavior is stated as operational/`self_asserted`/non-production, never as
+      non-operative, disabled, or unable to persist state (`B071-R69`)
+- [ ] Every §7 row for the six previously-combined governing/derived files names an exact file and
+      anchor (line/section), not a combined catch-all (`B071-R71`)
+- [ ] §6/§6a state the POC-first UI cut: current `M-MVP` editorial scope, detailed `T6` UI in a
+      separately owned backlog feature, GRC-route Delivery hold explicitly preserved (`B071-R74`)
+- [ ] `M-MVP`/`M-POC` are used as module identifiers wherever a module boundary is meant; no bare
+      "POC" stands in for either (`B071-R75`)
+- [ ] The `M-MVP` report gate is stated as additive to `PR-13`, never replacing it
+- [ ] No text uses "Minimum Marketable Feature" or "MMF" operatively; the Judge's exact phrase
+      "Minimum Markable Feature" is quoted, `definition_pending` (`B071-R76`)
+- [ ] The Graphify verifier section states its remaining defects (untouched-graph comparison, atomic
+      write, tracked negative tests) as not-yet-done, not as already-safe (`B071-R72`)
 - [ ] This revision is pushed to `origin/docs/journal-2026-08-16` and confirmed identical before
-      round 10 or `AUTH-DOC` is marked satisfied
+      round 11 or `AUTH-DOC` is marked satisfied
 
 ### Plan-review checklist — gates reaching the Judge for `AUTH-DOC` (text-only; no §7/§8 execution required)
 
@@ -705,13 +913,28 @@ check; updated `frag119.json`'s B-071/plan description to that round's status, w
 completed tool rather than scheduling `merge7.js` as future `AUTH-DOC` work.
 
 That said, `B071-R66` found the shipped verifier's guarantee narrower than its own success message
-claimed — see the negative-test items in the applied-state checklist below. The precondition itself
-(status-only sync, no `D-182`) remains correctly bounded and does not need re-authorization; only
-the verifier's remaining defects need a further tooling fix, tracked as ordinary Lane A work, not a
-new precondition ask.
+claimed, and `B071-R72`'s follow-up review found the fix applied for `R66` **still incomplete**: it
+calls `buildCandidate(g, frag)` and then `verify(candidate, frag)` — so `--verify-only` compares the
+fragment against a candidate it was just overlaid onto, not the untouched real graph, and a stale
+real graph can pass. The write is a direct `writeFileSync`, not atomic (temp-write-then-rename), and
+no tracked automated regression suite exists — the four "verified" cases in Draft 10's commit message
+were manual, one-off runs, not a checked-in test file. **This section does not claim the verifier is
+safe.** The precondition itself (status-only sync, no `D-182`) remains correctly bounded and does
+not need re-authorization; the verifier's remaining defects — untouched-graph comparison, atomic
+write, tracked negative tests — are ordinary Lane A tooling work, specified in the applied-state
+checklist below, and must be done before the verifier is used as terminal semantic-parity evidence.
 
 ### Applied-state verification checklist — runs only after `AUTH-DOC` is granted and Lane A executes §7/§8
 
+- [ ] (`B071-R72`) `merge7.js`'s `--verify-only` compares the fragment against the **untouched**
+      graph read fresh from disk, never a candidate the same run just overlaid the fragment onto
+- [ ] (`B071-R72`) `--all` validates global endpoint/dangling checks and field-level semantic parity
+      against the real graph, not only whole-object equality between fragments
+- [ ] (`B071-R72`) The write path is atomic (temp-file write, then rename, then re-read to confirm),
+      not a direct `writeFileSync`; a failed write leaves the prior graph byte-identical
+- [ ] (`B071-R72`) A tracked, automated test file (not a one-off manual run) exists covering: stale
+      real-graph detection, no-write verification, dangling edges, same/cross-fragment overlap, and
+      update-in-place — and passes
 - [ ] §8's source-and-fragment edit (including `D-182`'s node and the `Applied`/`historical`
       transitions) is committed before any `graphify hook-rebuild`, never after, and `bun run
       check` — including `docs-drift` — is green at that commit

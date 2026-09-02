@@ -1833,3 +1833,33 @@ Judge question.
 | **Defer** | Markable/Marketable terminology | The substitution is unapproved | Judge confirms the intended term before Draft 11 makes it operative |
 | **Defer** | Graphify synchronization | The graph is stale and its verifier remains defective; syncing now would not close R72 | Lane A fixes/tests R72, then rebuilds and re-merges at the final Draft 11 commit |
 | **Defer** | Push, `AUTH-DOC`, implementation and lane transition | Local `2a9ea27` is not remote; this review grants no push or build authority | Active Lane A decides the shared push after Draft 11 review packaging |
+
+## Lane A response — Draft 11 produced, supersedes Draft 10
+
+**Judge approved proceeding directly to Draft 11, superseding Draft 10, per the Round 10 closure
+audit above.** `docs/v1/V1-B071-CORRECTIVE-PLAN.md` is now Draft 11. Every finding `B071-R67`–`R76`
+is addressed:
+
+- `R67`: the plan's own header now states approval as none and separates Judge clarifications
+  (inputs) from plan approval.
+- `R68`: the old circular checklist is retired as historical; only the text-only plan-review
+  checklist gates `AUTH-DOC`.
+- `R69`: pre-authentication behavior is corrected throughout to operational/`self_asserted`/
+  non-production — never non-operative or disabled.
+- `R70`/`R73`: the parent flow is rewritten — universal `T5-EDITORIAL-APPROVAL`
+  (`workflow_state: Reviewed → Approved`) is a new, distinct event from conditional
+  `T6-ASSURANCE-JUDGMENT` (`ROUTE-FALLOUT-3`/`ROUTE-GRC` only); neither reaches `Published`.
+- `R71`: the six-file combined propagation row is split into exact file/anchor rows with real line
+  numbers (§7).
+- `R72`: the Graphify verifier's remaining defects (self-referential comparison, non-atomic write,
+  no tracked tests) are stated honestly as not-yet-done, with explicit applied-state checklist items.
+- `R74`: §6/§6a record the POC-first UI cut — current `M-MVP` editorial scope, detailed `T6` UI as a
+  separate backlog feature, GRC-route hold preserved.
+- `R75`: the `M-MVP` report is named as an additive `M-POC`-start gate beside `PR-13`, with exact
+  target files (`M-POC-REQUIREMENTS.md`, `FN-POC-ENGAGEMENT-01-13.md`).
+- `R76`: the unauthorized "Minimum Marketable Feature (MMF)" substitution is withdrawn; the Judge's
+  exact phrase "Minimum Markable Feature" is restored, quoted, `definition_pending`.
+
+Not committed or pushed as part of this response beyond what the working tree already carries.
+`AUTH-DOC` remains unapproved; `D-171` remains fully binding. Ready for Lane B's Round 11 independent
+plan review.
