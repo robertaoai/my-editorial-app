@@ -7,25 +7,30 @@
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
 - **Status:** Open
 - **Lane A:** Acknowledged 2026-09-02. Implementation plan at `docs/v1/V1-B071-CORRECTIVE-PLAN.md`
-  is now Draft 5, incorporating `B071-R8`–`R37` and the Chief Editor's `B071-R22` clarification in
-  full. Draft 5 renames the four approval checkpoints `AUTH-DOC`/`AUTH-F1`/`AUTH-F2`/`AUTH-ROUTE`
-  to remove the collision with development Lanes A/B/C (`R30`); removes the residual sentence
-  implying `D-171` expires once documentation verification completes (`R31`); states `AUTH-F1` and
-  `AUTH-F2` may be selected independently but never exercised concurrently (`R32`); completes the
-  §7 write set with B-071's and the plan's own post-application lifecycle updates and stops a
-  second B-070 edit from being scheduled (`R33`); corrects review-round and commit metadata
-  (`R34`); specifies the `frag119.json` update the `AUTH-DOC` documentation pass must perform
-  (`R35`); adds a testable executor-identity separation requirement, with negative test, between
-  the two Assurance Preparation acts (`R36`); and restates the external-acceptance refusal
-  condition to name the governed pre-Delivery/Delivery transition, not the external record, as the
-  thing refused (`R37`). **Not yet pushed** — round 5/`AUTH-DOC` cannot be marked `Verified` until
-  this commit (or its successor) is on `origin/docs/journal-2026-08-16` and confirmed identical;
-  pushing requires the user's explicit go-ahead and has not been requested yet.
+  is now Draft 6, incorporating `B071-R8`–`R44` and the Chief Editor's `B071-R22` clarification in
+  full. Draft 6 corrects the evidence-state inversion round 5 found — Draft 5 was already pushed
+  (`5bd9b90` local = remote) while Graphify was stale at `d3cadda`, i.e. 16/17 checks (`R38`);
+  scopes the "never abbreviate as Gate" rule to operative text only, leaving revision-history and
+  review-history citations of the retired wording intact and explicitly non-operative (`R39`);
+  separates drafting/proposing `AUTH-F1`/`AUTH-F2` (allowed now) from approving/exercising them
+  (still gated on `AUTH-DOC` `Verified`) (`R40`); corrects `AUTH-ROUTE` to require one globally
+  `Verified` Feature 1 result plus the named route's `Verified` Feature 2 contract, never
+  route-specific Feature 1 approvals (`R41`); removes `B-070` from the opening's future-write list
+  and fixes §7's B-071-closure reference from the nonexistent "§1–§9" to the actual "§1–§8" (`R42`);
+  updates `docs/graph-fragments/frag119.json` to describe `B-071`/this plan at `R1`–`R44`/Draft 6
+  with `AUTH-*` vocabulary, replacing the stale `R1`–`R22`/"Gate" description (`R43`); and fixes
+  §8's ordering so source and curated fragment are committed together before any Graphify rebuild,
+  never after (`R44`). This commit also updates `frag119.json` in the same pass per the corrected
+  ordering, then runs `npx graphify hook-rebuild` and `bun run check` to confirm `docs-drift`
+  clears. **Not yet pushed** — round 6/`AUTH-DOC` cannot be marked `Verified` until this commit (or
+  its successor) is on `origin/docs/journal-2026-08-16` and confirmed identical; pushing requires
+  the user's explicit go-ahead and has not been requested yet.
 - **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`), round 2 (Lane
   B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
-  clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), and round 4 (Lane B,
-  reviewing Draft 4 at shared HEAD `d3cadda`, findings `B071-R30`–`R37`) all consolidated below.
-  No separate `B-072` item was ever minted.
+  clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), round 4 (Lane B,
+  reviewing Draft 4 at shared HEAD `d3cadda`, findings `B071-R30`–`R37`), and round 5 (Lane B,
+  reviewing Draft 5 at `5bd9b90`, findings `B071-R38`–`R44`) all consolidated below. No separate
+  `B-072` item was ever minted.
 - **Evidence:** `docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md` Options A/B;
   `docs/v1/V1-DECISION-REGISTER.md` `D-171`, `D-175`–`D-181`;
   `docs/v1/V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes";
@@ -566,3 +571,50 @@ AUTH-F2 — one bounded factory-route capability run
 | **Approve-with-conditions** | Lane A implementation plan | Core ontology and two-feature split survive, subject to the eight Round 4 corrections above | Lane A Draft 5, then Lane B independent review |
 | **Reject** | `AUTH-DOC` approval now | Approval vocabulary, `D-171` expiry wording, run serialization, lifecycle write set and assurance identity test remain unsafe | Correct Draft 5 before asking the Judge |
 | **Defer** | Product implementation / lane transition / route activation | Judge approval remains none; `D-171` is fully binding | Separate bounded authorization only after corrected documentation is applied and independently Verified |
+
+## Round 5 independent review — Lane A Draft 5 at `5bd9b90`
+
+**Judge approval: none.** Lane B reviewed the actual two-commit sequence, not Lane A's summary:
+`428731d` contains this handoff's Round 4 findings and `5bd9b90` contains Draft 5 plus Lane A's
+response update. Local HEAD and `origin/docs/journal-2026-08-16` both resolve to `5bd9b90`, so the
+claim that these commits are unpushed is false. Graphify is the opposite: its
+`lastAnalyzedHead` remains `d3cadda`, so `docs-drift` fails at `5bd9b90`. The full suite therefore
+passes 16 checks and fails `docs-drift`; it is not 17/17 at the reviewed HEAD.
+
+### Round 5 findings — parent first
+
+| Finding | What remains unclear or contradictory | Guaranteed failure if unchanged | Draft fix |
+|---|---|---|---|
+| `B071-R38` — shared-evidence status is inverted | B-071 says Draft 5 is not pushed, but local and remote are both `5bd9b90`. Conversely, Graphify still analyzes `d3cadda` while the plan's checklist treats push equality as the remaining evidence condition | A reviewer can wait on a push already completed while accepting a graph that demonstrably analyzes the wrong commit | Record push equality as satisfied at `5bd9b90`; record Graphify as stale and Round 5 as 16/17. Do not claim full synchronization until the corrected source and curated fragment are committed, rebuilt and checked at one later HEAD |
+| `B071-R39` — the vocabulary rule fails its own test | Draft 5 says the authorization checkpoints are never abbreviated as “Gate” in the file, and Round 5 requires zero old labels, but its revision history and review history intentionally retain “Gate A/B1/B2/Route Activation Gate” | The checklist fails forever or history is rewritten merely to make a text search green | Apply `AUTH-*` exclusively to operative instructions. Label old terms as historical vocabulary and make the check scope-aware; preserve historical evidence instead of demanding zero occurrences across the whole file |
+| `B071-R40` — authorization drafting is forbidden by the plan that drafts it | The approval section says `AUTH-F1`/`AUTH-F2` cannot be **proposed** before `AUTH-DOC` is Verified, while §§5 and Approval Gate already propose their scopes for review | The present plan violates its own entry condition, so either Draft 5 is invalid or later reviewers must suppress necessary planning | Allow bounded authorization proposals and review before `AUTH-DOC` verification; prohibit only their approval, exercise, lane transition and implementation until `AUTH-DOC` is Verified |
+| `B071-R41` — shared Feature 1 is still made route-specific | The `AUTH-ROUTE` table row requires `AUTH-F1` and `AUTH-F2` “Verified for that route,” although the text immediately below correctly says Feature 1 is shared and route names are test coverage only | Route activation will demand nonexistent route-specific Feature 1 verification or create seven duplicate Feature 1 approvals | Require one globally Verified shared Feature 1 result plus the named route's Verified Feature 2 contract, operation shapes and external prerequisites |
+| `B071-R42` — lifecycle closure still contains two impossible facts | The opening still says the plan precedes writing into B-070 even though B-070 was already amended at `d3cadda`. Section 7 says B-071 becomes Applied after “§1–§9” propagate, but the plan ends at §8 | Gate A can complete every real step while B-071 remains Open forever on nonexistent §9; Lane A can also re-edit B-070 despite the later cite-only rule | Remove B-070 from the opening's future-write list and cite its already-applied notice. Change the B-071 condition to successful execution of the actual §1–§8 packet at the named commit |
+| `B071-R43` — `B071-R35` is described as applied but its status-only graph fix is absent | `frag119.json` still describes B-071 as R1–R22/two rounds and uses the retired Gate vocabulary. Draft 5 correctly says updating that description needs no `AUTH-DOC`, but Lane A did not update it | Graph queries omit R23–R37 and surface an obsolete approval model during the very review that depends on the graph | In Draft 6's documentation packet, update the status-only node to B-071 Open, Draft 5/R1–R37 independently reviewed, Judge approval none, and `AUTH-*` vocabulary. Do not add or mark `D-182` decided before `AUTH-DOC` |
+| `B071-R44` — commit and graph-rebuild order is ambiguous | Section 8 first commits the “full source + curated-fragment packet,” then its rebuild step says to add/change those curated nodes “in this same pass” | If the fragment changes after the commit, the final graph can be correct locally while its source is uncommitted; if it changed before, the instruction is redundant and unverifiable | Order it once: edit all approved source and `frag119.json` → commit that complete packet → rebuild at that commit → re-merge curated fragments → run the full suite and semantic queries → make no further tracked edit before independent review |
+
+### Draft 6 success criteria
+
+- Current metadata states: Draft 5 and this review are pushed; Graphify is stale until the next
+  synchronized commit; Judge approval remains none.
+- Operative approval language uses only `AUTH-DOC`, `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`; historical
+  terminology is retained but explicitly non-operative.
+- `AUTH-F1` and `AUTH-F2` may be drafted and reviewed early, but cannot be approved or exercised
+  before `AUTH-DOC` is independently Verified.
+- `AUTH-ROUTE` consumes one globally Verified Feature 1 result and one named-route Feature 2 result;
+  it never manufactures route-specific Feature 1 approvals.
+- B-070 is cite-only. B-071 becomes Applied after the real §1–§8 packet, with no nonexistent step.
+- The curated fragment and graph state the same review range and authorization vocabulary as the
+  source, while keeping `D-182` proposed until the Judge approves `AUTH-DOC`.
+- Source and curated fragment are committed before rebuilding; after rebuild,
+  `lastAnalyzedHead = HEAD = origin`, the full suite passes, and semantic queries return the
+  current lifecycle. Those facts still do not constitute Judge approval.
+
+### Round 5 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Handoff / B-070 | Its applied correction remains bounded and is not reopened | Cite only during Draft 6 |
+| **Approve-with-conditions** | Lane A Draft 5 | Core actor/node split, three-act T5 model, Final-Sign-Off ordering, `D-171` non-expiry and serialized feature runs are preserved | Apply `B071-R38`–`R44` in Draft 6 |
+| **Reject** | `AUTH-DOC` approval now | Evidence state, proposal timing, shared-feature scope, lifecycle closure and graph/commit order remain contradictory | Lane A Draft 6, then Lane B independent review |
+| **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation and lane transition | No Judge approval exists; `D-171` remains binding | Only after corrected `AUTH-DOC` is applied and independently Verified |
