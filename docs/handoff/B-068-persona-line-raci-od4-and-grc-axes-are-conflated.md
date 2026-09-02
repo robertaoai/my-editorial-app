@@ -27,7 +27,7 @@
 - **Examined-By:** Lane B independent reviews, 2026-09-02 — `D-178` rejected as pointer-only (§20);
   `D-179` materially improved propagation but had three residual defects (§21); `D-180` corrects all
   three — re-review of `D-180` outstanding
-- **Verified-At-Commit:** PENDING-COMMIT
+- **Verified-At-Commit:** 7e37919
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `D-170`–`D-180` in `V1-DECISION-REGISTER.md`;
   `docs/handoff/B-069-*.md`; `docs/Modular_PRD.md` §2.3/§2.3.1/§0.4/§8 and

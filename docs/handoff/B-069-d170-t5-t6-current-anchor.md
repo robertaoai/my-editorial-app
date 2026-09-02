@@ -12,7 +12,7 @@
   `D-171`'s hold is unaffected. Graphify sync and independent re-review remain separate, unstarted
   work (Parent 4).
 - **Resolution:** Applied
-- **Verified-At-Commit:** PENDING-COMMIT
+- **Verified-At-Commit:** 7e37919
 - **Evidence:** `V1-DECISION-REGISTER.md` `D-170`, `D-171`, `D-175`, `D-179`; `B-068` §21 (`B068-R50`–`R52`); local `docs-drift` result at HEAD `a506db7`
 
 ## What happened
