@@ -467,3 +467,161 @@ analysis and the record of how this was reasoned through; **they are not operati
 | **Defer** | Phase Closure / shared rules / work orders links | Not yet written | Lane A follow-up |
 | **Defer** | Hook/check enforcement | Not yet written | Lane A follow-up |
 | **Defer** | `docs/README.md` routing map addendum | Its own precondition (this decision) is now met | Lane A follow-up |
+
+## Independent review addendum — zero-to-one setup root and committed-document lineage (2026-09-03)
+
+### Review result and approval provenance
+
+The Chief Editor's latest instruction asks that the current branch be identified as the project's
+first zero-to-one setup request/spike and that the committed documents and journal carry durable
+parent-to-child references. This addendum records that instruction as **Judge clarification
+received** and independently reviews the current tree. It does **not** promote the proposed root
+identifier or any correction below to `Judge Approved`; that requires the explicit act defined by
+`D-183`.
+
+The review baseline is local `HEAD b714497` on `docs/journal-2026-08-16`; the remote branch remains
+at `7797139`. The graph's `lastAnalyzedHead` is `838baff`, so semantic graph results are not current
+enough to prove this review. File and Git-history evidence was used directly.
+
+### What happened
+
+The branch already contains the source material needed to reconstruct its origin, but no durable
+root relationship connects that origin to today's operative tracking:
+
+- `53ace36` is the branch point on `main`: the scaffold plan pack and initial migration.
+- `00d21cd` is the first branch-specific commit: `docs: governance baseline - governing set,
+  requirements, EMS audit response`. Its commit body says the change is planning-only, the app is
+  untouched from the scaffold, and no migration, environment pull or application build occurred.
+- `docs/journal/2026-08-16-sprint-plan.md` already names the branch and its `53ace36` base, but it
+  does not identify one historical setup-root request or point forward to the current operative
+  documents.
+- Later commits introduced the v1 tracking, lane control, handoff channel and B-068/B-071/B-072
+  refinements. They are descendants of the setup effort, not evidence that the entire branch is
+  still one undifferentiated request.
+
+Consequently, facts clarified in conversation can be applied to a late child without first being
+captured at the parent that owns the meaning. The next independent review then finds the missing
+premise and the Chief Editor has to explain it again.
+
+### Parent finding that must be resolved first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R16` — `D-184` approval provenance is not independently supportable | `D-184` says its standing Eligible commit-and-push rule was “approved directly in this conversation” and was the exact text B-072 recommended. The reviewed conversation contains the recommendation, but no explicit Chief Editor selection of that standing-push text before `D-184` was written | `D-183`'s own negative test fails: an assistant recommendation is promoted into Judge authority. Every child that cites `D-184` inherits authority it cannot prove | Hold `D-184` as disputed. Either obtain the Judge's explicit approval of the exact standing-push rule now, or append a correction stating it remained proposed and restore the prior rule. Never back-date a new approval as proof of an earlier one |
+| `B072-R17` — `D-184` contradicts its application commit | `D-184` says the handoff SOP link is “not yet applied” and B-072 remains `Open`; commit `b879af1` changed `docs/handoff/README.md`, while B-072 now says `Answered` / `Applied` | A current reader cannot tell whether the decision, the SOP or the handoff state is operative; a green check can only prove text shape, not select the true statement | After `R16` is decided, append one factual lifecycle correction to `D-184`; do not rewrite its historical body. Align B-072's header/closure with that corrected current state |
+
+Until `B072-R16` is resolved, this review **rejects terminal verification of `D-184` and B-072**.
+The policy content may match the Chief Editor's intent; the defect is the missing approving act and
+its contradictory lifecycle record.
+
+### Proposed historical root — one identifier, one meaning
+
+Use **`SETUP-SPIKE-000` — Zero-to-One Project Setup and Governance Spike** as the proposed root.
+Do not call it `R0` or `S0`: both labels already have governed meanings in the sprint plan.
+
+| Root fact | Proposed durable value |
+|---|---|
+| Git base | `53ace36` — scaffold/plan-pack base on `main` |
+| First applied root commit | `00d21cd` — first branch-specific governance/setup baseline |
+| Purpose | Turn the scaffold into a governed, traceable zero-to-one project setup before application execution |
+| Original scope | Planning, governing sources, requirement structure, journal and governance instruments; no application build authorization |
+| Lifecycle meaning | Historical parent only. It explains why the branch exists; it does not grant current approval, lane state, implementation authority or deployment authority |
+| Branch scope | Describes the branch's origin. Later commits remain separately governed child work and must not be flattened into the root spike |
+
+### Parent-first dependency map
+
+```text
+SETUP-SPIKE-000 — historical zero-to-one setup root (proposed)
+├─ GOV-BASELINE — document authority and Product requirements
+│  ├─ docs/README.md and docs/Modular_PRD.md                 [introduced 00d21cd]
+│  └─ docs/source/, docs/governance/, root sprint journal   [introduced 00d21cd]
+├─ V1-TRACKING — current decisions, sequence and artifacts
+│  ├─ V1-DECISION-REGISTER.md + V1-BUILD-SPEC.md            [introduced c861a4b]
+│  ├─ V1-ARTIFACT-INVENTORY.md                              [introduced 927c3c8]
+│  └─ V1-PHASE-CLOSURE.md                                   [introduced eb1549d]
+├─ LANE-CONTROL — execution ownership and evidence return
+│  ├─ docs/handoff/README.md                                [introduced f36538d]
+│  └─ docs/LANE-B-WORK-ORDER.md                             [introduced 85c479e]
+├─ PRODUCT-REFINEMENT — business-to-system semantics
+│  └─ B-068 → B-070 → B-071 → proposed D-182
+└─ PROCESS-REFINEMENT — request, approval and handoff mechanics
+   └─ B-072 → D-183 → disputed D-184
+```
+
+The tree is a navigation relationship, not a new authority hierarchy. Within every child, the
+repository's existing document-precedence and arbitration rules still apply.
+
+### Additional gaps surfaced by the root review
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R18` — the setup root exists only by inference | The journal names the branch/base and Git contains the first setup commit, but no document names their parent relationship | Reviewers start from a late decision or chat summary, miss the original constraints and rediscover them after drafting children | After explicit approval, add a compact `SETUP-SPIKE-000` metadata/reference block near the existing header of `docs/journal/2026-08-16-sprint-plan.md`; do not create another journal file |
+| `B072-R19` — chat clarification has no capture-before-child rule | `D-183` governs approval provenance, but does not require a material business clarification to be normalized in its owning document before dependent drafting begins | A child can be internally polished while its parent premise remains chat-only; later review correctly reopens it | Extend the proposed documentation routing rule: before dependent drafting, record one normalized clarification, its parent, owning artifact, open questions and child impact in the existing handoff or register item |
+| `B072-R20` — lineage could become a duplicate changelog | “Log the committed documents” can be implemented as a commit-by-commit journal, while the repo already rejects duplicated live tracking and restated tallies | The new log drifts on the next commit and becomes another competing source of truth | Record only stable entry points and their introducing evidence commits. Git remains the detailed history; the journal supplies the historical root pointer; `docs/README.md` supplies the structural routing map |
+| `B072-R21` — graph cannot presently validate the proposed links | Graphify analyzes `838baff` while Git is at `b714497`; the graph is therefore stale even though its stored `stale` field is not reliable here | A semantic query can omit the newest governance changes and falsely report that a link or contradiction does not exist | Lane A resolves `R16`–`R20`, commits source and curated-fragment inputs, rebuilds once at final `HEAD`, re-merges the curated layer, then runs the full suite without another tracked edit before independent review |
+
+### Lane A corrective packet — parent first
+
+1. **Authority parent (`B072-R16`).** Ask the Judge to approve or reject the exact `D-184`
+   standing Eligible handoff-only commit-and-push rule. Do not infer approval from a recommendation,
+   a push report, or this root-spike instruction.
+2. **Lifecycle child (`B072-R17`).** Append a narrow factual correction to `D-184` and align B-072
+   only after step 1 establishes which rule is current.
+3. **Root decision.** Record one proposed register decision defining `SETUP-SPIKE-000`, its scope,
+   exclusions and dependency-tree purpose. State explicitly that Build Spec, Artifact Inventory and
+   Product requirements are unaffected unless a concrete artifact/sequence/product requirement is
+   changed by the application pass.
+4. **Historical evidence child (`B072-R18`).** Add the compact root block and stable forward links
+   to the existing `2026-08-16-sprint-plan.md`. Preserve the rest of that dated journal; it remains
+   historical evidence and cannot authorize present work.
+5. **Navigation child (`B072-R20`).** Add one root-journal pointer to `docs/README.md` beside its
+   request→refinement→decision→execution→evidence map. Do not reproduce the dependency tree, SOP or
+   Git log there.
+6. **Capture-before-child control (`B072-R19`).** In the same structural map, require each material
+   clarification to be captured once in the artifact that owns it before a dependent child is
+   drafted. Child documents link upward; they do not copy the parent explanation.
+7. **Dependent records.** Add parent links only where a live entry lacks one. Do not bulk-edit old
+   journals, retitle every commit, create an `A-NNN` channel, or add a second backlog.
+8. **Evidence (`B072-R21`).** Commit the source/fragment inputs, rebuild and re-merge Graphify at that
+   commit, run the full checks, then hand the same `HEAD` to a non-drafting lane for verification.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-ROOT-01` | A reader opens the root sprint journal | They follow its setup-root block | They can identify `53ace36`, `00d21cd`, the zero-to-one purpose and the current operative entry points without reading this conversation |
+| `B072-ROOT-02` | A child requirement, decision or handoff is reviewed | Its dependency is traced upward | Exactly one parent path reaches `SETUP-SPIKE-000`; no child uses the root as present execution authority |
+| `B072-ROOT-03` | A material clarification changes a parent premise | Dependent drafting is attempted | The normalized clarification, owning artifact, open question and affected children already exist in one durable record |
+| `B072-ROOT-04` | A recommendation is present in a handoff or chat | Approval provenance is checked | It remains proposed until the Judge's explicit act is durably recorded; neither the drafter nor the recommendation proves approval |
+| `B072-ROOT-05` | Commit lineage is inspected | The document map is compared with Git | Stable introducing commits are cited, while Git—not a copied journal list—remains the complete commit history |
+| `B072-ROOT-06` | Lane A finishes the correction packet | Independent review begins | Source, curated graph, `lastAnalyzedHead`, Git `HEAD` and check evidence all refer to the same commit |
+
+### Exact Judge decisions needed
+
+The first decision is the parent; the second must not be applied before it:
+
+```text
+Judge Approved: D-184's standing rule — an Eligible Lane B or Lane C actor may commit and push only
+its own explicit docs/handoff/B-NNN-*.md or C-NNN-*.md entry, with no authority over any other path,
+implementation, lane transition, verification promotion or deployment. Approval is effective from
+this statement and must not be represented as having occurred earlier.
+```
+
+```text
+Judge Approved: name the historical root of branch docs/journal-2026-08-16
+SETUP-SPIKE-000 — Zero-to-One Project Setup and Governance Spike. Its Git base is 53ace36 and its
+first branch-specific applied commit is 00d21cd. It is a historical lineage parent only and grants
+no current build, lane-transition, push or deployment authority.
+```
+
+### Addendum approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Git/history evidence | `53ace36` is the scaffold base and `00d21cd` is the first branch-specific governance/setup commit; the branch began as a zero-to-one setup spike | Lane A root record after Judge naming approval |
+| **Approve-with-conditions** | Proposed root lineage | `SETUP-SPIKE-000` cleanly separates the historical parent from later child work and avoids `R0`/`S0` collisions | Explicit Judge approval, then Decision Register and journal pointer |
+| **Approve-with-conditions** | Documentation capture model | One parent clarification must be durable before dependent children; one root pointer and stable entry points replace a copied changelog | Apply `B072-R18`–`R20` through Lane A |
+| **Reject verification** | `D-184` / B-072 | Current approval provenance and lifecycle text fail `D-183`; B-072 cannot be terminally verified at `b879af1` | Judge decides exact standing-push rule; Lane A appends corrections; independent re-review |
+| **Reject** | Duplicate tracking | No new journal file, request-box, `A-NNN` channel, central backlog, copied SOP, exhaustive commit ledger or bulk historical rewrite | Preserve existing owners and link upward |
+| **Defer** | Graphify synchronization | Graph is behind current `HEAD`; syncing before the disputed parent and root naming are resolved would encode unsettled meaning | Final Lane A source commit, rebuild/re-merge, same-HEAD independent review |
+| **Defer** | Product implementation / lane transition / deployment | This packet is governance lineage and handoff review only | Separate bounded authorization after governing prerequisites |
