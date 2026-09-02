@@ -20,8 +20,9 @@
   not yet selected or applied as a decision. Lane B remains `Eligible`, not `Active`
   (`V1-PHASE-CLOSURE.md` §5) — no lane-state transition is made by this handoff.
 - **Resolution:** Applied
-- **Verified-At-Commit:** _(set once the corrected work-order text and this handoff are committed;
-  see the corrective plan's Parent 4)_
+- **Verified-At-Commit:** 1f77cfc — the commit containing the work-order correction and this
+  handoff; not a `Verified` claim (`Resolution` stays `Applied`), only the commit where this
+  evidence is currently observable
 - **Evidence:** `docs/LANE-B-WORK-ORDER.md` §2.2d (historical/held notice added); `D-171` in
   `V1-DECISION-REGISTER.md`; `V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes"; `D-181` in
   `V1-DECISION-REGISTER.md` §5.14e7; `docs/handoff/B-068-*.md`/`B-069-*.md` (`Verified` status);
