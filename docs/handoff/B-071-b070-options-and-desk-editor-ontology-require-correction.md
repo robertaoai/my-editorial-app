@@ -7,30 +7,36 @@
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
 - **Status:** Open
 - **Lane A:** Acknowledged 2026-09-02. Implementation plan at `docs/v1/V1-B071-CORRECTIVE-PLAN.md`
-  is now Draft 6, incorporating `B071-R8`–`R44` and the Chief Editor's `B071-R22` clarification in
-  full. Draft 6 corrects the evidence-state inversion round 5 found — Draft 5 was already pushed
-  (`5bd9b90` local = remote) while Graphify was stale at `d3cadda`, i.e. 16/17 checks (`R38`);
-  scopes the "never abbreviate as Gate" rule to operative text only, leaving revision-history and
-  review-history citations of the retired wording intact and explicitly non-operative (`R39`);
-  separates drafting/proposing `AUTH-F1`/`AUTH-F2` (allowed now) from approving/exercising them
-  (still gated on `AUTH-DOC` `Verified`) (`R40`); corrects `AUTH-ROUTE` to require one globally
-  `Verified` Feature 1 result plus the named route's `Verified` Feature 2 contract, never
-  route-specific Feature 1 approvals (`R41`); removes `B-070` from the opening's future-write list
-  and fixes §7's B-071-closure reference from the nonexistent "§1–§9" to the actual "§1–§8" (`R42`);
-  updates `docs/graph-fragments/frag119.json` to describe `B-071`/this plan at `R1`–`R44`/Draft 6
-  with `AUTH-*` vocabulary, replacing the stale `R1`–`R22`/"Gate" description (`R43`); and fixes
-  §8's ordering so source and curated fragment are committed together before any Graphify rebuild,
-  never after (`R44`). This commit also updates `frag119.json` in the same pass per the corrected
-  ordering, then runs `npx graphify hook-rebuild` and `bun run check` to confirm `docs-drift`
-  clears. **Not yet pushed** — round 6/`AUTH-DOC` cannot be marked `Verified` until this commit (or
-  its successor) is on `origin/docs/journal-2026-08-16` and confirmed identical; pushing requires
-  the user's explicit go-ahead and has not been requested yet.
+  is now **Draft 8, uncommitted in the working tree over shared predecessor `2d3bd49`** (`B071-R50`
+  — the previous header text describing Draft 6 as "not yet pushed" was itself stale the moment
+  Draft 6 was committed at `2d3bd49`, and Draft 7 claimed this header was corrected when it was not;
+  this line is the actual correction). Draft 7 (uncommitted) incorporated round-6 review
+  `B071-R45`–`R49` and the Judge's four-identifier ruling (`agent_id`/`agent_run_id`/
+  `agent_attempt_badge_id`/`executor_principal_key`, `self_asserted` rejected for executor
+  comparison). Draft 8 (also uncommitted, layered on Draft 7) incorporates round-7 review
+  `B071-R50`–`R55`: corrects this header and the plan's own Source/revision-history metadata
+  (`R50`, this edit); removes the invented fifth Article-50 external-reader token — the governed
+  direct interaction is the Chief Editor and the virtual agents, not an external reader, and
+  publication-text labelling under Article 50(4) is a separate future question (`R51`); adds
+  `system_attested` to the target `identity_assurance` vocabulary alongside `self_asserted` and
+  `authenticated`, without touching the applied `0002` migration (`R52`); adds the four
+  identifiers' Product/Fn_Spec/`SPECS`-candidate ownership to the §7 write set instead of leaving
+  them contract-less (`R53`); moves `merge7.js`'s upsert fix and its semantic-equality check into
+  §7/§8's committed write set, ahead of any rebuild, instead of scheduling them after the commit
+  that must contain them (`R54`); and replaces "person"/"account" language describing virtual-agent
+  execution with "executor principal"/`executor_principal_key`, reserving natural-person/account
+  language for the Chief Editor and `T6` (`R55`). **Nothing here is committed or pushed.** Round
+  7/8 cannot be marked `Verified` until a commit is on `origin/docs/journal-2026-08-16` and
+  confirmed identical; committing and pushing require the user's explicit go-ahead and have not
+  been requested yet.
 - **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`), round 2 (Lane
   B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
   clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), round 4 (Lane B,
-  reviewing Draft 4 at shared HEAD `d3cadda`, findings `B071-R30`–`R37`), and round 5 (Lane B,
-  reviewing Draft 5 at `5bd9b90`, findings `B071-R38`–`R44`) all consolidated below. No separate
-  `B-072` item was ever minted.
+  reviewing Draft 4 at shared HEAD `d3cadda`, findings `B071-R30`–`R37`), round 5 (Lane B,
+  reviewing Draft 5 at `5bd9b90`, findings `B071-R38`–`R44`), round 6 (Lane B, reviewing Draft 6 at
+  `2d3bd49`, findings `B071-R45`–`R49`, plus the Judge's direct four-identifier clarification), and
+  round 7 (Lane B, reviewing the uncommitted Draft 7 worktree over `2d3bd49`, findings
+  `B071-R50`–`R55`) all consolidated below. No separate `B-072` item was ever minted.
 - **Evidence:** `docs/handoff/B-070-lane-b-work-order-stale-s2-instruction.md` Options A/B;
   `docs/v1/V1-DECISION-REGISTER.md` `D-171`, `D-175`–`D-181`;
   `docs/v1/V1-BUILD-SPEC.md` §"S2 — Line assignment and four-eyes";
@@ -39,7 +45,8 @@
   `docs/governance/factory-route-operation-crosswalk.md` §§2–4;
   `docs/fn-specs/FN-GATES-01-05.md` §11;
   `docs/LANE-B-WORK-ORDER.md` §§1/2.2d; both supplied Editorial Stage/Task CSVs; Chief Editor/Judge
-  clarifications supplied directly on 2026-09-02 and not yet represented in the repository
+  clarifications supplied directly on 2026-09-02, now represented in this file's Judge-clarification
+  section (`R50` corrects the prior "not yet represented" line)
 
 ## What happened
 
@@ -618,3 +625,179 @@ passes 16 checks and fails `docs-drift`; it is not 17/17 at the reviewed HEAD.
 | **Approve-with-conditions** | Lane A Draft 5 | Core actor/node split, three-act T5 model, Final-Sign-Off ordering, `D-171` non-expiry and serialized feature runs are preserved | Apply `B071-R38`–`R44` in Draft 6 |
 | **Reject** | `AUTH-DOC` approval now | Evidence state, proposal timing, shared-feature scope, lifecycle closure and graph/commit order remain contradictory | Lane A Draft 6, then Lane B independent review |
 | **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation and lane transition | No Judge approval exists; `D-171` remains binding | Only after corrected `AUTH-DOC` is applied and independently Verified |
+
+## Round 6 independent review — Lane A Draft 6 at `2d3bd49`
+
+**Judge approval: none.** Lane B reviewed the actual Draft 6 commit, not Lane A's summary. Local
+`HEAD` and `origin/docs/journal-2026-08-16` both resolve to `2d3bd49`; the handoff header's “Not yet
+pushed” statement is therefore false. `.graphify/branch.json` records the same
+`lastAnalyzedHead`, `stale = false`, and the full local consistency suite passes. The current local
+graph's two B-071 descriptions match tracked `frag119.json`. Those facts establish a shared,
+mechanically current review baseline; they do **not** establish that the curated graph can be
+reproduced from tracked inputs, that Draft 6 is semantically complete, or that the Judge approved
+`AUTH-DOC`.
+
+### Round 6 findings — parent first
+
+| Finding | What remains unclear or contradictory | Guaranteed failure if unchanged | Draft fix |
+|---|---|---|---|
+| `B071-R45` — the review baseline contradicts itself | B-071's header says Draft 6 is unpushed although local and remote are both `2d3bd49`. The plan's Source stops at `R37`; Draft 5 and Draft 6 are both labelled “this revision”; its graph paragraph still says `frag119.json` stops at `R22`; and its Round 6 checklist requires `R1`–`R37`/Draft 5 although the tracked fragment already says `R1`–`R44`/Draft 6 | A reviewer can wait on a completed push, apply an obsolete checklist to a newer fragment, or regress the fragment to Draft 5 while claiming to synchronize it | First correct B-071's Lane A/evidence text to the shared Draft 6 baseline and record this Round 6 review as pending incorporation. Draft 7 then states six completed review rounds through `R49`, removes “this revision” from Draft 5/6, marks Draft 7 current, and aligns its graph paragraph, tracked fragment and Round 7 checklist to `R1`–`R49`/Draft 7/Judge approval none |
+| `B071-R46` — curated graph updates are not reproducible | `docs/graph-fragments/merge7.js` skips an existing node ID and an existing edge key instead of updating fragment-owned fields. Section 8 re-merges only if the curated node count drops. Lane A therefore had to patch ignored `.graphify/graph.json` directly to make Draft 6's descriptions current | A rebuild can retain the same node count and pass `graph-coverage`/`docs-drift` while returning stale lifecycle text. Another machine cannot reproduce the manually patched graph from the tracked fragment | Make curated merging a deterministic upsert: update fragment-owned fields for an existing node ID/edge key and fail on conflicting duplicate definitions. Re-merge after every rebuild, not only after a count drop. Add a semantic equality check between every tracked fragment-owned node/edge field and `.graphify/graph.json`; success is a clean rebuild + merge reproducing the current descriptions with no direct graph edit |
+| `B071-R47` — “distinct executor IDs” has no stable identity key | Draft 6 does not say whether executor identity means `actor_id`, `agent_id`, or per-invocation `agent_run_id`. The current Product model says Phase 0 identity is self-asserted until S6, and the schema stores all three values plus `identity_assurance` | One executor can use two run IDs—or submit two self-asserted actor IDs—and pass the stated inequality, producing false two-reviewer evidence while the negative test appears green | Define one stable `executor_principal_key` contract before `AUTH-DOC`: derived from the governed human `actor_id` or stable virtual-agent `agent_id`; never from event/evidence IDs or `agent_run_id`. Retries retain the principal key. Store and test `identity_assurance`. Put the self-asserted policy to the Judge explicitly; recommended safe default: self-asserted identities may support a visibly labelled demo record but cannot satisfy the independent-two-executor completion claim or `AUTH-ROUTE`, which require authenticated or system-attested stable principals |
+| `B071-R48` — the two assurance nodes are named asymmetrically | The Desk act has canonical `NODE-EDITORIAL-DESK-REVIEW`; the other is only prose (“Chief Journalist review node”), while the plan requires distinct canonical roles/nodes and the existing Fn_Spec catalog has only the parent `EG4` node | Implementations and tests can compare a node ID on one side with an arbitrary label on the other; role separation can be mistaken for node separation | Name the sibling canonical node, e.g. `NODE-CHIEF-JOURNALIST-REVIEW`, map it only to `ROLE-CHIEF-JOURNALIST`, and state that both are child workcells within the one `EG4`/`T5` stage. Require each assurance act to record its canonical node ID, role ID, purpose code, evidence ID, and stable executor principal key |
+| `B071-R49` — Final Sign-Off alternates between “person” and non-human signer | Section 3 refuses zero/multiple “persons” and says “whichever person” signs, while the same section says the effective task `A` need not be a natural person. Only T6 is human-only | A valid agent `A` can be rejected by person-only wording, or a system can silently treat every `A` as human and collapse the T6-specific control into Final Sign-Off | Use **accountable principal** consistently for Final Sign-Off. Record `principal_id`, `principal_type`, canonical role, authority scope and provenance; require exactly one effective task-`A` principal. Reserve **natural person** exclusively for the T6 Chief Editor rule |
+
+**Judge clarification required before `AUTH-DOC`:** may two `self_asserted` stable identities satisfy
+the Assurance Preparation two-executor rule, or must both be `authenticated`/system-attested? Lane
+B recommends the latter; otherwise the control proves two submitted labels, not two independent
+executors. This clarification changes no current lane state and authorizes no implementation.
+
+### Draft 7 success criteria
+
+- One review baseline is used everywhere: Draft 7 incorporates six completed review rounds through
+  `B071-R49`, names shared Draft 6 commit `2d3bd49` as its reviewed predecessor, marks Round 7
+  outstanding, and records Judge approval as none.
+- A clean Graphify rebuild followed by the tracked merge reproduces every fragment-owned field;
+  no direct edit of ignored `.graphify/graph.json` is required, and a semantic mismatch fails the
+  consistency suite even when node counts and commit hashes match.
+- The two Assurance Preparation acts use different stable, authenticated or system-attested
+  executor principals. Different run IDs, evidence IDs, role labels or self-asserted actor IDs do
+  not satisfy executor separation.
+- `NODE-EDITORIAL-DESK-REVIEW` and the canonical Chief Journalist sibling node are explicit child
+  workcells of one `EG4`/`T5` stage; their identity never creates another gate or serial review.
+- Final Sign-Off resolves exactly one accountable principal and records its type/provenance; only
+  T6 requires a natural-person Chief Editor.
+- `D-171` remains binding. Draft 7, graph/tooling correction and independent re-review authorize
+  no product code, route activation, release or deployment.
+
+### Round 6 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Handoff / B-070 | Its applied cite-only correction remains bounded and is not reopened | Cite only during Draft 7 |
+| **Approve-with-conditions** | Lane A Draft 6 | Core T5 two-workstream model, Final-Sign-Off-before-T5 order, `D-171` non-expiry and four serialized authorization checkpoints remain usable | Apply `B071-R45`–`R49` in Lane A Draft 7 |
+| **Reject** | `AUTH-DOC` approval now | Review metadata is contradictory; graph derivation is non-reproducible; executor-principal and sibling-node contracts are not yet safe or testable | Lane A Draft 7, clean graph reproduction, then Lane B Round 7 independent review |
+| **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation and lane transition | No Judge approval exists and `D-171` remains fully binding | Only after corrected `AUTH-DOC` is applied and independently Verified |
+
+## Judge clarification — executor identity and attempt-badge exposure (resolves the `B071-R47` open question)
+
+**Judge approval: the identifier model below, direct ruling, 2026-09-02.** This closes the "may
+`self_asserted` identities satisfy the two-executor rule" question Round 6 left open. It does not by
+itself close `B071-R47`/`B071-R48` as findings — per point 10 below, those close only once Lane A
+incorporates this ruling into the plan and Lane B independently verifies the result.
+
+An earlier same-turn draft proposed treating `executor_principal_key` as an alias for `agent_id`.
+**The Judge rejected that equivalence.** They are four separate identifiers, not three collapsed
+into an alias pair.
+
+### Identifier model
+
+| Identifier | Meaning | Stability | Exposed to |
+|---|---|---|---|
+| `agent_id` | Stable internal technical identity of a virtual agent | Same across runs | Internal only |
+| `agent_run_id` | One execution attempt | New per attempt | Internal only |
+| `agent_attempt_badge_id` | Internal full attempt identifier, binds `agent_id` + `agent_run_id` | New per attempt | Internal to the agent/audit mechanism only — **not** the Chief Editor's normal UI |
+| `executor_principal_key` | Separate, stable, system-attested identifier | Same across an executor's retries/attempts | Exposed in my-editorial-app to its natural-person user (Chief Editor) |
+| `identity_assurance` | How the identity was established (`self_asserted` vs. system-attested) | Recorded per event | Not displayed as an identity itself |
+
+### Ruling
+
+1. `agent_id` is the stable internal technical identity of a virtual agent.
+2. `agent_run_id` identifies one execution attempt.
+3. `agent_attempt_badge_id` is the internal full attempt identifier. It binds the relevant `agent_id`
+   and `agent_run_id`. It is internal to the agent/audit mechanism and is not the identifier exposed
+   to the Chief Editor.
+4. `executor_principal_key` is a separate, stable, system-attested identifier exposed in
+   my-editorial-app to its natural-person user, presently the Chief Editor.
+5. Every `agent_attempt_badge_id` is tagged/linked to exactly one `executor_principal_key`. One
+   `executor_principal_key` may have multiple attempt badges (retries, later attempts).
+6. Assurance Preparation executor separation is evaluated using `executor_principal_key`. Different
+   `agent_run_id` or `agent_attempt_badge_id` values do not establish different executors.
+7. The two Assurance Preparation acts must contain different, system-attested `executor_principal_key`
+   values and the correct node-role bindings:
+   - `NODE-EDITORIAL-DESK-REVIEW` → `ROLE-DESK-EDITOR`
+   - `NODE-CHIEF-JOURNALIST-REVIEW` → `ROLE-CHIEF-JOURNALIST`
+8. A `self_asserted` value cannot satisfy this comparison. It may remain visibly marked as
+   demonstration or historical evidence only.
+9. The Chief Editor's interface displays the AI identity, canonical role/node and
+   `executor_principal_key`. Raw `agent_id`, `agent_run_id` and `agent_attempt_badge_id` values
+   remain internal unless an authorized audit view specifically requires them.
+10. This ruling resolves the Judge decision required by `B071-R47`. The finding itself becomes
+    closed only after Lane A incorporates the ruling into Draft 7 and Lane B independently verifies
+    the result.
+
+### Article 50 scope — corrected by `B071-R51`, not an open gap
+
+The prior revision of this section treated "what is disclosed to an external natural-person reader"
+as an open fifth-identifier question. **That was a phantom question.** The governed scope contains
+no direct external-reader interaction with the virtual agents — the natural person directly
+interacting with them is the Chief Editor. Article 50(1)/(5) disclosure applies to that direct
+interaction: an explicit AI label, canonical role/node, and `executor_principal_key`, shown at first
+interaction; raw `agent_id`/`agent_run_id`/`agent_attempt_badge_id` stay internal. Whether published
+article text itself needs an AI-generation label is a separate Article 50(4) publication question,
+assessed later in the publication feature — it is not a disclosure requirement on the T5/T6
+identifier model and does not block `AUTH-DOC`. No fifth identifier is required.
+
+### Clarification approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Four-identifier model and Chief-Editor exposure rule | Final; supersedes the rejected `executor_principal_key`≡`agent_id` equivalence | Incorporate into Lane A Draft 7 |
+| **Reject** | `self_asserted` for executor comparison | Confirmed rejected (point 8) | Demo/historical evidence only, never operative comparison |
+| **Reject** | Fifth Article 50 external-reader token | No governed direct external-reader interaction exists (`B071-R51`); Chief Editor is the direct-interaction audience | Chief-Editor disclosure per this ruling; Article 50(4) publication labelling assessed separately |
+| **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation | Unaffected | After `AUTH-DOC` is applied and independently Verified |
+
+## Round 7 independent review — Lane A Draft 7, uncommitted worktree over `2d3bd49`
+
+**Judge approval: the four-identifier relationship and rejection of `self_asserted` only. No
+`AUTH-DOC`, plan, tooling, implementation or route approval exists.** Lane B reviewed the actual
+two-file worktree diff. The checked-in graph still correctly represents committed Draft 6 at
+`2d3bd49`; it cannot represent uncommitted Draft 7 and must not be described as Draft-7-synced.
+The following findings are new or show that a Round 6 correction was claimed but not actually
+completed.
+
+### Round 7 findings — parent first
+
+| Finding | What remains unclear or contradictory | Guaranteed failure if unchanged | Draft fix |
+|---|---|---|---|
+| `B071-R50` — `R45` is claimed closed but its live metadata is untouched | Draft 7 says `R45` was corrected “in the handoff file itself,” yet B-071's Lane A header still says Draft 6 is unpushed, its Independent-Review field stops at Round 5, and its Evidence line says the direct clarifications are not represented. The plan's Source still stops at `R37`, and Draft 5 still says “this revision” | The next reviewer receives two incompatible baselines and can approve the wrong revision or wait for a push already completed | Correct the live header and Source, not only the revision narrative: shared predecessor `2d3bd49`; Draft 7 uncommitted/pending Round 7; completed reviews through `R49`; Judge identifier ruling represented but `AUTH-DOC` approval none. Remove “this revision” from Draft 5 and reserve it for Draft 7 only |
+| `B071-R51` — Article 50 is applied to an invented external-reader interaction | The plan opens a fifth-token question for an “external natural-person reader,” but the governed scope contains no direct external-reader AI interaction. The Chief Editor is already the natural person directly interacting with the virtual agents. Article 50(1) requires clear AI disclosure for direct interaction; it does not require a public technical token. Published public-interest text is a separate Article 50(4) question | A nonexistent external interaction becomes an `AUTH-DOC` blocker, while the real Chief-Editor disclosure can remain underspecified. Direct-interaction disclosure and publication labelling will be implemented as one confused control | Close the phantom question: no fifth identifier is required in this plan. For the Chief Editor's direct interaction, display an explicit AI label, canonical role/node and `executor_principal_key` at first interaction. Keep raw attempt identifiers internal. If a future external interactive feature is proposed, specify its disclosure then; assess Article 50(4) publication labelling separately in the publication feature |
+| `B071-R52` — “system-attested” cannot be represented by the governed assurance vocabulary | Draft 7 records `identity_assurance` as `self_asserted` versus `system-attested`, but the Product contract and applied `0002` enum contain only `self_asserted` and `authenticated` | Writers must either store a value the database rejects or mislabel agent attestation as human/account authentication; append-only evidence then preserves the wrong provenance permanently | Define the target vocabulary explicitly as `self_asserted` / `authenticated` / `system_attested`: `authenticated` for a verified natural-person/account principal, `system_attested` for a server-issued virtual-agent principal. Preserve historical `self_asserted` values. Route the physical schema change to a later authorized migration; do not edit `0002` |
+| `B071-R53` — the four identifiers have no owning data contract or propagation path | Draft 7 adds `executor_principal_key` and `agent_attempt_badge_id`, plus their one-principal-to-many-attempt relationship, only inside the corrective plan and proposed UX. Section 7 omits `Modular_PRD`'s `TR-DM-02`/identity NFR and any Fn_Spec/SPECS ownership for issuance, immutability, tenancy, uniqueness, linkage and retention | The UI can promise an identifier that no governed record stores; retries can re-key the principal; tenant collisions and orphan attempt badges remain legal; the negative test cannot be implemented consistently | Add the logical identity relationship to Product ownership (`TR-DM-02`, the relevant security/audit NFR and target ACs); add behavior/refusal rules to `FN-GATES`; route physical storage, key constraints and server-only issuance to a named `SPECS` candidate. Require one stable principal key per tenant/agent, one unique attempt badge per attempt, exactly one principal per badge, many badges per principal, immutable historical linkage and no client-supplied attestation |
+| `B071-R54` — the Graphify repair is ordered after the commit that must contain it | Section 8 step 2 commits the complete packet, then step 3 says `merge7.js` and the semantic check “must be fixed before this pass.” Neither tooling file appears in §7's write set | Following the order literally creates an uncommitted tooling edit after the purported complete commit, violating both the complete-packet claim and the no-further-edit rule; skipping it reproduces `R46` | Put `merge7.js` and the semantic equality check in §7 and §8 step 1's authorized write set. Commit source tiers, fragment and tooling together; only then rebuild, merge, run the full suite and query semantics. No direct `.graphify/graph.json` edit and no tracked edit after verification |
+| `B071-R55` — virtual-agent execution still uses human/account language | Section 4 says “the same person” performs virtual-agent acts, and the negative test uses “an account holding both labels.” The ruled comparison object is `executor_principal_key`, not a person or login account | Manual human workflow, authenticated account and virtual-agent principal collapse again; one service account hosting two valid agents may be rejected, or one agent with two labels may pass depending on how “account” is interpreted | Say “the same executor principal may perform the route-selected Editorial Review and that principal's own Assurance Preparation act.” The negative test submits the same `executor_principal_key` under two role/node labels and must fail. Keep natural-person language only for Chief Editor/T6 and Article 50 exposure |
+
+Official source boundary for `B071-R51`: Article 50(1) covers AI systems directly interacting with
+natural persons; Article 50(5) requires clear, distinguishable and accessible notice by the first
+interaction or exposure. Article 50(4)'s published-text rule is separate. See the European
+Commission's [Article 50 FAQ](https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act)
+and [AI Act Service Desk Article 50 text](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50).
+
+### Draft 8 success criteria
+
+- B-071's live header, the plan Source, revision history and review checklist state one lifecycle:
+  Draft 7 is the uncommitted response to Round 6; Round 7 findings are pending Draft 8; Judge
+  approval covers the identifier ruling only, not `AUTH-DOC`.
+- No fifth/public token is invented. The Chief Editor sees a clear AI label, canonical role/node
+  and `executor_principal_key`; raw `agent_id`, `agent_run_id` and `agent_attempt_badge_id` remain
+  internal except in an authorized audit view.
+- The governed assurance vocabulary can store `system_attested` without rewriting history or
+  overloading `authenticated`.
+- Product, Fn_Spec and SPECS ownership together define issuance, stability, tenancy, uniqueness,
+  linkage, retry continuity, retention and refusal behavior for both new identifiers.
+- Executor separation compares two system-attested `executor_principal_key` values. A different
+  attempt badge, run ID, role label or self-asserted value never creates a second executor.
+- The Graphify upsert and semantic-equality tooling are part of the pre-rebuild committed packet;
+  a clean rebuild reproduces the curated state without a hand edit.
+- `D-171` remains binding and no Draft 8 work authorizes product code, route activation, release or
+  deployment.
+
+### Round 7 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Judge identifier ruling | Four identifiers remain separate; `executor_principal_key` is user-visible and tags internal attempt badges; `self_asserted` is rejected for executor separation | Preserve in Draft 8 |
+| **Approve-with-conditions** | Lane A Draft 7 | T5/T6 ontology, sibling node, accountable-principal correction and four-checkpoint structure survive | Apply `B071-R50`–`R55` in Lane A Draft 8 |
+| **Reject** | Article 50 external-reader token blocker | No direct external-reader interaction is in governed scope; no fifth token is required here | Replace with Chief-Editor direct-interaction disclosure; assess publication labelling separately |
+| **Reject** | Commit now / `AUTH-DOC` approval now | Live metadata, identity storage ownership, assurance vocabulary and Graphify ordering remain contradictory | Hold commit; Draft 8, then Lane B Round 8 review |
+| **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation and lane transition | No authorization exists; `D-171` remains fully binding | Only after corrected `AUTH-DOC` is applied and independently Verified |

@@ -18,7 +18,8 @@ correction is already applied at `d3cadda`; this plan cites it and does not writ
 **Approver:** Judge/Chief Editor — same person, `D-158`.
 
 **Source:** `docs/handoff/B-071-*.md` in full, including all completed independent-review rounds
-(`B071-R1`–`R37`) and the Chief Editor's direct clarification (`B071-R22`).
+(`B071-R1`–`R55`), the Chief Editor's direct clarification (`B071-R22`), and the Judge's direct
+four-identifier ruling (§"Judge clarification — executor identity and attempt-badge exposure").
 
 **Authorization vocabulary (`B071-R30`, scoped `B071-R39`):** this plan's four approval checkpoints
 are named `AUTH-DOC`, `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`. Every **operative** instruction in this
@@ -45,7 +46,7 @@ record of what was corrected, and is explicitly non-operative (`B071-R39`).
   matrix, never named-route authorization (`R27`); corrects the graph edge semantics in
   `frag119.json` (`R28`). `R29` (push/remote-equality) is a process condition on when round 3/Gate A
   can be marked `Verified`, not a content change.
-- **Draft 5 (this revision):** incorporates round-4 review `B071-R30`–`R37`, reviewed at shared
+- **Draft 5 (`5bd9b90`):** incorporates round-4 review `B071-R30`–`R37`, reviewed at shared
   HEAD `d3cadda`: renames the four approval checkpoints `AUTH-DOC`/`AUTH-F1`/`AUTH-F2`/`AUTH-ROUTE`
   to remove the collision with development Lanes A/B/C and product `T1`–`T6`/`EG*` gates (`R30`);
   removes the residual sentence in §5 implying `D-171` expires once documentation verification
@@ -62,7 +63,7 @@ record of what was corrected, and is explicitly non-operative (`B071-R39`).
   acts, with a same-executor negative test (`R36`); and restates the external-acceptance refusal
   condition so it names the governed pre-Delivery/Delivery transition as the thing refused, never
   the external record itself or `T6` (`R37`).
-- **Draft 6 (this revision):** incorporates round-5 review `B071-R38`–`R44`, reviewing Draft 5 at
+- **Draft 6 (`2d3bd49`):** incorporates round-5 review `B071-R38`–`R44`, reviewing Draft 5 at
   `5bd9b90`: corrects the evidence-state inversion — Draft 5 was already pushed (local = remote =
   `5bd9b90`) while Graphify was stale at `d3cadda`, i.e. 16/17 checks, not 17/17 (`R38`); scopes the
   "never abbreviate as Gate" vocabulary rule to operative text only, leaving revision-history and
@@ -77,6 +78,28 @@ record of what was corrected, and is explicitly non-operative (`B071-R39`).
   of the stale `R1`–`R22`/"Gate" description (`R43`); and fixes §8's commit/rebuild ordering so the
   source and curated fragment are committed together before any rebuild is attempted, never after
   (`R44`).
+- **Draft 7 (`2d3bd49`+uncommitted):** incorporates round-6 review `B071-R45`–`R49`, reviewing
+  Draft 6 at `2d3bd49`, plus the Judge's direct identifier-model clarification. Corrects §3/§4's
+  executor language from undefined "executor IDs" to the ruled `executor_principal_key` contract,
+  rejecting `self_asserted` values for that comparison (`R47`); names the missing sibling canonical
+  node `NODE-CHIEF-JOURNALIST-REVIEW` → `ROLE-CHIEF-JOURNALIST` (`R48`); replaces every
+  "person"/"whichever person" reference in Final Sign-Off text with "accountable principal",
+  reserving "natural person" for `T6` alone (`R49`); records `docs/graph-fragments/merge7.js`'s
+  non-reproducible upsert behavior as a required fix (`R46`). Round 7 review found this draft's own
+  `B071-R45` fix incomplete (see Draft 8) and one invented open item (Article 50 external-reader
+  token — see `R51` below).
+- **Draft 8 (this revision, uncommitted over `2d3bd49`):** incorporates round-7 review
+  `B071-R50`–`R55`. Actually corrects B-071's live header/Source/revision-history metadata instead
+  of only claiming it in Draft 7's own narrative (`R50`); removes the invented fifth Article-50
+  external-reader token — the governed direct interaction is the Chief Editor and the virtual
+  agents, and publication-text labelling under Article 50(4) is a separate, later question (`R51`);
+  adds `system_attested` to the target `identity_assurance` vocabulary next to `self_asserted` and
+  `authenticated`, without editing the applied `0002` migration (`R52`); adds the four identifiers'
+  Product/Fn_Spec/`SPECS`-candidate ownership to the §7 write set (`R53`); moves `merge7.js`'s
+  upsert fix and semantic-equality check into §7/§8 step 1's committed write set, ahead of any
+  rebuild (`R54`); and replaces "person"/"account" language describing virtual-agent execution with
+  "executor principal"/`executor_principal_key` in §4, reserving natural-person/account language for
+  the Chief Editor and `T6` (`R55`).
 
 **Artifact classification and propagation (`B071-R8`, `R16`):** this file is a `docs/v1/` tracking
 artifact under `D-36`, the same class as `V1-PHASE-CLOSURE.md`. It is registered in
@@ -91,11 +114,14 @@ erase the artifact's own history.
 locate the draft it was reviewing — a check staying red by design defeats its own purpose. Both are
 now represented as lifecycle-status nodes (`docs/graph-fragments/frag119.json`, merged) —
 `Open`/`DRAFT`/`proposed` labels only. This represents status, not approval; it does not assert the
-disputed ontology as decided. `frag119.json`'s B-071 node description currently stops at `R22` and
-two review rounds; it is mechanically current (matches the committed source) but semantically behind
-it — bringing it to `R1`–`R37`/Draft 5 is status-only text and does not require `AUTH-DOC`. Adding
-the `D-182` decision node and transitioning these nodes to Applied/historical does require
-`AUTH-DOC`, because that is the point the disputed ontology becomes decided (§8).
+disputed ontology as decided. As of Draft 8, the tracked fragment's B-071 description still states
+`R1`–`R44`/Draft 6 (last committed at `2d3bd49`) — it cannot yet describe uncommitted Draft 7/8 and
+must not be characterized as synced to either. Bringing it to `R1`–`R55`/Draft 8/Judge-approval-none
+is status-only text and does not require `AUTH-DOC` — `B071-R46`/`R54` additionally require that
+update, `merge7.js`'s fix, and the semantic-equality check to be committed together and survive a
+clean rebuild-then-merge without hand-patching `.graphify/graph.json` (see §7/§8). Adding the
+`D-182` decision node and transitioning these nodes to Applied/historical does require `AUTH-DOC`,
+because that is the point the disputed ontology becomes decided (§8).
 
 ---
 
@@ -124,8 +150,9 @@ not reopened, consistent with every decision in the `D-172`–`D-181` chain.
    internal preparation, not independent Line 3 assurance.
 3. Both T5 workstreams are held before `T6`. A report cannot satisfy both merely because the same
    role participated; every act carries a distinct workstream/purpose code, and the two Assurance
-   Preparation acts additionally carry distinct executor IDs — one executor cannot satisfy both by
-   relabeling (`B071-R36`, and see §3/§4's testable requirement).
+   Preparation acts additionally carry distinct, system-attested `executor_principal_key` values —
+   one executor cannot satisfy both by relabeling, retrying, or asserting an unverified identity
+   (`B071-R36`, `R47`, and see §3/§4's testable requirement and the identifier model below).
 4. `T6` remains the natural-person Chief Editor's final judgment. Agent attempts to record the
    final `T6` disposition remain refused. The complete T5 packet supplies the judgment-rule inputs
    OD4 would require before any future automation; OD4 remains deferred and is not a pipeline
@@ -135,8 +162,10 @@ not reopened, consistent with every decision in the `D-172`–`D-181` chain.
    Neither scope overwrites the other; each scope has exactly one effective `A`.
 6. `OP-FINAL-SIGNOFF` is a task-level approval control that **precedes** T5, not a step after it
    (`B071-R17`): it signs completion evidence from prior applicable Sheet 2 `R` work. Its signer is
-   the one effective task `A` — not automatically human-only; human-only is a `T6`-specific rule
-   and does not inherit to Final Sign-Off. `R = not_applicable` for the sign-off control itself,
+   the one effective task `A`, resolved to exactly one **accountable principal** — not automatically
+   a natural person; human-only is a `T6`-specific rule and does not inherit to Final Sign-Off
+   (`B071-R49` — "person"/"whichever person" is corrected to "accountable principal" everywhere in
+   this plan except the `T6` rule itself). `R = not_applicable` for the sign-off control itself,
    not `unknown`. The required external acceptance/mandate record is a separate, separately
    attributable, append-only record at its own governed point (normally before Delivery); when it
    is missing or invalid, only the governed pre-Delivery/Delivery transition is refused — never
@@ -151,7 +180,8 @@ Applicable Sheet 2 work with R
   → signed workstage package
   → T5 Editorial Review (one route-selected act)
      + T5 Assurance Preparation (Desk Editor act and Chief Journalist act, every route,
-       distinct executor IDs required between the two acts — B071-R36)
+       distinct system-attested executor_principal_key values required between the two acts —
+       B071-R36, R47)
   → one non-judgment three-act join: Drafted → Reviewed
   → human-only T6 Chief Editor judgment
   → external acceptance/mandate at its governed point where required — its absence refuses only
@@ -159,11 +189,12 @@ Applicable Sheet 2 work with R
   → Delivery
 ```
 
-Only `T6` is categorically human-only. Final Sign-Off's signer is whichever person resolves as the
-one effective task `A`; the same role/identity may perform the route-selected Editorial Review and
-its own Assurance Preparation act, but these remain different evidence records and purposes — one
-executor cannot satisfy both Assurance Preparation acts by relabeling, and this is a stated,
-testable requirement, not a stylistic caution (`B071-R36`).
+Only `T6` is categorically human-only. Final Sign-Off's signer is whichever accountable principal
+resolves as the one effective task `A` (`B071-R49`); the same role/identity may perform the
+route-selected Editorial Review and its own Assurance Preparation act, but these remain different
+evidence records and purposes — one executor cannot satisfy both Assurance Preparation acts by
+relabeling, retrying, or self-asserting an identity, and this is a stated, testable requirement, not
+a stylistic caution (`B071-R36`, `R47`).
 
 ### Clause-level lifecycle disposition (`B071-R19` — replaces the prior "caution, not yet
 resolved" note with an actual per-clause table)
@@ -188,7 +219,8 @@ verification (`AUTH-DOC`) never narrows it (`B071-R25`, restated `B071-R31`).
 |---|---|---|
 | Canonical actor role | — | `ROLE-DESK-EDITOR` (sole canonical Desk Editor actor; unchanged from CSVs) |
 | Workcell/review node | `ROLE-CHIEF-EDITORIAL-DESK` (executor role) | `NODE-EDITORIAL-DESK-REVIEW` (virtual node, mapped to `ROLE-DESK-EDITOR`, **required on every route for Assurance Preparation** — `B071-R18`, not conditioned on which route Editorial Review selected) |
-| Chief Journalist | — | Stays distinct; performs the route-selected Editorial Review act on non-`ROUTE-PROD-1` routes AND its own Assurance Preparation act on every route |
+| Chief Journalist's Assurance Preparation node | — (previously prose only — `B071-R48`) | `NODE-CHIEF-JOURNALIST-REVIEW`, mapped only to `ROLE-CHIEF-JOURNALIST`. Both this node and `NODE-EDITORIAL-DESK-REVIEW` are child workcells of the one `EG4`/`T5` stage — naming the sibling node does not create a second gate or serial review (`B071-R48`) |
+| Chief Journalist | — | Stays distinct; performs the route-selected Editorial Review act on non-`ROUTE-PROD-1` routes AND its own Assurance Preparation act (`NODE-CHIEF-JOURNALIST-REVIEW`) on every route |
 | Display aliases | `Editorial Desk Editor`, `Desk Chief`, `Chief Editorial Desk` | `Chief Editorial Desk` is the node/workcell display label for `NODE-EDITORIAL-DESK-REVIEW`, not a dropped term (`B071-R14`). `Editorial Desk Editor`/`Desk Chief` remain optional actor display aliases for `ROLE-DESK-EDITOR` only if the Judge separately approves; none are new IDs |
 
 **Ownership of the actor/node distinction (`B071-R14`):** the rule that one actor role maps to one
@@ -235,14 +267,57 @@ removes the contradiction `B071-R17` flagged: the earlier draft both listed miss
 acceptance as a Final-Sign-Off refusal condition and separately said it wasn't one.
 
 **Assurance Preparation executor separation is a testable requirement, not a caution
-(`B071-R36`):** the two `T5-ASSURANCE-PREPARATION` acts (Editorial Desk Review node, Chief
-Journalist review node) must carry distinct executor IDs, distinct canonical roles/nodes, distinct
-evidence IDs and distinct purpose codes. The same executor may perform the route-selected Editorial
-Review plus **that executor's own** Assurance Preparation act, but never both Assurance Preparation
-acts under two labels. Verification must include a negative test: an account holding both the
-`ROLE-DESK-EDITOR` and Chief Journalist labels attempts to submit both Assurance Preparation acts
-and the attempt fails on executor-identity equality, independent of whether evidence IDs and purpose
-codes are already distinct.
+(`B071-R36`, corrected `B071-R47`):** the two `T5-ASSURANCE-PREPARATION` acts
+(`NODE-EDITORIAL-DESK-REVIEW`, `NODE-CHIEF-JOURNALIST-REVIEW`) must carry distinct, system-attested
+`executor_principal_key` values, distinct canonical roles/nodes, distinct evidence IDs and distinct
+purpose codes. The same executor may perform the route-selected Editorial Review plus **that
+executor's own** Assurance Preparation act, but never both Assurance Preparation acts under two
+labels, two run attempts, or two self-asserted identities (`B071-R55` — "account" describes a
+natural-person/login concept, not the ruled comparison object). Verification must include a
+negative test: one `executor_principal_key` submitting under both the `ROLE-DESK-EDITOR` and Chief
+Journalist labels attempts to submit both Assurance Preparation acts and the attempt fails on
+`executor_principal_key` equality, independent of whether evidence IDs and purpose codes are
+already distinct.
+
+### Identifier model (Judge clarification, resolves `B071-R47`/`R48`)
+
+Per the Judge's direct ruling recorded in `docs/handoff/B-071-*.md` §"Judge clarification —
+executor identity and attempt-badge exposure": `executor_principal_key` is **not** an alias for
+`agent_id` — they are four separate identifiers.
+
+| Identifier | Meaning | Stability | Exposed to |
+|---|---|---|---|
+| `agent_id` | Stable internal technical identity of a virtual agent | Same across runs | Internal only |
+| `agent_run_id` | One execution attempt | New per attempt | Internal only |
+| `agent_attempt_badge_id` | Internal full attempt identifier, binds `agent_id` + `agent_run_id` | New per attempt | Internal to the agent/audit mechanism only — not the Chief Editor's normal UI |
+| `executor_principal_key` | Separate, stable, system-attested identifier | Same across an executor's retries/attempts | Exposed in my-editorial-app to its natural-person user (Chief Editor) |
+| `identity_assurance` | How the identity was established | Per event | Not displayed as an identity itself |
+
+Every `agent_attempt_badge_id` links to exactly one `executor_principal_key`; one
+`executor_principal_key` may have multiple attempt badges. Assurance Preparation executor
+separation (`§3`, `§4`) is evaluated on `executor_principal_key` alone — never `agent_run_id` or
+`agent_attempt_badge_id`, and never a `self_asserted` value. The Chief Editor's interface (§6)
+displays AI identity, canonical role/node, and `executor_principal_key`; raw `agent_id`,
+`agent_run_id` and `agent_attempt_badge_id` stay internal unless an authorized audit view requires
+them.
+
+**`identity_assurance` target vocabulary (`B071-R52`):** `self_asserted` (unverified — historical
+values preserved, never satisfies executor comparison), `authenticated` (a verified natural-person
+or account principal — used at the Chief Editor/`T6` layer), `system_attested` (a server-issued
+virtual-agent principal — required for both `executor_principal_key` values compared in §3/§4). The
+applied `0002` migration's enum currently has only `self_asserted`/`authenticated`; adding
+`system_attested` is a schema change routed to a later authorized migration, not an edit to `0002`.
+
+**Article 50 scope (`B071-R51`):** no fifth identifier or public-facing token is required. The
+governed direct interaction is between the virtual agents and the Chief Editor — the natural person
+who receives the AI label, role/node and `executor_principal_key` at first interaction. Whether
+published article text needs its own AI-generation label under Article 50(4) is a separate
+publication-feature question, assessed later; it does not gate `AUTH-DOC` or this identifier model.
+
+**Data-contract ownership (`B071-R53`):** `agent_id`, `agent_run_id`, `agent_attempt_badge_id`, and
+`executor_principal_key` — including one-principal-to-many-badges, server-only issuance, and
+retry-continuity of the principal key — currently have no owning Product/Fn_Spec/`SPECS` record.
+§7 adds the required write-set rows.
 
 **Files to edit:** `docs/governance/factory-route-operation-crosswalk.md` (remove "missing `R`
 unresolved" marking on `OP-FINAL-SIGNOFF`; reorder it before the T5 row; add refusal conditions
@@ -253,25 +328,29 @@ no longer unresolved; each refusal condition above has a corresponding negative 
 asserts a human-only rule on Final Sign-Off's signer; the same-executor negative test above exists
 and fails as specified.
 
-## §4 — Three-act T5 completion unit (depends on §2, §3; corrected by `B071-R11`, `R18`, `R36`)
+## §4 — Three-act T5 completion unit (depends on §2, §3; corrected by `B071-R11`, `R18`, `R36`, `R47`, `R48`)
 
 **Every route requires exactly three separately sealed acts, each with its own evidence ID and
 workstream/purpose code, and each gated on a signed Final Sign-Off package (§3):**
 
 1. One `T5-EDITORIAL-REVIEW` act — route-selected executor (Desk Editor for `ROUTE-PROD-1`, Chief
    Journalist otherwise).
-2. One `T5-ASSURANCE-PREPARATION` act from the Editorial Desk Review node — **every route**, not
+2. One `T5-ASSURANCE-PREPARATION` act from `NODE-EDITORIAL-DESK-REVIEW` — **every route**, not
    only where Editorial Review selected Desk Editor.
-3. One `T5-ASSURANCE-PREPARATION` act from the Chief Journalist review node — **every route**.
+3. One `T5-ASSURANCE-PREPARATION` act from `NODE-CHIEF-JOURNALIST-REVIEW` (`B071-R48`) — **every
+   route**.
 
-The same person may hold the role behind two of these acts (e.g. Chief Journalist performs both
-the route's Editorial Review and its own Assurance Preparation act). **Role identity performing
-two acts never collapses them into one, and never counts as independence-by-difference** — acts
-are distinguished by workstream/purpose code and evidence ID, not by who performed them. Acts 2 and
-3 additionally require distinct executor IDs from each other in all cases — a single executor may
-never hold both Assurance Preparation acts regardless of which labels that executor carries
-(`B071-R36`; see §3's negative test). Exactly one deterministic join reads all three sealed acts and
-performs `Drafted → Reviewed`; it fires once and only once all three exist.
+The same executor principal may hold the role behind two of these acts (e.g. Chief Journalist
+performs both the route's Editorial Review and its own Assurance Preparation act) (`B071-R55` —
+corrects "the same person", which describes a natural-person/account concept, not the ruled
+`executor_principal_key` comparison object). **Role identity performing two acts never collapses
+them into one, and never counts as independence-by-difference** — acts are distinguished by
+workstream/purpose code and evidence ID, not by who performed them. Acts 2 and 3 additionally
+require distinct, system-attested `executor_principal_key` values from each other in all cases — a
+single executor principal may never hold both Assurance Preparation acts regardless of which
+labels, run attempts, or self-asserted identities that executor carries (`B071-R36`, `R47`; see
+§3's negative test and the identifier model above). Exactly one deterministic join reads all three
+sealed acts and performs `Drafted → Reviewed`; it fires once and only once all three exist.
 
 Re-derive against this three-act unit:
 
@@ -288,8 +367,9 @@ here).
 
 **Verification:** exactly one join performs `Drafted → Reviewed`, firing once per route; all three
 acts carry distinct evidence IDs on every route; no evidence ID or purpose code satisfies two acts
-even when the same person performed them; the two Assurance Preparation acts carry distinct
-executor IDs on every route, verified by the negative test in §3.
+even when the same person performed them; the two Assurance Preparation acts carry distinct,
+system-attested `executor_principal_key` values on every route, verified by the negative test in
+§3; a `self_asserted` value fails that test even when the other fields are already distinct.
 
 ## §5 — Supersede the false either/or; define two feature units (depends on §4; replaces the prior
 "redraft B-070's two options" — `B071-R22`, Chief Editor clarification)
@@ -343,7 +423,9 @@ New file: `docs/specs/ux/chief-editor-publication-workspace.md`. Must show, and 
 enforce:
 
 - Both T5 workstreams (Editorial Review, Assurance Preparation) and their separate attribution,
-  including the distinct-executor-ID requirement between the two Assurance Preparation acts
+  including the distinct `executor_principal_key` requirement between the two Assurance Preparation
+  acts, and the Chief-Editor-facing identity display (AI identity, role/node, `executor_principal_key`
+  — never raw `agent_id`/`agent_run_id`/`agent_attempt_badge_id` outside an authorized audit view)
 - Authority provenance (task `A` vs. route/stage `A` vs. external authority)
 - Required external evidence/acceptance records, and that their absence blocks only the governed
   pre-Delivery/Delivery transition, never Final Sign-Off or `T6` (`B071-R37`)
@@ -365,12 +447,14 @@ Single-pass sweep per `D-54`, once §1–§6 are Judge-approved (`AUTH-DOC`):
 | `V1-DECISION-REGISTER.md` | Add `D-182`: decision content (§1), corrected dependency order, clause-level lifecycle table, this plan's own artifact-creation fact, UX artifact creation fact, explicit `D-171` hold preservation |
 | `V1-BUILD-SPEC.md` | Three-act target DoD; Final-Sign-Off-before-T5 sequence; this plan's sequencing fact; UX artifact sequencing fact — no implementation authorization, hold stays |
 | `V1-ARTIFACT-INVENTORY.md` | Add `docs/specs/ux/chief-editor-publication-workspace.md`; mark this plan's own row historical/superseded (**never removed** — `B071-R16`) |
-| `Modular_PRD.md` | Owning sections: `US-04a`/`US-05a`, `FR-04a`/`FR-05a`, `AC-05a`–`AC-08a`, `G-05a`, `SEC-01a`/`SEC-03a`, any T5 prerequisite in `AC-22`. §8 separately records the UX tier/file opening and unchanged S2 hold — §8 does not own the User Story rows themselves (`B071-R20` corrects the prior draft's wrong mapping) |
-| `FN-GATES-01-05.md` | §11: actor/node mapping, three acts (every route), join, blind order, consuming evidence |
+| `Modular_PRD.md` | Owning sections: `US-04a`/`US-05a`, `FR-04a`/`FR-05a`, `AC-05a`–`AC-08a`, `G-05a`, `SEC-01a`/`SEC-03a`, any T5 prerequisite in `AC-22`; **and** (`B071-R53`) `TR-DM-02`/the identity NFR for the four identifiers — one stable `executor_principal_key` per tenant/agent, one unique `agent_attempt_badge_id` per attempt, exactly one `executor_principal_key` per badge, many badges per key, immutable historical linkage, no client-supplied attestation. §8 separately records the UX tier/file opening and unchanged S2 hold — §8 does not own the User Story rows themselves (`B071-R20` corrects the prior draft's wrong mapping) |
+| `FN-GATES-01-05.md` | §11: actor/node mapping, three acts (every route), join, blind order, consuming evidence; **and** (`B071-R53`) behavior/refusal rules for the four identifiers — comparison object, retry continuity, `self_asserted` rejection |
 | `FN-EXCEPTIONS-06-11-12.md` | Three-act-aware invalidation/rerun; external-trigger vs. external-acceptance separation (`B071-R20` — omitted entirely from the prior draft) |
 | `FN-PUBLICATION-09-10-13.md` | External acceptance at its governed pre-Delivery point and Delivery refusal, without moving that requirement into Final Sign-Off (`B071-R20` — omitted entirely from the prior draft) |
 | `raci-involvement-matrix.md` | §§3.1/8: scoped `A` resolution, Final Sign-Off ordering, all-route Desk Review mapping, three T5 acts, one join |
 | `factory-route-operation-crosswalk.md` | §§2–4: same content as above, crosswalk form |
+| `SPECS` candidate (new) | (`B071-R53`) Physical storage, key constraints, and server-only issuance for the four identifiers; owning migration for adding `system_attested` to `identity_assurance` (`B071-R52`) — not `0002` |
+| `docs/graph-fragments/merge7.js` | (`B071-R54`) Deterministic upsert (update fragment-owned fields for an existing node ID/edge key; fail on conflicting duplicate definitions) plus the semantic-equality check against `.graphify/graph.json` — committed in the same pass as the source/fragment edits, before any rebuild |
 | `B-070` | **Already applied at `d3cadda` — cite, do not edit again.** Its forward notice already records the options-superseded/feature-split correction; this pass only references it (`B071-R33`) |
 | `LANE-B-WORK-ORDER.md` | Fix §1's stale `Eligible` definition (`B071-R7`) |
 | `B-071` (this handoff's own record) | Lane A answer recorded; `Resolution: Applied` set once this plan's actual §1–§8 packet propagates at the named commit; **never self-`Verified`** — that mark is Lane B's independent review alone (`B071-R33`, corrected `B071-R42`) |
@@ -380,14 +464,21 @@ Single-pass sweep per `D-54`, once §1–§6 are Judge-approved (`AUTH-DOC`):
 
 Strict order — do not interleave:
 
-1. Edit all §7-approved source tiers, **and** `docs/graph-fragments/frag119.json` (add the `D-182`
+1. Edit all §7-approved source tiers, `docs/graph-fragments/frag119.json` (add the `D-182`
    decision node; transition the `B-071` and this-plan lifecycle-status nodes from
    `Open`/`DRAFT`/`proposed` to `Applied`/`historical` as §7 makes true; preserve the existing edge
-   to `D-171`).
-2. Commit that complete packet — source and curated fragment together, in one Lane A pass. Nothing
-   in step 1 is left uncommitted.
-3. `npx graphify hook-rebuild` against that commit; re-merge `docs/graph-fragments/` if the curated
-   node count drops (`B071-R35`).
+   to `D-171`), **and** `docs/graph-fragments/merge7.js` itself (`B071-R54` — the deterministic
+   upsert and semantic-equality-check fix belongs in this same edit set, not scheduled for after
+   the commit that is supposed to be complete).
+2. Commit that complete packet — source, curated fragment, and the fixed `merge7.js` together, in
+   one Lane A pass. Nothing in step 1 is left uncommitted.
+3. `npx graphify hook-rebuild` against that commit; re-merge `docs/graph-fragments/` **every time**,
+   not only if the curated node count drops (`B071-R35`, corrected `B071-R46`). Because `merge7.js`
+   was fixed and committed in step 1, this rebuild now performs a deterministic upsert instead of
+   skipping existing IDs. A same-node-count rebuild is not sufficient evidence of a synced
+   description; the semantic-equality check between every tracked fragment-owned field and
+   `.graphify/graph.json` must pass, and a required direct edit of `.graphify/graph.json` after this
+   step counts as this check failing, not as a workaround.
 4. `bun run check` — full suite green, including `docs-drift` (`lastAnalyzedHead = HEAD`)
    (`B071-R15`: a red `graph-coverage` or `docs-drift` is never accepted as evidence of safety).
 5. Run the semantic queries the review will need (e.g. `graphify query`/`explain` against `B-071`
@@ -440,7 +531,28 @@ list and fixed §7's B-071-closure reference from nonexistent "§1–§9" to act
 scheduled the `frag119.json` description update to `R1`–`R37`/Draft 5/`AUTH-*` vocabulary as part
 of §8 (`R43`); and fixed §8's commit-then-rebuild ordering (`R44`).
 
-**Round 6 — outstanding, before this revision reaches the Judge for `AUTH-DOC`:**
+**Round 6 (Lane B, reviewing Draft 6 at `2d3bd49`) — completed:** `B071-R45`–`R49` incorporated
+into this draft (7): the review-baseline metadata contradictions (`R45`) are corrected in the
+handoff file itself; `merge7.js`'s non-reproducible upsert is recorded as a required §8 fix
+(`R46`); the `executor_principal_key` identifier model — rejecting `agent_run_id`,
+`agent_attempt_badge_id` and `self_asserted` values for executor comparison — replaces undefined
+"executor IDs" throughout §1/§3/§4 (`R47`); the sibling canonical node
+`NODE-CHIEF-JOURNALIST-REVIEW` → `ROLE-CHIEF-JOURNALIST` is named (`R48`); and "person"/"whichever
+person" in Final Sign-Off text is replaced with "accountable principal", reserving "natural person"
+for `T6` alone (`R49`).
+
+**Round 7 (Lane B, reviewing the uncommitted Draft 7 worktree over `2d3bd49`) — completed:**
+`B071-R50`–`R55` incorporated into this draft (8): B-071's live header/Source/revision-history
+metadata is actually corrected, not just claimed (`R50`); the invented fifth Article-50
+external-reader token is removed — direct-interaction disclosure is Chief-Editor-only, publication
+labelling is a separate Article 50(4) question (`R51`); `system_attested` is added to the target
+`identity_assurance` vocabulary without touching `0002` (`R52`); the four identifiers get
+Product/Fn_Spec/`SPECS`-candidate ownership in §7 (`R53`); `merge7.js`'s fix moves into §7/§8 step
+1's committed write set, ahead of any rebuild (`R54`); and "person"/"account" language describing
+virtual-agent execution in §4 is replaced with "executor principal"/`executor_principal_key`
+(`R55`).
+
+**Round 8 — outstanding, before this revision reaches the Judge for `AUTH-DOC`:**
 
 - [ ] No occurrence of "Gate A", "Gate B1", "Gate B2" or "Route Activation Gate" remains in
       operative text (§1–§8, Approval Gate, checklist pass/fail conditions); revision-history and
@@ -457,20 +569,39 @@ of §8 (`R43`); and fixed §8's commit-then-rebuild ordering (`R44`).
       the named route's `Verified` Feature 2 contract — never "Feature 1 Verified for that route"
 - [ ] §7's write set closes B-071 and this plan's own lifecycle citing the actual §1–§8 packet,
       without scheduling a further B-070 edit, and without either file self-marking `Verified`
-- [ ] §3/§4's executor-identity separation requirement is stated as testable (named negative test),
-      not as prose caution, and covers both Assurance Preparation acts on every route
+- [ ] §3/§4's executor separation requirement names `executor_principal_key` specifically (not a
+      generic "executor ID"), is stated as testable (named negative test), covers both Assurance
+      Preparation acts on every route, and the negative test explicitly fails two self-asserted
+      identities in addition to two labels on one account
+- [ ] `NODE-CHIEF-JOURNALIST-REVIEW` is used consistently in §2/§4/§6 wherever the prior draft said
+      "Chief Journalist review node" in prose only
+- [ ] Every "person"/"whichever person" reference to the Final Sign-Off signer reads "accountable
+      principal"; "natural person" appears only in the `T6` rule
 - [ ] §3's external-acceptance paragraph names the pre-Delivery/Delivery transition, not the
       external record, as the thing refused, and excludes Final Sign-Off and `T6` explicitly
-- [ ] `docs/graph-fragments/frag119.json`'s B-071 description states `R1`–`R37`, Draft 5
-      independently reviewed, `AUTH-*` vocabulary, Judge approval none, and the update does not
-      itself assert `D-182` as decided ahead of `AUTH-DOC`
+- [ ] `merge7.js`'s fix (deterministic upsert, semantic equality check) is committed in the same
+      pass as the source/fragment edits (§7/§8 step 1), not scheduled after; a same-node-count
+      rebuild is not sufficient, and no `.graphify/graph.json` hand-edit is required to reach a
+      synced state
+- [ ] `docs/graph-fragments/frag119.json`'s B-071 description states `R1`–`R55`, Draft 8
+      independently reviewed, `AUTH-*` vocabulary, Judge approval none (identifier ruling only),
+      and the update does not itself assert `D-182` as decided ahead of `AUTH-DOC`
+- [ ] No text states or implies a fifth Article-50 external-reader token is required; direct
+      disclosure is scoped to the Chief Editor, and Article 50(4) publication labelling is recorded
+      as a separate future question, not a blocker
+- [ ] The four identifiers' Product/Fn_Spec/`SPECS` ownership rows exist in §7 and name issuance,
+      stability, tenancy, uniqueness, linkage, retry continuity and retention
+- [ ] `identity_assurance`'s target vocabulary (`self_asserted`/`authenticated`/`system_attested`)
+      is stated without editing the applied `0002` migration
+- [ ] No "person"/"account" language remains describing virtual-agent execution; natural-person/
+      account language appears only for the Chief Editor and `T6`
 - [ ] §8's source-and-fragment edit is committed before any `graphify hook-rebuild`, never after,
       and `bun run check` — including `docs-drift` — is green at that commit before independent
       review begins
 - [ ] Nothing in §1–§8 authorizes S2 implementation or moves Lane B from `Eligible`; `AUTH-DOC`,
       `AUTH-F1`, `AUTH-F2` and `AUTH-ROUTE` stay four separate approvals
 - [ ] This revision is pushed to `origin/docs/journal-2026-08-16` and confirmed identical before
-      round 6 or `AUTH-DOC` is marked `Verified`
+      round 8 or `AUTH-DOC` is marked `Verified`
 
 ## Approval Gate — `AUTH-DOC` / `AUTH-F1` / `AUTH-F2` / `AUTH-ROUTE` (`B071-R10`, `R21`, `R22`,
 restructured by `B071-R25`–`R27`, renamed by `B071-R30`)
