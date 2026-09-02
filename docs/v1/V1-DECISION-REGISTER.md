@@ -11808,3 +11808,93 @@ this decision appended a new "Anchor update" subsection to `B-069`. Restated pre
 prior body was preserved unchanged; a new `D-181` anchor-update subsection was appended.** Neither
 phrase above is rewritten — this note stands alongside them, per this decision's own append-only
 convention for correcting itself.
+
+## 5.14e8 `D-183` — Approval-Provenance Rule for Direct Real-Time Judge Instructions
+
+**Chief Editor/Judge ruling, 2026-09-03, answering the recurring defect `B071-R45`/`R57`/`R67`
+(`docs/handoff/B-071-*.md`), approved via the explicit Approve/Reject/Defer table the Judge returned
+in this conversation.** Three independent-review rounds found the same defect: a real-time chat
+instruction from the Judge was written into `B-071` as "the Judge approved Draft N," and the next
+review round correctly found that unverifiable against any durable record — the handoff file was
+being asked to serve as its own proof of the authority it claimed. This decision closes that gap
+with a standing provenance rule, not a one-off correction.
+
+### The rule
+
+1. A direct real-time Judge instruction is valid authority when it explicitly names: the object or
+   immutable revision; the authorized action; the scope and exclusions; the applicable authorization
+   checkpoint, if any.
+2. Before it is durably recorded, describe it as: *"Judge approval received in the current
+   conversation for [specific action], pending durable registration."* This permits only the
+   explicitly authorized action. It is not durable shared evidence, independent verification,
+   approval of the resulting artifact, push authority, or authority for another checkpoint.
+3. Use *"Judge clarification received"* when the message explains meaning or supplies requirements
+   but does not explicitly authorize an action.
+4. Distinguish: "Judge authorized Lane A to prepare Draft N" / "Judge approved Draft N at commit
+   `<sha>`" / "Judge granted `AUTH-DOC` for the packet at commit `<sha>`" / "Judge authorized push of
+   commit `<sha>`." None implies another — **approval inheritance is rejected**: permission to draft
+   a revision is never itself approval of the resulting draft.
+5. Lane A records an explicit approval in the next available Decision Register entry and propagates
+   it as required. After that commit, use: *"Judge approval recorded by `D-NNN` at commit `<sha>`."*
+6. Independent review verifies that the recorded decision and its application match the Judge's
+   instruction. It does not recreate, replace, or retrospectively grant the approval — **a handoff
+   file is never the sole proof of the authority it claims**; that proof is this Register entry plus
+   independent Lane B verification together, not either alone.
+7. Approval of one revision never transfers automatically to a later draft. Material changes require
+   renewed approval of the new immutable revision.
+
+### Judge's approve/reject/defer table (verbatim disposition, this conversation)
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Governance semantics | Chat approval is real but initially pending durable registration | Judge confirms this rule |
+| **Approve** | Handoff wording | Use "approval received" or "clarification received" according to the actual act | Lane A correction |
+| **Reject** | Approval inheritance | Permission to draft cannot become approval of the resulting draft | `R67` correction |
+| **Reject** | Self-verification | `B-071` cannot be the sole proof of authority it claims | Decision Register plus independent review |
+| **Defer** | Register propagation | No new decision should be written until the Judge approves this provenance rule | Next available decision entry |
+
+The "Defer" row's precondition — Judge approval of this rule — is satisfied by the "Approve" row
+immediately above it in the same table. This entry **is** that next available decision entry the
+deferred row named; propagation is not deferred further.
+
+### Gaps
+
+**Addressed:** the standing rule for stating direct Judge approvals precisely (points 1–7);
+retroactive correction of the three flagged statements in `B-071`'s header, its "Lane A response —
+Draft 11 produced" section, and `V1-B071-CORRECTIVE-PLAN.md`'s Draft 11 revision-history entry
+(already applied in `docs/handoff/` commits `331aa22` and earlier, ahead of this Register entry —
+see Correction note below). **Unchanged:** `D-171`'s S2 hold; the substantive T5/T6 ontology
+question (`D-182`, still proposed, not applied by this decision). **Still open:** independent Lane B
+verification that this Register entry and its prior handoff-file application match the Judge's
+actual instruction (point 6 — this decision does not self-certify that); remote push of this
+decision's commit.
+
+### Correction note — sequencing
+
+Per point 5, the precise language ("Judge approval received... pending durable registration") was
+applied to `B-071`/the plan file in commits made *before* this Register entry existed, because the
+rule was being followed as soon as it was received, ahead of its own durable registration. This is
+consistent with the rule, not a violation of it: point 2's language is exactly what covers the
+interval between receiving an instruction and registering it. Once this commit lands, future
+references should read "Judge approval recorded by `D-183`," and `B-071`'s "Durable registration —
+open, not yet done" note should be updated to point here (Lane A follow-up, not yet applied by this
+decision).
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-183` approval-provenance rule | ✅ §5.14e8 | **— unaffected: process rule, not a build sequencing fact** | **— unaffected** | **— unaffected: no repository file created or retired** | **— unaffected** | **— unaffected: governs documentation process, not product behavior** |
+
+**Handoff tracking:** `B-071` is unaffected in `Status`/`Resolution` by this decision — it remains
+`Open` pending the separate `D-182` T5/T6 ontology question. This decision only supplies the citation
+(`D-183`) that `B-071`'s already-applied wording should point to going forward.
+
+### Scope limits
+
+**Governs how Lane A states Judge approvals in `docs/handoff/` and `docs/v1/` going forward. Builds
+no code, authorizes no implementation, and does not touch `D-171`'s S2 hold, `D-182`, `AUTH-DOC`, or
+any `AUTH-F1`/`AUTH-F2`/`AUTH-ROUTE` checkpoint.** Independent Lane B verification of this entry,
+Graphify's synchronization at this decision's own commit, and remote push remain separate, unstarted
+work. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or
+`.github/workflows/`.

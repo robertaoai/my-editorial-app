@@ -2094,19 +2094,30 @@ corrected to use points 2 and 4's precise vocabulary instead of the prior unqual
 approved Draft N" statements. `docs/v1/V1-B071-CORRECTIVE-PLAN.md`'s Draft 11 revision-history entry
 is corrected the same way.
 
-### Durable registration — open, not yet done
+### Durable registration — recorded by `D-183`
 
-Per point 5, this rule itself should reach the next available Decision Register entry
-(`docs/v1/V1-DECISION-REGISTER.md`, next available `D-183` — `D-182` is T5/T6's proposed, not-yet-
-applied entry). **That Register write has not been made** — it is a governed-tier edit this plan has
-consistently reserved for an authorized propagation pass, and this rule is a process decision rather
-than a `D-182`-scoped product one. Whether to add it now, standalone, or bundle it into the eventual
-`AUTH-DOC` propagation pass is the Judge's call, not inferred here.
+**Judge approval recorded by `D-183`** (`docs/v1/V1-DECISION-REGISTER.md` §5.14e8, committed in the
+same pass as this paragraph — see git history for the exact commit SHA rather than restating a
+mutable hash here). The Judge's Approve/Reject/Defer table
+confirmed the rule (row 1: Approve — Governance semantics) and the same table's own logic closes the
+Defer row that had blocked Register propagation: that row's precondition was "the Judge approves this
+provenance rule," satisfied by the Approve row immediately above it in the same response. `D-183`
+is the next-available-decision-entry follow-up that row named — not a separate, still-open ask.
+Every `identity_assurance`-style "pending durable registration" phrase in this file's Judge-ruling
+section above now resolves to this citation.
+
+**Self-verification limit (per the Judge's "Reject — Self-verification" row):** this handoff entry is
+not, by itself, proof that `D-183` was correctly applied — that proof is the Register entry plus
+independent Lane B verification together. Lane B has not yet independently verified this entry
+against the Judge's instruction; treat `D-183` as recorded-pending-independent-verification, not
+terminally closed.
 
 ### Approve/reject gate
 
 | Decision | Tier | Status | Follow-up phase |
 |---|---|---|---|
-| **Approve** | Approval-provenance rule (points 1–7) | Received this conversation for the stated scope, pending durable registration | Governs all future Lane A approval statements immediately |
+| **Approve** | Approval-provenance rule (points 1–7) | Confirmed by the Judge's Approve/Reject/Defer table | Governs all future Lane A approval statements immediately |
 | **Approve** | Retroactive correction of the three flagged statements | Applied in this same pass | Closed |
-| **Defer** | Decision-Register entry for this rule itself | Not yet written; timing is the Judge's call | Judge specifies: now, standalone, or bundled with `AUTH-DOC` |
+| **Reject** | Approval inheritance | Permission to draft never becomes approval of the resulting draft | Governs `R67` and all future recurrences |
+| **Reject** | Self-verification by this handoff alone | `B-071` is not sole proof of the authority it claims | Requires `D-183` + independent Lane B review together |
+| **Approve** | Decision-Register entry for this rule | Recorded as `D-183` in this same pass | Independent Lane B verification of `D-183`'s application |
