@@ -1950,3 +1950,109 @@ plan review.
 | **Reject verification** | Graphify parity / B-071 closure | Graph analyzed `838baff` while reviewed HEAD is `8986ac6`; R72 remains unimplemented | Lane A repair/test, final-HEAD rebuild, then independent Lane B verification |
 | **Defer** | Push | Local branch is ahead of remote and this review grants no external-write authority | Active Lane A obtains/uses the applicable push authorization |
 | **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation and lane transition | `D-171` remains binding; no plan or implementation authorization exists | After corrected `AUTH-DOC` is applied and independently Verified |
+
+## Judge clarification — stable T5/T6 UI shell, separate assurance storage (2026-09-03)
+
+- **Kind:** direct Judge clarification applied to the Draft 12 plan, not approval of Draft 11 or
+  `AUTH-DOC`.
+- **Affects:** `B071-R77` and `B071-R80`.
+- **Does not authorize:** governed-tier edits, implementation, push, route activation, or a lane
+  transition.
+
+### What happened
+
+Round 11 framed the current editorial feature and the deferred T6 assurance feature as though their
+UI regions also had to be separated. The Judge's clarification narrows the split: it is primarily a
+**data-storage and executable-capability boundary**, not a reason to remove the future assurance
+region from the present publication-workspace layout.
+
+The current `M-MVP` UI may therefore reserve a stable T5/T6 structure now:
+
+1. **T5 region — current and functional:** read-only display of the sealed parallel Assurance
+   Preparation evidence, alongside the editorial publication section. This display does not create
+   another judgment or rewrite the underlying append-only evidence.
+2. **T6 region — current layout placeholder, deferred function:** reserves the location where the
+   conditional assurance judgment for `ROUTE-FALLOUT-3` and `ROUTE-GRC` will later appear. It has no
+   operative control, no T6 storage write, no T6 event, and no authority effect in current scope.
+3. **Route-dependent display:** the same region remains structurally stable across routes. The five
+   non-GRC-accountable routes show `Not required for this route`; `ROUTE-FALLOUT-3` and `ROUTE-GRC`
+   show an explicit `Deferred assurance function — no judgment recorded` placeholder until the later
+   assurance feature is authorized and built.
+
+This preserves editorial-industry layout consistency and reduces later UI rework without falsely
+representing a placeholder as a completed assurance control.
+
+### Normalized vocabulary
+
+| Term | One meaning in this packet | Must not mean |
+|---|---|---|
+| `EXT-GRC` | The external GRC accountable authority/institution whose evidence remains separately attributable | A route, internal agent, or my-editorial-app executor |
+| `ROUTE-GRC` | The factory/workflow route identifier | The external institution itself |
+| T5 Assurance display | A read-only projection of the two sealed Assurance Preparation acts | A human T6 judgment, external acceptance, or a second copy of evidence |
+| T6 placeholder | Reserved UI location and truthful availability message | A T6 action, stored result, completion event, or assurance evidence |
+| T6 assurance feature | The later capability that owns the judgment control, persistence/result vocabulary, evidence capture, refusal behavior, and audit view | A present capability inferred from the placeholder |
+
+### What is now decided, and what remains open
+
+| Item | Status | Draft 12 treatment |
+|---|---|---|
+| Keep T5 and T6 regions in one stable publication-workspace layout | **Judge clarified** | Include both regions in the current UX specification; give each an explicit current/deferred state |
+| Current T5 parallel-assurance display | **Judge clarified** | Read-only, derived from sealed T5 evidence; no duplicate persistence or judgment event |
+| Current T6 behavior | **Judge clarified** | Placeholder only; cannot be clicked to judge, cannot write T6 state, and cannot satisfy Delivery or `AUTH-ROUTE` |
+| Later T6 behavior and storage | **Still deferred** | One separately named assurance feature owns its data contract, result vocabulary, UI controls, external-GRC evidence interaction, tests, and authorization |
+| `assurance_status` persistence | **Not authorized** | For current `M-MVP`, use an explicitly derived display projection. Do not add a stored enum/column merely to support the placeholder |
+
+### Corrected parent-first feature and route plan
+
+1. **Parent — `AUTH-DOC`:** record the UI/data distinction in proposed `D-182`, the Product
+   criteria, the UX specification plan, Build-Spec sequencing, and Graphify representation.
+2. **Current editorial feature — revised `AUTH-F1` scope:** own the functional editorial flow,
+   sealed T5 evidence, read-only T5 Assurance display, human `T5-EDITORIAL-APPROVAL`, report, and the
+   non-operative T6 layout placeholder. It owns no T6 result storage or T6 completion event.
+3. **Later assurance feature:** own conditional `T6-ASSURANCE-JUDGMENT`, its stored evidence/result
+   model, Chief Editor control, external-GRC evidence interaction, refusal/amendment/retraction UI,
+   and audit detail. Draft 12 must give this feature one stable name and one bounded authorization
+   path; the placeholder does not authorize it.
+4. **Route activation dependency:** production routes and `ROUTE-FALLOUT-1/2` do not depend on the
+   later T6 feature. `ROUTE-FALLOUT-3` and `ROUTE-GRC` may display the placeholder during `M-MVP`, but
+   cannot receive `AUTH-ROUTE` until the later assurance feature and the route's external-evidence
+   contract are independently complete.
+5. **Propagation:** the current Product/UX clauses define the display shell and its negative
+   behavior. The later feature's Product, Fn_Spec, SPECS/data, migration, and detailed UX ownership
+   remains a named backlog package rather than implicit current scope.
+
+### Guaranteed failures if the distinction is lost
+
+- Treating the placeholder as T6 evidence lets a layout element satisfy an assurance or Delivery
+  rule without a judgment, actor, provenance, or external record.
+- Removing the T6 region entirely from current UI forces a later publication-workspace redesign and
+  risks inconsistent layouts between editorial and GRC-accountable routes.
+- Creating current T6 storage only to populate a placeholder silently pulls the deferred assurance
+  feature back into `AUTH-F1` and delays the editorial proof.
+- Hiding the T6 region on non-GRC routes makes absence ambiguous; an explicit `Not required` state
+  is distinguishable from missing, failed, pending, and deferred.
+- Calling `EXT-GRC` a route, or `ROUTE-GRC` an actor, recreates the authority/routing conflation and
+  makes internal evidence appear to be external acceptance.
+
+### Draft 12 success criteria added by this clarification
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `PLAN12-UI-SHELL-01` | Any route is opened in the publication workspace | T5/T6 layout is rendered | Both regions occupy stable named locations; their content changes by governed route state, not by an unrelated page redesign |
+| `PLAN12-T5-DISPLAY-01` | Both T5 Assurance Preparation acts are sealed | The Chief Editor opens the T5 region | The UI reads their evidence/projection without creating a new judgment, transition, or duplicate evidence record |
+| `PLAN12-T6-PLACEHOLDER-01` | `ROUTE-FALLOUT-3` or `ROUTE-GRC` is viewed before the later assurance feature exists | The T6 region is inspected or submitted | It says the assurance function is deferred; no operative submit action exists and no T6 event/state/evidence is written |
+| `PLAN12-T6-NOT-REQUIRED-01` | A production route or `ROUTE-FALLOUT-1/2` is viewed | The T6 region is inspected | It says `Not required for this route`, never `completed`, `approved`, or external-GRC accepted |
+| `PLAN12-STORAGE-01` | Current `M-MVP` storage is inspected | T6 placeholder support is traced | No T6 result column/event/enum exists solely for the placeholder; current Assurance display is derived from sealed T5 evidence |
+| `PLAN12-ROUTE-HOLD-01` | A GRC-accountable route has only the T6 placeholder | `AUTH-ROUTE` or Delivery is evaluated | The placeholder contributes no completion evidence; the governed transition remains unavailable until real internal T6 and separate external evidence exist |
+| `PLAN12-EXT-GRC-01` | External accountability is displayed or recorded | Actor and route identifiers are inspected | `EXT-GRC` identifies the institution and `ROUTE-GRC` identifies the route; neither identifier substitutes for the other |
+
+### Clarification approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Product/UX planning | One stable publication-workspace shell may contain current T5 display and a truthful T6 placeholder | Lane A Draft 12 |
+| **Approve** | Current data boundary | T5 display is derived/read-only; the T6 placeholder writes no T6 state or evidence | Lane A Draft 12 Product/Fn_Spec/UX plan |
+| **Approve-with-conditions** | Later assurance feature | Preserve its UI location now, but give its storage, behavior, tests and authorization one separate named backlog owner | Lane A Draft 12, then future bounded authorization |
+| **Reject** | Placeholder-as-capability | A visible T6 section cannot prove T6 completion, external acceptance, Delivery eligibility, or `AUTH-ROUTE` readiness | Negative criteria in Draft 12 |
+| **Defer** | Detailed T6 storage and interaction | Outside the current editorial proof; no storage shape or result enum is authorized by this clarification | Later assurance feature |
+| **Defer** | Draft 11 / `AUTH-DOC`, push, implementation and lane transition | This clarification corrects the plan only; the Round 11 rejection and `D-171` hold remain | Draft 12 and independent re-review |
