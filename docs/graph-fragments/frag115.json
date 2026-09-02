@@ -1,0 +1,62 @@
+{
+  "_comment": "Fragment 115 — curated node for D-179 (real F7 propagation, correcting D-178's pointer-only claim: adds actual target content to Modular_PRD.md, FN-GATES-01-05.md, FN-EXCEPTIONS-06-11-12.md, FN-PUBLICATION-09-10-13.md, and raci-involvement-matrix.md; resolves the RACI-proof-vs-authorization circularity by treating the target proof as build-held planning content). Merged 2026-09-02.",
+  "nodes": [
+    {
+      "id": "d179_f7_real_propagation_not_pointers",
+      "label": "D-179: F7 Real Propagation, Not Pointers",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "§5.14e5",
+      "description": "Chief Editor ruling on B-068 S20's independent review of D-178, approved as preserve-the-valid-corrections plus apply-R47-R49-in-one-pass. The review correctly found D-178 recorded an acceptance-ownership map and added pointers/notes in FN-GATES-01-05.md and raci-involvement-matrix.md, but never added the actual target behavior text to FN-EXCEPTIONS-06-11-12.md, FN-PUBLICATION-09-10-13.md, or a real target proof to raci-involvement-matrix.md S2.1/S3 -- a pointer is not propagation. D-178's claim of propagated is corrected to partially applied. Resolves B068-R48's circular-dependency finding (RACI's target proof waits for build authorization, while authorization requires that proof) by treating the target proof as build-held planning content, following the same pattern already used for V1-BUILD-SPEC.md's target DoD and FN-GATES-01-05.md's target node catalog -- it can exist before authorization without asserting current build permission, decoupling rather than bypassing either side. Propagates real content: Modular_PRD.md marks FR-04/FR-05/US-04/US-05/AC-05-AC-08 historical_current_documented_held inline and adds the decided_target_held set (US-04a/US-05a, FR-04a/FR-05a, AC-05a/AC-05b/AC-06a/AC-07a/AC-07b/AC-08a) covering route-dependent T5 cardinality, the non-judgment bundle join, the canary moved from T5 to T6, blind order, disagreement, and scoped return, with AC-09 onward untouched; FN-GATES-01-05.md S11.1 adds a target behavior/acceptance table; FN-EXCEPTIONS-06-11-12.md S11 adds FR-06's scoped return/rerun rules and the external-authority exception path; FN-PUBLICATION-09-10-13.md S11 adds Delivery's mutation-refusal rule and the external-acceptance prerequisite; raci-involvement-matrix.md S3.1 adds a target task matrix and successor-review proof placed alongside, not over, the existing current-order S2.1/S3. D-171's S2 hold is unaffected throughout; every new target passage states plainly it is not build-authorized.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "A note that says where the real content will eventually live is easy to mistake for the content itself, especially across a chain of decisions each building on the last -- an independent reviewer checking whether an owning file actually contains its behavior, rather than trusting that a Decision Register entry described the plan correctly, is what caught the gap between deciding and propagating."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d179_f7_real_propagation_not_pointers",
+      "target": "d178_f7_propagation_event_sequence_corrected",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e5",
+      "weight": 1
+    },
+    {
+      "source": "d179_f7_real_propagation_not_pointers",
+      "target": "raci_matrix_doc",
+      "relation": "amends",
+      "confidence": "CURATED",
+      "source_file": "docs/governance/raci-involvement-matrix.md",
+      "confidence_score": 1,
+      "source_location": "§3.1, v1.8",
+      "weight": 1
+    },
+    {
+      "source": "d179_f7_real_propagation_not_pointers",
+      "target": "b068_persona_line_raci_od4_grc_conflated",
+      "relation": "answers",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e5",
+      "weight": 1
+    },
+    {
+      "source": "d179_f7_real_propagation_not_pointers",
+      "target": "d171_explicit_s2_hold_and_f6_draft",
+      "relation": "confirms",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "confidence_score": 1,
+      "source_location": "§5.14e5, scope limits",
+      "weight": 1
+    }
+  ]
+}
