@@ -1349,3 +1349,104 @@ idempotency key. Those are specification details, not reasons to reopen this Jud
 | **Approve-with-conditions** | Newsworthiness trigger | Reviewed assurance ranking may seed one new linked T1 candidate without changing the source record | Owning feature-group specification must define activation, provenance and idempotency before `AUTH-DOC` |
 | **Reject** | State vocabulary | `Approved` as a publication-target status, assurance approval on editorial-only routes, or one T6 identifier for both editorial and assurance decisions | Remove during Lane A Draft 11 |
 | **Defer** | Implementation and route activation | This ruling authorizes planning only; `D-171` remains binding | After corrected `AUTH-DOC` is applied and independently Verified |
+
+## Judge clarification — POC-first Chief Editor UI scope (2026-09-03)
+
+**Judge ruling received.** To stop assurance-interface drafting from delaying the main editorial
+feature, the current UI/UX scope is narrowed to the Chief Editor's T5 editorial decision and the
+POC output. Detailed T6 assurance UI/UX becomes a separate backlog feature.
+
+This is a delivery-sequencing decision, not removal of the assurance control. The route rules and
+the distinction between T5 editorial judgment and conditional T6 assurance judgment remain binding.
+
+### Current POC UI scope — editorial flow
+
+The Chief Editor UI must provide one short, usable path:
+
+1. Show the main trigger details and the sealed T5 editorial packet.
+2. Show the publication section with a `Publication status` field.
+3. Allow the natural-person Chief Editor to record the editorial decision that changes the article
+   workflow from `Reviewed` to `Approved`.
+4. Enable the governed POC/publication action after editorial approval and any applicable route
+   controls.
+5. Show a URL to the downloadable **Public Explainable Content with report** once that artifact
+   exists.
+
+For this UI, `Publication status: Reviewed/Approved` is a human-facing projection of the article's
+editorial `workflow_state`. It is not the status of an individual publication target. The output URL
+is also not the source-article URL: it resolves to the generated, downloadable POC/report artifact
+and must retain provenance to the article and decision record.
+
+### Current POC UI scope — assurance visibility
+
+The publication section shows only a read-only `Assurance status` field. In the current editorial
+flow, `Reviewed` means the parallel T5 assurance analysis has been completed and sealed. It does not
+mean that a human T6 assurance judgment or external GRC acceptance has occurred.
+
+The following assurance UI/UX is moved to one separate backlog feature:
+
+- detailed assurance evidence and brief views beyond the status summary;
+- the Chief Editor's T6 assurance-decision controls;
+- external GRC acceptance/mandate evidence capture and provenance;
+- assurance-specific refusal, amendment and retraction interactions; and
+- the complete assurance audit view presented with the publication record.
+
+On the five non-GRC routes, no T6 action is required and the editorial POC flow can proceed under
+the clarified state rules. On `ROUTE-FALLOUT-3` and `ROUTE-GRC`, backlogging the T6 interface must
+not create a bypass: the affected route remains held before Delivery until the separately governed
+assurance feature and its required external evidence are available.
+
+### What is unclear versus decided
+
+The feature boundary is decided. Lane A still has to define the exact UI source mapping for the
+human-facing `Publication status` so it cannot write to the publication-target status field, and the
+artifact contract for the downloadable URL must name its owner, availability condition and failure
+state. Those are Draft 11 specification tasks, not further Judge questions.
+
+### Guaranteed failures if the scope cut is implemented loosely
+
+- Binding `Publication status: Approved` to a publication-target record would claim publication
+  before a delivery operation succeeds.
+- Showing `Assurance status: Reviewed` without defining it as T5 preparation would imply that T6
+  assurance or external GRC acceptance has been completed.
+- Hiding the deferred assurance interface while allowing GRC-accountable routes to deliver would
+  turn a backlog choice into a control bypass.
+- Using the trigger/source URL as the POC download URL would send the Chief Editor to the input
+  instead of the generated explainable artifact.
+- Exposing a URL before the report is complete, or without article/decision provenance, would make
+  the downloadable evidence unreliable and unauditable.
+- Continuing to design the complete T6 experience inside the editorial POC feature would preserve
+  the drafting bottleneck this ruling is intended to remove.
+
+### Draft 11 success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `UX-POC-01` | A Chief Editor opens a T5 article | The editorial decision view loads | The main trigger details, sealed T5 packet and publication section are visible without requiring the deferred T6 interface |
+| `UX-POC-02` | Article workflow is `Reviewed` | The human Chief Editor approves the editorial decision | The UI shows `Publication status: Approved`, backed by article `workflow_state`; no publication-target outcome is written |
+| `UX-POC-03` | The Public Explainable Content with report has been generated successfully | The publication section refreshes | One clearly labeled downloadable URL is shown and resolves to the governed artifact with article and decision provenance |
+| `UX-POC-04` | The report does not yet exist or generation failed | The publication section loads | No successful download is implied; the UI shows the governed pending or failure condition |
+| `UX-ASSURANCE-01` | T5 parallel assurance analysis is sealed | The publication section loads | A read-only `Assurance status: Reviewed` is shown and explicitly means T5 analysis only |
+| `UX-ASSURANCE-02` | Route is `ROUTE-FALLOUT-3` or `ROUTE-GRC` and the deferred T6 capability is unavailable or incomplete | Delivery is attempted | Delivery is refused; no local editorial approval or T5 assurance status substitutes for T6 and external GRC evidence |
+| `BACKLOG-ASSURANCE-01` | Draft 11 records the POC scope | Assurance UI/UX work is planned | One separately owned backlog feature contains the deferred assurance behavior and dependencies without duplicating the editorial POC criteria |
+
+### Parent-first correction plan
+
+1. Record the POC scope boundary: editorial T5 UI now; detailed assurance/T6 UI later.
+2. Define the `Publication status` projection and keep it separate from publication-target state.
+3. Specify the Chief Editor editorial action and its append-only `Reviewed → Approved` evidence.
+4. Specify the downloadable Public Explainable Content-with-report artifact and URL behavior.
+5. Create one assurance UI/UX backlog feature, preserving the GRC-route Delivery hold.
+6. Remove detailed assurance UI work from the current POC acceptance set, then independently review
+   Draft 11 before `AUTH-DOC`.
+
+### Clarification approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Product UI / current POC | Chief Editor T5 editorial UI includes trigger details, publication status and the editorial decision | Lane A Draft 11 |
+| **Approve-with-conditions** | POC/report artifact | Show one downloadable Public Explainable Content-with-report URL after successful generation with provenance | Owning Fn_Spec and artifact contract before `AUTH-DOC` |
+| **Approve** | Assurance UI sequencing | Current UI shows only read-only assurance status; detailed T6 assurance UI is one separate backlog feature | Lane A Draft 11 and backlog registration |
+| **Reject** | GRC route behavior | Deferral of UI as permission to bypass T6 or external GRC evidence | Preserve the route hold in Draft 11 |
+| **Reject** | State/data mapping | Writing editorial `Approved` into a publication-target status or treating assurance `Reviewed` as T6 approval | Correct field ownership in Draft 11 |
+| **Defer** | Detailed assurance UI/UX and implementation | Separate feature; no build authorization is granted by this ruling | After editorial POC scope is approved and the assurance feature is independently specified |
