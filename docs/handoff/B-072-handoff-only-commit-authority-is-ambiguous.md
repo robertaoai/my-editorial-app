@@ -7,6 +7,7 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
+- **Verified-At-Commit:** b879af1
 - **Lane A:** Acknowledged 2026-09-02. **`D-184` (2026-09-03) records the Judge's decision on the
   last blocking policy variable** — standing `Eligible` handoff-only commit-and-push authority,
   narrow-path-restricted. `docs/handoff/README.md` §"Committing and pushing your own entry" is now
