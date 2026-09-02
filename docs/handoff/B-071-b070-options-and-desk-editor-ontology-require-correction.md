@@ -1237,3 +1237,115 @@ defined path from `Reviewed` to `Approved`. Lane A must present, not infer, one 
 | **Approve-with-conditions** | State transition model | Select S-A to preserve fixed states while recording non-GRC assurance as `not_applicable` | Judge selection, then Draft 11 |
 | **Reject** | Conflated model | T5/T6 as publication actions, T5 editable assurance judgment, or Chief Editor as external GRC acceptance | Remove from Draft 11 |
 | **Defer** | Implementation and route activation | `D-171` remains binding | After corrected `AUTH-DOC` is applied and independently Verified |
+
+## Judge clarification — editorial approval state and assurance-review status (2026-09-03)
+
+**Judge ruling received.** This closes the state-machine choice left open in the preceding section
+for the five editorial-only routes. It supersedes both proposed options S-A and S-B: the human Chief
+Editor makes the editorial approval decision in the T5 publication workspace, while the assurance
+analysis remains a reviewed input and does not acquire an approval state.
+
+### Normalized state axes
+
+| Axis | T5 result | Chief Editor action | Result |
+|---|---|---|---|
+| Article editorial workflow (`workflow_state`) | Article reaches `Reviewed` after the required T5 evidence is sealed | Human Chief Editor approves the editorial decision in the publication workspace | Article moves `Reviewed → Approved`, opening the governed publication flow |
+| Assurance status | Parallel Desk Editor and Chief Journalist analysis reaches `reviewed` | No T6 action occurs on an editorial-only route | Remains `reviewed`; it is neither `not_applicable` nor `approved` |
+| Publication-target status | No publication has occurred | Editorial approval only enables the publication controls | Unchanged until T7/T10/T11 records the actual target outcome |
+| Newsworthiness-trigger evidence | The reviewed assurance analysis contains a newsworthiness ranking | A governed trigger rule accepts the ranking for reuse | A new linked editorial-work candidate may start at T1; the source article and its evidence remain unchanged |
+
+“Publication workspace” is a UI location. `Approved` is the article's editorial `workflow_state`;
+it must not be added to, or confused with, the status of an individual publication target.
+
+### Editorial-only route flow
+
+```text
+T1–T4 editorial preparation
+        ↓
+T5 virtual-node evidence and parallel assurance analysis
+        ↓
+article workflow = Reviewed
+assurance status = reviewed
+        ↓
+human Chief Editor editorial judgment in the publication workspace
+        ↓
+article workflow = Approved
+assurance status remains reviewed
+        ↓
+publication UI enabled
+        ↓
+T7/T10/T11 records the actual Delivery/publication outcome
+```
+
+This route contains no T6 assurance judgment and makes no external-GRC acceptance claim. The prior
+route-gated T6 ruling remains unchanged for `ROUTE-FALLOUT-3` and `ROUTE-GRC`; this clarification
+only closes the non-GRC/editorial-only branch.
+
+### Direct effect on Draft 11
+
+1. Remove S-A's invented `assurance = not_applicable` result. The T5 parallel analysis exists and
+   remains `reviewed`.
+2. Remove S-A's system-performed approval and S-B's route-dependent T5 state pair. The natural-person
+   Chief Editor performs the editorial `Reviewed → Approved` action after T5 evidence is complete.
+3. Do not label that human editorial action T6. Existing documents currently use T6 for the
+   `Reviewed → Approved` state transition while the clarified ontology reserves T6 for conditional
+   assurance judgment. Draft 11 must assign an unambiguous editorial-approval event/transition
+   identity before propagation; one identifier must not mean both acts.
+4. Preserve publication as a later operation. Editorial `Approved` enables the publication UI but
+   does not set a publication target to `Published`, `Scheduled`, `ManualReady` or any other target
+   outcome.
+5. Specify newsworthiness reuse as a linked new-work trigger. It must not reopen the current article,
+   mutate its sealed evidence or recursively create duplicate work from the same evidence.
+
+### What is still unclear
+
+The business outcome is decided. Draft 11 still has to name the editorial-approval transition/event
+that replaces the overloaded use of “T6” on non-GRC routes. The newsworthiness trigger also needs an
+owning feature group, an activation rule (automatic threshold or Chief Editor confirmation) and an
+idempotency key. Those are specification details, not reasons to reopen this Judge ruling.
+
+### Guaranteed failures if the axes remain conflated
+
+- Reusing T6 for both editorial approval and assurance judgment makes audit evidence unable to say
+  which decision occurred.
+- Setting assurance to `approved` invents an assurance decision that no person or external authority
+  made; setting it to `not_applicable` discards the T5 analysis the Judge requires.
+- Adding `Approved` to publication-target status claims a delivery result before T7/T10/T11 runs.
+- Letting an agent or the system perform `Reviewed → Approved` removes the natural-person Chief
+  Editor from the final editorial decision.
+- Reusing a newsworthiness ranking without source linkage and duplicate protection can create an
+  unbounded self-triggering loop and multiple work orders for the same evidence.
+
+### Draft 11 success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `STATE-EDITORIAL-01` | A non-GRC article has completed T5 and its article workflow is `Reviewed` | The human Chief Editor records the editorial approval in the publication workspace | The article workflow becomes `Approved`; the append-only event identifies the human decision; assurance status remains `reviewed` |
+| `STATE-ASSURANCE-01` | A non-GRC article's two parallel T5 assurance-analysis acts are sealed | T5 completion is evaluated | Assurance status is `reviewed`; no T6 assurance judgment or external-GRC acceptance record is created |
+| `STATE-PUBLICATION-01` | The article workflow becomes `Approved` | The publication workspace is evaluated | Publication controls may open, but no publication-target outcome changes until its governed operation succeeds |
+| `STATE-GRC-01` | Route is `ROUTE-FALLOUT-3` or `ROUTE-GRC` | T5 editorial approval completes | The previously ruled conditional T6 assurance branch remains required and Delivery remains held by its governed evidence rules |
+| `TRIGGER-NEWS-01` | Reviewed assurance analysis contains a qualifying newsworthiness ranking | The governed trigger rule accepts it | At most one new editorial-work candidate is created at T1 with immutable provenance to the source evidence |
+| `TRIGGER-NEWS-02` | The same source evidence and trigger rule are evaluated again | Candidate creation is attempted | No duplicate candidate is created and the source article's states and evidence remain unchanged |
+
+### Parent-first correction plan
+
+1. Record the four independent state axes and reserve T6 for route-gated assurance judgment.
+2. Name the human editorial-approval transition/event and propagate its `Reviewed → Approved`
+   contract before changing UI wording.
+3. Update T5/T6 functional criteria and the route crosswalk from that parent decision.
+4. Update the publication workspace so editorial approval is actionable, assurance is read-only on
+   editorial-only routes, and publication-target outcomes remain separate.
+5. Add the newsworthiness-trigger behavior only in its owning feature group, including provenance,
+   activation and idempotency rules.
+6. Independently review the corrected Draft 11 before `AUTH-DOC`; implementation remains separately
+   gated.
+
+### Clarification approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Product workflow / state model | Human Chief Editor editorial judgment moves a non-GRC article `Reviewed → Approved` in the publication workspace | Lane A Draft 11 |
+| **Approve** | Assurance behavior | Non-GRC assurance analysis remains `reviewed` from T5; no T6 assurance judgment occurs | Lane A Draft 11 |
+| **Approve-with-conditions** | Newsworthiness trigger | Reviewed assurance ranking may seed one new linked T1 candidate without changing the source record | Owning feature-group specification must define activation, provenance and idempotency before `AUTH-DOC` |
+| **Reject** | State vocabulary | `Approved` as a publication-target status, assurance approval on editorial-only routes, or one T6 identifier for both editorial and assurance decisions | Remove during Lane A Draft 11 |
+| **Defer** | Implementation and route activation | This ruling authorizes planning only; `D-171` remains binding | After corrected `AUTH-DOC` is applied and independently Verified |
