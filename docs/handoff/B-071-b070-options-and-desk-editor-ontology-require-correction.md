@@ -1683,3 +1683,74 @@ clarification for Lane A, not a reason to reopen the maturity sequence.
 | **Reject** | Terminology | “Internal POC/MVP,” “client-facing POC,” or unqualified “POC” where a module boundary is intended | Replace with `M-MVP`/`M-POC` in Draft 11 |
 | **Reject** | Scope/pipeline | Pulling later `M-POC` behavior into current `M-MVP` or creating a second client editorial pipeline | Preserve module boundary and one-engine invariant |
 | **Defer** | `M-POC` client UI and implementation | Later proof stage; this ruling changes planning language only | After `M-MVP` proof and separate `M-POC` authorization |
+
+## Judge clarification — the downloadable report is an `M-MVP` artifact, gating `M-POC` start (2026-09-03)
+
+**Judge ruling received.** This closes the one open item the preceding maturity-model clarification
+left unresolved: which module owns the downloadable Public Explainable Content with report.
+
+> Public Explainable Content with report is part of the common engine in `M-MVP`; hence the
+> downloadable artifact has to be ready before the start of `M-POC`. Why? This is to validate that
+> all the items in "Public Explainable Content with report" are completed up to the Minimum
+> Marketable Feature for `M-MVP`.
+
+### Resolved artifact ownership
+
+| Question | Answer |
+|---|---|
+| Which module owns the downloadable report? | `M-MVP` — it is part of the common editorial engine, not an `M-POC` client-package artifact |
+| Who is its audience in the current scope? | The Chief Editor, inside the `M-MVP` proof of concept — not a client |
+| When must it exist? | Before `M-POC` begins — its successful generation is a gating checkpoint, not an optional nicety |
+| Why does `M-POC` wait on it? | It is the evidence that every `M-MVP` item is complete to the Minimum Marketable Feature (MMF) bar; `M-POC` reuses the same engine and must not start client validation on an engine that hasn't cleared its own MMF |
+
+**Terminology check:** the ruling says "Minimum Markable Feature." Normalizing this to the standard
+product-management term **Minimum Marketable Feature (MMF)** — the smallest feature slice that is
+complete enough to demonstrate real value to an external audience, as distinct from an MVP's
+internal completeness bar. Flagging the substitution here rather than silently assuming it; correct
+if "Markable" meant something else.
+
+### Direct corrections required in Draft 11
+
+1. Name the current downloadable artifact **"`M-MVP` Public Explainable Content with report"** —
+   never bare "POC report" — matching `MATURITY-TERM-01`'s bare-"POC" prohibition.
+2. Add one `M-MVP`-completion gate: `M-POC` engagement start requires the report's successful,
+   provenance-linked generation as evidence that `M-MVP` has reached its MMF bar. This is a new
+   precondition on the `M-MVP → M-POC` sequence, not a restatement of `UX-POC-03`/`UX-POC-04`
+   (which govern the Chief Editor's UI display of the same artifact within `M-MVP`).
+3. Do not attach any `M-POC` client-package field (engagement ID, client folder, `/request-brief`
+   linkage) to this artifact or its generation record — it remains internal `M-MVP` evidence that
+   `M-POC` *reads as a precondition*, never a client-facing deliverable itself.
+
+### What remains unclear
+
+None for artifact ownership — this was the last open item the maturity-model clarification named.
+Whether MMF completeness is measured automatically (e.g., all `M-MVP` acceptance criteria green) or
+requires an explicit Chief-Editor/Judge sign-off is a Draft 11 specification detail, not a further
+Judge question.
+
+### Guaranteed failures if this stays unresolved
+
+- Treating the report as an `M-POC` client artifact would pull client-package/folder-separation
+  rules into current `M-MVP` scope, which the preceding ruling already forbids.
+- Starting `M-POC` client validation before the report exists would let a later, client-facing proof
+  begin on an editorial engine that never demonstrated its own completeness.
+- Restating this as a UI display rule (`UX-POC-03`) instead of an `M-MVP → M-POC` sequencing gate
+  would lose the "why" — MMF validation — that this ruling exists to establish.
+
+### Draft 11 success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `MATURITY-GATE-01` | An `M-POC` engagement is proposed to begin | Its preconditions are evaluated | The `M-MVP` downloadable Public Explainable Content with report must already exist, successfully generated, with article/decision provenance |
+| `MATURITY-GATE-02` | The `M-MVP` report does not yet exist or generation failed | `M-POC` start is attempted | Refused; `M-POC` cannot begin on an unproven `M-MVP` engine |
+| `MATURITY-GATE-03` | The report and its generation record are inspected | Ownership is evaluated | Both are `M-MVP` artifacts with no `M-POC` engagement, client, folder or `/request-brief` field attached |
+
+### Clarification approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Artifact ownership | The downloadable report is an `M-MVP` common-engine artifact, Chief-Editor-facing only in current scope | Lane A Draft 11 |
+| **Approve** | Sequencing gate | `M-POC` start requires the `M-MVP` report to exist as MMF-completion evidence | Lane A Draft 11, new gate criteria |
+| **Approve-with-conditions** | Terminology | "Minimum Markable Feature" normalized to "Minimum Marketable Feature (MMF)" pending confirmation | Confirm or correct before Draft 11 propagation |
+| **Reject** | Scope leakage | Any `M-POC` client-package field attached to this artifact or its generation record | Keep the artifact strictly internal to `M-MVP` |
+| **Defer** | Automatic-vs-manual MMF measurement | Specification detail, not a governance question | Draft 11 |
