@@ -852,3 +852,51 @@ completion evidence.
 | **Reject** | `AUTH-DOC` approval now | The gate is circular, lifecycle text is stale, operative identity terms remain mixed, and new spec paths are incomplete | Correct Draft 9 first |
 | **Reject** | Current Graphify completion claim | `docs-drift` fails and the curated source still describes Draft 6 | Tooling repair, status-fragment update, rebuild/re-merge and semantic check |
 | **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation and lane transition | `D-171` remains binding; this is review evidence only | After corrected `AUTH-DOC` is applied and independently Verified |
+
+## Round 9 independent review — Lane A Draft 9 and Graphify precondition at `838baff`
+
+**Judge approval: the identifier ruling and the narrow Graphify tooling/status precondition only.**
+Lane B reviewed the actual pushed commit, not Lane A's summary. Local `HEAD` and
+`origin/docs/journal-2026-08-16` both resolve to `838baff`; `.graphify/branch.json` records the same
+`lastAnalyzedHead` with `stale = false`; and the full local consistency suite passes. The working
+tree contains only the pre-existing untracked `package-lock.json`, which was not examined or
+staged. These facts prove a shared, current review baseline. They do not prove that Draft 9's
+propagation set is complete or that the new merger enforces the semantic contract it claims.
+
+### Round 9 findings — parent first
+
+| Finding | What remains unclear or contradictory | Guaranteed failure if unchanged | Draft fix |
+|---|---|---|---|
+| `B071-R61` — the parent governing propagation set is incomplete | Draft 9 §7 starts at the V1 trackers and Product tier. It omits the editable governing-set files `v1-build-readiness-addendum.md`, `blueprint.md` and `business-case.md`, although they still define T5 as Line-2/human-primary and T6 as Line-1/agent. It also omits derived operational readers that repeat or enforce that model: `docs/README.md`, `SPECS-TRANSITION-ENFORCEMENT.md` and the media-industry fallback plan | `D-182` can be applied in the register while higher/read-first documents and the existing enforcement spec continue prescribing the opposite executor, Line and `human_only` behavior. Arbitration may identify the winner, but implementers and tests will still consume contradictory requirements | Before any child edit, add a clause-level propagation/forward-notice row for every affected non-frozen file. Preserve historical text where required, but mark the current target explicitly. Never edit frozen `docs/PRD.md` or the Charter. For existing `[V1]` technical text, use the governed `[V1→V2]`/target overlay rather than an unmarked rewrite |
+| `B071-R62` — human-only T6 has no pre-auth trust boundary | The plan says only an authenticated natural-person Chief Editor may complete T6, while the build plan defers authentication lockdown to S6 and the demo remains accessible without a login wall. Draft 9 does not say how a pre-S6 caller is prevented from self-asserting the human role | An agent or arbitrary client can present a human actor label and satisfy an actor-type check. The system then records a false human-only assurance while every stated T6 test can appear green | Decide the behavior before `AUTH-DOC`: either authenticated Chief-Editor identity is a hard dependency for operative T6, or pre-auth T6 is visibly `self_asserted`/demo-only and cannot satisfy publication or `AUTH-ROUTE`. Add a negative test proving a client-supplied human label cannot create an operative T6 event |
+| `B071-R63` — identity-spec ownership and naming are still conditional | Draft 9 calls `SPECS-IDENTITY-ATTESTATION.md` governed naming, but `docs/specs/README.md` still prescribes singular `SPEC-*.md`, while the actual sibling files use plural `SPECS-*`. The `D-30` owner decision is deferred until execution even though `SPECS-TRANSITION-ENFORCEMENT.md` already excludes column/type ownership | The application pass can create a file whose name violates the index, omit it from Inventory, or extend an unrelated spec; different reviewers can legitimately choose different artifacts from the same approved plan | Resolve the redundancy and naming decision in the plan: record why the transition spec cannot own identity storage, select one exact file, and include the specs README/index normalization in §7 if `SPECS-*` is the intended convention. Inventory must follow that decided file, not a future conditional |
+| `B071-R64` — one operative canonical-node reference remains prose | Proposed `D-182` §1 point 2 still says “Chief Journalist review node” rather than `NODE-CHIEF-JOURNALIST-REVIEW`, although the plan-review checklist requires the canonical ID wherever that prose appeared | The decision origin can authorize an unnamed node while child tiers implement the canonical node, recreating the node/role ambiguity the packet is meant to remove | Replace the operative prose in proposed `D-182` with `NODE-CHIEF-JOURNALIST-REVIEW` and retain the one-to-one mapping to `ROLE-CHIEF-JOURNALIST` |
+| `B071-R65` — the completed Graphify precondition is scheduled a second time | The precondition was authorized and applied at `838baff`, but §7 still lists `merge7.js` as a future `AUTH-DOC` edit, §8 says it is fixed in step 1, and the precondition section still says “If the Judge grants it” and “Declining it leaves the graph stale” | A literal runbook execution either reopens completed tooling work, claims the current graph is stale when it is not, or mixes a tooling correction into the later ontology-application commit and obscures what `AUTH-DOC` actually changed | Mark the precondition completed at `838baff`. In §7/§8, cite and verify the existing tool instead of scheduling the same repair again; reopen it only for the separate `R66` defects below |
+| `B071-R66` — the merger's semantic check can produce false green evidence | `--verify-only` writes the graph before it verifies; dangling fragment edges are reported then dropped and skipped by verification; only the selected fragment is checked; cross-fragment conflicting ownership is not detected; and a failed verification occurs after the tracked input has already mutated the graph. “Every fragment-owned field” is also undefined: a read-only all-fragment comparison finds many differences dominated by Graphify-derived `community` fields, so neither the plan nor tool identifies which layer owns them | A destructive “verify-only” run can repair the evidence it is supposed to inspect; an invalid required edge can disappear with exit 0; two fragments can silently overwrite one another; and the applied-state checklist can never consistently prove global equality across machines | Treat the current tool as applied but not verified. Parse mode before mutation; make verify-only read-only; fail on dangling edges and cross-fragment conflicts before any write; validate the in-memory candidate then replace atomically; add an all-fragment audit; explicitly enumerate curated-owned fields and exclude or govern Graphify-derived fields; add negative tests for no-write verification, dangling edges, same/cross-fragment conflicts and update-in-place behavior |
+
+### Draft 10 success criteria
+
+1. The parent decision names every affected editable governing and derived tier; no current T5/T6
+   reader prescribes the retired human-T5/agent-T6 model without an explicit historical/target
+   notice.
+2. Operative T6 completion proves an authenticated natural-person Chief Editor. Until that trust
+   boundary exists, a self-asserted/demo event cannot authorize publication or `AUTH-ROUTE`.
+3. The identity-attestation technical owner and exact path are decided before application, and
+   `docs/specs/README.md`, Inventory and §7 use one naming rule.
+4. Proposed `D-182` uses both canonical T5 child-node IDs and their canonical role bindings.
+5. Draft 10 records the Graphify status precondition as completed at `838baff`; it neither calls the
+   graph stale nor schedules the same repair as new `AUTH-DOC` work.
+6. Graph verification is non-mutating, fails closed on dangling/conflicting definitions, checks all
+   tracked fragments under an explicit owned-field policy, and is covered by negative tests.
+7. `D-171` remains binding. No plan correction applies `D-182`, starts S2, changes lane state, or
+   authorizes `AUTH-F1`, `AUTH-F2` or `AUTH-ROUTE`.
+
+### Round 9 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Git/GitHub and Graphify baseline | Shared pushed commit is `838baff`; graph commit metadata matches; the full local suite passes | Preserve as the Round 9 evidence baseline |
+| **Approve-with-conditions** | Graphify tooling/status precondition | Status-only sync is correctly bounded and current, but the verifier is not yet safe enough to support applied-state proof | Apply `B071-R65`/`R66`, add negative tests, then independent tool re-review |
+| **Approve-with-conditions** | Lane A Draft 9 | Core T5/T6, four-identifier, two-feature and four-authorization structure remains usable | Apply `B071-R61`–`R66` parent-first in Draft 10 |
+| **Reject** | `AUTH-DOC` approval now | Governing propagation, T6 authentication, spec ownership and verification semantics remain incomplete | Lane A Draft 10, pushed shared baseline, then Lane B independent plan review |
+| **Defer** | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, S2 implementation and lane transition | `D-171` remains binding; this round authorizes no implementation | Only after corrected `AUTH-DOC` is applied and independently Verified |
