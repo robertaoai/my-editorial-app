@@ -1754,3 +1754,82 @@ Judge question.
 | **Approve-with-conditions** | Terminology | "Minimum Markable Feature" normalized to "Minimum Marketable Feature (MMF)" pending confirmation | Confirm or correct before Draft 11 propagation |
 | **Reject** | Scope leakage | Any `M-POC` client-package field attached to this artifact or its generation record | Keep the artifact strictly internal to `M-MVP` |
 | **Defer** | Automatic-vs-manual MMF measurement | Specification detail, not a governance question | Draft 11 |
+
+## Independent review — Draft 10 and the post-Draft-10 Judge clarifications (2026-09-03)
+
+- **Review baseline:** local `2a9ea27`; remote `9efc086`; Draft 10 remains the plan at
+  `docs/v1/V1-B071-CORRECTIVE-PLAN.md`
+- **Review role:** Lane B, independent of Lane A's Draft 10 and the local report-ownership addition
+- **Approval state:** **none** — this review does not approve Draft 10, `AUTH-DOC`, a push,
+  implementation or a lane transition
+- **Result:** Draft 11 is required. None of `B071-R67`–`R72` is fully closed in the current plan.
+
+### `B071-R67`–`R72` closure audit
+
+| Finding | Current state | Evidence in the current tree | Smallest Draft 11 fix |
+|---|---|---|---|
+| `B071-R67` — false approval provenance | **Open** | B-071's live Lane A field still says “The Judge approved Draft 10”; the plan remains `DRAFT`, and the current instruction says Judge approval is none. Later direct clarifications are source inputs, not approval of Draft 10 as a complete packet | Correct the live header and Draft 11 metadata to “Draft 10 reviewed and superseded as a draft; Judge clarifications received; plan approval none.” Do not rewrite the historical false claim |
+| `B071-R68` — circular pre-`AUTH-DOC` checklist | **Open** | The old “Round 10 — outstanding” checklist still requires governing/derived files to carry overlays, the identity spec to exist, naming conventions to match and tooling tests to exist before the plan reaches the Judge. Those are application/tooling outcomes, not text-only plan-review conditions | Retire that checklist as historical. Keep only a text-review checklist before `AUTH-DOC`; move applied-file and runtime evidence exclusively after authorization. Track the R72 tooling repair separately |
+| `B071-R69` — infrastructure rule substituted for Judge policy | **Partially resolved, not closed in Draft 10** | The Judge has now selected Option A and corrected it to “operational `M-MVP`, `self_asserted`, non-production.” Draft 10 still says demo/non-operative, only authenticated T6 can be operative, and runtime evidence can satisfy `AUTH-ROUTE` | Record the direct ruling, remove the superseded non-operative/auth-only behavior, and remove the runtime/`AUTH-ROUTE` category error. A runtime event never grants a development authorization |
+| `B071-R70` — T6 conflated with publication | **Open** | Draft 10 still says authenticated T6 closes `Drafted → Reviewed → Published`. Later rulings reserve T6 for conditional GRC-route assurance; editorial `Reviewed → Approved` is a separate human action, and T7/T10/T11 own publication | Replace the parent state flow before editing any child criterion. Give editorial approval its own unambiguous event identity; keep T6 conditional; keep publication-target outcomes downstream |
+| `B071-R71` — propagation is not clause-executable | **Open and expanded** | §7 still combines six heterogeneous files into one row without exact paths, anchors, clause treatments or negative searches. It also predates the T5/T6, Option A, UI-scope, maturity and report-gate rulings | Produce one row per exact file/anchor with `replace`, target overlay or historical notice. Add every new owning tier named below; never use a top-level notice to mask live contradictory rows |
+| `B071-R72` — Graphify verifier is self-referential | **Open** | `merge7.js` still calls `buildCandidate(g, frag)` before `verify(candidate, frag)`, so `--verify-only` checks values it just overlaid rather than untouched graph state. It still writes `graph.json` directly with `writeFileSync`; no tracked negative-test suite was found. Header comments claiming all R66 defects are fixed exceed the implementation | Add untouched-graph verification, global endpoint/field-ownership audit, atomic temp-write/re-read, and tracked negative tests. Correct the lifecycle comments. Do not use the current verifier as terminal semantic-parity evidence |
+
+### New findings created by the later rulings
+
+| Finding | Gap | Guaranteed failure | Draft fix |
+|---|---|---|---|
+| `B071-R73` — Draft 10's parent ontology is superseded | Proposed `D-182` still defines universal human T6 and a single three-act T5 join. The later Judge rulings define universal editorial T1–T5, separate editorial/assurance state axes, human editorial approval after T5, and conditional T6 only for `ROUTE-FALLOUT-3`/`ROUTE-GRC` | Every corrected child row would still inherit the wrong parent sequence; non-GRC routes either block on nonexistent assurance or T6 again means two decisions | Rewrite proposed `D-182` first, then regenerate all dependent flow, RACI, state and UI clauses from it |
+| `B071-R74` — the approved POC-first UI cut is absent | Draft 10 schedules a complete Chief Editor publication/assurance workspace. It does not limit current scope to trigger details, editorial decision, publication-status projection, read-only assurance status and the downloadable report; nor does it isolate detailed T6 UI as one backlog feature | Assurance design continues delaying the editorial MMF, or a partial screen is mistaken for the complete T6 control | Split current `M-MVP` editorial UI from the separately owned assurance/T6 backlog feature and preserve the GRC-route Delivery hold |
+| `B071-R75` — the `M-MVP → M-POC` report gate lacks owning-tier propagation | The local clarification makes the `M-MVP` report a precondition for `M-POC`, but Draft 10 contains no write-set rows for the new `M-MVP` product requirement or the affected `M-POC` requirements/Fn_Spec. Existing `PR-13` already blocks engagement start on ten real-valued boundaries | One tier allows `M-POC` to start while another refuses it; or the new report gate silently replaces the ten existing boundaries | State the rule conjunctively: the governed `PR-13` boundaries **and** the successful provenance-linked `M-MVP` report are required. Give the report an `M-MVP` Product owner/criterion and add target overlays to `M-POC-REQUIREMENTS.md` and `FN-POC-ENGAGEMENT-01-13.md`; identify any Build-Spec sequencing consequence. Inventory is unaffected unless a new repository file is created |
+| `B071-R76` — “Markable” was normalized without authority | The Judge wording recorded in the local clarification is “Minimum Markable Feature,” but the same section changes it to “Minimum Marketable Feature (MMF)” and then uses MMF operatively while asking for confirmation | A useful but unapproved industry term becomes a requirement and may change the intended completion test | Preserve the Judge's exact phrase with `definition_pending`; do not abbreviate it to MMF or define its measurement until the Judge confirms “Marketable” or supplies the intended “Markable” definition |
+
+### Parent-first Draft 11 corrective plan
+
+1. **Provenance first (`R67`):** state that Draft 10 is not approved; distinguish direct Judge
+   clarifications from approval of the consolidated plan.
+2. **Parent ontology (`R69`, `R70`, `R73`):** rewrite proposed `D-182` around universal editorial
+   T1–T5, distinct editorial approval, conditional GRC-route T6, operational/self-asserted
+   `M-MVP`, and downstream publication.
+3. **Current UI scope (`R74`):** specify only the Chief Editor's `M-MVP` editorial flow and internal
+   report now; register detailed assurance/T6 UI as one later feature without weakening GRC holds.
+4. **Maturity and artifact gate (`R75`, `R76`):** define the internal `M-MVP` report and make it an
+   additional `M-POC` start prerequisite beside—not instead of—existing `PR-13`; hold the
+   Markable/Marketable term unresolved.
+5. **Executable write set (`R71`):** give each exact file and anchor one treatment and a negative
+   search. Include `Modular_PRD.md`, `docs/modules/M-POC-REQUIREMENTS.md`,
+   `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md`, the relevant `M-MVP` Fn_Spec, the Chief Editor UX
+   spec, and all previously named transition/RACI/crosswalk tiers.
+6. **Non-circular review (`R68`):** plan review proves the proposed text only. Applied-state checks
+   remain after `AUTH-DOC`. Tooling correctness is a separately authorized Lane A concern.
+7. **Graph verifier (`R72`):** specify and later test untouched-state verification, global fragment
+   integrity and atomic writes before using it as terminal Graphify evidence.
+8. **Evidence order:** commit Draft 11 and its status-only curated fragment, rebuild and re-merge at
+   that exact commit, run the full suite, make no further tracked edit, then push and hand back for
+   independent review. Only after that review may the Judge consider `AUTH-DOC`.
+
+### Draft 11 success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `PLAN-PROVENANCE-01` | Draft 11 is opened | Approval metadata is read | It says plan approval is none and separately enumerates the direct Judge clarifications used as inputs |
+| `PLAN-FLOW-01` | Any route's target flow is inspected | T5/T6 meaning is traced | Editorial approval and conditional assurance are different events; T6 is required only on the two GRC-accountable routes; publication remains T7/T10/T11-owned |
+| `PLAN-DEMO-01` | The pre-authentication `M-MVP` behavior is inspected | The Chief Editor completes the editorial proof | The flow persists operational POC state with `self_asserted`, non-production identity evidence; no text calls it non-operative or lets it grant `AUTH-ROUTE` |
+| `PLAN-UI-01` | Current and deferred UI scope are compared | The plan is reviewed | Current `M-MVP` editorial UI and the later assurance/T6 UI are separately owned with no duplicated criteria |
+| `PLAN-MATURITY-01` | `M-POC` start is evaluated | Any existing `PR-13` boundary is unset or the governed `M-MVP` report is absent/failed | Start is refused; the report gate is additive and never replaces the existing boundaries |
+| `PLAN-TERM-01` | “Minimum Markable Feature” is encountered | Its meaning has not been confirmed by the Judge | It remains quoted and definition-pending; “Minimum Marketable Feature”/`MMF` is not operative |
+| `PLAN-PROPAGATION-01` | The Draft 11 write set is inspected | Any affected file is selected | Its exact path, anchor, clause treatment, owner and negative search are stated; combined catch-all rows fail review |
+| `PLAN-REVIEW-01` | The pre-`AUTH-DOC` checklist is executed | An item would require applying §7/§8 | That item is rejected from plan review and placed in the post-authorization applied-state checklist |
+| `PLAN-GRAPH-01` | Graph semantic verification runs | The untouched graph contains a stale fragment-owned value or dangling endpoint | Verification fails without mutating the graph; failed writes leave the prior graph byte-intact |
+
+### Independent-review approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Direct Judge clarifications as Draft 11 inputs | Route-gated T6, separate state axes, operational Option A, POC-first UI, `M-MVP → M-POC` maturity order and `M-MVP` report ownership are recorded inputs—not approval of Draft 10 | Lane A Draft 11 |
+| **Approve-with-conditions** | `M-MVP` report as an `M-POC` start gate | Direction is coherent only when additive to existing `PR-13` and propagated to both module and Fn_Spec owners | Lane A Draft 11 |
+| **Reject** | Draft 10 / `AUTH-DOC` | Draft 10 remains materially superseded and still contains every R67–R72 plan defect in whole or in part | Replace with Draft 11, then independent review |
+| **Reject** | R67–R72 closure claim | None is fully closed in the current plan; R69 has a Judge decision but no conforming plan application | Use the closure audit above |
+| **Defer** | Markable/Marketable terminology | The substitution is unapproved | Judge confirms the intended term before Draft 11 makes it operative |
+| **Defer** | Graphify synchronization | The graph is stale and its verifier remains defective; syncing now would not close R72 | Lane A fixes/tests R72, then rebuilds and re-merges at the final Draft 11 commit |
+| **Defer** | Push, `AUTH-DOC`, implementation and lane transition | Local `2a9ea27` is not remote; this review grants no push or build authority | Active Lane A decides the shared push after Draft 11 review packaging |
