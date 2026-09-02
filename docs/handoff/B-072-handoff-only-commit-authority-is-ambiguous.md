@@ -5,9 +5,16 @@
 - **Phase:** 1
 - **Blocks:** durable handoff tracking by an `Eligible` or running build lane without an ad hoc
   commit exception; no product implementation is blocked
-- **Status:** Open
-- **Lane A:** Acknowledged 2026-09-02. Queued pending the Judge's scope confirmation (Approve-with-
-  conditions row below); no rule file, check, plan, or application code has been changed yet.
+- **Status:** Answered
+- **Resolution:** Applied
+- **Lane A:** Acknowledged 2026-09-02. **`D-184` (2026-09-03) records the Judge's decision on the
+  last blocking policy variable** — standing `Eligible` handoff-only commit-and-push authority,
+  narrow-path-restricted. `docs/handoff/README.md` §"Committing and pushing your own entry" is now
+  the single canonical transaction SOP this applies; every earlier protocol block in this file's
+  independent-review sections below is historical analysis, not a second operative copy
+  (`B072-R8`/`R9`). Not yet done: link-only summaries in `V1-PHASE-CLOSURE.md` §5.1 and the shared
+  rule files/work orders, hook/check enforcement (`B072-SC2`/`SC4`), and independent Lane B
+  verification that this application matches `D-184`.
 - **Evidence:** `docs/handoff/README.md` §"This directory stays writable when your lane is not
   Active"; `docs/v1/V1-PHASE-CLOSURE.md` §§5/5.1; `D-103`, `D-156`; the Chief Editor's direct
   clarification of 2026-09-02
@@ -428,3 +435,34 @@ This is a child of B-072's approved one-place model and **not** an additional B-
 | **Approve** | Template structure | Existing template fields already carry request classification, impact, lifecycle and evidence | No template-schema change required |
 | **Reject** | New artifacts | No request-box folder, execution-box folder, central backlog, journal changelog, `A-NNN` channel or per-document BDD copy | Preserve `D-138`, `D-160` and B072-R1–R4 |
 | **Defer** | Application of this addendum | It depends on the still-open B-072 Eligible-push decision and explicit approval of the B-072 packet | Judge decision, Lane A application, independent review |
+
+## Closure — `D-184` resolves the last blocking question (2026-09-03)
+
+**The Eligible-push decision above is resolved: `D-184` approves standing commit-and-push authority**
+(the recommended text, verbatim). `docs/handoff/README.md` §"Committing and pushing your own entry"
+is now the canonical SOP applying it — one operative copy, not a restatement of the protocol blocks
+in the independent-review sections above. Those sections (the original problem statement, all
+independent-review rounds, and the request/refinement/execution addendum) remain as historical
+analysis and the record of how this was reasoned through; **they are not operative** now that
+`D-184` and the canonical SOP exist.
+
+**Still open, not resolved by this closure:**
+- Link-only summaries in `V1-PHASE-CLOSURE.md` §5.1 and the shared rule files/work orders
+  (`B072-R9`'s one-place ownership model — the canonical SOP exists; the short links pointing to it
+  from other tiers do not yet).
+- Hook/check enforcement deriving the permitted path/state rule from `D-184` (`B072-SC2`/`SC4`).
+- The `docs/README.md` request→refinement→decision→execution→evidence routing map and journal
+  non-authority clarification (`B072-R11`–`R15`), whose own approve/reject gate deferred application
+  until this Eligible-push decision existed — it now does.
+- Independent Lane B verification that `D-184`, the canonical SOP, and this closure note actually
+  match the Judge's instruction (per `D-183` point 6 — this closure does not self-certify that).
+
+### Closure approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `D-184` application | Standing Eligible commit+push authority, canonical SOP written | Independent Lane B verification |
+| **Approve** | One-SOP model | `docs/handoff/README.md` is the sole operative transaction procedure | Link-only propagation to other tiers |
+| **Defer** | Phase Closure / shared rules / work orders links | Not yet written | Lane A follow-up |
+| **Defer** | Hook/check enforcement | Not yet written | Lane A follow-up |
+| **Defer** | `docs/README.md` routing map addendum | Its own precondition (this decision) is now met | Lane A follow-up |

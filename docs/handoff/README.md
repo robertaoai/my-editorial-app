@@ -45,6 +45,36 @@ Lane A's, so a dependency you need while Lane A is not `Active` **genuinely wait
 Lane A provisions *ahead* precisely so this is rare. **The entry stops that item, not your lane** —
 raise it and carry on with everything else.
 
+## Committing and pushing your own entry — `D-183`, `D-184`
+
+**Writable (above) and durable-commit are different permissions.** `D-103` says this directory stays
+writable regardless of which lane is `Active`; it does not by itself say who may `git commit`/`push`
+that edit. `D-184` closes that gap — this is the one canonical procedure; do not restate it
+elsewhere.
+
+**The exclusive work-product commit lock still belongs only to the `Active` lane** for every path
+outside this directory. Within `docs/handoff/`, an **`Eligible`** or **`Active`** Lane B/C actor may
+commit and push **only its own explicit `B-NNN-*.md` or `C-NNN-*.md` entry**:
+
+1. Confirm the staged set is empty, or contains only your own intended handoff path(s). Never use a
+   broad add (`git add -A`/`git add .`).
+2. Stage only `docs/handoff/B-NNN-*.md` or `C-NNN-*.md` — never a channel control file
+   (`README.md`/`TEMPLATE.md`), another lane's entry, code, a governed doc, Graphify tooling, or an
+   unrelated file (e.g. `package-lock.json`). A mixed staged set fails the transaction.
+3. Commit and **push immediately**; confirm local/remote equality before another lane treats the
+   entry as its input. This permission does not make the lane `Active`, consume an `Eligible`
+   nomination, or grant implementation, lane-transition, or deployment authority.
+4. You may record `Applied` on your own answer. Only an independent reviewer may record `Verified`
+   with `Verified-By` and an existing commit — never self-promote.
+5. A handoff-only commit necessarily moves `HEAD` and may temporarily make `docs-drift` red — that is
+   disclosed evidence of durable tracking, not a completion or verification claim. The current
+   `Active` Lane A synchronizes Graphify (tracked fragment + rebuild) before the next consuming
+   approval or phase-closure claim; do not call a pushed handoff "verified" or "synced" from the
+   commit alone.
+
+`Blocked`-lane commit authority is not granted by this section — a `Blocked` lane may still draft
+under the writable-channel rule above, but durable commit/push requires `Eligible` or `Active`.
+
 ## Raising an entry — Lane B and Lane C
 
 Copy `TEMPLATE.md` to `B-NNN-<short-slug>.md` (Lane B) or `C-NNN-<short-slug>.md` (Lane C),

@@ -11898,3 +11898,62 @@ any `AUTH-F1`/`AUTH-F2`/`AUTH-ROUTE` checkpoint.** Independent Lane B verificati
 Graphify's synchronization at this decision's own commit, and remote push remain separate, unstarted
 work. This decision does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or
 `.github/workflows/`.
+
+## 5.14e9 `D-184` — Eligible Lane B/C Standing Handoff-Only Commit-and-Push Authority
+
+**Chief Editor/Judge ruling, 2026-09-03, closing `B-072`'s last open policy variable
+(`docs/handoff/B-072-handoff-only-commit-authority-is-ambiguous.md`), approved directly in this
+conversation per `D-183`'s point 1 (names the object, the action, the scope/exclusions, and the
+applicable checkpoint — none).** This is the exact text `B-072`'s independent review drafted and
+recommended:
+
+> An Eligible Lane B or Lane C actor may commit and push only its own explicit
+> `docs/handoff/B-NNN-*.md` or `C-NNN-*.md` entry. This standing handoff-journal permission
+> authorizes no other path, broad or mixed staging, implementation, lane transition,
+> `Applied`→`Verified` promotion, or deployment. The canonical transaction SOP is owned only by
+> `docs/handoff/README.md`; other governed tiers record their owned fact and link to it rather than
+> repeating the SOP.
+
+### Rationale
+
+Commit authority and push authority are separate acts (`D-183`'s corollary, `B072-R7`). `D-103`/the
+earlier lane clarification gave `Eligible` handoff-only **commit** authority without an explicit
+push instruction; `Active` explicitly carries both. Handoff evidence is not shared cross-lane until
+pushed, so requiring per-push approval on every `Eligible` journal commit would defeat the exception's
+purpose while adding no safety `Active`-lane push authority doesn't already lack. The narrow path
+restriction (own `B-NNN-*.md`/`C-NNN-*.md` entry only) is the actual safety boundary, not the
+push/commit split.
+
+### What this does not authorize
+
+Per the quoted text: no path outside the actor's own handoff entry; no broad or mixed staged commit;
+no implementation authority; no lane-state change; no self-promotion from `Applied` to `Verified`;
+no deployment. `D-171` and every `AUTH-*` checkpoint are untouched.
+
+### Gaps
+
+**Addressed:** the standing-vs-per-push policy variable `B072-R6`/`R7` left open. **Unchanged:**
+`D-171`'s S2 hold; `D-182` (T5/T6 ontology, still proposed); the work-lock/journal-permission
+distinction itself (already Judge-clarified before `D-183`, cited not re-decided here). **Still
+open:** applying this rule to `docs/handoff/README.md` as the one canonical SOP (`B072-R8`/`R9`),
+propagating a link-only summary to `V1-PHASE-CLOSURE.md` §5.1 and the shared rule files/work orders,
+enforcing it in the commit hook/checks (`B072-SC2`/`SC4`), and independent Lane B verification that
+this entry and its application match this ruling.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-184` Eligible commit+push authority | ✅ §5.14e9 | **— unaffected: lane-governance rule, not build sequencing** | **Owed a link-only summary — not yet applied** | **— unaffected: no repository file created or retired** | **Owed a link-only live-state summary — not yet applied** | **— unaffected: development-lane process, not product behavior** |
+
+**Handoff tracking:** `B-072` remains `Status: Open` until its full closure packet (canonical SOP,
+propagation, hook enforcement) is applied — this decision resolves its last blocking policy question,
+not the whole entry.
+
+### Scope limits
+
+**Governs only the narrow handoff-journal commit/push permission for `Eligible` Lane B/C actors.**
+Builds no code, authorizes no implementation, and does not touch `D-171`, `D-182`, or any `AUTH-*`
+checkpoint. Independent Lane B verification, the canonical-SOP application (`docs/handoff/README.md`),
+link-only propagation to Phase Closure/shared rules/work orders, and hook/check enforcement remain
+separate, unstarted work.
