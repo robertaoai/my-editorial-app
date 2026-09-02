@@ -14,11 +14,12 @@
   anchor notice itself needed four corrections (`B068-R53`–`R56`); `D-181` is now the current T5/T6
   anchor and appended its own "Anchor update" subsection below (`D-170`'s body remains unedited).
 - **Resolution:** Applied
-- **Verified-At-Commit:** 9006f4d — the `D-181` application commit; not a `Verified` claim
+- **Verified-At-Commit:** 7cb7656 — the `B068-R57`–`R59` tracking-correction commit (`D-181` itself
+  applied at `9006f4d`, superseded as the evidence anchor by `B068-R60`); not a `Verified` claim
   (`Resolution` stays `Applied`), only the commit where this evidence is currently observable
 - **Evidence:** `V1-DECISION-REGISTER.md` `D-170`, `D-171`, `D-175`, `D-179`, `D-180`, `D-181`
-  (§5.14e7); `B-068` §21 (`B068-R50`–`R52`), §22 (`B068-R53`–`R56`); local `docs-drift` result
-  synced at HEAD `9006f4d`
+  (§5.14e7); `B-068` §21 (`B068-R50`–`R52`), §22 (`B068-R53`–`R56`, `B068-R57`–`R60` at §22.9);
+  local `docs-drift` result synced at HEAD `7cb7656`
 
 ## What happened
 

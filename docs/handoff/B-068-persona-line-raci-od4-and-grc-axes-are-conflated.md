@@ -36,8 +36,9 @@
   corrected by `D-181` (§22.8); this round's independent review found three lifecycle-record defects
   in `D-181`'s own tracking (`B068-R57`–`R59`, this section), corrected in place; independent review
   of the corrected tree remains open
-- **Verified-At-Commit:** 9006f4d — the `D-181` application commit; not a `Verified` claim (`Resolution`
-  stays `Applied`), only the commit where this evidence is currently observable
+- **Verified-At-Commit:** 7cb7656 — the `B068-R57`–`R59` tracking-correction commit (`D-181` itself
+  applied at `9006f4d`, superseded as the evidence anchor by `B068-R60`); not a `Verified` claim
+  (`Resolution` stays `Applied`), only the commit where this evidence is currently observable
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `D-170`–`D-181` in `V1-DECISION-REGISTER.md`
   (`D-181` at §5.14e7); `docs/handoff/B-069-*.md`; `docs/Modular_PRD.md` §2.3/§2.3.1/§0.4/§8 and
@@ -1990,3 +1991,24 @@ stays `Status: Answered`, `Resolution: Applied` — independent Lane B re-review
 followed by Graphify resync at the resulting HEAD, is required before either `B-068` or `B-069` may
 move to `Verified`. No application code, schema, or S2 build was touched; `D-171`'s hold is
 unaffected.
+
+### 22.9 `B068-R57`–`R59` — durable definitions, and commit-anchor correction (`B068-R60`)
+
+**Independent re-review, this round, found `B068-R58` was never individually defined** — it existed
+only inside the range label `R57–R59` in commit `7cb7656`'s message, so "this section" in §22.8's
+prior text pointed at nothing durable in the handoff record itself. Defined here, alongside `R57`
+and `R59` for one complete, citable set:
+
+| ID | Finding | Fix applied |
+|---|---|---|
+| `B068-R57` | `D-181` (`V1-DECISION-REGISTER.md` §5.14e7) said `B-069` tracking was "unaffected" and, separately, "unedited" — both true of `B-069`'s **prior body**, but git shows commit `9006f4d` appended a new anchor-update subsection to it | A correction note was appended to `D-181` itself (not a rewrite) stating the precise fact: `B-069`'s prior body was preserved unchanged; a `D-181` anchor-update subsection was appended |
+| `B068-R58` | `B-068`'s and `B-069`'s headers described `D-180`, not `D-181`, as the open review target, and carried `Verified-At-Commit: 7e37919` (`D-180`'s commit) | Both headers' decision chains and evidence extended through `D-181`; `Verified-At-Commit` updated to identify the actual `D-181` application commit |
+| `B068-R59` | §22.8 said "no file created" in the same commit that created `frag117.json` | Corrected to "no new **inventoried** artifact" — `V1-ARTIFACT-INVENTORY.md` already tracks `docs/graph-fragments/` as a collection (`G51`), not a per-file listing |
+
+**`B068-R60` — the `R58` fix itself pointed at the wrong commit.** The prior round's correction set
+both headers' `Verified-At-Commit` to `9006f4d` — the `D-181` **application** commit — but the
+`R57`–`R59` corrections it was describing first appear in `7cb7656`, one commit later. `B-069`'s
+`docs-drift` evidence line had the same defect. Both headers' `Verified-At-Commit` now read
+`7cb7656`; `B-069`'s `docs-drift` evidence line now cites `7cb7656`. No further business
+clarification is required, no new decision or curated fragment is needed, and `D-171`'s hold remains
+untouched throughout.
