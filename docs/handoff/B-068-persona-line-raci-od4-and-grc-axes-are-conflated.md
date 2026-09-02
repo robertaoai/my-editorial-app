@@ -24,21 +24,23 @@
   `G-02a` added; the `T5`/`T5a`/`T5b` state-transition contradiction fixed so review acts seal
   judgment only and the join alone transitions state; current T5/T6 anchor moves from `D-180` to
   `D-181`). Full reasoning for each decision lives in `V1-DECISION-REGISTER.md` §5.14dw–§5.14e7, not
-  restated here. **Current state:** `F1`–`F6` decided and propagated; four rounds of independent
-  review each found real gaps, each corrected. `D-171`'s S2 hold stands, unaffected throughout.
-  Graphify sync and remote push are complete as of `D-181` (commit `9006f4d`, superseded by this
-  correction's own commit below). Still open: independent re-review of `D-181`'s correction, and any
-  fresh build authorization.
-- **Resolution:** Applied
+  restated here. **Current state:** `F1`–`F6` decided and propagated; five rounds of independent
+  review found real gaps in each of the first four, each corrected; the fifth round — independent
+  review of the `B068-R57`–`R60` tracking correction at `335564e` — found no new substantive or
+  tracking defect. `D-171`'s S2 hold stands, unaffected throughout. Local HEAD, remote HEAD, and
+  Graphify's `lastAnalyzedHead` all matched `335564e`, with 17/17 consistency checks passing.
+- **Resolution:** Verified
+- **Verified-By:** Lane B independent review, 2026-09-02
 - **Examined-By:** Lane B independent reviews, 2026-09-02 — `D-178` rejected as pointer-only (§20);
   `D-179` materially improved propagation but had three residual defects (§21); independent re-review
   of `D-180` rejected verification and recorded four remaining defects in §22 (`B068-R53`–`R56`),
-  corrected by `D-181` (§22.8); this round's independent review found three lifecycle-record defects
-  in `D-181`'s own tracking (`B068-R57`–`R59`, this section), corrected in place; independent review
-  of the corrected tree remains open
-- **Verified-At-Commit:** 7cb7656 — the `B068-R57`–`R59` tracking-correction commit (`D-181` itself
-  applied at `9006f4d`, superseded as the evidence anchor by `B068-R60`); not a `Verified` claim
-  (`Resolution` stays `Applied`), only the commit where this evidence is currently observable
+  corrected by `D-181` (§22.8); a further round found three lifecycle-record defects in `D-181`'s own
+  tracking (`B068-R57`–`R59`, §22.9), corrected, then a commit-anchor mismatch in that correction
+  itself (`B068-R60`, §22.9); **independent review of the corrected tree passed at `335564e`** — no
+  new semantic finding
+- **Verified-At-Commit:** 335564e
+  (the exact pushed, Graphify-current tree independently reviewed — local HEAD, remote HEAD, and
+  `lastAnalyzedHead` all matched this commit, with 17/17 checks passing)
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `D-170`–`D-181` in `V1-DECISION-REGISTER.md`
   (`D-181` at §5.14e7); `docs/handoff/B-069-*.md`; `docs/Modular_PRD.md` §2.3/§2.3.1/§0.4/§8 and
