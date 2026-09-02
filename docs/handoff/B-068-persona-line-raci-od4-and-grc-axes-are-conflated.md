@@ -25,8 +25,8 @@
   final sync at final commit, remote push, and any fresh build authorization.
 - **Resolution:** Applied
 - **Examined-By:** Lane B independent reviews, 2026-09-02 — `D-178` rejected as pointer-only (§20);
-  `D-179` materially improved propagation but had three residual defects (§21); `D-180` corrects all
-  three — re-review of `D-180` outstanding
+  `D-179` materially improved propagation but had three residual defects (§21); independent re-review
+  of `D-180` rejects verification and records the remaining defects in §22
 - **Verified-At-Commit:** 7e37919
 - **Evidence:** `D-57`, `D-95`, `D-97`, `D-111`, `D-158`, `D-163`–`D-169`;
   `docs/handoff/B-062-*.md` through `B-067-*.md`; `D-170`–`D-180` in `V1-DECISION-REGISTER.md`;
@@ -1701,6 +1701,7 @@ must consume this proof; it must not create it.
 | **Reject verification** — B-068 terminal closure | Handoff / Graphify | Owner specs and RACI remain incomplete; Graphify is stale at final HEAD |
 | **Defer** — implementation, config/code rename and fresh S2 authorization | Lane A→Lane B / S2 | Only after corrected F7 is pushed and independently verified |
 
+
 ## 21. Independent re-review of `D-179` — substantive propagation, residual defects
 
 ### 21.1 Verdict
@@ -1801,3 +1802,129 @@ same final pushed commit. Only then replace the metadata with `Verified-By: Lane
 | **Approve-with-conditions** — finish R50–R52 | Product Requirements / metrics-security / RACI | One Lane A correction pass, then final graph sync |
 | **Reject verification** — B-068 terminal closure | Handoff / Graphify | Target traceability, metric/security semantics, RACI cardinality and final graph currency still fail |
 | **Defer** — implementation, config/code rename and fresh S2 authorization | Lane A→Lane B / S2 | Only after corrected F7 is pushed and independently verified |
+
+## 22. Independent re-review of `D-180` — correction is substantive, verification still rejected
+
+### 22.1 Verdict
+
+**Keep `Status: Answered` and `Resolution: Applied`; reject `Verified`.** `D-180` correctly re-owns
+`AC-08a`, repairs the target story dependencies, adds the target `G-05`/security clauses, separates the
+two T5 reviewer identities into sibling acts, and gives `D-170` a useful lifecycle notice. Those facts
+stand and must not be repeated.
+
+Independent review of the actual final tree found four smaller defects in the new correction plus the
+existing Graphify-currency failure. They require no new Chief Editor business choice; they are source,
+identity, state-transition and propagation corrections.
+
+| Review layer | Result | Evidence |
+|---|---|---|
+| `D-170` lifecycle notice | **Pass** | Retained/superseded clauses are distinguished without rewriting the historical body |
+| `AC-08a` ownership and target story dependencies | **Pass** | `AC-08a → FR-06`; `US-04a → US-03`; `US-05a → US-04a` |
+| Target `G-05`/security semantics | **Pass in the rows added** | `G-05a`, `SEC-01a`, and `SEC-03a` state the target T5/T6 model |
+| R50 completion | **Fail** | Consuming-gate evidence still has no Product AC; `AC-01a` was reused for an unrelated behavior |
+| R51 completion | **Fail** | The planned target `G-02` clause is absent; D-180 says four new rows but names three |
+| R52 state-transition shape | **Fail** | Both parallel T5 acts claim `Drafted → Reviewed`; the join performs no state change |
+| Graphify final currency | **Fail** | `lastAnalyzedHead = ac623da`; final HEAD = `3575307`; `docs-drift` fails |
+| Final evidence anchor | **Not eligible** | `7e37919` is D-180's source commit, not a final independently passing tree |
+
+### 22.2 Residual findings — smallest non-duplicative set
+
+| Review ID | Gap | Guaranteed failure | Draft repair |
+|---|---|---|---|
+| `B068-R53` | R50 required a governed Product AC for consuming-gate evidence. D-180 leaves it only in `FN-GATES-01-05.md` §11.1 while claiming “four target ACs added” and naming three | A Product-only trace cannot prove that missing or placeholder operation evidence blocks a gate; F7 can appear complete only when the register/Fn_Spec is also read | Add one Product AC under an explicit applicable gate owner using a corpus-unique ID; reference §11.1 for elaboration rather than copying its table. Correct the false count language in D-180's successor notice, B-068's current-state correction, and the new graph fragment |
+| `B068-R54` | D-180 uses `AC-01a` for the EW-start trigger, but `FN-GATES-01-05.md` already governs `AC-01a` as the analytical-tag criterion created by `G39` | One ID resolves to two unrelated behaviors; tests, traceability and graph queries cannot identify which acceptance condition `AC-01a` means | Preserve the existing analytical-tag `AC-01a`; rename the EW-start Product criterion to the next verified-unused suffix (candidate `AC-01b`, subject to a full-corpus uniqueness check), then repair FR-01, D-180's successor notice and every reference |
+| `B068-R55` | B-068 §21.3 required target `G-02` semantics, but D-180 adds only `G-05a`, `SEC-01a`, and `SEC-03a` while saying “all four new rows” | The target can still be measured through the unqualified historical `G-02` wording, allowing T5 to be treated as a target Line crossing or leaving the only real target crossing implicit | Mark the historical `G-02` lifecycle explicitly and add one target-held clause: only T6 may be `satisfied`; T1–T5 and Delivery are `not_applicable`; a logged override remains `override_not_four_eyes` |
+| `B068-R56` | R52 splits the reviewers but assigns both `T5a` and `T5b` the article transition `Drafted → Reviewed`, while the bundle join has “no state change” | Parallel acts race to perform one state transition; one succeeds and the other sees the wrong predecessor, or duplicate transitions are recorded. The join can seal a bundle without owning the stage completion it is meant to control | Make every T5 review act append its sealed judgment while article state remains `Drafted`; make the deterministic bundle completion perform the single `Drafted → Reviewed` transition only after the route-required act set is complete. The completion is a system transition with no editorial `R`/`A` or judgment |
+
+`B068-R38` remains the existing Graphify-currency gap and is reused, not duplicated. `B068-R50`–`R52`
+remain partially answered by D-180; `R53`–`R56` identify only defects introduced or left by that
+correction.
+
+### 22.3 Parent-first correction packet
+
+#### Parent 1 — one correcting decision and current anchor
+
+Record one Lane A decision that accepts D-180's valid portions, corrects `R53`–`R56`, preserves
+`D-171`'s S2 hold, and supersedes D-180 as the sole current T5/T6 citation. Add a forward lifecycle
+notice at D-180 rather than rewriting its historical body, and update D-170's notice to point to the
+new current anchor.
+
+#### Parent 2 — repair Product identity and acceptance ownership
+
+1. Preserve the existing Fn_Spec `AC-01a` analytical-tag meaning.
+2. Give EW start a verified-unused Product AC identifier and repair FR-01 plus all references.
+3. Add one governed Product AC for the consuming-gate evidence/refusal rule, with an explicit FR owner
+   and a reference to `FN-GATES-01-05.md` §11.1 for detail.
+4. Correct every “four added”/“four new rows” sentence to name exactly what exists; never substitute a
+   story-dependency correction for a missing AC.
+
+#### Parent 3 — finish target measurement and T5 stage completion
+
+1. Add the target-held `G-02` clause described in `R55`; preserve the old row as historical/held.
+2. Keep `G-05a`, `SEC-01a`, and `SEC-03a` unchanged unless the new ID references require mechanical
+   repair.
+3. Model production and fallout/GRC review reports as T5 acts that do not change article state.
+4. Let one deterministic system completion move `Drafted → Reviewed` after the required sealed set is
+   complete; it remains non-judgmental and has no editorial `R`/`A`.
+
+#### Parent 4 — synchronize once, then independently verify the same final tree
+
+Commit and push the corrected source and curated fragment first. Run Graphify after that final tracked
+commit; do not create another tracked graph-fragment commit afterward. Independent verification must
+test the same pushed HEAD and requires `lastAnalyzedHead = HEAD`, the full local suite passing, and no
+new semantic finding. Only then may Lane B change B-068/B-069 from `Applied` to `Verified` with the
+final commit and independent verifier named.
+
+### 22.4 Failure-derived success tests
+
+| Deliberate failure | Required result |
+|---|---|
+| Query `AC-01a` without file context | It resolves only to the analytical-tag behavior; EW start has a distinct unique ID |
+| Remove the register and Fn_Spec, then trace consuming-gate evidence from Product requirements | A governed Product AC still states that missing/placeholder required evidence refuses completion |
+| Evaluate target `G-02` at T5 | The target clause rejects `satisfied`; T5 is `not_applicable` and only T6 is the Line crossing |
+| Execute T5a and T5b concurrently | Both sealed acts persist without changing article state; exactly one later bundle completion moves `Drafted → Reviewed` |
+| Complete the bundle with one required act missing | The state remains `Drafted`; completion is refused |
+| Treat the bundle completion as a reviewer, judgment, `R`, or `A` | RACI and acceptance rules reject it |
+| Cite D-170 or D-180 as the current implementation anchor | The lifecycle notice redirects to the new correcting decision |
+| Verify commit `7e37919`, `ac623da`, or `3575307` after a later correction | Verification fails unless the cited commit is the final pushed HEAD and Graphify analyzed that same HEAD |
+
+### 22.5 Independent approve / reject summary
+
+| Decision | Tier | Follow-up phase |
+|---|---|---|
+| **Approve** — preserve D-180's valid re-ownership, dependency, target metric/security rows and D-170 notice | Product Requirements / metrics-security / Decision Register | No repeat work |
+| **Approve-with-conditions** — correct `R53`–`R56` | Product Requirements / RACI / target measurement / Decision Register | One Lane A correction pass |
+| **Reject verification** — B-068/B-069 terminal closure | Handoff / Graphify | Correct source, sync final HEAD, independent Lane B re-review |
+| **Defer** — implementation and fresh S2 authorization | Lane A→Lane B / S2 | Only after F7 is independently verified |
+
+### 22.6 Lane B feedback on Lane A's pre-application analysis
+
+**Verdict: approve the P1→P4 dependency order as a plan; correct the write set before applying it.**
+Lane A's repo/Graphify status, preservation of D-180's valid clauses, `D-181` as the next free decision
+ID, and `AC-01b` as an unused candidate are accurate. The following changes are required:
+
+1. **Do not create `B-070`.** `B-068` §22 is already the one handoff item and corrective packet.
+   Lane A answers it; Lane A does not raise a new `B-NNN` entry on Lane B's behalf. A second file would
+   duplicate the backlog item and violate the channel's one-file-per-item purpose.
+2. **`Modular_PRD.md` owns the Product AC identifiers.** Rename the EW-start Product criterion there,
+   add the consuming-gate Product AC there, repair FR references there, and add target `G-02` there.
+   Do not create or reassign those Product IDs in `FN-GATES-01-05.md`.
+3. **`FN-GATES-01-05.md` remains the behavioral elaboration.** Preserve its existing `[V1]`
+   `AC-01a` analytical-tag row. Update only §11.1's target references and clarify that T5 review acts
+   seal evidence without changing article state; one deterministic completion performs the state
+   transition.
+4. **`V1-ARTIFACT-INVENTORY.md` is unaffected.** Its own §1 rule says it changes only when a file is
+   created or retired. An AC identifier is not a file artifact, and this correction needs no new file.
+5. **`V1-BUILD-SPEC.md` is substantively affected, not merely re-cited.** Its target S2 DoD must say
+   that the individual review acts do not change article state and that exactly one deterministic
+   completion performs `Drafted → Reviewed` after the required sealed set exists. Preserve the hold.
+6. **Name the consuming-evidence owner before application.** Use one Product AC scoped to the gate
+   feature group (`FR-01`–`FR-05a`) and cite `FN-GATES-01-05.md` §11.1 for elaboration; do not duplicate
+   one AC per gate or leave “own FR” as an unresolved placeholder.
+7. **Final Graphify order must not recreate the current one-commit lag.** Commit and push the corrected
+   source plus curated fragment first. Then rebuild the extracted graph at that HEAD, re-merge curated
+   fragments into the local graph, run the full suite, and create no later tracked commit before the
+   independent review. If a tracked commit follows, synchronize again.
+
+This feedback approves planning only. It does not authorize source edits, implementation, a fresh S2
+build, or terminal verification.
