@@ -1568,3 +1568,118 @@ own feature specifications and must not delay Draft 11's editorial POC correctio
 | **Reject** | Superseded Option A semantics | “Demo-only” as non-operative UI, unchanged canonical POC state or disabled end-to-end workflow | Remove from Draft 11 |
 | **Reject** | Governance conflation | Runtime events satisfying `AUTH-ROUTE`, `MockPublished` satisfying `Published`, or internal events satisfying external GRC acceptance | Preserve as negative requirements |
 | **Defer** | Detailed assurance UI, client-integration mode and implementation | Separate feature decisions; this ruling approves the plan semantics only | After corrected Draft 11 is independently reviewed and `AUTH-DOC` is granted |
+
+## Judge clarification — `M-MVP` proof first, `M-POC` client proof later (2026-09-03)
+
+**Judge ruling received.** This corrects the maturity-label conflation in the preceding Option A
+clarification. The approved statement is:
+
+> **Option A — demo only:** Lane A must not equate “demo” with “non-operational.” This zero-to-one
+> product uses the demo as its operational flow: first as the `M-MVP` proof of concept for the Chief
+> Editor, and later through `M-POC` as the proof of concept for clients.
+
+The preceding phrases “internal POC/MVP” and “client-facing POC” are superseded. They used “POC”
+both as a generic validation purpose and as the established module identifier `M-POC`. Draft 11 must
+use the module IDs whenever it means product scope.
+
+### Canonical maturity map
+
+| Term | Meaning in this project | Audience | Scope consequence |
+|---|---|---|---|
+| Demo | The no-login, seed/POC-data execution condition used to prove that the working product flow operates end to end | Initially the Chief Editor | Does not name a module and does not mean screen-only or non-persistent |
+| `M-MVP` | The active editorial pipeline product and current operational proof of concept | Chief Editor | Current implementation-plan scope; real POC-state transitions and evidence within the demo boundary |
+| `M-POC` | The later Professional Evidence Review engagement supported by the same editorial engine | Clients/commissioning professionals, with Chief Editor operation | Later exposure with its own governed client-package, engagement and folder-separation requirements; not pulled into current `M-MVP` scope |
+| Production | Later operation with the required authentication, real-user/data controls, live integrations and external-authority evidence | Authorized real users and institutions | Neither the `M-MVP` proof nor `M-POC` client proof may claim this state merely because their flows are operational |
+
+“Proof of concept” is therefore a maturity purpose, while `M-POC` is a named module. An operative
+instruction must not use bare “POC” when the reader cannot tell which meaning applies.
+
+### One engine, staged proofs
+
+```text
+Operational demo condition
+          ↓
+M-MVP — Chief Editor proves the editorial workflow and its evidence
+          ↓
+M-POC — clients test the value of an evidence-review engagement
+          ↓
+Production — additional identity, live-target and external-authority controls
+```
+
+`M-POC` does not create a second editorial pipeline. It reuses the `M-MVP` engine and preserves its
+existing invariants. Its later client package remains separated from the internal publishable
+article. Conversely, an internal downloadable report shown to the Chief Editor during `M-MVP`
+validation does not by itself open the `M-POC` engagement, `/request-brief` path, client folder,
+commercial boundary or client-facing delivery scope.
+
+### Direct corrections required in Draft 11
+
+1. Replace unqualified “operational POC” in the current-feature description with **“operational
+   `M-MVP` proof of concept for the Chief Editor.”**
+2. Replace “client-facing POC” with **“later `M-POC` proof of concept for clients.”**
+3. Keep Option A's `demo-only` evidence boundary: the `M-MVP` flow operates and persists, while
+   pre-authentication identity remains `self_asserted` and non-production.
+4. Scope the current Chief Editor UI, editorial transition and internal downloadable artifact to
+   `M-MVP`. Do not import `M-POC` engagement fields, client delivery, folder creation, payment trace
+   or `/request-brief` behavior into the current feature.
+5. Preserve `M-POC`'s one-engine rule: later client proof traverses the unchanged editorial pipeline
+   and adds only its governed exposure/package behavior.
+6. In every acceptance criterion, expand generic “proof of concept” and use `M-MVP` or `M-POC` when
+   a module boundary, output or audience is meant.
+
+### What is unclear versus decided
+
+The sequence and audiences are decided. The earlier Chief Editor UI clarification called its
+downloadable item “Public Explainable Content with report,” while the governed `M-POC` module owns
+the later client-facing publicly-expandable/explainable package and `M-MVP` owns the internal
+publishable article. Draft 11 must name the current `M-MVP` artifact and its audience precisely,
+without silently moving the `M-POC` client package into `M-MVP`. This is an artifact-ownership
+clarification for Lane A, not a reason to reopen the maturity sequence.
+
+### Guaranteed failures if the labels remain loose
+
+- Calling the current feature simply “POC” makes `/editorial` and `M-MVP` requirements
+  indistinguishable from `/request-brief` and `M-POC` requirements.
+- Pulling `M-POC` client-package, account, payment or folder behavior into the current `M-MVP`
+  creates unauthorized scope and defeats the MVP-first order.
+- Building a second client pipeline instead of reusing `M-MVP` violates the one-engine invariant
+  and makes the two proofs incomparable.
+- Treating the Chief Editor's internal proof as client proof claims market evidence before clients
+  have received or evaluated the `M-POC` package.
+- Exposing the internal publishable article as the client deliverable breaks `M-POC`'s core folder-
+  separation rule.
+- Using “demo” to mean non-persistent still fails the current `M-MVP`, regardless of which maturity
+  label is correct.
+
+### Draft 11 success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `MATURITY-TERM-01` | An operative Draft 11 instruction refers to proof-of-concept work | Its scope is read | It names `M-MVP` or `M-POC`; bare “POC” is used only when explicitly defined as the generic maturity purpose |
+| `MATURITY-MVP-01` | The Chief Editor uses the demo condition | The current editorial proof is executed | The `M-MVP` flow operates, persists and produces its governed internal evidence without requiring `M-POC` behavior |
+| `MATURITY-MVP-02` | Current UI/output scope is enumerated | The write set is reviewed | No `M-POC` engagement field, client account/delivery, payment behavior, client folder or `/request-brief` behavior has been pulled forward |
+| `MATURITY-POC-01` | A later client proof is authorized | An `M-POC` engagement begins | It enters through its governed boundary and traverses the unchanged `M-MVP` editorial engine rather than a forked pipeline |
+| `MATURITY-POC-02` | An `M-POC` engagement completes | Its outputs are inspected | The client explainable package and internal publishable article remain separated under the governed engagement identifier |
+| `MATURITY-EVIDENCE-01` | Either proof runs before production controls exist | Its evidence is presented | Operational results remain distinguishable from authenticated identity, live publication and external GRC acceptance |
+
+### Parent-first correction plan
+
+1. Put the maturity map above into proposed `D-182` before redrafting feature or UI rows.
+2. Correct the current feature everywhere to `M-MVP`; preserve `M-POC` as the later client proof.
+3. Resolve the current downloadable artifact's module owner and audience without importing later
+   client-package scope.
+4. Propagate the module-qualified language into Product/Fn_Spec and UI acceptance criteria.
+5. Negative-sweep Draft 11 for ambiguous bare “POC,” unauthorized `M-POC` scope and any forked
+   pipeline.
+6. Independently review Draft 11 before `AUTH-DOC`; implementation remains separately gated.
+
+### Clarification approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Product maturity / `M-MVP` | The operational demo is the `M-MVP` proof of concept for the Chief Editor | Lane A Draft 11 |
+| **Approve** | Product maturity / `M-POC` | `M-POC` is the later proof of concept for clients using the same editorial engine | Preserve as later-module scope |
+| **Approve-with-conditions** | Current downloadable artifact | Keep it internal to `M-MVP` unless its governing owner explicitly places it in `M-POC`; do not infer client exposure from the generic phrase | Artifact ownership resolved in Draft 11 before `AUTH-DOC` |
+| **Reject** | Terminology | “Internal POC/MVP,” “client-facing POC,” or unqualified “POC” where a module boundary is intended | Replace with `M-MVP`/`M-POC` in Draft 11 |
+| **Reject** | Scope/pipeline | Pulling later `M-POC` behavior into current `M-MVP` or creating a second client editorial pipeline | Preserve module boundary and one-engine invariant |
+| **Defer** | `M-POC` client UI and implementation | Later proof stage; this ruling changes planning language only | After `M-MVP` proof and separate `M-POC` authorization |
