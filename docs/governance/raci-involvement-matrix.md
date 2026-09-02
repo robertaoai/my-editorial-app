@@ -1,5 +1,5 @@
 # RACI Involvement Matrix
-**Version:** v1.7 — **proposed, not ratified**
+**Version:** v1.8 — **proposed, not ratified**
 **Date:** 2026-08-16, amended 2026-08-31
 **Origin:** Chief Editor, 2026-08-16, reframing OD2 and OD4
 **Status:** Recorded for ratification. **Closes nothing** beyond `RACI-03`/`RACI-04` (`D-170`,
@@ -120,6 +120,37 @@ Tasks are the Addendum §3.1 transitions. **One R and one A per task**, per stan
 **A is invariant.** One natural person is Accountable for every task in the business. That is the design intent, not an oversight.
 
 ---
+
+## 3.1 Target task matrix and successor-review proof — `[decided_target_held]` (`D-179`)
+
+**Added 2026-09-02, `docs/handoff/B-068-*.md` §20, `B068-R48`.** Placed **alongside** §2.1/§3 above,
+which remain the current-build record — neither section is edited. **Not build-authorized while
+`D-171`'s hold stands; this is planning content, not a claim about what may be built next.** A fresh
+build authorization consumes this proof; it does not need this proof to already exist as a precondition
+of being *granted* — the two are sequenced together, not circular, once the target proof is available
+as build-held planning rather than an assertion of current permission.
+
+| Task | Transition | R — Responsible | Line | A — Accountable |
+|---|---|---|---|---|
+| T1–T4 | Discovered → Drafted | Reporter / Investigator / Journalist agents | 1 | Acting Chief Editor |
+| **T5** (production route) | **Drafted → Reviewed** | The route-assigned single reviewer: `ROLE-CHIEF-EDITORIAL-DESK` (`ROUTE-PROD-1`) or `ROLE-CHIEF-JOURNALIST` (`ROUTE-PROD-2`/`PROD-3`) | 1 | Acting Chief Editor |
+| **T5** (fallout/GRC route) | **Drafted → Reviewed** | Both `ROLE-CHIEF-EDITORIAL-DESK` and `ROLE-CHIEF-JOURNALIST`, in parallel, each a separately attributable act | 1 | Acting Chief Editor |
+| **T5 join** | *(no state change)* | A deterministic non-judgment `T5_review_bundle_sealed` join — chooses no winner, holds no `R` or `A` of its own | — | — |
+| **T6** | **Reviewed → Approved** | **Acting Chief Editor** *(human-only; refused for any agent)* | **2** | Acting Chief Editor **← R = A, by design — see §2** |
+| T7–T11 | *(unchanged from §3)* | *(unchanged from §3)* | *(unchanged)* | Acting Chief Editor |
+
+**Target successor-review proof:** four-eyes holds across every required `T5`→`T6` boundary —
+`R(T4) ≠ R(T5)` for each required reviewer, and `R(T5) ≠ R(T6)` because the human Chief Editor differs
+from every required `T5` executor by construction (the join has no executor identity of its own to
+collide with). Where two `T5` reviewers are required, each remains independently attributable in the
+bundle; the join does not average, select, or discard either report — disagreement between them is
+preserved and resolved only by the human's reasoned `T6` decision (`Modular_PRD.md` `AC-07b`). This
+inverts which boundary carries the human: **the current order's four-eyes sits at T4→T5 and T5→T6
+around a human T5; the target's sits at T4→T5 and T5→T6 around human T6** — the mechanism (successor
+reviews predecessor) is the same property in both orders, applied to a different node.
+
+**T11** is unchanged from §3 — its exposure and clerical-not-judgmental character do not depend on
+which order governs T5/T6.
 
 ## 4. How this sits with the Three Lines Model
 
@@ -292,6 +323,11 @@ aliased to `ROLE-CHIEF-EDITORIAL-DESK` by `D-170`; corrected from `D-174`'s "eig
 
 ## 9. Changelog
 
+- **2026-09-02 v1.8:** `D-179`, from an independent review of `D-178` (`B-068` §20, `B068-R48`), adds
+  §3.1: a target task matrix and successor-review proof, placed alongside §2.1/§3 rather than
+  rewriting them. Resolves the "proof waits for authorization, authorization needs the proof" gate by
+  treating the target proof as build-held planning content — sequenced with a fresh authorization, not
+  a precondition circularly gating it. §2.1/§3 remain the unedited current-build record.
 - **2026-08-31 v1.7:** `D-175`, confirmed directly by the Chief Editor, corrects `D-170`'s category
   error: Chief Editorial Desk and Chief Journalist are two distinct, independently `EG4`-eligible
   roles, not aliases. Adds `ROLE-CHIEF-JOURNALIST` (§8, nine roles now); records the route-dependent

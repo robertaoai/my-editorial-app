@@ -256,11 +256,22 @@ An Editorial Virtual Node Agent (this table) is never a persona and never a syst
 `D-172`/`D-175` (`V1-DECISION-REGISTER.md` §5.14dy, §5.14e1), not restated here to avoid a second copy
 drifting from the first.
 
-**Corrected 2026-09-02 (`D-178`).** The line below previously read "gate entry/exit evidence... `B-068`
-`F6` items 7–8, blocked on `F4`'s route/operation crosswalk" — stale: `F4` (`D-176`) and `F6` (`D-177`,
-`D-178`) are both now decided. Gate entry/exit evidence, checklist versions, negative tests, and
-delivery's mutation-refusal rule are `D-177`/`D-178`'s behavior contract (`V1-DECISION-REGISTER.md`
-§5.14e3, §5.14e4; `B-068` §18.4/§19.4) and the route-dependent event sequence
-(`T5_review_sealed`(×1 or ×2) → `T5_review_bundle_sealed` → `EG5_preliminary_disposition_sealed` →
-`T5_review_bundle_revealed_to_EG5` → `EG5_final_decision_recorded`) — not restated in this table to
-avoid a second copy drifting from the first, and not yet built while `D-171`'s hold stands.
+**Corrected 2026-09-02 (`D-178`, target content added `D-179`).** The line above previously pointed
+only to `D-177`/`D-178`'s behavior contract without stating it here — an independent review (`B-068`
+§20, `B068-R47`) found a pointer is not propagation. §11.1 below states the actual target behavior.
+
+### 11.1 Target behavior and acceptance — `[decided_target_held]`, `D-179`
+
+Not build-authorized while `D-171`'s hold stands. Covers what this Fn_Spec owns; `Modular_PRD.md`'s
+`FR-04a`/`FR-05a`/`AC-05a`–`AC-08a` own the requirement/AC identifiers this elaborates.
+
+| Behavior | Rule | Refusal condition |
+|---|---|---|
+| `EW` start | A Senior Journalist action emits the start trigger; it cannot itself advance `T1`–`T4` | Trigger attempts to skip or replace any of `T1`–`T4` |
+| Consuming-gate evidence | Each of `EG1`–`EG5` requires its applicable `F4` operation evidence (or an explicit not-applicable/untriggered disposition) before it may complete | Required or triggered operation evidence is missing, or a `milestone_pending_decomposition` placeholder is presented as complete |
+| `T5`/`EG4` cardinality and join | Route-dependent: one sealed `T5_review_sealed` (production route) or two in parallel (fallout/GRC route), then one `T5_review_bundle_sealed` non-judgment join completing the single `T5` stage | A required reviewer is missing; the join chooses a winner, impersonates a reviewer, or is treated as a second gate |
+| Blind `T6` order | `EG5_preliminary_disposition_sealed` before `T5_review_bundle_revealed_to_EG5` before `EG5_final_decision_recorded`; only a human executor is eligible | Reveal precedes the preliminary seal; an agent attempts `T6` |
+
+Delivery's mutation-refusal rule and the external-authority record separation are owned by
+`FN-PUBLICATION-09-10-13.md` and `FN-EXCEPTIONS-06-11-12.md` respectively (`D-179`) — not duplicated
+here.

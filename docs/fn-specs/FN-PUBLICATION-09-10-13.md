@@ -168,3 +168,18 @@ per-target independence · first-live-target promotion rule · partial success a
 ## 10. Scope limits
 
 Closes no Open Decision. Authorizes no code, schema, migration, or credential configuration. `Q3` and `Q5` remain open and both gate S4. `FR-13` is Project Scope, unanchored, and carries `PSK-04`.
+
+## 11. Delivery target behavior — mutation refusal and external-acceptance prerequisite, `[decided_target_held]` (`D-179`)
+
+**Added 2026-09-02, `docs/handoff/B-068-*.md` §20, `B068-R47`.** Not build-authorized while `D-171`'s
+hold stands. Elaborates `Modular_PRD.md`'s Delivery requirements (`FR-09`/`FR-10`); does not duplicate
+them.
+
+| Rule | Refusal condition |
+|---|---|
+| Delivery consumes the approved, immutable `T6` disposition and executes the target outcome only | Any attempt to alter editorial judgment, reason, route evidence, or authority record during Delivery |
+| Delivery records target outcome/failure linked to the disposition it consumed | A disposition change after Delivery starts, without a governed return |
+| A route requiring external acceptance blocks Delivery until `external_acceptance_or_mandate_record` exists (`FN-EXCEPTIONS-06-11-12.md` §11.2 owns the trigger/acceptance record shapes) | Delivery proceeds while a required external acceptance record is absent |
+
+Any editorial change discovered after Delivery starts is routed into a new governed return/workflow —
+never a direct Delivery-stage edit.

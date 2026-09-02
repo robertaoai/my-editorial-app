@@ -151,3 +151,33 @@ mandatory-reason refusal · per-target-state counting · auto-escalate at limit 
 ## 10. Scope limits `[V1]`
 
 Closes no Open Decision here — `Q2` was already closed by `D-57`, applied to this document by `D-167`/`D-168`. `FR-11` has no executor and is **not built in v1**, governed directly by `D-57`, not `OD3` or `OD4`. Authorizes no code, schema, or migration. Every threshold stays `UNSET`; **no number is invented here**.
+
+## 11. `FR-06` target behavior — scoped return/rerun and external-authority exception, `[decided_target_held]` (`D-179`)
+
+**Added 2026-09-02, `docs/handoff/B-068-*.md` §20, `B068-R47`/`B068-R36`.** Not build-authorized while
+`D-171`'s hold stands. Elaborates `Modular_PRD.md`'s `AC-08a`; does not duplicate it.
+
+### 11.1 Scoped return/rerun
+
+| Return cause | Required invalidation and rerun |
+|---|---|
+| Defect belongs to one `T5` review only; shared evidence/route unchanged | Rerun that reviewer; a new bundle version references the unchanged sealed sibling report |
+| Defect changes shared evidence, draft, applicable operation, route, or external record | Invalidate the current bundle for forward use; rerun affected upstream work and every `T5` review the resulting route requires |
+| Route changes | Recompute `F4` applicability/cardinality from the new route; never carry a prior route's `T5` sufficiency forward |
+| Chief Editor changes only the final disposition after reveal | Append a new reasoned `T6` disposition; never rewrite `T5` reports or earlier preliminary/final records |
+
+Every return records scope, reason, evidence version, invalidated forward artifacts, and the required
+rerun set. Old reports and bundles remain retrievable and are never presented as currently valid.
+
+### 11.2 External-authority exception path
+
+1. An initiating judicial/GRC record is `external_trigger_record` — it may select or reclassify the
+   route; it is never itself an editorial judgment.
+2. Internal operations and `T1`–`T5` produce their own evidence without impersonating the institution.
+3. The Chief Editor records the human `T6` internal disposition; a binding external mandate constrains
+   the available disposition but does not become the human executor.
+4. Where the route requires later external acceptance, Delivery remains blocked until
+   `external_acceptance_or_mandate_record` exists (`FN-PUBLICATION-09-10-13.md` §11 owns Delivery's
+   refusal rule).
+5. Internal `O` may append a reasoned change to an existing internal decision only — it cannot erase
+   work, supply missing evidence, replace `EA`, or override an external mandate.

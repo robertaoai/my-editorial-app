@@ -11538,3 +11538,88 @@ implementation.** `D-171`'s S2 hold is unaffected and not reopened. `lib/config/
 Independent verification and any fresh build authorization remain separate, unstarted work. This
 decision does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or
 `.github/workflows/`.
+
+## 5.14e5 `D-179` — `F7` Corrected From "Propagated" To "Partially Applied"; `B068-R47`–`R49` Closed By Actual Propagation, Not Pointers
+
+**Chief Editor ruling, 2026-09-02, on `B-068` §20's independent review of `D-178`, approved as
+"Preserve the valid corrections" (`D-178`, Build Spec, Inventory, `R37`) and "Apply `R47`–`R49` in one
+Lane A pass" (Product Requirements / Fn_Specs / RACI).** The review is correct: `D-178` recorded an
+acceptance-ownership map and added notes/pointers in `FN-GATES-01-05.md` and
+`raci-involvement-matrix.md`, but never added the actual target behavior text to
+`FN-EXCEPTIONS-06-11-12.md`, `FN-PUBLICATION-09-10-13.md`, or a real target proof to
+`raci-involvement-matrix.md` §2.1/§3 — a pointer is not propagation. `D-178`'s claim of "propagated"
+is corrected to **partially applied**.
+
+### `B068-R48`'s "circular dependency" — resolved by decoupling, not by bypassing either side
+
+The review is right that deferring the target RACI proof until "the pass that issues a fresh build
+authorization" creates a gate neither side can open first. The actual fix, following the same pattern
+already used for `V1-BUILD-SPEC.md`'s target DoD (`D-178`) and `FN-GATES-01-05.md`'s target node
+catalog (`D-171`): **the target proof is planning content, clearly labeled `decided_target_held`,
+authorizing no code and asserting no current build permission.** It can exist before authorization
+without contradicting the current-order hold, exactly as the Build Spec target DoD already does. This
+decision adds that proof; it does not lift `D-171`'s hold, and a fresh authorization still consumes the
+proof rather than creating it.
+
+### Propagation (`D-54` and `B-068` §20.4 Parent 2 — actual content, not pointers)
+
+**`Modular_PRD.md`:** old `FR-04`/`FR-05`/`US-04`/`US-05`/`AC-05`–`AC-08` rows are marked
+`historical_current_documented_held` inline (not deleted — this document's own convention). A new
+target block adds `AC-05a` (production route: exactly the route-assigned single `T5` reviewer required;
+`T6` blocked until sealed), `AC-05b` (fallout/GRC route: both `T5` reviewers required in parallel;
+non-judgment bundle join; `T6` blocked until both sealed), `AC-06a` (agent attempt at `T6` refused —
+the canary moved from `T5` to `T6`), `AC-07a` (blind order: preliminary disposition sealed, then bundle
+revealed, then final decision), `AC-07b` (disagreement: conflicting `T5` reports stay visible, resolved
+only by reasoned `T6` disposition), `AC-08a` (return: scope determines which reviews invalidate/rerun).
+All target, all `decided_target_held`, all suffixed — `AC-09` onward is untouched.
+
+**`FN-GATES-01-05.md`:** §11 gains a target behavior/acceptance subsection (not only the existing
+pointer) covering `EW` start, consuming-gate evidence refusal, `T5` cardinality/join, and the blind
+`T6` order — `decided_target_held`, referencing `D-175`–`D-179`.
+
+**`FN-EXCEPTIONS-06-11-12.md`:** gains `FR-06`'s bundle-aware invalidation/rerun behavior (`B068-R36`'s
+scoped return rules) and the external-authority exception path (`external_trigger_record` may
+reclassify a route; `O` never overrides `EA`).
+
+**`FN-PUBLICATION-09-10-13.md`:** gains Delivery's mutation-refusal rule and the
+`external_acceptance_or_mandate_record` prerequisite for routes that require it before publication.
+
+**`raci-involvement-matrix.md`:** §2.1/§3 gain a new, separate **target, build-held** proof
+(`T4`'s executor differs from every required `T5` reviewer; each `T5` review remains independently
+attributable; the bundle join carries no editorial judgment or `A`; human `T6` differs from every
+required `T5` executor; disagreement stays visible for `T6` to resolve) placed **alongside**, not over,
+the existing current-order proof — both remain readable, each labeled which it is.
+
+### Gaps
+
+**Addressed:** `B068-R47` (acceptance ownership actually propagated, not just mapped), `B068-R48`
+(target RACI proof added as build-held planning content, resolving the sequencing gate), `B068-R49`
+(old rows explicitly marked historical; target rows are now the ones a direct query returns first).
+**Unchanged:** `D-170`–`D-178`'s rulings, `D-171`'s S2 hold — not reopened, not lifted. **Still open:**
+`B068-R38` (Graphify currency at final HEAD — addressed procedurally below), remote push, independent
+re-review, any fresh build authorization.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-179` "propagated" corrected to "partially applied" | ✅ §5.14e5 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+| `D-179` `B068-R48` target RACI proof added | ✅ §5.14e5 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: RACI matrix is `docs/governance/`** |
+| `D-179` target `AC-05a`–`AC-08a` and historical marking | ✅ §5.14e5 | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | ✅ target block, historical inline marks |
+
+**`raci-involvement-matrix.md`/`FN-GATES-01-05.md`/`FN-EXCEPTIONS-06-11-12.md`/`FN-PUBLICATION-09-10-13.md`
+(not tracked `D-54` tiers — cited, same disposition as `Fn_Specs` under `D-36`):** all four amended per
+Propagation above with actual target content, not pointers.
+
+**Handoff tracking:** `B-068` stays `Status: Answered`, `Resolution: Applied` — this decision corrects
+what "applied" covers; it does not claim `Verified`, which remains a separate actor's turn per `D-178`'s
+own Scope limits (unchanged).
+
+### Scope limits
+
+**Corrects `D-178`'s propagation claim and supplies the actual target content five files were missing;
+adds one build-held RACI proof; builds no code, authorizes no implementation.** `D-171`'s S2 hold is
+unaffected and not reopened — every new target passage is explicitly `decided_target_held`, not a
+current-build claim. Independent re-review, Graphify's final synchronization at this decision's own
+commit, remote push, and any fresh build authorization remain separate, unstarted work. This decision
+does not touch `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, or `.github/workflows/`.
