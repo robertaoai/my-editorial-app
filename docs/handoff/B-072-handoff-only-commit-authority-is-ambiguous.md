@@ -861,3 +861,98 @@ Git supplies the push truth that the pasted narrative does not:
 | **Defer** | `R11`–`R15`, `R19`, propagation and enforcement | Still open and not authorized for implementation by this review | Lane A documentation/tooling plan |
 | **Defer** | Graphify synchronization | Analyzed `838baff`; source corrections must land first | Final source commit, rebuild/re-merge, full suite |
 | **Defer** | Product implementation, `AUTH-DOC`, lane transition and deployment | Unaffected by this governance review | Separate bounded authorization |
+
+## Independent review of Lane A commits `8674e57` / `af670b1` (2026-09-03)
+
+### Approval and Git facts
+
+The current Chief Editor message begins **“Judge Approved”** and identifies Lane A's bounded
+`R29`–`R31` documentation packet. Approval is received for reviewing that packet; it does not
+self-verify the resulting files or authorize the deferred check implementation, Graphify work,
+`AUTH-DOC`, product implementation, or a push of an unnamed range.
+
+The actual transaction state is:
+
+| Fact | Observed value |
+|---|---|
+| Local `HEAD` | `af670b1` |
+| Substantive `R29`–`R31` commit | `8674e57` |
+| Metadata follow-up commit | `af670b1` — fills B-072's evidence SHA |
+| Remote branch tip | `a3d2d2a` |
+| Outgoing commit count | Five |
+| Current SOP result | Correctly **STOP**: the outgoing range is not one permitted handoff commit |
+| Graphify `lastAnalyzedHead` | `838baff` — stale |
+
+### What is sound
+
+- The canonical SOP now checks the push range before pushing; the prior unconditional “push
+  immediately” path is gone.
+- B-072 now separates committed from pushed state and correctly says the correction range is local.
+- `R22`–`R26` remain independently confirmed; no re-drafting is needed.
+- The local test case proves the range guard's intended decision: `merge-base` is the remote tip,
+  but `origin/docs/journal-2026-08-16..HEAD` contains five commits, so pushing must stop.
+
+### Remaining gaps — parent first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R32` — a failed/stale fetch is not an explicit stop | The SOP says “Run `git fetch` then compare,” but does not require fetch success before trusting `origin/<branch>`. It also relies on a manually substituted remote/branch instead of resolving the configured upstream | On a credential/network failure, the actor can compare against a stale remote-tracking ref, see one apparently safe outgoing commit, then publish an accumulated range the check never saw | Require a configured upstream and a successful fetch as hard preconditions. Resolve the upstream from Git (`@{upstream}`), abort if missing or fetch fails, and never continue using a cached ref after failure |
+| `B072-R33` — the range check counts commits but does not prove the permitted path | `git log origin/<branch>..HEAD --oneline` can show one commit, but “your own handoff commit” is a human interpretation. All lanes share one Git identity, and the procedure does not inspect that commit's changed paths after creation | One outgoing commit touching a governed document—or a handoff plus another file—passes the one-commit reading and is pushed under handoff-only authority | Require all three machine-checkable facts: upstream tip equals `HEAD^`; outgoing count equals one; `git diff-tree --no-commit-id --name-only -r HEAD` returns exactly the actor's single permitted `docs/handoff/B-NNN-*.md` or `C-NNN-*.md` path. Any extra/other path stops |
+| `B072-R34` — the corrected matrix again omits its own corrections | “Applied, this pass” lists `R27` and `R29`, but the pass applies `R29`, `R30` and `R31`; `R27` was the earlier defective matrix that `R30` corrects | The current-value matrix cannot answer which correction produced the current value, repeating the omission `R30` was created to fix | Record `R27` as superseded/corrected by `R30`; list `R29`, `R30`, `R31` as Applied at `8674e57`; keep `R28` as documentation-applied/enforcement-open |
+| `B072-R35` — the summary reports one commit for a two-commit pass | The pasted summary says “Committed: `af670b1`,” while `8674e57` contains the substantive SOP/matrix/status changes and `af670b1` only replaces the SHA placeholder | A reviewer opening only the reported commit sees a one-line metadata edit and can mistake it for the complete correction or omit the substantive parent from evidence | Report four facts separately: substantive commit `8674e57`; evidence-field commit/local HEAD `af670b1`; remote `a3d2d2a`; five-commit outgoing range not pushed |
+
+### Minimal corrected SOP test
+
+The existing prose can stay. Its pre-push proof should require these outcomes, without duplicating
+the full procedure in other documents:
+
+```text
+1. Resolve configured upstream; missing upstream = STOP.
+2. Fetch that upstream successfully; any fetch failure = STOP.
+3. Require upstream tip == HEAD^ and outgoing commit count == 1.
+4. Require HEAD's changed-path set == one own B-NNN/C-NNN handoff file.
+5. Push; fetch again; require upstream tip == HEAD before reporting Pushed.
+```
+
+`merge-base == upstream` is useful fast-forward evidence but is not a substitute for
+`upstream == HEAD^` when the authorization permits exactly one outgoing commit.
+
+### Parent-first corrective plan — documentation/tooling only
+
+1. **SOP safety parent (`R32`/`R33`).** Amend the existing `docs/handoff/README.md` step 3 with the
+   five outcomes above. Keep this as the sole operative copy.
+2. **Tracking child (`R34`).** Correct B-072's matrix once: `R27` corrected by `R30`; `R29`–`R31`
+   Applied at `8674e57`; `R28` documentation Applied, enforcement Open.
+3. **Evidence child (`R35`).** Replace the one-SHA narrative with the four distinct Git facts. Do
+   not change `Resolution: Applied` or claim terminal verification.
+4. **Outstanding documentation parent.** Complete `R19` and the single `R11`–`R15` routing map in
+   `docs/README.md`; then add only link-level owned facts to Phase Closure/shared rules/work orders.
+5. **Enforcement specification.** Add negative fixtures for: missing upstream, failed fetch, remote
+   not equal to `HEAD^`, zero/two outgoing commits, extra path, another lane's handoff, governed-doc
+   path, and post-push remote inequality. Do not implement them in this planning pass.
+6. **Graph/evidence last (`R21`).** After all approved source/fragment changes are committed, rebuild
+   Graphify, re-merge curated fragments if needed, run the full suite, make no later tracked edit,
+   and let Lane B verify that exact remote `HEAD`.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R32-SC1` | Upstream resolution or fetch fails | The SOP is followed | The transaction stops before any comparison or push; no cached remote-tracking ref can authorize the action |
+| `B072-R33-SC1` | Exactly one commit is ahead | Its changed paths are inspected | Exactly one own permitted handoff path passes; any other or additional path fails |
+| `B072-R33-SC2` | Remote tip is an ancestor but not `HEAD^` | Push eligibility is evaluated | The transaction fails despite being a valid fast-forward, because the authorized range is more than one commit |
+| `B072-R34-SC1` | B-072's matrix is read | It is compared with commit `8674e57` | `R29`, `R30`, `R31` are Applied; `R27` is identified as corrected by `R30`; no row calls the unbuilt enforcement Applied |
+| `B072-R35-SC1` | The pass is handed to another lane | Commit and push evidence is read | Substantive commit, metadata commit/local HEAD, remote tip and outgoing count are four separate facts |
+| `B072-R21-SC2` | Terminal verification is requested | Evidence is compared | Local HEAD = remote HEAD = Graphify `lastAnalyzedHead`; full checks pass; the verifier did not draft the correction |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `R22`–`R26` | Remain independently verified; no regression found | Preserve |
+| **Approve-with-conditions** | `R29`–`R31` | Correct direction and current branch stop behavior; fetch/path proof and matrix evidence remain incomplete | Apply `R32`–`R35` |
+| **Reject verification** | B-072 at `af670b1` | Canonical SOP can trust a stale upstream and does not machine-check the outgoing path; matrix/evidence wording remains wrong | Lane A correction, then same-HEAD independent review |
+| **Reject** | Push through `af670b1` under Eligible handoff-only authority | Five commits are ahead, including Lane A-owned changes | Active Lane A pushes an explicitly reviewed range, or Judge explicitly names that immutable range |
+| **Defer** | `R11`–`R15`, `R19`, propagation and enforcement | Still open | Lane A documentation/tooling pass |
+| **Defer** | Graphify synchronization | `838baff` does not match `af670b1`; source corrections come first | Final rebuild/re-merge and full suite |
+| **Defer** | Product implementation, `AUTH-DOC`, lane transition and deployment | Unaffected by this governance review | Separate bounded authorization |
