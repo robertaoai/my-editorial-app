@@ -1402,3 +1402,79 @@ Recommended bounded statement:
 | **Reject verification** | B-072 at `989ef93` | `R50`, `R52`/`R53`, remaining documentation and Graphify are open | Correct, push, then same-HEAD independent review |
 | **Reject** | Treating application/push as approval | Git proves transport, not the natural person's authorization | Obtain and record the bounded statement above |
 | **Defer** | `R11`–`R15`, `R19`, propagation, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | Outside this correction | Separate bounded authorization |
+
+## Independent review of Lane A commits `ebf7d26` / `90677d5` and completed push (2026-09-03)
+
+### Facts separated by evidence type
+
+Git confirms application and transport: local `HEAD` and
+`origin/docs/journal-2026-08-16` both resolve to `90677d5`; the range
+`4a5acac..90677d5` contains substantive commit `ebf7d26` and evidence-field follow-up `90677d5`.
+Only `D-184` and B-072 changed. This proves what landed and where; it does not prove that the
+natural-person Judge authorized the policy content.
+
+The supplied user message again begins with the empty label **“Judge Approved:”**. No exact
+ratification statement naming `ad685e7`, `27b92a4`, `ebf7d26`, the authorized actions and exclusions
+appears in the governed record. The new `R50` paragraph instead infers approval from the commits'
+presence on the shared branch.
+
+Graphify remains stale at `838baff` versus Git `90677d5`. Source correction remains open, so final
+synchronization is still deferred.
+
+### Independent result
+
+- **`R51` remains substantively sound.** Route A and Route B are separated by actor, scope and
+  repeatability.
+- **`R53` is applied correctly.** The completed-work bullet was deleted without replacement; the
+  current header now carries Resolution, evidence anchor, remaining gates and the canonical-SOP link.
+- **`R50` is not closed.** Its attempted approval record uses Git application as proof of the
+  approval whose existence is disputed.
+
+### New parent finding
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R54` — `R50` makes successful application prove its own authorization | `D-184` says each policy commit's having landed is “itself the durable trace” that Judge approval was given, and instructs future corrections to cite their applying commit as the approval record. `D-183` says the opposite: a real-time instruction must name object/action/scope; pending registration is not durable proof; Lane A must record the explicit approval; independent review must not recreate it. This repository also has one shared Git identity and an ungated working branch, so commit presence contains no Judge signal | Any unauthorized Lane A policy edit that reaches the branch automatically becomes “proof” that it was authorized. The rule assumes compliance to prove compliance, erasing the approval boundary and making independent review incapable of failing | Obtain the explicit ratification below. Then append an `R54` correction under `D-184` that withdraws the commit-as-approval inference and the future rule derived from it. State: commits prove content/application and remote arrival only; the approval record must transcribe or cite a Judge statement satisfying `D-183` and name the approved immutable revision; independent review verifies correspondence but cannot supply missing authority |
+
+### Parent-first corrective plan — no build
+
+1. **Natural-person authority parent.** The Judge supplies the bounded retrospective ratification
+   below; without it, stop.
+2. **Institutional record child (`R54`).** Append the exact approval under `D-184`, followed by the
+   correction withdrawing the circular commit-as-approval sentences. Preserve `R50` historically;
+   do not rewrite it.
+3. **Tracking child.** Update B-072's evidence anchor only. Do not add a completed-work summary to
+   the header.
+4. **Independent review.** Verify the recorded statement matches the Judge's actual wording and the
+   named revisions. Application and push evidence remain separate.
+5. **Later packet unchanged:** `R19 → R11`–`R15` → link-only propagation; Graphify rebuild/re-merge
+   and same-HEAD verification last. Enforcement remains separately authorized build work.
+
+Recommended bounded statement:
+
+> Judge Approved: retrospectively ratify the documentation-only `B072-R45` correction at
+> `ad685e7`, the `B072-R51` Route A/Route B separation at `27b92a4`, and the `B072-R53` header
+> deletion at `ebf7d26`. Lane A may append `B072-R54` under `D-184`, withdrawing `R50`'s claim that
+> a commit landing proves Judge approval and recording that commits prove application/transport
+> only. This does not approve `R11`–`R15`, `R19`, propagation, enforcement, Graphify sync,
+> `AUTH-DOC`, product work or a lane transition.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R54-SC1` | A policy commit exists on the working branch | Approval is evaluated | Commit existence alone is insufficient; a `D-183`-conforming Judge statement naming that immutable revision is required |
+| `B072-R54-SC2` | The explicit ratification is supplied | Lane A records it | The governed record preserves the Judge's object, actions, exclusions and named revisions; it does not derive approval from those revisions' existence |
+| `B072-R54-SC3` | An unauthorized policy edit is committed or pushed | Independent review runs | Review rejects approval provenance despite successful Git transport; the control can genuinely fail |
+| `B072-R53-SC2` | B-072's current header is inspected | Completed IDs/outcomes are searched | No completed-work list or summary is present; only current state and open gates remain |
+| `B072-R21-SC8` | Terminal verification is requested | Git, graph and checks are compared | Local `HEAD` = remote `HEAD` = Graphify `lastAnalyzedHead`; all checks pass; the verifier did not author the final correction |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Git push through `90677d5` | Local/remote equality independently confirmed | Closed as transport evidence |
+| **Approve** | `R51` and `R53` substantive corrections | Authority routes are separate and the current header is minimal | Preserve, pending valid ratification |
+| **Reject** | `R50` approval-provenance mechanism | Circular: branch presence is treated as proof of permission to create that branch content | Apply `R54` after explicit Judge ratification |
+| **Reject verification** | B-072 at `90677d5` | Natural-person approval evidence remains absent; Graphify and later documentation gates remain open | Ratify, correct, push, independent review |
+| **Defer** | `R11`–`R15`, `R19`, propagation, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | Outside this correction | Separate bounded authorization |
