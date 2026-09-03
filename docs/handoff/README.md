@@ -61,9 +61,19 @@ commit and push **only its own explicit `B-NNN-*.md` or `C-NNN-*.md` entry**:
 2. Stage only `docs/handoff/B-NNN-*.md` or `C-NNN-*.md` — never a channel control file
    (`README.md`/`TEMPLATE.md`), another lane's entry, code, a governed doc, Graphify tooling, or an
    unrelated file (e.g. `package-lock.json`). A mixed staged set fails the transaction.
-3. Commit and **push immediately**; confirm local/remote equality before another lane treats the
-   entry as its input. This permission does not make the lane `Active`, consume an `Eligible`
-   nomination, or grant implementation, lane-transition, or deployment authority.
+3. **Before pushing, check the range you are about to publish — a clean staged diff does not mean
+   a clean push (`B072-R28`/`R29`).** `git push` advances the remote ref through every commit between
+   it and yours, not only the file you changed. Run `git fetch` then compare:
+   - `git merge-base origin/<branch> HEAD` must equal `origin/<branch>`'s current tip (i.e. your
+     branch is a fast-forward of the remote) **and**
+   - `git log origin/<branch>..HEAD --oneline` must show **only your own handoff commit** — if it
+     lists any other commit (an unpushed `Active`-lane governed-doc commit, another lane's entry),
+     **stop. Do not push.** Ask the `Active` lane to push its ancestor range first, or get the Judge
+     to explicitly name and authorize the full accumulated range for you to push instead.
+   - Only once both checks pass: commit and push immediately; confirm local/remote equality before
+     another lane treats the entry as its input.
+   This permission does not make the lane `Active`, consume an `Eligible` nomination, or grant
+   implementation, lane-transition, or deployment authority.
 4. You may record `Applied` on your own answer. Only an independent reviewer may record `Verified`
    with `Verified-By` and an existing commit — never self-promote.
 5. A handoff-only commit necessarily moves `HEAD` and may temporarily make `docs-drift` red — that is

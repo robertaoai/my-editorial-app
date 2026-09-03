@@ -7,15 +7,22 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** 6e41753 (supersedes the stale `b879af1` anchor per `B072-R26`)
-- **Lane A:** Acknowledged 2026-09-02. **Current-value matrix, replacing the prior prose bundle
-  (`B072-R27`):**
+- **Verified-At-Commit:** PLACEHOLDER-WILL-BE-SET-TO-THIS-COMMIT
+- **Lane A:** Acknowledged 2026-09-02. **Current-value matrix, corrected (`B072-R30` — the prior
+  version omitted itself and overstated `R28`):**
 
   | State | Items |
   |---|---|
-  | **Applied** | `R17` (SOP+closure lifecycle, `b879af1`); `R18` (root naming+block, `79edb96`); `R20`'s stable-entry-point half (journal/README pointers, `79edb96`); `R22`–`R26`, `R28` (this correction pass) |
+  | **Applied, independently confirmed** | `R17`, `R18`, `R20`'s stable-entry-point half, `R22`–`R26` |
+  | **Applied, this pass** | `R27` (this matrix), `R29` (canonical-SOP push-range check, `docs/handoff/README.md`) |
+  | **Partially Applied** | `R28` — the Decision Register precondition landed (`D-184`); the canonical SOP now has it too (`R29`, this pass); the commit-hook/check enforcement of it does not exist yet |
   | **Needs no further correction** | `D-184`/`D-185` substantive policy and root facts — confirmed sound by independent review |
-  | **Open** | `R11`–`R15` (routing map), `R19` (capture-before-child rule), `R21` (Graphify resync at final settled `HEAD`), link-only propagation to `V1-PHASE-CLOSURE.md`/shared rules/work orders, hook/check enforcement including `R28`'s upstream-alignment negative check, independent Lane B verification of this entire pass |
+  | **Open** | `R11`–`R15` (routing map), `R19` (capture-before-child rule), `R21` (Graphify resync at final settled `HEAD`), link-only propagation to `V1-PHASE-CLOSURE.md`/shared rules/work orders, hook/check enforcement (including `R28`/`R29`'s upstream-alignment negative test), independent Lane B verification of this entire pass |
+
+  **Commit-vs-push status (`B072-R31` — the prior turn wrongly said "both already pushed"):**
+  `origin/docs/journal-2026-08-16` = `a3d2d2a` (pushed). Local `HEAD` is ahead by the commits
+  containing this correction pass — **not yet pushed**. "Committed" and "pushed" are reported as
+  separate facts from here on; never combined into one status line.
 
   `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
   transaction SOP; every earlier protocol block in this file's independent-review sections below is
