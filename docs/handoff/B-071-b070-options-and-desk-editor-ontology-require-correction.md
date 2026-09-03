@@ -3602,3 +3602,95 @@ Lane A's next response should state only:
 | **Defer** | Graphify synchronization | Current drift is known; synchronizing before source correction would immediately re-drift | Unit 6 after pushed source |
 | **Defer** | B-071 `Verified` | Lane A cannot verify its own application | Unit 7 independent Lane B review |
 | **Defer** | Product implementation | Outside this documentation handback | Later build authorization while the selected lane is Active |
+
+---
+
+## Round 13 independent review — Lane A exact-text draft for `R97`–`R102` (2026-09-03)
+
+### What happened
+
+Lane A independently confirmed all six Round 12 findings and supplied proposed text for the
+Register, Product requirements and V1 Build Spec. The draft preserves the important `D-150`/`G106`
+distinction: renaming *"prohibition lifted"* must not erase the rule that scope eligibility and
+build authorization are separate acts.
+
+The draft is not yet safe to authorize. It contains new lifecycle/evidence defects and does not
+fully remove the phrases that caused `R99`. Nothing in this review authorizes its application.
+
+### New findings — parent first
+
+| ID | What is unclear or incorrect | Guaranteed failure if unchanged | Smallest draft fix |
+|---|---|---|---|
+| `B071-R103` | Unit 1 says to *amend* `D-188`'s existing tier row and separately append a correction. The row is closed historical evidence | An in-place replacement erases the false claim that explains why the correction exists; a later reader cannot distinguish original evidence from repair | Leave `D-188`'s body and tier row unchanged. Append one labelled correction notice that withdraws only the false Build-Spec claim and points to the current corrective act |
+| `B071-R104` | The proposed correction says *"Remaining propagation, authorized here"* before the Judge has authorized the exact packet | Draft wording becomes its own permission source, repeating the approval-provenance defect family | In the proposal say *"would authorize only upon the Judge's bounded acceptance."* After acceptance, record the Judge act and its exact write set; never infer authority from Lane A's approve table |
+| `B071-R105` | The `R99` edit replaces only §2.5.1's closing paragraph and one sentence. The earlier paragraph still says the mechanism is cross-version backlog state that must survive v1; Build Spec §6.1 still says it must stay checkable across v2/v3 | The old parent rule survives above the corrected child wording, so `V1/NG-*` remains mutable cross-version in one reading and version-scoped in another | Replace both complete legacy paragraphs, not selected phrases. Run a negative search for *"survive the version"*, *"across v2, v3"*, *"exclusion stops applying"*, *"lifts a prohibition"* and unqualified *"Ready when"* in the affected current text |
+| `B071-R106` | The proposed `NG-02` text retains *"describes v1 and lapses when the business has more people"* | Headcount silently changes scope without a V1 reconsideration decision, feature readiness or build authorization—the exact three-way collapse `D-188` rejects | Say the one-human rule describes V1 and remains part of V1's historical scope. More people may trigger reconsideration; they do not make the exclusion lapse |
+| `B071-R107` | `R100` is answered with one explanatory sentence and a renamed heading, while table rows still expose only bare `NG-*` values and most cross-document links remain unqualified | The composite identity remains prose-only; automated/search joins can still collide with a later version's `NG-02` | Expose the canonical identity per row—prefer a `Canonical ID` column containing `V1/NG-*`, while retaining the local `NG-*` display ID—and use canonical IDs in every changed cross-document reference |
+| `B071-R108` | The response calls Units 1–4 exact text, but supplies no exact Draft 12/B-071 lifecycle edit, no exact correction for the POC built-commercial row, and only a phrase substitution for Build Spec §6.1 | Lane A must improvise during application; the write set can expand and the final documents can retain contradictory wording while the plan claims completion | Add exact proposed text for every changed paragraph/row and for the existing packet's current lifecycle field. If a target needs no edit, remove it from the write set explicitly |
+| `B071-R109` | Graphify absence is described as the graph *actively fusing* the concepts, although the query returned a historical `CR-16` fallback and no explicit fusion edge was shown. Unit 6 then says merge the fragment before rebuilding | Absence is overstated as a false edge, and rebuilding after the merge can erase the just-merged curated layer (`G51`) | Record the proven defect narrowly: D-188 semantics are not retrievable. Commit the approved source plus tracked fragment, rebuild the extracted layer, then merge/verify all curated fragments. Represent positive identities/relations; test that no alias/instance edge collapses `PBL-04` into S6/`SEC-03` |
+
+### Corrected parent-first plan for Lane A Draft 2
+
+1. **Evidence preflight:** correct the Git facts. At this review, local `HEAD` is `a41fa0a`, while
+   upstream and GitHub remain `9d00f70`; the commits after `129efab` are `9d00f70` and `a41fa0a`.
+   Commit `2ab048a` is an ancestor of `129efab`, not one of the two later handoff commits.
+2. **Append-only Register parent:** preserve `D-188` verbatim and draft one correction notice. It
+   must distinguish proposed authority from a Judge act and name retained/superseded clauses.
+3. **Complete Product text:** show `V1/NG-*` canonically for every row, keep `D-145` only in
+   `PBL-04`, remove the automatic lapse, and replace both complete cross-version-readiness
+   paragraphs.
+4. **Complete V1 tracking text:** keep one S6/`SEC-03` row, replace the combined row, and provide
+   complete replacement text for §6.1 and the POC built-commercial row without erasing `D-150`.
+5. **Complete existing-packet text:** state exactly how Draft 12 and B-071 will record `R97`–`R109`
+   as proposed/applied. Do not create another handoff, plan or ledger.
+6. **Exact-text review:** give the complete closed diff to the Judge. An approve/reject analysis by
+   Lane A is advice, not application authority.
+7. **Authorized source transaction:** only after bounded Judge acceptance, apply the Register
+   parent followed by its children; verify paths; commit and push the source plus tracked curated
+   fragment.
+8. **Graphify transaction:** at that pushed source revision, rebuild the extracted layer first,
+   merge all curated fragments with `merge7.js`, then run path/explain/portable and the full suite.
+9. **Independent closure:** give Lane B the exact pushed and analyzed revision. Lane A records
+   `Applied`; Lane B alone may decide whether `Verified` is earned.
+
+### What is unclear
+
+No Product decision is needed to distinguish `V1/NG-02`, `PBL-04` and S6/`SEC-03`. One process
+choice must be made explicit in Lane A's next draft: whether the correction is recorded as a
+labelled append-only notice within `D-188` or as a new Register decision pointing back to `D-188`.
+Either is acceptable only if the original tier row remains visible and the Judge act is durable.
+
+The separate B-077 lifecycle work is real but is a sibling, not a prerequisite for this packet.
+Its `Applied` reconciliation, B-061/B-070 disposition and Phase 3 items must not be absorbed into
+Draft 12.
+
+### Success criteria added by Round 13
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `NG-S6-SC9` | Closed `D-188` is inspected | Its correction is traced | The original body/tier row remains visible; the correction and approving act are append-only and citable |
+| `NG-S6-SC10` | `NG-02`'s condition resolves or headcount changes | Scope is evaluated | Reconsideration may begin, but no lapse, PBL promotion, S6 completion or build authority occurs automatically |
+| `NG-S6-SC11` | Current Product/Build text is searched | Legacy readiness phrases are checked | No affected current clause carries cross-version mutable-NG or unqualified readiness semantics |
+| `NG-S6-SC12` | The V1 crosswalk is parsed | Every NG identity is joined | Each row exposes one canonical `V1/NG-*` identity and one excluded object without text inference |
+| `NG-S6-SC13` | The application packet is approved | Its write set is compared with the diff | Every changed row/paragraph was present verbatim in the reviewed proposal; no child was improvised |
+| `NG-S6-SC14` | Graphify is refreshed | Operation order and semantic query are checked | Rebuild precedes curated merge; D-188 is retrievable; no alias/instance relation equates `PBL-04` with S6/`SEC-03` |
+
+### What Lane B did instead
+
+Lane B reviewed the proposed text only. It did not alter governed tiers, synchronize Graphify,
+absorb B-077, authorize Draft 12 or build Product code. The consolidated review is appended to the
+existing B-071 entry so no duplicate handoff is created.
+
+### Round 13 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `R97`–`R102` factual validation | Lane A correctly confirmed the six source defects | Preserve evidence |
+| **Approve** | `D-150`/`G106` preservation | Replace the overloaded label but retain the distinction between eligibility and authorization | Lane A Draft 2 exact text |
+| **Approve-with-conditions** | Lane A corrective draft | Direction is sound; `R103`–`R109` must be resolved before authorization | Complete exact-text draft, then Judge review |
+| **Reject** | Closed-decision rewrite | Do not amend `D-188`'s tier row in place | Append-only correction/linked decision |
+| **Reject** | Automatic NG lapse | Business headcount cannot change governed scope by itself | `R106` correction |
+| **Reject** | Graphify merge-before-rebuild | Risks losing the curated correction and claiming false parity | Rebuild, then merge and verify |
+| **Reject verification** | B-071 / Draft 12 | Exact write set and semantic evidence are incomplete | Lane A Draft 2, authorization, application, Lane B re-review |
+| **Defer** | B-077 lifecycle children | Valid sibling work, outside this packet | Separate bounded authorizations |
+| **Defer** | Product implementation or lane transition | Planning only; `D-171` remains binding | Later build authorization |
