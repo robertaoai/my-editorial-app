@@ -18,7 +18,8 @@
 
   - **Resolution:** `Applied`. The narrow `Eligible` handoff-only commit-and-push rule (`D-184`), its
     canonical SOP (`docs/handoff/README.md`), and the historical root (`D-185`) are all applied.
-  - **Remaining closure gates (unordered by recency, each independent):** `R11`–`R15` (the
+  - **Remaining closure gates (unordered by recency, each independent):** `R55` (independent-source
+    comparison of the `D-184` §`B072-R54` ratification); `R11`–`R15` (the
     request→refinement→decision→execution→evidence routing map in `docs/README.md`); `R19`
     (capture-before-child rule); `R21` (Graphify resync at the final settled `HEAD`); link-only
     propagation to `V1-PHASE-CLOSURE.md`/shared rule files/work orders; commit-hook/check
@@ -1588,3 +1589,76 @@ values differ.
 | **Reject verification** | B-072 at `49d621e` | Approval correspondence is unavailable to this independent reviewer; later documentation and Graphify gates also remain open | Obtain `R55` evidence, finish the existing packet, then same-HEAD review |
 | **Reject** | Treating Lane A's response or the commit as the Judge act | That would restore the self-certification `R54` removed | Preserve `D-183` separation |
 | **Defer** | `R19`, `R11`–`R15`, propagation, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | Outside this review | Separate bounded authorization in the existing dependency order |
+
+## Independent review of Lane A's draft response to `B072-R55` (2026-09-03)
+
+### Evidence boundary
+
+The current request carries a blank **“Judge Approved:”** label. The proposed confirmation appears
+only inside Lane A's pasted analysis, which itself says the confirmation reached Lane A rather than
+this independent reviewer. Forwarding that analysis is evidence of what Lane A reports; it is not
+the direct Judge act `B072-R55-SC1` requires.
+
+No source correction was applied by Lane A in the reviewed pass. Before this review, local `HEAD`
+and upstream both resolved to `da0052b`, the commit containing `R55`. Graphify remained at
+`838baff`; this review does not use the stale graph for semantic conclusions.
+
+### Independent result
+
+- **The proposed header correction is valid and applied in this pass.** `R55` is now named as a
+  current closure gate without adding a completed-work list or tally.
+- **The proposed `D-184` “confirmation of source” does not close `R55`.** If Lane A transcribes its
+  own inaccessible conversation and Lane B then accepts that transcription, the drafting side still
+  supplies the external evidence being independently tested. The Judge must confirm directly to
+  Lane B, or provide an independently readable receipt; no additional Register paragraph is needed
+  when the existing `B072-R54` text already matches.
+- **The proposed dependency order is false.** This entry's header explicitly defines its remaining
+  gates as independent. `R19`/`R11`–`R15`/propagation require their own bounded authorization, but
+  they do not depend on `R55`. Both chains join only at final `R21` verification.
+- **The proposed B-061 lifecycle draft is not executable as written.** A literal
+  `Resolution: <none — deliberately withheld>` is neither an omitted field nor a valid resolution.
+  Its residual UX question relates directly to B-071's proposed `D-182`; B-070 verification does
+  not decide it. Do not add a `Resolution` line until a real terminal disposition is earned.
+
+### Findings — parent first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R56` — Lane A is proposed as the source of evidence Lane B must independently compare | The draft would append Lane A's account of its private Judge exchange under `D-184`, then ask Lane B to treat that Lane A-authored paragraph as the durable receipt | Approval provenance again becomes self-certification: the actor whose claim is being tested supplies both the claim and the purported external evidence | The Judge confirms directly in the Lane B task that the ratification already recorded at `D-184` §`B072-R54` is the Judge's own act and matches the instruction given to Lane A, or supplies an independently readable receipt. Lane B compares that act to `8b0fa76`. Do not append another Register paragraph merely to restate the same ratification |
+| `B072-R57` — independent closure gates are serialized without a dependency | Lane A makes `R19` and `R11`–`R15` wait for `R55`, contrary to the current header's “each independent” rule | One unavailable approval receipt freezes unrelated routing and propagation work; the project mistakes an ordering preference for a real prerequisite | Run two explicit chains: **Authority:** `R55` evidence → Lane B comparison. **Documentation:** separately authorize `R19` → `R11`–`R15` → link-only propagation. Join them only before final `R21` Graphify synchronization and terminal review. Enforcement remains a separate build authorization |
+| `B072-R58` — B-061 cleanup uses invalid metadata and an unsupported B-070 dependency | The proposed literal placeholder is not a house resolution; the ledger routes B-061 through B-070 terminal verification even though `D-163`/`D-164` closed its old parent and B-071 directly owns the residual UX question | The parser or a human may treat placeholder text as a disposition; B-061 can wait forever for a B-070 event that cannot decide its remaining concern; a stale Q1/Q12 deferral may be reintroduced | Add no `Resolution` placeholder. Lane A may append a dated note withdrawing Q1/Q12 as blockers and naming B-071/proposed `D-182` as the direct unresolved successor. After that successor is governed and independently reviewed, derive `Verified` or `Superseded` from the actual evidence; do not preselect it |
+
+### Corrected parent-first architecture — no build
+
+1. **Authority chain:** receive the direct Judge act for `R55`; Lane B compares it with
+   `D-184` §`B072-R54` and `8b0fa76`; correct only a material mismatch.
+2. **Documentation chain, parallel:** under separate authorization, apply `R19`, then
+   `R11`–`R15`, then link-only propagation. Do not wait for `R55` merely to draft or apply this
+   independent chain.
+3. **Product-refinement chain, parallel:** finish B-071's plan review and proposed `D-182` before
+   deriving B-061's residual lifecycle. B-070 remains its already-applied predecessor; its terminal
+   verification is not a B-061 decision.
+4. **Tooling child:** implement the pre-push hook/check only under separate build authorization.
+5. **Final join (`R21`):** after all source chains that are required for B-072 closure settle,
+   rebuild and re-merge Graphify once; require local `HEAD`, upstream and `lastAnalyzedHead` to
+   match; run the full suite; then an actor who did not author the final correction decides
+   terminal verification.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R56-SC1` | Lane A reports that the Judge confirmed `R54` | Lane B evaluates provenance | Lane A's report alone is insufficient; a direct or independently readable Judge act is present before correspondence is approved |
+| `B072-R57-SC1` | `R55` remains open | The documentation packet receives its own authorization | `R19`/`R11`–`R15`/propagation may proceed; no false dependency on `R55` is asserted |
+| `B072-R58-SC1` | B-061 remains without a resolution | Its current header is inspected | No placeholder resolution exists, Q1/Q12 are not reopened, and the residual relationship points directly to B-071/proposed `D-182` |
+| `B072-R21-SC10` | Terminal verification is requested | Git, Graphify, source and check evidence are compared | Every required chain is complete; local `HEAD` = upstream = Graphify `lastAnalyzedHead`; all checks pass; the verifier did not author the final correction |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | B-072 current tracking | Header now names open `R55` without duplicating history | Preserve |
+| **Approve-with-conditions** | `D-184` §`B072-R54` correspondence | Recorded content remains sound; external Judge act is still unavailable to Lane B | `R56` direct-source evidence |
+| **Reject** | Lane A-authored “durable receipt” as independent evidence | Repeats the self-certification boundary `R54` removed | Judge-to-Lane-B confirmation or independent receipt |
+| **Reject** | Lane A's single serialized ledger and B-061 placeholder | Invented dependencies and invalid lifecycle syntax | Apply the corrected parallel architecture above |
+| **Defer** | Documentation propagation, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | No new authorization supplied in this review | Separate bounded authorization per chain |
