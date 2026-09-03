@@ -2121,3 +2121,108 @@ terminally closed.
 | **Reject** | Approval inheritance | Permission to draft never becomes approval of the resulting draft | Governs `R67` and all future recurrences |
 | **Reject** | Self-verification by this handoff alone | `B-071` is not sole proof of the authority it claims | Requires `D-183` + independent Lane B review together |
 | **Approve** | Decision-Register entry for this rule | Recorded as `D-183` in this same pass | Independent Lane B verification of `D-183`'s application |
+
+## Lane B task guide — produce Draft 12 one bounded commit at a time (review baseline `2b8d5b2`)
+
+### Rewritten task
+
+Prepare—not apply—one reviewable Draft 12 that resolves the existing `B071-R67` and
+`B071-R77`–`R83` findings plus the Judge's stable-T5/T6-UI-shell clarification. Work parent first,
+commit one bounded correction unit at a time, keep every intermediate revision labelled Draft 12
+work-in-progress, and perform Graphify synchronization only after the final source commit. This
+guide grants no `AUTH-DOC`, product implementation, push, lane transition or route activation.
+
+### Preflight — do not hide the remaining graph gap inside B-071
+
+The source branch and extracted graph are commit-current at `2b8d5b2`, and the consistency suite
+passes. That does not make every curated description current:
+
+- `frag119.json` now says Draft 11, but its B-071 node still stops at `R60`/`R66`, its plan node
+  still says round 9 is outstanding, and its B-072 node still describes the standing authority as
+  proposed with Judge approval none;
+- `frag121.json` still describes B-077 as `Resolution Applied`, although B-077 is currently
+  `Answered` without a resolution.
+
+Those are B-077 graph-parity follow-ups, not Draft 12 product content. Lane A should correct them in
+one separate tracked-fragment commit before using Graphify as B-071 review evidence. Do not copy the
+status prose into this plan, and do not call local extracted-description enrichment a shared repo
+fact.
+
+### What is unclear
+
+1. The later conditional T6 assurance capability has a clarified scope, but no stable feature ID or
+   future authorization owner. `AUTH-F1` cannot own it after the Judge limited `AUTH-F1` to the
+   current editorial proof, and `AUTH-F2` already means factory-route capability.
+2. `assurance_status` is used as if it were both a stored state and a derived UI projection. The
+   latest Judge clarification selects the derived/read-only model for current `M-MVP`, but Draft 11
+   has not incorporated it.
+3. Draft 11 still makes external GRC evidence appear to hold T6 in its flow diagram, even though the
+   governing clarification allows internal T6 to complete and refuses only pre-Delivery/Delivery.
+4. The propagation table names many files but does not give every affected clause a stable anchor,
+   owner, treatment, version overlay and negative search.
+
+### Guaranteed failures if Lane A edits child documents first
+
+- A combined `AUTH-F1` makes the deferred assurance feature block the current editorial proof, or
+  silently ships T6 without its storage/evidence contract.
+- Treating `assurance_status` as persisted causes an invented column/event/enum; treating it as
+  derived elsewhere gives the UI two incompatible sources of truth.
+- Holding T6 on external GRC evidence deadlocks internal judgment with an external acceptance record
+  that belongs only at the Delivery boundary.
+- Updating broad files without clause treatments overwrites `[V1]` history or leaves contradictory
+  live rows behind while a top-level notice appears correct.
+- Rebuilding Graphify after every work-in-progress commit creates repeated drift work and makes an
+  intermediate Draft 12 look reviewable.
+
+### Commit-by-commit guide — highest parent first
+
+Every commit below is a Draft 12 planning commit only. Before each commit, bind its exact paths and
+confirm that no unrelated file—including `package-lock.json`—is staged. Push authority is evaluated
+separately; a successful commit is not evidence of a successful push.
+
+| Unit | Finding closed | Exact drafting action | Allowed paths | Done when |
+|---|---|---|---|---|
+| **0 — graph review baseline** | B-077 graph-parity carryover | Upsert the existing B-071/plan/B-072 descriptions in `frag119.json` and B-077 description in `frag121.json`; preserve node IDs and edges; do not add D-182 | `docs/graph-fragments/frag119.json`, `frag121.json` | Tracked descriptions agree with current source; no obsolete Draft 9/round-9/B-072-proposed/B-077-Applied claim remains |
+| **1 — authority and current status** | `R67` | In current-valued B-071 and plan metadata, say Draft 11 was produced from direct Judge clarifications, plan approval is none, and Draft 12 is work-in-progress. Treat `D-183` as the provenance rule, not proof of a Draft-11-specific approval. Preserve prior statements only as labelled history | B-071; `V1-B071-CORRECTIVE-PLAN.md` | No current text claims the Judge approved Draft 10/11, granted `AUTH-DOC`, or authorized Draft 12 application |
+| **2 — feature boundary** | `R77` plus the stable-shell clarification | Limit proposed `AUTH-F1` to the operational editorial `M-MVP`: T1–T5 preparation, route-selected review, both sealed Assurance Preparation acts, read-only T5 projection, human editorial approval and report. Put functional conditional T6/external-GRC interaction in one explicitly proposed later feature; preserve only its non-operative UI location now | `V1-B071-CORRECTIVE-PLAN.md` | Current completion never depends on a functional T6 control; the placeholder cannot write state or satisfy Delivery/route activation |
+| **3 — human judgment and transition order** | `R78`, `R79` | State one invariant: `T5-EDITORIAL-APPROVAL` and `T6-ASSURANCE-JUDGMENT` are the two human Chief Editor acts. Required internal T6 may complete without external acceptance; the pre-Delivery/Delivery transition evaluates internal T6 evidence and separately attributable external GRC evidence | `V1-B071-CORRECTIVE-PLAN.md` | Agent attempts at either judgment are refused; missing external evidence never refuses or erases T6, only Delivery progression |
+| **4 — state and UI ownership** | `R80` plus the stable-shell clarification | Make current `Assurance status: reviewed` a derived, read-only projection of both sealed T5 Assurance Preparation acts. Keep the T5 display functional and the T6 region a route-aware placeholder. Assign T6 persistence/result vocabulary to the later feature only | `V1-B071-CORRECTIVE-PLAN.md` | No current T6 column/event/enum is implied; non-GRC routes display `Not required`; GRC-accountable routes display a truthful deferred state |
+| **5 — executable propagation** | `R71`, `R81` | Replace every broad §7 row with one clause row per exact path and stable anchor. Name owner, treatment, `[V1→V2]` overlay where required, negative search and affected/unaffected tier. Allocate explicit Product/Fn_Spec requirement and AC identities for the report and `M-POC` refusal | `V1-B071-CORRECTIVE-PLAN.md` | No catch-all row remains; the report condition is explicitly conjunctive with existing `PR-13`, never a replacement |
+| **6 — observable maturity oracle** | `R82` | Define admission using successful provenance-linked report generation plus all existing `PR-13` boundaries. Keep “Minimum Markable Feature” quoted as non-normative, definition-pending rationale | `V1-B071-CORRECTIVE-PLAN.md` | A reviewer can decide pass/fail from records; no undefined phrase is a test predicate |
+| **7 — structural integrity** | `R83` | Correct downstream `§§2–§9` to `§§2–§8`; remove the stray duplicated `B071-R20` text; state that R72 is specified/open, never applied | `V1-B071-CORRECTIVE-PLAN.md` | Searches find no nonexistent §9 target, duplicate stray line or R72-applied claim in current text |
+| **8 — Graphify verifier plan** | `R72` | Keep the tooling fix outside Draft 12 content application. Specify a separately authorized Lane A unit for untouched-graph verification, dangling/global conflict checks, atomic replace/re-read and tracked negative tests | B-071 and plan references only | Text review can complete without pretending tooling is built; terminal Graphify parity remains conditional on the separate tooling unit |
+| **9 — review-ready metadata** | all above | Mark Draft 12 review-ready—not approved—in the plan and B-071 current fields; update only the existing status nodes in `frag119.json`. Do not add D-182 or mark the plan historical | B-071; plan; `frag119.json` | One immutable source commit contains the final proposed text and matching tracked status descriptions |
+
+### Evidence sequence after Unit 9
+
+1. Rebuild the extracted graph once at the final source commit.
+2. Re-merge all tracked fragments and run the conflict audit.
+3. Run the full consistency suite and the B-071/D-182 semantic queries.
+4. Report extraction currency, curated coverage, curated parity and local semantic-enrichment state
+   separately.
+5. Make no further tracked edit before Lane B reviews the same pushed revision.
+6. If Lane B finds no defect, present that immutable Draft 12 to the Judge for `AUTH-DOC` consideration.
+   Passing review does not itself grant `AUTH-DOC`.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B071-GUIDE-SC1` | Draft 12 is opened | Authority text is read | Direct clarifications are inputs; plan approval and every `AUTH-*` checkpoint remain unapproved |
+| `B071-GUIDE-SC2` | Current and deferred features are traced | `AUTH-F1` completion is evaluated | The operational editorial proof can complete without functional T6; the later assurance feature has one proposed owner and no borrowed `AUTH-F2` meaning |
+| `B071-GUIDE-SC3` | Either human judgment is attempted | Actor and dependency rules run | An agent is refused; T6 does not depend on external acceptance; Delivery evaluates the separate records |
+| `B071-GUIDE-SC4` | Current assurance UI is rendered | Its storage source is traced | T5 evidence is read-only/derived and the T6 placeholder writes nothing |
+| `B071-GUIDE-SC5` | A §7 row is selected | Its application is prepared | Exact path, anchor, owner, treatment, version marking, negative search and tier effect are all present |
+| `B071-GUIDE-SC6` | `M-POC` admission is evaluated | Evidence is incomplete | Missing report or any existing `PR-13` boundary independently refuses admission; “Minimum Markable Feature” is not executable |
+| `B071-GUIDE-SC7` | Draft 12 is handed back | Git and Graphify evidence is checked | Local/upstream/final analyzed revision agree; tracked status nodes match source; local-only semantics are not presented as shared evidence |
+
+### Approve/reject gate for this guide
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Draft 12 parent direction | Existing `R77`–`R83` findings and the stable-shell clarification yield one dependency-ordered plan | Judge authorizes Draft 12 preparation, then Lane A Units 1–9 |
+| **Approve-with-conditions** | Later T6 assurance feature | Scope is clear; stable feature ID and future authorization owner remain proposed rather than decided | Draft 12 text review, then Judge decision |
+| **Reject** | Draft 11 / `AUTH-DOC` | Current plan still contains the combined feature, wrong dependency and non-executable propagation defects | Supersede with Draft 12 |
+| **Reject verification** | “B-072 onward is fully fixed” | Tracked B-072/B-077 descriptions remain partially stale despite green mechanical checks | Unit 0, then per-entry Lane B review under B-077 |
+| **Defer** | R72 tooling implementation | Specified here, not authorized or built | Separate Lane A tooling unit before terminal Graphify evidence |
+| **Defer** | Product implementation, `AUTH-F1`, `AUTH-F2`, route activation and lane transition | `D-171` remains binding | Only after `AUTH-DOC` is applied and independently Verified |
