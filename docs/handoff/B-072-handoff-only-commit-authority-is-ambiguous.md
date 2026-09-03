@@ -7,22 +7,31 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** 8674e57 (supersedes `6e41753` per `B072-R26`/`R30`/`R31`)
-- **Lane A:** Acknowledged 2026-09-02. **Current-value matrix, corrected (`B072-R30` — the prior
-  version omitted itself and overstated `R28`):**
+- **Verified-At-Commit:** PENDING-THIS-COMMIT (`B072-R26`/`R30`/`R31`/`R34`/`R35` — see the Git facts
+  line below rather than trusting a single SHA in this field)
+- **Lane A:** Acknowledged 2026-09-02. **Current-value matrix, corrected again (`B072-R34` — the
+  prior version listed `R27` as "Applied, this pass" when `R27` is the earlier *defective* matrix
+  that `R30` corrected, not a live item):**
 
   | State | Items |
   |---|---|
   | **Applied, independently confirmed** | `R17`, `R18`, `R20`'s stable-entry-point half, `R22`–`R26` |
-  | **Applied, this pass** | `R27` (this matrix), `R29` (canonical-SOP push-range check, `docs/handoff/README.md`) |
-  | **Partially Applied** | `R28` — the Decision Register precondition landed (`D-184`); the canonical SOP now has it too (`R29`, this pass); the commit-hook/check enforcement of it does not exist yet |
+  | **Corrected by a later finding, not itself "Applied"** | `R27` (its defect is fixed by `R30`) |
+  | **Applied, this pass** | `R29` (five-step push proof, `docs/handoff/README.md`), `R30` (this matrix), `R31` (commit-vs-push status separation) |
+  | **Partially Applied** | `R28` — Decision Register precondition (`D-184`) and canonical-SOP proof (`R29`/`R32`/`R33`) both landed; commit-hook/check enforcement does not exist yet |
   | **Needs no further correction** | `D-184`/`D-185` substantive policy and root facts — confirmed sound by independent review |
-  | **Open** | `R11`–`R15` (routing map), `R19` (capture-before-child rule), `R21` (Graphify resync at final settled `HEAD`), link-only propagation to `V1-PHASE-CLOSURE.md`/shared rules/work orders, hook/check enforcement (including `R28`/`R29`'s upstream-alignment negative test), independent Lane B verification of this entire pass |
+  | **Open** | `R11`–`R15` (routing map), `R19` (capture-before-child rule), `R21` (Graphify resync at final settled `HEAD`), link-only propagation to `V1-PHASE-CLOSURE.md`/shared rules/work orders, hook/check enforcement (including the negative fixtures the five-step proof implies), independent Lane B verification of this entire pass |
 
-  **Commit-vs-push status (`B072-R31` — the prior turn wrongly said "both already pushed"):**
-  `origin/docs/journal-2026-08-16` = `a3d2d2a` (pushed). Local `HEAD` is ahead by the commits
-  containing this correction pass — **not yet pushed**. "Committed" and "pushed" are reported as
-  separate facts from here on; never combined into one status line.
+  **Git facts, reported as separate facts, never combined (`B072-R31`, corrected granularity
+  `B072-R35`):**
+
+  | Fact | Value |
+  |---|---|
+  | Substantive `R29`–`R31` commit | `8674e57` |
+  | Evidence-field-only follow-up | `af670b1` |
+  | This correction's own commit | (this handoff commit) |
+  | Remote branch tip | `a3d2d2a` — **pushed** |
+  | Local `HEAD` | Ahead of remote — **not pushed** |
 
   `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
   transaction SOP; every earlier protocol block in this file's independent-review sections below is

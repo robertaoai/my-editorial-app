@@ -61,17 +61,27 @@ commit and push **only its own explicit `B-NNN-*.md` or `C-NNN-*.md` entry**:
 2. Stage only `docs/handoff/B-NNN-*.md` or `C-NNN-*.md` — never a channel control file
    (`README.md`/`TEMPLATE.md`), another lane's entry, code, a governed doc, Graphify tooling, or an
    unrelated file (e.g. `package-lock.json`). A mixed staged set fails the transaction.
-3. **Before pushing, check the range you are about to publish — a clean staged diff does not mean
-   a clean push (`B072-R28`/`R29`).** `git push` advances the remote ref through every commit between
-   it and yours, not only the file you changed. Run `git fetch` then compare:
-   - `git merge-base origin/<branch> HEAD` must equal `origin/<branch>`'s current tip (i.e. your
-     branch is a fast-forward of the remote) **and**
-   - `git log origin/<branch>..HEAD --oneline` must show **only your own handoff commit** — if it
-     lists any other commit (an unpushed `Active`-lane governed-doc commit, another lane's entry),
-     **stop. Do not push.** Ask the `Active` lane to push its ancestor range first, or get the Judge
-     to explicitly name and authorize the full accumulated range for you to push instead.
-   - Only once both checks pass: commit and push immediately; confirm local/remote equality before
-     another lane treats the entry as its input.
+3. **Before pushing, run this exact five-step proof — a clean staged diff does not mean a clean push
+   (`B072-R28`/`R29`/`R32`/`R33`).** `git push` advances the remote ref through every commit between
+   it and yours, not only the file you changed, and a cached or stale remote-tracking ref is not
+   evidence:
+   1. **Resolve your configured upstream** (`git rev-parse --abbrev-ref --symbolic-full-name @{upstream}`).
+      No configured upstream — **stop**.
+   2. **Fetch it** (`git fetch`). Any fetch failure (network, auth, anything) — **stop**. Never fall
+      back to a cached/stale remote-tracking ref after a failed fetch.
+   3. **Require the upstream tip to equal `HEAD^`** (your parent commit) — not merely an ancestor.
+      `merge-base == upstream` alone is fast-forward evidence, not proof the outgoing range is one
+      commit. If the upstream is behind `HEAD^`, or the outgoing commit count
+      (`git rev-list --count @{upstream}..HEAD`) is anything but **1** — **stop**. Ask the `Active`
+      lane to push its ancestor range first, or get the Judge to explicitly name and authorize the
+      full accumulated range for you to push instead.
+   4. **Require the changed-path set to be exactly your one permitted handoff path**
+      (`git diff-tree --no-commit-id --name-only -r HEAD` must return exactly one
+      `docs/handoff/B-NNN-*.md` or `C-NNN-*.md` path, and it must be yours). Any other or additional
+      path — **stop**, regardless of what the commit message claims.
+   5. **Only once upstream resolution, fetch, range, and path all pass:** push. Then **fetch again** and require the upstream tip to
+      now equal `HEAD` before reporting the entry as pushed — do not report "Pushed" from the local
+      push command's exit code alone.
    This permission does not make the lane `Active`, consume an `Eligible` nomination, or grant
    implementation, lane-transition, or deployment authority.
 4. You may record `Applied` on your own answer. Only an independent reviewer may record `Verified`
