@@ -3428,3 +3428,106 @@ question in `D-188`.
 
 **`B-071` is NOT closed by this entry.** Its own defects remain open pending independent
 verification, exactly as the plan's item 7 requires.
+
+---
+
+## Round 12 independent review — `D-188` application at `129efab` (2026-09-03)
+
+### Rewritten task
+
+Independently review whether `D-188` completed the approved `V*/NG → excluded object` correction,
+starting with `V1-BUILD-SPEC.md` §6's combined *"Multi-team accounts, and S6"* row. Separate the
+V1 exclusion record, future Product capability and security sprint; identify any remaining drift;
+and give Lane A one parent-first corrective plan. Do not edit governed tiers or build Product code.
+
+### What happened
+
+The decision's parent model is sound: `V1/NG-*` owns a version-specific exclusion,
+`PBL-*` owns a stable future capability, and a Register act separately authorizes work. The
+application is incomplete. The old `NG-02`/S6 model remains in the Build Spec and Product document,
+while `D-188` reports that propagation as complete.
+
+The baseline itself is settled and structurally green: local `HEAD`, upstream and Graphify's
+`lastAnalyzedHead` are `129efab`; the full local consistency suite passes. Those facts do not close
+the semantic defects below.
+
+### Findings — highest parent first
+
+| ID | What is unclear or incorrect | Guaranteed failure if unchanged | Smallest draft fix |
+|---|---|---|---|
+| `B071-R97` | `V1-BUILD-SPEC.md` §6 has one valid `S6 — auth and scoped RLS` row, then a second row that says *"Multi-team accounts, and S6"* are one item. `S6`/`SEC-03` is a security sprint/requirement; `PBL-04` is the multi-team-account capability | One capability has two rows and two owners. Resolving `OD1`–`OD3` can be mistaken for making multi-team accounts ready, while reconsidering `V1/NG-02` can be mistaken for authorizing S6 | Keep exactly one S6/`SEC-03` row. Replace the combined row with a version-qualified statement: `V1/NG-02` excludes `PBL-04`. Do not mention S6 or define the `D-145` variant in that exclusion row |
+| `B071-R98` | `Modular_PRD.md`'s `NG-02` row still contains the positive `D-145` client-account backlog candidate even though `PBL-04` now owns that capability and already contains the variant | The same future scope has two editable homes; they will diverge on readiness, rank or definition | Keep `NG-02` to the V1 exclusion, excluded-object link, rationale and V1 reconsideration condition. Keep the `D-145` variant only under `PBL-04` |
+| `B071-R99` | §2.5.1 correctly names three readiness meanings, then calls an NG condition a cross-version living backlog state that *"lifts a prohibition"* and survives into v2/v3 | A V1 exception becomes global feature readiness; V1 closure or an NG condition can appear to promote or authorize `PBL-04` | Use the labels every time: **version reconsideration condition**, **feature readiness**, **build authorization**. A V1 condition answers only whether V1's exclusion may be reconsidered; V2 creates its own scope record. Remove *"prohibition lifted"*, *"exclusion stops applying"* and cross-version-mutable-NG wording |
+| `B071-R100` | `D-188` declares canonical identity `(version_id, ng_id)`, but the visible heading remains `Non-Goals`, the rows expose only `NG-*`, and only the monetization Build-Spec row uses `V1/NG-*` | Searches and future crosswalks can join V1's `NG-02` to another version's `NG-02`; the composite identity exists only in explanatory prose | Make the section visibly V1-scoped and expose a canonical `V1/NG-*` identifier while preserving `NG-*` as the local display ID. Use the canonical identity in cross-document links |
+| `B071-R101` | `D-188`'s tier-applicability row says Build Spec §6 received an excluded-object column. Commit `129efab` changed only the monetization row there; no such column exists and the `NG-02`/S6 row was untouched | The Register provides false completion evidence, so later review trusts a propagation that did not occur | Append a narrow correction to `D-188`: preserve its ontology, withdraw the false Build-Spec completion claim, and name `R97`–`R100` as the remaining propagation |
+| `B071-R102` | Graphify is current by revision, but querying the `D-188` relationship returns no usable exclusion/readiness subgraph; there is no curated D-188 match in `docs/graph-fragments/` | A green `docs-drift`/`graph-coverage` result is mistaken for semantic discoverability, and `NG-LINK-SC8` cannot be demonstrated | After source correction, update the existing curated layer so a query resolves `V1/NG-02 → PBL-04` and shows `PBL-04` as distinct from S6/`SEC-03`; rebuild/re-merge and test the query at the same pushed revision |
+
+### Normalized ownership model
+
+| Record | One question it answers | Example | Must not imply |
+|---|---|---|---|
+| Version exclusion | What did this version exclude, and what could permit reconsideration **inside this version**? | `V1/NG-02 EXCLUDES PBL-04` | Feature priority, S6 completion or build permission |
+| Product backlog | What stable capability might later be refined? | `PBL-04 = multi-team accounts`, containing the `D-145` client-account variant | That any version includes it or that it is authorized |
+| Security sprint/requirement | What authentication and access-control work may a separately authorized sprint perform? | `S6` / `SEC-03` | Multi-team-account scope by itself |
+| Authorization | What bounded unit may the Active lane execute, with which DoD? | Register Judge act | Permission inferred from an NG, PBL or sprint label |
+
+### Parent-first corrective packet for Lane A
+
+1. **Register parent:** append one correction to `D-188`. Retain its direction, composite identity,
+   three-way readiness split and “not excluded is not included” rule. Withdraw only the inaccurate
+   propagation claim and explicitly supersede the historical `D-147`/`D-148` clauses that called
+   `NG-02` and S6 the same future item. Do not rewrite historical decision bodies.
+2. **Product exclusion and backlog:** in `Modular_PRD.md` §2.5, expose the V1-qualified NG identity
+   and remove the `D-145` capability definition from `NG-02`; in §2.5.2 retain it once under
+   `PBL-04`.
+3. **Procedure language:** in §2.5.1, apply the three exact readiness labels and remove wording that
+   lets a V1 reconsideration condition mutate post-V1 Product state.
+4. **V1 tracking:** in `V1-BUILD-SPEC.md` §6, retain one S6/`SEC-03` row and make the other row only
+   `V1/NG-02 → PBL-04`. Rewrite §6.1 as a pointer to the Product backlog without saying an exclusion
+   later “stops applying.”
+5. **Existing packet only:** incorporate `B071-R97`–`R102` into Draft 12 and this B-071 lifecycle.
+   Create no new handoff, SOP, backlog ledger or feature ID.
+6. **Explicitly unaffected:** frozen `docs/PRD.md`, frozen Charter, Artifact Inventory, Fn/Data/UX
+   specs and Phase Closure receive no edit; no source requirement, repository artifact, behavior,
+   schema, UI or lane state changes.
+7. **Evidence last:** commit and push settled source, update the existing curated Graphify layer,
+   rebuild/re-merge once, run the full suite, then give Lane B that exact revision for independent
+   semantic review. A green structural tally alone is insufficient.
+
+### What remains unclear
+
+No Judge decision is required to separate the three existing objects: S6/`SEC-03`, `PBL-04` and
+`V1/NG-02` already have distinct identities and owners under `D-188`. `NG-11`'s policy owner remains
+open but is unrelated and must not block this correction. This review does not decide whether or
+when `PBL-04` is promoted.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `NG-S6-SC1` | Build Spec §6 is read | S6 is searched | Exactly one row owns S6/`SEC-03`; no row calls it the same item as multi-team accounts |
+| `NG-S6-SC2` | The V1 exclusion crosswalk is read | `NG-02` is traced | Canonical `V1/NG-02` points to `PBL-04` and carries no positive `D-145` feature definition |
+| `NG-S6-SC3` | The Product backlog is read | `PBL-04` is traced | It alone owns multi-team-account identity and the `D-145` variant; it cites no reverse NG rationale |
+| `NG-S6-SC4` | Readiness language is searched | Each condition is classified | Every occurrence means exactly one of version reconsideration, feature readiness or build authorization |
+| `NG-S6-SC5` | Another version introduces `NG-02` | Cross-version lookup runs | `V1/NG-02` and the later canonical ID cannot collide |
+| `NG-S6-SC6` | D-188's tier evidence is reviewed | The named Build-Spec change is inspected | The Register describes the row/column that actually exists; no completion is inferred from intent |
+| `NG-S6-SC7` | Graphify is queried at the final pushed revision | The relationship is requested | It returns `V1/NG-02 → PBL-04` and does not collapse `PBL-04` into S6/`SEC-03` |
+| `NG-S6-SC8` | The correction is complete | Git, Graphify and checks are compared | Local HEAD, upstream and analyzed revision match; the suite passes; independent Lane B review finds no residual conflation |
+
+### What Lane B did instead
+
+Lane B changed no governed tier and built nothing. It appended this independent review to the
+existing B-071 handoff, preserving `D-171` and the current lane state. Lane A owns the corrective
+draft; Lane B owns the later independent verification.
+
+### Approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Decision model | D-188's `V*/NG → excluded object` direction and three-way readiness separation are sound | Preserve in Register correction |
+| **Approve-with-conditions** | Lane A application at `129efab` | Structural checks pass, but `R97`–`R102` leave propagation semantically incomplete | Lane A corrective packet, then independent Lane B review |
+| **Reject** | V1 Build Spec | Combined *"Multi-team accounts, and S6"* row | Split per `R97` |
+| **Reject** | Product ownership | Positive `D-145` scope duplicated in `NG-02` and `PBL-04` | Normalize per `R98` |
+| **Reject verification** | B-071 / D-188 application | Green checks and current Graphify do not satisfy the semantic success criteria | Source correction, semantic graph sync, independent review |
+| **Defer** | `NG-11` policy owner | Separate unresolved governance item | Separate Judge decision |
+| **Defer** | Product implementation or lane transition | Planning only; no build authorization was requested or granted | Later bounded authorization |
