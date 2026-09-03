@@ -75,6 +75,21 @@
   `Covered`; every touched item stated `Draft-addressed`, never `Closed`. **Nothing is applied:** no
   governed tier changed; `D-189` does not exist in the Register; `D-171` remains binding over both
   orders, unnarrowed; `AUTH-DOC` remains unapproved.
+  **Rounds 19–24 (2026-09-03/04) — read in full before this response.** Round 19 rejected Draft 2
+  as executable text and raised `B071-R145`–`R153`; Round 20 added `R154`–`R162` (account
+  accountability, T5 stage/state axes); Round 21 corrected Rounds 19–20's `executor_principal_key`
+  regression (`R163`–`R168`); Round 22 raised the V1 no-auth-boundary conflict (`R169`–`R174`);
+  Round 23 recorded the Judge's Model A selection — a **narrow** authentication exception scoped to
+  the Chief Editor account and `T5-FINAL` only; Round 24 added the business-owner recovery flow
+  (`R175`–`R180`). **This response resolves only the self-contained authentication/recovery thread,
+  as Draft 3 Part 1** (`docs/v1/V1-B071-CORRECTIVE-PLAN.md` §12, resolving `B071-R169`–`R180` plus
+  new finding `B071-R181`): `S5` (`docs/journal/2026-08-16-entry007-decision-sheet.md`) is an
+  already-accepted **temporary, auto-reverting** LOA delegation for Chief Editor absence, distinct
+  in kind from Round 24's **permanent** succession model — both use "Acting Chief Editor," and
+  neither round reconciles them; flagged for the Judge, not resolved. **Round 19's T5-stage/
+  occurrence-ledger thread (`B071-R145`–`R168`) is explicitly Part 2, not drafted this pass** —
+  named so it is not mistaken for closed. Nothing applied to any governed tier; `AUTH-DOC` remains
+  unapproved; `D-171` remains binding.
 - **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`), round 2 (Lane
   B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
   clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), round 4 (Lane B,
@@ -4315,3 +4330,947 @@ so it is not evidence for this review. Synchronization remains the final post-ap
 | **Reject** | `CR-12`/`CR-19` as fully Covered now | Actor substitution is not yet customer-accepted under the map's own rule | Sponsor/customer route |
 | **Defer** | Parent Model A/B choice | Required before child drafting can become internally consistent | Bounded Judge decision |
 | **Defer** | Application, Graphify and build authorization | Plan remains unapplied; graph is stale; `D-171` binds | Accepted Draft 2, application, independent verification |
+
+---
+
+## Round 19 — Independent review of proposed `D-189` Draft 2 and the T6-retrospective clarification (2026-09-03)
+
+### What happened
+
+Lane A converted Model A into proposed `D-189` Draft 2 at pushed revision `702fccc`. The Judge then
+clarified that V1 editorial work ends at T5, T6 is the future assurance flow owned by `PBL-01`, and
+the superseded T6-assurance analysis should be preserved in a Lane A journal outside V1's operative
+scope. Lane B reviewed Draft 2 and that proposed archival move against the actual governing sources,
+Decision Register, Build Spec, Product requirements, Fn-Specs, RACI, configuration log, work order,
+technical transition spec, journal rules and Graphify state.
+
+Model A is now the decided direction. Draft 2 is still not executable: its exact T5 mechanics, source
+propagation, lifecycle separation, audit identity fields and retrospective boundary remain incomplete.
+This review appends to B-071 only; it creates no second handoff.
+
+### What Lane A needs — parent first
+
+#### Parent 1 — keep the three lifecycles separate
+
+| Lifecycle | Sole subject | Must not absorb |
+|---|---|---|
+| `D-188` Draft 4 | Canonical `V*/NG-* --excludes--> PBL-*` relation and its literal/Graphify proof | T5/T6 gate mechanics, `AUTH-DOC`, or the assurance retrospective |
+| Proposed `D-189` Draft 3 | V1 T5 editorial completion, T6 future-assurance boundary, actor/identity terminology, and `V1/NG-12 → PBL-01` | `D-188`'s open proof defects or §1–§8's `D-182` authorization |
+| Original §1–§8 / proposed `D-182` | `AUTH-DOC`, `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE` documentation and later feature authorization model | `PBL-01` refinement or authority to build future T6 assurance |
+
+`B071-R118`–`R123` and `NG-S6-SC21`–`SC25` remain evidence for the independent D-188 Draft 4
+packet. They are not “T6-related” merely because D-189's Non-Goal row consumes D-188's table shape.
+Likewise, `AUTH-DOC` authorizes the original D-182 documentation packet only; it is not a future-T6
+feature authorization. A reference edge is not ownership.
+
+#### Parent 2 — define one T5 stage with one completion
+
+Draft 2 preserves `D-181`'s statement that `T5_review_bundle_sealed` is the **stage-completing** act,
+then adds `T5-FINAL` as a second act that also “completes T5.” The corrected five-stage model needs
+one nested-stage contract:
+
+```text
+T5 editorial stage
+  ├─ T5-REVIEW act(s): route-selected virtual reviewer evidence
+  ├─ T5-REVIEW-BUNDLE-READY: deterministic join; packet ready, no final judgment
+  └─ T5-FINAL: Acting Chief Editor judgment; the only T5 stage completion
+                 Reviewed → Approved
+
+T6 assurance stage
+  └─ future PBL-01 only; absent and not applicable in V1
+```
+
+`T5-FINAL` is acceptable as a sub-act identifier if the Judge confirms it. It is not a sixth
+editorial gate. The join may still perform the intermediate `Drafted → Reviewed` state transition,
+but it must say **review workstream complete / final judgment pending**, never “T5 complete.” Only
+the human final judgment makes the article editorially Approved and eligible for Delivery.
+
+### New findings — highest parent first
+
+| ID | What is unclear or incorrect | Guaranteed failure if unchanged | Smallest Draft 3 fix |
+|---|---|---|---|
+| `B071-R145` — D-188, D-189 and `AUTH-DOC` are re-conflated by dependency language | The clarification calls `R118`–`R121`, `NG-S6-SC21`–`SC25` and `AUTH-DOC` T6-related; their actual owners are the independent D-188 packet and original D-182 packet | Accepting D-189 can be read as accepting D-188 Draft 4 or granting `AUTH-DOC`; later T6 refinement can inherit a V1 documentation checkpoint that never governed it | Use the three-lifecycle table above. D-189 may depend on D-188's table shape without owning D-188's findings. Future T6 authorization is created only when `PBL-01` is promoted in a later version |
+| `B071-R146` — T5 still has two completion points | Draft 2 keeps the bundle join as the sole “stage-completing transition” while `T5-FINAL` also completes T5 | The UI can show T5 complete before the human decides, or execute the human act as an unnumbered sixth gate; acceptance tests can disagree while each follows the plan | Make review-bundle readiness an internal T5 prerequisite and `T5-FINAL` the only editorial-stage completion. Partially supersede `D-181`'s `R56` wording; preserve its one-write/race-prevention mechanic |
+| `B071-R147` — the write set skips higher-precedence governing sources | Addendum, Blueprint and Business Case still normatively define editorial `T6` as Chief Journalist approval and a Line 2→1 crossing; Draft 2 proposes only lower-tier edits | The higher-precedence source model defeats the derived D-189 model on every future arbitration; Lane B can correctly reject the changed lower tiers as contradictory | Add exact, annotation-preserving current/target corrections for `v1-build-readiness-addendum.md`, `blueprint.md` and `business-case.md`, or explicitly explain the governing mechanism that supersedes each clause. Frozen PRD/Charter remain unchanged |
+| `B071-R148` — the operative T6 impact surface is incomplete | Actual search finds editorial-T6 semantics in `CONFIG_LOG.md`, audit/exception/publication/gate Fn-Specs, the work order, transition SPECS, Addendum/Blueprint/Business Case, Build Spec, Product requirements and RACI. Draft 2 edits only a subset | Gate counts remain six, the board still measures `T6→T5`, returns append T6 dispositions, S2 Unit 2 still owns T6, and transition enforcement still permits editorial T6 | Classify every nonhistorical occurrence as `editorial T5 sub-act`, `future PBL-01 assurance`, or unaffected publication/return history. Supply exact edits for every operative occurrence and explicit historical-retention notices for records that must not be rewritten |
+| `B071-R149` — the “literal” D-189 block contains an application-time placeholder | §11.4 says the §11.3 table will be reproduced later instead of containing it | `G32` applies: Lane A must improvise while applying supposedly exact text, and the Register entry is not self-contained | Put the complete clause-level supersession table inside the literal decision block. A duplication concern does not justify a placeholder in the authoritative artifact |
+| `B071-R150` — the predecessor supersession table is materially incomplete | `D-175`, `D-177`, `D-178`, `D-179`, `D-180` and `D-181` all carry target editorial-T6 or `T6→T5` semantics. Draft 2 treats D-178/D-179 as absent and D-180/R56 as unaffected | Old decisions remain current citations for a label and stage boundary D-189 has superseded; later reviewers can legitimately restore the old model | Add clause-level dispositions for every operative occurrence. In particular, re-derive D-178's event sequence/Target DoD, D-179's target AC/proof text, D-180's target metrics/security rows, and D-181 R56's “T5 complete” wording |
+| `B071-R151` — the proposed journal “move” can erase rather than preserve governance | Repository rules make journals historical memory only and prohibit rewriting them to stay current. Existing handoffs and decisions are append-only provenance | Deleting open findings or future backlog ownership from B-071/operative tiers and putting them only in a journal silently drops requirements and authority | Create a new dated retrospective, never rewrite an old journal and never delete source history. The journal summarizes superseded reasoning and links back; `PBL-01`, D-189, unresolved findings and authorization remain in their canonical operative homes |
+| `B071-R152` — Graphify has no semantic migration contract | Draft 2 says rebuild/merge but reserves no fragment and gives no query proving T5 editorial and T6 assurance are distinct | `docs-drift` can pass while semantic queries still return the old editorial-T6 graph or no D-189 result, repeating the current query failure | Reserve an exact fragment path, provide literal nodes/edges or state that extraction alone owns them, and test exact stable IDs: T5-FINAL is part of V1 editorial T5; PBL-01 owns future T6; neither is an alias or successor of the other |
+| `B071-R153` — `Acting Chief Editor` is still called a principal | RACI defines `Acting Chief Editor` as an accountable role/holder label. Draft 2 also calls it the principal the audit record names, collapsing role with identity | Audit records can store a role label where an executor identity is required; two attempts by different principals become indistinguishable, especially before S6 | Keep four fields distinct: persona/display = Chief Editor; accountable role = `ROLE-CHIEF-EDITOR` / Acting Chief Editor; executor identity = `executor_principal_key` with governed pre-S6 `self_asserted` assurance; virtual attempt disclosure = `agent_attempt_badge_id` where applicable |
+
+### Draft fix — one parent-first packet
+
+1. **Finish D-188 Draft 4 independently.** Apply `R118`–`R123` and prove `NG-S6-SC21`–`SC25`.
+   This supplies the canonical Non-Goal/PBL table shape only; it grants no D-189 or `AUTH-DOC`
+   authority.
+2. **Issue D-189 Draft 3 with the T5 nested-stage contract.** Confirm the exact `T5-FINAL`
+   sub-act identifier. Make it the only editorial completion; reserve `T6` for future `PBL-01`.
+3. **Complete the supersession table and literal decision.** Include every affected D-175–D-181
+   clause and place the full table inside the literal Register text—no application-time placeholder.
+4. **Draft the governing-source corrections before lower tiers.** Addendum first, then Blueprint,
+   Business Case, Decision Register, Build Spec, Product requirements, Fn-Specs/RACI/SPECS and
+   operational tracking. Preserve historical passages with dated notices rather than silent rewrites.
+5. **Separate identity fields.** Use Chief Editor only for the business persona; Acting Chief Editor
+   / `ROLE-CHIEF-EDITOR` for accountability; `executor_principal_key` for the actual human executor;
+   `agent_attempt_badge_id` only for an AI attempt. Do not claim authentication before S6.
+6. **Create the retrospective as a child artifact, not a substitute owner.** Proposed path:
+   `docs/journal/2026-09-03-t6-assurance-out-of-v1-retrospective.md`. It records the retired analysis,
+   why Model A displaced it, and pointers to D-188/D-189/B-071/PBL-01. It states prominently:
+   historical memory only; no authority, readiness, rank, acceptance or current status lives here.
+   Because this creates a file, include it in `V1-ARTIFACT-INVENTORY.md` and state its sequence/DoD
+   in Build Spec and its creation in the Register in the same authorized pass (`D-54`).
+7. **Do not move canonical facts.** B-071 retains append-only review history; D-188 retains
+   `R118`–`R123`; `PBL-01` remains the sole living future-assurance identity; the target version's
+   future authorization is minted only on promotion. `R77`–`R83` are reclassified clause by clause:
+   editorial-T5 obligations stay operative under D-189; assurance-only discussion is retrospective;
+   no blanket “moved/closed” label is allowed.
+8. **Close the complete T6 reference surface.** Produce an occurrence ledger containing path,
+   anchor, classification, exact treatment and owner. Historical decisions/journals are retained;
+   every operative source/spec/config/test reference is changed or explicitly unaffected.
+9. **Graphify last.** After one authorized source transaction is committed, pushed and fetch-proven,
+   rebuild, merge the reserved fragment, then verify the same revision. An exact-ID query must return
+   both concepts separately. Lane B performs independent verification; implementation remains held.
+
+### Retrospective journal — minimum contents
+
+The journal must remain short and non-operative:
+
+1. Date, source revision and reason for the retrospective.
+2. Prior conflation: editorial final judgment and external assurance both called `T6`.
+3. Current interpretation: T5 owns V1 editorial completion; T6 is future `PBL-01` assurance.
+4. What remains authoritative: D-188 relation model, proposed/applied D-189, B-071 lifecycle,
+   `PBL-01` backlog row and future target-version authorization.
+5. What the journal does not do: authorize, rank, refine, close, supersede by itself, or replace any
+   canonical record.
+6. Links to the exact decisions/handoff sections; no copied live status, counts or mutable checklist.
+
+### Success criteria derived from failure
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T5-V1-SC30` | D-188, D-189 and §1–§8 are reviewed | Their subjects and approvals are traced | Each has one independent lifecycle; accepting one cannot authorize either of the others |
+| `T5-V1-SC31` | All T5 review acts and the human judgment occur | Stage completion is inspected | Review-bundle readiness occurs once; only `T5-FINAL` completes editorial T5 and permits Approved |
+| `T5-V1-SC32` | A governing-source and derived-tier conflict is tested | T5/T6 semantics are compared | Addendum, Blueprint, Business Case and every lower tier agree on T5 editorial/T6 assurance separation |
+| `T5-V1-SC33` | Every repository occurrence of `T6`, `T6→T5` and the old gate count is classified | The occurrence ledger is checked | Every operative occurrence has one meaning and exact treatment; retained history is visibly historical |
+| `T5-V1-SC34` | D-189's literal Register block is applied without chat or plan context | The resulting entry is compared | It is self-contained and includes the exact supersession table; no placeholder or improvised clause exists |
+| `T5-V1-SC35` | The new retrospective is opened | Authority and ownership are checked | It identifies itself as historical memory; `PBL-01`, authorization and live status resolve elsewhere |
+| `T5-V1-SC36` | A human final action is audited | Persona, role and identity fields are compared | Chief Editor, `ROLE-CHIEF-EDITOR`, `executor_principal_key` and assurance level are distinct; no role label substitutes for identity |
+| `T5-V1-SC37` | Graphify is queried at the final pushed revision | Exact nodes and relations are inspected | T5-FINAL resolves only to V1 editorial T5; future T6 resolves only to `PBL-01`; no conflating edge exists |
+| `T5-V1-SC38` | V1 publication eligibility is evaluated | The T5 and T6 outcomes are checked | Human T5 editorial approval permits Delivery; absent future T6 assurance cannot block a non-GRC V1 article |
+
+### What Lane B did instead
+
+Lane B appended this review to the existing B-071 handoff only. It did not edit Draft 2, create the
+retrospective, change any governed source/tier, classify the full occurrence ledger as applied,
+commit, push, rebuild Graphify, implement code or alter lane state. The untracked `package-lock.json`
+remains untouched.
+
+At review time local `HEAD` and upstream both resolve to `702fccc`. Graphify remains based on
+`129efab`; its stale semantic output cannot verify Draft 2. Synchronization remains last, after the
+complete authorized source packet—not after this review.
+
+### Round 19 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Model A business direction | V1 editorial completion is T5; future T6 assurance is `PBL-01` and outside V1 | Preserve in D-189 Draft 3 |
+| **Approve** | D-188/D-189/`AUTH-DOC` separation | Corrects the new lifecycle conflation | D-188 Draft 4, then D-189 Draft 3 independently |
+| **Approve-with-conditions** | T6 assurance retrospective | Useful historical consolidation if it owns no operative fact and D-54 records the new artifact | After D-189 authorization/application |
+| **Approve-with-conditions** | `T5-FINAL` | Suitable as a T5 sub-act, not a sixth gate; must be the sole stage completion | Judge confirms exact identifier; Draft 3 propagates it fully |
+| **Reject** | D-189 Draft 2 as executable text | Two T5 completion points, incomplete source/write surface, incomplete supersession and a nonliteral Register placeholder | Lane A Draft 3 |
+| **Reject** | Moving D-188 findings or `AUTH-DOC` into T6 history | They govern separate packets and would be dropped/mis-authorized | Preserve canonical ownership |
+| **Reject** | Journal as backlog or authorization owner | Journals are historical memory only | `PBL-01` plus future target-version authorization |
+| **Defer** | Application, Graphify, implementation and lane transition | Source packet is unsettled; `D-171` remains binding | Accepted Draft 3, bounded Judge act, application, independent verification |
+
+---
+
+## Round 20 — Account accountability and T5 completion clarification (2026-09-04)
+
+### What happened
+
+The Judge clarified that **Acting Chief Editor is an accountability involvement, not a role**.
+During a Publication Flow, the one account holding the Chief Editor access right supplies the human
+decision; a later takeover changes the holder, not the business persona or the gate. The same
+clarification confirms the intended T5 presentation: virtual review evidence is sealed first, the
+human Chief Editor then makes the final editorial judgment, and Delivery consumes that decision.
+
+Lane B compared that clarification with proposed `D-189` Draft 2, proposed `D-182`, `D-177`, the
+Product role catalog, RACI matrix, gate/publication Fn-Specs, Build Spec and B-072. Round 19 remains
+the parent review. This round adds only the corrections needed for account accountability and the
+T5 UI/state contract; it does not repeat Round 19's complete occurrence-ledger or propagation work.
+
+### What Lane A needs — highest parent first
+
+#### Parent 1 — separate the five objects before naming an actor
+
+| Object | Normalized meaning | Minimum record/evidence | Must not be used as |
+|---|---|---|---|
+| **Chief Editor** | Business persona and UI label from the frozen PRD | Display label only | Account ID, permission, or audit identity |
+| **Chief Editor access right** | Permission to use the human T5-final controls | One effective assignment at a time in V1 | RACI role or proof of who acted |
+| **Acting Chief Editor** | The current holder's accountability involvement during an effective interval | Assignment reference, `effective_from`, optional `effective_to` and reason | Role ID or principal ID |
+| **RACI `A`** | Accountability relation for the applicable task/stage | Resolved to the Acting Chief Editor assignment at decision time | Executor identity or permission grant |
+| **`executor_principal_key`** | Stable identifier of the natural person/account that actually acted | Stored on the immutable decision event with `identity_assurance` | Persona, role, access right, or AI attempt badge |
+
+For V1, the existing RACI rule supplies the scope: **one active Chief Editor assignment for the
+whole business**. A takeover closes the old interval and opens the new one; it never rewrites old
+events. Each event keeps the principal and assignment that were effective when it occurred.
+Because S6 authentication is not present, V1 may prove only a configured/self-asserted principal,
+not an authenticated user. The UI and audit record must say so.
+
+“Other users default to the next role” is not executable. No canonical ordered role ladder, default
+permission set or reassignment trigger exists. The safe rule is: **no automatic privilege fallback**.
+A non-holder retains only separately assigned rights, or is unassigned/read-only. A future automatic
+fallback requires its own positive feature contract, ordered roles and negative authorization tests.
+
+#### Parent 2 — one T5 stage, one final judgment, two different state axes
+
+```text
+T1–T4 editorial preparation
+  -> T5-REVIEW act(s)
+       production route: one route-required virtual review
+       fallout/GRC route: two separately attributable virtual reviews
+  -> T5-REVIEW-BUNDLE-READY
+       deterministic readiness/join event; no R, no A, no judgment
+       article workflow_state: Drafted -> Reviewed
+  -> T5-FINAL
+       human Acting Chief Editor decision; the only T5 stage completion
+       approve: workflow_state Reviewed -> Approved
+       reject: workflow_state Reviewed -> Rejected (or governed return, if selected)
+  -> Delivery T7/T10/T11 consumes the immutable T5-FINAL disposition
+
+Future T6 assurance
+  -> PBL-01 only; outside V1 and not required for non-GRC V1 Delivery
+```
+
+`T5-REVIEW-BUNDLE-READY` is therefore **not a judgment gate**. Calling it one contradicts the
+existing no-`R`/no-`A`/no-judgment join and recreates the two-completion defect `B071-R146` found.
+Likewise, `None`/`WIP`/`Drafted`/`Reviewed` cannot be one canonical state enum: the first two are UI
+progress labels while the latter two are article workflow states. If the UI needs all four, use a
+derived `t5_review_status` (`not_started`/`in_progress`/`bundle_ready`/`finalized`) and leave
+`workflow_state` governed by the transition model above.
+
+#### Parent 3 — bind the nodes to evidence acts, not accounts or accountability
+
+Proposed `D-182` may retain `NODE-EDITORIAL-DESK-REVIEW` and
+`NODE-CHIEF-JOURNALIST-REVIEW` as virtual workcells. It must state separately which nodes are
+route-required for `T5-REVIEW`, and may not infer an account, Chief Editor access right, RACI `A`,
+or human executor from a node name. The current plan contains both “both Assurance Preparation
+nodes on every route” and “one production/two fallout-GRC reviews”; Draft 3 must either:
+
+1. make those two different evidence sets with different IDs and cardinality, or
+2. retire the universal two-node Assurance Preparation set and use the route-dependent
+   `T5-REVIEW` set above.
+
+They cannot share an event ID while carrying different cardinality. The Judge's latest wording
+supports option 2 for the V1 editorial flow; any assurance-only evidence remains future `PBL-01`.
+
+#### Child 1 — publication UI and explainable-output contract
+
+The T5 publication workspace should display the sealed review bundle read-only, the current
+accountability holder, actual executor identity/assurance, and the human final control. Its actions
+must map to governed outcomes, not new prose states:
+
+- **Approve editorial MVP:** append `T5-FINAL` with
+  `newsworthiness_finding = sufficient_evidence`, reason and evidence references; move
+  `Reviewed -> Approved`; enable the governed Delivery path.
+- **Do not approve:** append `T5-FINAL` with
+  `newsworthiness_finding = insufficient_evidence`, reason and evidence references; move to the
+  governed `Rejected` or return path. Do not delete or use an undefined `discarded` state.
+- **Public Explainable Content with report:** generated from the immutable T5-final decision and
+  its cited review evidence. Store a versioned artifact/provenance reference; show a download URL
+  only after generation succeeds and show explicit pending/failure states otherwise.
+- **Assurance section:** stable read-only placeholder in V1. It must not imply T6, external GRC
+  acceptance, or an assurance approval occurred.
+
+`D-177` can own behavioral storyboard references, but the actual UI layout belongs in a
+stack-specific `docs/specs/ux/` artifact under `D-34`. No such directory exists today. If the
+authorized packet creates that file, `D-54` requires the Register, Build Spec and Artifact Inventory
+to record its creation in the same pass. The frozen PRD remains untouched.
+
+#### Child 2 — B-072 and journal boundary
+
+B-072 solves the **handoff transaction**: a permitted actor can durably commit and push its own
+handoff evidence without obtaining the work-product lock. It does not change canonical ownership.
+PBL-01 stays in the backlog, open findings stay in their handoff, authority stays in the Decision
+Register, live lane state stays in Phase Closure, and immutable execution evidence stays at its
+own owner. A journal may link to those facts as history; it cannot move or replace them.
+
+### New findings — only this clarification's delta
+
+| ID | Gap | Guaranteed failure if unchanged | Smallest Draft 3 fix |
+|---|---|---|---|
+| `B071-R154` | Draft 2 calls Acting Chief Editor an in-app role and the principal | Audit and authorization records can store a role label instead of the person/account that acted | Replace §11.2/§11.4 actor rows with the five-object table above; correct `ROLE-CHIEF-EDITOR` wherever it denotes the accountability involvement rather than an executor role |
+| `B071-R155` | Singleton assignment and takeover have no scope, interval or immutable-event rule | Two holders can appear simultaneously, or reassignment can rewrite who made an earlier decision | V1 scope = whole business; require non-overlapping effective assignments and snapshot the assignment/principal on each final event |
+| `B071-R156` | “Default to next role” has no defined order or permission boundary | A user can gain or lose privileges silently, producing an unreviewable authorization path | Reject automatic fallback in V1; future capability requires a named backlog feature and explicit role-order tests |
+| `B071-R157` | The clarification speaks of account access while S6/login remains absent | The POC can be presented as authenticated even though identity is only self-asserted | Keep the operational flow, but label `identity_assurance = self_asserted`; authenticated assignment enforcement is separately authorized later |
+| `B071-R158` | Bundle readiness is called both a judgment gate and a no-judgment join | T5 can complete twice and the UI can enable approval before the human decision | Make bundle readiness deterministic and `T5-FINAL` the sole stage completion; partially supersede D-181's “stage-completing” wording while preserving its one-write race control |
+| `B071-R159` | UI progress labels are mixed with article workflow states | Implementations will persist `None`/`WIP` into a governed enum or show `Reviewed` as final approval | Define a separate derived T5-progress axis and exact mappings to `Drafted`/`Reviewed`/`Approved`/`Rejected` |
+| `B071-R160` | Publish/discard and explainable-report outcomes lack exact governed mappings | A direct publish can bypass Delivery, a discard can erase evidence, or reports can contradict the decision | Map approve/reject to immutable T5-final dispositions; Delivery alone publishes; report derives from the same decision/evidence IDs |
+| `B071-R161` | Proposed D-182's universal assurance nodes conflict with the new route-dependent T5-review cardinality | Production routes can emit both one and three review acts depending on which paragraph is read | Select one V1 evidence set or give editorial and assurance evidence distinct IDs; recommended V1 choice is route-dependent editorial T5 only |
+| `B071-R162` | B-072 is described as solving canonical backlog/history ownership | A pushed journal or handoff can be mistaken for moving a PBL, decision, lane state or lifecycle fact | State B-072 is transport/lifecycle evidence only; preserve one canonical owner per fact under D-186 |
+
+### Draft fix — one parent-first Lane A packet
+
+1. Amend proposed `D-189` Draft 3 first: five-object actor model, singleton effective assignment,
+   no automatic fallback, self-asserted V1 limit, and the nested T5 contract.
+2. Reconcile proposed `D-182` with D-189: node IDs describe virtual workcells only; editorial and
+   assurance evidence do not share an event identity or cardinality. `AUTH-DOC` remains separate.
+3. Complete Round 19's clause-level supersession and occurrence ledger, adding R154–R162. The
+   Register parent must explicitly supersede D-181's “join completes T5” phrase while preserving
+   the join's atomic `Drafted -> Reviewed` write.
+4. Propagate behavior to the higher-precedence sources and derived Product/Fn-Spec/RACI/Build-Spec
+   rows already listed in Round 19. State Inventory and Product §8 effects explicitly.
+5. Draft the publication-workspace UX artifact only after the behavior is authorized; if a new file
+   is created, record its lifecycle across all D-54 tracking tiers. No application code is built.
+6. Keep B-072 and any retrospective link-only. Do not copy live backlog, authority, lane state or
+   lifecycle values into a journal.
+7. Commit and push the complete authorized source packet, fetch-prove it, then rebuild Graphify,
+   merge the curated fragment and run the full suite at that same revision. Independent Lane B
+   review—not Lane A—may record `Verified`.
+
+### Success criteria derived from failure
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T5-V1-SC39` | A Chief Editor takeover is recorded | Old and new assignment intervals are inspected | Exactly one is active for the whole business; old final events retain the old `executor_principal_key` and assignment reference |
+| `T5-V1-SC40` | A non-holder opens the T5-final control | Authorization is evaluated | The action is refused/read-only; no automatic “next role” is inferred |
+| `T5-V1-SC41` | V1 operates before S6 | A T5-final event and UI identity are inspected | The configured principal is visible and recorded with `identity_assurance = self_asserted`; nothing claims authentication |
+| `T5-V1-SC42` | All route-required T5 reviews are sealed | Bundle readiness fires | Exactly one deterministic `Drafted -> Reviewed` write occurs; no judgment, RACI `R`/`A`, or T5-complete claim is attached to the join |
+| `T5-V1-SC43` | The bundle is ready | The Acting Chief Editor approves | One human `T5-FINAL` event records principal, assignment, reason, evidence and sufficient-evidence finding; `Reviewed -> Approved` occurs once |
+| `T5-V1-SC44` | The bundle is ready | The Acting Chief Editor does not approve | Evidence is retained; the governed reject/return transition occurs; no undefined discard/delete path exists |
+| `T5-V1-SC45` | A production and a fallout/GRC route are compared | T5 review evidence is counted by stable IDs | Production requires one editorial review; fallout/GRC requires two; no universal assurance-preparation set is silently added to V1 |
+| `T5-V1-SC46` | An approved V1 article reaches the publication workspace | Delivery and report outputs are inspected | Only T7/T10/T11 publishes; the report matches the immutable T5-final disposition and exposes a valid URL or an explicit pending/failure state |
+| `T5-V1-SC47` | B-072 or a journal is read | Canonical facts are resolved | Handoff transport is durable, but PBL, decision, lane state and lifecycle values resolve only to their canonical owners |
+
+### What Lane B did instead
+
+Lane B appended this draft-only review to the existing B-071 handoff. It did not modify the
+proposed plan, any governed tier, the frozen PRD/Charter, the RACI matrix, application code, schema,
+lane state or Graphify; and it did not commit or push. The unrelated untracked `package-lock.json`
+remains untouched.
+
+At review time local `HEAD` and upstream both resolve to `702fccc`. Graphify's
+`lastAnalyzedHead` remains `129efab`, so its semantic query is stale and is not evidence for this
+round. Synchronization remains the final post-application step.
+
+### Round 20 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Business/accountability interpretation | Acting Chief Editor is a time-bounded accountability involvement held by one account principal, not a role or identity | D-189 Draft 3 |
+| **Approve-with-conditions** | Singleton Chief Editor access | Whole-business singleton is consistent with current RACI; takeover must be append-only and V1 identity visibly self-asserted | Product/Fn-Spec/UX drafting, then independent review |
+| **Approve-with-conditions** | T5 nested stage | Route-required reviews and atomic join are sound; only human `T5-FINAL` may complete the stage | D-189 Draft 3 and D-181 partial supersession |
+| **Reject** | Automatic “next role” fallback | No role order, trigger or permission boundary exists | Future separately authorized backlog feature |
+| **Reject** | Bundle-ready as a judgment gate or final approval | Contradicts its no-actor join and creates two T5 completions | Derived readiness only |
+| **Reject** | B-072/journal as canonical owner | It solves durable handoff transport, not requirement/authority/lane-state ownership | Keep canonical records linked, not moved |
+| **Defer** | Exact future authenticated takeover/admin UX | S6 and multi-user access are outside current V1 authority | Future access feature authorization |
+| **Defer** | Application, commit, Graphify, build and lane transition | Draft 3 is not written or accepted; `D-171` remains binding | Lane A draft, bounded Judge act, application, independent verification |
+
+---
+
+## Round 21 — Judge correction: human account succession versus agent executor identity (2026-09-04)
+
+### What happened
+
+The Judge corrected Round 19/20's identity model:
+
+1. V1 has no concurrent multi-account operating model. The Acting Chief Editor feature requires an
+   account linked to the Chief Editor role. To replace the holder, create the replacement account
+   first and then switch the single active assignment.
+2. Acting Chief Editor remains the **time-bounded RACI accountability involvement**. The UI shows
+   the assigned natural person's name and job title.
+3. `executor_principal_key` identifies the **virtual-agent executor at the time of an agent task**.
+   It is not the natural person or the Chief Editor account identifier. This restores the identifier
+   meaning already recorded earlier in B-071's four-identifier ruling and corrects the drift in
+   Rounds 19–20.
+
+This round is a correction to the existing B-071 handoff, not a new handoff or a rewrite of prior
+history. Round 20's T5 stage/state and B-072 ownership analysis remains applicable except where this
+round explicitly replaces its human-identity wording.
+
+### What Lane A needs — parent first
+
+#### Parent 1 — adopt the corrected identity and accountability model
+
+| Object | Meaning | Used by | Must not substitute for |
+|---|---|---|---|
+| **Natural person** | Human currently performing the Chief Editor business function | UI display through name and job title | Account ID, authorization, or agent executor identity |
+| **Chief Editor account** | V1 interactive account linked to `ROLE-CHIEF-EDITOR` | Human access and human-event attribution | Acting assignment, RACI `A`, or `executor_principal_key` |
+| **`ROLE-CHIEF-EDITOR`** | Chief Editor access/business-role definition assigned to an account | Permission policy and role catalog | The current holder, the natural person's name, or an agent role |
+| **Acting Chief Editor assignment** | Time-bounded assignment stating which Chief Editor account currently carries the RACI-accountable involvement | Resolves RACI `A` and enables the human T5-final control | A second role, a permanent person label, or an agent principal |
+| **RACI `A`** | Accountability relation for the task/stage | Resolves through the active Acting Chief Editor assignment | Proof that the accountable human executed an agent task |
+| **`executor_principal_key`** | Stable, system-attested identity of the virtual agent that executed an agent task | T1–T5 virtual-node evidence and agent separation tests | Human account ID, natural-person ID, RACI `A`, or display name |
+| **`agent_attempt_badge_id`** | Identifier for one attempt/run, linked to one `executor_principal_key` | Attempt-level audit and authorized diagnostic view | Stable agent identity or human account identity |
+
+The human `T5-FINAL` audit record therefore needs a human identity reference separate from
+`executor_principal_key`. Draft 3 should propose stable names, for example:
+
+- `chief_editor_account_id` — the account that acted;
+- `acting_chief_editor_assignment_id` — the effective accountability assignment;
+- `identity_assurance` — `self_asserted` before the separately authorized S6 control, and
+  `authenticated` only after that control exists;
+- display snapshot/reference for the person's `display_name` and `job_title`.
+
+Names and job titles are mutable, non-unique display attributes. They may be shown in the UI but
+cannot be the event's identity key or authorization check.
+
+#### Parent 2 — define “no multi-account in V1” so replacement remains possible
+
+The phrase cannot mean “only one account row may ever exist”: the Judge-required sequence creates
+the replacement account before switching, so two records briefly exist. The coherent V1 rule is:
+
+> At most one Chief Editor account is enabled and assigned as Acting Chief Editor for the whole
+> business at any instant. A replacement account may exist in a staged/non-holder state before an
+> atomic switch. Staged, former and historical accounts have no T5-final authority.
+
+Required succession sequence:
+
+```text
+1. Create replacement account in staged/non-holder state.
+2. Record its person display name and job title.
+3. Validate that exactly one current Acting Chief Editor assignment exists.
+4. Atomically end the old assignment and activate the new assignment.
+5. Disable or demote the former account according to an explicit selected disposition.
+6. Preserve all prior decisions with their original account/assignment references.
+```
+
+Step 5 still needs one bounded policy choice: **disable the former account** or **retain it as an
+unassigned/read-only account**. It must not “default to the next role” unless that next role and its
+permissions are positively specified. Until then, Lane B recommends `disabled` as the fail-closed
+default because V1 has no multi-account operating feature.
+
+#### Parent 3 — retain the corrected T5 event ownership
+
+The T5 contract from Round 20 remains, with identity fields corrected:
+
+```text
+Virtual T5-REVIEW act
+  actor evidence: executor_principal_key + agent_attempt_badge_id + role/node
+
+T5-REVIEW-BUNDLE-READY
+  deterministic join: no human account, no executor principal, no RACI R/A judgment
+  workflow_state Drafted -> Reviewed
+
+Human T5-FINAL
+  actor evidence: chief_editor_account_id + acting_chief_editor_assignment_id
+                  + identity_assurance + reason/evidence references
+  workflow_state Reviewed -> Approved, Rejected, or governed return
+```
+
+The Chief Editor-facing UI may show both identity classes, but in separate fields: agent/node and
+`executor_principal_key` for each virtual review; natural-person name, job title and Chief Editor
+account/assignment for the human final act. It must never render the agent key as the person's ID.
+
+### Corrected findings — no duplicate issue family
+
+| ID | Gap | Guaranteed failure if unchanged | Smallest Draft 3 fix |
+|---|---|---|---|
+| `B071-R163` — Rounds 19/20 regressed the governed agent-key meaning | R19 step 5, `SC36`, R20's identity table and `SC39`/`SC41`/`SC43` use `executor_principal_key` for a human | Agent and human audit records become indistinguishable; an agent key can appear to authorize T5-final | Append a correction notice to Draft 3/B-071: the key is agent-only; replace human usages with account and assignment references |
+| `B071-R164` — account, role and Acting assignment remain conflated | Draft 2 calls Acting Chief Editor both a role and a principal; the new clarification instead links an account to the Chief Editor role and separately time-bounds accountability | Changing the person can mutate a role definition or leave two holders authorized | Use the seven-object table above; retain `ROLE-CHIEF-EDITOR` as the role definition and Acting Chief Editor as the effective assignment/involvement |
+| `B071-R165` — “no multi-account” is underspecified against create-before-switch | A literal one-row rule forbids the replacement sequence; an unrestricted interpretation permits concurrent Chief Editors | Replacement either cannot occur or creates two simultaneous final approvers | Define one enabled/assigned holder, not one historical row; stage the replacement and switch atomically |
+| `B071-R166` — former-account disposition is absent | After the switch, the old account may retain permission or be silently assigned another role | Two accounts can approve, or an unauthorized implicit role change occurs | Judge selects `disabled` or explicit `unassigned/read_only`; reject automatic role fallback |
+| `B071-R167` — name/job title risk becoming identity evidence | UI requirements mention person name and job title without defining their evidentiary status | Duplicate or changed names can reattribute immutable decisions | Treat them as display attributes/snapshots only; authorization and audit use stable account and assignment IDs |
+| `B071-R168` — one event contract is being asked to identify both human and agent actors | Existing `TR-DM-02` has no governed executor-identity column; Draft 2 supplies no human-account/assignment pair | The implementation will overload `actor_id`, `user_id` or `executor_principal_key` inconsistently | Draft logical actor-union rules: agent tasks require agent key/attempt; human final requires account/assignment; mutually reject the wrong identity type |
+
+### Corrections to prior B-071 text
+
+The following earlier statements are retained as historical findings but **superseded for current
+drafting** by this round:
+
+- Round 19 step 5: “`executor_principal_key` for the actual human executor.”
+- `T5-V1-SC36`: the human-final identity comparison that included `executor_principal_key`.
+- Round 20's five-object table row defining `executor_principal_key` as a natural-person/account ID.
+- Round 20 `T5-V1-SC39`, `SC41` and `SC43` wherever they assign that key to the Chief Editor.
+- Round 20 `B071-R154`, `R155` and `R157` only to the extent that their fixes use a generic
+  “account principal” or agent key instead of the account/assignment pair above. Their underlying
+  separation, singleton and assurance findings remain valid.
+
+### Draft fix — Lane A handback sequence
+
+1. Update proposed `D-189` Draft 3's parent ontology first with the seven-object table and the
+   one-enabled-holder succession rule.
+2. Replace every current-draft human use of `executor_principal_key` with the proposed human
+   account/assignment fields; preserve the agent-key contract and attempt-badge relationship.
+3. Add the former-account disposition as one explicit Judge choice. Do not invent a next-role
+   fallback.
+4. Reconcile the Product persona/account catalog, RACI role catalog, T5 Fn-Spec, audit/security
+   requirements, Build Spec and proposed UX contract. The frozen PRD, Charter and `0001` remain
+   untouched; any physical schema proposal is a later migration candidate, not part of this plan.
+5. Fold R163–R168 into Round 19's complete occurrence ledger and supersession packet rather than
+   opening another plan or handoff.
+6. After bounded Judge acceptance, apply parent-first, commit/push/fetch-prove once, then rebuild
+   and merge Graphify and run the full suite at the same revision. Lane B independently verifies.
+
+### Success criteria derived from failure
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T5-V1-SC48` | An agent performs a T5 review | Its audit record is inspected | It contains `executor_principal_key`, attempt badge and role/node; no Chief Editor account ID is substituted |
+| `T5-V1-SC49` | The human Chief Editor performs T5-final | Its audit record is inspected | It contains the acting account and effective assignment references; no `executor_principal_key` is used as the human identity |
+| `T5-V1-SC50` | A replacement account is created before takeover | Authority is checked before the switch | The new account is staged and cannot perform T5-final; exactly the old assignment remains active |
+| `T5-V1-SC51` | The takeover transaction commits | Assignment intervals and access are checked | The old assignment ends and the new assignment begins atomically; exactly one enabled holder can perform T5-final |
+| `T5-V1-SC52` | Historical T5-final events are read after takeover | Actor attribution is displayed | Each retains its original account, assignment, name/job-title snapshot or reference, and assurance value |
+| `T5-V1-SC53` | The former account is evaluated after takeover | It attempts T5-final | It is refused; no implicit next-role assignment exists |
+| `T5-V1-SC54` | Chief Editor UI displays virtual and human decisions | Identity labels are compared | Agent keys appear only with virtual-agent evidence; person name/title and account/assignment appear only with the human act |
+
+### What Lane B did instead
+
+Lane B appended this correction to B-071 only. It did not change the proposed D-189 plan, Product
+requirements, RACI, Fn-Specs, schema, UX, lane state or Graphify; it did not commit or push. The
+unrelated `package-lock.json` remains untouched.
+
+At review time local `HEAD` and upstream still both resolve to `702fccc`; the user's “push; just
+done” introduces no newer revision in this worktree. Graphify remains based on `129efab` and is not
+current evidence.
+
+### Round 21 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Identity ontology | Agent executor key and human Chief Editor account/assignment are separate identity classes | D-189 Draft 3 |
+| **Approve** | V1 account boundary | One enabled/assigned Chief Editor account at a time; staged replacement is allowed solely for succession | Product/Fn-Spec/UX plan |
+| **Approve-with-conditions** | Acting Chief Editor feature | Time-bounded RACI accountability assignment; UI shows person name/job title as display data | Define stable account/assignment IDs and immutable event references |
+| **Reject** | `executor_principal_key` as natural-person or account identity | Contradicts the established four-identifier agent contract | Correct R19/R20 and Draft 2 descendants |
+| **Reject** | Automatic next-role fallback | No role order or permission contract exists | Select disabled or explicit unassigned/read-only former-account disposition |
+| **Defer** | Former-account disposition | Judge must select the exact fail-closed outcome | D-189 Draft 3 bounded choice |
+| **Defer** | Application, schema, authentication, Graphify and build | Plan-only; D-171 remains binding | Accepted draft, authorized application, independent verification |
+
+---
+
+## Round 22 — Former Chief Editor account disposition and V1 authentication boundary (2026-09-04)
+
+### What happened
+
+The Judge selected Round 21's former-account disposition: after a Chief Editor takeover, the former
+account keeps the base **Chief Editor** role for historical interpretation, loses the time-bounded
+**Acting Chief Editor** assignment/access, and is **permanently disabled**, so it cannot log in.
+Only one account may hold the Acting Chief Editor assignment at a time.
+
+This closes `B071-R166`'s business choice. It also exposes a higher parent dependency: current V1 is
+demo-first with no login wall, `Modular_PRD.md` says no API authentication exists before S6, and
+`SEC-03`/S6 owns enforced account access. A specification cannot truthfully guarantee that a former
+account “cannot log in” while authentication and login enforcement remain outside V1. Lane A must
+surface that boundary rather than silently treating a database status label as an access control.
+
+### What Lane A needs — highest parent first
+
+#### Parent 0 — decide whether “cannot log in” is operative in V1
+
+| Model | Meaning | Consequence |
+|---|---|---|
+| **A — enforced succession** (recommended because it matches the Judge's wording) | V1 includes the narrow minimum needed to authenticate the single current Chief Editor, reject staged/disabled credentials and authorize the Acting-Chief-Editor-only T5-final action | Requires a bounded decision that narrows the current demo/no-login and S6 deferral rules. It does **not** authorize multi-team accounts, client accounts, general role administration or the full S6/RLS scope |
+| **B — modeled only** | V1 stores/display account and assignment statuses, but identity remains `self_asserted` and no real login is enforced | Cannot claim a former account is unable to log in or that only the current holder can perform T5-final. This is a UI demonstration, not the Judge-requested access control |
+
+The words “permanently disabled” and “cannot login” select Model A in business intent, but they do
+not by themselves supply the required clause-level authorization. Proposed `D-189` Draft 3 must
+name the exact rule it narrows, scope the exception to the one current Chief Editor and T5-final,
+and preserve every excluded account class. Otherwise Model B is the only honest V1 claim.
+
+#### Parent 1 — normalize the two access labels
+
+| Layer | Canonical concept | Rule |
+|---|---|---|
+| Base account role | `ROLE-CHIEF-EDITOR` / display “Chief Editor” | Retained by current and historical Chief Editor accounts; by itself grants no current Acting authority |
+| Singleton access/accountability assignment | proposed `ASSIGNMENT-ACTING-CHIEF-EDITOR` / display “Acting Chief Editor” | Time-bounded, attached to exactly one enabled Chief Editor account; resolves RACI `A` and permits the human T5-final action |
+| Account lifecycle | `pending_activation` → `active` → `permanently_disabled` | Only `active` plus a current Acting assignment is operative; terminal disabled accounts cannot be re-enabled |
+| Historical decision identity | Chief Editor account ID plus Acting assignment ID effective at the event | Immutable; never resolved by asking who is Acting Chief Editor today |
+
+This implements the Judge's “different role access” without turning Acting Chief Editor into a
+second permanent business role. If Lane A instead creates `ROLE-ACTING-CHIEF-EDITOR`, it will
+re-conflate the role definition with the time-bounded assignment that the Judge explicitly defined.
+The display may say “Acting Chief Editor”; the canonical kind remains an assignment/access grant.
+
+#### Parent 2 — one fail-closed succession transaction
+
+```text
+create replacement Chief Editor account
+  -> status = pending_activation
+  -> base role = ROLE-CHIEF-EDITOR
+  -> no login/T5-final authority
+
+atomic switch
+  -> close old Acting-Chief-Editor assignment
+  -> old account status = permanently_disabled
+  -> create/open new Acting-Chief-Editor assignment
+  -> new account status = active
+
+postcondition
+  -> exactly one active Chief Editor account
+  -> exactly one current Acting-Chief-Editor assignment
+  -> both identify the same account
+```
+
+If any step fails, the transaction rolls back. It must never leave two active holders or zero active
+holders. A terminally disabled account is never reactivated; a future return requires a newly
+created account and a new assignment. No automatic “next role” exists.
+
+#### Parent 3 — preserve historical attribution
+
+Past T5-final events continue to reference the former account and the assignment interval that was
+current when each decision occurred. The former account's disabled status must not erase its name,
+job title, base Chief Editor role, assignment history or decisions. UI history uses the event's
+stored/snapshotted identity facts, not the account's current authorization state.
+
+`executor_principal_key` remains agent-only exactly as Round 21 states. Neither the new account
+status nor either Chief Editor label changes the agent identifier model.
+
+### New findings — this clarification only
+
+| ID | Gap | Guaranteed failure if unchanged | Smallest Draft 3 fix |
+|---|---|---|---|
+| `B071-R169` — login refusal conflicts with V1's no-auth boundary | The Judge requires disabled accounts to be unable to log in; current V1 explicitly has no API authentication and defers access enforcement to S6 | A disabled flag can be displayed while the same anonymous caller still performs T5-final; every UI test passes while the security claim is false | Select Model A through a bounded narrow authorization, or downgrade the requirement to Model B and remove “cannot log in” |
+| `B071-R170` — “Acting Chief Editor role access” can recreate the role/assignment conflation | Acting Chief Editor was just defined as time-bounded RACI involvement; making it a durable role produces two competing owners of authority | Ending an assignment can leave the role active, or removing the role can corrupt historical meaning | Keep Chief Editor as base role and Acting Chief Editor as singleton assignment/access grant; use distinct IDs and kinds |
+| `B071-R171` — frozen “one Chief Editor account” has no lifecycle interpretation | Replacement creates a pending account before the old one is disabled, so more than one account record briefly exists | A literal row-count control blocks every takeover; a loose control accidentally enables multiple users | State that the frozen limit governs enabled/operative accounts, not retained historical or pending records; route that interpretation through the frozen-source traceability process rather than editing the PRD/Charter |
+| `B071-R172` — switch atomicity and zero-holder failure are not specified | Separate disable/assign operations can strand the business or authorize two people | Publication stops with no holder, or two accounts can approve the same packet | One transaction with uniqueness checks and rollback; old disabled and new active/assigned commit together |
+| `B071-R173` — permanent disable can erase audit display or be bypassed by reactivation | Current-account joins can relabel old decisions; generic enable controls can restore the old credential | History shows the new person as old actor, or a retired account regains authority | Preserve immutable event/account/assignment references; terminal state rejects reactivation and requires a new account for return |
+| `B071-R174` — base Chief Editor role may be mistaken for current authority | Former account retains that role after disable | Code checking role alone permits the former account to log in or execute T5-final | Authorization requires all three: account `active`, current Acting assignment, and assignment→account equality |
+
+### Draft fix — Lane A handback sequence
+
+1. **Resolve R169 first.** Draft the narrow V1 authentication exception required by Model A, or
+   state Model B honestly. Do not propagate “cannot log in” until its enforcement owner is decided.
+2. Update proposed `D-189` Draft 3 with the base-role/Acting-assignment/account-state model and the
+   atomic succession contract. Record `B071-R166` as draft-addressed by the Judge's permanent-disable
+   selection, not Applied or Verified.
+3. Add the frozen-source interpretation to the customer traceability route: “one account” means one
+   enabled/operative Chief Editor account; pending and permanently disabled history do not constitute
+   multi-team capability. Frozen PRD and Charter remain unchanged.
+4. Propagate the logical contract to Product account/security requirements, RACI, T5 Fn-Spec,
+   Build Spec and the proposed UX artifact. Physical tables, auth provider configuration and code
+   remain future implementation work under a separately authorized migration/build packet.
+5. Extend Round 19's occurrence ledger and supersession table with R169–R174. Do not create another
+   handoff, plan, backlog item or journal owner.
+6. After bounded acceptance and application, commit/push/fetch-prove the complete source packet,
+   then rebuild and merge Graphify and run the suite at that revision. Lane B independently verifies.
+
+### Success criteria derived from failure
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T5-V1-SC55` | A replacement account exists in `pending_activation` | It attempts login or T5-final | Both are refused; the current holder remains the only operative account |
+| `T5-V1-SC56` | A valid replacement is ready | The succession transaction commits | The old account becomes permanently disabled as the old assignment closes; the new account and assignment become active together |
+| `T5-V1-SC57` | Any post-switch state is inspected | Active accounts and current Acting assignments are counted | Exactly one of each exists and both reference the same account |
+| `T5-V1-SC58` | The former account retains `ROLE-CHIEF-EDITOR` | It attempts login or T5-final | Refused because base role alone never grants operative authority |
+| `T5-V1-SC59` | A permanently disabled account is targeted by an enable/update operation | The operation executes | Refused; return requires a new account and new Acting assignment |
+| `T5-V1-SC60` | A historical T5-final decision is displayed after succession | Actor information is resolved | The original person's name, job title, account and assignment remain attributable; the new holder is not substituted |
+| `T5-V1-SC61` | V1 is tested under Model A | An anonymous or self-asserted caller attempts T5-final | Refused by the narrow authenticated-account control; no claim depends only on a UI label or account-status field |
+| `T5-V1-SC62` | V1 remains under Model B | Documentation and UI are inspected | They say modeled/self-asserted only and make no “cannot log in” or enforced sole-holder claim |
+
+### What Lane B did instead
+
+Lane B appended this plan-only review to the existing B-071 handoff. It did not amend D-189,
+resolve the Model A/B authorization, alter frozen sources, define a migration, implement login,
+change any product/governance tier, rebuild Graphify, commit or push. The unrelated untracked
+`package-lock.json` remains untouched.
+
+At review time local `HEAD` and upstream still both resolve to `702fccc`; Graphify remains based on
+`129efab`. The existing uncommitted B-071 review accumulation is the only tracked-file change.
+
+### Round 22 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Former-account disposition | Retain base Chief Editor role/history; remove Acting assignment; permanently disable account | D-189 Draft 3 |
+| **Approve** | Singleton succession model | Pending replacement followed by one atomic switch; exactly one operative holder | Product/Fn-Spec/UX plan |
+| **Approve-with-conditions** | Acting Chief Editor access | Model as time-bounded assignment/access grant, not a second durable role | Stable IDs and authorization predicate in Draft 3 |
+| **Approve-with-conditions** | “One Chief Editor account” interpretation | One enabled/operative account; pending and disabled records retained solely for succession/history | Frozen-source traceability disposition |
+| **Reject** | Role-only authorization | Former accounts retain the base role and would remain privileged | Require active account + current assignment + matching account |
+| **Reject** | V1 “cannot log in” claim under the present no-auth model | No enforcement mechanism exists before S6 | Choose/authorize Model A, or use honest Model B wording |
+| **Defer** | Model A narrow authentication authorization | Required to make permanent-disable/login refusal operative in V1 | Bounded Judge decision before child propagation |
+| **Defer** | Application, schema, Graphify and build | Planning only; D-171 remains binding | Accepted draft, authorized application, independent verification |
+
+---
+
+## Round 23 — Model A selected: narrow V1 Chief Editor authentication plan (2026-09-04)
+
+### What happened
+
+The Judge selected Round 22 **Model A — enforced succession**: “permanently disabled accounts
+cannot log in” means a narrow V1 authentication authorization covering the sole Chief Editor account
+and the human `T5-FINAL` act. This is a business ruling and input to proposed `D-189` Draft 3. It is
+not yet an applied documentation change, an implementation authorization, or evidence that the
+control exists.
+
+This round converts `B071-R169`–`R174` and `T5-V1-SC55`–`SC62` into a concise Judge-review packet.
+It does not restate the broader T5/T6 propagation work in Rounds 19–22 and creates no new handoff.
+
+### Parent decision — exact bounded scope for Draft 3
+
+Proposed `D-189` Draft 3 should contain the following decision substance:
+
+> **V1 narrow Chief Editor authentication exception.** V1 shall authenticate the one currently
+> enabled Chief Editor account for the Acting-Chief-Editor assignment and shall require that
+> authenticated account for the human `T5-FINAL` action. A replacement Chief Editor account may be
+> created only as `pending_activation`; it cannot log in or execute `T5-FINAL` until one atomic
+> succession transaction permanently disables the former account, ends the former Acting assignment,
+> activates the replacement account and starts the replacement Acting assignment. Exactly one
+> account and one matching Acting assignment are operative at all times. Historical records retain
+> the original account and assignment references. This narrow exception does not authorize
+> multi-team accounts, client accounts, general role administration, full S6/scoped-RLS completion,
+> authentication for virtual agents, or any T6 assurance feature.
+
+The decision must also say which existing clauses it narrows:
+
+- the demo-first/no-login rule is retained for the public/read-only product surface but narrowed for
+  the Chief Editor sign-in, account-succession controls and the state-changing `T5-FINAL` action;
+- `SEC-03`/S6 remains the owner of general authentication and scoped access control, but its smallest
+  Chief-Editor/T5-final slice moves into the V1 editorial proof;
+- `NG-02` still excludes multi-team operation. Pending and permanently disabled succession records
+  do not become simultaneously operative accounts;
+- the frozen PRD and Charter remain unchanged; the “one Chief Editor account” interpretation must
+  be recorded through the existing customer/frozen-source traceability route.
+
+### Authorization ownership — do not invent a fifth checkpoint
+
+| Checkpoint | Owns | Does not own |
+|---|---|---|
+| Proposed `D-189` | The decided scope and partial-supersession contract above | Source application or product code |
+| `AUTH-DOC` | Applying the accepted D-189 documentation packet parent-first | Any authentication implementation or lifting `D-171` |
+| `AUTH-F1` | The later current T1–T5 editorial proof, including this narrow identity prerequisite for human T5-final | Full S6, multi-team accounts, client access, T6 assurance or route-factory scope |
+| `AUTH-F2` | Factory-route capability only | Chief Editor authentication or T6 assurance |
+
+The narrow identity control is a prerequisite of `AUTH-F1`; it does not need a new `AUTH-*` family.
+`D-171` continues to hold all implementation until the relevant execution packet is separately
+authorized.
+
+### Breakdown of `B071-R169`–`R174`
+
+| Finding | Judge-plan disposition | Exact draft obligation | Closure evidence |
+|---|---|---|---|
+| `R169` — login refusal versus no-auth V1 | **Decision supplied: Model A selected. Draft-addressed, not Applied** | Add the bounded exception and clause-level treatment above; prohibit an anonymous/self-asserted T5-final | Accepted D-189 text, applied tiers, then negative authentication test under `AUTH-F1` |
+| `R170` — role versus assignment | **Clarified** | `ROLE-CHIEF-EDITOR` remains the base role; Acting Chief Editor is a singleton time-bounded assignment/access grant, never a second permanent role | Catalogs and authorization predicate use different stable IDs/kinds |
+| `R171` — frozen single-account interpretation | **Clarified, customer traceability still required** | Define “one account” as one enabled/operative Chief Editor account; pending and disabled records exist only for succession/history | Frozen sources unchanged; traceability record carries the interpretation/disposition |
+| `R172` — non-atomic switch | **Contract supplied** | One transaction changes old assignment/account and new assignment/account together; rollback on any failure; never zero or two operative holders | Concurrency/rollback tests and a database-level uniqueness invariant in the later authorized design |
+| `R173` — history loss/reactivation | **Contract supplied** | Permanent disable is terminal; old events retain account and assignment IDs plus display snapshot/reference; a returning person needs a new account | Reactivation refusal and post-takeover historical-attribution tests |
+| `R174` — base role mistaken for authority | **Contract supplied** | T5-final requires authenticated session account = active account = account named by the sole current Acting assignment; base role alone is insufficient | Role-only, pending-account, disabled-account and mismatched-assignment negative tests |
+
+None of these findings becomes `Closed` merely because the Judge supplied the missing policy. They
+move through `Draft-addressed` → Judge-authorized text → Applied documentation → independently
+Verified; behavior tests occur only under the later `AUTH-F1` execution.
+
+### Minimum behavior and UI plan
+
+1. **Public surface:** remains reachable without a global login wall. An unauthenticated viewer may
+   inspect the demo/read-only workflow but cannot execute `T5-FINAL` or account succession.
+2. **Initial bootstrap:** one Chief Editor account and one matching Acting assignment must exist
+   before an operative T5-final can occur. The bootstrap mechanism is a later implementation-design
+   detail, but its output must satisfy the same singleton invariant.
+3. **Current-holder view:** show the natural person's name and job title, account status and Acting
+   assignment interval. Name/title remain display attributes, never authorization keys.
+4. **Replacement preparation:** only the authenticated current Acting Chief Editor, or a separately
+   governed recovery authority, may create a pending replacement. Pending means no login and no
+   T5-final authority.
+5. **Atomic switch:** display the exact old and new account/assignment, require an explicit reason,
+   then commit all lifecycle changes together.
+6. **Historical view:** show the actor facts effective at the decision time; never substitute the
+   current holder when displaying a former holder's decision.
+7. **Agent boundary:** agent reviews continue to use `executor_principal_key` and
+   `agent_attempt_badge_id`; the human Chief Editor never uses either as account identity.
+
+The recovery authority in step 4 remains intentionally unspecified. It is not needed for the normal
+takeover flow, but Lane A must list it as a resilience gap rather than silently making an agent,
+developer or disabled former account an administrator. Existing board-approved LOA/degraded-mode
+rules may be cited only after their exact authority and identity mechanism are verified.
+
+### Success criteria `T5-V1-SC55`–`SC62`, normalized for selected Model A
+
+| ID | Failure negated | Operative success criterion |
+|---|---|---|
+| `SC55` | Pending replacement gains authority early | A `pending_activation` account cannot authenticate or execute T5-final; the current holder remains sole authority |
+| `SC56` | Partial switch | Old disable/assignment close and new activation/assignment open commit atomically or all roll back |
+| `SC57` | Zero or two holders | Every committed operative state has exactly one active Chief Editor account and one matching current Acting assignment |
+| `SC58` | Base role grants authority | A former account retaining `ROLE-CHIEF-EDITOR` is refused because it is permanently disabled and has no current Acting assignment |
+| `SC59` | Former account reactivated | Every re-enable attempt for `permanently_disabled` is refused; return requires a new account and assignment |
+| `SC60` | Current holder overwrites history | Historical decisions display their original account, assignment, name/job-title snapshot/reference and identity assurance |
+| `SC61` | Anonymous label spoofing | Anonymous, self-asserted, agent-key, role-label-only and mismatched-assignment attempts at T5-final are refused |
+| `SC62` | Non-selected Model B remains operative | **Superseded as a positive criterion.** Retain it as historical fork evidence only; current D-189 text must not describe the control as modeled/self-asserted-only |
+
+For completeness, the bounded-scope test must also prove that public/read-only demo access remains
+available and that no client, multi-team, generalized RBAC or T6-assurance account path was created.
+This is the negative boundary that prevents the narrow exception from silently becoming full S6.
+
+### Parent-first Lane A drafting sequence
+
+1. Add the selected Model A text and clause-level scope treatment to proposed D-189 Draft 3.
+2. Add the R169–R174 disposition table and normalized SC55–SC62 without claiming application or
+   verification.
+3. Complete Round 19's literal supersession table and occurrence ledger, including every demo/auth,
+   `SEC-03`, `NG-02`, account, RACI and T5-final occurrence affected by the exception.
+4. Draft exact parent-first propagation: governing-source annotations/traceability, Decision
+   Register, Build Spec, Product requirements, Fn-Spec/RACI/security behavior, then proposed UX.
+   State Artifact Inventory and Product §8 effects even when unaffected.
+5. Keep `AUTH-DOC` documentation-only and `AUTH-F1` as the later implementation owner. No code,
+   schema, dependency, login configuration or lane-state change occurs in this drafting pass.
+6. After Judge acceptance, apply and push the complete source packet, fetch-prove it, then rebuild
+   and merge Graphify and run the suite at the same revision. Independent Lane B review decides
+   `Verified`.
+
+### What is guaranteed to fail if omitted
+
+- A UI-only disabled flag cannot prevent login or T5-final execution.
+- Role-only checks re-authorize permanently disabled former accounts.
+- A two-step switch can leave zero or two Acting Chief Editors.
+- Resolving historical events through the current account rewrites who made past judgments.
+- Calling the narrow exception “S6 complete” imports unapproved multi-team and generalized access
+  scope; leaving it at S6 makes the V1 T5-final guarantee impossible.
+- Treating the Judge clarification as build authorization bypasses `AUTH-DOC`, `AUTH-F1` and
+  `D-171`.
+
+### What Lane B did instead
+
+Lane B appended this Judge-review plan to the existing B-071 handoff only. It did not edit proposed
+D-189, any governed tier, frozen source, schema, authentication configuration, application code,
+lane state or Graphify; it did not commit or push. The unrelated `package-lock.json` remains
+untouched.
+
+At review time local `HEAD` and upstream both remain `702fccc`; Graphify remains based on
+`129efab`. The accumulated B-071 review is the only tracked-file change.
+
+### Round 23 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `R169` policy choice | Model A selected: narrow authenticated Chief Editor/T5-final control in V1 | D-189 Draft 3 |
+| **Approve** | `R170`–`R174` contract | Role/assignment split, atomic succession, terminal disable, historical identity and three-part authorization predicate | Exact source drafting and independent review |
+| **Approve-with-conditions** | Demo/no-login narrowing | Public/read-only demo stays open; only Chief Editor administration and T5-final require authentication | Clause-level D-189 supersession |
+| **Approve-with-conditions** | `NG-02` interpretation | Exactly one operative account; pending/disabled succession records are not multi-team access | Frozen-source/customer traceability disposition |
+| **Reject** | Model B | Contradicts the selected enforced-login-refusal requirement | Preserve only as historical alternative |
+| **Reject** | New standalone authorization family | Narrow identity belongs to D-189 documentation and later `AUTH-F1` execution | Use existing checkpoints |
+| **Defer** | Recovery authority/bootstrap mechanism | Normal flow is specified; exceptional recovery owner remains undefined | Later security/design decision before build |
+| **Defer** | Application, Graphify and implementation | Planning only; `D-171` remains binding | Accepted Draft 3, `AUTH-DOC`, independent review, later `AUTH-F1` |
+
+---
+
+## Round 24 — Business-owner recovery authority and email-account replacement (2026-09-04)
+
+### What happened
+
+The Judge closed Round 23's normal recovery-authority question: the **Chief Editor as business
+owner** controls the account-control system and may replace the application's Chief Editor login.
+If the operational email/login is unavailable, the business owner uses a different email account,
+creates the replacement access, and switches the system to it.
+
+This is the same natural person acting in two institutional capacities, not two application users:
+
+1. **Business-owner control authority** — maintains the account binding and performs recovery.
+2. **Acting Chief Editor application account** — performs the human `T5-FINAL` act while its
+   assignment is current.
+
+Those capacities need different credentials and audit events. If recovery depends on the disabled
+operational account, it is circular and cannot work when needed.
+
+### What Lane A needs — highest parent first
+
+#### Parent 1 — define the independent control authority
+
+| Object | Meaning | Authority | Explicitly cannot do |
+|---|---|---|---|
+| **Chief Editor business owner** | Natural person who owns the business and recovery decision | May operate the account-control system | Does not gain application authority merely from a display name or email |
+| **Business-owner control principal** | Stable authenticated identity used in the control plane; proposed logical field `owner_control_principal_id` | Create a pending replacement, bind a verified different email, and initiate the atomic switch | Execute `T5-FINAL` directly, edit editorial evidence, impersonate an agent, or rewrite history |
+| **Control email** | Login/recovery locator for the control principal | Authenticates access to the control plane under its provider's verified process | Stable identity key or historical application-actor key |
+| **Chief Editor application account** | Operational account used inside my-editorial-app | May execute `T5-FINAL` only while active and holding the current Acting assignment | Account recovery/control-plane administration merely because it has `ROLE-CHIEF-EDITOR` |
+| **Application login email** | Verified locator bound to one application account | Signs in that account | Account identity; it may change format and must never replace the account UUID in evidence |
+
+The business-owner control principal and operational account may belong to the same natural person,
+but they must not depend on the same credential/email. The control principal survives permanent
+disablement of an application account.
+
+#### Parent 2 — replacement-by-new-email contract
+
+```text
+business owner authenticates to the independent account-control plane
+  -> supplies a new, different email address
+  -> provider verifies the new address
+  -> system creates a new Chief Editor account as pending_activation
+  -> new account has no application login or T5-final authority yet
+  -> business owner reviews old/new identities and records a reason
+  -> atomic succession permanently disables the old application account
+     and activates the new account + Acting assignment
+  -> append recovery/succession evidence
+```
+
+The old account and email binding remain historical and non-reusable in V1. “Change email access”
+means bind the new verified email to the **new account**; it does not mutate the disabled account's
+email or move old decisions to the new account.
+
+#### Parent 3 — authorization predicates stay separate
+
+- **Control-plane action:** authenticated `owner_control_principal_id` plus the narrowly allowed
+  recovery operation.
+- **Human `T5-FINAL`:** authenticated application account that is `active`, holds the one current
+  Acting-Chief-Editor assignment, and matches the assignment's account ID.
+- **Virtual-agent task:** `executor_principal_key` plus `agent_attempt_badge_id` and role/node.
+
+No one identifier or session may satisfy another predicate. The business owner cannot bypass the
+application-account switch and execute `T5-FINAL` from the control plane.
+
+### New findings — recovery delta only
+
+| ID | Gap | Guaranteed failure if unchanged | Smallest Draft 3 fix |
+|---|---|---|---|
+| `B071-R175` — recovery is circular if it uses the operational account | A lost/disabled Chief Editor login is required to create its own replacement | Recovery is impossible in exactly the failure case it is meant to handle | Define an independently authenticated business-owner control principal and credential |
+| `B071-R176` — email is at risk of becoming identity | The clarification describes changing email access; prior audit rules require stable account/assignment attribution | Email changes or reuse can make a new account appear to be the old actor | Treat email as a verified login locator only; immutable evidence uses stable control/account/assignment IDs |
+| `B071-R177` — “change email” can be implemented as mutation | Updating the old account's email in place is simpler than creating the Judge-required new account | Past decisions display the new email/person and the old credential may remain recoverable | Create a new account; retain and permanently disable the old account/email binding; never transfer its event identity |
+| `B071-R178` — control authority has no negative boundary | “Access to the control system” can be read as unrestricted application administration | The recovery credential can edit articles, approve T5-final, alter evidence or mint agents | Permit only account creation, verified-email binding and atomic succession; explicitly refuse product/evidence actions |
+| `B071-R179` — recovery events have no evidence contract | The account switch can occur without who/when/why/old/new linkage | Ownership disputes and account compromise cannot be reconstructed | Append a control event naming control principal, old/new account IDs, old/new assignment IDs, verified-email references, timestamp, reason and outcome |
+| `B071-R180` — control-principal loss/ownership transfer is outside the stated flow | The same business owner is assumed always able to access the control plane | Loss of both credentials can permanently strand the product, or a developer can become an undeclared owner | State the normal recovery flow is complete; defer exceptional control-principal recovery/business ownership transfer to a separate business-continuity decision |
+
+### Draft fix — Lane A handback sequence
+
+1. Add this business-owner/control-principal distinction to proposed `D-189` Draft 3 immediately
+   after Round 23's selected Model A clause.
+2. Define replacement as new-account/new-email creation followed by the already-decided atomic
+   switch; prohibit email mutation, reuse and historical reattribution.
+3. Add separate authorization/refusal predicates for control-plane, human T5-final and virtual-agent
+   actions. Preserve `executor_principal_key` as agent-only.
+4. Extend `R169`–`R174` rather than reopening them: `R169`'s narrow authentication now includes the
+   independently authenticated recovery control; `R172`'s transaction includes control evidence;
+   `R173`'s permanence includes old-email non-reuse; `R174` remains application-account-only.
+5. Add `R175`–`R180` and their tests to Round 19's one occurrence ledger and propagation packet.
+   Do not create another decision family, handoff, journal owner or backlog duplicate.
+6. Keep documentation under `AUTH-DOC` and later implementation under `AUTH-F1`. No account/auth
+   build, provider configuration, schema, code or lane-state change occurs in this plan.
+7. After accepted application is committed and pushed, fetch-prove it, then rebuild/merge Graphify
+   and run the suite at that same revision. Independent Lane B review decides `Verified`.
+
+### Success criteria derived from failure
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T5-V1-SC63` | The operational Chief Editor account cannot authenticate | The business owner starts recovery | Control-plane authentication succeeds independently of that application account; no disabled-account session is required |
+| `T5-V1-SC64` | A replacement email equals the old application email | Replacement is requested | Refused; V1 requires a different verified email and preserves the old binding |
+| `T5-V1-SC65` | A different email has not been verified | Account activation or switch is attempted | Refused; no pending account becomes operative |
+| `T5-V1-SC66` | A verified replacement account is pending | Before the atomic switch | It cannot log in to the application or execute T5-final |
+| `T5-V1-SC67` | The owner control principal attempts editorial or agent work | Authorization is evaluated | Refused; its authority is limited to account recovery and succession |
+| `T5-V1-SC68` | A completed switch is reviewed | Control and editorial evidence are traced | One append-only control event links the authenticated control principal, old/new accounts and assignments, reason, time and result; old editorial events remain unchanged |
+| `T5-V1-SC69` | The new holder executes T5-final after the switch | Actor evidence is inspected | The new application account/Acting assignment is recorded; neither control-principal ID nor agent executor key substitutes for it |
+
+### What remains unclear
+
+The normal lost-email/login recovery flow is now decided. Only the exceptional case remains outside
+scope: loss of the separate business-owner control credential, or transfer of business ownership to
+a different natural person. That is a business-continuity/ownership-transfer decision, not a reason
+to leave ordinary V1 recovery vague and not authority for a developer or agent to intervene.
+
+### What Lane B did instead
+
+Lane B appended this draft-only recovery clarification to the existing B-071 handoff. It changed no
+governed tier, frozen source, proposed D-189 plan, schema, provider, application code, lane state or
+Graphify; it did not commit or push. The unrelated `package-lock.json` remains untouched.
+
+At review time local `HEAD` and upstream both remain `702fccc`; Graphify remains based on
+`129efab`. The accumulated B-071 review remains the only tracked-file change.
+
+### Round 24 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Normal recovery authority | Chief Editor business owner controls replacement through an independent authenticated control principal | D-189 Draft 3 |
+| **Approve** | Replacement identity | New account uses a different verified email; former account/email remain disabled historical records | Product/security/UX drafting |
+| **Approve-with-conditions** | Control-system scope | Account recovery and atomic succession only; cannot perform editorial, evidence or agent actions | Exact refusal criteria and audit contract |
+| **Reject** | Same operational credential for recovery | Creates circular recovery | Independent control credential/email |
+| **Reject** | Email as account identity or in-place history rewrite | Email is mutable and reusable; it cannot own attribution | Stable account/assignment IDs |
+| **Reject** | Developer, agent or disabled account as recovery owner | No such authority was granted | Business-owner control principal only |
+| **Defer** | Loss of control credential/business ownership transfer | Separate exceptional continuity case | Future bounded business-continuity decision |
+| **Defer** | Application, Graphify and implementation | Planning only; `D-171` remains binding | Accepted Draft 3, `AUTH-DOC`, independent review, later `AUTH-F1` |

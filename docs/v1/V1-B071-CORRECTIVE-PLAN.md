@@ -212,6 +212,20 @@ record of what was corrected, and is explicitly non-operative (`B071-R39`).
   `Draft-addressed`, never `Closed`, with a four-state lifecycle table (`R142`). Names Inventory,
   `Modular_PRD` §8, Phase Closure and the Encyclopedia as explicitly unaffected (`R143`). Defines
   "fallback" as a requirements-interpretation mapping only, never runtime failover (`R144`).
+- **§12 — proposed `D-189` Draft 3, Part 1 (extends §11; resolves `B071-R169`–`R181`; Part 2 —
+  `R145`–`R168`'s T5-stage/occurrence-ledger work — explicitly not drafted this pass):** the narrow
+  V1 authentication exception Round 23 selected (Chief Editor account + `T5-FINAL` only, no
+  multi-team/S6/T6 scope), the atomic account-succession transaction, and Round 24's independent
+  business-owner recovery flow, all as literal clause text. Adds a ninth/eighth identity object,
+  the **business-owner control principal**, distinct from the application account it may replace so
+  recovery is not circular. Adds new finding **`B071-R181`**, found during verification: the
+  already-accepted `docs/journal/2026-08-16-entry007-decision-sheet.md` row `S5` — a **temporary,
+  auto-reverting** board-approved LOA delegation for Chief Editor absence — is never reconciled
+  against Round 24's **permanent** succession model, though both use "Acting Chief Editor"; flagged
+  as an open Judge question, not resolved here. States three separate, non-overlapping
+  authorization predicates (control-plane / `T5-FINAL` / agent) so no one identifier satisfies more
+  than one. No physical schema, auth-provider configuration, or code is proposed — every field is a
+  logical proposal, per Round 21–24's own repeated instruction.
 
 **Artifact classification and propagation (`B071-R8`, `R16`):** this file is a `docs/v1/` tracking
 artifact under `D-36`, the same class as `V1-PHASE-CLOSURE.md`. It is registered in
@@ -1864,4 +1878,236 @@ only to read `T5-FINAL` wherever they previously read the ambiguous shared `T6`.
 | `T5-V1-SC27` | `US-09` and its tracing `AC-07` are read together | The publish-triggering actor is checked | `US-09` names the Acting Chief Editor at `T5-FINAL`; `AC-07`'s current-order agent behavior is disclosed as `D-171`-held, not live |
 | `T5-V1-SC28` | `CR-12`/`CR-19` are queried for coverage status | The status value is read | Neither reads bare `Covered`; both read `Change request pending sponsor/customer disposition` until the sponsor route returns |
 | `T5-V1-SC29` | Any two of `V1-BUILD-SPEC.md`, `raci-involvement-matrix.md`, `FN-GATES-01-05.md`, this plan, and `B-071` are compared for gate-order authority | Their authority claims are checked | All agree: both orders are `D-171`-held; none claims either is presently build-authorized |
+
+
+---
+
+## §12 — Proposed `D-189` Draft 3, Part 1: narrow authentication + recovery (resolves `B071-R169`–`R181`)
+
+**Independent of §1–§9.** Extends §11 (Draft 2) rather than superseding it wholesale — see §12.0's
+scope statement. Nothing below is committed to any governed tier. `D-171` remains binding,
+unnarrowed. `AUTH-DOC` remains unapproved.
+
+### §12.0 — Scope of this draft: Part 1 only
+
+**Rounds 19–24 raised thirty-six findings, `B071-R145`–`R180`, across two genuinely separable
+concerns.** Round 19's own Parent 2 already distinguished them: *"T5 stage completion"* (how many
+acts complete the editorial gate, and their exact event/state contract) from the account/identity
+layer this draft addresses. Verification confirms the separation holds: nothing in Rounds 22–24's
+authentication and recovery content depends on resolving `T5-FINAL`'s internal stage mechanics —
+the account layer governs **who may act**; the stage layer governs **what completes `T5`**.
+
+**This draft (Part 1) resolves `B071-R169`–`R180`** (Round 22's authentication boundary, Round 23's
+selected Model A, Round 24's recovery flow) **and adds one new finding, `B071-R181`**, found during
+verification. **It does not resolve `B071-R145`–`R168`** (Round 19's nested-stage contract, complete
+occurrence ledger, higher-precedence-source propagation, and Round 20–21's original identity-model
+draft that Round 21 itself partly superseded). Writing both in one pass, given their combined size
+and this project's own repeated finding that rushed drafts contain placeholders and improvised text
+(`R141`, `R149`), would risk the same defect at twice the scale. **Part 2 remains open, separately,
+for a later turn** — named here, not restated.
+
+### §12.1 — New finding: the existing `S5`/LOA mechanism is never reconciled (`B071-R181`)
+
+**`docs/journal/2026-08-16-entry007-decision-sheet.md` §2, row `S5`** — already `Accepted`, part of
+the governing set — reads in full: *"Acting Chief Editor via board-approved LOA window, full Line 2
+authority for that window, **auto-reverts**"* — *"Succession coverage for Chief Editor absence."*
+`raci-involvement-matrix.md` §2 and `Modular_PRD.md`'s `RK-02` risk row both cite it as the existing
+mitigation for *"Chief Editor unavailable."*
+
+**This is a different mechanism from Round 24's recovery flow, addressing a different failure
+mode, and Round 24 never says so:**
+
+| | `S5`/LOA (existing, accepted) | Round 24's recovery flow (this draft) |
+|---|---|---|
+| Failure addressed | Temporary absence — the account and its holder are fine, just unavailable | Lost/compromised login — the account itself must be replaced |
+| Duration | Windowed; **auto-reverts** when the window ends | Permanent; the former account is **permanently disabled**, never reactivated |
+| Account/email | None created; same account, same email, delegated authority only | A genuinely new account with a different verified email |
+| Authorizer | *"Board-approved"* — an unspecified governance act, per window | The `owner_control_principal_id` — a proposed, undefined identity |
+
+**Both use the label "Acting Chief Editor."** Round 21–23 defined `Acting Chief Editor` as a
+**singleton** time-bounded assignment held by exactly one account. If `S5`'s LOA-window delegate
+also becomes "Acting Chief Editor" while the original account's assignment has not ended, two
+questions are open that no round has asked: does invoking `S5` end the original assignment and open
+a second, temporary one on a **different** account (satisfying the singleton rule), or does the
+delegate act **through** the original account/assignment under a separately recorded permission
+(preserving singleton by not creating a second assignment at all)? Either answer is coherent; Round
+24's text is silent, and the two mechanisms' authorizer field — *"board-approved"* here, an
+unspecified `owner_control_principal_id` there — is not shown to be the same actor.
+
+**This is not decided in this draft.** §12.8 states it as an open item for the Judge, per this
+project's own convention of flagging structural questions rather than inventing an answer to them.
+Round 24's flow is drafted below exactly as specified — a **permanent** replacement path — with an
+explicit note that it does not define, modify, or supersede `S5`.
+
+### §12.2 — The identity model, current as of Round 24 (supersedes §11.4's actor table)
+
+**Nine objects, not seven — Round 24 adds two.** This table is the corrected, complete replacement
+for §11.4's actor-model table, folding in Round 21's `executor_principal_key` correction (`R163`)
+and Round 24's control-principal addition:
+
+| Object | Meaning | Used by | Must not substitute for |
+|---|---|---|---|
+| **Chief Editor** | Business persona/display label, frozen PRD | UI display only | Account ID, permission, or audit identity |
+| **`ROLE-CHIEF-EDITOR`** | Base account role definition | Role catalog | Current authority — base role alone grants nothing (`R174`) |
+| **Chief Editor application account** | V1 interactive account linked to `ROLE-CHIEF-EDITOR` | Human access, human-event attribution | Acting assignment, RACI `A`, `executor_principal_key`, or control authority |
+| **Acting Chief Editor assignment** | Time-bounded, singleton accountability involvement naming the one current account | Resolves RACI `A`; enables `T5-FINAL` | A second permanent role, a person label, or an agent principal |
+| **`executor_principal_key`** | Stable identity of the virtual agent executing an agent task | T1–T5 virtual-node evidence, agent-separation tests | Any human identity — account, control principal, or display name (`R163`) |
+| **`agent_attempt_badge_id`** | One attempt/run, linked to one `executor_principal_key` | Attempt-level audit | Stable agent identity or any human identity |
+| **Business-owner control principal** (`owner_control_principal_id`) | Stable authenticated identity in the account-control plane | Create a pending replacement account, bind its verified email, initiate atomic succession | `T5-FINAL`, evidence edits, agent impersonation, or history rewriting (`R178`) |
+| **Control email** | Login/recovery locator for the control principal | Authenticates the control plane | Application identity or historical actor key |
+| **Application login email** | Verified locator bound to one application account | Application sign-in only | Account identity — the account UUID, never the email, is what evidence cites (`R176`) |
+
+**The same natural person may hold the control principal and an application account, but the two
+identities must not share a credential** (`R175`) — a lost/disabled application login must not be
+the thing recovery depends on, or recovery is circular in exactly the case it exists to handle.
+
+### §12.3 — Proposed `D-189` clause text (literal; appends to §11.4's decision block)
+
+```markdown
+### V1 narrow Chief Editor authentication and recovery exception (`B071-R169`–`R181`)
+
+**V1 shall authenticate the one currently enabled Chief Editor account for the Acting-Chief-Editor
+assignment and shall require that authenticated account for the human `T5-FINAL` action.** A
+replacement Chief Editor account may be created only as `pending_activation`; it cannot log in or
+execute `T5-FINAL` until one atomic succession transaction permanently disables the former account,
+ends the former Acting assignment, activates the replacement account and starts the replacement
+Acting assignment. Exactly one account and one matching Acting assignment are operative at all
+times. Historical records retain the original account and assignment references.
+
+**This narrow exception does not authorize:** multi-team accounts, client accounts, general role
+administration, full `S6`/scoped-RLS completion, authentication for virtual agents, or any `T6`
+assurance feature.
+
+**What it narrows, named explicitly:**
+- the demo-first/no-login rule is retained for the public/read-only product surface (`CLAUDE.md`),
+  and narrowed only for Chief Editor sign-in, account-succession controls, and the state-changing
+  `T5-FINAL` action;
+- `SEC-03`/`S6` remains the owner of general authentication and scoped access control; its smallest
+  Chief-Editor/`T5-FINAL` slice moves into the V1 editorial proof;
+- `NG-02` still excludes multi-team operation. Pending and permanently disabled succession records
+  are not simultaneously operative accounts;
+- the frozen PRD's "single Chief Editor account" is interpreted as one **enabled/operative**
+  account; pending and disabled records exist solely for succession and history. This
+  interpretation is recorded through the existing customer/frozen-source traceability route, not by
+  editing the frozen text.
+
+**Recovery: an independent business-owner control principal, separate from the application
+account it recovers.** A `Chief Editor business owner` may authenticate to an independent
+account-control plane, using credentials that do not depend on the application account it may need
+to replace. That control principal may: create a replacement Chief Editor account in
+`pending_activation`; bind a new, different verified email to it (never the disabled account's old
+email); and initiate the same atomic succession transaction. The control principal **may not**
+execute `T5-FINAL`, edit editorial evidence, impersonate an agent, or otherwise act as the
+application account. The old account's email binding is retained, historical, and never reused or
+transferred to the new account's evidence trail.
+
+**Not defined or modified by this clause:** `docs/journal/2026-08-16-entry007-decision-sheet.md`
+row `S5`'s existing board-approved LOA succession-coverage window remains as accepted, unedited by
+this draft. Its relationship to the Acting-Chief-Editor singleton — whether an LOA-window delegate
+opens a second temporary assignment on a different account or acts through the existing one — is an
+open question (`B071-R181`), not decided here.
+
+**Authorization ownership:** proposed `D-189` decides this scope; `AUTH-DOC` applies the accepted
+documentation packet parent-first; `AUTH-F1` is the later authorization for the current T1–T5
+editorial proof, of which this identity control is a prerequisite. No new `AUTH-*` checkpoint is
+created. `D-171` continues to hold all implementation.
+```
+
+### §12.4 — Atomic succession transaction (literal; Round 21–24's contract, corrected)
+
+```text
+1. Business owner authenticates to the independent account-control plane
+   (owner_control_principal_id — a credential distinct from any application account).
+2. Business owner supplies a new, different verified email; the provider verifies it.
+3. System creates a new Chief Editor account: status = pending_activation,
+   base role = ROLE-CHIEF-EDITOR, no login or T5-FINAL authority.
+4. System validates exactly one current Acting-Chief-Editor assignment exists.
+5. Business owner records old/new account identities and a reason.
+6. Atomic switch (all-or-nothing, rollback on any failure):
+     - close the old Acting-Chief-Editor assignment
+     - set the old account status = permanently_disabled
+     - open the new Acting-Chief-Editor assignment
+     - set the new account status = active
+7. Append one control event: control principal, old/new account IDs, old/new assignment IDs,
+   old/new verified-email references, timestamp, reason, outcome.
+
+Postcondition, always: exactly one active Chief Editor account; exactly one current
+Acting-Chief-Editor assignment; both identify the same account. A terminally disabled account is
+never reactivated — a future return requires a new account and a new assignment.
+```
+
+**Historical attribution is unaffected.** Past `T5-FINAL` events retain the account, assignment,
+and display-name/job-title snapshot that were effective when each event occurred; the current
+holder is never substituted into a former holder's decision. `executor_principal_key` remains
+agent-only throughout — no step above touches it.
+
+### §12.5 — Three separate authorization predicates (literal)
+
+```text
+Control-plane action:
+  authenticated owner_control_principal_id
+  AND action ∈ {create_pending_account, bind_verified_email, initiate_atomic_succession}
+  → all other actions refused, including T5-FINAL, evidence edit, agent-task execution
+
+Human T5-FINAL:
+  authenticated Chief Editor application account
+  AND account.status = active
+  AND account.id = current Acting-Chief-Editor assignment's account_id
+  → base ROLE-CHIEF-EDITOR alone is insufficient; pending/disabled accounts are refused
+
+Virtual-agent task:
+  executor_principal_key + agent_attempt_badge_id + role/node
+  → never satisfies either predicate above; never accepted as human identity
+```
+
+**No identifier or session satisfies more than one predicate.** The business owner cannot bypass
+the application-account switch and execute `T5-FINAL` from the control plane (`R178`).
+
+### §12.6 — Lifecycle state (unchanged rule from §11.4, restated for this content)
+
+**Nothing in `R169`–`R181` is `Closed`.** Every item is `Draft-addressed`: the Judge supplied the
+policy (Model A selection, former-account disposition, recovery-authority shape); Lane A has now
+drafted literal text; neither is `Applied` (no commit exists) nor `Independently verified` (Lane B
+has not confirmed an applied commit). The four-state table from §11.4 governs unchanged.
+
+### §12.7 — Write set and unaffected tiers (extends §11.4's list)
+
+**Added to the existing write set:** the account/security requirement rows this clause implies in
+`Modular_PRD.md` (Product-level, not yet drafted — literal text is Part 2/a later pass, since it
+depends on Part 2's occurrence-ledger method to avoid the exact improvisation `R141` found), and one
+new customer-traceability row interpreting "one Chief Editor account" per §12.3's clause. **No
+physical schema, auth-provider configuration, or application code is authorized or proposed by this
+draft** — `owner_control_principal_id` and every field named above are **logical** field proposals
+only, per Round 21–24's own repeated instruction. **Still explicitly unaffected:** frozen
+`docs/PRD.md`, the Charter, `0001_init.sql`, `S5`'s Entry 007 row (§12.1), `PBL-01`, `V1-ARTIFACT-
+INVENTORY.md` (no file created), `Modular_PRD.md` §8, `V1-PHASE-CLOSURE.md`, the Encyclopedia.
+
+### §12.8 — What remains open, stated once
+
+1. **`B071-R181`** — `S5`'s relationship to the Acting-Chief-Editor singleton: separate temporary
+   assignment on a different account, or delegated action through the existing one. Not decided.
+2. **`B071-R180`** — loss of the control principal itself, or a business-ownership transfer. Named
+   by Round 24 as a separate, future business-continuity decision; not addressed here.
+3. **`B071-R145`–`R168`** (Part 2) — the T5 nested-stage contract, complete occurrence ledger,
+   higher-precedence-source propagation (Addendum/Blueprint/Business Case), and the corrected
+   supersession table extending §11.3. Not drafted in this turn.
+4. **The exact `T5-FINAL` identifier** (§11's own open item) — still Lane A's proposal, not a Judge
+   instruction, unresolved by anything in this draft.
+
+### §12.9 — Success criteria (Round 22–24's `SC55`–`SC69`, plus one for the new finding)
+
+`T5-V1-SC55`–`SC62` (Round 22–23) and `SC63`–`SC69` (Round 24) continue to apply, restated nowhere
+here to avoid the exact duplication this project's own `G55`/`G56` name — read them at their
+originating rounds. One criterion is added for `B071-R181`:
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T5-V1-SC70` | An `S5` LOA-window delegation and a Round-24 permanent succession are both traced | Their effect on the Acting-Chief-Editor singleton is compared | Exactly one of two stated resolutions holds consistently across both mechanisms — a second temporary assignment on a different account, or action through the existing one — and this draft names which the Judge selected, not which Lane A assumed |
+
+### §12.10 — Execution sequence
+
+Unchanged in shape from §11.11: (1) this draft written, no governed tier touched; (2) commit, push,
+fetch-prove; (3) independent Lane B re-review — of Part 1 only, since Part 2 does not yet exist to
+review; (4) Judge bounded acceptance naming this exact revision and write set, including a ruling
+on `B071-R181`; (5)–(10) unchanged from §11.11.
 
