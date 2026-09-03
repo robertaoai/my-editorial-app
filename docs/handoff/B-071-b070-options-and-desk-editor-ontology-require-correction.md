@@ -2695,3 +2695,168 @@ Lane A should use it without creating a second record.
 | **Reject** | Manual reconciliation in V1 | “Manual” describes business independence from software, not a requested app capability | No Product/Fn_Spec/data/UX requirement |
 | **Defer** | T6 feature design and authorization owner | No details are required until the item enters the top-five refinement window | Chief Editor promotion and separate authorization |
 | **Defer** | Build, route activation and implementation | Planning only; `D-171` remains binding | After future refinement and explicit authorization |
+
+## Lane B guide — backlog handling, T6 commercial dimension and V1 closure
+
+### Rewritten task
+
+Give Lane A one repeatable, parent-first procedure for handling backlog items from their originating
+handoff through ranking, refinement, authorization, execution and closure. Apply it to the global T6
+assurance item without refining that bottom-ranked item. Record how its future commercial workflow
+relates to the existing `NG-03` monetization exclusion, and state what freezes versus survives when
+V1 closes. Do not reopen the completed B-072-and-later review packet, create a second backlog, design
+T6, or build anything.
+
+### Existing rules this guide joins rather than repeats
+
+- `docs/README.md` §“How a request becomes execution” owns the request-to-evidence promotion map.
+- `docs/handoff/` owns the originating feedback/defect record and its response lifecycle.
+- `Modular_PRD.md` §2.5 and §2.5.1 own living post-V1 Product backlog state and `Ready when` rules.
+- `V1-BUILD-SPEC.md` §6 owns the frozen snapshot of what V1 excluded and points to the living tier.
+- `V1-PHASE-CLOSURE.md` owns the live lane state and requires terminal dispositions before phase
+  closure; a healthy deferred backlog is not a failed sprint.
+- `V1-DECISION-REGISTER.md` records a Judge decision when an item is actively decided or rechecked.
+
+These records hold different facts. Linking them is required; copying one status or full rationale
+into all of them is the drift mechanism.
+
+### Identifier correction — do not create two T6 backlog items
+
+An earlier B-071 section already uses `BACKLOG-ASSURANCE-01` as a Draft-11 success-criterion ID. The
+later proposal `BACKLOG-T6-ASSURANCE` would look like a second backlog identity if propagated now.
+Neither is yet a governed Product backlog row.
+
+Lane A must first inspect the owning `Modular_PRD.md` §2.5 namespace and assign **one** row ID when it
+records the deferral. Until that application, use the descriptive label **“T6 global assurance
+backlog item”** in Draft 12. The historical criterion and later proposed key remain history; neither
+is evidence that a living backlog row exists.
+
+### T6 is one global offering with separate capability and commercial axes
+
+“Global Feature” means one reusable assurance offering that may later serve different jurisdictions,
+external institutions and customers. It has two axes that must stay separate:
+
+| Axis | Future concern | V1 treatment |
+|---|---|---|
+| Assurance capability | Conditional T6 workflow, evidence, jurisdiction/institution binding, UI and audit behavior | Bottom-ranked post-V1 backlog; not refined |
+| Commercial workflow | Offer/package, client engagement, price/contract, entitlement and payment confirmation | Business workflow may remain manual/external; no in-app monetization under `NG-03` |
+
+Revenue is a business activity, not an article state or editorial gate. The T6 assurance outcome
+must never depend on whether a client paid. Conversely, selling access to the future capability does
+not prove assurance occurred for an article.
+
+Do not create a T6-specific payment backlog. Link the T6 backlog row to the existing `NG-03` rule:
+
+- capability refinement may be considered when the Chief Editor promotes T6 into the top five;
+- any **in-app monetization** additionally requires the Charter's `NG-03` condition to be lifted;
+- lifting `NG-03` removes a prohibition but still does not authorize a product or build—an approved
+  feature/commercial packet is also required;
+- external/manual contracting, invoicing or payment remains outside my-editorial-app unless that
+  later packet explicitly brings a bounded part into the product.
+
+### Lane A backlog procedure — one item, one fact owner at each step
+
+| Step | Lane A action | Canonical record | Stop/done condition |
+|---:|---|---|---|
+| **1 — locate** | Start from the originating handoff or Register gap; search for existing aliases and successors before naming anything | Originating `B-*`/`C-*` or Register gap | One origin identified; no duplicate item created |
+| **2 — classify** | Compare the request with the frozen Project PRD/Charter and apply `D-29` to find the owning derived tier | Origin response; Register if a frozen-source change is needed | In-baseline owner named, or named gap/change request recorded and work stops |
+| **3 — scope by version** | Decide current-version work versus post-version backlog | Register decision when Judge action is required | The item is either in an authorized version or explicitly beyond it—never both |
+| **4 — register living backlog** | For post-V1 Product work, add one minimal row to `Modular_PRD.md` §2.5: one ID, outcome, rationale, origin link, rank, `Ready when`, and governing dependencies | `Modular_PRD.md` §2.5 | One living row exists; handoff and V1 files point to it rather than restating it |
+| **5 — order** | Place the item relative to the Chief Editor's top-five refinement window | Same living row/order | Top-five items may be refined; lower items keep only minimum durable context |
+| **6 — respond** | In the origin, record what was decided, the owning living row and what is deliberately not refined | Originating handoff | `Acknowledged` is not used as closure; the actual disposition is visible |
+| **7 — snapshot the version** | Record only that V1 excludes/defers the item and link to the living condition | `V1-BUILD-SPEC.md` §6; Register propagation if the Judge decision requires it | V1 snapshot is accurate without copying mutable rank/details |
+| **8 — close the version** | Require every V1 handoff to have a terminal disposition; use `Deferred` with `Follow-up-Tier` for valid future work | Originating handoff and Phase Closure evidence | No V1 item remains merely Open/Answered/Applied when V1 claims closure |
+| **9 — freeze** | Freeze the V1 tracking set; do not edit it when future priority changes | `docs/v1/V1-*.md` | Later changes occur in living `Modular_PRD`, a later version set, or a new decision |
+| **10 — promote later** | Only when `Ready when` is met and the Chief Editor moves the item into the top five, refine outcome, slices, dependencies, risks and acceptance criteria | Living backlog row, then Register/feature group | Reviewable feature group exists; no build permission inferred |
+| **11 — authorize and execute** | Apply the existing D-186 sequence: Judge act, bounded packet/DoD, Active lane, work, evidence, independent verification | Register → Build Spec/work order → work product → origin | Each transition has its own evidence; no approval inheritance |
+| **12 — synchronize last** | Rebuild Graphify after the settled source commit, re-merge curated fragments and independently review the same pushed revision | Graph evidence; lifecycle remains in origin | Source, tracked semantics and analyzed commit agree |
+
+### T6 application of the procedure
+
+1. **Origin:** B-071 remains the source of the T5/T6 clarification and review history.
+2. **V1 disposition:** T6 capability and its monetization dimension are beyond V1; neither blocks
+   the current editorial proof.
+3. **Living Product owner:** Lane A should add one minimal T6 global-assurance row to
+   `Modular_PRD.md` §2.5, after choosing its non-colliding ID.
+4. **Rank:** bottom of backlog, outside the top-five refinement window.
+5. **Ready when for capability refinement:** Chief Editor explicitly promotes the item into the top
+   five and authorizes refinement.
+6. **Additional Ready when for in-app monetization:** `NG-03` is amended at Charter level **and** a
+   separate bounded Product/commercial scope is authorized. Neither condition substitutes for the
+   other.
+7. **No present decomposition:** do not create assurance, jurisdiction, reconciliation, entitlement,
+   billing or payment child items until promotion. Record the commercial dimension as a dependency,
+   not a drafted workflow.
+8. **B-071 closure:** once every current B-071/Draft-12 defect is applied and independently Verified,
+   the handoff may close while the T6 Product item remains Deferred in the living backlog. Future
+   work follows the living row; it does not reopen frozen V1 merely because priority changes.
+
+### What happens at V1 closure
+
+| Record | V1-close treatment | After V1 |
+|---|---|---|
+| B-071 | Close only when current corrections are independently Verified and the T6 deferral points to its living owner | Preserve as immutable origin/history; do not use it as the mutable rank |
+| B-072 and later reviewed handoffs | Preserve their actual terminal outcomes; do not re-review or relabel them as a group | Reopen only through a new evidenced finding or explicit successor |
+| `V1-DECISION-REGISTER.md` | Record the accepted V1 scope/deferral decision and propagation evidence | Freeze with V1; later decisions cite it without rewriting it |
+| `V1-BUILD-SPEC.md` §6 | Snapshot: T6 global assurance and in-app monetization are outside V1; point to living backlog rules | Freeze; never update its rank |
+| `V1-ARTIFACT-INVENTORY.md` | Unaffected unless an actual file is created or retired | Do not add a proposed feature ID as though it were a file |
+| `V1-PHASE-CLOSURE.md` | Close only on terminal handoff dispositions and the other declared closure evidence | Does not become the Product backlog |
+| `Modular_PRD.md` §2.5 | Own one T6 backlog row, ranking, `Ready when`, origin and `NG-03` dependency | Remains editable; this is where promotion/refinement occurs |
+| Fn_Spec/data/UX specs | Unaffected by an unrefined bottom-ranked item | Created or extended only after later authorization |
+| Graphify | Represent the settled V1 disposition and links, not a speculative future design | Update after future source changes, never ahead of them |
+
+### What is unclear
+
+1. The exact non-colliding row ID Lane A should assign in `Modular_PRD.md` §2.5 after checking its
+   existing namespace.
+2. Whether the T6 capability could later be built without in-app monetization. The safe planning
+   default is **yes**: capability and commercial enablement are separate axes, and `NG-03` gates only
+   the in-app monetization part.
+3. Whether the inert T6 layout reference needs any V1 UX change. The safe default is a link/label
+   only; no new T6 UX artifact.
+
+Only the first and third affect the future documentation write set. None blocks V1 or authorizes
+T6 refinement.
+
+### Guaranteed failures
+
+- Storing future backlog rank only in `V1-*` files loses the item when those files freeze.
+- Keeping the handoff Open solely because the deferred Product feature is unfinished prevents V1
+  closure forever; deferral with an owner is the terminal treatment.
+- Closing B-071 before its current defects are independently Verified hides unfinished V1 work behind
+  the T6 deferral.
+- Refining every handoff regardless of rank turns the backlog into an infinite design queue and again
+  delays the current editorial proof.
+- Combining T6 assurance and monetization makes payment appear to authorize, complete or invalidate
+  an editorial assurance judgment.
+- Treating `NG-03` being lifted as build authorization repeats the exact two-condition defect already
+  corrected by the Product backlog rules.
+- Creating a T6 payment item duplicates the existing monetization exclusion and produces competing
+  `Ready when` conditions.
+- Rewriting frozen V1 records when T6 is later promoted destroys the historical V1 scope baseline.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `BACKLOG-GUIDE-SC1` | A new handoff arrives | Lane A processes it | One origin is found, one owning tier is selected and no second backlog artifact is created |
+| `BACKLOG-GUIDE-SC2` | A post-V1 Product item is classified | V1 closes | Its origin is terminally dispositioned, V1 contains a frozen pointer/snapshot and living rank remains in `Modular_PRD.md` |
+| `BACKLOG-GUIDE-SC3` | A lower-ranked item lacks detail | Refinement is considered | It stays outside the top five with a `Ready when`; missing detail does not trigger immediate design |
+| `BACKLOG-GUIDE-SC4` | B-071 reaches closure review | Its current and deferred concerns are separated | Current Draft-12 corrections are independently Verified; T6 remains Deferred without keeping B-071 Open |
+| `BACKLOG-GUIDE-SC5` | The global T6 offering is reviewed | Assurance and commerce are traced | Assurance outcome is independent of payment; commercial enablement links to `NG-03` without duplicating it |
+| `BACKLOG-GUIDE-SC6` | In-app monetization is proposed later | Readiness is checked | Both the Charter prohibition is lifted and separate Product/commercial scope is authorized |
+| `BACKLOG-GUIDE-SC7` | V1 is frozen and T6 is later promoted | Records are updated | Living/later-version records change; frozen V1 and historical handoffs do not |
+| `BACKLOG-GUIDE-SC8` | Graphify is presented as closure evidence | Currency is checked | The analyzed and curated graph describe the same settled pushed source revision |
+
+### Approve/reject gate for this guide
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Backlog lifecycle | Origin → living Product backlog → V1 snapshot → later promotion uses one fact owner per stage | Lane A Draft 12 and D-186 pointer refinement |
+| **Approve** | V1 closure treatment | A properly owned T6 deferral does not keep B-071 or V1 open after current defects are Verified | Phase-closure evidence |
+| **Approve** | T6 commercial relationship | One global assurance offering may have a future commercial workflow, but assurance and payment remain independent | Living Product backlog dependency |
+| **Approve-with-conditions** | In-app monetization | Requires both `NG-03` amendment and separate Product/commercial authorization | Post-V1 refinement |
+| **Reject** | Immediate T6 decomposition | Bottom-ranked work remains minimally recorded until promoted | No current child backlog items |
+| **Reject** | New monetization backlog | Existing `NG-03` owns the in-app monetization constraint and return condition | Link, do not duplicate |
+| **Reject** | Frozen V1 as living backlog | V1 tracking is a historical snapshot after closure | `Modular_PRD.md` §2.5 owns living state |
+| **Defer** | T6 feature ID, commercial model, data/UX and implementation | Not in the top-five refinement window | Chief Editor promotion and later authorization |
