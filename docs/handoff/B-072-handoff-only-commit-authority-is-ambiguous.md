@@ -18,7 +18,8 @@
 
   - **Resolution:** `Applied`. The narrow `Eligible` handoff-only commit-and-push rule (`D-184`), its
     canonical SOP (`docs/handoff/README.md`), and the historical root (`D-185`) are all applied.
-  - **Remaining closure gates (unordered by recency, each independent):** `R11`–`R15` (the
+  - **Remaining closure gates (unordered by recency, each independent):** `R64` (bounded authority
+    to apply the documentation packet); `R11`–`R15` (the
     request→refinement→decision/authorization→execution-packet/readiness→execution→evidence/lifecycle
     routing map in `docs/README.md`); `R19`
     (capture-before-child rule); `R21` (Graphify resync at the final settled `HEAD`); link-only
@@ -1836,3 +1837,80 @@ existing record matches the direct act.
 | **Approve-with-conditions** | B-061 dated note | Correct blocker/successor model and neutral lifecycle wording | After B-071/proposed `D-182` settles |
 | **Reject** | Link-only treatment of `LANE-B-WORK-ORDER.md` | It contains wrong operative semantics, not merely a missing link | Apply `R62`'s substantive correction |
 | **Defer** | Source application, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | No such execution authority is supplied by this confirmation | Separate bounded authorization; Graphify last |
+
+## Handoff refinement — why Lane A has not applied the corresponding corrections (2026-09-03)
+
+### What happened
+
+The preceding review used **Approve** in three different senses that do not grant the same action:
+
+| Statement | What it actually establishes | Does it authorize Lane A to edit the corresponding docs? |
+|---|---|---|
+| `R55`/`R56` correspondence approved | The existing `D-184` §`B072-R54` record matches the Judge's direct act | **No edit is required**; adding another Register paragraph would duplicate the fact |
+| `R59`/`R60` direction approved with conditions | The six-stage architecture is the correct direction | **No**; `R63` still requires the ownership clauses to be corrected before application |
+| `R62` finding approved | The work-order contradiction is real | **No**; approval of a finding is not authorization to perform its drafted correction |
+| B-061 note approved with conditions | The blocker/successor reasoning is sound | **No**; B-071/proposed `D-182` must settle before B-061's lifecycle can be derived |
+| Graphify deferred | The graph must be synchronized after the source packet settles | **No**; running it now would record an intermediate state and immediately drift again |
+
+The direct Judge statement in the preceding request authorized and confirmed the `R55` comparison
+and reported the earlier push. It did **not** authorize `R19`, `R11`–`R15`, `R62`, `R63`, link
+propagation, B-061, Graphify, enforcement, `AUTH-DOC`, product work or a lane transition. The
+preceding independent gate also explicitly marked source application **Defer**. Lane A is therefore
+not failing to perform an authorized edit; it is refusing to turn analysis approval into execution
+authority, as `D-183` requires.
+
+### Finding — parent authorization is missing
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R64` — approved analysis has no bounded application act | The correction text, target files and dependencies are now known, but no direct Judge instruction names the immutable packet, authorizes Lane A to apply it, or states the exclusions | If Lane A edits now, an Approve/Approve-with-conditions review row silently becomes execution authority, repeating the approval-inheritance defect `D-183` rejects. If Lane A continues waiting without one consolidated approval object, the review loop can continue indefinitely while each correction remains unapplied | Treat the B-072 documentation packet at `786db4a` as one approval object. The Judge either authorizes the exact write set below or rejects/defers it. Lane A then records that act once in the Decision Register and applies only the named files; no child infers permission from a finding verdict |
+
+### What Lane A needs — proposed Judge decision, not yet an approval
+
+> **Judge Approved:** authorize Lane A to apply the **B-072 documentation packet at commit
+> `786db4a`**, documentation-only and parent-first:
+>
+> 1. record this bounded authorization in the next available Decision Register entry;
+> 2. update `docs/README.md` with `R19` and the six-stage `R11`–`R15` map, including `R63`'s
+>    separation of Judge input from customer/business input and its one-record-per-readiness-fact
+>    allocation;
+> 3. correct `docs/LANE-B-WORK-ORDER.md` under `R62`, replacing its `Eligible`/`D-108` row with the
+>    governing `D-156`/`D-184` semantics;
+> 4. add link-only pointers in `docs/v1/V1-PHASE-CLOSURE.md` §5.1 and, byte-identically, in the
+>    shared-core sections of `CLAUDE.md`, `AGENTS.md`, and `.agents/rules/graphify.md`;
+> 5. update this B-072 entry with Lane A's application evidence, commit and push the bounded source
+>    packet, then synchronize Graphify at the final source `HEAD` and run the full consistency suite.
+>
+> **Explicitly unaffected:** `docs/handoff/README.md` remains the sole transaction SOP;
+> `.github/WORKFLOWS-SPEC.md` remains unaffected; `V1-BUILD-SPEC.md`,
+> `V1-ARTIFACT-INVENTORY.md`, `Modular_PRD`, B-061, B-071/proposed `D-182`, application code,
+> hook/check implementation, `AUTH-DOC`, product work, lane transition and deployment are not
+> authorized by this decision. B-061 stays in its separate product-refinement chain.
+
+If the Judge does not approve that exact statement, Lane A should keep the packet draft-only and
+record the rejection or deferral against `R64`; it should not infer a narrower or broader authority.
+
+### What Lane B did instead
+
+Lane B consolidated the hold into this existing handoff rather than creating a duplicate entry. It
+did not edit any Lane A-owned target, did not alter B-061/B-071, did not rebuild Graphify, and did
+not implement a hook, product feature or lane transition.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R64-SC1` | The Judge wants the documentation corrections applied | Authority is evaluated | One direct act names packet `786db4a`, the exact actions/write set and exclusions; no review verdict is treated as inherited execution authority |
+| `B072-R64-SC2` | Lane A receives that act | It applies the packet | Only the Register, `docs/README.md`, Lane B work order, Phase Closure, byte-identical shared core and this handoff change; every unaffected tier remains unchanged |
+| `B072-R64-SC3` | The source commit is pushed | Graphify and checks run | Graphify analyzes the final source `HEAD`; local `HEAD`, upstream and `lastAnalyzedHead` agree; the full suite passes before independent review |
+| `B072-R64-SC4` | The Judge rejects or defers the packet | Lane A reports status | No corresponding source edit is made and B-072 remains `Applied`, with the decision recorded against `R64` rather than silently retried |
+
+### Approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Diagnosis of Lane A's hold | Correct restraint: no bounded application authority exists | Preserve `D-183` separation |
+| **Approve-with-conditions** | B-072 documentation packet | Exact write set and exclusions are now drafted | Judge decision on `R64`, then Lane A source pass |
+| **Reject** | Treating approved findings as permission to edit | This is the approval-inheritance defect | Require the direct bounded act above |
+| **Defer** | B-061/B-071 product-refinement chain | Depends on proposed `D-182`, not this process packet | Separate product decision |
+| **Defer** | Hook/check implementation, `AUTH-DOC`, product work and lane transition | Outside the documentation packet | Separate authorization |
