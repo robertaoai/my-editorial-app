@@ -7,7 +7,7 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** `deb58fe` (answers `B072-R42`–`R44`; earlier SHAs cited in this file's
+- **Verified-At-Commit:** `<pending>` (answers `B072-R45`–`R46`; earlier SHAs cited in this file's
   independent-review sections are historical evidence, not current status)
 - **Lane A:** Acknowledged 2026-09-02. **Exhaustive Applied-history matrices and tracked live-Git-tip
   claims are retired from this field (`B072-R39`, `R40`) — every correction pass added a finding the
@@ -24,15 +24,14 @@
     propagation to `V1-PHASE-CLOSURE.md`/shared rule files/work orders; commit-hook/check
     implementation of the SOP's pre-push proof (drafted, not built); independent Lane B verification
     of this entry as a whole.
-  - **Not a closure gate, informational only:** `D-184`'s two execution-evidence notes
-    (`docs/v1/V1-DECISION-REGISTER.md` §5.14e9) record Judge-authorized accumulated-range pushes
-    completed through `4ab57b4` (`B072-R36`) and `b21de97` (`B072-R43`) — each a bounded use of
-    existing authority, not new policy. Per `R43`: an ordinary `Eligible`-actor push of one
-    standing-rule-compliant handoff entry never needs a note like these; only a mixed range naming
-    Lane A's own commits does.
-  - **`D-184` self-consistency (`B072-R42`):** the register previously repeated the exact defect
-    `R17` had already corrected — calling the canonical SOP "unstarted" after it was applied. Fixed
-    with an append-only correction in `D-184` itself; the SOP has been Applied since `b879af1`.
+  - **Historical push-event record (not a closure gate):** see `D-184` §"Execution-evidence note"
+    (`B072-R36`, `R43`) and this file's independent-review sections below for the completed
+    Judge-authorized accumulated-range execution events. This header does not restate their count,
+    ranges, or content (`B072-R46`) — query those sections directly.
+  - **`D-184` corrections applied (`B072-R42`, `R45`):** the register no longer calls the canonical
+    SOP "unstarted," and no longer calls the `R36`/`R43` notes "exceptions" — both are
+    Judge-authorized accumulated-range execution events under the standing policy, not deviations
+    from it. See `D-184` itself for the append-only correction text.
   - **Pre-commit path binding (`B072-R44`):** the canonical SOP's exact-path check moved from
     pre-push-only to before staging and before committing — a same-lane wrong file or a second path
     now stops before a local commit exists, not only at push time.

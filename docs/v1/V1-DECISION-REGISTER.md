@@ -12042,6 +12042,20 @@ link-only propagation to Phase Closure/shared rules/work orders, and hook/check 
 (including `R28`'s upstream-alignment negative check) remain separate, unstarted work — the
 canonical-SOP application itself is not on this list (see the correction above).
 
+### Correction, added 2026-09-03 (`B072-R45`)
+
+The "Scope limits" paragraph above calls the `B072-R36`/`R43` notes "recorded execution-evidence
+exceptions." That wording is imprecise: they are not policy exceptions — they are **Judge-authorized
+accumulated-range execution events**, a bounded exercise of the Chief Editor's own existing authority
+to name an accumulated range, not a deviation from the standing `Eligible` per-actor rule. Not
+rewriting the paragraph above per this register's append-only convention; restated precisely here
+instead: **this entry's standing policy is the narrow `Eligible` handoff-only commit/push permission;
+`R36` and `R43` are historical execution-event examples of that same authority being exercised in
+bounded circumstances, never exceptions to it.** `D-184` is the policy record, not a per-push evidence
+log — per `R43`, a future accumulated-range approval is recorded append-only in its originating
+handoff entry (e.g., `B-072`), not as a new note here. An ordinary single-entry `Eligible`-actor push
+still requires no note anywhere in this register.
+
 ## 5.14e10 `D-185` — `SETUP-SPIKE-000`: Historical Zero-to-One Setup Root
 
 **Chief Editor/Judge ruling, 2026-09-03, approved verbatim in this conversation** (`D-183` point 1 —
