@@ -28,6 +28,17 @@
   binding.** No statement in this field implies Decision-Register-level durable approval, independent
   verification, artifact approval, push authority, or authority for a different checkpoint than the
   one named (provenance rule, point 2).
+  **Rounds 12–14 (2026-09-03).** `B071-R97`–`R117` accepted in full; none disputed. Two Lane A
+  evidence errors were corrected by Round 13 and stand corrected: the commits after `129efab` are
+  `9d00f70`, `a41fa0a`, `411f834` and `13da259` — `2ab048a` is an **ancestor** of `129efab`; and the
+  Graphify defect is **non-retrievability**, not a false-equivalence edge (a full link scan returns
+  0 collapse relations and `PBL-04` has 0 nodes). **Draft 3 of the `D-188` correction packet is
+  written to `docs/v1/V1-B071-CORRECTIVE-PLAN.md` §9** as literal application text — no placeholder,
+  ellipsis or self-referential SHA. **`411f834` is the Round 13 review-input baseline and `13da259`
+  the Round 14 review; neither is Draft 12's revision** (`B071-R114`). **Nothing is applied:** the
+  Register, `Modular_PRD.md` and `V1-BUILD-SPEC.md` are unchanged, `AUTH-DOC` remains unapproved,
+  and `D-171` remains binding. The next act is the Judge's bounded acceptance of §9's write set at
+  the pushed revision; Lane A may then record `Applied` and only Lane B may record `Verified`.
 - **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`), round 2 (Lane
   B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
   clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), round 4 (Lane B,

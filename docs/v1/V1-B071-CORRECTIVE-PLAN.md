@@ -1,6 +1,11 @@
 # V1-B071-CORRECTIVE-PLAN — T5/T6 Ontology Correction: Implementation Plan (DRAFT)
 
-**Status: DRAFT 11. Plan approval: none (`B071-R67`).** Draft 10 is reviewed and **superseded as a
+**Status: DRAFT 12 — carrying the `D-188` correction packet at its Draft 3 (§9 below). Plan
+approval: none (`B071-R67`).** Draft 11 is superseded as a draft by Rounds 12–14
+(`B071-R97`–`R117`). **Commit roles, kept distinct (`B071-R114`):** `411f834` is the Round 13
+**review-input baseline**; `13da259` carries the Round 14 review. Neither is this draft's revision.
+Draft 12's own commit, and any Judge acceptance of it, are separate later evidence recorded in
+`docs/handoff/B-071-*.md` — never asserted inside the draft that precedes them. Draft 10 is reviewed and **superseded as a
 draft** — it is not, and was never validly, Judge-approved; a prior revision of this file's own
 header incorrectly asserted approval, which is corrected here rather than rewritten away (the false
 claim is historical evidence of the defect `B071-R67` names, not authority). The numerous "Judge
@@ -163,6 +168,19 @@ record of what was corrected, and is explicitly non-operative (`B071-R39`).
   *additive* `M-POC`-start gate beside existing `PR-13` (`R75`); and restores the Judge's exact
   phrase **"Minimum Markable Feature"**, quoted, `definition_pending` — the prior turn's unauthorized
   substitution to "Minimum Marketable Feature (MMF)" is corrected and is not used operatively (`R76`).
+- **Draft 12 — `D-188` correction packet, Draft 3 (input baselines: Round 13 review `411f834`,
+  Round 14 review `13da259`; this draft's own commit is recorded in `B-071` once it exists,
+  `B071-R114`):** adds §9, the `D-188` propagation correction, resolving `B071-R97`–`R117`. It
+  records the Register correction as an **append-only notice** that leaves `D-188`'s body and tier
+  row intact (`R101`, `R103`); keeps proposal state in this plan and out of final Register wording
+  (`R104`, `R117`); replaces **both** legacy cross-version-readiness paragraphs rather than selected
+  phrases (`R99`, `R105`); removes the automatic `NG-02` lapse (`R106`); exposes canonical `V1/NG-*`
+  per row through a deterministic column transformation with no ellipsis (`R100`, `R107`, `R113`);
+  **preserves `V1/NG-10`/`V1/NG-11` as versioned historical identities** whose targets are standing
+  control and policy owners (`R110`); makes a version reconsideration condition **expire when its
+  version freezes** (`R111`); carries no placeholder, ellipsis or self-referential SHA (`R112`);
+  and orders the transaction commit → push → fetch-proof → rebuild → merge → relation-aware
+  verification (`R109`, `R115`, `R116`).
 
 **Artifact classification and propagation (`B071-R8`, `R16`):** this file is a `docs/v1/` tracking
 artifact under `D-36`, the same class as `V1-PHASE-CLOSURE.md`. It is registered in
@@ -984,3 +1002,254 @@ itself, or its successor) must be pushed and confirmed identical on the remote b
 *exercised* — holding the development lock — at a time (`B071-R32`); only `AUTH-ROUTE` requires
 both. No authorization's approval is unrestricted terminal authority — each names its unit,
 exclusions, tests and DoD explicitly.
+
+---
+
+## §9 — `D-188` propagation correction (Draft 3; resolves `B071-R97`–`R117`)
+
+**Independent of §1–§8.** This section corrects `D-188`'s propagation into the Product and V1
+tracking tiers. It opens no `AUTH-*` checkpoint, and `D-171` remains binding. Every block below is
+**literal application text** — copied verbatim at application, with no placeholder, ellipsis or
+self-referential SHA (`B071-R112`, `R113`, `NG-S6-SC17`).
+
+### §9.0 — Normalized model this correction must preserve
+
+| Layer | Durable identity | Lifecycle |
+|---|---|---|
+| V1 historical exclusion | `V1/NG-01`–`V1/NG-11` | Actionable while V1 scope is open; historical when V1 freezes |
+| Standing rule an NG points to | Existing control/policy ID (`TC9`/`O-01`; legal/compliance policy) | Continues independently of V1; not a `PBL-*`, not the NG record |
+| Future Product capability | `PBL-*` | Living identity and readiness; never authorized by NG absence or expiry |
+| Security delivery scope | `S6`/`SEC-03` | Separately authorized sprint and requirement; not an instance of `PBL-04` |
+| Build permission | Durable Judge act | Bounded write set and DoD; never inferred from any record above |
+
+### §9.1 — Register parent · append-only notice in `V1-DECISION-REGISTER.md` §5.14e13
+
+**`D-188`'s body and tier-applicability row are not edited.** Append after `### Scope limits`:
+
+```markdown
+### Correction notice — append-only (`B071-R101`, `R103`; reviewed in `B-071` Rounds 12–14)
+
+**`D-188`'s body and tier-applicability row above are unchanged, including the claim this notice
+withdraws.** That claim is the evidence explaining why this correction exists; erasing it would
+remove the only trace of the defect.
+
+**What is withdrawn.** The tier row reads `✅ §6 — excluded-object column and the D-04 paraphrase
+correction`. Commit `129efab` corrected the `D-04` paraphrase in §6's monetization row and gave
+that one row `V1/NG-03 — excludes PBL-02`. It added **no excluded-object column**, and it did not
+touch the `NG-02`/`S6` row. **The excluded-object half is withdrawn as completion evidence; the
+`D-04` paraphrase half stands**, verifiable at `V1-BUILD-SPEC.md` §6.
+
+**The rule.** A versioned Non-Goal carries a canonical `(version_id, ng_id)` identity exposed as a
+join key, points to exactly one excluded object, and states a version reconsideration condition
+that is **actionable only while that version's scope is open**. When the version freezes (`D-36`)
+the row and its condition become historical: a condition that later becomes true does not reopen
+that version, alter its record, or authorize anything. `V1/NG-10` and `V1/NG-11` keep their
+versioned historical identities and point to their standing control and policy owners; neither
+takes a `PBL-*` (`D-188`). `S6`/`SEC-03` is a security sprint and requirement, not an instance of
+`PBL-04`.
+
+**Write set.** `V1-DECISION-REGISTER.md` §5.14e13 (this notice) · `Modular_PRD.md` §2.5 and
+§2.5.1 · `V1-BUILD-SPEC.md` §6 (the multi-team row and the POC built-commercial row) and §6.1.
+`PBL-04`'s §2.5.2 row and §6's `S6 — auth and scoped RLS` row are correct and unchanged. Frozen
+`docs/PRD.md`, the Charter, `0001_init.sql`, the Artifact Inventory, the Fn/Data/UX specs and
+Phase Closure are untouched.
+
+**Superseded, narrowly.** Only the `D-147`/`D-148` clauses that treat `NG-02` and `S6` as one
+future item. `D-147`'s `NG-03` tense correction and `D-148`'s condition mechanism otherwise stand.
+No historical decision body is rewritten.
+
+**Ontology unchanged** — direction, composite identity, three readiness meanings, the
+standing-control split, and "not excluded is not included" all stand.
+```
+
+### §9.2 — Product `Modular_PRD.md` §2.5 · deterministic transformation
+
+**Operation choice, made by Lane A per Round 14 (`B071-R113`).** A deterministic column
+transformation, **not** a retyped eleven-row table: the rationale cells run to several thousand
+characters, and retyping them risks the silent content loss `G32` records. The transformation below
+is executable verbatim.
+
+**A. Replace the `### 2.5 Non-Goals` heading through the table's delimiter row with exactly:**
+
+```markdown
+### 2.5 Non-Goals — V1 scope
+
+**Canonical identity is `(version_id, ng_id)` (`D-188`).** The `Canonical ID` column is the join
+key for every cross-document reference; `ID` remains the local display value. **A row records what
+V1 excluded.** It is actionable while V1's scope is open and becomes historical when V1 freezes
+(`D-36`); a later version records its own scope and runs its own decisions. **`V1/NG-10` and
+`V1/NG-11` are V1 Non-Goal records whose targets are standing control and policy owners** that
+continue independently of V1; neither takes a `PBL-*`.
+
+| Canonical ID | ID | Non-Goal | Excludes (`D-188`) | Rationale | Source |
+|---|---|---|---|---|---|
+```
+
+**B. For each of the eleven body rows, prepend one cell.** Replace the row's leading `| ` with
+`| <canonical> | ` from the map below. Every other cell stays byte-identical.
+
+| Row's existing `ID` cell | New leading cell |
+|---|---|
+| `NG-01` | `V1/NG-01` |
+| `NG-02` | `V1/NG-02` |
+| `NG-03` | `V1/NG-03` |
+| `NG-04` | `V1/NG-04` |
+| `NG-05` | `V1/NG-05` |
+| `NG-06` | `V1/NG-06` |
+| `NG-07` | `V1/NG-07` |
+| `NG-08` | `V1/NG-08` |
+| `NG-09` | `V1/NG-09` |
+| `NG-10` | `V1/NG-10` |
+| `NG-11` | `V1/NG-11` |
+
+No `Excludes` value changes. `V1/NG-10` keeps its `TC9`/`O-01` control target and `V1/NG-11` keeps
+its legal/compliance policy target (`B071-R110`).
+
+**C. Replace the `V1/NG-02` row's `Rationale` cell — that cell only — with exactly:**
+
+```markdown
+**V1 exclusion.** "Operating model is one human" describes V1 and is part of V1's historical scope. A tenancy boundary exists in the data model to preserve the option; **no multi-team capability is built, and `V1/NG-02` stands.** Capability identity — including the `D-145` scoped read-only client-account variant for `M-POC` delivery — lives once under `PBL-04` (§2.5.2), not here. **Version reconsideration condition** (`D-148`), actionable only while V1's scope is open: `OD1`–`OD3` resolve, **or** the Charter's line 53 is amended directly — whichever comes first. **More people in the business may trigger reconsideration; they do not make this exclusion lapse.** Reconsideration permits re-examining V1's exclusion and nothing else — it is not feature readiness (`PBL-04`), not build authorization (a Register Judge act), and it says nothing about `S6`/`SEC-03`.
+```
+
+### §9.3 — Product `Modular_PRD.md` §2.5.1 · complete replacements
+
+**A. Replace the paragraph beginning "Lives here, not in `docs/v1/`" with exactly:**
+
+```markdown
+**Lives here, not in `docs/v1/`, because the procedure must outlive any one version.** `D-36`
+freezes every `docs/v1/V1-*.md` file at its sprint's close. **The procedure and the `PBL-*` catalog
+survive; a version's exclusions do not.** `V1/NG-*` rows record what V1 excluded, are actionable
+while V1's scope is open, and become historical when V1 freezes. A later version runs these same
+steps to produce its own `V2/NG-*` rows. **This document carries no version prefix and never
+freezes** — the correct place for the repeatable procedure, and for `PBL-*` capability identity,
+which is genuinely version-independent.
+```
+
+**B. Replace step 5 of the five-step table with exactly:**
+
+```markdown
+| 5 | **State BOTH conditions where an item has two** — added `D-150`, closing `G106`. **A version reconsideration condition is not build authorization.** `V1/NG-02`/`V1/NG-03`'s own condition permits reconsidering that version's exclusion; **it does not authorize anyone to build the thing.** Where a separate charter, PRD, or approval is also required, name it alongside. **An item with one condition stated and the other unnamed reads ready when it is not** — the live instance was `B-008`'s POC commercial model, carried under the manual lane's condition alone |
+```
+
+**C. Replace the closing paragraph beginning "A version's own `V1-BUILD-SPEC.md` §6 cites this
+table" with exactly:**
+
+```markdown
+**A version's own `V1-BUILD-SPEC.md` §6 cites this table; it does not restate it.** That document's
+*"out of scope for v1"* list is a legitimate version-scoped snapshot, and it freezes with v1
+(`D-36`).
+
+**A reconsideration condition is scoped to its own version and expires with it.** While V1's scope
+is open, resolving `V1/NG-02`'s condition permits reconsidering **V1's** exclusion. **Once V1
+freezes, the row and its condition are historical: a condition that later becomes true does not
+reopen V1, change V1's record, or authorize anything.** Future scope is decided by a later version's
+own records and by `PBL-*` readiness, each with its own authorization. Refining a `PBL-*` capability
+is a separate act under §2.5.2, continuously available and independent of any sprint.
+```
+
+### §9.4 — V1 tracking `V1-BUILD-SPEC.md` §6 and §6.1
+
+**A. Replace the row beginning "Multi-team accounts, and `S6`" with exactly** (the
+`S6 — auth and scoped RLS` row above it is unchanged):
+
+```markdown
+| Multi-team accounts | **`V1/NG-02`, Charter-level — excludes `PBL-04`** (`D-188`), standing per `D-79`. *Row corrected `D-188`/`B071-R97`: it previously read "Multi-team accounts, and `S6` — auth and scoped RLS (`SEC-03`)" and called `S6` the general case of which `D-145` was an instance. **They are different objects** — `S6`/`SEC-03` is the security sprint and requirement, owned by the row above; `PBL-04` is the capability.* **Rationale and version-reconsideration condition live in `Modular_PRD.md` §2.5 (`D-148`); capability identity lives in §2.5.2** — cited here, not restated |
+```
+
+**B. In the "POC built commercial model (`B-008`) — NOT adopted" row, replace the sentence
+beginning "Ready when BOTH" through the end of that cell with exactly:**
+
+```markdown
+**Ready when BOTH** — a version reconsideration condition is not build authorization (`Modular_PRD.md` §2.5.1 step 5): ① `V1/NG-02` **and** `V1/NG-03`'s own reconsideration conditions resolve while V1's scope is open, cited from `Modular_PRD.md` §2.5 and not restated here; **and** ② a **separate POC Charter and Product Requirements** are authorized at Alpha Portfolio level — `B-008` option 2, a Charter-level act, not a sprint and not a version |
+```
+
+**C. Replace §6.1 in full with exactly:**
+
+```markdown
+### 6.1 Backlog path — moved to the living tier (`D-148`, corrects `D-147`)
+
+**The version-exclusion procedure and each item's version reconsideration condition live in
+`Modular_PRD.md` §2.5.1; capability identity lives in §2.5.2** — not here. `D-147` first named the
+pattern in this document; `D-148` found the placement wrong: this file freezes at v1's sprint close
+(`D-36`), and a repeatable procedure cannot be authored only in a document that will stop being
+edited. **This section is kept as a pointer, not deleted**, so a reader who remembers it being here
+finds where it went rather than a silent gap.
+
+**The table above records what v1, specifically, excluded — accurately, and permanently, once
+frozen.** That is the correct content for a tracking file: a dated snapshot. **V1's exclusions stay
+V1's, and its reconsideration conditions expire with it.** A later version runs the same procedure
+to produce its own `V*/NG-*` rows; nothing in this table confers feature readiness or build
+authorization.
+```
+
+### §9.5 — Curated graph fragment and the relation-aware test (`B071-R109`, `R115`)
+
+**The proven defect is narrow: `D-188` semantics are not retrievable.** A full link scan at
+`13da259` returns **0** relation edges collapsing `PBL-04` into `S6`/`SEC-03`, and `PBL-04` has
+**0** nodes. The single `D-188` match is a git-commit node (`129efab`'s message), degree 2 — not a
+decision node. Absence is not a false edge, and this plan claims only absence.
+
+**The fragment adds positive identities and relations** — `V1/NG-02`, `PBL-04`, `S6`/`SEC-03`,
+`D-188` — with `V1/NG-02 --excludes--> PBL-04` and `PBL-04 --distinct_from--> S6/SEC-03`.
+Fragments declare relationships under `edges`; `graph.json` stores them under `links`, so the merge
+is `docs/graph-fragments/merge7.js`, never `graphify build --fragment` (`G51`).
+
+**The test asserts relations by node ID and relation value, never by label keyword** — a
+label-matching test fails legitimate `excludes` / `references` / `distinct_from` edges and passes
+an invalid relation whose labels happen to differ. Test script, in full:
+
+    node -e '
+    const g=JSON.parse(require("fs").readFileSync(".graphify/graph.json","utf8"));
+    const N=g.nodes||[], L=g.links||[];
+    const ids=(re)=>N.filter(n=>re.test(String(n.label||n.name||n.id))).map(n=>n.id);
+    const ng=ids(/^V1\/NG-02\b/), pbl=ids(/^PBL-04\b/), s6=ids(/\bSEC-03\b|\bS6\b/);
+    const rel=(l)=>String(l.type||l.relation||l.rel||"").toLowerCase();
+    const COLLAPSE=new Set(["alias","instance_of","same_as","equivalent_to","is_a","duplicate_of"]);
+    const pos=L.some(l=>ng.includes(l.source)&&pbl.includes(l.target)&&rel(l)==="excludes");
+    const bad=L.filter(l=>((pbl.includes(l.source)&&s6.includes(l.target))||(s6.includes(l.source)&&pbl.includes(l.target)))&&COLLAPSE.has(rel(l)));
+    console.log("nodes  V1/NG-02:",ng.length," PBL-04:",pbl.length," S6/SEC-03:",s6.length);
+    console.log("positive excludes edge:",pos?"PASS":"FAIL");
+    console.log("collapse relations:",bad.length===0?"PASS (0)":"FAIL ("+bad.length+")");
+    process.exit(pos&&bad.length===0?0:1);'
+
+**Fixtures the test must satisfy (`NG-S6-SC19`):** the required `excludes` edge passes; an injected
+`alias`/`instance_of`/`same_as` edge between `PBL-04` and `S6`/`SEC-03` fails; an unrelated
+`references` edge between them does **not** fail.
+
+### §9.6 — Execution sequence
+
+**Preparation is not application.** Steps 1–2 are done in this plan; step 3 is the Judge's.
+
+| # | Step | Done when |
+|---:|---|---|
+| **1** | Draft 3 written into this §9 and `B-071` — no governed tier touched | This section exists; Register, `Modular_PRD` and Build Spec are unchanged |
+| **2** | Commit and push this plan-only revision; report local, upstream and GitHub separately | Upstream tip equals local `HEAD`, proven by `git fetch` then `rev-parse` — not by the push command's exit code |
+| **3** | **Judge bounded acceptance** of the exact pushed write set | A durable Judge act naming this revision and the §9.1 write set exists. Until then `AUTH-DOC` is unapproved and `D-171` binds |
+| **4** | Apply §9.1 (Register parent) | The notice is appended; `D-188`'s body and tier row are byte-identical to before |
+| **5** | Apply §9.2, §9.3, §9.4 (derived children), parent-first | Every changed row and paragraph was present verbatim in §9; nothing improvised (`NG-S6-SC13`) |
+| **6** | Update `B-071` and this plan exactly as approved. Lane A records `Applied`, never `Verified` | `B-071` carries `Applied` with the application commit; no `Verified-By` is written by Lane A |
+| **7** | Verify exact paths; commit source **plus** the tracked curated fragment; **push, then fetch and prove upstream equals local** (`B071-R116`) | `git rev-list --count '@{upstream}..HEAD'` is `0` at the source revision, after a successful fetch |
+| **8** | **At that proven-upstream revision only:** `npx graphify hook-rebuild` **first**, then `merge7.js` across all fragments, then the §9.5 test and the full suite | Rebuild precedes merge (`G51`); positive edge passes; collapse test passes; `bun run check` is green including `docs-drift` |
+| **9** | Hand Lane B the exact pushed and analyzed revision | Lane B alone evaluates `NG-S6-SC1`–`SC20` and alone decides `Verified` |
+
+### §9.7 — What is unclear, and what fails without this
+
+**Unclear — nothing requiring a Judge Product choice.** `D-188` already separates `V1/NG-02`,
+`PBL-04` and `S6`/`SEC-03`. Two items are genuinely open and are **not** blockers here: `NG-11`'s
+legal/compliance policy owner (`D-188` "Gaps: Opened"), and `B-077`'s lifecycle children — a
+**sibling** chain that must not be absorbed into this packet.
+
+**Guaranteed to fail if this is not applied.** `V1-BUILD-SPEC.md` §6 keeps one capability in two
+rows under two owners, so resolving `OD1`–`OD3` reads as making multi-team accounts ready and
+reconsidering `V1/NG-02` reads as authorizing `S6`. The `D-145` variant keeps two editable homes and
+diverges on readiness, rank or definition. A cross-version `NG-02` lookup joins the wrong version's
+exclusion to a feature. `D-188` continues to supply false completion evidence for a propagation that
+did not occur, so the next reviewer trusts it. And a `V1/NG-*` query returns nothing, so
+`NG-LINK-SC8` cannot be demonstrated.
+
+**How the success criteria are derived from those failures.** Each criterion is the negation of one
+named failure, checked at an immutable revision: `NG-S6-SC1`–`SC8` (Round 12) from the propagation
+failures; `SC9`–`SC14` (Round 13) from the lifecycle and evidence failures; `SC15`–`SC20` (Round 14)
+from the historical-versus-standing, post-freeze, literal-text, provenance, relation-aware and
+upstream-proof failures. **A criterion nothing can fail is not a criterion** — each names the
+artifact read, the query run, and the observation that would refute it.
