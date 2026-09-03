@@ -3531,3 +3531,74 @@ draft; Lane B owns the later independent verification.
 | **Reject verification** | B-071 / D-188 application | Green checks and current Graphify do not satisfy the semantic success criteria | Source correction, semantic graph sync, independent review |
 | **Defer** | `NG-11` policy owner | Separate unresolved governance item | Separate Judge decision |
 | **Defer** | Product implementation or lane transition | Planning only; no build authorization was requested or granted | Later bounded authorization |
+
+---
+
+## Consolidated handback to Lane A — `B071-R97`–`R102`
+
+### What happened
+
+Lane B's Round 12 review is pushed at `9d00f70`. It accepts `D-188`'s parent ontology and rejects
+terminal verification of its application because the derived documents still collapse
+`V1/NG-02`, `PBL-04` and S6/`SEC-03`. The detailed evidence, failure modes and acceptance criteria
+remain canonical in the Round 12 section above; they are not repeated here.
+
+Current transaction state at handback:
+
+- source review: local `HEAD` = upstream = GitHub = `9d00f70`;
+- Graphify: last analyzed source remains `129efab`, so `docs-drift` is expected after the handoff
+  commit;
+- authority: the Judge approved and completed the push of the review only. No governed-tier edit,
+  Graphify source correction, Product implementation or lane transition is authorized by that act.
+
+### What Lane A needs to do
+
+Prepare one reviewable correction packet for `B071-R97`–`R102`, using the following dependency
+order. Preparation is not application; present the exact proposed text/write set to the Judge
+before changing governed tiers.
+
+| Order | Bounded unit | Exact owner/files | Done when |
+|---:|---|---|---|
+| **1 — decision parent** | Draft the narrow `D-188` correction: preserve its ontology; withdraw the false Build-Spec completion evidence; supersede only the `D-147`/`D-148` clauses that equate S6 and multi-team accounts | `docs/v1/V1-DECISION-REGISTER.md` | One proposed Register clause gives every child edit authority and identifies retained versus superseded text |
+| **2 — Product ownership** | Make the Non-Goal visibly V1-qualified; keep the `D-145` variant only under `PBL-04`; apply the three exact readiness labels | `docs/Modular_PRD.md` §§2.5–2.5.2 | `V1/NG-02` records exclusion/reconsideration only; `PBL-04` alone owns the future capability |
+| **3 — V1 tracking** | Keep one S6/`SEC-03` row; replace the combined row with `V1/NG-02 EXCLUDES PBL-04`; remove post-V1 “exclusion stops applying” language | `docs/v1/V1-BUILD-SPEC.md` §§6–6.1 | No row or pointer calls S6 and multi-team accounts the same item |
+| **4 — existing packet** | Fold the correction and lifecycle disposition into Draft 12 and this existing handoff; do not mint another handoff, decision summary or backlog ledger | `docs/v1/V1-B071-CORRECTIVE-PLAN.md`; `B-071` | One current plan cites `R97`–`R102`; historical evidence remains append-only |
+| **5 — source transaction** | After bounded Judge authorization, apply Units 1–4 parent-first, verify the exact write set, run the suite, commit and push the settled source | Git/GitHub | Upstream contains the authorized source commit; no unrelated path is included |
+| **6 — Graphify evidence** | At the pushed source revision, rebuild/re-merge the existing curated layer and make the D-188 relationship queryable | existing graph fragment mechanism and `.graphify/` | Query returns `V1/NG-02 → PBL-04` and keeps `PBL-04` distinct from S6/`SEC-03`; graph checks pass at the same revision |
+| **7 — independent closure** | Hand the exact pushed/analyzed revision back to Lane B | `B-071` lifecycle only | Lane B independently confirms every `NG-S6-SC*` criterion before `Verified` is considered |
+
+### Required write-set boundary
+
+The correction packet may propose edits only to the Register, Product requirements, V1 Build Spec,
+the existing B-071 corrective plan/handoff, and the existing Graphify fragment mechanism. The
+frozen Project requirements, frozen Charter, Artifact Inventory, Fn/Data/UX specs, Phase Closure,
+application code, schema and lane state are explicitly unaffected.
+
+If Lane A finds that any excluded file must change, it must stop and return that new dependency to
+the Judge instead of silently widening the packet.
+
+### What Lane B did instead
+
+Lane B stopped at specification and handoff. It did not correct Lane A's governed documents, rebuild
+Graphify over unsettled source, authorize Draft 12, or begin Product implementation.
+
+### Lane A response contract
+
+Lane A's next response should state only:
+
+1. whether each `R97`–`R102` finding is accepted or disputed, with file evidence for a dispute;
+2. the exact proposed decision text and closed write set;
+3. whether Judge authorization is still pending;
+4. after authorization only, separate source-commit, push, graph and independent-review evidence.
+
+### Approve/reject handback
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Handoff channel | B-071 remains the single canonical packet; Round 12 is pushed at `9d00f70` | Lane A acknowledgement and draft |
+| **Approve-with-conditions** | Lane A correction plan | Units 1–7 are dependency ordered and bounded | Exact-text review, then Judge authorization |
+| **Reject** | Duplicate tracking | No new B-number, SOP, backlog ledger or parallel corrective plan | Use B-071/Draft 12 |
+| **Reject** | Implied authority | Approval to push `9d00f70` does not authorize governed edits, Graphify correction, implementation or lane transition | Obtain the bounded Judge act first |
+| **Defer** | Graphify synchronization | Current drift is known; synchronizing before source correction would immediately re-drift | Unit 6 after pushed source |
+| **Defer** | B-071 `Verified` | Lane A cannot verify its own application | Unit 7 independent Lane B review |
+| **Defer** | Product implementation | Outside this documentation handback | Later build authorization while the selected lane is Active |
