@@ -337,6 +337,36 @@ ad-hoc Scrum/Agile backlog refinement happens** — any Non-Goal above can be re
 time, independent of which version's sprint is currently active, because nothing about editing
 this table depends on a sprint being open.
 
+### 2.5.2 Post-v1 Product backlog — named capabilities (`D-187`)
+
+**Governed by §2.5.1's five steps, not beside them.** These rows carry capability identity, rank and
+both `D-150` conditions. They are **not** a second backlog mechanism: §2.5.1 remains the path, §2.5
+remains the exclusion table, and a row here never lifts an exclusion or authorizes a build.
+
+| ID | Capability | Rank | Prohibition lift | Separate authorization still required (`D-150`) |
+|---|---|---|---|---|
+| `PBL-01` | **T6 global assurance** — assurance service and evidence | **Bottom**, retained | None applies — T6 is not excluded by a Non-Goal | Yes: refinement and build authorization, post-v1 |
+| `PBL-02` | **In-app monetization** — software supporting commercial access and transactions | **Unranked — not refinement-ready** | The Charter's line 54 amended directly (`NG-03`, `D-148`) — no other trigger resolves it | Yes: a separate charter/PRD act. **Lifting `NG-03` authorizes nobody to build this** |
+
+**They are siblings, not parent and child.** A future commercial offer may sell access to T6, and
+the coupling stops there:
+
+| Claim | Status |
+|---|---|
+| Payment authorizes, satisfies or changes a T6 judgment | **Never** — `D-04`'s revenue rule and T6's independence both forbid it |
+| T6 completion evidences payment | **Never** — different objects, different evidence |
+| Promoting `PBL-01` promotes `PBL-02` | **No** — independent ranks and promotion paths |
+| Promoting `PBL-02` changes T6 scope | **No** |
+
+**Revenue is a business outcome; monetization software may be a capability.** `D-04` is unchanged
+and unnarrowed — it prevents revenue attaching to **a specific editorial decision**, and it never
+spoke to product features. Recording `PBL-02` does not make revenue a feature.
+
+**`B-008`'s detailed commercial model is NOT adopted** (`D-96`) — no `cart_id`, payment-provider
+configuration, obligation drain, asynchronous account claiming or provider/editorial ID split.
+Historical reference only. `B-008` is the live instance `D-150` names for stating one condition and
+omitting the other.
+
 ### 2.6 Strategy-to-Execution Traceability Ladder
 
 > **Adaptation.** The template's ladder starts at a Company OKR. This project's starts at the Charter, and three of its decisions are Open — so the ladder gains a rung above the objectives and a provisional marker below them. There is no Jira; the execution rung is the sprint plan.

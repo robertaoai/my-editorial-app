@@ -12511,3 +12511,98 @@ handoff's disposition is channel bookkeeping, not a governed-tier edit.
 
 **Unchanged:** every other `R67` scope limit — no rewrite above, no restated closed-item list, no
 current-graph claim, no lifecycle promotion, no graph synchronization in that commit.
+
+---
+
+## 5.14e12 `D-187` — `NG-03`, the Revenue Rule, and Two Sibling Post-v1 Features Separated
+
+**Chief Editor decision, 2026-09-03, raised as `B-071`'s `NG-03` conflation finding.** Separates a
+standing Charter exclusion, a business outcome, and two independent future product capabilities.
+**Authorizes no build and lifts no prohibition.**
+
+### The separation
+
+| Object | What it is | What it is not |
+|---|---|---|
+| **`NG-03`** | A **live, Charter-level v1 exclusion**: no monetization features. It explains why monetization is absent from v1 | **Not** the identity, rank, requirements or authorization record of any future feature |
+| **T6 global assurance** | An independent post-v1 product capability — assurance service and evidence | Not a parent or child of monetization |
+| **In-app monetization** | An independent post-v1 product capability — software supporting commercial access and transactions | Not a T6 sub-feature |
+
+**T6 and monetization are siblings.** A future commercial offer may sell access to T6, and the
+coupling stops there: **payment cannot authorize, satisfy or change a T6 judgment; T6 completion
+cannot evidence payment; promoting either cannot automatically promote the other.**
+
+### `NG-03` is live, not historical — correcting the finding's premise
+
+The finding described `NG-03` as a *"historical V1 constraint"* to be *"preserved only in the frozen
+V1 snapshot."* **That understates it.** `Modular_PRD.md` §2.5 records `NG-03` as a **Charter-level
+v1 exclusion** whose **"Ready when" (`D-148`) is the Charter's line 54 being amended directly — no
+other trigger resolves it.** It holds now, and `Modular_PRD.md` §2.1 states the `M-POC` origin
+*"is why it may exist while `NG-03` holds"*, present tense. `NG-03` is **untouched by this entry.**
+
+### `D-04` is NOT amended — the premise was wrong
+
+The finding asked that `D-04` be narrowed because it *"says revenue is never a product feature."*
+**It says no such thing.** `D-04` reads:
+
+> **Single revenue rule.** Revenue may attach to the business and the service, never to a specific
+> editorial decision.
+
+That is an **editorial-independence control** — it prevents revenue attaching to a specific
+editorial decision, the pay-to-influence failure. **It never spoke to product features at all**, so
+it contains no defect to narrow, and rewording it toward *"monetization software may be a product
+feature"* would erode the independence rule while fixing a sentence that does not exist. **`D-04`
+stands exactly as written.**
+
+**The substantive distinction the finding wanted is sound and is recorded here instead**, where it
+neither touches nor weakens `D-04`:
+
+- **Revenue is a business outcome**, reported by the business, and it never attaches to a specific
+  editorial decision (`D-04`, unchanged).
+- **Software supporting in-app monetization may be a future product capability.** Whether such
+  software exists is a product question; it does not make revenue itself a feature, and it does not
+  license revenue to attach to an editorial decision.
+
+These are compatible statements about different objects. **Recording the second does not narrow the
+first.**
+
+### The backlog rows, and the mechanism question
+
+`Modular_PRD.md` §2.5.1 (`D-148`) already defines a five-step backlog path, and `NG-02` carries its
+worked example — a backlogged candidate recorded inside the Non-Goal row under `D-145` while the
+exclusion stands. **Lane A recommended reusing that pattern and the Chief Editor chose two explicit
+Product backlog IDs instead.** The decision is recorded as made. **To prevent a second competing
+ledger** — the shape `B-077`'s pattern table names — the two rows are created as
+`Modular_PRD.md` §2.5.2, **governed by §2.5.1's five steps rather than beside them**, and they carry
+`D-150`'s both-conditions rule explicitly.
+
+| ID | Capability | Rank | Both conditions (`D-150`) |
+|---|---|---|---|
+| `PBL-01` | T6 global assurance — assurance service and evidence | **Bottom**, retained | Prohibition lift: none applies — T6 is not excluded by a Non-Goal. Authorization: separate refinement and build authorization, post-v1 |
+| `PBL-02` | In-app monetization — software supporting commercial access and transactions | **Unranked — not refinement-ready** | Prohibition lift: the Charter's line 54 amended directly (`NG-03`, `D-148`). Authorization: a separate charter/PRD act — **lifting `NG-03` authorizes nobody to build this** (`D-150`) |
+
+**`B-008`'s detailed commercial model remains NOT adopted** — `cart_id`, payment-provider
+configuration, obligation drains, asynchronous account claiming and the provider/editorial ID split
+are historical reference only (`D-96`). Neither row adopts it, and `B-008` is precisely the live
+instance `D-150` names for stating one condition and omitting the other.
+
+### Gaps
+
+**Closed:** the `NG-03`/future-feature conflation; the `D-04` premise. **Opened:** none.
+**Unchanged:** `NG-03` itself, `D-04` itself, `B-008`'s non-adoption, `B-071`'s own defects, which
+remain open pending independent verification.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `NG-03`/feature separation; revenue distinction; `PBL-01`/`PBL-02` | ✅ §5.14e12 | **— unaffected: post-v1 backlog, no v1 scope, sequence or DoD change** | **— unaffected** | **— unaffected: no repository file created or retired** | **— unaffected: no lane state or closure condition changes** | ✅ new §2.5.2; §2.5 and §2.5.1 unchanged |
+
+**Encyclopedia:** unaffected — no entry depends on post-v1 backlog identity or the revenue rule.
+
+### Scope limits
+
+**Records a separation and two backlog identities. Builds nothing.** `NG-03` stands, `D-04` stands,
+the Charter and `docs/PRD.md` are untouched and unwritable. No prohibition is lifted, no rank is
+assigned to `PBL-02`, no implementation, refinement, lane transition or deployment is authorized.
+`B-071` is **not** closed by this entry.
