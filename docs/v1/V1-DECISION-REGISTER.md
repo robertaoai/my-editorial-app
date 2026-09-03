@@ -12412,3 +12412,38 @@ it runs once after `R68` settles the final source `HEAD` (`R21`).
 creates no artifact, authorizes no build, promotes no lifecycle state, moves no lane, and
 synchronizes no graph. `B-061`, `B-071`/proposed `D-182`, hook/check implementation, `AUTH-DOC`,
 product work, lane transition and deployment are untouched.
+
+### Correction, added 2026-09-03 (`B072-R67`) — `B072-R21` lifecycle classification
+
+**Bounded Judge authorization, 2026-09-03:** *"approve one at a time commit: R66, R67, R68"* —
+**this section records the `R67` unit only**, the second of three. Its guide is
+`docs/handoff/B-074-*.md` at immutable commit `18d2e79`; the `R66` unit was applied first and is
+observable at `bfb77f4`. A guide commit proves the instruction exists, never that it was applied.
+
+**Correction — `B072-R21` lifecycle classification.** `D-186`'s original Gaps sentence placed
+`B072-R21` under **Unchanged** while also recording that its Graphify synchronization was
+performed. **The `Unchanged` classification is withdrawn. The effective current state is `Closed`,**
+evidenced by the completed synchronization at commit `56759ff`. The original sentence remains above
+as historical text and is superseded **only** for this lifecycle classification. The remaining
+`Unchanged` items begin with `B-061` and `B-071`/proposed `D-182`.
+
+**Historical completion is not current graph currency.** `56759ff` proves the `R21` synchronization
+performed in the `D-186` application pass. It is **not** evidence that the graph is current at any
+later `HEAD` — that is read from `.graphify/branch.json`'s `lastAnalyzedHead` against the settled
+`HEAD`, and it remains a separate last-step obligation after `R68`.
+
+### Tier applicability (`D-54`) — `R67` unit
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `R21` reclassified `Unchanged` → `Closed` | ✅ this correction | **— unaffected: no scope, sequence or DoD change** | **— unaffected: no rule or pointer changes** | **— unaffected: no repository file created or retired** | **— unaffected: no lane state or closure condition changes** | **— unaffected: a lifecycle classification, not a product requirement** |
+
+**Encyclopedia:** unaffected — no entry depends on `R21`'s lifecycle label.
+
+### Scope limits — `R67` unit
+
+**One lifecycle classification, appended.** Rewrites nothing above, edits no other file, restates no
+closed-item list, claims no current graph currency, promotes no lifecycle state, and synchronizes no
+graph. `R66` is already applied and is not re-touched; `R68` is a separately authorized commit that
+follows. `B-061`, `B-071`/proposed `D-182`, hook/check implementation, `AUTH-DOC`, product work,
+lane transition and deployment are untouched.

@@ -4,9 +4,21 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** application and independent verification of `B072-R67`; no product implementation
-- **Status:** Open
-- **Lane A:**
-- **Evidence:** `B-072` §`B072-R67`; `D-186` §Gaps and its 2026-09-03 correction; Graphify synchronization commit `56759ff`
+- **Status:** Answered
+- **Lane A:** **Acknowledged and applied 2026-09-03.** Second of three units under the bounded Judge
+  authorization *"approve one at a time commit: R66, R67, R68"*. Step 1 of §4 was satisfied before
+  starting: the `R66` application commit `bfb77f4` was pushed as its own unit and is not absorbed
+  into this range. The correction is **appended** to `D-186` — the original Gaps sentence is intact
+  and superseded only for `R21`'s lifecycle label, which moves from `Unchanged` to **`Closed`**,
+  evidenced at `56759ff`. The record states explicitly that `56759ff` proves historical `R21`
+  completion and **not** current graph currency, which is read from `.graphify/branch.json` against
+  the settled `HEAD`. **Graphify is deliberately not synchronized in this commit** (§3) — it runs
+  once after `R68`. `R68` follows as a separate, separately authorized unit.
+- **Resolution:** Applied
+- **Evidence:** `docs/v1/V1-DECISION-REGISTER.md` §"Correction, added 2026-09-03 (`B072-R67`)";
+  `B-072` §`B072-R67`; `D-186` §Gaps and its 2026-09-03 corrections; Graphify synchronization commit
+  `56759ff`. **No terminal verification field is set** — B-072 stays `Applied` until an independent
+  reviewer promotes it (`B074-SC5`)
 
 ## What happened
 
