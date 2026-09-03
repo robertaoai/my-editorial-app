@@ -775,3 +775,82 @@ order does not make one the authority parent of the other, and neither is the pa
 | **Defer** | Graphify synchronization | Graph analyzes `838baff`, not `79edb96`; source corrections must land first | Final correction commit, rebuild/re-merge, full suite |
 | **Defer** | Hook/check implementation | Only its behavioral contract is drafted here | Separate Lane A tooling authorization |
 | **Defer** | Product implementation, `AUTH-DOC`, lane transition and deployment | Unaffected by this governance review | Separate bounded authorization |
+
+## Independent review of Lane A commits `6e41753` / `b3c7849` (2026-09-03)
+
+### Approval and evidence state
+
+The current Chief Editor message begins **“Judge Approved”** and identifies Lane A's seven-finding
+correction packet. This is approval received for that bounded documentation packet; it does not
+self-verify the result, authorize the deferred routing/enforcement work, grant `AUTH-DOC`, or
+authorize implementation.
+
+Git supplies the push truth that the pasted narrative does not:
+
+- remote `origin/docs/journal-2026-08-16` = `a3d2d2a`;
+- local `HEAD` = `b3c7849`;
+- therefore `6e41753` and `b3c7849` are **not pushed** and the branch is two commits ahead;
+- the accumulated range through `a3d2d2a` was pushed, so the one historical range that triggered
+  `R28` no longer sits only on the local machine.
+
+### Independent result
+
+| Prior finding | Result against the files | Disposition |
+|---|---|---|
+| `R22` — false verbatim claim | `D-184` now calls the short phrase a label and anchors approval by reference to immutable `79edb96` | **Verified correct** |
+| `R23` — wrong root-finding ID | `D-185` now maps root inference/naming to `R18`, leaving `R16` solely under `D-184` | **Verified correct** |
+| `R24` — same-commit children called open | Journal root block and README pointer are now explicitly Applied at `79edb96` | **Verified correct** |
+| `R25` — false `D-184 → D-185` edge | `D-183`/`D-184` are siblings; `D-185` is root-registration evidence | **Verified correct** |
+| `R26` — stale evidence anchor | B-072 points to substantive correction commit `6e41753`; `b3c7849` only fills that evidence value | **Verified correct** |
+| `R27` — inaccurate current-value bundle | A matrix now exists, but it omits `R27` itself and overstates `R28` as fully Applied | **Partially corrected — see `R30`** |
+| `R28` — push-range precondition | The rule exists in `D-184`, but not in the sole operative procedure, `docs/handoff/README.md` | **Partially corrected — see `R29`** |
+
+### New findings — parent first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R29` — the `R28` safety precondition did not reach the canonical SOP | `D-184` requires the remote to contain the proposed handoff commit's parent and the outgoing range to contain only the permitted commit. `docs/handoff/README.md` still tells the actor only to inspect the staged paths, then “commit and push immediately” | A compliant Eligible actor follows the sole operative SOP, sees a clean one-file commit, and pushes unreviewed ancestor commits. The exact `R28` failure remains the documented happy path | Amend only `docs/handoff/README.md`'s existing commit/push procedure: before push, fetch/inspect the configured upstream, require upstream to equal the handoff commit's parent, and require the outgoing range to contain only the permitted commit; otherwise stop for Active-lane synchronization or an explicitly named Judge range authorization |
+| `B072-R30` — B-072's current-value matrix is not current | The Applied row lists `R22`–`R26`, `R28` but omits `R27`; it calls `R28` Applied although only its Decision Register half landed. The Open row mentions the future check but not the missing canonical-SOP application | Reviewers can close `R28` by reading the register while the actor-facing procedure still lacks it; the matrix designed to prevent stale prose repeats the same completeness error | Change the matrix once: Applied/independently confirmed `R22`–`R26`; Applied as tracking structure `R27`; Partially Applied `R28` (register yes, SOP/check no); Open `R11`–`R15`, `R19`, `R21`, `R29`, propagation and enforcement |
+| `B072-R31` — the Lane A turn summary contradicts Git push state | It says `6e41753` and `b3c7849` are “both already pushed,” then asks whether to push them. Git shows remote `a3d2d2a` and local `b3c7849` | A lane handoff can switch machines believing the corrections are durable remotely; the next checkout loses the two commits and reviews the wrong tree | Record one factual handoff line: `a3d2d2a` is pushed; `6e41753`/`b3c7849` are local pending the final correction pass. Never combine “committed” and “pushed” into one status |
+
+### Parent-first corrective plan — documentation/tooling only
+
+1. **Operative safety parent (`R29`).** Apply `R28`'s already-decided upstream-range precondition to
+   the one canonical SOP in `docs/handoff/README.md`. Do not copy the procedure into Phase Closure,
+   rule files or work orders.
+2. **Tracking child (`R30`).** Correct B-072's current-value matrix using the four states above;
+   keep `Resolution: Applied` and do not set the handoff to `Verified` while closure work remains.
+3. **Remote-evidence child (`R31`).** State the actual local/remote boundary. The Active Lane A may
+   push the final accumulated documentation range after the correction commit and local checks; an
+   Eligible Lane B push remains disallowed while its outgoing range contains Lane A commits.
+4. **Capture/routing parent.** Apply `R19` and the compact `R11`–`R15`
+   request→refinement→decision→execution→evidence map once in `docs/README.md`; link to the handoff
+   SOP rather than restating it.
+5. **Propagation children.** Add link-only owned facts to Phase Closure/shared rules/work orders and
+   specify the commit-hook/check behavior, including the `R28` negative case. Do not implement the
+   check in this planning pass.
+6. **Graph/evidence last (`R21`).** Commit source and any curated-fragment changes; rebuild Graphify
+   at that commit; re-merge curated fragments if required; run the full suite; make no later tracked
+   change; push the resulting range; then request Lane B verification of that exact remote `HEAD`.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R29-SC1` | An Eligible B/C actor has one permitted handoff commit | The canonical SOP reaches its push step | It compares the upstream ref with the commit's parent and inspects the complete outgoing range, not only the staged paths |
+| `B072-R29-SC2` | The upstream is behind the handoff commit's parent | The actor follows the SOP | Push stops and names either Active-lane ancestor synchronization or explicit Judge authorization of the immutable accumulated range |
+| `B072-R30-SC1` | B-072's current-value matrix is inspected | It is compared with Git and the canonical SOP | `R22`–`R27` are Applied; `R28` is Partial until the SOP/check land; all remaining work is named once under its actual ID |
+| `B072-R31-SC1` | A commit status is reported | Another lane compares local and remote refs | “Committed” and “pushed” are separate fields/facts; `6e41753`/`b3c7849` are not described as remote before the remote contains them |
+| `B072-R21-SC1` | Lane A requests terminal verification | The evidence packet is opened | Remote `HEAD`, local `HEAD`, Graphify `lastAnalyzedHead`, source text and the check output all name the same commit |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `D-184`/`D-185` substantive record | `R22`–`R26` corrections are independently confirmed against the files | Preserve; no duplicate rewrite |
+| **Approve-with-conditions** | `R27`/`R28` correction packet | Register and dependency corrections are sound; canonical SOP and current-value matrix remain incomplete | Apply `B072-R29`/`R30` |
+| **Reject verification** | B-072 at `b3c7849` | The operative SOP can still perform the forbidden ancestor push; Graphify is stale and closure work remains | Lane A completes parent-first plan; same-HEAD re-review |
+| **Reject** | “Both commits already pushed” | Remote ends at `a3d2d2a`; local ends at `b3c7849` | Correct status, then Active Lane A pushes final range |
+| **Defer** | `R11`–`R15`, `R19`, propagation and enforcement | Still open and not authorized for implementation by this review | Lane A documentation/tooling plan |
+| **Defer** | Graphify synchronization | Analyzed `838baff`; source corrections must land first | Final source commit, rebuild/re-merge, full suite |
+| **Defer** | Product implementation, `AUTH-DOC`, lane transition and deployment | Unaffected by this governance review | Separate bounded authorization |
