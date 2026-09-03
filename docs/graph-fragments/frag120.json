@@ -36,14 +36,14 @@
       "file_type": "document",
       "source_file": "docs/handoff/B-075-r68-b072-lifecycle-metadata-correction-guide.md",
       "source_location": "",
-      "description": "Handoff status: Answered, Resolution Applied at b537d66, with one recorded deviation. Lane B's task guide operationalizing B072-R68: B-072 carried Verified-At-Commit 8b0fa76 while Resolution was Applied, letting historical R54 evidence read as terminal verification of the current packet, and its header still called R65-R69 closure gates. Applied: the header now carries only current state, enforcement is recorded as deferred hardening and not a closure gate per R69, and one terminal gate remains -- independent Lane B review after final Graphify synchronization. Deviation: the guide's section 2 and B075-SC1 require removing Verified-At-Commit while Applied, which closure-readiness rejects ('an applied change that names no commit cannot be re-checked'), confirmed empirically when B-073 failed that way. On the Judge's direction the field was re-pointed to the application commit and labelled an evidence anchor rather than removed; the check was not changed and Lane B is asked to rule. Unit 3 of 3; guide commit 63c51b4 is not application evidence.",
+      "description": "Handoff status: Answered, Resolution Applied at b537d66, with one recorded deviation. Lane B's task guide operationalizing B072-R68: B-072 carried Verified-At-Commit 8b0fa76 while Resolution was Applied, letting historical R54 evidence read as terminal verification of the current packet, and its header still called R65-R69 closure gates. Applied: the header now carries only current state, enforcement is recorded as deferred hardening and not a closure gate per R69, and one terminal gate remains -- independent Lane B review after final Graphify synchronization. Deviation: the guide's section 2 and B075-SC1 require removing Verified-At-Commit while Applied, which closure-readiness rejects ('an applied change that names no commit cannot be re-checked'), confirmed empirically when B-073 failed that way. On the Judge's direction the field was re-pointed to the application commit and labelled an evidence anchor rather than removed; the check was not changed. RESOLVED by B-076: independent review confirmed the re-pointing is correct and superseded B075-SC1 -- while Applied, Verified-At-Commit is a REQUIRED non-terminal anchor and Verified-By is absent (B076-R1), applied at a1ad545. Unit 3 of 3; guide commit 63c51b4 is not application evidence.",
       "community": 3,
       "community_name": "Requirements Traceability",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node records the unresolved B075-SC1 versus closure-readiness conflict so a later reviewer meets the open question rather than rediscovering it."
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. Updated after B-076 settled the lifecycle contract, so the node no longer presents the anchor question as open."
     }
   ],
   "edges": [

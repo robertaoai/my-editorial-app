@@ -1,0 +1,81 @@
+{
+  "nodes": [
+    {
+      "id": "b076_r66_r68_lifecycle_contract_review",
+      "label": "B-076: R66-R68 Independent Review Finds Lifecycle-Contract Mismatches",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-076-r66-r68-independent-review-lifecycle-contract.md",
+      "source_location": "",
+      "description": "Handoff status: Answered, Resolution Applied at a1ad545. Lane B's independent review of the ordered R66-R68 application at settled revision 7c0bb94. Substantive result: R66's frozen-source routing and R67's append-only R21 classification are correct, and R68's re-pointed evidence anchor is correct rather than merely tolerated. Five documentation-contract defects found and since applied: R1, while Applied, Verified-At-Commit is a REQUIRED non-terminal evidence anchor and Verified-By is absent, superseding B072-R68-SC1 and B075-SC1, with closure-readiness explicitly not changed because it already encodes the canonical rule; R2, independence excludes the answering and applying side rather than the raiser, so Lane A is barred and Lane B is eligible to verify even though it raised the findings and drafted the guides; R3, current evidence wording must distinguish the anchor from the absent Verified-By; R4, D-186's R67 scope sentence is imprecise and means no other governed tier changed; R5, a redundant tally word duplicated the named terminal gate. Lane A applied all five and set nothing to Verified.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also settles two reusable rules -- the evidence-anchor ontology and the independence boundary -- that several earlier entries had wrong."
+    },
+    {
+      "id": "b077_consolidated_closure_failure_pattern",
+      "label": "B-077: Consolidated Handoff Closure and Recurring-Failure Pattern",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-077-consolidated-handoff-closure-and-failure-pattern.md",
+      "source_location": "",
+      "description": "Handoff status: Answered, Resolution Applied at a1ad545, acknowledged as receipt. A closure map and immutable audit snapshot pinned at revision a18fe1c, explicitly not a second backlog: each originating handoff remains the canonical record of its own live Status, Resolution, evidence and owner. Names ten recurring failure patterns, each with mechanism, guaranteed failure and corrective rule: approval inheritance, response treated as closure, partial fix given a whole-entry label, historical/current-state collision, field-name ontology error on Verified-At-Commit, wrong independence boundary, green-form fallacy, graph-current fallacy, mutable roll-up, and repair recursion. Its root diagnosis is that five distinct facts were repeatedly collapsed -- Judge authorization, Lane A answering, a correction existing at a commit, independent verification, and the graph describing the settled source. Parent 1 (B076-R1-R5) is complete. Children 2 to 5 remain open and unauthorized: legacy Applied reconciliation across sixteen entries, B-061/B-070 successor disposition, B-071 Draft 12 under the D-171 hold, the Phase 3 deferral boundary for B-016 and C-001, and final independent review. One premise corrected on intake: the entry records its own push as blocked with remote at a18fe1c, but git ls-remote showed the branch at 0bab8bd -- the push had landed.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. The failure-pattern table is the most reusable artifact in the handoff channel and was unreachable by query without a node."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b076_r66_r68_lifecycle_contract_review",
+      "target": "b072_handoff_only_commit_authority",
+      "relation": "independently_reviews",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-076-r66-r68-independent-review-lifecycle-contract.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b076_r66_r68_lifecycle_contract_review",
+      "target": "b075_r68_b072_metadata_guide",
+      "relation": "supersedes_criterion_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-076-r66-r68-independent-review-lifecycle-contract.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b076_r66_r68_lifecycle_contract_review",
+      "target": "b073_r66_frozen_source_intake_guide",
+      "relation": "supersedes_criterion_of",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-076-r66-r68-independent-review-lifecycle-contract.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b077_consolidated_closure_failure_pattern",
+      "target": "b076_r66_r68_lifecycle_contract_review",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-077-consolidated-handoff-closure-and-failure-pattern.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b077_consolidated_closure_failure_pattern",
+      "target": "b071_ontology_correction_handoff",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-077-consolidated-handoff-closure-and-failure-pattern.md",
+      "source_location": "",
+      "weight": 1
+    }
+  ]
+}
