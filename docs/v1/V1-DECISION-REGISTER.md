@@ -12215,3 +12215,100 @@ addendum; `B-072`'s own `Status`/`Resolution` are unchanged by this entry.
 deployment authority, and does not touch `D-171`, `D-182`, `D-183`, `D-184`, or any `AUTH-*`
 checkpoint. The journal/`docs/README.md` pointers, capture-before-child rule, Graphify sync, and
 independent verification named in "Gaps" above remain separate, unstarted work.
+
+---
+
+## 5.14e11 `D-186` — B-072 Documentation Packet Authorized and Applied; Approved Analysis Is Not Authorized Application
+
+**Chief Editor decision, 2026-09-03, raised as `B072-R64`.** Records the bounded application
+authority for the B-072 documentation packet, and the principle `R64` was written to protect.
+
+### The defect `R64` named
+
+Five separate `Approve` / `Approve-with-conditions` verdicts had accumulated across B-072's
+independent reviews — `R55`/`R56` correspondence, `R59`/`R60` direction, `R62`'s work-order
+finding, the B-061 note, and the Graphify deferral. **None of them authorized an edit.** Lane A
+correctly refused to treat them as execution authority and reported the hold rather than applying
+the corrections, which is what `D-183` requires. The residual risk `R64` identified is the opposite
+failure: without one consolidated approval object, the review loop can run indefinitely while every
+correction stays unapplied.
+
+### The approval, and its provenance
+
+**The Judge approved `B072-R64` directly, in conversation, 2026-09-03:**
+
+> Judge Approved: push; just done; Judge approves R64, then Lane A applies
+
+`R64` contains exactly one proposed decision, so the referent is unambiguous. **Provenance is that
+direct statement — it is not inferred from any commit, and no commit is offered as evidence of it**
+(`D-184` §`B072-R54`). The statement it approves, reproduced here so this record is self-contained:
+
+> **Judge Approved:** authorize Lane A to apply the **B-072 documentation packet at commit
+> `786db4a`**, documentation-only and parent-first:
+>
+> 1. record this bounded authorization in the next available Decision Register entry;
+> 2. update `docs/README.md` with `R19` and the six-stage `R11`–`R15` map, including `R63`'s
+>    separation of Judge input from customer/business input and its one-record-per-readiness-fact
+>    allocation;
+> 3. correct `docs/LANE-B-WORK-ORDER.md` under `R62`, replacing its `Eligible`/`D-108` row with the
+>    governing `D-156`/`D-184` semantics;
+> 4. add link-only pointers in `docs/v1/V1-PHASE-CLOSURE.md` §5.1 and, byte-identically, in the
+>    shared-core sections of `CLAUDE.md`, `AGENTS.md`, and `.agents/rules/graphify.md`;
+> 5. update this B-072 entry with Lane A's application evidence, commit and push the bounded source
+>    packet, then synchronize Graphify at the final source `HEAD` and run the full consistency suite.
+>
+> **Explicitly unaffected:** `docs/handoff/README.md` remains the sole transaction SOP;
+> `.github/WORKFLOWS-SPEC.md` remains unaffected; `V1-BUILD-SPEC.md`,
+> `V1-ARTIFACT-INVENTORY.md`, `Modular_PRD`, B-061, B-071/proposed `D-182`, application code,
+> hook/check implementation, `AUTH-DOC`, product work, lane transition and deployment are not
+> authorized by this decision. B-061 stays in its separate product-refinement chain.
+
+### What was applied
+
+| # | Target | Change |
+|---|---|---|
+| 1 | `docs/README.md` | New §"How a request becomes execution" — the six-stage map, one canonical record per fact, the promotion rule, capture-before-child (`R19`), the `A-NNN` asymmetry (`R13`), the journal non-authority clause (`R12`). `R63` applied: Judge input (`D-183`) split from customer/business input (`PRD.md`/`Modular_PRD.md`, no authority); readiness split across Build Spec (scope/sequence/DoD), work order (executable unit/paths/exclusions), Inventory (file lifecycle), Phase Closure (lane state). The `journal/` row now reads *"dated source analysis and rationale; historical memory only"* |
+| 2 | `docs/LANE-B-WORK-ORDER.md` | `R62` applied. The `Eligible` row no longer says the lock is free and no longer cites superseded `D-108`. It states that `Eligible` may coexist with `Active`, bars work-product commits, preserves `D-184`'s one-entry handoff commit, and cites `D-156` for promotion |
+| 3 | `docs/v1/V1-PHASE-CLOSURE.md` §5.1 | Link-only pointer to the map and the handoff SOP; this section keeps live lane state |
+| 4 | `CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md` | One byte-identical shared-core pointer. No stages or procedure copied. `shared-core-hash` verifies the core identical across all three |
+| 5 | `docs/handoff/B-072-*.md` | Application evidence recorded in the `Lane A` field |
+
+**No template field was added** (`R14`). **`docs/handoff/README.md` and `.github/WORKFLOWS-SPEC.md`
+are unaffected** — the latter confirmed by direct search: its only lane-adjacent line concerns
+required checks blocking pull requests, nothing on request routing or commit authority (`R61-SC1`).
+
+### The principle, stated once
+
+**An `Approve` verdict on an analysis is not permission to apply it.** Execution requires the
+Register's Judge act under `D-183`, an execution packet naming the bounded unit and its DoD, and
+Phase Closure naming the executing lane `Active` — except `D-184`'s standing one-entry handoff
+commit. A finding's approval, a proposed plan, an `Eligible` nomination, a commit, a push and a
+passing check are each insufficient, individually and together. This is now operative in
+`docs/README.md` and pointed to from the shared core.
+
+### Gaps
+
+**Closed:** `B072-R64`; `B072-R11`–`R15`, `R19`, `R59`–`R63` as applied text; `B072-R55`/`R56`
+(closed by the direct Judge act compared in B-072, no Register change needed). **Opened:** none.
+**Unchanged:** `B072-R21` (Graphify sync at the final settled `HEAD`, performed in this pass);
+`B-061`, `B-071`/proposed `D-182`, hook/check enforcement, `AUTH-DOC`, product work, lane
+transition.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-186` bounded authorization and the approved-analysis principle | ✅ §5.14e11 | **— unaffected: no scope, sequence or DoD change; explicitly excluded by the approval** | ✅ byte-identical shared-core pointer in `CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md` | **— unaffected: no repository file created or retired** | ✅ §5.1 link-only pointer | **— unaffected: a routing and authority rule, not a product requirement** |
+
+**Encyclopedia:** unaffected — no entry in `docs/ENCYCLOPEDIA-SYNC.md` depends on the
+request-routing map, the work-order lane vocabulary, or approval-provenance rules.
+
+**Handoff tracking:** `B-072` records this decision as its application evidence; its
+`Status`/`Resolution` remain `Answered`/`Applied`, with independent Lane B verification still owed.
+
+### Scope limits
+
+**Documentation only.** Creates no artifact, authorizes no build, moves no lane. `B-061` stays in
+the product-refinement chain behind `B-071`/proposed `D-182` and takes no lifecycle value here.
+Hook/check implementation of the SOP's pre-push proof, `AUTH-DOC`, product work, lane transition
+and deployment remain separately authorized, unstarted work.

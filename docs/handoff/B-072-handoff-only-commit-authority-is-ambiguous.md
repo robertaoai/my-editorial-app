@@ -18,14 +18,17 @@
 
   - **Resolution:** `Applied`. The narrow `Eligible` handoff-only commit-and-push rule (`D-184`), its
     canonical SOP (`docs/handoff/README.md`), and the historical root (`D-185`) are all applied.
-  - **Remaining closure gates (unordered by recency, each independent):** `R64` (bounded authority
-    to apply the documentation packet); `R11`–`R15` (the
-    request→refinement→decision/authorization→execution-packet/readiness→execution→evidence/lifecycle
-    routing map in `docs/README.md`); `R19`
-    (capture-before-child rule); `R21` (Graphify resync at the final settled `HEAD`); link-only
-    propagation to `V1-PHASE-CLOSURE.md` and the shared rule files; `R62`'s corrective
-    `LANE-B-WORK-ORDER.md` edit; commit-hook/check implementation of the SOP's pre-push proof
-    (drafted, not built); independent Lane B verification of this entry as a whole.
+  - **Documentation packet — APPLIED 2026-09-03 under `D-186`** (`V1-DECISION-REGISTER.md`
+    §5.14e11), the bounded Judge authorization `R64` required. Applied as text: `R11`–`R15`, `R19`,
+    `R59`–`R63` in `docs/README.md` §"How a request becomes execution"; `R62`'s corrective
+    `LANE-B-WORK-ORDER.md` `Eligible` row; link-only pointers in `V1-PHASE-CLOSURE.md` §5.1 and
+    byte-identically in the three rule files' shared core. `R55`/`R56` closed on the direct Judge
+    act compared in this file's 2026-09-03 review — no Register change was required. `R21` Graphify
+    synchronization performed at the final source `HEAD` of that same pass.
+  - **Remaining closure gates:** independent Lane B verification of this entry as a whole;
+    commit-hook/check implementation of the SOP's pre-push proof (drafted, not built, separately
+    authorized). `B-061` and `B-071`/proposed `D-182` are a separate product-refinement chain and
+    were never gates on this entry.
   `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
   transaction SOP; every earlier protocol block in this file's independent-review sections below is
   historical analysis, not a second operative copy (`B072-R8`/`R9`).

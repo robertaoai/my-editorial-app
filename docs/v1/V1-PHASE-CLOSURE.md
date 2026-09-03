@@ -563,6 +563,11 @@ boundary is not Lane A holding the lock.
 
 ### 5.1 What `Active` does and does not bar — `D-103`
 
+**Where this sits in the wider model (`D-186`).** `docs/README.md` §"How a request becomes
+execution" owns the six-stage request→execution map and the promotion rule;
+`docs/handoff/README.md` remains the sole transaction SOP. **This section keeps live lane state
+and the `Active` carve-outs** — the map points here for that fact rather than restating it.
+
 **Three carve-outs, and none of them is a softening.** A handover that barred these would stop
 the machinery the handover exists to serve.
 

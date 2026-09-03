@@ -311,6 +311,14 @@ records where it actually stands.
 **`README.md` is template boilerplate.** It opens `# vibe-stack-supabase` and describes a generic
 Next.js + Supabase starter. It is **not descriptive of this project** and is precisely the kind of
 source the warning at the top of this file exists to guard against. Treat it as stack notes only.
+
+**How a request becomes execution (`D-186`).** `docs/README.md` §"How a request becomes execution"
+owns the six-stage map — request, refinement, decision and authorization, execution packet and
+readiness, execution, evidence and lifecycle — with **one canonical record per fact** and the
+promotion rule. `docs/handoff/README.md` remains the sole transaction SOP;
+`docs/v1/V1-PHASE-CLOSURE.md` §5 keeps live lane state. **An `Approve` verdict on an analysis is
+not permission to apply it** (`D-183`, `B072-R64`): execution needs the Register's Judge act, a
+bounded unit with a DoD, and the `Active` lane — except `D-184`'s one-entry handoff commit.
 Claude Code specifics:
 - **You are Lane A, and under `D-93` you are also the Critic — never in the same turn.** Once per
   phase, before asking the Judge to close it, run a critic pass against the phase's artifacts and
