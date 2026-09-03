@@ -12089,6 +12089,58 @@ having landed on the shared branch is itself the durable trace of that approval 
 Future policy-content corrections to this decision cite their applying commit here as the approval
 record, rather than leaving approval provenance to conversation history alone.
 
+### Correction, added 2026-09-03 (`B072-R54`) — withdraws `R50`'s commit-as-approval inference
+
+**Judge ratification received directly in this conversation, 2026-09-03** (`D-183` point 1 — names
+the object, actions, scope and exclusions). Lane A asked the Judge explicitly whether the statement
+below was the Judge's own act or Lane B's forwarded recommendation; the Judge confirmed it as the
+Judge's own ratification. **The provenance of this approval is that direct answer in this turn — it
+is not inferred from any commit, and no commit in this repository is offered as evidence of it:**
+
+> Judge Approved: retrospectively ratify the documentation-only `B072-R45` correction at
+> `ad685e7`, the `B072-R51` Route A/Route B separation at `27b92a4`, and the `B072-R53` header
+> deletion at `ebf7d26`. Lane A may append `B072-R54` under `D-184`, withdrawing `R50`'s claim that
+> a commit landing proves Judge approval and recording that commits prove application/transport
+> only. This does not approve `R11`–`R15`, `R19`, propagation, enforcement, Graphify sync,
+> `AUTH-DOC`, product work or a lane transition.
+
+The `R50` approval record above is **withdrawn in its reasoning, preserved in its history**. Not
+rewriting it per this register's append-only convention; corrected here instead.
+
+**What is withdrawn.** `R50`'s sentence that each policy commit's "having landed on the shared branch
+is itself the durable trace of that approval having been given," and the forward-looking rule
+derived from it that future policy-content corrections "cite their applying commit here as the
+approval record." Both are circular: they treat successful application as proof of the permission to
+apply. This repository has one shared Git identity and an ungated working branch, so commit presence
+carries no natural-person signal at all. Under that rule, any unauthorized Lane A policy edit that
+reached the branch would automatically become its own authorization, and independent review could
+never reject approval provenance — `a_check_that_cannot_fail`.
+
+**What replaces it.**
+
+- **A commit proves content, application and remote arrival. It proves nothing about authority.**
+  Local/remote equality is transport evidence and is recorded as transport evidence only.
+- **An approval record must transcribe or cite a Judge statement satisfying `D-183`** — naming the
+  object, action, scope and exclusions — **and must name the immutable revision it approves.** The
+  statement is the evidence; the revision is its subject, never its proof.
+- **Independent review verifies correspondence between the recorded statement and the named
+  revision. It cannot supply missing authority**, and a correct application with absent provenance
+  is rejected on provenance regardless of how clean the Git evidence is (`D-183` point 6).
+
+`R45` at `ad685e7`, `R51` at `27b92a4` and `R53` at `ebf7d26` are ratified by the statement above and
+no longer rest on `R50`'s inference. **This correction approves nothing further:** `R11`–`R15`,
+`R19`, link-only propagation, hook/check enforcement, Graphify synchronization, `AUTH-DOC`, product
+work and any lane transition remain separately authorized, unstarted work.
+
+| Tier | Applicability |
+|---|---|
+| `V1-DECISION-REGISTER.md` | ✅ this correction |
+| `V1-BUILD-SPEC.md` | — unaffected: approval-provenance rule, not scope, sequence or DoD |
+| `V1-ARTIFACT-INVENTORY.md` | — unaffected: no repository file created or retired |
+| `V1-PHASE-CLOSURE.md` | Owed a link-only summary with `D-184`'s existing debt — not yet applied |
+| `Modular_PRD` §8 | — unaffected: development-lane process, not product behavior |
+| Encyclopedia | unaffected — no entry depends on `D-184` approval provenance |
+
 ## 5.14e10 `D-185` — `SETUP-SPIKE-000`: Historical Zero-to-One Setup Root
 
 **Chief Editor/Judge ruling, 2026-09-03, approved verbatim in this conversation** (`D-183` point 1 —

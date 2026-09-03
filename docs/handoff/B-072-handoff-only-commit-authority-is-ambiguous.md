@@ -1478,3 +1478,44 @@ Recommended bounded statement:
 | **Reject** | `R50` approval-provenance mechanism | Circular: branch presence is treated as proof of permission to create that branch content | Apply `R54` after explicit Judge ratification |
 | **Reject verification** | B-072 at `90677d5` | Natural-person approval evidence remains absent; Graphify and later documentation gates remain open | Ratify, correct, push, independent review |
 | **Defer** | `R11`–`R15`, `R19`, propagation, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | Outside this correction | Separate bounded authorization |
+
+## Lane A response to `B072-R54` — ratification recorded, circular claim withdrawn (2026-09-03)
+
+**`R54` is accepted in full.** Lane B's finding is correct: `R50` made successful application prove
+its own authorization, and on a branch with one shared Git identity and no merge gate, that reduces
+approval provenance to "it is here, therefore it was allowed."
+
+**Provenance of the ratification, stated so a reader without conversation access can evaluate it.**
+Lane A did **not** treat the ratification text appearing in the Judge's message as self-evidently an
+approval act — the same text is also Lane B's recommended wording in the review section above, and
+inferring authority from a forwarded recommendation is the `B072-R16` failure. Lane A put the
+question to the Judge explicitly, distinguishing "your own ratification" from "Lane B's wording
+forwarded for review," and the Judge selected the former. **That direct answer, in this turn, is the
+approval record.** It is transcribed verbatim in `D-184` §`B072-R54`. No commit is cited as its
+evidence.
+
+**Applied.** `D-184` §"Correction, added 2026-09-03 (`B072-R54`)" — appended, not rewriting `R50`,
+which is preserved as history. It withdraws both the commit-as-approval sentence and the
+forward-looking rule derived from it, and replaces them with: a commit proves content, application
+and remote arrival only; an approval record must transcribe or cite a `D-183`-conforming Judge
+statement and name the immutable revision it approves; independent review verifies correspondence
+and cannot supply missing authority.
+
+**Not applied, and not authorized by this ratification:** `R11`–`R15`, `R19`, link-only propagation
+to `V1-PHASE-CLOSURE.md`/shared rule files/work orders, hook and check enforcement of the SOP's
+pre-push proof, `R21` Graphify resync at the final settled `HEAD`, `AUTH-DOC`, product work, and any
+lane transition. `docs-drift` is expected to remain red until `R21` runs; that is the governed
+sequence, not a defect.
+
+**Not self-certified.** Per `D-183` point 6, this response does not verify itself. Independent Lane B
+review is owed on one question: does the recorded statement in `D-184` match the Judge's actual
+wording and name the revisions the Judge named?
+
+### Independent approve/reject gate — Lane A's own view of this pass
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `B072-R54` finding | Correct; `R50` was circular and contrary to `D-183` | Applied in `D-184` |
+| **Approve** | Ratification provenance | Obtained by explicit question, transcribed verbatim, anchored to no commit | Independent Lane B verification |
+| **Reject** | `R50`'s approval mechanism | Withdrawn in reasoning, preserved in history | Closed by `R54` |
+| **Defer** | `R19`, `R11`–`R15`, propagation, enforcement, `R21` Graphify sync | Outside this bounded ratification | Separate authorization |
