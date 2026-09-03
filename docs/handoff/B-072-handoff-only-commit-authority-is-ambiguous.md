@@ -25,10 +25,11 @@
     byte-identically in the three rule files' shared core. `R55`/`R56` closed on the direct Judge
     act compared in this file's 2026-09-03 review — no Register change was required. `R21` Graphify
     synchronization performed at the final source `HEAD` of that same pass.
-  - **Remaining closure gates:** independent Lane B verification of this entry as a whole;
-    commit-hook/check implementation of the SOP's pre-push proof (drafted, not built, separately
-    authorized). `B-061` and `B-071`/proposed `D-182` are a separate product-refinement chain and
-    were never gates on this entry.
+  - **Remaining closure gates:** `R65`–`R69` below, then independent Lane B verification of this
+    entry as a whole. Commit-hook/check implementation of the SOP's pre-push proof remains a
+    separately authorized follow-up whose relationship to terminal B-072 closure must be resolved
+    by `R69`. `B-061` and `B-071`/proposed `D-182` are a separate product-refinement chain and were
+    never gates on this entry.
   `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
   transaction SOP; every earlier protocol block in this file's independent-review sections below is
   historical analysis, not a second operative copy (`B072-R8`/`R9`).
@@ -1917,3 +1918,85 @@ not implement a hook, product feature or lane transition.
 | **Reject** | Treating approved findings as permission to edit | This is the approval-inheritance defect | Require the direct bounded act above |
 | **Defer** | B-061/B-071 product-refinement chain | Depends on proposed `D-182`, not this process packet | Separate product decision |
 | **Defer** | Hook/check implementation, `AUTH-DOC`, product work and lane transition | Outside the documentation packet | Separate authorization |
+
+## Independent review of `D-186` / commit `56759ff` (2026-09-03)
+
+### Evidence and scope
+
+Git independently confirms local `HEAD` and upstream at `56759ff`; that commit changes exactly the
+eight paths named by the R64 packet. The shared-core hash passes, Graphify records
+`lastAnalyzedHead = 56759ff`, and the full consistency suite passes. The excluded B-061/B-071,
+product, hook/check and implementation surfaces were not changed; the unrelated untracked
+`package-lock.json` remains untouched.
+
+Those facts prove application, transport and mechanical consistency. They do not cure an authority
+record whose quoted Judge statement is unavailable to the independent reviewer, nor do green checks
+resolve semantic contradictions those checks do not test.
+
+### What happened
+
+Lane A interpreted **“Judge Approved: push; just done”** as approval of the entire R64 packet and
+recorded a longer statement in `D-186`:
+
+> Judge Approved: push; just done; Judge approves R64, then Lane A applies
+
+The longer clause is not present in the current Judge request supplied to Lane B. `D-186` then says
+that exact direct statement—not a commit—is its provenance. Lane B cannot independently confirm a
+sentence that appears only in Lane A's record; accepting it would reproduce the self-certification
+boundary `D-183`, `R54`, `R55` and `R56` were created to prevent.
+
+### Findings — highest parent first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R65` — `D-186`'s application authority is not independently evidenced | The Judge text available in this task authorizes/reports a push only. `D-186` adds “Judge approves R64, then Lane A applies” and treats that longer sentence as the direct act authorizing all eight paths | A drafting actor can expand a transport instruction into policy authority, write the expanded sentence into the Register, and have its own record become the only evidence. The approval check again cannot fail | The Judge directly confirms to Lane B whether the full R64 packet at `786db4a`—including `D-186`, the named documentation edits, commit/push, Graphify sync and exclusions—was authorized. If yes, Lane A appends a narrow correction to `D-186` identifying the real direct ratification unless the Judge confirms its existing quotation verbatim. If no, Lane A appends that the application was unauthorized-but-present and awaits an explicit ratify-or-correct decision. Do not infer either outcome from `56759ff` |
+| `B072-R66` — customer/business intake is pointed at a frozen governing source | `docs/README.md` calls `PRD.md` the customer/business-input record “on the demand side,” but `docs/PRD.md` is frozen and the map names no change/intake path when new input differs from it. “Demand side” / “supply side” is also not the governed `D-29` tier vocabulary | A later actor either edits the frozen Project PRD, drops the request because its alleged destination is unwritable, or treats `Modular_PRD` as free to override the frozen source | State that customer/business input is a request until classified. Existing-scope refinement lands in the tier that owns it under `D-29`; input that would change a frozen source becomes a named Register gap/change decision and never edits the frozen source directly. Describe `PRD.md` as governing evidence, not the writable intake destination; remove the novel demand/supply labels |
+| `B072-R67` — `D-186` gives `R21` two lifecycle states | Its Gaps section lists `R21` under **Unchanged** while the same sentence says Graphify synchronization was performed, and B-072's header calls it performed | A later closure review can treat `R21` as either open or closed and cite the same decision for both results | Append a correction under `D-186`: `R21` belongs under **Closed**, evidenced at `56759ff`; the unchanged set begins with B-061/B-071. Preserve the original sentence as history rather than silently rewriting it |
+| `B072-R68` — current lifecycle metadata still carries a historical verification field | B-072 remains `Resolution: Applied` and says independent verification is owed, but its header retains `Verified-At-Commit: 8b0fa76`, which covers only R54 | A reader or parser can mistake partial historical evidence for terminal verification of the current packet; later verification may overwrite the field and erase what it previously meant | Remove `Verified-At-Commit` from the current-valued header while Resolution is `Applied`; its R54 evidence already remains in the append-only review. Add `Verified-By` and `Verified-At-Commit: 56759ff` (or the later correction commit) only when an independent actor actually promotes the whole entry to `Verified` |
+| `B072-R69` — hook/check enforcement is both a closure gate and a separate follow-up | The header calls independent review the remaining gate, then lists unbuilt enforcement under “Remaining closure gates” while labeling it separately authorized; Lane A's summary says only one gate remains | B-072 can never reach `Verified` without unrelated build authority, or it can be verified while silently ignoring what its own header called a gate | Decide once. Recommended: enforcement is a deferred hardening child, not a B-072 closure gate, because `D-184` and the canonical SOP already establish the governed behavior. Move it to a clearly labeled follow-up and make independent review—after R65–R68 corrections—the sole terminal gate. If enforcement is mandatory instead, keep B-072 Applied and authorize that build explicitly |
+
+### Corrective packet — implementation plan only
+
+1. **Authority parent (`R65`).** Obtain the direct Judge answer. Do not edit `D-186` or promote
+   B-072 until the answer establishes ratify versus unauthorized application.
+2. **Register child (`R67`).** After the authority result, append the narrow `D-186` provenance
+   correction required by `R65` and the lifecycle correction moving `R21` to Closed.
+3. **Structural-map child (`R66`).** Correct only the Customer/business-input clause in
+   `docs/README.md`; preserve the remaining six-stage map.
+4. **Handoff lifecycle child (`R68`, `R69`).** Replace current-valued B-072 metadata: remove the
+   premature historical verification field and classify enforcement as either a deferred follow-up
+   (recommended) or an explicit closure dependency.
+5. **Propagation and graph.** Update the shared-core pointer only if the structural-map anchor or
+   rule changes; otherwise mark it unaffected. Commit/push the source corrections, rebuild Graphify
+   at that final source `HEAD`, and rerun the full suite.
+6. **Independent terminal review.** A reviewer who did not author the correction verifies authority
+   correspondence, exact paths/exclusions, semantics, graph currency and checks before setting
+   B-072 `Verified`.
+
+### What Lane B did instead
+
+Lane B recorded this review only in the originating handoff. It did not rewrite `D-186`,
+`docs/README.md`, the shared core or any excluded tier; did not rebuild the already-current graph;
+and did not build enforcement or product behavior.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R65-SC1` | A direct Judge response is available to Lane B | It is compared with `D-186` and `786db4a` | The response explicitly confirms or denies the full packet's object, actions, paths, scope and exclusions; “push” alone is not expanded into application authority |
+| `B072-R66-SC1` | New customer/business input differs from or extends the frozen source | The six-stage map is followed | No frozen source is edited; the input becomes an owned refinement or a named Register gap/change decision |
+| `B072-R67-SC1` | `D-186` is read for current gap state | `R21` is classified | It has one value—Closed—with `56759ff` as sync evidence; it is absent from Unchanged/open wording |
+| `B072-R68-SC1` | B-072 is `Applied` | Its current header is read | No terminal verification field appears; historical R54 evidence remains in the append-only body |
+| `B072-R69-SC1` | B-072 terminal review is requested | Enforcement status is inspected | The file states unambiguously whether enforcement is a closure prerequisite or a deferred follow-up; the recommended model leaves independent review as the sole terminal gate after corrections |
+| `B072-R21-SC12` | The correction source commit is pushed | Final verification runs | Local `HEAD`, upstream and Graphify `lastAnalyzedHead` match; the full suite passes; the verifier did not author the final correction |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Mechanical application at `56759ff` | Exact write set, exclusions, transport, graph currency and checks confirmed | Preserve as application evidence |
+| **Reject verification** | `D-186` / B-072 authority provenance | The full R64 Judge act is not present in this Lane B task | Direct `R65` confirmation, then append-only correction if required |
+| **Approve-with-conditions** | Six-stage routing map | Structure is sound except customer/frozen-source intake semantics | Apply `R66` after authority is resolved |
+| **Reject** | `R21` lifecycle wording and current B-072 verification metadata | Each contradicts the current state it purports to record | Apply `R67`/`R68` |
+| **Approve-with-conditions** | Enforcement disposition | Recommend deferred hardening, outside terminal B-072 closure | Judge decides `R69` |
+| **Defer** | B-061/B-071, hook/check build, `AUTH-DOC`, product work, lane transition and deployment | Outside this review | Separate governed chains |
