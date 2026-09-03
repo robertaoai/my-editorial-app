@@ -1272,3 +1272,68 @@ enforcement or Graphify synchronization.
 | **Reject** | Treating the blank “Judge Approved:” label as execution authority | Fails `D-183`'s minimum provenance fields | Obtain the bounded statement above |
 | **Reject** | One dependency chain containing current and deferred work | Conflicts with the response's own Defer row and could expand scope silently | Use the task forest above |
 | **Defer** | `R11`–`R15`, `R19`, propagation, enforcement, Graphify sync, `AUTH-DOC` and product work | Not included in a valid current authorization | Separate bounded phases |
+
+## Independent review of Lane A commits `ad685e7` / `256be7a` and completed push (2026-09-03)
+
+### Approval, application and push evidence
+
+Git confirms the application and transport facts: local `HEAD` and
+`origin/docs/journal-2026-08-16` both resolve to `256be7a`; the pushed range
+`039bc70..256be7a` contains substantive commit `ad685e7` and evidence-field follow-up `256be7a`.
+Only `docs/v1/V1-DECISION-REGISTER.md` and B-072 changed in that range. This section records the
+completed push event in the originating handoff, consistently with `R45`; it does not add another
+per-push Decision Register note.
+
+The authority fact is different. The supplied user message again contains only the empty label
+**“Judge Approved:”**. Neither `D-184`, B-072 nor the two commits record the exact bounded approval
+statement required by `B072-R47`/`D-183`. Lane A's sentence “I have explicit bounded Judge approval”
+is an assertion about provenance, not the durable approval record `D-183` requires.
+
+Graphify remains stale: `lastAnalyzedHead = 838baff` while Git is at `256be7a`. The current source
+still needs correction, so synchronization is not yet the next executable step.
+
+### Findings — highest parent first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R50` — `R47` is claimed closed without recorded bounded approval | Lane A says the approval names object, action, scope and exclusions, but no governed text contains that statement; `D-184`'s new `R45` correction records no approval, and the user-facing label supplied for this review is blank | The applied change can be mistaken for Judge-approved even though another reviewer cannot distinguish an authorization from Lane A's own restatement. `D-183`'s recurring provenance defect returns | Obtain an explicit retrospective ratification naming immutable revision and action: “Judge Approved: ratify the documentation-only `B072-R45`/`R46` corrections at `ad685e7` and their push through `256be7a`. This does not approve `R11`–`R15`, `R19`, propagation, enforcement, Graphify sync, `AUTH-DOC`, product work or a lane transition.” Append that approval record under `D-184` per `D-183`; do not rewrite `R45` |
+| `B072-R51` — `R45` collapses two authorities into “the same authority” | The correction correctly rejects “policy exception,” but then calls `R36`/`R43` examples of the same authority as the narrow standing `Eligible` one-entry permission. They were mixed accumulated ranges requiring the natural-person Judge's separate authorization because the Eligible standing permission did not cover them | An Eligible actor can read the broader accumulated-range power as part of its own standing authority and push Lane A/governed commits without a new Judge decision—the exact boundary `D-184` was written to protect | Append a semantic correction: both routes are governed by `D-184`, but the authorities differ. Route A is the Eligible actor's standing one-entry permission after the canonical proof. Route B is the Judge's bounded authority to authorize one named accumulated range when Route A fails. Call `R36`/`R43` historical Route-B execution events, not exercises of Route A and not deviations from policy |
+| `B072-R52` — `R46` removes one tally but retains completed-result indexing in the current header | The header no longer states the number or ranges, but still lists completed event IDs `R36`/`R43`, completed corrections `R42`/`R45`, and the completed `R44` outcome. `R46` required the current header to contain current resolution/evidence/open gates and the canonical-SOP link, leaving completed findings to append-only sections | The next correction changes the completed list again, forcing another header edit and evidence-field commit. The same drift loop survives without a numeric count | Remove all completed-event/correction bullets from the current-valued Lane A field, including the `R36`/`R43`, `R42`/`R45` and `R44` summaries. Keep only current Resolution, current evidence anchor, remaining closure gates and the canonical-SOP link. Append-only sections and Git remain the completed history |
+
+### Parent-first corrective plan — documentation only
+
+1. **Authority parent (`R50`).** Obtain the exact ratification above and append its durable approval
+   record under `D-184`; identify it as retrospective approval of `ad685e7`/push through `256be7a`,
+   not authorization for later work.
+2. **Authority-separation child (`R51`).** Append the Route A/Route B clarification to `D-184` so
+   standing Eligible permission can never inherit the Judge's accumulated-range power.
+3. **Current-header child (`R52`).** Remove completed-history bullets from B-072's Lane A field.
+   Retain current Resolution, evidence anchor, remaining gates and one canonical-SOP link only.
+4. **Stop and independently review that packet.** Do not begin `R19`, `R11`–`R15`, propagation,
+   enforcement or Graphify synchronization under this correction.
+5. **Separate future documentation packet.** Once authorized: `R19` parent → `R11`–`R15` routing
+   map → link-only propagation.
+6. **Final evidence last (`R21`).** After every approved source packet lands: rebuild and re-merge
+   Graphify once, run the full suite, push, and obtain same-HEAD independent verification. Automated
+   hook/check enforcement remains a separate build authorization.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R50-SC1` | Conversation context is unavailable | Approval provenance for `ad685e7` is inspected | A governed record names the immutable revision, push endpoint, documentation-only action and every exclusion; Lane A's assertion is not the sole proof |
+| `B072-R51-SC1` | An Eligible actor's one-entry proof fails because other commits are ahead | Push authority is evaluated | The actor must stop; only a new Judge authorization naming the accumulated range enables Route B |
+| `B072-R51-SC2` | `R36`/`R43` are read | Their authority is classified | They are historical Judge-authorized Route-B events governed by `D-184`, not exercises of the Eligible actor's Route-A standing permission and not policy deviations |
+| `B072-R52-SC1` | Another correction or push event occurs | B-072's current header is reread | No completed-finding/event list becomes stale; only a genuine change to current resolution, evidence anchor or remaining gates requires a header edit |
+| `B072-R21-SC6` | Terminal verification is requested | Git, Graphify and check evidence are compared | Local `HEAD` = remote `HEAD` = Graphify `lastAnalyzedHead`; all checks pass; the verifier did not author the final correction |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Git push through `256be7a` | Local/remote equality and two-commit range independently confirmed | Closed as transport evidence |
+| **Approve-with-conditions** | `R45` policy/event ownership | Correct destination and terminology direction; authority identity remains conflated | Apply `R50` then `R51` |
+| **Approve-with-conditions** | `R46` current-header normalization | Range/count removed, but completed-result indexing remains | Apply `R52` |
+| **Reject verification** | B-072 at `256be7a` | Approval provenance is absent, authority types remain conflated, completed history remains in the current header, and Graphify is stale | Correct, push, then same-HEAD independent review |
+| **Reject** | Treating the empty “Judge Approved:” label or Lane A's assertion as `D-183` evidence | Neither names the bounded authorization in a governed record | Obtain the exact ratification above |
+| **Defer** | `R11`–`R15`, `R19`, propagation, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | Outside this corrective packet | Separate bounded authorization |
