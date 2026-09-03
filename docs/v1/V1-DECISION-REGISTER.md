@@ -12312,3 +12312,66 @@ request-routing map, the work-order lane vocabulary, or approval-provenance rule
 the product-refinement chain behind `B-071`/proposed `D-182` and takes no lifecycle value here.
 Hook/check implementation of the SOP's pre-push proof, `AUTH-DOC`, product work, lane transition
 and deployment remain separately authorized, unstarted work.
+
+### Correction, added 2026-09-03 (`B072-R65`, `B072-R69`) — ratification of record, and enforcement classified
+
+**Append-only. Nothing above is rewritten.**
+
+#### `B072-R65` — the ratification of record
+
+Lane B correctly rejected verification of `D-186`'s authority: the sentence this decision quotes
+never reached Lane B's task, so Lane B could not distinguish a Judge act from Lane A's restatement.
+**Lane A records one fact about that quotation and claims nothing further from it:** it was
+transcribed verbatim from the Judge's message in Lane A's session, not expanded. That statement of
+Lane A's is not evidence, which is precisely `R65`'s point.
+
+**The Judge answered `R65-SC1` directly, 2026-09-03:**
+
+> a. hook/check enforcement be a deferred hardening follow-up; b. I authorize the complete R64
+> packet at `786db4a`, including all named document edits and Graphify synchronization
+
+**This is the ratification of record for `56759ff`.** It names the packet by immutable revision,
+covers the named document edits and the Graphify synchronization, and is not inferred from any
+commit. The earlier quotation is preserved above as history; where the two are compared, **this
+statement governs.** It confirms the full packet retrospectively; it does not enlarge the R64
+exclusions, which stand unchanged.
+
+#### `B072-R69` — enforcement is a deferred hardening follow-up
+
+**Judge decision, same statement, point (a).** Commit-hook/check implementation of the canonical
+SOP's pre-push proof is a **deferred hardening follow-up, not a B-072 closure gate.** `D-184` and
+`docs/handoff/README.md` already establish the governed behaviour; the hook would harden it, not
+create it. **Independent review — after the `R66`–`R68` corrections — is B-072's sole terminal
+gate.** B-072's header still lists enforcement among its closure gates; correcting that field was
+**not authorized in this pass** and is tracked below.
+
+#### What this correction does NOT do
+
+**Three findings are drafted and deliberately unapplied**, each awaiting its own bounded
+authorization. Recording them here prevents a later reader mistaking this correction for their fix:
+
+| Finding | State |
+|---|---|
+| `B072-R66` — customer/business intake points at frozen `docs/PRD.md` with no change path, using non-`D-29` demand/supply vocabulary | **Open.** `docs/README.md` §"How a request becomes execution" is unchanged |
+| `B072-R67` — this decision's "Gaps" section lists `R21` under **Unchanged** while stating the synchronization was performed | **Open, and it is a live contradiction in the text above.** `R21` was in fact performed at `56759ff`. The Gaps wording is **not corrected here** |
+| `B072-R68` — B-072 retains `Verified-At-Commit: 8b0fa76` while `Resolution` is `Applied` | **Open.** The field still reads as terminal verification of the current packet, which it is not |
+
+**Graphify was not resynchronized in this pass.** The source packet has not settled while `R66`–`R68`
+remain open, so `docs-drift` is expected to fail until the corrective packet is authorized and
+applied (`R21`, `B072-R21-SC12`).
+
+### Tier applicability (`D-54`) — this correction
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `R65` ratification of record; `R69` enforcement classification | ✅ this correction | **— unaffected: no scope, sequence or DoD change** | **— unaffected: the shared-core pointer's anchor and rule are unchanged** | **— unaffected: no repository file created or retired** | **— unaffected: no lane state or closure condition changes** | **— unaffected: authority provenance, not a product requirement** |
+
+**Encyclopedia:** unaffected — no entry depends on approval provenance or enforcement sequencing.
+
+### Scope limits — this correction
+
+**Records two Judge answers and nothing else.** It applies no `R66`, `R67` or `R68` correction,
+edits no other file, promotes no lifecycle state, resynchronizes no graph, and authorizes no build.
+B-072 remains `Answered`/`Applied` with independent verification owed. `B-061`, `B-071`/proposed
+`D-182`, hook/check implementation, `AUTH-DOC`, product work, lane transition and deployment are
+untouched.
