@@ -278,3 +278,37 @@ Lane A read the report.** A push reported as blocked is not evidence that it was
 **Still open and unauthorized:** `B-077` Children 2–5 — legacy `Applied` reconciliation, `B-061`/
 `B-070` successor disposition, `B-071` Draft 12 under the `D-171` hold, the Phase 3 deferral
 boundary, and final independent review.
+
+### Graphify semantic currency is a per-machine condition, not a repo fact (2026-09-03)
+
+**The semantic `--update` was authorized and run. It did not close, and the reason is structural
+rather than a missed step.**
+
+`graphify update --fill-missing` does not compute descriptions here — with no API key it runs in
+assistant mode and emits **16 batch files asking the host assistant to author descriptions for 622
+nodes**, mostly git commits, branches and code symbols, from name and neighbour lists alone. Two
+facts make authoring them the wrong answer:
+
+1. **`.graphify/` is entirely gitignored** — `git check-ignore -v` resolves `.graphify/graph.json`
+   and the batch files to `.gitignore:18`. Nothing written there reaches another agent, another
+   machine, or CI.
+2. **The next `hook-rebuild` discards them.** The fast hook path rebuilds topology without
+   descriptions and re-writes `.graphify_describe_pending`, so the work would be lost on the next
+   source commit.
+
+**What this means for the finding.** *"Graphify is commit-current but tracked semantics are stale"*
+is **true and unfixable by any Lane A commit.** Semantic currency is local state that each agent
+holds separately; there is no shared copy to bring into parity. The check that reports it,
+`check-update`, is diagnostic for the machine it runs on — and is deliberately **not** part of
+`bun run check`'s seventeen.
+
+**What IS durable, and is now at parity:** `docs/graph-fragments/*.json`, the curated layer. Those
+are tracked, they reach Lane B, and `frag119`/`frag120` were corrected in this pass. **Curated
+fragment content is the only graph artifact on which two lanes can meaningfully agree.**
+
+**Corrective rule, for the pattern table above.** Report four graph facts separately and never let
+one stand for another: **extraction currency** (`lastAnalyzedHead` vs `HEAD`, via `docs-drift`);
+**curated coverage** (`graph-coverage`); **curated content parity** (the tracked fragments, and
+`merge7 --all`); and **semantic description currency** (`check-update`, local-only). Lane A's
+earlier "the graph is current" claims asserted the first and were silent about the fourth. **Only
+the first three are repo facts.**
