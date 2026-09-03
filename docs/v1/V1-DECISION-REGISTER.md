@@ -11968,15 +11968,27 @@ application or B-072's header state.
 **`B072-R16` — self-contained approval evidence.** The opening paragraph asserted this rule was
 "approved directly in this conversation" without transcribing a verifiable selection — a real
 evidentiary gap, since a reader without conversation access cannot confirm an explicit choice
-occurred versus a recommendation being silently adopted. **The Judge has since re-approved this
-exact rule explicitly, verbatim, in a later turn of the same conversation:**
+occurred versus a recommendation being silently adopted. **The Judge has since approved the bounded
+governance packet at immutable commit `79edb96`** (the `D-184` correction, `D-185`, and the
+journal/README pointers, exactly as that commit's own summary described — approval **by reference to
+that commit**, not the short quote below reproducing the full rule word-for-word):
 
 > Judge Approved: D-184 standing commit-and-push authority
 
-confirming the quoted rule text above word-for-word. This correction note **is** the durable,
-self-contained record `B072-R16` asked for — the approval no longer depends on an unrecorded prior
-selection; it is restated here in the Judge's own words, dated, and citable independently of any
-conversation transcript.
+This short sentence is a **label naming the approved packet, not a verbatim quotation** of the
+scoped rule text above (`B072-R22` — the prior version of this correction overclaimed "word-for-word"
+confirmation; withdrawn). The self-contained record is: the full rule text quoted at the top of this
+entry, approved by reference to commit `79edb96`.
+
+**`B072-R28` — push-transaction precondition.** A path-limited *commit* permission does not make a
+Git *push* path-limited: pushing a branch ref advances it through every missing ancestor commit, not
+only the newest changed file. Before an `Eligible` Lane B/C actor pushes its permitted handoff
+commit, **the remote must already contain that commit's parent, and the outgoing range must contain
+only the permitted handoff commit.** If the remote is behind by other, unpushed governed-document
+commits, the actor's push would also publish those — exceeding the narrow authorization this decision
+grants — and must instead wait for the `Active` lane to push its ancestor range first, or for the
+Judge to separately name and authorize the full accumulated range (as occurred for the range ending
+at `a3d2d2a`, authorized and pushed directly by the Judge in this conversation).
 
 ### Tier applicability (`D-54`) — corrected
 
@@ -11984,14 +11996,15 @@ conversation transcript.
 |---|---|---|---|---|---|---|
 | `D-184` Eligible commit+push authority | ✅ §5.14e9, corrected above | **— unaffected** | **Owed a link-only summary — not yet applied** | **— unaffected** | **Owed a link-only live-state summary — not yet applied** | **— unaffected** |
 | `D-184` canonical-SOP application | ✅ cited here | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `docs/handoff/README.md` is a governance doc, not `Modular_PRD`** |
+| `D-184` push-transaction precondition (`R28`) | ✅ cited here | **— unaffected: process rule** | **Owed the negative-check spec — not yet built** | **— unaffected** | **— unaffected** | **— unaffected** |
 
 ### Scope limits
 
 **Governs only the narrow handoff-journal commit/push permission for `Eligible` Lane B/C actors.**
 Builds no code, authorizes no implementation, and does not touch `D-171`, `D-182`, or any `AUTH-*`
 checkpoint. Independent Lane B verification, the canonical-SOP application (`docs/handoff/README.md`),
-link-only propagation to Phase Closure/shared rules/work orders, and hook/check enforcement remain
-separate, unstarted work.
+link-only propagation to Phase Closure/shared rules/work orders, and hook/check enforcement (including
+`R28`'s upstream-alignment negative check) remain separate, unstarted work.
 
 ## 5.14e10 `D-185` — `SETUP-SPIKE-000`: Historical Zero-to-One Setup Root
 
@@ -12018,28 +12031,39 @@ follow-up findings).
 | Lifecycle meaning | **Historical parent only.** Explains why the branch exists; grants no current approval, lane state, implementation, push, or deployment authority |
 | Naming rationale | Not `R0`/`S0` — both already have governed meanings in the sprint plan; a reused label would collide |
 
-### Parent-first dependency map (navigation only, not a new authority hierarchy)
+### Parent-first dependency map (navigation only, not a new authority hierarchy) — corrected (`B072-R25`)
 
 ```text
 SETUP-SPIKE-000 — historical zero-to-one setup root
+├─ registration evidence: D-185 (this entry)
 ├─ GOV-BASELINE — document authority and Product requirements           [00d21cd]
 ├─ V1-TRACKING — Decision Register, Build Spec, Inventory, Phase Closure
 ├─ LANE-CONTROL — docs/handoff/README.md, LANE-B-WORK-ORDER.md
 ├─ PRODUCT-REFINEMENT — B-068 → B-070 → B-071 → proposed D-182
-└─ PROCESS-REFINEMENT — B-072 → D-183 → D-184 → D-185 (this entry)
+└─ PROCESS-REFINEMENT — B-072
+   ├─ D-183 — approval-provenance rule
+   └─ D-184 — Eligible handoff-only commit/push authority
 ```
 
-Within every child, this repository's existing document-precedence and arbitration rules
-(`D-29`, `D-58`) still govern — this tree is for navigation, not a competing precedence order.
+The prior version of this map read `B-072 → D-183 → D-184 → D-185`, which wrongly implied `D-185`
+depends on `D-184`'s standing-push policy. Corrected: `D-183` and `D-184` are **sibling** process
+decisions under `B-072`; `D-185` registers the historical root and depends on neither — their
+temporal order in this register is not an authority chain. Within every child, this repository's
+existing document-precedence and arbitration rules (`D-29`, `D-58`) still govern — this tree is for
+navigation, not a competing precedence order.
 
-### Gaps
+### Gaps — corrected (`B072-R23`, `R24`)
 
-**Addressed:** the root-naming decision itself (`B072-R16`'s naming half). **Unchanged:** every
-decision and document this root points to — none is re-decided by naming its ancestor. **Still
-open (`B072-R18`–`R21`, not resolved by this entry):** adding the compact root block to
-`docs/journal/2026-08-16-sprint-plan.md`; a root-journal pointer in `docs/README.md`; a
-capture-before-child rule for material clarifications; Graphify resynchronization at the final
-settled `HEAD`; independent Lane B verification.
+**Addressed:** the root-naming decision itself, correctly mapped to **`B072-R18`** ("the setup root
+exists only by inference") — the prior version of this section mislabeled it `B071-R16`'s "naming
+half"; `R16` is solely about `D-184`'s approval provenance and has no naming component. **Applied at
+commit `79edb96`**, not "still open" as the prior version of this section said: the compact root
+block in `docs/journal/2026-08-16-sprint-plan.md`'s header, and the root-journal pointer in
+`docs/README.md`'s document-kind table — both exist in that commit. **Unchanged:** every decision and
+document this root points to — none is re-decided by naming its ancestor. **Genuinely still open
+(`B072-R19`, `R21`):** a capture-before-child rule for material clarifications in `docs/README.md`'s
+structural map; Graphify resynchronization at the final settled `HEAD`; independent Lane B
+verification of this correction itself.
 
 ### Tier applicability (`D-54`)
 

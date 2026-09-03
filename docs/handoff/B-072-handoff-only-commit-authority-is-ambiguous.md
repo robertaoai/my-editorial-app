@@ -7,15 +7,20 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** b879af1
-- **Lane A:** Acknowledged 2026-09-02. **`D-184` (2026-09-03) records the Judge's decision on the
-  last blocking policy variable** — standing `Eligible` handoff-only commit-and-push authority,
-  narrow-path-restricted. `docs/handoff/README.md` §"Committing and pushing your own entry" is now
-  the single canonical transaction SOP this applies; every earlier protocol block in this file's
-  independent-review sections below is historical analysis, not a second operative copy
-  (`B072-R8`/`R9`). Not yet done: link-only summaries in `V1-PHASE-CLOSURE.md` §5.1 and the shared
-  rule files/work orders, hook/check enforcement (`B072-SC2`/`SC4`), and independent Lane B
-  verification that this application matches `D-184`.
+- **Verified-At-Commit:** (pending — see this handoff commit's own SHA; supersedes the stale
+  `b879af1` anchor per `B072-R26` — corrections to `D-184`/`D-185` landed after that commit)
+- **Lane A:** Acknowledged 2026-09-02. **Current-value matrix, replacing the prior prose bundle
+  (`B072-R27`):**
+
+  | State | Items |
+  |---|---|
+  | **Applied** | `R17` (SOP+closure lifecycle, `b879af1`); `R18` (root naming+block, `79edb96`); `R20`'s stable-entry-point half (journal/README pointers, `79edb96`); `R22`–`R26`, `R28` (this correction pass) |
+  | **Needs no further correction** | `D-184`/`D-185` substantive policy and root facts — confirmed sound by independent review |
+  | **Open** | `R11`–`R15` (routing map), `R19` (capture-before-child rule), `R21` (Graphify resync at final settled `HEAD`), link-only propagation to `V1-PHASE-CLOSURE.md`/shared rules/work orders, hook/check enforcement including `R28`'s upstream-alignment negative check, independent Lane B verification of this entire pass |
+
+  `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
+  transaction SOP; every earlier protocol block in this file's independent-review sections below is
+  historical analysis, not a second operative copy (`B072-R8`/`R9`).
 - **Evidence:** `docs/handoff/README.md` §"This directory stays writable when your lane is not
   Active"; `docs/v1/V1-PHASE-CLOSURE.md` §§5/5.1; `D-103`, `D-156`; the Chief Editor's direct
   clarification of 2026-09-02
