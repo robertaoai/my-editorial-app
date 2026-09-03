@@ -195,6 +195,23 @@ record of what was corrected, and is explicitly non-operative (`B071-R39`).
   traceability without editing frozen wording, and closes the already-tracked gap `B068-F7` via one
   target-order overlay note on `AC-05`–`AC-08` — renaming no decided gate ID, role, or transition.
   Sequenced behind §9: the `V1/NG-12` table row waits for `D-188` Draft 4's canonical-ID column.
+- **§11 — proposed `D-189`, Draft 2 (supersedes §10 as the proposal under review; §10 preserved
+  unedited as history; resolves `B071-R137`–`R144`):** Judge selected **Model A** — V1's editorial
+  gate sequence is `T1`–`T5`; the human final act completes `T5` under a new label, `T5-FINAL`;
+  `T6` becomes the sole name of the future `PBL-01` assurance capability. Adds a clause-level
+  partial-supersession table naming exactly which `D-175`/`D-177`/`D-181` clauses this reopens
+  (`D-176` unaffected in full; `D-180`'s own text already forwards to `D-181`, reused rather than
+  duplicated). Adopts **`Acting Chief Editor`** — an already-existing `raci-involvement-matrix.md`
+  §2 term — as the in-app executor name, resolving the Judge's naming clarification without
+  inventing new vocabulary. Withdraws Draft 1's false premise that the historical gate order is
+  presently build-authorized (`R138`; `V1-BUILD-SPEC.md` §S2 states both orders are held).
+  Distinguishes the V1 editorial-*gate* boundary from the V1 *product* boundary — publication
+  remains required after `T5-FINAL` (`R139`). Marks `CR-12`/`CR-19` a pending change request, not
+  `Covered`, until the sponsor route returns (`R140`). Supplies the literal text Draft 1's write set
+  named but never wrote for `FN-PUBLICATION-09-10-13.md` (`R141`). States every touched item as
+  `Draft-addressed`, never `Closed`, with a four-state lifecycle table (`R142`). Names Inventory,
+  `Modular_PRD` §8, Phase Closure and the Encyclopedia as explicitly unaffected (`R143`). Defines
+  "fallback" as a requirements-interpretation mapping only, never runtime failover (`R144`).
 
 **Artifact classification and propagation (`B071-R8`, `R16`):** this file is a `docs/v1/` tracking
 artifact under `D-36`, the same class as `V1-PHASE-CLOSURE.md`. It is registered in
@@ -1272,6 +1289,13 @@ artifact read, the query run, and the observation that would refute it.
 
 ## §10 — Proposed `D-189`: V1 editorial boundary and the Chief Editor fallback (Draft 1; resolves `B071-R124`–`R136`)
 
+> **Superseded by §11 below (2026-09-03).** Round 18 independent review found Draft 1 combines two
+> mutually exclusive models under one identifier and rejected it as executable text (`B071-R137`).
+> The Judge selected **Model A** and required a clause-level partial-supersession table. **This
+> section is preserved unedited as historical record of what was proposed and reviewed** — per this
+> project's own append-only convention (`D-36`, `G32`) — and is not itself proposed for application.
+> Read §11 for the current draft.
+
 **Independent of §1–§9.** This section drafts a **new** Register decision, `D-189` — it does not
 touch `D-188`, and it does not touch any tier until a Judge act names it. `D-189` is a proposed
 decision; nothing below is committed to `V1-DECISION-REGISTER.md`. `AUTH-DOC` remains unapproved
@@ -1531,4 +1555,313 @@ named artifact, not by re-deriving it from prose: `T5-V1-SC15`/`SC16` from the l
 | `T5-V1-SC16` | Any Build Spec/RACI/Fn-Spec text is searched for `T6` | Each occurrence is classified | Every occurrence is either the already-decided human-only gate or explicitly the future `PBL-01` capability — never both at once, never ambiguous |
 | `T5-V1-SC17` | The Chief Editor fallback guarantee is stated anywhere | The order it describes is checked | The text names the target order explicitly and states `D-171` still holds it; no sentence implies the guarantee is presently live |
 | `T5-V1-SC18` | `US-09`/`AC-07` are read together | The publish-triggering actor is compared | `US-09` no longer names an agent as the story's actor; `AC-07`'s current-order behavior is disclosed as target-inactive wherever `US-09` is cited |
+
+
+---
+
+## §11 — Proposed `D-189` Draft 2: Model A, clause-level supersession (resolves `B071-R137`–`R144`)
+
+**Independent of §1–§9.** Supersedes §10 as the proposal under review; §10 stands, unedited, as
+history. Nothing below is committed to any governed tier. `D-171` remains binding, unnarrowed, in
+full. `AUTH-DOC` remains unapproved.
+
+### §11.1 — Parent choice: Model A (Judge-selected, 2026-09-03)
+
+**The Judge approved `B071-R137` and selected Model A**, with a direct clarification carried
+verbatim into this draft: *"final assurance judgement is at T6; Final editorial judgement is at
+T5;"* T6 is *"proposed to a future backlog feature"* — confirming `PBL-01` as sole owner of the
+label going forward. The Judge also directed that *"Chief Editor"* not be used as the in-app
+executor name, because it conflates the software's reference to a role with the real person's
+manual-workflow persona (the frozen PRD's "the user" — the business's actual Chief Editor, who
+also works outside this app).
+
+**Model A, stated once:** V1's editorial gate sequence is `T1`–`T5`; the human final act completes
+`T5`; `T6` is reserved exclusively for the undecided future digital-assurance capability, `PBL-01`.
+This requires `D-189` to partially supersede the `D-175`–`D-181` clauses that assigned the human
+final act to the label `T6`. §11.3 is that table.
+
+### §11.2 — Terminology: `Acting Chief Editor` (resolves the Judge's naming clarification)
+
+**Not a new term — an existing one, propagated correctly.** `raci-involvement-matrix.md` §2
+already defines it: *"Exactly one natural person, for the whole business. Delegable only through
+the board-approved LOA window"* — and it is already the `A`/executor value for every task in both
+the current and target RACI tables, T1–T11. It is a **requirements/accountability-role concept**,
+already distinct in the project's own vocabulary from the frozen PRD's bare "Chief Editor" persona.
+
+**Three tiers, kept distinct going forward:**
+
+| Tier | Term | Meaning | Source |
+|---|---|---|---|
+| Real-world persona | **Chief Editor** | The customer's business role; may act manually outside this app | Frozen `docs/PRD.md` `CR-15`; Charter — untouched |
+| In-app accountable role | **Acting Chief Editor** (`ROLE-CHIEF-EDITOR`) | The principal the software's transition/audit record actually names; exactly one natural person, delegable only through the board-approved LOA window | `raci-involvement-matrix.md` §2, §8 — already existing, now consistently applied |
+| Virtual evidence role | **`ROLE-CHIEF-JOURNALIST`** | Supplies a `T5` evidence brief; never approves | `D-175`, unchanged |
+
+**Every place this draft's predecessor (§10) wrote "Chief Editor" as the in-app executor or wrote
+"Chief Editor fallback," this draft writes "Acting Chief Editor."** The frozen PRD's own "Chief
+Editor" wording is not edited — the correction is in derived text only.
+
+### §11.3 — Clause-level partial-supersession table for `D-175`–`D-181`
+
+**Read individually — the five decisions are not equally affected.** `D-176` is unaffected in
+full. `D-180`'s own text already forwards its "current T5/T6 anchor" status to `D-181`
+(`D-181`'s own heading: *"Current T5/T6 Anchor Moves From `D-180`"*) — this draft reuses that
+existing forwarding convention rather than touching `D-180`'s body. Only `D-175` and `D-181` carry
+the clause this decision supersedes; `D-177` carries one incidental phrase needing a terminology
+touch-up, not a substantive change.
+
+| Source | Exact clause | Disposition under Model A |
+|---|---|---|
+| `D-175` §"The error, and what corrects it" | *"`T6` was always the destination for the human Chief Editor's final in-system judgment — `D-170`'s direction (human moves to `T6`, an agent-eligible role reviews at `T5`) was correct and is unchanged and not reopened."* | **Superseded.** This is reopened by `D-189` (`D-183` permits a later bounded Judge act to supersede an earlier one). The human final act moves from the label `T6` to `T5-FINAL` (§11.8). Everything else in this sentence's surrounding section — the two-role, route-dependent `T5` cardinality table, `ROUTE-PROD-1`'s `ROLE-DESK-EDITOR` authority, the Senior Journalist trigger rule, `Lane D`/`ENV-EXT` terminology — **survives unedited.** |
+| `D-175` §"`D-171`/`D-172` re-derived," point 4 | *"Human-only canary: unchanged — still anchored to `T6`/`EG5`, the only Line-crossing transition."* | **Superseded in label only.** The canary mechanism — human-only, the sole Line-crossing transition, `EG5`'s node identity — is **unchanged**. Only its name changes: anchored to `T5-FINAL`/`EG5`. |
+| `D-176` (§5.14e2, in full) | — | **Unaffected.** Route-operation applicability contains no `T6`-as-human-gate content. |
+| `D-177` (§5.14e3) | *"...a post-reveal disposition-only change appends a new reasoned `T6` record without..."* | **Terminology touch-up only.** Replace `T6` with `T5-FINAL` in this one phrase. The `F6` behavior/acceptance contract and build-readiness boundary this decision adopted are otherwise **unaffected.** |
+| `D-180` (§5.14e6, in full) | — | **Unaffected as a decision.** Its corrections (`AC-08a` re-owning, four missing target ACs, `G-05a`/`SEC-01a`/`SEC-03a` rows, the `T5a`/`T5b` split, `B-069`'s anchor notice) govern the evidence-gathering acts, not the final gate's label. Its own text already forwards "current T5/T6 anchor" status to `D-181` — this draft does not duplicate that forwarding. |
+| `D-181` §"`B068-R55` — target `G-02` semantics added" | *"`Modular_PRD.md` gains `G-02a` ... only `T6` may be `satisfied`; `T1`–`T5` and Delivery are `not_applicable`."* | **Superseded in label only.** The semantics — exactly one gate reaches `satisfied`, everything else `not_applicable` — are **unchanged**. That one gate is now named `T5-FINAL`, not `T6`. |
+| `D-181` §"`B068-R56` — T5 state-transition contradiction corrected" (in full) | — | **Unaffected.** Governs `T5`/`T5a`/`T5b`'s seal-only behavior and the join's sole `Drafted → Reviewed` transition — upstream of the final act this draft relabels. |
+
+**Nothing in `D-170`–`D-174`'s own rulings is touched.** `D-175`'s correction of `D-170`'s alias
+error stands; only `D-175`'s own restatement of *where* the human act sits is superseded.
+
+### §11.4 — Proposed `D-189` decision text (literal; supersedes §10.1 in full)
+
+```markdown
+## 5.14e14 `D-189` — V1 Editorial Boundary: T1–T5 Only; Future Assurance Renamed `T5-FINAL`→`T6`
+
+**Chief Editor decision, 2026-09-03, raised as `B071-R124`–`R144`; Model A selected over Model B
+by direct Judge instruction (`D-183`).** Records: (1) V1's editorial gate sequence is `T1`–`T5`;
+the human final act completes `T5`, under the label `T5-FINAL`. (2) A digital assurance capability
+and `EXT-GRC` integration are undecided future scope, sole owner of the label `T6` going forward —
+living identity `PBL-01`. (3) V1 has one interactive human principal, the **Acting Chief Editor**
+(§11.2); the virtual `ROLE-CHIEF-JOURNALIST` supplies `T5` evidence and does not approve.
+**Authorizes no build, lifts no hold, ranks nothing.** Partially supersedes `D-175`, `D-177` and
+`D-181` per the clause table at `docs/v1/V1-B071-CORRECTIVE-PLAN.md` §11.3, reproduced here:
+
+[The §11.3 table above is reproduced verbatim in the applied Register entry — not restated as a
+second copy in this literal block, to avoid the duplication `G55`/`G56` name. The Register entry
+transcribes §11.3 exactly, at application time, from the pushed revision the Judge accepted.]
+
+### The V1 editorial-gate boundary, and what it does not shrink
+
+> V1's editorial *gate sequence* ends at `T5-FINAL`, the Acting Chief Editor's final editorial
+> judgment. **This is a gate-sequence boundary, not the V1 product boundary** (`B071-R139`).
+> Publication and LinkedIn-ready handling — `T7`/`T10`/`T11` — remain required V1 scope, consuming
+> `T5-FINAL`'s immutable disposition. `V1/NG-12` excludes digital assurance/`EXT-GRC`; it does not
+> exclude, shorten, or otherwise touch Delivery.
+
+**Derived, not frozen-source.** `docs/PRD.md` names no assurance/`EXT-GRC` capability, but silence
+is not a Non-Goal. This decision, not PRD silence, is `V1/NG-12`'s source. Frozen PRD and Charter
+are unchanged.
+
+### Both gate orders remain held (`B071-R138`, correcting this draft's own predecessor)
+
+**Neither the historical order nor the target order is presently authorized to build.**
+`V1-BUILD-SPEC.md` §S2 states it directly: *"`D-164`/`D-165`'s S2 Unit 1/Unit 2 authorization is
+held for BOTH orders — the current order below is no longer safe to build once a different order
+was decided as target."* §10 of this plan (superseded) incorrectly called the historical order
+"currently/live/build-authorized" because `AC-07` documents it. **`AC-07` is historical
+documentation of a once-authorized, now-held order — not present build permission.** Neither order
+may be cited as evidence of what may be built today; a fresh, separate authorization selects one,
+per `B-068`'s own "Defer" rule.
+
+### The actor model (`B071-R130`–`R134`, `R144`; terms per §11.2)
+
+| Object | V1 meaning | Explicitly not |
+|---|---|---|
+| **Acting Chief Editor** | The sole interactive human principal; records `T5-FINAL` once a build authorization selects an order | The real-world "Chief Editor" persona name used as the in-app executor label; a virtual node; proof `S6` authentication exists |
+| `ROLE-CHIEF-JOURNALIST` | A virtual role producing a separately attributable `T5`/`T5b` evidence act | A second V1 human account; any transition's executor; a `T6` assurance principal |
+| **Requirements-interpretation mapping** (`B071-R144`) | The documented V1 reading that satisfies the PRD's "Chief Journalist approve" sentence through the Acting Chief Editor's act | Runtime failover, an account-selection branch, or any implication a Chief Journalist account exists to fail over from |
+| Future Chief Journalist human access | A post-V1 capability | `PBL-01`; `S6` itself; present V1 scope |
+| `S6`/`SEC-03` | Authentication and access enforcement, separately authorized | Proof a Chief Journalist account exists; role-creation ownership |
+| `PBL-01` | Future digital assurance/`EXT-GRC`, unranked, not refinement-ready | `T5-FINAL` — the already-decided human-only gate this draft relabels, not excludes |
+| `PBL-04` | Future multi-user/access capability, unranked | `S6`; `PBL-01` |
+
+**Audit truth rule, unchanged from §10.** A transition record identifies the principal that
+actually acted. Pre-`S6` identity is unchanged: `self_asserted`; this decision creates no login,
+provisioning, or role-based access.
+
+### `V1/NG-12` — proposed row (content unchanged from §10; insertion still waits on `D-188` Draft 4)
+
+| Canonical ID | ID | Non-Goal | Excludes | Rationale |
+|---|---|---|---|---|
+| `V1/NG-12` | `NG-12` | No digital `T6` assurance capability or `EXT-GRC` integration in V1 | `PBL-01` | Derived from this decision's 2026-09-03 Judge clarification; not a claim of `docs/PRD.md`. Excludes `assurance_status` storage, external-authority evidence capture and `EXT-GRC` integration only — the human-only final editorial gate, relabelled `T5-FINAL` by this same decision, is not excluded and is not this row's subject. No V1 reconsideration condition: later scope is decided through `PBL-01`, that version's own positive scope, and a separate bounded authorization |
+
+### Lifecycle state of this decision and everything it touches (`B071-R142`)
+
+**Nothing below is `Closed`.** Every item this decision addresses is `Draft-addressed`: proposed in
+text, not yet Judge-authorized, not yet applied to any tier, not yet independently verified. The
+four states are distinct and each requires its own evidence:
+
+| State | Evidence | Who may declare it |
+|---|---|---|
+| `Draft-addressed` | This text exists in a pushed plan revision | Lane A, on drafting |
+| `Judge-authorized` | A bounded Judge act names the exact revision and write set | The Judge only |
+| `Applied` | A commit lands the authorized text in the governed tier | Lane A, after authorization |
+| `Independently verified` | A non-answering actor confirms the applied text at an existing commit | Lane B only |
+
+### Write set and unaffected tiers (`B071-R143`)
+
+`V1-DECISION-REGISTER.md` (new entry) · `Modular_PRD.md` §2.5 (`V1/NG-12` row, after `D-188`
+Draft 4), personas/stories (§11.6) · `docs/governance/requirements-traceability-map.md` (§11.7) ·
+`FN-GATES-01-05.md`, `FN-PUBLICATION-09-10-13.md` (§11.8–§11.9, literal) ·
+`raci-involvement-matrix.md`, `V1-BUILD-SPEC.md` (§11.10, label only). **Explicitly unaffected:**
+`V1-ARTIFACT-INVENTORY.md` — no repository file is created or retired by this decision;
+`Modular_PRD.md` §8 — no sprint status changes and no tier opens; `V1-PHASE-CLOSURE.md` — no lane
+state or closure condition changes; the Editorial Pipeline Encyclopedia — no entry depends on
+`T5`/`T6` gate-label assignment. Frozen `docs/PRD.md`, the Charter, `0001_init.sql`, `PBL-01`'s
+§2.5.2 row, and every `D-175`–`D-181` clause not named in §11.3 are explicitly unaffected.
+
+### Scope limits
+
+**Records a V1 scope boundary, an actor terminology correction, and a gate-label supersession.
+Builds nothing, lifts no hold.** `D-171` binds exactly as before, over whichever order a future
+authorization selects. `B-071` is not closed.
+```
+
+### §11.5 — What Lane A cites in this draft: the Judge's live clarification, verbatim
+
+Per `D-183`, a direct real-time Judge instruction is valid authority, durably registered in the
+next Register entry. The Judge's instruction this round is transcribed above without paraphrase
+where it is normative (§11.1) and is the source for §11.2's "Acting Chief Editor" resolution and
+§11.4's `T5-FINAL` relabeling — Lane A's own drafting choice for the exact replacement string,
+offered for the next independent review to confirm or correct, consistent with how `B071-R99`'s
+departure was handled: stated plainly, not silently assumed.
+
+### §11.6 — Product `Modular_PRD.md` · corrections (revises §10.2 in full)
+
+**A. `USR-CHIEF-EDITOR` row** — append, do not replace:
+
+```markdown
+**In-app executor references use "Acting Chief Editor" (`raci-involvement-matrix.md` §2), not
+"Chief Editor," to avoid conflating this row's real-world persona with the software's own
+accountable-role concept** (`D-189`, Judge naming clarification, 2026-09-03). `V1/NG-12` (`D-189`)
+excludes only a future digital-assurance capability; it does not touch this row's current/target
+`T5`/`T5-FINAL` contract or `D-171`'s hold, which binds both orders equally (`B071-R135`, `R138`).
+```
+
+**B. `US-09`** — replace in full (revises §10.2.B, adds the scope-boundary and held-state
+disclosures `B071-R139`/`R141` require):
+
+```markdown
+| `US-09` | Acting Chief Editor | As the Acting Chief Editor, I want my final editorial judgment at `T5-FINAL` — informed by the Chief Journalist role's evidence brief — to be what makes an article eligible for publication, so that no virtual recommendation ships work on its own | P0 | FR-09 | AC-14, AC-15 | US-05 | S4 | Credentials absent → `MockPublished`, which does **not** satisfy Published. Partial failure across targets → **not representable today** (TC2). **Both the historical and target gate orders remain held under `D-171`** (`B071-R138`) — this story describes neither as presently build-authorized. **Publication (`T7`/`T10`/`T11`) remains required V1 scope after `T5-FINAL`** (`B071-R139`) — this story's completion is not V1's product boundary |
+```
+
+### §11.7 — Traceability `requirements-traceability-map.md` · `CR-12`/`CR-19` (revises §10.3)
+
+**Replace the `CR-12` coverage cell** — `Covered` is withdrawn; the customer-named actor has not
+yet returned from the sponsor route (`B071-R140`):
+
+```markdown
+| `CR-12` | FR-09, FR-10, AC-14…AC-16 | **Change request pending sponsor/customer disposition**
+(`D-189`, `B071-R127`, `R140`). The customer's sentence names "Chief Journalist approve." V1's
+proposed implementation is the Acting Chief Editor's final judgment at `T5-FINAL`, informed by the
+virtual Chief Journalist role's evidence brief; the Chief Journalist does not itself approve. This
+is a **disclosed project-side elaboration, not yet customer-accepted** — frozen wording and this
+row's content hash are unchanged; the actor difference is not routed through the sponsor feedback
+mechanism yet. Do not read this row as `Covered` until that route returns |
+```
+
+**Replace the `CR-19` coverage cell**'s affected clause identically: the "Chief Journalist
+approves" segment of the Success Criteria sentence carries the same pending-disposition note; the
+"zero bypasses"/sequence-independence content this row already tracked (`FB-02`) is unaffected and
+not restated here.
+
+### §11.8 — `FN-GATES-01-05.md` · relabel and overlay (revises §10.4)
+
+**A. Flow-diagram line** — replace `→ T6 Chief Journalist approval ← Line 2→1` with:
+
+```markdown
+  → T5-FINAL: Acting Chief Editor human-only final decision (target order, `D-171`-held) ← Line 2, refused for any agent
+```
+
+**B. `AC-05`–`AC-08` target-order overlay** — replace §10.4.B's overlay note in full (the historical
+rows `AC-05`–`AC-08` are still not edited — `D-36`/`G32`):
+
+```markdown
+**Target-order overlay (`D-175`, `D-181` as partially superseded by `D-189`; inactive while
+`D-171` holds either order).** `AC-05`–`AC-08` above describe the **historical, `D-171`-held**
+order — neither historical nor target is presently build-authorized (`B071-R138`). Once a fresh
+authorization selects the target order: `T5`/`T5a`/`T5b`'s route-dependent virtual evidence acts
+seal without changing state; the `T5_review_bundle_sealed` join performs `Drafted → Reviewed`; and
+**`T5-FINAL`** — human-only, refused for any agent attempt, `EG5`, Line 2 — performs
+`Reviewed → Approved` (`raci-involvement-matrix.md` §3.1, relabelled per `D-189`). Neither order
+includes a digital-assurance or `EXT-GRC` capability; that remains undecided future scope, `PBL-01`
+(`V1/NG-12`, `D-189`).
+```
+
+**C. `EG5`'s "Transition mapping" cell** — replace `T6` with `T5-FINAL`; the "Target executor role"
+cell (`ROLE-CHIEF-EDITOR`) and "Lifecycle" cell (`decided_target_held`) are unchanged.
+
+### §11.9 — `FN-PUBLICATION-09-10-13.md` · literal corrections (closes `B071-R141`'s missing edits)
+
+**A. `US-09`** (line 43) — same replacement as §11.6.B, reproduced here so this file's write-set
+entry is itself literal and complete:
+
+```markdown
+| `US-09` | Acting Chief Editor | final editorial judgment at `T5-FINAL`, informed by the Chief Journalist role's evidence brief, to make an article eligible for publication | no virtual recommendation ships work on its own |
+```
+
+**B. The T11 exposure sentence** (line 94) — replace *"the approval it records already passed T5
+and T6"* with:
+
+```markdown
+the approval it records already passed `T5` and `T5-FINAL`
+```
+
+**C. The Delivery-consumption rule** (line 180) — replace *"Delivery consumes the approved,
+immutable `T6` disposition"* with:
+
+```markdown
+Delivery consumes the approved, immutable `T5-FINAL` disposition
+```
+
+### §11.10 — `raci-involvement-matrix.md` and `V1-BUILD-SPEC.md` · label only, no mechanic change
+
+**§3.1's target table:** the `T6` row's `Task` cell becomes `T5-FINAL`; every other cell (executor,
+Line, `R`/`A`) is unchanged. **§8's `ROLE-CHIEF-EDITOR` row:** "Gate eligibility" cell becomes
+`Current T5/target T5-FINAL`. **`V1-BUILD-SPEC.md` §S2's Target DoD paragraph:** replace each
+`T6` occurrence describing the human-only gate with `T5-FINAL`; the surrounding mechanics
+(blind order, scoped return/rerun, `external_trigger_record` separation) are unchanged. **`D-177`'s
+one incidental phrase** (§11.3): `T6` → `T5-FINAL`.
+
+### §11.11 — Execution sequence
+
+Unchanged in shape from §10.6, restated because §10 is superseded: (1) this draft written, no
+governed tier touched; (2) commit, push, fetch-prove; (3) independent Lane B re-review; (4) Judge
+bounded acceptance naming this exact revision and write set; (5) apply `D-189` parent; (6) apply
+§11.6–§11.10 children, parent-first, `V1/NG-12`'s row insertion still waiting on `D-188` Draft 4;
+(7) update `B-071`, Lane A records `Applied` only; (8) commit, push, fetch-prove the source
+transaction; (9) rebuild Graphify's extracted layer, then merge curated fragments, then verify, at
+that exact revision; (10) hand Lane B the revision — only Lane B may record `Verified`.
+
+### §11.12 — What remains unclear, guaranteed failures, and derived criteria
+
+**Unclear — for the next review to confirm, not decided unilaterally.** The exact replacement
+string `T5-FINAL` is Lane A's drafting choice, not a Judge instruction — the Judge named the model
+(human act at T5, T6 reserved for future assurance) and the naming principle (not "Chief Editor"),
+not this specific gate label. An equally valid alternative exists (e.g. folding the act into the
+existing `T5` join rather than keeping it a separate node) and is not foreclosed if review prefers
+it. Also unresolved, and explicitly not decided here: whether to request a bounded authorization
+narrowing `D-171` for `T5-FINAL` specifically, separate from the full S2 target build — this
+question is unchanged by the Model A/B choice and remains open.
+
+**Guaranteed to fail if this draft is not applied.** `NG-12` continues to read as excluding the
+already-decided four-eyes machinery it does not mean to touch (`R135`, now with the added risk that
+Model A's relabeling, if left undone, orphans every "T6" reference in five governed/governance
+files simultaneously). `US-09`/`AC-07` continue to name an agent as the publish-triggering actor in
+the very story `FR-09` traces to. `CR-12` stays marked `Covered` while its own evidence says
+customer acceptance is pending — a claim the traceability map's own rule contradicts. And a reader
+comparing `V1-BUILD-SPEC.md` §S2 against this plan's superseded §10 finds "the current order is
+build-authorized" beside "`D-164`/`D-165`'s authorization is held for BOTH orders" — the exact
+self-contradiction `B071-R138` caught.
+
+**Derivation.** `T5-V1-SC26`–`SC29` negate those four; `T5-V1-SC19`–`SC25` (Round 18) continue to
+apply unchanged; `T5-V1-SC15`–`SC18` (this plan's own Round-17 response) continue to apply, updated
+only to read `T5-FINAL` wherever they previously read the ambiguous shared `T6`.
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T5-V1-SC26` | `V1/NG-12` and `T5-FINAL` are both traced | Their subjects are compared | `NG-12` names only digital assurance/`EXT-GRC`; `T5-FINAL` names only the already-decided human-only gate; no sentence uses bare `T6` for the latter |
+| `T5-V1-SC27` | `US-09` and its tracing `AC-07` are read together | The publish-triggering actor is checked | `US-09` names the Acting Chief Editor at `T5-FINAL`; `AC-07`'s current-order agent behavior is disclosed as `D-171`-held, not live |
+| `T5-V1-SC28` | `CR-12`/`CR-19` are queried for coverage status | The status value is read | Neither reads bare `Covered`; both read `Change request pending sponsor/customer disposition` until the sponsor route returns |
+| `T5-V1-SC29` | Any two of `V1-BUILD-SPEC.md`, `raci-involvement-matrix.md`, `FN-GATES-01-05.md`, this plan, and `B-071` are compared for gate-order authority | Their authority claims are checked | All agree: both orders are `D-171`-held; none claims either is presently build-authorized |
 

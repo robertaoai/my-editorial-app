@@ -56,6 +56,25 @@
   remains binding, unnarrowed; `AUTH-DOC` remains unapproved. One item is left open for the Judge,
   not decided here: whether to request a bounded authorization narrowing `D-171` for the target
   order's human-only gate specifically, separate from the full S2 target build (`B071-R136`).
+  **Round 18 (2026-09-03).** `B071-R137`–`R144` accepted in full; none disputed — `R138` is a
+  correction to this field's own prior text: `V1-BUILD-SPEC.md` §S2 states directly that
+  `D-164`/`D-165`'s authorization is held for **both** gate orders, which Rounds 16–17's response
+  above had already quoted and then contradicted by calling the historical order "build-authorized."
+  **Judge instruction received this round, live:** `B071-R137` approved — **Model A** selected over
+  Model B (V1's editorial gate sequence ends at `T5`; the human final act stays inside `T5`, under a
+  new label; `T6` becomes the future `PBL-01` assurance capability's sole name) — with a direct
+  clarification that "Chief Editor" must not name the in-app executor, since it conflates this
+  software's own accountable role with the real person's manual-workflow persona. **Draft 2 of
+  proposed `D-189` is written to `docs/v1/V1-B071-CORRECTIVE-PLAN.md` §11**, superseding §10 (kept
+  unedited as history): a clause-level partial-supersession table for `D-175`/`D-177`/`D-181`
+  (`D-176` unaffected; `D-180`'s existing forward-notice to `D-181` reused, not duplicated); the
+  human final act relabelled `T5-FINAL` — Lane A's own drafting choice for the exact string, offered
+  for the next review to confirm or correct, not itself a Judge instruction; `Acting Chief Editor`
+  adopted from `raci-involvement-matrix.md` §2's own existing definition, not invented; literal text
+  supplied for `FN-PUBLICATION-09-10-13.md`; `CR-12`/`CR-19` marked pending sponsor disposition, not
+  `Covered`; every touched item stated `Draft-addressed`, never `Closed`. **Nothing is applied:** no
+  governed tier changed; `D-189` does not exist in the Register; `D-171` remains binding over both
+  orders, unnarrowed; `AUTH-DOC` remains unapproved.
 - **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`), round 2 (Lane
   B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
   clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), round 4 (Lane B,
@@ -4193,3 +4212,106 @@ the corrections. The unrelated untracked `package-lock.json` remains untouched.
 | **Reject** | Virtual brief as publish trigger | It bypasses the sole human final decision | T5 approval, then T7/T10/T11 |
 | **Defer** | Future Chief Journalist permissions and provisioning | Beyond V1 and not refinement-ready | `PBL-04` promotion |
 | **Defer** | Commit, Graphify, implementation and lane transition | Current handoff additions are uncommitted; source packet remains unsettled; `D-171` binds | Lane A draft, bounded Judge act, independent review |
+
+---
+
+## Round 18 — Independent review of proposed `D-189` Draft 1 at `aeec988` (2026-09-03)
+
+### What happened
+
+Lane A converted Rounds 16–17 into proposed `D-189` Draft 1 in
+`docs/v1/V1-B071-CORRECTIVE-PLAN.md` §10 and pushed the plan-only revision `aeec988`. Lane B
+reviewed the literal draft against the frozen PRD/Charter, `D-171`, the current and target Product
+rows, the gate and publication Fn-Specs, the RACI matrix, the traceability map, and the backlog
+identities. The Judge's actor clarification is sound, but Draft 1 is not yet internally executable.
+
+This is an independent review of a proposed decision, not approval provenance, application evidence,
+or authority to edit a governed tier. `D-189` does not yet exist in the Decision Register.
+
+### What Lane A needs — highest parent first
+
+#### Parent choice: one identifier may not name two stages
+
+Draft 1 currently combines two mutually exclusive models:
+
+| Model | Editorial final judgment | Future assurance | Consequence |
+|---|---|---|---|
+| **A — latest Judge clarification** | Final human Chief Editor act completes editorial `T5`; V1's editorial gate sequence is `T1`–`T5` | `T6`, owned by future `PBL-01` and outside V1 | Requires `D-189` to partially supersede the target-order `T6` clauses of `D-175`–`D-181` and redraft their derived target rows |
+| **B — preserve `D-175`–`D-181`** | Final human Chief Editor act remains editorial `T6` | Future capability is called only `PBL-01 Digital Assurance`/`EXT-GRC`, never bare `T6` | Preserves the decided target mechanics but withdraws every “V1 T1–T5 only” claim |
+
+Draft 1 chooses neither: its title and scope say V1 ends at `T5`, while its actor model, Non-Goal,
+RACI, Fn-Spec and Build-Spec edits preserve a human editorial `T6`. Adjectives do not create separate
+identifiers. **Lane B recommends Model A because it follows the latest Judge clarification, but only
+the Judge can authorize the resulting partial supersession.** No child wording should be finalized
+until that parent choice is recorded.
+
+### New findings — parent first
+
+| ID | What is unclear or incorrect | Guaranteed failure if unchanged | Smallest draft fix |
+|---|---|---|---|
+| `B071-R137` — Draft 1 uses the hybrid `T5`/`T6` model above | “V1 ends at T5” and “the final editorial gate is T6” are both normative inside one proposed decision | State-machine, RACI, UI and audit readers will implement different terminal gates; `V1/NG-12` can still exclude an editorial gate by accident | Obtain the parent choice above. For Model A, add a clause-level partial-supersession table for `D-175`–`D-181`; for Model B, reserve `T6` for the editorial gate and remove `T6` from the future capability's name |
+| `B071-R138` — `B071-R136` reverses `D-171` | Draft 1 repeatedly calls the historical current order “currently/live/build-authorized”; `D-171`, Build Spec S2, Product M2 and RACI's current header all say **both orders are held** | A Lane B executor can treat `AC-07` as permission to build the agent-approved order, precisely the path `D-171` stopped | Replace every such phrase with `historical_current_documented_held`; say `AC-07` documents the pre-target behavior but is not authorized. The target is also decided-and-held. No live-order comparison is available yet |
+| `B071-R139` — “V1 ends at final approval” truncates the product success flow | Frozen `CR-12`/`CR-19`, Product M4 and the publication Fn-Spec require WordPress publication or LinkedIn-ready handling after approval | A reviewer can mark V1 complete at editorial approval while S4/T7/T10/T11 remains absent | Say **the V1 editorial gate sequence** ends at the chosen final-judgment act; the V1 product flow continues through publication/fallback. `NG-12` excludes assurance, not Delivery |
+| `B071-R140` — the proposed traceability row calls a material actor substitution `Covered` | The traceability map defines departure from a customer-named actor as a change request routed through the sponsor; the proposed row itself says that route has not happened | The project can present Chief Journalist→Chief Editor as customer-accepted while its own evidence says acceptance is pending | Mark `CR-12` and the affected part of `CR-19` **change request pending sponsor/customer disposition** (or partially covered), preserve their hashes/text, and keep the Judge clarification as project-side rationale rather than customer approval |
+| `B071-R141` — the declared write set has no literal publication Fn-Spec edit | §10.1 names `FN-PUBLICATION-09-10-13.md`, but §§10.2–10.5 provide no exact replacement for its `US-09`, its “already passed T5 and T6” sentence, or §11's immutable-`T6` prerequisite | Step 6's “every changed paragraph was present verbatim” condition cannot pass; Lane A must improvise and the publication tier can retain the rejected agent trigger | Add exact current→target text for every affected publication clause, or remove the file from the write set. Align Product `US-09` and `AC-14a` with the same chosen gate identifier and held-state label |
+| `B071-R142` — Draft 1 closes findings that only the future application can close | Proposed `D-189` says `R134` propagation and several draft defects are “Closed” while no governed tier changed | The plan becomes its own false completion evidence; later review cannot distinguish designed, applied and independently verified | Use `Draft-addressed; application pending` for `R124`–`R141`. Close only after the exact source pass lands and Lane B independently verifies it |
+| `B071-R143` — D-54 applicability is not explicit for every tracking tier | Draft 1's tier table omits `V1-ARTIFACT-INVENTORY.md` and does not state whether `Modular_PRD.md` §8 is affected | A later application can be challenged as incomplete or add unnecessary tracking edits during execution | State `Inventory — unaffected: no file artifact created/retired`; `Modular_PRD §8 — unaffected unless the act changes sprint status or opens a tier`; Phase Closure and Encyclopedia remain explicitly unaffected |
+| `B071-R144` — “fallback” is ambiguous between requirements mapping and runtime behavior | The Chief Editor is V1's canonical sole human actor, but the label can sound like failover from an unavailable Chief Journalist account | Implementers may add an account-selection/failover branch, or audit text may imply a Chief Journalist account normally exists | Define it as a **requirements-interpretation mapping only**. Runtime V1 has one canonical Chief Editor approver and no alternate human account |
+
+### Corrective packet for Draft 2
+
+1. **Judge choice first:** select Model A or Model B and name the clauses it preserves or
+   supersedes. Do not treat approval of this review as that decision.
+2. **Repair the authority baseline:** withdraw `R136`'s “currently authorized/live” premise in the
+   plan and B-071. Both current and target gate orders remain held by `D-171` until a separate build
+   authorization selects one.
+3. **Repair the scope boundary:** distinguish the editorial-gate boundary from the full V1 outcome;
+   publication/fallback remains in V1, digital assurance/`EXT-GRC` does not.
+4. **Repair customer traceability:** classify the actor change under the traceability map's own
+   elaboration/change-request rule. Do not mark customer acceptance before the sponsor route returns.
+5. **Close the literal write set:** provide exact text for Product stories/ACs, gate Fn-Spec,
+   publication Fn-Spec, RACI and Build Spec; include the parent decision's partial-supersession table
+   if Model A is selected. Remove targets that receive no edit.
+6. **Separate lifecycle states:** draft-addressed → Judge-authorized → applied → independently
+   verified. No proposed decision may call its future propagation closed.
+7. **Apply parent-first only after bounded authorization:** Register first, then derived tiers. Keep
+   frozen PRD/Charter unchanged. State Inventory, Phase Closure, Product §8 and Encyclopedia effects
+   explicitly even when unaffected.
+8. **Synchronize last:** commit and push the complete source packet, fetch-prove that revision, then
+   rebuild Graphify, merge curated fragments and run the full suite at the same revision. Lane B—not
+   Lane A—decides terminal verification.
+
+### Success criteria derived from the failures
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T5-V1-SC19` | Draft 2 is read without prior conversation | Every normative `T5`/`T6` occurrence is classified | Exactly one stage owns final editorial judgment and exactly one stable identity owns future assurance; no identifier denotes both |
+| `T5-V1-SC20` | Current and target gate rows are inspected | Their authority labels are compared with `D-171` | Both are visibly held; no row or plan sentence says either is currently build-authorized |
+| `T5-V1-SC21` | The V1 scope boundary is evaluated | Editorial approval completes | Publication/LinkedIn-ready work remains required through its governed Delivery transitions; assurance remains excluded |
+| `T5-V1-SC22` | `CR-12`/`CR-19` are reviewed | Chief Journalist→Chief Editor is compared | Frozen wording and hashes remain intact; the actor difference is visibly pending customer disposition and is not labelled fully covered |
+| `T5-V1-SC23` | The execution write set is used without chat context | Each named target is opened | Every edit is supplied literally, including the publication Fn-Spec, or the unchanged target is explicitly removed/unaffected |
+| `T5-V1-SC24` | Proposed, applied and verified states are queried | Evidence is inspected | A draft proves only drafting, an application commit proves only application, and an independent review alone can supply `Verified` |
+| `T5-V1-SC25` | The sole-user V1 flow is executed | Actor selection and audit records are inspected | Chief Editor is the canonical runtime approver; no fallback branch or nonexistent Chief Journalist account is created or logged |
+
+### What Lane B did instead
+
+Lane B appended this independent review to the existing `B-071` entry only. It did not create a
+duplicate handoff, edit the proposed plan, alter a governed tier, decide the parent model, narrow
+`D-171`, build code, change lane state, rebuild Graphify, commit, or push. The unrelated untracked
+`package-lock.json` remains untouched.
+
+At review time local `HEAD` and upstream both resolve to `aeec988`. Graphify is still based on
+`129efab`; its query did not retrieve proposed `D-189` and instead returned unrelated schema nodes,
+so it is not evidence for this review. Synchronization remains the final post-application step.
+
+### Round 18 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Judge actor clarification | One V1 human Chief Editor; virtual Chief Journalist supplies evidence, not final approval | Preserve in Draft 2 |
+| **Approve-with-conditions** | Proposed `D-189` direction | Assurance, editorial judgment, publication and future accounts are correctly separate in intent | Resolve `R137`–`R144`, then independent re-review |
+| **Reject** | `D-189` Draft 1 as executable text | Hybrid `T5`/`T6` model, false `D-171` authority premise, incomplete publication write set and premature closure | Lane A Draft 2 |
+| **Reject** | `B071-R136` current-build premise | Both orders are held; `AC-07` is historical documentation, not build permission | Correct plan and B-071 provenance text |
+| **Reject** | `CR-12`/`CR-19` as fully Covered now | Actor substitution is not yet customer-accepted under the map's own rule | Sponsor/customer route |
+| **Defer** | Parent Model A/B choice | Required before child drafting can become internally consistent | Bounded Judge decision |
+| **Defer** | Application, Graphify and build authorization | Plan remains unapplied; graph is stale; `D-171` binds | Accepted Draft 2, application, independent verification |
