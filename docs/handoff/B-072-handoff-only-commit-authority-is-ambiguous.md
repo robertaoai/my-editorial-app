@@ -1042,3 +1042,87 @@ subsequent push; it is not current state now.
 | **Defer** | `R11`–`R15`, `R19`, propagation and enforcement | Still open | Lane A documentation/tooling pass |
 | **Defer** | Graphify synchronization | `838baff` does not match `4ab57b4`; source corrections must land first | Final rebuild/re-merge and full suite |
 | **Defer** | Product implementation, `AUTH-DOC`, lane transition and deployment | Unaffected | Separate bounded authorization |
+
+## Independent review of Lane A commits `50fe4b9` / `b21de97` and completed push (2026-09-03)
+
+### Approval, commit, push and graph facts
+
+The Chief Editor's current instruction states **“Judge Approved: push; just done.”** Git independently
+confirms the resulting repository state: local `HEAD` and
+`origin/docs/journal-2026-08-16` both resolve to `b21de97`. The accumulated range pushed after the
+previous confirmed remote tip is `4ab57b4..b21de97`, containing the Lane B review commit `117ebff`,
+Lane A's substantive correction `50fe4b9`, and its evidence-field follow-up `b21de97`. This approval
+and push are facts about that immutable range only; they do not verify the corrections or authorize
+the work still listed as open.
+
+Graphify is not current: `.graphify/branch.json` records `lastAnalyzedHead = 838baff`, while Git is at
+`b21de97`. The authoritative local consistency run passes every check except `docs-drift`, which
+reports that exact mismatch. The file's `stale: false` value is not evidence of currency when the
+commit values differ.
+
+### Independent result
+
+- **`R37` is applied correctly.** The quoted revision expressions execute in PowerShell; upstream
+  resolution, range counting and ref comparison all complete without the reproduced hashtable
+  parser error.
+- **`R38` is directionally applied.** The SOP now requires a predeclared exact path and an exact
+  comparison, rather than accepting a filename-family match. The current `b21de97` commit changes
+  exactly B-072 and passes such an exact comparison.
+- **`R39`–`R41` are applied correctly.** The exhaustive completed-finding matrix, tracked live tips
+  and proof-step tally are absent from the current-valued header/SOP. The header now holds only
+  current resolution, an evidence anchor and remaining closure gates.
+- **B-072 remains `Applied`, not `Verified`.** The register contradiction, current accumulated-push
+  evidence, pre-commit single-path rule, open documentation/enforcement work and Graphify mismatch
+  prevent terminal verification.
+
+### Findings — parent first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R42` — `D-184` reintroduces the canonical-SOP lifecycle contradiction | The new Scope limits say the canonical-SOP application remains “separate, unstarted work.” The same `D-184` history says `b879af1` already applied it, and `50fe4b9` edits that applied SOP again. The sentence repeats the defect previously corrected by `R17` | A later reader is directed to re-apply an existing control or treats the current README procedure as merely proposed; either path destroys one-source lifecycle truth | Append a narrow `D-184` correction: the canonical SOP is **Applied**; only link propagation, hook/check enforcement, Graphify final sync and independent verification remain open. Do not rewrite the historical paragraphs |
+| `B072-R43` — the newly approved accumulated push is not durably recorded | `D-184` records the earlier `a3d2d2a..4ab57b4` exceptional range, but the current Judge-approved push is the later accumulated range `4ab57b4..b21de97`. The repository proves arrival, while the approval exists only in this conversation and this independent handoff review | A reader can prove the commits reached the remote but cannot distinguish this mixed-range Judge authorization from an actor exceeding the standing one-file rule; the approval-provenance dispute reopens | Append one execution-evidence note under `D-184`: Judge approval received for `4ab57b4..b21de97`; the range's three commits named above were pushed; local/remote equality was observed at `b21de97`. State that ordinary single-entry pushes satisfying the standing rule do **not** require a new register note—only a separately Judge-authorized accumulated range does |
+| `B072-R44` — the single-path transaction is enforced too late and only described, not given a deterministic comparison | README step 1 permits intended handoff “path(s)” and step 2 permits any B/C-pattern paths. Only after a commit exists does the pre-push proof demand one exact path. “Write it down” plus “byte-identical” states the rule but supplies no named comparison that returns pass/fail | Two own handoff files can be committed under the apparent pre-commit instructions, then fail only at push. That stuck local commit contaminates the next outgoing range and forces another exceptional push decision. A same-lane wrong file can also be accepted by visual pattern checking | Bind one exact task-specific handoff path **before staging**; require the cached changed-path set to equal that one literal before committing; after commit require `HEAD`'s changed-path set to equal the same value. Any zero, second, different or similarly named path stops before commit. Add wrong-same-lane and two-file negative fixtures to the already-open enforcement specification; do not build the hook in this pass |
+
+### Parent-first corrective plan — documentation only
+
+1. **Restore register truth (`R42`).** Append the lifecycle correction to `D-184`; call the recorded
+   range an execution event, not a new policy exception. Preserve the applied SOP and all historical
+   text.
+2. **Record the current accumulated push (`R43`).** Append the exact approved range and observed
+   remote result. Explicitly separate exceptional accumulated-range evidence from ordinary standing
+   one-entry pushes so every routine handoff does not create register churn.
+3. **Close the transaction before commit (`R44`).** Amend only the canonical README SOP: singular
+   exact path, pre-stage binding, cached-diff equality before commit, and the same equality against
+   `HEAD` before push. Keep shell/test mechanics in the future enforcement specification rather than
+   duplicating the SOP in another governed tier.
+4. **Complete the already-open documentation children.** Apply `R19` and the single `R11`–`R15`
+   request→refinement→decision→execution→evidence map in `docs/README.md`; add link-only owned facts
+   to Phase Closure, shared rules and work orders. Do not repeat the transaction procedure.
+5. **Specify, but do not build, enforcement.** Cover missing/failed upstream, wrong parent/count,
+   zero/multiple/wrong exact paths, another lane's entry, governed paths, and failed post-push
+   equality. Implementation requires a separate authorization.
+6. **Synchronize once, last (`R21`).** Commit all approved source and curated-fragment changes;
+   rebuild Graphify; re-merge curated fragments if necessary; run the full local suite; make no later
+   tracked edit; push; then request Lane B review of that exact remote commit.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R42-SC1` | A reader opens the current `D-184` | They compare its lifecycle statements | The canonical SOP is stated once as Applied; no current sentence calls it unstarted; genuinely open propagation/enforcement work remains named |
+| `B072-R43-SC1` | The conversation is unavailable | The current execution-evidence note and Git history are inspected | The exact approved range `4ab57b4..b21de97`, its contents and observed remote arrival are distinguishable from standing one-entry authority and from implementation approval |
+| `B072-R43-SC2` | An Eligible actor has one outgoing commit satisfying the standing one-entry proof | They push it | No new Judge decision or Decision Register execution note is required; the ordinary handoff remains durable through its own entry and Git |
+| `B072-R44-SC1` | Zero, two, or a different handoff path is staged | The pre-commit check runs | The transaction stops before a local commit exists |
+| `B072-R44-SC2` | Exactly the predeclared handoff path is staged and committed | Pre-commit and pre-push comparisons run | Both return one exact match; a merely similar B/C filename fails |
+| `B072-R21-SC4` | Terminal verification is requested | Repository and graph evidence are compared | Local `HEAD` = remote `HEAD` = Graphify `lastAnalyzedHead`; the full suite passes; the verifier did not draft the final correction |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Git push through `b21de97` | Local and remote equality independently confirmed | Record the accumulated-range evidence under `D-184` |
+| **Approve-with-conditions** | `R37`–`R41` correction packet | PowerShell quoting and drift-removal controls are sound; lifecycle, current-range provenance and pre-commit singularity still need the narrow fixes above | Lane A applies `R42`–`R44` parent first |
+| **Reject verification** | B-072 closure at `b21de97` | `D-184` contradicts itself, the new accumulated push is not durably registered, the pre-commit rule still permits plural paths, and Graphify is stale | Corrections, final Graphify sync, push, same-HEAD independent review |
+| **Reject** | Graphify synchronization now | Approved source corrections remain; rebuilding now guarantees another immediate drift after they land | Final source commit only |
+| **Defer** | Hook/check implementation | Guardrail permits planning only; negative fixtures and implementation are not authorized | Separate tooling authorization |
+| **Defer** | Product implementation, `AUTH-DOC`, lane transition and deployment | Unaffected by this governance review | Separate bounded authorization |
