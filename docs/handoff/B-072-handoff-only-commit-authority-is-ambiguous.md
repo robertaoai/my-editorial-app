@@ -625,3 +625,34 @@ no current build, lane-transition, push or deployment authority.
 | **Reject** | Duplicate tracking | No new journal file, request-box, `A-NNN` channel, central backlog, copied SOP, exhaustive commit ledger or bulk historical rewrite | Preserve existing owners and link upward |
 | **Defer** | Graphify synchronization | Graph is behind current `HEAD`; syncing before the disputed parent and root naming are resolved would encode unsettled meaning | Final Lane A source commit, rebuild/re-merge, same-HEAD independent review |
 | **Defer** | Product implementation / lane transition / deployment | This packet is governance lineage and handoff review only | Separate bounded authorization after governing prerequisites |
+
+## Both exact Judge decisions received (2026-09-03)
+
+**Both texts this addendum requested were approved, in the order specified (parent first).**
+
+1. `D-184`'s standing-push rule: re-approved explicitly — **"Judge Approved: D-184 standing
+   commit-and-push authority"** — closing `B072-R16`'s evidentiary gap. The self-contained record is
+   `docs/v1/V1-DECISION-REGISTER.md` §5.14e9's "Correction, added 2026-09-03" subsection, which also
+   fixes `B072-R17`'s lifecycle self-contradiction (the "still open" phrase was stale; `b879af1`
+   already applied the canonical SOP and closed `B-072`'s header in the same commit).
+2. `SETUP-SPIKE-000` naming: approved verbatim, recorded as **`D-185`**
+   (`docs/v1/V1-DECISION-REGISTER.md` §5.14e10). The compact root block is added to
+   `docs/journal/2026-08-16-sprint-plan.md`'s header, and a one-line pointer is added to
+   `docs/README.md`'s document-kind table.
+
+**`D-184`/`B-072` may now be treated as independently verifiable** on approval provenance and
+lifecycle text — Lane B's actual independent verification of that claim is still a separate,
+unstarted step (per `D-183` point 6, this note does not self-certify it).
+
+**Still open, not resolved by this update:** `B072-R19` (capture-before-child rule), `B072-R20`'s
+remaining scope beyond the one pointer just added, `B072-R21` (Graphify resync at the final settled
+`HEAD`), link-only propagation to `V1-PHASE-CLOSURE.md`/shared rule files/work orders, and hook/check
+enforcement.
+
+### Resolution gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `D-184` re-approval + lifecycle correction | Both `B072-R16` and `R17` closed | Independent Lane B verification |
+| **Approve** | `SETUP-SPIKE-000` naming | Recorded as `D-185`; journal + `docs/README.md` pointers added | Independent Lane B verification |
+| **Defer** | `B072-R19`–`R21`, propagation links, hook enforcement | Not resolved by this update | Lane A follow-up |

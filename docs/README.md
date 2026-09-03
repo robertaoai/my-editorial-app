@@ -9,6 +9,7 @@ Read this before building from anything in this folder.
 | `source/` | The **governing documents**: Project Charter, Addendum, Blueprint, Business Case | Binding, in that precedence order |
 | `governance/` | The **provisional deviation register** — departures from the governing set, dated, with closing triggers | Records departures; creates no authority |
 | `journal/` | Dated **build-readiness entries**: decision sheets, the sprint plan | Records decisions; the Chief Editor ratifies, documents do not ratify themselves |
+| `journal/2026-08-16-sprint-plan.md` §header | The branch's historical root — `SETUP-SPIKE-000` (`D-185`) | Historical lineage only; grants no current authority. Current operative decisions/state/backlog live in `v1/`/`handoff/`, not here |
 | `v1/` | The **operative record**: `V1-DECISION-REGISTER.md` (decisions, gap dispositions, conditions), `V1-BUILD-SPEC.md` (scope and sequence), `V1-ARTIFACT-INVENTORY.md` (what must exist) | **Binding on build order and gap status.** When derived tiers conflict, the register wins (`D-58`); frozen documents still outrank it |
 | this folder | `Modular_PRD.md` — the **governed requirement specification**, derived from the governing set with end-to-end traceability | Requirements layer; ratifies nothing |
 | this folder | The **repo plan pack**: `PRD.md`, `ARCHITECTURE.md`, `DATA_MODEL.md`, `INTELLIGENCE_LAYER.md`, `AGENTIC_LAYER.md`, `SECURITY.md`, `TASKS.md`, `TEST_PLAN.md` | **Not governing.** See below. |

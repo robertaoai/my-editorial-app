@@ -11950,6 +11950,41 @@ this entry and its application match this ruling.
 propagation, hook enforcement) is applied — this decision resolves its last blocking policy question,
 not the whole entry.
 
+### Correction, added 2026-09-03 (`B072-R16`, `R17`)
+
+Independent review (`docs/handoff/B-072-*.md` §"Independent review addendum — zero-to-one setup root
+and committed-document lineage") found two defects in this entry, not rewritten here per this
+register's append-only convention — corrected instead:
+
+**`B072-R17` — lifecycle self-contradiction.** The "Still open" sentence above says applying this
+rule to `docs/handoff/README.md` and closing `B-072` were not yet done. They were: this decision's
+own commit (`b879af1`) edited `docs/handoff/README.md` (the canonical-SOP section) **and** set
+`B-072`'s `Status: Answered`/`Resolution: Applied` in the same pass. Restated precisely: as of
+`b879af1`, the canonical SOP is applied and `B-072`'s header reflects `Answered`/`Applied`; what
+remained (and remains) genuinely open is the link-only propagation to `V1-PHASE-CLOSURE.md`/shared
+rule files/work orders, hook/check enforcement, and independent Lane B verification — not the SOP
+application or B-072's header state.
+
+**`B072-R16` — self-contained approval evidence.** The opening paragraph asserted this rule was
+"approved directly in this conversation" without transcribing a verifiable selection — a real
+evidentiary gap, since a reader without conversation access cannot confirm an explicit choice
+occurred versus a recommendation being silently adopted. **The Judge has since re-approved this
+exact rule explicitly, verbatim, in a later turn of the same conversation:**
+
+> Judge Approved: D-184 standing commit-and-push authority
+
+confirming the quoted rule text above word-for-word. This correction note **is** the durable,
+self-contained record `B072-R16` asked for — the approval no longer depends on an unrecorded prior
+selection; it is restated here in the Judge's own words, dated, and citable independently of any
+conversation transcript.
+
+### Tier applicability (`D-54`) — corrected
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-184` Eligible commit+push authority | ✅ §5.14e9, corrected above | **— unaffected** | **Owed a link-only summary — not yet applied** | **— unaffected** | **Owed a link-only live-state summary — not yet applied** | **— unaffected** |
+| `D-184` canonical-SOP application | ✅ cited here | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `docs/handoff/README.md` is a governance doc, not `Modular_PRD`** |
+
 ### Scope limits
 
 **Governs only the narrow handoff-journal commit/push permission for `Eligible` Lane B/C actors.**
@@ -11957,3 +11992,67 @@ Builds no code, authorizes no implementation, and does not touch `D-171`, `D-182
 checkpoint. Independent Lane B verification, the canonical-SOP application (`docs/handoff/README.md`),
 link-only propagation to Phase Closure/shared rules/work orders, and hook/check enforcement remain
 separate, unstarted work.
+
+## 5.14e10 `D-185` — `SETUP-SPIKE-000`: Historical Zero-to-One Setup Root
+
+**Chief Editor/Judge ruling, 2026-09-03, approved verbatim in this conversation** (`D-183` point 1 —
+names the object, action, scope/exclusions, and applicable checkpoint):
+
+> Judge Approved: name the historical root of branch `docs/journal-2026-08-16`
+> `SETUP-SPIKE-000` — Zero-to-One Project Setup and Governance Spike. Its Git base is `53ace36` and
+> its first branch-specific applied commit is `00d21cd`. It is a historical lineage parent only and
+> grants no current build, lane-transition, push or deployment authority.
+
+Answers `docs/handoff/B-072-*.md` §"Independent review addendum — zero-to-one setup root and
+committed-document lineage" (`B072-R18`–`R21` context; the naming decision itself, not those four
+follow-up findings).
+
+### Root facts
+
+| Root fact | Durable value |
+|---|---|
+| Git base | `53ace36` — scaffold/plan-pack base on `main` |
+| First applied root commit | `00d21cd` — first branch-specific governance/setup baseline (commit body: planning-only, no application build, migration, or environment pull) |
+| Purpose | Turn the scaffold into a governed, traceable zero-to-one project setup before application execution |
+| Original scope | Planning, governing sources, requirement structure, journal and governance instruments; no application build authorization |
+| Lifecycle meaning | **Historical parent only.** Explains why the branch exists; grants no current approval, lane state, implementation, push, or deployment authority |
+| Naming rationale | Not `R0`/`S0` — both already have governed meanings in the sprint plan; a reused label would collide |
+
+### Parent-first dependency map (navigation only, not a new authority hierarchy)
+
+```text
+SETUP-SPIKE-000 — historical zero-to-one setup root
+├─ GOV-BASELINE — document authority and Product requirements           [00d21cd]
+├─ V1-TRACKING — Decision Register, Build Spec, Inventory, Phase Closure
+├─ LANE-CONTROL — docs/handoff/README.md, LANE-B-WORK-ORDER.md
+├─ PRODUCT-REFINEMENT — B-068 → B-070 → B-071 → proposed D-182
+└─ PROCESS-REFINEMENT — B-072 → D-183 → D-184 → D-185 (this entry)
+```
+
+Within every child, this repository's existing document-precedence and arbitration rules
+(`D-29`, `D-58`) still govern — this tree is for navigation, not a competing precedence order.
+
+### Gaps
+
+**Addressed:** the root-naming decision itself (`B072-R16`'s naming half). **Unchanged:** every
+decision and document this root points to — none is re-decided by naming its ancestor. **Still
+open (`B072-R18`–`R21`, not resolved by this entry):** adding the compact root block to
+`docs/journal/2026-08-16-sprint-plan.md`; a root-journal pointer in `docs/README.md`; a
+capture-before-child rule for material clarifications; Graphify resynchronization at the final
+settled `HEAD`; independent Lane B verification.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `D-185` `SETUP-SPIKE-000` naming | ✅ §5.14e10 | **— unaffected: no artifact/sequence changed** | **— unaffected** | **— unaffected: no repository file created or retired** | **— unaffected** | **— unaffected: naming a historical parent, not product behavior** |
+
+**Handoff tracking:** `B-072` cites this decision as the root-naming half of its independent review
+addendum; `B-072`'s own `Status`/`Resolution` are unchanged by this entry.
+
+### Scope limits
+
+**Names a historical lineage parent only.** Grants no current build, lane-transition, push, or
+deployment authority, and does not touch `D-171`, `D-182`, `D-183`, `D-184`, or any `AUTH-*`
+checkpoint. The journal/`docs/README.md` pointers, capture-before-child rule, Graphify sync, and
+independent verification named in "Gaps" above remain separate, unstarted work.

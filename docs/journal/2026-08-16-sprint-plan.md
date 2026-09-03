@@ -6,6 +6,13 @@
 **Precedence:** Project Charter v1 > V1 Build Readiness Addendum v1.5 > Blueprint v1.4 > Business Case v2.3.
 **Repo:** `robertaoai/my-editorial-app`, branch `docs/journal-2026-08-16` off `main` @ `53ace36`. Local git identity `robertanct@yahoo.com.sg` / `robertaoai` — see **A6** before any push.
 **Sits below:** Entry 007 (Phase 0 approval) and `docs/governance/provisional-deviation-register.md`.
+**Historical root:** this branch is `SETUP-SPIKE-000` — Zero-to-One Project Setup and Governance
+Spike (`docs/v1/V1-DECISION-REGISTER.md` `D-185`). Git base `53ace36`; first branch-specific applied
+commit `00d21cd` (planning-only, no application build). Historical lineage parent only — grants no
+current build, lane-transition, push, or deployment authority. Current operative entry points:
+`docs/v1/V1-DECISION-REGISTER.md` (decisions), `docs/v1/V1-BUILD-SPEC.md`/`V1-PHASE-CLOSURE.md`
+(execution state), `docs/handoff/` (backlog). This journal remains historical evidence; it is not
+live tracking.
 
 **Why revision 8 exists.** Three things, all extending revision 7's correction rather than reversing it. **First,** the customer intake template was supplied, and its eight questions appear in order in *both* the Charter body and the Business Case headers — so each governing document has a customer half and a project-side overlay, and **OD1–OD4 are the project team's questions posed back to the customer**, not customer statements (A14). This also corrects D5's characterisation: the plan pack is not *wrong* about governance, it is *silent* on it, because the template it was generated from asks no governance questions (A15). **Second,** revision 7 made the missing Business Charter a "structural gap" on the production checklist. That repeated the same overreach in a new place — the team may recommend a Business Charter, never require one — so it is withdrawn, and the honest statement is narrower: we cannot verify `PRD.md` against a source we do not hold, which blocks nothing (A13, withdrawn). **Third,** the Chief Editor reframed OD2 as a RACI involvement question and OD4 as the autonomy extension; recorded in `docs/governance/raci-involvement-matrix.md` (A16). **Nothing ratified, no headcount derived.**
 
