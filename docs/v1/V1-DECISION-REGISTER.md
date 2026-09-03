@@ -12011,14 +12011,36 @@ handoff file). **It is not a new policy, not a change to the narrow `Eligible` r
 reader without conversation access can distinguish this specific authorized-and-completed push from
 the standing per-actor rule the rest of this entry defines.
 
+### Execution-evidence note, added 2026-09-03 (`B072-R43`)
+
+**Judge approval received for, and execution of, the accumulated range `4ab57b4..b21de97`** —
+containing the independent-review commit `117ebff`, Lane A's substantive correction `50fe4b9`, and
+its evidence-field follow-up `b21de97` — pushed and confirmed (Git: local `HEAD` = remote at
+`b21de97`). Recorded for the same reason as the `a3d2d2a..4ab57b4` note above: a bounded exercise of
+the Chief Editor's own authority to name an accumulated range, not a new policy. **This note is
+required only because the range mixed Lane A's own commits with review commits — an ordinary
+`Eligible`-actor push of one standing-rule-compliant handoff entry never requires a Register note; it
+is durable through its own handoff entry and Git alone (`B072-R43`).**
+
+### Correction, added 2026-09-03 (`B072-R42`)
+
+The "Scope limits" paragraph below states the canonical-SOP application as "separate, unstarted
+work." That repeats the exact defect `B072-R17` already corrected once in this entry: the canonical
+SOP (`docs/handoff/README.md` §"Committing and pushing your own entry") **is Applied** — first at
+`b879af1`, then refined through `R29`/`R32`–`R34`/`R37`/`R38`/`R44`. Not rewriting the paragraph below
+per this register's append-only convention; restated precisely here instead: **canonical-SOP
+application is Applied.** What remains genuinely open is link-only propagation to Phase
+Closure/shared rules/work orders, hook/check enforcement of the SOP's pre-push proof, Graphify final
+sync, and independent Lane B verification — not the SOP's existence or content.
+
 ### Scope limits
 
 **Governs only the narrow handoff-journal commit/push permission for `Eligible` Lane B/C actors, plus
-the one recorded execution-evidence exception above.** Builds no code, authorizes no implementation,
-and does not touch `D-171`, `D-182`, or any `AUTH-*` checkpoint. Independent Lane B verification, the
-canonical-SOP application (`docs/handoff/README.md`), link-only propagation to Phase
-Closure/shared rules/work orders, and hook/check enforcement (including `R28`'s upstream-alignment
-negative check) remain separate, unstarted work.
+the two recorded execution-evidence exceptions above.** Builds no code, authorizes no implementation,
+and does not touch `D-171`, `D-182`, or any `AUTH-*` checkpoint. Independent Lane B verification,
+link-only propagation to Phase Closure/shared rules/work orders, and hook/check enforcement
+(including `R28`'s upstream-alignment negative check) remain separate, unstarted work — the
+canonical-SOP application itself is not on this list (see the correction above).
 
 ## 5.14e10 `D-185` — `SETUP-SPIKE-000`: Historical Zero-to-One Setup Root
 

@@ -7,8 +7,8 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** `50fe4b9` (the correction commit answering `B072-R36`–`R41`; earlier SHAs
-  cited in this file's independent-review sections are historical evidence, not current status)
+- **Verified-At-Commit:** PLACEHOLDER-THIS-COMMIT (answers `B072-R42`–`R44`; earlier SHAs cited in
+  this file's independent-review sections are historical evidence, not current status)
 - **Lane A:** Acknowledged 2026-09-02. **Exhaustive Applied-history matrices and tracked live-Git-tip
   claims are retired from this field (`B072-R39`, `R40`) — every correction pass added a finding the
   previous matrix couldn't name, guaranteeing the next "matrix is stale" finding, and a "current"
@@ -24,9 +24,18 @@
     propagation to `V1-PHASE-CLOSURE.md`/shared rule files/work orders; commit-hook/check
     implementation of the SOP's pre-push proof (drafted, not built); independent Lane B verification
     of this entry as a whole.
-  - **Not a closure gate, informational only:** `D-184`'s execution-evidence note
-    (`docs/v1/V1-DECISION-REGISTER.md` §5.14e9) records one Judge-authorized accumulated-range push
-    completed through `4ab57b4` (`B072-R36`) — a bounded use of existing authority, not new policy.
+  - **Not a closure gate, informational only:** `D-184`'s two execution-evidence notes
+    (`docs/v1/V1-DECISION-REGISTER.md` §5.14e9) record Judge-authorized accumulated-range pushes
+    completed through `4ab57b4` (`B072-R36`) and `b21de97` (`B072-R43`) — each a bounded use of
+    existing authority, not new policy. Per `R43`: an ordinary `Eligible`-actor push of one
+    standing-rule-compliant handoff entry never needs a note like these; only a mixed range naming
+    Lane A's own commits does.
+  - **`D-184` self-consistency (`B072-R42`):** the register previously repeated the exact defect
+    `R17` had already corrected — calling the canonical SOP "unstarted" after it was applied. Fixed
+    with an append-only correction in `D-184` itself; the SOP has been Applied since `b879af1`.
+  - **Pre-commit path binding (`B072-R44`):** the canonical SOP's exact-path check moved from
+    pre-push-only to before staging and before committing — a same-lane wrong file or a second path
+    now stops before a local commit exists, not only at push time.
 
   `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
   transaction SOP; every earlier protocol block in this file's independent-review sections below is
