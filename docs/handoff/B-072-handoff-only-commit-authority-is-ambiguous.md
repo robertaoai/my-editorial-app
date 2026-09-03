@@ -7,7 +7,7 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** `ad685e7` (answers `B072-R45`–`R46`; earlier SHAs cited in this file's
+- **Verified-At-Commit:** `<pending>` (answers `B072-R51`–`R52`; earlier SHAs cited in this file's
   independent-review sections are historical evidence, not current status)
 - **Lane A:** Acknowledged 2026-09-02. **Exhaustive Applied-history matrices and tracked live-Git-tip
   claims are retired from this field (`B072-R39`, `R40`) — every correction pass added a finding the
@@ -24,17 +24,12 @@
     propagation to `V1-PHASE-CLOSURE.md`/shared rule files/work orders; commit-hook/check
     implementation of the SOP's pre-push proof (drafted, not built); independent Lane B verification
     of this entry as a whole.
-  - **Historical push-event record (not a closure gate):** see `D-184` §"Execution-evidence note"
-    (`B072-R36`, `R43`) and this file's independent-review sections below for the completed
-    Judge-authorized accumulated-range execution events. This header does not restate their count,
-    ranges, or content (`B072-R46`) — query those sections directly.
-  - **`D-184` corrections applied (`B072-R42`, `R45`):** the register no longer calls the canonical
-    SOP "unstarted," and no longer calls the `R36`/`R43` notes "exceptions" — both are
-    Judge-authorized accumulated-range execution events under the standing policy, not deviations
-    from it. See `D-184` itself for the append-only correction text.
-  - **Pre-commit path binding (`B072-R44`):** the canonical SOP's exact-path check moved from
-    pre-push-only to before staging and before committing — a same-lane wrong file or a second path
-    now stops before a local commit exists, not only at push time.
+  - **Completed corrections and events (not a closure gate):** `B072-R36`, `R42`, `R43`, `R44`,
+    `R45`, and `R51` are all applied. Their content — the Route A/Route B authority separation, the
+    canonical-SOP lifecycle fix, the pre-commit path binding, and the historical execution-event
+    record — lives only in `D-184` (`docs/v1/V1-DECISION-REGISTER.md` §5.14e9) and this file's
+    independent-review sections below. This header does not restate or summarize them
+    (`B072-R46`, `R52`) — query those sections directly.
 
   `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
   transaction SOP; every earlier protocol block in this file's independent-review sections below is

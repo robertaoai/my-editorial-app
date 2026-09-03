@@ -12056,6 +12056,26 @@ log — per `R43`, a future accumulated-range approval is recorded append-only i
 handoff entry (e.g., `B-072`), not as a new note here. An ordinary single-entry `Eligible`-actor push
 still requires no note anywhere in this register.
 
+### Correction, added 2026-09-03 (`B072-R51`)
+
+The `R45` correction above calls `R36`/`R43` examples of "that same authority" as the standing
+`Eligible` permission this decision defines. That conflates two distinct authorities. Not rewriting
+`R45`'s text per this register's append-only convention; restated precisely here instead — this
+decision recognizes **two separate authorities, never one**:
+
+- **Route A — the `Eligible` actor's standing permission.** A narrow, pre-authorized, repeatable
+  right to commit and push exactly one own `docs/handoff/B-NNN-*.md`/`C-NNN-*.md` entry, held by
+  whichever Lane B/C actor is `Eligible`, requiring no per-use approval.
+- **Route B — the natural-person Judge's own accumulated-range authority.** A separate,
+  pre-existing power the Chief Editor/Judge exercises directly and by name, approving one
+  specific accumulated range for push on a given occasion. It is not delegated through, derived
+  from, or a broadened instance of Route A, and it carries no standing/repeatable form — each use
+  is its own named approval.
+
+`R36` and `R43` are historical examples of **Route B**, not of the `Eligible` actor's Route A
+permission. Neither route is a subset, exception, or broadened case of the other; `D-184` defines
+Route A, and records Route B's exercises only as historical evidence.
+
 ## 5.14e10 `D-185` — `SETUP-SPIKE-000`: Historical Zero-to-One Setup Root
 
 **Chief Editor/Judge ruling, 2026-09-03, approved verbatim in this conversation** (`D-183` point 1 —
