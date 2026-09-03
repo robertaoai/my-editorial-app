@@ -18,13 +18,13 @@
 
   - **Resolution:** `Applied`. The narrow `Eligible` handoff-only commit-and-push rule (`D-184`), its
     canonical SOP (`docs/handoff/README.md`), and the historical root (`D-185`) are all applied.
-  - **Remaining closure gates (unordered by recency, each independent):** `R55` (independent-source
-    comparison of the `D-184` §`B072-R54` ratification); `R11`–`R15` (the
-    request→refinement→decision→execution→evidence routing map in `docs/README.md`); `R19`
+  - **Remaining closure gates (unordered by recency, each independent):** `R11`–`R15` (the
+    request→refinement→decision/authorization→execution-packet/readiness→execution→evidence/lifecycle
+    routing map in `docs/README.md`); `R19`
     (capture-before-child rule); `R21` (Graphify resync at the final settled `HEAD`); link-only
-    propagation to `V1-PHASE-CLOSURE.md`/shared rule files/work orders; commit-hook/check
-    implementation of the SOP's pre-push proof (drafted, not built); independent Lane B verification
-    of this entry as a whole.
+    propagation to `V1-PHASE-CLOSURE.md` and the shared rule files; `R62`'s corrective
+    `LANE-B-WORK-ORDER.md` edit; commit-hook/check implementation of the SOP's pre-push proof
+    (drafted, not built); independent Lane B verification of this entry as a whole.
   `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
   transaction SOP; every earlier protocol block in this file's independent-review sections below is
   historical analysis, not a second operative copy (`B072-R8`/`R9`).
@@ -1756,3 +1756,83 @@ Promotion rule:
 | **Reject** | Five-step map and universal `Active` promotion rule as drafted | Omits readiness and contradicts `D-184` | Replace with the six-stage map |
 | **Reject** | Claim that `R55` evidence reached Lane B | The Judge sentence remains inside Lane A's quoted analysis, not a direct Judge act in this task | Direct Judge confirmation or independently readable receipt |
 | **Defer** | Application, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | This review authorizes no implementation | Separate bounded authorization; Graphify last |
+
+## Independent review of Lane A's Chain 2 Draft 2 and direct `R55` evidence (2026-09-03)
+
+### Direct authority evidence and correspondence
+
+The current Lane B request directly states:
+
+> Judge Approved: push; just done; I confirm that the ratification recorded in D-184 §B072-R54
+> was my own approval and accurately records the actions, revisions, scope, and exclusions I gave
+> Lane A.
+
+This is the natural-person Judge act that `R55`/`R56` required; it is not Lane A's report of a
+private exchange. Compared with the governed source and immutable application:
+
+| Axis | Direct Judge act | `D-184` §`B072-R54` / `8b0fa76` | Result |
+|---|---|---|---|
+| Object | the ratification recorded at `D-184` §`B072-R54` | that exact correction section | Match |
+| Authority | “my own approval” | records the Judge's own ratification | Match |
+| Actions/revisions | confirms the recorded actions and revisions | ratifies `ad685e7`, `27b92a4`, `ebf7d26` and authorizes the `R54` correction | Match |
+| Scope/exclusions | confirms the recorded scope and exclusions | documentation-only; excludes `R11`–`R15`, `R19`, propagation, enforcement, Graphify, `AUTH-DOC`, product work and lane transition | Match |
+
+`R55` and `R56` are therefore satisfied. Git proves that `8b0fa76` contains the compared text; it
+does not supply the approval. No additional Decision Register paragraph is needed because the
+existing record matches the direct act.
+
+### Review result — Draft 2
+
+- `R59`'s principal separation is present: actor, evidence source and durable record are no longer
+  presented as one “Owner” axis.
+- `R60` is corrected: execution readiness is restored and the `D-184` Eligible-lane exception is
+  explicit.
+- `R61`'s required consumer search was performed. `.github/WORKFLOWS-SPEC.md` is unaffected, but
+  `docs/LANE-B-WORK-ORDER.md` contains a live contradiction and therefore cannot receive only a
+  pointer.
+- The B-061 dated note is acceptable with the evidence-derived lifecycle sentence and no
+  `Resolution` field. Its lifecycle still waits on B-071/proposed `D-182`, not B-070.
+
+### Findings — highest parent first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R63` — Draft 2 declares one canonical record per fact but does not finish that allocation | The Request row puts Judge and customer input together “under `D-183`”, although `D-183` governs Judge approval/clarification only. The readiness row also leaves the bounded unit and DoD jointly owned by Build Spec and the work order | Customer input can be mistaken for authority, while two documents can independently redefine the same runnable unit and both claim to be canonical | Split the Request clause: Judge input follows `D-183`; customer/business input follows the applicable requirements/refinement tier and grants no authority. Split readiness ownership: Build Spec owns approved sprint scope, sequence and DoD; the selected lane's work order owns the current executable unit, exact paths and exclusions by reference to that Build Spec; Inventory owns file lifecycle; Phase Closure owns live lane state |
+| `B072-R62` — the Lane B work order contradicts `D-156` and `D-184` | `docs/LANE-B-WORK-ORDER.md:39` says `Eligible` means the lock is free, permits no commits, and cites superseded `D-108`. `Eligible` may coexist with the `Active` lane, and `D-184` permits the actor's one-entry handoff commit/push | A Lane B actor following the work order either refuses a lawful durable handoff or assumes the Active lock is vacant; the current rule and its consumer cannot both be followed | Replace that row with: **“`Eligible` means nominated as next holder, not yet executing work product. It may coexist with the `Active` lane. No work-product commit is permitted; `D-184` separately permits committing and pushing only your own single handoff entry under `docs/handoff/README.md`. Promotion to `Active` follows `D-156`.”** This is a substantive work-order correction, not link-only propagation |
+
+### Parent-first completion plan — documentation only
+
+1. **Authority chain — complete.** Preserve the direct `R55` comparison above; do not add a second
+   Register ratification.
+2. **Documentation-model parent — separately authorize.** Apply `R19` and `R11`–`R15` using the
+   six-stage map, with `R63`'s exact fact ownership corrections.
+3. **Operative consumer child — separately authorize.** Correct the work-order row under `R62`;
+   this depends on already-governed `D-156`/`D-184`, not on B-071.
+4. **Propagation child.** Add link-only pointers to Phase Closure and the byte-identical shared
+   core; leave the handoff SOP and workflow specification explicitly unaffected.
+5. **Product-refinement chain, independent.** Complete B-071/proposed `D-182`, then append B-061's
+   dated note and derive its lifecycle from the governed successor and independent evidence.
+6. **Tooling and final join last.** Hook/check implementation requires separate build authority.
+   After every required source chain settles, rebuild/re-merge Graphify once and perform an
+   independent same-HEAD terminal review.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R55-SC4` | The direct Judge sentence above | It is compared with `D-184` §`B072-R54` and `8b0fa76` | Object, authority, revisions, actions, scope and exclusions match; `R55`/`R56` are closed without treating Git as authority |
+| `B072-R63-SC1` | A request or readiness fact is classified | Its durable destination is selected | Judge and customer input are distinct; each readiness subfact has exactly one canonical record |
+| `B072-R62-SC1` | Lane B is `Eligible` while another lane is `Active` | The work order is followed | Work-product execution is refused, but the actor's own one-entry handoff commit/push remains permitted under `D-184`; no `D-108` citation remains |
+| `B072-R58-SC3` | B-061 receives its dated note | Its lifecycle is reviewed | Q1/Q12 and B-070 are not blockers, no placeholder resolution exists, and the next state is evidence-derived |
+| `B072-R21-SC11` | All required source chains have settled | Terminal verification runs | Local `HEAD`, upstream and Graphify `lastAnalyzedHead` match; the full suite passes; the verifier did not author the final correction |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `D-184` §`B072-R54` approval correspondence | Direct Judge evidence received and matched; `R55`/`R56` satisfied | Closed; preserve the existing Register text |
+| **Approve-with-conditions** | Chain 2 Draft 2 | `R59`/`R60` direction is sound; apply `R63` before treating the structural map as final | Lane A documentation-model pass, then independent review |
+| **Approve** | `R62` work-order finding | The operative contradiction is confirmed directly | Separate bounded Lane A correction before pointer propagation |
+| **Approve-with-conditions** | B-061 dated note | Correct blocker/successor model and neutral lifecycle wording | After B-071/proposed `D-182` settles |
+| **Reject** | Link-only treatment of `LANE-B-WORK-ORDER.md` | It contains wrong operative semantics, not merely a missing link | Apply `R62`'s substantive correction |
+| **Defer** | Source application, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | No such execution authority is supplied by this confirmation | Separate bounded authorization; Graphify last |
