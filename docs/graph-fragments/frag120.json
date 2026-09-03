@@ -1,0 +1,96 @@
+{
+  "nodes": [
+    {
+      "id": "b073_r66_frozen_source_intake_guide",
+      "label": "B-073: R66 Frozen-Source Intake Correction Guide",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-073-r66-frozen-source-intake-correction-guide.md",
+      "source_location": "",
+      "description": "Handoff status: Answered, Resolution Applied at bfb77f4. Lane B's task guide operationalizing B072-R66: docs/README.md's six-stage map sent customer/business input to frozen docs/PRD.md 'on the demand side', conflating a request, the frozen institutional baseline, and writable derived specifications. Applied correction: customer or business input is a request until classified against the frozen Project PRD and Charter; within that baseline it refines the single derived tier owning the fact under D-29; outside it, it becomes a named Register gap or change request and drafting stops. Frozen sources are cited as evidence and are never writable intake destinations; the non-governed demand/supply labels are removed from the Request row. Unit 1 of 3 under the Judge's one-at-a-time authorization. Guide commit 77ce8a3 proves the instruction exists and is not application evidence.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires every docs/ markdown file to hold a curated node. Without one, an independent reviewer cannot locate the guide that governs the correction it is reviewing."
+    },
+    {
+      "id": "b074_r67_r21_lifecycle_guide",
+      "label": "B-074: R67 D-186 R21 Lifecycle Correction Guide",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-074-r67-d186-r21-lifecycle-correction-guide.md",
+      "source_location": "",
+      "description": "Handoff status: Answered, Resolution Applied at a2fbb21. Lane B's task guide operationalizing B072-R67: D-186's Gaps section placed B072-R21 under Unchanged while the same clause recorded that its Graphify synchronization had been performed, giving one item two mutually exclusive lifecycle states. Applied correction, appended not rewritten: the Unchanged classification is withdrawn and the effective state is Closed, evidenced at 56759ff, with the original sentence preserved as historical text. Records the separation that motivated it -- 56759ff proves historical R21 completion and is never evidence that the graph is current at a later HEAD, which is read from .graphify/branch.json against the settled HEAD. Unit 2 of 3; guide commit 18d2e79 is not application evidence.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also carries the historical-completion versus current-currency distinction, which is the reusable lesson rather than the one-off fix."
+    },
+    {
+      "id": "b075_r68_b072_metadata_guide",
+      "label": "B-075: R68 B-072 Lifecycle-Metadata Correction Guide",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-075-r68-b072-lifecycle-metadata-correction-guide.md",
+      "source_location": "",
+      "description": "Handoff status: Answered, Resolution Applied at b537d66, with one recorded deviation. Lane B's task guide operationalizing B072-R68: B-072 carried Verified-At-Commit 8b0fa76 while Resolution was Applied, letting historical R54 evidence read as terminal verification of the current packet, and its header still called R65-R69 closure gates. Applied: the header now carries only current state, enforcement is recorded as deferred hardening and not a closure gate per R69, and one terminal gate remains -- independent Lane B review after final Graphify synchronization. Deviation: the guide's section 2 and B075-SC1 require removing Verified-At-Commit while Applied, which closure-readiness rejects ('an applied change that names no commit cannot be re-checked'), confirmed empirically when B-073 failed that way. On the Judge's direction the field was re-pointed to the application commit and labelled an evidence anchor rather than removed; the check was not changed and Lane B is asked to rule. Unit 3 of 3; guide commit 63c51b4 is not application evidence.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node records the unresolved B075-SC1 versus closure-readiness conflict so a later reviewer meets the open question rather than rediscovering it."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b073_r66_frozen_source_intake_guide",
+      "target": "b072_handoff_only_commit_authority",
+      "relation": "operationalizes",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-073-r66-frozen-source-intake-correction-guide.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b074_r67_r21_lifecycle_guide",
+      "target": "b072_handoff_only_commit_authority",
+      "relation": "operationalizes",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-074-r67-d186-r21-lifecycle-correction-guide.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b075_r68_b072_metadata_guide",
+      "target": "b072_handoff_only_commit_authority",
+      "relation": "operationalizes",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-075-r68-b072-lifecycle-metadata-correction-guide.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b075_r68_b072_metadata_guide",
+      "target": "b074_r67_r21_lifecycle_guide",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-075-r68-b072-lifecycle-metadata-correction-guide.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b074_r67_r21_lifecycle_guide",
+      "target": "b073_r66_frozen_source_intake_guide",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-074-r67-d186-r21-lifecycle-correction-guide.md",
+      "source_location": "",
+      "weight": 1
+    }
+  ]
+}
