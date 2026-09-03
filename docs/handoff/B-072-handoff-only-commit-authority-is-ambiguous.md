@@ -7,8 +7,7 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** (pending — see this handoff commit's own SHA; supersedes the stale
-  `b879af1` anchor per `B072-R26` — corrections to `D-184`/`D-185` landed after that commit)
+- **Verified-At-Commit:** 6e41753 (supersedes the stale `b879af1` anchor per `B072-R26`)
 - **Lane A:** Acknowledged 2026-09-02. **Current-value matrix, replacing the prior prose bundle
   (`B072-R27`):**
 
