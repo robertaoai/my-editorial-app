@@ -18,12 +18,12 @@
   Graphify synchronization is held for the settled `HEAD` after `R68` (`R21`).
 - **Resolution:** Applied
 - **Verified-At-Commit:** `bfb77f4` — the commit applying this guide. **This is the anchor where the
-  evidence is observable, not a `Verified` claim**; `Resolution` stays `Applied` and only an
-  independent actor may promote it (`B073-SC5`)
+  evidence is observable, and it is REQUIRED while `Resolution` is `Applied`** (`B076-R1`).
+  Terminality comes from `Resolution: Verified` plus `Verified-By`, neither of which is set
 - **Evidence:** `docs/README.md` §"How a request becomes execution" Request row;
   `docs/v1/V1-DECISION-REGISTER.md` §"Correction, added 2026-09-03 (`B072-R66`)"; `B-072`
-  §`B072-R66`; `D-29`, `D-34`, `D-58`; frozen-source rules in `AGENTS.md`. **No terminal
-  verification field is set** — an independent actor promotes this, not Lane A (`B073-SC5`)
+  §`B072-R66`; `D-29`, `D-34`, `D-58`; frozen-source rules in `AGENTS.md`. **`Resolution` remains `Applied`; `Verified-At-Commit` is the evidence anchor;
+  `Verified-By` is absent, so no terminal verification is claimed** (`B076-R1`, `B076-R3`)
 
 ## What happened
 
@@ -100,7 +100,11 @@ labels; or lets an out-of-baseline request reach a derived tier before a Registe
 | `B073-SC2` | It is inside the frozen baseline | Its detail owner is known | Only the owning derived tier may later change; frozen sources are cited, not edited |
 | `B073-SC3` | It would change the frozen baseline | Classification completes | One Register gap/change request is recorded and downstream drafting stops |
 | `B073-SC4` | R66 is applied | The diff is reviewed | Only the Register correction, Request-row clauses and handoff evidence changed |
-| `B073-SC5` | The correction is pushed | Final review runs | Local/upstream/Graphify heads match, checks pass, and the verifier did not author it |
+| `B073-SC5` | The correction is pushed | Final review runs | Local/upstream/Graphify heads match, checks pass, and the verifier did not author it | **SUPERSEDED by `B076-R2` — see below**
+**Correction, appended 2026-09-03 (`B076-R2`).** `B073-SC5`'s "the verifier did not author it" is
+superseded: independence excludes the **answering/applying** side, not the raiser. Lane A answered
+and applied; **Lane B may verify.**
+
 
 ## What you did instead
 

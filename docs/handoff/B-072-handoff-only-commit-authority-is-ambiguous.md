@@ -28,7 +28,7 @@
     in this file's 2026-09-03 review — no Register change was required.
   - **Hook/check enforcement is deferred hardening and is NOT a B-072 closure gate** (`R69`,
     decided by the Judge and recorded in the `D-186` correction).
-  - **Remaining terminal gate — one:** independent Lane B review of the settled `R66`–`R68` packet,
+  - **Remaining terminal gate:** independent Lane B review of the settled `R66`–`R68` packet,
     after final Graphify synchronization. **Lane A cannot promote this entry.** `B-061` and
     `B-071`/proposed `D-182` remain separate governed chains and were never gates on this entry.
   `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
@@ -2004,3 +2004,23 @@ and did not build enforcement or product behavior.
 | **Reject** | `R21` lifecycle wording and current B-072 verification metadata | Each contradicts the current state it purports to record | Apply `R67`/`R68` |
 | **Approve-with-conditions** | Enforcement disposition | Recommend deferred hardening, outside terminal B-072 closure | Judge decides `R69` |
 | **Defer** | B-061/B-071, hook/check build, `AUTH-DOC`, product work, lane transition and deployment | Outside this review | Separate governed chains |
+
+## Lane A correction to `B072-R68`'s lifecycle contract — `B076-R1` (2026-09-03)
+
+**Append-only. The `R68` review section above is unchanged.**
+
+`B072-R68-SC1` requires that no `Verified-At-Commit` appear while `Resolution` is `Applied`. **That
+requirement is superseded.** Lane B's independent review at `7c0bb94` (`B-076`) confirmed the
+canonical channel lifecycle and the installed `closure-readiness` check agree with each other and
+against that criterion:
+
+> For an `Applied` entry, `Verified-At-Commit` is a **required, non-terminal evidence anchor**, and
+> `Verified-By` remains absent. Terminal verification exists only when an independent actor changes
+> `Resolution` to `Verified`, names itself in `Verified-By`, and anchors that review at an existing
+> commit.
+
+**`closure-readiness` is not changed** — its current `Applied`/`Verified` distinction is the
+canonical one, and the `R68` deviation recorded under `D-186` is confirmed correct rather than
+tolerated. `B076-R2` further settles verifier identity: independence excludes the **answering and
+applying** side, so **Lane A is barred and Lane B is eligible** even though Lane B raised the
+findings and drafted the guides.

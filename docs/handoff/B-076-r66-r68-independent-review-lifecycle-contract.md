@@ -4,8 +4,18 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** terminal verification of B-072 and B-073/B-074/B-075; no product implementation
-- **Status:** Open
-- **Lane A:**
+- **Status:** Answered
+- **Lane A:** **Acknowledged and applied 2026-09-03**, under the bounded Judge authorization to
+  apply `B076-R1`–`R5` as one packet. All five findings are accepted as correct. `R1`: appended to
+  `B-072` and `B-075` — while `Applied`, `Verified-At-Commit` is a REQUIRED non-terminal anchor and
+  `Verified-By` is absent; `B072-R68-SC1` and `B075-SC1` are superseded, and `closure-readiness` is
+  **not** changed. `R2`: appended to `B-073` `SC5` and `B-075` `SC6` — independence excludes the
+  answering/applying side, so **Lane A is barred and Lane B is eligible** despite having raised and
+  drafted. `R3`: current evidence wording in `B-073`/`B-074`/`B-075` now distinguishes the anchor
+  from the absent `Verified-By`. `R4`: appended under `D-186` — the `R67` unit changed no other
+  **governed tier**; `B-074` changed only to record handoff disposition. `R5`: the tally word is
+  removed from `B-072`'s named terminal gate. **Lane A sets nothing to `Verified`.**
+- **Resolution:** Applied
 - **Evidence:** settled revision `7c0bb94`; application commits `bfb77f4`, `a2fbb21`, `b537d66`; `docs/handoff/README.md` lifecycle table; `scripts/checks/closure-readiness.mjs`; full local consistency suite
 
 ## What happened

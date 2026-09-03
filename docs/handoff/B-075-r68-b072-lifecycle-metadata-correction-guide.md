@@ -23,11 +23,13 @@
   and recommends against changing it. Full reasoning in
   `V1-DECISION-REGISTER.md` §"Correction, added 2026-09-03 (`B072-R68`)".
 - **Resolution:** Applied
-- **Verified-At-Commit:** `b537d66` — the commit applying this guide. **An evidence anchor, not a `Verified` claim.**
+- **Verified-At-Commit:** `b537d66` — the commit applying this guide. **An evidence anchor, REQUIRED
+  while `Resolution` is `Applied`** (`B076-R1`); terminality needs `Verified` plus `Verified-By`.
 - **Evidence:** `docs/handoff/B-072-*.md` current header; `docs/v1/V1-DECISION-REGISTER.md`
   §"Correction, added 2026-09-03 (`B072-R68`)"; prerequisites `bfb77f4` (`R66`) and `a2fbb21`
-  (`R67`); `D-186` and its `R65`/`R69` correction at `fab9952`. **No terminal verification field is
-  set** — only a non-drafting actor may promote this (`B075-SC6`)
+  (`R67`); `D-186` and its `R65`/`R69` correction at `fab9952`. **`Resolution` remains `Applied`;
+  `Verified-At-Commit` is the evidence anchor; `Verified-By` is absent, so no terminal verification
+  is claimed** (`B076-R1`, `B076-R3`)
 
 ## What happened
 
@@ -125,12 +127,25 @@ commit.
 
 | ID | Given | When | Then |
 |---|---|---|---|
-| `B075-SC1` | B-072 remains `Applied` | Its metadata is parsed | Neither `Verified-By` nor `Verified-At-Commit` is present |
+| `B075-SC1` | B-072 remains `Applied` | Its metadata is parsed | Neither `Verified-By` nor `Verified-At-Commit` is present | **SUPERSEDED by `B076-R1` — see below**
 | `B075-SC2` | Historical `8b0fa76` is searched | Its meaning is read | It is only R54 evidence in the historical body, not current terminal proof |
 | `B075-SC3` | The current Lane A block is read | Remaining work is identified | R66/R67 are applied with real commits; R69 is decided; independent review is the sole terminal gate |
 | `B075-SC4` | The R68 diff is reviewed | Changed paths are compared with authorization | Only the Register record, B-072 current header and B-075 evidence changed |
 | `B075-SC5` | Final graph work runs after R68 | Currency and integrity are checked | `lastAnalyzedHead` matches settled `HEAD`, curated content survives, and the full suite passes |
-| `B075-SC6` | Independent review runs | Lifecycle promotion is considered | The reviewer is not the drafting/applying actor and cites an existing, upstream-observable commit |
+| `B075-SC6` | Independent review runs | Lifecycle promotion is considered | The reviewer is not the drafting/applying actor and cites an existing, upstream-observable commit | **`drafting` SUPERSEDED by `B076-R2` — see below**
+
+**Correction, appended 2026-09-03 (`B076-R1`).** For an `Applied` entry, `Verified-At-Commit`
+is a **required, non-terminal evidence anchor**, and `Verified-By` remains absent. Terminal
+verification exists only when an independent actor changes `Resolution` to `Verified`, names itself
+in `Verified-By`, and anchors that review at an existing commit. **This supersedes the literal
+absence requirement in `B075-SC1`** above. `closure-readiness` is unchanged — its current
+`Applied`/`Verified` distinction is the canonical one.
+
+**Correction, appended 2026-09-03 (`B076-R2`).** Independence means the verifier **did not answer or
+apply** the correction. Lane A was the answering and applying side; **Lane B may independently verify
+even though it raised the finding and drafted this guide.** This supersedes the "not the
+drafting/applying actor" wording in `B075-SC6` above.
+
 
 ## What you did instead
 

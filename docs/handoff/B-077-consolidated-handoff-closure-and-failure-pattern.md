@@ -4,8 +4,20 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** a truthful claim that the handoff backlog is reconciled and ready for the next authorization; no product implementation
-- **Status:** Open
-- **Lane A:**
+- **Status:** Answered
+- **Lane A:** **Acknowledged 2026-09-03 — receipt, not an answer.** The failure-pattern table and
+  the `a18fe1c` audit snapshot are accepted as an accurate pinned record, and the link-only design
+  is respected: **this file is not maintained as a live status matrix**, and each originating entry
+  stays the canonical record of its own `Status`/`Resolution`/evidence. **Parent 1 is complete** —
+  `B076-R1`–`R5` are applied in this pass. **Children 2–5 are open and unauthorized:** the legacy
+  `Applied` reconciliation (16 entries, each needing its own review question answered rather than a
+  bulk promotion), `B-061`/`B-070` successor disposition, `B-071` Draft 12 under the `D-171` hold,
+  the Phase 3 deferral boundary for `B-016`/`C-001`, and final independent review. Each needs a
+  separate bounded authorization.
+  **One correction to this entry's premise:** it records the push as blocked with remote at
+  `a18fe1c`. `git ls-remote` shows `refs/heads/docs/journal-2026-08-16` at `0bab8bd` — **the push
+  landed**, and local, remote and the reported commit are the same revision.
+- **Resolution:** Applied
 - **Evidence:** all handoff entries discovered at immutable revision `a18fe1c`; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`; `scripts/checks/handoff-response.mjs`; `scripts/checks/closure-readiness.mjs`; B-071/B-072/B-076; Graphify `portable-check` and `check-update`
 
 ## What happened

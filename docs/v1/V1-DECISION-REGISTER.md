@@ -12498,3 +12498,16 @@ absorbs no `R66`/`R67` source edit, adds no `Verified-By`, promotes nothing to `
 no check, and authorizes no build. Graphify synchronization follows as the separate last step at
 this settled `HEAD` (`R21`). `B-061`, `B-071`/proposed `D-182`, hook/check implementation,
 `AUTH-DOC`, product work, lane transition and deployment are untouched.
+
+### Correction, added 2026-09-03 (`B076-R4`) — `R67` scope statement clarified
+
+**Append-only; the `R67` scope paragraph above is preserved as written.** It says the `R67` unit
+"edits no other file," while its application commit `a2fbb21` also updated
+`docs/handoff/B-074-*.md`. **The write set was legitimate and the statement was imprecise.**
+
+**Precise form:** the `R67` unit changed **no other governed tier**. `B-074` changed only to record
+its own handoff disposition and evidence, which the guide's own §4 step 4 required. Recording a
+handoff's disposition is channel bookkeeping, not a governed-tier edit.
+
+**Unchanged:** every other `R67` scope limit — no rewrite above, no restated closed-item list, no
+current-graph claim, no lifecycle promotion, no graph synchronization in that commit.
