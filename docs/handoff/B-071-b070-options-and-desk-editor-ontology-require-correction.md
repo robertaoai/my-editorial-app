@@ -2564,3 +2564,134 @@ for Lane B to invent fields, legal rules, route enablement or external-authority
 | **Reject** | Manual fallback as automatic completion | It destroys evidence and permits a false assurance claim | Refusal and reconciliation criteria |
 | **Defer** | Physical schema, jurisdiction rules and route activation | No approved Product/data contract exists | After Draft 12 and separate bounded authorization |
 | **Defer** | Build and implementation | Planning only; `D-171` remains binding | After `AUTH-DOC` is applied and independently Verified |
+
+## Judge scope-cut clarification — T6 remains an unrefined post-V1 backlog item
+
+### Correction to the two preceding T6 proposals
+
+“Manual” means that the real-world editorial and external-assurance work continues without
+my-editorial-app. It does **not** mean that V1 must implement manual/offline capture,
+reconciliation, jurisdiction selection, a T6 result model or a manual-evidence bridge.
+
+The detailed `FEAT-T6-ASSURANCE` and `AUTH-T6-ASSURANCE` proposals above are therefore premature
+refinement. Preserve them as analysis history, but do not carry them into Draft 12 as approved names,
+requirements, acceptance criteria or dependencies.
+
+Use **`BACKLOG-T6-ASSURANCE`** as the single proposed tracking key while the item is unrefined. It
+identifies the business capability without claiming that a buildable feature packet or authorization
+checkpoint already exists. A final Product feature ID and bounded `AUTH-*` checkpoint are assigned
+only if the item later enters refinement.
+
+### Current disposition
+
+| Attribute | Current value |
+|---|---|
+| Business capability | Existing global external-assurance workflow linked to applicable `EXT-GRC`; continues manually without the app |
+| Product backlog key | `BACKLOG-T6-ASSURANCE` — proposed stable tracking label only |
+| Version scope | Beyond V1 |
+| Backlog order | Bottom; outside the top-five refinement window |
+| Refinement status | Not applicable for V1; no detailed review until further notice |
+| Ready when | The Chief Editor explicitly promotes `BACKLOG-T6-ASSURANCE` into the top five and authorizes refinement |
+| Current application behavior | No functional T6 capability; any reserved T6 UI location is inert and truthfully labelled backlog/not available |
+| Current business fallback | Manual industry workflow outside my-editorial-app; no V1 reconciliation obligation is inferred |
+| Build authorization | None; `D-171` remains binding |
+
+This is backlog ordering, not deletion. The business capability remains important and global, but
+importance does not make it ready. The absence of enough detail is the reason to rank it below
+better-understood work, not a reason to keep expanding it during V1.
+
+### V1 boundary
+
+V1 reviews and delivers the current editorial proof. It may preserve only the minimum T6 boundary
+needed to prevent accidental scope:
+
+- T6 is beyond V1 and does not block completion of the T1–T5 editorial flow;
+- no T6 event, stored state, result vocabulary, external-authority selector, reconciliation path,
+  route-activation predicate or migration is a V1 requirement;
+- the optional T6 layout position is a non-operative placeholder and cannot satisfy assurance,
+  external acceptance, Delivery or route readiness;
+- real-world manual work remains outside the system and is not represented as app-generated evidence;
+- current retraction, amendment and publication rules remain governed by their existing specifications
+  and are not rewritten as T6 behavior.
+
+The five previously open T6 questions are now **deferred with the backlog item**, not unresolved V1
+decisions:
+
+1. manual reconciliation in a future increment;
+2. minimum evidence for offline/manual reconciliation;
+3. T6 result vocabulary and storage ownership;
+4. jurisdiction and applicable-authority selection;
+5. digital-route activation versus a future manual-evidence bridge.
+
+Draft 12 should name the deferral and its `Ready when` condition once, then stop. It must not answer,
+allocate or propagate these questions through current Product, Fn_Spec, data or UX requirements.
+
+### Parent-first Lane A correction plan
+
+1. **Parent — backlog disposition:** replace current Draft 12 T6 design work with one
+   `BACKLOG-T6-ASSURANCE` deferral statement, bottom ranking and explicit `Ready when` condition.
+2. **Current feature boundary:** remove functional T6, manual reconciliation and GRC-route activation
+   from `AUTH-F1`; keep `AUTH-F1` limited to the V1 editorial proof already clarified.
+3. **Retire premature identifiers:** mark `FEAT-T6-ASSURANCE` and `AUTH-T6-ASSURANCE` as historical
+   proposals, not current plan vocabulary. Do not mint their replacements during V1.
+4. **Remove premature detail:** move the five questions above out of Draft 12's current decision and
+   acceptance gates. Preserve them only as deferred refinement prompts under the one backlog key.
+5. **Negative V1 proof:** add only the searches/assertions needed to show that no functional T6,
+   schema, event, route dependency or manual-reconciliation contract entered V1.
+6. **No duplicate backlog:** keep the disposition in B-071 and the accepted owning Product backlog
+   location when Lane A propagates it; do not create another handoff or backlog document.
+7. **Evidence last:** after all B-071/Draft 12 source corrections settle, update the existing tracked
+   graph node, rebuild once, re-merge the curated layer and hand the same pushed commit to Lane B.
+
+### What remains unclear now
+
+No T6 product-design clarification blocks V1. Only two tracking questions remain for Lane A to make
+explicit in Draft 12:
+
+1. which existing Product backlog table/anchor will own the single
+   `BACKLOG-T6-ASSURANCE` pointer; and
+2. whether the inert T6 UI location is already owned by the current UX plan or needs only a reference
+   to the backlog item—never a new T6 UX artifact in V1.
+
+Neither question authorizes feature refinement. If the owning anchor is already clear under `D-29`,
+Lane A should use it without creating a second record.
+
+### Guaranteed failures if this scope cut is not applied
+
+- Continuing to answer the five deferred questions consumes V1 time on the lowest-ranked item and
+  repeats the drafting loop the Judge stopped.
+- Calling manual business work a V1 “manual fallback feature” silently pulls offline storage,
+  reconciliation and evidence capture into the current build.
+- Keeping `AUTH-T6-ASSURANCE` in the current dependency diagram makes an unrefined post-V1 item look
+  like an approved prerequisite.
+- Deleting T6 instead of deferring it loses a global business capability and guarantees the same
+  explanation must be reconstructed later.
+- Recording the same item in B-071, a new handoff and a separate backlog file creates three statuses
+  that will drift.
+- Treating “not applicable for V1” as “the external workflow does not apply” confuses product scope
+  with real-world legal/regulatory responsibility.
+
+### V1 success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T6-DEFER-SC1` | Draft 12 is reviewed | T6 scope is traced | One `BACKLOG-T6-ASSURANCE` deferral is present; no final feature or authorization ID is asserted |
+| `T6-DEFER-SC2` | The V1 editorial proof is evaluated | T1–T5 completion is checked | T6 capability, external evidence and manual reconciliation are not prerequisites |
+| `T6-DEFER-SC3` | The five detailed T6 questions are searched | Their lifecycle is checked | Each is deferred under the one backlog item and absent from V1 acceptance gates |
+| `T6-DEFER-SC4` | The T6 UI location is inspected | A user tries to act | It is inert and truthfully labelled; it writes no T6 state, event or evidence |
+| `T6-DEFER-SC5` | The business operates without the app | Manual work occurs | The work can continue outside the product; V1 makes no claim that it captured or completed it |
+| `T6-DEFER-SC6` | Backlog refinement is considered | T6 ranking is read | It remains below the top-five window until the Chief Editor explicitly promotes it |
+| `T6-DEFER-SC7` | Repository scope is inspected | T6 terms are searched | No new T6 Fn_Spec, UX spec, schema, migration, route activation or duplicate backlog artifact exists |
+| `T6-DEFER-SC8` | Future refinement begins | The item is promoted | Only then are feature identity, authorization checkpoint, dependencies, evidence and jurisdiction questions decided |
+
+### Approve/reject gate for the scope cut
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Business continuity | Manual means work continues outside my-editorial-app; it is not a V1 system feature | Preserve as business context |
+| **Approve** | Backlog disposition | `BACKLOG-T6-ASSURANCE` is beyond V1, bottom-ranked and outside the top-five refinement window | Product backlog pointer plus `Ready when` |
+| **Reject** | Detailed T6 review in V1 | The five questions are deferred, not current blockers | Future backlog refinement only |
+| **Reject** | Current `FEAT-T6-ASSURANCE` / `AUTH-T6-ASSURANCE` use | Prematurely presents an unrefined item as a buildable/authorizable packet | Historical proposal; assign later if promoted |
+| **Reject** | Manual reconciliation in V1 | “Manual” describes business independence from software, not a requested app capability | No Product/Fn_Spec/data/UX requirement |
+| **Defer** | T6 feature design and authorization owner | No details are required until the item enters the top-five refinement window | Chief Editor promotion and separate authorization |
+| **Defer** | Build, route activation and implementation | Planning only; `D-171` remains binding | After future refinement and explicit authorization |
