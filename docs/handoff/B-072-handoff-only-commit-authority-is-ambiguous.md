@@ -7,31 +7,27 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** 1a211f4 (`B072-R26`/`R30`/`R31`/`R34`/`R35` — see the Git facts table below
-  for the full picture rather than trusting this one field alone)
-- **Lane A:** Acknowledged 2026-09-02. **Current-value matrix, corrected again (`B072-R34` — the
-  prior version listed `R27` as "Applied, this pass" when `R27` is the earlier *defective* matrix
-  that `R30` corrected, not a live item):**
+- **Verified-At-Commit:** PLACEHOLDER-THIS-COMMIT (the correction commit answering `B072-R36`–`R41`;
+  earlier SHAs cited in this file's independent-review sections are historical evidence, not current
+  status)
+- **Lane A:** Acknowledged 2026-09-02. **Exhaustive Applied-history matrices and tracked live-Git-tip
+  claims are retired from this field (`B072-R39`, `R40`) — every correction pass added a finding the
+  previous matrix couldn't name, guaranteeing the next "matrix is stale" finding, and a "current"
+  remote/local tip is false the moment a push succeeds.** The append-only independent-review sections
+  below and Git itself are the history; query Git for current local/remote equality rather than
+  trusting a value written here. What remains current-valued in this field:
 
-  | State | Items |
-  |---|---|
-  | **Applied, independently confirmed** | `R17`, `R18`, `R20`'s stable-entry-point half, `R22`–`R26` |
-  | **Corrected by a later finding, not itself "Applied"** | `R27` (its defect is fixed by `R30`) |
-  | **Applied, this pass** | `R29` (five-step push proof, `docs/handoff/README.md`), `R30` (this matrix), `R31` (commit-vs-push status separation) |
-  | **Partially Applied** | `R28` — Decision Register precondition (`D-184`) and canonical-SOP proof (`R29`/`R32`/`R33`) both landed; commit-hook/check enforcement does not exist yet |
-  | **Needs no further correction** | `D-184`/`D-185` substantive policy and root facts — confirmed sound by independent review |
-  | **Open** | `R11`–`R15` (routing map), `R19` (capture-before-child rule), `R21` (Graphify resync at final settled `HEAD`), link-only propagation to `V1-PHASE-CLOSURE.md`/shared rules/work orders, hook/check enforcement (including the negative fixtures the five-step proof implies), independent Lane B verification of this entire pass |
-
-  **Git facts, reported as separate facts, never combined (`B072-R31`, corrected granularity
-  `B072-R35`):**
-
-  | Fact | Value |
-  |---|---|
-  | Substantive `R29`–`R31` commit | `8674e57` |
-  | Evidence-field-only follow-up | `af670b1` |
-  | This correction's own commit | `1a211f4` |
-  | Remote branch tip | `a3d2d2a` — **pushed** |
-  | Local `HEAD` | Ahead of remote — **not pushed** |
+  - **Resolution:** `Applied`. The narrow `Eligible` handoff-only commit-and-push rule (`D-184`), its
+    canonical SOP (`docs/handoff/README.md`), and the historical root (`D-185`) are all applied.
+  - **Remaining closure gates (unordered by recency, each independent):** `R11`–`R15` (the
+    request→refinement→decision→execution→evidence routing map in `docs/README.md`); `R19`
+    (capture-before-child rule); `R21` (Graphify resync at the final settled `HEAD`); link-only
+    propagation to `V1-PHASE-CLOSURE.md`/shared rule files/work orders; commit-hook/check
+    implementation of the SOP's pre-push proof (drafted, not built); independent Lane B verification
+    of this entry as a whole.
+  - **Not a closure gate, informational only:** `D-184`'s execution-evidence note
+    (`docs/v1/V1-DECISION-REGISTER.md` §5.14e9) records one Judge-authorized accumulated-range push
+    completed through `4ab57b4` (`B072-R36`) — a bounded use of existing authority, not new policy.
 
   `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
   transaction SOP; every earlier protocol block in this file's independent-review sections below is

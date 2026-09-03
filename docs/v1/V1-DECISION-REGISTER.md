@@ -11998,13 +11998,27 @@ at `a3d2d2a`, authorized and pushed directly by the Judge in this conversation).
 | `D-184` canonical-SOP application | ✅ cited here | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected: `docs/handoff/README.md` is a governance doc, not `Modular_PRD`** |
 | `D-184` push-transaction precondition (`R28`) | ✅ cited here | **— unaffected: process rule** | **Owed the negative-check spec — not yet built** | **— unaffected** | **— unaffected** | **— unaffected** |
 
+### Execution-evidence note, added 2026-09-03 (`B072-R36`)
+
+**Judge approval received for, and execution of, the exact previously-local range
+`a3d2d2a..4ab57b4` — pushed and confirmed.** Git independently proves
+`origin/docs/journal-2026-08-16` and local `HEAD` were equal at `4ab57b4`. This is a bounded exercise
+of the Chief Editor's own authority to name and authorize an accumulated range (the fallback this
+decision's rule always allowed when the narrow per-actor path restriction cannot apply — here,
+because the range was Lane A's own governed-document corrections, not a single `Eligible` actor's
+handoff file). **It is not a new policy, not a change to the narrow `Eligible` rule above, and not
+`AUTH-DOC`, product implementation, or lane-transition authority.** Recorded here, append-only, so a
+reader without conversation access can distinguish this specific authorized-and-completed push from
+the standing per-actor rule the rest of this entry defines.
+
 ### Scope limits
 
-**Governs only the narrow handoff-journal commit/push permission for `Eligible` Lane B/C actors.**
-Builds no code, authorizes no implementation, and does not touch `D-171`, `D-182`, or any `AUTH-*`
-checkpoint. Independent Lane B verification, the canonical-SOP application (`docs/handoff/README.md`),
-link-only propagation to Phase Closure/shared rules/work orders, and hook/check enforcement (including
-`R28`'s upstream-alignment negative check) remain separate, unstarted work.
+**Governs only the narrow handoff-journal commit/push permission for `Eligible` Lane B/C actors, plus
+the one recorded execution-evidence exception above.** Builds no code, authorizes no implementation,
+and does not touch `D-171`, `D-182`, or any `AUTH-*` checkpoint. Independent Lane B verification, the
+canonical-SOP application (`docs/handoff/README.md`), link-only propagation to Phase
+Closure/shared rules/work orders, and hook/check enforcement (including `R28`'s upstream-alignment
+negative check) remain separate, unstarted work.
 
 ## 5.14e10 `D-185` — `SETUP-SPIKE-000`: Historical Zero-to-One Setup Root
 
