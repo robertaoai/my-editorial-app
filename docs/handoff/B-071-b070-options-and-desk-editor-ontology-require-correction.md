@@ -3162,3 +3162,108 @@ remains untouched.
 | **Defer** | Client-account, bookmarklet and notification feature identities | Future intent is not uniformly decided | Separate Judge choice after the classification parent |
 | **Defer** | `B-071` terminal verification and `AUTH-DOC` | This review opens corrective work; it does not verify Lane A's correction | After application, graph sync and independent review |
 | **Defer** | Product implementation | No build is authorized | Later Active-lane packet only |
+
+---
+
+## Structural follow-up — separate `NG-*` V1 tracking from `PBL-*` feature tracking
+
+### Clarification received
+
+The prior review's `B071-R84`–`R88` findings and `NG-01`–`NG-11` classification remain the
+evidence base and are not repeated here. This clarification supplies the missing structural rule:
+
+> The `NG-*` series records V1 exclusions. Feature tracking is a different object and uses a
+> positive capability identity such as `PBL-*`. A V1 exclusion may be cited by a future feature as
+> history, but it cannot own that feature's rank, readiness or authorization.
+
+`docs/PRD.md` is not the file to fix. Its heading **Non-goals (v1)** already states the right scope
+and the file is frozen. The defect was introduced downstream when `Modular_PRD.md` shortened the
+heading to **Non-Goals**, placed mutable candidate/`Ready when` language inside `NG-02`/`NG-03`,
+named §2.5.1 **how a Non-Goal returns**, and made the `PBL-*` rows subordinate to that mechanism.
+
+### Additional findings
+
+| ID | Finding | Guaranteed consequence | Draft fix |
+|---|---|---|---|
+| `B071-R89` | `Modular_PRD.md` §2.5 drops the source's `(v1)` qualifier | A version-bounded exclusion reads like a permanent Product rule | Rename the derived section to **V1 Non-Goals — scope snapshot** and state that `NG-01`–`NG-09` record V1 scope only; leave the frozen source untouched |
+| `B071-R90` | `NG-02`/`NG-03` contain mutable feature-tracking data such as candidate scope and `Ready when` | The V1 record changes whenever future priority changes, so neither the V1 baseline nor the future backlog has one stable owner | Remove mutable feature state from the current-value interpretation of the `NG-*` rows. Move retained positive capabilities to separate `PBL-*` rows; keep only a link from the feature back to the V1 exclusion |
+| `B071-R91` | §2.5.1 says a Non-Goal “returns,” and §2.5.2 says the Product backlog is governed by that return path | A negative statement becomes the parent of a positive feature, recreating the same conflation even after the rows receive different IDs | Replace the parent mechanism with **future-capability intake and promotion**. It governs `PBL-*`; `NG-*` is an input citation only. Rename `PBL-02`'s “Prohibition lift” field to **V1 relationship / scope eligibility**, so a completed V1 boundary is not represented as a live prohibition |
+
+### Normalized ownership model
+
+```text
+Frozen customer source
+  PRD.md — Non-goals (v1)
+            │
+            ▼ derives the V1 scope snapshot
+Living Product requirements
+  NG-* — what V1 excludes; no rank and no feature readiness
+            │ historical citation only
+            ▼
+  PBL-* — positive future capability; owns rank, readiness and promotion
+            │
+            ▼ after a separate Judge/build authorization
+  FR/US/AC + Fn_Spec + later-version build tracking
+```
+
+The relation is deliberately one-way: `PBL-*` may cite an `NG-*` to explain why the capability was
+not in V1. `NG-*` never points forward as the capability's lifecycle owner. V1 closing satisfies the
+version-horizon question; it does not satisfy the separate authorization question.
+
+### Smallest parent-first correction plan
+
+| Order | Target | Required change | Completion evidence |
+|---:|---|---|---|
+| **1 — Register parent** | `V1-DECISION-REGISTER.md` | Append one correction defining `NG-*` as V1 tracking and `PBL-*` as feature tracking. Partially supersede `D-148`/`D-187` only where they make the negative record own post-V1 lifecycle. Preserve `D-150` as the rule that scope eligibility and build authorization are separate acts | One current decision states the ownership rule and names retained/superseded clauses |
+| **2 — V1 snapshot** | `Modular_PRD.md` §2.5 | Restore the `(v1)` horizon in the heading/current interpretation. Keep the existing `NG-*` IDs and their exclusion facts; remove future rank, candidate scope and mutable `Ready when` from their lifecycle role | Every row answers only “what was excluded from V1?” |
+| **3 — feature mechanism** | `Modular_PRD.md` §§2.5.1–2.5.2 | Rename the procedure to future-capability intake/promotion and make it govern `PBL-*`. Replace “prohibition lift” with scope-horizon/eligibility language. Preserve `PBL-01`/`PBL-02` as siblings | Every `PBL-*` answers outcome, rank/readiness, origin and separate authorization; no `NG-*` owns those fields |
+| **4 — mixed-row extraction** | `Modular_PRD.md` §2.5.2 | Move the retained `D-145` account candidate to a separate `PBL-*` only if the Judge confirms it remains wanted. Apply the existing `R87` decision gate before minting bookmarklet or notification features | No positive capability remains buried inside an `NG-*`; no unrequested capability is invented |
+| **5 — frozen V1 tracking** | `V1-BUILD-SPEC.md` §6 | Describe `NG-02`/`NG-03` only as V1 exclusions and cite living feature identities separately. Correct the false paraphrase of `D-04`. Do not copy future rank or mutable readiness | The frozen V1 record says what V1 omitted and where later Product work is owned |
+| **6 — existing packet** | `B-071`; `V1-B071-CORRECTIVE-PLAN.md` | Fold `R84`–`R91` into Draft 12. Mark earlier “Non-Goal returns” and post-V1 “prohibition lift” instructions superseded by link; do not create another handoff or backlog | One corrective packet, no duplicate SOP or competing ledger |
+| **7 — explicitly unaffected** | `docs/PRD.md`; frozen Charter; Artifact Inventory; Fn/Data/UX specs; Phase Closure | No edit: no source requirement, repository artifact, behavior, schema, UI, or lane state changes from this classification | Unaffected tiers are named rather than silently omitted |
+| **8 — evidence last** | Git, Graphify, checks, independent review | Commit and push the settled source correction; rebuild/re-merge Graphify; run the full suite; give Lane B the same revision for semantic review | source `HEAD` = upstream = analyzed revision, with Lane B confirming the ownership semantics rather than relying on a green structural tally |
+
+### What is unclear
+
+The structural correction itself is clear and needs no further Product decision. Only the future
+feature choices already isolated by `R86`/`R87` remain open: whether the account candidate,
+bookmarklet, or notifications are still wanted. Those choices must not delay correcting the
+ownership model and must not be inferred from historical week estimates.
+
+### Guaranteed failures
+
+- Editing frozen `docs/PRD.md` would destroy the customer baseline while failing to correct the
+  downstream ownership error.
+- Leaving `(v1)` off the derived `NG-*` table makes all exclusions appear permanent.
+- Leaving rank or `Ready when` inside `NG-*` lets later prioritization rewrite V1 history.
+- Treating V1 closure as a “prohibition lift” makes a calendar/version event look like Product or
+  build authorization.
+- Moving every `NG-*` into `PBL-*` invents demand; moving none hides the real `D-145` candidate.
+- Keeping §2.5.2 governed by “how a Non-Goal returns” preserves the category error even if every row
+  is reworded.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `NG-SPLIT-SC1` | The frozen Project requirements are inspected | `## Non-goals (v1)` is read | The file is unchanged and remains the authoritative V1 exclusion source |
+| `NG-SPLIT-SC2` | `Modular_PRD.md` §2.5 is opened | An `NG-*` row is read | It identifies only a V1 exclusion and carries no living rank, promotion state or feature authorization |
+| `NG-SPLIT-SC3` | A future capability is retained | Its backlog state is inspected | A distinct `PBL-*` identity owns the positive outcome, rank/readiness, origin and authorization condition |
+| `NG-SPLIT-SC4` | V1 closes | A future feature remains unbuilt | The `NG-*` snapshot becomes historical; the `PBL-*` remains living; neither event grants build permission |
+| `NG-SPLIT-SC5` | `PBL-02` is reviewed | Its relationship to `NG-03` is traced | `NG-03` explains V1 exclusion only; fresh Product/build authorization governs later monetization |
+| `NG-SPLIT-SC6` | An unrequested V1 exclusion is reviewed | No positive future decision exists | No `PBL-*` row is created |
+| `NG-SPLIT-SC7` | The V1 Build Spec is checked | `D-04`, `NG-02`, and `NG-03` are traced | `D-04` is quoted accurately and no mutable future backlog state is copied into V1 tracking |
+| `NG-SPLIT-SC8` | Closure evidence is presented | Graphify and Git are checked | The same pushed source revision is analyzed, and independent review confirms the semantic split |
+
+### Approve/reject gate for the structural split
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Frozen Project requirements | `docs/PRD.md` already states the correct V1 boundary and must remain unchanged | Preserve |
+| **Approve** | Tracking ontology | `NG-*` owns V1 exclusion history; `PBL-*` owns future feature lifecycle | Register parent, then Product/V1 propagation |
+| **Approve-with-conditions** | `D-187` | Preserve its sibling-feature and `D-04` corrections; replace its post-V1 “prohibition lift” model | `R84`–`R91` correction packet |
+| **Reject** | `Modular_PRD` current structure | “How a Non-Goal returns” as the parent mechanism for `PBL-*` | Replace with future-capability intake/promotion |
+| **Reject** | Frozen-source edit | No change belongs in `docs/PRD.md` or the Charter | Correct derived tiers only |
+| **Defer** | New account/bookmarklet/notification IDs | Positive future intent is not fully decided | Separate Judge backlog choice |
+| **Defer** | Graphify synchronization and `B-071` verification | Source corrections have not landed | Final Lane A step, then independent Lane B review |
+| **Defer** | Product implementation | Planning only; no build authorization | Later Active-lane packet |
