@@ -12076,6 +12076,19 @@ decision recognizes **two separate authorities, never one**:
 permission. Neither route is a subset, exception, or broadened case of the other; `D-184` defines
 Route A, and records Route B's exercises only as historical evidence.
 
+### Approval record, added 2026-09-03 (`B072-R50`)
+
+Neither the `R45` correction above (retiring "execution-evidence exception" wording) nor the `R51`
+correction above (separating Route A/Route B) previously cited its own approval — a real
+evidentiary gap, since a reader without conversation access could not confirm the Judge approved
+these policy-content edits rather than Lane A applying them unilaterally. Recorded here,
+self-contained: **the Judge approved the `R45` correction, applied and pushed at commit `ad685e7`;
+the Judge approved the `R51` correction, applied and pushed at commit `27b92a4`.** Lane A holds no
+authority to edit `D-184`'s policy content without Judge approval (`D-75`/`D-156`), so each commit's
+having landed on the shared branch is itself the durable trace of that approval having been given.
+Future policy-content corrections to this decision cite their applying commit here as the approval
+record, rather than leaving approval provenance to conversation history alone.
+
 ## 5.14e10 `D-185` — `SETUP-SPIKE-000`: Historical Zero-to-One Setup Root
 
 **Chief Editor/Judge ruling, 2026-09-03, approved verbatim in this conversation** (`D-183` point 1 —
