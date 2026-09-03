@@ -3267,3 +3267,136 @@ ownership model and must not be inferred from historical week estimates.
 | **Defer** | New account/bookmarklet/notification IDs | Positive future intent is not fully decided | Separate Judge backlog choice |
 | **Defer** | Graphify synchronization and `B-071` verification | Source corrections have not landed | Final Lane A step, then independent Lane B review |
 | **Defer** | Product implementation | Planning only; no build authorization | Later Active-lane packet |
+
+---
+
+## Judge clarification — a versioned `NG-*` points to the feature it excludes
+
+### Correction to the previous structural follow-up
+
+The previous section got the separation right and the relationship direction wrong. It said the
+future `PBL-*` could cite an `NG-*` while the `NG-*` should not point forward. The clarified model is:
+
+> A Non-Goal belongs to one version and records that the version excludes a stable feature or other
+> object. Therefore the versioned `NG-*` points to the excluded object. The stable feature record
+> does not need to repeat why every version excluded it.
+
+Few-shot form:
+
+```text
+V9 scope
+  └── V9/NG-99 — excludes → PBL-999
+                       PBL-999 = IP assurance for a rocket-to-the-moon capability
+```
+
+This is an **exclusion edge**, not a build edge. `PBL-999` existing proves only that the feature has
+a stable identity. It does not prove that V9 or any later version includes, ranks, refines or
+authorizes it.
+
+### Precise supersession of the preceding findings
+
+| Prior statement | Current treatment |
+|---|---|
+| `B071-R89`: restore the V1 horizon in the derived Non-Goals section | **Retained** |
+| `B071-R90`: remove positive capability scope/rank from `NG-*` | **Retained**, but its instruction to keep only a feature-to-NG link is superseded. `NG-*` owns the version-to-excluded-object link |
+| `B071-R91`: `NG-*` is an input citation only and `PBL-*` owns all readiness | **Partially superseded.** `PBL-*` owns feature readiness; `NG-*` owns version-specific exclusion/reconsideration readiness |
+| Earlier claim that no `PBL-*` should exist until future demand is separately confirmed | **Narrowed.** A minimal stable feature identity may be created for a feature explicitly named by a frozen Non-Goal. Identity is not demand, priority, refinement or authorization |
+
+### New findings
+
+| ID | Finding | Guaranteed consequence | Draft fix |
+|---|---|---|---|
+| `B071-R92` | The earlier handoff made the link `PBL → NG`; the Judge's model is `V*/NG → excluded object` | The feature would have to carry an ever-growing reverse list of version decisions, and the version record would not identify what it excludes | Store the directed edge on the versioned Non-Goal: `(version_id, ng_id) EXCLUDES excluded_object_id`. Do not duplicate the rationale in `PBL-*` |
+| `B071-R93` | “Ready when” still carries two meanings | A condition that permits reconsideration inside V1 can be mistaken for global feature readiness or build authority | Split the fields: `NG.version_reconsideration_condition` answers “what would permit reconsideration in this version?”; `PBL.feature_readiness` and a separate authorization record answer “when may the capability be refined/built?” |
+| `B071-R94` | The existing V1 feature exclusions mostly name prose, not stable excluded-object IDs | Cross-version comparison depends on text matching; renamed features appear new and one feature can receive several accidental backlog identities | Give every feature-shaped V1 Non-Goal an `excluded_object_id`. Use existing `PBL-02` for monetization and `ARCH-OD4` for OD4; allocate non-colliding minimal `PBL-*` identities for the other explicitly named feature concepts only after the Register parent approves the crosswalk |
+| `B071-R95` | `NG-01` alone is not unique once V2/V9 can each have a Non-Goal series | Graph and document searches can join the wrong version's exclusion to a feature | Treat the canonical identity as the composite `(version_id, ng_id)`—for example `V1/NG-03`—while preserving the short display ID inside its version section |
+| `B071-R96` | `NG-10` and `NG-11` are standing controls, not ordinary members of the frozen source's feature-exclusion list | Forcing them into `NG → PBL` creates fake features for prohibited behavior or makes permanent controls expire with V1 | Preserve their historical IDs but give their current rules control/policy owners: `NG-10` points to the existing `TC9`/O-01 no-bypass control; `NG-11` points to a separately governed legal/compliance policy. Neither requires a `PBL-*` unless a positive capability is later proposed |
+
+### Normalized record shapes
+
+| Record | Owns | Must not own |
+|---|---|---|
+| `V*/NG-*` | version ID; local NG ID; excluded object ID; version-specific reason; reconsideration/exception condition; closure with that version | global feature definition; global backlog rank; implementation authorization |
+| `PBL-*` | stable positive capability identity; intended outcome; backlog rank/state; refinement readiness; Product owner | copied V1/V2 exclusion rationales; an implication that absence from an NG list means authorization |
+| Authorization record | approved scope; bounded work; DoD; Active lane; evidence | inferred permission from either an `NG-*` or `PBL-*` row |
+| `CTRL-*` / existing control ID | standing prohibited behavior and enforcement rule | a fictional future feature created only to make the table uniform |
+
+Two rules prevent the linkage from becoming a new false shortcut:
+
+1. **Not excluded is not included.** If `PBL-999` is absent from V10's Non-Goals, it is merely not
+   excluded by that list. It still needs positive scope and build authorization.
+2. **Identity is not priority.** Creating a minimal `PBL-*` identity because V1 names the feature
+   does not place it in the top five, make it refinement-ready, or express current demand.
+
+### V1 crosswalk shape — identifiers to be allocated by Lane A
+
+| Versioned Non-Goal | Excluded object kind | Existing target or required action |
+|---|---|---|
+| `V1/NG-01` mobile app | Product capability | Allocate a minimal non-colliding `PBL-*` identity; default `Unranked / not refinement-ready` |
+| `V1/NG-02` multi-team accounts | Product capability | Allocate a `PBL-*` identity that can contain the already-raised `D-145` client-account variant without putting that variant back into `NG-02` |
+| `V1/NG-03` monetization | Product capability | `PBL-02` already exists |
+| `V1/NG-04` automated Facebook publishing | Product capability | Allocate minimal `PBL-*`; Meta verification is an exclusion/reconsideration fact, not build authorization |
+| `V1/NG-05` real-time trend detection | Product capability | Allocate minimal `PBL-*`; do not silently merge it with `FB-05`/`Q9` unless a decision proves they are the same capability |
+| `V1/NG-06` multi-language support | Product capability | Allocate minimal `PBL-*` |
+| `V1/NG-07` bookmarklet | Product capability | Allocate minimal `PBL-*`; keep the historical week estimate in V1 context only |
+| `V1/NG-08` email/Slack notifications | Product capability | Allocate minimal `PBL-*`; keep the historical week estimate in V1 context only |
+| `V1/NG-09` Proposer/Critics/Judge | Architecture/governance object | Link to existing `ARCH-OD4`; do not duplicate it as `PBL-*` unless later Product scope explicitly turns it into a Product capability |
+| historical `NG-10` no auto-advance | Standing control | Link to existing `TC9`/O-01 control, not a new Product feature |
+| historical `NG-11` no fundraising/solicitation | Standing policy | Assign a legal/compliance policy owner; no `PBL-*` without a separately proposed positive capability |
+
+### Corrected parent-first Lane A plan
+
+| Order | Target | Draft action | Depends on |
+|---:|---|---|---|
+| **1 — decision parent** | `V1-DECISION-REGISTER.md`, next available ID | Record the `V*/NG → excluded object` direction, the two readiness meanings, the composite NG identity, and “not excluded ≠ authorized.” Partially supersede `B071-R90`/`R91` and the affected `D-148`/`D-187` clauses; preserve their valid separation and `D-150` authorization rule | Judge approval of this plan |
+| **2 — V1 exclusion crosswalk** | `Modular_PRD.md` §2.5 | Restore the V1 context and add `Excluded object ID` plus version-reconsideration semantics. Do not copy the feature definition or rank into the NG row | 1 |
+| **3 — stable feature catalog/backlog** | `Modular_PRD.md` §2.5.2 | Keep `PBL-01`/`PBL-02`; allocate minimal, non-colliding identities for feature-shaped V1 exclusions. Mark identity-only additions `Unranked / not refinement-ready`; do not invent requirements or acceptance criteria | 1–2 |
+| **4 — mechanism wording** | `Modular_PRD.md` §2.5.1 | Replace “how a Non-Goal returns” with two linked procedures: version exclusion/reconsideration for `V*/NG-*`, and feature intake/promotion for `PBL-*` | 1–3 |
+| **5 — standing-control split** | Register and `Modular_PRD` current interpretation | Keep `NG-10`/`NG-11` as historical labels but route current control to the existing no-bypass control and a legal/compliance policy owner; do not force them into `PBL-*` | 1 |
+| **6 — V1 tracking propagation** | `V1-BUILD-SPEC.md` §6 | Record which stable object each V1 exclusion concerns, without restating global feature rank/readiness. Correct the existing `D-04` paraphrase | 1–5 |
+| **7 — existing correction packet** | `B-071`; `V1-B071-CORRECTIVE-PLAN.md` | Add a narrow supersession notice for `R90`/`R91`; retain the earlier evidence and classification instead of duplicating them | 1–6 |
+| **8 — explicitly unaffected** | Frozen `docs/PRD.md`, frozen Charter, Artifact Inventory, Fn/Data/UX specs, Phase Closure | No edit unless an actual artifact, requirement, behavior, schema, UI or lane state is later authorized | 1 |
+| **9 — evidence last** | Git, Graphify, checks, independent Lane B review | Commit/push settled source; rebuild and re-merge Graphify; review the same revision with negative searches for reverse links, duplicated rationale, unqualified cross-version NG IDs, and authorization inferred from absence | 1–8 |
+
+### What remains unclear
+
+No clarification is required for the relationship direction. Administrative identifiers for the
+new minimal `PBL-*` records must be selected from the live namespace by Lane A. One substantive
+question remains for `NG-11`: which legal/compliance policy record owns the standing prohibition.
+That owner can be decided separately and does not block correcting the feature-exclusion model.
+
+### Guaranteed failures
+
+- A bidirectional `NG ↔ PBL` narrative duplicates the same reason and guarantees textual drift.
+- An unqualified `NG-03` collides when another version has its own `NG-03`.
+- One `Ready when` field lets a V1 exception masquerade as feature or build readiness.
+- Treating absence from V10 Non-Goals as inclusion authorizes scope by silence.
+- Creating full requirements for every excluded feature turns stable identity assignment into
+  unauthorized refinement.
+- Forcing `NG-10`/`NG-11` into feature IDs converts standing controls into optional backlog work.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `NG-LINK-SC1` | A feature is excluded from one version | Its Non-Goal is inspected | The version-qualified NG row names exactly one stable excluded-object ID |
+| `NG-LINK-SC2` | The same feature is considered in another version | Its feature record is opened | The feature identity and definition remain stable; the earlier version reason is not copied into it |
+| `NG-LINK-SC3` | `PBL-02` is absent from a later version's Non-Goal list | Scope is evaluated | No inclusion, refinement or build permission is inferred |
+| `NG-LINK-SC4` | A version exception is considered | Readiness is checked | The NG reconsideration condition is evaluated separately from PBL feature readiness and authorization |
+| `NG-LINK-SC5` | A feature-shaped V1 Non-Goal exists | The crosswalk is reviewed | It resolves to a `PBL-*` identity marked identity-only/unranked unless separately promoted |
+| `NG-LINK-SC6` | `NG-09`, `NG-10`, or `NG-11` is reviewed | The excluded object is classified | Existing architecture/control/policy identity is used; no duplicate Product feature is invented |
+| `NG-LINK-SC7` | V1 closes | Tracking is frozen | `V1/NG-*` remains historical; `PBL-*` remains living; authorization remains a separate record |
+| `NG-LINK-SC8` | Graphify is synchronized | The relation is queried | Direction is `V*/NG → excluded object`; no reverse rationale duplication or authorization edge exists |
+
+### Approve/reject gate for the clarified linkage
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | V1 tracking ontology | `V*/NG-*` points to the stable object excluded from that version | Register parent and crosswalk |
+| **Approve** | Product feature tracking | `PBL-*` owns stable feature identity and feature readiness, without repeating version exclusion reasons | Product backlog normalization |
+| **Approve-with-conditions** | Minimal PBL identities | Feature-shaped frozen Non-Goals may receive identity-only rows; identity must not imply demand, rank, refinement or authorization | Lane A namespace allocation and independent review |
+| **Reject** | Previous `PBL → NG` direction | It reverses the context root and duplicates version history | Superseded by `B071-R92` |
+| **Reject** | One shared readiness field | Version reconsideration and feature/build readiness are different decisions | Apply `B071-R93` |
+| **Reject** | Authorization by omission | Absence from a Non-Goal list never includes a feature | Positive scope and build authorization remain mandatory |
+| **Defer** | `NG-11` current policy owner | Legal/compliance owner not yet named | Separate governance decision |
+| **Defer** | Governed-tier edits, Graphify sync and implementation | This is a handoff plan only | Lane A application, then Lane B verification; implementation later |
