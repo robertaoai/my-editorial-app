@@ -15,6 +15,9 @@
   the settled `HEAD`. **Graphify is deliberately not synchronized in this commit** (§3) — it runs
   once after `R68`. `R68` follows as a separate, separately authorized unit.
 - **Resolution:** Applied
+- **Verified-At-Commit:** `a2fbb21` — the commit applying this guide. **This is the anchor where the
+  evidence is observable, not a `Verified` claim**; `Resolution` stays `Applied` and only an
+  independent actor may promote it (`B074-SC5`)
 - **Evidence:** `docs/v1/V1-DECISION-REGISTER.md` §"Correction, added 2026-09-03 (`B072-R67`)";
   `B-072` §`B072-R67`; `D-186` §Gaps and its 2026-09-03 corrections; Graphify synchronization commit
   `56759ff`. **No terminal verification field is set** — B-072 stays `Applied` until an independent
