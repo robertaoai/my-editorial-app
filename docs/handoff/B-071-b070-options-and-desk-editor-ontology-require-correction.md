@@ -2860,3 +2860,151 @@ T6 refinement.
 | **Reject** | New monetization backlog | Existing `NG-03` owns the in-app monetization constraint and return condition | Link, do not duplicate |
 | **Reject** | Frozen V1 as living backlog | V1 tracking is a historical snapshot after closure | `Modular_PRD.md` §2.5 owns living state |
 | **Defer** | T6 feature ID, commercial model, data/UX and implementation | Not in the top-five refinement window | Chief Editor promotion and later authorization |
+
+## Judge correction — NG-03 is the V1 constraint; T6 assurance and in-app monetization are two post-V1 features
+
+### Correction to the preceding commercial linkage
+
+The preceding guide incorrectly made the future in-app monetization feature a dependency inside the
+T6 backlog item and treated `NG-03` as though it owned that feature's living backlog state.
+
+The corrected model has three separate objects:
+
+| Object | Type | Lifecycle |
+|---|---|---|
+| `NG-03` | V1 Non-Goal/constraint: do not build monetization in V1 | Preserved in the V1 scope history; not a future feature identity |
+| T6 global assurance | Post-V1 Product backlog feature | Separately identified, ranked and refined only after promotion |
+| In-app monetization | Post-V1 Product backlog feature | Separately identified, ranked and refined; not a T6 child or assurance outcome |
+
+`NG-03` explains why monetization was excluded from V1. It does not define what the future
+monetization product does, give that product a backlog rank, or authorize it when V1 closes. The
+general `D-148`/`D-150` lesson remains valid—a prohibition ending and scope being authorized are
+different acts—but Lane A must not use the V1 prohibition as the future feature's identity.
+
+### Normalized business/product semantics
+
+- **Revenue** remains a business outcome/activity.
+- **In-app monetization** is a possible software capability supporting the commercial workflow—for
+  example packaging, entitlement, payment confirmation or billing integration—but its exact scope is
+  not yet refined.
+- **T6 global assurance** produces and evidences an assurance judgment. It remains valid regardless
+  of price, entitlement or payment.
+- **Commercial engagement** may sell access to T6 or another product capability. A sale does not
+  satisfy T6, and T6 completion does not prove payment.
+
+This distinction narrows the existing `D-04` phrase “revenue is a business activity, never a product
+feature”: revenue itself is not a feature, while later software that enables an in-app commercial
+workflow can be. Lane A must record that semantic clarification in the Decision Register before a
+derived tier uses “In-app monetization” as a Product backlog feature.
+
+### Two living backlog rows, not one parent/child bundle
+
+Lane A must allocate two non-colliding Product backlog IDs in `Modular_PRD.md` §2.5 after checking
+the existing namespace. This handoff does not mint them.
+
+| Backlog row | Minimum durable content now | Rank/readiness now |
+|---|---|---|
+| T6 global assurance feature | Global capability; conditional GRC use; manual business workflow continues without the app; B-071 origin; beyond V1 | Bottom; outside top five; refine only after explicit Chief Editor promotion |
+| In-app monetization feature | Separate software-enabled commercial capability; beyond V1; independent of assurance judgment; historical `NG-03` and `B-008` links | Post-V1 and not refinement-ready; exact rank requires a separate Chief Editor ordering decision |
+
+The monetization row must cross-reference `B-008` before Lane A creates it. `B-008` records a
+particular built POC commercial model—cart, provider config, drains, account claiming and portal—as
+**not adopted**. It is historical design evidence, not the automatic definition of the new feature.
+Lane A must state whether the future row supersedes, selectively reuses, or excludes that old shape;
+silence will let the rejected design return by implication.
+
+The two rows may later be related commercially, but neither is the other's parent:
+
+```text
+Post-V1 Product backlog
+   ├── T6 global assurance capability
+   │      outcome: assurance service and evidence
+   └── In-app monetization capability
+          outcome: software-supported commercial transaction/access
+
+Possible future link: monetization may sell/entitle access to T6
+Forbidden link: payment decides, authorizes or proves a T6 judgment
+```
+
+### Parent-first Lane A correction plan
+
+1. **Decision parent:** record the Judge clarification that `NG-03` is a V1 constraint and the two
+   post-V1 capabilities are separate. Narrow the over-broad `D-04` wording without rewriting its
+   historical body: revenue is a business activity; an in-app monetization capability may be a
+   future Product feature.
+2. **Identity child:** inspect `Modular_PRD.md` §2.5 and allocate one non-colliding row ID to T6 and
+   another to in-app monetization. Retire the B-071 provisional aliases from current plan text; keep
+   them only as historical analysis.
+3. **T6 row child:** record T6's bottom rank, outside-top-five status, B-071 origin and Chief Editor
+   promotion condition. Do not add feature detail.
+4. **Monetization row child:** record beyond-V1 status and a `Ready when` that requires its own Chief
+   Editor promotion/refinement authorization. Do not infer its rank from T6 and do not use `NG-03`
+   itself as the row.
+5. **Historical crosswalk child:** cite `NG-03` only as V1 exclusion history and `B-008` only as a
+   non-adopted prior shape. State the future row's treatment of `B-008`; do not resurrect its fields.
+6. **V1 snapshot child:** keep `NG-03` in the frozen V1 record as “not built in V1.” Point to the two
+   living post-V1 rows without copying their mutable rank or details.
+7. **B-071 lifecycle child:** keep B-071 as the origin of T6 clarification. Its current defects still
+   require independent verification; the separately owned future rows do not keep it Open afterward.
+8. **Evidence last:** update the existing graph nodes only after the Register, living backlog and V1
+   snapshot agree; rebuild once and hand the same pushed revision to independent review.
+
+Because the parent decision changes the meaning previously assigned to `D-04`, `D-148` and `D-150`,
+Lane A must apply the Register correction before editing `Modular_PRD.md` or the V1 snapshot. A child
+row written first would contradict the current Register even if its product distinction is sensible.
+
+### What is unclear
+
+1. The two final Product backlog row IDs. Lane A should select them from the owning namespace; this
+   is an administrative naming task, not feature refinement.
+2. The in-app monetization feature's backlog rank. The Judge has placed it beyond V1 but has not
+   placed it relative to the top-five window; the safe state is `Unranked — not refinement-ready`.
+3. Whether the future in-app monetization feature will serve only T6, several global features, or the
+   product generally. This is deliberately deferred until that row is promoted.
+4. Which parts, if any, of `B-008` may be reconsidered. “Not adopted” remains binding until a later
+   decision names an allowed subset.
+
+None of these questions blocks V1. Lane A must not convert `Unranked` into “bottom” or turn a cross-
+reference into a dependency without a Judge decision.
+
+### Guaranteed failures if NG-03 remains conflated with the feature
+
+- When V1 freezes, the future monetization feature loses its mutable rank and refinement state because
+  its identity exists only as a historical exclusion.
+- Ending V1 appears to authorize monetization automatically, although no future Product scope has
+  been accepted.
+- T6 and monetization inherit one rank and one `Ready when`, so promoting either silently promotes
+  both.
+- Payment becomes an assurance prerequisite or assurance becomes payment evidence, corrupting both
+  business controls.
+- `B-008`'s rejected cart/provider/drain/portal design returns as if it were approved future scope.
+- Lane A writes one combined backlog row and later cannot close or split it without another
+  supersession round—the same two-condition defect `D-150` already identified.
+- Editing only `Modular_PRD.md` before the Register clarification creates a derived-tier conflict that
+  `D-58` resolves against the edit.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T6-MON-SC1` | V1 scope is inspected | `NG-03` is read | It says what V1 did not build; it is not presented as either future feature's ID or rank |
+| `T6-MON-SC2` | The living Product backlog is inspected | T6 and monetization are traced | Two rows with different IDs, outcomes, ranks and `Ready when` conditions exist |
+| `T6-MON-SC3` | T6 is promoted later | Dependencies are evaluated | Monetization is not automatically promoted, authorized or required |
+| `T6-MON-SC4` | Monetization is promoted later | Product scope is evaluated | T6 scope and assurance results remain unchanged |
+| `T6-MON-SC5` | Payment or entitlement evidence exists | An assurance decision is evaluated | It cannot satisfy, authorize or alter the T6 judgment |
+| `T6-MON-SC6` | `B-008` is traced | Future monetization scope is drafted | Its non-adopted design stays excluded unless a later decision explicitly names a reused part |
+| `T6-MON-SC7` | V1 closes | Later backlog state changes | The V1 `NG-03` snapshot stays frozen while both living rows may be reordered independently |
+| `T6-MON-SC8` | Lane A propagates the ruling | Tier order is reviewed | Register correction precedes the two Product rows and the final graph sync describes the same source |
+
+### Approve/reject gate for the NG-03 correction
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | V1 scope | `NG-03` remains the historical V1 “do not build” constraint | V1 snapshot/freeze |
+| **Approve** | Post-V1 Product backlog | T6 global assurance and in-app monetization are two separately tracked features | Lane A Register parent, then two living rows |
+| **Approve** | Semantic correction | Revenue is a business outcome; software-enabled in-app monetization may be a Product feature | Narrow `D-04` in the Register |
+| **Approve-with-conditions** | Monetization backlog row | Beyond V1 is decided; rank and eventual market/product breadth are not | Record `Unranked — not refinement-ready` until Judge ordering |
+| **Reject** | `NG-03` as future feature identity | A V1 constraint cannot carry a future feature's scope and mutable rank | Preserve as history only |
+| **Reject** | Monetization as a T6 child | Commercial enablement and assurance capability have independent outcomes and promotion paths | Two sibling Product rows |
+| **Reject** | `B-008` as adopted future design | Its built commercial model remains explicitly not adopted | Historical cross-reference only |
+| **Defer** | Both feature designs and implementations | Neither is in an authorized refinement/build packet | Post-V1 promotion and separate authorization |
