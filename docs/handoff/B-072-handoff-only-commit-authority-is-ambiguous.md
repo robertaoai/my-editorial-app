@@ -7,7 +7,7 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** `<pending>` (answers `B072-R51`–`R52`; earlier SHAs cited in this file's
+- **Verified-At-Commit:** `27b92a4` (answers `B072-R51`–`R52`; earlier SHAs cited in this file's
   independent-review sections are historical evidence, not current status)
 - **Lane A:** Acknowledged 2026-09-02. **Exhaustive Applied-history matrices and tracked live-Git-tip
   claims are retired from this field (`B072-R39`, `R40`) — every correction pass added a finding the
