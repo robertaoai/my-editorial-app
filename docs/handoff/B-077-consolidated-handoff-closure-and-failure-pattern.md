@@ -8,8 +8,10 @@
 - **Lane A:** **Acknowledged 2026-09-03 — receipt, not an answer.** The failure-pattern table and
   the `a18fe1c` audit snapshot are accepted as an accurate pinned record, and the link-only design
   is respected: **this file is not maintained as a live status matrix**, and each originating entry
-  stays the canonical record of its own `Status`/`Resolution`/evidence. **Parent 1 is complete** —
-  `B076-R1`–`R5` are applied in this pass. **Children 2–5 are open and unauthorized:** the legacy
+  stays the canonical record of its own `Status`/`Resolution`/evidence. **Parent 1's source
+  correction is applied, but terminal review is not complete** — `B076-R1`–`R5` are present in the
+  source files, while the tracked graph still needs the parity corrections recorded in the review
+  below. **The remaining child sections are open and unauthorized:** the legacy
   `Applied` reconciliation (16 entries, each needing its own review question answered rather than a
   bulk promotion), `B-061`/`B-070` successor disposition, `B-071` Draft 12 under the `D-171` hold,
   the Phase 3 deferral boundary for `B-016`/`C-001`, and final independent review. Each needs a
@@ -17,11 +19,10 @@
   **One correction to this entry's premise:** it records the push as blocked with remote at
   `a18fe1c`. `git ls-remote` shows `refs/heads/docs/journal-2026-08-16` at `0bab8bd` — **the push
   landed**, and local, remote and the reported commit are the same revision.
-- **Resolution:** Applied
-- **Verified-At-Commit:** `a1ad545` — the commit applying this correction. **An evidence anchor,
-  REQUIRED while `Resolution` is `Applied`** (`B076-R1`); terminality needs `Verified` plus
-  `Verified-By`, and only a non-answering actor may set them (`B076-R2`).
-- **Evidence:** all handoff entries discovered at immutable revision `a18fe1c`; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`; `scripts/checks/handoff-response.mjs`; `scripts/checks/closure-readiness.mjs`; B-071/B-072/B-076; Graphify `portable-check` and `check-update`
+- **Evidence:** all handoff entries discovered at immutable revision `a18fe1c`; Lane B re-review
+  baseline `0caf909`; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`;
+  `scripts/checks/handoff-response.mjs`; `scripts/checks/closure-readiness.mjs`; B-071/B-072/B-076;
+  Graphify `portable-check` and `check-update`
 
 ## What happened
 
@@ -171,3 +172,81 @@ transaction SOP.
 | **Reject** | Bulk close or second live backlog | Would repeat the drift mechanism being repaired | Update originating entries only |
 | **Defer** | B-071/Draft 12 and Phase 3 ruleset work | Separate governed chains with existing holds/owners | Separate authorization / Phase 3 |
 | **Defer** | Product implementation and lane transition | Outside this audit | Fresh authorization after the applicable plan closes |
+
+## Independent re-review of Lane A's `B076-R1`–`R5` packet at `0caf909` (2026-09-03)
+
+### Review boundary
+
+Lane B reviewed the pushed source correction `a1ad545`, its evidence-anchor follow-up `6604663`,
+the tracked graph commit `0caf909`, the originating B-072/B-073/B-074/B-075 entries, B-076, the
+current B-071 Draft 11 sources, the handoff lifecycle rules and the current Graphify diagnostics.
+This is an implementation plan and handoff record only. It authorizes no governed-source edit,
+Graphify edit, product work, `AUTH-*` checkpoint or lane transition.
+
+### Result — source packet passes; terminal closure does not
+
+`B076-R1`–`R4` are applied as specified. `R5` is applied in B-072's source header. Local `HEAD`,
+upstream and Graphify `lastAnalyzedHead` all equal `0caf909`; the full consistency suite passes;
+and the all-fragment conflict audit passes. Those facts establish source arrival, extraction
+currency and curated coverage. They do **not** establish semantic parity or terminal closure.
+
+### Findings — highest parent first
+
+| ID | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B077-R1` | B-077 carried `Resolution: Applied` and an application anchor although only Parent 1's source correction had landed and its remaining child sections were explicitly open | The entry repeats its own “partial fix, whole-entry label” defect: a nonterminal queue looks resolved while its success criteria remain unmet | Corrected in this review: keep `Status: Answered` as Lane A's response state, but omit `Resolution` and `Verified-At-Commit` until the entry receives one truthful whole-entry disposition |
+| `B077-R2` | `frag119.json` describes B-072 as `Open`, with Judge approval `none` and only a proposed authority, while B-072 is `Answered`/`Applied` and D-184/D-186 plus R66–R69 are applied | A Graphify query returns the superseded governance model and can cause a reviewer to reopen a settled authority question or reject a valid handoff commit | Upsert only the existing B-072 node to its current lifecycle and authority boundary; do not create a second node |
+| `B077-R3` | The same fragment describes B-071 and its plan as Draft 9/R1–R60, while the canonical sources say Draft 11, later review findings through R83, Draft 12 pending, `AUTH-DOC` unapproved and D-171 binding | The next plan review can use the wrong draft, omit later Judge clarifications and assess an obsolete approval boundary | Upsert the two existing B-071 nodes from the current B-071 and plan headers; keep D-182 proposed and keep all `AUTH-*` states unapproved |
+| `B077-R4` | `frag120.json` still says “one terminal gate remains” after `B076-R5` removed that duplicated tally from B-072 | The graph reintroduces the same mutable count the source correction was meant to eliminate | Replace the count with the named fact only: independent Lane B review follows the settled graph correction |
+| `B077-R5` | `graphify check-update` reports pending descriptions/labels, but Lane A's handback calls the graph “synchronised” without bounding that semantic queue | `docs-drift` and coverage stay green while semantic incompleteness is mistaken for completion—the graph-current fallacy already named above | Report four facts separately: extraction head, curated coverage, tracked-fragment semantic parity and general enrichment queue. Fix R2–R4; then either ingest the remaining queue or record why it is unrelated to this handoff review |
+| `B077-R6` | B-072's current `Verified-At-Commit` remains `b537d66`, although its current lifecycle correction first appears at `a1ad545` and its settled graph baseline is later | The field's own phrase “current evidence is observable” points a reviewer to a commit that cannot contain the current correction | On terminal promotion, replace the anchor with the final settled review baseline, add the independent `Verified-By`, and set `Resolution: Verified` together; do not add another historical anchor to the current header |
+
+### Parent-first corrective plan — no build
+
+1. **Truth parent — B-077 current state.** Preserve `Status: Answered`; leave the whole entry
+   without a resolution while child work remains. Do not turn “only B-071 is Open” into “only
+   B-071 is nonterminal”: current source still contains Applied and Answered-without-resolution
+   entries.
+2. **Graph parity child — Lane A.** In one bounded tracked-fragment pass, upsert the existing
+   B-071/B-072 nodes in `frag119.json`, remove the B-075 gate tally from `frag120.json`, and update
+   B-076/B-077 descriptions in `frag121.json` only where this review changed current meaning. No
+   new duplicate node or fragment is needed.
+3. **Graph proof child — Lane A.** Run the all-fragment verify-only audit, rebuild, re-merge, run
+   the full consistency suite, and run `check-update`. If general semantic enrichment remains,
+   bound it explicitly rather than describing the entire graph as semantically complete.
+4. **Packet verification child — Lane B.** At that immutable pushed revision, verify B-076 first;
+   then verify B-073, B-074 and B-075; then verify parent B-072. Each originating entry receives
+   its own terminal metadata and evidence. Do not bulk-promote them from this consolidation.
+5. **Legacy reconciliation child.** Execute Child 2's existing per-entry questions. B-061/B-070,
+   B-071 and the Phase 3 deferrals keep their existing owners and boundaries; no content is copied
+   into this file.
+6. **Final closure child.** Rebuild Graphify once after the authorized source dispositions settle.
+   Lane B re-queries the originating entries. B-077 may receive a terminal resolution only when
+   every remaining Phase 1 item is verified, superseded or explicitly deferred with an owner and
+   return condition.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B077-SC9` | Graphify is called current | Its evidence is read | Extraction head, curated coverage, tracked semantic parity and pending general enrichment are reported separately |
+| `B077-SC10` | B-071/B-072 are queried | Their curated nodes are returned | The nodes agree with the current source headers and do not resurrect Draft 9 or unapproved/obsolete authority states |
+| `B077-SC11` | Terminal review of B-072/B-076 is attempted | Lifecycle evidence is compared | The source corrections, tracked graph descriptions, pushed baseline and verifier identity all agree |
+| `B077-SC12` | B-077 itself is considered for closure | Its child sections are inspected | No partial child application is represented as a whole-entry `Applied` or `Verified` disposition |
+
+### What Lane B did instead
+
+Lane B recorded this review in the existing consolidated handoff, withdrew its misleading
+whole-entry `Applied` label, and left the source corrections to Lane A. It did not alter a governed
+tier, a graph fragment, Graphify runtime state, a checker, B-071, B-072, product code or lane state.
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | B-076 source correction | `R1`–`R4` pass; `R5` passes in B-072 source | Preserve; finish tracked graph parity |
+| **Approve-with-conditions** | Graphify at `0caf909` | Commit-current, covered and conflict-free; tracked descriptions remain stale and general semantic updates remain pending | Lane A graph-parity pass, then bounded semantic report |
+| **Reject verification** | B-072/B-073/B-074/B-075/B-076 | Terminal metadata would outrun the tracked graph and B-072's current evidence anchor | Graph parity, then Lane B per-entry verification |
+| **Reject** | B-077 whole-entry `Applied` | Contradicted its open children and its own anti-partial rule | Corrected to Answered without resolution in this review |
+| **Defer** | Legacy Applied reconciliation, B-061/B-070, B-071 Draft 12 and Phase 3 deferrals | Separate child scopes remain unauthorized | Existing B-077 child sections and their owning phases |
+| **Defer** | Product implementation, `AUTH-*` checkpoints and lane transition | Outside this documentation review | Separate authorization after the applicable plan is verified |
