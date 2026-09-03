@@ -1519,3 +1519,72 @@ wording and name the revisions the Judge named?
 | **Approve** | Ratification provenance | Obtained by explicit question, transcribed verbatim, anchored to no commit | Independent Lane B verification |
 | **Reject** | `R50`'s approval mechanism | Withdrawn in reasoning, preserved in history | Closed by `R54` |
 | **Defer** | `R19`, `R11`–`R15`, propagation, enforcement, `R21` Graphify sync | Outside this bounded ratification | Separate authorization |
+
+## Independent review of Lane A commits `8b0fa76` / `49d621e` and completed push (2026-09-03)
+
+### Application, transport and graph facts
+
+Git independently confirms that local `HEAD` and
+`origin/docs/journal-2026-08-16` both resolve to `49d621e`. Commit `8b0fa76` appends the
+`B072-R54` correction to `D-184` and Lane A's response to this entry; commit `49d621e` changes
+only this entry's evidence anchor to the substantive commit. This proves application and remote
+arrival. It does not prove the natural-person approval described by the new text.
+
+The correction is substantively faithful to the requested control. It preserves `R50` as history,
+withdraws both circular commit-as-approval sentences, names the ratified immutable revisions, keeps
+the exclusions explicit, and states that independent review cannot supply missing authority.
+
+Graphify is not current: `.graphify/branch.json` records `lastAnalyzedHead = 838baff`, while Git is
+at `49d621e`. The full local consistency suite passes every check except `docs-drift`, which reports
+that exact mismatch. The file's `stale: false` value is not evidence of currency when the commit
+values differ.
+
+### Independent result
+
+- **`R54` is applied correctly at the document-content level.** Its replacement rule can reject an
+  unauthorized commit and no longer treats Git transport as approval.
+- **The push is confirmed.** Local and remote point to the same immutable revision.
+- **Approval correspondence is not yet independently verifiable.** `D-184` and Lane A's response
+  say that Lane A asked the Judge to distinguish a direct ratification from forwarded recommended
+  wording and received the former answer. That answer is not present in the governed repository or
+  in the independent review instruction supplied here; the current Judge statement approves the
+  completed push only. Under `D-183` point 6, Lane A's own restatement cannot be used by Lane B as
+  independent proof that the recorded statement matches what the Judge actually said.
+
+### New parent finding
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R55` — the independent reviewer cannot inspect the approval source that `R54` asks it to compare | The governed text contains a complete ratification statement and Lane A's assertion that the Judge selected it, but not an independently accessible Judge act. The present instruction says only **“Judge Approved: push; just done.”** | If Lane A's assertion is accepted as the missing external act, Lane A verifies its own approval provenance. If it is rejected without a way to obtain the act, a genuine approval can never become independently verifiable. Either result makes the control incapable of distinguishing authorized from unauthorized policy text | The natural-person Judge confirms directly to the independent reviewer that the ratification recorded at `D-184` §`B072-R54` is the Judge's own act and matches the instruction given to Lane A. A durable, independently readable approval receipt naming the same section is also sufficient. Then Lane B compares the statement to `8b0fa76`; no new Register correction is needed if they match, and a correction is required only if they differ |
+
+### Parent-first closure plan — no build
+
+1. **Authority evidence parent (`R55`).** Obtain the Judge confirmation or independently readable
+   approval receipt. Do not infer it from `8b0fa76`, `49d621e`, or Lane A's response.
+2. **Correspondence child.** Compare the external act with `D-184` §`B072-R54` and the content of
+   `8b0fa76`. If exact in object, action, immutable revisions, scope and exclusions, close `R55`;
+   otherwise return the mismatch to Lane A for an append-only correction.
+3. **Existing documentation packet, unchanged.** `R19` first, then `R11`–`R15`, then link-only
+   propagation. Hook/check enforcement remains separately authorized build work.
+4. **Graph and terminal review last (`R21`).** After the source packet settles, rebuild and re-merge
+   Graphify once; require local `HEAD`, upstream and `lastAnalyzedHead` to match, then run the full
+   suite. Only an actor who did not write the final correction may set `Verified`.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R55-SC1` | The Judge confirmation or approval receipt is available | Lane B compares it to `D-184` §`B072-R54` | The same object, actions, revisions and exclusions are present; Git is not used as authority evidence |
+| `B072-R55-SC2` | No independently readable Judge act is available | Verification is requested | B-072 remains `Resolution: Applied`; the reviewer does not reconstruct approval from Lane A's prose |
+| `B072-R55-SC3` | The approval wording differs materially from the governed text | Correspondence is checked | Verification fails and Lane A receives the exact mismatch for append-only correction |
+| `B072-R21-SC9` | Terminal verification is requested after the source packet settles | Git, Graphify and checks are compared | Local `HEAD` = upstream = Graphify `lastAnalyzedHead`; the full suite passes; the independent reviewer did not author the final correction |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Git/handoff transport | Push through `49d621e` independently confirmed | Closed as transport evidence |
+| **Approve-with-conditions** | `D-184` §`B072-R54` content | Correctly withdraws `R50` and preserves the required authority boundary | `R55` Judge-source comparison |
+| **Reject verification** | B-072 at `49d621e` | Approval correspondence is unavailable to this independent reviewer; later documentation and Graphify gates also remain open | Obtain `R55` evidence, finish the existing packet, then same-HEAD review |
+| **Reject** | Treating Lane A's response or the commit as the Judge act | That would restore the self-certification `R54` removed | Preserve `D-183` separation |
+| **Defer** | `R19`, `R11`–`R15`, propagation, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | Outside this review | Separate bounded authorization in the existing dependency order |
