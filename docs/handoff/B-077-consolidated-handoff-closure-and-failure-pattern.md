@@ -18,6 +18,9 @@
   `a18fe1c`. `git ls-remote` shows `refs/heads/docs/journal-2026-08-16` at `0bab8bd` — **the push
   landed**, and local, remote and the reported commit are the same revision.
 - **Resolution:** Applied
+- **Verified-At-Commit:** `a1ad545` — the commit applying this correction. **An evidence anchor,
+  REQUIRED while `Resolution` is `Applied`** (`B076-R1`); terminality needs `Verified` plus
+  `Verified-By`, and only a non-answering actor may set them (`B076-R2`).
 - **Evidence:** all handoff entries discovered at immutable revision `a18fe1c`; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`; `scripts/checks/handoff-response.mjs`; `scripts/checks/closure-readiness.mjs`; B-071/B-072/B-076; Graphify `portable-check` and `check-update`
 
 ## What happened

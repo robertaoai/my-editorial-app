@@ -16,6 +16,9 @@
   **governed tier**; `B-074` changed only to record handoff disposition. `R5`: the tally word is
   removed from `B-072`'s named terminal gate. **Lane A sets nothing to `Verified`.**
 - **Resolution:** Applied
+- **Verified-At-Commit:** `a1ad545` — the commit applying this correction. **An evidence anchor,
+  REQUIRED while `Resolution` is `Applied`** (`B076-R1`); terminality needs `Verified` plus
+  `Verified-By`, and only a non-answering actor may set them (`B076-R2`).
 - **Evidence:** settled revision `7c0bb94`; application commits `bfb77f4`, `a2fbb21`, `b537d66`; `docs/handoff/README.md` lifecycle table; `scripts/checks/closure-readiness.mjs`; full local consistency suite
 
 ## What happened
