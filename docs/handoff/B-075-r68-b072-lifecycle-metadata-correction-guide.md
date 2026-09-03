@@ -23,6 +23,7 @@
   and recommends against changing it. Full reasoning in
   `V1-DECISION-REGISTER.md` §"Correction, added 2026-09-03 (`B072-R68`)".
 - **Resolution:** Applied
+- **Verified-At-Commit:** `b537d66` — the commit applying this guide. **An evidence anchor, not a `Verified` claim.**
 - **Evidence:** `docs/handoff/B-072-*.md` current header; `docs/v1/V1-DECISION-REGISTER.md`
   §"Correction, added 2026-09-03 (`B072-R68`)"; prerequisites `bfb77f4` (`R66`) and `a2fbb21`
   (`R67`); `D-186` and its `R65`/`R69` correction at `fab9952`. **No terminal verification field is

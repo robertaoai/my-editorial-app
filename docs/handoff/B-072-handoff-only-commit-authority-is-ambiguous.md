@@ -7,7 +7,7 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** the `R68` metadata-correction commit — **the anchor where this entry's
+- **Verified-At-Commit:** `b537d66` — the `R68` metadata-correction commit, **the anchor where this entry's
   current evidence is observable, NOT a `Verified` claim** (`B072-R68`). `Resolution` stays
   `Applied`; `Verified-By` is deliberately absent and appears only when an independent actor
   promotes the whole entry. `8b0fa76` remains `R54`'s evidence in the append-only body below, where
