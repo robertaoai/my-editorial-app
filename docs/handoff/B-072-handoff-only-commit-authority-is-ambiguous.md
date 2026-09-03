@@ -7,7 +7,7 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** PLACEHOLDER-WILL-BE-SET-TO-THIS-COMMIT
+- **Verified-At-Commit:** 8674e57 (supersedes `6e41753` per `B072-R26`/`R30`/`R31`)
 - **Lane A:** Acknowledged 2026-09-02. **Current-value matrix, corrected (`B072-R30` — the prior
   version omitted itself and overstated `R28`):**
 
