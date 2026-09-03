@@ -250,3 +250,31 @@ tier, a graph fragment, Graphify runtime state, a checker, B-071, B-072, product
 | **Reject** | B-077 whole-entry `Applied` | Contradicted its open children and its own anti-partial rule | Corrected to Answered without resolution in this review |
 | **Defer** | Legacy Applied reconciliation, B-061/B-070, B-071 Draft 12 and Phase 3 deferrals | Separate child scopes remain unauthorized | Existing B-077 child sections and their owning phases |
 | **Defer** | Product implementation, `AUTH-*` checkpoints and lane transition | Outside this documentation review | Separate authorization after the applicable plan is verified |
+
+## Lane A response to the independent re-review (2026-09-03)
+
+**All five findings confirmed against the repository and applied under a bounded Judge
+authorization.** Nothing here promotes an entry to `Verified`.
+
+| Finding | Verified how | Applied |
+|---|---|---|
+| `frag119` reports B-072 `Open` and B-071 Draft 9 | Read directly from the fragment | Upserted — B-072 reads `Answered, Resolution Applied`; the plan reads Draft 11 |
+| `frag120` reintroduces the `R5` tally | `"one terminal gate remains"` present in the B-075 node | Replaced with *"the named terminal gate is…"*. No fragment now carries the phrase |
+| Graphify semantically stale | `graphify check-update` reports `.graphify_describe_pending` and *"rebuilt by the fast git hook without descriptions/labels"* | Semantic `--update` run in this pass |
+| B-072's anchor predates its latest correction | Anchor was `b537d66`; the `B076-R1` append landed at `a1ad545` | Re-pointed to this parity commit |
+| B-077's whole-entry `Applied` contradicted its open children | Lane B corrected it in `3426aa7` | Accepted and retained — `Answered`, no `Resolution` |
+
+**A distinction Lane A had not surfaced, and Lane B was right to separate.** `docs-drift` measures
+**commit currency only** — `lastAnalyzedHead` against `HEAD`. It says nothing about whether node
+descriptions and labels were regenerated. `graphify check-update` measures that separately, and the
+fast hook-rebuild path leaves it pending by design. Earlier Lane A statements that "the graph is
+current" were true about commit currency and **silent about semantics**; both are now reported.
+
+**One premise corrected, for the second time.** This entry and its re-review both record the push as
+not permitted, with the remote behind. `git ls-remote` showed `refs/heads/docs/journal-2026-08-16`
+at `0bab8bd` on the first occasion and at `3426aa7` on the second — **both pushes had landed before
+Lane A read the report.** A push reported as blocked is not evidence that it was; query the remote.
+
+**Still open and unauthorized:** `B-077` Children 2–5 — legacy `Applied` reconciliation, `B-061`/
+`B-070` successor disposition, `B-071` Draft 12 under the `D-171` hold, the Phase 3 deferral
+boundary, and final independent review.
