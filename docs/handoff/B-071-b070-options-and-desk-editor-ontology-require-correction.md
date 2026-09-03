@@ -2226,3 +2226,155 @@ separately; a successful commit is not evidence of a successful push.
 | **Reject verification** | “B-072 onward is fully fixed” | Tracked B-072/B-077 descriptions remain partially stale despite green mechanical checks | Unit 0, then per-entry Lane B review under B-077 |
 | **Defer** | R72 tooling implementation | Specified here, not authorized or built | Separate Lane A tooling unit before terminal Graphify evidence |
 | **Defer** | Product implementation, `AUTH-F1`, `AUTH-F2`, route activation and lane transition | `D-171` remains binding | Only after `AUTH-DOC` is applied and independently Verified |
+
+## Lane B feature breakdown — conditional T6 assurance backlog (proposal for Draft 12)
+
+### Purpose and naming
+
+The later T6 capability is one backlog feature, not the unfinished half of `AUTH-F1` and not a
+factory-route operation under `AUTH-F2`.
+
+| Concept | Proposed stable identifier | Meaning | Explicitly not |
+|---|---|---|---|
+| Backlog feature | **`FEAT-T6-ASSURANCE`** | Conditional Chief Editor assurance judgment and its evidence contract for the two GRC-accountable routes | T5 editorial approval; T5 Assurance Preparation; OD4; IIA Line 3; external GRC's own decision |
+| Human judgment event | **`T6-ASSURANCE-JUDGMENT`** | The Chief Editor's internal assurance decision recorded by my-editorial-app | External acceptance; Delivery; publication; an agent review |
+| Future authorization checkpoint | **`AUTH-T6-ASSURANCE`** | Judge authorization to implement exactly `FEAT-T6-ASSURANCE` after its documentation packet is approved | `AUTH-F1`, `AUTH-F2`, `AUTH-ROUTE`, or permission to activate a route |
+
+These identifiers are **proposed, not decided**. Lane A must place the accepted identity and scope in
+the Decision Register before any derived tier treats them as current. Do not shorten the checkpoint
+to `AUTH-F3`: `F3` already has historical handoff meaning, and a sequence number hides the feature's
+business purpose.
+
+### Ownership — four different meanings of “owner”
+
+| Ownership question | Owner | Boundary |
+|---|---|---|
+| Who makes the business judgment? | Natural-person **Chief Editor** | Performs `T6-ASSURANCE-JUDGMENT`; no virtual agent may substitute |
+| Who grants implementation authority? | **Judge** (the same natural person in governance context) | Grants or rejects `AUTH-T6-ASSURANCE` for one immutable packet |
+| Who owns specification and propagation? | **Lane A**, while Active | Writes the Register decision and propagates the approved feature contract; does not implement it |
+| Who implements the feature? | **Lane B**, only when selected Active for the bounded authorization | Builds the approved capability; does not define or widen its governance scope |
+| Who owns external acceptance? | **External GRC institution** | Supplies a separately attributable institutional record; does not authorize project work or perform the internal T6 act |
+| Who verifies Lane A's applied documentation? | A permitted independent reviewer, not Lane A | Verification is separate from Judge authorization and from application |
+
+This separation prevents “future authorization owner” from being answered merely with “Lane B.”
+Lane B can be the implementation executor; the Judge remains the authorization owner.
+
+### Parent-first dependency model
+
+1. **`AUTH-DOC` — documentation parent.** Draft 12 must first define the feature identity, route
+   predicate, evidence boundary, state ownership, UI boundary, refusal rules and acceptance criteria.
+   Independent verification of that applied packet is required before implementation authority.
+2. **`AUTH-F1` — current editorial proof.** It owns T1–T5, both sealed T5 Assurance Preparation
+   acts, the derived read-only T5 assurance display, human T5 editorial approval and the report.
+   It owns the stable T6 placeholder location, but no functional T6 submission or result.
+3. **`AUTH-T6-ASSURANCE` — later assurance capability.** It may be selected only as its own bounded
+   unit. Its implementation consumes the verified `AUTH-F1` T5 evidence contract; it does not reopen
+   or absorb `AUTH-F1`.
+4. **`AUTH-F2` — factory-route capability.** It continues to own operation and route readiness. It
+   neither supplies the human T6 decision nor authorizes the T6 feature.
+5. **`AUTH-ROUTE` — route activation.** A non-GRC route requires the verified results of `AUTH-F1`
+   and its applicable `AUTH-F2` packet. `ROUTE-FALLOUT-3` and `ROUTE-GRC` additionally require the
+   verified `AUTH-T6-ASSURANCE` result and their external-evidence readiness contract. No feature
+   authorization alone activates a route.
+
+The capability packets may be specified independently after `AUTH-DOC`, but execution remains
+serialized by the one-Active-lane rule. `AUTH-T6-ASSURANCE` does not authorize concurrent Lane B
+work beside `AUTH-F1` or `AUTH-F2`.
+
+### Feature boundary
+
+**In scope for `FEAT-T6-ASSURANCE`:**
+
+- activate the already reserved T6 region under Publication → Assurance without redesigning the
+  stable publication-workspace shell;
+- apply only when the selected route is `ROUTE-FALLOUT-3` or `ROUTE-GRC`;
+- show the Chief Editor the sealed T5 editorial packet and both separately attributable Assurance
+  Preparation results;
+- show prior virtual-agent identity evidence without treating an attempt badge as a stable executor
+  principal;
+- allow only the natural-person Chief Editor to record `T6-ASSURANCE-JUDGMENT`;
+- define the internal T6 result vocabulary, rationale/evidence references, append-only audit event,
+  retry/idempotency behavior and refusal conditions;
+- capture or reference external GRC evidence as a separate institutional record;
+- expose a read-only audit view that distinguishes internal T6 judgment from external acceptance;
+- provide the T6 and external-evidence predicates consumed later by the Delivery boundary.
+
+**Out of scope:**
+
+- T1–T5 editorial work, T5 reviewer selection, T5 Assurance Preparation or
+  `T5-EDITORIAL-APPROVAL`;
+- factory operation definitions and route-operation joins (`AUTH-F2`);
+- making the external institution's accountable decision inside my-editorial-app;
+- OD4 automation, IIA Three Lines classification, publication execution or route activation;
+- treating the current T6 placeholder as completed capability or as evidence of assurance.
+
+### State and evidence rules Draft 12 must settle
+
+1. Current `Assurance status: reviewed` remains a derived read-only projection of the two sealed T5
+   Assurance Preparation acts; `FEAT-T6-ASSURANCE` must not silently convert it into a stored field.
+2. If the future feature persists a T6 result, it must use a separately owned state/event contract
+   whose name, values, legal transitions and migration owner are specified before implementation.
+3. Internal T6 may complete without external GRC acceptance. Missing external evidence blocks only
+   the pre-Delivery/Delivery transition; it does not reject, erase or hold the internal T6 record.
+4. Every T6 record identifies the article, selected route, natural-person principal, decision result,
+   evidence references, rationale, time, contract version and idempotency key. Exact physical field
+   names remain a later Product/data-spec decision, not a handoff invention.
+5. External acceptance has its own source institution, record identifier, received/effective time and
+   evidence reference. It must never be represented by the Chief Editor's T6 event.
+
+### Guaranteed failures if this separation is not adopted
+
+- Keeping T6 in `AUTH-F1` makes the current editorial proof depend on a deliberately deferred
+  interface and storage contract.
+- Putting T6 in `AUTH-F2` turns a human governance judgment into a factory operation and lets route
+  readiness masquerade as assurance.
+- Letting Lane B “own authorization” permits the implementing lane to widen and approve its own
+  scope, defeating the lane boundary and independent-review model.
+- Reusing `assurance_status` for both the T5 projection and T6 result produces two sources of truth.
+- Merging internal T6 judgment with external GRC acceptance destroys attribution and can allow an
+  internal actor to manufacture the external prerequisite.
+- Treating the reserved T6 UI region as functional produces a dead or misleading control that may
+  falsely satisfy Delivery or route-readiness checks.
+
+### Draft 12 success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T6-BL-SC1` | The feature catalog is reviewed | T6 scope is traced | `FEAT-T6-ASSURANCE` has one definition and `AUTH-T6-ASSURANCE` is its only proposed implementation checkpoint |
+| `T6-BL-SC2` | `AUTH-F1` is evaluated | Current editorial completion is checked | It completes without a functional T6 control; the reserved T6 region writes no state or evidence |
+| `T6-BL-SC3` | A non-GRC route is selected | T6 eligibility is evaluated | T6 is `Not required`; no T6 event is created and editorial approval is not blocked |
+| `T6-BL-SC4` | `ROUTE-FALLOUT-3` or `ROUTE-GRC` is selected | Delivery eligibility is evaluated | A valid human T6 record and separately attributable external evidence are both required |
+| `T6-BL-SC5` | A virtual agent attempts T6 | Actor validation runs | The attempt is refused and audited; no T6 result is written |
+| `T6-BL-SC6` | Internal T6 succeeds but external evidence is absent | The workflow reaches the Delivery boundary | The T6 record remains valid; Delivery progression alone is refused with the missing prerequisite named |
+| `T6-BL-SC7` | T5 and T6 status are displayed | Their sources are traced | T5 review is derived from sealed preparation acts; the T6 result comes only from the future T6 contract |
+| `T6-BL-SC8` | An `AUTH-ROUTE` packet is prepared | Its dependencies are checked | Non-GRC routes require `AUTH-F1` + applicable `AUTH-F2`; the two GRC-accountable routes also require `AUTH-T6-ASSURANCE` + external-evidence readiness |
+
+### Smallest Draft 12 propagation plan
+
+This section proposes content; it authorizes no propagation. If the Judge accepts the feature identity
+and checkpoint, Lane A should add one clause-level row per affected anchor rather than one broad file
+row:
+
+1. Decision Register — feature identity, authority owner, route predicate, dependencies and exclusions.
+2. Build Spec — sequence and Definition of Done for the deferred feature; preserve the current S2 hold.
+3. Artifact Inventory — only if an approved later pass creates a new Fn_Spec, UX spec or migration.
+4. `Modular_PRD.md` — Product requirement and acceptance-criteria ownership for conditional T6 and
+   external-evidence separation.
+5. `FN-GATES-01-05.md` — behavioral branching, refusal behavior, event consumption and negative tests.
+6. Data/SPECS and UX/SPECS — persistence contract and activation of the reserved UI shell, each with
+   the correct version overlay.
+7. B-071 and the corrective plan — current lifecycle and cross-references; no second backlog file.
+8. Graphify tracked fragment — upsert the existing B-071/plan nodes after source settles; rebuild and
+   independently verify the same pushed revision last.
+
+### Approve/reject gate for the T6 backlog proposal
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Feature decomposition | T6 is a separate conditional assurance feature, not part of `AUTH-F1` or `AUTH-F2` | Preserve in Draft 12 |
+| **Approve-with-conditions** | `FEAT-T6-ASSURANCE` / `AUTH-T6-ASSURANCE` identifiers | Clear and collision-resistant, but proposed until the Judge accepts them into the Draft 12 decision text | Judge terminology decision, then Lane A propagation plan |
+| **Approve** | Ownership model | Judge authorizes; Lane A specifies/propagates; Lane B implements only while Active; external GRC owns its external record | Draft 12 |
+| **Reject** | `AUTH-F3` alias | Collides semantically with historical F3 language and hides the business purpose | Use the named checkpoint if approved |
+| **Reject** | Placeholder-as-capability | A reserved T6 layout proves neither judgment nor evidence readiness | Negative acceptance criteria |
+| **Defer** | Physical data fields, result enum and migration | They require an approved Product/data contract | `AUTH-T6-ASSURANCE` specification packet |
+| **Defer** | Implementation and GRC-route activation | No authorization is granted here; `D-171` remains binding | After `AUTH-DOC` verification and separate bounded Judge authorization |
