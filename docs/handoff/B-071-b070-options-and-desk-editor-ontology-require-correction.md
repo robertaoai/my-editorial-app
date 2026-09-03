@@ -3694,3 +3694,104 @@ existing B-071 entry so no duplicate handoff is created.
 | **Reject verification** | B-071 / Draft 12 | Exact write set and semantic evidence are incomplete | Lane A Draft 2, authorization, application, Lane B re-review |
 | **Defer** | B-077 lifecycle children | Valid sibling work, outside this packet | Separate bounded authorizations |
 | **Defer** | Product implementation or lane transition | Planning only; `D-171` remains binding | Later build authorization |
+
+---
+
+## Round 14 independent review — Lane A Draft 2 for `R103`–`R109` (2026-09-03)
+
+### What happened
+
+Lane A corrected both evidence errors from Round 13, preserved `D-188`'s body and tier row, supplied
+complete replacements for the main readiness paragraphs, removed the automatic `NG-02` lapse, and
+corrected Graphify to rebuild before curated merge. GitHub, upstream and local `HEAD` were confirmed
+at the Round 13 review commit `411f834` before this review.
+
+Draft 2 is closer but not yet executable. It conflates a historical versioned Non-Goal with the
+standing control it points to, keeps a V1 reconsideration condition operational after V1 freezes,
+and contains placeholders/ellipsis that contradict its claim of exact application text.
+
+### Findings — highest parent first
+
+| ID | What is unclear or incorrect | Guaranteed failure if unchanged | Smallest Draft 3 fix |
+|---|---|---|---|
+| `B071-R110` | Draft 2 gives `NG-10`/`NG-11` no `V1/` canonical ID and writes *standing control* in the identifier column. `D-188` says their **historical IDs are preserved** and their current rules are routed to standing owners | The V1 historical assertion and the continuing control become one record again; the `Canonical ID` column contains a type label rather than a join key | Keep `V1/NG-10` and `V1/NG-11` as the historical V1 Non-Goal identities. Their `Excludes` targets are the existing standing control/policy objects; they take no `PBL-*` |
+| `B071-R111` | Draft 2 says a V1 reconsideration condition *stays checkable after* V1 freezes and may then permit re-examining V1 | A frozen version can be reopened through living Product prose, contradicting `D-36`; the V1 record never becomes final | The repeatable procedure and `PBL-*` catalog survive. A `V1/NG-*` condition is actionable only while V1 remains open; at V1 closure the NG row and its condition become historical. Later scope uses its own version record and separate authorization |
+| `B071-R112` | The proposed Register notice contains `<review-commit>`, `<date>`, `<exact paths>` and `<commit>` while being presented as exact text | The packet cannot be applied verbatim; placeholder SHAs can fail checks, and a commit cannot truthfully cite its own unknown SHA | First commit/push Draft 3 as an immutable review artifact. The Judge accepts that real revision. Applied Register text cites the review/approval evidence available before application; application SHA stays in subsequent handoff evidence, not a self-referential placeholder |
+| `B071-R113` | Unit 2 says *"per row"* rather than providing the complete table, and its last two sample rows contain `…` | Application still requires improvising row text and delimiters, risking loss of rationale/source content and contradicting `G32`'s apply-in-full rule | Include the complete proposed eleven-row table or constrain the mechanical change to a fully specified new column/value map with no ellipsis |
+| `B071-R114` | Draft 12's changelog calls `411f834` *"this revision"*. That commit contains Round 13 review, not Lane A's Draft 12 | Review evidence is mislabelled as the artifact revision, recreating false approval/provenance | Call `411f834` the **review-input baseline**. Record Draft 12's own commit only after it exists, and keep Judge acceptance separate |
+| `B071-R115` | The proposed Graphify negative test counts every link whose endpoint labels mention the concepts, regardless of relation | A legitimate `excludes`, `references`, `distinct_from` or decision-to-object edge can fail as a “collapse”; conversely an invalid relation with different labels can pass | Assert the positive `V1/NG-02 --excludes--> PBL-04` edge and reject only semantically collapsing relation types between `PBL-04` and S6/`SEC-03` (for example alias/instance/equivalence), using node IDs and relation values |
+| `B071-R116` | Unit 7 commits source plus fragment; Unit 8 starts Graphify without an explicit source push/re-fetch confirmation | Lane B can receive a locally analyzed revision that GitHub never received, repeating the local/remote evidence collapse | After the source+fragment commit: push, fetch, and prove upstream equals local. Only then rebuild, merge and verify that immutable revision |
+| `B071-R117` | The Register notice says *"Remaining propagation — proposed, unapplied"* while Units 1–5 are intended to land in one source transaction | The decision calls its own same-commit children unapplied the instant it lands—the same stale-in-the-creating-commit defect previously recorded in this repository | Keep proposal state in Draft 3, not in final Register wording. Applied Register text states the authorized rule and write set without a transient completion claim; B-071 records `Applied` evidence after the commit |
+
+### Normalized model that must survive Draft 3
+
+| Layer | Durable identity | Lifecycle |
+|---|---|---|
+| V1 historical exclusion | `V1/NG-01` through `V1/NG-11` | Active only while V1 scope is open; historical/frozen when V1 closes |
+| Standing rule referenced by an NG | Existing control/policy ID, such as `TC9`/`O-01` | Continues independently of V1; not a `PBL-*` and not the NG record itself |
+| Future Product capability | `PBL-*` | Living identity/readiness; never authorized by NG absence or expiry |
+| Security delivery scope | S6/`SEC-03` | Separately authorized sprint/requirement; not an instance of `PBL-04` |
+| Build permission | Durable Judge act | Bounded write set and DoD; never inferred from any record above |
+
+### Parent-first Draft 3 guide
+
+1. **Draft artifact first:** resolve `R110`–`R117` in the existing Draft 12 plan and B-071 only.
+   Provide either the complete eleven-row table or an exact column/value transformation. Use no
+   placeholders, ellipses, self-SHAs or current-state claims that become false on application.
+2. **Immutable review point:** commit and push that plan-only revision. Report local, upstream and
+   GitHub separately; call `411f834` its input baseline, not Draft 12's revision.
+3. **Judge decision:** request bounded acceptance of the exact pushed Draft 3 write set. Until then,
+   the Register/Product/Build text remains unapplied and `AUTH-DOC` remains unapproved.
+4. **Register parent:** after acceptance, append the correction notice without altering `D-188`.
+   Preserve `V1/NG-10`/`V1/NG-11` as historical IDs; separate their standing target controls; omit
+   transient *proposed/unapplied* and self-referential commit language.
+5. **Derived children:** apply the accepted Product and Build replacements in full. Version
+   reconsideration is actionable only before that version freezes; PBL readiness and build
+   authorization remain separate.
+6. **Existing packet/lifecycle:** update Draft 12/B-071 exactly as approved. Lane A may record
+   `Applied`, never `Verified`.
+7. **Source transaction:** verify exact paths, commit source plus the tracked curated fragment,
+   push, re-fetch, and prove local equals upstream before relying on Graphify.
+8. **Graphify transaction:** rebuild extracted data, merge all fragments, assert the positive
+   exclusion edge, run relation-aware negative checks, then run the full suite at the same revision.
+9. **Independent closure:** hand the pushed/analyzed revision to Lane B for `NG-S6-SC1`–`SC20`.
+
+### What remains unclear
+
+No Judge Product choice is needed. Draft 2's new `NG-10`/`NG-11` proposal should be rejected as a
+category error: `D-188` already decides that their historical IDs remain while their continuing
+rules use separate control/policy owners.
+
+The only remaining choice is procedural and should be made by Lane A in Draft 3: provide a complete
+eleven-row replacement or a deterministic column/value transformation. Either must be executable
+without interpreting `…`.
+
+### Success criteria added by Round 14
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `NG-S6-SC15` | `NG-10`/`NG-11` are traced | Historical and current owners are compared | `V1/NG-10`/`V1/NG-11` remain versioned history; the referenced control/policy remains standing; no PBL is invented |
+| `NG-S6-SC16` | V1 closes with a condition unresolved | The condition later becomes true | V1 history does not change or reopen; later Product/version scope and authorization decide future work |
+| `NG-S6-SC17` | Draft 3 is reviewed | Proposed text is copied literally | No placeholder, ellipsis, unstated row reconstruction or self-referential SHA is required |
+| `NG-S6-SC18` | Draft 12 provenance is read | Commit roles are compared | `411f834` is the Round 13 review baseline; Draft 12 and Judge acceptance have their own distinct evidence |
+| `NG-S6-SC19` | Graph checks run | Valid and invalid relations are exercised | The required `excludes` edge passes; only alias/instance/equivalence collapse fails; unrelated links do not fail |
+| `NG-S6-SC20` | Source is ready for Graphify | GitHub is queried | Source+fragment commit is already upstream; rebuild→merge→verification all use that exact revision |
+
+### What Lane B did instead
+
+Lane B reviewed Draft 2 and appended its findings to the existing B-071 packet. It changed no
+Register, Product, Build, graph fragment or implementation file, and did not absorb B-077.
+
+### Round 14 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Draft 2 corrections to `R103`–`R109` | Evidence corrections, append-only direction, full paragraph replacement and rebuild→merge ordering are sound | Preserve in Draft 3 |
+| **Approve-with-conditions** | Draft 2 overall | Resolve `R110`–`R117`; publish one immutable exact-text review point | Lane A Draft 3, then Judge review |
+| **Reject** | Unversioned NG-10/NG-11 | Confuses historical Non-Goals with their standing target controls | Preserve `V1/NG-*`; link to control/policy IDs |
+| **Reject** | Post-freeze V1 reconsideration | A frozen V1 record cannot remain operational | Later version/PBL path |
+| **Reject** | Placeholder/ellipsis application | Not exact text and cannot satisfy `G32` | Complete Draft 3 text |
+| **Reject** | Relation-blind Graphify test | Produces false positives and weak negatives | Relation-aware positive/negative fixtures |
+| **Reject verification** | B-071 / Draft 12 | The exact review artifact and Judge act do not exist | Draft 3, authorization, application, Lane B re-review |
+| **Defer** | B-077 and `NG-11` policy-owner decision | Separate sibling governance | Separate bounded packets |
+| **Defer** | Product implementation/lane transition | Documentation plan only; `D-171` remains binding | Later build authorization |
