@@ -3008,3 +3008,157 @@ reference into a dependency without a Judge decision.
 | **Reject** | Monetization as a T6 child | Commercial enablement and assurance capability have independent outcomes and promotion paths | Two sibling Product rows |
 | **Reject** | `B-008` as adopted future design | Its built commercial model remains explicitly not adopted | Historical cross-reference only |
 | **Defer** | Both feature designs and implementations | Neither is in an authorized refinement/build packet | Post-V1 promotion and separate authorization |
+
+---
+
+## Independent review of `D-187` — a V1 Non-Goal is not a post-V1 feature gate
+
+### Rewritten task
+
+Independently review pushed commit `013751b` and `D-187` against the frozen
+`docs/PRD.md` **Non-goals (v1)** section, the frozen Charter's **Deliberately NOT in v1**
+section, and every current `NG-01`–`NG-11` row. Preserve `D-187`'s valid separation of T6,
+monetization software, revenue and `D-04`; identify where a version-scoped exclusion is still
+being used as a living feature gate; classify every `NG-*` as a V1 boundary, a separately named
+future capability, or a standing constraint; then give Lane A one parent-first correction plan.
+This is independent review and a draft fix only. It authorizes no governed-tier edit, feature
+refinement, build, lane transition or deployment.
+
+### What happened
+
+Lane A applied `D-187` at pushed commit `013751b`. Git and Graphify were checked independently:
+local `HEAD`, `origin/docs/journal-2026-08-16`, and
+`.graphify/branch.json.lastAnalyzedHead` all equal that revision; Graphify reports `stale: false`.
+The application correctly created separate Product backlog identities for T6 global assurance
+(`PBL-01`) and in-app monetization (`PBL-02`) and correctly retained `D-04` as an
+editorial-independence rule.
+
+The remaining defect is temporal. The highest-precedence frozen Project Requirements Document
+places mobile, multi-team accounts, monetization, Facebook/RSS automation, multi-language,
+bookmarklet, notifications and Proposer/Critics/Judge under **Non-goals (v1)**. The frozen Charter
+likewise introduces the same items as **Deliberately NOT in v1**. Those headings define the scope
+horizon: the exclusions are operative while V1 is being selected, built and closed; after V1 they
+remain historical evidence of what V1 did not contain. They do not automatically become perpetual
+prohibitions or the identities of future features.
+
+### Primary goal
+
+Keep three different records separate:
+
+| Record | Question it answers | Lifecycle |
+|---|---|---|
+| **V1 Non-Goal** | What must not be built as part of V1? | Operative during V1; historical after V1 closes |
+| **Named Product backlog capability** | What future outcome might the Product later provide? | Living, rankable and refinable outside the frozen V1 snapshot |
+| **Standing guardrail** | What behavior remains forbidden regardless of version? | Continues until an authority explicitly changes the rule |
+
+An exclusion does not “return.” A separately identified capability may later be promoted. Ending a
+version does not authorize that capability; it only ends the version boundary. A fresh Product
+decision and build authorization remain necessary.
+
+### Findings
+
+| ID | Finding | Why it fails | Smallest correction |
+|---|---|---|---|
+| `B071-R84` | `D-187` calls `NG-03` a “standing” and “live, not historical” exclusion and makes a direct Charter amendment its post-V1 prohibition-lift condition | This contradicts the scope horizon stated by both frozen sources: **(v1)** / **NOT in v1**. It lets a V1 snapshot govern later versions as though it were a permanent ban | Append a Register correction: `NG-03` is live **during V1** and historical after V1 closes. A Charter amendment is required only to introduce monetization into V1. A later-version `PBL-02` still needs fresh Product and build authorization, but does not “lift” a completed V1 boundary |
+| `B071-R85` | `D-148`/`Modular_PRD` §2.5.1 says “how a Non-Goal returns” and attaches cross-version `Ready when` state to the exclusion | It treats a negative V1 scope record as the positive future capability. Rank, readiness and acceptance criteria then drift with a record that must remain an immutable account of V1 | Rename the mechanism semantically: a Non-Goal remains the version snapshot; a **linked capability**, if one exists, owns living rank and `Ready when`. Keep the two-condition rule as “scope eligibility plus separate authorization,” without implying the V1 exclusion itself survives forever |
+| `B071-R86` | `NG-02` still combines the V1 exclusion with a scoped client-account backlog candidate; its authorities conflict (`D-03`: no Charter act required; `D-148`: OD1–OD3 or Charter edit; Build Spec: “standing per D-79”) | Reviewers cannot tell whether V1 expiry, OD resolution, a Charter change, or a Product authorization makes the future account feature eligible | Keep `NG-02` as V1 history. If the `D-145` client-account capability remains wanted, give it a separate non-colliding `PBL-*` identity and its own readiness/authorization. Correct the `D-03`/`D-79`/`D-148` current-value summaries to one temporal rule |
+| `B071-R87` | `NG-07` and `NG-08` are V1 Non-Goals but their rationales say “Deferred to Week 2–3” and “Deferred to Week 4–6” without saying whether those windows are inside or after V1 | If the weeks are inside V1, the same item is both prohibited and scheduled. If they are after V1, a date is being used as a feature identity and authorization | Treat both as V1 exclusions now. Preserve the week text as historical planning only until the Judge states whether either future capability is still wanted; only then create separate backlog identities. A date never authorizes scope |
+| `B071-R88` | `D-187` says `V1-BUILD-SPEC.md` is unaffected, but §6 still states “Revenue is a business activity, never a product feature (`D-04`)” and calls `NG-02` standing | The first sentence attributes wording to `D-04` that `D-187` itself proves false; the second carries the temporal conflation. `D-54` propagation was therefore incomplete even though every check passed | Correct the two current-value §6 rows as V1 snapshots: quote `D-04` accurately, point monetization to `PBL-02`, and point any retained future account capability to its own living row. Do not copy mutable rank into the frozen V1 file |
+
+### `NG-01`–`NG-11` classification
+
+| ID | Current correct class | Separate future backlog object now? | Required treatment |
+|---|---|---|---|
+| `NG-01` | V1 scope boundary | **No** accepted positive capability found | Keep “no mobile app in V1”; do not invent a mobile backlog item |
+| `NG-02` | V1 scope boundary | **Candidate exists** (`D-145` client account), but is embedded in the exclusion | Separate it into a `PBL-*` row only if the Judge retains that candidate; do not use `NG-02` as its identity |
+| `NG-03` | V1 scope boundary | **Yes — `PBL-02`** | Keep V1 history; remove the claim that post-V1 promotion must lift a still-operative `NG-03`; retain separate Product/build authorization |
+| `NG-04` | V1 scope boundary | **No** accepted positive capability found | Keep manual Facebook cross-posting for V1; Meta verification alone is neither scope nor authorization |
+| `NG-05` | V1 scope boundary | **No exact positive capability accepted** | Keep “no real-time algorithm in V1.” Do not conflate it with `FB-05`/`Q9`, which concerns Reporter-gate AI tagging/scoring and is not automatically the same feature |
+| `NG-06` | V1 scope boundary | **No** accepted positive capability found | Keep “no multi-language in V1”; no backlog row until requested and authorized |
+| `NG-07` | V1 scope boundary with ambiguous historical date | **Undecided** | Clarify whether bookmarklet remains wanted after V1 before creating a backlog row |
+| `NG-08` | V1 scope boundary with ambiguous historical date | **Undecided** | Clarify whether email/Slack notifications remain wanted after V1 before creating a backlog row |
+| `NG-09` | V1 scope boundary | **Already separate — `OD4`** | Keep `NG-09` as V1 history and `OD4` as the future architecture/remedy with its existing two-branch trigger; do not create a duplicate `PBL-*` row |
+| `NG-10` | Standing workflow guardrail | **No** | Keep the no-auto-advance rule independent of version. The future intelligence feature is `FB-05`/`Q9`; it must obey this guardrail |
+| `NG-11` | Standing legal/compliance guardrail | **No accepted capability** | Keep the prohibition. A later fundraising/solicitation capability requires independent legal/compliance and Product authorization before it can become backlog scope |
+
+### What is unclear
+
+Only three bounded Product choices remain; none blocks the current V1 editorial proof:
+
+1. Whether the `D-145` future client-account candidate remains wanted and therefore receives a
+   separate `PBL-*` identity.
+2. Whether bookmarklet and email/Slack notifications remain desired after V1. Their historical week
+   labels do not answer that question.
+3. Whether `NG-11` is intended as a permanent project prohibition or a legal-review gate. Until a
+   later Judge and legal/compliance act says otherwise, the safe current reading is a standing
+   prohibition and no Product backlog item.
+
+No clarification is needed to correct `NG-03`: the Judge has now clarified that the frozen source's
+V1 label controls. Do not ask whether `PBL-02` is a child of T6; `D-187` correctly answered that it is
+not.
+
+### Parent-first Lane A correction packet
+
+| Order | Owner / target | Draft action | Depends on |
+|---:|---|---|---|
+| **1 — decision parent** | `V1-DECISION-REGISTER.md`, next available decision ID | Append the V1-horizon rule; partially supersede `D-148` and `D-187` only where they make a V1 exclusion a post-V1 prohibition/feature gate. Preserve `D-187`'s T6/monetization separation and exact `D-04` reading | Judge approval of this plan |
+| **2 — classification child** | `Modular_PRD.md` §2.5 | Give every `NG-*` an explicit lifecycle class and optional linked-capability field using the matrix above. Do not turn every exclusion into a backlog feature | 1 |
+| **3 — backlog-mechanism child** | `Modular_PRD.md` §§2.5.1–2.5.2 | Replace “Non-Goal returns” with “linked capability promotion.” `PBL-01` and `PBL-02` remain siblings. For `PBL-02`, V1 expiry removes the V1 boundary; later Product/build authorization remains mandatory | 1–2 |
+| **4 — selected future identities** | `Modular_PRD.md` §2.5.2 | Add no row automatically. Add a client-account row only if choice 1 is approved; add bookmarklet/notification rows only if choice 2 confirms future intent | 1–3 plus the relevant Judge choice |
+| **5 — V1 snapshot repair** | `V1-BUILD-SPEC.md` §6 | Correct the `NG-02` and monetization rows. Quote `D-04` accurately; describe exclusions as V1 boundaries; link to living capability rows without copying rank/readiness | 1–3 |
+| **6 — B-071 / Draft 12** | this handoff and `V1-B071-CORRECTIVE-PLAN.md` | Integrate these findings into the existing packet; do not create a second handoff or a second backlog mechanism. Mark earlier contradictory B-071 analysis historical/superseded by link, not deletion | 1–5 |
+| **7 — unaffected tiers** | `V1-ARTIFACT-INVENTORY.md`, Fn Specs, data/UX specs, Phase Closure | State unaffected: no file, behavior, schema, UX or lane state is created by classification alone | 1 |
+| **8 — evidence last** | Git + Graphify + checks | Commit source corrections, push the settled revision, rebuild/re-merge Graphify, run the full suite, and have Lane B independently review that same revision. Do not use green structural checks as proof that prose semantics are correct | 1–7 |
+
+### Guaranteed failures
+
+- **Perpetual-V1 failure:** treating “not in V1” as “forbidden after V1” makes later Product planning
+  depend on amending a version that has already frozen.
+- **Automatic-promotion failure:** treating V1 closure as feature approval makes excluded ideas enter
+  a later build without Product scope, acceptance criteria or authorization.
+- **Negative-as-positive failure:** storing a future capability's rank inside `NG-*` makes “what V1
+  omitted” the identity of “what a later product should do.”
+- **Everything-is-backlog failure:** minting a `PBL-*` for every `NG-*` invents demand and fills the
+  backlog with features nobody requested.
+- **Hidden-feature failure:** leaving the real `D-145` account candidate inside `NG-02` makes it
+  impossible to rank independently or close V1 cleanly.
+- **Schedule contradiction:** leaving `NG-07`/`NG-08` both prohibited in V1 and dated within an
+  unexplained delivery window guarantees incompatible plans.
+- **False propagation success:** leaving Build Spec §6 unchanged lets a false `D-04` paraphrase and
+  “standing” language survive while `D-187` claims the tier is unaffected.
+- **Duplicate-control failure:** creating a new `PBL-*` for `OD4`, `FB-05`, or a standing guardrail
+  produces competing owners and readiness conditions.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `NG-LIFE-SC1` | A reader opens either frozen source | They inspect the Non-Goals heading | Every inherited `NG-01`–`NG-09` is understood as a V1 scope boundary |
+| `NG-LIFE-SC2` | V1 closes | An inherited Non-Goal is read later | It remains evidence of V1 scope and is not presented as a live feature ID, rank or build gate |
+| `NG-LIFE-SC3` | A later capability is considered | Readiness is checked | It has its own positive identity, outcome, rank/readiness and separate Judge/build authorization |
+| `NG-LIFE-SC4` | `PBL-02` is promoted after V1 | Its prerequisites are evaluated | No one claims the completed V1 boundary itself must be lifted; fresh Product and build authorization are still required |
+| `NG-LIFE-SC5` | Monetization is proposed inside V1 | Scope is evaluated | The frozen V1 constraint must first be amended through the proper authority; promotion alone cannot bypass it |
+| `NG-LIFE-SC6` | Every `NG-*` is traced | Its lifecycle is classified | Exactly one of V1 boundary, linked future capability, or standing guardrail applies; mixed rows are split |
+| `NG-LIFE-SC7` | `NG-02`, `NG-07`, or `NG-08` is reviewed | Future intent is absent or undecided | No new backlog capability is invented |
+| `NG-LIFE-SC8` | V1 Build Spec §6 is reviewed | `D-187` is traced | It quotes `D-04` accurately, contains no “standing” V1-exclusion claim, and points to living rows without copying mutable state |
+| `NG-LIFE-SC9` | Graphify is claimed current | Independent review occurs | source, pushed revision, curated graph and analyzed revision match; semantic findings are checked against the text, not inferred from a green tally |
+
+### What Lane B did instead
+
+Reviewed only the pushed documentation revision and appended this one corrective packet to the
+existing `B-071` origin. No governed tier, frozen source, implementation file, backlog row, rank,
+feature, authorization or lane state was changed. The unrelated untracked `package-lock.json`
+remains untouched.
+
+### Approve/reject gate for this independent review
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `D-187` / Product backlog | T6 and in-app monetization are separate sibling capabilities; `D-04` remains unchanged | Preserve in the correcting decision |
+| **Approve-with-conditions** | `D-187` / Register and Product scope | Valid separation, but its NG-03 time horizon and Build-Spec applicability are wrong | Lane A applies `B071-R84`–`R88`, then Lane B re-reviews |
+| **Approve** | V1 scope | `NG-01`–`NG-09` inherited from the frozen Non-Goals sections are V1 boundaries | Register parent, then derived-tier classification |
+| **Reject** | Backlog ontology | A V1 Non-Goal as a perpetual post-V1 feature gate or living feature identity | Replace with linked-capability promotion |
+| **Reject** | Automatic backlog creation | Not every `NG-*` represents accepted future demand | Create a living row only for a positively retained capability |
+| **Defer** | Client-account, bookmarklet and notification feature identities | Future intent is not uniformly decided | Separate Judge choice after the classification parent |
+| **Defer** | `B-071` terminal verification and `AUTH-DOC` | This review opens corrective work; it does not verify Lane A's correction | After application, graph sync and independent review |
+| **Defer** | Product implementation | No build is authorized | Later Active-lane packet only |
