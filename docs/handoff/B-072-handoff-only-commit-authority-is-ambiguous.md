@@ -7,9 +7,8 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** PLACEHOLDER-THIS-COMMIT (the correction commit answering `B072-R36`–`R41`;
-  earlier SHAs cited in this file's independent-review sections are historical evidence, not current
-  status)
+- **Verified-At-Commit:** `50fe4b9` (the correction commit answering `B072-R36`–`R41`; earlier SHAs
+  cited in this file's independent-review sections are historical evidence, not current status)
 - **Lane A:** Acknowledged 2026-09-02. **Exhaustive Applied-history matrices and tracked live-Git-tip
   claims are retired from this field (`B072-R39`, `R40`) — every correction pass added a finding the
   previous matrix couldn't name, guaranteeing the next "matrix is stale" finding, and a "current"
