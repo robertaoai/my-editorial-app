@@ -296,21 +296,33 @@ behaviour unless the table above already says so — `USR-CHIEF-EDITOR`'s "targe
 
 ### 2.5 Non-Goals
 
-| ID | Non-Goal | Rationale | Source |
-|---|---|---|---|
-| `NG-01` | No mobile app — web only | Single operator, desktop workflow | Charter |
-| `NG-02` | No multi-team accounts — one Chief Editor account | **v1 exclusion only.** "Operating model is one human" describes v1 and lapses when the business has more people. A tenancy boundary exists in the data model to preserve the option; **no multi-team capability is built, and `NG-02` stands.** Nothing forecloses later accounts for multiple natural persons with roles mapped to virtual agents or phase gates. **Backlogged candidate for that later account set (`D-145`, 2026-08-28):** a scoped, read-only client account for `M-POC` engagement delivery — raised, evaluated, correctly not built while `NG-02` holds. **Ready when** (`D-148`): `OD1`–`OD3` resolve, **or** the Charter's line 53 is amended directly — whichever comes first | Charter |
-| `NG-03` | **No monetization features** | Charter-level v1 exclusion. **Stripe scaffolding shipped against this and was removed** — `X8`, closed `D-121`, verified `67706ca` (`B-003`). *Row corrected `D-147`: previously read present-tense, as if removal were still pending — the same staleness class `G65` names*. **Ready when** (`D-148`): the Charter's line 54 is amended directly — no other trigger resolves it, since nothing else in the governing set gates in-app monetization | Charter |
-| `NG-04` | No automated Facebook publishing — manual cross-posting only | Requires Meta Business verification | Charter |
-| `NG-05` | No real-time trend-detection algorithm — RSS intake only | Unvalidated; scoring formula is v0 and unreviewed | Charter |
-| `NG-06` | No multi-language support | — | Charter |
-| `NG-07` | No bookmarklet — copy-paste URL form only | Deferred to Week 2–3 | Charter, A7 |
-| `NG-08` | No email or Slack notifications — in-app only | Deferred to Week 4–6 | Charter, A5 |
-| `NG-09` | No Proposer / Critics / Judge governance model | OD4, Resolved-rejected for v1, with a two-branch reopening condition | Charter |
-| `NG-10` | **No auto-advance on confidence score** | `INTELLIGENCE_LAYER.md` specifies "0.6 minimum to auto-advance." Every gate has a named executor; auto-advancing past one is a gate bypass by definition and would violate O-01 | TC9 — **new non-goal, added to prevent a specified behaviour from being built** |
-| `NG-11` | **No fundraising or solicitation tied to editorial events** | Removed from the workflow entirely; requires independent legal and compliance review before any tooling | Entry 006 §13, Entry 007 |
+| ID | Non-Goal | Excludes (`D-188`) | Rationale | Source |
+|---|---|---|---|---|
+| `NG-01` | No mobile app — web only | `PBL-03` | Single operator, desktop workflow | Charter |
+| `NG-02` | No multi-team accounts — one Chief Editor account | `PBL-04` | **v1 exclusion only.** "Operating model is one human" describes v1 and lapses when the business has more people. A tenancy boundary exists in the data model to preserve the option; **no multi-team capability is built, and `NG-02` stands.** Nothing forecloses later accounts for multiple natural persons with roles mapped to virtual agents or phase gates. **Backlogged candidate for that later account set (`D-145`, 2026-08-28):** a scoped, read-only client account for `M-POC` engagement delivery — raised, evaluated, correctly not built while `NG-02` holds. **Ready when** (`D-148`): `OD1`–`OD3` resolve, **or** the Charter's line 53 is amended directly — whichever comes first | Charter |
+| `NG-03` | **No monetization features** | `PBL-02` | Charter-level v1 exclusion. **Stripe scaffolding shipped against this and was removed** — `X8`, closed `D-121`, verified `67706ca` (`B-003`). *Row corrected `D-147`: previously read present-tense, as if removal were still pending — the same staleness class `G65` names*. **Ready when** (`D-148`): the Charter's line 54 is amended directly — no other trigger resolves it, since nothing else in the governing set gates in-app monetization | Charter |
+| `NG-04` | No automated Facebook publishing — manual cross-posting only | `PBL-05` | Requires Meta Business verification | Charter |
+| `NG-05` | No real-time trend-detection algorithm — RSS intake only | `PBL-06` | Unvalidated; scoring formula is v0 and unreviewed | Charter |
+| `NG-06` | No multi-language support | `PBL-07` | — | Charter |
+| `NG-07` | No bookmarklet — copy-paste URL form only | `PBL-08` | Deferred to Week 2–3 | Charter, A7 |
+| `NG-08` | No email or Slack notifications — in-app only | `PBL-09` | Deferred to Week 4–6 | Charter, A5 |
+| `NG-09` | No Proposer / Critics / Judge governance model | `ARCH-OD4` | OD4, Resolved-rejected for v1, with a two-branch reopening condition | Charter |
+| `NG-10` | **No auto-advance on confidence score** | `TC9`/`O-01` control | `INTELLIGENCE_LAYER.md` specifies "0.6 minimum to auto-advance." Every gate has a named executor; auto-advancing past one is a gate bypass by definition and would violate O-01 | TC9 — **new non-goal, added to prevent a specified behaviour from being built** |
+| `NG-11` | **No fundraising or solicitation tied to editorial events** | legal/compliance policy — owner TBD | Removed from the workflow entirely; requires independent legal and compliance review before any tooling | Entry 006 §13, Entry 007 |
 
-### 2.5.1 Backlog path — how a Non-Goal returns (`D-148`)
+### 2.5.1 Two linked procedures — version exclusion, and feature intake (`D-148`, split by `D-188`)
+
+**`D-188` split what this section used to call one path.** A Non-Goal's reconsideration inside its
+own version, and a capability's readiness for refinement, are different questions with different
+owners:
+
+| Procedure | Owner | Question it answers |
+|---|---|---|
+| **Version exclusion / reconsideration** | `V*/NG-*` | What would permit reconsidering this **inside that version**? |
+| **Feature intake / promotion** | `PBL-*` | Is the capability ready for **refinement**, and what is its rank? |
+
+**Neither is build authorization.** That is a third record — the Register's Judge act, with a
+bounded unit and DoD. The five steps below remain the **version exclusion** procedure.
 
 **Lives here, not in `docs/v1/`, because this table must outlive v1.** `D-36` freezes every
 `docs/v1/V1-*.md` file at its sprint's close; a mechanism meant to still be checkable in v2, v3,
@@ -337,35 +349,54 @@ ad-hoc Scrum/Agile backlog refinement happens** — any Non-Goal above can be re
 time, independent of which version's sprint is currently active, because nothing about editing
 this table depends on a sprint being open.
 
-### 2.5.2 Post-v1 Product backlog — named capabilities (`D-187`)
+### 2.5.2 Stable capability identities (`D-187`, direction corrected by `D-188`)
 
-**Governed by §2.5.1's five steps, not beside them.** These rows carry capability identity, rank and
-both `D-150` conditions. They are **not** a second backlog mechanism: §2.5.1 remains the path, §2.5
-remains the exclusion table, and a row here never lifts an exclusion or authorizes a build.
+**These rows own capability identity only.** The exclusion edge lives on the versioned Non-Goal and
+points here — `V1/NG-03 ── excludes ──► PBL-02` — so **no row below cites a Non-Goal**. A capability
+does not carry a growing list of which versions excluded it; §2.5's `Excludes` column carries that.
 
-| ID | Capability | Rank | Prohibition lift | Separate authorization still required (`D-150`) |
-|---|---|---|---|---|
-| `PBL-01` | **T6 global assurance** — assurance service and evidence | **Bottom**, retained | None applies — T6 is not excluded by a Non-Goal | Yes: refinement and build authorization, post-v1 |
-| `PBL-02` | **In-app monetization** — software supporting commercial access and transactions | **Unranked — not refinement-ready** | The Charter's line 54 amended directly (`NG-03`, `D-148`) — no other trigger resolves it | Yes: a separate charter/PRD act. **Lifting `NG-03` authorizes nobody to build this** |
+**Identity is not demand, rank, refinement or authorization.** A `PBL-*` row exists because some
+version named the capability. Its presence proves nothing about whether anyone wants it, and its
+**absence from a later version's Non-Goal list never means it is included** (`D-188`).
 
-**They are siblings, not parent and child.** A future commercial offer may sell access to T6, and
-the coupling stops there:
+| ID | Capability | Rank | Feature readiness |
+|---|---|---|---|
+| `PBL-01` | **T6 global assurance** — assurance service and evidence | **Bottom**, retained | Not refinement-ready |
+| `PBL-02` | **In-app monetization** — software supporting commercial access and transactions | **Unranked** | Not refinement-ready |
+| `PBL-03` | Mobile application | **Unranked** | Identity only |
+| `PBL-04` | Multi-team accounts | **Unranked** | Identity only. Contains the `D-145` scoped read-only client-account variant for `M-POC` delivery |
+| `PBL-05` | Automated Facebook publishing | **Unranked** | Identity only |
+| `PBL-06` | Real-time trend detection | **Unranked** | Identity only. **Not** merged with `FB-05`/`Q9` — no decision proves they are the same capability |
+| `PBL-07` | Multi-language support | **Unranked** | Identity only |
+| `PBL-08` | Bookmarklet | **Unranked** | Identity only |
+| `PBL-09` | Email / Slack notifications | **Unranked** | Identity only |
+
+**Identity-only** means the row records a name and nothing else. No requirements, acceptance
+criteria, demand or priority are implied, and creating one is not refinement.
+
+**Not every excluded object is a capability.** `NG-09` resolves to `ARCH-OD4` (deferred
+architecture, not a Product feature). `NG-10` and `NG-11` are **standing controls** and take no
+`PBL-*`: `NG-10`'s rule is the `TC9`/`O-01` no-bypass control, and `NG-11`'s is a separately
+governed legal/compliance policy whose owner is **not yet assigned** (`D-188`, open). Inventing a
+feature to make the table uniform would turn a permanent prohibition into optional backlog work.
+
+**`PBL-01` and `PBL-02` are siblings, not parent and child.** A future commercial offer may sell
+access to T6, and the coupling stops there:
 
 | Claim | Status |
 |---|---|
-| Payment authorizes, satisfies or changes a T6 judgment | **Never** — `D-04`'s revenue rule and T6's independence both forbid it |
+| Payment authorizes, satisfies or changes a T6 judgment | **Never** — `D-04` and T6's independence both forbid it |
 | T6 completion evidences payment | **Never** — different objects, different evidence |
 | Promoting `PBL-01` promotes `PBL-02` | **No** — independent ranks and promotion paths |
 | Promoting `PBL-02` changes T6 scope | **No** |
 
 **Revenue is a business outcome; monetization software may be a capability.** `D-04` is unchanged
-and unnarrowed — it prevents revenue attaching to **a specific editorial decision**, and it never
-spoke to product features. Recording `PBL-02` does not make revenue a feature.
+and unnarrowed — it prevents revenue attaching to **a specific editorial decision** and never spoke
+to product features. `PBL-02` existing does not make revenue a feature.
 
 **`B-008`'s detailed commercial model is NOT adopted** (`D-96`) — no `cart_id`, payment-provider
 configuration, obligation drain, asynchronous account claiming or provider/editorial ID split.
-Historical reference only. `B-008` is the live instance `D-150` names for stating one condition and
-omitting the other.
+Historical reference only.
 
 ### 2.6 Strategy-to-Execution Traceability Ladder
 

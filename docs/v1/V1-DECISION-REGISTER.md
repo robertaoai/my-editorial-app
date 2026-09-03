@@ -12606,3 +12606,94 @@ remain open pending independent verification.
 the Charter and `docs/PRD.md` are untouched and unwritable. No prohibition is lifted, no rank is
 assigned to `PBL-02`, no implementation, refinement, lane transition or deployment is authorized.
 `B-071` is **not** closed by this entry.
+
+---
+
+## 5.14e13 `D-188` — A Versioned Non-Goal Points to the Object It Excludes
+
+**Chief Editor decision, 2026-09-03, raised as `B071-R92`–`R96`.** Fixes the direction of the
+exclusion relationship and separates three things that one "Ready when" field had been carrying.
+**Authorizes no build, ranks nothing, lifts no prohibition.**
+
+### The direction, corrected
+
+> A Non-Goal belongs to **one version** and records that the version **excludes** a stable object.
+> The versioned `NG-*` therefore **points to the excluded object**. The stable feature record does
+> not repeat why each version excluded it.
+
+```text
+V1 scope
+  └── V1/NG-03 ── excludes ──► PBL-02
+```
+
+**This is an exclusion edge, not a build edge.** `PBL-02` existing proves only that the capability
+has a stable identity. It proves no version includes, ranks, refines or authorizes it.
+
+**What this supersedes.** `D-187` and `Modular_PRD.md` §2.5.2 stored the link the other way: the
+`PBL-02` row carried a *"Prohibition lift"* column citing `NG-03`/`D-148`. **That reverse link is
+withdrawn** — it would force every capability to carry an ever-growing list of version decisions
+while leaving each version record unable to say what it excludes. `B071-R90`'s feature-to-`NG` link
+and `B071-R91`'s "`PBL-*` owns all readiness" are **partially superseded** on the same point.
+**Preserved unchanged from `D-187`:** the three-object separation, T6 and monetization as siblings,
+`D-04` untouched, and `D-150`'s both-conditions authorization rule.
+
+### Three readiness meanings, separated — `B071-R93`
+
+| Field | Owner | Answers |
+|---|---|---|
+| `version_reconsideration_condition` | `V*/NG-*` | What would permit reconsidering this **inside that version**? |
+| `feature_readiness` | `PBL-*` | Is the capability ready for **refinement**? |
+| Build authorization | The Register's Judge act | May **bounded implementation** begin? |
+
+**One field cannot carry three answers.** A V1 exception permitting reconsideration is not feature
+readiness, and neither is build authority.
+
+### Composite identity — `B071-R95`
+
+**The canonical identity of a Non-Goal is `(version_id, ng_id)`** — written `V1/NG-03`. The short
+display ID stays inside its version section. An unqualified `NG-03` collides the moment V2 has its
+own `NG-03`, and a graph or document search would join the wrong version's exclusion to a feature.
+
+### Not excluded is not included — `B071-R96`
+
+**Absence from a version's Non-Goal list never means a capability is included, ranked, refined or
+authorized.** It means only that that list did not exclude it. Positive scope and a bounded build
+authorization remain mandatory and separate. **Identity is not demand:** creating a minimal `PBL-*`
+row because V1 names a capability does not rank it, make it refinement-ready, or express demand.
+
+### Standing controls are not features — `B071-R96`
+
+`NG-10` and `NG-11` are **standing controls**, not ordinary feature exclusions. Forcing them into
+`NG → PBL` would either invent fake features for prohibited behaviour or make permanent controls
+expire with V1. Their historical IDs are preserved and their current rules routed to existing
+owners: **`NG-10` → the `TC9`/`O-01` no-bypass control; `NG-11` → a separately governed
+legal/compliance policy.** Neither takes a `PBL-*` unless a positive capability is later proposed.
+**`NG-11`'s policy owner is not decided here** and is recorded as an open question.
+
+### The `D-04` paraphrase, corrected at source
+
+`V1-BUILD-SPEC.md` §6 read *"Revenue is a business activity, never a product feature (`D-04`)."*
+**`D-04` says no such thing** — its text is *"Revenue may attach to the business and the service,
+never to a specific editorial decision,"* an editorial-independence control. **This is where the
+mistaken premise originated**, and it is corrected in the paraphrase rather than in `D-04`, which
+stands unchanged.
+
+### Gaps
+
+**Closed:** the reverse `PBL → NG` link; the conflated readiness field; unqualified cross-version
+`NG` IDs; the `D-04` paraphrase. **Opened:** `NG-11`'s legal/compliance policy owner.
+**Unchanged:** `D-04`, `D-150`, `NG-03` itself, frozen sources, `B-071`'s own open defects.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `V*/NG → excluded object`; three readiness meanings; composite identity; standing-control split | ✅ §5.14e13 | ✅ §6 — excluded-object column and the `D-04` paraphrase correction | **— unaffected** | **— unaffected: no repository file created or retired** | **— unaffected: no lane state or closure condition changes** | ✅ §2.5 crosswalk, §2.5.1 split procedures, §2.5.2 identities |
+
+**Encyclopedia:** unaffected — no entry depends on Non-Goal linkage direction.
+
+### Scope limits
+
+**Records a relationship direction and allocates identities. Builds nothing.** Frozen `docs/PRD.md`,
+the Charter and `0001_init.sql` are untouched. No rank is assigned, no prohibition lifted, no
+refinement or implementation authorized, and `B-071` is **not** closed.

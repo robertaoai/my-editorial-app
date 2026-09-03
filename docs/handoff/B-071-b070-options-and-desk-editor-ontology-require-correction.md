@@ -3400,3 +3400,31 @@ That owner can be decided separately and does not block correcting the feature-e
 | **Reject** | Authorization by omission | Absence from a Non-Goal list never includes a feature | Positive scope and build authorization remain mandatory |
 | **Defer** | `NG-11` current policy owner | Legal/compliance owner not yet named | Separate governance decision |
 | **Defer** | Governed-tier edits, Graphify sync and implementation | This is a handoff plan only | Lane A application, then Lane B verification; implementation later |
+
+## Lane A application of `B071-R92`–`R96` — `D-188` (2026-09-03)
+
+**Applied under a bounded Judge authorization of the nine-step plan. Append-only; `R90`/`R91` are
+narrowed, not rewritten.**
+
+| Prior finding | Treatment |
+|---|---|
+| `B071-R90` — remove positive capability scope/rank from `NG-*` | **Retained.** Its instruction to keep only a feature-to-`NG` link is **superseded**: `NG-*` owns the version-to-excluded-object edge |
+| `B071-R91` — `NG-*` is an input citation only; `PBL-*` owns all readiness | **Partially superseded.** `PBL-*` owns feature readiness; `NG-*` owns version-specific reconsideration |
+| `D-187` / §2.5.2's `PBL → NG` "Prohibition lift" column | **Withdrawn** — the reverse link is gone; no `PBL-*` row cites a Non-Goal |
+
+**What landed.** `D-188` (Register §5.14e13) records the `V*/NG → excluded object` direction, three
+separate readiness meanings, composite `(version_id, ng_id)` identity, "not excluded ≠ authorized",
+and the standing-control split. `Modular_PRD.md` §2.5 gains an **`Excludes`** column across all
+eleven rows; §2.5.1 is split into version-exclusion and feature-intake procedures; §2.5.2 is rebuilt
+as identity-only rows. `V1-BUILD-SPEC.md` §6's `D-04` paraphrase is corrected at source — **that
+paraphrase, not `D-04`, was the original defect**, and `D-04` stands unchanged.
+
+**Identity allocation** (`B071-R94`, Lane A's administrative act): `PBL-03` mobile, `PBL-04`
+multi-team accounts, `PBL-05` Facebook publishing, `PBL-06` real-time trend detection, `PBL-07`
+multi-language, `PBL-08` bookmarklet, `PBL-09` notifications. All **identity-only, unranked**.
+`PBL-06` is **not** merged with `FB-05`/`Q9`. `NG-09` → `ARCH-OD4`; `NG-10` → `TC9`/`O-01`;
+`NG-11` → a legal/compliance policy whose **owner remains unassigned** and is recorded as an open
+question in `D-188`.
+
+**`B-071` is NOT closed by this entry.** Its own defects remain open pending independent
+verification, exactly as the plan's item 7 requires.
