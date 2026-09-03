@@ -2378,3 +2378,189 @@ row:
 | **Reject** | Placeholder-as-capability | A reserved T6 layout proves neither judgment nor evidence readiness | Negative acceptance criteria |
 | **Defer** | Physical data fields, result enum and migration | They require an approved Product/data contract | `AUTH-T6-ASSURANCE` specification packet |
 | **Defer** | Implementation and GRC-route activation | No authorization is granted here; `D-171` remains binding | After `AUTH-DOC` verification and separate bounded Judge authorization |
+
+## Judge clarification review — separate the T6 business workflow, system feature and development authorization
+
+### Correction to the preceding presentation
+
+The preceding ownership table and `AUTH-*` diagram combined facts from different domains. Their
+individual statements are usable, but the combined presentation is superseded by the three-layer
+model below:
+
+1. **Business/industry workflow:** the external assurance obligation exists with or without
+   my-editorial-app.
+2. **System feature:** `FEAT-T6-ASSURANCE` is the proposed global capability that helps the Chief
+   Editor perform and evidence the internal T6 response to that obligation.
+3. **Development governance:** `AUTH-DOC`, `AUTH-F1`, `AUTH-F2`, `AUTH-T6-ASSURANCE` and
+   `AUTH-ROUTE` control project work. They are never article states, UI labels, editorial tasks or
+   external-authority decisions.
+
+The identifiers proposed in the preceding section remain proposals. This clarification changes
+their explanation, not their approval state.
+
+### Layer 1 — existing business and external-assurance workflow
+
+`T6` originates in an established industry workflow outside the software. It is linked to an
+applicable external government, court, regulator, licensing or other GRC institution represented by
+the party type `EXT-GRC`. `EXT-GRC` is not one universal institution: the applicable institution,
+jurisdiction, authority and record type vary by article and matter.
+
+```text
+Editorial work T1–T5
+        │
+        ▼
+Does the article/matter require external GRC assurance?
+        │
+        ├── No ──► continue the editorial/publication process; T6 is not required
+        │
+        └── Yes ─► Chief Editor performs the internal T6 assurance response
+                          │
+                          ▼
+                   EXT-GRC performs its own external act
+                          │
+                          ▼
+                   Delivery/remedy evidence is checked
+```
+
+For the current route model, the GRC-required branch applies to `ROUTE-FALLOUT-3` and `ROUTE-GRC`.
+The feature is **global** because the same capability is available across the product and can bind
+to the applicable jurisdiction and external institution. “Global” does not mean that T6 runs for
+every article, that one institution governs every jurisdiction, or that every external rule is
+identical.
+
+The business remedy may be a publication, printed notice, correction, amendment, retraction,
+defamation/legal response or other required communication. The remedy remains editorial content and
+retains its own publication evidence; T6 itself does not publish it.
+
+### Layer 2 — system feature and manual continuity
+
+`FEAT-T6-ASSURANCE` is the proposed digital support for the existing workflow. It does not create
+the obligation and does not replace the external institution.
+
+| Operating condition | Business action | What my-editorial-app may claim |
+|---|---|---|
+| Feature built and available | Chief Editor records internal T6; external evidence is captured or referenced separately | Only the acts for which valid records exist |
+| Feature not yet built | Chief Editor uses the established manual tracking/service process outside the app | T6 feature `Deferred`/`Unavailable`; never `Completed` merely because the placeholder exists |
+| Feature exists but internet/system is unavailable | Continue by the approved manual/offline process, including physical-print remedies where applicable | `Manual reconciliation pending` until independently attributable evidence is brought back into the system |
+| Manual record later reconciled | Record the original actor, event/effective time, external authority and source evidence plus the later reconciliation time | A reconciled manual act, not a newly performed online act and not an automatic approval |
+
+The manual path is a **business-continuity fallback**, not a control bypass. It preserves the ability
+to act when software or connectivity is absent, while refusing to fabricate digital evidence. Until
+a future approved contract defines reconciliation, manual records remain outside the app and the app
+must display the T6 capability truthfully as unavailable/deferred.
+
+The stable T6 UI region may therefore show three different facts without conflating them:
+
+- whether T6 is required for this article;
+- whether the digital T6 capability is available;
+- whether internal T6 and external GRC evidence have actually been recorded.
+
+### Layer 3 — development authorization only
+
+```text
+Documentation correction
+AUTH-DOC
+   │
+   ├── AUTH-F1              build the current T1–T5 editorial proof
+   ├── AUTH-F2              build factory-route capability
+   └── AUTH-T6-ASSURANCE    build the later digital T6 capability
+
+Route activation decision
+AUTH-ROUTE
+   ├── Non-GRC app route: verified AUTH-F1 + applicable AUTH-F2
+   └── GRC app route:     verified AUTH-F1 + applicable AUTH-F2
+                          + verified AUTH-T6-ASSURANCE
+                          + external-evidence readiness
+```
+
+This diagram governs what the development lanes may implement in my-editorial-app. It does not
+govern whether the real-world newsroom may perform a manual assurance or remedy. Until the digital
+T6 capability exists, the business can continue manually, but the corresponding GRC app route is not
+called digitally active unless a separately approved system contract can receive, validate and
+reconcile the manual evidence.
+
+Development ownership must be stated separately from system responsibility:
+
+| Development act | Development authority/executor | System or business fact produced |
+|---|---|---|
+| Decide feature scope | Judge through the Decision Register | Approved requirements, not a T6 judgment |
+| Propagate the approved specification | Active Lane A | Consistent documents, not assurance evidence |
+| Implement the bounded feature | Active Lane B | Software capability, not external acceptance |
+| Build CI workflow if separately specified | Active Lane C | Verification automation, not business authority |
+| Perform T6 on an article | Human Chief Editor using the system or manual process | Internal assurance judgment |
+| Issue/accept/mandate externally | Applicable `EXT-GRC` institution | External institutional record |
+
+### What remains unclear
+
+1. Which evidence minimum makes an offline/manual T6 act eligible for later system reconciliation.
+2. Whether the first `FEAT-T6-ASSURANCE` increment includes reconciliation or only online capture.
+3. The T6 internal outcome vocabulary and whether it is an event result, a derived projection or a
+   separately persisted state.
+4. How jurisdiction and applicable `EXT-GRC` institution are selected and versioned without implying
+   that my-editorial-app determines legal applicability.
+5. Whether a GRC app route must remain disabled until digital T6 exists, or may activate earlier under
+   a separately approved manual-evidence bridge. The safe default is disabled; the real-world manual
+   workflow remains available outside the app.
+
+These are specification questions for Draft 12 and the later feature packet. They are not permission
+for Lane B to invent fields, legal rules, route enablement or external-authority mappings.
+
+### Guaranteed failures if the three layers remain conflated
+
+- An `AUTH-*` development checkpoint appears in the product UI or audit trail as if it were an
+  editorial or external decision.
+- “Global feature” is implemented as universal T6 execution, blocking ordinary non-GRC articles.
+- `EXT-GRC` becomes one hard-coded institution or an internal role, erasing jurisdiction and
+  attribution.
+- Missing software is treated as missing business process, leaving no lawful/operational response
+  during outage or before the feature is built.
+- Manual fallback is treated as automatic satisfaction, allowing Delivery without verifiable actor,
+  time, authority and evidence.
+- A later data backfill overwrites event time with reconciliation time, making the audit record look
+  as though the action occurred inside the app.
+- T6 is made responsible for publishing the amendment/retraction, duplicating the existing
+  notice-as-article and publication transaction model.
+
+### Parent-first Draft 12 corrective steps
+
+1. **Business parent:** state that external assurance and manual continuity exist independently of
+   the product; define when T6 is required and preserve `EXT-GRC` as an external party type.
+2. **System child:** define `FEAT-T6-ASSURANCE` as global availability with conditional per-article
+   invocation; preserve the current truthful placeholder and manual fallback boundary.
+3. **Evidence child:** specify internal T6, external institutional evidence, and offline/manual
+   reconciliation as distinct records and times. Do not pick physical fields yet.
+4. **Development child:** keep the `AUTH-*` dependency model only in build/governance text; add an
+   explicit rule that none of those labels enters business data or user-facing editorial status.
+5. **Route child:** keep non-GRC app routes independent of T6; require the digital T6 dependency for
+   GRC app-route activation unless the Judge separately approves a manual-evidence bridge.
+6. **Propagation child:** allocate exact Product, Fn_Spec, data/SPECS, UX/SPECS and Build-Spec anchors
+   only after the Judge accepts the parent model; preserve existing retraction/publication rules by
+   reference rather than rewriting them.
+7. **Evidence last:** synchronize the tracked graph and extracted graph after the source packet
+   settles, then hand the same pushed revision to independent review.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T6-LAYER-SC1` | Any T6 statement is read | Its vocabulary is classified | It belongs to exactly one of business workflow, system behavior or development governance |
+| `T6-LAYER-SC2` | A non-GRC article is processed | T6 applicability is evaluated | T6 is not required and cannot block its editorial completion |
+| `T6-LAYER-SC3` | A GRC-accountable article is processed without the digital feature | Continuity is evaluated | The business follows the manual process; the app claims neither digital completion nor active GRC-route support |
+| `T6-LAYER-SC4` | The feature or internet is unavailable | A manual remedy is performed | Actor, original time, authority and evidence remain preservable for later reconciliation; absence of digital evidence is explicit |
+| `T6-LAYER-SC5` | A manual act is later reconciled | Its audit record is inspected | Original event/effective time and later reconciliation time are distinct; no backdated online act is implied |
+| `T6-LAYER-SC6` | “Global” is tested | Two jurisdictions or external institutions are considered | One reusable feature can reference the applicable external authority without treating one rule or institution as universal |
+| `T6-LAYER-SC7` | A development authorization is inspected | Product data and UI labels are searched | No `AUTH-*` value appears as an article state, editorial task, assurance result or external record |
+| `T6-LAYER-SC8` | A correction, amendment or retraction is required | T6 completes | The remedy still uses the existing editorial/publication evidence flow; T6 does not publish it directly |
+
+### Approve/reject gate for this clarification
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Business continuity | The external assurance workflow survives software absence through a manual service/tracking path | Draft 12 business parent |
+| **Approve** | Product direction | One global T6 capability, invoked conditionally for GRC-accountable articles | Draft 12 Product/Fn_Spec plan |
+| **Approve-with-conditions** | Manual reconciliation | Required for truthful continuity, but evidence minimum and increment boundary remain undecided | Later `FEAT-T6-ASSURANCE` packet |
+| **Reject** | Mixed ownership table | Business responsibility, system actors and development lanes cannot share one ownership answer | Replace with the three layer-specific tables above |
+| **Reject** | `AUTH-*` as system vocabulary | Development authorization is not editorial workflow or product state | Negative propagation search |
+| **Reject** | Manual fallback as automatic completion | It destroys evidence and permits a false assurance claim | Refusal and reconciliation criteria |
+| **Defer** | Physical schema, jurisdiction rules and route activation | No approved Product/data contract exists | After Draft 12 and separate bounded authorization |
+| **Defer** | Build and implementation | Planning only; `D-171` remains binding | After `AUTH-DOC` is applied and independently Verified |
