@@ -656,3 +656,118 @@ enforcement.
 | **Approve** | `D-184` re-approval + lifecycle correction | Both `B072-R16` and `R17` closed | Independent Lane B verification |
 | **Approve** | `SETUP-SPIKE-000` naming | Recorded as `D-185`; journal + `docs/README.md` pointers added | Independent Lane B verification |
 | **Defer** | `B072-R19`–`R21`, propagation links, hook enforcement | Not resolved by this update | Lane A follow-up |
+
+## Independent review of Lane A commit `79edb96` (2026-09-03)
+
+### Approval received in this turn — normalized without inventing provenance
+
+The current Chief Editor message begins **“Judge Approved”** and points to Lane A's `79edb96`
+summary. Under `D-183`, this is approval received for the bounded governance packet at that
+immutable commit: the `D-184` correction, `D-185`, and the journal/README pointers described in the
+summary. The summary expressly leaves propagation, enforcement, capture-before-child, Graphify,
+push, `AUTH-DOC` and implementation outside that approval.
+
+That present approval can cure the earlier evidence gap prospectively. It cannot make the shorter
+sentence already written in `D-184` — *“Judge Approved: D-184 standing commit-and-push authority”*
+— a word-for-word reproduction of the full scoped rule. The record must distinguish **approval by
+reference to an immutable packet** from a **verbatim quotation**.
+
+### What was verified
+
+| Item | Evidence at `79edb96` | Independent result |
+|---|---|---|
+| `B072-R17` lifecycle correction | `D-184` now says the SOP and B-072 header were applied by `b879af1` | **Substantively correct** |
+| Historical root facts | Git base `53ace36`; first branch-specific governance/setup commit `00d21cd` | **Correct** |
+| Journal child | `docs/journal/2026-08-16-sprint-plan.md` now carries a compact historical-root block | **Applied** |
+| README child | `docs/README.md` now points to the root journal and limits it to historical lineage | **Applied** |
+| Product/build scope | No application code, build authorization, `AUTH-*` checkpoint or Product requirement changed | **Correctly unaffected** |
+| Graph currency | `.graphify/branch.json` analyzes `838baff`; Git `HEAD` is `79edb96` | **Stale; not verification evidence** |
+
+### Findings — parent first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R22` — `D-184` calls a short label “verbatim” proof of a longer rule | The correction quotes only *“Judge Approved: D-184 standing commit-and-push authority”* and then says it confirms the longer rule “word-for-word” | A reviewer comparing the strings must reject the claim; scope/exclusions appear to have been supplied by the recorder rather than the Judge | Append a correction: approval is now received **by reference to commit `79edb96` and its bounded summary**, effective in this turn. Remove no history, but state that the earlier short quote was not verbatim reproduction of the full rule |
+| `B072-R23` — `D-185` assigns root naming to the wrong finding | Its Gaps section calls root naming “`B072-R16`'s naming half”; `R16` is solely `D-184` approval provenance. Root inference/naming is `R18` | Finding closure becomes non-deterministic: `R16` appears partly about two unrelated subjects while `R18` remains falsely open | Append a correction mapping `D-185` root naming and root-block application to `B072-R18`; leave `R16` only under `D-184` |
+| `B072-R24` — `D-185` reports its same-commit children as unstarted | `D-185` says adding the journal root block and README pointer remains open, while commit `79edb96` added both | The register loses to its own Git evidence; future work may repeat already-applied edits | Append a current-value note: `R18` and the stable-pointer part of `R20` are Applied at `79edb96`; `R19`, `R21`, the full `R11`–`R15` routing map, propagation and enforcement remain open |
+| `B072-R25` — the navigation tree makes `D-185` a child of `D-184` | `PROCESS-REFINEMENT` reads `B-072 → D-183 → D-184 → D-185`, but `D-185` registers the historical root and does not depend on standing Eligible push authority | Parent-first traversal falsely requires a handoff-push policy before the branch's historical origin can exist; Graphify would encode a causal edge that is only temporal adjacency | Correct the navigation text to `B-072 → {D-183 approval provenance, D-184 handoff authority}`; show `D-185` as the **registration decision for `SETUP-SPIKE-000`**, not a descendant of `D-184` |
+| `B072-R26` — B-072's evidence target is stale after its corrective pass | The header still names `Verified-At-Commit: b879af1`, while `R16`/`R17`, `D-185` and the root pointers were applied at `79edb96` | A reviewer can verify the old SOP commit and miss every correction now presented for closure | Keep `Resolution: Applied`; update the review-target/evidence anchor to the eventual correction commit. Do not promote to `Verified` until a non-drafting lane checks that same commit |
+| `B072-R27` — open work is bundled under inaccurate identifiers | B-072 says “`R20`'s remaining scope” although `R20` asked for stable entry points and avoidance of a copied changelog, which `79edb96` applied. The actually missing structural work is `R11`–`R15` plus `R19` | The same completed pointer work is drafted again while the missing capture/routing rule stays hidden behind the wrong ID | Replace the prose bundle with one current-value matrix: Applied `R17`, `R18`, `R20`; Corrective note required `R22`–`R26` and `R28`; Open `R11`–`R15`, `R19`, `R21`, link propagation and enforcement |
+| `B072-R28` — path-limited commit authority is not enough to make a branch push path-limited | Before this review commit, the local branch is eight commits ahead of `origin/docs/journal-2026-08-16`. A Git push advances a branch ref through every missing ancestor; it cannot transmit only the newest B-072 file change | An Eligible Lane B push made under “only its own handoff entry” also publishes Lane A's unpushed governed-doc commits, so the push either crosses the authorized scope or cannot occur—the tracking-loss problem B-072 was meant to solve | Add an upstream-alignment precondition: Eligible B/C may push only when the remote branch already contains the proposed commit's parent and the new range contains only that actor's permitted handoff commit. Otherwise the Active lane first pushes the ancestor range, or the Judge explicitly authorizes the named accumulated range |
+
+### Correct current dependency model
+
+```text
+SETUP-SPIKE-000 — historical root
+├─ registration evidence: D-185
+├─ GOV-BASELINE
+├─ V1-TRACKING
+├─ LANE-CONTROL
+├─ PRODUCT-REFINEMENT: B-068 → B-070 → B-071 → proposed D-182
+└─ PROCESS-REFINEMENT: B-072
+   ├─ D-183 — approval-provenance rule
+   └─ D-184 — Eligible handoff-only commit/push authority
+```
+
+`D-183` and `D-184` are sibling process decisions under B-072's refinement history. Their temporal
+order does not make one the authority parent of the other, and neither is the parent of `D-185`.
+
+### Parent-first implementation plan — documentation/tooling only
+
+1. **Approval-record parent (`R22`).** Append one `D-184` note describing this turn's approval as
+   approval by reference to immutable commit `79edb96` and Lane A's bounded summary. State that the
+   prior short quote was a label, not a verbatim copy. Preserve the full rule already quoted in the
+   original `D-184` body.
+2. **Root-record children (`R23`–`R25`).** Append one `D-185` correction covering all three facts:
+   root naming belongs to `R18`; journal and README children are Applied at `79edb96`; and `D-185`
+   registers the root rather than depending on `D-184`.
+3. **Handoff tracking (`R26`/`R27`).** Update B-072's Lane A/evidence fields and append one compact
+   Applied/Open/Needs-correction matrix. Do not rewrite the independent-review history or open a
+   duplicate handoff.
+4. **Push-transaction precondition (`R28`).** Amend `D-184` and the canonical SOP to distinguish
+   the changed paths in one commit from the complete commit range a branch push introduces. Require
+   the remote to contain the handoff commit's parent and require the outgoing range to contain only
+   that actor's permitted handoff commit; otherwise stop for an Active-lane ancestor push or a
+   separately named Judge authorization. Add this condition to the future negative check.
+5. **Capture-before-child parent (`R19`).** Add the rule once to `docs/README.md`'s structural map:
+   before a dependent child is drafted, its material clarification must have one durable owner,
+   normalized statement, parent link, open-question state and affected-child list. A clarification
+   is input; only an explicit `D-183` approval authorizes action.
+6. **Routing children (`R11`–`R15`).** Complete the compact
+   request→refinement→decision→execution→evidence map in `docs/README.md`. Link to
+   `docs/handoff/README.md` for the sole operative transaction SOP; do not copy it.
+7. **Propagation children.** Add link-only owned facts to `V1-PHASE-CLOSURE.md` and shared rule/work
+   order files. They point to the canonical SOP and `D-184`; they do not restate the procedure.
+8. **Enforcement plan.** Specify a negative check for a non-Active lane: only an `Eligible` B/C lane
+   may commit/push, and only its own single `docs/handoff/B-NNN-*.md` or `C-NNN-*.md`; mixed paths,
+   another entry, `Applied→Verified`, implementation or lane-state edits fail. A remote missing any
+   ancestor before that handoff commit also fails. Do not build the check in this pass.
+9. **Same-HEAD evidence (`R21`).** Commit all approved source and curated-fragment changes first;
+   rebuild Graphify; re-merge curated fragments if required; run the full suite; make no later
+   tracked edit; hand that exact `HEAD` to Lane B for independent verification.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-CLOSE-01` | The approval record is read without chat access | `D-184` is inspected | It says approval was received by reference to immutable `79edb96`; no short label is called a word-for-word copy of the full rule |
+| `B072-CLOSE-02` | `D-185` is traced to its handoff finding | The finding IDs are compared | Root naming/root block map to `R18`; `R16` maps only to `D-184` provenance |
+| `B072-CLOSE-03` | The root dependency graph is traversed | Process decisions are inspected | `D-185` registers the root; `D-183` and `D-184` are process siblings, with no false `D-184 → D-185` dependency |
+| `B072-CLOSE-04` | B-072's current matrix is read | Applied and open work are compared with Git | `R17`, `R18`, `R20` are Applied; `R22`–`R26`/`R28` require correction; `R11`–`R15`, `R19`, `R21`, propagation and enforcement remain open until their own evidence exists |
+| `B072-CLOSE-05` | A material clarification is received | A child draft is attempted | One parent-owned durable clarification exists first; absent that record, drafting stops or stays explicitly proposed |
+| `B072-CLOSE-06` | Lane A requests closure | Evidence is inspected | Git `HEAD`, source claims, curated graph, `lastAnalyzedHead` and the full check run all name the same commit; Lane B—not Lane A—sets `Verified` |
+| `B072-CLOSE-07` | An Eligible B/C actor is ready to push its permitted handoff commit | The local outgoing range is compared with the remote | The remote already contains the handoff commit's parent and the outgoing range contains only the permitted handoff commit; otherwise the push stops pending Active-lane synchronization or explicit authorization of the named range |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `D-184` policy content | The narrow Eligible handoff-only commit/push rule is coherent and the Judge approves the bounded `79edb96` packet in this turn | Lane A provenance correction `R22` |
+| **Approve** | `D-185` root facts | `53ace36`, `00d21cd`, the historical-only scope, journal block and README pointer are correct | Lane A mapping/lifecycle corrections `R23`–`R25` |
+| **Approve-with-conditions** | Commit `79edb96` documentation packet | Substantive intent is sound; seven record/transaction defects prevent verification | Apply `R22`–`R28`, then independent same-HEAD review |
+| **Reject verification** | B-072 closure at `79edb96` | False “verbatim” claim, wrong finding ID, stale same-commit gaps, false dependency edge and stale evidence anchor remain | Lane A corrective documentation pass |
+| **Reject** | Duplicate remediation | Do not create B-073, another journal, copied SOP, second backlog or new authority hierarchy | Correct B-072/D-184/D-185 in place |
+| **Reject** | Eligible push of the current accumulated branch | Remote is eight commits behind before this review; the outgoing range is not limited to Lane B's handoff file | Active Lane A pushes its ancestor range first, or Judge names and authorizes the full accumulated range |
+| **Defer** | Graphify synchronization | Graph analyzes `838baff`, not `79edb96`; source corrections must land first | Final correction commit, rebuild/re-merge, full suite |
+| **Defer** | Hook/check implementation | Only its behavioral contract is drafted here | Separate Lane A tooling authorization |
+| **Defer** | Product implementation, `AUTH-DOC`, lane transition and deployment | Unaffected by this governance review | Separate bounded authorization |
