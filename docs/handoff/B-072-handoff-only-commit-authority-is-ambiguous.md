@@ -965,3 +965,85 @@ the full procedure in other documents:
 | **Defer** | `R11`–`R15`, `R19`, propagation and enforcement | Still open | Lane A documentation/tooling pass |
 | **Defer** | Graphify synchronization | `838baff` does not match `af670b1`; source corrections come first | Final rebuild/re-merge and full suite |
 | **Defer** | Product implementation, `AUTH-DOC`, lane transition and deployment | Unaffected by this governance review | Separate bounded authorization |
+
+## Independent review of Lane A commits `1a211f4` / `4ab57b4` and completed push (2026-09-03)
+
+### Approval received and external state verified
+
+The Chief Editor explicitly states **“Judge Approved: push; just done.”** Git now confirms local
+`HEAD` and `origin/docs/journal-2026-08-16` both equal `4ab57b4`. This proves the range arrived and
+closes the immediate local-only durability risk. Per `D-183`, describe the authority as **Judge
+approval received for the immutable range ending at `4ab57b4`, pending durable registration**;
+Git identity/ref equality alone cannot prove who approved the push.
+
+The pushed correction consists of substantive commit `1a211f4` and metadata follow-up `4ab57b4`.
+The Lane A summary's pre-push “eight commits ahead” statement was true before the Chief Editor's
+subsequent push; it is not current state now.
+
+### Independent result
+
+| Item | Result |
+|---|---|
+| `R32` intent | **Correct:** configured upstream and successful fetch are now stated as hard preconditions |
+| `R33` intent | **Correct direction:** upstream-parent, outgoing-count, changed-path and post-push equality are all named |
+| Actual current transaction | **Pushed and equal:** local = remote = `4ab57b4` |
+| PowerShell execution | **Fails:** the documented unquoted `@{upstream}` produces `Missing '=' operator after key in hash literal` in this repository's shell |
+| B-072 matrix | **Still self-incomplete:** it does not list `R32`–`R35`, the pass the matrix was changed to record |
+| B-072 Git table | **Stale immediately after the approved push:** it still says remote `a3d2d2a` and local not pushed |
+| Graphify | **Stale:** `lastAnalyzedHead = 838baff`, Git `HEAD = 4ab57b4` |
+
+### Findings — parent first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R36` — the approved push range is not durably registered | The Chief Editor explicitly approved and completed the push through `4ab57b4`; Git proves the remote value, but no Decision Register note names this immutable range and approval act | Later readers can prove the commits are remote but not distinguish Judge authorization from an agent exceeding `D-184`; the same approval-provenance dispute reopens | Append one `D-184` execution-evidence note: Judge approval received for the exact previously-local range `a3d2d2a..4ab57b4`; push completed; local/remote equality observed at `4ab57b4`. This records a bounded use of the standing exception, not a new policy |
+| `B072-R37` — the SOP's literal upstream commands fail in PowerShell | It publishes `@{upstream}` unquoted. In this Windows/PowerShell workspace, `@{...}` is parsed as a hashtable and the command fails before Git runs | The first proof step cannot execute in the project's normal shell, so the actor either stops unnecessarily or improvises around the control | Quote every revision expression: `'@{upstream}'` and `'@{upstream}..HEAD'` (or provide an equivalent shell-safe variable). Add one PowerShell execution example/fixture; do not create a second SOP |
+| `B072-R38` — “must be yours” remains human interpretation | `git diff-tree` checks that one B/C-pattern path changed, but the SOP never binds an exact expected handoff path before comparison. All actors share one Git identity | A Lane B actor can accidentally push another `B-NNN` file; the pattern and author identity both pass while the “own entry” boundary fails | Before staging, bind one exact intended path (for example a task-specific `handoffPath` value). After commit, require the single `diff-tree` result to equal that exact literal path—not merely match the B/C filename family |
+| `B072-R39` — the current-value matrix is structurally self-invalidating | The matrix was corrected under `R34`, but its Applied rows stop at `R29`–`R31` and omit `R32`–`R35`; each pass adds findings that require another rewrite of the same exhaustive index | Every correction creates a new item the matrix cannot name until a later commit, guaranteeing another stale-matrix finding | Retire the exhaustive Applied-history matrix. Keep only: current Resolution; evidence anchor; remaining closure gates. The append-only review sections and Git already preserve completed finding history |
+| `B072-R40` — live Git tips are stored as current values in a tracked document | The table committed at `1a211f4` says remote `a3d2d2a` and local ahead; the approved push immediately made both `4ab57b4` | Correctly completing a push makes the tracking document false, and fixing it creates another commit that makes local/remote unequal again | Replace live-tip claims with an immutable observation: “before the approved push, remote was `a3d2d2a`; push-through `4ab57b4` confirmed externally.” Live equality must be queried, not maintained as a mutable header value |
+| `B072-R41` — the SOP repeats a step count after the project rejected restated tallies | The heading says “exact five-step proof.” The same pass reports that `channel-docs` rejected “all four checks” because counts drift; naming a new count recreates that mechanism | The next added/merged proof condition leaves the heading false while all commands still appear present | Rename it “pre-push proof” and name required outcomes; never restate their count |
+
+### Parent-first corrective plan — documentation/tooling only
+
+1. **Authority/evidence parent (`R36`).** Record the exact approved-and-pushed range
+   `a3d2d2a..4ab57b4` in a narrow append-only `D-184` execution-evidence note. Do not represent the
+   push itself as approval of any other decision, phase, or implementation.
+2. **Executable SOP parent (`R37`/`R38`).** In the existing canonical SOP, quote the Git revision
+   expressions for PowerShell and bind the single changed path to one exact expected handoff file.
+   Keep the missing-upstream, failed-fetch, range, path, push and post-push stops.
+3. **Remove drift mechanisms (`R39`–`R41`).** Replace B-072's exhaustive applied-history matrix
+   with only current status/evidence and remaining gates; convert Git values to a dated immutable
+   observation; remove the proof-step tally from the SOP heading.
+4. **Outstanding documentation parent.** Complete `R19` and the one `R11`–`R15`
+   request→refinement→decision→execution→evidence map in `docs/README.md`; then add link-only facts
+   to Phase Closure/shared rules/work orders.
+5. **Enforcement specification.** Add shell-level negative fixtures for unquoted/invalid revision,
+   missing upstream, failed fetch, wrong parent/count, wrong exact path, extra path and post-push
+   inequality. Do not implement the enforcement in this planning pass.
+6. **Graph/evidence last (`R21`).** Commit all source/fragment corrections; rebuild Graphify;
+   re-merge curated fragments if necessary; run the full suite; make no later tracked edit; push the
+   reviewed range; then let Lane B verify that exact remote commit.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R36-SC1` | A reader lacks conversation access | They inspect `D-184` | The exact approved range and completed push through `4ab57b4` are distinguishable from the standing policy and from implementation authorization |
+| `B072-R37-SC1` | The canonical commands are copied into PowerShell | Upstream is resolved and counted | Git receives the quoted revision expressions; no PowerShell parser error occurs |
+| `B072-R38-SC1` | One outgoing commit changes one validly named B/C handoff file | Its path is compared | It passes only when the result equals the actor's predeclared exact handoff path; another same-lane entry fails |
+| `B072-R39-SC1` | A later finding is appended | B-072's header is reviewed | No exhaustive completed-finding list requires another header rewrite; only remaining closure gates are current-valued |
+| `B072-R40-SC1` | A push changes the remote tip | The handoff is reread | Historical observations remain true and current equality is obtained from Git, not a stale tracked claim |
+| `B072-R41-SC1` | A proof condition changes | The SOP heading is reread | No numerical tally needs updating; required outcomes remain named in the procedure/tests |
+| `B072-R21-SC3` | Terminal verification is requested | Evidence is inspected | Local = remote = Graphify analyzed HEAD; checks pass; Lane B did not draft the final corrections |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Completed push | Git independently confirms local and remote at `4ab57b4` | Durable `D-184` evidence note (`R36`) |
+| **Approve-with-conditions** | `R32`–`R35` correction intent | Required controls are conceptually present, but PowerShell execution, exact-path binding and current tracking remain defective | Apply `R37`–`R41` |
+| **Reject verification** | B-072 closure at `4ab57b4` | Operative command fails in PowerShell; exact ownership is still human-read; header/matrix are stale; Graphify is behind | Lane A correction, Graphify sync, same-HEAD re-review |
+| **Reject** | More exhaustive applied-history/status tables | They have now drifted in consecutive correction passes | Replace with remaining-gates-only tracking |
+| **Defer** | `R11`–`R15`, `R19`, propagation and enforcement | Still open | Lane A documentation/tooling pass |
+| **Defer** | Graphify synchronization | `838baff` does not match `4ab57b4`; source corrections must land first | Final rebuild/re-merge and full suite |
+| **Defer** | Product implementation, `AUTH-DOC`, lane transition and deployment | Unaffected | Separate bounded authorization |
