@@ -1209,3 +1209,67 @@ mismatch. Source corrections remain, so rebuilding now would not be final synchr
 | **Reject verification** | B-072 closure at `cda007f` | Current tracking still self-mutates and Graphify remains behind | Apply `R45`–`R46`, finish existing documentation gates, final sync, same-HEAD re-review |
 | **Reject** | A third per-push execution note in `D-184` | It would create the next push-evidence obligation and continue the loop | Record event evidence in B-072 instead |
 | **Defer** | Hook/check implementation, product work, `AUTH-DOC`, lane transition and deployment | Outside this planning-only review | Separate bounded authorization |
+
+## Independent review of Lane A's proposed `R45` / `R46` plan (2026-09-03)
+
+### Review boundary
+
+Git confirms the earlier stale push statement is closed: local and remote both resolve to
+`c9e8b1e`. No new application commit exists after it. The current user message contains the label
+**“Judge Approved:”** with no object, action, scope/exclusions, immutable revision or checkpoint.
+Under `D-183`, that is not execution authority for the draft below it. This section therefore reviews
+and repairs the plan only; it does not apply `R45`, `R46`, `R11`–`R15`, `R19`, propagation,
+enforcement or Graphify synchronization.
+
+### What the Lane A draft gets right
+
+- It correctly treats `R45` as the parent of `R46` because the header must use the evidence-owner
+  vocabulary established by the policy correction.
+- Its substantive `R45` wording correctly separates a standing policy from individual execution
+  events and prevents routine one-entry pushes from creating register churn.
+- Its `R46` direction is correct: the current header should link to historical evidence rather than
+  restate event counts and completed ranges.
+- It correctly places Graphify synchronization last and keeps hook/check implementation outside the
+  planning-only authorization.
+
+### Findings — parent first, no duplication of `R45` / `R46`
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R47` — the approval label has no governed object or action | “Judge Approved:” is blank, while `D-183` requires the object/revision, action, scope/exclusions and applicable checkpoint. The Lane A text then asks whether to apply `R45`/`R46`, proving the authorization scope is still unresolved | Treating the label as approval lets a proposed plan inherit authority it was never granted; treating it as no approval leaves Lane A waiting and invites another ambiguous round | Obtain one bounded statement: “Judge Approved: Lane A may apply the documentation-only `B072-R45` then `B072-R46` corrections to `D-184` and B-072's current-valued header. Preserve historical notes. Do not apply `R11`–`R15`, `R19`, propagation, hook/check implementation, Graphify sync, `AUTH-DOC`, product work or a lane transition in this pass.” Record it under `D-183` when applied |
+| `B072-R48` — the proposed Register edit says both append and replace | The draft says “append to `D-184`, do not rewrite existing text,” then instructs Lane A to replace wording inside the existing Scope limits paragraph. `D-184`'s own corrections use the append-only convention | Either the actor rewrites provenance while claiming it did not, or leaves the stale “two exceptions” sentence controlling because the append did not explicitly supersede it | Append one controlling `R45` correction after the historical material, explicitly superseding the old count/“exceptions” phrase for current interpretation. Preserve the existing Scope limits text as historical. B-072's header is explicitly current-valued and may be replaced under `R46` |
+| `B072-R49` — the task tree invents a dependency and contradicts the disposition table | The tree chains `R11`–`R15`/`R19` under `R46`, but those requirements do not semantically depend on header cleanup; the same response's table defers them. Its status row also describes `R42`–`R44` as an “ownership split,” although `R43` records prior push evidence and the actual ownership split is still-open `R45` | Lane A can unintentionally execute deferred work under the `R45`/`R46` approval, or falsely close `R45` by reading the `R42`–`R44` label | Use a task forest, not one false chain: current packet `R45 → R46`; separate future documentation packet `R19 → R11`–`R15` map → link-only propagation; Graphify `R21` depends on every approved source packet; enforcement remains parked. Relabel `R43` as historical accumulated-push evidence and reserve “evidence ownership split” for `R45` |
+
+### Corrected approval-sized plan
+
+1. **Current bounded parent — `R45`.** Append the controlling policy/evidence-ownership correction
+   to `D-184`; preserve the historical text and explicitly supersede its count/“exceptions” wording.
+2. **Current bounded child — `R46`.** Normalize only B-072's current-valued header: Resolution,
+   current evidence anchor, remaining gates and canonical-SOP link. Completed events/findings stay in
+   append-only sections.
+3. **Stop.** Commit and push the documentation-only packet, then request independent Lane B review.
+   Do not sync Graphify or begin any other open item under this approval.
+4. **Future documentation packet, separately authorized.** Apply `R19`, then the `R11`–`R15` map,
+   then link-only propagation.
+5. **Final evidence, after all approved source packets.** Rebuild/re-merge Graphify once, run the
+   full suite, push, and obtain same-HEAD independent verification. Hook/check implementation remains
+   a separate build authorization.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R47-SC1` | Lane A is about to apply `R45`/`R46` | Approval evidence is read | One statement names `R45` then `R46`, documentation-only scope, exclusions and no authorization checkpoint; a blank “Judge Approved:” label fails |
+| `B072-R48-SC1` | `D-184` is inspected after `R45` | Historical and controlling text are compared | Historical notes remain byte-preserved; the later correction explicitly controls and no claim says the old Scope paragraph was rewritten |
+| `B072-R49-SC1` | The current packet is executed | Changed paths/content are reviewed | Only the `R45` register correction and `R46` current-header normalization land; `R11`–`R15`, `R19`, propagation, enforcement and Graphify remain untouched |
+| `B072-R49-SC2` | Work status is summarized | Finding meanings are compared | `R43` means historical push evidence; `R45` means evidence-ownership split; neither is reported as the other |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Push through `c9e8b1e` | Local/remote equality confirmed; prior “stalled” status is historical | Closed |
+| **Approve-with-conditions** | Lane A `R45`/`R46` draft | Substantive direction is sound; approval object, append-only method and execution boundary require `R47`–`R49` corrections | Explicit bounded Judge approval, then Lane A documentation pass |
+| **Reject** | Treating the blank “Judge Approved:” label as execution authority | Fails `D-183`'s minimum provenance fields | Obtain the bounded statement above |
+| **Reject** | One dependency chain containing current and deferred work | Conflicts with the response's own Defer row and could expand scope silently | Use the task forest above |
+| **Defer** | `R11`–`R15`, `R19`, propagation, enforcement, Graphify sync, `AUTH-DOC` and product work | Not included in a valid current authorization | Separate bounded phases |
