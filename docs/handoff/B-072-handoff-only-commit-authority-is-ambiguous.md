@@ -7,8 +7,8 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** PENDING-THIS-COMMIT (`B072-R26`/`R30`/`R31`/`R34`/`R35` — see the Git facts
-  line below rather than trusting a single SHA in this field)
+- **Verified-At-Commit:** 1a211f4 (`B072-R26`/`R30`/`R31`/`R34`/`R35` — see the Git facts table below
+  for the full picture rather than trusting this one field alone)
 - **Lane A:** Acknowledged 2026-09-02. **Current-value matrix, corrected again (`B072-R34` — the
   prior version listed `R27` as "Applied, this pass" when `R27` is the earlier *defective* matrix
   that `R30` corrected, not a live item):**
@@ -29,7 +29,7 @@
   |---|---|
   | Substantive `R29`–`R31` commit | `8674e57` |
   | Evidence-field-only follow-up | `af670b1` |
-  | This correction's own commit | (this handoff commit) |
+  | This correction's own commit | `1a211f4` |
   | Remote branch tip | `a3d2d2a` — **pushed** |
   | Local `HEAD` | Ahead of remote — **not pushed** |
 
