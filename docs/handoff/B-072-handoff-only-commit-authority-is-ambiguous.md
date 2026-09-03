@@ -1662,3 +1662,97 @@ and upstream both resolved to `da0052b`, the commit containing `R55`. Graphify r
 | **Reject** | Lane A-authored “durable receipt” as independent evidence | Repeats the self-certification boundary `R54` removed | Judge-to-Lane-B confirmation or independent receipt |
 | **Reject** | Lane A's single serialized ledger and B-061 placeholder | Invented dependencies and invalid lifecycle syntax | Apply the corrected parallel architecture above |
 | **Defer** | Documentation propagation, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | No new authorization supplied in this review | Separate bounded authorization per chain |
+
+## Independent review of Lane A's Chain 2 / Chain 3 drafts (2026-09-03)
+
+### Evidence and scope
+
+Lane A applied no source change in the reviewed pass. Before this review, local `HEAD` and upstream
+both resolved to `09ae211`. Graphify remained at `838baff`, so the review used the source documents
+directly rather than stale graph semantics.
+
+`R55`/`R56` remains open. The required confirmation is quoted inside Lane A's analysis, not stated
+directly by the Judge in this Lane B task; the current user message contains no independent Judge
+act. The documentation and product-refinement drafts are nevertheless reviewable because those
+chains are independent of the authority-evidence chain.
+
+### Independent result
+
+- **Approve the direction, not the Chain 2 text as written.** A compact structural map in
+  `docs/README.md`, one journal non-authority correction, no template field, no `A-NNN` channel and
+  no historical journal rewrite are the right boundaries.
+- **The five-step map is not executable yet.** Its “one owning artifact” claim is contradicted by
+  rows that name a conversation, an actor, several tools or several files. It also jumps from a
+  decision to execution without the bounded work packet that names scope and DoD.
+- **The promotion rule omits `D-184`'s standing exception.** Requiring `Active` for every execution
+  would forbid an `Eligible` Lane B/C actor from committing and pushing its own handoff entry—the
+  exact permission B-072 exists to establish.
+- **Approve the B-061 dated note with one wording correction.** It correctly removes Q1/Q12 and
+  B-070 as blockers and adds no `Resolution` field. Replace “`Verified` or `Superseded` is derived”
+  with “the next lifecycle value is derived from the evidence”; `Applied` remains a possible honest
+  intermediate state and must not be excluded in advance.
+
+### Findings — parent first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R59` — the routing map conflates record owner, actor and evidence source | The map promises one owning artifact per step, but Request names a directory or a conversation, Refinement puts a Lane A answer in the Register instead of the originating handoff, and Evidence names Git, checks and a reviewer rather than the durable record that receives their results | Two readers can place the same fact in different documents while both claim to follow the table; the Register becomes both refinement and decision storage; raw Git/check output is mistaken for the lifecycle record | Replace “one owning artifact” with **one canonical record per fact**. Distinguish the actor performing a step, the evidence sources it consults and the artifact that records the result. Lane A answers B/C requests in the originating handoff; the Register owns Lane A/Judge-originated gap refinement and decisions, not Lane A's answer to a B/C entry |
+| `B072-R60` — execution readiness is missing and the promotion rule contradicts `D-184` | The draft jumps Decision → Execution. It names no execution packet owning the bounded unit, files, exclusions and DoD, then requires `Active` for every execution without carving out the standing Eligible handoff-only permission | The B-061 failure repeats: a lane can be selected with no deterministic unit. Conversely, a lawful B-072 handoff commit is declared unlawful because the actor is only `Eligible` | Add **Execution packet/readiness** between Decision and Execution. Build Spec plus the selected lane's work order own the bounded unit/DoD; Inventory participates only when files are created/retired; Phase Closure owns live lane state. State the rule as “work-product execution requires `Active`; `D-184` separately permits an `Eligible` actor's one-entry handoff commit/push under the canonical SOP” |
+| `B072-R61` — link-only propagation has no closed write set | The draft supplies text for `docs/README.md` and a Phase Closure pointer but leaves “shared rule files/work orders” unnamed, although B-072's header keeps them as an open closure gate | Lane A can apply the map and still leave one consuming agent or work order on the old semantics; later review cannot tell whether propagation is incomplete or merely unaffected | Name the exact future targets: `docs/README.md` owns the structural map; `docs/handoff/README.md` remains unchanged as the sole transaction SOP; `V1-PHASE-CLOSURE.md` §5.1, the byte-identical shared core in `CLAUDE.md` / `AGENTS.md` / `.agents/rules/graphify.md`, `docs/LANE-B-WORK-ORDER.md`, and `.github/WORKFLOWS-SPEC.md` receive link-only pointers or an explicit unaffected finding. Apply all shared-core edits byte-identically and propagate facts, never counts |
+
+### Corrected Chain 2 draft — structural semantics
+
+Use **six** distinct stages; the extra stage restores the missing readiness boundary rather than
+adding another ledger.
+
+| Stage | Canonical durable record | Actor / evidence boundary |
+|---|---|---|
+| **Request** | B/C feedback: one originating handoff entry. Direct Judge/customer input: transient conversation until classified into the relevant existing record | Raising a request grants nothing |
+| **Refinement** | B/C request: the same handoff entry. Lane A/Judge-originated gap: the relevant Register gap/boundary section | Lane A answers B/C inside their entry; refinement may propose but cannot authorize |
+| **Decision and authorization** | `V1-DECISION-REGISTER.md` | Records the `D-183` Judge act, object/revision, action, checkpoint, scope and exclusions |
+| **Execution packet / readiness** | `V1-BUILD-SPEC.md` plus the selected lane's work order; Inventory only for created/retired files; Phase Closure for live lane state | Names the bounded unit, files, sequence, DoD and exclusions; planning grants no additional authority |
+| **Execution** | The authorized work-product paths, performed by the `Active` lane | Exception: `D-184` permits an `Eligible` B/C actor to commit/push only its own one handoff entry under the canonical SOP |
+| **Evidence and lifecycle** | Originating handoff/turn report for B/C; the boundary decision section for Lane A under `D-138` | Git, checks and Graphify are evidence sources. The author may record `Applied`; only an independent actor records `Verified` |
+
+Promotion rule:
+
+> Outside `D-184`'s handoff-only exception, work-product execution begins only when the Register
+> records the applicable Judge act, the execution packet identifies the exact bounded unit and DoD,
+> and Phase Closure names the executing lane `Active`. A request, answer, proposed plan, `Eligible`
+> nomination, commit, push or passing check cannot substitute for any missing condition.
+
+### Exact future write set — draft only
+
+1. `docs/README.md`: own the six-stage structural map; change the `journal/` row from “Records
+   decisions” to dated source analysis/rationale and historical memory.
+2. `docs/handoff/README.md`: **unaffected**—retain the one detailed transaction SOP; add no second
+   procedure.
+3. `V1-PHASE-CLOSURE.md` §5.1: one link-only pointer to the structural map and canonical handoff
+   SOP; retain live lane state here.
+4. `CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md`: one byte-identical shared-core pointer to
+   the structural map/SOP; no copied stages or command procedure.
+5. `docs/LANE-B-WORK-ORDER.md` and `.github/WORKFLOWS-SPEC.md`: one link-only consumer pointer each,
+   or an explicit unaffected disposition backed by a direct search; no restated workflow.
+6. B-061: append the dated note from Lane A's draft, changing its final sentence to: **“No
+   lifecycle value is preselected; the next value is derived from the governed successor and
+   independent evidence.”** Add no `Resolution` field in this pass.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R59-SC1` | A routing fact must be recorded | Its stage is classified | Exactly one canonical record owns the fact; actors and raw evidence sources are not mislabeled as that record |
+| `B072-R60-SC1` | A work-product run is proposed | Execution readiness is evaluated | A specific authorized unit, files, DoD, exclusions and `Active` lane exist; otherwise execution is refused |
+| `B072-R60-SC2` | An `Eligible` B/C actor changes only its own handoff entry | `D-184`'s SOP passes | The handoff commit/push is permitted without promoting that lane to `Active`; no other path or action inherits the exception |
+| `B072-R61-SC1` | The documentation chain is applied | Consumers are searched | Every named target contains only its owned map, state, or link; no target silently remains on the old semantics and no second SOP exists |
+| `B072-R58-SC2` | B-061 receives its dated note | Lifecycle is inspected | Q1/Q12 and B-070 are absent as blockers; no `Resolution` placeholder or prematurely selected outcome exists |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve-with-conditions** | Chain 2 documentation architecture | Correct purpose; revise ownership, readiness, exception and write-set defects above | Lane A Draft 2, then independent review |
+| **Approve-with-conditions** | B-061 dated note | Correct successor and blocker model; do not preselect only `Verified`/`Superseded` | Lane A documentation pass |
+| **Reject** | Five-step map and universal `Active` promotion rule as drafted | Omits readiness and contradicts `D-184` | Replace with the six-stage map |
+| **Reject** | Claim that `R55` evidence reached Lane B | The Judge sentence remains inside Lane A's quoted analysis, not a direct Judge act in this task | Direct Judge confirmation or independently readable receipt |
+| **Defer** | Application, enforcement, Graphify sync, `AUTH-DOC`, product work and lane transition | This review authorizes no implementation | Separate bounded authorization; Graphify last |
