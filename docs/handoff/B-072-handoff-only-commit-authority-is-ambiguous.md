@@ -1135,3 +1135,77 @@ commit values differ.
 | **Reject** | Graphify synchronization now | Approved source corrections remain; rebuilding now guarantees another immediate drift after they land | Final source commit only |
 | **Defer** | Hook/check implementation | Guardrail permits planning only; negative fixtures and implementation are not authorized | Separate tooling authorization |
 | **Defer** | Product implementation, `AUTH-DOC`, lane transition and deployment | Unaffected by this governance review | Separate bounded authorization |
+
+## Independent review of Lane A commits `deb58fe` / `cda007f` and completed push (2026-09-03)
+
+### Approval and immutable transaction evidence
+
+The current Chief Editor instruction again states **“Judge Approved: push; just done.”** Git confirms
+local `HEAD` and `origin/docs/journal-2026-08-16` both resolve to `cda007f`. The newly approved and
+pushed accumulated range is `206f9a3..cda007f`, containing Lane A's substantive `R42`–`R44`
+correction `deb58fe` and its B-072 evidence-field follow-up `cda007f`.
+
+This section is the durable transaction record for that completed range. It deliberately does not
+request a third per-push note in `D-184`: doing so would create a new governed-document commit whose
+own push would require another evidence note, reproducing the loop this review is meant to close.
+
+Graphify remains behind: `.graphify/branch.json` records `lastAnalyzedHead = 838baff` while Git is at
+`cda007f`. The same-HEAD local suite passes every check except `docs-drift`, which reports that exact
+mismatch. Source corrections remain, so rebuilding now would not be final synchronization.
+
+### What is independently accepted
+
+- **`R42` is applied.** `D-184` now states that the canonical SOP is Applied and removes it from the
+  genuinely unstarted work.
+- **`R43` is applied as historical evidence.** The earlier accumulated range
+  `4ab57b4..b21de97` is named with its contents and observed arrival.
+- **`R44` is applied at the documentation level.** The canonical SOP binds one path before staging,
+  checks the cached path set before commit, and checks `HEAD` again before push. Automated pass/fail
+  enforcement remains the already-declared tooling backlog; this review does not duplicate it or
+  claim it was built.
+
+### Findings — highest parent first
+
+| Finding | Gap | Guaranteed failure | Smallest corrective draft |
+|---|---|---|---|
+| `B072-R45` — policy and transaction evidence are assigned to the same self-mutating record | `D-184` is the standing policy, but `R36`/`R43` also made it the log for individual completed pushes. Recording a completed push requires a new Decision Register commit; pushing that commit creates the next transaction requiring evidence. The Scope limits also calls the events “exceptions” although both notes say they are bounded exercises of existing authority, not new policy | The closure process cannot terminate: every attempt to durably record the latest push creates a later unrecorded push. “Exception” also implies policy deviation where the governing text says the Judge-authorized accumulated-range path is already permitted | Preserve the two existing notes as historical examples; append one ownership correction to `D-184`: the Register owns the standing rule and link to the canonical SOP, while each future accumulated-range approval/execution record lives append-only in its originating handoff entry with exact range and observed result. Use “Judge-authorized accumulated-range execution event,” not “policy exception.” Do not add a third event note for `206f9a3..cda007f`; this section already records it |
+| `B072-R46` — the current header reintroduces the completed-history tally that `R39`/`R41` retired | The current-valued Lane A field now says “two execution-evidence notes,” lists both completed ranges, and adds completed summaries for `R42` and `R44`. That is another completed-work index immediately below the statement that exhaustive history is retired | The next event or correction makes the count/list incomplete, forcing another header rewrite and another evidence-field commit; the exact drift mechanism returns under a smaller label | Reduce the current-valued header to: current `Resolution`; current evidence anchor; remaining closure gates; link to the one canonical SOP. Leave completed ranges and finding outcomes only in the append-only review sections and Git. In `D-184` Scope limits, remove the numerical event count and refer only to the preserved historical execution examples |
+
+### Parent-first corrective plan — no build
+
+1. **Fix evidence ownership (`R45`).** Append the narrow `D-184` ownership correction. Preserve the
+   historical notes; stop adding per-push events to the policy register. The current range is already
+   captured above in B-072.
+2. **Normalize current-value tracking (`R46`).** Remove completed-event counts/lists and completed
+   finding summaries from B-072's header. Keep only current state, evidence anchor, open gates and the
+   canonical-SOP link. Remove the count and “exception” label from `D-184` Scope limits.
+3. **Finish existing documentation children without duplication.** Apply `R19` and the one
+   `R11`–`R15` routing map in `docs/README.md`; propagate only owned links to Phase Closure, shared
+   rules and work orders. Do not copy the SOP or transaction history.
+4. **Keep enforcement separate.** The automated single-path/range negative fixtures remain a
+   tooling implementation requiring separate authorization; documentation-level `R44` does not
+   claim that build complete.
+5. **Synchronize Graphify once, last (`R21`).** After all approved source/fragment edits are
+   committed, rebuild, re-merge curated fragments if required, run the full local suite, avoid later
+   tracked edits, push, and request independent review of that exact remote commit.
+
+### Success criteria
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `B072-R45-SC1` | A future accumulated range receives Judge approval and is pushed | Its evidence is recorded | The originating handoff names the immutable range and observed result; no per-event Decision Register edit or new policy decision is required |
+| `B072-R45-SC2` | `D-184` is read without conversation access | Policy and examples are distinguished | The standing rule and SOP link are current; old push notes are historical examples; no execution event is called a policy exception |
+| `B072-R46-SC1` | Another finding or push event is appended | B-072's header is reread | No completed-item count/list becomes false; the header changes only when current resolution, evidence anchor or remaining gates actually change |
+| `B072-R44-SC3` | Documentation-level correction is assessed before tooling authorization | Evidence is reviewed | The manual SOP requires one exact path before commit; automated enforcement remains explicitly open and is not represented as built |
+| `B072-R21-SC5` | Terminal verification is requested | Git, Graphify and checks are compared | Local `HEAD` = remote `HEAD` = Graphify `lastAnalyzedHead`; all checks pass; the independent reviewer did not draft the final source corrections |
+
+### Independent approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Git push through `cda007f` | Local/remote equality independently confirmed; immutable range recorded in this handoff | Closed |
+| **Approve** | `R42`–`R44` documentation corrections | Applied as specified; automated enforcement remains correctly unclaimed | Preserve |
+| **Approve-with-conditions** | `D-184`/B-072 lifecycle tracking | Substantive policy is sound, but event ownership and the current-header tally recreate a non-terminating update loop | Lane A applies `R45`–`R46` |
+| **Reject verification** | B-072 closure at `cda007f` | Current tracking still self-mutates and Graphify remains behind | Apply `R45`–`R46`, finish existing documentation gates, final sync, same-HEAD re-review |
+| **Reject** | A third per-push execution note in `D-184` | It would create the next push-evidence obligation and continue the loop | Record event evidence in B-072 instead |
+| **Defer** | Hook/check implementation, product work, `AUTH-DOC`, lane transition and deployment | Outside this planning-only review | Separate bounded authorization |
