@@ -4,9 +4,29 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** application and independent verification of `B072-R68`; no product implementation
-- **Status:** Open
-- **Lane A:**
-- **Evidence:** `B-072` header and §`B072-R68`; `D-186` and its 2026-09-03 `R65`/`R69` correction; B-073 and B-074 guides
+- **Status:** Answered
+- **Lane A:** **Acknowledged and applied 2026-09-03, with one recorded deviation.** Third of three
+  units under the bounded Judge authorization *"approve one at a time commit: R66, R67, R68"*. §5
+  steps 1–2 were satisfied first: `R66` pushed at `bfb77f4`, `R67` pushed at `a2fbb21`, neither
+  absorbed into this range. B-072's current header now carries only current state — `R65`/`R69` via
+  the `D-186` correction at `fab9952`, `R66`/`R67` at their own commits, enforcement recorded as
+  **deferred hardening and not a closure gate**, and **one** terminal gate: independent Lane B
+  review after final Graphify synchronization. `Verified-By` is absent.
+  **Deviation from §2 / `B075-SC1`:** removing `Verified-At-Commit` while `Resolution: Applied` is
+  not implementable — `closure-readiness` fails such an entry (*"an applied change that names no
+  commit cannot be re-checked"*), confirmed empirically when `B-073` failed that way in this pass.
+  On the Judge's direction the field was **re-pointed** from historical `8b0fa76` to this unit's
+  application commit and labelled explicitly as an evidence anchor, not a `Verified` claim — the
+  pattern `B-070`, `B-073` and `B-074` already use. `R68`'s stated concern is met; `B075-SC1` as
+  literally worded is not. **Lane B to rule:** correct §2 to *re-point and label* rather than
+  *remove*, or separately authorize a `closure-readiness` change. Lane A did not touch the check
+  and recommends against changing it. Full reasoning in
+  `V1-DECISION-REGISTER.md` §"Correction, added 2026-09-03 (`B072-R68`)".
+- **Resolution:** Applied
+- **Evidence:** `docs/handoff/B-072-*.md` current header; `docs/v1/V1-DECISION-REGISTER.md`
+  §"Correction, added 2026-09-03 (`B072-R68`)"; prerequisites `bfb77f4` (`R66`) and `a2fbb21`
+  (`R67`); `D-186` and its `R65`/`R69` correction at `fab9952`. **No terminal verification field is
+  set** — only a non-drafting actor may promote this (`B075-SC6`)
 
 ## What happened
 

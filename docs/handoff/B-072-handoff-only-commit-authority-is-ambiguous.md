@@ -7,8 +7,11 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** `8b0fa76` (answers `B072-R54`, which withdraws `R50`; earlier SHAs cited in this file's
-  independent-review sections are historical evidence, not current status)
+- **Verified-At-Commit:** the `R68` metadata-correction commit — **the anchor where this entry's
+  current evidence is observable, NOT a `Verified` claim** (`B072-R68`). `Resolution` stays
+  `Applied`; `Verified-By` is deliberately absent and appears only when an independent actor
+  promotes the whole entry. `8b0fa76` remains `R54`'s evidence in the append-only body below, where
+  it can no longer be read as terminal verification of the current packet
 - **Lane A:** Acknowledged 2026-09-02. **Exhaustive Applied-history matrices and tracked live-Git-tip
   claims are retired from this field (`B072-R39`, `R40`) — every correction pass added a finding the
   previous matrix couldn't name, guaranteeing the next "matrix is stale" finding, and a "current"
@@ -19,23 +22,24 @@
   - **Resolution:** `Applied`. The narrow `Eligible` handoff-only commit-and-push rule (`D-184`), its
     canonical SOP (`docs/handoff/README.md`), and the historical root (`D-185`) are all applied.
   - **Documentation packet — APPLIED 2026-09-03 under `D-186`** (`V1-DECISION-REGISTER.md`
-    §5.14e11), the bounded Judge authorization `R64` required. Applied as text: `R11`–`R15`, `R19`,
-    `R59`–`R63` in `docs/README.md` §"How a request becomes execution"; `R62`'s corrective
-    `LANE-B-WORK-ORDER.md` `Eligible` row; link-only pointers in `V1-PHASE-CLOSURE.md` §5.1 and
-    byte-identically in the three rule files' shared core. `R55`/`R56` closed on the direct Judge
-    act compared in this file's 2026-09-03 review — no Register change was required. `R21` Graphify
-    synchronization performed at the final source `HEAD` of that same pass.
-  - **Remaining closure gates:** `R65`–`R69` below, then independent Lane B verification of this
-    entry as a whole. Commit-hook/check implementation of the SOP's pre-push proof remains a
-    separately authorized follow-up whose relationship to terminal B-072 closure must be resolved
-    by `R69`. `B-061` and `B-071`/proposed `D-182` are a separate product-refinement chain and were
-    never gates on this entry.
+    §5.14e11), the bounded Judge authorization `R64` required. `R65` and `R69` are governed by the
+    append-only `D-186` correction. `R66` and `R67` are applied at their separately pushed
+    application commits, cited in `Evidence`. `R55`/`R56` closed on the direct Judge act compared
+    in this file's 2026-09-03 review — no Register change was required.
+  - **Hook/check enforcement is deferred hardening and is NOT a B-072 closure gate** (`R69`,
+    decided by the Judge and recorded in the `D-186` correction).
+  - **Remaining terminal gate — one:** independent Lane B review of the settled `R66`–`R68` packet,
+    after final Graphify synchronization. **Lane A cannot promote this entry.** `B-061` and
+    `B-071`/proposed `D-182` remain separate governed chains and were never gates on this entry.
   `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
   transaction SOP; every earlier protocol block in this file's independent-review sections below is
   historical analysis, not a second operative copy (`B072-R8`/`R9`).
 - **Evidence:** `docs/handoff/README.md` §"This directory stays writable when your lane is not
   Active"; `docs/v1/V1-PHASE-CLOSURE.md` §§5/5.1; `D-103`, `D-156`; the Chief Editor's direct
-  clarification of 2026-09-02
+  clarification of 2026-09-02. **Application commits, each its own unit:** `56759ff` (`R64`
+  packet), `fab9952` (`R65`/`R69` correction), `bfb77f4` (`R66`), `a2fbb21` (`R67`), and this
+  `R68` commit. The `B-073`/`B-074`/`B-075` guide commits `77ce8a3`/`18d2e79`/`63c51b4` prove the
+  instructions exist and are **not** application evidence
 
 ## What happened
 

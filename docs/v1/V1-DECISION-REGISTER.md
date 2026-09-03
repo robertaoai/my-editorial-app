@@ -12447,3 +12447,54 @@ closed-item list, claims no current graph currency, promotes no lifecycle state,
 graph. `R66` is already applied and is not re-touched; `R68` is a separately authorized commit that
 follows. `B-061`, `B-071`/proposed `D-182`, hook/check implementation, `AUTH-DOC`, product work,
 lane transition and deployment are untouched.
+
+### Correction, added 2026-09-03 (`B072-R68`) — B-072 lifecycle metadata, applied with one recorded deviation
+
+**Bounded Judge authorization, 2026-09-03:** *"approve one at a time commit: R66, R67, R68"* —
+**this section records the `R68` unit only**, the third and last. Its guide is
+`docs/handoff/B-075-*.md` at immutable commit `63c51b4`. Both prerequisites were confirmed pushed
+before starting, as `B-075` §5 requires: `R66` at `bfb77f4`, `R67` at `a2fbb21`.
+
+**Applied.** B-072's current-valued header now describes only current state: `R65`/`R69` governed by
+the `D-186` correction at `fab9952`; `R66`/`R67` at their own application commits; **hook/check
+enforcement recorded as deferred hardening and not a closure gate**; and **one** remaining terminal
+gate — independent Lane B review of the settled packet after final Graphify synchronization. The
+stale `R65`–`R69`-as-closure-gates wording is gone. `Verified-By` is absent and stays absent until
+an independent actor promotes the entry.
+
+#### Deviation from `B-075` §2 / `B075-SC1`, recorded rather than silently taken
+
+`B-075` §2 instructs that `Verified-At-Commit` be **removed entirely** while `Resolution` is not
+`Verified`, and `B075-SC1` requires the field be absent. **That is not implementable against the
+installed apparatus.** `closure-readiness` (check 12) fails any entry whose `Resolution` is
+`Applied` with no `Verified-At-Commit`, reporting *"an applied change that names no commit cannot be
+re-checked."* This was confirmed empirically in this pass: `B-073` failed exactly that way before
+its anchor was set. **The check treats the field as an evidence anchor, not a verification claim** —
+which is also how the template defines it (*"the commit the evidence was observed at"*) and how
+`B-070`, `B-073` and `B-074` already use it.
+
+**What was done instead, on the Judge's direction:** the field is **re-pointed** from the historical
+`8b0fa76` to this `R68` application commit and explicitly labelled *"the anchor where this entry's
+current evidence is observable, NOT a `Verified` claim."* `8b0fa76` stays in the append-only body as
+`R54`'s evidence. **This satisfies `R68`'s stated concern** — no historical, partial evidence can be
+read as terminal verification of the current packet — **while `B075-SC1` as literally worded is not
+met.** Recorded here for Lane B to rule on: either `B-075` §2 is corrected to say *re-point and
+label* rather than *remove*, or a separate authorization changes `closure-readiness`. **Lane A has
+not changed the check**, and recommends against it: the control exists so that an applied change
+always names a re-checkable commit.
+
+### Tier applicability (`D-54`) — `R68` unit
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| B-072 current-header lifecycle metadata; `B075-SC1` deviation | ✅ this correction | **— unaffected: no scope, sequence or DoD change** | **— unaffected: no rule or pointer changes** | **— unaffected: no repository file created or retired** | **— unaffected: no lane state or closure condition changes** | **— unaffected: handoff lifecycle metadata, not a product requirement** |
+
+**Encyclopedia:** unaffected — no entry depends on B-072's header fields.
+
+### Scope limits — `R68` unit
+
+**B-072's current header, this record, and `B-075`'s disposition.** Rewrites no historical body,
+absorbs no `R66`/`R67` source edit, adds no `Verified-By`, promotes nothing to `Verified`, changes
+no check, and authorizes no build. Graphify synchronization follows as the separate last step at
+this settled `HEAD` (`R21`). `B-061`, `B-071`/proposed `D-182`, hook/check implementation,
+`AUTH-DOC`, product work, lane transition and deployment are untouched.
