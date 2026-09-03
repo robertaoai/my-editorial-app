@@ -17,6 +17,9 @@
   — §2 scopes the change to the Request-row clauses. `R67` and `R68` follow as separate commits;
   Graphify synchronization is held for the settled `HEAD` after `R68` (`R21`).
 - **Resolution:** Applied
+- **Verified-At-Commit:** `bfb77f4` — the commit applying this guide. **This is the anchor where the
+  evidence is observable, not a `Verified` claim**; `Resolution` stays `Applied` and only an
+  independent actor may promote it (`B073-SC5`)
 - **Evidence:** `docs/README.md` §"How a request becomes execution" Request row;
   `docs/v1/V1-DECISION-REGISTER.md` §"Correction, added 2026-09-03 (`B072-R66`)"; `B-072`
   §`B072-R66`; `D-29`, `D-34`, `D-58`; frozen-source rules in `AGENTS.md`. **No terminal
