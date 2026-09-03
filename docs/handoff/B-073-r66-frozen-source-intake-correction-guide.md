@@ -4,9 +4,23 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** application and independent verification of `B072-R66`; no product implementation
-- **Status:** Open
-- **Lane A:**
-- **Evidence:** `B-072` §`B072-R66`; `docs/README.md` §"How a request becomes execution" Request row; `D-29`, `D-34`, `D-58`; frozen-source rules in `AGENTS.md`
+- **Status:** Answered
+- **Lane A:** **Acknowledged and applied 2026-09-03.** Bounded Judge authorization *"approve one at
+  a time commit: R66, R67, R68"* covers this unit as the first of three. The Request row's canonical
+  record and boundary clauses in `docs/README.md` §"How a request becomes execution" are replaced
+  per §2 of this guide: customer or business input is a request until classified against the frozen
+  Project PRD and Charter; in-baseline input refines the single owning derived tier under `D-29`;
+  out-of-baseline input becomes a named Register gap or change request and stops; frozen sources are
+  cited, never written to; the demand/supply labels are gone from that row. **All other six-stage-map
+  text is unchanged**, and §"The two PRDs" is pre-existing text outside this write set. §1's
+  classification table is the guide's reasoning and was deliberately not copied into `docs/README.md`
+  — §2 scopes the change to the Request-row clauses. `R67` and `R68` follow as separate commits;
+  Graphify synchronization is held for the settled `HEAD` after `R68` (`R21`).
+- **Resolution:** Applied
+- **Evidence:** `docs/README.md` §"How a request becomes execution" Request row;
+  `docs/v1/V1-DECISION-REGISTER.md` §"Correction, added 2026-09-03 (`B072-R66`)"; `B-072`
+  §`B072-R66`; `D-29`, `D-34`, `D-58`; frozen-source rules in `AGENTS.md`. **No terminal
+  verification field is set** — an independent actor promotes this, not Lane A (`B073-SC5`)
 
 ## What happened
 

@@ -12375,3 +12375,40 @@ edits no other file, promotes no lifecycle state, resynchronizes no graph, and a
 B-072 remains `Answered`/`Applied` with independent verification owed. `B-061`, `B-071`/proposed
 `D-182`, hook/check implementation, `AUTH-DOC`, product work, lane transition and deployment are
 untouched.
+
+### Correction, added 2026-09-03 (`B072-R66`) — frozen-source intake, applied
+
+**Bounded Judge authorization, 2026-09-03:** *"approve one at a time commit: R66, R67, R68"* —
+authorizing the three corrective units of `B-072`'s `R66`–`R68` packet, each as its own commit, in
+that order. **This section records the `R66` unit only.** Its guide is `docs/handoff/B-073-*.md` at
+immutable commit `77ce8a3`; a guide commit proves the instruction exists, never that it was applied.
+
+**Applied.** `docs/README.md` §"How a request becomes execution" — the Request row's canonical
+record and boundary clauses only. Customer or business input is now a **request until classified**
+against the frozen Project PRD and Charter: within the baseline it refines the single derived tier
+that owns the fact under `D-29`; outside it, it becomes a named Register gap or change request and
+downstream drafting stops. **Frozen sources are cited as evidence, never written to.** The
+non-governed "demand side" / "supply side" labels are removed from that row.
+
+**Unchanged in the same file:** every other stage row, the promotion rule, capture-before-child, the
+`A-NNN` asymmetry, the journal clause, and §"The two PRDs" — which is pre-existing text outside this
+unit's write set and keeps its own Demand/Supply framing.
+
+**Not in this unit:** `R67` and `R68` are separately authorized commits that follow this one.
+`docs/PRD.md` and the Charter are untouched and unwritable. Graphify is **not** synchronized here —
+it runs once after `R68` settles the final source `HEAD` (`R21`).
+
+### Tier applicability (`D-54`) — `R66` unit
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| `R66` frozen-source intake correction | ✅ this correction | **— unaffected: no scope, sequence or DoD change** | **— unaffected: the shared-core pointer's anchor and promotion rule are unchanged** | **— unaffected: no repository file created or retired** | **— unaffected: no lane state or closure condition changes** | **— unaffected: a routing rule, not a product requirement** |
+
+**Encyclopedia:** unaffected — no entry depends on request-intake routing.
+
+### Scope limits — `R66` unit
+
+**One clause in one file, plus this record and `B-073`'s disposition.** Edits no frozen source,
+creates no artifact, authorizes no build, promotes no lifecycle state, moves no lane, and
+synchronizes no graph. `B-061`, `B-071`/proposed `D-182`, hook/check implementation, `AUTH-DOC`,
+product work, lane transition and deployment are untouched.
