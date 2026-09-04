@@ -6653,3 +6653,77 @@ applying it is a separate, later act, same as every other unit in this packet.
 | **Approve-with-conditions** | Units 1/2 | Application sequenced strictly after Unit 7 lands, not merely drafted alongside it | Apply Unit 7 first, then 1/2 |
 | **Defer** | `R148`'s uncovered docs, `R152`'s execution, `R159`, `R160`, `R162` | Unchanged from Round 36 — still open, still named | Separate passes |
 | **Reject** | Treating Unit 7's draft as itself the applied correction | Nothing is committed to `v1-build-readiness-addendum.md`, `blueprint.md`, or `business-case.md` yet | Judge authorizes application as a bounded act (`D-183`) |
+## Round 38 — Lane B: independent review of Rounds 36–37, before application
+
+**Review evidence:** `0a48f27d6b956a59df47ba75d57fc58041492120` (includes `3d82e6b`).
+**Kind / Phase / Blocks:** this is continuing evidence in the existing Phase-1 `spec-defect`,
+not a new handoff or a turn-report. It blocks claiming the Unit 7 → Units 1/2 application packet
+complete. The entry's canonical header remains authoritative; this round sets no `Resolution`
+or `Verified-By` and does not accept phase closure.
+
+### What happened
+
+The Judge separately authorized pushing the existing drafts. Lane B fetched the upstream,
+confirmed the outgoing range was exactly `3d82e6b` and `0a48f27`, affecting only this entry and
+`V1-B071-CORRECTIVE-PLAN.md`, and pushed it. Post-push upstream and live remote-ref inspection
+both matched `0a48f27`. This records publication of drafts, not application authorization.
+The unrelated untracked `package-lock.json` was excluded and left untouched.
+
+Rounds 36–37 improve the packet: acceptance placement is now Product §9; the replay criterion no
+longer promises successful Delivery; the ledger explicitly separates its internal classifications
+from formal handoff closure; Unit 7 is drafted as a parent under Reading B; and the storyboard
+pointer is no longer claimed to complete the UML/report work. Those improvements are retained.
+
+### What you need — parent-first, continuing the existing findings
+
+| Order / existing finding | Evidence and remaining gap | Draft fix and success criterion |
+|---|---|---|
+| 1 — R147 / Unit 7 | §16.5a correctly says the documented current order is itself held under D-171, but §16.4 still calls it the **current, build-authorized order** and asserts that reasoning remains true. The annotations disclose a proposal; they do not themselves authorize or supersede the operative model | Correct the live explanatory assertion to **historical/current-documented order, held under D-171**; preserve its earlier wording only as explicitly superseded history. In the eventual Register act, identify exactly which source clauses the disclosure qualifies and what remains held. Unit 7 is a disclosure prerequisite, not evidence of complete target-model adoption |
+| 2 — R148 / rename coverage | Unit 1b and the final write set still omit Product `FR-04a`: its Requirement cell says agent contribution is never `T6`'s executor and its Line cell says `T6`: Line 2. R148's other uncovered documents are still deferred while §16.7 offers Units 1/2 immediately after Unit 7 | Add exact FR-04a cell edits; classify all remaining operative occurrences before offering the rename. For each, name its exact target edit or justify historical/future/unaffected retention. Deferring an occurrence cannot silently authorize a contradictory partial rename. Success: no unexplained target editorial-T6 dependency remains in the proposed application set or its operative consumers |
+| 3 — R149 / literal text | §16.1 still uses ellipses for SEC-01a, FR-05a and SEC-03a and `...same Definition...` for G-05a. Earlier source text may be abbreviated for explanation, but it is not an exact replacement operand | Supply full replacement cells, or exact uniquely matching substring replacements with the rest explicitly unchanged. Preserve existing citations and hold markers. No executor should have to reconstruct missing words from the prose |
+| 4 — R146/R158 / nested T5 scope | Proposed G-02a says only T5-FINAL may be satisfied but also says T1–T5 are not_applicable. Proposed G-05a says **At T5-FINAL ... never at T5**. T5-FINAL is now defined to complete and belong to T5 | Replace broad T5 exclusions with explicit sub-act lists. Draft G-02a scope: **Only T5-FINAL is eligible for satisfied; T1–T4, each T5-REVIEW act (T5/T5a/T5b), the deterministic T5_review_bundle_sealed join, and Delivery are not_applicable. Logged overrides remain override_not_four_eyes.** Draft G-05a timing: **At T5-FINAL, after T5_review_bundle_revealed_to_EG5; not during a reviewer act or the deterministic join.** Preserve Q4 and D-171 holds. Success: the containing gate cannot exclude its own final sub-act |
+| 5 — R186 / acceptance ownership | New AC-08f is anchored to FR-06 (return/rerun behavior), but tests authentication scope withdrawal and retention of G-02a/SEC-01a. A syntactically filled FR cell is not a semantic anchor | Route authentication-scope exclusion to its existing scope/security owner and Line-control behavior to FR-04a/FR-05a/SEC-01a as appropriate. Split the governance scope check from behavioral acceptance if needed; do not invent a return requirement to carry either. Review AC-08b's missing-review readiness ownership against FR-04a as well. Success: each criterion tests the behavior of its cited parent |
+| 6 — R152 / graph contract | §16.4 supplies two proposed nodes and distinct_from, but not the requested T5-FINAL part-of-T5 and PBL-01-owns-future-T6 relations. The editorial node describes only Reviewed→Approved although §15.3 also permits a negative final judgment that stays Reviewed. Its description says not yet applied even though instructions say to create it after application | Reuse existing canonical identities after a duplicate-ID check; specify parent/ownership edges plus distinct_from. Describe the assessment separately from its positive transition effect. Supply application-time lifecycle wording so the merged node accurately describes the committed decision and retained build hold. Test stable IDs, relationships, negative outcome semantics and curated coverage—not just two query labels. Recheck frag122 availability at execution; prose reservation is not an exclusive lock |
+| 7 — D-54 / application packet | §16.8's final write set includes Build Spec but does not name the Register or Artifact Inventory, despite introducing acceptance rows and proposing frag122 | Before authorization, include the Register Judge act, bounded per-unit DoD, all-three tracking propagation, and explicit unchanged-tier statements. Identify the graph artifact in the inventory if created. Do not use the analysis Approve table as execution permission |
+
+**Smallest safe sequence:** correct the packet's meaning and exact edits → Judge considers Unit 7
+disclosure and the complete Units 1/2 packet separately → authorized Lane A applies Unit 7 first,
+then the complete renamed contract with its affected consumers → commit/push proof → Graphify
+synchronization against the settled commit and curated verification → independent application
+verification. Unit 6 remains an independent, identity-only proposal requiring its own bounded
+authorization; no change to that approved distinction is requested here.
+
+### Views, Encyclopedia and tracking
+
+Keep historical storyboard panels unchanged and explicitly historical. §16.5 is a useful pointer,
+not completion of R159's progress-axis/UML work or R160's report binding. Those remain with their
+already named SPECS/UX and FN-AUDIT-VISIBILITY owners. The corrected flow must distinguish sealed
+review judgments, a non-judging readiness join, the human final assessment (including negative
+outcomes), and Delivery's independently evidenced result. A linear success-path arrow is not the
+four-case outcome contract by itself.
+
+The external Encyclopedia was not inspected in this review. Its local sync map remains the
+dependency index, not proof the hosted artifact matches. At application, record affected entries
+in the decision tier map; later verification must read the external artifact before asserting sync.
+
+B-071 remains Open. Draft coverage, a business ruling, Applied, and independent Verified are
+different facts. The canonical header and derived closure-readiness view continue to track them;
+no second closure tracker or summary tally is created here.
+
+### What you did instead
+
+Reviewed and recorded corrections only; no source, Product, Fn_Spec, SPECS, application, schema,
+lane-state or build-authorization changes. The current Graphify branch record analyzed `3d82e6b`
+while review HEAD was `0a48f27`: this is drift even though the stale flag is false. This review
+uses direct source evidence and claims no current semantic query. Lane A owns synchronization
+before the next consuming approval; committing this handoff will move HEAD again. A green check
+before a commit is evidence for its input revision, not the resulting commit.
+
+| Decision | Tier / scope | Follow-up phase |
+|---|---|---|
+| Approve | Separate push of existing draft commits through 0a48f27; remote equality verified | Completed transport only; no application permission |
+| Approve-with-conditions | Unit 7 source-disclosure draft and governing Register interpretation | Phase 1: correct the held/authorized contradiction and clause scope before application |
+| Defer | Units 1/2 Product/Fn_Spec/RACI application packet | Phase 1: complete R148/R149 coverage, sub-act semantics, criterion anchors and D-54 packet first |
+| Approve-with-conditions | Unit 6 Product backlog identity only | Phase 1: confirm identity allocation and separate bounded authorization |
+| Defer | R152 graph execution; R159/R160 views/report; Encyclopedia verification | Phase 1 application/sync and the existing named follow-up tiers; no verified-sync claim yet |
+| Reject | B-071 terminal closure or S2/build authorization inferred from this review | Handoff tracking and build tiers remain unchanged; independent evidence and Judge acts required |
