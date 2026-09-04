@@ -7325,9 +7325,22 @@ actual edit order was:
    `R152` graph execution explicitly excluded; `D-171` explicitly unaffected.
 
 This round's first draft described the opposite order (D-189 first, application second) —
-inaccurate narration of Lane A's own tool sequence, corrected here. Nothing was committed at either
-point, so no durable or shared state ever reflected application without authorization; this is a
-correction to this record's accuracy, not to what was authorized.
+inaccurate narration of Lane A's own tool sequence, corrected here.
+
+**Sequencing deviation — acknowledged as fact; disposition, not characterization, is what remains
+open.** The canonical promotion rule (`docs/README.md` §"How a request becomes execution", the
+**Promotion rule** paragraph) already governs when work-product execution begins; it is not Lane
+A's place to argue whether this session's tool-call order satisfies it. Source-file edits preceded
+the Register draft in this session's actual tool-call order, even though nothing was committed at
+either point and both landed together, atomically, at `409e5b3`:
+
+> Source edits preceded Register recording. The sequencing deviation is acknowledged; its
+> disposition remains for the Judge. The annotation content has been independently inspected, but
+> that inspection does not establish sequence compliance.
+
+This does not establish that the annotation content is wrong, and does not require automatic
+reversal — the deviation is recorded as a fact, and its disposition (accept with corrective action,
+require a remedy, or otherwise) is the Judge's to decide, not Lane A's to characterize away.
 
 **What was not touched:** `V1-B071-CORRECTIVE-PLAN.md` itself (the "Unit-7-only packet" approved is
 the D-189 authorization text, not a rewrite of the corrective plan's own §16.7/§16.4 wording — that
@@ -7335,14 +7348,14 @@ remains a separate, not-yet-authorized item, and §16.7's self-contradictory cla
 pinpointed is still present, unfixed); Units 1/2; the `R152` graph fragment; `Modular_PRD.md`;
 `V1-BUILD-SPEC.md`; lane state.
 
-**Current status — working-tree application, not yet `Applied`.** Per this repository's own
-template, `Applied` means corrected in the tree **at a named commit**. Nothing here is committed
-yet, so that status does not formally attach until it is; `4e1d7bb` is the reviewed source revision
-this authorization is grounded on, not evidence of this application, since it does not contain
-these annotations. Once committed, Lane A may record `Applied` against that commit; independent
-`Verified` status is a separate, later act only a non-applying actor may record (`D-101`, `D-102`).
-Evidence for this working-tree state: `V1-DECISION-REGISTER.md` §5.14e14; the three annotated
-files; corrective-plan §16.5a (source text, verbatim); `B-071.md:7166-7192`.
+**Current status — Applied at `409e5b3`.** Per this repository's own template, `Applied` means
+corrected in the tree at a named commit; that commit now exists and is pushed (local `HEAD` and
+remote tip independently confirmed equal). `4e1d7bb` remains the reviewed source revision this
+authorization was drafted against, not application evidence — `409e5b3` is. Lane A, as the applying
+actor, records `Applied` here; independent `Verified` status is a separate, later act only a
+non-applying actor may record (`D-101`, `D-102`), and remains outstanding. Evidence:
+`V1-DECISION-REGISTER.md` §5.14e14 (commit `409e5b3`); the three annotated files (same commit);
+corrective-plan §16.5a (source text, verbatim); `B-071.md:7166-7192`.
 
 **B-071 remains `Open`.** Unit 7's disposition is described here in prose, not as a reserved
 whole-entry `Resolution:` field, so it is not miscounted as a second Applied handoff separate from
@@ -7353,6 +7366,7 @@ unaffected and unreached.
 
 | Decision | Tier / item | Follow-up phase |
 |---|---|---|
-| Approve | `D-189` recorded; Unit 7's annotations present in the working tree, exactly as drafted | Commit, then independent verification of that commit |
-| Reject | Treating working-tree presence as `Applied`, `Verified`, or B-071 closure; treating `4e1d7bb` as application evidence | Formal `Applied` needs a named commit; `Verified` needs a non-applying actor and that commit |
+| Approve | `D-189` recorded; Unit 7 Applied at `409e5b3`; committed content independently inspected by Lane B | Verification disposition remains to be formally recorded |
+| Approve-with-conditions | The recorded sequencing deviation (source edits preceded the Register draft, pre-commit) | Judge disposition pending; not self-resolved by this entry |
+| Reject | Treating `4e1d7bb` as application evidence, or this correction as retroactively establishing sequence compliance | `409e5b3` is the application evidence; the deviation is recorded, not dismissed |
 | Defer | Units 1/2, `R152` graph execution, corrective-plan §16.7 text correction, overall B-071 closure | Each its own separate, not-yet-authorized item |

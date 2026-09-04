@@ -12738,11 +12738,10 @@ therefore remains **fully binding, unchanged** by this act.
 
 ### Evidence and disposition
 
-Unit 7's annotations exist in the working tree as of this authorization, not yet at a named commit
-— per this repository's own template, `Applied` specifically means corrected in the tree **at a
-named commit**, which does not yet exist for this change set. Formal `Applied` status is recorded
-once the change set is committed; independent `Verified` status is a separate, later step that only
-a non-applying actor may record (`D-101`, `D-102`).
+Unit 7's annotations are corrected in the tree at commit `409e5b3` (pushed; local and remote
+independently confirmed equal) — per this repository's own template, that is what `Applied` means.
+Lane A, the applying actor, records `Applied` here; independent `Verified` status is a separate,
+later step that only a non-applying actor may record (`D-101`, `D-102`), and remains outstanding.
 
 ### Gaps
 
@@ -12750,8 +12749,8 @@ a non-applying actor may record (`D-101`, `D-102`).
 authorization requirements; `B-071`'s overall open status; corrective-plan §16.7's own text —
 `B071-R188` pinpointed its self-contradictory clause, but this act does not rewrite it, so the
 contradiction itself remains present in the corrective plan and is **not** closed by authorizing
-Unit 7's annotations. Unit 7's source annotations are present in the working tree, pending commit
-and independent verification.
+Unit 7's annotations. Unit 7's source annotations are `Applied` at `409e5b3`; independent
+verification remains outstanding.
 
 ### Tier applicability (`D-54`)
 
