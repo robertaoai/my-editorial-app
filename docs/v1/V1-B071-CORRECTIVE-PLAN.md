@@ -2838,21 +2838,33 @@ letter moves, no route cardinality changes, no `EG5_*` event is added or removed
 
 | Row | Current text | Proposed replacement |
 |---|---|---|
-| `G-02a` (Definition col.) | *"Target `T5`/`T6` crossings without Line separation, excluding logged overrides — **only `T6` may be `satisfied`; `T1`–`T5` and Delivery are `not_applicable`**"* | *"Target `T5`/`T5-FINAL` crossings without Line separation, excluding logged overrides — **only `T5-FINAL` may be `satisfied`; `T1`–`T5` (including each sealed `T5`/`T5a`/`T5b` review act and the `T5_review_bundle_sealed` join) and Delivery are `not_applicable`** (`raci-involvement-matrix.md` §3.1; `B071-R146`, proposed `D-189`)"* |
-| `SEC-01a` (Definition col.) | *"...`R(each required T5 act) ≠ R(T6)`;... at target `T6`, `R = A` by design (the boundary moved from `T5` to `T6`, `D-175`)"* | *"...`R(each required T5 act) ≠ R(T5-FINAL)`;... at target `T5-FINAL`, `R = A` by design — the human final judgment completes `T5`; it is not a separate `T6` gate (`B071-R146`/`R158`, proposed `D-189`, correcting `D-175`'s wording only, not its Line/RACI holder)"* |
-| `FR-05a` (Requirement col.) | *"Classify `T6`'s crossing as `satisfied`...; refuse an agent at `T6`;..."* | *"Classify `T5-FINAL`'s crossing as `satisfied` (the only genuine target-order Line crossing, completing `T5`); refuse an agent at `T5-FINAL`;..."* |
+| `G-02a` (Definition col.) | *"Target `T5`/`T6` crossings without Line separation, excluding logged overrides — **only `T6` may be `satisfied`; `T1`–`T5` and Delivery are `not_applicable`**"* | *"Target `T5`/`T5-FINAL` crossings without Line separation, excluding logged overrides — **only `T5-FINAL` is eligible for `satisfied`; `T1`–`T4`, each `T5`-REVIEW act (`T5`/`T5a`/`T5b`), the deterministic `T5_review_bundle_sealed` join, and Delivery are `not_applicable`. Logged overrides remain `override_not_four_eyes`**" (`raci-involvement-matrix.md` §3.1; `B071-R146`/`R146`(nested-scope correction, independent review of Round 38), proposed `D-189`)* |
+| `SEC-01a` (Definition col., full text — no ellipsis) | *"Editorial RACI — four-eyes across each Line boundary: `R(T4) ≠ R(each required T5 act)`, and `R(each required T5 act) ≠ R(T6)`; **not** `R ≠ A` within one task — at target `T6`, `R = A` by design (the boundary moved from `T5` to `T6`, `D-175`)"* | *"Editorial RACI — four-eyes across each Line boundary: `R(T4) ≠ R(each required T5 act)`, and `R(each required T5 act) ≠ R(T5-FINAL)`; **not** `R ≠ A` within one task — at target `T5-FINAL`, `R = A` by design: the human final judgment completes `T5`; it is not a separate `T6` gate (`D-175`'s wording corrected by `B071-R146`, proposed `D-189` — its Line/RACI holder is unchanged)"* |
+| `FR-05a` (Requirement col., full text — no ellipsis) | *"Classify `T6`'s crossing as `satisfied` (the only genuine target-order Line crossing); refuse an agent at `T6`; require every route-required `T5` review sealed, with the human's own preliminary disposition sealed before the bundle is revealed"* | *"Classify `T5-FINAL`'s crossing as `satisfied` (the only genuine target-order Line crossing, completing `T5`); refuse an agent at `T5-FINAL`; require every route-required `T5` review sealed, with the human's own preliminary disposition sealed before the bundle is revealed"* |
+| `FR-04a` (Requirement col.) — **confirmed miss, added here** | *"`T5`'s required reviewer(s) are route-dependent: `ROLE-CHIEF-EDITORIAL-DESK` alone (`ROUTE-PROD-1`), `ROLE-CHIEF-JOURNALIST` alone (`ROUTE-PROD-2`/`PROD-3`), or both in parallel (fallout/GRC routes) sealed into one non-judgment bundle join; agent contribution is never `T6`'s executor"* (Line col: *"`T5`: Line 1 (`not_applicable` — no Line crossing); `T6`: Line 2"*) | Requirement col: *"...agent contribution is never `T5-FINAL`'s executor"*. Line col: *"`T5`: Line 1 (`not_applicable` — no Line crossing); `T5-FINAL`: Line 2"*. Every other cell (`P0`, `O-03`, `US-04a`, `AC-05a`/`AC-05b`, `S2`/`D-171` hold, `D-175`/`D-177`) unchanged |
 | `AC-06a` (When/Then) | *"An agent attempts T6 \| The transition is refused. T6 is human-primary under the target order — the canary moves from T5 (AC-06) to T6"* | *"**An agent attempts `T5-FINAL`** \| **The transition is refused.** `T5-FINAL` is human-primary under the target order — the canary moves from `T5` (`AC-06`) to `T5-FINAL`, which completes `T5`; there is no separate editorial `T6` gate in V1"* |
 | `AC-07a` (full row) | *"`AC-07a` `[decided_target_held]` \| `FR-05a` \| — \| An article's required `T5` review set is sealed \| The Chief Editor reviews \| `EG5_preliminary_disposition_sealed` is recorded **before** `T5_review_bundle_revealed_to_EG5`; a bundle revealed first fails the blind-order proof"* | **No text change** — contains no `T6` occurrence. Row quoted here in full, not by ellipsis, so the "unchanged" claim is checkable rather than asserted |
 | `AC-07b` (full row) | *"`AC-07b` `[decided_target_held]` \| `FR-05a` \| — \| Two `T5` reports disagree \| The Chief Editor records `T6` \| Both reports remain visible and unaltered; `EG5_final_decision_recorded` is the only resolution — no automatic winner, no silent merge"* | Same row, *"The Chief Editor records `T6`"* → *"The Chief Editor records `T5-FINAL`"*; every other cell unchanged |
 | `AC-08a` (full row) | *"`AC-08a` `[decided_target_held]` \| **`FR-06`** (corrected 2026-09-02, `D-180`, `B068-R50`) \| — \| The Chief Editor returns work at `T6` \| Return scope is recorded \| A single-reviewer defect reruns only that reviewer against the unchanged sibling report; a shared-evidence defect invalidates the bundle and reruns every required `T5` review; prior versions remain retrievable, never presented as current"* | Same row, *"returns work at `T6`"* → *"returns work at `T5-FINAL`"*; the `D-180` requirement-column correction and every other cell unchanged |
 | `US-05a` (full row) | *"`US-05a` `[decided_target_held]` \| Chief Editor \| As the Chief Editor, I want the system to refuse an agent at `T6` and require every route-required `T5` review sealed before I see any of them, so that my final judgment is both exclusive and independent \| P0 \| `FR-05` target (`D-175`, `D-177`) \| `AC-06a`, `AC-07a`, `AC-07b` \| `US-04a` \| — (`D-171` hold) \| Canary moves from `T5` to `T6` under the target order"* | *"refuse an agent at `T6`"* → *"refuse an agent at `T5-FINAL`"*; *"Canary moves from `T5` to `T6`"* → *"Canary moves from `T5` to `T5-FINAL`, which completes it"* |
-| `G-05a` (Definition/Timing cols) | *"Comparison of the sealed human preliminary disposition against the sealed `T5` review-act recommendation set, per-reviewer disagreement retained (never averaged) \| At `T6`, after `T5_review_bundle_revealed_to_EG5` — never at `T5`"* | *"...same Definition... \| At `T5-FINAL`, after `T5_review_bundle_revealed_to_EG5` — never at `T5`"* — **`G-05a` stays `Blocked on Q4`**, same as current-order `G-05`; this rename does not touch that block |
-| `SEC-03a` (Definition col.) | *"RLS replaced with owner- and role-scoped policies; target `T5` reviewer(s) execute as Line 1; only Line 2 executes `T6` and `T11`"* | *"...only Line 2 executes `T5-FINAL` and `T11`"* — **stays S6-scoped** (*"cannot be called done while OD1–OD3 are unratified"*); the rename does not pull `SEC-03a` into S2 |
+| `G-05a` (Definition/Timing cols, full text — no ellipsis) | *"Comparison of the sealed human preliminary disposition against the sealed `T5` review-act recommendation set, per-reviewer disagreement retained (never averaged) \| At `T6`, after `T5_review_bundle_revealed_to_EG5` — never at `T5`"* | *"Comparison of the sealed human preliminary disposition against the sealed `T5` review-act recommendation set, per-reviewer disagreement retained (never averaged) \| At `T5-FINAL`, after `T5_review_bundle_revealed_to_EG5`; not during a `T5`-REVIEW act or the deterministic `T5_review_bundle_sealed` join"* — Timing column reworded, not just relabeled: *"never at `T5`"* was ambiguous once `T5-FINAL` is itself defined as part of `T5` (independent review of Round 38, nested-scope finding). **`G-05a` stays `Blocked on Q4`**, same as current-order `G-05`; this rename does not touch that block |
+| `SEC-03a` (Definition col., full text — no ellipsis) | *"RLS replaced with owner- and role-scoped policies; target `T5` reviewer(s) execute as Line 1; only Line 2 executes `T6` and `T11`"* | *"RLS replaced with owner- and role-scoped policies; target `T5` reviewer(s) execute as Line 1; only Line 2 executes `T5-FINAL` and `T11`"* — **stays S6-scoped** (*"cannot be called done while OD1–OD3 are unratified"*); the rename does not pull `SEC-03a` into S2 |
 
-**Confirmed miss, corrected here:** `US-05a`, `G-05a`, and `SEC-03a` all still said `T6` and were absent
-from the original unit-1 sweep (`B071-R148`'s own concern — the impact surface was undercounted).
-Found by independent review, verified against current file text before being added above, not
-accepted on the reviewer's word alone.
+**Confirmed misses, corrected here, across two independent-review passes:** `US-05a`, `G-05a`,
+`SEC-03a`, and `FR-04a` all still said `T6` and were absent from the original unit-1 sweep
+(`B071-R148`'s own concern — the impact surface was undercounted). `SEC-01a`, `FR-05a`, and `G-05a`
+also carried ellipses or a `"...same Definition..."` shorthand instead of complete replacement text —
+found in a second independent-review pass after the first pass's own fix reintroduced the identical
+problem inside `G-05a`'s newly-added row. All rows above now quote complete current and proposed
+text; none is accepted on a reviewer's word without checking the live file first.
+
+**The nested-scope correction (`G-02a`/`G-05a`), explained.** `T5-FINAL` **completes** `T5` — it is
+part of the `T5` stage, not a stage after it. Saying *"`T1`–`T5` are `not_applicable`"* (the first
+pass's wording) is therefore ambiguous: does *"`T5`"* in that exclusion include `T5-FINAL`, which the
+same sentence just declared the one thing that **is** `satisfied`? The fix lists `T5`'s sub-acts
+explicitly — `T1`–`T4`, each `T5`-REVIEW act, the bundle join — so the excluded set and the eligible
+act never share a bare `T5` label that could be read either way. The same ambiguity existed in
+`G-05a`'s *"never at `T5`"*, fixed the same way.
 
 **1a — `docs/governance/raci-involvement-matrix.md` §3.1:**
 
@@ -2904,11 +2916,11 @@ person can paste these directly into `Modular_PRD.md` §9 without opening §15.7
 
 | ID | FR | AT | Given | When | Then |
 |---|---|---|---|---|---|
-| `AC-08b` `[decided_target_held]` | `FR-05a` | — | A required `T5` review act is missing | Assessment runs | The gap is recorded, the article stays `Drafted`, and no join, readiness event or `Reviewed` state is fabricated |
+| `AC-08b` `[decided_target_held]` | `FR-04a` (corrected from `FR-05a` — this tests whether `T5`'s required review acts are sealed before readiness, `FR-04a`'s own subject; `FR-05a` governs `T5-FINAL`'s crossing, not `T5`'s review requirements) | — | A required `T5` review act is missing | Assessment runs | The gap is recorded, the article stays `Drafted`, and no join, readiness event or `Reviewed` state is fabricated |
 | `AC-08c` `[decided_target_held]` | `FR-05a` | — | A source RACI row shows an accountable party and a blank `R` | Approval status is evaluated | No approval is inferred as absent or present from the cell alone; actual approval evidence decides, and no `R` is invented |
 | `AC-08d` `[decided_target_held]` | `FR-06` | — | A negative `T5-FINAL` judgment is recorded, then the user manually re-triggers the whole article | Both analyses are inspected | The earlier result and reasons are preserved append-only; the later analysis carries its own evidence and inherits no approval |
 | `AC-08e` `[decided_target_held]` | `FR-05a` | — | The same completed `T5-FINAL` act is retried | Effects are counted | **Replaying the same completed assessment creates no additional approval transition, delivery request, or publication side effect. Delivery success remains governed and evidenced separately** (`FN-PUBLICATION-09-10-13.md` §§4–5, §11) |
-| `AC-08f` `[decided_target_held]` | `FR-06` | — | V1 is inspected for authentication scope | `R185`'s withdrawal is checked | No V1 authentication or succession prerequisite exists, **and** the `G-02a`/`SEC-01a` Line controls remain present and testable |
+| `AC-08f` `[decided_target_held]` | `SEC-01a` (corrected from `FR-06` — `FR-06` governs return/rerun behavior, unrelated to authentication scope or Line controls; `SEC-01a` is what this criterion actually tests) | — | `R185`'s V1 scope exclusion (no authentication/succession prerequisite added) is in effect | `G-02a`/`SEC-01a`'s Line-separation controls are inspected | They remain present and testable exactly as defined — `R185`'s scope exclusion changes no Line-control behavior |
 
 **Correction to §15.7's `T5-V1-SC84`, made here, not silently:** the corrective-plan source text
 reads *"Exactly one approval and one publication effect exist; the retry adds neither."* That
@@ -2921,6 +2933,11 @@ started, may be retrying, or may have partially failed, none of which is `T5-FIN
 packet does not rewrite an earlier draft's text silently, matching §15.0's own convention for
 correcting §14) — this note is the correction, and `AC-08e` is what should be applied instead of a
 literal port of `SC84`.
+
+**`R185`'s "no V1 authentication prerequisite exists" half is a scope disclosure, not a second
+behavioral criterion.** `§15.1`'s proposed decision text already states it; a criterion cannot
+honestly test the *absence* of a feature the way `AC-08f` (above) tests the *presence* of a control,
+so it is not duplicated as its own `AC` row here.
 
 No new test IDs are minted beyond the `AC-08b`–`f` labels; `AT-0xx` assignment is application-time
 work per `§7` of `FN-GATES-01-05.md`'s own convention and is not invented here.
@@ -3014,8 +3031,12 @@ actual annotation-preserving text, and §16.7's application gate is decided on t
 as background reasoning for why the current documents were never in live contradiction — that
 reasoning is still true and is part of §16.5a's own annotation text — not as the operative remedy: every clause in `v1-build-readiness-addendum.md`, `blueprint.md`, and `business-case.md`
 describing the earlier editorial approval model (human at `T5`, Chief Journalist agent at `T6`)
-remains an accurate description of the **current, build-authorized order** — nothing in §16.1 changes
-that order or authorizes building against a different one. The target order and this pass's
+remains an accurate description of the **current, historical/documented order — itself held under
+`D-171`, not build-authorized either** (corrected from an earlier draft's *"current, build-authorized
+order"*, a self-contradiction §16.5a's own text already avoided: calling the current order
+"build-authorized" while `D-171`'s hold is stated everywhere else as covering *both* orders. Found by
+independent review). Nothing in §16.1 changes that order or authorizes building against a different
+one. The target order and this pass's
 `T5-FINAL` rename are `[decided_target_held]` planning content, explicitly *not build-authorized
 (`D-171`)*, coexisting with the unrewritten higher-precedence documents by the **same mechanism**
 `raci-involvement-matrix.md` §3.1's own header already states for this exact situation: *"rewriting
@@ -3033,24 +3054,34 @@ boundary.** Fragment path reserved: `docs/graph-fragments/frag122.json` (next fr
 against the current directory listing this round — `frag121.json` is the highest existing). Literal
 node/edge assertions to add when units 1/2/6 are authorized and applied:
 
-| Node ID | Label | Description | Community |
+| Node ID | Label | Description (written for the state that will be true when created — not "not yet applied") | Community |
 |---|---|---|---|
-| `t5_final_editorial_act` | `T5-FINAL`: Human Final Editorial Judgment | Completes `T5` (`Reviewed`→`Approved`) under the target order; human-only, Line 2, `R=A=`Acting Chief Editor. Not a sixth gate. Proposed by `B-071` `R183`/`R186`, `D-189` draft, not yet applied to a governed tier | Requirements Traceability |
-| `pbl_01_t6_assurance` | `PBL-01`: Future `T6` Global Assurance | Bottom-ranked, not refinement-ready capability identity (`Modular_PRD.md` §2.5.2). Reserves `T6` exclusively for this future capability once `D-189` is applied — never for editorial approval | Requirements Traceability |
+| `t5_final_editorial_act` | `T5-FINAL`: Human Final Editorial Judgment | The human's final editorial judgment, completing `T5`. **Positive**: performs `Reviewed`→`Approved`, `EDITORIAL_DISPOSITION` records the outcome. **Negative**: stays `Reviewed`, records reasons, no approval (`§15.3`'s four-case contract). Human-only, Line 2, `R=A=`Acting Chief Editor. Not a sixth gate | Requirements Traceability |
+| `pbl_01_t6_assurance` | `PBL-01`: Future `T6` Global Assurance | Bottom-ranked, not refinement-ready capability identity (`Modular_PRD.md` §2.5.2). Reserves `T6` exclusively for this future capability — never for editorial approval | Requirements Traceability |
 
-Edge: `t5_final_editorial_act` —`distinct_from`→ `pbl_01_t6_assurance`, confidence `CURATED`,
-rationale: *"`B071-R146`/`R152` — `T6` as a bare label is ambiguous between the retired editorial
-meaning and the future assurance meaning; this edge is the queryable assertion that they are not the
-same thing."*
+Edges — three, not one, per independent review's correction (a bare `distinct_from` asserted the two
+are different but not *how* each relates to what it belongs to):
+
+| Source | Relation | Target | Note |
+|---|---|---|---|
+| `t5_final_editorial_act` | `part_of` | *the existing `T5` gate node — ID to be confirmed by duplicate-ID check at execution, not invented here* | `T5-FINAL` is a sub-act of `T5`, not a sibling node; asserting this without knowing the existing node's real ID risks the exact duplicate-ID problem this table is meant to avoid |
+| `pbl_01_t6_assurance` | `owns` | *the existing `T6`/`EG5` label node, if one exists — same duplicate-ID caveat* | Records that `PBL-01`, not editorial approval, is `T6`'s future referent |
+| `t5_final_editorial_act` | `distinct_from` | `pbl_01_t6_assurance` | Confidence `CURATED`. Rationale: *"`B071-R146`/`R152` — `T6` as a bare label is ambiguous between the retired editorial meaning and the future assurance meaning; this edge is the queryable assertion that they are not the same thing."* |
+
+**Reservation caveat, stated plainly rather than implied:** `frag122.json` being the next free number
+*at the time this was checked* is an observation, not a lock — another fragment could claim it before
+this packet is applied. **Re-verify availability at execution**, not assumed from this draft.
 
 **Confirmed by direct query this round** (graph resynced to current `HEAD` first, §16.8):
 `graphify query "T5-FINAL"` returns no node matching that term today — expected, since the term
 exists only in this draft, not yet in any governed tier the extractor reads. **This is the drafting
-half `R152` asked for.** The **execution** half — writing `frag122.json`, running the merge, and
-re-querying to confirm the two nodes resolve distinctly — stays sequenced at the application
-boundary, after authorization, since writing the fragment now would assert content that isn't in any
-governed tier yet (the same reasoning `docs/handoff/README.md`'s own commit procedure applies to
-Graphify sync generally — asserted content should follow applied content, not precede it).
+half `R152` asked for.** The **execution** half — a duplicate-ID check against the existing graph for
+`T5`'s and `T6`'s current node IDs, writing `frag122.json` with the `part_of`/`owns`/`distinct_from`
+edges above, running the merge, and re-querying to confirm stable IDs, both relationships, and
+negative-outcome semantics — stays sequenced at the application boundary, after authorization, since
+writing the fragment now would assert content that isn't in any governed tier yet (the same reasoning
+`docs/handoff/README.md`'s own commit procedure applies to Graphify sync generally — asserted content
+should follow applied content, not precede it).
 
 ### §16.5 Unit 5 — view reconciliation
 
@@ -3073,6 +3104,14 @@ join, no judgment) → human disposition (`T5-FINAL`, `EG5_preliminary_dispositi
 `T5_review_bundle_revealed_to_EG5` → `EG5_final_decision_recorded`) → publication result (Delivery,
 `FN-PUBLICATION-09-10-13.md` §11, consuming the immutable `T5-FINAL` disposition per §16.1 item 1d).
 This is the same five-stage shape §16.1 and §15 already state; nothing here adds a stage.
+
+**This is the success-path arrow, not the outcome contract — named explicitly per independent
+review's finding.** The stages above describe *where* each event sits; they do not by themselves show
+`§15.3`'s four cases branching at the human-disposition stage: pre-join incomplete (stays `Drafted`),
+post-join incomplete (stays `Reviewed`, no readiness), negative (stays `Reviewed`, reasons recorded,
+no publication result follows), and positive (the arrow above). A single arrow diagram cannot honestly
+stand in for that branch table — `§15.3` remains where the branching itself is authoritative; this
+data-flow list only orders the stages the positive case passes through.
 
 **What this unit is not.** The pointer table above and the data-flow list are a **cross-reference**,
 not the UML/report reconciliation `R159` and `R160` ask for — those stay `Deferred` per §16.3, with
@@ -3198,17 +3237,36 @@ Register decision is actually closed, not at draft time). No governed-tier file 
 pass; no code, push, or lane transition occurs — the graph rebuild reads committed history and writes
 only to gitignored `.graphify/`, which is not part of this packet's write set.
 
-**Write set for §16, if authorized — updated for unit 7:** `v1-build-readiness-addendum.md` (after
+**Source write set for §16, if authorized — updated for unit 7 and this round's `FR-04a`/`AC-08b`/`AC-08f`
+corrections:** `v1-build-readiness-addendum.md` (after
 line 165, annotation only) · `blueprint.md` (after line 268, annotation only) · `business-case.md`
 (after line 107, annotation only) — **applied first, per the Judge's Reading B ruling (§16.7)** —
-then `raci-involvement-matrix.md` §3.1 · `Modular_PRD.md` (`G-02a`, `SEC-01a`, `FR-05a`,
-`AC-06a`–`AC-08a`, `US-05a`, `G-05a`, `SEC-03a`, new `AC-08b`–`f` at §9, §2.5.2's `PBL-10` row) ·
+then `raci-involvement-matrix.md` §3.1 · `Modular_PRD.md` (`G-02a`, `SEC-01a`, `FR-04a`, `FR-05a`,
+`AC-06a`–`AC-08a`, `US-05a`, `G-05a`, `SEC-03a`, new `AC-08b`–`f` at §9 with corrected
+`FR-04a`/`SEC-01a` anchors, §2.5.2's `PBL-10` row) ·
 `FN-GATES-01-05.md` §11/§11.1 · `FN-PUBLICATION-09-10-13.md` §11 · `V1-BUILD-SPEC.md` S2 target DoD.
 **No edit** to `factory-route-operation-crosswalk.md` (§16.4) or the storyboard journal (§16.5,
 pointer only, and the pointer itself lives here, not in the journal). Frozen `docs/PRD.md`, the
 Charter and `0001_init.sql` remain untouched — unit 7 does not touch them; the three higher-tier
 documents it does touch are governed but not frozen (`CLAUDE.md`'s never-edit list is exactly three
 files, none of them these three).
+
+**This is the source write set, not the complete `D-54` application packet — a gap independent review
+found.** `D-54` requires an artifact-creating decision to land in **all three** `docs/v1/` tracking
+documents in the same pass, plus `Modular_PRD.md` §8 when a tier opens. The source write set above is
+not that; a complete application packet additionally needs:
+
+| Tracking tier | What it needs, when this is authorized and applied |
+|---|---|
+| `V1-DECISION-REGISTER.md` | The Judge act itself — `D-189`'s actual decision text, a bounded unit, and its DoD. Nothing above is a Register entry; the source write set is what `D-189` would change, not `D-189` being recorded as decided |
+| `V1-BUILD-SPEC.md` | Already in the source write set above (S2 target DoD) — no separate action |
+| `V1-ARTIFACT-INVENTORY.md` | A row for `frag122.json`, **only if and when `R152`'s execution half actually creates it** (`D-19`'s artifact-DoD rule: a sprint's artifacts must exist and be listed, not asserted in prose) |
+| `Modular_PRD.md` §8 | Explicit statement of which tiers this leaves unaffected — `M-MVP`'s status row, since `D-189` if applied changes `§5`/`§9`/`§2.5.2` content already inside that module, not a new one |
+
+**None of this is executed here.** Naming it is the packet-completeness question independent review
+raised: application authorization is a Register Judge act with a DoD, not an inference from an
+Approve row on an analysis (`D-183`) — and the DoD it needs cannot be written correctly if the packet
+doesn't yet say which tracking tiers it touches.
 
 ### §16.9 Errors in this section's first pass, corrected here
 

@@ -6727,3 +6727,41 @@ before a commit is evidence for its input revision, not the resulting commit.
 | Approve-with-conditions | Unit 6 Product backlog identity only | Phase 1: confirm identity allocation and separate bounded authorization |
 | Defer | R152 graph execution; R159/R160 views/report; Encyclopedia verification | Phase 1 application/sync and the existing named follow-up tiers; no verified-sync claim yet |
 | Reject | B-071 terminal closure or S2/build authorization inferred from this review | Handoff tracking and build tiers remain unchanged; independent evidence and Judge acts required |
+
+## Round 39 — Lane A: corrections applied from independent review of Rounds 36–37 (Round 38)
+
+**Restated request:** Round 38 is genuine, pushed, committed content (verified at `b51f095`, not a
+paste) — treat its seven numbered findings and the Views-section note as the correction list,
+parent-first, verify each against the live files before acting, fix what's real, resync Graphify,
+and close with an approve/reject table.
+
+### Verified against the actual files before accepting anything
+
+All seven numbered findings, plus the Views-section "linear arrow" note, checked out exactly as
+raised. One finding (`FR-04a`/`R148`) traces to a row I had quoted in my own research early in this
+thread and then never carried into the unit-1 sweep — the miss was mine, not a misreading by the
+reviewer.
+
+| # | Finding | Verified | Fix |
+|---|---|---|---|
+| 1 | §16.4 called the current order **"build-authorized"**, contradicting `D-171`'s hold | **Confirmed — and worse than a fresh typo.** This exact phrase is `B071-R138`, a defect already diagnosed and corrected earlier in this same document (lines ~1399, ~1737, ~1858, ~1930) — I regressed a known, named failure mode rather than introducing a new one | Corrected to *"current, historical/documented order — itself held under `D-171`"*, matching the document's own established correct wording |
+| 2 | `FR-04a` still says `T6` (*"agent contribution is never `T6`'s executor"*, Line cell *"`T6`: Line 2"*), missing from unit 1b | **Confirmed** at `Modular_PRD.md` line 525 | Added to §16.1's table |
+| 3 | `SEC-01a`, `FR-05a` still ellipsized; `G-05a`'s own fix from Round 36 introduced a fresh `"...same Definition..."` shorthand | **Confirmed** — the second pass repeated the first pass's own defect in a new row | All four rows now quote complete current and proposed text |
+| 4 | `G-02a`/`G-05a` exclude "`T5`" while also saying `T5-FINAL` (part of `T5`) is the one thing eligible — self-referential | **Confirmed**, a real logical ambiguity, not a wording nit | Both reworded to enumerate `T5`'s sub-acts explicitly, excluding the join and review acts by name rather than the bare label `T5` |
+| 5 | `AC-08f` anchored to `FR-06` but tests authentication scope + Line-control retention; `AC-08b` anchored to `FR-05a` but tests `T5` review-act completeness | **Confirmed on both** | `AC-08f` re-anchored to `SEC-01a` and rescoped to test only the Line-control claim; `R185`'s "no auth prerequisite" half noted as a scope disclosure, not a duplicate criterion. `AC-08b` re-anchored to `FR-04a` |
+| 6 | Graph contract had only `distinct_from`, no `part_of`/`owns`; node description covered only the positive outcome; description text asserted "not yet applied" as permanent; `frag122` treated as reserved rather than checked at execution | **Confirmed on all four** | `part_of`/`owns` edges added (target IDs deferred to a duplicate-ID check at execution, not invented); description now covers both outcomes; "not yet applied" removed from the description itself; reservation caveat stated explicitly |
+| 7 | Write set names Build Spec but not the Register or Artifact Inventory, despite `D-54` | **Confirmed** | New table naming what each `docs/v1/` tracking tier needs when this is authorized — not executed here, only named |
+| — | (Views section) the data-flow list is a single success-path arrow, not `§15.3`'s four-case branch | **Confirmed, and already partly true** — the branching was always in `§15.3`; the arrow just didn't say so | One sentence added, pointing back to `§15.3` as the branching's actual authority |
+
+### What this round does not do
+
+No governed source or application changes. No push — this stays local until asked, same as every
+prior round. Graphify resynced to `b51f095` before this hand-back (`bun run check`: 17/17), matching
+the discipline Round 38 itself asked for: sync before the next consuming approval, not after.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | All seven corrections plus the Views-section fix | Verified against source, applied, logged with before/after in this round | Judge review |
+| **Approve-with-conditions** | The `D-54` application-packet table (§16.8) | Named what's needed (Register act, Artifact Inventory row, `Modular_PRD.md` §8 statement); none of it executed | Complete at authorized application, not before |
+| **Defer** | `R148`'s remaining uncovered docs, `R152`'s execution (duplicate-ID check, fragment write), `R159`/`R160`, `R162` | Unchanged, still named, still open | Separate passes as already scoped |
+| **Reject** | Treating this round, or Round 38's push, as any form of application or build authorization | Transport (the push) and drafting (this round) are both distinct from application (`D-183`) | Judge authorizes application as its own bounded act |
