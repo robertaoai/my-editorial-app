@@ -7299,3 +7299,60 @@ committed. No governed tier touched; no commit or push.
 | Approve-with-conditions | The isolated Unit-7-only path (steps 1–4, then Unit 7's own disposition) | Phase 1: Judge review of the exact drafted D-189 text |
 | Defer | Units 1/2, graph-contract execution, B-071 overall closure | Each its own later item, not reached by this path |
 | Reject | Treating this reconciliation pass as execution permission | Still no bounded `D-183` act exists; nothing applied or committed |
+
+## Round 48 — Lane A: Unit 7 authorized, recorded and applied
+
+**Judge authorization received directly, 2026-09-04** — naming "the Unit-7-only packet" (the
+drafted D-189 text above) as approved and instructing Lane A to update the corresponding source of
+truth. Unlike every prior "Judge Approved: follow the direction/decision-tree" occurrence in this
+file (all correctly treated as insufficient under `D-183`), this instance named a specific,
+already-fully-bounded object directly, not through a third-party analysis block.
+
+**What actually happened, in order** — corrected after independent review found this round's first
+draft mis-stated the sequence:
+
+The Judge's direct authorization ("the Unit-7-only packet... update the corresponding source of
+truth") was received before any of the following edits were made — that is what makes this a
+bounded act under `D-183`, not the order of the edits themselves. Within that authorized pass, the
+actual edit order was:
+
+1. **Unit 7's annotations applied first** — the exact §16.5a text inserted verbatim after the
+   existing `T6` row/summary row in `docs/source/v1-build-readiness-addendum.md` (after line 165),
+   `docs/source/blueprint.md` (after line 268), and `docs/source/business-case.md` (after line 107).
+   Each existing row read and confirmed byte-unchanged before insertion; no other line in any of the
+   three files was touched.
+2. **`D-189` recorded second**, in `V1-DECISION-REGISTER.md` §5.14e14 — Unit 7 only; Units 1/2 and
+   `R152` graph execution explicitly excluded; `D-171` explicitly unaffected.
+
+This round's first draft described the opposite order (D-189 first, application second) —
+inaccurate narration of Lane A's own tool sequence, corrected here. Nothing was committed at either
+point, so no durable or shared state ever reflected application without authorization; this is a
+correction to this record's accuracy, not to what was authorized.
+
+**What was not touched:** `V1-B071-CORRECTIVE-PLAN.md` itself (the "Unit-7-only packet" approved is
+the D-189 authorization text, not a rewrite of the corrective plan's own §16.7/§16.4 wording — that
+remains a separate, not-yet-authorized item, and §16.7's self-contradictory clause `B071-R188`
+pinpointed is still present, unfixed); Units 1/2; the `R152` graph fragment; `Modular_PRD.md`;
+`V1-BUILD-SPEC.md`; lane state.
+
+**Current status — working-tree application, not yet `Applied`.** Per this repository's own
+template, `Applied` means corrected in the tree **at a named commit**. Nothing here is committed
+yet, so that status does not formally attach until it is; `4e1d7bb` is the reviewed source revision
+this authorization is grounded on, not evidence of this application, since it does not contain
+these annotations. Once committed, Lane A may record `Applied` against that commit; independent
+`Verified` status is a separate, later act only a non-applying actor may record (`D-101`, `D-102`).
+Evidence for this working-tree state: `V1-DECISION-REGISTER.md` §5.14e14; the three annotated
+files; corrective-plan §16.5a (source text, verbatim); `B-071.md:7166-7192`.
+
+**B-071 remains `Open`.** Unit 7's disposition is described here in prose, not as a reserved
+whole-entry `Resolution:` field, so it is not miscounted as a second Applied handoff separate from
+B-071's own canonical `Status: Open` header. Units 1/2, `R152` execution, and overall closure are
+unaffected and unreached.
+
+### Approve / reject
+
+| Decision | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `D-189` recorded; Unit 7's annotations present in the working tree, exactly as drafted | Commit, then independent verification of that commit |
+| Reject | Treating working-tree presence as `Applied`, `Verified`, or B-071 closure; treating `4e1d7bb` as application evidence | Formal `Applied` needs a named commit; `Verified` needs a non-applying actor and that commit |
+| Defer | Units 1/2, `R152` graph execution, corrective-plan §16.7 text correction, overall B-071 closure | Each its own separate, not-yet-authorized item |

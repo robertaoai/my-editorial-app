@@ -12697,3 +12697,75 @@ stands unchanged.
 **Records a relationship direction and allocates identities. Builds nothing.** Frozen `docs/PRD.md`,
 the Charter and `0001_init.sql` are untouched. No rank is assigned, no prohibition lifted, no
 refinement or implementation authorized, and `B-071` is **not** closed.
+
+## 5.14e14 `D-189` — Unit 7 Authorized: `R147` Target-Order Disclosure Applied; Units 1/2 and Graph Execution Remain Excluded
+
+**Chief Editor decision, 2026-09-04, raised as `B-071` Rounds 42–47.** Authorizes and records the
+application of Unit 7 only — the `R147` target-order disclosure annotations drafted at
+`V1-B071-CORRECTIVE-PLAN.md` §16.5a, reviewed across five independent passes (Round 42's original
+four-row correction table; Round 43's independent verification; Round 44's independent counter-review;
+Rounds 45–47's corrections and reconciliation). **Authorizes no other unit, no build, and no route
+or gate-order change.**
+
+### What is authorized
+
+Application of the three annotation blocks §16.5a drafted, to the three named files, exactly as
+drafted, with the existing anchor content in each left byte-unchanged:
+
+| File | Anchor | Effect |
+|---|---|---|
+| `docs/source/v1-build-readiness-addendum.md` | After the `T6` transition-table row (row untouched) | Adds a dated target-order disclosure paragraph |
+| `docs/source/blueprint.md` | After the identical `T6` transition-table row (row untouched) | Same disclosure paragraph, unmodified wording |
+| `docs/source/business-case.md` | After the Line 2 Three-Lines-Model summary row (row untouched) | Shorter disclosure paragraph, same substance |
+
+**Reviewed source revision:** `4e1d7bb` — the commit containing the independent-review chain
+(`B-071` Rounds 43–47) that produced and verified this authorization's exact scope.
+
+### What is excluded
+
+Units 1/2 (the `T5-FINAL` rename across governed tiers), the `R152` Graphify semantic-contract
+execution (fragment file plus rebuild), and every other unit in the corrective plan's occurrence
+ledger. Each needs its own later authorization — its own act, or one act combined with a future
+authorization that explicitly names both scopes and preserves the dependency on this act's evidence
+(`B071-R194`). This act grants none of that authority retroactively or by inheritance
+(`B071-R193`).
+
+### `D-171` is unaffected, not narrowed
+
+The three annotations are textual disclosure — they do not rewrite the current `T6` order, do not
+build the target order, and do not touch code, schema or gate logic. `D-171`'s S2 build hold
+therefore remains **fully binding, unchanged** by this act.
+
+### Evidence and disposition
+
+Unit 7's annotations exist in the working tree as of this authorization, not yet at a named commit
+— per this repository's own template, `Applied` specifically means corrected in the tree **at a
+named commit**, which does not yet exist for this change set. Formal `Applied` status is recorded
+once the change set is committed; independent `Verified` status is a separate, later step that only
+a non-applying actor may record (`D-101`, `D-102`).
+
+### Gaps
+
+**Closed:** none. **Opened:** none. **Unchanged:** `D-171`; Units 1/2's and `R152`'s own
+authorization requirements; `B-071`'s overall open status; corrective-plan §16.7's own text —
+`B071-R188` pinpointed its self-contradictory clause, but this act does not rewrite it, so the
+contradiction itself remains present in the corrective plan and is **not** closed by authorizing
+Unit 7's annotations. Unit 7's source annotations are present in the working tree, pending commit
+and independent verification.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Unit 7 authorization and application | ✅ §5.14e14 | **— unaffected: no S2/build-sequence change** | **— unaffected** | **— unaffected: no file created or retired, three existing files annotated** | **— unaffected: no lane-state or closure-condition change** | **— unaffected: no product requirement changes** |
+
+**Encyclopedia:** Entries 01 (four-eyes/line separation) and 05 (independent-assurance cluster)
+remain unverified-impact candidates per `docs/ENCYCLOPEDIA-SYNC.md`, unchanged by this
+disclosure-only act — flagged, not resolved, consistent with `V1-B071-CORRECTIVE-PLAN.md` §16.8.
+
+### Scope limits
+
+**Authorizes and applies Unit 7 only.** Frozen `docs/PRD.md`, the Charter and `0001_init.sql` are
+untouched. `D-171` is unchanged. No rank, readiness, build, route or lane-transition authority is
+granted. Units 1/2, `R152` graph execution and `B-071`'s overall closure remain open, each requiring
+its own separate authorization and independent verification.
