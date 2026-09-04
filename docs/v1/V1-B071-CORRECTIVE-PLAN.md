@@ -2841,7 +2841,9 @@ letter moves, no route cardinality changes, no `EG5_*` event is added or removed
 | `G-02a` (Definition col.) | *"Target `T5`/`T6` crossings without Line separation, excluding logged overrides — **only `T6` may be `satisfied`; `T1`–`T5` and Delivery are `not_applicable`**"* | *"Target `T5`/`T5-FINAL` crossings without Line separation, excluding logged overrides — **only `T5-FINAL` is eligible for `satisfied`; `T1`–`T4`, each `T5`-REVIEW act (`T5`/`T5a`/`T5b`), the deterministic `T5_review_bundle_sealed` join, and Delivery are `not_applicable`. Logged overrides remain `override_not_four_eyes`**" (`raci-involvement-matrix.md` §3.1; `B071-R146`/`R146`(nested-scope correction, independent review of Round 38), proposed `D-189`)* |
 | `SEC-01a` (Definition col., full text — no ellipsis) | *"Editorial RACI — four-eyes across each Line boundary: `R(T4) ≠ R(each required T5 act)`, and `R(each required T5 act) ≠ R(T6)`; **not** `R ≠ A` within one task — at target `T6`, `R = A` by design (the boundary moved from `T5` to `T6`, `D-175`)"* | *"Editorial RACI — four-eyes across each Line boundary: `R(T4) ≠ R(each required T5 act)`, and `R(each required T5 act) ≠ R(T5-FINAL)`; **not** `R ≠ A` within one task — at target `T5-FINAL`, `R = A` by design: the human final judgment completes `T5`; it is not a separate `T6` gate (`D-175`'s wording corrected by `B071-R146`, proposed `D-189` — its Line/RACI holder is unchanged)"* |
 | `FR-05a` (Requirement col., full text — no ellipsis) | *"Classify `T6`'s crossing as `satisfied` (the only genuine target-order Line crossing); refuse an agent at `T6`; require every route-required `T5` review sealed, with the human's own preliminary disposition sealed before the bundle is revealed"* | *"Classify `T5-FINAL`'s crossing as `satisfied` (the only genuine target-order Line crossing, completing `T5`); refuse an agent at `T5-FINAL`; require every route-required `T5` review sealed, with the human's own preliminary disposition sealed before the bundle is revealed"* |
-| `FR-04a` (Requirement col.) — **confirmed miss, added here** | *"`T5`'s required reviewer(s) are route-dependent: `ROLE-CHIEF-EDITORIAL-DESK` alone (`ROUTE-PROD-1`), `ROLE-CHIEF-JOURNALIST` alone (`ROUTE-PROD-2`/`PROD-3`), or both in parallel (fallout/GRC routes) sealed into one non-judgment bundle join; agent contribution is never `T6`'s executor"* (Line col: *"`T5`: Line 1 (`not_applicable` — no Line crossing); `T6`: Line 2"*) | Requirement col: *"...agent contribution is never `T5-FINAL`'s executor"*. Line col: *"`T5`: Line 1 (`not_applicable` — no Line crossing); `T5-FINAL`: Line 2"*. Every other cell (`P0`, `O-03`, `US-04a`, `AC-05a`/`AC-05b`, `S2`/`D-171` hold, `D-175`/`D-177`) unchanged |
+| `FR-04a` (Requirement col., full text — no ellipsis, third time this exact defect was found in this section and now fixed) | *"`T5`'s required reviewer(s) are route-dependent: `ROLE-CHIEF-EDITORIAL-DESK` alone (`ROUTE-PROD-1`), `ROLE-CHIEF-JOURNALIST` alone (`ROUTE-PROD-2`/`PROD-3`), or both in parallel (fallout/GRC routes) sealed into one non-judgment bundle join; agent contribution is never `T6`'s executor"* (Line col: *"`T5`: Line 1 (`not_applicable` — no Line crossing); `T6`: Line 2"*) | Requirement col: *"`T5`'s required reviewer(s) are route-dependent: `ROLE-CHIEF-EDITORIAL-DESK` alone (`ROUTE-PROD-1`), `ROLE-CHIEF-JOURNALIST` alone (`ROUTE-PROD-2`/`PROD-3`), or both in parallel (fallout/GRC routes) sealed into one non-judgment bundle join; agent contribution is never `T5-FINAL`'s executor"*. Line col: *"`T5`: Line 1 (`not_applicable` — no Line crossing); `T5-FINAL`: Line 2"*. Every other cell (`P0`, `O-03`, `US-04a`, `AC-05a`/`AC-05b`, `S2`/`D-171` hold, `D-175`/`D-177`) unchanged |
+| `FN-EXCEPTIONS-06-11-12.md` §11.1 row 4 (full row) — **confirmed miss, added here; this is target-order content (`[decided_target_held]`, `D-179`), not current-order, so it needs the same rename** | *"Chief Editor changes only the final disposition after reveal \| Append a new reasoned `T6` disposition; never rewrite `T5` reports or earlier preliminary/final records"* | *"Chief Editor changes only the final disposition after reveal \| Append a new reasoned `T5-FINAL` disposition; never rewrite `T5` reports or earlier preliminary/final records"* |
+| `FN-EXCEPTIONS-06-11-12.md` §11.2 step 3 (full sentence) | *"The Chief Editor records the human `T6` internal disposition; a binding external mandate constrains the available disposition but does not become the human executor."* | *"The Chief Editor records the human `T5-FINAL` internal disposition; a binding external mandate constrains the available disposition but does not become the human executor."* |
 | `AC-06a` (When/Then) | *"An agent attempts T6 \| The transition is refused. T6 is human-primary under the target order — the canary moves from T5 (AC-06) to T6"* | *"**An agent attempts `T5-FINAL`** \| **The transition is refused.** `T5-FINAL` is human-primary under the target order — the canary moves from `T5` (`AC-06`) to `T5-FINAL`, which completes `T5`; there is no separate editorial `T6` gate in V1"* |
 | `AC-07a` (full row) | *"`AC-07a` `[decided_target_held]` \| `FR-05a` \| — \| An article's required `T5` review set is sealed \| The Chief Editor reviews \| `EG5_preliminary_disposition_sealed` is recorded **before** `T5_review_bundle_revealed_to_EG5`; a bundle revealed first fails the blind-order proof"* | **No text change** — contains no `T6` occurrence. Row quoted here in full, not by ellipsis, so the "unchanged" claim is checkable rather than asserted |
 | `AC-07b` (full row) | *"`AC-07b` `[decided_target_held]` \| `FR-05a` \| — \| Two `T5` reports disagree \| The Chief Editor records `T6` \| Both reports remain visible and unaltered; `EG5_final_decision_recorded` is the only resolution — no automatic winner, no silent merge"* | Same row, *"The Chief Editor records `T6`"* → *"The Chief Editor records `T5-FINAL`"*; every other cell unchanged |
@@ -2960,7 +2962,7 @@ kept separate rather than stretching `Applied` or `Resolved` to cover both.
 | `R145` — D-188/D-189/`AUTH-DOC` conflation | **N/A — drafting-discipline check** | This section and §14/§15 neither cite `AUTH-DOC` nor claim D-188's findings as their own authority | This packet's own header disclaimers | Manual read: no `AUTH-DOC` or D-188-finding citation appears in §14–§16's decision text |
 | `R146` — T5 two completion points | **Drafted, pending application** | §15.2/§15.3's outcome contract + §16.1's T5-FINAL rename | Units 1–2 above | `AC-08b`–`AC-08e` (§16.2, corrected) |
 | `R147` — write set skips Addendum/Blueprint/Business Case | **Drafted, pending application** — Judge selected Reading B (§16.7): a literal annotation-preserving correction, not only an explanation | §16.5a's three annotation blocks | §16.5a, now a parent of unit 1 | Manual read: the disclosure appears immediately after each document's `T6` anchor row, current text unmodified |
-| `R148` — operative `T6` impact surface incomplete | **Split.** Drafted for RACI, FN-GATES, FN-PUBLICATION, Modular_PRD (now including `US-05a`/`G-05a`/`SEC-03a`, §16.1), Build Spec. **Open** for `CONFIG_LOG.md`, `FN-EXCEPTIONS-06-11-12.md`, `LANE-B-WORK-ORDER.md`, `SPECS-TRANSITION-ENFORCEMENT.md` | Units 1/4 for the drafted set; next pass for the rest | Grep for literal `T6` as an editorial-approval label outside §11's `PBL-01`-future context, post-application |
+| `R148` — operative `T6` impact surface incomplete | **Drafted, pending application — sweep now complete.** RACI, FN-GATES, FN-PUBLICATION, Modular_PRD (incl. `US-05a`/`G-05a`/`SEC-03a`/`FR-04a`), Build Spec, and now `FN-EXCEPTIONS-06-11-12.md` §11 (two occurrences, target-order content, §16.1). `CONFIG_LOG.md`, `LANE-B-WORK-ORDER.md`, `SPECS-TRANSITION-ENFORCEMENT.md` checked and classified `Unaffected` — each cites the current/historical order, no `[decided_target_held]` marker, no rename due (§16.4) | Units 1/4, complete set | Grep for literal `T6` as an editorial-approval label outside §11's `PBL-01`-future context and outside the four `Unaffected` files' current-order citations, post-application |
 | `R149` — application-time placeholder in the literal block | **N/A — drafting-discipline check** | §16.1's blocks are exact current-text→proposed-text pairs, not filenames-to-edit-later | §16.1 | Manual read: no "will be reproduced later" placeholder in §16.1 |
 | `R150` — predecessor supersession table incomplete | **Drafted, pending application** — clause-by-clause, not a block-list pointer | See the sub-table immediately below | §16.1 | Cross-check each row against §16.1's blocks |
 | `R151` — journal-move risk | **Not applicable to this pass** | No journal is moved, rewritten, or deleted; §16.5 adds a pointer only, in `docs/v1/`, not in the journal | §16.5 | Diff of `docs/journal/` shows no change |
@@ -2989,20 +2991,20 @@ answered per predecessor decision rather than by pointing at §16.1's block list
 | Predecessor | Clause it introduced | Disposition against `T5-FINAL` |
 |---|---|---|
 | `D-178` | `FN-GATES-01-05.md` §11 node table + `EG4`/`EG5` lifecycle pointer | `EG5` row renamed `T6`→`T5-FINAL`, §16.1 item 1c |
-| `D-179` | RACI §3.1 target matrix; `FN-GATES-01-05.md` §11.1 behavior table; `Modular_PRD.md` `FR-04a`/`FR-05a`, `AC-05a`–`AC-08a`, `US-04a`/`US-05a`, `G-02a`, `SEC-01a` | Every clause that said `T6` renamed (§16.1 items 1a/1b/1c, plus the `US-05a`/`G-05a`/`SEC-03a` correction above); `FR-04a`, `AC-05a`, `AC-05b`, `US-04a` contain no `T6` occurrence — checked, confirmed unaffected, not re-quoted |
+| `D-179` | RACI §3.1 target matrix; `FN-GATES-01-05.md` §11.1 behavior table; `Modular_PRD.md` `FR-04a`/`FR-05a`, `AC-05a`–`AC-08a`, `US-04a`/`US-05a`, `G-02a`, `SEC-01a` | Every clause that said `T6` renamed (§16.1 items 1a/1b/1c, plus the `US-05a`/`G-05a`/`SEC-03a`/`FR-04a` corrections above). **Corrected: `FR-04a` does contain a `T6` occurrence** (Requirement and Line cells, both renamed in §16.1 — an independent review caught this table asserting the opposite of §16.1's own content). `AC-05a`, `AC-05b`, `US-04a` remain confirmed unaffected — checked, not re-quoted |
 | `D-180` | `T5a`/`T5b` sibling-act split (RACI §3.1); `AC-08a`'s `FR-05a`→`FR-06` requirement-column correction | Both retained as-is — neither introduces or depends on the `T6` label. Only `AC-08a`'s Given-clause needed the rename (§16.1) |
 | `D-181` | Article-stays-`Drafted`-until-join rule (`FN-GATES-01-05.md` §11.1); `AC-22` consuming-gate evidence | Neither contains a `T6` occurrence — checked, confirmed unaffected, not re-quoted |
 
-**Ledger summary — counted directly against the 24-row table above, not restated. Updated after the
-Judge's Reading B ruling moved `R147` from `Open` to `Drafted, pending application` (§16.5a):** 3
-`Applied` (`R157`, `161`, `166`) · 4 `Drafted, pending application` (`R146`, `147`, `150`, `158`) · 8
-`Business-decided; text not drafted` (`R154`, `155`, `156`, `163`, `164`, `165`, `167`, `168`) · 1
-`Superseded` (`R153`) · 2 `N/A — drafting-discipline` (`R145`, `149`) · 1 `Not applicable to this
-pass` (`R151`) · 1 split `Drafted`/`Open` (`R148`) · 1 split `Drafted`/`Open` (`R152`) · 2 `Deferred`
-with a named Follow-up-Tier (`R159`, `160`) · 1 `Open, tracked elsewhere` (`R162`). **3+4+8+1+2+1+1+1+2+1
-= 24 — every row accounted for once.** Five findings now carry a genuine open residual (`R148`'s
-uncovered subset, `152`'s execution half, `159`, `160`, `162`) — one fewer than Round 36's count,
-since `R147` is now drafted rather than open. **Every applicable occurrence has an explicit
+**Ledger summary — counted directly against the 24-row table above, not restated. Updated: `R148`'s
+sweep is now complete (§16.4), moving it from split `Drafted`/`Open` into the fully-`Drafted` group:**
+3 `Applied` (`R157`, `161`, `166`) · 5 `Drafted, pending application` (`R146`, `147`, `148`, `150`,
+`158`) · 8 `Business-decided; text not drafted` (`R154`, `155`, `156`, `163`, `164`, `165`, `167`,
+`168`) · 1 `Superseded` (`R153`) · 2 `N/A — drafting-discipline` (`R145`, `149`) · 1 `Not applicable
+to this pass` (`R151`) · 1 split `Drafted`/`Open` (`R152`, execution half only) · 2 `Deferred` with a
+named Follow-up-Tier (`R159`, `160`) · 1 `Open, tracked elsewhere` (`R162`). **3+5+8+1+2+1+1+2+1 = 24
+— every row accounted for once.** Four findings now carry a genuine open residual (`152`'s execution
+half, `159`, `160`, `162`) — one fewer than the prior count, since `R148` is now fully drafted rather
+than split. **Every applicable occurrence has an explicit
 classification; none is silently dropped or reclassified as more finished than it is.**
 
 ### §16.4 Unit 4 — remaining literal text
@@ -3015,6 +3017,21 @@ concern about `SEC-01a`/`SEC-03a` was about `raci-involvement-matrix.md` and `Mo
 this crosswalk.
 
 **`V1-BUILD-SPEC.md`:** covered at §16.1's item 1e.
+
+**`R148`'s remaining four files, checked and classified — the sweep independent review's Round 40
+required:**
+
+| File | `T6` occurrence(s) | Classification | Why |
+|---|---|---|---|
+| `CONFIG_LOG.md` | `PIPELINE_GATE_COUNT` citing Addendum §3.1 `T1`–`T6` (line 42); `FLAG_S8_ATTESTATION` at `T5`/`T6` (line 189) | **Unaffected** | Both describe the current/historical order's gate count and flag scope; no `[decided_target_held]` marker; target-order gate-counting convention is undecided and out of this pass's scope |
+| `FN-EXCEPTIONS-06-11-12.md` §11 | Two occurrences | **Needs rename — drafted above** | This section is itself `[decided_target_held]` (`D-179`), target-order content written before the `T5-FINAL` correction existed — the same class of miss as `FR-04a`, not current-order-accurate content |
+| `LANE-B-WORK-ORDER.md` | Three occurrences (lines 195, 240, 242) | **Unaffected** | All three explicitly cite the historical/current order (line 195 names it *"the historical human-`T5`/agent-`T6` order"* outright) or its current-build `FR-05`/`AC-07`/`AC-08` IDs — already correctly scoped, nothing to rename |
+| `SPECS-TRANSITION-ENFORCEMENT.md` | One occurrence (line 73, transition table) | **Unaffected** | The current-order transition table row (`Reviewed`→`Approved`, Line 1) — accurate as the documented, historical order; no `[decided_target_held]` marker |
+
+**`R148` is now fully classified**, not partially: every named file in the original finding's impact
+surface (RACI, Modular_PRD, FN-GATES, FN-PUBLICATION, Build Spec, `CONFIG_LOG.md`, the exceptions/
+gates/publication Fn-Specs, the work order, transition SPECS) has either a drafted edit or an
+evidence-backed `Unaffected` classification. **No file remains uninspected.**
 
 **The eight `Business-decided; text not drafted` findings** — corrected range, `R154`, `155`, `156`,
 `163`, `164`, `165`, `167`, `168` (an earlier draft of this section wrote the range as `R154`–`157`,
@@ -3059,14 +3076,26 @@ node/edge assertions to add when units 1/2/6 are authorized and applied:
 | `t5_final_editorial_act` | `T5-FINAL`: Human Final Editorial Judgment | The human's final editorial judgment, completing `T5`. **Positive**: performs `Reviewed`→`Approved`, `EDITORIAL_DISPOSITION` records the outcome. **Negative**: stays `Reviewed`, records reasons, no approval (`§15.3`'s four-case contract). Human-only, Line 2, `R=A=`Acting Chief Editor. Not a sixth gate | Requirements Traceability |
 | `pbl_01_t6_assurance` | `PBL-01`: Future `T6` Global Assurance | Bottom-ranked, not refinement-ready capability identity (`Modular_PRD.md` §2.5.2). Reserves `T6` exclusively for this future capability — never for editorial approval | Requirements Traceability |
 
-Edges — three, not one, per independent review's correction (a bare `distinct_from` asserted the two
-are different but not *how* each relates to what it belongs to):
+**Ontology correction (independent review, Round 40):** the first pass proposed `pbl_01_t6_assurance`
+`owns` *"the existing `T6`/`EG5` label node"* — conflating two different things. `EG5` is
+`FN-GATES-01-05.md` §11's node ID for **the node that performs `T5-FINAL`, the editorial act** —
+permanently editorial, never PBL-01's. The bare word *"`T6`"* is only a **label**, ambiguous between
+the retired editorial meaning and the future assurance meaning, which is exactly what this contract
+exists to disambiguate. **`EG5` must never appear as the target of any `pbl_01_t6_assurance` edge.**
+Resolved by subject, not label — two edges, not an `owns` edge to a node that is actually `T5-FINAL`'s
+own identity:
 
 | Source | Relation | Target | Note |
 |---|---|---|---|
 | `t5_final_editorial_act` | `part_of` | *the existing `T5` gate node — ID to be confirmed by duplicate-ID check at execution, not invented here* | `T5-FINAL` is a sub-act of `T5`, not a sibling node; asserting this without knowing the existing node's real ID risks the exact duplicate-ID problem this table is meant to avoid |
-| `pbl_01_t6_assurance` | `owns` | *the existing `T6`/`EG5` label node, if one exists — same duplicate-ID caveat* | Records that `PBL-01`, not editorial approval, is `T6`'s future referent |
+| `t5_final_editorial_act` | `performed_by` | *`FN-GATES-01-05.md` §11's `EG5` node — ID to be confirmed by duplicate-ID check* | States the one relationship `EG5` actually has here: it performs the editorial act. **No edge below, or anywhere in this contract, may target `EG5` from `pbl_01_t6_assurance`** |
 | `t5_final_editorial_act` | `distinct_from` | `pbl_01_t6_assurance` | Confidence `CURATED`. Rationale: *"`B071-R146`/`R152` — `T6` as a bare label is ambiguous between the retired editorial meaning and the future assurance meaning; this edge is the queryable assertion that they are not the same thing."* |
+
+**`pbl_01_t6_assurance` needs no `owns` edge to any existing node.** It already *is* the distinct
+future-assurance concept `R152` asked for — created fresh, not by retyping `EG5` or any other
+editorial identity. If a future version later builds `PBL-01` and needs its own gate/node structure,
+that structure is created new at that time, under `PBL-01`'s own identity — never inherited from
+`EG5`, which stays `T5-FINAL`'s node for as long as the editorial pipeline exists.
 
 **Reservation caveat, stated plainly rather than implied:** `frag122.json` being the next free number
 *at the time this was checked* is an observation, not a lock — another fragment could claim it before
@@ -3107,11 +3136,16 @@ This is the same five-stage shape §16.1 and §15 already state; nothing here ad
 
 **This is the success-path arrow, not the outcome contract — named explicitly per independent
 review's finding.** The stages above describe *where* each event sits; they do not by themselves show
-`§15.3`'s four cases branching at the human-disposition stage: pre-join incomplete (stays `Drafted`),
-post-join incomplete (stays `Reviewed`, no readiness), negative (stays `Reviewed`, reasons recorded,
-no publication result follows), and positive (the arrow above). A single arrow diagram cannot honestly
-stand in for that branch table — `§15.3` remains where the branching itself is authoritative; this
-data-flow list only orders the stages the positive case passes through.
+`§15.3`'s four cases branching at the human-disposition stage: pre-join incomplete (a required review
+act is missing; no join has fired; stays `Drafted`) · **post-join, final-approval evidence incomplete
+(corrected wording — an earlier version of this sentence said "no readiness," which was backwards:
+the join already fired and sealed readiness, `Drafted`→`Reviewed`; what's missing is evidence for
+`T5-FINAL` itself, not the readiness event, which is never erased or undone; stays `Reviewed`,
+deficiencies recorded, no approval or Delivery authorization produced)** · negative (readiness was
+sealed; `T5-FINAL`'s judgment is negative; stays `Reviewed`, reasons recorded, no publication result
+follows) · positive (the arrow above). A single arrow diagram cannot honestly stand in for that branch
+table — `§15.3` remains where the branching itself is authoritative; this data-flow list only orders
+the stages the positive case passes through.
 
 **What this unit is not.** The pointer table above and the data-flow list are a **cross-reference**,
 not the UML/report reconciliation `R159` and `R160` ask for — those stay `Deferred` per §16.3, with
@@ -3202,14 +3236,22 @@ until §16.5a's blocks are actually **applied** to those three source files, not
 alongside them — drafting removes `R147` from the "not even started" state; it does not by itself
 clear the gate the Judge selected.
 
+**Readiness clause, restated per independent review's exact proposal (Round 40):** *"Units 1/2 may be
+offered only after Unit 7's required source disclosure is applied AND every affected operative
+consumer in `R148` has an exact proposed edit or an evidence-backed unaffected/historical/future
+classification. A remaining contradictory consumer blocks that application unit; independent future
+work does not."* **`R148`'s half of that condition is now met** (§16.4's four-file sweep, above) —
+no remaining consumer is uninspected or contradictory. **Unit 7's half is not** — drafted, not yet
+applied.
+
 > Application may be offered **per unit**: (1) unit 6 (`PBL-10`) may be applied alone — always
 > independent. (2) **Unit 7 (§16.5a) applies first** — the three annotation blocks, into the three
-> named source files. (3) **Units 1/2 apply together, immediately after unit 7**, now that its text
-> exists and is not merely asserted-sufficient. (4) Unit 4's eight `Business-decided; text not
-> drafted` findings require their literal text drafted before application. (5) `R148`'s uncovered
-> subset, `R152`'s execution half, `R159`, `R160`, `R162` remain open and are not part of any
-> application offer until drafted or executed. **Missing text is named, per §16.3's ledger, never
-> improvised (`SC72`).**
+> named source files. (3) **Units 1/2 apply together, immediately after unit 7**, now that both
+> halves of the readiness clause above are satisfied (`R148` complete; unit 7 drafted and next in
+> sequence) rather than one being merely asserted-sufficient. (4) Unit 4's eight `Business-decided;
+> text not drafted` findings require their literal text drafted before application. (5) `R152`'s
+> execution half, `R159`, `R160`, `R162` remain open and are not part of any application offer until
+> drafted or executed. **Missing text is named, per §16.3's ledger, never improvised (`SC72`).**
 
 ### §16.8 Drift and review limits
 
@@ -3237,14 +3279,15 @@ Register decision is actually closed, not at draft time). No governed-tier file 
 pass; no code, push, or lane transition occurs — the graph rebuild reads committed history and writes
 only to gitignored `.graphify/`, which is not part of this packet's write set.
 
-**Source write set for §16, if authorized — updated for unit 7 and this round's `FR-04a`/`AC-08b`/`AC-08f`
-corrections:** `v1-build-readiness-addendum.md` (after
+**Source write set for §16, if authorized — updated for unit 7, this round's `FR-04a`/`AC-08b`/`AC-08f`
+corrections, and `R148`'s completed sweep:** `v1-build-readiness-addendum.md` (after
 line 165, annotation only) · `blueprint.md` (after line 268, annotation only) · `business-case.md`
 (after line 107, annotation only) — **applied first, per the Judge's Reading B ruling (§16.7)** —
 then `raci-involvement-matrix.md` §3.1 · `Modular_PRD.md` (`G-02a`, `SEC-01a`, `FR-04a`, `FR-05a`,
 `AC-06a`–`AC-08a`, `US-05a`, `G-05a`, `SEC-03a`, new `AC-08b`–`f` at §9 with corrected
 `FR-04a`/`SEC-01a` anchors, §2.5.2's `PBL-10` row) ·
-`FN-GATES-01-05.md` §11/§11.1 · `FN-PUBLICATION-09-10-13.md` §11 · `V1-BUILD-SPEC.md` S2 target DoD.
+`FN-GATES-01-05.md` §11/§11.1 · `FN-PUBLICATION-09-10-13.md` §11 · `FN-EXCEPTIONS-06-11-12.md` §11
+(two occurrences) · `V1-BUILD-SPEC.md` S2 target DoD.
 **No edit** to `factory-route-operation-crosswalk.md` (§16.4) or the storyboard journal (§16.5,
 pointer only, and the pointer itself lives here, not in the journal). Frozen `docs/PRD.md`, the
 Charter and `0001_init.sql` remain untouched — unit 7 does not touch them; the three higher-tier
@@ -3267,6 +3310,57 @@ not that; a complete application packet additionally needs:
 raised: application authorization is a Register Judge act with a DoD, not an inference from an
 Approve row on an analysis (`D-183`) — and the DoD it needs cannot be written correctly if the packet
 doesn't yet say which tracking tiers it touches.
+
+**The Register decision text and bounded DoD, drafted — the concrete content Round 40 asked for, not
+only the naming above.** Written in `V1-DECISION-REGISTER.md`'s own entry format (matching `D-188`'s
+shape, `§5.14e13`) so it can be pasted into that file as the eventual `§5.14eNN `D-189`` entry with
+minimal rework — **it does not live there yet; this is the draft, not the entry:**
+
+> ## 5.14eNN `D-189` — `T5-FINAL` Completes `T5`; No Separate Editorial `T6` Gate
+>
+> **Chief Editor decision, [date] — DRAFT, not yet decided.** Raised as `B071-R145`–`R168`,
+> `R183`, `R186`. Renames the target order's human final editorial act from `T6` to `T5-FINAL`,
+> resolves the `R145`–`R168` occurrence ledger, and allocates `PBL-10`. **Authorizes no build.**
+> `D-171`'s hold on both gate orders is unaffected — this decision changes target-order *planning
+> content*, not what may currently be built.
+>
+> ### What this decides
+>
+> The human's final editorial judgment, in the target order, completes `T5` as its final sub-act
+> (`T5-FINAL`) rather than executing as a separate `T6` gate. `T6` as an editorial label is retired;
+> it is reserved exclusively for a possible future assurance capability (`PBL-01`). Full literal text:
+> `docs/v1/V1-B071-CORRECTIVE-PLAN.md` §16.1 (renamed clauses), §16.5a (higher-tier disclosure),
+> §16.2 (acceptance criteria), §16.3 (occurrence ledger) — cited, not restated here.
+>
+> ### Bounded units and their DoD
+>
+> | Unit | DoD |
+> |---|---|
+> | 7 — `R147` disclosure | The three annotation blocks (§16.5a) exist verbatim in `v1-build-readiness-addendum.md`, `blueprint.md`, `business-case.md`, each immediately after its named anchor row, with the anchor row itself byte-unchanged |
+> | 1/2 — `T5-FINAL` rename + acceptance criteria | Every clause listed in §16.8's source write set reads `T5-FINAL` where it read `T6`; `bun run check`'s `tier-sweep` and `duplicate-ids` pass; no remaining literal-`T6`-as-editorial-approval string exists outside `PBL-01`'s own future-capability context or the four `Unaffected`-classified files (§16.4) |
+> | 6 — `PBL-10` | The row exists verbatim in `Modular_PRD.md` §2.5.2, identity-only, no rank or readiness implied |
+> | Graph (`R152` execution) | `frag122.json` exists with the `part_of`/`performed_by`/`distinct_from` edges (§16.4), a duplicate-ID check has run against the live graph, and `graphify query "T5-FINAL"` and `graphify query "PBL-01"` each return their own node, not each other's |
+>
+> ### Gaps
+>
+> **Closed (once applied):** `R145`, `146`, `148`, `149`, `150`, `152`'s contract, `153`, `157`,
+> `158`, `161`, `166`. **Opened:** none new. **Unchanged:** `D-171`'s hold, `R159`/`160` (their own
+> named owners), `R162` (tracked in `B-072`), the eight business-decided findings' literal text.
+>
+> ### Tier applicability (`D-54`)
+>
+> | Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+> |---|---|---|---|---|---|---|
+> | `T5-FINAL` rename, ledger, `PBL-10` | ✅ this entry | ✅ S2 target DoD (§16.1 item 1e) | — unaffected | ✅ `frag122.json` row, only if `R152` execution creates it | — unaffected: no lane state or closure condition changes | ✅ §5/§9/§2.5.2 |
+>
+> **Encyclopedia:** Entries 01 (four-eyes/line separation) and 04 (article state vs. publication
+> status) flagged affected, per `docs/ENCYCLOPEDIA-SYNC.md`'s existing process — not verified here.
+>
+> ### Scope limits
+>
+> Renames a label and completes an occurrence ledger. Builds nothing, ranks nothing, lifts no
+> prohibition. Frozen `docs/PRD.md`, the Charter and `0001_init.sql` are untouched. `B-071` is
+> **not** closed by this entry alone — independent verification remains separate (`docs/handoff/README.md`).
 
 ### §16.9 Errors in this section's first pass, corrected here
 

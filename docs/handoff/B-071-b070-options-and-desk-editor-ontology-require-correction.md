@@ -6822,3 +6822,36 @@ it does not authorize pushing an accumulated Lane A range or applying the draft.
 | Defer | Units 1/2 Product/Fn_Spec/RACI application offer | Phase 1: complete R148 classifications and reconcile ledger/edit instructions first |
 | Defer | R152 graph contract and synchronization | Phase 1: concrete subject-correct IDs and retained lifecycle status before execution and semantic verification |
 | Reject | Blanket closure of Round 38 findings or B-071 from Round 39's summary | Handoff tier: retain residuals and require independent evidence after authorized application |
+
+## Round 41 — Lane A: all five Round 40 residuals resolved
+
+**Restated request:** Round 40 (committed, `5a7ac0b`; verified before acting — not pushed, matching
+its own stated push-permission constraint) named five residuals against Round 39's draft. Verify
+each, complete `R148`'s sweep for real rather than naming it as remaining work, correct the ledger/
+ontology/wording defects, and draft the actual Register text and DoD, not only name that they're
+needed.
+
+### Verified, then resolved — not just acknowledged
+
+| # | Finding | Verified | Resolution |
+|---|---|---|---|
+| 1 | `R148`'s four uncovered files still block a complete rename offer | **Confirmed**, and completed this round rather than deferred again | Checked `CONFIG_LOG.md`, `FN-EXCEPTIONS-06-11-12.md`, `LANE-B-WORK-ORDER.md`, `SPECS-TRANSITION-ENFORCEMENT.md` directly. Three are `Unaffected` (current-order-accurate, no `[decided_target_held]` marker). One — `FN-EXCEPTIONS-06-11-12.md` §11 — is itself target-order content (`D-179`) predating the `T5-FINAL` correction, so its two `T6` occurrences needed the same rename `FR-04a` did. Added to §16.1/§16.8; §16.7's readiness clause restated with `R148` now satisfied |
+| 2 | Ledger's `D-179` row still said `FR-04a` has no `T6` occurrence, contradicting its own fix; `FR-04a`'s replacement text itself started with an ellipsis | **Confirmed — the ellipsis defect's third occurrence** in this section alone | `D-179`'s row corrected; `FR-04a`'s full requirement-cell text written out, no ellipsis |
+| 3 | Graph `owns` edge risked assigning `PBL-01` ownership of `EG5`, the editorial node | **Confirmed**, a genuine ontology error, not a wording nit — `EG5` is `T5-FINAL`'s own node identity, never PBL-01's | Replaced the `owns`-to-`EG5` edge with `part_of` (`T5-FINAL`→`T5`) and `performed_by` (`T5-FINAL`→`EG5`); explicit note that no edge from `pbl_01_t6_assurance` may ever target `EG5` |
+| 4 | "Post-join incomplete... no readiness" had it backwards — the join already sealed readiness; what's missing is `T5-FINAL`'s own evidence | **Confirmed** | Reworded: readiness is retained and never erased; the gap is `T5-FINAL` evidence, not the join's own effect |
+| 5 | Named tracking tiers still needed actual decision text and a bounded DoD | **Confirmed — this was naming, not drafting** | Drafted the full proposed `D-189` Register entry in `V1-DECISION-REGISTER.md`'s own format (matching `D-188`'s shape), with a per-unit DoD table, gaps, tier applicability, and scope limits — still not written into the live Register; the draft is in §16.8 |
+
+### What this round does not do
+
+No governed source or application changes; no edit to `V1-DECISION-REGISTER.md` itself (the drafted
+entry stays in the corrective plan until authorized). No push — stays local, same one-entry
+constraint Round 40 named still applies to any Lane B/C actor; I remain free to push my own range
+once authorized, but that authorization hasn't been given. Graphify resynced to `5a7ac0b` before
+this hand-back (`bun run check`: 17/17).
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | All five Round 40 residuals | Verified, resolved (not merely acknowledged), logged with before/after | Your review |
+| **Approve-with-conditions** | The drafted `D-189` Register entry | Complete per-unit DoD and tier table; still draft, not in `V1-DECISION-REGISTER.md` | Your Judge act moves it there |
+| **Defer** | `R152`'s execution (duplicate-ID check, fragment write), `R159`, `R160`, `R162` | Unchanged, still named, still open | Separate passes, as already scoped |
+| **Reject** | Treating this round as the Judge act itself | A drafted Register entry is not a recorded decision; `D-183` still requires your separate act | Your authorization, then application |
