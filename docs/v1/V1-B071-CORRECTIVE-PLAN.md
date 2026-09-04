@@ -2788,8 +2788,13 @@ either.**
 Six units, ordered so nothing depends on a unit below it. **Unit 1 is the load-bearing parent:**
 every later unit either extends its terminology fix or is independent of it.
 
+**Updated after Judge ruling (§16.7, Round 36 question):** Reading B selected — `R147`'s literal
+correction is now a parent of unit 1, not a separately-tracked open item. Unit 7 inserted below.
+
 ```
-1. T5-FINAL rename (unit 1)                    ← parent; blocks nothing, blocked by nothing
+0. R147 literal correction (unit 7, §16.5a)     ← NEW parent, per Judge's Reading B ruling
+   └─ annotation-preserving disclosure in Addendum, Blueprint, Business Case
+1. T5-FINAL rename (unit 1)                     ← depends on unit 7 (Reading B); blocks nothing else
    ├─ 1a. RACI §3.1 target matrix + successor-review proof
    ├─ 1b. Modular_PRD.md: G-02a, SEC-01a, FR-05a, AC-06a, AC-07a, AC-07b, AC-08a
    ├─ 1c. FN-GATES-01-05.md §11 node table + §11.1 behavior table
@@ -2937,7 +2942,7 @@ kept separate rather than stretching `Applied` or `Resolved` to cover both.
 |---|---|---|---|---|
 | `R145` — D-188/D-189/`AUTH-DOC` conflation | **N/A — drafting-discipline check** | This section and §14/§15 neither cite `AUTH-DOC` nor claim D-188's findings as their own authority | This packet's own header disclaimers | Manual read: no `AUTH-DOC` or D-188-finding citation appears in §14–§16's decision text |
 | `R146` — T5 two completion points | **Drafted, pending application** | §15.2/§15.3's outcome contract + §16.1's T5-FINAL rename | Units 1–2 above | `AC-08b`–`AC-08e` (§16.2, corrected) |
-| `R147` — write set skips Addendum/Blueprint/Business Case | **Open — this packet's own prerequisite** | Not addressed by an edit; §16.4 below drafts the alternative remedy `R147` itself names ("explain the governing mechanism") rather than leaving only an assertion | §16.4, before any application offer | — |
+| `R147` — write set skips Addendum/Blueprint/Business Case | **Drafted, pending application** — Judge selected Reading B (§16.7): a literal annotation-preserving correction, not only an explanation | §16.5a's three annotation blocks | §16.5a, now a parent of unit 1 | Manual read: the disclosure appears immediately after each document's `T6` anchor row, current text unmodified |
 | `R148` — operative `T6` impact surface incomplete | **Split.** Drafted for RACI, FN-GATES, FN-PUBLICATION, Modular_PRD (now including `US-05a`/`G-05a`/`SEC-03a`, §16.1), Build Spec. **Open** for `CONFIG_LOG.md`, `FN-EXCEPTIONS-06-11-12.md`, `LANE-B-WORK-ORDER.md`, `SPECS-TRANSITION-ENFORCEMENT.md` | Units 1/4 for the drafted set; next pass for the rest | Grep for literal `T6` as an editorial-approval label outside §11's `PBL-01`-future context, post-application |
 | `R149` — application-time placeholder in the literal block | **N/A — drafting-discipline check** | §16.1's blocks are exact current-text→proposed-text pairs, not filenames-to-edit-later | §16.1 | Manual read: no "will be reproduced later" placeholder in §16.1 |
 | `R150` — predecessor supersession table incomplete | **Drafted, pending application** — clause-by-clause, not a block-list pointer | See the sub-table immediately below | §16.1 | Cross-check each row against §16.1's blocks |
@@ -2971,17 +2976,17 @@ answered per predecessor decision rather than by pointing at §16.1's block list
 | `D-180` | `T5a`/`T5b` sibling-act split (RACI §3.1); `AC-08a`'s `FR-05a`→`FR-06` requirement-column correction | Both retained as-is — neither introduces or depends on the `T6` label. Only `AC-08a`'s Given-clause needed the rename (§16.1) |
 | `D-181` | Article-stays-`Drafted`-until-join rule (`FN-GATES-01-05.md` §11.1); `AC-22` consuming-gate evidence | Neither contains a `T6` occurrence — checked, confirmed unaffected, not re-quoted |
 
-**Ledger summary — counted directly against the 24-row table above, not restated:** 3 `Applied`
-(`R157`, `161`, `166`) · 3 `Drafted, pending application` (`R146`, `150`, `158`) · 8
+**Ledger summary — counted directly against the 24-row table above, not restated. Updated after the
+Judge's Reading B ruling moved `R147` from `Open` to `Drafted, pending application` (§16.5a):** 3
+`Applied` (`R157`, `161`, `166`) · 4 `Drafted, pending application` (`R146`, `147`, `150`, `158`) · 8
 `Business-decided; text not drafted` (`R154`, `155`, `156`, `163`, `164`, `165`, `167`, `168`) · 1
 `Superseded` (`R153`) · 2 `N/A — drafting-discipline` (`R145`, `149`) · 1 `Not applicable to this
 pass` (`R151`) · 1 split `Drafted`/`Open` (`R148`) · 1 split `Drafted`/`Open` (`R152`) · 2 `Deferred`
-with a named Follow-up-Tier (`R159`, `160`) · 1 `Open` (`R147`) · 1 `Open, tracked elsewhere`
-(`R162`, corrected from an earlier overstatement). **3+3+8+1+2+1+1+1+2+1+1 = 24 — every row
-accounted for once.** Six findings carry a genuine open residual (`R147`, `148`'s uncovered subset,
-`152`'s execution half, `159`, `160`, `162`); the other eighteen do not. **Every applicable
-occurrence has an explicit classification; none is silently dropped or reclassified as more finished
-than it is.**
+with a named Follow-up-Tier (`R159`, `160`) · 1 `Open, tracked elsewhere` (`R162`). **3+4+8+1+2+1+1+1+2+1
+= 24 — every row accounted for once.** Five findings now carry a genuine open residual (`R148`'s
+uncovered subset, `152`'s execution half, `159`, `160`, `162`) — one fewer than Round 36's count,
+since `R147` is now drafted rather than open. **Every applicable occurrence has an explicit
+classification; none is silently dropped or reclassified as more finished than it is.**
 
 ### §16.4 Unit 4 — remaining literal text
 
@@ -3002,8 +3007,12 @@ text is outside this pass's `R183`/`R186` scope and risks the exact duplication 
 against. **They do not block units 1/2/6** — none of them touches the `T5`/`T5-FINAL` boundary or
 `PBL-10`.
 
-**`R147` — the governing-mechanism explanation, drafted (`R147`'s own stated alternative to a full
-rewrite):** every clause in `v1-build-readiness-addendum.md`, `blueprint.md`, and `business-case.md`
+**`R147` — superseded by §16.5a's literal correction.** The explanation below was this packet's first
+answer to `R147` — offered as the cheaper of `R147`'s own two named alternatives. **The Judge selected
+the other one** (Round 36's question: Reading B, "correct `R147` first"), so §16.5a now carries the
+actual annotation-preserving text, and §16.7's application gate is decided on that basis. Kept here
+as background reasoning for why the current documents were never in live contradiction — that
+reasoning is still true and is part of §16.5a's own annotation text — not as the operative remedy: every clause in `v1-build-readiness-addendum.md`, `blueprint.md`, and `business-case.md`
 describing the earlier editorial approval model (human at `T5`, Chief Journalist agent at `T6`)
 remains an accurate description of the **current, build-authorized order** — nothing in §16.1 changes
 that order or authorizes building against a different one. The target order and this pass's
@@ -3072,6 +3081,63 @@ for `R160`'s report mapping). Calling this table "view reconciliation, complete"
 kind of overstated closure `docs/handoff/README.md` warns `Applied` against — this is the *storyboard*
 half of Round 34's unit 5 (pointers only, no journal rewrite), not its full scope.
 
+### §16.5a Unit 7 — `R147`'s literal correction (Judge selected Reading B, §16.7)
+
+**Not a rewrite.** `v1-build-readiness-addendum.md`, `blueprint.md`, and `business-case.md` all
+describe `T6` as *Chief Journalist agent approval, Reviewed → Approved, Line 2 → Line 1* — accurate
+as a description of the **current** order, which this packet does not change and which is **itself
+not build-authorized** either (`D-171`). Rewriting their `T6` text would misdescribe the current
+order. What `R147` needs, and what the Judge selected, is the **annotation** these documents' own
+"annotation-preserving" standard already calls for (see e.g. Addendum's own "Sequencing note (sync
+gap)" at line 175, which is exactly this pattern used before) — current text untouched, a dated note
+added disclosing the target order and where it lives.
+
+**One anchor per document** — the single most load-bearing `T6` definition, not all 8–15 scattered
+mentions individually (`D-30`'s redundancy logic: one authoritative disclosure a reader will
+actually find, not noise repeated at every citation).
+
+**`docs/source/v1-build-readiness-addendum.md`, after line 165's `T6` transition-table row:**
+
+> Current row (unchanged): *"`T6` \| Reviewed \| Approved \| Chief Journalist \| **Line 1** \| Agent \|
+> All prior gate criteria confirmed; ... \| **`satisfied`** (Line 2 → Line 1 boundary)"*
+>
+> **Proposed annotation, added immediately below the table (new paragraph, current row untouched):**
+> *"**Target-order disclosure (`B-071` `R147`, 2026-09-04).** A different gate order has been
+> proposed — not build-authorized, `D-171`'s hold unaffected — under which the agent reviews at `T5`
+> (route-dependent: Chief Editorial Desk and/or Chief Journalist) and the human Chief Editor performs
+> the final editorial judgment as `T5-FINAL`, completing `T5` rather than a separate gate. Under that
+> proposal, editorial use of the `T6` label above is retired; `T6` is reserved exclusively for a
+> possible future independent-assurance capability (`PBL-01`, `Modular_PRD.md` §2.5.2), never for
+> editorial approval. This table's own text is the current, most-recently-documented order and is
+> unmodified by the proposal. See `raci-involvement-matrix.md` §3.1 and `docs/v1/V1-B071-CORRECTIVE-PLAN.md`
+> §16.1 for the full target-order text, offered for authorization separately from this disclosure."*
+
+**`docs/source/blueprint.md`, after line 268's identical `T6` transition-table row:** the same
+annotation, substituting no wording — the row and the target order it discloses are identical across
+both documents (Blueprint's transition matrix is the same contract Addendum's table restates, per
+this corpus's own repeated cross-reference between the two).
+
+**`docs/source/business-case.md`, after line 107's Three-Lines-Model summary row** (*"Line 2 —
+Risk & Compliance \| ... \| Required at Line 1 → Line 2 crossing (T5) and Line 2 → Line 1 return
+(T6)"*) — the Business Case carries no independent `T6` transition table of its own, only this
+summary row, so one shorter annotation: *"**Target-order disclosure (`B-071` `R147`, 2026-09-04).** A
+proposed, not build-authorized target order would retire editorial use of `T6` and complete the
+human's final judgment inside `T5` as `T5-FINAL` instead. See `raci-involvement-matrix.md` §3.1. This
+row is unmodified."*
+
+**Why this satisfies `R147` without overclaiming:** the annotation discloses the target order exists
+and where to find it — it does not assert the target order is correct, authorized, or that these
+three documents' own current content is wrong. **What it does not do:** it does not resolve whether
+these documents will need a further, literal rewrite once a fresh build authorization actually
+selects the target order — that remains real, separate, future work, same as `R147`'s own original
+finding already said (*"or explicitly explain the governing mechanism that supersedes each
+clause"* — this is that explanation, now placed at the source rather than only in this packet).
+
+**Write-set addition:** `v1-build-readiness-addendum.md` (after line 165), `blueprint.md` (after line
+268), `business-case.md` (after line 107). None of the three is in `CLAUDE.md`'s never-edit list
+(`docs/PRD.md`, the Charter, `0001_init.sql` only); this remains proposed text pending the same
+authorization as every other unit in this packet, not applied by drafting it here.
+
 ### §16.6 Unit 6 — PBL-10 placement
 
 §15.6 already drafted PBL-10's literal row in full. Placement only, additive after the existing
@@ -3084,29 +3150,25 @@ this capability also warrants a `V1/NG-*` row pointing at `PBL-10` under `D-188`
 symmetry question, not a drafting gap — omitting the `NG-*` row is safe under `D-188` either way,
 so it does not block applying this row.
 
-### §16.7 Application readiness (updated after independent review)
+### §16.7 Application readiness (updated after the Judge's ruling)
 
-Not application-ready as a single bundle. For units 1/2 specifically, **two readings exist and this
-packet does not pick one unilaterally** — that is a Judge call, not a drafting question:
+**Judge ruled Reading B** (Round 36's question): `R147`'s correction gates units 1/2's application.
+Not a two-way split any longer — recorded here as decided, not restated as open.
 
-- **Reading A** (this packet's original position): units 1/2/6 touch only documents already
-  explicitly marked not-build-authorized planning content. `R147`'s governing-mechanism explanation
-  (§16.4) is the same reasoning `D-171` already applies elsewhere in this corpus, so units 1/2/6 may
-  be offered independent of `R147`/`152`/`159`/`160`'s open residuals.
-- **Reading B** (raised by independent review): `R147` is a parent dependency because it concerns the
-  same target-order content units 1/2 extend — an explanation is not a correction, and the higher
-  tier should carry its own annotation before lower-tier text is applied, even if not build-authorized.
+**What Reading B is satisfied by, stated precisely so this is not overclaimed:** `R147`'s literal
+annotation-preserving correction is now **drafted** (§16.5a) — three exact insertion blocks for
+`v1-build-readiness-addendum.md`, `blueprint.md`, and `business-case.md`. **Drafted is not Applied**
+(the phrase this corpus uses throughout, e.g. Round 33). Under Reading B, units 1/2 remain gated
+until §16.5a's blocks are actually **applied** to those three source files, not merely drafted
+alongside them — drafting removes `R147` from the "not even started" state; it does not by itself
+clear the gate the Judge selected.
 
-Both readings agree on every fact (`R147` is open; the governing-mechanism explanation exists; `D-171`'s
-hold is unaffected either way) and disagree only on whether that residual gates this packet's
-application.
-
-> Application may be offered **per unit**: (1) unit 6 (`PBL-10`) may be applied alone — neither
-> reading disputes this. (2) Units 1/2 may be applied together under Reading A, or held pending
-> `R147`'s literal Addendum/Blueprint/Business Case correction under Reading B. (3) Unit 4's eight
-> `Business-decided; text not drafted` findings require their literal text drafted before
-> application, not merely their business outcome cited. (4) `R147` (if Reading B governs), `R148`'s
-> uncovered subset, `R152`'s execution half, `R159`, `R160` remain open and are not part of any
+> Application may be offered **per unit**: (1) unit 6 (`PBL-10`) may be applied alone — always
+> independent. (2) **Unit 7 (§16.5a) applies first** — the three annotation blocks, into the three
+> named source files. (3) **Units 1/2 apply together, immediately after unit 7**, now that its text
+> exists and is not merely asserted-sufficient. (4) Unit 4's eight `Business-decided; text not
+> drafted` findings require their literal text drafted before application. (5) `R148`'s uncovered
+> subset, `R152`'s execution half, `R159`, `R160`, `R162` remain open and are not part of any
 > application offer until drafted or executed. **Missing text is named, per §16.3's ledger, never
 > improvised (`SC72`).**
 
@@ -3136,14 +3198,17 @@ Register decision is actually closed, not at draft time). No governed-tier file 
 pass; no code, push, or lane transition occurs — the graph rebuild reads committed history and writes
 only to gitignored `.graphify/`, which is not part of this packet's write set.
 
-**Write set for §16, if authorized:** `raci-involvement-matrix.md` §3.1 · `Modular_PRD.md` (`G-02a`,
-`SEC-01a`, `FR-05a`, `AC-06a`–`AC-08a`, `US-05a`, `G-05a`, `SEC-03a`, new `AC-08b`–`f` at §9,
-§2.5.2's `PBL-10` row) · `FN-GATES-01-05.md` §11/§11.1 · `FN-PUBLICATION-09-10-13.md` §11 ·
-`V1-BUILD-SPEC.md` S2 target DoD. **No edit** to `factory-route-operation-crosswalk.md` (§16.4), the
-storyboard journal (§16.5, pointer only, and the pointer itself lives here, not in the journal), or
-the higher-precedence Addendum/Blueprint/Business Case (`R147` — a governing-mechanism explanation is
-now drafted, §16.4, but no edit to those three files is proposed; see §16.7's two readings). Frozen
-`docs/PRD.md`, the Charter and `0001_init.sql` remain untouched.
+**Write set for §16, if authorized — updated for unit 7:** `v1-build-readiness-addendum.md` (after
+line 165, annotation only) · `blueprint.md` (after line 268, annotation only) · `business-case.md`
+(after line 107, annotation only) — **applied first, per the Judge's Reading B ruling (§16.7)** —
+then `raci-involvement-matrix.md` §3.1 · `Modular_PRD.md` (`G-02a`, `SEC-01a`, `FR-05a`,
+`AC-06a`–`AC-08a`, `US-05a`, `G-05a`, `SEC-03a`, new `AC-08b`–`f` at §9, §2.5.2's `PBL-10` row) ·
+`FN-GATES-01-05.md` §11/§11.1 · `FN-PUBLICATION-09-10-13.md` §11 · `V1-BUILD-SPEC.md` S2 target DoD.
+**No edit** to `factory-route-operation-crosswalk.md` (§16.4) or the storyboard journal (§16.5,
+pointer only, and the pointer itself lives here, not in the journal). Frozen `docs/PRD.md`, the
+Charter and `0001_init.sql` remain untouched — unit 7 does not touch them; the three higher-tier
+documents it does touch are governed but not frozen (`CLAUDE.md`'s never-edit list is exactly three
+files, none of them these three).
 
 ### §16.9 Errors in this section's first pass, corrected here
 

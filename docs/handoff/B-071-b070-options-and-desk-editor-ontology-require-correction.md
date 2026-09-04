@@ -6611,3 +6611,45 @@ Reading B (§16.7), that literal correction remains separate, undrafted work.
 | **Approve-with-conditions** | `R152`'s semantic contract | Drafted (fragment path, node/edge assertions); execution correctly still waits | Write `frag122.json` and rebuild at the application boundary |
 | **Defer** | `R147`'s literal Addendum/Blueprint/Business Case text (if Reading B governs), `R148`'s uncovered docs, `R159`, `R160` | Named, not drafted | Separate passes, tiers as stated in §16.3 |
 | **Reject** | Treating this round as closing `B-071` | Header `Status: Open` is unaffected by this or any prior round's internal ledger | Terminal closure needs independent verification per `docs/handoff/README.md`, not a Lane A self-assessment |
+
+## Round 37 — Lane A: `R147` drafted per the Judge's Reading B ruling
+
+**Restated request:** the Judge answered Round 36's clarifying question directly — `R147` gates
+units 1/2's application (Reading B), not the packet's own original Reading A. Draft the literal
+correction, don't just leave it as a stated policy choice.
+
+### What was drafted
+
+Read the actual `T6` definitions in all three higher-precedence documents (`v1-build-readiness-addendum.md`
+line 165, `blueprint.md` line 268, `business-case.md` line 107) before drafting anything — all three
+consistently describe the **current** order (human at `T5`, Chief Journalist agent at `T6`), which
+this packet does not change and which is itself not build-authorized (`D-171`). Rewriting their text
+would have misdescribed the current order, so the correction is an **annotation**, not a rewrite —
+current rows untouched, one dated disclosure block added per document, pointing to the target order
+and where its full text lives. Recorded as **Unit 7** in `docs/v1/V1-B071-CORRECTIVE-PLAN.md` §16.5a,
+inserted as a new parent of Unit 1 in the task tree (§16.0).
+
+**Downstream updates, so nothing reads stale against the ruling:** `R147`'s ledger row (§16.3) moved
+from `Open` to `Drafted, pending application`; the ledger summary tally updated (24 rows, five open
+residuals now instead of six); §16.7 records the ruling as decided rather than as two live readings,
+and states precisely what "drafted" does and doesn't satisfy — **`R147` is drafted, not applied**;
+under Reading B, Unit 1/2's application still waits on Unit 7 actually landing in the three source
+files, not merely existing alongside them.
+
+### Graphify — resynced again before this hand-back
+
+Same discipline as Round 36: `npx graphify hook-rebuild` run against `3d82e6b` (Round 36's commit)
+before presenting this round, not after. `bun run check`: **17/17.**
+
+### What this round does not do
+
+Still no edit to the three governed source files themselves, no commit beyond this handoff pair, no
+push, no lane transition, no code. Unit 7's text is drafted and ready for the Judge's own read;
+applying it is a separate, later act, same as every other unit in this packet.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `R147`'s annotation text (§16.5a) | Verified against the actual current text of all three documents before drafting; preserves rather than rewrites | Judge review, then application ordered before units 1/2 per Reading B |
+| **Approve-with-conditions** | Units 1/2 | Application sequenced strictly after Unit 7 lands, not merely drafted alongside it | Apply Unit 7 first, then 1/2 |
+| **Defer** | `R148`'s uncovered docs, `R152`'s execution, `R159`, `R160`, `R162` | Unchanged from Round 36 — still open, still named | Separate passes |
+| **Reject** | Treating Unit 7's draft as itself the applied correction | Nothing is committed to `v1-build-readiness-addendum.md`, `blueprint.md`, or `business-case.md` yet | Judge authorizes application as a bounded act (`D-183`) |
