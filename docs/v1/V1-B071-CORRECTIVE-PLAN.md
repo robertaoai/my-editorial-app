@@ -260,6 +260,26 @@ record of what was corrected, and is explicitly non-operative (`B071-R39`).
   **no `R` in source at all**. Drafts the non-positive `T5-FINAL` path §13 never specified, leaving
   blocked-versus-negative-close as a named bounded question. Replaces §13.8's inherited execution
   steps with an explicit application-readiness condition: this packet is **not** application-ready.
+- **§15 — proposed `D-189` Draft 6 (scoped correction to §14; addresses `B071-R183`, `R186`):**
+  two scope narrowings and four error corrections. **Round 31's Judge clarification removes `R185`
+  from V1 entirely** — *"since there is only one account there is no requirement to scope in V1"* —
+  withdrawing the authentication prerequisite while **retaining** the `G-02a`/`SEC-01a` Line
+  controls, which are a different subject. **Round 32 answers §14.4's open blocked-versus-negative
+  question:** a negative judgment records its result and reasons, authorizes no publication, and
+  triggers no automatic return, repair, resume or reschedule; the user may **manually re-trigger
+  the entire article's analysis**, which carries its own evidence and inherits no approval.
+  Corrects four errors found by Rounds 30–31: §14.3 inferred a live missing-approval incident from
+  `OP-FINAL-SIGNOFF`'s blank source `R` (a blank `R` proves nothing about any article, and an
+  A-only sign-off may legitimately approve prior `R`-work); §14.2 said agent acts supply "evidence,
+  not judgment" when `FN-GATES-01-05.md` §11.1 states *"Each sealed act records its judgment"*;
+  §14.4 said an incomplete package "remains `Reviewed`" when the same clause keeps it `Drafted`
+  pre-join; and `SC79`'s one-judgment-per-article rule would have blocked the very remedy §14.1
+  permits — replaced with one effective result **per assessment** and a non-duplicating replay rule.
+  Adds the explicit scope disposition Round 32 requires for existing return/amendment clauses:
+  **`FR-06` (P0/S1), `AC-09`/`AC-10`, `AC-08a`, `T8`/`T8a`/`T9` are all unaffected** — a blanket
+  "defer negative-path handling" would have silently suspended a `P0` requirement. Deduplicates the
+  deferred capability against all nine existing `PBL-*` rows, finds no fit, and proposes **`PBL-10`
+  — automated negative-result handling**, identity only, unranked, no readiness implied.
 
 **Artifact classification and propagation (`B071-R8`, `R16`):** this file is a `docs/v1/` tracking
 artifact under `D-36`, the same class as `V1-PHASE-CLOSURE.md`. It is registered in
@@ -2357,6 +2377,19 @@ name; (5)–(10) unchanged from §11.11/§12.10.
 
 ## §14 — Proposed `D-189` Draft 5: mandatory `T5` assessment, one judgment and one recorded outcome (addresses `B071-R183`, `R185`, `R186`)
 
+> **Partially superseded by §15 (2026-09-04).** Rounds 30–31 found four errors here, all confirmed
+> against source and corrected in §15.0: §14.3's `OP-FINAL-SIGNOFF` "exactly case 3" claim (a blank
+> source `R` does not prove a missing approval on any article); §14.2's "supplies evidence, not
+> judgment" (`FN-GATES-01-05.md` §11.1: *"Each sealed act records its judgment"*); §14.4's
+> "remains `Reviewed`" for pre-join incompleteness (the same source keeps it `Drafted`); and
+> §14.2's "structurally impossible" used in place of a verifiable test, plus `SC79`'s
+> article-lifetime one-judgment rule, which would block remedy. **Two scope narrowings also land:**
+> Round 31 removes `R185`'s authentication work from V1 entirely, and Round 32 replaces §14.4's
+> open blocked-versus-negative-close question with a manual whole-article re-trigger. **What
+> survives:** §14.1's mandatory-assessment parent, §14.2's one-judgment/one-outcome shape, §14.5's
+> retained Line control, §14.6's subject-based criterion mapping, §14.8's application refusal.
+> **Preserved unedited as historical record.** Read §15 for the current draft.
+
 **Independent of §1–§9.** A **scoped** correction to §13 — not a restoration of §§11–12, which
 Round 29 explicitly forbids. §13's single-account scope, `PBL-04` candidate, `R182` correction and
 Encyclopedia impact-review disposition all survive unedited and are not restated here. Nothing
@@ -2562,4 +2595,182 @@ publication), `raci-involvement-matrix.md` §3.1, `factory-route-operation-cross
 work, and §14.8 refuses application until it exists. **Still explicitly unaffected:** frozen
 `docs/PRD.md`, the Charter, `0001_init.sql`, `PBL-01`, `V1-ARTIFACT-INVENTORY.md`,
 `Modular_PRD.md` §8, `V1-PHASE-CLOSURE.md`.
+
+
+---
+
+## §15 — Proposed `D-189` Draft 6: manual re-trigger, `R185` out of V1 (addresses `B071-R183`, `R186`)
+
+**Independent of §1–§9.** A scoped correction to §14; §14's mandatory-assessment parent,
+one-judgment shape, retained Line control and application refusal all survive unedited. Nothing
+below is committed to any governed tier. `D-171` remains binding. `AUTH-DOC` remains unapproved.
+
+### §15.0 — Four errors in §14, corrected
+
+All found by Rounds 30–31, all confirmed against source, all mine:
+
+| Error in §14 | Source | Correction |
+|---|---|---|
+| §14.3 called `OP-FINAL-SIGNOFF` "exactly case 3" — an accountable party with missing approval evidence | `factory-route-operation-crosswalk.md` §2 records `A = ROLE-DESK-EDITOR` and a blank `R`. **A blank source `R` says nothing about whether an approval occurred on any article**, and an A-only sign-off may legitimately approve prior `R`-work | §15.3 — the example is withdrawn. Accountable actor and actual approval evidence are checked **separately**; no `R` is invented and no live missing-approval incident is inferred from a matrix cell |
+| §14.2: agent acts "supply evidence, not judgment" | `FN-GATES-01-05.md` §11.1, verbatim: *"**Each sealed act records its judgment;** the article remains `Drafted`."* | §15.2 — sealed acts record **the reviewer's judgment**; only the deterministic join judges nothing; the human final judgment is what authorizes the disposition |
+| §14.4: an incomplete package "remains `Reviewed`" | Same clause — pre-join, **the article remains `Drafted`**. The join is what performs `Drafted → Reviewed` | §15.3 — pre-join incompleteness and post-join negative judgment are separate cases with different states |
+| §14.2's "structurally impossible"; `SC79`'s one-judgment-per-article rule | A drawing is not a verification, and an article-lifetime single-judgment rule forbids the remedy §14.1 permits | §15.4 — replaced with per-assessment identity and a non-duplicating replay rule, testable rather than asserted |
+
+### §15.1 — Parent scope: `R185` leaves V1 (Round 31)
+
+**Judge clarification, recorded:** *"since there is only one account there is no requirement to
+scope in V1."* **Proposed decision text:**
+
+> V1 does not add authentication, account succession or multi-account management through this
+> packet. Existing identity-assurance limitations remain disclosed: a single account is not proof
+> of authenticated identity, and no name, role label or sole-account condition may be treated as
+> such. Later access-control work keeps its existing `SEC-03`/`S6` owner; multi-account work keeps
+> `PBL-04`.
+
+**This withdraws a prerequisite, not a control.** §14.5's `G-02a`/`SEC-01a` Line-classification
+mapping is **retained in full** — removing `R185`'s authentication scope does not erase the
+four-eyes independence control, and §14.6's source-accuracy, readiness and lifecycle criteria are
+likewise untouched.
+
+### §15.2 — Who judges what (corrected)
+
+```text
+T5-REVIEW act(s)      records the REVIEWER'S judgment + evidence + agent attempt refs
+                      article remains Drafted            (FN-GATES §11.1)
+T5_review_bundle_sealed
+                      deterministic join; judges nothing; no R, no A
+                      performs the single Drafted -> Reviewed transition
+T5-FINAL              the human's FINAL editorial judgment; mandatory; completes T5
+                      EDITORIAL_DISPOSITION records that same act's outcome
+```
+
+Three distinct judgment-bearing facts, not two: a reviewer's judgment, the absence of judgment in
+the join, and the human's final judgment. §14's "agent evidence, not judgment" collapsed the first
+into the second.
+
+### §15.3 — The outcome contract, four cases (corrected states)
+
+| Situation | State effect | Record | Approval permitted? |
+|---|---|---|---|
+| Required reviewer/operation evidence missing, **before** bundle readiness | **Stays `Drafted`** — no join, no fabricated readiness | Missing items recorded | No |
+| Bundle sealed, but evidence needed for final approval incomplete | **Stays `Reviewed`** | Deficiencies recorded; remedy requested | No — ready is not approved |
+| Ready evidence, **negative** human judgment | **Stays `Reviewed`** — see §15.5 | Negative judgment **and its reasons** recorded | No |
+| Ready evidence, **positive** human judgment | `T5-FINAL` performs `Reviewed → Approved` | `EDITORIAL_DISPOSITION` records that act's outcome | Yes — one approval, one effective transition |
+
+**On accountability evidence, replacing §14.3's withdrawn example:** the applicable accountable
+actor and the actual approval evidence are checked **separately**. An A-only Final Sign-Off may
+approve previously completed `R`-work and is not rejected merely for a blank source `R`; equally,
+an assigned `A` with no approval record is never treated as approved. **No `R` is invented from a
+source-matrix cell, and no live incident is inferred from one.**
+
+Blind-review and Line controls apply unchanged to every case; the incomplete-input path does not
+waive them.
+
+### §15.4 — Reassessment and replay (replaces `SC79`'s lifetime rule)
+
+> **Each assessment refers to the evidence it assessed and has exactly one recorded outcome.** A
+> retry of the same completed act creates no additional approval or publication effect. A remedy
+> may create a **new** assessment, linked to the earlier assessment and to the changed evidence;
+> prior judgments remain append-only and are never overwritten. An earlier approval never
+> authorizes a changed evidence set.
+
+**One effective result per assessment — not one assessment per article.** §14's `SC79` said the
+latter, which would have made the remedy §14.1 permits unreachable.
+
+### §15.5 — Negative path: manual whole-article re-trigger (Round 32)
+
+**Proposed literal behavior for the owning tier:**
+
+> For V1, a negative editorial judgment records its result and reasons and does not authorize
+> publication. The application does not automatically return, repair, resume or schedule a new
+> analysis as a consequence of that result. The user may manually trigger the entire article's
+> editorial analysis again. That later analysis uses its own evidence and may reach a different
+> judgment; it does not overwrite the earlier result or inherit approval from it.
+
+A fresh analysis still follows all applicable `T1`–`T5` requirements. **"Manual" means the user
+initiates the existing editorial flow** — not that every analysis task becomes manual. No new
+rejection state, scheduler, partial-resume engine or `T6`/assurance feature is implied.
+Duplicate-effect protection within each attempt is retained; that safety rule is **not** the
+deferred automated-reassessment feature.
+
+**Existing return/amendment clauses — explicit scope disposition, as Round 32 requires.** These are
+distinct mechanisms and none is deleted or deferred by the above:
+
+| Clause | What it is | Disposition |
+|---|---|---|
+| `FR-06` (P0, S1), `AC-09`, `AC-10` | **Human-initiated** return to a prior state with a mandatory reason, auto-escalating at the return limit | **Unaffected and retained.** A deliberate human return is not an automatic consequence of a negative judgment |
+| `AC-08a` `[decided_target_held]` (`D-180`) | Scoped rerun after a human return: single-reviewer defect reruns that reviewer; shared-evidence defect invalidates the bundle | **Unaffected**, and still target-held. Its trigger is a human return, not a negative-judgment consequence |
+| `T8` / `T8a` (`any → Needs Revision`, and back) | Governed return transitions | **Unaffected and retained** |
+| `T9` (`any → Rejected`) | Governed rejection transition | **Unaffected as a transition.** Round 32 defers only its *automatic selection as a consequence of a negative `T5` judgment*; whether a human may still reach it directly is existing behavior, not changed here |
+| Automated return/remedy/resume/reschedule **as a consequence of a negative judgment** | Not currently specified anywhere | **Beyond V1** — §15.6 |
+
+**The distinction that makes this safe:** a blanket "defer negative-path handling" would have
+silently suspended `FR-06`, a `P0`/`S1` requirement. What Round 32 defers is *automatic consequence
+routing*, not the existing human-initiated return machinery.
+
+### §15.6 — Future capability: deduplication check and proposed identity
+
+**Deduplication performed against `Modular_PRD.md` §2.5.2's nine rows** (`PBL-01` T6 assurance,
+`PBL-02` monetization, `PBL-03` mobile, `PBL-04` multi-team accounts, `PBL-05` Facebook publishing,
+`PBL-06` trend detection, `PBL-07` multi-language, `PBL-08` bookmarklet, `PBL-09` email/Slack
+notifications). **None covers automated negative-result return, remedy or reassessment** — the
+nearest neighbours are unrelated (`PBL-01` is assurance; `PBL-09` is notification delivery, not
+workflow routing). No existing identity fits, so one is allocated through the normal owning-tier
+process (`PBL-10` is unallocated — verified across `docs/`):
+
+| ID | Capability | Rank | Feature readiness |
+|---|---|---|---|
+| `PBL-10` | **Automated negative-result handling** — automatic return, remedy, resume or reassessment triggered as a consequence of a negative editorial judgment | **Unranked** | Identity only. Source request: `B-071` `R183`, Round 32. Beyond V1 |
+
+**Identity only, per `D-187`/`D-188`:** this row records a name and nothing else. No requirements,
+acceptance criteria, demand, rank, readiness or authorization is implied, and creating it is not
+refinement. **Open, and not decided here:** whether V1's exclusion of this capability also warrants
+a `V1/NG-*` row pointing at `PBL-10` under `D-188`'s `V*/NG-* ──excludes──► PBL-*` model. Round 32
+asked for a capability identity, not an exclusion record, and `D-188` is explicit that *absence
+from a Non-Goal list never means a capability is included* — so omitting it is safe, but the
+symmetry question is real and belongs to the Judge.
+
+### §15.7 — Criterion corrections
+
+`SC79` is **replaced** by §15.4's per-assessment rule; it is not retired silently. Added:
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T5-V1-SC81` | A required review act is missing | Assessment runs | The gap is recorded, the article stays `Drafted`, and no join, readiness event or `Reviewed` state is fabricated |
+| `T5-V1-SC82` | A source RACI row shows an accountable party and a blank `R` | Approval status is evaluated | No approval is inferred as absent or present from the cell alone; actual approval evidence decides, and no `R` is invented |
+| `T5-V1-SC83` | A negative judgment is recorded, then the user manually re-triggers the whole article | Both analyses are inspected | The earlier result and reasons are preserved append-only; the later analysis carries its own evidence and inherits no approval |
+| `T5-V1-SC84` | The same completed `T5-FINAL` act is retried | Effects are counted | Exactly one approval and one publication effect exist; the retry adds neither |
+| `T5-V1-SC85` | V1 is inspected for authentication scope | `R185`'s withdrawal is checked | No V1 authentication or succession prerequisite exists, **and** the `G-02a`/`SEC-01a` Line controls remain present and testable |
+
+### §15.8 — Status per finding
+
+| Finding | Status |
+|---|---|
+| `R182`, `R184`, `R186` | **Draft-corrected.** `R186`'s criterion mapping now also covers `SC79`'s replacement |
+| `R183` | **Partially addressed.** §15.2–§15.5 supply the judgment, outcome, replay and return-scope contracts. **Still open:** the complete occurrence ledger (`R145`–`R168`) and literal owning-tier text for `Modular_PRD` §§4–5/9, `FN-GATES` §11.1, `FN-PUBLICATION` §§4–5, RACI §3.1, crosswalk §§2–4 |
+| `R185` | **Withdrawn from V1 scope** by Round 31's Judge clarification — not "resolved," not "implemented." Later access control keeps its `SEC-03`/`S6` owner |
+
+### §15.9 — Application readiness (updated)
+
+§14.8's five conditions are reduced to **three**, since `R185`'s security rows and the negative-path
+destination are both withdrawn:
+
+> Not application-ready. Application may be offered only when: (1) the occurrence ledger
+> (`R145`–`R168`) is complete; (2) literal text exists for every owning-tier target in §15.8's
+> `R183` row; and (3) `PBL-10`'s allocation is confirmed through the owning-tier process. Until
+> then, independent **draft** review remains possible and application is refused — missing text is
+> named, never improvised (`SC72`).
+
+### §15.10 — What remains open
+
+1. **`R183`'s occurrence ledger and literal owning-tier text** (§15.8) — Part 2, unchanged.
+2. **`PBL-10`'s allocation** — proposed here, requires the owning-tier process to confirm.
+3. **Whether a `V1/NG-*` row should point at `PBL-10`** (§15.6) — symmetry question for the Judge.
+4. **`B071-R145`–`R168`** (Part 2) — still not drafted.
+5. **`R180`/`R181`** — attached to `PBL-04` (§13.4), unchanged.
+6. **Encyclopedia Entries 01, 04, 05** — impact-review candidates; external artifact still unread.
+
+**Write set:** unchanged from §14.10, **minus** the `SEC-01a`/`SEC-03a` security rows withdrawn by
+§15.1, **plus** `Modular_PRD.md` §2.5.2 for `PBL-10`. Frozen `docs/PRD.md`, the Charter and
+`0001_init.sql` remain untouched.
 
