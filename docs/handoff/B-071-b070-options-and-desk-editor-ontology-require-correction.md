@@ -6292,3 +6292,250 @@ the new working-tree text and the previously observed HEAD mismatch remains outs
 | **Approve-with-conditions** | Future feature intake | Beyond V1; identity/rank not invented here | Lane A deduplication and canonical backlog capture |
 | **Reject** | V1 blocker requiring automatic return/rejection destination | Superseded by this clarification | Remove from corrective-plan readiness criteria |
 | **Defer** | Governing application, verification and implementation | Handoff draft only | Authorized propagation, synchronization and independent review |
+
+## Round 33 — Draft 6 review: what R183 has drafted, and what Lane A must finish
+
+### Scope and evidence
+
+**Restated request:** independently review proposed D-189 Draft 6 against the source documents,
+explain R183's partial status, and give Lane A a deduplicated parent-first completion guide.
+Planning only; the pasted push statement is historical, not permission for another push.
+
+Reviewed local HEAD `94c9dff8c532ef42c9d59d433cd7c3bfa8d53a00`: that commit changes only this
+handoff and `V1-B071-CORRECTIVE-PLAN.md`. Its §15 is proposed text, not an applied D-189
+Register decision. No remote verification is claimed in this review. Existing R183/R186 own
+the behavior/criterion corrections below; no new defect or parallel tracker is created.
+
+### What “partially open” means now
+
+| Item | Done at draft level | Still missing |
+|---|---|---|
+| R183 judgment and RACI semantics | §15.0–§15.3 withdraw the blank-R inference, retain reviewer judgments, distinguish the non-judgment join and human final act, and keep pre-join incompleteness Drafted | Literal T5-FINAL RACI row and gate/Line mapping; exact replacements in owning requirements and behavior |
+| R183 negative outcome | §15.5 records negative judgment/reasons, no publication, and manual whole-article re-trigger; automatic recovery is beyond V1 | Propagation text and tests, not another choice of automatic rejection destination |
+| R183 replay | §15.4 replaces lifetime one-judgment semantics with per-assessment outcome and non-duplicating replay | Correct SC84's outcome/publication assumptions; explicitly scope new V1 assessment to the manual whole-article trigger |
+| R185 | §15.1 incorporates withdrawal of the proposed V1 authentication prerequisite, without claiming authentication exists | Carry that scope into the authorized owning records; preserve the unrelated SEC-01a Line-control mapping |
+| Future capability | §15.6 proposes PBL-10, unranked/identity-only; existing Product capability rows do not cover it | Actual allocation in Modular_PRD §2.5.2 through Lane A's owning-tier process; no PBL-10 row exists there yet |
+| R183 propagation and closure | Required target documents are named; application is expressly refused | Occurrence ledger, literal text, view reconciliation, authorized application, synchronization and independent verification |
+
+**Drafted is not Applied; committed draft is not applied requirement; Applied is not Verified.**
+R185 and the automatic negative-path decision must not be reinstated as V1 prerequisites.
+
+### Corrections needed before extending the draft
+
+| Existing finding | Verified defect / failure condition | Smallest corrective draft |
+|---|---|---|
+| R183: retained control | §15.1 retains G-02a/SEC-01a, but §15.10's write-set subtracts SEC-01a with SEC-03a. Executing that list omits a retained Line boundary still naming target T6 in Modular_PRD | Keep SEC-01a's editorial Line/gate remapping in the write-set; exclude only the newly proposed V1 authentication work. Name the unaffected later SEC-03/S6 scope separately |
+| R186: SC84 | The test's Given permits any completed T5-FINAL, but Then requires one approval and one publication effect. Negative outcomes require neither; approval alone does not prove publication (Product AC-14–AC-16; FN-PUBLICATION §§4–5) | Test replay of positive and negative results separately. Positive: no second approval transition; negative: zero approval/publication effects. In either case replay adds no publication effect; do not require that publication has already occurred |
+| R183: assessment boundary | §15.4's “remedy may create a new assessment” is broader than §15.5's manual whole-article fallback | Qualify the V1 new-assessment path as a user-triggered full analysis, not automated or partial resume. Keep existing explicitly human-initiated FR-06 behavior and target-held AC-08a separately referenced |
+| R183: capability lifecycle | §15.6 says an identity “is allocated” although §15.9 requires confirmation and the Product table contains no PBL-10 | Say “proposed identity, not yet allocated in the owning tier.” Add its literal proposed row to the same packet; do not imply rank, refinement or build authorization |
+
+Also correct §15.2's “three distinct judgment-bearing facts”: these are three **steps**, of which
+reviewer acts and the human final act carry judgments; the join explicitly does not. This is a
+wording correction under R183, not another requirement. These are conditional, testable failure
+paths, not a claim that every implementation will inevitably fail.
+
+### Lane A completion guide — parent first, one existing packet
+
+1. **Stabilize the parent contract.** Apply the draft corrections above to §15. Keep the Judge's
+   R185 and manual-retrigger scope narrowings. Do not reopen the already answered fallback.
+   Success: no retained control is excluded from the proposed write-set; replay tests respect
+   both positive and negative outcomes and distinguish Approved from Published.
+2. **Complete the existing occurrence ledger (R145–R168), not another backlog.** Each affected
+   clause needs its source anchor, retained/replaced/historical disposition, exact proposed text,
+   owning document, dependent criterion and application evidence slot. The range and “ledger”
+   are the same work, not two tasks. Include the T5-FINAL RACI row, agent/human attribution,
+   blind-review ordering and Line values; removing their separate checklist row never completes
+   them. Success: every applicable occurrence has an explicit disposition, no unresolved owner.
+3. **Write literal owning-tier replacements.** Product stories/FRs/ACs and G-02a/SEC-01a first;
+   FN-GATES §11.1 and FN-PUBLICATION §§4–5 (and their affected target-held clauses) follow;
+   reconcile RACI §3.1 and crosswalk §§2–4. Link the proposed PBL-10 row to its intake request.
+   Existing human return/escalation and target-held scoped reruns retain their distinct triggers;
+   preserving behavior does not mean retaining an obsolete editorial T6 label. No broad deletion
+   of FR-06, AC-08a, AC-09/10 or T8/T8a/T9. Success: the packet contains text to apply, not only
+   section names or instructions to invent text during execution.
+4. **Reconcile representations against that text.** Build Spec still describes the old join as
+   T5 completion followed by T6; the proposed human-final completion must be mapped explicitly.
+   The historical storyboard's A5 human review/A6 agent approval and its Mermaid panels are
+   historical, not evidence of the new contract. Use current-source pointers rather than rewriting
+   history. Cross-reference current Product story panels, state/data-flow and UX ownership;
+   show reviewer judgment → readiness → human disposition → separate publication execution.
+   Declare Register/Build Spec/Inventory and other tier impacts, including unaffected where true.
+   Frozen PRD/Charter/migration remain untouched. External Encyclopedia Entries 01/04/05 require
+   impact review; the local sync map does not prove their content or publication is current.
+5. **Offer the complete packet for bounded authorization.** PBL-10's identity confirmation is
+   documentation intake, not a demand that the future feature become refinement-ready. D-188
+   permits absence from a version exclusion list without implying inclusion: propose any NG
+   link disposition under that rule, but do not elevate “symmetry” into another V1 behavior
+   blocker. A finished draft still grants no AUTH-DOC, implementation or lane transition.
+6. **After authorized application, synchronize and independently verify.** Lane A applies only
+   the approved write-set, settles the source revision, rebuilds Graphify and preserves/reconciles
+   curated fragments. Lane B checks that revision, ledger and criteria; Lane C has no CI change
+   in this packet. The handoff alone cannot close the source defects.
+
+### Drift and review limits
+
+Graphify records analyzed HEAD `129efab595932705d7d0176b2e36be41509d6232`, not current
+`94c9dff8c532ef42c9d59d433cd7c3bfa8d53a00`: **DRIFTED**, despite `stale:false`.
+No current semantic claim is taken from the stale graph. External Encyclopedia is **UNVERIFIED**;
+its local mapping and the historical storyboard were inspected, not represented as current UX.
+Only this handoff is amended in this pass. No governed-spec edit, graph rebuild, code, commit,
+push or lane transition; unrelated package-lock is untouched.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Draft 6 R183/R185 scope corrections | Earlier category errors corrected at draft level; manual fallback retained | Preserve in the completed literal packet |
+| **Approve-with-conditions** | R183/R186 behavior and criteria | SEC-01a write-set, replay expectations and assessment-boundary wording need correction | Guide steps 1–3 |
+| **Defer** | Product PBL-10 allocation | Proposed, not allocated; no future readiness implied | Owning-tier intake in the documentation packet |
+| **Reject** | R183 application/verification readiness | Ledger and literal replacements are missing | Complete packet, bounded authorization, independent verification |
+| **Defer** | Graphify/Encyclopedia and implementation | Drifted/unverified; build holds unchanged | Settled-source synchronization and separate authorization |
+
+## Round 34 — R183: the additional details Lane A must supply
+
+**Restated request:** unpack Round 33's “still missing” into concrete deliverables, distinguish
+drafting work from missing Judge input, and use this existing handoff rather than raise another
+item. Scope remains R183/R186, with R185's V1 withdrawal and Round 32's manual fallback retained.
+This is a detail guide for Round 33, not a new decision or a second completion ledger.
+
+### Missing details, in dependency order
+
+| Parent-first unit | Exactly what is missing | Where Lane A drafts it | What proves the draft is complete | More Judge detail needed now? |
+|---|---|---|---|---|
+| 1. Final-act and control mapping | A literal row naming task, human executor, R, A, Line, input evidence, result and state effect; plus the successor-identity comparisons and blind-review sequence after the editorial T6 rename | Proposed decision/plan, then RACI §3.1, Product G-02a/SEC-01a and FN-GATES §11.1 replacement blocks | Every event has a named purpose and effect; the join is not final judgment; retained controls point to the proposed human act rather than an absent V1 T6 | No new business choice is shown by the current sources; draft the existing human R=A mapping below for review |
+| 2. Outcome and replay checks | Exact positive, negative, pre-join incomplete, post-join incomplete and manual-retrigger expectations; SC84 must distinguish approval effects from publication effects | Existing R183/R186 criteria mapping and proposed Product/Fn_Spec acceptance text | Positive replay adds no approval; negative replay produces no approval/publication; neither replay fabricates publication; manual new analysis preserves prior results without inheriting approval | No; these follow the clarified outcomes and existing publication contract |
+| 3. Occurrence ledger | For each applicable R145–R168 occurrence: exact source clause, its disposition, replacement text or replacement-block link, owner and test; retained/historical clauses need explicit reasons | The existing Part 2 ledger in the corrective packet | A reviewer can trace each occurrence to one replacement or a justified retained/historical disposition; no “update references” placeholder | No; this is source reconciliation, not another scope decision |
+| 4. Literal owning text | Complete replacement paragraphs/rows, not a list of filenames, covering Product stories/FRs/ACs, behavior, RACI/crosswalk and Build Spec stage completion | The corresponding proposed edit blocks in the same plan; authoritative files stay untouched until application is authorized | An authorized editor could apply the text without inventing behavior; each clause has an existing owner and a test | No additional input to start; cite and escalate only a specific contradiction not settled by the governing record |
+| 5. View reconciliation | A source-to-panel map identifying which story panel, sequence/UML message, state arrow, data-flow output or UI label changes, and which historical panels remain history | Existing occurrence ledger and affected view proposals; UX details keep their existing SPECS/UX owner | Every view traces to the same outcome contract; readiness, human disposition and publication are separate; no editorial approval mislabeled future T6 assurance | No new UI feature is requested; do not require new design decisions to perform this mapping |
+| 6. Future capability intake | Literal proposed PBL-10 row, source-request link, beyond-V1 disposition and the fact it is not yet allocated; preserve unranked/identity-only status | Product §2.5.2 proposed block, through Lane A's existing intake process | One canonical identity after authorized allocation; no duplicate tracker, future refinement requirement or automatic promotion at V1 closure | No need to choose future behavior/rank now; any optional NG link is a documentation disposition, not a V1 behavior blocker |
+
+### Concrete draft input for unit 1 — not a new approval
+
+The current RACI §3.1 already assigns the human target T6 act **R = Acting Chief Editor,
+A = Acting Chief Editor, Line 2**. Draft 5 §14.5 already proposes moving the Line-classified act
+to T5-FINAL. Lane A can therefore offer this mapped row, rather than ask the Judge to invent R/A:
+
+| Proposed task | R | A | Line | Result / state effect |
+|---|---|---|---|---|
+| T5-FINAL — final human editorial assessment | The sole Chief Editor human user | Same human in the accountable context; no additional account/role-management feature | 2 | Positive: Reviewed → Approved; negative: record reasons without approval, retain Reviewed per Draft 6; disposition records this same human act |
+
+Use the catalog's canonical human label when producing the literal target row. Do not turn the
+accountability label into a new V1 authentication or succession feature. Map the retained
+successor comparisons to `R(T4) != R(each required T5-REVIEW act)` and
+`R(each required T5-REVIEW act) != R(T5-FINAL)` in the proposed contract. The deterministic join
+has no R/A or judgment; it owns Drafted → Reviewed, not the human final disposition. Name the
+existing preliminary-assessment, reveal and final-decision order explicitly under their proposed
+labels. Record pre-join missing-evidence assessment separately from ready final approval;
+mandatory assessment must not fabricate readiness. These are mapping proposals, not claims that
+identity authentication or the controls have been implemented.
+
+### Concrete occurrence example — unit 3
+
+Product `AC-14a` currently says Delivery consumes an immutable **T6 disposition**. Its ledger row
+must say whether that is the editorial disposition being renamed, cite the proposed T5-FINAL /
+EDITORIAL_DISPOSITION contract, and supply the exact replacement while preserving Delivery's
+refusal to mutate judgment/reasons/evidence. The matching behavior owner is FN-PUBLICATION's
+target Delivery rule (§11), not merely its general §§4–5. The test proves Delivery consumes the
+approved disposition without changing it. This example belongs in the existing ledger; it does
+not allocate a new AC or duplicate the rule into the journal.
+
+### Representation and evidence boundary
+
+Checked Product §§4–6/9 and the historical storyboard's A5/A6 panels against the current plan.
+The Product document's stories and requirements are not interchangeable with the journal's
+storyboard/UML history. Lane A must supply current-source links and proposed view changes, not
+rewrite historical journal text as today's authority. Data-flow mapping must identify the article/
+assessment, reviewer evidence, readiness result, human disposition and publication result at the
+logical level; this request does not authorize new database fields or implementation design.
+
+Encyclopedia Entries 01/04/05 remain external impact-review candidates. A readable copy or access
+is needed **for their actual verification**, not for Lane A to finish this source draft. The local
+sync ledger expressly treats stale entries as a review queue, not proof of error or an automatic
+build blocker. Graphify remains drifted: analyzed `129efab` versus HEAD `94c9dff`; no fresh semantic
+claim is made from it. Authorized application, graph synchronization and independent verification
+are later evidence steps, not “additional business details” the Judge must supply now.
+
+**What the Judge needs next:** the completed literal packet for approval/rejection, not another
+open-ended question about already clarified scope. If drafting exposes a genuine undecided
+conflict, Lane A should show the exact competing clauses, the affected behavior and one bounded
+question. No such new business decision is established by this drill-down.
+
+This pass appends only this detail guide. Round 33 remains the findings record; governing sources,
+graph, code and lane state are unchanged. No commit/push; unrelated package-lock is untouched.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R183 drafting sequence | Missing deliverables and their source inputs are explicit | Lane A completes units 1–6 in the existing packet |
+| **Approve-with-conditions** | Proposed T5-FINAL mapping | Existing human R=A / Line 2 mapping supplies the draft basis | Literal control/behavior reconciliation, then Judge review |
+| **Reject** | Claim that more general Judge detail is required before drafting | Current gaps are predominantly missing source text and traceability | Escalate only a specific unresolved contradiction |
+| **Defer** | Application, external-view verification and implementation | Not delivered or authorized by this guide | Bounded approval, application and independent evidence |
+
+## Round 35 — Lane A: the literal packet Round 34 asked for (`docs/v1/V1-B071-CORRECTIVE-PLAN.md` §16)
+
+**Restated request:** complete Round 34's units 1–6 as literal draft text, organized parent-first,
+with a docs/graph drift check, terminology normalized against the existing corpus, and a concise
+approve/reject close. Scope stays `R183`/`R186`; `R185`'s V1 withdrawal and Round 32's manual
+fallback are unchanged. Planning only — no commit is implied by this review round itself.
+
+### What was drafted, and where
+
+`V1-B071-CORRECTIVE-PLAN.md` §16, appended after §15 (Draft 6), all six units:
+
+| Unit | Result | Location |
+|---|---|---|
+| 1. Final-act/control mapping | **Drafted in full.** The target order's human final act is written as `T6` in eight live clauses across `raci-involvement-matrix.md`, `Modular_PRD.md`, `FN-GATES-01-05.md` and `FN-PUBLICATION-09-10-13.md` — all predate this session and all still say `T6`. Literal current-text→proposed-text blocks for all eight, renaming the transition label to `T5-FINAL` (completes `T5`; not a sixth gate). `EG5_*` event identifiers deliberately left unrenamed and flagged for the Judge, not decided unilaterally | §16.1 |
+| 2. Outcome/replay checks | **Drafted.** §15.7's `T5-V1-SC81`–`SC85` ported into `Modular_PRD.md` §6 as new, additive `AC-08b`–`AC-08f` — the "existing criteria, no owning-tier home" gap Round 34 named | §16.2 |
+| 3. Occurrence ledger | **Drafted — all 24 of `B071-R145`–`R168`, individually dispositioned**, not summarized: 6 resolved outright, 8 resolved by business decision with literal text not yet re-verified, 1 resolved out-of-packet, 1 superseded, 2 closed as drafting discipline, 1 withdrawn, and 5 carrying a genuine open residual (`R147`, part of `R148`, `R152`, `R159`, `R160`) — named, not improvised | §16.3 |
+| 4. Literal owning text | **Drafted where grounded, honestly incomplete where not.** Crosswalk checked in full — no `T6` occurrence exists there, no edit proposed. Build Spec's S2 target DoD gets the same rename as unit 1. The eight business-decision findings are **not** re-drafted here — re-deriving Rounds 20–24 risks the exact duplication `D-54` warns against, and none of them blocks units 1/2/6 | §16.4 |
+| 5. View reconciliation | **Drafted as a pointer table, no journal rewrite.** Storyboard Panels A5/A6 depict the *pre-target-order* build (human at T5, agent at T6) — historical twice over relative to `T5-FINAL`. Data-flow stated at the logical level Round 34 permitted: article → reviewer evidence → readiness join → human disposition → publication result | §16.5 |
+| 6. Future capability | **Placement drafted**; the row itself was already complete at §15.6. The `NG-*` symmetry question stays flagged for the Judge, not decided | §16.6 |
+
+### Corrections applied to my own draft before this was recorded
+
+While assembling §16.3 I mis-summed the ledger on the first pass — wrote "6 `Resolved (business
+decision)`" in prose while the table itself listed eight, and claimed "4 genuinely `Open`" against
+a table that actually carries five open residuals once `R148`'s partial disposition is counted.
+Caught and corrected before this round was written, not after — `docs/v1/V1-B071-CORRECTIVE-PLAN.md`
+§16.3's summary now states 6+8+1+1+2+1+1+2+2 = 24 explicitly, matching the row-by-row table rather
+than restating a remembered count. Recorded here rather than silently fixed, per this corpus's own
+rule that a caught instance of the count-drift defect is evidence the check works, not something to
+delete from the record.
+
+### Docs/graph drift — checked this round, not carried forward from Round 33
+
+`bun run check`: **16 of 17 PASS**, one `FAIL` — `docs-drift`: analyzed `129efab595932705d7d0176b2e36be41509d6232`
+versus HEAD `94c9dff8c532ef42c9d59d433cd7c3bfa8d53a00`. Independently confirmed against
+`.graphify/branch.json` (`lastAnalyzedHead` vs. `git rev-parse HEAD`) before running the check, not
+taken from the check alone. **11 commits touched `docs/` since the graph was last analyzed** — the
+entire D-189 draft-1-through-6 series. **Graphify requires a resync**: `npx graphify hook-rebuild`,
+then re-merge `docs/graph-fragments/` if the curated node count drops (`G51`). Not run in this pass —
+rebuilding now would still go stale the moment this round's own commit lands, and `docs/handoff/README.md`
+§"Committing and pushing your own entry" step 6 places the resync with **the current `Active` Lane A,
+before the next consuming approval or phase-closure claim** — i.e., after this packet is authorized
+and applied, not before a draft is offered. No `docs-drift` claim in this round is taken from a stale
+query; §16.8 states this same finding independently.
+
+### Terminology normalized against graphify's existing extraction, not re-invented
+
+`T5-FINAL` is the label Draft 6 (§15.2) already introduced and Round 34 already used; §16 does not
+coin a new term, it propagates that one to the four owning-tier documents that had not yet received
+it. `Line 2`, `R`/`A`, `EG5`, `T5_review_bundle_sealed` and the other identifiers in §16.1–§16.2 are
+copied verbatim from the current text of `raci-involvement-matrix.md`, `FN-GATES-01-05.md` and
+`Modular_PRD.md` — none renamed, abbreviated, or re-cased in transit. No collision with the graph's
+extracted layer is claimed, since the graph is stale (above) and cannot be queried to confirm that;
+this is a same-corpus vocabulary check, not a graph query.
+
+### What this round does not do
+
+No commit, push, code, migration, or lane transition. No governed-tier file is edited — `raci-involvement-matrix.md`,
+`Modular_PRD.md`, `FN-GATES-01-05.md`, `FN-PUBLICATION-09-10-13.md` and `V1-BUILD-SPEC.md` are all
+**quoted**, none **edited**; §16's blocks are proposed text living in the corrective plan, same
+posture as §14/§15. `R147`'s higher-precedence sweep (Addendum/Blueprint/Business Case) and `R152`'s
+Graphify fragment reservation are named as genuinely open, not drafted here. External Encyclopedia
+Entries 01 and 04 are named as plausibly touched by the `T5-FINAL` rename — not verified; that
+remains a distinct, later act per Round 34 and `docs/ENCYCLOPEDIA-SYNC.md`'s own process.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Units 1, 2, 6 (`T5-FINAL` rename, its acceptance criteria, `PBL-10` placement) | Literal blocks complete, internally consistent, independent of the open items below | Judge review, then bounded authorization to apply |
+| **Approve-with-conditions** | Unit 3's occurrence ledger | All 24 findings dispositioned; 8 rest on business decisions this pass did not re-verify at the literal-text level | Verify/draft the eight before treating them as application-ready |
+| **Defer** | `R147` (higher-precedence sources), `R152` (Graphify fragment), `R159`/`R160` (UI progress axis, report mapping) | Genuinely open, named rather than improvised | Separate drafting pass; `R152` specifically sequences after application, per `docs/handoff/README.md` |
+| **Reject** | Treating §16 as already applied | Nothing above is committed to a governed tier; `docs/v1/V1-B071-CORRECTIVE-PLAN.md` line 2606's disclaimer applies equally to §16 | Judge authorizes application as a separate, bounded act (`D-183`) |
