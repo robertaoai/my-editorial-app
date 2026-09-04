@@ -6855,3 +6855,49 @@ this hand-back (`bun run check`: 17/17).
 | **Approve-with-conditions** | The drafted `D-189` Register entry | Complete per-unit DoD and tier table; still draft, not in `V1-DECISION-REGISTER.md` | Your Judge act moves it there |
 | **Defer** | `R152`'s execution (duplicate-ID check, fragment write), `R159`, `R160`, `R162` | Unchanged, still named, still open | Separate passes, as already scoped |
 | **Reject** | Treating this round as the Judge act itself | A drafted Register entry is not a recorded decision; `D-183` still requires your separate act | Your authorization, then application |
+## Round 42 — Lane B: Round 41 needs a consistent acceptance contract before application
+
+**Evidence:** review of `0cf89f7`, corrective-plan §16.4/§16.7/§16.8, the four named R148
+consumers, and the existing FN-GATES/Modular_PRD outcome contracts. Continuing this existing
+Phase-1 spec-defect; the canonical header remains Open. No new Resolution or duplicate tracker.
+
+### What happened
+
+Retain Round 41's genuine draft improvements: the additional four-file sweep, the two target-held
+FN-EXCEPTIONS edits, FR-04a's complete replacement, corrected predecessor citation, EG5 remaining
+editorial, and post-join readiness being retained. A proposed Register entry and DoD now exist.
+However, existence is not consistency: the DoD and execution instructions still contradict parts
+of the packet they must verify. The blanket claim that every residual is resolved is not accepted.
+
+### What you need — Judge decision tree, parent before child
+
+| Order / existing anchor | Failure if accepted unchanged | Draft fix / acceptance rule | Judge disposition |
+|---|---|---|---|
+| 1 — R147/R148 readiness | §16.7 first says Unit 7 is not applied, then says both conditions are satisfied because it is drafted and next in sequence. That lets sequence stand in for evidence | Replace the latter clause with: **Units 1/2 remain gated. After Unit 7 is applied and its exact source insertions verified, recheck the R148 classification set; only then may the authorized Units 1/2 application start.** Review of their draft may occur earlier. Never record the gate as cleared from drafting alone | Accept this gate correction; defer gate clearance until evidence exists |
+| 2 — R148 / rename DoD | Unit 7 requires historical T6 rows byte-unchanged, while Units 1/2 require no editorial-T6 string outside future assurance or four Unaffected files. Those obligations cannot both pass. The sweep actually marks FN-EXCEPTIONS as requiring edits, not Unaffected | Scope the absence test to **classified target-order clauses**, not whole files. Explicitly allow classified historical/current-documented text and provenance, including Unit 7's retained rows. Require each target occurrence to match its proposed replacement and each retained occurrence to match its documented classification. Cite rows rather than a restated count. Current-order absence of a target marker alone is not evidence of historical status; cite the governing hold/contract for each retained consumer | Defer the current DoD; accept an occurrence-scoped test draft |
+| 3 — R152 / graph contract | The edge table uses performed_by, but the execution paragraph still commands part_of/owns/distinct_from and searches T6's IDs. Concrete endpoints remain placeholders. A faithful executor could rebuild the rejected relation or invent identity bindings | Make the execution paragraph consume the one canonical edge table; remove the superseded owns instruction. Resolve concrete T5 and EG5 graph IDs by source/subject in the draft, then recheck at execution. If absent, explicitly draft the missing node instead of inferring an ID. Preserve target-held/not-build-authorized lifecycle wording. Test edges and absence of the forbidden PBL-01→EG5 binding, not only query labels | Defer graph-contract completion; retain the approved editorial/assurance distinction |
+| 4 — D-54 / proposed Register entry | The entry says it resolves R145–R168 while its own Unchanged section retains unfinished literal text and deferred work. The new DoD is not a reason to close the whole occurrence range. Unit 6 may be independent, but the draft bundles its allocation with other units | Replace the blanket range-closure claim with **records the item-by-item dispositions in the occurrence ledger; only independently evidenced items reach terminal closure**. Make the selected unit set explicit in the Judge act; unselected units remain unapproved. Include literal tracking edits or explicit unaffected rationale per selected unit, retaining D-171. Do not let copying a draft Judge-entry imply authorization for every unit it mentions | Defer entry application; accept scoped authorization drafting |
+
+**Independent branch:** Unit 6 is still an identity-only Product backlog proposal; no feature
+implementation, rank, or build permission follows. **Following branch:** R159/R160 retain their
+SPECS/UX and audit-report owners. Historical storyboard pointers remain unchanged; the local
+Encyclopedia map flags impact but cannot verify the unread hosted artifact. No new UML or report
+completion is asserted by this review.
+
+### What you did instead
+
+Recorded review and fixes only here. No governing source, corrective plan, Register, application,
+migration, or lane-state edits. B-071 remains the single closure record; the analysis verdict is
+not formal application verification. The graph branch record names `5a7ac0b`, while review HEAD
+is `0cf89f7`: the pre-commit green check is not current-HEAD currency. Lane A must synchronize the
+settled revision before the next consuming approval; no stale semantic-query claim is used here.
+The unrelated untracked package-lock file remains untouched. Transport of the accumulated range
+is separate from this review and from the one-entry handoff exception; it does not authorize build.
+
+| Decision | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Specific Round 41 draft corrections retained above | Phase 1 draft review only |
+| Approve-with-conditions | Unit 7 source-disclosure application proposal | Phase 1: bounded Judge act and verified insertion before child execution |
+| Defer | Units 1/2 and proposed D-189 application | Phase 1: consistent occurrence-scoped DoD, readiness evidence and selected-unit authority |
+| Defer | R152 graph contract/execution | Phase 1: concrete endpoints and one consistent edge contract, then synchronization |
+| Reject | Blanket residual closure or B-071 terminal status from Round 41 | Handoff tier stays Open; application and independent verification remain separate |
