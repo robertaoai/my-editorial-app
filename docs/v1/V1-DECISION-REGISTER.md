@@ -12768,3 +12768,61 @@ disclosure-only act — flagged, not resolved, consistent with `V1-B071-CORRECTI
 untouched. `D-171` is unchanged. No rank, readiness, build, route or lane-transition authority is
 granted. Units 1/2, `R152` graph execution and `B-071`'s overall closure remain open, each requiring
 its own separate authorization and independent verification.
+
+## 5.14e15 `D-190` — Sequencing Deviation Dispositioned: Unit 7's Result Accepted, No Reversal; Register-Before-Execution Required Going Forward
+
+**Chief Editor decision, 2026-09-04, raised as `B-071` Round 48's recorded sequencing deviation.**
+Dispositions the deviation acknowledged in Round 48 (source-file edits preceded the Register draft
+of `D-189`, in this session's actual tool-call order, before either was committed) without
+reopening or reversing Unit 7's own content.
+
+### The disposition, verbatim as approved
+
+> Accept the existing annotation result without reversal; retain the sequencing deviation and
+> require Register recording before future governed edits. This does not authorize downstream
+> work.
+
+### What this closes
+
+The deviation itself — recorded as fact in `B-071` Round 48, now dispositioned rather than left
+open. `D-189` and Unit 7's application stand as applied; no reversal, no re-application, and no
+independent re-derivation of content already confirmed correct is required by this decision.
+
+### What this does not close or grant
+
+**No downstream authority.** Units 1/2, `R152` graph execution, and corrective-plan §16.7's text
+correction remain exactly as unauthorized as before this decision. **No retroactive compliance
+claim.** Accepting the result is not a finding that the deviation complied with the promotion rule —
+the deviation is *retained*, not erased or excused; it is a recorded, accepted exception for this
+one instance. **No overall B-071 closure.**
+
+### Reaffirmation, not a new rule
+
+**This decision reaffirms the existing Register-before-execution requirement; it does not
+introduce a new restriction or imply that the previous ordering complied.** `docs/README.md`'s
+promotion rule already required the Register to record the applicable Judge act before work-product
+execution begins — its text is not qualified by "committed"; it says execution, full stop. This
+entry restates that requirement in the context of Unit 7's own deviation; it does not extend, narrow,
+or otherwise redefine the rule's scope.
+
+### Gaps
+
+**Closed:** the Round 48 sequencing deviation — accepted, not reversed. **Opened:** none — the
+Register-before-execution requirement already existed; this entry reaffirms it, it does not create
+it. **Unchanged:** `docs/README.md`'s promotion rule itself; `D-171`; Units 1/2's and `R152`'s own
+authorization requirements; `B-071`'s overall open status; corrective-plan §16.7's own text.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Build spec | Agent files | Inventory | Phase closure | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Sequencing-deviation disposition (reaffirms the existing rule) | ✅ §5.14e15 | **— unaffected** | **— unaffected: the existing canonical execution rule continues to apply** | **— unaffected** | **— unaffected: no lane-state change** | **— unaffected** |
+
+**Encyclopedia:** unaffected — no entry depends on execution-sequencing procedure.
+
+### Scope limits
+
+**Dispositions one deviation and reaffirms the existing execution rule. Builds nothing, authorizes no downstream
+unit.** Frozen `docs/PRD.md`, the Charter and `0001_init.sql` are untouched. `D-171` is unchanged.
+Units 1/2, `R152` execution, corrective-plan §16.7's correction, and `B-071`'s overall closure all
+remain separately gated.

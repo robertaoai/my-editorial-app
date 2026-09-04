@@ -7342,6 +7342,12 @@ This does not establish that the annotation content is wrong, and does not requi
 reversal — the deviation is recorded as a fact, and its disposition (accept with corrective action,
 require a remedy, or otherwise) is the Judge's to decide, not Lane A's to characterize away.
 
+> **Forward notice (Round 50, 2026-09-04).** This paragraph's "disposition remains for the Judge" is
+> historical — preserved as written, not rewritten, since it was already committed at `5c515e9`
+> before the disposition existed. The Chief Editor has since dispositioned the deviation directly;
+> see `D-190` and Round 50 below. This notice supersedes the open-status language above; it does not
+> alter it in place.
+
 **What was not touched:** `V1-B071-CORRECTIVE-PLAN.md` itself (the "Unit-7-only packet" approved is
 the D-189 authorization text, not a rewrite of the corrective plan's own §16.7/§16.4 wording — that
 remains a separate, not-yet-authorized item, and §16.7's self-contradictory clause `B071-R188`
@@ -7370,3 +7376,83 @@ unaffected and unreached.
 | Approve-with-conditions | The recorded sequencing deviation (source edits preceded the Register draft, pre-commit) | Judge disposition pending; not self-resolved by this entry |
 | Reject | Treating `4e1d7bb` as application evidence, or this correction as retroactively establishing sequence compliance | `409e5b3` is the application evidence; the deviation is recorded, not dismissed |
 | Defer | Units 1/2, `R152` graph execution, corrective-plan §16.7 text correction, overall B-071 closure | Each its own separate, not-yet-authorized item |
+
+## Round 49 — Lane A: recording received review input, not a `Verified-By` claim
+
+**Evidence:** a message received in this conversation, self-identifying as "Codex, assigned Lane B,"
+reporting inspection of the committed diff at `409e5b3` and confirming the annotation content and
+placement are correct. **Lane A's repeat inspection** this round — not independent, since Lane A is
+the applying actor — separately re-checked: `HEAD` and remote both `5c515e9` (fresh fetch), 17/17
+checks, corrective-plan §16.7's contradiction still present unchanged
+(`V1-B071-CORRECTIVE-PLAN.md:3249-3251` — untouched, as expected, since Unit 7 never edited it).
+Agreement between Lane A's repeat inspection and Lane B's claimed independent review is recorded as
+useful corroboration; it does not resolve Lane B's own provenance question, and does not by itself
+establish `Verified`.
+
+**Why this is recorded as input, not as `Verified-By`.** The message arrives through the same
+channel as every other claim reviewed across Rounds 42–48, and a self-identification inside that
+channel is not independently traceable to a separate, accountable process — this repository shares
+one Git identity across all three lanes (`CLAUDE.md`), so nothing here can confirm or refute it
+either way. `D-101`/`D-102` require a named, independent actor for `Verified`; this document's own
+established caution against self-certification (`B-013`, and this thread's own repeated
+"Judge Approved: follow the decision-tree" findings) applies the same way to an unverifiable
+self-identified reviewer as to an unverifiable self-identified Judge. **This is not a claim that the
+review is false — it is that Lane A cannot make it terminal on the evidence available.**
+
+**What would close it:** either a way to independently confirm the reviewing process is genuinely
+separate from this conversation, or the Chief Editor personally stating, in their own words, that
+they read and confirm the diff at `409e5b3` — which would satisfy independence unambiguously (Lane
+A is not the Chief Editor) without needing to resolve the Lane-B provenance question at all.
+
+**Recorded, bounded, and not disputed:** the technical content of the review — additions-only diff,
+annotation wording matching §16.5a, placement after the complete tables — matches Lane A's repeat
+inspection, performed separately in Round 43 and reconfirmed just now. Lane A's repeat inspection
+corroborates the reported Lane B findings. It does not independently verify Lane A's application or
+establish the other review's provenance.
+
+### Approve / reject
+
+| Decision | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | The sequencing-deviation proposal's wording | **Approved directly by the Chief Editor, 2026-09-04 — recorded as `D-190`** |
+| Approve | Remaining-work ordering (§16.7 → Units 1/2 → `R152` → closure) | Matches this thread's own established sequence; no change needed |
+| Defer | Formal `Verified-By` for Unit 7 | Needs either confirmable independent provenance or the Chief Editor's own direct confirmation |
+| Reject | Recording "Codex/Lane B" as `Verified-By` on self-identification alone | Same standard this thread has applied to every other unverifiable authority claim |
+
+## Round 50 — Lane A: sequencing deviation dispositioned, recorded as `D-190`
+
+**Judge authorization received directly, 2026-09-04** — the Chief Editor presented, in their own
+message, not through a third-party analysis block, this text as their disposition. **Provenance
+correction:** this round's first draft wrongly said the text was "drafted in Round 48/49" — checked
+against the file and that is false; this exact sentence appears nowhere in Round 48 or 49. It first
+appeared in a pasted analysis two turns earlier (introduced there as a proposal, not recorded into
+this file), and Lane A's own chat responses referred to it only in prose, never writing it into
+`B-071.md` until this round. Round 48 raised the deviation itself as an open question; it did not
+contain this specific resolution text:
+
+> Accept the existing annotation result without reversal; retain the sequencing deviation and
+> require Register recording before future governed edits. This does not authorize downstream
+> work.
+
+**Recorded as `D-190`** in `V1-DECISION-REGISTER.md` §5.14e15. What it does: accepts Unit 7's
+existing result without reversal or re-application; retains the deviation as a recorded fact, not an
+excused or erased one; states a standing rule for future governed edits (Register recording before
+execution edits, not only before commit). What it does not do: authorize Units 1/2, `R152`
+execution, or the corrective-plan §16.7 text correction; close `B-071`; or retroactively establish
+that the deviation complied with the promotion rule.
+
+**Historical text preserved.** Round 48's "disposition remains for the Judge" and its
+"Judge disposition pending" table row are committed history (`5c515e9`) and are not rewritten — see
+the forward notice appended to Round 48 above, and this round, for the current state.
+
+**B-071 remains `Open`.** Formal `Verified-By` for Unit 7 remains outstanding, unchanged by this
+disposition — the deviation and the content-verification question are separate, per `D-190`'s own
+scope limits.
+
+### Approve / reject
+
+| Decision | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `D-190` recorded — sequencing deviation dispositioned, Unit 7's result accepted without reversal | Standing rule applies to future governed edits |
+| Reject | Treating `D-190` as authorizing Units 1/2, `R152` execution, or B-071 closure | All remain separately gated, unchanged |
+| Defer | Formal `Verified-By` for Unit 7; corrective-plan §16.7; Units 1/2; `R152` execution; overall B-071 closure | Each its own separate, still-open item |
