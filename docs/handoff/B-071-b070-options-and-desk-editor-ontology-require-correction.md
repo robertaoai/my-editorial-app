@@ -109,6 +109,29 @@
   `docs/ENCYCLOPEDIA-SYNC.md`: Entries 01, 04 and 05 depend on files this correction touches and
   are marked impact-review candidates, not edited. Nothing applied to any governed tier; `AUTH-DOC`
   remains unapproved; `D-171` remains binding.
+  **Rounds 28–29 (2026-09-04) — read in full before this response.** Round 28 independently
+  reviewed Draft 4 and found **three errors in it, all mine, all confirmed against source**:
+  (1) §13.2 claimed the bundle join *fully completes* `T5`; (2) §13.2 treated `satisfied` as a
+  "`T6`-labelled state" and declared `G-02a` superseded "because there is no gate six" — but
+  `satisfied` is a value of `workflow_transitions.line_separation_status`, a four-eyes independence
+  metric on a transition, so that framing would have **silently deleted a control**; (3) §13.7
+  retired `SC71`–`SC75` as succession tests when `SC71`/`SC72`/`SC75` test source accuracy,
+  application completeness and truthful status — and conversely called `SC55`–`SC62` applicable when
+  `SC55`/`SC56`/`SC59` are genuinely succession-specific. Round 28 also found §13's heading
+  overclaims: it *addresses* rather than *resolves* `R182`–`R186`, since `R183` remains open.
+  Round 29 then carried the Judge's clarification that **`T5` editorial judgment is mandatory** —
+  it always runs, because the assessment is what detects a gap — and reconciled the labels:
+  `T5-FINAL` is that judgment, `EDITORIAL_DISPOSITION` is its **recorded outcome**, not a second
+  approval. **Draft 5 is written to `docs/v1/V1-B071-CORRECTIVE-PLAN.md` §14** as a **scoped**
+  correction to §13 — Round 29 explicitly forbids restoring §§11–12 wholesale, and §13's
+  single-account scope, `PBL-04` candidate and `R182`/Encyclopedia corrections all survive unedited.
+  `G-02a` is **amended in subject, retained in substance** (`T5-FINAL` becomes the one transition
+  that may be `satisfied`), every criterion is reclassified **by subject rather than numeric range**,
+  the non-positive `T5-FINAL` path §13 never specified is drafted with blocked-versus-negative-close
+  named as a bounded open question, and §13.8's inherited execution steps are replaced by an explicit
+  condition: **this packet is not application-ready.** Per-finding status is stated distinctly rather
+  than as a blanket label — `R183` and `R185` remain partially open. Nothing applied to any governed
+  tier; `AUTH-DOC` remains unapproved; `D-171` remains binding.
 - **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`), round 2 (Lane
   B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
   clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), round 4 (Lane B,
@@ -5697,3 +5720,261 @@ configuration, commit, push, or lane-state transition occurred. Independent clos
 | **Approve-with-conditions** | PBL-04 refinement proposal | Dependency order proposed; scope membership/rank not yet recorded | Future Product backlog refinement, no automatic V1 carry-in |
 | **Defer** | Encyclopedia / Graphify verification | Dependency impact identified; external contents unavailable; graph stale | Read external artifact, settle sources, synchronize and review |
 | **Defer** | B-071 closure / AUTH-DOC / implementation | Clarification and review only; no new execution authority | Complete literal packet, independent review, bounded Judge authorization |
+
+---
+
+## Round 28 — Draft 4 review: judgment-rule contracts versus workflow tracking (2026-09-04)
+
+### Scope / what happened
+
+**Rewritten task:** Independently review proposed D-189 Draft 4 (§13) at `32f48ef`; capture the
+Judge's clarification that T1–T5 validate editorial judgment rules while workflows are separately
+described; retain future T6 assurance judgment as distinct. Return a parent-first correction in
+this handoff only, using the existing template. No code, source application or new tracker.
+
+**New clarification, captured as input:** the original T1–T5 judgment-gate purpose was to validate
+business editorial judgment rules for possible later OD4 use. Workflow mechanics grew into that
+description and need separate tracking. T6 was added later for assurance judgment. This purpose
+does not authorize OD4, make V1 dependent on building OD4, or turn the post-T5 human publication
+action into the future T6 assurance judgment.
+
+Local Git confirms `32f48ef` contains the plan and B-071 review updates. The final commit message
+describes Draft 4. The pasted account of intermediate message amendments and the fresh GitHub tip
+were not independently verified; neither is needed to review the local source. Lane A remains
+the Phase 1 correction owner; Lane B reviews; no new Lane C workflow work follows from this packet.
+
+### Preserve the corrections that are actually present
+
+- §13 removes multi-account succession from V1 and proposes it under existing PBL-04 without
+  inventing a rank or granting build authority.
+- §13 separates T5 completion from UI presentation and human publication disposition.
+- The candidate name `EDITORIAL_DISPOSITION` is clearly attributed to Lane A, not the Judge.
+- The unsupported Entry007/S5 account/email inference is withdrawn in §13.3.
+- Encyclopedia Entries 01/04/05 are correctly treated as impact-review candidates, not verified
+  external edits. No need to repeat those fixes or reopen their underlying explanation.
+
+### Parent contract — separate subjects, not separate sources of truth
+
+| Subject | What it defines | Minimum traceability | Not equivalent to |
+|---|---|---|---|
+| Editorial judgment gate T1–T5 | The editorial question/rule and the evidence sufficient to resolve it | Owning feature-group requirement, applicable rule reference, evidence, recorded result and refusal condition | A screen, an agent run finishing, or every state transition |
+| Virtual-node task | Work performed by an assigned agent to supply/evaluate gate evidence | Node/role, agent executor and attempt references, consumed/produced evidence, gate served | Human publication authority; OD4 virtual agents |
+| Workflow step | How work starts, is routed, waits, joins, returns, is presented or is approved | Step name, performer, prerequisite/result references, incoming/outgoing state and owning requirement | An extra judgment gate or independent assurance claim |
+| Human publication disposition | The user's post-T5 choice through the UI | Sole linked account, completed packet, disposition and recorded publication effect | Completion of T5 again; T6 assurance judgment |
+| Future T6 assurance judgment | Later assurance-specific rules/results | Existing PBL-01 scope and later separate authorization | V1 publication approval; IIA Line 3 or OD4 merely by sharing a number/name |
+
+**Proposed workflow tracking approach:** use a workflow-step crosswalk alongside the owning
+behavior contract, linked to a separate gate/rule table. Reuse current node, operation and event
+references where their meanings match. Do not renumber gates, invent a parallel backlog ledger,
+or copy live lane status into the crosswalk. Product owns requirements; Fn_Specs own behavior;
+SPECS/UX owns layout. A UML sequence or story panel is a view of that same contract, not another
+place that independently decides it. This is a drafting structure, not a new file authorization.
+
+### Verified residual gaps — keep R183/R185/R186, do not duplicate IDs
+
+| Existing finding | Evidence in Draft 4 | Smallest corrective draft |
+|---|---|---|
+| R183 — gate/workflow label versus Line classification | §13.2 calls `satisfied` a T6-labelled state and declares G-02a superseded because there is no gate six, while leaving the disposition's Line and RACI mapping undecided | `satisfied` is a value of `line_separation_status`, not gate completion or article state (`Modular_PRD` FR-05/G-02a). Separate event identity, Line mapping, and metric applicability. Do not infer either `satisfied` or `not_applicable` merely from an event name. Draft the retained/amended/retired control explicitly before claiming it resolved |
+| R183 — application contract remains incomplete | §13.2 leaves event shape/RACI/control mapping to Part 2; §13.6 claims to supersede prior write sets but omits explicit FN-GATES/FN-PUBLICATION targets; §13.8 still inherits application steps from §§11–12 | Review the concept now, but block application until the workflow/rule crosswalk, exact owning-tier text and complete write set exist. Include the remaining narrow authentication behavior under R185; removing succession does not remove its independent purpose. Replace inherited execution references with a precise application readiness condition |
+| R186 — non-succession criteria wrongly retired | §13.7 says SC71–SC75 all test succession. SC71 tests source accuracy, SC72 incomplete application, and SC75 truthful status. Conversely SC55–SC62 are called applicable even though SC55/56/59 explicitly concern replacement/rollback/reactivation | Classify the individual criteria by subject, not a numerical range. Preserve source/readiness/lifecycle checks in V1; move genuine succession cases to the PBL-04 candidate. Keep SC62 historical |
+| R186 — closure overclaim repeats | §13 heading says resolves R182–R186; §13.3 still leaves R183 unresolved and calls every item Draft-addressed while §13.5 lists undecided items | Say “addresses” at the heading; record draft-corrected, unresolved and future-scope dispositions distinctly. Do not report R186 corrected until its own status and applicability errors are removed |
+
+**No implicit security ruling:** the new clarification concerns how judgment gates and workflows
+are described. It does not authorize removal of the existing human-only approval boundary,
+blind-review/evidence requirements or Line-separation controls. Their applicability to the newly
+named workflow must be resolved in the existing source/occurrence ledger, not silently carried
+over or silently discarded. No new interpretation of IIA conformance is made here.
+
+### Lane A next steps, parent first
+
+1. **Scope and vocabulary parent:** capture the judgment-rule purpose and separate workflow
+   concept in the proposed decision. Retain one account, future PBL-01/PBL-04 and OD4 boundaries.
+   Use `EDITORIAL_DISPOSITION` as a candidate name only; approving its name is not approval of
+   unfinished behavior or a change to source controls.
+2. **One complete crosswalk:** link each workflow step to the gate/rules/evidence it consumes,
+   actor and allowed effect. Reconcile the Line/RACI and existing review-control subjects here.
+   A join may signal that required gate evidence is complete; it neither supplies judgment nor
+   chooses a reviewer result. The human approval consumes the completed packet without completing T5.
+3. **Source propagation packet:** provide literal Product, Fn_Spec and applicable higher-tier
+   corrections under R183/R147. Include the actual owning security rows required by the narrow
+   single-account approval. Account for Build Spec/Inventory effects under D-54. Historical
+   storyboard A5/A6/B3–B6 and RACI journal §8 remain historical; current panels/sequence diagrams
+   link to the new accepted contract rather than overwriting dated analysis.
+4. **Test/status correction:** apply the mapping below and fix R186's current claims. Only then
+   offer the bounded application packet for authorization; no Part 2-dependent application now.
+5. **Derived views and independent closure:** review Encyclopedia impacts via its existing ledger,
+   synchronize Graphify after settled source, run checks, and hand back to Lane B. Follow the
+   canonical transaction SOP; do not introduce another commit/push procedure here.
+
+### Criterion applicability and success proof
+
+| Existing criterion | Draft disposition to review |
+|---|---|
+| SC55, SC56, SC59; SC63–SC69 | Succession/recovery-specific cases: future PBL-04 candidate, not V1 prerequisites |
+| SC57, SC58, SC60, SC61 | Preserve the single-account authorization and editorial attribution substance; remove replacement/assignment-history predicates that are now outside V1. Link revised tests to the surviving owning requirement |
+| SC62 | Historical non-selected model only |
+| SC71, SC72, SC75 | Still relevant: accurate source citation, complete application packet and truthful lifecycle claims |
+| SC73 | Split by subject: future succession atomicity versus existing V1 editorial decision/evidence atomicity |
+| SC74 | Split by subject: future control-principal/former-session checks versus V1 forged identity/unauthorized human approval refusal |
+| SC76 | Keep the no-extra-gate test, but it is not a substitute for event/state, authority and evidence tests |
+
+**Additional proof required within R183's existing test plan:** a workflow can wait, retry, join
+or display a screen without adding a judgment gate; completing an agent task does not satisfy a
+gate with missing required evidence; UI rendering does not approve; only the authorized human
+disposition can cause its specified approval effect; approval does not assert successful delivery.
+Removing the literal name T6 must not silently change the Line-classification result. Current story
+panels, sequence diagrams and Product/Fn_Spec rows must give the same answer to each case.
+
+Failure is deterministic if application is attempted with missing literal targets: the implementer
+must either improvise or leave contradictions. Likewise, treating a run's completion as proof of
+the judgment rule permits missing evidence, and retiring tests by ID range loses still-required
+checks. These are documented specification failure paths, not claims of a deployed exploit.
+
+### Evidence limits / what Lane B did instead
+
+Reviewed plan/source at `32f48ef`. Graphify remains based on `129efab` (**DRIFTED**); no semantic
+currency claim is made from its `stale: false` value. The external Encyclopedia was not re-read or
+republished; only its local dependency ledger is evidence here. Its content remains unverified.
+No remote synchronization claim is made from the pasted push report.
+
+Appended this review only to B-071. Lane A's plan/header, governed/frozen sources, graph, code,
+provider configuration, lane state and unrelated `package-lock.json` were not changed. No new
+finding IDs, commit or push. B-071 remains open; this is not AUTH-DOC or build authorization.
+
+### Round 28 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Scope and ontology direction | Judgment rules, agent tasks, workflow steps and future T6 assurance remain separate | Lane A parent contract and workflow crosswalk |
+| **Approve-with-conditions** | EDITORIAL_DISPOSITION proposal | Suitable workflow name; event/control mapping still incomplete | R183/R185 literal behavior and authorization review |
+| **Reject** | Draft 4 application readiness | Missing source targets and unsettled Line/control mapping | Complete Part 2-dependent packet before application |
+| **Reject** | R186 completion / blanket test retirement | Source/readiness/lifecycle tests were wrongly grouped as succession | Per-subject criterion mapping and accurate current claims |
+| **Defer** | B-071 verification / derived-view currency | Source changes not applied; graph stale; Encyclopedia content unverified | Settled-source checks and independent review |
+| **Defer** | AUTH-DOC / implementation | No execution permission issued here | Separate bounded Judge authorization |
+
+---
+
+## Round 29 — T5 always assesses; workflow remedies depend on its findings (2026-09-04)
+
+### Scope / what happened
+
+**Rewritten task:** Capture the Judge's clarification that T5 editorial judgment always happens,
+separate it from conditional sign-off work, and give Lane A the missing owning-tier contract pieces
+for the shortest V1 route. Draft-only review at `32f48ef`; append to this handoff, with no duplicate
+finding series, governing-source edit, build or authorization.
+
+**Clarification received:** “T5 editorial stage ... is part of the judgement-gate hence is always
+happening else can't judge what goes missing.” This resolves the assessment-versus-remedy question:
+the assessment must not be conditional on first knowing that something is missing. It does not mean
+every assessment approves, or every remedial workflow action must run on every article.
+
+**Correction to Lane B's previous question:** asking whether Chief Editor sign-off always runs
+combined the judgment act with the work that a judgment might require. Separate those subjects.
+The user's preceding proposed T5-FINAL diagram names a human judgment; this round confirms that
+T5 assessment is mandatory, not that a missing-A remedy is a universal duplicate sign-off.
+Draft 4 §13.2's assertion that the bundle join fully completes T5 cannot simply be carried forward
+against that diagram. Lane A must record a scoped correction rather than restore all old §§11–12.
+V1 remains single-account; multi-account succession and PBL-01's T6 assurance remain future work.
+
+### The distinctions the contract must retain
+
+| Term | Meaning | Not proof of |
+|---|---|---|
+| RACI `A` | Accountable party for the named task, milestone or route scope | Work finished or approval recorded |
+| Approval/sign-off evidence | That the authorized approver actually accepted the relevant completed work | Satisfaction of unrelated tasks or judgment rules |
+| T5 assessment | Required examination of the applicable evidence, accountability and missing items | A positive result merely because assessment ran |
+| Workflow remedy | Work required by a finding, such as obtaining a missing sign-off | A new judgment gate, automatic approval or rewriting the original RACI |
+| Bundle-ready join | Deterministic indication that its defined review inputs are sealed | Final editorial judgment or a second approver |
+
+**Shortest route confirmed:** `factory-route-operation-crosswalk.md` §1 records ROUTE-PROD-1,
+Reporter `R` and Desk Editor `A`; its adjacent note expressly separates route accountability from
+gate-review function. This does not skip T1–T5, make Desk Editor a second V1 login, or establish
+who executed a particular agent task. Apply accountability checks at each item's actual scope;
+do not invent a local `A` on every record if the accepted contract uses explicit parent inheritance.
+
+### Proposed decision text — for Lane A to refine, not applied
+
+> T5 editorial judgment is mandatory for every article reaching that stage. It evaluates the
+> required evidence and records what is sufficient or missing, even when the package cannot pass.
+> The existence of an accountable party is checked separately from evidence of that party's
+> approval. Missing accountability invokes the Chief Editor fallback described by the Judge;
+> missing approval from an already assigned accountable party is recorded as a different finding.
+> No missing assignment or approval is silently fabricated. A failed or incomplete assessment
+> cannot produce the successful approval transition. Any remedy follows the governed workflow and
+> is evidenced before a subsequent positive assessment can authorize progression.
+
+**Recommended reconciliation of the candidate labels:** retain T5-REVIEW for agent evidence,
+the bundle-ready join for readiness, and T5-FINAL for the user's proposed final editorial judgment.
+Treat EDITORIAL_DISPOSITION as the recorded outcome of that judgment, not a second independent
+approval or state-changing action. This mapping is a proposal to remove duplication, not a claim
+that the Judge has approved a storage/event name. Workflow actions remedy findings or act on the
+disposition; they do not replace the mandatory assessment.
+
+### Case table — what runs versus what it finds
+
+| Case | T5 judgment | Finding / next workflow action | Successful approval permitted? |
+|---|---|---|---|
+| Applicable accountable parties and required approval evidence are present | Runs | Assess remaining editorial rules; do not demand a duplicate missing-A sign-off | Only with a positive final judgment and all required evidence |
+| A required `A` cannot be resolved for its scope | Runs and identifies the gap | Record the gap and Chief Editor fallback action; preserve why that fallback was needed | Not from the missing assignment alone |
+| `A` is known but required approval evidence is missing | Runs and distinguishes missing evidence from missing authority | Obtain the required approval through its authorized workflow; do not automatically replace `A` | No, while required evidence remains missing |
+| Required review evidence is missing or editorial judgment is negative | Runs/records the incompleteness or negative result without bypassing prerequisites | Governed return/hold/rejection path, to be mapped explicitly | No |
+
+“Runs” is not “passes.” An incomplete packet may produce an assessment of missing inputs; it
+must not be marked bundle-ready or positively completed by doing so. No new persisted status enum
+is introduced by this case table.
+
+### Parent-first owning-tier packet — missing pieces, not another SOP
+
+| Order / existing finding | Owning target | Literal content Lane A still needs to draft | Verification |
+|---|---|---|---|
+| Parent — R183/R186 | Proposed D-189 Register text and corrective plan | Mandatory assessment versus conditional remedies; partial supersession of §13.2's join-completes-T5 claim; proposed T5-FINAL/EDITORIAL_DISPOSITION relationship; retain single-account scope | One current contract; no wholesale resurrection of succession or contradictory completion points |
+| Child — R183 | Modular_PRD §§4–5, FR-04a/FR-05a/FR-07/FR-09 and their ACs | Separate assigned A, actual approval evidence, judgment verdict and authorized effect; positive and incomplete cases above | Assigned A alone cannot satisfy an approval AC; assessment cannot be skipped just because no gap is already known |
+| Child — R183/R185 | RACI matrix §3.1 and route-operation crosswalk §§2–4 | Distinguish OP-FINAL-SIGNOFF work from T5's judgment about it; exact scope of parent A/inheritance and Chief Editor fallback; current actor/Line mapping | Exactly one accountable party per governed scope; no agent/human identity substitution or silent authority inheritance |
+| Child — R183/R184 | FN-GATES §11.1 and FN-PUBLICATION §§4–5 | Readiness versus judgment versus publication; retained Drafted→Reviewed join and proposed successful Reviewed→Approved owner; failure/return/reassessment and evidence ordering | At most one owner per successful transition; missing evidence cannot cause approval; Approved is not Published |
+| Child — R183 | Existing UX scope and current story/sequence view | UI shows evidence, A-coverage and approval gaps distinctly; records judgment separately from invoking a remedy. Link historical storyboard A5/A6/B3–B6 and RACI journal §8 without rewriting them | One diagram/crosswalk consumed by UI and behavior; screen rendering, task completion and approval are not synonyms |
+| Child — R185/R186 | Product control rows including G-02a/SEC-01a/SEC-03a; existing criterion mapping | Name the actual Line/security classification and retain non-succession tests SC71/SC72/SC75; state current draft/open/future dispositions | No independence result inferred from a T-label; no test dropped merely by number range |
+| Last — R183/R186 | Build Spec / Inventory applicability; Encyclopedia sync ledger / Graphify | Scope/DoD and file-lifecycle effects, followed by derived-view impact assessment and independent evidence | Complete literal packet before application; source and graph currency demonstrated separately |
+
+**Preserve existing state semantics unless explicitly amended:** D-181's held target assigns
+Drafted→Reviewed to the non-judgment join. The new proposed final judgment may own the positive
+Reviewed→Approved effect, but completing an assessment with a negative result must not take that
+transition. Lane A must specify that non-positive path, and whether the stage remains blocked or
+closes negatively, without treating “assessment performed” and “approval achieved” as one flag.
+This is bounded behavior drafting, not a new business authority or a request to build.
+
+### Failure and success criteria
+
+The circular failure is: “only run T5 when missing A is already detected,” when T5 is the step
+meant to detect it. The false-positive failure is: “A exists, therefore the work was approved.”
+The duplicate-state failure is: both T5-FINAL and EDITORIAL_DISPOSITION independently approve the
+same package. Negate these in the existing R183 test plan:
+
+- Both complete and incomplete input packages reach assessment; only a positive, fully evidenced
+  result can authorize the successful transition.
+- Missing A and missing approval produce distinguishable findings and authorized next actions.
+- No remedy, button render or sealed agent task automatically fabricates the final judgment.
+- The proposed human judgment and its disposition are traced as one decision, not two approvals.
+- Publication evidence and historical actor attribution remain intact; no multi-account feature
+  becomes a V1 prerequisite.
+
+### Evidence / what Lane B did instead
+
+Read the current plan, Product anchors, route/crosswalk and Fn_Spec rules. Historical panels were
+cross-referenced, not promoted to operative authority. Encyclopedia Entries 01/04/05 remain impact
+candidates from the local ledger; the external artifact was not re-read and remains unverified.
+Graphify remains stale (`129efab` versus reviewed `32f48ef`); no rebuild or semantic-currency claim.
+
+Only this handoff clarification was appended, preserving Round 28's uncommitted review and Lane A's
+header. No governed/frozen source, plan, application, graph or provider changed; no commit or push.
+R182–R186 retain their existing identities and remain subject to literal correction and independent
+review. Lane A owns the Phase 1 follow-up; no new Lane C implementation is implied.
+
+### Round 29 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Judgment/workflow clarification | T5 assessment always happens; findings determine conditional work | Lane A parent decision draft |
+| **Approve-with-conditions** | T5-FINAL / EDITORIAL_DISPOSITION mapping | One judgment and recorded disposition proposed, not duplicate approvals | Exact state/outcome/actor contract under R183 |
+| **Reject** | Assigned A as approval, or incomplete assessment as approval | Both conflate distinct evidence facts | Product/behavior negative tests |
+| **Defer** | Handoff closure / Graphify / Encyclopedia verification | Literal propagation and derived-view verification remain incomplete | Settled-source synchronization and independent review |
+| **Defer** | AUTH-DOC / implementation | No application or build permission issued | Separate bounded Judge authorization |

@@ -241,6 +241,25 @@ record of what was corrected, and is explicitly non-operative (`B071-R39`).
   blanket "Encyclopedia: unaffected" claim — confirmed against `ENCYCLOPEDIA-SYNC.md` directly:
   Entries 01, 04 and 05 depend on files this correction touches and are marked impact-review
   candidates, not edited.
+- **§14 — proposed `D-189` Draft 5 (scoped correction to §13; addresses `B071-R183`, `R185`,
+  `R186`):** Round 29's Judge clarification makes `T5` editorial judgment **mandatory** — it always
+  runs, because the assessment is what detects a gap, so it cannot be conditional on the gap already
+  being known; "runs" is not "passes." Restores `T5-FINAL` as that mandatory human judgment
+  completing `T5`, and re-scopes `EDITORIAL_DISPOSITION` from §13's separate post-`T5` approval into
+  the **recorded outcome of that one judgment** — one decision, one disposition, no duplicate
+  approval authority. Corrects three errors in §13 found by Round 28's independent review: the
+  bundle join does **not** fully complete `T5`; `satisfied` is a value of
+  `workflow_transitions.line_separation_status` (an independence metric), **not** a "`T6`-labelled
+  state" whose control could be declared superseded — `G-02a` is amended in subject (`T5-FINAL` is
+  now the one transition that may be `satisfied`) and retained in substance, because renaming a
+  transition must not silently change the Line-classification result; and `SC71`/`SC72`/`SC75` test
+  source accuracy, application completeness and truthful status, so retiring them by numeric range
+  as "succession tests" was wrong. Reclassifies every criterion **by subject**. Adds the case table
+  separating missing `A` from missing approval evidence — a live case, since
+  `factory-route-operation-crosswalk.md` §2 records `OP-FINAL-SIGNOFF` with an accountable party and
+  **no `R` in source at all**. Drafts the non-positive `T5-FINAL` path §13 never specified, leaving
+  blocked-versus-negative-close as a named bounded question. Replaces §13.8's inherited execution
+  steps with an explicit application-readiness condition: this packet is **not** application-ready.
 
 **Artifact classification and propagation (`B071-R8`, `R16`):** this file is a `docs/v1/` tracking
 artifact under `D-36`, the same class as `V1-PHASE-CLOSURE.md`. It is registered in
@@ -2151,6 +2170,19 @@ on `B071-R181`; (5)–(10) unchanged from §11.11.
 
 ## §13 — Proposed `D-189` Draft 4: single-account V1, gate/workflow separation (resolves `B071-R182`–`R186` as narrowed by Round 27)
 
+> **Partially superseded by §14 (2026-09-04); heading claim corrected.** Round 28 found this
+> section **addresses** rather than resolves `R182`–`R186` — `R183` remains open — and this heading
+> is corrected accordingly by §14.7 rather than edited here. **Three specific errors are corrected
+> in §14, not rewritten here:** §13.2's claim that the bundle join *fully completes* `T5`
+> (Round 29: it does not — `T5-FINAL` is the mandatory human judgment inside `T5`); §13.2's
+> treatment of `satisfied` as a "`T6`-labelled state" whose control is superseded because there is
+> no gate six (`satisfied` is a value of `workflow_transitions.line_separation_status`, an
+> independence metric, not gate completion — `R183`); and §13.7's retirement of `SC71`–`SC75` as
+> succession tests when `SC71`/`SC72`/`SC75` test source accuracy, application completeness and
+> truthful status (`R186`). **What survives:** §13.1's single-account scope, §13.4's `PBL-04`
+> candidate, §13.3's `R182` and Encyclopedia corrections. **Preserved unedited as historical
+> record.** Read §14 for the current draft.
+
 **Independent of §1–§9.** Supersedes §11's gate-completion model and §12's succession machinery —
 see the notices at their headings. Preserves §11.1–§11.2 (Model A direction, `Acting Chief Editor`
 terminology) unedited. Nothing below is committed to any governed tier. `D-171` remains binding,
@@ -2319,4 +2351,215 @@ Unchanged in shape from §12.10: (1) this draft written, no governed tier touche
 fetch-prove; (3) independent Lane B review of Draft 4 specifically — Part 2 does not yet exist to
 review; (4) Judge bounded acceptance, including confirming or correcting `EDITORIAL_DISPOSITION`'s
 name; (5)–(10) unchanged from §11.11/§12.10.
+
+
+---
+
+## §14 — Proposed `D-189` Draft 5: mandatory `T5` assessment, one judgment and one recorded outcome (addresses `B071-R183`, `R185`, `R186`)
+
+**Independent of §1–§9.** A **scoped** correction to §13 — not a restoration of §§11–12, which
+Round 29 explicitly forbids. §13's single-account scope, `PBL-04` candidate, `R182` correction and
+Encyclopedia impact-review disposition all survive unedited and are not restated here. Nothing
+below is committed to any governed tier. `D-171` remains binding. `AUTH-DOC` remains unapproved.
+
+### §14.0 — Three errors in §13, corrected
+
+Round 28's independent review found each of these in Draft 4; all three are confirmed against
+source and are mine, not inherited:
+
+| Error in §13 | What the source actually says | Correction |
+|---|---|---|
+| §13.2: the bundle join *fully completes* `T5` | Round 29's Judge clarification: *"T5 editorial stage … is part of the judgement-gate hence is always happening else can't judge what goes missing."* The join signals readiness; it supplies no judgment | §14.2 — `T5-FINAL`, the mandatory human editorial judgment, completes `T5`. The join keeps only `Drafted → Reviewed` |
+| §13.2: `satisfied` is a "`T6`-labelled state," so `G-02a` is superseded "because there is no gate six" | `satisfied` is one of three values of `workflow_transitions.line_separation_status` (`Modular_PRD` `G-02a`, `FR-05`, `NFR-03`, `TR-DM-02`) — an **independence metric on a transition**, not gate completion and not article state | §14.5 — the control is **amended in subject, retained in substance**, drafted explicitly. Removing the label `T6` must not silently change the Line-classification result |
+| §13.7: `SC71`–`SC75` retired as "all succession tests" | `SC71` tests source-citation accuracy, `SC72` application completeness, `SC75` truthful lifecycle claims. Conversely `SC55`/`SC56`/`SC59` — which §13.7 called applicable — do concern replacement, rollback and reactivation | §14.6 — every criterion classified **by subject**, never by numeric range |
+
+**A fourth, about this plan's own claims:** §13's heading says it *resolves* `R182`–`R186` while
+§13.3 leaves `R183` open. Corrected at §14.7; §13's heading carries a correction notice rather than
+being edited, per this project's append-only convention.
+
+### §14.1 — Parent: `T5` assessment is mandatory; remedies are conditional
+
+**Proposed decision text, refined from Round 29's draft:**
+
+> **`T5` editorial judgment is mandatory for every article reaching that stage.** It evaluates the
+> required evidence and records what is sufficient or missing, **even when the package cannot
+> pass** — the assessment is what detects a gap, so it cannot be conditional on the gap already
+> being known. **"Runs" is not "passes."**
+>
+> **The existence of an accountable party is checked separately from evidence of that party's
+> approval.** Missing accountability and missing approval-from-an-assigned-party are two
+> distinguishable findings with different authorized remedies. No missing assignment or approval is
+> silently fabricated, and no assignment is silently rewritten to resolve one.
+>
+> **A failed or incomplete assessment cannot produce the successful approval transition.** Any
+> remedy follows its own governed workflow and is evidenced before a subsequent positive assessment
+> can authorize progression.
+
+**What this does not do:** it does not make every assessment pass, does not require a remedial
+sign-off on every article, does not authorize `OD4`, does not make V1 depend on `OD4`, and does not
+turn any post-`T5` action into `PBL-01`'s future `T6` assurance judgment.
+
+### §14.2 — The reconciled `T5` model: one judgment, one recorded outcome
+
+Round 29's recommended label reconciliation, adopted — this **restores `T5-FINAL`**, withdrawn in
+§13.1, and **re-scopes `EDITORIAL_DISPOSITION`** from a separate post-`T5` approval into the
+recorded outcome of that one judgment:
+
+```text
+T5 editorial judgment gate  (one gate; the count stays T1-T5)
+  |
+  ├─ T5-REVIEW act(s)          route-dependent virtual evidence (T5/T5a/T5b)
+  │                            agent executor + attempt refs; supplies evidence, not judgment
+  |
+  ├─ T5_review_bundle_sealed   deterministic readiness join; no R, no A, no judgment
+  │                            owns Drafted -> Reviewed  (D-181 target, PRESERVED)
+  │                            "bundle ready" is not "T5 complete" and not "approved"
+  |
+  └─ T5-FINAL                  MANDATORY human editorial judgment; completes T5
+                               performer: the sole Chief Editor via the one linked account
+                               always runs; records sufficient-or-missing either way
+                               |
+                               └─ EDITORIAL_DISPOSITION
+                                     the RECORDED OUTCOME of T5-FINAL - not a second
+                                     approval, not an independent state-changing act.
+                                     One decision, one disposition, traced together.
+
+Workflow actions (not gates)
+  remedy a finding, or act on the disposition (existing T7/T10/T11 publication path)
+
+Future T6 assurance -> PBL-01 only; absent, not applicable, not activated here
+```
+
+**Why this satisfies Round 27 and Round 29 together.** Round 27 excluded a *sixth judgment gate*;
+`T5-FINAL` adds none — it is the human act **inside** `T5`, and `T1`–`T5` remains five gates.
+Round 29 requires the assessment to be mandatory and its outcome recorded once; `T5-FINAL` runs
+always and `EDITORIAL_DISPOSITION` is its record, not a rival approval. **The duplicate-state
+failure Round 29 names — "both `T5-FINAL` and `EDITORIAL_DISPOSITION` independently approve the
+same package" — is structurally impossible under this shape**, because the disposition has no
+approval authority of its own.
+
+### §14.3 — Case table: what runs versus what it finds
+
+Adopted from Round 29, with the owning evidence named. **All four cases run the assessment.**
+
+| Case | `T5-FINAL` | Finding | Successful transition permitted? |
+|---|---|---|---|
+| Applicable `A` and required approval evidence both present | Runs | Assess remaining editorial rules; do **not** demand a duplicate missing-`A` sign-off | Only with a positive judgment **and** all required evidence |
+| A required `A` cannot be resolved for its scope | Runs, identifies the gap | Record the gap and the Chief Editor fallback action; preserve why the fallback was needed | **No** — not from the missing assignment alone |
+| `A` is known but required approval evidence is missing | Runs, distinguishes missing evidence from missing authority | Obtain the approval through its authorized workflow; do **not** automatically replace `A` | **No**, while required evidence is missing |
+| Required review evidence incomplete, or judgment negative | Runs, records the incompleteness or negative result | Governed return/hold/rejection path — see §14.4 | **No** |
+
+**This is a live case, not a hypothetical.** `factory-route-operation-crosswalk.md` §2 records
+`OP-FINAL-SIGNOFF` with `A = ROLE-DESK-EDITOR` and **`UNVERIFIED` — "no `R` in source at all"**.
+That is exactly case 3: an accountable party exists, the responsible executor does not. `T5`'s
+judgment assesses whether that operation's evidence exists; it does not itself perform the
+operation, and it does not rewrite the route's `A`.
+
+**No new persisted status enum is introduced by this table.**
+
+### §14.4 — Transition ownership, including the non-positive path §13 never specified
+
+| Transition | Owner | Condition |
+|---|---|---|
+| `Drafted → Reviewed` | `T5_review_bundle_sealed` join | Every route-required `T5-REVIEW` act sealed. Unchanged from `D-181`'s held target — **not moved to the human act** |
+| `Reviewed → Approved` | `T5-FINAL` | **Positive judgment AND all required evidence present.** Proposed as an amendment to the held target's owner; the effect itself is unchanged |
+| Non-positive outcome | `T5-FINAL` | **Drafted here for the first time** — §13 specified no such path. Proposed: the governed return/rejection route already defined for `T8`/`T9`, with the disposition recording the finding class (missing `A`, missing approval evidence, incomplete evidence, negative judgment) |
+
+**Open, and named rather than assumed:** whether a non-positive `T5-FINAL` leaves the stage
+**blocked** (article remains `Reviewed`, awaiting remedy and re-assessment) or **closes negatively**
+(a governed transition to `Rejected` or a return state). Round 29 requires Lane A to specify this;
+both readings are coherent and the choice has real consequences for re-assessment, so it is drafted
+as a bounded question for review, not silently decided. **"Assessment performed" and "approval
+achieved" are never one flag** under either reading.
+
+### §14.5 — The Line-classification control, drafted explicitly (`R183`)
+
+**`G-02a` is amended in subject, not superseded.** Its substance — exactly one transition in the
+editorial flow may carry `line_separation_status = 'satisfied'`; everything else is
+`not_applicable`; logged overrides are `override_not_four_eyes` and excluded from the metric — is a
+four-eyes independence control that survives this correction intact.
+
+| Element | Held target (`D-181`, `G-02a`) | Proposed under Draft 5 |
+|---|---|---|
+| Which transition may be `satisfied` | `T6` | **`T5-FINAL`** — the human Line 2 act consuming Line 1 agent evidence |
+| `T1`–`T5` review acts, join, Delivery | `not_applicable` | Unchanged |
+| Logged override | `override_not_four_eyes`, excluded from `G-02`/`G-02a` | Unchanged |
+| Metric target | 0 bypasses, no exceptions besides a logged override | Unchanged |
+
+**The Line boundary itself is unchanged**: agent-executed `T5-REVIEW` acts sit in Line 1; the human
+`T5-FINAL` judgment sits in Line 2; the crossing between them is what `satisfied` records.
+**Renaming the transition must not change the independence result** — that is precisely the failure
+`R183` names, and §13 would have caused it by declaring the control superseded.
+
+**Not decided here:** whether `T5-FINAL` requires its own RACI row in
+`raci-involvement-matrix.md` §3.1, and its exact `R`/`A` values given the existing `R = A` at the
+human act. That is Part 2 occurrence-ledger work under `R183`, named rather than improvised.
+
+### §14.6 — Criterion applicability, classified by subject (`R186`)
+
+Replaces §13.7's range-based retirement, which was wrong in both directions.
+
+| Criterion | Subject | Disposition |
+|---|---|---|
+| `SC55`, `SC56`, `SC59` | Replacement, rollback, reactivation | **Future `PBL-04` candidate.** Not V1 prerequisites |
+| `SC57`, `SC58`, `SC60`, `SC61` | Single-account authorization; base-role-insufficiency; editorial attribution; unauthorized-approval refusal | **V1-applicable**, with replacement/assignment-history predicates removed. Re-link each to its surviving owning requirement |
+| `SC62` | Non-selected Model B | **Historical only.** Never restated as operative — including here |
+| `SC63`–`SC69` | Recovery/control-principal | **Future `PBL-04` candidate**, preserved verbatim at origin |
+| `SC71`, `SC72`, `SC75` | Source-citation accuracy; application completeness; truthful lifecycle claims | **V1-applicable and retained.** §13.7 wrongly retired these |
+| `SC73` | Atomicity | **Split.** Succession atomicity → `PBL-04`. Editorial decision/evidence atomicity → V1, applied to `T5-FINAL`'s single write |
+| `SC74` | Identity/authority refusal | **Split.** Control-principal/former-session cases → `PBL-04`. Forged-identity and unauthorized-human-approval refusal → V1 |
+| `SC76` | No-extra-gate test | **Retained**, and explicitly *not* a substitute for event/state, authority or evidence tests |
+
+Added for this draft's own corrections:
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T5-V1-SC77` | An incomplete or gap-bearing package reaches `T5` | The stage runs | The assessment executes and records the finding; it is neither skipped for lack of a known gap nor marked bundle-ready or approved by having run |
+| `T5-V1-SC78` | An assigned `A` exists for a scope | Approval is evaluated | Assignment alone never satisfies an approval criterion; missing `A` and missing approval evidence produce distinguishable findings |
+| `T5-V1-SC79` | `T5-FINAL` and `EDITORIAL_DISPOSITION` are traced for one article | Approval authority is counted | Exactly one judgment and one recorded outcome exist; the disposition carries no independent approval effect |
+| `T5-V1-SC80` | The `T6` label is removed from the editorial flow | `line_separation_status` outcomes are compared before and after | The independence classification is unchanged: exactly one transition may be `satisfied`, and the metric's target is unaffected by the rename |
+
+### §14.7 — Status of `B071-R182`–`R186`, stated distinctly (`R186`)
+
+**This section addresses; it does not resolve.** Per-finding, with no blanket label:
+
+| Finding | Status |
+|---|---|
+| `R182` | **Draft-corrected** in §13.3 (unsupported `Entry007/S5` inference withdrawn). No further work |
+| `R183` | **Partially addressed.** §14.2/§14.4/§14.5 supply the judgment model, transition ownership and Line control. **Still open:** the complete occurrence ledger, literal owning-tier text for `Modular_PRD` §§4–5, `FN-GATES` §11.1, `FN-PUBLICATION` §§4–5, RACI §3.1 and the crosswalk — Part 2 |
+| `R184` | **Draft-corrected**, scoped: succession atomicity moved to `PBL-04`; `T5-FINAL`'s own decision/evidence atomicity retained in V1 (§14.6, `SC73`) |
+| `R185` | **Partially addressed.** The single-account authorization predicate survives §13's narrowing; **still open:** the actual owning security rows (`SEC-01a`/`SEC-03a`) required by narrow single-account approval |
+| `R186` | **Draft-corrected** by §14.6's subject-based mapping and this table. `SC62` remains historical |
+
+### §14.8 — Application readiness, replacing inherited execution references (`R183`)
+
+§13.8 inherited application steps from §§11–12, which Round 28 rejected. **Replaced with a
+condition, not a step list:**
+
+> This packet is **not application-ready**. Application may be offered for authorization only when
+> **all** of the following exist: (1) the complete occurrence ledger (`R145`–`R168`, Part 2);
+> (2) literal text for every owning-tier target named in §14.7's `R183` row; (3) the `SEC-01a`/
+> `SEC-03a` security rows under `R185`; (4) a decided non-positive path (§14.4); and (5) the RACI
+> `T5-FINAL` row disposition (§14.5). Until then, independent **draft** review remains possible and
+> application is refused — missing text is named, never improvised during execution (`SC72`).
+
+### §14.9 — What remains open
+
+1. **The non-positive `T5-FINAL` path** — blocked versus negative close (§14.4).
+2. **`T5-FINAL`'s RACI row and Line values** (§14.5) — Part 2.
+3. **`R183`'s occurrence ledger and literal owning-tier text**; **`R185`'s security rows** (§14.7).
+4. **`B071-R145`–`R168`** (Part 2) — unchanged, still not drafted.
+5. **`B071-R180`/`R181`** — attached to the `PBL-04` candidate (§13.4), unchanged.
+6. **Encyclopedia Entries 01, 04, 05** — impact-review candidates; external artifact still unread.
+
+### §14.10 — Write set
+
+**Unchanged from §13.6**, with these additions now named explicitly rather than omitted:
+`FN-GATES-01-05.md` §11.1 and `FN-PUBLICATION-09-10-13.md` §§4–5 (readiness versus judgment versus
+publication), `raci-involvement-matrix.md` §3.1, `factory-route-operation-crosswalk.md` §§2–4
+(`OP-FINAL-SIGNOFF` scope versus `T5`'s judgment about it), and `Modular_PRD.md` `G-02a`/`SEC-01a`/
+`SEC-03a`. **No literal text is supplied for these in this draft** — that is `R183`/`R185` Part 2
+work, and §14.8 refuses application until it exists. **Still explicitly unaffected:** frozen
+`docs/PRD.md`, the Charter, `0001_init.sql`, `PBL-01`, `V1-ARTIFACT-INVENTORY.md`,
+`Modular_PRD.md` §8, `V1-PHASE-CLOSURE.md`.
 
