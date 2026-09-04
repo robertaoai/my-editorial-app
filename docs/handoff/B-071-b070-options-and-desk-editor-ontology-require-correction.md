@@ -90,6 +90,25 @@
   occurrence-ledger thread (`B071-R145`–`R168`) is explicitly Part 2, not drafted this pass** —
   named so it is not mistaken for closed. Nothing applied to any governed tier; `AUTH-DOC` remains
   unapproved; `D-171` remains binding.
+  **Rounds 25–27 (2026-09-04) — read in full before this response.** Round 25 independently
+  reviewed §12 and found `B071-R182`–`R186`, two of which correct this response's own prior text:
+  `R182` — §12.1 invented `Entry007/S5`'s account/email mechanism, which the source specifies
+  neither of; `R186` — §12.9 cited `SC55`–`SC62` as continuing to apply, though Round 23 had
+  already superseded `SC62` as a positive criterion. Round 26 clarified email management is
+  external to the app. **Round 27 then removed multi-account succession as a V1 prerequisite
+  entirely**, and separately rejected `T5-FINAL` as a completion event — Round 27's own words:
+  *"the earlier proposal that a human `T5-FINAL` act completes T5 conflicts with this new
+  clarification."* **Draft 4 of proposed `D-189` is written to
+  `docs/v1/V1-B071-CORRECTIVE-PLAN.md` §13**, superseding §11's gate-completion model and §12's
+  succession machinery (both kept unedited as history): `T5` completes via its own already-decided
+  target mechanism; the human's subsequent act is proposed as a workflow step named
+  `EDITORIAL_DISPOSITION` — Lane A's drafting choice, not a Judge instruction, offered for
+  confirmation — carrying no gate-count increment. Succession/replacement machinery moves to a
+  future `PBL-04` candidate, dependency-ordered, not ranked or authorized. **§11.4's and §12.7's
+  blanket "Encyclopedia: unaffected" claim is withdrawn** — verified directly against
+  `docs/ENCYCLOPEDIA-SYNC.md`: Entries 01, 04 and 05 depend on files this correction touches and
+  are marked impact-review candidates, not edited. Nothing applied to any governed tier; `AUTH-DOC`
+  remains unapproved; `D-171` remains binding.
 - **Independent-Review:** Round 1 (Lane B, `80c8f38`, findings `B071-R8`–`R14`), round 2 (Lane
   B, `c6afdd0`, findings `B071-R15`–`R21`, plus the Chief Editor's direct `B071-R22`
   clarification), round 3 (Lane B, `2147636`, findings `B071-R23`–`R29`), round 4 (Lane B,
@@ -5274,3 +5293,407 @@ At review time local `HEAD` and upstream both remain `702fccc`; Graphify remains
 | **Reject** | Developer, agent or disabled account as recovery owner | No such authority was granted | Business-owner control principal only |
 | **Defer** | Loss of control credential/business ownership transfer | Separate exceptional continuity case | Future bounded business-continuity decision |
 | **Defer** | Application, Graphify and implementation | Planning only; `D-171` remains binding | Accepted Draft 3, `AUTH-DOC`, independent review, later `AUTH-F1` |
+
+---
+
+## Round 25 — Independent review of proposed D-189 Draft 3 Part 1 (2026-09-04)
+
+### Scope and evidence
+
+**Rewritten task:** Review `V1-B071-CORRECTIVE-PLAN.md` §12 at `5223a1e`, distinguish temporary
+LOA delegation from permanent account replacement, and return one parent-first corrective packet.
+Drafting only: no governed-tier application, authentication build, commit, push or lane transition.
+The pasted Lane A narrative is review input, not permission to act as Lane A.
+
+This is the existing B-071 item, not a new handoff or duplicate SOP. Structure follows the user's
+`handoff-gap-analysis-template.md` and the channel template. Lane A owns correction in Phase 1;
+Lane B independently reviews it; Lane C has no new workflow implementation in this packet.
+Completion means a source-traceable, internally consistent, fully specified documentation packet
+has passed independent review. It does not mean `AUTH-DOC`, `AUTH-F1` or implementation is approved.
+
+**Source evidence:** plan §12.0–§12.10; this handoff Rounds 19–24; Entry 007 §§1–4;
+`Modular_PRD.md` `RK-02`/`SEC-03`; `raci-involvement-matrix.md` §2;
+`FN-EXCEPTIONS-06-11-12.md` absence handling; `V1-BUILD-SPEC.md` V1 boundary and §6.
+Findings below are verified document defects, not evidence that an implemented exploit exists.
+
+### What happened — terminology and the actual boundary
+
+| Term | Normalized meaning | Source/limitation |
+|---|---|---|
+| `Entry007/S5` | Historical accepted proposal for temporary, board-approved LOA with auto-reversion | Entry 007 §2; its row ID is not evidence of a sprint ID or an implemented account mechanism |
+| Permanent account succession | Replacement account becomes current; former account remains permanently disabled | Judge clarification, Rounds 23–24; temporary auto-reversion is not part of this path |
+| Acting Chief Editor | Time-bounded accountability assignment, distinct from account, role and natural person | Round 21 and plan §12.2; historical attribution survives reassignment |
+| Business-owner control principal | Proposed authenticated recovery identity, bound to the business owner's authority | Round 24; an ID label alone does not prove that binding or identify an implemented control system |
+| `executor_principal_key` | Agent executor identity, never the human approver or recovery owner | Round 21 `R163`, incorporated by §12.2 |
+| Draft-addressed / Applied / Verified | Proposed correction / committed application / independent confirmation | Channel template; committing a draft is not applying its contract |
+
+**Preserve:** splitting the writing into parts is sensible; independent recovery, stable historical
+account/assignment attribution and separation from agent identity are useful requirements.
+**Do not infer:** that the writing split makes either part independently executable, or that
+Entry 007 specifies a shared account, shared email, shared credentials or current V1 LOA execution.
+Entry 007 explicitly limits its acceptance to Phase 0 and says it ratifies nothing. Later operative
+decisions determine present delivery scope; the journal alone does not reopen it.
+
+### Gap list — deduplicated, parent first
+
+All findings originate in this Lane B document review. Each correction retains its finding ID;
+the existing `R181` is narrowed rather than re-created as another LOA finding.
+
+| Finding | Verified evidence / failure condition | Severity | Parent |
+|---|---|---|---|
+| `B071-R182` — `R181` rests partly on unsupported LOA assumptions | §12.1 says “None created; same account, same email”; Entry007/S5 specifies no account/email mechanism. §12.9 `SC70` forces a choice between two implementations before establishing that temporary LOA is in this V1 packet. Reusing the original account without separately attributable delegate identity would defeat the intended historical attribution | Blocks accepting the proposed LOA ruling, not drafting permanent recovery | Existing scope/authority decisions |
+| `B071-R183` — drafting independence is mistaken for application readiness | §12.7 postpones the Product/security rows to Part 2, yet §12.10 offers acceptance followed by §11.11 application. §12.2 also depends on Part 2's `R163` identity correction. Applying this packet as-is would require inventing missing text or leaving conflicting operative rules | Blocks application handoff | R182 scope boundary; existing R145–R168 interface/occurrence ledger |
+| `B071-R184` — successful succession and its audit event are separate writes | §12.4 step 6 commits the switch; step 7 appends its evidence afterward. If step 7 fails, the holder changes without the required event. Provider email verification/account access and the application database also have no stated common transaction boundary | Blocks acceptance of the behavioral transaction contract | R183 complete behavior/write set |
+| `B071-R185` — authorization predicates lack explicit trust and revocation tests | §12.5 names an authenticated control ID and current application holder, but does not explicitly test the control ID's authorized business-owner binding or retained sessions after succession. The agent predicate lists identifiers without establishing their trusted binding. Labels or possession of IDs must not become proof of authority | Blocks security acceptance; not a claim that bypass already exists | R183 interfaces and existing R174/R175/R178; R184 switch boundary |
+| `B071-R186` — lifecycle and criterion references contradict their own exceptions | §12.6 calls every R169–R181 item Draft-addressed; §12.8 leaves R180/R181 unresolved. §12.9 says SC55–SC62 continue to apply although Round 23 explicitly supersedes SC62 as a positive criterion. “No commit exists” also fails to distinguish draft commit from application commit | Blocks accurate handoff status | Dispositions from R182–R185; retain unresolved Part 2 separately |
+
+### What Lane A needs — smallest corrective sequence
+
+1. **R182: repair the source boundary first.** Replace the unsupported account/email cell with
+   “Not specified by Entry007/S5.” Cite it as historical acceptance, not a delivered mechanism.
+   Recommended bounded disposition for Judge review: this V1 packet specifies permanent account
+   recovery only; temporary LOA execution is not added by it. Preserve the historical LOA record and
+   link its existing deferred absence/delegation owner. Do not create another backlog identity or
+   silently equate Entry007/S5 with sprint S5. If temporary LOA is explicitly brought into V1,
+   obtain that scope decision first, then specify actual delegate identity and automatic reversion.
+   Do not present shared-account action as safe merely because the assignment stays singular.
+
+   **Replacement boundary text, proposed:** “Permanent recovery does not implement, supersede or
+   auto-revert under the historical Entry007/S5 temporary LOA proposal. That proposal specifies no
+   account or email mechanism. Its runtime design is outside this narrow V1 recovery packet;
+   existing absence handling is unchanged.” Amend `SC70` to test this boundary unless the Judge
+   explicitly selects a wider packet. This recommendation is not a recorded Judge approval.
+
+2. **R183: retain separate drafts, assemble one complete application contract.** Part 1 may be
+   reviewed on its own, but its approval must say “draft review only” until the identity/assignment
+   and human-final-action interfaces are fixed and every changed owning-tier row has literal text.
+   Link the existing R145–R168 occurrence ledger rather than recreating it. Reconcile the Register,
+   Build Spec, Product/security behavior and shared no-login rules within the approved write set;
+   name Inventory impact explicitly, without inventing an artifact. Do not reuse rejected §11
+   execution text unchanged or claim that unfinished T5 semantics are already settled.
+
+3. **R184: put authoritative succession and its successful audit event in one atomic outcome.**
+   Failure to preserve the event must prevent the authoritative switch. Define preconditions,
+   concurrency/retry behavior and the authority-check boundary in behavior terms. In the later
+   technical design, identify which provider steps are preparatory and how incomplete provider
+   work is reconciled; do not promise a database rollback can undo an external provider action.
+   Neither a pending provider identity nor a delayed revocation may confer application authority.
+   “Exactly one holder” means one authorized account/assignment after initialization, not proof
+   that a person can still authenticate using a lost credential.
+
+4. **R185: state and test the authority binding, not just the identifier.** Recovery requires the
+   authenticated principal to be registered/authorized for this business's account-control action.
+   Re-check the current account/assignment at the authoritative T5-final write; possession of a
+   former session, base role or client-supplied principal is insufficient. Preserve existing
+   agent-identity assurance rules by reference; the new predicate is not permission to replace
+   them with supplied IDs. Full S6 stays deferred, but the narrow control must cover every path
+   that can perform the protected write, not only the UI button.
+
+   **Correction to earlier Lane B wording:** Round 24's “normal flow is decided” establishes the
+   business recovery owner, not an implemented control plane or approved provider design. An
+   independently recoverable credential is the required outcome; a new custom control application
+   is not mandated. Any provider/system selection remains an explicit later technical choice.
+
+5. **R186: correct only current claims.** Name drafted content, unresolved R181 scope disposition,
+   R180's proposed future continuity disposition and unfinished Part 2 separately. Cite Round 23's
+   normalized criteria; SC62 remains historical/non-selected, not an operative positive test.
+   Say “no application commit” rather than “no commit.” Preserve old review history and do not
+   close findings solely because a draft contains their IDs. Then perform the existing final-source
+   Graphify/check/independent-review sequence; do not duplicate the transaction SOP here.
+
+### Success criteria — failure must be observable
+
+These tests extend, rather than replace, the existing SC55–SC69 contract with its Round 23 caveat.
+They are proposed acceptance tests, not tests executed against an authentication implementation.
+
+| ID | Given / when | Required result |
+|---|---|---|
+| `T5-V1-SC71` | A reviewer follows the Entry007/S5 citation | Only temporary/board-approved/auto-reverting behavior is attributed to it; account/email mechanism is explicitly unspecified; no new V1 LOA runtime is inferred |
+| `T5-V1-SC72` | Part 1 is offered for application while owning-tier rows or the human-final-action interface remain undrafted | Application is refused; independent draft review remains possible; missing text is named, not improvised during execution |
+| `T5-V1-SC73` | Audit persistence fails, a competing switch occurs, or a successful switch request is retried | No unaudited authority change, no two current holders, and no duplicate successful succession; external preparatory work cannot bypass the authoritative outcome |
+| `T5-V1-SC74` | An authenticated but unbound control identity, forged principal, or former holder's retained session attempts a protected action | Refused at the authoritative write path; the properly authorized owner/current holder succeeds in the corresponding positive case |
+| `T5-V1-SC75` | The revised plan and B-071 current claims are compared | R180/R181 dispositions are explicit, SC62 is historical, draft and application commits are distinguished, and Part 2 remains open wherever its contract is unfinished |
+
+### Drift and cross-lane handback
+
+| Surface | Observed state | Consequence |
+|---|---|---|
+| Reviewed source | Local `HEAD` and cached upstream are `5223a1e`; source read directly | This is the reviewed draft revision. Remote GitHub status was not independently refreshed in this review |
+| Graphify | `lastAnalyzedHead = 129efab` differs from `5223a1e`, despite `stale: false` | **DRIFTED.** Do not rely on its semantics for current D-189 approval; Lane A must synchronize settled source before consuming approval/closure |
+| Application/authorization | No governed D-189 application or product build performed by this review | A document defect is not an implemented security exploit, and a review verdict is not execution permission |
+
+Lane A's separation of writing work is accepted; its claim of a fully independent execution seam
+is not. Lane B also narrows its own prior recovery wording above. No new Lane C work is inferred.
+If event append fails after the proposed switch, missing audit evidence is a deterministic failure
+of that sequence. Other risks above are conditional failure paths, not guarantees of compromise.
+
+### What Lane B did instead
+
+Appended this draft-only review to B-071, leaving Lane A's header and plan unchanged. No frozen
+source, other governed tier, provider, application code, Graphify state or lane state was changed.
+No commit or push was performed; `package-lock.json` was left untouched. This review is not a
+terminal `Verified` disposition for B-071 or any implementation authorization.
+
+**Checks observed during this review:** `bun run check` reported 16/17 passing; only `docs-drift`
+failed (`129efab` versus `5223a1e`). `git diff --check` passed. These are documentation consistency
+results, not executed authentication/succession acceptance tests or fresh remote-push proof.
+
+### Round 25 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve-with-conditions** | Proposed D-189 drafting structure | Review auth/recovery separately; application requires the complete shared interface and literal write set | Revised Part 1 plus required Part 2 dependencies, R183 |
+| **Approve-with-conditions** | Permanent recovery versus LOA boundary | Preserve historical LOA; do not infer its account mechanism or force its implementation into V1 | Judge review of R181's narrowed disposition, R182 |
+| **Reject** | Draft 3 transaction/security acceptance | Audit atomicity and authority/refusal evidence are incomplete | Product/behavior/security corrective draft, R184–R185 |
+| **Reject** | B-071/plan closure claims | Outstanding dispositions and superseded criterion are not consistently represented | Lane A current-claim correction, R186, then independent review |
+| **Defer** | Graphify terminal currency | Stale; source review can proceed, synchronized approval cannot be claimed | Settled-source synchronization and full local checks |
+| **Defer** | AUTH-DOC, AUTH-F1 and implementation | No new authorization; D-171 remains binding | Separate bounded Judge authorization after required review |
+
+---
+
+## Round 26 — External email management versus V1 editorial authority (2026-09-04)
+
+### Scope / what happened
+
+**Rewritten request:** Cross-reference the Product requirements and existing story panels/diagrams
+against R182–R186; keep email management outside my-editorial-app and simplify V1 around one
+current Chief Editor. Draft the smallest Lane A correction, without building or changing governed
+tiers. Use the existing handoff; do not open another finding series or repeat the transaction SOP.
+
+The Judge clarified that email management is external. The phrase “beyond scope to keep track” is
+not precise enough to withdraw historical editorial attribution or determine whether in-app
+succession itself is being removed. That portion remains a bounded question, not an inferred ruling.
+The quoted “push; just done” is not evidence that the new working-tree reviews were committed.
+
+**Closure for this packet:** the clarified boundary is reflected in literal owning-tier draft text,
+all relevant panels point to that same contract, and independent review confirms the affected
+R182–R186 dispositions. No application, auth build or lane promotion follows from this review.
+Lane A owns the Phase 1 correction; Lane B reviews; no new Lane C work is required.
+
+### Cross-reference — what actually exists
+
+| Requested surface | Located source / verified observation | Treatment in the existing packet |
+|---|---|---|
+| Product persona and scope | `Modular_PRD.md` §§2.3.1, 2.5: human `USR-CHIEF-EDITOR` separated from agents; NG-02 describes one Chief Editor account | One current human user is not an agent identity, a mailbox-management feature or proof that past decisions need no actor |
+| Storyboard / story panels | `journal/2026-08-18-storyboard-business-and-digital-twin.md`: A1 discovery outside the app; A2 intake; A5 human T5; A6 agent T6; A7 publication; B3–B6 reuse A2–A6 | Historical review artifact, not the current target. Build Spec's opening supersession notice covers the 2026-08-18 journal analysis set. Preserve history; add these occurrences to R183's existing ledger, not a second storyboard contract |
+| UML-style sequence / data-flow diagrams | The same storyboard contains Mermaid sequences at A2/A5 and flowcharts at B7/§3; `journal/2026-08-18-raci-human-vs-digital-twin.md` §8 contains a sequence and panel/RACI crosswalk | These diagrams still describe the historical T5/T6 arrangement. No storyboard/UML section was found in `Modular_PRD.md` itself. Do not claim the old diagrams verify proposed D-189 |
+| App boundary and data | `Modular_PRD.md` §§6.2–6.3: transition endpoint and transition actor fields; FR-07, NFR-02/NFR-08: durable who/when/why evidence | Keep an app identity/authority reference and editorial evidence. Do not import mailbox creation, inbox contents, mailbox credentials or provider recovery history |
+| Authentication | `Modular_PRD.md` §6.2 Phase 0 anonymity note and §6.5 SEC-03/SEC-03a defer broad auth to S6; plan §12 proposes a narrow exception | R183 still needs exact exception text before application. External authentication does not by itself define permission to approve in this app |
+| UI layout | `specs/README.md` assigns UI to `docs/specs/ux/`; the enumerated existing spec files contain no corresponding Chief Editor UX file | Use the already proposed UX scope, not an invented completed screen. Product owns behavior; a future approved UX artifact owns layout, with D-54 inventory impact if created |
+
+### Normalize the boundary before changing children
+
+| Layer | V1 boundary for drafting |
+|---|---|
+| External email service | Creates/manages mailboxes and their credentials/recovery. Not a my-editorial-app feature |
+| External identity/control service, if selected | May authenticate the owner/account or provision access. This is not automatically the email service, and no provider/control system has been selected by this clarification |
+| my-editorial-app | Recognizes the sole current authorized Chief Editor, permits the protected editorial decision, records its actor/result/time/reason and displays the corresponding report |
+| Historical editorial evidence | Identifies the actor effective at the decision time. It is not a multi-account administration dashboard or mailbox-history service |
+| “Active Chief Editor” | Treat as a proposed description of the current holder, not a new role/ID or a development-lane `Active` state. Existing draft term is “Acting Chief Editor assignment”; confirm any intended rename before propagation |
+
+**Proposed replacement boundary text:** “Email-account management is external to my-editorial-app.
+V1 exposes one currently authorized Chief Editor for editorial judgment. It does not build mailbox
+administration, a general user directory or a delegation-management system. External identity
+proof is consumed only as needed to establish this app's current authority. Editorial evidence
+retains who performed the decision; external email-management history is not copied into the app.”
+The final sentence is the recommended preservation of existing FR-07/NFR-08, pending the question
+below; it is not a claim that the Judge has just re-approved a complete identity design.
+
+### Parent-first fix guide — reuse R182–R186
+
+| Order / existing owner | Lane A draft correction | Success criterion / refusal condition |
+|---|---|---|
+| Parent — R182 | Record external email ownership; remove any implied in-app mailbox creation/recovery UI. Keep Entry007/S5's unspecified account mechanism unspecified. This clarification does not decide temporary LOA implementation | Every email-management operation is outside the app boundary; no new LOA feature is introduced by analogy |
+| Parent clarification — R184/R185 scope | Ask whether “beyond scope to keep track” excludes multi-account administration only, while preserving attribution on past editorial decisions. Also state whether replacement remains externally administered or is still an in-app succession feature; do not build either by assumption | The chosen scope names what the app stores/authorizes, without silently deleting the earlier historical-attribution requirement |
+| Child — R183 | Add the located A5/A6/B3–B6 and RACI §8 occurrences to the existing ledger. Draft one current target flow, with links to owning Product/behavior/UX text; historical panels remain historical | No implementer must choose between journal T6-agent approval and the proposed human T5-final action; no separate duplicate UML/spec is required merely to repeat the flow |
+| Child — R184 | Narrow the requirement to the app's own authorized change and evidence. Do not require app transactions to undo external mailbox operations. If in-app succession is removed from V1, its detailed transaction is outside V1; FR-07's editorial decision/evidence invariant remains | A successful editorial state change cannot lack its required actor/evidence. Apply SC73's succession-specific cases only if that succession capability remains in scope |
+| Child — R185 | Keep the minimum check for the one current Chief Editor. External email control, a role label or an agent key is not independently sufficient. No bespoke control-plane UI is mandated | Unauthorized requests cannot approve, including an obsolete identity/session if replacement is supported; the current authorized holder can approve. No general multi-user system is required |
+| Last — R186 | Record each narrowed disposition accurately; preserve SC62 as historical. Then use the existing settled-source synchronization and independent-review procedure | No “all resolved” claim while the tracking question, literal write set or target flow remains undecided; no closure based on a draft commit |
+
+**Minimal proposed story flow:** external sign-in/access administration -> app recognizes current
+Chief Editor -> T1–T5 evidence/report presented -> human editorial decision -> decision/evidence
+recorded -> existing publication/report path. This is a review sketch, not a new state machine:
+exact T5-final event/state semantics remain with R183/Part 2; T6 assurance and monetization stay
+outside this packet. Account-access administration is not another editorial gate.
+
+### Failure boundary and clarification
+
+- If email administration is implemented as an app feature, the stated external boundary is breached.
+- If a mutable current-holder name replaces attribution on older decisions, a later replacement
+  makes those decisions appear to belong to the wrong person. One concurrent user does not prevent this.
+- If only a UI label authorizes approval, the narrow authentication requirement is not satisfied.
+- Reusing historical A5/A6 literally would reinstate the old T5/T6 contract. This is already R183's
+  propagation problem, not a new independent backlog item.
+
+**Question for the Judge:** Does “beyond scope to keep track” exclude only multi-account
+administration, while retaining who approved each past editorial decision? Until answered, Lane A
+can draft the external-email boundary and cross-references, but must not remove attribution or
+declare the succession/authorization findings closed.
+
+### Drift / what Lane B did instead
+
+Reviewed source at local `5223a1e`; Graphify remains at `129efab` despite its false `stale` flag.
+Thus graph currency is **DRIFTED**, not evidence of current semantic alignment. No callable
+Graphify skill was available in the session catalog or searched local skill locations; currency
+was checked directly, and stale graph semantics were not used to validate the new model.
+The journal diagrams are historical, not defective merely because they are old; consuming them as
+the new target without the existing supersession path would be the defect.
+
+Lane B appended only this handoff clarification, preserving the uncommitted Round 25 review and
+Lane A's header. No governed file, frozen source, provider, graph, application or lane state changed;
+no commit/push was performed. Existing transaction SOP and finding IDs were reused.
+
+### Round 26 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Product boundary clarification | Email management is external; no bespoke mailbox-management feature | Lane A literal scope draft under R182/R183 |
+| **Approve-with-conditions** | V1 current-holder model | One current Chief Editor; not a general multi-user feature | Judge clarification on historical attribution and succession boundary |
+| **Reject** | Removing audit/authority solely because V1 has one user | Does not follow from the scope clarification | Preserve minimal FR-07/NFR-08 and narrow authorization contract |
+| **Defer** | R182–R186 terminal closure / Graphify | Scope question and literal propagation remain open; graph stale | Completed draft, settled-source sync, independent review |
+| **Defer** | AUTH-DOC / implementation | No execution approval from this review | Separate bounded Judge authorization |
+
+---
+
+## Round 27 — Single-account V1 and judgment-gate/publication-workflow separation (2026-09-04)
+
+### Scope / clarification captured before children
+
+**Rewritten task:** Consolidate the Judge's single-account scope and gate/workflow distinction;
+review source ownership, story panels and the Encyclopedia dependency map; narrow R182–R186 and
+give Lane A one parent-first documentation plan. No implementation or governed-tier application.
+This continues the same Phase 1 handoff with Lane A drafting and Lane B independently reviewing.
+
+**Judge clarification received in this turn, normalized for drafting:**
+
+- V1 links one email account to the sole Chief Editor/current authorized holder. Email management
+  is external. Multi-account tracking and its progressive build belong in the future backlog.
+- T1–T5 are editorial judgment gates. Virtual-node agents perform work within that flow; their
+  task execution is not a separate definition of the gate or evidence of a human approval.
+- The editorial flow completes at T5 and presents its output through the UI. The user's subsequent
+  publication approval is a workflow action, not an additional judgment gate. Historical use of
+  “T6 approval” must not turn this into either a sixth judgment gate or the deferred T6 assurance feature.
+
+This answers Round 26's scope concern sufficiently to stop treating multi-account succession as
+a V1 prerequisite. It does not instruct deletion of FR-07's existing editorial event evidence.
+**Correction to Lane B's earlier guidance:** the staged replacement-account/assignment-history
+design in Rounds 23–26 must not remain a mandatory V1 dependency after this narrowing. Likewise,
+the earlier proposal that a human `T5-FINAL` act completes T5 conflicts with this new clarification;
+Lane A must disposition that clause explicitly, not carry it forward under a different label.
+These are inputs for the Register's bounded scope/supersession record, not claims of applied D-189.
+
+### What belongs where — canonical records versus source material
+
+| Material | Function | What it cannot do |
+|---|---|---|
+| Frozen Project PRD/Charter | Customer/source baseline, cited under the existing traceability process | Be rewritten during this correction |
+| Journal storyboard and RACI analysis | Dated source reasoning, panels and diagrams that can be cited as historical evidence | Act as the current behavior contract or become a mutable backlog/authority ledger |
+| Register / Build Spec / Inventory / originating handoff | Decisions; sprint scope/DoD; file lifecycle; finding evidence and disposition, respectively | Replace one another or copy live status into the journal |
+| Modular_PRD / Fn_Specs / SPECS-UX | Product requirements; behavior; stack-specific UI, respectively | Treat an old illustrative panel as a new authorization |
+| External Encyclopedia | Derived explanation of cited sources; its local sync ledger tracks dependencies and verification | Govern the source requirements or prove its own currency from local checks |
+| Graphify | Derived navigation/evidence over the source corpus | Supply missing approval, scope or lifecycle authority |
+
+**Verified references:** `docs/README.md` “How a request becomes execution” and “Journals preserve
+analysis, not authority”; Build Spec's opening supersession notice; `Modular_PRD.md` §§2.3.1,
+2.5.2, 4–6, 9; `FN-GATES-01-05.md` §11.1; plan §§11–12; `ENCYCLOPEDIA-SYNC.md` citation map.
+Keep historical journals intact. A new current storyboard view belongs with the owning behavior/UX
+contract and links back to the historical panel; it does not require a second governing document.
+
+### Cross-reference findings — continue the existing IDs
+
+| Existing ID | Evidence and narrowed correction | V1 applicability |
+|---|---|---|
+| R182 | Plan §12.1 invents Entry007/S5's account/email mechanism; §§12.2–12.4 go beyond one linked account into replacement identities/control-plane machinery | Remove the invented source claim. External mailbox administration, temporary delegation and multi-account succession are not V1 blockers |
+| R183 | Product US-04a/US-05a/US-09, FR-04a/FR-05a, SEC-03a and historical storyboard A5/A6/B3–B6 carry differing human/agent T5/T6 meanings; plan §11 still makes `T5-FINAL` complete T5 | One owning contract must separate gate completion, agent evidence, human UI approval and publication result before literal propagation |
+| R183 — Encyclopedia impact extension | Plan §§11.4/12.7 declare the Encyclopedia unaffected. Its actual local ledger maps Entry 01 to FR-05/SEC-01/FN-GATES, Entry 04 to publication state/specs, and Entry 05 to successor review/assurance | Blanket “unaffected” is unsupported. Mark these as impact-review candidates in the existing propagation packet; actual content changes depend on reading the external artifact |
+| R184 | The previously proposed succession transaction is outside narrowed V1; Product FR-07/NFR-02 still require attributable editorial transitions | Move succession-specific failure tests out of the V1 checklist. Preserve atomic editorial decision/state evidence; do not demand a transaction spanning an email provider |
+| R185 | One account removes the need for role switching, not the distinction between the authorized human, an agent and a supplied label | Keep only the chosen narrow single-account approval authorization; no bespoke account-control system or multi-user administration required |
+| R186 | “All draft-addressed” and SC62's revived positive status remain inconsistent; several former succession criteria now have a different scope | Record scope dispositions explicitly. Removed V1 work is not “implemented,” and backlog planning is not readiness or authorization |
+
+### Smallest target storyboard / data-flow draft
+
+This table is the proposed shared input to the next sequence diagram, not a second state machine.
+Use these semantics for the story panels and UML-style sequence view; do not mint another `T6` ID.
+
+| Stage | Performer | Output / boundary |
+|---|---|---|
+| T1–T4 judgment gates | Assigned virtual-node agents | Gate-specific work and evidence; neither a human approval nor automatic publication |
+| T5 judgment gate and required evidence completion | Assigned reviewer agent(s), with the defined non-judgment completion mechanism | Completed editorial review packet. Gate criterion, agent task, and bundle-join operation remain distinct |
+| UI presentation | System | Displays the completed packet and publication controls to the sole Chief Editor; rendering the screen approves nothing |
+| Publication approval workflow | Human Chief Editor using the linked account | Records the human disposition and its evidence. This occurs after T5 and does not complete T5 again |
+| Publication/report outcome | Existing publication workflow | Approved is not Published or proof of delivery; retain the owning publication/report contract |
+
+Under the held D-181 target, the non-judgment bundle join owns `Drafted -> Reviewed`. Preserve or
+explicitly amend that state mapping in the new decision; never silently move it to the human UI
+action. The exact name of the post-T5 approval event and its mapping to article/publication states
+remain Lane A drafting work for review, not a reason to add a sixth judgment gate. PBL-01's future
+T6 assurance remains separate and is not activated by this publication workflow.
+
+### Lane A follow-up — parent first, one source per fact
+
+1. **Capture the scope and partial supersession parent.** Draft the bounded D-189 amendment for
+   one linked account and post-T5 human publication approval. Identify the now-out-of-V1 succession
+   clauses and the incompatible `T5-FINAL`-completes-T5 clause. Preserve frozen sources; do not treat
+   this clarification or the handoff review as authorization to apply the packet.
+2. **Draft the minimal V1 child contract.** Link the account to the authorized Chief Editor; retain
+   the existing narrow authentication requirement without expanding it into account administration.
+   Map T1–T5 evidence completion, UI presentation, human disposition and publication outcome once.
+   Correct literal Product/behavior/UX references and higher-precedence overlays through R183's
+   existing occurrence ledger. No parallel event or second completion point may be invented.
+3. **Refine the future multi-account candidate in dependency order.** Use existing `PBL-04` as the
+   candidate parent; its current canonical label is “Multi-team accounts,” so explicitly draft the
+   inclusion of multi-account succession rather than silently broadening or renaming it. Proposed
+   increments: (a) user/account and permission boundaries; (b) controlled current-holder switching
+   with assignment history and session revocation; (c) temporary delegation/recovery edge cases.
+   Preserve R184/R185's relevant tests with those future increments. This is dependency order, not
+   an approved sprint schedule, numerical priority or promotion above other backlog items. V1
+   completion neither deletes nor authorizes the backlog candidate; do not merge it with PBL-01,
+   PBL-02 or PBL-09 (Email/Slack notifications is not mailbox management).
+4. **Correct lifecycle and derived views last.** R186 records which tests remain V1 and which
+   become future-feature candidates. Keep SC62 historical; succession-specific SC55–SC69/SC73
+   need applicability review, not a blanket “continue to apply.” Assess Encyclopedia entries through
+   the existing sync ledger. Synchronize Graphify only after the source packet settles, then run
+   checks and obtain independent review. Use the existing commit/push SOP; do not duplicate it.
+
+### Success criteria and failure tests
+
+- **Scope:** no V1 screen, requirement or prerequisite demands multiple accounts, old/new assignment
+  history, mailbox management or a custom recovery control plane. The sole linked account can
+  perform its authorized editorial approval; an agent or arbitrary identity cannot substitute.
+- **Sequence:** a completed T5 packet without a human UI disposition remains unapproved for
+  publication. A human disposition cannot manufacture missing T1–T5 evidence or complete T5 again.
+- **State/evidence:** UI rendering changes no approval state; a persisted approval retains the
+  required who/when/why evidence and does not falsely claim successful publication/delivery.
+- **Traceability:** current story/diagram references lead to one accepted target; historical journal
+  labels remain explainable but are not executable instructions. Open findings, PBL ownership and
+  authority remain in their canonical records, not solely in a journal or Encyclopedia.
+- **Backlog:** multi-account increments have an explicit candidate parent and dependencies; neither
+  their existence nor V1 closure is treated as build permission or an approved priority rank.
+
+The deterministic failures are boundary errors: making account succession a V1 dependency contradicts
+the narrowed scope; labeling post-T5 approval as another judgment gate adds a gate the Judge excluded;
+using a current display label to replace recorded actors loses attribution. These are separate from
+claims about security exploits or legal compliance, neither of which this review establishes.
+
+### Evidence limits / what Lane B did instead
+
+Local reviewed `HEAD` remains `5223a1e`; Graphify's `lastAnalyzedHead` remains `129efab` (**DRIFTED**).
+The external Encyclopedia could not be retrieved; its content/currency is **UNVERIFIED**, while
+the local citation map was read in full. The failed retrieval does not block local source drafting
+and does not establish the Encyclopedia is wrong. Lane A should read it in full before any update;
+no external artifact was edited or republished here.
+
+Only this B-071 review was appended. Earlier uncommitted review sections and Lane A's header were
+preserved. No new finding IDs, governed-doc edits, source rewrites, graph rebuild, code, provider
+configuration, commit, push, or lane-state transition occurred. Independent closure remains pending.
+
+### Round 27 approve/reject gate
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | V1 scope clarification | One linked account; multi-account progression is future work | Lane A bounded scope/partial-supersession draft |
+| **Approve** | Editorial/publication separation | T1–T5 judgment flow precedes human UI publication approval | R183 literal state/event and panel crosswalk |
+| **Reject** | Mandatory V1 succession and human action completing T5 again | Earlier proposed dependencies conflict with the clarified scope | Correct plan and test applicability under R182–R186 |
+| **Approve-with-conditions** | PBL-04 refinement proposal | Dependency order proposed; scope membership/rank not yet recorded | Future Product backlog refinement, no automatic V1 carry-in |
+| **Defer** | Encyclopedia / Graphify verification | Dependency impact identified; external contents unavailable; graph stale | Read external artifact, settle sources, synchronize and review |
+| **Defer** | B-071 closure / AUTH-DOC / implementation | Clarification and review only; no new execution authority | Complete literal packet, independent review, bounded Judge authorization |

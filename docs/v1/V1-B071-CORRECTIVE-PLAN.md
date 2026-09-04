@@ -226,6 +226,21 @@ record of what was corrected, and is explicitly non-operative (`B071-R39`).
   authorization predicates (control-plane / `T5-FINAL` / agent) so no one identifier satisfies more
   than one. No physical schema, auth-provider configuration, or code is proposed — every field is a
   logical proposal, per Round 21–24's own repeated instruction.
+- **§13 — proposed `D-189` Draft 4 (partially supersedes §11's gate model and §12's succession
+  machinery; resolves `B071-R182`–`R186` as narrowed by Round 27):** the Judge removed multi-account
+  succession as a V1 prerequisite entirely — V1 links **one** account to the sole Chief Editor;
+  email management is external; succession/replacement machinery moves to a future `PBL-04`
+  candidate, dependency-ordered but not ranked or authorized. Also corrects the gate model: `T5`
+  completes via its own already-decided target mechanism (evidence acts + non-judgment bundle
+  join), and the human's subsequent action is a **workflow step, not a sixth judgment gate** —
+  proposes the literal name **`EDITORIAL_DISPOSITION`** for it, Lane A's drafting choice, flagged
+  for review, replacing the withdrawn `T5-FINAL`. Corrects two errors in §12's own text, both
+  caught by Round 25's independent review: `R182`'s unsupported claim about `S5`'s account/email
+  mechanism (Entry 007 specifies neither), and `R186`'s citing `SC55`–`SC62` as continuing to apply
+  when Round 23 had already superseded `SC62` as a positive criterion. Withdraws §11.4/§12.7's
+  blanket "Encyclopedia: unaffected" claim — confirmed against `ENCYCLOPEDIA-SYNC.md` directly:
+  Entries 01, 04 and 05 depend on files this correction touches and are marked impact-review
+  candidates, not edited.
 
 **Artifact classification and propagation (`B071-R8`, `R16`):** this file is a `docs/v1/` tracking
 artifact under `D-36`, the same class as `V1-PHASE-CLOSURE.md`. It is registered in
@@ -1575,6 +1590,15 @@ named artifact, not by re-deriving it from prose: `T5-V1-SC15`/`SC16` from the l
 
 ## §11 — Proposed `D-189` Draft 2: Model A, clause-level supersession (resolves `B071-R137`–`R144`)
 
+> **Partially superseded by §13 (2026-09-04).** Round 27's Judge clarification rejects this
+> section's core completion model: `T5-FINAL` as a labelled sub-act that "completes T5" is exactly
+> the "sixth judgment gate" framing Round 27 excludes. **§11.3's supersession table, §11.4's
+> `T5-FINAL` clause, and §11.8–§11.10's `T5-FINAL` relabeling are superseded** — see §13.2. **What
+> survives:** §11.1's Model A direction (T1–T5 editorial, `T6` reserved for future `PBL-01`
+> assurance) and §11.2's `Acting Chief Editor` terminology are both still correct and are carried
+> forward unedited. **This section is preserved unedited as historical record**, per this project's
+> own append-only convention (`D-36`, `G32`). Read §13 for the current draft.
+
 **Independent of §1–§9.** Supersedes §10 as the proposal under review; §10 stands, unedited, as
 history. Nothing below is committed to any governed tier. `D-171` remains binding, unnarrowed, in
 full. `AUTH-DOC` remains unapproved.
@@ -1884,6 +1908,17 @@ only to read `T5-FINAL` wherever they previously read the ambiguous shared `T6`.
 
 ## §12 — Proposed `D-189` Draft 3, Part 1: narrow authentication + recovery (resolves `B071-R169`–`R181`)
 
+> **Partially superseded by §13 (2026-09-04).** Round 27's Judge clarification removes
+> multi-account succession as a V1 prerequisite: *"This answers Round 26's scope concern
+> sufficiently to stop treating multi-account succession as a V1 prerequisite."* **§12.4's atomic
+> succession transaction, §12.1–§12.3's business-owner control principal/replacement-account
+> machinery, and every `SC63`–`SC69`/`SC71`–`SC75` test scoped to succession are superseded** —
+> moved to a future `PBL-04` candidate, see §13.4. **What survives:** the identity distinctions in
+> §12.2 (`executor_principal_key` is agent-only; base role alone grants no authority) remain correct
+> for a single-account V1 and are carried forward, narrowed. Round 25's independent-review findings
+> (`R182`–`R186`) are correctly narrowed by Round 27 itself — see §13.3, not restated here.
+> **This section is preserved unedited as historical record.** Read §13 for the current draft.
+
 **Independent of §1–§9.** Extends §11 (Draft 2) rather than superseding it wholesale — see §12.0's
 scope statement. Nothing below is committed to any governed tier. `D-171` remains binding,
 unnarrowed. `AUTH-DOC` remains unapproved.
@@ -2110,4 +2145,178 @@ Unchanged in shape from §11.11: (1) this draft written, no governed tier touche
 fetch-prove; (3) independent Lane B re-review — of Part 1 only, since Part 2 does not yet exist to
 review; (4) Judge bounded acceptance naming this exact revision and write set, including a ruling
 on `B071-R181`; (5)–(10) unchanged from §11.11.
+
+
+---
+
+## §13 — Proposed `D-189` Draft 4: single-account V1, gate/workflow separation (resolves `B071-R182`–`R186` as narrowed by Round 27)
+
+**Independent of §1–§9.** Supersedes §11's gate-completion model and §12's succession machinery —
+see the notices at their headings. Preserves §11.1–§11.2 (Model A direction, `Acting Chief Editor`
+terminology) unedited. Nothing below is committed to any governed tier. `D-171` remains binding,
+unnarrowed. `AUTH-DOC` remains unapproved.
+
+### §13.0 — What Round 27 decided, and what it left for drafting
+
+**Decided, restated exactly:**
+1. V1 links **one** email account to the sole Chief Editor/current authorized holder. Email
+   management is external to my-editorial-app. Multi-account tracking and its progressive build
+   are future backlog, not a V1 prerequisite.
+2. `T1`–`T5` are editorial judgment gates. Virtual-node agents perform work within that flow; task
+   execution is not a separate definition of the gate or evidence of human approval.
+3. The editorial flow **completes at `T5`** and presents its output through the UI. The human's
+   subsequent publication approval is a **workflow action, not an additional judgment gate**.
+   Historical "`T6` approval" must not become a sixth gate or the deferred `T6` assurance feature.
+
+**Left explicitly for Lane A drafting, not yet decided:** *"The exact name of the post-`T5`
+approval event and its mapping to article/publication states remain Lane A drafting work for
+review, not a reason to add a sixth judgment gate."* §13.2 proposes one; it is a drafting choice,
+flagged for confirmation, exactly as `T5-FINAL` was flagged and is now withdrawn.
+
+### §13.1 — What this narrows from §11/§12, named once
+
+| Withdrawn from V1 scope | Moved to |
+|---|---|
+| `T5-FINAL` as a labelled sub-act that completes `T5` (§11.4, §11.8–§11.10) | Not renamed — removed. `T5` completes via its own existing (held target) mechanism; see §13.2 |
+| Business-owner control principal, replacement-account machinery, atomic succession transaction (§12.1–§12.4) | Future `PBL-04` candidate increment (§13.4) |
+| `owner_control_principal_id`, control-plane authorization predicate (§12.5) | Same — `PBL-04`, not V1 |
+| Succession-specific success criteria `SC63`–`SC69`, `SC71`–`SC75` | Applicability review only — not deleted, not V1-operative (`B071-R186`) |
+
+**What survives unedited:** §11.1's Model A direction (`T1`–`T5` editorial; `T6` reserved for
+future `PBL-01`); §11.2's `Acting Chief Editor` terminology; §12.2's agent/human identity
+distinction (`executor_principal_key` is agent-only) and §12.5's "base role alone is insufficient"
+authorization principle — both still true for a single account, since even one account still needs
+"is this the authorized account" checked, not merely "does a request carry the base role."
+
+### §13.2 — The gate/workflow separation, drafted (proposed event name flagged)
+
+**`T5`'s gate completion is unchanged from the already-decided target model** (`D-181`, `B068-R56`;
+`raci-involvement-matrix.md` §3.1): route-dependent virtual evidence acts (`T5`/`T5a`/`T5b`) sealed
+by the non-judgment `T5_review_bundle_sealed` join, which alone performs `Drafted → Reviewed`. This
+is what "T1–T5 are editorial judgment gates... completes at T5" means — gate completion needs no
+human act. `D-181`'s `G-02a` ("only `T6` may be `satisfied`") is **superseded in subject**: under
+Round 27, no gate reaches a `T6`-labelled `satisfied` state at all, because there is no gate six.
+
+**The human's action is a workflow step, structurally outside the `T`-gate numbering.** Proposed
+literal name — **`EDITORIAL_DISPOSITION`** — Lane A's drafting choice, not a Judge instruction,
+offered for the next review to confirm or correct:
+
+```text
+T1–T4 judgment gates (existing, unedited)
+  -> T5 judgment gate
+       T5-REVIEW act(s): route-dependent virtual evidence (T5/T5a/T5b)
+       T5_review_bundle_sealed: non-judgment join
+         workflow_state: Drafted -> Reviewed
+       [T5 is now COMPLETE. Not a "sixth gate." No T5-FINAL, no T6.]
+
+UI presentation (system)
+  -> displays the completed T5 packet and publication controls
+  -> rendering the screen approves nothing
+
+EDITORIAL_DISPOSITION (workflow action, not a judgment gate)
+  -> performer: the sole Chief Editor, via the one linked account
+  -> approve: workflow_state Reviewed -> Approved
+  -> do not approve: workflow_state Reviewed -> Rejected, or governed return
+  -> records who/when/why/evidence-reference (FR-07/NFR-02/NFR-08, unchanged)
+
+Publication/report outcome (existing, unedited)
+  -> T7/T10/T11 consumes the immutable EDITORIAL_DISPOSITION result
+  -> Approved is not Published or proof of delivery
+
+Future T6 assurance
+  -> PBL-01 only; absent, not applicable, not activated by this workflow
+```
+
+**Why this satisfies Round 27's own storyboard table (its five rows map onto the five blocks
+above) without inventing a sixth `T`-numbered gate:** `EDITORIAL_DISPOSITION` carries no `EG*` node
+ID, no Line-crossing four-eyes claim of its own, and no gate-count increment — it is a named
+workflow event, the same class of thing `T7`/`T10`/`T11` already are (`raci-involvement-matrix.md`
+§3 lists `T7`/`T10` as `System`-executed workflow steps, not gates in the `EG1`–`EG5` sense).
+
+**What this does not decide.** Whether `EDITORIAL_DISPOSITION` needs its own RACI row, whether it
+is Line 1 or Line 2, and whether it is the same event `AC-05`–`AC-08` describe under a new name or
+a genuinely new event — these are Part 2 questions (`B071-R145`–`R168`'s occurrence ledger), not
+answered here to avoid the exact improvisation this project's review has repeatedly caught.
+
+### §13.3 — `B071-R182`–`R186`, narrowed per Round 25 and Round 27 together
+
+| Finding | Round 25's correction | Round 27's further narrowing | This draft's disposition |
+|---|---|---|---|
+| `R182` | §12.1 invented Entry007/`S5`'s account/email mechanism — it specifies neither | §12.1–§12.4 also went beyond one linked account into succession/control-plane machinery that V1 no longer needs | Both corrected: §13's replacement text states `S5`'s mechanism as unspecified (not "same account, same email") and removes the succession machinery entirely, per §13.1 |
+| `R183` | Drafting independence (Part 1/Part 2 split) is not application readiness | Product `US-04a`/`US-05a`/`US-09`, `FR-04a`/`FR-05a`, `SEC-03a`, and historical storyboard `A5`/`A6`/`B3`–`B6` carry differing human/agent `T5`/`T6` meanings; one owning contract must separate gate completion, agent evidence, human UI approval, and publication result | Not resolved here — this is Part 2's occurrence-ledger work (`R145`–`R168`), now with `EDITORIAL_DISPOSITION`'s literal text as its target, named explicitly rather than left implicit |
+| `R183` — Encyclopedia extension | — | Blanket "unaffected" is unsupported: `ENCYCLOPEDIA-SYNC.md` maps Entry 01 to `FN-GATES-01-05.md` §3.4/`raci-involvement-matrix.md` §2,§4; Entry 04 to `FN-PUBLICATION-09-10-13.md` §3.3.2; Entry 05 to `raci-involvement-matrix.md` §2.1/§6.1 and `Modular_PRD.md` §4/§5/§6.5/§9/§10 | **Confirmed by direct read of `ENCYCLOPEDIA-SYNC.md`.** §11.4's and §12.7's "Encyclopedia: unaffected" claims are withdrawn. Entries 01, 04 and 05 are marked **impact-review candidates** in §13.6 — not edited; the external artifact is not fetched or republished here (`D-93`'s read-in-full rule; this is a distinct, later, opt-in act) |
+| `R184` | Successful succession and its audit event were two non-atomic writes | The succession transaction itself is now out of V1 scope; `FR-07`/`NFR-02` still require attributable editorial transitions | Succession-specific atomicity tests move to `PBL-04` with §13.4. `EDITORIAL_DISPOSITION`'s own who/when/why/evidence write remains a single, existing, unedited requirement — no new transaction is invented |
+| `R185` | Authorization predicates lacked explicit trust/revocation tests | One account removes the need for role switching, not the human/agent/label distinction | Single-account V1 needs exactly one predicate: authenticated linked account = the one Chief Editor account. `PBL-04`'s future increments (§13.4c) inherit `R185`'s trust/revocation tests when that scope is built |
+| `R186` | Lifecycle references were inconsistent (all "`Draft-addressed`" while `R180`/`R181` were unresolved; `SC62` wrongly said to "continue to apply" though Round 23 superseded it as a positive criterion) | Several former succession criteria now have a different scope entirely, not merely an inconsistency to fix | **Both corrected.** `SC62` stays historical, never restated as operative (nowhere in §13 is it cited as applying). Every item below is `Draft-addressed`, explicitly, with `R181` and `R180` still separately open (§13.5) |
+
+### §13.4 — Future `PBL-04` candidate, dependency order only (not ranked, not authorized)
+
+**`PBL-04`'s canonical label remains "Multi-team accounts"** (`Modular_PRD.md` §2.5.2) — this
+proposal is drafted as an **inclusion** within that existing identity, not a rename or a new
+backlog ID, and not merged with `PBL-01`, `PBL-02`, or `PBL-09` (email/Slack notifications is not
+mailbox management):
+
+| Increment | Content | Depends on |
+|---|---|---|
+| **(a)** | User/account and permission boundaries | Nothing beyond current `PBL-04` scope |
+| **(b)** | Controlled current-holder switching, with assignment history and session revocation | (a) |
+| **(c)** | Temporary delegation/recovery edge cases — where §12's withdrawn control-principal/atomic-succession content, and `B071-R181`'s `S5`/LOA reconciliation, would resurface if this candidate is ever promoted | (a), (b) |
+
+**This is dependency order, not an approved sprint schedule, numerical priority, or promotion
+above any other backlog item.** V1's completion neither deletes nor authorizes this candidate.
+`R184`/`R185`'s transaction-atomicity and trust/revocation tests are preserved here, not discarded,
+for whenever this scope is actually built under its own separate authorization.
+
+### §13.5 — What remains open, stated once (extends §12.8, corrected)
+
+1. **`EDITORIAL_DISPOSITION`'s exact name and event shape** (§13.2) — Lane A's proposal, not a
+   Judge instruction.
+2. **`B071-R181`** — `S5`'s relationship to a future `PBL-04`-scoped succession model. Deferred
+   further by this draft, since succession itself is no longer V1 scope; the question moves to
+   §13.4(c) rather than being resolved now.
+3. **`B071-R180`** — loss of a future control principal, or business-ownership transfer. Remains a
+   separate, later business-continuity decision, now clearly attached to `PBL-04`'s scope rather
+   than V1's.
+4. **`B071-R145`–`R168`** (Part 2, unchanged from §12.0) — the complete occurrence ledger and
+   higher-precedence-source propagation. Not drafted in this turn. `EDITORIAL_DISPOSITION` is its
+   literal target once written.
+5. **Encyclopedia Entries 01, 04, 05** — impact-review candidates (§13.3), not read or updated in
+   this turn.
+
+### §13.6 — Write set and unaffected tiers (supersedes §11.4/§12.7's lists)
+
+**Unchanged tiers from §11.4:** `V1-DECISION-REGISTER.md` (new entry), `Modular_PRD.md` §2.5
+(`V1/NG-12` row, still after `D-188` Draft 4), `requirements-traceability-map.md`,
+`raci-involvement-matrix.md`, `V1-BUILD-SPEC.md` — **content narrowed per §13.1–§13.2, not
+expanded.** **Removed from the write set:** any account/control-plane schema or security-behavior
+row that existed only to support succession (§12.7's deferred Product/security rows are now
+deferred to `PBL-04`'s own future authorization, not to "Part 2 of this packet"). **Encyclopedia:**
+Entries 01, 04, 05 marked impact-review candidates in this handoff and the eventual Register tier
+table — the external artifact itself is neither fetched nor edited by this draft. **Still
+explicitly unaffected:** frozen `docs/PRD.md`, the Charter, `0001_init.sql`, `S5`'s Entry 007 row,
+`PBL-01`, `V1-ARTIFACT-INVENTORY.md`, `Modular_PRD.md` §8, `V1-PHASE-CLOSURE.md`.
+
+### §13.7 — Success criteria (Round 27's, plus applicability review of prior rounds')
+
+Round 27's own criteria (scope/sequence/state-evidence/traceability/backlog, stated in full at its
+own round) apply unchanged. **Applicability review of `SC55`–`SC69`, `SC71`–`SC75`:**
+
+| Prior ID | Applicability under Draft 4 |
+|---|---|
+| `SC55`–`SC62` (Round 22–23, single-account/authentication) | **Applicable**, narrowed: test the one linked account, not a succession sequence. `SC62` stays historical, never operative |
+| `SC63`–`SC69` (Round 24, recovery) | **Not V1-applicable.** Preserved verbatim at their origin as `PBL-04` candidate tests, per §13.4 |
+| `SC71`–`SC75` (Round 25, transaction/security completeness) | **Not V1-applicable as written** — they test the succession transaction. Their underlying principle (atomicity, authority binding, accurate lifecycle claims) carries into `EDITORIAL_DISPOSITION`'s own single-write requirement and into `PBL-04`'s future tests, not restated twice |
+
+One criterion added for this draft's own drafting choice:
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `T5-V1-SC76` | `EDITORIAL_DISPOSITION` is read without prior conversation | Its gate status is evaluated | It carries no `EG*` node ID, adds no sixth entry to the `T1`–`T5` gate count, and is never described as completing `T5` a second time |
+
+### §13.8 — Execution sequence
+
+Unchanged in shape from §12.10: (1) this draft written, no governed tier touched; (2) commit, push,
+fetch-prove; (3) independent Lane B review of Draft 4 specifically — Part 2 does not yet exist to
+review; (4) Judge bounded acceptance, including confirming or correcting `EDITORIAL_DISPOSITION`'s
+name; (5)–(10) unchanged from §11.11/§12.10.
 
