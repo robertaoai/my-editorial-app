@@ -6901,3 +6901,401 @@ is separate from this review and from the one-entry handoff exception; it does n
 | Defer | Units 1/2 and proposed D-189 application | Phase 1: consistent occurrence-scoped DoD, readiness evidence and selected-unit authority |
 | Defer | R152 graph contract/execution | Phase 1: concrete endpoints and one consistent edge contract, then synchronization |
 | Reject | Blanket residual closure or B-071 terminal status from Round 41 | Handoff tier stays Open; application and independent verification remain separate |
+
+## Round 43 — Lane A: independent review of Round 42's decision tree and its cited sections
+
+**Evidence:** direct read of `V1-B071-CORRECTIVE-PLAN.md` §§16.4, 16.5, 16.7, 16.8 (not only Round
+42's citation of them); `V1-DECISION-REGISTER.md` grepped for `D-189` (zero matches);
+`V1-PHASE-CLOSURE.md` §5; `bun run check` re-run at `240e5e2` (17/17); `npx graphify hook-rebuild`
+and `npx graphify check-update` both run this round; `git fetch` plus local/remote tip comparison;
+`git status --short`; `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` and
+`docs/ENCYCLOPEDIA-SYNC.md` read in full; every existing `B071-R\d+` in this file enumerated to find
+the true maximum before minting new IDs. Independent of Round 42 — Lane A did not draft it and is
+not the answering/applying side (`D-101`, `B076-R2`'s independence rule). Continuing this existing
+Phase-1 spec-defect; the canonical header remains Open. No new Resolution, no duplicate tracker,
+and this round applies nothing to a governed tier.
+
+### What happened
+
+Round 42's claims were checked against the live repository rather than accepted on citation. Every
+factual claim in Round 42 is confirmed accurate, and its four-row correction table is confirmed
+internally consistent — endorsed as drafted, not reopened.
+
+**Corrected before commit.** This round's first draft was itself independently reviewed, in the
+same boundary/handover shape Round 42 uses, before anything was committed. That review found four
+real defects: this draft's findings were numbered `B071-R84`–`R88`, colliding with existing
+unrelated findings already at those numbers (`B071-R84`–`R88`, lines 3188–3298, about `D-187`/
+`NG-03` scope-horizon corrections); its task list let accepting the parent's four text corrections
+stand in for authorizing Unit 7's and Units 1/2's actual application, contradicting this round's
+own exclusion; it claimed no storyboard diagrams or Encyclopedia access existed when both do,
+just unread by this round's first pass; and it claimed Graphify was "synced" without separating
+extraction currency from semantic-description currency. All four are corrected below, in place,
+since nothing from the first draft was ever committed — there is no published history to preserve
+around them. The renumbered findings keep their substance; only `B071-R189`'s content changed.
+
+### Verification of Round 42's claims
+
+| Claim | Checked how | Result |
+|---|---|---|
+| "Checks: 16/17 passed before commit" | Re-ran `bun run check` at current HEAD: **17/17**. The only HEAD-relative check among the 17 is `docs-drift`, which fails exactly when Graphify trails HEAD — true at commit time (graph was 1–2 commits behind), false now that this round resynced it | Consistent with 16/17 at commit time; not independently re-derivable at the historical commit, but no other check in the suite is HEAD-relative |
+| "committed and pushed as `240e5e2`; remote equality verified" | `git fetch origin docs/journal-2026-08-16`; compared `git rev-parse HEAD` to `git rev-parse origin/docs/journal-2026-08-16` | **Confirmed** — both equal `240e5e2e73f2e658083ee39908e4bc4b5153af22` |
+| "Graphify drift remains for Lane A" | `.graphify/branch.json` showed `lastAnalyzedHead: 5a7ac0b` against `HEAD: 240e5e2` — two commits behind | **Confirmed as of this review's start; resolved this round** — `npx graphify hook-rebuild` run, `lastAnalyzedHead` now `240e5e2` (1426 nodes, 2780 edges, 97 communities; curated layer backed up automatically, 6 files) |
+| "No governed source or application changes were applied" / "`package-lock.json` remains untouched" | `bun run check`'s `lane-boundary` line: HEAD commit touches only the unmapped `docs/handoff/B-071-...md`; `git status --short` shows only `?? package-lock.json`, untracked | **Confirmed**, both |
+| The four gating issues (as paraphrased outside this file) | Compared against Round 42's actual four-row table, `B-071.md:6874-6879` | **Faithful in substance, with one material omission** — see `B071-R187` below |
+
+### Verification of the follow-up review's claims
+
+The follow-up review of this round's first draft is checked the same way, not accepted on
+authority — the same "Judge Approved: follow decision-tree decision" framing applies to it as to
+Round 42, and does not meet `D-183`'s bar either (`B071-R191`). Its substance is verified directly:
+
+| Claim | Checked how | Result |
+|---|---|---|
+| "Reused finding IDs: `B071-R84`–`R88` already identify unrelated findings earlier in B-071" | Enumerated every `B071-R\d+` in the file (`grep -oE`); lines 3188–3192 carry the original `B071-R84`–`R88` (the `D-187`/`NG-03` scope-horizon findings), still live and cited at lines 3284 and 3298 | **Confirmed.** True collision. Highest existing number is `B071-R186` (matches the Round 39 commit message). This round's findings renumbered to `B071-R187`–`R191`, starting clear of it |
+| "Authorization comes too late... contradicts R88's exclusion of Unit 7 application" | Re-read this round's own task list against its own `B071-R88` (now `R191`) exclusion | **Confirmed.** The task list treated "parent [text-correction] accepted" as sufficient to "apply" Unit 7, which is exactly what the exclusion said could not happen. Task list corrected below with explicit separate authorization steps |
+| "The storyboard journal contains sequence diagrams and flowcharts. The Encyclopedia URL is already recorded locally" | Read `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` and `docs/ENCYCLOPEDIA-SYNC.md` in full — neither had been opened before this round's first draft, only located by `Glob` | **Confirmed, with correction to the follow-up review's own framing.** Four Mermaid diagrams exist (two `sequenceDiagram`, two `flowchart`); Panels A5/A6 (lines 87–118) document exactly the T5/T6 mechanics this thread's readiness gate concerns, not a tangential reference. `docs/ENCYCLOPEDIA-SYNC.md:6` records the Encyclopedia's URL directly. Neither is "missing" — both were simply unread by this round's first pass. UML itself remains genuinely absent/deferred (`R159`/`R160`, corrective-plan §16.3) — the follow-up review did not claim otherwise |
+| "'Fully synced' overstates the evidence... remove the claim that only `docs-drift` depends on HEAD" | Ran `npx graphify check-update` (not run in the first draft) | **Confirmed.** Output: `"Pending semantic updates... graph was rebuilt by the fast git hook without descriptions/labels (.graphify_describe_pending)."` Extraction currency (`lastAnalyzedHead` = `240e5e2` = HEAD) is current; semantic description currency is not, and per `B-077`'s own established finding this is a per-machine, gitignored condition with no durable fix available here — reported, not "solved." Separately: `lane-boundary`'s output line does read and report the HEAD commit, so "the only HEAD-relative check" was imprecise wording; its pass/fail outcome for this file's commits does not depend on graph staleness the way `docs-drift`'s does, which is the narrower, accurate claim |
+
+### Findings — parent first
+
+| ID | Gap | Guaranteed failure if unchanged | Draft fix |
+|---|---|---|---|
+| `B071-R187` — "proposed `D-189`" loses its qualifier outside this file | Round 42 itself correctly writes "proposed `D-189`" (`B-071.md:6901`). A paraphrase circulating outside this file dropped "proposed," and `V1-DECISION-REGISTER.md` has no `D-189` entry — grepped, zero matches | A reader who only sees the paraphrase treats `D-189` as an existing, decided Register entry — the exact restatement-drift shape `G55`/`G56`/`G58` name, now occurring one layer above the document designed to prevent it | No text in `B-071.md` needs to change — it already says "proposed." The fix is procedural: any future citation of `D-189` outside this file must carry "proposed" until `V1-DECISION-REGISTER.md` actually has that entry |
+| `B071-R188` — Round 42's Row 1 citation is accurate but not pinpointed | Round 42 says "§16.7 first says Unit 7 is not applied, then says both conditions are satisfied because it is drafted and next in sequence" without quoting the clause | A future reader re-locates the contradiction by re-reading all of §16.7 instead of going straight to it | The exact clause is `V1-B071-CORRECTIVE-PLAN.md:3249-3251`, item (3) of the "Application may be offered per unit" list: *"Units 1/2 apply together, immediately after unit 7, now that both halves of the readiness clause above are satisfied (`R148` complete; unit 7 drafted and next in sequence)"* — contradicting the same section's own line 3233, *"Drafted is not Applied."* Round 42's proposed replacement text (`B-071.md:6876`) should land at this exact clause when applied, not elsewhere in §16.7 |
+| `B071-R189` — the outer cross-reference request (storyboard/story panel/UML/data flow/encyclopedia) has real evidence this thread had not yet read | `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` contains four Mermaid diagrams, not zero. Panel A5 (T5 independent review, lines 87–105) and Panel A6 (T6 approval, lines 112–118) are sequence diagrams of exactly the human/agent, Line 2/Line 1 T5→T6 handoff this thread's readiness gate governs — dated 2026-08-18, "verified against" the applied schema and the Addendum's gate table. "Storyboard Panel A5/A6" (`V1-B071-CORRECTIVE-PLAN.md:3126-3127`) are named references *into this journal*, not into a missing artifact. `docs/ENCYCLOPEDIA-SYNC.md:5-6` records the hosted Encyclopedia's URL directly, and its own table already flags Entries 01/04/05 as unverified-impact candidates for this rename (matching corrective-plan §16.8's framing). UML remains genuinely absent by design — `Deferred` per `R159`/`R160`, corrective-plan §16.3 — that part of the original claim stands | Treating the diagrams and the URL as unavailable means real, relevant historical evidence (the T5/T6 blind-first-pass sequencing in Panel A5, the `line_boundary_crossed`/`identity_assurance` fields) sits unused while this thread re-derives the same shape from prose | Cite `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` Panels A5/A6 as historical design evidence for Row 1/2's T5→T6 sequencing when Unit 7/Units 1-2 are actually applied. State plainly: storyboard diagrams exist (historical, read); the hosted Encyclopedia exists at a known URL (unread by this review, not missing); UML stays Deferred (by design, not by gap). A full line-by-line cross-check of the diagrams against Round 42's four fixes is more than this pass's scope — flagged for whoever applies Row 1/2, not performed here |
+| `B071-R190` — a real, narrower Judge ruling already exists and should anchor Row 1's fix, not a new decision | §16.7's own heading says "updated after the Judge's ruling," and its body names **Reading B** (Round 36's question) as already decided: *"`R147`'s correction gates units 1/2's application. Not a two-way split any longer"* (`V1-B071-CORRECTIVE-PLAN.md:3226-3229`) | Treating Row 1's fix as needing a new Judge decision, when an applicable one (Reading B) already exists, either asks the Judge to re-decide a settled question or leaves Round 42's fix looking unauthorized when it is actually just correcting §16.7's text to match what Reading B already decided | State explicitly, when Row 1's fix is presented for a bounded act, that it operationalizes Reading B rather than opening a new question |
+| `B071-R191` — neither "Judge Approved: follow decision-tree decision" nor the follow-up review's own identical framing meets this repository's own bar for a bounded act | `D-183` requires an authorization to name object, revision, action, scope and exclusions (established across `B-072`/`B-073`/`B-074`/`B-075`/`D-183`/`D-186`). Both instances of the phrase carry none of those | Treated as authorization, either occurrence would repeat the exact "approval inheritance" pattern `B-077`'s failure-pattern table names as this repository's most recurring defect | No fix applied under either instance — this round treats both as not bounded acts, drafts only, and applies nothing to `V1-DECISION-REGISTER.md` or `V1-B071-CORRECTIVE-PLAN.md`. A real bounded act would need to name: object (§16.7 clause (3), §16.4's `R152` execution paragraph, the proposed Register entry template), revision (`240e5e2`), action (accept the four corrections), scope (text-only, no build/route/lane authority), exclusions (Unit 7's and Units 1/2's application each stay separately gated — see `B071-R193`) |
+| `B071-R192` — this round's first draft reused `B071-R84`–`R88`, already the IDs of the unrelated `D-187`/`NG-03` findings at lines 3188–3298 | Two unrelated finding sets sharing one ID breaks the citation this whole file relies on — `duplicate-ids` (part of `bun run check`) did not catch it because it scans registered tables, not every inline `R`-reference in prose | A future reader following "`B071-R86`" cannot tell which finding is meant; a cross-reference written today silently points at the wrong content after either finding set is edited | Renumber this round's findings to `B071-R187`–`R191`, continuing past the true maximum (`B071-R186`, enumerated this round) rather than guessing the next free number |
+| `B071-R193` — the task list let "parent [text-correction] accepted" stand in for "Unit 7/Units 1-2 application authorized," contradicting this round's own `B071-R191` (formerly `R88`) exclusion | The first draft's task-list step 1a read "Once accepted: apply §16.5a's three annotation blocks," with no separate authorization step between accepting the four corrected *wordings* and actually *applying* Unit 7 — exactly the conflation `B071-R191` warns against, in the same document | A reader follows the task list, treats the parent Judge act as covering application too, and applies Unit 7 or Units 1/2 without the separate bounded act Round 42's own table requires (Approve-with-conditions for Unit 7; Defer, not even conditional, for Units 1/2) | Task list corrected below: the parent act authorizes only the four corrected wordings; Unit 7's application and Units 1/2's application each get their own explicitly named, separately authorized step, with independent verification between them |
+
+### Parent-first task list — what actually moves B-071 forward from here
+
+Round 42 already drafted the fix text for all four rows; nothing here re-derives it. Corrected per
+`B071-R193`: accepting the parent's corrected *wording* is not authorization to *apply* anything —
+each application step now names its own separate bounded act, not inherited from the parent's.
+
+1. **Parent — Judge disposition on Round 42's four-row TEXT-correction table.** One bounded act
+   (per `D-183`, see `B071-R191`) naming `240e5e2` as the reviewed revision, accepting or amending
+   each of the four draft-fix *wordings* (the readiness-gate clause, the occurrence-scoped DoD, the
+   graph-contract wording, the Register-entry template approach — citing Reading B, `B071-R190`,
+   for Row 1's framing). **This act authorizes corrected text only — no application of anything.**
+   Nothing below can start without it.
+   - **1a. Child — a separate bounded act authorizing Unit 7's application.** Required by Round
+     42's own Approve-with-conditions row and by `B071-R191`'s exclusion; not satisfied by item 1.
+     Names §16.5a's three annotation blocks and the three target files
+     (`v1-build-readiness-addendum.md`, `blueprint.md`, `business-case.md`) as the object, plus the
+     verified-insertion requirement.
+     - **1a-i.** Apply the three blocks to the three named files.
+     - **1a-ii.** An independent, non-applying actor verifies the exact insertions.
+     - **1a-iii.** Recheck `R148`'s classification set under item 1's corrected occurrence-scoped
+       DoD. Only once 1a-i through 1a-iii are all done does Row 1's readiness gate actually clear —
+       drafting or accepting item 1 does not, by itself, clear it (`B071-R193`).
+   - **1b. Child, parallel to 1a — graph contract (Row 3).** Correct §16.4's `R152` execution
+     paragraph: drop the retired `owns` instruction, resolve concrete `T5`/`EG5` graph IDs by
+     source/subject. Independent of 1a's sequencing; can proceed once item 1 exists.
+   - **1c. Child, depends on 1a-iii — a separate bounded act authorizing Units 1/2's application.**
+     Round 42 **Deferred** this, not merely conditioned it: it needs 1a-iii's readiness evidence
+     *and* an explicit selected-unit authority naming exactly which units apply — more than Unit
+     7's Approve-with-conditions needed. Only after this act may Units 1/2 actually apply.
+   - **1d. Child, depends on 1a/1b/1c's actual evidence — the Register entry (Row 4).** Rewrite the
+     proposed entry as item-by-item dispositions over the occurrence ledger, naming the explicit
+     selected-unit set, citing 1a/1b/1c's actual evidence rather than a blanket range-closure claim.
+     Recording it is itself a further bounded act, not automatic once the evidence exists. This is
+     the step that would turn "proposed `D-189`" into a real Register entry (`B071-R187`).
+2. **Not blocking, already current as of this round:** Graphify extraction sync (`240e5e2`),
+   `bun run check` (17/17), remote equality — all reconfirmed above. Graphify semantic-description
+   currency is separately **not** current (`.graphify_describe_pending`) and, per `B-077`'s own
+   finding, has no durable fix available in this environment — reported, not an outstanding task.
+3. **Explicitly out of scope for this review**, by request: the parallel `B-072`→`B-077`
+   process-governance thread. `B-077`'s own audit lists its Children 2–5 (legacy `Applied`
+   reconciliation, `B-061`/`B-070` successor disposition, the Phase 3 deferral boundary, final
+   independent review) as still open and unauthorized — a separate governed chain, not folded into
+   this list.
+
+### What you did instead
+
+Lane A independently verified Round 42's claims against the live repository, resynced Graphify
+extraction currency (`240e5e2`, 1426 nodes/2780 edges/97 communities — semantic-description
+currency separately confirmed pending, not claimed synced), and recorded seven findings
+(`B071-R187`–`R193`) and a parent-first task list. A follow-up review of this round's own first
+draft, in the same boundary/handover shape, caught four real defects — an ID collision, a task-list
+authorization gap, an unread-artifact overclaim, and a graph-currency overclaim — all independently
+re-verified and corrected in place above, since nothing from the first draft had been committed. It
+did not edit `V1-DECISION-REGISTER.md`, `V1-B071-CORRECTIVE-PLAN.md`, `Modular_PRD.md`, or any
+governed tier; did not apply Unit 7, Units 1/2, or the `R152` graph correction; did not draft or
+record a Register entry; and did not move lane state or claim `AUTH-DOC`. This round itself remains
+an uncommitted local addition to this file, pending review and a commit decision.
+
+### Approve / reject
+
+| Decision | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Round 42's four-row correction table, in full | Phase 1: present to the Judge as one bounded act per `B071-R191`, citing Reading B (`B071-R190`) for Row 1 |
+| Approve | Round 42's factual claims (checks, push, drift, package-lock) | Reconfirmed independently this round; no further action |
+| Approve | The follow-up review's four corrections to this round's first draft (`B071-R189`, `R192`, `R193`, plus the graph-currency split) | Applied in place above; no further action |
+| Approve-with-conditions | This round's seven findings (`B071-R187`–`R193`) | Phase 1: fold `B071-R188`'s exact citation, `B071-R189`'s storyboard/Encyclopedia pointers and `B071-R190`'s Reading-B framing into whatever text is presented for the Judge act in item 1 above |
+| Defer | Task-list items 1a/1b/1c/1d (Unit 7's own authorization and application, `R152` execution, Units 1/2's own authorization and application, the real Register entry) | Phase 1: each waits on its own named bounded act; sequencing is fixed, none is authorized by this round |
+| Reject | Treating "Judge Approved: follow decision-tree decision" — in either its original or its follow-up-review occurrence — as a bounded act | Does not name object/revision/action/scope/exclusions per `D-183`; would repeat the approval-inheritance pattern `B-077` names as this repository's most recurring defect |
+| Defer | The `B-072`→`B-077` governance thread's open Children 2–5 | Separate governed chain, out of this session's scope by request |
+## Round 44 — Lane B: independent review of corrected Round 43
+
+**Evidence:** corrected, unstaged Round 43; `240e5e2` base; corrective-plan §16.4/§16.7/§16.8;
+Decision Register arbitration/authorization rules; storyboard journal; Encyclopedia sync ledger;
+Graphify branch and `check-update`. Continuing the existing Phase-1 spec-defect. No Resolution,
+application, build authority, or second tracker is created.
+
+### What happened
+
+The staging question is resolved safely: the B-071 file is wholly **unstaged**, while the corrected
+working-tree content is preserved. `package-lock.json` remains unrelated and untouched.
+
+Round 43 is materially improved and its following corrections are accepted: unique IDs
+`B071-R187`–`R193`; separate text acceptance from application authority; historical storyboard
+diagrams acknowledged; the Encyclopedia URL acknowledged but its hosted content still unread;
+Graphify extraction and semantic currency separated; Reading B retained as ordering, not inherited
+application permission. Two parent-level defects and two precision gaps remain.
+
+### What you need — parent-first decision table
+
+| Order / anchor | Gap and guaranteed failure | Draft fix / success criterion | Judge choice |
+|---|---|---|---|
+| 1 — proposed D-189 / authorization | Task 1d records the “real Register entry” only after Unit 7 and Units 1/2 have been applied. If D-189 is the authorization decision, this reverses governance: work happens before its authorizing record. If it is only a closure entry, calling that act D-189 conflates authorization with evidence closure | Split the records by function. **Before application:** the Judge records the bounded D-189 authorization in the Register, naming revision, selected units, files, DoD, exclusions, D-171 status and tier applicability. **After application:** the same entry receives evidence/status according to the Register's append-only convention, or a separately named verification record if that is the established format. Success: every write traces to a pre-existing authorization; later evidence cannot retroactively authorize it | Accept this sequence correction before any application |
+| 2 — application tree | Round 43 adds a text-acceptance act, then separate Unit 7 and Units 1/2 acts, but leaves the authorizing Register entry until the end. The resulting tree is procedurally elaborate yet still lacks the one parent that matters | Replace task 1 with: **Judge decides the complete wording → Lane A drafts the exact bounded D-189 record → Judge records D-189 selecting Unit 7 only → apply and independently verify Unit 7 → Judge amends/records authorization selecting Units 1/2 only after the readiness evidence → apply and independently verify Units 1/2 → execute separately selected graph work → record terminal dispositions item by item.** Combine acts only if one recorded authorization explicitly names both scopes and preserves their dependency condition | Accept parent-first tree; reject inherited or retroactive authority |
+| 3 — Graphify semantic state | “No durable fix available in this environment” is unsupported. `graphify check-update` explicitly says to fill the pending description/community JSON and rerun update. Machine-local output is not commit evidence, but it is still actionable local completion | Say: **semantic completion is pending and not durable repository evidence; complete it when a consuming semantic claim requires it, then record only reproducible source/fragment assertions as durable evidence.** Do not equate extraction currency, local semantic enrichment, committed curated fragments, or portability | Amend R189/step 2; do not declare semantic completion impossible |
+| 4 — artifacts and evidence | Round 43 says the Encyclopedia ledger already flags Entries 01/04/05; the local table currently shows dependency rows and an explicit stale marker for Entry 05, while the corrective plan calls 01/04/05 impact candidates. It also says 17/17 is not historically re-derivable, then infers the earlier result | Attribute each fact to its source: corrective plan = proposed impact candidates; sync ledger = citation map/current recorded verification state; hosted artifact = unread. Treat 16/17 as contemporaneously recorded evidence, not independently reproduced history. Success: no source is credited with a claim it does not itself record | Accept with wording correction |
+
+### Views and cross-reference disposition
+
+- **Storyboard/story panels:** existing historical Mermaid sequence/flow diagrams are valid evidence
+  of the documented T5→T6 model, not target-order authority. Keep them unchanged and cite them in
+  the application impact review.
+- **UML and target progress/report views:** remain deferred under R159/R160; absence is deliberate,
+  not completion.
+- **Data flow:** preserve the four outcomes—pre-join incomplete, post-join evidence incomplete,
+  negative final judgment, positive judgment then separately evidenced Delivery.
+- **Encyclopedia:** the URL exists; verification requires reading the hosted artifact. The local
+  ledger alone cannot assert hosted synchronization.
+
+### What you did instead
+
+Reviewed and recorded draft corrections only. No corrective-plan, Register, source, Product,
+Fn_Spec, SPECS, graph fragment, application, migration, or lane-state change. No commit or push.
+B-071 remains Open and is its own closure record. Graph extraction is current at `240e5e2` for the
+base of this uncommitted draft; semantic enrichment remains pending. A commit would move HEAD and
+requires a fresh currency assessment by Lane A before consuming approval.
+
+| Decision | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Corrected Round 43 IDs, artifact acknowledgements, Reading-B framing and separated application checkpoints | Phase 1 drafting evidence |
+| Approve-with-conditions | Round 43 findings R187–R193 | Phase 1: apply the authorization-sequence, Graphify and source-attribution corrections above |
+| Defer | Unit 7, Units 1/2 and graph application | Phase 1: recorded bounded authorization before each selected dependent unit |
+| Reject | Task 1d's post-application “real Register entry” sequence | Register/authorization tier: authorization cannot be supplied retroactively |
+| Reject | B-071 closure or build authorization inferred from this review | Handoff and build tiers remain unchanged pending application and independent verification |
+
+## Round 45 — Lane A: applying Round 44's corrections and drafting the D-189 text it calls for
+
+**Evidence:** direct read of Round 44 (`B-071.md:7040-7094`); `docs/README.md` §"How a request
+becomes execution" (`docs/README.md:82-98` — the six-stage map: decision/authorization is its own
+stage, preceding execution); `docs/ENCYCLOPEDIA-SYNC.md` and corrective-plan §16.8 re-read for
+attribution; `graphify check-update` output already on record this session; re-ran `bun run check`
+(17/17); re-enumerated `B071-R\d+` (max still `R193` — Round 44 used its own row numbers, not this
+file's ID series). Independent of Round 44 — Lane A did not draft it. Continuing this existing
+Phase-1 spec-defect; the canonical header remains Open. No Resolution, no application, no Register
+edit; this round applies nothing to a governed tier.
+
+### What happened
+
+Round 44's four points are verified and accepted; its two parent-level findings identify a genuine
+structural error in Round 43's task list: task 1d filed the "real Register entry" *after* Unit 7
+and Units 1/2 were applied, when `docs/README.md`'s own execution map requires the decision/
+authorization stage to precede execution, not follow it. That is fixed below by adopting Round 44's
+full sequence directly, and by drafting — not recording — the exact bounded D-189 text its model
+calls for ("Lane A drafts the exact bounded D-189 record").
+
+One further gap: the paraphrase of Round 44 presented outside this file compresses "Judge
+amends/records authorization selecting Units 1/2 only after the readiness evidence" — an explicit
+Judge act, separate or combined per Round 44's own text — into "Units 1/2 when their recorded
+conditions are satisfied," which reads as automatic once conditions are met, naming no act at all.
+That is the same shape as the earlier "proposed `D-189`" → "`D-189`" drop (`B071-R187`). Recorded
+as `B071-R194` below.
+
+### Verification of Round 44's claims
+
+| Claim | Checked how | Result |
+|---|---|---|
+| Point 1 — D-189/authorization sequencing is backwards in task 1d | Re-read Round 43's task list (this file) against `docs/README.md:92-98`'s "Decision and authorization" stage, which precedes "Execution" | **Confirmed.** Task 1d placed the Register entry last. Corrected below |
+| Point 2 — the application tree needs the full parent-first sequence, explicit authorization per selected unit | Compared against `D-183`'s bounded-act requirement and `B071-R191`/`R193` | **Confirmed and adopted directly.** Each selected unit requires explicit authorization; one act may cover multiple named units while preserving their dependency conditions — refined by `B071-R194`, not a strict one-act-per-unit rule |
+| Point 3 — "no durable fix available in this environment" (Graphify) is unsupported | Re-checked the `graphify check-update` output already on record: *"Fill the batch-*.json / communities.json files and re-run `graphify update` to ingest"* | **Confirmed.** That is an actionable local step, not "no fix." What remains true is narrower: it is not durable/committable evidence (`.graphify/` is gitignored, per `B-077`). Wording corrected below |
+| Point 4 — attribution precision (corrective plan vs. sync ledger vs. hosted artifact; "16/17" as contemporaneous, not re-derived) | Re-read `docs/ENCYCLOPEDIA-SYNC.md` (Entry 05 carries an explicit `stale: D-168 affects this entry` marker) and corrective-plan §16.8 (frames Entries 01/04/05 as "unverified impact-review candidates") | **Confirmed.** These are three distinct facts from three distinct sources; this round's prior wording blurred them. Corrected below |
+| The outside paraphrase's "Units 1/2 when their recorded conditions are satisfied" | Compared against Round 44's actual text, `B-071.md:7063` | **Drift confirmed** — drops the required authorization act, separate or combined. See `B071-R194` |
+
+### Finding
+
+| ID | Gap | Guaranteed failure if unchanged | Draft fix |
+|---|---|---|---|
+| `B071-R194` — a paraphrase of Round 44 drops the requirement for *any* explicit Units-1/2 authorization act | Round 44 (`B-071.md:7063`) requires the Judge to record authorization "selecting Units 1/2" — by its own act, **or** by one combined act that "explicitly names both scopes and preserves their dependency condition." Either way, an explicit naming act is required. A summary circulating outside this file compressed this to "when their recorded conditions are satisfied," naming no act at all | A reader treats satisfied conditions alone as sufficient, with no Judge act at all — readiness never supplies missing authority, combined or separate | **Narrowed from this finding's first draft, which required separateness Round 44 does not** (Round 46). Any future citation must keep an explicit authorization act — separate or combined — not conditions alone |
+
+### Corrected parent-first task list — supersedes the prior task list in full
+
+1. **Parent — Judge decides the complete corrected wording.** The four Round 42 corrections
+   (readiness-gate clause replacing §16.7 item (3); occurrence-scoped `R148` DoD; §16.4's `R152`
+   graph-contract wording; the item-by-item Register-entry-template approach), citing Reading B
+   (`B071-R190`) for Row 1. **Text only — authorizes no application.**
+2. **Child — Lane A drafts the exact bounded D-189 record.** Done this round; see the proposed text
+   below. Not recorded — drafting is not authorization.
+3. **Child, depends on 2 — the Judge authorizes; Lane A records D-189**, selecting Unit 7 only.
+4. **Child, depends on 3 — apply Unit 7** (§16.5a's three blocks into
+   `v1-build-readiness-addendum.md`, `blueprint.md`, `business-case.md`) **and independently verify
+   the exact insertions** (a non-applying actor).
+5. **Child, depends on 4's evidence — after Unit 7's verified evidence exists, the Judge may
+   authorize Units 1/2; Lane A records that further authorization before application.** Step 3's
+   act is fixed as Unit-7-only (the Proposed D-189 text below, "Excludes Units 1/2... entirely") and
+   grants no downstream authority — so this is necessarily its own further act, not "combined with
+   step 3." (Round 44's combined-act allowance remains available in principle for a *different,
+   not-yet-drafted* packet that named both scopes from the start; it does not apply retroactively to
+   step 3 once step 3 is drafted this narrowly.) Readiness alone is never itself the authorization
+   (`B071-R194`, narrowed).
+6. **Child, depends on 5 — apply Units 1/2 and independently verify.**
+7. **Parallel to 3–6, once item 1 exists — the `R152` graph contract, split per the corrective
+   plan's own distinction (§16.4):**
+   - **7a. Plan-text correction.** Drop the retired `owns` instruction from the execution paragraph;
+     resolve concrete `T5`/`EG5` graph IDs by source/subject on paper. Drafting only — no fragment
+     file, no rebuild.
+   - **7b. Execution.** Write the fragment file and run the rebuild. Explicitly **excluded** from
+     the Unit-7-only D-189 draft below; needs its own named authorization, not inherited from 7a or
+     from Unit 7's.
+8. **Evidence, per item, not bundled — record each disposition as soon as its own evidence exists,
+   not gated on the others:** Unit 7's disposition right after step 4; Units 1/2's right after step
+   6, whenever that authorization exists; the graph contract's right after 7b, whenever that
+   authorization exists. **B-071's overall closure is a separate, later item** requiring every
+   relevant item dispositioned, not just Unit 7's — this act covers Unit 7 alone.
+
+### Proposed D-189 text — drafted, not recorded (Round 44's step 2)
+
+The Judge authorizes; Lane A records the act once given. This is the draft Lane A owes under
+Round 44's model, covering steps 1–3 above — kept strictly Unit-7-only; the combined-act
+alternative is explained after it, not inside the quoted text itself:
+
+> **Judge Approved (draft — not yet recorded):** Accepts the four corrections in Round 42's decision
+> tree (`B-071.md:6876-6879` — the readiness-gate clause, the occurrence-scoped `R148` rename DoD,
+> the `R152` graph-contract wording, and the Register-entry-template approach), as refined by the
+> later review findings `B071-R187`–`R193`. **Revision: pending** — this draft cannot name the
+> immutable commit until Rounds 43–47 are actually committed; recording this act requires that
+> commit to exist first, not `240e5e2`, which predates them. Authorizes application of **Unit 7
+> only**: §16.5a's three annotation blocks into `v1-build-readiness-addendum.md`, `blueprint.md`,
+> `business-case.md`, exactly as drafted, pending independent verification of the exact insertions.
+> **Excludes** Units 1/2 and `R152` graph-fragment execution (step 7b) entirely — neither is
+> authorized by this act. **`D-171` remains unchanged** — this act authorizes only the three named
+> documentation edits; Unit 7 is textual disclosure, not build or gate-order execution, so nothing
+> about `D-171`'s S2 hold is touched. Tier applicability: the three named source files and this
+> Register entry; `Modular_PRD.md`, `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`, Phase Closure —
+> unaffected by this act alone.
+
+*Not part of the act above, stated separately:* Units 1/2's and the graph contract's later
+authorizations may each be their own act, or, per Round 44, combined with a future act if that act
+explicitly names both scopes and preserves the dependency on this act's evidence. This act itself
+stays Unit-7-only regardless of which path is later chosen.
+
+### Cross-reference disposition — adds data flow to Round 44's set
+
+- **Storyboard/story panels, UML, Encyclopedia:** unchanged from Round 44.
+- **Data flow:** preserve the four outcomes Round 44 names — pre-join incomplete, post-join evidence
+  incomplete, negative final judgment, positive judgment then separately evidenced Delivery. Not
+  re-derived here; carried forward as Round 44 stated it.
+
+### What you did instead
+
+Lane A verified Round 44's four points, adopted its sequence and precision corrections, recorded
+one further finding (`B071-R194`) about a paraphrase drift, and drafted (not recorded) the D-189
+text Round 44's model calls for. It did not edit `V1-DECISION-REGISTER.md`, `V1-B071-CORRECTIVE-PLAN.md`,
+or any governed tier; did not apply Unit 7, Units 1/2, or the `R152` graph correction; did not move
+lane state; and did not commit or push.
+
+## Round 46 — Lane A: narrowing R194 and fixing the D-189 draft against Round 44's actual text
+
+**Evidence:** re-read of `B-071.md:7063` (Round 44's exact "combine acts only if..." clause);
+`V1-DECISION-REGISTER.md` §5.14dx/§5.14dy (`D-171`'s actual scope — an S2 *build* hold, unaffected
+by documentation-only edits); Round 42's decision tree re-located at `B-071.md:6876-6879`. Continuing
+this Phase-1 spec-defect; no Resolution, no application, no governed-tier edit.
+
+Four corrections were checked and applied in place, all confirmed against source rather than taken
+on assertion: (1) `B071-R194` overclaimed that Units 1/2 need a *separate* authorization act —
+Round 44 explicitly allows one combined act if it names both scopes and preserves the dependency;
+narrowed to its valid core (some explicit act is required, not conditions alone). (2) The drafted
+D-189 text wrongly said `D-171` was "narrowed" by Unit 7 — `D-171` is an S2 build hold; Unit 7 is
+documentation-only and never touches it, so `D-171` is correctly **unchanged**, not narrowed. (3)
+The draft conflated Round 42's four actual corrections (its own table, `B-071.md:6876-6879`) with
+`B071-R187`–`R193` (this file's later review findings *about* them) — now cited separately. (4)
+Task-list step 7 mixed the corrective plan's own drafted/execution split for `R152` — now 7a
+(plan-text, drafting only) and 7b (fragment file + rebuild, excluded from the Unit-7-only draft).
+One clarification adopted as stated: the Judge authorizes; Lane A records the act into the Register
+once it exists — nobody needs to hand-edit `V1-DECISION-REGISTER.md` themselves.
+
+### What you did instead
+
+Corrected `B071-R194`, the task list, and the D-189 draft in place — all still uncommitted, so
+in-place correction rather than an appended notice. No governed tier touched; no commit or push.
+This round remains an uncommitted local addition, pending review and a commit decision.
+
+### Approve / reject
+
+| Decision | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Round 44's sequencing correction (D-189 before application) and full parent-first tree | Adopted in the corrected task list |
+| Approve | This turn's four corrections (`R194` narrowed; `D-171` language; correction-set citation; `R152` drafted/execution split) | Applied in place above |
+| Approve-with-conditions | The corrected drafted D-189 text | Phase 1: Judge reviews and records at the actual post-commit revision, not `240e5e2` |
+| Defer | Task-list steps 3–8 (all recording, application, execution and verification acts) | Phase 1: each waits on its own named predecessor, separate or combined per Round 44; none authorized by this round |
+| Reject | Treating "Judge Approved: follow decision-tree decision" as the bounded act itself | Still names no object/revision/scope/exclusions per `D-183`; the drafted D-189 text above is what such an act would need to say |
+| Defer | The `B-072`→`B-077` governance thread's open Children 2–5 | Unchanged, out of this session's scope by request |
+
+## Round 47 — Lane A: reconciling Round 45's stale wording against Round 46's own corrections
+
+**Evidence:** exact re-read of Round 45 (`B-071.md:7095-7200` before this pass) against Round 44's
+literal text (`B-071.md:7063`) and `V1-DECISION-REGISTER.md` §5.14dx/dy for `D-171`. Six confirmed
+inconsistencies, all wording-only, fixed in place across two passes on the same reconciliation
+(not restarted as a second review round — a follow-up check swept for any remaining instances of
+the same phrase class and found exactly two, both fixed here): (1) Round 45's "What happened" and
+verification table still called Units 1/2's authorization "a **separate**" act after `B071-R194`
+had already been narrowed to allow combination — corrected to "an explicit act, separate or
+combined." (2) The D-189 draft mixed its Unit-7-only scope with the combined-act alternative
+*inside* the quoted "Judge Approved" text — moved the alternative outside the quote; the quoted act
+itself is now unconditionally Unit-7-only. (3) Steps 3 and 5, and the draft's own intro line, still
+said "the Judge records" after Round 46 established "the Judge authorizes; Lane A records" — all
+three corrected. (4) Step 8 gated Unit 7's own evidence recording on Units 1/2 and graph work also
+completing, contradicting the item-by-item disposition principle Round 42's own Row 4 fix
+established — split into per-item recording, with B-071's overall closure named as a separate,
+later, unreached item. (5) The verification table's Point 2 row still said "one authorization act
+per selected unit" / "each needing their own act" — corrected to match `B071-R194`'s actual, already
+-narrowed rule. (6) Step 5 said the future Units-1/2 authorization "may be... combined with step 3"
+— self-contradictory once (2) fixed step 3 to be strictly, narrowly Unit-7-only; corrected to state
+Units 1/2's authorization is necessarily its own further act given step 3's actual drafted scope,
+with Round 44's combined-act allowance noted as available only to a differently-scoped, not-yet-
+drafted packet, not retroactively to step 3.
+
+### The parent-first path to authorize Unit 7, isolated from downstream work
+
+1. **Judge decides the four corrected wordings** (task-list step 1) — text only.
+2. **Lane A drafts D-189** (step 2) — done; see the corrected proposed text above.
+3. **Judge authorizes; Lane A records D-189, Unit 7 only** (step 3).
+4. **Apply Unit 7's three blocks; independently verify** (step 4).
+5. **Record Unit 7's disposition** (step 8, Unit-7 portion) — immediately, not gated on Units 1/2
+   or graph work.
+
+Steps 5–7 (Units 1/2's own authorization and application, the graph contract) and B-071's overall
+closure are none of them reached by this path — each stays its own later item, separate or combined
+per Round 44, but never inherited from Unit 7's authorization.
+
+### What you did instead
+
+Reconciled Round 45's stale wording against Round 46's own already-correct conclusions — no new
+substantive finding, the consistency fixes documented above, all in place since nothing is
+committed. No governed tier touched; no commit or push.
+
+### Approve / reject
+
+| Decision | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | The wording corrections documented above (R194 phrasing, clean D-189 quote, Judge-authorizes/Lane-A-records terminology, per-item evidence, Point-2 phrasing, step 5's further-act framing, this citation fix) | Applied in place |
+| Approve-with-conditions | The isolated Unit-7-only path (steps 1–4, then Unit 7's own disposition) | Phase 1: Judge review of the exact drafted D-189 text |
+| Defer | Units 1/2, graph-contract execution, B-071 overall closure | Each its own later item, not reached by this path |
+| Reject | Treating this reconciliation pass as execution permission | Still no bounded `D-183` act exists; nothing applied or committed |
