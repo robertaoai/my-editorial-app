@@ -6539,3 +6539,75 @@ remains a distinct, later act per Round 34 and `docs/ENCYCLOPEDIA-SYNC.md`'s own
 | **Approve-with-conditions** | Unit 3's occurrence ledger | All 24 findings dispositioned; 8 rest on business decisions this pass did not re-verify at the literal-text level | Verify/draft the eight before treating them as application-ready |
 | **Defer** | `R147` (higher-precedence sources), `R152` (Graphify fragment), `R159`/`R160` (UI progress axis, report mapping) | Genuinely open, named rather than improvised | Separate drafting pass; `R152` specifically sequences after application, per `docs/handoff/README.md` |
 | **Reject** | Treating §16 as already applied | Nothing above is committed to a governed tier; `docs/v1/V1-B071-CORRECTIVE-PLAN.md` line 2606's disclaimer applies equally to §16 | Judge authorizes application as a separate, bounded act (`D-183`) |
+
+## Round 36 — Lane A: corrections applied from independent review of Round 35
+
+**Restated request:** treat Round 35 as useful but not application-ready; close the seven confirmed
+gaps and two tracking points, parent-first; resync Graphify now rather than deferring it; normalize
+ledger vocabulary against the existing corpus; ask before proceeding if anything is genuinely
+unclear; end with a concise approve/reject close. Scope stays `R145`–`R168`/`R183`/`R186`; nothing
+here reopens `R169`–`R181` or `R180`/`R181`'s `PBL-04` attachment.
+
+### Verified against the actual files before accepting or rejecting anything
+
+Same discipline as Round 35 itself applied to the pasted review: every claim below was checked
+against current file content, not accepted on the reviewer's word. Two were found to be more nuanced
+than either the review or my own Round 35 stated; the rest were confirmed exactly as raised.
+
+| # | Claim | Verified | Disposition |
+|---|---|---|---|
+| 1 | `R147` gates units 1/2's application | **Partially — a genuine two-reading disagreement**, not a factual error either way | §16.7 states both readings; Judge decides, not drafted over |
+| 2 | `US-05a`, `G-05a`, `SEC-03a` still say `T6`, missed by unit 1 | **Confirmed**, read at `Modular_PRD.md` lines 480, 501, 699 | Added to §16.1 |
+| 3 | §16.1 has ellipses; §16.2 gives summaries; ACs live in §9 not §6 | **Confirmed on all three** — `## 9. Acceptance Criteria` vs `## 6. Technical Requirements`, verified by reading the file's own section headers | §16.1's rows now quote full current text; §16.2 rewritten with complete Given/When/Then rows at the corrected location |
+| 4 | `SC84` overpromises a publication effect on replay | **Confirmed** — `FN-PUBLICATION-09-10-13.md` `AC-15` already documents per-target partial success/failure independent of approval, so `SC84`'s "exactly one... publication effect" cannot be an honest `T5-FINAL` claim | Corrected wording drafted at `AC-08e`; `§15.7` not silently rewritten |
+| 5 | `Resolved` isn't `docs/handoff/README.md`'s vocabulary; `R150` cites a block list, not clauses; §16.4's range wrongly includes `R157` | **Confirmed on all three** — README's table is `Open`/`Answered`/`Applied`/`Verified`/`Deferred`/`Withdrawn`/`Superseded`; my own §16.3 summary already excluded `R157` from the eight while §16.4's prose range included it | Ledger vocabulary remapped; `R150`'s four-row clause table added; range corrected |
+| 6 | `R152` conflates planning with execution | **Confirmed**, and actionable | Semantic contract (fragment path, node/edge assertions) drafted at §16.4; only the write+rebuild stays deferred |
+| 7 | Pointer table isn't complete UML/report reconciliation | **Already flagged** (`R159`/`R160` were `Retained — Open` in Round 35's own ledger) but stated too implicitly | §16.5 now says so explicitly, with Follow-up-Tier named |
+| — | `B-071` remains `Open`; ledger status doesn't override it | **Confirmed and was already true** — this handoff's header (line 8) has read `Status: Open` since before this session; Round 35 never touched it | §16.3's intro now states this explicitly rather than leaving it implicit |
+| — | Resync before the next consuming approval, not after application | **Accepted** — `docs/handoff/README.md`'s own wording places the resync "before the next consuming approval," and a Judge review of Round 35 is one | Run this round; §16.8 |
+
+### What was fixed
+
+All ten items in the table above are corrected in `docs/v1/V1-B071-CORRECTIVE-PLAN.md` §16.1–§16.9,
+listed with before/after in **§16.9's own transparency table** — not restated a third time here.
+Two corrections are worth flagging as judgment calls rather than pure fixes: **`R147`'s gating
+question is left as two named readings for the Judge** (§16.7), not resolved unilaterally in either
+direction, since both readings are internally consistent and the disagreement is about policy, not
+fact. **`R162`'s classification was corrected from "Resolved, out-of-packet" to "Open, tracked
+elsewhere"** — `B-072` itself carries `Status: Open`, so calling `R162` resolved overstated a
+different open item's status.
+
+### Graphify — resynced this round
+
+`npx graphify hook-rebuild` run against `0c984a4` (Round 35's commit). `.graphify/branch.json`:
+`lastAnalyzedHead = 0c984a4`, matching `HEAD` at rebuild time. 1419 nodes, 2766 edges, 97
+communities; curated layer backed up automatically (6 files) and spot-checked via `graphify summary`
+— named concept nodes survived. `graphify query "T5-FINAL"` confirmed **no matching node exists yet**
+in the synced graph, grounding §16.4's `R152` contract in an actual query result rather than an
+assumption. `bun run check`: **17/17 — first fully green run in this thread.** Expected to show a
+one-commit lag again once this round's own commit lands; that is normal, not a regression.
+
+### Terminology
+
+No new vocabulary introduced. The one real terminology defect this round found — the ledger's
+`Resolved`/`Retained` words not matching `docs/handoff/README.md`'s controlled set — is corrected in
+§16.3, mapped onto `Applied`/`Deferred`/`Superseded`/`Open` where those words' exact meanings apply,
+with two explicitly-labeled non-colliding terms (`Drafted, pending application`;
+`Business-decided; text not drafted`) for the two states that vocabulary has no word for.
+
+### What this round does not do
+
+No commit, push, code, or lane transition beyond the Graphify rebuild (which writes only to
+gitignored `.graphify/`, not tracked content). No governed-tier file is edited — `raci-involvement-matrix.md`,
+`Modular_PRD.md`, `FN-GATES-01-05.md`, `FN-PUBLICATION-09-10-13.md`, `V1-BUILD-SPEC.md` remain
+quoted, not edited. `R147`'s Addendum/Blueprint/Business Case texts are still not literally
+corrected — only the governing-mechanism explanation is drafted (§16.4); if the Judge selects
+Reading B (§16.7), that literal correction remains separate, undrafted work.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | The ten corrections (§16.9) | Verified against source, applied to the draft, transparently logged | Judge review of the corrected draft |
+| **Approve-with-conditions** | Units 1/2's application readiness | Two named readings exist (§16.7); both internally consistent | Judge selects Reading A or B before any application offer |
+| **Approve-with-conditions** | `R152`'s semantic contract | Drafted (fragment path, node/edge assertions); execution correctly still waits | Write `frag122.json` and rebuild at the application boundary |
+| **Defer** | `R147`'s literal Addendum/Blueprint/Business Case text (if Reading B governs), `R148`'s uncovered docs, `R159`, `R160` | Named, not drafted | Separate passes, tiers as stated in §16.3 |
+| **Reject** | Treating this round as closing `B-071` | Header `Status: Open` is unaffected by this or any prior round's internal ledger | Terminal closure needs independent verification per `docs/handoff/README.md`, not a Lane A self-assessment |
