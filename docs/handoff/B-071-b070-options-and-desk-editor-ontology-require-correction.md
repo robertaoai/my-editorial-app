@@ -6765,3 +6765,60 @@ the discipline Round 38 itself asked for: sync before the next consuming approva
 | **Approve-with-conditions** | The `D-54` application-packet table (§16.8) | Named what's needed (Register act, Artifact Inventory row, `Modular_PRD.md` §8 statement); none of it executed | Complete at authorized application, not before |
 | **Defer** | `R148`'s remaining uncovered docs, `R152`'s execution (duplicate-ID check, fragment write), `R159`/`R160`, `R162` | Unchanged, still named, still open | Separate passes as already scoped |
 | **Reject** | Treating this round, or Round 38's push, as any form of application or build authorization | Transport (the push) and drafting (this round) are both distinct from application (`D-183`) | Judge authorizes application as its own bounded act |
+## Round 40 — Lane B: Round 39 draft corrections are partial, not an application clearance
+
+**Evidence revision:** `166bfb0`. Continuing the existing Phase-1 spec-defect; no new finding
+series, duplicate tracker, formal Resolution, or independent application-verification claim.
+Readiness and remedies below use existing R148/R149/R150/R152/R158/R186 anchors.
+
+### What happened
+
+Independently compared Round 39, corrective-plan §16 and its commit diff with the Product and
+FN-GATES contracts. Retain the actual improvements: held-order wording, FR-04a inclusion,
+explicit G-02a/G-05a sub-act exclusions, complete SEC-01a/FR-05a/G-05a/SEC-03a replacement text,
+AC-08b's FR-04a anchor, AC-08f's narrowed Line-control subject, and the newly named D-54 tiers.
+These are corrections **applied to a draft**, not changes applied to the owning governed tiers.
+
+### What you need — residuals, parent first
+
+| Existing anchor / priority | What still fails | Draft correction and success criterion |
+|---|---|---|
+| R148 / parent readiness | §16.7 still offers Units 1/2 immediately after Unit 7 while deferring the unswept operative consumers. Round 38 required classification of those consumers before the rename offer, not only the missing FR-04a row | Replace that readiness clause with: **Units 1/2 may be offered only after Unit 7's required source disclosure is applied AND every affected operative consumer in R148 has an exact proposed edit or an evidence-backed unaffected/historical/future classification. A remaining contradictory consumer blocks that application unit; independent future work does not.** Keep build authorization separate and D-171 unchanged |
+| R150/R149 / packet consistency | §16.3's D-179 disposition still says FR-04a contains no T6 occurrence, although §16.1 now adds its two occurrences. The new FR-04a proposed Requirement cell starts with an ellipsis while the surrounding text claims all replacements are complete | Correct the D-179 row to cite FR-04a's Requirement and Line-cell edits. For the Requirement cell specify the exact substring **agent contribution is never `T6`'s executor** → **agent contribution is never `T5-FINAL`'s executor**, with all remaining text unchanged; no ellipsis is an edit operand. Classify the Line cell's T5 as reviewer acts, consistent with the nested-scope rule. Success: the occurrence ledger and executable edit instructions agree without re-inference |
+| R152 / graph ontology | §16.4's owns edge may target the existing **T6/EG5** node. FN-GATES §11 explicitly assigns EG5 to the human editorial act, and this packet retains EG5 event IDs for T5-FINAL. Assigning that identity to future PBL-01 would merge the subjects the graph is meant to distinguish. Edge endpoints also remain prose placeholders, and the new descriptions omit the retained build hold | Do not assign PBL-01 ownership of EG5 or retype a historical editorial-T6 identity as assurance. Resolve existing IDs by subject, not label; use a distinct future-assurance concept if none exists, with its creation explicitly drafted. Give all edge endpoints concrete IDs in the reviewable packet, then recheck collisions at execution. Preserve target-held/not-build-authorized status and historical editorial provenance. Success: T5-FINAL belongs to editorial T5; EG5 remains editorial; PBL-01 owns only future assurance; no alias/ownership/successor edge conflates them |
+| R158 / outcome explanation | §16.5 now says **post-join incomplete (stays Reviewed, no readiness)**. §15.3 and FN-GATES §11.1 say the join already sealed the bundle and performed Drafted→Reviewed. Missing final-approval evidence is not absence of bundle readiness | Replace with **post-join final-approval evidence incomplete: the sealed readiness fact is retained, the article stays Reviewed, deficiencies are recorded, and no approval or Delivery authorization is produced**. Keep the pre-join missing-review case at Drafted. Success: neither text nor a later view erases a readiness event that already occurred |
+| D-54 / authorization packet | Naming the tracking tiers is progress, but the Register decision text and bounded DoD remain requirements-to-write, and the Inventory entry is conditional only on later fragment creation. This is not yet a complete packet | Draft the per-unit Register act, DoD and applicability matrix before offering application. For every affected tracking tier provide its edit or explicit unaffected rationale, including the no-fragment-yet case. Recording actual authorization remains the Judge's separate act; the draft must not claim it occurred |
+
+**Do not reopen corrected business choices.** Reading B remains selected. Unit 7 is its source
+disclosure prerequisite, not automatic clearance of R148. Unit 6 remains independently reviewable
+as a backlog identity only. No new business decision is necessary to correct the contradictions
+above; the future application still needs its own bounded authorization.
+
+### Tracking, views and graph evidence
+
+B-071's canonical Status remains Open. The occurrence ledger records draft coverage and is not
+a terminal handoff resolution. Storyboard pointers remain historical; R159's SPECS/UX work and
+R160's audit-report mapping are still deferred to their named owners. The hosted Encyclopedia was
+not read; its local citation map cannot establish external synchronization. No full UML/report
+reconciliation or Encyclopedia verification is claimed.
+
+At revision `166bfb0`, `bun run check` passed every check except docs-drift: analyzed `b51f095`
+versus HEAD `166bfb0`. Round 39's pre-commit green result is not a green result for its commit.
+Lane A remains Active and Lane B Eligible. Lane A must synchronize the settled committed graph
+before the next consuming approval, preserving curated identities and checking semantics as well
+as commit currency. This review relied on current file evidence, not stale graph query results.
+
+### What you did instead
+
+Recorded review and proposed text only in this existing handoff. No governing source, corrective
+plan, application, migration, lane state or authorization was edited. The untracked package-lock
+file was left untouched. Any transport of this feedback follows the one-entry handoff procedure;
+it does not authorize pushing an accumulated Lane A range or applying the draft.
+
+| Decision | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | The specific corrected draft clauses acknowledged above | Phase 1 draft review only; not a formal Applied/Verified promotion of B-071 |
+| Approve-with-conditions | Unit 7 source disclosure | Phase 1: complete the bounded Register/DoD packet; retain D-171 |
+| Defer | Units 1/2 Product/Fn_Spec/RACI application offer | Phase 1: complete R148 classifications and reconcile ledger/edit instructions first |
+| Defer | R152 graph contract and synchronization | Phase 1: concrete subject-correct IDs and retained lifecycle status before execution and semantic verification |
+| Reject | Blanket closure of Round 38 findings or B-071 from Round 39's summary | Handoff tier: retain residuals and require independent evidence after authorized application |
