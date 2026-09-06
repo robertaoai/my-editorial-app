@@ -3504,3 +3504,93 @@ diagram is required.
 | **Approve** | Finalization boundary — guarded routine plus deferred constraint backstop; provenance-based legacy admission | §4 | Independent review |
 | **Approve** | Exact file paths, owners, tests and DoD | §5; open prerequisites carried visibly | Judge decision |
 | **Defer** | Implementation, actor-rule change, target-environment preflight, `B-071` closure | Held or ungathered | Separate authorization and verification |
+
+## Independent review: R160 repaired branches accepted; remaining boundary contract (2026-09-07)
+
+### Scope and retained parent
+
+**Rewritten task:** Review Lane A's packet at `1949f6f`, preserve the repaired actor/retry
+account, and finish the remaining physical-design drafting under R160. Use this existing B-077
+handoff; no new tracker, governing decision, schema, code or implementation authorization.
+The parent remains D-191 and accepted R159 behavior. “Closed” here must not conflate an accepted
+draft correction with an applied or independently verified implementation.
+
+**Accept and preserve:** the full-function actor account and its metadata-not-authenticity limit;
+shared normal/recovery comparison; savepoint before attempted effects; explicit isolation/lock
+handling; revision-bound approval reference; separation of late-insert protection from
+completion; provenance-based legacy admission as a requirement; and the named migration/test
+paths. A guarded routine plus a deferred completion check is a reasonable design direction.
+These repairs need no repeat application. The actor mapping, held target rule and environment
+preflight remain explicitly open, as Lane A correctly records.
+
+**Evidence qualification:** source-inspected proposal gaps below, not executed database failures.
+The complete migration and effective target-environment grants were not inspected because no
+new migration exists and no live database was queried. Do not promote “branches closed” to a
+complete boundary or runtime guarantee.
+
+### Parent-first Lane A guide — one bounded draft step at a time
+
+| Order / dependency | Gap and source evidence at `1949f6f` | Draft fix | Accept / Reject criterion |
+|---|---|---|---|
+| **1 — settle the evidence record set**; after retained D-191 contract | Physical §3 calls `assessment_trend_signals` a **candidate**, while §5's test relies on it and the migration still names only the original “three relations.” An association of assessment S/article A with signal X/article B can satisfy separate FKs while violating the same-article contract. | Select and explicitly enumerate the association in the prospective migration contract if retaining `trend_signal` consumption. Name its keys, required fields, same-article validator/constraint and immutable cycle binding. Do not rewrite `trend_signals`. If leaving the association undecided, leave that resolver incomplete rather than claiming it closed; do not silently omit required evidence. | **Accept** a selected, write-set-listed association that rejects S/A → X/B and cannot later rebind historical evidence. **Reject** a required test against an unselected object or existence-only FKs credited with same-article proof. |
+| **2 — cover both sides of approval finalization**; after 1 | Physical §4's deferred trigger is attached to `editorial_judgments`. If no judgment is inserted, it has no row event to check. Restricting INSERT on the new judgment/evidence tables does not itself restrict the existing audit-row + article UPDATE route. `0001`:84/94 describes permissive write policies; `0002`:370–402 checks matching audit metadata, not judgment presence. | For the new governed approval contract, add a named guard on the approval path itself, or explicitly restrict that path to the guarded routine. Require its exact same-assessment positive judgment and matching audit reference as part of that boundary. Retain the deferred check for complete evidence/effect consistency and the `xmin` check for late additions. | **Accept** a planned refusal case for an otherwise qualifying audit row + approval UPDATE with **no judgment at all**. **Reject** treating the judgment-only trigger or “direct judgment INSERT denied” test as proof of this inverse case. This is a coverage gap; permissive RLS alone does not prove effective SQL grants or a live exploit. |
+| **3 — make the privileged routine contract explicit**; after 2 | “Guarded SECURITY DEFINER” and “not granted to anon/authenticated” do not identify its owner, signature, execution audience, trusted name resolution or effective privileges. PostgreSQL's normal function defaults include PUBLIC execution; inherited/default grants also matter. | Name the schema-qualified routine/signature, owner, fixed trusted `search_path`/qualified object references, intended execution roles, and effective table-write restrictions. Specify revokes and deliberate grants in the same migration transaction, including PUBLIC/inherited/default privilege effects and relevant alternate entry points. Preserve the existing demo access model; do not add a login wall or claim authenticated identity. | **Accept** an effective-privilege and safe-name-resolution test plan for the actual app-facing role, plus a working legitimate call path. **Reject** “only write path” derived solely from omitted grants or the SECURITY DEFINER keyword. Owner/admin powers are an explicit trust boundary, not ordinary client access. |
+| **4 — specify the non-UPDATE legacy cutover**; after 1–3 | Physical §4 says the migration “stamps existing rows” while old reports are never rewritten. “Stamp” does not say whether it uses UPDATE, schema initialization or another mechanism. Ordinary UPDATE is refused by `0002`:514–518; this does **not** prove every possible cutover contradicts immutability. | Name an atomic, non-UPDATE cutover preserving existing report values and append-only protection. A candidate is a constant legacy default when adding the discriminator, then a new-contract INSERT default and a validator rejecting caller-supplied legacy values, all in one migration transaction. Verify that candidate against the target environment; do not disable the append-only trigger or manufacture old judgments. | **Accept** empty/existing-row walkthroughs with unchanged prior report values, correct historical classification and no window admitting a new legacy-labelled row. **Reject** an ordinary report UPDATE workaround, or a claim that the currently unspecified “stamp” has already proven those properties. |
+| **5 — align objects, files, tests and authority**; after 4 | The migration/test paths are now named, but `docs/specs/ — no target named` is still inside the claimed exact set. The association/control changes above must be represented in that same proposal. | Enumerate objects rather than restating a relation count. Retain the existing exact code/test paths. Either choose the particular existing SPECS file/section whose unresolved implementation content warrants an edit under D-30/D-52, or explicitly exclude the optional SPECS row from this execution set. Supply D-54 applicability for the later authorizing act, including Build Spec/Inventory when scope or created artifacts change. | **Accept** one bounded per-owner proposal with matching writes and DoD. **Reject** a required but unlisted association/control, an unnamed optional directory treated as an exact edit, or review acceptance used to release D-171/AUTH-DOC. |
+
+### Small replacement contract for step 2
+
+> For an approval governed by the new T5-FINAL contract, every permitted route to the
+> `Reviewed → Approved` effect must require its matching positive judgment for the selected
+> assessment revision, referencing the exact audit row used for that effect. An otherwise
+> valid audit row without that judgment cannot authorize the approval. The judgment-side
+> completion check separately requires the applicable evidence and matching effect before
+> commit. These are complementary checks: neither is inferred from the other. A negative
+> judgment retains its no-state-change behavior, and no additional Delivery effect is added.
+
+This is **proposed enforcement of the existing behavior**, not authorization to change the
+current transition rule. The human actor mapping and target-rule hold must still be resolved
+through their existing owners before implementation. Do not reopen the corrected actor-source
+account to compensate for the remaining boundary gap.
+
+The minimum new planned cases are those in the guide: cross-article association, immutable
+association binding, approval attempted with no judgment, effective client privileges and
+trusted name resolution, and atomic legacy cutover. Retain the already accepted positive,
+negative, matching/conflicting retry and rollback cases. Run them only under a separately
+authorized implementation unit and observe persisted records/effects, not labels alone.
+
+**Technical references:** [PostgreSQL SECURITY DEFINER guidance](https://www.postgresql.org/docs/current/sql-createfunction.html#SQL-CREATEFUNCTION-SECURITY)
+explains owner privileges, trusted name resolution and deliberate execution grants;
+[constraint-trigger semantics](https://www.postgresql.org/docs/current/sql-createtrigger.html)
+explain row-event coverage and deferred timing; [adding columns with constant defaults](https://www.postgresql.org/docs/current/ddl-alter.html)
+supports a non-UPDATE cutover candidate. None establishes target-environment compatibility,
+installed permissions, business authority or executed test results.
+
+### Cross-reference and drift disposition
+
+Only B-077 changed between `921316e` and `1949f6f`. The preceding review's document/view map
+therefore remains applicable: `Modular_PRD.md` owns requirement identifiers; D-191's applied
+Fn_Spec rows own assessment/judgment/retry/report behavior; the historical storyboard and
+Panels A5/A6/UML/sequence/data-flow views do not authorize the target actor. No duplicate UX or
+diagram artifact is required for these storage/enforcement corrections. The current data flow
+remains selected assessment → evidence/readiness → finalization → exact-key report/UI read.
+
+`docs/ENCYCLOPEDIA-SYNC.md` Entry 01 names transition controls. Its local dependency map was
+reviewed; hosted content parity remains **UNVERIFIED**, not inferred from Graphify. At intake,
+`lastAnalyzedHead = 1949f6f`, equal to HEAD, and `stale = false`; the read-only graph query
+completed. Extraction currency is not proof that a physical mechanism is complete. A handoff
+commit advances HEAD; Active Lane A performs final synchronization before consuming approval.
+
+**This pass changes only B-077.** Register, Build Spec, Inventory, Product/Fn/SPECS, journal,
+graph fragments, schema, tests and application code are unaffected by this review write.
+B-077 remains `Answered` with no `Resolution`; no lane transition, new authentication feature,
+T6 expansion, B-071 closure or build authorization follows. No new Judge clarification is
+needed merely to finish this bounded technical draft; its existing approval/preflight gates
+remain separate and visible.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R160 repaired actor/retry account and retained behavior | Source correction and shared retry comparison accepted | Preserve; no repeat repair |
+| **Approve-with-conditions** | R160 association, finalization and cutover design | Suitable direction; boundary and migration contract incomplete | Steps 1–5, then independent review |
+| **Reject** | Complete-boundary / fully closed physical-packet claim | Candidate association, alternate approval path and cutover mechanism still need specification | Correct the bounded proposal |
+| **Defer** | Implementation, held actor rule, preflight, hosted parity and B-071 closure | Not authorized or runtime-verified here | Existing owner-specific authorization and evidence gates |
