@@ -1,7 +1,7 @@
 # V1 Decision Register
 
 **Date:** 2026-08-18
-**Last approval update:** 2026-08-19
+**Initial approval-summary cutoff:** 2026-08-19; later dated approvals appear in their decision sections
 **Status:** **Operative.** This is the authoritative record of what is approved for v1.
 **Authority:** Chief Editor approval recorded 2026-08-18 against the recommendations in `docs/journal/2026-08-18-board-decision-sheet.md`.
 **Supplemental authority:** Chief Editor approval recorded 2026-08-19 for `D-22`–`D-28`.
@@ -118,7 +118,21 @@ Every conditionally approved item, its follow-up, and where it lands.
 | `Q7` | `SEC-04`/`SEC-05` ownership — **no owner exists** | Production |
 | `G15` / `GA5` | Data-protection regime; retention versus erasure | Needs external counsel |
 
-**Chief Editor decisions still to make.** `Q0`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q11`, `QB`, `QD`, `QE`. **The list is the record; no tally is restated** (`G55`, `G56`, `G58`). *Corrected 2026-08-21 (`D-71`): `Q2` (`D-57`), `QC` (`D-59`), `G23` (`D-10`) and `G24` (`D-09`) were already decided and are removed. *Corrected again 2026-08-25 (`D-110`): `QA3` is decided and removed.* The remaining twelve were **not** individually re-verified in that pass.* *Corrected again 2026-08-21 (`D-72`): the list was wrong in **both** directions — `Q1`, `Q7` and `Q10` were **Open and Chief-Editor-owned but never listed**, `Q10` being the named blocker for Stage D. Found by `decision-status`, which now runs in CI.* *Updated 2026-08-21 (`D-73`): `Q10` is decided and unblocks Stage D.* *Corrected 2026-08-30 (`D-163`): `Q1` (Phase-0 combinable-instance ruling) and `Q12` (`SEC-01` re-sourced to the RACI, no longer an IIA citation) are decided and removed. `Q11` remains listed despite being closed at `D-111`/`D-112` — not individually re-verified in this pass either; flagged, not corrected, to avoid the exact restatement-without-re-derivation pattern `G55`/`G56`/`G58` name.* See `V1-BUILD-SPEC.md` for which sprint each gates.
+> **Historical question-summary paragraph — superseded for current status.** Preserved below as
+> dated history only. Its "still to make" label is not operative; the current-reference note that
+> follows identifies the owning decisions.
+
+**Chief Editor decisions still to make.** `Q0`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7`, `Q8`, `Q11`, `QB`, `QD`, `QE`. **The list is the record; no tally is restated** (`G55`, `G56`, `G58`). *Corrected 2026-08-21 (`D-71`): `Q2` (`D-57`), `QC` (`D-59`), `G23` (`D-10`) and `G24` (`D-09`) were already decided and are removed. *Corrected again 2026-08-25 (`D-110`): `QA3` is decided and removed.* The remaining twelve were **not** individually re-verified in that pass.* *Corrected again 2026-08-21 (`D-72`): the list was wrong in **both** directions — `Q1`, `Q7` and `Q10` were **Open and Chief-Editor-owned but never listed**, `Q10` being the named blocker for Stage D. Found by `decision-status`, which now runs in CI.* *Updated 2026-08-21 (`D-73`): `Q10` is decided and unblocks Stage D.* *Corrected 2026-08-30 (`D-163`): `Q1` (Phase-0 combinable-instance ruling) and `Q12` (`SEC-01` re-sourced to the RACI, no longer an IIA citation) are decided and removed. `Q11` remains listed despite being closed at `D-111`/`D-112` — not individually re-verified in this pass either; flagged, not corrected, to avoid the exact restatement-without-re-derivation pattern `G55`/`G56`/`G58` name.* *Flagged 2026-09-06, same reason as `Q11`, not individually re-verified: `Q3` and `Q5` remain listed despite being ruled together at `D-143` (§5.14cx).* See `V1-BUILD-SPEC.md` for which sprint each gates.
+
+> **Current-reference text, added 2026-09-06 — the paragraph above is preserved as dated history,
+> not rewritten.** Current question dispositions are recorded in the applicable decision sections
+> below; the Product PRD §10 provides their question mapping. `Q3`/`Q5` are ruled by `D-143`
+> (publish-path rationale clarified by `D-146`), and `Q11` is closed by `D-111`/`D-112`. They are
+> not pending Judge choices. Consult each surviving question's own disposition and scope before
+> treating it as a blocker; the historical list above is not a current open-question register.
+> This deliberately does not invent a replacement list of every open question, and does not turn a
+> Phase-0 ruling into a production ruling (notably `Q1`/`OD3`). A live roll-up, if wanted, is a
+> separate scoped tooling proposal, derived and verified from owning decisions — not this note.
 
 ## 5.1 Gap disposition — every ID
 

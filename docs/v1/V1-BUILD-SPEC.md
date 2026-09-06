@@ -47,7 +47,11 @@ step (`G110`). It also **named which lanes held
 which state while claiming not to restate live state** — the naming is removed (`D-152`, raised in
 `B-033`'s verification review).* **The live state is `V1-PHASE-CLOSURE.md` §5 and nowhere else**;
 this document does not restate it.
-Work outside the active lane is **specified, never applied** (`D-56`). **Lane A writes every dependency before Lane C builds a workflow against it (`D-84`)** — the original map put `scripts/` and `.gitattributes` in Lane C and was corrected. **The rule is unenforced (`D-82`)** — no `CODEOWNERS`, no path rule, no pre-commit hook, and CI runs after a commit lands; a crossing is stopped only by the agent choosing to stop.
+Work outside the active lane is **specified, never applied** (`D-56`). **Lane A writes every dependency before Lane C builds a workflow against it (`D-84`)** — the original map put `scripts/` and `.gitattributes` in Lane C and was corrected. **The working branch has no PR merge gate (`D-82`).** Local lane declarations and checks support the
+lane rule; they do not confer authority. The commit-message control records declared crossings and
+can refuse an undeclared multi-lane commit; it does not prevent every unauthorized file edit. `D-88` records the commit-message crossing control and `D-89`
+records the main-branch PR/status gate. Live Phase 3 settings and compatibility evidence remain
+with `B-016`/`C-001`; a documentation statement here is not verification of those settings.
 Deployment is Lane C and GitHub — **`main` lagging this branch is expected until Phase 3 and is not
 a defect.** The development lane model is **not** the product Three Lines (`OD1`–`OD3`) and **not**
 `OD4`; `D-75` records why the vocabularies are kept apart.
@@ -81,7 +85,10 @@ Additional T1 items beyond the table below: `D-15` `docs/v1/` pointer · `D-16` 
 >
 > **`C-14` travels with this item (`D-58`).** `G11`'s detection half — the shared-core hash, the `D-54` tier sweep, the §5.1 duplicate scan, and `missing.js` — is verification apparatus and waits on the same guardrail. **Precedence without detection is inert:** git here has one identity and zero merges, so a conflicting edit is a silent overwrite that nothing announces.
 
-**Specified 2026-08-20 — `D-56`, `docs/specs/SPECS-VERIFICATION-APPARATUS.md`.** Runner, layout, CI steps and DoD are settled. *(Superseded 2026-08-21 by `D-70` — **all of it is now installed**; this sentence read "nothing is installed" until `D-71` corrected it.)* Two rules carry forward: CI must run **typecheck and lint as explicit steps**, because `TC6`'s flags make a `next build`-only job green on broken types; and `R3` is reported *"written, locally unverified"* until a real CI run — bun is not installed locally. **`G62`b decided (`D-66`).** Lint migrates to the **ESLint CLI** with a flat config extending `next/core-web-vitals`; `package.json`'s `lint` script repoints from `next lint` to `eslint .`. **Measured at 0 errors and 0 warnings across 21 files**, so Stage A carries **no lint remediation** — only the config file. Dropping lint was never available: `AC-NF-03` requires it to execute and pass.
+**Specified 2026-08-20 — `D-56`, `docs/specs/SPECS-VERIFICATION-APPARATUS.md`.** Runner, layout, CI steps and DoD are settled. *(Superseded 2026-08-21 by `D-70` — **all of it is now installed**; this sentence read "nothing is installed" until `D-71` corrected it.)* Two rules carry forward: CI must run **typecheck and lint as explicit steps**, because `TC6`'s flags make a `next build`-only job green on broken types; and `R3`'s original *"written, locally unverified"* statement predates the installed toolchain —
+`D-64` records bun and the lockfile verification directly; `D-70` records installation of the
+verification apparatus. Historical results do not replace checks against the revision now being
+reviewed. **`G62`b decided (`D-66`).** Lint migrates to the **ESLint CLI** with a flat config extending `next/core-web-vitals`; `package.json`'s `lint` script repoints from `next lint` to `eslint .`. **Measured at 0 errors and 0 warnings across 21 files**, so Stage A carries **no lint remediation** — only the config file. Dropping lint was never available: `AC-NF-03` requires it to execute and pass.
 
 **`G62`a closed (`D-67`).** `tsc --noEmit` **exits 0**, from exit 2. The ten implicit-`any` errors were **two overload-resolution causes**, not ten defects: `createServerClient` declares two cookie-API overloads and TypeScript will not contextually type an inline object literal across them. Fixed with `satisfies CookieMethodsServer` — **four lines across two files, no dependency, no runtime change.** Verified by a negative test rather than only by a green run.
 

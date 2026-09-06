@@ -1,0 +1,48 @@
+{
+  "nodes": [
+    {
+      "id": "b078_documentation_audit_follow_through",
+      "label": "B-078: Documentation Audit Follow-Through, Current Authority and Reviewable Closure",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-078-documentation-audit-follow-through.md",
+      "source_location": "",
+      "description": "Handoff status: Open, acknowledged by Lane A 2026-09-06, edited in the working tree and pending commit and independent verification -- not Applied, which requires a named commit. Owns the residual documentation-audit packet only; explicitly not a second backlog and not a replacement for B-071's product-plan chain or B-077's handoff-closure map. Parent 1 corrected docs/README.md's authority map: PRD.md moved out of the non-governing plan-pack row into its own governing row under D-29, the demand/supply 'neither governs the other' framing replaced with the Project PRD to Product PRD to Fn_Specs to SPECS intent hierarchy (extending B-073's already-established fix to a section of the same file it had missed), and the reading order replaced with a six-item list routing through the execution map and lane work order. Child 2 corrected current-status presentation without deleting history: the Register's 'Last approval update' relabelled an initial approval-summary cutoff, a history label inserted before the old 'Chief Editor decisions still to make' paragraph and a current-reference note after it citing D-143, D-146, D-111 and D-112 for Q3, Q5 and Q11; the Build Spec's Bun sentence re-cited to D-64 as the direct installation and lockfile evidence rather than D-70's later verification apparatus. Round 2 found two errors introduced by that first pass and both are corrected: the provisional deviation register had been filed as history-only against its own 'Live instrument' header, and the Build Spec still read that a crossing is stopped only by the agent choosing to stop while citing D-88's commit-message control two lines below. Children 3 to 5 remain routed to existing owners and are not closed here: view and report mapping stays with B-071's R159 and R160, publication timing and duplicate-recovery contracts stay with S4 readiness in SPECS-PUBLICATION, and hosted Encyclopedia parity remains unread rather than missing.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also records the one reusable finding of the entry -- that a correction pass can itself introduce contradictions against a document's own self-declared status header -- which is otherwise reachable only by reading the full entry."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b078_documentation_audit_follow_through",
+      "target": "b077_consolidated_closure_failure_pattern",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-078-documentation-audit-follow-through.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b078_documentation_audit_follow_through",
+      "target": "b071_ontology_correction_handoff",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-078-documentation-audit-follow-through.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b078_documentation_audit_follow_through",
+      "target": "b073_r66_frozen_source_intake_guide",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-078-documentation-audit-follow-through.md",
+      "source_location": "",
+      "weight": 1
+    }
+  ]
+}

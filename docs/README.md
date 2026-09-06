@@ -12,18 +12,18 @@ Read this before building from anything in this folder.
 | `journal/2026-08-16-sprint-plan.md` §header | The branch's historical root — `SETUP-SPIKE-000` (`D-185`) | Historical lineage only; grants no current authority. Current operative decisions/state/backlog live in `v1/`/`handoff/`, not here |
 | `v1/` | The **operative record**: `V1-DECISION-REGISTER.md` (decisions, gap dispositions, conditions), `V1-BUILD-SPEC.md` (scope and sequence), `V1-ARTIFACT-INVENTORY.md` (what must exist) | **Binding on build order and gap status.** When derived tiers conflict, the register wins (`D-58`); frozen documents still outrank it |
 | this folder | `Modular_PRD.md` — the **governed requirement specification**, derived from the governing set with end-to-end traceability | Requirements layer; ratifies nothing |
-| this folder | The **repo plan pack**: `PRD.md`, `ARCHITECTURE.md`, `DATA_MODEL.md`, `INTELLIGENCE_LAYER.md`, `AGENTIC_LAYER.md`, `SECURITY.md`, `TASKS.md`, `TEST_PLAN.md` | **Not governing.** See below. |
+| this folder | The **repo plan pack**: `ARCHITECTURE.md`, `DATA_MODEL.md`, `INTELLIGENCE_LAYER.md`, `AGENTIC_LAYER.md`, `SECURITY.md`, `TASKS.md`, `TEST_PLAN.md` | **Not governing.** See below. |
+| this folder | `PRD.md` — the **frozen Project Requirements Document**: the customer's requirement baseline | Governing source under `D-29`; cited as evidence and never edited through downstream refinement |
 
-### The two PRDs — opposite sides of the customer boundary
+### The two PRDs — within `D-29`'s intent hierarchy, not a governs-neither pair
 
-Both are kept, and **neither governs the other:**
-
-| File | Side | Author | Authoritative on |
-|---|---|---|---|
-| `PRD.md` | **Demand** | Customer, derived from the Business Charter | **What the customer wants.** Its approval authorised scaffolding |
-| `Modular_PRD.md` | **Supply** | Project team | **How those wants are specified and built** |
-
-Requirements flow customer → project sponsor → project team, and feedback returns the same way (PMI/PMBOK). So a difference between the two is never settled by precedence — it is either an **elaboration** (the team specifying how a want is met) or a **change request** (routed back to the customer through the sponsor).
+The two documents serve different purposes within `D-29`'s intent hierarchy:
+Project PRD → Product PRD (`Modular_PRD`) → functional specifications → technical specifications.
+The Project PRD preserves customer requirements; the Product PRD elaborates them into governed
+product behaviour. A downstream elaboration must remain within the frozen baseline. A proposed
+addition or contradiction follows the frozen-source intake procedure: record a named Register gap
+or change request and obtain the Judge's decision on the governing successor. Neither ordinary
+refinement nor this reading guide authorizes editing a frozen source.
 
 `PRD.md` is not expected to carry Lines, state machines, or traceable ids. The customer is the subject-matter expert on their own business, not on SDLC.
 
@@ -31,7 +31,12 @@ The mapping in both directions, with a content hash on every customer statement 
 
 ## About the plan pack
 
-`CLAUDE.md` describes the plan pack as "a complete, correct plan… already committed in /docs."
+> **Historical scaffold diagnosis:** the comparisons and original S0/`0002` remediation references
+> below describe the earlier baseline. They are not a statement of current schema, gate-order
+> readiness, or outstanding work. Consult the operative Register and lane work order for current
+> dispositions, and `B-071`'s current/target mapping for gate-order interpretation.
+
+The original scaffold guidance described the plan pack as "a complete, correct plan… already committed in /docs."
 It was generated at scaffolding time from the project name and summary, **before** the
 governing documents were available, and it does not sit in the precedence hierarchy. Measured
 against the Addendum, it diverges in ways that matter:
@@ -43,8 +48,10 @@ against the Addendum, it diverges in ways that matter:
 - `ARCHITECTURE.md`, `AGENTIC_LAYER.md`, and `supabase/migrations/0001_init.sql:131` all execute
   T5 with an agent. T5 is the Line 2 gate and is human-primary in every governing document.
   **The committed seed data encodes a four-eyes violation today.**
-- Stripe scaffolding ships in `app/api/stripe/` and `lib/stripe/`, against a Charter-level v1
-  exclusion ("No monetization features").
+- Stripe scaffolding shipped in `app/api/stripe/` and `lib/stripe/`, against a Charter-level v1
+  exclusion ("No monetization features"). **Closed — `D-121`, tracked as `X8`: removed at `B-003`,
+  `Verified` at `67706ca`, absent from the tree.** Kept here as historical plan-pack deviation
+  evidence, not a live defect.
 
 Full list as X3, X4, X5, X7, X8 in `journal/2026-08-16-sprint-plan.md`; tracked as **D5** in the
 deviation register.
@@ -55,16 +62,21 @@ plus migration `0002`, per the sprint plan — ordinary build work, not a govern
 
 ## Order to read
 
-1. `source/project-charter-v1.md` — source of truth, and the only frozen document
-2. `source/v1-build-readiness-addendum.md` — build specifications
-3. `source/blueprint.md` — architecture and product meaning
-4. `source/business-case.md` — rationale
-5. `governance/provisional-deviation-register.md` — what is running ahead of the Charter, and
-   what closes each departure
-6. `journal/2026-08-16-sprint-plan.md` — the sprint plan, the full gap register, and the
-   **pre-S0 remediation sequence (§R)** that must run before any sprint begins
-7. `Modular_PRD.md` — requirements, traceability, acceptance criteria
-8. `PRD.md` — the original requirement record, for context on what was originally scoped
+1. Read this guide's authority map and "How a request becomes execution."
+2. Consult the Project PRD (`PRD.md`) and governing source set (`source/project-charter-v1.md`,
+   `source/v1-build-readiness-addendum.md`, `source/blueprint.md`, `source/business-case.md`) for
+   the scope being interpreted, in their established precedence order. Both `PRD.md` and the
+   Charter are frozen — see `CLAUDE.md`'s never-edit list.
+3. Read `v1/V1-DECISION-REGISTER.md`, `v1/V1-BUILD-SPEC.md`, and `v1/V1-ARTIFACT-INVENTORY.md` for
+   operative decisions, scope/sequence/DoD, and file lifecycle.
+4. For execution readiness, read the selected lane's work order and `v1/V1-PHASE-CLOSURE.md` §5;
+   this guide records no live lane state.
+5. Follow the relevant `Modular_PRD.md` feature group to its functional and necessary technical
+   specifications. Read the originating handoff for any surviving condition. Consult
+   `governance/provisional-deviation-register.md` for recorded provisional departures and their
+   closing triggers. It records departures and creates no authority; it is not history-only.
+6. Consult journals and the scaffold plan pack only as dated rationale or substrate history.
+   Their original sprint instructions and diagrams do not constitute current authorization.
 
 ## Standing constraints
 
