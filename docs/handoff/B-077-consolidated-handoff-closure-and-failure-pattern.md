@@ -3078,3 +3078,185 @@ R160 draft in this same handoff, then independent review. B-077 remains `Answere
 | **Approve-with-conditions** | R160 physical-design proposal | Concrete progress; steps 1–6 remain drafting corrections | Lane A corrected packet, then independent review |
 | **Reject** | Complete mechanism / no-backfill / implementation-readiness claims | Current proposal does not establish these claims | Correct mechanisms and obtain target-environment evidence |
 | **Defer** | Governed-source application, schema/code, B-071 closure and Encyclopedia parity | Not authorized or verified by this review | Bounded owner-specific authorization and independent evidence |
+
+## Lane A: R160 physical design, corrected (2026-09-07)
+
+**Baseline `35521af`; remote already matched it. Graphify resynchronized (`docs-drift` synced at
+`35521af`); the runner reported all checks passing. No governed tier, spec, Register, schema or
+code change here. `supabase/` and `__tests__/` are **Lane B's surface** — specified, never applied
+(`D-56`). `D-191` and R159 are preserved and not reopened.**
+
+### 0. Six corrections
+
+**`actor_type_v2` does not exist post-migration.** `0002`:527 renames the type to `actor_type`.
+Current type names are `actor_type`, `article_state_v2`, `gate_role`, `line_assignment`,
+`line_separation_status`, `identity_assurance`, `audit_event_type`.
+
+**Uniqueness was credited with a workflow guarantee.** `unique (assessment_id)` provides
+**at-most-one stored judgment** and nothing else. It does not return the original, manage retry
+effects, or allocate anything. Completion and retry handling must supply the rest.
+
+**Setting `transition_id` after insert was an append-only UPDATE.** `reject_append_only_change()`
+(`0002`:148–155) raises `55000` on any UPDATE, including within the same transaction. The
+sequence is reordered in §3 so the reference is present **at INSERT**.
+
+**"No backfill is required" is withdrawn** and replaced with **`UNVERIFIED pending
+target-environment inspection`** (§5).
+
+**The judgment → assessment article link was missing** (§2's counterexample).
+
+**The write set mixed owners.** It labelled a table "Lane B's surface" while including
+`docs/specs/` and the Register. Separated in §6. Calling work "new scope" does not create an
+ownership decision, and none is requested.
+
+### 1. Substrate, field map, and the actor problem
+
+Corrected types, completed requiredness:
+
+| Binding | Field | Type | Required |
+|---|---|---|---|
+| Assessment identity | `editorial_assessments.id` | `uuid` | yes (PK) |
+| Assessment revision | `.revision` | `integer` | yes |
+| Result | `editorial_judgments.result` | `editorial_result` (`positive` \| `negative`) | yes |
+| Approval effect | `.transition_id` | `uuid` | **null iff negative** (§2) |
+| Deciding actor | `.actor_id` | `text` | yes |
+| Actor type | `.actor_type` | `actor_type` | yes |
+| Deciding role | `.gate_role` | `gate_role` | yes |
+| Line | `.line_assignment` | `line_assignment` | yes |
+| Line separation | `.line_separation_status` | `line_separation_status` | yes |
+| Identity assurance | `.identity_assurance` | `identity_assurance` | yes |
+| Supervising human | `.supervising_human_id` | `text` | optional |
+| Reasons body / version | `.reason_body` `jsonb`, `.reason_schema_version` `text` | — | version required |
+| Evidence kind | `editorial_judgment_evidence.evidence_kind` | `evidence_kind` enum — `seal`, `readiness_join`, `trend_signal` | yes |
+| Evidence reference | `.evidence_ref` | `uuid` | yes |
+
+**The seals and joins themselves need a typed assessment binding** — `workflow_transitions` has
+no `assessment_id`, so "they live in the existing ledger" is not a typed route from a consumed
+record to its assessment revision. A typed `assessment_id` on those records is **a required
+addition**, not reuse.
+
+**The actor problem, stated exactly.** `allowed_transitions` records `required_role`,
+`required_line`, `required_actor_type` and `human_only`; the seeded `Reviewed → Approved` rule
+(`T6`) carries `chief_journalist` / `Line1` / **`agent`** / `human_only = false`.
+`enforce_article_state_transition` **does not read those four columns** — it compares
+`kind`/`from_state`/`to_state` only. So precisely:
+
+- A human-written approval would **not be refused by the database today**; and
+- it would **contradict the recorded governed rule**, which describes an agent executor.
+
+**Therefore no design may claim the unchanged rule validates the human path.** The target order
+requires a **prospective new `allowed_transitions` rule** with `required_actor_type = 'human'`
+and `human_only = true`; **that change is held under `D-171` and is not proposed here.** The
+existing check is not relaxed. **The deciding-actor/authority mapping — the human decider versus
+a transition's agent executor identity — remains explicitly open**, as it was in the previous
+packet.
+
+### 2. Closing the relationship chain
+
+**Counterexample to exclude:** assessment `S` belongs to article `A`; judgment `J` carries `S`
+and article `B`; the report carries `J`, `S`, `B` and a valid `B` anchor. Every individual ID
+exists, and the previous checks all pass.
+
+| Constraint | Mechanism |
+|---|---|
+| Judgment's article = its assessment's article | `editorial_assessments unique (id, article_id)`; `editorial_judgments` composite FK `(assessment_id, article_id) → (id, article_id)` — **declarative, no trigger** |
+| Evidence belongs to the judgment's cycle | `editorial_judgments unique (id, assessment_id)`; evidence composite FK `(judgment_id, assessment_id) → (id, assessment_id)` |
+| Evidence reference resolves | per-`evidence_kind` validator: the referenced record exists **and** its typed `assessment_id` equals the evidence row's |
+| Result / transition consistency | `check ((result = 'negative' and transition_id is null) or (result = 'positive' and transition_id is not null))` |
+| The positive reference is its *matching* approval effect | validator: the referenced transition's `article_id` equals the judgment's, its `to_state = 'Approved'`, and it is the row created in this same transaction (§3) — not merely any existing ledger row |
+
+### 3. Finalization, with no judgment UPDATE
+
+Preconditions — cycle and readiness records — are resolved **before** the transaction; **no
+database transaction is held open across human review.**
+
+1. Acquire the serialization lock (§4) — on **both** the positive and negative paths.
+2. **Read any existing final judgment first.** Exact retry → return it, insert nothing.
+   Conflicting result → refuse; **do not** create a new assessment automatically.
+3. New outcome: validate the §2 bindings, actor/authority and outcome prerequisites; determine
+   the exact evidence membership.
+4. **Positive:** insert the approval audit row **first** — `0002`:396–403 requires exactly one
+   preceding audit row in the same transaction — then insert the judgment **with
+   `transition_id` already populated**, then its evidence, then the article UPDATE.
+   **Negative:** insert the judgment with `transition_id` null and its evidence; **no UPDATE.**
+5. Commit everything or roll everything back. **Commit is durable completion**; INSERT alone is
+   not. No report need exist yet.
+
+**Late evidence is refused by mechanism, not convention.** Append-only rows block UPDATE/DELETE
+but not a later INSERT, which would silently change a completed set. The validator admits an
+evidence INSERT **only while its parent judgment row is still being written in the same
+transaction**, using the in-progress-`xmin` test the existing code already relies on
+(`0002`:396–400). After commit, the membership is closed.
+
+### 4. Serialization, retries and revision allocation
+
+**Lock:** `select … from articles where id = :article_id for update`, taken at step 1. The
+existing lock the migration comments on belongs to the **later article UPDATE** — which happens
+after the judgment and **never at all on the negative path** — so it cannot be credited here.
+
+| Case | Mechanism | Result |
+|---|---|---|
+| Matching retry | read-before-insert under the lock | the stored judgment is returned; no insert; no approval or Delivery effect |
+| Conflicting retry | same read | refused. **A refusal is not permission to start a new analysis** — a fresh cycle is a separate, deliberate act |
+| Uniqueness race | the lock prevents it; `unique (assessment_id)` is **retained as a database backstop** | if a conflict still surfaces: savepoint, roll back to it, re-read, return the existing row. **Never an UPDATE-based upsert** |
+| Failed finalization | the transaction boundary | nothing persists — no judgment, no evidence, no approval effect |
+| Concurrent fresh revision | under the same article row lock: `revision = coalesce(max(revision), 0) + 1` | serialized allocation; `unique (article_id, revision)` is the backstop |
+
+### 5. Legacy data and cutover
+
+**Backfill status: `UNVERIFIED pending target-environment inspection`.** Missing historical
+bindings are a reason to assess compatibility, not proof that no treatment is needed. **Preflight,
+required before any migration is written:** count existing `editorial_reports` rows, and how many
+would lack the new bindings.
+
+| Branch | Treatment |
+|---|---|
+| **Table empty** | new report columns `not null` directly |
+| **Rows exist** | reports are append-only (`0002`:512–518) and **must not be rewritten, nor judgments invented from old state**. Add the columns nullable, plus a validator requiring them for reports created under the new contract — carried by a typed contract/version discriminator, **not** by leaving them optional. Requiredness for new governed reports is stated separately from the legacy accommodation, and the accommodation needs its own authorization |
+
+**Nullable new references must not silently bypass the new-report contract.**
+
+### 6. Owners, tests and handback
+
+| Owner | Prospective files |
+|---|---|
+| **Lane A** | `docs/v1/V1-DECISION-REGISTER.md` (its own act, recorded first); `docs/specs/` only if the owners judge one warranted |
+| **Lane B** | `supabase/migrations/0003_*.sql`; test files under `__tests__/` |
+
+`D-30`/`D-52`'s owner map is unchanged and **no reroute is requested**; no genuinely new
+ownership question was found. `fn-specs/` is **unaffected** — behaviour was applied at `f16063a`.
+
+**Tests — input, enforced refusal or success, observable persisted effect. Plans only; none
+written or run:**
+
+| Input | Enforced by | Observable effect |
+|---|---|---|
+| Post-`0002` type names used | migration compiles | objects created with `actor_type`, not `actor_type_v2` |
+| Human approval against the seeded agent rule | §1 — recorded rule contradiction | documented as held under `D-171`; no relaxation of the existing check |
+| Judgment on assessment `S`/article `A` carrying article `B` | composite FK (§2) | insert refused; no row |
+| Evidence referencing another cycle | composite FK + per-kind validator | refused; membership unchanged |
+| Positive completion, append-only enabled | §3 ordering | audit row, then judgment with `transition_id`, then evidence, then UPDATE — all committed; **no judgment UPDATE occurs** |
+| Negative completion | §3 | judgment + evidence stored; **`workflow_state` unchanged**; no publication row |
+| Late evidence INSERT after commit | in-progress-`xmin` validator | refused; stored membership identical |
+| Matching concurrent retry | lock + read branch | one stored judgment; original returned |
+| Conflicting concurrent retry | lock + read branch | refused; **no new assessment created** |
+| Failed finalization | transaction rollback | no judgment, evidence or approval effect persists |
+| Concurrent fresh revisions | lock + allocation | distinct revisions; no gap-free claim made |
+| Empty vs existing legacy reports | §5 preflight | the actual counts recorded before the migration is drafted |
+
+A future database test must observe **stored rows and side effects**, not only an exception or a
+returned label.
+
+**No build follows from this packet.** `B-077` remains `Answered` with no `Resolution`; `D-171`,
+`AUTH-DOC`, `B-071` closure and hosted Encyclopedia parity are unchanged and separately scoped;
+historical views remain untouched. **This commit advances HEAD; Active Lane A resynchronizes
+before consuming approval.**
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Corrected types; actor problem stated exactly against source | §1; rule contradiction named, existing check not relaxed | Held under `D-171` |
+| **Approve** | Relationship chain closed declaratively | §2; the `S`/`A` vs `J`/`B` counterexample is refused by composite FK |Independent review |
+| **Approve** | Finalization with the reference present at INSERT; late evidence refused by in-progress-`xmin` | §3; no judgment UPDATE anywhere | Independent review |
+| **Approve** | Explicit row lock; retry branches; serialized revision allocation | §4; uniqueness demoted to backstop | Independent review |
+| **Reject** | "Uniqueness returns the original"; `actor_type_v2`; post-insert `transition_id`; "no backfill"; mixed-lane write set | All five withdrawn | Superseded |
+| **Defer** | Target-environment preflight, actor/authority mapping, implementation, `B-071` closure | Evidence not yet gathered; no runtime test | Separate authorization and independent verification |
