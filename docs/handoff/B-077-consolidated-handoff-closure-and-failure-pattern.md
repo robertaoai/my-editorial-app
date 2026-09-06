@@ -3748,3 +3748,99 @@ neither `D-171` nor `AUTH-DOC`, and is not `B-071` closure.
 | **Approve** | Atomic non-UPDATE cutover via DDL default | §4; alternative recorded, not selected | Target-environment verification |
 | **Approve** | Objects enumerated; `docs/specs/` excluded; `D-54` applicability corrected — Inventory **affected** | §5 | Judge decision |
 | **Defer** | Implementation, actor-rule change, preflight, Encyclopedia parity, `B-071` closure | Held or ungathered | Separate authorization and verification |
+
+## Independent review: R160 scope must not be selected by missing evidence (2026-09-07)
+
+### Scope, evidence and retained repairs
+
+**Rewritten task:** review Lane A's boundary-contract draft at `263ab0d`, preserve accepted repairs,
+and give Lane A a parent-first correction guide before any implementation authorization. This is
+an append to the existing R160 handoff, not a new finding series, feature, SOP or build packet.
+`B-077` remains `Answered`, with no `Resolution`. `D-191`'s applied behavior and R159 are unchanged.
+
+**Accepted as design direction:** effect-based coverage of fixed and dynamic paths to `Approved`;
+the selected immutable `assessment_trend_signals` association and composite same-article keys;
+the routine's explicit privilege/trusted-name-resolution contract; the non-UPDATE legacy cutover;
+and the explicit `docs/specs/` exclusion. Effective privileges, migration behavior and planned
+database cases remain **unexecuted**, not verified by the consistency suite.
+
+**Recurring failure pattern:** a control checks the good input but lets an omitted or unexpected
+selector avoid that check. Applicability must be established independently of the evidence being
+validated. A default value is not an allowed-value restriction: PostgreSQL supplies defaults when
+values are omitted, while constraints enforce restrictions on supplied values
+([defaults](https://www.postgresql.org/docs/current/ddl-default.html),
+[constraints](https://www.postgresql.org/docs/current/ddl-constraints.html)).
+
+### Gaps and exact next steps — parent first
+
+These continue the existing approval-boundary, cutover and write-set obligations; do not duplicate
+them under new R-numbers. Evidence below is **source-inspected**, not a live exploit or runtime test.
+
+| Order / existing obligation | What fails in the draft | Lane A's smallest fix draft | Success criterion |
+|---|---|---|---|
+| **1 — Contract applicability, parent** | The latest §2 activates enforcement only when the submitted audit row has a non-null `assessment_id`. For an article subject to the new contract, an otherwise qualifying audit row can omit that field and skip judgment enforcement. With no judgment inserted, the judgment-side deferred trigger also does not run. `0002`:370–402 still checks the old edge/role/Line/actor/current-transaction metadata, not a judgment. This contradicts §2's invariant and §5's no-judgment refusal cases. | Name the trusted rule or controlled enrollment that establishes whether an approval is subject to the new contract, independently of the submitted audit binding. Once covered, require a non-null valid selected assessment and its matching positive judgment/exact audit row. A missing binding is a refusal, never an exemption. If legacy approvals remain permitted, define their trusted eligibility separately. Do not silently select “article has any assessment” or treat Lane A's rejection of that alternative as a Judge ruling. | Both fixed and dynamic covered approval attempts refuse an omitted binding and no judgment. A caller cannot change applicability by omitting or changing the reference. Any retained legacy case has an explicit, independently established exemption; otherwise exemption readiness is open. |
+| **2 — New-report admission, child of the same applicability principle** | The latest §4 uses unrestricted `text`, rejects only `legacy`, and requires references only for `v1_judgment`. A supplied value such as `other` with null judgment/assessment references avoids both branches while satisfying the column's non-null condition. | Preserve the selected atomic DDL cutover. Require every new report INSERT to use exactly `v1_judgment`; reject every other value, including unknown/empty values and NULL. Then require and validate both references under the retained same-article/assessment contract. Existing DDL-classified legacy rows remain untouched. | A new `other` report is refused even with otherwise valid old report fields. Explicit `legacy` is refused. Omitted version receives the new default but cannot omit required references. A valid new report succeeds; historical reports retain their original values and provenance. |
+| **3 — Closed authorization write set, depends on the corrected design** | The latest §5 says the Inventory is affected but omits its path from the exact Lane A write list. Build Spec applicability is still conditional. The packet is not yet an exact execution set. | Add `docs/v1/V1-ARTIFACT-INVENTORY.md` to the prospective Lane A unit alongside the Register. Before presenting an execution authorization, resolve `docs/v1/V1-BUILD-SPEC.md`: include it if sprint scope, sequence or DoD changes; otherwise state why it is unaffected. Preserve the named Lane B migration/test paths and the SPECS exclusion. | Every required write has one exact path and owner; the authorization, tier table and DoD agree. No file remains “affected” but absent from the bounded unit. |
+
+**What “guaranteed to fail” means here:** implementing only the stated predicates does not establish
+the promised refusal for the counterexamples above. It is not evidence that the deployed system
+was exploited, nor that the still-unwritten migration was executed.
+
+### Literal correction clauses for Lane A to carry into the draft
+
+**Approval scope:** “Determine new-contract applicability from the named trusted rule/enrollment,
+not from presence of an audit-row reference. For every covered transition to `Approved`, require
+the selected assessment binding and matching positive judgment for that exact audit row. Missing,
+unresolved or mismatched bindings refuse the transition. Legacy exemption requires its separately
+defined trusted eligibility; NULL is not an exemption.” The **name and lifecycle of that trusted
+scope source remain to be specified**, not invented by this review.
+
+**Report admission:** “At cutover, existing reports receive the legacy classification without
+row UPDATE. Every subsequent report INSERT must have `contract_version = 'v1_judgment'` and valid
+judgment/assessment references. All other version values are refused. The new default supplies a
+value; it does not waive validation. Historical reports and append-only protections are preserved.”
+
+### Lane A follow-up guide and Judge decision
+
+1. **Finish the parent scope proposal.** Show the trusted applicability source, who/what may set it,
+   when it takes effect, and any retained legacy eligibility. The Judge can accept or reject that
+   bounded scope; accepting this review does not select an undisclosed enrollment mechanism.
+2. **Correct the predicates together.** Apply the scope clause to both approval routes in the
+   draft, and replace the report blacklist with exact new-version admission. Retain all accepted
+   judgment, retry, negative-outcome, evidence-association and immutability rules.
+3. **Add counterexamples before claiming coverage.** Name planned cases for covered fixed and
+   dynamic approvals with a null binding; non-null binding without a judgment; a valid matched
+   positive outcome; an unknown report version; a valid new report; and unchanged historical
+   reports. If a legacy approval exemption is proposed, add both its valid case and an attempted
+   caller-forged exemption. Each case must name the deciding predicate and observable refusal or
+   permitted effect. These are planned tests until separately authorized and run.
+4. **Align the exact files and DoD.** Finish step 3 of the gap table, then submit the corrected
+   packet for independent review. Only a later bounded Register authorization plus the applicable
+   Active lane permits execution. Preserve the open actor/authority mapping and target-environment
+   preflight; neither is answered by these predicate corrections.
+5. **Finish evidence last.** Follow `docs/handoff/README.md` for the transaction; Active Lane A
+   synchronizes the settled source revision before consuming approval. Do not duplicate that SOP.
+
+### Owning-tier, view and drift cross-check
+
+| Surface | Review result / next owner |
+|---|---|
+| `Modular_PRD.md` `FR-04a`/`FR-05a`/`FR-07`; `D-191` §5.14e16 | Existing ownership and held target labels preserved. These physical-design corrections add no Product requirement and release no actor-rule or build hold. Lane A owns any later authorization/propagation. |
+| `FN-GATES-01-05.md` §11.1; `FN-AUDIT-VISIBILITY-07-08.md` §4.1/§4.2 | Applied assessment/judgment bindings, explicit report references and R159's read-only predicates remain the behavior contract. No new Fn_Spec edit is needed for these enforcement repairs. |
+| Storyboard/story panels, UML/sequence and data-flow views | The historical `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` Panels A5/A6 and sequence diagrams are not new authorization. Preserve the established separation: evidence and judgment inputs → controlled effect/report → read-only display. These repairs do not create another T5/T6 UI feature or require a duplicate diagram. Broader B-071 reconciliation remains with its existing owner. |
+| Encyclopedia | Entries 01/04/05 remain topic-impact candidates under `docs/ENCYCLOPEDIA-SYNC.md`; hosted content was not inspected. Parity is **UNVERIFIED**, not inferred from local graph success. |
+| Graphify | At intake, `HEAD = lastAnalyzedHead = 263ab0d`, `stale = false`. The scoped query was used for navigation, not semantic proof. This handoff commit advances HEAD; Active Lane A performs final synchronization before consuming approval. Extraction currency, curated coverage/parity and hosted parity are separate facts. |
+
+**Lane boundaries:** Lane A drafts and propagates the bounded contract; Lane B independently
+reviews and later implements only under a fresh authorized Active unit. No Lane C workflow change
+is identified. Only this B-077 append is written here; no governed tier, schema, application,
+Graphify artifact, frozen source or lifecycle header changes. No new business clarification is
+needed to record these defects; the remaining applicability choice is a Lane A proposal for the
+Judge, not an assumption needed to finish this review.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R160 accepted association, routine boundary, effect-based coverage and cutover direction | Preserve as design, not executed proof | Lane A retains them in the corrected packet |
+| **Reject** | R160 nullable-binding activation and unknown-version admission | Counterexamples defeat the claimed coverage | Lane A corrects applicability and predicates, then independent review |
+| **Approve-with-conditions** | R160 prospective Register / Inventory / Build Spec write set | Inventory path missing; Build Spec disposition unresolved | Lane A completes bounded authorization packet |
+| **Defer** | Migration/tests, actor-rule change, `AUTH-DOC`, B-071 closure and Encyclopedia parity | Existing holds and unverified prerequisites retained | Separate authorization, runtime evidence and independent verification |
