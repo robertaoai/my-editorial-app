@@ -3960,3 +3960,57 @@ answered.** Effective privileges, migration behaviour and every planned database
 | **Approve** | Write set closed — Inventory added, Build Spec included with its determination | §3; nothing "affected but absent" | Judge decision |
 | **Approve** | Counterexample tests for both bypasses | §4 | Independent review |
 | **Defer** | Applicability scope, implementation, actor-rule change, preflight, Encyclopedia parity, `B-071` closure | Presented or held | Judge decision, then separate authorization |
+
+## Judge scope ruling on approval applicability (2026-09-07)
+
+**Presented as the open question in the preceding section; answered directly by the Chief Editor
+this turn. Recorded here as a scope ruling for the draft — it is not a Register act, and it
+authorizes no implementation.**
+
+### The ruling
+
+| Question | Ruling |
+|---|---|
+| Which approval rules carry `requires_judgment = true`? | **The target human `T5-FINAL` rule only.** |
+| Are legacy approvals permitted after cutover? | **No exemption** — a covered rule always requires its matching positive judgment. |
+
+### What follows, stated plainly
+
+**The enforcement ships inert, and that must not be misread.** The target human `T5-FINAL` rule is
+**held under `D-171`**. Since it is the only rule that will carry the flag, **no rule carries it
+today** — so on application, the migration installs the column, the guard clause and the routine,
+and **no approval is covered until `D-171` releases that rule.** "Approval guard installed" must
+never be reported as "approvals are guarded".
+
+**Existing paths are unaffected.** The current agent `T6` `Reviewed → Approved` rule and the
+`Needs Revision → Approved` dynamic-target route carry `requires_judgment = false`, so demo and
+seeded flows continue to work unchanged. This was the narrowest of the three options and it
+deliberately defers real enforcement to the held rule.
+
+**No exemption, by construction.** Once a rule is flagged there is no legacy bypass and no
+separately established eligibility path to draft. The exemption class is closed rather than
+managed, so the "trusted legacy eligibility" drafting step is **withdrawn as unnecessary** — not
+deferred.
+
+### One test consequence, or the tests would be vacuous
+
+Because no production rule carries the flag, the covered-approval counterexamples —
+omitted binding, no judgment, and both the fixed and dynamic routes — **must run against a test
+fixture rule seeded with `requires_judgment = true`.** Written against production catalog data
+they would pass while exercising nothing: `a_check_that_cannot_fail` in a new place. The
+uncovered-path cases run against the real rules and assert that those approvals still succeed
+without a judgment.
+
+**Nothing else changes.** The mechanism, the report-admission enum and whitelist, the write set
+and the `D-54` applicability table are unchanged. `D-171`, `AUTH-DOC`, the target-environment
+preflight (**`UNVERIFIED`**), the deciding-actor/authority mapping (**open**) and hosted
+Encyclopedia parity (**`UNVERIFIED`**) are untouched. `B-077` remains `Answered` with no
+`Resolution`; this ruling is not `B-071` closure and authorizes no build.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Scope ruling recorded — human `T5-FINAL` rule only; no exemption | Judge decision received this turn | Carried into the design draft |
+| **Approve** | Fixture-seeded covered rule for the counterexample tests | Prevents a vacuous test set | Independent review |
+| **Reject** | Reading the installed guard as active coverage | Inert until `D-171` releases the rule | Stated in the packet |
+| **Withdrawn** | The trusted legacy-eligibility drafting step | No exemption exists to define | — |
+| **Defer** | Implementation, actor-rule change, preflight, Encyclopedia parity, `B-071` closure | Held or ungathered | Separate authorization and verification |
