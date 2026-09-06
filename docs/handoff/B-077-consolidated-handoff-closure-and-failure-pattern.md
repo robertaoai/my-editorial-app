@@ -2549,3 +2549,59 @@ encoding choice resolves once it does. That is a technical choice for the existi
 | **Approve** | Encoding comparison advanced to partially decidable | §3; one of four criteria discriminates | Selection still deferred |
 | **Reject** | Runtime sufficiency inferred from column presence; documentation review as build or storage authority | Neither follows | Preserve boundaries |
 | **Defer** | Assessment identity/revision representation, encoding selection, Encyclopedia parity, `B-071` closure | No allocation, no runtime test | Existing owners under `D-30`/`D-52`; separately scoped review |
+
+## Independent review: D-110 governs the remaining representation work (2026-09-07)
+
+**Review baseline `7024c69`.** Preserve D-191's reviewed documentation and accepted R159
+behavior. Continue R160; no new finding ID or migration is created. This corrects the new
+comparison and earlier Lane A/Lane B review language that left a snapshot-only authoritative
+binding open as if D-110 had not already decided its permitted role.
+
+### Parent rule first — an existing decision, not another Judge question
+
+**D-110 §5.14bq / QA3** assigns identifiers, every version identifier and anything participating
+in a binding, join, constraint, permission or state transition to typed columns. Versioned JSON
+is only the immutable explanatory body, not the source of truth for a referential relationship.
+**D-111 §3a** explicitly retains that typed-anchor boundary. Thus the authoritative judgment/
+assessment/revision relationship cannot be snapshot-only. A snapshot can preserve explanatory
+content alongside typed authority. Earlier review recommendations to compare both as equally
+available authoritative encodings were incomplete; this section corrects that interpretation,
+without changing D-110 or undoing the applied behavior.
+
+### Lane A's step-by-step technical drafting guide
+
+| Order | Draft action | Accept/reject criterion |
+|---|---|---|
+| 1 — D-110 boundary | Classify each binding by its role: assessment identity/revision and authoritative judgment/evidence relationships are typed; explanatory reasons/evidence content may be captured in the permitted report body. Assess result representation against its approval/control role | **Approve** using the existing rule; **reject** snapshot-only source of truth for an authoritative relationship. This selects no physical new table or column |
+| 2 — explicit result, after 1 | Inspect event_type as an event-category candidate, not an automatically valid editorial result. Name whether any existing governed value actually expresses the required judgment, independently of article-state inference | Its separate column does not establish result semantics. The migration's one-time legacy backfill is not an ongoing insert rule or proof of every current/new row's content. No enum extension or repurposing is authorized by this review |
+| 3 — judgment-record proposal, after 1–2 | Propose the complete typed record/binding design: identity/revision, actor/authority, explicit result, reasons/evidence bindings and creation/retrieval/retry obligations. Identify reuse versus precisely required additions | Resolving assessment identity/revision alone does not resolve result, evidence or enforcement. A text field does not prove a reason set is impossible; the one-audit-row-per-state-change rule is not a reason-cardinality rule |
+| 4 — reference enforcement, after 3 | Separate existence, same-article and same-assessment/revision validation. Name the proposed mechanism for each, using the same judgment target | **Reject** the claimed achieved FK article-scope advantage. A reference to workflow_transitions(id) alone proves existence, not ownership by the report's article/revision. Both candidate mechanisms must meet the whole binding contract |
+| 5 — checks and residual, after 4 | Draft tests for an existing judgment on the wrong article, wrong revision on the same article, an unresolved reference, valid exact retrieval, and matching/conflicting retry. Then list remaining implementation choices under D-30/D-52 | A valid FK must not let the wrong article/revision pass. Retry adds no outcome, approval or Delivery effect. These are planned tests, not implemented or executed ones |
+| 6 — bounded authority | Present the proposed physical write set and its scope/DoD through existing owners only after the design is explicit | No build follows from D-191 or this review. Preserve lifecycle/build holds and obtain the separate required authorization |
+
+**What the current migration proves:** `editorial_reports.as_at_transition_id` has an ID FK
+(`0002`:462). Its same-article check is separately implemented in
+`validate_editorial_report_anchors` (`:491`–`:498`); supersedes has a similar check. Those checks
+cover existing anchors, not an unimplemented judgment reference. They cannot be credited to a
+future typed judgment reference automatically. An unvalidated snapshot accepting an identifier
+is likewise not a completed alternative. Compare proposed complete mechanisms, not a typed FK
+against deliberately unvalidated JSON.
+
+**New source-evidence wording:** “The legacy backfill assigns event categories using old state
+values. No explicit T5-FINAL outcome mapping has yet been demonstrated. D-110 fixes the typed
+authority boundary; the physical judgment/reference design and its enforcement remain open.”
+Do not say “the encoding resolves once identity/revision does”; they are prerequisites, not the
+whole decision. This removes an unnecessary format-choice question while retaining real design work.
+
+Graph metadata matches `7024c69`, `stale: false`, at review start. No runtime database test was
+run, and no hosted Encyclopedia/curated-semantic parity is claimed. Historical storyboard/UML/
+data-flow views remain untouched. Only this handoff changes; no governed spec, Register, schema
+or code change is applied. B-077 stays Answered without Resolution, and B-071/implementation
+holds remain. Active Lane A synchronizes after the handoff commit before consuming graph evidence.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | D-191 application / D-110 typed authority boundary | Preserve; no repeated behavior work or new format ruling | Physical design drafting |
+| **Reject** | FK-alone article validation, automatic event-type result semantics and identity-only completion claim | Stronger than available evidence and existing rules | Steps 2–5 |
+| **Approve-with-conditions** | R160 representation plan | Use the complete typed binding and enforcement contract | Bounded technical proposal |
+| **Defer** | Implementation, Encyclopedia parity and B-071 closure | No new authority or verification | Separately scoped authorization and evidence |
