@@ -900,3 +900,105 @@ B-077 remains Answered with no Resolution; B-071 closure and all build holds are
 | **Approve-with-conditions** | R160 logical separation | Contract and test must use the same anchor semantics | Steps 1–2, then candidate mapping |
 | **Reject** | R160 test completeness / unconditional D-52 completion | Unresolved reference and representation semantics | Steps 3–4 |
 | **Defer** | Schema allocation, source application, Encyclopedia parity, B-071 closure | Not authorized or verified here | Complete packet, bounded authorization and independent verification |
+
+## Lane A: reference contract and aligned acceptance test (2026-09-06)
+
+**Baseline `41a4f44`; Graphify resynchronized to that revision before drafting (`docs-drift`
+synced, 17/17). No governed tier, spec, schema or application file changes here.**
+
+### 0. Two corrections to the prior section
+
+**The §3/§5 contradiction is accepted.** §3 proposed that `as_at_transition_id` means only the
+state-history anchor, then §5 anchored the report to the newly inserted negative-judgment row.
+That test uses the judgment as the anchor, so it cannot demonstrate the separation it was
+written to prove. Corrected in §2 below.
+
+**"Existing dual-use defect" is withdrawn as a claim about the current system.** `D-111`
+(§5.14br, gaps `GA1`/`GA3`/`GA4`) approved the report record shape *including* the as-at
+transition anchor and the frozen snapshot; it does not establish dual use, and no current
+consumer is cited. **Dual use is a risk in the proposed mapping**, not an observed defect.
+Likewise "nothing constrains an INSERT" was too broad — required fields, types and foreign keys
+still apply, and no runtime test of the record/report path has been run.
+
+### 1. Functional meaning, stated independently of storage
+
+The report carries three separable meanings:
+
+| Meaning | What it fixes | Source contract |
+|---|---|---|
+| **State-history context** | the article's state at the time the report was produced | `D-111` §3a as-at transition anchor |
+| **Judgment identity and outcome** | which assessment was judged, by whom, and the result — with reasons and evidence | to be drafted; not derivable from the anchor |
+| **Report provenance** | template, rule-set and schema versions, and the frozen snapshot | `D-111` §3b |
+
+**Success criterion:** a reader identifies what was judged, its negative or positive result, and
+the article state at that time **without inferring the judgment from equal state values**.
+
+### 2. Anchor contract, and the test aligned to it
+
+`as_at_transition_id` retains `D-111` §3a's meaning — **state-history context**. The judgment is
+identified **explicitly**; it is never derived from the anchor. Whether the two references
+resolve to the same ledger row is then a property of the case, not a rule:
+
+- **Positive judgment that moves state** — anchor and judgment may reference the same row.
+- **Negative judgment, no state change** — the anchor is the transition that last set `Reviewed`
+  (the readiness join); the judgment is the separately identified negative act.
+
+This is a **record-meaning separation, not physical partitioning**. It requires no new table and
+no partition, and this section allocates neither.
+
+**Corrected acceptance test.** Represent *both* references explicitly, then:
+
+1. Retrieve from the report the explicit negative result, its reasons, the assessment and the
+   evidence — none inferred from state.
+2. Validate both references under the anchor rule above: anchor resolves to the readiness join;
+   judgment resolves to the negative act; the two are distinct **in this case**.
+3. Compare **article-scoped deltas** of article state and publication effects before and after —
+   not an empty `publications` table.
+4. Replay adds no outcome, approval or Delivery effect.
+5. Wrong-article and wrong-assessment references must not pass.
+6. The separate no-op state-UPDATE refusal remains in force and is not relaxed.
+
+### 3. Representation candidates, compared before proposing relations
+
+Ordered as the review requires — assessment identity before final outcome, then evidence
+capture, reasons, judgment outcome, validation. For the explicit judgment identity:
+
+| Candidate | Lifecycle | Assessment |
+|---|---|---|
+| (a) A declared field inside the existing frozen `snapshot`, under `D-111` §3b's versioned schema contract | created and frozen with the report; replay-safe by construction | **Assess first** — uses an existing, already-approved contract; adds no relation. Open: `snapshot` is constrained only to `jsonb_typeof = 'object'`, so the declared schema is the work |
+| (b) A second explicit reference into `workflow_transitions` | created with the report; FK-validatable and directly queryable | Viable; it is a column, not a table. Open: whether validation should be structural or behavioural |
+| (c) Derive the judgment from the anchor | — | **Rejected** — this is the conflation itself |
+
+**Storage selection is deferred, not the functional drafting.** No requirement for a new table,
+column or partition follows merely from distinct meanings.
+
+### 4. Residual routing — the unconditional closure is withdrawn
+
+**"Residual closed" is withdrawn while representation is unresolved.** `D-52`'s settled S1
+concerns remain settled — schema/FK candidates, append-only enforcement as infrastructure, board
+query/index strategy at S3, and the transition/publication/exception specs under their existing
+owners. Newly unmapped behaviour — assessment identity, evidence capture, judgment-outcome
+representation — is **not yet routed**, because a technical choice can only be named as
+undetermined once the functional text that would determine it exists. "Functional owner first"
+means Lane A drafts behaviour before technical allocation; it does not mean SQL design precedes
+the literal functional text. Board rendering still has no named unresolved UI choice.
+
+### 5. Consuming documents still to map
+
+Product `FR`/`AC` anchors remain the parents. `FN-GATES` owns readiness and judgment behaviour,
+`FN-AUDIT-VISIBILITY` owns progress and report interpretation, `FN-PUBLICATION` owns Delivery
+effects. Storyboard, story-panel, UML and data-flow occurrences must be marked **current versus
+historical** — the journal's A5/A6 panels and Mermaid diagrams stay historical evidence of the
+superseded order. Hosted Encyclopedia content is unread; Entries 01/04/05 remain impact
+candidates. **No new UX artifact is justified without a named residual UI choice.**
+
+**This commit advances HEAD; Active Lane A resynchronizes Graphify before consuming approval.**
+`B-077` remains `Answered` with no `Resolution`; `B-071` closure and all build holds unchanged.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | §3/§5 contradiction corrected; contract and test now share one anchor semantics | Same example satisfies both | Independent review |
+| **Approve** | Withdrawal of the "existing dual-use defect" framing | Restated as a mapping risk, per `D-111` | Preserved |
+| **Approve-with-conditions** | Reference contract §§1–2 | Logical separation drafted; judgment representation unselected | Candidate comparison |
+| **Reject** | Unconditional `D-52` residual closure | Withdrawn — representation unresolved | Route after functional text |
+| **Defer** | Storage selection, application, Encyclopedia parity, `B-071` closure | No schema allocated; no runtime test run | Bounded authorization and independent verification |
