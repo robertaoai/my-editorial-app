@@ -2782,3 +2782,187 @@ Active Lane A synchronizes after this review commit before consuming graph evide
 | **Approve-with-conditions** | Reuse and test plan | Existing obligations named, physical enforcement still unspecified | Steps 1–6 |
 | **Reject** | Complete physical-design / implementation-readiness claim | Logical inventory and expected outcomes are not a finished mechanism | Bounded design packet |
 | **Defer** | Implementation, Encyclopedia parity and B-071 closure | No authority or runtime proof established | Required authorizations and independent evidence |
+
+## Lane A: R160 physical design packet (2026-09-07)
+
+**Baseline `91cc671`; remote already matched it. Graphify resynchronized (`docs-drift` synced at
+`91cc671`); the runner reported all checks passing. No governed tier, spec, Register, schema or
+code change in this section. `D-191` and R159 are preserved and not reopened.**
+
+**Lane boundary.** `supabase/` is **Lane B's surface**. Everything below is **specified, never
+applied** (`D-56`). No migration file is written, and none is authorized by this packet.
+
+**Status correction carried in:** the previous section's §3 is retitled **"logical record
+requirements and reuse candidates"**. Its actor/authority row said "needs nothing"; the narrower
+and correct claim is **reuse candidate, pending a demonstrated deciding-actor/authority mapping**.
+
+### 1. Identity and lifetime
+
+Two proposed relations, following the existing conventions (uuid PK, `gen_random_uuid()`,
+`on delete restrict`, append-only trigger, RLS `_v1_read`/`_v1_insert`):
+
+**`editorial_assessments`** — one row per `T5` judgment cycle.
+
+| Column | Type | Notes |
+|---|---|---|
+| `id` | `uuid` PK | `default gen_random_uuid()` |
+| `article_id` | `uuid not null` | → `articles(id) on delete restrict` |
+| `revision` | `integer not null` | monotonic per article, first is `1` |
+| `route_id` | `text not null` | the selected route contract |
+| `created_at` | `timestamptz not null` | `default now()` |
+| — | `unique (article_id, revision)` | the identity/revision key |
+
+**`editorial_judgments`** — one row per `T5-FINAL` act.
+
+| Column | Type | Notes |
+|---|---|---|
+| `id` | `uuid` PK | |
+| `assessment_id` | `uuid not null` | → `editorial_assessments(id) on delete restrict` |
+| `article_id` | `uuid not null` | → `articles(id) on delete restrict`; carried for the same-article check |
+| `result` | `editorial_result not null` | new enum, §2 |
+| `transition_id` | `uuid null` | → `workflow_transitions(id)`; **null for a negative judgment**, which changes no state |
+| `reason_body` | `jsonb` | explanatory content only |
+| `reason_schema_version` | `text not null` | typed version identifier (`D-110`) |
+| actor/authority | seven columns, §2 | reuse candidates |
+| `decided_at` | `timestamptz not null` | `default now()` |
+| — | **`unique (assessment_id)`** | exactly one final outcome per assessment |
+
+**Revision meaning.** A fresh whole-article analysis inserts a **new assessment row** at
+`revision + 1`. The old assessment and its judgment remain retrievable by key and confer no
+eligibility on the new one — an article can therefore hold an old and a fresh assessment with no
+ambiguous identity and no inherited approval.
+
+**Reused, not proposed:** `articles`, `workflow_transitions`, `allowed_transitions`,
+`editorial_reports`, `reject_append_only_change()`, and the existing enums.
+
+### 2. Field map
+
+| Governed binding | Proposed field | Type | Required | Reference | Allowed values |
+|---|---|---|---|---|---|
+| Assessment identity | `editorial_assessments.id` | `uuid` | yes | PK | — |
+| Assessment revision | `editorial_assessments.revision` | `integer` | yes | `unique(article_id, revision)` | ≥ 1 |
+| Explicit result | `editorial_judgments.result` | `editorial_result` | yes | — | **`positive`, `negative`** — finer granularity is **not decided here**; it is a business question, not a physical one |
+| Deciding actor and authority | `actor_id text`, `actor_type actor_type_v2`, `gate_role gate_role`, `line_assignment line_assignment`, `line_separation_status line_separation_status`, `identity_assurance identity_assurance`, `supervising_human_id text` | as named | mixed | — | existing enum domains |
+| Authoritative evidence binding | `editorial_judgment_evidence(judgment_id, evidence_kind, evidence_ref)` | relation | yes per item | → `editorial_judgments(id)` | `unique (judgment_id, evidence_kind, evidence_ref)` |
+| Reasons, explanatory | `reason_body jsonb` + `reason_schema_version text` | as named | version required | — | `D-110`-permitted body with typed version |
+
+**Where reasons and evidence live before report production.** The judgment row is created at
+`T5-FINAL`, before any report — so `reason_body` and the evidence relation hold that content from
+the moment of judgment. The report later freezes its own copy; it is not the origin.
+
+**Actor columns are reuse candidates**, mirroring the ledger's shape. Whether the deciding
+actor/authority mapping is identical to a transition executor's is **not yet demonstrated** and
+is an open item, not an assumption.
+
+### 3. Creation, completion and interruption
+
+**One database transaction**, in order:
+
+1. The assessment row exists (created at cycle start).
+2. Seals and the readiness join are recorded in the existing ledger.
+3. **`editorial_judgments` INSERT — this is the completion point.**
+4. **Positive result only:** the `Reviewed → Approved` article UPDATE, validated by the existing
+   `articles_enforce_state_transition` trigger, with its ledger row; `transition_id` is set to it.
+
+**Consistency boundary:** steps 3 and 4 commit together or not at all. A failure therefore leaves
+**no judgment row and no approval effect** — never a falsely completed judgment, never a
+duplicated approval. **A negative judgment performs no step 4 at all**, so it fabricates no state
+change and `transition_id` stays null.
+
+**Interrupted work** is retried by re-attempting the same transaction; §4's uniqueness decides
+what happens if the first attempt actually committed.
+
+### 4. Enforcement — a named mechanism per obligation
+
+| Obligation | Proposed mechanism |
+|---|---|
+| **Existence** | FK `editorial_reports.judgment_id → editorial_judgments(id)` — existence, and only existence |
+| **Same article** | a validator query in the style already used at `0002`:491–497: `where id = new.judgment_id and article_id = new.article_id` |
+| **Same assessment/revision** | the report carries a typed `assessment_id`; the validator asserts `judgment.assessment_id = new.assessment_id` |
+| **Exactly one final outcome** | **`unique (assessment_id)`** on `editorial_judgments` |
+| **Matching retry** | the unique constraint refuses the second insert; the caller reads and returns the existing judgment — **no new outcome, approval or Delivery effect** |
+| **Conflicting retry** | the same unique violation; because the result differs, the caller must open a **new assessment** at `revision + 1` rather than re-decide |
+| **Competing concurrent retry** | the same unique constraint under the article-level lock the existing trigger comment already relies on — exactly one winner |
+| **Immutable historical evidence** | `reject_append_only_change()` triggers plus `revoke update, delete` on both new relations, matching the existing convention |
+
+These are **design proposals, not installed controls.** No new authentication or multi-account
+capability is introduced or implied.
+
+### 5. Retrieval and report references
+
+**Read path:** requested `(article_id, revision)` → `editorial_assessments` via
+`unique(article_id, revision)` → `editorial_judgments` via `assessment_id` → `result`,
+`reason_body`, and evidence via `editorial_judgment_evidence`.
+
+**Retrieval is by key, never by recency.** No `order by decided_at desc limit 1` appears anywhere
+in the path — that construct is exactly the "silently substitute the newest record" failure, and
+its absence is the falsifiable form of this requirement.
+
+**The report's three distinct references:**
+
+| Reference | Meaning |
+|---|---|
+| `as_at_transition_id` | state-history anchor — unchanged, `D-111` §3a |
+| `judgment_id` | the judgment the report describes — new, typed |
+| `assessment_id` | the assessment revision described — new, typed |
+
+An older-assessment report therefore returns that assessment's original result and evidence.
+
+### 6. Each planned test, and what enforces it
+
+| Test | Enforcing mechanism | Observable evidence |
+|---|---|---|
+| Judgment exists but belongs to another article | same-article validator query | raised exception; row not written |
+| Wrong revision on the same article | `judgment.assessment_id = new.assessment_id` | raised exception |
+| Unresolved reference | FK | foreign-key violation |
+| Valid exact retrieval | key-based read path (§5) | that revision's result and evidence returned |
+| Matching retry | `unique (assessment_id)` | no second row; original returned; no approval or Delivery effect |
+| Conflicting retry | `unique (assessment_id)` | refused; new assessment at `revision + 1` required |
+| Interrupted operation | single-transaction boundary (§3) | neither judgment nor approval persists |
+| Competing concurrent retry | uniqueness under the article-level lock | exactly one winner |
+
+**Plans, not executions.** No test was written or run, and none follows from this packet.
+
+### 7. Bounded implementation proposal
+
+**Prospective write set — Lane B's surface, specified not applied:**
+
+| Item | Content |
+|---|---|
+| `supabase/migrations/0003_*.sql` | `editorial_result` enum; `editorial_assessments`; `editorial_judgments`; `editorial_judgment_evidence`; `editorial_reports.judgment_id` and `.assessment_id`; the validator extension; unique constraints; append-only triggers; revokes; RLS `_v1_read`/`_v1_insert` policies |
+| `docs/specs/` | implementation big picture, if the owners judge one is warranted; **`fn-specs/` is unaffected** — behaviour was applied at `f16063a` and does not change |
+| Register | its own decision act, recorded before any edit (`D-183`, `D-190`) |
+
+**Migration and backfill impact.** No existing row carries an assessment or judgment, so **no
+data backfill is required.** **One open item, raised explicitly rather than assumed:** whether
+`editorial_reports.judgment_id`/`.assessment_id` may be `not null` depends on whether that table
+currently holds rows. That is a **runtime fact this packet has not checked**, and it must be
+established before the migration is written — not guessed.
+
+**Routing.** Under `D-30`/`D-52` the settled owners are unchanged; this is **new scope beyond
+them** and needs its own routing decision. **`0001_init.sql` is never edited**; a new numbered
+migration is the only mechanism.
+
+**Verification and DoD, if authorized:** Register act recorded first; the migration written by
+Lane B and applied; the eight §6 tests implemented and executed with their actual results
+reported; the consistency runner's actual result reported; Graphify resynchronized after the last
+tracked edit; independent review at the applied commit.
+
+**New scope discovered while drafting, raised rather than assumed:** the nullability question
+above, and the `editorial_result` value granularity in §2. Neither is settled here.
+
+**No build follows from this packet.** `B-077` remains `Answered` with no `Resolution`; `D-171`,
+`AUTH-DOC`, `B-071` closure and hosted Encyclopedia parity are unchanged and separately scoped;
+historical storyboard, UML and data-flow views remain untouched.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.**
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Physical identity, keys and lifetime | §1; `unique(article_id, revision)` and `unique(assessment_id)` are the two load-bearing keys | Independent review |
+| **Approve** | Field map with types, requiredness and allowed values | §2; reasons/evidence have a home before report production | Independent review |
+| **Approve** | Creation ordering and the single-transaction consistency boundary | §3; negative judgment performs no state change | Independent review |
+| **Approve** | A named mechanism for every obligation, and a mechanism for every test | §§4, 6; no placeholder rules remain | Independent review |
+| **Approve** | Key-based retrieval; three distinct report references | §5; no recency substitution anywhere in the path | Independent review |
+| **Reject** | Treating this as implementation readiness or authority | Design proposal only; `supabase/` is Lane B's | Bounded authorization |
+| **Defer** | Report-column nullability (runtime fact unchecked), `editorial_result` granularity, implementation, Encyclopedia parity, `B-071` closure | Raised explicitly, not assumed | Owners' routing, then separate authorization |
