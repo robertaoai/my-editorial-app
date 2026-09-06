@@ -4014,3 +4014,109 @@ Encyclopedia parity (**`UNVERIFIED`**) are untouched. `B-077` remains `Answered`
 | **Reject** | Reading the installed guard as active coverage | Inert until `D-171` releases the rule | Stated in the packet |
 | **Withdrawn** | The trusted legacy-eligibility drafting step | No exemption exists to define | — |
 | **Defer** | Implementation, actor-rule change, preflight, Encyclopedia parity, `B-071` closure | Held or ungathered | Separate authorization and verification |
+
+## Independent review: R160 accepted scope; exact matching and activation proof (2026-09-07)
+
+### Scope and accepted corrections
+
+**Rewritten task:** independently review the `5994ce8` / `08ffd32` draft corrections, retain what
+they settled, and give Lane A the remaining implementation-plan steps under this same handoff.
+Review baseline: `08ffd32`. No implementation, migration, governed-spec or lifecycle change.
+
+**Accepted for the draft:** the recorded target-human-`T5-FINAL` scope, no exemption within a
+covered rule, catalog-owned `requires_judgment`, the typed report-version enum and exact INSERT
+whitelist, and the addition of Inventory and Build Spec to the named prospective write set.
+The earlier nullable-binding and unknown-version defects are corrected in the design. Do not
+reopen them, invent legacy eligibility, or classify the intentionally uncovered agent/dynamic
+approval routes as new bypasses. The scope record explicitly is **not a Register execution act**.
+
+**Terminology:** catalog flag = configured coverage; matched rule = the rule that passes the
+complete audit/rule predicates; installed approval guard = not yet active when no matching rule
+is flagged; report cutover = a separate, immediately effective admission change. A planned
+refusal is not an executed test, and an error from an earlier guard is not proof of the new guard.
+
+### Remaining work — parent first, continuing the existing R160 obligations
+
+| Order / obligation | Source-inspected gap | Smallest draft correction | Success criterion |
+|---|---|---|---|
+| **1 — Exact rule binding** | The latest mechanism says the existing trigger selects a rule by state edge. `0002_s1_editorial_schema.sql`:323–339 only checks that an edge exists; :370–402 counts qualifying **audit/rule pairs**, including effective dates, role, Line, actor type and human-only predicates. It does not retain a selected rule ID. Future human and existing agent rules can share the same state edge but have different flags. An independent edge-only lookup is not the promised applicability calculation. | Derive the flag from the **same unique `(rule.id, audit.id)` pair** that satisfies every existing predicate. Preserve refusal for zero or multiple pairs. Retain that pair for judgment validation; do not perform a second edge-only lookup, pick an arbitrary first rule, or combine flags across nonmatching rules. | Human and agent cases sharing `Reviewed → Approved` read the flag from their own full match. Missing/ambiguous matches refuse under the existing guard; a covered match cannot omit its assessment/judgment. |
+| **2 — Test reachability, depends on 1** | The scope addendum requires a flagged fixture rule but does not isolate it. Adding a flagged dynamic rule beside existing unrestricted `T8a` (`0002`:297) can make one audit row match twice, so :400–402 rejects with `found 2` **before judgment enforcement**. A test accepting any error could falsely pass. | In a rollback-only fixture, isolate the covered dynamic rule from its competing `T8a`; separately test the unmodified uncovered route. Assert exactly one qualifying pair, include a valid covered-success control, then require the specific missing-binding or missing-judgment refusal. Preserve a separate multiple-match rejection case. | Covered success reaches the new path. Each negative case reaches its intended judgment predicate and leaves no unintended committed effects; it does not pass because the old edge/actor/count check failed. |
+| **3 — Activation and report-fixture compatibility** | The approval guard may be inactive, but the retained report default/whitelist applies immediately on migration. `supabase/tests/database/s1_transition_enforcement.test.sql`:320–328 inserts an old-shape report without judgment/assessment references. Run unchanged against the post-cutover schema, that INSERT would fail before its report immutability assertions at :378–388. “Demo and seeded flows continue unchanged” is too broad. | Limit that claim to the explicitly uncovered **approval routes**. Specify the existing S1 fixture's baseline and the new test's cutover phases. Preserve pre-cutover report creation and verify its retained row after cutover; after cutover, require new-contract report inputs. Do not weaken the whitelist to keep an old fixture green. | Existing reports remain readable and immutable; old-shape new INSERTs refuse after cutover; a valid new report succeeds. The test plan identifies the schema baseline for each case rather than promising all existing fixtures are unchanged. |
+
+The join counterexample follows both the actual `count(*)` source and PostgreSQL's rule that
+an inner join produces a row for each matching pair
+([joined tables](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN)).
+These are conditional, source-derived failure predictions; no database fixture or migration was run.
+
+### Literal matching clause and practical test sequence
+
+**Carry this matching clause into the design:** “Compute the complete qualifying audit/rule
+candidate set using the existing effective-date, edge, role, Line, actor-type, human-only,
+article/state and current-transaction predicates. Require exactly one pair. Retain its rule ID,
+audit ID and `requires_judgment` value. For an `Approved` effect under that flagged rule, validate
+the assessment and matching positive judgment against that exact audit row. Preserve all existing
+refusals. No coverage decision is taken from a second state-edge-only query.”
+
+The accurate trust statement is **“the ordinary caller cannot directly set the catalog flag”**,
+not “the caller cannot influence which rule matches”: the existing validation reads submitted
+audit metadata. This adds no authentication promise and does not reopen the held actor mapping.
+
+Lane A's small steps, in dependency order:
+
+1. **Correct the rule-selection description** with the clause above. Keep the target-only scope
+   and existing uncovered routes exactly as recorded; production activation still requires its
+   separate authority. Check catalog write privileges during the already-held preflight.
+2. **Describe the fixture setup before its assertions.** A fixed human fixture may coexist with
+   the agent rule when their complete predicates distinguish them. The covered dynamic fixture
+   must not also match the unmodified permissive `T8a`. Isolate catalog changes in the test
+   transaction and roll them back; this is not permission to activate a production rule.
+3. **Prove success before interpreting refusal.** Start with a valid covered approval, then vary
+   only the assessment binding or judgment presence. Assert the intended error and unchanged
+   persisted state/effects on refusal. Also prove an uncovered approval still succeeds without a
+   judgment and that an intentionally ambiguous pair fails under the original count guard.
+   Correct the addendum's broad “would pass” sentence: without a flagged fixture, an assertion
+   expecting refusal should fail if the UPDATE succeeds. False green arises from an assertion
+   that never proves coverage or accepts an unrelated rejection.
+4. **Record an activation matrix in the draft:** approval guard inactive until a flagged target
+   rule is authorized; existing unflagged approvals retain their current checks; new-report
+   admission active at cutover; old reports retained without UPDATE. Installation of the routine
+   is not evidence of its readiness or authorization—the actor/authority mapping remains open.
+5. **Complete the compatibility test placement.** Recommended: keep the existing S1 test on its
+   declared `0002` baseline and put pre-/post-cutover report cases in the already-named
+   `supabase/tests/database/s1_judgment_finalization.test.sql`. State that boundary explicitly.
+   If instead the existing S1 fixture must run against the latest schema, add its exact existing
+   path to the future Lane B write set and adapt its setup without losing the immutability tests.
+   Do not claim an application report writer was reviewed: none was found in `app/` or `lib/`.
+6. **Reconcile the bounded packet, then review.** The Register / Inventory / Build Spec omissions
+   from the prior draft are fixed; do not redo them. Only expand the exact list if step 5 actually
+   requires an additional file. Keep behavior, scope, tests, activation statements and DoD aligned,
+   then seek independent review and later execution authorization. These steps draft tests; they
+   do not execute tests or authorize product work.
+
+### Cross-reference and drift disposition
+
+`D-191`, `Modular_PRD.md` `FR-04a`/`FR-05a`/`FR-07`, `FN-GATES-01-05.md` §11.1 and
+`FN-AUDIT-VISIBILITY-07-08.md` §4.1/§4.2 retain their prior ownership and held behavior. The diff
+since `734679d` changes B-077 only. This review does not alter judgment results, R159 progress
+predicates, T5/T6 product scope, storyboard/story-panel, UML/sequence or data-flow requirements.
+The existing historical-panel/current-authority distinction and broader B-071 view reconciliation
+remain where the preceding crosswalk placed them; no duplicate diagram or SPECS artifact is raised.
+
+At intake `HEAD = lastAnalyzedHead = 08ffd32`, `stale = false`; the scoped Graphify query surfaced
+the transition function/report nodes. This establishes extraction currency, not executed database
+behavior or hosted Encyclopedia parity. `ENCYCLOPEDIA-SYNC.md` Entries 01/04/05 retain their prior
+impact-review disposition; hosted parity remains **UNVERIFIED**. A handoff commit advances HEAD:
+Active Lane A synchronizes the settled revision before consuming approval, under the existing
+transaction SOP in `docs/handoff/README.md`.
+
+**Handoff boundary:** Lane A owns the design corrections and later propagation; Lane B supplies
+this independent review and may implement only under its separately authorized Active unit.
+No Lane C change is identified. No new Judge scope decision is needed to draft these repairs.
+Only this B-077 append is written; its `Answered` header and absent `Resolution` are preserved.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R160 target-only draft scope, report enum/whitelist, Register / Inventory / Build Spec list | Prior corrections accepted; do not repeat them | Preserve in the bounded packet |
+| **Approve-with-conditions** | R160 rule-selection and test contract | Exact matched pair, isolated fixtures and intended-error evidence still need literal specification | Lane A draft completion, then independent review |
+| **Reject** | Whole-unit inertness or unchanged report-fixture claim | Only approval coverage is inactive; report admission changes at cutover | Lane A activation matrix and fixture compatibility plan |
+| **Defer** | Implementation, target-rule activation, actor mapping, preflight, `AUTH-DOC`, B-071 closure | Existing holds/unverified prerequisites unchanged | Separate authorization and runtime/independent verification |
