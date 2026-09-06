@@ -1576,3 +1576,172 @@ before a consuming approval.
 | **Reject** | R159 behavior stop-condition claim | Normal missing events and invalid references not distinguished | Domain correction and reachability cases |
 | **Approve-with-conditions** | Owning-tier insertion packet | Must carry the exact corrected domain/table | Literal propagation review |
 | **Defer** | Storage sufficiency, application and B-071 closure | Not established here | Bounded authorization and independent verification |
+
+## Lane A: input classification and reachable predicates (2026-09-07)
+
+**Baseline `6b565cb`; remote already matched it. Graphify resynchronized (`docs-drift` synced at
+`6b565cb`, 17/17). No governed tier, spec, schema or application file changes here.**
+
+### 0. Four corrections carried in
+
+**A missing event is not invalid input.** The prior row 0 treated any missing input as invalid,
+which made the ordinary unsealed and awaiting states unreachable. **A seal, join or judgment not
+yet produced is normal progress**; only a *supplied* reference that cannot resolve, or that
+resolves to another article or revision, is invalid.
+
+**Empty route requirements are rejected explicitly.** An empty `RequiredActs` set satisfies
+coverage vacuously. The prior tests covered *missing* requirements but not *empty* ones.
+
+**The §4.2 insertion block was prose, not the table.** It announced the table as operative while
+omitting the displayed `t5p` values and the validation/domain contract. §6 below carries the full
+contract into the block itself, with destination-local anchors.
+
+**"Reference encoding is the only remaining technical choice" is withdrawn.** The **judgment
+record itself** must also be mapped. Two items remain open, not one.
+
+### 1. Required context versus stage-dependent evidence
+
+| Required context — must exist | Stage-dependent — may legitimately not exist yet |
+|---|---|
+| Article | Review seals |
+| Selected assessment identity and revision | Readiness join |
+| Valid, **non-empty** route requirements | Final judgment |
+
+**Absence of a stage-dependent event is an expected stage condition, not a dangling reference.**
+
+### 2. Invalid input, precisely
+
+| Condition | Classification |
+|---|---|
+| Route requirements missing **or empty** | **Invalid** — coverage is never vacuously satisfied |
+| A supplied reference cannot resolve | **Invalid** |
+| A supplied reference belongs to another article or assessment revision | **Invalid** |
+| A seal, join or judgment has not been produced yet | **Not invalid** — evaluate as normal progress |
+
+Invalid input never fabricates readiness, approval or a state change; the inconsistency is
+disclosed.
+
+### 3. Approval-evidence readiness — three-valued
+
+Evaluation is bound to the same assessment and revision, and is one of **complete**,
+**incomplete**, or **not yet evaluated**. **Only `complete` supports readiness for final
+judgment; `not yet evaluated` never silently means complete.** A **valid join** means every
+route-required act has its own matching valid seal *and* the join has been applied.
+
+### 4. Predicate table — corrected, first match wins
+
+`RequiredActs` is the route contract's non-empty act set; `ValidSeals` is the subset that is
+well-formed, current, non-invalidated and bound to this assessment revision. **Coverage means
+every required act has its own matching valid seal — equal counts are not coverage.**
+
+| # | Condition | Displayed result | Separate workflow authority |
+|---|---|---|---|
+| 0 | required context missing, empty, unresolvable or mismatched (§2) | `t5p_input_invalid` | none — the inconsistency is disclosed |
+| 1 | current positive judgment **and** valid join **and** approval evidence `complete` | `t5p_approved_eligible` | approval permitted; Delivery recorded separately |
+| 2 | current negative judgment recorded | `t5p_recorded_negative` | article remains `Reviewed`; no publication authorized; fresh analysis may start |
+| 3 | valid join **and** approval evidence `incomplete` **or** `not yet evaluated` | `t5p_approval_evidence_incomplete` | none — never ready for approval |
+| 4 | valid join **and** approval evidence `complete` **and** no judgment yet | `t5p_awaiting_human_judgment` | `T5-FINAL` may be recorded |
+| 5 | coverage complete, join not yet applied | transient pre-join computation | none — no user wait or action |
+| 6 | partial coverage | `t5p_partially_sealed` | remaining required acts may be sealed |
+| 7 | valid context, no valid seals | `t5p_unsealed` | required acts may be sealed |
+
+**"Separate workflow authority" describes what the workflow may do next — never an action by the
+display. Rendering is read-only and writes no article or delivery state.** Historical recorded
+judgments, current approval eligibility and actual article/publication state remain distinct; a
+historical outcome never establishes current eligibility.
+
+### 5. Walkthrough — every case, with its winning row
+
+| Given | Winning row | Result | Agrees |
+|---|---|---|---|
+| Valid context; no seals, join or judgment yet | 7 | `t5p_unsealed` — **not invalid** | ✔ |
+| Some required acts sealed | 6 | `t5p_partially_sealed` | ✔ |
+| Duplicate seals for one reviewer; another required reviewer missing | 6 | not complete coverage | ✔ |
+| All required acts sealed; join not yet applied | 5 | transient pre-join | ✔ |
+| Valid join; evidence incomplete **or** not yet evaluated | 3 | not ready for approval | ✔ |
+| Valid join; evidence complete; no judgment yet | 4 | `t5p_awaiting_human_judgment` | ✔ |
+| **Empty** route requirements | 0 | invalid — not vacuously covered | ✔ |
+| Supplied reference points to another assessment | 0 | invalid | ✔ |
+| `Published` article displayed | any | publication state unchanged; rendering read-only | ✔ |
+
+**Retained from the prior packet:** exact retry returns the original judgment with no additional
+outcome, approval or Delivery effect; conflicting retry refused, requiring a fresh assessment;
+fresh analysis inherits no approval; a report about an older assessment retrieves that
+assessment's judgment. **Planned tests; none executed.**
+
+Every advertised progress result — rows 0 through 7 — is now reachable by at least one case
+above. The earlier sample set exercised none of unsealed, awaiting, or incomplete-evidence, so
+its agreement was not proof of reachability.
+
+### 6. Corrected `FN-AUDIT-VISIBILITY-07-08.md` §4.2 insertion block
+
+*Insert after the "What the board must surface" paragraph. A reviewer reading only this block
+obtains the same results as §5 above.*
+
+> **Derived progress.** Progress is derived from the selected assessment and its applicable
+> evidence and is never persisted as an article state. **Displaying progress is read-only and
+> writes no article or delivery state.**
+>
+> **Required context** — article, selected assessment identity and revision, and non-empty route
+> requirements — must exist. **Stage-dependent evidence** — review seals, the readiness join and
+> the final judgment — may legitimately not exist yet, and its absence is normal progress, not a
+> dangling reference. Input is **invalid** when route requirements are missing or empty, when a
+> supplied reference cannot resolve, or when a supplied reference belongs to another article or
+> assessment revision. Invalid input discloses the inconsistency and establishes no readiness,
+> approval or state change.
+>
+> **Coverage** means every route-required act has its own matching valid seal; equal counts are
+> not coverage. A **valid join** requires that coverage and that the join has been applied.
+> **Approval evidence** is bound to the same assessment revision and is `complete`, `incomplete`
+> or `not yet evaluated`; only `complete` supports readiness, and `not yet evaluated` never means
+> complete.
+>
+> Conditions are evaluated first-match-wins in this order:
+>
+> | # | Condition | Displayed result |
+> |---|---|---|
+> | 0 | required context missing, empty, unresolvable or mismatched | `t5p_input_invalid` |
+> | 1 | current positive judgment, valid join, evidence `complete` | `t5p_approved_eligible` |
+> | 2 | current negative judgment recorded | `t5p_recorded_negative` |
+> | 3 | valid join, evidence `incomplete` or `not yet evaluated` | `t5p_approval_evidence_incomplete` |
+> | 4 | valid join, evidence `complete`, no judgment yet | `t5p_awaiting_human_judgment` |
+> | 5 | coverage complete, join not yet applied | transient pre-join computation |
+> | 6 | partial coverage | `t5p_partially_sealed` |
+> | 7 | valid context, no valid seals | `t5p_unsealed` |
+>
+> A recorded negative leaves the article `Reviewed` with reasons and authorizes no publication.
+> Historical judgments, current approval eligibility and actual article/publication state remain
+> distinct; a historical outcome never establishes current eligibility.
+
+The `FN-GATES-01-05.md` §11.1 and §4.1 blocks from the prior packet stand unchanged, with one
+citation correction: the retry rule cites **`AC-08e` in `docs/v1/V1-B071-CORRECTIVE-PLAN.md`
+§16.2, `[decided_target_held]` draft — not an applied Product row.** Bare section numbers are
+replaced by that full path, since a bare `§16.2` changes meaning once pasted into a destination
+file.
+
+### 7. Residual — two open technical items, not one
+
+| Open item | Status |
+|---|---|
+| Mapping the **judgment record** itself — where it exists, and how it receives its assessment, actor, result, reasons and evidence bindings | Unmapped |
+| **Reference encoding** — declared snapshot reference or typed reference to that record | Compared, not selected |
+
+Neither is selected; no column, table, partition or migration is allocated, and **this packet
+does not certify that these are the only technical residuals**. Settled with existing owners
+(`D-52`): schema/FK candidates in S1; append-only enforcement as infrastructure; board
+query/index strategy at S3; transition, publication and exception specifications. **Explicitly
+unaffected:** `FN-PUBLICATION-09-10-13.md`; `docs/PRD.md`, the Charter and `0001_init.sql`.
+**Views:** journal Panels A5/A6 and their Mermaid diagrams remain historical and unedited; no
+current diagram is mandated, and no repository-wide absence or hosted Encyclopedia parity is
+certified here.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.** `B-077`
+remains `Answered` with no `Resolution`; `B-071` closure and all build holds unchanged.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Required-context / stage-dependent split; precise invalid-input rules | §§1–2; unsealed and awaiting are reachable | Independent review |
+| **Approve** | Three-valued approval evidence; empty-route rejection | §3, row 0; vacuous coverage closed | Preserved |
+| **Approve** | Full contract and table carried into the §4.2 block, with destination-local anchors and the full `AC-08e` path | §6; block is self-sufficient | Owning-tier application when authorized |
+| **Reject** | The prior claim that reference encoding is the only technical residual | Withdrawn — the judgment record is also unmapped | §7 |
+| **Defer** | Both storage items, application, Encyclopedia parity, `B-071` closure | No migration, no executable test | Bounded authorization and independent verification |
