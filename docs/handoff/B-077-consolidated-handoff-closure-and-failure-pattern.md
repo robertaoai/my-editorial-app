@@ -696,3 +696,68 @@ process. B-071/B-077 lifecycle and current build holds remain in place.
 | **Reject** | R160 same-assessment re-decision rule | Conflicts with one-outcome/replay semantics | Row 4 correction, then field feasibility map |
 | **Approve** | Continue D-52 assessment | Reading dependency resolved; no new Judge act needed to draft | Row 6 with later evidence |
 | **Defer** | Source application and closure | Draft still incomplete | Complete mappings, bounded authorization and independent review |
+
+## Review of R159/R160 storage claims (2026-09-06)
+
+**Request restated:** independently review the latest field map and negative-judgment claim,
+then give Lane A the smallest parent-first correction packet. Baseline `ca51529`. R159/R160
+remain the existing owners; no new finding, artifact or business authorization is created.
+Only this handoff changes. Application code, migrations, governed tiers and lifecycle fields
+remain untouched. Closure requires authorized source application and independent evidence,
+not acceptance of a pasted draft.
+
+### What is accepted, and what the evidence actually establishes
+
+Preserve the revised same-assessment/evidence binding, set-based act coverage, separate historical
+judgment/current eligibility/article state, and one final outcome per assessment. A changed
+judgment needs a new assessment; replay cannot add approval or Delivery effects. These address
+the previous review's conceptual objections, but do not establish storage sufficiency.
+
+The claim **“negative-judgment traceability: tested, and it fails … proven” is not established**
+by the cited constraints. In `0002_s1_editorial_schema.sql:234`, NOT NULL rejects a null
+destination; it does not require a different destination. The no-op refusal is in
+`enforce_article_state_transition` and its trigger is **before UPDATE OF workflow_state ON
+articles** (`:311`, `:409`), not before an audit-ledger INSERT. The ledger's append-only trigger
+at `:254` rejects UPDATE/DELETE, not INSERT. This is source inspection, **not a database runtime
+test**, and it proves neither that the proposed event is authorized nor that its full write path
+works. T10/T11's presence is not authority to relabel either as T5-FINAL.
+
+`editorial_reports.snapshot` already provides a JSON object container (`:459`–`:475`); its
+existence does not supply a validated assessment/evidence/outcome contract. Likewise, a text
+reason is not proof that multiple reasons cannot be represented. Classify these as **unmapped
+logical fields / validation unproven**, not proven absence of storage capacity. The actual
+current state column is **`articles.workflow_state`**, not `articles.state` (`:113`).
+
+### What Lane A needs to do — existing findings, parent first
+
+| Order / owner | Corrective draft | Success criterion / Judge decision |
+|---|---|---|
+| 1 — R160, Lane A | Withdraw the runtime-failure claim; distinguish audit-event insertion, article-state mutation and report anchoring. Retain negative judgment without approval or automatic return | **Reject** the alleged proof, not the negative-outcome requirement. A failing state UPDATE cannot be offered as proof that a no-state-change audit INSERT fails |
+| 2 — R160, depends on 1 | Complete the logical contract now: assessment identity/revision, judgment identity, immutable evidence references or captured values, reasons and outcome. Mark each existing storage candidate, missing mapping and required validation separately; explicitly consider the existing snapshot container without assuming it is sufficient | **Approve** continued functional drafting without a new general Judge decision. Every logical field has a meaning and an identified mapping question; no missing column alone authorizes a migration |
+| 3 — R160, depends on 2 | Separate the report's **as-at state-history anchor** from the **judgment it describes**. Assess whether a prior genuine transition plus an explicit immutable judgment binding is adequate, or whether a separately defined non-transition event is needed. Do not invent a state transition or reuse an unrelated event type | **Defer** storage sufficiency until the proposed complete write/read path identifies both references, validates same article/assessment/evidence, and preserves the negative result with unchanged article state. If no existing representation meets it, name the precise residual technical choice and owning tier |
+| 4 — R159/R160, depends on 2–3 | Finalize the D-30/D-52 filter after the mappings, not before. Preserve existing S1/S3 and publication/exception owners; test later requirements against what S1 actually determines | **Reject** “one residual, assessment complete” while mappings remain unresolved. No automatic new tech/UX artifact; any retained candidate names a choice not already determined by functional behavior |
+| 5 — Lane A, depends on 4 | Supply literal owning-tier edits and the occurrence crosswalk for Product anchors, FN-GATES readiness, FN-AUDIT-VISIBILITY progress/report interpretation and FN-PUBLICATION effects. Reconcile current story panels, UML/data-flow views against that text; cite historical journal diagrams as history | **Defer** application until the bounded packet is complete. T5 reviewer evidence, join readiness, final human outcome and Delivery remain distinguishable in every consuming view; future T6 adds no V1 dependency |
+
+### Verification and handback
+
+The planned negative-path test must name the proposed event/report writes, expected unchanged
+article state, retained reasons/outcome, retrievable assessment/evidence, and replay without
+additional approval or Delivery. A no-op state UPDATE must still be refused. Do not run a build
+or allocate a schema change from this review; obtain the bounded authorization for any later
+implementation/testing unit. Report replacement remains a distinct policy question if proposed,
+not something the same-article foreign key decides.
+
+Graph extraction metadata matches baseline `ca51529`, with `stale: false`. This is extraction
+currency only, not curated semantic parity. Hosted Encyclopedia parity remains unverified;
+the local sync ledger is not a substitute for comparing the hosted content. A handoff commit
+advances HEAD; Active Lane A owns final synchronization before consuming graph evidence.
+No new Lane C work or lane transition follows. Register, Build Spec, Inventory and Product
+Requirements are unaffected by this review-only handoff; their future write set must be stated
+in Lane A's application packet rather than silently applied here.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R159/R160 conceptual corrections | Preserved, not applied requirements | Literal functional draft |
+| **Reject** | R160 proven storage-failure claim | Cited trigger governs a different operation | Correct evidence and field classification |
+| **Approve-with-conditions** | R160 storage plan / D-30 filter | Mapping and anchoring remain unproven | Complete the write/read contract and residual assessment |
+| **Defer** | Source application, Encyclopedia parity and B-071 closure | Not established by this review | Bounded application, synchronization and independent verification |
