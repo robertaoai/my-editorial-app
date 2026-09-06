@@ -564,3 +564,70 @@ this review does not authorize the paste's proposed immediate two-Fn_Spec write.
 | **Reject** | Proposed tables as application-ready | Authority, negative-state, predicate and report-binding defects remain | Rows 1–7, then independent draft review |
 | **Approve-with-conditions** | D-30 omission of redundant specifications | Must use D-52/current evidence, not the stale candidate list | Row 8 residual assessment |
 | **Defer** | Source application, lifecycle promotion and implementation | No new authority or completion established | Bounded authorization and per-item independent verification |
+
+## T5 judgment-gate hierarchy — Judge clarification and decision guide (2026-09-06)
+
+**Clarification received:** T5-REVIEW belongs within a judgment-gate; T5-FINAL is a child example
+within that judgment structure. Editorial workflow and the separate assurance flow must remain
+distinct. This refines the existing R183/R159/R160 packet; no new handoff or feature is raised.
+Reviewed baseline `2b75844`. The target naming remains subject to the existing application
+boundary: D-189 records disclosure, while Units 1/2 adoption remains separately authorized.
+
+### Proposed parent contract for Lane A to consolidate
+
+Use **T5 judgment-gate** as the parent already named by the corrective plan. Within that parent,
+T5-REVIEW identifies reviewer judgment act(s), and T5-FINAL identifies the human final judgment
+act. This does not infer that a particular virtual reviewer owns or authorizes the human act,
+or allocate a second parent identifier. If a diagram groups the whole review under a review
+heading, distinguish that heading from the existing route-selected T5-REVIEW act identifier.
+
+| Layer | Meaning | Required distinction |
+|---|---|---|
+| T5 judgment-gate parent | Rules for assessing required evidence and recording an editorial outcome | Assessment can identify missing evidence or a negative result; assessment performed does not mean approval achieved |
+| T5-REVIEW child act(s) | Route-selected virtual reviewers record their judgments and evidence | A reviewer judgment cannot substitute for the final human judgment |
+| T5-FINAL child act | Chief Editor records the final human editorial judgment; EDITORIAL_DISPOSITION records its outcome | Positive approval, negative result and incomplete assessment have different effects under the existing draft |
+| Editorial workflow support | Runs tasks, waits for evidence, seals/joins the bundle, exposes the permitted UI information, and invokes publication after approval | The deterministic join judges nothing. Its Drafted → Reviewed effect is readiness; human positive judgment owns Reviewed → Approved; Delivery separately records publication |
+| Future assurance flow | T6/PBL-01's separately scoped capability | It is beyond V1; human editorial approval is not an assurance flow merely because it occurs after agent work |
+
+The above is a containment and responsibility map, not a replacement execution sequence. Preserve
+the existing preliminary-judgment → permitted reveal → final-decision ordering when drafting the
+workflow. Merely drawing all child acts under T5 cannot waive blind-review or Line controls.
+
+### Accept/reject decisions, parent first
+
+| Order | Question for the decision packet | Recommendation | Lane A deliverable / success criterion |
+|---|---|---|---|
+| 1 — parent meaning | Accept T5 as the judgment-gate containing reviewer and human-final acts? | **Approve** the clarification | One parent definition in the proposed contract; T5-REVIEW and T5-FINAL have explicit child purposes. No new gate, actor or authorization is inferred |
+| 2 — workflow relationship, depends on 1 | Accept that routing/join/display support the judgment-gate but do not themselves decide newsworthiness? | **Approve** | Name each actor, evidence input, judgment record and workflow effect. Join readiness cannot appear as final approval |
+| 3 — outcomes, depends on 1–2 | Preserve the clarified V1 outcome behavior? | **Approve** | Pre-join incomplete remains Drafted; post-join incomplete or negative remains Reviewed with findings; positive final judgment permits Approved; negative permits no automatic return or publication, with manual whole-article re-trigger available |
+| 4 — R159/R160, depends on 2–3 | Are current progress/report tables sufficient after merely renaming headings? | **Reject** | Supply disjoint progress predicates and explicit report-to-assessment/evidence links; retain the prior review's replay, supersession and publication-history corrections |
+| 5 — artifact decision, depends on 4 | Does this hierarchy require new technical/UX/UML files? | **Reject** an automatic requirement | Complete behavior in existing functional owners; use D-30/D-52 to justify only remaining technical/UI choices. A diagram should reference that contract |
+| 6 — application/closure, depends on the complete packet | Does acceptance of this clarification authorize source application or close B-071? | **Defer** | Lane A supplies literal proposed replacements and clause dispositions, then obtains the bounded application act; independent review verifies the result |
+
+### Cross-reference checklist for the existing occurrence ledger
+
+Product stories/FRs/ACs must use the same parent/child meanings as FN-GATES §11.1. RACI must
+attribute each child act to its own executor and accountability context, keeping Line classification
+separate from judgment-gate identity. FN-AUDIT-VISIBILITY must distinguish progress, human outcome
+and report provenance; FN-PUBLICATION consumes the approved disposition and records Delivery.
+Corrective-plan and Build Spec proposed completion text must identify the readiness join and human
+final act without equating them. Historical storyboard A5/A6 and Mermaid diagrams remain dated
+evidence; a current story panel/UML/data-flow view must label containment separately from execution
+order and trace back to the owning behavior. Hosted Encyclopedia content remains unverified;
+Entries 01/04/05 are impact candidates, not evidence that the target is already published.
+
+**Failure checks:** a sealed reviewer judgment alone cannot produce human approval; the join cannot
+claim a judgment; a negative recorded result cannot be rendered Published or trigger an automatic
+return; a future T6 capability cannot become a V1 approval prerequisite; a report must cite the
+actual assessment and evidence rather than infer an outcome from a gate name.
+
+Only this handoff is updated. Graph extraction was observed at `6324582` against baseline
+`2b75844`, so graph currency is behind and no fresh semantic verification is claimed. Active Lane A
+owns synchronization before a consuming approval; this packet remains a draft for governed tiers.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | T5 parent/child clarification | Captured in the existing handoff | Lane A literal contract and occurrence mapping |
+| **Approve-with-conditions** | R159/R160 progress and report drafting | Must derive from the judgment/workflow distinction | Complete predicates, evidence bindings and tests |
+| **Reject** | Automatic new gate/specification or assurance dependency | No such scope follows from this clarification | Apply the existing D-30/D-52 filter |
+| **Defer** | Application, graph/Encyclopedia verification and closure | Not established by clarification acceptance | Bounded authorization and independent evidence |
