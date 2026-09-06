@@ -4,7 +4,10 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** claiming the documentation-quality audit is closed; no application implementation
-- **Status:** Open
+- **Status:** Answered
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's application of the documentation corrections and curated fragment
+- **Verified-At-Commit:** de665a76df42d5b55e95fb018f8facdb9b1ec5a5
 - **Lane A:** Acknowledged and applied 2026-09-06. Parent 1 and Child 2 applied as drafted: `docs/README.md`'s plan-pack table row and "The two PRDs" section replaced (the demand/supply framing removed, matching `B-073`'s already-established fix elsewhere in the same file); the "Order to read" list replaced with the fuller six-item version; the Register's "Last approval update" relabelled; a current-reference note added after the historical `Q3`/`Q5`/`Q11` paragraph (preserved, not rewritten) citing `D-143`/`D-146`/`D-111`/`D-112`; the Build Spec's Bun sentence corrected to cite `D-64` directly; the Build Spec §2 "rule is unenforced" line corrected to name `D-88`/`D-89` and scope the claim to the working branch only. Child 3/4/5 are correctly out of this pass's scope — no view/report artifact, no publication-spec change, no graph/Encyclopedia claim made. This entry's own closure criteria (independent review at a settled revision) remain outstanding; `Status` stays `Open`. **Correction appended 2026-09-06, after Round 2:** the phrase "applied" above overstated the result — Round 2 correctly found R2-1 (the deviation register filed as history-only, contradicting its own "Live instrument" header) and R2-3 (the Build Spec still reading "stopped only by the agent choosing to stop" while citing `D-88`'s commit-message control two lines later) still outstanding at that point, and no applying commit existed. R2-1, R2-2 and R2-3 are now **edited in the working tree; pending commit and independent verification** — not `Applied`, which requires a named commit. The original wording above is preserved rather than rewritten. **Round 3 response, 2026-09-06:** the claim that graph coverage required committing first was Lane A's error, now corrected — `missing.js` walks `docs/` with `readdirSync` and `merge7.js` merges from disk, so neither needs a commit. `frag123.json` created and merged (1 node, 3 edges, verify-only run first; cross-fragment audit passes at 122 fragments); `frag122` deliberately left free because `B-071`'s `R152` plan names it. **Round 4 response — one item declined, with evidence.** The requested `V1-ARTIFACT-INVENTORY.md` lifecycle rows for this entry and `frag123` are **not** added: no individual `B-NNN` entry or fragment file is inventoried anywhere — `B-076`, `B-077`, `frag119`, `frag120` and `frag121` each return zero matches — because the inventory tracks `docs/graph-fragments/` as a directory (already ✅) plus channel infrastructure, not individual entries. Adding these two rows would make them the only individually-inventoried entry and fragment among many, and is the restatement shape `D-100`/`B-011` rejected when they refused a second backlog artifact. If a per-entry inventory convention is actually wanted, that is a scoped decision applying to all entries, not one applied first to `B-078`.
 - **Evidence:** review baseline `27ad43ddb068a9c17b95b57506c7f5e8b02d8cb3` plus the staged changes to `docs/README.md`, `docs/v1/V1-BUILD-SPEC.md`, and `docs/v1/V1-DECISION-REGISTER.md`; current handoff headers and B-071/B-077 review chains; source references below; read-only consistency and Graphify diagnostics on 2026-09-06.
 
@@ -618,3 +621,44 @@ publication is S4 readiness; R159/R160 own the target view/report work; external
 parity is unverified with its existing follow-up. Frozen sources, application code, workflows,
 product behaviour and lane state are unaffected. Those children are neither duplicated nor
 represented as completed by this inventory disposition.
+
+## Independent closure review — Lane B, 2026-09-06
+
+**Verified at `de665a76df42d5b55e95fb018f8facdb9b1ec5a5`.** Lane B did not apply Lane A's
+README/Register/Build Spec corrections or create/merge frag123. Writing the review criteria and
+raising this entry do not make Lane B the answering/applying actor under the existing independence
+rule. The user requested B-078 review for closure; this records that bounded review, not a build
+authorization or closure of another entry.
+
+**Current disposition:** the header above supersedes all pre-commit Open/pending-review statements
+in the preserved Lane A response and earlier rounds. B-078 is Verified for its documentation-audit
+correction and routing scope. No existing child is promoted by this result.
+
+| Original closure criterion | Independent finding |
+|---|---|
+| Acknowledgement and canonical ownership | Lane A answered this entry. B-071/B-077 remain the existing owners; no second backlog was created |
+| Parent 1 / Child 2 source corrections | Inspected the committed diff: governing Project PRD placement, reading route, live deviation register, preceding historical labels, D-64 citation and partial-control wording meet the accepted R2 criteria |
+| Requirements and view routing | Product PRD, storyboard, Fn_Specs/SPECS and Encyclopedia ledger are unchanged by the five-path commit. Child 3's reviewed mappings and explicit external limitation remain accurate; R159/R160 own target view/report work |
+| Publication residual | Child 4 records concrete timing, concurrency, crash recovery, eventless-target and state-promotion acceptance questions; S4 readiness remains the return checkpoint before implementation. This review verifies routing, not the unwritten implementation |
+| Settled revision and graph evidence | Fresh fetch confirms local and upstream at de665a7. Commit contains exactly the five agreed paths. Full consistency suite passes; extraction metadata matches that revision, stale is false, coverage passes, frag123's one node and three edges match under read-only verification |
+
+**Evidence limits and retained follow-ups:** local semantic descriptions/labels remain pending
+according to `graphify check-update`. Exact fragment equality proves parity with the stored fragment,
+not that its pre-commit “pending commit” wording is current lifecycle status. B-078's header is the
+canonical current state. Under the existing handoff SOP, Active Lane A refreshes the derived graph
+after the verification-record commit and updates frag123's lifecycle description to reference this
+header or explicitly date its historical snapshot. That is routine derived-evidence maintenance,
+not a reason to re-review the accepted source corrections indefinitely. No blanket semantic-sync
+or portability claim is made.
+
+Hosted Encyclopedia parity remains unverified: its existing owner must read the hosted artifact
+when the affected entry is next updated. R159/R160 retain their SPECS/UX and audit Fn_Specs owners;
+publication retains S4 readiness. B-071/B-077 and Phase 3 retain their independent closure criteria.
+The individual Inventory-row demand was withdrawn in Round 5; no such rows are owed by this review.
+
+| Verdict | Tier / item | Follow-up |
+|---|---|---|
+| Approve | B-078 bounded documentation correction and routing | Verified at de665a7; preserve this independent record |
+| Defer | Derived graph refresh after this review-record commit | Phase 1 / Active Lane A, before the next consuming approval or phase-closure claim |
+| Defer | Publication, target views/reports, hosted Encyclopedia | Existing S4, R159/R160 and Encyclopedia follow-ups; not implementation completion |
+| Reject | Expanding this verification to product build, other handoff closure or external parity | Those tiers remain unaffected |
