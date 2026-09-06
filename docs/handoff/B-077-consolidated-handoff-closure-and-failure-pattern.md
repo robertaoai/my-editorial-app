@@ -2733,3 +2733,52 @@ storyboard, UML and data-flow views remain untouched.
 | **Approve** | Existence, same-article and same-revision separated with named mechanisms | §4 | Independent review |
 | **Reject** | FK-alone article validation; automatic `event_type` result semantics; identity-only completion; reason-set impossibility; snapshot-as-equal-option | All five withdrawn | Superseded by §§1–4 |
 | **Defer** | Implementation authorization, Encyclopedia parity, `B-071` closure | Design not yet reviewed; no runtime test | Separate authorization and evidence |
+
+## Independent review: logical design accepted, physical contract still required (2026-09-07)
+
+**Baseline `74ec7bd`.** Accept the D-110 typed boundary, separate event category/result,
+one-time-backfill qualification and existence/article/revision distinction. The six planned
+test scenarios cover the previously requested checks and are correctly labelled unexecuted.
+Preserve D-191 and R159; no new finding IDs, behavior questions or schema changes are introduced.
+
+The remaining gap is **design specificity**, not a new governance ruling. §3 is a logical
+inventory, not a complete physical record proposal. “A typed identity” does not identify its
+location or key. §3 sends creation/retrieval/retry to §4, but §4 only describes reference checks;
+it contains no mechanism for those other obligations. The named tests state expected behavior,
+not evidence that an enforcement path exists. Review acceptance cannot fill those omissions.
+
+### Lane A — one bounded design packet, small steps in order
+
+| Step | What to draft | Ready when |
+|---|---|---|
+| 1 — identity and lifetime | Identify the proposed assessment and judgment record locations, keys, revision meaning and ownership. Distinguish reused schema from proposed additions | An example article can have an old and a fresh assessment without ambiguous identity or inherited approval |
+| 2 — field map, after 1 | For every governed binding, name the proposed typed field/relation, type, required/optional status, reference and allowed values; explain where reasons/evidence content is preserved before report production | Result and authoritative evidence bindings are explicit. Actor columns are **reuse candidates** until the deciding actor/authority mapping is shown; replace “needs nothing” with that narrower claim unless demonstrated |
+| 3 — record operation, after 2 | Describe creation and completion ordering, the consistency boundary between judgment and any associated approval effect, and how interrupted work is retried | A failure cannot leave a falsely completed judgment or duplicate approval effect; the proposal shows what is recorded and what remains incomplete. Negative judgment does not fabricate a state change |
+| 4 — enforcement, after 3 | Assign exact proposed mechanisms to existence, same article, same assessment/revision and exactly-one final outcome. Include matching retry, conflicting retry and immutable historical evidence | No obligation is satisfied merely by a placeholder “its own rule.” Mechanisms are design proposals, not installed controls; no new auth/multi-account feature is inferred |
+| 5 — retrieval/report, after 4 | Show the read path from requested assessment/revision to judgment/result/reasons/evidence and from report to its distinct state-history and judgment references | Older-assessment retrieval returns the original evidence and result; reference validation never silently substitutes the newest record |
+| 6 — planned verification, after 5 | Link each existing positive/refusal/retry case to the proposed write/read/enforcement path; include an interrupted operation or competing retry where relevant to the same one-outcome rule | Every expected result has a named enforcing mechanism and observable evidence. Tests remain plans; no test execution or code follows from this review |
+| 7 — application proposal, after 6 | Route the design under the existing D-30/D-52 owners and supply its exact prospective schema/code/spec write set, migration/backfill impact or explicit none, and verification/DoD | Judge sees a bounded, implementable proposal rather than a new “typed element” placeholder. Required parent approvals and build holds are satisfied separately, not waived by review |
+
+**Smallest correction to the current status:** call §3 “logical record requirements and reuse
+candidates”; keep §4's validated separation; record the above physical packet as the remaining
+R160 deliverable. Do not redo accepted format decisions or the R159 predicate walkthrough.
+This is a guide to complete the design, not a selection of a particular table/column, a migration
+allocation or an authorization to build.
+
+Pass criterion: a reviewer can trace each governed requirement through a proposed stored field,
+its operation, its enforcement and its planned test without choosing missing implementation
+details on Lane A's behalf. New behavior or scope discovered during that drafting must be raised
+explicitly; mere physical design work does not require re-asking the settled business rules.
+
+Graph metadata matches `74ec7bd`, `stale: false`, at review start. No runtime tests or hosted
+Encyclopedia/curated-semantic verification were performed. Historical views remain historical;
+no new view artifact is mandated. Only this handoff changes, leaving governed docs/schema/code
+untouched and B-077 Answered without Resolution. B-071/D-171/AUTH-DOC boundaries remain.
+Active Lane A synchronizes after this review commit before consuming graph evidence.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R160 typed logical rules and validation distinctions | Corrected; preserve | Physical design drafting |
+| **Approve-with-conditions** | Reuse and test plan | Existing obligations named, physical enforcement still unspecified | Steps 1–6 |
+| **Reject** | Complete physical-design / implementation-readiness claim | Logical inventory and expected outcomes are not a finished mechanism | Bounded design packet |
+| **Defer** | Implementation, Encyclopedia parity and B-071 closure | No authority or runtime proof established | Required authorizations and independent evidence |
