@@ -2461,3 +2461,91 @@ after its commit before consuming graph evidence at the new HEAD.
 | **Approve-with-conditions** | R160 remaining work | Judgment-record and reference mappings still unverified | Existing technical refinement sequence |
 | **Reject** | Documentation acceptance as build/storage/terminal verification | No such authority or proof follows | Preserve boundaries |
 | **Defer** | Encyclopedia parity and B-071 closure | Not established by this bounded review | Separately scoped evidence and lifecycle review |
+
+## Lane A: judgment-record mapping classified, encodings compared (2026-09-07)
+
+**Baseline `625e435`; remote already matched it. Graphify resynchronized (`docs-drift` synced at
+`625e435`); the runner reported all checks passing. No governed tier, spec, schema or application
+file changes in this section. The blocks applied at `f16063a` are preserved and are NOT
+reapplied; accepted R159 predicates are not reopened.**
+
+### 0. Two acknowledgements
+
+**Register-first ordering is Lane A's report, not git evidence.** A single commit cannot
+establish the within-commit order of file edits. The review found no contradictory evidence and
+did not construct a second chronology; **the ordering claim rests on Lane A's own account and
+should be read that way.**
+
+**"Verbatim" was operative content parity, not byte identity** — `D-191` citations were added and
+wrapping and blockquote presentation changed. Accepted as such.
+
+### 1. Classification used below
+
+Presence of a column is **not** runtime sufficiency; no read/write path was tested.
+
+| Label | Meaning |
+|---|---|
+| **Mapped (unverified)** | a column carries the binding; runtime behaviour untested |
+| **Partially mapped** | a column exists but its shape does not match the binding |
+| **Candidate identified** | no column carries it; one or more named candidates exist |
+| **No candidate identified** | none found |
+
+### 2. Judgment-record mapping — the six bindings now governed by Block A
+
+Candidate examined: the `workflow_transitions` row recording the `T5-FINAL` act. Exclusivity is
+not claimed.
+
+| Binding | Classification | Evidence and candidates |
+|---|---|---|
+| Deciding actor and authority context | **Mapped (unverified)** | `actor_id`, `actor_type`, `gate_role`, `line_assignment`, `line_separation_status`, `identity_assurance`, `supervising_human_id` |
+| Reasons | **Partially mapped** | `reason` is a single `text`; a reason **set** has no carrier. The exactly-one-row rule forbids representing a set as repeated rows |
+| **Stated result** | **Candidate identified** | **`event_type` (`audit_event_type`, `not null`) is structurally independent of `to_state`** and is therefore a result carrier that is *not* article state. **Caveat, decisive:** `0002`'s backfill populates it *from* `to_state` (`when to_state = 'rejected' then 'Rejected'`), and its enum has no value for a recorded editorial judgment distinct from a state change. **As currently populated it is state-derived, which the applied behaviour forbids** — so it is a candidate, not a mapping |
+| Assessment identity | **Candidate identified** | no column. Candidates: a typed column on the ledger row; or a distinct assessment relation. **Not** the report `snapshot` — that is created at report time, after the judgment must already exist |
+| Assessment revision | **Candidate identified** | no column; same candidates, plus a revision discriminator |
+| Applicable evidence set | **Candidate identified** | no column. `trend_signals.evidence_url` is point-in-time signal evidence (`D-114`), not review evidence. Candidates: a distinct evidence relation, or a declared structure carried with the judgment |
+
+**Net:** one binding mapped-but-unverified, one partially mapped, four with named candidates and
+no carrier. **No runtime sufficiency is claimed from column presence, and no column, table,
+partition or migration is allocated.**
+
+### 3. Encoding comparison — now partially decidable
+
+Compared against the *same* mapped target, the `T5-FINAL` ledger row:
+
+| Criterion | Typed reference to the ledger row | Reference declared inside the report snapshot | Decidable now? |
+|---|---|---|---|
+| Validation — article scope | **FK-validatable** against the ledger, refused structurally on mismatch | no structural validation; a wrong identifier is accepted as data | **Yes — the typed reference discriminates** |
+| Validation — assessment revision | blocked on bindings *assessment identity* and *revision* | blocked, identically | No |
+| Retrieval by assessment **and** revision | blocked on the same two bindings | blocked, identically | No |
+| Retry comparison — identity, revision, result | blocked on those two plus *stated result* | blocked, identically | No |
+
+**One of four criteria now discriminates**, which is progress over "not decidable at all". **The
+selection remains deferred**: three criteria are still blocked by §2's unmapped bindings, and
+choosing on a single criterion would decide the encoding before the record it references exists.
+**The encoding remains subordinate to the record mapping.**
+
+### 4. What is separately scoped, and unchanged
+
+**Hosted Encyclopedia parity** — unread, unverified; Entries 01/04/05 remain impact-review
+candidates by topic only. **`B-071` closure** — separately gated. **Lifecycle promotion** — needs
+its own named target, evidence and authorized metadata update; `B-077` stays `Answered` with no
+`Resolution`, and nothing here is `Verified`. **Historical views** — storyboard Panels A5/A6 and
+their Mermaid diagrams remain historical and untouched; no current view is mandated. **`D-171`,
+`AUTH-DOC` and all build holds** stand unchanged. No migration and no executable test is
+authorized by this section.
+
+**The remaining decision that would unblock the rest:** how *assessment identity and revision* are
+represented. Retrieval, retry comparison and revision validation all depend on it, and the
+encoding choice resolves once it does. That is a technical choice for the existing owners under
+`D-30`/`D-52`, not a behaviour question — the behaviour is applied and reviewed.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.**
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Applied blocks preserved, not reapplied; predicates not reopened | `f16063a` stands as reviewed | Preserve |
+| **Approve** | Judgment-record mapping classified against the six governed bindings | §2; one mapped-unverified, one partial, four candidates | Representation decision |
+| **Approve** | `event_type` identified as a result carrier independent of article state, **with** the state-derived caveat | Candidate, not a mapping | Owners' assessment |
+| **Approve** | Encoding comparison advanced to partially decidable | §3; one of four criteria discriminates | Selection still deferred |
+| **Reject** | Runtime sufficiency inferred from column presence; documentation review as build or storage authority | Neither follows | Preserve boundaries |
+| **Defer** | Assessment identity/revision representation, encoding selection, Encyclopedia parity, `B-071` closure | No allocation, no runtime test | Existing owners under `D-30`/`D-52`; separately scoped review |
