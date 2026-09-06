@@ -1530,3 +1530,49 @@ remains `Answered` with no `Resolution`; `B-071` closure and all build holds unc
 | **Approve** | Retrieval and "before any report" corrections | Revision required where identity is insufficient | Preserved |
 | **Reject** | The pointer-only §4.2 insertion | Withdrawn and replaced by §7 | Superseded |
 | **Defer** | Reference-encoding selection, application, Encyclopedia parity, `B-071` closure | Behaviour complete; storage not selected, no runtime test | Bounded authorization and independent verification |
+
+## Independent review: predicate reachability and exact propagation (2026-09-07)
+
+**Request restated:** review the self-contained packet at `531c9cd`; preserve completed
+corrections and finish R159/R160 without new IDs or implementation. The missing-link defect is
+corrected at handoff level. Retrieval/revision and conflicting-retry improvements are accepted.
+The claimed behavior stop condition is not yet demonstrated by the provided test set.
+
+### Small corrective packet — parent first
+
+| Order | Gap in the actual draft | Lane A correction and success criterion |
+|---|---|---|
+| 1 — R159 input domain | §1 lists join and final judgment as inputs; row 0 treats missing inputs as invalid. It does not distinguish an event not yet produced from a required reference that is broken. Reading all inputs as required makes ordinary unsealed/awaiting states unreachable | Define **required context** (article, selected assessment/revision, valid route requirements) versus **stage-dependent evidence** (seals, join, final judgment). No event yet is normal progress; a supplied reference with a missing target or mismatched binding is invalid. Demonstrate a fresh assessment with no seals/join/judgment → unsealed, and a valid join with complete approval evidence but no judgment → awaiting human judgment |
+| 2 — R159 predicate domain, depends on 1 | Approval-evidence completeness is used but not defined among inputs. An empty RequiredActs set also satisfies coverage vacuously unless explicitly rejected; current tests cover missing, not empty, requirements | Bind approval-evidence evaluation to the same assessment/revision, distinguish not-yet-evaluated from complete, and preserve the earlier proposal's empty-route rejection. Define valid join against required valid seals. Test empty requirements → invalid, and joined with incomplete/not-yet-established approval evidence → no readiness claim. Do not let “joined, awaiting” imply that missing evidence is complete |
+| 3 — literal propagation, depends on 1–2 | §7 announces “the table is the operative text,” but its §4.2 insertion is prose, not §5's table: displayed t5p values and the full validation/domain contract are absent. Bare §1/§16.2 citations also change meaning when pasted into destination files | Put the corrected domain and full condition/result table into the actual insertion block, or give an unambiguous instruction to insert those exact blocks in the same bounded packet. Use destination-local section anchors and a full corrective-plan citation for draft AC-08e. A reviewer evaluating only the proposed destination content must obtain the same results as the handoff tests |
+
+**Draft clarification to use:** “Absence of a seal, join or judgment not yet produced is an
+expected stage condition, not a dangling reference. Required context must exist. Any reference
+supplied must resolve to the same article and assessment revision. Empty or missing route
+requirements cannot establish coverage. Awaiting final judgment requires a valid join and
+complete applicable approval evidence.” This states existing intended distinctions, not a new
+workflow, gate or storage requirement.
+
+Retain the prior retry/history tests. Add the normal-progress cases above, joined/incomplete
+evidence, and a supplied broken reference; show which row wins for each. The current sample tests
+do not exercise unsealed, awaiting or incomplete-evidence behavior, so agreement across those
+samples is not proof that every advertised progress result is reachable. Rendering remains
+read-only; “permitted effects” describes separate workflow authority, not actions by the display.
+
+The remaining storage work must still map the judgment record itself as well as its reference;
+this review does not verify that reference encoding is the only technical residual. No migration
+or executable test is authorized. No new current diagram is mandated, and no repository-wide
+absence or hosted Encyclopedia parity is certified here. Existing historical views remain history.
+
+Graph metadata matches `531c9cd`, `stale: false`, at review start; this is extraction currency,
+not curated semantic verification. No runtime tests were run. Only this existing handoff changes;
+governed tiers, specifications, frozen sources and code remain untouched. B-077's Answered/no
+Resolution and B-071 holds are preserved. Active Lane A synchronizes after the handoff commit
+before a consuming approval.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R160 retrieval/retry and missing-link corrections | Preserved at draft level | Carry forward |
+| **Reject** | R159 behavior stop-condition claim | Normal missing events and invalid references not distinguished | Domain correction and reachability cases |
+| **Approve-with-conditions** | Owning-tier insertion packet | Must carry the exact corrected domain/table | Literal propagation review |
+| **Defer** | Storage sufficiency, application and B-071 closure | Not established here | Bounded authorization and independent verification |
