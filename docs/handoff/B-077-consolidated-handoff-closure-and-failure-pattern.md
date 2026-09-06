@@ -1745,3 +1745,41 @@ remains `Answered` with no `Resolution`; `B-071` closure and all build holds unc
 | **Approve** | Full contract and table carried into the §4.2 block, with destination-local anchors and the full `AC-08e` path | §6; block is self-sufficient | Owning-tier application when authorized |
 | **Reject** | The prior claim that reference encoding is the only technical residual | Withdrawn — the judgment record is also unmapped | §7 |
 | **Defer** | Both storage items, application, Encyclopedia parity, `B-071` closure | No migration, no executable test | Bounded authorization and independent verification |
+
+## Independent review: bounded completion of the reachability proof (2026-09-07)
+
+**Review baseline `4c9576b`.** Continue R159/R160 only. Accept the normal absent-event versus
+invalid-reference distinction, empty-route rejection, three-valued evidence and withdrawal of
+the sole-residual claim. Unsealed and awaiting now have appropriate examples. Do not reopen
+those corrections. The remaining issues are consistency of the literal table and its proof.
+
+| Order | Remaining gap | Lane A exact corrective action / acceptance |
+|---|---|---|
+| 1 — R159 invalid-input precedence | Row 0 checks only required context, whereas prose also rejects any supplied event reference that is unresolved or mismatched. The walkthrough expects a wrong-assessment supplied reference to win row 0 without that condition in the row | In both tables use: “required context invalid **or any supplied reference unresolved or bound to a different article/assessment revision**.” Preserve normal absence of not-yet-produced events. A supplied wrong-assessment judgment cannot win row 1 or 2 simply because its result is positive/negative |
+| 2 — destination contract, depends on 1 | The full draft defines valid seals as well-formed, current, non-invalidated and revision-bound; the destination block only says “valid seal.” Row 3's main-table AND/OR wording also admits two readings | Carry that seal definition into the actual insertion block. Write row 3 as “valid join AND (evidence incomplete OR not yet evaluated).” Fresh valid context, no join and unevaluated evidence must still reach unsealed, not row 3 |
+| 3 — proof, depends on 1–2 | “Every advertised result ... has a case above” is false as written: the winning-row column has no row 1 or row 2 case. “Published ... any” does not demonstrate either | Add: current positive + valid join + complete evidence → row 1; current negative, valid bindings, article Reviewed → row 2. Add valid context with a supplied unresolved/mismatched judgment reference → row 0, and no seals/join/judgment with unevaluated evidence → row 7. Label these planned walkthroughs, not executed tests |
+
+**Finish as one small draft update:** apply the row-0 and seal-definition corrections to both
+the review table and destination insertion block, parenthesize row 3, add the missing cases,
+then compare the two tables. No new state, gate, requirement ID, schema choice or general Judge
+clarification is needed. The finished proof must identify an actual winning case for each row,
+not infer coverage from the number of sample cases. Keep rendering read-only and retain existing
+retry, history and fresh-assessment tests.
+
+This review accepts corrected normal-progress behavior, not a claim that every possible input
+combination has been tested. The judgment-record and reference-encoding mappings stay open;
+no storage sufficiency or source-application authorization follows from this draft acceptance.
+Historical views remain historical; hosted Encyclopedia parity remains unverified. No new view
+artifact is proposed. Only this handoff changes; governed tiers, specifications and code are
+unaffected, B-077 remains Answered without Resolution, and B-071 holds remain unchanged.
+
+Graph metadata matches review baseline `4c9576b`, `stale: false`; extraction currency is not
+curated semantic verification. No runtime tests were run. Active Lane A synchronizes after the
+handoff commit before consuming graph evidence.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R159 normal-progress input split | Corrected as drafted | Preserve |
+| **Approve-with-conditions** | R159 literal table | Align invalid-reference precedence, seal validity and row 3 grouping | Bounded draft update |
+| **Reject** | All-row walkthrough coverage claim | Positive and negative winning cases absent | Add explicit cases |
+| **Defer** | Storage, application and B-071 closure | Existing boundaries unchanged | Bounded authorization and independent verification |
