@@ -498,3 +498,69 @@ later application; Lane C has no new CI work in this request.
 | **Approve-with-conditions** | R159's proposed narrower routing | Behavioral semantics may leave no separate UX-spec requirement; this has not yet been demonstrated | P2–P5, authorized routing disposition |
 | **Reject** | R159/R160 closure from current Fn_Specs | Required mappings and tests remain incomplete | Complete the existing owners' draft packet |
 | **Defer** | Application, graph/Encyclopedia verification and B-071 closure | Review only; existing holds preserved | Authorized propagation and independent review |
+
+## Review of the proposed progress/report tables (2026-09-06)
+
+**Restated request:** verify Lane A's pasted R159/R160 tables against current authority and source,
+and draft a parent-first correction suitable for Judge acceptance. Baseline `6324582`; the pasted
+tables have not been applied. This continues existing B-071 R159/R160 and this review's D-30
+decision guide. No B-079 or second feature tracker is required.
+
+### Parent-first decision and corrective text
+
+| Order | Evidence / gap | Recommended decision and correction | Success criterion |
+|---|---|---|---|
+| 1 — authority | The paste says T5-FINAL occurs only in B-071 and cites Round 27 to prohibit it. D-189 actually applied Unit 7 annotations containing T5-FINAL in Addendum, Blueprint and Business Case; D-190 preserves those annotations. Neither authorizes Units 1/2 | **Reject** the prohibition and missing-source claim. Cite T5-FINAL as the proposed target label disclosed by Unit 7; explicitly distinguish it from current/held operational names. Keep this packet aligned with the later clarified target under review | No old round silently reverses later scope; no proposal is presented as an implemented event. The migration constrains current storage, while the Register governs authorization |
+| 2 — negative outcome | Proposed negative row sets Rejected / Needs Revision. The clarified target and corrective-plan §§15.3/16.5 keep a negative judgment Reviewed with reasons and no automatic return | **Reject** that row. Draft: negative final result → Reviewed, negative result/reasons recorded, publication not authorized; user may initiate a fresh whole-article analysis. Existing explicit human return/rejection actions retain their own triggers | Recording a negative judgment alone causes no automatic Rejected/Needs Revision transition |
+| 3 — deterministic progress | “Not all sealed” overlaps “some sealed, at least one outstanding.” Missing final-approval evidence after join is omitted. A ready-for-join row implies a waiting phase although the source says the join occurs immediately | **Approve-with-conditions.** Make predicates disjoint and precedence explicit: zero valid sealed acts; some but fewer than all; all required acts sealed; joined but approval evidence incomplete; joined and awaiting human judgment; recorded negative; recorded positive. Treat ready-for-join as a transient computation only if needed, never a new user wait/action | Every covered input yields one result; incomplete approval evidence never renders ready for approval; prefixes alone are not proof of correct derivation |
+| 4 — attempt versus history | “Fresh analysis ... prior state retained ... superseded” mixes the current analysis with the previous report. New attempt/evidence selection and invalidated evidence are unspecified | **Approve-with-conditions.** Progress derives from the selected current assessment and its applicable evidence. Earlier outcomes remain historical. Manual re-trigger starts the whole flow; do not label the new analysis superseded. Define selection and invalidation rules in logical behavior terms before claiming completeness | New analysis inherits neither a ready bundle nor approval; old outcomes remain retrievable; stale evidence cannot satisfy current readiness |
+| 5 — report binding | as_at_transition_id is a required FK to an article's transition; it does not prove that transition represents a negative judgment that leaves state unchanged. snapshot is only constrained to a JSON object, not a declared evidence-ID schema | **Reject** the claim that existing columns fully supply the mapping. Draft an explicit logical judgment/assessment reference, evidence references, reasons, outcome and rule/template versions; distinguish the report's as-at transition from the decision it describes. Then assess whether existing storage can represent that contract | Negative/no-state-change judgment can be traced without inventing a transition or treating arbitrary JSON as a specified schema; report text agrees with the referenced assessment |
+| 6 — report supersession | supersedes_report_id is optional and checked against the same article. A later analysis does not by itself prove a new report replaces the previous report or that it shares the same article identity | **Approve-with-conditions.** State when a new report supersedes an earlier report versus merely records another assessment. Check the manual-trigger identity contract before selecting the link; never force a cross-article supersession unsupported by the FK check | Prior report remains intact; supersession has an explicit meaning and valid same-article linkage where used |
+| 7 — publication | The table defaults publication_status to Pending and says negative result authorizes no publication row. Audit/result rows and authority to execute publication are different facts; prior publication may already exist | **Approve-with-conditions.** Negative judgment authorizes no new publication action. Preserve existing publication history; describe the actual delivery attempt/result separately, including no attempt, pending, success or failure where governed. Do not reset historical delivery to Pending | Approved never proves Published; a negative new analysis neither fabricates nor erases publication history |
+| 8 — D-30 | The paste retains every candidate from the old audit Fn_Spec §9. D-52 already absorbed the column set and FK action into S1, routed append-only enforcement to infrastructure and retained board-query work for S3 | **Reject** wholesale resurrection of that list. Use D-52 and later applied evidence as the candidate baseline; identify only choices still unresolved for these mappings. Board rendering needs a named undetermined choice before another UX specification is justified | No new document repeats settled schema/infrastructure work or merely restates progress/report semantics |
+
+### Minimal Lane A drafting sequence
+
+First correct authority and negative-outcome framing (rows 1–2). Then supply one progress table
+with mutually exclusive predicates, evidence-selection rules and historical/current distinction
+(rows 3–4). Next supply the report-to-assessment/evidence map, including non-transition outcomes
+and supersession meaning (rows 5–7). Finally apply the current D-30/D-52 residual filter (row 8).
+Keep Product ownership of FR/AC identities; elaborate behavior in the existing Fn_Specs through
+the authorized packet. A stored field is implementation evidence, not a substitute for those rules.
+
+Suggested negative tests: partially sealed evidence cannot match two progress rows; joined but
+incomplete approval evidence cannot appear approved; invalidated evidence cannot count as current;
+negative judgment creates no automatic state return; a report referencing the wrong assessment
+cannot pass; a cross-article supersession is refused; fresh analysis cannot inherit approval;
+historical publication remains visible. These elaborate existing R159/R160 acceptance needs,
+without assigning new IDs or assuming new schema is required.
+
+### Source/view and lifecycle corrections
+
+The storyboard's historical sequence/flow diagrams remain evidence of the old model. Any current
+story panel/UML/data-flow rendering must consume the corrected tables above; it cannot decide
+missing behavior merely by drawing arrows. Encyclopedia Entries 01/04/05 remain impact candidates;
+hosted content was not verified. No separate diagram file is justified by the present evidence.
+
+The pasted “terminal B-072–B-076” conclusion must not be used for promotion: the source headers
+previously inspected carry Applied and deliberately distinguish anchors from verification.
+This review does not perform their outstanding per-entry acceptance review. Preserve B-078's
+bounded Verified disposition and B-077's Answered/no-Resolution state. A committed decision guide
+does not give the whole B-077 entry an Applied or terminal disposition.
+
+Graph extraction at this review baseline matches `6324582`; source and graph coverage checks
+do not certify these proposed behavioral tables. Also correct this review's earlier graph wording:
+`merge7.js --verify-only --all` proves absence of conflicting fragment fields, not full runtime
+parity or source-to-description accuracy. Those require their own comparisons. No growth in node
+count alone proves every curated node survived. Continue reporting these evidence limits.
+
+Only this existing handoff receives the review. Governing specifications, schema and graph remain
+unchanged. Lane A must finish the concrete draft before presenting a bounded application offer;
+this review does not authorize the paste's proposed immediate two-Fn_Spec write.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R159/R160 functional-first approach | Retained; no automatic new technical/UX artifact | Correct tables in dependency order |
+| **Reject** | Proposed tables as application-ready | Authority, negative-state, predicate and report-binding defects remain | Rows 1–7, then independent draft review |
+| **Approve-with-conditions** | D-30 omission of redundant specifications | Must use D-52/current evidence, not the stale candidate list | Row 8 residual assessment |
+| **Defer** | Source application, lifecycle promotion and implementation | No new authority or completion established | Bounded authorization and per-item independent verification |
