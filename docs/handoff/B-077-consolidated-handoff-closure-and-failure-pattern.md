@@ -2065,3 +2065,49 @@ remains `Answered` with no `Resolution`; `B-071` closure and all build holds unc
 | **Approve** | Bounded application packet — write set, DoD, tier applicability, out-of-scope | §3; `Build Spec`, `Inventory`, `Modular_PRD` §8 stated unaffected | Judge authorization |
 | **Reject** | Draft acceptance as build authority | Application needs its own act | Separate authorization |
 | **Defer** | Storage sufficiency, Encyclopedia parity, `B-071` closure | No allocation, no runtime test, hosted content unread | Authorized application and independent verification |
+
+## Independent review: R160 mapping evidence and authorization scope (2026-09-07)
+
+**Baseline `0f3aa5d`.** Preserve the bounded R159 acceptance. This review covers only the new
+R160 mapping and proposed application packet. No predicate rewrite, new finding ID, source
+application or build is authorized. Continue under the existing R159/R160 tracking.
+
+### Parent-first corrections — do not reopen the accepted behavior
+
+| Order | Gap confirmed in the packet | Lane A corrective draft / acceptance criterion |
+|---|---|---|
+| 1 — R160 evidence classification | The mapping repeats earlier withdrawn inferences: “INSERT path unconstrained,” a text reason cannot hold a set, and missing dedicated columns make results indistinguishable/revision validation impossible | Use **existing column candidate; logical mapping/validation unproven**. Required values, types and FKs still constrain inserts. The ledger also has event_type and reason; neither proves a valid T5-FINAL encoding, but their existence prevents concluding that to_state is the only possible representation without evaluating a declared encoding. Do not select free text or an event type as a workaround. Actor columns establish capacity, not satisfied authority semantics |
+| 2 — R160 comparison, depends on 1 | “Both fail identically” is stronger than the evidence; neither complete target representation has been specified or runtime-tested | State “neither demonstrated sufficient; target contract must be mapped first.” Compare declared candidates against the same assessment/revision, result, evidence, authority and replay obligations. Document a specific missing capability only after that comparison; no new column/table follows from a missing dedicated field alone |
+| 3 — authorization write set | The packet says two files, but its DoD also requires a new Register act. That is a tracked write outside the stated set | List the Register explicitly alongside both functional files, with the decision text/action proposed and authorization preceding application. Separately identify any handoff lifecycle/evidence edits that the unit intends, or exclude them and retain current status. No implied Register write hidden in the DoD |
+| 4 — exact application content, depends on 3 | “Two preceding sections” is not an exact content selection: the immediately preceding section is Lane B acceptance, not the source of all three insertion blocks | Bind each block to its exact named section and subsection at baseline 0f3aa5d. FN-GATES and report text come from “Lane A: self-contained R159/R160 draft packet” §7, with the full AC-08e citation correction; progress comes from “Lane A: bounded completion of the reachability proof” §3. Resolve these into the application packet with no bare handoff-relative citations in destination prose. Review the assembled diff before claiming verbatim application |
+
+**Suggested replacement storage conclusion:** “The listed fields are candidate storage, not a
+complete judgment contract. Dedicated assessment/revision/result/evidence fields have not been
+identified; their logical encoding and validation remain unspecified. No runtime test establishes
+sufficiency or impossibility. Map the judgment representation before choosing its report-reference
+encoding.” This preserves the real gap without returning to the earlier disproven failure claim.
+
+**Small next unit for Lane A:** correct the mapping labels, complete the explicit write set and
+assemble the exact accepted blocks. No further general business decision is required to draft
+this packet. Judge approval would authorize only its named documentation work, not storage
+implementation. Keep Build Spec/Inventory/Product applicability reasoned individually; absence
+of a new file alone is not proof that a build obligation is unaffected. Preserve the stated holds
+and separate any new implementation obligation if the final packet introduces one.
+
+Pass criteria are documentary: every proposed write is named; every inserted clause has a
+resolvable source/owner; no capacity claim is mislabeled as proven behavior; planned tests remain
+planned. Independent review of the applied documentation does not verify storage or close all
+of B-071. Use the check runner's result, not a fixed test-count target in the operative DoD.
+
+Graph metadata matches `0f3aa5d`, `stale: false`, at review start. This is extraction currency,
+not hosted Encyclopedia parity or curated semantic verification. No runtime storage test was run.
+Only this handoff changes; governed documents, frozen files, specs and code remain untouched.
+B-077 remains Answered without Resolution and B-071 holds remain unchanged. Active Lane A
+synchronizes after the handoff commit before consuming graph evidence.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Accepted R159 behavior / storage-before-encoding sequence | Preserve | No duplicate predicate round |
+| **Reject** | R160 impossibility/satisfied-capacity claims | Not established by a column inventory | Correct evidence labels and map semantics |
+| **Approve-with-conditions** | Documentation application proposal | Register write and exact block selection must be explicit | Complete authorization packet |
+| **Defer** | Storage sufficiency, source application and B-071 closure | No new authority or verification | Bounded authorization and independent review |
