@@ -1783,3 +1783,140 @@ handoff commit before consuming graph evidence.
 | **Approve-with-conditions** | R159 literal table | Align invalid-reference precedence, seal validity and row 3 grouping | Bounded draft update |
 | **Reject** | All-row walkthrough coverage claim | Positive and negative winning cases absent | Add explicit cases |
 | **Defer** | Storage, application and B-071 closure | Existing boundaries unchanged | Bounded authorization and independent verification |
+
+## Lane A: bounded completion of the reachability proof (2026-09-07)
+
+**Baseline `7ce69eb` — pushed this turn; the local-only state is resolved and the remote matches.
+Graphify resynchronized (`docs-drift` synced at `7ce69eb`, 17/17). No governed tier, spec, schema
+or application file changes here. This section supersedes the row 0 wording, row 3 grouping, the
+§4.2 insertion block and the walkthrough of the preceding section; everything else there stands.**
+
+### 0. Three corrections applied
+
+**Row 0 catches supplied broken references, not only required context.** The prose rejected any
+supplied reference that is unresolved or bound to a different article or assessment revision, but
+the row itself named only required context — so a supplied wrong-assessment judgment could reach
+row 1 or row 2 on the strength of its result. Both tables now carry the full condition.
+
+**The valid-seal definition travels into the destination block, and row 3 is parenthesized.**
+The block said only "valid seal" while the definition lived in the handoff; and row 3's
+unparenthesized AND/OR admitted two readings.
+
+**The all-row coverage claim is withdrawn.** Rows 1 and 2 had no named winning case, and
+"`Published` … any" demonstrated neither. Coverage was inferred from the number of sample cases
+rather than from an actual winning case per row. Four cases are added below.
+
+### 1. Corrected predicate table
+
+`RequiredActs` is the route contract's non-empty act set. A **valid seal** is well-formed,
+current, non-invalidated and bound to this assessment revision; `ValidSeals` is the subset of
+seals meeting that definition. **Coverage means every required act has its own matching valid
+seal — equal counts are not coverage.** A **valid join** requires that coverage and that the join
+has been applied. **Approval evidence** is bound to the same assessment revision and is
+`complete`, `incomplete` or `not yet evaluated`. First match wins:
+
+| # | Condition | Displayed result | Separate workflow authority |
+|---|---|---|---|
+| 0 | required context invalid **or any supplied reference unresolved or bound to a different article/assessment revision** | `t5p_input_invalid` | none — the inconsistency is disclosed |
+| 1 | current positive judgment **and** valid join **and** evidence `complete` | `t5p_approved_eligible` | approval permitted; Delivery recorded separately |
+| 2 | current negative judgment recorded | `t5p_recorded_negative` | article remains `Reviewed`; no publication authorized; fresh analysis may start |
+| 3 | valid join **and** (evidence `incomplete` **or** `not yet evaluated`) | `t5p_approval_evidence_incomplete` | none — never ready for approval |
+| 4 | valid join **and** evidence `complete` **and** no judgment yet | `t5p_awaiting_human_judgment` | `T5-FINAL` may be recorded |
+| 5 | coverage complete, join not yet applied | transient pre-join computation | none — no user wait or action |
+| 6 | partial coverage | `t5p_partially_sealed` | remaining required acts may be sealed |
+| 7 | valid context, no valid seals | `t5p_unsealed` | required acts may be sealed |
+
+**Absence of a not-yet-produced seal, join or judgment remains normal progress and never reaches
+row 0.** "Separate workflow authority" describes what the workflow may do next, never an action
+by the display; **rendering is read-only.**
+
+### 2. Completed walkthrough — a named winning case for every row
+
+| Given | Winning row | Result |
+|---|---|---|
+| Valid context; a supplied judgment reference is unresolved or names another assessment | **0** | `t5p_input_invalid` — a positive or negative result does not rescue it |
+| Empty or missing route requirements | **0** | invalid; coverage is never vacuously satisfied |
+| Current positive judgment, valid join, evidence `complete` | **1** | `t5p_approved_eligible` |
+| Current negative judgment, valid bindings, article `Reviewed` | **2** | `t5p_recorded_negative`; no publication authorized |
+| Valid join; evidence `incomplete` or `not yet evaluated` | **3** | not ready for approval |
+| Valid join; evidence `complete`; no judgment yet | **4** | `t5p_awaiting_human_judgment` |
+| All required acts sealed; join not yet applied | **5** | transient pre-join |
+| Some required acts sealed | **6** | `t5p_partially_sealed` |
+| Duplicate seals for one reviewer; another required reviewer missing | **6** | not complete coverage |
+| Valid context; no seals, join or judgment; evidence `not yet evaluated` | **7** | `t5p_unsealed` — **not row 3**, since there is no valid join |
+| `Published` article displayed | — | publication state unchanged; rendering read-only |
+
+**All eight rows now have at least one named winning case.** These are **planned walkthroughs,
+not executed tests**, and they do not claim that every possible input combination is covered.
+
+**Retained unchanged:** exact retry returns the original judgment with no additional outcome,
+approval or Delivery effect; conflicting retry refused, requiring a fresh assessment; fresh
+analysis inherits no approval; a report about an older assessment retrieves that assessment's
+judgment.
+
+### 3. Corrected `FN-AUDIT-VISIBILITY-07-08.md` §4.2 insertion block
+
+*Insert after the "What the board must surface" paragraph. This supersedes the block in the
+preceding section. A reviewer reading only this block obtains the same results as §2 above.*
+
+> **Derived progress.** Progress is derived from the selected assessment and its applicable
+> evidence and is never persisted as an article state. **Displaying progress is read-only and
+> writes no article or delivery state.**
+>
+> **Required context** — article, selected assessment identity and revision, and non-empty route
+> requirements — must exist. **Stage-dependent evidence** — review seals, the readiness join and
+> the final judgment — may legitimately not exist yet, and its absence is normal progress, not a
+> dangling reference. Input is **invalid** when required context is missing or empty, **or when
+> any supplied reference is unresolved or bound to a different article or assessment revision.**
+> Invalid input discloses the inconsistency and establishes no readiness, approval or state
+> change; a supplied wrong-assessment judgment is invalid regardless of its result.
+>
+> A **valid seal** is well-formed, current, non-invalidated and bound to the assessment revision
+> under evaluation. **Coverage** means every route-required act has its own matching valid seal;
+> equal counts are not coverage. A **valid join** requires that coverage and that the join has
+> been applied. **Approval evidence** is bound to the same assessment revision and is `complete`,
+> `incomplete` or `not yet evaluated`; only `complete` supports readiness, and `not yet
+> evaluated` never means complete.
+>
+> Conditions are evaluated first-match-wins in this order:
+>
+> | # | Condition | Displayed result |
+> |---|---|---|
+> | 0 | required context invalid, **or any supplied reference unresolved or bound to a different article/assessment revision** | `t5p_input_invalid` |
+> | 1 | current positive judgment, valid join, evidence `complete` | `t5p_approved_eligible` |
+> | 2 | current negative judgment recorded | `t5p_recorded_negative` |
+> | 3 | valid join **and** (evidence `incomplete` **or** `not yet evaluated`) | `t5p_approval_evidence_incomplete` |
+> | 4 | valid join, evidence `complete`, no judgment yet | `t5p_awaiting_human_judgment` |
+> | 5 | coverage complete, join not yet applied | transient pre-join computation |
+> | 6 | partial coverage | `t5p_partially_sealed` |
+> | 7 | valid context, no valid seals | `t5p_unsealed` |
+>
+> A recorded negative leaves the article `Reviewed` with reasons and authorizes no publication.
+> Historical judgments, current approval eligibility and actual article/publication state remain
+> distinct; a historical outcome never establishes current eligibility.
+
+**The two tables agree.** Row 0's condition, the valid-seal definition, row 3's grouping and the
+displayed results are identical in §1 and §3.
+
+The `FN-GATES-01-05.md` §11.1 and `FN-AUDIT-VISIBILITY-07-08.md` §4.1 blocks stand unchanged,
+retaining the full `AC-08e` citation to `docs/v1/V1-B071-CORRECTIVE-PLAN.md` §16.2,
+`[decided_target_held]` draft.
+
+### 4. What this does not establish
+
+Corrected normal-progress behaviour is accepted at draft level; **this is not a claim that every
+possible input combination has been tested**, and no runtime test has been run. The
+**judgment-record mapping and the reference-encoding choice both remain open**, and this packet
+does not certify them as the only technical residuals. Historical views remain historical; no new
+view artifact is proposed; hosted Encyclopedia parity remains unverified.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.** `B-077`
+remains `Answered` with no `Resolution`; `B-071` closure and all build holds unchanged.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Row 0 catches supplied unresolved/mismatched references in both tables | §§1, 3 | Independent review |
+| **Approve** | Valid-seal definition carried into the destination block; row 3 parenthesized | §3; fresh context with no join reaches row 7, not row 3 | Owning-tier application when authorized |
+| **Approve** | Walkthrough completed — a named winning case for every row | §2 | Planned, not executed |
+| **Reject** | The prior all-row coverage claim | Withdrawn — rows 1 and 2 had no case | Superseded by §2 |
+| **Defer** | Judgment-record mapping, reference encoding, application, Encyclopedia parity, `B-071` closure | No storage sufficiency established | Bounded authorization and independent verification |
