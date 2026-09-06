@@ -841,3 +841,62 @@ lifecycle and the `B-071` holds are unchanged.
 | **Approve-with-conditions** | Storage-candidate map | Candidates named; none verified | Feasibility check, then literal draft |
 | **Reject** | Any schema allocation from this section | Not established, and not this section's authority | Functional owner decides first |
 | **Defer** | Application, Encyclopedia parity, `B-071` closure | Draft incomplete pending §2/§3 | Bounded authorization and independent review |
+
+## Independent review of Lane A's storage consolidation (2026-09-06)
+
+**Request restated:** review the consolidation at `e14163f`, clarify record separation versus
+schema allocation, and give Lane A a parent-first decision guide. Existing R159/R160 own this
+follow-up; no new findings or lifecycle claims are created. Scope is the handoff draft only.
+
+### Accepted correction and remaining gap
+
+Accept withdrawal of the claimed database impossibility. The cited no-op article UPDATE
+restriction does not forbid an equal-state audit INSERT. However, “nothing constrains an
+INSERT” is too broad: required fields, types and foreign keys still apply. No runtime test of
+the complete proposed record/report path is supplied here. Storage plausibility is not a
+verified judgment contract, and a ledger row alone does not identify a negative outcome.
+
+The consolidation's **§3 and §5 disagree**. §3 proposes that as_at_transition_id means only
+the state-history anchor, distinct from the judgment reference. §5 then anchors the report
+to the newly inserted negative-judgment row. That test cannot prove the proposed distinction
+unless it explicitly represents and validates both meanings. D-111 §3a specifies an as-at
+transition anchor and frozen snapshot; it does not establish the claimed existing dual-use
+defect. Describe dual use as a risk in the proposed mapping unless a current consumer is cited.
+The migration's same-article validation does not supply the missing semantic rule.
+
+### Decision guide — parent first, children depend on the preceding contract
+
+| Order | Lane A next step | Judge recommendation and success criterion |
+|---|---|---|
+| 1 — functional meaning, R160 | Draft the report's state-history context and explicit judgment identity/outcome independently of storage. Preserve assessment/evidence binding and replay rules | **Approve** logical separation. A reader can identify what was judged, its negative/positive result and the article state at that time without inferring judgment from equal state values |
+| 2 — anchor contract, depends on 1 | Make §3 and §5 consistent. If retaining §3's proposal, the test uses the genuine state-history anchor and a separately identified negative judgment. If proposing an event-context anchor instead, explicitly state that alternative and its impact on D-111; do not silently substitute it | **Approve-with-conditions** the state-history-plus-judgment draft; **reject** the current inconsistent test. The same example must satisfy both the written contract and its acceptance test |
+| 3 — representation, depends on 1–2 | Complete the candidate map, including the versioned snapshot/template contract already contemplated by D-111 §3b. Name assessment identity before final outcome, evidence capture, reasons, judgment outcome and validation. Compare existing representations before proposing new relations | **Defer** storage selection, not functional drafting. No requirement for a new table, column or physical partition follows merely from distinct meanings; proposed fields have a defined creation/read/replay lifecycle |
+| 4 — residual routing, depends on 3 | Keep existing D-52 owners; distinguish already-settled S1 concerns from newly unmapped behavior. Name only technical choices still undetermined by the completed functional text | **Reject** an unconditional “residual closed” while representation remains unresolved. “Functional owner first” means Lane A drafts behavior before technical allocation, not that SQL design must precede literal functional text |
+| 5 — consuming documents, depends on 4 | Finish the literal Product-anchor/FN-GATES/FN-AUDIT-VISIBILITY/FN-PUBLICATION mapping and existing storyboard, story-panel, UML and data-flow occurrences; identify current versus historical views | **Defer** application and parity claims until this packet is supplied. Journal/Encyclopedia references do not replace owning requirements; no new UX artifact is justified without a named residual UI choice |
+
+Here **record separation** means distinguish assessment, judgment, state history and report
+provenance. **Physical database partitioning** is a separate implementation choice; this
+request supplies no partitioning requirement or authorization. Existing candidates are options,
+not migrations. No generic schema allocation is approved by accepting this review.
+
+### Test correction and handback
+
+The proposed future test must retrieve the explicit negative result, reasons, assessment and
+evidence from the report, validate both references under the chosen anchor rule, and compare
+article state and publication effects before/after. Use article-scoped deltas rather than
+requiring an empty publications table. Replay adds no outcome, approval or Delivery effect;
+wrong-article or wrong-assessment references must not pass. Also preserve the separate no-op
+state-UPDATE refusal. No database mutation or runtime feasibility test was performed this turn.
+
+Baseline graph metadata is `e14163f`, `stale: false`: extraction current, not proof of curated
+semantics or hosted Encyclopedia parity. This handoff advances HEAD when committed; Active
+Lane A synchronizes before consuming graph evidence. Register, Build Spec, Inventory, Product
+Requirements, functional/technical specs and application code are unaffected by this review.
+B-077 remains Answered with no Resolution; B-071 closure and all build holds are unchanged.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R160 withdrawal | Unsupported impossibility claim removed | Preserve |
+| **Approve-with-conditions** | R160 logical separation | Contract and test must use the same anchor semantics | Steps 1–2, then candidate mapping |
+| **Reject** | R160 test completeness / unconditional D-52 completion | Unresolved reference and representation semantics | Steps 3–4 |
+| **Defer** | Schema allocation, source application, Encyclopedia parity, B-071 closure | Not authorized or verified here | Complete packet, bounded authorization and independent verification |
