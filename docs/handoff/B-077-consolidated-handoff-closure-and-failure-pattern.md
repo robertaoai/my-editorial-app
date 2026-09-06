@@ -418,3 +418,83 @@ Lane B performed the bounded decision review, appended this correction to the ex
 handoff and prepared only that handoff for commit/push. No originating entry header, governed tier,
 graph fragment, ignored Graphify runtime artifact, Product/Fn_Spec/SPECS file, checker, code or lane
 state is changed. The unrelated `package-lock.json` remains untouched.
+
+## R159/R160 redundancy review and Judge decision guide (2026-09-06)
+
+**Request:** assess whether functional specifications make further technical/UX specifications
+redundant, then present the parent-first accept/reject decision. Review baseline: `b35f9ed`.
+`B-079` does not exist at this baseline. This review stays in the existing consolidation and
+links to B-071 R159/R160; it creates neither a duplicate finding nor a new artifact mandate.
+
+### Evidence: what is covered and what is missing
+
+| Concern / source | Existing coverage | Missing detail before closure |
+|---|---|---|
+| R159 — FN-GATES §11.1; Product FR-04a/FR-05a; FN-AUDIT-VISIBILITY §4.2 | Reviewer evidence, deterministic bundle join, article state, and a state-grouped board are described | An exhaustive derivation for the proposed T5 progress labels, distinguishing missing/in-progress/ready/final-outcome cases from persisted article state; precedence when evidence is incomplete, invalidated or from an earlier attempt |
+| R160 — FN-PUBLICATION §§4–5/§11; Product AC-14a; FN-AUDIT-VISIBILITY §§4–5 | Publication consumes an immutable disposition; audit records answer who/when/why; publication has separate target results | The explainable report's outcome/reason/evidence bindings, how a negative judgment is represented, preservation across manual re-trigger, and how approval is distinguished from actual publication |
+| Current candidate filter — FN-AUDIT-VISIBILITY §9 | Already rejects redundant SPECS for defined record and board behavior; separately lists storage/enforcement/query candidates | A component-specific D-30 assessment for the new R159/R160 mapping work; old candidate lists alone do not settle this new scope |
+
+The audit Fn_Spec still contains historical Q11-open/S1-window language and T6→T5 metrics.
+Use current Register/approved parent anchors when preparing the affected replacement text;
+do not treat those historical statements as new unanswered decisions or widen this review into
+a general audit-spec rewrite. Existing source controls and implementation specs remain governed.
+
+### Parent-first accept/reject table
+
+| Order | Decision for Judge | Recommended verdict | Concrete Lane A deliverable / acceptance condition |
+|---|---|---|---|
+| P1 | Are existing functional specs already sufficient to close R159/R160? | **Reject** | Keep both residuals open: their exact progress/report mappings are expressly undrafted in corrective-plan §16.3 |
+| P2, after P1 | Complete missing behavioral semantics in the owning functional tiers before deciding whether another artifact is needed? | **Approve** | Trace each requirement to Product FR/AC anchors. Draft progress derivation and report mapping in the existing behavior owners, with references between FN-GATES and FN-AUDIT-VISIBILITY; do not duplicate publication rules |
+| P3, after P2 | Is a technical/UX document needed merely to repeat those mappings? | **Reject** | Apply D-30: omit a document that only repeats complete functional definitions. A diagram can be a view of the same contract; its notation does not create a new requirement owner |
+| P4, after P2 | Do actual interface/implementation choices remain undetermined? | **Approve-with-conditions** | Name each remaining choice and why the completed Fn_Spec cannot determine it. Only those choices enter an existing SPECS/UX section, or justify a new artifact if no suitable owner exists; UI layout remains in SPECS/UX under D-34 |
+| P5, after P3/P4 | May R159's blanket UX follow-up be narrowed? | **Approve-with-conditions** | Propose a clause-specific disposition in the existing plan: behavioral mapping completed in Fn_Specs; any genuine rendering/interaction residual retained in SPECS/UX. Record zero residual only with the mapping and tests supplied. Existing routing remains in force until the correction is authorized |
+| P6, after the selected packet is applied | Close R159/R160 and propagate the result? | **Defer** | Independently verify the applied mappings, tests, source/view links and D-30 disposition. Register/Build Spec/Inventory impacts must be stated individually; closing a child does not authorize B-071 implementation |
+
+### Smallest drafting packet Lane A can prepare now
+
+1. **Progress mapping (R159):** one table with current assessment/evidence condition, article
+   state, derived progress value and reason, permitted user action, and expected result. Cover
+   pre-join incompleteness, complete bundle, missing final-approval evidence, negative final
+   result, positive final result and a manual fresh analysis. Use existing agreed labels or
+   propose exact labels for review; never persist `None`/`WIP` as new article states by inference.
+   Behavioral predicates belong upstream; widget choice, layout and stack-specific interaction
+   remain UX only if they require specification.
+2. **Report mapping (R160):** one table linking each final outcome to the source disposition,
+   reasons and evidence, human/agent attribution as applicable, report statement, and separately
+   recorded delivery result. Negative judgment cannot authorize publication or delete history;
+   a later manual analysis must not inherit earlier approval. Do not infer that an audit row alone
+   already defines the downloadable Public Explainable Content with report.
+3. **Acceptance examples:** identical inputs derive identical progress; missing evidence never
+   appears approved; a report agrees with the exact judgment/evidence it cites; a negative result
+   authorizes no publication; `Approved` alone never proves `Published`; manual re-trigger
+   preserves earlier outcomes. Reuse existing criteria where sufficient and draft only the missing
+   elaborations, preserving Product ownership of requirement identifiers.
+4. **D-30 residual table:** list each contemplated technical/UI choice, the functional clause that
+   determines it (if any), existing technical owner (if any), and `omit as redundant` or
+   `retain with reason`. No separate UML file, new UX file or technical spec is required by default.
+
+### Cross-reference and handoff boundary
+
+The journal storyboard contains Panels A5/A6 and Mermaid sequence/flow diagrams. Preserve them
+as historical evidence; proposed current story panels, UML sequences and data flows must point
+to the same functional mappings, showing evidence → readiness → human disposition → delivery.
+Product owns the requirement; Fn_Specs elaborates behavior; SPECS/UX carries a demonstrable
+remaining interface or implementation decision. This preserves the existing tier rule while
+allowing R159's residual to shrink after functional completion.
+
+The Encyclopedia exists at the URL in `ENCYCLOPEDIA-SYNC.md`; its hosted content was not read in
+this pass. Record Entries 01/04/05 as impact-review candidates where appropriate, not as verified
+or missing artifacts. Its later review does not require inventing a new local specification.
+
+Graph extraction remains behind: `lastAnalyzedHead = ca77cd1`, reviewed HEAD `b35f9ed`.
+The stale graph is not used to certify semantic coherence. Active Lane A handles synchronization
+before a consuming graph/closure claim. This handoff records review and proposed corrections;
+no functional, technical, UX, graph or application file is changed. Lane B independently reviews
+later application; Lane C has no new CI work in this request.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | D-30 redundancy principle | Repeated functional definitions do not justify another artifact | Lane A completes functional mappings, then the residual table |
+| **Approve-with-conditions** | R159's proposed narrower routing | Behavioral semantics may leave no separate UX-spec requirement; this has not yet been demonstrated | P2–P5, authorized routing disposition |
+| **Reject** | R159/R160 closure from current Fn_Specs | Required mappings and tests remain incomplete | Complete the existing owners' draft packet |
+| **Defer** | Application, graph/Encyclopedia verification and B-071 closure | Review only; existing holds preserved | Authorized propagation and independent review |
