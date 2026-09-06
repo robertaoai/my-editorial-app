@@ -1960,3 +1960,108 @@ synchronizes after this handoff commit before consuming graph evidence.
 | **Approve-with-conditions** | R160 mapping/application preparation | Behavior available; storage mappings still open | Steps 1–3 |
 | **Reject** | Draft acceptance as implementation or closure authority | No such authorization follows | Existing bounded authorization process |
 | **Defer** | Storage sufficiency, Encyclopedia parity and B-071 closure | Not verified here | Authorized application and independent review |
+
+## Lane A: judgment-record mapping, encoding comparison, application packet (2026-09-07)
+
+**Baseline `38f3304`; remote already matched it. Graphify resynchronized (`docs-drift` synced at
+`38f3304`, 17/17). No governed tier, spec, schema or application file changes here. R159's
+predicate work is accepted at draft level and is not reopened.**
+
+### 1. The durable judgment record, mapped against existing storage
+
+Only one existing candidate can hold a judgment that exists **before a report is produced for
+it**: a `workflow_transitions` row recording the `T5-FINAL` act. The report's `snapshot` is
+created at report time and therefore cannot be where the judgment already exists. Mapping the
+required bindings against that row's actual columns after `0002`:
+
+| Required binding | Existing column(s) | Status |
+|---|---|---|
+| Deciding actor and authority context | `actor_id`, `actor_type`, `gate_role`, `line_assignment`, `line_separation_status`, `identity_assurance`, `supervising_human_id` | **Satisfied** |
+| Reasons | `reason` (single `text`) | **Partial** — one reason, not a set |
+| Explicit result | *none* | **Absent** — only `to_state` exists, and the accepted behaviour forbids deriving the result from article state |
+| Assessment identity | *none* | **Absent** |
+| Assessment revision | *none* | **Absent** |
+| Applicable evidence set | *none* (`trend_signals.evidence_url` is point-in-time signal evidence per `D-114`, not review evidence) | **Absent** |
+
+**The decisive consequence.** A negative judgment is *storable* — verified earlier, since the
+no-op refusal is a trigger on `articles` and the ledger's INSERT path is unconstrained — but it
+is **not distinguishable** in the existing columns, because the only available result signal is
+`to_state`, which the accepted behaviour explicitly prohibits as a source of the result. **This
+names what any representation must supply; it allocates no column, table, partition or
+migration.**
+
+### 2. Encoding comparison — not yet decidable, and subordinate
+
+Compared against the three accepted requirements:
+
+| Requirement | Declared snapshot reference | Typed reference to the ledger row |
+|---|---|---|
+| **Validation** — refuse a reference bound to a different article or assessment revision | cannot check revision — unrepresented | article check is structural; **revision check impossible — unrepresented** |
+| **Retrieval** — resolve the requested assessment *and revision* to its judgment, result, reasons and evidence | assessment/revision/evidence unrepresented | same |
+| **Retry** — compare assessment identity, revision and result | result not explicitly represented | same |
+
+**Both encodings fail identically, and for the same reason:** assessment identity, revision and
+an explicit result do not exist in either candidate's target. **The encoding choice is therefore
+not decidable yet and is subordinate to §1's record mapping** — it cannot be answered first. No
+encoding is selected.
+
+### 3. Bounded application packet
+
+**Write set — two files, three blocks, all behaviour text:**
+
+| # | File | Anchor | Content |
+|---|---|---|---|
+| 1 | `docs/fn-specs/FN-GATES-01-05.md` | §11.1, append to the Behavior/Rule/Refusal table | three rows: assessment identity; judgment record; retry |
+| 2 | `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` | §4.1, after "Every transition writes exactly one row…" | the report paragraph |
+| 3 | `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` | §4.2, after "What the board must surface…" | the derived-progress block, including the full eight-row table |
+
+Blocks 1–3 are the corrected versions in the two preceding sections; §1 and §3 of the immediately
+preceding section were verified to agree.
+
+**Definition of Done:** the three blocks inserted verbatim at their named anchors; `bun run check`
+at 17/17 afterwards; Graphify resynchronized to the applied commit; the Register act recorded;
+and independent Lane B verification at the applied commit, which alone makes it `Verified`.
+
+**Propagation (`D-54`), tier applicability stated individually:**
+
+| Tier | Applicability |
+|---|---|
+| `V1-DECISION-REGISTER.md` | **Affected** — the application act needs its own decision row |
+| `V1-BUILD-SPEC.md` | **Unaffected** — no artifact created, sequenced or retired; no scope or DoD change |
+| `V1-ARTIFACT-INVENTORY.md` | **Unaffected** — no file created or removed; both targets already exist |
+| `Modular_PRD.md` §8 | **Unaffected** — no sprint closes and no tier opens |
+| Encyclopedia | **No declared dependency in the write set.** Entry 01 depends on `FN-GATES` §3.4, not §11.1; Entries 04 and 05 declare no dependency on `FN-AUDIT-VISIBILITY`. Entries 01/04/05 remain **impact-review candidates by topic only**; hosted content is unread and parity is not claimed |
+
+**Explicitly out of scope:** any schema change or migration; Product `FR`/`AC` identifier edits —
+Product retains ownership and these are elaborations; any new story-panel, UML or data-flow
+artifact; and the storage selection of §§1–2.
+
+**Views:** journal Panels A5/A6 and their Mermaid diagrams remain historical and unedited; no
+current view of the `T5` judgment gate exists; none is mandated.
+
+**Tests:** the completed walkthrough — a named winning case for each of rows 0–7 — plus the
+retained retry, fresh-analysis and older-assessment-retrieval cases. **Planned walkthroughs, not
+executed tests; executable code remains a later authorized deliverable.**
+
+### 4. What is ready, and what is not
+
+**Ready for a bounded authorization:** the fn-spec write set above. It is behaviour text and does
+not depend on the storage question — stating behaviour was never conditional on selecting a
+representation.
+
+**Not ready, and separately routed under `D-30`/`D-52`:** the judgment-record representation
+(§1's four absent bindings) and, after it, the encoding choice (§2). **Draft acceptance is not
+build authority**; application requires its own act, and `Verified` requires Lane B at the
+applied commit.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.** `B-077`
+remains `Answered` with no `Resolution`; `B-071` closure and all build holds unchanged.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Judgment-record mapping against real columns | §1; one binding satisfied, one partial, four absent | Representation decision |
+| **Approve** | Finding that a negative judgment is storable but **not distinguishable** | Only `to_state` signals a result, which the behaviour forbids | Names what any representation must supply |
+| **Approve** | Encoding comparison resolved as **not yet decidable** and subordinate to §1 | Both candidates fail identically | Sequenced after the record mapping |
+| **Approve** | Bounded application packet — write set, DoD, tier applicability, out-of-scope | §3; `Build Spec`, `Inventory`, `Modular_PRD` §8 stated unaffected | Judge authorization |
+| **Reject** | Draft acceptance as build authority | Application needs its own act | Separate authorization |
+| **Defer** | Storage sufficiency, Encyclopedia parity, `B-071` closure | No allocation, no runtime test, hosted content unread | Authorized application and independent verification |
