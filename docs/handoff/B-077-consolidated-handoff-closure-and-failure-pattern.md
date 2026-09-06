@@ -1002,3 +1002,50 @@ candidates. **No new UX artifact is justified without a named residual UI choice
 | **Approve-with-conditions** | Reference contract §§1–2 | Logical separation drafted; judgment representation unselected | Candidate comparison |
 | **Reject** | Unconditional `D-52` residual closure | Withdrawn — representation unresolved | Route after functional text |
 | **Defer** | Storage selection, application, Encyclopedia parity, `B-071` closure | No schema allocated; no runtime test run | Bounded authorization and independent verification |
+
+## Independent acceptance of the corrected reference draft (2026-09-06)
+
+**Request restated:** review Lane A's reference contract at `e6713d0` and identify the next
+bounded drafting unit, without reopening settled objections. Existing R159/R160 remain owners.
+Only this handoff changes; no governed-source application, schema selection or build is authorized.
+
+**Accepted:** the negative-case example now separates the readiness/state-history anchor from
+the negative judgment and tests both. The unsupported existing-defect claim and unconditional
+residual-closure claim are withdrawn. Preserve these corrections; no further general Judge
+clarification is needed to continue functional drafting. The example is a negative assessment
+while the article remains Reviewed, not a universal rule for every later report. Any later report
+must state its as-at context explicitly rather than silently treating an older anchor as live state.
+
+**One remaining evidence correction:** candidate (a)'s “replay-safe by construction” does not
+follow from freezing a snapshot. `editorial_reports` in `0002_s1_editorial_schema.sql:459` has a
+generated primary key and append-only protection, but those do not establish assessment-level
+replay handling. Multiple immutable inserts are not prevented merely by immutability. This is
+a missing proof, not a demand for a new uniqueness constraint or a claim of runtime failure.
+Keep the existing one-outcome/no-additional-approval-or-Delivery rule; do not infer a new
+one-report-per-assessment restriction from it. Report replacement is a separate operation.
+
+### Lane A's next unit — deliver together, parent first
+
+| Order | Concrete drafting action | Accept/reject test |
+|---|---|---|
+| 1 — R160 behavior | Carry the accepted reference meanings into literal functional text; name assessment creation, explicit judgment/result, frozen evidence/reasons and replay behavior. Replace “replay-safe by construction” with “immutable; replay handling requires explicit validation” | **Approve** drafting now. The contract describes what is retrieved and what retry must not repeat without assuming a storage mechanism |
+| 2 — R159/R160 occurrences, depends on 1 | In the same packet map each proposed clause to its Product FR/AC, owning functional section and consuming story-panel/UML/data-flow occurrence. Include exact replacement or insertion text, and mark historical journal views as historical | **Approve** the occurrence-map task, but **reject** calling it the only remaining work: §1 still calls judgment behavior “to be drafted,” and representation remains unselected. A pointer-only map is not literal owning-tier text |
+| 3 — technical residual, depends on 1–2 | Compare snapshot versus explicit-reference candidates against that completed behavior, including how the judgment exists before report production, validation and replay. Retain only undetermined implementation choices under existing owners | **Defer** storage selection until evidence supports it; no automatic new column/table/partition or UX artifact. Structural FK validation alone does not prove correct assessment, outcome or replay semantics |
+| 4 — application readiness, depends on 3 | Present the bounded source write set and DoD; distinguish draft approval, source application and independent verification. Keep unread hosted Encyclopedia parity unverified | **Defer** application and closure. The packet must include literal text, occurrence coverage, residual disposition and acceptance tests before consuming approval |
+
+The retry test must exercise the same assessment twice and demonstrate no new final outcome,
+approval or Delivery effect, while preserving the original judgment/evidence. It must not pass
+merely because each returned report is immutable. These are planned tests; none was executed here.
+
+Graph metadata matches review baseline `e6713d0`, `stale: false`. This verifies extraction
+currency only, not curated semantics or hosted parity. A handoff commit advances HEAD; Active
+Lane A synchronizes before consuming graph evidence. B-077 remains Answered without Resolution;
+B-071 holds remain unchanged. Register, Build Spec, Inventory, Product/functional/technical
+specifications and application code are unaffected by this handoff-only review.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R160 corrected reference example and withdrawals | Prior contradiction resolved at draft level | Preserve in literal text |
+| **Approve-with-conditions** | R159/R160 next drafting unit | Deliver behavior and occurrence map together | Steps 1–2 |
+| **Reject** | Snapshot implies replay safety | Immutability is not replay enforcement | Correct candidate wording and test obligation |
+| **Defer** | Storage selection, governed application and B-071 closure | Not proven or authorized | Residual disposition, bounded application and independent verification |
