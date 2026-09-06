@@ -3844,3 +3844,119 @@ Judge, not an assumption needed to finish this review.
 | **Reject** | R160 nullable-binding activation and unknown-version admission | Counterexamples defeat the claimed coverage | Lane A corrects applicability and predicates, then independent review |
 | **Approve-with-conditions** | R160 prospective Register / Inventory / Build Spec write set | Inventory path missing; Build Spec disposition unresolved | Lane A completes bounded authorization packet |
 | **Defer** | Migration/tests, actor-rule change, `AUTH-DOC`, B-071 closure and Encyclopedia parity | Existing holds and unverified prerequisites retained | Separate authorization, runtime evidence and independent verification |
+
+## Lane A: applicability established independently of the evidence (2026-09-07)
+
+**Baseline `734679d`; remote already matched it. Graphify resynchronized (`docs-drift` synced at
+`734679d`); the runner reported all checks passing. No governed tier, spec, Register, schema or
+code change here. `supabase/` and `__tests__/` are **Lane B's surface** — specified, never applied
+(`D-56`). `D-191`, R159 and the accepted repairs are preserved and not redone.**
+
+### 0. The failure pattern, in my own draft, twice
+
+**A control that checks good input while letting an omitted or unexpected selector avoid the
+check.** Both instances are withdrawn:
+
+- **Approval coverage was caller-selectable.** Activating enforcement only when the audit row
+  carries a non-null `assessment_id` means a caller **omits the field and is exempt** — and with
+  no judgment inserted, the judgment-side deferred trigger does not run either.
+- **Report admission had an unknown-value escape.** `contract_version text` rejecting only
+  `'legacy'` and requiring references only for `'v1_judgment'` lets a supplied `'other'` with null
+  references satisfy the column's `not null` and **avoid both branches**.
+
+**A default is not an allowed-value restriction** — a default supplies a value when one is
+omitted; only a constraint restricts a value that is supplied.
+
+### 1. Trusted applicability — mechanism settled, scope is the Judge's
+
+**Mechanism (not caller-supplied):** add `requires_judgment boolean not null default false` to
+**`allowed_transitions`**. The trigger already selects the applicable rule by state edge, and the
+caller cannot choose which rule applies — coverage therefore becomes **server-side catalog data**,
+established independently of the binding being validated.
+
+**Once a matched rule carries `requires_judgment = true`:**
+
+> A covered approval requires a non-null, valid selected assessment and its matching positive
+> judgment referencing the exact audit row used for that effect. **A missing binding is a refusal,
+> never an exemption.** This holds identically on the fixed `Reviewed → Approved` edge and on the
+> `Needs Revision → Approved` dynamic-target route.
+
+**Scope is a Judge decision and is NOT taken here.** Which rules carry the flag, and whether
+legacy approvals remain permitted on some separately established trusted basis, are open. The
+"article has any assessment" alternative is **not selected**, and my earlier rejection of it is
+**not** a ruling — it is presented below with the others. **Until the Judge decides, exemption
+readiness is open**, and no coverage claim is made.
+
+### 2. New-report admission closed
+
+**Typed, per `D-110`, rather than unrestricted text:** `create type report_contract_version as
+enum ('legacy', 'v1_judgment')` — an `'other'` value becomes impossible **at the type level**, not
+merely refused by a predicate.
+
+The atomic non-UPDATE cutover is retained and unchanged: `add column contract_version
+report_contract_version not null default 'legacy'` classifies existing rows **by DDL default with
+no row UPDATE**; then `set default 'v1_judgment'` for new inserts.
+
+**Insert validator:** accept **exactly `'v1_judgment'`**; refuse every other value — explicit
+`'legacy'` included — and require `judgment_id` and `assessment_id` non-null and valid under the
+retained same-article/assessment contract. An omitted version takes the new default and **still
+cannot omit the required references**. `not null` already excludes NULL, and the enum excludes
+unknown values; the validator carries the rest.
+
+Historical reports keep their original values and their `legacy` provenance, untouched.
+
+### 3. The closed write set, with Build Spec settled
+
+| Owner | Exact path | Why |
+|---|---|---|
+| **Lane A** | `docs/v1/V1-DECISION-REGISTER.md` | the authorizing act, recorded first |
+| **Lane A** | `docs/v1/V1-ARTIFACT-INVENTORY.md` | three files are created — previously called "affected" but omitted from the list |
+| **Lane A** | `docs/v1/V1-BUILD-SPEC.md` | **included, determination made:** the unit adds new relations and replaces the transition-enforcement function. That is **not inside S1's defined window**, whose scope is the eight listed decisions and `0002`, so a sprint's scope, sequence and DoD change. The Build Spec already carries specified-not-applied schema items this way — the `articles_url_uidx` removal under `D-121` is the precedent |
+| **Lane B** | `supabase/migrations/0003_editorial_judgment.sql` | |
+| **Lane B** | `supabase/tests/database/s1_judgment_finalization.test.sql` | |
+| **Lane B** | `__tests__/s1-judgment-schema.test.ts` | |
+
+**`docs/specs/` remains explicitly excluded.** No file is left "affected but absent": the
+authorization, the tier table and the DoD now name the same set.
+
+**`D-54` applicability for the later act:** Register **affected**; Artifact Inventory
+**affected**; Build Spec **affected** (above); `Modular_PRD.md` §8 **unaffected**; `fn-specs/`
+**unaffected** — behaviour applied at `f16063a`; Encyclopedia **unaffected by declared
+dependency**, hosted parity **`UNVERIFIED`**.
+
+### 4. Counterexample tests added
+
+Retained cases stand; these are added. **Plans only; none written or run.**
+
+| Input | Expected |
+|---|---|
+| Covered rule; qualifying audit row **omits** `assessment_id`; no judgment | **Refused** — omission is not exemption |
+| Covered rule; audit row carries a binding but **no judgment exists** | Refused |
+| Same two cases via the `Needs Revision → Approved` dynamic-target route | Refused identically |
+| Caller changes or drops the reference to alter applicability | Applicability unchanged — it comes from the matched rule |
+| New report with `contract_version` outside the enum | **Rejected by the type**, not by a predicate |
+| New report supplying `'legacy'` | Refused |
+| New report omitting the version, with null references | Refused — default supplied, references still required |
+| Valid new report | Succeeds; both references validated |
+| Existing reports after cutover | Values unchanged; classified `legacy`; no UPDATE occurred |
+
+### 5. What remains open
+
+The human `T5-FINAL` rule change is **held under `D-171`**; the target-environment preflight is
+**`UNVERIFIED`**; the deciding-actor/authority mapping is **open**; hosted Encyclopedia parity is
+**`UNVERIFIED`**. **The applicability scope in §1 is a Judge question and is presented, not
+answered.** Effective privileges, migration behaviour and every planned database case remain
+**unexecuted** — the consistency suite does not verify them. Draft acceptance releases neither
+`D-171` nor `AUTH-DOC` and is not `B-071` closure.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.**
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Reject** | Coverage gated on a caller-supplied `assessment_id` | Withdrawn — omission was exemption | §1 |
+| **Reject** | `contract_version` as unrestricted text with two branches | Withdrawn — unknown values escaped both | §2 |
+| **Approve** | Rule-level `requires_judgment` as the trusted, server-side applicability mechanism | §1; caller cannot influence it | Judge decides scope |
+| **Approve** | Typed `report_contract_version` enum; whitelist-on-insert; cutover retained | §2 | Independent review |
+| **Approve** | Write set closed — Inventory added, Build Spec included with its determination | §3; nothing "affected but absent" | Judge decision |
+| **Approve** | Counterexample tests for both bypasses | §4 | Independent review |
+| **Defer** | Applicability scope, implementation, actor-rule change, preflight, Encyclopedia parity, `B-071` closure | Presented or held | Judge decision, then separate authorization |
