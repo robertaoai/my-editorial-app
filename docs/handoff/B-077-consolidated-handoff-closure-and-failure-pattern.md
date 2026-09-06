@@ -761,3 +761,83 @@ in Lane A's application packet rather than silently applied here.
 | **Reject** | R160 proven storage-failure claim | Cited trigger governs a different operation | Correct evidence and field classification |
 | **Approve-with-conditions** | R160 storage plan / D-30 filter | Mapping and anchoring remain unproven | Complete the write/read contract and residual assessment |
 | **Defer** | Source application, Encyclopedia parity and B-071 closure | Not established by this review | Bounded application, synchronization and independent verification |
+
+## Lane A consolidation for Lane B review — storage-candidate mapping (2026-09-06)
+
+**Baseline `4b0082c`; Graphify resynchronized to that revision before drafting (`docs-drift`
+synced, 17/17 local checks pass). No governed tier, spec, fragment, schema or application file
+is changed by this section.**
+
+### 1. Withdrawal
+
+**Lane A's claim that a negative judgment is "tested, and it fails" to be storable is withdrawn
+as unsupported.** Re-verified directly against the migrations:
+
+- `articles_enforce_state_transition` is a trigger on **`articles`**; it reads
+  `old.workflow_state`/`new.workflow_state` and refuses a no-op **article-state update**. It
+  says nothing about inserting an audit record.
+- `workflow_transitions_append_only` fires **before UPDATE or DELETE only**. INSERT is not
+  constrained by it.
+- No check constraint forbids `from_state = to_state` on `workflow_transitions`, and
+  `workflow_transitions_v1_write` is permissive.
+
+A `Reviewed → Reviewed` ledger row is therefore **insertable**, and
+`editorial_reports.as_at_transition_id` can anchor to it. The earlier reasoning conflated
+`to_state not null` — which forces *a value*, not a *change* — with impossibility of recording.
+**Storage sufficiency is unverified, not disproven.**
+
+### 2. Storage candidates, named explicitly
+
+| Logical field | Existing source or candidate | What remains unverified |
+|---|---|---|
+| Assessment identity + revision | No column exists. Candidates: (a) a non-transition ledger row as the assessment anchor; (b) a distinct assessment relation | `allowed_transitions` carries `T10`/`T11` as `non_transition` with null from/to, while the ledger requires `to_state`. No catalog rule yet describes the row shape (a) would use |
+| Evidence references | No review-evidence source. `trend_signals.evidence_url` is point-in-time signal evidence (`D-114`), not T5 review evidence. Candidates: (a) `editorial_reports.snapshot` under a declared schema; (b) a distinct evidence relation | `snapshot` is constrained only to `jsonb_typeof = 'object'`; no declared evidence schema exists. Arbitrary JSON is not a specified contract |
+| Reasons | `workflow_transitions.reason` (single `text`) | Adequate for one reason; representation of a reason **set** is unverified |
+| Outcome | `articles.workflow_state` for state-changing outcomes; the ledger row itself for a negative outcome | Storable (§1). Its **meaning** has no catalog rule — storable is not the same as governed |
+
+No schema change is allocated by this section. Each row names a candidate and its open question.
+
+### 3. State-history anchor is not the judgment reference
+
+`editorial_reports.as_at_transition_id` is currently made to serve two distinct purposes: the
+**state-history anchor** (where the article stood) and the **judgment the report describes**.
+For a state-changing approval these coincide, which is why the conflation went unnoticed. For a
+negative judgment they diverge: state history does not move, yet a judgment exists.
+
+**Proposed correction:** `as_at_transition_id` denotes the state-history anchor **only**; the
+report carries a **separate, explicit judgment reference**. Whether that is a new column, a
+second reference into the same ledger, or another representation is a storage question — named
+here, not decided.
+
+### 4. Technical residual, against `D-52`
+
+**Omit as settled:** schema/FK candidates absorbed in S1; append-only enforcement as
+infrastructure; board query/index strategy retained for S3; transition, publication and
+exception specifications under their existing owners.
+
+**Retain, functional owner first:** (i) the anchor/judgment separation in §3; (ii) the
+assessment and evidence representation choice in §2. **Board rendering still has no named
+unresolved UI choice, so no UX section is justified** under `D-30`/`D-52`.
+
+### 5. Success criterion and the verification Lane B can run
+
+A negative judgment is traceable **while `articles.workflow_state` is unchanged and no approval
+or publication effect occurs**. Concretely: insert the ledger row for the negative act; anchor a
+report to it; assert `workflow_state` unchanged; assert no `publications` row is created and no
+`publication_targets` precondition is engaged — that precondition binds `Approved` only.
+Conceptual corrections carried forward unchanged from the prior sections: T5 judgment-gate
+parent with T5-REVIEW and T5-FINAL child acts; negative result remains `Reviewed`; one recorded
+outcome per assessment, a changed judgment requiring a new assessment; set-based coverage rather
+than equal counts; and progress rendering that writes no state.
+
+**This commit advances HEAD. Active Lane A resynchronizes Graphify before any consuming
+approval.** Nothing here is applied to a governed tier; `B-077`'s `Answered`/no-`Resolution`
+lifecycle and the `B-071` holds are unchanged.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Withdrawal of the proven-failure claim | Corrected against the migrations | Preserved in the functional draft |
+| **Approve** | Anchor / judgment-reference separation | Named as the surviving defect | Owning-tier text after the storage question |
+| **Approve-with-conditions** | Storage-candidate map | Candidates named; none verified | Feasibility check, then literal draft |
+| **Reject** | Any schema allocation from this section | Not established, and not this section's authority | Functional owner decides first |
+| **Defer** | Application, Encyclopedia parity, `B-071` closure | Draft incomplete pending §2/§3 | Bounded authorization and independent review |
