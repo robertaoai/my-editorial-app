@@ -2333,3 +2333,81 @@ synchronizes after this handoff commit before consuming graph evidence.
 | **Approve-with-conditions** | Register / functional documentation packet | Exact authorization and documentary-only DoD supplied as proposal | Judge decision, then Register-first application |
 | **Reject** | Automatic Verified promotion / inherited approval | Neither follows from review acceptance | Preserve lifecycle and authorization boundaries |
 | **Defer** | Storage sufficiency, Encyclopedia parity and B-071 closure | Not verified or authorized here | Separately scoped evidence and independent review |
+
+## Lane A: authorization proposal presented, DoD corrected (2026-09-07)
+
+**Baseline `ab3cf68`; remote already matched it. Graphify resynchronized (`docs-drift` synced at
+`ab3cf68`; the runner reported all checks passing). No governed tier, spec, schema or application
+file changes here. R159's accepted behaviour and Blocks A–C are preserved and not reopened.**
+
+### 0. Four corrections to the packet's own wording
+
+**"The only existing structure" is withdrawn.** Exclusivity was not independently established.
+The correct label is **candidate examined**: the `workflow_transitions` row recording `T5-FINAL`
+is the candidate inspected, and no runtime write/read path was tested. This limits the storage
+claim without disturbing the accepted behaviour draft.
+
+**The DoD's "which alone makes it Verified" is removed.** It named no lifecycle target. **This
+unit changes no lifecycle field at all** — not on `B-077`, not on any other entry. Independent
+documentation review follows the application; any lifecycle promotion is a separate act with its
+own evidence, outside this unit.
+
+**The DoD no longer fixes a check total.** It requires **the runner's actual reported result**,
+not a restated number (`G75`, `D-92`).
+
+**`V1-BUILD-SPEC.md` applicability is explained by scope, sequence and DoD** — the act changes no
+sprint's scope, no sequence position and no Definition of Done — rather than by the absence of
+file creation alone.
+
+### 1. Corrected Definition of Done
+
+Register subsection written **before** the functional blocks are inserted (`D-183`, `D-190`);
+Blocks A–C inserted verbatim at their named anchors; the consistency runner executed and **its
+actual result reported**; Graphify resynchronized at the settled source revision, with currency
+reported **after the last tracked edit**; handed back for independent documentation review.
+**No lifecycle field changes in this unit**, and the review confirms only the documentation
+change — not storage, not implementation, not `B-071`.
+
+**Tracked graph-fragment maintenance:** none is required by this write set. Should any become
+necessary, it is named as a **separate maintenance write**, never folded into the functional
+write set.
+
+### 2. The authorization proposal — presented, NOT granted
+
+Presented to the Judge in this turn. **Not granted, not recorded, and not inherited from any
+"decision-tree" approval.** Review acceptance is not application approval.
+
+> Authorize Active Lane A to record this bounded documentation act in
+> `docs/v1/V1-DECISION-REGISTER.md` before inserting Blocks A–C from B-077's
+> "Lane A: evidence-qualified mapping and consolidated write set" §4 at commit `1deb4f5`.
+> Insert Block A into `docs/fn-specs/FN-GATES-01-05.md` §11.1 and Blocks B/C into
+> `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` §4.1/§4.2 at the named anchors.
+> Authorize only those documentation writes. Select no judgment storage or reference encoding;
+> grant no code/schema/build or lane-transition authority; change no handoff lifecycle status
+> or broader authorization checkpoint. Retain existing build holds. Submit the documentation
+> and check evidence for independent review; do not claim B-071 closure or storage verification.
+
+**Parent checkpoints.** This narrow documentation act does not waive `D-171`'s hold, `AUTH-DOC`'s
+unapproved status, or any other existing authorization checkpoint; Blocks A–C are elaborations of
+`[decided_target_held]` material and carry their source labels and holds into the destination
+files unchanged.
+
+### 3. Sequence, once and if authorized
+
+1. Record the actual scoped Judge instruction in the Register — **before** any functional edit.
+2. Insert Blocks A–C at the named anchors, retaining source labels and holds.
+3. Run the consistency suite, report its actual result, resynchronize Graphify.
+4. Hand back for independent documentation review.
+
+**Nothing in steps 1–4 has been performed.** No speculative approval is recorded as received.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.** `B-077`
+remains `Answered` with no `Resolution`; `B-071` closure and all build holds unchanged.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Blocks A–C and R159 acceptance preserved | Unchanged, not reopened | Preserve |
+| **Approve** | Storage claim narrowed to "candidate examined" | Exclusivity withdrawn; no runtime path tested | Representation decision |
+| **Approve** | DoD corrected — no lifecycle field, actual runner result, scope/sequence/DoD rationale | §1 | Applies once authorized |
+| **Reject** | Treating review acceptance as application authority or automatic `Verified` | Neither follows | Preserve lifecycle and authorization boundaries |
+| **Defer** | Application itself, storage sufficiency, Encyclopedia parity, `B-071` closure | Awaiting an explicit Judge act | Judge decision, then Register-first application |
