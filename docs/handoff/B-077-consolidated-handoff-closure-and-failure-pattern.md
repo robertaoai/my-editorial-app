@@ -631,3 +631,68 @@ owns synchronization before a consuming approval; this packet remains a draft fo
 | **Approve-with-conditions** | R159/R160 progress and report drafting | Must derive from the judgment/workflow distinction | Complete predicates, evidence bindings and tests |
 | **Reject** | Automatic new gate/specification or assurance dependency | No such scope follows from this clarification | Apply the existing D-30/D-52 filter |
 | **Defer** | Application, graph/Encyclopedia verification and closure | Not established by clarification acceptance | Bounded authorization and independent evidence |
+
+## Review of revised R159 predicates and R160 supersession (2026-09-06)
+
+**Request restated:** review the revised pasted packet, preserve corrected T5 hierarchy and V1
+scope, and identify the smallest remaining drafting work before a Judge application decision.
+Baseline `0cb6e2d`; existing R159/R160 remain the owners. This section supplements the previous
+review without creating new IDs, source edits or a duplicate handoff.
+
+The corrected source attribution, negative result remaining Reviewed, Applied lifecycle boundary
+and separation of graph evidence are accepted. T5 is the judgment-gate parent; reviewer and human
+final judgments are its child acts. The workflow supports them and separately executes Delivery.
+Future assurance remains outside V1. Logical report references are an improvement over assuming
+that a database column already defines their meaning.
+
+### Parent-first decision table
+
+| Order | Remaining gap / evidence | Accept or reject recommendation | Concrete corrective draft and success criterion |
+|---|---|---|---|
+| 1 — R159 input contract | Only S explicitly excludes invalidated/earlier evidence. J, E and H are not bound to the same selected assessment and evidence version. A positive H is matched before readiness checks | **Approve-with-conditions** the derivation approach; **reject** completeness as written | Bind the route requirements, seals, join, approval-evidence evaluation and human result to the same assessment/evidence revision. An older positive remains historical and cannot authorize the current revision. Conflicting references produce a disclosed inconsistency with no new approval effect, not a fabricated article-state change |
+| 2 — R159 predicate domain, depends on 1 | First-match priority gives one selected result, but does not make predicates disjoint or validate inputs. S/R are ambiguous as counts versus sets; duplicate seals, missing required roles and an empty/missing route contract are not covered | **Reject** the “disjoint and total” proof | Define the required act set and its valid sealed subset; coverage means each required act has its matching valid seal, not merely equal counts. Define a valid-input domain, explicit precedence and an incomplete/invalid-input fallback. Test duplicate seals for one reviewer while another is missing; missing route requirements must never imply readiness |
+| 3 — R159 positive/history, depends on 1–2 | H=positive alone can hide incomplete/currently invalid evidence; the table's State column can also be misread as resetting a Published article to Approved | **Approve-with-conditions** | Distinguish historical recorded judgment, current approval eligibility and actual article/publication state. Require the applicable valid join and approval evidence before current positive eligibility. Preserve Published/delivery history; rendering progress writes no state. Test positive history with a different current assessment, and positive history after publication |
+| 4 — R160 supersession, depends on 1 | “Re-decides the same assessment” contradicts corrective-plan §15.4's exactly-one-outcome contract and §16.2 AC-08e's replay rule | **Reject** that supersession definition | Proposed minimum: a changed judgment uses a new assessment; replay retains the existing outcome. Report supersession replaces a report representation only under an explicit rule, preserving its source judgment and prior report. A new assessment receives its own report and does not automatically supersede another. Same-article FK validity alone does not define the replacement policy |
+| 5 — R160 feasibility, depends on 4 | Logical references are now named, but mapping them to actual stored evidence, including a negative judgment with no state change, remains untested | **Defer** storage sufficiency, not functional drafting | Supply a field-to-source table: assessment, judgment, evidence, reasons, outcome, rule/template versions, as-at transition, and report lineage → existing source or an explicit gap. Prove a negative judgment can be traced without inventing a state transition. Do not assume JSON snapshot content or allocate a schema change from this review |
+| 6 — D-30/D-52, depends on 2/4/5 | D-52 is readable; “not yet read” is a task dependency, not a missing Judge decision. Board rendering is not proven to be the only residual while report feasibility remains open | **Approve** proceeding with the residual assessment now | D-52 has been read in full for this review: schema/FK candidates absorbed in S1; append-only enforcement is infrastructure; board query/index strategy remains S3; transition/publication/exception specs have their existing owners. Compare later evidence and the completed field map before claiming zero additional technical work. Rendering requires a named unresolved UI choice to justify a UX section |
+
+### Minimal behavioral text for Lane A's next draft
+
+“Progress is derived from the selected assessment and the required evidence for its route. All
+inputs used together identify the same assessment and evidence revision. A seal for one required
+act cannot satisfy another. Missing or inconsistent inputs cannot establish readiness or approval.
+Earlier judgments remain visible as history and confer no approval on a fresh analysis. Displaying
+progress does not change article or delivery state.”
+
+“An assessment has one recorded final outcome. Replaying that outcome adds no approval or delivery
+effect. A different judgment belongs to a new assessment. A report identifies the assessment,
+judgment and evidence it describes. Replacing a report does not re-decide that judgment; any
+permitted report replacement preserves the previous report and its provenance.”
+
+These are proposed corrections, not newly applied requirements. Lane A can draft them and the
+field map without another general business clarification. If a genuinely new report-replacement
+policy is needed, present its exact scope and alternatives after completing the available mapping;
+do not treat such a policy as already supplied by supersedes_report_id.
+
+### Views, evidence and handoff
+
+Product FR/AC anchors remain the parents for functional elaboration. FN-GATES owns readiness and
+judgment behavior, FN-AUDIT-VISIBILITY owns progress/report interpretation, and FN-PUBLICATION
+owns Delivery effects. Current story panels, UML sequences and data-flow views must distinguish
+selected assessment, recorded outcome and separate publication result. Historical journal
+sequence/flow diagrams stay historical; the known Encyclopedia URL still requires direct reading
+before hosted parity can be claimed. No new view artifact follows automatically from this work.
+
+Graph extraction was checked at `0cb6e2d`, matching this review baseline. This does not prove
+runtime curated parity or semantic-description completion, neither of which is claimed here.
+The handoff commit will move HEAD; Active Lane A synchronizes before consuming graph evidence.
+Only this existing handoff changes; all proposed functional edits await the bounded application
+process. B-071/B-077 lifecycle and current build holds remain in place.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Corrected parent/child and negative-outcome model | Preserved | Carry into literal functional draft |
+| **Approve-with-conditions** | R159 derived progress | Input binding, valid domain and historical-state distinction missing | Rows 1–3 and counterexample tests |
+| **Reject** | R160 same-assessment re-decision rule | Conflicts with one-outcome/replay semantics | Row 4 correction, then field feasibility map |
+| **Approve** | Continue D-52 assessment | Reading dependency resolved; no new Judge act needed to draft | Row 6 with later evidence |
+| **Defer** | Source application and closure | Draft still incomplete | Complete mappings, bounded authorization and independent review |
