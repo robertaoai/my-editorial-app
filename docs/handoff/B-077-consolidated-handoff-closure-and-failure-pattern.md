@@ -2966,3 +2966,115 @@ historical storyboard, UML and data-flow views remain untouched.
 | **Approve** | Key-based retrieval; three distinct report references | §5; no recency substitution anywhere in the path | Independent review |
 | **Reject** | Treating this as implementation readiness or authority | Design proposal only; `supabase/` is Lane B's | Bounded authorization |
 | **Defer** | Report-column nullability (runtime fact unchecked), `editorial_result` granularity, implementation, Encyclopedia parity, `B-071` closure | Raised explicitly, not assumed | Owners' routing, then separate authorization |
+
+## Independent review: R160 physical-design corrections and Judge decision guide (2026-09-07)
+
+### Scope and retained parent
+
+**Rewritten task:** Review Lane A's physical proposal at `b38c992`; retain the accepted R159
+behavior and D-191 documentation, identify concrete remaining R160 mechanisms, and supply a
+parent-first drafting guide. This is a handoff review, not permission to write or apply a migration.
+Use the existing R160 item; do not create another tracker or reopen the predicate table.
+
+**Evidence baseline:** the physical packet above, `FN-GATES-01-05.md` §11.1,
+`FN-AUDIT-VISIBILITY-07-08.md` §4.1/§4.2, D-110 QA3, D-191, and
+`supabase/migrations/0002_s1_editorial_schema.sql`. The findings below are source-inspected
+design gaps, **not database-executed failures**. No live database was queried.
+
+**Retain:** explicit assessment identity/revision, explicit positive/negative result, separate
+report references, no state change for a negative judgment, key-based historical retrieval,
+and no inherited approval. `unique(assessment_id)` provides **at-most-one stored judgment**;
+completion and retry handling must supply the rest of the exactly-one-final-outcome contract.
+Design acceptance, application authorization, and runtime verification remain separate facts.
+
+### What still fails or remains incomplete — one R160 correction per step
+
+Follow the steps in order. Each next step consumes the preceding draft; none authorizes source
+application. Lane A owns the drafting and routing; future Lane B execution remains separately held.
+
+| Step / parent dependency | Source evidence and failure path | Small drafting action | Accept when / reject when |
+|---|---|---|---|
+| **1 — substrate and field map**; parent is retained D-191 behavior | Physical §2 uses `actor_type_v2`, but `0002`:527 renames that type to `actor_type`. Its actor/authority row still says `mixed` and reuse candidate. The reused `Reviewed → Approved` rule at `0002`:294 requires `chief_journalist` / `Line1` / `agent`, not the target human T5-FINAL actor. | Use the post-migration type names. Finish requiredness and deciding-actor/authority mapping, distinct from agent executor identity. Name the prospective target transition-rule change and its held authorization dependency; do not claim the unchanged rule validates the human path. Complete evidence-kind/reference types and the typed assessment/revision binding for seals and joins, rather than merely placing them in the existing ledger. | **Accept** a complete field/control map with reused versus proposed objects identified. **Reject** a nonexistent type, `mixed` requiredness presented as complete, or a human approval expected to pass an unchanged agent-only rule. Do not relax the existing check. |
+| **2 — close the relationship chain**; after 1 | Physical §4 checks report → judgment article and report → judgment assessment, but never judgment → assessment article. Counterexample: assessment S belongs to article A; judgment J carries S and article B; report carries J/S/B and a valid B as-at anchor. The proposed independent FKs and named report checks do not exclude this combination. `evidence_ref` has no stated target-resolution or same-cycle validator. | Specify the judgment/assessment/article consistency constraint or validator, and the evidence reference's existence and same-cycle checks. Include result/transition consistency: negative has no transition; the positive reference identifies its matching approval effect, not merely any existing ledger row. Supply a typed route from each consumed seal/join/evidence record to the assessment revision. | **Accept** rejection of the S/A versus J/B counterexample and wrong-cycle evidence, even when every individual ID exists. **Reject** inferring transitive consistency from the report checks or a bare FK. |
+| **3 — complete the immutable operation**; after 1–2 | Physical §3 inserts the judgment, then says its `transition_id` is set in step 4; §4 also proposes rejecting judgment UPDATE. `0002`:149–155 rejects such updates, including in the same transaction. Evidence insertion is absent from §3. Append-only membership rows alone still allow a late evidence INSERT, changing the completed set. | Replace §3 with an explicit finalization transaction; use the draft sequence below. Supply the positive transition reference at judgment INSERT, include all authoritative evidence, and name how later evidence additions are refused. Distinguish existing cycle/readiness records from this transaction and distinguish INSERT from committed completion. | **Accept** a positive completion with no judgment UPDATE, and an immutable completed evidence set. **Reject** post-insert filling of an append-only row, a completed judgment without its evidence, or late evidence that changes historical retrieval. |
+| **4 — retries, concurrency and revision allocation**; after 3 | Physical §4 credits uniqueness with returning the original. An ordinary uniqueness error needs recovery before another query in that transaction. `0002`:307–309 attributes its article lock to the article UPDATE, which happens later and never on the negative path. `revision + 1` identifies an intended number, not a concurrent allocation procedure. | Name the transaction isolation/lock or equivalent serialization path, including negative completion and fresh-cycle allocation. Define the exact-retry comparison and read-existing branch; handle a uniqueness race without updating the original or leaving preceding effects committed. Refuse a conflicting result without automatically starting a new analysis. | **Accept** matching and conflicting concurrent cases, rollback and revision-allocation walkthroughs with named mechanisms. **Reject** returning the original from the constraint alone, crediting the later UPDATE with an earlier lock, or treating a failed retry as permission to start a new assessment. |
+| **5 — legacy data and cutover**; after 1–4 | Physical §7 says no backfill is required because old rows have no new identity, then acknowledges that existing report rows were not checked. Missing historical bindings are a reason to assess compatibility, not proof that no data treatment is needed. Existing reports are append-only (`0002`:512–516). | Replace the no-backfill assertion with `UNVERIFIED pending target-environment inspection and legacy treatment`. Draft empty-table and existing-row branches. If old rows exist, name an evidence-preserving treatment and its authorization; do not invent judgments from old state or rewrite historical reports. State requiredness for new governed reports separately from any legacy accommodation. | **Accept** a documented preflight and cutover plan; before application, supply the actual target-environment evidence. **Reject** an unmeasured empty-table assumption, fabricated backfill, or nullable new references that silently bypass the new-report contract. |
+| **6 — tests, owners and bounded handback**; after 1–5 | Physical §7 requires executed tests but lists no test-file destination; its table labelled Lane B's surface also includes `docs/specs/` and the Register. These are different owners. Calling all this new scope beyond the settled owners does not itself establish a new ownership decision. | Keep the D-30/D-52 owner map. Separate Lane A's prospective documentation/authorization unit from the future Lane B migration and named test files. Name any genuinely new ownership question, otherwise do not ask the Judge to reroute existing work. Give each test its input, enforced refusal/success, and observable persisted effects. | **Accept** an explicit per-owner write set, DoD and authority boundary. **Reject** omitted required test writes, a mixed-lane execution packet presented as Lane B-only, or draft approval used to waive D-171/AUTH-DOC. |
+
+The actor/authority mapping was **already explicitly open** in physical §2; preserve it rather
+than reporting only the nullability and granularity questions. Positive/negative is sufficient
+for the accepted behavior under review. Additional result granularity is not a new prerequisite
+to this bounded design; route any proposed expansion separately instead of delaying this packet.
+
+### Draft operation sequence for step 3, completed by step 4
+
+This is a proposed design sequence, not executable SQL or a new business ruling:
+
+1. Resolve the requested article and assessment revision. The cycle and recorded readiness
+   evidence are preconditions; do not hold one database transaction open across human review.
+2. Begin finalization with the explicit serialization mechanism from step 4. Read an existing
+   final judgment before new approval effects: return an exact retry; refuse a conflicting
+   outcome. No retry substitutes a newer assessment or automatically creates one.
+3. For a new outcome, validate the bound inputs, actor/authority and applicable outcome
+   prerequisites. Freeze the exact evidence membership under that same consistency boundary.
+4. For a positive outcome, create its approval audit row, then insert the judgment with that
+   final reference and its evidence, then perform the article UPDATE. The audit row must precede
+   the UPDATE (`0002`:398–402); the held target actor/rule mapping from step 1 must be resolved
+   before this can be implemented. For a negative outcome, insert the judgment and its evidence
+   with a null transition reference and no article UPDATE.
+5. Commit the entire finalization or roll it all back. **Commit is durable completion.** No
+   report needs to exist yet; subsequent report production uses the exact judgment/assessment.
+   Refuse later mutation of the completed evidence membership, not only UPDATE/DELETE of rows.
+   Retries add no approval or Delivery effect; Delivery remains its separately governed operation.
+
+Lane A must name how each insertion path is guarded, including direct writes allowed by the
+proposed policies. A suggested lock in prose is not installed enforcement. If using a handled
+uniqueness conflict, specify the savepoint/rollback or conflict-safe branch and subsequent read;
+do not use an UPDATE-based upsert to mutate the immutable judgment. Retain the unique constraint
+as a database backstop even when a serialized procedure performs the normal read-before-insert.
+
+**Technical basis:** PostgreSQL documents [uniqueness constraints](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-UNIQUE-CONSTRAINTS)
+as duplicate-row protection, [INSERT conflict handling and RETURNING](https://www.postgresql.org/docs/current/sql-insert.html)
+as separate mechanisms, and [row locks](https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-ROWS)
+as acquired by named operations. These support the mechanism distinctions, not the project's
+business authority or a claim that tests have run.
+
+### Close the draft with evidence, not another completeness assertion
+
+Keep the existing planned tests and extend their named cases only where the corrections above
+need proof: actual post-0002 types; intended human versus legacy-agent approval mapping;
+judgment/assessment article mismatch; unresolved/wrong-cycle evidence; positive completion with
+append-only protection enabled; negative completion with unchanged article state; late evidence
+insertion; matching and conflicting concurrent retries; failed-finalization rollback; concurrent
+fresh revision allocation; and empty/existing legacy-report cutover. A future database test must
+observe the stored rows and side effects, not only an exception or returned label. These remain
+**planned cases** until separately authorized and executed.
+
+### Document/view cross-reference and drift
+
+| Surface | Review disposition at `b38c992` |
+|---|---|
+| `Modular_PRD.md` FR-04a/FR-05a/FR-07; owning Fn_Specs | D-191 names this requirement ownership; the applied assessment/judgment/retry and report/progress blocks remain the behavioral input. Do not rewrite them to fit a convenient schema or reopen R159. |
+| Historical storyboard, story panels, UML/sequence and data-flow views | `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` Panels A5/A6 contain the historical human-review/agent-T6-approval model. They are historical evidence, not this physical design's authorization. The current packet must map assessment → review evidence/join → finalization → report/UI read by explicit key, keeping reviewer judgments, readiness and final human judgment distinct. No new diagram file is required solely to repeat that contract. |
+| Encyclopedia | `docs/ENCYCLOPEDIA-SYNC.md` Entry 01 explicitly consumes transition-schema controls; Entries 04/05 are topical review candidates. Hosted content was not read in this pass: parity is **UNVERIFIED**, not inferred from the local ledger or graph. No publication is authorized here. |
+| Graphify | Read-only query completed; `lastAnalyzedHead` equals `b38c992` and `stale` is false at review intake. Extraction currency is distinct from semantic correctness, coverage and hosted parity. A durable handoff commit advances HEAD again; Active Lane A performs the final synchronization before a consuming approval. |
+
+Only this B-077 handoff is amended in this pass. Register, Build Spec, Inventory, Product and
+functional specifications, historical journal/views, graph fragments, schema and code are
+**unaffected by this review write**. A later authorizing act must separately state D-54 tier
+impact, including created migration/test artifacts and changed build scope/DoD. No new finding ID,
+SOP copy, authentication capability, T6 feature or lane transition is introduced.
+
+### Judge Accept / Reject decision
+
+Accepting the retained design direction authorizes neither schema execution nor application of
+these proposed corrections to governed tiers. The immediate follow-up is Lane A's corrected
+R160 draft in this same handoff, then independent review. B-077 remains `Answered` with no
+`Resolution`; B-071 closure remains with its existing owner and gates.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | D-191 / R159 behavioral documentation | Preserve accepted behavior and explicit typed identity/result direction | No repeated behavior application |
+| **Approve-with-conditions** | R160 physical-design proposal | Concrete progress; steps 1–6 remain drafting corrections | Lane A corrected packet, then independent review |
+| **Reject** | Complete mechanism / no-backfill / implementation-readiness claims | Current proposal does not establish these claims | Correct mechanisms and obtain target-environment evidence |
+| **Defer** | Governed-source application, schema/code, B-071 closure and Encyclopedia parity | Not authorized or verified by this review | Bounded owner-specific authorization and independent evidence |
