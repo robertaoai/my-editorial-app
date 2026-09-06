@@ -2111,3 +2111,167 @@ synchronizes after the handoff commit before consuming graph evidence.
 | **Reject** | R160 impossibility/satisfied-capacity claims | Not established by a column inventory | Correct evidence labels and map semantics |
 | **Approve-with-conditions** | Documentation application proposal | Register write and exact block selection must be explicit | Complete authorization packet |
 | **Defer** | Storage sufficiency, source application and B-071 closure | No new authority or verification | Bounded authorization and independent review |
+
+## Lane A: evidence-qualified mapping and consolidated write set (2026-09-07)
+
+**Baseline `9d99cf5`; remote already matched it. Graphify resynchronized (`docs-drift` synced at
+`9d99cf5`, 17/17). No governed tier, spec, schema or application file changes here. R159's
+accepted behaviour is preserved and not reopened. This section supersedes §§1–3 of the preceding
+section.**
+
+### 0. Three corrections applied
+
+**Storage conclusions are re-labelled as mapping evidence, not proof.** "Impossible",
+"indistinguishable" and "satisfied" overstated what a column inspection can establish. **The
+absence of a dedicated column is evidence that no mapping was identified — not proof that no
+representation is possible.** An added binding, an existing text or JSON field, or another
+relation could each carry what is missing; none of those was assessed.
+
+**The Decision Register joins the write set.** The prior packet required a Register act in its
+DoD while listing only two files to write. A required write belongs in the write set.
+
+**Source blocks are named exactly.** "The two preceding sections" was ambiguous, and the
+`FN-GATES` block's `AC-08e` citation correction lived in prose in a later section rather than in
+the block. **§4 below reissues all three blocks in full and is their single authoritative
+source**; earlier copies are superseded.
+
+### 1. Judgment-record mapping — evidence-qualified
+
+Candidate examined: a `workflow_transitions` row recording the `T5-FINAL` act — the only existing
+structure that can hold a judgment *before a report is produced for it*, since the report's
+`snapshot` is created at report time.
+
+| Required binding | Mapping status at `0002` | Evidence |
+|---|---|---|
+| Deciding actor and authority context | **Mapped** | `actor_id`, `actor_type`, `gate_role`, `line_assignment`, `line_separation_status`, `identity_assurance`, `supervising_human_id` |
+| Reasons | **Partially mapped** | `reason` is a single `text`; a reason set was not identified |
+| Explicit result | **No dedicated column identified** | column inspection at `0002` |
+| Assessment identity | **No dedicated column identified** | column inspection at `0002` |
+| Assessment revision | **No dedicated column identified** | column inspection at `0002` |
+| Applicable evidence set | **No dedicated column identified** | `trend_signals.evidence_url` is point-in-time signal evidence (`D-114`), not review evidence |
+
+**What follows, and what does not.** A negative judgment is **storable** — established earlier:
+the no-op refusal is a trigger on `articles`, and the ledger's INSERT path is not constrained by
+it. **No distinguishing representation was identified in the current columns**, because the only
+result signal found is `to_state`, which the accepted behaviour forbids as a source of the
+result. **This is a mapping gap, not a demonstration that storage cannot represent it.** No
+column, table, partition or migration is allocated, and no runtime test was run.
+
+### 2. Encoding comparison — not decidable on present evidence
+
+| Requirement | Declared snapshot reference | Typed reference to the ledger row |
+|---|---|---|
+| **Validation** — refuse a reference bound to a different article or assessment revision | no revision representation identified | article check is structural; **no revision representation identified** |
+| **Retrieval** — resolve the requested assessment and revision to judgment, result, reasons, evidence | assessment, revision and evidence unmapped | same |
+| **Retry** — compare assessment identity, revision and result | result not explicitly mapped | same |
+
+**Both candidates are blocked by the same unmapped bindings**, so the comparison is **not
+decidable on present evidence** and is sequenced after §1. Neither is selected, and neither is
+excluded.
+
+### 3. Corrected application write set
+
+| # | File | Anchor | Content |
+|---|---|---|---|
+| 1 | `docs/fn-specs/FN-GATES-01-05.md` | §11.1, append to the Behavior/Rule/Refusal table | Block A below |
+| 2 | `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` | §4.1, after "Every transition writes exactly one row…" | Block B below |
+| 3 | `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` | §4.2, after "What the board must surface…" | Block C below |
+| 4 | `docs/v1/V1-DECISION-REGISTER.md` | new decision subsection | the application act, its scope limits, and the tier-applicability table |
+
+**Definition of Done:** Blocks A–C inserted verbatim at their named anchors; the Register
+subsection written; `bun run check` at 17/17 afterwards; Graphify resynchronized to the applied
+commit; independent Lane B verification at that commit, which alone makes it `Verified`.
+
+**Tier applicability (`D-54`) — unchanged and restated for completeness:** Register **affected**;
+`V1-BUILD-SPEC.md` **unaffected** (no artifact created, sequenced or retired);
+`V1-ARTIFACT-INVENTORY.md` **unaffected** (both spec targets already exist); `Modular_PRD.md` §8
+**unaffected** (no sprint closes, no tier opens); Encyclopedia — **no entry declares a dependency
+on the write set** (Entry 01 depends on `FN-GATES` §3.4, not §11.1; Entries 04 and 05 declare
+none on `FN-AUDIT-VISIBILITY`), so 01/04/05 remain impact-review candidates by topic only, hosted
+content unread.
+
+**Out of scope:** any schema change or migration; Product `FR`/`AC` identifier edits; any new
+story-panel, UML or data-flow artifact; the storage questions of §§1–2.
+
+### 4. The three blocks — single authoritative source
+
+**Block A — `docs/fn-specs/FN-GATES-01-05.md` §11.1, append three rows** (proposed elaboration of
+`FR-04a`/`FR-05a`; `AC-22` is consuming-gate evidence coverage and does not define assessment
+identity):
+
+| Behavior | Rule | Refusal condition |
+|---|---|---|
+| Assessment identity | A `T5` cycle creates an assessment carrying identity and revision; every seal, join evaluation, evidence item, judgment and report in that cycle resolves to the same article and revision | Inputs resolve to different articles or revisions |
+| Judgment record | `T5-FINAL` creates a durable judgment record bound to one assessment revision, its deciding actor and authority context, stated result, reasons and applicable evidence — before a report is produced **for that judgment** | A result is inferred from article state; a judgment's article differs from its assessment's |
+| Retry | An exact retry returns the original judgment and result and adds no outcome, approval or Delivery effect; a conflicting outcome is refused as a retry and requires a fresh assessment (`AC-08e`, `docs/v1/V1-B071-CORRECTIVE-PLAN.md` §16.2, `[decided_target_held]` draft — not an applied Product row) | A changed outcome is presented as a retry; fresh analysis inherits an earlier approval |
+
+**Block B — `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` §4.1, insert after "Every transition
+writes exactly one row…":**
+
+> A report fixes its state-history context through the as-at transition anchor and freezes the
+> evidence, reasons, template, rule-set and schema versions applicable to the assessment it
+> describes (`D-111` §3a/§3b). It identifies its judgment **explicitly**; the judgment is never
+> derived from the anchor, and an older anchor is never treated as live state. A report resolves
+> the requested assessment **and revision** to its recorded judgment, result, reasons and
+> evidence — identity alone only where it uniquely fixes that revision, and never the latest
+> judgment by default. Missing, unresolved or inconsistent references disclose the inconsistency
+> and establish no readiness, approval or state change. **The record is immutable; replay
+> handling requires explicit validation**, and no one-report-per-assessment restriction follows
+> from immutability; a further report representation is a separate governed replacement that
+> preserves the prior report and its provenance.
+
+**Block C — `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` §4.2, insert after "What the board must
+surface…":**
+
+> **Derived progress.** Progress is derived from the selected assessment and its applicable
+> evidence and is never persisted as an article state. **Displaying progress is read-only and
+> writes no article or delivery state.**
+>
+> **Required context** — article, selected assessment identity and revision, and non-empty route
+> requirements — must exist. **Stage-dependent evidence** — review seals, the readiness join and
+> the final judgment — may legitimately not exist yet, and its absence is normal progress, not a
+> dangling reference. Input is **invalid** when required context is missing or empty, **or when
+> any supplied reference is unresolved or bound to a different article or assessment revision.**
+> Invalid input discloses the inconsistency and establishes no readiness, approval or state
+> change; a supplied wrong-assessment judgment is invalid regardless of its result.
+>
+> A **valid seal** is well-formed, current, non-invalidated and bound to the assessment revision
+> under evaluation. **Coverage** means every route-required act has its own matching valid seal;
+> equal counts are not coverage. A **valid join** requires that coverage and that the join has
+> been applied. **Approval evidence** is bound to the same assessment revision and is `complete`,
+> `incomplete` or `not yet evaluated`; only `complete` supports readiness, and `not yet
+> evaluated` never means complete.
+>
+> Conditions are evaluated first-match-wins in this order:
+>
+> | # | Condition | Displayed result |
+> |---|---|---|
+> | 0 | required context invalid, **or any supplied reference unresolved or bound to a different article/assessment revision** | `t5p_input_invalid` |
+> | 1 | current positive judgment, valid join, evidence `complete` | `t5p_approved_eligible` |
+> | 2 | current negative judgment recorded | `t5p_recorded_negative` |
+> | 3 | valid join **and** (evidence `incomplete` **or** `not yet evaluated`) | `t5p_approval_evidence_incomplete` |
+> | 4 | valid join, evidence `complete`, no judgment yet | `t5p_awaiting_human_judgment` |
+> | 5 | coverage complete, join not yet applied | transient pre-join computation |
+> | 6 | partial coverage | `t5p_partially_sealed` |
+> | 7 | valid context, no valid seals | `t5p_unsealed` |
+>
+> A recorded negative leaves the article `Reviewed` with reasons and authorizes no publication.
+> Historical judgments, current approval eligibility and actual article/publication state remain
+> distinct; a historical outcome never establishes current eligibility.
+
+**Tests accompanying the packet:** the completed walkthrough with a named winning case for each
+of rows 0–7, plus the retained retry, fresh-analysis and older-assessment-retrieval cases.
+**Planned walkthroughs, not executed tests.**
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.** `B-077`
+remains `Answered` with no `Resolution`; `B-071` closure and all build holds unchanged. **Draft
+acceptance is not build authority.**
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Mapping status re-labelled as evidence, not proof | §1; "no dedicated column identified" replaces impossibility language | Representation decision |
+| **Approve** | Encoding comparison labelled not decidable **on present evidence** | §2; neither selected, neither excluded | Sequenced after §1 |
+| **Approve** | Register added to the write set as item 4 | §3; DoD and write set now agree | Judge authorization |
+| **Approve** | Blocks A–C reissued in full as their single source | §4; `AC-08e` carries its full path | Verbatim insertion when authorized |
+| **Reject** | The prior impossibility/indistinguishability wording and the two-file write set | Withdrawn and superseded | — |
+| **Defer** | Storage sufficiency, application, Encyclopedia parity, `B-071` closure | No allocation, no runtime test, hosted content unread | Bounded authorization and independent verification |
