@@ -1920,3 +1920,43 @@ remains `Answered` with no `Resolution`; `B-071` closure and all build holds unc
 | **Approve** | Walkthrough completed — a named winning case for every row | §2 | Planned, not executed |
 | **Reject** | The prior all-row coverage claim | Withdrawn — rows 1 and 2 had no case | Superseded by §2 |
 | **Defer** | Judgment-record mapping, reference encoding, application, Encyclopedia parity, `B-071` closure | No storage sufficiency established | Bounded authorization and independent verification |
+
+## Independent acceptance of the bounded predicate correction (2026-09-07)
+
+**Request restated:** review `afd22cc` against the preceding bounded R159 correction and hand
+the remaining work to Lane A, without reopening settled findings or authorizing a build.
+
+**Accepted at draft level:** both tables give invalid supplied references precedence over
+positive/negative results; the destination block includes the valid-seal definition; row 3
+requires a valid join AND (incomplete OR unevaluated evidence). The walkthrough now supplies
+representative winning cases for rows 0–7, including positive, negative and fresh unsealed
+context. The conditions/displayed outcomes agree semantically between the review table and
+destination block. This resolves the preceding bounded correction request; no new R159 finding
+is raised. It is a document walkthrough, not executed tests or exhaustive input validation.
+
+### Next work — parent first, no further general predicate rewrite
+
+| Order | Lane A deliverable | Acceptance criterion |
+|---|---|---|
+| 1 — R160 judgment-record mapping | Map the already-drafted assessment/revision, actor/authority, outcome, reasons and evidence to existing storage candidates and explicit gaps; state creation and retrieval behavior | The judgment exists independently of the report and can be retrieved for the exact assessment/revision. Do not assume a ledger row's state values supply outcome semantics |
+| 2 — R160 reference encoding, depends on 1 | Compare snapshot versus typed reference to that same judgment record against validation, retrieval and retry requirements; recommend a candidate with its remaining technical obligations | The comparison concerns reference encoding, not target creation. Invalid bindings are refused; completed-assessment retry adds no outcome, approval or Delivery effect. Any new schema work remains a separately authorized proposal |
+| 3 — application packet, depends on 1–2 | Assemble the accepted literal FN-GATES and FN-AUDIT-VISIBILITY blocks, Product/decision anchors, full write set, applicable D-54 propagation or unaffected declarations, and planned acceptance tests | No behavior remains solely in chat; no historical paragraph is silently treated as the current target. Name remaining technical residuals under D-30/D-52 rather than claiming none from a green consistency suite |
+| 4 — authorized application and review | After bounded authorization, Lane A applies its owned text and supplies source evidence, final graph currency and independently reviewable results | Only independent verification can support the applicable handoff/phase closure; draft acceptance alone cannot promote B-071, authorize code or move a lane |
+
+Preserve historical storyboard/UML/data-flow material as history. No new view artifact is
+authorized by this acceptance; hosted Encyclopedia parity remains unverified. Failure conditions
+to retain in the next packet are unresolved/mismatched judgment references, wrong-revision
+retrieval and retry producing another effect. These are existing obligations, not new features.
+
+At review start HEAD and graph lastAnalyzedHead both equal `afd22cc`, with `stale: false`.
+This establishes extraction currency only; no runtime or curated-semantic verification is
+claimed. Only this handoff changes, leaving governed sources, specifications, schema and code
+untouched. B-077 remains Answered without Resolution; B-071 holds remain unchanged. Active Lane A
+synchronizes after this handoff commit before consuming graph evidence.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R159 bounded predicate correction | Independently accepted as a draft correction | Preserve; no duplicate revision round |
+| **Approve-with-conditions** | R160 mapping/application preparation | Behavior available; storage mappings still open | Steps 1–3 |
+| **Reject** | Draft acceptance as implementation or closure authority | No such authorization follows | Existing bounded authorization process |
+| **Defer** | Storage sufficiency, Encyclopedia parity and B-071 closure | Not verified here | Authorized application and independent review |
