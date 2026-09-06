@@ -1360,3 +1360,173 @@ remain untouched. B-077 stays Answered without Resolution; B-071 closure remains
 | **Reject** | R159 operative predicate pointer | Target section is absent | Full owning-tier insertion text |
 | **Approve-with-conditions** | Literal-placement packet | Locations exist; behavior still incomplete | Steps 1–5 together |
 | **Defer** | Storage allocation, governed application and B-071 closure | Not authorized or verified | Bounded packet and independent verification |
+
+## Lane A: self-contained R159/R160 draft packet (2026-09-06)
+
+**Baseline `0c9b3ff`; remote already matched it, so no reconciliation was needed. Graphify
+resynchronized (`docs-drift` synced at `0c9b3ff`, 17/17). No governed tier, spec, schema or
+application file changes here. This packet is self-contained: nothing operative depends on a
+handoff link or a chat attachment.**
+
+### 0. Three corrections carried in
+
+**The "Validate coverage" pointer is withdrawn.** No such section exists in this file; the
+predicates lived only in a chat attachment, so the §4.2 insertion block was pointer-only and not
+evaluable. The full predicate text is written inline at §5 and §7 below.
+
+**"Before any report exists" is clarified** to mean *before producing a report for that
+judgment*. It does not prohibit a fresh assessment merely because the article already carries
+historical reports.
+
+**"Retrievable by assessment identity alone" is corrected.** Identity alone suffices **only when
+it uniquely fixes the requested revision**; otherwise the revision is required. The latest
+judgment is never silently chosen.
+
+### 1. Inputs, and how they belong together
+
+| Input | Meaning |
+|---|---|
+| Article | the article under judgment |
+| Assessment identity | the `T5` judgment cycle |
+| Revision | the assessment's revision |
+| Required review acts | the act set the selected route requires |
+| Valid seals | well-formed, current, non-invalidated seals bound to this assessment revision |
+| Readiness join | the non-judgment join that performs `Drafted → Reviewed` |
+| Final judgment | the `T5-FINAL` record |
+
+**Belonging rule:** every input used together must resolve to the **same article and the same
+assessment revision**. Inputs from different articles or revisions cannot establish readiness.
+
+### 2. Validation
+
+| Condition | Result |
+|---|---|
+| A required reference is **missing** | the inconsistency is disclosed; no readiness, approval or state change |
+| A reference is **unresolved** (target not found) | the inconsistency is disclosed; no readiness, approval or state change |
+| A reference is **inconsistent** (different article or revision) | refused; no readiness, approval or state change |
+
+No refusal fabricates an article-state change, and no inconsistency is silently repaired.
+
+### 3. Retrieval
+
+A report resolves the **requested assessment and revision** to its recorded judgment, result,
+reasons and evidence. Assessment identity alone is used only where it uniquely fixes the
+requested revision; otherwise the revision is supplied too. **A report about an older assessment
+retrieves that assessment's judgment, never a newer result.**
+
+### 4. Retry, and how it differs from fresh analysis
+
+| Operation | Rule |
+|---|---|
+| **Exact retry** — same assessment, same revision, same proposed outcome | returns the original judgment and result; creates **no additional final outcome, approval transition, delivery request or publication side effect** (`AC-08e`, corrective plan §16.2, `[decided_target_held]` draft — not an applied Product row) |
+| **Conflicting retry** — same assessment, different proposed outcome | **refused as a retry**; a changed outcome requires a fresh assessment |
+| **Fresh analysis** | starts a new assessment; inherits no approval and no ready bundle. Historical reports on the article do not block it |
+
+`AC-08a` (`FR-06`) is return/rerun — a separate operation that supplies no replay semantics.
+
+### 5. Progress predicates — complete, self-contained
+
+`RequiredActs` is the route contract's act set; `ValidSeals` is the subset defined in §1.
+**Coverage means every required act has its own matching valid seal — equal counts prove
+nothing, and two seals by one reviewer never cover another.** Evaluated **first match wins**,
+in precedence order:
+
+| # | Condition | Displayed result | Permitted effects |
+|---|---|---|---|
+| 0 | inputs missing, unresolved or inconsistent (§2) | `t5p_input_invalid` | disclose the inconsistency; **never readiness** |
+| 1 | current positive judgment **and** applicable valid join **and** approval evidence complete | `t5p_approved_eligible` | approval permitted; Delivery separately recorded |
+| 2 | current negative judgment recorded | `t5p_recorded_negative` | article remains `Reviewed`; reasons recorded; **no publication authorized**; fresh analysis may be started |
+| 3 | joined, approval evidence incomplete | `t5p_approval_evidence_incomplete` | **never renders ready for approval** |
+| 4 | joined, awaiting human judgment | `t5p_awaiting_human_judgment` | `T5-FINAL` may be recorded |
+| 5 | coverage complete, join not yet applied | transient computation only | **no user wait or action** |
+| 6 | partial coverage | `t5p_partially_sealed` | seal remaining required acts |
+| 7 | no valid seals | `t5p_unsealed` | seal required acts |
+
+**History separation.** Historical recorded judgments, current approval eligibility and actual
+article/publication state are distinct. **Displaying progress writes no article or delivery
+state**, and no value above is persisted as an article state.
+
+### 6. Tests — requirements against predicates
+
+| Test | Required result | Exercises |
+|---|---|---|
+| Two seals for one reviewer; another required reviewer missing | not complete coverage → row 6 | §5 coverage |
+| Missing route requirements | not automatically ready → row 0 | §2, §5 row 0 |
+| Judgment references another assessment or revision | cannot establish current approval → refused | §1, §2 |
+| Completed assessment retried, same outcome | original judgment returned; no additional outcome, approval or Delivery | §4 exact retry |
+| Completed assessment retried, conflicting outcome | refused as a retry; fresh assessment required | §4 conflicting retry |
+| Fresh analysis after an earlier approval | no inherited approval, no ready bundle | §4 fresh analysis |
+| Report about an older assessment | retrieves that assessment's judgment, not the newest | §3 |
+| `Published` article displayed | state preserved; rendering writes nothing | §5 history separation |
+
+Requirements, predicate table and expected results agree across all eight. **Planned tests;
+none executed. Executable code is a later authorized deliverable.**
+
+### 7. Literal insertion blocks
+
+**`docs/fn-specs/FN-GATES-01-05.md` §11.1 — append three rows** (proposed elaboration of
+`FR-04a`/`FR-05a`; `AC-22` is consuming-gate evidence coverage and does not define assessment
+identity):
+
+| Behavior | Rule | Refusal condition |
+|---|---|---|
+| Assessment identity | A `T5` cycle creates an assessment carrying identity and revision; every seal, join evaluation, evidence item, judgment and report in that cycle resolves to the same article and revision (§1) | Inputs resolve to different articles or revisions |
+| Judgment record | `T5-FINAL` creates a durable judgment record bound to one assessment revision, its deciding actor and authority context, stated result, reasons and applicable evidence — before a report is produced **for that judgment** | A result is inferred from article state; a judgment's article differs from its assessment's |
+| Retry | An exact retry returns the original judgment and result and adds no outcome, approval or Delivery effect; a conflicting outcome is refused as a retry and requires a fresh assessment (`AC-08e`, §16.2, draft) | A changed outcome is presented as a retry; fresh analysis inherits an earlier approval |
+
+**`FN-AUDIT-VISIBILITY-07-08.md` §4.1 — insert after "Every transition writes exactly one row…":**
+
+> A report fixes its state-history context through the as-at transition anchor and freezes the
+> evidence, reasons, template, rule-set and schema versions applicable to the assessment it
+> describes (`D-111` §3a/§3b). It identifies its judgment **explicitly**; the judgment is never
+> derived from the anchor, and an older anchor is never treated as live state. A report resolves
+> the requested assessment **and revision** to its recorded judgment, result, reasons and
+> evidence — identity alone only where it uniquely fixes that revision, and never the latest
+> judgment by default. Missing, unresolved or inconsistent references disclose the inconsistency
+> and establish no readiness, approval or state change. **The record is immutable; replay
+> handling requires explicit validation**, and no one-report-per-assessment restriction follows
+> from immutability; a further report representation is a separate governed replacement that
+> preserves the prior report and its provenance.
+
+**`FN-AUDIT-VISIBILITY-07-08.md` §4.2 — insert after "What the board must surface…"** *(replaces
+the withdrawn pointer; the table is the operative text)*:
+
+> Progress is **derived** from the selected assessment and its applicable evidence, and is never
+> persisted as an article state. Coverage means every route-required act has its own matching
+> valid seal — equal counts are not coverage. Conditions are evaluated first-match-wins in this
+> order: invalid or inconsistent inputs; current positive with applicable join and complete
+> approval evidence; recorded negative; joined with incomplete approval evidence; joined and
+> awaiting human judgment; complete coverage before the join, as a transient computation with no
+> user action; partial coverage; no valid seals. A recorded negative leaves the article
+> `Reviewed` with reasons and authorizes no publication. Historical judgments, current approval
+> eligibility and actual article/publication state remain distinct, and **displaying progress
+> changes no article or delivery state.**
+
+### 8. Residual, unaffected tiers, and stop condition
+
+Settled with existing owners (`D-52`): schema/FK candidates in S1; append-only enforcement as
+infrastructure; board query/index strategy at S3; transition, publication and exception
+specifications. **Explicitly unaffected:** `FN-PUBLICATION-09-10-13.md`; `docs/PRD.md`, the
+Charter and `0001_init.sql` (frozen). **Views:** the journal storyboard's Panels A5/A6 and
+Mermaid diagrams are historical and unedited; **no current view of the `T5` judgment gate
+exists**; a current story panel, UML sequence and data flow are genuinely absent and are **not
+required** — no residual UI choice has been named.
+
+**Remaining technical choice:** the reference encoding — a declared snapshot reference or a typed
+reference to the same judgment record — assessed against §§2–4 above. Neither is selected; no
+column, table or partition is allocated. **Storage selection does not block this behaviour text**
+and is routed under `D-30`/`D-52`.
+
+**Stop condition met for behaviour:** requirements (§§1–4), predicate table (§5) and expected
+test results (§6) agree. Application remains separately authorized.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.** `B-077`
+remains `Answered` with no `Resolution`; `B-071` closure and all build holds unchanged.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Self-contained packet — inputs, validation, retrieval, retry, predicates, tests, placement | Nothing operative behind a link | Independent review |
+| **Approve** | Full predicate table written inline | Withdrawn pointer replaced | Owning-tier application when authorized |
+| **Approve** | Retrieval and "before any report" corrections | Revision required where identity is insufficient | Preserved |
+| **Reject** | The pointer-only §4.2 insertion | Withdrawn and replaced by §7 | Superseded |
+| **Defer** | Reference-encoding selection, application, Encyclopedia parity, `B-071` closure | Behaviour complete; storage not selected, no runtime test | Bounded authorization and independent verification |
