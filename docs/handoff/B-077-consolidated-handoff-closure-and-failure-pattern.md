@@ -3594,3 +3594,157 @@ remain separate and visible.
 | **Approve-with-conditions** | R160 association, finalization and cutover design | Suitable direction; boundary and migration contract incomplete | Steps 1–5, then independent review |
 | **Reject** | Complete-boundary / fully closed physical-packet claim | Candidate association, alternate approval path and cutover mechanism still need specification | Correct the bounded proposal |
 | **Defer** | Implementation, held actor rule, preflight, hosted parity and B-071 closure | Not authorized or runtime-verified here | Existing owner-specific authorization and evidence gates |
+
+## Lane A: approval-path coverage and the boundary contract (2026-09-07)
+
+**Baseline `957827f`; remote already matched it. Graphify resynchronized (`docs-drift` synced at
+`957827f`); the runner reported all checks passing. No governed tier, spec, Register, schema or
+code change here. `supabase/` and `__tests__/` are **Lane B's surface** — specified, never applied
+(`D-56`). `D-191`, R159 and the accepted actor/retry repairs are preserved and not redone.**
+
+### 0. The claim withdrawn
+
+**"Branches closed" is withdrawn.** The deferred check was attached to `editorial_judgments`, so
+**when no judgment is inserted it has no row event and never runs.** Restricting INSERT on the new
+relations does not restrict the *existing* audit-row + article-UPDATE route, which `0001`:84/94
+leaves permissively writable and `0002`:370–402 validates for audit metadata only — not for
+judgment presence. §2 supplies the missing side.
+
+### 1. The evidence association, selected
+
+**`assessment_trend_signals` is selected**, not a candidate, and enters the migration contract.
+
+| Column | Type | Notes |
+|---|---|---|
+| `assessment_id` | `uuid not null` | |
+| `trend_signal_id` | `uuid not null` | |
+| `article_id` | `uuid not null` | carried so both parents are checked against one article |
+| — | primary key `(assessment_id, trend_signal_id)` | |
+| — | FK `(assessment_id, article_id) → editorial_assessments (id, article_id)` | |
+| — | FK `(trend_signal_id, article_id) → trend_signals (id, article_id)` | requires `unique (id, article_id)` on `trend_signals` — **a constraint addition only; no data or column of that table is rewritten** |
+
+Assessment `S`/article `A` associated with signal `X`/article `B` is refused by the second
+composite FK. **Immutability:** `reject_append_only_change()` trigger plus `revoke update, delete`,
+so a cycle binding can never be rebound to different historical evidence.
+
+### 2. Both sides of approval finalization
+
+**Complementary guards; neither is inferred from the other.**
+
+> For an approval governed by the new `T5-FINAL` contract, **every permitted route** to the
+> `Approved` effect must require its matching positive judgment for the selected assessment
+> revision, referencing the exact audit row used for that effect. An otherwise valid audit row
+> **without that judgment cannot authorize the approval.** The judgment-side completion check
+> separately requires the applicable evidence and matching effect before commit. A negative
+> judgment retains its no-state-change behaviour, and no Delivery effect is added.
+
+**Mechanism:** `create or replace function enforce_article_state_transition()` in `0003`, adding a
+clause keyed on `new.workflow_state = 'Approved'` — **not on a particular edge**, so it covers
+both routes: the fixed `T6` `Reviewed → Approved` edge **and** the `dynamic_target` route from
+`Needs Revision` when `revision_target_state = 'Approved'`. The clause requires exactly one
+`editorial_judgments` row with `result = 'positive'`, whose `assessment_id` matches the qualifying
+audit row's and whose `transition_id` is that audit row, visible with an in-progress `xmin`.
+
+**This strengthens the existing check and relaxes nothing.** It is **proposed enforcement of
+already-applied behaviour**, not a change to the current transition rule; the human actor mapping
+and the held target-rule change remain with their existing owners.
+
+**One scoping choice, named rather than assumed:** the clause must apply to articles under the new
+contract without breaking existing demo flows. **Recommended:** engage when the qualifying audit
+row carries a non-null `assessment_id`. The alternative — engage whenever the article has any
+assessment row — is stricter and is stated as the rejected option, not silently dropped.
+
+Retained for their separate purposes: the deferred completion check (evidence and effect present
+**at** commit) and the `xmin` guard (late insertion **after** commit).
+
+### 3. The privileged routine, specified
+
+| Property | Specification |
+|---|---|
+| Signature | `public.finalize_t5_judgment(p_article_id uuid, p_assessment_id uuid, p_result editorial_result, p_reason_body jsonb, p_reason_schema_version text, p_evidence jsonb) returns uuid` |
+| Language / security | `plpgsql`, `security definer` |
+| Trusted name resolution | `set search_path = pg_catalog, public`, with **every object reference schema-qualified** |
+| Owner | a dedicated **non-superuser** role owning the editorial relations — owner/admin power is an explicit trust boundary, not ordinary client access |
+| Execute privileges | `revoke all on function … from public;` — **PostgreSQL grants PUBLIC execute by default, so the revoke is mandatory** — then `grant execute … to anon, authenticated` |
+| Table writes | `revoke insert on editorial_judgments, editorial_judgment_evidence, assessment_trend_signals from public, anon, authenticated`; their RLS insert policies are **not** permissive |
+| Default privileges | `alter default privileges` effects and any inherited grants are stated in the same migration transaction |
+| Demo model | preserved — **no login wall, no claim of authenticated identity** |
+
+**"Only write path" is proven by tested effective privileges for the real app-facing role, never
+by the `SECURITY DEFINER` keyword or by omitted grants.**
+
+### 4. Atomic, non-UPDATE legacy cutover
+
+**"Stamps existing rows" is withdrawn** — it did not say by what mechanism, and an ordinary UPDATE
+is refused (`0002`:514–518). Selected mechanism, all in **one migration transaction**:
+
+1. `add column judgment_id uuid`, `add column assessment_id uuid` — nullable.
+2. `add column contract_version text not null default 'legacy'` — existing rows are classified by
+   the **column default at DDL time**, with **no row UPDATE**, so append-only protection is
+   untouched and no prior value changes.
+3. `alter column contract_version set default 'v1_judgment'` — new inserts take the new contract.
+4. A BEFORE INSERT validator: **refuse a caller-supplied `'legacy'`**, and require
+   `judgment_id`/`assessment_id` non-null whenever `contract_version = 'v1_judgment'`.
+
+**No window admits a new legacy-labelled row**, historical reports keep their values, the
+append-only trigger is never disabled, and no judgments are manufactured from old state. *(An
+equivalent without a discriminator is a `not valid` check constraint, which exempts existing rows
+and enforces every insert; recorded as the alternative, not selected.)* **Both branches still
+require target-environment verification before the migration is written.**
+
+### 5. Objects, files, tests and authority
+
+**Objects enumerated, not counted:** enums `editorial_result`, `evidence_kind`; relations
+`editorial_assessments`, `editorial_judgments`, `editorial_judgment_evidence`,
+`assessment_trend_signals`; column additions `workflow_transitions.assessment_id`,
+`editorial_reports.judgment_id`/`.assessment_id`/`.contract_version`, `trend_signals` unique
+constraint; routine `finalize_t5_judgment`; replaced function `enforce_article_state_transition`;
+the deferred completion constraint trigger; the `xmin` late-insert validator; append-only triggers,
+revokes, grants and RLS policies for the new relations.
+
+| Owner | Exact path |
+|---|---|
+| **Lane A** | `docs/v1/V1-DECISION-REGISTER.md` — its own act, recorded first |
+| **Lane B** | `supabase/migrations/0003_editorial_judgment.sql` |
+| **Lane B** | `supabase/tests/database/s1_judgment_finalization.test.sql` |
+| **Lane B** | `__tests__/s1-judgment-schema.test.ts` |
+
+**`docs/specs/` is explicitly excluded from this execution set** — no existing file or section was
+identified whose unresolved implementation content warrants an edit under `D-30`/`D-52`. It is
+excluded, not left as an unnamed directory.
+
+**`D-54` applicability for the later authorizing act — corrected:** Register **affected**;
+**`V1-ARTIFACT-INVENTORY.md` affected** — three files are created, unlike the `D-191` act where
+both targets already existed; `V1-BUILD-SPEC.md` **affected only if** the owners place this work in
+a sprint scope or DoD, which this packet does not decide; `Modular_PRD.md` §8 **unaffected**;
+`fn-specs/` **unaffected** — behaviour was applied at `f16063a`.
+
+**New planned cases, added to the retained set. Plans only; none written or run:**
+
+| Input | Expected |
+|---|---|
+| Association of assessment `S`/article `A` with signal `X`/article `B` | refused by composite FK |
+| Attempt to rebind an existing association | refused; append-only |
+| Qualifying audit row + `Approved` UPDATE with **no judgment at all** | **refused** — the §2 clause, not the judgment-side trigger |
+| Same, via the `Needs Revision → Approved` dynamic-target route | refused identically |
+| Effective privileges for `anon` | direct INSERT refused; the legitimate routine call succeeds |
+| Trusted name resolution | the routine resolves objects under its fixed `search_path` |
+| Caller-supplied `contract_version = 'legacy'` on a new report | refused |
+| Existing reports after cutover | values unchanged; classified `legacy`; no UPDATE occurred |
+
+**Open prerequisites, carried forward:** the human `T5-FINAL` rule change is **held under
+`D-171`**; the target-environment preflight is **`UNVERIFIED`**; the deciding-actor/authority
+mapping is **open**. Hosted Encyclopedia parity is **`UNVERIFIED`**. Draft acceptance releases
+neither `D-171` nor `AUTH-DOC`, and is not `B-071` closure.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.**
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Reject** | My "branches closed" / complete-finalization claim | Withdrawn — the judgment-side trigger cannot cover the no-judgment path | §2 |
+| **Approve** | `assessment_trend_signals` selected, same-article by composite FK, immutable | §1; `trend_signals` gains a constraint only | Independent review |
+| **Approve** | Approval-path guard keyed on the effect, covering both routes | §2; strengthens, relaxes nothing; scoping choice named | Independent review |
+| **Approve** | Routine signature, owner, `search_path`, revokes and grants | §3; PUBLIC execute revoke is mandatory | Independent review |
+| **Approve** | Atomic non-UPDATE cutover via DDL default | §4; alternative recorded, not selected | Target-environment verification |
+| **Approve** | Objects enumerated; `docs/specs/` excluded; `D-54` applicability corrected — Inventory **affected** | §5 | Judge decision |
+| **Defer** | Implementation, actor-rule change, preflight, Encyclopedia parity, `B-071` closure | Held or ungathered | Separate authorization and verification |
