@@ -2605,3 +2605,131 @@ holds remain. Active Lane A synchronizes after the handoff commit before consumi
 | **Reject** | FK-alone article validation, automatic event-type result semantics and identity-only completion claim | Stronger than available evidence and existing rules | Steps 2–5 |
 | **Approve-with-conditions** | R160 representation plan | Use the complete typed binding and enforcement contract | Bounded technical proposal |
 | **Defer** | Implementation, Encyclopedia parity and B-071 closure | No new authority or verification | Separately scoped authorization and evidence |
+
+## Lane A: D-110 applied, typed judgment design drafted (2026-09-07)
+
+**Baseline `d50f4c4`; remote already matched it. Graphify resynchronized (`docs-drift` synced at
+`d50f4c4`); the runner reported all checks passing. No governed tier, spec, Register, schema or
+code change in this section. `D-191`'s applied documentation and accepted R159 behaviour are
+preserved and not reopened.**
+
+### 0. Five corrections
+
+**The FK article-scope advantage is withdrawn.** A reference to `workflow_transitions(id)` proves
+**existence only**. The same-article guarantee that exists today belongs to
+`validate_editorial_report_anchors` (`0002`:491–497), a trigger-body query
+(`where id = new.as_at_transition_id and article_id = new.article_id`) covering the **as-at
+anchor** — it cannot be credited to an unimplemented judgment reference.
+
+**`event_type` result semantics are withdrawn as automatic.** A separate column does not
+establish result semantics.
+
+**"The encoding resolves once identity/revision does" is withdrawn.** Identity and revision are
+**prerequisites, not the whole decision** — result, evidence and enforcement remain.
+
+**The reason-set impossibility claim is withdrawn.** A single `text` field does not prove a
+reason set cannot be represented, and the one-audit-row-per-state-change rule is **not** a
+reason-cardinality rule.
+
+**Comparing snapshot-declared and typed references as equally available authoritative options is
+withdrawn** — `D-110` had already decided it, as §1 sets out. That was a format question that did
+not need asking.
+
+### 1. `D-110` applied — classification by role
+
+`D-110` (§5.14bq, `QA3`, `G17`) assigns typed columns to identifiers, every version identifier,
+and anything participating in a binding, join, constraint, permission or state transition;
+versioned JSON is only the immutable explanatory body, and **JSON is never the source of truth
+for a gate.** `D-111` §3a retains that boundary.
+
+| Element | Role | `D-110` disposition |
+|---|---|---|
+| Assessment identity | binding and join key | **Typed** |
+| Assessment revision | binding and constraint | **Typed** |
+| Judgment reference from the report | authoritative referential relationship | **Typed** |
+| Authoritative evidence binding | binding | **Typed** |
+| Explicit result | participates in approval/control — a gate | **Typed** |
+| Reasons, explanatory content | body | May sit in the permitted immutable body alongside typed authority |
+| Evidence, explanatory content | body | Same |
+| `schema_version` | version identifier | Typed — already is |
+
+**A snapshot-only authoritative binding is excluded.** A snapshot may preserve explanatory
+content *alongside* typed authority, never instead of it. **This selects no physical table or
+column.**
+
+### 2. Result representation
+
+`audit_event_type` carries `Created`, `StateChange`, `TagAssigned`, `Published`, `Returned`,
+`Rejected`, `EmergencyBypass`, `HumanOverride`, `Line3Audit`. **No existing governed value
+expresses a `T5-FINAL` editorial judgment**: `Rejected` is an event *category* assigned by
+`0002`'s one-time backfill from the old state value, and no positive counterpart exists at all.
+
+**The legacy backfill assigns event categories using old state values. No explicit `T5-FINAL`
+outcome mapping has yet been demonstrated.** A one-time backfill is not an ongoing insert rule
+and proves nothing about any current or new row's content. **No enum extension or repurposing is
+proposed or authorized here.** The result must be typed per §1; whether it reuses `event_type` or
+requires a distinct typed element is an open design item.
+
+### 3. Complete typed judgment-record proposal — reuse versus required addition
+
+| Element | Reuse available | Precisely required |
+|---|---|---|
+| Actor and authority context | `actor_id`, `actor_type`, `gate_role`, `line_assignment`, `line_separation_status`, `identity_assurance`, `supervising_human_id` | none |
+| Assessment identity | none | a typed identity |
+| Assessment revision | none | a typed revision |
+| Explicit result | none expresses the judgment (§2) | a typed result element |
+| Reasons | `reason` carries one reason | a set representation, if the behaviour needs one — **open, not impossible** |
+| Authoritative evidence binding | none | a typed binding |
+| Explanatory reasons/evidence content | permitted immutable body | none |
+| Creation, retrieval and retry obligations | behaviour applied at `f16063a` | enforcement mechanisms (§4) |
+
+**Resolving identity and revision alone resolves neither result, evidence, nor enforcement.**
+
+### 4. Reference enforcement — three separate checks
+
+| Check | What it proves | Proposed mechanism | Status |
+|---|---|---|---|
+| **Existence** | the referenced row exists | a typed foreign key | This, and only this, is what an FK gives |
+| **Same-article** | the judgment belongs to the report's article | a validation rule of the kind already used at `0002`:491–497 for the as-at anchor | **Not implemented for a judgment reference**; the existing rule covers the anchor only |
+| **Same-assessment/revision** | the judgment belongs to the requested assessment revision | its own rule, once §3's typed identity and revision exist | No existing analogue |
+
+**Both candidate mechanisms must meet the whole binding contract.** Comparing a typed FK against
+deliberately unvalidated JSON is not a fair comparison — and under §1 the snapshot-only option is
+excluded regardless.
+
+### 5. Planned tests, and the residual
+
+| Given | Expected |
+|---|---|
+| A judgment that exists but belongs to another article | **Refused** — a valid FK must not let it pass |
+| A judgment on the same article but the wrong assessment revision | **Refused** |
+| An unresolved reference | **Refused**; the inconsistency is disclosed |
+| Valid exact retrieval | that assessment revision's judgment, result, reasons and evidence — never the latest by default |
+| Matching retry | the original outcome; no additional outcome, approval or Delivery effect |
+| Conflicting retry | refused as a retry; a fresh assessment is required |
+
+**Planned tests — not implemented and not executed.** No runtime database test was run.
+
+**Residual under `D-30`/`D-52`:** the physical design of the typed identity, revision, result and
+evidence bindings, plus the three enforcement rules in §4. Settled owners are unchanged —
+schema/FK candidates in S1, append-only enforcement as infrastructure, board query/index strategy
+at S3, and the transition/publication/exception specifications.
+
+### 6. Next step, not taken here
+
+A bounded implementation authorization is requested **only after this design is independently
+reviewed**. **No build follows from `D-191` or from any review.** Lifecycle and build holds are
+preserved: `B-077` stays `Answered` with no `Resolution`, `D-171` and `AUTH-DOC` are unchanged,
+`B-071` closure and hosted Encyclopedia parity remain separately scoped, and historical
+storyboard, UML and data-flow views remain untouched.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.**
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | `D-110` applied as the governing boundary | §1; the format question is closed, not reopened | Physical design |
+| **Approve** | Result representation stated against real enum values | §2; no governed value expresses the judgment | Design item |
+| **Approve** | Complete typed record proposal, reuse versus required addition | §3 | Independent review |
+| **Approve** | Existence, same-article and same-revision separated with named mechanisms | §4 | Independent review |
+| **Reject** | FK-alone article validation; automatic `event_type` result semantics; identity-only completion; reason-set impossibility; snapshot-as-equal-option | All five withdrawn | Superseded by §§1–4 |
+| **Defer** | Implementation authorization, Encyclopedia parity, `B-071` closure | Design not yet reviewed; no runtime test | Separate authorization and evidence |
