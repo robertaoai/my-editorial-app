@@ -3260,3 +3260,100 @@ before consuming approval.**
 | **Approve** | Explicit row lock; retry branches; serialized revision allocation | §4; uniqueness demoted to backstop | Independent review |
 | **Reject** | "Uniqueness returns the original"; `actor_type_v2`; post-insert `transition_id`; "no backfill"; mixed-lane write set | All five withdrawn | Superseded |
 | **Defer** | Target-environment preflight, actor/authority mapping, implementation, `B-071` closure | Evidence not yet gathered; no runtime test | Separate authorization and independent verification |
+
+## Independent review: R160 source correction and remaining failure branches (2026-09-07)
+
+### Scope, evidence and what stays accepted
+
+**Rewritten task:** Review the corrected physical proposal at `921316e`, retain its valid
+repairs, and give Lane A an ordered correction guide with explicit Accept/Reject criteria.
+Continue **R160 in this B-077**, without new finding IDs, duplicated SOP, governed-spec edits or
+implementation. D-191 and the accepted R159 behavior remain the parent contract.
+
+**Accepted as design progress, not installed or runtime-verified controls:** corrected
+`actor_type`; the assessment/article composite FK excluding the earlier S/A versus J/B case;
+positive audit row before judgment INSERT with the final reference already populated; commit
+as durable completion; explicit article lock on positive and negative paths; deliberate fresh
+revision allocation; no automatic new assessment on refusal; withdrawal of the no-backfill
+claim; and separation of Lane A/Lane B ownership. Do not redo these repairs.
+
+The `xmin` proposal addresses **late insertion after commit**. It does not by itself prove that
+the required evidence and approval effect were present **at** commit. Keep that narrower claim.
+All findings below are source-inspected design findings. No migration or database test was run.
+
+### 1. Parent — correct the actor-enforcement account before refining its tests
+
+**Reject physical §1's precision correction.** It stops reading the function too early:
+
+| Part of `enforce_article_state_transition()` in `0002_s1_editorial_schema.sql` | What it actually checks |
+|---|---|
+| First query, lines 323–339 | Whether a permitted state edge exists |
+| Audit-row query, lines 370–398 | A preceding same-transaction row, including `required_role`, `required_line`, `required_actor_type` and `human_only` at **388–391** |
+| Refusal, lines 400–402 | Rejects unless exactly one qualifying audit row is found |
+
+**Replacement draft for the actor paragraph:**
+
+> The trigger checks both the legal state edge and the declared audit-row role/Line/actor
+> metadata. Against the seeded agent-only `Reviewed → Approved` rule, an audit row declaring
+> `actor_type = 'human'` does not qualify; with no other qualifying row, the article UPDATE is
+> refused with `23514` and `found 0`. This validates declared metadata, **not the authenticity
+> of the person issuing SQL**. A human caller supplying agent-labelled metadata is a different
+> question; no authenticated-caller guarantee follows. The intended human T5-FINAL mapping and
+> its held rule change still require their existing authorization; do not weaken the check.
+
+This also qualifies the previous review's shorthand “the human actor is rejected”: it means
+an honestly human-labelled audit row against that agent-only rule, not authentication of the
+SQL caller. `__tests__/s1-schema.test.ts`:94–97 checks the four predicates in the source;
+`supabase/tests/database/s1_transition_enforcement.test.sql`:154–191 specifies rejection of an
+agent-labelled row at the human-only T5 edge and rollback of its orphan ledger row. These test
+sources corroborate the mechanism; **they were inspected, not executed in this review**, and
+the T5 fixture is not a newly executed T6-human test.
+
+**Lane A action:** correct physical §1, the corresponding test row and its approval row
+together. Keep deciding-actor/authority mapping open. **Accept** when the full-function account
+and proposed human-labelled negative test agree; **reject** both “the database ignores the four
+columns” and “this check authenticates a person.” No new Judge policy choice is needed to
+correct a demonstrably false source description.
+
+### 2–5. Child work — complete one bounded draft step at a time
+
+| Order / dependency | Remaining gap and concrete failure path | Lane A drafting action | Success criterion for Judge/reviewer |
+|---|---|---|---|
+| **2 — retry recovery**, after 1 | Physical §4's `Uniqueness race` branch rolls back, re-reads and returns the existing row **without** the normal exact/conflicting comparison. A conflicting stored result would be returned as though it were a matching retry. The savepoint is not placed before the attempted effects, and isolation is unnamed. | Route recovery through the **same** comparison branch as the normal path. Establish the savepoint before all attempted audit/judgment/evidence effects, retaining the article lock outside it. Handle the named assessment-uniqueness conflict only; unrelated errors do not become retry success. State the isolation and restart rules. | Exact recovery returns the original with no effects; conflicting recovery refuses with no new assessment. An injected conflict after a provisional audit INSERT leaves no orphan audit row. The post-conflict read can see the winner, or the whole transaction restarts rather than fabricating a result. |
+| **3 — finish the reference map**, after 2 | Physical §2's positive-reference validator checks article, `to_state = Approved` and transaction, **not the assessment revision**. Two judgments for different assessments of one article can point at the same same-transaction approval row under those listed checks. Also, `trend_signal` is an evidence kind, but its resolver demands a target `assessment_id`; `trend_signals` has only article ownership (`0001`:41–50; `0002`:143–145). | Bind the positive reference to the same assessment revision and the exact eligible audit row consumed by approval, including its state-edge/actor semantics. Finish a per-kind resolver map naming actual or proposed target fields and requiredness. For a reusable trend signal, a typed cycle-association relation is a candidate; do not stamp an invented revision onto immutable historical signal rows. | Same-article/wrong-assessment approval references fail. Every admitted evidence kind has a resolvable, typed route to the selected cycle; the field map includes the binding columns used by the proposed composite FKs. Do not call all references “closed declaratively” when per-kind validation remains necessary. |
+| **4 — enforce completion and legacy admission**, after 3 | The `xmin` guard rejects late evidence but does not run when a caller omits evidence entirely. With the proposed insert-policy convention, the listed controls do not exclude a positive judgment plus audit row being committed without its required evidence or article UPDATE. Separately, a typed legacy discriminator can bypass new-report requirements if a new caller can select the legacy value. | Name a database-enforced finalization boundary: for example, a guarded database routine with direct relevant writes unavailable, or completion constraints checked at commit. Keep the late-insert guard for its separate purpose. Tie legacy eligibility to existing-row provenance or another controlled cutover mechanism, not a caller-selected old label. No new authentication feature is implied. | Bypassing the normal procedure cannot commit an incomplete positive outcome. A successful positive finalization commits its exact evidence and matching effect; negative remains no-state-change. A new report cannot evade required references by claiming a legacy contract. Old reports remain unchanged. |
+| **5 — close the draft packet**, after 4 | Owner separation is now correct; actor mapping and target-environment facts are still explicitly open. Directory/wildcard destinations are not yet the bounded execution packet. | Update the existing tests with the exceptional cases above; retain the accepted tests. Name the exact proposed migration/test paths and any warranted existing SPECS target before requesting execution. Carry the actor-rule hold and empty/existing-data preflight forward visibly. Use the existing D-30/D-52 owners and D-54 applicability process, not a new routing decision. | Judge receives a complete **proposal**, with each open prerequisite, file owner, scope and DoD explicit. Draft acceptance is not application or B-071 closure. Source edits/build still require their separate bounded authorization. |
+
+**Small retry draft for step 2:** propose `READ COMMITTED` with a subsequent read after the
+conflict has resolved, or explicitly describe the full-transaction restart required by a
+stronger snapshot. A row lock alone does not refresh an old repeatable-read snapshot. The
+comparison and refusal rule is identical on the normal and recovery paths. Never mutate the
+existing judgment to obtain a retry response. PostgreSQL's [isolation documentation](https://www.postgresql.org/docs/current/transaction-iso.html)
+and [savepoint documentation](https://www.postgresql.org/docs/current/sql-savepoint.html) support
+these transaction distinctions; they do not decide editorial policy or authorize implementation.
+
+### Cross-reference, drift and handback boundaries
+
+Only B-077 changed between the preceding physical-review baseline `b38c992` and `921316e`.
+The previous review's document/view crosswalk remains applicable, not a missing new artifact:
+
+| Surface | Current review disposition |
+|---|---|
+| `Modular_PRD.md` / D-191 / owning Fn_Specs | Preserve requirement ownership and the applied assessment/judgment/retry/report/progress behavior. The corrected physical design must satisfy these inputs; no functional rewrite to accommodate a convenient storage path. |
+| Storyboard, story panels, UML/sequence and data flow | Historical Panels A5/A6 in `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` remain historical, not authority for the target actor. The physical flow is evidence/readiness → finalization → exact-key report/UI read; no new diagram or duplicate UX specification is required solely to restate it. |
+| Encyclopedia | Local citation map reviewed; Entry 01 names transition controls. Hosted parity remains **UNVERIFIED** and is not established by a graph rebuild or this review. No publication performed. |
+| Graphify | Read-only query completed. At intake, `lastAnalyzedHead = 921316e`, matching HEAD, and `stale = false`. This is extraction currency, not correctness of the actor claim or proof of runtime integrity. A new handoff commit requires Active Lane A's final resynchronization before consuming approval. |
+
+**What was done instead of implementation:** appended this bounded correction in the existing
+handoff. No Register, Build Spec, Inventory, Product/Fn/SPECS, journal, graph fragment, schema,
+test or application file is changed. B-077 stays `Answered` with no `Resolution`; D-171,
+AUTH-DOC, lane state and B-071 closure remain unchanged. No new business clarification is
+needed for the source correction; the already-open actor mapping and execution prerequisites
+are not silently treated as decided.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R160 retained design repairs / D-191 behavior | Preserve corrected ordering, keys, normal locking, explicit preflight and ownership | No repeated repair |
+| **Reject** | R160 actor-enforcement precision correction | Contradicted by the full trigger; declared metadata is checked, caller authenticity is not proven | Step 1 source/test-description correction |
+| **Approve-with-conditions** | R160 recovery, binding and finalization design | Exceptional paths and write boundaries remain incomplete | Steps 2–5, then independent review |
+| **Defer** | Governed-source application, implementation, hosted parity and B-071 closure | No authority or runtime verification established | Existing bounded authorization and evidence gates |
