@@ -12840,3 +12840,69 @@ authorization requirements; `B-071`'s overall open status; corrective-plan §16.
 unit.** Frozen `docs/PRD.md`, the Charter and `0001_init.sql` are untouched. `D-171` is unchanged.
 Units 1/2, `R152` execution, corrective-plan §16.7's correction, and `B-071`'s overall closure all
 remain separately gated.
+
+
+## 5.14e16 `D-191` — Bounded Documentation Act Authorized: R159/R160 Behaviour Blocks Applied to Two Fn_Specs; Storage, Code and Lifecycle Excluded
+
+**Chief Editor decision, 2026-09-07, raised as `B-077`'s bounded documentation authorization
+proposal.** Authorizes Active Lane A to apply three previously drafted and independently reviewed
+behaviour blocks into their owning functional specifications, after recording this act. It selects
+no storage representation, grants no build authority, and promotes no lifecycle status.
+
+### The authorization, verbatim as approved
+
+> Authorize Active Lane A to record this bounded documentation act in
+> `docs/v1/V1-DECISION-REGISTER.md` before inserting Blocks A–C from B-077's
+> "Lane A: evidence-qualified mapping and consolidated write set" §4 at commit `1deb4f5`.
+> Insert Block A into `docs/fn-specs/FN-GATES-01-05.md` §11.1 and Blocks B/C into
+> `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` §4.1/§4.2 at the named anchors.
+> Authorize only those documentation writes. Select no judgment storage or reference encoding;
+> grant no code/schema/build or lane-transition authority; change no handoff lifecycle status
+> or broader authorization checkpoint. Retain existing build holds. Submit the documentation
+> and check evidence for independent review; do not claim B-071 closure or storage verification.
+
+### What this applies
+
+**Block A** — three rows appended to `FN-GATES-01-05.md` §11.1's Behavior/Rule/Refusal table:
+assessment identity; the durable judgment record created at `T5-FINAL` before a report is produced
+for that judgment; and retry, where an exact retry returns the original judgment and adds no
+outcome, approval or Delivery effect while a conflicting outcome is refused as a retry and requires
+a fresh assessment (`AC-08e`, `docs/v1/V1-B071-CORRECTIVE-PLAN.md` §16.2, `[decided_target_held]`
+draft — not an applied Product row).
+
+**Block B** — `FN-AUDIT-VISIBILITY-07-08.md` §4.1: the report identifies its judgment explicitly
+rather than deriving it from the as-at anchor, resolves the requested assessment **and revision**,
+and is immutable while replay handling requires explicit validation.
+
+**Block C** — `FN-AUDIT-VISIBILITY-07-08.md` §4.2: derived progress, with required context
+separated from stage-dependent evidence, the valid-seal and coverage definitions, three-valued
+approval evidence, and the eight-row first-match-wins predicate table.
+
+Blocks A–C elaborate `FR-04a`/`FR-05a` and `FR-07`; Product retains ownership of every
+requirement identifier. `AC-22` is consuming-gate evidence coverage and does not define assessment
+identity.
+
+### Tier applicability
+
+| Tier | Applicability |
+|---|---|
+| `V1-DECISION-REGISTER.md` | **Affected** — this act |
+| `docs/fn-specs/FN-GATES-01-05.md` | **Affected** — Block A, §11.1 |
+| `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` | **Affected** — Blocks B and C, §4.1 and §4.2 |
+| `V1-BUILD-SPEC.md` | **Unaffected** — no sprint's scope, sequence position or Definition of Done changes |
+| `V1-ARTIFACT-INVENTORY.md` | **Unaffected** — both spec targets already exist; no artifact created or retired |
+| `Modular_PRD.md` §8 | **Unaffected** — no sprint closes and no tier opens |
+| `FN-PUBLICATION-09-10-13.md` | **Unaffected** — Delivery separation is already its own |
+| **Encyclopedia** | **Unaffected by declared dependency** — Entry 01 depends on `FN-GATES` §3.4, not §11.1; Entries 04 and 05 declare no dependency on `FN-AUDIT-VISIBILITY`. Entries 01/04/05 remain impact-review candidates by topic only; hosted content is unread and parity is not claimed |
+
+### Scope limits
+
+**Applies documentation only.** Selects no judgment-record representation and no reference
+encoding — both remain open, and the storage table in `B-077` records **candidates examined**, not
+proof of exclusivity or sufficiency; no runtime write/read path was tested. Grants no code, schema,
+migration, build or lane-transition authority. **Changes no handoff lifecycle field** — `B-077`
+remains `Answered` with no `Resolution`, and this act does not make anything `Verified`;
+independent documentation review is a separate step with its own evidence. Frozen `docs/PRD.md`,
+the Charter and `0001_init.sql` are untouched. `D-171`'s hold stands unnarrowed, `AUTH-DOC` remains
+unapproved, and `B-071`'s closure remains separately gated. Blocks A–C carry their
+`[decided_target_held]` source labels into the destination files unchanged.

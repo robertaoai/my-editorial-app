@@ -61,6 +61,8 @@ The record and the window onto it. `FR-07` writes what happened; `FR-08` is how 
 
 Every transition writes **exactly one** row before the state changes, carrying: article · executor identity · executor type · Line assignment · event type · timestamp · reason.
 
+A report fixes its state-history context through the as-at transition anchor and freezes the evidence, reasons, template, rule-set and schema versions applicable to the assessment it describes (`D-111` §3a/§3b). It identifies its judgment **explicitly**; the judgment is never derived from the anchor, and an older anchor is never treated as live state. A report resolves the requested assessment **and revision** to its recorded judgment, result, reasons and evidence — identity alone only where it uniquely fixes that revision, and never the latest judgment by default. Missing, unresolved or inconsistent references disclose the inconsistency and establish no readiness, approval or state change. **The record is immutable; replay handling requires explicit validation**, and no one-report-per-assessment restriction follows from immutability; a further report representation is a separate governed replacement that preserves the prior report and its provenance. (`D-191`)
+
 **Three properties, each independently testable:**
 
 | Property | Meaning |
@@ -80,6 +82,27 @@ Grouped by state, filterable on every configured dimension. Four are known: **st
 **What the board must surface** beyond filtering: current state per article · the `T6→T5` return rate, queryable (`A17`) · Line assignment per transition.
 
 > The `T6→T5` return rate is not a metric for its own sake. **A rate that never leaves zero means successor-node review is nominal at that boundary** — the falsifiable form of `RACI-03`. The board is where that becomes visible.
+
+**Derived progress** (`D-191`)**.** Progress is derived from the selected assessment and its applicable evidence and is never persisted as an article state. **Displaying progress is read-only and writes no article or delivery state.**
+
+**Required context** — article, selected assessment identity and revision, and non-empty route requirements — must exist. **Stage-dependent evidence** — review seals, the readiness join and the final judgment — may legitimately not exist yet, and its absence is normal progress, not a dangling reference. Input is **invalid** when required context is missing or empty, **or when any supplied reference is unresolved or bound to a different article or assessment revision.** Invalid input discloses the inconsistency and establishes no readiness, approval or state change; a supplied wrong-assessment judgment is invalid regardless of its result.
+
+A **valid seal** is well-formed, current, non-invalidated and bound to the assessment revision under evaluation. **Coverage** means every route-required act has its own matching valid seal; equal counts are not coverage. A **valid join** requires that coverage and that the join has been applied. **Approval evidence** is bound to the same assessment revision and is `complete`, `incomplete` or `not yet evaluated`; only `complete` supports readiness, and `not yet evaluated` never means complete.
+
+Conditions are evaluated first-match-wins in this order:
+
+| # | Condition | Displayed result |
+|---|---|---|
+| 0 | required context invalid, **or any supplied reference unresolved or bound to a different article/assessment revision** | `t5p_input_invalid` |
+| 1 | current positive judgment, valid join, evidence `complete` | `t5p_approved_eligible` |
+| 2 | current negative judgment recorded | `t5p_recorded_negative` |
+| 3 | valid join **and** (evidence `incomplete` **or** `not yet evaluated`) | `t5p_approval_evidence_incomplete` |
+| 4 | valid join, evidence `complete`, no judgment yet | `t5p_awaiting_human_judgment` |
+| 5 | coverage complete, join not yet applied | transient pre-join computation |
+| 6 | partial coverage | `t5p_partially_sealed` |
+| 7 | valid context, no valid seals | `t5p_unsealed` |
+
+A recorded negative leaves the article `Reviewed` with reasons and authorizes no publication. Historical judgments, current approval eligibility and actual article/publication state remain distinct; a historical outcome never establishes current eligibility.
 
 ## 5. Acceptance criteria `[V1]`
 
