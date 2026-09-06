@@ -2411,3 +2411,53 @@ remains `Answered` with no `Resolution`; `B-071` closure and all build holds unc
 | **Approve** | DoD corrected — no lifecycle field, actual runner result, scope/sequence/DoD rationale | §1 | Applies once authorized |
 | **Reject** | Treating review acceptance as application authority or automatic `Verified` | Neither follows | Preserve lifecycle and authorization boundaries |
 | **Defer** | Application itself, storage sufficiency, Encyclopedia parity, `B-071` closure | Awaiting an explicit Judge act | Judge decision, then Register-first application |
+
+## Independent documentation review of D-191 application (2026-09-07)
+
+**Review target `f16063a`; approved block source `1deb4f5`.** This reviews the applied
+documentation only. It does not reopen accepted R159 behavior, choose storage, authorize a
+build or change any lifecycle metadata. No new finding is raised from this bounded review.
+
+### Evidence and result
+
+| Review boundary | Evidence | Result |
+|---|---|---|
+| Scope | The application commit changes only V1-DECISION-REGISTER.md and the two named functional specs | Matches the bounded documentation paths; no schema, code, frozen source or handoff lifecycle change |
+| Authority record | D-191 §5.14e16 contains the scoped authorization naming Lane A, immutable source 1deb4f5, insertion targets, exclusions and retained holds | Durable authorization record present. This review checks the recorded act, not independent observation of the original conversation |
+| Block A | Compared each assessment/judgment/retry row with the immutable source | Operative text matches, with D-191 citations added; full held/draft AC-08e citation retained |
+| Blocks B/C | Compared the report paragraph and full progress block after normalizing wrapping, quote/emphasis formatting and added D-191 citations | Operative text matches; no predicate or binding omitted |
+| Placement | A is in FN-GATES §11.1; B follows the FR-07 transition paragraph; C follows the board paragraph and its explanatory quote in §4.2 | Accept the disclosed C placement: it keeps the paragraph and explanation together without changing section or behavior |
+| Holds/lifecycle | D-191 excludes storage/code/build/lane transition/lifecycle promotion; Fn_Specs remain planning-only | D-171, AUTH-DOC and B-071 boundaries retained; no terminal claim follows |
+
+“Verbatim” is accepted here as **operative content parity**, not byte-identical formatting:
+source citations were added and wrapping/blockquote presentation changed. Register-first editing
+order is reported by Lane A; Git's single final commit cannot independently establish the
+within-commit order of file edits. No contradictory order evidence was found, and this review
+does not invent a second chronology from the final tree.
+
+### Lane A follow-up — no repeat application
+
+1. Preserve the applied blocks at f16063a and this bounded documentation-review result. Do not
+   reinsert them or reopen the accepted predicates.
+2. Continue R160's judgment-record mapping against assessment/revision, actor/authority,
+   explicit result, reasons, evidence and retry requirements. Classify candidates and unproven
+   mappings without claiming runtime sufficiency from column presence.
+3. Compare report-reference encodings to the same mapped judgment target; route any remaining
+   technical choice through the existing owners. No migration or executable test is authorized
+   by this review.
+4. Keep hosted Encyclopedia parity and broader B-071 closure separately scoped. Any lifecycle
+   promotion needs its own named target, evidence and authorized metadata update; this entry's
+   Answered/no-Resolution status is unchanged.
+
+At review baseline, graph lastAnalyzedHead equals f16063a and stale is false. The independent
+consistency run passed; that is documentary consistency, not runtime storage proof or hosted
+Encyclopedia/curated-semantic parity. Existing historical storyboard, UML and data-flow material
+remains historical and untouched. Only this review handoff changes; Active Lane A synchronizes
+after its commit before consuming graph evidence at the new HEAD.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | D-191 / applied functional documentation | Scope, content and placement independently reviewed at f16063a | Preserve; no repeat application |
+| **Approve-with-conditions** | R160 remaining work | Judgment-record and reference mappings still unverified | Existing technical refinement sequence |
+| **Reject** | Documentation acceptance as build/storage/terminal verification | No such authority or proof follows | Preserve boundaries |
+| **Defer** | Encyclopedia parity and B-071 closure | Not established by this bounded review | Separately scoped evidence and lifecycle review |
