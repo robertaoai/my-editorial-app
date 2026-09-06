@@ -3357,3 +3357,150 @@ are not silently treated as decided.
 | **Reject** | R160 actor-enforcement precision correction | Contradicted by the full trigger; declared metadata is checked, caller authenticity is not proven | Step 1 source/test-description correction |
 | **Approve-with-conditions** | R160 recovery, binding and finalization design | Exceptional paths and write boundaries remain incomplete | Steps 2–5, then independent review |
 | **Defer** | Governed-source application, implementation, hosted parity and B-071 closure | No authority or runtime verification established | Existing bounded authorization and evidence gates |
+
+## Lane A: actor account corrected, remaining R160 branches closed (2026-09-07)
+
+**Baseline `53a7b59`; remote already matched it. Graphify resynchronized (`docs-drift` synced at
+`53a7b59`); the runner reported all checks passing. No governed tier, spec, Register, schema or
+code change here. `supabase/` and `__tests__/` are **Lane B's surface** — specified, never applied
+(`D-56`). `D-191` and R159 preserved; the accepted repairs are not redone.**
+
+### 1. Parent — the actor-enforcement account, corrected
+
+**Lane A's "precision correction" was wrong: it stopped reading the function too early.**
+`enforce_article_state_transition()` has two queries, and the second one enforces the four
+columns.
+
+| Part of the function | What it checks |
+|---|---|
+| First query, `0002`:323–339 | whether a permitted state edge exists |
+| Audit-row query, `0002`:370–398 | a preceding same-transaction row, **including `required_role`, `required_line`, `required_actor_type` and `human_only` at 388–391** |
+| Refusal, `0002`:400–402 | rejects unless exactly one qualifying row is found |
+
+**Corrected text, replacing physical §1's actor paragraph:**
+
+> The trigger checks both the legal state edge and the declared audit-row role/Line/actor
+> metadata. Against the seeded agent-only `Reviewed → Approved` rule, an audit row declaring
+> `actor_type = 'human'` does not qualify; with no other qualifying row, the article UPDATE is
+> refused with `23514` and `found 0`. This validates **declared metadata, not the authenticity of
+> the person issuing SQL**. A human caller supplying agent-labelled metadata is a different
+> question, and no authenticated-caller guarantee follows. The intended human `T5-FINAL` mapping
+> and its held rule change still require their existing authorization; the check is not weakened.
+
+Both of the wrong readings are rejected: "the database ignores the four columns" **and** "this
+check authenticates a person". `__tests__/s1-schema.test.ts`:94–97 asserts the four predicates in
+source, and `supabase/tests/database/s1_transition_enforcement.test.sql`:154–191 specifies
+rejection of an agent-labelled row at the human-only `T5` edge with rollback of its orphan ledger
+row — **inspected, not executed here**, and neither is a `T6`-human test. The
+deciding-actor/authority mapping stays open.
+
+**Narrowed claim carried forward:** the `xmin` guard addresses **late insertion after commit**; it
+does not prove required evidence and the approval effect were present **at** commit. §4 supplies
+that separately.
+
+### 2. Retry recovery routed through the same comparison
+
+Physical §4's recovery branch returned the existing row **without** the exact/conflicting
+comparison, so a conflicting stored result would have been returned as though it matched.
+
+| Element | Specification |
+|---|---|
+| Isolation | `READ COMMITTED`, with a re-read after the conflict resolves. Under a stronger snapshot a row lock does **not** refresh it — the whole transaction restarts instead |
+| Savepoint | established **before** any attempted audit, judgment or evidence write; the article row lock is held **outside** it, so rollback keeps the lock |
+| Error handling | only the **named assessment-uniqueness violation** is handled; every other error propagates. An unrelated failure never becomes retry success |
+| After rollback | re-read, then run **the same comparison as the normal path**: matching → return the original with no effects; conflicting → refuse, and **no new assessment is created** |
+| Orphan audit row | impossible — the savepoint precedes the provisional audit INSERT, so rollback removes it |
+
+The existing judgment is **never mutated** to produce a retry response.
+
+### 3. Reference map finished — per-kind, not "closed declaratively"
+
+**Withdrawn:** calling the references closed declaratively. Composite FKs close the
+judgment/assessment/evidence chain; **per-kind validation is still required.**
+
+**Positive reference, bound to the revision.** Physical §2 checked article, `to_state = Approved`
+and same-transaction — so two judgments for *different assessments of one article* could point at
+the same approval row. Corrected: the approval audit row carries a typed `assessment_id`, and the
+validator requires it to equal the judgment's, **and** that this is the exact row that qualified
+under the applicable rule (its `gate_role`, `line_assignment` and `actor_type` are the ones the
+rule matched), not merely any same-transaction `Approved` row.
+
+| `evidence_kind` | Target | Binding column | Status |
+|---|---|---|---|
+| `seal` | `workflow_transitions` (`T5_review_sealed`) | `assessment_id` | **proposed addition** — the ledger has none today |
+| `readiness_join` | `workflow_transitions` (bundle join) | `assessment_id` | **proposed addition** |
+| `trend_signal` | `trend_signals` | **none exists** — `article_id` only (`0001`:41–50; `0002`:143–145), and the table is append-only | **candidate:** a typed cycle-association relation `assessment_trend_signals (assessment_id, trend_signal_id)`. **A revision is never stamped onto immutable historical signal rows** |
+
+The binding columns above are the ones the composite FKs consume, so they belong in the field map.
+
+### 4. Completion boundary, and legacy admission
+
+**The gap:** the `xmin` guard never runs when a caller omits evidence **entirely**. Under the
+proposed insert policies, a positive judgment plus its audit row could commit with no evidence and
+no article UPDATE.
+
+| Control | Mechanism |
+|---|---|
+| **Normal path** | a guarded `security definer` finalization routine. Direct INSERT on `editorial_judgments` and `editorial_judgment_evidence` is **not granted** to `anon`/`authenticated`, so the routine is the only write path |
+| **Backstop** | a `constraint trigger … deferrable initially deferred` on `editorial_judgments`, evaluated **at commit**: required evidence rows exist, and a positive result has its matching approval row and article effect |
+| **Late insertion** | the `xmin` guard, retained for that separate purpose |
+
+This mirrors the pattern already used elsewhere — a normal guarded path plus a database backstop.
+**No new authentication capability is introduced or implied.**
+
+**Legacy admission tied to provenance, not a caller-selected label.** The cutover migration stamps
+**existing** rows with the legacy contract value; the discriminator is **not caller-selectable**
+thereafter — inserts default to the new contract and the legacy value is refused. **A new report
+cannot evade the required references by claiming a legacy contract, and old reports are never
+rewritten.**
+
+### 5. The bounded packet — exact paths
+
+| Owner | Exact path | Content |
+|---|---|---|
+| **Lane A** | `docs/v1/V1-DECISION-REGISTER.md` | its own decision act, recorded before any edit (`D-183`, `D-190`) |
+| **Lane A** | `docs/specs/` — **no target named** | only if the owners judge one warranted; `fn-specs/` is **unaffected** (behaviour applied at `f16063a`) |
+| **Lane B** | `supabase/migrations/0003_editorial_judgment.sql` | enums, three relations, the ledger `assessment_id` additions, composite FKs, constraint trigger, finalization routine, grants/revokes, RLS policies, report columns and validator |
+| **Lane B** | `supabase/tests/database/s1_judgment_finalization.test.sql` | the database cases below |
+| **Lane B** | `__tests__/s1-judgment-schema.test.ts` | source-level assertions, in the style of the existing `s1-schema.test.ts` |
+
+**Open prerequisites, carried forward visibly:** the human `T5-FINAL` rule change is **held under
+`D-171`**; the target-environment preflight is **`UNVERIFIED`**; the deciding-actor/authority
+mapping is **open**. `D-30`/`D-52` owners and `D-54` applicability are used unchanged — **no new
+routing decision is requested.**
+
+**Tests — retained, plus the exceptional cases. Plans only; none written or run:**
+
+| Input | Enforced by | Observable effect |
+|---|---|---|
+| Honestly human-labelled audit row at the agent-only `Reviewed → Approved` rule | `0002`:388–391 predicates | `23514`, `found 0`; UPDATE refused; **no claim about caller authenticity** |
+| Conflicting outcome surfacing as a uniqueness conflict | §2 recovery comparison | refused; original unchanged; **no new assessment**; no orphan audit row |
+| Matching outcome surfacing as a uniqueness conflict | §2 recovery comparison | original returned; no effects |
+| Approval row from another assessment of the same article | §3 revision-bound validator | refused |
+| `trend_signal` evidence with no cycle association | §3 per-kind resolver | refused; no revision written to the signal row |
+| Positive finalization with evidence omitted | §4 deferred constraint trigger | refused **at commit**; nothing persists |
+| Direct INSERT bypassing the routine | §4 revoked grants | refused |
+| New report claiming the legacy contract | §4 provenance rule | refused; old reports unchanged |
+| Negative finalization | §3–4 | judgment and evidence stored; `workflow_state` unchanged; no publication row |
+
+**DoD, if authorized:** Register act first; migration and tests written by Lane B; the database
+tests **executed with their actual results reported**; the consistency runner's actual result
+reported; Graphify resynchronized after the last tracked edit; independent review at the applied
+commit.
+
+**No build follows from this packet.** `B-077` remains `Answered` with no `Resolution`; `D-171`,
+`AUTH-DOC`, `B-071` closure and hosted Encyclopedia parity (**`UNVERIFIED`**) are unchanged.
+Historical Panels A5/A6 remain historical and are not authority for the target actor; no new
+diagram is required.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.**
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Reject** | Lane A's actor "precision correction" | Withdrawn — the second query enforces the four columns | Corrected text in §1 |
+| **Approve** | Corrected full-function account, with the metadata-not-authenticity limit | §1; both wrong readings excluded | Independent review |
+| **Approve** | Retry recovery routed through the same comparison; savepoint before effects | §2 | Independent review |
+| **Approve** | Revision-bound approval reference; per-kind resolver map | §3; `trend_signal` needs an association relation | Independent review |
+| **Approve** | Finalization boundary — guarded routine plus deferred constraint backstop; provenance-based legacy admission | §4 | Independent review |
+| **Approve** | Exact file paths, owners, tests and DoD | §5; open prerequisites carried visibly | Judge decision |
+| **Defer** | Implementation, actor-rule change, target-environment preflight, `B-071` closure | Held or ungathered | Separate authorization and verification |
