@@ -1314,3 +1314,49 @@ remains `Answered` with no `Resolution`; `B-071` closure and all build holds unc
 | **Approve** | Literal insertion text with exact anchors, and view classification | §§3–4; predicates reused, not reinvented | Owning-tier application when authorized |
 | **Reject** | The prior candidate comparison as decisive | Withdrawn — encoding does not determine target existence | Superseded by §§1–2 |
 | **Defer** | Storage selection, application, Encyclopedia parity, `B-071` closure | §2's requirements unspecified; no runtime test | Bounded authorization and independent verification |
+
+## Independent review: finish the operative contract, not another pointer (2026-09-06)
+
+**Request restated:** review `1737663` and finish the remaining R159/R160 drafting guide using
+the existing handoff. Preserve the corrected reference comparison, replay citation and historical
+view treatment. No new finding IDs, source application, schema allocation or build follows.
+
+The named insertion locations exist: FN-GATES §11.1's behavior table and FN-AUDIT-VISIBILITY
+§4.1/§4.2. **The progress insertion is not yet self-contained:** it cites B-077 §“Validate
+coverage,” but that section and the t5p predicate table are absent from the actual handoff.
+The earlier user attachment contained that table; referring to the conversation as if it were
+already a citable document repeats the missing-source failure. A wildcard filename is also not
+an exact source anchor. Under D-29, the owning functional section must contain its behavior;
+handoff history can supply provenance, not substitute for operative text.
+
+### One remaining drafting packet — parent first
+
+| Order / owner | Concrete fix draft | Success criterion / recommendation |
+|---|---|---|
+| 1 — R160, Lane A | Define validation: report, judgment and assessment identify the same article and selected revision; judgment evidence/result are explicit; references resolve under the accepted state-history/judgment distinction. Missing, unresolved or conflicting bindings cannot establish readiness, approval or a valid report | **Approve** this functional completion for drafting. Wrong article, wrong revision and unresolved target each have an explicit refusal/inconsistency result, without fabricated state changes |
+| 2 — R160, depends on 1 | Define retrieval: resolve the requested assessment and revision to its recorded judgment, result, reasons and evidence. “By assessment identity alone” is adequate only if it uniquely fixes the requested revision; otherwise require the revision too. Do not silently choose the latest judgment | **Approve-with-conditions**. A report about an older assessment still retrieves that assessment's judgment, not a newer result |
+| 3 — R160, depends on 1–2 | Define retry: an exact completed-assessment retry returns the original judgment/result; a conflicting proposed outcome is refused as a retry and requires fresh assessment under the existing rule. Preserve no additional outcome, approval or Delivery effects | **Approve** the existing AC-08e-based rule, with explicit comparison inputs. Demonstrate both matching retry and conflicting retry in planned Given/When/Then cases; this does not require a new database constraint |
+| 4 — R159, depends on 1–3 | Replace the nonexistent “Validate coverage” pointer with the full proposed predicate/domain/precedence text in the FN-AUDIT-VISIBILITY §4.2 insertion block. Use the earlier attachment's proposal as input, carrying forward accepted binding and set-coverage corrections. Name invalid-input fallback, partial/unsealed, readiness/awaiting judgment, negative and positive-eligibility cases and history separation | **Reject** the current pointer-only insertion. A reviewer can evaluate the accepted counterexamples from the proposed functional text alone, without retrieving a chat attachment or guessing a missing section |
+| 5 — Lane A, depends on 4 | Assess reference encodings against the completed requirements and list only remaining technical choices. Assemble the bounded write set, literal blocks, requirement-linked tests and existing-view occurrence classifications | **Defer** application until this packet is complete. Storage format selection is not a prerequisite for stating behavior; any undetermined implementation choice is separately routed under D-30/D-52 |
+
+Clarify “before any report exists” as before producing a report **for that judgment**; it must
+not prohibit a fresh assessment merely because the article already has historical reports.
+No new table, column, partition or UI artifact is required by this clarification.
+
+The cited journal A5/A6 views are historical and the Product document has no current T5-FINAL
+diagram found by this scoped check. This review does not independently certify the broader
+“none anywhere” claim; retain the inspected-file scope rather than turning search absence into
+a project-wide guarantee. Hosted Encyclopedia parity remains unverified. These classifications
+do not authorize new views or replace missing functional behavior.
+
+Graph extraction metadata matches `1737663`, `stale: false`; curated semantic parity is not
+proven by that fact. No runtime test was run. This handoff's commit advances HEAD; Active Lane A
+synchronizes before consuming graph evidence. All governed tiers, frozen sources, specs and code
+remain untouched. B-077 stays Answered without Resolution; B-071 closure remains deferred.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R160 creation/reference and replay-citation corrections | Preserved as draft | Complete validation/retrieval/retry clauses |
+| **Reject** | R159 operative predicate pointer | Target section is absent | Full owning-tier insertion text |
+| **Approve-with-conditions** | Literal-placement packet | Locations exist; behavior still incomplete | Steps 1–5 together |
+| **Defer** | Storage allocation, governed application and B-071 closure | Not authorized or verified | Bounded packet and independent verification |
