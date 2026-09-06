@@ -1049,3 +1049,95 @@ specifications and application code are unaffected by this handoff-only review.
 | **Approve-with-conditions** | R159/R160 next drafting unit | Deliver behavior and occurrence map together | Steps 1–2 |
 | **Reject** | Snapshot implies replay safety | Immutability is not replay enforcement | Correct candidate wording and test obligation |
 | **Defer** | Storage selection, governed application and B-071 closure | Not proven or authorized | Residual disposition, bounded application and independent verification |
+
+## Lane A: literal R159/R160 behaviour and occurrence map (2026-09-06)
+
+**Baseline `f88d855` — pushed this turn; the earlier local-only state is resolved and the remote
+now matches. Graphify resynchronized to that revision (`docs-drift` synced, 17/17). No governed
+tier, spec, schema or application file changes here.**
+
+### 0. Correction carried in
+
+**"Replay-safe by construction" is withdrawn.** Freezing a snapshot does not establish
+assessment-level replay handling: `editorial_reports` has a generated primary key and append-only
+protection, and neither prevents multiple immutable inserts. The correct wording, used throughout
+below, is **"the record is immutable; replay handling requires explicit validation."** This is a
+missing proof, not a demand for a uniqueness constraint. **No one-report-per-assessment
+restriction is inferred** — report replacement remains a separate operation.
+
+### 1. Literal behaviour — proposed text
+
+**Assessment.** An assessment is created when a `T5` judgment cycle begins for an article on its
+selected route. It carries an identity and a revision. Every seal, join evaluation, evidence
+item, judgment and report belonging to that cycle references the same identity and revision.
+
+**Judgment and result.** `T5-FINAL` records a judgment against exactly one assessment, carrying
+the deciding actor and authority context, the result, and its reasons. **The result is stated,
+never inferred from article state.** An assessment has exactly one recorded final outcome; a
+different judgment requires a new assessment.
+
+**Evidence, reasons, provenance.** At report production the evidence and reasons applicable to
+the referenced assessment are captured and frozen with the report, together with template,
+rule-set and schema versions (`D-111` §3b). The report fixes its state-history context through
+the as-at transition anchor (`D-111` §3a). **A report states its as-at context explicitly; an
+older anchor is never treated as live state.**
+
+**Replay.** Retrying a completed assessment is permitted and creates **no additional final
+outcome, approval transition, delivery request or publication side effect** (`AC-08e`, corrective
+plan §16.2). The record is immutable; **replay handling requires explicit validation** — a retry
+must resolve to the same assessment identity and revision, the same judgment identity and the
+same result, with article-scoped state and publication deltas of zero. Producing a further report
+representation is a separate, explicitly governed replacement that preserves the prior report and
+its provenance.
+
+**Refusals.** A judgment whose article differs from its assessment's; a report whose judgment
+reference and assessment disagree; a retry presented as a new outcome; a negative result rendered
+as approval or publication.
+
+### 2. Occurrence map
+
+| Clause | Product anchor | Owning functional section | Consuming view |
+|---|---|---|---|
+| Assessment identity and revision | `FR-04a`, `AC-22` | `FN-GATES` §11.1 — insert | story panel: cycle start; UML: lifeline origin |
+| Explicit judgment and result | `FR-05a`, `AC-08e` | `FN-GATES` §11.1 — insert | UML: `T5-FINAL` message |
+| Frozen evidence, reasons, provenance | `FR-07`, `AC-11`, `AC-12` | `FN-AUDIT-VISIBILITY` §4.1 — insert | data flow: evidence → report |
+| As-at context stated explicitly | `FR-07` | `FN-AUDIT-VISIBILITY` §4.1 — insert | story panel: report header |
+| Replay validation | `AC-08e`; `AC-08a` (`FR-06` return/rerun) | `FN-AUDIT-VISIBILITY` §5 and `FN-GATES` §11.1 — insert | UML: retry path, no new outcome |
+| Derived progress (`R159`) | `FR-04a`, `FR-05a`, `AC-22` | `FN-AUDIT-VISIBILITY` §4.2 — insert | story panel: board |
+| Delivery separation | `FR-09`, `AC-14a`, `AC-15` | `FN-PUBLICATION` §§4–5, §11 — **unaffected, already owns it** | data flow: approval → Delivery |
+
+**Historical, not edited:** `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`
+Panels A5/A6 and its Mermaid sequence/flow diagrams record the superseded order and stay as dated
+evidence. Hosted Encyclopedia content remains unread; Entries 01/04/05 stay impact candidates.
+**No new view artifact is justified** — no residual UI choice has been named.
+
+### 3. Candidates compared against that behaviour
+
+The behaviour above makes the decisive question explicit: **where does the judgment exist before
+the report is produced?**
+
+| Candidate | Against the behaviour | Open |
+|---|---|---|
+| (a) Declared field inside the frozen snapshot (`D-111` §3b) | The snapshot is created *at report time*, so it can **record** the judgment reference but cannot be **where the judgment exists beforehand** | Reference validation would be behavioural, not structural; replay comparison reads identities out of the snapshot |
+| (b) Explicit reference into `workflow_transitions` | The judgment exists as a ledger row before the report; the reference is structurally validatable and directly queryable | Structural FK validity alone proves nothing about assessment, outcome or replay semantics; it is a column, not a table |
+
+**Neither is selected.** Storage selection stays deferred; no column, table or partition is
+allocated, and no runtime test has been executed.
+
+### 4. What remains before application readiness
+
+Literal text for the inserts named in §2 at their owning tiers; the residual disposition once
+§3's question resolves; and the executable form of the acceptance tests. Only then a bounded
+source write set with its DoD, distinguishing draft approval from source application from
+independent verification.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.** `B-077`
+remains `Answered` with no `Resolution`; `B-071` closure and all build holds unchanged.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Withdrawal of "replay-safe by construction" | Restated as immutable + explicit validation | Preserved in literal text |
+| **Approve** | Literal behaviour §1 with explicit replay handling | Consistent with `AC-08e`; no report-count restriction inferred | Independent review |
+| **Approve** | Occurrence map §2, delivered with the behaviour | `FN-PUBLICATION` stated unaffected | Owning-tier insertion text |
+| **Approve-with-conditions** | Candidate comparison §3 | Decisive question named; neither selected | Resolve, then route residual |
+| **Defer** | Storage selection, application, Encyclopedia parity, `B-071` closure | No allocation, no runtime test | Bounded authorization and independent verification |
