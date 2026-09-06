@@ -1141,3 +1141,44 @@ remains `Answered` with no `Resolution`; `B-071` closure and all build holds unc
 | **Approve** | Occurrence map §2, delivered with the behaviour | `FN-PUBLICATION` stated unaffected | Owning-tier insertion text |
 | **Approve-with-conditions** | Candidate comparison §3 | Decisive question named; neither selected | Resolve, then route residual |
 | **Defer** | Storage selection, application, Encyclopedia parity, `B-071` closure | No allocation, no runtime test | Bounded authorization and independent verification |
+
+## Independent review of the literal behavior packet (2026-09-06)
+
+**Request restated:** review the packet at `02593a1`, preserve its corrections and identify the
+remaining work under R159/R160. This is a handoff-only draft review, not source application.
+Accept the immutability/replay distinction and explicit outcome/evidence requirements. Do not
+reopen the corrected anchor example or allocate another finding ID.
+
+### Parent-first corrective guide
+
+| Order | Remaining issue | Lane A draft action and acceptance criterion |
+|---|---|---|
+| 1 — R160 representation | §3 compares the location of a report reference with the existence of its target. A snapshot reference cannot create a prior judgment, but neither can adding a reference column | Split the comparison into **judgment record creation** and **report reference encoding**. Both snapshot and typed-reference candidates can point to the same prior record. Name when and how that record receives assessment, actor, result and evidence bindings before comparing reference validation. **Reject** any preference inferred solely from “snapshot is created at report time” |
+| 2 — R160 replay mapping | §2 cites `AC-08a` (`FR-06` return/rerun) alongside `AC-08e`. Returning work/new analysis and retrying a completed assessment are different operations | Map same-assessment replay to the proposed `AC-08e` in corrective-plan §16.2, explicitly noting that it is draft/held, not an already applied Product row. Keep `AC-08a` only as a separately classified return/rerun cross-reference if relevant; it cannot supply replay semantics. A retry preserves identities/outcome; fresh analysis does not inherit the old approval |
+| 3 — R159/R160 exact placement, depends on 1–2 | The occurrence map identifies functional sections, but “story panel: board” and “UML: retry path” are not concrete document occurrences. Derived progress has a pointer but no insertion text in this packet | Supply literal insertion/replacement blocks with exact document/section anchors, reusing the accepted progress predicates rather than inventing new ones. Distinguish existing historical views, existing current views and genuinely absent views. `AC-22` is consuming-gate evidence coverage, not by itself a definition of assessment identity. Name that elaboration as proposed, not as already implemented by the cited criterion |
+| 4 — residual and readiness, depends on 3 | Storage candidates remain proposals; source application is not yet offered as a complete bounded unit | Dispose of the residual after the behavior and reference map; retain existing owners and explicitly identify unaffected tiers. Supply Given/When/Then tests and expected records/effects in the plan. Executable test code is a later authorized implementation deliverable, not permission implied by this review |
+
+**Suggested replacement for the candidate comparison:** “First identify the durable judgment
+record and its assessment/outcome/evidence contract. Then compare a declared snapshot reference
+with a typed reference to that same record. Neither reference format creates its target or proves
+replay safety. Choose only after specifying validation and retrieval requirements.” This is
+proposed wording, not a schema choice or a requirement for a new table.
+
+Success requires retrieval of the same explicit judgment through the selected representation,
+refusal of mismatched assessment/article references, and no additional outcome/approval/Delivery
+on completed-assessment retry. Do not mistake a database row that accepts an identifier for proof
+that the identifier describes the correct judgment. No runtime storage test was performed here.
+
+Historical A5/A6 diagrams remain historical; FN-PUBLICATION's Delivery behavior is unchanged.
+Hosted Encyclopedia parity remains unverified. Graph extraction metadata matches `02593a1`,
+`stale: false`; curated semantics are not thereby proven. The handoff commit advances HEAD,
+requiring Active Lane A's synchronization before consuming graph evidence. Register, Build Spec,
+Inventory, Product/functional/technical specs and code remain untouched; B-077 remains Answered
+without Resolution and B-071's holds remain unchanged.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | R160 replay correction and logical report behavior | Preserved as draft | Exact owning-tier placement |
+| **Reject** | R160 candidate comparison as a decisive storage distinction | Reference encoding does not determine target existence | Separate creation from reference encoding |
+| **Approve-with-conditions** | R159/R160 occurrence map | Retry anchors and concrete view/text locations need completion | Steps 2–3 |
+| **Defer** | Storage selection, application and B-071 closure | Not authorized or verified | Residual disposition and bounded application review |
