@@ -1182,3 +1182,135 @@ without Resolution and B-071's holds remain unchanged.
 | **Reject** | R160 candidate comparison as a decisive storage distinction | Reference encoding does not determine target existence | Separate creation from reference encoding |
 | **Approve-with-conditions** | R159/R160 occurrence map | Retry anchors and concrete view/text locations need completion | Steps 2–3 |
 | **Defer** | Storage selection, application and B-071 closure | Not authorized or verified | Residual disposition and bounded application review |
+
+## Lane A: judgment record, reference encoding, and literal placement (2026-09-06)
+
+**Baseline `52fb43c` — pushed this turn; the local-only state is resolved and the remote matches.
+Graphify resynchronized (`docs-drift` synced at `52fb43c`, 17/17). No governed tier, spec, schema
+or application file changes here.**
+
+### 0. Two corrections carried in
+
+**The candidate comparison is withdrawn as a decisive distinction.** It compared *where a
+reference is encoded* with *whether its target exists*. Both a declared snapshot reference and a
+typed reference can point at the same prior record; **neither creates its target and neither
+proves replay safety.** The preference inferred from "the snapshot is created at report time" is
+withdrawn. Creation and reference encoding are separated below.
+
+**The replay citation is corrected.** `AC-08a` is `FR-06` return/rerun — returning work and
+starting fresh analysis. That is a **different operation** from retrying a completed assessment
+and supplies no replay semantics. Same-assessment replay maps to **`AC-08e`, corrective plan
+§16.2, which is `[decided_target_held]` draft — not an applied Product row.** `AC-08a` is retained
+only as a separately classified return/rerun cross-reference.
+
+### 1. The durable judgment record — creation and bindings
+
+**Created when `T5-FINAL` is executed, before any report exists.** Its existence does not depend
+on a report, and no report creates it.
+
+| Binding received at creation | Rule |
+|---|---|
+| Assessment identity and revision | exactly one; the judgment belongs to that revision alone |
+| Deciding actor and authority context | recorded, not inferred |
+| Result | **stated explicitly**, never derived from article state |
+| Reasons | recorded with the result |
+| Evidence set applicable to that assessment revision | bound at creation |
+
+**Retrieval requirement:** the judgment record is retrievable by assessment identity alone.
+**Validation requirement:** the judgment's article must equal its assessment's article; a
+mismatched assessment or article reference is refused.
+
+### 2. Reference encoding — compared only after §1
+
+First identify the durable judgment record and its assessment/outcome/evidence contract. Then
+compare a declared snapshot reference with a typed reference **to that same record**. Compare on
+three specified requirements, not on where the reference happens to live:
+
+| Requirement | What must be specified before choosing |
+|---|---|
+| Validation | how a mismatched assessment or article reference is refused |
+| Retrieval | how the judgment is fetched through the reference, by assessment identity |
+| Replay comparison | how identities and result are compared on retry |
+
+**Neither format is selected.** A row that accepts an identifier is not proof that the identifier
+describes the correct judgment. No column, table or partition is allocated; no runtime storage
+test has been performed.
+
+### 3. Literal insertion text, with exact anchors
+
+**`docs/fn-specs/FN-GATES-01-05.md` §11.1 — append three rows to its Behavior/Rule/Refusal
+table** (proposed elaboration of `FR-04a`/`FR-05a`; **`AC-22` is consuming-gate evidence coverage
+and does not itself define assessment identity**):
+
+| Behavior | Rule | Refusal condition |
+|---|---|---|
+| Assessment identity | A `T5` judgment cycle creates an assessment carrying identity and revision; every seal, join evaluation, evidence item, judgment and report in that cycle references the same identity and revision | Inputs reference different assessments or revisions |
+| Judgment record | `T5-FINAL` creates a durable judgment record bound to exactly one assessment revision, its deciding actor and authority context, its stated result, reasons and applicable evidence — before any report exists | A result is inferred from article state; a judgment's article differs from its assessment's |
+| Replay | Retrying a completed assessment resolves to the same assessment, judgment and result, and creates no additional final outcome, approval transition, delivery request or publication side effect (`AC-08e`, corrective plan §16.2, `[decided_target_held]`) | A retry is presented as a new outcome; fresh analysis inherits an earlier approval |
+
+**`docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` §4.1 — insert after the "Every transition writes
+exactly one row…" paragraph:**
+
+> A report fixes its state-history context through the as-at transition anchor and freezes the
+> evidence, reasons, template, rule-set and schema versions applicable to the assessment it
+> describes (`D-111` §3a/§3b). It identifies its judgment **explicitly**; the judgment is never
+> derived from the anchor. A report states its as-at context explicitly — an older anchor is never
+> treated as live state. **The record is immutable; replay handling requires explicit
+> validation**, and no one-report-per-assessment restriction follows from immutability. Producing
+> a further report representation is a separate governed replacement that preserves the prior
+> report and its provenance.
+
+**`docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` §4.2 — insert after the "What the board must
+surface" paragraph:**
+
+> Progress is **derived** from the selected assessment and its applicable evidence and is never
+> persisted as an article state. It uses the predicate set and precedence already accepted in
+> `docs/handoff/B-077-*.md` §"Validate coverage" — reused unchanged, not restated here. Coverage
+> means each required act has its own matching valid seal, not equal counts. Displaying progress
+> changes no article or delivery state.
+
+### 4. View classification
+
+| Class | What exists |
+|---|---|
+| **Existing historical** | `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` Panels A5/A6 and its Mermaid sequence/flow diagrams — the superseded order, dated evidence, **not edited** |
+| **Existing current** | **None depicting the `T5` judgment gate.** `docs/governance/media-industry-sop-fallback-implementation-plan.md` mentions `T5` once, in prose; it is not a view of it |
+| **Genuinely absent** | A current story panel, UML sequence and data-flow view of the judgment gate |
+
+**Absence does not justify creating them.** No residual UI choice has been named. Any such view
+produced later must consume the contract above; a diagram cannot decide behaviour by drawing
+arrows.
+
+### 5. Residual disposition and unaffected tiers
+
+Settled and retained with existing owners (`D-52`): schema/FK candidates in S1; append-only
+enforcement as infrastructure; board query/index strategy at S3; transition, publication and
+exception specifications. **Explicitly unaffected:** `FN-PUBLICATION-09-10-13.md` — Delivery
+separation is already its own, unchanged; `docs/PRD.md`, the Charter and `0001_init.sql` —
+frozen, untouched. **Open, and blocking a complete residual disposition:** §2's three
+requirements, which must be specified before any representation is chosen.
+
+### 6. Given/When/Then tests — planned, none executed
+
+| Given | When | Then |
+|---|---|---|
+| A completed assessment with a negative judgment | The report is retrieved | The explicit negative result, reasons, assessment and evidence are returned; none inferred from state |
+| The same completed assessment | It is retried | Same assessment, judgment and result resolve; article-scoped state and publication deltas are zero |
+| A report whose judgment reference names another assessment | It is validated | Refused |
+| A judgment whose article differs from its assessment's | It is validated | Refused |
+| A completed assessment with an approval | Fresh analysis is started | The new analysis inherits no approval and no ready bundle |
+| An article already `Published` | Progress is rendered | `Published` is preserved; rendering writes no state |
+
+**Executable test code is a later authorized implementation deliverable**, not permission implied
+by this packet.
+
+**This commit advances HEAD; Active Lane A resynchronizes before consuming approval.** `B-077`
+remains `Answered` with no `Resolution`; `B-071` closure and all build holds unchanged.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Judgment-record creation separated from reference encoding | §§1–2; no preference inferred from encoding location | Independent review |
+| **Approve** | Replay citation corrected to `AC-08e`, marked draft/held | `AC-08a` reclassified as return/rerun cross-reference only | Preserved |
+| **Approve** | Literal insertion text with exact anchors, and view classification | §§3–4; predicates reused, not reinvented | Owning-tier application when authorized |
+| **Reject** | The prior candidate comparison as decisive | Withdrawn — encoding does not determine target existence | Superseded by §§1–2 |
+| **Defer** | Storage selection, application, Encyclopedia parity, `B-071` closure | §2's requirements unspecified; no runtime test | Bounded authorization and independent verification |
