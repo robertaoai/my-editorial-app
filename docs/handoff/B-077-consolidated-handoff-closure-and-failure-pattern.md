@@ -2275,3 +2275,61 @@ acceptance is not build authority.**
 | **Approve** | Blocks A–C reissued in full as their single source | §4; `AC-08e` carries its full path | Verbatim insertion when authorized |
 | **Reject** | The prior impossibility/indistinguishability wording and the two-file write set | Withdrawn and superseded | — |
 | **Defer** | Storage sufficiency, application, Encyclopedia parity, `B-071` closure | No allocation, no runtime test, hosted content unread | Bounded authorization and independent verification |
+
+## Independent review: consolidated blocks and bounded documentation authorization (2026-09-07)
+
+**Review baseline `1deb4f5`.** The evidence-qualified mapping and combined Blocks A–C improve
+the packet. Block C was compared directly with the accepted bounded-correction insertion and
+is unchanged. The Register is now explicitly in the write set. Preserve R159 acceptance; no
+new predicate round, finding ID, storage selection or implementation follows from this review.
+
+One bounded correction remains: the Register item describes an application act but does not
+draft it, and the DoD's “which alone makes it Verified” has no named lifecycle target. D-183
+requires a specific authorized object/action/scope; D-190 requires Register recording before
+future governed edits. Independent review does not itself grant or reconstruct that act.
+
+### Lane A guide — finish the authorization packet
+
+| Order | Action | Completion criterion |
+|---|---|---|
+| 1 — parent, proposed authority | Present the exact documentation authorization below to the Judge, tied to immutable Blocks A–C at 1deb4f5. Review approval is not application approval | Object, action, paths and exclusions explicit; no inherited “decision-tree” approval |
+| 2 — after actual authorization | Record the actual scoped Judge instruction in the Register before applying the functional blocks, following D-183/D-190 | Register act precedes application; no speculative approval recorded as received |
+| 3 — application, after 2 | Insert the named blocks into the two functional files, retaining source labels and holds | Text matches the authorized packet; storage remains unverified |
+| 4 — evidence, after 3 | Run the consistency suite, report its actual result, synchronize at the settled source revision and hand back for independent documentation review | Review confirms only the documentation change, not storage, implementation or all of B-071; no lifecycle fields change in this unit |
+
+**Proposed authorization text — for Judge consideration only; NOT granted or recorded here:**
+
+> Authorize Active Lane A to record this bounded documentation act in
+> `docs/v1/V1-DECISION-REGISTER.md` before inserting Blocks A–C from B-077's
+> “Lane A: evidence-qualified mapping and consolidated write set” §4 at commit `1deb4f5`.
+> Insert Block A into `docs/fn-specs/FN-GATES-01-05.md` §11.1 and Blocks B/C into
+> `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` §4.1/§4.2 at the named anchors.
+> Authorize only those documentation writes. Select no judgment storage or reference encoding;
+> grant no code/schema/build or lane-transition authority; change no handoff lifecycle status
+> or broader authorization checkpoint. Retain existing build holds. Submit the documentation
+> and check evidence for independent review; do not claim B-071 closure or storage verification.
+
+Lane A must confirm the existing parent authorization checkpoints permit the proposed narrow
+documentation act; this text does not waive them. Any required tracked graph-fragment maintenance
+must be explicitly named as a separate maintenance write or separately authorized unit, not
+hidden in the functional write set. Report currency after the last tracked edit. Replace the
+fixed “17/17” operative DoD target with the runner's actual result. Explain Build Spec applicability
+by scope/sequence/DoD, not file creation alone.
+
+Read the storage table as inspected candidates, not proof of exclusivity or sufficiency:
+“only existing structure” is not independently established here; prefer “candidate examined”
+for the ledger. No runtime write/read path was tested. This limits the storage claim without
+blocking the accepted behavior draft.
+
+Graph metadata matches `1deb4f5`, `stale: false`, at review start. Hosted Encyclopedia parity
+and curated semantic verification are not established by extraction currency or the local
+dependency table. Only this handoff changes; governed tiers/specs/code remain untouched.
+B-077 remains Answered without Resolution and B-071 holds remain unchanged. Active Lane A
+synchronizes after this handoff commit before consuming graph evidence.
+
+| Decision | Tier | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | Blocks A–C consolidation and evidence-qualified mapping direction | Preserves accepted behavior and identifies inspected candidates | Preserve |
+| **Approve-with-conditions** | Register / functional documentation packet | Exact authorization and documentary-only DoD supplied as proposal | Judge decision, then Register-first application |
+| **Reject** | Automatic Verified promotion / inherited approval | Neither follows from review acceptance | Preserve lifecycle and authorization boundaries |
+| **Defer** | Storage sufficiency, Encyclopedia parity and B-071 closure | Not verified or authorized here | Separately scoped evidence and independent review |
