@@ -312,3 +312,109 @@ one stand for another: **extraction currency** (`lastAnalyzedHead` vs `HEAD`, vi
 `merge7 --all`); and **semantic description currency** (`check-update`, local-only). Lane A's
 earlier "the graph is current" claims asserted the first and were silent about the fourth. **Only
 the first three are repo facts.**
+
+## Independent decision-tree review at `ca77cd1` (2026-09-06)
+
+### Scope and normalized terms
+
+The Judge authorized a decision-tree review and a handoff-only commit/push. Lane B reviewed the
+`B-070`–`B-078` chain, its cited predecessors, the handoff lifecycle contract, the current
+`B-071` corrective plan, Graphify evidence and the requested storyboard/UML/data-flow/Encyclopedia
+surface. This section is the one consolidated tracking update; no `B-079` is raised.
+
+| Term | Meaning used here |
+|---|---|
+| `Answered` | Lane A replied. It is not a terminal resolution and does not mean every child closed |
+| no `Resolution` | The whole entry has no terminal disposition yet. The field is omitted; `None` is not a valid resolution value |
+| historical storyboard | Existing journal panels and Mermaid diagrams; evidence of an earlier model, not the current behavior owner |
+| deferred view | Work already assigned to a named follow-up tier; absence of a new artifact is not an unowned gap |
+| graph current | Never one fact: extraction currency, curated coverage, curated content parity and local semantic-description currency are reported separately |
+
+Current enumeration is **78 `B-*` entries plus one `C-*` entry: 79**, not 80. The count is an
+observed review fact only and is not copied into a rule or closure criterion.
+
+### Decision tree — parent before children
+
+```text
+P1  Is B-077 awaiting a Lane A reply?
+    No -> keep Status: Answered.
+    |
+    Is the entire B-077 item terminally dispositioned?
+    No -> omit Resolution and verification metadata.
+          Do not write Resolution: None and do not relabel it Open.
+    |
+P2  Are the requested storyboard/UML/data-flow/report concerns unowned?
+    No -> preserve the existing owners:
+          R159 -> docs/specs/ux/
+          R160 -> FN-AUDIT-VISIBILITY-07-08.md
+          historical storyboard -> journal evidence, unchanged
+          Encyclopedia -> known URL + local sync ledger; hosted content still requires reading
+          Do not create B-079 or duplicate artifacts.
+    |
+P3  Which Graphify claims are proven at ca77cd1?
+    extraction currency -> proven by HEAD = lastAnalyzedHead
+    curated coverage -> proven by graph-coverage
+    curated fragment parity -> proven by merge7.js --verify-only --all
+    local semantic descriptions -> pending; defer and label local-only
+    portability -> runtime warnings only; .graphify is gitignored and no path is tracked
+    |
+P4  Can the consolidated handoff be closed?
+    No -> keep B-077 Answered/no Resolution while its originating children retain
+          their own states and owners. B-071 remains the separate product-plan parent.
+```
+
+### Deduplicated findings and fixes
+
+| ID | Finding and failure if accepted unchanged | Drafted correction | Success criterion |
+|---|---|---|---|
+| `B077-R7` | The proposed B-077 header edit treats `Answered` as if it meant terminally complete and proposes `Resolution: None`, which is outside the allowed resolution vocabulary. It would corrupt lifecycle semantics while claiming to repair them | Preserve `Status: Answered`; omit `Resolution`, `Verified-By` and `Verified-At-Commit` until one truthful whole-entry disposition exists | The header matches the already-established `B077-R1` rule and the handoff template; open children remain visible without inventing a value |
+| `B077-R8` | The proposed B-079 assumes storyboard/story-panel/UML/data-flow work has no owner. Current sources already defer R159 to `docs/specs/ux/` and R160 to `FN-AUDIT-VISIBILITY-07-08.md`; the journal contains the historical Mermaid panels and the Encyclopedia URL is recorded. A new entry would duplicate settled routing | Do not create B-079. Preserve the current owners and boundaries. A future implementation UML may live in `specs/`; behavior stays in Fn_Specs and UI consequences in `specs/ux/`, under the existing D-34 mapping | One owner per concern; no duplicate handoff or diagram; historical panels remain historical and hosted Encyclopedia verification remains explicitly unproven |
+| `B077-R9` | The pasted graph summary leaves curated parity and semantic descriptions unmeasured, then calls the graph resynchronized. A consumer may treat topology currency as semantic completion | Record the measured facts below separately. Defer only the local semantic queue; never use it as committed cross-lane evidence | Every graph claim names its check and boundary; no single “current” label substitutes for the four facts |
+| `B077-R10` | The pasted inventory states 80 handoffs, while filesystem enumeration at this revision finds 79. A mutable tally copied into governance will immediately drift | Correct the review observation here and keep closure item-based, never count-based | Future closure reads each originating entry; no rule depends on this observed count |
+
+### Graph evidence at the reviewed revision
+
+| Fact | Evidence | Result / disposition |
+|---|---|---|
+| Extraction currency | `.graphify/branch.json.lastAnalyzedHead` compared with `git rev-parse HEAD` | **In sync at `ca77cd1`** |
+| Curated coverage | canonical consistency runner's `graph-coverage` check at the settled revision | **Covered**; must be rerun after this handoff commit moves HEAD |
+| Curated content parity | `node docs/graph-fragments/merge7.js --verify-only --all` | **Pass:** no conflicting node or edge fields across tracked fragments |
+| Semantic description currency | `npx graphify check-update` | **Pending, local-only.** Do not claim semantic completion or require a commit for ignored runtime state |
+| Portability | `npx graphify portable-check .graphify` plus `git check-ignore` / `git ls-files` | Absolute-path warnings occur only in ignored `.graphify/` runtime artifacts; no `.graphify` path is tracked. Observation, not a commit blocker |
+
+The initial sandboxed consistency run could not spawn nested Git/Node processes, so its skipped/
+failed result is environmental evidence, not repository failure. A full unrestricted rerun is the
+verification gate before this handoff commit. After the commit, `docs-drift` is expected to become
+red because the handoff moved HEAD; per the channel SOP, Active Lane A owns final Graphify
+synchronization before a consuming approval. That expected post-commit lag is not called synced.
+
+### Cross-lane consolidation and closure boundary
+
+- `B-072`–`B-076` and `B-078` retain their originating lifecycle evidence; this review does not
+  bulk-promote, reopen or duplicate them.
+- `B-070` remains `Applied` while its explicitly named B-071 dependency remains open. That is a
+  dependency state, not a new defect.
+- `B-061`, `B-071` and `B-077` may legitimately lack terminal `Resolution` for different reasons;
+  they are reviewed through their own content, not normalized to one label for tally convenience.
+- B-071 remains the product/documentation plan parent. Its Units, D-189/AUTH-DOC and D-171 hold
+  are not authorized by this process review.
+- R159/R160 remain deferred to their already named owners. No implementation, UX artifact,
+  report mapping or hosted Encyclopedia update is performed here.
+
+### Approve / reject
+
+| Decision | Tier / item | Status | Follow-up phase |
+|---|---|---|---|
+| **Approve** | B-077 lifecycle | `Answered` with no `Resolution` is the truthful current whole-entry state | Preserve until originating children are dispositioned |
+| **Approve** | Graph extraction, coverage and tracked-fragment parity at pre-commit `ca77cd1` | Separately evidenced; no conflict found | Active Lane A resynchronizes after this handoff commit before consuming approval |
+| **Reject** | Proposed `Status: Open` plus `Resolution: None` edit | Contradicts D-101/template vocabulary and duplicates the correction already made under `B077-R1` | No edit to the header |
+| **Reject** | Proposed B-079 / new UML-data-flow ownership question | R159/R160 already have distinct owners; storyboard and Encyclopedia references exist | Use existing B-071 follow-up tiers |
+| **Defer** | Local Graphify semantic-description completion | Pending and non-durable; not shared repository evidence | Per-machine diagnostic when a semantic consuming claim needs it |
+| **Defer** | B-071 product plan, legacy reconciliation, Phase 3 work and implementation | Separate existing parents/owners; no authority granted here | Their recorded handoff/decision paths |
+
+### What Lane B did
+
+Lane B performed the bounded decision review, appended this correction to the existing consolidated
+handoff and prepared only that handoff for commit/push. No originating entry header, governed tier,
+graph fragment, ignored Graphify runtime artifact, Product/Fn_Spec/SPECS file, checker, code or lane
+state is changed. The unrelated `package-lock.json` remains untouched.
