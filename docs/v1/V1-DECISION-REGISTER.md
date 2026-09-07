@@ -13083,3 +13083,115 @@ non-implementation dispositions carrying no anchor — over full **and** shallow
 with `git cat-file` at `3ff81c6` and all of them exist. **That proves the anchors resolve, nothing
 more** — not that any commit's content supports the correction it is attached to. The earlier
 summary of this sweep as showing *"the data is clean"* is withdrawn as too broad (`R2-2`).
+
+## 5.14e18 `D-193` — PROPOSAL, NOT DECIDED: `T1` Requires a Field Nothing Produces, and the Customer-Feedback Channel Has No Closure Layer
+
+**Lane A proposal put to the Chief Editor, 2026-09-07. This section authorizes nothing.** It is
+recorded under `D-183`/`D-186` as the packet that must exist *before* execution, not as an act. No
+`FB` item is answered, no specification is corrected, no `CR-14` disposition is taken, and no code
+is written. **The Judge's `Accept`/`Reject` per row below is what converts any of it into work.**
+
+### Why this proposal exists
+
+Three passes hardened the **lane-to-lane** channel (`docs/handoff/`): a lifecycle, evidence anchors,
+independent verification, and checks that fail when those are absent. **The channel carrying the
+*customer's* intent got none of that**, and it is the channel the business-to-requirements
+translation actually depends on.
+
+| | Lane→Lane — `docs/handoff/` | Project→Customer — `FB-01`…`FB-08` |
+|---|---|---|
+| Lifecycle | `Open`→`Answered`→`Applied`→`Verified`, plus `Deferred`/`Withdrawn`/`Superseded` | **none** |
+| Evidence anchor | `Verified-At-Commit`, existence proven | **none** |
+| Independence | verifier ≠ answerer, enforced | **none** |
+| Enforced by | `handoff-response`, `closure-readiness`, `channel-docs` | **nothing** |
+| Declarable as a `D-54` tier | yes | **no — `tier-sweep` has no entry for it** |
+| Last changed | continuously | **2026-08-20** |
+
+### What is GUARANTEED to fail — deterministic, not risk
+
+**`GF-1` — `T1` requires a field with no producer (`CR-14` / `FB-05`).** `FN-GATES-01-05.md` §3.1
+states it in its own words: *"A trend signal is **required** at T1, but `CR-14` … has **no
+functional requirement**. This field has no defined producer."* Its §7 integration table reads
+`Trend-signal producer | Missing`. **`T1` is the entry gate of the core verb.** Built as specified,
+`T1` either cannot complete or must accept a null in a field it declares required. Corroborated at
+`requirements-traceability-map.md` §4 and §7, `Modular_PRD.md`'s `CR-14` row and `Q9`, and the
+storyboard panel that flags the same gap. **This is a contradiction inside the specification, not a
+risk to be monitored.**
+
+**`GF-2` — the maintenance rule names a field that does not exist.**
+`requirements-traceability-map.md` §8 instructs: *"A feedback item is answered → Record the answer
+and its date."* §7's register has **no status, answer or date column**. The instruction cannot be
+followed, so no `FB` item can ever be observed as unanswered. **A register that cannot record
+closure cannot report a failure to close** — `a_check_that_cannot_fail`, outside a checker.
+
+### What is UNCLEAR — named, not guessed
+
+| | Unclear | Why the repository cannot settle it |
+|---|---|---|
+| `U-1` | Whether `FB-01`…`FB-08` were ever **sent** to the sponsor | The register records routing intent, never a transmission. **"Unanswered" and "never sent" are indistinguishable today** |
+| `U-2` | Which resolution `CR-14` should take | The corpus holds **two rivals**: `CR-14` says *AI* tags at the Reporter gate; the storyboard depicts a **human** Reporter entering a brief description. Both are coherent; they are not the same product |
+| `U-3` | Whether Lane C's zero verifications is design or gap | Every `Verified` entry was signed by Lane B. Lane C owns `.github/workflows/` only and is `Blocked`, so this may be correct — but nothing states it |
+| `U-4` | Whether `FB-02`'s conditional half was disclosed | The register says the customer *"has not been told"* that review independence is provisional pending `OD2`. Whether that is still true is recorded nowhere |
+
+### Success criteria derived from those failures — the `5B.1` proposal contract
+
+| Unit | Deterministic failure | Cause | Preventive control | Observable success criterion | Proving evidence / negative test | Owner | Return path |
+|---|---|---|---|---|---|---|---|
+| **`P-1`** | `GF-2` — closure is unrecordable | §7 has no closure fields | Add `D-192`'s lifecycle vocabulary to §7; reuse, do not invent | Every `FB` row carries a state, and an unanswered item is visibly unanswered | Set a row to `Answered` with no date and require it to read as incomplete | Lane A | Judge rejects vocabulary reuse |
+| **`C-1`** | A propagation claim into the map is unverifiable | `tier-sweep` maps no such tier | Add a `traceability` entry to its `TIERS` map | A `✅` naming the map is verified rather than reported unknown | Mark a row `✅` for a decision absent from the map; the sweep must fail | Lane A | Judge rejects touching `scripts/` |
+| **`C-2`** | `U-1` persists — sent and unanswered stay indistinguishable | No transmission record exists | Record a dated sponsor packet for `FB-01`, `FB-02`, `FB-04`, `FB-05` | Each High item shows a send date and an awaited-answer state | An item with no send date cannot be reported as unanswered | Lane A prepares; the sponsor sends | Judge declines to route |
+| **`P-0`** | `GF-1` — `T1` is unbuildable | `CR-14` never became a functional requirement | A Judge disposition: define the producer, or drop the field from `T1`'s required set | `FN-GATES` §7 no longer reads `Missing`, or `T1` no longer requires the field | `FN-GATES` §3.1's own instruction — *do not ship a required field with no source* — becomes satisfiable | **Judge decides**; Lane A specifies | `U-2`'s two candidates are put back for choice |
+
+### Parent-first decision table — one `Accept` / `Reject` per row
+
+**Dependency order. Severity is a separate column precisely because the most severe item is not the
+one to do first**: `P-0` is a Judge disposition, it needs a prepared packet, and the packet needs
+somewhere to record its answer.
+
+| Order | Depends on | Decision for the Judge | Severity | Lane A recommendation |
+|:---:|:---:|---|:---:|---|
+| **1** | — | Install a closure layer in `requirements-traceability-map.md` §7, reusing `D-192`'s vocabulary rather than a new one | High | **Accept** — `GF-2` is deterministic and the fix invents nothing |
+| **2** | 1 | Make the map a declarable `D-54` tier by adding it to `tier-sweep`'s `TIERS` map | Medium | **Accept** — Lane A's own `scripts/` surface under `D-84`, and this is the `G68`/`G92` shape a third time |
+| **3** | 1 | Prepare a dated sponsor packet for `FB-01`, `FB-02`, `FB-04`, `FB-05` | High | **Accept** — resolves `U-1`; `FB-04` is funded scope the customer never requested |
+| **4** | 3 | **Disposition `CR-14` / `FB-05`** — define the trend-signal producer, or remove the field from `T1`'s required set | **Critical** | **Judge only.** `U-2` names the candidates; Lane A must not choose between an AI producer and a human one |
+| **5** | 4 | Propagate the `CR-14` outcome to `FN-GATES` §3.1/§7, `Modular_PRD`, the map, and Encyclopedia Entry 06 | High | **Accept in principle**, executable only after row 4 |
+| **6** | — | Record whether Lane C's zero verifications is intended | Low | **Accept** — `U-3` costs one sentence and removes a standing ambiguity |
+
+### Step-by-step guide for Lane A, once rows are accepted
+
+1. **Row 1.** Add `Status`, `Answer` and `Answered-On` to §7's register using `D-192`'s terms and no
+   new ones. Set each row to its true current state — with `U-1` unresolved that is **status
+   unknown**, not `Open`. **Do not infer an answer from silence.**
+2. **Row 2.** Add a `traceability` entry to `TIERS`. **Negative-test it**: mark a row `✅` for a
+   decision absent from the map, require the sweep to fail, then restore.
+3. **Row 3.** Draft the sponsor packet from §7's existing text and add no new recommendations.
+   Record the send date **when the sponsor confirms transmission**, never on drafting.
+4. **Row 4.** Put `U-2`'s two candidates to the Judge with their consequences, then **stop**. An
+   agent cannot accept residual risk (§5B.2).
+5. **Row 5.** Propagate under `D-54` in one pass, naming every tier including the unaffected ones,
+   and state Encyclopedia Entry 06's impact explicitly.
+6. **Row 6.** One sentence in `V1-PHASE-CLOSURE.md` §5 — or a `C-NNN` handoff entry if Lane C
+   disputes it.
+
+### Tier applicability
+
+| Tier | Applicability |
+|---|---|
+| `V1-DECISION-REGISTER.md` | **Affected** — this proposal packet, and nothing else |
+| `requirements-traceability-map.md` | **Proposed, not applied** — row 1 |
+| `scripts/checks/tier-sweep.mjs` | **Proposed, not applied** — row 2 |
+| `docs/fn-specs/FN-GATES-01-05.md`, `Modular_PRD.md` | **Proposed, not applied** — row 5, and only after row 4 |
+| `V1-BUILD-SPEC.md` | **Unaffected** — no sprint's scope, sequence position or Definition of Done changes |
+| `V1-ARTIFACT-INVENTORY.md` | **Unaffected** — no file is created or retired by this packet |
+| `Modular_PRD.md` §8 | **Unaffected** — no sprint closes and no tier opens |
+| `V1-PHASE-CLOSURE.md` | **Unaffected** — no lane state or closure condition changes |
+| Frozen `docs/PRD.md`, Charter, `0001_init.sql` | **Unaffected** — `CR-14` is read as evidence and never edited |
+| **Encyclopedia** | **Entry 06 affected only if row 4 is decided.** It declares `CR-14` Reporter-gate tagging and cites the map §4/§7. Rows 1–3 and 6 do not touch it. Hosted content is unread and parity is not claimed |
+
+### Scope limits
+
+**Planning only; nothing here is applied.** `B-077`, `B-079` and `B-071` keep their own lifecycles
+and no handoff status is promoted. `docs/specs/ux/` is recorded as absent although `D-34` maps a
+tier to it — **recorded, not created**, because `D-30` adds technical content when the build starts.
+**This packet is Lane A's own work and is not independently reviewed**; it is available for review
+at the resulting revision.
