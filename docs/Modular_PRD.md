@@ -178,7 +178,14 @@ own documents**; only the index row lives in this file.
 | Module | Product | Status | Requirements live in | `Fn_Specs` |
 |---|---|---|---|---|
 | **`M-MVP`** | Editorial pipeline — the five-gate tracker | **Active** | **§1–§12 of this document** | `docs/fn-specs/FN-*` — four, `FR-01`–`FR-13` |
-| **`M-POC`** | **P0-EVR** — Professional Evidence Review | **Indexed, unspecified** | *not yet written* — see below | *none; blocked on the row above* |
+| **`M-POC`** | **P0-EVR** — Professional Evidence Review | **Requirements and behaviour written; not built** | `docs/modules/M-POC-REQUIREMENTS.md` | `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md` — `PR-01`–`PR-13` |
+
+> **Row corrected 2026-09-07 (`B-080`), navigation only.** It previously read *"Indexed,
+> unspecified / not yet written / none"* while both documents existed, were created 2026-08-22 under
+> `D-99`, and were inventoried — a reader was sent looking for requirements that were already
+> written. **Nothing about `M-POC`'s authority changes.** It still has **no `SPECS` tier and no UX**,
+> because the Judge ruled there is not enough clarity for either, and this row confers **no build
+> authority**. `M-POC`'s existing readiness and exclusion conditions in §0.6.2 stand unaltered.
 
 **`M-MVP` is retroactive labelling, not a change.** Everything §1 onward already describes one
 product; it now has a name so a second one can be distinguished from it. **No requirement text

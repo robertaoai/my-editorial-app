@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "b080_d193_business_routing_evidence_review",
+      "label": "B-080: D-193 -- Establish the Current Decision-Maker Before Adding Feedback Controls",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-080-d193-business-routing-and-evidence-review.md",
+      "source_location": "",
+      "description": "Handoff spec-defect raised by Lane B against D-193. Read the entry header for current lifecycle status; the following is the substance as answered on 2026-09-07. The reusable finding is that a governance proposal assumed an audience and an evidence base it had not checked. Its routing assumed a present external customer or sponsor to send feedback to, when M-MVP's current recipient is the Chief Editor and no established external customer base exists for the packet: historical customer wording describes requirement provenance, not a present recipient, and a prepared packet is not sent feedback. Client and marketing validation is queued to M-POC or a later explicitly authorized build with a named owner, entry conditions and review trigger, ruled by the Judge on 2026-09-07. The proposal also misread its own source, asserting that the storyboard depicted a human Reporter and that the corpus therefore held two rival CR-14 producer resolutions; Panel A2 is headed Reporter, Line 1, Agent with participant Reporter (agent, L1), consistent with FN-GATES, so no rivalry existed and an INSERT arrow does not define generation or provenance. Two failure claims were overstated: CR-14/FB-05 is an unresolved specification dependency that blocks readiness of the intake unit rather than a demonstrated runtime failure, and the traceability map's missing response columns make completeness hard to assess rather than making an answer impossible, since the maintenance rule remains followable in prose. Three further corrections concern the proposal's own reasoning: copying a handoff lifecycle into the map would neither implement Status versus Resolution nor preserve the promised vocabulary, and unknown transmission is an evidence condition rather than a new state; adding a tier-sweep TIERS entry cannot validate a Tier/Applicability table because the checker reads only Item-headed tables, and checker coverage confers no document authority; and zero verifications by one lane is not a defect because reviewer independence, not lane participation, is the criterion. The entry also records that removing a T1 requirement or replacing AI tagging is not automatically a permissible resolution of frozen CR-14, since a conforming elaboration must be distinguished from a scope change requiring ratification, and that no agent edits frozen sources. Two verified drift findings accompany it: Modular_PRD 0.6.1 described M-POC requirements as not yet written while M-POC-REQUIREMENTS.md and FN-POC-ENGAGEMENT-01-13.md existed, were created 2026-08-22 under D-99 and were inventoried; and storyboard Panel A2 requires at least one topic_tag where FN-GATES 3.1 and AC-01 require exactly one subject topic under G39, while its Mermaid arrows write the Logged state before the transition record although the panel's own note states the transition row precedes the state change.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also records the entry's reusable findings -- that a proposal can assume an unverified audience, misread its own cited source, and overstate a readiness gap into a guaranteed failure -- which are otherwise reachable only by reading the full entry."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b080_d193_business_routing_evidence_review",
+      "target": "b079_d192_checklist_semantic_review",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-080-d193-business-routing-and-evidence-review.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b080_d193_business_routing_evidence_review",
+      "target": "b077_consolidated_closure_failure_pattern",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-080-d193-business-routing-and-evidence-review.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b080_d193_business_routing_evidence_review",
+      "target": "intent_hierarchy_d29",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-080-d193-business-routing-and-evidence-review.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b080_d193_business_routing_evidence_review",
+      "target": "d54_propagation_rule",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-080-d193-business-routing-and-evidence-review.md",
+      "source_location": "",
+      "weight": 1
+    }
+  ]
+}

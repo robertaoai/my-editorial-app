@@ -13091,6 +13091,30 @@ recorded under `D-183`/`D-186` as the packet that must exist *before* execution,
 `FB` item is answered, no specification is corrected, no `CR-14` disposition is taken, and no code
 is written. **The Judge's `Accept`/`Reject` per row below is what converts any of it into work.**
 
+### CORRECTION — 2026-09-07, raised as `B-080`. Read this before anything below it
+
+**Lane B reviewed this packet at `f054967` and found several of its claims unsupported.** They are
+corrected here and the originals are preserved rather than rewritten. **Where the text below this
+banner conflicts with this table, this table wins.**
+
+| | What this packet claimed | Corrected |
+|---|---|---|
+| `R1` | Rows 3–4 and `C-2` assumed a present customer/sponsor to route `FB` items to | **Wrong audience.** `M-MVP`'s current recipient is the **Chief Editor**. There is no established external customer base to contact for this packet; historical customer wording describes requirement *provenance*, not a present recipient. **Client and marketing validation is queued to `M-POC` or a later explicitly authorized build** — Judge-authorized 2026-09-07 — with a named owner, entry conditions and a review trigger. A prepared packet is not sent feedback |
+| `R2` | The storyboard depicts a **human** Reporter, so the corpus holds two rival `CR-14` resolutions | **Factually wrong, and the rivalry never existed.** Panel A2 is headed *(Reporter, Line 1, **Agent**)* and its participant is `Reporter (agent, L1)`, consistent with `FN-GATES`. An `INSERT` arrow does not define generation or provenance. Producer designs are **proposals to be written**, not decisions already in the corpus |
+| `R3` | `GF-1` is a guaranteed runtime failure; `GF-2` makes recording an answer impossible | **Both overstated.** `CR-14`/`FB-05` is an unresolved specification dependency that **blocks readiness** of the intake unit — not a demonstrated runtime failure. §8's answer-and-date instruction **remains followable in prose**; what is missing is a canonical location, so completeness cannot be assessed reliably. **A tracking gap, not unrecordable closure** |
+| `R4` | Copy the handoff lifecycle into map §7 via `Status`/`Answer`/`Answered-On` | Neither implements `Status` versus `Resolution` nor preserves the promised vocabulary. **Keep `FB-01`…`FB-08` as traceability identities and add a reference to the canonical answer and evidence** — lane transactions keep their fields in handoff entries, Judge decisions stay in the Register. Unknown transmission is an **evidence condition**, not a new state |
+| `R5` | A `TIERS` entry would make the map a declarable, checkable `D-54` tier | **Internally inconsistent with this repository's own finding.** `tier-sweep` reads only tables whose first column header is `Item`; a `\| Tier \| Applicability \|` table is never read, so the mapping alone validates nothing. **Checker coverage does not confer document authority** |
+| `R6` | Lane C's zero verifications is a governance question | **No rule requires each lane to verify.** Reviewer independence is the criterion; participation counts are not a defect and are no reason to edit live lane state |
+| — | The comparison table credits the handoff channel with proven anchors | **Overstated.** `Applied` anchors get **presence validation only**; the full-history existence proof runs for `Verified`. `D-192` already records this limit, and reviewer fields never mechanically prove that independent reading occurred |
+| — | Rows 1–3 cannot touch the Encyclopedia | **Too categorical.** Entry 06 declares a dependency on map §4/§7, so a §7 change requires an impact review even when `CR-14`'s scope is unchanged |
+
+**One constraint this packet omitted.** Removing the `T1` requirement, or replacing AI tagging, is
+**not automatically a permissible resolution of frozen `CR-14`.** The decision packet must
+distinguish a conforming elaboration from a scope change requiring the existing
+amendment/ratification process. **No agent edits frozen sources.**
+
+**An unchanged document date is not by itself semantic drift**, and this packet leaned on one.
+
 ### Why this proposal exists
 
 Three passes hardened the **lane-to-lane** channel (`docs/handoff/`): a lifecycle, evidence anchors,
@@ -13107,7 +13131,11 @@ translation actually depends on.
 | Declarable as a `D-54` tier | yes | **no — `tier-sweep` has no entry for it** |
 | Last changed | continuously | **2026-08-20** |
 
-### What is GUARANTEED to fail — deterministic, not risk
+### Readiness blockers — **heading corrected** (`B-080` `R3`); originally "what is GUARANTEED to fail"
+
+**Both items below are real and both were overstated.** They block *readiness* of the units they
+name. Neither is a demonstrated runtime failure, and the original framing is superseded by the
+banner above.
 
 **`GF-1` — `T1` requires a field with no producer (`CR-14` / `FB-05`).** `FN-GATES-01-05.md` §3.1
 states it in its own words: *"A trend signal is **required** at T1, but `CR-14` … has **no
@@ -13129,7 +13157,7 @@ closure cannot report a failure to close** — `a_check_that_cannot_fail`, outsi
 | | Unclear | Why the repository cannot settle it |
 |---|---|---|
 | `U-1` | Whether `FB-01`…`FB-08` were ever **sent** to the sponsor | The register records routing intent, never a transmission. **"Unanswered" and "never sent" are indistinguishable today** |
-| `U-2` | Which resolution `CR-14` should take | The corpus holds **two rivals**: `CR-14` says *AI* tags at the Reporter gate; the storyboard depicts a **human** Reporter entering a brief description. Both are coherent; they are not the same product |
+| `U-2` | **CORRECTED (`B-080` `R2`)** — what the trend signal's producer and provenance contract should be | The actor is **not** in doubt: Panel A2 and `FN-GATES` both name an **agent** Reporter. The original claim of a human/AI rivalry was **false and is withdrawn**. What is genuinely missing is the producer's generation, provenance and unavailable-input behaviour, which must be **drafted as proposals** — and any resolution must distinguish a conforming elaboration of frozen `CR-14` from a scope change needing ratification |
 | `U-3` | Whether Lane C's zero verifications is design or gap | Every `Verified` entry was signed by Lane B. Lane C owns `.github/workflows/` only and is `Blocked`, so this may be correct — but nothing states it |
 | `U-4` | Whether `FB-02`'s conditional half was disclosed | The register says the customer *"has not been told"* that review independence is provisional pending `OD2`. Whether that is still true is recorded nowhere |
 

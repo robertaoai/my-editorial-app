@@ -46,7 +46,8 @@
   proves — every `Applied` anchor resolves, which is not evidence that a commit's content supports the
   correction attached to it. **Tier applicability is unchanged**: documentation only, no product,
   spec, code, workflow or lane-state effect, and no artifact created or retired.
-- **Resolution:** Applied
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's answering and applying work; original raiser, reviewing the corrections rather than implementing them
 - **Evidence:** independent source review of `e61bf3e9fe6a7bd586379f39e3b72f5207ba74a6`; `docs/v1/V1-DECISION-REGISTER.md` D-192; `docs/handoff/README.md` Feedback checklists; canonical TEMPLATE and D-58 arbitration rule; the external drafts already reviewed in this conversation.
   **Lane A applying evidence, 2026-09-07:** the corrections above in `D-192` (normalization table,
   independence row, new correction section) and in `docs/handoff/README.md` (sender items,
@@ -61,9 +62,24 @@
   assertion, not its first instalment**, and is kept as a bare SHA so it survives the format and
   existence validation `R2-2` proposes. Anchor existence is not content review: a reviewer must still
   establish that `41fb013` supports what this entry claims.
-- **Verified-At-Commit:** 41fb0133e41f9b11e7fc008f431ad043e8f31325
+- **Verified-At-Commit:** 521b9b4ff415f528c3adb35a7d563dc1b9666b8b
 
 ## What happened
+
+**Independent verification, 2026-09-07.** Lane B reviewed the completed correction at `521b9b4`
+against this entry's original acceptance examples and R2-1/R2-2/R2-3. D-192 now distinguishes
+nomination, independent reviewer and the Applied/Verified evidence anchor; the answer above
+explicitly supersedes its old wording. Its tooling proposal limits shared validation to Applied
+and Verified, preserves other dispositions and shallow-history limits, and permits author testing
+without conferring independent verification. Its manual anchor claim is limited to existence.
+The SOP retains the corrected investigation, systemic-concern, D-58 and named-fragment rules.
+The applying content is present, not merely an existing SHA. These named corrections are Verified.
+At the later review HEAD `f054967`, the local suite passed 17/17 and frag124 passed exact named
+fragment parity; the intervening commit adds D-193, not another D-192 correction. Those checks
+support this review but do not replace the manual semantic review. D-193's separate findings go
+to B-080; they do not reopen this bounded correction. Tooling implementation remains deferred,
+B-077 is untouched, and neither phase closure nor build authorization follows from this entry.
+This verification record is a working-tree edit until separately committed.
 
 The user requested review and correction drafting for docs/governance/orchestration after Lane A
 adopted parts of the external feedback guides. B-077 is evidence only and stays separate and

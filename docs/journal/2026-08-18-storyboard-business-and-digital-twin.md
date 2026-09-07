@@ -70,6 +70,28 @@ sequenceDiagram
 
 > **Gap made visible — `FB-05` / `CR-14`.** A `trend_signal` is *required* at T1, but no functional requirement defines where its value comes from. `CR-14` (AI tagging at the Reporter gate) has **no FR**. The panel has a required input with no defined producer.
 
+> **SUPERSEDED FOR CURRENT USE — 2026-09-07 (`B-080`). The panel above is preserved as dated
+> history; two of its details no longer describe governed behaviour, and this diagram is not build
+> input.**
+>
+> **1 — Topic cardinality.** The panel requires *"≥1 `topic_tag`"*, and its diagram labels the link
+> the same way. **`FN-GATES-01-05.md` §3.1 and `AC-01` require exactly ONE subject topic.** `G39`
+> records why: *"two concepts, one word"* — in an editorial business the **topic is the subject**,
+> what the article *is about*, and there is exactly one of those. Many analytical tags may coexist
+> with it, but they are a different concept and do not satisfy the subject. **Read `FN-GATES` for
+> the requirement; this panel's `≥1` is stale.**
+>
+> **2 — Ordering. The diagram contradicts its own note.** The note says *"transition row precedes
+> the state change"*, which is the governed audit-before-state rule — but the arrows write
+> `INSERT articles (… state=Logged)` **before** `INSERT workflow_transitions`. The note is correct
+> and the arrow order is wrong. Creating the record and performing the `Logged` transition are
+> **two distinct events**, and the transition evidence is written first. Transaction design belongs
+> to the owning technical specification, not to this panel.
+>
+> **The `FB-05` annotation above is NOT superseded** — that gap remains open and is `CR-14`'s
+> unresolved producer dependency. **The Reporter is an agent, as this panel and `FN-GATES` both
+> state**; there has never been a human/agent disagreement here, and any claim of one is withdrawn.
+
 ### Panel A3 — T2/T3 Validation and investigation *(Investigator, Line 1, Agent)*
 
 `Logged → Validated → Investigated`

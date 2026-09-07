@@ -19,6 +19,22 @@
   **One correction to this entry's premise:** it records the push as blocked with remote at
   `a18fe1c`. `git ls-remote` shows `refs/heads/docs/journal-2026-08-16` at `0bab8bd` — **the push
   landed**, and local, remote and the reported commit are the same revision.
+  **Disposition appended 2026-09-07 — Judge ruling, on the clarification that this entry is still
+  not resolved.** Everything above stands; nothing in the body is rewritten. This entry has carried
+  `Status: Answered` with **no `Resolution`** since 2026-09-03, which meant an acknowledged finding
+  sat outside every terminal state while its children were separately owned. **`Deferred` is the
+  honest disposition and it is terminal** (`D-101`): the work is real, it is not now, and each child
+  already has an owner — the deferral names them rather than leaving the parent unresolved. **This
+  closes the parent only.** No child is promoted, no `Applied` entry becomes `Verified`, the
+  `D-171` hold is unnarrowed, and the audit snapshot at `a18fe1c` keeps its pinned, historical
+  status. Should any child return work to this parent, it is reopened by a new entry citing this
+  one, not by editing this disposition.
+- **Resolution:** Deferred
+- **Follow-up-Tier:** Phase 1 for the legacy `Applied` reconciliation, each entry owned by its own
+  raiser and never by bulk promotion; Phase 1 for the `B-061`/`B-070` successor disposition; `B-071`
+  Draft 12 remains under the `D-171` hold with its own closure gate; **Phase 3** for the deferred
+  boundary owned by `B-016` and `C-001`; and final independent review by an eligible reviewer who
+  neither answered nor applied this entry
 - **Evidence:** all handoff entries discovered at immutable revision `a18fe1c`; Lane B re-review
   baseline `0caf909`; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`;
   `scripts/checks/handoff-response.mjs`; `scripts/checks/closure-readiness.mjs`; B-071/B-072/B-076;
