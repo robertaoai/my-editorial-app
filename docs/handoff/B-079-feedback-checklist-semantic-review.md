@@ -55,7 +55,13 @@
   by a named single-fragment `merge7.js … --verify-only` run — **not** by `--all`, and not by a node
   count. `Applied` is deliberately non-terminal: Lane A wrote these corrections and cannot verify
   them. Independent review at the resulting revision remains outstanding.
-- **Verified-At-Commit:** 66217df3bc88d4282fe953f91007564071e576c1
+  **Anchor advanced 2026-09-07 (`R2-1`):** `Verified-At-Commit` now names `41fb013`, the commit
+  containing the **complete** asserted correction — Round 1 and Round 2 together. The Round 1 half
+  landed earlier at `66217df`, which the answer above still records. **The anchor tracks the
+  assertion, not its first instalment**, and is kept as a bare SHA so it survives the format and
+  existence validation `R2-2` proposes. Anchor existence is not content review: a reviewer must still
+  establish that `41fb013` supports what this entry claims.
+- **Verified-At-Commit:** 41fb0133e41f9b11e7fc008f431ad043e8f31325
 
 ## What happened
 
