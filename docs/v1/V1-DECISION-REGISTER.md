@@ -13389,6 +13389,11 @@ content below is **prepared for review and is NOT a sign-off** — the Addendum 
 that to the Chief Editor, who enters the date and approval artifact. **Lane A does not write it,
 and this packet does not claim it exists.**
 
+> **SUPERSEDED 2026-09-08 — the act has since happened.** The Chief Editor adopted the prepared
+> statement verbatim, and the ratification is recorded in the operative log. The draft table below
+> is preserved as the record of what was put forward; **the adopted text and the signed row are in
+> *"Adopted approval statement"* at the end of this decision.**
+
 | Field | Prepared content — unsigned |
 |---|---|
 | **Item** | `CR-14`/`FB-05`/`Q9` — manual `T1` input of the editorial trigger package |
@@ -13418,3 +13423,75 @@ written, the open-dependency note stands, and the source author/date auto-extrac
 **explicitly still undecided** — it must be dispositioned in the same manual-intake packet rather
 than silently preserved as though this clarification had settled it. Frozen `docs/PRD.md` and the
 Charter are untouched. **`B-080` step 2 onward is the next bounded unit and is not performed here.**
+
+### Adopted approval statement — Chief Editor, 2026-09-08
+
+**This is the recorded governing act.** The Chief Editor adopted the statement **verbatim**, having
+been shown its bounded scope. It was drafted at `docs/handoff/B-080` *"Judge approval draft"*,
+which remains the record of what was put forward; **this section is the canonical adopted text**,
+and the Addendum §2.4 `CR-14` row names it as the approval artifact. **Lane A transcribed an
+explicitly approved act — it did not author one**, which is the distinction `B-080` drew when it
+noted that §2.4's reservation of sign-off *"is not proof that an agent can never transcribe an
+explicitly approved act."*
+
+> I approve and ratify the manual editorial trigger-package input contract for `M-MVP` and its
+> use at `M-POC` intake when `M-POC` is separately authorized. The Chief Editor manually enters a
+> package containing a reviewable source URL, exactly one subject topic, source information and
+> a trend-signal description. Additional analytical/source tags remain distinct from the subject.
+> `M-MVP` preparation is direct; `M-POC` preparation includes manual extraction from an external
+> capture, with engagement context kept separate and linked to the shared editorial article.
+>
+> This is a recorded reconciliation of `CR-14`'s "AI tags" wording with my clarified manual-input
+> intent; it does not claim the frozen sentence already meant manual. It supersedes the URL-only
+> completeness reading of `A7`, while retaining manual URL entry. It neither requires nor authorizes
+> automated feed discovery, external import or application generation of these input values.
+>
+> I authorize Lane A to record this bounded decision and prepare its dependent documentation
+> proposal. Missing required input must prevent `T1` completion. The proposal must explicitly
+> resolve `T1` execution identity/Line authority and source author/date handling before claiming
+> intake readiness. This approval does not settle other open operating-model decisions, authorize
+> code, UI implementation, deployment, an external integration or `M-POC` activation, or close
+> `FB-05`/`Q9` before their remaining specification and verification criteria are met. Frozen
+> sources remain unchanged.
+
+#### What the adoption settles, and what it leaves open
+
+| | |
+|---|---|
+| **Settled** | The **input contract**: one manually assembled package — reviewable source URL, **exactly one** subject topic under `G39`, source information, trend-signal description, with analytical and source tags kept distinct from the subject |
+| **Settled** | **Missing required input prevents `T1` completion.** No incomplete article reaches `Logged` |
+| **Settled** | `A7`'s **URL-only completeness reading is superseded**; manual URL entry is retained |
+| **Settled** | The `M-MVP`/`M-POC` partition, with engagement context separate and linked to the shared article |
+| **OPEN** | **`T1` execution identity and Line authority.** Human data supply does **not** silently resolve the Addendum's agent-executor rule, and a human must never be logged as an agent |
+| **OPEN** | **Source author/date auto-extraction.** `FN-GATES` still permits it; the disposition belongs in the same dependent packet and must not be preserved by silence |
+| **OPEN** | `FB-05` and `Q9` — **not closed by this act** |
+| **Not authorized** | Code, UI implementation, deployment, external integration, `M-POC` activation |
+
+#### Ratification transcribed
+
+The operative row is now in `docs/source/v1-build-readiness-addendum.md` §2.4, identified as
+`CR-14` — **the existing requirement identifier, not a newly invented decision number**, as `B-080`
+required. `Ratified? = Yes`, `Ratified Date = 2026-09-08`, approval artifact pointing here.
+**`A7` was annotated in place rather than rewritten**: its manual URL-entry principle stands and
+only the URL-only completeness reading is superseded.
+
+**What is still owed.** The dependent documentation proposal — `FR-01` manual inputs, requiredness,
+provenance, execution identity, existing-URL association and failure criteria — plus propagation to
+the module requirements, traceability map, storyboard and sequence/data-flow views, and an
+Encyclopedia Entry 06 impact assessment. **None of it is performed by this act**, and intake
+readiness may not be claimed until `T1` execution authority and author/date handling are resolved.
+
+#### Tier applicability for the adoption
+
+| Tier | Applicability |
+|---|---|
+| `v1-build-readiness-addendum.md` §2.4 | **Affected** — the ratified `CR-14` row and the `A7` annotation. Governing, not frozen; this is the act its own process prescribes |
+| `V1-DECISION-REGISTER.md` | **Affected** — the adopted statement recorded here as the approval artifact |
+| `docs/handoff/B-080` | **Unaffected** — `Verified` at `a04305a`; its draft is preserved as provenance and its lifecycle is not reopened |
+| `Modular_PRD.md`, `FN-GATES-01-05.md` | **Unaffected until the dependent proposal** — no requirement text or behaviour changes here, and `FB-05`'s open-dependency note stands |
+| `V1-BUILD-SPEC.md` | **Unaffected** — no sprint's scope, sequence position or Definition of Done changes; readiness is explicitly withheld |
+| `V1-ARTIFACT-INVENTORY.md` | **Unaffected** — no artifact created or retired |
+| `Modular_PRD.md` §8 | **Unaffected** — no sprint closes and no tier opens |
+| `V1-PHASE-CLOSURE.md` | **Unaffected** — no lane state or closure condition changes |
+| Frozen `docs/PRD.md`, Charter, `0001_init.sql` | **Unaffected** — `CR-14` is quoted as evidence and never edited |
+| **Encyclopedia** | **Entry 06 affected** — it declares dependencies on `docs/PRD.md:23`, `FN-GATES` §3.1/§6/§7, `Modular_PRD` §2.5.1 and the traceability map §4/§7. The ratification changes the governing reading of `CR-14`, so Entry 06 requires an impact review at its next update. Hosted content is unread and parity is not claimed |
