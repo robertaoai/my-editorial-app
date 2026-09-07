@@ -12933,7 +12933,7 @@ adopting the drafts would have cost more than adopting the discipline.**
 | Rejected | Why |
 |---|---|
 | A parallel `FB-*` intake ledger with copied claims and its own roll-up | It duplicates the `B-NNN`/`C-NNN` channel. The originating entry **is** the record (`D-100`), and a second copy of a lifecycle is the drift mechanism `G55` names. Receipt and response already live in the entry; `closure-readiness` already computes the matrix |
-| Excluding the **submitter** from verification | It inverts the boundary. The excluded actor is the one who **answered or applied** (`D-102`; `TEMPLATE.md`'s `Verified-By`). Excluding the raiser removes the actor with the most context and leaves the answering side as the only eligible party — the self-verification `Applied` exists to prevent. **`B-078` is the live counterexample**: raised by Lane B, answered and applied by Lane A, verified by Lane B |
+| Excluding the **submitter** from verification | It inverts the boundary. The excluded actor is the one who **answered or applied** (`D-102`; `TEMPLATE.md`'s `Verified-By`). Excluding the raiser unnecessarily removes an otherwise eligible reviewer and **may leave no available independent reviewer at all**; it never makes the answerer or implementer eligible to verify their own correction, and eligibility alone does not prove that verification was performed (corrected by `B-079` — see below). **`B-078` is the live counterexample**: raised by Lane B, answered and applied by Lane A, verified by Lane B |
 | Requiring correction and independent verification for every closure | `Deferred`, `Withdrawn` and `Superseded` are terminal without an implementation, each with its own required evidence (`D-101`). A legitimate deferral that must wait for a fix is a deferral that has been refused |
 | A new intake ID for a second evidence round on the same item | The item stays the same item while its scope is unchanged. A child entry is for genuinely distinct scope, and *"the decision or evidence is missing"* is itself a legitimate finding |
 | Lane A holding "activation authority" | Lane A prepares and coordinates; **the Judge authorizes** (`D-183`, `D-186`). Lane C owns `.github/workflows/` and nothing else — "DevOps" is not its boundary |
@@ -12947,22 +12947,24 @@ proposal evaluated *after* the normalised checklists have been used, not adopted
 
 ### Vocabulary normalised
 
-The drafts and this channel name the same things differently. **The rows marked structural are
-genuine defects in the draft; the rest are labelling** — the standing rule that an unfamiliar label
-is checked against what it maps to before an incompatibility is recorded (`D-31`, `D-33`,
-`pub_target`/`platform_type` were all vocabulary, not structure).
+**These are mappings into the existing channel, not automatic synonyms** — corrected 2026-09-07,
+raised as `B-079`. **Preserve each source concept's meaning and its lifecycle stage.** Where no
+existing field carries it, **keep the context in the entry body** rather than invent a field or
+discard the information. The standing rule that an unfamiliar label is checked against what it maps
+to still holds (`D-31`, `D-33`, `pub_target`/`platform_type`) — **but "it maps to X" and "it means
+X" are different findings, and the first version of this table reported the second.**
 
-| Draft term | This channel | Kind |
+| Draft term | This channel | Why it is not a synonym |
 |---|---|---|
-| `INTAKE ID` (`FB-…`) | the originating `B-NNN`/`C-NNN` filename | labelling — the new ID is rejected outright |
-| `TRACK: A \| B` | `Kind:` | labelling |
-| `Status: Applied` | `Resolution: Applied` — `Status:` carries `Open`/`Answered` | labelling |
-| `LANE A RESPONSE TYPE` | the `Lane A:` disposition | labelling |
-| `LINKED VERIFIER` | `Verified-By:` with `Verified-At-Commit:` | labelling |
-| `DUE / TARGET` | `Follow-up-Tier:` | labelling |
-| aggregate "Intake Log" | `closure-readiness` output | labelling — the file is rejected |
-| verifier ≠ submitter | verifier ≠ **answerer** | **structural — the draft is wrong** |
-| `Graph-complete` | extraction currency, coverage, curated parity, description status | **structural — the draft collapses them** |
+| `INTAKE ID` (`FB-…`) | the originating `B-NNN`/`C-NNN` filename | a genuine rename, and the new ID is rejected outright |
+| `TRACK` — content vs governance | describe the subject or surface **in the body**; choose `Kind:` independently | **a subject is not a transaction kind.** Either subject can produce a `finding`, a `spec-defect`, a `dependency` or a `blocked-on-decision` |
+| `Status: Applied` | `Resolution: Applied` — `Status:` carries `Open`/`Answered` | a genuine rename: the draft put a resolution in the status field |
+| `LANE A RESPONSE TYPE` | explain the response in the `Lane A:` answer; set `Status`/`Resolution` **separately** under the SOP | **not a one-to-one map.** `ACCEPT` does not imply `Applied`; `CLARIFY` is not automatically `Withdrawn`; `DEFER` requires a named `Follow-up-Tier`; a rejection needs its reason and the existing disposition route |
+| `LINKED VERIFIER` | name the **proposed** reviewer in the body; record `Verified-By`/`Verified-At-Commit` only once the verification has evidence | **assignment is not completed verification**, and the review revision need not exist when a reviewer is nominated |
+| `DUE / TARGET` | keep an applicable date or milestone in the bounded action text; `Deferred` **also** requires `Follow-up-Tier` | **a deadline and the tier that owns deferred work answer different questions** |
+| aggregate "Intake Log" | `closure-readiness` output | the file is rejected; the computation is not |
+| verifier ≠ submitter | verifier ≠ **answerer** | **the draft is wrong**, not differently worded |
+| `Graph-complete` | extraction currency, coverage, **named-fragment** curated parity, description status | **the draft collapses facts that different runs prove** |
 
 ### What this applies
 
@@ -12994,3 +12996,32 @@ authority. **Promotes no lifecycle field** — nothing becomes `Verified` by thi
 remain untracked and are cited as dated external input, never as governing sources. **This decision
 is Lane A's own work and is therefore not independently reviewed**; the section it applies is
 available for independent review at the resulting revision.
+
+### Correction — 2026-09-07, raised as `B-079`
+
+**This decision's first version reported a mapping as a meaning.** Lane B reviewed it at `e61bf3e`
+and found rows labelled "labelling" whose two sides carry different dimensions, and an independence
+explanation that undercut the rule it was defending. **The findings are recorded here with their
+fixes rather than deleted** — a weakness removed from the record leaves no evidence the review
+worked.
+
+| What was wrong | Corrected to |
+|---|---|
+| `TRACK` mapped onto `Kind` | subject in the body; `Kind` chosen independently |
+| `DUE / TARGET` mapped onto `Follow-up-Tier` | a date in the action text — the tier names an owner, never a deadline |
+| `LINKED VERIFIER` mapped onto `Verified-By` | a nomination goes in the body; the field records an **earned** verification |
+| `LANE A RESPONSE TYPE` mapped onto the disposition | the response is explained; `Status`/`Resolution` are set separately |
+| *"leaves the answering side as the only eligible party"* | it may leave **no** eligible reviewer, and never makes the answerer eligible |
+
+**Claims made in the applying pass are withdrawn as overstated.** A rising total node count does not
+prove curated survival — a rebuild can add extracted nodes while dropping a curated one. And
+`merge7.js --all --verify-only` audits **conflicts between fragments**; that is not parity between a
+fragment and the graph. **Curated survival is claimed per named fragment or not at all.** Citing a
+conflict audit as a survival proof is the green-form fallacy this decision exists to name, committed
+in the pass that named it.
+
+**This decision's tier declarations are manually checked, not suite-verified.** `tier-sweep` reads
+only tables whose first column header is `Item`, so a `| Tier | Applicability |` table is never
+read. That is a bounded enforcement limitation, not evidence that any propagation claim is false.
+Parser hardening is deferred to its own Phase 1 tooling unit, and must test both the new table shape
+and a deliberately false claim.

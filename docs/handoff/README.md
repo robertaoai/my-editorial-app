@@ -287,8 +287,10 @@ is the drift `G55` names, arriving in the file that warns about it.
 
 ### Before you raise — Lane B and Lane C
 
-- **One item, one file.** If the entry names a class — *"the `Applied` entries"* — split it. A
-  class cannot be dispositioned; each member can (`D-100`).
+- **One bounded concern per entry.** A systemic process defect **may cite several examples and ask
+  for one shared correction** — that is not bulk closure, and it verifies or closes none of those
+  examples. Split only when the correction's scope or ownership differs. Independently raised
+  entries keep their own lifecycle and their links (`D-100`, `B-079`).
 - **Choose `Kind`; do not default it.** A report on your own turn is a `turn-report` and carries
   `Run`. A defect you want fixed is a separate `spec-defect`. The report says a turn happened; the
   defect asks for a fix.
@@ -297,8 +299,11 @@ is the drift `G55` names, arriving in the file that warns about it.
   saw nothing they are able to see. That is arrival, not correctness.
 - **State the claim and the gap separately.** *This asserts X on the strength of Y; Y proves
   &lt;the narrower fact&gt;.* Naming the collapse is the finding — *"this seems wrong"* is not.
-- **Ask for a decision, not another round of evidence.** If you cannot name the act that would
-  close the entry, narrow the item until you can.
+- **Name the bounded question or correction sought.** If answering it needs an investigation,
+  identify the missing evidence, the responsible owner, and the next review or stop condition.
+  **You do not need to know the final remedy to report a legitimate gap** — *"the decision or the
+  evidence is missing"* is a finding, not an unfinished one. Keep the same entry while its scope is
+  unchanged; create a child only for genuinely distinct scope (`B-079`).
 
 ### Before you answer — Lane A
 
@@ -327,9 +332,11 @@ would have invalidated a closure this channel has already performed correctly: *
 by Lane B, answered and applied by Lane A, then verified by Lane B** — as its own record states,
 *writing the review criteria and raising this entry do not make Lane B the answering/applying actor.*
 
-Inverting this is expensive in a specific way. Excluding the raiser removes the actor with the most
-context and the strongest reason to look, and leaves the answering side as the only party still
-eligible — **the self-verification `D-102` created `Applied` to prevent.**
+Inverting this is expensive in a specific way. Excluding the raiser unnecessarily removes an
+otherwise eligible reviewer and **may leave no available independent reviewer at all**. It never
+makes the answerer or the implementer eligible to verify their own correction — that remains the
+self-verification `D-102` created `Applied` to prevent. And **eligibility alone does not prove that
+verification was performed**: the table below says who *may* sign, never that anybody has.
 
 | Actor | May answer | May record `Applied` | May record `Verified` |
 |---|:---:|:---:|:---:|
@@ -349,11 +356,15 @@ collapsing it is how a green run gets read as semantic parity:
 |---|---|---|
 | Extraction is current | `docs-drift` — `lastAnalyzedHead` equals `HEAD` | that any document is described correctly |
 | Every document is represented | `graph-coverage` — no markdown under `docs/` is absent | that the node says anything true about it |
-| The curated layer survived | `merge7.js --verify-only` — the fragment matches the graph | that the fragment's description is still current |
+| A **named** fragment's curated content matches the graph | `merge7.js <that fragment> --verify-only` | that any *other* fragment matches |
 | Descriptions are filled in | `graphify check-update` reports none pending | anything about the rows above |
 
-Name the one you have. `docs-drift` reports `PASS synced` against a modified document and always
-has — it compares revisions, never content.
+Name the one you have, and name the fragment. **Two near-misses are worth stating outright, because
+both were committed in the pass that wrote this section** (`B-079`): `merge7.js --all` audits
+*conflicts between fragments* and is **not** parity with the graph; and a **rising total node count
+does not prove curated survival** — a rebuild can add extracted nodes while dropping a curated one,
+and the total still goes up. `docs-drift` reports `PASS synced` against a modified working tree and
+always has — it compares revisions, never content.
 
 ### Worked scenarios
 
@@ -363,7 +374,7 @@ Each is a case the rejected draft would have got wrong.
 |---|---|---|
 | The raiser wants to verify a fix someone else applied | Permitted. Record `Verified-By` naming them, and a `Verified-At-Commit` that exists | *Who may record `Verified`* |
 | A real concern that will not be actioned this cycle | `Resolution: Deferred` with `Follow-up-Tier`. Terminal **without** an implementation — a deferral is a disposition, not a delay | *Response is not closure* |
-| Lane B and Lane C send conflicting evidence about one item | Both entries stand and cross-reference. Escalate to the Judge only if the disagreement blocks an act; otherwise both can be true of different surfaces | *Answering* |
+| Lane B and Lane C send conflicting evidence about one item | Preserve both, and first test whether their scope or revision differs — separate-surface observations may both hold. For a genuine derived-tier conflict apply `D-58`: the Register decides, and **if the Register is silent, escalate — that silence is itself the finding.** Non-blocking status does not resolve a contradiction, though independent in-scope work carries on | `D-58` |
 | The answer needs an investigation nobody has done | Keep the entry. Name the next question, its owner, the evidence that would settle it, and the condition to stop. A new entry only for genuinely new scope | *This directory is the backlog* |
 | Every check is green and the claim is still unproven | Green is arrival, not correctness. Say what the run covered and what it could not see | *What it does not do* |
 
