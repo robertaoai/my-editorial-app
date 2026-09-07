@@ -67,11 +67,22 @@
   requiredness, provenance and execution identity; the source author/date auto-extraction
   disposition, which stays **explicitly undecided**; propagation; and the checker extension.
   `FB-05` and `Q9` remain `Open`.
-- **Resolution:** Applied
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), original raiser, independently reviewing Lane A's applied documentation corrections
 - **Evidence:** source review at f054967a953216083190f3508d68c3a1976d113d; D-193 and D-192 in V1-DECISION-REGISTER; requirements-traceability-map §7–§8; Modular_PRD §0.6, CR-14/Q9; FN-GATES §3.1/§6/§7; storyboard Panel A2; M-POC-REQUIREMENTS and FN-POC-ENGAGEMENT headers; tier-sweep source; ENCYCLOPEDIA-SYNC entry dependencies; the user's current M-MVP/M-POC clarification
-- **Verified-At-Commit:** a054a68867c113708fbc02c4aec192e359e8e395
+- **Verified-At-Commit:** a04305adf1cbb85ce61c44297bfe81b686fa6ba0
 
 ## What happened
+
+**Independent closure review, 2026-09-08, at a04305a.** The D-193 corrections, D-194's four
+reasoning corrections and recorded manual-package direction, and Modular_PRD §0.6.2's remaining
+navigation fix are present. The latter now links the existing requirements rather than calling
+them the next artifact. The actual applying SHA is
+`a054a68867c113708fbc02c4aec192e359e8e395`, read from Git; the corrected anchor is present at the
+reviewed revision. These bounded documentation corrections meet this entry's acceptance criteria
+and are independently Verified. This does not certify implementation, ratification or closure of
+Q9/FB-05. The approval draft below belongs to the already identified next decision step and does
+not reopen the correction. B-077/B-079 are untouched. This verification record awaits commitment.
 
 **Clarified brief:** independently review D-193 as a proposal, correct unsupported claims, and
 draft a parent-first Lane A plan for translating the Chief Editor's intent into requirements.
@@ -445,3 +456,83 @@ are unchanged. This review sends nothing externally and makes no commit or push.
 | Approve-with-conditions | Storyboard, functional specs and cross-reference propagation | Phase 1: apply only under the bounded governing act; independently verify |
 | Reject | URL-only completeness, automatic external import, duplicated editorial engines | Phase 1: use the complete package and existing shared-engine rules |
 | Defer | UI implementation, storage design and external integration | Later explicitly authorized technical/UX/build scope |
+
+## Judge approval draft — Addendum §2.4, 2026-09-08
+
+**Requested deliverable:** review and prepare an approval for the manual trigger-package decision.
+The text below is unsigned. Asking for a draft is not signing it; do not populate a ratification
+date or approval artifact with this draft's creation evidence.
+
+### Review of the prepared row
+
+The parent contract is ready to put to the Judge if its scope is explicit. D-194's current
+Resolved? wording mixes a settled input direction with unresolved execution details. Ratify the
+input contract only; keep T1 executor/Line authority and author/date handling as named follow-ups.
+Do not label CR-14 fully implemented or FB-05/Q9 closed on the strength of this decision.
+
+**Additional affected source:** Addendum §2.4 A7 says “Copy-paste URL form only.” Preserve its
+manual URL-entry principle, but expressly supersede any reading that the URL is the entire
+submission. The input package also carries topic, sources and trend description. The Addendum's
+T1 row still names an agent executor; human data supply does not silently resolve that actor rule.
+
+### Proposed approval statement — for the Judge to adopt
+
+> I approve and ratify the manual editorial trigger-package input contract for M-MVP and its
+> use at M-POC intake when M-POC is separately authorized. The Chief Editor manually enters a
+> package containing a reviewable source URL, exactly one subject topic, source information and
+> a trend-signal description. Additional analytical/source tags remain distinct from the subject.
+> M-MVP preparation is direct; M-POC preparation includes manual extraction from an external
+> capture, with engagement context kept separate and linked to the shared editorial article.
+>
+> This is a recorded reconciliation of CR-14's “AI tags” wording with my clarified manual-input
+> intent; it does not claim the frozen sentence already meant manual. It supersedes the URL-only
+> completeness reading of A7, while retaining manual URL entry. It neither requires nor authorizes
+> automated feed discovery, external import or application generation of these input values.
+>
+> I authorize Lane A to record this bounded decision and prepare its dependent documentation
+> proposal. Missing required input must prevent T1 completion. The proposal must explicitly
+> resolve T1 execution identity/Line authority and source author/date handling before claiming
+> intake readiness. This approval does not settle other open operating-model decisions, authorize
+> code, UI implementation, deployment, an external integration or M-POC activation, or close
+> FB-05/Q9 before their remaining specification and verification criteria are met. Frozen sources
+> remain unchanged.
+
+### Proposed §2.4 row — populate approval evidence only after adoption
+
+| # | Item | Category | Resolved? | Ratified? | Ratified Date | Approval Artifact | Build Implication |
+|---|---|---|---|---|---|---|---|
+| CR-14 | Manual editorial trigger-package input; FB-05/Q9; A7 completeness clarification | Bounded input-contract reconciliation | Input contract resolved upon adoption; execution authority and author/date handling remain open | UNSIGNED DRAFT; Yes only after the Judge's recorded act | Actual approval date, not draft date | Stable reference to the Judge's actual approval; never an invented SHA | Lane A records decision and prepares dependent documentation; required package and module partition retained; no build or readiness claim |
+
+Use existing CR-14 as the identifier, not a newly invented decision number. The row's eventual
+evidence must distinguish the approved statement from its later transcription. §2.4 reserves
+sign-off to the Chief Editor; that is not proof that an agent can never transcribe an explicitly
+approved act. This turn records neither sign-off nor a row in the operative log.
+
+### Parent-first decision and follow-up
+
+| Order / dependency | Judge choice | Lane A action after that choice | Success criterion |
+|---|---|---|---|
+| 1 / none | Accept or reject the bounded statement above | On acceptance, capture the exact act and actual date; on rejection, retain the draft and record the specific objection | Approval evidence supports this scope; no inference from silence or a generic analysis approval |
+| 2 / 1 accepted | Accept the proposed row as an accurate record | Record §2.4 and D-194 consistently; reconcile A7; propagate the decision under D-54 | Same fact in affected tracking tiers, no false closure or frozen-source rewrite |
+| 3 / 2 | Review the dependent manual-intake proposal | Draft FR-01/FN-GATES inputs, execution actor, author/date handling, existing-URL association and failure criteria | Each unresolved detail has an explicit proposed disposition; missing package cannot pass T1 |
+| 4 / 3 approved | Review derived views and evidence | Propagate to module requirements/functional specs, traceability map, storyboard/sequence/data-flow and Encyclopedia dependencies | Shared engine and M-POC partition agree across views; UX layout remains in its own tier |
+| 5 / committed corrections | Independently accept or return the documentation | Verify actual commit content and named graph fragments; keep remaining build work separate | Document correction Verified; no implication that software or all handoffs are complete |
+
+The existing B-080 package criteria are the negative examples for steps 3–4; do not duplicate a
+second live acceptance list. A syntactically valid but nonexistent SHA, a blank required input
+accepted as Logged, or a draft recorded as signed would each fail its named criterion. No runtime
+failure of the unbuilt application is claimed. The Applied-anchor checker limitation remains the
+existing D-192 tooling follow-up; resolve full SHAs from Git rather than typing their suffixes.
+
+**Review evidence:** graph metadata matched clean a04305a at intake and frag125 passed exact
+named-fragment parity. The graph does not cover this appended working-tree approval draft;
+Lane A refreshes after commitment. No remote state or hosted Encyclopedia parity is asserted.
+Only this handoff is edited; the §2.4 log and governed specifications are unchanged.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-080's applied documentation correction | Independent verification recorded at a04305a; no build or ratification closure |
+| Approve-with-conditions | Proposed §2.4 input-contract approval | Judge adopts exact bounded scope; actual date and approval evidence then recorded |
+| Approve-with-conditions | A7/D-194 reconciliation and dependent specification plan | Phase 1: actor and author/date handling explicitly resolved before readiness |
+| Reject | Treating this draft as signed or as implementation authorization | No ratification or build claim from drafting |
+| Defer | Code, UX implementation, M-POC activation and checker hardening | Existing separately authorized phases and units |
