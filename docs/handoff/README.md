@@ -273,6 +273,100 @@ was said *then*. Present-tense claims about other entries age badly — `B-011`'
 *"`B-009` is `Verified`"* and stayed on the page after `D-102` made it `Applied`. **Date the claim
 or name the decision, and append a correction rather than editing history.**
 
+## Feedback checklists — `D-192`
+
+Two externally drafted guides — an intake template for Lane A and a sender guide for Lane B —
+proposed a parallel feedback channel with its own `FB-*` identifiers, its own copied claims and its
+own status roll-up. **`D-192` rejected the parallel channel and kept the discipline behind it.**
+What follows is that discipline: not a second process, but the questions worth asking before an
+entry is sent and before one is answered.
+
+**Nothing below is new machinery** — no field, no lifecycle state, no file. Where an item names a
+rule, the rule lives in the section it cites and not here. A checklist that restates its own source
+is the drift `G55` names, arriving in the file that warns about it.
+
+### Before you raise — Lane B and Lane C
+
+- **One item, one file.** If the entry names a class — *"the `Applied` entries"* — split it. A
+  class cannot be dispositioned; each member can (`D-100`).
+- **Choose `Kind`; do not default it.** A report on your own turn is a `turn-report` and carries
+  `Run`. A defect you want fixed is a separate `spec-defect`. The report says a turn happened; the
+  defect asks for a fix.
+- **`Phase` names who must FIX it**, not who is blocked — `Blocks:` already carries that (`D-104`).
+- **Say what your evidence proves, not that it passed.** A green suite proves the checks ran and
+  saw nothing they are able to see. That is arrival, not correctness.
+- **State the claim and the gap separately.** *This asserts X on the strength of Y; Y proves
+  &lt;the narrower fact&gt;.* Naming the collapse is the finding — *"this seems wrong"* is not.
+- **Ask for a decision, not another round of evidence.** If you cannot name the act that would
+  close the entry, narrow the item until you can.
+
+### Before you answer — Lane A
+
+- **Acknowledge on arrival.** Receipt is required immediately; a queue is healthy and an unread
+  entry is not.
+- **Answer in the raiser's words, and keep them.** Disagreement is appended, never written over
+  what was raised — see *Answering* above.
+- **Do not merge one lane's entry into another's.** If Lane B and Lane C raise the same item, both
+  entries stand and cross-reference each other. Agreement reached from different surfaces is
+  corroboration, and corroboration collapsed into a single entry stops being evidence.
+- **Answering is not correcting, and correcting is not closing** — separate facts, separate
+  evidence. See *Response is not closure* above.
+- **Record the honest `Applied` and leave the red condition standing.** `Verified` is not yours to
+  write on your own answer.
+- **A terminal disposition keeps its owner or its reason.** `Deferred` names its `Follow-up-Tier`;
+  `Superseded` names its `Superseded-By`; `Withdrawn` names why. One carrying none of those is a
+  drop.
+- **No roll-up file.** `closure-readiness` computes the matrix from the entries themselves, and a
+  hand-maintained copy of it drifts.
+
+### Who may record `Verified` — the boundary attaches to the ANSWERER
+
+**The excluded actor is the one who answered or applied the correction.** Raising an entry does not
+disqualify you from verifying someone else's fix to it, and the external draft that said otherwise
+would have invalidated a closure this channel has already performed correctly: **`B-078` was raised
+by Lane B, answered and applied by Lane A, then verified by Lane B** — as its own record states,
+*writing the review criteria and raising this entry do not make Lane B the answering/applying actor.*
+
+Inverting this is expensive in a specific way. Excluding the raiser removes the actor with the most
+context and the strongest reason to look, and leaves the answering side as the only party still
+eligible — **the self-verification `D-102` created `Applied` to prevent.**
+
+| Actor | May answer | May record `Applied` | May record `Verified` |
+|---|:---:|:---:|:---:|
+| The raiser, who did not answer or apply | — | — | **yes** |
+| The lane that answered or applied | **yes** | **yes** | **no** |
+| Any other named actor | — | — | **yes** |
+
+**A different method is not a different actor.** Re-running the same check by another route
+strengthens the evidence and changes nothing about who is eligible to sign it.
+
+### What graph evidence proves, in an `Evidence:` line
+
+The rejected draft carried a single `Graph-complete` state. The graph has no such state, and
+collapsing it is how a green run gets read as semantic parity:
+
+| The claim | What proves it | What it does NOT prove |
+|---|---|---|
+| Extraction is current | `docs-drift` — `lastAnalyzedHead` equals `HEAD` | that any document is described correctly |
+| Every document is represented | `graph-coverage` — no markdown under `docs/` is absent | that the node says anything true about it |
+| The curated layer survived | `merge7.js --verify-only` — the fragment matches the graph | that the fragment's description is still current |
+| Descriptions are filled in | `graphify check-update` reports none pending | anything about the rows above |
+
+Name the one you have. `docs-drift` reports `PASS synced` against a modified document and always
+has — it compares revisions, never content.
+
+### Worked scenarios
+
+Each is a case the rejected draft would have got wrong.
+
+| Scenario | Correct handling | Rule |
+|---|---|---|
+| The raiser wants to verify a fix someone else applied | Permitted. Record `Verified-By` naming them, and a `Verified-At-Commit` that exists | *Who may record `Verified`* |
+| A real concern that will not be actioned this cycle | `Resolution: Deferred` with `Follow-up-Tier`. Terminal **without** an implementation — a deferral is a disposition, not a delay | *Response is not closure* |
+| Lane B and Lane C send conflicting evidence about one item | Both entries stand and cross-reference. Escalate to the Judge only if the disagreement blocks an act; otherwise both can be true of different surfaces | *Answering* |
+| The answer needs an investigation nobody has done | Keep the entry. Name the next question, its owner, the evidence that would settle it, and the condition to stop. A new entry only for genuinely new scope | *This directory is the backlog* |
+| Every check is green and the claim is still unproven | Green is arrival, not correctness. Say what the run covered and what it could not see | *What it does not do* |
+
 ## What the checks enforce
 
 `scripts/checks/handoff-response.mjs` (`C-14` check 10) fails on:

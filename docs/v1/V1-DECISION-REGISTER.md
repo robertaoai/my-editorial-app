@@ -12906,3 +12906,91 @@ independent documentation review is a separate step with its own evidence. Froze
 the Charter and `0001_init.sql` are untouched. `D-171`'s hold stands unnarrowed, `AUTH-DOC` remains
 unapproved, and `B-071`'s closure remains separately gated. Blocks A–C carry their
 `[decided_target_held]` source labels into the destination files unchanged.
+
+## 5.14e17 `D-192` — Feedback Intake Normalised Into the Existing Channel: the Independence Boundary Attaches to the Answerer, Not the Raiser
+
+**Chief Editor decision, 2026-09-07**, on Lane B's review of three untracked external drafts — a
+Lane A "feedback intake template", a Lane B "feedback guide to Lane A", and an EMS operational
+analysis of `B-077`. **None is in the repository and none becomes one.** They proposed a parallel
+intake channel with its own `FB-*` identifiers, its own copied claims and its own status roll-up.
+Lane B reviewed them as proposals and applied nothing; this decision records what survives.
+
+**`B-077` is untouched by this act** — it remains `Answered` with no `Resolution`, and its
+historical backlog is not this decision's work queue.
+
+### What is retained
+
+**The discipline, not the machinery.** Preserve the original claim and its evidence; distinguish an
+answer from a correction; state exactly what a piece of evidence proves; keep each lane's
+perspective attributed; compute summaries from the entries rather than maintaining them by hand.
+Each of those is already the channel's design — `D-100` refused a second backlog, `D-101` separated
+response from closure, `D-102` created `Applied` because `Verified` was being written by the side
+that wrote the fix. **The drafts restate them in a second vocabulary, which is precisely why
+adopting the drafts would have cost more than adopting the discipline.**
+
+### What is rejected, and why
+
+| Rejected | Why |
+|---|---|
+| A parallel `FB-*` intake ledger with copied claims and its own roll-up | It duplicates the `B-NNN`/`C-NNN` channel. The originating entry **is** the record (`D-100`), and a second copy of a lifecycle is the drift mechanism `G55` names. Receipt and response already live in the entry; `closure-readiness` already computes the matrix |
+| Excluding the **submitter** from verification | It inverts the boundary. The excluded actor is the one who **answered or applied** (`D-102`; `TEMPLATE.md`'s `Verified-By`). Excluding the raiser removes the actor with the most context and leaves the answering side as the only eligible party — the self-verification `Applied` exists to prevent. **`B-078` is the live counterexample**: raised by Lane B, answered and applied by Lane A, verified by Lane B |
+| Requiring correction and independent verification for every closure | `Deferred`, `Withdrawn` and `Superseded` are terminal without an implementation, each with its own required evidence (`D-101`). A legitimate deferral that must wait for a fix is a deferral that has been refused |
+| A new intake ID for a second evidence round on the same item | The item stays the same item while its scope is unchanged. A child entry is for genuinely distinct scope, and *"the decision or evidence is missing"* is itself a legitimate finding |
+| Lane A holding "activation authority" | Lane A prepares and coordinates; **the Judge authorizes** (`D-183`, `D-186`). Lane C owns `.github/workflows/` and nothing else — "DevOps" is not its boundary |
+| `Graph-complete` as a single fact | Extraction currency, coverage, curated parity and description status are proven by different runs and imply nothing about each other |
+
+### What is deferred
+
+**An event ledger, or a redesign of enforcement.** Real, and larger than this. It needs a scoped
+proposal evaluated *after* the normalised checklists have been used, not adopted alongside them.
+`Follow-up-Tier:` Phase 1, as a separate bounded unit.
+
+### Vocabulary normalised
+
+The drafts and this channel name the same things differently. **The rows marked structural are
+genuine defects in the draft; the rest are labelling** — the standing rule that an unfamiliar label
+is checked against what it maps to before an incompatibility is recorded (`D-31`, `D-33`,
+`pub_target`/`platform_type` were all vocabulary, not structure).
+
+| Draft term | This channel | Kind |
+|---|---|---|
+| `INTAKE ID` (`FB-…`) | the originating `B-NNN`/`C-NNN` filename | labelling — the new ID is rejected outright |
+| `TRACK: A \| B` | `Kind:` | labelling |
+| `Status: Applied` | `Resolution: Applied` — `Status:` carries `Open`/`Answered` | labelling |
+| `LANE A RESPONSE TYPE` | the `Lane A:` disposition | labelling |
+| `LINKED VERIFIER` | `Verified-By:` with `Verified-At-Commit:` | labelling |
+| `DUE / TARGET` | `Follow-up-Tier:` | labelling |
+| aggregate "Intake Log" | `closure-readiness` output | labelling — the file is rejected |
+| verifier ≠ submitter | verifier ≠ **answerer** | **structural — the draft is wrong** |
+| `Graph-complete` | extraction currency, coverage, curated parity, description status | **structural — the draft collapses them** |
+
+### What this applies
+
+**One section in `docs/handoff/README.md`** — a sender checklist, a receiver checklist, the
+eligibility table for recording `Verified`, the graph-evidence table, and worked scenarios. **It
+adds no field, no lifecycle state and no file**, and each item cites the section that owns its rule
+instead of restating it.
+
+### Tier applicability
+
+| Tier | Applicability |
+|---|---|
+| `V1-DECISION-REGISTER.md` | **Affected** — this act |
+| `docs/handoff/README.md` | **Affected** — the checklist section; the channel SOP above it is unchanged |
+| `docs/handoff/TEMPLATE.md` | **Unaffected** — no field is added, renamed or retired |
+| `V1-BUILD-SPEC.md` | **Unaffected** — no sprint's scope, sequence position or Definition of Done changes |
+| `V1-ARTIFACT-INVENTORY.md` | **Unaffected** — no file is created or retired; the section lands in a file already inventoried |
+| `Modular_PRD.md` §8 | **Unaffected** — no sprint closes and no tier opens |
+| `V1-PHASE-CLOSURE.md` | **Unaffected** — no lane state, run identifier or closure condition changes |
+| Agent rule files | **Unaffected** — the shared core already delegates channel procedure to `docs/handoff/`; this refines that procedure without changing what the core says about it |
+| Frozen `docs/PRD.md`, Charter, `0001_init.sql` | **Unaffected** — untouched |
+| **Encyclopedia** | **Unaffected** — no entry in `ENCYCLOPEDIA-SYNC.md` declares a dependency on the handoff channel, its README or its lifecycle vocabulary |
+
+### Scope limits
+
+**Documentation only.** No code, schema, migration, build, workflow, deployment or lane-transition
+authority. **Promotes no lifecycle field** — nothing becomes `Verified` by this act, `B-077` and
+`B-071` keep their own closure gates, and `D-171`'s hold stands unnarrowed. The three source drafts
+remain untracked and are cited as dated external input, never as governing sources. **This decision
+is Lane A's own work and is therefore not independently reviewed**; the section it applies is
+available for independent review at the resulting revision.
