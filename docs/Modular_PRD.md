@@ -210,8 +210,11 @@ copying MVP requirements.
 **What this index does and does not authorize.** It **creates the anchor** an `M-POC` `Fn_Spec`
 requires, satisfying the guardrail that spec input be *a feature group, never a prose
 description*. It **does not** write `M-POC`'s requirements, and **`Fn_Specs` cannot be drafted
-from this row alone** — a module index entry is a pointer, not a feature group. **The next
-artifact is `M-POC`'s own requirements document**, drafted from the four sources above.
+from this row alone** — a module index entry is a pointer, not a feature group. **The feature-group requirements are written** in `docs/modules/M-POC-REQUIREMENTS.md`, with
+behaviour in `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md` (`D-99`). **The index alone remains
+insufficient input for a functional spec** — the two sentences above still hold. Consult those
+existing documents and the current work authorization for the next step; **their existence
+authorizes no `SPECS`, no UX and no build** (corrected 2026-09-08, `B-080`).
 
 **`NG-03` is untouched.** `M-POC` is indexed as deferred scope; **no monetization capability is
 authorized, specified, or built**, and no `M-POC` field goes near `AP-01`'s `Q11`/`0002`.

@@ -13336,3 +13336,77 @@ open-dependency note. No functional requirement is drafted, no behaviour specifi
 row written, no build authorized. `PBL-06` remains unmerged. `B-077` keeps its `Deferred`
 disposition and `B-071` its own gate. **This packet is Lane A's own work and is not independently
 reviewed**; it is available for review at the resulting revision.
+
+### Correction and clarification — 2026-09-08, raised as `B-080` Round 2
+
+**The Chief Editor has given positive direction, and it is recorded here as evidence of intent —
+not as a completed ratification.** The earlier `[No preference]` is superseded. **No further
+`E`/`S` branch letter is required**, and asking for one again would be asking the Judge to repeat
+a direction already given.
+
+> **Judge direction, 2026-09-08.** The unit submitted at Reporter intake is **one manually
+> assembled editorial trigger package**, entered by the Chief Editor through the application UI —
+> **not a URL followed by application-generated topic, source and trend values.** It contains a
+> reviewable source URL, **exactly one** editorial subject topic under `G39`, source information,
+> and a trend-signal description; additional source or analytical tags remain distinct from the
+> subject topic. For **`M-MVP`** the Chief Editor prepares and enters it directly. For **`M-POC`** a
+> package is captured externally, then the Chief Editor manually extracts and enters the relevant
+> data. **`M-MVP` and `M-POC` data are partitioned.** `T1` validates the required package and
+> records intake under the existing execution and audit contract. A URL remains required and **is
+> not the complete data contract.** No automated feed discovery, external package import, or in-app
+> generation of these input values is implied or authorized.
+
+**What this direction does NOT establish.** It does **not** show that the frozen sentence already
+meant "manual"; the frozen text and this direction differ and **both are preserved as dated
+evidence**. It is **not** build authorization. It does **not** update the Ratification Log. And
+excluding automated feed detection **does not by itself exclude AI assistance** after a human
+pastes a URL — those are separate propositions, and inferring one from the other is unsound.
+**AI provenance in an upstream article is distinct from generation by this application**; manual
+entry never proves upstream provenance, and the application must not claim it generated what it
+received.
+
+#### Four corrections to this packet's own reasoning
+
+| | This packet claimed | Corrected |
+|---|---|---|
+| 1 | `E3` — creating the article with the field flagged for investigator review is a conforming elaboration | **Not automatically conforming.** Completing `T1` without a required value **changes `T1`'s completion condition**, and AI remaining the nominal producer does not rescue it. Correct behaviour: a missing required input **prevents `T1` completion**; any incomplete draft must be explicitly distinguished from `Logged` with its own authorized semantics — **not invented here** |
+| 2 | The actor is "already satisfied" | **Overstated.** It is **represented in existing specifications** — which is not implemented, and not accepted. The actor is now subject to the manual-intake reconciliation, and a derived diagram cannot settle the Judge's meaning |
+| 3 | The four-word test (actor · location · objects · verb) is **mechanical** | **Incomplete, and calling it mechanical concealed the gap.** A candidate must also preserve or **explicitly amend** `requiredness`, **gate ordering**, **authority** and **provenance**. Those are choices the four dimensions do not surface |
+| 4 | `S3` drags `S1` — deferring `CR-14` forces removing the required field | **Withdrawn.** Deferring *generation* still needs a `T1` disposition, and **an approved manual source preserves the required field.** Removing requiredness is a separate choice, not an inevitable dependency. `TC3`'s scoring limit is distinct from tagging and neither proves a producer feasible nor requires one to be built |
+
+#### The governing reconciliation still owed
+
+The direction and the frozen wording must be reconciled by a **recorded governing act**. The row
+content below is **prepared for review and is NOT a sign-off** — the Addendum §2.4 process reserves
+that to the Chief Editor, who enters the date and approval artifact. **Lane A does not write it,
+and this packet does not claim it exists.**
+
+| Field | Prepared content — unsigned |
+|---|---|
+| **Item** | `CR-14`/`FB-05`/`Q9` — manual `T1` input of the editorial trigger package |
+| **Category** | Reconciliation of the clarified intake intent with the frozen wording and the current Reporter actor |
+| **Resolved?** | Planning direction is manual; the remaining actor and authority impact is still to be recorded |
+| **Ratified?** | **Not claimed by this draft** |
+| **Ratified Date** | Unset until the recorded act |
+| **Approval Artifact** | The Judge clarification dated 2026-09-08, with a stable repository reference supplied when recorded |
+| **Build Implication** | No automated discovery and no in-app generation of the three intake inputs; required-value and audit rules retained; **no build authorized** |
+
+#### Where the detail lives — not restated here
+
+`B-080` Round 2 owns the failure-derived acceptance criteria, the `M-MVP`/`M-POC` data-partition
+table, and the parent-first Lane A step guide. **They are not copied into this packet**, because a
+second copy of a live analysis is the restatement `G55` names. Read `B-080` for them.
+
+**Two boundaries carried from it.** *"Instacart"* is the Judge's **external-capture example only** —
+no product identity, API or field schema is specified, researched or assumed, and no integration
+design depends on it. And **engagement context belongs to `M-POC`**: client, payment or cart fields
+never enter the shared article contract, `PR-08`/`D-96`'s exclusions stand, and the modules are
+partitioned **by context and association — never by duplicating article records.**
+
+#### What remains open after this correction
+
+`FB-05` and `Q9` stay **`Open`**. No functional requirement is drafted, no `FN-GATES` behaviour is
+written, the open-dependency note stands, and the source author/date auto-extraction sentence is
+**explicitly still undecided** — it must be dispositioned in the same manual-intake packet rather
+than silently preserved as though this clarification had settled it. Frozen `docs/PRD.md` and the
+Charter are untouched. **`B-080` step 2 onward is the next bounded unit and is not performed here.**
