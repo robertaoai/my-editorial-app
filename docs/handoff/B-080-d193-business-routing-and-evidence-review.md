@@ -69,7 +69,7 @@
   `FB-05` and `Q9` remain `Open`.
 - **Resolution:** Applied
 - **Evidence:** source review at f054967a953216083190f3508d68c3a1976d113d; D-193 and D-192 in V1-DECISION-REGISTER; requirements-traceability-map §7–§8; Modular_PRD §0.6, CR-14/Q9; FN-GATES §3.1/§6/§7; storyboard Panel A2; M-POC-REQUIREMENTS and FN-POC-ENGAGEMENT headers; tier-sweep source; ENCYCLOPEDIA-SYNC entry dependencies; the user's current M-MVP/M-POC clarification
-- **Verified-At-Commit:** 0a23eb2f014f44735b4143fd6b70970921341cce
+- **Verified-At-Commit:** a054a68867c113708fbc02c4aec192e359e8e395
 
 ## What happened
 

@@ -13056,6 +13056,14 @@ claimed to cover `Applied`, and was read as though it did.
 lands on the weakest claim in the channel: `Applied` is precisely where a fix is asserted *before*
 anybody independent has looked.
 
+**The gap stopped being hypothetical on 2026-09-08.** Recording `B-080`'s anchor, Lane A wrote a
+**fabricated SHA** — a real short prefix followed by an invented suffix — into `Verified-At-Commit`.
+It was caught by reading the value back against `git rev-parse` and `git cat-file`, **not by any
+check**, because the `PROVISIONAL` branch validates presence alone. The first demonstration injected
+`deadbeef…` deliberately; **this one was an accident in ordinary use, which is the case a control
+exists for.** It raises the priority of the deferred fix and supplies its first real regression
+case: *an `Applied` anchor whose prefix resolves but whose full SHA does not.*
+
 **Drafted fix — corrected 2026-09-07 as `B-079` `R2-2`, because the first draft was too broad.**
 Hoisting the proof above the provisional/terminal split would have demanded an implementation commit
 from valid `Deferred`, `Withdrawn` and `Superseded` dispositions, which name a tier, a reason and a
