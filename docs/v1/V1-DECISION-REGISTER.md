@@ -13025,3 +13025,21 @@ only tables whose first column header is `Item`, so a `| Tier | Applicability |`
 read. That is a bounded enforcement limitation, not evidence that any propagation claim is false.
 Parser hardening is deferred to its own Phase 1 tooling unit, and must test both the new table shape
 and a deliberately false claim.
+
+**A second enforcement gap, found by negative-testing this packet's own evidence.**
+`closure-readiness` proves `Verified-At-Commit` exists **only for a terminal resolution**. For
+`Applied` it checks presence and nothing more: in `scripts/checks/closure-readiness.mjs` the
+hex-format test and the `git cat-file` proof sit inside the `TERMINAL` branch, while the
+`PROVISIONAL` branch returns once `Verified-At-Commit` is merely non-empty. **Demonstrated, not
+inferred:** replacing `B-079`'s applying SHA with `deadbeef…` left the suite fully green, and the
+detail line's *"verification commit(s) proven to exist"* counts the `Verified` set alone — it never
+claimed to cover `Applied`, and was read as though it did.
+
+**This is the required-field-nothing-reads shape** (`B-017`; `a_check_that_cannot_fail`), and it
+lands on the weakest claim in the channel: `Applied` is precisely where a fix is asserted *before*
+anybody independent has looked. **Drafted fix:** hoist the format and existence proof above the
+terminal/provisional split so both branches use it, and report the proven sets separately instead of
+under one word. **Deliberately not applied here.** `B-079` defers checker hardening to its own
+Phase 1 tooling unit, and hardening the check that would validate this very pass's `Applied` claim,
+inside that pass, is the self-verification shape `D-102` exists to prevent. It must ship with a
+negative test asserting that a non-existent SHA on an `Applied` entry fails.
