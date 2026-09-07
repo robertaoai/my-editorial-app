@@ -39,7 +39,9 @@
   that it remained unresolved; its body is untouched and no child is promoted.
   **Not done here, deliberately:** the `CR-14`/`Q9` decision packet (Judge's, per this entry's
   step 2), the propagation patch (step 4), and the checker extension (step 5, already deferred).
+- **Resolution:** Applied
 - **Evidence:** source review at f054967a953216083190f3508d68c3a1976d113d; D-193 and D-192 in V1-DECISION-REGISTER; requirements-traceability-map §7–§8; Modular_PRD §0.6, CR-14/Q9; FN-GATES §3.1/§6/§7; storyboard Panel A2; M-POC-REQUIREMENTS and FN-POC-ENGAGEMENT headers; tier-sweep source; ENCYCLOPEDIA-SYNC entry dependencies; the user's current M-MVP/M-POC clarification
+- **Verified-At-Commit:** 0a23eb2f014f44735b4143fd6b70970921341cce
 
 ## What happened
 
