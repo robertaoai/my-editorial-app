@@ -26,10 +26,12 @@
   labelled **manually checked, not suite-verified**; parser hardening is deferred to its own Phase 1
   tooling unit, as this entry proposes. **`B-077` is untouched**, and no product tier, application
   code, workflow or lane state changed.
-  **The corrections are in the tree as of this commit, and no `Resolution` is claimed here yet:**
-  `Applied` requires a `Verified-At-Commit` that **exists**, and an entry cannot name the commit that
-  creates it. It is recorded in the commit immediately following — the sequencing `B-078` hit and
-  `closure-readiness` caught again here, which is the control working rather than an obstacle.
+  **The corrections landed at `66217df`, and `Resolution` is recorded separately below.** `Applied`
+  requires a `Verified-At-Commit` that **exists**, and an entry cannot name the commit that creates
+  it — so the answer was committed first and the resolution second. `closure-readiness` caught the
+  attempt to claim `Applied` without a commit, which is the control working, not an obstacle; it is
+  the same sequencing `B-078` recorded.
+- **Resolution:** Applied
 - **Evidence:** independent source review of `e61bf3e9fe6a7bd586379f39e3b72f5207ba74a6`; `docs/v1/V1-DECISION-REGISTER.md` D-192; `docs/handoff/README.md` Feedback checklists; canonical TEMPLATE and D-58 arbitration rule; the external drafts already reviewed in this conversation.
   **Lane A applying evidence, 2026-09-07:** the corrections above in `D-192` (normalization table,
   independence row, new correction section) and in `docs/handoff/README.md` (sender items,
@@ -38,6 +40,7 @@
   by a named single-fragment `merge7.js … --verify-only` run — **not** by `--all`, and not by a node
   count. `Applied` is deliberately non-terminal: Lane A wrote these corrections and cannot verify
   them. Independent review at the resulting revision remains outstanding.
+- **Verified-At-Commit:** 66217df3bc88d4282fe953f91007564071e576c1
 
 ## What happened
 
