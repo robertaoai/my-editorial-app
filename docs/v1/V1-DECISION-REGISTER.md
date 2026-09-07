@@ -13223,3 +13223,116 @@ and no handoff status is promoted. `docs/specs/ux/` is recorded as absent althou
 tier to it — **recorded, not created**, because `D-30` adds technical content when the build starts.
 **This packet is Lane A's own work and is not independently reviewed**; it is available for review
 at the resulting revision.
+
+## 5.14e19 `D-194` — DECISION PACKET, NOT DECIDED: `CR-14` / `FB-05` / `Q9` — Separating a Conforming Elaboration from a Scope Change
+
+**Lane A packet prepared for the Chief Editor, 2026-09-07, on the Judge's clarification that a
+resolution of frozen `CR-14` must distinguish a conforming elaboration from a scope change needing
+ratification.** This section **authorizes nothing** and takes no disposition. It exists so the
+decision can be made against a stated test rather than case by case. Prepared under `B-080` step 2
+(*"Judge decides; Lane A prepares"*).
+
+### The frozen source, quoted exactly
+
+`docs/PRD.md` line 23, an MVP checkbox in a **frozen** document that no agent edits:
+
+> `- [x] AI tags topics, sources, trend signals at Reporter gate`
+
+**It commits four things**, and naming them is what makes the Judge's distinction operable:
+
+| | Commitment | Already satisfied? |
+|:---:|---|---|
+| **1** | **Actor — AI**, not a person | **Yes.** `FN-GATES` §3.1 names *(Reporter, Line 1, **Agent**)*; storyboard Panel A2 names `Reporter (agent, L1)`. **This was never in dispute**, and `D-193`'s claim that it was is withdrawn (`B-080` `R2`) |
+| **2** | **Location — the Reporter gate**, i.e. `T1` | **Yes.** `FR-01` is the `T1` intake transition |
+| **3** | **Objects — topics, sources, trend signals** | **Partly.** `T1` requires exactly one subject topic and a trend-signal description; the trend signal has **no producer**, which is `FB-05` |
+| **4** | **Verb — tags** | **No.** Nothing specifies how the agent derives any value, what provenance it records, or what happens when it cannot |
+
+**The gap is narrower than "`CR-14` has no FR".** The actor and the location are settled. What is
+absent is the **tagging behaviour contract**: generation, provenance, and unavailable-input path.
+
+### The test the Judge's clarification implies
+
+> **A resolution CONFORMS when it adds *how* while leaving all four commitments intact.
+> A resolution is a SCOPE CHANGE when it alters or removes any of them.**
+
+That test is mechanical, so it can be applied to a proposal by reading it rather than by judging
+intent — which is the point of writing it down before choosing.
+
+### Candidate resolutions, classified
+
+**Conforming elaborations — Lane A may specify under `D-29`/`D-54`; no ratification row:**
+
+| | Elaboration | Why it conforms |
+|:---:|---|---|
+| `E1` | The generation contract: how the Reporter agent derives the trend-signal description at `T1` | Supplies the missing *how*; actor, location, objects and verb unchanged |
+| `E2` | Provenance: which agent produced the value, on what basis, and when | `CR-07`'s *who / when / why* audit already carries this shape; it records the tagging rather than redefining it |
+| `E3` | The unavailable-input path — **conforming only while the AI remains the producer**, e.g. refuse the intake, or create the article with the field flagged for investigator review (the panel already does this for failed auto-extract) | Adds a failure path without changing who produces the value |
+| `E4` | Reconciling the frozen plural *"topics"* with `G39`'s **exactly one subject topic** plus many analytical tags | `G39` separates two concepts the customer's single word merges. Mapping the frozen word onto the existing distinction **explains** it; the frozen text is not edited |
+| `E5` | What the agent tags for *"sources"* at `T1`, distinguished from the reliability tier already set at `T2` | Allocates an existing frozen object to the gate that owns it |
+
+**Scope changes — a Ratification Log row in `v1-build-readiness-addendum.md` §2.4 comes FIRST:**
+
+| | Change | Which commitment it breaks |
+|:---:|---|---|
+| `S1` | **Remove the trend signal from `T1`'s required set** | Objects (3). It drops a funded MVP commitment, and `FN-GATES` §3.1's own instruction — *do not ship a required field with no source* — permits fixing the source, not silently deleting the field |
+| `S2` | **A human enters the value** | Actor (1). Frozen text says **AI** tags. This is the option `D-193` wrongly believed was already in the corpus |
+| `S3` | **Defer `CR-14` to `M-POC`, `V2` or the backlog** | Location and scope. It moves a frozen **MVP** checkbox out of MVP |
+| `S4` | **Treat `PBL-06` (real-time trend detection) as satisfying `FB-05`** | `Modular_PRD` §`PBL-06` states it is **"Not merged with `FB-05`/`Q9` — no decision proves they are the same capability."** Merging them re-scopes by assertion |
+
+**`S4` is the one that would pass unnoticed.** The other three announce themselves; that one looks
+like housekeeping.
+
+### The bounded question put to the Chief Editor
+
+> **Does v1 elaborate `CR-14` in place (`E1`–`E5`), or change its scope (one of `S1`–`S4`)?**
+>
+> **If elaborate:** Lane A drafts the functional requirement and `FN-GATES` behaviour under
+> `D-29`/`D-54`. **No ratification row, because nothing frozen changed.**
+> **If scope change:** the Chief Editor records the Addendum §2.4 row — Item, Category, `Resolved?`,
+> `Ratified?`, Ratified Date, Approval Artifact, Build Implication — **before** any specification
+> moves. `D-194` does not pre-write that row; the log's own process reserves sign-off to the Chief
+> Editor.
+
+### Acceptance examples — `B-080`'s bar, made testable
+
+`B-080` step 2 sets the standard: *a required input has an identified source and an explicit failure
+path; a design that merely renames `Missing` fails review.*
+
+| Given | Required result |
+|---|---|
+| The agent produces a trend-signal description at `T1` | The record names the producing agent and the basis, and `T1` completes |
+| The agent cannot produce one | `T1` takes a **written** path — refuse the intake, or create with the field flagged for investigator review. Implied behaviour is not a path |
+| A proposal states *"the producer is the Reporter agent"* and stops | **FAILS.** That renames `Missing`. It supplies no generation, no provenance and no failure behaviour |
+| A proposal has a person type the value | **FAILS as conforming.** It is `S2`, and needs ratification before it may be specified |
+| A proposal cites `PBL-06` as satisfying `FB-05` | **FAILS.** They are recorded as not merged, and no decision proves the same capability |
+| A proposal edits `docs/PRD.md` line 23 | **FAILS absolutely.** The Project PRD is frozen; no agent edits it under any disposition |
+
+### One propagation applied with this packet
+
+**`Q9`'s decision owner read *"Customer, via sponsor"***, which the Judge's `M-MVP` ruling
+supersedes — the current recipient is the **Chief Editor**, and client validation is queued to
+`M-POC` or a later authorized build (`B-080` `R1`, applied 2026-09-07). The owner field is corrected
+to match. **`Q9`'s status stays `Open`**: this packet frames the decision and does not take it.
+
+### Tier applicability
+
+| Tier | Applicability |
+|---|---|
+| `V1-DECISION-REGISTER.md` | **Affected** — this packet |
+| `Modular_PRD.md` | **Affected, narrowly** — `Q9`'s decision-owner field only, as `R1` propagation. No requirement text changes and `Q9` stays `Open` |
+| `docs/fn-specs/FN-GATES-01-05.md` | **Unaffected until the decision** — `FB-05`'s open-dependency note stands unchanged |
+| Frozen `docs/PRD.md`, Charter, `0001_init.sql` | **Unaffected.** `CR-14` is quoted as evidence and never edited |
+| `v1-build-readiness-addendum.md` §2.4 | **Unaffected by this packet** — a row is required only if the Chief Editor chooses `S1`–`S4`, and only the Chief Editor writes it |
+| `V1-BUILD-SPEC.md` | **Unaffected** — no sprint scope, sequence position or DoD changes |
+| `V1-ARTIFACT-INVENTORY.md` | **Unaffected** — no artifact created or retired |
+| `Modular_PRD.md` §8 | **Unaffected** — no sprint closes and no tier opens |
+| `V1-PHASE-CLOSURE.md` | **Unaffected** — no lane state or closure condition changes |
+| **Encyclopedia** | **Entry 06 affected only once the decision is taken.** It declares `CR-14` Reporter-gate tagging over `docs/PRD.md:23`, `FN-GATES` §3.1/§6/§7, `Modular_PRD` §2.5.1 and the map §4/§7. This packet changes none of those; hosted content is unread and parity is not claimed |
+
+### Scope limits
+
+**A packet, not a disposition.** `FB-05` stays open, `Q9` stays `Open`, and `FN-GATES` keeps its
+open-dependency note. No functional requirement is drafted, no behaviour specified, no ratification
+row written, no build authorized. `PBL-06` remains unmerged. `B-077` keeps its `Deferred`
+disposition and `B-071` its own gate. **This packet is Lane A's own work and is not independently
+reviewed**; it is available for review at the resulting revision.
