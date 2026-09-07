@@ -31,6 +31,21 @@
   it — so the answer was committed first and the resolution second. `closure-readiness` caught the
   attempt to claim `Applied` without a commit, which is the control working, not an obstacle; it is
   the same sequencing `B-078` recorded.
+  **Correction appended 2026-09-07, after Round 2 (`R2-1`).** The wording above, reserving
+  `Verified-By`/`Verified-At-Commit` jointly for "an earned verification", is **wrong and is
+  superseded** — the original is preserved rather than rewritten. The two fields have different
+  triggers: `Verified-By` names the actor who completed independent verification, while
+  `Verified-At-Commit` anchors evidence for **both** `Applied` and `Verified`. **This entry is its
+  own counterexample** — `Applied`, with a real anchor, and no `Verified-By`; the superseded wording
+  forbade the shape `closure-readiness` simultaneously required. The grouping originated in this
+  entry's own first proposal and was adopted by Lane A; `R2-1` supersedes it rather than assigning
+  its origin to either side. **`R2-2` and `R2-3` are applied in `D-192`'s correction section:** anchor
+  validation is shared between `Applied` and `Verified` alone and is never imposed on `Deferred`,
+  `Withdrawn` or `Superseded`; and the deferral now rests on this being a documentation packet, **not**
+  on any bar against an author testing their own work. The manual anchor sweep is narrowed to what it
+  proves — every `Applied` anchor resolves, which is not evidence that a commit's content supports the
+  correction attached to it. **Tier applicability is unchanged**: documentation only, no product,
+  spec, code, workflow or lane-state effect, and no artifact created or retired.
 - **Resolution:** Applied
 - **Evidence:** independent source review of `e61bf3e9fe6a7bd586379f39e3b72f5207ba74a6`; `docs/v1/V1-DECISION-REGISTER.md` D-192; `docs/handoff/README.md` Feedback checklists; canonical TEMPLATE and D-58 arbitration rule; the external drafts already reviewed in this conversation.
   **Lane A applying evidence, 2026-09-07:** the corrections above in `D-192` (normalization table,
@@ -171,3 +186,101 @@ not pushed. Do not transport that ancestor under Lane B's single-entry exception
 | Defer | Parser hardening and unrelated graph enrichment | Separate Phase 1 tooling scope; manual D-192 tier review meanwhile |
 | Defer | Independent completion claim for D-192 | Corrected settled revision and evidence required; no product build |
 | Approve | B-077 and product tiers remain separate | Unaffected; no lifecycle promotion |
+
+## Round 2 — independent review at 3ff81c6, 2026-09-07
+
+**Review request, clarified:** Review D-192 and its derived handoff guidance against B-079;
+accept corrections supported by the files, draft remaining corrections in this entry, and give
+Lane A a parent-first completion sequence. Keep B-077 separate. No application build or checker
+implementation is authorized by this review.
+
+**Accepted:** subject versus Kind, deadline versus Follow-up-Tier, response versus disposition,
+investigation without a known remedy, systemic concern without bulk closure, D-58 escalation,
+reviewer independence, and named-fragment evidence are corrected. Retain them; no fresh review
+of unrelated product artifacts is required.
+
+### Parent — correct the evidence-field distinction
+
+**R2-1, blocking this entry's verification.** D-192's LINKED VERIFIER row and Lane A's answer above
+reserve both `Verified-By` and `Verified-At-Commit` for earned verification. The existing SOP and
+checker require an anchor on `Applied` too; this entry itself correctly uses one while still
+Applied. **My original proposal grouped the fields incorrectly. Lane A adopted that error;
+this correction supersedes my proposal rather than assigning its origin to Lane A.**
+
+Replace the D-192 mapping's field explanation with this full text, and append the corresponding
+correction to Lane A's answer here:
+
+> Name a proposed reviewer in the body. `Verified-By` names the actor who completed independent
+> verification. `Verified-At-Commit` anchors evidence for both `Applied` and `Verified`: for
+> `Applied`, identify an existing commit containing the asserted correction; for `Verified`,
+> identify the existing revision independently reviewed. A nomination is not verification,
+> and an anchor alone does not make an entry terminal. `Verified` also requires independent
+> verification and supporting evidence under the canonical SOP.
+
+Success example: a committed correction may be `Applied` with its real SHA and no `Verified-By`.
+A nominated reviewer remains in the body until the review occurs. Independent verification then
+records the reviewed revision, reviewer and evidence. No field or lifecycle state is added.
+
+### Child — bound the checker proposal and evidence claims
+
+**R2-2.** D-192's proposed unconditional hoist above the provisional/terminal split is underspecified.
+If applied to every resolution, it would wrongly demand implementation commits for valid
+Deferred, Withdrawn and Superseded dispositions. Replace that drafted fix with:
+
+> Share anchor validation only between `Applied` and `Verified`. Require a nonblank hexadecimal
+> commit identifier and, when sufficient history is available, prove that it resolves to a commit.
+> Preserve the existing shallow-history limitation explicitly. Keep `Applied` nonterminal and
+> retain the independent-review requirements for `Verified`. Preserve the existing requirements
+> for Deferred, Withdrawn, Superseded and turn reports without adding an anchor requirement to
+> those routes. Report Applied and Verified anchor results separately. Existence proves that an
+> anchor resolves; a reviewer must still establish that its content supports the correction.
+
+The pasted report's conclusion that resolvable Applied anchors mean the data is clean is too broad.
+It establishes anchor existence only. I inspected the checker branch and confirm its presence-only
+gap; I did not repeat Lane A's mutation experiment against live records.
+
+**R2-3.** Replace the rationale that implementing and testing the checker in the applying pass is
+itself prohibited self-verification with:
+
+> Checker hardening remains deferred to a bounded Phase 1 tooling unit because this packet is a
+> documentation review. Its implementer may run tests and record `Applied` with evidence.
+> An independent eligible reviewer must perform the subsequent verification. Author testing
+> does not itself confer `Verified` status.
+
+This avoids turning independence into a prohibition on ordinary author validation. It does not
+authorize tooling work in this packet.
+
+### Lane A completion sequence
+
+1. Correct the parent D-192 field mapping and append the answer correction in this entry (R2-1).
+2. Amend the existing tooling proposal and its rationale in D-192 (R2-2/R2-3); keep one follow-up,
+   not another backlog. State any affected tracking-tier propagation under D-54; product spec
+   tiers remain unaffected by these semantic corrections.
+3. Manually exercise the Applied/nomination/Verified example above and the already accepted
+   original examples. Commit the bounded documentation correction, then record its existing
+   anchor as Applied. Independent review decides whether B-079 can become Verified.
+4. After the documentation commit, Lane A refreshes extracted graph coverage and re-merges
+   curated fragments as required. Verify the named affected fragments against the graph.
+5. In the separate authorized tooling unit, test: missing Applied anchor; malformed anchor;
+   valid-format nonexistent commit; real Applied anchor that remains nonterminal; Verified
+   without independent reviewer; and valid non-implementation dispositions without anchors.
+   Exercise full and shallow history explicitly. Independent review follows implementation.
+
+### Evidence and limits
+
+At clean `3ff81c6531769cab75236af783f3c8c4519096ca`, the local consistency suite passed 17/17.
+That is a dated run result, not proof of the semantics the checker does not inspect. Graph metadata
+matched that HEAD with `stale: false`; `frag124.json --verify-only` proved exact parity for its
+one node and four edges. Neither establishes parity for every curated fragment. This appended
+working-tree review is newer than that extraction; it needs refresh after its eventual commit.
+No graph rebuild, governed-doc edit, checker edit, commit or push was performed in this review.
+B-077 is unchanged. B-079 remains Applied; this review does not confer Verified or phase closure.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-192 and SOP corrections listed as accepted above | Phase 1: retain; no repeat work |
+| Approve-with-conditions | Register D-192 and B-079 evidence-field language | Phase 1 documentation: R2-1, then independent review at a named commit |
+| Approve-with-conditions | D-192 checker proposal and rationale | Phase 1 planning: R2-2/R2-3 before tooling execution |
+| Defer | Closure-readiness implementation and tier-sweep hardening | Separate bounded Phase 1 tooling unit; independent verification afterward |
+| Reject | Verified/closed claim for B-079 at this revision | Phase 1: resolve R2-1 and review the corrected evidence |
+| Approve | B-077, product specifications, application code and workflows unaffected | No work or lifecycle promotion in this packet |

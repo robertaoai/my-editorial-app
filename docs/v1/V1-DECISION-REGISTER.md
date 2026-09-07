@@ -12960,11 +12960,28 @@ X" are different findings, and the first version of this table reported the seco
 | `TRACK` — content vs governance | describe the subject or surface **in the body**; choose `Kind:` independently | **a subject is not a transaction kind.** Either subject can produce a `finding`, a `spec-defect`, a `dependency` or a `blocked-on-decision` |
 | `Status: Applied` | `Resolution: Applied` — `Status:` carries `Open`/`Answered` | a genuine rename: the draft put a resolution in the status field |
 | `LANE A RESPONSE TYPE` | explain the response in the `Lane A:` answer; set `Status`/`Resolution` **separately** under the SOP | **not a one-to-one map.** `ACCEPT` does not imply `Applied`; `CLARIFY` is not automatically `Withdrawn`; `DEFER` requires a named `Follow-up-Tier`; a rejection needs its reason and the existing disposition route |
-| `LINKED VERIFIER` | name the **proposed** reviewer in the body; record `Verified-By`/`Verified-At-Commit` only once the verification has evidence | **assignment is not completed verification**, and the review revision need not exist when a reviewer is nominated |
+| `LINKED VERIFIER` | name the **proposed** reviewer in the body; `Verified-By` and `Verified-At-Commit` are **separate fields with different triggers** — see below the table | **assignment is not completed verification**, and an anchor alone does not make an entry terminal |
 | `DUE / TARGET` | keep an applicable date or milestone in the bounded action text; `Deferred` **also** requires `Follow-up-Tier` | **a deadline and the tier that owns deferred work answer different questions** |
 | aggregate "Intake Log" | `closure-readiness` output | the file is rejected; the computation is not |
 | verifier ≠ submitter | verifier ≠ **answerer** | **the draft is wrong**, not differently worded |
 | `Graph-complete` | extraction currency, coverage, **named-fragment** curated parity, description status | **the draft collapses facts that different runs prove** |
+
+**`Verified-By` and `Verified-At-Commit` are not a pair, and grouping them was this decision's second
+error** — corrected 2026-09-07 as `B-079` `R2-1`. **The grouping originated in `B-079`'s own first
+proposal and was adopted here**; this supersedes that proposal rather than assigning its origin to
+either side. The governing text:
+
+> Name a proposed reviewer in the body. `Verified-By` names the actor who completed independent
+> verification. `Verified-At-Commit` anchors evidence for **both** `Applied` and `Verified`: for
+> `Applied`, an existing commit containing the asserted correction; for `Verified`, the existing
+> revision that was independently reviewed. A nomination is not verification, and an anchor alone
+> does not make an entry terminal. `Verified` additionally requires independent verification and
+> supporting evidence under the canonical SOP.
+
+**`B-079` is its own worked example.** It carries `Resolution: Applied` with a real
+`Verified-At-Commit` and **no** `Verified-By` — a shape the superseded wording forbade while
+`closure-readiness` required it, so the two halves of this decision contradicted each other in the
+same pass.
 
 ### What this applies
 
@@ -13037,9 +13054,32 @@ claimed to cover `Applied`, and was read as though it did.
 
 **This is the required-field-nothing-reads shape** (`B-017`; `a_check_that_cannot_fail`), and it
 lands on the weakest claim in the channel: `Applied` is precisely where a fix is asserted *before*
-anybody independent has looked. **Drafted fix:** hoist the format and existence proof above the
-terminal/provisional split so both branches use it, and report the proven sets separately instead of
-under one word. **Deliberately not applied here.** `B-079` defers checker hardening to its own
-Phase 1 tooling unit, and hardening the check that would validate this very pass's `Applied` claim,
-inside that pass, is the self-verification shape `D-102` exists to prevent. It must ship with a
-negative test asserting that a non-existent SHA on an `Applied` entry fails.
+anybody independent has looked.
+
+**Drafted fix — corrected 2026-09-07 as `B-079` `R2-2`, because the first draft was too broad.**
+Hoisting the proof above the provisional/terminal split would have demanded an implementation commit
+from valid `Deferred`, `Withdrawn` and `Superseded` dispositions, which name a tier, a reason and a
+successor rather than a commit. `TERMINAL` is not a synonym for *"was implemented"*:
+
+> Share anchor validation only between `Applied` and `Verified`. Require a nonblank hexadecimal
+> commit identifier and, where sufficient history is available, prove that it resolves to a commit.
+> Preserve the existing shallow-history limitation explicitly. Keep `Applied` nonterminal and retain
+> the independent-review requirement for `Verified`. Preserve the existing requirements for
+> `Deferred`, `Withdrawn`, `Superseded` and turn reports **without** adding an anchor requirement to
+> those routes. Report `Applied` and `Verified` anchor results separately. Existence proves that an
+> anchor resolves; a reviewer must still establish that its content supports the correction.
+
+**Why it is deferred — rationale corrected as `R2-3`.** *Not* because an author may not test their
+own work. **An implementer may run tests and record `Applied` with evidence; independent review is
+what confers `Verified`.** Author testing is ordinary validation, and treating it as forbidden turns
+the independence rule into a prohibition it was never meant to be — the same over-extension this
+decision already corrected in the opposite direction. It is deferred because **this packet is a
+documentation review**, and tooling belongs to the bounded Phase 1 unit `B-079` names. That unit must
+test a missing `Applied` anchor; a malformed anchor; a valid-format nonexistent commit; a real
+`Applied` anchor that stays nonterminal; `Verified` with no independent reviewer; and valid
+non-implementation dispositions carrying no anchor — over full **and** shallow history explicitly.
+
+**What the manual sweep did and did not establish.** Every `Applied` entry's anchor was resolved
+with `git cat-file` at `3ff81c6` and all of them exist. **That proves the anchors resolve, nothing
+more** — not that any commit's content supports the correction it is attached to. The earlier
+summary of this sweep as showing *"the data is clean"* is withdrawn as too broad (`R2-2`).
