@@ -2396,6 +2396,11 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
+> **How to enumerate conditions — `D-207`.** The `### ` sections below **are the index**; a table
+> inside a decision section is that act's own summary of what it minted, never a second index.
+> `grep "^### \`C-"` returns every condition. **A second list would be a restatement, and
+> restatements drift** (`G55`).
+
 ### `C-41` — an entry may sit `Open` with no exit — `D-206`
 
 **Opened by `D-206`, 2026-09-08, raised by Lane A · Claude Code. Owner: Lane A · Cowork. Phase 1.**
@@ -2446,10 +2451,7 @@ and six empty `Verified-At-Commit` before this act, with twenty `Applied` commit
 
 **Stop condition:** no non-`turn-report` entry has an empty `Verified-By` or `Verified-At-Commit`;
 every `Verified-At-Commit` proven with `git cat-file -e`; **negative fixtures — an empty audit field
-FAILS, a `turn-report` without them PASSES** (`G84`). **And the guard must match by CONTAINMENT, not by prefix** (`D-206`):
-`NOT_AN_INDEPENDENT_VERIFIER` is anchored at `^`, so every value the channel has ever used evades it
-— measured, **every non-`Verified` record would pass the guard if flipped**. Fixture: a `Verified`
-entry whose `Verified-By` **contains** an excluded actor **fails**; a legitimate verifier passes.
+FAILS, a `turn-report` without them PASSES** (`G84`). **And the guard must match the LEADING ACTOR against a closed allowlist, not by prefix and not by containment** (`D-207`, correcting `D-206`): `NOT_AN_INDEPENDENT_VERIFIER` is anchored at `^`, so every value this channel writes evades it. **Containment was specified by `D-206` and is withdrawn — measured, it rejects nine legitimate `Verified` records** whose verifiers name Lane A precisely to assert independence from it. **The rule:** strip leading decoration, require the value to **open with a known actor token**, and reject when that leading actor is the answering side. **Measured over the live corpus, both directions: no `Verified` record rejected; every non-`Verified` value caught; `reviewed by Lane A` and `verified by Lane A` caught.** Fixtures must use the **live values, each citing its entry** — never invented strings.
 
 ### `C-38` — the separate-turn critic pass over `D-203`, `D-204` and `D-205` — `D-205`
 
@@ -14761,3 +14763,86 @@ fixture. `scripts/` is Claude Code's (`D-201`, `D-56`).
 closes no phase. **Does not route `B-071`** — `C-41` names the requirement; the disposition is a
 later act. **Does not release the `D-171` hold.** **Lane A's own work, not independently reviewed**
 — `C-38`, now covering `D-203` through `D-206`.
+
+---
+
+## 5.14e32 `D-207` — `D-206`'s Remedy Was Never Run; the Guard Matches a Leading Actor Against a Closed Allowlist
+
+**Lane A (Cowork) act, 2026-09-08. Raised by Lane A · Claude Code, who tested the CURE rather than
+only reproducing the diagnosis — and it failed.**
+
+### The correction, and it is Lane A's own
+
+**`D-206` assigned `C-39` a containment-matching remedy and never ran it against the corpus.** Run
+now, over all live values at `d37e148`:
+
+| Rule | `Verified` records rejected | non-`Verified` values caught |
+|---|---:|---:|
+| **Prefix** — anchored, in force today | — | **0 of 31** *(the bypass)* |
+| **Containment** — `D-206`'s remedy | **9 of 52** *(false positives)* | 31 of 31 |
+| **Leading actor against a closed allowlist** | **0 of 52** | **31 of 31** |
+
+**The nine are the most careful records in the channel** — Lane B verifications naming Lane A
+*precisely to assert independence from it*: `B-044`, `B-058`, `B-078`–`B-083`, `B-085`. **The rule
+would have punished the honest form, and the cheapest route back to green would have been to
+falsify them.** This is the class `D-201` already rejected as improvement C — *a validator that
+flags a deliberately proposed path is a false-positive generator*.
+
+**This is the third remedy in three acts specified without being run**, in a sequence whose subject
+is that exact failure: `D-199`'s `source-sweep` invocation that could not execute, `D-204`'s
+`channel-docs` guarantee that could not fire, and now this. **Recorded, not quietly repaired**
+(`D-93` rule 4).
+
+### One correction back to Lane A · Claude Code
+
+**Leading-actor matching is right in principle and was under-specified as tabled.** Their table
+lists `reviewed by Lane A` as caught. Implemented as stated — strip decoration, reject a disclaimer
+opener, reject an excluded leading actor — **it passes**, because *"reviewed"* is neither. **The
+claim held only under a mechanism the table did not show** — the same class, one turn later, on the
+cure rather than the diagnosis.
+
+### The rule that survives measurement
+
+Strip leading decoration; **require the value to open with a known actor token**; reject when that
+leading actor is the answering side. **The actor set here is small and closed, which is what makes
+an allowlist safe rather than another guess.** Probes: `Lane A`, `reviewed by Lane A`,
+`verified by Lane A` and the em-dash disclaimer forms are all **caught**;
+`Lane B (Codex), independent review of Lane A's audit` **passes**.
+
+**`C-39`'s stop condition is re-specified accordingly, and its fixtures must use the live values,
+each citing the entry it came from — never invented strings.** The bug was found by running the
+guard on real values; the cure is only credible tested the same way.
+
+### The condition index — one list, `C-41` needs no row
+
+**The `### ` sections are the index.** A table inside a decision section is that act's summary of
+what it minted, **never a second index**; `grep "^### \`C-"` returns every condition. `C-41` was
+reported as recorded unlike its six siblings — **it is not a defect, and the fix is to declare the
+convention rather than add a second list**, because a second list is a restatement and restatements
+drift (`G55`). Stated above the condition block.
+
+### The rebuild finding, recorded
+
+**A rebuild does not drop curated nodes once a fragment is merged.** Repeated rebuilds report
+`would-add: 0` on every merged fragment, so **merging is a one-time authoring cost, not a per-rebuild
+one** — earlier passes carried the reverse assumption and paid it repeatedly. **`--verify-only` per
+named fragment after every rebuild stays required**: the claim is a measurement, not a guarantee, and
+`G51` fails silently.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e32; `C-39` re-specified; condition-index convention stated |
+| **Graph docs** | ✅ `docs/graph-fragments/README.md` — the rebuild finding, with verification still required |
+| **Channel docs** | **— unaffected: no field, resolution or vocabulary changes.** `channel-docs` clean |
+| **Handoff entries** | **— unaffected: no entry edited, no `Resolution` changed, no audit field touched** |
+| **Agent files · Build spec · Phase closure · Inventory** | **— unaffected** |
+| **`Modular_PRD` and product tiers** | **— unaffected: development-channel policy is never a product fact** |
+
+### What this act does NOT do
+
+**Installs no check and writes no fixture** — `C-39` is Claude Code's (`scripts/`, `D-201`).
+**Routes no entry**: `B-071` is still `Open`, `C-41` still names the requirement, `closure-readiness`
+still reports `open 1`. Opens or closes no phase; does not release the `D-171` hold. **Lane A's own
+work, not independently reviewed** — `C-38`, now spanning `D-203` through `D-207`.

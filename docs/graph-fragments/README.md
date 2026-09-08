@@ -118,6 +118,15 @@ when ordering discipline is worth keeping.
 only; `--all` audits conflicts rather than merging. Name each fragment, in dependency order, then
 verify parity per fragment with `--verify-only`.
 
+**A rebuild does not drop curated nodes once the fragment is merged — measured, not assumed
+(`D-207`).** Repeated rebuilds have reported `would-add: 0` on every merged fragment, so **merging
+is a one-time authoring cost, not a per-rebuild one.** Earlier passes carried the reverse
+assumption and paid it repeatedly.
+
+**Keep verifying anyway.** Run `--verify-only` per named fragment after **every** rebuild and record
+`would-add`. The claim above is a measurement, not a guarantee, and `G51`'s failure is silent — a
+verification that costs one command is the cheapest possible evidence.
+
 ## 5. Verifying a merge `[V1]`
 
 Run all four. A merge is not done until each passes:
