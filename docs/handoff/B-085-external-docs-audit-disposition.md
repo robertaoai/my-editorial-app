@@ -35,7 +35,10 @@
   **Not applied:** improvement B beyond those three corrections, and improvement C, which is
   specification work first — **a validator that flags a deliberately proposed path is a
   false-positive generator**. `B-084` stays **Applied, not Verified**; `FB-05` and `G105` stay open.
+- **Resolution:** Applied
 - **Evidence:** external input C:/CoWork/docs-audit-2026-09-08.md; independent repository review at 8f441c7031659d5aacc4e1df5504953d21bdafd5; source comparisons below; 17/17 local consistency checks at the committed baseline; Graphify query and matching branch metadata; existing B-061/B-071/B-077/B-078/B-084 ownership
+
+- **Verified-At-Commit:** 15cce884788648a1869c4c819fc7986e62458266
 
 ## What happened
 
