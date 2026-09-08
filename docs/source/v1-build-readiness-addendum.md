@@ -515,12 +515,22 @@ Side state:
 
 | Test ID | Given | When | Then |
 |---------|-------|------|------|
-| AT-001 | Reporter agent (Line 1) is active | A complete manual package is supplied — source reference, **exactly one subject topic**, trend-signal description — **with no analytical tags**, and the Reporter agent executes `T1` (`G39`/`D-38`; `D-194`/`D-197`) | Article created in "Logged" state; audit log records `executor_type = agent`, `line_assignment = Line1`, agent_id, timestamp |
+| AT-001 | Reporter agent (Line 1) is active; the input satisfies every other requirement of the approved manual-intake contract (`D-194`/`D-197`) | The Chief Editor supplies a source reference, source information, **exactly one subject topic** and a trend-signal description, **alongside multiple analytical tags**, and the Reporter agent executes `T1` (`G39`/`D-38`) | Article created in "Logged" state; audit log records `executor_type = agent`, `line_assignment = Line1`, agent_id, timestamp, **and the human supplier as a separate fact** (`D-197` `A1`). *(Repaired 2026-09-08, `D-199`: read "A complete manual package is supplied … **with no analytical tags**" from `15cce88` until then — a row that contradicted `D-197`'s second act, which authorized **acceptance of one subject plus multiple analytical tags**.)* |
 | AT-002 | Reporter agent is active | Agent submits form without a URL | Form rejects: "Source URL is required" |
 | AT-003 | Reporter agent is active | A package is submitted with **no subject topic** | Refused, naming the missing component: **exactly one subject topic is required**. Analytical tags are optional and never substitute for the subject (`G39`/`D-38`) |
 | AT-004 | Reporter agent is active | **The same submitter** resubmits **the same brief** (hashed key fields, `G95`) **on the same day** at the POC surface — and, as permitted cases, the same brief **on a different day** and **manual trigger creation** | Refused **only** in the same-day case, saying why; the permitted cases **succeed**. *(Corrected 2026-09-08, `B-085`: read "a URL that already exists → System blocks: Duplicate: this URL is already tracked as article [ID]" — the blanket rule `D-121` retired on 2026-08-25.)* |
 | AT-005 | Reporter agent is active | Agent logs an article and source metadata cannot be auto-extracted | Article created with null fields; flagged for investigator review |
 | AT-006 | Chief Editor (Line 2) manually logs an article | Chief Editor enters URL with topic tag | Article created in "Logged" state; audit log records `executor_type = human`, `line_assignment = Line2`, `event_type = HumanOverride` (manual fallback, Line 2 executing Line 1 gate) |
+
+> **`AT-001` scope — OPEN (`D-197` second act, repaired by `D-199`).** **`FB-05` closes on
+> independent verification of this specification, not on the act that wrote it.** Three limits ride
+> with this row. **Source information in the supplied package is a positive fixture, not a
+> requiredness rule** — what *source information* requires, and how a non-URL source reference is
+> handled against `D-121`, remain open. **Refusal when no subject topic is supplied is asserted by
+> `AT-003`**, not here; `FN-GATES-01-05.md` §8 still attributes that refusal to `AT-001`, because
+> `AT-003` has no mapping row — a **separate, unapplied** correction. And **`AT-001` proves acceptance
+> alongside analytical tags; it does not make them required** — `AT-003` records that they are
+> optional and never substitute for the subject.
 
 ### 8.2 Workflow State Transitions (P0)
 

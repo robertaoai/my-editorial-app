@@ -60,6 +60,335 @@
 
 - **Verified-At-Commit:** b40dfc361d5ca5ee41998256811983bb8fb1a991
 
+## Follow-up review — authority provenance and executable verification order — 2026-09-08
+
+**Clarified request:** review Lane A's acceptance of the prior corrections, resolve the remaining
+AT-001 authority disagreement from evidence, and finish the smallest draft follow-up. The quoted
+Lane A plan is input to review, not an application instruction. The source baseline remains
+`03495db7bd7d9df958711735002629895d84c9bb`; only B-084/B-085 carry working-tree annotations.
+
+### Parent — distinguish recorded authority from independently verified authority
+
+**Lane A is correct that this review grants no application authority.** Its further claim that
+another Judge act is required merely because AT-001 is in the governing set is not established.
+D-197's **Second act** expressly records Chief Editor authorization for Addendum T1 and
+AT-001/AT-004 corrections. D-198 routes the later residual repairs back to D-197. B-073's
+baseline-change stop applies to a change adding to or contradicting the frozen baseline; no such
+new policy choice is identified in the proposed analytical-tag clarification.
+
+**Correction to my preceding review:** saying the second act definitively covers the exact final
+replacement and scope note was too strong. The earlier review in this entry explicitly states
+that the original direct Judge instruction was not visible; I verified the recorded act and edits,
+not the original instruction. Read the preceding review's categorical authority claims and its
+draft Register wording subject to this qualification; they are not independent proof of that act.
+
+Use this replacement authority statement:
+
+> D-197 records Judge authorization for Addendum acceptance corrections. The proposed AT-001
+> replacement repairs that test while preserving the ratified package and leaving requiredness
+> and non-URL handling open. Lane A should retrieve and cite the original Judge instruction and
+> map its scope to the exact row and scope note. Reuse the existing authority if it covers that
+> repair. If the scope exceeds the act, or the necessary authority remains unconfirmed after
+> checking its provenance, seek one bounded application decision on the completed text.
+> Review and drafting continue under existing authority; a source-tier location is not itself
+> a new approval gate.
+
+This is **recorded authority with exact application provenance not independently confirmed**,
+not a newly undecided business requirement. D-183 owns the evidence test; B-083 owns the
+instruction to reuse a covering act and avoid repeated per-file permission. No clarification is
+needed to finish the review and draft requested here.
+
+### Remaining corrections to Lane A's latest plan
+
+| Item | What remains wrong or unclear | Smallest draft fix / success criterion |
+|---|---|---|
+| P1 before P5 | P1 requires the final full-suite pass immediately after a new commit, while P5 has not yet updated the graph. `docs-drift` then compares the old analyzed HEAD with the new HEAD | Preliminary checks → authorized commit → graph extraction/curated/semantic work → final full suite. Graph currency must be established before demanding the final all-pass result |
+| P5: "clear" the semantic marker | Deleting `.graphify_describe_pending` would remove an alarm without generating or ingesting descriptions. Marker absence alone is not semantic proof | Complete the live description/community batches and ingest them through the installed workflow; let the tool clear its own marker. Then verify pending work, curated parity and final HEAD. Do not perform another rebuild that discards the ingested descriptions |
+| P5: "No portability gate" | Existing ignored-runtime findings do not block this packet, but the outgoing range includes tracked `docs/graph-fragments/frag130.json` | Preserve B-085's existing scoped proof: proposed tracked graph paths must be relative and resolve; runtime stays untracked. Do not require a clean scan of all ignored runtime files or create new portability work |
+| Surviving source-sweep guarantee | The comparison is `t > regTime`, not a requirement that two paths occur in one commit. A later Register commit or timestamp tie changes the result | Recommend one source/propagation packet, while stating the actual conditional failure. Inspect propagation content and run the effective full runner; neither equal timestamps nor a fixed check total proves correct content |
+| P2/P3: partial replacement and a new finding | "Delete only" can leave the actual table partly corrected. Reference, supplied source information and extracted metadata are distinct concepts; their coexistence is not itself a contradiction | Use the **entire AT-001 row and full scope note already drafted below**. Add AT-002 to the existing domain crosswalk. Retain AT-005/B1; create no duplicate finding, test ID or requirement |
+| Census evidence and P6 | A working-tree count cannot be described solely as `N at SHA`. The committed Applied set includes B-085, whose verification is in this very packet, and B-084, whose narrow source correction is also in it | Identify committed SHA versus base SHA plus named working-tree changes. Say "other Applied entries retain their individual owners"; B-077 is the existing routing reference, not the owner of their evidence or a new live ledger |
+| P4 and Product status | B-061's stale narrative needs a dated correction. The existing CR-14 gap-row draft says reconciliation remains, so correcting that status does not depend on first completing the contract | Draft the B-061 correction below for its owner; apply each status correction within its bounded scope. Do not silently add B-061 to the current four-path transport proposal |
+
+**B-061 dated correction — proposed for Lane A, not applied here:**
+
+> Correction, 2026-09-08: the earlier response's Q12/Q1 Phase-0 blockers are historical. D-163
+> decided them; D-164/D-165 defined the earlier unit, and D-171 later held both historical and
+> target S2 orders. This entry remains Answered pending its current dependency/successor
+> disposition, including the blind-review/reveal UX question, against the current work order
+> and B-071. Q1's production half remains with OD3. A dated correction does not itself satisfy
+> the remaining criteria or confer fresh S2 authority.
+
+### Lane A guide — the actual dependency order
+
+| Order | Follow-up | Accept when / owning phase |
+|---|---|---|
+| 1 — authority evidence | Match the final AT-001 row/note to the original act recorded by D-197. Keep D-199 as a draft identifier until Lane A records the next actual decision | Phase 1: existing scope is evidenced, or the one genuinely missing bounded act is obtained; no repeated baseline ratification |
+| 2 — concrete source packet | Use the full existing AT-001 draft plus Register rationale/applicability and the two reviewed handoff records. Inspect exact content and paths; perform preliminary checks | Phase 1: package components, supplier/executor, audit fields and unresolved domain/requiredness are preserved; the existing Product/view packet stays separately identified |
+| 3 — authorized commit, then graph | Commit the bounded packet, refresh extraction, restore curated fragments, complete/ingest relevant semantic work, and verify final graph state | Phase 1: no manual marker deletion as completion evidence. A broad semantic-completion claim requires no pending work; any unrelated enrichment deferral is explicitly bounded |
+| 4 — final evidence, then transport | Run the full local consistency runner after the last graph operation; record its observed results and final SHA. Refresh and review the complete outgoing range before any authorized push; verify the remote afterward | Phase 1 transport: no fixed tally as a reusable gate, no earlier SHA reused after a further commit, no push authority inferred from this review |
+| Independent contract work | Continue D-194's existing requiredness/domain draft, including AT-002, the CR-14 status row and dependent views; route B-061's correction through its existing owner | Phase 1: precise allowed/refused cases and current-source crosswalk, then independent B-084/FB-05/G105 verification. B-071/D-171 and Phase 3 retain their gates |
+
+The Product PRD, historical storyboard panels and sequence/data-flow views, traceability map and
+Encyclopedia ledger have no new source changes since the preceding pinned review. Its concrete
+crosswalk and Entry 06 hosted-parity limitation stand. No new diagram or duplicate closure
+tracker is needed. B-084 remains Applied; B-085's bounded Verified annotation remains uncommitted.
+
+**Evidence:** the current full local runner passes 17/17 and the two censuses remain as recorded
+below. A fresh fetch again finds upstream `8f441c7`, with `15cce88`/`03495db` the outgoing range.
+Graph metadata still matches committed HEAD; `check-update` still reports semantic work pending.
+No source policy, graph state, checker, product code, lifecycle header, commit or push is changed
+by this follow-up. This review updates only this entry and B-085's review pointer.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Accepted prior corrections and existing bounded handoff dispositions | Phase 1: preserve their evidence; no repeated review or bulk closure |
+| Approve-with-conditions | AT-001/Addendum/Register application plan | Phase 1: original-act scope match, full drafted text and corrected commit/graph/check order |
+| Defer | Independent clearance of the exact source application; full B-084 contract closure | Lane A checks existing-act evidence next; separate Phase 1 contract and independent-verification gates remain |
+| Reject | Governing location alone as a new approval requirement; our review as authorization; manual marker clearing as semantic completion | Phase 1: use the corrected distinctions above; no build |
+
+## Review of Lane A's consolidated completion and transport proposal — 2026-09-08
+
+**Clarified request:** independently review the proposed completion ledger and pre-push plan;
+preserve existing terminal decisions, correct unsupported claims, and give Lane A a parent-first
+documentation packet with explicit acceptance evidence. This section is the review of the supplied
+proposal, not its execution. No new backlog, governed-source edit, application build or push is
+authorized by this review. The individual handoff headers remain canonical.
+
+**Baseline:** `03495db7bd7d9df958711735002629895d84c9bb`, plus the uncommitted Lane B annotations
+in this file and [B-085](B-085-external-docs-audit-disposition.md). The prior five-group review
+stands; this entry remains **Applied**. B-085 remains **Verified for audit disposition and the
+seven scaffold notices only**, as recorded in its working-tree header. Neither scope is reopened.
+
+### What is accepted, and what the proposal gets wrong
+
+The useful addition is an explicit Register/tier-applicability step for the Addendum correction.
+My earlier short follow-up omitted that execution detail. Its final graph step also needs an
+explicit semantic-queue check. Those are real omissions; they do not establish the other
+"guaranteed failure" claims in the supplied proposal.
+
+| Proposal claim | Source-grounded review | Draft correction / owner |
+|---|---|---|
+| P1: `node scripts/checks/source-sweep.mjs` returning zero establishes zero findings | **False.** The file only exports `run()`; direct invocation does not call it. It prints nothing and exits successfully. See [source-sweep](../../scripts/checks/source-sweep.mjs), function `run`, and [the actual runner](../../scripts/check-consistency.mjs) | Use `bun run check`; require an actual `source-sweep` result, not a silent exit. Lane A, Phase 1 transport |
+| Editing AT-001 alone immediately guarantees 16/17; only one commit can prevent it | **Overstated.** The check compares last-committed `%ct` values with `t > regTime`; it reads neither the unstaged nor staged edit. A source commit newer than the Register triggers the finding. A later Register commit also satisfies the heuristic; equal timestamps do not prove real propagation | Prefer one coherent source/propagation packet, but verify content and final committed history. Do not change the checker or treat timestamp equality as semantic proof |
+| P2 fixes Lane B's retained completeness assertion | Lane B's proposed replacement already deletes "complete manual package". The defect is in the current Addendum row, not in the proposed replacement | Apply the scoped replacement below within the existing correction boundary; do not invent a second failed wording round |
+| Supplying source information in AT-001 makes it universally required and conflicts with AT-005 | **False inference.** A positive test fixture is not a requiredness rule. D-194 names source information in the package; D-197 B1 keeps extracted author/date nullable. Those concepts are not synonyms | Retain source information in the example and state precisely what omission questions remain open. Preserve AT-005's extraction-failure behaviour |
+| The human supplier must be stored on the transition row | FN-GATES requires supplier and executor to be distinct recorded facts; it does not decide the supplier's physical storage location | Keep the existing transition audit keys and record supplier provenance separately, without specifying a new column |
+| P3 discovers a new contradictory acceptance outcome | AT-001's broad "source reference" and AT-002's URL refusal expose unqualified domain wording; a URL is itself a source reference. The stronger existing contradiction is Product FR-01's explicit non-URL allowance versus FN-GATES' URL-only entry/T2 clauses | Add AT-002 to **this entry's existing domain crosswalk**, not a new finding or handoff |
+| P4: the proposed CR-14 status correction must wait because it claims reconciliation is complete | **False.** The proposed row expressly says input-scope, requiredness and dependent-clause reconciliation remain. Product §7.1 currently records FR-01 coverage and still labels CR-14 "Missing functional requirement" | Retain the existing replacement row below. Its application needs the applicable bounded scope; completing the contract is not a semantic prerequisite for correcting a stale status description |
+| P6: B-061 items 1/4 remain blocked on undecided Q12/Q1 | **Stale.** D-163 decided Q12 and Q1's Phase-0 scope; D-164 supplied the then-next unit. D-196 explicitly forbids re-asking those accepted decisions. D-171 subsequently holds both historical and target S2 orders | Reconcile B-061's surviving criteria and B-070/B-071 successor disposition. Keep Q1's later production scope distinct; do not present it as an unanswered Phase-0 decision |
+| B-077 now owns all Applied entries, and any Applied entry bars every phase closure | B-077's Deferred disposition closes that parent only and routes its children to their existing owners. Handoff README and `closure-readiness` gate entries filed against the **phase claiming closure** | Review each originating entry; Phase 1's Applied population blocks Phase 1 closure. Do not impose a new global freeze on unrelated phases or reopen B-077 |
+| P5: Graphify is absent here; all graph work is forbidden before commit; the whole runtime must be portable | Graphify is installed on this host. Final evidence must match final HEAD, but earlier navigation/provisional checks are valid. B-041/B-050 already scope portability to proposed committed artifacts, not ignored runtime state | Use the installed downstream workflow; separate extraction, curated parity, semantic ingestion and commit portability as below |
+| A governing-source wording repair requires another Judge classification before any progress | [B-073](B-073-r66-frozen-source-intake-correction-guide.md) distinguishes refinement from a baseline change; it does not require a new classification act for every source edit. D-197's second act already covers the Addendum acceptance correction; [B-083](B-083-decision-tree-and-judge-authorization-routing.md) requires reuse of applicable authority | Lane A records the exact existing act and owning tier. Ask only if the proposed action adds scope or settles a still-open business choice; review/drafting can proceed now |
+
+### AT-001 — final proposed wording, not applied
+
+This replaces the earlier proposed row only to make its scope and supplier-recording boundary
+more explicit. It retains the approved package components and all existing audit fields.
+
+| Test ID | Given | When | Then |
+|---|---|---|---|
+| AT-001 | Reporter agent (Line 1) is active; the input satisfies every other applicable requirement of the approved URL-based manual-intake contract | The Chief Editor supplies a reviewable source URL, source information, exactly one subject topic and a trend-signal description, with no analytical tags; the Reporter agent executes `T1` | Article enters `Logged`; the transition audit records `executor_type = agent`, `line_assignment = Line1`, the actual `agent_id` and timestamp. The Chief Editor is identified separately as the human supplier. Zero analytical tags do not cause refusal |
+
+**Scope note to carry with the row:** this positive example tests analytical-tag optionality only.
+Including source information preserves D-194's named package components; it does not decide
+whether the reference alone satisfies that component or what omission would require.
+Source-information requiredness and non-URL handling remain in B-084/FB-05's existing
+reconciliation packet. Nullable author/date extraction and Investigator review remain governed
+by D-197 B1/AT-005. AT-004's permitted cases likewise assume otherwise valid input.
+
+### Register record and tier applicability — proposed text for Lane A
+
+Use the next available decision identifier; `D-199` is a proposal label, not a reserved or adopted
+decision. Record the existing D-197 second act as the authority for repairing this acceptance
+wording, rather than claiming that the review grants a new source-policy act.
+
+> AT-001's phrase "complete manual package" overstates what its analytical-tag test proves.
+> Within D-197's authorized Addendum correction, replace that row and carry its scope note in
+> full. Preserve D-194's package components, D-197 A1/B1, supplier/executor separation, existing
+> audit fields and the open source-information/non-URL reconciliation. B-084 remains Applied;
+> this correction does not close FB-05/G105, alter D-121's duplicate guard, or release D-171.
+
+| Owning or dependent tier | Applicability for this narrow packet |
+|---|---|
+| Register | Affected: correction rationale, existing authority, explicit applicability and unresolved domain/requiredness pointer |
+| Addendum §AT-001 | Affected: exact row and scope note above |
+| Product PRD / FN-GATES / traceability map | No new behaviour in this narrow row correction. Inspect acceptance references for consistency; their existing B-084 domain and status corrections retain their own scope |
+| Build Spec / Artifact Inventory / Phase Closure | Unaffected by this wording repair: no new scope, sequence, DoD, created/retired file, sprint closure or lane transition. Do not manufacture edits solely to equalize timestamps |
+| Storyboard / sequence and data-flow views | Existing B-084 reconciliation remains owed; this limited acceptance edit does not make the historical panels current |
+| Encyclopedia | Entry 06 remains in the existing re-check queue; local ledger review is not hosted-content verification |
+| Handoff evidence | Include the reviewed B-084/B-085 annotations; preserve their separate lifecycle scopes |
+
+If Lane A includes the CR-14 status row in the same packet, name that Product-tier edit explicitly
+and bind its application to the applicable authority. Do not hide it under an "unaffected" row.
+
+### Dependent views and business semantics
+
+The existing source crosswalk remains the required contract work:
+
+- **Product / behaviour / acceptance:** Product FR-01 permits wider source references; FN-GATES
+  §3.1 and T2 require URLs; Addendum AT-002 rejects missing URLs. Define the approved domain and
+  requiredness once, then align these clauses. Keep source information distinct from nullable
+  extracted author/date, and exactly one subject distinct from optional analytical tags.
+- **Storyboard and UML/data flow:** [Panel A2](../journal/2026-08-18-storyboard-business-and-digital-twin.md)
+  preserves the old URL-only arrows and has an explicit historical warning for cardinality and
+  ordering, yet its later note still calls FB-05 an unresolved producer dependency. The producer
+  is now specified. Replace that current-status note with the remaining reconciliation; derive
+  any updated sequence from the final contract, retaining audit-before-state and separate supplier
+  and executor. The dated diagram does not become build input through this review.
+- **Module partition:** M-MVP is the Chief Editor's manually entered editorial trigger package;
+  the M-POC Instacart example is an external capture followed by manual extraction/entry into the
+  application. No automated feed or integration is implied. Modular_PRD traces both modules while
+  M-POC requirements remain in their separate source. V1, sprint, Q9, FB-05, G105 and PBL-11 are
+  different kinds of fact: Q9's A1/B1 are decided; FB-05 needs contract verification; G105 follows
+  that evidence; PBL-11 is a separate future capability.
+- **Encyclopedia / references:** [Entry 06's ledger](../ENCYCLOPEDIA-SYNC.md) still names
+  `f7b3aea`; hosted parity is unverified. Use the existing entry and cross-reference owners rather
+  than inventing a new diagram, encyclopedia or closure tracker. A path resolving proves location,
+  not the accuracy of the assertion at that location.
+
+### Evidence observed in this review
+
+The full local suite passed **17/17** at the baseline plus the existing two working-tree handoff
+annotations. Its census is **52 Verified, 7 Superseded, 3 Deferred, 18 Applied, 1 Open, 1 Answered
+without Resolution and 4 turn reports**. This is a dated working-tree observation, not a maintained
+roll-up or a fresh substantive re-verification of every historical closure. The checker confirms
+verification-anchor existence and field rules; it cannot prove the truth of every correction or
+the actual actor's independence. B-085's Verified annotation is not yet in committed HEAD;
+that committed census instead has 51 Verified and 19 Applied, with the other categories unchanged.
+
+Fresh `git fetch origin` succeeded. Upstream remains `8f441c7031659d5aacc4e1df5504953d21bdafd5`;
+the reviewed range remains the two commits `15cce88` and `03495db`, with no divergence. That
+observation does not cover the later commit(s) needed to transport these annotations or AT-001.
+
+Graph metadata matches committed HEAD and `stale` is false. Named frag129/frag130 verify-only
+checks each pass their exact node and four edges. **`graphify check-update` reports pending
+semantic updates**, including the fast-hook descriptions/labels marker. Thus the graph is
+commit-current with those two curated fragments verified, not semantically complete across the
+corpus and not proven to contain the working-tree annotations. A source comparison remains the
+authority for this review.
+
+The installed Graphify command is available on this host. The runtime portability scan reports
+existing findings in ignored local artifacts; `git ls-files .graphify` is empty. Preserve the
+B-041/B-050 boundary: run and classify the scan, require repository-relative portable paths for
+any proposed tracked graph artifacts, and keep runtime metadata untracked. `merge7.js --all`
+audits fragment conflicts; it does not merge all fragments. Use actual fragment merge operations
+and verify their parity. One successful metadata check cannot close B-050's intermittent defect.
+
+### Lane A follow-up — parents before dependent work
+
+| Order / dependency | Action | Success criterion and follow-up phase |
+|---|---|---|
+| 1 / existing correction authority | Bind the exact AT-001 repair to D-197's second act; prepare the Register rationale/applicability and the final literal path set. Preserve the reviewed lifecycle distinctions | Phase 1: no renewed baseline question or implicit new application/build/push act |
+| 2 / 1 | Apply the AT-001 row and scope note in full within that bounded correction. Transport the Register record and two handoff annotations in the reviewed packet; one source/propagation commit is the preferred arrangement | Phase 1: optional analytical tags proven without resolving omission/non-URL policy or adding supplier storage schema; inspect staged content, not just filenames |
+| 3 / 2 | Run the full local suite before commit, recognizing that the source timestamp check still sees old history. Commit only the authorized exact set; inspect the actual committed content | Phase 1 transport: preflight result distinguished from post-commit evidence; no silent no-op check accepted |
+| 4 / final source commit | Lane A refreshes the extracted graph through the installed workflow, preserves/re-merges curated fragments, checks pending semantic ingestion and fragment parity, then verifies final HEAD metadata and runs the full suite again | Phase 1 evidence: no graph/doc drift for the claimed revision; resolve relevant pending semantics or explicitly bound/defer general enrichment. Portability applies to the exact proposed tracked artifacts |
+| 5 / 4 | Refresh upstream and inspect the complete final outgoing range immediately before any authorized push. If pushed, verify the remote tip afterward; give the immutable evidence to the independent reviewer | Lane A transport: old two-commit evidence is not reused for an expanded range; this review is not a push instruction |
+| Independent after 1 / existing D-194 drafting authority | Prepare one requiredness/domain packet including AT-002, the existing CR-14 status replacement and the dependent views; this need not wait for transport. Ask for a decision only on the actual unresolved alternatives/application scope | Phase 1 contract: exact clauses, allowed/refused cases, module partition and owners. Then independently review B-084's full criteria before FB-05/G105 closure |
+| Separate existing chain | Follow B-077's existing per-entry questions; verify B-076 before B-073/B-074/B-075 and then B-072. B-061/B-070 successor reconciliation, B-071/D-171 and Phase 3 deferrals retain their own gates | Their named follow-up phases: no bulk promotion, no duplicate live ledger, no reopening accepted Q12/Q1 Phase-0 decisions |
+
+B-061's surviving blind-review/reveal UX question needs a concrete satisfied/excluded/transferred
+disposition against the existing work-order and B-071 scope. Historical Unit 1 excludes that work;
+the Build Spec routes it to Unit 2, with both orders held. It is not automatically R159, which
+owns the progress-axis mapping. Independently verify the successor transfer before closing the
+originating entry; do not bring that work into this audit transport packet.
+
+If tracked fragment corrections require another commit, the final graph/check/range proof must
+follow that new HEAD. Do not carry evidence forward from the earlier source commit.
+
+**Lane B action:** recorded this review and a link from B-085 only. No governed document, graph
+fragment/runtime, source checker, application code or lifecycle header was changed in this pass;
+no commit or push. The post-edit consistency suite passed 17/17; all 16 local Markdown file-link
+targets across these two handoffs resolve, and the diff has no whitespace errors. This validates
+the review records, not application of their proposed source edits or graph semantic completion.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Existing five-group B-084 review; bounded B-085 verification; measured working-tree census | Phase 1: preserve the original evidence and individual lifecycle records |
+| Approve-with-conditions | Addendum/Register/handoff transport plan | Phase 1: use the corrected row, effective runner, scoped graph evidence and final outgoing-range proof |
+| Defer | B-084/FB-05/G105 complete-contract closure; B-061/B-070/B-071 and legacy Applied reconciliation | Existing Phase 1 owners and dependency gates; Phase 3 remains with B-016/C-001 |
+| Reject | Dropping a package component, re-asking settled Phase-0 decisions, silent check success, global phase freeze, whole-runtime portability blocker, or analysis approval as execution authority | Correct the proposal before Lane A follows it; no product build |
+
+## Independent review of the five residual corrections — 2026-09-08
+
+**Reviewed at `03495db7bd7d9df958711735002629895d84c9bb`; applying commit
+`15cce884788648a1869c4c819fc7986e62458266`.** The five correction groups identified in the
+previous review now pass their narrow source checks. This is not whole-entry verification;
+`Resolution: Applied` remains correct. The earlier metadata anchor `b40dfc3` records the prior
+application, while `15cce88` contains these additional corrections.
+
+| Previous correction group | Evidence now present |
+|---|---|
+| Subject versus analytical tags | Addendum AT-001 permits zero analytical tags; AT-003 refuses a missing subject |
+| Scoped duplicate handling | Addendum AT-004 and Product US-01's edge cell distinguish the POC same-submitter/brief/day guard from permitted different-day/manual-trigger cases |
+| FN-GATES §10 contradiction | The obsolete producer/provenance clause is explicitly superseded and “before S1” is historical |
+| Execution ownership | Product §2.6's diagram and §8 identify current scope/work-order/lane sources and classify the journal as historical |
+| Copied coverage tally | docs README points to the map's rows instead of repeating the tally |
+
+Read the execution paragraphs as a whole. Their remaining generic “sprint plan” leads are
+qualified by the immediate diagram/parenthesis. Simplifying those leads would help readability,
+but they do not reopen the corrected current-owner mapping.
+
+### One narrow wording correction before push
+
+Addendum AT-001:518 now calls **source reference + subject + trend description** a “complete
+manual package”. The same entry/decision still leaves source-information requiredness and
+non-URL handling open. This test was meant to prove that analytical tags are optional, not to
+declare that the omitted source information is unnecessary or that every non-URL path is ready.
+
+**Proposed replacement AT-001 row — specified, not applied:**
+
+| Test ID | Given | When | Then |
+|---|---|---|---|
+| AT-001 | Reporter agent (Line 1) is active; the input meets all other requirements of the approved URL-based manual-intake contract | The Chief Editor supplies a reviewable source URL, source information, exactly one subject topic and a trend-signal description, with no analytical tags; the Reporter agent executes T1 | Article enters Logged; the audit records `executor_type = agent`, `line_assignment = Line1`, the actual `agent_id` and timestamp, with the human supplier kept distinct. Zero analytical tags do not cause refusal |
+
+This example preserves D-194's named package components and D-197's supplier/executor
+distinction. It does not invent author/date requiredness, a database field for source information,
+an incomplete-draft state or the final non-URL disposition. Include the corresponding provenance
+wording in the existing acceptance cross-reference if changed; do not add another test identifier.
+AT-004's permitted cases likewise assume otherwise valid input, rather than overriding unrelated
+required-input checks. Those qualifications keep single-concern acceptance tests honest.
+
+### Remaining B-084 work — one existing contract packet
+
+1. **Input scope and requiredness:** reconcile FN-GATES' URL-only entry/T2 clauses with Product
+   FR-01's wider source-reference allowance; define how supplied source information satisfies
+   the approved package without making nullable author/date fields mandatory. This is already
+   the D-194 proposal's next unit, not a new decision about whether intake is manual.
+2. **One current status row still missed:** Product §7.1:788 says CR-14 has “No FR” and is a
+   “Missing functional requirement — FB-05”, although §7.1's FR-01 coverage row records the
+   manual contract. Proposed replacement for that gap row:
+
+   | Customer request | Missing or incomplete Product Scope | Classification |
+   |---|---|---|
+   | CR-14 | The manual-input requirement is specified in FR-01; input-scope, requiredness and dependent-clause reconciliation remain, followed by independent verification. Future AI generation remains separate under PBL-11 | Incomplete specification reconciliation — FB-05 |
+
+3. **Dependent views and evidence:** reconcile storyboard A2's retained “no producer” annotation
+   and the relevant sequence/data-flow views against the final contract. Carry the actual
+   Encyclopedia Entry 06 follow-up; no hosted parity was inspected here. These existing
+   requirements do not imply a new diagram file, integration or M-POC activation.
+
+### Parent-first follow-up and review decision
+
+| Order / dependency | Lane A next action | Acceptance / follow-up phase |
+|---|---|---|
+| 1 / completed narrow review | Preserve the five corrected groups and record their actual revision | Phase 1: no repeated repair or whole-entry closure claim |
+| 2 / before recommending this packet for push | Qualify AT-001 using the proposed row, retaining the existing contract caveats | Phase 1 documentation: no three-item completeness or non-URL-readiness inference |
+| 3 / existing D-194 authority | Prepare the one requiredness/domain packet and include the remaining Product gap row and view reconciliation | Phase 1: explicit alternatives, exact proposed clauses, owner and failure cases; ask only at a genuinely unresolved choice/application boundary |
+| 4 / final bounded source packet | Include review evidence, synchronize the final graph and rerun checks; refresh the upstream range before transport | Lane A transport: exact current outgoing commits; no automatic publication authorization from this review |
+| 5 / accepted complete contract | Independently review B-084's full criteria, then reconcile FB-05/G105 | Phase 1: no automatic S2, sprint or phase closure |
+
+The remote review in B-085 names the two commits examined and their exact baseline. New source
+or handoff commits require a fresh range check. The existing B-061/B-071 holds and owners remain
+independent. No code, governed source or graph was edited by Lane B in this review; no push.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Five bounded source correction groups at 15cce88 | Phase 1: preserve their narrow independent review |
+| Approve-with-conditions | Documentation packet before push | Phase 1: qualify AT-001 and refresh final evidence/range |
+| Defer | B-084 / FB-05 / G105 terminal closure | Phase 1: complete the existing contract/status/view work and independently verify |
+| Reject | Narrow correction success as product/build completion | Preserve existing scope and authorization boundaries |
+
 ## Independent review of the second application — 2026-09-08
 
 **Reviewed at `8f441c7031659d5aacc4e1df5504953d21bdafd5`; applying commit `b40dfc3`.
@@ -455,3 +784,237 @@ new SOP, application, graph write or push is included.
 | Reject | Complete-specification/no-residual-deficiency claim | Phase 1: reconcile the evidenced contradictions before requesting independent closure |
 | Defer | FB-05/G105 closure and affected view parity | Phase 1: authorized application, exact-revision source review and appropriate graph/hosted evidence |
 | Defer | Accumulated-range push, B-071/D-171, PBL-11 and implementation | Existing separate owners and bounded authorizations; no change from this review |
+
+---
+
+## Lane A consolidated answer — the `AT-001` match, and the cross-tier review — 2026-09-08
+
+**Consolidated so Lane B reviews one record rather than a thread.** Source baseline
+`03495db7bd7d9df958711735002629895d84c9bb`. **The review below was written as
+*specified-not-applied*; the Chief Editor then authorized the packet, and the `AT-001` repair and
+its scope note ARE applied — recorded as `D-199`.** The review text is preserved as written rather
+than rewritten, with the applied note at the end of this section. **Everything the review marks
+*specified, not applied* — the `FN-GATES` §8 `AT-003` mapping row, and findings `F1`–`F3` — remains
+unapplied.** No push, no lane-state change.
+
+### Lane B's three corrections — accepted, with the evidence that settles each
+
+| Correction | Lane A's position | Evidence |
+|---|---|---|
+| **Location does not create an approval requirement** | **Accepted; my blanket requirement is withdrawn.** `D-197` is recorded as *"prepared under `D-194`'s existing drafting authority — no new drafting approval was sought or is needed."* Authority attaches to the **act**, not the directory. What Lane A owed was the **match**, and it is performed below | Register §5.14e22 opening paragraph |
+| **Graph before checks** | **Accepted; my order was wrong.** `docs-drift` compares `.graphify/branch.json`'s `lastAnalyzedHead` against `HEAD`; `graph-coverage` reads `.graphify/graph.json`. Both are inside the local suite, so a suite run before the rebuild validates the **previous** commit's graph | `.graphify/branch.json` currently reads `lastAnalyzedHead: 03495db`, `stale: false` — current for the baseline and stale the moment a packet commits |
+| **Marker deletion is not completion** | **Accepted; "clear the marker" is withdrawn.** The marker's own text is the instruction: *"Graph rebuilt by the fast git hook without descriptions/labels. Run `graphify update --fill-missing` to fill them."* Deleting it removes the alarm and leaves the graph unlabelled. The act is the fill; the marker clears as a **consequence** | `.graphify/.graphify_describe_pending`, present at the baseline |
+
+### Step 1 performed — the match fails, and it fails at `15cce88`, not at the act
+
+**What `D-197`'s second act authorized** (register §5.14e22, *Second act — 2026-09-08*, item 2):
+
+> *"`AT-001` now asserts **refusal with no subject topic** and **acceptance of one subject plus
+> multiple analytical tags**."*
+
+**What `FN-GATES-01-05.md` §8 records** — applied under that act:
+
+> `AT-001` | `AC-01` intake — **including refusal when no subject topic is supplied, and acceptance
+> of one subject topic alongside multiple analytical tags** (`G39`)
+
+**What `v1-build-readiness-addendum.md` §8.1 records today** — acceptance of *"A complete manual
+package … **with no analytical tags**"*, with refusal relocated to `AT-003`.
+
+**Provenance, from `git log -S` on the literal strings:**
+
+| String | Landed at |
+|---|---|
+| `A complete manual package is supplied` | `15cce88` — the `D-198` commit closing `B-084`'s five residuals |
+| `with no analytical tags` | `15cce88` — same commit |
+| `acceptance of one subject topic alongside multiple analytical tags` (`FN-GATES` §8) | `b40dfc3` — the `D-197` second-act commit |
+
+**`b40dfc3` changed exactly one line of the Addendum** — §3.1's `T1` required-set row. **It did not
+touch `AT-001`, `AT-003` or `AT-004` at all.**
+
+**Answer to step 1, in two parts:**
+
+1. **The existing act covers editing `AT-001`.** No second approval is needed, and my earlier demand
+   for one is withdrawn.
+2. **It does not cover the row as it currently stands.** The act's item 2 is recorded as *applied*
+   at an act whose commit did not contain it; the content arrived one commit later under a different
+   decision, asserting something the act did not authorize. **This is a `D-198` application defect,
+   not a `D-197` scope question.**
+
+**`B-085`'s own Lane A block already says so** — *"the Addendum's own `AT-001`/`AT-003`/`AT-004` rows
+were **never touched**"*. The register and this handoff channel have therefore disagreed with each
+other since `15cce88`, and neither check nor review noticed, because `tier-sweep` verifies claim
+**arrival**, not correctness (`G65`).
+
+### Two corrections to Lane A's own prior draft — both mine, neither Lane B's
+
+**1 — the section anchor is wrong in both drafts.** Lane B's replacement and mine each cite
+*"`FN-GATES` §11"* for the `AT-001` test-mapping row. **`FN-GATES-01-05.md` §11 is the Editorial
+node catalog.** The mapping row is in **§8, Verification** (`FN-GATES-01-05.md:215`). A `D-199` tier
+table built on the earlier drafts would have named the wrong section as reconciled.
+
+**2 — the wording dispute hid its own root cause.** `AT-002`, `AT-003` and `AT-005` appear **nowhere**
+in `FN-GATES-01-05.md` or `Modular_PRD.md`. `FN-GATES` §8 maps `AT-001`, `AT-004`, `AT-010`/`011`,
+`AT-012`, `AT-016`, `AT-017`/`018`/`043` — and `Modular_PRD` §9.1 sources `AC-01` from `AT-001` and
+`AC-02` from `AT-004`. **`AT-003` has no handle in either mapping table.** That is *why* the act's
+sentence bundled refusal and acceptance into one test id: the refusal assertion had nowhere else to
+be recorded. Repairing `AT-001`'s wording alone leaves that cause in place.
+
+**Consequence for the approved plan.** `P1` as drafted repairs the analytical-tags clause and leaves
+`FN-GATES` §8 still describing `AT-001` as asserting *"refusal when no subject topic is supplied"* —
+which, after the repair, it still would not. **`P2` remains right that no new test identifier is
+minted** (`AT-003` already exists and already carries the refusal). What is missing is a **mapping
+row**, not a test. Adding one is a **new edit** and needs its own act; it is specified here and not
+smuggled into the repair.
+
+### `AT-001` — proposed replacement row, specified, not applied
+
+| Test ID | Given | When | Then |
+|---|---|---|---|
+| `AT-001` | Reporter agent (Line 1) is active; the input satisfies every other requirement of the approved manual-intake contract (`D-194`/`D-197`) | The Chief Editor supplies a source reference, source information, **exactly one subject topic** and a trend-signal description, **alongside multiple analytical tags**, and the Reporter agent executes `T1` (`G39`/`D-38`) | Article created in "Logged" state; the transition records `executor_type = agent`, `line_assignment = Line1`, `agent_id`, timestamp, **and the human supplier as a separate fact** |
+
+**Deltas from the row now in the tree:** *"A complete manual package is supplied"* deleted — it
+overstates what an analytical-tag fixture proves; *"with no analytical tags"* → **"alongside
+multiple analytical tags"**, restoring the act's own assertion; source information retained per
+Lane B; supplier recorded as a separate fact per `D-197` `A1`.
+
+**Scope note, riding with it** — it restates the act's own recorded status, so it is not a new
+decision:
+
+> **OPEN** — `FB-05` closes on independent verification of this specification, not on this act.
+
+**Specified and NOT applied, pending its own act:** a `FN-GATES` §8 row mapping **`AT-003` → the
+refusal assertion**, after which §8's `AT-001` row drops *"including refusal when no subject topic
+is supplied"*. Zero-tag optionality stays with `AT-003`'s existing Then clause. **No new test id.**
+
+### Cross-tier review — what was inspected and what it changes
+
+Lane B's earlier crosswalk in this entry is not restated. Only what is **new or corrected**:
+
+| Tier / view | Inspected | Finding | Disposition |
+|---|---|---|---|
+| **`Modular_PRD.md` §9 (`AC-01`)** | `:955` preamble, `:961` row | The preamble makes the Addendum's `AT`-ids **the source tier** — *"AT-ids are the source; AC-ids are this PRD's handle on them."* `AC-01` names one subject topic and a trend signal, is silent on analytical tags, and carries no refusal clause | **Unaffected by the repair — and the reason the repair matters.** A wrong `AT-001` is a wrong source for `AC-01`, and `AC-01` is what the map uses to call `CR-14` covered. Do not edit `AC-01` |
+| **`Modular_PRD.md` §4 (`US-01`, `:529`)** | Full row | Already reads *"Analytical tags remain separate and many, `G39`"* | **Consistent with the act.** The Addendum row is the sole outlier. No edit |
+| **`FN-GATES-01-05.md` §8** | `:209`–`:222` | The mapping row matches the act; `AT-002`/`AT-003`/`AT-005` are unmapped | **Reconciled-unchanged by the repair**; the `AT-003` mapping row is separately specified above |
+| **Storyboard — Panel A2 + its Mermaid sequence** (`journal/2026-08-18-…`, `:51`–`:94`) | Panel text, diagram arrows, both annotations | `≥1 topic_tag` survives in body and diagram, but is **explicitly annotated** *SUPERSEDED FOR CURRENT USE — 2026-09-07 (`B-080`)*, naming `FN-GATES` §3.1 and `AC-01` | **No new defect. Do not re-edit.** Lane B's separate point — that its *"`FB-05` … remains open"* note now needs replacing with the remaining reconciliation — stands and is unchanged by this repair |
+| **Story panels / dataflow — `journal/2026-08-18-raci-human-vs-digital-twin.md` §8** | `:203`–`:242`, incl. the sequence at `:217` and the panel/RACI crosswalk at `:229` | Carries **role attachment** (`T1 Logged — A: CE [target: Desk Editor]`), not topic cardinality or tag semantics | **Unaffected.** Its Desk Editor target remains under `B-071`/`D-171`. **Do not widen the packet into it** |
+| **`governance/requirements-traceability-map.md` §4 / §7** | `:141`, `:157`–`:159`, `:228` | `CR-14` traces to `FR-01`, `AC-01`, `FN-GATES` §3.1. Neither `AT-001` nor Addendum §8 is cited | **Reconciled-unchanged.** No map edit; the chain it records passes **through** the defective row, which is what the repair fixes |
+| **Encyclopedia — `ENCYCLOPEDIA-SYNC.md`** | All six dependency rows | **No entry declares a dependency on Addendum §8 or `FN-GATES` §8.** Entry 06 declares `FN-GATES` §3.1/§6/§7 and map §4/§7; Entry 02 declares Addendum §11/§2.4 | **The repair is Encyclopedia-`unaffected`** — record that explicitly in `D-199`'s tier table rather than leaving it silent |
+
+### Three findings outside the repair — raised, not folded in
+
+**F1 — `D-197` declared Entry 06 affected; the ledger was never annotated.** The decision's own tier
+table reads *"Entry 06 affected once the choices are adopted"*, and the choices **were** adopted in
+the same decision. `ENCYCLOPEDIA-SYNC.md`'s Entry 06 row still reads `Last verified at f7b3aea` with
+**no stale marker**, while Entry 05 carries exactly that marker for `D-168`. **The ledger's own
+convention was applied to one declared-affected entry and not the other.** Lane B already noted the
+`f7b3aea` anchor; this adds *why* it is a defect rather than a queue. **Owner: Lane A. Not part of
+the `AT-001` repair** — it predates it, and closing it here would widen a bounded packet.
+
+**F2 — `governance/requirements-scope-knowledge-graph.md` contradicts the map it declares as its
+input.** Its flowchart (`:23`) and inventory (`:98`) still record **`CR-14: AI tagging gap` /
+`Uncovered`**. The map has recorded `CR-14` **Covered** since 2026-09-08 (`:141`, `:157`). The file's
+own header names `Modular_PRD.md` and `requirements-traceability-map.md` as its **inputs** — both
+changed under `D-197`. **It carries no supersession notice**, unlike the storyboard, which got one.
+
+**F3 — `FR-14` names two different requirements in two families of document.**
+`poc-feedback-approval-crosswalk.md` §`FB-05` (`:123`–`:130`) and `MFB-03` (`:262`), and
+`media-industry-sop-fallback-implementation-plan.md` §6.2 (`:95`–`:104`), propose **`FR-14` as the
+closure artifact for `CR-14`** — an AI/manual tagging requirement. `Modular_PRD.md` `:569` allocates
+**`FR-14` to the business-continuity observability surface** (`US-14`, `AC-21`, S3, `D-62` closing
+`G60`). Doubly stale: `CR-14` closes via **`FR-01` as the ratified manual contract** (`D-194`/
+`D-197`), and the identifier those files propose is **already taken by a different requirement**.
+Both are dated Board-review analyses declaring *"Build authorization: None"*, so **this is stale
+analysis, not a governed contradiction** — but neither carries the supersession notice the storyboard
+received for the same class of staleness.
+
+**`F2` and `F3` are reported, not repaired.** Each is a separate bounded unit with its own act.
+Per `CLAUDE.md`'s standing caution, both were checked for vocabulary before being recorded as
+incompatibilities: `F3` is a genuine identifier collision, not a label mapping.
+
+### Tier applicability the future `D-199` must carry (`D-54`)
+
+| Tier | Applicability |
+|---|---|
+| `docs/v1/V1-DECISION-REGISTER.md` | **Affected** — records the `D-198` application defect, the repair, and that `D-197` second act item 2 was recorded applied at a commit that did not contain it |
+| `docs/source/v1-build-readiness-addendum.md` §8.1 | **Affected** — the `AT-001` row and scope note above |
+| `docs/fn-specs/FN-GATES-01-05.md` §8 | **Reconciled-unchanged** — it already matches the act. The `AT-003` mapping row is a **separate** act, specified not applied |
+| `docs/Modular_PRD.md` | **Unaffected** — `AC-01` and `US-01` already match the act; §8 unaffected, no sprint closes and no tier opens |
+| `docs/governance/requirements-traceability-map.md` | **Unaffected** — cites `FR-01`/`AC-01`/`FN-GATES` §3.1, not `AT-001` |
+| `docs/v1/V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md` | **Unaffected** — no artifact is created, sequenced or retired |
+| **Encyclopedia** | **Unaffected** — no entry declares Addendum §8 or `FN-GATES` §8. `F1` (Entry 06's un-annotated ledger row) is a **separate** finding with its own owner |
+| Storyboard, RACI dataflow, knowledge graph, crosswalks | **Unaffected by the repair**; `F2`/`F3` recorded above as separate units |
+
+### The corrected sequence — Lane B's order, adopted
+
+1. Register entry (`D-199`) + the tier table above + this handoff record + the Addendum edit — **one packet, one commit**.
+2. `npx graphify hook-rebuild`.
+3. **Re-merge `docs/graph-fragments/` via `merge7.js`** (`G51`) — `edges` → `links`, or the curated layer returns as degree-zero orphans.
+4. `graphify update --fill-missing`. **The marker clears as a consequence; it is never deleted by hand.**
+5. Confirm `lastAnalyzedHead == HEAD` and `stale: false` (`G97`/`B-050`).
+6. `node scripts/check-consistency.mjs` — **once**, on the final tree, recorded as *N at `<sha>`*.
+7. Re-verify the outgoing range immediately before any authorized push. **No push authority is inferred from this record.**
+
+### Handoff-template review — `B-084` and `B-085` against `TEMPLATE.md`
+
+| Field | `B-084` | `B-085` |
+|---|---|---|
+| `Raised` / `Kind` / `Phase` / `Blocks` | Present; `spec-defect` and `finding` both correct for their content; `Phase: 1` correctly names the phase owning the **correction** | Present, correct |
+| `Run` | Correctly **omitted** — neither is a `turn-report` | Correctly omitted |
+| `Status` / `Lane A` | `Answered`, acknowledged — satisfies the `bun run check` unread-entry condition | `Answered`, acknowledged |
+| `Resolution` | `Applied` — correctly **non-terminal**; does not satisfy a phase-closure condition (`D-102`) | `Verified` — terminal |
+| `Verified-By` | Absent, and correctly so for `Applied` | Present, and **not the answering lane** — satisfies `D-102`/`B-013` item 4 |
+| `Verified-At-Commit` | `b40dfc3` — **exists, but now understates the entry.** `B-085`'s own answer records that this entry's five residuals were closed at `15cce88`, one commit later. The evidence anchor **predates the applied set it describes** | `03495db` — exists, and is the commit the independent review was performed at |
+| `Follow-up-Tier` / `Superseded-By` | Not required (`Applied`) | Not required (`Verified`) |
+
+**One template observation, not a defect claim.** The template says to omit `Resolution` *"while
+Open or merely Answered"*, yet both entries carry `Status: Answered` **and** a `Resolution`. The
+lifecycle vocabulary does not define whether `Answered` survives a resolution being recorded.
+**Raised for the template's owner; nothing here depends on the answer.**
+
+**One template-adjacent finding.** `B-084`'s `Verified-At-Commit` should advance to the commit that
+actually carries its applied set once the repair lands — otherwise the field records the commit at
+which the entry was **half** applied, which is the same arrival-not-correctness shape `G65` names.
+
+### Approve / reject
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane B's three corrections — location ≠ approval, graph before checks, marker ≠ completion. All three verified against the register, `branch.json` and the marker's own text | Phase 1: preserved as review evidence |
+| **Approve** | Step 1's answer: the existing `D-194`/`D-197` authority covers editing `AT-001`; **no second approval is needed** | Phase 1: exercise it on a recorded match, not a fresh ratification |
+| **Approve-with-conditions** | The `AT-001` repair packet under existing authority | Lane A: repair to the act's assertion, `D-199` naming the `D-198` application defect and `FN-GATES` §8 as reconciled-unchanged, then the corrected sequence |
+| **Reject** | Treating the row now in the tree as covered by its act | The match fails; `15cce88` diverged from what `D-197` authorized, and the register records it applied at `b40dfc3`, which did not contain it |
+| **Reject** | My prior blanket approval requirement on location grounds, my checks-before-graph order, and "clear the marker" | All three withdrawn |
+| **Reject** | Anchoring the mapping row to `FN-GATES` §11 | It is §8. Both prior drafts, mine and Lane B's, carried the wrong anchor |
+| **Defer** | `FN-GATES` §8 `AT-003` mapping row — the root cause the wording dispute hid | Phase 1: its own bounded act. **New edit, not a repair** |
+| **Defer** | `F1` Entry 06 ledger annotation · `F2` knowledge-graph `CR-14` staleness · `F3` `FR-14` identifier collision | Phase 1: separate bounded units, existing owners |
+| **Defer** | `B-084` / `FB-05` / `G105` terminal closure — `FB-05` closes on **independent** verification, which Lane A cannot perform on its own specification | Phase 1: contract reconciliation, then independent verification |
+
+### Applied — the `D-199` packet, 2026-09-08
+
+**The Chief Editor authorized the packet after the review above was written.** Applied in one
+commit, and nothing beyond it:
+
+1. **`docs/source/v1-build-readiness-addendum.md` §8.1** — the `AT-001` row replaced with the
+   proposed wording, and the `OPEN` scope note added beneath the §8.1 table. `AT-002`–`AT-006`
+   untouched.
+2. **`docs/v1/V1-DECISION-REGISTER.md` §5.14e24 — `D-199`** — records both defects separately (an
+   application claimed at an act whose commit did not contain it; content that contradicts what was
+   authorized), the repair, the `AT-003` root cause, the `D-54` tier table, and six named
+   follow-ups with owners.
+3. **This entry** — the consolidated answer and this note.
+
+**Held, unapplied, exactly as the review specifies:** the `FN-GATES` §8 `AT-003` mapping row — a
+**new edit** needing its own act, after which §8's `AT-001` row drops the refusal clause it still
+carries — and findings `F1` (Entry 06's un-annotated ledger row), `F2` (the knowledge graph's stale
+`CR-14 Uncovered`) and `F3` (the `FR-14` identifier collision). Each is registered in `D-199`'s
+follow-up table with an owner.
+
+**`B-084`'s own `Verified-At-Commit` is deliberately NOT advanced in this packet.** The commit that
+would justify advancing it does not exist while the packet is being written, and **`pending` is not
+a commit** (`TEMPLATE.md`). It is registered as a `D-199` follow-up instead.
+
+**State at the end of this record:** the three files above are the entire write set. **Nothing is
+pushed.** `FB-05` and `G105` stay **open**; `B-084` stays **`Applied`, not `Verified`** — its
+independent verification is still owed, and Lane A cannot perform it on its own specification. Lane
+state is unchanged — **Lane A `Active`, Lane B `Eligible`, Lane C `Blocked`** — and nothing here
+nominates, approves or performs a lane transition.

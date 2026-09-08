@@ -13917,3 +13917,125 @@ Neither is authorized here.
 **Adds warnings; changes no requirement and authorizes nothing.** No build, sprint, lane transition
 or configuration change. The external audit remains an **input**, its unsupported claims recorded
 above. **This act is Lane A's own work and is not independently reviewed.**
+
+## 5.14e24 `D-199` — The `AT-001` Application Defect: `D-198` Applied a Row Its Act Did Not Authorize
+
+**Lane A act, 2026-09-08, under `D-197`'s existing second-act authority — no new approval sought or
+needed.** `D-197`'s second act authorized the `AT-001` correction; this repairs an applied row back
+to what that act stated. **A repair of an authorized edit is not a new edit**, which is the same
+distinction the second act itself drew when it held four items as *"new edits, not repairs of the
+authorized five."* **Raised in `B-084`'s consolidated Lane A answer**, after Lane B correctly
+rejected an earlier Lane A claim that a `docs/source/` location creates its own approval gate.
+**It does not: authority attaches to the act, not the directory.**
+
+### What the act authorized, and what is in the tree
+
+**`D-197` second act, item 2, second row:**
+
+> *"`AT-001` now asserts **refusal with no subject topic** and **acceptance of one subject plus
+> multiple analytical tags**."*
+
+**What `FN-GATES-01-05.md` §8 has carried since `b40dfc3`** — matching that act:
+
+> `AT-001` | `AC-01` intake — **including refusal when no subject topic is supplied, and acceptance
+> of one subject topic alongside multiple analytical tags** (`G39`)
+
+**What the Addendum's `AT-001` has carried since `15cce88`** — acceptance of *"A complete manual
+package … **with no analytical tags**"*, with the refusal case relocated to `AT-003`.
+
+**Two defects, and they are separate.**
+
+| | Defect | Evidence |
+|---|---|---|
+| **1** | **An application recorded at an act that did not contain it.** The second act lists the `AT-001`/`AT-004` edit among what it **applied**. `b40dfc3` — that act's commit — changed **exactly one line** of the Addendum, §3.1's `T1` required-set row. It did not touch `AT-001`, `AT-003` or `AT-004` | `git show b40dfc3 -- docs/source/v1-build-readiness-addendum.md`; and **`D-198`'s own `B-085` answer says so**: *"the Addendum's own `AT-001`/`AT-003`/`AT-004` rows were **never touched**"* |
+| **2** | **What eventually landed contradicts what was authorized.** The row arrived one commit later under `D-198`, asserting acceptance **with no analytical tags** — the opposite clause | `git log -S "with no analytical tags"` and `git log -S "A complete manual package is supplied"` both return `15cce88`, and nothing earlier |
+
+**`FN-GATES` §8 and Addendum §8.1 have therefore asserted different things about one test id since
+`15cce88`, and nothing detected it.** `tier-sweep` verifies that a claim **arrived** at the tier it
+names, not that the claim is **correct** — the limit `G65` records, here operating between two tiers
+that were each internally consistent.
+
+**Three review passes refined this row's wording without reading the act that authorized it.** The
+dispute ran from *is this word too strong* to *who may approve the fix* to *what is the exact
+sequence*, and both Lane B's proposed replacement and Lane A's preserved *"with no analytical tags"*.
+This is `summary_outlived_source` at the level of **authority**: once applied text exists, it becomes
+the thing under review and the authorizing record stops being consulted.
+
+### Applied — the repair, and nothing else
+
+`docs/source/v1-build-readiness-addendum.md` §8.1, `AT-001`:
+
+| Change | From | To |
+|---|---|---|
+| Completeness claim | *"A complete manual package is supplied"* | **Deleted** — it overstates what an analytical-tag fixture proves, and `B-084` recorded it as such |
+| Analytical tags | *"**with no analytical tags**"* | **"alongside multiple analytical tags"** — the act's own assertion, restored |
+| Supplier | audit fields only | **the human supplier recorded as a separate fact** (`D-197` `A1`) |
+| Source information | absent | **retained in the supplied package**, per `B-084`'s review. **A positive fixture is not a requiredness rule** — omission policy stays open |
+| Scope note | — | **`OPEN` — `FB-05` closes on independent verification of this specification, not on this act.** A restatement of the second act's own recorded status, not a new decision |
+
+**`AT-003` is not touched.** Zero-tag optionality is already asserted by its Then clause —
+*"Analytical tags are optional and never substitute for the subject"* — and **no new test identifier
+is minted.** A separate zero-tag acceptance row would be a **new** edit requiring its own act.
+
+### The root cause the wording dispute hid — specified, NOT applied
+
+**`AT-002`, `AT-003` and `AT-005` appear nowhere in `FN-GATES-01-05.md` or `Modular_PRD.md`.**
+`FN-GATES` §8 maps `AT-001`, `AT-004`, `AT-010`/`011`, `AT-012`, `AT-016`, `AT-017`/`018`/`043`;
+`Modular_PRD` §9.1 sources `AC-01` from `AT-001` and `AC-02` from `AT-004`. **`AT-003` has no handle
+in either mapping table** — which is *why* the act's sentence bundled refusal and acceptance into one
+test id. The refusal assertion had nowhere else to be recorded.
+
+**Consequence, stated rather than fixed:** after this repair, `FN-GATES` §8 still describes `AT-001`
+as asserting *"refusal when no subject topic is supplied"*, which it does not. **The missing artifact
+is a mapping row, not a test.** Adding one — `AT-003` → the refusal assertion, after which §8's
+`AT-001` row drops that clause — is a **new edit** and is **held for its own act**. It is not
+smuggled into this repair.
+
+**Both prior drafts anchored the mapping row to `FN-GATES` §11.** §11 is the Editorial node catalog;
+the row is in **§8, Verification**. Recorded so the wrong anchor does not propagate.
+
+### What this settles, and what it explicitly does not
+
+| | |
+|---|---|
+| **Settled** | `AT-001` asserts what `D-197`'s second act authorized |
+| **Settled** | The provenance of both disputed phrases, and that the second act's applied list named an edit its commit did not contain |
+| **OPEN** | **`FB-05`** — closes on **independent** verification of this specification. Lane A wrote it and cannot verify it. Unchanged by this act |
+| **OPEN** | **`G105`** — follows `FB-05`. Unchanged |
+| **OPEN** | The intake contract's remaining reconciliation — what *source information* requires, non-URL reference handling against `D-121`, and the duplicate-rule reconciliation `B-061` owns |
+| **Unchanged** | `PBL-11` unranked and unauthorized; `D-171`/`B-071`'s hold and owner; no code, schema, sprint, build, UI, deployment, `M-POC` activation or lane transition |
+
+### Tier applicability
+
+| Tier | Applicability |
+|---|---|
+| `V1-DECISION-REGISTER.md` | **Affected** — this act |
+| `docs/source/v1-build-readiness-addendum.md` §8.1 | **Affected** — the `AT-001` row and its scope note. **§8.1 only**; `AT-002`–`AT-006` untouched |
+| `docs/fn-specs/FN-GATES-01-05.md` §8 | **Reconciled-unchanged** — it already carries the act's assertion and is the tier this repair was matched against. The `AT-003` mapping row is a **separate, unapplied** act |
+| `docs/Modular_PRD.md` | **Unaffected** — `AC-01` (§9.1) and `US-01` (§4) already match the act. §8 unaffected: **no sprint closes and no tier opens** |
+| `docs/governance/requirements-traceability-map.md` | **Unaffected** — `CR-14` traces through `FR-01`/`AC-01`/`FN-GATES` §3.1, and cites neither `AT-001` nor Addendum §8 |
+| `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md` | **Unaffected** — **no artifact is created, sequenced or retired**, so `D-54`'s three-document rule is satisfied by stating this rather than by editing them |
+| `docs/handoff/B-084` | **Affected** — carries the consolidated answer, the match, and the applied note |
+| Storyboard Panel A2, RACI §8 dataflow, the knowledge graph, the crosswalks | **Unaffected** — see the follow-ups below; none is edited by this act |
+| Frozen `docs/PRD.md`, Charter, `0001_init.sql` | **Unaffected** |
+| **Encyclopedia** | **Unaffected — Entry 06 and Entry 02 both.** No entry declares a dependency on Addendum §8 or on `FN-GATES` §8: Entry 06 declares `FN-GATES` §3.1/§6/§7 and map §4/§7; Entry 02 declares Addendum §11/§2.4. **Follow-up `F1` below is a separate, pre-existing ledger defect** |
+
+### Follow-ups opened here, each with an owner and none closed by this act
+
+| | Item | Owner |
+|---|---|---|
+| **`AT-003` mapping** | A `FN-GATES` §8 row for `AT-003`, after which `AT-001`'s row drops the refusal clause. **New edit, own act** | Lane A, Phase 1 |
+| **`F1`** | `D-197` declared *"Entry 06 affected once the choices are adopted"* and the choices **were** adopted in that decision, yet `ENCYCLOPEDIA-SYNC.md`'s Entry 06 row still reads `Last verified at f7b3aea` with **no stale marker** — while Entry 05 carries exactly that marker for `D-168`. **The ledger's own convention was applied to one declared-affected entry and not the other** | Lane A, Phase 1 |
+| **`F2`** | `docs/governance/requirements-scope-knowledge-graph.md` still records **`CR-14` … `Uncovered`**; the map has recorded it **Covered** since 2026-09-08. That file's own header names `Modular_PRD.md` and the map as its **inputs**, both changed under `D-197`, and it carries **no supersession notice** — unlike the storyboard, which received one under `B-080` | Lane A, Phase 1 |
+| **`F3`** | **`FR-14` names two different requirements.** `poc-feedback-approval-crosswalk.md` §`FB-05`/`MFB-03` and `media-industry-sop-fallback-implementation-plan.md` §6.2 propose `FR-14` as `CR-14`'s closure artifact; `Modular_PRD.md` allocates `FR-14` to the **business-continuity observability surface** (`US-14`/`AC-21`, S3, `D-62` closing `G60`). Doubly stale — `CR-14` closes via `FR-01` as the ratified manual contract. **Both files are dated Board-review analyses declaring *"Build authorization: None"***, so this is **stale analysis, not a governed contradiction**; neither carries a supersession notice. **Checked for vocabulary before being recorded** (`CLAUDE.md`'s standing caution): this is a genuine identifier collision, not a label mapping | Lane A, Phase 1 |
+| **`B-084` evidence anchor** | Its `Verified-At-Commit` is `b40dfc3`, but `B-085` records its five residuals as closed at `15cce88` — the anchor **predates the applied set it describes**. Not advanced here: this act's own commit does not exist while the packet is being written, and **`pending` is not a commit** | Lane A, Phase 1 |
+| **Template lifecycle** | `TEMPLATE.md` says omit `Resolution` *"while Open or merely Answered"*, yet `B-084` and `B-085` each carry `Status: Answered` **and** a `Resolution`. The vocabulary does not say whether `Answered` survives a resolution being recorded | `docs/handoff/` channel owner |
+
+### Scope limits
+
+**A text repair inside an existing act.** No requirement, schema, gate, permission or business rule
+changes. No build, migration, runtime test, sprint, lane transition, `PBL-11` promotion, `M-POC`
+activation, release of the `S2` hold or push is authorized by this act. **`FB-05` and `G105` remain
+open**, and this act does not narrow them — it repairs a defect in how a prior act was applied.
+**This act is Lane A's own work and is not independently reviewed**; `B-084` remains `Applied`, not
+`Verified`, and its independent verification remains owed to Lane B.

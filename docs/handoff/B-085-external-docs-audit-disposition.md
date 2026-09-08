@@ -35,10 +35,74 @@
   **Not applied:** improvement B beyond those three corrections, and improvement C, which is
   specification work first — **a validator that flags a deliberately proposed path is a
   false-positive generator**. `B-084` stays **Applied, not Verified**; `FB-05` and `G105` stay open.
-- **Resolution:** Applied
-- **Evidence:** external input C:/CoWork/docs-audit-2026-09-08.md; independent repository review at 8f441c7031659d5aacc4e1df5504953d21bdafd5; source comparisons below; 17/17 local consistency checks at the committed baseline; Graphify query and matching branch metadata; existing B-061/B-071/B-077/B-078/B-084 ownership
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review of Lane A's audit disposition and scaffold notices; not the answering/applying actor
+- **Evidence:** applying commit 15cce884788648a1869c4c819fc7986e62458266; independent review at 03495db7bd7d9df958711735002629895d84c9bb of D-198, all seven first-read notices, preserved historical bodies and this entry's bounded audit-disposition criteria; existing owner/follow-up mapping retained for Improvements B/C; 17/17 local checks and exact frag130 node/edge parity at the reviewed committed revision; external audit and original source comparisons retained below
 
-- **Verified-At-Commit:** 15cce884788648a1869c4c819fc7986e62458266
+- **Verified-At-Commit:** 03495db7bd7d9df958711735002629895d84c9bb
+
+## Independent verification and review before push — 2026-09-08
+
+**Follow-up review, 2026-09-08:** [B-084's latest review](B-084-d197-manual-intake-specification-reconciliation.md#follow-up-review--authority-provenance-and-executable-verification-order--2026-09-08)
+corrects Lane A's subsequent transport instructions, including exact application-provenance
+limits, the effective runner, source-information semantics and semantic-ingestion order.
+Use that parent-first guide for the proposed next packet. This does not reopen the bounded
+verification below; its annotation still awaits transport and grants no push authority.
+
+**B-085 is Verified for its bounded audit disposition and Improvement A only.** D-198 records
+the corrected audit conclusions, rejects the unsupported remedies, applies the first-read
+notices, and explicitly leaves Improvements B/C unapplied. The original claim-to-owner table
+and repair plan remain available for those follow-ups. This satisfies the finite audit-intake
+closure defined below; it does not claim the underlying migration/configuration/requirement
+repairs have all landed or that reference-check tooling exists.
+
+All seven notices precede the historical instructions. Comparing the applying commit with its
+parent confirms that removing only the inserted notice reproduces each previous file body.
+The workflow_state, scoring-input and local-versus-hosted evidence statements match the sources.
+SECURITY and TEST_PLAN could name concrete successor paths more directly in a later navigation
+pass; their current authority warning is effective and this is not a closure blocker.
+
+**B-084 remains Applied.** Its five prior correction groups pass the separate review recorded
+in that entry. Its complete input contract, remaining status/view reconciliation and independent
+whole-entry verification are still owed. That review also supplies one narrow pre-push correction
+to AT-001's new completeness wording. B-085's closure does not approve that unresolved claim or
+release FB-05/G105, B-071/D-171, a sprint, a lane transition or a build.
+
+**Remote-range observation, freshly fetched during this review:** origin's
+`docs/journal-2026-08-16` is at `8f441c7031659d5aacc4e1df5504953d21bdafd5`; local HEAD and the
+reviewed tip are `03495db7bd7d9df958711735002629895d84c9bb`. The range is fast-forward with
+exactly two outgoing commits: `15cce884788648a1869c4c819fc7986e62458266` and
+`03495db7bd7d9df958711735002629895d84c9bb`. Their changed paths are the seven notices, Product
+PRD, docs README, FN-GATES, Addendum, Register, B-084/B-085 and frag130. No application code,
+workflow, frozen source, bundle_docs.py or docs_context_for_claude.txt is in that range.
+The index and working tree were clean before this review's two handoff annotations.
+
+The committed baseline passed all local consistency checks; graph metadata matched that HEAD
+and frag129/frag130 each matched their declared node and four edges. The broader runtime
+portable-check fails on ignored local runtime paths; those files are not in the outgoing set.
+It is therefore not a new transport blocker, and no portability of the whole runtime directory
+is claimed. Fragment parity is not semantic proof that the remaining intake contract is complete.
+
+**Push recommendation: Approve-with-conditions, not a push instruction.** First address the
+AT-001 wording identified in B-084's current review, transport the review records in the exact
+bounded set, and recheck the final source/graph/remote range. Existing deferred product work and
+the proposed checker do not need to be completed to transport this documentation packet. A new
+commit changes the range and must be named in the final proof; the two-commit observation above
+does not cover future commits. The Judge asked to review before push; no push was performed.
+
+**Final working-tree validation:** all 17 local consistency checks pass, including this bounded
+Verified record and B-084's unchanged Applied lifecycle. Local handoff links resolve and the
+diff has no whitespace errors. No files under the runtime `.graphify/` directory are tracked;
+frag130's source paths are repository-relative and resolve. The graph currency result still
+names committed `03495db`, not these uncommitted review annotations. Their transport requires
+the final source/graph refresh described above. Only B-084 and B-085 were edited in this review.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-085 audit disposition and Improvement A | Phase 1: preserve this bounded Verified record at 03495db |
+| Approve-with-conditions | Documentation transport readiness | Lane A: qualify AT-001, include the two review records, refresh final evidence and identify the actual outgoing range |
+| Defer | Improvement B source repairs / Improvement C tooling | Existing Phase 1 source owners / later Lane A tooling unit |
+| Reject | Audit closure as complete product repair, B-084 closure or push authority | Preserve each existing scope and authorization boundary |
 
 ## What happened
 
