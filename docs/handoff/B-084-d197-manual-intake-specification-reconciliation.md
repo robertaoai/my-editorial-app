@@ -38,6 +38,24 @@
   **Unchanged:** `FB-05` and `G105` stay **open** — this entry is correct that the earlier
   *"specification complete"* claim was premature. `PBL-11` unranked; `D-171`/`B-071`'s hold and owner
   intact; no build, sprint, lane transition or push.
+  **Correction appended 2026-09-08 — the four are no longer awaiting authority.** The Chief Editor
+  authorized them the same day and **all four are applied**; the paragraph above is preserved rather
+  than rewritten. `FN-GATES` §3.1 and §6 now carry `D-121`'s **scoped** guard instead of the retired
+  blanket refusal, and §6 splits the two failure modes that behave differently — a **missing trend
+  signal stops `T1`**, a **failed author/date extraction does not**. The Addendum's `T1` row was the
+  last `G39`/`D-38` holdout and now reads **exactly one subject topic**. `AT-001` and `AT-004` assert
+  the **permitted** cases as well as the refused ones, because a test that only asserts refusal
+  cannot catch an over-broad guard. Product §7.1, `FN-GATES` §10 and map §7 are each adapted to their
+  own facts — §7.1 still read *"Log an article by URL"*, pre-`D-121`. And Product's execution-tracking
+  pointer named the **historical sprint-plan journal**; it now names `V1-BUILD-SPEC` §4,
+  `LANE-B-WORK-ORDER` §2.2d and `V1-PHASE-CLOSURE` §5. Recorded as `D-197`'s second act.
+  **`FB-05`'s residual is narrowed, not closed**, exactly as this entry framed it: the producer is
+  specified; the **reconciliation of input scope, requiredness and dependent clauses** remains, then
+  **independent verification**. `G105` follows it. **Still outstanding and named:** step 2's
+  intake-contract completion — what *source information* requires, how a non-URL source reference is
+  handled against `D-121`, and the duplicate-rule reconciliation `B-061` owns. That is drafting under
+  `D-194` and needs no further authority; it is the next unit, not part of this write set.
+- **Resolution:** Applied
 - **Evidence:** Independent source review at 257677f5191d1eb781c1365427c0fe246d5436e9; D-194/D-197; FN-GATES-01-05 §2.3/§3.1/§3.2/§5/§6/§10; Modular_PRD FR-01/AC-01/AC-02/§7.1/Q9; Addendum §2.4/§3.1/AT-001/AT-003; traceability map CR-14/FB-05; B-061; full local consistency suite and frag128 verify-only result
 
 ## What happened

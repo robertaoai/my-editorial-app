@@ -13826,3 +13826,22 @@ correction, not a schema or behaviour change**: `D-38` recorded the schema as al
 **Coverage is not verification.** The map's forward-coverage summary now shows `CR-14` covered and
 nothing uncovered. That records **specification** coverage. `FB-05`'s independent review is still
 owed, and the summary says so in its own row.
+
+### Second act — 2026-09-08: the four remaining edits authorized and applied
+
+**Requested in `B-084`'s answer and authorized by the Chief Editor the same day.** These were **new
+edits, not repairs of the authorized five**, so they were held until this act. Applied:
+
+| | Applied | Why it was wrong |
+|---|---|---|
+| **1** | `FN-GATES` §3.1 behaviour item 1 and §6's duplicate edge case rewritten to `D-121`'s **scoped** guard — same submitter, same brief (hashed key fields, `G95`), same day, **at the POC surface** | Both carried the blanket *"reject the URL if an article already exists"* that `D-121` retired on 2026-08-25. **Manual trigger creation is never blocked** |
+| **1** | §6's *"Trend signal unavailable at `T1`" — **Undefined, `FB-05`, must resolve before S1"*** replaced by the named-validation-failure rule, with the author/date `B1` case split out as its own row | The `FB-05` producer is now specified, and the two failure modes behave differently: a missing trend signal **stops** `T1`; a failed author/date extraction **does not** |
+| **2** | Addendum §3.1's `T1` row: *"≥1 `topic_tag`"* → **exactly one subject topic**, with manual supply named | The last `G39`/`D-38` holdout. `FR-01`, `AC-01` and `US-01` had been aligned; the Addendum had not |
+| **2** | `AT-001` and `AT-004` assertions made explicit | `AT-001` now asserts **refusal with no subject topic** and **acceptance of one subject plus multiple analytical tags**; `AT-004` asserts the scoped refusal **and** the permitted cases. A test that only asserts refusal cannot catch an over-broad guard |
+| **3** | Product §7.1's `FR-01` row, `FN-GATES` §10, map §7 — each **adapted to its own facts**, not copied as a shared status table | §7.1 still read *"Log an article by URL"*, pre-`D-121`. §10 recorded no `CR-14` position. The map overstated `FB-05` as *specification complete* |
+| **4** | Product's execution-tracking pointer now names `V1-BUILD-SPEC` §4, `LANE-B-WORK-ORDER` §2.2d and `V1-PHASE-CLOSURE` §5 | It named the **historical sprint-plan journal** as current execution tracking — the same journal `docs/README.md` had already been corrected to call historical lineage |
+
+**`FB-05`'s residual is narrowed, not closed:** the producer is specified; what remains is the
+**reconciliation of input scope, requiredness and dependent clauses**, then **independent
+verification**. `G105` follows it. **Coverage establishes neither verification nor implemented
+behaviour**, and nothing here authorizes a build, a sprint or `PBL-11`.

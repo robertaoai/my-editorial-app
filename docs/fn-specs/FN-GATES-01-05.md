@@ -77,7 +77,15 @@ The five gates are the product. Everything else in the system exists to record, 
 > **`G39` — two concepts, one word.** In an editorial business the **topic is the subject**: what the article *is about*. Exactly one, held as `articles.topic_id`. **Analytical tags are separate and many** — `trend_signals` with `signal_type = 'topic_tag'` — and serve trending and different-angle analysis, not subject identity. The original wording *"≥1 topic tag"* read as cardinality on one concept when there are two. **The schema is correct as applied; only the wording was imprecise** (`D-38`). Author and publication date are auto-extracted where possible and flagged for Investigator review when extraction fails.
 
 **Behaviour:**
-1. Reject the URL if an article already exists for it — duplicate intake is refused, not merged.
+1. **Duplicate handling is scoped, not blanket** (`D-121`, `AC-02`, corrected 2026-09-08 `B-084`).
+   Do **not** refuse an editorial commission merely because another commission cites the same
+   source. The guard is **same submitter, same brief — matched on a hash of key fields (`G95`) —
+   same day**, and it applies **at the POC surface**; the same brief on a different day is
+   permitted. **Manual trigger creation is never blocked**: the Chief Editor may always submit a
+   brief to start the MVP flow. Associating an engagement with an existing article (`PR-02`) is a
+   different act from submitting another commission, and creates neither a global
+   source-uniqueness rule nor a second editorial engine. *(Read "reject the URL if an article
+   already exists" until 2026-08-25; `AC-02` was re-keyed by `D-121`.)*
 2. Create the article at the entry state.
 3. Write the transition record **before** the state exists.
 
@@ -185,8 +193,9 @@ Returns (T8) and rejections (T9) may occur at any active state and are specified
 | Author/date extraction fails at T1 | Flag for Investigator review; do not block intake |
 | Same agent executes T1–T4 | Permitted. Log the shared executor so it is visible in data |
 | Chief Editor executes a Line 1 gate | Permitted as **override**; recorded as `override_not_four_eyes`, never `satisfied` |
-| Trend signal unavailable at T1 | **Undefined — `FB-05`.** Must resolve before S1 |
-| Duplicate URL | Refused (`AC-02`) |
+| Required trend-signal description absent or empty at T1 | **Identify the missing component in a named validation failure.** Do **not** complete `T1`, do not enter `Logged` on that incomplete package, and do not write a transition asserting `T1` completion. The Chief Editor supplies the value manually (`D-194`/`D-197`). **This rule introduces no incomplete-article state** |
+| Author/date extraction fails at T1 | The separate `B1` case: flag for Investigator review and **do not** block `T1` on that failure alone; re-confirmed at `T2` |
+| Same submitter, same brief, same day | Refused **at the POC surface** and told why (`AC-02`, re-keyed by `D-121`). The same brief on a different day is permitted, and **manual trigger creation is never blocked** |
 
 ## 7. Integration points
 
@@ -203,8 +212,8 @@ Sequence integrity is verified **at the database**, not through the UI — per `
 
 | Test | Asserts |
 |---|---|
-| `AT-001` | `AC-01` intake |
-| `AT-004` | `AC-02` duplicate refusal |
+| `AT-001` | `AC-01` intake — **including refusal when no subject topic is supplied, and acceptance of one subject topic alongside multiple analytical tags** (`G39`) |
+| `AT-004` | `AC-02` — refusal of the **same submitter's same brief on the same day at the POC surface**, and **acceptance** of the same brief on a different day and of manual trigger creation (`D-121`) |
 | `AT-010`, `AT-011` | `AC-03` two distinct transitions |
 | `AT-012` | `AC-04` draft requirements |
 | `AT-016` | `AC-05`, `AC-06` — **including agent refusal at T5** |
@@ -243,7 +252,8 @@ The other four absorb into the S1 window — the expected result if `Fn_Specs` w
 
 ## 10. Scope limits
 
-Closes no Open Decision. `FR-04` and `FR-05` remain `OD`-provisional. Authorizes no code, schema, or migration. Field names shown are decided (`Q11` closed by `D-97`/`D-111`) and applied in `0002`. `FB-05`'s missing trend-signal provenance is **recorded, not resolved** — it must be settled before S1.
+Closes no Open Decision. `FR-04` and `FR-05` remain `OD`-provisional. Authorizes no code, schema, or migration.
+**`CR-14` has a ratified manual-supply requirement in `FR-01`** (`D-194`; `A1`/`B1` selected in `D-197`), and **future AI tagging/scoring remains `PBL-11`**, unranked. **`FB-05` is no longer missing a producer** — its residual is the **incomplete reconciliation of input scope, requiredness and dependent clauses**, followed by **independent verification**. **Coverage establishes neither that verification nor any implemented behaviour.** Field names shown are decided (`Q11` closed by `D-97`/`D-111`) and applied in `0002`. `FB-05`'s missing trend-signal provenance is **recorded, not resolved** — it must be settled before S1.
 
 ## 11. Editorial node catalog `[V1]` — `F3` draft, `D-171`/`D-172`/`D-175`–`D-178`
 

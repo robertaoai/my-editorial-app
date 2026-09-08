@@ -33,7 +33,7 @@
 | **Status** | `Draft` — planning only. No application code, no migration applied, no env pulled, no push |
 | **Version** | 1.8 — this document's own lineage; it does not continue `docs/PRD.md`'s version history, and it is **not** a build version — see §8.0 |
 | **Last Updated** | 2026-08-16 |
-| **Jira Project Key** | **Not provisioned.** Execution tracking is `docs/journal/2026-08-16-sprint-plan.md` §6 (S0–S6) — see §8 |
+| **Jira Project Key** | **Not provisioned.** **Current execution tracking is `docs/v1/V1-BUILD-SPEC.md` §4 for sprint scope and holds, `docs/LANE-B-WORK-ORDER.md` §2.2d for the executable unit, and `docs/v1/V1-PHASE-CLOSURE.md` §5 for lane state.** `docs/journal/2026-08-16-sprint-plan.md` §6 is **historical lineage**, not current tracking *(corrected 2026-09-08, `B-084`; it had been named as the execution tracker)* |
 | **Confluence / Wiki Link** | **Not provisioned.** This repo's `docs/` is the wiki |
 | **Design Figma Link** | **Not provisioned.** No design function on this project |
 | **Analytics Dashboard** | **Not provisioned.** Blocks K-02 through K-05 measurement — see §3.5 |
@@ -758,7 +758,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 
 | Requirement | Type | Product capability or quality | Customer anchor | Anchor status | Sprint |
 |---|---|---|---|---|---|
-| FR-01 | Functional | Log an article by URL | CR-09 | Full | S1 |
+| FR-01 | Functional | Log an article from **a source reference**, with **exactly one subject topic** and a trend-signal description **supplied manually by the Chief Editor** (`D-121`; `D-194`/`D-197`) | CR-09, **CR-14** | Full — `CR-14` covered as the **ratified manual contract**; future AI tagging/scoring is `PBL-11` | S1 |
 | FR-02 | Functional | Validate and investigate as distinct gates | CR-10 | Full | S1 |
 | FR-03 | Functional | Draft with meaning-invariance checklist | CR-10 | Full | S1 |
 | FR-04 ⚠ | Functional | Line 2 review at T5 | CR-10 | **Partial** — the gate is requested; human-only execution is team-added | S2 |
