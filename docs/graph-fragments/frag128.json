@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "b083_authority_routing_and_decision_tree",
+      "label": "B-083: Follow the Decision Tree Within Existing Authority; Ask at the Next New Decision",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-083-decision-tree-and-judge-authorization-routing.md",
+      "source_location": "",
+      "description": "Handoff finding raised by Lane B, answered 2026-09-08. Read the entry header for current lifecycle status. The reusable finding is that repeatedly requesting approval for work an existing act already authorizes is itself a defect, not caution: it delays authorized preparation and treats a reviewer recommendation as though it were an authorization. Judge Approved is not a required phrase. What determines the scope of an authorization is the identifiable action and object, assessed under D-183, which requires an identifiable object or immutable revision, action, scope and exclusions, and applicable checkpoint. Putting an approval header above a review table does not authorize every possible dependent child, and a materially changed draft or a different checkpoint is assessed afresh rather than inheriting the earlier approval. A Lane B verdict of Approve, Approve-with-conditions, Defer or Reject is a reviewer recommendation that creates no authority; Approve-with-conditions means perform the authorized prerequisites and gate only the dependent action; Defer retains an owner and follow-up rather than suspending all work; and Reject does not silently become a Judge ruling or a handoff Resolution value, since Rejected is not in the repository vocabulary. The concrete application here was that D-196 supplies routing, D-194 supplies authority to prepare the Q9 and FB-05 proposal, and D-183 with D-186 govern later adoption and application, so no further drafting approval was required and the proposal was prepared as D-197. It also corrected an overstatement that the manual-intake work was the only current V1 readiness work available, when D-196 routes work without claiming an exhaustive inventory of what may proceed. The correct pattern is to continue work covered by existing authority, prepare the reviewable options first, and ask one focused question only at a genuinely unresolved choice or a new authorization boundary.",
+      "community": 2,
+      "community_name": "Governance and Authority",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also records the entry's reusable finding -- that asking for approval already granted is a defect rather than caution, and that action and scope, not a phrase, determine what an act authorized -- which is otherwise reachable only by reading the full entry."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b083_authority_routing_and_decision_tree",
+      "target": "b082_v1_readiness_chain_and_intake_routing",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-083-decision-tree-and-judge-authorization-routing.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b083_authority_routing_and_decision_tree",
+      "target": "applied_is_not_verified",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-083-decision-tree-and-judge-authorization-routing.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b083_authority_routing_and_decision_tree",
+      "target": "a_plan_is_not_a_commit",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-083-decision-tree-and-judge-authorization-routing.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b083_authority_routing_and_decision_tree",
+      "target": "d58_g11_register_precedence",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-083-decision-tree-and-judge-authorization-routing.md",
+      "source_location": "",
+      "weight": 1
+    }
+  ]
+}

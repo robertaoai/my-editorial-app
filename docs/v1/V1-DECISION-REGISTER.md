@@ -13663,3 +13663,125 @@ dimensions.
 unnarrowed with its existing owner; `B-061`/`B-071` retain ownership of overlapping status text and
 **this decision does not re-perform their accepted `Q12`/`Q1` work**. **This decision is Lane A's own
 work and is not independently reviewed.**
+
+## 5.14e22 `D-197` — PROPOSAL: `Q9`'s Two Remaining Choices and `FB-05`'s Candidate `FR-01` Behaviour
+
+**Lane A proposal, 2026-09-08, prepared under `D-194`'s existing drafting authority — no new
+drafting approval was sought or is needed** (`B-083` row 3). **The authority pairing, stated once:**
+`D-196` supplies the routing (`Q9`+`FB-05` together, `G105` from their evidence, `PBL-11` future);
+`D-194` supplies authority to *prepare* this proposal; `D-183`/`D-186` govern its later adoption and
+application. **This section decides nothing.**
+
+**One bounded Judge act is requested at the end** — it may both select the options and authorize the
+exact dependent edits, provided it says both.
+
+### Choice A — who EXECUTES `T1`, as distinct from who supplies the data
+
+**`D-194` ratified that the Chief Editor manually *supplies* the package. It did not decide who
+*executes* the transition, and those are different facts.** The existing sources both name an agent:
+Addendum §3.1's `T1` row reads `Reporter | Line 1 | **Agent**`, and `FN-GATES` §3.1 is headed
+*(Reporter, Line 1, Agent)*. **A human must never be recorded as an agent**, so this cannot be left
+to inference.
+
+| | Option | Consequence |
+|---|---|---|
+| **A1** | **The Reporter agent remains the `T1` executor**; the Chief Editor is recorded separately as the **data supplier** | Preserves the Addendum's agent-executor rule and `Line 1` assignment unchanged. Requires one new recorded fact — the supplier identity — distinct from `executor`. **No ratification needed**: nothing in the frozen or governing set changes |
+| **A2** | **The Chief Editor executes `T1` directly**; the transition records a **human** executor at `Line 1` | Contradicts the Addendum's `Agent` cell for `T1`. **Requires its own Addendum §2.4 ratification before it may be specified**, and touches the Three Lines mapping — the Chief Editor is `Line 2` elsewhere (`OD1`), so a `Line 1` human executor needs the independence consequence assessed, not assumed |
+| **A3** | **Defer the executor identity**; record the supplier now and leave the executor to the `S2` Line-assignment work | Keeps `FB-05` incomplete — the specification cannot claim intake readiness without an executor. **Legitimate**, but it must be recorded as `Deferred` with `B-071`/`D-171` named as the owner, not left silent |
+
+**Lane A's reading, not a recommendation to adopt without review: `A1` is the only option that
+changes no governing rule**, and it matches what the ratified statement actually describes — a human
+preparing and entering data through the UI, with the gate still executed by its named agent.
+
+### Choice B — source author and publication date
+
+**`D-194` withheld in-app generation of *the three intake inputs* — topics, sources, trend signals.
+`source_author` and `source_published_date` are not among those three**, so the ratification did not
+settle them, and `B-080` required they not be settled by silence either. Today both are **nullable,
+auto-extracted where possible, and flagged for Investigator review when extraction fails**
+(Addendum §3.1; `FN-GATES` §3.1).
+
+| | Option | Consequence |
+|---|---|---|
+| **B1** | **Retain auto-extraction as it stands** | Extraction from a supplied source is not *generation of the intake inputs*, so this is consistent with `D-194`. Cheapest, and changes nothing. `T2` already re-confirms author and date, so a failed extraction has an existing recovery path |
+| **B2** | **Manual entry with the package** | Consistent with the manual direction and removes an app-performed step, but **enlarges the ratified package** beyond the four elements the Chief Editor adopted. Would need the adopted statement extended |
+| **B3** | **Optional supply** — accept them if the Chief Editor has them, otherwise fall back to extraction and the existing `T2` flag | Preserves both paths. Most flexible, most behaviour to specify, and the only option that must state precedence when supplied and extracted values disagree |
+
+### Candidate `FR-01` behaviour — complete, and conditional on the choices above
+
+**Proposed text. Alternatives are marked; nothing here is adopted.**
+
+| Aspect | Proposed behaviour |
+|---|---|
+| **Required on entry** | `source_url` (or another source reference, `D-121`); **exactly one subject topic**; a trend-signal description. **Analytical tags are separate and many** (`G39`) and are not required |
+| **Producer / provenance** | Every required value is **supplied by the Chief Editor through the UI**. The record identifies the **supplier**, the **source reference** and the **entry time**. **The application does not generate these values and must not claim it did**; where a value was carried from an upstream article, unknown upstream authorship **stays unknown** |
+| **Executor and Line** | *Per Choice A.* Under **`A1`**: `executor` remains the Reporter agent with `line_assignment = Line 1`, and `supplied_by` records the Chief Editor as a **separate** fact. **The recorded executor must match actual execution** |
+| **Author / date** | *Per Choice B.* Under **`B1`**: unchanged — nullable, auto-extracted where possible, flagged for Investigator review on failure, re-confirmed at `T2` |
+| **Transition completion** | **A missing required value prevents `T1` completion.** No article reaches `Logged` on incomplete input. Any incomplete draft is a **distinct, separately authorized state** — **this proposal does not invent one** |
+| **Ordering** | The transition record is written **before** the state exists. Record creation and the `Logged` transition are **two events**, and the audit-before-state rule is unchanged |
+| **Duplicate intake** | Unchanged: an existing article for the same source reference **refuses** intake; it is never merged. `M-POC` reuse of a tracked reference follows `PR-02`'s engagement-to-article association rather than duplicating the article |
+| **Error behaviour** | A missing or empty required value produces a **named validation failure** identifying the missing component, and **no transition row claiming `T1` completed** |
+
+### A cross-tier inconsistency found while drafting this
+
+**`AC-01` says two different things in two tiers.** `Modular_PRD` §6 reads *"logs a valid URL with
+**≥1 topic tag** and a trend signal"*; `FN-GATES` `AC-01` reads *"logs a valid URL with **exactly one
+subject topic** and a trend signal"*. `G39`/`D-38` established these are **two concepts** — exactly
+one subject topic, plus many separate analytical tags — and corrected the `Fn_Spec`. **The higher
+tier still carries the pre-`D-38` wording**, as do `FR-01` and the Addendum's `T1` row.
+
+**Proposed, not applied:** align `Modular_PRD`'s `FR-01`/`AC-01` and the Addendum's `T1` required-set
+wording to `G39`'s distinction. **This is a wording correction, not a schema or behaviour change** —
+`D-38` recorded that the schema is already correct. It is listed here because it sits inside the
+exact text this proposal would otherwise touch, and correcting `FN-GATES` alone would leave the tiers
+disagreeing in the opposite direction.
+
+### Exact dependent edits proposed, for the bounded authorization
+
+1. `FN-GATES-01-05.md` §3.1 — replace the `FB-05` open-dependency note with the adopted producer and
+   provenance contract; add the executor/supplier distinction per Choice A and the author/date
+   disposition per Choice B; add the completion and error rules.
+2. `FN-GATES-01-05.md` §7 — replace `Trend-signal producer | Missing` with the adopted contract.
+3. `Modular_PRD.md` — `FR-01` and `AC-01` wording aligned to `G39`; `Q9`'s row updated to record the
+   selected options and its remaining status.
+4. `requirements-traceability-map.md` §4/§7 — `CR-14`'s coverage and `FB-05`'s disposition updated
+   from the recorded evidence.
+5. `G105` — reconciled **from that evidence**, not in advance of it.
+
+### Failure-derived acceptance criteria
+
+| Failure to prevent | Success criterion |
+|---|---|
+| A human is recorded as an agent | The recorded `T1` executor matches actual execution; supplier and executor are **separate recorded facts** |
+| A required value is absent and the article still reaches `Logged` | Missing input produces a named validation failure and **no `T1` completion** |
+| The application claims it generated supplied values | Provenance records manual supply; unknown upstream authorship stays unknown |
+| The subject topic and analytical tags collapse | Adding two analytical tags does not create two subject topics |
+| `FB-05` is called closed because the package was ratified | `FB-05` closes on **complete specification plus independent verification**, not on `D-194` |
+| The `S2` hold appears released | `D-171`/`B-071` remains in force with its own owner; this proposal names no sprint |
+
+### Tier applicability
+
+| Tier | Applicability |
+|---|---|
+| `V1-DECISION-REGISTER.md` | **Affected** — this proposal only |
+| `docs/fn-specs/FN-GATES-01-05.md`, `Modular_PRD.md`, `requirements-traceability-map.md` | **Proposed, not applied** — the edits above, and only after a Judge act that names them |
+| `v1-build-readiness-addendum.md` §2.4 | **Unaffected under `A1`/`B1`.** A ratification row is required **only** if `A2` is selected, or if `B2` enlarges the adopted package |
+| `V1-BUILD-SPEC.md`, `LANE-B-WORK-ORDER.md` | **Unaffected** — no sprint scope, DoD or work order changes; the `S2` hold is untouched |
+| `V1-ARTIFACT-INVENTORY.md` | **Unaffected** — no artifact created or retired |
+| `Modular_PRD.md` §8 | **Unaffected** — no sprint closes and no tier opens |
+| `V1-PHASE-CLOSURE.md` | **Unaffected** — no lane state change |
+| Storyboard panels and their sequence/data-flow views | **Proposed follow-up only** — reconcile supplier versus executor attribution once Choice A is settled; historical panels are marked, not rewritten |
+| Frozen `docs/PRD.md`, Charter, `0001_init.sql` | **Unaffected** |
+| **Encyclopedia** | **Entry 06 affected once the choices are adopted** — it declares dependencies on `FN-GATES` §3.1/§6/§7 and the map §4/§7, both of which the proposed edits touch. Hosted content is unread; parity is not claimed |
+
+### The bounded act requested
+
+> **Select Choice A (`A1` / `A2` / `A3`) and Choice B (`B1` / `B2` / `B3`), and state whether Lane A
+> may apply the five dependent edits listed above.** A single response may do both. Selecting `A2`
+> or `B2` additionally requires an Addendum §2.4 ratification row, which only the Chief Editor
+> writes and which this proposal does not pre-fill.
+
+**If the choices are selected but application is not authorized, Lane A records the selection and
+stops.** Nothing here authorizes code, UI, deployment, `M-POC` activation, `PBL-11` promotion, a
+sprint, or release of the `S2` hold. `Q9`, `FB-05` and `G105` remain **open** until their own
+criteria are met. **This proposal is Lane A's own work and is not independently reviewed.**

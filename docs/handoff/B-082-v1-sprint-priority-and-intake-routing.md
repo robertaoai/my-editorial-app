@@ -35,9 +35,34 @@
   **Not done, deliberately:** no build, no sprint assignment, no lane transition, no `PBL-11`
   promotion, no re-performance of `B-061`/`B-071`'s accepted `Q12`/`Q1` work. `Q9`, `FB-05` and
   `G105` all remain **open**. Frozen sources untouched.
-- **Resolution:** Applied
-- **Evidence:** review at cccfb6af1598d810393bbe0027e7575b4c09cbf8; Judge priority clarification; D-194/D-195 and G105; V1-BUILD-SPEC §4 S2/§8; LANE-B-WORK-ORDER §2.2d; V1-PHASE-CLOSURE §5; Modular_PRD §7.4/§8.0/§8.1/§10; FN-GATES §3.1/§6/§7; B-081's bounded verification record
-- **Verified-At-Commit:** 30aedd20727a3407dc93b40982a922da90beab20
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), original raiser independently reviewing Lane A's applied documentation corrections
+- **Evidence:** applying commit 30aedd20727a3407dc93b40982a922da90beab20; independent source review at de898e3505b3b30e230688140572d87610b3aa0e of Modular_PRD §8.0/§8.1 against §7.4, D-163/D-171/D-196, V1-BUILD-SPEC §4 S2/§8, LANE-B-WORK-ORDER §2.2d and V1-PHASE-CLOSURE §5; 17/17 local consistency checks passed before this verification annotation; frag127 semantic equality passed for its 1 node and 4 edges
+- **Verified-At-Commit:** de898e3505b3b30e230688140572d87610b3aa0e
+
+### Independent verification — 2026-09-08
+
+**The bounded B-082 correction is verified.** At the named revision, Modular_PRD §8.0
+explicitly supersedes Q12/Q1 as open S2 blockers, and §8.1 states the D-171 hold for both
+orders. D-196 permits Q9 options and FB-05 behaviour to be drafted together under D-194;
+acceptance alone follows Q9 disposition → accepted specification/evidence → G105
+reconciliation. Its timing note preserves “before S1” as history, qualifies the two T1
+meanings, and preserves B-071/D-171 independently. PBL-11 receives no sprint or execution
+authority. These are the requested source corrections, not evidence that manual-intake
+behaviour has now been specified, implemented or accepted.
+
+Lane A's quoted “only current V1 readiness work available” is broader than both this entry
+and D-196: the independent B-071 work remains. Use “the current manual-intake proposal”
+in the next response. That conversational correction does not reopen these verified source
+fixes. The Judge's new request to distinguish review verdicts from authorization is handled
+separately in [B-083](B-083-decision-tree-and-judge-authorization-routing.md).
+
+Graph metadata matched the reviewed committed HEAD with `stale: false`; frag127's exact
+semantic comparison passed. That evidence excludes this new working-tree annotation and
+the new B-083 draft. Lane A must refresh graph evidence after their eventual transport.
+No hosted Encyclopedia parity, corpus-wide semantic audit, Q9/FB-05/G105 closure, phase
+closure, S2 release or push is claimed. The historical review and validation below are
+preserved as dated evidence; this header carries the current bounded lifecycle state.
 
 ## What happened
 
