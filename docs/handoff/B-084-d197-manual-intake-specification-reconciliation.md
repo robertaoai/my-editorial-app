@@ -63,6 +63,112 @@ mandatory at T1 to fill this gap.
 
 ## What you need
 
+### Start here — module/version/sprint and backlog orchestration
+
+**Judge decision-tree clarification received, 2026-09-08.** Simplify the relationship between
+B-017, B-071, B-061 and this entry into actionable routing. This section records that clarification
+and the review guide it requested, not a new application/build authorization. It uses the already
+decided D-186/D-188/D-195/D-196 model; no new handoff, backlog ledger or SOP is created.
+
+**Read "backlog workflow implementation" here as Lane A operating the existing documentation
+process.** Building additional scripts or an in-app backlog-management feature would be a
+different action. A documented process and its installed checks are not proof that every step
+is automated or that the product feature has been implemented.
+
+#### Parent — identify the object before assigning work
+
+| Object | Meaning and canonical owner | Do not infer |
+|---|---|---|
+| Module — `M-MVP`, `M-POC` | Enduring product/business scope; `Modular_PRD` §0.6 indexes each module and its owning requirements | A module is not V1, a sprint or a second editorial engine |
+| Build version — `V1` | Version scope and its sprint references; Product §8 points to the operative `docs/v1/` set | V1 Active does not authorize any code unit |
+| Sprint — `S*` | Bounded delivery scope/sequence/DoD in the Build Spec; executable paths in the selected lane's work order | A feature name or `[V1]` introduction marker does not allocate a sprint |
+| Capability — `PBL-*` | Enduring identity, recorded rank and refinement readiness in Product §2.5.2 | Identity, readiness, version inclusion and build permission are separate facts |
+| Exclusion — `V*/NG-*` | That version excludes the named object; Product §2.5/§2.5.1 owns the relationship and reconsideration | Closing V1 or omitting an NG in V2 does not promote the capability |
+| Handoff — `B-*` / `C-*` | Work request, response, correction and lifecycle in its originating entry | A Verified handoff is not an implemented product, a completed sprint or a changed lane state |
+
+The governing parent is **the existing request-to-execution map** in `docs/README.md` (D-186),
+with D-188's separate readiness meanings and D-195's module/version distinction. B-017 is a
+supporting control, **not the parent product feature**. `SETUP-SPIKE-000` remains historical
+lineage, not a source of current execution permission.
+
+#### Route the named handoffs — not a four-item serial chain
+
+**Observation at `e53865d`, not another live status register.** Each linked entry owns its status.
+
+| Record | What has already happened | Lane A's next action / dependency |
+|---|---|---|
+| [B-017](B-017-handoff-closure-parser-false-green.md) | Parser/closure-control repair is independently **Verified** | Preserve that repair. Its separate post-verification `phaseScope` fixture follow-up remains recorded; the first assertions still borrow B-017's live terminal state (`scripts/fixtures/suites.mjs:309–339`, source-inspected, not rerun). Route tooling separately; do not reopen the parser or make its repair a new product feature |
+| [B-084](B-084-d197-manual-intake-specification-reconciliation.md) | Q9 A1/B1 decided; intake specification applied but internally inconsistent | Current manual-intake branch: acknowledge, finish the required-input/domain definition, correct the existing clauses, then independently verify FB-05; G105 follows that evidence. The detailed steps below are the one correction guide |
+| [B-071](B-071-b070-options-and-desk-editor-ontology-require-correction.md) | Some bounded work is applied: Unit 7 annotations and D-191's behavior blocks. The parent remains **Open** | Separate operating-model branch: obtain Unit 7's formal independent evidence, correct plan §16.7's stale readiness wording and prepare the exact next-unit proposal. D-190 already dispositioned the sequencing deviation; Units 1/2, R152 and broader closure retain their actual gates |
+| [B-061](B-061-lane-b-code-build-readiness-inputs-have-drifted.md) | Earlier source corrections are answered; no terminal resolution is recorded | Reuse its duplicate-rule correction inside B-084. For a future code unit, reconcile its applicable requirements, controls and work-order inputs. Do not re-ask Q12/Q1's decided Phase-0 questions or infer readiness from FB-05 closure alone |
+
+B-084 and authorized B-071 preparation can proceed independently. Their **applicable outputs**
+inform B-061's future unit-readiness assessment; this is not a requirement to close every handoff
+before any useful work. D-171 still holds S2. The caller selects a bounded unit and checks its real
+dependencies; it does not manufacture `B-017 → B-071 → B-061 → B-084` as a mandatory sequence.
+
+**Tooling remains separate.** B-017's fixture follow-up is not D-192's later Applied-anchor
+hardening. The latter already belongs to [B-079](B-079-feedback-checklist-semantic-review.md)
+R2-2/R2-3 and Register D-192: current code checks Applied-anchor presence, while Verified also
+receives format/existence checks. B-079's documentation correction remains Verified. Neither
+tooling implementation is authorized by this decision-tree clarification, and neither must be
+rebuilt merely to prepare B-084's documentation proposal.
+
+#### Lane A's operating steps and the Judge's decision boundary
+
+| Step / parent | Lane A action | Accept when / reject when |
+|---|---|---|
+| 1 / existing governance | Classify the request: current-spec defect, enduring capability, version-scope change or tooling defect. Reuse its existing owner | Accept the cited owner and scope; reject a new PBL or ledger for an already-owned correction |
+| 2 / 1 | For B-084, use D-194's existing preparation authority and D-197's A1/B1. For B-071, use its own bounded preparation/evidence authority | Accept useful authorized preparation now; reject both repeated drafting-permission requests and assumed permission for new application scope |
+| 3 / 2 | Finish one reviewable packet: required behavior, counterexamples, exact proposed text, affected source/view paths, dependencies and exclusions | Accept when the behavior and each predicate agree. Ask only a genuinely absent business choice. Reject "complete" while source information, reference scope or contradictory consumers remain unresolved |
+| 4 / complete packet | Identify the actual Judge act covering each proposed application; request a bounded extension only where needed | Accept the exact documentation/tooling/code scope named by that act; reject treating this routing approval as all three |
+| 5 / authorized application | Apply in the owning tier, update the applicable Register/Build Spec/Inventory/Product §8 facts under D-54, and reconcile dependent views | Accept source correction supported by its diff; reject status-only closure or a copied policy in every document |
+| 6 / applied source | Run proportionate checks, synchronize the graph at the settled revision and obtain independent review. Record each result in its existing owner | Accept the proved correction; reject using a green parser, commit or push as proof of semantic correctness or runtime behavior |
+| 7 / actual sprint or version boundary | Close only the accepted scope; retain future PBL identity/rank/readiness and link any remaining handoff work to its owner | Accept historical sprint/version evidence plus an enduring backlog. Reject deleting, auto-promoting or reranking future features merely because a sprint/version ended |
+
+**For a genuine future capability**, first retain or locate its PBL identity, then bring its
+problem/outcome, module context, dependencies and acceptance evidence through the existing
+refinement process. Record a real rank/readiness decision, not a guessed place in a "top five."
+An identity-only item with insufficient information remains so. Only a separately selected and
+authorized delivery unit enters the Build Spec/work order. PBL-01 stays at its recorded bottom
+rank; PBL-02 and PBL-11 stay unranked; PBL-10 remains proposed/reserved. Closing the current
+manual-intake correction does not change any of them. No version-specific exclusion is rewritten
+to carry a future feature's live status.
+
+#### Dependent-view and execution-pointer checks
+
+These occurrences are included in the source/view assessment below; they are not new finding
+owners or a second correction packet:
+
+- **Product §4 `US-01` (`Modular_PRD.md:529`):** its exception still says duplicate URL blocked
+  and no unique index is a defect, contrary to AC-02/D-121. Include this story in the existing
+  B-061/B-084 duplicate sweep. Proposed story intent: *As a Reporter agent, I want to log the
+  Chief Editor-supplied package through T1 so that intake is attributable and its required
+  evidence is checked.* The exception must cite the scoped duplicate rule and retain nullable
+  extraction failure handling; it must not reintroduce a URL uniqueness control.
+- **`docs/README.md:30`:** the overview says the traceability map "currently shows one uncovered"
+  requirement, while D-197 changed the map's coverage. Replace the copied count, not with a new
+  count, but with: *The bidirectional customer-to-requirement mapping and its coverage evidence
+  live in `governance/requirements-traceability-map.md`.* Coverage still does not prove FB-05
+  complete. This is an additional named source path for the proposed application packet.
+- **Product prologue/§2.6/§8 (`Modular_PRD.md:36`, `:437`, `:446`, `:892`):** the prologue's
+  execution-tracking row, "execution rung is the sprint plan" and "the real tracker" still direct
+  readers toward the historical sprint plan, identified in §12 as
+  `docs/journal/2026-08-16-sprint-plan.md`. Clarify current navigation under D-186,
+  within B-061's existing execution-input concern: *Historical sprint identifiers retain their
+  source citation. Current approved scope, sequence and DoD are in the Build Spec; the selected
+  lane's work order names its executable unit and paths. Product §8 indexes version/sprint
+  tracking; the journal preserves derivation, not current execution authority.* Keep legitimate
+  historical TC/Q/sprint citations. This is a link-only orchestration clarification, not a changed
+  sprint or an additional prerequisite for FB-05's behavior to be specified.
+
+Storyboard A1/A2/B1/B2, their existing sequence/UML/data-flow views and Entry 06 keep the impact
+mapping already recorded below. A historical panel is evidence to interpret, not a replacement
+requirements source; its business "Lane A/B" labels are not development ownership. Route T5 and
+reporting-view changes to B-071/R159/R160, not this intake correction. The Encyclopedia ledger
+already records affected-entry review; no hosted parity, new diagram artifact or new UX build
+is inferred from this orchestration guide.
+
 ### Parent-first decision table
 
 “Accept” below means a review recommendation unless the Judge explicitly adopts the named action.
@@ -167,14 +273,15 @@ This lists the proposed documentation surfaces. It is not authority to edit them
 |---|---|
 | `docs/v1/V1-DECISION-REGISTER.md` | Append the D-197 correction and evidence-based G105 disposition; preserve adopted A1/B1 and historical body |
 | `docs/fn-specs/FN-GATES-01-05.md` | Reconcile §2.1/§2.3/§3.1 and applicable T2 source validation, related §5/§6/§8/§9 references and §10; do not sweep unrelated held T5/T6 clauses into this packet |
-| `docs/Modular_PRD.md` | Align FR-01/AC-01 and §7.1's residual with the resolved input scope; retain AC-02's D-121 rule and Q9's decided status |
+| `docs/Modular_PRD.md` | Align §4 US-01, FR-01/AC-01 and §7.1's residual with the resolved input scope; retain AC-02's D-121 rule and Q9's decided status. Clarify the prologue/§2.6/§8 current execution pointers under D-186 without changing scope, sequence, DoD or historical source citations |
+| `docs/README.md` | Replace the copied coverage tally with the link-only traceability-map pointer drafted above; do not create a new coverage or lifecycle register |
 | `docs/source/v1-build-readiness-addendum.md` | Proposed live T1/AT-001/AT-003 wording clarification; no repeated A1/B1 ratification. Include this extra application surface explicitly |
 | `docs/governance/requirements-traceability-map.md` | CR-14/FB-05 reflect corrected specification and actual independent evidence; do not fabricate implementation or customer re-approval |
 | `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` | Dated, link-led correction to A1/A2/B1/B2 current-use notices; historical panels remain provenance, not the source of product authority |
 | `docs/modules/M-POC-REQUIREMENTS.md` | Propose a link-led manual-package/context clarification at PR-01/PR-04 if needed; preserve PR-02's shared-core boundary and existing engagement association; no activation or payment feature |
 | `docs/ENCYCLOPEDIA-SYNC.md` | Existing Entry 06 impact queue only; update verification metadata only after actual hosted inspection/update. D-194/D-197 already disclose impact. Do not claim parity or make republishing an invented V1 build gate |
 | This handoff and a specifically named curated fragment | Lane A response/application evidence and local graph representation. Bind the fragment path in the final packet; no generic permission to rewrite Graphify tooling |
-| Build Spec, Artifact Inventory, work order, Product §8, Phase Closure | No sprint scope/DoD, governed artifact creation/retirement, active code unit or lane change is proposed. If the finished packet changes one of those facts, state and authorize that exact consequence under D-54 |
+| Build Spec, Artifact Inventory, work order, Phase Closure; Product §8 tracking facts | No sprint scope/DoD, governed artifact creation/retirement, active code unit or lane change is proposed. Product §8's navigation-only clarification is named above. If the finished packet changes a tracking fact, state and authorize that exact consequence under D-54 |
 | Frozen PRD/Charter/0001, application, migrations, CI, UX implementation | Unaffected; not authorized |
 
 ### Failure-derived success criteria
@@ -192,6 +299,7 @@ These are planned documentation walkthroughs. No runtime test or database behavi
 | Source author/date cannot be extracted | B1's flag/T2 handling remains, distinct from missing mandatory package input |
 | Human supplies values while an agent executes | Supplier and actual executor/Line are separately attributable; neither source authorship nor AI generation is invented |
 | A historical panel or current summary still says the producer is absent | A dated current-use correction points to the contract and actual residual; it does not erase history or claim hosted parity |
+| The journal is treated as the current execution queue, or a module/PBL identity is treated as a sprint authorization | Current pointers lead to the owning Build Spec/work order and Register act; historical citations remain evidence, and no backlog rank, build permission or lane state is inferred |
 | A green suite is used as proof of completion | Source review resolves the contradictions; graph extraction, coverage and named-fragment parity are reported separately; FB-05 evidence precedes G105 closure |
 
 ## What you did instead
@@ -220,10 +328,21 @@ failures. B-083's independent-verification metadata passes. A subsequent handoff
 advances HEAD beyond the analyzed source revision, requiring Lane A's final graph refresh.
 None of those transport facts erases the semantic defects found in the source review.
 
+**2026-09-08 orchestration-guide review at `e53865d`:** added the parent-first routing requested
+by the Judge, preserving each handoff's own lifecycle and existing preparation authority.
+Independently cross-checked the B-017/B-079 tooling distinction and B-071/B-061 dependency
+wording. The additional US-01, overview and execution-pointer occurrences are in the proposed
+write set, not applied to those documents. The full local suite reported 14/17 passing, with
+B-084 acknowledgement, B-084 curated coverage and `docs-drift` outstanding. The graph was
+analyzed at `257677f`, not the reviewed HEAD; its `stale: false` flag does not override that
+mismatch. Fixture/runtime tests were not run. This follow-up changes only this handoff; no
+new SOP, application, graph write or push is included.
+
 ## Approve / reject
 
 | Verdict | Tier / item | Follow-up phase |
 |---|---|---|
+| Approve-with-conditions | D-186/D-188/D-195 orchestration routing and proposed current-pointer clarification | Phase 1: preserve existing owners; prepare the bounded literal corrections, without inferring application authority |
 | Approve | B-083 process correction and D-197 A1/B1 decisions | Phase 1: preserve; no repeat drafting/choice request |
 | Approve-with-conditions | FR-01 manual-input specification direction | Phase 1: complete the input predicate, existing-rule mapping and literal correction packet |
 | Reject | Complete-specification/no-residual-deficiency claim | Phase 1: reconcile the evidenced contradictions before requesting independent closure |
