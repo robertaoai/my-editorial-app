@@ -7458,3 +7458,475 @@ scope limits.
 | Approve | `D-190` recorded — sequencing deviation dispositioned, Unit 7's result accepted without reversal | Standing rule applies to future governed edits |
 | Reject | Treating `D-190` as authorizing Units 1/2, `R152` execution, or B-071 closure | All remain separately gated, unchanged |
 | Defer | Formal `Verified-By` for Unit 7; corrective-plan §16.7; Units 1/2; `R152` execution; overall B-071 closure | Each its own separate, still-open item |
+
+## Round 51 — independent C-39/C-41 review and parent-first handback (2026-09-09)
+
+### What happened — scope and authority
+
+**Task restated:** review the supplied Lane A analysis of D-207, condition discovery, C-39 and
+B-071; test the proposed remedies; draft a small, ordered correction packet. **Planning only.**
+The Judge's decision-tree approval does not apply this packet, implement checks, close a handoff,
+release D-171 or change lane state.
+
+**Reviewed revision:** `2e62572a20f2c33858897cbcc8427a86e83acc73`. The attachment is review input,
+not independent proof of its claims. Repository `TEMPLATE.md` supplies the handoff structure;
+the supplied gap-analysis template supplies the scope, evidence, dependency and acceptance layout.
+Its example IDs and generic blocking rules are not new project policy.
+
+This section stays in **B-071, C-41's named subject**. C-39 and the other conditions remain owned
+in the Register; this is not a new condition index or a second backlog. B-077's terminal deferral
+is preserved, not reopened. B-086's existing child dispositions are not promoted by this review.
+This entry's header remains Open and no whole-entry Resolution or independent-verification claim
+is added. Cowork must make its actual disposition using the child evidence, not a target tally.
+
+### Evidence — what survives and what fails
+
+| Existing owner | Independently observed at the reviewed revision | Narrow correction / success criterion |
+|---|---|---|
+| D-207 / C-39 actor matching | The reported directional corpus result is reproducible: prefix misses the non-Verified disclaimer values; containment rejects legitimate Lane B verifications that mention Lane A. All present Verified values lead with Lane B, so even a Lane-B-only probe reproduces the attractive result | Preserve leading-actor matching, but specify the allowed tokens, aliases and answering-side comparison. Passing the present corpus does not prove coverage of every permitted reviewer |
+| D-207 condition-index guidance / C-38 review | The broad Register heading prefix returns 48 hits, including a C-Q2 heading. Exact closed-token C-XX heading discovery yields 47 matches and 28 distinct IDs; including Phase Closure yields 29 distinct IDs. It still omits C-01 through C-11 and C-15. The initial table defines C-01 through C-12; C-15 is a bold definition, not merely a propagation row | Reject the attachment's complete-enumeration claim and its fixed 28-ID success target. Discover existing definition forms, retain source locations, deduplicate identity and classify unmatched references. Do not add duplicate rows or delete historical headings |
+| C-39 initial audit event | SOP defines Open as not yet dispositioned (`README.md:230`), but requires every non-Verified value to say dispositioned by Lane A (`:369–370`). D-205 ties the anchor to that disposition (`Register:14628–33`). A newly raised entry has neither that event nor a commit containing it | Define an honest creation/first-anchor protocol before applying the universal fill-check. Keep the Judge's required-field rule; do not invent a disposition or use an unrelated SHA to satisfy it |
+| D-204/D-205 propagation | Template opening field guidance (`TEMPLATE.md:11`, `:13`) retains the old omission/Verified-only wording, while its later rules (`:64–73`) require Resolution on Answered and audit fields across states | Reconcile the same template fields with the adopted state/kind rules. The later paragraph is not enough if the copyable header still instructs the opposite |
+| C-41 / B-071 disposition | B-071 is Open; Unit 7 was applied and its sequencing deviation dispositioned by D-190. D-191 applied bounded behavior blocks. Formal Unit-7 verification, plan §16.7 correction and other applicable units remain separately owed | Produce a current child-disposition proposal. Neither repeat completed application nor call the entire product packet complete. Apply D-204's weakest-child rule without manufacturing a terminal child |
+| C-41 / Phase 1 condition 2 | `closure-readiness` reports Open and Applied entries but is reporting-only until a phase claims closure. It already reads those entries; it is not evidence that no control reads B-071 | Specify the boundary at which a response is owed. An exit to Answered is routing, not terminal closure; Applied still prevents Phase 1 condition 2. Do not require a globally empty healthy queue |
+| D-207 graph claim / existing graph follow-up | Extraction matches the reviewed HEAD and coverage passes; `check-update` reports semantic updates pending. `merge7.js --verify-only` verifies an in-memory candidate after upsert, not the unmodified loaded graph (`:182–183`) | Separate extraction, coverage, candidate validity, loaded-field parity and semantic completion. `would-add: 0` proves presence of those identities, not equality of every owned field |
+
+These are measured observations, not permanent counts. In particular, the successful baseline
+suite is **not** the success criterion for completing C-39, C-41, B-071 or Phase 1.
+
+### Parent-first decision table — what the Judge is accepting
+
+The source branches below can be prepared independently; they do not manufacture a new dependency
+between the condition index and the T5 product contract. Cowork and Code still serialize on the
+one Lane A lock. The Register owns policy; Code owns implementation, not the policy decision.
+
+| Order / dependency | Owner and concrete next action | Accept / Reject boundary |
+|---|---|---|
+| Parent: C-39 audit contract | **Cowork:** write the actor/alias mapping, eligible-reviewer boundary, initial audit-event/anchor proposal and state/kind cases; reconcile the copyable template | Accept a complete contract that preserves truthful required fields and existing independent reviewers. Reject a Lane-B-only restriction inferred from today's sample or a fabricated Lane A disposition |
+| Parent: C-41 disposition contract | **Cowork:** name the actual response boundary and prepare B-071's current child outcomes, evidence, remaining owner and exact next unit | Accept a truthful response/disposition proposal. Reject Open→Answered as automatic terminality, blanket deferral to make a counter zero, or inference that D-171 expires |
+| Independent source correction: D-207 enumeration | **Cowork:** replace the false universal heading claim at both Register occurrences, using the existing definition forms below | Accept complete identity discovery with provenance. Reject a second manually maintained condition list, renumbering or a hard-coded expected tally |
+| Child of the complete C-39 contract | **Code, within a covering execution act:** implement the audit checks and their fixtures, together with the already specified D-204 Answered-only finding | Accept live-value regressions plus the named missing cases below. Reject widening the finding onto Open or turn-report entries, and reject changing a check merely to make a predicted failure appear |
+| Child of the applicable B-071 unit proposal | **Cowork:** obtain any missing bounded application authority, then reconcile §16.7 and the named owning tiers; independent reviewer verifies only the criteria actually met | Accept exact scope/evidence. Reject redoing Unit 7, wholesale Applied/Verified metadata, or applying product text because this review was approved |
+| Before the next consuming approval | **Cowork:** prepare any changed curated meaning. **Code:** synchronize the settled relevant source, verify loaded-field parity and complete the semantic pass; run local checks. **Independent reviewer:** record the bounded result in its owner | Accept separately evidenced results at the consumed revision. Reject waiting indefinitely for unrelated future features or calling candidate-upsert success exact current-graph parity |
+
+**Other conditions retain their own gates:** C-35 explicitly starts after C-39's fixtures land;
+C-36 needs its relocation-or-retain decision; C-37 requires integrity enforcement before archive
+moves; C-38 is the separate-turn Lane A critic pass recorded in Phase Closure §6; C-40 is the
+rename-or-retain decision. This Lane B review is input to C-38, not a substitute for that specified
+Lane A pass. No A-series channel activation, archive move or product implementation is proposed.
+
+### Small steps — C-39 contract and tests together
+
+1. **Separate the axes.** Kind determines the turn-report exemption. Status determines whether
+   D-204 requires a Resolution. Resolution determines terminality. Audit fields carry an event
+   and evidence; only a Verified claim requires an eligible independent verifier. A non-Verified
+   disclaimer being caught by a verifier predicate must not make a valid Applied record fail.
+2. **Name the actors before writing the matcher.** List canonical eligible actors and allowed
+   aliases from the existing SOP, including how the Chief Editor/Judge and Lane C are represented.
+   Normalize Cowork/Claude Code aliases to the answering Lane A where appropriate; changing the
+   tool does not make the answerer independent. Define whole-token boundaries and decoration
+   handling. Unknown identity text cannot silently become a Verified claim. Any narrowing of
+   the SOP's "any other named actor" requires an explicit policy act, not a regex choice.
+3. **Propose an honest initial event.** Candidate for Judge adoption: *An Open record identifies
+   its actual raising/review event and its existing source-evidence revision; it does not assert
+   a Lane A disposition. After a disposition, its anchor identifies that actual disposition.
+   The Evidence text names what the anchor proves; both audit fields remain required.* This is
+   a proposed clarification of D-205's event/anchor semantics, not permission to apply it now.
+   A fresh issue without source-commit evidence still needs an explicit first-anchor protocol;
+   do not silently label a parent commit as the nonexistent disposition commit.
+4. **Keep the live regression corpus with provenance.** Preserve the legitimate B-044, B-058,
+   B-078 through B-083 and B-085 values and the actual disclaimer forms, each tied to its entry
+   and reviewed revision. Add the rest of the present valid corpus; do not preserve only the
+   previously broken examples.
+5. **Cover the missing paths without claiming they were live defects.** Propose labelled
+   mutations of cited records for absent/blank audit fields, malformed and nonexistent commits,
+   unknown or partial actor tokens, allowed independent aliases, and a falsely promoted
+   disclaimer. Propose normative cases for permitted reviewers absent from today's corpus.
+   These must be labelled synthetic tests, not fabricated historical evidence. Cowork must
+   clarify D-207's "never invented strings" instruction accordingly; a live-only sample cannot
+   test the empty-field failure D-205 expressly requires.
+6. **Write expected results before changing the checks.** Answered + no Resolution fails;
+   acknowledged Open + no Resolution passes that D-204 rule; valid turn-report omission passes;
+   forbidden audit fields on a turn-report remain rejected. Non-report field presence and
+   commit shape/existence follow the completed C-39 contract. Verify a commit object, not any
+   Git object, and preserve an explicitly limited result when full-history evidence is unavailable.
+7. **Then hand the exact paths and fixtures to Code.** Existing candidate surfaces are
+   `scripts/checks/closure-readiness.mjs`, `scripts/checks/handoff-response.mjs` and
+   `scripts/fixtures/suites.mjs`; shared parsing changes, if necessary, are explicitly added to
+   the packet. Fixture runs that mutate files must be isolated or serialized and restore their
+   inputs. No such runtime fixture was executed in this review.
+
+### Small steps — C-41 disposition of B-071
+
+1. Use this entry's existing requirements and later decisions, not its oldest Draft-11 summary
+   alone. Preserve D-189's applied Unit 7, D-190's accepted deviation disposition and D-191's
+   bounded source application. Do not re-ask already decided business questions.
+2. Reconcile the outstanding child criteria against their real evidence. The known next source
+   correction is corrective-plan §16.7, which still describes Unit 7 as not applied and offers
+   Units 1/2 "immediately after" it. Its correction must preserve actual independent-review
+   and authorization gates, and account for D-191 rather than treating all R159 text as absent.
+3. Present the **actual decision**, not a request to make `open 0`: continue the named bounded
+   unit now under its applicable authority, or explicitly defer the named remaining scope to an
+   owner/phase without releasing the product hold. A deferral cannot hide an unverified Applied
+   child; use D-204's existing weakest-child ordering and record each disposition in the body.
+4. Name the C-41 response boundary/event and its scope. "Past a stated boundary" has no executable
+   predicate until the boundary is stated. A new healthy Open entry is not itself a breach.
+5. Update the current-valued header only once its proposed Status/Resolution truthfully follows
+   from that decision. Preserve historical approvals and supersession notices. `Answered` with
+   an unresolved weakest child is not permission to invent a Resolution.
+6. Treat C-41 routing evidence separately from Phase 1 closure. Eliminating Open records can
+   leave Applied records and other phase conditions unmet. Closing or deferring a handoff does
+   not cancel D-171; S2 still requires its actual contract and fresh authorization.
+
+### Condition discovery — identities, not current lifecycle
+
+The command in the attachment is Bash-oriented; `grep` is unavailable in the reviewed PowerShell
+environment, and `sort` resolves to `Sort-Object`. More importantly, its heading predicate misses
+existing definitions regardless of shell. The following is the **tested discovery contract**, not
+a new tracked index or a new tool implementation:
+
+| Definition form | Exact existing source | Discovery treatment |
+|---|---|---|
+| Initial condition table | Register §3, rows at 89–100 | Recognize the first-cell C-XX definition only inside that section |
+| Condition headings | Register and Phase Closure | Recognize exact two-digit C-XX heading tokens; retain every source location, deduplicate identities |
+| Non-heading condition definition | Register:1751, C-15 "condition on D-59" paragraph | Include this existing definition form; no duplicate C-15 row is required |
+
+A read-only PowerShell scan of these forms, compared with correctly bounded C-XX references in
+the same sources, found no unmatched condition identity in this snapshot. Future unmatched
+references or new definition forms require classification; **no success rule assumes a count or
+continuous ID range**. Repeated headings remain append-only history. Identity discovery does not
+select the latest disposition: C-28 already closed under D-123 (Register:7830; Phase Closure:435).
+
+Namespace triage is resolved as follows, not left as an undifferentiated token sweep:
+
+- C-03/C-04/C-07 through C-11 are real conditions in the initial table.
+- C-001 is a Lane C handoff; it is not condition C-01.
+- C-Q2 is a separate question label; its heading cites condition C-18, not a new C-XX identity.
+- C-1/C-2 at Register:13269–70 are D-193 proposal-unit labels, not new condition allocations.
+- C1 through C6 in the gate material are gate triggers; B068-C2 is a qualified review identifier.
+- C-4 at Register:14639 is an ambiguous review-reference label; clarify that citation locally,
+  not by globally renaming it C-04.
+
+**Proposed D-207 correction:** *Condition identity is discovered from the existing definitions
+in the Register and Phase Closure, including the original table, condition headings and explicit
+non-heading definition. Deduplicate by the condition namespace and retain source locations.
+The result is a derived identity index, not a live-state roll-up. Read each condition's effective
+disposition from its governing record and correction notices. Do not add a second C-41 row.*
+Apply a forward correction to D-207's historical claim and update its current-use notice together;
+do not erase the earlier mistaken claim or fabricate a new condition to make discovery uniform.
+
+### Owning-tier and view assessment
+
+| Surface / owner | Proposed action or explicit exclusion |
+|---|---|
+| Register — Cowork | Correct D-207's enumeration/evidence wording; complete C-39/C-41 policy boundaries under their existing IDs; preserve D-203 freeze distinctions and D-171 |
+| `docs/handoff/README.md` and `TEMPLATE.md` — Cowork's source pass | Reconcile the copyable state/audit guidance and adopted initial-event/actor contract; retain the one transaction SOP, no duplicate ledger |
+| B-071 and its corrective plan — Cowork source pass, independent review separately | Exact current child disposition and §16.7 correction when authorized; this review does not apply them |
+| Build Spec / Inventory / Phase Closure | No artifact is created or retired, no sprint is opened/closed and no live lane or phase state changes in this review. A later unit states its actual sequence/DoD/file lifecycle under D-54. C-38's designated evidence belongs in Phase Closure §6 |
+| Checker/fixture/tooling paths — Claude Code | Specified only. C-35 and graph-tool behavior retain their own execution scope; no checker weakened or implemented here |
+| `Modular_PRD` module/version/sprint tracking | No module, backlog rank, exclusion or freeze event changes. Product §0.6.1 remains module-status authority; a handoff resolution is not module completion |
+| Product FN specs; storyboard/story panels, sequence/UML and data-flow views | C-39 is development-channel verification, not product Line independence, a judgment gate or an editorial state transition. B-071/R159/R160 keep their existing product/view ownership; do not regenerate those artifacts to repair a channel matcher |
+| Encyclopedia | Existing ledger remains the affected-entry queue for actual product changes. No hosted content was read or republished, and no hosted parity is claimed. This governance review does not clear the product's prior view follow-ups |
+| Curated meaning / Graphify runtime | Cowork specifies tracked meaning; Code operates rebuild/merge/semantic ingestion. `.graphify/` remains ignored runtime state. No graph write in this pass |
+| Frozen sources, application, schema, CI, product UX | Unaffected; no build authority or editing proposed by this review |
+
+### What was checked instead of building
+
+The full local consistency suite passes **17/17 at `2e62572`**, reporting `open 1` and `applied 20`
+while no phase claims closure. These are dated observations only. Extraction metadata names the
+same HEAD; file coverage has no absent document. `graphify check-update` nevertheless reports
+pending descriptions/labels after the fast rebuild. The alleged eighth wipe was not independently
+counted; only the present pending state is confirmed.
+
+The named frag130/frag131 `--verify-only` runs report no additions and candidate equality PASS.
+Inspection of `merge7.js:106–153,182–199` shows why that is narrower than loaded parity: it first
+upserts fragment fields into a clone and verifies that candidate. Its `would-update` counter
+increments for every existing item, not only unequal fields. A separate comparison of the
+**loaded, unmodified graph** found differences in `community` and `community_name` on
+`b085_external_audit_disposition_and_scaffold_notices`,
+`b086_d200_tool_split_bootstrap_review` and `m_mvp_requirements_tracking`.
+No missing identity or other fragment-owned field mismatch was found for these named fragments.
+Thus exact current-field parity is not established by the candidate PASS. Cowork must distinguish
+an intentional derived-field override from drift; Code then verifies the adopted ownership policy
+without claiming more than it measures. Do not blindly overwrite derived fields during this review.
+
+An initial parity invocation used fragment basenames rather than full relative paths and failed
+before reading them; the corrected read-only invocations and the direct loaded-field comparison
+are the evidence above. No merge/rebuild, fixture mutation, source correction, lifecycle promotion,
+commit or push is part of that measured baseline. Saving this handoff later advances HEAD and
+requires final synchronization before a consuming approval; it cannot reuse the baseline's currency.
+
+### Approve / reject
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-207 leading-actor direction and live regression findings | Phase 1: preserve; corpus coverage is evidence, not a complete actor policy |
+| Approve-with-conditions | C-39 contract and D-204 dependent implementation plan | Cowork completes actor/initial-event/template rules; Code then executes only its authorized unit |
+| Approve-with-conditions | C-41 / B-071 disposition plan | Cowork names the boundary and actual child outcomes; independent evidence remains separate from response and authorization |
+| Reject | Heading-only complete enumeration; fixed-count closure; candidate PASS as loaded parity | Correct the evidenced claims in their owning source without duplicate tracking |
+| Defer | C-35–C-40 implementation/closure, whole B-071 verification, phase closure, S2 and product work | Existing owners, named prerequisites, final synchronization and separate authorizations |
+
+## Round 52 — reconcile Lane A's remaining-work dashboard (2026-09-09)
+
+### What happened — one view, existing owners
+
+**Clarified task:** correct the supplied remaining-work table against committed `2e62572`,
+separate completed work from genuine dependencies, and give Cowork, Code and Lane B a short
+follow-up order with Accept/Reject boundaries. Draft only; no build or lifecycle promotion.
+Round 51 carries the detailed C-39/C-41 findings and test requirements. This section adds the
+dashboard reconciliation without duplicating them, minting findings or creating a tracker.
+
+**This is a dated source observation, not live status authority.** Conditions remain in the
+Register, handoff status remains in each originating entry, live lane state remains in Phase
+Closure §5, and module status remains in Product §0.6.1. Future responses update those owners;
+they do not maintain another running table here. The Judge approved the decision-tree review,
+not every action listed as remaining work.
+
+### Corrected work view — not a mandatory serial queue
+
+| Work from the supplied dashboard | Verified source fact / remaining action | Owner and actual dependency |
+|---|---|---|
+| D-204 status-conditioned flip and fixtures | Still specified, not implemented. The negative Answered case demonstrates red→green; the valid Open case stays green. See the exact distinction below | **Code**, under the applicable D-204 unit authority. Its already specified status rule does not need to wait for unrelated C-39 actor-policy decisions |
+| Curated fragments for B-086 and M-MVP | **Authoring already done** in `docs/graph-fragments/frag131.json`, commit `e96360a`. Do not create them again | **Cowork** only for a real meaning correction; **Code** for operation. Loaded-field parity and semantic fill remain different from authoring completion |
+| "Inventory repair" | D-202's tool-ownership-unaffected note is done. Missing M-MVP file row and residual withdrawn A-channel work still require the bounded source correction below | **Cowork**, existing D-203/D-54 propagation; no module-prose move or tool implementation prerequisite |
+| C-39 audit checks | Actor/initial-audit contract and template corrections remain from Round 51; implementation belongs to Code | **Cowork prepares the complete policy**, then **Code** implements its covered unit. Not a Cowork-only task |
+| C-35 tool-crossing control | Separate, unbuilt control; does not require reopening B-086's deferred child | **Code**; its Register start condition is explicitly **after C-39 fixtures land** (`:2489`) |
+| C-36 module prose | Tracking file exists; prose relocation was not performed. The condition permits relocation **or a decision to retain the prose** | **Cowork** decides and specifies. If relocation affects checker readers, **Code** handles that exact implementation; before/after requirement coverage must be retained |
+| C-37 spike archive | No move has occurred. The Record names partition, provenance, integrity enforcement and citation repairs, but a complete literal move/citation packet was not found | **Cowork defines**, **Code enforces**, then the scoped document move occurs only after the integrity control passes and authority covers the exact paths |
+| Lane B verifies B-086 | The header is Applied. Its explicit terminal route is independent review of **Parent 1 and Child 4**; Child 2 is Superseded by D-203, Child 3 Deferred to C-35 | **Lane B may begin that bounded source review now**. Future C-35/C-39 implementation is not its prerequisite; actual findings and applicable evidence still decide whether it can be Verified |
+| Lane B verifies B-061 | Also Applied, but **not merely awaiting a signature**. Items 1/4 still require next-code-unit and UX-scoping successor reconciliation; D-163 decided Phase-0 Q12/Q1, D-171 holds the new product unit | **Cowork resolves the remaining applicable inputs; Lane B reviews the criteria actually met**. Do not re-ask Q12/Q1 or bulk-promote B-061 together with B-086 |
+| "Either" performs C-38 | Effective scope is **D-203 through D-207**, not only D-203/D-204. Findings belong in Phase Closure §6, with the required reject count | A **designated Lane A critic on a separate later turn**, under D-93. Either Lane A tool does not mean either lane or the same editing turn. Review of the committed acts can start without waiting for every future implementation; it does not verify that future work |
+| Rebuild → parity → semantic fill | The relevant source packet must settle first; named identities are already represented. Present semantic updates remain pending, and Round 51 identified the loaded-field/candidate distinction | **Code operates**, **Cowork owns curated meaning**. Synchronize before the next consuming approval for that packet; later edits invalidate that evidence. "Once" is a batching aim, not a lifetime synchronization guarantee |
+
+The dashboard also must not erase **C-40** (Cowork's rename-or-retain decision) or **C-41/B-071**
+(Cowork's response boundary and actual child disposition). They keep the sources and exact next
+actions recorded in Round 51; no additional dashboard-owned status is introduced.
+
+**Clarification of Round 51's combined Code row:** it grouped the D-204 flip and C-39 work as a
+possible implementation packet. That grouping is **not a dependency requiring D-204 to wait for
+all C-39 policy choices**. If Code proposes a combined unit, every included contract must be ready;
+if it executes the already bounded D-204 unit alone, preserve its exclusions and test it alone.
+Do not turn useful batching into another artificial blocker.
+
+### What Lane A does next — small steps
+
+1. **Cowork: retire the stale work descriptions, not the records.** Cite `e96360a` for the existing
+   fragment; retain D-202's Inventory unaffected note; separate B-086's source-verification route
+   from C-35's implementation. Do not rewrite old narratives as if they were never true.
+2. **Cowork: finish the narrow Inventory/source proposal.** Use the literal correction scope
+   below. Reconcile D-204's fixture wording with the table below. Use the covering Register act;
+   obtain a bounded extension only if the final proposed action exceeds it.
+3. **Prepare or execute independently eligible units without inventing a chain.** The completed
+   D-204 status rule can be a Code unit under its existing authority; C-39's missing policy comes
+   back to Cowork; C-36's choice and C-37's exact-path packet are separate preparation. This
+   review executes none of them. Two Lane A tools still serialize on their one lock.
+4. **Code: use the tests that demonstrate the actual defect.** For D-204, preserve the existing
+   counter's wider reporting scope and add the finding only for Answered/non-report/no Resolution.
+   For C-39, first use Round 51's completed contract. C-35 follows its stated C-39-fixture parent.
+5. **Lane B: review B-086 and B-061 as separate questions.** B-086's two Applied source children
+   have a named review path. B-061 needs its remaining criteria resolved or explicitly scoped/
+   dispositioned before whole-entry verification. Being the raiser establishes eligibility, not
+   that a fix has been independently verified. No metadata is promoted in this task.
+6. **Archive only under C-37's completed packet.** Cowork names the exact eligible records,
+   destinations, provenance field semantics and citation locations; Code implements the integrity
+   check before moves. Include the exclusion of every turn-report and nonterminal record in
+   the proof. "Four citation repairs" without their locations is not executable work. Do not
+   move any source simply because its parent project/spike name sounds complete.
+7. **Close evidence at the boundary being consumed.** Cowork finishes the relevant source and
+   curated meaning; Code performs final extraction, actual loaded-field comparison and semantic
+   ingestion; run the local suite. C-38's later-turn review and each originating handoff's
+   independent verification keep their distinct roles. Any later tracked change requires a new
+   currency check; no global empty-backlog target and no implicit S2 release.
+
+### D-204 tests — what "red before green" actually proves
+
+These are specified expectations, source-inspected here, **not executed fixtures**:
+
+| Fixture | Current checker / test expectation | Corrected checker / test expectation |
+|---|---|---|
+| A: Answered, non-turn-report, no Resolution | Checker wrongly accepts it. A test expecting the missing-Resolution finding is **red** | Checker emits that finding; the assertion becomes **green** |
+| B: otherwise valid, acknowledged Open entry, no Resolution | Checker accepts the normal queue case; the positive-control assertion is **green** | Still accepted; assertion stays **green** |
+
+The combined fixture run changes red→green because A exposes the missing rule. **B must not be
+forced red** to satisfy the wording. Propose clarifying D-204's "both red-then-green" sentence
+(`Register:14567`) accordingly; do not implement a temporary regression just to manufacture proof.
+Valid turn-report behavior and all existing metadata validation remain unchanged.
+
+### Literal Inventory correction scope — proposed, not applied
+
+- **Add the existing file to Inventory §1:** `docs/modules/M-MVP-REQUIREMENTS.md` — created by
+  D-203; module identity/freeze tracking and links only. Requirements remain in their current
+  owning sections; no prose migration, module completion or new build authority is claimed.
+  The file exists, but no Inventory row names it. Correct D-203's premature propagation claim
+  with its actual application evidence when the row lands.
+- **Preserve Inventory:188:** the tool split itself creates/retires no file. That completed
+  D-202 disposition is not the missing M-MVP creation row; they concern different facts.
+- **Supersede the withdrawn future work at Inventory:190–195:** D-203 withdrew the A-series
+  classifier widening and channel inverse-pattern changes. `ENTRY_FILE` stays `[BC]`. Retain
+  the independent lane/tool gate and hook work at `:196–197` under C-35, with its actual start
+  condition. Replace the obsolete broad pending-work claim without another copied tally.
+
+This is the existing D-203 propagation correction identified for the C-38 source review, not a
+new backlog feature. C-36 relocation is a separate decision; fixing an Inventory row does not
+authorize moving requirements. C-37's missing exact archive/citation packet is likewise not
+filled by adding the M-MVP Inventory row.
+
+### Cross-reference and evidence limits
+
+`Modular_PRD` §0.6.1 remains the module-status source. D-203's module-completion versus
+version/sprint-succession rules stand: fixing this dashboard freezes nothing and does not reopen
+S0/S1. Product FN behavior, storyboard panels, UML/data flow and product UX need no regeneration
+for the D-204/C-39 channel checks. If C-36 relocation is selected, assess its actual source/link
+impact then; if a B-071 product unit is authorized, follow its existing R159/R160 view crosswalk.
+Do not substitute a governance dashboard for either product specification. The Encyclopedia
+ledger remains the existing dependent-view queue; no hosted parity or republication was verified.
+
+The table is based on direct source review at `2e62572`, including D-203–D-207, Inventory, the
+module file, frag131's committed creation, B-061/B-086 headers and their actual remaining criteria.
+Graph metadata still names that commit; `check-update` still reports semantic updates pending.
+The uncommitted Round 51/52 handoff text is **not** covered by that extraction merely because
+HEAD matches the metadata. Round 51's direct loaded-field comparison remains its dated evidence,
+not a new parity measurement in this round. The Git index lock remains present; it is not removed.
+No fixture, governed-source edit, graph write, archive move, commit, push or lifecycle change is
+performed by this dashboard reconciliation.
+
+### Approve / reject
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Existing frag131 authoring and D-202 Inventory applicability | Preserve; do not recreate completed work |
+| Approve-with-conditions | D-204 bounded implementation plan and corrected dashboard routing | Cowork clarifies fixture semantics; Code demonstrates A's red→green while preserving B |
+| Approve-with-conditions | D-203 Inventory propagation; C-36/C-37 preparation | Cowork completes the named source/decision/path packet; Code implements only its covered controls |
+| Approve-with-conditions | B-086 bounded independent-review route | Lane B assesses Parent 1/Child 4 and actual evidence; no wait for separately deferred C-35 implementation |
+| Reject | All C-35–C-39 assigned to Cowork; fragment authoring still owed; both handoffs merely awaiting signatures | Use existing split owners, committed evidence and real residual criteria |
+| Defer | Whole B-061/B-071 closure, C-38 completion, archive, phase closure and S2 | Applicable successor reconciliation, separate-turn review, final evidence and explicit authorizations |
+
+## Round 53 — D-208 review: preserve completed repairs, finish the actual consumers (2026-09-09)
+
+### What happened — scope and evidence
+
+**Clarified task:** independently review D-208, consolidate only the delta from Rounds 51/52,
+and give Lane A a parent-first correction guide with explicit Accept/Reject boundaries. This
+uses the existing handoff and gap-analysis template structure, not a new backlog or SOP.
+**Reviewed source:** `cbcf779e06f26b23b727902802d9f80e491e8a34`.
+The attachment is input to check, not evidence of implementation, push or current graph currency.
+No implementation, source propagation, archive move, lane transition or lifecycle promotion is
+authorized by this analysis. B-071's header stays unchanged; other entries keep their own states.
+
+**Accepted source repairs — do not repeat them:** Inventory §1 now names the existing
+`docs/modules/M-MVP-REQUIREMENTS.md`; its D-202 follow-up section retires the A-channel classifier
+and inverse-pattern work and retains the separate controls under C-35. D-208 supplies C-39's
+closed actor membership/exclusions and explicitly separates it from D-204's status rule.
+These are applied document facts, not proof that checks or fixtures were implemented.
+
+**Ownership clarification, not a new dispute:** Round 52 explicitly reviewed the *supplied
+dashboard*, not Register ownership. Its work view already assigned the existing split owners.
+D-208 §"One correction to Lane B" is right that the Register's owners vary; it should identify
+the dashboard as the source of the rejected Cowork-only assignment. No ownership redesign is
+needed. Historical Rounds 51/52 remain dated observations; this section updates only their delta.
+
+### What still fails — existing owners, no duplicate findings
+
+| Existing owner | Evidence at the reviewed source | Smallest correction / success criterion |
+|---|---|---|
+| **D-203 propagation / B-086 Parent 1 / C-38** | Inventory is corrected, but `V1-BUILD-SPEC.md:59`, `AGENTS.md:249–264`, `CLAUDE.md:249–264` and `.agents/rules/graphify.md:117–132` still actively instruct A-NNN returns and activation preparation. Register D-203:14432–14441 withdraws that channel and its supporting changes | Replace only those operative return/activation clauses using the existing D-203 contract below. Retain tool ownership and C-35. All current consumers agree with the Register; matching shared-file hashes alone is insufficient |
+| **C-39 initial event and source guidance** | D-208 supplies membership, not an initial audit event. Open still means undispositioned (`handoff/README.md:230`), while D-205 requires a disposition actor and observable disposition commit (`Register:14640–14645`). Template opening fields `:11/:13` still contradict its later rules | Cowork completes Round 51's honest first-event/first-anchor proposal and reconciles the copyable fields. A fresh entry can be raised without fabricating a Lane A disposition, leaving required fields blank, or labelling an unrelated commit as that disposition |
+| **C-39 fixture coverage** | The live-only wording remains at Register C-39, alongside required empty-field negatives. Recognized actor membership does not cover absent fields, invalid anchors, unknown/partial tokens or permitted reviewers absent from the live sample | Preserve cited live regressions; explicitly allow labelled mutations and normative cases without claiming they were historical records. A valid non-Verified disclaimer passes its metadata rule and fails only if promoted into a Verified claim. An allowed, non-answering leading token satisfies the formal eligibility check; it does not prove independent review occurred |
+| **D-204 fixture maintenance** | Register:14575–14577 says A fails/B passes, but :14579 still says both red→green. `scripts/fixtures/suites.mjs:255–267` blanks Resolution on B-001 while retaining its Answered status and expects success | Make that existing wider-counter positive case explicitly acknowledged Open and preserve its relative unresolved-count assertion; add the Answered negative case. A's assertion goes red→green; B stays green. Do not insert a regression to force B red |
+| **D-207 discovery / C-38** | The universal heading-only index claim remains at Register:2401 and :14831; D-208 repeats that convention. Round 51 already demonstrates omitted table/bold definitions and an unrelated heading match | Apply Round 51's existing definition-form discovery correction. Retain canonical locations and historical definitions; do not create another maintained index or invent a fixed-count completion test |
+
+The deterministic failure is **following the surviving A-channel instructions**: it either
+prepares work D-203 forbids or leaves the return outside the recognized channel contract.
+Similarly, applying D-204 without maintaining the existing positive fixture makes that fixture
+contradict the adopted rule. These are bounded failure paths, not predictions of bankruptcy or
+proof that every unbuilt control will fail. The root pattern is the same: **a correct parent
+statement is mistaken for complete propagation, and a passing check is credited with an
+assertion it does not test.**
+
+### Draft correction — withdrawn channel, not a new decision
+
+Cowork's bounded source set is the Register correction record, Build Spec §2's obsolete return
+tail, and the matching return/activation blocks in all three shared rule files. Suggested common
+replacement, preserving the surrounding ownership map:
+
+> Lane A uses the existing Register return mechanism (`D-138`, `G102`, `D-203`). When Lane A is
+> outgoing at an actual run boundary, cite its boundary decision by number from
+> `V1-PHASE-CLOSURE.md` §5.0a's `Report` column; retain `in progress` until that boundary occurs.
+> A tool exchange creates no new boundary event, report artifact or A-NNN channel. The A-series
+> classifier widening, inverse-pattern change, fixtures,
+> numbering and activation preparation are withdrawn; `ENTRY_FILE` stays `[BC]`. The tool split,
+> exact-file exceptions and separate C-35 tool-crossing control remain unchanged. Never edit a
+> checker to make a predicted failure come true.
+
+This replaces current instructions, not the historical D-200–D-202 narratives. Record actual
+application evidence in the Register and preserve D-203's retained clauses. Inventory needs no
+repeat repair and no new file is created/retired by this replacement. The Lane B work order and
+Phase Closure's existing return route need no related edit. Product tiers and live lane state
+are unaffected. This is an existing B-086 Parent 1 propagation issue for its independent review,
+not a reopening of the Superseded A-channel child or the Deferred C-35 child.
+
+### What Lane A does next — small, independently bounded steps
+
+1. **Preserve completed facts.** Accept D-208's Inventory repair and C-39 membership. Cite frag131's
+   existing authoring at `e96360a`; do not author it again. Correct the dashboard attribution with
+   one contextual sentence, not another ownership table.
+2. **Finish the source consumers.** Cowork applies only an authorized source packet: the D-203
+   return correction above, the existing template/discovery corrections, and D-204's fixture
+   wording. Separate any still-undecided initial-event semantics for the Judge; membership no
+   longer needs a new decision. State each affected tier and each genuinely unaffected tier.
+3. **Prepare the independent Code units without a false dependency.** The settled D-204 rule
+   and its fixture maintenance can proceed under its own covering act. C-39's leading-token
+   matcher can be drafted from the now-closed set; whole-token boundaries/decoration handling
+   are Code's implementation work, not another actor-policy question. D-158/D-201 supply the
+   existing identity/tool equivalences. Full C-39 fill-check completion still requires truthful
+   initial-event guidance and the coverage above. This review implements neither unit.
+4. **Test the contract, not an attractive total.** Keep the unresolved counter's broader scope;
+   add only the Answered/non-report/missing-Resolution finding. Preserve turn-report exclusions.
+   Validate non-report audit fields and commit objects; apply independent-verifier eligibility
+   only to Verified claims. Named live regressions plus labelled mutations must prove each
+   relevant refusal and acceptance. Run mutating fixtures in an isolated or serialized context
+   with restoration; do not run them over another tool's editing pass.
+5. **Review the actual remaining source criteria.** Lane B can review B-086 Parent 1/Child 4
+   without waiting for deferred C-35, but the propagation contradiction above now prevents a
+   whole-entry Verified claim. B-061 retains its separate residual-input review. C-41 still
+   needs the actual B-071 response boundary and child dispositions; changing Open to Answered
+   is not terminal closure. C-35 retains its C-39-fixture prerequisite. C-36, C-37 and C-40 retain
+   their own choices and gates from Round 52; do not turn them into an invented serial queue.
+6. **Finish evidence for the packet being consumed.** C-38 now spans D-203–D-208 and still needs
+   the designated later-turn Lane A critic record in Phase Closure §6. Cowork owns changed
+   curated meaning; Code synchronizes the settled source, checks actual loaded-field parity
+   and completes semantic enrichment before the consuming approval. Later commits invalidate
+   earlier currency evidence. Unrelated future work is not a reason to postpone that boundary
+   indefinitely, and this review does not substitute for C-38 or release D-171.
+
+### Cross-reference and drift check
+
+`Modular_PRD` §0.6.1 remains the module-status authority; the M-MVP file carries tracking/links,
+not relocated requirements. D-208 changes only the Register and Inventory. Its channel policy
+does not change T1–T5 editorial behavior, future T6 scope, storyboard panels, UML/data flow or
+the R159/R160 owning-tier mappings. The historical storyboard remains historical; do not
+regenerate it as a new current contract. The existing Encyclopedia ledger is the dependent-view
+queue; hosted content was not read or republished, so no hosted parity claim is made.
+
+| Evidence dimension | Observation in this review | Meaning / next action |
+|---|---|---|
+| Source consistency | Local suite **16/17**, only `docs-drift` fails; shared-core-hash and tier-sweep pass despite the obsolete directives above | Mechanical consistency does not establish semantic agreement with D-203 |
+| Extraction currency | HEAD `cbcf779`; `lastAnalyzedHead = 2e62572`; `stale: false` | **Stale.** A PASS before the commit is not a PASS at the new HEAD; Code resynchronizes the settled packet |
+| Coverage | `graph-coverage` reports no absent docs files | File presence does not prove latest contents or meaning |
+| Semantics / parity | `graphify check-update` still reports pending semantic descriptions/labels; no new loaded-field parity measurement here | Round 51's comparison is dated evidence, not a fresh parity claim; final semantic work remains owed |
+| Review artifact | Rounds 51/52 were already uncommitted; this round appends only here. The existing `.git/index.lock` remains present and is not removed | Draft saved, not committed or pushed; extraction does not cover these edits merely because the file has a graph node |
+
+### What was done instead / approval boundary
+
+Read the actual D-208 diff, affected current source and relevant checker/fixture code; ran
+read-only graph diagnostics and the full local consistency suite. No fixture mutation, runtime
+change, governed-document edit, graph write, archive move, push or lifecycle promotion.
+The attached push invitation is not executed as a new instruction in this planning-only review.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-208 Inventory repair and C-39 actor membership | Preserve completed source corrections; no repeat work |
+| Approve-with-conditions | D-203/B-086 source propagation | Cowork corrects the named live consumers under the existing ruling; Lane B re-reviews actual criteria |
+| Approve-with-conditions | D-204 and C-39 implementation plans | Code preserves independent prerequisites; a combined unit requires every included contract ready. Preserve Open-positive fixtures and complete C-39's initial-event/coverage contract |
+| Reject | Current-HEAD graph-clean claim; obsolete A-channel instructions; forcing the Open fixture red | Correct source/evidence claims and test the adopted behavior |
+| Defer | C-38/C-41 completion, whole B-061/B-071/B-086 verification, archive, S2 and product implementation | Existing owners and prerequisites, settled-source synchronization, independent evidence and separate authorization |
