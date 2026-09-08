@@ -9,6 +9,7 @@
 - **Resolution:** Superseded
 - **Evidence:** The phase-start rule this entry established was corrected twice after it was answered — `D-99` moved the trigger to spec acceptance, and `D-100` replaced the stage-gate model outright. The proposal contract (§5B.1) and the liability limit (§5B.2) still stand
 - **Verified-At-Commit:** 3713c8f
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Superseded-By:** `D-99`, then `D-100` — the model, not the contract
 
 ## What happened

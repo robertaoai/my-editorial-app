@@ -67,6 +67,11 @@ dispositions, ordered absent < PROVISIONAL < TERMINAL as those sets are defined 
 closure-readiness.mjs. Child dispositions go in the BODY; header fields describe the
 whole entry only.
 
+Resolution is the RECORD STATE. Verified-By and Verified-At-Commit are AUDIT fields
+(`D-205`): never empty in any state, carrying only an actor and a commit that exists.
+No explanation in either field. On a non-Verified record Verified-By reads exactly:
+"— not independently verified; dispositioned by Lane A".
+
 Resolutions, and which of them close anything:
 
   Applied             The fix is in the tree at a named commit and NOBODY INDEPENDENT has

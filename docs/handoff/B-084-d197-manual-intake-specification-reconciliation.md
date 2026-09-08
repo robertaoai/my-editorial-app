@@ -58,6 +58,7 @@
 - **Resolution:** Applied
 - **Evidence:** Independent source review at 257677f5191d1eb781c1365427c0fe246d5436e9; D-194/D-197; FN-GATES-01-05 §2.3/§3.1/§3.2/§5/§6/§10; Modular_PRD FR-01/AC-01/AC-02/§7.1/Q9; Addendum §2.4/§3.1/AT-001/AT-003; traceability map CR-14/FB-05; B-061; full local consistency suite and frag128 verify-only result
 
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Verified-At-Commit:** 78cd2b3d191c90238f5b3df84aa20e0f9f50b9b6
 
 ## Independent review of D-199 at the pushed revision — 2026-09-08

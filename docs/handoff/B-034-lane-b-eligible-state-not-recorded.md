@@ -7,7 +7,7 @@
 - **Status:** Answered
 - **Lane A:** Answered `D-113`, 2026-08-25 — **your diagnosis is exactly right and the repair is deliberately NOT performed yet.** Lane A remains `Active`, so §5 correctly reads Lane B `Blocked`; the boundary edit is the LAST act of a completed run, and this run is not complete. Releasing the lock now would offer you the packet `B-036` has just shown to be provisional (`C-30`) — the same failure, one turn later. Your five-step sequence is adopted verbatim as the procedure; step 1 is what is outstanding.
 - **Resolution:** Superseded
-- **Verified-By:**
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** The provisional eligibility procedure was overtaken by the completed boundary in `B-038` / `D-117`, and later by the current `D-142` Lane B boundary
 - **Verified-At-Commit:** 6283999
 - **Superseded-By:** `B-038` / `D-117` — the boundary was performed rather than left as an eligibility gap

@@ -2396,6 +2396,64 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
+### `C-40` — the audit fields are named after one record state — `D-205`
+
+**Opened by `D-205`, 2026-09-08. Owner: Lane A · Cowork. Phase 1.** `Verified-By` and
+`Verified-At-Commit` are **audit fields carried in every state**, but their names read as belonging
+to `Resolution: Verified`. **That is exactly why twenty-one entries left them blank.** The ontology
+is now recorded in `docs/handoff/README.md`; the names are not.
+
+**Not paid here, deliberately.** A rename moves `channel-docs`'s field coupling, `closure-readiness`,
+the fixture runner and every entry in the channel in one act. **Stop condition:** renamed, or this
+condition closed with a stated decision that the names stay.
+
+### `C-39` — the audit fields have no fill-check — `D-205`
+
+**Opened by `D-204`, widened and measured by `D-205`, 2026-09-08. Owner: Lane A · Claude Code
+(`scripts/`). Phase 1.** `closure-readiness` proves `Verified-At-Commit` exists **only on `Verified`
+entries**; `channel-docs` checks that a field is declared and read, **never that it is filled**. **An
+audit field with no fill-check empties itself over time, and it had:** twenty-one empty `Verified-By`
+and six empty `Verified-At-Commit` before this act, with twenty `Applied` commits unproven.
+
+**Stop condition:** no non-`turn-report` entry has an empty `Verified-By` or `Verified-At-Commit`;
+every `Verified-At-Commit` proven with `git cat-file -e`; **negative fixtures — an empty audit field
+FAILS, a `turn-report` without them PASSES** (`G84`).
+
+### `C-38` — the separate-turn critic pass over `D-203`, `D-204` and `D-205` — `D-205`
+
+**Opened by `D-204`, given a row by `D-205`. Owner: Lane A, on a later turn (`D-93` rule 1). Phase
+1.** Three consecutive acts are Lane A's own work, none independently reviewed. **Stop condition:** a
+pass run on a turn later than `D-205`, against the committed artifacts, its findings recorded in
+`V1-PHASE-CLOSURE.md` §6 with a reject count.
+
+### `C-37` — the `SETUP-SPIKE-000` archive is specified and ungated — `D-205`
+
+**Opened by `D-205`, 2026-09-08. Owner: Lane A · Cowork defines, Claude Code enforces. Phase 1.**
+The partition (terminal archives; non-terminal and every `turn-report` stay), the archive-integrity
+check, `Originated-In:`, and the four path-form citation repairs are all specified and none is built.
+**Stop condition:** the integrity check exists and passes **before** any file moves to
+`docs/spike/{spike id}`.
+
+### `C-36` — the `M-MVP` prose relocation is owed, not done — `D-205`
+
+**Opened by `D-203`'s restraint, given a row by `D-205`, 2026-09-08. Owner: Lane A · Cowork. Phase
+1.** `docs/modules/M-MVP-REQUIREMENTS.md` carries tracking and links; **no prose was moved**, because
+`decision-status` reads `docs/Modular_PRD.md` §10 and §5.1 positionally. **Stop condition:** either
+the relocation lands with `decision-status`'s row counts identical either side, or this condition
+closes with a stated decision that the prose stays where it is.
+
+### `C-35` — the tool-crossing control survived a withdrawn act with no owner — `D-205`
+
+**Opened by `D-201` item 3, kept by `D-203`, given a row by `D-205`, 2026-09-08. Owner: Lane A ·
+Claude Code (`scripts/`, `.githooks/`). Phase 1.** `lane-gate.mjs` returns early when one lane is
+touched, and a Cowork/Code crossing **is** a one-lane change — so the gate exits before it can see
+one. It must evaluate lane and tool crossings **independently**, and **report paths, never an
+inferred actor** (`D-87`). **Channel activation and tool crossing are separate controls.**
+
+**Stop condition:** `Tool-Crossing: <reason>` parsed by `git interpret-trailers` (`D-105`, `G79`),
+with single-tool, mixed-tool, simultaneous lane-and-tool, and the `.agents/rules/graphify.md`
+exception all covered. **Start condition:** after `C-39`'s fixtures land.
+
 ### `C-33` — the S1 trigger has a static contract test, not a database-executed one
 
 **Opened by `D-118`, 2026-08-25, raised by Lane B as `B-044` against its own work.** 
@@ -14502,3 +14560,87 @@ on `Applied` entries too**, since `B076-R1` already requires the field there.
 reports *no phase claims closure*. **Does not release the `D-171` hold.** `B-086` and `B-061` are
 `Applied`, **not** `Verified`; both await Lane B. **Lane A's own work, not independently reviewed**
 — a separate-turn critic pass is owed under `C-38`.
+
+---
+
+## 5.14e30 `D-205` — Audit Fields Separated From Record State; Twenty-Seven Blanks Filled and Six Conditions Given Rows
+
+**Lane A (Cowork) act, 2026-09-08, on a Judge ruling that resolved a question both lanes had framed
+wrongly.** Asked whether `Verified-By` should be omitted or kept on a non-`Verified` entry, the Judge
+answered that the question itself was **a conflation of audit fields with record state**:
+**`Resolution` is the record state; `Verified-By` and `Verified-At-Commit` are auditable fields that
+cannot be left empty.**
+
+### What the measurement showed, and it inverted the finding
+
+Lane A · Claude Code reported the defect as **narrative in `Verified-By` on two entries I had
+written**, later widened to ten carriers. **Measured against the Judge's definition the class is the
+opposite:**
+
+| | Before | After |
+|---|---:|---:|
+| Non-`turn-report` entries with an **empty** `Verified-By` | **21** | **0** |
+| Non-`turn-report` entries with an **empty** `Verified-At-Commit` | **6** | **0** |
+| Distinct wordings across non-`Verified` records | **4** | **1** |
+| `Verified-At-Commit` values carrying prose after the commit | **6** | **0** |
+
+**The ten carriers were the compliant entries.** The defect was the twenty-one blanks — and it
+included terminal records: `B-004`, `B-008`, `B-019`, `B-023`, `B-034` (`Superseded`) and `B-016`,
+`B-077`, `C-001` (`Deferred`) all closed **with no record of who closed them or where**. My own
+contribution was real and narrower than charged: I wrote the longest of four forms, not a new one.
+
+### The ontology, recorded once
+
+`Resolution` = record state. `Verified-By` = who dispositioned it. `Verified-At-Commit` = the commit
+where that disposition is observable. **Never empty, in any state, and carrying only their value** —
+an explanation in a metadata field is the same conflation one field over, which is why six
+`Verified-At-Commit` values carrying trailing prose were trimmed to the commit alone. On a
+non-`Verified` record `Verified-By` reads exactly **`— not independently verified; dispositioned by
+Lane A`**, one form, so a reader can tell *not verified* from *forgotten*.
+
+**Every `Verified-At-Commit` in the channel — 83 of them — was proven with `git cat-file -e` before
+this act was committed.** That discipline exists because `D-204` recorded Lane A writing two
+fabricated commits from memory; twenty-seven fills is the scale at which that would have compounded.
+
+### Six conditions given rows, which is what `C-4`'s own fix had failed to do
+
+`D-204` minted `C-35`, `C-38` and `C-39` **inside prose** and never minted `C-36` or `C-37` at all,
+then described `C-35`–`C-39` as a range. **An ID in a sentence looks tracked and is not.** All six now
+have sections with an owner, a stop condition, and where relevant a start condition:
+
+| | Owner | Closes when |
+|---|---|---|
+| `C-35` tool-crossing control | Claude Code | trailer parsed by `git interpret-trailers`, four cases covered |
+| `C-36` `M-MVP` prose relocation | Cowork | relocated with identical `decision-status` counts, or decided to stay |
+| `C-37` `SETUP-SPIKE-000` archive | Cowork · Claude Code | integrity check passes **before** any file moves |
+| `C-38` separate-turn critic pass over `D-203`–`D-205` | Lane A, later turn | findings recorded in §6 with a reject count |
+| `C-39` audit-field fill-check | Claude Code | no empty audit field; every commit proven; fixtures red-then-green |
+| `C-40` the audit fields are named after one state | Cowork | renamed, or decided to stay |
+
+### Applied here — Cowork's surfaces only
+
+`docs/handoff/README.md` and `TEMPLATE.md` carry the ontology. Thirty-one non-`Verified` records take
+the single token; six empty `Verified-At-Commit` values were filled from each entry's own
+last-touching commit; six trailing-prose values were trimmed. **No `Verified` record's audit fields
+were touched** — none was empty, and their named verifiers stand.
+
+**Specified, NOT applied — `scripts/` is Claude Code's** (`D-201`, `D-56`): `C-39`'s fill-check and
+its two fixtures, and `D-204`'s still-owed `handoff-response.mjs:238` flip **conditioned on
+`status === "Answered"`**, with the `Open`-passes fixture.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e30, plus six condition sections |
+| **Channel docs** | ✅ `README.md`, `TEMPLATE.md`, both directions clean |
+| **Handoff entries** | ✅ thirty-one records, audit fields only — **no `Resolution` value changed** |
+| **Agent files · Build spec · Phase closure · Inventory** | **— unaffected: a channel-metadata rule; no lane rule, sequence, DoD, phase state or artifact moves** |
+| **`Modular_PRD` and product tiers** | **— unaffected: development-channel policy is never a product fact** |
+
+### What this act does NOT do
+
+**Installs no check and writes no fixture.** Changes **no** `Resolution` value, so no entry became
+more or less closed. Opens or closes no phase — `closure-readiness` still reports *no phase claims
+closure*. **Does not release the `D-171` hold.** `B-086` and `B-061` remain `Applied` and await
+Lane B. **Lane A's own work, not independently reviewed** — `C-38`.

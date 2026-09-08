@@ -17,7 +17,7 @@
   no change needed beyond the existing `D-168` flag. `G113` (`B067-G5`) left as Lane A backlog per
   `B067-F8`, not built. No Line 3 table, identity field, `OD4` engine, or S5 implementation created.
 - **Resolution:** Applied
-- **Verified-By:**
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `D-163`–`D-169` in `V1-DECISION-REGISTER.md`; `B-062`–`B-067`;
   commits `b6128f1`, `938e049`, and `cb42cae`; frozen Charter OD2/OD4; current Build,
   Product, functional, source, log, RACI, Encyclopedia, and Graphify records cited below

@@ -18,7 +18,7 @@
   or S5 implementation created. `B-062`/`B-065` intentionally left at `Applied`, not `Verified` —
   this correction does not verify them.
 - **Resolution:** Applied
-- **Verified-By:**
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** frozen `docs/source/project-charter-v1.md` OD2/OD4 rows;
   `V1-DECISION-REGISTER.md` `D-57`, `D-165`, `D-166`, `D-167`, `D-168`, and tier map;
   `Modular_PRD.md` Line 3 persona, `US-11`, `FR-11`, `AC-17`, traceability/dependency rows;

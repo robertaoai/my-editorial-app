@@ -9,6 +9,7 @@
 - **Resolution:** Superseded
 - **Evidence:** `D-96` classified the model as deferred scope and rejected the elaborate variant. `D-99` then went further than that disposition: `M-POC` was authorized, indexed at `Modular_PRD` §0.6.2, and specified through `docs/modules/M-POC-REQUIREMENTS.md` and `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md`
 - **Verified-At-Commit:** 58072b5
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Superseded-By:** `D-99` — authorization advanced past `D-96`'s deferral
 
 ## What happened

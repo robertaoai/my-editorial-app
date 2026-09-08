@@ -20,7 +20,7 @@ six remain unmet on purpose. **One correction not made**: `lib/config/build-conf
 outside this docs-only review's surface, noted rather than silently left inconsistent.
 
 - **Resolution:** Applied
-- **Verified-By:** — **not independently verified.** Lane A answered this; Lane B is the raiser and is eligible to verify
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Verified-At-Commit:** f7b3aeabc91592007a542e8ddae2c9398294e85a
 - **Residual, open and named (`D-204`):** items 1 and 4 — the next Lane B code unit and the S2 UX-spec scoping. **`Q12` and `Q1` Phase-0 are CLOSED by `D-163`** and must not be re-asked; the live boundary is the **`D-171` hold**, extended by `D-172`/`D-175`/`D-177`. What remains is successor reconciliation against `D-163`/`D-171`/`D-178`, not a fresh decision
 

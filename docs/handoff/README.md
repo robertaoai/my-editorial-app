@@ -343,6 +343,31 @@ label belonging to one child, written as a header field, sits under a provisiona
 **no check sees the mismatch**. Record each child disposition in a table in the body, naming what
 overtook it or who owns it, and leave the header fields to the entry as a whole.
 
+### `Resolution` is the record state; `Verified-By` and `Verified-At-Commit` are AUDIT FIELDS — `D-205`
+
+**Judge ruling, 2026-09-08.** Treating `Verified-By` as belonging to the `Verified` state was a
+**conflation of audit fields with record state**, and it is why entries left them blank whenever the
+state was anything else.
+
+| Field | What it is |
+|---|---|
+| **`Resolution`** | the **record state** — `Applied`, `Verified`, `Deferred`, `Withdrawn`, `Superseded` |
+| **`Verified-By`** | **audit** — who dispositioned this record |
+| **`Verified-At-Commit`** | **audit** — the commit where that disposition is observable |
+
+**The audit fields are never empty, in any state**, and they carry **only** their value: an actor, and
+a commit that exists. **No explanation goes in either field** — that is what the body is for, and a
+sentence in a metadata field is the same conflation one field over.
+
+**On a record that is not `Verified`, `Verified-By` reads exactly:**
+`— not independently verified; dispositioned by Lane A`.
+One form, so a reader can tell *not verified* from *forgotten* — the distinction that makes `Applied`
+worth having at all.
+
+**The field names are now a misnomer** and are kept deliberately: renaming them would move
+`channel-docs`, `closure-readiness`, the fixture runner and every entry at once. **Recorded as
+`C-40`**, not paid here.
+
 ### Who may record `Verified` — the boundary attaches to the ANSWERER
 
 **The excluded actor is the one who answered or applied the correction.** Raising an entry does not

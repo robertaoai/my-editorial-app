@@ -9,7 +9,7 @@
 - **Evidence:** independent review at a6ce25315c89260503c2149b7c16c029bd3bde95 of D-201's partial source correction and outstanding B-086 criteria; earlier review at 73226b7759920348a5ba04915ba6ad506bcf700c; D-200/D-201; shared core; Build Spec; handoff readers and channel SOP; Phase Closure run/report contract; installed Graphify/Git source and documentation; local consistency and fresh remote observations below
 
 - **Resolution:** Applied
-- **Verified-By:** — **not independently verified.** Lane A answered this; Lane B is the raiser and is eligible to verify (README, *Who may record `Verified`*)
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Verified-At-Commit:** eda93abca253764f685d1b3ceba0f188c2de6058
 
 ## Child dispositions — `D-204`

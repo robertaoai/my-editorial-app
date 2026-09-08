@@ -7,7 +7,7 @@
   commit exception; no product implementation is blocked
 - **Status:** Answered
 - **Resolution:** Applied
-- **Verified-At-Commit:** `4de5cd0` — the graph-parity commit, **the anchor where this entry's
+- **Verified-At-Commit:** 4de5cd0
   current evidence is observable, NOT a `Verified` claim** (`B072-R68`). `Resolution` stays
   `Applied`; `Verified-By` is deliberately absent and appears only when an independent actor
   promotes the whole entry. `8b0fa76` remains `R54`'s evidence in the append-only body below, where
@@ -34,6 +34,7 @@
   `docs/handoff/README.md` §"Committing and pushing your own entry" remains the single canonical
   transaction SOP; every earlier protocol block in this file's independent-review sections below is
   historical analysis, not a second operative copy (`B072-R8`/`R9`).
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `docs/handoff/README.md` §"This directory stays writable when your lane is not
   Active"; `docs/v1/V1-PHASE-CLOSURE.md` §§5/5.1; `D-103`, `D-156`; the Chief Editor's direct
   clarification of 2026-09-02. **Application commits, each its own unit:** `56759ff` (`R64`

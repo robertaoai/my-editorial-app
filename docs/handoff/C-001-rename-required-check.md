@@ -8,9 +8,9 @@
 - **Lane C:**
 - **Resolution:** Deferred
 - **Follow-up-Tier:** **Phase 3 — Lane C.** The rename cannot proceed while `C-24` (the compatibility job cannot prove verification) and `C-25` (the live-ruleset evidence is held outside the repository) are open. Both block the settings act, not a commit
-- **Verified-By:**
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:**
-- **Verified-At-Commit:**
+- **Verified-At-Commit:** 9f6047a368661b37ac5f4e44d1fe5ab1fd9e2d76
 
 ## Required Action
 

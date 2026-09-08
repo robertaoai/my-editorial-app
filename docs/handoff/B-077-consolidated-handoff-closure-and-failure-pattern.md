@@ -35,6 +35,8 @@
   Draft 12 remains under the `D-171` hold with its own closure gate; **Phase 3** for the deferred
   boundary owned by `B-016` and `C-001`; and final independent review by an eligible reviewer who
   neither answered nor applied this entry
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** 0a23eb2f014f44735b4143fd6b70970921341cce
 - **Evidence:** all handoff entries discovered at immutable revision `a18fe1c`; Lane B re-review
   baseline `0caf909`; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`;
   `scripts/checks/handoff-response.mjs`; `scripts/checks/closure-readiness.mjs`; B-071/B-072/B-076;

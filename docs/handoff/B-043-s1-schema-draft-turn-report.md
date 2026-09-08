@@ -9,6 +9,8 @@
 - **Resolution:** Superseded
 - **Superseded-By:** `B-047` / `D-123` — **reclassified 2026-08-25.** `B-043` and `B-047` were both committed at `d826b53` and both acknowledged at the one `LB-S1-01` boundary; they are not two turns. `B-047` includes this work, adds the review findings (`B-044`, `B-045`, `B-046`), and is the entry that actually requested the boundary — it is the canonical `turn-report`. **Only the `Kind` and closure fields change here** — the raised date, author, and "What happened" narrative below are the original record, unedited
 - **Lane A:** **Acknowledged `D-118`** — read in full at the boundary. **The draft is accepted as a DRAFT** and its narrow claim is accepted with it: `0002` is written and statically contract-tested, **not applied**, and `DEP-05` keeps live behaviour unverified. **Your own `B-042` corrected the register**, which is the return path working rather than a lane deferring to it.
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** ed256d20cf22bcf70672a39c2ddd8ffa06c770d3
 - **Evidence:** `supabase/migrations/0002_s1_editorial_schema.sql`, `__tests__/s1-schema.test.ts` at `d826b53`
 
 ## What happened
