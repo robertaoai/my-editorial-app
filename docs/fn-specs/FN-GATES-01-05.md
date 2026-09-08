@@ -81,7 +81,26 @@ The five gates are the product. Everything else in the system exists to record, 
 2. Create the article at the entry state.
 3. Write the transition record **before** the state exists.
 
-> **Open dependency — `FB-05`.** A trend signal is *required* at T1, but `CR-14` (AI tagging at the Reporter gate) has **no functional requirement**. This field has no defined producer. Either define its provenance or drop it from the required set — do not ship a required field with no source.
+> **`FB-05` answered — the producer is defined `[V1]`.** `D-194` ratified the intake unit as **one
+> manually assembled editorial trigger package**, and `D-197` selected the two remaining choices.
+> **Supply:** the Chief Editor supplies `source_url`, the one subject topic, source information and
+> the trend-signal description **through the UI**. **The application does not generate these values
+> and must not claim it did**; where a value came from an upstream article, unknown upstream
+> authorship **stays unknown**.
+> **Execution (`D-197` `A1`):** the **Reporter agent remains the `T1` executor** at `Line 1`, exactly
+> as the heading and Addendum §3.1 state. **Supplier and executor are separate recorded facts, and a
+> human is never recorded as an agent.** The record identifies the supplier, the source reference and
+> the entry time.
+> **Author and date (`D-197` `B1`):** unchanged — nullable, auto-extracted where possible, flagged
+> for Investigator review on failure, and re-confirmed at `T2`. Extraction from a supplied source is
+> **not** generation of the intake inputs.
+> **Completion:** a **missing required value prevents `T1` completion** — no article reaches `Logged`
+> on incomplete input, and **no incomplete draft state is created by this rule**. A missing or empty
+> required value produces a **named validation failure** identifying the component, and **no
+> transition row claiming `T1` completed**.
+> **Not resolved here:** future AI tagging and scoring is a separate capability, `PBL-11`, unranked
+> and unauthorized. `FB-05` closes on this specification **plus independent verification**, not on
+> the ratification alone.
 
 ### 3.2 `FR-02` — T2/T3 Validation and investigation *(Investigator, Line 1, Agent)*
 
@@ -173,7 +192,7 @@ Returns (T8) and rejections (T9) may occur at any active state and are specified
 
 | Dependency | Nature |
 |---|---|
-| Trend-signal producer | **Missing** — `CR-14` has no FR (`FB-05`) |
+| Trend-signal producer | **Chief Editor, supplied manually at `T1`** (`D-194`; `D-197` `A1`). The application does not generate it. Future AI generation is `PBL-11`, unranked |
 | Publication targets | Assigned at T4, consumed by `FR-09`/`FR-10` |
 | Audit log | Consumes every transition (`FR-07`) |
 | Board | Displays state and Line (`FR-08`) |

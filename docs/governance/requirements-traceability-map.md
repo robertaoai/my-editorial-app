@@ -138,7 +138,7 @@ Read this direction to answer: *"the customer asked for X — where did it go?"*
 | `CR-11` | FR-07, AC-11, AC-12 | Covered, extended with Line assignment and independence status |
 | `CR-12` | FR-09, FR-10, AC-14…AC-16 | Covered |
 | `CR-13` | FR-08, AC-13 | Covered, **extended**: customer names three filters; the team adds a fourth, Line assignment. → **FB-03** |
-| `CR-14` | **— none —** | ⚠ **UNCOVERED.** A customer MVP checkbox with no functional requirement in `Modular_PRD.md`. → **FB-05** |
+| `CR-14` | FR-01, AC-01; `FN-GATES` §3.1 | **Covered as the ratified manual contract** (`D-194`, Addendum §2.4; choices in `D-197`). The customer wrote *"AI tags"*; the Chief Editor ratified **manual supply** and that reconciliation is recorded, **not** read back into the frozen sentence. **Future AI tagging/scoring is `PBL-11`**, unranked. `FB-05` closes on independent verification of this specification |
 | `CR-15` | NG-01, NG-02, NG-08; SEC-03 defers auth to S6 | Covered (AP-01/MVP only; does not constrain P0-EVR) |
 | `CR-16` | NG-01, NG-02, NG-03 | Covered. NG-03 is reinforced at Charter level |
 | `CR-17` | NG-04, NG-05, NG-06, NG-07 | Covered |
@@ -149,9 +149,9 @@ Read this direction to answer: *"the customer asked for X — where did it go?"*
 
 | Status | Count | CRs |
 |---|---|---|
-| Covered | 17 | CR-01…CR-05, CR-07…CR-13, CR-15…CR-19 |
+| Covered | 18 | CR-01…CR-05, CR-07…CR-19 — **`CR-14` joined 2026-09-08** as the ratified manual contract (`D-194`/`D-197`) |
 | ⚠ Partially covered | 1 | CR-06 — schema cannot compute it (TC3) |
-| ⚠ **Uncovered** | 1 | **CR-14 — AI tagging at the Reporter gate has no FR** |
+| ⚠ **Uncovered** | **0** | — *(was `CR-14`; see its row above. Coverage is specification coverage, **not** verification: `FB-05` still needs independent review)* |
 
 ---
 
@@ -220,7 +220,7 @@ Items to route **to the customer via the project sponsor**. None is a defect in 
 | `FB-02` | **"Zero bypasses" is two things.** The governing set splits it into sequence compliance (unconditional) and review independence (**provisional pending OD2**). The customer should know one half is conditional and that a negative OD2 resolution is a pre-launch stop | **Disclosure** | **High** |
 | `FB-03` | **Fourth board filter.** The customer named state, topic, category. The team adds Line assignment. Confirm it is wanted | Change request | Medium |
 | `FB-04` | **Six items with no customer origin** — four functional requirements (FR-06 return with reason, FR-11 Line 3 audit, FR-12 degraded mode, FR-13 regulatory retraction) and two non-goals (NG-10, NG-11). All justified by the Addendum or Entry 007. Customer acceptance needed, since this is funded scope they did not request. *(Corrected from "five" 2026-08-17 — see v1.1 changelog)* | **Change request** | **High** |
-| `FB-05` | **CR-14 has no requirement.** "AI tags topics, sources, trend signals at Reporter gate" is a customer MVP checkbox with no FR. In or out of v1? | **Gap** | **High** |
+| `FB-05` | **Answered 2026-09-08 — specification complete, verification outstanding.** `CR-14` is **in v1 as a manual contract**: `D-194` ratified the Chief Editor's manually entered trigger package and `D-197` selected the `T1` executor (`A1` — Reporter agent executes, Chief Editor recorded as supplier) and author/date handling (`B1` — auto-extraction retained). `FN-GATES` §3.1 carries the behaviour. **Future AI tagging/scoring is `PBL-11`**, unranked. **Closes on independent verification, not on this entry** | **Gap — answered** | **High** |
 | `FB-06` | **CR-06 not deliverable in v1.** Trend-signal scoring is not computable on the current schema (TC3), and the acceptance tests for it are deferred. Confirm this v1 limitation is acceptable | Disclosure | Medium |
 | `FB-07` | **Business Charter — offered, not required.** It is `PRD.md`'s stated upstream. The project team records that it cannot verify `PRD.md` against a source it does not hold, and offers to work from one if the customer has it. **No obligation implied; this blocks nothing.** *(Reclassified from Gap on 2026-08-16 — an earlier draft made it a production-readiness requirement, which inverted the customer/project boundary)* | **Recommendation** | Low |
 | `FB-08` | **Granularity convention, for future revisions only.** `CR-01` contains two distinct claims in one line (cost, and absence of a guardrail), so one anchor covers two requirements. Recommend one requirement per line going forward. **Applies to future edits — no rework of the current document is being asked for** | Recommendation | Low |
