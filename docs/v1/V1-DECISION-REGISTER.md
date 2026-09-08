@@ -14039,3 +14039,94 @@ activation, release of the `S2` hold or push is authorized by this act. **`FB-05
 open**, and this act does not narrow them — it repairs a defect in how a prior act was applied.
 **This act is Lane A's own work and is not independently reviewed**; `B-084` remains `Applied`, not
 `Verified`, and its independent verification remains owed to Lane B.
+
+---
+
+## 5.14e25 `D-200` — Lane A Splits by Tool; the Return Path Is the Existing Channel, Not a New One
+
+**Judge ruling, 2026-09-08, two clarifications on one decision tree.** Clarification 1 assigned two
+surfaces and named the reason; asked which of two readings governed the six it left silent, the
+Judge selected **`T2` — apply the principle, not the file list**. Clarification 2 required a
+feedback, changelog and handover path back from the implementing tool, or a backlog path for work
+discovered beyond the sprint.
+
+**Lane A remains ONE lane.** One lock, one `Active` row, `lane-state` (check 15) untouched. The
+tools serialize on Lane A's turn. **This is not a fourth lane** — `D-93` rejected a fourth agent on
+the ground that no agent acquires skin in the game, and nothing here disturbs that: the Judge
+boundary and closure condition 4 are unchanged, and **a tool review discharges neither.**
+
+### The surface map, all eight surfaces, none left silent
+
+| Surface | Owner | Basis |
+|---|---|---|
+| `docs/` **except `docs/handoff/`** | Lane A · **Cowork** | Judge clarification 1 — planning and strategy |
+| the rule files (`CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md`) | Lane A · **Cowork** | `T2` — the written model is strategy |
+| `.github/` except `workflows/` | Lane A · **Cowork** | `T2` — templates and `CODEOWNERS` are strategy |
+| `scripts/` | Lane A · **Claude Code** | Judge clarification 1 — implementation |
+| `.claude/` · `.agents/` · `.codex/` | Lane A · **Claude Code** | `T2` — agent configuration is implementation |
+| build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, lockfiles) | Lane A · **Claude Code** | `T2` — implementation. `D-86` is unchanged: Lane B still never runs `bun add` |
+| `docs/handoff/` | **Unmapped** | `D-90`, unchanged — either tool writes responses without crossing |
+| `.github/workflows/` | **Lane C** | `D-75`, unchanged — restated, not moved |
+
+**`.agents/rules/graphify.md` is the one path this map splits internally**, and it is deliberate:
+the **directory** is Claude Code's configuration surface, the **file** is a rule file and therefore
+Cowork's. Stated because a reader applying the table mechanically would get it wrong.
+
+### The return path — the channel that exists, not a new one
+
+**Claude Code returns to Cowork through `docs/handoff/` as an `A-NNN` entry.** Three kinds already
+carry what clarification 2 asked for, and **no new artifact is created**: `Kind: turn-report` is the
+work-done record and the changelog; `dependency` and `spec-defect` keep their meanings; **a feature
+discovered beyond the current sprint or version is `Kind: finding`** — `D-100` already rules that
+these entries *are* the backlog and that a second listing would be a restatement that drifts.
+
+### The bootstrap, and it is a real ordering constraint
+
+**The first `A-NNN` entry cannot be filed before Claude Code widens the check that reads it.**
+`handoff-response` filters filenames on `^[BC]-\d+`; its own comment reads *"Lane A does not
+raise"*. An `A-` file is therefore **invisible to check 10** — `G74`'s defect a third time, after
+the Lane C widening (`D-92`) and `channel-docs` (`D-104`) one level up. And `channel-docs` couples
+`README.md` and `TEMPLATE.md` to the checks **in both directions**, so documenting the series before
+the check implements it fails the suite.
+
+**So the instruction travels in the rule files, not through the channel it opens** — recorded in the
+shared core of all three, this pass.
+
+### Applied in this act, and NOT applied — stated separately
+
+**Applied (Cowork surfaces):** this section; the shared-core block in all three rule files, re-synced
+and re-hashed; `V1-BUILD-SPEC.md` §2.
+
+**Specified, NOT applied (`D-56`) — Claude Code's `scripts/`, and the first work item under this
+ruling:**
+
+1. `handoff-response.mjs` — widen the filename filter to `^[ABC]-\d+` and correct the *"Lane A does
+   not raise"* comment. **Negative-test that an `A-` entry with no acknowledgement fails**, the same
+   proof `D-92` owed for `C-`.
+2. `lane-boundary.mjs` — a tool sub-map over Lane A's surfaces, reporting a tool crossing the way it
+   reports a lane crossing. **It reports; it does not forbid** (`D-83`).
+3. `Tool-Crossing: <reason>` in `.githooks/commit-msg`, by analogy to `D-88`.
+
+**Then, and only then, Cowork's follow-on:** `docs/handoff/README.md` and `TEMPLATE.md` document the
+`A-` series. Ordered after item 1 because `channel-docs` fails the other way round.
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | `SPECS-VERIFICATION` | Inventory | Build spec | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Tool split, eight surfaces | ✅ §5.14e25 | ✅ core, all three, re-hashed | **— unaffected** | **— unaffected: no artifact created or retired** | ✅ §2 | **— unaffected: a development-lane fact, never a product one** |
+| `A-NNN` return path | ✅ §5.14e25 | ✅ core, all three | **— unaffected** | **— unaffected** | **— unaffected: no sequence or DoD moves** | **— unaffected** |
+| Check widening, tool sub-map, `Tool-Crossing:` | ✅ §5.14e25, specified | ✅ core names them as owed | **— not yet: nothing installed** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+### What this act does NOT do
+
+**Opens no phase, closes none.** Authorizes no build, sprint, migration, deployment or `PBL-11`
+promotion. **Does not release the `D-171` `S2` hold.** Does not touch `lane-state`, the phase
+register, or closure condition 4. **Changes no product tier.** `B-084` stays `Applied`; `B-071`
+stays `Open`; the eighteen `Applied` entries keep their owners under `B-077`.
+
+**This act is Lane A's own work and is not independently reviewed.** It is Cowork writing the model
+Cowork will be governed by, which is exactly the concentration `D-82` recorded and `D-93` created the
+Critic for. **A separate-turn critic pass over this act is owed** (`D-93` rule 1), and the first
+`A-NNN` turn report from Claude Code is the natural place for the implementation half to be reviewed
+back.

@@ -93,6 +93,37 @@ file is the drift mechanism (`G55`).
 | **B** | Codex | `AGENTS.md` | `app/`, `lib/`, `components/`, `supabase/`, `__tests__/` |
 | **C** | Antigravity | `.agents/rules/graphify.md` | **`.github/workflows/` only** |
 
+**Lane A is two tools with split surfaces (`D-200`, Judge ruling, binding).** One lane, one lock,
+one `Active` row — the tools **serialize on Lane A's turn**, and `lane-state` is unchanged. What
+splits is the surface, on the Judge's own principle: **strategy is Claude Cowork, implementation is
+Claude Code.**
+
+| Surface | Lane A tool |
+|---|---|
+| `docs/` **except `docs/handoff/`** · the rule files · `.github/` except `workflows/` | **Claude Cowork** — planning and strategy of governance |
+| `scripts/` · `.claude/` · `.agents/` · `.codex/` · build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, lockfiles) | **Claude Code** — implementation of governance |
+
+**`docs/handoff/` stays unmapped** (`D-90`) — either tool writes responses there without crossing.
+**`.github/workflows/` stays Lane C's** (`D-75`), unchanged. A commit spanning both tool surfaces is
+a **tool crossing**; `Tool-Crossing: <reason>` is specified by `D-200` and **not yet built**, so for
+now it is a duty, not a gate — the same footing `D-75` had before `D-88`.
+
+**Claude Code returns its work to Claude Cowork through `docs/handoff/` as an `A-NNN` entry
+(`D-200`).** No second channel and no separate changelog: **these entries are the backlog**
+(`D-100`), and a second artifact listing them would be a restatement that drifts (`G55`). Work done
+is `Kind: turn-report`; a defect or a missing dependency keeps its existing kind; **a feature
+discovered beyond the current sprint or version is `Kind: finding`** — which is what a backlog item
+is in this channel.
+
+> **Bootstrap, stated here because it cannot be filed as an entry.** `handoff-response` filters
+> entry filenames on `^[BC]-\d+` and its own comment reads *"Lane A does not raise"*, so an `A-NNN`
+> file is **invisible to check 10** — `G74`'s defect for a third time. Widening that filter is
+> `scripts/` work and `scripts/` is Claude Code's, so **the instruction to widen it travels in this
+> rule file, not through the channel it opens.** Until check 10 reads `^[ABC]-\d+`, and until
+> `docs/handoff/README.md` and `TEMPLATE.md` document the series, **no `A-NNN` entry may be filed** —
+> `channel-docs` couples those two files to the checks in both directions, so documenting a series
+> no check implements fails the suite.
+
 **Lane A writes every dependency before Lane C builds a workflow against it (`D-84`).** CI calls
 `bun run check`; Lane A writes what it calls. `D-75`'s original map put `scripts/` and
 `.gitattributes` in Lane C — **corrected**, and two commits it cited as crossings were not.

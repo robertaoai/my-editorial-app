@@ -56,6 +56,8 @@ Deployment is Lane C and GitHub — **`main` lagging this branch is expected unt
 a defect.** The development lane model is **not** the product Three Lines (`OD1`–`OD3`) and **not**
 `OD4`; `D-75` records why the vocabularies are kept apart.
 
+**Lane A is two tools with split surfaces (`D-200`).** One lane, one lock, one `Active` row — the tools serialize on Lane A's turn. **Strategy is Claude Cowork** (`docs/` except `docs/handoff/`, the rule files, `.github/` except `workflows/`); **implementation is Claude Code** (`scripts/`, `.claude/`, `.agents/`, `.codex/`, build config). `docs/handoff/` stays unmapped (`D-90`) and `.github/workflows/` stays Lane C's (`D-75`). Claude Code returns work to Cowork as an `A-NNN` entry in the existing channel — **no second backlog** (`D-100`). The check widening that makes an `A-` entry visible is **specified, not applied**; the full surface map is in `D-200`.
+
 ## 3. Pre-build
 
 ### T0 — documentation, no decision required *(6 items)*
