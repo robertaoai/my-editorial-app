@@ -147,6 +147,11 @@ Read this direction to answer: *"the customer asked for X — where did it go?"*
 
 ### Forward coverage
 
+> **Dated snapshot, computed 2026-09-08 — not a live tally.** The counts below are a reading of
+> §4 at that date, and `§8`'s maintenance rule re-derives them when a `CR` mapping changes.
+> **Read §4's rows, not this summary**, if the two ever disagree: a hand-carried count is the drift
+> mechanism `G55`/`G75` name, and incrementing one by hand is how it starts (`B-084`).
+
 | Status | Count | CRs |
 |---|---|---|
 | Covered | 18 | CR-01…CR-05, CR-07…CR-19 — **`CR-14` joined 2026-09-08** as the ratified manual contract (`D-194`/`D-197`) |

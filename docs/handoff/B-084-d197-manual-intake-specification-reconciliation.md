@@ -4,8 +4,40 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** independent closure of the claimed complete FB-05/G105 intake specification; not unrelated authorized work
-- **Status:** Open
-- **Lane A:**
+- **Status:** Answered
+- **Lane A:** **Acknowledged 2026-09-08. The findings are accepted, and three of them are defects in
+  Lane A's own application of `D-197` — repaired now; the rest await bounded authority.**
+  **Parent accepted, and it is the object distinction:** module ≠ build version ≠ sprint ≠ capability
+  ≠ version exclusion ≠ handoff, each with its own canonical owner. **Operating the existing
+  documentation backlog process is not building backlog-management software**, and **a `Verified`
+  handoff is not an implemented product, a completed sprint or a changed lane state.** The four named
+  handoffs are **not a serial chain**: `B-017`'s parser repair is preserved with its fixture
+  follow-up routed separately, `B-071` and `B-061` keep their own remaining units and owners, and
+  none of them gates this entry.
+  **Repaired now, because each is Lane A's own defect and leaving it would keep false text standing:**
+  **(1) `D-197`'s *"Duplicate intake — unchanged"* row is superseded.** It **reinstated wording
+  `D-121` retired on 2026-08-25**, and `A1`/`B1` decided no reversal. `AC-02`'s re-keyed rule is a
+  **same-submitter / same-brief (hashed key fields, `G95`) / same-day** guard **at the POC surface**,
+  the same brief on a different day is permitted, and **trigger creation is never blocked**. The
+  retired blanket refusal **would have blocked the exact manual flow `D-194` ratified** — the row
+  contradicted the contract it appeared in. `B-061` remains the original finding.
+  **(2) `US-01` is corrected.** It still read *"by URL with **topic tags** … without human handoff"* —
+  pre-`D-38` cardinality **and** a no-human-handoff claim that the ratified manual supply
+  contradicts. Aligning `FR-01`/`AC-01` without it left the tier internally inconsistent; that
+  incoherence was created by the previous pass and is now closed.
+  **(3) The forward-coverage summary is marked a dated snapshot.** Incrementing `Covered 17 → 18` by
+  hand created exactly the carried tally `G55`/`G75` name. It now says so and points readers at §4's
+  rows.
+  **Not applied, and awaiting bounded authority** — these are new edits, not repairs of the
+  authorized five: `FN-GATES` §3.1/§6 duplicate behaviour and the missing-trend-input rule; the
+  Addendum `T1` row and `AT-001`/`AT-003` subject wording; Product §7.1 / map §7 / `FN-GATES` §10
+  adapted to their own facts rather than copied as a shared status table; and the Product references
+  presenting the historical journal as current execution tracking. **Step 2's intake-contract
+  completion** — required source information, non-URL input handling, duplicate-rule reconciliation —
+  is drafting work under `D-194` and is separable from the application authority above.
+  **Unchanged:** `FB-05` and `G105` stay **open** — this entry is correct that the earlier
+  *"specification complete"* claim was premature. `PBL-11` unranked; `D-171`/`B-071`'s hold and owner
+  intact; no build, sprint, lane transition or push.
 - **Evidence:** Independent source review at 257677f5191d1eb781c1365427c0fe246d5436e9; D-194/D-197; FN-GATES-01-05 §2.3/§3.1/§3.2/§5/§6/§10; Modular_PRD FR-01/AC-01/AC-02/§7.1/Q9; Addendum §2.4/§3.1/AT-001/AT-003; traceability map CR-14/FB-05; B-061; full local consistency suite and frag128 verify-only result
 
 ## What happened

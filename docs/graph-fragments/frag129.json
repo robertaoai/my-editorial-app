@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "b084_d197_intake_specification_reconciliation",
+      "label": "B-084: D-197's Manual-Intake Specification Still Has Contradictory Requirements",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "source_location": "",
+      "description": "Handoff spec-defect raised by Lane B, answered 2026-09-08. Read the entry header for current lifecycle status. Its parent finding is an object-identity distinction: module, build version, sprint, capability, version exclusion and handoff are six separate things with six canonical owners, and none implies another. A module is not V1, a sprint or a second editorial engine; V1 being Active authorizes no code unit; a feature name or bracketed V1 introduction marker allocates no sprint; identity, readiness, version inclusion and build permission are separate facts; and a Verified handoff is not an implemented product, a completed sprint or a changed lane state. It also draws a line that is easy to miss: operating the existing documentation backlog process is Lane A doing governance work, whereas building scripts or an in-app backlog-management feature would be a different action entirely, and a documented process with installed checks is not evidence that any step is automated or that a product feature exists. The four handoffs B-017, B-071, B-061 and this entry are explicitly not a serial chain; each owns its own status and none gates the others. The reusable defect finding is that a correction pass can reinstate wording an earlier decision retired: the applying pass wrote a blanket duplicate-intake refusal that D-121 had retired on 2026-08-25, whose re-keyed AC-02 rule is instead a same-submitter, same-brief hashed on key fields, same-day guard at the POC surface, with the same brief permitted on a different day and trigger creation never blocked, so the reinstated wording would have blocked the exact manual flow D-194 ratified. Two further self-inflicted defects were found: US-01 still carried pre-D-38 topic-tag cardinality together with a without-human-handoff claim that the ratified manual supply contradicts, because aligning FR-01 and AC-01 without it left the tier internally inconsistent; and a forward-coverage summary count was incremented by hand, which is the carried tally G55 and G75 name. Remaining work at answer time was the FN-GATES duplicate and missing-input rules, the Addendum T1 and acceptance-test subject wording, and completing the intake contract's source-information definition, non-URL input handling and duplicate reconciliation, with FB-05 and G105 still open because the earlier specification-complete claim was premature.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also records the entry's reusable findings -- the six-way object distinction, the line between operating a process and building software for it, and that a correction pass can reinstate retired wording that contradicts the contract it sits inside -- which are otherwise reachable only by reading the full entry."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b084_d197_intake_specification_reconciliation",
+      "target": "b083_authority_routing_and_decision_tree",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b084_d197_intake_specification_reconciliation",
+      "target": "b071_ontology_correction_handoff",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b084_d197_intake_specification_reconciliation",
+      "target": "one_word_two_concepts_pattern",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b084_d197_intake_specification_reconciliation",
+      "target": "index_is_not_the_record",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-084-d197-manual-intake-specification-reconciliation.md",
+      "source_location": "",
+      "weight": 1
+    }
+  ]
+}
