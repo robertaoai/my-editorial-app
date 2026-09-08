@@ -2468,6 +2468,16 @@ is what stops the fourth.
 **This condition has TWO mechanisms of different feasibility, and takes the WEAKEST part's
 disposition — `D-211`, extending `D-204` from entries to conditions.**
 
+**Verify LAST, and quote the output from THAT run — `D-212`.** `D-211` recorded *"verified by running
+the canonical command over both files: no in-file duplicates"* and the claim was **false at commit
+time and true when made**: the command was run, returned clean, and then the act's own narrative
+introduced two `### ` headings. **A real measurement quoted at the wrong point in time.**
+
+**So "quote the output" is not the rule — ordering is.** The verification runs **after the act's final
+text is written**, against the tree being committed, and the act quotes **that** run. **A measurement
+taken before the act finished describes a file that no longer exists.**
+
+
 | Half | Mechanism | Feasibility |
 |---|---|---|
 | **(a)** register → governed file: an instruction the register withdrew still stands | must tell an **instruction** from a **record** in prose; `D-209` did it by hand-counting | **hard, no mechanical form yet** |
@@ -15176,7 +15186,7 @@ history (`D-93` rule 4) and loses nothing by leaving the index.
 duplicates.** The distinct-ID figure is an observation of that run and is deliberately not recorded
 as a target (`D-210`, `G55`, `G75`).
 
-### `C-42` takes the weakest part — `D-204` extended from entries to conditions
+#### `C-42` takes the weakest part — `D-204` extended from entries to conditions
 
 **`C-42` is two mechanisms of different feasibility under one disposition.** (a) register → governed
 file must tell an **instruction** from a **record** in prose, which `D-209` did by hand and for which
@@ -15188,7 +15198,7 @@ and conditions had no equivalent.** Extended here: **a condition with parts take
 disposition and closes when the weakest closes.** Splitting into `C-42a`/`C-42b` was considered and
 **rejected** — it creates the duplicate `C-42` itself forbids.
 
-### `C-38` bounded, because an unbounded definition of done cannot be met
+#### `C-38` bounded, because an unbounded definition of done cannot be met
 
 It read `D-203`, then `D-203`–`D-209`, then `D-203`–`D-210`. **A DoD that widens whenever new work
 lands is never owed now and never done.** The range is now **fixed when the pass starts and named in
@@ -15211,3 +15221,69 @@ disposition so its easy half cannot close its hard half. **Deletes no history.**
 `B-071` stays `Open`. **Syncs no graph**; opens or closes no phase; does not release the `D-171`
 hold. **Lane A's own work, not independently reviewed** — `C-38`, whose range is fixed by whoever
 starts the pass.
+
+---
+
+## 5.14e37 `D-212` — A Real Measurement Quoted at the Wrong Point in Time; `B-071` Dispositioned
+
+**Lane A (Cowork) act, 2026-09-08, on Lane B's review of `D-211`.** Two findings, both verified,
+both Lane A's — and the second is the one that matters to the business.
+
+### The verification defect, diagnosed more precisely than it was reported
+
+`D-211` recorded *"verified by running the canonical command over both files: no in-file
+duplicates."* Lane B offered two explanations — headings added after the verification, or the
+verification described rather than run. **It was the first, and the distinction matters.**
+
+**The command was run. It returned clean. Then the act's own narrative introduced two `### `
+headings — `C-42` and `C-38` — and the earlier result was recorded as the act's verification.** Not a
+fabricated measurement: **a genuine one quoted at the wrong point in time**, the same family as
+reporting a suite total taken before the commit it describes, which this sequence has also done.
+
+**So the corrective is not "quote the output" — it is ordering.** Recorded in `C-42`: **verify LAST,
+after the act's final text, against the tree being committed, and quote that run.** A measurement
+taken before the act finished describes a file that no longer exists.
+
+**Both headings are demoted here.** Fourth consecutive act with a scope-versus-rule defect, and the
+first where the evidence was real and stale rather than absent.
+
+### `B-071` — ten acts of apparatus, and the blockage never moved
+
+**This is Lane B's sharpest finding and it is not about correctness.** `D-202` through `D-211` are
+**ten acts refining the tracking layer**, and across every one of them `closure-readiness` reported
+**`open 1`** — the only number in the sequence that never changed. **`B-071` had been `Open` since
+2026-09-02**, holding *terminal verification of `B-070`, any fresh `S2` authorization, and Lane B
+beginning `T5`/`T6`, route-readiness, judgment-packet or publication-decision implementation.*
+
+**`C-41`'s disposition was Cowork's, needed no code, and sat fifth in the handover behind three
+Claude Code items.** Nothing sequenced it there. **Corrected: it ran in parallel, this turn.**
+
+**Dispositioned `Deferred`, not `Answered`,** because that is what is true: the `B-070` options
+correction and the Desk Editor ontology reconciliation are **specified and not applied**, and the
+work they gate cannot proceed regardless — fresh `S2` authorization is held under `D-171`, extended
+by `D-172`/`D-175`/`D-177`. **`B-071` is not what is stopping Lane B**, and saying so with a named
+`Follow-up-Tier` is more useful than an `Answered` that claims a fix nobody made.
+
+### Lane B's Round 53, landed separately
+
+**Their consolidation had sat uncommitted for five turns**, while every measurement in this sequence
+was reported against a dirty tree. **Committed on its own at `70a685a`, content untouched by Lane
+A**, so that this act's edit to the same entry lands separately and authorship stays clean.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e37; `C-42` gains the verify-last rule; two headings demoted |
+| **Handoff entries** | ✅ `B-071` — `Answered` / `Deferred` with `Follow-up-Tier`, audit fields per `D-205` |
+| **Phase closure** | **— unaffected: no phase state or condition moves; `C-41` is discharged by the entry, not by a phase edit** |
+| **Agent files · Build spec · Channel docs · Inventory** | **— unaffected** |
+| **`Modular_PRD` and product tiers** | **— unaffected** |
+
+### What this act does NOT do
+
+**Installs no check.** `C-42b` — the enumeration control — is Claude Code's and now goes **FIRST**,
+not last: the weakest-part rule `D-211` adopted exists so the easy half can ship alone, and **it is
+the only item in the queue that would have caught all four of these incidents.** `C-42a` stays
+visibly open. **Syncs no graph.** Opens or closes no phase; does not release the `D-171` hold.
+**Lane A's own work, not independently reviewed** — `C-38`, range fixed by whoever starts the pass.

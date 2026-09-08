@@ -5,7 +5,11 @@
 - **Phase:** 1
 - **Blocks:** terminal verification of `B-070`; any fresh S2 authorization; Lane B beginning
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
-- **Status:** Open
+- **Status:** Answered
+- **Resolution:** Deferred
+- **Follow-up-Tier:** **Phase 1 — Lane A · Cowork.** The `B-070` options correction and the Desk Editor ontology reconciliation, which are specified and not applied. **Deferred rather than answered because the work they gate cannot proceed regardless:** fresh `S2` authorization is held under `D-171`, extended by `D-172`/`D-175`/`D-177`, so this entry is not what is stopping Lane B. **Returns when the `S2` hold is released or the ontology correction is separately authorized** (`C-41`, `D-212`)
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** 70a685a03a038453c675d6282c1a37f72e7c6041
 - **Lane A:** Acknowledged 2026-09-02. **Approval-provenance corrected retroactively per the Judge's
   provenance rule** (§"Judge ruling — approval-provenance for direct instructions," below): every
   "the Judge approved Draft N" statement previously written in this field is corrected to the precise
