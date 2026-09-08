@@ -13582,3 +13582,84 @@ build, no UI, no `M-POC` activation, no promotion of `PBL-11` beyond identity. `
 `G105` stay open; `D-171` stands; `B-071`'s `PBL-10` proposal is untouched. Historical Stripe
 presence and its `S0` removal remain confirmed history and **establish no current payment
 authority**. **This decision is Lane A's own work and is not independently reviewed.**
+
+## 5.14e21 `D-196` — The Manual-Intake Readiness Chain: `Q9` + `FB-05` Now, `G105` From Their Evidence, `PBL-11` Later
+
+**Chief Editor ruling recorded 2026-09-08, raised as `B-082`: *use the actual dependency chain*.**
+`Q9`, `FB-05`, `G105` and `PBL-11` had been presented as **four equal-priority active-sprint
+tasks**. They are not four features. **Three are connected records about one piece of current `V1`
+readiness work; the fourth is future backlog.** This decision records the routing fact **once**; it
+authorizes no build and assigns no sprint.
+
+### The execution boundary this sits inside — stated first, because it governs everything below
+
+**`V1` is `Active`. That is not evidence that a coding sprint is currently executable.** The next
+named `S2` code packet is **historical and held** (`D-171`, extended `D-172`/`D-175`/`D-177`,
+covering **both the historical and the target order**). **There is no currently executable Lane B
+code unit.** `S3`/`S4` are not made active by appearing in the version plan, and **a lane being
+`Active` is not a sprint status.** The live sources are `V1-BUILD-SPEC.md` §4,
+`LANE-B-WORK-ORDER.md` §2.2d for the build boundary and `V1-PHASE-CLOSURE.md` §5 for lane state.
+
+**Two Modular_PRD pointers contradicted that boundary and are corrected with this decision:**
+
+| Where | What it said | Why it was wrong |
+|---|---|---|
+| §8.0, `V1` status narrative | *"**S2 is the current blocker** — open on `Q12` … and `Q1`"* | **`D-163` closed both Phase-0 decisions**, as §7.4's `M2` row and §8.1 already recorded. The real boundary is the `D-171` hold |
+| §8.1, `S2` status cell | *"Unit 1 authorized (`D-164`/`D-165`), not started"* | §7.4's `M2` row had recorded **that exact phrase as stale since `D-178`**. Two tables in one document disagreed about whether `S2` Unit 1 is authorized |
+
+### The chain
+
+**Documentation preparation may proceed under `D-194` while the `S2` hold stands.** It is current
+`V1`/`M-MVP` readiness work, **not a newly assigned `S1` or `S2` code unit**.
+
+| | Record | Now | Not |
+|---|---|---|---|
+| **1 — now, decision half** | **`Q9`** | Prepare the remaining **`T1` execution identity / Line authority** and **source author/date** options for the Chief Editor. The manual-package direction is already ratified (`D-194`) | A separate sprint, or an AI build decision. **Do not re-ask whether the package is manual** |
+| **1 — now, specification half** | **`FB-05`** | Draft `FR-01`/manual-package behaviour **alongside** the `Q9` options; finalize against the recorded answers | Coding allocation — that still needs a bounded authorized unit |
+| **2 — from their evidence** | **`G105`** | Reconcile its disposition **from the actual `Q9` decision and `FB-05` criteria** | A separate feature rank or an AI-sprint prerequisite |
+| **future** | **`PBL-11`** | Remain registered, `Unranked`, identity only | Version or sprint allocation, or displacing the current manual-intake work **by name association** |
+
+**`Q9`'s options and `FB-05`'s behaviour are drafted together.** Only their *acceptance* is ordered:
+**`Q9` disposition → complete accepted specification and evidence → `G105` reconciliation.** `Q9`
+may receive its decision before `FB-05`'s specification is complete.
+
+**Completing this chain does not lift the `S2` hold.** `D-171`/`B-071`'s contract and build hold
+remains in force with its own owner and acceptance criteria, and **satisfying `FB-05` does not
+release it**. Neither does this chain sit below future AI work: `PBL-11` must not block or displace
+it by name association.
+
+### One timing phrase, clarified rather than rewritten
+
+`Q9`'s row and `FN-GATES`'s `FB-05` note carry *"whether an FR is added **before S1**"* and *"must
+resolve **before S1**"*. **That timing is historical and is preserved.** It is **not** an instruction
+to restart the already bounded `S1` work. The current requirement: **complete the manual-intake
+specification before authorizing or claiming readiness of the affected unit**, and assign any
+corrective code **only through a named future work order**.
+
+**`T1` is overloaded and must always be qualified.** In the product it is the Reporter intake
+transition; in `V1-BUILD-SPEC` it is a pre-build decision stage. **Neither is a sprint assignment.**
+A product gate, a build version, a sprint, a planning phase and a development lane are five separate
+dimensions.
+
+### Tier applicability
+
+| Tier | Applicability |
+|---|---|
+| `V1-DECISION-REGISTER.md` | **Affected** — this decision |
+| `Modular_PRD.md` | **Affected** — §8.0's `V1` narrative and §8.1's `S2` status cell reconciled with the `D-171` boundary. **No scheduling decision is made**; this is source inconsistency, and §7.4 already held the correct statement |
+| `V1-BUILD-SPEC.md` | **Unaffected** — it is the *source* of the hold, and is quoted rather than changed. No sprint scope, sequence position or DoD moves |
+| `docs/LANE-B-WORK-ORDER.md` | **Unaffected** — cited as the executable-unit source; no work order is issued |
+| `docs/fn-specs/FN-GATES-01-05.md` | **Unaffected** — `FB-05`'s open-dependency note stands; its timing phrase is clarified here, not edited there |
+| `V1-ARTIFACT-INVENTORY.md` | **Unaffected** — no artifact created or retired |
+| `Modular_PRD.md` §8 | **Unaffected as a sprint act** — no sprint closes and no tier opens; only stale status prose is corrected |
+| `V1-PHASE-CLOSURE.md` | **Unaffected** — no lane state changes; it remains the source for it |
+| Frozen `docs/PRD.md`, Charter, `0001_init.sql` | **Unaffected** |
+| **Encyclopedia** | **Unaffected** — no entry declares a dependency on sprint status or the build-version narrative. Entry 06's `CR-14` dependency is untouched: this decision routes work, it does not change `CR-14`'s reading |
+
+### Scope limits
+
+**Routes work; authorizes none of it.** No build, no sprint assignment, no lane transition, no
+`PBL-11` promotion. `Q9`, `FB-05` and `G105` all remain **open**; `D-171`/`B-071`'s hold stands
+unnarrowed with its existing owner; `B-061`/`B-071` retain ownership of overlapping status text and
+**this decision does not re-perform their accepted `Q12`/`Q1` work**. **This decision is Lane A's own
+work and is not independently reviewed.**

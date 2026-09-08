@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "b082_v1_readiness_chain_and_intake_routing",
+      "label": "B-082: Route Manual-Intake Readiness to Current V1 Work; Keep PBL-11 in Future Backlog",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-082-v1-sprint-priority-and-intake-routing.md",
+      "source_location": "",
+      "description": "Handoff spec-defect raised by Lane B, answered 2026-09-08 and recorded as D-196. Read the entry header for current lifecycle status. The reusable finding is that presenting connected records as parallel tasks destroys the dependency information that tells you what to do first: Q9, FB-05, G105 and PBL-11 had been listed as four equal-priority active-sprint items, when three are connected records about one piece of current V1 readiness work and the fourth is future backlog. Q9 owns the remaining Chief Editor decisions on T1 execution identity, Line authority and source author/date handling; FB-05 owns the functional behaviour of the manual package; G105 records the residual governance dependency and is reconciled from the evidence the other two produce; PBL-11 is a separate future capability identity. Q9's options and FB-05's behaviour are drafted together and only their acceptance is ordered, so Q9 may receive its decision before FB-05's specification is complete. The second finding is an execution-boundary confusion: V1 being Active is not evidence that a coding sprint is currently executable, and a lane being Active is not a sprint status. The next named S2 code packet is historical and held under D-171 as extended by D-172, D-175 and D-177, covering both the historical and the target order, so there is no currently executable Lane B code unit; documentation preparation proceeds under D-194 regardless, and completing the manual-intake chain does not lift that hold. Two Modular_PRD status pointers contradicted this and were corrected: section 8.0's V1 narrative still named Q12 and Q1 as open S2 blockers although D-163 had closed both Phase-0 decisions, and section 8.1's S2 cell still read Unit 1 authorized and not started although section 7.4's M2 row had recorded that exact phrase as stale since D-178. Two tables in one document disagreed about whether S2 Unit 1 is authorized, which is the same defect shape as the V1 equals S0 through S5 example corrected under B-081. A timing phrase reading before S1 in Q9's row and the FN-GATES FB-05 note is historical and is not an instruction to restart bounded S1 work. T1 is overloaded between the product intake transition and the Build Spec's pre-build decision stage and must always be qualified; neither is a sprint assignment, and a product gate, build version, sprint, planning phase and development lane are five separate dimensions.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also records the entry's reusable findings -- that flattening a dependency chain into equal-priority tasks discards the ordering information, and that an Active version or lane is not evidence of an executable sprint -- which are otherwise reachable only by reading the full entry."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b082_v1_readiness_chain_and_intake_routing",
+      "target": "b081_module_version_sprint_and_pbl11_intake",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-082-v1-sprint-priority-and-intake-routing.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b082_v1_readiness_chain_and_intake_routing",
+      "target": "d171_explicit_s2_hold_and_f6_draft",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-082-v1-sprint-priority-and-intake-routing.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b082_v1_readiness_chain_and_intake_routing",
+      "target": "b071_ontology_correction_handoff",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-082-v1-sprint-priority-and-intake-routing.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b082_v1_readiness_chain_and_intake_routing",
+      "target": "one_word_two_concepts_pattern",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-082-v1-sprint-priority-and-intake-routing.md",
+      "source_location": "",
+      "weight": 1
+    }
+  ]
+}

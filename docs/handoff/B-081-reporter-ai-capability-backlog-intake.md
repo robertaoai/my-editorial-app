@@ -64,11 +64,94 @@
   **Unchanged, deliberately:** no relocation, no `PBL-11` promotion beyond identity, no
   implementation. `G105`, `FB-05` and `Q9` all remain **open** — none of these corrections closes
   any of them. **`Applied` is not `closed`**, and independent verification is still owed.
-- **Resolution:** Applied
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), original raiser independently reviewing Lane A's applied documentation corrections
 - **Evidence:** review at 6d5ae5448dfc7b2ae339026b0f7c2e2bcabd3294; current Judge request; Modular_PRD §2.5.1–§2.5.2; Register D-188/D-194/G105; Addendum §2.4 CR-14/A7; INTELLIGENCE_LAYER handoff note; Encyclopedia sync dependency ledger; B-080's verified correction
-- **Verified-At-Commit:** 1376b4604a16448c70cab594654825508201f588
+- **Verified-At-Commit:** cccfb6af1598d810393bbe0027e7575b4c09cbf8
 
 ## What happened
+
+### Independent verification and next-step clarification — 2026-09-08
+
+**Verified at cccfb6af1598d810393bbe0027e7575b4c09cbf8.** Lane B checked the four named
+R2 corrections against the actual sources and the applying commit
+`1376b4604a16448c70cab594654825508201f588`. The companion M-POC ownership row, README navigation,
+Build Spec count-free pointer and both G105/INTELLIGENCE_LAYER controlling-sentence supersessions
+are present. D-195 names the affected tiers accurately. The historical paragraph and merged
+supersession note are structurally intact. Earlier accepted hierarchy, priority and PBL-11 identity
+corrections remain present. The bounded B-081 correction therefore meets its acceptance criteria;
+no further relocation, future capability promotion or manual-intake implementation is needed
+to verify it. This new verification record is an uncommitted edit until separately transported.
+
+The following is clarification of the existing D-194 follow-up, not another B-081 closure gate.
+It creates no new IDs, no second backlog, no operative decision and no build authorization.
+
+#### G105, FB-05 and Q9 — different records about related work
+
+| Record | Owns / lives in | What remains | Completion evidence |
+|---|---|---|---|
+| CR-14 | Frozen Project PRD requirement identity; governing interpretation ratified in D-194/Addendum §2.4 | Preserve source traceability and the adopted manual-package interpretation | Ratification is already recorded; implementation is not claimed |
+| Q9 | Chief Editor decision request in Modular_PRD §10 | Narrow the old “in or out of v1?” question to the unresolved T1 execution identity/Line authority and source author/date treatment | A recorded Judge answer to those remaining questions, with its exact implications; no repeated manual-versus-AI choice |
+| FB-05 | Traceability-map §7 gap, cited by FN-GATES | The manual contract still needs complete functional behaviour: supplied values, provenance, requiredness, actor/authority and failure paths | Accepted specification and named verification evidence satisfy the gap; an answered question alone is insufficient |
+| G105 | Register §5.1 governance gap/dependency record | Track that same residual manual-intake deficiency and reconcile its dependent claims | Reference the resolved Q9 and satisfied FB-05 criteria; no invented requirement to schedule AI work |
+| PBL-11 | Separate enduring capability identity in Modular_PRD §2.5.2 | Future AI tagging/scoring refinement, priority and selection are separate decisions | Its own recorded readiness, selection and bounded authorization; none supplied by closing Q9/FB-05/G105 |
+
+This is not a new three-stage lifecycle. Q9 can receive its decision before FB-05's specification
+is complete. G105 records the residual dependency and cites its evidence; it must not duplicate
+the full question or requirement. Do not apply handoff Status/Resolution fields mechanically to
+these differently structured records. B-081's Verified means the naming/ownership correction is
+complete, not that Q9, FB-05 or G105 have been closed.
+
+#### Proposed clarification for the dependent documentation packet
+
+> D-194 already settles the manual trigger-package direction. Preserve Q9's original question as
+> dated history and record its current remainder: who executes/signs T1 under the Line authority
+> rules, and how source author/date are supplied or handled when unavailable. FB-05 now records
+> the missing complete functional specification of that ratified contract, not a demand to build
+> PBL-11 or reconsider whether the package should be manual. G105 cites these residual criteria.
+> None of their closure criteria requires an AI-intelligence sprint. The existing required package,
+> source traceability, audit rules and M-MVP/M-POC context partition remain the baseline.
+
+The actual Q9/FB-05 rows still carry the historical “In or out of v1?” wording, and FN-GATES still
+labels the producer Missing. Those are the known dependent-proposal targets, explicitly deferred
+by D-194; they are not evidence that B-081's separate correction failed. Drafting their narrower
+question and proposed behaviour may proceed under D-194. Only the unresolved governing choices
+need a new answer; do not stop all drafting until that answer exists.
+
+#### Parent-first guide for Lane A and the Judge
+
+| Order / dependency | Lane A action | Judge review point | Success criterion |
+|---|---|---|---|
+| 1 / existing ratification | Prepare one bounded manual-intake proposal anchored to CR-14/FR-01 and D-194; include exact Q9 residual wording | Confirm the packet addresses the two remaining choices rather than repeating the ratified direction | A reader can distinguish settled input scope from open execution/metadata behaviour |
+| 2 / 1 | Present explicit actor/Line-authority and author/date options with consequences in that same packet | Accept or reject those proposed dispositions | Each remaining question has a recorded answer; a human is never logged as an agent |
+| 3 / 2 accepted | Complete the approved functional text and acceptance examples; retain existing-URL association and module partition | Review the bounded specification for completeness | Complete manual input satisfies T1 data requirements; missing required input cannot complete T1; audit evidence matches execution |
+| 4 / accepted specification | Propagate its fact under D-29/D-54 to owning requirements, map and affected storyboard/sequence/data-flow views; assess Encyclopedia dependencies | Approve the documented propagation scope | One canonical answer and one behaviour source; derived views cite them rather than invent alternatives |
+| 5 / named commit | Obtain independent specification verification; update FB-05 and G105 to their evidenced disposition | Accept the bounded closure evidence or retain a named residual | No closure from an answer alone, no claim of implemented software from a verified specification |
+| Separate future work | Refine PBL-11 or propose an exact relocation only when selected | Separate priority/scope/authorization decision | Neither is an automatic dependency of manual intake or B-081 closure |
+
+**Ranking precision:** PBL-11 is presently unranked and unselected. Assigning a rank alone would
+not allocate a sprint or authorize implementation; the decisive build record remains the bounded
+Judge act and execution packet. This clarifies “no sprint because unranked” without inventing a
+new gate or treating Q9 as the universal gate on future AI work.
+
+Module/version/sprint tracing remains in Modular_PRD; module behaviour retains its own sources;
+V1 records only its dated delivery facts and references. For this next packet, review the existing
+manual-input story panels and sequence/data-flow rather than create a new diagram set. Encyclopedia
+Entry 06 and the already named ratification dependency in Entry 02 need scoped impact review;
+PBL-11 promotion and hosted parity remain outside this correction. Known B-071 build holds remain.
+
+**Evidence boundary:** graph metadata matched cccfb6a with stale false before this edit; frag126
+passed exact named-fragment parity. Source content, not merely SHA existence, was reviewed.
+The graph does not yet represent this new verification/clarification record; refresh it after the
+eventual commit. No fresh remote check was performed and no push is claimed. Only B-081 is edited;
+G105, FB-05, Q9 and their governing sources remain unchanged by this review.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-081 bounded correction, including R2-1–R2-4 | Independently Verified at cccfb6a; verification record awaits commitment |
+| Approve-with-conditions | D-194 dependent manual-intake proposal | Phase 1: draft residual questions and behaviour, obtain named decisions, then verify specifications |
+| Reject | B-081 verification automatically closes G105/FB-05/Q9 or schedules AI | Keep distinct evidence and ownership |
+| Defer | PBL-11 promotion, relocation, application build | Existing separate selection/readiness/authorization process |
 
 ### Independent review at 1c46de8 — 2026-09-08
 
