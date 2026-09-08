@@ -58,6 +58,8 @@
 - **Resolution:** Applied
 - **Evidence:** Independent source review at 257677f5191d1eb781c1365427c0fe246d5436e9; D-194/D-197; FN-GATES-01-05 §2.3/§3.1/§3.2/§5/§6/§10; Modular_PRD FR-01/AC-01/AC-02/§7.1/Q9; Addendum §2.4/§3.1/AT-001/AT-003; traceability map CR-14/FB-05; B-061; full local consistency suite and frag128 verify-only result
 
+- **Verified-At-Commit:** b40dfc361d5ca5ee41998256811983bb8fb1a991
+
 ## What happened
 
 **Clarified task:** independently review D-197's applied manual-intake contract, preserve the
