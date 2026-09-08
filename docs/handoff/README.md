@@ -324,6 +324,25 @@ is the drift `G55` names, arriving in the file that warns about it.
 - **No roll-up file.** `closure-readiness` computes the matrix from the entries themselves, and a
   hand-maintained copy of it drifts.
 
+### When `Resolution` is required, and what value an entry takes — `D-204`
+
+**`Resolution` is REQUIRED on an entry whose `Status` is `Answered` and whose `Kind` is not
+`turn-report`.** It was advisory until now: the check counted a missing one and passed, which is
+how entries reached a state with no route out. **An `Open` entry needs none** — it has not been
+answered yet, and a control that fires on the normal case is one people stop reading (`D-83`,
+`D-90`).
+
+**An entry with several children takes the WEAKEST of their dispositions**, and closes when the
+weakest closes. The ordering is **absent < `PROVISIONAL` < `TERMINAL`**, and those two sets are
+defined in `scripts/checks/closure-readiness.mjs` — **cited here, never restated.** A second
+ordering written in prose is how a rule and its check diverge (`G55`).
+
+**Child dispositions live in the entry body. Header fields describe the WHOLE entry only.**
+`Superseded-By` and `Follow-up-Tier` are coupled to the entry-level `Resolution`, so a terminal
+label belonging to one child, written as a header field, sits under a provisional resolution and
+**no check sees the mismatch**. Record each child disposition in a table in the body, naming what
+overtook it or who owns it, and leave the header fields to the entry as a whole.
+
 ### Who may record `Verified` — the boundary attaches to the ANSWERER
 
 **The excluded actor is the one who answered or applied the correction.** Raising an entry does not

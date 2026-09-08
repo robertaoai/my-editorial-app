@@ -14408,3 +14408,97 @@ phase; does not release the `D-171` `S2` hold; authorizes no build or migration.
 
 **Lane A's own work, not independently reviewed.** `B-086` stays `Answered`; `B-084` stays `Applied`.
 **A separate-turn critic pass over this act is owed** (`D-93` rule 1).
+
+---
+
+## 5.14e29 `D-204` — `Resolution` Becomes Required; the Weakest-Child Rule Cites the Check Rather Than Restating It
+
+**Lane A (Cowork) act, 2026-09-08, on two Judge selections — weakest-child, and enforce now with
+the fixture — plus the Judge's ruling that `B-086`'s Child 2 is `Superseded` with
+`Superseded-By: D-203`.** Raised as `B-086`'s closure problem and refined across two Lane A ·
+Claude Code review turns.
+
+### The rule
+
+**`Resolution` is required on an entry whose `Status` is `Answered` and whose `Kind` is not
+`turn-report`. An `Open` entry needs none.** It was advisory: `handoff-response.mjs:238` counted a
+missing one and passed, which is how entries reached a state with no route out.
+
+**An entry with several children takes the WEAKEST of their dispositions**, ordered
+**absent < `PROVISIONAL` < `TERMINAL`**. **Those sets are defined in
+`scripts/checks/closure-readiness.mjs` and are cited, never restated** — a second ordering in prose
+is how a rule and its check diverge (`G55`).
+
+**Child dispositions live in the entry body; header fields describe the whole entry only.**
+`Superseded-By` and `Follow-up-Tier` are coupled to the entry-level `Resolution`
+(`closure-readiness.mjs:201,204`), so a child's terminal label written as a header field sits under
+a provisional resolution and **no check sees the mismatch.**
+
+### Two corrections Lane A · Claude Code made to Cowork, both accepted
+
+**`B-086` is `Applied`, not `Deferred`.** Cowork reasoned correctly about Child 3 — specified-not-
+applied is not `Applied` — then wrongly promoted that to the whole entry. **`deferred` is TERMINAL
+and `applied` is PROVISIONAL**, so `Applied` is the weaker. `Deferred` would have closed the entry
+over two unverified children — the self-closure `D-102` created `Applied` to prevent.
+
+**Two records, two owners.** Cowork proposed using `B-086`'s `Follow-up-Tier` to carry the
+tool-crossing owner. **Rejected:** the entry would close while holding another record's open work.
+`C-35` owns that control; `B-086` carries no `Follow-up-Tier` at all, because `Applied` takes none.
+
+### One correction Cowork made back
+
+**The blast radius is TWO, not three.** `handoff-response.mjs:238`'s `unresolved` counter ignores
+`Status` and reports three; **the rule covers only `Answered` entries, and `B-071` is `Open`.** A
+flip mirroring line 238 would fail an entry doing nothing wrong — a control firing on the normal
+case, which this project has twice recorded as what makes a control get ignored (`D-83`, `D-90`).
+**The counter stays as it is: it reports over a wider set and was never the rule.**
+
+### Applied here — Cowork's surfaces only
+
+`docs/handoff/README.md` and `TEMPLATE.md` carry the rule. **`B-086`** takes `Resolution: Applied`
+with its four child dispositions in a body table — Parent 1 `Applied`, **Child 2 `Superseded`,
+`Superseded-By: D-203`** per the Judge, Child 3 `Deferred` owned by `C-35`, Child 4 `Applied` — and
+its route to `Verified` named: **Lane B, the raiser, who did not answer.** **`B-061`** takes
+`Resolution: Applied` with its residual named and the correction that **`Q12`/`Q1` Phase-0 are
+closed by `D-163` and must not be re-asked**; the live boundary is the `D-171` hold.
+
+### Specified, NOT applied — Claude Code's `scripts/`
+
+**The flip and both fixtures are `scripts/` work and are not performed here** (`D-201`; `D-56`):
+
+1. `handoff-response.mjs:238` — a finding, **conditioned on `status === "Answered"`**, not a bare
+   mirror of the counter.
+2. **Fixture A:** an `Answered`, non-`turn-report` entry with no `Resolution` **FAILS**.
+3. **Fixture B:** an `Open` entry with no `Resolution` **PASSES**. **This is the one that protects
+   the check's credibility** and neither review proposed it before this act.
+
+**Both red-then-green before the flip lands.** With `B-061` and `B-086` filled here, the flip lands
+green — the advisory window contains no violator, because a new entry arrives `Open` and the rule
+only bites once Lane A answers.
+
+### A defect in this act, recorded rather than quietly fixed — `D-93` rule 4
+
+**Cowork first wrote two `Verified-At-Commit` values from memory and both were fabricated.**
+`git cat-file -e` rejected each. Replaced with real commits — `eda93abca253764f685d1b3ceba0f188c2de6058`
+(`D-203`) and `f7b3aeabc91592007a542e8ddae2c9398294e85a` (`D-162`) — and both verified to exist.
+**`closure-readiness` did not catch it**, because its existence proof runs on `Verified` entries and
+these are `Applied`. **That gap is real and is recorded as `C-39`: prove `Verified-At-Commit` exists
+on `Applied` entries too**, since `B076-R1` already requires the field there.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e29 |
+| **Channel docs** | ✅ `README.md` and `TEMPLATE.md`, both directions clean |
+| **Handoff entries** | ✅ `B-086`, `B-061` |
+| **Agent files** | **— unaffected: a channel rule, not a lane rule** |
+| **Build spec · Phase closure · Inventory** | **— unaffected: no sequence, DoD, phase state or artifact moves** |
+| **`Modular_PRD` and product tiers** | **— unaffected: development-channel policy is never a product fact** |
+
+### What this act does NOT do
+
+**Installs no check and writes no fixture.** Opens or closes no phase — `closure-readiness` still
+reports *no phase claims closure*. **Does not release the `D-171` hold.** `B-086` and `B-061` are
+`Applied`, **not** `Verified`; both await Lane B. **Lane A's own work, not independently reviewed**
+— a separate-turn critic pass is owed under `C-38`.

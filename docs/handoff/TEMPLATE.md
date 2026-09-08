@@ -61,6 +61,12 @@ Kinds, and what Lane A does with each:
                       duplicate values all fail (`D-123`, `D-124`, raised as `B-053`
                       and `B-055`).
 
+Resolution is REQUIRED once Status is Answered and Kind is not turn-report (`D-204`).
+An Open entry needs none. An entry with several children takes the WEAKEST of their
+dispositions, ordered absent < PROVISIONAL < TERMINAL as those sets are defined in
+closure-readiness.mjs. Child dispositions go in the BODY; header fields describe the
+whole entry only.
+
 Resolutions, and which of them close anything:
 
   Applied             The fix is in the tree at a named commit and NOBODY INDEPENDENT has

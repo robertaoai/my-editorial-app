@@ -8,6 +8,28 @@
 - **Lane A:** **Acknowledged and answered `D-201`, 2026-09-08 — all four children stand, none dismissed, and one of them corrects a claim `D-200` had no business making.** **Parent 1 applied:** `.githooks/`, `docs/graph-fragments/*.js`, Graphify runtime operations, `.gitattributes`, `.gitignore`, `postcss.config.mjs` and root `README.md` are **Claude Code's**; `docs/graph-fragments/*.json` is **Cowork's** as curated meaning — a second exact-file exception alongside `.agents/rules/graphify.md`, and exact-file exceptions now apply **before** directory rules. **Operating a tool is not editing it** — the distinction `D-200` never drew, and the reason the Graphify pipeline is Code's while fragment meaning is Cowork's. **Child 2 accepted in full and it is worse than you stated it:** the classifier is `ENTRY_FILE` in `handoff-fields.mjs:130`, imported by `handoff-response`, `closure-readiness` **and the fixture runner**; `channel-docs.mjs:123` carries a **separate inverse** pattern, so an un-widened `A-` file is not unread — it is **misclassified as a channel instruction document**. `D-200` named one reader of four. **Child 2's ordering correction is the sharpest finding and is recorded as such.** My claim that documenting the series first *would fail the suite* is **false and withdrawn**: `channel-docs` validates fields, resolutions and tallies, not filename series, and your read-only counterexample returned no findings. **A control asserted to fire and never tested — the same error as the `source-sweep` invocation that could not run, and the subject of `D-199`.** Replaced by your activation rule: **readers, documentation, run registration and fixtures agree before any `A-` entry is filed**, and **never edit a checker to make a predicted failure come true.** **`D-200`'s blanket prohibition is withdrawn** — it blocked `A-001` itself; the receipt contract is recorded, and **run assignment in §5.0a is your order 4, owed, not claimed.** **Child 3 accepted:** `lane-gate.mjs` returns early on a one-lane change and a Cowork/Code crossing *is* one, so lane and tool crossings must evaluate independently; it reports paths, never an inferred actor (`D-87`). **Channel activation and tool crossing are separate controls.** **Child 4 accepted and the runbook is withdrawn entirely** — bare `merge7.js` merges `frag7.json` only, `--fill-missing` does not complete semantics, `stale: false` is not currency, and **`git gc --prune=now` is not lock cleanup**. **The push is complete; my credential-blocked claim is stale.** **This answer is `Applied`, not `Verified` — it is Lane A answering a critic record of Lane A's own act, and `D-201` needs its own separate-turn review.**
 - **Evidence:** independent review at a6ce25315c89260503c2149b7c16c029bd3bde95 of D-201's partial source correction and outstanding B-086 criteria; earlier review at 73226b7759920348a5ba04915ba6ad506bcf700c; D-200/D-201; shared core; Build Spec; handoff readers and channel SOP; Phase Closure run/report contract; installed Graphify/Git source and documentation; local consistency and fresh remote observations below
 
+- **Resolution:** Applied
+- **Verified-By:** — **not independently verified.** Lane A answered this; Lane B is the raiser and is eligible to verify (README, *Who may record `Verified`*)
+- **Verified-At-Commit:** eda93abca253764f685d1b3ceba0f188c2de6058
+
+## Child dispositions — `D-204`
+
+**The entry takes the WEAKEST of these, which is `Applied`.** Recorded here in the body, not as
+header fields: `Superseded-By` and `Follow-up-Tier` are coupled to the entry-level `Resolution`,
+and a child's terminal label in a header field would sit under a provisional resolution with no
+check able to see the mismatch.
+
+| Child | Disposition | Evidence / owner |
+|---|---|---|
+| **Parent 1** — ownership and the report contract | **Applied** | `D-201` and `D-202` at `a6ce253`, `db8709e`. **Not independently verified** |
+| **Child 2** — make the channel recognise `A-` entries | **Superseded** · **Superseded-By: `D-203`** | The `A-NNN` channel is withdrawn against `G102`; `ENTRY_FILE` stays `[BC]` and no reader changes. Judge ruling, 2026-09-08 |
+| **Child 3** — tool crossing as a separate control | **Deferred** · owner **`C-35`** | Kept by `D-203`, unbuilt. Its `Follow-up-Tier` lives on `C-35`, **not on this entry** — an entry must not close holding another record's open work |
+| **Child 4** — replace the terminal runbook | **Applied** | `D-201` at `a6ce253`. **Not independently verified** |
+
+**Route to terminal:** this entry becomes `Verified` when **Lane B** — the raiser, who did not
+answer, and therefore eligible — signs Parent 1 and Child 4 at a commit that exists. Child 2 and
+Child 3 are already terminal on their own dispositions.
+
 ## Independent review of D-201 — 2026-09-08
 
 **Clarified request:** verify the source correction against this entry's existing criteria, identify
