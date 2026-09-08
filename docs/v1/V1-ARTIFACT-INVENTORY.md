@@ -24,6 +24,7 @@
 | `scripts/checks/sync-docs-uniqueness.mjs` | `D-102`, `B-014`, `B-018` | ✅ **Created 2026-08-24.** `C-14` check 14 — exactly one `sync-docs` runbook, tracked **or untracked**, and its triple must name `CLAUDE.md`. **Its first version was a false green three ways and its rewrite a fourth**, caught by its own fixture: `git ls-files --cached` reports the index, so it passed with the canonical file deleted |
 | `scripts/checks/closure-readiness.mjs` | `D-101`, `B-011` | ✅ **Created 2026-08-24.** `C-14` check 13 — **response is not closure.** Derives the closure matrix from the handoff entries; **silent until a phase claims closure**, then fails on any entry that is merely `Open` or `Answered`. Negative-tested. **No second backlog file** (`B-011` repair 6) |
 | `docs/modules/M-POC-REQUIREMENTS.md` | `D-99`, `Modular_PRD` §0.6.2 | ✅ **Created 2026-08-22.** The `M-POC` feature group an `Fn_Spec` must anchor to. **Own ID namespace** so no `M-MVP` identifier is reused. **`NG-03` untouched** — payment is an operating activity outside the application |
+| `docs/modules/M-MVP-REQUIREMENTS.md` | `D-203`, `Modular_PRD` §0.6.1 | ✅ **Created 2026-09-08.** Module tracking for `M-MVP` — identity, status, freeze state and links, mirroring `M-POC`. **No prose was moved:** four checks read `docs/Modular_PRD.md` and `decision-status` reads §10 and §5.1 **positionally**, so relocation is a separate act with its own before/after measurement — carried as **`C-36`**. **Row added 2026-09-08 (`D-208`): `D-203` claimed this inventory entry with a ✅ and never wrote it, and `tier-sweep` passed because it verifies a claim ARRIVED, not that it is true (`G65`).** |
 | `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md` | `D-99`, `PR-01`–`PR-13` | ✅ **Created 2026-08-22.** `M-POC` engagement behaviour. **`SPECS` candidate list deliberately empty** — the next tier is blocked by a decision, not an omission |
 | `docs/v1/V1-PHASE-CLOSURE.md` | `D-93`, `D-94` | ✅ **Created 2026-08-21, extended 2026-08-22.** Phase closure conditions, the Phase 1 artifact manifest (§5A), the phase-start rule (§5B), the critic pass and the Judge record. **The Judge deferred the first submission because §5A did not exist** |
 | `scripts/checks/config-coupling.mjs` | `C-17`, `D-95`, `B-007` | ✅ **Created 2026-08-22.** `C-14` check 12 — the `CONFIG_LOG.md` ↔ `lib/config/` coupling, failing in **both** directions. **`C-17` said install it in the pass that landed `build-config.ts`; that pass happened and it was not installed.** Found 13 unimplemented authoritative rows and 2 `CONFIG_LOG.md` defects on its first run |
@@ -187,14 +188,19 @@ Closes no Open Decision. Amends no governing document. Authorizes no code, schem
 
 **This inventory is UNAFFECTED by the Lane A tool split itself.** `D-54` scopes this document to **files** — created, retired, present or absent. `D-200` and `D-201` **create and retire nothing**; they assign an owning *tool* to paths that already exist, and **ownership is not an inventory fact**. Stated explicitly rather than left silent, because an omitted tier disposition is what `B-086` correctly refused to accept as complete.
 
-**Four existing rows WILL need updating when `B-086` orders 2 and 3 land**, and they are named now so the update is not discovered later:
+**Two of the four rows first named here are RETIRED, and two survive — corrected 2026-09-08 (`D-208`).**
+`D-202` scheduled four rows on *"`B-086` orders 2 and 3"*. **`D-203` withdrew the channel half of those
+orders and this section was never revisited**, so it went on instructing work the register forbids.
 
-| Row | What changes |
+| Row | Disposition |
 |---|---|
-| `scripts/checks/handoff-fields.mjs` | `ENTRY_FILE` widens beyond `[BC]`; it becomes the single classifier `channel-docs` also consumes |
-| `scripts/checks/channel-docs.mjs` | its separate inverse `[BC]` pattern is replaced by the shared classifier |
-| `scripts/lane-gate.mjs` | evaluates lane and tool crossings independently; no longer returns early on a one-lane change |
-| `.githooks/commit-msg` | carries the tool-crossing trailer alongside `Lane-Crossing:` |
+| ~~`scripts/checks/handoff-fields.mjs` — `ENTRY_FILE` widens beyond `[BC]`~~ | **RETIRED (`D-203`, reaffirmed `D-207`).** **`ENTRY_FILE` stays `[BC]`** — the `A-NNN` channel is withdrawn and no reader changes |
+| ~~`scripts/checks/channel-docs.mjs` — its inverse `[BC]` pattern is replaced~~ | **RETIRED (`D-203`).** Nothing about the `[BC]` channel changes |
+| `scripts/lane-gate.mjs` | **Stands, re-anchored to `C-35`** — evaluates lane and tool crossings independently; no longer returns early on a one-lane change |
+| `.githooks/commit-msg` | **Stands, re-anchored to `C-35`** — carries the tool-crossing trailer alongside `Lane-Crossing:` |
+
+**Re-anchored to the control, not to an order number that no longer exists.** A separate row change is
+owed by **`C-39`** when the independence guard moves to leading-actor matching — `closure-readiness.mjs`.
 
 **No row changes in this act.** `handoff-response.mjs` and `closure-readiness.mjs` import the classifier and need no row edit of their own.
 

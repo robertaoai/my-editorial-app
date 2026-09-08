@@ -2453,6 +2453,18 @@ and six empty `Verified-At-Commit` before this act, with twenty `Applied` commit
 every `Verified-At-Commit` proven with `git cat-file -e`; **negative fixtures — an empty audit field
 FAILS, a `turn-report` without them PASSES** (`G84`). **And the guard must match the LEADING ACTOR against a closed allowlist, not by prefix and not by containment** (`D-207`, correcting `D-206`): `NOT_AN_INDEPENDENT_VERIFIER` is anchored at `^`, so every value this channel writes evades it. **Containment was specified by `D-206` and is withdrawn — measured, it rejects nine legitimate `Verified` records** whose verifiers name Lane A precisely to assert independence from it. **The rule:** strip leading decoration, require the value to **open with a known actor token**, and reject when that leading actor is the answering side. **Measured over the live corpus, both directions: no `Verified` record rejected; every non-`Verified` value caught; `reviewed by Lane A` and `verified by Lane A` caught.** Fixtures must use the **live values, each citing its entry** — never invented strings.
 
+**The membership is POLICY and is Cowork's; the regex and fixtures are CODE and are Claude Code's (`D-208`).** Stated once, here:
+
+> **Actor tokens (closed set):** `Lane A` · `Lane B` · `Lane C` · `Claude Code` · `Claude Cowork` · `Codex` · `Antigravity` · `Robert Tan` · `Chief Editor` · `Judge`.
+> **Excluded when LEADING:** `Lane A` · `Claude Code` · `Claude Cowork` · `Acknowledged` · `Answered` · `Self` · `Same`.
+> **Must-pass fixtures — the live values, each citing its entry:** `B-044`, `B-058`, `B-078`, `B-079`, `B-080`, `B-081`, `B-082`, `B-083`, `B-085`. **Never invented strings.**
+> **Must-fail probes:** `Lane A` · `reviewed by Lane A` · `verified by Lane A` · both em-dash disclaimer forms.
+
+**The allowlist is safe only because that set is closed.** If a new actor appears, it is added here before the regex sees it — an open-ended list would be the guess this condition exists to avoid.
+
+**Independent of `D-204`'s `handoff-response.mjs:238` flip (`D-208`).** Different line, different rule — one tests `Resolution` presence, the other `Verified-By` matching. **Neither waits for the other**; serialising two bounded units into one blocked unit is its own cost.
+
+
 ### `C-38` — the separate-turn critic pass over `D-203`, `D-204` and `D-205` — `D-205`
 
 **Opened by `D-204`, given a row by `D-205`. Owner: Lane A, on a later turn (`D-93` rule 1). Phase
@@ -14846,3 +14858,53 @@ named fragment after every rebuild stays required**: the claim is a measurement,
 **Routes no entry**: `B-071` is still `Open`, `C-41` still names the requirement, `closure-readiness`
 still reports `open 1`. Opens or closes no phase; does not release the `D-171` hold. **Lane A's own
 work, not independently reviewed** — `C-38`, now spanning `D-203` through `D-207`.
+
+---
+
+## 5.14e33 `D-208` — `D-203` Claimed an Inventory Row It Never Wrote; the Withdrawn Rows Are Retired
+
+**Lane A (Cowork) act, 2026-09-08, on Lane B's consolidated review at `B-071` Round 52.** Both of
+Lane B's Inventory findings verify against the file, and **both are Lane A's own defects.**
+
+### The parent — a ✅ tier claim for an edit never made
+
+**`D-203`'s tier table reads *"Artifact inventory | ✅ one file created — `docs/modules/M-MVP-REQUIREMENTS.md`"*. The inventory contained NO mention of that file.** `M-POC` had its row; `M-MVP` had none, for five acts.
+
+**`tier-sweep` passed the whole time**, because it verifies that a claim **arrived** in its tier, never that the claim is **true** (`G65`). **This is the same shape as `D-199`'s subject — an act asserting an application its commit lacks — and `D-202` corrected me for it once already. Third instance, Lane A's each time.**
+
+**Fixed:** the row is written, mirroring `M-POC`'s, and it carries the correction rather than hiding it.
+
+### The child — a retired plan that went on instructing forbidden work
+
+`D-202` scheduled four Inventory rows on *"`B-086` orders 2 and 3"*. **`D-203` withdrew the channel half of those orders and never revisited the section**, so it still told a reader to widen `ENTRY_FILE` and replace `channel-docs`'s inverse pattern — **both forbidden**, and `D-207` reaffirms `ENTRY_FILE` stays `[BC]`.
+
+**Cowork flagged this four acts ago and did not fix it.** Now: the two channel rows are **retired**, citing `D-203`; the two survivors — `lane-gate.mjs` and `.githooks/commit-msg` — are **re-anchored to `C-35`**, the control itself, rather than to an order number that no longer exists.
+
+### `C-39` — the policy half, which was Cowork's and unwritten
+
+`C-39` named the leading-actor rule but not its **membership**, which is the only thing that makes an allowlist safe rather than another guess. **Split as `D-201` splits everything: the actor set is policy (Cowork); the regex and fixtures are code (Claude Code).** The closed set, the excluded-when-leading set, the nine live must-pass fixtures and the four must-fail probes are now stated in `C-39` itself.
+
+**And `C-39` is independent of `D-204`'s `handoff-response.mjs:238` flip** — different line, different rule; one tests `Resolution` presence, the other `Verified-By` matching. **Neither waits for the other.** Lane B is right that serialising two bounded units into one blocked unit is its own cost.
+
+### One correction to Lane B
+
+**Lane B's Reject — *"all `C-35`–`C-39` assigned to Cowork"* — does not describe the register.** Every owner line was checked: `C-35` Claude Code · `C-36` Cowork · `C-37` Cowork defines, Code enforces · `C-38` Lane A on a later turn · `C-39` Claude Code · `C-40` Cowork · `C-41` Cowork. **The ownership is varied and correct; that Reject lands on a restatement, not the source.** Which is what `D-207`'s convention exists to prevent, on its first live use: **the `###` sections are the index — cite them, never restate an owner.**
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e33; `C-39` carries its membership and the independence note |
+| **Artifact inventory** | ✅ `M-MVP` row added; two rows retired; two re-anchored to `C-35` |
+| **Channel docs** | **— unaffected: no field, resolution or vocabulary change.** `channel-docs` clean |
+| **Handoff entries** | **— unaffected: no entry edited, no `Resolution` or audit field touched** |
+| **Agent files · Build spec · Phase closure** | **— unaffected** |
+| **`Modular_PRD` and product tiers** | **— unaffected: development-channel policy is never a product fact** |
+
+### What this act does NOT do
+
+**Installs no check and writes no fixture** — `C-39` and the `:238` flip are Claude Code's
+(`scripts/`, `D-201`). **Routes no entry**: `B-071` stays `Open`, `closure-readiness` still reports
+`open 1`. **Moves no archive file** — `C-37`'s integrity check does not exist. Opens or closes no
+phase; does not release the `D-171` hold. **Lane A's own work, not independently reviewed** —
+`C-38`, now spanning `D-203` through `D-208`.
