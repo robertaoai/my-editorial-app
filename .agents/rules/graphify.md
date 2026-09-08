@@ -131,6 +131,27 @@ NOT a Lane A→other-lane boundary report** — different event, different purpo
 > first; each owning tool then finishes its own pass. **Never edit a checker to make a predicted
 > failure come true.**
 
+**Freeze — two rules, three levels (`D-203`, Judge ruling). This completes `D-36`, which is right
+about sprints and silent about the other two.**
+
+| Level | Shape | Freezes when |
+|---|---|---|
+| **Module** — `M-MVP`, `M-POC`, later ones | **Set** — concurrent, additive | **Its own scope completes.** Other modules keep running; a new module freezes none of them |
+| **Version** — `V1`, `V2` | **Sequence** | **Its successor opens.** `V1` freezes when `V2` opens |
+| **Sprint** — `S0`…`S4` | **Sequence** | **Its successor opens.** `S2` freezes when `S3` opens |
+
+**Common to both rules:** a parent cannot freeze until its children are done. **Different between
+them:** the trigger — **completion** for a set, **succession** for a sequence. **One rule across all
+three would make *"`M-POC` freezes when the next module opens"* true, and it is false.**
+
+**`docs/Modular_PRD.md` is the product-level TRACKER, not a module.** It tracks module status at
+§0.6.1 and is where a new module is registered. Each module also has its own tracking file —
+`docs/modules/M-*-REQUIREMENTS.md` — carrying identity, freeze state and links; **status authority
+stays in §0.6.1**, because a second place to read a status is a second place for it to drift.
+
+**A frozen scope is not edited. A change to one is a backlog item naming its target scope** —
+which sprint, which version — never an edit in place.
+
 **Lane A writes every dependency before Lane C builds a workflow against it (`D-84`).** CI calls
 `bun run check`; Lane A writes what it calls. `D-75`'s original map put `scripts/` and
 `.gitattributes` in Lane C — **corrected**, and two commits it cited as crossings were not.

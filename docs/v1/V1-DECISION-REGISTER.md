@@ -14302,3 +14302,109 @@ graph remains at `78cd2b3` with `B-086` absent from coverage — **Claude Code's
 
 **Lane A's own work, not independently reviewed.** `B-086` stays `Answered` with no whole-entry
 resolution; `B-084` stays `Applied`; `B-085`'s bounded verification is intact.
+
+---
+
+## 5.14e28 `D-203` — The `A-NNN` Channel Withdrawn Against `G102`; Freeze Is Two Rules Over Three Levels
+
+**Lane A (Cowork) act, 2026-09-08, on the Judge's decision tree across five clarifications.** It
+does two things: **withdraws a channel that should never have been opened**, and **completes the
+freeze model** that `D-36` left partial.
+
+### Part 1 — the `A-NNN` channel is WITHDRAWN, and `G102` stands
+
+**`D-200` opened a `docs/handoff/` `A-NNN` series without citing the ruling that had closed it.**
+`G102` (`D-138`, 2026-08-26) records the Chief Editor's ruling verbatim: *"**Opening the channel to
+`A-NNN` was rejected**: it would make Lane A both raiser and answerer in one directory, undoing the
+attribution `D-90` avoided."* The register at the deferred-work row names **three coupled changes**
+the channel would need — `D-90`'s text corrected, `ENTRY_FILE` widened, and **check 10's disposition
+field generalised to the counterpart lane**. **`D-200`'s three-item list contains none of the
+third.**
+
+**`D-200`, `D-201` and `D-202` cite `G102` and `D-138` zero times.** Verified by grep across the
+range. **Raised by Lane A · Claude Code's separate-turn review as `P0`, and it is the parent finding
+of that review.**
+
+**The need was already served.** `D-138` ruled that **when Lane A is the outgoing lane, its turn
+report IS the boundary decision section in the register**, cited by number from `§5.0a`'s `Report`
+column — *"no second artifact is created."* `LA-P1-04` already works that way. **The Judge's
+Cowork↔Code return requirement is therefore met by an existing mechanism**, and the Judge's later
+clarification confirms the shape: **the run is the artifacts in the owned folder**; the other folder
+is the feedback direction.
+
+**Withdrawn:** the `A-NNN` series and everything specified to support it — classifier widening,
+`channel-docs` inverse-pattern change, `A-` fixtures, an `A-` numbering rule, and `D-200`'s blanket
+prohibition. **`ENTRY_FILE` stays `[BC]`. No reader changes.**
+
+**KEPT, with their original citations — these were never the error:** the eight-surface tool map and
+its two exact-file exceptions; **operating a tool is not editing it**; lane crossing and tool
+crossing as **separate** controls; Parent 1's Build Spec propagation and Inventory disposition; and
+**Phase 1 is a lane, not a tool** (`D-202`).
+
+**`D-201`'s three withdrawals stand as recorded**, including the false `channel-docs` ordering
+guarantee. **`P1` is REJECTED**: the three *"closed to Lane A"* statements in `V1-PHASE-CLOSURE.md`
+§5.0a and §5.2 and in `INTELLIGENCE_LAYER.md` are **correct as written** and are not narrowed.
+Narrowing them was only ever needed to accommodate this act's error.
+
+### Part 2 — freeze, two rules over three levels
+
+**`D-36` says tracking files *"freeze at sprint close."* That is right for sprints and silent about
+versions and modules.** Completed, not corrected:
+
+| Level | Shape | Trigger |
+|---|---|---|
+| **Module** | **Set** — concurrent, additive | **Completion of its own scope** |
+| **Version** | **Sequence** | **Succession** — `V1` freezes when `V2` opens |
+| **Sprint** | **Sequence** | **Succession** — `S2` freezes when `S3` opens |
+
+**A parent cannot freeze until its children are done. The triggers differ**, and Lane A proposed a
+single unified rule which the Judge rejected: **freezing a module and freezing a version are
+structurally different acts.** One rule would make *"`M-POC` freezes when the next module opens"*
+true, and it is false.
+
+**Applied now, and it was unrecorded until this act: `S0` and `S1` are FROZEN by succession.** Both
+completed with artifacts and both were succeeded. **`V1` is not frozen** — `V2` does not exist.
+Recorded in `V1-BUILD-SPEC.md` §2.
+
+**The (a)/(b) staging is resolved by measurement, not preference.** The Judge's conditional was
+*"if `S2` is the only V1 sprint, (b) suffices."* **Validated against the corpus: V1 has five sprints
+and three artifact-bearing ones** — `S0` and `S1` are DONE per `Modular_PRD` §8.0, `S2` is held under
+`D-171`. **The premise fails, so (a) governs from V1** and no V1/V2 exception is created.
+
+### Part 3 — `Modular_PRD.md` is the tracker, not a module
+
+**Judge clarification, and it corrects Lane A directly.** Lane A had written that `M-MVP` *"is a
+label over sections inside `Modular_PRD.md`"* and concluded it had no freezable unit. **Wrong:
+`docs/Modular_PRD.md` is the product-level TRACKER**; `M-MVP` is a module it tracks, alongside
+`M-POC` and every module added later.
+
+**`docs/modules/M-MVP-REQUIREMENTS.md` created** — the tracking surface `M-POC` already had:
+identity, status, freeze state, links. §0.6.1's `Requirements live in` cell now names it.
+
+**No prose was moved, deliberately and stated.** Four checks read `docs/Modular_PRD.md`, and
+`decision-status` reads **§10 and §5.1 by section number**. **Relocating governed prose out of a file
+read positionally is a separate act with its own before/after measurement, and this is not that
+act.** Recorded as owed, never as done. **Measured either side of this act: `decision-status`
+13 §10 rows vs 11 listed, 6 decided; 106 gap rows vs 18 closure claims — identical.**
+
+### Tier applicability (`D-54`) — every tier
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e28 |
+| **Agent files** | ✅ freeze model in the shared core, all three, re-hashed |
+| **Build spec** | ✅ §2 — `S0`/`S1` frozen state |
+| **Artifact inventory** | ✅ **one file created** — `docs/modules/M-MVP-REQUIREMENTS.md`; nothing retired |
+| **Phase closure** | **— unaffected, and `P1` explicitly rejected**: §5.0a and §5.2 are correct as written |
+| **Channel docs** | **— unaffected: nothing about the `[BC]` channel changes.** The withdrawal removes work, it does not add any |
+| **`Modular_PRD`** | ✅ §0.6.1's `M-MVP` row links its module file. **Product requirements, `FN` specs, product UML/data flow and the Encyclopedia are unaffected** |
+
+### What this act does NOT do
+
+**Files no handoff entry, edits no `scripts/`, `.githooks/` or fixture, assigns no run, writes no
+graph.** The spike archive is **not** performed — its computed partition, integrity check,
+`Originated-In:` field and four path-citation repairs remain owed and gated. **Opens or closes no
+phase; does not release the `D-171` `S2` hold; authorizes no build or migration.**
+
+**Lane A's own work, not independently reviewed.** `B-086` stays `Answered`; `B-084` stays `Applied`.
+**A separate-turn critic pass over this act is owed** (`D-93` rule 1).

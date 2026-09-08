@@ -179,7 +179,7 @@ own documents**; only the index row lives in this file.
 
 | Module | Product | Status | Requirements live in | `Fn_Specs` |
 |---|---|---|---|---|
-| **`M-MVP`** | Editorial pipeline — the five-gate tracker | **Active** | **This document's module-specific sections** — not every section in it; see the ownership note below | `docs/fn-specs/FN-*` — four, `FR-01`–`FR-13` |
+| **`M-MVP`** | Editorial pipeline — the five-gate tracker | **Active** | **This document's module-specific sections** — not every section in it; see the ownership note below. **Module tracking: `docs/modules/M-MVP-REQUIREMENTS.md`** (`D-203`) — tracking and links only; **no prose was moved** | `docs/fn-specs/FN-*` — four, `FR-01`–`FR-13` |
 | **`M-POC`** | **P0-EVR** — Professional Evidence Review | **Requirements and behaviour written; not built** | `docs/modules/M-POC-REQUIREMENTS.md` | `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md` — `PR-01`–`PR-13` |
 
 > **Row corrected 2026-09-07 (`B-080`), navigation only.** It previously read *"Indexed,
