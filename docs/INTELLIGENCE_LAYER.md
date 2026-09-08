@@ -60,6 +60,23 @@ the forbidden behaviour when the real feature arrives.
 **No sprint exists to name.** The feature this file describes is `CR-14` (AI tagging and scoring
 at the Reporter gate), which **has no functional requirement** — gap `FB-05`, decision request
 **`Q9`** (`Modular_PRD.md` §10, *"In or out of v1?"*, owned by the customer via the sponsor).
+
+> **SUPERSEDED FOR CURRENT USE — 2026-09-08 (`B-081`). The paragraph above is preserved as dated
+> history; three of its mappings no longer hold.**
+>
+> **1 — `CR-14` is tagging, not "tagging and scoring".** The frozen sentence reads *"AI **tags**
+> topics, sources, trend signals at Reporter gate"*. Scoring is a separate capability, and `TC3`
+> records trend-signal scoring as not computable on the current schema. **The feature this file
+> describes is now held as `PBL-11`** — Reporter-gate AI tagging **and** scoring — a backlog
+> identity distinct from `CR-14`.
+>
+> **2 — `CR-14`'s input contract has since been ratified, and it is manual.** `D-194` and Addendum
+> §2.4 record the Chief Editor entering the trigger package by hand. **That closes nothing here**:
+> `FB-05` and `Q9` remain open, and `PBL-11` remains unranked and unauthorized.
+>
+> **3 — `Q9`'s owner is the Chief Editor**, not the customer via the sponsor (`B-080` `R1`).
+>
+> **`NG-10` is unaffected** — it constrains *how* any such feature must behave, whoever builds it.
 Until `Q9` is answered, no sprint builds Reporter-gate intelligence, and naming one — `S2`,
 `V2`, or otherwise — would be an invented number. **`NG-10` needs no "Ready when" of its own**:
 it is a permanent constraint on *how* such a feature must behave, not a deferred item awaiting

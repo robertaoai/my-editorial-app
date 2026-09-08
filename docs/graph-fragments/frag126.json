@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "b081_module_version_sprint_and_pbl11_intake",
+      "label": "B-081: M-MVP Priority, Enduring Backlog Ownership and Separate Reporter AI Intake",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-081-reporter-ai-capability-backlog-intake.md",
+      "source_location": "",
+      "description": "Handoff finding raised by Lane B, answered 2026-09-08 and recorded as D-195. Read the entry header for current lifecycle status. Three linked topics in dependency order. The reusable finding is that a single document serving two roles will have its roles conflated unless the split is stated: Modular_PRD.md is the overall tracer -- module index, ownership, dependencies, build-version scope and sprint references -- and separately the current home of M-MVP's detailed requirements, and shared tracer sections are not module content merely because they share the file. Three concrete conflations were verified against their sources and corrected. Section 0.6.1 claimed M-MVP's requirements live in sections 1 to 12 of the document, when section 8's build-version and sprint tracking and section 2.5's capability catalog describe the project across modules. Section 0.6 reasoned from a second product's requirements, which contradicts FN-POC-ENGAGEMENT-01-13's own overview stating that M-POC is a way of working supported by the existing product and not a second product -- one engine, two exposures. Section 8.0's notation example read V1 equals S0 through S5 while the build-version table six lines below reads S0, S1, S2, S3, S4 with S5 beyond v1 scope, so two tables in one section disagreed about whether S5 belongs to V1. The governing distinctions recorded are that a module is not a build version and a build version is not a sprint, that M-MVP is a module continuing across versions and not another name for V1, and that a bracketed V1 marker records when a specification section was introduced rather than promising to build it. The second topic records M-MVP's approved V1 delivery scope as current priority with one enduring backlog source, where all others backlogged describes feature scheduling and deletes no M-POC specification, converts no required control into an optional feature, invents no order among unranked items, and lifts no readiness gate. The third topic registers Reporter-gate AI tagging and scoring as PBL-11, unranked and identity only, distinct from CR-14's ratified manual-input contract, with PBL-10 deliberately reserved because B-071 and its corrective plan already propose it -- registered and pending identifiers must both be checked before assigning one. A long-standing conflation was corrected with it: G105 and INTELLIGENCE_LAYER described CR-14 as AI tagging and scoring, while the frozen sentence says tags and TC3 separately records scoring as not computable on the current schema; both were superseded rather than rewritten and G105 stays open. G105 was also still naming Q9's owner as customer via the project sponsor, which an earlier correction had changed to the Chief Editor and had missed when propagating.",
+      "community": 3,
+      "community_name": "Requirements Traceability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also records the entry's reusable finding -- that a document serving as both tracer and requirement home will have those roles conflated unless the split is stated, and that two tables in one section can disagree about the same scope -- which is otherwise reachable only by reading the full entry."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b081_module_version_sprint_and_pbl11_intake",
+      "target": "b080_d193_business_routing_evidence_review",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-081-reporter-ai-capability-backlog-intake.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b081_module_version_sprint_and_pbl11_intake",
+      "target": "b071_ontology_correction_handoff",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-081-reporter-ai-capability-backlog-intake.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b081_module_version_sprint_and_pbl11_intake",
+      "target": "one_word_two_concepts_pattern",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-081-reporter-ai-capability-backlog-intake.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b081_module_version_sprint_and_pbl11_intake",
+      "target": "index_is_not_the_record",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-081-reporter-ai-capability-backlog-intake.md",
+      "source_location": "",
+      "weight": 1
+    }
+  ]
+}

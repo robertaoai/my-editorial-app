@@ -162,9 +162,11 @@ Alpha **Portfolio**, the **Project** (`docs/PRD.md`), and this **Product** requi
 and a reader arriving at a requirement cannot tell which tier owns it. **This index is the
 separation**, and it is the anchor a module's `Fn_Specs` attach to.
 
-**Why an index rather than more sections.** A second product's requirements written *inside* this
-document would inherit the MVP's `FR`/`US`/`AC` namespace and its `⚠`/`[Q11]` markers, and every
-propagation ritual would silently sweep both. **Modules are indexed here and specified in their
+**Why an index rather than more sections.** **Another module's** requirements written *inside* this
+document would inherit `M-MVP`'s `FR`/`US`/`AC` namespace and its `⚠`/`[Q11]` markers, and every
+propagation ritual would silently sweep both. *(Wording corrected 2026-09-08, `B-081`: this had read*
+*“a second product's”, which contradicts `FN-POC-ENGAGEMENT-01-13.md` §Overview — **“`M-POC` is a way***
+***of working, supported by the existing product — not a second product.”** One engine, two exposures.)* **Modules are indexed here and specified in their
 own documents**; only the index row lives in this file.
 
 | Tier | Owns | Document | Never |
@@ -177,7 +179,7 @@ own documents**; only the index row lives in this file.
 
 | Module | Product | Status | Requirements live in | `Fn_Specs` |
 |---|---|---|---|---|
-| **`M-MVP`** | Editorial pipeline — the five-gate tracker | **Active** | **§1–§12 of this document** | `docs/fn-specs/FN-*` — four, `FR-01`–`FR-13` |
+| **`M-MVP`** | Editorial pipeline — the five-gate tracker | **Active** | **This document's module-specific sections** — not every section in it; see the ownership note below | `docs/fn-specs/FN-*` — four, `FR-01`–`FR-13` |
 | **`M-POC`** | **P0-EVR** — Professional Evidence Review | **Requirements and behaviour written; not built** | `docs/modules/M-POC-REQUIREMENTS.md` | `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md` — `PR-01`–`PR-13` |
 
 > **Row corrected 2026-09-07 (`B-080`), navigation only.** It previously read *"Indexed,
@@ -187,9 +189,24 @@ own documents**; only the index row lives in this file.
 > because the Judge ruled there is not enough clarity for either, and this row confers **no build
 > authority**. `M-POC`'s existing readiness and exclusion conditions in §0.6.2 stand unaltered.
 
-**`M-MVP` is retroactive labelling, not a change.** Everything §1 onward already describes one
-product; it now has a name so a second one can be distinguished from it. **No requirement text
-moves and no ID changes.**
+**`M-MVP` is retroactive labelling, not a change.** The sections from §1 onward were written as one
+module's requirements; naming that module lets another be distinguished from it. **No requirement
+text moves and no ID changes.**
+
+> **This document has two roles, and conflating them is the defect `B-081` records (2026-09-08).**
+> It is the **overall tracer** — module index, ownership, dependencies, build-version scope and
+> sprint references — **and** it currently holds `M-MVP`'s detailed requirements. **Shared tracer
+> sections are not `M-MVP` content merely because they share this file**: §8's build-version and
+> sprint tracking, and §2.5's capability catalog and execution mapping, describe the project across
+> modules. `M-POC` is **traced** here and **specified** in `docs/modules/M-POC-REQUIREMENTS.md`
+> with behaviour in `docs/fn-specs/FN-POC-ENGAGEMENT-01-13.md`; the index points at those sources
+> and neither copies nor redefines them. `M-MVP`'s requirements stay where they are unless a
+> separately reviewed relocation identifies a concrete need to move them.
+>
+> **A module is not a build version, and a build version is not a sprint.** `M-MVP` is a module that
+> continues across versions — **it is not another name for `V1`**. `V1` is one build version
+> containing multiple sprints. **A section's `[V1]` introduction marker records when it was written,
+> never a promise to build it**, and a module's existence is not an allocation to a sprint.
 
 #### 0.6.2 `M-POC` — P0-EVR, the first indexed module
 
@@ -380,6 +397,13 @@ version named the capability. Its presence proves nothing about whether anyone w
 | `PBL-07` | Multi-language support | **Unranked** | Identity only |
 | `PBL-08` | Bookmarklet | **Unranked** | Identity only |
 | `PBL-09` | Email / Slack notifications | **Unranked** | Identity only |
+| `PBL-11` | **Reporter-gate AI tagging and scoring** — application-generated topic, source and trend-signal values at `T1` | **Unranked** | Identity only. **Distinct from `CR-14`'s ratified manual-input contract** (`D-194`; Addendum §2.4) — that contract is the human-entered package and this is a future capability that would generate those values. **Not** merged with `PBL-06`, nor with `FB-05`/`Q9`, whose closure conditions do not transfer here (`B-081`, 2026-09-08) |
+
+> **`PBL-10` is deliberately unallocated here.** `B-071` and `V1-B071-CORRECTIVE-PLAN.md` already
+> propose it for automated negative-result handling. It is not yet registered in this table, so the
+> number is claimed but not allocated — **taking it here would collide**, and the gap is a reservation,
+> not an omission (`B-081`, 2026-09-08). **Check registered *and* pending identifiers before
+> assigning the next one.**
 
 **Identity-only** means the row records a name and nothing else. No requirements, acceptance
 criteria, demand or priority are implied, and creating one is not refinement.
@@ -880,7 +904,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 
 | Form | Means | Example |
 |---|---|---|
-| **`V1`, `V2`** — capital V, no decimal | **Build version.** A body of work with its own sprints and its own frozen `V*-*.md` operative set | `V1` = S0–S5 |
+| **`V1`, `V2`** — capital V, no decimal | **Build version.** A body of work with its own sprints and its own frozen `V*-*.md` operative set | `V1` is a build version containing **its authorized sprints** — read them from the build-version row below and `V1-BUILD-SPEC.md`, never from an example here |
 | **`1.7`, `1.8`** — decimal, no prefix | **This document's own revision lineage.** Unrelated to build versions | `Modular_PRD` v1.8 |
 
 `Modular_PRD` v1.8 has nothing to do with build `V1`. Writing "version 1" for a build, or "V1.8" for a document, is an error. The precedent for taking this seriously is `D-22`, where two meanings of *cost baseline* required a decision to separate.

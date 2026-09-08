@@ -3,6 +3,9 @@
 **Module:** `M-POC` (`Modular_PRD` §0.6.2) · **Anchored to:** `docs/modules/M-POC-REQUIREMENTS.md`
 **Created:** 2026-08-22 (`D-99`) · **Tier:** `Fn_Specs` — behaviour only
 **Scope mark:** `[V1]` throughout — no section here is `[V1→V2]` or `[V2]`
+**What that mark means (`B-081`, 2026-09-08):** it records **when the specification section was
+introduced**. It does **not** allocate `M-POC` to an authorized `V1` sprint, and it does not lift
+`M-POC`'s readiness or activation conditions.
 
 > **Feature group, not a prose description.** The input is `M-POC`'s §3–§5: invariance, the
 > engagement, and folder separation. **These three cannot function without each other** — the
