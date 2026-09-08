@@ -37,10 +37,11 @@
   are what determine what was authorized.
   **Unchanged:** `D-171`/`B-071`'s hold and owner, `PBL-11`'s future-backlog status, `Q9`, `FB-05`
   and `G105` all **open**, no build, no sprint, no lane transition, no push of the accumulated range.
-- **Resolution:** Applied
+- **Resolution:** Verified
+- **Verified-By:** Lane B — independent review of Lane A's action/authority correction; not the answering or applying actor
 - **Evidence:** Judge clarification in the 2026-09-08 review request; review at de898e3505b3b30e230688140572d87610b3aa0e; D-183 §5.14e8, D-186 §5.14e11, D-194 adopted approval statement, D-196; docs/README.md request-to-execution map; handoff README/TEMPLATE; B-082's independent verification
 
-- **Verified-At-Commit:** 33d814d2df4f2735eb44ee286872d9d0dced741a
+- **Verified-At-Commit:** 257677f5191d1eb781c1365427c0fe246d5436e9
 
 ## What happened
 
@@ -227,3 +228,36 @@ no self-acknowledgement or graph-complete claim is recorded here.
 | Approve-with-conditions | This B-083 clarification and optional navigation text | Phase 1: Lane A answers; any governed application names its actual authority; independent verification at the resulting revision |
 | Defer | Remaining Q9 choices and application of the resulting governed specification | Phase 1: Judge reviews the concrete options and bounded application packet |
 | Reject | Review verdict as execution authority; automatic S2 release, phase closure or PBL-11 promotion | Preserve the existing Register, work-order and lifecycle boundaries |
+
+## Independent verification — 2026-09-08
+
+**Verified at `257677f5191d1eb781c1365427c0fe246d5436e9` by Lane B**, independent of Lane A's
+answer and application. The response first applied at `33d814d` satisfies this entry's bounded
+closure target: it pairs D-196 routing with D-194 preparation authority, corrects the "only work
+available" overstatement, actually prepares D-197 without another drafting-permission request,
+and separates the remaining choices from authorization to apply their dependent edits.
+
+D-197 subsequently records A1/B1 selection and bounded documentation application as a distinct
+Judge act. D-183 does not require a magic phrase, a verbatim quotation, or both a named object
+and an immutable revision. Its required object/action/scope are identified here. The historical
+proposal heading and B-083's earlier dated answer do not undo that later adoption. B-082's
+verification is preserved, and no build, PBL-11 promotion or lane transition is inferred.
+
+**This verifies the process correction, not the resulting intake specification.** Independent
+review of D-197 found remaining literal requirement and propagation conflicts. The single
+follow-up review is [B-084](B-084-d197-manual-intake-specification-reconciliation.md); FB-05/G105
+remain in their canonical records, and B-061 retains its existing duplicate-rule concern.
+Neither Q9's decision nor this handoff's verification closes those residuals automatically.
+
+Before these handoff edits, the full local consistency suite passed at the reviewed commit;
+`lastAnalyzedHead` matched it with `stale: false`. `frag128.json --verify-only` confirmed exact
+semantic equality for its node and edges. Graph query supplied orientation, not proof of
+specification correctness. Hosted Encyclopedia content and runtime intake behavior were not
+verified. These observations cover the reviewed source revision, not the new handoff text.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-083 action/authority correction | Phase 1: preserve independent verification at 257677f |
+| Approve | D-197 recorded A1/B1 selections | Phase 1: preserve; no repeated choice or ratification request |
+| Defer | FB-05/G105 specification closure | Phase 1: B-084's bounded reconciliation and independent review |
+| Reject | B-083 verification as build or accumulated-range push authority | Existing D-171, lane and transaction rules remain binding |
