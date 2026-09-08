@@ -1682,6 +1682,23 @@ Closes `Q2`. Unblocks `FR-11`'s **disposition** — not its build; `FR-11` is **
 | Two derived tiers, register silent | **Escalate** — the register has not decided it yet, which is itself the finding |
 | Anything versus `docs/PRD.md` or the Charter | **Frozen documents win.** Unchanged |
 
+### `C-15` — condition on `D-59`, recorded as a section so the index can see it — `D-210`
+
+**Opened by `D-59`; given a section by `D-210`, 2026-09-08.** Its substance lives where `D-59`
+recorded it — **promote the lanes to distinct origins**, in that decision's own text. **It had no
+`### ` heading anywhere**, so the canonical enumeration could not see it and no reader listing
+conditions would find it. **This section is a pointer, not a second copy** — the governing text stays
+at `D-59` and is not restated here.
+
+**Stop condition:** unchanged by this act — `D-59`'s own.
+
+#### `C-28` — lives in `V1-PHASE-CLOSURE.md`, and that is why the index reads two files — `D-210`
+
+**Closed 2026-08-25 on `D-118`/`B-047`; cross-referenced here by `D-210`.** Its section is in
+`docs/v1/V1-PHASE-CLOSURE.md`, not the register. **A register-only grep misses it**, which is the
+reason the canonical enumeration names both files. Recorded here so the two-file scope is visible
+from the register itself.
+
 ### `C-14` — detection is the half that is not yet solved
 
 **A precedence rule with no detection is inert**, because in this repository nothing announces that a conflict occurred. The rule tells you who wins a fight you never learn about.
@@ -2410,9 +2427,30 @@ has now occurred three times** — `B-011` (`D-100`), `D-203`'s surviving `A-NNN
 `D-208`'s missing inventory row. **Matching documents and a green suite do not prove agreement with
 the Register.**
 
-**Stop condition:** a check that fails when a rule file or the Build Spec still carries an
-instruction the register has withdrawn — a named-token sweep over withdrawn mechanisms, proven by a
-negative fixture that reintroduces one and must go red.
+**Stop condition — WIDENED by `D-210`, and the widening is the point.** As first written this covered
+**register → rule-file** drift only. It did not cover **register → register**: a convention the
+register declared, violated inside the register itself. **That is what happened while this condition
+was being written** — `C-39` gained a second `###` heading inside `D-208`'s narrative, one act before
+`D-209` demoted the identical shape for `C-42`.
+
+**A check that fails when any instruction or convention the register declared is contradicted by a
+file the register governs — the register included.** Its **negative fixture must reintroduce a
+register-internal violation**, not only a rule-file one; a fixture that cannot catch the incident
+that opened the condition is `a_check_that_cannot_fail`.
+
+**The condition index is a COMMAND, never a count (`D-210`, `G55`, `G75`):**
+
+```
+grep -ho '^### `C-[0-9]*`' docs/v1/V1-DECISION-REGISTER.md docs/v1/V1-PHASE-CLOSURE.md | sort -u
+```
+
+**Derived on every run. No act states how many conditions exist** — every stated tally in this corpus
+has drifted, and the finding that named this one restated a number that was already stale.
+
+**Two deliberate exceptions, stated so they are not read as defects.** A `### \`C-NN\` (as opened)`
+section beside its closure is **append-only history**, not a duplicate — the pattern `D-93` rule 4
+requires. And a narrative mention inside a decision section is written `####`, so it stays readable
+without entering the index.
 
 ### `C-41` — an entry may sit `Open` with no exit — `D-206`
 
@@ -2904,7 +2942,7 @@ This executes the sequence `D-65` set out. **The verification apparatus is no lo
 
 **`R3` DoD — all six satisfied.** D-1 smoke test passes · D-2 `bun test` present · D-3 CI runs typecheck, lint and test as **separate** steps · **D-4 CI green on a real run** · **D-5 demonstrated** · D-6 `G59` closed by `D-64`.
 
-### `C-14` is installed in CI for three checks and local for the fourth
+#### `C-14` is installed in CI for three checks and local for the fourth
 
 **Stated because "detection is installed" would otherwise overclaim.**
 
@@ -4702,7 +4740,7 @@ B**, so removing them corrects Lane A's own annotation rather than editing a rai
 **§4 now distinguishes four states** — readiness feedback, unauthorized lane activity, a validly
 opened phase, and a reopening — because **conflating them is what produced the contradiction.**
 
-### `C-19` installed, and `B-010` was right that it could not wait
+#### `C-19` installed, and `B-010` was right that it could not wait
 
 `C-19` said *install it in the pass that closes the first phase*, and `D-94` simultaneously
 carried it as *a residual past closure*. **Those are incompatible**, and `B-010` said so.
@@ -4713,7 +4751,7 @@ to exist.** `B-004` and `B-005` carried `Reopens-Phase: 1` against a phase that 
 the check reports exactly that. **Negative-tested three ways**, including the positive case where
 a genuinely closed phase must pass.
 
-### `C-17` installed — the direction the existing test could not see
+#### `C-17` installed — the direction the existing test could not see
 
 `C-17` said *install it in the pass that lands `build-config.ts`*. **That pass was `43c51ce` and
 Lane A did not**, so the split ownership `D-91` created ran a full cycle unwatched (`B-007`).
@@ -4734,7 +4772,7 @@ cell naming two variables with the second abbreviated** — the same compound-ce
 manifest parser, in the document rather than the code. **A value stated in a sentence is not an
 authoritative row, and an abbreviated name is not a name.**
 
-### `C-21` finally swept — the tally was in the file every agent reads first
+#### `C-21` finally swept — the tally was in the file every agent reads first
 
 `C-21` named the class one pass earlier and Lane A fixed only some instances. **All three rule
 files still said "413 pinned packages."** Removed; the shared core now states the rule and
@@ -5174,7 +5212,7 @@ rather than by a control**, and both times the error was **writing a condition w
 against a constraint already in the governing set**. `D-98` even cited `CLAUDE.md`'s *"specs and
 governance, not code"* as its evidence — and drew the wrong inference from it.
 
-### `C-20` — what it must enforce, and why it still cannot be built
+#### `C-20` — what it must enforce, and why it still cannot be built
 
 **Not strict serialization. The feedback cycle:** Lane A writes specs → Judge accepts → Lanes B
 and C execute → gaps return through `docs/handoff/` → Lane A corrects → **Phase 1 closes when the
@@ -6573,7 +6611,7 @@ work would claim a migration is scheduled while a condition still blocks it.
 `D-17`'s hold condition — *"until every S1 window decision is settled"* — is met. **`0002` is
 authorized.**
 
-### `C-29` closed — the risk-tier domain
+#### `C-29` closed — the risk-tier domain
 
 | | Ruling |
 |---|---|
@@ -6721,7 +6759,7 @@ settled"*, and two are not, so the authorization rests on a premise that is fals
   delivered and is in the tree. **What is provisional is its completeness, not its content**, and
   rewriting an accurate `Applied` row would destroy the evidence that it was checked.
 
-### `C-30` opened
+#### `C-30` opened
 
 | | |
 |---|---|
@@ -6840,7 +6878,7 @@ reason demonstrated below rather than asserted.
 | **`C-12`** | `publication_targets` rows are created **eagerly at approval** |
 | **`NFR-02`** | *"never deleted"* is restated per audit Step 6 |
 
-### `C-30` closes — and this is not `D-112`'s error repeated
+#### `C-30` closes — and this is not `D-112`'s error repeated
 
 **`D-112` closed a window having never put two of its items to the Judge.** The distinction here is
 not that fewer items are open; it is *how* each one is disposed:
@@ -7035,7 +7073,7 @@ defined as *moved, still retrievable*, it dissolves:
 > assumption was wrong and the condition was still worth opening**, because the reasoning that
 > dissolves it did not exist until this cross-reference was performed.
 
-### `C-31` narrows to one question
+#### `C-31` narrows to one question
 
 | | Was | Now |
 |---|---|---|
@@ -7124,7 +7162,7 @@ archival leave the product tier entirely; what stays behind is one presentationa
 | **"What binds editorial retention" is BEYOND PRODUCT SCOPE** | It is not a product question and `Modular_PRD` must not answer it |
 | **The product's stake is the UI/UX of missing data** | Already raised, now **refined by the 90-day archival** — the concrete case that reaches a v1 screen |
 
-### `C-31` closes by re-tiering, and that is a different act from answering
+#### `C-31` closes by re-tiering, and that is a different act from answering
 
 **`C-31` q1 asked: does the five-year statutory floor reach editorial-flow data?** The evidence
 pointed at *no statute is named anywhere*, and **the question was mis-tiered rather than merely
@@ -7272,7 +7310,7 @@ would make *release* and *selection* indistinguishable.
 > **Lane B did the right operational thing** — raised an entry, did not begin, did not commit. **The
 > defect is confined to a field nothing checks**, and that field nearly moved the lock. `G90`.
 
-### `C-32`'s packet is routed unchanged, and three of its points correct Lane A
+#### `C-32`'s packet is routed unchanged, and three of its points correct Lane A
 
 **`B-039` is accepted in full and edited in no respect.** Choosing the policy is the business's act;
 **a packet revised by the product tier on its way up is the product tier legislating upward in
@@ -7527,7 +7565,7 @@ has carried since 2026-08-17.**
 | **Dev is separate from `main` / production** | The development database is **disposable**. The provisioned Supabase project is not a dev target |
 | **Dev setup is `vercel dev` + `supabase init`** | The app runs locally against a local stack; the CLI supplies the database |
 
-### `C-33`'s runner needs no credentials, and `DEP-05` never said otherwise
+#### `C-33`'s runner needs no credentials, and `DEP-05` never said otherwise
 
 **`DEP-05` reads: *"Supabase credentials pulled to `.env.local`"* — deliberately withheld.** That is
 **the hosted project**, and it is the only thing it withholds.
@@ -14748,7 +14786,7 @@ separately. **Assigned to `C-39`**, and `C-40` is narrowed to say explicitly tha
 cover matching — naming and matching are different defects, and two conditions each deferring to the
 other is how `C-35`, `C-38` and `C-39` sat in prose for a whole act.
 
-### `C-41` — the `Open` state has no exit
+#### `C-41` — the `Open` state has no exit
 
 `D-204` requires a `Resolution` once `Status` is `Answered`; **nothing requires an entry to become
 `Answered`.** `B-071` — raised 2026-09-02, acknowledged the same day, still `Open` — holds Phase 1
@@ -14895,7 +14933,7 @@ Lane B's Inventory findings verify against the file, and **both are Lane A's own
 
 **Cowork flagged this four acts ago and did not fix it.** Now: the two channel rows are **retired**, citing `D-203`; the two survivors — `lane-gate.mjs` and `.githooks/commit-msg` — are **re-anchored to `C-35`**, the control itself, rather than to an order number that no longer exists.
 
-### `C-39` — the policy half, which was Cowork's and unwritten
+#### `C-39` — the policy half, which was Cowork's and unwritten
 
 `C-39` named the leading-actor rule but not its **membership**, which is the only thing that makes an allowlist safe rather than another guess. **Split as `D-201` splits everything: the actor set is policy (Cowork); the regex and fixtures are code (Claude Code).** The closed set, the excluded-when-leading set, the nine live must-pass fixtures and the four must-fail probes are now stated in `C-39` itself.
 
@@ -14997,3 +15035,71 @@ at `cbcf779` and the rebuild is Claude Code's under `D-201`; **this act does not
 current.** Routes no entry — `B-071` stays `Open`. Opens or closes no phase; does not release the
 `D-171` hold. **Lane A's own work, not independently reviewed** — `C-38`, now spanning `D-203`
 through `D-209`.
+
+---
+
+## 5.14e35 `D-210` — `C-42` Widened to Cover the Register Itself; the Index Is a Command, Not a Count
+
+**Lane A (Cowork) act, 2026-09-08, on Lane B's review of `D-209`.** Their parent finding: **`C-42`'s
+stop condition was narrower than the incident that opened it.** As written it covered
+**register → rule-file** drift. It did not cover **register → register** — a convention the register
+declared, violated inside the register.
+
+### The violation happened while the condition was being written
+
+**`C-39` gained a second `### ` heading inside `D-208`'s narrative.** One act later, `D-209` demoted
+the identical shape for `C-42`. **Consecutive commits: the convention applied to the condition being
+watched, violated on the condition being written — and the heading was Lane A's own.**
+
+### What was measured, and one correction to the finding
+
+| | Reported | Measured |
+|---|---:|---:|
+| Register `### ` condition sections | 50 | **49** |
+| Distinct IDs across both files | 29 | **30** |
+| Duplicated IDs | 14 | **14** ✓ |
+| `C-15` | a table row | **paragraph text with no heading anywhere** — outside every count |
+
+**The reported success criterion — *"the canonical grep returns 29 distinct IDs"* — failed on its own
+command, which returned 30.** That is the class this sequence keeps paying down, appearing inside the
+finding that names it. **The correction is not a better number: it is that no act states one.**
+
+### Applied
+
+**Fourteen narrative headings demoted to `####`** — `C-14`, `C-17`, `C-19`, `C-20`, `C-21`, `C-29`,
+`C-30` ×2, `C-31` ×2, `C-32`, `C-33`, `C-41`, and **`C-39`, Lane A's own**. **Demoted, never
+deleted** — they are append-only history (`D-93` rule 4), and deleting them to tidy a grep would be
+destroying evidence to make a control green.
+
+**Six duplicate IDs remain and are deliberate:** `C-16`, `C-20`, `C-23`, `C-29`, `C-30`, `C-31`, each
+a `(as opened)` section beside its closure. **Stated in `C-42` so they are not read as defects.**
+
+**`C-15` given a section** so the enumeration can see it — a pointer, not a second copy; the
+governing text stays at `D-59`. **`C-28` cross-referenced at `####`**, because its section lives in
+`V1-PHASE-CLOSURE.md` and that is why the index reads two files. **A cross-reference is not a second
+section**, which is the same rule the fourteen demotions enforce.
+
+**`C-42` widened**, with the enumeration recorded as a command and the two exceptions named.
+
+### Lane B's earlier finding, dispositioned rather than dropped
+
+The 48/28 count raised a turn before `D-208` was **neither adopted nor rejected across two acts**.
+Lane B was right to call that dropped. **It is adopted here, folded into `C-42`'s widening — and
+deliberately NOT minted as a new condition**, which would have been the duplicate the same convention
+forbids.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e35; `C-42` widened; `C-15` sectioned; `C-28` cross-referenced; fourteen headings demoted |
+| **Phase closure** | **— unaffected: `C-28`'s section is untouched; only the register now points at it** |
+| **Agent files · Build spec · Channel docs · Inventory** | **— unaffected: no instruction, field, resolution or artifact changes** |
+| **`Modular_PRD` and product tiers** | **— unaffected: a register-internal convention is never a product fact** |
+
+### What this act does NOT do
+
+**Installs no check** — `C-42` is Claude Code's and is built **last**, after this widening, so the
+narrow scope is not baked in. **Deletes no history.** Routes no entry — `B-071` stays `Open`.
+**Syncs no graph**; opens or closes no phase; does not release the `D-171` hold. **Lane A's own work,
+not independently reviewed** — `C-38`, now spanning `D-203` through `D-210`.
