@@ -37,8 +37,8 @@
   `G105` all remain **open**. Frozen sources untouched.
 - **Resolution:** Applied
 - **Evidence:** review at cccfb6af1598d810393bbe0027e7575b4c09cbf8; Judge priority clarification; D-194/D-195 and G105; V1-BUILD-SPEC §4 S2/§8; LANE-B-WORK-ORDER §2.2d; V1-PHASE-CLOSURE §5; Modular_PRD §7.4/§8.0/§8.1/§10; FN-GATES §3.1/§6/§7; B-081's bounded verification record
-
 - **Verified-At-Commit:** 30aedd20727a3407dc93b40982a922da90beab20
+
 ## What happened
 
 **Clarified request:** troubleshoot why Lane A's next-step feedback lists Q9, FB-05, G105 and
