@@ -1,5 +1,12 @@
 # Agentic Layer
 
+> **Historical scaffold — not governing, and not an execution instruction.** This file
+> describes the earlier scaffold proposal. Read `docs/README.md` for authority, and for current
+> scope and evidence read `docs/fn-specs/FN-GATES-01-05.md` and the Register's current/target executor and Line contract. **Historical agent-tool descriptions supply no transition authority.**
+> **Current sprint readiness belongs to the Build Spec and work order, with live lane state in
+> `docs/v1/V1-PHASE-CLOSURE.md` §5. This notice authorizes no build.** *(Added 2026-09-08,
+> `D-198`, raised as `B-085`. Historical content below is preserved, not deleted.)*
+
 ## Draftable Actions (low risk — auto)
 - Tag topics and sources at Reporter gate
 - Generate article summary at Journalist gate

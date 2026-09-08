@@ -60,6 +60,61 @@
 
 - **Verified-At-Commit:** b40dfc361d5ca5ee41998256811983bb8fb1a991
 
+## Independent review of the second application — 2026-09-08
+
+**Reviewed at `8f441c7031659d5aacc4e1df5504953d21bdafd5`; applying commit `b40dfc3`.
+Keep `Resolution: Applied`.** Several clauses improved, but the statement that all four edit
+groups are complete exceeds the source evidence. This review is not terminal verification.
+It preserves the adopted A1/B1 choices and B-083's separate Verified disposition.
+
+| Existing criterion | What landed | What remains at the reviewed revision |
+|---|---|---|
+| Scoped duplicate handling | FN-GATES §3.1/§6 now scope the POC guard and permit manual triggers/different-day requests | Product `US-01`'s edge-case cell still says duplicate URL blocked and AC-02 cannot pass without a unique index (`Modular_PRD:529`). Addendum `AT-004:521` still globally refuses a reused URL |
+| Missing required input versus failed extraction | FN-GATES §6 distinguishes these outcomes | FN-GATES §10:256 says the producer is specified, then ends the same paragraph by calling trend-signal provenance unresolved and due before S1. The duplicate extraction-failure rows in §6 can be consolidated without changing behaviour |
+| Subject versus analytical tags | Addendum T1:161 now says exactly one subject; FN-GATES' acceptance references include permitted cases | Addendum's actual `AT-001:518` and `AT-003:520` still require topic tags. Updating the FN references does not update the source acceptance rows. “Last holdout” in this answer/Register is overstated |
+| Current execution tracking | Product prologue:36 now cites the operative sources | Product §2.6:437/446 and §8:892 still make the historical sprint-plan journal the current execution rung/real tracker |
+| Coverage and residual truth | Product §7.1 and map §7 describe the current manual contract and reconciliation still owed | `docs/README.md:30` still copies the old uncovered/partial/unanchored tallies; FN-GATES §10's final sentence remains contradictory |
+| Complete input contract and dependent views | Supplier/executor separation and nullable extraction are preserved | Source information requiredness, non-URL handling, dependent storyboard/data-flow interpretation and the existing Encyclopedia follow-up remain expressly outstanding. This review closes none of FB-05/G105 |
+
+**Draft fixes for the already named correction scope, parent first:**
+
+1. In FN-GATES §10, remove or explicitly supersede the stale final sentence beginning
+   “FB-05's missing trend-signal provenance”. Retain the new producer-specified residual:
+   input scope, requiredness and dependent clauses remain to reconcile, followed by independent
+   verification. Do not ask whether the package is manual or restart S1.
+2. In the Addendum's actual AT rows, distinguish exactly one required subject from optional
+   analytical tags. `AT-001` must permit a complete manual package with no analytical tags;
+   `AT-003` must refuse a missing subject. `AT-004` must apply the governed POC scoped guard and
+   include permitted manual-trigger/different-day cases. This does not settle the separately
+   pending non-URL contract. Align Product US-01's edge-case cell to that same D-121 boundary,
+   without a global source-URL uniqueness condition.
+3. Replace the current execution assertions in Product §2.6 and §8 with references to the
+   Build Spec/work order/Phase Closure in their existing roles. Keep the journal as historical
+   rationale, not a second tracker. Replace README's copied coverage sentence with:
+   “Current requirement coverage and feedback dispositions are recorded in the
+   requirements-traceability map §4 and §7; consult those rows.”
+4. Complete this entry's existing input-contract proposal, then reconcile the dependent views
+   against its adopted result. Reuse the current owners and acceptance tests; these residues do
+   not need another handoff or a new feature identity. Independent review follows the completed
+   source packet; graph currency alone is not sufficient.
+
+**Evidence limit:** the Register and this entry record D-197's second authorization act. The
+original direct Judge instruction for that act was not visible in this review's new input, so
+this review confirms the records and edits exist, not that it independently witnessed the act.
+No new authority or repeated approval requirement is inferred. The source failures above are
+sufficient to withhold Verified regardless.
+
+The committed baseline passed all local consistency checks and graph metadata matched HEAD.
+That does not disprove these clause-level contradictions, and it does not cover this new
+working-tree annotation. The separate external-audit review is [B-085](B-085-external-docs-audit-disposition.md).
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-084's demonstrated source improvements | Phase 1: preserve |
+| Approve-with-conditions | Remaining B-084 correction | Phase 1: complete the existing source/view scope and independently review |
+| Defer | FB-05/G105 closure | Phase 1: complete contract and verification criteria |
+| Reject | B-084 Verified or all four edit groups complete | Remaining original criteria above still fail |
+
 ## What happened
 
 **Clarified task:** independently review D-197's applied manual-intake contract, preserve the

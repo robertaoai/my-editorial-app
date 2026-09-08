@@ -27,7 +27,7 @@ refinement nor this reading guide authorizes editing a frozen source.
 
 `PRD.md` is not expected to carry Lines, state machines, or traceable ids. The customer is the subject-matter expert on their own business, not on SDLC.
 
-The mapping in both directions, with a content hash on every customer statement so customer edits are detectable, is **`governance/requirements-traceability-map.md`**. It currently shows one uncovered customer requirement, one partially covered, and five specifications with no customer origin.
+The mapping in both directions, with a content hash on every customer statement so customer edits are detectable, is **`governance/requirements-traceability-map.md`**. **Current requirement coverage and feedback dispositions are recorded in that map's §4 and §7 — consult those rows.** *(Corrected 2026-09-08, `B-085`: this sentence carried a copied tally — "one uncovered … one partially covered … five specifications with no customer origin" — which is both a restated count (`G55`/`G75`) and now wrong: `CR-14` was covered by `D-194`/`D-197`.)*
 
 ## About the plan pack
 

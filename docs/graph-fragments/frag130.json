@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "b085_external_audit_disposition_and_scaffold_notices",
+      "label": "B-085: Accept the Supported Documentation Gaps; Correct the External Audit Before Applying Its Plan",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-085-external-docs-audit-disposition.md",
+      "source_location": "",
+      "description": "Handoff finding raised by Lane B, answered 2026-09-08 and recorded as D-198. Read the entry header for current lifecycle status. The parent finding is that an external audit is an input rather than an authorization, and its remediation plan must be checked against the sources before any of it is adopted. Five of the audit's conclusions were unsupported and are recorded so they cannot be re-imported: workflow_state was not removed, because the S1 migration replaced its type and renamed the replacement column back, which changes its type, default and state contract without deleting it; Q5 is decided, with only scheduler implementation pending; A6 was ratified, and the older ninety-day and unratified declarations are the inconsistency rather than the ratification; most flagged broken paths are valid relative references, historical evidence or explicitly proposed files, so a planned or removed path is not a broken link; and closure checks and negative fixtures exist with stated coverage limits. Blanket path repair and forced configuration changes were therefore rejected. The applied remedy was a first-read authority notice at the top of all seven plan-pack files, each naming the README for authority plus its own subject-specific successor and stating that current sprint readiness belongs to the Build Spec and work order with live lane state in Phase Closure, and that the notice authorizes no build. The reusable point is that a warning which lives only in the rule files does not reach a reader who opens a scaffold document directly, so the classification has to sit at the top of the document being misread. Three corrections ride in the notices at the files that own them, covering workflow_state's survival and the local-PostgreSQL-only S1 evidence with hosted anon-key behaviour unverified, the separation of NG-10, CR-14, TC3 and PBL-11 with TC3 still blocking trend scoring because no engagement-metrics column or scoring implementation exists, and the architecture routes being proposed rather than a description of the inspected tree. Reference validation was deferred as specification work, because a validator that flags a deliberately proposed path generates false positives. The entry also carried an independent review finding five residual half-applications, each a sibling instance of an edit applied to only one of its locations.",
+      "community": 2,
+      "community_name": "Governance and Authority",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also records the entry's reusable findings -- that an external audit is an input needing verification before adoption, and that a governance warning must sit on the document being misread rather than only in the rule files -- which are otherwise reachable only by reading the full entry."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b085_external_audit_disposition_and_scaffold_notices",
+      "target": "b084_d197_intake_specification_reconciliation",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-085-external-docs-audit-disposition.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b085_external_audit_disposition_and_scaffold_notices",
+      "target": "plan_pack_reclassification_d37",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-085-external-docs-audit-disposition.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b085_external_audit_disposition_and_scaffold_notices",
+      "target": "readme_is_not_a_d54_tier",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-085-external-docs-audit-disposition.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b085_external_audit_disposition_and_scaffold_notices",
+      "target": "a_tools_self_report_taken_as_fact",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-085-external-docs-audit-disposition.md",
+      "source_location": "",
+      "weight": 1
+    }
+  ]
+}

@@ -1,5 +1,12 @@
 # Security
 
+> **Historical scaffold — not governing, and not an execution instruction.** This file
+> describes the earlier scaffold proposal. Read `docs/README.md` for authority, and for current
+> scope and evidence read the governing security and Line requirements, the current technical specs, and the actual migration controls. **A scaffold permission statement is not evidence of deployed enforcement.**
+> **Current sprint readiness belongs to the Build Spec and work order, with live lane state in
+> `docs/v1/V1-PHASE-CLOSURE.md` §5. This notice authorizes no build.** *(Added 2026-09-08,
+> `D-198`, raised as `B-085`. Historical content below is preserved, not deleted.)*
+
 ## Secret Handling
 - WordPress API credentials stored in Supabase Edge Function env vars (server-side only)
 - Never exposed in frontend; publish action runs via server-side API route

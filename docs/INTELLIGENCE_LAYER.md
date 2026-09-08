@@ -1,5 +1,12 @@
 # Intelligence Layer
 
+> **Historical scaffold — not governing, and not an execution instruction.** This file
+> describes the earlier scaffold proposal. Read `docs/README.md` for authority, and for current
+> scope and evidence read `NG-10`, `CR-14` with `D-194`/`D-197`, `TC3`, and `PBL-11` — four distinct roles. **Auto-advance is prohibited; manual intake supply is settled; future AI tagging/scoring has its own selection path.** `TC3` still blocks trend *scoring*: `0002` adds source link, reliability tier, topic lineage, evidence URL and reviewer confidence, but **not** `trend_signals.engagement_metrics`, and no scoring implementation exists. Resolve that input contract under `CR-06`/`FB-06` before authorizing it.
+> **Current sprint readiness belongs to the Build Spec and work order, with live lane state in
+> `docs/v1/V1-PHASE-CLOSURE.md` §5. This notice authorizes no build.** *(Added 2026-09-08,
+> `D-198`, raised as `B-085`. Historical content below is preserved, not deleted.)*
+
 ## Messy Inputs
 - Raw URL paste (no metadata) → AI extracts title, topic, source platform, category
 - Article body content → AI tags topics and detects trend signals

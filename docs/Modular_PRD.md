@@ -443,7 +443,7 @@ Project Charter v1  (OD1–OD3 Open — constrains, does not close)
             └── User Story (US-xx)
                  └── Functional Requirement (FR-xx)   [⚠ if OD-dependent]
                       └── Technical Requirement (NFR-xx / TR-DM-xx / SEC-xx)
-                           └── Sprint (S0–S6, sprint plan §6)
+                           └── Sprint (S0–S6; scope and holds in `V1-BUILD-SPEC.md` §4, executable unit in `LANE-B-WORK-ORDER.md` §2.2d — the sprint plan §6 is historical rationale, `B-085`)
                                 └── Acceptance Criterion (AC-xx ← AT-xxx)
 ```
 
@@ -526,7 +526,7 @@ This means **no KPI in §3.2 can be judged before S1 completes**, and the north-
 
 | ID | Persona | Story | Priority | Linked FRs | Linked ACs | Depends on | Sprint | Edge cases / unhappy paths |
 |---|---|---|---|---|---|---|---|---|
-| `US-01` | Reporter agent | As a Reporter agent, I want to log an article from a source reference with **exactly one subject topic** and a trend signal — **all supplied by the Chief Editor** (`D-194`, `D-197` `A1`) — so that it enters the pipeline with the supply and the execution **recorded as separate facts**. *(Corrected 2026-09-08, `B-084`: read "by URL with topic tags … without human handoff" — pre-`D-38` cardinality, and a no-human-handoff claim that the ratified manual contract contradicts. Analytical tags remain separate and many, `G39`.)* | P0 | FR-01 | AC-01, AC-02 | — | S1 | Duplicate URL → blocked (**AC-02 cannot pass today — no unique index**, TC5). Metadata extraction fails → nullable fields flagged for the Investigator |
+| `US-01` | Reporter agent | As a Reporter agent, I want to log an article from a source reference with **exactly one subject topic** and a trend signal — **all supplied by the Chief Editor** (`D-194`, `D-197` `A1`) — so that it enters the pipeline with the supply and the execution **recorded as separate facts**. *(Corrected 2026-09-08, `B-084`: read "by URL with topic tags … without human handoff" — pre-`D-38` cardinality, and a no-human-handoff claim that the ratified manual contract contradicts. Analytical tags remain separate and many, `G39`.)* | P0 | FR-01 | AC-01, AC-02 | — | S1 | Same submitter, same brief, same day at the POC surface → refused with a reason (`AC-02`, re-keyed by `D-121`); **the same brief on a different day and manual trigger creation are permitted** — there is **no global source-URL uniqueness condition** *(corrected 2026-09-08, `B-085`; read "Duplicate URL → blocked … no unique index, TC5" before)*. Missing subject topic or trend-signal description → `T1` refused, naming the component. Metadata extraction fails → nullable fields flagged for the Investigator, **without blocking `T1`** |
 | `US-02` | Investigator agent | As an Investigator agent, I want to validate the source and confirm trend evidence, so that unverified material never reaches drafting | P0 | FR-02 | AC-03 | US-01 | S1 | **Blocked: `sources.reliability_tier` does not exist**, so T2's required fields cannot be satisfied (TC3) |
 | `US-03` | Journalist agent | As a Journalist agent, I want to draft the editorial adaptation against a meaning-invariance checklist, so that adaptation does not distort the original | P0 | FR-03 | AC-04 | US-02 | S1 | Angle drifts from the one identified at T3 → `plan_deviation` flag (Entry 007 S2) |
 | `US-04` `[historical_current_documented_held]` | Chief Editor | As the Chief Editor, I want T5 review to be mine alone and recorded as mine, so that accountability is unambiguous | P0 | FR-04 | AC-05, AC-06 | US-03 | S2 | Agent assistance recorded as `assisting_agent_id`, never as executor. **The shipped seed violates this** (X4). **Superseded as a target by `US-04a` below (`D-179`)** — this row remains the current-build record; not build-authorized (`D-171`) |
@@ -889,7 +889,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 
 ## 8. Execution Mapping
 
-> **No Jira exists.** Rather than invent keys, execution maps to the sprint plan, which is the real tracker. The template's Epic → Feature → Story → Sub-task hierarchy maps as: **Sprint → FR → US → TR/NFR.**
+> **No Jira exists.** Rather than invent keys, execution maps to the sprint plan. *(Corrected 2026-09-08, `B-085`: this read "which is the real tracker". **Current execution tracking is `V1-BUILD-SPEC.md` §4, `LANE-B-WORK-ORDER.md` §2.2d and `V1-PHASE-CLOSURE.md` §5**; the sprint plan is **historical rationale**, not a second tracker.)* The template's Epic → Feature → Story → Sub-task hierarchy maps as: **Sprint → FR → US → TR/NFR.**
 
 ### 8.0 Build-version tracking — `D-35`
 

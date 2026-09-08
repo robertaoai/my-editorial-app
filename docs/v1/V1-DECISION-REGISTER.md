@@ -13845,3 +13845,75 @@ edits, not repairs of the authorized five**, so they were held until this act. A
 **reconciliation of input scope, requiredness and dependent clauses**, then **independent
 verification**. `G105` follows it. **Coverage establishes neither verification nor implemented
 behaviour**, and nothing here authorizes a build, a sprint or `PBL-11`.
+
+## 5.14e23 `D-198` — First-Read Authority Notices on the Plan Pack; the External Audit Is Corrected Before Any of It Is Adopted
+
+**Lane A act, 2026-09-08, raised as `B-085`.** An external documentation audit
+(`docs-audit-2026-09-08.md`, external input, **not in this repository**) proposed a remediation
+plan. **It is not adopted as an executable plan.** Lane B checked its claims against the sources;
+the supported ones are acted on here and the unsupported ones are recorded so they are not
+re-imported later.
+
+### What the audit got wrong — recorded so it is not re-adopted
+
+| Audit claim | What the sources say |
+|---|---|
+| `workflow_state` was removed | **It still exists.** `0002` replaced its type and renamed the replacement column back. Its type, default and state contract changed; that is not removal |
+| `Q5` is undecided | **`Q5` is decided** (`D-143`, `pg_cron`). What remains is scheduler *implementation* — a different fact |
+| `A6` is unratified | **`A6` was ratified.** The older 90-day and unratified declarations are the inconsistency, not the ratification |
+| Many paths are broken | Most are **valid relative references, historical evidence, or explicitly proposed files.** A planned or removed path is not a broken link |
+| Closure checks and negative fixtures are missing | **They exist**, with stated coverage limits |
+
+**A blanket path repair is therefore rejected**, and so is any forced configuration change. **An
+audit is an input, not an authorization** — the same rule `D-186` states for an analysis verdict.
+
+### What is applied — improvement A
+
+**A first-read authority notice at the top of all seven plan-pack files**: `ARCHITECTURE`,
+`DATA_MODEL`, `AGENTIC_LAYER`, `INTELLIGENCE_LAYER`, `SECURITY`, `TASKS`, `TEST_PLAN`. Each names
+`docs/README.md` for authority plus its **own** subject-specific successor, and each states that
+**current sprint readiness belongs to the Build Spec and work order, with live lane state in Phase
+Closure**, and that **the notice authorizes no build**.
+
+**This is the hazard `CLAUDE.md`'s own header names** — starting from the scaffold and building the
+wrong thing. `D5` already recorded the plan pack as *accurate about the substrate and wrong about
+governance*; until now that warning lived only in the rule files, so a reader who opened
+`DATA_MODEL.md` directly met no warning at all. **`INTELLIGENCE_LAYER`'s late-paragraph note did not
+serve this function**, being far below the content it qualifies.
+
+**Historical content is preserved in every file.** Nothing is deleted, and no gate forbids
+referencing historical evidence.
+
+**Three corrections ride in the notices**, each at the file that owns it: `DATA_MODEL` records that
+**`workflow_state` still exists** and that accepted S1 evidence is **local PostgreSQL execution and
+trigger testing, with hosted anon-key behaviour unverified under `DEP-05`**; `INTELLIGENCE_LAYER`
+separates `NG-10`, `CR-14`, `TC3` and `PBL-11`, and records that **`TC3` still blocks trend
+*scoring*** because `0002` adds no `trend_signals.engagement_metrics` and no scoring implementation
+exists — resolve that under `CR-06`/`FB-06`; `ARCHITECTURE` records that its routes and directories
+are **proposed, not a description of the inspected tree**.
+
+### What is not applied
+
+**Improvement B** — reconciling further current claims through their existing owners — beyond the
+three corrections carried in the notices above. **Improvement C** — reference validation — is
+**specification work before implementation**, and must handle planned, removed and external paths
+correctly; **a validator that flags a deliberately proposed path is a false positive generator**.
+Neither is authorized here.
+
+### Tier applicability
+
+| Tier | Applicability |
+|---|---|
+| `V1-DECISION-REGISTER.md` | **Affected** — this act |
+| The seven plan-pack files | **Affected** — a first-read notice each. **Non-governing** (`D5`); the notices change no requirement and confer no authority |
+| `V1-BUILD-SPEC.md`, `LANE-B-WORK-ORDER.md`, `V1-PHASE-CLOSURE.md` | **Unaffected** — cited as the current sources, not edited |
+| `Modular_PRD.md`, `FN-GATES-01-05.md`, the map, the Addendum | **Unaffected by this act** — their separate `B-085` residual corrections are recorded against `D-197` |
+| `V1-ARTIFACT-INVENTORY.md` | **Unaffected** — no file created or retired; all seven already exist |
+| Frozen `docs/PRD.md`, Charter, `0001_init.sql` | **Unaffected** |
+| **Encyclopedia** | **Unaffected** — no entry declares a dependency on a plan-pack file |
+
+### Scope limits
+
+**Adds warnings; changes no requirement and authorizes nothing.** No build, sprint, lane transition
+or configuration change. The external audit remains an **input**, its unsupported claims recorded
+above. **This act is Lane A's own work and is not independently reviewed.**

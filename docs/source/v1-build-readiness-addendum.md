@@ -515,10 +515,10 @@ Side state:
 
 | Test ID | Given | When | Then |
 |---------|-------|------|------|
-| AT-001 | Reporter agent (Line 1) is active | Reporter agent logs a valid URL with ≥1 topic tag | Article created in "Logged" state; audit log records `executor_type = agent`, `line_assignment = Line1`, agent_id, timestamp |
+| AT-001 | Reporter agent (Line 1) is active | A complete manual package is supplied — source reference, **exactly one subject topic**, trend-signal description — **with no analytical tags**, and the Reporter agent executes `T1` (`G39`/`D-38`; `D-194`/`D-197`) | Article created in "Logged" state; audit log records `executor_type = agent`, `line_assignment = Line1`, agent_id, timestamp |
 | AT-002 | Reporter agent is active | Agent submits form without a URL | Form rejects: "Source URL is required" |
-| AT-003 | Reporter agent is active | Agent submits form with URL but no topic tag | Form rejects: "At least one topic tag is required" |
-| AT-004 | Reporter agent is active | Agent submits form with a URL that already exists | System blocks: "Duplicate: this URL is already tracked as article [ID]" |
+| AT-003 | Reporter agent is active | A package is submitted with **no subject topic** | Refused, naming the missing component: **exactly one subject topic is required**. Analytical tags are optional and never substitute for the subject (`G39`/`D-38`) |
+| AT-004 | Reporter agent is active | **The same submitter** resubmits **the same brief** (hashed key fields, `G95`) **on the same day** at the POC surface — and, as permitted cases, the same brief **on a different day** and **manual trigger creation** | Refused **only** in the same-day case, saying why; the permitted cases **succeed**. *(Corrected 2026-09-08, `B-085`: read "a URL that already exists → System blocks: Duplicate: this URL is already tracked as article [ID]" — the blanket rule `D-121` retired on 2026-08-25.)* |
 | AT-005 | Reporter agent is active | Agent logs an article and source metadata cannot be auto-extracted | Article created with null fields; flagged for investigator review |
 | AT-006 | Chief Editor (Line 2) manually logs an article | Chief Editor enters URL with topic tag | Article created in "Logged" state; audit log records `executor_type = human`, `line_assignment = Line2`, `event_type = HumanOverride` (manual fallback, Line 2 executing Line 1 gate) |
 

@@ -1,5 +1,12 @@
 # Data Model
 
+> **Historical scaffold — not governing, and not an execution instruction.** This file
+> describes the earlier scaffold proposal. Read `docs/README.md` for authority, and for current
+> scope and evidence read the actual `supabase/migrations/0002_s1_editorial_schema.sql` and the Build Spec's bounded S1 evidence. **`workflow_state` still exists** — `0002` replaced its type and renamed the replacement column back — but its type, default and state contract changed and further tables were added. **Accepted S1 evidence is local PostgreSQL execution and trigger testing; hosted anon-key behaviour remains unverified under `DEP-05`.**
+> **Current sprint readiness belongs to the Build Spec and work order, with live lane state in
+> `docs/v1/V1-PHASE-CLOSURE.md` §5. This notice authorizes no build.** *(Added 2026-09-08,
+> `D-198`, raised as `B-085`. Historical content below is preserved, not deleted.)*
+
 ## articles
 - id: uuid (pk)
 - url: text (not null)
