@@ -66,7 +66,7 @@
   any of them. **`Applied` is not `closed`**, and independent verification is still owed.
 - **Resolution:** Applied
 - **Evidence:** review at 6d5ae5448dfc7b2ae339026b0f7c2e2bcabd3294; current Judge request; Modular_PRD §2.5.1–§2.5.2; Register D-188/D-194/G105; Addendum §2.4 CR-14/A7; INTELLIGENCE_LAYER handoff note; Encyclopedia sync dependency ledger; B-080's verified correction
-- **Verified-At-Commit:** 99ea0a1641670fa0dd97584b6e5a8066ad6deb47
+- **Verified-At-Commit:** 1376b4604a16448c70cab594654825508201f588
 
 ## What happened
 
