@@ -58,7 +58,75 @@
 - **Resolution:** Applied
 - **Evidence:** Independent source review at 257677f5191d1eb781c1365427c0fe246d5436e9; D-194/D-197; FN-GATES-01-05 §2.3/§3.1/§3.2/§5/§6/§10; Modular_PRD FR-01/AC-01/AC-02/§7.1/Q9; Addendum §2.4/§3.1/AT-001/AT-003; traceability map CR-14/FB-05; B-061; full local consistency suite and frag128 verify-only result
 
-- **Verified-At-Commit:** b40dfc361d5ca5ee41998256811983bb8fb1a991
+- **Verified-At-Commit:** 78cd2b3d191c90238f5b3df84aa20e0f9f50b9b6
+
+## Independent review of D-199 at the pushed revision — 2026-09-08
+
+**Reviewed source:** `73226b7759920348a5ba04915ba6ad506bcf700c`; D-199 application commit
+`78cd2b3d191c90238f5b3df84aa20e0f9f50b9b6`. A fresh fetch confirms local and upstream both at
+`73226b7`, with no outgoing commits. The earlier credential-blocked/four-outgoing account is
+historical. B-085's existing bounded verification is now committed and pushed; its review anchor
+remains `03495db`. It is not reopened by this review.
+
+**B-084 remains Applied.** The current evidence anchor above advances to the actual D-199
+application now that its commit exists. The previous `b40dfc3` anchor records the earlier partial
+application, not this later repair; it remains cited in the historical reviews below. This is an
+application/evidence anchor update, not terminal verification or a new `Verified-By` claim.
+
+**Narrow repair accepted:** AT-001 removes the completeness assertion, supplies source information,
+preserves the actual agent/Line/identifier/timestamp audit fields, records the human supplier
+separately, and now exercises multiple analytical tags. Its scope note retains optional tags and
+the open source-information/non-URL questions. AT-002 through AT-006, including AT-003, were not
+changed by `78cd2b3`.
+
+| Remaining gap | Draft correction / Phase 1 success criterion |
+|---|---|
+| D-199 calls zero-tag and multiple-tag acceptance "opposite" behaviour | Append a correction: both cases conform to optional analytical tags; the defect is differing test coverage and mapping, not contradictory allowed behaviour |
+| Zero-tag acceptance is no longer exercised by a positive fixture | In the existing acceptance packet, give AT-001 two otherwise-valid cases: zero and multiple analytical tags. Both succeed with exactly one subject. AT-003's missing-subject refusal cannot itself prove zero-tag acceptance; no new test identifier or product requirement is needed |
+| FN-GATES §8 still assigns missing-subject refusal to AT-001 | Draft mapping: `AT-001 → valid-input acceptance, one subject with zero or multiple analytical tags`; `AT-003 → refusal when the subject is absent, analytical tags never substituting`. Inspect AT-002/AT-005's domain/extraction traces within the same existing contract crosswalk |
+| D-199 says FN-GATES is "Reconciled-unchanged" while acknowledging that mismatch | Use "Not edited in this write set; acceptance mapping remains unresolved." Do not describe partial reconciliation as a settled tier |
+| The applied note below calls three files the entire write set | Append: `78cd2b3` also transports the existing B-085 verification annotations. The actual commit has four files; this transport neither reopens nor extends B-085 |
+| D-199 invokes existing repair authority; the B-084 answer also records subsequent Judge authorization | Identify whether that record cites the same act, a later confirmation or an additional act. These accounts need not conflict. Do not re-ask the source-tier question or treat our source review as independent witnessing of the original instruction |
+| D-199 suggests `Answered` plus a Resolution is a lifecycle contradiction | It is valid: `Answered` records response, while `Applied`/`Verified` records resolution. TEMPLATE says **merely** Answered. Optional clarification: "omit Resolution until a resolution is recorded; retain the response status." No new status or checker workaround is needed |
+
+**Proposed acceptance wording for the existing packet:**
+
+> Given an otherwise valid approved URL-based manual package containing source information,
+> exactly one subject and a trend-signal description, exercise AT-001 once with zero analytical
+> tags and once with multiple analytical tags. The Reporter executes T1 in both cases; both enter
+> Logged with `executor_type = agent`, `line_assignment = Line1`, actual `agent_id` and timestamp,
+> and separately identified human supplier. This coverage does not decide source-information
+> omission or non-URL handling. Keep AT-003 as the missing-subject refusal case.
+
+**The existing view follow-ups remain with this entry/D-199, not the new D-200 handoff:**
+
+- **F1 / Encyclopedia Entry 06:** preserve `Last verified at f7b3aea`; add the dated re-check reason
+  "D-197 affects the declared inputs; hosted content not yet rechecked." Staleness is a queue,
+  not proof the hosted article is wrong. Do not advance its verification anchor without reading it.
+- **F2 / requirements-scope knowledge graph:** the Markdown/Mermaid view still shows CR-14 with
+  no FR despite its declared input map now tracing FR-01. Draft its node/edge and prose to read
+  "CR-14: manual contract covered by FR-01; FB-05 reconciliation/verification remains; future AI
+  generation is PBL-11." Updating runtime Graphify does not repair this source diagram.
+- **F3 / dated FR-14 proposals:** add an explicit historical-proposal notice to the two named
+  Board analyses: current CR-14 traces to FR-01; operative FR-14 is the business-continuity
+  surface allocated by D-62. Preserve the original proposals; do not globally renumber them.
+- **Product/storyboard/data flow:** the existing CR-14 status correction and Panel A2's obsolete
+  producer note remain in the final contract/view packet. Preserve the M-MVP/M-POC manual partition,
+  audit-before-state and separate supplier/executor. D-200 changes development tooling, not these
+  product roles, modules, states or diagrams.
+
+**Parent-first follow-up:** Cowork prepares the one acceptance/domain/status/view packet from
+these existing criteria; map it to the applicable act before application; then independently
+verify its final committed content and graph evidence before closing B-084/FB-05/G105. The
+separate D-200 bootstrap review is [B-086](B-086-d200-tool-split-and-handoff-bootstrap-review.md).
+Neither chain is made a prerequisite for unrelated authorized work.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-199's bounded AT-001 improvements and actual application anchor | Phase 1: preserve the evidence at 78cd2b3 |
+| Approve-with-conditions | D-199 coverage/mapping and application account | Phase 1 Cowork: use the corrections above in the existing packet |
+| Defer | Whole B-084/FB-05/G105 closure | Phase 1: complete contract and dependent-view reconciliation, then independent verification |
+| Reject | Different valid examples as contradictory requirements; Applied anchor as terminal verification | Preserve the distinct meanings and B-085's bounded closure |
 
 ## Follow-up review — authority provenance and executable verification order — 2026-09-08
 

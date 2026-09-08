@@ -14130,3 +14130,111 @@ Cowork will be governed by, which is exactly the concentration `D-82` recorded a
 Critic for. **A separate-turn critic pass over this act is owed** (`D-93` rule 1), and the first
 `A-NNN` turn report from Claude Code is the natural place for the implementation half to be reviewed
 back.
+
+---
+
+## 5.14e26 `D-201` — `D-200`'s Bootstrap Corrected: Four Ownership Holes, One False Guarantee, One Unsafe Runbook
+
+**Lane A (Cowork) act, 2026-09-08, under the `T2` ruling that produced `D-200` — no new approval
+sought or needed. Raised as `B-086`**, Lane B's separate-turn critic record against `73226b7`.
+**This is follow-up order 1 of `B-086`'s own table**, and it completes the source packet the Judge
+directed Cowork to complete. **`D-200`'s direction stands** — one lane, one lock, one `Active` row,
+strategy/implementation by tool, the existing channel reused. **Its implementing contract did not,
+and one of its mechanical claims was false.**
+
+### Correction 1 — the map called itself complete and was not
+
+`D-200` said *"all eight surfaces, none left silent."* **Four bootstrap paths had no owner**, and
+one of them is the path `D-200`'s own item 3 proposed to change:
+
+| Path | Owner under `T2` | Why it was missed |
+|---|---|---|
+| `.githooks/` | **Claude Code** | `D-200` item 3 specified a `commit-msg` change while leaving the directory unassigned |
+| `docs/graph-fragments/*.js` (`merge7.js`, `missing.js`) | **Claude Code** | executable tooling swept under the general `docs/` rule |
+| Graphify runtime operations | **Claude Code** | **operating a tool is not editing it** — a distinction `D-200` never drew |
+| `.gitattributes` · `.gitignore` · `postcss.config.mjs` · root `README.md` | **Claude Code** | repo config, unlisted |
+
+**`docs/graph-fragments/*.json` is Cowork's** — curated *meaning*, an exact-file exception inside a
+Code directory, exactly as `.agents/rules/graphify.md` is a rule file inside one. **Exact-file
+exceptions apply before directory rules.** `.graphify/` remains gitignored runtime metadata owned by
+no surface.
+
+### Correction 2 — the channel has FOUR readers, and `D-200` named one
+
+The classifier is **`ENTRY_FILE` in `scripts/checks/handoff-fields.mjs:130`**, imported by
+`handoff-response.mjs:61` (receipt), `closure-readiness.mjs:61` (closure) and
+`scripts/fixtures/suites.mjs:11` (fixtures). **`channel-docs.mjs:123` carries a separate INVERSE
+`[BC]` pattern**, treating any non-`[BC]` markdown in the channel as an instruction document.
+
+**So an un-widened `A-` file is worse than invisible: it is misclassified into the stricter
+regime.** `D-200` proposed widening `handoff-response` alone — the wrong ownership target, and it
+would have left closure blind while `channel-docs` swept the entry's prose as SOP text.
+
+### Correction 3 — a false mechanical guarantee, withdrawn
+
+`D-200` asserted that documenting the `A-` series in `README.md`/`TEMPLATE.md` before the check
+implemented it **would fail the suite**. **That is false and is withdrawn.** `channel-docs`
+validates fields, resolutions and prose tallies; **it does not enforce filename-series
+declarations.** `B-086` ran a read-only in-memory counterexample — an `A-`series sentence added to
+both inputs returned **no findings**.
+
+**This is the class this corpus keeps paying for**: a control asserted to fire, never tested. It is
+the same error as the `source-sweep` invocation that could not run, recorded two acts ago, and
+`D-199`'s own subject. **Recorded rather than quietly deleted** (`D-93` rule 4).
+
+**Replaced by an activation rule, not an ordering rule:** *do not file or activate an `A-NNN` entry
+until readers, channel documentation, run registration and fixtures agree.* Both sides are prepared
+first; each owning tool finishes its own pass. **Never edit a checker to make a predicted failure
+come true.**
+
+### Correction 4 — `A-001`'s contract, and `D-200`'s self-blocking prohibition
+
+`D-200` said *"no `A-NNN` entry may be filed"* with no exit, which blocks the very entry that would
+report the bootstrap. **Replaced by the activation rule above**, plus a receipt contract:
+
+`Kind: turn-report` · `Phase: 1` · filled `Evidence` · a **unique run registered in
+`V1-PHASE-CLOSURE.md` §5.0a before the report is filed** — **no reuse of `LA-P1-04`** · `Resolution`,
+`Verified-By` and `Verified-At-Commit` **omitted** (`G84`, `D-123`). The `Lane A` field names Cowork
+as receiver; provenance names Code as producer. **Receipt is not verification.** A tool change
+creates no independent verifier and does not touch closure condition 4.
+
+**The run assignment is `B-086` follow-up order 4, not this act.** Recorded as owed, not claimed.
+
+### Correction 5 — the terminal runbook is withdrawn entirely
+
+| `D-200`'s instruction | Why it is wrong | Replacement |
+|---|---|---|
+| `node docs/graph-fragments/merge7.js` | With no argument it merges **`frag7.json` only** (`merge7.js:172`); `--all` audits rather than merges. It was run during review and **updated the ignored local graph with its default fragment** | Enumerate required fragments in dependency order, pass each explicitly, verify final parity |
+| `graphify update --fill-missing` completes semantics | It runs another rebuild and narrows description generation; it does **not** guarantee every assistant batch is answered and ingested | Use the installed documentation-update workflow; ingest live semantic work; verify curated content after the last operation |
+| `stale: false` proves currency | Metadata named `78cd2b3` while HEAD was `73226b7` | Require analyzed-HEAD equality, semantic inspection and curated parity **separately**, then the suite |
+| `git gc --prune=now` clears lock litter | **gc prunes objects; it is not lock cleanup**, and dropping the age grace is unsafe around uncoordinated writers | Removed. A blocking lock is a separate maintenance task: name the exact file, coordinate writers, then repair under specific authorization |
+| Four commits credential-blocked | **The push completed**; local and upstream are both at `73226b7` | Recheck only the actual later outgoing range before any further authorized push |
+
+### Correction 6 — two controls, not one
+
+**Channel activation and tool-crossing enforcement are separate children.** `.githooks/commit-msg`
+delegates to `scripts/lane-gate.mjs`, which **returns early when only one lane is touched** — and a
+Cowork/Code crossing *is* a one-lane change, so the gate exits before it can see one. The gate must
+evaluate lane and tool crossings **independently**. It **reports paths, never an inferred actor**:
+the shared Git identity still cannot prove who edited what (`D-87`). **Receipt recognition does not
+prove tool enforcement, and a turn report verifies neither.**
+
+### Tier applicability (`D-54`)
+
+| Item | Register | Agent files | Build spec | Phase closure | Channel docs | `Modular_PRD` |
+|---|---|---|---|---|---|---|
+| Ownership corrections, exact-file exceptions, operate-vs-edit | ✅ §5.14e26 | ✅ core, all three, re-hashed | **— not yet: §2 names the principle, not the exceptions** | **— unaffected** | **— not yet: order 4** | **— unaffected: a development-tool policy, never a product fact** |
+| Four readers; activation rule replacing the ordering claim | ✅ §5.14e26 | ✅ core, all three | **— unaffected** | **— unaffected** | **— not yet: order 4** | **— unaffected** |
+| `A-001` receipt contract and run registration | ✅ §5.14e26 | ✅ core names the return | **— unaffected** | **— not yet: §5.0a is order 4** | **— not yet: order 4** | **— unaffected** |
+| Runbook withdrawn; tool crossing separated | ✅ §5.14e26 | ✅ core carries no runbook | **— unaffected** | **— unaffected** | **— unaffected** | **— unaffected** |
+
+### What this act does NOT do
+
+**Files no `A-` entry. Edits no `scripts/`, `.githooks/` or fixture.** Assigns no run. Opens or
+closes no phase. **Does not release the `D-171` `S2` hold.** Authorizes no build, migration or
+deployment. **Product PRD, functional requirements, product UML/data flow and the Encyclopedia are
+unaffected** — this is development-tool policy.
+
+**Lane A's own work, not independently reviewed.** `B-086` is the separate-turn critic record for
+`D-200`; **this act needs its own**, and `B-086`'s follow-up order 2–4 are Claude Code's and
+Cowork's remaining passes.

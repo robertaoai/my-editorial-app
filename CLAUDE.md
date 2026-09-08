@@ -225,36 +225,43 @@ file is the drift mechanism (`G55`).
 | **B** | Codex | `AGENTS.md` | `app/`, `lib/`, `components/`, `supabase/`, `__tests__/` |
 | **C** | Antigravity | `.agents/rules/graphify.md` | **`.github/workflows/` only** |
 
-**Lane A is two tools with split surfaces (`D-200`, Judge ruling, binding).** One lane, one lock,
-one `Active` row — the tools **serialize on Lane A's turn**, and `lane-state` is unchanged. What
-splits is the surface, on the Judge's own principle: **strategy is Claude Cowork, implementation is
-Claude Code.**
+**Lane A is two tools with split surfaces (`D-200`, corrected by `D-201`, binding).** One lane, one
+lock, one `Active` row — the tools **serialize on Lane A's turn**, and `lane-state` is unchanged.
+What splits is the surface, on the Judge's own principle: **strategy is Claude Cowork,
+implementation is Claude Code.**
 
 | Surface | Lane A tool |
 |---|---|
-| `docs/` **except `docs/handoff/`** · the rule files · `.github/` except `workflows/` | **Claude Cowork** — planning and strategy of governance |
-| `scripts/` · `.claude/` · `.agents/` · `.codex/` · build config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, lockfiles) | **Claude Code** — implementation of governance |
+| `docs/` **except `docs/handoff/` and `docs/graph-fragments/*.js`** · the rule files · `.github/` except `workflows/` · `docs/graph-fragments/*.json` (curated meaning) | **Claude Cowork** — planning and strategy of governance |
+| `scripts/` · `.githooks/` · `.claude/` · `.agents/` · `.codex/` · `docs/graph-fragments/*.js` · build and repo config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `postcss.config.mjs`, `.gitattributes`, `.gitignore`, lockfiles) · root `README.md` | **Claude Code** — implementation of governance |
+
+**Two exact-file exceptions, applied BEFORE the directory rule.** `.agents/rules/graphify.md` is a
+rule file and therefore **Cowork's**, inside a Claude Code directory. `docs/graph-fragments/*.json`
+is curated meaning and therefore **Cowork's**, inside a directory whose `*.js` tools are Code's.
+
+**Operating a tool is not editing it.** Claude Code runs the Graphify pipeline — rebuild, merge,
+semantic fill, ingest — and owns those runtimes; Cowork owns what a curated fragment *means*.
+`.graphify/` stays gitignored runtime metadata owned by no surface.
 
 **`docs/handoff/` stays unmapped** (`D-90`) — either tool writes responses there without crossing.
-**`.github/workflows/` stays Lane C's** (`D-75`), unchanged. A commit spanning both tool surfaces is
-a **tool crossing**; `Tool-Crossing: <reason>` is specified by `D-200` and **not yet built**, so for
-now it is a duty, not a gate — the same footing `D-75` had before `D-88`.
+**`.github/workflows/` stays Lane C's** (`D-75`), unchanged.
 
 **Claude Code returns its work to Claude Cowork through `docs/handoff/` as an `A-NNN` entry
 (`D-200`).** No second channel and no separate changelog: **these entries are the backlog**
 (`D-100`), and a second artifact listing them would be a restatement that drifts (`G55`). Work done
 is `Kind: turn-report`; a defect or a missing dependency keeps its existing kind; **a feature
-discovered beyond the current sprint or version is `Kind: finding`** — which is what a backlog item
-is in this channel.
+discovered beyond the current sprint or version is `Kind: finding`**. **A Code→Cowork tool return is
+NOT a Lane A→other-lane boundary report** — different event, different purpose, no second
+`lane-state` row.
 
-> **Bootstrap, stated here because it cannot be filed as an entry.** `handoff-response` filters
-> entry filenames on `^[BC]-\d+` and its own comment reads *"Lane A does not raise"*, so an `A-NNN`
-> file is **invisible to check 10** — `G74`'s defect for a third time. Widening that filter is
-> `scripts/` work and `scripts/` is Claude Code's, so **the instruction to widen it travels in this
-> rule file, not through the channel it opens.** Until check 10 reads `^[ABC]-\d+`, and until
-> `docs/handoff/README.md` and `TEMPLATE.md` document the series, **no `A-NNN` entry may be filed** —
-> `channel-docs` couples those two files to the checks in both directions, so documenting a series
-> no check implements fails the suite.
+> **Activation rule — `D-201`, replacing `D-200`'s ordering claim.** **Do not file or activate an
+> `A-NNN` entry until the readers, the channel documentation, run registration and the fixtures all
+> agree.** The classifier is `ENTRY_FILE` in `scripts/checks/handoff-fields.mjs`, imported by
+> `handoff-response`, `closure-readiness` and the fixture runner; `channel-docs` carries a
+> **separate inverse** `[BC]` pattern, so an un-widened `A-` file is not merely unread — it is
+> **misclassified as a channel instruction document**. Both sides of the contract are prepared
+> first; each owning tool then finishes its own pass. **Never edit a checker to make a predicted
+> failure come true.**
 
 **Lane A writes every dependency before Lane C builds a workflow against it (`D-84`).** CI calls
 `bun run check`; Lane A writes what it calls. `D-75`'s original map put `scripts/` and
