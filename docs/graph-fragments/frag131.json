@@ -1,0 +1,81 @@
+{
+  "nodes": [
+    {
+      "id": "b086_d200_tool_split_bootstrap_review",
+      "label": "B-086: D-200 Needs a Complete Tool and Handoff Bootstrap Contract",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-086-d200-tool-split-and-handoff-bootstrap-review.md",
+      "source_location": "",
+      "description": "Handoff spec-defect raised by Lane B against D-200's tool split, answered by D-201 and superseded in part by D-203. Read the entry header for current lifecycle status. Four reusable findings survive the acts that answered it. First, a channel has more readers than the one being changed: the handoff classifier is ENTRY_FILE in scripts/checks/handoff-fields.mjs, imported by the receipt check, the closure check and the fixture runner, while channel-docs carries a separate inverse pattern of its own -- so widening one reader leaves an entry misclassified rather than merely unread. Second, a control asserted to fire and never tested is the recurring defect class here: the claim that documenting a filename series before its check existed would fail the suite was false, disproved by a read-only counterexample, and withdrawn. Third, an ownership map that calls itself complete must name every path it touches, including the hook directory its own remediation proposes to change, and must distinguish operating a tool from editing it. Fourth, a terminal runbook is unsafe when its commands do not do what they are said to do: a bare fragment merge restores only its default fragment, a fill command does not complete semantic work, a stale-flag of false is not currency, and garbage collection is not lock cleanup. The entry's whole-entry resolution is the weakest of its children under D-204, which is Applied while two children remain unverified.",
+      "community": 49,
+      "community_name": "Sprint 0 Lane Startability",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also carries the entry's transferable findings -- the four-reader shape of a channel change, the asserted-but-untested control class, the completeness test for an ownership map, and the operate-versus-edit distinction -- which are otherwise reachable only by reading the full entry and the three acts that answered it."
+    },
+    {
+      "id": "m_mvp_requirements_tracking",
+      "label": "M-MVP: Editorial Pipeline Module Tracking",
+      "file_type": "document",
+      "source_file": "docs/modules/M-MVP-REQUIREMENTS.md",
+      "source_location": "",
+      "description": "Module tracking record for M-MVP, the five-gate editorial pipeline, created by D-203 so that both modules can be tracked and frozen by one rule. It carries identity, status, freeze state and links only: no requirement prose was moved into it, because four checks read docs/Modular_PRD.md and the decision-status check reads two of its sections positionally, so relocating governed prose is a separate act with its own before-and-after measurement. The distinction it exists to end is that docs/Modular_PRD.md is the product-level TRACKER, not a module -- it tracks M-MVP, M-POC and every module added later, and conflating a tracker with one of the things it tracks is what left M-MVP without a freezable unit. Its freeze rule differs structurally from a version or sprint freeze: a module is a set member and freezes on completion of its own scope, while versions and sprints are a sequence and freeze on succession. Module status authority stays in the tracker's module register, not in this file, because a second place to read a status is a second place for it to drift.",
+      "community": 34,
+      "community_name": "Lane Map Correction Commits",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also records the tracker-versus-module distinction and the set-versus-sequence freeze rule, which are stated across D-203 and the Modular_PRD module register rather than in the tracking file alone."
+    }
+  ],
+  "edges": [
+    {
+      "source": "b086_d200_tool_split_bootstrap_review",
+      "target": "b085_external_audit_disposition_and_scaffold_notices",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-086-d200-tool-split-and-handoff-bootstrap-review.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b086_d200_tool_split_bootstrap_review",
+      "target": "b084_d197_intake_specification_reconciliation",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-086-d200-tool-split-and-handoff-bootstrap-review.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "b086_d200_tool_split_bootstrap_review",
+      "target": "d90_handoff_channel",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/handoff/B-086-d200-tool-split-and-handoff-bootstrap-review.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "m_mvp_requirements_tracking",
+      "target": "m_poc_requirements_document",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/modules/M-MVP-REQUIREMENTS.md",
+      "source_location": "",
+      "weight": 1
+    },
+    {
+      "source": "m_mvp_requirements_tracking",
+      "target": "v1_decision_register",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/modules/M-MVP-REQUIREMENTS.md",
+      "source_location": "",
+      "weight": 1
+    }
+  ]
+}
