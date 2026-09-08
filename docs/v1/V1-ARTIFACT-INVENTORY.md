@@ -183,6 +183,21 @@ Opening those two files four times is four chances to leave them inconsistent �
 
 Closes no Open Decision. Amends no governing document. Authorizes no code, schema, migration, or deployment. `G26`'s resolution must not delete or rewrite the existing citations — annotation only, per this project's amendment discipline.
 
+## Tool-ownership disposition — `D-200`/`D-201`, raised as `B-086`
+
+**This inventory is UNAFFECTED by the Lane A tool split itself.** `D-54` scopes this document to **files** — created, retired, present or absent. `D-200` and `D-201` **create and retire nothing**; they assign an owning *tool* to paths that already exist, and **ownership is not an inventory fact**. Stated explicitly rather than left silent, because an omitted tier disposition is what `B-086` correctly refused to accept as complete.
+
+**Four existing rows WILL need updating when `B-086` orders 2 and 3 land**, and they are named now so the update is not discovered later:
+
+| Row | What changes |
+|---|---|
+| `scripts/checks/handoff-fields.mjs` | `ENTRY_FILE` widens beyond `[BC]`; it becomes the single classifier `channel-docs` also consumes |
+| `scripts/checks/channel-docs.mjs` | its separate inverse `[BC]` pattern is replaced by the shared classifier |
+| `scripts/lane-gate.mjs` | evaluates lane and tool crossings independently; no longer returns early on a one-lane change |
+| `.githooks/commit-msg` | carries the tool-crossing trailer alongside `Lane-Crossing:` |
+
+**No row changes in this act.** `handoff-response.mjs` and `closure-readiness.mjs` import the classifier and need no row edit of their own.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

@@ -14238,3 +14238,67 @@ unaffected** — this is development-tool policy.
 **Lane A's own work, not independently reviewed.** `B-086` is the separate-turn critic record for
 `D-200`; **this act needs its own**, and `B-086`'s follow-up order 2–4 are Claude Code's and
 Cowork's remaining passes.
+
+---
+
+## 5.14e27 `D-202` — Parent 1 Completed: Build Spec Propagated, Inventory Dispositioned, and Phase 1 Is a Lane, Not a Tool
+
+**Lane A (Cowork) act, 2026-09-08. Raised as `B-086`'s updated review, and it corrects a completion
+claim of mine.** `D-201` marked the Build Spec *"not yet"* and **omitted the Inventory column from
+its tier table entirely**, then the covering report called `B-086` follow-up order 1 **done**. It was
+not. **`D-54` requires a stated disposition for every tier, and an omitted column is not a
+disposition** — the same defect `B-006` item 4 and `D-199` each recorded in a different tier.
+
+### What completes Parent 1
+
+**Build Spec §2 propagated.** The paragraph carried `D-200`'s superseded map — no `.githooks/`, no
+exact-file exceptions, no operate-versus-edit distinction, and the withdrawn ordering claim. It now
+carries `D-201`'s corrected map in full.
+
+**Inventory dispositioned explicitly**, in a new section rather than by silence: **unaffected** —
+`D-54` scopes it to files created or retired, and the tool split creates and retires none;
+**ownership is not an inventory fact**. **Four rows are named as requiring update when `B-086`
+orders 2 and 3 land** — `handoff-fields.mjs`, `channel-docs.mjs`, `lane-gate.mjs`,
+`.githooks/commit-msg` — so that update is scheduled rather than discovered.
+
+### Judge clarification — Phase 1 is Lane A, and both tools work inside it
+
+**Asked: for Phase 1, is it Claude Cowork or Claude Code? Neither, and the question exposes why.**
+
+**A phase is a property of a LANE, not of a tool.** `V1-PHASE-CLOSURE.md` §5's register carries
+three rows — Phase 1/Lane A, Phase 2/Lane B, Phase 3/Lane C — and **no tool dimension**.
+`lane-state` (check 15) reads those rows and enforces one `Active` lane. **Adding a Cowork row and a
+Code row would create the second `lane-state` row that `D-200` and `D-201` both forbid**, and would
+mean two agents believing they may commit — the exact `G32` shape.
+
+| Question | Answer |
+|---|---|
+| Which tool **is** Phase 1? | **Neither. Phase 1 is Lane A**, and both tools work inside it |
+| Where does the tool fact live? | **In the RUN record**, `V1-PHASE-CLOSURE.md` §5.0a — runs are already lane- and phase-scoped (`LA-P1-04`), and the tool is run provenance |
+| What does *"Phase 1: Cowork"* mean operationally? | **Cowork holds Lane A's turn now.** It is a current-tool fact, not a phase row |
+| Does the tool change closure? | **No.** Conditions 1–5 and the Judge boundary are untouched; a tool change creates no verifier (`§5B.2`) |
+
+**So the phase register is not edited by this act**, and that is the finding rather than an omission.
+
+### Tier applicability (`D-54`) — every tier, none omitted
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e27 |
+| **Agent files** | **— unaffected: the corrected core landed at `a6ce253`; this act adds no rule** |
+| **Build spec** | ✅ §2 — the `D-201` map propagated in full |
+| **Artifact inventory** | ✅ **explicit disposition added** — unaffected by the split; four rows named for orders 2–3 |
+| **Phase closure** | **— not edited, and deliberately: a phase is a lane property.** §5.0a run assignment stays `B-086` order 3 |
+| **Channel docs** | **— not yet: `B-086` order 3, after Claude Code's order 2** |
+| **`Modular_PRD` / fn-specs / product UML / data flow / Encyclopedia** | **— unaffected: development-tool policy is never a product fact** |
+
+### What this act does NOT do
+
+**Claims no completion beyond Parent 1.** Orders 2, 3 and 4 remain owed, in that sequence. **Files no
+`A-` entry, edits no `scripts/`, `.githooks/` or fixture, assigns no run, writes no graph.** The
+graph remains at `78cd2b3` with `B-086` absent from coverage — **Claude Code's, under `D-201`** — and
+**this act does not claim the graph is current.** Opens or closes no phase; does not release the
+`D-171` `S2` hold.
+
+**Lane A's own work, not independently reviewed.** `B-086` stays `Answered` with no whole-entry
+resolution; `B-084` stays `Applied`; `B-085`'s bounded verification is intact.
