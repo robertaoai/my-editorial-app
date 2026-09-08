@@ -37,7 +37,10 @@
   are what determine what was authorized.
   **Unchanged:** `D-171`/`B-071`'s hold and owner, `PBL-11`'s future-backlog status, `Q9`, `FB-05`
   and `G105` all **open**, no build, no sprint, no lane transition, no push of the accumulated range.
+- **Resolution:** Applied
 - **Evidence:** Judge clarification in the 2026-09-08 review request; review at de898e3505b3b30e230688140572d87610b3aa0e; D-183 §5.14e8, D-186 §5.14e11, D-194 adopted approval statement, D-196; docs/README.md request-to-execution map; handoff README/TEMPLATE; B-082's independent verification
+
+- **Verified-At-Commit:** 33d814d2df4f2735eb44ee286872d9d0dced741a
 
 ## What happened
 
