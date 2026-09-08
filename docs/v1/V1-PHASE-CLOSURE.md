@@ -212,7 +212,7 @@ not need Phase 1 to close — but it did need **its specs accepted at a Judge bo
 had been. **The record in §5B stands**; only the reason changes from *"Phase 1 had not closed"* to
 *"no spec acceptance had occurred."*
 
-### `C-20` — what it must enforce
+#### `C-20` — what it must enforce
 
 **Not strict serialization. The feedback cycle:**
 

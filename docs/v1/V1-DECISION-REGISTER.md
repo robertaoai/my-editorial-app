@@ -2447,10 +2447,38 @@ grep -ho '^### `C-[0-9]*`' docs/v1/V1-DECISION-REGISTER.md docs/v1/V1-PHASE-CLOS
 **Derived on every run. No act states how many conditions exist** — every stated tally in this corpus
 has drifted, and the finding that named this one restated a number that was already stale.
 
-**Two deliberate exceptions, stated so they are not read as defects.** A `### \`C-NN\` (as opened)`
-section beside its closure is **append-only history**, not a duplicate — the pattern `D-93` rule 4
-requires. And a narrative mention inside a decision section is written `####`, so it stays readable
-without entering the index.
+**One positive rule, replacing the exception list — `D-211`.**
+
+> **Exactly one canonical `### ` section per condition, across BOTH files. Everything else is
+> `#### `** — a narrative mention inside a decision section, a cross-reference to the file that holds
+> the canonical section, and an `(as opened)` record beside its closure.
+
+**The exception list is gone deliberately.** As written, this condition named two exceptions and a
+third arrived within one act — `C-20` held a third `### ` in `V1-PHASE-CLOSURE.md`, the file the
+sweep never opened. **A list that grows by one per incident is the drift mechanism this condition
+exists to catch.** One rule, and every exception derives from it.
+
+**`C-28` is the model:** its canonical section is in `V1-PHASE-CLOSURE.md`; the register carries a
+`#### ` cross-reference. **Demote, never delete** — an `(as opened)` record is append-only history
+(`D-93` rule 4) and loses nothing by dropping out of the index.
+
+**Verification is running the command over BOTH files and inspecting the output** — not counting the
+file just edited. Three consecutive acts scoped a sweep to where the last defect was found; this line
+is what stops the fourth.
+**This condition has TWO mechanisms of different feasibility, and takes the WEAKEST part's
+disposition — `D-211`, extending `D-204` from entries to conditions.**
+
+| Half | Mechanism | Feasibility |
+|---|---|---|
+| **(a)** register → governed file: an instruction the register withdrew still stands | must tell an **instruction** from a **record** in prose; `D-209` did it by hand-counting | **hard, no mechanical form yet** |
+| **(b)** register → register: a declared convention violated inside the register | deduplicated enumeration over both files, plus the positive rule above | **easy, and the `C-20` case is its first test** |
+
+**Shipped as one unit, (a) blocks (b). Marked done on (b), (a) disappears.** That is the
+partly-applied problem `D-204`'s weakest-child rule already solved for handoff entries, and
+**conditions had no equivalent** until now. **A condition with parts takes the weakest part's
+disposition and closes when the weakest closes.** Splitting into `C-42a`/`C-42b` also works and is
+**rejected**: it creates the duplicate this very condition forbids.
+
 
 ### `C-41` — an entry may sit `Open` with no exit — `D-206`
 
@@ -2521,10 +2549,18 @@ FAILS, a `turn-report` without them PASSES** (`G84`). **And the guard must match
 ### `C-38` — the separate-turn critic pass over `D-203`, `D-204` and `D-205` — `D-205`
 
 **Opened by `D-204`, given a row by `D-205`. Owner: Lane A, on a later turn (`D-93` rule 1). Phase
-1.** Three consecutive acts are Lane A's own work, none independently reviewed. **Stop condition:** a
-pass run on a turn later than `D-205`, against the committed artifacts, its findings recorded in
-`V1-PHASE-CLOSURE.md` §6 with a reject count.
+1.** Three consecutive acts are Lane A's own work, none independently reviewed. **Stop condition — BOUNDED by `D-211`, because an unbounded one cannot be met.** This read `D-203`,
+then `D-203`–`D-209`, then `D-203`–`D-210`. **A definition of done that widens whenever new work
+lands is never owed *now* and never done.** `D-93` rule 1 already implies the fix: a critic pass runs
+**against a fixed artifact set**.
 
+**The range is fixed when the pass STARTS, and named in the pass itself** — the reviewing turn
+records the commit range it covers before it reads anything. **Acts landing after that range get
+their own pass.** That is the mechanism working, not scope escaping.
+
+**Discharged when:** a pass run on a turn later than the last act in its named range, against the
+committed artifacts (`D-93` rules 1–2), its findings and **reject count** recorded in
+`V1-PHASE-CLOSURE.md` §6.
 ### `C-37` — the `SETUP-SPIKE-000` archive is specified and ungated — `D-205`
 
 **Opened by `D-205`, 2026-09-08. Owner: Lane A · Cowork defines, Claude Code enforces. Phase 1.**
@@ -2635,7 +2671,7 @@ resolved in this pass.
 
 ### `C-31` — **CLOSED 2026-08-25 (`D-116`) — by RE-TIERING, not by being answered.** q1 was never a product question: retention is Project Scope with no CR, owned at the Alpha Portfolio record. q2 and q3 stand answered by `D-115`. Content moves to `C-32`. §5.14bw
 
-### `C-31` (as opened) — 5a: does retention on `articles` vary by final status? **Non-blocking**
+#### `C-31` (as opened) — 5a: does retention on `articles` vary by final status? **Non-blocking**
 
 **Opened by `D-114`, 2026-08-25. Phase: 1.** `Modular_PRD` §6.3 says *"rejected and archived after
 `DATA_RETENTION_ARCHIVE_DAYS`; published kept indefinitely"* — **a per-row rule.** The audit model
@@ -2665,7 +2701,7 @@ it did not exist until the cross-reference was performed.**
 
 ### `C-30` — **CLOSED 2026-08-25 (`D-114`)** — item 4 ruled in full; item 5's classification ruled, its floor deferred with a named owner, 5a carried as `C-31`. §5.14bu
 
-### `C-30` (as opened) — the S1 window has two unruled items, and `0002`'s authorization rests on them
+#### `C-30` (as opened) — the S1 window has two unruled items, and `0002`'s authorization rests on them
 
 **Opened by `D-113`, 2026-08-25. Phase: 1, then `0002`.** `D-112` released `D-17`'s hold on the
 stated ground that *"every S1 window decision is settled"*. **Build Spec §S1 items 4 and 5 were
@@ -2689,7 +2725,7 @@ owner.
 
 ### `C-29` — **CLOSED 2026-08-25 (`D-112`)** — the domain is decided: three values, asymmetric authority, manual in v1, four typed provenance fields. §5.14bs
 
-### `C-29` (as opened) — `G20`'s residual: a typed column with an undefined domain
+#### `C-29` (as opened) — `G20`'s residual: a typed column with an undefined domain
 
 **Opened by `D-111`. Phase: 1, then `0002`.** `articles.risk_tier` is approved as a typed column that is never a lifecycle state and never silently recomputed. **Its DOMAIN is undecided** — the tier vocabulary, who may assign or change a tier, whether a rule proposes while the Chief Editor confirms, and the provenance needed to reconstruct an assigned value.
 
@@ -2777,7 +2813,7 @@ was decided (`D-73`, `D-79`). **Lane A left them standing for a full cycle on pu
 rewriting an open decision request is answering it by edit — and that restraint is what made the
 correction safe rather than pre-emptive. *The condition as opened is retained below.*
 
-### `C-23` (as opened) — the `Modular_PRD` `Q11` row is stale and Lane A must not fix it
+#### `C-23` (as opened) — the `Modular_PRD` `Q11` row is stale and Lane A must not fix it
 
 **Opened by `D-95`, raised as `B-009`. Phase: with the `Q11` decision.** The `Modular_PRD` `Q11`
 row retains the **withdrawn `NFR-03` inference limb** (`D-69` withdrew it) and **still names
@@ -2838,7 +2874,7 @@ recorded. **`43c51ce` is the single instance**, and the remedy is a backlog entr
 
 *The condition as opened is retained below.*
 
-### `C-20` (as opened) — phase order is required and unenforced
+#### `C-20` (as opened) — phase order is required and unenforced
 
 **Opened by `D-93` as critic-pass finding `F4`. Phase: before Phase 2 closes.** `D-75` requires
 the lanes to run **sequentially, one at a time**, and **Phase 2 began while Phase 1 was open.**
@@ -2885,7 +2921,7 @@ pass that closes the phase, never before.**
 
 ### `C-16` — **CLOSED 2026-08-25 (`D-112`)** — `NFR-03` rewritten. The undefined clause was **dropped, not defined**: `D-69` found it measured by nothing, and an unfalsifiable requirement can be neither satisfied nor breached. §5.14bs
 
-### `C-16` (as opened) — condition on the `Q11` decision
+#### `C-16` (as opened) — condition on the `Q11` decision
 
 **`NFR-03` is already slated for rewrite** — `Q11`'s row says it *"needs its own rewrite, not a passthrough."* **That rewrite must either define *"inferred at read"* or drop the clause.**
 
@@ -15103,3 +15139,75 @@ forbids.
 narrow scope is not baked in. **Deletes no history.** Routes no entry — `B-071` stays `Open`.
 **Syncs no graph**; opens or closes no phase; does not release the `D-171` hold. **Lane A's own work,
 not independently reviewed** — `C-38`, now spanning `D-203` through `D-210`.
+
+---
+
+## 5.14e36 `D-211` — One Positive Rule Replaces the Exception List; Conditions Get the Weakest-Part Disposition
+
+**Lane A (Cowork) act, 2026-09-08, on Lane B's review of `D-210`.** Three findings, all verified,
+**all three Lane A's.**
+
+### The parent — a sweep scoped to one of the two files its own command reads
+
+`D-210` recorded the condition index as a command over **both** `V1-DECISION-REGISTER.md` and
+`V1-PHASE-CLOSURE.md`, then swept **only the register**. Measured: `C-20` held **three** `### `
+sections — the register's closure, its `(as opened)` record, and a narrative subsection at
+`V1-PHASE-CLOSURE.md:215`, in the file the sweep never opened. `comm -12` over the two files
+returned `C-20` as the sole cross-file duplicate.
+
+**Third consecutive act with this shape.** `D-209` swept the rule files after a rule-file defect;
+`D-210` swept the register after a register defect; each fix covered where the last defect was found.
+**The habit is treating the incident as the specification**, and the counter is written into `C-42`
+now: **derive scope from the rule's terms and verify by running the command, not by counting the file
+just edited.**
+
+### The rule, and one correction to the finding that proposed it
+
+**Lane B's positive rule is better than the exception list it replaces and is adopted verbatim in
+substance:** *exactly one canonical `### ` per condition across both files; everything else `#### `.*
+
+**Their fix section then named one demotion. Their own rule licenses seven** — six `(as opened)`
+records in the register plus the phase-closure narrative. **Applying a rule narrowly on the turn it
+is written is the same defect it corrects**, so the full scope was applied: `C-16`, `C-20` ×2,
+`C-23`, `C-29`, `C-30`, `C-31`. **Demoted, never deleted** — an `(as opened)` record is append-only
+history (`D-93` rule 4) and loses nothing by leaving the index.
+
+**Verified by running the canonical command over both files:** **no in-file duplicates, no cross-file
+duplicates.** The distinct-ID figure is an observation of that run and is deliberately not recorded
+as a target (`D-210`, `G55`, `G75`).
+
+### `C-42` takes the weakest part — `D-204` extended from entries to conditions
+
+**`C-42` is two mechanisms of different feasibility under one disposition.** (a) register → governed
+file must tell an **instruction** from a **record** in prose, which `D-209` did by hand and for which
+no mechanical form exists. (b) register → register is a deduplicated enumeration plus the positive
+rule above. **Shipped as one unit, (a) blocks (b); marked done on (b), (a) disappears.**
+
+**That is exactly the partly-applied problem `D-204`'s weakest-child rule solved for handoff entries,
+and conditions had no equivalent.** Extended here: **a condition with parts takes the weakest part's
+disposition and closes when the weakest closes.** Splitting into `C-42a`/`C-42b` was considered and
+**rejected** — it creates the duplicate `C-42` itself forbids.
+
+### `C-38` bounded, because an unbounded definition of done cannot be met
+
+It read `D-203`, then `D-203`–`D-209`, then `D-203`–`D-210`. **A DoD that widens whenever new work
+lands is never owed now and never done.** The range is now **fixed when the pass starts and named in
+the pass itself**; acts landing afterwards get their own pass. `D-93` rule 1 already implied this —
+a critic pass runs against a **fixed** artifact set.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e36; `C-42` rule and weakest-part; `C-38` bounded; six demotions |
+| **Phase closure** | ✅ one demotion at `:215` — **the file `D-210` failed to open** |
+| **Agent files · Build spec · Channel docs · Inventory** | **— unaffected: no instruction, field, resolution or artifact changes** |
+| **`Modular_PRD` and product tiers** | **— unaffected: a register-internal convention is never a product fact** |
+
+### What this act does NOT do
+
+**Installs no check** — `C-42` is Claude Code's and stays **last**, now with the weakest-part
+disposition so its easy half cannot close its hard half. **Deletes no history.** Routes no entry —
+`B-071` stays `Open`. **Syncs no graph**; opens or closes no phase; does not release the `D-171`
+hold. **Lane A's own work, not independently reviewed** — `C-38`, whose range is fixed by whoever
+starts the pass.
