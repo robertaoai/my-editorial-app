@@ -36,11 +36,156 @@
   **Not done, deliberately:** any relocation of requirements, promotion of `PBL-11` beyond identity,
   `M-POC` activation, or build. Historical Stripe presence and its `S0` removal stay confirmed
   history establishing **no current payment authority**. Frozen sources untouched.
+  **Correction appended 2026-09-08, after the independent review at `1c46de8` (`R2-1`–`R2-4`).**
+  The review is right that the first pass was incomplete, and **all four were already named in this
+  entry** — they are missed documentation corrections, not deferred relocations. All four now land.
+  **`R2-1`** — `M-POC-REQUIREMENTS.md` §0's *"Amend `M-MVP`"* row still read *"Everything in
+  `Modular_PRD` §1–§12 is `M-MVP`'s"*. **This was Lane A's miss**: the finding named *"Modular_PRD
+  §0.6 **and** M-POC requirements §0"* and only the index side was fixed, leaving the companion
+  asserting exactly what the index had stopped asserting. **`R2-2`** — `docs/README.md`'s
+  historical-journal row routed current decisions, state **and backlog** to `v1/`/`handoff/`;
+  it now separates sprint decisions and lane state (`v1/`), handoff work and its lifecycle
+  (`handoff/`), and enduring capability identity, rank and readiness (`Modular_PRD` §2.5.2).
+  **`R2-3`** — `V1-BUILD-SPEC` §6.1's *"four-step procedure"* pointer is replaced with one that
+  names the owners and **restates no count** — a tally inside a pointer is the `G55` shape.
+  **`R2-4`** — the *controlling sentences* are now superseded in both homes, not just the capability
+  name and owner: `G105`'s *"closes when … `FB-05` gains a named sprint"* made an AI-intelligence
+  sprint a condition of a manual-intake gap, and `INTELLIGENCE_LAYER`'s *"until `Q9` is answered,
+  no sprint builds Reporter-gate intelligence"* survived the earlier block untouched. **`PBL-11`'s
+  absence of a sprint follows from being unranked, not from `Q9`.**
+  **`D-195`'s tier table is corrected with them.** It declared `V1-BUILD-SPEC` **Unaffected** while
+  that file carried a named stale pointer — **declaring a tier unaffected does not resolve a defect
+  in it** — and omitted `M-POC-REQUIREMENTS.md` and `README.md` entirely. All three now read
+  **Affected**, with reasons.
+  **While repairing `R2-4` I found and fixed a defect of my own making:** the supersession block
+  added in the previous pass had been inserted *mid-paragraph*, splitting the historical text in
+  two. Both notes are now merged into **one** block following an **intact** paragraph. Nothing
+  historical was deleted.
+  **Unchanged, deliberately:** no relocation, no `PBL-11` promotion beyond identity, no
+  implementation. `G105`, `FB-05` and `Q9` all remain **open** — none of these corrections closes
+  any of them. **`Applied` is not `closed`**, and independent verification is still owed.
 - **Resolution:** Applied
 - **Evidence:** review at 6d5ae5448dfc7b2ae339026b0f7c2e2bcabd3294; current Judge request; Modular_PRD §2.5.1–§2.5.2; Register D-188/D-194/G105; Addendum §2.4 CR-14/A7; INTELLIGENCE_LAYER handoff note; Encyclopedia sync dependency ledger; B-080's verified correction
 - **Verified-At-Commit:** 99ea0a1641670fa0dd97584b6e5a8066ad6deb47
 
 ## What happened
+
+### Independent review at 1c46de8 — 2026-09-08
+
+**Request clarified:** verify the applied B-081 corrections, finish drafting any missed fixes,
+and explain relocation versus PBL-11 promotion as separate parts of the module/version/sprint
+and backlog workflow. Planning only. This review changes no governing source or lifecycle field.
+
+**Accepted:** D-195 correctly records module/version/sprint distinctions and M-MVP priority;
+the Modular_PRD notation example and shared-tracer note are corrected; FN-POC distinguishes
+introduction lineage from build authority; PBL-11 is registered unranked and separate from CR-14
+and PBL-06, with the PBL-10 reservation explained. Those completed corrections need no repeat.
+
+**B-081 remains Applied, not Verified.** The following were already named in this entry and
+remain at the reviewed revision. They are missed documentation corrections, not deferred file
+relocations or future AI implementation. Append a correction to Lane A's applying answer when
+they land; “Applied” is not “closed.”
+
+| Finding | Remaining text | Required bounded correction |
+|---|---|---|
+| R2-1 — companion ownership | M-POC-REQUIREMENTS §0 still says everything in Modular_PRD §1–§12 is M-MVP's | Replace the Amend M-MVP row with: “Must not amend M-MVP's module-specific requirements or reuse, move or renumber its FR/US/AC identifiers. Shared module tracing, capability intake and version/sprint mapping remain in Modular_PRD.” |
+| R2-2 — entry navigation | docs/README's historical-journal row still routes current decisions/state/backlog solely to v1/handoff | Apply the exact replacement already drafted under this entry's Navigation gap: version decisions/state → v1; handoff work → originating entries; enduring capability rank/readiness → Modular_PRD §2.5.2 |
+| R2-3 — procedure pointer | V1-BUILD-SPEC §6.1 still says four-step procedure | Apply this entry's Stale procedure pointer replacement without a restated step count; distinguish §2.5.1 version reconsideration from §2.5.2 capability intake |
+| R2-4 — remaining dependency conflation | G105's original closure sentence still requires FB-05 to gain a named sprint; INTELLIGENCE_LAYER's text after the supersession still makes Q9 a gate on all Reporter intelligence | Explicitly supersede those controlling sentences, not just the capability name and owner. Use the proposed text below |
+
+**R2-4 replacement for both homes, adapted only for the local citation:**
+
+> G105's manual-intake dependency follows the remaining specification and independent-verification
+> criteria of D-194/FB-05/Q9, including T1 execution authority and source author/date handling.
+> Its closure does not require allocating an AI-intelligence sprint. PBL-11 has its own feature
+> refinement, rank/readiness and build-authorization path; neither registration nor completion of
+> the manual contract promotes it. Any actual dependency discovered during refinement must be
+> stated and decided, rather than inherited from this superseded conflation. NG-10 remains the
+> no-bypass control. This correction itself closes none of G105, FB-05 or Q9.
+
+The original historical paragraphs may stay, but their supersession must cover the obsolete
+closure/dependency claim explicitly. D-195's affected-tier declaration and this entry's applying
+evidence must match the eventual correction set; declaring Build Spec unaffected does not resolve
+its named stale pointer. No product behaviour change is needed to correct these references.
+
+### Relocation and promotion — different operations with different evidence
+
+| Operation | Meaning | Current position | What would authorize/completely evidence it |
+|---|---|---|---|
+| Module tracing | Identify module owners and references | M-MVP and M-POC traced in Modular_PRD; M-POC detailed sources already separate | Source pointers agree; neither module is renamed V1 |
+| Content relocation | Move the sole living content to a better owner/path | No concrete move is selected or required by D-195; M-POC already has its own files | A named source-section/destination manifest, reason, authority and reference/graph impact; evidence that only one live owner remains |
+| Capability registration | Give requested capability an enduring identity | PBL-11 is done at this level only | Existing canonical row and unique ID; do not register it again |
+| Refinement | Turn the request into a bounded feature-group proposal | Not performed for PBL-11 | Authorized refinement scope, proposed behaviour, boundaries, evidence needs and explicit unresolved decisions |
+| Rank/readiness decision | Decide relative priority and whether the proposal is ready for selection | PBL-11 remains Unranked, identity only | Named Judge/refinement outcome recorded in existing owning fields; ready is not selected |
+| Version/sprint selection | Allocate approved scope to a version and bounded sprint unit | No version or sprint assigned to PBL-11 | Register act plus affected version Build Spec scope/sequence/DoD and appropriate §8 trace |
+| Implementation authorization | Permit an Active lane to execute the bounded unit | Not present | Existing execution packet, dependencies and authorization gates; registration, relocation or refinement cannot substitute |
+
+This table describes meanings, not new lifecycle states or a new tracker. Do not put “refined,”
+“ready,” “selected” or “built” into handoff Resolution fields; the handoff retains its existing SOP.
+PBL-11 promotion is not one automatic jump from identity to build, and module relocation is not
+a prerequisite for refinement. Neither operation is required to finish the present B-081 correction.
+
+### Concrete Lane A follow-up, highest parent first
+
+1. **Finish the existing correction.** Apply R2-1 through R2-4, record the actual touched tiers
+   in D-195 and append the B-081 answer. Preserve the accepted hierarchy, PBL-11 identity and
+   frozen sources. No requirement relocation or capability promotion is part of this write set.
+2. **Verify B-081 at a settled revision.** Run local checks, rebuild extracted graph content and
+   re-merge curated fragments as needed, then verify the named fragments and seek independent
+   review of the changed text. Keep the Applying SHA drawn from Git. A green suite alone does
+   not prove these semantic claims. Closure can occur without building PBL-11.
+3. **Continue the authorized M-MVP manual-intake documentation proposal.** Resolve its actor/
+   authority and author/date questions, then propagate the accepted behaviour to the feature-group
+   specs and views. PBL-11 is not a substitute producer or a prerequisite for that manual package.
+4. **If a relocation is proposed later, make it concrete.** List source path/section, current
+   authoritative content, exact destination, which live content is removed from the old location,
+   historical pointer to retain, inbound links, checker/manifest/graph dependencies, and rollback
+   or stop condition. Default here is no move: the named module and spec homes already exist.
+   Preserve the B-071 corrective plan as its bounded provenance artifact; do not treat its draft
+   PBL content as a permanent competing catalog. Apply its existing approval gate.
+5. **When PBL-11 is selected for refinement, prepare the proposal under its existing ID.** Name
+   the tagging outputs and purpose of each score; distinguish those from CR-06 and PBL-06; propose
+   human review, provenance, unavailable-input/error paths, quality/cost evidence and no-bypass
+   controls. These are refinement questions, not silently decided requirements. Keep the old
+   plan pack as historical input only. No model, threshold, UI or technology is chosen here.
+6. **Record promotion only after its actual decision.** Update canonical rank/readiness once,
+   preserving M-MVP's current priority. A later selected version/sprint gets its own bounded
+   authorization and D-54/§8 propagation. If refinement is deferred, record owner and return
+   condition in the existing process, without a duplicate backlog or an invented delivery date.
+
+### Acceptance and cross-reference scope
+
+R2's deterministic failures are documentation failures: two current owners for the same rank
+violate one-source ownership; a broken post-move link fails its reference check; a handoff
+called Verified before these named corrections land fails its own acceptance criteria. No
+inevitable runtime or financial failure of the future capability is asserted.
+
+For a later relocation, compare source/destination content and anchors, update inbound references
+and graph-fragment paths, then check that only the destination is identified as live. Do not use
+node-count growth as parity evidence. For later promotion, examples must demonstrate that a score
+cannot bypass a named gate and that identity/priority markers do not falsely signal build authority.
+
+Current storyboard/panels and sequence/UML/data-flow views keep the manual package and shared
+engine. Relocation changes their links only if they actually reference moved content; PBL-11
+behaviour diagrams await an approved feature-group proposal. Encyclopedia impact is assessed
+from its declared dependencies: D-194's Entry 02/06 follow-up remains separate, and a future
+scoring explanation may affect Entry 03. No hosted parity claim is made. Neither a new UML file
+nor an Encyclopedia rewrite is required just to close B-081.
+
+**Evidence:** clean HEAD 1c46de83b40e4aad83f9f886860eefc2c85ae2f4 at intake; 17/17 local checks;
+graph metadata matched that HEAD, stale false; frag126 passed exact named-fragment parity. Source
+reads confirm the residuals despite those green results. This review does not independently
+confirm the remote push. Only B-081's review prose is changed, uncommitted; graph refresh follows
+its eventual commitment. B-077 through B-080 retain their existing dispositions.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Applied D-195 hierarchy, priority and PBL-11 registration | Phase 1: retain completed corrections |
+| Approve-with-conditions | B-081 overall verification | Phase 1: R2-1–R2-4, accurate tier declaration, then independent review |
+| Reject | Calling Applied closed or treating relocation as promotion | Preserve existing lifecycle and separate operations |
+| Defer | Physical relocation | Later named need and exact source/destination manifest; no move required now |
+| Defer | PBL-11 refinement/ranking/version selection/build | Separate decisions through the existing process; no automatic promotion |
+| Approve | Manual M-MVP proposal proceeds independently | Existing D-194 authorization; remaining actor/metadata criteria still apply |
 
 ### Highest parent — module tracer, build versions and sprints (2026-09-08)
 

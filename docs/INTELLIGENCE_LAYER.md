@@ -60,9 +60,13 @@ the forbidden behaviour when the real feature arrives.
 **No sprint exists to name.** The feature this file describes is `CR-14` (AI tagging and scoring
 at the Reporter gate), which **has no functional requirement** — gap `FB-05`, decision request
 **`Q9`** (`Modular_PRD.md` §10, *"In or out of v1?"*, owned by the customer via the sponsor).
+Until `Q9` is answered, no sprint builds Reporter-gate intelligence, and naming one — `S2`,
+`V2`, or otherwise — would be an invented number. **`NG-10` needs no "Ready when" of its own**:
+it is a permanent constraint on *how* such a feature must behave, not a deferred item awaiting
+return like `NG-02`/`NG-03`.
 
 > **SUPERSEDED FOR CURRENT USE — 2026-09-08 (`B-081`). The paragraph above is preserved as dated
-> history; three of its mappings no longer hold.**
+> history; four of its claims no longer hold.**
 >
 > **1 — `CR-14` is tagging, not "tagging and scoring".** The frozen sentence reads *"AI **tags**
 > topics, sources, trend signals at Reporter gate"*. Scoring is a separate capability, and `TC3`
@@ -76,11 +80,15 @@ at the Reporter gate), which **has no functional requirement** — gap `FB-05`, 
 >
 > **3 — `Q9`'s owner is the Chief Editor**, not the customer via the sponsor (`B-080` `R1`).
 >
-> **`NG-10` is unaffected** — it constrains *how* any such feature must behave, whoever builds it.
-Until `Q9` is answered, no sprint builds Reporter-gate intelligence, and naming one — `S2`,
-`V2`, or otherwise — would be an invented number. **`NG-10` needs no "Ready when" of its own**:
-it is a permanent constraint on *how* such a feature must behave, not a deferred item awaiting
-return like `NG-02`/`NG-03`.
+> **4 — `Q9` does not gate *all* Reporter intelligence** (`R2-4`). `Q9` and `FB-05` gate the
+> **manual-input contract**, whose remaining criteria are `T1` execution authority and source
+> author/date handling. **`PBL-11` has its own refinement, rank/readiness and build-authorization
+> path** — neither registration nor completion of the manual contract promotes it, and its absence
+> of a sprint follows from being **unranked**, not from `Q9`. Any real dependency found during
+> refinement must be **stated and decided, never inherited** from this superseded conflation.
+>
+> **`NG-10` is unaffected throughout** — it constrains *how* any such feature must behave, whoever
+> builds it, and remains the no-bypass control.
 
 **Handoff** — none raised. This file is Lane A's own surface, and the finding above did not go
 through `docs/handoff/`, which is closed to Lane A by design (`G102`, `D-138`).

@@ -363,8 +363,11 @@ field name is committed to text an executor will apply — **not evidence requir
 
 ### 6.1 Backlog path — moved to the living tier (`D-148`, corrects `D-147`)
 
-**The four-step procedure and each item's "Ready when" condition now live in
-`Modular_PRD.md` §2.5.1** — not here. `D-147` first named the pattern in this document; `D-148`
+**The version-reconsideration procedure lives in `Modular_PRD.md` §2.5.1; living capability
+identities, ranks and readiness live in §2.5.2** — not here. This section retains `V1`'s dated
+exclusions and links to those owners. *(Corrected 2026-09-08, `B-081` `R2-3`: this had read*
+*"the four-step procedure", a restated count that had drifted from §2.5.1's actual steps — the*
+*`G55` tally shape inside a pointer. **Propagate the fact, never the tally.**)* `D-147` first named the pattern in this document; `D-148`
 found the placement wrong: this file freezes at v1's sprint close (`D-36`), and a mechanism meant
 to stay checkable across v2, v3, and beyond cannot be authored only in a document that will stop
 being edited. **This section is kept as a pointer, not deleted**, so a reader who remembers it

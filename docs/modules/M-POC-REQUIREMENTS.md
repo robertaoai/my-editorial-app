@@ -15,7 +15,7 @@ it. **This document is that missing tier.**
 
 | | |
 |---|---|
-| Amend `M-MVP` | Everything in `Modular_PRD` §1–§12 is `M-MVP`'s. **No `FR`/`US`/`AC` id is reused, moved, or renumbered** |
+| Amend `M-MVP` | Must not amend `M-MVP`'s **module-specific** requirements, or reuse, move or renumber its `FR`/`US`/`AC` identifiers. **Shared module tracing, capability intake and version/sprint mapping remain in `Modular_PRD`** and are not `M-MVP` content (corrected 2026-09-08, `B-081` `R2-1`) |
 | Authorize a build | Requirements are not a sprint. **No sprint, migration, config row, or code is authorized here** |
 | Create monetization capability | **`NG-03` holds.** Payment is an **operating activity performed outside the application** — see `PR-08` |
 | Touch frozen documents | `docs/PRD.md`, the Charter, `0001_init.sql` |
