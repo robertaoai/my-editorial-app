@@ -2401,6 +2401,19 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 > `grep "^### \`C-"` returns every condition. **A second list would be a restatement, and
 > restatements drift** (`G55`).
 
+### `C-42` — nothing compares an instruction file to the decision that governs it — `D-209`
+
+**Opened by `D-209`, 2026-09-08, raised by Lane B. Owner: Lane A · Claude Code (`scripts/`). Phase 1.**
+`shared-core-hash` proves the three rule files agree **with each other**; `tier-sweep` proves a claim
+**arrived** in its tier, never that it is **true** (`G65`). **Between those two sits the failure that
+has now occurred three times** — `B-011` (`D-100`), `D-203`'s surviving `A-NNN` instructions, and
+`D-208`'s missing inventory row. **Matching documents and a green suite do not prove agreement with
+the Register.**
+
+**Stop condition:** a check that fails when a rule file or the Build Spec still carries an
+instruction the register has withdrawn — a named-token sweep over withdrawn mechanisms, proven by a
+negative fixture that reintroduces one and must go red.
+
 ### `C-41` — an entry may sit `Open` with no exit — `D-206`
 
 **Opened by `D-206`, 2026-09-08, raised by Lane A · Claude Code. Owner: Lane A · Cowork. Phase 1.**
@@ -2459,6 +2472,8 @@ FAILS, a `turn-report` without them PASSES** (`G84`). **And the guard must match
 > **Excluded when LEADING:** `Lane A` · `Claude Code` · `Claude Cowork` · `Acknowledged` · `Answered` · `Self` · `Same`.
 > **Must-pass fixtures — the live values, each citing its entry:** `B-044`, `B-058`, `B-078`, `B-079`, `B-080`, `B-081`, `B-082`, `B-083`, `B-085`. **Never invented strings.**
 > **Must-fail probes:** `Lane A` · `reviewed by Lane A` · `verified by Lane A` · both em-dash disclaimer forms.
+
+**The initial audit record — truthful at creation (`D-209`).** A newly raised entry has no dispositioning actor yet and the fields may not be empty. At creation it reads **`Verified-By: — not yet dispositioned; raised by Lane B`** (or Lane C) and **`Verified-At-Commit:`** the raising commit. **Not a verifier and not a disposition** — a record of who put it there and where, replaced when Lane A dispositions it. The leading token is the disclaimer, so the allowlist catches it. **`D-204`'s existing fixture is untouched: the valid `Open` case stays green.**
 
 **The allowlist is safe only because that set is closed.** If a new actor appears, it is added here before the regex sees it — an open-ended list would be the guess this condition exists to avoid.
 
@@ -14908,3 +14923,77 @@ Lane B's Inventory findings verify against the file, and **both are Lane A's own
 `open 1`. **Moves no archive file** — `C-37`'s integrity check does not exist. Opens or closes no
 phase; does not release the `D-171` hold. **Lane A's own work, not independently reviewed** —
 `C-38`, now spanning `D-203` through `D-208`.
+
+---
+
+## 5.14e34 `D-209` — `D-203` Corrected the Decision and Left the Instructions Standing
+
+**Lane A (Cowork) act, 2026-09-08, on Lane B's consolidated review at `B-071` Round 53.** Lane B
+named the recurring failure precisely: **correcting the parent decision without correcting its
+active instructions.** Verified by count before this act:
+
+| File | Live `A-NNN` instructions |
+|---|---:|
+| `CLAUDE.md` · `AGENTS.md` · `.agents/rules/graphify.md` | **two each** — the return-path paragraph and the activation rule |
+| `V1-BUILD-SPEC.md` §2 | **one** |
+
+**`D-203` withdrew the channel in the register and never touched the four files that execute it.**
+For five acts, an agent reading its own rule file was instructed to return work as an `A-NNN`
+entry — **a file no reader can see and the register forbids.**
+
+### This is `B-011`, and `B-011` is the first entry this sequence answered
+
+`B-011` reads: *"`D-100` changes the operating model without changing the instructions that execute
+it."* **Lane A answered that entry and then reproduced its defect five acts later.** The failure is
+not ignorance of the rule; it is that **`D-54` propagation is performed as a table and verified as a
+table.** `D-203`'s tier row claimed the agent files were covered and no edit was made — **the second
+false ✅ in two acts**, after `D-208` corrected the first.
+
+**Matching documents and a green suite do not prove agreement with the Register.** `shared-core-hash`
+proves the three rule files agree **with each other**; nothing compares them to the decision that
+governs them. That is the gap this act closes by hand and **`C-42` records for a control.**
+
+### Applied
+
+**The shared core, all three files, re-synced and re-hashed:** the `D-200` return-path paragraph and
+`D-201` activation rule are **removed** and replaced by `D-138`'s route — **Lane A's turn report IS
+the boundary decision section**, cited by number from `V1-PHASE-CLOSURE.md` §5.0a's `Report` column,
+which is how `LA-P1-04` already works. The single surviving mention of `A-NNN` in each file is the
+**withdrawal record**, not an instruction.
+
+**`V1-BUILD-SPEC.md` §2:** the same substitution. **`ENTRY_FILE` stays `[BC]`; no reader changes.**
+
+**`C-39` gains the initial audit record**, which Lane B asked for: a newly raised entry has no
+dispositioning actor and the fields may not be empty, so at creation it reads **`Verified-By: — not
+yet dispositioned; raised by Lane B`** with the raising commit. **Not a verifier, not a
+disposition** — a record of who put it there and where. The leading token is the disclaimer, so the
+allowlist catches it. **`D-204`'s fixture is untouched: the valid `Open` case stays green.**
+
+**`C-42` — nothing compares an instruction file to the decision that governs it.**
+
+**Opened here. Owner: Lane A · Claude Code (`scripts/`). Phase 1.** `shared-core-hash` proves the
+three rule files agree with each other; `tier-sweep` proves a claim **arrived** in its tier, never
+that it is **true** (`G65`). **Between them sits the failure that has now happened three times** —
+`B-011`, `D-203`, and `D-208`'s inventory row.
+
+**Stop condition:** a check that fails when a rule file or the Build Spec still carries an
+instruction the register has withdrawn — starting with a named-token sweep for withdrawn mechanisms,
+proven by a negative fixture that reintroduces one.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e34; `C-39` gains the initial record; `C-42` opened |
+| **Agent files** | ✅ **all three, edited and re-hashed** — core `d65aa718e3b5`. **Verified by reading the files, not by asserting the row** |
+| **Build spec** | ✅ §2 clause replaced |
+| **Channel docs · Inventory · Phase closure** | **— unaffected: no field, resolution, artifact or phase state changes** |
+| **`Modular_PRD` and product tiers** | **— unaffected: development-channel policy is never a product fact** |
+
+### What this act does NOT do
+
+**Installs no check** — `C-42` and `C-39` are Claude Code's. **Syncs no graph**: `docs-drift` is red
+at `cbcf779` and the rebuild is Claude Code's under `D-201`; **this act does not claim the graph is
+current.** Routes no entry — `B-071` stays `Open`. Opens or closes no phase; does not release the
+`D-171` hold. **Lane A's own work, not independently reviewed** — `C-38`, now spanning `D-203`
+through `D-209`.

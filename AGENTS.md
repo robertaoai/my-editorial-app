@@ -246,22 +246,17 @@ semantic fill, ingest — and owns those runtimes; Cowork owns what a curated fr
 **`docs/handoff/` stays unmapped** (`D-90`) — either tool writes responses there without crossing.
 **`.github/workflows/` stays Lane C's** (`D-75`), unchanged.
 
-**Claude Code returns its work to Claude Cowork through `docs/handoff/` as an `A-NNN` entry
-(`D-200`).** No second channel and no separate changelog: **these entries are the backlog**
-(`D-100`), and a second artifact listing them would be a restatement that drifts (`G55`). Work done
-is `Kind: turn-report`; a defect or a missing dependency keeps its existing kind; **a feature
-discovered beyond the current sprint or version is `Kind: finding`**. **A Code→Cowork tool return is
-NOT a Lane A→other-lane boundary report** — different event, different purpose, no second
-`lane-state` row.
+**Claude Code returns its work to Claude Cowork through the REGISTER, not a new channel (`D-138`,
+restored by `D-203`, propagated by `D-209`).** When Lane A is the outgoing side, **its turn report IS
+the boundary decision section**, cited by number from `V1-PHASE-CLOSURE.md` §5.0a's `Report` column —
+**no second artifact is created**, which is how `LA-P1-04` already works.
 
-> **Activation rule — `D-201`, replacing `D-200`'s ordering claim.** **Do not file or activate an
-> `A-NNN` entry until the readers, the channel documentation, run registration and the fixtures all
-> agree.** The classifier is `ENTRY_FILE` in `scripts/checks/handoff-fields.mjs`, imported by
-> `handoff-response`, `closure-readiness` and the fixture runner; `channel-docs` carries a
-> **separate inverse** `[BC]` pattern, so an un-widened `A-` file is not merely unread — it is
-> **misclassified as a channel instruction document**. Both sides of the contract are prepared
-> first; each owning tool then finishes its own pass. **Never edit a checker to make a predicted
-> failure come true.**
+> **The `A-NNN` series is WITHDRAWN (`D-203`, against `G102`).** The Chief Editor had ruled that
+> opening `docs/handoff/` to Lane A *"would make Lane A both raiser and answerer in one directory,
+> undoing the attribution `D-90` avoided."* **`ENTRY_FILE` stays `[BC]`; no reader changes; no
+> `A-` file is filed.** `D-200`'s return-path paragraph and `D-201`'s activation rule are removed
+> here — **they survived this file for five acts after the decision that withdrew them**, which is
+> `B-011`'s defect: a parent decision corrected without correcting the instructions that execute it.
 
 **Freeze — two rules, three levels (`D-203`, Judge ruling). This completes `D-36`, which is right
 about sprints and silent about the other two.**
