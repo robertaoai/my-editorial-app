@@ -2396,6 +2396,30 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 **This holds regardless of what *"inferred at read"* means.** It is arithmetic on the declared columns, not an interpretation.
 
+### `C-41` — an entry may sit `Open` with no exit — `D-206`
+
+**Opened by `D-206`, 2026-09-08, raised by Lane A · Claude Code. Owner: Lane A · Cowork. Phase 1.**
+**`D-204` requires a `Resolution` once `Status` is `Answered`. Nothing requires an entry to become
+`Answered`**, so an acknowledged `Open` entry is exempt by rule and can sit indefinitely.
+
+**`B-071` is the live case and it is not a hypothetical.** Raised 2026-09-02, acknowledged the same
+day, still `Open`. Its own `Blocks:` line holds **terminal verification of `B-070`, any fresh S2
+authorization, and Lane B beginning `T5`/`T6`, route-readiness, judgment-packet or
+publication-decision implementation** — so one unrouted entry holds Phase 1 condition 2 **and** Lane
+B's whole S2 path.
+
+**And no control reads it.** `handoff-response` fails only on `Open` with **no acknowledgement**;
+`Acknowledged` + `Open` passes, and the README sanctions it — *"a queue is fine"* (`D-90`).
+`closure-readiness` reports `open 1` and **passes**, because it is silent until a phase claims
+closure. **The suite reached its first 17/17 with the single item blocking two lanes unmeasured.**
+
+**Not a time limit for its own sake.** A check that reddens a healthy queue is one people stop
+reading — `D-83` and `D-90` both record it, and `C-20` was withdrawn for exactly that. **What is
+missing is an exit, not a clock.**
+
+**Stop condition:** an entry `Open` past a stated boundary must reach `Answered`, or `Deferred` with
+a `Follow-up-Tier`. `closure-readiness` reports **`open 0`**, and `B-071` is the first subject.
+
 ### `C-40` — the audit fields are named after one record state — `D-205`
 
 **Opened by `D-205`, 2026-09-08. Owner: Lane A · Cowork. Phase 1.** `Verified-By` and
@@ -2407,6 +2431,11 @@ is now recorded in `docs/handoff/README.md`; the names are not.
 the fixture runner and every entry in the channel in one act. **Stop condition:** renamed, or this
 condition closed with a stated decision that the names stay.
 
+**This condition does NOT cover the independence-guard MATCHING defect** (`D-206`). That is
+`C-39`’s, stated there. Naming and matching are separate: renaming the fields would not close an
+anchored regex, and fixing the regex would not rename anything.
+
+
 ### `C-39` — the audit fields have no fill-check — `D-205`
 
 **Opened by `D-204`, widened and measured by `D-205`, 2026-09-08. Owner: Lane A · Claude Code
@@ -2417,7 +2446,10 @@ and six empty `Verified-At-Commit` before this act, with twenty `Applied` commit
 
 **Stop condition:** no non-`turn-report` entry has an empty `Verified-By` or `Verified-At-Commit`;
 every `Verified-At-Commit` proven with `git cat-file -e`; **negative fixtures — an empty audit field
-FAILS, a `turn-report` without them PASSES** (`G84`).
+FAILS, a `turn-report` without them PASSES** (`G84`). **And the guard must match by CONTAINMENT, not by prefix** (`D-206`):
+`NOT_AN_INDEPENDENT_VERIFIER` is anchored at `^`, so every value the channel has ever used evades it
+— measured, **every non-`Verified` record would pass the guard if flipped**. Fixture: a `Verified`
+entry whose `Verified-By` **contains** an excluded actor **fails**; a legitimate verifier passes.
 
 ### `C-38` — the separate-turn critic pass over `D-203`, `D-204` and `D-205` — `D-205`
 
@@ -14644,3 +14676,88 @@ its two fixtures, and `D-204`'s still-owed `handoff-response.mjs:238` flip **con
 more or less closed. Opens or closes no phase — `closure-readiness` still reports *no phase claims
 closure*. **Does not release the `D-171` hold.** `B-086` and `B-061` remain `Applied` and await
 Lane B. **Lane A's own work, not independently reviewed** — `C-38`.
+
+---
+
+## 5.14e31 `D-206` — The Independence Guard Matches by Prefix; `C-41` Opens for the `Open` State
+
+**Lane A (Cowork) act, 2026-09-08, on the Judge's ruling that `Verified-By` and `Verified-At-Commit`
+stay filled in every `Resolution` state, and on two findings from Lane A · Claude Code's
+separate-turn review at `e96360a` — the first 17/17 in this sequence.**
+
+### The ruling, and the boundary it needs
+
+**The audit fields are mandatory whatever the record state is.** `D-205`'s filled records stand;
+Claude Code's proposal to omit them on `Applied` is **withdrawn** — it reversed a standing ruling
+and, measured, closed nothing.
+
+**That is a STATE rule, not a KIND rule.** A `Kind: turn-report` carries no `Resolution`, so it has
+no state to be *regardless of*, and `handoff-response`'s `CLOSURE_ONLY` **fails** a turn report
+carrying either field, even blank (`G84`, `D-123`). **Reading the mandatory rule onto kind would
+fail every turn report in the channel.** Recorded in `docs/handoff/README.md` so it is not
+re-derived.
+
+### The finding that matters — the guard matches by prefix
+
+`closure-readiness.mjs` holds
+`NOT_AN_INDEPENDENT_VERIFIER = /^(acknowledged|answered|lane a|claude code|self|same)\b/i`.
+**It is anchored.** Every value the channel has ever written begins with an em-dash, so the excluded
+actor sits mid-string and never matches. **Tested rather than reasoned about: every non-`Verified`
+record in the channel would pass the guard if its `Resolution` were flipped to `Verified`** — a
+self-verification, which is precisely what `D-102` built the guard to stop.
+
+**Two corrections to how this was reported, both material.**
+
+**It is not `D-205`'s defect alone.** The older convention — *"— not independently verified. Lane A
+answered it"* — **bypasses identically**. The flaw predates `D-205`, which standardised onto a form
+with the same property and so **widened an existing hole rather than opening one**.
+
+**And the remedy was inverted.** *"Omit the field on `Applied`"* does not fix an anchored regex:
+anyone writing `Verified-By: reviewed by Lane A` on a `Verified` entry still passes. **Containment
+matching is the parent fix**; field presence is a legibility question the Judge has now settled
+separately. **Assigned to `C-39`**, and `C-40` is narrowed to say explicitly that it does **not**
+cover matching — naming and matching are different defects, and two conditions each deferring to the
+other is how `C-35`, `C-38` and `C-39` sat in prose for a whole act.
+
+### `C-41` — the `Open` state has no exit
+
+`D-204` requires a `Resolution` once `Status` is `Answered`; **nothing requires an entry to become
+`Answered`.** `B-071` — raised 2026-09-02, acknowledged the same day, still `Open` — holds Phase 1
+condition 2 **and** Lane B's entire S2 path, and **no control reads it**: `handoff-response` fails
+only on `Open` with no acknowledgement, and `closure-readiness` reports `open 1` and passes.
+
+**The first 17/17 was reached with the single item blocking two lanes unmeasured.** `C-41` asks for
+an **exit, not a clock** — a check that reddens a healthy queue is one people stop reading, which is
+why `C-20` was withdrawn.
+
+### Merge order, recorded
+
+**Rebuild first, then merge.** The rebuild is the destructive step, so the curated write belongs
+after it; merging first is `G51`'s shape and **fails silently**. Lane A · Claude Code ran the correct
+order this turn and Cowork's handover had specified the reverse — **the handover was wrong and is
+corrected in `docs/graph-fragments/README.md`**, together with the rule that fragments are named
+explicitly, since a bare `merge7.js` restores its default fragment only.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e31; `C-41` minted; `C-39` widened; `C-40` narrowed |
+| **Channel docs** | ✅ `docs/handoff/README.md` — the state/kind boundary. `channel-docs` clean |
+| **Graph docs** | ✅ `docs/graph-fragments/README.md` — merge order and explicit naming |
+| **Handoff entries** | **— unaffected: no entry edited, no `Resolution` changed** |
+| **Agent files · Build spec · Phase closure · Inventory** | **— unaffected: no lane rule, sequence, DoD, phase state or artifact moves** |
+| **`Modular_PRD` and product tiers** | **— unaffected: development-channel policy is never a product fact** |
+
+### Specified, NOT applied — Claude Code's `scripts/`
+
+**Containment matching and its fixtures** (`C-39`), and **`D-204`'s still-owed
+`handoff-response.mjs:238` flip** conditioned on `status === "Answered"` with the `Open`-passes
+fixture. `scripts/` is Claude Code's (`D-201`, `D-56`).
+
+### What this act does NOT do
+
+**Installs no check, writes no fixture, edits no handoff entry.** Changes no `Resolution`. Opens or
+closes no phase. **Does not route `B-071`** — `C-41` names the requirement; the disposition is a
+later act. **Does not release the `D-171` hold.** **Lane A's own work, not independently reviewed**
+— `C-38`, now covering `D-203` through `D-206`.

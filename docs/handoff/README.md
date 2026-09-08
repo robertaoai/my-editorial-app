@@ -359,6 +359,13 @@ state was anything else.
 a commit that exists. **No explanation goes in either field** — that is what the body is for, and a
 sentence in a metadata field is the same conflation one field over.
 
+**Mandatory in every `Resolution` state — and that is a STATE rule, not a KIND rule (`D-206`).**
+`Verified-By` and `Verified-At-Commit` are filled whatever the record state is, `Applied` included.
+**A `Kind: turn-report` is excluded, and by a different axis:** it carries no `Resolution` at all, so
+it has no state to be *regardless of*. `handoff-response` **fails** a turn report carrying either
+field, even blank (`G84`, `D-123`). **State and kind are separate axes; reading the mandatory rule
+onto kind would fail every turn report in the channel.**
+
 **On a record that is not `Verified`, `Verified-By` reads exactly:**
 `— not independently verified; dispositioned by Lane A`.
 One form, so a reader can tell *not verified* from *forgotten* — the distinction that makes `Applied`

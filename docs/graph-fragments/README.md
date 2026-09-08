@@ -104,6 +104,20 @@ Merge **in this order** — later fragments reference nodes earlier ones introdu
 
 **`graphify build --fragment` cannot do this.** It builds; it does not merge. Every curated update in this project has gone through a merge script for that reason.
 
+**Rebuild first, then merge — the destructive step goes first (`D-206`).** A rebuild regenerates the
+extracted layer and does not carry curated nodes; a merge writes them. **Merging before a rebuild
+puts the curated write on the wrong side of the destructive operation**, which is `G51`'s named
+shape and fails silently — the nodes are simply gone, and no check says why.
+
+**The risk is bounded, and that is not a reason to reverse the order.** `frag130` survived repeated
+rebuilds reporting `would-add: 0`, so merge-then-rebuild would usually work. **It costs nothing to
+be on the safe side of a destructive operation, and the failure mode is silent** — which is exactly
+when ordering discipline is worth keeping.
+
+**Merge named fragments explicitly.** `merge7.js` with no argument restores its default fragment
+only; `--all` audits conflicts rather than merging. Name each fragment, in dependency order, then
+verify parity per fragment with `--verify-only`.
+
 ## 5. Verifying a merge `[V1]`
 
 Run all four. A merge is not done until each passes:
