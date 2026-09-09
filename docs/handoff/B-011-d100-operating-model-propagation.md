@@ -979,3 +979,95 @@ set under D-54. This appendix corrects scope by reference rather than duplicatin
 | Approve-with-conditions | M-MVP report inventory | Existing R160 reconciliation; keep generated evidence separate from editable inputs and M-POC package |
 | Reject | Non-URL means non-digital; backlog means future authorization; report equals a second intake form | Correct semantics in existing owning records and derived views |
 | Defer | Implementation, report completeness, publication and handoff verification | Bounded authorization, owner work, graph evidence and independent review |
+
+## Digital source URL or manual Markdown — superseding clarification, 2026-09-09
+
+**Scope:** consolidate the Judge's latest clarification into a Lane A drafting packet, reviewed
+at `aae729c27cede21d06e08ac6f73712c500d44612`. Lane B raises; Lane A answers and propagates under
+the existing authority process. No new handoff or tracker. This is a plan, not source application.
+
+### Parent decision input — do not execute the previous URL-only draft
+
+The Judge clarifies that “URL or another reference” concerns **digital content**. Where that
+content cannot be accessed by URL, conversion to a **`.md` file** is required. V1 input preparation
+and entry remain manual, performed by the user. The documented fields are accepted as the
+starting proof-of-concept minimum, rather than requiring another speculative field-design round.
+
+**This supersedes the preceding appendix's blanket refusal of every no-URL input.** Its proposed
+all-version URL-only boundary must not be applied to the newly allowed digital-Markdown path.
+The prior interpretation of “all non-URL workflows” as deferred was too broad under this latest
+clarification. The physical-copy acquisition/conversion workflow remains the separately retained
+bottom-priority request; it is not a blocker or authorization for this digital-input path.
+Neither a new version nor a new PBL identity is needed merely to clarify current FR-01 intake.
+
+**Source versus conversion:** a Markdown representation does not prove the original source was
+available online, authentic or reliable. No fake URL, successful network check, generated metadata
+or original-author claim may be fabricated to satisfy an existing field. Manual preparation is
+not permission to bypass access controls, nor an instruction to build a converter/OCR/upload service.
+
+### Starting fields — preserve their existing stage and cardinality
+
+| Stage | Starting field set / treatment |
+|---|---|
+| Editorial Brief input | Digital source URL **or supplied Markdown representation**; one subject topic; trend-signal description; source information from the documented starting set |
+| Optional intake values | Analytical tags remain optional and many. Known source author/date may be carried; existing nullable-at-intake and investigation follow-up rules remain unless separately amended |
+| Recorded provenance | Human supplier, source reference and entry time; Reporter-agent execution recorded separately. The Markdown representation must remain attributable to the source used, not mistaken for the original publisher |
+| Later enrichment | Platform, reliability tier, evidence reference, confidence and editorial angle stay in their documented investigation stages; accepting a starter field inventory does not move them all to mandatory T1 input |
+| Generated report | Selected article/assessment revision, explicit judgment/result, reasons/evidence, history anchor and applicable versions; generated download reference. Not another initial-entry form or an assurance judgment |
+
+**Close the repeated business question at the stated level:** the Judge has accepted the existing
+documented starting fields. Do not keep asking for a larger source-information taxonomy before
+drafting. Preserve existing optional/nullable rules, record supplied source information without
+inventing mandatory subfields, and identify only a concrete missing behavior if it prevents the
+new path from being specified. The report's R160 mapping work remains separate and is not closed
+by acceptance of the intake minimum. “Proof of concept” here does not activate the M-POC module,
+its commercial fields, or any monetization capability.
+
+### Actual propagation gaps and fix drafts
+
+| Existing item | Source evidence | Smallest required correction |
+|---|---|---|
+| FR-01 intake representation | Product already says URL or another reference; Fn_Spec §2.3/§3.1 says URL-only and commissioned work resolves to URL first | Refine Product's alternative as the accepted digital Markdown path, then align Fn_Spec. Do not rewrite D-121's history or duplicate rule |
+| Missing-source validation | Addendum §8.1 AT-002 rejects any form without a URL | Replace the blanket premise with source-alternative-aware validation: no URL is not itself failure when the authorized Markdown source is supplied. Retain refusal for genuinely missing required source input |
+| T2 source validation | Addendum T2 row and Fn_Spec §3.2 require `source_url` confirmed live | Draft a separate Markdown validation outcome: the supplied representation is available/readable and its source information can be examined, with quality/unknowns handled honestly. It cannot be labeled “URL confirmed live.” Exact evidence/reference binding must be specified before build |
+| File/reference handling | The clarification requires `.md` but names no storage location, upload interface or revision-binding mechanism | Lane A drafts how the manually supplied file is referenced and retained for the selected assessment using existing records where sufficient; hand any justified implementation gap to the proper tier. Do not choose a new table, file service or feature silently |
+| Views and report evidence | Historical storyboard A2 and its sequence use URL-only intake; report Fn_Spec §4.1 requires explicit assessment/evidence provenance | Show URL/Markdown alternatives converging on the same intake, then investigation and report generation. Bind report evidence to the actual supplied representation; no recency substitution or manufactured URL |
+
+These are child specification tasks, not reasons to reopen the accepted digital-source decision.
+The existing AT-001 acceptance / AT-003 missing-subject split still applies to both alternatives.
+The existing duplicate rule still applies at its own surface; a source-format change does not
+authorize a global source-uniqueness rule or another editorial engine.
+
+### Lane A next steps — parent first
+
+1. **Register:** capture this clarification and identify the preceding URL-only handoff text as
+   superseded. Record starter-field acceptance and preserve physical-workflow backlog separation.
+2. **Product:** draft the narrow FR-01 refinement and its acceptance criteria. Keep current build
+   holds and module boundaries. No fresh business taxonomy or unrelated feature is needed.
+3. **Functional behavior:** draft both intake paths, missing-source behavior and T2 validation;
+   keep positive AT-001 and refusal AT-003 coverage, and correct AT-002's no-URL premise. Resolve
+   evidence/reference handling explicitly rather than leaving a filename as an uncheckable claim.
+4. **Derived views:** reconcile the storyboard/story panels, UML and data-flow references with
+   the single-engine alternatives. Preserve historical diagrams with successor pointers rather
+   than rewriting their past. Use existing R159/R160 owners for report reconciliation. Update
+   Encyclopedia dependency markers only; Chief Editor publication remains its separate evidence act.
+5. **Verification plan:** demonstrate URL input; digital Markdown input without URL; neither
+   source supplied; empty/unavailable Markdown; missing subject; optional tags; unknown author/date;
+   and report retrieval of the selected source/assessment rather than a later replacement.
+   Every expected outcome must cite the completed behavior, not infer it from an old URL-only test.
+6. **Authorized application then independent review:** Lane A records the bounded write set and
+   applicable D-54 propagation; Code synchronizes the graph at the consuming source revision;
+   Lane B checks the actual entry criteria. No build, file conversion, schema change or promotion
+   occurs in this review. Build/Inventory are unchanged here, not presumed unaffected by a later
+   implementation design that creates an artifact.
+
+**Observed drift:** graph analyzed `a9592fe`, source HEAD `aae729c`; the `stale: false` flag does
+not override the mismatch. Read-only query was navigation only. No hosted Encyclopedia view
+was read. Only this handoff appendix changes; prior records are retained as dated history.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Latest digital URL/Markdown and starter-field clarification as decision input | Lane A records and propagates narrow current-intake contract |
+| Reject | Previous blanket no-URL refusal and all-non-URL backlog interpretation | Supersede for digital Markdown; retain separate physical-workflow request |
+| Approve-with-conditions | Branch B intake/test plan | Complete alternative-aware T1/T2 validation and source-evidence binding |
+| Defer | Report reconciliation, publication, application and verification | Existing owners, bounded authorization, graph currency and independent review |
