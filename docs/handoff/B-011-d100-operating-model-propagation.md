@@ -572,3 +572,106 @@ existing Lane A process, not a claim this document can make for it.
 | Approve-with-conditions | C-42(a) manual-review proposal and owner-aware handover | Phase 1: distinguish proposed procedure from adopted control; preserve actual owners, prerequisites and C-42(b) priority |
 | Reject | Complete-propagation claim, all-Code dependency chain, blanket ban on Lane A answering B/C entries | Correct the cited instructions/handback; no new field, state, channel or condition |
 | Defer | C-26 whole-entry verification, C-38/phase closure, graph-complete and product claims | Bounded owner work, independent evidence and final-source synchronization; D-171 unchanged |
+
+## C-44 / D-216 independent review — 2026-09-09
+
+**Restated task:** review C-44's source-repair scope and D-216's readiness claims; give Lane A
+a parent-first corrective draft, without applying governed text or verifying whole entries.
+Reviewed source: `9997441530c524ebe76f227709514b4e837d9fb4`. This appendix uses the handoff
+gap-analysis template's structure; it extends B-011 rather than creating another queue.
+Canonical work remains C-44, C-26 and the existing B entries. Downstream consumers are Lane B's
+verification/build inputs and Lane C's governed checks; no implementation is authorized.
+
+### Preserve settled corrections; normalize the remaining claims
+
+D-215 at `a9592fe` addresses the preceding review: the blanket actor instructions are removed,
+the format/channel distinction is explicit, and the C-42 consumer grep is demonstrated rather
+than falsely adopted. Do not refile these, reopen C-43, or revive the withdrawn C-12 request.
+
+| Expression | Correct meaning for this handback |
+|---|---|
+| Lane B raises; Lane A answers | The existing B-062/065/066/067/084 findings and B-011 review are Lane B inputs. Code's queue-omission analysis and Cowork's C-44 registration/repair are subsequent acts, not substitute origins |
+| Sources repaired | Owning text and required derived views satisfy the particular entry's criteria; not a whole-entry `Verified` decision |
+| Review can start | Lane B can inspect and report missing evidence; not a promise that the entry can close without another owner's work |
+| Local graph currency | Analyzed revision matches the local source revision. Push status and semantic enrichment are separate facts |
+| Phase condition 2 met | Every applicable closing-phase handoff has a valid disposition under the phase contract; not merely a zero in one global bucket |
+
+### Remaining gaps and smallest fix drafts
+
+All source observations below are evidenced at the reviewed revision. Hosted Encyclopedia
+content/publication is **UNVERIFIED**; a local ledger cannot establish its live contents.
+These are refinements of existing work, not new finding IDs or another status dashboard.
+
+| Existing owner/item | Gap and evidence | Draft correction / success criterion |
+|---|---|---|
+| C-44 provenance | Register C-44 says raised by Lane A Code and extended by Cowork; that does not distinguish the Lane B source findings from the later queue analysis | Append the distinction: Lane B raised the linked source defects; Code identified missing routing; Cowork registered and answers C-44. Preserve the factual Code contribution rather than rewriting its history |
+| C-44 → B-062/B-065/B-067 | The repair list omits Blueprint although B-062's propagation criterion names it. `docs/source/blueprint.md:49,80–81` still contains the absolute Line/structural-distinctness claims | Include Blueprint in the existing shared source repair. Compare each affected clause with its decided successor; do not weaken a retained project control merely because it is not an IIA-wide rule |
+| C-44 → B-084 | The selected media-plan row is not the whole existing follow-up. D-199 F1–F3 name Entry 06, `requirements-scope-knowledge-graph.md`, `poc-feedback-approval-crosswalk.md` and the media plan's FR-14 attribution. Addendum §5.1.2 also leaves required source information/non-URL handling unresolved | Map each existing criterion/follow-up to its owner and successor. Repair the AT-001/AT-003 mapping; retain FR-01 ownership of manual intake. Mark outdated FR-14 analyses superseded by reference, not as a new requirement. Route unresolved input requiredness explicitly; do not silently decide it or declare the entry ready while it needs a Cowork decision |
+| C-44 → B-066/B-067, B-084 F1 | Entry 05's D-168 correction is flagged but not republished; Entry 06's ledger lacks the D-197 follow-up. B-066's criteria require republication, not just a flag. C-44's v14 description risks stopping at D-167 instead of its D-168 correction | Use D-168 as the current Entry 05 correction anchor. After source repair, identify the publisher/access and inspect/update the existing hosted entries where required. Record actual publication evidence; if unavailable, keep that criterion open or explicitly routed. Editing the ledger alone does not complete publication |
+| C-26 / D-216 readiness wording | “The other fifteen need nothing from Cowork” is not established by excluding C-44's five. B-061's header still names D-204 residual next-unit/S2-UX work | Replace the blanket claim with “not dependent on C-44; assess each entry against its own criteria.” Preserve the work-order routing; do not reopen settled Q1/Q12 or invent a fresh business decision |
+| Phase closure interpretation | The handback calls `applied 0` the sole criterion. `V1-PHASE-CLOSURE.md` §1 condition 2 requires valid dispositions for the closing phase; unresolved no-Resolution entries are a different bucket | Use the existing phase criterion and per-entry evidence. An applicable unresolved entry with no `Resolution` prevents closure even if `applied` is zero; unrelated-phase Applied entries do not define this phase's result |
+| D-216 graph/mitigation wording | No remote dependency in `docs-drift` proves local rebuild need not wait for push. It does not remove `docs/handoff/README.md` transaction step 6 or the graph criteria in B-065/066/067 | Retire only remote-before-local synchronization. Preserve final-source currency before consuming approval/closure. Cite either the governing obligation or implemented enforcement accurately; an unenforced manual obligation is not automatically void |
+
+**Freeze evidence limit:** `source-sweep`'s three hard-pinned files do not exhaust D-203's
+module/version/sprint freeze rules. For each proposed edit, check its scope and lifecycle as
+well as the checker's coverage. “The checker does not pin it” is neither edit authorization nor
+proof that every section is mutable. No frozen source is proposed for editing here.
+
+### Lane A guide — parent first, release each child independently
+
+1. **Cowork: correct C-44's scope and origin.** Link the original entry criteria and D-199's
+   surviving follow-ups, with current successor decisions. State the exact source write set,
+   publication dependency and unresolved input question. Keep existing lifecycle owners;
+   C-44 source readiness is not Lane B's verification. Acceptance: no criterion disappears
+   merely because it was absent from C-44's first table.
+2. **Cowork: repair the shared Line/OD4 sources.** Include Addendum, Blueprint, Business Case
+   and RACI where their current clauses conflict. Preserve D-57's direct FR-11 ownership and
+   D-168's separation from OD4. Acceptance: each affected clause points to the applicable
+   decision and retains any separately governed project-specific control.
+3. **Cowork: repair B-084's intake branch.** This depends on step 1, not completion of step 2.
+   Reconcile functional acceptance-test references, Product FR-01/manual-intake mapping and
+   the existing knowledge-map/analysis follow-ups. A business detail not decided remains a
+   named unresolved criterion, not an inferred requirement. Do not introduce a new UI/UML spec
+   where the functional contract already determines behavior.
+4. **Cowork/publisher: reconcile derived views after their own source branch.** Entry 05 follows
+   step 2; Entry 06 follows the relevant B-084 correction. Inspect current views, preserve dated
+   storyboard/analysis provenance, and record supersession or republication evidence. Do not
+   copy mutable lifecycle state into journals or claim a hosted view from its local ledger.
+5. **Lane B: independently review each ready entry under C-26/work-order §2.3.** A ready shared
+   source family need not wait for an unrelated publication branch. Conversely, an entry does
+   not become ready merely because it is outside C-44. Record missing evidence against the
+   existing item; promote only when its full criteria are met. Keep the phase's other conditions.
+6. **Code: supply graph/check evidence for the consuming revision.** Local synchronization may
+   precede push. Before a graph-dependent verdict, compare analyzed HEAD with the reviewed HEAD,
+   verify curated parity/coverage and separately report semantic enrichment. A later source
+   commit requires a fresh currency check. Use the existing transaction SOP, not a new sequence
+   that makes remote advancement a technical prerequisite for local rebuild.
+
+Steps 2–4 specify owner work only. No source clause, external page, graph runtime, schema,
+fixture, role permission or application behavior is applied by this review. Build Spec and
+Inventory are unaffected by this handoff-only appendix; Lane A must assess propagation for its
+actual corrective write set rather than assume that this review authorizes it.
+
+### Failure boundaries and observed evidence
+
+The deterministic failures are narrow: correcting only the listed C-44 rows leaves the cited
+Blueprint/B-084 criteria unaddressed; ledger editing cannot prove republication; and checking
+only the Applied bucket misses applicable unresolved entries in other buckets. These are
+falsifiable acceptance failures, not predictions that every attempt or the business will fail.
+
+| Observation at review | Evidence / limit |
+|---|---|
+| Consistency suite: 16/17 | Only `docs-drift` failed: analyzed `a9592fe`, HEAD `9997441`. The earlier green run must retain its earlier revision |
+| Graph metadata `stale: false` | Does not override the revision mismatch. Read-only query was navigation only; semantic descriptions/labels also remain pending |
+| Remote queried as `a9592fe` | D-216 was local-only at that observation. This is dated evidence, not a live tip field or permission to push its ancestor range |
+| Lane A Active, Lane B Eligible | Handoff review only; no lane transition, governed application or build authorization |
+
+### Approve / reject — C-44 handback
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-215 settled repairs; D-216 local-versus-remote graph distinction; existing derived queue | Preserve; no repeated repair or additional tracker |
+| Approve-with-conditions | Register C-44 source-repair plan | Cowork: complete provenance, target/criterion coverage and external-view routing before claiming source readiness |
+| Reject | Whole-entry readiness by subtraction, `applied 0` as sole phase criterion, stale graph “not a blocker for anything” | Correct the handback interpretation; retain C-26, phase contract and consuming-approval evidence requirements |
+| Defer | B-062/065/066/067/084 verification, C-44 closure, B-061 residuals and phase closure | Existing owners complete their bounded work; independent per-entry review; graph evidence at the consuming revision |
+| Defer | Product implementation, new UI/spec artifacts and lane transition | Separate governed authorization; none granted by this review |
