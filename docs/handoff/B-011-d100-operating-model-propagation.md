@@ -1569,3 +1569,73 @@ currency claim or rebuild; Lane A synchronizes before the next consuming approva
 | Approve-with-conditions | C-35 execution plan | Correct test contract, name script target, satisfy C-39 and bounded authorization |
 | Reject | Added trailer-present fixture must be red before the hook change | Replace with preservation test; trailer-absent case proves new blocking |
 | Defer | Tooling application, graph synchronization and whole-entry closure | Owning Lane A unit, then independent review |
+
+### D-224 independent review — distinguish fixture families and test verdicts (2026-09-10)
+
+**Reviewed at `195c2ca`. Task:** verify the corrected C-35 plan, retain settled policy and
+give Lane A only the remaining drafting corrections. No policy selection, implementation,
+or lifecycle promotion is made here. Lane B raises; Lane A answers this existing entry.
+
+**Accepted:** D-224 correctly distinguishes the trailer-absent behavior change from the
+trailer-present preservation case, names `scripts/lane-gate.mjs` as the implementation
+target, keeps the delegating hook unchanged, and retains the C-39 prerequisite. Do not
+repeat these fixes or ask for another Judge decision on the same policy.
+
+**Remaining source defect — fixture families conflated.** C-35 now calls its planned
+single-tool, mixed-tool, simultaneous lane-and-tool and rule-file-exception cases “original
+fixtures” which “pass unchanged,” and includes the `d6d406a` case in that description.
+But `scripts/fixtures/suites.mjs`'s `laneGate()` currently stages CI plus CONFIG_LOG (C+A)
+and tests valid lane trailer, separated/body-only lane trailer, and absent lane trailer.
+Those are existing **lane-declaration** fixtures, not the planned **tool-crossing** cases.
+The existing harness does not establish the claimed tool-case coverage.
+
+**Proposed replacement meaning for Cowork:** preserve the existing named D-88/D-105
+lane-declaration cases unchanged; ADD the canonical C-35 tool and combined-crossing cases.
+For combined crossings, test each applicable declaration absent separately and both present.
+The table of new cases is a plan until implemented and run. Refer to case names, not a
+restated fixture tally. Correct C-35's current instruction and append the narrow correction
+to D-224's historical claim; do not rewrite decision history.
+
+**Evidence wording:** “pre-fix PASS” describes the hook's exit, not a passing regression
+test. The expected target stays fixed across both runs:
+
+| Observation | Pre-fix | Post-fix |
+|---|---|---|
+| Mixed A tools, no tool trailer: hook exit | 0, does not block | 1, blocks for missing tool declaration |
+| Regression assertion: expect blocking for that reason | FAIL (red) | PASS (green) |
+| Mixed A tools, valid tool trailer: hook exit | 0 | 0 |
+| Preservation assertion: commit declaration check passes, crossing still produces suite failure | PASS | PASS |
+
+Record expected versus actual result, diagnostic, inspected paths and tested revision for
+each run. A source trace may predict the old result but is not an executed fixture log.
+The missing-trailer case is the primary new blocking proof, not the ONLY possible new
+behavior proof: malformed tool trailers, combined declaration handling and the direct
+`subOf` correction also need their own target assertions. Reject any inference that naming
+one red-before-green case retires the other requirements.
+
+**Lane A's small steps, parent first:**
+
+1. Cowork corrects the canonical fixture-family and evidence wording above; policy stays.
+2. Code establishes C-39 prerequisite evidence and obtains the bounded C-35 execution
+   authorization. A correct draft alone does not start implementation.
+3. Code extends the named fixture suite with appropriate A-tool paths, retaining the old
+   lane cases. The existing C+A setup alone cannot exercise an internal Cowork/Code crossing.
+   Preserve/restore files and index state; do not run mutating fixtures in a shared dirty tree.
+4. Run target assertions against the old implementation, then the authorized corrected one;
+   distinguish new-behavior failures from preservation passes. Record evidence, not a count.
+5. Cowork records the existing Register handback and answers B-011. Code synchronizes graph
+   at the consuming revision; Lane B independently reviews. No journal ledger or new channel.
+
+**Scope / what was done instead:** read source and drafted this handoff only. Product,
+Modular_PRD, storyboard/panels, UML/data flow and Encyclopedia behavior are unaffected, not
+newly verified. No build, hook, fixture, workflow, schema or governed-document edit. No new
+artifact is proposed; Build/Inventory changes are not warranted by this review alone.
+Graph remains behind the reviewed source (`4005d58` analyzed versus `195c2ca` reviewed);
+source inspection, not stale semantic results, supports these findings.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-224 behavior distinction, script write set and prerequisite | Preserve |
+| Approve-with-conditions | C-35 fixture contract | Correct family mapping and assertion evidence; then bounded Code execution |
+| Reject | Planned tool cases already pass unchanged; hook exit 0 itself is a red test | Correct canonical wording, retain named coverage |
+| Defer | Implementation, synchronization and whole-entry closure | C-39 evidence, authorization, execution and independent review |
