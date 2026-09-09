@@ -298,3 +298,158 @@ unrelated apparatus, while mutating fixtures still require safe isolation/serial
 | Approve-with-conditions | C-42 part (b) as the first tooling implementation unit | Phase 1 Cowork discovery contract, then authorized Code coverage/uniqueness fixtures; part (a) remains open |
 | Reject | 'No Lane B queue', blanket verification-only readiness, metadata as proof, and graph-complete claim | Correct the handover's scope and evidence claims; do not repeat completed work or inflate a passing check |
 | Defer | Whole-entry promotions, C-38/C-42 closure, phase closure, archive and product implementation | Existing owners, independent evidence, settled-source synchronization and separate authorizations |
+
+## D-213 follow-up review — 2026-09-09
+
+### What happened — scope and corrected handback
+
+**Task restated:** independently review D-213 at
+`2292f00dff9fd83254c53c7e718eebcd7ecc6cce`, withdraw any completed request, and give Lane A
+the smallest executable drafting sequence for the remaining evidence-record gaps. Use the
+handoff gap-analysis template as structure, not as authority to build or promote an entry.
+This is a follow-up to the preceding consolidation, not a new condition, SOP or live dashboard.
+No whole-entry verification, application, lane transition or product authorization is made here.
+
+**C-12: no further act is owed.** Its sole canonical section is
+`docs/v1/V1-DECISION-REGISTER.md:7078`; its §3 row (`:100`) records closure. D-213 identifies
+both explicitly. **Withdraw the preceding request to identify C-12's location as further work.**
+Do not add a pointer, reopen the condition or ask the Judge to decide its location again.
+
+The following D-213 changes are confirmed by the committed diff and current source:
+
+- Build Spec §2 no longer contains the withdrawn A-channel activation instruction; C-35 survives.
+- C-01–C-11 now have canonical pointer sections without duplicating their §3 substance.
+- C-42(b) specifies coverage and uniqueness with the named cases; this is a completed
+  **specification change**, not an implemented check or a closed condition.
+- B-071's anchor now names `fa50acf`; review provenance remains in its body. Answered/Deferred,
+  the return trigger and D-171 remain unchanged. No further B-071 pin correction is requested.
+- frag131 removes the derived community fields. No corpus-wide fragment rewrite is requested.
+
+**Terms kept separate:** a *reviewed commit* identifies the evidence inspected; a *disposition
+commit* records the lifecycle decision; a *pin commit* records a reference to an already-existing
+commit. Committed, pushed, graph-current and independently Verified are different facts.
+The C-12 disagreement is resolved; the remaining concerns below are not arguments for redoing it.
+
+### What is still missing — existing owners, not new finding IDs
+
+| Existing owner | Evidence and failure if followed literally | Smallest draft correction |
+|---|---|---|
+| **C-43 — pin referent** | `docs/handoff/README.md:364` and `TEMPLATE.md:77` tell the follow-up pin act to use **its own SHA**. That commit cannot contain its own not-yet-created identifier; the self-reference has moved to the second step | Replace with: **“The follow-up pin act records the SHA of the already-existing commit containing the disposition, never the pin act's own SHA.”** Keep earlier inspection provenance in the body |
+| **C-43 — history and cut** | Register `:2482` says D-205 declared neither referent, but D-205 `:14850–14852` explicitly says “where that disposition is observable.” Separately, C-43 `:2491` classifies by disposition date, while README `:369–373` classifies by anchor-writing date. B-071 was dispositioned **before** the cut and deliberately migrated **at** the cut; those rules do not classify it consistently | Append a factual correction: D-205 stated the meaning; older practice was mixed. Describe D-213's legacy treatment as a prospective compatibility rule, not proof that no rule existed. Define migration at the cut explicitly; do not rewrite legacy entries |
+| **C-39/C-43 — complete pin transaction** | README instructs the disposition act to write `— pending pin`; C-39 rejects that value at any terminal state. Current `closure-readiness.mjs:223–230` already rejects it for Verified. Applied is nonterminal, so the new terminal-only prohibition also does not establish when an Applied record must finish pinning | State the permitted intermediate, its validation result, the pin deadline and the point at which the record becomes consumable. Do not call both commits green or treat an unpinned Applied record as completed evidence |
+| **C-39/C-43 — consumer propagation** | C-39 `:2648–2649` still requires every anchor to pass commit-object validation; its initial record at `:2659` requires a sentinel. TEMPLATE's copyable fields `:13–15` still describe the old actor/SHA shape. README `:382–383` and TEMPLATE `:72–73` still require Lane A's disposition disclaimer on every non-Verified entry. Work order §2.3 step 3 (`:296–297`) still directs a verifier to pin the commit **read**, which differs from the new disposition-observable rule | Amend those existing instructions together, distinguishing initial undispositioned records, dispositioned/pinned records, the intermediate pin transaction and turn reports. Adding another explanatory paragraph without fixing the copying/executing instructions repeats B-011 |
+
+These are confirmed **text and execution-contract defects**, not claims that D-213 falsely
+implemented a checker. D-213 and the Inventory correctly say the tooling remains specified.
+The current checker accepts a nonempty Applied anchor without proving its existence, validates
+SHA shape/existence for Verified, and does not yet implement the new buckets or sentinel policy.
+A green result cannot establish the behavior of those future mechanisms.
+
+### Draft fixes and success criteria — parent before child
+
+**1. Cowork: settle the C-43 meaning and migration boundary.** Proposed literal meaning:
+
+> A pin references an already-existing disposition commit. Preserve pre-cut anchors without
+> rewriting them. Anchors explicitly introduced or migrated under the new protocol at or after
+> `2292f00dff9fd83254c53c7e718eebcd7ecc6cce` use disposition-observable semantics; unmigrated
+> legacy anchors remain labelled measured-at. B-071 is the explicit migration in the cut commit.
+> Classify from the anchor's introduction/migration evidence, not the numeric/date value of its
+> target SHA, the latest whole-file edit, or the original disposition date alone. Where history
+> cannot establish the distinction, report that limitation rather than guessing.
+
+Acceptance examples: unchanged B-006 remains legacy; B-071 is migrated; a later body-only
+append to a legacy entry does not migrate its anchor; a later disposition/migration uses the new
+meaning. Include the cut commit itself, not just “before” and “after.” This is a **proposed
+clarification for approval**, not an authorized metadata sweep or a new field.
+
+**2. Cowork: finish the C-39/C-43 transaction before Code implements it.** The pending-pin
+concept can be retained, but its consumption boundary must be explicit. Recommended decision:
+the intermediate is visibly unpinned and cannot satisfy completion, consuming approval or phase
+closure; its immediately following pin cites the disposition commit; the completed bounded unit
+is then checked. This recommendation does **not** authorize an intermediate to bypass a hook,
+claim a passing suite, or remain pending indefinitely.
+
+Write the expected result for each case before implementation:
+
+| Case | Required clarity / success evidence |
+|---|---|
+| Initial undispositioned Open entry | The declared raising actor and sentinel are the valid audit shape; receipt/acknowledgement rules remain separate |
+| Actual SHA anchor | Validate the referenced commit, subject to the declared legacy/prospective classification; an invented or nonexistent SHA is never accepted |
+| Disposition committed but not pinned | Name whether ordinary validation fails or reports a bounded intermediate; no consuming approval treats it as complete |
+| Applied still pending at handback | Refuse completed evidence; do not rely solely on the terminal-state prohibition |
+| Terminal disposition still pending | Refuse terminal consumption; the pin transaction must finish before closure is earned |
+| Pin finished | Its SHA resolves to the disposition evidence, not to the pin commit itself; unchanged source retains its truthful lifecycle |
+| Turn report | Audit closure fields remain omitted, not populated with the sentinel |
+
+**Transaction authority is part of this parent contract.** D-184's one-entry exception also
+requires a one-commit outgoing range. A two-commit disposition/pin unit cannot silently broaden
+that permission. Specify its authorized publishing route through the existing SOP or seek a
+bounded range decision; do not invent a second SOP or remove a Git lock to proceed.
+
+**3. Cowork: propagate the approved contract to its consumers, once.** Exact drafting targets:
+Register C-39/C-43 and an append-only D-213 correction; handoff README's existing field and
+transaction instructions; TEMPLATE's copyable fields and explanatory rules; Lane B work order
+§2.3's verification instruction. Reconcile the already-existing Inventory rows and Build Spec
+sequence where their facts change, explicitly marking unaffected tiers. Do not change historical
+handoff anchors as a substitute for this propagation. Success: copying the template and following
+the work order produces the same valid sequence the Register specifies.
+
+**4. Code: implement independently bounded controls under their existing authorization route.**
+C-42(b) retains D-212's **first implementation priority** and its named coverage/uniqueness cases;
+the C-39/C-43 drafting gaps do not invalidate that independent contract. C-43 explicitly has no
+technical start dependency on C-39 or C-42; C-39 and D-204's response-check correction are also
+independent. Priority and serialized tool use do not create extra correctness prerequisites.
+
+The pasted queue must not assign all of C-35–C-38/C-40 to Code or make their planning wait for
+C-42(a)'s unresolved mechanism. Follow each canonical condition's owner/start/stop clauses:
+C-35 retains its actual C-39 prerequisite; mixed-tool and Cowork-owned work retain their owners;
+C-38 fixes its reviewed range when the pass starts. Keep C-42's weakest-part closure rule.
+No condition is split or newly created by this handback.
+
+For C-42(b), coverage is bounded to the declared definition sites. Its missing-heading fixture
+must retain an independently discoverable definition, such as the §3 row; passing that fixture
+does not prove discovery of arbitrary prose after its only identifying heading is deleted.
+Use failure cases before repair and preserve legitimate passing controls. None is executed here.
+
+**5. Final evidence and independent handback.** Apply authorized source/tool changes first.
+Code synchronizes extraction at the final consuming revision, verifies curated content under
+the derived-field policy, then completes semantic enrichment and the suite. If further commits
+land after an intermediate rebuild, recheck currency; semantic fill alone is not evidence that
+extraction reflects the new HEAD. Independent review follows the completed bounded packet.
+The existing per-entry C-26 queue remains separate; neither C-12 nor the new tooling grants
+bulk Verified, phase closure or a release of D-171.
+
+### Artifact cross-reference and drift evidence
+
+**Product impact is unchanged.** D-213 changes governance/audit mechanics, not editorial
+behavior. Product, Fn_Specs, storyboard/story panels, UML/data-flow views and UI require no new
+T5/T6 design from this review. B-071 remains deferred. Existing B-084 discrepancies remain
+with that owner: FN-GATES `:215` versus Addendum's AT-003 mapping; source knowledge graph
+`:23,98` versus traceability map `:141`; Encyclopedia Entry 06's D-197 ledger reconciliation.
+The historical storyboard remains a dated planning artifact, not the current behavior contract.
+No duplicate SPECS/UX document, diagram backlog or hosted Encyclopedia update is created here.
+
+| Observation at review | Evidence / limit |
+|---|---|
+| Source committed; D-213 not yet remote | Local HEAD `2292f00`; fresh remote query returned `47f47c1`. Commit and push are not the same fact |
+| Local checks | **16/17** at `2292f00`; only docs-drift failed. No mutating fixture or build was run |
+| Extracted graph stale | `lastAnalyzedHead = fa50acf`, not `2292f00`; `stale: false` does not override that mismatch |
+| Semantic enrichment pending | Installed Graphify `check-update` reports pending descriptions/labels. Read-only query results were not used as current D-213 authority |
+| frag131's supplied node fields | Direct loaded-node comparison found no mismatch for its supplied fields after derived fields were removed. This is not complete edge parity, extraction currency or corpus-wide parity |
+| Encyclopedia | Local ledger inspected; hosted content not read or republished. No new publication/verification claim |
+| Git transaction blocked | `.git/index.lock` exists. Its owner was not established; no lock removed. Drafting this appendix does not authorize lock cleanup or push of Lane A's ancestor commit |
+
+**What Lane B did instead:** drafted only this follow-up in the existing B-011 entry. No header,
+resolution, governed specification, checker, graph, archive, account, phase or lane state changed.
+The preceding Applied-entry table remains a dated review at its own source revision, not a live
+matrix silently overwritten by this follow-up.
+
+### Approve / reject — D-213 follow-up only
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Register C-12; completed consumer/index/B-071 pin corrections | Preserve; C-12 has no further act and no new decision owed |
+| Approve-with-conditions | C-42(b) implementation plan | Phase 1 Code: existing first priority, declared-site fixtures and coverage limits; no C-42 closure from part (b) alone |
+| Approve-with-conditions | C-39/C-43 corrective draft | Phase 1 Cowork: settle referent/cut and pin transaction, then propagate to actual consumers before implementation |
+| Reject | Pin act's own SHA, claim D-205 declared no referent, inconsistent cutoff/field instructions | Correct in the existing owner records; preserve legacy evidence rather than sweeping entries |
+| Defer | Whole-entry Verified, graph-complete claims, C-38/phase closure and product work | Authorized owner actions, final-source synchronization and independent evidence; D-171 unchanged |
