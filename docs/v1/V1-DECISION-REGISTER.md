@@ -2504,7 +2504,7 @@ if it were the model — **the same shape as reading a green suite as proof of t
 | `B-065` | `docs/source/business-case.md:20` · `docs/source/v1-build-readiness-addendum.md:118` · **`docs/source/blueprint.md:80–81` (`D-217`)** | distinct judgment still claimed from structural separation |
 | `B-066` | Encyclopedia **Entry 05**, anchored to **`D-168`** — not `D-167`, which `D-216` cited (`D-217`) | its criterion requires **republication**, not a flagged ledger row. **Routed as an open criterion, not owned here** — see the stop condition |
 | `B-067` | the same `B-062`/`B-065` source claims **including Blueprint**, plus Entry 05's publication/signoff gate | control-owner repairs landed; the source claims they rest on did not |
-| `B-084` | `docs/fn-specs/FN-GATES-01-05.md:215` (`AT-001`) vs `v1-build-readiness-addendum.md:520,530` (`AT-003`) · `docs/governance/media-industry-sop-fallback-implementation-plan.md:72` vs `docs/governance/requirements-traceability-map.md:141` · **`docs/governance/requirements-scope-knowledge-graph.md` — `CR-14` still `Uncovered`, no supersession notice (`D-199 F2`)** · **`docs/governance/poc-feedback-approval-crosswalk.md` §`FB-05`/`MFB-03` — the `FR-14` collision (`D-199 F3`)** · **Addendum §8.1 `:528` — required source information and non-URL handling. RESOLVED by `D-219`; pointer corrected from the non-existent §5.1.2 by `D-220`** | the acceptance test would verify the wrong obligation. **`D-216` named one of four surviving `D-199` follow-ups** (`D-217`). `FR-01` keeps manual intake; stale `FR-14` analyses are marked superseded **by reference**; **the input-requiredness question is ROUTED, never inferred** |
+| `B-084` | `docs/fn-specs/FN-GATES-01-05.md:215` (`AT-001`) vs `v1-build-readiness-addendum.md:520,530` (`AT-003`) · `docs/governance/media-industry-sop-fallback-implementation-plan.md:72` vs `docs/governance/requirements-traceability-map.md:141` · **`docs/governance/requirements-scope-knowledge-graph.md` — `CR-14` still `Uncovered`, no supersession notice (`D-199 F2`)** · **`docs/governance/poc-feedback-approval-crosswalk.md` §`FB-05`/`MFB-03` — the `FR-14` collision (`D-199 F3`)** · **Addendum §8.1 `:528–529` — required source information and non-URL handling. RESOLVED by `D-219`; pointer corrected from the non-existent §5.1.2 by `D-220`** | the acceptance test would verify the wrong obligation. **`D-216` named one of four surviving `D-199` follow-ups** (`D-217`). `FR-01` keeps manual intake; stale `FR-14` analyses are marked superseded **by reference**; **the input-requiredness question is ROUTED, never inferred** |
 
 **Stop condition — THREE subjects, separated by `D-218` because as one they could not be met.**
 `D-217` required *"each of the five entries' own criteria re-checkable without a Cowork edit"* while
@@ -2538,7 +2538,7 @@ resolution by being written down.**
 
 **RESOLVED by `D-219`, 2026-09-09 — Judge clarification, and the mechanism worked as designed.**
 The residual named its open record, its decision owner and the requested choice; **the decision owner
-decided.** The §8.1 `:528` source-requiredness / non-URL question closes with an **actual successor**:
+decided.** The §8.1 `:528–529` source-requiredness / non-URL question closes with an **actual successor**:
 **a digital source is a URL, or a manually prepared `.md` representation when the content cannot be
 reached by URL.** **This is the first residual in this sequence to close by decision rather than by
 routing** — which is what routing is for. `C-44`'s remaining scope is unchanged.
@@ -16253,3 +16253,90 @@ truncated search is why this act exists. **One direction alone is `a_check_that_
 **Builds nothing. Verifies no entry** — `applied 20` stands. **Syncs no graph** — `docs-drift` stale at
 `0cbdf16`, Claude Code's, owed before the next consuming approval, not ordered against the push.
 **Lane A's own work, not independently reviewed** — `C-38`.
+
+## 5.14e46 `D-221` — Completeness Proven Over a Universe the Pattern Had Already Narrowed
+
+**Authorized by the Judge, 2026-09-09** (*"proceed plan"*). **Raised by Lane B** at `591b1df`.
+**Register-only. No source is edited; the repair text below is PROPOSED, pending bounded approval.**
+
+### The naming sentence
+
+**`D-220` forbade truncation, proved both directions, and ran them over a universe its own pattern had
+already narrowed.** Its search was `grep 'source_url\|URL'` — **case-sensitive**. It cannot see
+`evidence_url`.
+
+| Measurement | `FN-GATES` | `Modular_PRD` | Addendum | Total |
+|---|---|---|---|---|
+| `D-220`'s pattern (`source_url\|URL`) | 10 | 10 | 15 | **35** |
+| the real universe (`-i url`) | 10 | **14** | **31** | **55** |
+
+**Twenty hits were invisible to the measurement that called itself exhaustive.** *Both directions* were
+checked honestly — against a domain that had already excluded part of the question. **Completeness
+proven over a biased sample is not completeness; it is the previous defect wearing the fix.**
+
+**The domain rule (`D-221`):** **a completeness measurement states its pattern and justifies its
+domain, in the act.** Case-insensitive by default. **Case-sensitivity, token boundaries and file set
+are part of the claim, not part of the method** — a domain the reader cannot check is not a
+measurement. This joins `D-220`'s no-truncation and both-directions rules; **three rules now, because
+three generations of the same enumeration were wrong: ten, fourteen, fifty-five.**
+
+### What the wider domain exposes
+
+- **Addendum `:163` — T3 requires `trend_signal.evidence_url` set** (Lane B's item 3).
+- **Addendum `:340` — Evidence Quality scores it**: *present + accessible = 1.0, present but
+  unreachable = 0.5, **absent = 0.0***, weight 0.10. **Named by nobody until now.**
+
+**These are TREND-SIGNAL EVIDENCE, not the source** — a distinction no act has stated. **A
+Markdown-sourced brief the intake now accepts can be scored down at T3 by a rule that was never
+revisited.** Accepting an input and then penalising it is a contradiction the Markdown path creates
+and does not resolve.
+
+- **`Modular_PRD:272` carries a SECOND defect:** it says the Reporter agent logs *"**without human
+  handoff**"*, while `FR-01:554` says *"**all supplied manually by the Chief Editor**"* (`D-194`,
+  `D-197`). **Repairing only the URL wording would ratify the wrong half.** Third self-contradiction
+  found inside `Modular_PRD` in three acts.
+
+### Correction to `D-220`'s own wording
+
+**`D-220` wrote that no readiness may be claimed before validation and retention are *"defined **or**
+routed with a decision owner."*** **The `or` made routing a substitute for definition**, which is the
+class this sequence keeps correcting. **Readiness requires DEFINED. Routing keeps the criterion OPEN**
+(Lane B, adopted). `D-220`'s narrative is history and stays (`D-93` rule 4); **this is the correction.**
+
+### The proposed repair text — recorded, NOT applied
+
+| Target | Proposed repair |
+|---|---|
+| `Modular_PRD:272` | *"Log **a source reference — a URL, or a manually prepared `.md` representation when the content cannot be reached by URL** (`D-121`, `D-219`) with topic tags and a trend signal, **all values supplied manually by the Chief Editor** (`D-194`/`D-197`); the agent executes the log, it does not source the content."* **`"without human handoff"` struck** |
+| `Modular_PRD:961` `AC-01` | keep *"logs a valid URL … supplied by the Chief Editor"*; **add** *"or a supplied Markdown representation where no URL exists"*. Its *"supplier as a separate fact"* clause is **already correct — unchanged, which is a pass** |
+| `FN-GATES` `:45` `:63` `:75` `:94` `:162` `:177` | *URL **or** supplied Markdown representation* |
+| `FN-GATES:35` | *paste a URL* retained as **one illustrative path**, marked as such |
+| `FN-GATES:119` T2 | **second outcome added** — *representation available and readable, source information examinable* — **never labelled *URL confirmed live*** |
+| Addendum `:161` T1 | `source_url` (required) → **`source reference` (required — `source_url`, or supplied `.md` representation)**; the `trend_signal` manual-supply clause **unchanged** |
+| Addendum `:162` T2 | *"`source_url` confirmed live"* → *"**source reference validated**: `source_url` confirmed live, **or** supplied representation available and readable"* |
+| Addendum `:519` `AT-002` | *"submits form **with no source reference of any kind**"* → *"Form rejects: **Source reference is required**"*. **Narrowed, not deleted** |
+| Addendum `:523` `AT-006` | keep the URL row; **add** a Markdown row. **Supplier and executor stay distinct** — `AT-006` is `executor_type = human`, `Line2`, `HumanOverride`; the Chief Editor supplies **and** executes here, unlike `AT-001` |
+| Addendum `:528–529` §8.1 | *"…remain open"* (the clause spans both lines) → **"RESOLVED `D-219`"** for the non-URL limb. **The `AT-003` mapping limb stays open** |
+| Addendum `:163` T3 · `:340` | **OPEN CRITERION, not routed-and-ready.** State that `evidence_url` is trend-signal evidence, not the source, and **rule** whether a Markdown-sourced brief with no reachable evidence URL scores `0.0` or takes a defined alternative |
+
+**Three fixtures after every applied edit:** valid URL → **pass** · authorized Markdown, no URL →
+**pass** · **no source reference of any kind → fail.** **Preserve and add; never substitute.**
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e46; the domain rule; the 55-hit universe; `D-220`'s `or routed` corrected |
+| **`Modular_PRD`** | **⚠️ AFFECTED — `:272` (two defects), `:961`. Not edited; proposed** |
+| **Fn_Specs** | **⚠️ AFFECTED — eight lines. Not edited; proposed** |
+| **Governing sources** | **⚠️ AFFECTED — Addendum `:161` `:162` `:163` `:340` `:519` `:523` `:528–529`. Not edited; proposed** |
+| **Derived views** | **⚠️ AFFECTED — after their own sources; proposed** |
+| **Handoff entries · Channel docs · work order · Build spec · Agent files · Inventory** | **— unaffected** |
+| **Phase closure** | **— unaffected** |
+
+### What this act does NOT do
+
+**Edits no source. Authorizes no child. Claims no readiness** — T3 and `:340` are **open**, and routing
+does not change that. **Builds nothing. Verifies no entry** — `applied 20` stands. **Syncs no graph** —
+`docs-drift` stale at `591b1df`, Claude Code's, owed before the next consuming approval, not ordered
+against the push. **Lane A's own work, not independently reviewed** — `C-38`.
