@@ -675,3 +675,90 @@ falsifiable acceptance failures, not predictions that every attempt or the busin
 | Reject | Whole-entry readiness by subtraction, `applied 0` as sole phase criterion, stale graph “not a blocker for anything” | Correct the handback interpretation; retain C-26, phase contract and consuming-approval evidence requirements |
 | Defer | B-062/065/066/067/084 verification, C-44 closure, B-061 residuals and phase closure | Existing owners complete their bounded work; independent per-entry review; graph evidence at the consuming revision |
 | Defer | Product implementation, new UI/spec artifacts and lane transition | Separate governed authorization; none granted by this review |
+
+## D-217 / C-44 repair guide — 2026-09-09
+
+**Task restated:** assess whether D-217 gives Lane A enough direction to perform the existing
+C-44 repairs, and specify the remaining completion checks. Reviewed `c5e18f68030e0affc6558ffc582be58300f0467b`.
+This is an addition to the same Lane B handoff, using the gap-analysis template's scope,
+evidence, dependency and verdict structure. No new queue, finding number or source application.
+
+### Answer: sufficient to prepare the decided repairs, not to declare them complete
+
+The corrected C-44 now records the raiser/answerer distinction, Blueprint, D-199 follow-ups,
+D-168, per-entry readiness, the freeze-model limit and the retained graph obligation. Preserve
+these corrections. Do not spend another general scoping round restating them. Lane B raised the
+defects; Cowork answers the source-repair work; independent verification remains separate.
+
+**Dependency correction:** there are two source branches that can proceed independently after
+the parent scope, followed by their dependent views. Calling all three children independent is
+inaccurate: Entry 05 follows the Line/OD4 branch; Entry 06 follows its intake-source branch.
+This dependency does not require one branch to wait for the other. Actual source application
+still follows the existing bounded authorization procedure, not this review's Approve verdict.
+
+### Remaining gaps — refine C-44, do not duplicate it
+
+| Existing concern | Evidence at the reviewed revision | Smallest correction |
+|---|---|---|
+| Clause-level verification | The pasted mitigation requires the same successor everywhere and a minimum file-touch count. The clauses concern different facts: Line attribution, distinct judgment, direct FR-11 ownership and deferred OD4 | Replace the count/identical-citation test with a check of every named operative clause against its applicable decision. Search is discovery, not semantic proof. A correctly scoped historical quote need not disappear; a no-op edit is not evidence |
+| Publication owner | C-44 says “open criterion with a named owner” but its publication instruction ends with “whoever holds it,” without identifying the publisher/access route | Cowork records the responsible publisher or explicitly records access/assignment as unresolved in the existing criterion. This blocks publication completion, not the source branches. Do not ask Lane B to certify an inaccessible artifact |
+| Unresolved business detail | C-44 requires every question to have a successor decision although Addendum's source-requiredness/non-URL question remains undecided | For decided corrections cite the actual successor; for the undecided question name the existing open record, decision owner and requested choice. Do not manufacture a successor or treat routing as resolution |
+| Completion boundary | C-44 scopes republication outside its own close while retaining “each entry's criteria re-checkable without a Cowork edit” | Distinguish source-repair readiness from external publication evidence and whole-entry verification. When reporting readiness, list the routed residual rather than claim the entry meets all criteria. B-066/B-067 remain Applied as governed |
+
+### Cowork steps — one bounded source branch at a time
+
+1. **Bind the repair to its existing approval and owning clauses.** Use C-44 and the original
+   B-entry criteria, not the latest narrative's file count. Record the permitted files and
+   exclusions in the existing decision/answer. Resolve applicable scope/freeze status before
+   editing; a checker omission grants no authority. No new general scoping document is needed.
+2. **Shared Line/OD4 branch:** inspect Business Case §“What is enforced”/“Who uses it,” Blueprint
+   §2.1/§2.2, Addendum's independence clauses and RACI §4. Draft or apply only as authorized:
+   remove the unsupported universal attribution; retain the separately governed project
+   separation control; do not equate different Lines with proven distinct judgment. Preserve
+   D-57's direct FR-11 decision and D-168's distinction from deferred OD4. Check neighboring
+   current clauses, not only the original line numbers. Acceptance: each operative statement
+   has the right source and does not silently change a permission, role, gate or build hold.
+3. **Intake branch, independent of step 2:** in `FN-GATES-01-05.md` §8, the proposed AT-001 row
+   covers acceptance of one subject alongside analytical tags; add AT-003's missing-subject
+   refusal mapping and remove that refusal from AT-001. Preserve optional analytical tags.
+   D-199 already specifies this split. Do not infer source-requiredness from a positive fixture.
+   Keep the unresolved source/non-URL decision in its existing record with an owner.
+4. **Intake references:** carry out D-199 F2/F3 by linking the current FR-01 manual-intake
+   contract and marking the old CR-14-Uncovered/FR-14 proposals as superseded analyses.
+   `requirements-scope-knowledge-graph.md`, `poc-feedback-approval-crosswalk.md` and the media
+   plan must agree on the current reference. Preserve FR-14's actual business-continuity
+   requirement. Do not rewrite historical analysis as though it originally said FR-01.
+5. **Views after their own sources:** update Entry 05's dependency/affected marker against
+   D-168 and Entry 06's D-197 marker (D-199 F1). Preserve the recorded verification revision.
+   The assigned publisher later reads, corrects and republishes the hosted artifact through
+   the existing ledger procedure. Until then publication remains unverified; a local marker
+   does not prove either the live artifact's correctness or its incorrectness.
+6. **Hand back per entry:** cite the actual correction revision, which criteria it satisfies,
+   and any unresolved decision/publication item. Lane B reviews under C-26; no batch promotion.
+   Code supplies current graph/check evidence before the consuming approval, without requiring
+   the push to happen first. Use the existing SOP for commits, not a new transaction procedure.
+
+### Construction and verification impact
+
+The owning behavior and reference corrections above precede consuming tests. A test mapped to
+AT-001 cannot establish the separately defined AT-003 refusal obligation merely because the
+table calls it covered. The required outcome is correct requirement-to-test mapping, not a new
+test run or application implementation in this review. Product FR-01 remains the intake anchor.
+Storyboard, story-panel, UML and data-flow views should be reconciled only where these specific
+source corrections affect them; no new diagram or technical/UX specification is justified by
+this packet alone. Dated historical views retain their provenance and current-source pointers.
+
+### Evidence and verdict
+
+Graph metadata still names `a9592fe` as the analyzed revision, not `c5e18f6`; `stale: false`
+does not establish currency. The read-only graph query was navigation only. No hosted artifact
+was inspected or republished. No governed file, graph runtime, application or lifecycle field
+was changed by this handback. The remaining failures above are acceptance failures under the
+stated conditions, not predictions of inevitable business failure.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-217's adopted scope corrections and Lane B → Lane A attribution | Preserve; move from general scoping to the bounded source repairs |
+| Approve-with-conditions | C-44 repair guide | Cowork: use clause-level checks, distinguish unresolved decisions/publication, and identify the publication owner |
+| Reject | Identical-successor/file-count proof; all children called independent | Use applicable-decision evidence and source-before-view dependencies |
+| Defer | Source application, publication, entry/phase verification | Existing bounded authority, owner evidence, independent review and graph currency; no build or lane transition |
