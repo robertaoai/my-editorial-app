@@ -2536,6 +2536,13 @@ instructing the fabrication it forbids, one clause apart. **It names its existin
 decision owner and the requested choice, and stays open. Routing is not resolution and does not become
 resolution by being written down.**
 
+**RESOLVED by `D-219`, 2026-09-09 — Judge clarification, and the mechanism worked as designed.**
+The residual named its open record, its decision owner and the requested choice; **the decision owner
+decided.** §5.1.2's source-requiredness / non-URL question closes with an **actual successor**:
+**a digital source is a URL, or a manually prepared `.md` representation when the content cannot be
+reached by URL.** **This is the first residual in this sequence to close by decision rather than by
+routing** — which is what routing is for. `C-44`'s remaining scope is unchanged.
+
 **Not** *the entries are `Verified`*. **No criterion is dropped because `D-216`'s first table missed it,
 and none is invented because this one asks for it.**
 
@@ -16058,3 +16065,93 @@ requirement and **not** rewriting historical analysis as though it said `FR-01`.
 
 **Then the views, each after its own branch.** Then Lane B, per entry, under `C-26` — **no batch
 promotion**, and each handback lists its **routed residual** rather than claiming all criteria met.
+
+## 5.14e44 `D-219` — Not a New Decision: `D-121`'s Propagation, Ten Statements Late
+
+**Authorized by the Judge, 2026-09-09** (*"proceed plan"*), clarifying digital-source intake.
+**Raised by Lane B** at `f61f828`. **Register-only: this act records and enumerates. It edits no
+product, functional or governing source.**
+
+### The naming sentence
+
+**`D-121` decided this on 2026-08-30 and nothing downstream moved.** `Modular_PRD.md:554` already
+reads *"Log an article from **a source reference — a URL *or another reference*** (`D-121`)"*. **Ten
+live statements still say URL.** The clarification arriving today is **not new work — it is the same
+decision, restated because the first one never reached anything that executes.**
+
+**Nineteen acts of this sequence have corrected governance instructions left standing behind a
+governance decision. This is the same defect in the PRODUCT tier, eight acts older, and nobody
+looked** — because the tier tables kept recording *"`Modular_PRD` — unaffected."*
+
+### The enumeration — measured, not restated
+
+| # | Location | Live text |
+|---|---|---|
+| 1 | `FN-GATES-01-05.md:35` | *"paste a URL → five gates"* — `CR-19`'s success scenario |
+| 2 | `FN-GATES-01-05.md:45` | `FR-01` — *"Log an article from a URL"* |
+| 3 | `FN-GATES-01-05.md:63` | *"The entry boundary is a URL. Nothing enters as a bare topic."* |
+| 4 | `FN-GATES-01-05.md:75` | *"Required on entry: `source_url`"* |
+| 5 | `FN-GATES-01-05.md:94` | *"the Chief Editor supplies `source_url`"* |
+| 6 | `FN-GATES-01-05.md:119` | *"T2 requires: URL confirmed live"* |
+| 7 | `FN-GATES-01-05.md:162` | *"Chief Editor pastes URL"* — the sequence diagram |
+| 8 | `FN-GATES-01-05.md:177` | `AC-01` — *"It logs a valid URL"* |
+| 9 | **`Modular_PRD.md:961`** | `AC-01` — *"It logs a valid URL"*. **The Product contradicts itself: `FR-01` at `:554`, `AC-01` at `:961`, one document** |
+| 10 | `v1-build-readiness-addendum.md:519` | `AT-002` — *"submits form without a URL → rejects: Source URL is required"* |
+
+**Row 9 is the one Lane B's packet does not carry.** Their row reads *"Product already says URL or
+another reference; Fn_Spec says URL-only"* — **they stopped at the `FR-01` row**, which is the same
+stopping point `D-121` stopped at.
+
+**Eight in the Fn_Spec, not seven.** Lane A's own handback said seven; `:35` was missed. **Counted at
+the final text, not carried from the message that proposed it** (`G55`, `G75`).
+
+**Out of scope, stated rather than silent:** `FN-GATES-01-05.md:87` and `:179` are `AC-02`'s duplicate
+rule, **already corrected by `D-121`**. A source-format change **does not** authorize a global
+source-uniqueness rule (Lane B, adopted). They are not part of the ten.
+
+### What the Judge decided
+
+| Term | Ruling |
+|---|---|
+| **Digital source** | a **URL**, or a manually prepared **`.md` representation** when the content cannot be reached by URL |
+| **Starter fields** | the **documented** starting set is accepted. **Existing optional/nullable rules stand.** No further field-design round |
+| **Manual V1 preparation** | a **human step**. **No converter, OCR or upload service is implied or authorized** |
+| **Physical-source workflow** | **remains separately backlogged.** Not a blocker for, and not authorized by, this path |
+
+**Source is not conversion.** A Markdown representation **does not prove** the original was online,
+authentic or reliable. **No fabricated URL, network check, metadata or authorship claim may be written
+to satisfy a field**, and manual preparation is **not** permission to bypass access controls.
+
+**Lane B's blanket URL-only interpretation is SUPERSEDED** — their own supersession, recorded here so
+the withdrawn reading has a durable home rather than lapsing with the message that carried it.
+
+**`C-44`'s §5.1.2 residual is RESOLVED** — the first in this sequence to close **by decision rather
+than by routing**, which is what routing is for.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e44; the enumeration; `C-44`'s §5.1.2 residual resolved |
+| **`Modular_PRD`** | **⚠️ AFFECTED — row 9.** `AC-01:961` contradicts `FR-01:554`. **Not edited here; child 1.** *This tier has been marked "unaffected" for nineteen acts and was not* |
+| **Fn_Specs** | **⚠️ AFFECTED — rows 1–8**, `FN-GATES-01-05.md`. **Not edited here; child 2** |
+| **Governing sources** | **⚠️ AFFECTED — row 10**, Addendum `AT-002:519`. **Not edited here; child 3, one act with `C-44` Branch B's `AT-001`/`AT-003` split — same file, same table** |
+| **Derived views** (storyboard `A2:51` and its sequence, panels, UML, data flow) | **⚠️ AFFECTED — after their own sources; child 4** |
+| **Handoff entries** | **— unaffected: no header, resolution or anchor touched** |
+| **Channel docs · work order · Build spec · Agent files · Inventory** | **— unaffected** |
+| **Phase closure** | **— unaffected: no phase state moves** |
+
+### The routed residual this act does NOT decide
+
+**The clarification requires a `.md` and names no storage location, upload interface or revision
+binding.** Lane A drafts how the supplied file is **referenced and retained** using existing records
+where sufficient, and **routes any justified implementation gap to its tier with a decision owner and
+a requested choice**. **No table, file service or feature is chosen silently** (Lane B, adopted).
+**A filename alone is an uncheckable claim and does not satisfy an evidence field.**
+
+### What this act does NOT do
+
+**Edits no product, functional or governing source** — all four children are separately authorized.
+**Builds nothing. Verifies no entry** — `applied 20` stands. **Syncs no graph** — `docs-drift` stale at
+`f61f828`, Claude Code's, **owed before the next consuming approval** (`README` step 6), **not ordered
+against the push** (`D-216`). **Lane A's own work, not independently reviewed** — `C-38`.
