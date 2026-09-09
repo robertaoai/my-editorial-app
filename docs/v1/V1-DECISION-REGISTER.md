@@ -2880,16 +2880,48 @@ named the class.
 
 | Fixture | Today | After | Role |
 |---|---|---|---|
-| mixed Cowork/Code, **no** `Tool-Crossing:` | **passes** (`lane-gate.mjs:66`) | **BLOCKS** | **red-before-green — the ONLY new-behaviour proof** |
+| mixed Cowork/Code, **no** `Tool-Crossing:` | **passes** (`lane-gate.mjs:66`) | **BLOCKS** | **red-before-green — the PRIMARY MISSING-TRAILER test** (`D-225`; `D-224` said *"only"*, withdrawn — other required cases also exercise new behaviour) |
 | mixed Cowork/Code, **with** trailer | passes | **still passes** | preservation — the trailer does not over-block |
 | the same mixed change, at CI | **fails** (`lane-boundary.mjs:193–195` → `check-consistency.mjs:63–64`) | **still fails** | preservation — the trailer does not clear CI |
 
-**Each fixture carries its ROLE in its name** — `red-before-green`, `preservation`. **The trailer-absent
-case is run against the pre-fix `lane-gate.mjs` and its PASS recorded before the fix lands: an
-unrecorded red is not a red.** The four original fixtures above — single-tool, mixed-tool, simultaneous
-lane-and-tool, the `.agents/rules/graphify.md` exception — **pass unchanged**, including the `d6d406a`
-trailer-block shape at `scripts/fixtures/suites.mjs:609`. **`:66` is NARROWED, never replaced**; tool
-crossing is an added branch and `D-88`'s lane gate keeps its behaviour.
+**Each fixture carries its ROLE in its name** — `red-before-green`, `preservation`.
+
+**TWO FAMILIES, and `D-224` fused them — corrected by `D-225`, 2026-09-09, raised by Lane B.**
+
+| Family | Today | Obligation |
+|---|---|---|
+| **lane-crossing** (`D-88`, A/B/C) — `scripts/fixtures/suites.mjs:601–620`, **three** cases incl. the `d6d406a` shape at `:609` | **exists, passes** | **PRESERVE** |
+| **tool-crossing** (`D-200`, Cowork/Code) — single-tool · mixed-tool · simultaneous lane-and-tool · `.agents/rules/graphify.md` exception | **ZERO exist** — `grep -c 'Tool-Crossing\|A-cowork\|A-code\|subOf' suites.mjs` = 0 | **ADD.** Case names prefixed `tool-gate:`, never `lane-gate:` |
+
+**`D-224` said *"the four original fixtures … pass unchanged"* and that is wrong three ways:** it called
+`C-35`'s **planned** tool cases *original*; it said they *pass unchanged* when **none exists, so nothing
+passes**; and it cited `:609`, a **lane** case, as one of them. **The existing family is three, not four.**
+
+**REGISTRATION IS PART OF THE DELIVERABLE — `D-225`, raised by Lane B.** `SUITES` at
+`scripts/fixtures/suites.mjs:975` is a list of `[label, fn]` pairs and `scripts/fixtures/run.mjs:31`
+iterates **that list**. **A `toolGate` function exported and not listed is never invoked** — the runner
+reports the same eleven suites and the tool tests are a **silent zero**. **Naming a suite is not running
+it**, and a suite that never runs is a control that cannot fail.
+
+**RED IS THE VERDICT, NOT THE EXIT CODE — `D-225`.** `D-224` said to record *"the pre-fix PASS"*. **A
+hook exit of `0` is not red.** The harness compares `code === c.expectCode`: the trailer-absent tool
+case is authored **`expectCode: 1`**, run against pre-fix `lane-gate.mjs:66`, observes `0`, and the
+harness emits **`exit 0, expected 1`** → **FAIL**. **That failing verdict is the artifact to record.**
+
+**It is the PRIMARY MISSING-TRAILER TEST, not the *sole proof*** (`D-224`'s word, withdrawn).
+**Simultaneous lane-and-tool and the `graphify.md` exception also exercise new behaviour and remain
+required.** The required set is **enumerated with a count**, and the runner's case count must match it —
+**one named case does not stand for a family.**
+
+**PASSING IS CLAIMED ONLY FROM A NAMED RUN — `D-225`, and this corrects `D-224`'s own mitigation.**
+`D-224` offered *"`suites.mjs:601–620` byte-identical, verified by diff"* as proof the lane family still
+passes. **The code under test changes** (`:66` narrows), **so unedited fixtures can behave differently.**
+**Byte-identity proves the fixtures were not edited; it proves nothing about a run.** The evidence is
+**`node scripts/fixtures/run.mjs` output showing the three lane cases `ok`** — and, for the new family,
+output **naming the tool suite with a non-zero case count**. **The diff is not the evidence; the run is.**
+
+**`:66` is NARROWED, never replaced**; tool crossing is an added branch and `D-88`'s lane gate keeps its
+behaviour.
 
 **The write set, named (`D-224`, Lane B's condition):**
 
@@ -16625,3 +16657,62 @@ authorization, and `C-35` still opens **after `C-39`'s fixtures land**. **Escala
 decision was owed. **Verifies no entry** — `applied 20` stands. **Syncs no graph** — `docs-drift` stale
 at `4005d58`, Claude Code's, owed before the next consuming approval. **Lane A's own work, not
 independently reviewed** — `C-38`.
+
+## 5.14e50 `D-225` — Source Text Offered as Evidence of Behaviour
+
+**Authorized by the Judge, 2026-09-09** (*"proceed plan"*). **Raised by Lane B** at `c8ab5eb` and
+`d1c08e4`. **Register-only.** **No new business-policy decision was owed** — Lane B said so and it
+holds.
+
+### The naming sentence
+
+**`D-224`, and the `D-225` draft that followed it, asserted properties of SOURCE TEXT as evidence of
+BEHAVIOUR. Twice.**
+
+- *"`suites.mjs:601–620` is **byte-identical** after the change, verified by diff"* — offered as proof
+  the lane family still passes. **The code under test changes** (`lane-gate.mjs:66` narrows), so
+  unedited fixtures can behave differently. **Byte-identity proves the fixtures were not edited.**
+- *"add the tool family"* — with no registration. **`SUITES` at `scripts/fixtures/suites.mjs:975` is a
+  list of `[label, fn]` pairs; `scripts/fixtures/run.mjs:31` iterates that list.** An exported
+  `toolGate` that is not in it **is never invoked** — eleven suites reported, tool tests a **silent
+  zero**.
+
+**This is `arrival_not_correctness` in its THIRD form in three acts** — a tier claim that *arrived*
+(`D-208`), a citation that *resolved* (`D-220`/`D-221`), and now source that is *unchanged*. **Each time
+the artifact I could see stood in for the fact I actually needed.** The class is not about tiers or
+citations or diffs; **it is about accepting the nearest observable in place of the one that matters.**
+
+### The three corrections, and one count
+
+| Lane B's correction | Measured | Disposition |
+|---|---|---|
+| existing lane tests ≠ planned tool tests | **Confirmed** — three lane cases at `:601–620`; **zero** tool cases | **Adopted.** Two named families; `tool-gate:` prefix |
+| a pre-fix exit `0` is not "red" | **Confirmed** — the harness compares `code === expectCode` | **Adopted.** The red is the verdict **`exit 0, expected 1`** |
+| register the suite in `SUITES`, or it does not run | **Confirmed** — `suites.mjs:975`, `run.mjs:31` | **Adopted.** Registration is part of the deliverable |
+| *"sole proof"* | overstated | **Withdrawn.** **Primary missing-trailer test**; other cases remain required |
+
+**And `D-224`'s coverage claim was wrong three ways:** *"the four original fixtures … pass unchanged"*
+called the **planned** tool cases *original*, said they *pass* when **none exists**, and cited `:609` —
+a **lane** case — as one of them. **The existing family is three, not four.**
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e50; `C-35`'s two families, registration requirement, run-evidence rule, verdict definition |
+| **`scripts/`** | **⚠️ AFFECTED and NAMED — `lane-gate.mjs` (`:66`), `checks/lane-boundary.mjs`, `fixtures/suites.mjs` (cases **and** `SUITES:975`). Nothing edited: Claude Code's, behind authorization and `C-39`** |
+| **`.githooks/commit-msg`** | **— NOT affected: it delegates (`D-224`)** |
+| **Handoff entries** | **— unaffected: no header, resolution or anchor touched** |
+| **Channel docs · work order · Build spec · Agent files · Inventory** | **— unaffected: no file created or retired** |
+| **`Modular_PRD` · Fn_Specs · governing sources · derived views** | **— unaffected: the intake packet (`D-219`–`D-222`) is untouched** |
+| **`.github/workflows/`** | **— unaffected: Lane C's** |
+| **Phase closure** | **— unaffected: `C-35` opens on its own start condition** |
+
+### What this act does NOT do
+
+**Edits no script or fixture. Authorizes no implementation** — the order is **finish this draft →
+bounded authorization → satisfy `C-39` → implement and test → synchronize → independent review**, and
+`C-35` still opens after `C-39`'s fixtures land. **Escalates nothing.** **Claims no test passes** — no
+run has occurred, and under this act's own rule an unrun test is not a passing one. **Verifies no
+entry** — `applied 20` stands. **Syncs no graph** — `docs-drift` stale at `4005d58`, Claude Code's,
+owed before the next consuming approval. **Lane A's own work, not independently reviewed** — `C-38`.
