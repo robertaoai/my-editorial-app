@@ -22,6 +22,12 @@ directory. **A control scoped to one lane cannot fail for the others.**
 `docs/handoff/` is **unmapped**: it belongs to no lane. Lane B and Lane C write entries; Lane A
 writes responses; neither is a crossing.
 
+**Format is not channel (`D-215`).** Using this template does not create a Lane A channel; **what
+`D-203` withdrew is the `A-NNN` ENTRY series**, not Lane A's reply. Lane A files no new entry, returns
+its own work through the register and its turn report (`D-138`, `G102`), **and continues to
+acknowledge and answer inside existing B/C entries** — which is what every `- **Lane A:**` line in this
+directory already is.
+
 That is not an oversight. Assigning it to a build lane would mean **Lane A's reply — which
 normally lands with the doc update it triggers — became a crossing on every use**, and with two
 raising lanes it could not be assigned to one of them anyway. The channel would
@@ -383,14 +389,12 @@ it has no state to be *regardless of*. `handoff-response` **fails** a turn repor
 field, even blank (`G84`, `D-123`). **State and kind are separate axes; reading the mandatory rule
 onto kind would fail every turn report in the channel.**
 
-**On a record that is not `Verified`, `Verified-By` reads exactly:**
-`— not independently verified; dispositioned by Lane A`.
-One form, so a reader can tell *not verified* from *forgotten* — the distinction that makes `Applied`
-worth having at all.
-
-**Two forms, one per lifecycle position — stated together because `C-39` and this section each
-mandated theirs with the word *exactly* (`D-214`, raised by Lane B).** They never conflicted in fact;
-they conflicted on the page, and a reader following either one literally contradicted the other.
+**Three positions, one exact form each — this table is the ONLY statement of the rule (`D-215`,
+2026-09-09, raised by Lane B).** `D-214` added it and left the blanket *"on a record that is not
+`Verified`… one form"* paragraph standing directly above it. **A paragraph reading *one form* above a
+table reading *two* is not a nuance; it is the sixth time a correction was placed beside the
+instruction it replaced instead of over it.** The paragraph is **deleted**, not annotated — an
+annotated instruction is still an instruction.
 
 | Position | `Verified-By` reads exactly |
 |---|---|

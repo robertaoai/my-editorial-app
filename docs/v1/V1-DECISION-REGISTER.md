@@ -2580,6 +2580,18 @@ taken before the act finished describes a file that no longer exists.**
 | **(a)** register → governed file: an instruction the register withdrew still stands | must tell an **instruction** from a **record** in prose; `D-209` did it by hand-counting | **hard, no mechanical form yet** |
 | **(b)** register → register: a declared convention violated inside the register | deduplicated enumeration over both files, plus the positive rule above | **easy, and the `C-20` case is its first test** |
 
+**The consumer-vocabulary grep is a DEMONSTRATED TECHNIQUE, not this condition's stop condition —
+`D-215`, 2026-09-09, raised by Lane B.** `D-214` ran it by hand, it found a fifth surviving `D-213`
+instruction, and Lane A then described it as a mandatory pre-commit procedure. **It is not one.**
+(a)'s stop condition is unchanged above: **a check that fails when any instruction or convention the
+register declared is contradicted by a file the register governs, with a negative fixture that
+reintroduces a register-internal violation.** A text search finds vocabulary matches; **it cannot see a
+contradiction phrased in words the search does not carry**, and installing it as the stop condition
+would put `a_check_that_cannot_fail` under the name of the condition that forbids them. **A clean grep
+is not semantic correctness, and `C-42` does not close on one.** If the Judge adopts the manual review
+as mandatory it lands **inside (a)**, additive, with its vocabulary taken from the changed consumer
+instructions and every match inspected in context.
+
 **Shipped as one unit, (a) blocks (b). Marked done on (b), (a) disappears.** That is the
 partly-applied problem `D-204`'s weakest-child rule already solved for handoff entries, and
 **conditions had no equivalent** until now. **A condition with parts takes the weakest part's
@@ -2678,6 +2690,12 @@ FAILS, a `turn-report` without them PASSES** (`G84`). **And the guard must match
 **`D-213`'s `— pending pin` sentinel is WITHDRAWN — `D-214`, 2026-09-09, Judge ruling.** `D-209` told a new entry to name **the raising commit, which is the commit being created**; `D-213` diagnosed that as *unfillable* and answered with a sentinel plus a follow-up pin act. **The diagnosis was one word wrong.** The field was never unfillable — `D-209` simply named the wrong commit. **The commit the raiser READ is knowable while writing**, so no sentinel, no pin act, no deadline and no intermediate state are needed. **`D-213` invented a lifecycle state to reach a referent this project does not use.**
 
 **One direction, and it is simpler than what `D-213` wrote (`D-214`).** Every `Verified-At-Commit` is a real commit at **every** lifecycle position, `Open` included — `git cat-file -e` holds throughout. **`D-213`'s two-direction guard is withdrawn with the sentinel it policed**; there is no state in which a non-SHA value is permitted, so there is nothing to check the second direction against. **This paragraph is the fifth instruction `D-213` left standing after withdrawing what it executed** — found by running the withdrawal grep in the CONSUMER's vocabulary, the check `D-213` did not run on itself. The leading token is the disclaimer, so the allowlist catches it. **`D-204`'s existing fixture is untouched: the valid `Open` case stays green.**
+
+**`D-214` simplified the ANCHOR rule and retired nothing else — `D-215`, raised by Lane B.** This
+condition still owes its **actor-independence matching** and its **non-empty field** obligations, and
+**none of its code is installed**: the current checker skips anchor validation when there is no
+`Resolution`, checks only non-emptiness for `Applied`, and checks commit shape and existence for
+`Verified`. **A simpler rule is not a smaller condition**, and no act so far has claimed to build it.
 
 **The allowlist is safe only because that set is closed.** If a new actor appears, it is added here before the regex sees it — an open-ended list would be the guess this condition exists to avoid.
 
@@ -15611,3 +15629,86 @@ finished sweeping.** Lane A returns through the register and its turn report (`D
 
 Recorded in the turn report, including the **withdrawal grep in the consumer's vocabulary**, which is
 the check `D-213` did not run on itself.
+
+## 5.14e40 `D-215` — A Correction Placed BESIDE the Instruction It Replaced; the Queue Returned to Canonical Owners
+
+**Authorized by the Judge, 2026-09-09** (*"proceed plan"*). **Raised by Lane B** at `36b9781`, the
+`D-214` follow-up review appended to `B-011`. **Four rows, all measured on disk, all four Lane A's.**
+
+### The naming sentence
+
+**`D-214` added the corrected rule and left the wrong one directly above it.** `README` read *"On a
+record that is not `Verified`, `Verified-By` reads exactly … **One form**"*, and the table three lines
+below read *"**Two forms**, one per lifecycle position."* **An initial Lane B record could satisfy
+neither instruction without violating the other** — one makes it claim Lane A dispositioned it, the
+other names its actual raiser.
+
+**Sixth occurrence of the class, and the first where both halves sit on one screen.** The previous five
+were separated by files or by acts and could at least be missed. **This one could not**, which is what
+makes it the useful case: *the defect is not failing to find the old instruction — it is choosing to
+add rather than replace.*
+
+**So the rule is stated as a rule, not as another paragraph:** **an annotated instruction is still an
+instruction.** A correction that leaves its predecessor readable has not corrected anything; it has
+added a second claimant. **Delete, or supersede in place — never both on the page at once.**
+
+### The four rows
+
+| Lane B's row | Measured | Disposition |
+|---|---|---|
+| `README:386–389` and `TEMPLATE:72–73` still mandate the blanket Lane A form against the new table | **Confirmed** — a direct self-contradiction inside `D-214` | **Adopted.** Both **deleted**, verified by zero-count grep |
+| Lane A called the consumer-vocabulary grep `C-42(a)`'s stop condition | **Confirmed** — canonical `C-42(a)` specifies a broader contradiction check **plus a negative fixture** | **Adopted.** Recorded as a **demonstrated technique**; (a)'s stop condition unchanged |
+| The handover chained every unit behind `C-42`, putting Cowork work behind Code | **Confirmed** — `C-39` ∥ `D-204` are independent; `C-35` names **`C-39`**'s fixtures | **Adopted.** Queue returned to canonical owners |
+| The handover said any Lane A file under `docs/handoff/` is the withdrawn channel | **Confirmed** — `README:22–24` states *"Lane B and Lane C write entries; Lane A writes responses; neither is a crossing"* | **Adopted.** **Format is not channel** |
+
+### What changed
+
+- **`docs/handoff/README.md`** — the blanket paragraph **deleted**; the lifecycle table is now the
+  only statement of the rule, and its preamble says why deletion rather than annotation. **The
+  format-versus-channel distinction is recorded where the boundary is defined**, not in an act
+  narrative: `D-203` withdrew the **`A-NNN` entry series**, never Lane A's reply.
+- **`docs/handoff/TEMPLATE.md`** — the universal sentence and its fixed Lane A value **deleted**,
+  replaced by a pointer to the SOP table and an explicit *do not copy a fixed value here*.
+- **`C-42`** — the grep marked **demonstrated, not adopted**. (a)'s stop condition and negative-fixture
+  requirement stand verbatim. **`C-42` does not close on a clean grep.**
+- **`C-39`** — recorded that `D-214` simplified the **anchor** rule and **retired nothing else**: actor
+  independence and non-empty fields still stand, and **none of its code is installed**. Current
+  behaviour measured: skips anchor validation with no `Resolution`, non-emptiness only for `Applied`,
+  shape and existence for `Verified`.
+
+### The queue, at canonical owners — not a chain
+
+| Unit | Owner | Waits on |
+|---|---|---|
+| **`C-42(b)`** | Claude Code | **first implementation priority**; nothing |
+| **`C-39`** | Claude Code | nothing — **independent of `D-204`** (`D-208`) |
+| **`D-204`** `handoff-response.mjs:238` flip | Claude Code | nothing |
+| **`C-35`** | Claude Code | **`C-39`'s fixtures** — never `C-42` |
+| **`C-36`, `C-40`** | Cowork | nothing |
+| **`C-37`** | Cowork defines, Code enforces | integrity check before any move |
+| **`C-38`** | Lane A, later turn | a range fixed at the pass's start |
+| **`C-42(a)`** | Claude Code | no mechanical form yet — **and blocks no other unit** |
+
+**`D-208` already ruled this**: serialising two bounded units into one blocked unit is its own cost.
+**A tool-serialisation constraint is not a technical dependency**, and Code does not own Cowork's work.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e40; `C-42` grep demoted; `C-39` obligations restated |
+| **Channel docs** | ✅ `README.md` and `TEMPLATE.md` — two deletions, one boundary clarification |
+| **Handoff entries** | **— unaffected: no entry header, resolution or anchor is touched** |
+| **Lane B work order** | **— unaffected: §2.3 step 3 remains correct** |
+| **Inventory** | **— unaffected: no file created, retired or re-scoped** |
+| **Build spec · Agent files** | **— unaffected: measured, no audit-field instruction in any of them** |
+| **`Modular_PRD`, storyboard, story panels, UML, data flow, Encyclopedia, cross-refs** | **— unaffected, by measurement:** no file outside `docs/handoff/`, `docs/v1/` and the work order references these fields (`D-202` — an omitted column is not a disposition) |
+| **Phase closure** | **— unaffected: no phase state moves; no condition opens or closes** |
+
+### What this act does NOT do
+
+**Installs no check. Syncs no graph. Opens or closes no condition.** **Adopts no new mandatory
+procedure** — the grep stays a technique unless the Judge rules otherwise, and it lands inside
+`C-42(a)` if he does. **Re-litigates nothing settled**: `D-214`'s observed-at model, `C-43`'s
+supersession, `C-12`, `B-071`'s anchor and `C-43`'s notice placement all stand untouched.
+**Lane A's own work, not independently reviewed** — `C-38`.

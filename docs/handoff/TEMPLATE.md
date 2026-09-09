@@ -69,8 +69,9 @@ whole entry only.
 
 Resolution is the RECORD STATE. Verified-By and Verified-At-Commit are AUDIT fields
 (`D-205`): never empty in any state, carrying only an actor and a commit that exists.
-No explanation in either field. On a non-Verified record Verified-By reads exactly:
-"— not independently verified; dispositioned by Lane A".
+No explanation in either field. Verified-By has one exact form per lifecycle
+position and the SOP's table is the only statement of them - an initial entry names
+its raiser, not Lane A. Do not copy a fixed value here.
 
 Verified-At-Commit names the commit whose content this record was written against
 (`D-214`) - the commit you READ. Always knowable while writing, so it is always a real
