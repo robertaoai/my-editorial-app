@@ -1158,3 +1158,96 @@ with their existing owners. No test count or touched-file count proves semantic 
 | Approve-with-conditions | Cowork source-repair packet | Include Addendum T1/T2/current scope note; correct citations and use semantic acceptance checks |
 | Reject | Counts as proof, URL examples as automatic contradictions, execution grants inferred from “proceed plan” | Correct the handback and bind actual application authority |
 | Defer | Markdown storage/readiness, source application, publication and entry verification | Concrete design/owner evidence, bounded authorization, current graph and independent review |
+
+## D-220 — bounded child approval, not another enumeration round — 2026-09-09
+
+**Review scope:** `40297956bed6a0eee39eff83ec591b1b8e5d38ec`; Lane B raises, Lane A answers.
+This appendix follows the existing handoff template's evidence/dependency/verdict structure.
+No new finding series or tracker. The digital URL/Markdown choice and starter-field minimum
+remain decided; this review does not reopen them or authorize source application.
+
+### What is accepted; what the Chief Editor actually needs next
+
+D-220 corrected the live §8.1 pointer, D-121/D-219 attribution and proposed-versus-authorized
+wording. Preserve those. Its added persona and AT-006 locations are useful affected surfaces.
+The Chief Editor needs **literal replacement/addition text and the bounded write set**, not a
+new vote on URL/Markdown or a fresh count of matches. Cowork can draft that text now.
+
+| Parent-first unit | Cowork's draft must show | Chief Editor decision | Accept only if |
+|---|---|---|---|
+| Product — Reporter persona / AC-01 | Persona says the human supplies the starter package; Reporter executes. AC-01 covers both authorized sources, one subject, optional tags and unchanged metadata rules | Accept/reject faithful propagation of existing D-197/D-219 behavior | “Without human handoff” and implied automatic input generation do not survive in the current manual-intake persona; valid URL coverage is preserved |
+| Functional — intake through source validation | URL and Markdown paths, no-source refusal, invalid/unavailable-file handling and explicit source/assessment binding | Accept/reject complete proposed behavior; no schema/service choice inferred | T2 does not claim a file's URL is live. T3 evidence requirements are checked for compatibility, not ignored because they are later than intake |
+| Addendum — gate rows plus acceptance table | T1/T2 alternatives; AT-001 acceptance; AT-002 neither-source refusal; AT-003 missing-subject refusal; AT-006 actor scope; current §8.1 note cites the decided ruling | Accept/reject the single coherent source-text packet | Actor attribution agrees with the Product/Fn_Spec, and the newly decided question is no longer called open in current behavior prose |
+| Derived views | Source-dependent storyboard/panel/UML/data-flow changes and Encyclopedia content/marker updates | Accept corrected meaning; separate Chief Editor republication action | Historical examples remain historical; sources are corrected before their consuming views claim alignment |
+
+No new business decision is needed to correct wording already settled by a cited decision.
+If an exception's authority is genuinely missing, isolate that exact exception and requested
+choice; do not reopen the entire intake model. Application still needs its own bounded grant.
+
+### Remaining gaps to address within those drafts
+
+**1. Search completeness is scoped, not semantic completeness.** D-220 records no exact search
+expression/options to reproduce its 35-hit claim. A read-only, untruncated case-insensitive
+`url|source reference` search over the same three files also finds Addendum T3 `:163` and evidence
+quality `:340`, Fn_Spec provenance `:100`, and Product traceability `:761`, absent from the listed
+classification. Many extra matches (for example source catalogue URLs) are legitimately unchanged.
+This does **not** mean all matches need edits or that a new total establishes truth. Record the
+search scope/method and classify implications by meaning. Arithmetic checks classification of
+the returned set; it cannot prove that the chosen terms find every affected behavior.
+
+**2. T3 must not become the next hidden URL gate.** Addendum `:163` requires
+`trend_signal.evidence_url` set; `:340` scores that URL's presence/accessibility. A Markdown source
+is not necessarily the same thing as trend evidence. Cowork must explicitly say whether the
+existing independent evidence-URL requirement remains, or propose a governed alternative with
+its authority. Do not silently rename it, waive scoring or fabricate a URL. Until this is mapped,
+successful T1/T2 fixtures alone do not prove the full Markdown workflow can proceed.
+
+**3. AT-006 is an actor question, not only a format replacement.** Its current expected result
+records the human as executor at Line 2 with `HumanOverride`. D-197/US-01 and Fn_Spec §3.1 define
+the human supplier and Reporter-agent executor separately. If AT-006 tests ordinary manual
+supply, align its result to those decisions. If it tests a distinct human-executor fallback,
+name the existing exception authority and preconditions. Do not keep or delete an exception
+based solely on its URL wording, and do not infer human execution from manual preparation.
+
+**4. Resolved question versus current stale note.** D-220 calls Addendum `:528` out of scope
+because the question is resolved. That is not enough for the current note, which still says
+source-requiredness/non-URL behavior remains open. Include its narrow successor notice in the
+Addendum unit, as already requested in the preceding review. Keep independent verification and
+any genuinely unresolved representation mechanism separate from the closed business choice.
+
+**5. Routed is not implementation-ready.** A named retention/validation residual is sufficient
+to report partial drafting honestly. It is not sufficient to claim that the Markdown path,
+immutable report evidence or implementation packet is ready. Name which readiness is being
+claimed. Do not grant whole-entry verification merely because an owner has been assigned.
+
+### Small steps for Lane A
+
+1. Draft the literal Product text using settled behavior; carry the persona's manual-supply
+   correction, not merely the words “URL or Markdown.”
+2. Draft Fn_Spec behavior and its T2/T3 evidence crosswalk, preserving source versus evidence
+   distinctions. Explicitly retain any unresolved representation binding as incomplete design.
+3. Draft the Addendum unit with the gate rows, acceptance rows and §8.1 successor note together.
+   Map AT-006 to ordinary supply or its actually authorized exception before asserting outcomes.
+4. Submit the exact text, paths, exclusions and DoD through the existing authorization record.
+   Do not replace this deliverable with another enumeration-only decision. No repeated broad
+   clarification is needed; surface only a concrete missing authority or business outcome.
+5. After authorized source application, reconcile each derived view, obtain publication evidence
+   where required, synchronize Graphify and hand back per entry for independent review.
+
+**Draft acceptance:** URL success, Markdown success with all applicable evidence, no-source
+refusal, missing-subject refusal, honest unreadable/missing-file outcome, correct supplier/executor
+attribution and retrieval of the selected evidence revision. These are planned walkthroughs,
+not executed tests. An example that passes intake but cannot meet the next gate is not end-to-end
+proof. No new UI artifact, storage service, migration or physical-source feature is authorized.
+
+**Observed:** graph analyzed `a9592fe`, reviewed source `4029795`; query was read-only navigation.
+No hosted Encyclopedia was inspected or republished. Only this handoff changes; no lifecycle
+promotion or governed-source application. Build/Inventory applicability for the actual repair
+belongs in Lane A's eventual write-set review, not inferred from this appendix.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-220 corrected pointer, authority split and additional affected locations | Preserve; proceed to literal repair drafting |
+| Approve-with-conditions | Product/Fn_Spec/Addendum child packet | Resolve actor scope, T3 evidence compatibility and stale current note; present exact text |
+| Reject | Arithmetic as semantic completeness; routing as implementation readiness | Scope the measurement and name the actual readiness claim |
+| Defer | Source application, publication, implementation and whole-entry verification | Bounded authorization, complete behavior/evidence, graph currency and independent review |
