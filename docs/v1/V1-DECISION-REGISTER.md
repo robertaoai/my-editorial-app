@@ -2863,6 +2863,22 @@ inferred actor** (`D-87`). **Channel activation and tool crossing are separate c
 with single-tool, mixed-tool, simultaneous lane-and-tool, and the `.agents/rules/graphify.md`
 exception all covered. **Start condition:** after `C-39`'s fixtures land.
 
+**Enforcement policy RULED by the Judge, 2026-09-09 (`D-223`), raised by Lane B.** **A trailer
+DECLARES a crossing; CI checks the changed paths; NEITHER GRANTS PERMISSION.** The hook **blocks a
+mixed Cowork/Code commit carrying no `Tool-Crossing:` trailer**; **with the trailer the commit succeeds
+and CI still fails.** The author learns at commit time, and the reason lands in history where
+`git interpret-trailers` can read it.
+
+**A fifth fixture is added by this ruling: trailer present → commit passes → CI STILL FAILS.** Without
+it the two branches are indistinguishable at runtime and the trailer becomes clearance by habit.
+
+**REJECTED with its reason recorded: a trailer that clears CI.** A self-written trailer as permission
+is `a_check_that_cannot_fail` — every author clears the control by describing what they are doing.
+
+**The ruling does NOT move the start condition.** `C-35` still opens **after `C-39`'s fixtures land**.
+**A policy ruling is not scheduling** — recording it now is what stops it being re-litigated when the
+unit opens.
+
 ### `C-33` — the S1 trigger has a static contract test, not a database-executed one
 
 **Opened by `D-118`, 2026-08-25, raised by Lane B as `B-044` against its own work.** 
@@ -16435,3 +16451,89 @@ have re-conflated the two concepts `G39`/`D-38` separated. **Both present, or th
 `applied 20` stands. **Syncs no graph** — `docs-drift` stale at `c31afa6`, Claude Code's, owed before
 the next consuming approval, not ordered against the push. **Lane A's own work, not independently
 reviewed** — `C-38`.
+
+## 5.14e48 `D-223` — A Comment Naming the Enforcement Point It Did Not Change
+
+**Authorized by the Judge, 2026-09-09** (*"proceed plan"*), **with a Judge ruling on the tool-crossing
+enforcement policy**. **Raised by Lane B** at `d1fadbc` and `85422de`, reviewing Claude Code's
+`4005d58`. **Register-only. No script, hook or workflow is edited here.**
+
+### The naming sentence
+
+**`scripts/checks/lane-boundary.mjs` names the enforcement point it did not change and is silent about
+the one it did.** Its `A_SUB` comment says *"This REPORTS the sub-crossing; it does not gate on one"*,
+and `:193` says *"Reported, never gated"* / *"This is visibility, not permission."*
+
+| Enforcement point | Behaviour on a mixed Cowork/Code change | The comment |
+|---|---|---|
+| `.githooks/commit-msg` | **unchanged** — `byLane` keys A/B/C, the local commit succeeds | **accurate** |
+| **the suite, and CI** | `lane-boundary.mjs:193–195` pushes a finding → `check-consistency.mjs:63–64` turns any finding into **FAIL** → `.github/workflows/ci.yml` runs the suite → **CI fails** | **silent, and the comment reads as policy** |
+
+**The crossing IS enforced — one layer up from where the comment is looking.** *"Never gated"* is a
+scope word whose domain is **one of two** enforcement points. **Describe both, or describe neither.**
+
+### `subOf()` — the guard it explains, applied once
+
+`subOf`'s own doc comment states why the `docs/handoff/` guard sits in the function rather than only in
+`classify()`: *"this function is exported, and a caller asking about a handoff path directly would
+otherwise be told `A-cowork`."* **The identical reasoning was never applied to `.github/workflows/`.**
+
+**Measured live:** `subOf(".github/workflows/ci.yml")` → **`"A-cowork"`** — Lane C's surface reported as
+Cowork's.
+
+**And the precision matters:** this is **LATENT, not active.** `classify()` routes workflows to Lane C
+via `LANES` before `subOf` is consulted, so **no current check output is wrong.** Lane B's *"incorrectly
+identifies"* is **true of the exported function and false of the check's behaviour today.** The defect
+is that a function published for direct callers was hardened for one of its two holes. **Stating this
+precisely is the difference between a finding and an overclaim** — and overclaiming is how the last
+nine acts went wrong.
+
+### The Judge's ruling — recorded in `C-35`, restated here
+
+**A trailer DECLARES a crossing. CI checks the changed paths. NEITHER GRANTS PERMISSION.**
+
+- The hook **blocks** a mixed Cowork/Code commit with **no** `Tool-Crossing:` trailer.
+- **With** the trailer the commit succeeds — **and CI still fails.**
+- **Rejected, with its reason:** a trailer that clears CI. **A self-written trailer as permission is
+  `a_check_that_cannot_fail`** — every author clears the control by describing what they are doing.
+- **A fifth fixture is added:** *trailer present → commit passes → CI still fails*, **red before the
+  hook lands, green after.** Without it the two branches are indistinguishable at runtime.
+- **The ruling is NOT a start condition.** `C-35` opens **after `C-39`'s fixtures land** (`D-205`), and
+  `C-39` is not built. **Approval is not scheduling.**
+
+### Two boundaries restated, nothing currently breached
+
+- **Code supplies evidence; Cowork records the register handback; the journal is historical context,
+  never a third authority.** `4005d58` touched one file and wrote no journal — **recorded as
+  unbreached**, not as a finding.
+- **The classifier assertion test closes nothing of `C-42`.** `C-42(b)` requires **definition coverage
+  and occurrence uniqueness over the condition index**; `C-42(a)` still has **no mechanical form**.
+  Different control, different condition. **A passing test for one is not partial credit for the other.**
+
+### What Claude Code is owed — behind `C-35`, separately authorized
+
+1. **`subOf()` guard for `.github/workflows/`**, with a negative fixture that **reproduces the pre-fix
+   `"A-cowork"`**. A fixture that cannot fail against the old code proves nothing.
+2. **The comment corrected in the same edit as the guard**, so the file stops asserting a scope it does
+   not have.
+3. **`.githooks/commit-msg`** — `Tool-Crossing: <reason>` via `git interpret-trailers`, with `C-35`'s
+   four fixtures **plus** the fifth above.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e48; `C-35` carries the enforcement ruling and keeps its start condition |
+| **`scripts/` · `.githooks/`** | **⚠️ AFFECTED — `lane-boundary.mjs` guard and comment, `commit-msg` trailer. NOT edited: Claude Code's surface, behind `C-35`** |
+| **`.github/workflows/`** | **— unaffected: Lane C's, and no workflow changes. The finding is about a classifier that MENTIONS the path** |
+| **Handoff entries** | **— unaffected: no header, resolution or anchor touched** |
+| **Channel docs · work order · Build spec · Agent files · Inventory** | **— unaffected: no file created or retired; the guard and hook are edits to existing artifacts (`D-54` scopes this to files)** |
+| **`Modular_PRD` · Fn_Specs · governing sources · derived views** | **— unaffected: the intake packet (`D-219`–`D-222`) is untouched by this act** |
+| **Phase closure** | **— unaffected: no phase state moves; `C-35` opens on its own start condition** |
+
+### What this act does NOT do
+
+**Edits no script, hook or workflow. Opens `C-35` no earlier.** **Closes nothing of `C-42`.**
+**Verifies no entry** — `applied 20` stands. **Syncs no graph** — `docs-drift` stale at `4005d58`
+vs HEAD, Claude Code's, owed before the next consuming approval. **Lane A's own work, not
+independently reviewed** — `C-38`.
