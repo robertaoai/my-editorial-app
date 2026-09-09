@@ -2869,8 +2869,40 @@ mixed Cowork/Code commit carrying no `Tool-Crossing:` trailer**; **with the trai
 and CI still fails.** The author learns at commit time, and the reason lands in history where
 `git interpret-trailers` can read it.
 
-**A fifth fixture is added by this ruling: trailer present → commit passes → CI STILL FAILS.** Without
-it the two branches are indistinguishable at runtime and the trailer becomes clearance by habit.
+**THE FIXTURE CONTRACT — corrected by `D-224`, 2026-09-09, raised by Lane B.** `D-223` named
+*trailer present → commit passes → CI still fails* as the **red-before-green** proof. **It cannot be.**
+`scripts/lane-gate.mjs:66` reads `if (byLane.size <= 1) process.exit(0);` — **a Cowork/Code crossing is
+one lane (A)**, so the gate exits before reaching the trailer parse at `:114`. **That case passes today
+and passes after. It proves nothing new** — `probe_that_cannot_fail`, specified inside the act that
+named the class.
+
+**Three roles, stated separately so none is mistaken for another:**
+
+| Fixture | Today | After | Role |
+|---|---|---|---|
+| mixed Cowork/Code, **no** `Tool-Crossing:` | **passes** (`lane-gate.mjs:66`) | **BLOCKS** | **red-before-green — the ONLY new-behaviour proof** |
+| mixed Cowork/Code, **with** trailer | passes | **still passes** | preservation — the trailer does not over-block |
+| the same mixed change, at CI | **fails** (`lane-boundary.mjs:193–195` → `check-consistency.mjs:63–64`) | **still fails** | preservation — the trailer does not clear CI |
+
+**Each fixture carries its ROLE in its name** — `red-before-green`, `preservation`. **The trailer-absent
+case is run against the pre-fix `lane-gate.mjs` and its PASS recorded before the fix lands: an
+unrecorded red is not a red.** The four original fixtures above — single-tool, mixed-tool, simultaneous
+lane-and-tool, the `.agents/rules/graphify.md` exception — **pass unchanged**, including the `d6d406a`
+trailer-block shape at `scripts/fixtures/suites.mjs:609`. **`:66` is NARROWED, never replaced**; tool
+crossing is an added branch and `D-88`'s lane gate keeps its behaviour.
+
+**The write set, named (`D-224`, Lane B's condition):**
+
+| File | Change |
+|---|---|
+| `scripts/lane-gate.mjs` | the block — `:66`'s early return narrowed; `:114`'s trailer parse **reused, not rewritten** |
+| `scripts/checks/lane-boundary.mjs` | the `subOf` guard for `.github/workflows/` **and** the *"reports, never gates"* comment — **one edit** |
+| `scripts/fixtures/suites.mjs` | the fixtures, beside the existing `lane-gate` cases at `:603–615`, on the `.git/lane-gate-fixture` harness |
+| **`.githooks/commit-msg`** | **UNCHANGED.** It delegates — `node scripts/lane-gate.mjs "$1"`. **`D-223` implied a hook edit; none is needed** |
+
+**Order (Lane B, adopted verbatim):** correct the fixture contract → **satisfy `C-39`'s prerequisite** →
+authorize the bounded implementation → execute fixtures → synchronize → independent review. **A
+corrected contract is not an authorization**, and the prerequisite is second for that reason.
 
 **REJECTED with its reason recorded: a trailer that clears CI.** A self-written trailer as permission
 is `a_check_that_cannot_fail` — every author clears the control by describing what they are doing.
@@ -16536,4 +16568,60 @@ nine acts went wrong.
 **Edits no script, hook or workflow. Opens `C-35` no earlier.** **Closes nothing of `C-42`.**
 **Verifies no entry** — `applied 20` stands. **Syncs no graph** — `docs-drift` stale at `4005d58`
 vs HEAD, Claude Code's, owed before the next consuming approval. **Lane A's own work, not
+independently reviewed** — `C-38`.
+
+## 5.14e49 `D-224` — A Preservation Test Named as the Red-Before-Green Proof
+
+**Authorized by the Judge, 2026-09-09** (*"proceed plan"*). **Raised by Lane B** at `19d573c`.
+**Register-only.** **No new Judge decision was needed** — Lane B said so and it holds: `D-223`'s
+citations and its policy distinction stand; only the fixture contract was wrong.
+
+### The naming sentence
+
+**`D-223` designated a preservation test as its red-before-green proof.** It required *trailer present →
+commit passes → CI still fails* to be **red before the hook lands and green after**.
+
+**Measured:** `scripts/lane-gate.mjs:66` — `if (byLane.size <= 1) process.exit(0);`. **A Cowork/Code
+crossing is one lane (A)**, so the gate exits there, **before** the trailer parse at `:114`. **That case
+passes today and will pass after.** It is a preservation test wearing the label of a proof.
+
+**The case that proves the new behaviour is its opposite**, and `D-223` did not name it: **mixed
+Cowork/Code with NO trailer — passes today at `:66`, must BLOCK after.**
+
+**Fifth occurrence of `probe_that_cannot_fail`, and the first written INTO the ruling that named the
+class.** `D-223` recorded *"a fixture that cannot fail against the old code proves nothing"* about
+`subOf`, then attached that exact defect to the hook fixture two paragraphs later. **Naming a class does
+not immunise the act that names it** — this sequence has now demonstrated that with
+*scoped-from-a-summary* (`D-219`/`D-220`), *correcting-beside* (`D-214`/`D-215`) and this.
+
+### What changed
+
+- **`C-35`'s fixture contract corrected in place** — three roles, each stated separately, **each carrying
+  its role in its fixture name** so a green suite cannot hide which one proved the block.
+- **The pre-fix PASS of the trailer-absent case must be recorded before the fix lands.** **An unrecorded
+  red is not a red** — the evidence has to exist at a commit, not in a memory of having run it.
+- **The write set is named**, which was Lane B's condition — and **it corrects `D-223`'s own plan**:
+  `.githooks/commit-msg` needs **no edit**. It delegates. `D-223` implied a hook change; the change is
+  `scripts/lane-gate.mjs:66`.
+- **`:66` is narrowed, never replaced.** `D-88`'s lane gate keeps its behaviour and its four fixtures,
+  including the `d6d406a` trailer-block shape at `scripts/fixtures/suites.mjs:609`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e49; `C-35`'s fixture contract, roles, write set and order |
+| **`scripts/` · `.githooks/`** | **⚠️ AFFECTED and NAMED — `lane-gate.mjs`, `lane-boundary.mjs`, `fixtures/suites.mjs`. `.githooks/commit-msg` is NOT affected. Nothing edited: Claude Code's surface, behind `C-35`** |
+| **Handoff entries** | **— unaffected: no header, resolution or anchor touched** |
+| **Channel docs · work order · Build spec · Agent files · Inventory** | **— unaffected: no file created or retired; the three named files already exist** |
+| **`Modular_PRD` · Fn_Specs · governing sources · derived views** | **— unaffected: the intake packet (`D-219`–`D-222`) is untouched** |
+| **`.github/workflows/`** | **— unaffected: Lane C's, and no workflow changes** |
+| **Phase closure** | **— unaffected: `C-35` opens on its own start condition** |
+
+### What this act does NOT do
+
+**Edits no script, hook or fixture. Authorizes no implementation** — a corrected contract is not an
+authorization, and `C-35` still opens **after `C-39`'s fixtures land**. **Escalates nothing** — no Judge
+decision was owed. **Verifies no entry** — `applied 20` stands. **Syncs no graph** — `docs-drift` stale
+at `4005d58`, Claude Code's, owed before the next consuming approval. **Lane A's own work, not
 independently reviewed** — `C-38`.
