@@ -2890,8 +2890,8 @@ named the class.
 
 | Family | Today | Obligation |
 |---|---|---|
-| **lane-crossing** (`D-88`, A/B/C) — `scripts/fixtures/suites.mjs:601–620`, **three** cases incl. the `d6d406a` shape at `:609` | **exists, passes** | **PRESERVE** |
-| **tool-crossing** (`D-200`, Cowork/Code) — single-tool · mixed-tool · simultaneous lane-and-tool · `.agents/rules/graphify.md` exception | **ZERO exist** — `grep -c 'Tool-Crossing\|A-cowork\|A-code\|subOf' suites.mjs` = 0 | **ADD.** Case names prefixed `tool-gate:`, never `lane-gate:` |
+| **lane-crossing** (`D-88`, A/B/C) — `scripts/fixtures/suites.mjs:601–620`, **three** cases incl. the `d6d406a` shape at `:609` | **implemented, with expected behaviour recorded per case** (`expectCode`/`expectText`, `suites.mjs:605–618`); **execution UNVERIFIED at this revision — no run recorded** (`D-226`) | **PRESERVE** |
+| **tool-crossing** (`D-200`, Cowork/Code) — single-tool · mixed-tool · simultaneous lane-and-tool · `.agents/rules/graphify.md` exception | **SPECIFIED, NOT IMPLEMENTED** (`D-226`) — this condition already defines their required behaviour; **zero cases exist in the harness**, `grep -c 'Tool-Crossing\|A-cowork\|A-code\|subOf' suites.mjs` = 0 | **ADD.** Case names prefixed `tool-gate:`, never `lane-gate:` |
 
 **`D-224` said *"the four original fixtures … pass unchanged"* and that is wrong three ways:** it called
 `C-35`'s **planned** tool cases *original*; it said they *pass unchanged* when **none exists, so nothing
@@ -2910,8 +2910,18 @@ harness emits **`exit 0, expected 1`** → **FAIL**. **That failing verdict is t
 
 **It is the PRIMARY MISSING-TRAILER TEST, not the *sole proof*** (`D-224`'s word, withdrawn).
 **Simultaneous lane-and-tool and the `graphify.md` exception also exercise new behaviour and remain
-required.** The required set is **enumerated with a count**, and the runner's case count must match it —
-**one named case does not stand for a family.**
+required.**
+
+**ACCEPTANCE IS PER NAMED CASE, WITH ITS EXPECTED RESULT — `D-226`, raised by Lane B.** `D-225`
+required *"the runner's case count must match"*. **A matching count proves cardinality, not identity or
+outcome** — three cases can be the wrong three, or three failures, and the count still matches. **A
+stated tally as an acceptance test is the shape this corpus has retired four times** (`G55`, `G56`,
+`G58`, `G75`), reintroduced by `D-225` as a gate.
+
+**The contract names each required case WITH ITS EXPECTED RESULT; acceptance is `recorded == expected`,
+per case, quoted from `scripts/fixtures/run.mjs` output.** **Not a count, and not a bare recorded
+result** — without a stated expectation a recorded `MISS` satisfies the gate exactly as well as an `ok`,
+which is `probe_that_cannot_fail` at the reporting layer. **One named case does not stand for a family.**
 
 **PASSING IS CLAIMED ONLY FROM A NAMED RUN — `D-225`, and this corrects `D-224`'s own mitigation.**
 `D-224` offered *"`suites.mjs:601–620` byte-identical, verified by diff"* as proof the lane family still
@@ -2935,6 +2945,11 @@ behaviour.
 **Order (Lane B, adopted verbatim):** correct the fixture contract → **satisfy `C-39`'s prerequisite** →
 authorize the bounded implementation → execute fixtures → synchronize → independent review. **A
 corrected contract is not an authorization**, and the prerequisite is second for that reason.
+
+**THIS PARAGRAPH IS THE CANONICAL SEQUENCE. `D-225`'s narrative restated a DIFFERENT order — authorization
+before `C-39` — and is SUPERSEDED BY REFERENCE (`D-226`).** Its act text stays as history (`D-93` rule
+4). **Cite `C-35`'s Order paragraph — this one — never a line number**: lines move, and this sequence has
+already paid for that once when `:528` became `:528–529`. **One condition, one sequence.**
 
 **REJECTED with its reason recorded: a trailer that clears CI.** A self-written trailer as permission
 is `a_check_that_cannot_fail` — every author clears the control by describing what they are doing.
@@ -16716,3 +16731,66 @@ bounded authorization → satisfy `C-39` → implement and test → synchronize 
 run has occurred, and under this act's own rule an unrun test is not a passing one. **Verifies no
 entry** — `applied 20` stands. **Syncs no graph** — `docs-drift` stale at `4005d58`, Claude Code's,
 owed before the next consuming approval. **Lane A's own work, not independently reviewed** — `C-38`.
+
+## 5.14e51 `D-226` — Over-Qualified One Claim, Under-Specified the Next, on Adjacent Lines
+
+**Authorized by the Judge, 2026-09-09** — **bounded documentation application**: *"apply `D-226` in
+`docs/v1/V1-DECISION-REGISTER.md` only … Preserve existing requirements and historical text. Verify the
+completed correction. This does not authorize scripts, fixtures, product changes, implementation, push,
+or lifecycle closure."* **Raised by Lane B** at `5424808` and `ce5839b`. **Applied within exactly that
+scope.**
+
+### The naming sentence
+
+**`D-225` wrote the rule that convicted its own table, and the `D-226` draft then made two opposite
+errors fixing it.**
+
+- **`C-35` said the lane family "exists, passes"** while the paragraph `D-225` added twenty lines below
+  said **"passing is claimed only from a named run."** No run had occurred. **The table asserted exactly
+  what the rule forbade.**
+- **The draft then OVER-QUALIFIED it** — *"execution UNVERIFIED"* alone would have discarded a supported
+  fact: expected behaviour **is** recorded, `expectCode`/`expectText` at `suites.mjs:605–618`.
+- **And UNDER-SPECIFIED the fix beside it** — *"each case named, with `ok` or `MISS` recorded"* records
+  whatever happened. **Without a stated expectation a `MISS` satisfies the gate as well as an `ok`.**
+
+**Over-retirement and `probe_that_cannot_fail`, in one draft, on adjacent lines.** The lesson is not
+either failure alone: **a correction has a size, and both overshooting and undershooting it are the same
+mistake about evidence.**
+
+### What changed — three edits, register only
+
+| Target | Before | After |
+|---|---|---|
+| lane family status | *"exists, passes"* | **implemented, expected behaviour recorded per case (`suites.mjs:605–618`); execution UNVERIFIED at this revision** |
+| tool family status | *"ZERO exist"* | **SPECIFIED, NOT IMPLEMENTED** — `C-35` already defines their required behaviour; zero cases exist in the harness (Lane B's correction: they are not *"no expectations"*) |
+| acceptance rule | *"the runner's case count must match"* | **each required case named WITH ITS EXPECTED RESULT; acceptance is `recorded == expected`, per case, from `run.mjs` output** |
+| `C-35` Order | one paragraph, plus `D-225`'s conflicting restatement | **this paragraph is canonical; `D-225`'s narrative is SUPERSEDED BY REFERENCE.** Cite the **Order paragraph**, not a line number — it is a paragraph, not a heading (Lane B's correction) |
+
+**A count is a summary of results, never a substitute for them.** `D-225` reintroduced a stated tally as
+a gate — the shape this corpus retired four times (`G55`, `G56`, `G58`, `G75`).
+
+### Preserved, per the authorization
+
+**Existing requirements unchanged:** the four required tool cases, the three lane cases, the
+red-before-green/preservation roles, `SUITES` registration, the run-evidence rule, `:66` narrowed not
+replaced, and the start condition **after `C-39`'s fixtures land**. **Historical text unchanged:**
+`D-224`'s and `D-225`'s act narratives stay as written (`D-93` rule 4); the supersession is **by
+reference**, not by rewriting.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e51 and `C-35` — the only file this authorization touches |
+| **`scripts/` · `.githooks/` · fixtures** | **— NOT touched: explicitly outside the authorization** |
+| **`Modular_PRD` · Fn_Specs · governing sources · derived views** | **— NOT touched: product changes explicitly excluded** |
+| **Handoff entries · Channel docs · work order · Build spec · Agent files · Inventory** | **— unaffected** |
+| **Phase closure** | **— unaffected: lifecycle closure explicitly excluded** |
+
+### What this act does NOT do
+
+**Touches no script, fixture, hook or product file. Authorizes no implementation. Does not push** — the
+authorization excludes it, so the commit stays local and outgoing grows by one. **Closes no lifecycle.**
+**Claims no test passes** — no run has occurred, and by the rule this act sharpens, an unrun test is not
+a passing one. **Syncs no graph** — `docs-drift` stale at `4005d58`, Claude Code's. **Lane A's own work,
+not independently reviewed** — `C-38`.
