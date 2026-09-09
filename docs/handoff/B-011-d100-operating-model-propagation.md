@@ -762,3 +762,97 @@ stated conditions, not predictions of inevitable business failure.
 | Approve-with-conditions | C-44 repair guide | Cowork: use clause-level checks, distinguish unresolved decisions/publication, and identify the publication owner |
 | Reject | Identical-successor/file-count proof; all children called independent | Use applicable-decision evidence and source-before-view dependencies |
 | Defer | Source application, publication, entry/phase verification | Existing bounded authority, owner evidence, independent review and graph currency; no build or lane transition |
+
+## D-218 — V1 separation and Chief Editor decision guide — 2026-09-09
+
+**Restated request:** separate C-44's current documentation repairs from future OD4/assurance
+capabilities, order the existing work, and identify the remaining business choices for intake
+and publication. Reviewed `b3fea26323681c71ed84c5dcd74b6d1d9c20cf83`. Lane B raises this review;
+Lane A answers in the existing records. Template-guided consolidation only, no new tracker.
+
+**D-218 accepted as a scope correction:** C-44 now distinguishes source-repair readiness,
+Chief Editor publication and independent Lane B verification. Its clause-level acceptance and
+source-before-view dependencies are explicit. These corrections do not need another scoping
+round. Source repair, republication and whole-entry verification remain unperformed by that act.
+
+### Parent: what belongs to V1, and what does not
+
+| Object | Current scope / dependency | Lane A action |
+|---|---|---|
+| C-44 Branch A | Current Phase 1 source accuracy: Line attribution, evidence of distinct judgment, D-57 FR-11 ownership and D-168 OD4 separation | Correct existing business/governance clauses under bounded authority. This is not an OD4 implementation feature or a new sprint |
+| C-44 Branch B | Current manual-intake behavior and test-reference accuracy | Preserve AT-001 positive coverage; map AT-003 refusal separately; correct D-199 F2/F3 references. Do not require future AI tagging to complete manual intake |
+| `ARCH-OD4` / `V1/NG-09` | Deferred Proposer → Critics → Judge architecture, not a Product `PBL-*` capability (`Modular_PRD` §2.5.2) | Retain its existing identity and conditional reconsideration. Do not allocate a duplicate feature ID, default-adopt it in V2, or merge it with T6 |
+| Line 3 / FR-11 | Not built in V1 under D-57, independently of OD4 (D-168); S5 is beyond V1 in Build Spec §1/§6 | Preserve the exclusion and its own authority. An S5 label is not authorization or a confirmed V2 allocation |
+| `PBL-01` T6 global assurance; `PBL-02` monetization | Separate future capabilities: bottom/not refinement-ready and unranked/not refinement-ready respectively, Product §2.5.2 | Preserve existing ranks and independent promotion paths. Neither becomes an immediate C-44 task |
+| `PBL-11` Reporter AI tagging/scoring | Identity-only future generation capability; current FR-01 is manual input | Leave unranked; the manual test-reference repair neither implements nor promotes it |
+
+**Retain the Charter's exception, not just “OD4 is beyond V1.”** Frozen Charter OD4 row at line 31
+has two branches. After an affirmative OD2 resolution and shipping, logged failure can trigger
+reconsideration. A negative OD2 resolution before shipping is a pre-launch blocker requiring
+OD4 **or another remedy** to be resolved before launch. It does not automatically authorize OD4.
+Deferring the architecture must not delete that blocker or existing V1 separation controls.
+
+**Version/sprint ordering:** retain the authorized V1 S0–S4 structure in the Build Spec; read
+current execution/holds from its §4 and the Lane B work order, not the historical journal.
+C-44 is preparation for consuming work, not permission to resume held S2. A later item proceeds
+through existing request → refinement → decision/authorization → bounded execution packet →
+execution → evidence/lifecycle. At refinement, select its actual target module/version/sprint
+and dependencies; do not invent a V2 sprint now. Preserve D-203's scope-specific freeze rules
+and historical exclusions. The portfolio's AP-OD4 planning reference is not a substitute for
+the actual Register authorization or a reason to create another current tracker.
+
+### Correction to this review chain's own citation
+
+**The unresolved source-information/non-URL note is Addendum §8.1, the AT-001 scope note
+at lines 526–533 at this revision, not “§5.1.2.”** No §5.1.2 heading was found in that file.
+My earlier B-011 appendices repeated the incorrect pointer; this note corrects those citations
+without rewriting their history. Cowork should fix C-44's current pointer and append the factual
+correction to the decision history as needed. The question itself is real and remains open;
+this is not a new business finding or a reason to reopen the already-decided AT split.
+
+### Chief Editor choices — only what is still missing
+
+| Existing open subject | Decision needed | What does not require another decision |
+|---|---|---|
+| Source-information minimum, Addendum §8.1 AT-001 note | Name which source-information fields are mandatory at manual intake, which may be absent, and whether missing required information refuses intake or is explicitly allowed for later review | Exactly one subject is required; analytical tags are optional. A positive example does not establish source-field requiredness |
+| Non-URL source reference, same note / D-121 constraint | Decide whether current intake accepts non-URL references. If yes, define the minimum identifying reference and the missing/invalid-reference outcome; if no, state the V1 boundary explicitly | Do not infer either answer from “manual,” or quietly erase an existing URL requirement. Route any baseline conflict through the Register, never edit a frozen source |
+| Encyclopedia | Chief Editor is already the publisher under D-218. If access is unavailable, report that operational blocker; otherwise review the prepared corrections and republish through the existing procedure | No new publisher-selection question is needed. Publication is execution/evidence, not another general feature-scoping decision |
+| Future OD4/T6/monetization | No new priority or delivery-date decision is required for C-44. Reconsider only through their existing trigger/refinement path | Do not demand speculative future detail as a condition of the current text repairs |
+
+These questions are a decision packet, **not answers**. Lane A can finish the decided corrections
+while retaining the intake questions as explicit residuals; an unresolved requiredness rule must
+not be used to claim behavior-complete intake or an executable test for that rule.
+
+### Smallest next steps and acceptance
+
+1. **Cowork binds the already-decided repair unit** to its actual authorization and exact paths;
+   correct the source pointer above in the same existing record. No new general scoping artifact.
+2. **Branch A:** compare each current clause in Business Case, Blueprint, Addendum and RACI with
+   its applicable decision. Record repaired or unchanged-with-reason; retain V1 controls and
+   the Charter's conditional stop. Success is correct meaning, not identical citations or file counts.
+3. **Branch B, independent of A:** keep AT-001 acceptance of one subject plus analytical tags;
+   map AT-003 missing-subject refusal. Preserve the optional-tag rule. Correct F2/F3 with current
+   FR-01 references and historical supersession notices, preserving FR-14's actual requirement.
+4. **Views follow their source branch:** Cowork prepares Entry 05/06 content and dependency
+   markers. Chief Editor reads and republishes the hosted artifact. Only then update its
+   verification evidence through the ledger procedure. Do not claim an unseen artifact correct.
+5. **Lane B reviews per entry; Code supplies final-source graph evidence.** Source readiness,
+   publication evidence and whole-entry verification remain distinct. No batch closure or build.
+
+For Product, storyboard, story-panel, UML and data-flow consumers, follow the corrected owning
+behavior/reference; do not generate new diagrams or technical/UX features to represent a
+documentation repair. Historical views keep dated provenance and successor pointers. Product
+capability identities remain where they already live. Build/Inventory are unchanged by this
+handoff; Lane A assesses D-54 against its actual authorized source write set.
+
+**Observed graph:** analyzed `a9592fe`, reviewed HEAD `b3fea26`; the graph is stale despite its
+false-valued `stale` field. Read-only query used as navigation, not current-source verification.
+No source, runtime graph, hosted artifact, application or lifecycle state changed in this review.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-218 completion split and existing C-44 repair direction | Preserve; perform the bounded decided source repairs |
+| Approve-with-conditions | Branch A V1/future separation | Retain Charter trigger, existing ARCH/PBL identities and build holds; no invented future sprint |
+| Approve-with-conditions | Branch B behavior/test mapping | Apply decided split; Chief Editor resolves source-information/non-URL residual before related completeness claims |
+| Reject | OD4 automatically scheduled in V2, merged with T6, or removal of V1 controls; repeated §5.1.2 pointer | Correct current references and scope interpretation in existing records |
+| Defer | Publication, whole-entry/phase verification and product implementation | Owner evidence, independent review, graph currency and separate execution authority |
