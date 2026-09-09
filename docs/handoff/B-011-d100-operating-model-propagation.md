@@ -1498,3 +1498,74 @@ promotion in this review.
 | Approve-with-conditions | Recommended governance policy above | Judge explicitly selects rows; Cowork records bounded packet |
 | Reject | Trailer automatically permits crossing or clears CI | Preserve distinction in instructions and tests |
 | Defer | Hook change, exception mechanism, closure and product work | Separate execution authority, implementation evidence and independent review |
+
+### D-223 independent review — test the changed behavior, not a preserved outcome (2026-09-10)
+
+**What happened / scope:** review at `98b35d3`, using D-223 and canonical C-35 against the
+unchanged classifier, hook delegate and consistency runner. D-223 records the selected policy;
+this review does not ask the Judge to select it again or claim implementation has happened.
+Only this existing Lane B handoff is amended; Lane A answers and owns source corrections.
+
+**Citation corrections confirmed:** `lane-boundary.mjs:193` is the comment, `:194` the
+condition, `:195` the finding insertion. `check-consistency.mjs:63` increments failures and
+`:64` prints FAIL; its final exit converts failures into a nonzero result. These are factual
+source-location repairs, not new business decisions. Prefer a function/condition anchor
+alongside the line number; line numbers alone move after edits.
+
+**Preserve:** declaration is not permission; CI still fails for the inspected mixed-tool path
+set; the main classifier routes workflow files to C; the direct exported lookup is defective;
+C-35 waits for C-39's fixtures; C-42 is not closed by classifier tests. The earlier B-011 review
+already distinguished the direct-call defect from the protected main classifier, so no
+withdrawal of an alleged live-check misclassification is needed.
+
+**New drafting defect:** D-223 requires its added trailer-present fixture to be “red before
+the hook lands, green after.” That outcome already holds before the change: mixed A tools
+produce one `byLane` entry, so `lane-gate.mjs` exits 0 before reading ANY trailer; the
+consistency check independently reports the mixed tools and fails. The added fixture is a
+valuable preservation test, but cannot distinguish the old hook from the proposed hook.
+This conclusion follows from the current control flow; no temporary mixed commit was created.
+
+### What Lane A needs — parent-first corrective packet
+
+| Order | Owner / action | Acceptance evidence |
+|---|---|---|
+| 1 — policy retained | Cowork preserves C-35's `Tool-Crossing:` spelling for internal A crossings and `Lane-Crossing:` for A/B/C crossings | These are separate declarations, neither an authorization token. This clarifies B-011's earlier generic trailer wording using the existing canonical control |
+| 2 — fix the test contract | Cowork appends a narrow correction to D-223: the new blocking behavior must fail its expected assertion before implementation; existing correct behavior must remain passing | No demand to make a valid existing preservation test fail artificially; no policy reversal |
+| 3 — prerequisite | Code supplies C-39 fixture completion evidence before starting the C-35 execution unit | Recording policy or this correction does not satisfy the start condition or grant execution permission |
+| 4 — bounded implementation packet | Code specifies guard, comment, `scripts/lane-gate.mjs` behavior and fixtures; Cowork closes the write set and DoD | `.githooks/commit-msg` currently delegates to that script. Name the actual implementation file, not only the wrapper. No workflow edit is implied |
+| 5 — verify / hand back | Code runs cases below; Cowork records the existing Register handback; Lane A answers B-011 | Independent review uses the application evidence; no lifecycle promotion from a plan or a test count |
+
+### Minimal fixture outcomes — scope each expectation
+
+The hook values below mean the lane/tool declaration checks, assuming the harness can run
+Git normally; they do not promise every unrelated hook or test passes.
+
+| Inspected path set / trailer | Before implementation | Required target | Purpose |
+|---|---|---|---|
+| Mixed A tools, no `Tool-Crossing:` | Hook passes; suite fails | Hook blocks; suite fails | Red-before-green test of NEW blocking behavior |
+| Mixed A tools, valid `Tool-Crossing:` | Hook passes; suite fails | Same | Preservation: declaration must not clear CI |
+| Mixed A tools, malformed/body-only tool declaration | Hook passes; suite fails | Hook blocks; suite fails | New parser behavior, Git trailer definition |
+| Single A tool | Hook passes; lane-boundary has no crossing finding | Same | Preserve ordinary work |
+| Simultaneous A/B/C lane crossing and A-tool crossing | Only lane declaration is currently checked | Require each applicable declaration independently; neither substitutes for the other | Both present, each missing separately, and neither present; suite still reports crossings |
+| Direct workflow path lookup | `subOf` returns `A-cowork` | Returns null; `classify` still assigns C | Red-before-green assertion against the correct target, not an assertion that enshrines the bug |
+
+For the direct lookup, record the old returned value as reproduction evidence, but make the
+regression assertion expect null. Preserve the unmapped handoff and exact-file exception
+cases. Specify the paths used in every test; a green HEAD-only check is not proof of a
+clean accumulated push or PR range.
+
+**What was done instead:** source review and this corrective draft; no hook, script, CI,
+schema or product implementation. Product/Modular_PRD, storyboard/panels, UML/data flow and
+Encyclopedia remain unaffected by this development-control correction, not independently
+re-verified. The journal remains historical context; existing Register/C-35/B-011 records
+carry policy, condition and response respectively. No new tracking channel is needed.
+
+**Graph:** analyzed revision remains `4005d58`, behind reviewed `98b35d3`. No semantic
+currency claim or rebuild; Lane A synchronizes before the next consuming approval.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-223 citation corrections and retained declaration/CI distinction | Preserve; no repeat Judge choice |
+| Approve-with-conditions | C-35 execution plan | Correct test contract, name script target, satisfy C-39 and bounded authorization |
+| Reject | Added trailer-present fixture must be red before the hook change | Replace with preservation test; trailer-absent case proves new blocking |
+| Defer | Tooling application, graph synchronization and whole-entry closure | Owning Lane A unit, then independent review |
