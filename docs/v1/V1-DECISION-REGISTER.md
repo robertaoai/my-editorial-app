@@ -2504,7 +2504,7 @@ if it were the model — **the same shape as reading a green suite as proof of t
 | `B-065` | `docs/source/business-case.md:20` · `docs/source/v1-build-readiness-addendum.md:118` · **`docs/source/blueprint.md:80–81` (`D-217`)** | distinct judgment still claimed from structural separation |
 | `B-066` | Encyclopedia **Entry 05**, anchored to **`D-168`** — not `D-167`, which `D-216` cited (`D-217`) | its criterion requires **republication**, not a flagged ledger row. **Routed as an open criterion, not owned here** — see the stop condition |
 | `B-067` | the same `B-062`/`B-065` source claims **including Blueprint**, plus Entry 05's publication/signoff gate | control-owner repairs landed; the source claims they rest on did not |
-| `B-084` | `docs/fn-specs/FN-GATES-01-05.md:215` (`AT-001`) vs `v1-build-readiness-addendum.md:520,530` (`AT-003`) · `docs/governance/media-industry-sop-fallback-implementation-plan.md:72` vs `docs/governance/requirements-traceability-map.md:141` · **`docs/governance/requirements-scope-knowledge-graph.md` — `CR-14` still `Uncovered`, no supersession notice (`D-199 F2`)** · **`docs/governance/poc-feedback-approval-crosswalk.md` §`FB-05`/`MFB-03` — the `FR-14` collision (`D-199 F3`)** · **Addendum §5.1.2 — required source information and non-URL handling, UNRESOLVED** | the acceptance test would verify the wrong obligation. **`D-216` named one of four surviving `D-199` follow-ups** (`D-217`). `FR-01` keeps manual intake; stale `FR-14` analyses are marked superseded **by reference**; **the input-requiredness question is ROUTED, never inferred** |
+| `B-084` | `docs/fn-specs/FN-GATES-01-05.md:215` (`AT-001`) vs `v1-build-readiness-addendum.md:520,530` (`AT-003`) · `docs/governance/media-industry-sop-fallback-implementation-plan.md:72` vs `docs/governance/requirements-traceability-map.md:141` · **`docs/governance/requirements-scope-knowledge-graph.md` — `CR-14` still `Uncovered`, no supersession notice (`D-199 F2`)** · **`docs/governance/poc-feedback-approval-crosswalk.md` §`FB-05`/`MFB-03` — the `FR-14` collision (`D-199 F3`)** · **Addendum §8.1 `:528` — required source information and non-URL handling. RESOLVED by `D-219`; pointer corrected from the non-existent §5.1.2 by `D-220`** | the acceptance test would verify the wrong obligation. **`D-216` named one of four surviving `D-199` follow-ups** (`D-217`). `FR-01` keeps manual intake; stale `FR-14` analyses are marked superseded **by reference**; **the input-requiredness question is ROUTED, never inferred** |
 
 **Stop condition — THREE subjects, separated by `D-218` because as one they could not be met.**
 `D-217` required *"each of the five entries' own criteria re-checkable without a Cowork edit"* while
@@ -2529,16 +2529,16 @@ no-op edit is not evidence** — a clause whose governing decision is unchanged 
 recorded as unchanged**, which is a pass.
 
 **A DECIDED correction cites its actual successor. An UNDECIDED question does not get one — `D-218`.**
-`D-217` required the Addendum §5.1.2 source-requiredness / non-URL question *"mapped to an owner and a
-successor decision"* while this condition's own table says it is **"ROUTED, never inferred"**. **§5.1.2
-is undecided, so the only way to satisfy that was to manufacture a successor** — the condition
+`D-217` required the Addendum §8.1 source-requiredness / non-URL question (cited as §5.1.2 for four acts; corrected by `D-220`) *"mapped to an owner and a
+successor decision"* while this condition's own table says it is **"ROUTED, never inferred"**. **the question
+was undecided, so the only way to satisfy that was to manufacture a successor** — the condition
 instructing the fabrication it forbids, one clause apart. **It names its existing open record, its
 decision owner and the requested choice, and stays open. Routing is not resolution and does not become
 resolution by being written down.**
 
 **RESOLVED by `D-219`, 2026-09-09 — Judge clarification, and the mechanism worked as designed.**
 The residual named its open record, its decision owner and the requested choice; **the decision owner
-decided.** §5.1.2's source-requiredness / non-URL question closes with an **actual successor**:
+decided.** The §8.1 `:528` source-requiredness / non-URL question closes with an **actual successor**:
 **a digital source is a URL, or a manually prepared `.md` representation when the content cannot be
 reached by URL.** **This is the first residual in this sequence to close by decision rather than by
 routing** — which is what routing is for. `C-44`'s remaining scope is unchanged.
@@ -16155,3 +16155,101 @@ a requested choice**. **No table, file service or feature is chosen silently** (
 **Builds nothing. Verifies no entry** — `applied 20` stands. **Syncs no graph** — `docs-drift` stale at
 `f61f828`, Claude Code's, **owed before the next consuming approval** (`README` step 6), **not ordered
 against the push** (`D-216`). **Lane A's own work, not independently reviewed** — `C-38`.
+
+## 5.14e45 `D-220` — The Act That Named "Scoped From a Summary" Was Scoped From a Summary
+
+**Authorized by the Judge, 2026-09-09** (*"proceed plan"*). **Raised by Lane B** at `0cbdf16`.
+**Register-only.** `D-219`'s enumeration said **ten**. It is **fourteen**, and the section pointer it
+carried does not exist.
+
+### The naming sentence
+
+**`D-219` named *"scoped from a summary"* as the defect and enumerated from a summary.** The Fn_Spec
+was read through `sed -n '1,20p'` — **a silent truncation** — and the Addendum was searched **only for
+`AT-002`, the one item Lane B's summary had named.** The Addendum was never enumerated.
+
+**And `D-219`'s verification could not have caught it.** It checked that each *listed* line resolved to
+its quote. **A verification that confirms the list against the files and never the files against the
+list tests correctness and never completeness** — and completeness was the entire claim.
+
+**`§5.1.2` does not exist.** The Addendum's §5.1 is *"Trend Score v0"*. The question lives at `:528`,
+inside **§8.1 Article Logging (P0)** (heading `:514`). **Carried through `C-44`, `D-217`, `D-218` and
+`D-219` — four acts citing a section that is not there**, while each act "verified last" against lines
+it had chosen to list.
+
+### The enumeration — exhaustive, both directions, no truncation
+
+**35 hits across the three files. All 35 classified; none left silent.**
+
+**IN SCOPE — the intake path, needs the URL-or-Markdown alternative (14):**
+
+| File | Lines |
+|---|---|
+| `docs/fn-specs/FN-GATES-01-05.md` | `:35` `:45` `:63` `:75` `:94` `:119` `:162` `:177` |
+| `docs/Modular_PRD.md` | `:272` Reporter-agent persona *"Log a URL with topic tags"* · `:961` `AC-01` |
+| `docs/source/v1-build-readiness-addendum.md` | `:161` T1 `source_url` **(required)** · `:162` T2 `source_url` **confirmed live** · `:519` `AT-002` · `:523` `AT-006` |
+
+**`D-219` missed four:** Addendum `:161`, `:162`, `:523`, and `Modular_PRD:272`. **Lane B named T1/T2
+and `AT-002`; `AT-006` and `:272` are found here** — their packet is also a summary, and the rule is
+the same for it.
+
+**ALREADY CORRECT — recorded as unchanged, which is a pass (2):** `Modular_PRD:529` `US-01`
+(*"source reference"*) · `Modular_PRD:554` `FR-01` (`D-121`).
+
+**OUT OF SCOPE — named with its reason, never omitted (19):**
+
+| Reason | Lines |
+|---|---|
+| duplicate rule (`AC-02`/`AT-004`), already corrected by `D-121` | Fn_Spec `:87` `:179` · PRD `:962` · Addendum `:521` |
+| **publication** path — manual publish URL, `T7`/`T11`/`FR-10`/`US-10`/`AT-022`, not intake | PRD `:540` `:565` `:769` · Addendum `:167` `:172` `:188` `:293` `:491` `:501` `:556` |
+| bookmarklet / copy-paste form (`NG-07`, `A7`) | PRD `:334` · Addendum `:109` `:140` |
+| editorial note on deliberately empty fields | PRD `:41` |
+| the open-question text itself, resolved by `D-219` | Addendum `:528` |
+
+**14 + 2 + 19 = 35.** The arithmetic is the completeness proof; the list alone is not.
+
+### The completeness rule
+
+**An enumeration is verified in BOTH directions, in the same run:**
+
+1. **list → file** — every listed line resolves to its quoted text; and
+2. **file → list** — an **unbounded** search over the named files returns **no hit that is neither
+   listed nor named out-of-scope with a reason**.
+
+**`head`, `sed -n '1,Np'` and any other truncation are forbidden in a completeness measurement** — a
+truncated search is why this act exists. **One direction alone is `a_check_that_cannot_fail`.**
+
+### The other corrections
+
+- **Pointer: `§8.1` (`:514`), question at `:528`.** Corrected in `C-44`'s **live** text; the act
+  narratives that carried `§5.1.2` are history and stay (`D-93` rule 4).
+- **Permission split (Lane B, adopted): `D-121` is the PARENT PERMISSION** — a source reference may be
+  a URL *or another reference*. **`D-219` supplies the MARKDOWN SPECIFICS.** **Neither is cited for the
+  other's authority.**
+- **Approval wording corrected:** `D-219`'s children read as scheduled. **They are PROPOSED, pending
+  bounded approval. A plan is not execution authority** (Lane B, adopted).
+- **Preserve and add, never substitute:** existing valid-URL examples stay asserted; Markdown coverage
+  is **added** beside them. **Three fixtures after every edit** — valid URL → pass · authorized
+  Markdown, no URL → pass · **no source of any kind → fail**.
+- **No readiness claim** before **Markdown validation** and **evidence retention** are defined or
+  routed with a decision owner. **A filename is not evidence, and a count is not proof** — this act's
+  own count was wrong by four.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e45; `C-44`'s live pointer corrected; the 35-hit classification recorded |
+| **`Modular_PRD`** | **⚠️ AFFECTED — `:272` and `:961`. `:529` and `:554` already correct. Not edited here; proposed child 1** |
+| **Fn_Specs** | **⚠️ AFFECTED — eight lines. Not edited here; proposed child 2** |
+| **Governing sources** | **⚠️ AFFECTED — Addendum `:161` `:162` `:519` `:523`. Not edited here; proposed child 3, one act with `C-44` Branch B** |
+| **Derived views** | **⚠️ AFFECTED — after their own sources; proposed child 4** |
+| **Handoff entries · Channel docs · work order · Build spec · Agent files · Inventory** | **— unaffected** |
+| **Phase closure** | **— unaffected** |
+
+### What this act does NOT do
+
+**Edits no product, functional or governing source.** **Authorizes no child** — all four are proposed.
+**Builds nothing. Verifies no entry** — `applied 20` stands. **Syncs no graph** — `docs-drift` stale at
+`0cbdf16`, Claude Code's, owed before the next consuming approval, not ordered against the push.
+**Lane A's own work, not independently reviewed** — `C-38`.
