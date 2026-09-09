@@ -453,3 +453,122 @@ matrix silently overwritten by this follow-up.
 | Approve-with-conditions | C-39/C-43 corrective draft | Phase 1 Cowork: settle referent/cut and pin transaction, then propagate to actual consumers before implementation |
 | Reject | Pin act's own SHA, claim D-205 declared no referent, inconsistent cutoff/field instructions | Correct in the existing owner records; preserve legacy evidence rather than sweeping entries |
 | Defer | Whole-entry Verified, graph-complete claims, C-38/phase closure and product work | Authorized owner actions, final-source synchronization and independent evidence; D-171 unchanged |
+
+## D-214 follow-up review — 2026-09-09
+
+### What happened — successor ruling, scope and completed work
+
+**Task restated:** review D-214 and its handover against committed source
+`a5b0f94744143ccb9d69daf60507f9a4cfbb16a7`; retire superseded drafting requests and give Lane A
+a short parent-first correction guide. Plan only, using the handoff template's scope, evidence,
+gap, fix and acceptance structure. This existing B-011 appendix remains Lane B's feedback;
+it creates neither a new handoff series nor a live status dashboard.
+
+**Accept D-214's observed-at ruling.** The audit anchor names the commit whose content the
+writer read. It does not claim that the later disposition or this review was already present in
+that commit. A real anchor establishes neither independent verification nor completed application.
+
+**The preceding pin/cut/intermediate-state recommendations are retired, not still owed.**
+C-43 is explicitly closed as superseded by D-214; its former mechanism and the Inventory's
+two-bucket row are withdrawn. Do not implement a sentinel, pin act, deadline, migration cut or
+legacy bucket. TEMPLATE's observed-at field and work order §2.3 step 3 now agree with the
+Register and need no correction. B-071's return to `70a685a` and both prior moves are recorded;
+its deferral and D-171 remain intact. No further anchor move or legacy sweep is requested.
+C-12 also remains settled, with no additional act.
+
+The former “D-205 declared neither” claim is now expressly corrected in C-43's historical
+notice. The notice precedes the **preserved historical body**, not every paragraph below its
+heading; the current status and correction properly precede it. Correct the handover's description
+if repeated; **no notice move is needed**. C-42(b)'s coverage/uniqueness specification is preserved,
+and neither part's implementation or verification is inferred from D-214.
+
+### Remaining gaps — one source correction and bounded handover corrections
+
+| Existing scope | Confirmed gap and consequence | Draft fix / success criterion |
+|---|---|---|
+| **C-39 / channel consumers** | README `:386–389` still requires Lane A's disclaimer on **every non-Verified record**; TEMPLATE `:72–73` repeats it. The new SOP table `:394–399` instead gives an initial record the actual raising actor. An initial undispositioned record cannot satisfy both exact-form instructions | Remove the superseded blanket instructions, keeping the SOP table as the definition. Initial, dispositioned-but-unverified and Verified examples each resolve to their own position; turn reports remain excluded |
+| **C-42(a) / evidence claim** | The attachment calls consumer-vocabulary grep **the stop condition** and requires it before every withdrawal commit. Canonical C-42(a) still specifies the broader contradiction check and negative fixture (`Register:2533–2536`); D-214 `:15586–15589` records a manual technique, not that new mandatory procedure | Describe the technique as demonstrated and the mandatory procedure as **proposed**. If adopted, put it in existing C-42(a), preserving its broader control and open status. Search results locate candidates; inspection must distinguish live instructions from history |
+| **B-011 / owner and dependency handover** | The attachment's all-Code arrow chain again puts Cowork/mixed-owner work behind C-42(a). Canonical owners and prerequisites have not changed: C-39 and D-204 are independent; C-35 names C-39 fixtures, not C-42(a) | Cite the canonical condition sections for each unit. Preserve C-42(b)'s first implementation priority and serialize tool use, without inventing technical dependencies or making Code own Cowork's work |
+| **B-011 / channel boundary** | D-214's handover paragraph (`Register:15606–15608`) treats using the template as necessarily filing a Lane A entry; the attachment broadens this to “any Lane A file under handoff.” README `:23–24` still correctly permits Lane A responses in B/C entries | Distinguish **format** from **channel**: no new A-NNN entry; Lane A's own turn report is its Register boundary section; Lane A may still acknowledge/answer existing B/C entries. The template can guide either permitted artifact without creating a channel |
+
+The disclaimer conflict is a deterministic instruction conflict, **not** a claim that today's
+checker already detects it. C-39's implementation is still owed: current code skips anchor
+validation without Resolution, checks only nonemptiness for Applied, and checks commit shape/
+existence for Verified. D-214 did not claim to install that code. Its simpler anchor rule also
+does not retire C-39's existing actor-independence and nonempty-field obligations.
+
+### Lane A guide — parent first, no new approval loop for settled policy
+
+1. **Preserve the chosen model.** Use D-214, retain C-43's supersession/history and the current
+   B-071 anchor. Do not ask the Judge to choose observed-at again. No C-12 or withdrawn pin work.
+2. **Cowork: finish the existing consumer correction.** In README remove the paragraph beginning
+   “On a record that is not Verified” through “worth having at all”; the table immediately below
+   already supplies the rule. In TEMPLATE remove the universal “On a non-Verified record…” sentence
+   and its fixed Lane A value, leaving “No explanation in either field” and the existing SOP-table
+   pointer. **These are proposed literal deletions for the owner, not edits performed by Lane B.**
+   Test the instruction against an initial Lane B/Lane C record, an Applied record and a Verified
+   record; an initial entry must not falsely claim Lane A has dispositioned it.
+3. **Cowork: correct the handover's claims and routing.** Record that the new actor table is now
+   unopposed only after step 2. Narrow the channel sentence as above. If the Judge adopts a mandatory
+   manual withdrawal review, specify it under C-42(a): take vocabulary from the changed consumer
+   instructions, inspect all affected consumers and every match in context, record final-text
+   evidence, and preserve the broader negative-fixture requirement. Do not equate a clean grep with
+   semantic correctness or declare C-42 closed. A new enforcement promise needs its owner text;
+   a claim that the existing owner text already contains it needs correction instead.
+4. **Select existing units, rather than a new serial backlog.** C-42(b) remains Code's first
+   implementation priority, subject to existing authority. C-39's complete tests follow its
+   clarified field contract; D-204's status-conditioned check remains separately executable.
+   C-35 waits for its named C-39 fixtures. C-36/C-40 stay Cowork's; C-37 keeps its policy/tool
+   split and integrity-before-move rule; C-38 uses a separate turn and a range fixed at its start.
+   These are references to the canonical owners, not a second status table. No independent unit
+   is blocked merely because C-42(a)'s mechanical form remains unresolved.
+5. **Verify the completed bounded work, then synchronize for its consumer.** Code proves commit
+   existence at every applicable lifecycle position, preserves turn-report exclusion and the
+   existing actor tests, and runs the declared negative and legitimate-positive cases. Source
+   inspection here is not execution of those fixtures. After the final source/tool commits, Code
+   verifies extraction currency, curated parity under the derived-field policy and semantic
+   enrichment, then runs the suite. An intermediate rebuild followed by more commits is not
+   final currency. Apply the existing commit/push SOP; a shared handback needs confirmed remote
+   availability, while a local graph is not intrinsically unreproducible merely because a push
+   has not happened. No new push permission or graph-operation authority is granted here.
+
+**Minimal owning write set for the source correction:** handoff README and TEMPLATE, plus the
+Register's accurate correction/handback under D-54. A proposed C-42(a) procedure belongs in that
+same existing condition, not a new condition. Reconcile Build Spec or Inventory only if a scope,
+sequence or artifact fact changes; otherwise mark them unaffected. Leave the already-correct
+work order observed-at instruction and B-071 metadata alone. This packet does not perform those
+owner edits or promote any handoff to Verified.
+
+### Artifact impact, drift and actual evidence
+
+D-214's changed-file set contains no Product, Fn_Spec, UI, storyboard/story-panel, UML/data-flow
+or Encyclopedia artifact. The reported exact-field scan was reproduced: no `Verified-At-Commit`
+hit outside handoffs, V1 tracking and the work order under `docs/`. This supports the narrow
+audit-field scope; **it does not establish that every product or derived view is otherwise
+current**. The prior B-084 and other per-entry residuals retain their own owners; this review
+neither duplicates them nor conducts their whole-entry verification. Hosted Encyclopedia
+content was not read or republished. No product build or new diagram/spec is needed for this fix.
+
+| Dated observation at `a5b0f94` | What it establishes / what remains |
+|---|---|
+| Baseline tree clean; prior handback committed separately at `8f3b312` | Prior drafting was made durable; that alone does not verify it |
+| Fresh remote query returned `47f47c1` | `2292f00`, `8f3b312`, `a5b0f94` were local-only at that observation. Do not reuse this as a live remote value after another push |
+| Suite **16/17** | Only docs-drift failed; no fixture, schema, product or checker build performed |
+| Graph analyzed `fa50acf`, source HEAD `a5b0f94` | Extraction is stale despite `stale: false`; read-only Graphify queries are navigation, not current-source authority |
+| Graphify reports pending descriptions/labels | Semantic enrichment remains separate from extraction and coverage |
+| Git lock absent when checked | The earlier lock blocker was no longer observed. This review removed no lock and does not infer who cleared it |
+
+**What Lane B did instead:** append this review to B-011 only, preserving its header/lifecycle
+and the prior reviews as dated evidence. No governed owner document, runtime graph or fixture
+is changed. A new handoff commit will itself advance HEAD; final synchronization belongs to the
+existing Lane A process, not a claim this document can make for it.
+
+### Approve / reject — D-214 follow-up only
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Register — observed-at, C-43 supersession, C-12 preservation; B-071's corrected anchor | Preserve; remove withdrawn machinery from the work queue |
+| Approve-with-conditions | C-39 / channel consumer correction | Phase 1 Cowork: remove the two blanket actor instructions; Code retains its existing implementation/test obligations |
+| Approve-with-conditions | C-42(a) manual-review proposal and owner-aware handover | Phase 1: distinguish proposed procedure from adopted control; preserve actual owners, prerequisites and C-42(b) priority |
+| Reject | Complete-propagation claim, all-Code dependency chain, blanket ban on Lane A answering B/C entries | Correct the cited instructions/handback; no new field, state, channel or condition |
+| Defer | C-26 whole-entry verification, C-38/phase closure, graph-complete and product claims | Bounded owner work, independent evidence and final-source synchronization; D-171 unchanged |
