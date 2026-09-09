@@ -16340,3 +16340,98 @@ class this sequence keeps correcting. **Readiness requires DEFINED. Routing keep
 does not change that. **Builds nothing. Verifies no entry** — `applied 20` stands. **Syncs no graph** —
 `docs-drift` stale at `591b1df`, Claude Code's, owed before the next consuming approval, not ordered
 against the push. **Lane A's own work, not independently reviewed** — `C-38`.
+
+## 5.14e47 `D-222` — A Quality Score Read as an Admission Gate; the Canonical Phrase and the Complete Text
+
+**Authorized by the Judge, 2026-09-09** (*"proceed plan"*). **Raised by Lane B** at `c31afa6`.
+**Register-only. No source is edited; the replacement text below is COMPLETE and PROPOSED, pending
+bounded approval.**
+
+### The naming sentence
+
+**`D-221` read a quality score as an admission gate.** It said a Markdown-sourced brief with no
+reachable evidence URL *"can be scored down at T3 by a rule that was never revisited"* and called that
+*"accepting an input and then penalising it — a contradiction the Markdown path creates."*
+
+**It is not a contradiction, and the two questions are not the same question:**
+
+| Question | Answered by | Touched by `D-219` |
+|---|---|---|
+| **May this enter?** | `FR-01` · `AT-002` · T1 | **yes** |
+| **How strong is its evidence?** | T3 `:163` · Evidence Quality `:340` | **no, and it should not be** |
+
+**Admission is not endorsement.** A brief admitted as Markdown whose trend-signal evidence is
+unreachable **genuinely has weaker evidence**, and scoring it accordingly is the policy working.
+**`D-221` framed correct behaviour as a defect created by its own act.**
+
+**And it would have destroyed a working distinction.** The policy already separates **unreachable =
+0.5** from **absent = 0.0**; `D-221`'s proposed *"defined alternative"* would have merged them.
+**Unreachable is not absent** (Lane B, adopted on both limbs).
+
+### Preserved unchanged
+
+> **Evidence Quality (`v1-build-readiness-addendum.md:340`) — `trend_signal.evidence_url` present and
+> accessible = 1.0 · present but unreachable = 0.5 · absent = 0.0 · weight 0.10. UNCHANGED.**
+> **T3 (`:163`) — UNCHANGED.**
+
+**`evidence_url` is TREND-SIGNAL EVIDENCE, not the source reference.** That sentence is the whole
+deliverable here; **no rule moves.** **`:163` and `:340` LEAVE the open list** — `D-221` opened them and
+nothing was owed. **Any change to the scoring row is a separate decision with its own approval**, and
+it does not ride on an intake act.
+
+### The canonical phrase — one form, no variants
+
+> **a source reference — a URL, or a manually prepared `.md` representation when the content cannot be
+> reached by URL** (`D-121`, `D-219`)
+
+**`D-221`'s packet drifted inside itself:** `:272` used *"cannot be reached by URL"* while `AC-01:961`
+used *"where no URL exists"*. **Two phrasings of one rule in one table is how four appear across three
+files.** After application, a case-insensitive search for the alternative returns **this phrase and no
+variant**.
+
+### Complete replacement text — no shorthand
+
+**`D-221` gave the eight Fn_Spec lines as shorthand.** *"Take `URL or supplied Markdown
+representation`"* is an instruction to the applier to invent wording — **which is the drift this
+sequence exists to stop.** Complete lines, or the target is not in the packet.
+
+| Line | Replacement |
+|---|---|
+| `FN-GATES:35` | **Strategic alignment:** this is `CR-19`'s success scenario end to end — *supply a source reference → five gates with logged transitions → approve → publish, with zero bypasses.* **The illustrative path is a pasted URL; a manually prepared `.md` representation is equally valid when the content cannot be reached by URL** (`D-121`, `D-219`). `FR-01`–`FR-05` cover intake through independent review; `FR-06`–`FR-13` handle the rest. |
+| `FN-GATES:45` | `\| `FR-01` `[V1]` \| Log an article from **a source reference — a URL, or a manually prepared `.md` representation when the content cannot be reached by URL** (`D-121`, `D-219`) with **exactly one subject topic** and a trend signal; **analytical tags are separate, optional and many**; the article enters at the pipeline entry state. *(`G39` — restated from "≥1 topic tag", which conflated two concepts; see §3.1)* \| T1 \| 1 \| Agent \|` |
+| `FN-GATES:63` | `1.` **The entry boundary is a source reference** — a URL, or a manually prepared `.md` representation when the content cannot be reached by URL (`D-121`, `D-219`). **Nothing enters as a bare topic.** Commissioned POC work resolves to one *before* intake (`B2` in the storyboard). |
+| `FN-GATES:75` | **Required on entry:** a **source reference** — `source_url`, or a supplied `.md` representation when the content cannot be reached by URL; **exactly one subject topic**; a trend-signal description. **Analytical tags remain optional and many.** |
+| `FN-GATES:94` | `>` **Supply:** the Chief Editor supplies the **source reference** (`source_url`, or a manually prepared `.md` representation when the content cannot be reached by URL), the one subject topic, source information and — **`:95` continuation untouched** |
+| `FN-GATES:119` | `- ` **T2 requires:** the **source reference validated** — `source_url` confirmed live, **or** the supplied representation available and readable with its source information examinable (**never labelled *URL confirmed live***); platform identified; source reliability tier set; author and publication date confirmed or entered. |
+| `FN-GATES:162` | `Chief Editor supplies source reference (URL or .md)` — sequence-diagram label |
+| `FN-GATES:177` | `\| `AC-01` `[V1]` \| A Reporter agent is active \| It logs **a valid source reference — a URL, or a supplied `.md` representation when the content cannot be reached by URL** — with **exactly one subject topic** and a trend signal; **analytical tags optional and many** \| The article is created at the entry state \|` |
+| `Modular_PRD:272` | `\| **Reporter agent** \| Origination — finds and logs articles, tags at intake \| Line 1 \| Log **a source reference — a URL, or a manually prepared `.md` representation when the content cannot be reached by URL** (`D-121`, `D-219`) with **exactly one subject topic** (analytical tags separate, optional and many) and a trend signal, **all values supplied manually by the Chief Editor** (`D-194`/`D-197`); the agent executes the log, it does not source the content \| — *(new capability)* \|` — **`"without human handoff"` STRUCK** |
+| `Modular_PRD:961` | `AC-01` — the **canonical phrase** replaces *"where no URL exists"*. *"supplied by the Chief Editor"* and *"the supplier as a separate fact"* **unchanged** |
+| Addendum `:161` `:162` `:519` `:523` `:528–529` | as recorded in `D-221`, with the **canonical phrase** replacing every variant |
+| Addendum `:163` `:340` | **NO CHANGE.** Clarifying note only |
+
+**Every replacement line asserts BOTH clauses — *exactly one subject topic* AND *analytical tags
+separate, optional and many*.** `D-221`'s `:272` draft carried *"with topic tags"* forward and would
+have re-conflated the two concepts `G39`/`D-38` separated. **Both present, or the line is not applied.**
+
+**Three fixtures after every applied edit:** valid URL → **pass** · authorized Markdown, no URL →
+**pass** · **no source reference of any kind → fail.** **Preserve and add; never substitute.**
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e47; scoring preserved; canonical phrase; complete replacement text |
+| **`Modular_PRD`** | **⚠️ AFFECTED — `:272` (two defects), `:961`. Not edited; proposed** |
+| **Fn_Specs** | **⚠️ AFFECTED — eight lines, complete text above. Not edited; proposed** |
+| **Governing sources** | **⚠️ AFFECTED — Addendum `:161` `:162` `:519` `:523` `:528–529`. `:163` and `:340` NOT affected — removed from the open list by this act** |
+| **Derived views** | **⚠️ AFFECTED — after their own sources; proposed** |
+| **Handoff entries · Channel docs · work order · Build spec · Agent files · Inventory** | **— unaffected** |
+| **Phase closure** | **— unaffected** |
+
+### What this act does NOT do
+
+**Edits no source. Changes no score.** **Authorizes no child.** **Builds nothing. Verifies no entry** —
+`applied 20` stands. **Syncs no graph** — `docs-drift` stale at `c31afa6`, Claude Code's, owed before
+the next consuming approval, not ordered against the push. **Lane A's own work, not independently
+reviewed** — `C-38`.
