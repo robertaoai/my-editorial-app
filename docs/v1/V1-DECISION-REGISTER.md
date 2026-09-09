@@ -2471,6 +2471,40 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 > `grep "^### \`C-"` returns every condition. **A second list would be a restatement, and
 > restatements drift** (`G55`).
 
+### `C-44` — the planning-tier sources five `Applied` entries depend on have no owner — `D-216`
+
+**Opened by `D-216`, 2026-09-09, raised by Lane A · Claude Code and extended by Cowork. Owner: Lane A ·
+Cowork. Phase 1.** `closure-readiness` has reported **`applied 20`** for fourteen acts (`D-202`–`D-215`),
+all Phase 1, all raised by Lane B. **Five of the twenty are not Lane B's to finish.** `B-062`, `B-065`,
+`B-066`, `B-067` and `B-084` each name a defect in a **governing planning source** — the artifacts that
+carry business intent into domain and behavioural specification. **Lane B can review them and cannot
+repair them**; the surface is Cowork's.
+
+**Measured: none of these is frozen.** `source-sweep.mjs:41–45` pins exactly three — `docs/PRD.md`,
+`docs/source/project-charter-v1.md`, `supabase/migrations/0001_init.sql`. Everything below is
+**governing and editable** (`GOVERNING_GLOBS = docs/source, docs/governance`). **Declining these as
+frozen would be false**, and it is the excuse this condition exists to remove.
+
+| Entry | Source target, verified present | Defect |
+|---|---|---|
+| `B-062` | `docs/source/business-case.md:28` · `docs/source/v1-build-readiness-addendum.md:117` · `docs/governance/raci-involvement-matrix.md:182` | absolute Three Lines attribution survives the product correction |
+| `B-065` | `docs/source/business-case.md:20` · `docs/source/v1-build-readiness-addendum.md:118` | distinct judgment still claimed from structural separation |
+| `B-066` | Encyclopedia Entry 05 ledger row | `OD4` branch ② correction recorded in `ENCYCLOPEDIA-SYNC.md` v14, dependent view not reconciled |
+| `B-067` | the same `B-062`/`B-065` source claims, plus Entry 05's publication/signoff gate | control-owner repairs landed; the source claims they rest on did not |
+| `B-084` | `docs/fn-specs/FN-GATES-01-05.md:215` (`AT-001`) vs `v1-build-readiness-addendum.md:520,530` (`AT-003`) · `docs/governance/media-industry-sop-fallback-implementation-plan.md:72` (*"CR-14 has no FR"*) vs `docs/governance/requirements-traceability-map.md:141` (maps `FR-01`) | the acceptance test would verify the wrong obligation |
+
+**Stop condition:** each named line corrected in its owning source, and **each of the five entries'
+own criteria re-checkable without a Cowork edit**. **Not** *the entries are `Verified`* — verification
+is Lane B's independent act under `C-26` and is not this condition's to claim.
+
+**Start condition:** none. **This is the PARENT of `C-26`'s review of those five**, and of nothing else:
+the other fifteen `Applied` entries need nothing from Cowork and start immediately.
+
+**Why a condition and not a queue row (`D-216`).** A row inside an act narrative is a **restated tally**
+— it goes stale the moment the next act publishes its own copy (`G55`, `G75`), which is what happened
+to `D-215`'s table. **Conditions carry owner, stop condition and start condition in one canonical
+place** and appear in the derived index. **No new tracker is created.**
+
 ### `C-43` — `Verified-At-Commit` has never had a declared referent — `D-213`, **SUPERSEDED-BY `D-214`**
 
 **CLOSED 2026-09-09. `Superseded-By: D-214`.** The Judge ruled **observed-at**, and this condition's whole
@@ -15712,3 +15746,82 @@ procedure** — the grep stays a technique unless the Judge rules otherwise, and
 `C-42(a)` if he does. **Re-litigates nothing settled**: `D-214`'s observed-at model, `C-43`'s
 supersession, `C-12`, `B-071`'s anchor and `C-43`'s notice placement all stand untouched.
 **Lane A's own work, not independently reviewed** — `C-38`.
+
+## 5.14e41 `D-216` — The Mechanism Audit Never Covered the Mitigation Column; the Queue Becomes Derived
+
+**Authorized by the Judge, 2026-09-09** (*"proceed above plan"*). **Raised by Lane A · Claude Code**,
+whose `D-215` review reproduced all three of its claims independently and then measured the one thing
+`D-215` asserted without running: its own mitigation.
+
+### The naming sentence
+
+**Six acts audited findings for a mechanism. None audited a mitigation.** *"Push first, rebuild
+second"* was stated in the strongest frame this document has — a **Guarantee to Fail / Life-Depends-On-It**
+pair — and it gated the one deliverable asked for every turn. **It has no mechanism.**
+
+| Claim as written | Measured |
+|---|---|
+| *"a rebuild at a HEAD `origin` has never held"* produces a bad analysis SHA | **`docs-drift.mjs:23` reads `.graphify/branch.json`; `:48` reads `git rev-parse HEAD`; `:57` compares `lastAnalyzedHead`.** The only `origin` string in the file is a `D-78` comment. **Nothing reads the remote** |
+| *"five commits outgoing"* | **0** — measured at read time. The precondition had already cleared |
+| rebuilding early would cause a defect | rebuilt: **17/17**, curated parity PASS, coverage 0 absent, **no anomaly** |
+
+**Cost: six commits of staleness behind an ordering constraint that protects nothing.** Seventh
+occurrence of this sequence's class, and the first in the **mitigation** column — where it is hardest
+to see, because the mitigation is the sentence claiming to prevent it.
+
+**The rule, stated so it is checkable:** **an ordering, gating or sequencing claim quotes the file and
+line that enforces it, or it is not made.** One grep refuted this one.
+
+### The queue is DERIVED, not published
+
+**`D-215` published a canonical-owner table inside its act narrative.** Lane A · Code found it omits
+the lane owning **20 of 24** non-terminal entries. **The omission is real and its cause is structural:
+a table restated per act is a restated tally, and every restated tally in this corpus has drifted**
+(`G55`, `G56`, `G58`, `G75`). `D-215`'s table went stale in one act.
+
+**No third tracker is created. The queue is derived from what already carries it:**
+
+```
+grep -ho '^### `C-[0-9]*`' docs/v1/V1-DECISION-REGISTER.md docs/v1/V1-PHASE-CLOSURE.md | sort -u
+node scripts/check-consistency.mjs      # closure-readiness reports the entry buckets
+```
+
+**Owner, stop condition and start condition live in each `### C-NN` section**; the handoff buckets live
+in `closure-readiness`; the per-entry routing lives in `C-26` and `LANE-B-WORK-ORDER.md` §2.3, where
+Lane A · Code correctly placed it. **`D-215`'s table is history and is not amended** — later acts
+supersede, they do not rewrite (`D-93` rule 4).
+
+### What Lane A · Code found, and where this act goes further
+
+**Their P1 fix was one Lane B row. Necessary, and not sufficient.** Five of the twenty `Applied`
+entries — `B-062`, `B-065`, `B-066`, `B-067`, `B-084` — are blocked on **planning-tier sources that
+are Cowork's surface**. A single Lane B row routes those five into reviews that fail for reasons Lane
+B does not own: **`arrival_not_correctness` at the queue level.**
+
+**This is the Judge's clarification 1 made operational.** The affected planning components — Business
+Case, Build-Readiness Addendum, RACI matrix, `FN-GATES`, the traceability map, Encyclopedia Entry
+05/06 — **are the artifacts that align overarching intent with domain expertise and behavioural
+specification.** They are the **parent**; verification of them is the child.
+
+- **`C-44` opened** — owner Lane A · Cowork, the five entries with their **verified** source targets,
+  and the measured fact that **none of them is frozen** (`source-sweep.mjs:41–45` pins three files).
+- **The Lane B split is stated, not implied:** **fifteen startable now**; **five after `C-44`**.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e41; `C-44` minted; the queue recorded as derived |
+| **Handoff entries** | **— unaffected: no header, resolution or anchor touched. The five entries stay `Applied`; `C-44` is the repair, `C-26` the verification** |
+| **Channel docs · Lane B work order** | **— unaffected: `C-26` and §2.3 already carry the routing (Lane A · Code, adopted)** |
+| **Inventory** | **— unaffected: `C-44` edits existing governing sources; no file is created or retired (`D-54` scopes this to files)** |
+| **Planning sources** (`business-case.md`, `v1-build-readiness-addendum.md`, `raci-involvement-matrix.md`, `FN-GATES-01-05.md`, `requirements-traceability-map.md`, `media-industry-sop-fallback-implementation-plan.md`, `ENCYCLOPEDIA-SYNC.md`) | **— NOT edited here, deliberately: named, owned and scoped by `C-44`.** Editing them inside the act that scopes them would be the same act raising and answering |
+| **Build spec · Agent files · `Modular_PRD`** | **— unaffected: no instruction in any of them is contradicted by this act** |
+| **Phase closure** | **— unaffected: no phase state moves** |
+
+### What this act does NOT do
+
+**Installs no check. Syncs no graph** — `docs-drift` PASS at `a9592fe`, coverage 0 absent, parity PASS;
+**nothing is owed and the ordering claim that said otherwise is retired here.** **Repairs no planning
+source** — `C-44` scopes them; the repair is its own act. **Verifies no entry** — `applied 20` stands,
+and it moves only through `C-26`. **Lane A's own work, not independently reviewed** — `C-38`.
