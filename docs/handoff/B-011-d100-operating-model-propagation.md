@@ -856,3 +856,126 @@ No source, runtime graph, hosted artifact, application or lifecycle state change
 | Approve-with-conditions | Branch B behavior/test mapping | Apply decided split; Chief Editor resolves source-information/non-URL residual before related completeness claims |
 | Reject | OD4 automatically scheduled in V2, merged with T6, or removal of V1 controls; repeated §5.1.2 pointer | Correct current references and scope interpretation in existing records |
 | Defer | Publication, whole-entry/phase verification and product implementation | Owner evidence, independent review, graph currency and separate execution authority |
+
+## Editorial Brief / report inputs and URL-only clarification — 2026-09-09
+
+**Request:** list documented inputs, preserve the Judge's URL-only scope clarification, and
+hand Lane A a parent-first propagation plan. Reviewed HEAD `51a3bed`; source files and history
+remain unchanged. Lane B raises; Lane A records the decision and answers in the owning tiers.
+This template-guided appendix is the consolidation, not a new capability tracker or build act.
+
+### 1. Clarification received, awaiting owning-record propagation
+
+The Judge states that non-URL references are excluded across versions and requests that the
+physical/non-URL reference workflow be retained at the bottom of the backlog for traceability.
+**Draft interpretation:** URL-only remains the standing admission boundary unless a later
+explicit Judge decision changes it. The retained request has the lowest priority and is not
+eligible for implementation under that boundary. Backlog retention is neither inclusion in a
+future version nor authorization. Do not promise delivery or assign a sprint to reconcile the
+two statements. Preserve both exclusion and traceable retained demand.
+
+**This changes an existing contract:** `Modular_PRD.md` FR-01 explicitly permits “a URL or another
+reference” under D-121, including a document, claim or statement without a URL. The new direction
+must be recorded as a narrow supersession, not described as what D-121 always said. Preserve
+D-121's separate duplicate-handling rule. No migration is requested: nullable historical storage
+does not by itself require a schema change when admission requirements change.
+
+**Reference type is not source medium.** A local digital document can lack a URL. The new rule
+excludes non-URL references regardless of medium; it does not decide that a physical work already
+available at a URL is automatically acceptable, nor authorize scanning/OCR/upload workflows.
+URL availability also does not establish evidence quality or accessibility.
+
+### 2. Editorial Brief — documented input inventory, not a proposed larger form
+
+The article row is the brief and trigger (Product FR-01, D-111), not a second core record.
+`FN-GATES-01-05.md` §3.1 and Addendum §8.1 are the detailed source anchors.
+
+| Field / fact | Supplied or produced by | Documented treatment |
+|---|---|---|
+| Source URL / reference | Chief Editor through UI | Required intake component; Product FR-01 currently allows another reference, while Fn_Spec says `source_url`. Apply the new URL-only ruling through the parent decision, not silently |
+| One subject topic (`articles.topic_id`) | Chief Editor | Exactly one required; missing subject refuses completion (AT-003) |
+| Trend-signal description | Chief Editor | Required entry component; not an application-generated score |
+| Source information | Chief Editor | Named supplied component, but its precise subfields and minimum requiredness remain unresolved in Addendum §8.1's AT-001 note |
+| Analytical tags | Chief Editor | Optional, many; separate from the one subject. AT-001 demonstrates acceptance alongside multiple tags, not mandatory tags |
+| Source author; publication date | Extracted where possible, then Investigator confirms | Nullable at intake under D-197 B1; failed extraction is flagged. Do not turn them into new mandatory form inputs by inference |
+| Supplier identity; source reference; entry time | Recorded provenance | Supplier and Reporter-agent executor are separate facts. Not evidence that the human is an agent; not necessarily editable fields |
+| Platform; source reliability tier | T2 validation | Downstream enrichment/validation, not established as mandatory T1 manual inputs |
+| Evidence URL; reviewer confidence; editorial angle; duplicate-check result | T3 investigation | Downstream work, not additional initial-form requirements |
+
+No reviewed T1 contract establishes an independently mandatory title, intended-audience field,
+payment field or assurance approval as an Editorial Brief intake requirement. Do not promote
+database columns, historical storyboard labels or M-POC package contents into such requirements.
+The current missing-required-value rule refuses T1 completion with the component named and
+does not fabricate a completed transition or a new incomplete-draft state (§3.1).
+
+### 3. Public Explainable Content with report — generated output versus form input
+
+The M-MVP artifact is not documented as a second intake form. Its provenance contract is in
+`FN-AUDIT-VISIBILITY-07-08.md` §4.1 (D-191); the downloadable M-MVP label/UI is in the B-071
+corrective plan §6/§6a and related held proposals. A label or a draft UI is not a built form.
+
+| Content / control | Documented role and source |
+|---|---|
+| Article, selected assessment and revision | Report context; explicit binding, not the latest assessment by default (audit Fn_Spec §4.1) |
+| Explicit judgment; recorded result, reasons and evidence | Generated report resolves the selected judgment; result is not inferred from state or its transition anchor |
+| As-at transition anchor | State-history context, separate from judgment identity; not live state |
+| Evidence, reasons, template/rule-set/schema versions | Frozen report provenance applicable to that assessment; immutable record with validated replay handling |
+| Human judgment action and supporting reasons/evidence | Upstream editorial approval input, not a second approval performed by report generation. Exact UI/control mapping remains under the existing B-071/R160 chain |
+| Download URL; pending/failure indication | Held M-MVP UI/report proposal: show URL only after successful generation, with article/decision provenance; no fabricated working download |
+| Assurance display | Keep separate from future T6 capability; a placeholder or preparation display does not certify external assurance |
+
+**Missing:** the reviewed documents do not provide one fully reconciled, applied M-MVP report
+form/section schema. Existing R160 owns report reconciliation; do not close it by copying this
+inventory or by adopting older negative-result/UI wording from historical B-071 rounds.
+
+**Separate M-POC contents, not extra M-MVP form fields.** `M-POC-REQUIREMENTS.md` §5 enumerates
+topic, intended audience, trigger provenance, trend/relevance assessment, material claims,
+claim-to-evidence ledger, source-quality/relevance review, counterarguments, uncertainty/missing
+evidence, originality search, exclusivity record, explainable content, publishing template and
+Chief Editor Publish/Hold/Escalate record. The internal folder separately holds the publishable
+article, package-validation/separation record and exclusivity hold/release status. These are
+package contents, not proof of individual editable form fields. Engagement ID and external
+payment trace belong to that later governed module, not the M-MVP report generation record.
+
+### 4. Lane A sequence and remaining choice
+
+1. **Record the new boundary in the Register.** Quote the Judge input, its all-version exclusion
+   and bottom-ranked retained request; name the FR-01/D-121 clause superseded and unaffected
+   duplicate/provenance controls. Do not infer that “decision-tree approved” authorizes a build.
+2. **Retain the request through the existing backlog process.** Check registered and pending
+   identities before assigning any ID. Do not reuse PBL-01, PBL-11 or reserved PBL-10. The new
+   physical/non-URL workflow request stays lowest-ranked, excluded and not refinement-ready;
+   implementation would first require an explicit change to the standing scope boundary.
+3. **Propagate the decided behavior only as authorized.** Product FR-01 first; Fn_Spec intake
+   and Addendum §8.1/AT-001 note next. Preserve the AT-001 positive / AT-003 refusal split, optional
+   tags, nullable author/date and manual supply versus agent execution. Do not rewrite frozen
+   records or delete historical non-URL briefs to make the new rule appear universal in history.
+4. **Keep the source-information minimum open.** Chief Editor still needs to name the mandatory
+   source-information subfields beyond the URL, or explicitly decide there are none at T1.
+   The URL-only answer does not resolve that separate question. Existing author/date treatment
+   remains unchanged unless separately amended; no fresh question about non-URL admission is needed.
+5. **Reconcile views and tests against that contract.** Historical storyboard panel A2 uses
+   “≥1 topic_tag”; current behavior is one subject plus optional analytical tags. Preserve its
+   history and successor notice. Story-panel/UML/data-flow consumers must show URL intake,
+   subsequent enrichment and report generation as separate operations, not merge them into one
+   form. Use existing R159/R160 owners; no new UX document merely for this inventory.
+6. **Acceptance and evidence:** a no-URL reference is refused under the new contract; a URL
+   submission still must satisfy every other required input; optional tags and unknown intake
+   author/date behave as already governed. Report resolution uses the specified assessment and
+   judgment, not latest-by-default or state-derived result. These are planned checks, not executed
+   tests. Graph synchronization follows final source changes before consuming approval; Lane B
+   independently reviews the entry, Chief Editor republishes affected Encyclopedia content.
+
+**Drift:** analyzed graph revision remains `a9592fe`, reviewed HEAD `51a3bed`. Graph query was
+read-only navigation. No hosted Encyclopedia content was inspected. Governed source edits,
+backlog registration, schema/application changes, publication and lifecycle promotions are not
+performed by this handoff. Build/Inventory are unaffected here; Lane A assesses its actual write
+set under D-54. This appendix corrects scope by reference rather than duplicating a canonical form.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | URL-only clarification as decision input; bottom-ranked trace retention | Lane A records narrow supersession and standing scope boundary |
+| Approve-with-conditions | Editorial Brief inventory | Decide only the unresolved source-information minimum; propagate authorized contract |
+| Approve-with-conditions | M-MVP report inventory | Existing R160 reconciliation; keep generated evidence separate from editable inputs and M-POC package |
+| Reject | Non-URL means non-digital; backlog means future authorization; report equals a second intake form | Correct semantics in existing owning records and derived views |
+| Defer | Implementation, report completeness, publication and handoff verification | Bounded authorization, owner work, graph evidence and independent review |
