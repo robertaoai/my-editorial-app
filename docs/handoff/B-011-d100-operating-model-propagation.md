@@ -1424,3 +1424,77 @@ HEAD and requires a fresh currency check before consuming approval.
 | Approve-with-conditions | Governance tooling application at `4005d58` | Fix direct non-A lookup and make consumer outcomes explicit; independent review |
 | Reject | Universal report-only claim, all-unfinished-work-is-Applied claim, blanket handoff-write prohibition | Correct Lane A report and policy packet, without duplicating canonical SOP |
 | Defer | Sub-crossing enforcement choice, C-42 closure, semantic fill and product verification | Judge policy; separately bounded Code units; owning-tier and independent review |
+
+### Judge decision guide — CI failure versus trailer requirement (2026-09-09)
+
+**Reviewed at `d1fadbc`.** This extends the preceding review, not a new finding or SOP.
+The Judge approved decision-tree work; the policy options below remain recommendations,
+not a recorded selection or implementation authorization.
+
+**What happened:** two controls answer different questions. The local commit-message hook
+asks whether a cross-lane commit declares its crossing. The consistency check asks whether
+the inspected paths span surfaces; its findings fail the suite used by CI. Neither proves
+Judge authorization. A successful local commit does not imply a passing CI run, and a
+passing CI run does not authorize work. CI is after a push here; it does not prevent the
+working-branch push itself. Merge consequences depend on required status checks.
+
+Current behavior for a mixed Cowork/Code path set, when that set is inspected:
+
+| Evidence supplied | Commit-message hook | Consistency check / CI |
+|---|---|---|
+| No trailer | No sub-crossing block: both are Lane A | FAIL |
+| Valid `Lane-Crossing:` trailer | Same result: no sub-crossing requirement | FAIL; trailer is not read |
+
+This describes the lane controls only, not every possible hook failure. Local checks inspect
+pending tracked changes; on a clean checkout this checker inspects HEAD's changed paths,
+not an audited full push/PR range. Do not claim that a green run proves the whole range clean.
+
+**What is needed — decide parent first:**
+
+| Order | Question for the Judge | Recommended Accept | If rejected / alternative |
+|---|---|---|---|
+| 1 — normal work rule | Should normal Cowork and Code work remain separate, serialized units? | Yes: preserve D-200/D-201. Separate their changes into correctly scoped units; a trailer does not transfer surface ownership | Any combined-work exception needs a bounded policy decision; do not silently widen ownership |
+| 2 — CI consequence | Should mixed A-tool changes continue to fail the consistency check? | Yes: retain the existing failure and describe it as enforcement through the suite, not informational-only | Warning-only is a separate proposed behavior change. Specify how warnings remain visible without disabling unrelated checks |
+| 3 — local declaration | Should the commit-message hook ALSO require a trailer for a mixed A-tool commit? | Yes, as an early declaration check, not permission. This is a new hook requirement, pending authorization | Leave the hook unchanged and explicitly accept that a mixed commit can be created locally but fail the suite |
+| 4 — exceptional combined work | Does a trailer alone make an exception pass CI? | No. Under the recommended minimal policy, split normal work; defer any machine-recognized exception mechanism | If a combined commit must pass, separately specify bounded authorization evidence, validation and failure behavior before changing the check |
+
+Accepting rows 2 and 3 together deliberately means: a trailer can satisfy the local
+declaration requirement while CI still fails. **It is not an exception pass.** If this is
+not the desired outcome, reject that combination and request a defined authorized-exception
+path; do not tell Code merely to “flip the gate.” No new exception subsystem is proposed here.
+
+**Lane A follow-up, one bounded step at a time:**
+
+1. Cowork records the Judge's exact selections and exclusions through the existing Register
+   process. Clarify whether approval covers policy only or also a named execution packet.
+2. Code corrects the independent `subOf` defect from the preceding review under its own
+   bounded authorization; do not wait for or invent the policy choice to fix classification.
+3. Code drafts expected hook and suite outcomes separately: single-tool pass; mixed/no
+   trailer; mixed/valid trailer; malformed trailer; unchanged A/B/C crossings; unmapped
+   handoffs; direct Lane C lookup. Only chosen-policy cases become implementation criteria.
+4. Cowork and Code close the write set and DoD. Cowork owns policy/instruction changes;
+   Code owns scripts and regression fixtures. CI workflow edits, if needed, require Lane C;
+   running the existing suite through CI does not itself require a workflow edit.
+5. After bounded authorization, Code implements and demonstrates the named red-before-green
+   cases. Cowork records Code's evidence in the existing boundary report. Lane A answers
+   this handoff; Lane B independently reviews it. No new channel or duplicate journal ledger.
+6. Synchronize graph and verify the consuming revision. This guide changes no product
+   behavior: Modular_PRD, storyboard/panels, UML/data flow and Encyclopedia product content
+   are unaffected, not newly verified. Build Spec/Inventory applicability belongs to the
+   eventual artifact write set; journal remains historical context with canonical links.
+
+**Failure to avoid:** treating a declaration as approval, expecting a trailer to clear a
+check that never reads it, or calling the hook and CI the same gate. Success means each
+test names its inspected path set, policy selection, hook exit, suite exit and evidence;
+no success claim extends to an uninspected commit range.
+
+**Drift:** `lastAnalyzedHead` remains `4005d58`, behind reviewed `d1fadbc`; source files
+were checked directly. No graph rebuild, product/spec edit, policy selection or lifecycle
+promotion in this review.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Separation of declaration, consistency failure and authorization | Use in Judge selection |
+| Approve-with-conditions | Recommended governance policy above | Judge explicitly selects rows; Cowork records bounded packet |
+| Reject | Trailer automatically permits crossing or clears CI | Preserve distinction in instructions and tests |
+| Defer | Hook change, exception mechanism, closure and product work | Separate execution authority, implementation evidence and independent review |
