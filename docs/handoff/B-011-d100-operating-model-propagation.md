@@ -1335,3 +1335,92 @@ No hosted Encyclopedia inspected, no source application, no child authorization 
 | Reject | Intake acceptance implies high evidence score; absent equals unreachable; latest discovery attribution | Correct proposal semantics and dated provenance |
 | Approve-with-conditions | Product/Fn_Spec/Addendum repair packet | Complete literal text, preserve cardinality and approved fallback wording, define evidence handling |
 | Defer | Scoring-policy change, application, publication and whole-entry verification | Separate policy choice if requested; bounded execution, graph currency and independent evidence |
+
+## Independent review — Lane A tooling at `4005d58` (2026-09-09)
+
+**Task restated:** independently review the implemented Cowork/Code classifier, distinguish
+reporting from enforcement, and give Lane A a parent-first corrective guide. This is a review
+and proposed correction, not application authority. Existing B-011 lifecycle fields are unchanged.
+
+### What happened — evidence and remaining gaps
+
+The reviewed baseline is `4005d58e6ef94318ecdd1cc4f82221fd57d5e280`. Sharing `classify()`
+between `run()` and the commit-message gate removes the duplicated classification loop.
+`byLane` still distinguishes A/B/C; `bySub` adds tool surfaces without creating a new lane.
+The handoff exception and `.agents/rules/graphify.md` exception pass direct read-only probes.
+Preserve these changes; do not redo the whole implementation.
+
+**Direct lookup still misclassifies Lane C.** At this baseline,
+`subOf('.github/workflows/ci.yml')` returns `A-cowork`, although `classify()` places that
+same path in C. The exported function promises null for non-A paths. Its broad `.github/`
+match reproduces the class of bug already fixed for `docs/handoff/`. The main classifier is
+protected by calling it only for A paths; this is a direct-caller defect, not evidence that
+the current commit gate classified this workflow as A.
+
+**“Reports, never gates” is too broad.** `scripts/lane-gate.mjs` still checks only `byLane`,
+so the commit-message trailer gate is unchanged. However, a sub-crossing returns findings;
+`scripts/check-consistency.mjs` increments failures and exits 1, and `.github/workflows/ci.yml`
+runs that suite without a continue-on-error exception. The negative example is therefore a
+consistency/CI failure, not merely an informational report. A trailer cannot clear these
+findings: this check does not inspect the trailer. Item 3 must distinguish these consumers
+before describing enforcement as a one-line change.
+
+**Queue wording is not lifecycle evidence.** “Every incomplete item is Applied” hides deferred
+future work. B-016, B-071, B-077 and C-001 have Deferred headers at the reviewed revision.
+Deferred is terminal for the handoff, not proof the future work was implemented. Keep existing
+follow-up owners and verify Applied entries individually; do not create another status tally.
+
+### What is needed — Chief Editor decisions and Lane A steps
+
+| Order / dependency | Owner and action | Accept / reject criterion |
+|---|---|---|
+| 1 — parent policy | Cowork presents item 3 to the Judge: separately name the consistency/CI result, commit-message trailer requirement, and treatment of an authorized crossing | Accept only an explicit outcome for each consumer. Reject “report-only” as a description of the present failing check. A trailer declares a crossing; it does not itself grant authority |
+| 2 — independent bounded bug fix | Code specifies and, when authorized, fixes `subOf` using the canonical A-membership rule before assigning an A tool | Direct workflow/B/unmapped/handoff inputs return null; valid A inputs retain their tool and exact-file exceptions. Avoid a second independently maintained lane map |
+| 3 — depends on policy, not on a guessed choice | Code prepares persistent regression cases for pure Cowork, pure Code, mixed A tools, declared/undeclared crossings and unchanged A/B/C behavior | Name expected check exit and hook exit separately. Preserve the direct-call case above. Report actual red-before-green evidence, not just a count of manual probes |
+| 4 — evidence handback | Code supplies the changed paths, application commit, test results, limits and pending Judge choice; Cowork records the boundary report in the existing Register mechanism | Phase Closure references that report under D-203/D-209. No A-NNN entry or second journal ledger. Record the approval source separately from the application commit |
+| 5 — existing C-42 unit | Code follows C-42's canonical mechanisms and fixtures; retain its weakest-part status | A path-map fixture alone cannot close C-42. Part (b) must prove condition definition coverage AND uniqueness across both governed files, including Register-internal failure; part (a) remains separately evidenced |
+| 6 — consuming evidence | Code synchronizes extraction and checks curated parity, then performs any separately scoped semantic fill; independent reviewer checks the corrected packet | Currency, coverage, parity and semantic enrichment are separate observations. No bulk lifecycle promotion and no product build authority |
+
+For item 3, the decision is not whether crossings exist. Choose the intended consequence:
+retain a failing consistency check and describe it honestly, or authorize a reporting-only
+mode; independently decide whether the commit-message hook requires a declaration for an
+internal A crossing. If authorized crossings are to pass either consumer, specify what
+evidence that consumer recognizes. **No option is selected by this review.**
+
+### Ownership and journal — reuse the existing path
+
+**Cowork** owns the business/behavior meaning, governed source text, decisions and curated
+fragment meaning. **Code** owns governance tooling, fixtures and graph operations. Code's
+verification artifacts support planning controls; they are not product assurance/T6 behavior.
+The Register being Cowork's surface does not require a new return channel: Code supplies its
+report, Cowork records it on the serialized Lane A turn. If direct Code editing of the Register
+is desired, request a bounded exception rather than assume it. D-215 also expressly allows
+Lane A to answer existing B/C handoffs; reject the blanket “any docs edit is forbidden” claim.
+
+The journal preserves historical planning and rationale with links. It neither replaces the
+Register's boundary report nor moves authorization, backlog ownership, handoff disposition or
+live lane state out of their canonical records. Lane B raises this review; Lane A answers here
+and corrects its own surface after authorization. This adds no SOP or new channel.
+
+The Product document, storyboard, story panels, UML/data-flow and Encyclopedia reconciliation
+remain with their existing product owners. This tooling change supplies no evidence that
+their behavior is complete or republished. No Product/Fn_Spec/UI change follows merely from
+adding development-tool labels. Build Spec and Inventory are unaffected by this review;
+the eventual authorized packet must assess them if it creates/sequences an artifact.
+
+### What was done instead / verification limits
+
+Read-only source review and direct import probes; no tooling, governed specification, schema,
+CI or product edit. Graph query used for navigation. At the reviewed baseline, branch metadata
+has `lastAnalyzedHead = 4005d58` and `stale = false`. The installed `describe --help` confirms
+assistant mode and fill-missing support. This does not prove that every rebuild erases every
+description; retain that as an unverified generalization until before/after evidence exists.
+No semantic fill or hosted Encyclopedia inspection performed. A later handoff commit advances
+HEAD and requires a fresh currency check before consuming approval.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Shared classifier and A/B/C preservation | Preserve in Code correction |
+| Approve-with-conditions | Governance tooling application at `4005d58` | Fix direct non-A lookup and make consumer outcomes explicit; independent review |
+| Reject | Universal report-only claim, all-unfinished-work-is-Applied claim, blanket handoff-write prohibition | Correct Lane A report and policy packet, without duplicating canonical SOP |
+| Defer | Sub-crossing enforcement choice, C-42 closure, semantic fill and product verification | Judge policy; separately bounded Code units; owning-tier and independent review |
