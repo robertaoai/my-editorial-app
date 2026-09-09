@@ -1639,3 +1639,44 @@ source inspection, not stale semantic results, supports these findings.
 | Approve-with-conditions | C-35 fixture contract | Correct family mapping and assertion evidence; then bounded Code execution |
 | Reject | Planned tool cases already pass unchanged; hook exit 0 itself is a red test | Correct canonical wording, retain named coverage |
 | Defer | Implementation, synchronization and whole-entry closure | C-39 evidence, authorization, execution and independent review |
+
+### Proposed D-225 review — complete the plan without another policy round (2026-09-10)
+
+**Reviewed at `c8ab5eb`.** The submitted D-225 text is a proposal, not an applied decision.
+Task: refine the existing correction for Lane A; no implementation or policy selection.
+Lane B raises and Lane A answers this existing handoff. Preserve D-224's accepted core.
+
+**Accept the direction:** separate existing lane-declaration cases from planned tool cases;
+name expected versus observed exit and the resulting failing assertion; leave the wrapper
+unchanged; retain C-39 before the C-35 execution unit. No new Chief Editor business choice
+is needed for these corrections. Approval to draft must not be represented as application.
+
+**Complete the proposed packet before applying it:**
+
+| Order | Lane A action | Success criterion |
+|---|---|---|
+| 1 — Cowork, canonical wording | Replace C-35's “ONLY new-behaviour proof” with “primary missing-trailer blocking case”; append the narrow D-224 correction | Preserve malformed-tool, simultaneous lane/tool, exception and direct-lookup requirements. The latest proposal still repeats “sole,” despite the preceding review rejecting exclusivity |
+| 2 — Cowork, evidence scope | Describe existing lane fixtures as present, with current pass status requiring a named execution result | Source inspection and a keyword search show code presence/absence in the inspected file, not a successful run or repository-wide absence. Do not replace a false coverage claim with an unexecuted pass claim |
+| 3 — Code, executable discovery | Plan a separately named tool suite AND its entry in `SUITES` in `scripts/fixtures/suites.mjs` | `scripts/fixtures/run.mjs` iterates that registry. A function or `tool-gate:` prefix alone does not execute. The normal fixture command must list the suite and named case results |
+| 4 — Code, behavior evidence | After C-39 and bounded authorization, run fixed target assertions against old and corrected code | Old missing-trailer case reports observed 0 / expected 1 and FAIL; corrected case blocks for the expected reason and passes. Preservation cases stay passing. Record revision, path set and diagnostic; restoration succeeds |
+| 5 — handback | Cowork records the evidence in the existing Register return path, answers here; Code synchronizes; Lane B reviews | No new ledger, no bulk lifecycle promotion, no claim that documentation refinement implemented C-35 |
+
+The existing lane cases should remain unchanged as proposed, but compare their named block
+against the pinned baseline, not fixed destination line numbers after insertion. Byte identity
+alone does not prove they still run or pass: retain registration and run them. A separate suite
+name improves reporting; sharing a file or helper is not itself guaranteed to fail. The actual
+failure to prevent is missing registration, missing assertions or borrowed coverage.
+
+**Scope and evidence limits:** read the fixture runner, registry and existing cases; no mutating
+fixture run. No D-225 application, script, hook, schema, Product/Modular_PRD, storyboard/panel,
+UML/data-flow or Encyclopedia edit. Product views are unaffected by this governance-tooling
+draft, not newly verified. Build/Inventory applicability remains with the authorized packet;
+no new file is required by a suite registered in the existing file. Journal remains context.
+Graph is stale: `4005d58` analyzed versus `c8ab5eb` reviewed. No rebuild or semantic claim.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Proposed fixture-family split and assertion-verdict distinction | Preserve in D-225 draft |
+| Approve-with-conditions | C-35 corrective packet | Remove exclusivity, scope pass claims, include suite registration before authorized application |
+| Reject | Suite name proves execution; byte identity proves passing behavior | Require discovered and executed named cases |
+| Defer | D-225 application, Code execution and closure | Bounded authorization, C-39 prerequisite, evidence and independent review |
