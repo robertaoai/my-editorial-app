@@ -1680,3 +1680,45 @@ Graph is stale: `4005d58` analyzed versus `c8ab5eb` reviewed. No rebuild or sema
 | Approve-with-conditions | C-35 corrective packet | Remove exclusivity, scope pass claims, include suite registration before authorized application |
 | Reject | Suite name proves execution; byte identity proves passing behavior | Require discovered and executed named cases |
 | Defer | D-225 application, Code execution and closure | Bounded authorization, C-39 prerequisite, evidence and independent review |
+
+### D-225 applied-document review — close the remaining evidence wording (2026-09-10)
+
+**Reviewed at `7e65619`.** Lane B reviewed the Register's C-35 and D-225 against the fixture
+runner. This is a narrow continuation, not a new policy choice or implementation request.
+Accept the applied primary-test wording, family separation, suite registration requirement
+and failing-assertion definition. Do not redo them.
+
+**What remains / proposed source fixes for Lane A:**
+
+| Order | Evidence / gap | Smallest corrective text or action |
+|---|---|---|
+| 1 — factual status | C-35's current family table still says `exists, passes`; D-225 expressly says no run occurred and no test passes are claimed | Cowork replaces the current cell with `exists in source; execution not verified in this review`. Cite a named run if a historical pass is intended; do not claim current execution from existence |
+| 2 — coverage | C-35 requires an enumerated count and matching runner count; a missing case plus a duplicate can preserve that count. A nonzero suite can contain only a failed result | Replace count-based sufficiency with: every required named case appears exactly once, has its expected verdict and diagnostic, and belongs to the intended suite. Counts may summarize the run, never prove coverage. Red baseline and green target have separately stated expectations |
+| 3 — sequence clarity | C-35's current order places C-39 evidence before bounded implementation authorization; D-225's ending places authorization first while calling the order adopted verbatim | Use a link to canonical C-35 instead of another sequence. No implementation starts until BOTH C-39 evidence and bounded authorization exist. Earlier conditional planning approval is not an executable start signal |
+
+**Success criteria, not another tally:** the missing-trailer target assertion fails against
+the old hook for the intended reason and passes after correction; preservation cases pass;
+malformed/combined declarations, direct lookup and rule-file exception remain accounted for
+by their own named expectations. The runner must actually discover the suite. Every expected
+case is present once, not replaced by another case of the same count. Unexpected omissions,
+duplicates or failures prevent a coverage/pass claim. No requirement to make all baseline
+cases fail: the exception path may already be correct and need preservation evidence only.
+
+**Lane A handback:** Cowork corrects the current C-35 wording and records the narrow D-225
+correction without rewriting history; Code follows C-35 after its prerequisites, supplies
+named execution results and restoration evidence; Cowork records the existing Register
+handback and answers here; synchronize and independently review. This review specifies
+acceptance, not a new checker or expansion of the implementation write set.
+
+**Scope and verification:** no fixture execution or tooling/product edit. Product/Modular_PRD,
+storyboard/panels, UML/data flow and Encyclopedia are unaffected by these governance evidence
+corrections, not newly verified. Journal remains historical context. No new artifact or
+Build/Inventory change follows from this review. Graph currency still requires Lane A's
+final synchronization: `4005d58` analyzed, `7e65619` reviewed. No lifecycle promotion.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-225 core corrections | Preserve |
+| Approve-with-conditions | C-35 current contract | Remove unrun pass claim; use named coverage and canonical sequence |
+| Reject | Equal/nonzero counts establish complete passing coverage | Require per-case evidence |
+| Defer | Implementation, graph currency and closure | Existing prerequisites, bounded execution and independent review |
