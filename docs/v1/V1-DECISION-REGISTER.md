@@ -101,6 +101,59 @@ Every conditionally approved item, its follow-up, and where it lands.
 
 **Four conditions close only when an Open Decision closes** — `C-03`, `C-07`, `C-08`, `C-09`. None is dischargeable inside v1.
 
+**Canonical sections for `C-01`–`C-11` — pointers, not second copies (`D-213`, 2026-09-09, raised by
+Lane B).** These eleven were defined as **table rows** and had no `### ` heading anywhere, so `C-42`'s
+canonical enumeration could not see them — the same invisibility `D-210` fixed for `C-15`, one
+generation earlier and never swept back. **`C-12` needs no pointer: its canonical section already
+exists**, and the §3 row beside it is a closure record, not a second definition. **Substance is not
+restated below** (`C-15`'s model): the governing text stays in the §3 row, and each stop condition is
+that row's own, unchanged by this act.
+
+### `C-01` — pointer to its §3 row — `D-213`
+
+**Governing text:** the §3 row — `APD-09` limits. **Follow-up tier:** T3. **Stop condition:** unchanged — the row's own.
+
+### `C-02` — pointer to its §3 row — `D-213`
+
+**Governing text:** the §3 row — `B-P0-03` manual collection only. **Follow-up tier:** T3 — standing constraint. **Stop condition:** unchanged — the row's own.
+
+### `C-03` — pointer to its §3 row — `D-213`
+
+**Governing text:** the §3 row — `B-P0-08` interim authority boundary. **Follow-up tier:** TX — closes with `OD1`. **Stop condition:** unchanged — the row's own.
+
+### `C-04` — pointer to its §3 row — `D-213`
+
+**Governing text:** the §3 row — `B-P0-16` self-service exclusion superseded. **Follow-up tier:** T3. **Stop condition:** unchanged — the row's own.
+
+### `C-05` — pointer to its §3 row — `D-213`
+
+**Governing text:** the §3 row — `B-P0-17` window duration `UNSET`. **Follow-up tier:** T3. **Stop condition:** unchanged — the row's own.
+
+### `C-06` — pointer to its §3 row — `D-213`
+
+**Governing text:** the §3 row — `MFB-03` `FR-14` wording awaits PoC evidence. **Follow-up tier:** T3 → T4. **Stop condition:** unchanged — the row's own.
+
+### `C-07` — pointer to its §3 row — `D-213`
+
+**Governing text:** the §3 row — `MFB-04` interim Chief Editor authority. **Follow-up tier:** TX — closes with `OD1`. **Stop condition:** unchanged — the row's own.
+
+### `C-08` — pointer to its §3 row — `D-213`
+
+**Governing text:** the §3 row — `MFB-05` compensating controls never flip `OD2`. **Follow-up tier:** TX — closes with `OD2`. **Stop condition:** unchanged — the row's own.
+
+### `C-09` — pointer to its §3 row — `D-213`
+
+**Governing text:** the §3 row — `MFB-07` a working default, not legal advice. **Follow-up tier:** TX — needs `Q7` counsel. **Stop condition:** unchanged — the row's own.
+
+### `C-10` — pointer to its §3 row — `D-213`
+
+**Governing text:** the §3 row — `G22` Expression of Concern needs Board. **Follow-up tier:** T3. **Stop condition:** unchanged — the row's own.
+
+### `C-11` — pointer to its §3 row — `D-213`
+
+**Governing text:** the §3 row — publication records insert/read-only — **CLOSED `D-114`**. **Follow-up tier:** Discharged. **Stop condition:** unchanged — the row's own.
+
+
 ## 4. Deferred — not approved
 
 | # | Item | Precondition |
@@ -2418,6 +2471,33 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 > `grep "^### \`C-"` returns every condition. **A second list would be a restatement, and
 > restatements drift** (`G55`).
 
+### `C-43` — `Verified-At-Commit` has never had a declared referent — `D-213`
+
+**Opened by `D-213`, 2026-09-09, raised by Lane B. Owner: Lane A · Claude Code (`scripts/`). Phase 1.**
+Lane B read `B-071`'s anchor `70a685a` as naming the commit *preceding* its disposition and called it
+a defect. **Measured across the corpus, it is the norm, not the exception** — `B-001`, `B-002`, `B-003`,
+`B-005`, `B-006`, `B-009` and `B-012` all cite `67706ca`, written by `ea84281`; `B-007`, `B-010`, `B-013`,
+`B-017` and `B-018` all cite `6283999`, written by `7ed65e4`; thirty-plus in total. **The field has
+silently carried two referents** — *the HEAD I measured at* (what the corpus wrote) and *the commit
+where the disposition is observable* (what Lane B read) — **and `D-205` declared neither.**
+
+**Ruled here, prospectively, once.** `Verified-At-Commit` names **the commit at which the stated
+disposition is observable**. That commit cannot exist when the field is written, so the value is set
+by a **follow-up pin act** — `D-98` item 9 already used exactly this pattern for the verification
+snapshot. **Earlier review provenance moves to the entry body; it is not an audit-field value.**
+
+**Pre-`D-213` anchors are NOT rewritten.** They were correct under the referent in force when written,
+and a thirty-file retroactive edit is itself unverifiable — it would assert about each entry something
+no reader could check. **The cut commit is `D-213`'s own.** Entries dispositioned before it mean
+*measured-at*; entries dispositioned after it mean *disposition-observable*.
+
+**Stop condition:** `closure-readiness` reports verification anchors in **two named buckets either side
+of the `D-213` cut**, so no reader can mistake `B-006`'s `67706ca` for a claim of the same kind as
+`B-071`'s `fa50acf`. **A single undifferentiated count re-creates the ambiguity this condition closes**
+— and the finding would be re-filed, which is how it arrived.
+
+**Start condition:** none. Independent of `C-39` and of `C-42`; different field, different rule.
+
 ### `C-42` — nothing compares an instruction file to the decision that governs it — `D-209`
 
 **Opened by `D-209`, 2026-09-08, raised by Lane B. Owner: Lane A · Claude Code (`scripts/`). Phase 1.**
@@ -2490,6 +2570,33 @@ disposition and closes when the weakest closes.** Splitting into `C-42a`/`C-42b`
 **rejected**: it creates the duplicate this very condition forbids.
 
 
+**(b)'s stop condition COMPLETED by `D-213`, 2026-09-09, raised by Lane B — coverage, not only
+uniqueness.** As `D-210` wrote it, (b) was *deduplicated enumeration*: it proves that whatever the
+command finds appears once. **It cannot prove that what exists is found.** Measured — the command
+returned `C-12`–`C-42`, and `C-01`–`C-11` were invisible because they were defined as §3 **table rows**,
+a heading shape the pattern does not match. **A duplicate-detector certifying an index missing a
+quarter of its members is `a_check_that_cannot_fail` at one level up** — the same defect as `D-209`
+proving a withdrawal by grepping the token the withdrawal was written in.
+
+**So (b) has two obligations, and the weakest-part rule already governs them:**
+
+| Obligation | Question it answers |
+|---|---|
+| **occurrence uniqueness** | does any condition hold more than one canonical `### `? |
+| **definition coverage** | does every condition DEFINED anywhere hold exactly one? |
+
+**Five fixture cases, all required (Lane B, adopted verbatim):** a duplicate within either file
+**fails** · a duplicate across the two files **fails** · removing the sole canonical heading while its
+definition survives **fails** · historical `#### ` references **pass** · a new definition with no
+canonical pointer **fails without changing an expected tally**. **The last case is the one that
+matters** — a fixture whose failure shows up only as a changed number is a tally, and every stated
+tally in this corpus has drifted (`G55`, `G75`). **Red before green, run against the act's final text**
+(the verify-last rule above).
+
+**Definition sites are declared, not inferred:** a `### ` section, or a row in the §3 conditions table.
+**An open-ended definition of *defined* would be the guess this condition exists to avoid** — the same
+reasoning that closed `C-39`'s actor set.
+
 ### `C-41` — an entry may sit `Open` with no exit — `D-206`
 
 **Opened by `D-206`, 2026-09-08, raised by Lane A · Claude Code. Owner: Lane A · Cowork. Phase 1.**
@@ -2549,7 +2656,11 @@ FAILS, a `turn-report` without them PASSES** (`G84`). **And the guard must match
 > **Must-pass fixtures — the live values, each citing its entry:** `B-044`, `B-058`, `B-078`, `B-079`, `B-080`, `B-081`, `B-082`, `B-083`, `B-085`. **Never invented strings.**
 > **Must-fail probes:** `Lane A` · `reviewed by Lane A` · `verified by Lane A` · both em-dash disclaimer forms.
 
-**The initial audit record — truthful at creation (`D-209`).** A newly raised entry has no dispositioning actor yet and the fields may not be empty. At creation it reads **`Verified-By: — not yet dispositioned; raised by Lane B`** (or Lane C) and **`Verified-At-Commit:`** the raising commit. **Not a verifier and not a disposition** — a record of who put it there and where, replaced when Lane A dispositions it. The leading token is the disclaimer, so the allowlist catches it. **`D-204`'s existing fixture is untouched: the valid `Open` case stays green.**
+**The initial audit record — truthful at creation (`D-209`).** A newly raised entry has no dispositioning actor yet and the fields may not be empty. At creation it reads **`Verified-By: — not yet dispositioned; raised by Lane B`** (or Lane C) and **`Verified-At-Commit: — pending pin`**. **Not a verifier and not a disposition** — a record of who put it there, replaced when Lane A dispositions it.
+
+**The sentinel is not a placeholder; it is the fix for an unfillable field (`D-213`, 2026-09-09, raised by Lane B).** As `D-209` wrote it, creation named **the raising commit** — **which is the commit being created**, so the value can only be invented, and `closure-readiness` proves SHA existence **only on `Verified` entries** and would never see it. **A field whose only truthful value is unknowable at write time must not be SHA-shaped at write time.** Under `C-43` the real anchor arrives with the pin act.
+
+**Two directions, both binary:** a **SHA-shaped value at `Status: Open` FAILS** (invented anchor), and a **surviving `— pending pin` at any terminal state FAILS** (unpinned record). **One direction alone is `a_check_that_cannot_fail`** — checking only for invention lets every entry stay unpinned forever, and checking only for the sentinel licenses inventing one to clear it. The leading token is the disclaimer, so the allowlist catches it. **`D-204`'s existing fixture is untouched: the valid `Open` case stays green.**
 
 **The allowlist is safe only because that set is closed.** If a new actor appears, it is added here before the regex sees it — an open-ended list would be the guess this condition exists to avoid.
 
@@ -15287,3 +15398,100 @@ not last: the weakest-part rule `D-211` adopted exists so the easy half can ship
 the only item in the queue that would have caught all four of these incidents.** `C-42a` stays
 visibly open. **Syncs no graph.** Opens or closes no phase; does not release the `D-171` hold.
 **Lane A's own work, not independently reviewed** — `C-38`, range fixed by whoever starts the pass.
+
+## 5.14e38 `D-213` — A Withdrawal Verified in Its Own Vocabulary; `Verified-At-Commit` Gets a Referent
+
+**Authorized by the Judge, 2026-09-09** (*"proceed above plan"*). **Raised by Lane B** at `47f47c1`,
+the C-26 consolidated review handback appended to `B-011`. **Three findings, all measured on disk
+before any was accepted; two adopted as stated, one adopted in outcome and rejected in framing.**
+
+### The naming sentence
+
+**`D-209` proved a withdrawal by grepping the token the withdrawal was written in.** It counted
+`A-NNN` — one per rule file, one in the Build Spec, every occurrence a withdrawal record — and
+reported the channel clean. **The surviving live instruction spells it `A-`, not `A-NNN`**, so the
+probe could not have found it. `V1-BUILD-SPEC.md:59` still read: *"No `A-` entry is filed until
+readers, channel documentation, run registration and fixtures agree."* **An activation rule for a
+channel that no longer exists.**
+
+**This is `B-011`'s defect recurring inside the act that was fixing `B-011`** — a parent decision
+corrected without correcting the instructions that execute it — and it is the third
+`probe_that_cannot_fail` in this corpus, after `source-sweep` prescribed as a gate and `tier-sweep`
+read as proof of truth (`G65`).
+
+**The class, stated once so it is checkable:** *a verification written by the corrector, in the
+corrector's vocabulary, cannot see residue phrased in the consumer's.* **`C-42` part (a) is where
+this lives**, and it stays open — no mechanical form exists yet.
+
+### The three findings
+
+| Lane B's finding | Measured | Disposition |
+|---|---|---|
+| Build Spec retains obsolete A-channel instructions | **Confirmed, and worse than stated** — `D-209`'s own verification could not have found it | **Adopted.** Tail removed; `C-35` kept live and separate |
+| `C-42`'s index omits `C-01`–`C-11` | **Confirmed** — they are §3 **table rows**, a shape the `^### ` pattern cannot match. `C-12` measured single-canonical; no pointer owed | **Adopted.** Eleven pointer sections, `C-15`'s model |
+| `B-071`'s deferral cites the preceding commit | **Confirmed for `B-071`, rejected as a defect of `B-071`** — thirty-plus entries do the same; the field has never had a declared referent | **Adopted in outcome, corrected in framing.** `C-43` opened; one entry re-pinned |
+
+### What changed
+
+- **`V1-BUILD-SPEC.md` §2** — the `A-` activation tail is replaced by the record *there is no `A-`
+  channel to activate*. **`C-35`'s tool-crossing gate is explicitly retained as live and separate**,
+  because deleting a sentence that carried two controls would have withdrawn the wrong one.
+- **`C-01`–`C-11` get canonical `### ` sections** — pointers only, substance stays in the §3 rows,
+  stop conditions unchanged. **Index measured after the final text: 43 distinct, 0 duplicated.**
+- **`C-42` part (b) completed** — it was *deduplicated enumeration*, which proves that what the
+  command finds appears once and **cannot prove that what exists is found**. Now **coverage and
+  uniqueness**, with Lane B's five fixture cases adopted verbatim and definition sites declared
+  rather than inferred.
+- **`C-43` opened** — `Verified-At-Commit` names the commit where the disposition is **observable**;
+  the value arrives by **follow-up pin act** (`D-98` item 9's existing pattern); **pre-`D-213`
+  anchors mean *measured-at* and are not rewritten**; `closure-readiness` owes two buckets.
+- **`C-39`'s creation protocol corrected** — `D-209` told a new entry to name **the raising commit,
+  which is the commit being created**. Unfillable, so the only available value was an invented SHA,
+  and `closure-readiness` proves existence on `Verified` entries only. Now **`— pending pin`**, with
+  **both directions checked**: SHA-shaped at `Open` fails, surviving sentinel at a terminal state fails.
+- **`B-071` re-pinned** `70a685a` → `fa50acf`, the commit where `Answered`/`Deferred` first appear.
+  `70a685a` retained in the body as review provenance. **Not promoted; `D-171` hold stands.**
+- **`frag131.json`** — `community` and `community_name` removed. Lane B measured the loaded graph
+  diverging from fragment candidates on three nodes, two of them this fragment's. **A clustering
+  result stored in a curated fragment is the stored duplicate `CONFIG_LOG.md` §7.2 forbids and
+  `D-96` already applied.** **No corpus-wide sweep in this act** — the policy is ruled here, the
+  other fragments are Claude Code's to test against it.
+
+### What was rejected
+
+**Lane B's framing of finding (c).** *"`B-071`'s deferral cites the preceding commit"* invites a SHA
+correction. **The measurement says otherwise:** `B-001`, `B-002`, `B-003`, `B-005`, `B-006`, `B-009`
+and `B-012` cite `67706ca`, written by `ea84281`; `B-007`, `B-010`, `B-013`, `B-017` and `B-018` cite
+`6283999`, written by `7ed65e4`. **Fixing one entry and leaving thirty would have made `B-071` the
+outlier it is not**, and a retroactive sweep would assert about each entry something no reader could
+check. **The referent is declared prospectively with a named cut instead.**
+
+**Lane B's request to identify `C-12`'s canonical location** — no act owed. Measured: exactly one
+`### ` section, and the §3 row beside it is a **closure record**, not a second definition.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e38; `C-01`–`C-11` sections; `C-42` (b) completed; `C-43` minted; `C-39` protocol corrected |
+| **Build spec** | ✅ §2 — the `A-` activation tail removed, `C-35` retained |
+| **Channel docs** | ✅ `README.md` and `TEMPLATE.md` — the referent, the pin act, the sentinel, the cut |
+| **Handoff entries** | ✅ `B-071` re-pinned, provenance section added. **No other entry touched** |
+| **Inventory** | ✅ three owed rows stated (`C-43`, `C-42b`, `C-39`); no file created or retired |
+| **Graph fragments** | ✅ `frag131.json` — derived fields removed |
+| **Agent files** | **— unaffected: measured, all three carry the withdrawal as a record, zero live instructions** |
+| **Phase closure** | **— unaffected: no phase state moves; no condition closes here** |
+| **`Modular_PRD` and product tiers** | **— unaffected** |
+
+### What this act does NOT do
+
+**Installs no check.** All three new obligations are Claude Code's. **Syncs no graph** — `docs-drift`
+is red by construction while this act's commit is ahead of the last analysis, and the rebuild is
+Claude Code's surface. **Closes no condition.** **Rewrites no historical anchor.** Opens or closes no
+phase; does not release the `D-171` hold. **Lane A's own work, not independently reviewed** —
+`C-38`, range fixed by whoever starts the pass.
+
+### Verification — run LAST, against the committed text (`C-42`, `D-212`)
+
+Recorded in the turn report. **The ordering is the rule**: `D-211` quoted a real measurement taken
+before its own narrative added two headings, and this act added twelve.

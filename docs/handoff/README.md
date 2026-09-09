@@ -359,6 +359,19 @@ state was anything else.
 a commit that exists. **No explanation goes in either field** — that is what the body is for, and a
 sentence in a metadata field is the same conflation one field over.
 
+**`Verified-At-Commit` names the commit where the disposition is OBSERVABLE — and that commit does not
+exist yet when the field is written (`C-43`, `D-213`).** So the value arrives in **two steps**: the
+dispositioning act writes **`— pending pin`**, and a **follow-up pin act** replaces it with its own SHA.
+`D-98` item 9 already worked this way for the verification snapshot. **A SHA written at creation could
+only be invented**, and `closure-readiness` proves SHA existence on `Verified` entries only, so nothing
+would catch it.
+
+**Anchors written before `D-213` are NOT rewritten and do not mean the same thing.** Thirty-plus entries
+cite the HEAD their reviewer *measured at* — `B-001`, `B-002`, `B-003`, `B-005`, `B-006`, `B-009` and
+`B-012` all name `67706ca`, written by `ea84281`. That was correct under the referent in force. **Read
+anchors before the `D-213` cut as *measured-at* and after it as *disposition-observable*.**
+
+
 **Mandatory in every `Resolution` state — and that is a STATE rule, not a KIND rule (`D-206`).**
 `Verified-By` and `Verified-At-Commit` are filled whatever the record state is, `Applied` included.
 **A `Kind: turn-report` is excluded, and by a different axis:** it carries no `Resolution` at all, so

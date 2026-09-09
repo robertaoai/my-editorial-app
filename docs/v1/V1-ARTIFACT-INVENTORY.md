@@ -204,6 +204,20 @@ owed by **`C-39`** when the independence guard moves to leading-actor matching �
 
 **No row changes in this act.** `handoff-response.mjs` and `closure-readiness.mjs` import the classifier and need no row edit of their own.
 
+**Three rows owed, added 2026-09-09 (`D-213`) — stated here rather than left silent, which is the
+omission `B-086` refused to accept and `D-202` had to correct.** No file is created or retired by this
+act; these are **future edits to existing scripts**, and each is anchored to the control that owes it.
+
+| Row | Disposition |
+|---|---|
+| `scripts/checks/closure-readiness.mjs` — verification anchors reported in two buckets either side of the `D-213` cut | **SPECIFIED, NOT APPLIED (`C-43`).** Owner Lane A · Claude Code. A single undifferentiated count re-creates the two-referent ambiguity `D-213` closed |
+| `scripts/checks/` — `C-42` part (b) fixtures: definition coverage **and** occurrence uniqueness | **SPECIFIED, NOT APPLIED (`C-42`).** Owner Lane A · Claude Code. Five cases named in `C-42`; red before green, run against the act's final text |
+| `scripts/checks/` — `C-39` audit-anchor guard: SHA-shaped at `Open` fails, surviving `— pending pin` at a terminal state fails | **SPECIFIED, NOT APPLIED (`C-39`, protocol set by `D-213`).** Owner Lane A · Claude Code. Both directions, or the guard is one-sided |
+
+**`docs/graph-fragments/frag131.json` is EDITED, not created or retired** — `community` and
+`community_name` removed as derived (`D-213`). **No inventory row changes**: the file already has one,
+and a field removal inside an existing artifact is not an inventory fact under `D-54`.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

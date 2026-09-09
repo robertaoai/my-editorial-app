@@ -9,7 +9,7 @@
 - **Resolution:** Deferred
 - **Follow-up-Tier:** **Phase 1 — Lane A · Cowork.** The `B-070` options correction and the Desk Editor ontology reconciliation, which are specified and not applied. **Deferred rather than answered because the work they gate cannot proceed regardless:** fresh `S2` authorization is held under `D-171`, extended by `D-172`/`D-175`/`D-177`, so this entry is not what is stopping Lane B. **Returns when the `S2` hold is released or the ontology correction is separately authorized** (`C-41`, `D-212`)
 - **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** 70a685a03a038453c675d6282c1a37f72e7c6041
+- **Verified-At-Commit:** fa50acf39920e1554a06a1c7b21a98ae4c545a7a
 - **Lane A:** Acknowledged 2026-09-02. **Approval-provenance corrected retroactively per the Judge's
   provenance rule** (§"Judge ruling — approval-provenance for direct instructions," below): every
   "the Judge approved Draft N" statement previously written in this field is corrected to the precise
@@ -183,6 +183,18 @@
   `docs/LANE-B-WORK-ORDER.md` §§1/2.2d; both supplied Editorial Stage/Task CSVs; Chief Editor/Judge
   clarifications supplied directly on 2026-09-02, now represented in this file's Judge-clarification
   section (`R50` corrects the prior "not yet represented" line)
+
+## Disposition provenance — `D-213`, 2026-09-09
+
+**The anchor above was re-pinned from `70a685a` to `fa50acf`.** `70a685a` landed this entry's Round 53
+text with **`Status: Open`**; `fa50acf` is where `Answered` / `Deferred` and the `Follow-up-Tier` first
+appear. Under `C-43`'s referent — *the commit at which the stated disposition is observable* — the
+earlier SHA proved the review, never the deferral. **`70a685a` is retained here as review provenance,
+which is body content, not an audit-field value.**
+
+**Nothing else changes.** Not promoted to `Verified`; `Status: Answered` / `Resolution: Deferred` stand
+as two axes, not one; the `D-171` hold and the named return trigger stand. **A terminal deferral is
+not evidence that the work it gated exists** (Lane B, adopted).
 
 ## What happened
 
