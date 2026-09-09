@@ -72,11 +72,14 @@ Resolution is the RECORD STATE. Verified-By and Verified-At-Commit are AUDIT fie
 No explanation in either field. On a non-Verified record Verified-By reads exactly:
 "— not independently verified; dispositioned by Lane A".
 
-Verified-At-Commit names the commit where the disposition is OBSERVABLE (`C-43`). That
-commit does not exist when you write the field, so write "— pending pin" and let a
-follow-up pin act replace it with its own SHA. Never invent one. A SHA-shaped value on
-an Open entry is an invented anchor; a surviving "— pending pin" on a terminal entry is
-an unpinned record. Anchors written before the D-213 cut mean "measured at", not this.
+Verified-At-Commit names the commit whose content this record was written against
+(`D-214`) - the commit you READ. Always knowable while writing, so it is always a real
+SHA and never a placeholder; the copyable field above already said so and was correct.
+D-213's "- pending pin" sentinel and its follow-up pin act are WITHDRAWN. The
+disposition's own commit is derivable with `git log -S` and is not stored.
+
+Verified-By has two exact forms, one per lifecycle position; the SOP's table is the
+single statement of both. Raised-not-dispositioned differs from dispositioned-not-verified.
 
 Resolutions, and which of them close anything:
 

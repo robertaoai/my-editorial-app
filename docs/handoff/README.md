@@ -353,23 +353,27 @@ state was anything else.
 |---|---|
 | **`Resolution`** | the **record state** — `Applied`, `Verified`, `Deferred`, `Withdrawn`, `Superseded` |
 | **`Verified-By`** | **audit** — who dispositioned this record |
-| **`Verified-At-Commit`** | **audit** — the commit where that disposition is observable |
+| **`Verified-At-Commit`** | **audit** — the commit whose content this record was written against (`D-214`) |
 
 **The audit fields are never empty, in any state**, and they carry **only** their value: an actor, and
 a commit that exists. **No explanation goes in either field** — that is what the body is for, and a
 sentence in a metadata field is the same conflation one field over.
 
-**`Verified-At-Commit` names the commit where the disposition is OBSERVABLE — and that commit does not
-exist yet when the field is written (`C-43`, `D-213`).** So the value arrives in **two steps**: the
-dispositioning act writes **`— pending pin`**, and a **follow-up pin act** replaces it with its own SHA.
-`D-98` item 9 already worked this way for the verification snapshot. **A SHA written at creation could
-only be invented**, and `closure-readiness` proves SHA existence on `Verified` entries only, so nothing
-would catch it.
+**`Verified-At-Commit` names the commit whose content the record was written against — `D-214`,
+2026-09-09, Judge ruling.** The reviewer read the tree at some commit and wrote what they found;
+**that commit is knowable while writing, so the field is always fillable and never a placeholder.**
+`D-213`'s two-step pin — a `— pending pin` sentinel replaced by a later act — is **WITHDRAWN**: it
+existed only to reach a referent this ruling does not use, and it created a second unbounded state
+of exactly the kind `C-41` exists to prevent.
 
-**Anchors written before `D-213` are NOT rewritten and do not mean the same thing.** Thirty-plus entries
-cite the HEAD their reviewer *measured at* — `B-001`, `B-002`, `B-003`, `B-005`, `B-006`, `B-009` and
-`B-012` all name `67706ca`, written by `ea84281`. That was correct under the referent in force. **Read
-anchors before the `D-213` cut as *measured-at* and after it as *disposition-observable*.**
+**The disposition's own commit is DERIVABLE and is therefore not stored** — `git log -S` over the
+entry file finds it. Pinning it would keep a duplicate of a derivable fact, which is the rule
+`D-213` applied to `frag131`'s `community` one act earlier and did not apply to itself.
+
+**No cut, and no legacy class.** Every anchor in this channel already means *observed-at* — `B-001`,
+`B-002`, `B-003`, `B-005`, `B-006`, `B-009` and `B-012` all name `67706ca`, the HEAD their reviewer
+read. **They were right and the prose was wrong.** `D-205` declared *disposition-observable* here and
+nothing ever enforced it; `C-43` then diagnosed the gap as *no referent declared*, which was false.
 
 
 **Mandatory in every `Resolution` state — and that is a STATE rule, not a KIND rule (`D-206`).**
@@ -383,6 +387,18 @@ onto kind would fail every turn report in the channel.**
 `— not independently verified; dispositioned by Lane A`.
 One form, so a reader can tell *not verified* from *forgotten* — the distinction that makes `Applied`
 worth having at all.
+
+**Two forms, one per lifecycle position — stated together because `C-39` and this section each
+mandated theirs with the word *exactly* (`D-214`, raised by Lane B).** They never conflicted in fact;
+they conflicted on the page, and a reader following either one literally contradicted the other.
+
+| Position | `Verified-By` reads exactly |
+|---|---|
+| **Raised, not yet dispositioned** | `— not yet dispositioned; raised by Lane B` (or Lane C) |
+| **Dispositioned, not independently verified** | `— not independently verified; dispositioned by Lane A` |
+| **Verified** | the verifying actor, leading the value, never the answering side |
+
+**`Verified-At-Commit` is filled at every one of them** — at creation it is the commit the raiser read.
 
 **The field names are now a misnomer** and are kept deliberately: renaming them would move
 `channel-docs`, `closure-readiness`, the fixture runner and every entry at once. **Recorded as

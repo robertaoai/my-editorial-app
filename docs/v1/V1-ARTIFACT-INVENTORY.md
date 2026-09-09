@@ -210,9 +210,9 @@ act; these are **future edits to existing scripts**, and each is anchored to the
 
 | Row | Disposition |
 |---|---|
-| `scripts/checks/closure-readiness.mjs` — verification anchors reported in two buckets either side of the `D-213` cut | **SPECIFIED, NOT APPLIED (`C-43`).** Owner Lane A · Claude Code. A single undifferentiated count re-creates the two-referent ambiguity `D-213` closed |
+| ~~`scripts/checks/closure-readiness.mjs` — verification anchors reported in two buckets either side of the `D-213` cut~~ | **RETIRED (`D-214`).** The Judge ruled observed-at; there is one referent, no cut and nothing to bucket. **Owed for one act and never built** |
 | `scripts/checks/` — `C-42` part (b) fixtures: definition coverage **and** occurrence uniqueness | **SPECIFIED, NOT APPLIED (`C-42`).** Owner Lane A · Claude Code. Five cases named in `C-42`; red before green, run against the act's final text |
-| `scripts/checks/` — `C-39` audit-anchor guard: SHA-shaped at `Open` fails, surviving `— pending pin` at a terminal state fails | **SPECIFIED, NOT APPLIED (`C-39`, protocol set by `D-213`).** Owner Lane A · Claude Code. Both directions, or the guard is one-sided |
+| `scripts/checks/` — `C-39` audit-anchor guard: **every** `Verified-At-Commit` is a real commit at **every** lifecycle position | **SPECIFIED, NOT APPLIED (`C-39`, re-scoped by `D-214`).** Owner Lane A · Claude Code. **Simpler than what `D-213` specified**: one rule, no sentinel, no state-dependent exception |
 
 **`docs/graph-fragments/frag131.json` is EDITED, not created or retired** — `community` and
 `community_name` removed as derived (`D-213`). **No inventory row changes**: the file already has one,

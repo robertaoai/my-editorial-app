@@ -2471,7 +2471,24 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 > `grep "^### \`C-"` returns every condition. **A second list would be a restatement, and
 > restatements drift** (`G55`).
 
-### `C-43` — `Verified-At-Commit` has never had a declared referent — `D-213`
+### `C-43` — `Verified-At-Commit` has never had a declared referent — `D-213`, **SUPERSEDED-BY `D-214`**
+
+**CLOSED 2026-09-09. `Superseded-By: D-214`.** The Judge ruled **observed-at**, and this condition's whole
+mechanism — the two buckets, the `D-213` cut, the legacy class — **exists only under the referent that
+was not chosen.** There is one referent, it is what every entry in the channel already wrote, and there
+is nothing to report in two buckets. **Closed with its mechanism, not left `Open` with the mechanism
+gone** — that is `C-41`'s defect, and it was one act old when this condition would have repeated it.
+
+**Two claims in the text below are FALSE and are corrected rather than deleted (`D-93` rule 4).**
+(i) *"`D-205` declared neither"* — `D-205 §"The ontology, recorded once"` declared
+*disposition-observable*. The real defect is that it was **declared and never read by any control**,
+while thirty-plus entries wrote observed-at. (ii) The cut classified by **disposition date** while
+`README` classified by **anchor-writing date**, and `B-071` — the one live case — landed on opposite
+sides of the two rules. **Both are Lane B's findings, both measured, both adopted.**
+
+> **EVERYTHING BELOW THIS LINE IS THE CONDITION AS OPENED — PRESERVED HISTORY, NOT A LIVE
+> INSTRUCTION (`D-93` rule 4, `C-42`).** Its pin act, sentinel, cut and two buckets are all
+> withdrawn by `D-214`. Read it to see what was decided and why it was wrong; do not execute it.
 
 **Opened by `D-213`, 2026-09-09, raised by Lane B. Owner: Lane A · Claude Code (`scripts/`). Phase 1.**
 Lane B read `B-071`'s anchor `70a685a` as naming the commit *preceding* its disposition and called it
@@ -2656,11 +2673,11 @@ FAILS, a `turn-report` without them PASSES** (`G84`). **And the guard must match
 > **Must-pass fixtures — the live values, each citing its entry:** `B-044`, `B-058`, `B-078`, `B-079`, `B-080`, `B-081`, `B-082`, `B-083`, `B-085`. **Never invented strings.**
 > **Must-fail probes:** `Lane A` · `reviewed by Lane A` · `verified by Lane A` · both em-dash disclaimer forms.
 
-**The initial audit record — truthful at creation (`D-209`).** A newly raised entry has no dispositioning actor yet and the fields may not be empty. At creation it reads **`Verified-By: — not yet dispositioned; raised by Lane B`** (or Lane C) and **`Verified-At-Commit: — pending pin`**. **Not a verifier and not a disposition** — a record of who put it there, replaced when Lane A dispositions it.
+**The initial audit record — truthful at creation (`D-209`, referent set by `D-214`).** A newly raised entry has no dispositioning actor yet and the fields may not be empty. At creation it reads **`Verified-By: — not yet dispositioned; raised by Lane B`** (or Lane C) and **`Verified-At-Commit:`** the commit the raiser **read** when writing the entry. **Not a verifier and not a disposition** — a record of who put it there and what tree they saw, replaced when Lane A dispositions it. **That commit exists, so `git cat-file -e` holds at every lifecycle position and this condition's own stop condition no longer contradicts itself.**
 
-**The sentinel is not a placeholder; it is the fix for an unfillable field (`D-213`, 2026-09-09, raised by Lane B).** As `D-209` wrote it, creation named **the raising commit** — **which is the commit being created**, so the value can only be invented, and `closure-readiness` proves SHA existence **only on `Verified` entries** and would never see it. **A field whose only truthful value is unknowable at write time must not be SHA-shaped at write time.** Under `C-43` the real anchor arrives with the pin act.
+**`D-213`'s `— pending pin` sentinel is WITHDRAWN — `D-214`, 2026-09-09, Judge ruling.** `D-209` told a new entry to name **the raising commit, which is the commit being created**; `D-213` diagnosed that as *unfillable* and answered with a sentinel plus a follow-up pin act. **The diagnosis was one word wrong.** The field was never unfillable — `D-209` simply named the wrong commit. **The commit the raiser READ is knowable while writing**, so no sentinel, no pin act, no deadline and no intermediate state are needed. **`D-213` invented a lifecycle state to reach a referent this project does not use.**
 
-**Two directions, both binary:** a **SHA-shaped value at `Status: Open` FAILS** (invented anchor), and a **surviving `— pending pin` at any terminal state FAILS** (unpinned record). **One direction alone is `a_check_that_cannot_fail`** — checking only for invention lets every entry stay unpinned forever, and checking only for the sentinel licenses inventing one to clear it. The leading token is the disclaimer, so the allowlist catches it. **`D-204`'s existing fixture is untouched: the valid `Open` case stays green.**
+**One direction, and it is simpler than what `D-213` wrote (`D-214`).** Every `Verified-At-Commit` is a real commit at **every** lifecycle position, `Open` included — `git cat-file -e` holds throughout. **`D-213`'s two-direction guard is withdrawn with the sentinel it policed**; there is no state in which a non-SHA value is permitted, so there is nothing to check the second direction against. **This paragraph is the fifth instruction `D-213` left standing after withdrawing what it executed** — found by running the withdrawal grep in the CONSUMER's vocabulary, the check `D-213` did not run on itself. The leading token is the disclaimer, so the allowlist catches it. **`D-204`'s existing fixture is untouched: the valid `Open` case stays green.**
 
 **The allowlist is safe only because that set is closed.** If a new actor appears, it is added here before the regex sees it — an open-ended list would be the guess this condition exists to avoid.
 
@@ -15495,3 +15512,102 @@ phase; does not release the `D-171` hold. **Lane A's own work, not independently
 
 Recorded in the turn report. **The ordering is the rule**: `D-211` quoted a real measurement taken
 before its own narrative added two headings, and this act added twelve.
+
+## 5.14e39 `D-214` — The Referent Is OBSERVED-AT; `D-213`'s Pin Machinery Is Withdrawn, Not Completed
+
+**Judge ruling, 2026-09-09**, on a question put by Lane A after Lane B's `D-213` follow-up review
+landed at `8f3b312`. **Three referents were tabled; the Judge chose the first.**
+
+### The ruling
+
+**`Verified-At-Commit` names the commit whose content the record was written against — the commit the
+writer READ.** Knowable while writing, so the field is always fillable and never a placeholder.
+**No sentinel, no pin act, no deadline, no intermediate lifecycle state.**
+
+**The disposition's own commit is DERIVABLE** — `git log -S` over the entry file finds it — **and is
+therefore not stored.** That is the rule `D-213` applied to `frag131`'s `community` **one act before
+it built a machine to store the same kind of value.**
+
+### What Lane B found, and what the ruling does with it
+
+| Lane B's row | Measured | Disposition |
+|---|---|---|
+| `README:364` / `TEMPLATE:77` tell the pin act to use **its own SHA** | **Confirmed.** A commit cannot contain its own identifier — `D-213` moved the self-reference from step one to step two instead of removing it | **Dissolved.** No pin act exists |
+| `C-43` says *"`D-205` declared neither"*; `D-205` `:14848` declares *disposition-observable* | **Confirmed — the claim was false** | **Adopted.** Corrected in `C-43`, not deleted |
+| `C-43` cuts by **disposition date**, `README` by **anchor-writing date**; `B-071` lands on opposite sides | **Confirmed on the one live case** | **Dissolved.** One referent, no cut |
+| The pin transaction has no deadline, and `Applied` is non-terminal, so a sentinel could sit forever | **Confirmed** — `C-41`'s defect, one act after `C-41` | **Dissolved** |
+| `C-39:2648` requires every anchor proven; `C-39:2659` mandates a non-SHA sentinel | **Confirmed** | **Dissolved by subtraction** — every anchor is now a real commit at every position |
+| `TEMPLATE:15` and work order §2.3 step 3 contradict `D-213` | **Confirmed, and they were RIGHT** | **Left untouched.** The prose changed to match them |
+
+### The naming sentence
+
+**`D-213` opened by naming a failure class and closed by committing it.** It said: *a verification
+written by the corrector, in the corrector's vocabulary, cannot see residue phrased in the
+consumer's.* **Then it wrote four paragraphs of new prose and left five executable instructions
+standing** — `README:364`, `TEMPLATE:77`, `TEMPLATE:15`, `C-39:2659` and work order `:296`. **Fourth
+occurrence of `B-011`, and the first where the class was already written down in the same act.**
+
+**The correction is not a better paragraph.** `D-213`'s diagnosis was wrong by one word: the field was
+never *unfillable*, `D-209` had simply named **the wrong commit**. **A sentinel, a pin act, a deadline
+and a new lifecycle state were built to route around a typo.** The cheapest fix — name the commit you
+read — was already implemented by thirty-plus entries, the copyable template field and the work order.
+
+### What changed
+
+- **`C-43` CLOSED, `Superseded-By: D-214`** — its mechanism exists only under the referent not chosen.
+  **Closed with its mechanism, not left `Open` without one** (`C-41`).
+- **`C-39`** — the `— pending pin` sentinel withdrawn; creation names **the commit the raiser read**.
+  The condition's internal contradiction is gone and its stop condition is now **one rule at every
+  lifecycle position**, simpler than what `D-213` specified.
+- **`docs/handoff/README.md`** — the pin block replaced by the ruling; **`D-205`'s ontology cell
+  corrected at source**, which is the line this drift started from. **The two `exactly` disclaimer
+  forms are now one table**, three positions, stated once.
+- **`docs/handoff/TEMPLATE.md`** — pin block replaced; **`:15`'s copyable field left as written**.
+- **`B-071`** — anchor returned `fa50acf` → **`70a685a`**. **It has moved twice in two acts under two
+  rulings, and both moves are recorded.** `fa50acf` named in the body as the disposition commit.
+- **Inventory** — the `closure-readiness` two-bucket row **RETIRED**, owed for one act and never
+  built; the `C-39` guard row **re-scoped** to the simpler rule.
+
+### What was NOT done
+
+**No instruction was rewritten to match prose that was wrong.** `TEMPLATE:15` and work order §2.3
+step 3 were measured correct and are untouched. **No legacy entry was rewritten** — under observed-at
+every existing anchor was already right, so the thirty-file sweep `D-213` declined is not merely
+declined, it is **unnecessary**. **No check installed. No graph synced. No condition opened.**
+
+
+### The residue this act found in itself
+
+**The withdrawal grep run before committing found a FIFTH surviving instruction** — `C-39` still
+carried `D-213`'s two-direction guard (*SHA-shaped at `Open` fails, surviving sentinel at a terminal
+state fails*) after the paragraph that created the sentinel had been withdrawn. **Removing a rule and
+leaving the check that enforces it is the same defect one layer down.**
+
+**It was caught because the grep was run in the CONSUMER's vocabulary** — `pending pin`, `pin act`,
+`its own SHA`, `two buckets` — **not the corrector's.** That is the control `C-42` part (a) owes and
+has no mechanical form for; run by hand here, it worked on the first act that tried it. **`C-43`'s
+preserved body is fenced with an explicit *history, not instruction* marker** for the same reason.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e39; `C-43` superseded; `C-39` sentinel withdrawn and re-scoped |
+| **Channel docs** | ✅ `README.md` (`D-205` cell, pin block, disclaimer table), `TEMPLATE.md` (pin block) |
+| **Handoff entries** | ✅ `B-071` anchor reverted, provenance rewritten. **No other entry touched** |
+| **Inventory** | ✅ one row retired, one re-scoped |
+| **Lane B work order** | **— unaffected DELIBERATELY: §2.3 step 3 was measured correct** |
+| **Build spec · Agent files** | **— unaffected: measured, no audit-field instruction in any of them** |
+| **`Modular_PRD`, storyboard, story panels, UML, data flow, Encyclopedia, cross-refs** | **— unaffected, by measurement:** `grep -rl 'Verified-At-Commit' docs/ --include=*.md` returns **nothing** outside `docs/handoff/`, `docs/v1/` and the work order. **Stated because an omitted tier column is not a disposition (`D-202`)** |
+| **Phase closure** | **— unaffected: no phase state moves** |
+
+### Handover route
+
+**Lane B reads this act, not a new handoff file.** The instruction to hand over *"using the handoff
+template"* would file a Lane A entry into `docs/handoff/` — **the channel `D-203` withdrew and `D-213`
+finished sweeping.** Lane A returns through the register and its turn report (`D-138`, `G102`).
+
+### Verification — run LAST, against the committed text (`C-42`, `D-212`)
+
+Recorded in the turn report, including the **withdrawal grep in the consumer's vocabulary**, which is
+the check `D-213` did not run on itself.
