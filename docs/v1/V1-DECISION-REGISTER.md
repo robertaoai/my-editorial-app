@@ -2473,32 +2473,59 @@ As recorded, `G64` rested on **two** limbs. **Only one survives inspection.**
 
 ### `C-44` — the planning-tier sources five `Applied` entries depend on have no owner — `D-216`
 
-**Opened by `D-216`, 2026-09-09, raised by Lane A · Claude Code and extended by Cowork. Owner: Lane A ·
-Cowork. Phase 1.** `closure-readiness` has reported **`applied 20`** for fourteen acts (`D-202`–`D-215`),
+**Opened by `D-216`, corrected by `D-217`, 2026-09-09. Owner: Lane A · Cowork. Phase 1.**
+
+**Provenance, stated in three parts because one name hid two acts (Judge clarification, `D-217`).**
+**Lane B RAISED the source defects** — `B-062`, `B-065`, `B-066`, `B-067`, `B-084` are theirs, and their
+`B-011` handbacks named the surviving targets. **Lane A · Claude Code identified the missing routing** —
+that the queue omitted the lane owning 20 of 24 non-terminal entries. **Lane A · Cowork registered this
+condition and answers it.** `D-216` compressed the first two into *"raised by Lane A · Claude Code"*,
+which **erased the raiser and credited the reviewer** — the attribution `D-90` exists to protect.
+**Lane B raises → Lane A answers → independent verification** is the shape, and it is not optional here. `closure-readiness` has reported **`applied 20`** for fourteen acts (`D-202`–`D-215`),
 all Phase 1, all raised by Lane B. **Five of the twenty are not Lane B's to finish.** `B-062`, `B-065`,
 `B-066`, `B-067` and `B-084` each name a defect in a **governing planning source** — the artifacts that
 carry business intent into domain and behavioural specification. **Lane B can review them and cannot
 repair them**; the surface is Cowork's.
 
-**Measured: none of these is frozen.** `source-sweep.mjs:41–45` pins exactly three — `docs/PRD.md`,
-`docs/source/project-charter-v1.md`, `supabase/migrations/0001_init.sql`. Everything below is
-**governing and editable** (`GOVERNING_GLOBS = docs/source, docs/governance`). **Declining these as
-frozen would be false**, and it is the excuse this condition exists to remove.
+**None of these is in the pinned set.** `source-sweep.mjs:41–45` pins exactly three — `docs/PRD.md`,
+`docs/source/project-charter-v1.md`, `supabase/migrations/0001_init.sql` — and everything below is
+governing (`GOVERNING_GLOBS = docs/source, docs/governance`). **Declining these as frozen would be
+false.**
+
+**But the checker's coverage is NOT the freeze model — `D-217`, raised by Lane B.** `D-203` freezes by
+**module, version and sprint**; `source-sweep`'s three pins are the hard-fail subset it can prove.
+**"The checker does not pin it" is neither edit authorization nor proof that every section is
+mutable.** Each edit below checks its own scope and lifecycle first. `D-216` leaned on the pin list as
+if it were the model — **the same shape as reading a green suite as proof of truth (`G65`).**
 
 | Entry | Source target, verified present | Defect |
 |---|---|---|
-| `B-062` | `docs/source/business-case.md:28` · `docs/source/v1-build-readiness-addendum.md:117` · `docs/governance/raci-involvement-matrix.md:182` | absolute Three Lines attribution survives the product correction |
-| `B-065` | `docs/source/business-case.md:20` · `docs/source/v1-build-readiness-addendum.md:118` | distinct judgment still claimed from structural separation |
-| `B-066` | Encyclopedia Entry 05 ledger row | `OD4` branch ② correction recorded in `ENCYCLOPEDIA-SYNC.md` v14, dependent view not reconciled |
-| `B-067` | the same `B-062`/`B-065` source claims, plus Entry 05's publication/signoff gate | control-owner repairs landed; the source claims they rest on did not |
-| `B-084` | `docs/fn-specs/FN-GATES-01-05.md:215` (`AT-001`) vs `v1-build-readiness-addendum.md:520,530` (`AT-003`) · `docs/governance/media-industry-sop-fallback-implementation-plan.md:72` (*"CR-14 has no FR"*) vs `docs/governance/requirements-traceability-map.md:141` (maps `FR-01`) | the acceptance test would verify the wrong obligation |
+| `B-062` | `docs/source/business-case.md:28` · `docs/source/v1-build-readiness-addendum.md:117` · `docs/governance/raci-involvement-matrix.md:182` · **`docs/source/blueprint.md:49,80–81` (`D-217`)** | absolute Three Lines attribution survives the product correction. **The clause is triplicated across governing files and `D-216` named two of the three copies** — an omitted copy is the path the drift returns by |
+| `B-065` | `docs/source/business-case.md:20` · `docs/source/v1-build-readiness-addendum.md:118` · **`docs/source/blueprint.md:80–81` (`D-217`)** | distinct judgment still claimed from structural separation |
+| `B-066` | Encyclopedia **Entry 05**, anchored to **`D-168`** — not `D-167`, which `D-216` cited (`D-217`) | its criterion requires **republication**, not a flagged ledger row. **Routed as an open criterion, not owned here** — see the stop condition |
+| `B-067` | the same `B-062`/`B-065` source claims **including Blueprint**, plus Entry 05's publication/signoff gate | control-owner repairs landed; the source claims they rest on did not |
+| `B-084` | `docs/fn-specs/FN-GATES-01-05.md:215` (`AT-001`) vs `v1-build-readiness-addendum.md:520,530` (`AT-003`) · `docs/governance/media-industry-sop-fallback-implementation-plan.md:72` vs `docs/governance/requirements-traceability-map.md:141` · **`docs/governance/requirements-scope-knowledge-graph.md` — `CR-14` still `Uncovered`, no supersession notice (`D-199 F2`)** · **`docs/governance/poc-feedback-approval-crosswalk.md` §`FB-05`/`MFB-03` — the `FR-14` collision (`D-199 F3`)** · **Addendum §5.1.2 — required source information and non-URL handling, UNRESOLVED** | the acceptance test would verify the wrong obligation. **`D-216` named one of four surviving `D-199` follow-ups** (`D-217`). `FR-01` keeps manual intake; stale `FR-14` analyses are marked superseded **by reference**; **the input-requiredness question is ROUTED, never inferred** |
 
-**Stop condition:** each named line corrected in its owning source, and **each of the five entries'
+**Stop condition:** each named line corrected in its owning source, **every `D-199` follow-up and the
+Addendum §5.1.2 question mapped to an owner and a successor decision**, and **each of the five entries'
 own criteria re-checkable without a Cowork edit**. **Not** *the entries are `Verified`* — verification
-is Lane B's independent act under `C-26` and is not this condition's to claim.
+is Lane B's independent act under `C-26` and is not this condition's to claim. **No criterion is dropped
+because `D-216`'s first table missed it.**
 
-**Start condition:** none. **This is the PARENT of `C-26`'s review of those five**, and of nothing else:
-the other fifteen `Applied` entries need nothing from Cowork and start immediately.
+**Encyclopedia republication is an OPEN criterion with a named owner, not this condition's to close —
+Judge ruling, `D-217`.** The Encyclopedia is a Claude Artifact outside this repository and **no check
+here can read it** (`ENCYCLOPEDIA-SYNC.md`). Under this condition the ledger's **dependency rows may be
+updated**; its **`Last verified at` column may NOT** — bumping it would make a local file assert the
+state of a hosted artifact nobody inspected. **Editing the ledger is not republication**, and `B-066`
+and `B-067` stay `Applied` until the artifact is actually republished by whoever holds it.
+
+**Start condition:** none. **This is the PARENT of `C-26`'s review of those five**, and of nothing else.
+
+**The other fifteen are NOT DEPENDENT ON `C-44` — which is not the same as ready (`D-217`, raised by
+Lane B).** `D-216` wrote *"need nothing from Cowork and start immediately"*; **`B-061`'s own header
+names a `D-204` residual** — the next Lane B code unit and the S2 UX scoping — so the blanket claim was
+already false when written. **Each of the fifteen is assessed against its own criteria.** *Outside
+`C-44`* means **not blocked by this condition**, never *ready to close*.
 
 **Why a condition and not a queue row (`D-216`).** A row inside an act narrative is a **restated tally**
 — it goes stale the moment the next act publishes its own copy (`G55`, `G75`), which is what happened
@@ -15825,3 +15852,78 @@ specification.** They are the **parent**; verification of them is the child.
 **nothing is owed and the ordering claim that said otherwise is retired here.** **Repairs no planning
 source** — `C-44` scopes them; the repair is its own act. **Verifies no entry** — `applied 20` stands,
 and it moves only through `C-26`. **Lane A's own work, not independently reviewed** — `C-38`.
+
+## 5.14e42 `D-217` — `C-44` Was Scoped From a Summary; and the First Over-Retirement
+
+**Authorized by the Judge, 2026-09-09** (*"proceed plan"*), with a **Judge clarification on `C-44`'s
+provenance**: Lane B raises, Lane A answers. **Raised by Lane B** at `8541aaa`. **Seven rows, all
+measured on disk before any was accepted, all seven Lane A's.**
+
+### The naming sentence
+
+**`C-44` was scoped from a summary of the findings instead of from the entries' own criteria.** The
+consequence is arithmetic, not stylistic: the Line/`OD4` clause is **triplicated** across governing
+files and `C-44` named **two of three copies**; `B-084`'s branch has **four surviving `D-199`
+follow-ups** and `C-44` named **one**. **A repair list that omits one copy of a duplicated claim does
+not partly fix the drift — it guarantees its return**, through the copy nobody was told to open.
+
+**This is `D-93`'s rule failing where it is hardest to notice.** *Read the artifacts, not the summary
+of them* has been applied to Lane B's findings for fourteen acts. **It was not applied to my own
+scoping act**, which read the handback's prose and not the entries.
+
+### The first over-retirement — the mirror of the last six
+
+**Six occurrences corrected prose and left the instruction standing. `D-216` did the opposite.** It
+retired *"push first, rebuild second"* — correct, no mechanism, measured — and then wrote **"nothing is
+owed."** `docs/handoff/README.md:103–105` step 6 is live governing text: *"The current `Active` Lane A
+synchronizes Graphify (tracked fragment + rebuild) before the next consuming approval."*
+
+**Only remote-before-local is retired. The synchronization obligation stands**, as do the graph criteria
+in `B-065`, `B-066` and `B-067`. **An unenforced manual obligation is not automatically void** — that
+inference would retire most of this corpus, since `C-35`–`C-42` are all unenforced by construction.
+
+**Two failure directions, now both named:** *correcting beside* (six occurrences, `D-215`'s rule —
+**an annotated instruction is still an instruction**) and *correcting past* (this one). **The second is
+more dangerous because it looks like decisiveness.**
+
+### The seven rows
+
+| Lane B's row | Measured | Disposition |
+|---|---|---|
+| `C-44` provenance conflates the raiser with the reviewer | **Confirmed** — Judge clarified | **Adopted.** Three-part provenance |
+| Blueprint omitted; `blueprint.md:49,80–81` carries the same clauses | **Confirmed** | **Adopted.** Added to `B-062`/`B-065`/`B-067` |
+| `B-084`'s row is one of four surviving `D-199` follow-ups | **Confirmed** — `F2` `requirements-scope-knowledge-graph.md`, `F3` `poc-feedback-approval-crosswalk.md` + media plan §6.2, plus Addendum §5.1.2 | **Adopted.** All four named; the input question **routed, not decided** |
+| Entry 05 anchors to `D-168`, not `D-167`; a ledger row is not republication | **Confirmed** | **Adopted.** Republication is an **open criterion**; `Last verified at` may not move |
+| *"The other fifteen need nothing from Cowork"* | **Confirmed false** — `B-061`'s header names a `D-204` residual | **Adopted.** *Not dependent on `C-44`* ≠ *ready* |
+| *"`applied 0` is the sole criterion"* | **Confirmed** — §1 condition 2 is per-entry and per-phase | **Adopted.** Predicate restated below |
+| *"Nothing is owed"* over-retires `README` step 6 | **Confirmed** | **Adopted.** Only remote-before-local retired |
+
+### The phase predicate, restated once
+
+**Phase closure condition 2 is: every applicable closing-phase handoff holds a valid terminal
+disposition.** It is **per-entry and per-phase**, and `applied 0` is a *consequence* of meeting it, not
+the criterion itself. **An applicable entry with no `Resolution` blocks closure even at `applied 0`;
+entries in unrelated phases do not define this phase's result.** `D-216` collapsed a predicate into a
+number — **the restated-tally class (`G55`, `G75`), this time in the success-criterion column.**
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e42; `C-44` corrected in place — provenance, freeze limit, four table rows, stop condition, start condition |
+| **Channel docs** | **— unaffected: `README` step 6 is already correct; `D-216` mis-stated it in an act narrative, and that narrative is history (`D-93` rule 4). The correction is here** |
+| **Handoff entries** | **— unaffected: no header, resolution or anchor touched. The five stay `Applied`** |
+| **Planning sources** (Blueprint, Business Case, Addendum, RACI, `FN-GATES`, knowledge graph, crosswalk, media plan, `ENCYCLOPEDIA-SYNC`) | **— NOT edited here, deliberately: this act corrects the SCOPE, the next act performs the repair.** The scoping act repairing its own scope is the same act raising and answering |
+| **Inventory** | **— unaffected: no file created or retired** |
+| **Encyclopedia artifact** | **— NOT republished and NOT claimed: routed as an open criterion with a named owner (Judge ruling)** |
+| **Build spec · Agent files · `Modular_PRD`** | **— unaffected: no instruction in any of them is contradicted** |
+| **Phase closure** | **— unaffected: no phase state moves. The predicate is restated, not changed** |
+
+### What this act does NOT do
+
+**Repairs no source** — `C-44` now scopes them correctly and the repair is its own act, released as
+three independent children (shared Line/`OD4`; `B-084`'s intake branch, which depends on this act and
+**not** on the first child; derived views after their own source branch). **Republishes nothing.**
+**Verifies no entry** — `applied 20` stands and moves only through `C-26`. **Installs no check. Syncs
+no graph** — `docs-drift` is stale at `8541aaa` and the rebuild is Claude Code's, **owed before the next
+consuming approval** per `README` step 6. **Lane A's own work, not independently reviewed** — `C-38`.
