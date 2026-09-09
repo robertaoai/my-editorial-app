@@ -1071,3 +1071,90 @@ was read. Only this handoff appendix changes; prior records are retained as date
 | Reject | Previous blanket no-URL refusal and all-non-URL backlog interpretation | Supersede for digital Markdown; retain separate physical-workflow request |
 | Approve-with-conditions | Branch B intake/test plan | Complete alternative-aware T1/T2 validation and source-evidence binding |
 | Defer | Report reconciliation, publication, application and verification | Existing owners, bounded authorization, graph currency and independent review |
+
+## D-219 — what the Chief Editor must authorize next — 2026-09-09
+
+**Restated request:** turn D-219's children into an actionable decision table, separating settled
+business choices from drafting and execution authority. Reviewed `d10f0142259de3a3449c0eef175922668152b949`.
+Lane B raises this appendix; Lane A answers in the existing C-44/D-219 chain. No new tracking file.
+
+### Settled parent versus remaining authority
+
+**Already decided in D-219:** digital URL or manually prepared Markdown; the documented starter
+fields with optional/nullable treatment preserved; human preparation rather than an automated
+conversion service; physical-source workflow separately backlogged. Do not ask these again.
+
+**Still required:** an exact source-repair packet and its bounded application authorization under
+the existing SOP. D-219 says “proceed plan,” enumerates work and edits only the Register; “four
+separately authorized children” is not evidence that four execution grants already exist. Name
+the actual grant before application. This review supplies drafting guidance, not such a grant.
+
+| Order / child | Cowork prepares | Chief Editor accepts or rejects | Completion evidence |
+|---|---|---|---|
+| Parent — bounded packet | Exact owning sections, exclusions and expected outcomes below, using the existing decision chain | Approve source-text application only when those are reviewable; otherwise return the specific missing text, not the already-settled business question | Existing Register act names the bounded unit and DoD; no build or lane transition implied |
+| Product AC-01 | Keep URL success; add Markdown success consistent with FR-01, one subject and manual supplier/agent executor separation | Whether the draft accurately implements the decided alternatives; no new source-type choice | Both paths covered without losing nullable metadata or optional tags |
+| Functional intake/T2 | Review every enumerated occurrence by meaning; draft Markdown validation and reference/evidence handling | A faithful behavior contract; escalate only a genuinely new business/storage obligation, not routine wording | No mandatory-URL constraint blocks Markdown; no file is reported as a live URL; absence/unreadability outcomes are explicit |
+| Addendum acceptance/control rows | One bounded Addendum pass: AT-001 positive case, AT-002 absent-source refusal, AT-003 missing-subject refusal, plus T1/T2 rows and AT-001 scope note | Source repair only; retaining independent positive/negative coverage | Gate table, tests and current scope note agree on both alternatives and starter-field acceptance |
+| Derived views | Storyboard/panels/UML/data-flow successor references and Encyclopedia content after their owning source | Review changed meaning; Chief Editor separately performs hosted republication | Sources agree, historical examples remain scoped, publication evidence recorded only after the artifact is read and republished |
+
+The source children are not four new product features. They are tier-specific parts of the same
+intake correction. Product requirements precede dependent functional/test wording; views follow
+their own source. Do not introduce an extra all-branches-complete gate for unrelated C-44 work.
+
+### Corrections to the proposed repair plan
+
+1. **The enumeration is discovery, not a closure predicate.** Fn_Spec line 35 quotes the URL
+   success scenario: a valid URL example is not itself a universal prohibition. Likewise a
+   URL-only positive AC does not logically forbid Markdown; it lacks coverage for that alternative.
+   Preserve legitimate URL examples and historical quotations, label their scope and add the
+   missing path. Reject “the count is the pass.” Check each operative clause's meaning and the
+   actual positive/negative outcomes, not the number of edits or absence of the word URL.
+2. **Include the omitted Addendum gate rows.** §3.1 T1 at line 161 requires `source_url`; T2 at
+   line 162 requires URL confirmed live. Correcting only AT-002 and the Fn_Spec leaves those
+   governed controls contradictory. Draft both alternatives there in the same Addendum unit.
+   The §8.1 AT-001 scope note at lines 526–533 still calls the newly decided question open;
+   update that current note while preserving the separate independent-verification requirement.
+3. **Provenance precision:** D-121's own heading dates its consolidated rulings **2026-08-25**,
+   not 2026-08-30. It establishes URL-or-other-reference and brief identity; it does not name
+   Markdown. Cite D-121 for that parent permission and D-219 for the specific digital/Markdown
+   clarification. Do not attribute the new representation detail retroactively to D-121.
+4. **Use the real question anchor.** “§5.1.2” remains in C-44/D-219 despite the prior handback's
+   correction. The Addendum question is §8.1's AT-001 scope note. Repair the current pointer;
+   preserve the business decision as settled. Do not reopen it merely because its citation is wrong.
+5. **Reference/retention is unresolved design, not completed evidence.** Cowork must draft how
+   the supplied content remains retrievable and bound to the assessment/revision. Prefer existing
+   records if demonstrably sufficient; otherwise route a precise gap to the proper tier. A
+   routed residual permits an honest partial handback, not a claim that report integrity or the
+   Markdown path is implementation-ready. Do not invent a new retention period, service or schema.
+
+### Minimal acceptance walkthrough for the draft
+
+- Valid URL plus all other required inputs: accepted as the URL path.
+- No URL, valid authorized Markdown representation plus all other required inputs: accepted as
+  the Markdown path; this does not mean an arbitrary filename or empty file passes.
+- Neither source supplied: named refusal; no completed T1 transition.
+- Missing subject: AT-003 refusal for either source path; AT-001 retains positive tag coverage.
+- Markdown unreadable/unavailable or not bound to the selected source: the draft states the
+  failure/hold behavior; no successful source-validation or readiness claim is fabricated.
+- A later file replacement: the report still resolves the content used for its selected
+  assessment/revision, not the latest file with the same name. The exact mechanism must be named
+  or left explicitly incomplete, not declared proven by this walkthrough.
+
+**What requires a new Chief Editor choice?** Only an implementation proposal that introduces a
+new obligation (for example a new storage service or changed retention scope) or a genuinely
+undecided business outcome. Lane A first presents the concrete option and consequence. There is
+no present need for another general form-design decision, another publisher-selection decision,
+or another URL/Markdown decision. Existing R159/R160 and C-26 ownership remain intact.
+
+**Drift/limits:** analyzed graph `a9592fe` versus reviewed HEAD `d10f014`; read-only graph query
+used for navigation, not currency. No hosted artifact read or republished, no runtime test of
+Markdown performed. Only this handoff changes. Actual source application, Build/Inventory
+applicability for that write set, Graphify synchronization and independent verification remain
+with their existing owners. No test count or touched-file count proves semantic completeness.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-219 digital-source/starter-field ruling and Product AC coverage work | Preserve the ruling; draft the missing alternative coverage |
+| Approve-with-conditions | Cowork source-repair packet | Include Addendum T1/T2/current scope note; correct citations and use semantic acceptance checks |
+| Reject | Counts as proof, URL examples as automatic contradictions, execution grants inferred from “proceed plan” | Correct the handback and bind actual application authority |
+| Defer | Markdown storage/readiness, source application, publication and entry verification | Concrete design/owner evidence, bounded authorization, current graph and independent review |
