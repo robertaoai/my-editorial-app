@@ -1722,3 +1722,43 @@ final synchronization: `4005d58` analyzed, `7e65619` reviewed. No lifecycle prom
 | Approve-with-conditions | C-35 current contract | Remove unrun pass claim; use named coverage and canonical sequence |
 | Reject | Equal/nonzero counts establish complete passing coverage | Require per-case evidence |
 | Defer | Implementation, graph currency and closure | Existing prerequisites, bounded execution and independent review |
+
+### Proposed D-226 — refinement accepted, application still separate (2026-09-10)
+
+**Reviewed at `5424808`.** The proposed register-only correction addresses the preceding
+review: qualify unverified execution, replace count-based coverage with named results, and
+withdraw the duplicated sequence by reference to canonical C-35. No new finding, decision
+ID or business-policy choice is needed from this review. D-226 remains proposed, not applied.
+
+**Lane A application notes — part of the same correction, not another approval round:**
+
+1. Cowork distinguishes observed execution from expected behavior when reviewing `passes`
+   matches. An observed-pass claim needs run evidence; a target such as “with a valid
+   trailer, the hook must pass” is a requirement, not an unverified observation. Source-traced
+   predictions should be labelled as such. Do not weaken requirements or rewrite quoted history
+   merely because a search matches the word. State “not verified in this review,” not that
+   the fixtures have never been run anywhere in history.
+2. The named-result rule retains the preceding review's completeness check: every required
+   case occurs exactly once, with its expected verdict and diagnostic at the tested revision.
+   Merely recording a MISS does not satisfy target acceptance. A deliberate baseline MISS
+   and a post-fix OK are different expected observations. No new count or checker is required.
+3. Reference the Register's **C-35 canonical section / Order paragraph**, optionally with its
+   current line number. A line number alone is not stable after insertion. Preserve historical
+   narrative and mark its sequence superseded; do not copy a replacement sequence there.
+
+**Handback:** after bounded authorization for the documentation correction, Cowork applies
+that one packet and verifies its final live text together. Code remains behind the existing
+C-35 prerequisites and separate implementation authority. Lane A answers B-011; independent
+review checks the application, not another paraphrase of the plan. No new journal or channel.
+
+**Scope:** no Register application or mutating fixture run in this review. Product/Modular_PRD,
+storyboard/panels, UML/data flow and Encyclopedia are unaffected, not newly verified; no
+Build/Inventory artifact change. Graph remains behind (`4005d58` analyzed, `5424808` reviewed);
+Lane A synchronizes before consuming approval. Handoff lifecycle fields remain unchanged.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Proposed D-226 correction scope | Ready for bounded documentation-application authorization |
+| Approve-with-conditions | C-35 wording and evidence | Apply the same packet with the notes above; verify final source |
+| Reject | Search matches or a recorded MISS alone prove acceptance | Interpret evidence against each case's expected result |
+| Defer | Code implementation and whole-entry closure | Existing prerequisites, execution authority and independent review |
