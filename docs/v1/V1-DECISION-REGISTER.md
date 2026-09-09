@@ -2506,20 +2506,70 @@ if it were the model — **the same shape as reading a green suite as proof of t
 | `B-067` | the same `B-062`/`B-065` source claims **including Blueprint**, plus Entry 05's publication/signoff gate | control-owner repairs landed; the source claims they rest on did not |
 | `B-084` | `docs/fn-specs/FN-GATES-01-05.md:215` (`AT-001`) vs `v1-build-readiness-addendum.md:520,530` (`AT-003`) · `docs/governance/media-industry-sop-fallback-implementation-plan.md:72` vs `docs/governance/requirements-traceability-map.md:141` · **`docs/governance/requirements-scope-knowledge-graph.md` — `CR-14` still `Uncovered`, no supersession notice (`D-199 F2`)** · **`docs/governance/poc-feedback-approval-crosswalk.md` §`FB-05`/`MFB-03` — the `FR-14` collision (`D-199 F3`)** · **Addendum §5.1.2 — required source information and non-URL handling, UNRESOLVED** | the acceptance test would verify the wrong obligation. **`D-216` named one of four surviving `D-199` follow-ups** (`D-217`). `FR-01` keeps manual intake; stale `FR-14` analyses are marked superseded **by reference**; **the input-requiredness question is ROUTED, never inferred** |
 
-**Stop condition:** each named line corrected in its owning source, **every `D-199` follow-up and the
-Addendum §5.1.2 question mapped to an owner and a successor decision**, and **each of the five entries'
-own criteria re-checkable without a Cowork edit**. **Not** *the entries are `Verified`* — verification
-is Lane B's independent act under `C-26` and is not this condition's to claim. **No criterion is dropped
-because `D-216`'s first table missed it.**
+**Stop condition — THREE subjects, separated by `D-218` because as one they could not be met.**
+`D-217` required *"each of the five entries' own criteria re-checkable without a Cowork edit"* while
+scoping **republication outside this condition** — and `B-066`'s criterion **is** republication, so two
+of the five could never satisfy it. **A stop condition two of its subjects cannot reach is not strict;
+it is unmeetable**, and an unmeetable condition is discharged by giving up, not by finishing.
+
+| Subject | Owner | Closes this condition? |
+|---|---|---|
+| **source-repair readiness** — every named operative clause corrected or recorded unchanged | Lane A · Cowork | **YES — this is `C-44`'s whole scope** |
+| **external publication evidence** | **Chief Editor** (below) | **No** — outside, and named |
+| **whole-entry verification** | Lane B, under `C-26` | **No** — never this condition's to claim |
+
+**Acceptance is CLAUSE-LEVEL, not a file count — `D-218`, raised by Lane B.** The handback that would
+have driven the repair proposed *"the same successor everywhere"* and a minimum file-touch count.
+**Both are wrong on their face:** the four clauses carry **different facts** — Line attribution,
+distinct judgment, direct `FR-11` ownership, deferred `OD4` — so identical citation is not the target,
+and a touched file is not evidence. **The test is: every named operative clause checked against ITS OWN
+applicable decision.** Search is **discovery, not semantic proof**; neighbouring current clauses are
+checked, not only the cited line numbers; **a correctly scoped historical quote may remain**; and **a
+no-op edit is not evidence** — a clause whose governing decision is unchanged is **left alone and
+recorded as unchanged**, which is a pass.
+
+**A DECIDED correction cites its actual successor. An UNDECIDED question does not get one — `D-218`.**
+`D-217` required the Addendum §5.1.2 source-requiredness / non-URL question *"mapped to an owner and a
+successor decision"* while this condition's own table says it is **"ROUTED, never inferred"**. **§5.1.2
+is undecided, so the only way to satisfy that was to manufacture a successor** — the condition
+instructing the fabrication it forbids, one clause apart. **It names its existing open record, its
+decision owner and the requested choice, and stays open. Routing is not resolution and does not become
+resolution by being written down.**
+
+**Not** *the entries are `Verified`*. **No criterion is dropped because `D-216`'s first table missed it,
+and none is invented because this one asks for it.**
 
 **Encyclopedia republication is an OPEN criterion with a named owner, not this condition's to close —
 Judge ruling, `D-217`.** The Encyclopedia is a Claude Artifact outside this repository and **no check
 here can read it** (`ENCYCLOPEDIA-SYNC.md`). Under this condition the ledger's **dependency rows may be
 updated**; its **`Last verified at` column may NOT** — bumping it would make a local file assert the
 state of a hosted artifact nobody inspected. **Editing the ledger is not republication**, and `B-066`
-and `B-067` stay `Applied` until the artifact is actually republished by whoever holds it.
+and `B-067` stay `Applied` until the artifact is actually republished.
+
+**The publisher is the CHIEF EDITOR — Judge ruling, `D-218`.** `D-217` wrote *"an OPEN criterion with a
+**named owner**"* and ended the same paragraph *"by **whoever holds it**"* — **it specified that an
+owner be named and did not name one** (`D-56`), inside one sentence.
+
+| Step | Actor |
+|---|---|
+| corrected entry content prepared; ledger **dependency rows** updated | Lane A · Cowork |
+| artifact **read in full** (`D-93` — never from a summary), flagged entries updated, colophon bumped with a dated note of what changed and what did not, republished **to the same URL** | **Chief Editor** |
+| ledger's **`Last verified at`** moved to the new HEAD | after republication, never before |
+
+**No actor is asked to certify an artifact it cannot read.**
 
 **Start condition:** none. **This is the PARENT of `C-26`'s review of those five**, and of nothing else.
+
+**Two independent source branches, each followed by ITS OWN dependent view — `D-218`, raised by Lane B.**
+`D-217` called the repair *"three independent children"*; **the views are not independent of anything**.
+
+```
+Branch A — Line/OD4 sources ..........► Encyclopedia Entry 05  (`D-168` marker)
+Branch B — intake sources ............► Encyclopedia Entry 06  (`D-197` marker, `D-199 F1`)
+```
+
+**A and B do not wait for each other.** Each view waits only for the branch beneath it. **Calling a
+dependent child independent is how a view gets reconciled against a source that has not moved yet.**
 
 **The other fifteen are NOT DEPENDENT ON `C-44` — which is not the same as ready (`D-217`, raised by
 Lane B).** `D-216` wrote *"need nothing from Cowork and start immediately"*; **`B-061`'s own header
@@ -15927,3 +15977,84 @@ three independent children (shared Line/`OD4`; `B-084`'s intake branch, which de
 **Verifies no entry** — `applied 20` stands and moves only through `C-26`. **Installs no check. Syncs
 no graph** — `docs-drift` is stale at `8541aaa` and the rebuild is Claude Code's, **owed before the next
 consuming approval** per `README` step 6. **Lane A's own work, not independently reviewed** — `C-38`.
+
+## 5.14e43 `D-218` — A Stop Condition Two of Its Five Subjects Could Not Meet
+
+**Authorized by the Judge, 2026-09-09** (*"proceed plan"*), with a **Judge ruling naming the publisher**.
+**Raised by Lane B** at `bb7acd8`. **Four gaps, all measured, all four Lane A's.** `D-217` is otherwise
+sufficient to prepare the repairs — **no further general scoping round**, per Lane B's own assessment.
+
+### The naming sentence
+
+**`C-44`'s stop condition could not be satisfied, and three of its own clauses were why.**
+
+- It required *"each of the five entries' own criteria re-checkable without a Cowork edit"* while scoping
+  **republication outside the condition** — and `B-066`'s criterion **is** republication. **Two of five
+  could never comply.**
+- It required Addendum §5.1.2 *"mapped to an owner and a **successor decision**"* while its own table
+  said that question is **"ROUTED, never inferred"**. §5.1.2 is undecided. **The condition instructed the
+  fabrication it forbids, one clause apart.**
+- It declared republication *"an OPEN criterion **with a named owner**"* and ended *"by **whoever holds
+  it**"* — **`D-56` specified-not-applied, inside a single sentence.**
+
+**An unmeetable condition is not a strict one.** It is discharged by giving up and calling it done —
+which is precisely the outcome every condition in this register exists to prevent.
+
+### Where Lane B's rejects land — one precision they could not see from the commit
+
+**`file counts as proof` is correct, and the count test was never in the register.** It lived in Lane A's
+**handback** — *"the same successor everywhere; fewer than four files touched is incomplete"*. **That is
+not a lesser defect: the handback is what the repair act would have been built from**, and the four
+clauses carry **different facts** (Line attribution · distinct judgment · direct `FR-11` ownership ·
+deferred `OD4`), so identical citation was never the target. **Governed text stayed clean; the
+instruction that would have executed it did not.** Recorded here rather than left to lapse with the
+message that carried it.
+
+**`all children independent` is also Lane A's and also wrong.** Two source branches are independent;
+**the views are not** — Entry 05 follows Branch A, Entry 06 follows Branch B.
+
+### The four gaps
+
+| Lane B's gap | Measured | Disposition |
+|---|---|---|
+| clause-level verification, not counts | **Confirmed** — four clauses, four different facts | **Adopted.** Each clause to **its own** decision; a no-op edit is not evidence |
+| publisher specified, not named | **Confirmed** — `D-56`, one sentence | **Adopted.** **Chief Editor**, with the three-step split recorded |
+| a successor demanded for an undecided question | **Confirmed** — contradicts the same condition's table | **Adopted.** Open record, decision owner, requested choice; **routing is not resolution** |
+| completion boundary conflates three things | **Confirmed** — unmeetable for `B-066`/`B-067` | **Adopted.** Three subjects, one closes `C-44` |
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ §5.14e43; `C-44` corrected in place — stop condition split, clause-level acceptance, undecided-≠-successor, publisher named, dependency shape |
+| **Handoff entries** | **— unaffected: no header, resolution or anchor touched. `B-066`/`B-067` stay `Applied` as governed** |
+| **Channel docs · work order · Inventory** | **— unaffected: no instruction in any of them is contradicted by this act** |
+| **Planning sources** (Blueprint, Business Case, Addendum, RACI, `FN-GATES`, knowledge graph, crosswalk, media plan) | **— NOT edited here: this act makes `C-44` meetable; the branches perform the repair. The scoping act repairing its own scope is the same act raising and answering** |
+| **`ENCYCLOPEDIA-SYNC.md`** | **— NOT edited: dependency rows move with their branch's view step; `Last verified at` moves only after the Chief Editor republishes** |
+| **Encyclopedia artifact** | **— NOT republished and NOT claimed: publisher named, criterion open** |
+| **Build spec · Agent files · `Modular_PRD`** | **— unaffected** |
+| **Phase closure** | **— unaffected: no phase state moves** |
+
+### What this act does NOT do
+
+**Repairs no source. Republishes nothing. Verifies no entry** — `applied 20` stands and moves only
+through `C-26`. **Installs no check. Syncs no graph** — `docs-drift` stale at `bb7acd8`, Claude Code's,
+**owed before the next consuming approval** (`README` step 6), **not ordered against the push** (`D-216`).
+**Lane A's own work, not independently reviewed** — `C-38`.
+
+### The branches, released next
+
+**Branch A — Line/`OD4`:** Business Case §*What is enforced*/§*Who uses it* · Blueprint §2.1/§2.2 ·
+Addendum's independence clauses · RACI §4. Remove the unsupported universal attribution; **retain the
+separately governed project separation control**; do not equate different Lines with proven distinct
+judgment. Preserve `D-57`'s direct `FR-11` decision and `D-168`'s distinction from deferred `OD4`.
+
+**Branch B — intake, independent of A:** `FN-GATES-01-05.md` §8 — **add** the missing-subject refusal to
+`AT-003`, **remove** it from `AT-001`, **keep** `AT-001`'s acceptance of one subject alongside analytical
+tags, preserve optional tags. **Do not infer source-requiredness from a positive fixture.** Then
+`D-199 F2`/`F3`: link the current `FR-01` manual-intake contract; mark the `CR-14`-Uncovered and `FR-14`
+proposals **superseded as dated analyses**, preserving `FR-14`'s **actual** business-continuity
+requirement and **not** rewriting historical analysis as though it said `FR-01`.
+
+**Then the views, each after its own branch.** Then Lane B, per entry, under `C-26` — **no batch
+promotion**, and each handback lists its **routed residual** rather than claiming all criteria met.
