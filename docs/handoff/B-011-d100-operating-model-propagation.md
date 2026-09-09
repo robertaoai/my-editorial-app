@@ -1251,3 +1251,87 @@ belongs in Lane A's eventual write-set review, not inferred from this appendix.
 | Approve-with-conditions | Product/Fn_Spec/Addendum child packet | Resolve actor scope, T3 evidence compatibility and stale current note; present exact text |
 | Reject | Arithmetic as semantic completeness; routing as implementation readiness | Scope the measurement and name the actual readiness claim |
 | Defer | Source application, publication, implementation and whole-entry verification | Bounded authorization, complete behavior/evidence, graph currency and independent review |
+
+## D-221 — separate intake, evidence and scoring before approving text — 2026-09-09
+
+**Reviewed:** `85144bb8c02e79659ea929d18cf93025d5735925`. Lane B raises this review; Lane A
+answers through the existing C-44/D-219–D-221 chain. Handoff-template structure, no new queue.
+No source, application, graph runtime, hosted view or lifecycle state is changed by this review.
+
+### Accepted progress; remaining substantive correction
+
+D-221 now states its search domain, rejects routed-as-ready, distinguishes the human supplier
+from executor, and offers replacement text. Preserve that progress. Do not reopen the accepted
+manual URL/Markdown input or starter-field decision, and do not spend another act recounting URLs.
+
+**Admission does not guarantee evidence quality.** A Markdown source may have a reachable
+supporting-evidence URL; a URL source may lack one. Accepting the brief at T1 and later observing
+weak/missing evidence is not inherently contradictory. Addendum §5.2's cited formula is
+**Editorial Priority Score**, not Trend Score (§5.1), and the Evidence Quality component is
+separate from source format. Changing its weight or missing-evidence treatment is a business
+policy change, not automatic propagation of D-219. `NG-10`/`TC9` still forbids score auto-advance.
+
+| Existing supporting-evidence condition, either source format | §5.2 component value | What this does not establish |
+|---|---|---|
+| Evidence URL present and accessible | 1.0 | That the source format caused the value, or a gate is approved |
+| Evidence URL present but unreachable | 0.5 | That the evidence is absent or should score 0.0 |
+| Evidence URL absent | 0.0 | That Markdown caused its absence or that the article was wrongly admitted |
+
+The component's existing weight is 0.10. These values are read from the current source, not new
+proposals. **D-221's “no reachable evidence URL scores 0.0” conflates absent and unreachable.**
+T3 separately requires `evidence_url` set; therefore an absent URL also has a gate-completion
+consequence under the existing rule. Scoring and gate eligibility must be specified separately.
+
+### Gaps in the proposed text and smallest corrective draft
+
+| Existing item | Gap | Required draft correction |
+|---|---|---|
+| Product AC-01 | “Where no URL exists” is narrower than D-219's “content cannot be reached by URL” | Use the decided phrase consistently: a URL may exist but not provide access. Preserve manual preparation and access-control restrictions |
+| Reporter persona | Proposed text still says “with topic tags,” reviving the subject/tag ambiguity | State **exactly one subject topic**, a trend-signal description and the documented supplied source information; analytical tags remain optional and many; human supplies, Reporter executes |
+| Fn_Spec grouped rows | One phrase for six different locations is not each location's full replacement; §2.3 still has the commissioned-work URL sentence unless explicitly replaced | Supply complete replacement paragraphs/rows for constraints, required fields, supply, diagram and AC. Preserve no-bare-topic and missing-input refusal; eliminate only the universal URL requirement. Do not claim literal insertion readiness from shorthand |
+| §8.1 note | “RESOLVED for the non-URL limb” does not itself replace the starter-source-information question that D-219 also decided | Replace both decided question clauses with D-219's scope. Retain the independent-verification duty and AT-003 mapping residual until actually applied; do not leave accepted starter fields labeled undecided |
+| Markdown validation/retention | Availability/readability text does not define reference retention, revision binding or failure behavior | Complete the existing routed design before implementation-readiness claims. Name missing/unreadable/mismatched representation outcomes and evidence binding without inventing a storage service or retention period |
+
+**AT-006 scope:** D-221 expressly retains it as a human-executor `HumanOverride` example,
+distinct from AT-001's human-supplier/agent-executor path. Any added Markdown case must preserve
+that explicit exception scope and its governing authority; it must not relabel normal manual
+preparation as an override. Do not create duplicate AC/test IDs when adding scenario coverage.
+
+**Evidence correction:** D-221's statement that Addendum `:340` was “named by nobody until now”
+is incorrect. The preceding B-011 review at `591b1df`, now lines 1192 and 1198–1204, explicitly
+names both `:163` and `:340`, their distinction from the source and the scoring question. The
+same review names the persona's manual-handoff conflict. Preserve the original Lane B attribution;
+Lane A's further inspection is confirmation, not a newly raised finding. No new tracking item.
+
+### Chief Editor decision table — parent first
+
+| Order | Recommended disposition | What the Chief Editor must decide / what Lane A owes |
+|---|---|---|
+| 1 — meaning | Preserve source-format versus supporting-evidence versus score separation | No repeat URL/Markdown decision. Reject the assertion that a lower score automatically contradicts admission |
+| 2 — existing controls | Draft with existing T3 evidence requirement and §5.2 scoring unchanged unless a change is explicitly requested | No new scoring decision is necessary merely to implement D-219. If a proposed alternative is wanted, present its gate and scoring effects separately for approval; do not manufacture a Markdown exemption |
+| 3 — literal source packet | Approve only after complete owner-specific replacements and validation/reference behavior are reviewable | Cowork supplies exact text, write set, exclusions and DoD, including the corrections above. “Proceed plan” is not application permission |
+| 4 — views and verification | Follow the approved source behavior | Storyboard/panels/UML/data flow show intake, investigation, scoring and judgment as different operations; reports cite selected evidence. Chief Editor separately republishes affected Encyclopedia content; Lane B verifies per entry |
+
+**Minimal walkthroughs:** both URL and Markdown inputs, each paired with accessible,
+unreachable and absent supporting evidence; missing source; missing subject; unreadable or
+mismatched Markdown; and retrieval of the original assessment evidence after a later file change.
+Hold other inputs constant when comparing score outcomes. A positive intake fixture passes
+**T1 only**, not all later gates; no fixture says every admitted article must be publishable.
+These are planned cases, not executed tests or proof that the file mechanism exists.
+
+**Lane A sequence:** correct meaning in the current proposed packet → produce complete source
+replacements and the reference/validation contract → seek bounded application approval → apply
+and check the owning tiers → reconcile dependent views → synchronize graph at the consuming
+revision → independent handoff review. Use existing R159/R160 and C-26 owners; no extra channel,
+no automatic scoring change and no unrelated build. Build/Inventory remain unchanged by this
+handoff; their applicability must be assessed for the eventual authorized write set.
+
+**Drift:** graph analyzed `a9592fe`, reviewed HEAD `85144bb`; graph query is navigation only.
+No hosted Encyclopedia inspected, no source application, no child authorization or verification.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-221 stated search domain, defined-before-ready rule and explicit actor distinction | Preserve |
+| Reject | Intake acceptance implies high evidence score; absent equals unreachable; latest discovery attribution | Correct proposal semantics and dated provenance |
+| Approve-with-conditions | Product/Fn_Spec/Addendum repair packet | Complete literal text, preserve cardinality and approved fallback wording, define evidence handling |
+| Defer | Scoring-policy change, application, publication and whole-entry verification | Separate policy choice if requested; bounded execution, graph currency and independent evidence |
