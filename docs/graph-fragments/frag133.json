@@ -1,0 +1,24 @@
+{
+  "nodes": [
+    {
+      "id": "b093_b092_execution_record_review",
+      "label": "B-093: B-092 Execution Record Review — Four Graph Properties, Not One",
+      "file_type": "document",
+      "source_file": "docs/handoff/B-093-b092-execution-record-review.md",
+      "source_location": "",
+      "description": "Lane B independent review of Lane A's appended B-092 steps 6-7 graph-sync record. Read the entry header for current lifecycle status. It accepted head equality, document coverage, frag132 parity and six-node connectivity, and rejected the record as complete for two reasons: a verification anchor cannot cover text appended after it, so B-092's whole entry takes its weakest child disposition under D-204; and a green consistency suite tests neither semantic descriptions nor whole curated-layer parity. It ordered the response parent-first - P0 lifecycle correction, P1 descriptions, P2 fragment repair, P3 one final synchronization after the last tracked commit. The Judge later narrowed P1 to documentation nodes, because every blank description was on a code, test, migration, config or git-commit node.",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage requires a curated node per docs/ markdown file. This node also carries the anchor-cannot-cover-appended-text rule and the suite-green-is-not-semantic-evidence rule."
+    }
+  ],
+  "edges": [
+    { "source": "b093_b092_execution_record_review", "target": "b092_b087_closure_evidence_sequence", "relation": "references", "confidence": "CURATED", "source_file": "docs/handoff/B-093-b092-execution-record-review.md", "source_location": "", "weight": 1 },
+    { "source": "b093_b092_execution_record_review", "target": "b089_b087_answer_review", "relation": "references", "confidence": "CURATED", "source_file": "docs/handoff/B-093-b092-execution-record-review.md", "source_location": "", "weight": 1 },
+    { "source": "b093_b092_execution_record_review", "target": "b087_setup_spike_planning_packet", "relation": "references", "confidence": "CURATED", "source_file": "docs/handoff/B-093-b092-execution-record-review.md", "source_location": "", "weight": 1 },
+    { "source": "b093_b092_execution_record_review", "target": "b084_d197_intake_specification_reconciliation", "relation": "references", "confidence": "CURATED", "source_file": "docs/handoff/B-093-b092-execution-record-review.md", "source_location": "", "weight": 1 },
+    { "source": "b093_b092_execution_record_review", "target": "b071_ontology_correction_handoff", "relation": "references", "confidence": "CURATED", "source_file": "docs/handoff/B-093-b092-execution-record-review.md", "source_location": "", "weight": 1 }
+  ]
+}
