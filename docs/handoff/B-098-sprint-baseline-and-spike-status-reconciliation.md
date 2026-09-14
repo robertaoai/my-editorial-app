@@ -4,10 +4,21 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** Lane A disposition of B-098's earlier roadmap-reset interpretation; no build, sprint remap or governed-source change
-- **Status:** Open
-- **Lane A:** — awaiting Lane A acknowledgement
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** 35d3d431235ea7fda73c41737a75efecd1a78945
+- **Status:** Answered
+- **Lane A:** **Acknowledged 2026-09-15 at read commit `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.**
+  The corrected interpretation is accepted: the existing sprint/version sequence
+  remains the planning baseline; `D-185` already owns `SETUP-SPIKE-000` provenance and is cited,
+  not restated. B-098's earlier proposal at `258842a` (reading the setup-spike clarification as a
+  reset of S0 to S1, removal of S0, or remap of S3/S4) is marked **Withdrawn** in full; no part of
+  it is retained as operative. The verified B-087/B-090/B-092/B-093 records are preserved
+  unchanged. B-088 and B-094 through B-097 continue on their own lifecycles; none are closed by
+  this acknowledgement. This acknowledgement changes no sprint status and authorizes no
+  governed-source or build action. **Correction, 2026-09-15 (B-100):** this disposition is complete
+  and is recorded below as `Resolution: Applied`, not left as `Status: Open` beside a settled
+  answer.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6
 - **Evidence:** Chief Editor clarification and screenshot `codex-clipboard-cc3676c0-7c5d-4a55-89b3-f9501478cf07.png`, supplied 2026-09-14, SHA-256 `6EA0FCE6A25E0DBC350ED37DAFC63AA1794416C71B444E6F732277C492D8A8BD`; `SETUP-SPIKE-000` decision `D-185`; `docs/README.md:12`; `docs/journal/2026-08-16-sprint-plan.md:9-13`; B-072 root analysis; verified B-087, B-090, B-092 and B-093 lifecycle records; B-088/B-094–B-098 lifecycle headers; existing `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`, `V1-PHASE-CLOSURE.md`, `LANE-B-WORK-ORDER.md` and `Modular_PRD.md`; Graphify query read with the stale-revision qualification below.
 
 ## Raiser correction
