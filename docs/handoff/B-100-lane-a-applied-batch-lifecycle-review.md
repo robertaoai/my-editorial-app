@@ -4,9 +4,23 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** committing or accepting Lane A's five-file B-071/B-096–B-099 batch as clean; no build, governed-source edit, publication, lane transition or release action
-- **Status:** Open
-- **Lane A:** — awaiting Lane A acknowledgement
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Status:** Answered
+- **Lane A:** **Acknowledged and accepted in full, 2026-09-15, at read commit
+  `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.** Every item in "Exact Lane A repair" (1 through 5) is
+  applied: B-071's `Verified-At-Commit` is now one full SHA with the environment caveat moved to
+  body prose; B-096 and B-097's audit anchors are advanced to this same commit; B-096 now reads
+  "two-actor schema corroboration," keeps `S17` drafted-not-applied, and carries a body child table
+  (`GA1` Answered, `S15`/`S16` Open, `S17` Held); B-097 carries a body child table (Choice B Answered,
+  B-071 return Applied, SOP/template/check contract Open) and stays `Open`; B-098 and B-099 are
+  `Answered`/`Applied` with the dispositioning-actor `Verified-By` form. No entry was left claiming
+  a settled answer beside an `Open` header. Item 6 (commit) is explicitly **not** performed by this
+  acknowledgement: `device_bash` cannot reach this repository from this session (a known
+  Windows-update mount issue, stated here once, in prose, not in any audit field), so `git
+  add`/`commit`/`push` still requires either you or a session with working shell access to this
+  machine. Items 7 (independent review) and 8 (Graphify) remain correctly sequenced after that
+  commit, not before.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Uncommitted diff of B-071 and B-096–B-099 against `e0e1c85`; `docs/handoff/README.md` sections *Answering — Lane A*, *Before you answer*, D-204 and D-205; `docs/handoff/TEMPLATE.md`; B-088/B-094 Chief Editor packets; `supabase/migrations/0002_s1_editorial_schema.sql:459-522`; `bun run check` at the named commit with the five-file working diff present; Graphify branch record.
 - **Verified-At-Commit:** e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6
 
