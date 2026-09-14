@@ -181,415 +181,97 @@ governed document, build, synchronize Graphify, select a lane or change a lifecy
 
 ---
 
-## Appended 2026-09-14 after Lane A review of the updated template
+## Appended 2026-09-14, read at `f30c07b` — three further findings
 
-This append preserves the accepted S1–S8 analysis above and records only three additional findings
-supported by Lane A's review. It does not constitute independent lifecycle verification.
+Appended by the raiser after `7600780..f30c07b` was authorized by the Judge and pushed; upstream
+and `HEAD` both confirmed at `f30c07b`. Everything above stands as written. `S9`–`S11` are new and
+do not restate `S1`–`S8`.
 
-### `S9` — two evidence samples remain live and their research-lead identities conflict
+### `S9` — the two evidence samples are both live and they disagree on three claims
 
-B-094 currently lists both the earlier `ORIGINAL ARTIFACT ANALYSIS.md` (`37B96151…FCD945`) and the
-updated template/sample (`18E9A66C…B2DBB7`) without marking which governs current use. Both byte
-identities were recomputed by Lane B and match the supplied files, but matching a file does not
-verify its claims.
+B-094's evidence table carries `37B96151…FCD945` as a representative manual-input package and
+`18E9A66C…B2DBB7` as the selected replacement template. **Neither row is marked superseded**, so the
+corpus currently records two live versions of the same package. Three claims differ between them,
+and one differs *inside* the newer sample:
 
-The earlier and updated samples disagree on three properties that define a research lead:
-
-| Property | Earlier sample | Updated sample |
+| Claim | Earlier sample | Updated sample |
 |---|---|---|
-| Denominator for the `14%` training claim | workers | firms in the trend update; unstated in the new-article brief |
-| Magnitude unit for the `8–15` effect | percent | percentage points |
-| Outcome measure | hiring uplift | interview-invitation rate in the trend update; hiring uplift in the new-article brief |
+| Training-gap denominator | *"only 14% of **workers** receive formal AI training"* | *"Focaldata April 2026 benchmark of 14% of **firms**"* |
+| Effect magnitude | *"the 8-15**%** hiring uplift"* | *"lift interview invitation rates 8–15 **percentage points**"* |
+| Outcome measured | *"hiring uplift"* | *"interview invitation rates"* in the trend section, while the same document's brief still reads *"8–15 pp **hiring uplift**"* |
 
-The updated sample therefore also contradicts itself on outcome measure. Before A4 cites a sample,
-Lane A marks the earlier sample **superseded for current template use** while retaining it as dated
-evidence, then restates each newer lead with one denominator, magnitude unit and outcome measure.
-External fact verification remains T2/T3 work and is not performed by this handoff.
+Workers and firms are different denominators. Percent and percentage points are different
+magnitudes. Hiring and interview invitation are different outcomes. **Every one of these is the
+silent reclassification the epistemic-class matrix in `D2` exists to prevent, occurring inside the
+evidence that defines the matrix.** Whether any figure is true is not the point and is not
+assessed here; both remain unverified research leads under `S7`.
 
-### `S10` — Encyclopedia Entries 03 and 06 share the same propagation event
+**Correction sought, for Chief Editor accept or reject:**
 
-Entry 06 is already in A4 because the manual Reporter-gate contract changed its dependencies.
-Entry 03 is *Newsworthiness vs. trend score vs. editorial priority*. The selected template now
-introduces a manual 1–10 newsworthiness assessment, while S8 requires it to remain distinct from
-computed `trend_score` and gate authority. A4 therefore marks **Entries 03 and 06 stale in one
-propagation act**. Updating Entry 06 alone would leave the newly affected ontology unqueued.
+1. Mark the earlier sample **superseded for current use** by the updated template in B-094's
+   evidence table, keeping it as dated history rather than a second live package.
+2. Reconcile the updated sample's internal hiring-versus-invitation split before it is cited in
+   `A4`. One document may not state both.
+3. `A4` records that a research lead carries its **denominator, magnitude unit and outcome
+   measure**, so a later restatement that changes any of them is a new lead and not the same one.
 
-### `S11` — a baseline-to-current update is not fillable at first intake
+**Anchor status.** `37B96151…FCD945` was recomputed against the supplied file and matched exactly.
+`18E9A66C…B2DBB7` is **asserted and unverified**: the file is not in the repository working tree
+and its exact bytes were not available to the reviewer. Recorded as a distinction, not assumed away.
 
-The selected heading `TREND-SIGNAL UPDATE (Baseline [Month Year] → Current [Month Year])` and the
-fields *What held*, *What accelerated or mutated* and *What weakened or was overstated* assume a
-prior assessment. A new artifact entering T1 may have no project baseline, so the current template
-cannot provide its required description without inventing history.
+### `S10` — Encyclopedia propagation stops at Entry 06 and Entry 03 is now affected
 
-Use one conditional section rather than a second artifact:
+`ENCYCLOPEDIA-SYNC.md` Entry 03 is *"Newsworthiness vs. trend score vs. editorial priority"*,
+depending on `blueprint` §11.3, `media-industry-sop-fallback-implementation-plan` §6.1,
+`Modular_PRD` (`NG-10`, the `CR-06`/`FB-06` disposition, §2.5.1) and `D-148`, last verified at
+`f7b3aea`.
 
-| Assessment mode | Required common fields | Mode-specific fields |
-|---|---|---|
-| **First intake** | as-of date; current signal and why it matters now; manual newsworthiness assessment plus rationale; fresh research leads | baseline = `Not applicable — first intake`; no held/accelerated/weakened comparison |
-| **Reassessment** | as-of date; current signal; manual newsworthiness assessment plus rationale; fresh research leads | baseline date; what held; what accelerated or mutated; what weakened or was overstated |
+`S8` introduces a manual newsworthiness assessment into the intake template and requires it be kept
+separate from the computed `trend_score`. **That is Entry 03's subject matter exactly.** B-084 `A4`'s
+write set currently names only *"Encyclopedia Entry 06 stale note"*.
 
-S5's same-article acceptance example starts in **First intake** mode and later uses **Reassessment**
-mode. Beginning the example at reassessment proves only the second pass and leaves the normal path
-untested.
+`D4` already established that an unmarked stale entry is the defect and that Entry 05 carries the
+ledger's own convention for marking one. **Entry 03 joins Entry 06 in the `A4` write set**, or the
+`A4` packet repeats `D4` one entry over.
 
-### Revised parent-before-dependent sequence
+### `S11` — the section that resolves `S1` has no defined first-intake content
 
-1. **Resolve `S11` first.** Lane A drafts the conditional first-intake/reassessment form inside the
-   selected template.
-2. **Resolve `S9`.** Mark the earlier sample superseded for current use and normalize the updated
-   research leads without asserting that they are true.
-3. **Draft `D2a` and `S3`.** Use Source/Reference rather than URL-only wording.
-4. **Draft `D2b` with `S2`, `S4`, `S6`, `S7` and `S8`.** Produce one field matrix with section
-   namespaces, exactly one subject topic, gate attribution and separate newsworthiness semantics.
-5. **Draft `S5`.** One article demonstrates first intake, T2/T3 verification, normal review,
-   return, reassessment, revision, resubmission and LinkedIn `ManualReady` delivery.
-6. **Draft `D1`, `D3`, `D4` and `S10`.** Include both Encyclopedia Entries 03 and 06 in the same
-   propagation act.
-7. **Chief Editor accepts or rejects the exact A4 packet.** No source document changes before the
-   complete reviewable diff and acceptance evidence exist.
-8. **Apply, then obtain independent verification** from an actor who did not produce or apply the
-   correction.
-9. **Synchronize Graphify last** after the final tracked edit, restore curated coverage for B-094
-   and B-095, prove analyzed-head equality and run the full consistency suite.
+The `TREND-SIGNAL UPDATE` section is headed *"Baseline April 2026 → Current September 2026"* and its
+sub-fields are *What held*, *What accelerated or mutated* and *What weakened or was overstated*.
+Each is a **delta from a prior analysis**. The supplied sample fills them only because it is a
+second pass over an artifact already analysed once.
+
+**An article entering `T1` for the first time has no baseline**, so on the normal case the field
+that closes `S1` has no defined content. `S1` is therefore **addressed and not yet resolved**, and
+this note corrects `S1`'s heading above rather than replacing it.
+
+**Correction sought, for Chief Editor accept or reject. Either is sufficient; neither may be
+skipped:**
+
+- `A4` names the **single sub-field that carries the `T1` trend-signal description** on a first
+  intake, with the delta sub-fields marked first-intake-optional; **or**
+- `A4` defines a **first-intake form** of the section whose sub-fields do not presuppose a baseline.
+
+**`S5`'s acceptance example is the proof.** The one same-article journey it already requires must
+show this section filled **at first intake**, not only at re-assessment. An example that starts
+from an already-analysed artifact demonstrates the second pass and leaves the first unproven.
+
+### Revised sequence, replacing nothing above
+
+`S9`, `S10` and `S11` enter the same bounded B-084 `A4` review packet already described. Their
+ordering inside it:
+
+1. `S11` first. It governs whether the `T1` field is fillable, and `A4`'s field matrix depends on
+   the answer.
+2. `S9` before any `A4` clause cites either sample, so the packet cites one live package.
+3. `S10` alongside `D4`, as one Encyclopedia propagation act covering Entries 03 and 06.
+4. Graphify last, unchanged. `.graphify/branch.json` still records `lastAnalyzedHead: f63d6eb`
+   while the tracked branch is at `f30c07b`, and neither B-094 nor B-095 has a curated fragment.
 
 | Verdict | Item | Follow-up |
 |---|---|---|
-| Approve-with-conditions | `S11` conditional trend-signal section | Phase 1 — first item in A4; prove both modes with one article |
-| Approve-with-conditions | `S9` evidence reconciliation | Phase 1 — supersede the earlier template for current use and normalize each research lead |
-| Approve-with-conditions | `S10` Encyclopedia propagation | Phase 1 — Entries 03 and 06 in one act |
-| Reject | Treating S1 alone as proof that the trend section works at first intake | S11 must define the no-baseline path |
-| Reject | Citing either sample as verified fact, or carrying conflicting denominator/unit/outcome values into A4 | T2/T3 verification and one normalized research-lead identity required |
-| Defer | Graphify synchronization | After the final A4 application and status edit |
-
----
-
-## `A1` decision packet — define “source information” before Step 3
-
-`FN-GATES` §3.1 currently says the Chief Editor supplies `source_url`, one subject topic, **source
-information** and the trend-signal description. `D-121` already makes the first item a source
-reference that may be a URL or another reference. Step 1 defines the trend-signal description.
-`A1` decides only the minimum meaning and requiredness of the third item.
-
-### Boundaries common to every acceptable choice
-
-- **Source reference is separate.** It identifies the artifact or proposition: a manually entered
-  URL or another reviewable reference. The application does not scrape or generate it.
-- **Subject topic is separate.** Exactly one governed topic is required; `Core Subject` is prose
-  analysis and multiple analytical tags do not substitute for it.
-- **Source information is supplied analysis, not verification.** Its values are attributable to the
-  Chief Editor at T1. T2/T3 still validate the source and investigate claims and trend evidence.
-- **Nullable metadata stays non-blocking.** Author and publication date may be extracted or entered
-  later and remain flagged for the Investigator when unavailable.
-- **Supporting material is manual.** Article text, Markdown, a document or an exact statement may be
-  attached or pasted. For a non-URL reference it must be sufficient for the Investigator to locate
-  or inspect what was supplied; no automated collection is implied.
-
-### Chief Editor accept/reject choices
-
-| Choice | T1 meaning of `source information` | Operational effect | Recommendation |
-|---|---|---|---|
-| **A — structured original-artifact analysis with explicit unknowns** | The selected `ORIGINAL ARTIFACT ANALYSIS` section is present. `Core Subject` is non-empty; `Key Claims & Data` contains at least one attributed proposition. `Original Source Bias`, source `Target Audience`, and `Missing Angles` each contain an assessment or an explicit `Not assessed` / `Unknown` / `None identified yet` value | Makes the selected template testable without forcing the Chief Editor to invent a judgment. Preserves unknowns for T2/T3 and distinguishes source analysis from commission intent | **Accept — recommended** |
-| B — core analysis only | Require only `Core Subject` and at least one attributed `Key Claims & Data` item; bias, source audience and missing angles are optional | Faster intake, but the selected template no longer defines one consistent completeness rule and downstream editorial context may be absent | Accept only if intake speed outweighs the missing context |
-| C — reference or source body alone | Treat a URL, document or pasted text as sufficient source information | Recreates the bare-reference boundary B-094 rejected and leaves the selected source-analysis section outside the contract | **Reject** |
-
-### Exact sentence Lane A drafts if Choice A is accepted
-
-> **Supply:** the Chief Editor supplies through the UI (1) a **source reference** — a URL or another
-> reviewable reference; (2) **exactly one subject topic**; (3) **source information** as a structured
-> `ORIGINAL ARTIFACT ANALYSIS`, containing a non-empty Core Subject, at least one attributed Key
-> Claim or Data item, and an explicit value — including `Unknown`, `Not assessed` or `None identified
-> yet` where honest — for Original Source Bias, source Target Audience and Missing Angles; and (4)
-> the trend-signal description in the accepted `first_intake` or `reassessment` form. All are
-> Chief Editor-supplied assertions at T1. The application neither scrapes nor generates them, and
-> T2/T3 remain responsible for source and trend verification.
-
-The same act replaces `source_url` with `source reference` in all four Step 3 locations:
-`FN-GATES` §2, §3.1 Required on entry, §3.1 Supply, and storyboard Panel B2. One edit pass prevents
-the supply sentence from being rewritten twice.
-
-### Acceptance evidence for Choice A
-
-| Case | Expected result |
-|---|---|
-| URL or other reviewable reference, exactly one topic, complete structured source analysis, complete first-intake trend section | T1 may complete; supplier and Reporter executor remain separate audit facts |
-| Bias, source audience or missing angles genuinely unknown but explicitly recorded as unknown/not assessed | T1 may complete; no false judgment is invented; T2/T3 work remains visible |
-| Core Subject missing, no attributed proposition, no subject topic or no common trend field | Named validation failure; T1 does not complete |
-| Complete template whose claims have not been investigated | May enter `Logged`; must not display T2/T3 verification or factual assurance |
-| URL absent but a reviewable document, claim or statement is supplied | Accepted under `D-121`; no URL-only validation error |
-
-### Priority after the Judge act
-
-1. **Judge accepts A, B or C.** No Step 3 source clause is drafted before this decision.
-2. **Lane A performs Step 3 once** across the four named locations, using the accepted definition.
-3. **Lane A incorporates the accepted A1 fields into Step 4's complete A4 field matrix.**
-4. The existing S5 journey, D1/D3/D4/S10 propagation, independent verification and final Graphify
-   synchronization retain their recorded order.
-
-| Verdict | Item | Follow-up |
-|---|---|---|
-| Approve-with-conditions | `A1` Choice A | Phase 1 — Chief Editor accepts; Lane A drafts one four-location Step 3 edit |
-| Defer | `A1` Choice B | Chief Editor chooses only if reduced intake effort is worth missing structured context |
-| Reject | `A1` Choice C | Contradicts B-094's structured manual-intake direction |
-| Reject | External fact-checking inside A1 or treating explicit unknowns as verified facts | Preserve the T1 versus T2/T3 boundary |
-
----
-
-## Judge direction on `A1` and `M1`–`M3`; verified substrate consequence
-
-**Judge direction, 2026-09-14:** carry `A1` Choice A and answer `M1`–`M3` as recommended below.
-This records the decision for Lane A propagation; it does not itself amend the Register, governed
-specifications or schema.
-
-| ID | Accepted answer | Completion evidence |
-|---|---|---|
-| `A1` | Structured original-artifact analysis with explicit unknowns | The one Step 3 supply sentence uses the accepted definition and all four URL/reference locations agree |
-| `M1` | `new_article_brief` is **P — package-required, non-gating** | An absent brief marks the package incomplete but does not refuse T1 |
-| `M2` | `.deadline` is **P — package-required, non-gating** | A placeholder or absence marks package incompleteness, never a T1 validation failure |
-| `M3` | Attribution is recorded **per `.key_claims` item** | Every item has its own proposition and attribution target; aggregate free text cannot satisfy the rule |
-
-The accepted requiredness vocabulary is:
-
-| Class | Meaning |
-|---|---|
-| `G` | Missing or empty causes a named T1 validation failure; T1 does not complete |
-| `P` | Required for commission-package completeness but does not block T1 |
-| `O` | Optional; absence has no gate or package-completeness effect |
-
-### `S12` — the storage gap is confirmed against the applied schema migration
-
-Lane B read both frozen `0001_init.sql` and additive `0002_s1_editorial_schema.sql`. The gap is hard,
-not indicative:
-
-- `articles` has `url text not null`, `summary`, `topic_id`, `editorial_angle` and related workflow
-  fields, but no structured original-artifact analysis or new-article brief.
-- `sources` gains only `reliability_tier` and `ingestion_method` in `0002`; it has no per-article
-  bias, audience, missing-angle or claim record.
-- `trend_signals` has generic `signal_type`, `signal_value`, `source`, `confidence`, plus
-  `evidence_url` and `reviewer_confidence`. It has no assessment mode, baseline/as-of fields,
-  newsworthiness rationale or distinct supplier provenance for the selected object.
-- `0002` does not relax `articles.url text not null`, although `D-121` permits another reviewable
-  reference.
-
-Reusing `articles.summary`, `articles.editorial_angle` or a generic `trend_signals.signal_value`
-would make the new contract physically storable only by discarding its meaning. A4 therefore names
-a **Lane B data-requirement follow-on** that must represent the five namespaces, G/P/O semantics,
-supplier and executor as separate facts, reassessment history, and URL-or-other-reference input.
-That consequence authorizes no migration, schema design or build.
-
-### `S13` — Step 1 and Step 4 disagree on two trend-section classes
-
-Lane A's Step 1 draft labels all common trend fields required, including `research_leads`, then its
-validation table says empty research leads are permitted. Step 4 correctly classifies
-`.research_leads` as `O`. The same matrix makes `.newsworthiness_assessment` `G`, although FR-01
-requires a trend-signal description and does not state that a numeric newsworthiness rating blocks
-T1.
-
-Apply one consistent rule before Step 5:
-
-| Field | Class | Reason |
-|---|---|---|
-| `.current_signal_and_why_it_matters_now` | `G` | This is the governed trend-signal description |
-| `.assessment_mode`, `.as_of_date` | `G` | Required to interpret and audit the accepted conditional description |
-| reassessment-only delta fields | `G` in reassessment; absent in first intake | Define the accepted second-pass form without invented history |
-| `.research_leads` | `O` | A lead may not yet exist and is not the T1 description |
-| `.newsworthiness_assessment` | `P` | Valuable package context, but no current requirement makes its rating a T1 gate |
-
-Making `.newsworthiness_assessment` `G` requires a separate Register act that explicitly changes
-the gate; it cannot enter through the field matrix. This correction preserves the selected template
-while preventing an unapproved gate condition.
-
-### Naming rule and Step 5 readiness
-
-`new_article_brief.unique_angle` remains namespaced commission intent supplied at T1.
-`articles.editorial_angle` remains the Investigator's T3 result. A T1-supplied field and a
-T3-derived field never share a storage name or verification status.
-
-Lane A may draft Step 5 after it incorporates `M1`–`M3` and the decision-free `S13` correction. The
-same-article journey must prove separately that:
-
-1. a P-class missing brief/deadline does not block T1 but leaves the package incomplete;
-2. every G field is present and the Reporter executes T1;
-3. T2/T3 verification changes evidence status without rewriting the Chief Editor's intake record;
-4. the returned article enters reassessment, preserves the first assessment, and reaches LinkedIn
-   `ManualReady` only after the governed review path; and
-5. no field is claimed implemented until the later Lane B data requirement is authorized and
-   verified against real persistence.
-
-| Verdict | Item | Follow-up |
-|---|---|---|
-| Approve | `A1` Choice A and `M1`–`M3` as recorded | Phase 1 — Lane A incorporates them into Steps 3–5 |
-| Approve-with-conditions | Step 4 field matrix | Phase 1 — correct `S13` and carry the verified `S12` data requirement |
-| Approve-with-conditions | Step 5 same-article journey | Phase 1 — prove G/P/O behavior and T1 versus T2/T3 provenance separately |
-| Reject | Reusing generic summary, angle, confidence or signal text as proof the structured contract is supported | A named, reviewable data requirement must precede later schema authorization |
-| Reject | Making newsworthiness rating T1-gating through A4 | Requires a separate Register act |
-| Defer | Schema design, migration and code | Lane B implementation phase after explicit authorization |
-
----
-
-## Judge direction — separate state management, editorial metadata and explainable reports
-
-**Judge direction, 2026-09-14:** state-machine facts are individual fields and append-only events;
-descriptive editorial and explainable-content metadata is stored as a versioned JSON object
-(`jsonb` in the current PostgreSQL stack, or the equivalent structured type in another approved
-database). Lane B records this as the raiser. Lane A answers it through the governed specification
-set. This direction authorizes documentation alignment only; it does not authorize a schema,
-migration, application or publication action.
-
-### `S14` — parent decision: one authoritative location per kind of fact
-
-The prior artifacts already contain three different concepts. They must remain different:
-
-| Kind of fact | Authoritative shape | Existing evidence | Rule for the A4 write set |
-|---|---|---|---|
-| **Current workflow state** | One typed scalar field on the article | `articles.workflow_state`; transition trigger and `SPECS-TRANSITION-ENFORCEMENT` | A state command may change this field only through the governed transition transaction |
-| **State history and publication recovery** | Append-only typed events with individual actor, gate, line, reason, target, status and time fields | `workflow_transitions`, `publication_targets`, `publications` | Do not place an authoritative workflow or publication state inside JSON metadata |
-| **Working editorial metadata** | A separately identified, versioned and append-only package whose payload is structured JSONB | **Absent from `0001` and `0002`**; this is the data requirement identified by `S12` | Preserve intake and reassessment as separate versions; never overwrite the earlier package |
-| **Frozen explainable report** | Insert-only report record with a schema/template version, transition anchor and JSONB snapshot | `editorial_reports` already has `template_version`, `judgment_rule_version`, `schema_version`, `snapshot jsonb`, `supersedes_report_id` and append-only enforcement | Treat the snapshot as evidence/output, not as the editable working metadata store |
-
-This boundary follows the Chief Editor's reason for individual state fields: a state transition must
-not require a generic metadata rewrite and must not risk changing unrelated editorial content. The
-reverse is equally binding: editing descriptive metadata must not change lifecycle state.
-
-PostgreSQL JSONB is the v1 physical direction because Supabase/PostgreSQL is the provisioned stack.
-The reference to equivalent JSON/document fields in other databases is portability guidance only;
-it does not reopen the v1 stack.
-
-### Parent accept/reject decision
-
-| Choice | Design | Consequence | Judge disposition |
-|---|---|---|---|
-| **A — separated state, versioned metadata, frozen report** | Typed current state plus append-only transition/publication facts; a separate versioned JSONB editorial package; an immutable, allowlisted report projection | Preserves transactional enforcement, intake history and reproducible public explanation | **Accept — Judge direction** |
-| B — one mutable JSONB object on `articles` | Store workflow, editorial fields and report material together | A generic update can change unrelated facts; reassessment overwrites intake; database transition constraints become ambiguous | **Reject** |
-| C — use `editorial_reports.snapshot` as the working record | Edit by creating successive reports throughout drafting | Conflates an editable commission with frozen evidence and gives ordinary metadata edits report semantics | **Reject** |
-| D — duplicate authoritative state in scalar columns and JSONB | Keep a scalar for enforcement and a JSON copy for display | Creates two answers to the same question and an unavoidable drift condition | **Reject** |
-
-Children `S15` and `S16` depend on Choice A. Lane A does not draft either child around a different
-parent model.
-
-### `S15` — child data contract for versioned editorial metadata
-
-Lane A specifies a logical editorial-package record before asking Lane B for a physical schema.
-Names remain specification choices, but the contract must contain these facts:
-
-| Record part | Minimum contract |
-|---|---|
-| Identity and ownership | package id, article id, package version, schema/template version |
-| Provenance | supplied-by identity, supplied-at/as-of time, and a distinct executor/transition reference where applicable |
-| History | predecessor/supersedes reference, creation time and integrity checksum or equivalent tamper evidence |
-| Structured payload | the namespaced `original_artifact_analysis`, `trend_signal_update` and `new_article_brief` objects accepted in A4 |
-| Validation | G/P/O classification applied against the named schema version; explicit unknown values preserved; per-claim attribution validated per item |
-| Separation | no authoritative workflow state, publication status, transition actor or transition reason inside the payload |
-
-The first-intake package and later reassessment package are two retrievable versions. Verification
-at T2/T3 may add attributed evidence or produce a later version, but it does not rewrite what the
-Chief Editor supplied at T1. High-value values needed for constraints, joins, access control or
-routine indexing may remain typed columns even when related to the package; JSONB is not authority
-to hide operational keys from the database.
-
-### `S16` — child explainability and report boundary
-
-The public explainable output is an allowlisted projection, never a raw dump of the working JSONB
-payload. Lane A defines which schema fields are `internal` and which may appear in
-`public_explainable` output, and the report template reads only the latter plus accepted evidence.
-Each frozen report must identify:
-
-- the exact editorial-package version and integrity value from which it was produced;
-- its existing `as_at_transition_id`, template, judgment-rule and schema versions;
-- the source/evidence attribution needed to distinguish supplied assertions from T2/T3-verified
-  findings; and
-- the applicable manual-ready delivery target without treating delivery state as report metadata.
-
-A later metadata version or state transition must not mutate an earlier report. Correction produces
-a new report linked by `supersedes_report_id`, preserving the earlier record.
-
-### Cross-artifact write-set review for Lane A
-
-Apply the parent meaning first, then propagate its children without duplicating authority:
-
-| Order | Artifact owner | Required alignment | Completion evidence |
-|---:|---|---|---|
-| 1 | `Modular_PRD.md` | Define the product-level distinction among state, editorial package and frozen report; place the package in the applicable feature group and preserve T1 versus T2/T3 attribution | Requirements and acceptance criteria name one authority for each fact and carry `[V1]` marking correctly |
-| 2 | Functional specs | Define package behaviour, G/P/O validation, version creation, reassessment and report generation; keep UI and physical schema out | Normal and revision paths state what is inserted, what is unchanged and what blocks a gate |
-| 3 | `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` story panels | Show the Chief Editor entering a manual URL/Markdown or other reviewable reference, completing first intake, receiving a return, creating reassessment and reaching LinkedIn `ManualReady` | One article demonstrates both paths with no scrape, hidden state change or overwritten intake |
-| 4 | The storyboard's Mermaid sequence/UML views | Keep state-machine nodes and transition events typed; model the editorial package and report as associated, versioned records rather than states | Cardinality and immutability distinguish article 1→many packages, transitions and reports |
-| 5 | The storyboard's Mermaid data-flow views | Separate `update editorial package`, `execute transition`, `generate report` and `record publication event` into distinct commands/transactions | Every arrow names its store, authority, provenance and failure outcome |
-| 6 | Encyclopedia | Update Entry 06 for manual intake and Entry 03 for newsworthiness; add or update the state-versus-metadata term where its canonical entry belongs | No entry equates descriptive metadata with gate authority or public visibility |
-| 7 | Cross-reference and traceability map | Link the accepted requirement, behaviour, data candidate and tests without copying status or decision text | Each link resolves in both directions; no orphan requirement or duplicated state authority |
-| 8 | `docs/v1/` tracking trio | Register the Judge act; add scope/sequence/DoD and affected artifact facts in the same pass under `D-54` | Register, build spec and inventory agree; `Modular_PRD` §8 changes only if the applicable tier closes or opens |
-
-### `S17` — UML, data flow and story panels currently share one artifact
-
-The repository inventory exposes no standalone UML, data-flow or story-panel document. The current
-owner is the single storyboard above: Panels A2/A5 are Mermaid sequence diagrams; Panels B7 and §3
-are Mermaid flowcharts. Lane A therefore updates or annotates those views in the same bounded
-storyboard write set unless the Register deliberately creates a separate artifact and propagates
-that fact under `D-54`.
-
-Two current storyboard claims also require correction in this same owner:
-
-- Panel B7 says no report entity exists and §4 repeats that absence. `0002` now creates
-  `editorial_reports` with a versioned JSONB snapshot and append-only enforcement; both claims are
-  historical, not current build input.
-- Panel A2's sequence still depicts state-bearing article creation before its transition evidence
-  while its own supersession note says the transition must precede the state change. The revised
-  view must show a single transaction and must keep editorial-package creation distinct from the
-  transition command.
-
-Creating three new documents for three requested view names would duplicate one current owner and
-increase drift. Lane A may recommend that split only with a specific reuse or verification benefit,
-an inventory decision and cross-reference changes.
-
-### Lane A follow-up — parent before children
-
-1. **Record the parent Judge act (`S14`).** State the three authorities and the rejected
-   alternatives in the Register; identify the affected tier before editing a derived artifact.
-2. **Produce the exact governed write set.** Diff the current `Modular_PRD`, functional specs, the
-   storyboard's panels and Mermaid UML/data-flow views, Encyclopedia and cross-reference owners.
-   Apply `S17`; do not create duplicate view files without a Register and inventory decision.
-3. **Specify the working package (`S15`).** Carry A1, M1–M3 and S13 into one versioned logical
-   contract. Mark physical table/index/RLS choices as later `SPECS` candidates for Lane B.
-4. **Specify the report boundary (`S16`).** Define the public allowlist, exact package-version
-   anchor and correction/supersession behaviour. Preserve the existing report transition anchor.
-5. **Walk one article with the Chief Editor.** Use the supplied LinkedIn example: manual URL and
-   Markdown intake; first-intake package; T2/T3 evidence; return for the observability-versus-
-   observation conflation; reassessment; revision; resubmission; LinkedIn `ManualReady` output.
-6. **Run construction-readiness checks.** Trace every required write to a logical owner and every
-   acceptance example to a future executable test. Flag any unanswered access, ownership,
-   visibility or retention choice rather than embedding a default.
-7. **Present one reviewable packet to the Judge.** The Judge accepts or rejects the exact write set
-   and acceptance examples. The present direction does not authorize applying that packet.
-8. **After authorization, apply in dependency order and obtain independent verification.** Apply
-   the tracking trio in the same pass required by `D-54`; record explicitly which tiers are
-   unaffected.
-9. **Synchronize Graphify last.** Rebuild after the final tracked edit, restore curated B-094/B-095
-   coverage, prove analyzed-head equality and run the complete local consistency suite.
-
-### Construction and verification evidence required before Lane B implementation
-
-| Evidence | Pass condition |
-|---|---|
-| Metadata-only update | A new package version is created; `articles.workflow_state`, transition count and publication status are unchanged |
-| State transition | One legal transition event and the typed current-state update commit atomically; package version and checksum are unchanged |
-| Concurrent/stale transition | The existing row-lock and transition guards refuse a second transition from the stale state |
-| First intake then reassessment | Both package versions remain retrievable and attributable; the reassessment delta does not invent a baseline for first intake |
-| G/P/O validation | Missing G refuses T1; missing P marks package incomplete without refusing T1; absent O has no gate or completeness effect |
-| Non-URL source | A manually supplied Markdown/document/other reviewable reference persists without scraping and without a URL-only error |
-| Frozen report | It resolves to the exact package version and transition anchor; later package/state changes leave its snapshot unchanged |
-| Public projection | Only allowlisted explainable fields appear; internal notes, operational state and credentials are absent |
-| Report correction | A new immutable report supersedes the prior record; no update or delete of the prior snapshot succeeds |
-| Recovery | A failed manual-ready/publication action records an append-only outcome and can be retried without changing editorial metadata or fabricating delivery success |
-
-Effort and capacity remain unconfirmed. Lane A should estimate the exact write set after resolving
-the current artifact owners; Lane B estimates schema and application work only after the accepted
-spec names the logical record, transaction boundaries, access rules and tests. This keeps a
-documentation estimate from being mistaken for implementation or release readiness.
-
-| Verdict | Item | Follow-up |
-|---|---|---|
-| Approve | `S14` state/metadata/report separation | Phase 1 — Lane A records the parent Judge act before dependent drafting |
-| Approve-with-conditions | `S15` versioned editorial-package contract | Phase 1 — exact field matrix, provenance, G/P/O validation and history semantics required |
-| Approve-with-conditions | `S16` public explainable report projection | Phase 1 — allowlist plus package-version and transition anchors required |
-| Approve-with-conditions | `S17` shared storyboard/UML/data-flow owner | Phase 1 — correct both stale report-absence claims and the A2 transaction view in the existing artifact |
-| Approve-with-conditions | Same-article Chief Editor walkthrough | Phase 1 — prove normal and observability-versus-observation revision paths through LinkedIn `ManualReady` |
-| Reject | Authoritative state inside JSONB, duplicated state, mutable intake history or raw JSON exposure | Phase 1 — these violate the accepted parent boundary |
-| Defer | Physical schema, migration, application code and external publication action | Lane B implementation phase after exact specification and build authorization |
+| Approve | `S9` correction: supersede the earlier sample, reconcile the newer one's internal split | Phase 1 — before `A4` cites either |
+| Approve | `S10`: Entry 03 joins Entry 06 in the `A4` write set | Phase 1 — one propagation act with `D4` |
+| Approve-with-conditions | `S11`: `S1` reclassified from resolved to addressed | Phase 1 — `A4` names the first-intake form or the carrying sub-field |
+| Reject | Citing either sample in `A4` while both rows are live and unmarked | Two live versions of one package is the `G55` restatement shape |
+| Reject | An `S5` example that demonstrates only the re-assessment pass | First intake is the normal case and is the one unproven |
