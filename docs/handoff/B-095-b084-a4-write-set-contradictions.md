@@ -260,3 +260,74 @@ untested.
 | Reject | Treating S1 alone as proof that the trend section works at first intake | S11 must define the no-baseline path |
 | Reject | Citing either sample as verified fact, or carrying conflicting denominator/unit/outcome values into A4 | T2/T3 verification and one normalized research-lead identity required |
 | Defer | Graphify synchronization | After the final A4 application and status edit |
+
+---
+
+## `A1` decision packet — define “source information” before Step 3
+
+`FN-GATES` §3.1 currently says the Chief Editor supplies `source_url`, one subject topic, **source
+information** and the trend-signal description. `D-121` already makes the first item a source
+reference that may be a URL or another reference. Step 1 defines the trend-signal description.
+`A1` decides only the minimum meaning and requiredness of the third item.
+
+### Boundaries common to every acceptable choice
+
+- **Source reference is separate.** It identifies the artifact or proposition: a manually entered
+  URL or another reviewable reference. The application does not scrape or generate it.
+- **Subject topic is separate.** Exactly one governed topic is required; `Core Subject` is prose
+  analysis and multiple analytical tags do not substitute for it.
+- **Source information is supplied analysis, not verification.** Its values are attributable to the
+  Chief Editor at T1. T2/T3 still validate the source and investigate claims and trend evidence.
+- **Nullable metadata stays non-blocking.** Author and publication date may be extracted or entered
+  later and remain flagged for the Investigator when unavailable.
+- **Supporting material is manual.** Article text, Markdown, a document or an exact statement may be
+  attached or pasted. For a non-URL reference it must be sufficient for the Investigator to locate
+  or inspect what was supplied; no automated collection is implied.
+
+### Chief Editor accept/reject choices
+
+| Choice | T1 meaning of `source information` | Operational effect | Recommendation |
+|---|---|---|---|
+| **A — structured original-artifact analysis with explicit unknowns** | The selected `ORIGINAL ARTIFACT ANALYSIS` section is present. `Core Subject` is non-empty; `Key Claims & Data` contains at least one attributed proposition. `Original Source Bias`, source `Target Audience`, and `Missing Angles` each contain an assessment or an explicit `Not assessed` / `Unknown` / `None identified yet` value | Makes the selected template testable without forcing the Chief Editor to invent a judgment. Preserves unknowns for T2/T3 and distinguishes source analysis from commission intent | **Accept — recommended** |
+| B — core analysis only | Require only `Core Subject` and at least one attributed `Key Claims & Data` item; bias, source audience and missing angles are optional | Faster intake, but the selected template no longer defines one consistent completeness rule and downstream editorial context may be absent | Accept only if intake speed outweighs the missing context |
+| C — reference or source body alone | Treat a URL, document or pasted text as sufficient source information | Recreates the bare-reference boundary B-094 rejected and leaves the selected source-analysis section outside the contract | **Reject** |
+
+### Exact sentence Lane A drafts if Choice A is accepted
+
+> **Supply:** the Chief Editor supplies through the UI (1) a **source reference** — a URL or another
+> reviewable reference; (2) **exactly one subject topic**; (3) **source information** as a structured
+> `ORIGINAL ARTIFACT ANALYSIS`, containing a non-empty Core Subject, at least one attributed Key
+> Claim or Data item, and an explicit value — including `Unknown`, `Not assessed` or `None identified
+> yet` where honest — for Original Source Bias, source Target Audience and Missing Angles; and (4)
+> the trend-signal description in the accepted `first_intake` or `reassessment` form. All are
+> Chief Editor-supplied assertions at T1. The application neither scrapes nor generates them, and
+> T2/T3 remain responsible for source and trend verification.
+
+The same act replaces `source_url` with `source reference` in all four Step 3 locations:
+`FN-GATES` §2, §3.1 Required on entry, §3.1 Supply, and storyboard Panel B2. One edit pass prevents
+the supply sentence from being rewritten twice.
+
+### Acceptance evidence for Choice A
+
+| Case | Expected result |
+|---|---|
+| URL or other reviewable reference, exactly one topic, complete structured source analysis, complete first-intake trend section | T1 may complete; supplier and Reporter executor remain separate audit facts |
+| Bias, source audience or missing angles genuinely unknown but explicitly recorded as unknown/not assessed | T1 may complete; no false judgment is invented; T2/T3 work remains visible |
+| Core Subject missing, no attributed proposition, no subject topic or no common trend field | Named validation failure; T1 does not complete |
+| Complete template whose claims have not been investigated | May enter `Logged`; must not display T2/T3 verification or factual assurance |
+| URL absent but a reviewable document, claim or statement is supplied | Accepted under `D-121`; no URL-only validation error |
+
+### Priority after the Judge act
+
+1. **Judge accepts A, B or C.** No Step 3 source clause is drafted before this decision.
+2. **Lane A performs Step 3 once** across the four named locations, using the accepted definition.
+3. **Lane A incorporates the accepted A1 fields into Step 4's complete A4 field matrix.**
+4. The existing S5 journey, D1/D3/D4/S10 propagation, independent verification and final Graphify
+   synchronization retain their recorded order.
+
+| Verdict | Item | Follow-up |
+|---|---|---|
+| Approve-with-conditions | `A1` Choice A | Phase 1 — Chief Editor accepts; Lane A drafts one four-location Step 3 edit |
+| Defer | `A1` Choice B | Chief Editor chooses only if reduced intake effort is worth missing structured context |
+| Reject | `A1` Choice C | Contradicts B-094's structured manual-intake direction |
+| Reject | External fact-checking inside A1 or treating explicit unknowns as verified facts | Preserve the T1 versus T2/T3 boundary |
