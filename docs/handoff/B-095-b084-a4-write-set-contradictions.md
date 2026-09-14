@@ -10,7 +10,7 @@
   Receipt and analysis only; no governed correction is applied by this acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** 76007803987814b6cd1cabc8dab10cddcb905e59
-- **Evidence:** Read at `7600780` of `docs/Modular_PRD.md` §7.1; `docs/fn-specs/FN-GATES-01-05.md` §2 requirement table and §3.1; `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` Panel A2, Panel B2 and §4; `docs/governance/requirements-traceability-map.md` §4, §7; `docs/ENCYCLOPEDIA-SYNC.md` per-entry citation map. Graph currency read from `.graphify/branch.json`.
+- **Evidence:** Read at `7600780` of `docs/Modular_PRD.md` §7.1; `docs/fn-specs/FN-GATES-01-05.md` §2 requirement table and §3.1; `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` Panel A2, Panel B2 and §4; `docs/governance/requirements-traceability-map.md` §4, §7; `docs/ENCYCLOPEDIA-SYNC.md` per-entry citation map. Updated Chief Editor template and completed sample supplied 2026-09-14, SHA-256 `18E9A66C4388061F9A10DB266FBC63B1A8299347F17A4C0C3119F5FE05B2DBB7`. Graph currency read from `.graphify/branch.json`.
 
 ## What happened
 
@@ -81,7 +81,7 @@ second eligible actor re-read the governed sections. `Verified-By` therefore rem
 `D1`–`D4` may reach `Applied` at most until an actor who did not produce or apply the correction
 reviews the resulting commit. The phrase *"independently confirms"* is rejected for this evidence.
 
-### `S1` — the sample omits the T1-required trend-signal description
+### `S1` — original omission resolved by the updated trend-signal section
 
 `Modular_PRD` §7.1 `FR-01`, `FN-GATES` §3.1 and Addendum §3.1 all require a Chief Editor-supplied
 trend-signal description. `FN-GATES` §6 says an absent or empty value prevents T1 completion.
@@ -89,27 +89,53 @@ trend-signal description. `FN-GATES` §6 says an absent or empty value prevents 
 `Core Subject` describes what the source is about; `Unique Angle` states the commissioned thesis.
 Neither should be silently reclassified as evidence of why the subject is currently moving.
 
-| Judge choice | Result | Recommendation |
-|---|---|---|
-| **Accept — add an explicit `Trend-signal description` field to the demonstrated intake structure** | Preserves the decided T1 contract and makes the supplied package gate-complete when filled | **Recommended** |
-| Reject — infer the value from `Core Subject`, `Unique Angle` or another prose field | Conflates subject, commission intent and trend evidence; produces no stable validation rule | Reject |
-| Reject — relax the T1 requirement from this sample | Reopens a decided contract through an example rather than a Register act | Reject |
+**Chief Editor act, 2026-09-14 — resolved.** The updated template is selected for use and adds a
+dedicated `TREND-SIGNAL UPDATE` section with baseline/current periods, what held, what changed, what
+weakened, a current newsworthiness assessment with rationale, and fresh source leads. This section
+is the manually supplied trend-signal description object for T1. `Core Subject` and `Unique Angle`
+remain separate and are not substitutes.
 
-Until the Chief Editor accepts the first choice or names another explicit mapping, the sample is a
-**partial demonstrated package** and cannot be the source of the final `A4` field matrix.
+The updated sample fills that section, so the original S1 omission is closed for the sample. Its
+claims are still Chief Editor-supplied intake assertions until the Investigator checks source and
+trend evidence at T2/T3; filling the section does not pre-complete those gates.
 
-### `S2`–`S5` — remaining sample ambiguities
+### `S2`–`S5` — disposition after the updated template
 
 | ID | Finding | Proposed correction for Chief Editor accept/reject | Failure if left unresolved |
 |---|---|---|---|
-| `S2` | `Target Audience` labels both an assessment of the source article and the commissioned article's intended audience | **Accept:** rename them `Source audience assessment` and `Commission target audience` | One label stores two epistemic classes and cannot be tested consistently |
-| `S3` | `Original Source/URL` names LinkedIn Pulse and Forbes but contains no URL and does not distinguish host, publisher or reference | **Accept:** use `Source reference` for the manually supplied locator and separate optional publication/attribution text; do not require a URL when another reference is valid | A non-URL reference fails a field called URL, or two publications are silently treated as one identity |
-| `S4` | `Deadline` is an unfilled template placeholder | **Accept:** classify the sample as partial and keep deadline optional commission metadata unless the Chief Editor explicitly requires it | A placeholder is accepted as real data or is mistaken for proof of requiredness |
+| `S2` | `Target Audience` appears in both the source analysis and new brief | **Resolved by structure:** preserve the section namespaces as distinct fields, such as `original_artifact_analysis.target_audience` and `new_article_brief.target_audience`; a flat shared key is rejected | Flattening the template merges source-audience observation with commission intent |
+| `S3` | `Original Source/URL` names LinkedIn Pulse and Forbes but contains no URL and does not distinguish host, publisher or reference | **Correction remains:** label the field `Original Source/Reference`; store the supplied locator separately from optional publication/host attribution; allow a non-URL reference under `D-121` | A non-URL reference fails a field called URL, or two publications are silently treated as one identity |
+| `S4` | The updated sample still carries an unfilled deadline placeholder | **Non-gate residual:** retain `Deadline` in the selected template, but mark this sample operationally incomplete until a date is supplied; deadline does not substitute for or block the decided T1 fields unless A4 explicitly makes it gate-required | A placeholder is accepted as a real deadline or silently becomes a T1 constraint |
 | `S5` | Intake structure and revision evidence concern different articles | **Accept:** use them as two bounded evidence sources, then draft one same-article normal-and-revision acceptance example before A4 approval | Neither sample demonstrates the required end-to-end journey for one article |
 
 The claims and statistics inside the sample remain unverified research inputs. This handoff checks
 the package structure only; it does not validate article attribution, quoted figures or the
 “transaction collapse” thesis.
+
+### `S6` — the selected template still lacks the exactly-one subject-topic field
+
+`Core Subject` is a one-sentence analysis. The governed T1 contract requires exactly one subject
+topic, distinct from the many analytical tags (`G39`/`D-38`). Add a separate template field:
+
+> **Subject Topic:** [Select exactly one governed topic]
+
+This is a direct consequence of the existing contract, not a new product choice. Without it, Lane
+A cannot derive a T1 validation rule or map the template to `articles.topic_id` without guessing.
+
+### `S7` — the template must not collapse T1 supply into T2/T3 verification
+
+The Chief Editor supplies the `TREND-SIGNAL UPDATE` at intake. Its facts, projections, links and
+score are assertions and research leads at that point. T2 still confirms source identity and
+characteristics; T3 still checks trend evidence, records reviewer confidence and identifies the
+editorial angle. Acceptance evidence must show that an intake value is attributable to the Chief
+Editor and cannot be displayed as Investigator-verified merely because the template is complete.
+
+### `S8` — manual newsworthiness assessment is not the computed trend score
+
+The template's `Current newsworthiness score (1–10) + ... justification` is a manual editorial
+assessment. It is not the separate computed `trend_score`, does not establish factual truth, and
+cannot advance a gate. Preserve the numeric value, rationale, supplier and assessment date under
+the newsworthiness profile; keep any later automated score and its ruleset/version separate.
 
 ## What you need
 
@@ -117,12 +143,13 @@ Use this parent-before-dependent order:
 
 1. **Correct the evidence status.** Treat B-095 as the finding record and retain an empty
    `Verified-By` until an eligible second actor reviews the applied correction.
-2. **Chief Editor decides `S1`.** Accept the explicit trend-signal field (recommended), or name a
-   different explicit field and meaning. Do not infer it from subject or angle.
+2. **Preserve the resolved `S1` template.** Use the dedicated `TREND-SIGNAL UPDATE` as the manual
+   T1 description object; do not infer it from subject or angle.
 3. **Lane A drafts `D2a`.** Replace URL-only wording with the already decided URL-or-other-reference
-   package boundary in `FN-GATES` §2 and storyboard Panel B2.
-4. **Lane A drafts `D2b` with `S2`–`S4`.** Present one required/optional field matrix, with distinct
-   names for source evidence, source assessment, commission intent and commission metadata.
+   package boundary in `FN-GATES` §2 and storyboard Panel B2, including `S3`'s Source/Reference label.
+4. **Lane A drafts `D2b` with `S2`, `S4`, `S6`, `S7` and `S8`.** Present one required/optional field
+   matrix, preserve section namespaces, add exactly one subject topic, distinguish intake assertions
+   from verified evidence, and separate manual newsworthiness from computed trend score.
 5. **Lane A drafts the `S5` acceptance example.** One article traverses manual intake, normal review,
    return with both supplied revision reasons, resubmission and LinkedIn `ManualReady` delivery.
 6. **Lane A includes `D1`, `D3` and `D4` in the same bounded A4 review packet.** These corrections
@@ -146,7 +173,8 @@ governed document, build, synchronize Graphify, select a lane or change a lifecy
 |---|---|---|
 | Approve | B-095 as the finding record; `D1`, `D3`, `D4` supported | Phase 1 — include in B-084 A4, then obtain independent verification after application |
 | Approve | `D2a` URL/reference correction | Phase 1 — Lane A may draft now from the decided structural boundary |
-| Approve-with-conditions | `D2b` field matrix and `S2`–`S4` corrections | Phase 1 — after the Chief Editor resolves `S1` |
+| Approve | Updated template and `S1`; scoped resolution of `S2` | Phase 1 — preserve as A4 input |
+| Approve-with-conditions | `D2b`, `S3`, `S4`, `S6`, `S7`, `S8` | Phase 1 — Lane A drafts the exact field/gate semantics for Chief Editor acceptance |
 | Approve-with-conditions | `S5` paired evidence | Phase 1 — Lane A drafts one same-article normal/revision acceptance example |
-| Reject | Calling B-095 independent confirmation, calling the sample complete, or inferring the trend signal from subject/angle | Preserve evidence status and the T1 contract |
+| Reject | Calling B-095 independent confirmation; treating intake assertions as T3 verification; merging newsworthiness with trend score; omitting the exactly-one subject topic | Preserve evidence status, gate separation and the T1 contract |
 | Defer | Graphify synchronization and its curated fragments | After the final tracked correction, per B-094 step 8 |
