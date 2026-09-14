@@ -5,7 +5,16 @@
 - **Phase:** 1
 - **Blocks:** acceptance of B-087's Lane A answer as a complete correction plan; no application build
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-09-14** at read commit `a0229af`. Receipt only; `Status` stays
+  `Open` and no `Resolution` is claimed. **Both `Reject` verdicts are accepted.** `Modular_PRD.md`
+  §7.1 lines 761 and 788 were independently reconfirmed as an intra-document contradiction at the
+  governed Product tier, and the omission from B-087 §9.4 is Lane A's. **Corrected 2026-09-14 by
+  `B-090`, whose replacement text is applied here in full:** The historical-snapshot and post-act
+  receipt texts were applied in B-087. The third draft is corrected by B-090: Product §7.1 was
+  already in B-084's residual packet, so B-087 now records a cross-reference rather than adding or
+  duplicating B-084 scope. **Corrected 2026-09-14 by `B-091`:** `J1` through `J4` all required a
+  decision or an explicit deferral, not `J1` and `J4` alone. All four were recorded on 2026-09-14 in
+  B-087 §9.11. No governed source was edited, B-084 was not edited, and no build is authorised.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** 495e4f8b377622a44458fc02fdf06a4125a1a003
 - **Evidence:** Lane A's uncommitted B-087/B-088 receipt edits; `bun run check`; `Modular_PRD.md` §7.1 and §8; storyboard A2 and summary; requirements maps; Encyclopedia ledger; `D-158`, `D-202` and the live lane register; Graphify metadata and pending-description marker. Review and draft corrections only.
