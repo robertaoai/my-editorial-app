@@ -5,7 +5,16 @@
 - **Phase:** 1
 - **Blocks:** B-087 J4 disposition and its planning-spike closure; no governed-source edit or build
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-09-14** at read commit `f56729b`. Receipt and the Judge's answer;
+  `Status` stays `Open` and no `Resolution` is claimed. **J4 records Choice A**: this iteration stays
+  planning-only and `B-084`'s governed-source application is deferred to its own Phase 1 unit, owner
+  Lane A / Cowork, priority-change trigger a Judge act approving `B-084`'s exact write set. `B-084`
+  keeps its `Applied` resolution and residual packet; it was not edited. **Both `Reject` verdicts are
+  accepted**: `J1`-`J4` all required disposition, and the `495e4f8`-or-later criterion plus the
+  commit-distance tally are removed. `J1` Accept setup/scaffold evidence; `J2` and `J3` explicitly
+  deferred with owner and trigger. All four are recorded in B-087 §9.11 and, by explicit decision,
+  nowhere else: none creates, sequences or retires an artifact, so `D-54` does not fire. Follow-up
+  items 1, 2, 4 and 5 are applied; item 3 does not arise under Choice A; items 6 and 7 remain open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** 5bc28fdfc15a4855fecddc8281974e140b920445
 - **Evidence:** User guardrail “don't build yet; only implementation plan”; B-087 J1–J4 and §§9.5/9.10; B-084 residual/evidence boundary; B-090 Judge path and Lane A response; current consistency and Git-distance checks. Decision packet only.
