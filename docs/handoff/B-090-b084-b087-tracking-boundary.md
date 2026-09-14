@@ -5,7 +5,14 @@
 - **Phase:** 1
 - **Blocks:** acceptance of B-087's closure sequence; no governed-source edit or application build
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-09-14** at read commit `5bc28fd`. Receipt only; `Status` stays
+  `Open` and no `Resolution` is claimed. **All three `Reject` verdicts are accepted**, the first
+  reconfirmed independently: `B-084` §247, §427, §559 and §781 already name Product §7.1 line 788,
+  and its write-set already lists `docs/Modular_PRD.md`, so the anchor was never new `B-084` scope.
+  The three replacement texts are applied in full: B-087 §9.9 introduction, B-087 §9.5 step 7 with
+  the row corrected to match, and this entry's sibling field in B-089. B-087 §9.10 records the
+  correction and adopts the routing-not-shared-lifecycle boundary. `B-084` was not edited. `J1`
+  and `J4` remain Judge choices; the `J4` boundary in `B-090`'s Judge path is unanswered.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** a0229af8f19daa1b63fca83faa277635acbefda5
 - **Evidence:** B-084 header, residual reviews and source/view write-set; B-087 §§3, 4, 9.4, 9.5 and 9.9; B-089 finding and Lane A acknowledgement; current consistency run. Planning correction only.
