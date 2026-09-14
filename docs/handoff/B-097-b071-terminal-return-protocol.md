@@ -5,9 +5,17 @@
 - **Phase:** 1
 - **Blocks:** treating B-071 Rounds 54–56 as an active implementation-readiness packet; changing B-071's terminal header; any consuming authorization that relies on those rounds
 - **Status:** Open
-- **Lane A:** — awaiting Lane A acknowledgement
+- **Lane A:** **Acknowledged 2026-09-15 at read commit `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.**
+  Choice B is accepted for the recorded return only: the Chief Editor/Judge's 2026-09-14
+  `Judge Approved: decision-tree decision` act separately authorized B-071 planning and handoff
+  correction; the `S2` hold and every governed-source/build/schema/publication/lane-transition
+  boundary remain fully in force. B-071's header and the exact Return record below are applied in
+  this same pass; see B-071's new `## Return record` section. The prior Lane A header draft on
+  B-071 (lacking trigger and act) stays withdrawn, superseded by this application. The whole entry
+  stays `Open`: its return-protocol prevention controls (the SOP/template/check additions this
+  entry itself drafted) are not yet applied. See *Child dispositions* below.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** 9e03bb349147971f622080b8fae57eb47c88d36b
+- **Verified-At-Commit:** e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6
 - **Evidence:** B-071 header and Rounds 54–56; Chief Editor/Judge's 2026-09-14 `Judge Approved: decision-tree decision` instruction and present direction to name the return condition and act; `docs/handoff/README.md` sections *Response is not closure* and *Worked scenarios*; `docs/handoff/TEMPLATE.md`; `handoff-response`, `closure-readiness` and `channel-docs`; storyboard Paths A/B; Route-1 crosswalk and B-071 `B071-R197`, `R204`–`R208`; Graphify query read with the stale-revision qualification below.
 
 ## What happened
@@ -236,3 +244,14 @@ withdrawn because it lacked this trigger and act; B-097 supplies the replacement
 | Reject | Choice A — S2 hold release | No Register/Judge act supports it |
 | Reject | Treating the decision-tree approval as implementation authority | The act opens planning and handoff correction only |
 | Defer | B-071 source propagation and implementation | Separate exact authorization after the returned entry is dispositioned |
+
+## Child dispositions — 2026-09-15, Lane A
+
+Per `D-204`, header fields describe the whole entry; child state lives here. The whole entry stays
+`Open` until the weakest child closes.
+
+| Child | Disposition | Evidence |
+|---|---|---|
+| Choice B return decision | **Answered** — Chief Editor/Judge named the act, 2026-09-14 | This entry's *Judge resolution* section |
+| B-071 return record | **Applied** — header changed to `Open`, terminal fields removed, exact block appended | B-071's `## Return record` section, applied 2026-09-15 |
+| SOP/Template/check return-protocol contract (proposed `Draft fix` above) | **Open** — not yet applied to `README.md`, `TEMPLATE.md`, or the checks | — |
