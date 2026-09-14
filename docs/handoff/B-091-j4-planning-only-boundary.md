@@ -4,7 +4,7 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** B-087 J4 disposition and its planning-spike closure; no governed-source edit or build
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-14** at read commit `f56729b`. Receipt and the Judge's answer;
   `Status` stays `Open` and no `Resolution` is claimed. **J4 records Choice A**: this iteration stays
   planning-only and `B-084`'s governed-source application is deferred to its own Phase 1 unit, owner
@@ -15,9 +15,14 @@
   deferred with owner and trigger. All four are recorded in B-087 §9.11 and, by explicit decision,
   nowhere else: none creates, sequences or retires an artifact, so `D-54` does not fire. Follow-up
   items 1, 2, 4 and 5 are applied; item 3 does not arise under Choice A; items 6 and 7 remain open.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** 5bc28fdfc15a4855fecddc8281974e140b920445
-- **Evidence:** User guardrail “don't build yet; only implementation plan”; B-087 J1–J4 and §§9.5/9.10; B-084 residual/evidence boundary; B-090 Judge path and Lane A response; current consistency and Git-distance checks. Decision packet only.
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex)
+- **Verified-At-Commit:** 5097a4d6924d1d470600ec998c71bbb9225a219f
+- **Evidence:** Independent comparison at `5097a4d`: B-087 §9.11 records J1 Accept, J2/J3 Deferred with owners and triggers, and J4 Choice A; §9.5 requires Graphify equality to final committed HEAD and removes the unsupported distance tally. The answer commits named by follow-up item 6 have since landed separately; final Graphify synchronization remains outstanding under item 7/B-092.
+
+## Independent verification — 2026-09-14
+
+J4 Choice A matches the Judge's planning-only direction and leaves B-084 unchanged on its own Phase 1 lifecycle. J1–J4 all have explicit dispositions. The acknowledgement's statement that commit/return steps remained open was true at its read revision; the separate answer commits later landed and this verification records that later evidence. Graph synchronization is not claimed here.
 
 ## What happened
 
