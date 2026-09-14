@@ -8245,3 +8245,209 @@ historical Mermaid views, not a completed target UI/UML contract.
 | Reject | Reusing actual `D-189` for Units 1/2, treating EG5 as both virtual and human, or offering a free-form role selector | Contradicts the recorded scope and actor model |
 | Reject | Calling UI progress a workflow state or a persona/role label an executor identity | Separate fields, events and refusal tests are required |
 | Defer | Source application, new UX artifact, implementation, B-071 promotion and Graphify sync | Exact Judge act, `D-54` propagation, independent evidence and final synchronization |
+
+## Round 56 — `ROUTE-PROD-1` is the first complete M-MVP route slice, not a shortened gate chain (2026-09-14)
+
+### Judge direction and scope
+
+**Judge clarification, 2026-09-14:** use `ROUTE-PROD-1` as the shortest, simplest M-MVP path through
+the editorial virtual nodes and phase/judgment gates. Read its Reporter/Desk Editor RACI from Sheet 1;
+a Senior Journalist action emits the `EW`-start trigger. Organize later minimum-feature progression
+through governed `ROUTE-*` slices.
+
+Lane B records the direction and tests it against the route/operation crosswalk, target gate model,
+M-MVP tracker, sprint sequence, storyboards and traceability. This is an implementation-readiness
+plan only. It does not resolve Sheet 2 ambiguities, introduce `MMF` as a governed lifecycle level,
+release `D-171`, authorize code or change B-071's lifecycle.
+
+### Parent decision — what “shortest complete path” means
+
+`ROUTE-PROD-1` is the correct first route slice because it is **Production Tier 1: Low-Impact Daily
+News Production** and has the smallest decided operation set. Its conditional deep-research and
+legal-risk operations may be explicitly untriggered. It still traverses every editorial gate.
+
+```text
+Senior Journalist emits EW-start                 trigger; no gate advance
+  → route classified ROUTE-PROD-1                Sheet 1: R Reporter, A Desk Editor
+  → T1 / EG1 Reporter                            manual intake and logging
+  → T2+T3 / EG2 Investigator                     validation and investigation
+  → T4 / EG3 Journalist                          drafting
+  → T5-REVIEW / EG4 Chief Editorial Desk         route-required virtual review
+  → deterministic review-bundle-ready join       no judgment; one readiness/state effect
+  → T5-FINAL / EG5 human Chief Editor control    Model A direction; propagation pending
+  → Delivery                                     LinkedIn ManualReady for the baseline slice
+```
+
+“Shortest” means fewer required/triggered **operations**, not fewer gates, skipped roles, reduced
+audit evidence or direct publication. A conditional operation is skipped only through an explicit
+not-triggered disposition. A gate still evaluates the evidence required for that route.
+
+### Decision tree — highest parent before dependent choices
+
+| Order | Decision | Accept effect | Reject/change condition | Recommendation |
+|---:|---|---|---|---|
+| 1 | `ROUTE-PROD-1` is the first M-MVP end-to-end route slice | Gives construction and verification one bounded normal/revision journey through every gate and LinkedIn `ManualReady` | A harder route has a demonstrated, time-sensitive learning need that the first slice cannot expose | **Accept — Judge direction** |
+| 2 | Sheet 1 route RACI remains separate from gate executors | Reporter is route `R`; Desk Editor is route `A`; each phase gate still uses its own governed role | Reject only by amending the RACI scope model, not by copying route R/A into every gate | **Accept** |
+| 3 | Senior Journalist `EW` start remains a trigger | It creates the route/work-order start record and cannot complete or replace T1–T4 | Reject only with a replacement trigger contract and equivalent audit/refusal evidence | **Accept** |
+| 4 | Resolve the three required ambiguous Sheet 2 operation shapes | Makes the route eligible for a later build authorization | Defer the route build while any required operation lacks executor/accountability/atomic completion | **Accept with the choices below** |
+| 5 | Use route slices as roadmap increments inside M-MVP | Later routes extend the same engine; no second pipeline or state machine | Reject if “MMF” is intended as a new freeze/status tier rather than a planning label | **Accept as advisory sequencing; define vocabulary before governance use** |
+
+### `B071-R204` — the shortest route is still blocked by three required operation contracts
+
+The route-operation join makes these `ROUTE-PROD-1` operations required:
+
+| Required operation | Current Sheet 2 evidence | Chief Editor accept/reject question | Recommended bounded treatment |
+|---|---|---|---|
+| `OP-PITCH` | Reporter and Journalist both marked `R`; Desk Editor `A`; row shape `UNVERIFIED` | Is this one atomic responsibility or a milestone with two named child acts? | For the minimum route, accept one atomic Reporter pitch/log act; retain Journalist participation only if a separate child/evidence act is named |
+| `OP-DRAFT` | Reporter and Journalist both marked `R`; no `A`; row shape `UNVERIFIED` | Who owns the atomic draft for Tier 1, and who is accountable? | Accept Journalist as the atomic draft executor; explicitly assign or decide the accountability field rather than inheriting route `A` silently |
+| `OP-COPY-EDIT` | Chief Editorial Desk `R`, Desk Editor `A`; `VERIFIED` | Preserve? | **Accept unchanged** |
+| `OP-FINAL-SIGNOFF` | No `R`; Desk Editor `A`; control-point candidate; `UNVERIFIED` | Is the blank `R` intentional because `A` personally executes this control, or is an executor missing? | Decide explicitly. If A-only control is intended, define its acting-principal event and completion evidence; otherwise name one `R`. Never fabricate one from title matching |
+
+The route cannot be called implementation-ready while a required operation retains an unresolved
+executor, accountability or atomic-completion contract (`D-177`'s build-readiness boundary). Lane A
+must present these three questions as one Route-1 readiness packet. The accepted answers then drive
+the gate evidence map and tests; they are not inferred by Lane B.
+
+### `B071-R205` — Sheet 1 R/A and phase-gate execution are different scopes
+
+Sheet 1 says `ROUTE-PROD-1` has Reporter `R` and Desk Editor `A`. That describes responsibility and
+accountability for the route as a business flow. It does not mean Reporter executes every gate or
+Desk Editor performs every approval.
+
+| Scope | Reporter | Desk Editor | Other gate roles |
+|---|---|---|---|
+| Route RACI, Sheet 1 | Route `R` | Route `A` | Informed unless separately assigned |
+| Gate chain | T1/EG1 executor | No automatic gate-executor assignment | Investigator T2/T3; Journalist T4; Chief Editorial Desk T5 review; human final control per Model A |
+| Sheet 2 operations | May be a candidate `R` where the source marks it | May be `A` on named operations | Must be resolved per operation; route R/A does not fill blanks automatically |
+
+`ROLE-DESK-EDITOR` remains distinct from `ROLE-CHIEF-EDITORIAL-DESK`. Confusing them would make the
+route-accountable party appear to execute T5 review and defeat the node/role separation established
+in Round 55.
+
+### `B071-R206` — “all virtual nodes” needs one precise boundary
+
+The first slice traverses every **required editorial node**, but not every node is virtual:
+
+- EG1 through the route-required review node are virtual-agent workcells for this design;
+- the bundle-ready join is a deterministic system node with no editorial judgment;
+- EG5/T5-FINAL is the human-control node under the Judge-selected Model A direction; and
+- Delivery contains system actions and Chief Editor manual actions such as LinkedIn handling/T11.
+
+Acceptance evidence must therefore say “all required editorial nodes and gates,” not “all virtual
+nodes” if that phrase would classify the human-control or system-join node as an agent.
+
+### `B071-R207` — the existing LinkedIn ethics sample is not the Route-1 baseline by default
+
+The supplied analytical article was previously classified provisionally as `ROUTE-PROD-2`, whose
+source label is Mid-Impact Enterprise & Feature Writing. `ROUTE-PROD-1` is Low-Impact Daily News.
+Selecting Route 1 as the M-MVP walking path does not silently reclassify that article.
+
+The Chief Editor supplies or accepts one Route-1 representative article with:
+
+- a low-impact daily-news route basis;
+- the manual source/reference package already accepted in B-094/B-095;
+- explicit `C1 = false` and `C5 = false` evidence for the shortest normal case; and
+- one revision reason that exercises return/reassessment without changing to a fallout route.
+
+The ethics article remains useful as the later Route-2 feature example and as evidence for the
+observation-versus-observability correction. If the Chief Editor wants it to be Route 1 instead,
+the acceptance packet must state why its route basis changed.
+
+### `B071-R208` — MMF is useful sequencing language but is not a governed lifecycle tier
+
+The current hierarchy defines module, version and sprint. It does not define `MMF`, its freeze rule,
+status owner or identifier namespace. Lane A should use **route slice** in operative documents until
+the Chief Editor explicitly adopts MMF as planning vocabulary.
+
+Recommended advisory progression, each child reusing the same editorial engine:
+
+| Route slice | Incremental learning | Promotion condition |
+|---|---|---|
+| 1 — `ROUTE-PROD-1` | Full normal/revision path, minimum operation set, one T5 reviewer, LinkedIn `ManualReady` | Route-1 required operations decided; acceptance journey and persistence tests pass |
+| 2 — `ROUTE-PROD-2` | Enterprise/feature path, mandatory research, Chief Journalist T5 review | Route-1 engine reusable; feature/research evidence contract ready |
+| 3 — `ROUTE-PROD-3` | High-impact investigative path, mandatory legal-risk treatment and possible complex series | Atomic complex-series/legal-risk contracts ready |
+| 4 — fallout routes | Corrections, retractions, parallel review and crisis behavior | Return/reclassification and two-reviewer bundle evidence ready |
+| 5 — `ROUTE-GRC` | External institutional evidence and delivery holds | External-authority ownership, credentials, acceptance and recovery are authorized |
+
+This table records dependency order, not automatic business priority. A route moves earlier when a
+real opportunity or risk requires its distinctive learning and its ownership/capacity are available.
+M-MVP remains the module; V1 remains the build version; S0–S4 remain the implementation sequence.
+
+### Sprint/route crosswalk for the first M-MVP slice
+
+The sprints build capabilities across one route; they are not replacements for its gates:
+
+| Sprint capability | Route-1 outcome | Completion evidence |
+|---|---|---|
+| S1 — persistence and transitions | One Route-1 article, route decision, intake, revision history and append-only audit data persist | Database rejects illegal/direct transitions and preserves earlier intake/reassessment evidence |
+| S2 — roles and judgment controls | Route-derived nodes execute T1 through human final judgment with correct identities and refusal paths | Required operation shapes resolved; agent/human boundaries and blind order pass |
+| S3 — operational visibility | Chief Editor can see route, gate evidence, derived progress, returns and audit history | UI projections match authoritative state/events and expose no false independence claim |
+| S4 — manual-ready delivery | Positive disposition produces LinkedIn `ManualReady`; failure/retry remains recoverable | Per-target event history, formatted output, failure evidence and later manual confirmation are distinct |
+
+This is **implementation readiness**, not release readiness. Credentials, production access,
+operator capacity and quarterly estimates remain separate confirmations.
+
+### Cross-artifact review for Lane A
+
+| Artifact | Required correction | Evidence of completion |
+|---|---|---|
+| `Modular_PRD.md` | Identify Route 1 as the first M-MVP route slice without narrowing the FR gate chain or creating an MMF status tier | Route ID, outcome and dependent acceptance cases trace to existing FR/AC owners |
+| Functional specs | Add the Route-1 allowed/refused evidence profile after the parent operation decisions; retain universal gates | Every gate names required, conditional-not-triggered and refused evidence |
+| Business/digital-twin storyboard | Preserve historical panels; add a target Route-1 current-use pointer and normal/revision walk | One path reaches every required node and LinkedIn `ManualReady` without automation |
+| RACI human/digital-twin story panel | Show Sheet 1 route R/A separately from gate and operation executors | Reporter route R, Desk Editor route A and each gate actor appear in distinct columns |
+| UML/sequence | Extend Round 55's target view with `EW` start, Route 1, node types and human UI boundary | Trigger cannot advance a gate; role/node/principal IDs stay distinct |
+| Data flow | Map Route-1 package → gate evidence → reviews/join → human disposition → report/Delivery | Each write names its authority, transaction, failure path and retained history |
+| Encyclopedia | Impact-review Entries 01, 04 and 05 for line separation, article/publication state and assurance; Entries 03/06 remain under the separate intake packet | Local/hosted versions and citations agree after authorized application |
+| Cross-reference/traceability | Connect Sheet 1 route, Sheet 2 operation decisions, Product acceptance, Fn_Spec and sprint evidence | No route-RACI fact is duplicated as a gate-executor fact; every test has one requirement owner |
+| `docs/v1/` tracking trio | Record any new route-slice sequencing or artifact creation in Register, Build Spec and Inventory in one pass | `D-54` satisfied; module/version/sprint status authorities unchanged unless expressly decided |
+
+### Lane A follow-up — parent before children
+
+1. **Acknowledge Route 1 as the Judge-selected first M-MVP route slice.** State that it crosses every
+   gate and minimizes only the operation set.
+2. **Resolve `B071-R204` before drafting implementation readiness.** Present exact accept/reject
+   choices for `OP-PITCH`, `OP-DRAFT` and `OP-FINAL-SIGNOFF`; preserve `OP-COPY-EDIT`.
+3. **Complete the pending Model A parent from Round 55.** Use a fresh Register ID and keep the node-
+   type, role, principal and UI distinctions. Neither parent may be hidden inside the other.
+4. **Draft the Route-1 field/evidence matrix.** Show every gate and each required/conditional
+   operation, including explicit C1/C5 false dispositions for the shortest case.
+5. **Obtain the representative Route-1 article.** Keep the existing ethics feature as Route 2 unless
+   the Chief Editor explicitly accepts a different classification.
+6. **Walk the Route-1 normal and revision paths with the Chief Editor.** Record operational friction,
+   final-decision evidence and LinkedIn manual-ready output.
+7. **Prepare the exact cross-artifact write set.** Update existing owners; create no duplicate UML,
+   roadmap or MMF tracker. If a UX artifact is authorized, propagate its creation under `D-54`.
+8. **Present one bounded packet to the Judge.** Separate acceptance of operation contracts, Model A
+   propagation and source application. The present decision-tree approval does not authorize code.
+9. **Apply only the accepted documentation packet and obtain independent review.** Lane B later
+   estimates and builds only after a fresh S2/route-slice work order.
+10. **Synchronize Graphify last.** After the final tracked source edit, rebuild, re-merge curated
+    meaning, add the recent handoffs, prove analyzed-head equality and run the full suite.
+
+### Construction and verification evidence
+
+| Case | Pass condition |
+|---|---|
+| Complete shortest path | Route 1 crosses EW start and every editorial gate; only C1/C5 operations are explicitly untriggered |
+| Trigger boundary | Senior Journalist EW start creates no article-state advance and cannot satisfy T1 evidence |
+| Route RACI | Reporter/Desk Editor R/A remain route facts; tests never infer each gate executor from them |
+| Operation readiness | Pitch, Draft and Final Sign-Off each have one accepted execution/accountability/completion contract before build |
+| Role distinction | Desk Editor and Chief Editorial Desk use different canonical IDs and cannot substitute for one another |
+| Route-derived review | Route 1 requires one Chief Editorial Desk review; changing the UI label cannot change that set |
+| Human control | The Chief Editor acts only through the governed human decision surface; an agent attempt is refused |
+| Normal path | Positive final judgment reaches LinkedIn `ManualReady` with no automated publish claim |
+| Revision path | Return reason and prior evidence remain; corrected work reruns the affected nodes and produces a new disposition |
+| Route escalation | A triggered crisis or changed route appends reclassification; it does not execute a higher-risk operation inside Route 1 |
+| Roadmap integrity | Later route slices reuse the same engine/state machine and do not freeze M-MVP or rename a sprint/version |
+
+### Approve / reject
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `ROUTE-PROD-1` as the first complete M-MVP route slice | Phase 1 — Lane A records the bounded route outcome and evidence matrix |
+| Approve | Full gate chain with conditional C1/C5 operations explicitly untriggered | Phase 1 — shortest operations, never shortened governance |
+| Approve-with-conditions | Route-1 implementation readiness | Chief Editor decides `OP-PITCH`, `OP-DRAFT` and `OP-FINAL-SIGNOFF` contracts first |
+| Approve-with-conditions | Route-led MMF progression | Use as advisory route-slice sequencing; define MMF formally before making it a status/freeze tier |
+| Reject | Copying Sheet 1 Reporter/Desk Editor R/A into every gate or equating Desk Editor with Chief Editorial Desk | Preserve RACI scope and canonical role distinctions |
+| Reject | Reclassifying the existing Route-2 feature sample silently or skipping gates because Route 1 is “short” | Supply/accept a real Route-1 example and traverse every gate |
+| Defer | Governed source application, implementation, release readiness, B-071 promotion and Graphify sync | Parent decisions, exact packet, independent evidence and final synchronization |
