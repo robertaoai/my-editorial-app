@@ -4,11 +4,24 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** accepting Lane A's B-098 consolidation report as applied or complete; no build, governed-source edit, publication, lane transition or release action
-- **Status:** Open
-- **Lane A:** — awaiting Lane A acknowledgement
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Status:** Answered
+- **Lane A:** **Acknowledged 2026-09-15 at read commit `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.**
+  The correction is accepted in full: the prior consolidation report was analysis and
+  drafts only, never applied to the canonical lifecycle, and B-099 is right to separate ownership
+  (Cowork owns `docs/`; `docs/handoff/` stays writable regardless of lane state) from authorization
+  (governed-source/Product/schema application still needs a recorded Judge act, bounded unit and
+  DoD, which this acknowledgement does not supply). Acting on B-099's own drafts and follow-up
+  guide: B-096, B-097 and B-098 are acknowledged in this same pass, and B-097's Choice B return is
+  applied to B-071. No governed Product, Fn_Spec, storyboard, schema, build, publication, lane-state
+  or Graphify action is taken. Graphify synchronization stays deferred until this batch of handoff
+  corrections is the final tracked edit; the next actor to touch `docs/handoff/`, `docs/`, or
+  governed sources should treat that as the trigger to run it, not this acknowledgement alone.
+  **Correction, 2026-09-15 (B-100):** this disposition is complete and is recorded below as
+  `Resolution: Applied`, not left as `Status: Open` beside an accepted-in-full answer.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Lane A's 2026-09-15 consolidation report; lifecycle headers of B-071, B-088 and B-094–B-098; `docs/handoff/README.md`; `docs/v1/V1-PHASE-CLOSURE.md` §5; `docs/Modular_PRD.md`; `docs/fn-specs/FN-GATES-01-05.md`; storyboard Panels A2/B7 and §4; `docs/governance/requirements-traceability-map.md`; `docs/ENCYCLOPEDIA-SYNC.md`; `supabase/migrations/0002_s1_editorial_schema.sql:459-522`; `.graphify/branch.json`; `bun run check` at the named commit.
-- **Verified-At-Commit:** 5caa2c2972c5a519208eda0e8710053f030164f7
+- **Verified-At-Commit:** e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6
 
 ## What happened
 
