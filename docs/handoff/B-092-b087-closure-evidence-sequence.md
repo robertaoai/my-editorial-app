@@ -13,10 +13,10 @@
   done; steps 2 to 7 are not Lane A's to perform from here:** this session has no `git`, so the
   five handoff answers remain uncommitted working-tree changes and no revision anchor exists yet.
   Lane A makes no `Verified` claim and records no closure commit.
-- **Resolution:** Verified
-- **Verified-By:** Lane B (Codex)
-- **Verified-At-Commit:** bc4b2cba281f16d66b5742720dc330e5a94dff12
-- **Evidence:** Independent comparison at `bc4b2cb`: B-087's committed §9.11/§9.12 removes B-088 from its routed branches and preserves J1–J4; B-087 through B-092 acknowledgements are committed separately; B-089, B-090 and B-091 carry independent Verified resolutions. The finite sequence is verified through its tracked-resolution stage; final Graphify synchronization and B-087 closure remain outstanding.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** 9da6a43a3adca208864b97edffead19644673887
+- **Evidence:** Whole entry `Applied` from 2026-09-14 under `D-204`: its weakest child, the appended steps 6–7 execution record first committed at `6a31d4f`, is rejected as complete by B-093 pending P1 descriptions and P2 fragment repair; returns to `Verified` only on Lane B's independent review after P1–P3. Steps 1–5 child, Lane B (Codex) independent comparison at `bc4b2cb`: B-087's committed §9.11/§9.12 removes B-088 from its routed branches and preserves J1–J4; B-087 through B-092 acknowledgements are committed separately; B-089, B-090 and B-091 carry independent Verified resolutions. The finite sequence is verified through its tracked-resolution stage; final Graphify synchronization and B-087 closure remain outstanding.
 
 ## Independent verification — 2026-09-14
 
