@@ -8069,3 +8069,179 @@ The display beside this row says:
 | Reject | Senior Journalist or Chief Editor as target T5 executor independent of route | Contradicts `D-175`–`D-181` |
 | Reject | `line_separation_status=satisfied` at T5 or as proof of cognitive independence | Target T5 is Line 1/`not_applicable`; T6 is the structural crossing |
 | Defer | Governed-source application, B-071 lifecycle promotion, S2 build and Graphify synchronization | Existing authorization, verification and final-sync conditions |
+
+## Round 55 — editorial gate, assigned role, virtual node and human UI are separate objects (2026-09-14)
+
+### Correction to Round 54 and scope
+
+Round 54 correctly rejected choosing a T5 executor independently of route, but it overstated
+`D-181` as the complete final answer. **`D-181` remains the applied Register anchor today.** After
+it, the Judge selected Model A in B-071's historical review: final editorial judgment belongs inside
+T5, while T6 is reserved for a future assurance capability. That direction was drafted as Units 1/2
+in `V1-B071-CORRECTIVE-PLAN.md` and explicitly excluded from the real `D-189`, which authorized Unit
+7 disclosure only. Units 1/2 were never applied.
+
+This round records the Judge's 2026-09-14 clarification of that same direction and prepares Lane A's
+answer. It does not apply Model A, invent a replacement decision ID, release `D-171`, create a UX
+artifact, build code or alter B-071's lifecycle.
+
+### Highest parent — the ontology before labels and assignments
+
+The editorial design has separate objects. A label from one column never supplies another:
+
+| Object | Question it answers | Example | Authoritative evidence | Must never be treated as |
+|---|---|---|---|---|
+| **Editorial phase/transition** | Where is the article in the lifecycle? | `T5`, `Reviewed → Approved` | typed article state plus append-only transition event | A person, permission, screen or virtual agent |
+| **Judgment-gate function** | What evidence and decision must exist before progression? | `EG4` review, `EG5` final editorial disposition | Product/Fn_Spec acceptance behaviour | The executor identity or UI progress label |
+| **Route** | Which reviewer set and evidence cardinality apply? | `ROUTE-PROD-2` | route-operation and RACI crosswalks | A manually selected actor name |
+| **Role assignment** | Which governed responsibility may act at this gate for this route? | `ROLE-CHIEF-JOURNALIST` at a production-route review | route-dependent role table | Proof of the principal that acted |
+| **Operational node/workcell** | Which logical slot produced the act? | Chief Journalist review node | node catalog and node-to-role mapping | A persona, login account or article state |
+| **Executor principal** | Which actual agent instance or human performed the act? | stable agent execution key or the human control principal | immutable audit event plus identity-assurance class | A role label or display name |
+| **Business persona** | Who is the human stakeholder in the customer's language? | Chief Editor, “the user” | frozen PRD and Product persona mapping | A database identity, virtual node or automatic executor |
+| **UI/UX surface** | What may the human see and do now? | review workspace and final-decision control | stack-specific UX specification | The source of workflow authority or a new state machine |
+
+The implementation resolves these in order: lifecycle stage → route → required role/node set →
+eligible executor principal → recorded act. The UI displays the result and offers only the human
+actions authorized at that point. It never chooses an executor merely because the user selected a
+job title from a list.
+
+### Parent decision tree for the Chief Editor
+
+| Order | Choice | Accept effect | Reject/change trigger | Recommendation |
+|---:|---|---|---|---|
+| 1 | **Model A — V1 editorial judgment ends inside T5; T6 is future assurance** | `T5-REVIEW` act(s) and the deterministic bundle-ready join feed a human `T5-FINAL` disposition. T6 belongs only to the separately authorized future assurance capability | Reject only if the Chief Editor intends final editorial approval to remain a separate T6 phase gate | **Accept — repeats the Judge's historical and current clarification** |
+| 2 | **Three node types**: virtual review, deterministic join, human control | Prevents the catalog from calling a human decision node a virtual agent and prevents the join from being treated as judgment | Reject only with another explicit execution model and equivalent refusal tests | **Accept** |
+| 3 | **Route derives the T5 review assignment** | `ROUTE-PROD-1` → Chief Editorial Desk; `PROD-2/3` → Chief Journalist; fallout/GRC → both as already decided | Change only by amending the route/cardinality decision, not per article through an actor dropdown | **Accept** |
+| 4 | **The Chief Editor is the human UI persona; the effective human control principal is recorded separately** | The interface may say “Chief Editor,” while the event records the actual principal/assignment and its honest assurance level | Change if V1 gains separately authorized authentication/multi-user enforcement | **Accept** |
+
+Model A is a business direction and a specification target. Because the actual Register's `D-189`
+is already occupied by Unit 7, Lane A must use the next valid unused decision identifier and quote
+the exact superseded clauses. It must not overwrite `D-189`, backdate Units 1/2 into it, or describe
+the corrective-plan draft as already applied.
+
+### `B071-R202` — Round 54 stopped at the applied anchor and omitted the selected successor direction
+
+| Evidence | Failure if left unchanged | Fix |
+|---|---|---|
+| `D-181` still labels the human final editorial act T6; B-071's later Judge-selected Model A labels it `T5-FINAL` and reserves T6 for future assurance; real `D-189` excludes Units 1/2 | Lane A either ignores the later business direction or cites the disclosure-only `D-189` as authority for a gate rewrite it explicitly excludes | Present a fresh bounded Register act for Units 1/2, with a free ID, exact supersession table, DoD and `D-54` propagation. Until applied, label Model A `Judge-selected, propagation pending` |
+
+### `B071-R203` — the node catalog calls every EG row virtual while its final row is human
+
+`FN-GATES` §11 says an Editorial Virtual Node Agent is never a persona or system user, then assigns
+`EG5` to the human Chief Editor. A catalog cannot make both statements true without a node-type
+field. Lane A specifies:
+
+| Node type | May execute judgment? | Executor class | State effect |
+|---|---|---|---|
+| `virtual_review` | Yes, within its assigned review act | agent executor principal with role and node IDs | seals attributable evidence; no human-final effect |
+| `deterministic_join` | No | system transaction, no RACI `R`/`A` principal | makes the one governed readiness/state transition when all required reviews exist |
+| `human_control` | Yes, final editorial disposition | the effective human control principal using the Chief Editor UI | appends final decision and its governed article-state result |
+
+Under Model A, `EG5` remains the logical human-control function but performs `T5-FINAL`; it is not a
+virtual agent and it is not the future T6 assurance node. A future T6 capability gets its own node
+identity if it is ever authorized; it must not reuse EG5 merely because EG5 once carried the T6
+label.
+
+### Role-name correction at the judgment boundary
+
+The Chief Editor is not asked to assign “Chief Journalist,” “Desk Editor” or “Chief Editor” freely
+during each judgment. The route and gate contract determine the required role set:
+
+- `ROLE-DESK-EDITOR` is route accountability for `ROUTE-PROD-1`; it is not the same as
+  `ROLE-CHIEF-EDITORIAL-DESK`, the route's T5 review function.
+- `ROLE-CHIEF-EDITORIAL-DESK` performs the T5 review for `ROUTE-PROD-1`.
+- `ROLE-CHIEF-JOURNALIST` performs the T5 review for `ROUTE-PROD-2` and `ROUTE-PROD-3`.
+- Both review roles act separately on fallout/GRC routes when the existing cardinality table requires
+  both; the join records neither as winner.
+- The human Chief Editor uses the final editorial-control UI. The visible persona label, the
+  accountability assignment, the permission and the actual recorded human principal remain
+  separate facts.
+
+An authorized override is an explicit event with reason and identity. It is not implemented by
+changing the assigned role label or letting the user impersonate a virtual node.
+
+### Human UI/UX versus virtual-agent flow
+
+| Moment | Virtual/system behaviour | What the Chief Editor sees | What the Chief Editor may do | Audit truth |
+|---|---|---|---|---|
+| Route resolved | System derives required review node(s) from the route | Route, basis and assigned review functions | Correct the route through its governed action; never pick an arbitrary executor | route decision and actor recorded separately |
+| T5 review running | Each virtual node works under its assigned role and executor key | progress as `not_started` / `in_progress`; evidence remains clearly unsealed | inspect status only | UI progress is derived, never stored in `workflow_state` |
+| Bundle ready | Deterministic join confirms the complete required set | sealed reviews and disagreements, bundle-ready status | no final action until the blind-order prerequisite is met | join has no judgment actor and chooses no winner |
+| Human preliminary judgment | No agent acts as the human | underlying evidence without recommendations | record preliminary disposition and reason | actual human principal/assignment and honest identity assurance |
+| Reveal and final judgment | System reveals sealed recommendations after the preliminary record | complete, immutable reviewer set and comparison | confirm, change with reason, or return through the governed path | append `T5-FINAL`; never rewrite reviews or preliminary judgment |
+| Delivery/report | System consumes the positive immutable disposition | LinkedIn-ready content, report status and failures | download/copy manual-ready output; later confirm a live URL through T11 if applicable | publication events and report snapshot remain distinct from editorial state |
+
+This reuses existing `B071-R159` and `B071-R160`; no duplicate gap IDs are opened. `R159` owns the
+derived progress-to-workflow-state mapping in `docs/specs/ux/`. `R160` owns the final-disposition,
+Delivery and explainable-report binding in `FN-AUDIT-VISIBILITY-07-08.md`. The current repository has
+historical Mermaid views, not a completed target UI/UML contract.
+
+### Cross-artifact review and exact effect
+
+| Artifact | Current condition | Lane A correction | Completion evidence |
+|---|---|---|---|
+| `Modular_PRD.md` | Target rows still call the human final editorial act T6 and mix persona language with executor semantics | Units 1/2 exact diff: T5 review set, bundle join, `T5-FINAL`, future T6 exclusion; retain route/cardinality and `D-171` hold | FR/US/AC/security/metric rows use one label and one authority; no build claim |
+| `FN-GATES-01-05.md` | §§1–10 are historical; §11 calls the catalog virtual while EG5 is human | Mark node types and make the target flow explicit without rewriting historical evidence | Refusal cases distinguish agent review, system join and human control |
+| Business/digital-twin storyboard | Panels A5/A6 show the older human-T5/agent-T6 order | Preserve dated panels; add a current-use pointer to the target sequence | Reader cannot mistake historical panel for target build input |
+| RACI human/digital-twin story panel | Contains the human-versus-agent rationale but predates the final ontology | Point to the role/node/principal/UI mapping; retain one natural-person accountability | RACI `A`, executor and persona remain different columns |
+| UML/sequence and data flow | Historical Mermaid views exist; target UX/state mapping remains deferred under `R159`/`R160` | One target diagram shows route → virtual review node(s) → deterministic join → human UI control → Delivery/report | Every arrow names actor class, event and state effect; no second state machine |
+| Encyclopedia | Entries 01, 04 and 05 are the affected four-eyes/state/publication/assurance concepts | Mark impact and republish only after the governed correction | Hosted/local version evidence and dependency citations agree |
+| Cross-reference/traceability | Current target anchors end at `D-181`; Unit 7 disclosures do not authorize Units 1/2 | Link the new Register act to the Product, Fn_Spec, RACI, UX and verification owners | Bidirectional links resolve; `D-189` remains disclosure-only |
+| `docs/v1/` tracking trio | No act currently authorizes Units 1/2 | Propagate the new decision, sequence/DoD and any created UX artifact in one pass under `D-54` | Register, Build Spec and Inventory agree; unaffected tiers are explicit |
+
+### Lane A step-by-step handback
+
+1. **Acknowledge the correction.** State that Round 54's reliance on `D-181` was incomplete and that
+   actual `D-189` excludes Units 1/2.
+2. **Prepare a fresh parent Register act.** Use an unused ID; record Model A, the three node types,
+   exact partial supersession of `D-175`/`D-177`/`D-181`, exclusions and a bounded DoD. Preserve the
+   route/cardinality table and `D-171` hold.
+3. **Present the parent act to the Judge for accept/reject.** The Judge is accepting exact operative
+   wording and the affected tiers, not authorizing code or selecting a real operator.
+4. **After authorization, apply Units 1/2 parent-first.** Register and tracking trio first in the
+   same governed pass; Product/Fn_Spec/RACI corrections follow the accepted write set. Do not edit
+   frozen PRD/Charter text.
+5. **Resolve the sample route.** Carry Round 54's recommended `ROUTE-PROD-2` classification for the
+   LinkedIn feature unless the Chief Editor corrects it; derive Chief Journalist review from the
+   route rather than asking for a role choice.
+6. **Draft `R159` UI behaviour.** Separate derived progress, article state, assigned role/node,
+   executor identity, identity assurance and human controls. Create a stack-specific UX artifact
+   only through the accepted inventory decision.
+7. **Draft `R160` report/Delivery binding.** A positive immutable final editorial disposition may
+   enable Delivery; a report cites the same decision/evidence versions; neither action rewrites the
+   judgment or stores publication status in article metadata.
+8. **Update historical-view pointers and Encyclopedia impact.** Preserve dated diagrams; do not
+   redraw history or claim hosted parity without checking it.
+9. **Obtain independent verification.** Test the exact allowed/refused examples below at an immutable
+   commit. This Lane B draft is not that verification.
+10. **Synchronize Graphify last.** Code rebuilds the extracted layer, re-merges curated meaning,
+    separates T5-FINAL/EG5 from future T6 assurance semantically, proves analyzed-head equality and
+    runs the full suite.
+
+### Construction and verification evidence
+
+| Case | Pass condition |
+|---|---|
+| Route-derived assignment | The same route always produces the governed node/role set; a user cannot substitute another job title through the UI |
+| Virtual review event | Records node ID, role ID, agent executor key, evidence, judgment and time; does not claim the Chief Editor acted |
+| Deterministic join | Requires every route-mandated review, selects no winner, records no human judgment and performs its one authorized state effect once |
+| Human final control | Only the effective human control principal can act; the UI records preliminary-before-reveal order, final reason and honest identity assurance |
+| Agent refusal | An agent or virtual-node credential attempting the human final action is refused and creates no approval/Delivery authority |
+| UI state separation | `not_started`/`in_progress`/`bundle_ready`/`finalized` are derived progress labels; only governed article states persist in `workflow_state` |
+| Persona truth | “Chief Editor” may be displayed to the user; the audit event stores the actual principal and effective assignment, never the display label as identity |
+| Role-name truth | Desk Editor, Chief Editorial Desk and Chief Journalist remain distinct; route accountability never silently becomes gate execution |
+| Negative/return outcome | Reasons and prior reviews remain append-only; no Delivery or successful report/download is shown |
+| Positive outcome | Delivery consumes the immutable final editorial disposition; LinkedIn `ManualReady` and report generation remain separately evidenced outcomes |
+| Future assurance | No V1 editorial screen or event claims T6 assurance occurred; a future capability cannot reuse EG5 or the editorial final event |
+
+### Approve / reject
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Model A direction: T5 contains final editorial judgment; T6 is future assurance | Phase 1 — Lane A drafts a fresh bounded Register act; Units 1/2 remain unapplied until accepted |
+| Approve | Gate/route/role/node/principal/persona/UI separation | Phase 1 — use as the parent ontology across the write set |
+| Approve-with-conditions | Route-derived virtual review plus human-control UI | Phase 1 — exact `R159` UX and `R160` report/Delivery contracts required |
+| Approve-with-conditions | `ROUTE-PROD-2` sample | Chief Editor accepts or corrects the route; the role follows automatically |
+| Reject | Reusing actual `D-189` for Units 1/2, treating EG5 as both virtual and human, or offering a free-form role selector | Contradicts the recorded scope and actor model |
+| Reject | Calling UI progress a workflow state or a persona/role label an executor identity | Separate fields, events and refusal tests are required |
+| Defer | Source application, new UX artifact, implementation, B-071 promotion and Graphify sync | Exact Judge act, `D-54` propagation, independent evidence and final synchronization |
