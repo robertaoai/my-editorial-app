@@ -5,9 +5,28 @@
 - **Phase:** 1
 - **Blocks:** Lane A's specification of the versioned editorial-metadata package and the report projection; no schema, migration, application code, publication or lane transition is authorized
 - **Status:** Open
-- **Lane A:** — awaiting Lane A acknowledgement
+- **Lane A:** **Acknowledged 2026-09-15 at read commit `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.**
+  Receipt and bounded `GA1` disposition only. Direct read of
+  `supabase/migrations/0002_s1_editorial_schema.sql:459-522` confirms `editorial_reports` is
+  append-only, one row per article/transition pair (`as_at_transition_id`), holding
+  `template_version`, `judgment_rule_version`, `schema_version` and a `snapshot jsonb`, with no
+  column naming an artifact kind, type or client delivery target. For planning, `GA1` is answered:
+  the table models transition-anchored explainability snapshots and does not model the
+  client-facing artifact set as governed deliverables. `S17` wording may be drafted; application to
+  Panel B7 and §4 remains held pending the exact authorized write set. `S15` then `S16` may be
+  drafted as logical contracts; physical schema stays Lane B's surface. The parent act (Choice A:
+  separated state, versioned metadata, frozen report) is recorded as Chief Editor direction,
+  2026-09-14, in conversation, with B, C and D rejected as B-096 states. No migration, application
+  or publication act is authorized by this acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** 76a0ea212755955b92f7e2307ce4c446c59d4204
+- **Verified-At-Commit:** e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6
+
+  **Correction, 2026-09-15 (B-100).** The disposition above previously read "two independent reads."
+  Two actors (this session and Lane B, in B-099) corroborated the same schema reading, which is
+  **two-actor corroboration, not independent verification** under `D-102`/`D-205` — neither actor is
+  outside the raising/answering pair. The GA1 planning question is `Answered` on that corroborated
+  basis; no applied specification is `Verified`. The audit anchor above is also advanced from
+  `76a0ea2` to the commit read for this correction, per `D-214`.
 - **Evidence:** B-095 `S12` and `S14`–`S17` at `76a0ea2`; `Modular_PRD` `TR-DM-01`…`TR-DM-06`; `docs/DATA_MODEL.md`; `FN-GATES-01-05.md` §3.1 and §3.2; `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` Panels A2, B7 and §4; Chief Editor direction given in conversation, 2026-09-14.
 
 ## What happened
@@ -95,6 +114,18 @@ and §3 are Mermaid flowcharts. Creating three documents for three requested vie
 duplicate one owner and manufacture drift. Panel A2's ordering defect — state-bearing creation
 drawn before its transition evidence, contradicting the panel's own note — is repaired in that
 same owner.
+
+## Child dispositions — 2026-09-15, Lane A
+
+Per `D-204`, header fields describe the whole entry; child state lives here. The whole entry stays
+`Open` until the weakest child closes.
+
+| Child | Disposition | Evidence |
+|---|---|---|
+| `GA1` blocking check | **Answered** (planning level, two-actor corroborated, not `Verified`) | `supabase/migrations/0002_s1_editorial_schema.sql:459-522`; B-099 |
+| `S15` — versioned editorial-metadata package | **Open** — logical contract not yet drafted | — |
+| `S16` — explainable report projection | **Open** — logical contract not yet drafted | — |
+| `S17` — storyboard correction (Panel B7, §4) | **Held** — wording may be drafted; application needs the exact authorized write set | Blocked on Chief Editor accepting the A4/write-set packet |
 
 ## What you need
 
