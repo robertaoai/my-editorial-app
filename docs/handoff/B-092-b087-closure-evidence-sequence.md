@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** independent verification and closure of B-087; no build or governed-source application
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-14** at read commit `9179f39`. Receipt only; `Status` stays
   `Open` and no `Resolution` is claimed. **Both `Reject` verdicts are accepted.** The `B-088`
   contradiction is Lane A's: B-087 §9.5 called it a sibling and §9.11 listed it among routed
@@ -13,9 +13,14 @@
   done; steps 2 to 7 are not Lane A's to perform from here:** this session has no `git`, so the
   five handoff answers remain uncommitted working-tree changes and no revision anchor exists yet.
   Lane A makes no `Verified` claim and records no closure commit.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** f56729bb8e1c7c7be1f390a6fe13b50c0a7d2e7a
-- **Evidence:** B-087 §§6–9.11; B-088 through B-091 lifecycle fields; Lane A's uncommitted answers; real consistency run at f56729b; Graphify metadata/pending marker. Planning closure procedure only.
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex)
+- **Verified-At-Commit:** bc4b2cba281f16d66b5742720dc330e5a94dff12
+- **Evidence:** Independent comparison at `bc4b2cb`: B-087's committed §9.11/§9.12 removes B-088 from its routed branches and preserves J1–J4; B-087 through B-092 acknowledgements are committed separately; B-089, B-090 and B-091 carry independent Verified resolutions. The finite sequence is verified through its tracked-resolution stage; final Graphify synchronization and B-087 closure remain outstanding.
+
+## Independent verification — 2026-09-14
+
+The committed packet implements the two requested text corrections and preserves B-088 as a separate C-39 sibling. The answer commits and review-chain resolutions now exist at named revisions. This verifies B-092's closure procedure; it does not close B-087 or claim Graphify currency. The next tracked act is B-087's own disposition, followed by one final Graphify synchronization with no later tracked status edit.
 
 ## What happened
 
