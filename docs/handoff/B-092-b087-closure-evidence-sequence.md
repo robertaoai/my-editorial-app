@@ -86,3 +86,115 @@ Verified the decision content and current checks, inspected every related lifecy
 | Approve-with-conditions | B-087 planning-spike closure | Phase 1 — exact-path commits, independent verification, final Graphify sync and passing checks |
 | Defer | B-084 source application, J2 walkthrough and J3 allocation | Phase 1 — their recorded owners and triggers |
 | Defer | Application and release readiness | Phases 2 and 3 — separate authorization and evidence |
+
+## Lane A execution record — steps 6 and 7, 2026-09-14
+
+*Appended by Lane A · Claude Code. Header fields are unchanged and B-092 keeps its Lane B
+verification. This records execution of the two steps B-092 left outstanding, in the template's
+section order. It is not an A-series entry (`D-203`) and not a new tracker.*
+
+### What happened
+
+Read commit `42a34a6`. Judge acts, same person under `D-158`: decision-tree direction approved;
+graph coverage by curated fragment, **Option B**: Claude Code commits the Cowork-surface fragment,
+because Cowork cannot commit from its workspace (Judge clarification, 2026-09-14). At `42a34a6` the
+full local suite failed only `docs-drift` (analyzed `395ab83`) and `graph-coverage` (B-087 to B-092
+absent).
+
+**Finding, recorded with its fix.** A fast rebuild never indexes a new handoff. Coverage for every
+earlier handoff came from a curated fragment (`frag130`, `frag131`). Step 6 above and the
+"Graphify must cover all six handoffs" condition both assumed the rebuild would do it.
+
+Step 6 as executed:
+
+1. `.graphify/graph.json` backed up outside the repo; `hook-rebuild` at `42a34a6`; no node ID lost.
+2. `docs/graph-fragments/frag132.json` drafted: one document node per handoff B-087 to B-092 and
+   `CURATED` `references` edges to existing nodes only. Validated with `merge7.js --verify-only`
+   before commit (no dangling edge, semantic equality PASS), then committed alone at `114db87` with a
+   `Lane-Crossing:` trailer.
+3. `hook-rebuild` at `114db87`, then an explicit merge of `frag132.json`: rebuild first, merge second
+   (`D-206`).
+4. `--verify-only` on every fragment, and each new node resolved by label through `graphify explain`
+   with non-zero degree.
+
+Step 7: `bun run check` at `114db87` passed every check, including `docs-drift` (synced at
+`114db87`), `graph-coverage` (none absent), `handoff-response` and `lane-boundary` (Lane A, Cowork
+surface, declared).
+
+**The four graph properties, reported separately (`B-089`):**
+
+| Property | State at `114db87` | Evidence |
+|---|---|---|
+| Head equality | Met | `docs-drift` synced at `114db87` |
+| Coverage | Met | `graph-coverage` reports none absent |
+| Descriptions | **Not met** | `.graphify/.graphify_describe_pending` present; `graphify describe` not run |
+| Curated parity | Met, except four pre-existing exceptions below | Per-fragment `--verify-only` |
+
+**Pre-existing exceptions, identical at the pre-rebuild backup and not caused by this sync:**
+
+- `docs-2026-08-18-fragment.json` declares edge `sprint_readiness_consolidated_2026_08_18 →
+  modular_prd_doc`. The target ID exists in no graph; the Product node is `modular_prd`.
+- `docs-fragment.json`, `docs-fragment2.json` and `docs-fragment4.json` are detect manifests
+  (`files`, `total_files`, …) with no `nodes` array, so `merge7.js` cannot read them.
+
+`graphify portable-check .graphify` fails on absolute paths in gitignored `manifest.json` and
+`studio/`. No graph artifact is proposed for commit, so this blocks nothing.
+
+#### Cross-view review at `114db87`
+
+Product, storyboard (story panels, embedded UML-style sequences and data-flow flowcharts),
+Encyclopedia ledger and cross-reference maps were read against B-087 §4 and §9.4. **No new gap:
+every residual already has an owner.** Under J4 Choice A none is applied here.
+
+| Artifact | Current state (read) | Owner |
+|---|---|---|
+| `Modular_PRD.md` §7.1 | `:788` still lists CR-14 as a missing functional requirement; the traceability map (`:141`, `:159`) records the ratified manual contract | B-084 residual, deferred by J4 A |
+| `governance/requirements-scope-knowledge-graph.md` | `:23` edge "has no functional requirement"; `:98` "Uncovered" | B-084 F2 |
+| Storyboard A1, A2 and B2 panels | A1 `:49`, A2 sequence `:62` and B2 `:177` are URL-only; A2 `:71` "has **no FR**"; `:91` "NOT superseded" | B-084 view follow-up (D-222 URL/Markdown wording) |
+| Storyboard A2 sequence | Arrow order writes state before transition; already superseded for current use by `B-080` | Preserved as history; no action |
+| Storyboard A5/A6 sequence, B3–B6 | Historical T5-human/T6-agent order, inherited by B3–B6 | B-071, Deferred; held under D-171 |
+| Storyboard A7 `:150`, B7 flowchart, §4 `:281` | Dated scaffold observations (publication tables, no report entity); summary row repeats the CR-14 producer gap | B-087 §4 storyboard follow-up; B-084 for `:281` |
+| Storyboard §3 contract-boundary flowchart | Consistent with M-POC's client-package / internal-article separation | None |
+| `ENCYCLOPEDIA-SYNC.md` Entry 06 | Still `f7b3aea`, no stale marker, though its traceability dependency changed under D-194/D-197; hosted content unreadable | B-084 unit (moved there by J4 A); do not advance the SHA |
+| `docs/README.md:40` | "generated at scaffolding time from the project name and summary" contradicts D-37 | B-084 unit (J4 A) |
+| `governance/media-industry-sop-fallback-implementation-plan.md:72` | "CR-14 has no FR", proposes FR-14 | Already named by B-084 and D-199 F3; not a new gap |
+
+### What you need
+
+Lane B independently verifies this execution record: `frag132.json` against the six entries it
+describes, the four-property table and the cross-view table. No Judge decision is requested.
+
+**Still open and separately owned; nothing here is a B-087 closure dependency:**
+
+1. **Descriptions.** `graphify describe` in assistant mode, as its own Lane A · Code unit.
+2. **Pre-existing fragment defects.** Cowork retargets the dangling edge to `modular_prd` and marks
+   the three detect manifests as not mergeable in `docs/graph-fragments/README.md` §4. Until then,
+   curated parity is claimed for every fragment except those four.
+3. **B-084 source application**, B-088 C-39 repair and B-077 Child 2's legacy `Applied` entries, on
+   their existing owners and triggers.
+
+### What you did instead
+
+Committed one Cowork-surface file under the Judge's Option B, and this record as a separate one-entry
+handoff commit (`D-184`). Did not edit any governed source, B-084, B-087, B-088, the Register, Build
+Spec, Inventory or `Modular_PRD` §8. Did not run semantic fill, build, publish, push or change lane
+state.
+
+**Sequencing under B-092's rule.** This record is the last tracked edit. The untracked Graphify sync
+runs once more after its commit, so `lastAnalyzedHead` equals the final HEAD; that last run is
+reported to the Judge, not written back here. Otherwise this file would be stale on arrival.
+
+**Tier applicability (`D-54`).** `frag132.json` is a new file inside `docs/graph-fragments/`, which
+already has an Inventory row; `frag130` and `frag131` set the precedent. Nothing is sequenced or
+retired. Register, Build Spec, Artifact Inventory and `Modular_PRD` §8: **unaffected**. Frozen
+`docs/PRD.md`, the Charter and `0001_init.sql`: untouched. Encyclopedia: **unaffected** by this
+record; Entry 06's existing staleness stays with B-084.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Graph head equality and coverage at `114db87` | Phase 1, Lane B independent verification |
+| Approve | Cross-view review: no new gap, every residual owned | Phase 1, existing owners |
+| Approve-with-conditions | Curated parity | Phase 1, Cowork corrects the four pre-existing fragment exceptions |
+| Defer | Semantic descriptions | Phase 1, separate Lane A · Code unit |
+| Defer | B-084 source application, B-088 repair, B-077 Child 2 | Phase 1, their recorded owners and triggers |
+| Reject | Reading a passing suite as Phase 1 closure or product readiness | Phase 1; Phases 2 and 3 keep their own evidence |
