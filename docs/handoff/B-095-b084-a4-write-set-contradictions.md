@@ -178,3 +178,85 @@ governed document, build, synchronize Graphify, select a lane or change a lifecy
 | Approve-with-conditions | `S5` paired evidence | Phase 1 — Lane A drafts one same-article normal/revision acceptance example |
 | Reject | Calling B-095 independent confirmation; treating intake assertions as T3 verification; merging newsworthiness with trend score; omitting the exactly-one subject topic | Preserve evidence status, gate separation and the T1 contract |
 | Defer | Graphify synchronization and its curated fragments | After the final tracked correction, per B-094 step 8 |
+
+---
+
+## Appended 2026-09-14 after Lane A review of the updated template
+
+This append preserves the accepted S1–S8 analysis above and records only three additional findings
+supported by Lane A's review. It does not constitute independent lifecycle verification.
+
+### `S9` — two evidence samples remain live and their research-lead identities conflict
+
+B-094 currently lists both the earlier `ORIGINAL ARTIFACT ANALYSIS.md` (`37B96151…FCD945`) and the
+updated template/sample (`18E9A66C…B2DBB7`) without marking which governs current use. Both byte
+identities were recomputed by Lane B and match the supplied files, but matching a file does not
+verify its claims.
+
+The earlier and updated samples disagree on three properties that define a research lead:
+
+| Property | Earlier sample | Updated sample |
+|---|---|---|
+| Denominator for the `14%` training claim | workers | firms in the trend update; unstated in the new-article brief |
+| Magnitude unit for the `8–15` effect | percent | percentage points |
+| Outcome measure | hiring uplift | interview-invitation rate in the trend update; hiring uplift in the new-article brief |
+
+The updated sample therefore also contradicts itself on outcome measure. Before A4 cites a sample,
+Lane A marks the earlier sample **superseded for current template use** while retaining it as dated
+evidence, then restates each newer lead with one denominator, magnitude unit and outcome measure.
+External fact verification remains T2/T3 work and is not performed by this handoff.
+
+### `S10` — Encyclopedia Entries 03 and 06 share the same propagation event
+
+Entry 06 is already in A4 because the manual Reporter-gate contract changed its dependencies.
+Entry 03 is *Newsworthiness vs. trend score vs. editorial priority*. The selected template now
+introduces a manual 1–10 newsworthiness assessment, while S8 requires it to remain distinct from
+computed `trend_score` and gate authority. A4 therefore marks **Entries 03 and 06 stale in one
+propagation act**. Updating Entry 06 alone would leave the newly affected ontology unqueued.
+
+### `S11` — a baseline-to-current update is not fillable at first intake
+
+The selected heading `TREND-SIGNAL UPDATE (Baseline [Month Year] → Current [Month Year])` and the
+fields *What held*, *What accelerated or mutated* and *What weakened or was overstated* assume a
+prior assessment. A new artifact entering T1 may have no project baseline, so the current template
+cannot provide its required description without inventing history.
+
+Use one conditional section rather than a second artifact:
+
+| Assessment mode | Required common fields | Mode-specific fields |
+|---|---|---|
+| **First intake** | as-of date; current signal and why it matters now; manual newsworthiness assessment plus rationale; fresh research leads | baseline = `Not applicable — first intake`; no held/accelerated/weakened comparison |
+| **Reassessment** | as-of date; current signal; manual newsworthiness assessment plus rationale; fresh research leads | baseline date; what held; what accelerated or mutated; what weakened or was overstated |
+
+S5's same-article acceptance example starts in **First intake** mode and later uses **Reassessment**
+mode. Beginning the example at reassessment proves only the second pass and leaves the normal path
+untested.
+
+### Revised parent-before-dependent sequence
+
+1. **Resolve `S11` first.** Lane A drafts the conditional first-intake/reassessment form inside the
+   selected template.
+2. **Resolve `S9`.** Mark the earlier sample superseded for current use and normalize the updated
+   research leads without asserting that they are true.
+3. **Draft `D2a` and `S3`.** Use Source/Reference rather than URL-only wording.
+4. **Draft `D2b` with `S2`, `S4`, `S6`, `S7` and `S8`.** Produce one field matrix with section
+   namespaces, exactly one subject topic, gate attribution and separate newsworthiness semantics.
+5. **Draft `S5`.** One article demonstrates first intake, T2/T3 verification, normal review,
+   return, reassessment, revision, resubmission and LinkedIn `ManualReady` delivery.
+6. **Draft `D1`, `D3`, `D4` and `S10`.** Include both Encyclopedia Entries 03 and 06 in the same
+   propagation act.
+7. **Chief Editor accepts or rejects the exact A4 packet.** No source document changes before the
+   complete reviewable diff and acceptance evidence exist.
+8. **Apply, then obtain independent verification** from an actor who did not produce or apply the
+   correction.
+9. **Synchronize Graphify last** after the final tracked edit, restore curated coverage for B-094
+   and B-095, prove analyzed-head equality and run the full consistency suite.
+
+| Verdict | Item | Follow-up |
+|---|---|---|
+| Approve-with-conditions | `S11` conditional trend-signal section | Phase 1 — first item in A4; prove both modes with one article |
+| Approve-with-conditions | `S9` evidence reconciliation | Phase 1 — supersede the earlier template for current use and normalize each research lead |
+| Approve-with-conditions | `S10` Encyclopedia propagation | Phase 1 — Entries 03 and 06 in one act |
+| Reject | Treating S1 alone as proof that the trend section works at first intake | S11 must define the no-baseline path |
+| Reject | Citing either sample as verified fact, or carrying conflicting denominator/unit/outcome values into A4 | T2/T3 verification and one normalized research-lead identity required |
+| Defer | Graphify synchronization | After the final A4 application and status edit |
