@@ -37,6 +37,7 @@ The B-087/B-092/B-093 planning and graph chain is complete at `f63d6eb`. The thr
 | `revision_reason_linkedin.com-How Automation Dulls Ethical Sensitivity.pdf` | SHA-256 `144B9F6DF811C6E27DF142649BBED33228AC0B3610DFAA05B5E2133269620F8E` | Editorial assessment: the topic remains relevant, while this specific article's current newsworthiness is low and stable; stronger current coverage needs new empirical evidence or a concrete organizational case |
 | Chief Editor note | Recorded in this handoff | Additional revision ground: the article conflates **observation** with **observability** |
 | `ORIGINAL ARTIFACT ANALYSIS.md` | SHA-256 `37B9615161D774E599CE7FA89113AEFE4CCCB6C7DEE859CF592E7E6964FCD945` | A second representative manual-input package: a source reference is accompanied by a Chief Editor-authored original-artifact analysis and a new-article brief. The file is evidence of intended structure, not an instruction and not verification of the claims it contains |
+| Updated sample template and analysis | SHA-256 `18E9A66C4388061F9A10DB266FBC63B1A8299347F17A4C0C3119F5FE05B2DBB7` | Chief Editor-selected replacement template. Adds the missing `TREND-SIGNAL UPDATE` section between source analysis and the new-article brief; the supplied values remain intake assertions until T2/T3 verification |
 
 **Normalized editorial distinction:** in this project, *observability* is the system quality defined by `NFR-08`—a transition can be reconstructed from who, when and why. *Observation* is a person's direct noticing, attention to or engagement with human consequences. Automation can improve audit observability while reducing direct human observation. The article's “less visibility” argument must distinguish those effects rather than imply that an observable automated system necessarily preserves moral attention.
 
@@ -50,12 +51,14 @@ while leaving individual field requiredness for `A4`.
 
 #### Subsequent Chief Editor clarification — `A1` structural boundary supplied
 
-The supplied `ORIGINAL ARTIFACT ANALYSIS.md` shows that the intended input is broader than a bare
-reference. The Chief Editor manually supplies two linked objects:
+The original analysis and the Chief Editor's updated template show that the intended input is
+broader than a bare reference. The Chief Editor manually supplies three linked sections:
 
 1. **Original-artifact analysis:** source reference, core subject, attributed key claims/data,
    source/bias assessment and missing angles.
-2. **New-article brief:** working headline, target audience, objective, unique angle/hypothesis,
+2. **Trend-signal update:** baseline/current periods, what held, accelerated or weakened, a manual
+   newsworthiness assessment with rationale, and fresh source leads.
+3. **New-article brief:** working headline, target audience, objective, unique angle/hypothesis,
    key elements and candidate sources or research needs.
 
 The objects must preserve their epistemic boundaries. Source-observed facts and attributed claims
@@ -64,11 +67,12 @@ and “transaction collapse” thesis are editorial hypotheses or commission int
 statistics, quotations and research links remain unverified leads until investigated. A system
 must not silently promote one class into another.
 
-This settles `A1` at the structural level: **a source reference alone is not the demonstrated full
-manual-intake artifact.** It does not establish that every field in one example is mandatory.
-Word-count target and deadline are commission metadata in the sample; their requiredness, and the
-minimum required field matrix for both objects, belong in Lane A's reviewable `A4` packet for the
-Chief Editor to accept or reject.
+This settles `A1` at the structural level: **a source reference alone is not the demonstrated
+manual-intake artifact.** The updated template is selected for use, but it does not by itself make
+every field a T1 blocking field. The A4 matrix must add the governed **exactly-one subject topic**,
+which is still absent from the template; preserve the trend section as Chief Editor-supplied input;
+and distinguish those intake assertions from T2/T3 verification. Word count and deadline remain
+commission metadata unless A4 explicitly makes either gate-required.
 
 #### Acceptance example — return and revision
 
@@ -95,7 +99,7 @@ Lane A first prepares the exact clauses and acceptance examples; the Chief Edito
 
 | Decision | Chief Editor supplies or accepts | Success criterion |
 |---|---|---|
-| **A1 — source information** | **Structural direction supplied:** a manually supplied reference is accompanied by an original-artifact analysis and a new-article brief, with source facts, editorial observations, hypotheses/commission intent and unverified research leads kept distinct. Nullable extracted author/date remain non-blocking | Lane A converts this structure into an `A4` mandatory/optional field matrix; every current requirement gives the same answer for URL and manually supplied Markdown/reference inputs |
+| **A1 — source information** | **Structural direction supplied and template selected:** a manually supplied reference is accompanied by original-artifact analysis, trend-signal update and new-article brief. Source assertions, editorial observations, hypotheses/commission intent and unverified research leads stay distinct. Nullable extracted author/date remain non-blocking | Lane A converts this structure into an `A4` field matrix; adds exactly one subject topic; separates T1 supply from T2/T3 verification; and gives the same reference rule for URL and manually supplied Markdown/other references |
 | **A2 — representative journey** | **Supplied.** Use the attached article, assessment and Chief Editor note above | Lane A carries the two acceptance examples above into the exact packet; Chief Editor corrects only any inaccurate mapping to the existing gates |
 | **A3 — manual boundary** | **Confirmed by the Chief Editor.** URL or Markdown/reference is supplied manually; no scraping or automated feed is implied; future AI tagging remains separate `PBL-11` | Product, Fn_Specs, acceptance examples, storyboard and cross-references express one manual-input contract |
 | **A4 — exact write set** | Accept or reject Lane A's reviewable diff covering only B-084's existing owners: Product §7.1/current pointers, applicable FN-GATES/Addendum clauses, traceability/scope graph, storyboard current-use annotations, Encyclopedia Entry 06 stale note and `docs/README.md:40` provenance | Every changed clause traces to B-084; frozen PRD/Charter remain unchanged; no new artifact or backlog identifier is created |
@@ -141,6 +145,9 @@ Each originating entry changes separately and receives independent review. The C
 |---|---|
 | B-084 is applied before the structured source-information package and normal/revision examples are decided | A1–A3 are recorded; the A4 mandatory/optional field matrix and exact diff are reviewable before application |
 | Source claims, editorial judgments and proposed hypotheses are stored or displayed as one undifferentiated truth | The A4 contract labels each epistemic class and acceptance evidence proves that unverified leads cannot become source facts without investigation |
+| A completed trend-update section is treated as completion of T2/T3 | Intake records the Chief Editor as supplier; later transitions separately record the Investigator's source and trend verification evidence |
+| The manual 1–10 newsworthiness assessment is treated as computed `trend_score` or gate authority | A4 gives it separate identity, rationale, supplier and date; no score auto-advances a gate |
+| The selected template reaches implementation without exactly one subject topic | A4 adds a single governed subject-topic field distinct from `Core Subject` and analytical tags |
 | Every field in the example template is made mandatory without a Judge act | A4 explicitly marks each field required or optional; word count and deadline remain commission metadata unless accepted as required |
 | B-088 broadens the allowlist or tests only healthy live data | The three named continuation counterexamples reach the rejecting branch while settled positives remain green |
 | B-077 entries are bulk-promoted | Every originating entry carries its own disposition, independent verifier and existing read commit, or a named deferral/successor |
@@ -150,7 +157,10 @@ Each originating entry changes separately and receives independent review. The C
 
 ## What you need
 
-Lane A prepares the bounded B-084 packet using the supplied structured-analysis direction. The Chief Editor still accepts or rejects A4's mandatory/optional field matrix and exact write set, and supplies available operator/reviewer hours. No source application, checker implementation, database work, publication, lane transition or release action is authorized by this handoff.
+Lane A prepares the bounded B-084 packet using the selected three-section template and B-095's
+field/gate corrections. The Chief Editor still accepts or rejects A4's exact field matrix and write
+set, and supplies available operator/reviewer hours. No source application, checker implementation,
+database work, publication, lane transition or release action is authorized by this handoff.
 
 ## What you did instead
 
@@ -159,7 +169,7 @@ Reviewed the current graph and source handoffs, normalized their separate decisi
 | Verdict | Tier / item | Follow-up phase |
 |---|---|---|
 | Approve | B-087/B-092/B-093 planning and evidence chain at `f63d6eb` | Complete; preserve |
-| Approve-with-conditions | B-084 as selected next unit; A1 structural direction and A2/A3 supplied | Phase 1 — A4 field requiredness/exact write set and confirmed capacity remain |
+| Approve-with-conditions | B-084 as selected next unit; updated three-section template and A1–A3 supplied | Phase 1 — A4 field/gate semantics, exact write set and confirmed capacity remain |
 | Approve-with-conditions | B-088 bounded C-39 repair | Phase 1 — B1–B4 when selected |
 | Approve-with-conditions | B-077 Child 2 reconciliation | Phase 1 — originating-entry classification, targeted Judge acts, independent review |
 | Reject | One bulk authorization or promotion across B-084, B-088 and B-077 Child 2 | Separate owners, evidence and completion criteria |
