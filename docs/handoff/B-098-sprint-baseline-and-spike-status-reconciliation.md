@@ -7,8 +7,8 @@
 - **Status:** Open
 - **Lane A:** — awaiting Lane A acknowledgement
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** 258842a213f57dc72ee90c84592746a098d1502d
-- **Evidence:** Chief Editor clarification and screenshot supplied 2026-09-14; `SETUP-SPIKE-000` decision `D-185`; `docs/README.md:12`; `docs/journal/2026-08-16-sprint-plan.md:9-13`; B-072 root analysis; verified B-087, B-090, B-092 and B-093 lifecycle records; existing `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`, `V1-PHASE-CLOSURE.md`, `LANE-B-WORK-ORDER.md` and `Modular_PRD.md`; Graphify query read with the stale-revision qualification below.
+- **Verified-At-Commit:** 35d3d431235ea7fda73c41737a75efecd1a78945
+- **Evidence:** Chief Editor clarification and screenshot `codex-clipboard-cc3676c0-7c5d-4a55-89b3-f9501478cf07.png`, supplied 2026-09-14, SHA-256 `6EA0FCE6A25E0DBC350ED37DAFC63AA1794416C71B444E6F732277C492D8A8BD`; `SETUP-SPIKE-000` decision `D-185`; `docs/README.md:12`; `docs/journal/2026-08-16-sprint-plan.md:9-13`; B-072 root analysis; verified B-087, B-090, B-092 and B-093 lifecycle records; B-088/B-094–B-098 lifecycle headers; existing `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`, `V1-PHASE-CLOSURE.md`, `LANE-B-WORK-ORDER.md` and `Modular_PRD.md`; Graphify query read with the stale-revision qualification below.
 
 ## Raiser correction
 
@@ -59,7 +59,7 @@ Register, Build Spec, Phase Closure, Product tracker and handoffs say what may h
 | 2 | `SETUP-SPIKE-000` is the established historical root | Keeps one identifier, Git lineage and meaning | Reject treating it as a newly invented sprint, version, live authorization or duplicate tracker | **Accept — already recorded by D-185** |
 | 3 | B-098's reset/remap proposal at `258842a` is withdrawn | Removes the false instruction to reset S0/S1, delete S0 or remap S3/S4 | Reject retaining any part as operative merely because it was committed | **Accept** |
 | 4 | “The application is not built” is kept distinct from sprint-scoped evidence already completed | Preserves real config, migration and local test evidence while maintaining honest end-to-end readiness | Reject erasing evidence or calling the full application/release ready | **Accept** |
-| 5 | Open child handoffs continue through their existing owners | B-071/B-084/B-094–B-097 retain their own lifecycle and completion criteria | Reject using B-087 planning closure or B-098 withdrawal to close them | **Accept** |
+| 5 | Open child handoffs continue through their existing owners | B-071/B-084/B-088/B-094–B-097 retain their own lifecycle and completion criteria | Reject using B-087 planning closure or B-098 withdrawal to close them | **Accept** |
 
 No new S1 definition, S3/S4 remap, demand-tier successor or sprint-status reset is required by this
 clarification. Those were consequences invented by B-098's earlier reading.
@@ -76,6 +76,7 @@ clarification. Those were consequences invented by B-098's earlier reading.
 | B-072 root/commit-authority work | **Applied**, not independently verified | D-184/D-185 changes exist; `Applied` remains provisional by channel rules |
 | B-071 ontology/route work | **Deferred** in its header; B-097 challenges later live additions | Do not call active or complete until its return protocol is resolved |
 | B-084 manual-intake source reconciliation | **Applied with residual work owned there** | B-087 may cite it; cannot close it |
+| B-088 C-39 independent review | **Open and acknowledged** | The token-boundary/checker defect remains unresolved; acknowledgement proves receipt only |
 | B-094 Chief Editor decisions | **Open** | Remaining choices and evidence still need Lane A acknowledgement/disposition |
 | B-095 manual-intake exact-write contradictions | **Open** | Existing Product/storyboard/traceability/Encyclopedia anchors still require their own correction packet |
 | B-096 state/metadata/report separation | **Open** | Logical contracts and the `GA1` check remain unanswered |
@@ -85,6 +86,28 @@ clarification. Those were consequences invented by B-098's earlier reading.
 **Completion is local to each record.** A verified planning spike proves its bounded planning outcome;
 it does not prove a working application, a corrected Product specification, a closed ontology item,
 release readiness or Graphify currency.
+
+The current open-entry ledger is therefore **six entries: B-088 and B-094 through B-098**. B-088
+must not be dropped because it is already acknowledged: acknowledgement changes receipt, not the
+entry's `Open` state or its completion evidence.
+
+## Evidence and audit anchors — two different SHAs
+
+The screenshot is now re-identifiable by filename and SHA-256 in the header. Its temporary local
+path is not treated as durable authority; the content hash is the stable evidence anchor.
+
+Lane A proposed changing B-098's former `Verified-At-Commit: 258842a` because the corrected text was
+committed later at `9e03bb3`. That diagnosis conflates the read anchor with the record's own commit:
+
+- `258842a` was correct for the rewrite committed at `9e03bb3`, because `258842a` was HEAD when that
+  rewrite was prepared;
+- `9e03bb3` is the rewrite's own commit and is derivable with Git, so D-214 deliberately does not
+  store it in `Verified-At-Commit`; and
+- this new evidence/open-ledger revision was prepared after B-097 landed at `35d3d43`, so the field
+  now correctly advances to `35d3d43` — the tree read for this revision, not this revision's future
+  commit.
+
+The field changes because the record is rewritten again, not because its prior value was stale.
 
 ## Clarifying “not built” without erasing completed evidence
 
@@ -127,7 +150,7 @@ them. The affected artifact is this open handoff itself.
 | Established spike context read as a new roadmap act | Every later clarification can silently reset the plan despite the screenshot's advisory boundary | D-185 and the baseline condition are cited; no plan changes without a separately scoped Judge act |
 | `SETUP-SPIKE-000` treated as a live sprint/status tracker | Historical provenance would compete with the operative V1 trackers | Root identity remains historical; current authority stays in the Register/Build Spec/Phase Closure/handoffs |
 | “Not built” used to erase completed artifacts | Migration/config/test evidence disappears from planning and must be rediscovered | Artifact, bounded verification, sprint status, application readiness and release readiness are reported separately |
-| B-087 verification read as closure of every routed branch | Open B-094–B-097 work becomes invisible | Each handoff closes only on its own lifecycle and evidence |
+| B-087 verification read as closure of every routed branch | Open B-088 and B-094–B-097 work becomes invisible | Each handoff closes only on its own lifecycle and evidence |
 | B-098's earlier S1–S4 proposal survives as partial advice | An erroneous roadmap can re-enter through later summaries | Lane A explicitly withdraws or supersedes the entire reset/remap proposal, with no retained operative rows |
 | Graphify query treated as current | New handoffs and corrections remain absent while semantic output appears authoritative | Final analyzed head equals final Git HEAD; coverage includes B-094–B-098; curated fragments verify; full local suite runs |
 
@@ -139,7 +162,7 @@ them. The affected artifact is this open handoff itself.
 3. Mark B-098's `258842a` reset/remap proposal withdrawn or superseded in the handoff response. Apply
    none of its proposed V1 tracking/Product changes.
 4. Preserve the verified B-087/B-090/B-092/B-093 planning records and their bounded completion.
-5. Continue B-094–B-097 through their existing decisions and completion evidence; do not consolidate
+5. Continue B-088 and B-094–B-097 through their existing decisions and completion evidence; do not consolidate
    their lifecycles into B-098.
 6. Review Product, storyboard/story panels, embedded UML/data flow, Encyclopedia and traceability only
    through the already named B-071/B-084/B-095/B-096 owners.
@@ -160,7 +183,9 @@ Graphify runtime.
 | Approve | Existing sprint/version sequence as the planning baseline | Phase 1 — preserve; no new roadmap act |
 | Approve | `SETUP-SPIKE-000` as the already-recorded historical root under D-185 | Phase 1 — cite, do not duplicate or reinterpret as live authority |
 | Approve | B-087/B-090/B-092/B-093 as completed within their bounded planning/review scope | Phase 1 — preserve their verified evidence |
+| Approve | Six-entry open ledger: B-088 and B-094–B-098 | Phase 1 — retain each lifecycle and owner |
 | Approve-with-conditions | B-098 correction as complete | Lane A acknowledges and withdraws/supersedes the whole `258842a` reset/remap proposal |
 | Reject | Resetting S0/S1, removing S0 or remapping S3/S4 from this clarification | Those were Lane B inferences, not Judge direction |
 | Reject | Treating “not built” as “no sprint-scoped artifact or test was completed” | Report artifact evidence separately from application and release readiness |
+| Reject | Re-anchoring a record to its own later commit | `Verified-At-Commit` names the tree read while writing; the disposition commit remains derivable |
 | Defer | B-071/B-084/B-094–B-097 closure, implementation and Graphify sync | Their existing owners and criteria; synchronize only after final tracked corrections |
