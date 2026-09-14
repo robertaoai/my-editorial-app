@@ -73,10 +73,10 @@ Merge **in this order** — later fragments reference nodes earlier ones introdu
 
 | # | Fragment | Carries |
 |---|---|---|
-| 1 | `docs-fragment.json` | Initial docs concepts |
-| 2 | `docs-fragment2.json` | Governance and precedence |
+| 1 | `docs-fragment.json` | **Detect manifest — not mergeable.** Historical input for initial docs concepts; skip |
+| 2 | `docs-fragment2.json` | **Detect manifest — not mergeable.** Historical input for governance and precedence; skip |
 | 3 | `docs-2026-08-18-fragment.json` | Gate model, Lines, roles |
-| 4 | `docs-fragment4.json` | Decision register concepts |
+| 4 | `docs-fragment4.json` | **Detect manifest — not mergeable.** Historical input for decision register concepts; skip |
 | 5 | `v1-fragment.json` | V1 tracking, sprints, artifacts |
 | 6 | `frag5.json` | `Fn_Specs` tier, gates and publication |
 | 7 | `frag6.json` | `D-39`–`D-50`, lifecycle and compliance |
@@ -97,6 +97,16 @@ Merge **in this order** — later fragments reference nodes earlier ones introdu
 | 22 | `frag21.json` | `D-64` — `G59` closed, `bun.lockb` committed |
 | 23 | `frag22.json` | `D-65` — bundle rejected, `G62` CI gates fail, `G63` |
 | 24 | `frag23.json` | `D-66` — `G62`b decided, ESLint CLI |
+
+**Three rows are detect manifests, not fragments (B-093 P2, 2026-09-14).** `docs-fragment.json`,
+`docs-fragment2.json` and `docs-fragment4.json` hold file-scan output (`files`, `total_files`, …)
+and no `nodes` array, so `merge7.js` crashes on them, with or without `--verify-only`. They are kept as
+historical inputs. Skip them when merging and when claiming parity: curated parity means every
+**mergeable** fragment passes `--verify-only`. Also under P2, two edges in
+`docs-2026-08-18-fragment.json` pointed at IDs that exist in no graph and were retargeted to the
+existing document nodes: `modular_prd_doc` became `modular_prd`, and `requirements_traceability_map`
+became `traceability_map_doc`. `merge7.js` stops at the first dangling edge, so the second was
+hidden behind the first; list every dangling endpoint before declaring a fragment repaired.
 
 `merge7.js` is the reference merge script (repo-relative; `merge6.js` is retained for history but hard-codes an absolute path). `missing.js` reports which docs are absent from the graph.
 
