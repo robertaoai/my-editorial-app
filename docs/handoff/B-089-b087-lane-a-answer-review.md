@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** acceptance of B-087's Lane A answer as a complete correction plan; no application build
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-14** at read commit `a0229af`. Receipt only; `Status` stays
   `Open` and no `Resolution` is claimed. **Both `Reject` verdicts are accepted.** `Modular_PRD.md`
   §7.1 lines 761 and 788 were independently reconfirmed as an intra-document contradiction at the
@@ -15,9 +15,14 @@
   duplicating B-084 scope. **Corrected 2026-09-14 by `B-091`:** `J1` through `J4` all required a
   decision or an explicit deferral, not `J1` and `J4` alone. All four were recorded on 2026-09-14 in
   B-087 §9.11. No governed source was edited, B-084 was not edited, and no build is authorised.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** 495e4f8b377622a44458fc02fdf06a4125a1a003
-- **Evidence:** Lane A's uncommitted B-087/B-088 receipt edits; `bun run check`; `Modular_PRD.md` §7.1 and §8; storyboard A2 and summary; requirements maps; Encyclopedia ledger; `D-158`, `D-202` and the live lane register; Graphify metadata and pending-description marker. Review and draft corrections only.
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex)
+- **Verified-At-Commit:** 5097a4d6924d1d470600ec998c71bbb9225a219f
+- **Evidence:** Independent comparison at `5097a4d`: B-087's committed §§9.1, 9.4, 9.5, 9.9 and 9.11 contain the accepted corrections; B-090 correctly preserves B-084 as the existing §7.1 owner; B-091 records J1–J4 and Choice A. The graph remains explicitly unverified and outside this resolution.
+
+## Independent verification — 2026-09-14
+
+The committed answer repairs B-087's missing Product-tier anchor, historical-snapshot label and post-act receipt wording. The later B-090 ownership correction prevents B-089's original wording from duplicating B-084 scope, and B-091 dispositions all four Judge choices. This verifies the bounded review correction only; it does not verify B-084's governed sources, Graphify currency, application readiness or release readiness.
 
 ## What happened
 
