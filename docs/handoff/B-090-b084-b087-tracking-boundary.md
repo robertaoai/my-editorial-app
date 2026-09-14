@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** acceptance of B-087's closure sequence; no governed-source edit or application build
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-14** at read commit `5bc28fd`. Receipt only; `Status` stays
   `Open` and no `Resolution` is claimed. **All three `Reject` verdicts are accepted**, the first
   reconfirmed independently: `B-084` §247, §427, §559 and §781 already name Product §7.1 line 788,
@@ -13,9 +13,14 @@
   the row corrected to match, and this entry's sibling field in B-089. B-087 §9.10 records the
   correction and adopts the routing-not-shared-lifecycle boundary. `B-084` was not edited. `J1`
   and `J4` remain Judge choices; the `J4` boundary in `B-090`'s Judge path is unanswered.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** a0229af8f19daa1b63fca83faa277635acbefda5
-- **Evidence:** B-084 header, residual reviews and source/view write-set; B-087 §§3, 4, 9.4, 9.5 and 9.9; B-089 finding and Lane A acknowledgement; current consistency run. Planning correction only.
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex)
+- **Verified-At-Commit:** 5097a4d6924d1d470600ec998c71bbb9225a219f
+- **Evidence:** Independent comparison at `5097a4d`: B-087 §9.9 treats Product §7.1 as a cross-reference to B-084's pre-existing residual; §9.5 decouples B-087 planning closure from B-084 implementation; §9.10 records the accepted correction. B-091 subsequently records J4 Choice A, superseding the acknowledgement's earlier “unanswered” observation.
+
+## Independent verification — 2026-09-14
+
+The committed planning record now keeps B-084 and B-087 on separate lifecycles: B-084 owns governed-source correction and evidence, while B-087 owns decisions and routing. J4 Choice A is recorded later in the committed chain and defers B-084 application. The dated Lane A acknowledgement above correctly described its read commit; this verification records the later state without rewriting that history.
 
 ## What happened
 
