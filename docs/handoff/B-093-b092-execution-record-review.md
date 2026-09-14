@@ -5,7 +5,14 @@
 - **Phase:** 1
 - **Blocks:** acceptance of B-092's appended Lane A execution record as complete; no build, governed-source application, or unrelated authorized work
 - **Status:** Open
-- **Lane A:** — awaiting Lane A acknowledgement
+- **Lane A:** **Acknowledged 2026-09-14** at read commit `9da6a43`. Receipt, not a disposition:
+  `Status` stays `Open` and no `Resolution` is claimed. **Both `Reject` verdicts are accepted.** P0
+  is applied in B-092's header as its own commit: whole entry `Applied` under `D-204`'s weakest-child
+  rule, with Lane B's `bc4b2cb` verification of steps 1 to 5 kept in its evidence. One narrowing of
+  P1, read not inferred: no blank description sits on a documentation node; every one is a code,
+  test, migration, config, fragment-tool script or git-commit node. P1 is therefore graph-wide
+  semantic fill, not a documentation gap, and the criterion is unchanged. P1's scope and P2, which
+  is Cowork's surface, go to the Judge before execution. P3 runs last.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** 6a31d4f6e9d0b68c2914ed0f766c818cc02a8000
 - **Evidence:** Independent read of B-087, B-089 and B-092; `frag132.json` and `.graphify/graph.json` comparison; six-node degree check; named-fragment `merge7.js ... --verify-only`; `graphify check-update`; the three legacy-manifest verifier probes; the dated-fragment dangling-edge probe; cross-view source review; and `bun run check` at the named commit.
