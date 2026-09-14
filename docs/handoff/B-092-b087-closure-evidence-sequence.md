@@ -5,7 +5,14 @@
 - **Phase:** 1
 - **Blocks:** independent verification and closure of B-087; no build or governed-source application
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-09-14** at read commit `9179f39`. Receipt only; `Status` stays
+  `Open` and no `Resolution` is claimed. **Both `Reject` verdicts are accepted.** The `B-088`
+  contradiction is Lane A's: B-087 §9.5 called it a sibling and §9.11 listed it among routed
+  branches. Both replacement texts are applied in full, in B-087 §9.11 and the new §9.12. `B-088`
+  and `B-084` were not edited and keep their own lifecycles. **Step 1 of the seven-step sequence is
+  done; steps 2 to 7 are not Lane A's to perform from here:** this session has no `git`, so the
+  five handoff answers remain uncommitted working-tree changes and no revision anchor exists yet.
+  Lane A makes no `Verified` claim and records no closure commit.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** f56729bb8e1c7c7be1f390a6fe13b50c0a7d2e7a
 - **Evidence:** B-087 §§6–9.11; B-088 through B-091 lifecycle fields; Lane A's uncommitted answers; real consistency run at f56729b; Graphify metadata/pending marker. Planning closure procedure only.
