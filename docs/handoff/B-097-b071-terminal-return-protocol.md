@@ -7,8 +7,8 @@
 - **Status:** Open
 - **Lane A:** — awaiting Lane A acknowledgement
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** 0bde41ca27fc66f8491f0b87bba1af9d78a2bfe1
-- **Evidence:** B-071 header and Rounds 54–56 at `0bde41c`; `docs/handoff/README.md` sections *Response is not closure* and *Worked scenarios*; `docs/handoff/TEMPLATE.md`; `handoff-response`, `closure-readiness` and `channel-docs`; storyboard Paths A/B; Route-1 crosswalk and B-071 `B071-R197`, `R204`–`R208`; Graphify query read with the stale-revision qualification below.
+- **Verified-At-Commit:** 9e03bb349147971f622080b8fae57eb47c88d36b
+- **Evidence:** B-071 header and Rounds 54–56; Chief Editor/Judge's 2026-09-14 `Judge Approved: decision-tree decision` instruction and present direction to name the return condition and act; `docs/handoff/README.md` sections *Response is not closure* and *Worked scenarios*; `docs/handoff/TEMPLATE.md`; `handoff-response`, `closure-readiness` and `channel-docs`; storyboard Paths A/B; Route-1 crosswalk and B-071 `B071-R197`, `R204`–`R208`; Graphify query read with the stale-revision qualification below.
 
 ## What happened
 
@@ -58,8 +58,8 @@ Lane A must therefore present these exact choices:
 | **B — separate ontology-correction authorization** | Name the Judge act, exact correction scope and date | Return B-071 for that correction only; S2 remains held unless separately released |
 | **C — neither condition occurred** | Confirm Rounds 54–56 are advisory direction, not a return act | Keep B-071 terminal; open a new bounded item before further active analysis |
 
-**Recommendation from current evidence: C unless the Judge supplies the missing act.** This is an
-evidence recommendation, not a substitute for the Judge's answer.
+**Historical recommendation at `0bde41c`: C unless the Judge supplies the missing act. Superseded by
+the named Judge resolution below.**
 
 ## Draft fix — handoff return contract
 
@@ -166,8 +166,8 @@ journeys.
 ## Lane A follow-up
 
 1. Acknowledge B-096 and this entry so the feedback queue is visibly read.
-2. Present the B-071 return choices A/B/C to the Judge; do not infer the missing act.
-3. Apply the selected B-071 lifecycle treatment before adding another round to it.
+2. Apply the named Choice B return condition and act below; do not release the separate S2 hold.
+3. Correct B-071's lifecycle header and append its return record before adding another round to it.
 4. Draft and review the SOP/template/check fixture packet above; preserve one current state and one
    historical return record.
 5. Carry the orthogonal-partition and singular-reviewer wording into B-071's existing correction
@@ -191,7 +191,48 @@ A's SOP/template/checks, run Graphify synchronization, build code, change schema
 | Approve | B-097 as the owner of the deferred-entry return defect | Phase 1 — Lane A acknowledgement and Judge choice A/B/C |
 | Approve | Storyboard commercial paths and `ROUTE-*` editorial slices as orthogonal dimensions | Phase 1 — wording returns to B-071's existing packet |
 | Approve | Route 1 has one virtual T5 review act plus one separate human T5 final judgment | Phase 1 — B-071 propagation packet, still held from source application |
-| Approve-with-conditions | Returning B-071 to `Open` | Name the exact return condition and governing act first |
+| Approve-with-conditions | Returning B-071 to `Open` | Lane A applies the exact Choice B return record named below |
 | Reject | Claiming the B-071 header correction already landed | Repository evidence at `0bde41c` contradicts the claim |
 | Reject | A Lane B-raised `C-NNN` entry, a new `Returned` status, or duplicate Product owners | Use B-097, existing status vocabulary and B-071's established ownership |
 | Defer | SOP/check application, governed-source propagation, implementation and Graphify sync | Judge choice, Lane A patch, independent review, then final graph synchronization |
+
+## Judge resolution — return condition and act named (2026-09-14)
+
+The Chief Editor has now directed that the return condition and its act be named. Of B-071's two
+recorded alternatives, only the second is compatible with the evidence:
+
+| Return field | Named value |
+|---|---|
+| **Previous resolution** | `Deferred` |
+| **Return condition** | The ontology correction is separately authorized |
+| **Act satisfying it** | Chief Editor/Judge, 2026-09-14: `Judge Approved: decision-tree decision`, directing Lane B to consolidate B-071's ontology, route, actor/gate and artifact-impact analysis for Lane A review |
+| **Scope opened** | B-071 planning, decision-tree consolidation and handoff correction only |
+| **Explicitly unaffected** | `D-171` S2 hold; governed-source application; Product/Fn_Spec/SPECS changes; schema or code; sprint/lane transition; publication and release |
+
+This is **Choice B**, not Choice A. The S2 hold remains active. The act authorizes the ontology
+correction to return for planning and handoff disposition; it does not authorize implementing that
+correction in governed sources or software.
+
+### Exact B-071 return record for Lane A
+
+```markdown
+## Return record
+
+- **Previous-Resolution:** Deferred
+- **Return-Trigger:** Ontology correction separately authorized
+- **Return-Act:** Chief Editor/Judge, 2026-09-14 — `Judge Approved: decision-tree decision`; B-071 planning and handoff correction only
+- **Returned-At-Commit:** 9e03bb349147971f622080b8fae57eb47c88d36b
+```
+
+Lane A now has a complete, bounded act to apply: change B-071's whole-entry status to `Open`, omit
+its terminal `Resolution` and `Follow-up-Tier`, use the current raised/not-yet-dispositioned audit
+form required by the channel rule, and append the return record. The prior Lane A header draft stays
+withdrawn because it lacked this trigger and act; B-097 supplies the replacement.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | Choice B — separate ontology-correction authorization | Phase 1 — Lane A applies the exact B-071 return record |
+| Approve | S2 hold remains fully active | Phase 1 — no build or governed-source application follows from the return |
+| Reject | Choice A — S2 hold release | No Register/Judge act supports it |
+| Reject | Treating the decision-tree approval as implementation authority | The act opens planning and handoff correction only |
+| Defer | B-071 source propagation and implementation | Separate exact authorization after the returned entry is dispositioned |
