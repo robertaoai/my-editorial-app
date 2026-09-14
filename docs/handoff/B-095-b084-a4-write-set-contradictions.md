@@ -12,11 +12,6 @@
 
 ## What happened
 
-B-095 was first presented in Lane A's report as a proposed Lane B entry. Lane B independently read
-the named owners at `7600780`, verified each finding below and adopts this file as its own handoff.
-The Lane A draft was review input; this independent review is the act that raises the entry and
-preserves the B-series attribution boundary.
-
 B-094 `A4` asks the Chief Editor to accept or reject an exact write set over B-084's existing
 owners. Four of those owners currently state something that is not true at this commit, so a diff
 drafted against them would carry the contradiction forward rather than close it. Each item below
@@ -44,21 +39,11 @@ and §4 records `Uncovered = 0`. The gaps table names the wrong outstanding thin
 contradicts the section it indexes. The storyboard repeats the narrow form at Panel B2: *"resolved
 **manually** to a reviewable public source **URL**"*.
 
-**This is the B-084 `A1` contradiction surfaced in governed text.** The later Chief Editor sample
-settles its structural direction: a bare source reference is not the demonstrated full intake;
-manual intake combines the reference with an original-artifact analysis and a new-article brief.
-The remaining `A4` choice is field requiredness. Lane A must present one mandatory/optional matrix
-instead of assuming every example field is required or collapsing the package back to a URL.
-
-The matrix must preserve these distinct classes:
-
-| Class | Example from the supplied package | Required treatment |
-|---|---|---|
-| Source evidence | source reference; attributed key claims/data | Preserve attribution; do not turn extraction failure into invented metadata |
-| Editorial observation | source-bias assessment; missing angles | Label as Chief Editor analysis, not a source fact |
-| Editorial hypothesis / commission intent | “transaction collapse”; proposed angle and objective | Preserve as a proposition to investigate and draft, not a verified conclusion |
-| Research lead | candidate statistics, interviews, papers and historical comparisons | Remain unverified until the investigation gate supplies evidence |
-| Commission metadata | word-count target and deadline | Optional unless the Chief Editor explicitly makes either field mandatory in `A4` |
+**This is B-084 `A1`, surfaced as a live contradiction rather than an open question.** It is not
+correctable by editorial preference: the Chief Editor must first say whether a manually supplied
+source reference alone satisfies "source information", or name the minimum additional supplied
+information. Either answer makes one wording right and the other wrong; neither can be applied
+before the answer exists.
 
 ### `D3` — the storyboard's supersession reached the panel and not the roll-up
 
@@ -88,14 +73,11 @@ rather than living only inside a decision packet.
 Acknowledgement, then this order. It is parent-before-dependent and no step may be merged with the
 one above it.
 
-1. **Lane A drafts the `A4` mandatory/optional field matrix.** It uses the supplied two-object
-   structure and the epistemic classes above; it does not treat the sample as self-authorizing
-   every field.
-2. **Lane A drafts the `A4` diff for `D1`, `D3` and `D4`**, which do not depend on field
-   requiredness.
-3. **Lane A drafts `D2` as one structural wording across both documents**—manual source reference
-   plus structured analysis/brief—then presents the field matrix and clause text together for the
-   Chief Editor's accept/reject decision. `FN-GATES` §2 and `Modular_PRD` §7.1 must not disagree.
+1. **Chief Editor answers `A1`.** `D2` cannot be corrected in either direction before it.
+2. **Lane A drafts the `A4` diff for `D1`, `D3` and `D4`**, which do not depend on `A1`, and holds
+   `D2`'s clause text until `A1` is answered.
+3. **`D2` is then drafted as one wording applied to both documents**, so `FN-GATES` §2 and
+   `Modular_PRD` §7.1 cannot disagree again.
 4. **No new identifier and no new artifact.** Every changed clause traces to B-084; the frozen
    `PRD.md` and Charter remain unchanged.
 5. **Graphify synchronization stays last**, per B-094's follow-up step 8. At this commit
@@ -112,6 +94,6 @@ did not select a lane, and did not change any lifecycle state.
 | Verdict | Item | Follow-up |
 |---|---|---|
 | Approve | `D1`, `D3`, `D4` as correctable now, independently of `A1` | Phase 1 — inside B-084's `A4` diff |
-| Approve-with-conditions | `D2` structural direction | Phase 1 — Lane A drafts the mandatory/optional field matrix and exact clause for Chief Editor acceptance |
-| Reject | Treating the sample as proof that every field is mandatory, or merging source facts, editorial observations, hypotheses and research leads | B-094/B-095 acceptance evidence must preserve field requiredness and epistemic class |
+| Approve-with-conditions | `D2` | Phase 1 — blocked on the Chief Editor's `A1` answer |
+| Reject | Drafting `A4` clause text for `D2` before `A1` is answered | B-094 names this as a guaranteed failure |
 | Defer | Graphify synchronization and its curated fragments | After the final tracked correction, per B-094 step 8 |
