@@ -331,3 +331,95 @@ the supply sentence from being rewritten twice.
 | Defer | `A1` Choice B | Chief Editor chooses only if reduced intake effort is worth missing structured context |
 | Reject | `A1` Choice C | Contradicts B-094's structured manual-intake direction |
 | Reject | External fact-checking inside A1 or treating explicit unknowns as verified facts | Preserve the T1 versus T2/T3 boundary |
+
+---
+
+## Judge direction on `A1` and `M1`–`M3`; verified substrate consequence
+
+**Judge direction, 2026-09-14:** carry `A1` Choice A and answer `M1`–`M3` as recommended below.
+This records the decision for Lane A propagation; it does not itself amend the Register, governed
+specifications or schema.
+
+| ID | Accepted answer | Completion evidence |
+|---|---|---|
+| `A1` | Structured original-artifact analysis with explicit unknowns | The one Step 3 supply sentence uses the accepted definition and all four URL/reference locations agree |
+| `M1` | `new_article_brief` is **P — package-required, non-gating** | An absent brief marks the package incomplete but does not refuse T1 |
+| `M2` | `.deadline` is **P — package-required, non-gating** | A placeholder or absence marks package incompleteness, never a T1 validation failure |
+| `M3` | Attribution is recorded **per `.key_claims` item** | Every item has its own proposition and attribution target; aggregate free text cannot satisfy the rule |
+
+The accepted requiredness vocabulary is:
+
+| Class | Meaning |
+|---|---|
+| `G` | Missing or empty causes a named T1 validation failure; T1 does not complete |
+| `P` | Required for commission-package completeness but does not block T1 |
+| `O` | Optional; absence has no gate or package-completeness effect |
+
+### `S12` — the storage gap is confirmed against the applied schema migration
+
+Lane B read both frozen `0001_init.sql` and additive `0002_s1_editorial_schema.sql`. The gap is hard,
+not indicative:
+
+- `articles` has `url text not null`, `summary`, `topic_id`, `editorial_angle` and related workflow
+  fields, but no structured original-artifact analysis or new-article brief.
+- `sources` gains only `reliability_tier` and `ingestion_method` in `0002`; it has no per-article
+  bias, audience, missing-angle or claim record.
+- `trend_signals` has generic `signal_type`, `signal_value`, `source`, `confidence`, plus
+  `evidence_url` and `reviewer_confidence`. It has no assessment mode, baseline/as-of fields,
+  newsworthiness rationale or distinct supplier provenance for the selected object.
+- `0002` does not relax `articles.url text not null`, although `D-121` permits another reviewable
+  reference.
+
+Reusing `articles.summary`, `articles.editorial_angle` or a generic `trend_signals.signal_value`
+would make the new contract physically storable only by discarding its meaning. A4 therefore names
+a **Lane B data-requirement follow-on** that must represent the five namespaces, G/P/O semantics,
+supplier and executor as separate facts, reassessment history, and URL-or-other-reference input.
+That consequence authorizes no migration, schema design or build.
+
+### `S13` — Step 1 and Step 4 disagree on two trend-section classes
+
+Lane A's Step 1 draft labels all common trend fields required, including `research_leads`, then its
+validation table says empty research leads are permitted. Step 4 correctly classifies
+`.research_leads` as `O`. The same matrix makes `.newsworthiness_assessment` `G`, although FR-01
+requires a trend-signal description and does not state that a numeric newsworthiness rating blocks
+T1.
+
+Apply one consistent rule before Step 5:
+
+| Field | Class | Reason |
+|---|---|---|
+| `.current_signal_and_why_it_matters_now` | `G` | This is the governed trend-signal description |
+| `.assessment_mode`, `.as_of_date` | `G` | Required to interpret and audit the accepted conditional description |
+| reassessment-only delta fields | `G` in reassessment; absent in first intake | Define the accepted second-pass form without invented history |
+| `.research_leads` | `O` | A lead may not yet exist and is not the T1 description |
+| `.newsworthiness_assessment` | `P` | Valuable package context, but no current requirement makes its rating a T1 gate |
+
+Making `.newsworthiness_assessment` `G` requires a separate Register act that explicitly changes
+the gate; it cannot enter through the field matrix. This correction preserves the selected template
+while preventing an unapproved gate condition.
+
+### Naming rule and Step 5 readiness
+
+`new_article_brief.unique_angle` remains namespaced commission intent supplied at T1.
+`articles.editorial_angle` remains the Investigator's T3 result. A T1-supplied field and a
+T3-derived field never share a storage name or verification status.
+
+Lane A may draft Step 5 after it incorporates `M1`–`M3` and the decision-free `S13` correction. The
+same-article journey must prove separately that:
+
+1. a P-class missing brief/deadline does not block T1 but leaves the package incomplete;
+2. every G field is present and the Reporter executes T1;
+3. T2/T3 verification changes evidence status without rewriting the Chief Editor's intake record;
+4. the returned article enters reassessment, preserves the first assessment, and reaches LinkedIn
+   `ManualReady` only after the governed review path; and
+5. no field is claimed implemented until the later Lane B data requirement is authorized and
+   verified against real persistence.
+
+| Verdict | Item | Follow-up |
+|---|---|---|
+| Approve | `A1` Choice A and `M1`–`M3` as recorded | Phase 1 — Lane A incorporates them into Steps 3–5 |
+| Approve-with-conditions | Step 4 field matrix | Phase 1 — correct `S13` and carry the verified `S12` data requirement |
+| Approve-with-conditions | Step 5 same-article journey | Phase 1 — prove G/P/O behavior and T1 versus T2/T3 provenance separately |
+| Reject | Reusing generic summary, angle, confidence or signal text as proof the structured contract is supported | A named, reviewable data requirement must precede later schema authorization |
+| Reject | Making newsworthiness rating T1-gating through A4 | Requires a separate Register act |
+| Defer | Schema design, migration and code | Lane B implementation phase after explicit authorization |
