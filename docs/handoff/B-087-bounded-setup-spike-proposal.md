@@ -5,7 +5,11 @@
 - **Phase:** 1
 - **Blocks:** acceptance of this consolidated alignment packet as complete; no unrelated authorized work; existing execution holds remain independently binding
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-09-14** at read commit `495e4f8`. Receipt and consolidated
+  answer, not a disposition: `Status` stays `Open`, no `Resolution` is claimed, and the raiser's
+  `Verified-By`/`Verified-At-Commit` anchors are left untouched because this entry is still in the
+  raised-not-dispositioned position. The answer is §9 below. It applies no source correction and
+  closes nothing. `B-088` is acknowledged in its own file.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** b594f97a2d9c9cd06a36ff927e2cc2f00c7bffb0
 - **Evidence:** 2026-09-14 clarification of section 3 against b594f97; named Product, storyboard/embedded sequence/data-flow, source-graph and Encyclopedia-ledger clauses rechecked; no docs changed since the prior review. Prior broader review and limitations remain below. Separate working-tree checker/fixture edits are not this handoff's work. No application test, product walkthrough, source application, graph synchronization or closure claimed.
@@ -200,6 +204,402 @@ The [Encyclopedia ledger](../ENCYCLOPEDIA-SYNC.md) was read. An attempt to open 
 | Defer | Whole-folder V0 rename, release reallocation and commercial/access scope | Product/roadmap decision — explicit mapping and governing authority |
 | Defer | Graph currency and hosted Encyclopedia parity claims | Phase 1 — Lane A synchronization and separately readable hosted evidence |
 | Reject | Blanket handoff closure or application/release completion from setup evidence | Phase 1 correction of claim; Phase 2/3 retain their own acceptance evidence |
+
+## Lane A answer, 2026-09-14
+
+### 9. Consolidated completion ledger, confirmed gaps and parent-first order
+
+#### 9.0 Read anchor and the tooling limitation, stated first
+
+Read commit: **`495e4f8b377622a44458fc02fdf06a4125a1a003`** (`refs/heads/docs/journal-2026-08-16`).
+Graph record at the same moment: `.graphify/branch.json` `lastAnalyzedHead = 395ab83`, `stale: false`.
+
+**No check was executed.** The workspace shell on the reviewing host could not mount the repository
+(`sandbox-helper: no Plan9 drive shares mounted`), so `bun run check`, `git` and Graphify were
+unavailable. Every result below is one of two kinds, and each is labelled:
+
+- **Reproduced**: the check's own logic re-run against the same inputs it reads
+  (`scripts/checks/docs-drift.mjs`, `scripts/checks/graph-coverage.mjs` via
+  `docs/graph-fragments/missing.js`), using the file contents at the read commit.
+- **Read**: a literal quotation of file content at the read commit.
+
+Nothing here is a green-suite claim, and the working tree was not confirmed clean. Lane B must
+re-run `bun run check` on a working host before any of this is treated as check evidence.
+
+#### 9.1 Handoff completion ledger, all 89 entries, header fields at `495e4f8`
+
+> **Historical snapshot only.** The values below were observed at `495e4f8`; they are not a second status authority and must not be refreshed or cited as current without a new check at a named revision.
+
+Parsed line-bounded, the way `handoff-fields.mjs` parses, not with the `\s*` pattern that produced
+`B-017`'s false green. **Result: the handoff metadata is healthy.** Zero entries violate `D-204`
+(`Answered` and not `turn-report` and no `Resolution`); zero non-turn-report entries carry a blank
+`Verified-By` or `Verified-At-Commit`; zero turn reports carry a forbidden closure field.
+
+| Record state | Count | Terminal under `D-102`? | What it means for closure |
+|---|---|---|---|
+| `Verified` | 52 | Yes | Satisfies a closure condition at its own named evidence revision, and nothing wider |
+| `Superseded` | 7 | Yes | Each names its `Superseded-By` decision |
+| `Deferred` | 4 | Yes | `B-016`, `B-071`, `B-077`, `C-001`; each names a `Follow-up-Tier` |
+| `Applied` | 20 | **No** | Landed in the tree, **nobody independent has confirmed any of them** |
+| `Open` | 2 | No | `B-087`, `B-088` |
+
+**Completed, in the only sense the SOP recognises: 63 of 89.** The remaining 26 split into 20
+unverified applications and 2 open findings, plus the 4 turn reports which take no `Resolution` and
+are counted separately by checks 10 and 13 rather than dropped.
+
+#### 9.2 The largest single gap, and it is already owned
+
+The 20 `Applied` entries are the whole of the unreconciled population:
+
+`B-011` `B-014` `B-015` `B-021` `B-033` `B-041` `B-050` `B-061` `B-062` `B-065` `B-066` `B-067`
+`B-070` `B-072` `B-073` `B-074` `B-075` `B-076` `B-084` `B-086`
+
+**No new tracker is opened for them.** `B-077` already owns this as its Child 2, "the legacy
+`Applied` reconciliation", `Deferred` with `Follow-up-Tier: Phase 1`, each entry needing its own
+review question answered rather than a bulk promotion.
+
+**One quantified change since that deferral, and it is the finding worth recording.** `B-077`'s own
+Lane A acknowledgement, dated 2026-09-03, sizes the population at **16 entries**. At `495e4f8` it is
+**20**. The deferred backlog grew by four while deferred. A deferral with a named owner is terminal
+for the record and is not terminal for the work; on the present trend the reconciliation cost rises
+faster than it is being paid down. Commit-level attribution of which four were added is not
+available in this pass because `git` could not be run.
+
+**Consequence, stated plainly:** Phase 1 cannot close on the current record regardless of any
+product decision, because 20 of its corrections rest on `Applied`, which `D-102` deliberately made
+non-terminal. That is independent of `J1` through `J4` and of `B-088`.
+
+#### 9.3 Docs drift and Graphify sync, reproduced
+
+**`docs-drift`: FAIL (reproduced).** `docs-drift.mjs` compares `branch.json.lastAnalyzedHead`
+against `git rev-parse HEAD` and ignores the `stale` flag unless it is explicitly `true`. Its exact
+failing condition holds:
+
+> graph is STALE, last analyzed `395ab83`, HEAD is `495e4f8`.
+
+`stale: false` sits beside unequal commits. §7 above already stated the rule at `fa30c2b`: the
+unequal commits prove the graph is behind and the boolean cannot override that. It is now true again
+at a different pair of commits.
+
+**`graph-coverage`: FAIL (reproduced).** Running `missing.js`'s membership test against
+`.graphify/graph.json` over all 91 files in `docs/handoff/`, exactly two are absent:
+
+- `docs/handoff/B-087-bounded-setup-spike-proposal.md`
+- `docs/handoff/B-088-c39-independent-review.md`
+
+`Modular_PRD.md`, `ENCYCLOPEDIA-SYNC.md`, `docs/README.md`, both governance maps, the storyboard,
+`V1-PHASE-CLOSURE.md` and both module requirement files are present. **This corrects `B-088`'s
+report of a single omission:** at `395ab83` the graph lacked `B-087`; at `495e4f8` it lacks `B-087`
+and `B-088`. `B-088`'s own remediation entry is now itself an uncovered document.
+
+**Semantic completion: absent (read).** `.graphify/.graphify_describe_pending` exists and reads:
+
+> Graph rebuilt by the fast git hook without descriptions/labels. Run `graphify update --fill-missing` to fill them.
+
+So the current graph is a structural rebuild with no descriptions or labels. Per §7 above,
+`--fill-missing` alone is not semantic completion and bare `merge7.js` covers only `frag7`. **Head
+alignment, coverage and semantic parity are three separate claims and none of them currently holds.**
+
+**This is a recurrence, not a new class.** `B-041` ("Graphify matches HEAD but is not semantically
+complete or portable") and `B-050` ("Hook rebuild again resets Graphify branch metadata") both
+describe exactly this shape, and **both are `Applied` and neither is independently `Verified`**. The
+condition they describe is live at the read commit. That is the 9.2 gap producing a concrete,
+observable cost rather than a bookkeeping complaint.
+
+#### 9.4 Cross-artifact reconciliation at `495e4f8`, read not inferred
+
+The §4 draft fixes were rechecked against current file content. **All remain unapplied, and one is
+sharper than §4 recorded it.**
+
+**`CR-14` carries two incompatible statuses across six governed files.** Each anchor is named below
+rather than tallied; a restated count is the drift mechanism `G55`, `G56` and `G58` record.
+**Corrected 2026-09-14 (`B-089`): the first two rows were omitted from this table's first writing.**
+They are listed first because `D-29` puts the Product tier above the storyboard and the source graph:
+
+| File | Line | Literal text | Says |
+|---|---|---|---|
+| `Modular_PRD.md` §7.1 | 761 | "`CR-14` covered as the **ratified manual contract**; future AI tagging/scoring is `PBL-11`" | Covered |
+| `Modular_PRD.md` §7.1 | 788 | "No FR requires AI topic, source, and trend-signal tagging at the Reporter gate \| **Missing functional requirement — FB-05**" | **Uncovered** |
+| `governance/requirements-traceability-map.md` | 141 | "**Covered as the ratified manual contract** (`D-194`, Addendum §2.4; choices in `D-197`)" | Covered |
+| `governance/requirements-traceability-map.md` | 159 | "⚠ **Uncovered** \| **0** \| *(was `CR-14`)*" | Covered |
+| `docs/README.md` | 30 | "*now wrong: `CR-14` was covered by `D-194`/`D-197`*" | Covered |
+| `governance/requirements-scope-knowledge-graph.md` | 23 | "`PS -->|has no functional requirement| GAP14[\"CR-14: AI tagging gap\"]`" | **Uncovered** |
+| `governance/requirements-scope-knowledge-graph.md` | 98 | "CR-14 AI tagging at Reporter gate \| Uncovered" | **Uncovered** |
+| `journal/…-storyboard-…md` | 71 | "`CR-14` (AI tagging at the Reporter gate) has **no FR**" | **Uncovered** |
+| `journal/…-storyboard-…md` | 91 | "**The `FB-05` annotation above is NOT superseded**" | **Uncovered** |
+| `journal/…-storyboard-…md` | 281 | "Required `trend_signal` at T1 has no defined producer" | **Uncovered** |
+
+**`Modular_PRD.md` §7.1 contradicts itself inside one section (read).** Line 761 and line 788 sit in
+the same Product Scope Matrix, 27 lines apart. One records `CR-14` as Full and covered by FR-01's
+ratified manual contract; the other records it as a missing functional requirement. This is worse
+than the cross-file disagreement below, because it is intra-document and at the governed Product
+tier, which under `D-29` outranks every derived view listed here. **`B-089` raised this omission and
+Lane A accepts it:** the first writing of this table reviewed §0.6 and §8 and did not read §7.1.
+
+**Owner: `B-084`'s existing source packet.** No new product tracker is created and `B-084`'s own
+`Applied` disposition and evidence scope are left exactly as recorded. `B-089`'s exact packet text is
+reproduced in 9.9 for `B-084`'s owner to bind under `J4`.
+
+§4 named two locations in the storyboard. **There are three**, and line 281 in §4 of the storyboard
+("What the storyboard reveals") is a summary row that the proposed A2 replacement text does not
+reach. The complete A2 replacement paragraph in §4 above is still the right text for lines 73 to 92;
+line 71's panel annotation and line 281's summary row each need their own bounded edit or they will
+survive the patch and reproduce the contradiction.
+
+**`ENCYCLOPEDIA-SYNC.md` Entry 06 is stale by the ledger's own rule and is not marked stale (read).**
+Entry 06 declares its dependencies as `docs/governance/requirements-traceability-map.md` §4 and §7,
+and carries `Last verified at: f7b3aea`. That named dependency changed on 2026-09-08 when `CR-14`
+joined the Covered set under `D-194`/`D-197`. Entry 05 carries an explicit
+"**stale: `D-168` affects this entry**" note; Entry 06 carries no such note despite meeting the same
+condition. **The correct fix is the stale marking, not the verification SHA.** §4 above already says
+not to advance the anchor, and that instruction is correct: hosted content is still unreadable
+(`DEP-05`-class access limitation), so parity cannot be verified and must not be claimed.
+
+**`D-37` provenance contradiction persists (read).** `docs/README.md` line 40 still reads "It was
+generated at scaffolding time from the project name and summary". `D-37` records the plan pack as
+coming from the project's Q&A flow alongside `docs/PRD.md`. The complete provenance paragraph in §4
+above is the replacement. `AGENTS.md` and `CLAUDE.md` lines 22 and 89 reference the plan pack
+without restating the origin claim, so **the shared-core triple edit is narrower than §4 assumed**:
+the origin sentence needing correction is in `docs/README.md`, and the rule files need only the
+shared-core paragraph if the correction is routed through `shared-core-hash`. Confirm against the
+third rule file under `.codex/` before binding the patch.
+
+**`Modular_PRD.md` §8 has no setup mapping (read).** §8 "Execution Mapping" begins at line 890. Its
+`V1` row is a single narrative cell of accumulated dated corrections with no setup-versus-product
+classification and no `V0` mapping anywhere in the file. §2's matrix remains the proposal input, and
+`J1` remains the only concrete label choice available.
+
+**Lane state (read).** `V1-PHASE-CLOSURE.md` §5: **A `Active`, B `Eligible`, C `Blocked` on `C-18` /
+`Eligible` for `C-Q1`.** Unchanged. Lane A holds the lock, so this acknowledgement is in position.
+
+#### 9.5 Parent-first order, highest parent first
+
+Root parent is this entry's §2 baseline alignment. **`B-088` is a sibling, not a child.** Its own
+§53 states that no sprint closes and `Modular_PRD` §8 is unaffected by the guard correction, so the
+actor-guard track does not gate product alignment in either direction.
+
+| # | Depends on | Bounded unit | Owner | Done when | Cost if skipped |
+|---|---|---|---|---|---|
+| **0** | nothing | Acknowledge `B-087`, `B-088` and `B-089`. **Done for all three** as of 2026-09-14; `handoff-response` passes, confirmed independently by `B-089` | Lane A | `handoff-response` reports no finding for any of the three | Entries fail check 10 as "feedback sits unread" |
+| **1** | 0 | Answer `J1`: accept "setup/scaffold evidence" as a descriptive classification, or request a formal `V0` mapping proposal | Chief Editor | One recorded choice | §2's matrix cannot be presented; §8 stays unmapped |
+| **2** | 0, **not** 1 | `B-084` source packet: reconcile `CR-14` across every anchor named in 9.4 using `D-219`–`D-222`. **`Modular_PRD.md` §7.1 line 788 is the highest-tier anchor and leads the packet.** Three storyboard locations, not two | Lane A / Cowork under `J4` | Every anchor named in 9.4 states one `CR-14` status, and §7.1 no longer contradicts itself; `FB-05` independently verified | The Product spec keeps contradicting itself and its own FR-01; `G105` stays open |
+| **3** | 2 | `ENCYCLOPEDIA-SYNC.md` Entry 06: add the stale marking and its reason. Do **not** advance `f7b3aea` | Ledger owner | Entry 06 carries a stale note in Entry 05's form | Ledger under-reports staleness on the entry the `CR-14` fix touches |
+| **4** | 2 | `docs/README.md` line 40 provenance sentence, plus the shared core if `shared-core-hash` requires it | Lane A / Cowork under `J4` | `shared-core-hash` passes; origin claim matches `D-37` | `B-085`'s accepted notices sit beside a contradicting origin sentence |
+| **5** | 2, 3, 4 | Graphify sync: `hook-rebuild`, confirm `lastAnalyzedHead` **equals the final committed HEAD** (a lower bound is not a criterion), re-merge `docs/graph-fragments/` in dependency order with explicit file arguments, `--fill-missing`, then confirm node and edge meaning survived | Claude Code operates; Cowork supplies curated meaning | `docs-drift` and `graph-coverage` both report no finding, and `.graphify_describe_pending` is gone | Every later review reads a graph that is behind, uncovered and unlabelled |
+| **6** | 1 | `J2` examples and `J3` allocation, once the Chief Editor supplies one article, one revision reason and available hours | Lane A drafts, Chief Editor accepts | Examples accepted or corrected by step | Product acceptance has no concrete input |
+| **7** | its own accepted output, **not** step 2's completion | Close the planning spike. See the `B-090` replacement text below this table | Lane B verifies; Judge closes | `J1`–`J4` decided or explicitly deferred, and every branch has an owner, dependency and completion evidence | `B-087` closes on an answer rather than on evidence, **or** stalls behind work it does not own |
+| **S** | independent | `B-088` `P1` token-boundary repair and its labelled negative probes | Cowork authorises, Code repairs | Unknown identifier continuations reject; nine positives and six negatives unchanged | `Lane B_fake` stays accepted as `Lane B` |
+| **X** | Phase 1 policy | `B-077` Child 2: legacy `Applied` reconciliation, now 20 entries | Lane A classifies, Lane B reviews | Each entry has one bounded disposition | Phase 1 cannot close; population keeps growing |
+
+**`B-090`'s replacement for step 7, applied in full 2026-09-14:**
+
+> **Close the planning spike on its accepted output.** Lane B independently verifies B-087's bounded answer and routing. B-087 may close when J1–J4 are decided or explicitly deferred and every branch has an owner, dependency and completion evidence. B-084 closes separately after its actual governed-source correction and independent verification. If J4 expressly includes B-084 application in this iteration, record that dependency and wait for its evidence.
+
+This restores §7 of this entry's own closure rule, which requires a truthful **disposition** of every
+requested part, including named deferrals, not the **completion** of every branch. The earlier step 7
+made `B-087` wait on `B-084`; that coupling was Lane A's and is withdrawn.
+
+**Steps 2 and 1 are independent.** §3.3 above already says `J1` does not block `B-084` contract
+corrections. Holding step 2 for a label decision would be the appeasement shape this backlog is
+meant to prevent.
+
+#### 9.6 Drafted and not applied: `B-088`'s acknowledgement
+
+Authority to edit `B-088` was not requested in this pass, so the following is specified and not
+applied. It is exactly one field. Replace `B-088`'s blank `- **Lane A:**` line with:
+
+> - **Lane A:** **Acknowledged 2026-09-14** at read commit `495e4f8`. Receipt only, and a review
+>   result recorded separately from any correction, per `P0`. The demonstrated underscore-suffix
+>   defect is accepted as a failed verification; no actor-guard or `C-39` completion claim is
+>   accepted. `P1` is not authorised by this receipt. One correction to the entry's §28: at
+>   `495e4f8` `graph-coverage` lacks **both** `B-087` and `B-088`, not `B-087` alone.
+
+#### 9.7 Lexicon, so the terms below carry one meaning each
+
+Recorded because this answer mixes three vocabularies that have collided before in this corpus.
+
+| Term | Means here | Does **not** mean |
+|---|---|---|
+| **Completed** | Terminal `Resolution`: `Verified`, `Superseded` or `Deferred`-with-tier | `Applied`; an answered question; a green check |
+| **Applied** | A correction is in the tree at a named commit, unconfirmed by anyone independent | Done, closed, or countable toward phase closure (`D-102`) |
+| **Verified** | Confirmed by a named actor who is not the answering side, at a commit that exists | Acknowledged, reviewed by the author, or observed green |
+| **Acknowledged** | Receipt. Clears check 10's unread condition | An answer, a disposition, or an authorisation |
+| **Gap** | A reproducible disagreement between two governed statements, or a required evidence item that does not exist | A missing feature, a risk, or an unranked backlog candidate |
+| **Drift** | `lastAnalyzedHead` differs from `HEAD` | Documents disagreeing with each other, which `docs-drift` cannot see |
+| **Coverage** | A document's basename appears in `.graphify/graph.json` | Its meaning is represented, labelled, or semantically current |
+| **Lane A / B / C** | Development lanes in `V1-PHASE-CLOSURE.md` §5 | The storyboard's business paths A and B |
+| **Judge / Chief Editor** | The user making project decisions | Any in-app executor name, which is `B-071`'s unresolved question |
+| **Accept / Reject** | Decision choices in §3.1 and in the verdict tables | `Resolution` values; there is no `Rejected` resolution (`D-108`) |
+
+#### 9.8 What this answer did and did not do
+
+**Did:** acknowledged `B-087`; parsed all 89 handoff entries line-bounded and reported the record
+state of each class; reproduced `docs-drift` and `graph-coverage` from their own inputs; rechecked
+every §4 artifact claim against file content at `495e4f8` and found one under-count in the
+storyboard and one unmarked staleness in the Encyclopedia ledger; ordered the work parent-first;
+routed the `Applied` population to its existing owner instead of minting a duplicate.
+
+**Did not:** execute any check, run `git`, run or mutate Graphify, apply any source correction,
+answer `J1` through `J4`, edit `B-088`, select a lane, authorise a build, or close anything. No
+`Resolution` is claimed on this entry and its raiser anchors are unchanged.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `B-087` acknowledgement and the 89-entry completion ledger as an accurate header-field record at `495e4f8` | Phase 1, Lane B re-runs `bun run check` on a working host and confirms |
+| Approve | Reproduced `docs-drift` and `graph-coverage` failures, including the correction that **two** documents are uncovered | Phase 1, step 5 of the 9.5 order |
+| Approve-with-conditions | The 9.5 parent-first order | Phase 1, conditional on `J4` for steps 2 and 4, and on Chief Editor input for step 6 |
+| Reject | Any claim that the handoff backlog is reconciled, or that Phase 1 can close on the current record | Phase 1, 20 `Applied` entries carry no independent verification (`D-102`) |
+| Reject | Treating `stale: false` or a structural rebuild as graph currency | Phase 1, head alignment, coverage and semantic parity are three separate claims |
+| Reject | `B-088`'s §28 statement that graph coverage lacks only `B-087` | Phase 1, corrected in 9.3 and in the drafted `B-088` receipt |
+| Defer | `B-077` Child 2, the legacy `Applied` reconciliation, now 20 entries and growing | Phase 1, its existing `Follow-up-Tier` and its own bounded authorisation |
+| Defer | `J1` through `J4`, `V0` allocation, commercial and access scope | Chief Editor decision, unchanged by this answer |
+
+#### 9.9 Post-act corrections, 2026-09-14, raised by `B-089`
+
+`B-089` independently reviewed the answer above and returned two `Reject` verdicts. **Lane A accepts
+both.** `B-089`'s drafted text is applied in full below, unaltered.
+
+> **Post-act receipt note, 2026-09-14.** After the answer above was written, §9.6's exact B-088 acknowledgement was applied. The current `handoff-response` check passes for both B-087 and B-088. They remain Open, with no Resolution. References above to B-088 as "drafted and not applied" describe the earlier read and are superseded by this note; they are not current status.
+
+**Cross-reference to B-084's existing Product §7.1 residual.** B-084 already names this contradiction and remains its canonical correction/evidence record. B-089 found that B-087's cross-artifact inventory omitted the anchor. The text below repairs B-087's inventory and routing only; it creates no new B-084 scope and does not alter B-084's Applied evidence boundary.
+
+*(Replacement text supplied by `B-090` and applied 2026-09-14. The paragraph it replaces framed this
+as an addition to `B-084`; `B-084` §247, §427, §559 and §781 already name Product §7.1 line 788.)*
+
+> `Modular_PRD.md` §7.1 currently lists CR-14 as a missing functional requirement. Reconcile that row with the already-decided FR-01 manual-input contract (`D-194`/`D-197`) and PBL-11's separate future AI capability. Preserve the historical customer sentence; do not reinterpret it as automated scraping or as build authorization.
+
+| `B-089` verdict | Lane A response | Where it landed |
+|---|---|---|
+| **Reject** the answer as a complete current-source correction set | **Accepted.** `Modular_PRD.md` §7.1 was not read in the first pass | 9.4 lead sentence, two new table rows, the intra-document paragraph, and 9.5 step 2 |
+| **Reject** the post-act receipt wording | **Accepted.** §9.6 and §9.8 are preserved as dated history and superseded by the note above; the live plan step was corrected | 9.5 step 0, and this section |
+| §9.1 may become a second live tracker | **Accepted**, and it was already self-reported by Lane A in the same turn | 9.1 prefix |
+| **Approve** both receipts as receipt evidence | Recorded. All three entries stay `Open` with no `Resolution` | Unchanged |
+
+**Graph state at `a0229af`, reproduced.** `docs-drift` fails: analyzed `395ab83`, HEAD `a0229af`,
+`stale` still `false`. `graph-coverage` fails on `B-087`, `B-088` and `B-089`; at `395ab83` it
+failed on `B-087` alone, so `B-088`'s §28 single-document statement no longer described the tree. `.graphify_describe_pending` is still present. Step 5 of the 9.5 order is unchanged and
+stays sequenced after the source corrections commit.
+
+**Tier applicability (`D-54`).** This correction creates, sequences and retires no artifact. Register,
+Build Spec, Artifact Inventory and `Modular_PRD` §8: **unaffected**. The `Modular_PRD` §7.1 row is
+**specified-not-applied** and waits on `J4`. Frozen `docs/PRD.md`, the Charter and `0001_init.sql`:
+untouched.
+
+#### 9.10 Ownership correction, 2026-09-14, raised by `B-090`
+
+`B-090` returned three `Reject` verdicts against the routing and closure language above. **Lane A
+accepts all three**, and reconfirmed the first independently: `B-084` names Product §7.1 line 788 at
+its §247, §427, §559 and §781, and lists `docs/Modular_PRD.md` in its source/view write-set. The
+anchor was therefore **already in `B-084`**. `B-089` found an omission in **`B-087`'s review
+inventory**, not missing scope in `B-084`.
+
+| `B-090` verdict | Lane A response | Where it landed |
+|---|---|---|
+| **Reject** treating §7.1 as new `B-084` scope | **Accepted.** The "exact addition" framing was Lane A's, propagated from `B-089`'s wording, which Lane B has itself corrected in `B-090` | 9.9 introduction, replaced with `B-090`'s text |
+| **Reject** making `B-087` depend unconditionally on `B-084` completion | **Accepted.** Contradicted this entry's own §7 closure rule | 9.5 step 7 row and the `B-090` text below that table |
+| `B-089` acknowledgement overstates "applied in full" | **Accepted.** The third text was not applied to its named target, correctly | `B-089`'s `Lane A` field, replaced with `B-090`'s text |
+| **Approve** the acknowledgement and the §7.1 finding | Recorded as `B-087` review evidence | Unchanged |
+| **Reject** current Graphify completion | Already Lane A's own position; unchanged | 9.3, 9.5 step 5 |
+
+**The boundary, as `B-090` states it and Lane A adopts it.** `B-084` owns the specification
+correction and closes on new governed-source commit evidence plus independent verification. `B-087`
+owns the planning spike and closes on accepted decisions plus a truthful disposition of every routed
+branch. Closing `B-087` cannot close `B-084`. The two are related by **routing, not shared
+lifecycle**. If `J4` expressly places `B-084`'s application inside the accepted iteration, that
+dependency is recorded explicitly rather than left implicit.
+
+**Graph state at `5bc28fd`, reproduced.** `docs-drift` fails: analyzed `395ab83`, HEAD `5bc28fd`,
+`stale` still reads `false`. `graph-coverage` fails on `B-087`, `B-088`, `B-089` and `B-090`.
+`.graphify_describe_pending` still present.
+
+*(Corrected 2026-09-14 by `B-091`: this paragraph carried a "four commits behind" distance that Lane
+A never computed and could not compute without `git`. The distance is removed rather than fixed.
+Narrative status carries no tallies; the checks print them.)*
+
+**Tier applicability (`D-54`).** Routing and closure language only. No artifact is created, sequenced
+or retired. Register, Build Spec, Artifact Inventory and `Modular_PRD` §8: **unaffected**. `B-084`:
+**not edited**; its `Applied` disposition and evidence boundary stand. Frozen `docs/PRD.md`, the
+Charter and `0001_init.sql`: untouched.
+
+#### 9.11 Judge decisions J1 to J4, recorded 2026-09-14
+
+Raised as a decision packet by `B-091`. The Chief Editor and Judge are the same person under `D-158`;
+the entries below are that person's recorded acts. **Recorded here and nowhere else**, by explicit
+instruction: none of the four creates, sequences or retires an artifact, so `D-54` does not fire and
+no `docs/v1` document is edited. A future arbitration reading only the Register will not see them;
+that consequence was stated and accepted when the location was chosen.
+
+| Decision | Act | What it means | What it does **not** mean |
+|---|---|---|---|
+| **J1 — baseline presentation** | **Accept** "setup/scaffold evidence" | A descriptive classification for delivered setup work. Existing `docs/v1` paths, identifiers, version states and frozen history are all retained | No `V0` release is opened, nothing is renamed, and no unfinished product scope moves into a completed-setup bucket |
+| **J2 — user journey** | **Defer**, owner **Chief Editor**, trigger **a representative article and a return-for-revision reason exist** | The normal and revision examples are not accepted, because no real article or revision reason has been supplied | Not a judgement that the journey is unimportant. A placeholder is still not a completed walkthrough (§3.2) |
+| **J3 — iteration capacity** | **Defer allocation**, owner **Chief Editor**, trigger **operator and reviewer hours are confirmed** | Hours and dates are unconfirmed and no iteration is scheduled. The 12–20 person-hour envelope stays an unaccepted proposal | No date is inferred, and missing capacity does not block document correction (§3.2) |
+| **J4 — application boundary** | **Choice A**, per `B-091`'s packet | This iteration stays **planning-only**. `B-084`'s governed-source application is deferred to its own Phase 1 unit, owner Lane A / Cowork, priority-change trigger **a Judge act approving `B-084`'s exact write set** | Not a reduction of `B-084`'s priority or value, and not a claim that `B-084` is complete. `B-084` keeps its `Applied` resolution and its residual packet |
+
+**Silence is not a deferral (`B-091`).** Each row above is an act, including the two deferrals, each
+with a named owner and a named trigger.
+
+**Consequence of Choice A for the 9.5 order, stated because it changes the sequence.** Steps 2, 3 and
+4 are governed-source corrections. Choice A moves them out of this iteration into `B-084`'s own unit.
+Nothing in this iteration edits a governed source. **Step 5's dependency therefore changes**: the
+graph sync no longer waits on source corrections that are not going to happen here. It waits on the
+handoff entries stabilising, which is reachable once `B-091`'s acknowledgement is committed. The
+criterion is unchanged and is now stated correctly: `lastAnalyzedHead` **equals the final committed
+HEAD**, plus separate evidence for coverage, descriptions and curated parity.
+
+**`B-087` closure readiness.** This entry's §7 rule requires Lane A's answer plus an independent
+reviewer confirming the stated disposition of every requested part, **including named deferrals**.
+
+*(Sentence replaced 2026-09-14 by `B-092`, applied in full. The version it replaces listed `B-088`
+among the routed branches while §9.5 of this same entry called it a sibling. Both could not hold.)*
+
+> The first half is met: J1–J4 are each decided or explicitly deferred with owner and trigger. B-084, B-071, B-077 Child 2, commercial scope and access scope each have a truthful disposition for this planning packet. B-088 is an acknowledged sibling on the independent C-39 track; it is not a B-087 branch and does not gate this planning closure.
+
+**The second half is not met.** `B-087` stays `Open` with no `Resolution` until Lane B verifies at a
+committed revision, and Lane A cannot record that commit because it cannot run `git`.
+
+**Correction accepted from `B-091`.** Lane A's previous summary said only `J1` and `J4` blocked
+closure. `J2` and `J3` also required disposition. The entry text at §9.5 step 7 was already correct
+("`J1`–`J4` decided or explicitly deferred"); the inaccurate claim was in Lane A's narration and in
+`B-089`'s `Lane A` field, which is corrected in that file.
+
+**Tier applicability (`D-54`).** Four decisions, none creating, sequencing or retiring an artifact.
+Register, Build Spec, Artifact Inventory and `Modular_PRD` §8: **unaffected**. `B-084`: **not
+edited**. Frozen `docs/PRD.md`, the Charter and `0001_init.sql`: untouched. No governed source was
+edited anywhere in this iteration, which is what Choice A means.
+
+#### 9.12 Closure conclusion, corrected 2026-09-14 by `B-092`
+
+`B-092`'s replacement for Lane A's final conclusion, applied in full:
+
+> No B-087 business decision remains open. Independent verification still requires the answer and review corrections to be committed at named revisions. Graphify synchronization follows the final tracked handoff-state commits. B-088 remains a separate C-39 item and B-084 remains a separately deferred source-application unit.
+
+**The operative closure sequence is `B-092`'s seven steps**, not a copy of them here. `B-092` owns
+that procedure; duplicating it into this entry would create a second place for it to drift.
+`B-087` §9.5 remains the parent-first work order and is unaffected except for the `B-088` routing
+correction above.
+
+**What actually blocks `B-087` now, in order.** Neither item is a decision, and neither is Lane A's
+to perform:
+
+| Blocker | Owner | Why Lane A cannot clear it |
+|---|---|---|
+| The answer and the four acknowledgements exist only as working-tree changes | The Judge, at a terminal | `Verified` requires evidence at an existing revision. Parser conformance proves the fields parse; it does not make an uncommitted answer into evidence (`B-092`) |
+| Independent verification of the committed answer | Lane B | `D-102`: the answering side cannot verify its own answer |
+
+**Graphify sequencing, restated because `B-092` sharpens it.** Every tracked handoff-state commit
+lands **first**; the untracked Graphify synchronization runs **once, last**, against the resulting
+HEAD; and **no tracked status edit follows that sync**. That ordering is what stops the stale cycle
+this entry has recorded at `4005d58`, `395ab83` and every commit since. The criterion is unchanged:
+`lastAnalyzedHead` equals the final committed HEAD, plus separate evidence for coverage, descriptions
+and curated parity.
+
+**Tier applicability (`D-54`).** Routing and conclusion language only. Nothing created, sequenced or
+retired. Register, Build Spec, Artifact Inventory and `Modular_PRD` §8: **unaffected**. `B-084` and
+`B-088`: **not edited**; each keeps its own lifecycle. Frozen `docs/PRD.md`, the Charter and
+`0001_init.sql`: untouched.
+
+---
 
 ## Earlier iteration proposal — retained as dated history
 
