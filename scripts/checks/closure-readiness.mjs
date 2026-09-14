@@ -88,7 +88,47 @@ const PROVISIONAL = new Set(["applied"]);
 const SHA = /^[0-9a-f]{7,40}$/i;
 
 // The answering side cannot be the verifying side. `Acknowledged` is receipt.
-const NOT_AN_INDEPENDENT_VERIFIER = /^(acknowledged|answered|lane a|claude code|self|same)\b/i;
+//
+// `C-39` (`D-207`, correcting `D-206`) — match the LEADING ACTOR against a CLOSED
+// allowlist: not by prefix regex, and not by containment. The `^`-anchored regex
+// this replaces let the values this channel actually writes straight through —
+// "reviewed by Lane A" opens with "reviewed" — and never listed `Claude Cowork`,
+// which `D-200` made part of the answering side. Containment (`D-206`) was
+// measured to reject nine legitimate records whose verifiers name Lane A
+// precisely to assert their independence from it, and is withdrawn.
+//
+// MEMBERSHIP IS POLICY AND IS COWORK'S (`D-208`); this code only executes it.
+// The set is safe ONLY because it is closed: a new actor is added to the
+// register's `C-39` block first, then here. An unknown leading word is
+// rejected — which is how the em-dash audit records are caught: their leading
+// token is the disclaimer, not an actor.
+const ACTOR_TOKENS = [
+  "lane a", "lane b", "lane c", "claude code", "claude cowork",
+  "codex", "antigravity", "robert tan", "chief editor", "judge",
+];
+const EXCLUDED_WHEN_LEADING = new Set([
+  "lane a", "claude code", "claude cowork", "acknowledged", "answered", "self", "same",
+]);
+// Longest first, so a longer token is never shadowed by a shorter one.
+const LEADING_TOKENS = [...new Set([...ACTOR_TOKENS, ...EXCLUDED_WHEN_LEADING])].sort((a, b) => b.length - a.length);
+// Decoration only — whitespace, markdown emphasis and code marks, quotes,
+// brackets, colons and dashes. Never a word: stripping words is the guess.
+const LEADING_DECORATION = /^[\s*_`"'\u201c\u201d\u2018\u2019()[\]>:\u2014\u2013-]+/;
+
+/**
+ * The leading actor of a `Verified-By` value, or null when it opens with no
+ * known token. A token must end at a word boundary: `Lane B` matches
+ * "Lane B (Codex)" but not "Lane Bx"; `Same` does not match "Sameday".
+ */
+export function leadingActor(value) {
+  const s = String(value).replace(LEADING_DECORATION, "").toLowerCase();
+  for (const tok of LEADING_TOKENS) {
+    if (s.startsWith(tok) && !/[a-z0-9]/.test(s.charAt(tok.length))) {
+      return { token: tok, excluded: EXCLUDED_WHEN_LEADING.has(tok) };
+    }
+  }
+  return null;
+}
 
 /** Is history deep enough to prove a commit exists? A shallow clone is not. */
 function historyIsFull() {
@@ -214,10 +254,17 @@ export function run() {
         findings.push(
           `${path}: Verified with no **Verified-By:** — nothing records WHO verified it, so "Verified" is the answering lane's own word`,
         );
-      } else if (NOT_AN_INDEPENDENT_VERIFIER.test(by)) {
-        findings.push(
-          `${path}: **Verified-By:** "${by}" is the answering side or a receipt state, not an independent verifier. Name the actor, or use \`Applied\` rather than \`Verified\`.`,
-        );
+      } else {
+        const lead = leadingActor(by);
+        if (lead === null) {
+          findings.push(
+            `${path}: **Verified-By:** "${by}" does not open with a known actor token (\`C-39\` closed set: ${ACTOR_TOKENS.join(" · ")}). A verifier that cannot be named cannot be shown independent. Name the actor, or use \`Applied\` rather than \`Verified\`.`,
+          );
+        } else if (lead.excluded) {
+          findings.push(
+            `${path}: **Verified-By:** "${by}" is the answering side or a receipt state, not an independent verifier. Name the actor, or use \`Applied\` rather than \`Verified\`.`,
+          );
+        }
       }
 
       const commit = field(text, "Verified-At-Commit");

@@ -287,6 +287,50 @@ export async function handoffFields(results) {
     restore,
     expect: "not an independent verifier",
   });
+
+  // `C-39` — the leading-actor allowlist, proven BOTH ways; Judge-approved as
+  // "the 9-accept / 6-reject fixture". ACCEPT: the nine live values `C-39`
+  // names, READ from each cited entry at run time and never retyped — so a later
+  // edit to any of them fails here instead of being silently tolerated.
+  for (const id of ["B-044", "B-058", "B-078", "B-079", "B-080", "B-081", "B-082", "B-083", "B-085"]) {
+    const file = readdirSync("docs/handoff").find((f) => f.startsWith(`${id}-`));
+    const live = file ? (read(`docs/handoff/${file}`).match(/^- \*\*Verified-By:\*\* *(.*)$/m) || [])[1] : undefined;
+    await fixture(results, {
+      name: `closure C-39 accept: ${id}'s live Verified-By`,
+      modulePath: CHECK("closure-readiness.mjs"),
+      mutate: () => {
+        if (!live) throw new Error(`${id}: no live Verified-By to read`);
+        write(ENTRY, verified(live, "983f058"));
+      },
+      restore,
+      shouldPass: true,
+    });
+  }
+
+  // REJECT: `C-39`'s must-fail probes verbatim from the register — including
+  // "both em-dash disclaimer forms", which the register defines as the initial
+  // audit record raised by Lane B "(or Lane C)" — plus the one excluded token the
+  // old regex never listed: `Claude Cowork`, the answering side since `D-200`.
+  // Each case names the RULE it must trip, so a rejection for the wrong reason is
+  // a MISS, not a pass.
+  const C39_UNKNOWN = "does not open with a known actor token";
+  const C39_ANSWERING = "is the answering side or a receipt state";
+  for (const [probe, why] of [
+    ["Lane A", C39_ANSWERING],
+    ["reviewed by Lane A", C39_UNKNOWN],
+    ["verified by Lane A", C39_UNKNOWN],
+    ["\u2014 not yet dispositioned; raised by Lane B", C39_UNKNOWN],
+    ["\u2014 not yet dispositioned; raised by Lane C", C39_UNKNOWN],
+    ["Claude Cowork", C39_ANSWERING],
+  ]) {
+    await fixture(results, {
+      name: `closure C-39 reject: "${probe}"`,
+      modulePath: CHECK("closure-readiness.mjs"),
+      mutate: () => write(ENTRY, verified(probe, "983f058")),
+      restore,
+      expect: why,
+    });
+  }
   await fixture(results, {
     name: "closure: Verified-At-Commit reads pending",
     modulePath: CHECK("closure-readiness.mjs"),
