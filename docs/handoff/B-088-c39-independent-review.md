@@ -5,7 +5,11 @@
 - **Phase:** 1
 - **Blocks:** acceptance of the complete C-39 leading-actor contract; no unrelated authorized work
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-09-14** at read commit `495e4f8`. Receipt only, and a review
+  result recorded separately from any correction, per `P0`. The demonstrated underscore-suffix
+  defect is accepted as a failed verification; no actor-guard or `C-39` completion claim is
+  accepted. `P1` is not authorised by this receipt. One correction to the entry's §28: at
+  `495e4f8` `graph-coverage` lacks **both** `B-087` and `B-088`, not `B-087` alone.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** 395ab8301ec7ee4bf1cb430d3b5739c8d1b1c22e
 - **Evidence:** Read-only independent invocation of the installed leadingActor export and closure-readiness.run at the named commit; live nine accepts, six rejects, 52 Verified records; suffix probes below; bun run check; source and tracking-file review. No mutation harness rerun or implementation claimed.
