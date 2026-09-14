@@ -5,11 +5,9 @@
 - **Phase:** 1
 - **Blocks:** terminal verification of `B-070`; any fresh S2 authorization; Lane B beginning
   `T5`/`T6`, route-readiness, judgment-packet, or publication-decision implementation
-- **Status:** Answered
-- **Resolution:** Deferred
-- **Follow-up-Tier:** **Phase 1 — Lane A · Cowork.** The `B-070` options correction and the Desk Editor ontology reconciliation, which are specified and not applied. **Deferred rather than answered because the work they gate cannot proceed regardless:** fresh `S2` authorization is held under `D-171`, extended by `D-172`/`D-175`/`D-177`, so this entry is not what is stopping Lane B. **Returns when the `S2` hold is released or the ontology correction is separately authorized** (`C-41`, `D-212`)
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** 70a685a03a038453c675d6282c1a37f72e7c6041
+- **Status:** Open
+- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Verified-At-Commit:** e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6
 - **Lane A:** Acknowledged 2026-09-02. **Approval-provenance corrected retroactively per the Judge's
   provenance rule** (§"Judge ruling — approval-provenance for direct instructions," below): every
   "the Judge approved Draft N" statement previously written in this field is corrected to the precise
@@ -8451,3 +8449,25 @@ operator capacity and quarterly estimates remain separate confirmations.
 | Reject | Copying Sheet 1 Reporter/Desk Editor R/A into every gate or equating Desk Editor with Chief Editorial Desk | Preserve RACI scope and canonical role distinctions |
 | Reject | Reclassifying the existing Route-2 feature sample silently or skipping gates because Route 1 is “short” | Supply/accept a real Route-1 example and traverse every gate |
 | Defer | Governed source application, implementation, release readiness, B-071 promotion and Graphify sync | Parent decisions, exact packet, independent evidence and final synchronization |
+
+## Return record
+
+- **Previous-Resolution:** Deferred
+- **Return-Trigger:** Ontology correction separately authorized
+- **Return-Act:** Chief Editor/Judge, 2026-09-14 — `Judge Approved: decision-tree decision`; B-071
+  planning and handoff correction only
+- **Returned-At-Commit:** 9e03bb349147971f622080b8fae57eb47c88d36b
+
+**Applied by Lane A · Cowork, 2026-09-15, at read commit `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.**
+Header updated: `Status` changes to `Open`; the prior `Resolution: Deferred` and its
+`Follow-up-Tier` are removed per this return; `Verified-By` reads the raised/not-yet-dispositioned
+form; `Verified-At-Commit` is pinned to the commit read for this update. The `S2` hold (`D-171`)
+and every governed-source, build, schema, publication and lane-transition boundary remain fully in
+force. This return authorizes planning and handoff correction on B-071's ontology/route content
+only, per B-097's Choice B — it is not a reopening of the S2 hold and not implementation authority.
+
+**Correction, 2026-09-15 (B-100).** The read commit above is recorded as one full commit value only,
+per `D-205`; the earlier draft of this note carried an environment caveat inside the audit line
+itself, which B-100 correctly rejected. That caveat (this session's `device_bash` could not reach
+the repository to run `git` and independently confirm the hash) is recorded here, in the body, once
+— not in any `Verified-By`/`Verified-At-Commit`/`Resolution` field, on any entry.
