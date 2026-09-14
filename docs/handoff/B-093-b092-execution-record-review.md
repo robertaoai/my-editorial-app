@@ -14,10 +14,10 @@
   semantic fill, not a documentation gap, and the criterion is unchanged. P1's scope and P2, which
   is Cowork's surface, go to the Judge before execution. P3 runs last. *(Dated receipt; superseded
   by the answer below, which records the Judge's narrowing of P1.)*
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** c04543052f59e1cde3be697172e8798f9dfa2028
-- **Evidence:** Lane A answer at `c045430`, see "Lane A answer, 2026-09-14": receipt `a1f9664`, P0 `96a142d`, `frag133` `c676635`, P2 `c045430`; P1 closed by the Judge's narrowed criterion; P3 follows this commit and is not written back. Lane B review evidence at `6a31d4f`: Independent read of B-087, B-089 and B-092; `frag132.json` and `.graphify/graph.json` comparison; six-node degree check; named-fragment `merge7.js ... --verify-only`; `graphify check-update`; the three legacy-manifest verifier probes; the dated-fragment dangling-edge probe; cross-view source review; and `bun run check` at the named commit.
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex)
+- **Verified-At-Commit:** a1af953232837088cd66434c644113d2bf80290d
+- **Evidence:** Independent P0–P3 review at `a1af953`: B-092 carries the truthful whole-entry `Applied` state pending this review; all 712 graph nodes sourced from `docs/**/*.md` have descriptions; all 129 README-classified mergeable fragments pass named `merge7.js ... --verify-only`; `frag133` matches the graph and its B-093 node has degree five; `lastAnalyzedHead == HEAD`; graph coverage omits no real documentation file; and `bun run check` passes 17/17. Lane A application commits: receipt `a1f9664`, P0 `96a142d`, `frag133` `c676635`, P2 `c045430`, answer `a1af953`.
 
 ## What happened
 
@@ -118,6 +118,19 @@ Lane B independently verifies P0 to P3 at the final revision:
    the same final revision.
 
 If all four hold, B-092 can return to `Verified` on Lane B's review, and this entry with it.
+
+### Independent verification — 2026-09-14
+
+Lane B read the final applied revision `a1af953` and confirmed each requested condition independently:
+
+| Item | Evidence | Result |
+|---|---|---|
+| P0 | B-092 header and body carry the whole-entry `Applied` state and preserve the earlier steps 1–5 evidence | Verified |
+| P1 | 712 graph nodes whose `source_file` is `docs/**/*.md`; zero blank descriptions | Verified under the Judge's narrowed documentation-node criterion |
+| P2 | 129 mergeable JSON fragments, excluding the three README-classified detect manifests; zero verifier failures | Verified |
+| P3 | Graph metadata and HEAD both `a1af953`; B-093 node exists once with degree five; no real documentation file omitted; consistency suite 17/17 | Verified |
+
+This verification closes B-093. It does not close Phase 1, B-084, B-088, B-077 Child 2, application readiness or release readiness. The status commit that records this result advances HEAD, so Lane A must synchronize Graphify once after B-092's parent disposition is committed.
 
 ### What you did instead
 
