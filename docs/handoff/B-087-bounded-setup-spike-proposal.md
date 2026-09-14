@@ -4,15 +4,16 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** acceptance of this consolidated alignment packet as complete; no unrelated authorized work; existing execution holds remain independently binding
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-14** at read commit `495e4f8`. Receipt and consolidated
   answer, not a disposition: `Status` stays `Open`, no `Resolution` is claimed, and the raiser's
   `Verified-By`/`Verified-At-Commit` anchors are left untouched because this entry is still in the
   raised-not-dispositioned position. The answer is §9 below. It applies no source correction and
   closes nothing. `B-088` is acknowledged in its own file.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** b594f97a2d9c9cd06a36ff927e2cc2f00c7bffb0
-- **Evidence:** 2026-09-14 clarification of section 3 against b594f97; named Product, storyboard/embedded sequence/data-flow, source-graph and Encyclopedia-ledger clauses rechecked; no docs changed since the prior review. Prior broader review and limitations remain below. Separate working-tree checker/fixture edits are not this handoff's work. No application test, product walkthrough, source application, graph synchronization or closure claimed.
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex)
+- **Verified-At-Commit:** b96512542b274d0d02eb949dc973de30438700dd
+- **Evidence:** Independent planning-packet verification at `b965125`: J1 Accept, J2/J3 Deferred with owners and triggers, J4 Choice A; B-084/B-087 lifecycle separation; B-088 excluded as an independent sibling; B-089 through B-092 Verified at named revisions. This verifies setup-spike decisions, routing and the bounded next-step plan only. B-084 source application, the user walkthrough, capacity, Graphify synchronization, implementation and release evidence remain separately outstanding.
 
 ## What happened
 
