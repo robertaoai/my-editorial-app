@@ -7949,3 +7949,123 @@ The attached push invitation is not executed as a new instruction in this planni
 | Approve-with-conditions | D-204 and C-39 implementation plans | Code preserves independent prerequisites; a combined unit requires every included contract ready. Preserve Open-positive fixtures and complete C-39's initial-event/coverage contract |
 | Reject | Current-HEAD graph-clean claim; obsolete A-channel instructions; forcing the Open fixture red | Correct source/evidence claims and test the adopted behavior |
 | Defer | C-38/C-41 completion, whole B-061/B-071/B-086 verification, archive, S2 and product implementation | Existing owners and prerequisites, settled-source synchronization, independent evidence and separate authorization |
+
+## Round 54 — Step 5 executor review: the decision exists; the example route remains to be classified (2026-09-14)
+
+### Scope and conclusion
+
+**Clarified task:** review Lane A's Step 5 blocker against B-071 and the complete Register chain,
+identify the remaining Chief Editor input, and draft the parent-first handback. This is a planning
+review only. It does not change B-071's `Answered` / `Deferred` lifecycle, release `D-171`, apply an
+`A4` write set, authorize implementation, or synchronize Graphify.
+
+**Conclusion:** §0 must not ask the Judge to choose a T5 executor. The quoted Lane A analysis read
+`D-171` as if it were the final role decision. `D-175` re-derived that table, `D-177` adopted the
+behaviour, `D-179` propagated the target requirements, and `D-181` is the current T5/T6 anchor.
+The accepted target is route-dependent and held from build; its incompleteness is a propagation and
+authorization condition, not an unanswered three-choice business question.
+
+### Findings and exact corrections
+
+| Finding | Source result | Guaranteed failure if retained | Draft correction |
+|---|---|---|---|
+| `B071-R195` — §0 re-asks a decided executor model | `D-175` assigns target T5 by route; `D-181` is the current anchor and leaves `D-171`'s hold intact | A new Register choice can contradict or silently supersede the accepted target without re-deriving its requirements and tests | Withdraw the Senior-Journalist/Chief-Editor/route-dependent three-way choice. Cite `D-181`, through `D-175`–`D-180`, as the decided target |
+| `B071-R196` — two option labels use the wrong roles | `ROLE-SENIOR-JOURNALIST` emits the upstream `EW` start trigger. Target T5 uses `ROLE-CHIEF-EDITORIAL-DESK` and/or `ROLE-CHIEF-JOURNALIST`. `ROLE-CHIEF-EDITOR` executes target T6/EG5 | “Senior Journalist executes T5” collapses a trigger into a gate; “Chief Editor executes T5” moves the human final decision to the wrong stage | Use the canonical role IDs and keep Senior Journalist, Chief Journalist and Chief Editorial Desk distinct |
+| `B071-R197` — route-dependent does not mean two journey variants by default | Production routes require one T5 reviewer selected by route; only fallout/GRC routes require both in parallel | Doubling every acceptance path manufactures work and can hide that no route was assigned | Classify the representative article once, then instantiate the one applicable reviewer set |
+| `B071-R198` — the independence concern is attached to T5 instead of T6 | Target T1–T5 are Line 1 and `not_applicable`; T6 is Line 2 and the only target transition that may be `satisfied` (`G-02a`, `SEC-01a`) | A surface can show T5 as a satisfied Line crossing or describe the status as cognitive independence, producing a green assertion the data never proves | Show the route-required T5 review(s), non-judgment join, blind reveal order and human T6 separately. Label the control structural only |
+| `B071-R199` — commissioner/final-decider overlap remains material but is not an executor ambiguity | The Chief Editor supplies the T1 package; a Reporter executes T1; the Chief Editor later performs the target T6 final decision | Hiding the shared supplier/final-decider identity overstates assurance; treating it as a T5 collision understates the actual designed review layer | Preserve supplier, T1 executor, each T5 reviewer and T6 executor as separate audit facts. State plainly that T6 is management judgment, not independent assurance |
+| `B071-R200` — Step 5 can consume a held target without releasing it | Product and Fn_Spec rows mark the target `decided_target_held`; `D-171` still bars implementation | Calling the acceptance example current or implemented becomes accidental S2 authorization | Label the journey **target acceptance example — decided, held, not implemented**. It informs the later build packet and authorizes no code |
+| `B071-R201` — current graph/status evidence is stale | `.graphify/branch.json` says analyzed `f63d6eb`; HEAD is `334447a`; `check-update` reports semantic updates pending; the suite reports B-094/B-095/B-096 absent and B-096 unacknowledged | A graph-clean or handoff-read claim would be false even if source prose is correct | Lane A acknowledges B-096, settles the source packet, then Code rebuilds/merges/fills Graphify last and reruns the full suite |
+
+### What the Chief Editor actually needs to accept or correct
+
+Two bounded classifications replace §0's false executor choice:
+
+| Parent order | Chief Editor review item | Recommended answer | What changes the answer |
+|---:|---|---|---|
+| 1 | **Which contract does the Step 5 planning example illustrate?** | The `decided_target_held` contract anchored at `D-181`. It is the accepted future target and is the only useful basis for later construction/verification planning | Select the historical documented order only to test legacy behaviour explicitly; it must be labelled historical and still does not receive build authority |
+| 2 | **Which route class applies to the sample article?** | `ROUTE-PROD-2` — the crosswalk calls this *Mid-Impact Enterprise & Feature Writing*, the closest fit for the supplied LinkedIn analytical feature | `ROUTE-PROD-1` if the Chief Editor classifies it as low-impact daily production; `ROUTE-PROD-3` if it is a high-impact investigative exploit; fallout/GRC only if the article enters one of those governed route families |
+
+If the Chief Editor accepts the recommended pair, the sample has one target T5 reviewer:
+`ROLE-CHIEF-JOURNALIST`. `ROLE-SENIOR-JOURNALIST` remains the `EW` trigger role. The Chief Editor
+supplies the intake and later executes T6/EG5; they do not execute T5.
+
+This route classification is an application of the existing taxonomy to one acceptance example.
+It does not amend the route taxonomy, assign a real operator, or authorize S2.
+
+### Step 5 row 10 — completed planning form
+
+For the recommended `ROUTE-PROD-2` target example, Lane A writes row 10 as follows:
+
+1. `ROLE-CHIEF-JOURNALIST` seals the one route-required `T5_review_sealed` judgment while the article
+   remains `Drafted`.
+2. The non-judgment `T5_review_bundle_sealed` join verifies the required set and alone performs the
+   single `Drafted → Reviewed` transition. It selects no winner and impersonates no reviewer.
+3. The Chief Editor reviews the evidence without seeing the T5 recommendation and seals
+   `EG5_preliminary_disposition_sealed`.
+4. The system records `T5_review_bundle_revealed_to_EG5`; only then may the Chief Editor record
+   `EG5_final_decision_recorded` at T6.
+5. The observability-versus-observation defect is recorded as a reasoned return. Because correcting
+   the article's argument changes shared draft/evidence content rather than only a reviewer's note,
+   the example invalidates the prior bundle, preserves it historically, and reruns the affected
+   upstream work and the required T5 review.
+6. Reassessment appends a new editorial-metadata version. The original intake, earlier T5 judgment,
+   bundle, preliminary disposition and return reason remain retrievable and are never shown as
+   current approval.
+7. The corrected article repeats the blind T5/T6 sequence. LinkedIn reaches `ManualReady` only after
+   a positive target T6 disposition; no LinkedIn automation or live publication is implied.
+
+The display beside this row says:
+
+> **Structural control:** the audit record proves that the route-required T5 reviewer and the human
+> T6 executor occupied the governed Lines in the required order. It does not prove cognitive
+> independence. The Chief Editor supplied the commission and later made the management decision;
+> those two facts remain visible rather than being relabelled as independent assurance.
+
+### Parent-first Lane A follow-up
+
+1. **Withdraw §0 as a new Register decision.** Record that `D-181` already answers the target role
+   model and that `D-171` still holds implementation.
+2. **Present the two classifications above to the Chief Editor.** Accept/correct the target-versus-
+   historical example basis first, then the sample route. Do not ask who executes T5 independently
+   of the route.
+3. **Finish Step 5 from the accepted route.** Preserve rows 1–9 and replace only row 10 with the
+   applicable T5 set, join, blind T6 sequence, return scope and rerun evidence.
+4. **Correct the affected views in their existing owners.** Current-use annotations must point from
+   the storyboard's historical A5/A6 sequence to the held target in Product `FR-04a`/`FR-05a`,
+   `FN-GATES` §11 and the RACI matrix. Do not rewrite the dated panel as if it was always the target.
+5. **Keep observation and observability distinct.** The return example tests editorial observation;
+   transition/event evidence tests system observability. Neither substitutes for the other.
+6. **Complete the existing B-095/B-096 work in their own entries.** The intake field/write-set and
+   state/metadata/report separation remain separate from this final-gate owner. Acknowledge B-096;
+   do not copy its children here.
+7. **Present the completed A4 example packet for accept/reject.** Acceptance approves the example as
+   requirements evidence only. Applying governed source and authorizing a build remain separate acts.
+8. **After the final authorized source application, synchronize Graphify last.** Code rebuilds the
+   extracted layer, re-merges curated fragments, completes semantic fill, proves analyzed HEAD
+   equality and runs the full consistency suite. Lane B then independently reviews the applied
+   corrections at an immutable commit.
+
+### Construction and verification evidence
+
+| Case | Required evidence |
+|---|---|
+| Route resolution | The example records one governed route and derives its T5 reviewer set from the accepted table; no manually chosen executor bypasses the mapping |
+| Role separation | Senior Journalist appears only as `EW` trigger; Chief Journalist/Chief Editorial Desk appear only where the route requires; Chief Editor appears at T6 |
+| T5 completion | Every required review is separately attributable; the bundle join alone advances `Drafted → Reviewed` |
+| Blind order | Preliminary human disposition precedes bundle reveal; reversing the order is refused |
+| Structural status | T5 is `not_applicable`; only the valid T6 crossing is `satisfied`; UI/report language never says that value proves independent thought |
+| Revision | Shared-content correction invalidates and reruns the required review set; prior judgments and reasons remain retrievable |
+| Delivery | `ManualReady` occurs only after positive T6; returned or incomplete work produces no live publication event |
+| Scope truth | Every target item is labelled decided/held/unimplemented until a fresh S2 authorization and Lane B work order exist |
+
+### Approve / reject
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `D-181` as the existing target T5/T6 answer | Phase 1 — consume it; do not reopen §0 |
+| Approve-with-conditions | Target-contract Step 5 example | Phase 1 — Chief Editor confirms or corrects the example basis and route classification |
+| Approve-with-conditions | Recommended `ROUTE-PROD-2` / Chief Journalist T5 path | Phase 1 — use only if the Chief Editor accepts the sample as mid-impact feature writing |
+| Reject | Senior Journalist or Chief Editor as target T5 executor independent of route | Contradicts `D-175`–`D-181` |
+| Reject | `line_separation_status=satisfied` at T5 or as proof of cognitive independence | Target T5 is Line 1/`not_applicable`; T6 is the structural crossing |
+| Defer | Governed-source application, B-071 lifecycle promotion, S2 build and Graphify synchronization | Existing authorization, verification and final-sync conditions |
