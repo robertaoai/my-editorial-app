@@ -423,3 +423,173 @@ same-article journey must prove separately that:
 | Reject | Reusing generic summary, angle, confidence or signal text as proof the structured contract is supported | A named, reviewable data requirement must precede later schema authorization |
 | Reject | Making newsworthiness rating T1-gating through A4 | Requires a separate Register act |
 | Defer | Schema design, migration and code | Lane B implementation phase after explicit authorization |
+
+---
+
+## Judge direction — separate state management, editorial metadata and explainable reports
+
+**Judge direction, 2026-09-14:** state-machine facts are individual fields and append-only events;
+descriptive editorial and explainable-content metadata is stored as a versioned JSON object
+(`jsonb` in the current PostgreSQL stack, or the equivalent structured type in another approved
+database). Lane B records this as the raiser. Lane A answers it through the governed specification
+set. This direction authorizes documentation alignment only; it does not authorize a schema,
+migration, application or publication action.
+
+### `S14` — parent decision: one authoritative location per kind of fact
+
+The prior artifacts already contain three different concepts. They must remain different:
+
+| Kind of fact | Authoritative shape | Existing evidence | Rule for the A4 write set |
+|---|---|---|---|
+| **Current workflow state** | One typed scalar field on the article | `articles.workflow_state`; transition trigger and `SPECS-TRANSITION-ENFORCEMENT` | A state command may change this field only through the governed transition transaction |
+| **State history and publication recovery** | Append-only typed events with individual actor, gate, line, reason, target, status and time fields | `workflow_transitions`, `publication_targets`, `publications` | Do not place an authoritative workflow or publication state inside JSON metadata |
+| **Working editorial metadata** | A separately identified, versioned and append-only package whose payload is structured JSONB | **Absent from `0001` and `0002`**; this is the data requirement identified by `S12` | Preserve intake and reassessment as separate versions; never overwrite the earlier package |
+| **Frozen explainable report** | Insert-only report record with a schema/template version, transition anchor and JSONB snapshot | `editorial_reports` already has `template_version`, `judgment_rule_version`, `schema_version`, `snapshot jsonb`, `supersedes_report_id` and append-only enforcement | Treat the snapshot as evidence/output, not as the editable working metadata store |
+
+This boundary follows the Chief Editor's reason for individual state fields: a state transition must
+not require a generic metadata rewrite and must not risk changing unrelated editorial content. The
+reverse is equally binding: editing descriptive metadata must not change lifecycle state.
+
+PostgreSQL JSONB is the v1 physical direction because Supabase/PostgreSQL is the provisioned stack.
+The reference to equivalent JSON/document fields in other databases is portability guidance only;
+it does not reopen the v1 stack.
+
+### Parent accept/reject decision
+
+| Choice | Design | Consequence | Judge disposition |
+|---|---|---|---|
+| **A — separated state, versioned metadata, frozen report** | Typed current state plus append-only transition/publication facts; a separate versioned JSONB editorial package; an immutable, allowlisted report projection | Preserves transactional enforcement, intake history and reproducible public explanation | **Accept — Judge direction** |
+| B — one mutable JSONB object on `articles` | Store workflow, editorial fields and report material together | A generic update can change unrelated facts; reassessment overwrites intake; database transition constraints become ambiguous | **Reject** |
+| C — use `editorial_reports.snapshot` as the working record | Edit by creating successive reports throughout drafting | Conflates an editable commission with frozen evidence and gives ordinary metadata edits report semantics | **Reject** |
+| D — duplicate authoritative state in scalar columns and JSONB | Keep a scalar for enforcement and a JSON copy for display | Creates two answers to the same question and an unavoidable drift condition | **Reject** |
+
+Children `S15` and `S16` depend on Choice A. Lane A does not draft either child around a different
+parent model.
+
+### `S15` — child data contract for versioned editorial metadata
+
+Lane A specifies a logical editorial-package record before asking Lane B for a physical schema.
+Names remain specification choices, but the contract must contain these facts:
+
+| Record part | Minimum contract |
+|---|---|
+| Identity and ownership | package id, article id, package version, schema/template version |
+| Provenance | supplied-by identity, supplied-at/as-of time, and a distinct executor/transition reference where applicable |
+| History | predecessor/supersedes reference, creation time and integrity checksum or equivalent tamper evidence |
+| Structured payload | the namespaced `original_artifact_analysis`, `trend_signal_update` and `new_article_brief` objects accepted in A4 |
+| Validation | G/P/O classification applied against the named schema version; explicit unknown values preserved; per-claim attribution validated per item |
+| Separation | no authoritative workflow state, publication status, transition actor or transition reason inside the payload |
+
+The first-intake package and later reassessment package are two retrievable versions. Verification
+at T2/T3 may add attributed evidence or produce a later version, but it does not rewrite what the
+Chief Editor supplied at T1. High-value values needed for constraints, joins, access control or
+routine indexing may remain typed columns even when related to the package; JSONB is not authority
+to hide operational keys from the database.
+
+### `S16` — child explainability and report boundary
+
+The public explainable output is an allowlisted projection, never a raw dump of the working JSONB
+payload. Lane A defines which schema fields are `internal` and which may appear in
+`public_explainable` output, and the report template reads only the latter plus accepted evidence.
+Each frozen report must identify:
+
+- the exact editorial-package version and integrity value from which it was produced;
+- its existing `as_at_transition_id`, template, judgment-rule and schema versions;
+- the source/evidence attribution needed to distinguish supplied assertions from T2/T3-verified
+  findings; and
+- the applicable manual-ready delivery target without treating delivery state as report metadata.
+
+A later metadata version or state transition must not mutate an earlier report. Correction produces
+a new report linked by `supersedes_report_id`, preserving the earlier record.
+
+### Cross-artifact write-set review for Lane A
+
+Apply the parent meaning first, then propagate its children without duplicating authority:
+
+| Order | Artifact owner | Required alignment | Completion evidence |
+|---:|---|---|---|
+| 1 | `Modular_PRD.md` | Define the product-level distinction among state, editorial package and frozen report; place the package in the applicable feature group and preserve T1 versus T2/T3 attribution | Requirements and acceptance criteria name one authority for each fact and carry `[V1]` marking correctly |
+| 2 | Functional specs | Define package behaviour, G/P/O validation, version creation, reassessment and report generation; keep UI and physical schema out | Normal and revision paths state what is inserted, what is unchanged and what blocks a gate |
+| 3 | `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` story panels | Show the Chief Editor entering a manual URL/Markdown or other reviewable reference, completing first intake, receiving a return, creating reassessment and reaching LinkedIn `ManualReady` | One article demonstrates both paths with no scrape, hidden state change or overwritten intake |
+| 4 | The storyboard's Mermaid sequence/UML views | Keep state-machine nodes and transition events typed; model the editorial package and report as associated, versioned records rather than states | Cardinality and immutability distinguish article 1→many packages, transitions and reports |
+| 5 | The storyboard's Mermaid data-flow views | Separate `update editorial package`, `execute transition`, `generate report` and `record publication event` into distinct commands/transactions | Every arrow names its store, authority, provenance and failure outcome |
+| 6 | Encyclopedia | Update Entry 06 for manual intake and Entry 03 for newsworthiness; add or update the state-versus-metadata term where its canonical entry belongs | No entry equates descriptive metadata with gate authority or public visibility |
+| 7 | Cross-reference and traceability map | Link the accepted requirement, behaviour, data candidate and tests without copying status or decision text | Each link resolves in both directions; no orphan requirement or duplicated state authority |
+| 8 | `docs/v1/` tracking trio | Register the Judge act; add scope/sequence/DoD and affected artifact facts in the same pass under `D-54` | Register, build spec and inventory agree; `Modular_PRD` §8 changes only if the applicable tier closes or opens |
+
+### `S17` — UML, data flow and story panels currently share one artifact
+
+The repository inventory exposes no standalone UML, data-flow or story-panel document. The current
+owner is the single storyboard above: Panels A2/A5 are Mermaid sequence diagrams; Panels B7 and §3
+are Mermaid flowcharts. Lane A therefore updates or annotates those views in the same bounded
+storyboard write set unless the Register deliberately creates a separate artifact and propagates
+that fact under `D-54`.
+
+Two current storyboard claims also require correction in this same owner:
+
+- Panel B7 says no report entity exists and §4 repeats that absence. `0002` now creates
+  `editorial_reports` with a versioned JSONB snapshot and append-only enforcement; both claims are
+  historical, not current build input.
+- Panel A2's sequence still depicts state-bearing article creation before its transition evidence
+  while its own supersession note says the transition must precede the state change. The revised
+  view must show a single transaction and must keep editorial-package creation distinct from the
+  transition command.
+
+Creating three new documents for three requested view names would duplicate one current owner and
+increase drift. Lane A may recommend that split only with a specific reuse or verification benefit,
+an inventory decision and cross-reference changes.
+
+### Lane A follow-up — parent before children
+
+1. **Record the parent Judge act (`S14`).** State the three authorities and the rejected
+   alternatives in the Register; identify the affected tier before editing a derived artifact.
+2. **Produce the exact governed write set.** Diff the current `Modular_PRD`, functional specs, the
+   storyboard's panels and Mermaid UML/data-flow views, Encyclopedia and cross-reference owners.
+   Apply `S17`; do not create duplicate view files without a Register and inventory decision.
+3. **Specify the working package (`S15`).** Carry A1, M1–M3 and S13 into one versioned logical
+   contract. Mark physical table/index/RLS choices as later `SPECS` candidates for Lane B.
+4. **Specify the report boundary (`S16`).** Define the public allowlist, exact package-version
+   anchor and correction/supersession behaviour. Preserve the existing report transition anchor.
+5. **Walk one article with the Chief Editor.** Use the supplied LinkedIn example: manual URL and
+   Markdown intake; first-intake package; T2/T3 evidence; return for the observability-versus-
+   observation conflation; reassessment; revision; resubmission; LinkedIn `ManualReady` output.
+6. **Run construction-readiness checks.** Trace every required write to a logical owner and every
+   acceptance example to a future executable test. Flag any unanswered access, ownership,
+   visibility or retention choice rather than embedding a default.
+7. **Present one reviewable packet to the Judge.** The Judge accepts or rejects the exact write set
+   and acceptance examples. The present direction does not authorize applying that packet.
+8. **After authorization, apply in dependency order and obtain independent verification.** Apply
+   the tracking trio in the same pass required by `D-54`; record explicitly which tiers are
+   unaffected.
+9. **Synchronize Graphify last.** Rebuild after the final tracked edit, restore curated B-094/B-095
+   coverage, prove analyzed-head equality and run the complete local consistency suite.
+
+### Construction and verification evidence required before Lane B implementation
+
+| Evidence | Pass condition |
+|---|---|
+| Metadata-only update | A new package version is created; `articles.workflow_state`, transition count and publication status are unchanged |
+| State transition | One legal transition event and the typed current-state update commit atomically; package version and checksum are unchanged |
+| Concurrent/stale transition | The existing row-lock and transition guards refuse a second transition from the stale state |
+| First intake then reassessment | Both package versions remain retrievable and attributable; the reassessment delta does not invent a baseline for first intake |
+| G/P/O validation | Missing G refuses T1; missing P marks package incomplete without refusing T1; absent O has no gate or completeness effect |
+| Non-URL source | A manually supplied Markdown/document/other reviewable reference persists without scraping and without a URL-only error |
+| Frozen report | It resolves to the exact package version and transition anchor; later package/state changes leave its snapshot unchanged |
+| Public projection | Only allowlisted explainable fields appear; internal notes, operational state and credentials are absent |
+| Report correction | A new immutable report supersedes the prior record; no update or delete of the prior snapshot succeeds |
+| Recovery | A failed manual-ready/publication action records an append-only outcome and can be retried without changing editorial metadata or fabricating delivery success |
+
+Effort and capacity remain unconfirmed. Lane A should estimate the exact write set after resolving
+the current artifact owners; Lane B estimates schema and application work only after the accepted
+spec names the logical record, transaction boundaries, access rules and tests. This keeps a
+documentation estimate from being mistaken for implementation or release readiness.
+
+| Verdict | Item | Follow-up |
+|---|---|---|
+| Approve | `S14` state/metadata/report separation | Phase 1 — Lane A records the parent Judge act before dependent drafting |
+| Approve-with-conditions | `S15` versioned editorial-package contract | Phase 1 — exact field matrix, provenance, G/P/O validation and history semantics required |
+| Approve-with-conditions | `S16` public explainable report projection | Phase 1 — allowlist plus package-version and transition anchors required |
+| Approve-with-conditions | `S17` shared storyboard/UML/data-flow owner | Phase 1 — correct both stale report-absence claims and the A2 transaction view in the existing artifact |
+| Approve-with-conditions | Same-article Chief Editor walkthrough | Phase 1 — prove normal and observability-versus-observation revision paths through LinkedIn `ManualReady` |
+| Reject | Authoritative state inside JSONB, duplicated state, mutable intake history or raw JSON exposure | Phase 1 — these violate the accepted parent boundary |
+| Defer | Physical schema, migration, application code and external publication action | Lane B implementation phase after exact specification and build authorization |
