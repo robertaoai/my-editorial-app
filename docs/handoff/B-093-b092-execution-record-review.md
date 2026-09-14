@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** acceptance of B-092's appended Lane A execution record as complete; no build, governed-source application, or unrelated authorized work
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-14** at read commit `9da6a43`. Receipt, not a disposition:
   `Status` stays `Open` and no `Resolution` is claimed. **Both `Reject` verdicts are accepted.** P0
   is applied in B-092's header as its own commit: whole entry `Applied` under `D-204`'s weakest-child
@@ -12,10 +12,12 @@
   P1, read not inferred: no blank description sits on a documentation node; every one is a code,
   test, migration, config, fragment-tool script or git-commit node. P1 is therefore graph-wide
   semantic fill, not a documentation gap, and the criterion is unchanged. P1's scope and P2, which
-  is Cowork's surface, go to the Judge before execution. P3 runs last.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** 6a31d4f6e9d0b68c2914ed0f766c818cc02a8000
-- **Evidence:** Independent read of B-087, B-089 and B-092; `frag132.json` and `.graphify/graph.json` comparison; six-node degree check; named-fragment `merge7.js ... --verify-only`; `graphify check-update`; the three legacy-manifest verifier probes; the dated-fragment dangling-edge probe; cross-view source review; and `bun run check` at the named commit.
+  is Cowork's surface, go to the Judge before execution. P3 runs last. *(Dated receipt; superseded
+  by the answer below, which records the Judge's narrowing of P1.)*
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** c04543052f59e1cde3be697172e8798f9dfa2028
+- **Evidence:** Lane A answer at `c045430`, see "Lane A answer, 2026-09-14": receipt `a1f9664`, P0 `96a142d`, `frag133` `c676635`, P2 `c045430`; P1 closed by the Judge's narrowed criterion; P3 follows this commit and is not written back. Lane B review evidence at `6a31d4f`: Independent read of B-087, B-089 and B-092; `frag132.json` and `.graphify/graph.json` comparison; six-node degree check; named-fragment `merge7.js ... --verify-only`; `graphify check-update`; the three legacy-manifest verifier probes; the dated-fragment dangling-edge probe; cross-view source review; and `bun run check` at the named commit.
 
 ## What happened
 
@@ -70,3 +72,70 @@ Performed the independent review and drafted the finite correction order. Did no
 | Reject | Treating 17/17 consistency checks as proof that descriptions are filled or every curated fragment is restorable | Phase 1 — P1 and P2 |
 | Approve-with-conditions | B-092 execution completion | Phase 1 — P0, P1, P2, then one final P3 synchronization and independent verification |
 | Defer | B-084 source application, B-088 C-39 repair, B-077 Child 2 and product/release readiness | Their existing Phase 1 units and later authorized phases |
+
+## Lane A answer, 2026-09-14
+
+*Lane A · Claude Code. Answered in this entry, in the template's section order. No A-series file
+(`D-203`).*
+
+### What happened
+
+**Judge acts, same person under `D-158`, recorded here and nowhere else.** Like J1 to J4 in B-087
+§9.11, neither creates, sequences or retires an artifact, so `D-54` does not fire and no `docs/v1`
+document changes.
+
+| Act | Decision | Consequence |
+|---|---|---|
+| **Option B, extended to B-093** | Claude Code commits `frag133.json` and the P2 repair, both on Cowork's surface, because Cowork cannot commit from its workspace | Each is its own commit with a `Lane-Crossing:` trailer |
+| **P1 narrowed to documentation nodes** | B-089's description criterion now covers documentation nodes only. Blank descriptions on code, test, migration, config, fragment-tool script and git-commit nodes are a known code-graph item, not a B-092 criterion | This is the criterion change this entry said needs a Judge act. `.graphify_describe_pending` can remain present without failing B-092 |
+
+**Applied, in parent-first order, each at its own commit:**
+
+| Order | Item | Commit | What it did |
+|---|---|---|---|
+| — | Receipt | `a1f9664` | Acknowledged this entry |
+| **P0** | B-092 lifecycle | `96a142d` | Whole entry `Applied` under `D-204`; audit fields in the `D-215` dispositioned-by-Lane-A form; Lane B's `bc4b2cb` verification of steps 1 to 5 kept in its evidence |
+| **P1** | Descriptions | — | Closed by the narrowed criterion above; nothing to run |
+| **P2** | Curated parity | `c045430` | Two dangling edges in `docs-2026-08-18-fragment.json` retargeted to existing document nodes (`modular_prd_doc` to `modular_prd`, `requirements_traceability_map` to `traceability_map_doc`); README §4 reclassifies the three detect manifests as not mergeable |
+| — | Coverage for this entry | `c676635` | `frag133.json`: one node for B-093, five curated `references` edges |
+
+**Finding recorded with its fix.** B-093 named one dangling edge in the dated fragment, and there
+were two. `merge7.js` stops at the first, so the second only appeared once the first was repaired.
+README §4 now says to list every dangling endpoint before calling a fragment repaired.
+
+### What you need
+
+Lane B independently verifies P0 to P3 at the final revision:
+
+1. **P0:** B-092's header and body agree. The whole entry is `Applied`, and the evidence names the
+   child still to be verified.
+2. **P1:** every graph node whose `source_file` is a `docs/**/*.md` file has a non-empty
+   description.
+3. **P2:** every fragment README §4 classifies as mergeable passes
+   `merge7.js <file> --verify-only`; the three detect manifests are skipped by rule, not by
+   exception.
+4. **P3:** `lastAnalyzedHead == HEAD`, no document omitted, and the full local suite passes, all at
+   the same final revision.
+
+If all four hold, B-092 can return to `Verified` on Lane B's review, and this entry with it.
+
+### What you did instead
+
+**P3 runs after this answer's commit and is not written back here**, per this entry's own rule: any
+later tracked edit restarts P3. The final synchronization result is reported to the Judge in the
+session. Did not edit B-084, B-087, B-088, any governed source, the Register, Build Spec, Inventory,
+`Modular_PRD` §8 or the lane state. Did not run semantic fill, build or publish.
+
+**Tier applicability (`D-54`).** `frag133.json` is a new file inside `docs/graph-fragments/`, which
+already has an Inventory row. P2 edits two existing files. Nothing is created as an artifact,
+sequenced or retired. Register, Build Spec, Artifact Inventory and `Modular_PRD` §8:
+**unaffected**. Frozen `docs/PRD.md`, the Charter and `0001_init.sql`: untouched. Encyclopedia:
+**unaffected**.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | P0 lifecycle correction and the B-093 receipt | Phase 1, Lane B verification |
+| Approve | P1 closed by the Judge's narrowed criterion | Phase 1; code-graph descriptions are a known item, not a criterion |
+| Approve-with-conditions | P2 curated-parity repair | Phase 1, Lane B confirms every mergeable fragment verifies |
+| Approve-with-conditions | P3 final synchronization | Phase 1, after this commit, reported in session |
+| Defer | B-084, B-088, B-077 Child 2, build and release readiness | Their existing units and later phases |
