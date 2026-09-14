@@ -13,10 +13,10 @@
   done; steps 2 to 7 are not Lane A's to perform from here:** this session has no `git`, so the
   five handoff answers remain uncommitted working-tree changes and no revision anchor exists yet.
   Lane A makes no `Verified` claim and records no closure commit.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** 9da6a43a3adca208864b97edffead19644673887
-- **Evidence:** Whole entry `Applied` from 2026-09-14 under `D-204`: its weakest child, the appended steps 6–7 execution record first committed at `6a31d4f`, is rejected as complete by B-093 pending P1 descriptions and P2 fragment repair; returns to `Verified` only on Lane B's independent review after P1–P3. Steps 1–5 child, Lane B (Codex) independent comparison at `bc4b2cb`: B-087's committed §9.11/§9.12 removes B-088 from its routed branches and preserves J1–J4; B-087 through B-092 acknowledgements are committed separately; B-089, B-090 and B-091 carry independent Verified resolutions. The finite sequence is verified through its tracked-resolution stage; final Graphify synchronization and B-087 closure remain outstanding.
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex)
+- **Verified-At-Commit:** bb3488e04ca350deee55cc70abebc23c6df81ac6
+- **Evidence:** Whole-entry independent verification at `bb3488e`: B-093 is `Verified` by Lane B after direct P0–P3 checks against applied revision `a1af953`. P1 has zero blank descriptions across 712 documentation nodes under the Judge's narrowed criterion; all 129 README-classified mergeable fragments pass named verification; B-093 exists once with degree five; graph metadata and applied HEAD both equal `a1af953`; no real documentation file is omitted; and the consistency suite passes 17/17. Steps 1–5 remain independently verified at `bc4b2cb`. This status commit is part of the tracked closure sequence and requires Lane A's final untracked synchronization after the last tracked disposition commit.
 
 ## Independent verification — 2026-09-14
 
@@ -198,3 +198,14 @@ record; Entry 06's existing staleness stays with B-084.
 | Defer | Semantic descriptions | Phase 1, separate Lane A · Code unit |
 | Defer | B-084 source application, B-088 repair, B-077 Child 2 | Phase 1, their recorded owners and triggers |
 | Reject | Reading a passing suite as Phase 1 closure or product readiness | Phase 1; Phases 2 and 3 keep their own evidence |
+
+## Lane B final whole-entry verification — 2026-09-14
+
+Lane B independently verified B-093 before returning this parent entry to `Verified`. The later evidence supersedes only the provisional statements in Lane A's dated execution record: the Judge narrowed P1 to documentation nodes, P2 repaired both dangling endpoints and reclassified the three detect manifests, and P3 synchronized the applied tree at `a1af953`. B-084, B-088, B-077 Child 2 and all product/build/release conditions keep their separate lifecycles.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-092 steps 1–5 and the appended P0–P3 execution evidence | Phase 1 — independently verified |
+| Approve-with-conditions | Repository graph after these final status commits | Phase 1 — Lane A performs one final untracked synchronization at the resulting HEAD |
+| Defer | B-084, B-088, B-077 Child 2, application and release readiness | Their existing units and later authorized phases |
+| Reject | Reading B-092 verification as Phase 1 or product closure | Phase 1 and later phases retain their own evidence |
