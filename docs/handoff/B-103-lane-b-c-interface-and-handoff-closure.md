@@ -200,3 +200,21 @@ application code, schema, workflows, Graphify, lane state, or external systems, 
 | Approve-with-conditions | Closure of the current chain | Phase 1 — B-101 first, then B-102/B-103 promotion; terminal review remains independent |
 | Defer | Lane B/C implementation, workflow changes, publication and release | Accepted source packets, dependencies, active-lane selection and separate build authorization |
 | Defer | Graphify synchronization | Final committed source and handoff lifecycle corrections first |
+
+## Lane B packet cross-reference — P1/P2 application text, 2026-09-15
+
+B-102's **Lane B application-readiness review** now carries the complete, placeholder-free text for
+the Lane B work-order and Lane C workflow-spec destinations. This entry remains the semantic owner
+of the P1/P2 relationship and lifecycle; B-102 owns the combined source-application packet.
+
+P0-A, P1 and P2 are standing planning directions already recorded in B-094. What remains is the
+bounded Register/source application act and independent verification, not another business-choice
+round. P3 remains separate because B-097 owns the terminal-return protocol controls and duplicate
+implementation must be avoided.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-102 as application-packet destination for B-103 P1/P2 | Phase 1 — one packet, existing lifecycle owners |
+| Approve-with-conditions | P1/P2 source application | Phase 1 — exact Judge act and both destination sections applied together |
+| Reject | Placeholder or paraphrased evidence clauses | Use the complete text reviewed in B-102 |
+| Defer | P3 controls and implementation | B-097 and later authorized Lane A/Lane B/Lane C units |
