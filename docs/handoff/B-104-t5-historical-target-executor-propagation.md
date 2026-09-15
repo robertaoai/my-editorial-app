@@ -14,6 +14,17 @@
   choice. The two-view wording (target `ROUTE-PROD-1` plus labelled historical view) will be folded
   into A4 step 5 when that packet is next prepared. No governed source, storyboard, or A4 write set
   is edited by this acknowledgement.
+
+  **Correction, 2026-09-15 (self-identified from the independent acknowledgement audit below; per
+  Lane B's report, not independently git-verified from this session).** The read-commit citation
+  above, `f170fb297fe39ead5fee903945bed1885e20a579`, is wrong: B-104 did not exist at that commit.
+  The actual baseline this acknowledgement should have cited is
+  `deb30484d72b179bb86e02f8d31e09ba639d59ce` (the commit that introduced B-104) or a later commit.
+  The substance of the acknowledgement stands (D-181 already decides the target model; B-104
+  supersedes Lane A's own three-way A4 step 5 draft) and is not reopened by this correction. B-104
+  remains Open: it closes only after the two-view T5/T6 correction is applied to the accepted
+  A4/governed-source packet and independently verified at the exact commit read, not from this
+  acknowledgement alone.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `V1-DECISION-REGISTER.md` D-175/D-181; `Modular_PRD.md` historical and `decided_target_held` acceptance rows; `FN-GATES-01-05.md`; `raci-involvement-matrix.md`; storyboard Panel A5 and role table; ignored `A4-step5-same-article-journey-DRAFT.md`; Graphify branch metadata checked at the named commit
 - **Verified-At-Commit:** f170fb297fe39ead5fee903945bed1885e20a579
