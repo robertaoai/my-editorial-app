@@ -419,3 +419,33 @@ the specification is ready.
 | Reject | Real workflow execution as B-103's Phase 1 closure prerequisite | No workflow or signal was authorized by D-229 |
 | Defer | B-103 P2 terminal disposition | Corrected boundary plus independent Lane C document read |
 | Defer | Runtime signal/workflow verification | Later authorized Lane B/C construction units |
+
+## Lane B Stage 1 independent re-read after `D-230` — 2026-09-15
+
+Lane B independently read the committed contract and corrected verification boundary at governed
+commit `9b13e162902ee3f7c554132b29d973ea5d5a6546`. The Stage 1 contract review **passes**:
+
+- `docs/LANE-B-WORK-ORDER.md` §6 confines Lane B output to named command results,
+  machine-readable verification results, artifact/migration identity, deployment health and
+  sanitized operational events;
+- the same section explicitly excludes credentials, environment-file contents, service-role keys,
+  tokens, raw client/article content and unrestricted logs;
+- `.github/WORKFLOWS-SPEC.md` §7 gives Lane C a bounded five-field deficiency record and forbids
+  inventing endpoints, event schemas or Product requirements in workflow YAML;
+- `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §16 maps normal evidence, secret exposure,
+  operational signals, missing signals and test-of-tester failures to explicit Accept/Reject cases;
+  and
+- `D-230` correctly keeps those document checks in Stage 1 while reserving real signal/workflow and
+  deliberate-failure evidence for a later authorized construction unit.
+
+This is Lane B's required post-correction document read. It supplies no Lane C evidence and does
+not make B-103 terminal. Lane C must independently read `.github/WORKFLOWS-SPEC.md` §7,
+`docs/LANE-B-WORK-ORDER.md` §6 and verification-apparatus §16 at an exact commit, then record whether
+the ownership, fields, exclusions, failure vocabulary and positive/negative cases are usable.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Lane B Stage 1 contract read | Complete at `9b13e162902ee3f7c554132b29d973ea5d5a6546` |
+| Approve-with-conditions | B-103 P2 Stage 1 closure | Phase 1 — Lane C independent document read remains |
+| Reject | Lane A or Lane B supplying Lane C's review | Independent consumer evidence must come from Lane C |
+| Defer | Stage 2 runtime proof | Later separately authorized Lane B/Lane C construction unit |
