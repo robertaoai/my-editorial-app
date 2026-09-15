@@ -13,6 +13,19 @@
   `A4` target defects found at this commit are raised separately as `B-095`. **Dated receipt:**
   the later Chief Editor evidence below supplies the structural `A1` direction; exact field
   requiredness remains an `A4` acceptance choice.
+
+  **Acknowledged, continued, 2026-09-15.** The receipt above covered B-094's original A/B/C routing
+  packet only. The body has since grown to include the Judge's 2026-09-15 dependency-order ruling
+  (B-102/B-103 source packet, then B-084 A4, then B-088 P1 conditionally) and Lane B's M1 capacity
+  proposal (`CAP-1..4`, `8h/2h/3h/2h`) with its rationale. Receipt of that current body is
+  acknowledged here; it is not accepted or rejected, because M1 and the dependency ruling are Chief
+  Editor decisions this session cannot make on the Chief Editor's behalf. **One correction to the
+  record:** this Cowork session has no GitHub connector and no working shell to this repository
+  (`device_bash` remains unreachable, same Windows-update mount issue, re-confirmed this turn); the
+  path used throughout this conversation is the desktop file bridge, not GitHub. If a GitHub
+  connection has been separately configured for Cowork, it is not attached to this session, so the
+  CAP-1/CAP-4 "GitHub connection removes repository connection/setup work" reasoning above should be
+  treated as not yet applicable here until confirmed otherwise.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** f63d6eb2e6a3c5815dff5f5df847ea20c8db7bdc
 - **Evidence:** Live review of B-084, B-088 and B-077 Child 2 at the named commit; B-087 J2/J3/J4 dispositions; current handoff lifecycle query; Graphify query; final B-092/B-093 graph evidence; `Modular_PRD`, storyboard, scope graph, traceability and Encyclopedia residual routing.
