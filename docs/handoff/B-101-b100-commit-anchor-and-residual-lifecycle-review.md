@@ -171,3 +171,92 @@ governed sources, code, schema, Graphify or lane state, and did not build or pub
 | Approve-with-conditions | B-088 P1 | Chief Editor chooses Approve/Defer/Reject for the exact bounded unit |
 | Defer | Product/source application, application build, publication and release | Existing authorization and dependency boundaries |
 | Defer | Graphify synchronization | Final lifecycle correction and verification commits first |
+
+## Lane B independent review — direct Git adjudication, 2026-09-15
+
+### Scope and evidence correction
+
+Lane A's latest handover correctly refused to replace one unverified narrative hash with another,
+but its premise is no longer current. Lane B ran Git directly in this repository:
+
+- local `HEAD` and upstream both resolve to
+  `4429d40d834db5f7446facd09c44310908109892`;
+- `git log -- docs/handoff/B-100-lane-a-applied-batch-lifecycle-review.md` shows B-100 was
+  introduced by `79a4450cc09c1dcb01d0d7acad8dd318008b6674`;
+- `git cat-file -e` confirms B-100 is absent at
+  `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6` and present at `79a4450…`;
+- the Lane A response was applied later in `cb74f7e7fbe315e57bc0b2da78d6647293ce635a`;
+- the B-101/B-102/B-103 acknowledgements and subsequent corrections are all in the branch history,
+  and upstream equality proves they were pushed.
+
+The original B-100 `Verified-At-Commit: e0e1c85…` was not intrinsically invalid when Lane B first
+raised the entry. Under D-214, a new record cites the tree the raiser inspected, so its audit anchor
+normally predates the file that records the finding. The actual defect was introduced when Lane A's
+later response claimed it had read and answered **B-100 itself** at `e0e1c85…`. That is impossible
+because B-100 is absent from that tree. Once the record was dispositioned, its whole-record audit
+field also needed to reflect the response's real read baseline.
+
+The first directly proven response-read candidate is `79a4450…`, which contains B-100 before Lane
+A's response commit. The response commit `cb74f7e…` is not stored in `Verified-At-Commit`: D-214
+says the disposition commit is derivable and the audit field stores the commit read.
+
+### Parent-first result
+
+| Order | Existing child | Direct result | Remaining action |
+|---:|---|---|---|
+| 1 | Durable commit/push | **Proven.** HEAD equals upstream and contains the complete response chain | Replace Lane A's current “no shell evidence” statement with this dated correction; do not rewrite its historical account |
+| 2 | B-100 response-read anchor | **Proven wrong at `e0e1c85…`; proven present at `79a4450…`** | Lane A changes its response citation and the whole-record `Verified-At-Commit` to full `79a4450…` |
+| 3 | B-098/B-099 disposition words | **Verified for this bounded correction.** Both are `Answered` / `Applied` and name Lane A as dispositioning side | Independent terminal promotion may occur only after their full entry evidence, not merely these header words, is reviewed |
+| 4 | B-096 evidence and S17 wording | **Verified for B-101's requested text correction.** Historical single-reader wording is distinguished from later corroboration; GA1 is not the S17 blocker | Keep B-096 open for S15/S16 and A4-held S17 |
+| 5 | B-101 independent review | **Performed in this section** | B-101 remains open because item 2 is not yet applied and Graphify remains stale |
+| 6 | Graphify | **Not current.** `lastAnalyzedHead` remains `f63d6eb…` while Git HEAD is `4429d40…`; `stale: false` is contradicted by the revisions themselves | Lane A synchronizes only after the B-100 correction and accepted B-102/B-103 source packet land |
+
+### Exact Lane A correction — existing files only
+
+1. In B-100's Lane A response, append a dated correction stating that direct Git review supersedes
+   the no-shell caveat: B-100 is present at `79a4450…`, the response landed at `cb74f7e…`, and the
+   current branch is pushed through the then-current upstream tip.
+2. Replace the Lane A response's `at read commit e0e1c85…` claim with
+   `at read commit 79a4450cc09c1dcb01d0d7acad8dd318008b6674`.
+3. Set B-100's `Verified-At-Commit` to that same full `79a4450…` value. Do not use `cb74f7e…`, which
+   is the derivable response commit rather than its read baseline.
+4. Update B-101's child table: durable application `Verified`; anchor correction `Applied` only
+   after steps 1–3 commit; independent review `Performed`; Graphify still deferred.
+5. Keep B-101 and B-100 non-terminal until Lane B or another eligible independent actor reads the
+   committed correction. Do not promote B-098/B-099/B-100 as a bulk batch.
+
+### One decision pass for the remaining Chief Editor inputs
+
+The recurring decision requests should cite one Judge act, not receive separate paraphrased answers
+in B-094/B-100/B-101/B-102/B-103. The act should record:
+
+| Decision | Recommended selection | What remains supplied by the Chief Editor |
+|---|---|---|
+| B-102 consumer model | **Choice A — bounded packet plus executable controls** | Explicit acceptance and authorization for Lane A to draft the exact D-86 amendment/write set |
+| B-103 promotion mechanism | **P0 A — bounded promotion packet** | Exact source sections, owner, dependencies, DoD and verifier before application |
+| B-103 lane/interface model | **Accept P1 and P2** | Lane B editorial application; Lane C delivery assurance; Lane A evidence/data policy; minimum B→C allowlist and C→B deficiency schema |
+| B-084 A4 | **Keep as the selected Product-readiness unit** | Operator drafting hours/dates, Chief Editor review hours/window, independent reviewer/hours and contingency limit |
+| B-088 P1 | **Defer behind the accepted source packet and A4 unless remaining capacity fits it** | If approved, authorize only token termination, labelled negative probes and its independent review allocation |
+
+The commercial fact already supplied is bounded: there is no current time-sensitive customer;
+M-MVP is intended to support M-POC marketing for customers who may be time-sensitive. That supports
+building a credible manual-ready journey and reusable S2 engine, but it supplies no operator hours,
+quarterly goal, release date or customer deadline.
+
+### Cross-artifact result
+
+No Product or implementation artifact changes from this audit correction. B-102/B-103 already own
+the later source-packet crosswalk. `Modular_PRD` retains NFR-08 for editorial audit reconstruction
+and FR-14/AC-21 for the in-product continuity surface; the storyboard remains the owner of story
+panels, UML and data-flow views; traceability and `ENCYCLOPEDIA-SYNC.md` retain their existing impact
+roles. Graphify synchronization remains last and cannot substitute for applying those source edits.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Direct Git proof of current HEAD/upstream and B-100's introduction commit | Phase 1 — supersedes the latest no-shell evidence limitation |
+| Approve-with-conditions | `79a4450…` as B-100's response-read anchor | Phase 1 — Lane A applies it, then an independent actor reviews the committed record |
+| Reject | Claim that an initial handoff must exist at the commit it inspected | D-214 makes that commit the read baseline; the later response must exist at its own read baseline |
+| Reject | Treating all hashes in the thread as narrative-only | Current Git history directly establishes the named commits and upstream equality |
+| Approve-with-conditions | One Chief Editor decision pass for B-084/B-088/B-102/B-103 | Phase 1 — one Judge act referenced by the existing entries; no copied answers |
+| Defer | Governed-source application and Lane B/C implementation | Exact authorized write set, capacity and active-lane work orders |
+| Defer | Graphify synchronization | B-100 correction and accepted B-102/B-103 source application first |
