@@ -683,3 +683,116 @@ contains Lane A's header edit remains derivable from Git and is not stored in th
 | Reject | A second terminal-state ordering or a copied backlog count | Handoff SOP/check remains the canonical lifecycle computation |
 | Defer | P3 protocol implementation and independent verification | Phase 1 — B-097 |
 | Defer | Stage 2 runtime evidence | Later separately authorized Lane B/C construction unit |
+
+## Judge clarification — C-001 review complete; Lane C run is conditionally ready, 2026-09-15
+
+### Normalized meaning
+
+The Chief Editor/Judge confirms that **Lane C's C-001 review work is complete** and may be marked
+ready for scheduling after the corresponding Lane B application build completes. This is a
+readiness decision, not evidence that C-001's workflow/settings transition has run or passed.
+
+`C-001` remains the canonical Phase 3 record for the required-check compatibility transition. This
+Lane B entry does not absorb or close it: `docs/LANE-B-WORK-ORDER.md` §2 expressly keeps C-001 out
+of Lane B's packet. B-103 records only the cross-lane dependency that Lane B must supply before a
+later Lane C run can consume application evidence under `D-229`/`D-230`.
+
+“Lane B completes the app build” must mean the authorized Lane B work units have met their own DoD
+and produced the allowlisted handoff evidence. A successful `next build` alone is insufficient:
+the Build Spec and Lane B work order state that build output can remain green despite type or lint
+failures. “Lane C run” must also be separated into the independent Phase 3 units below; otherwise a
+ready review will be mistaken for execution authority.
+
+### Highest-parent decision table
+
+| Order | Parent / dependent item | Current disposition | Accept when | Reject / stop condition |
+|---:|---|---|---|---|
+| 1 | **Parent — C-001 review readiness** | **Judge-confirmed complete and ready for later scheduling** | Lane A records that the review packet is complete while preserving C-001 as `Answered / Deferred` for its unexecuted Phase 3 work | “Review complete” is used to claim the compatibility transition, ruleset repair, protected-PR proof or deployment already passed |
+| 2 | **Lane B application completion** | **Not yet supplied for this dependency** | A separately authorized Lane B unit completes its Product/Fn/SPECS acceptance cases and hands off named command results, machine-readable checks, artifact identity, schema/migration identity and sanitized outcomes under Lane B work order §6 | A green build command, seeded screen, unverified migration, missing app signal or prose summary is treated as completed application evidence |
+| 3 | **B→C evidence acceptance** | Contract verified at Stage 1; runtime evidence deferred | Lane C can consume the bounded evidence without secrets, raw article/client content or unrestricted logs; any missing signal uses the five-field C-series return in workflow spec §7 | Lane C widens the interface, invents an endpoint/schema in YAML, or cannot make a missing/malformed signal fail for the named reason |
+| 4 | **C-Q1 — full-history checkout** | Ready Phase 3 item in Phase Closure §5 | Lane C receives an authorized Active unit and proves `source-sweep` runs with the required history | C-Q1 is bundled into C-Q2 or app deployment without a bounded unit and negative proof |
+| 5 | **C-Q2 / C-001 compatibility transition** | `Answered / Deferred`; review complete, execution conditions open | C-24 is corrected so the compatibility context fails when the real verify job fails; C-25 durably records the live ruleset target, required context and GitHub App source; the settings sequence is coordinated with the workflow change | The job rename happens before the ruleset is valid, the compatibility job can skip green, or repository settings remain unverifiable |
+| 6 | **Lane selection and run authorization** | Lane A `Active`; Lane B `Eligible`; Lane C `Blocked` | After Lane B's accepted handover, the Chief Editor selects Lane C `Active` for one named Phase 3 unit with DoD and stop conditions | Readiness, Phase ownership, or a completed review is treated as self-selection or authorization |
+| 7 | **Lane C execution evidence** | Deferred | The authorized workflow change runs on a real commit; the positive case passes and the deliberate negative case turns red for the intended reason; settings evidence is retained | YAML review, a skipped compatibility job, an unprotected branch, or a green-only run is called verification |
+
+### What the Chief Editor must do
+
+1. **Record the readiness distinction.** Accept C-001's review child as complete while leaving the
+   whole C-001 entry `Answered / Deferred` until its Phase 3 execution evidence exists.
+2. **Keep the dependency order.** Lane A first finishes the current governance/readiness packet;
+   Lane B then receives a fresh authorized app-build unit and becomes `Active` through the existing
+   lane-selection procedure.
+3. **Accept Lane B completion only against its bounded DoD.** Require the named application
+   acceptance cases, type/lint/test results, database evidence where applicable, artifact identity
+   and a handoff of the allowlisted evidence. Do not use `bun run build` alone as the oracle.
+4. **Resolve the Phase 3 settings prerequisite.** Before C-Q2 changes the required context, record
+   the current ruleset target, exact required context and expected GitHub App source (`C-25`) and
+   require the fail-propagating compatibility shape (`C-24`).
+5. **Select the exact Lane C unit.** After Lane B's accepted handover, choose C-Q1, C-Q2/C-001, or
+   the later B/C runtime-evidence unit explicitly. Do not combine them under the phrase “Lane C
+   run.”
+6. **Move the lane state through its canonical owner.** Record Lane C as `Active` in
+   `V1-PHASE-CLOSURE.md` §5 only when the selected unit is authorized. Readiness creates no lane
+   transition by itself.
+7. **Judge the run from both directions.** Require a real positive run and a deliberately broken or
+   missing input that makes the workflow fail for the intended reason. Only then may the selected
+   Phase 3 unit close.
+
+### Critical construction and verification artifacts
+
+| Artifact / evidence | Owner | Why the later implementation needs it | Completion evidence |
+|---|---|---|---|
+| Authorized Lane B application work order | Lane A defines; Lane B consumes | Fixes the exact Product/Fn/SPECS scope and prevents “complete the app” from becoming an unbounded instruction | Named unit, dependencies, exclusions, acceptance cases and DoD |
+| Application, schema and tests | Lane B | Produce the working behaviour and stable evidence Lane C is allowed to consume | Persisted end-to-end behaviour plus machine-readable type/lint/test/database results at a named commit |
+| B→C evidence handoff | Lane B through B-103 contract | Gives Lane C artifact identity, versions and sanitized outcomes without exposing content or secrets | Evidence matches Lane B work order §6; missing fields become one bounded C-series deficiency |
+| C-Q1 or C-Q2 workflow unit | Lane C | Implements one selected delivery-assurance control without changing Product behaviour | `.github/workflows/`-only change, real positive run and deliberate negative proof |
+| Live ruleset record and compatibility result | Chief Editor/settings act plus Lane C evidence | Prevents an ASCII rename from either gating nothing or blocking every pull request | Targeted branch, exact old/new context, expected source and observed protected-PR outcome |
+| Lane state and decision record | Lane A | Separates readiness, authorization, execution and closure | Register act and Phase Closure §5 agree on unit, owner and transition |
+| Original handoffs | Lane B/C raise; Lane A answers | Preserve observed facts and independent review without a second readiness ledger | B-103 carries the interface; C-001 carries its Phase 3 lifecycle and run evidence |
+
+### Cross-artifact review and drift disposition
+
+| Artifact | Result |
+|---|---|
+| `docs/Modular_PRD.md` | No change. NFR-04/AC-NF-03 already require CI to execute typecheck, lint and tests; this readiness record adds no Product behaviour. |
+| Storyboard and story panels | No change. The editorial user journey ends in publication/manual-ready behaviour; Phase 3 delivery controls are not editorial panels or virtual-agent nodes. |
+| UML and data flow | No change to article state or editorial data. The later delivery-assurance flow is B artifact/evidence → C workflow → pass or bounded C-series deficiency. |
+| Requirements traceability | No new Customer Request or Product requirement. C-001/C-Q1/C-Q2 remain Project-Scope delivery controls serving NFR-04 and the build/release process. |
+| Encyclopedia | No change. No editorial term, gate, role or user-visible capability is introduced. |
+| Graphify | No rebuild for this handoff-only readiness clarification. Governed intent was synchronized at `7dac429`; later commits affect only the excluded handoff channel. A rebuild becomes due after Lane A changes a governed source. |
+
+### Guaranteed failures and success criteria
+
+| Guaranteed failure if the distinction is omitted | Success criterion |
+|---|---|
+| “C-001 review complete” closes C-001 despite no ruleset or protected-PR evidence | Review child is ready; whole C-001 remains `Answered / Deferred` until Phase 3 proof |
+| “Lane B build complete” means only `next build` returned zero | Lane B supplies its authorized acceptance cases and the full allowlisted evidence packet |
+| Lane C starts because it owns Phase 3 | Chief Editor selects one named Lane C unit `Active` after the accepted Lane B handover |
+| C-Q1, C-Q2 and runtime integration are treated as one run | Each has its own scope, prerequisites, DoD and failure proof |
+| The compatibility job skips when the real verification fails | `if: always()`-equivalent behaviour runs and fails unless the real verification result is success |
+| The renamed context gates no branch or blocks all pull requests | Live settings record proves the target and source; a protected positive and negative PR establish both directions |
+| Lane C needs raw content or credentials to verify the build | Only the D-229 allowlist is consumed; any insufficiency returns through the five-field C-series contract |
+
+### Exact Lane A follow-up
+
+1. Append a dated Lane A response to this section confirming the review-ready/execution-deferred
+   distinction; do not rewrite Lane C's C-001 history.
+2. Add a short cross-reference in C-001 stating that its review packet is ready for later scheduling
+   and that B-103 owns the Lane B completion/evidence dependency. Keep C-001's current header and
+   C-24/C-25 Follow-up-Tier unchanged.
+3. Ensure the next Lane B work order defines the bounded application unit and the evidence fields
+   Lane C will consume. If the application lacks a required stable signal, route that as one C-series
+   deficiency after Lane C reviews it; do not invent the signal in advance.
+4. At Lane B completion, verify its handoff evidence and ask the Chief Editor to select the precise
+   Phase 3 unit. Only that selection changes lane state.
+5. After the selected Lane C run, record the workflow commit, positive/negative run evidence and any
+   repository-settings act in C-001 or its genuinely distinct owning entry.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | C-001 review packet complete and ready for later scheduling | Phase 1 handoff record; no Phase 3 execution claim |
+| Approve-with-conditions | Lane C run readiness | Phase 2→3 boundary — Lane B accepted build/evidence handoff, exact Lane C unit, Active selection and unit-specific prerequisites |
+| Approve-with-conditions | C-Q2/C-001 execution | Phase 3 — C-24 fail propagation and C-25 live-ruleset evidence first |
+| Reject | Closing C-001 or marking its workflow/settings transition Verified now | No protected positive/negative run exists |
+| Reject | Treating `bun run build` alone as Lane B completion evidence | Lane B work order and Build Spec require stronger checks and behaviour evidence |
+| Defer | C-Q1, C-Q2 and Stage 2 B/C runtime implementation | Separately authorized Lane C units after the accepted Lane B handover |
