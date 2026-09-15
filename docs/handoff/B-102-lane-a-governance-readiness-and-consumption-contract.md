@@ -350,3 +350,40 @@ owned meaning.
 | Defer | Governed-source and control application | Exact propagated packet and later Judge application act |
 | Defer | Lane B/C control-file implementation | Accepted ready packet, correct existing paths and active-lane selection |
 | Defer | Graphify synchronization | Final committed governance/handoff corrections and verification first |
+
+## Lane B clarification — exact Cowork and Claude Code actions, 2026-09-15
+
+The Judge has accepted the Cowork-author/Claude Code-applicator direction and asks which tool acts
+at each point. Lane A remains one lane and one owner. The split below is by act, not by authority.
+
+| Order | Lane A · Cowork action | Lane A · Claude Code action | Accept evidence |
+|---:|---|---|---|
+| 1 | Read the committed B-/C-series handoff and its cited baseline. Classify each issue as governance meaning, Product behavior, implementation dependency or verification evidence | No source edit; confirm that the cited paths and proposed control locations exist | One bounded issue map with existing owners; no duplicate decision or artifact |
+| 2 | Draft the **exact semantic packet**: literal additions/replacements, file and section anchors, exclusions, dependencies, negative examples, DoD and independent reviewer | Review the packet only for mechanical applicability. Report a path, context or tooling conflict; do not repair its meaning | Immutable packet can be applied without interpretation |
+| 3 | Present only unresolved business choices to the Judge and incorporate the recorded Accept/Reject result into the packet | No application before the bounded Judge act exists | Register act identifies the exact packet revision and permitted paths |
+| 4 | Remain the semantic author and answer any returned conflict | Apply the accepted packet verbatim, run the named documentation/control checks and commit only the authorized paths. Record Cowork as author of meaning and Code as applicator | Committed diff matches the accepted packet; no extra path or wording |
+| 5 | Reconcile any business-meaning defect returned by Lane B/C | Supply commit/check evidence and stop; do not self-verify | Lane B/C independently records the commit read and child dispositions in the original handoff |
+| 6 | Declare the promoted intent complete only after independent verification | Run governance/docs Graphify after that declaration; preserve handoff exclusion and curated fragments | Analyzed head equals the verified governed-source commit and the intended concepts are queryable |
+
+### Bounded Lane B/C evidence interface Cowork must specify
+
+Cowork owns the interface meaning. Its packet must name: the producing lane and consuming lane;
+record identity and revision; permitted fields; sensitivity/classification; event and state anchor;
+result vocabulary; failure/absence vocabulary; immutable evidence reference; freshness/version;
+negative cases; and the handoff owner when the consumer cannot proceed. Lane B exposes editorial
+application results. Lane C consumes only the allowlisted delivery/monitoring fields and returns
+missing observability, workflow or recovery needs through its C-series handoff. Neither lane invents
+the other's fields or reads unrestricted application data.
+
+The parent succeeds when Lane B and Lane C can each answer, from one committed packet: **what may I
+read, what must I produce, what proves failure, and where do I return a missing dependency?** It
+fails if either lane must infer those answers from the entire documentation corpus, from an
+uncommitted Cowork draft or from an unexplained checker flag.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Cowork performs semantic classification, exact drafting and Judge incorporation | Phase 1 — B-102/B-103 packet preparation |
+| Approve-with-conditions | Claude Code applies and commits Cowork-owned sources | Phase 1 — exact accepted packet, mechanical application only, provenance and checks |
+| Approve-with-conditions | Bounded Lane B/C evidence interface | Phase 1 — exact allowlist, classification, failure vocabulary and return owner |
+| Reject | Code resolving meaning, Cowork calling scratch applied, or B/C inferring unrestricted access | Return the defect through the existing owner |
+| Defer | Control implementation and Graphify | After canonical packet application and independent verification |
