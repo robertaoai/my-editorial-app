@@ -218,3 +218,28 @@ implementation must be avoided.
 | Approve-with-conditions | P1/P2 source application | Phase 1 — exact Judge act and both destination sections applied together |
 | Reject | Placeholder or paraphrased evidence clauses | Use the complete text reviewed in B-102 |
 | Defer | P3 controls and implementation | B-097 and later authorized Lane A/Lane B/Lane C units |
+
+## Judge clarification — P2 is the canonical source for anti-duplication references, 2026-09-15
+
+Lane A's placeholders were intended to prevent duplicate normative clauses. Accept that intent.
+Until the governed promotion is applied, this entry's `### P2 — accept the two-way B/C evidence
+contract` and its two child headings are the canonical source for the interface text. B-102 owns
+the application map and authorization conditions; it does not own a competing copy of the P2
+semantics.
+
+Lane A must cite this file, the exact P2 child heading and the full Judge-accepted commit. The
+reference must also name the destination heading and say `copy verbatim`. After promotion,
+`docs/LANE-B-WORK-ORDER.md` owns Lane B's executable half and `.github/WORKFLOWS-SPEC.md` owns Lane
+C's executable half. This entry retains the handoff evidence and lifecycle; it does not remain a
+live work-order override.
+
+The evidence/changelog/takeover/QA/tracking location map and the parent-first application steps are
+recorded once in B-102 under `Judge clarification — placeholders are anti-duplication references`.
+That cross-reference avoids another copied process contract.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-103 P2 as the canonical pre-promotion source | Phase 1 — pin file, headings and accepted commit |
+| Approve-with-conditions | Promotion into both consumer work orders | Phase 1 — one Judge act, verbatim extraction and independent B/C review |
+| Reject | Bracket-only placeholders or paraphrase during application | The source reference must be mechanically resolvable |
+| Defer | P3 and application/workflow construction | Existing separately authorized units |
