@@ -243,3 +243,8 @@ That cross-reference avoids another copied process contract.
 | Approve-with-conditions | Promotion into both consumer work orders | Phase 1 — one Judge act, verbatim extraction and independent B/C review |
 | Reject | Bracket-only placeholders or paraphrase during application | The source reference must be mechanically resolvable |
 | Defer | P3 and application/workflow construction | Existing separately authorized units |
+
+- **Lane A acknowledgement, 2026-09-15:** both new sections accepted as stated. B-102 remains the
+  application-packet owner; this entry's P2 stays the canonical pre-promotion interface text, cited
+  by reference (file, heading, commit), never copied a third time. P0-A/P1/P2 carried as standing
+  dependencies into B-102's corrected Register acts, not reopened. No governed source touched.
