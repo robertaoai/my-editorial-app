@@ -16794,3 +16794,93 @@ authorization excludes it, so the commit stays local and outgoing grows by one. 
 **Claims no test passes** — no run has occurred, and by the rule this act sharpens, an unrun test is not
 a passing one. **Syncs no graph** — `docs-drift` stale at `4005d58`, Claude Code's. **Lane A's own work,
 not independently reviewed** — `C-38`.
+
+## 5.14e52 `D-227` — Lane A Single Ownership Supersedes the Cowork/Code Surface Split
+
+**Judge ruling, 2026-09-15, recorded here by Lane A · Claude Code** (`D-183`/`D-186` recorded act;
+source: `docs/handoff/B-102`, "Judge ruling — Lane A Code reclaims canonical governance and
+documentation," committed `84a7e08`). This act supersedes `D-200`, `D-201` and `D-202`'s Cowork/Code
+surface split, and withdraws — **never implemented** — the Cowork-semantic-author/Code-commit-applicator
+transport exception `B-102` had proposed earlier in the same entry; this Register never adopted it.
+
+### The operating rule
+
+> **Lane A · Claude Code owns, updates, validates and commits every canonical governance and
+> documentation source assigned to Lane A.** Claude Cowork supports Lane A by receiving and analysing
+> Lane B/C `docs/handoff/` entries and drafting Lane A's responses in that unmapped channel. Lane B and
+> Lane C remain the raisers. Code converts accepted Judge intent into the governed sources, assigns
+> valid Register identifiers, records commit evidence and runs the governed-docs Graphify workflow
+> after the source commit.
+
+`docs/handoff/` stays **unmapped** (`D-90`) — Cowork's answering role there is Lane A's own internal
+division of labour, not a new directory owner. No `A-NNN` entry is filed or reopened (`D-203` stands,
+unaffected). `D-184`'s one-entry handoff commit exception is unchanged and does not widen. `D-214`'s
+observed-at anchor meaning is unchanged.
+
+### Why (failure this corrects)
+
+`D-200`, `D-201` and the withdrawn `B-102` transport proposal each asked the Judge to review file
+paths, commit hashes, Register-ID selection or literal patch mechanics before a governance decision
+could apply — the treatment this ruling names: *the Judge is the business-intent authority and is not
+required to understand repository mechanics.* Splitting one lane across two tools with a hard content
+boundary also produced the exact stall `docs/handoff/B-094`, `B-101`, `B-106`'s restoration note and
+`B-102` itself document: accepted intent sitting in `Claude outputs/` scratch space because the
+drafting tool had no commit path, and the tool with commit access could not act on it without a second
+ceremony.
+
+### What changed
+
+| Superseded | Superseded by |
+|---|---|
+| `D-200`/`D-201`: Lane A surface split — `docs/` except `docs/handoff/`/`*.js` fragments and `.agents/rules/graphify.md` to Cowork, `scripts/`/build config/other rule files to Code | Code owns every Lane A surface — `docs/`, `scripts/`, `.claude/`, `.agents/`, `.codex/`, `.github/` except `workflows/`, the rule files, and build config |
+| `B-102`'s proposed Cowork-semantic-author/Code-commit-applicator transport exception | Never adopted; withdrawn as moot — Code no longer needs a transport exception to commit what it now owns directly |
+| `C-35`'s tool-crossing family (Cowork/Code sub-surface crossing) | **Retired before implementation.** Zero cases exist in the harness (`D-226`); the surface split they would have guarded no longer exists. The **lane-crossing family** (`D-88`, Lane A/B/C) is unaffected and stands |
+
+### Preserved, unchanged by this act
+
+`D-90` (unmapped handoff channel), `D-93` (Lane A is Critic, never same turn), `D-99`/`D-100`/`D-101`/
+`D-108`/`D-156` (lane state, one `Active` lane, `Eligible` selection), `D-138`/`D-209` (Lane A returns
+work through the Register, not a new channel), `D-184` (one-entry handoff commit), `D-203` (`A-NNN`
+withdrawn), `D-214` (observed-at anchor meaning). None named the Cowork/Code surface split as their
+subject and none is disturbed by retiring it.
+
+### Exact Lane A Code follow-up, same pass unless noted
+
+1. Propagate the operating rule, byte-identical, into `AGENTS.md`, `CLAUDE.md` and
+   `.agents/rules/graphify.md`.
+2. Correct `V1-BUILD-SPEC.md` §2's tool-split paragraph to the single-owner model.
+3. Note the `C-35` tool-family retirement in `V1-ARTIFACT-INVENTORY.md`'s existing "Tool-ownership
+   disposition" section — no file created or retired.
+4. Add one line to `docs/handoff/README.md` naming Cowork as the tool that may draft Lane A's answers
+   in this channel, without changing the channel's unmapped ownership.
+5. `docs/LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md`, Product/Fn/SPECS documentation and
+   curated graph meaning are Code's canonical-source responsibility going forward; **no content in
+   those files changes by this act alone.**
+6. **Separate, later pass:** the already-approved child packets (Lane B/C evidence contract from
+   `B-103` P2, the A4 manual-intake packet from `B-095`/`B-084`, the A4/A6 configuration/retention
+   packet from `B-106`) apply only once each retains its own explicit Judge accept naming its
+   revision; this act authorizes none of them.
+7. Governed-docs Graphify sync is owed once this act's own six files are committed, not before.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e52 |
+| **Three shared rule files** (`AGENTS.md`, `CLAUDE.md`, `.agents/rules/graphify.md`) | ✅ same pass — byte-identical operating-rule paragraph replaces the retired split |
+| **`V1-BUILD-SPEC.md`** | ✅ §2 tool-split paragraph corrected |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ "Tool-ownership disposition" section gets one added paragraph; no file created or retired |
+| **`docs/handoff/README.md`** | ✅ one line naming Cowork's answering role; channel stays unmapped |
+| **`V1-PHASE-CLOSURE.md`** | — unaffected: §5/§5.0a name lane state (A/B/C) and run/report mechanics, not the Cowork/Code tool split; reviewed this pass, no contradiction found |
+| **`Modular_PRD.md`, Fn_Specs, storyboard/story panels, UML/data flow, traceability, Encyclopedia** | — unaffected: a development-lane ownership decision, not a Product/editorial one (checked this pass: neither file references `D-200`, `D-201` or Cowork) |
+| **`scripts/lane-gate.mjs`, `.githooks/commit-msg`** | — **not edited by this act.** Their tool-crossing logic is named retired above; narrowing or removing the code is separate implementation work, owed and tracked in the Inventory, not performed here |
+| **Handoff entries `B-102`, `B-103`, `B-106`, `B-094`, `B-095`, `B-096`, `B-097`, `B-104`** | — unaffected as records; this act unblocks each entry's own next step but does not itself apply any of them |
+
+### What this act does NOT do
+
+Does not edit `scripts/lane-gate.mjs`, `.githooks/commit-msg`, or any fixture — the tool-crossing code
+path is named moot, not deleted. Does not apply the B/C evidence contract, the A4 packet or the A4/A6
+config arbitration — each still needs its own explicit Judge accept naming its revision. Does not run
+Graphify — owed immediately after this act's six files land, tracked as the next step, not performed
+in this act. Does not change Product, schema, application or workflow behaviour. **Lane A's own work,
+not independently reviewed.**

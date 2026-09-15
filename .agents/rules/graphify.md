@@ -93,38 +93,42 @@ file is the drift mechanism (`G55`).
 | **B** | Codex | `AGENTS.md` | `app/`, `lib/`, `components/`, `supabase/`, `__tests__/` |
 | **C** | Antigravity | `.agents/rules/graphify.md` | **`.github/workflows/` only** |
 
-**Lane A is two tools with split surfaces (`D-200`, corrected by `D-201`, binding).** One lane, one
-lock, one `Active` row — the tools **serialize on Lane A's turn**, and `lane-state` is unchanged.
-What splits is the surface, on the Judge's own principle: **strategy is Claude Cowork,
-implementation is Claude Code.**
+**Lane A single ownership (`D-227`, superseding `D-200`/`D-201`/`D-202`, binding).** One lane, one
+lock, one `Active` row, one owner: **Claude Code owns, updates, validates and commits every
+canonical governance and documentation source assigned to Lane A** — `docs/`, `scripts/`,
+`.claude/`, `.agents/`, `.codex/`, `.github/` except `workflows/`, the rule files, and build config,
+per the table above. There is no second Lane A tool with its own content surface.
 
-| Surface | Lane A tool |
-|---|---|
-| `docs/` **except `docs/handoff/` and `docs/graph-fragments/*.js`** · the rule files · `.github/` except `workflows/` · `docs/graph-fragments/*.json` (curated meaning) | **Claude Cowork** — planning and strategy of governance |
-| `scripts/` · `.githooks/` · `.claude/` · `.agents/` · `.codex/` · `docs/graph-fragments/*.js` · build and repo config (`package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, `postcss.config.mjs`, `.gitattributes`, `.gitignore`, lockfiles) · root `README.md` | **Claude Code** — implementation of governance |
+**Claude Cowork's role is narrower and lives inside `docs/handoff/`.** Cowork may receive and
+analyse Lane B/C handoff entries and draft Lane A's answer text there — the unmapped channel
+`D-90` already describes. It does not own, edit or commit any canonical governance or
+documentation source; Code converts accepted Judge intent into those sources, assigns Register
+identifiers, records commit evidence, and runs the governed-docs Graphify workflow after the
+source commit.
 
-**Two exact-file exceptions, applied BEFORE the directory rule.** `.agents/rules/graphify.md` is a
-rule file and therefore **Cowork's**, inside a Claude Code directory. `docs/graph-fragments/*.json`
-is curated meaning and therefore **Cowork's**, inside a directory whose `*.js` tools are Code's.
-
-**Operating a tool is not editing it.** Claude Code runs the Graphify pipeline — rebuild, merge,
-semantic fill, ingest — and owns those runtimes; Cowork owns what a curated fragment *means*.
-`.graphify/` stays gitignored runtime metadata owned by no surface.
-
-**`docs/handoff/` stays unmapped** (`D-90`) — either tool writes responses there without crossing.
-**`.github/workflows/` stays Lane C's** (`D-75`), unchanged.
+**`docs/handoff/` stays unmapped** (`D-90`) — Cowork's answering role there is Lane A's internal
+division of labour, not a directory owner. **`.github/workflows/` stays Lane C's** (`D-75`),
+unchanged.
 
 **Claude Code returns its work to Claude Cowork through the REGISTER, not a new channel (`D-138`,
-restored by `D-203`, propagated by `D-209`).** When Lane A is the outgoing side, **its turn report IS
-the boundary decision section**, cited by number from `V1-PHASE-CLOSURE.md` §5.0a's `Report` column —
-**no second artifact is created**, which is how `LA-P1-04` already works.
+restored by `D-203`, propagated by `D-209`, unaffected by `D-227`).** When Lane A is the outgoing
+side, **its turn report IS the boundary decision section**, cited by number from
+`V1-PHASE-CLOSURE.md` §5.0a's `Report` column — **no second artifact is created**, which is how
+`LA-P1-04` already works.
 
-> **The `A-NNN` series is WITHDRAWN (`D-203`, against `G102`).** The Chief Editor had ruled that
-> opening `docs/handoff/` to Lane A *"would make Lane A both raiser and answerer in one directory,
-> undoing the attribution `D-90` avoided."* **`ENTRY_FILE` stays `[BC]`; no reader changes; no
-> `A-` file is filed.** `D-200`'s return-path paragraph and `D-201`'s activation rule are removed
-> here — **they survived this file for five acts after the decision that withdrew them**, which is
-> `B-011`'s defect: a parent decision corrected without correcting the instructions that execute it.
+> **The `A-NNN` series remains WITHDRAWN (`D-203`, against `G102`), unaffected by `D-227`.** The
+> Chief Editor had ruled that opening `docs/handoff/` to Lane A *"would make Lane A both raiser and
+> answerer in one directory, undoing the attribution `D-90` avoided."* **`ENTRY_FILE` stays `[BC]`;
+> no reader changes; no `A-` file is filed.**
+
+**Why this replaced the two-tool split (`D-227`):** splitting one lane's canonical sources across
+two tools with a hard content boundary produced a stall this corpus documented repeatedly
+(`B-094`, `B-101`, `B-106`'s restoration note, `B-102`) — accepted intent sitting in scratch space
+because the drafting tool had no commit path, and the committing tool could not act on it without a
+second ceremony. `D-227` removes the boundary instead of adding another transport exception across
+it. `C-35`'s tool-crossing family (Cowork/Code sub-surface crossing) is retired before
+implementation — zero cases exist in the harness — and the **lane-crossing family** (`D-88`, Lane
+A/B/C) is unaffected and stands.
 
 **Freeze — two rules, three levels (`D-203`, Judge ruling). This completes `D-36`, which is right
 about sprints and silent about the other two.**

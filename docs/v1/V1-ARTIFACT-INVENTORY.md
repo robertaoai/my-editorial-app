@@ -218,6 +218,16 @@ act; these are **future edits to existing scripts**, and each is anchored to the
 `community_name` removed as derived (`D-213`). **No inventory row changes**: the file already has one,
 and a field removal inside an existing artifact is not an inventory fact under `D-54`.
 
+**The Cowork/Code surface split itself is RETIRED, 2026-09-15 (`D-227`).** `D-200`/`D-201`/`D-202`
+are superseded: Claude Code now owns every Lane A surface directly, and Claude Cowork's role narrows
+to drafting Lane A's answers inside `docs/handoff/`. This inventory is again **UNAFFECTED by the fact
+of ownership** — `D-227` creates and retires no file, the same `D-54` reasoning `B-086` established
+above for `D-200`/`D-201`. What changes here is the **tool-crossing row family**: `scripts/lane-gate.mjs`
+and `.githooks/commit-msg`'s tool-crossing dimension (re-anchored to `C-35` above) is **retired before
+implementation** — zero tool-crossing cases were ever added to the harness, so no code exists to
+remove. The **lane-crossing dimension** of both files (`D-88`, Lane A/B/C) is unaffected and stands.
+The two `C-42`/`C-39` future-fixture rows above are unaffected — neither was scoped to the tool split.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

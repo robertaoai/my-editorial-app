@@ -22,6 +22,12 @@ directory. **A control scoped to one lane cannot fail for the others.**
 `docs/handoff/` is **unmapped**: it belongs to no lane. Lane B and Lane C write entries; Lane A
 writes responses; neither is a crossing.
 
+**Lane A's answering role may be drafted by Claude Cowork (`D-227`).** Cowork may receive, analyse
+and draft the `- **Lane A:**` text in this channel; Claude Code owns, applies and commits every
+canonical governance/documentation source and makes the one-entry handoff commit (`D-184`) that
+preserves the answer. This is Lane A's own internal division of labour, not a second channel owner —
+`docs/handoff/` stays unmapped exactly as below.
+
 **Format is not channel (`D-215`).** Using this template does not create a Lane A channel; **what
 `D-203` withdrew is the `A-NNN` ENTRY series**, not Lane A's reply. Lane A files no new entry, returns
 its own work through the register and its turn report (`D-138`, `G102`), **and continues to
