@@ -1278,3 +1278,54 @@ given its own lifecycle in B-107 instead of being left as prose beneath verified
 | Approve | D-227 ownership semantics as corrected by D-228 | Phase 1 operating rule stands |
 | Reject | Full fixture suite as green | `phaseScope` remains 2/3; B-107 owns the repair |
 | Defer | B-102 whole-entry terminal disposition | Its remaining independent children and control-exclusion repair |
+
+## Judge clarification — Register machinery is in place; Lane A Code proceeds, 2026-09-15
+
+The Judge confirms the decision tree. `D-227`, `D-228` and `D-229` are already present and committed;
+the Judge does not need to select another identifier, inspect a hash or approve a file list. Lane A
+Code now performs the governed translation and commit flow under the accepted single-owner model.
+Cowork continues to analyse and answer B/C handoffs only.
+
+### Current queue — parent before dependent child
+
+| Order | Unit | Current state | Lane A Code action | Completion evidence |
+|---:|---|---|---|---|
+| 1 | D-229 contract/runtime boundary | Applied but internally contradictory | Use B-103's `Corrected two-stage success model`; record the corrective Register act, amend verification §16 and the Build Spec wording, update D-229 graph meaning | Contract verification can finish in Phase 1; runtime proof remains in later B/C construction units |
+| 2 | B-103 P2 contract closure | Lane B document read complete; Lane C read absent | Ask Lane C to review its committed §7 contract and corrected boundary; record the read in B-103 | Both document reviews cite the same commit; B-103 P2 may become Verified |
+| 3 | B-107 `phaseScope` fixture | Open and unacknowledged; failure reproduced 86/87 | Acknowledge B-107, apply its synthetic-state fixture repair, leave `closure-readiness.mjs` unchanged unless the repaired test proves it wrong | Target group 3/3, full fixtures pass, working tree restored byte-for-byte |
+| 4 | Graphify handoff exclusion | Existing separate B-102 control child | Apply the already-specified shared exclusion rule to graph coverage/docs drift after the higher contract correction | Handoff-only commits do not create false graph drift; governed or mixed changes still fail when stale |
+
+### Exact artifact effects
+
+- **D-229 correction:** Decision Register; `V1-BUILD-SPEC.md`; verification apparatus §16;
+  `frag135.json`; B-103 lifecycle response. The two work-order evidence clauses stay unchanged
+  unless the correction exposes a real contradiction.
+- **B-107 repair:** `scripts/fixtures/suites.mjs`; the existing verification-apparatus phase-scope
+  description and Inventory row only if their stated behavior changes; a Register correction and
+  graph relationship as required by the accepted governance process. Do not change the production
+  `closure-readiness` check merely to make its fixture green.
+- **Unaffected:** `Modular_PRD`, Fn Specs, storyboard, story panels, editorial UML/data flow,
+  requirements traceability and Encyclopedia. These units change governance verification and
+  handoff lifecycle, not Product actors, gates, data meaning or user journeys.
+
+### Blockers and failure-derived criteria
+
+| Blocker / guaranteed failure | Success criterion |
+|---|---|
+| D-229 makes a documentation handoff wait for construction it does not authorize | Contract review closes B-103; runtime evidence is tracked in later implementation units |
+| Lane C's read is absent | Lane C confirms §7 fields, exclusions, failure vocabulary and testability at an exact commit |
+| B-107 stays unread | Lane A acknowledges it before the next clean-check claim |
+| `phaseScope` borrows mutable B-016/B-017 lifecycle state | The fixture manufactures and restores its own Phase 1/3 states; all three assertions name the intended entries |
+| Graphify runs only to hide a handoff-only stale result | The exclusion control distinguishes handoff worklogs from governed intent and still detects a genuinely stale governed change |
+
+No further Judge input is required for units 1–3. Lane A Code assigns any needed Register ID,
+derives the exact patch, commits it and publishes the evidence. A new Judge question is raised only
+if source inspection exposes a new business choice rather than a mechanical correction.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Lane A Code proceeding under existing Register authority | Phase 1 — units 1–3 in the order above |
+| Approve | Current Product-artifact unaffected disposition | No Product update |
+| Reject | Returning technical IDs, hashes or patch administration to the Judge | Lane A Code owns those mechanics |
+| Reject | Further analysis replacing application of the already-specified corrections | Apply, test and record evidence |
+| Defer | Application/workflow construction, deployment and publication | Later explicit build units |
