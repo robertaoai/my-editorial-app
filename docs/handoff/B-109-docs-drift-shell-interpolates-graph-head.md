@@ -1,0 +1,72 @@
+# B-109 — `docs-drift` interpolates Graphify metadata into a shell command
+
+- **Raised:** 2026-09-15 by Lane B
+- **Kind:** spec-defect
+- **Phase:** 1
+- **Blocks:** claiming D-231's `docs-drift` implementation is safe and independently verified; does not block the confirmed path-classification semantics or Product planning
+- **Status:** Open
+- **Lane A:**
+- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Evidence:** `scripts/checks/docs-drift.mjs` committed at `c53412ba414841b45c90c9b66bee03d89761fe8d`; independent source review and read-only check execution at that commit
+- **Verified-At-Commit:** c53412ba414841b45c90c9b66bee03d89761fe8d
+
+## What happened
+
+D-231 correctly introduces a shared governed-intent exclusion matcher, but its Git range lookup is
+constructed as executable shell text:
+
+```js
+execSync(`git diff --name-only ${analyzed} ${head}`, ...)
+```
+
+`head` comes from Git, while `analyzed` comes from the gitignored, machine-local
+`.graphify/branch.json`. The code parses that file as JSON but does not validate that
+`lastAnalyzedHead` is a commit identifier before inserting it into the command. Shell metacharacters
+in that field can therefore be interpreted by the shell instead of being passed to Git as one
+argument. The intended fallback for an invalid or unreachable commit is “report stale”; command
+interpretation occurs before that safe fallback can govern the value.
+
+The new matcher itself passes all five synthetic cases. Independently running the committed checks
+also confirms `graph-coverage` reports zero included documents absent and `docs-drift` correctly
+names the four governed script paths since `9b13e16`. This entry is narrower: it concerns how the
+Git arguments are transported, not the exclusion decision.
+
+## What you need
+
+Lane A Code should make the range lookup argument-safe without changing D-231's scope:
+
+1. Replace shell-string execution with `execFileSync("git", ["diff", "--name-only", analyzed,
+   head], options)` or an equivalent no-shell process call.
+2. Keep the present fail-closed behavior: an invalid, missing or unreachable analyzed commit returns
+   no path classification and produces the existing stale finding.
+3. Add a bounded test around the range helper using a captured/mock executor. Prove the analyzed and
+   HEAD values are supplied as separate arguments and no shell is invoked.
+4. Include an invalid analyzed value containing spaces or shell metacharacters as a negative input;
+   it must be rejected or passed as one inert Git argument and must result only in the stale finding.
+5. Re-run D-231's five matcher cases and the live `docs-drift` check. Then run the complete fixture
+   suite from a clean tree after Lane A finishes and commits its current Register edit.
+
+Do not weaken the changed-path comparison, broaden the excluded path set, or rebuild Graphify as a
+substitute for this repair.
+
+### Failure-derived completion evidence
+
+- no repository-controlled or runtime-derived value is concatenated into shell command text;
+- valid reachable SHAs still return the same governed/excluded path classification;
+- invalid or unreachable analyzed values report stale without executing additional commands;
+- the D-231 matcher group remains 5/5; and
+- the full fixture suite passes from a clean tree and restores it byte-for-byte.
+
+## What you did instead
+
+Stopped at the handoff boundary. Lane A's uncommitted D-231 Register text was not edited, staged, or
+committed. No checker, fixture, governed Product source, application code, workflow, or Graphify
+artifact was changed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-231 shared exclusion semantics | Phase 1 — five matcher cases and live classification pass |
+| Approve-with-conditions | D-231 `docs-drift` implementation | Phase 1 — replace shell interpolation and add argument-boundary proof |
+| Reject | Treating machine-local Graphify metadata as trusted command text | Use a no-shell argument array |
+| Defer | D-231 independent completion and Graphify rebuild | After B-109 repair and Lane A's Register commit |
+| Defer | Product, application, workflow, deployment and publication work | Separate authorized units |
