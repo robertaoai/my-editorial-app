@@ -255,3 +255,35 @@ Per `D-204`, header fields describe the whole entry; child state lives here. The
 | Choice B return decision | **Answered** — Chief Editor/Judge named the act, 2026-09-14 | This entry's *Judge resolution* section |
 | B-071 return record | **Applied** — header changed to `Open`, terminal fields removed, exact block appended | B-071's `## Return record` section, applied 2026-09-15 |
 | SOP/Template/check return-protocol contract (proposed `Draft fix` above) | **Open** — not yet applied to `README.md`, `TEMPLATE.md`, or the checks | — |
+
+## Independent duplicate check — proposed B-105 belongs here, 2026-09-15
+
+Lane A proposed filing a new B-105 because `README.md` and `TEMPLATE.md` still lack a defined
+transition from a terminal resolution back to `Open`. That is the same defect this entry owns. A
+new entry would split one lifecycle condition across two owners and make closure ambiguous.
+
+**Disposition:** do not file B-105. Append any new evidence or corrected SOP wording to B-097 and
+complete the existing open child above. The repository state at `deb30484d72b179bb86e02f8d31e09ba639d59ce`
+still has the gap: B-071 needed a one-off return record, while the channel SOP/template/check
+contract remains unapplied.
+
+### Minimum complete correction packet
+
+1. `docs/handoff/README.md` defines the allowed terminal-to-`Open` return transition, required
+   trigger, authorizing act, append-only return record and fields removed from the whole-entry header.
+2. `docs/handoff/TEMPLATE.md` includes the return-record shape as optional guidance without creating
+   a new lifecycle status.
+3. The owning checks accept a valid returned entry and reject: missing prior resolution, missing
+   return trigger, missing authorizing act, invented status, retained terminal-only header fields and
+   a return that silently opens governed-source or implementation scope.
+4. B-071 remains the positive repository example, with one current lifecycle state and its historical
+   terminal disposition preserved in the body.
+5. Independent review cites the commit containing all three control changes and the positive/negative
+   fixtures. Graphify synchronization follows the last tracked edit.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Reject | Filing B-105 as a second return-protocol defect | Phase 1 — B-097 already owns it |
+| Approve-with-conditions | Complete B-097's existing SOP/template/check child | Phase 1 — exact Lane A packet, Judge act, application and independent review |
+| Approve | B-071 as the positive returned-entry example | Phase 1 — preserve its return history and current `Open` state |
+| Defer | Graphify synchronization | After the final tracked protocol correction |
