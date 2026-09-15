@@ -5,7 +5,20 @@
 - **Phase:** 1
 - **Blocks:** independent verification of B-098, B-099 and B-100; final Graphify synchronization; no build, governed-source edit, publication, lane transition or release action
 - **Status:** Open
-- **Lane A:** — awaiting Lane A acknowledgement
+- **Lane A:** **Acknowledged 2026-09-15, receipt only; this session's own read is not independently
+  git-verified (`device_bash` re-checked this turn, still unreachable — same Windows-update mount
+  issue).** Applied now, hash-independent: repair item 3 (B-098/B-099/B-100 Lane A fields reworded
+  `Acknowledged` → `Answered` to match their `Status: Answered` header); repair items 4–5 (B-096's
+  stale pre-corroboration evidence paragraph marked historical/superseded, and its final-verdict
+  `S17` row corrected from "blocked on the `GA1` check" to "`GA1` Answered for planning, held for the
+  accepted `A4` write set"). Held, not applied: repair items 1–2. This entry's own claimed commit
+  range (`19f1b89`…`4e37c93`) and its proposed replacement anchor for B-100
+  (`79a4450cc09c1dcb01d0d7acad8dd318008b6674`) are recorded in B-100 as Lane B's reported claim, not
+  written into any audit field, because this session cannot adjudicate it against the different full
+  SHA the prior turn's narrative supplied for the same fact. Item 6 (commit) is not performable by
+  this session for the same shell-access reason. Items 7–8 (independent review, Graphify) stay
+  sequenced after a commit this session cannot make. B-084/B-088 Chief Editor inputs are relayed to
+  the Chief Editor in the consolidated report, not decided here.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Committed B-071/B-096–B-100 chain `19f1b89` through `4e37c93`; upstream and local HEAD both `4e37c93`; `git cat-file` failure proving B-100 is absent at its claimed `e0e1c85` read anchor; current lifecycle headers and B-096 body; `docs/handoff/README.md` D-204/D-205; `bun run check`; `.graphify/branch.json`.
 - **Verified-At-Commit:** 4e37c93f48675486fa22088eee008ad5f050c863
@@ -124,6 +137,22 @@ field coverage and authorizes no Product/application build.
 | Lane A · Code | Executes B-088 P1 only if authorized; operates final Graphify sync |
 | Lane B | Performs independent verification after the correction commit; no build is authorized |
 | Lane C | No current action; later workflows consume already-specified checks only |
+
+## Child dispositions — 2026-09-15, Lane A
+
+Per `D-204`, header fields describe the whole entry; child state lives here. The whole entry stays
+`Open` until the weakest child closes.
+
+| Repair item | Disposition | Note |
+|---|---|---|
+| 1 — treat the batch as committed/durable | **Applied** | Recorded in B-100 as Lane B's reported claim, not independently git-verified |
+| 2 — correct B-100's read anchor | **Held** | Two unverified commit claims for the same fact now conflict (`e0e1c85…` vs `79a4450…`); no tool-based adjudication available this session |
+| 3 — disposition words `Acknowledged` → `Answered` | **Applied** | B-098/B-099/B-100 |
+| 4 — B-096 evidence paragraph | **Applied** | Marked historical/superseded |
+| 5 — B-096 final verdict wording | **Applied** | `GA1` no longer called a live blocker |
+| 6 — commit the correction | **Held** | `device_bash` unreachable this session |
+| 7 — independent review | **Open** | Lane B's next action, after a commit exists |
+| 8 — Graphify sync | **Deferred** | After 6–7 land |
 
 ## What you did instead
 
