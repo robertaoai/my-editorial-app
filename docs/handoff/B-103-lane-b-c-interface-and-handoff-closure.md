@@ -363,3 +363,59 @@ exact read commit.
 | Approve | Graph exposes `D-229` linked to both consumer work orders and the verification apparatus | Confirmed via `graphify explain` |
 | Reject | Treating this application as also `Verified` | `D-101`/`D-102`: the applying side does not self-certify |
 | Defer | P2 terminal disposition | Lane B and Lane C independent reads, each recorded in this entry |
+
+## Lane B independent review — P2 document contract passes; closure boundary must separate build proof, 2026-09-15
+
+Lane B read `e715cc7d917979b5244a849160751fdf91de222e` and
+`c6f7b2165fc0d3a63a15b466b6180dbc11131ea0` at repository read commit
+`0db245e09a9eedd9558480db434a423d5702b1b7`.
+
+The Lane B work-order §6 contains B-103's accepted allowlist and exclusions faithfully. The added
+final paragraph is a derived cross-reference to Lane C's deficiency path; it narrows inference and
+does not broaden the allowlist. Build Spec invariant 10 points both consumers to the correct
+sections. Curated D-229 links the decision to D-228, both work-order documents and the verification
+apparatus. **Lane B's independent document-read obligation is met.**
+
+One closure defect remains. D-229 and verification-apparatus §16 say B-103 becomes `Verified` only
+after Lane B and Lane C each exercise the contract against a **real workflow run**, while the same
+act authorizes no application signal or workflow YAML. That makes a Phase 1 documentation handoff
+depend on later construction it explicitly does not authorize, keeping the handoff Open even when
+the specification is ready.
+
+### Corrected two-stage success model
+
+| Stage | Evidence | Lifecycle owner |
+|---|---|---|
+| **Contract verification — now** | Lane B and Lane C independently read the committed sections; confirm ownership, usable fields, exclusions, failure vocabulary and mapped positive/negative cases; cite the read commit | B-103 may become `Verified` when both reads pass |
+| **Implementation verification — later** | Lane B emits an authorized signal; Lane C consumes it in an authorized workflow; deliberate missing/malformed evidence turns the workflow red for the named reason | Later Lane B/Lane C construction units and their acceptance evidence, not B-103's documentation lifecycle |
+
+### Lane A Code correction guide
+
+1. Amend D-229's completion boundary and verification-apparatus §16 to use the two-stage model.
+2. Describe the destination transfer precisely: the **accepted source clauses** are verbatim;
+   owner headers, provenance and the Lane B→Lane C cross-reference are derived application framing.
+3. Update curated D-229 wording so the graph does not preserve the impossible real-run prerequisite
+   as B-103's own closure rule.
+4. Commit the documentation correction and update Graphify against that governed commit.
+5. Lane C reads `.github/WORKFLOWS-SPEC.md` §7 plus the corrected verification boundary and records
+   its independent contract verdict here. Lane B rechecks only if the correction changes §6's
+   allowlist or exclusions.
+6. When Lane C's document read passes, disposition B-103 P2 as `Verified`; keep runtime proof in the
+   later construction work orders.
+
+### Failure-derived success criteria
+
+| Guaranteed failure if unchanged | Evidence of success |
+|---|---|
+| B-103 stays Open until unapproved workflow construction happens | Both document reads can close P2 before implementation opens |
+| A table review is mistaken for runtime proof | Contract and runtime evidence have separate owners and commits |
+| “Verbatim” hides added derived text | D-229 names the verbatim clauses and derived framing separately |
+| The graph preserves the obsolete closure rule | D-229 query/explain returns the corrected two-stage boundary |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Lane B P2 allowlist, exclusions, build usability and graph links | Lane B document read complete at `0db245e` |
+| Approve-with-conditions | D-229 and verification-apparatus §16 | Phase 1 — separate contract verification from later runtime verification |
+| Reject | Real workflow execution as B-103's Phase 1 closure prerequisite | No workflow or signal was authorized by D-229 |
+| Defer | B-103 P2 terminal disposition | Corrected boundary plus independent Lane C document read |
+| Defer | Runtime signal/workflow verification | Later authorized Lane B/C construction units |
