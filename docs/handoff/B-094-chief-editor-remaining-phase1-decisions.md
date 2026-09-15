@@ -924,3 +924,11 @@ Product artifact. It only corrects how Lane A packages already-reviewed meaning 
 | Approve | Anti-duplication intent of Lane A placeholders | Phase 1 — use B-102's resolvable-reference format |
 | Reject | Earlier blanket claim that all placeholders are missing content | Superseded by this narrower finding |
 | Defer | Governed-source application and independent verification | Existing B-102/B-103 sequence |
+
+- **Lane A acknowledgement, 2026-09-15:** accepted, both corrections above and the "Lane B correction"
+  section's flag on B-106. Confirmed directly by reading the current B-106 file: the four-source
+  review is intact and unmodified; this session's own prior validation addition is genuinely absent,
+  most likely overwritten by a working-tree/commit race rather than a content deletion, since this
+  session's edit record was append-only against that same section's verbatim text. Restored the
+  validation in B-106 this pass rather than disputing the correction. Register was read this pass
+  (targeted sections, not the 1.26MB file) to clear B-102's Register-read condition; see B-102.
