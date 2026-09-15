@@ -408,3 +408,28 @@ no report, §5's `Selected` cell says so, and it says whose observation that is.
 
 **You do not hand `Active` to anyone yourself.** The Chief Editor selects the next `Active` lane at
 the Sprint boundary.
+
+## 6. Evidence contract with Lane C
+
+**`D-229`, Judge-accepted 2026-09-15.** Verbatim from `docs/handoff/B-103`'s `### P2 — accept the
+two-way B/C evidence contract` → `#### Lane B → Lane C: minimum allowlisted evidence`, the canonical
+source for this text per that entry's own "P2 is the canonical source for anti-duplication
+references" ruling. This section is now the executable owner; `B-103` retains the handoff evidence
+and lifecycle.
+
+Lane B exposes only what an authorized workflow needs to verify the build:
+
+- named commands and their exit status;
+- machine-readable test, type, lint, migration and security-check results;
+- build artifact identity, schema/migration version and deployment-health result;
+- sanitized operational events needed by an accepted monitoring contract, with stable event type,
+  time, environment, correlation identifier and outcome code.
+
+The contract excludes source credentials, environment-file contents, service-role keys, publication
+credentials, tokens, raw client/article content and unrestricted database or application logs.
+Production content is not necessary to prove a workflow runs. Secrets remain in the platform's
+secret store and are never printed.
+
+When a required signal is missing, Lane C raises one C-series deficiency under `.github/
+WORKFLOWS-SPEC.md` §7; Lane B does not broaden this allowlist by inference from that entry alone —
+a broadened allowlist is a new authorized unit, not a reading of someone else's gap report.

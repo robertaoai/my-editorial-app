@@ -119,3 +119,25 @@ left unread. **Acknowledging is not answering** — a queue is expected.
 **Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
 `supabase/migrations/0001_init.sql`. **Never put secrets in a workflow file** — use repository
 secrets, and never echo one into a log.
+
+## 7. Evidence contract with Lane B
+
+**`D-229`, Judge-accepted 2026-09-15.** Verbatim from `docs/handoff/B-103`'s `### P2 — accept the
+two-way B/C evidence contract` → `#### Lane C → Lane B: bounded deficiency feedback`, the canonical
+source for this text per that entry's own "P2 is the canonical source for anti-duplication
+references" ruling. This section is now the executable owner; `B-103` retains the handoff evidence
+and lifecycle. Lane C consumes only the allowlist recorded in `docs/LANE-B-WORK-ORDER.md` §6.
+
+When Lane C cannot verify or monitor an accepted outcome because the application emits no stable
+signal, Lane C raises one C-series entry naming:
+
+1. the acceptance case or control that cannot be observed;
+2. the exact missing signal, such as a health/readiness result, structured event, metric, trace or
+   stable failure code;
+3. why existing output is insufficient;
+4. the minimum shape and sensitivity class needed;
+5. a positive and negative proof that would make the workflow capable of failing correctly.
+
+Lane C does not invent an application endpoint, event schema or Product requirement in YAML. Lane
+A decides and documents the requirement; Lane B later implements the application signal under an
+authorized work order; Lane C consumes it under its own authorized workflow unit.

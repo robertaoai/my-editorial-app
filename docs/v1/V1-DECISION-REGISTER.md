@@ -16958,3 +16958,65 @@ review. Does not touch `docs/handoff/B-102`'s or `B-103`'s own text (append-only
 correction landing first, per Lane B's own stated order. **Lane A's own correction of its own error,
 not independently reviewed** — the fixture and code changes above are offered as falsifiable
 evidence for that review, not a substitute for it.
+
+## 5.14e54 `D-229` — B/C Evidence Contract Applied From `B-103`'s Judge-Accepted P2 Text
+
+**Judge acceptance, 2026-09-15** (recorded in `docs/handoff/B-103`, "Judge acceptance — P2 evidence
+contract selected for application"): the Judge directly approved `B-103`'s evidence-contract text.
+No further business choice about file names, this Register identifier or a commit hash was required
+— Lane A Code derives and records those mechanics, per the operating model `D-227` states. Ordered
+behind `D-228` per the Judge's own instruction: the owner model and its enforcement had to agree
+before a child work order relied on it.
+
+### The applied text, by reference
+
+Source: `docs/handoff/B-103` `### P2 — accept the two-way B/C evidence contract`, its two child
+headings — the canonical pre-promotion text under that entry's own "P2 is the canonical source for
+anti-duplication references" ruling. Copied verbatim, once each, to the two executable owners named
+below; `B-103` itself is not edited by this act and keeps the handoff evidence and lifecycle.
+
+| Destination | Section | Content |
+|---|---|---|
+| `docs/LANE-B-WORK-ORDER.md` | new `## 6. Evidence contract with Lane C` | `B-103`'s "Lane B → Lane C: minimum allowlisted evidence" |
+| `.github/WORKFLOWS-SPEC.md` | new `## 7. Evidence contract with Lane B` | `B-103`'s "Lane C → Lane B: bounded deficiency feedback" |
+
+### Construction and verification readiness
+
+`V1-BUILD-SPEC.md` §7 gains standing invariant 10: B/C integration requires reading both sections
+above first, and neither lane invents an endpoint, schema or requirement to fill an unnamed gap.
+`docs/specs/SPECS-VERIFICATION-APPARATUS.md` gains new §16, making P2's own required "positive and
+negative proof" (its Lane C→Lane B item 5) falsifiable: the same five accept/reject examples `B-103`
+named, plus an explicit `Applied`/`Verified` distinction — Lane B and Lane C must each exercise their
+own row against a real workflow run, not merely agree with the table.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e54 |
+| **`docs/LANE-B-WORK-ORDER.md`** | ✅ new §6, verbatim from `B-103` |
+| **`.github/WORKFLOWS-SPEC.md`** | ✅ new §7, verbatim from `B-103` |
+| **`docs/specs/SPECS-VERIFICATION-APPARATUS.md`** | ✅ new §16 `[V1]` — the proof obligation P2 itself requires |
+| **`V1-BUILD-SPEC.md`** | ✅ §7 standing invariant 10 added |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file created or retired, only new sections in three existing files |
+| **`Modular_PRD.md` §0.1/§8, Fn Specs** | — unaffected: no sprint closes, no tier opens, no Product behaviour changes — this is a development-evidence exchange, not an editorial one |
+| **Storyboard, story panels, UML, data flow, traceability, Encyclopedia** | — unaffected: no new editorial actor, gate, or journey; nothing here is presented as a Product-facing view |
+| **`V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change |
+| **`docs/handoff/B-103`** | — unaffected as a record; this act is its Judge-accepted next step, not a rewrite of it |
+
+### Completion boundary (`B-103`'s own terms, unchanged)
+
+**Applied** now: the Register, Build Spec, both work orders and the verification apparatus are
+committed with consistent cross-references. **Verified** requires two independent reads this act
+cannot supply itself — Lane B confirming its allowlist and build usability, Lane C confirming its
+deficiency schema, secret handling and a deliberately-failing proof — each recorded in `B-103` at
+its exact read commit. This act authorizes no application code, telemetry emission, workflow YAML,
+credentials, deployment or publication.
+
+### What this act does NOT do
+
+Does not implement any application signal, workflow YAML, or telemetry — those remain separate,
+later-authorized Lane B/Lane C construction units. Does not touch `B-103`'s own text. Does not close
+`B-103`'s Status — that requires the independent Lane B/Lane C reads named above. Does not run
+Graphify — owed in the same pass, tracked as the next step. **Lane A's own application of a
+Judge-accepted text, not independently reviewed.**

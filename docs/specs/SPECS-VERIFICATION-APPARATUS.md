@@ -396,3 +396,35 @@ open phase is an ordinary entry and needs no field.
 
 **Negative-tested three ways**, including the positive case: with the register temporarily showing
 Phase 1 closed, the same entry passes and the detail line reports it as a reopening.
+
+## 16. B/C evidence contract `[V1]` — `D-229`
+
+**Judge-accepted 2026-09-15**, source `docs/handoff/B-103`'s `### P2 — accept the two-way B/C
+evidence contract`, applied by Lane A Code into `docs/LANE-B-WORK-ORDER.md` §6 and `.github/
+WORKFLOWS-SPEC.md` §7 in the same pass. This section makes the contract's own required
+"positive and negative proof" (P2's Lane C→Lane B item 5) falsifiable rather than asserted —
+`D-102`'s `Applied`/`Verified` distinction applies to a documentation contract exactly as it applies
+to a code control.
+
+**What P2 requires that this section makes testable:**
+
+| Example | Accept | Reject |
+|---|---|---|
+| Normal build evidence | Named command, exit status and machine-readable test/type/lint result | Unstructured broad application log offered as proof |
+| Migration/deployment evidence | Artifact identity, migration version and sanitized health outcome | Environment file, service-role key, token or credential printed into output |
+| Operational signal | Stable type, time, environment, correlation ID and outcome code with no raw article/client content | Production article body or unrestricted database log required for monitoring |
+| Missing signal | Lane C raises one C-series deficiency with acceptance case, missing shape, sensitivity and positive/negative proof | Lane C invents an endpoint, schema or Product requirement in workflow YAML |
+| Test of the tester | Deliberately absent or malformed required signal makes the verification fail for the named reason | Green workflow whose failure path was never exercised |
+
+**Applied means the two work-order sections and this section exist and cross-reference each other.
+Verified means Lane B and Lane C have each independently exercised their own row above against a
+real workflow run** — Lane B by confirming its allowlist is what a real CI job actually receives,
+Lane C by confirming a deliberately missing or malformed signal actually turns its job the intended
+red, not merely by reading the table and agreeing with it. Neither lane's own agreement with this
+table substitutes for that exercise, for the same reason `D-101` created `Applied` short of
+`Verified`: the answering/implementing side does not self-certify.
+
+**Scope limit, unaffected here:** this section documents the evidence contract's proof obligation.
+It does not itself authorize implementing the workflow YAML, the application signal, or any
+telemetry — those remain separate, later-authorized Lane B/Lane C construction units per `D-229`'s
+own completion boundary.

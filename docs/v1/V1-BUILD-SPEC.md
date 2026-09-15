@@ -393,6 +393,7 @@ the different kind of home it needs.
 7. **No invented numbers.** `AGENT_HEADCOUNT` and `LINE1_AGENT_ROSTER` stay `UNSET`.
 8. **One hard stop:** a negative `OD2` resolution is a pre-launch blocker, at any point.
 9. **Stay in your lane (`D-75`).** Specify work belonging to another lane; never apply it. Crossing a lane boundary requires a handoff, not a commit. **Enforced at commit time since `D-88`** — `.githooks/commit-msg` requires a `Lane-Crossing: <reason>` trailer on a multi-lane commit. It does not forbid crossings, and `--no-verify` bypasses it; `lane-boundary` still reports one afterwards.
+10. **B/C integration requires the evidence contract first (`D-229`).** Before any Lane B application signal is consumed by a Lane C workflow, or any Lane C deficiency is filed against Lane B, both sides read `docs/LANE-B-WORK-ORDER.md` §6 and `.github/WORKFLOWS-SPEC.md` §7 — the Judge-accepted allowlist and deficiency schema. Neither lane invents an endpoint, event schema or Product requirement to fill a gap the contract does not name; a missing signal is a C-series entry, not an improvisation. `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §16 carries the positive/negative proof each side's construction DoD must satisfy — a B/C integration is not done merely because a workflow is green.
 
 ## 8. Scope limits
 
