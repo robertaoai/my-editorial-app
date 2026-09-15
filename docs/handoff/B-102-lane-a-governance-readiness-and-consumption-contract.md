@@ -1249,3 +1249,32 @@ the Register and the parallel closure note in `B-103` — committed at `e715cc7`
 | Approve | `laneBoundaryToolCrossing` fixture as falsifiable evidence of the removal | `bun run fixtures` 5/5, full suite 86/87 (one unrelated pre-existing failure flagged separately) |
 | Reject | Treating this correction as also verifying `D-227`/`D-228` | Only an independent, non-answering actor may record `Verified` |
 | Defer | `D-227`/`D-228` terminal disposition | Independent Lane B read of `50a6b0a`, `4e41bc1` against this entry's own criteria |
+
+## Lane B independent verification — D-228 criteria met, 2026-09-15
+
+Lane B independently read `50a6b0a802a1cfcb56d8a40607a54a018f4184ed` and
+`4e41bc1f2ffa8fbe8c3ecf9ad921b02153c8981b` against the residual criteria above.
+
+- The false file count is corrected by reference in D-228; current instructions name artifacts by
+  role rather than repeating another tally.
+- `A_SUB`, `subOf` and `bySub` are absent from `lane-boundary.mjs`. The targeted
+  `laneBoundaryToolCrossing` fixture group passes 5/5: docs+scripts remains Lane A, docs+app remains
+  A+B, and the returned classifier has no `bySub` field.
+- Curated `D-227` and `D-228` nodes exist. `D-228 --corrects--> D-227` is a direct graph path, and
+  D-227 exposes its supersession relationships.
+- The three shared rule files remain byte-identical under `shared-core-hash`.
+
+**D-228 is Verified as a child finding by Lane B at read commit
+`0db245e09a9eedd9558480db434a423d5702b1b7`.** B-102 as a whole remains Open because its separately
+owned Graphify handoff-exclusion control and downstream readiness children are not all terminal.
+
+The complete fixture run is 86/87 because the pre-existing `phaseScope` fixture still borrows
+terminal B-016/B-017 state. That defect does not invalidate D-228's five targeted cases; it is now
+given its own lifecycle in B-107 instead of being left as prose beneath verified B-017.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-228 tally correction, classifier removal and semantic graph repair | **Verified child** — Lane B at `0db245e` |
+| Approve | D-227 ownership semantics as corrected by D-228 | Phase 1 operating rule stands |
+| Reject | Full fixture suite as green | `phaseScope` remains 2/3; B-107 owns the repair |
+| Defer | B-102 whole-entry terminal disposition | Its remaining independent children and control-exclusion repair |
