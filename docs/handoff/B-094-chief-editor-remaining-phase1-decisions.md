@@ -612,3 +612,28 @@ completed steps.
 | Reject | New T5 executor choice or new B-105 entry | Phase 1 — D-181/B-104 and B-097 already own them |
 | Defer | Governed-source application, software/workflow build, publication and release | Later exact authorization and readiness evidence |
 | Defer | Graphify synchronization | Final tracked correction, then rebuild/remerge and head-equality proof |
+
+## Forward correction — Graphify is outside the current worklog and B-088 capacity, 2026-09-15
+
+The Chief Editor has corrected this entry's earlier Graphify sequencing. References above that say
+to synchronize Graphify after the latest **handoff** or scratch-draft change are superseded by this
+section and B-102's *Judge clarification — intent promotion and Graphify activation*.
+
+- `docs/handoff/` is the intent worklog and was intentionally excluded from the governed-intent
+  graph. The present B-series commits do **not** require Graphify synchronization.
+- `Claude outputs/` is ignored scratch space. Its creation, correction or removal does not trigger
+  Graphify and does not complete governance documentation.
+- Governance/docs Graphify runs after Lane A promotes a completed intent into canonical governed
+  sources and that application is independently verified.
+- Codebase/knowledge-base Graphify, followed by generated Swagger/OpenAPI updates, belongs after a
+  successful deployment and its runtime evidence.
+- B-088's residual-capacity calculation excludes Graphify. Its live blockers are completion of the
+  B-102/B-103 and B-084 sequence, measured whole-unit capacity and a separate P1 authorization.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | No Graphify operation for current handoff/scratch activity | Phase 1 — worklog continues |
+| Approve-with-conditions | Governance/docs Graphify | Phase 1 — promoted intent applied, committed and independently verified |
+| Approve-with-conditions | B-088 P1 | Phase 1 — complete residual implementation/review capacity and exact Judge act |
+| Reject | Graph staleness as the reason B-088 is blocked | B-088 is held by priority, capacity and authorization |
+| Defer | Codebase/KB Graphify and Swagger/OpenAPI generation | Post-deployment — successful deployment evidence first |
