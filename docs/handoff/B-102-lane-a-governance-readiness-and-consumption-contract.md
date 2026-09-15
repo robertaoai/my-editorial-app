@@ -282,5 +282,71 @@ preserve the wrong inclusion rule. Add the following exact control work to Lane 
 | Reject | Claim that the current executable checks already exclude handoff | Source and manifest evidence contradict it |
 | Reject | Rebuilding Graphify before correcting the inclusion rule | It would reproduce the wrong coverage boundary |
 | Defer | Control implementation and graph rebuild | Exact Judge act, Lane A application and independent review |
+
+## Judge clarification — Cowork authors meaning; Claude Code applies and commits, 2026-09-15
+
+The Chief Editor confirms the practical constraint: Lane A · Cowork cannot perform the required Git
+commit. Lane B/C must first create and commit their own handoff evidence; Cowork then reads that
+durable entry and prepares the governance/documentation response; Lane A · Claude Code applies and
+commits the exact accepted response because it has repository commit access.
+
+This is one Lane A workflow with two tool responsibilities:
+
+| Order | Actor | Bounded act | Completion evidence |
+|---:|---|---|---|
+| 1 | Lane B or Lane C | Analyze the current bounded governance packet, create the B-/C-series entry and commit that one handoff file | Exact handoff path and commit; Evidence names the sources and current Register anchor checked |
+| 2 | Lane A · Cowork | Read the committed handoff and authoritative sources; decide semantic treatment; prepare an immutable exact patch plus owner/dependency/DoD/verification map | Patch identifies every path/section, literal replacement, exclusions and unresolved decision; no scratch file is called applied |
+| 3 | Chief Editor/Judge | Accept, reject or return the exact packet | Durable Register act names the packet revision and permitted application |
+| 4 | Lane A · Claude Code | Apply the accepted Cowork patch verbatim and commit the named governance/docs files | Changed-path set equals the authorization; commit message/provenance identifies Cowork as semantic author and Code as applicator |
+| 5 | Lane B/C | Independently compare the committed result with the accepted packet and construction/verification needs | Original entry records the read commit and each child disposition |
+| 6 | Lane A | Correct canonical owners for accepted returned gaps; repeat only the affected child | No duplicate handoff or parallel status ledger |
+| 7 | Lane A · Claude Code | Run governance/docs Graphify after the promoted intent is complete and independently verified | Graph covers governed intent only; handoff worklog remains excluded |
+
+### Current rule conflict
+
+D-200/D-201 currently assign governed `docs/` content to Cowork and implementation/config paths to
+Claude Code; D-56 says out-of-surface work is specified, never applied. Under that text, Claude Code
+cannot apply Cowork's governed-document patch even when Cowork cannot commit it. Treating tool access
+as implicit permission would create an undeclared crossing.
+
+Lane A's exact source packet must add a narrow **semantic-author / commit-applicator exception**:
+
+> Lane A · Cowork owns the meaning and produces the exact accepted governance/documentation patch.
+> Lane A · Claude Code may apply and commit that immutable packet as a transport act when Cowork lacks
+> Git commit access. Code may resolve no semantic conflict, add no path and alter no accepted wording.
+> If the packet does not apply exactly, Code stops and returns the conflict to Cowork and the Judge.
+> The commit records both semantic author and applicator provenance. This does not make Claude Code
+> the owner of Cowork's documentation surface and creates no A-series handoff.
+
+The application packet must reconcile this exception across the Register, Build Spec, Phase Closure
+run/provenance contract, all three agent-rule files and `docs/README.md`. The Artifact Inventory is
+unaffected unless a new control file is created; if an executable tool-crossing check is added or
+sequenced, it receives its existing C-35 disposition rather than a duplicate identifier.
+
+### Cross-artifact effect
+
+`Modular_PRD`, functional specs, storyboard/story panels, UML/data flow, Product traceability and the
+Encyclopedia are unaffected by the transport rule: it changes who applies an already accepted patch,
+not Product behavior. They remain review targets whenever the Cowork packet itself changes their
+owned meaning.
+
+### Guaranteed failures and success criteria
+
+| Guaranteed failure | Evidence of success |
+|---|---|
+| Cowork draft remains in scratch because it cannot commit | Code applies the exact accepted packet and the canonical sources contain it at a named commit |
+| Code becomes an unreviewed co-author while acting as committer | Byte/content comparison matches the accepted packet; any conflict returns without improvisation |
+| B/C analyze an uncommitted Cowork draft | The originating handoff cites the committed governance baseline it reviewed |
+| Handoff acknowledgement is mistaken for source application | Canonical source diff and its independent read commit exist separately from the receipt |
+| Tool transport silently changes lane ownership | Register and rule files retain Lane A as owner and identify Code only as applicator |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B/C commit their own handoff before Lane A response analysis | Phase 1 — existing D-184 one-file procedure |
+| Approve | Cowork semantic author / Code commit-applicator model | Phase 1 — narrow D-200/D-201/D-56 exception |
+| Approve-with-conditions | Code applies Cowork-owned governance/docs files | Phase 1 — immutable accepted packet, exact paths, no semantic improvisation, provenance and independent review |
+| Reject | File access or Git capability as implicit source authority | Explicit Judge act and bounded packet remain required |
+| Reject | New A-series handoff or ownership transfer to Code | Existing Register return path and Lane A ownership remain |
+| Defer | Governed-source and control application | Exact propagated packet and later Judge application act |
 | Defer | Lane B/C control-file implementation | Accepted ready packet, correct existing paths and active-lane selection |
 | Defer | Graphify synchronization | Final committed governance/handoff corrections and verification first |
