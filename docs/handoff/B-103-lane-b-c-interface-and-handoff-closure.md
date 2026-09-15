@@ -248,3 +248,19 @@ That cross-reference avoids another copied process contract.
   application-packet owner; this entry's P2 stays the canonical pre-promotion interface text, cited
   by reference (file, heading, commit), never copied a third time. P0-A/P1/P2 carried as standing
   dependencies into B-102's corrected Register acts, not reopened. No governed source touched.
+
+## Ownership correction — follow B-102's later Judge ruling, 2026-09-15
+
+B-102's later `Judge ruling — Lane A Code reclaims canonical governance and documentation`
+supersedes this entry's statements that Cowork owns or applies canonical governance sources. Cowork
+remains Lane A's analyst/answerer in this B/C transaction; Lane A Code owns and commits the governed
+destination documents. P2's interface meaning and the Lane B/Lane C consumer responsibilities are
+unchanged. This cross-reference is the only correction here; the full operating contract stays in
+B-102 to avoid duplication.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | P2 evidence semantics and consumer responsibilities | Phase 1 — unchanged |
+| Approve | New Lane A Code source ownership from B-102 | Phase 1 — parent propagation first |
+| Reject | Earlier Cowork canonical-source ownership language as current instruction | Superseded by the later Judge ruling |
+| Defer | Source application and B/C verification | Parent ownership/control correction first |
