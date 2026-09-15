@@ -255,3 +255,58 @@ disposal.** The external system decides later disposal under its own record-clas
 | Approve | Ratifying `SCORING_REVIEW_THRESHOLD_ARTICLES = 50` | Phase 1 — review threshold only; TC3 and no-auto-advance remain |
 | Reject | Day-90 deletion where an external retention duty applies | Contradicts the ordered workflow and destroys later evidence |
 | Defer | Governed-source application, code metadata and Graphify | Exact Judge act; application; independent verification; graph last |
+
+## Lane A validation — arbitration draft accepted, restored 2026-09-15
+
+**Restored, not new.** This session added a validation section here two passes ago; the current file
+does not contain it — confirmed by direct read this pass, byte count matches the pre-validation
+state exactly. This session's own edit record was a pure append (the verdict table above was kept
+verbatim as the insertion anchor), so the most likely cause is a working-tree overwrite by a later
+git commit based on an earlier revision, not a deliberate deletion by this session. B-094 flagged
+the absence correctly; restoring the content now rather than disputing the flag.
+
+**Validated 2026-09-15 at read commit `68e85d9`** (per Lane B's report; not independently
+git-verified from this session). This session's validation is an internal-consistency check against
+the Judge clarification already recorded in this entry's own text (the acknowledgement above and the
+"Judge clarification — sequential PDPA and financial-retention workflows" section); this session has
+not seen the Chief Editor's ruling stated directly in chat, only as relayed through Lane B's
+narrative, so "validated against the Judge's exact intent" means checked for coherence with the
+prior recorded text, not independent confirmation of what the Chief Editor said.
+
+On that basis, the proposed Register wording is accepted as Lane A's reviewable draft: it restates
+the settled A4/A6 values without adding scoring or archival authority, preserves the distinction from
+`REUSE-WINDOW-90`, and adds one precise precedence rule not previously spelled out this explicitly: a
+financial or legal retention hold overrides day-90 disposal, so day-90 is never itself proof of
+deletion. This resolves the impossibility the same section names. No wording conflict found against
+the earlier-acknowledged sequential model.
+
+This validation is Cowork's semantic sign-off, not the Judge's acceptance act and not application.
+The packet still needs an explicit Accept from the Chief Editor before Lane A · Claude Code may apply
+and commit it under the B-102 transport procedure. No governed source is edited by this validation.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Proposed Register wording, Business Case/Blueprint, Product/FN audit, ledger and cross-artifact packet items 1-7 | Phase 1 — awaiting explicit Judge accept, then Code application |
+| Approve-with-conditions | Day-90 deletion precedence rule | Phase 1 — apply only together with the rest of the packet, not in isolation |
+| Defer | Application, Lane B code metadata unit, independent verification, Graphify | After Judge accept and commit |
+
+## Lane B verification correction — history proved; overwrite cause not proved, 2026-09-15
+
+Lane B independently resolved the cited Git anchor:
+`68e85d939fcc4d01def5c1edfbaf0891f5b97350` exists, and the B-106 four-source review was already
+present when that commit was read. The restored Lane A validation is additive to the committed
+review and does not delete or replace it.
+
+The proposed cause of the earlier missing validation remains unproved. A Git commit made from an
+earlier staged snapshot does not by itself overwrite a separate working-tree append; proving a race
+would require the file-bridge write time, staging/diff state and the external writer's operation.
+Treat the loss as an observed missing append with unknown cause. The practical control remains one
+entry per commit plus a post-commit content read, without turning the speculative cause into a
+governance fact.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Restored Lane A semantic validation as additive handoff evidence | Current handoff phase — commit this original entry and re-read it |
+| Approve | Full independent verification of the cited `68e85d9` Git object | Current review — anchor exists and B-106 review content is visible |
+| Reject | “Working-tree/commit race” as an established root cause | Infrastructure diagnosis — retain as a hypothesis only if investigated |
+| Defer | A4/A6 governed-source application, code metadata and Graphify | Existing Judge act and verification conditions |
