@@ -145,14 +145,14 @@ Per `D-204`, header fields describe the whole entry; child state lives here. The
 
 | Repair item | Disposition | Note |
 |---|---|---|
-| 1 — treat the batch as committed/durable | **Applied** | Recorded in B-100 as Lane B's reported claim, not independently git-verified |
-| 2 — correct B-100's read anchor | **Held** | Two unverified commit claims for the same fact now conflict (`e0e1c85…` vs `79a4450…`); no tool-based adjudication available this session |
-| 3 — disposition words `Acknowledged` → `Answered` | **Applied** | B-098/B-099/B-100 |
-| 4 — B-096 evidence paragraph | **Applied** | Marked historical/superseded |
-| 5 — B-096 final verdict wording | **Applied** | `GA1` no longer called a live blocker |
-| 6 — commit the correction | **Held** | `device_bash` unreachable this session |
-| 7 — independent review | **Open** | Lane B's next action, after a commit exists |
-| 8 — Graphify sync | **Deferred** | After 6–7 land |
+| 1 — treat the batch as committed/durable | **Verified** | Lane B's direct Git adjudication (below) confirms HEAD/upstream and the commit chain |
+| 2 — correct B-100's read anchor | **Applied** | Lane B's direct review resolved the two hashes as different facts (raiser anchor vs. file-introduction commit), not a genuine conflict; B-100 now cites `79a4450…` |
+| 3 — disposition words `Acknowledged` → `Answered` | **Applied** | B-098/B-099/B-100; Lane B calls this Verified for the bounded correction |
+| 4 — B-096 evidence paragraph | **Applied** | Marked historical/superseded; Lane B calls this Verified for the bounded correction |
+| 5 — B-096 final verdict wording | **Applied** | `GA1` no longer called a live blocker; Lane B calls this Verified for the bounded correction |
+| 6 — commit the correction | **Held** | `device_bash` unreachable this session, re-confirmed this turn |
+| 7 — independent review | **Performed** | Lane B's direct Git adjudication, this entry; item 2's fresh application still needs its own post-commit read |
+| 8 — Graphify sync | **Deferred** | `lastAnalyzedHead` still `f63d6eb`, unchanged; after 6–7 land |
 
 ## What you did instead
 
