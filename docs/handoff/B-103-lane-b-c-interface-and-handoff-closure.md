@@ -330,3 +330,36 @@ workflow YAML, credentials, deployment or publication.
 | Reject | Further Judge review of IDs, paths or hashes as a prerequisite | Lane A Code derives and validates repository mechanics |
 | Reject | Verification tier marked unaffected | P2 contains an explicit positive/negative proof obligation |
 | Defer | Application signals, workflow code, credentials, deployment and publication | Separate Lane B/C implementation authorization after verified documents |
+
+## Lane A · Claude Code — P2 Applied, 2026-09-15
+
+The D-227 parent residuals this entry's application guide ordered first are corrected (see `B-102`'s
+matching closure note and `D-228`). P2 is now **Applied**, recorded as `D-229` in
+`docs/v1/V1-DECISION-REGISTER.md` §5.14e54:
+
+- `docs/LANE-B-WORK-ORDER.md` new `## 6. Evidence contract with Lane C` — this entry's
+  "Lane B → Lane C: minimum allowlisted evidence" copied verbatim.
+- `.github/WORKFLOWS-SPEC.md` new `## 7. Evidence contract with Lane B` — this entry's
+  "Lane C → Lane B: bounded deficiency feedback" copied verbatim.
+- `docs/v1/V1-BUILD-SPEC.md` §7 gains standing invariant 10.
+- `docs/specs/SPECS-VERIFICATION-APPARATUS.md` gains new §16 `[V1]`, making the required positive/
+  negative proof falsifiable with an explicit `Applied`/`Verified` distinction.
+
+Committed at `e715cc7` (the four documents) and `c6f7b21` (`docs/graph-fragments/frag135.json` —
+curated `D-229` node linked to `V1 Decision Register`, `D-228` (`depends_on`), the new
+`docs/LANE-B-WORK-ORDER.md` document node, `lane_c_work_order`, and `specs_verification_apparatus_doc`;
+`graphify explain "D-229"` returns degree 5 with all five expected connections). `bun run check`
+reports 16/17 with `docs-drift` synced at `c6f7b21`; `graph-coverage`'s failure is the separate,
+already-owned handoff-exclusion drift, unaffected by this act.
+
+**Not supplied by this act**: the two independent reads this entry's own "Completion boundary"
+requires before `Verified` — Lane B confirming the allowlist and build usability, Lane C confirming
+the deficiency schema, secret handling and a deliberately-failing proof, each recorded here at its
+exact read commit.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | P2 applied to both work orders, Build Spec and verification apparatus | Applied `e715cc7`/`c6f7b21` — independent Lane B/Lane C reads still owed |
+| Approve | Graph exposes `D-229` linked to both consumer work orders and the verification apparatus | Confirmed via `graphify explain` |
+| Reject | Treating this application as also `Verified` | `D-101`/`D-102`: the applying side does not self-certify |
+| Defer | P2 terminal disposition | Lane B and Lane C independent reads, each recorded in this entry |

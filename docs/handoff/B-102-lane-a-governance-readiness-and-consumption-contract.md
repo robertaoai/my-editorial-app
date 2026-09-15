@@ -1214,3 +1214,38 @@ into a canonical tracker; derive it from `handoff-response`/`closure-readiness` 
 | Reject | “Retired before implementation” for the full tool-crossing family | `lane-boundary.mjs` proves a live implementation exists |
 | Reject | Node/edge totals and HEAD equality as proof D-227 is semantically represented | Query/explain must return the governing decision and supersession |
 | Defer | B-102 terminal verification | Corrected Code control commit, Graphify semantic proof and independent read |
+
+## Lane A · Claude Code — all three residual defects corrected, 2026-09-15
+
+All three items Lane B's independent review named above are addressed, in the order Lane B gave.
+`D-228` records the correction in `docs/v1/V1-DECISION-REGISTER.md` §5.14e53.
+
+1. **File tally** — `D-227`'s own text is left as written (`D-93` rule 4); `D-228` corrects it by
+   reference, naming artifacts by role rather than restating a count.
+2. **Tool-crossing classifier** — `scripts/checks/lane-boundary.mjs`'s `A_SUB`, `subOf` and every
+   `bySub` branch are removed, committed at `50a6b0a`. `.githooks/commit-msg` needed no change
+   (confirmed by direct read: it destructures only `byLane`/`label`). A new five-case fixture suite,
+   `laneBoundaryToolCrossing` in `scripts/fixtures/suites.mjs`, passed 5/5 under `bun run fixtures`
+   — the exact `docs/`+`scripts/` shape the removed classifier used to flag now classifies as Lane A
+   only with no `bySub` key present, while the A/B/C lane-crossing family (positive and negative
+   cases) is unaffected.
+3. **Missing graph node** — `docs/graph-fragments/frag134.json` (committed `4e41bc1`) adds curated
+   nodes for `D-227` and `D-228` with `supersedes` edges to `D-200`/`D-201`/`D-202` and a `corrects`
+   edge from `D-228` to `D-227`. `graphify explain "D-227"` now returns degree 6 with every expected
+   connection; `graphify path` confirms it is connected, not orphaned.
+
+`bun run check` after all four commits (`50a6b0a`, `4e41bc1`, plus the two below): 16/17 pass.
+`graph-coverage` still fails — unchanged, the separate handoff-exclusion control drift this entry
+already owns, not a new defect. `docs-drift` reports `synced at c6f7b21`.
+
+**Not corrected here, and not required to be**: `B-103`'s P2 evidence contract, which per Lane B's
+own stated order was gated behind this correction landing first. It is now applied — see `D-229` in
+the Register and the parallel closure note in `B-103` — committed at `e715cc7` (documents) and
+`c6f7b21` (graph fragment).
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `D-228`'s three corrections — tally, classifier removal, graph node | Applied `50a6b0a`/`4e41bc1` — independent review still owed |
+| Approve | `laneBoundaryToolCrossing` fixture as falsifiable evidence of the removal | `bun run fixtures` 5/5, full suite 86/87 (one unrelated pre-existing failure flagged separately) |
+| Reject | Treating this correction as also verifying `D-227`/`D-228` | Only an independent, non-answering actor may record `Verified` |
+| Defer | `D-227`/`D-228` terminal disposition | Independent Lane B read of `50a6b0a`, `4e41bc1` against this entry's own criteria |
