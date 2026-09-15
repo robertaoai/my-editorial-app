@@ -405,3 +405,94 @@ Any changed value should name the replacement hours and window rather than sayin
 | Defer | B-088 P1 | Remaining complete operator/reviewer capacity and separate authorization |
 | Defer | Graphify operation and graph-backed closure | Separate Lane A Code capacity after final tracked source edits |
 | Defer | Application construction and release readiness | Later authorized implementation and release phases |
+
+## Why M1 exists — capacity categories required, exact hours proposed, 2026-09-15
+
+### Parent clarification
+
+The project does **not** contain a decision requiring exactly `8 / 2 / 3 / 2` hours or the proposed
+September 16–19 windows. Those are Lane B's minimum starting estimate for the present scope. The
+Chief Editor may accept or replace them.
+
+What the work does require is a feasible allocation for four different obligations:
+
+1. someone prepares the source packet and A4;
+2. the Chief Editor decides the business meanings and write set;
+3. someone outside the answering/applying side verifies the result;
+4. the work stops cleanly when one material contradiction appears.
+
+Removing any category changes the achievable outcome. Changing an exact hour value changes the
+capacity hypothesis and must be tested against the same scope and evidence.
+
+The Chief Editor's clarification that Lane A · Cowork has a GitHub connection removes repository
+connection/setup from the estimate. Cowork can inspect and update its owned documentation through
+that connection once authorized. The connection is not itself source-edit authority, independent
+verification, Graphify operation or evidence that the business semantics are correct.
+
+### Why each proposed value is needed
+
+| Capacity | Why the role is required | Why this proposed minimum | What the GitHub connection changes | What fails if removed |
+|---|---|---|---|---|
+| **CAP-1 — 8 operator hours** | Lane A must turn B-102/B-103 and B-084 from handoff analysis into exact clauses, field rules, two acceptance paths and one bounded cross-artifact write proposal | `3h` covers the source/consumer packet; `5h` covers A4 across Product, FN-GATES/Addendum, storyboard views, traceability and Encyclopedia impact. Existing analysis is reused, so discovery is not funded again | No allowance is needed for repository access, manual file transfer or GitHub connection troubleshooting | A shortened pass is likely to omit an owner, leave contradictory requiredness, or produce examples that cannot verify later code |
+| **CAP-2 — 2 Chief Editor hours** | Only the Chief Editor can accept the business meaning, required/optional fields, revision interpretation and exact application boundary | `45m` source-packet choices + `60m` normal/revision walkthrough + `15m` recorded disposition | The review can use a concrete GitHub diff instead of pasted summaries; this improves evidence but does not eliminate judgment time | Lane A either waits indefinitely or self-authorizes business meaning; a draft cannot become an accepted implementation input |
+| **CAP-3 — 3 independent-review hours** | `Applied` is non-terminal. Construction needs a reviewer to check that the committed packet says what the Judge accepted and that every dependent view agrees | `1h` source/trace review + `1h` both article paths + `1h` cross-artifact/lifecycle evidence | The reviewer can inspect the exact commit directly. Time previously needed to reconcile narrative hashes is excluded | The packet can reach `Applied` only; semantic drift may pass syntax checks and later tests will verify the wrong contract |
+| **CAP-4 — 2 contingency hours** | The walkthrough may expose one contradiction between Product, gate behavior and a current view. A ceiling prevents hidden scope expansion | Two hours permit one bounded correction and re-review; a second issue triggers a return rather than consuming unplanned time | Git transport/setup failure is not charged here. CAP-4 is only for a contradiction inside the accepted scope | With zero contingency, the first defect either breaks the iteration or is silently ignored; without a ceiling, the spike becomes unbounded |
+
+### Why the dates are sequenced
+
+| Window | Dependency purpose | Failure if overlapped or reversed |
+|---|---|---|
+| CAP-1 through 18 September 13:00 | Produces the reviewable source packet and A4 before a decision is requested | Chief Editor reviews prose summaries rather than the exact clauses and examples |
+| CAP-2 on 18 September 14:00–16:00 | Starts after the draft boundary and records accepted/rejected meanings before application | Lane A applies undecided content or the reviewer assesses a moving target |
+| CAP-3 from 18 September 16:00 | Starts only after accepted changes are committed | The “independent review” is another design opinion rather than verification of an immutable revision |
+| CAP-4 until 19 September 18:00 | Provides one bounded correction after review while retaining a hard stop | A late correction has no re-review window, or work continues without an agreed endpoint |
+
+These windows are a proposed dependency schedule, not a release date. If the actual people are not
+available then, the Chief Editor should move the windows together while preserving their order.
+
+### Minimum-versus-smaller decision tree
+
+| Judge choice | Consequence | Accept/Reject guidance |
+|---|---|---|
+| **Accept M1 unchanged** | Preserves the full source packet, A4 walkthrough and independent verification target | **Accept** when the named people are actually available in the proposed windows |
+| Reduce CAP-1 | Lane A must remove named artifact scope and identify which implementation/verification input will remain unresolved | Accept only with explicit scope reduction; reject a claim that full A4 still fits |
+| Reduce CAP-2 | Reduce the decision agenda or split it into a later Judge window | Reject if both source-packet and A4 acceptance are still claimed |
+| Reduce CAP-3 | Narrow the review question and leave excluded artifacts unverified | Reject terminal readiness if the full cross-artifact packet is not independently read |
+| Reduce CAP-4 | Accept a stop at the first contradiction, with no in-window correction | Acceptable only if the iteration outcome is a finding rather than a corrected packet |
+| Move the dates | Preserve draft → decision → commit → independent-review order | Accept; calendar dates are not governing scope |
+
+### Evidence that M1 was sufficient
+
+M1 is validated by actual completion evidence, not by consuming all fifteen hours:
+
+- Lane A supplies one exact diff proposal covering every accepted owner and no frozen source;
+- the Chief Editor walks the normal and revision article paths and records each decision;
+- the committed application matches the accepted write set;
+- Lane B, provided it did not apply the changes, reviews the exact commit and records any exclusion;
+- actual hours are recorded by CAP category, with unused capacity left unused;
+- B-088 remains deferred unless the measured remainder covers its whole operator and independent-
+  reviewer unit;
+- Graphify remains separately operated by Lane A Code after final source edits.
+
+M1 was too small if an accepted owner must be omitted, CAP-2 ends before a blocking business choice
+is recorded, CAP-3 cannot review both paths, or CAP-4 is exhausted before the first correction can
+be re-read. In that case Lane A returns the exact unfinished artifact and evidence; it does not
+declare A4 ready or absorb more hours without a new ceiling.
+
+### Cross-artifact effect
+
+This rationale changes no Product behavior. It explains the effort needed to reconcile the existing
+Product, functional, storyboard/story-panel/UML/data-flow, traceability and Encyclopedia owners.
+The GitHub connection affects how Cowork accesses and records its work, not which artifact governs
+or what the Chief Editor must decide. No D-54 propagation is triggered by this capacity explanation.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Four distinct capacity categories as completion prerequisites | Phase 1 — drafting, Judge decision, independent review and bounded correction |
+| Approve-with-conditions | Exact M1 values `8h / 2h / 3h / 2h` | Phase 1 — advisory until the Chief Editor accepts them and confirms availability |
+| Approve | Proposed dependency order of the September windows | Phase 1 — dates may move together while order remains |
+| Reject | Presenting M1's exact hours as an existing governance requirement | They are a Lane B estimate to be accepted or replaced |
+| Reject | Charging GitHub connection/setup work to CAP-1 or CAP-4 | Chief Editor confirms Cowork is connected |
+| Reject | Treating GitHub connectivity as source authority or semantic verification | Existing Judge-act and independent-review rules still apply |
+| Defer | B-088 P1 | Actual complete capacity remainder after A4 |
+| Defer | Graphify operation and graph-backed closure | Separate Lane A Code capacity after final tracked edits |
