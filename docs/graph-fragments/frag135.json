@@ -1,0 +1,77 @@
+{
+  "nodes": [
+    {
+      "id": "d229_bc_evidence_contract_applied",
+      "label": "D-229: B/C Evidence Contract Applied From B-103's Judge-Accepted P2 Text",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e54",
+      "description": "Judge-accepted 2026-09-15, source docs/handoff/B-103's 'P2 -- accept the two-way B/C evidence contract'. Ordered behind D-228 because the owner model and its enforcement had to agree before a child work order relied on it. Promotes B-103's two child sections by reference, verbatim, into their executable owners: docs/LANE-B-WORK-ORDER.md new section 6 (Lane B -> Lane C minimum allowlisted evidence -- named commands and exit status, machine-readable test/type/lint/migration/security results, build artifact identity and deployment-health, sanitized operational events; excludes credentials, environment files, service-role keys, tokens and raw content) and .github/WORKFLOWS-SPEC.md new section 7 (Lane C -> Lane B bounded deficiency feedback -- a missing signal is a named C-series entry, never an invented endpoint or schema). Adds V1-BUILD-SPEC.md section 7 standing invariant 10 and docs/specs/SPECS-VERIFICATION-APPARATUS.md new section 16, which makes P2's own required positive/negative proof falsifiable and states an explicit Applied/Verified distinction: Applied means the four documents exist and cross-reference each other; Verified requires Lane B and Lane C to each have exercised their own row against a real workflow run, not merely agreed with the table. Authorizes no application code, workflow YAML, telemetry, credentials, deployment or publication.",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage and query/explain need this decision queryable and linked to both consumer work orders and the verification apparatus, per the Lane A Code application guide's own step 7 requirement, not only to the git commit that recorded it."
+    },
+    {
+      "id": "lane_b_work_order_doc",
+      "label": "docs/LANE-B-WORK-ORDER.md (document)",
+      "file_type": "document",
+      "source_file": "docs/LANE-B-WORK-ORDER.md",
+      "source_location": "",
+      "description": "Lane B's executable work order: what Lane B may commit, provisioned dependencies, pre-commit requirements, and the turn-report obligation. Section 6, added under D-229, is the executable owner of the Lane B -> Lane C evidence allowlist -- the minimum build/test/deployment evidence Lane B exposes for an authorized Lane C workflow to consume, and what it deliberately excludes (credentials, environment files, raw content).",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "The existing curated nodes sourced from this file cover individual findings within it (e.g. a_work_order_beats_a_register_entry) but no node represented the document itself, unlike its Lane C counterpart (lane_c_work_order) and the verification apparatus (specs_verification_apparatus_doc) -- needed so D-229 can link to both consumer work orders symmetrically."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d229_bc_evidence_contract_applied",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e54",
+      "weight": 1
+    },
+    {
+      "source": "d229_bc_evidence_contract_applied",
+      "target": "d228_d227_residual_defects_corrected",
+      "relation": "depends_on",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e54",
+      "weight": 1
+    },
+    {
+      "source": "d229_bc_evidence_contract_applied",
+      "target": "lane_b_work_order_doc",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e54",
+      "weight": 1
+    },
+    {
+      "source": "d229_bc_evidence_contract_applied",
+      "target": "lane_c_work_order",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e54",
+      "weight": 1
+    },
+    {
+      "source": "d229_bc_evidence_contract_applied",
+      "target": "specs_verification_apparatus_doc",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e54",
+      "weight": 1
+    }
+  ]
+}
