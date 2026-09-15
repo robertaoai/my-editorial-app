@@ -40,6 +40,17 @@
   record identity, permitted fields, sensitivity, result and failure vocabulary, freshness, return
   owner) is accepted as the shape Cowork's B-102/B-103 packet must supply; that packet is not yet
   drafted. No governed source is edited by this acknowledgement.
+
+  **Acknowledged, continued, 2026-09-15 (at read commit `41b4115`, per Lane B's report; not
+  independently git-verified from this session).** The post-acknowledgement consistency rerun is
+  accepted as stated: `handoff-response`, `lane-boundary`, `source-sweep` and `sync-docs-unique` now
+  pass; `graph-coverage` and `docs-drift` fail for the exact exclusion-boundary defect this entry
+  already owns, not a new one. The exact Lane A · Claude Code control packet (one shared exclusion
+  matcher covering `docs/handoff/**`, `graph-coverage` enumerating only included governed-intent
+  Markdown, `docs-drift` failing only on a governed or mixed change, four named negative fixtures) is
+  accepted as the correct fix and is Code's surface to apply; this session proposes it, does not
+  implement it. Rebuilding Graphify to satisfy these two failures is rejected, as stated: it would
+  ingest the excluded transaction log and ratify the wrong checker contract instead of fixing it.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Chief Editor/Judge clarification of 2026-09-15; `AGENTS.md` D-84/D-86/D-183/D-186 and lane surfaces; `docs/README.md` request-to-execution flow; `docs/LANE-B-WORK-ORDER.md`; `.github/WORKFLOWS-SPEC.md`; live B-071/B-084/B-088/B-094–B-101 lifecycle records; `docs/Modular_PRD.md`; storyboard, embedded UML/data-flow views, traceability and `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json` at the named commit.
 - **Verified-At-Commit:** 865d1f6f5e35443a411674a47121e61e5196b708
@@ -442,3 +453,207 @@ excluded transaction log and would preserve the wrong checker contract.
 | Approve-with-conditions | Exact exclusion/control packet above | Phase 1 Lane A · Code — Judge-authorized implementation plus fixtures |
 | Reject | Graphify rebuild as the repair for handoff-only drift | It preserves the wrong inclusion rule |
 | Defer | Checker implementation and next governed graph sync | Exact act; code application; governed-source promotion respectively |
+
+## Lane A exact source packet — commit-transport exception and B/C evidence contract, ready for Judge accept, 2026-09-15
+
+**Drafted 2026-09-15 by Lane A · Cowork.** This is the immutable packet the transport exception and
+the bounded Lane B/C evidence interface require, named file by file and section by section per
+`D-183`/`D-186`. **Specified here, applied nowhere by this entry.** No file listed below is edited by
+this acknowledgement; each is Lane A · Claude Code's to apply only after an explicit Judge accept
+names this packet's revision. New Register decision numbers are left for the Judge/Register to
+assign at acceptance; this session does not invent one.
+
+### Part 1 — Cowork semantic-author / Claude Code commit-applicator transport exception
+
+**Anchor (identical in all three rule files, confirmed by direct read):** the sentence "…except
+`D-184`'s one-entry handoff commit." immediately followed by each file's own tool-specific-section
+label (`Codex specifics:` in `AGENTS.md`; `Claude Code specifics:` in `CLAUDE.md`; `Gemini /
+Antigravity specifics:` in `.agents/rules/graphify.md`).
+
+**Insert this paragraph immediately after that sentence, identically, in `AGENTS.md`, `CLAUDE.md`
+and `.agents/rules/graphify.md`:**
+
+> **Cowork-authored governance/docs packets: Claude Code as commit-applicator, not owner** (new
+> D-number, Judge assigns). Lane A · Cowork owns governance/documentation meaning under the Lane A
+> tool split above but has no Git commit access in the current execution path. Lane A · Claude Code
+> may apply and commit Cowork's immutable, Judge-accepted governance/documentation packet as a
+> transport act: it resolves no semantic conflict, adds no path beyond the accepted packet, and
+> rewrites no accepted wording. If the packet does not apply exactly as specified, Code stops and
+> returns the conflict to Cowork and the Judge rather than repairing it. The commit records both
+> Cowork as semantic author and Claude Code as applicator. This creates no new `A-`series handoff,
+> transfers no ownership of Cowork's documentation surface to Code, and does not enlarge `D-184`'s
+> narrower one-entry handoff-commit exception, which remains separate and unchanged.
+
+**`docs/README.md`, "How a request becomes execution" table, `Execution` row** (confirmed current
+text by direct read): append to the existing cell, after "…under the canonical SOP in
+`handoff/README.md`":
+
+> **Second exception:** Lane A · Claude Code may apply and commit an immutable, Judge-accepted Lane
+> A · Cowork governance/documentation packet as a transport act only — no semantic authority, no
+> added path, dual author/applicator provenance recorded in the commit (new D-number, Judge
+> assigns).
+
+**`docs/v1/V1-BUILD-SPEC.md` §2, the "Lane A is two tools with split surfaces" paragraph** (confirmed
+current text by direct read, line 59): append one sentence at its end:
+
+> **Cowork-authored governance/docs packets may be committed by Claude Code as transport only** (new
+> D-number, Judge assigns): Code applies the Judge-accepted immutable packet verbatim, resolves no
+> meaning, and the commit records both semantic author (Cowork) and applicator (Code).
+
+**`docs/v1/V1-PHASE-CLOSURE.md` §5.0a, after the existing "How the `Report` cell is filled differs by
+lane" callout** (confirmed current text by direct read): append a new callout:
+
+> **When Claude Code applies a Cowork-authored governance/docs packet** (new D-number, Judge
+> assigns), the commit records both Cowork as semantic author and Claude Code as applicator. Lane
+> A's `Report` cell still cites the Register section of the boundary decision, per the rule above —
+> the transport commit is evidence, not a second canonical record.
+
+**`docs/v1/V1-DECISION-REGISTER.md` — proposed Register act, specified only, this session has not
+read this file and does not edit it:**
+
+> **Lane A · Cowork semantic-author / Claude Code commit-applicator transport exception — [date at
+> acceptance], Judge ruling (new D-number).** Lane A · Cowork owns governance/documentation meaning
+> under the existing Lane A tool split (`D-200`/`D-201`/`D-202`). Where Cowork lacks Git commit
+> access, Lane A · Claude Code may apply and commit Cowork's immutable, Judge-accepted
+> governance/documentation packet as a transport act: no semantic conflict resolution, no added
+> path, no rewritten wording. An inexact-application conflict returns to Cowork and the Judge
+> without repair. The commit records both semantic author and applicator. This creates no
+> `A-`series handoff, transfers no documentation ownership to Code, and narrows nothing in
+> `D-184`'s existing one-entry handoff-commit exception, which remains separate and unchanged.
+
+### Part 2 — Bounded Lane B/C evidence interface
+
+**Content already drafted and accepted-on-substance:** B-103's own "P2 — accept the two-way B/C
+evidence contract" section (Lane B→Lane C allowlist; Lane C→Lane B deficiency schema) is not
+redrafted here. This entry's Lane A field already found it coherent with the existing lane split.
+What was missing is the exact destination and the Judge accept; both are supplied now.
+
+**`docs/LANE-B-WORK-ORDER.md`** (headers confirmed by direct read: §1–§5, §5 is currently the last
+section): append a new terminal section, verbatim from B-103:
+
+> **## 6. Evidence contract with Lane C**
+>
+> [B-103's "Lane B → Lane C: minimum allowlisted evidence" list and exclusions, quoted verbatim from
+> that entry's P2 section]
+
+**`.github/WORKFLOWS-SPEC.md`** (headers confirmed by direct read: §1–§6, §6 "How to raise anything"
+is currently the last section): append a new terminal section, verbatim from B-103:
+
+> **## 7. Evidence contract with Lane B**
+>
+> [B-103's "Lane C → Lane B: bounded deficiency feedback" five-item list, quoted verbatim from that
+> entry's P2 section]
+
+**`docs/v1/V1-DECISION-REGISTER.md` — proposed Register act, specified only:**
+
+> **B-103 P2 two-way Lane B/C evidence contract — [date at acceptance], Judge ruling (new
+> D-number).** The Lane B→Lane C allowlist and Lane C→Lane B deficiency schema in `B-103`'s P2
+> section are ratified as the bounded evidence interface. Lane B exposes only the allowlisted class;
+> Lane C consumes only that class and returns a named deficiency, never an invented endpoint, event
+> schema or Product requirement. Neither lane infers the other's fields from unrestricted
+> application data.
+
+### What is not in this packet
+
+P0/P1 (the three-way workflow division) and P3 (closure-loop mechanics) from B-103 are not included:
+this packet covers only P2, the evidence contract, because that is what the transport exception and
+this entry's own citation named. P0/P1/P3 remain under B-103's own "Chief Editor decisions needed"
+section, undecided by this packet.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Part 1 — commit-transport exception, all five locations | Phase 1 — Judge accept, then Code applies verbatim |
+| Approve | Part 2 — B/C evidence contract, both locations | Phase 1 — Judge accept (also closes B-103's P2 item), then Code applies verbatim |
+| Reject | Any application of this packet before an explicit Judge accept naming this revision | `D-183`/`D-186` require the recorded act first |
+| Defer | B-103 P0/P1/P3 | Separate Chief Editor decisions, not included here |
+
+## Lane B application-readiness review — what still blocks Lane A · Claude Code, 2026-09-15
+
+The source anchors for the three rule files, `docs/README.md`, Build Spec, Phase Closure, Lane B
+work order and Lane C work order exist. Lane A is already `Active`; repository access, Graphify and
+Product artifacts are not blockers to applying this governance-only packet. The packet is still not
+mechanically applicable for the following reasons.
+
+| Order | Blocking condition | Reference | Required correction / success evidence |
+|---:|---|---|---|
+| 1 | No bounded application act names this packet's committed revision | `D-183`, `D-186`; `docs/README.md` Decision and authorization row | Judge act names B-102, exact revision, Parts 1–2, paths, exclusions and checkpoint |
+| 2 | The packet itself is not yet committed and immutable | B-102 heading says immutable; current text arrived as a working-tree edit | Commit this one handoff entry first; the Judge and Code cite that commit |
+| 3 | Part 2 contains bracketed placeholders rather than the promised verbatim clauses | B-102 Part 2; B-103 P2 lines 73–103 | Use the complete destination text below; no bracket token or paraphrase remains |
+| 4 | Proposed Register acts were drafted without reading the Register and have no accepted IDs | B-102 Part 1/2 Register blocks; Register `D-200`–`D-203`, `D-209`, `D-214` conventions | Cowork reads the current Register, adjusts only phrasing/anchors, and the Judge/Register assigns IDs at acceptance |
+| 5 | P2 depends on the P1 ownership split, while the packet says P1 remains undecided | B-103 states P1–P3 are children of P0; B-094 records P0-A/P1/P2 as standing planning directions | Carry P0/P1's already selected facts as dependencies in the same Register/build-readiness treatment; do not ask the business choice again |
+| 6 | D-54 applicability is incomplete | `AGENTS.md` D-54 | Build Spec records sequence/DoD for both parts; Inventory explicitly records no file creation/retirement; Phase Closure records no lane-state change; Product §8 is unaffected because no sprint closes or tier opens |
+| 7 | File and insertion-point counts are wrong | Part 1 verdict says five locations; narrative says nine file locations | Record **eight distinct files and ten insertion points**: seven Part-1 insertions, three Part-2 insertions, with two Register acts in the same file |
+
+### Corrected Part 2 destination text — no placeholders
+
+This subsection supersedes the earlier bracketed Part 2 template and its location counts. Lane A ·
+Code must ignore that earlier template and apply only an accepted revision containing the complete
+text below.
+
+Append to `docs/LANE-B-WORK-ORDER.md` as `## 6. Evidence contract with Lane C`:
+
+> Lane B exposes only what an authorized Lane C workflow needs to verify the build:
+>
+> - named commands and their exit status;
+> - machine-readable test, type, lint, migration and security-check results;
+> - build artifact identity, schema/migration version and deployment-health result;
+> - sanitized operational events required by an accepted monitoring contract, with stable event
+>   type, time, environment, correlation identifier and outcome code.
+>
+> This interface excludes source credentials, environment-file contents, service-role keys,
+> publication credentials, tokens, raw client/article content and unrestricted database or
+> application logs. Production content is not required to prove that a workflow runs. Secrets stay
+> in the platform secret store and are never printed. When a required signal is missing, Lane C
+> raises a C-series deficiency under its work order; Lane B does not broaden the allowlist by
+> inference.
+
+Append to `.github/WORKFLOWS-SPEC.md` as `## 7. Evidence contract with Lane B`:
+
+> Lane C consumes only the Lane B evidence allowlist recorded in `docs/LANE-B-WORK-ORDER.md` §6.
+> When Lane C cannot verify or monitor an accepted outcome because the application emits no stable
+> signal, it raises one C-series entry naming:
+>
+> 1. the acceptance case or control that cannot be observed;
+> 2. the exact missing signal, such as a health/readiness result, structured event, metric, trace or
+>    stable failure code;
+> 3. why existing output is insufficient;
+> 4. the minimum shape and sensitivity class needed;
+> 5. a positive and negative proof that would make the workflow capable of failing correctly.
+>
+> Lane C does not invent an application endpoint, event schema or Product requirement in workflow
+> YAML. Lane A decides and documents the requirement; Lane B later implements the signal under an
+> authorized work order; Lane C consumes it under its own authorized workflow unit.
+
+### Corrected propagation boundary
+
+- **Part 1:** seven insertion points in seven files — the three rule files, `docs/README.md`, Build
+  Spec, Phase Closure and the Register.
+- **Part 2:** three insertion points in three files — Lane B work order, Lane C work order and a
+  second act in the same Register already counted in Part 1.
+- **Combined:** eight distinct files, ten insertion points. No file is created or retired.
+- **Product views:** `Modular_PRD`, functional specs, storyboard/story panels, UML/data flow,
+  traceability and Encyclopedia are unaffected because this packet governs development-lane
+  transport and evidence, not editorial behavior.
+- **Controls:** B-102's `graph-coverage`/`docs-drift` repair is a separate Code implementation unit;
+  this source packet does not authorize it.
+
+### Lane A · Code execution checklist after the blockers clear
+
+1. Confirm the accepted B-102 commit and Register decision identifiers.
+2. Confirm all ten insertion anchors still match; stop on any mismatch.
+3. Apply the accepted text exactly to the eight files, including byte-identical shared-core text in
+   all three rule files.
+4. Inspect the staged path set and literal clauses against the accepted packet.
+5. Run shared-core, tier, lane, channel and full consistency checks. Do not rebuild Graphify for
+   this worklog; canonical governed-source application makes the later graph step due only after
+   independent verification.
+6. Commit with Cowork semantic-author and Claude Code applicator provenance.
+7. Lane B/C independently review their destination section and the shared decision evidence.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve-with-conditions | Part 1 transport exception | Phase 1 — committed packet, Register read/act, correct seven-file propagation |
+| Approve-with-conditions | Part 2 P1/P2 evidence contract | Phase 1 — full clauses above, dependency recorded, three insertion points |
+| Reject | Current packet as immediately Code-applicable | Placeholder, authority, dependency and propagation defects remain |
+| Reject | Reopening P0/P1 business choices | Standing planning decisions already exist; application authority is the missing act |
+| Defer | Checker implementation and Graphify | Separate authorization; governed intent applied and independently verified respectively |
