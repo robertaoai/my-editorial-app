@@ -10,6 +10,7 @@ import { fixture, read, write, withRetry, TRANSIENT_CODES, existsSync, rmSync, m
 import { readdirSync, readFileSync } from "node:fs";
 import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
 import { classify } from "../checks/lane-boundary.mjs";
+import { classifyChangedPaths } from "../checks/governed-intent.mjs";
 
 const CHECK = (n) => new URL(`../checks/${n}`, import.meta.url).href;
 
@@ -747,6 +748,53 @@ export async function laneBoundaryToolCrossing(results) {
   }
 }
 
+/**
+ * `D-231` — the shared governed-intent exclusion matcher, and `docs-drift`'s
+ * use of it, per `docs/handoff/B-102`'s four named cases. `classifyChangedPaths`
+ * is a pure function of a path list, exactly like `classify()` above, so these
+ * cases need no git commits, file mutation or restore.
+ */
+export async function governedIntentExclusion(results) {
+  const cases = [
+    {
+      name: "governed-intent: a handoff-only advance is excluded-only (passes)",
+      paths: ["docs/handoff/B-999-example.md"],
+      check: (r) => r.excludedOnly === true && r.governed.length === 0,
+      detail: (r) => `excludedOnly=${r.excludedOnly}, governed=${JSON.stringify(r.governed)}`,
+    },
+    {
+      name: "governed-intent: graphify scratch output is also excluded",
+      paths: ["docs/.graphify/GRAPH_REPORT.md"],
+      check: (r) => r.excludedOnly === true && r.governed.length === 0,
+      detail: (r) => `excludedOnly=${r.excludedOnly}, governed=${JSON.stringify(r.governed)}`,
+    },
+    {
+      name: "governed-intent: a governed-doc advance is NOT excluded-only (fails)",
+      paths: ["docs/Modular_PRD.md"],
+      check: (r) => r.excludedOnly === false && r.governed.length === 1,
+      detail: (r) => `excludedOnly=${r.excludedOnly}, governed=${JSON.stringify(r.governed)}`,
+    },
+    {
+      name: "governed-intent: a mixed handoff+governed advance is NOT excluded-only (fails)",
+      paths: ["docs/handoff/B-999-example.md", "docs/Modular_PRD.md"],
+      check: (r) => r.excludedOnly === false && r.governed.length === 1 && r.governed[0] === "docs/Modular_PRD.md",
+      detail: (r) => `excludedOnly=${r.excludedOnly}, governed=${JSON.stringify(r.governed)}`,
+    },
+    {
+      name: "governed-intent: no changed paths at all is excluded-only (the matching-analysis case passes)",
+      paths: [],
+      check: (r) => r.excludedOnly === true && r.governed.length === 0,
+      detail: (r) => `excludedOnly=${r.excludedOnly}, governed=${JSON.stringify(r.governed)}`,
+    },
+  ];
+
+  for (const c of cases) {
+    const r = classifyChangedPaths(c.paths);
+    const ok = c.check(r);
+    results.push({ name: c.name, ok, detail: c.detail(r) });
+  }
+}
+
 /** `D-105` — the crossing declaration must be what git parses as a trailer. */
 export async function laneGate(results) {
   const CI = ".github/workflows/ci.yml";
@@ -1153,6 +1201,7 @@ export const SUITES = [
   ["channel documentation (`D-104`)", channelDocs],
   ["lane crossing declaration (`D-105`)", laneGate],
   ["lane-boundary tool-crossing retirement (`D-227`)", laneBoundaryToolCrossing],
+  ["governed-intent exclusion matcher (`D-231`)", governedIntentExclusion],
   ["config coupling (`C-17`, raised as `B-024`)", configCoupling],
   ["reopens-phase (`C-19`, raised as `B-025`)", reopensPhase],
   ["fixture retry resilience (`D-139`, raised against this session's own run)", retryResilience],

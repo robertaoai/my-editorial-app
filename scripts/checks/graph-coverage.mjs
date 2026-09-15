@@ -4,15 +4,19 @@
 // directly. Not reimplemented: that file is the reference the register cites,
 // and a second implementation would be a second thing to keep in step.
 //
-// `docs/.graphify/` is excluded — graphify writes its own scratch output there,
-// and counting it as a governed document produces a permanent false finding.
+// EXCLUSIONS now come from the shared `governed-intent.mjs` matcher (`D-231`)
+// rather than a private regex here: `docs/.graphify/` (graphify's own scratch
+// output) and, since `D-231`, `docs/handoff/` (the transaction worklog —
+// `docs/handoff/B-102`'s Judge clarification: not the governed-intent graph
+// source). Sharing the matcher with `docs-drift` is the fix — the two checks
+// independently excluding different things was the control drift this closes.
 
 import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
+import { isExcludedPath, EXCLUDED_CLASS_LABEL } from "./governed-intent.mjs";
 
 const SCRIPT = "docs/graph-fragments/missing.js";
 const GRAPH = ".graphify/graph.json";
-const IGNORE = /^docs\/\.graphify\//;
 
 export function run() {
   const findings = [];
@@ -47,7 +51,7 @@ export function run() {
   }
 
   const lines = out.split("\n").map((l) => l.trim());
-  const missing = lines.filter((l) => l.startsWith("docs/") && !IGNORE.test(l));
+  const missing = lines.filter((l) => l.startsWith("docs/") && !isExcludedPath(l));
   const total = out.match(/docs \.md files total\s*:\s*(\d+)/)?.[1] ?? "?";
 
   for (const m of missing) findings.push(`absent from the curated graph: ${m}`);
@@ -55,6 +59,6 @@ export function run() {
   return {
     name: "graph-coverage",
     findings,
-    detail: `${total} markdown files under docs/, ${missing.length} absent (graphify scratch excluded)`,
+    detail: `${total} markdown files under docs/, ${missing.length} absent (${EXCLUDED_CLASS_LABEL} excluded)`,
   };
 }
