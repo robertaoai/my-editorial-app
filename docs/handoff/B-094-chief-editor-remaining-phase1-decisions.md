@@ -39,6 +39,18 @@
   files, with `device_bash` (shell/git) unreachable throughout; no GitHub connector tool has been
   present in this session at any point checked. Stated once here as the session's standing answer to
   that question, rather than repeating the caveat in every acknowledgement.
+
+  **Acknowledged, continued, 2026-09-15 (at read commit `68e85d9`, per Lane B's report; not
+  independently git-verified from this session).** The consolidation correction is accepted as
+  stated: B-084's capacity numbers are supplied and settled (no fourth re-ask), and B-106's A6
+  meaning is supplied via the sequential PDPA-then-financial-retention model, so Lane A records and
+  propagates that model rather than choosing among retire/rename/third-clock options. The parent
+  order is confirmed as B-102/B-103 consumption contract, then B-084 exact Product packet, then
+  B-106 governance propagation where it fits the same source pass, then independent verification;
+  B-104 travels with B-084; B-096/B-097 keep their own separate controls; B-088 stays deferred. This
+  session independently re-checked `.graphify/branch.json` this pass: `lastAnalyzedHead` and
+  `mergeBase` are both `f63d6eb`, confirming no analysis has run past the pre-worklog baseline,
+  consistent with the Graphify-exclusion ruling already recorded here and in B-102.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** f63d6eb2e6a3c5815dff5f5df847ea20c8db7bdc
 - **Evidence:** Live review of B-084, B-088 and B-077 Child 2 at the named commit; B-087 J2/J3/J4 dispositions; current handoff lifecycle query; Graphify query; final B-092/B-093 graph evidence; `Modular_PRD`, storyboard, scope graph, traceability and Encyclopedia residual routing.
@@ -799,3 +811,58 @@ with B-084. B-096/B-097 retain their separate controls. B-088 remains deferred.
 | Approve-with-conditions | Consolidated Phase 1 packet order | Phase 1 — retain each handoff as its lifecycle owner and verify each committed correction |
 | Defer | B-088, software/workflow work and Graphify | Existing later conditions; no change |
 | Reject | Earlier B-094 rows as evidence that capacity numbers or A6 meaning remain undecided | Superseded by this dated correction and the owning entries |
+
+## Lane B review of Lane A continuation — consolidation answered, 2026-09-15
+
+The five Lane A acknowledgements are present in the working tree but were not Git-committed when
+Lane B inspected them at `68e85d9`. Their cited commits all exist; `deb3048` is verified as the
+commit that introduced B-104. The acknowledgements are valid receipts, not closure evidence.
+
+### Consolidation question
+
+**Accept one coordinated Judge act; reject merging the lifecycle records.** One act may accept the
+related Phase 1 packet in dependency order and each existing handoff may cite it. B-102, B-084,
+B-106, B-104, B-096, B-097 and B-088 retain their own state, owner and independent completion
+evidence. Combining them into one handoff would hide the weakest unfinished child and recreate a
+second status ledger.
+
+| Order | Existing owner | Included in the coordinated act | Cannot be closed by that act alone |
+|---:|---|---|---|
+| 1 | B-102/B-103 | Cowork/Code application exception and bounded B/C evidence interface | Canonical application, mechanical checks and B/C verification |
+| 2 | B-084 with B-104 | Exact Product packet, settled M1 envelope, normal/revision journey and target T5/T6 two-view correction | Applied source diff, article walkthrough and independent review |
+| 3 | B-106 | A4 threshold and ordered 90-day UI boundary → external record-class retention arbitration | Source propagation, retention counterexamples and later code metadata unit |
+| 4 | B-096/B-097 | Exact residual control packets where ready | Negative fixtures and independent verification for each control |
+| 5 | B-088 | Continued deferral | Separate P1 authorization and complete residual capacity after higher parents |
+
+### Remaining gaps and owners
+
+1. **Lane A · Cowork:** validate B-106's ready-to-apply arbitration draft against the direct Judge
+   wording; finish the exact B-102/B-103 packet. These are semantic-source tasks.
+2. **Lane A · Claude Code:** mechanically apply only an accepted immutable packet. Re-run the
+   consistency suite after these five acknowledgement files are committed. The existing B-102
+   control child owns `graph-coverage`/`sync-docs-unique` subprocess `EPERM`; no duplicate handoff is
+   opened. Report the exact environment and deadline before the next consistency claim.
+3. **Lane B/C:** review committed source/control results, not Cowork scratch or acknowledgement
+   prose. Each updates its originating entry at the exact read commit.
+4. **Judge:** accept/reject the coordinated packet after Cowork presents literal changes. No new
+   numerical capacity, A4 threshold, A6 sequence or T5 executor choice is required.
+
+Graphify remains unchanged and intentionally out of scope: `.graphify/branch.json` is anchored at
+`f63d6eb`, while only the excluded handoff worklog has advanced. It becomes due after canonical
+governed intent is applied and independently verified, not after committing these receipts.
+
+| Guaranteed failure | Evidence of success |
+|---|---|
+| One consolidated act marks every handoff closed | Each owner records its own weakest-child disposition and independent read commit |
+| Uncommitted acknowledgements are reported as committed | Five one-entry commits exist and the working tree is clean before the rerun |
+| Expected acknowledgement failure hides `EPERM` indefinitely | Post-commit rerun separates the now-cleared receipt condition from the named Lane A Code environment defect |
+| B-106 is drafted from memory | Its four-source review and exact proposed arbitration are present in B-106 |
+| Graphify is rebuilt for the excluded worklog | No graph action until canonical governed-source promotion and verification |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | One coordinated Judge decision act referenced by existing owners | Phase 1 — exact immutable packet |
+| Reject | Merging handoff lifecycle records or closing them in bulk | Preserve per-item evidence and weakest-child state |
+| Approve-with-conditions | Five Lane A acknowledgement edits | Phase 1 — commit one entry at a time, then rerun checks |
+| Approve-with-conditions | B-106 arbitration draft | Phase 1 — Cowork source/wording validation and Judge acceptance |
+| Defer | B-088, implementation and Graphify | Existing later conditions |
