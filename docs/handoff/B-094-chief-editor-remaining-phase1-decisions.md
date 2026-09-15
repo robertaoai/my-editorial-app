@@ -650,3 +650,66 @@ section and B-102's *Judge clarification — intent promotion and Graphify activ
 | Approve-with-conditions | B-088 P1 | Phase 1 — complete residual implementation/review capacity and exact Judge act |
 | Reject | Graph staleness as the reason B-088 is blocked | B-088 is held by priority, capacity and authorization |
 | Defer | Codebase/KB Graphify and Swagger/OpenAPI generation | Post-deployment — successful deployment evidence first |
+
+## Independent review — one Judge act, separate canonical owners, 2026-09-15
+
+Lane A's latest handover describes five Chief Editor decisions as still open. That overstates the
+remaining decision load. The Chief Editor's preceding clarifications already select the planning
+branches for B-084, B-088, B-102 and B-103. Only the exact M1 availability and the later A4/source
+application boundary remain unsupplied.
+
+One Judge act may state the related choices once, but it must be referenced from each owning entry;
+it cannot collapse B-084/B-088/B-102/B-103 into one lifecycle record or close them as a batch.
+
+### Consolidated Judge act
+
+> **Phase 1 decision consolidation — planning only.**
+>
+> 1. **B-102: Approve Choice A** — Lane A prepares a bounded governing read set plus executable
+>    controls and the exact D-86/control-drift amendment packet. This authorizes preparation of the
+>    reviewable packet, not application to governed sources.
+> 2. **B-103: Approve P0-A, P1 and P2 as planning requirements** — bounded promotion; Lane B owns
+>    editorial application behavior, Lane C owns delivery-assurance workflows, and Lane A governs
+>    their evidence/data interface. Exact fields, classifications, negative cases, source sections,
+>    dependencies, DoD and verifier must be presented before application.
+> 3. **B-084: Approve A4 as the selected Product-readiness unit** after the B-102/B-103 packet.
+>    Preserve manual URL/Markdown intake, the supplied LinkedIn normal/revision example and B-104's
+>    D-181 T5/T6 correction. Application waits for the exact field/write set and accepted capacity.
+> 4. **B-088: Defer P1.** Reconsider only after the source packet and A4 complete and measured
+>    residual capacity covers the entire token-boundary repair plus independent review. Graphify is
+>    excluded from that calculation.
+> 5. **B-084 M1: Defer the dated schedule, retain the estimate.** `8h / 2h / 3h / 2h` remains the
+>    advisory minimum until the Chief Editor confirms or replaces the named people and windows.
+>
+> This act authorizes no governed-source edit, checker/code/workflow implementation, Graphify run,
+> publication, deployment, lane transition or release.
+
+### What remains for Lane A
+
+1. Record this act once in the Register and link it from B-084/B-088/B-102/B-103 without copying
+   new paraphrases into their bodies.
+2. Prepare the exact B-102/B-103 source/control packet first.
+3. Prepare the complete A4 review packet second, including steps 6–7 and B-104's corrected journey.
+4. Ask the Chief Editor only for actual M1 availability and accept/reject of the exact source/A4
+   write sets. Do not re-ask the four planning choices above.
+5. Keep B-088 deferred unless the post-A4 whole-unit capacity test passes.
+
+### Failure-derived success criteria
+
+| Guaranteed failure | Evidence of success |
+|---|---|
+| One Judge act is treated as one lifecycle owner | Each existing entry records its own children and terminal evidence while citing the same act |
+| Lane A asks B-102/B-103/B-088 choices again | The next request contains only M1 availability and exact packet accept/reject decisions |
+| M1 estimates are treated as committed availability | Named people confirm or replace every CAP value and window before scheduling |
+| Planning approval starts governed edits | A later act names the immutable packet, exact paths/sections, exclusions and DoD |
+| B-088 begins from partial leftover time | Complete repair and independent-review capacity are both demonstrated before admission |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-102 Choice A | Phase 1 — exact packet preparation only |
+| Approve | B-103 P0-A/P1/P2 | Phase 1 — exact interface packet preparation only |
+| Approve | B-084 A4 retained after the source packet | Phase 1 — complete reviewable A4 packet |
+| Defer | B-088 P1 | Phase 1 — post-A4 whole-unit capacity and separate authorization |
+| Defer | Exact M1 schedule | Phase 1 — Chief Editor confirms or replaces people and windows |
+| Reject | Five planning choices described as wholly undecided | Four have standing directions; capacity/application details remain |
+| Reject | Bulk lifecycle closure from the consolidated act | Each existing handoff retains its own completion evidence |
