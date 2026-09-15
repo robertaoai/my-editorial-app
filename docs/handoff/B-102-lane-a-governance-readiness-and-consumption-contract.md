@@ -1167,3 +1167,50 @@ Revised parent-first disposition, items 4–5:
 | Approve | Governed-docs Graphify resync after the ownership commit | Complete — `docs-drift` passes at `46d3598` |
 | Defer | `C-35` tool-crossing script/fixture removal | Separate scripts/-surface implementation, not required to unblock child packets |
 | Defer | `B-103` P2, `B-095`/`B-084` A4, `B-106` A4/A6 child packets | Each awaits its own explicit Judge accept naming its revision |
+## Lane B independent review — D-227 is Applied with three residual defects, 2026-09-15
+
+Lane B reviewed commits `46d35980999956b2efec864a53fbd36251a4e082` and
+`d8bd5a866e1f2bc3abbc78a84bc36b7b6d527d4d` against the Judge ruling in this entry.
+The Register act exists as `D-227`; its ID is unique; the three shared rule files agree; Build Spec,
+Inventory and the handoff SOP received the new ownership rule; Phase Closure and the Product-facing
+artifacts remain semantically unaffected. The parent is therefore **Applied**, but cannot yet become
+`Verified`.
+
+### Residual defects, parent first
+
+| Order | Finding | Why it matters | Required correction |
+|---:|---|---|---|
+| 1 | `D-227` and B-102 call the propagation a **six-file** set, while `46d3598` changes seven files: Register, three rule files, Build Spec, Inventory and handoff README | The count is a restated tally and is already false (`G55` class) | Remove the count; name the affected artifacts by role or derive the path set from the commit |
+| 2 | `D-227` says `C-35`'s Cowork/Code crossing family was retired **before implementation**, but `scripts/checks/lane-boundary.mjs` contains the live `A_SUB` map, `bySub` classification and a `D-200` crossing report | A later Code commit spanning docs and scripts can still be reported under the superseded owner model; the relevant check was skipped during this review environment | Correct the Register/Inventory claim and remove or narrow `A_SUB`/`bySub` in a bounded Code control unit with positive and negative fixtures; preserve A/B/C lane crossing |
+| 3 | Graphify metadata points to `46d3598`, but `graphify query`/`explain` and a direct graph search find no semantic `D-227` or “Lane A Single Ownership” node; only the Git commit node exists | Matching HEAD and unchanged node totals prove a rebuild ran, not that the new governing decision is navigable | After defects 1–2 land and independent review accepts the meaning, add/merge the required curated decision relationship or correct extraction; prove a D-227 query returns the decision and its supersession edges |
+
+The later handoff-only commit does not itself require a graph rebuild. The current graph is
+mechanically anchored to the governed commit, while semantic coverage of the new ruling remains
+incomplete. Those are separate facts.
+
+### Corrected handoff audit
+
+The derived check currently reports 106 B/C entries: 96 `Answered` and 10 `Open`. Lane A's report
+said 105/95 and listed nine open entries. The omitted open entry is B-094. Do not copy this tally
+into a canonical tracker; derive it from `handoff-response`/`closure-readiness` whenever needed.
+
+### D-227 verification completion evidence
+
+1. Register and Inventory no longer claim the implemented `lane-boundary` sub-map never existed.
+2. The old `D-200` Cowork/Code path classifier and report are removed or narrowed, with a fixture
+   proving Code may change any Lane A canonical surface while an A/B/C lane crossing still reports.
+3. The D-227 propagation uses named artifacts rather than a hand-maintained file count.
+4. Shared-core, tier, lane, channel and source checks pass in an environment where none of the
+   relevant checks skips.
+5. Graphify query/explain returns D-227's Code ownership, Cowork handoff role and supersession of
+   D-200/D-201/D-202; `lastAnalyzedHead` matches that corrected governed commit.
+6. An independent actor records the exact read commit before B-102 moves from `Applied` to
+   `Verified`.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve-with-conditions | `D-227` Register and documentation propagation | Phase 1 — Applied; correct tally, live control and graph semantics before Verified |
+| Approve | Product/storyboard/story panels/UML/data flow/traceability/Encyclopedia unaffected disposition | No Product content change |
+| Reject | “Retired before implementation” for the full tool-crossing family | `lane-boundary.mjs` proves a live implementation exists |
+| Reject | Node/edge totals and HEAD equality as proof D-227 is semantically represented | Query/explain must return the governing decision and supersession |
+| Defer | B-102 terminal verification | Corrected Code control commit, Graphify semantic proof and independent read |
