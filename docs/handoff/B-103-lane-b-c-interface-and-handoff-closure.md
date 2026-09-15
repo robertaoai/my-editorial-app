@@ -264,3 +264,69 @@ B-102 to avoid duplication.
 | Approve | New Lane A Code source ownership from B-102 | Phase 1 — parent propagation first |
 | Reject | Earlier Cowork canonical-source ownership language as current instruction | Superseded by the later Judge ruling |
 | Defer | Source application and B/C verification | Parent ownership/control correction first |
+
+## Judge acceptance — P2 evidence contract selected for application, 2026-09-15
+
+The Judge has directly approved **B-103's evidence-contract text**. No further Judge choice about
+its technical file names, Register identifier or commit hash is required. Lane A Code must derive,
+validate and record those mechanics under `D-227`. The accepted semantic source remains this
+entry's `### P2 — accept the two-way B/C evidence contract` and its two child headings; do not copy
+the clauses into another planning packet before application.
+
+Application remains ordered behind B-102's D-227 residual correction because the owner model and
+its enforcement must agree before a child work order relies on it.
+
+### Lane A Code application guide
+
+1. **Correct and independently review the D-227 parent residuals** recorded in B-102: false file
+   tally, implemented old `lane-boundary` tool classifier, and missing semantic Graphify node.
+2. **Record the P2 decision.** Lane A Code assigns the next valid Register ID and records the
+   Judge-approved outcome, source commit/heading, exclusions, D-54 treatment and Definition of Done.
+3. **Promote by reference, not by another draft copy.** Append B-103's Lane B→Lane C child section
+   verbatim to `docs/LANE-B-WORK-ORDER.md` as `## 6. Evidence contract with Lane C`. Append the
+   Lane C→Lane B child section verbatim to `.github/WORKFLOWS-SPEC.md` as `## 7. Evidence contract
+   with Lane B`.
+4. **Make construction readiness explicit.** Update `V1-BUILD-SPEC.md` so the two matching work-order
+   sections are a prerequisite and DoD for B/C integration. Lane B must expose only the accepted
+   evidence class; Lane C must consume only that class and return deficiencies through C-series
+   handoffs.
+5. **Make verification falsifiable.** Add a `[V1]` B/C evidence-contract section to
+   `docs/specs/SPECS-VERIFICATION-APPARATUS.md` that references the two work orders and requires the
+   positive/negative cases below. This is affected because P2 explicitly requires a positive and
+   negative proof; calling the verification tier unaffected would drop an accepted obligation.
+6. **Record D-54 dispositions.** Artifact Inventory is unaffected because no file is created or
+   retired. Modular PRD §0.1/§8, Fn Specs, storyboard, story panels, UML, data flow, traceability and
+   Encyclopedia content are unaffected because P2 changes development evidence exchange, not the
+   editorial journey. Phase Closure records no lane-state change.
+7. **Commit the governed documentation as one authorized Lane A unit**, run the full checks, and run
+   Graphify after the commit. The graph must expose the P2 decision and its links to both consumer
+   work orders and the verification apparatus.
+8. **Obtain two bounded independent reads.** Lane B verifies its allowlist, exclusions and build
+   usability. Lane C verifies its consumption boundary, deficiency schema, secret handling and
+   deliberately failing proof. Each records the exact read commit in this original entry.
+
+### Acceptance examples that drive construction and verification
+
+| Example | Accept | Reject |
+|---|---|---|
+| Normal build evidence | Named command, exit status and machine-readable test/type/lint result | Unstructured broad application log offered as proof |
+| Migration/deployment evidence | Artifact identity, migration version and sanitized health outcome | Environment file, service-role key, token or credential printed into output |
+| Operational signal | Stable type, time, environment, correlation ID and outcome code with no raw article/client content | Production article body or unrestricted database log required for monitoring |
+| Missing signal | Lane C raises one C-series deficiency with acceptance case, missing shape, sensitivity and positive/negative proof | Lane C invents an endpoint, schema or Product requirement in workflow YAML |
+| Test of the tester | Deliberately absent or malformed required signal makes the verification fail for the named reason | Green workflow whose failure path was never exercised |
+
+### Completion boundary
+
+P2 becomes **Applied** when the Register, Build Spec, both work orders and verification apparatus are
+committed with consistent cross-references. It becomes **Verified** only after the two consumer
+reviews and Graphify semantic proof. It does not authorize application code, telemetry emission,
+workflow YAML, credentials, deployment or publication.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-103 P2 evidence-contract semantics | Judge accepted — no further business choice |
+| Approve-with-conditions | P2 governed-document application | Phase 1 — D-227 residuals first; then Register, Build Spec, work orders and verification apparatus |
+| Approve | Product-facing artifacts unaffected | No Product/editorial change |
+| Reject | Further Judge review of IDs, paths or hashes as a prerequisite | Lane A Code derives and validates repository mechanics |
+| Reject | Verification tier marked unaffected | P2 contains an explicit positive/negative proof obligation |
+| Defer | Application signals, workflow code, credentials, deployment and publication | Separate Lane B/C implementation authorization after verified documents |
