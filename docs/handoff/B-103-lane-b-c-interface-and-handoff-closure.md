@@ -449,3 +449,94 @@ the ownership, fields, exclusions, failure vocabulary and positive/negative case
 | Approve-with-conditions | B-103 P2 Stage 1 closure | Phase 1 — Lane C independent document read remains |
 | Reject | Lane A or Lane B supplying Lane C's review | Independent consumer evidence must come from Lane C |
 | Defer | Stage 2 runtime proof | Later separately authorized Lane B/Lane C construction unit |
+
+## Judge clarification — Lane C Project-Scope and traceability review packet, 2026-09-15
+
+### Decision boundary
+
+This is the remaining child of the already-decided `D-229`/`D-230` documentation contract. The
+parent work is complete first: Lane A has placed the contract in the two work orders and the
+verification apparatus, and Lane B has completed its independent Stage 1 read. **Lane C now reviews
+whether that committed contract is usable and traceable as Project Scope.** This review does not
+authorize workflow YAML, telemetry, application signals, credentials, deployment or publication.
+
+“Project Scope” has its existing meaning in `docs/Modular_PRD.md` §7: delivery and verification
+work that supports Product Scope without changing customer-visible behaviour. The traceability map
+requires any team-added requirement to retain its source and justification; it cannot silently
+become a Customer Request. Lane C therefore verifies the delivery-assurance interface. It does not
+review the product's Three Lines, act as an editorial Line 3, or redefine the Chief Editor journey.
+
+### Parent-first Lane C decision table
+
+Lane C records **Accept** or **Reject** for each row and cites the exact commit it read. A child row
+cannot pass when its parent row fails.
+
+| Order | Parent / child review item | Governing source | Accept when | Reject and return when |
+|---:|---|---|---|---|
+| 1 | **Parent — ownership and scope** | `D-75`, `D-84`; `.github/WORKFLOWS-SPEC.md` §§1, 7; `docs/Modular_PRD.md` §7.2 | Lane C owns workflow construction only; Lane A owns the contract and Lane B owns application signals. The review is explicitly Project Scope. | The packet asks Lane C to define Product behaviour, edit a Lane A/B surface, or act as an editorial role. Raise one C-series `spec-defect`. |
+| 2 | **Child — input allowlist** | `D-229`; `docs/LANE-B-WORK-ORDER.md` §6 | Every proposed workflow input is a named command result, machine-readable check, artifact/migration identity, sanitized health result, or sanitized operational event with the stated stable fields. | A workflow needs data outside the allowlist or cannot identify the accepted signal. Raise a C-series `dependency` or `spec-defect`; do not infer a wider interface. |
+| 3 | **Child — exclusions and sensitivity** | Lane B work order §6; verification apparatus §16 | Credentials, environment-file contents, keys, tokens, raw client/article content and unrestricted logs are unnecessary and excluded. | A positive path or diagnostic requires secret or editorial content. Reject the contract use and name the minimum safer evidence shape. |
+| 4 | **Child — failure vocabulary** | `.github/WORKFLOWS-SPEC.md` §7 | A missing signal can be reported with the five required fields: acceptance case/control, missing signal, insufficiency, minimum shape/sensitivity, and positive/negative proof. | Lane C cannot state the defect without inventing an endpoint, schema or Product requirement in YAML. Raise the bounded C-series entry for Lane A to decide. |
+| 5 | **Child — falsifiable cases** | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §16 | The normal, migration/deployment, operational, missing-signal and test-of-tester rows each map to a usable Pass and Fail outcome. | Any case can stay green when required evidence is absent or malformed, or has no stable reason for failure. Record the missing contract field; do not build the workaround. |
+| 6 | **Child — requirements trace** | `docs/governance/requirements-traceability-map.md` §§1, 5–7; `docs/Modular_PRD.md` §7.2 | Each reviewed control traces to `D-229`/`D-230` and its Project-Scope delivery purpose; any Product reference remains a served outcome, not a new origin. | A workflow-only control is presented as customer demand, or an unanchored requirement has no written justification and owner. Return it to Lane A for classification and trace repair. |
+| 7 | **Boundary check — editorial artifacts** | Modular PRD FR-14/NFR-08; storyboard, story panels, UML, data flow and Encyclopedia cross-references | Lane C can complete this review without changing the editorial actors, gates, article state, public explanation or product UI. FR-14 remains the in-product continuity view and NFR-08 remains transition reconstruction. | The review would turn CI/DevOps into an editorial node, broaden FR-14, change NFR-08, or add an editorial data flow. Raise a separate requirement defect; do not revise those artifacts here. |
+
+### Lane C step-by-step review
+
+1. Record the exact repository commit used for the review.
+2. Read `.github/WORKFLOWS-SPEC.md` §7 as the Lane C executable boundary.
+3. Independently read `docs/LANE-B-WORK-ORDER.md` §6; confirm that its output classes and
+   exclusions are sufficient inputs for Lane C without relying on private data or secrets.
+4. Read `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §16 and map all five examples to an explicit
+   success and an explicit failure. This is a document test; do not run or create a workflow.
+5. Check the Project-Scope classification against `docs/Modular_PRD.md` §7.2 and the forward/backward
+   rules in `docs/governance/requirements-traceability-map.md`. Confirm that the contract supports
+   Product Scope but creates no Customer Request or product feature.
+6. Check the cross-artifact boundary: the storyboard, story panels, UML, data flow and Encyclopedia
+   remain unchanged because no editorial behaviour or governed term changes in this review.
+7. Append one Lane C review to this B-103 entry. For a pass, state Accept for rows 1–7 and cite the
+   read commit. For a failure, state Reject for the affected row and file one C-series entry using
+   §7's five-field deficiency shape.
+8. Stop. A successful Stage 1 read supplies documentation evidence only. Runtime proof belongs to
+   the later authorized Lane B/C construction unit.
+
+### Lane A follow-up after Lane C answers
+
+1. Check that Lane C used an exact commit and answered every parent/child row.
+2. If all rows pass, record Lane C as the independent verifier and disposition B-103 P2 under the
+   existing `D-230` Stage 1 boundary. Do not restate the contract in another governed document.
+3. If any row fails, acknowledge the C-series entry, assign its canonical owner, and repair the
+   owning Project-Scope source before asking Lane C to re-read. Product artifacts change only if a
+   separately recorded decision changes product behaviour.
+4. Keep Stage 2 open for a later authorized unit with Lane B signal emission, Lane C consumption and
+   a deliberately failing proof. Stage 1 closure is not evidence that Stage 2 passed.
+
+### Failure-derived completion evidence
+
+| Guaranteed failure if omitted | Completion evidence |
+|---|---|
+| Lane C gives a general “looks ready” answer that cannot close B-103 | Seven row-level dispositions plus the exact read commit |
+| Project delivery controls silently become Product or Customer requirements | Every control traces to `D-229`/`D-230`, is classified Project Scope, and names the Product outcome it supports only indirectly |
+| A green workflow later proves nothing because its failure path is undefined | Each of the five §16 cases has a positive and negative document mapping; runtime exercise stays in Stage 2 |
+| Monitoring requires secrets, raw article content or unrestricted logs | Lane C confirms the exclusions and the minimum sanitized signal shape |
+| CI is inserted into the editorial state machine or user journey | Storyboard, story panels, UML, data flow, Modular PRD and Encyclopedia remain unchanged in this Stage 1 review |
+| A missing signal is patched locally in workflow YAML | One bounded C-series deficiency returns the gap to Lane A for classification and Lane B for later authorized implementation |
+
+### Artifact disposition
+
+| Artifact | Disposition for this review |
+|---|---|
+| `docs/Modular_PRD.md` | Reference only: use §7.2 to confirm Project Scope and FR-14/NFR-08 to prevent boundary drift. No edit. |
+| Storyboard and story panels | Editorial journey is unaffected. No edit. |
+| UML and data flow | Editorial nodes and state/data flows are unaffected. A later authorized delivery-assurance view may show B evidence → C workflow and C deficiency → A decision, without joining the editorial state machine. |
+| `docs/governance/requirements-traceability-map.md` | Reference only: verify source, justification, owner and served Product outcome. No new row unless Lane A later accepts a new requirement. |
+| `docs/ENCYCLOPEDIA-SYNC.md` | No governed term or product behaviour changes, so no sync entry. |
+| Graphify | No rebuild for this handoff-only clarification. Rebuild only after an accepted change lands in governed sources. |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Lane C Project-Scope review packet and seven-row traceability test | B-103 Stage 1 — Lane C independent read |
+| Approve-with-conditions | B-103 P2 terminal disposition | Phase 1 — Lane C must pass every row at an exact read commit |
+| Reject | Treating Lane C delivery assurance as product Line 3 or an editorial workflow node | No phase; vocabulary boundary |
+| Reject | Editing Modular PRD, storyboard, story panels, UML, data flow, traceability map or Encyclopedia for this document review | No Product or editorial requirement changed |
+| Defer | Workflow YAML, telemetry, application signals and deliberate runtime failure | Later separately authorized Lane B/C construction unit |
