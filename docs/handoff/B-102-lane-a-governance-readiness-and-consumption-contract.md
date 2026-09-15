@@ -235,5 +235,38 @@ in the same pass. `Modular_PRD` changes only if Product behavior or a sprint/mod
 | Reject | `Claude outputs/` as a completed governance destination | Phase 1 — promote accepted content into canonical owners |
 | Reject | Current handoff-only commits as a Graphify trigger | No governed intent changed |
 | Defer | Applying this rule to governed sources | Phase 1 — exact write set, D-54 impact, Judge act and independent review |
+
+## Control-drift confirmation — current Graphify checks still include handoff, 2026-09-15
+
+Direct source inspection confirms that the Chief Editor's intended early exclusion is **not the
+current executable rule**:
+
+- `docs/graph-fragments/missing.js` recursively collects every Markdown file below `docs/` with no
+  `docs/handoff/` exclusion.
+- `.graphify/manifest.json` contains the handoff README/template and B-series entries through its
+  last build.
+- `.claude/skills/sync-docs/SKILL.md` explicitly requires one hand-authored graph concept per
+  `docs/handoff/B-NNN-*.md`.
+- `scripts/checks/docs-drift.mjs` compares Graphify's analyzed commit with every Git `HEAD`, so a
+  handoff-only commit makes the graph appear stale even when no governed intent changed.
+
+This is a real policy/control drift. It does **not** justify rebuilding Graphify now; that would
+preserve the wrong inclusion rule. Add the following exact control work to Lane A's B-102 packet:
+
+1. Lane A · Cowork records the worklog-versus-governed-intent boundary in the Register and the
+   governing documentation, with D-54 propagation where artifact sequence changes.
+2. Lane A · Code changes `missing.js`, `docs-drift.mjs` and the sync-docs procedure so handoff-only
+   changes neither require graph coverage nor mark the governed-intent graph stale.
+3. Negative fixtures prove that a handoff-only change is ignored, while a governed documentation
+   change still fails until the verified-intent Graphify step completes.
+4. The first graph rebuild under the corrected rule occurs only after an accepted intent has been
+   promoted, committed and independently verified.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Chief Editor's worklog exclusion as target policy | Phase 1 — B-102 exact source/control packet |
+| Reject | Claim that the current executable checks already exclude handoff | Source and manifest evidence contradict it |
+| Reject | Rebuilding Graphify before correcting the inclusion rule | It would reproduce the wrong coverage boundary |
+| Defer | Control implementation and graph rebuild | Exact Judge act, Lane A application and independent review |
 | Defer | Lane B/C control-file implementation | Accepted ready packet, correct existing paths and active-lane selection |
 | Defer | Graphify synchronization | Final committed governance/handoff corrections and verification first |
