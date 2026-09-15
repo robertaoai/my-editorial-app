@@ -298,3 +298,110 @@ artifact family is created here.
 | Reject | Partial B-088 P1 from operator-only remainder | Phase 1 — the complete correction and independent review must fit |
 | Defer | Application construction, publication and release readiness | Later authorized implementation phases |
 | Defer | Graphify synchronization | Final accepted source and lifecycle edits first |
+
+## Proposed minimum starting capacity — Judge decision card, 2026-09-15
+
+### Recommended minimum
+
+This is the smallest credible starting envelope for the selected source-packet and A4 sequence. It
+is an advisory proposal until the Chief Editor accepts or replaces each value. Times are Singapore
+Time (`UTC+08:00`).
+
+```text
+CAP-1 Operator drafting: 8 person-hours, available from Wednesday 2026-09-16 09:00
+       to Friday 2026-09-18 13:00 SGT
+CAP-2 Chief Editor review: 2 person-hours, decision window Friday 2026-09-18
+       14:00–16:00 SGT
+CAP-3 Independent review: reviewer Lane B (Codex), 3 person-hours, window Friday
+       2026-09-18 16:00 to Saturday 2026-09-19 13:00 SGT
+CAP-4 Contingency: maximum 2 additional person-hours; stop no later than Saturday
+       2026-09-19 18:00 SGT
+```
+
+**Total starting envelope: 15 person-hours.** This total is explanatory only; CAP-1 through CAP-4
+remain the controlling values because their roles and purposes are not interchangeable.
+
+### Why this is the minimum
+
+| Capacity | Minimum allocation | Intended output | Why less is unsafe |
+|---|---:|---|---|
+| CAP-1 | **8 hours** | 3 hours for the B-102/B-103 source-packet proposal; 5 hours for A4's field/gate matrix, exact clauses, normal/revision examples and cross-artifact write proposal | The packet spans Product, functional, storyboard/view, traceability and Encyclopedia impacts. Less than one working day makes omission review the default |
+| CAP-2 | **2 hours** | 45 minutes for source-packet decisions; 60 minutes for the article walkthrough and A4 field/write-set decisions; 15 minutes to record final accepts/rejects | A shorter window forces the Chief Editor to approve clauses without walking both article paths or recording the decision |
+| CAP-3 | **3 hours** | 60 minutes for source/trace review; 60 minutes for normal/revision acceptance review; 60 minutes for cross-artifact and lifecycle evidence | The reviewer must test business meaning and contradictions, not merely confirm that files changed |
+| CAP-4 | **2 hours** | One bounded correction arising from the walkthrough or independent review | Zero contingency turns the first material inconsistency into an unplanned expansion or an incomplete packet |
+
+The envelope assumes the existing B-084, B-095, B-102 and B-103 analysis is reused. It does not
+fund reopening settled manual-input, no-scraping, supplier/executor or LinkedIn ManualReady choices.
+
+### Accept/reject choices for the Chief Editor
+
+| Choice | Capacity result | Decision |
+|---|---|---|
+| **M1 — accept the proposed minimum** | CAP-1 `8h`; CAP-2 `2h`; CAP-3 Lane B `3h`; CAP-4 `2h`; dates/windows as above | **Recommended Accept** |
+| M0 — reduce any role below the proposed minimum | Lane A must reduce scope and return an explicit exclusion; A4 cannot retain its present completion claim unchanged | **Reject for the current A4 scope** |
+| M2 — increase capacity | Use the extra time only for evidence-backed A4 corrections; do not automatically pull B-088 into scope | Acceptable, with the new ceiling recorded |
+| M3 — reviewer unavailable | Source work may reach `Applied`; it cannot reach `Verified` | Defer terminal A4 readiness and keep B-088 deferred |
+
+The Chief Editor may accept M1 with one line:
+
+> **Accept M1:** CAP-1 8h; CAP-2 2h; CAP-3 Lane B 3h; CAP-4 2h; use the proposed SGT windows.
+
+Any changed value should name the replacement hours and window rather than saying “more” or “less.”
+
+### Parent-first execution against this envelope
+
+1. **CAP-1, first 3 hours:** Lane A prepares the B-102/B-103 source-packet diff proposal. It names
+   the D-86 amendment, B/C read sets, evidence allowlist, deficiency return schema, exact files,
+   dependencies and DoD.
+2. **Stop for a packet check:** confirm it changes no frozen source and creates no new artifact
+   family. If it does, use CAP-4 or return the new decision; do not take time from A4 silently.
+3. **CAP-1, remaining 5 hours:** Lane A prepares A4 using the existing article and revision reason:
+   mandatory/optional field matrix, exactly one subject, manual URL/Markdown reference, separate
+   supplier/executor, T2/T3 verification boundary and both LinkedIn ManualReady paths.
+4. **CAP-2:** the Chief Editor accepts/rejects the source packet first, then walks the normal and
+   revision cases and accepts/rejects A4's exact fields, semantics and write set.
+5. **Authorized application:** Lane A applies only accepted sections through their existing owners.
+   This step needs its own Judge act; the 8 drafting hours do not themselves authorize editing.
+6. **CAP-3:** Lane B reviews the committed application as the non-answering actor. It checks the
+   Product/functional requirements, storyboard panels/UML/data flow, traceability, Encyclopedia
+   impact and both acceptance paths at the exact commit read.
+7. **CAP-4 only if triggered:** correct one evidenced contradiction. A second contradiction or the
+   two-hour ceiling stops the unit and returns a named follow-up.
+8. **B-088 capacity test:** M1 deliberately leaves no planned capacity for P1. B-088 remains
+   deferred. Admit it only after actual A4 completion leaves at least its recorded minimum operator
+   and independent-review capacity, with overlapping windows and a separate authorization.
+9. **Graphify:** the four values do not include Lane A Code time for rebuilding/remerging the graph.
+   If no separate Graphify operator window is available, source readiness may be reviewed but graph
+   synchronization and any graph-backed closure claim remain deferred.
+
+### Minimum completion evidence
+
+| Outcome | Evidence required within M1 |
+|---|---|
+| Setup learning | The packet records which existing clauses were reusable and the specific remaining contradictions; no settled question is reopened |
+| Implementation readiness | One accepted input/state/view contract and executable normal/revision examples map to Lane B outputs and tests |
+| Verification readiness | Independent reviewer, exact read commit, positive cases and counterexamples are named; rejection can fail for the intended reason |
+| Release readiness | **Not an M1 outcome.** No build, credential, external publication, deployment or release proof is included |
+
+### Priority-change triggers
+
+- Increase CAP-1 only if source inspection identifies an affected current owner absent from the
+  proposed write set.
+- Increase CAP-2 only if the Chief Editor must decide a genuinely new business meaning; drafting
+  ambiguity returns to Lane A instead.
+- Replace or increase CAP-3 if Lane B helped apply the source correction and therefore loses
+  independence, or if the final write set materially expands.
+- Use CAP-4 only for a contradiction inside the accepted packet. New capability, implementation or
+  Graphify-tool failure receives its own owner and estimate.
+- Promote B-088 only when actual residual capacity covers its complete P1 and independent review;
+  an apparently easy code change is not sufficient evidence.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve-with-conditions | M1 minimum: CAP-1 8h, CAP-2 2h, CAP-3 3h, CAP-4 2h | Phase 1 — Chief Editor accepts or replaces the exact hours/windows |
+| Approve | Lane B as proposed independent A4 reviewer | Phase 1 — valid only if Lane B does not apply the reviewed source changes |
+| Reject | Any smaller envelope with unchanged A4 scope and completion claim | Phase 1 — reduce scope explicitly or restore the minimum |
+| Reject | Pulling B-088 into the initial M1 allocation | M1 reserves no P1 capacity; assess only after actual A4 completion |
+| Defer | B-088 P1 | Remaining complete operator/reviewer capacity and separate authorization |
+| Defer | Graphify operation and graph-backed closure | Separate Lane A Code capacity after final tracked source edits |
+| Defer | Application construction and release readiness | Later authorized implementation and release phases |
