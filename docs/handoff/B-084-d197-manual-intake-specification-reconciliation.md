@@ -1087,3 +1087,51 @@ pushed.** `FB-05` and `G105` stay **open**; `B-084` stays **`Applied`, not `Veri
 independent verification is still owed, and Lane A cannot perform it on its own specification. Lane
 state is unchanged — **Lane A `Active`, Lane B `Eligible`, Lane C `Blocked`** — and nothing here
 nominates, approves or performs a lane transition.
+
+## Lane B clarification — Action 4 blockers and settled capacity, 2026-09-15
+
+The Chief Editor confirms that the M1 values were already supplied in the preceding dialogue. Reuse
+them as the planning envelope; do not ask for the numbers again:
+
+| Capacity | Settled starting value |
+|---|---|
+| CAP-1 | 8 operator hours, 2026-09-16 09:00 through 2026-09-18 13:00 SGT |
+| CAP-2 | 2 Chief Editor hours, 2026-09-18 14:00–16:00 SGT |
+| CAP-3 | Lane B, 3 independent-review hours, 2026-09-18 16:00 through 2026-09-19 13:00 SGT |
+| CAP-4 | Maximum 2 contingency hours, hard stop 2026-09-19 18:00 SGT |
+
+Capacity is no longer a missing numerical decision. Lane A returns only if a named actor/window is
+unavailable or the bounded work cannot fit; that return must identify the omitted artifact or
+reduced evidence rather than asking for all four values again.
+
+### Actual remaining blockers, parent first
+
+| Order | Blocker | Lane A action | Completion evidence |
+|---:|---|---|---|
+| 1 | B-102/B-103 governance consumption packet | Complete the Cowork-authored exact patch and bounded B/C evidence interface before Action 4 consumes it | Accepted and committed packet tells each lane what it reads, produces and returns |
+| 2 | Required manual-package predicate | State one consistent required list: manually supplied source reference and source information, exactly one subject topic, required trend-signal description; analytical tags optional/multiple; extracted author/date nullable and failure-routed | Product, FN-GATES and acceptance examples give the same result for absent/empty inputs |
+| 3 | Input-domain boundary | Map the approved manual URL/Markdown path and any wider non-URL reference path to their validation and duplicate rules | No URL-only implementation is claimed to cover an unspecified wider domain; no scraping is introduced |
+| 4 | Acceptance mapping residue | Reconcile `AT-001` valid acceptance and `AT-003` missing-subject refusal, including zero and multiple analytical-tag cases | Test mapping and Product acceptance handles agree without a new test identifier |
+| 5 | Normal and revision journey | Walk the supplied LinkedIn article through T1–T6 and LinkedIn ManualReady; then return it with the reason that the article conflates observation with observability and show the rerun target/evidence | Both paths name supplier, executor, state, reason, assessment revision, gate evidence and final manual-ready outcome |
+| 6 | Dependent views and exact write set | Finish the existing source/view assessment as literal proposed edits, including B-104/D-181's target T5/T6 roles | One immutable packet names every changed section and explicit exclusion; no scratch file is counted as applied |
+| 7 | Application and verification | Obtain the bounded Judge act, apply through the B-102 transport procedure, then let Lane B review the committed result | B-084/FB-05/G105 close only on the independently read commit and passed counterexamples |
+
+### Cross-artifact disposition
+
+| Artifact | Required Action 4 treatment |
+|---|---|
+| `Modular_PRD.md` | Align US-01/FR-01/AC-01 and current execution pointers with the approved manual package; preserve D-121 duplicate scope and PBL-11 separation |
+| `FN-GATES-01-05.md` and Build Readiness Addendum | Complete requiredness, missing-input behavior, duplicate handling and AT-001/AT-003 mapping; keep state/audit consequences explicit |
+| Storyboard and story panels | Add dated current-use corrections to Panel A2 and the target journey panels; preserve historical drawings as provenance |
+| UML/sequence/data-flow views | Preserve separate human supplier, virtual executor, transition-before-state evidence and the D-181 T5 join/T6 decision path; annotate existing views rather than create a duplicate diagram |
+| Requirements scope graph and traceability map | Correct CR-14→FR-01 coverage while retaining FB-05 reconciliation/verification as open |
+| Encyclopedia Entry 06 | Record the affected-entry review; do not advance hosted verification without inspecting the hosted artifact |
+| Schema, application code, publication automation | Unaffected by this planning packet and not authorized |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | M1 `8h / 2h / Lane B 3h / 2h` and supplied SGT windows as the starting envelope | Phase 1 — use directly; return only a concrete availability or fit failure |
+| Approve-with-conditions | B-084 Action 4 exact Product packet | Phase 1 — complete blockers 1–6 and present literal text for one bounded act |
+| Approve | Normal and revision walkthrough using the supplied LinkedIn article and observation/observability reason | Phase 1 — Chief Editor acceptance example |
+| Defer | Source application and independent closure | Phase 1 — accepted immutable packet and B-102 commit route |
+| Reject | Re-asking the capacity numbers, reopening scraping/AI trigger scope, or calling the present partial packet complete | Preserve the settled inputs and named residuals |
