@@ -287,3 +287,9 @@ contract remains unapplied.
 | Approve-with-conditions | Complete B-097's existing SOP/template/check child | Phase 1 — exact Lane A packet, Judge act, application and independent review |
 | Approve | B-071 as the positive returned-entry example | Phase 1 — preserve its return history and current `Open` state |
 | Defer | Graphify synchronization | After the final tracked protocol correction |
+
+## Lane B cross-reference — B-103 P3, 2026-09-15
+
+`B-103` P3 (close the feedback loop without creating another ledger) is deferred to this entry's
+still-open SOP/template/check return-protocol child. This cross-reference records ownership only: it
+does not authorize the control changes, change this entry's `Open` state, or close either entry.

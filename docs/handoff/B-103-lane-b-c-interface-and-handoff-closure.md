@@ -586,3 +586,100 @@ under the existing `D-230` Stage 1 boundary.
 | Reject | Lane C supplying Stage 2 runtime evidence in this review | No workflow or signal was authorized |
 | Reject | Changing editorial artefacts, Modular PRD, storyboard, UML, data flow or Encyclopedia | No Product behaviour changed |
 | Defer | Stage 2 runtime proof | Later separately authorized Lane B/Lane C construction unit |
+
+## Lane B consolidation — C-002 draft folded into this entry, 2026-09-15
+
+The Judge directed that the untracked `C-002` draft be folded into this existing Lane B handoff
+instead of creating another review-of-review file. The draft never entered Git, so it acquires no
+separate lifecycle state. Lane C's independent seven-row review already remains intact above at
+commit `3787821d231bc26e3e3bcf86f29ec55fc7fa6b40`; this section preserves only the additional
+closure findings and corrects their evidence. **Lane B is preparing the handoff for Lane A here,
+not recording Lane A's final disposition.**
+
+### Confirmed gaps, parent first
+
+| Order | Parent / child | Confirmed gap | Correct evidence and smallest fix |
+|---:|---|---|---|
+| 1 | **Parent — whole-entry lifecycle** | The header remains `Status: Open` even though P0–P2 have completed evidence and P3 has a named later owner. | Lane A records the four child outcomes below, then changes the whole entry to `Answered / Deferred`; `Deferred` is selected because B-097 owns the remaining P3 work, not because the SOP ranks one terminal state below another. |
+| 2 | **P0 — bounded promotion mechanism** | B-103 says P0-A is standing direction but does not record its outcome. | The bounded mechanism is demonstrated by the committed D-227/D-228 ownership correction followed by the D-229/D-230 P2 promotion and two consumer reads. Lane B independently verified D-228 in B-102 at read commit `0db245e09a9eedd9558480db434a423d5702b1b7`. Lane A may record P0 `Verified` using that completed chain; D-229 alone is not independent P0 evidence. |
+| 3 | **P1 — three-way meaning** | The accepted Lane A/B/C division has no child disposition in this entry. | Use the current D-75/D-227 lane rules, Lane B work order §6, and Lane C's row 1 review above. `.github/WORKFLOWS-SPEC.md` §1 predates D-229; D-229 added §7, so it must not be cited as the origin of §1. Lane A may record P1 `Verified`. |
+| 4 | **P2 — evidence contract** | Both Stage 1 reads exist, but the child has not been dispositioned. | Lane B passed at governed read commit `9b13e162902ee3f7c554132b29d973ea5d5a6546`; Lane C passed all seven rows against `7dac42971e7ec9b992a32f220062f430fba4818a`, recorded at `3787821`. Lane A may record P2 `Verified — Stage 1`. Stage 2 remains separate. |
+| 5 | **P3 — return and closure controls** | P3 is deferred to B-097 in prose, while B-097 lacked a B-103 back-reference. | The cross-reference is now recorded in B-097. Lane A records P3 `Deferred`; B-097 remains Open until its SOP/template/check child is applied and independently verified. |
+
+### Corrections to the C-002 draft
+
+- Commit `3787821` records Lane C's review, but the committing lane cannot be inferred from Git
+  because all lanes use one repository identity. Record **committing actor not available**, not
+  “committed by Lane A.”
+- P0/P1 were selected in B-094 and carried forward in B-102; B-102's earlier “Defer P0/P1/P3” row
+  described what that narrower packet omitted and is superseded by its later instruction not to
+  reopen the standing P0/P1 choices.
+- D-229 is the source of the P2 evidence contract and workflow-spec §7. It is not the source of
+  workflow-spec §1 and does not independently verify P0.
+- The SOP defines `absent < PROVISIONAL < TERMINAL` and deliberately defines no order inside the
+  terminal set. Do not describe P3 as the “weakest terminal child.”
+- The proposed header must change from `Open` to `Answered`; it does not “remain Answered.”
+- The phrase “five vocabulary notes” did not enumerate its items and therefore cannot be completion
+  evidence. The concrete corrections are the explicit bullets in this subsection.
+- Lane C row 7 proves the **no-change boundary**: the reviewed commit changes only this handoff.
+  Because Lane C says it did not read the editorial artifacts, row 7 does not independently prove
+  their semantic correctness. That stronger claim is unnecessary for the Stage 1 contract review.
+- Do not store a hand-maintained open-entry count in this record. The consistency check derives the
+  current value.
+
+### Exact Lane A disposition draft — not applied by Lane B
+
+| Child | Proposed disposition | Evidence Lane A records |
+|---|---|---|
+| P0 | `Verified` | D-227/D-228 ownership and promotion mechanism; Lane B D-228 verification at `0db245e`; completed D-229/D-230 promotion cycle |
+| P1 | `Verified` | Current D-75/D-227 division; Lane C row 1 recorded at `3787821` |
+| P2 | `Verified` | Stage 1 contract verification only: Lane B read `9b13e16`; Lane C read `7dac429`, recorded at `3787821` |
+| P3 | `Deferred` | B-097 owns the still-open return-protocol SOP/template/check controls and now carries the back-reference |
+
+After recording that body table, Lane A applies this whole-entry header shape. It is expressed as a
+table here so the handoff parser cannot mistake proposed metadata for the live header:
+
+| Header field | Proposed value |
+|---|---|
+| Status | `Answered` |
+| Resolution | `Deferred` |
+| Verified-By | `— not independently verified; dispositioned by Lane A` |
+| Verified-At-Commit | `3787821d231bc26e3e3bcf86f29ec55fc7fa6b40` |
+| Follow-up-Tier | `Phase 1 — B-097 return-protocol controls own B-103 P3` |
+
+The observed-at commit is `3787821`, the tree Lane A is asked to disposition. The commit that later
+contains Lane A's header edit remains derivable from Git and is not stored in the audit field.
+
+### Lane A follow-up sequence
+
+1. Confirm the child table above against the current Register and the unchanged P0–P3 headings.
+2. Append Lane A's disposition response; do not edit Lane C's independent review text.
+3. Apply the four child outcomes and exact whole-entry header in one handoff-only commit.
+4. Run the consistency suite. A pass must show B-103 as `Answered / Deferred`, with no missing
+   audit field or owner, and must leave B-097 Open.
+5. Continue to B-102, whose downstream closure depended on Lane C's B-103 read. Do not close B-102
+   merely because this one dependency moved.
+6. Do not rebuild Graphify: this correction changes only excluded handoff records. A governed-source
+   correction discovered during review would be a separate Lane A unit and would make Graphify due.
+
+### Failure-derived completion criteria
+
+| Guaranteed failure if left as-is | Evidence of success |
+|---|---|
+| C-002 remains a blank, untracked entry and fails the acknowledgement check | No C-002 file; its distinct evidence and corrections are preserved in this B-103 section |
+| P0/P1/P2/P3 remain implicit, so the whole-entry state cannot be derived | Four explicit child dispositions with exact sources and owners |
+| `Deferred` is justified by an invented ranking among terminal states | Header rationale names the actual remaining P3 owner and does not rank terminal states |
+| P3 points to B-097 but B-097 cannot point back | Both entries carry the relationship; B-097 remains the canonical control owner |
+| Lane C's no-change observation is presented as a semantic review it did not perform | Row 7 is limited to changed-path evidence; Product and editorial semantics remain unaffected |
+| Stage 1 closure is mistaken for built workflow assurance | Stage 2 stays deferred to a separately authorized Lane B/C construction unit |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Fold the untracked C-002 draft into B-103 without creating a second lifecycle | Complete in this Lane B handoff consolidation |
+| Approve | B-097 back-reference to B-103 P3 | Phase 1 — relationship recorded; B-097 controls remain Open |
+| Approve-with-conditions | P0/P1/P2 proposed `Verified` child outcomes | Phase 1 — Lane A records the dispositions using the corrected evidence above |
+| Approve-with-conditions | B-103 whole entry `Answered / Deferred` | Phase 1 — Lane A applies the child table, audit fields and B-097 owner together |
+| Reject | Attribution of commit `3787821` to Lane A | Git identity does not identify the acting lane |
+| Reject | A second terminal-state ordering or a copied backlog count | Handoff SOP/check remains the canonical lifecycle computation |
+| Defer | P3 protocol implementation and independent verification | Phase 1 — B-097 |
+| Defer | Stage 2 runtime evidence | Later separately authorized Lane B/C construction unit |
