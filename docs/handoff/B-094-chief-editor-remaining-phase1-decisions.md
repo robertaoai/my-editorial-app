@@ -713,3 +713,65 @@ it cannot collapse B-084/B-088/B-102/B-103 into one lifecycle record or close th
 | Defer | Exact M1 schedule | Phase 1 — Chief Editor confirms or replaces people and windows |
 | Reject | Five planning choices described as wholly undecided | Four have standing directions; capacity/application details remain |
 | Reject | Bulk lifecycle closure from the consolidated act | Each existing handoff retains its own completion evidence |
+
+## Judge clarification — commit path, A4/A6 rows and remaining blockers, 2026-09-15
+
+The Chief Editor has now confirmed the repository transport sequence and supplied the two
+configuration rows recorded in B-106. This section distinguishes **B-084 Action 4**, the
+Product-readiness packet, from **source assumption A4**, the 50-article scoring-review threshold.
+They share a label in historical material but are different objects.
+
+### Lane A transport sequence
+
+1. Lane A · Cowork owns governance meaning but cannot make the required Git commit in the present
+   access path.
+2. Lane B/C first analyze the committed governance baseline, create and commit their own B-/C-series
+   handoff, and cite the exact baseline read.
+3. Cowork reads that durable evidence and produces an immutable, exact governance/docs patch.
+4. After the Judge accepts that packet, Lane A · Claude Code applies and commits it as the
+   commit-applicator. It may not add paths, resolve semantic conflicts or rewrite Cowork's meaning.
+5. Lane B/C independently compare the committed sources with the accepted packet and update the
+   originating handoff. Graphify follows only a completed, committed and independently verified
+   promoted intent.
+
+B-102 now carries the exact exception that the authoritative sources must adopt. This sequence does
+not transfer Cowork's documentation ownership to Claude Code, does not create an A-series handoff,
+and does not allow B/C to analyze an uncommitted draft.
+
+### Remaining blockers, parent first
+
+| Order | Parent unit | What still blocks it | Owner and next evidence | Priority-change condition |
+|---:|---|---|---|---|
+| 1 | **Governance consumption contract — B-102/B-103** | The Cowork-author/Code-applicator exception, bounded B/C read set and two-way evidence/data interface are not yet propagated into their canonical owners | Cowork drafts exact packet; Judge accepts it; Code commits it; B/C verify the same commit | Move behind B-084 only if its present source packet proves no B/C contract or tool crossing is needed |
+| 2 | **B-084 Action 4 Product-readiness packet** | Mandatory/optional fields, exact write set, final normal/revision journey, steps 6–7 and actual CAP-1..4 availability remain incomplete | Lane A packet plus Chief Editor walkthrough using the supplied LinkedIn evidence; Lane B independent cross-artifact review | Reduce or reschedule when a named capacity category is unavailable; do not silently drop its evidence |
+| 3 | **B-106 configuration decision propagation** | Source A4=50 has a settled value but open readiness semantics. The presented source A6=90 row collides with `D-134`'s five-year A6 archival policy | Register arbitration, exact ledger/source patch, then a separately authorized Lane B metadata unit if required | Becomes immediate if any consumer starts using either `UNRATIFIED` entry; otherwise remains after the parent contract packet |
+| 4 | **B-104 T5 propagation** | Target versus historical views are decided but not fully propagated and independently checked | Lane A exact A4/storyboard packet; Lane B read-back against D-181 | Moves with B-084 because the representative journey reaches T5/T6 |
+| 5 | **B-096/B-097 control residuals** | S15/S16/S17 and the terminal-return SOP/template/check contract remain open | Separate exact control packets and independent negative evidence | Promote only when they block the next accepted governance packet or closure claim |
+| 6 | **B-088 P1** | Deliberately deferred; no proven complete residual capacity or separate authorization | Measure capacity after units 1–5; admit only as a whole repair plus review | Promote only when demonstrated harm exceeds the selected Product-readiness unit and full capacity exists |
+
+### What is guaranteed to fail
+
+| Failure | Success criterion |
+|---|---|
+| Cowork content remains in scratch or B/C analyze it before a commit | Accepted packet exists in canonical sources at a named commit before B/C review |
+| Claude Code treats commit access as semantic authority | Committed content matches the accepted Cowork packet exactly; conflicts return without improvisation |
+| B-084 Action 4 and source A4 are treated as one decision | Each is named in full and keeps its own owner, dependencies and completion evidence |
+| A6=90 is switched to `RATIFIED` without reconciling D-134 | Register explicitly arbitrates the symbol against the five-year policy and preserves separate clocks |
+| A4=50 is treated as scoring readiness | The threshold triggers review only; TC3/input, algorithm and no-auto-advance evidence remain separate |
+| Growing handoffs are counted as completed governance | Closure requires canonical application plus independent verification in each owning entry |
+
+No Product behavior is changed by the commit-transport rule. `Modular_PRD`, functional specs,
+storyboard/story panels, UML/data flow, Product cross-reference and Encyclopedia remain unchanged
+until an accepted semantic packet names them. B-084/B-104 will name those Product artifacts; B-106
+does so only if A6 arbitration changes the governed clock meaning. The current worklog does not
+trigger Graphify.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B/C commit handoff evidence before Lane A response; Cowork authors and Code applies the accepted governance packet | Phase 1 — propagate B-102's narrow exception |
+| Approve | `SCORING_REVIEW_THRESHOLD_ARTICLES = 50` as a review threshold | Phase 1 — B-106 governance propagation; no scoring activation |
+| Approve-with-conditions | Presented `DATA_RETENTION_ARCHIVE_DAYS = 90` row | Phase 1 — B-106 Register arbitration against D-134 before any metadata change |
+| Approve-with-conditions | B-084 Action 4 remains the Product-readiness unit | Phase 1 — exact packet, actual CAP-1..4 and Chief Editor walkthrough |
+| Defer | B-088 P1 | Phase 1 — complete residual capacity after the selected units and separate authorization |
+| Defer | Software/workflow implementation and Graphify | Later bounded authorization; Graphify after verified intent promotion |
+| Reject | Closing handoffs from acknowledgement, commit transport or a general approval phrase | Canonical correction and independent evidence remain required |
