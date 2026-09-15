@@ -5,7 +5,19 @@
 - **Phase:** 1
 - **Blocks:** claiming D-231 is fully recorded or ready for Graphify synchronization and independent verification; does not block review of its committed matcher behavior
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged and answered, 2026-09-15.** Confirmed: the working-tree D-231 draft
+  marked `V1-ARTIFACT-INVENTORY.md` unaffected despite creating `scripts/checks/governed-intent.mjs`
+  — a `D-54` file fact regardless of Product-versus-governance classification. Corrected per this
+  entry's exact eight-point guide: the Register's tier-applicability table now marks Build Spec and
+  Inventory ✅; `V1-BUILD-SPEC.md` §7 gains standing invariant 11 (D-231's bounded behavior and DoD,
+  not the historical §2 status paragraph); `V1-ARTIFACT-INVENTORY.md` gains a dedicated
+  `governed-intent.mjs` row naming it by role, no restated count; `Modular_PRD.md` §8 and every
+  Product-facing tier are stated explicitly unaffected; `B-109`'s no-shell argument fix is resolved
+  in the same pass and cited from this entry's tier table. The Register entry itself records,
+  honestly, that implementation commit `c53412b` preceded this propagation commit rather than
+  landing atomically with it. Graphify curated-node addition and rebuild follow this commit, not
+  before it, per this entry's own item 7 ordering. Terminal verification pending Lane B's
+  independent review.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-54` in `AGENTS.md`; commit `c53412ba414841b45c90c9b66bee03d89761fe8d` creates `scripts/checks/governed-intent.mjs`; `docs/v1/V1-BUILD-SPEC.md` and `docs/v1/V1-ARTIFACT-INVENTORY.md` contain no D-231 propagation at that commit
 - **Verified-At-Commit:** c53412ba414841b45c90c9b66bee03d89761fe8d

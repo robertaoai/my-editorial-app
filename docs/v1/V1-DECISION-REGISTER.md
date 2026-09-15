@@ -17078,3 +17078,98 @@ unit. Does not itself close `B-103` P2 — that still needs Lane C's independent
 read, which this act does not supply. **Lane A's own correction of its own error, not independently
 reviewed** — offered as falsifiable (the two-stage table is now the literal graph and document
 text) rather than as a substitute for that review.
+
+## 5.14e56 `D-231` — `graph-coverage` and `docs-drift` Share a Governed-Intent Exclusion Matcher
+
+**Lane A Code control implementation, 2026-09-15, closing the control drift `docs/handoff/B-102`
+identified** ("Control-drift confirmation — current Graphify checks still include handoff") and
+named again in every parent-first queue since (`B-102`, `B-107`, `B-108`). The Judge's clarification
+that `docs/handoff/` is not the governed-intent graph source was recorded 2026-09-15; the two checks
+that should enforce it had never been corrected to agree with it or with each other.
+
+### What changed
+
+New `scripts/checks/governed-intent.mjs` — **one** matcher (`docs/handoff/**`, `docs/.graphify/**`),
+used by both checks, plus a pure `classifyChangedPaths()` so a fixture can assert the decision
+directly against a synthetic path list, the same reason `lane-boundary.mjs` exports `classify()`
+apart from its own git-reading `run()`.
+
+- **`graph-coverage`** enumerates only included governed-intent Markdown and names the excluded
+  class in its own detail line, rather than a bare, changing count.
+- **`docs-drift`** no longer treats every commit past `lastAnalyzedHead` as staleness. It inspects
+  the actual paths changed via `git diff --name-only <analyzed> <HEAD>`: passes when every changed
+  path is excluded (a handoff-only advance), fails when at least one governed-intent path changed —
+  a mixed governed/handoff commit still fails, because the exclusion is per-path, not per-commit. If
+  the diff cannot be computed (`analyzed` unreachable or not a real commit), it reports stale rather
+  than guessing.
+
+Five new fixture cases (`governedIntentExclusion` in `scripts/fixtures/suites.mjs`) cover the four
+scenarios `B-102` named — handoff-only advance passes, governed-doc advance fails, mixed advance
+fails, no-change/matching-analysis passes — plus the graphify-scratch exclusion.
+
+**Corrected by `B-109`, raised the same day against this act's own implementation.** The range
+lookup first shipped as `execSync(\`git diff --name-only ${analyzed} ${head}\`)` — a shell string
+built from `analyzed`, an unvalidated value read from the gitignored, machine-local
+`.graphify/branch.json`. `getChangedPaths()` now calls `execFileSync("git", ["diff",
+"--name-only", analyzed, head], …)`: an argument array, never shell text, the same fix `D-106`
+already applied once to `lane-gate.mjs`. Three fixture cases (`docsDriftArgumentSafety`) prove the
+argument shape and the fail-closed behavior with an injected mock executor, since a real
+shell-metacharacter value cannot exist as an actual Git object to diff against.
+
+### Result, measured
+
+`graph-coverage`: **0 absent**, was 14. `docs-drift`, on live HEAD: correctly narrows to the real
+governed script changes since `9b13e16` (this act's own four files) still pending a rebuild — not a
+blanket "stale" covering the handoff-only commits before them that changed no governed intent.
+
+### Historical note, recorded honestly (`B-110` item 6)
+
+The control implementation committed at `c53412b`, before this Register entry's own propagation
+commit — the two did not land atomically. `docs/handoff/B-102`'s Judge ruling supplied the standing
+authorization for a Lane A Code control implementation; this entry is the delayed Register act that
+D-183/D-186 require, not a same-pass companion to `c53412b`. Stated here rather than implied,
+because describing unlike commits as one act is the same class of drift this corpus keeps naming.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e56 |
+| **`scripts/checks/governed-intent.mjs`** | ✅ new — the shared matcher, `getChangedPaths()`'s argument-safe range lookup lives in `docs-drift.mjs` itself |
+| **`scripts/checks/graph-coverage.mjs`, `scripts/checks/docs-drift.mjs`** | ✅ corrected to use the matcher; `docs-drift.mjs` additionally corrected by `B-109` |
+| **`scripts/fixtures/suites.mjs`** | ✅ eight new cases — five `governedIntentExclusion`, three `docsDriftArgumentSafety` |
+| **`V1-BUILD-SPEC.md`** | ✅ new §7 standing invariant records D-231's bounded behavior and DoD (below) — the existing 2026-08-21 status paragraph at §2 is historical text and is not where a live control's behavior belongs |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ dedicated row for `scripts/checks/governed-intent.mjs` — a new artifact, even though a governance control rather than a Product feature, is still a `D-54` file fact; an aggregate control citation does not identify it |
+| **`docs/graph-fragments/missing.js`** | — unaffected: the exclusion is applied in `graph-coverage.mjs`'s post-hoc filter of its output, the same technique already used for `docs/.graphify/`; the reference tool itself is not edited |
+| **`.githooks/commit-msg`, `scripts/lane-gate.mjs`** | — unaffected: unrelated to graph currency |
+| **`docs/handoff/B-102`** | — unaffected as a record; this act closes its own long-standing control-drift finding |
+| **`Modular_PRD.md` §8, storyboard/story panels/UML/data flow/Encyclopedia/traceability** | — unaffected: no sprint closes, no tier opens, no editorial requirement, Product state or user journey changes — this is graph-control scope, not Product scope |
+
+### Build Spec addition (applied to `V1-BUILD-SPEC.md` §7 in the same pass)
+
+> 11. **The governed-intent graph excludes the handoff worklog (`D-231`).** `graph-coverage` and
+> `docs-drift` share one matcher (`scripts/checks/governed-intent.mjs`): `docs/handoff/**` and
+> `docs/.graphify/**` are excluded from both curated-graph coverage and staleness detection. A
+> handoff-only commit passes both checks without a rebuild; a governed-doc or code commit still
+> fails until the next `graphify hook-rebuild`; a mixed commit fails — the exclusion is per-path,
+> not per-commit. DoD: `graph-coverage` reports the excluded class, not a bare count; `docs-drift`
+> inspects actual changed paths via an argument-safe Git call (`B-109`) and fails closed if the
+> analyzed commit cannot be resolved; eight fixture cases (five exclusion, three argument-safety)
+> pass from a clean tree.
+
+### Inventory addition (applied to `V1-ARTIFACT-INVENTORY.md` in the same pass)
+
+> `scripts/checks/governed-intent.mjs` — `D-231`. ✅ **Created 2026-09-15.** The shared
+> governed-intent exclusion matcher `graph-coverage.mjs` and `docs-drift.mjs` both import, plus a
+> pure `classifyChangedPaths()` fixtures assert directly. Replaces two independent, previously
+> disagreeing exclusion lists with one. `docs-drift.mjs`'s own `getChangedPaths()` — corrected by
+> `B-109` to call Git via an argument array, never a shell string — lives beside it rather than in
+> this new file, since the shared concern is *what* is excluded, not *how* Git is invoked.
+
+### What this act does NOT do
+
+Does not rebuild Graphify — owed separately, as the next step, for the real governed changes this
+act's own `docs-drift` output names. Does not edit `docs/graph-fragments/missing.js`. Does not
+change what counts as a lane crossing, a phase closure, or any Product/editorial meaning. **Lane A's
+own implementation, not independently reviewed** — the eight fixture cases and the measured
+before/after counts above are offered as falsifiable evidence for that review.

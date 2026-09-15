@@ -5,7 +5,18 @@
 - **Phase:** 1
 - **Blocks:** claiming D-231's `docs-drift` implementation is safe and independently verified; does not block the confirmed path-classification semantics or Product planning
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged and answered, 2026-09-15.** Confirmed by direct read: line 98 of the
+  committed file built `` execSync(`git diff --name-only ${analyzed} ${head}`) `` — a shell string
+  with `analyzed` spliced in unvalidated. Repaired per this entry's exact guide: a new
+  `getChangedPaths(analyzed, head, exec = execFileSync)` calls `execFileSync("git", ["diff",
+  "--name-only", analyzed, head], …)` — an argument array, never shell text — and `run()` now calls
+  it instead of building a string. Three fixture cases (`docsDriftArgumentSafety` in
+  `scripts/fixtures/suites.mjs`) prove the shape with an injected mock executor: a normal pair of
+  SHAs is passed as four separate array elements; a value containing `$(rm -rf /); echo pwned` is
+  passed as one inert array element, never interpreted; a thrown "unknown revision" still propagates
+  to the existing fail-closed `catch`. D-231's five matcher cases are unaffected and still pass; the
+  live `docs-drift` check still correctly names the real governed-intent changes since `9b13e16`.
+  Terminal verification pending Lane B's independent read and the clean complete-suite run.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `scripts/checks/docs-drift.mjs` committed at `c53412ba414841b45c90c9b66bee03d89761fe8d`; independent source review and read-only check execution at that commit
 - **Verified-At-Commit:** c53412ba414841b45c90c9b66bee03d89761fe8d

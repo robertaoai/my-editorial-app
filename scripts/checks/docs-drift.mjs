@@ -22,6 +22,13 @@
 // mixed governed/handoff commit still fails — the exclusion is per-path, not
 // per-commit.
 //
+// `D-231`'s own first cut built the range lookup as a shell string —
+// `execSync(\`git diff --name-only ${analyzed} ${head}\`)` — with `analyzed`
+// read unvalidated from machine-local JSON. `B-109` corrected it the same
+// commit-later day: `getChangedPaths()` below calls `execFileSync` with an
+// argument array, so `analyzed`/`head` are always inert Git arguments, never
+// shell text.
+//
 // WHAT IT CANNOT DO — stated, not buried:
 //   * It detects GRAPH STALENESS, not document correctness. A current graph
 //     says nothing about whether the docs agree with each other.
@@ -32,10 +39,38 @@
 //     and reports the graph stale rather than guessing.
 
 import { existsSync, readFileSync } from "node:fs";
-import { execSync } from "node:child_process";
+import { execSync, execFileSync } from "node:child_process";
 import { classifyChangedPaths } from "./governed-intent.mjs";
 
 const BRANCH_JSON = ".graphify/branch.json";
+
+/**
+ * The changed-path range lookup, as its own function taking an injectable
+ * executor (`B-109`, raised against `D-231`'s first cut).
+ *
+ * The first version built `git diff --name-only ${analyzed} ${head}` as a
+ * SHELL STRING for `execSync`. `head` comes from Git; `analyzed` comes from
+ * the gitignored, machine-local `.graphify/branch.json`, parsed as JSON but
+ * never validated as a commit identifier before being spliced into command
+ * text — the same defect class `lane-gate.mjs` already fixed once (`D-106`:
+ * "every other subprocess call in this apparatus already passed its
+ * arguments separately; this one did not"). `execFileSync` with an argument
+ * ARRAY passes `analyzed`/`head` to Git as two inert arguments; no shell ever
+ * parses them, so a stray shell metacharacter in a malformed `branch.json` is
+ * just a nonexistent-revision argument to Git, not executable text.
+ *
+ * `exec` defaults to `execFileSync` and is injectable so a fixture can prove
+ * the argument shape without invoking a real subprocess.
+ */
+export function getChangedPaths(analyzed, head, exec = execFileSync) {
+  return exec("git", ["diff", "--name-only", analyzed, head], {
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "ignore"],
+  })
+    .trim()
+    .split("\n")
+    .filter(Boolean);
+}
 
 export function run() {
   if (!existsSync(BRANCH_JSON)) {
@@ -95,13 +130,7 @@ export function run() {
     // only a GOVERNED-INTENT path changing is. Inspect what actually changed.
     let changed = null;
     try {
-      changed = execSync(`git diff --name-only ${analyzed} ${head}`, {
-        encoding: "utf8",
-        stdio: ["ignore", "pipe", "ignore"],
-      })
-        .trim()
-        .split("\n")
-        .filter(Boolean);
+      changed = getChangedPaths(analyzed, head);
     } catch {
       changed = null; // `analyzed` unreachable, garbage-collected, or not a commit at all
     }

@@ -5,7 +5,8 @@
 - **Phase:** 1
 - **Blocks:** a green complete fixture suite and terminal verification of B-107; does not block B-107's independently passing `phaseScope()` cases, Product planning, or later separately authorized application work
 - **Status:** Open
-- **Lane A:** **Acknowledged and answered, 2026-09-15.** `handoffFields()` in
+- **Lane A:** **Acknowledged; scoped repair applied, terminal verification pending the clean
+  complete-suite run, 2026-09-15.** `handoffFields()` in
   `scripts/fixtures/suites.mjs` is repaired per this entry's exact five-point guide: a new
   `openBaseline()` helper counts live Open entries the same way `handoff-response.mjs` counts them
   (`^Open\b` against `Status`), called once to capture `baseOpen` before the fixture mutates `ENTRY`;

@@ -11,6 +11,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
 import { classify } from "../checks/lane-boundary.mjs";
 import { classifyChangedPaths } from "../checks/governed-intent.mjs";
+import { getChangedPaths } from "../checks/docs-drift.mjs";
 
 const CHECK = (n) => new URL(`../checks/${n}`, import.meta.url).href;
 
@@ -795,6 +796,70 @@ export async function governedIntentExclusion(results) {
   }
 }
 
+/**
+ * `B-109` — `docs-drift`'s range lookup passes Git arguments as an array,
+ * never shell text. An injected mock executor records exactly what it was
+ * called with, proving the argument SHAPE without spawning a real process —
+ * and a real process is the wrong tool anyway: a shell-metacharacter value
+ * cannot exist as an actual Git object to diff against, so the only way to
+ * prove it is passed through inert is to intercept the call itself.
+ */
+export async function docsDriftArgumentSafety(results) {
+  const cases = [
+    {
+      name: "docs-drift: getChangedPaths calls git with an argument array, not a shell string",
+      analyzed: "abc1234",
+      head: "def5678",
+      mockOutput: "docs/handoff/B-999.md\n",
+      check: (calls, out) =>
+        calls.length === 1 &&
+        calls[0].cmd === "git" &&
+        Array.isArray(calls[0].args) &&
+        calls[0].args.join(" ") === "diff --name-only abc1234 def5678" &&
+        JSON.stringify(out) === JSON.stringify(["docs/handoff/B-999.md"]),
+    },
+    {
+      name: "docs-drift: a shell-metacharacter analyzed value is passed as ONE inert argument",
+      analyzed: "$(rm -rf /); echo pwned",
+      head: "def5678",
+      mockOutput: "",
+      check: (calls) =>
+        calls.length === 1 &&
+        calls[0].args.length === 4 &&
+        calls[0].args[2] === "$(rm -rf /); echo pwned",
+    },
+    {
+      name: "docs-drift: a real unreachable-commit failure still propagates (fail-closed, not swallowed here)",
+      analyzed: "0000000",
+      head: "def5678",
+      mockThrows: true,
+      check: (calls, out, threw) => threw && calls.length === 1,
+    },
+  ];
+
+  for (const c of cases) {
+    const calls = [];
+    const mockExec = (cmd, args, opts) => {
+      calls.push({ cmd, args, opts });
+      if (c.mockThrows) throw new Error("simulated: unknown revision");
+      return c.mockOutput;
+    };
+    let out;
+    let threw = false;
+    try {
+      out = getChangedPaths(c.analyzed, c.head, mockExec);
+    } catch {
+      threw = true;
+    }
+    const ok = c.check(calls, out, threw);
+    results.push({
+      name: c.name,
+      ok,
+      detail: ok ? "argument array confirmed" : `calls=${JSON.stringify(calls)}, threw=${threw}`,
+    });
+  }
+}
+
 /** `D-105` — the crossing declaration must be what git parses as a trailer. */
 export async function laneGate(results) {
   const CI = ".github/workflows/ci.yml";
@@ -1202,6 +1267,7 @@ export const SUITES = [
   ["lane crossing declaration (`D-105`)", laneGate],
   ["lane-boundary tool-crossing retirement (`D-227`)", laneBoundaryToolCrossing],
   ["governed-intent exclusion matcher (`D-231`)", governedIntentExclusion],
+  ["docs-drift argument safety (`B-109`)", docsDriftArgumentSafety],
   ["config coupling (`C-17`, raised as `B-024`)", configCoupling],
   ["reopens-phase (`C-19`, raised as `B-025`)", reopensPhase],
   ["fixture retry resilience (`D-139`, raised against this session's own run)", retryResilience],

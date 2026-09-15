@@ -5,7 +5,8 @@
 - **Phase:** 1
 - **Blocks:** treating the complete fixture suite as trustworthy; does not block D-228's independently passing five targeted cases or P2 document review
 - **Status:** Open
-- **Lane A:** **Acknowledged and answered, 2026-09-15.** `phaseScope()` in `scripts/fixtures/suites.mjs`
+- **Lane A:** **Acknowledged; scoped repair applied, terminal verification pending the clean
+  complete-suite run, 2026-09-15.** `phaseScope()` in `scripts/fixtures/suites.mjs`
   is rewritten per this entry's exact five-point guide: both real controls (`B-016`, `B-017`) are
   manufactured to a non-terminal state from their own saved bytes via a stripped `Resolution:` line,
   never read from live status; a third synthetic-only entry, `B-999-fixture-phase-scope-blocker.md`,
