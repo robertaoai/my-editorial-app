@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** a green complete fixture suite and terminal verification of B-107; does not block B-107's independently passing `phaseScope()` cases, Product planning, or later separately authorized application work
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged; scoped repair applied, terminal verification pending the clean
   complete-suite run, 2026-09-15.** `handoffFields()` in
   `scripts/fixtures/suites.mjs` is repaired per this entry's exact five-point guide: a new
@@ -17,9 +17,10 @@
   `handoffFields()` alone shows the target case passing (`detail reports "13 open"`); the full suite
   and byte-for-byte restoration are confirmed separately once this acknowledgement itself stops
   contributing an unread-entry finding to the other cases in the same group.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `scripts/fixtures/suites.mjs` `handoffFields()`; independent `bun run fixtures` result 86/87 with working-tree restoration at read commit `0614a87d43a25c4d05e324cce0da0bec94ef62fa`
-- **Verified-At-Commit:** 0614a87d43a25c4d05e324cce0da0bec94ef62fa
+- **Resolution:** Verified
+- **Verified-By:** Lane B
+- **Evidence:** independent clean-tree `bun run check` 17/17 and `bun run fixtures` 95/95; `handoff metadata and closure fields` 37/37; working tree restored
+- **Verified-At-Commit:** 2a6554284ccedd03b63ece89da38247f53bb129b
 
 ## What happened
 
@@ -79,3 +80,11 @@ application code, workflow, graph fragment, or runtime graph was changed.
 | Reject | Hardcoding the present Open count | The fixture must assert `baseOpen + 1` |
 | Reject | Changing `handoff-response.mjs` to make this fixture green | Its observed count is correct |
 | Defer | Product, workflow, deployment, publication, and Graphify changes | No governed-intent or runtime meaning changed |
+
+## Lane B independent verification — 2026-09-15
+
+Lane B independently ran the complete suites at
+`2a6554284ccedd03b63ece89da38247f53bb129b`. The unread-entry case derived the live baseline and
+correctly reported one additional Open entry; its blank-Lane-A finding remained active. The
+handoff group passed 37/37, the full fixture suite passed 95/95, every consistency check passed,
+and the harness restored the working tree byte-for-byte.
