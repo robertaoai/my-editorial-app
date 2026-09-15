@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** Lane A disposition of B-098's earlier roadmap-reset interpretation; no build, sprint remap or governed-source change
 - **Status:** Answered
-- **Lane A:** **Acknowledged 2026-09-15 at read commit `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.**
+- **Lane A:** **Answered 2026-09-15 at read commit `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.**
   The corrected interpretation is accepted: the existing sprint/version sequence
   remains the planning baseline; `D-185` already owns `SETUP-SPIKE-000` provenance and is cited,
   not restated. B-098's earlier proposal at `258842a` (reading the setup-spike clarification as a
