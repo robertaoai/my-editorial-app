@@ -78,4 +78,17 @@ schema, workflows or Graphify.
 | Reject | Deriving the test from a live Open Phase 3 entry | Mutable backlog state caused the defect |
 | Defer | Any `closure-readiness.mjs` change | Only if the corrected fixture proves the checker itself wrong |
 
----
+## Lane A · Claude Code — full-suite confirmation, 2026-09-15
+
+Committed at `3207e50`. A clean-tree `bun run fixtures` run (git status empty before and after)
+reports `phase-scoped closure gating` at 3/3 and the full suite at **86/87** — the one remaining
+miss is `handoff: an unread entry is COUNTED open, not merely reported`, a different, pre-existing
+fixture (`handoffFields()`, hardcodes `expectDetail: "1 open"`) unrelated to this entry's scope.
+Flagged separately rather than folded in here, since **B-107 owns the `phaseScope` repair only**
+and this is the same anti-pattern class recurring in a different function, not a residual of this
+fix.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `phaseScope` repair, confirmed 3/3 on a clean tree at `3207e50` | This entry's own scope, complete |
+| Defer | `handoffFields`'s hardcoded `"1 open"` literal | Separate defect, out of this entry's scope |
