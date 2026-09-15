@@ -509,3 +509,106 @@ or what the Chief Editor must decide. No D-54 propagation is triggered by this c
 | Reject | Treating GitHub connectivity as source authority or semantic verification | Existing Judge-act and independent-review rules still apply |
 | Defer | B-088 P1 | Actual complete capacity remainder after A4 |
 | Defer | Graphify operation and graph-backed closure | Separate Lane A Code capacity after final tracked edits |
+
+## Independent consolidation — standing decision and scratch-draft status, 2026-09-15
+
+### What the Judge has decided, parent first
+
+The latest **Judge Approved: decision-tree decision** is read with the Judge's preceding
+clarifications, rather than as general source-edit or build authority. It settles the planning
+branches below. The exact governed-source packet still requires the durable Register act and DoD
+required by D-183/D-186.
+
+| Order | Owning item | Standing decision | What remains open |
+|---:|---|---|---|
+| 1 | `SETUP-SPIKE-000` | This remains a project-setup spike. S0–S4 are not reopened or built by this decision | A later bounded implementation authorization |
+| 2 | B-102 | **Choice A:** Lane A supplies one bounded governing read set plus executable flags/checks; B/C read that set, confirm feasibility in their surfaces and return gaps through handoff | Exact D-86 amendment/write set, dependencies, DoD and source-application act |
+| 3 | B-103 P0–P2 | **P0-A bounded promotion; P1 role split; P2 two-way interface.** Lane B owns editorial application behavior and exposes allowlisted results; Lane C owns workflow/delivery assurance and returns missing observability or control needs; Lane A governs the interface | Exact fields, data classification, negative cases and owning source sections |
+| 4 | B-084 | Keep A4 as the Product-readiness unit after the B-102/B-103 source packet. Reuse the supplied LinkedIn normal/revision evidence and manual URL/Markdown intake boundary | Accepted mandatory/optional field matrix, exact write set, T5 journey correction and capacity |
+| 5 | B-088 | Defer P1 by default. Admit it only if measured capacity remains after the source packet and A4 and covers the complete repair plus independent review | Separate P1 authorization and demonstrated full residual capacity |
+| 6 | B-104 | No new three-way T5 executor decision. D-181 is current: target `ROUTE-PROD-1` uses Chief Editorial Desk at T5 and Chief Editor at T6; historical Chief Editor-at-T5 content stays labelled and held | A4/storyboard propagation and independent review; D-171 hold unchanged |
+| 7 | B-097 | The proposed B-105 is rejected as a duplicate; B-097 retains the open terminal-return protocol child | SOP/template/check packet, application and independent review |
+
+This decision separates **setup learning** (the source packet and resolved semantic contradictions),
+**implementation readiness** (an accepted input/state/view contract with executable acceptance
+examples) and **release readiness** (outside this iteration). It authorizes no code, schema,
+workflow, deployment, credential use or external publication.
+
+### What is still unclear
+
+1. **M1 availability is not accepted merely because its rationale was requested.** The
+   `8h / 2h / 3h / 2h` values and 16–19 September SGT windows remain a proposed minimum until the
+   Chief Editor confirms that the named people are actually available. If those dates have moved,
+   preserve draft → decision → commit → independent-review order and replace the dates.
+2. **A4 is drafted but not yet a reviewable governed packet.** The ignored folder contains work for
+   steps 1–5; steps 6–7, a single accepted write set and a tracked immutable review boundary are not
+   evidenced.
+3. **Cowork connectivity has two different observations.** The Chief Editor says a GitHub connection
+   exists; the Lane A session says no GitHub connector was attached and it used a desktop file
+   bridge. Lane A must state the actual access path available at execution start. This affects
+   scheduling, not source authority or business meaning.
+
+### Actual `Claude outputs/` evidence at this review
+
+The directory is ignored by Git and therefore absent from tracked handoff checks, normal repository
+review and Graphify ingestion. Seven files exist, not eight:
+
+| File group | Current use |
+|---|---|
+| A4 steps 1, 2, 4 and 5 drafts | Reusable scratch input; not accepted or durable evidence |
+| `A4-step3-location-register-CORRECTED.md` | Corrected location inventory and tier treatment; review input |
+| `A4-step3.patch` | Proposed application payload; not proof that any governed source changed |
+| `B-071-return-from-deferred-CORRECTION.md` | Scratch copy; B-071/B-097 remain the tracked lifecycle owners |
+
+The claimed stale file `A4-step3-source-reference-propagation-DRAFT.md` is **absent** at this commit.
+Do not create a cleanup action for a file that is no longer present. The corrected location register
+and patch are different representations, so their coexistence is not itself duplication.
+
+The minimal fix is to reuse the scratch content when Lane A prepares the exact B-102/B-103 and A4
+packets, while keeping the owning decisions and lifecycle in B-094/B-084/B-102/B-103/B-104. Do not
+promote `Claude outputs/` into a new governed artifact family and do not treat ignored drafts as
+completed steps.
+
+### Guaranteed failures and success evidence
+
+| Guaranteed to fail | Evidence of success |
+|---|---|
+| Lane A asks the Judge to choose among three T5 executors again | B-104/D-181 two-view correction is used; primary target journey names route and canonical roles |
+| B-105 is filed and the return protocol has two owners | B-097 alone carries the open protocol child and its exact control packet |
+| Ignored drafts are reported as completed documentation | One tracked, reviewable write proposal traces every reused clause to its canonical owner |
+| The source packet and A4 are applied from a general “Judge Approved” phrase | Register act names exact sections, owner, dependencies, exclusions, DoD and review actor |
+| B/C either read the whole corpus or only react to unexplained flags | Each unit gives the consuming lane a bounded read set, executable controls and a handoff return rule |
+| Lane C invents application telemetry in workflow files | Lane C raises the missing result; Lane A governs it; Lane B later exposes it under a bounded authorization |
+| M1 starts without confirmed people/windows | CAP-1..4 are confirmed or replaced before scheduling; scope shrinks when a category is reduced |
+| Graphify is trusted because `stale: false` | After final tracked edits, `lastAnalyzedHead` equals Git HEAD and the affected docs/handoffs are queryable |
+
+### Lane A follow-up, step by step
+
+1. Acknowledge B-104 and this B-094 addendum; keep B-102/B-103/B-104 open until their weakest child
+   closes.
+2. Prepare one exact B-102/B-103 source-packet proposal from Choice A and P0–P2. Name files/sections,
+   read sets, evidence fields, data classification, negative cases, dependencies and DoD.
+3. Obtain the specific Judge source-application act; apply only that packet through its existing
+   owners and commit it.
+4. Prepare B-084 A4 from the seven scratch files plus B-104: finish steps 6–7, make
+   `ROUTE-PROD-1` the primary target-held journey, and present the exact field/write-set diff.
+5. Confirm or replace CAP-1..4, then have the Chief Editor walk the same article's normal and
+   revision paths before authorizing A4 application.
+6. Apply accepted A4 clauses only. Lane B independently checks the immutable commit against Product,
+   Fn_Spec, storyboard/story panels, UML/data flow, scope graph, traceability and Encyclopedia.
+7. Complete B-097's protocol child as a separate control packet. Do not file B-105.
+8. Measure remaining complete capacity. Keep B-088 deferred unless both repair and independent review
+   fit and receive separate authorization.
+9. Synchronize Graphify last. At this review its analyzed head is `f63d6eb`, while the repository had
+   advanced through B-104/B-097; the stored `stale: false` flag is contradicted by commit evidence.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-102 Choice A and B-103 P0-A/P1/P2 as the standing planning direction | Phase 1 — exact source packet and Judge application act |
+| Approve | B-084 A4 after the source packet; B-088 deferred by default | Phase 1 — capacity-confirmed sequence |
+| Approve | Reuse of the seven ignored drafts as scratch input | Phase 1 — tracked canonical write proposal required |
+| Approve-with-conditions | M1 `8h / 2h / 3h / 2h` | Phase 1 — named people and actual windows confirmed or replaced |
+| Reject | Treating ignored drafts, a general approval phrase or GitHub connectivity as source authority | Phase 1 — D-183/D-186 bounded act remains required |
+| Reject | New T5 executor choice or new B-105 entry | Phase 1 — D-181/B-104 and B-097 already own them |
+| Defer | Governed-source application, software/workflow build, publication and release | Later exact authorization and readiness evidence |
+| Defer | Graphify synchronization | Final tracked correction, then rebuild/remerge and head-equality proof |
