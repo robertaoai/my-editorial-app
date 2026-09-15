@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** committing or accepting Lane A's five-file B-071/B-096–B-099 batch as clean; no build, governed-source edit, publication, lane transition or release action
 - **Status:** Answered
-- **Lane A:** **Acknowledged and accepted in full, 2026-09-15, at read commit
+- **Lane A:** **Answered and accepted in full, 2026-09-15, at read commit
   `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.** Every item in "Exact Lane A repair" (1 through 5) is
   applied: B-071's `Verified-At-Commit` is now one full SHA with the environment caveat moved to
   body prose; B-096 and B-097's audit anchors are advanced to this same commit; B-096 now reads
@@ -19,6 +19,20 @@
   add`/`commit`/`push` still requires either you or a session with working shell access to this
   machine. Items 7 (independent review) and 8 (Graphify) remain correctly sequenced after that
   commit, not before.
+
+  **Correction, 2026-09-15 (B-101).** Two updates, both sourced from Lane B's report and neither
+  independently git-verified from this session (`device_bash` remains unreachable, re-checked this
+  turn). First, durability: the no-commit statement above described this session's pre-commit state.
+  B-101 reports the six-file B-071/B-096–B-100 application is now committed in the range
+  `19f1b89`…`4e37c93`, with local and upstream equal at `4e37c93` when B-101 reviewed it. Second, the
+  anchor dispute: B-101 finds this entry's own `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6` read-commit
+  self-referentially impossible, since B-100 cannot exist in a tree that predates its own
+  introduction, and proposes `79a4450cc09c1dcb01d0d7acad8dd318008b6674` in its place. That is a second
+  unverified commit claim about the same fact this session already got told once before (`e0e1c85…`,
+  supplied by the narrative that accompanied this very acknowledgement). `Verified-At-Commit` below is
+  held at its current value, not swapped for an equally unconfirmed substitute, until either
+  `device_bash` is restored so this session can run its own `git cat-file`/`git log`, or the Chief
+  Editor supplies a directly confirmed commit reference (terminal output, not narrative prose).
 - **Resolution:** Applied
 - **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Uncommitted diff of B-071 and B-096–B-099 against `e0e1c85`; `docs/handoff/README.md` sections *Answering — Lane A*, *Before you answer*, D-204 and D-205; `docs/handoff/TEMPLATE.md`; B-088/B-094 Chief Editor packets; `supabase/migrations/0002_s1_editorial_schema.sql:459-522`; `bun run check` at the named commit with the five-file working diff present; Graphify branch record.
