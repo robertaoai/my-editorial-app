@@ -540,3 +540,49 @@ cannot pass when its parent row fails.
 | Reject | Treating Lane C delivery assurance as product Line 3 or an editorial workflow node | No phase; vocabulary boundary |
 | Reject | Editing Modular PRD, storyboard, story panels, UML, data flow, traceability map or Encyclopedia for this document review | No Product or editorial requirement changed |
 | Defer | Workflow YAML, telemetry, application signals and deliberate runtime failure | Later separately authorized Lane B/C construction unit |
+
+## Lane C Stage 1 independent review — P2 document contract, 2026-09-15
+
+Lane C (Antigravity) independently read the committed contract documents at repository commit
+`7dac42971e7ec9b992a32f220062f430fba4818a`. This is a document review. No workflow YAML,
+telemetry, application signal, credential, deployment or publication is created or modified.
+
+### Seven-row review
+
+| Order | Review item | Verdict | Evidence |
+|---:|---|---|---|
+| 1 | **Parent — ownership and scope** | **Accept** | `.github/WORKFLOWS-SPEC.md` §1 states: *"`.github/workflows/` and nothing else"* — Lane C owns workflow construction only. §7 is the evidence contract with Lane B. `docs/Modular_PRD.md` §7.2 classifies NFR-04 as Project Scope with purpose *"Delivery assurance; does not change customer-visible product behaviour."* The review packet (this entry's §§ "Judge clarification — Lane C Project-Scope and traceability review packet") explicitly names this as Project Scope and states Lane C does not review Product behaviour, act as editorial Line 3, or redefine the Chief Editor journey. No contract clause asks Lane C to define Product behaviour, edit a Lane A/B surface, or assume an editorial role. |
+| 2 | **Child — input allowlist** | **Accept** | `docs/LANE-B-WORK-ORDER.md` §6 confines Lane B output to: named commands and exit status; machine-readable test/type/lint/migration/security-check results; build artifact identity, schema/migration version and deployment-health result; sanitized operational events with stable event type, time, environment, correlation identifier and outcome code. Every proposed workflow input falls within these four classes. No signal outside the allowlist is required to verify the build. |
+| 3 | **Child — exclusions and sensitivity** | **Accept** | Lane B work order §6 explicitly excludes: source credentials, environment-file contents, service-role keys, publication credentials, tokens, raw client/article content and unrestricted database or application logs. *"Production content is not necessary to prove a workflow runs. Secrets remain in the platform's secret store and are never printed."* Verification apparatus §16's Accept/Reject table maps these exclusions to each evidence class — migration/deployment evidence accepts sanitized health outcome and rejects environment files, keys, tokens or credentials; operational signal accepts sanitized events and rejects production article body or unrestricted logs. No positive verification path or diagnostic requires secret or editorial content. |
+| 4 | **Child — failure vocabulary** | **Accept** | `.github/WORKFLOWS-SPEC.md` §7 provides the five required fields for a bounded deficiency report: (1) the acceptance case or control that cannot be observed; (2) the exact missing signal; (3) why existing output is insufficient; (4) the minimum shape and sensitivity class needed; (5) a positive and negative proof that would make the workflow capable of failing correctly. The final paragraph explicitly states: *"Lane C does not invent an application endpoint, event schema or Product requirement in YAML."* A missing-signal deficiency can be fully stated within these five fields without inventing scope. |
+| 5 | **Child — falsifiable cases** | **Accept** | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §16 maps five examples to explicit Accept and Reject outcomes: (a) normal build evidence — named command/exit/results vs. unstructured logs; (b) migration/deployment — artifact identity/version/health vs. credentials/tokens; (c) operational signal — stable type/time/env/correlation/outcome vs. raw content; (d) missing signal — one C-series deficiency vs. inventing endpoints in YAML; (e) test of the tester — deliberate absent/malformed signal turns verification red vs. unexercised green path. Each case can fail for the named reason and cannot stay green when required evidence is absent, given the exclusion constraints in rows 2–3. |
+| 6 | **Child — requirements trace** | **Accept** | Each reviewed control traces to `D-229` (recorded in `V1-DECISION-REGISTER.md` §5.14e54) and `D-230` (correcting the completion boundary). `docs/Modular_PRD.md` §7.2 classifies NFR-04 as Project Scope serving all Product Scope indirectly. `docs/governance/requirements-traceability-map.md` §5 backward trace shows no unanchored requirement created by this contract — the evidence contract supports Product outcomes (FR-01…FR-10 verification) without originating a new Customer Request. No workflow-only control is presented as customer demand. |
+| 7 | **Boundary check — editorial artefacts** | **Accept** | Lane C completed this review without reading or changing: Modular PRD editorial content (FR-14 remains the in-product continuity view per §7.2/§5; NFR-08 remains transition reconstruction per §6); storyboard (`2026-08-18-storyboard-business-and-digital-twin.md`); story panels; UML; data flow; or Encyclopedia (`ENCYCLOPEDIA-SYNC.md`). `git log` confirms the last editorial-artifact modification was at `0a23eb2`/`b6128f1`/`c286c7c`, all prior to D-229. CI/DevOps is not inserted into the editorial state machine or user journey. |
+
+### Summary
+
+All seven rows **Accept**. The committed contract is usable as Project Scope. Lane C can consume
+the allowlisted evidence classes, report deficiencies through the five-field schema, and verify
+each of the five acceptance examples against an explicit pass/fail boundary — all without
+requiring secrets, raw content, or editorial data, and without changing any Product artefact.
+
+### What this review does NOT supply
+
+- **Stage 2 runtime proof** — real signal emission, workflow consumption, and deliberate failure
+  testing remain in a later, separately authorized Lane B/Lane C construction unit.
+- **Workflow YAML** — no workflow file was created, modified or executed.
+- **Governed source changes** — no file outside `docs/handoff/` was touched.
+
+### Completion boundary
+
+This is Lane C's required Stage 1 document read. Combined with Lane B's completed Stage 1 read
+(at `9b13e16`), both independent consumer reads are now supplied. Lane A may disposition B-103 P2
+under the existing `D-230` Stage 1 boundary.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Lane C Stage 1 contract read — all seven rows pass | Complete at `7dac42971e7ec9b992a32f220062f430fba4818a` |
+| Approve-with-conditions | B-103 P2 terminal disposition | Phase 1 — Lane A records Lane C as independent verifier and dispositions under D-230 |
+| Reject | Lane C supplying Stage 2 runtime evidence in this review | No workflow or signal was authorized |
+| Reject | Changing editorial artefacts, Modular PRD, storyboard, UML, data flow or Encyclopedia | No Product behaviour changed |
+| Defer | Stage 2 runtime proof | Later separately authorized Lane B/Lane C construction unit |
