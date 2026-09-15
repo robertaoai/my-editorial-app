@@ -111,3 +111,27 @@ not build or publish.
 | Reject | A new three-way Judge choice for T5 executor | Register D-175/D-181 already decides the target |
 | Reject | Unqualified Senior Journalist as target T5 executor | No canonical target mapping supports it |
 | Defer | Governed-source application, implementation and Graphify sync | Exact packet authorization, application, independent review, then final sync |
+
+## Independent acknowledgement audit and forward correction, 2026-09-15
+
+Direct Git review corrects two parts of the Lane A acknowledgement and follow-up above:
+
+1. B-104 does not exist at the acknowledgement's stated read commit `f170fb2…`. It was introduced
+   by `deb30484d72b179bb86e02f8d31e09ba639d59ce`. Lane A must correct only its response citation to
+   that commit or a later commit it actually read. The whole-entry `Verified-At-Commit: f170fb2…`
+   remains valid while B-104 is Open because it records Lane B's pre-entry source baseline.
+2. Graphify is not triggered by this handoff acknowledgement or the ignored A4 draft. After Lane A
+   applies and independently verifies the T5 correction in canonical governed sources, the
+   governed-intent Graphify step becomes due under the Chief Editor's clarified boundary.
+
+Acknowledgement is receipt, so B-104 remains `Open`. It closes only after the two-view correction is
+applied to the accepted A4/governed-source packet and an independent actor verifies the normal and
+revision journeys at the exact commit read.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Lane A acknowledgement as receipt | Phase 1 — handoff-response condition satisfied |
+| Approve-with-conditions | Lane A response citation | Phase 1 — replace impossible `f170fb2…` with actual read baseline `deb3048…` or later |
+| Reject | Calling B-104 closed from acknowledgement alone | Source propagation and independent review remain open |
+| Reject | Graphify for this handoff-only change | No governed intent source changed |
+| Defer | Governed-intent Graphify | After accepted T5 propagation is applied and verified |
