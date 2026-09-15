@@ -5,7 +5,17 @@
 - **Phase:** 1
 - **Blocks:** a green complete fixture suite and terminal verification of B-107; does not block B-107's independently passing `phaseScope()` cases, Product planning, or later separately authorized application work
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged and answered, 2026-09-15.** `handoffFields()` in
+  `scripts/fixtures/suites.mjs` is repaired per this entry's exact five-point guide: a new
+  `openBaseline()` helper counts live Open entries the same way `handoff-response.mjs` counts them
+  (`^Open\b` against `Status`), called once to capture `baseOpen` before the fixture mutates `ENTRY`;
+  `expectDetail: "1 open"` is replaced with `` `${baseOpen + 1} open` ``, and the existing
+  `expect: "present but BLANK"` assertion is unchanged, so the case still proves both detection and
+  counting. No literal `11`, `12` or `13` appears in the assertion. `handoff-response.mjs` is
+  untouched — its `12`/`13`-open result under mutation was already correct. Isolated run of
+  `handoffFields()` alone shows the target case passing (`detail reports "13 open"`); the full suite
+  and byte-for-byte restoration are confirmed separately once this acknowledgement itself stops
+  contributing an unread-entry finding to the other cases in the same group.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `scripts/fixtures/suites.mjs` `handoffFields()`; independent `bun run fixtures` result 86/87 with working-tree restoration at read commit `0614a87d43a25c4d05e324cce0da0bec94ef62fa`
 - **Verified-At-Commit:** 0614a87d43a25c4d05e324cce0da0bec94ef62fa

@@ -48,6 +48,23 @@ function channelBaseline() {
 }
 
 /**
+ * The live Open count, counted the same way `handoff-response.mjs` counts it
+ * (`^Open\b` against `Status`) — `B-108`. A separate function from
+ * `channelBaseline()` rather than a field added to it: that one's two
+ * counters are consumed together by other fixtures, and a caller wanting only
+ * the Open count should not have to know or preserve the other two.
+ */
+function openBaseline() {
+  let open = 0;
+  for (const f of readdirSync("docs/handoff").filter((x) => ENTRY_FILE.test(x))) {
+    const t = readFileSync("docs/handoff/" + f, "utf8");
+    const status = field(t, "Status") ?? "";
+    if (/^Open\b/i.test(status)) open++;
+  }
+  return open;
+}
+
+/**
  * The run identifiers, READ from the two places that own them (`D-124`).
  *
  * `G91` and `G93` both record the same lesson from the other direction: a
@@ -144,6 +161,13 @@ export async function handoffFields(results) {
   // Asserting on the FINDING alone would still have passed: the finding fired,
   // the count did not. This is the first fixture in the apparatus to assert on a
   // detail line, and the defect is why the harness gained `expectDetail`.
+  //
+  // `B-108`: this used to assert the literal `expectDetail: "1 open"`, true
+  // only while the channel had zero Open entries at authoring time. `ENTRY`
+  // is read fresh and is not itself Open before mutation, so counting the
+  // live baseline BEFORE mutating it and asserting `baseOpen + 1` afterward
+  // proves the same relationship without copying today's backlog size.
+  const baseOpen = openBaseline();
   await fixture(results, {
     name: "handoff: an unread entry is COUNTED open, not merely reported",
     modulePath: CHECK("handoff-response.mjs"),
@@ -156,7 +180,7 @@ export async function handoffFields(results) {
       ),
     restore,
     expect: "present but BLANK",
-    expectDetail: "1 open",
+    expectDetail: `${baseOpen + 1} open`,
   });
   // The other half. A blank `Lane A` is an UNFINISHED entry; an absent one is a
   // MALFORMED file, and they need different messages because they need
