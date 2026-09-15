@@ -10,6 +10,13 @@
   defect is accepted as a failed verification; no actor-guard or `C-39` completion claim is
   accepted. `P1` is not authorised by this receipt. One correction to the entry's §28: at
   `495e4f8` `graph-coverage` lacks **both** `B-087` and `B-088`, not `B-087` alone.
+
+  **Acknowledged, continued, 2026-09-15 (at read commit `7fbe0a9`, per Lane B's report; not
+  independently git-verified from this session).** The Judge clarification section is accepted as
+  stated: P1 remains deferred by default; it is a sequencing/capacity hold, not doubt about the
+  defect, and not a Graphify hold. B-088's residual-capacity test explicitly excludes Graphify per
+  the Chief Editor's clarification recorded here and in B-102/B-094. No P1 authorization, capacity
+  commitment or code change is taken by this acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** 395ab8301ec7ee4bf1cb430d3b5739c8d1b1c22e
 - **Evidence:** Read-only independent invocation of the installed leadingActor export and closure-readiness.run at the named commit; live nine accepts, six rejects, 52 Verified records; suffix probes below; bun run check; source and tracking-file review. No mutation harness rerun or implementation claimed.
