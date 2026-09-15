@@ -6,7 +6,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 5.14e54",
-      "description": "Judge-accepted 2026-09-15, source docs/handoff/B-103's 'P2 -- accept the two-way B/C evidence contract'. Ordered behind D-228 because the owner model and its enforcement had to agree before a child work order relied on it. Promotes B-103's two child sections by reference, verbatim, into their executable owners: docs/LANE-B-WORK-ORDER.md new section 6 (Lane B -> Lane C minimum allowlisted evidence -- named commands and exit status, machine-readable test/type/lint/migration/security results, build artifact identity and deployment-health, sanitized operational events; excludes credentials, environment files, service-role keys, tokens and raw content) and .github/WORKFLOWS-SPEC.md new section 7 (Lane C -> Lane B bounded deficiency feedback -- a missing signal is a named C-series entry, never an invented endpoint or schema). Adds V1-BUILD-SPEC.md section 7 standing invariant 10 and docs/specs/SPECS-VERIFICATION-APPARATUS.md new section 16, which makes P2's own required positive/negative proof falsifiable and states an explicit Applied/Verified distinction: Applied means the four documents exist and cross-reference each other; Verified requires Lane B and Lane C to each have exercised their own row against a real workflow run, not merely agreed with the table. Authorizes no application code, workflow YAML, telemetry, credentials, deployment or publication.",
+      "description": "Judge-accepted 2026-09-15, source docs/handoff/B-103's 'P2 -- accept the two-way B/C evidence contract'. Ordered behind D-228 because the owner model and its enforcement had to agree before a child work order relied on it. Promotes B-103's two child sections by reference, verbatim, into their executable owners: docs/LANE-B-WORK-ORDER.md new section 6 (Lane B -> Lane C minimum allowlisted evidence -- named commands and exit status, machine-readable test/type/lint/migration/security results, build artifact identity and deployment-health, sanitized operational events; excludes credentials, environment files, service-role keys, tokens and raw content) and .github/WORKFLOWS-SPEC.md new section 7 (Lane C -> Lane B bounded deficiency feedback -- a missing signal is a named C-series entry, never an invented endpoint or schema). Adds V1-BUILD-SPEC.md section 7 standing invariant 10 and docs/specs/SPECS-VERIFICATION-APPARATUS.md new section 16, making P2's own required positive/negative proof falsifiable. Authorizes no application code, workflow YAML, telemetry, credentials, deployment or publication. Its original completion boundary conflated document verification with runtime proof; corrected by D-230 to a two-stage model -- see that node for the current rule.",
       "source_url": null,
       "captured_at": null,
       "author": null,
@@ -25,6 +25,19 @@
       "author": null,
       "contributor": null,
       "rationale": "The existing curated nodes sourced from this file cover individual findings within it (e.g. a_work_order_beats_a_register_entry) but no node represented the document itself, unlike its Lane C counterpart (lane_c_work_order) and the verification apparatus (specs_verification_apparatus_doc) -- needed so D-229 can link to both consumer work orders symmetrically."
+    },
+    {
+      "id": "d230_d229_completion_boundary_two_stage",
+      "label": "D-230: D-229's Completion Boundary Corrected to Two Stages",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e55",
+      "description": "Lane A Code correction, 2026-09-15, raised by Lane B's independent document review of e715cc7/c6f7b21 (recorded in docs/handoff/B-103). D-229's contract text (the Lane B->Lane C allowlist and Lane C->Lane B deficiency schema) is confirmed faithful; the defect is narrower: D-229 and SPECS-VERIFICATION-APPARATUS.md section 16 required a real workflow run before B-103 P2 could become Verified, while D-229 itself authorizes no workflow or signal -- making a Phase 1 documentation handoff wait on construction its own act refuses to authorize, the same unread-versus-unbuilt conflation D-228 corrected one act earlier as untested-versus-unimplemented. Splits closure into two stages: Stage 1, contract verification, now -- Lane B and Lane C independently read the committed work-order sections and the verification-apparatus table, cite the read commit, and B-103 P2 may become Verified on that alone, no workflow run required. Stage 2, implementation verification, later -- a real authorized Lane B signal consumed by a real authorized Lane C workflow, with a deliberate failure proof -- is a separate, later-authorized construction unit's own acceptance evidence, not B-103's documentation lifecycle. Applied to SPECS-VERIFICATION-APPARATUS.md section 16 in the same pass; V1-BUILD-SPEC.md needed no change because its own invariant 10 already scoped the 'green is not done' clause to that later construction unit, not to B-103's closure.",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage and query/explain need this correction queryable and linked to D-229, matching this corpus's established supersede/correct-by-reference pattern, so a reader of the graph sees the two-stage rule rather than the superseded single-stage one D-229's own text still carries verbatim in the Register history."
     }
   ],
   "edges": [
@@ -71,6 +84,33 @@
       "confidence": "CURATED",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 5.14e54",
+      "weight": 1
+    },
+    {
+      "source": "d230_d229_completion_boundary_two_stage",
+      "target": "d229_bc_evidence_contract_applied",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e55",
+      "weight": 1
+    },
+    {
+      "source": "d230_d229_completion_boundary_two_stage",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e55",
+      "weight": 1
+    },
+    {
+      "source": "d230_d229_completion_boundary_two_stage",
+      "target": "specs_verification_apparatus_doc",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e55",
       "weight": 1
     }
   ]
