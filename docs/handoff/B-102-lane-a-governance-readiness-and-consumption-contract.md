@@ -398,3 +398,47 @@ uncommitted Cowork draft or from an unexplained checker flag.
 | Approve-with-conditions | Bounded Lane B/C evidence interface | Phase 1 — exact allowlist, classification, failure vocabulary and return owner |
 | Reject | Code resolving meaning, Cowork calling scratch applied, or B/C inferring unrestricted access | Return the defect through the existing owner |
 | Defer | Control implementation and Graphify | After canonical packet application and independent verification |
+
+## Lane B post-acknowledgement check — exclusion defect proven, 2026-09-15
+
+After the five Lane A receipt edits were committed, Lane B reran the full consistency suite in an
+environment where Git and Node subprocesses could start. `handoff-response`, `lane-boundary`,
+`source-sweep` and `sync-docs-unique` pass. Two of seventeen checks fail for the exact boundary this
+entry already identified:
+
+- `graph-coverage` requires twelve files under `docs/handoff/`, although the Judge has excluded the
+  handoff worklog from governed-intent Graphify.
+- `docs-drift` compares Graphify's analyzed commit `f63d6eb` directly with repository HEAD
+  `7cd1ff7`; it therefore calls handoff-only commits stale even when no governed source changed.
+
+Do not rebuild Graphify to satisfy these failures. That would ingest or continually chase the
+excluded transaction log and would preserve the wrong checker contract.
+
+### Exact Lane A · Claude Code control packet — specified, not applied
+
+1. Put the existing governed-intent exclusions in one executable matcher used by both checks;
+   include `docs/handoff/**` and the already declared Graphify scratch exclusions.
+2. Make `graph-coverage` enumerate only included governed-intent Markdown. Its report must state
+   the excluded class, without copying a changing file count into governance prose.
+3. Make `docs-drift` inspect paths changed between `lastAnalyzedHead` and `HEAD`. Pass when every
+   changed path is excluded; fail when at least one governed-intent input changed without a later
+   analysis. A mixed governed/handoff commit must fail.
+4. Add negative fixtures: handoff-only advance passes; governed-doc advance fails; mixed advance
+   fails; governed-doc advance followed by matching analysis passes.
+5. Run the full suite in the subprocess-capable environment. Preserve the graph at `f63d6eb` until
+   a real governed-source promotion occurs; then rebuild/remerge curated fragments and prove the
+   analyzed head or governed-input equivalence required by the corrected check.
+
+| Guaranteed failure | Evidence of success |
+|---|---|
+| Rebuild after every receipt makes the transaction log part of product knowledge | Handoff-only commits pass both checks without a graph rebuild and remain absent from coverage requirements |
+| Global HEAD equality hides the governed input boundary | A fixture distinguishes excluded-only, governed-only and mixed changes |
+| Two checks acquire different exclusion lists | One tested matcher supplies both enumerations |
+| Restricted `EPERM` remains the stated blocker | Subprocess-capable rerun reaches every check and reports only the semantic exclusion defects |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-102 as the existing owner of both checker defects | Phase 1 — no duplicate handoff |
+| Approve-with-conditions | Exact exclusion/control packet above | Phase 1 Lane A · Code — Judge-authorized implementation plus fixtures |
+| Reject | Graphify rebuild as the repair for handoff-only drift | It preserves the wrong inclusion rule |
+| Defer | Checker implementation and next governed graph sync | Exact act; code application; governed-source promotion respectively |
