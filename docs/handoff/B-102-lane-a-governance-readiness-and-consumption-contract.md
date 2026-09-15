@@ -177,5 +177,63 @@ Graphify or lane state, and did not build or publish.
 | Reject | Full-corpus governance interpretation by B/C | Scope decisions remain Lane A/Judge responsibilities |
 | Approve-with-conditions | B-084 A4 preparation | Lane A drafts now; Chief Editor later supplies capacity and accepts the exact write set |
 | Approve-with-conditions | B-088 P1 | Separate explicit Chief Editor authorization and evidence |
+
+## Judge clarification — intent promotion and Graphify activation, 2026-09-15
+
+The Chief Editor has now explained why Lane A · Cowork used `Claude outputs/`: it is scratch work
+created while the accepted intent was not being promoted into Lane A's governed documentation
+surface. The folder is therefore evidence of the existing **decision-to-application gap**, not a new
+governance tier and not an acceptable destination for completed intent.
+
+### Parent-first lifecycle
+
+| Order | Layer | Owner and permitted content | Completion evidence | Graphify consequence |
+|---:|---|---|---|---|
+| 1 | Intent worklog | Existing `docs/handoff/` entry plus temporary drafting material | Lane B/C concern, Lane A response, Judge choices and unresolved conditions are visible in the owning entry | **No Graphify operation.** Handoff is the transaction worklog and is excluded from the intended governed-intent graph |
+| 2 | Verified intent promotion | Lane A applies the accepted intent to its canonical governance/docs owners, including the applicable change record, takeover/handoff instructions and quality-assurance contract | Exact Judge act, bounded write set and DoD; committed application; independent review at the commit read | **Run the governance/docs Graphify update only here**, after the intent is complete and verified |
+| 3 | Lane B/C execution | B/C consume the bounded packet, write only their owned application/workflow controls and return gaps through handoff | Tests and evidence named by the packet; no out-of-lane repair | Handoff feedback alone does not trigger a governance graph rebuild |
+| 4 | Successful deployment evidence | Code and workflows have completed their authorized delivery path successfully | Deployment identifier/result and the accepted runtime verification evidence | Update the codebase/knowledge-base graph after successful deployment; generate or refresh Swagger/OpenAPI material from that deployed codebase afterward |
+
+This supersedes the prior recommendation to synchronize Graphify merely because B-series handoff
+files or ignored scratch drafts changed. No governed intent source changed in the present Lane B
+handoff sequence, so **no Graphify update is required now**. The old `.graphify` head mismatch may
+remain observable, but it is not a readiness failure for the worklog layer under this clarified
+activation rule.
+
+### Exact Lane A source-packet addition
+
+Lane A should include the following rule in the B-102/B-103 proposal, then obtain the existing
+D-183/D-186 source-application act before editing its governed owners:
+
+> `docs/handoff/` records refinement and disposition work but is not the governed-intent graph
+> source. Graphify for governance/docs runs only after an accepted intent is applied to its canonical
+> sources, committed and independently verified. Graphify for the application/code knowledge base
+> runs after successful deployment evidence exists. Swagger/OpenAPI documentation is generated or
+> refreshed from the successfully deployed codebase, never used as an advance design substitute.
+
+The application packet must identify the existing owners that execute this rule. At minimum, Lane A
+must assess the Register, Build Spec, Artifact Inventory, `docs/README.md` request-to-execution map,
+Phase Closure evidence rules, Encyclopedia sync policy and the shared Graphify instructions. If it
+creates or sequences Swagger/OpenAPI artifacts, D-54 requires the fact in all three V1 tracking files
+in the same pass. `Modular_PRD` changes only if Product behavior or a sprint/module lifecycle changes.
+
+### Failure-derived success criteria
+
+| Guaranteed failure | Evidence of success |
+|---|---|
+| Cowork leaves accepted intent in `Claude outputs/` | The canonical governance/docs owners contain the accepted clauses and link to the originating handoff |
+| Every handoff commit triggers a graph rebuild | The worklog remains usable without graph churn; the promotion boundary records the one required governance graph update |
+| Graphify runs before independent intent verification | The graph update cites the verified governed-source commit, not an evolving draft |
+| Swagger/OpenAPI text is written before deployed behavior exists | Generation input identifies the successful deployed revision and its observable API surface |
+| Deployment success is inferred from a commit or generated document | A separate deployment result and runtime verification evidence exist |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `docs/handoff/` as the non-Graphified intent worklog | Phase 1 — continue using existing entries |
+| Approve | Governance/docs Graphify only after verified intent promotion | Phase 1 — final step of the bounded source packet |
+| Approve-with-conditions | Codebase/KB Graphify and Swagger/OpenAPI generation | Post-deployment — successful deployment and runtime evidence required |
+| Reject | `Claude outputs/` as a completed governance destination | Phase 1 — promote accepted content into canonical owners |
+| Reject | Current handoff-only commits as a Graphify trigger | No governed intent changed |
+| Defer | Applying this rule to governed sources | Phase 1 — exact write set, D-54 impact, Judge act and independent review |
 | Defer | Lane B/C control-file implementation | Accepted ready packet, correct existing paths and active-lane selection |
 | Defer | Graphify synchronization | Final committed governance/handoff corrections and verification first |
