@@ -90,3 +90,68 @@ the dependencies and the proof required for safe application.
 | Defer | Runtime metadata/name changes and tests | Fresh build authorization after governed meaning is consistent |
 | Defer | Graphify synchronization | Promoted intent committed and independently verified |
 | Reject | Treating either numeric approval as scoring activation, archival execution, deletion, sprint selection or build authority | Remains outside this Judge act |
+
+## Judge clarification — sequential PDPA and financial-retention workflows, 2026-09-15
+
+This clarification resolves the A6 collision identified above. The values are sequential and have
+different visibility; they are not alternatives for one clock:
+
+1. **First — operational data-retention/PDPA boundary:** `DATA_RETENTION_ARCHIVE_DAYS = 90` controls
+   when an applicable record leaves the current my-editorial-app view and enters the external
+   retention workflow. The UI may show the 90-day status and the resulting externally archived or
+   unavailable state. The application does not execute the external archive or infer deletion.
+2. **Then — financial retention:** where an externally held record is classified as a TAX/ACRA
+   financial record, the external records system applies the five-year financial-retention rule to
+   that record. This later clock is outside my-editorial-app and is not shown as the editorial UI's
+   retention value.
+3. **Boundary evidence:** the external system supplies only the fact needed for honest UI and audit
+   behavior — affected record/period, action and time, policy/version, external reference and
+   retrievability/absence status. It does not expose its financial lifecycle as an editable Product
+   state.
+
+The earlier section's request to choose between retiring, renaming or creating a third clock is
+therefore superseded. Lane A must record this sequential model as the amendment to `D-134` and
+`D-135`: preserve five-year TAX/ACRA retention in the external financial workflow; stop presenting
+it as the first UI-visible archival boundary. The 90-day A6 row may become `RATIFIED` only in the
+same bounded propagation that makes those meanings consistent.
+
+### Parent-first application plan
+
+| Order | Owner | Exact planning action | Completion evidence |
+|---:|---|---|---|
+| 1 | Lane A · Cowork | Draft the Register amendment defining the two sequential workflows, their record classification and the external-system boundary | One act states which records receive the 90-day operational boundary, which financial records continue under five-year TAX/ACRA retention, and what the app may display |
+| 2 | Lane A · Cowork | Prepare literal corrections for Business Case/Blueprint, Product retention clauses, Decision Log, Config Log and stale Build Spec/Register statements | No current clause presents 90 and five years as competing A6 values or says the app performs the external workflow |
+| 3 | Lane A · Cowork | Specify UI and audit acceptance examples plus the supplied external fact; keep financial expiry hidden from the editorial UI | Current record before day 90, externally archived/absent after the supplied act, and missing/invalid external evidence each have explicit outcomes |
+| 4 | Lane A · Claude Code | After the Judge accepts the immutable packet, apply and commit it verbatim through B-102's transport procedure | Diff matches accepted paths/text; documentation checks pass subject to declared environment limits |
+| 5 | Lane B | Independently verify the governed packet; only under a later bounded work order change configuration metadata from `UNRATIFIED` to `RATIFIED` | Runtime value remains 90, metadata cites the amended decision, no financial clock or archive job is introduced into the app |
+
+### Artifact impact
+
+| Artifact | Required treatment |
+|---|---|
+| `Modular_PRD.md` retention section and `AC-12a` | Replace the single 5-year editorial/UI reading with the sequential boundary. The UI explains an externally supplied archival/absence fact; it does not display or execute the later financial-retention clock |
+| Business Case and Blueprint A6/D8/G1 | Make the 90-day operational/PDPA boundary first and the five-year TAX/ACRA rule conditional on external financial classification; preserve external ownership |
+| `DECISION_LOG.md`, `CONFIG_LOG.md`, Build Spec and Register | Record the Judge act, ratify the 90-day row under its corrected meaning and remove stale current “never put to Chief Editor” statements without erasing history |
+| FN audit visibility | Validate supplied archive/absence evidence, policy/version and external reference; invalid or missing evidence must not fabricate absence or financial status |
+| Storyboard/story panel | Add one current-use retention boundary to the existing journey: app-current → 90-day external handoff/absence display → external financial lifecycle where applicable. Do not turn the external workflow into an application panel the product operates |
+| UML/sequence/data flow | Show the external system as producer of the archive/absence fact and my-editorial-app as consumer. No command arrow from the app may imply it executes TAX/ACRA retention |
+| Traceability/scope graph/cross-reference | Link the UI behavior to A6, audit visibility and the external boundary; keep the later financial rule outside Product execution scope |
+| Encyclopedia | Queue the affected entry for hosted review after source application; do not claim hosted parity from local text |
+| Database/schema | No change authorized by this planning act. A later spec must prove whether the already governed supplied-fact shape is sufficient before any migration is proposed |
+
+### Failure-derived acceptance examples
+
+| Example | Accept | Reject |
+|---|---|---|
+| Applicable record before day 90 | Present in its normal editorial view with the governed retention status | Showing a five-year financial countdown |
+| External 90-day action is supplied | UI marks the record externally archived/unavailable and preserves explainable audit context | App claims it performed deletion or archival itself |
+| Record is also a financial record | External TAX/ACRA system retains it under the five-year rule; app displays no second editable retention value | Removing the external financial obligation because the app view changed at 90 days |
+| External evidence is missing or invalid | UI says the external state is unknown/not established and preserves the last proved state | Inferring archival, deletion or financial retention from elapsed time alone |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `DATA_RETENTION_ARCHIVE_DAYS = 90` as the first UI-visible operational/PDPA boundary | Phase 1 — ratify in the complete sequential-model propagation |
+| Approve | Five-year TAX/ACRA retention as the later external financial-record workflow | Project/external policy — classify externally; do not expose as the editorial UI value |
+| Approve-with-conditions | Product/UI archive or absence display | Phase 1 specification — externally supplied fact, no inferred act and no external-workflow execution |
+| Defer | Runtime metadata update | Lane B unit after the governed packet is committed and independently verified |
+| Reject | Treating 90 days as deletion, treating five years as the first UI clock, or showing both as competing editable values | Contradicts the Judge's ordered workflow |
