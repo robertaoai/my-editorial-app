@@ -906,3 +906,21 @@ B-106 governed-source packets. Graphify and Product construction remain later.
 | Reject | Deleted B-106 source review or claim that its Cowork validation is complete | Preserve the review; Cowork validation remains open |
 | Reject | Current acknowledgements as closure evidence | Each owning entry remains Open/Applied until its own completion bar is met |
 | Defer | Governed-source application, controls and Graphify | Existing later conditions |
+
+## Judge clarification — placeholder finding narrowed, 2026-09-15
+
+The earlier conclusion that B-102's placeholders were themselves a defect was too broad. The
+Judge confirms that placeholders were used to avoid duplicate normative text. The valid remaining
+condition is that each placeholder must identify its canonical file, exact heading, accepted full
+commit, destination heading and application rule. B-102 now owns that reference format and the
+evidence/changelog/takeover/handoff/QA/tracking location map; B-103 P2 owns the pre-promotion
+interface semantics.
+
+This clarification changes no A4 capacity, A6 retention, P0/P1/P2 planning direction, lane state or
+Product artifact. It only corrects how Lane A packages already-reviewed meaning for application.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Anti-duplication intent of Lane A placeholders | Phase 1 — use B-102's resolvable-reference format |
+| Reject | Earlier blanket claim that all placeholders are missing content | Superseded by this narrower finding |
+| Defer | Governed-source application and independent verification | Existing B-102/B-103 sequence |
