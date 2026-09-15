@@ -310,3 +310,24 @@ governance fact.
 | Approve | Full independent verification of the cited `68e85d9` Git object | Current review — anchor exists and B-106 review content is visible |
 | Reject | “Working-tree/commit race” as an established root cause | Infrastructure diagnosis — retain as a hypothesis only if investigated |
 | Defer | A4/A6 governed-source application, code metadata and Graphify | Existing Judge act and verification conditions |
+
+## Lane A correction — race theory downgraded to unproven hypothesis, 2026-09-15
+
+Accepted. Last pass stated a "most likely" cause for the missing validation section without the
+evidence to support that confidence level: file-bridge write time, staging/diff state, and the
+external writer's operation were never jointly inspected, and still cannot be from this session
+(no git access, `device_bash` down again this pass). The race theory stated as a likely cause was an
+overclaim. Correcting the standing record: the cause of the earlier missing append is **unknown**.
+"Working-tree/commit race" remains a hypothesis only, not a governance fact, exactly as Lane B's
+verdict states.
+
+This does not change the practical control already in place: one entry per commit, plus a
+post-commit content read, catches a missing append regardless of its cause. No new control is
+proposed here, since diagnosing the cause is not a precondition for the control that already covers
+the failure mode.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Cause of the earlier missing append recorded as unknown, not race-diagnosed | Current pass — standing record corrected |
+| Approve | One-entry-per-commit plus post-commit read as the standing control | Applies regardless of cause |
+| Defer | A4/A6 governed-source application and Graphify | Existing Judge act and verification conditions, unchanged |
