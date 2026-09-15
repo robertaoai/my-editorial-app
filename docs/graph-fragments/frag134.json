@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "d227_lane_a_single_ownership",
+      "label": "D-227: Lane A Single Ownership Supersedes the Cowork/Code Surface Split",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e52",
+      "description": "Judge ruling recorded 2026-09-15, sourced from docs/handoff/B-102's 'Judge ruling -- Lane A Code reclaims canonical governance and documentation' (committed 84a7e08). Supersedes D-200, D-201 and D-202's Lane A surface split -- previously docs/ (minus docs/handoff/ and docs/graph-fragments/*.js) plus the rule files and .github/ except workflows/ to Claude Cowork, scripts/ plus build config to Claude Code. Under D-227, Claude Code owns, updates, validates and commits every canonical Lane A governance and documentation source directly; Claude Cowork's role narrows to receiving and analysing Lane B/C docs/handoff/ entries and drafting Lane A's answer text there, which stays the unmapped channel D-90 already describes. Propagated in the same pass into AGENTS.md, CLAUDE.md, .agents/rules/graphify.md (byte-identical operating-rule block), V1-BUILD-SPEC.md section 2, V1-ARTIFACT-INVENTORY.md's tool-ownership disposition section, and one line in docs/handoff/README.md. Preserves D-90 (unmapped handoff channel), D-93 (Lane A is Critic, never same turn), D-99/D-100/D-101/D-108/D-156 (lane state machine), D-138/D-209 (Lane A returns work through the Register), D-184 (one-entry handoff commit), D-203 (A-NNN withdrawn) and D-214 (observed-at anchor meaning) unchanged. Corrected by D-228 for three residual defects in its own text.",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage and query/explain need a semantic node for this governing decision, not only the git commit that recorded it -- Lane B's independent review of commit 46d3598 found the graph mechanically anchored to that commit but semantically silent on the decision itself, which is a distinct fact from HEAD equality."
+    },
+    {
+      "id": "d228_d227_residual_defects_corrected",
+      "label": "D-228: D-227 Corrected -- a Restated Tally, a False Retirement Claim, and a Missing Graph Node",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e53",
+      "description": "Lane A Code self-correction, 2026-09-15, raised by Lane B's independent review of commits 46d3598 and d8bd5a8 (recorded in docs/handoff/B-102). Corrects three defects in D-227's own text without reopening the ownership decision, which Lane B's review confirmed correct on substance. First, D-227 described its own propagation as a restated 'six files' tally when the commit actually changed seven -- corrected to name the affected artifacts by role rather than a count. Second, D-227 claimed C-35's Cowork/Code tool-crossing family (A_SUB/subOf/bySub in scripts/checks/lane-boundary.mjs) was 'retired before implementation' with zero cases in the harness -- the zero-test-coverage half was true but the no-implementation half was false, since a live classifier existed and was imported by .githooks/commit-msg via classify(). Untested and unimplemented are different facts, the same conflation D-226 corrected one act earlier. This pass removes the classifier outright from lane-boundary.mjs and adds a five-case fixture suite (laneBoundaryToolCrossing in scripts/fixtures/suites.mjs) proving the removal while the A/B/C lane-crossing family stays intact. Third, this fragment itself is the correction for the missing semantic D-227 node that Lane B's review found.",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage and query/explain need this correcting decision to be queryable and linked to D-227, matching the corpus's own established pattern (D-221 corrects D-220, D-225 corrects D-224, D-226 corrects D-225) of a later decision superseding an earlier one's wording by reference rather than by silent rewrite."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d227_lane_a_single_ownership",
+      "target": "commit:repo:github.com/robertaoai/my-editorial-app@73226b7759920348a5ba04915ba6ad506bcf700c",
+      "relation": "supersedes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e52",
+      "weight": 1
+    },
+    {
+      "source": "d227_lane_a_single_ownership",
+      "target": "commit:repo:github.com/robertaoai/my-editorial-app@a6ce25315c89260503c2149b7c16c029bd3bde95",
+      "relation": "supersedes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e52",
+      "weight": 1
+    },
+    {
+      "source": "d227_lane_a_single_ownership",
+      "target": "commit:repo:github.com/robertaoai/my-editorial-app@db8709e10190ed6577fc1befb34f496d1faacf6c",
+      "relation": "supersedes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e52",
+      "weight": 1
+    },
+    {
+      "source": "d227_lane_a_single_ownership",
+      "target": "b086_d200_tool_split_bootstrap_review",
+      "relation": "supersedes",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e52",
+      "weight": 1
+    },
+    {
+      "source": "d227_lane_a_single_ownership",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e52",
+      "weight": 1
+    },
+    {
+      "source": "d228_d227_residual_defects_corrected",
+      "target": "d227_lane_a_single_ownership",
+      "relation": "corrects",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e53",
+      "weight": 1
+    },
+    {
+      "source": "d228_d227_residual_defects_corrected",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e53",
+      "weight": 1
+    }
+  ]
+}
