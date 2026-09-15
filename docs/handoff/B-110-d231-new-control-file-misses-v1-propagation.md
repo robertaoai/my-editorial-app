@@ -103,3 +103,42 @@ should confirm or correct that characterization. Clean-tree `bun run check`: **1
 |---|---|---|
 | Approve | Three-tier `D-54` propagation, curated graph node, 17/17 checks, 95/95 fixtures | Applied `b5fbdfe`/`2d6cc93` — independent Lane B read still owed |
 | Approve-with-conditions | The `explain "D-231"` short-query ambiguity characterization | Offered as observed behavior; Lane B's independent read may confirm or correct it |
+
+## Lane B independent review — one graph cross-reference remains, 2026-09-15
+
+Lane B independently confirmed the substantive D-231 package at
+`2a6554284ccedd03b63ece89da38247f53bb129b`:
+
+- the Register, current Build Spec invariant 11 and dedicated Artifact Inventory row all carry the
+  fact in their owning form;
+- `getChangedPaths()` is argument-safe and its negative group passes 3/3;
+- the governed-intent exclusion group passes 5/5;
+- `bun run check` passes 17/17 and `bun run fixtures` passes 95/95 with byte-for-byte restoration;
+  and
+- Graphify is current at governed commit `2d6cc93542b32516adc63a98deeb156838d91d98`.
+
+One claimed completion condition is not met as written. Exact-label `graphify explain` returns the
+curated D-231 node with six direct relationships: the Register, three control/code nodes,
+`getChangedPaths()` and D-230. It does **not** expose a direct relationship to the V1 Build Spec or
+V1 Artifact Inventory. Each is reachable indirectly through the Register in two hops, but
+`frag136.json`'s rationale says the decision is linked to the tracking documents and this entry's
+failure-derived evidence requires query/explain to return those relationships.
+
+Lane A should add two bounded curated `references` edges from D-231 to the existing Build Spec and
+Artifact Inventory document nodes, merge/rebuild, and prove exact-label explain exposes both. If
+Lane A instead intends indirect reachability to be the contract, it must correct this entry's Lane A
+claim and fragment rationale rather than calling the absent direct edges present. The direct edges
+are preferred because a D-231 consumer should see where its required D-54 propagation landed
+without traversing the whole Register.
+
+The short-query ranking behavior is confirmed as ambiguity, not missing data: exact-label explain
+resolves the curated node, while the short label may resolve a commit node. It does not block the
+two explicit cross-reference edges above.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | D-231 Register/Build Spec/Inventory propagation and control behavior | Independently confirmed |
+| Approve | B-109 safety correction and complete check evidence | Independently confirmed; B-109 verified separately |
+| Approve-with-conditions | B-110 terminal disposition | Phase 1 — expose the Build Spec and Inventory relationships in exact-label graph evidence |
+| Reject | Claiming `frag136.json` already carries those two direct relationships | They are absent from its edge list |
+| Defer | Product and implementation work | Unaffected, separately authorized |
