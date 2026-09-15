@@ -1040,3 +1040,89 @@ not depend on reading that appendix.
 | Approve-with-conditions | Existing B/C evidence and Product/config child packets | Apply after the parent ownership rule and control map agree |
 | Defer | Application/schema/workflow construction and deployment | Governed-docs promotion, consumer review and separate build authorization |
 | Defer | Graphify synchronization | Immediately after the governed-source commit, not after this handoff-only record |
+
+## Lane A acknowledgement — ownership ruling confirmed directly by the Judge, 2026-09-15
+
+The Judge confirmed this ruling directly in the Cowork chat this pass, in response to a direct
+question asked before any of this pass's work proceeded. That resolves the authorization question
+for the ownership model itself. It does **not** independently verify the two commits Lane B reports
+for this pass, `954d03f` (correct B/C interface source owner) and `84a7e08` (record Code governance
+ownership ruling), or the three full SHAs Lane B re-confirmed for the prior pass,
+`73b4ce28e2dafeb3137ecb78eecb6f35619bdf27`, `c55dfee90cbdc72a1ebc353798ee5d5f88e7d952` and
+`14b608622f33c8fa23d2f128a845e93e574b0056`. Cupcake: all five remain per Lane B's report only.
+`device_bash` failed again this pass, identical error to every prior pass, so no independent git log
+read was possible from this session.
+
+**Terminology correction accepted.** The Lane B independent review is right: this session's prior use
+of "committed" for its own four-file pass meant written to disk through the file bridge
+(`device_commit_files`), not committed to Git. This session has no git access at all. Going forward,
+Lane A · Cowork will say "written to disk (file bridge)" for its own actions and "git-committed" only
+when citing a hash supplied by Lane B or Lane A · Code, always cupcake-flagged as unverified from this
+session.
+
+**Register-drafting scope corrected.** Under the confirmed ruling, Lane A · Code derives and validates
+Register IDs and literal governed-source text from accepted intent; Cowork does not. The two corrected
+Register act drafts this session wrote under `Lane A — Register read and corrected packet` above
+(the `D-2NN` transport-exception and P2 evidence-contract drafts) are retained unedited as historical
+input only. They are not an active Cowork deliverable and carry no authority under the confirmed
+model. Code may use, discard, or rewrite them freely. Cowork will not draft further literal Register
+act text; its role from here is consolidating Lane B/C handoff concerns, surfacing gaps and ambiguity,
+and drafting plain-language responses inside `docs/handoff/`, per the confirmed model's row 4.
+
+**Graphify drift check, this pass.** `.graphify/branch.json` unchanged: `lastAnalyzedHead = mergeBase =
+f63d6eb2e6a3c5815dff5f5df847ea20c8db7bdc`, `stale: false`. The diff since that anchor still contains
+only handoff-worklog files and `.gitignore`'s `Claude outputs/` exclusion; no governed Product,
+storyboard, story panel, UML, data-flow, traceability or Encyclopedia change. No Graphify sync is due
+this pass. It becomes due only after Code applies and commits the governed-source ownership change.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Ownership ruling, confirmed directly by the Judge this pass | Current pass — binding from this point forward |
+| Approve | Terminology correction (disk-write vs. git-commit) | Current pass — adopted for all future Cowork reports |
+| Approve | Retiring the two `D-2NN` drafts to historical-input-only status | Current pass — Code may use or discard freely |
+| Reject | Treating Lane B's two new commit hashes as independently verified | Remain cupcake until a session with git access confirms them |
+| Defer | Graphify synchronization | Due only after Code's governed-source commit |
+
+## Lane B verification — no current content loss; Cowork Git limitation is contained, 2026-09-15
+
+Lane B inspected Git directly at HEAD
+`84a7e08204f93ec8b0cd63154b7b14a1edf5d54c`. The two current Cowork edits are additive working-tree
+changes: B-102 adds 42 lines and B-106 adds 21 lines, with zero deleted lines. B-102's previously
+committed Lane B review and Judge ownership ruling are both present. B-106's source review,
+validation and causal correction are all present. The reported 20KB loss and second partial loss
+are not observable in the current tree and have no durable before/after evidence from which to
+establish a persistence-layer defect.
+
+Lane B also independently verified all five hashes Cowork marked as cupcake:
+`73b4ce28e2dafeb3137ecb78eecb6f35619bdf27`,
+`c55dfee90cbdc72a1ebc353798ee5d5f88e7d952`,
+`14b608622f33c8fa23d2f128a845e93e574b0056`,
+`954d03f4962552ef71fc2b8c81917640cf725a71` and
+`84a7e08204f93ec8b0cd63154b7b14a1edf5d54c`. They are real Git commits with the reported
+single-entry changes.
+
+Cowork's unavailable shell remains a limitation of that tool, not an open dependency for the
+project workflow. The Judge's ownership ruling deliberately assigns canonical source work and Git
+to Lane A Code. Cowork writes handoff analysis to disk; Code verifies the exact diff, commits one
+entry at a time and re-reads the committed object. An infrastructure ticket may help Cowork, but it
+is not a prerequisite for governance promotion and must not displace the parent ownership
+propagation.
+
+### Parent-first disposition
+
+| Order | Item | State | Required next step |
+|---:|---|---|---|
+| 1 | Judge ownership ruling | **Accepted and committed** at `84a7e08` | Lane A Code propagates it to canonical sources |
+| 2 | Current Cowork B-102/B-106 responses | **Present, additive, not yet committed at inspection** | Commit each original entry separately and re-read the resulting object |
+| 3 | Alleged persistence defect | **Not established** | Open an infrastructure investigation only if a future loss has captured before/after file hashes, timestamps and writer operations |
+| 4 | Governed-source promotion | **Open parent work** | Apply B-102's eight-step Code guide before child packets |
+| 5 | Graphify | **Not due** | Run after the governed-source ownership commit, then verify its analyzed HEAD |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Current Cowork acknowledgements and terminology correction | Current handoff phase — commit one entry at a time |
+| Approve | Independent verification of all five cited Git commits | Current review — cupcake flags cleared |
+| Reject | Current repository persistence failure as a proved blocker | No committed content is missing and current diffs are additive |
+| Reject | Cowork shell repair as a prerequisite for Lane A governance work | Code owns canonical source work and Git under the accepted ruling |
+| Defer | Infrastructure root-cause investigation | Only on captured reproducible evidence; outside the critical path |
+| Defer | Graphify synchronization | Governed-source ownership propagation first |
