@@ -96,9 +96,13 @@ folder convention … no report entity exists"* — and an `editorial_reports` t
 re-opens it. Lane A reads `0002`'s `editorial_reports` definition and answers this before touching
 either claim.
 
-**Evidence status.** `S12` and the `editorial_reports` column list are **Lane B's read of `0001`
-and `0002`**. No second actor has confirmed them. By `E1`'s own rule that is a record, not
-independent confirmation, and it is enough to plan against and not enough to close on.
+**Evidence status, historical at `76a0ea2`.** `S12` and the `editorial_reports` column list were
+**Lane B's read of `0001` and `0002`** alone; no second actor had confirmed them at that commit. By
+`E1`'s own rule that was a record, not independent confirmation, enough to plan against and not to
+close on. **Superseded 2026-09-15:** this session's own direct read of `0002:459-522` (see the Lane
+A field above) corroborates the same column list. Per the correction above, that is two-actor
+corroboration, not independent verification under `D-102`/`D-205`; `GA1` stays `Answered` for
+planning only, and no applied specification is `Verified`.
 
 ## Children
 
@@ -149,7 +153,7 @@ claims while the blocking check is open.
 | Approve | Choice A: separated state, versioned metadata, frozen report | Phase 1 — Register act with locus and date |
 | Approve | `S17`'s inventory finding: one artifact owns all three view kinds | Phase 1 — repair in place, no new artifact |
 | Approve-with-conditions | `S15`, `S16` | Phase 1 — logical contract only; physical schema stays Lane B's |
-| **Hold** | `S17`'s correction of Panel B7 and §4 | Blocked on the `GA1` check against `0002` |
+| **Hold** | `S17`'s correction of Panel B7 and §4 | `GA1` Answered for planning; application held for the Chief Editor-accepted `A4` exact write set |
 | Reject | Treating `S12`'s schema read as independently confirmed | `E1` applies; a record is not a confirmation |
 | Reject | Any migration, application or publication act from this entry | Later authorization remains required |
 | Defer | Graphify synchronization | After the final tracked correction |
