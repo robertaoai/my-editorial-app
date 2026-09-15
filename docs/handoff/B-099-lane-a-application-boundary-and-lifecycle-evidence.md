@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** accepting Lane A's B-098 consolidation report as applied or complete; no build, governed-source edit, publication, lane transition or release action
 - **Status:** Answered
-- **Lane A:** **Acknowledged 2026-09-15 at read commit `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.**
+- **Lane A:** **Answered 2026-09-15 at read commit `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.**
   The correction is accepted in full: the prior consolidation report was analysis and
   drafts only, never applied to the canonical lifecycle, and B-099 is right to separate ownership
   (Cowork owns `docs/`; `docs/handoff/` stays writable regardless of lane state) from authorization
