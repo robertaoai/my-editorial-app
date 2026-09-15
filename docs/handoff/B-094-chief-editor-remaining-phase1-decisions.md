@@ -26,6 +26,19 @@
   connection has been separately configured for Cowork, it is not attached to this session, so the
   CAP-1/CAP-4 "GitHub connection removes repository connection/setup work" reasoning above should be
   treated as not yet applicable here until confirmed otherwise.
+
+  **Acknowledged, continued, 2026-09-15 (at read commit `b2f0c17`, per Lane B's report; not
+  independently git-verified from this session).** The "Independent consolidation" and "Forward
+  correction" sections are accepted as stated: B-104 resolves via D-181, no new T5 choice is asked;
+  B-105 stays rejected, B-097 alone owns the return-protocol child; the seven `Claude outputs/`
+  files are scratch input, not completed documentation; and Graphify is confirmed out of scope for
+  ordinary handoff/scratch activity, in scope only after a promoted, committed, independently
+  verified intent. **On the connectivity question this entry itself raised** ("Cowork connectivity
+  has two different observations"): the actual access path at every point in this conversation has
+  been the desktop file bridge (`device_stage_files`/`device_commit_files`) for reading and writing
+  files, with `device_bash` (shell/git) unreachable throughout; no GitHub connector tool has been
+  present in this session at any point checked. Stated once here as the session's standing answer to
+  that question, rather than repeating the caveat in every acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** f63d6eb2e6a3c5815dff5f5df847ea20c8db7bdc
 - **Evidence:** Live review of B-084, B-088 and B-077 Child 2 at the named commit; B-087 J2/J3/J4 dispositions; current handoff lifecycle query; Graphify query; final B-092/B-093 graph evidence; `Modular_PRD`, storyboard, scope graph, traceability and Encyclopedia residual routing.
