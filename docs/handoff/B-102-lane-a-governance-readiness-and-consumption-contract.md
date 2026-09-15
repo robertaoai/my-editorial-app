@@ -1126,3 +1126,44 @@ propagation.
 | Reject | Cowork shell repair as a prerequisite for Lane A governance work | Code owns canonical source work and Git under the accepted ruling |
 | Defer | Infrastructure root-cause investigation | Only on captured reproducible evidence; outside the critical path |
 | Defer | Graphify synchronization | Governed-source ownership propagation first |
+
+## Lane A · Claude Code — governed-source propagation Applied, 2026-09-15
+
+**Applied, not Verified — this is Code's own answer to its own item; only an independent reviewer
+may record `Verified`.** Item 4 of the parent-first disposition above ("Governed-source promotion")
+is complete. `docs/v1/V1-DECISION-REGISTER.md` §5.14e52 records **`D-227`**, which supersedes
+`D-200`/`D-201`/`D-202` and the withdrawn Cowork-transport proposal earlier in this entry, per the
+"Judge ruling — Lane A Code reclaims canonical governance and documentation" section above. The same
+pass propagated `D-227` into `AGENTS.md`, `CLAUDE.md`, `.agents/rules/graphify.md` (byte-identical
+operating-rule block, confirmed by `bun run check`'s `shared-core-hash`), `docs/v1/V1-BUILD-SPEC.md`
+§2, the "Tool-ownership disposition" section of `docs/v1/V1-ARTIFACT-INVENTORY.md`, and one line in
+`docs/handoff/README.md` naming Cowork's narrowed answering role. **Committed at `46d3598`.**
+
+**Not in this pass, by design:** `scripts/lane-gate.mjs` and `.githooks/commit-msg` are untouched —
+`C-35`'s tool-crossing family is recorded retired-before-implementation in the Register and
+Inventory, not edited in code, since zero cases ever existed to remove. The already-drafted child
+packets (`B-103` P2 evidence contract, `B-095`/`B-084`'s A4 packet, `B-106`'s A4/A6 arbitration) are
+**not** applied here; each still needs its own explicit Judge accept naming its revision, per this
+entry's own item 4 note ("Apply B-102's eight-step Code guide before child packets").
+
+**Item 5, Graphify, is also complete.** `npx graphify hook-rebuild` ran against `46d3598`;
+`.graphify/branch.json.lastAnalyzedHead` now equals HEAD and `bun run check`'s `docs-drift` reports
+`synced at 46d3598`. Node/edge counts (1699/3352) matched the rebuild's own report with no drop,
+and a `graphify query` for this ownership topic returns matching nodes, so the curated layer
+round-tripped. **`graph-coverage` still fails**, unchanged from before this pass — that is the
+separate, already-diagnosed handoff-exclusion control drift this entry names elsewhere; fixing the
+check's exclusion logic is scripts/-surface implementation work, not performed by this act.
+
+Revised parent-first disposition, items 4–5:
+
+| Order | Item | State | Required next step |
+|---:|---|---|---|
+| 4 | Governed-source promotion | **Applied at `46d3598`** | Independent read of the diff against `D-227`'s text (Lane B or another named actor); this session cannot self-`Verify` |
+| 5 | Graphify | **Synced at `46d3598`** | None — `docs-drift` passes; `graph-coverage`'s handoff-exclusion fix remains separately owed |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `D-227` Register act and its six-file same-pass propagation | Applied `46d3598` — independent review still owed |
+| Approve | Governed-docs Graphify resync after the ownership commit | Complete — `docs-drift` passes at `46d3598` |
+| Defer | `C-35` tool-crossing script/fixture removal | Separate scripts/-surface implementation, not required to unblock child packets |
+| Defer | `B-103` P2, `B-095`/`B-084` A4, `B-106` A4/A6 child packets | Each awaits its own explicit Judge accept naming its revision |
