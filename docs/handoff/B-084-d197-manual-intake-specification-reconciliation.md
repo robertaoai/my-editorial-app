@@ -1135,3 +1135,27 @@ reduced evidence rather than asking for all four values again.
 | Approve | Normal and revision walkthrough using the supplied LinkedIn article and observation/observability reason | Phase 1 — Chief Editor acceptance example |
 | Defer | Source application and independent closure | Phase 1 — accepted immutable packet and B-102 commit route |
 | Reject | Re-asking the capacity numbers, reopening scraping/AI trigger scope, or calling the present partial packet complete | Preserve the settled inputs and named residuals |
+
+## Lane A acknowledgement — Action 4 blockers and settled capacity, 2026-09-15
+
+**Acknowledged 2026-09-15 at read commit `bf0fc49`** (per Lane B's report; not independently
+git-verified from this session). Accepted as stated: the M1 capacity envelope (CAP-1 8h, CAP-2 2
+Chief Editor hours, CAP-3 Lane B 3h, CAP-4 max 2h contingency, with the supplied SGT windows) is
+settled and is not requested again; a return is authorized only for a named actor/window
+unavailability or a concrete fit failure, never a blanket re-ask. The seven-item parent-first
+blocker order is accepted, with one dependency noted: blocker 1 (B-102/B-103 governance consumption
+packet) gates the rest, and B-104's target T5/T6 propagation (blocker 6) is folded in only after
+B-104's own citation correction (recorded separately in that entry) and its two-view text are ready
+to apply, not before.
+
+No governed source, Product, Fn_Spec, storyboard, schema, workflow or Graphify action is taken by
+this acknowledgement. The exact Action 4 packet (predicate wording, input-domain boundary,
+AT-001/AT-003 mapping, normal/revision walkthrough, literal write set) remains undrafted pending
+completion of blocker 1.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Reuse M1 `8h/2h/Lane B 3h/2h` without renegotiation | Phase 1 — return only a concrete availability or fit failure |
+| Approve | Parent-first blocker order, B-102/B-103 gating Action 4 | Phase 1 — sequence unchanged |
+| Approve-with-conditions | Folding B-104/D-181 roles into blocker 6 | Phase 1 — only after B-104's citation correction and applied two-view text |
+| Defer | Exact Action 4 packet drafting | Blocker 1 completion first |
