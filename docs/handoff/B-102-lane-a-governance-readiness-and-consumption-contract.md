@@ -925,3 +925,118 @@ yet. It becomes due after the accepted governed-source packet is applied and ind
 | Reject | Part 2 destinations described as Claude Code-owned | Cowork owns their meaning; Code may only apply/commit an accepted packet |
 | Approve-with-conditions | Part 2 construction/verification evidence contract | Phase 1 — consistent Build Spec DoD and verification-spec applicability |
 | Defer | Governed-source edits, software/workflow construction, deployment and Graphify | Exact Judge act, application and independent verification first |
+
+## Judge ruling — Lane A Code reclaims canonical governance and documentation, 2026-09-15
+
+This ruling supersedes this entry's earlier Cowork-semantic-author / Code-commit-applicator proposal.
+The Judge is the business-intent authority and is not required to understand repository mechanics,
+choose Register identifiers, inspect hashes or translate intent into file operations. The governance
+system must make that translation transparent and testable.
+
+The normalized operating model is:
+
+> **Lane A · Claude Code owns, updates, validates and commits every canonical governance and
+> documentation source assigned to Lane A. Claude Cowork supports Lane A by receiving and analysing
+> Lane B/C handoff entries and drafting clear responses in the unmapped `docs/handoff/` transaction
+> channel. Lane B and Lane C remain the raisers. Code converts the accepted Judge intent into the
+> governed sources, assigns valid Register identifiers, records the commit evidence and runs the
+> governed-docs Graphify workflow after the source commit.**
+
+`docs/handoff/` remains **unmapped** under `D-90`; “tasked to Cowork” describes the Lane A answering
+role, not directory ownership. Lane B/C may still create their own entries, Cowork may answer them,
+and Code may make the one-entry Git commit needed to preserve Cowork's response. No `A-NNN` series is
+reopened.
+
+### Parent decision tree — highest dependency first
+
+| Order | Decision | Accept result | Reject result | Recommendation |
+|---:|---|---|---|---|
+| 1 | Who owns canonical Lane A governance/docs? | Claude Code owns meaning, application, validation and Git; Cowork is the B/C handoff analyst/answerer | Retain the split that has repeatedly left accepted intent in handoff/scratch | **Accept** the Code-owned model |
+| 2 | What must the Judge review? | Plain-language outcome, scope boundary, exclusions and consequences | Raw paths, hashes, D-number selection and patch mechanics become prerequisites for a business decision | **Accept** outcome-level review; **reject** requiring repository expertise |
+| 3 | Who assigns Register IDs and builds the literal write set? | Lane A Code derives both from the accepted intent, validates uniqueness/precedence and records them transparently | Judge manually administers repository identifiers | **Accept** system assignment with mechanical checks |
+| 4 | How does Cowork participate? | Cowork consolidates Lane B/C concerns in the original handoff and identifies ambiguity for the Judge | Cowork edits or becomes owner of canonical governance sources | **Accept** handoff-only assistance |
+| 5 | How do B/C consume the result? | They read committed work orders/specifications and return bounded evidence through their original handoffs | They infer requirements from Cowork scratch or uncommitted prose | **Accept** committed-source consumption only |
+| 6 | When does Graphify run? | After Code commits the accepted governed-source change; final graph metadata names that commit | Before canonical intent lands, or merely because handoff prose changed | **Accept** commit-then-Graphify |
+
+### What the Chief Editor supplies — and what the system supplies
+
+| Chief Editor / Judge supplies | Lane A Code must supply without asking the Judge |
+|---|---|
+| Intended business outcome | Next valid, non-colliding Register decision ID |
+| Accepted/rejected boundary and non-goals | Exact governed-file and section write set |
+| Priority and any capacity constraint | D-29/D-54 precedence and propagation analysis |
+| Acceptance example in business language | Literal source edits, cross-references and changelog placement |
+| Final Accept / Reject / Defer disposition | Git commits, hashes, consistency evidence and Graphify synchronization |
+
+The Judge-facing decision card therefore names **what changes for the project and what remains
+outside it**. A technical appendix may expose paths and evidence for audit, but Judge approval does
+not depend on reading that appendix.
+
+### Exact Lane A Code follow-up
+
+1. **Record the parent act first.** Append one new Register decision that supersedes only the
+   Cowork/Code surface split in `D-200`/`D-201` and the transport exception proposed in B-102.
+   Preserve: one Active Lane A, `D-90`'s unmapped handoff channel, `D-203`'s withdrawn `A-NNN`
+   series, `D-184`'s one-entry handoff commit and `D-214`'s observed-at anchor meaning.
+2. **Assign the ID mechanically.** Read the complete Register identifier set, select the next valid
+   ID, fail on duplication, and let the Register/checks expose the result. Do not ask the Judge to
+   calculate or validate it.
+3. **Propagate the operating rule in one pass.** Update the identical shared-core block in
+   `AGENTS.md`, `CLAUDE.md` and `.agents/rules/graphify.md`; update `V1-BUILD-SPEC.md` §2; update
+   `V1-PHASE-CLOSURE.md` §5/§5.0a; update `docs/handoff/README.md` to name Cowork as Lane A's
+   responder while preserving the unmapped channel.
+4. **Correct current execution owners.** `docs/LANE-B-WORK-ORDER.md`,
+   `.github/WORKFLOWS-SPEC.md`, Product/Fn/SPECS documentation, curated graph meaning and all other
+   Lane A governance/docs become Claude Code's canonical-source responsibility. Lane B continues to
+   own application/schema/tests; Lane C continues to own `.github/workflows/`.
+5. **Retire obsolete tool-split controls.** Review `C-35`, `scripts/checks/lane-boundary.mjs`,
+   `scripts/lane-gate.mjs`, fixtures and `.githooks/commit-msg`. Remove or narrow Cowork/Code
+   sub-surface crossing logic that contradicts the new single-owner model. Preserve lane-crossing
+   controls and the one-entry handoff exception. Record the resulting artifact disposition in
+   `V1-ARTIFACT-INVENTORY.md`; do not silently leave a live checker enforcing the superseded rule.
+6. **Apply the already-approved child packets in dependency order.** First the B/C evidence
+   interface and its Build Spec readiness/DoD, then the A4/manual-intake Product packet, then the
+   A4/A6 configuration/retention packet. Code derives and commits the bounded source changes;
+   Cowork does not act as a second source owner.
+7. **Verify construction and verification inputs.** Lane B checks that its work order identifies
+   executable Product/Fn/SPECS clauses and acceptance cases. Lane C checks that its workflow spec
+   identifies allowed evidence, negative probes and failure outcomes. Each answers in its original
+   handoff at the exact read commit.
+8. **Run Graphify last for the governed-docs commit.** Rebuild/re-merge the curated layer, run the
+   portable check and consistency suite, and prove `lastAnalyzedHead` equals the final governed-docs
+   HEAD. Handoff-only commits remain outside semantic extraction.
+
+### Critical artifact write set and disposition
+
+| Artifact | Required treatment | Why it matters later |
+|---|---|---|
+| V1 Decision Register | New superseding act with system-assigned ID and D-54 table | Canonical authority and precedence |
+| Three shared rule files | Byte-identical new Lane A Code/Cowork operating contract | Prevents each agent from following a different owner model |
+| V1 Build Spec | Replace the old tool split; name evidence-contract readiness/DoD | Drives construction order and completion |
+| V1 Phase Closure | Preserve Lane A state; correct tool/report mechanics | Prevents ownership changes from being mistaken for a lane handover |
+| Handoff README | Cowork answers B/C; channel remains unmapped; Code preserves responses in Git | Keeps raiser/answerer attribution without a new ledger |
+| Lane B work order / Lane C workflow spec | Code-owned canonical packets, independently reviewed by their consumer | Direct construction and verification inputs |
+| Lane/tool controls and fixtures | Remove or narrow obsolete Cowork/Code crossing assumptions | Prevents a checker from rejecting the newly governed workflow |
+| Artifact Inventory | Record changed/retired control behavior; no invented file count | Makes the control lifecycle reviewable |
+| Modular PRD, storyboard, story panels, UML, data flow, traceability, Encyclopedia | **Content unaffected by this ownership ruling.** Their future edits are Code-owned, but the editorial journey and data meaning do not change here | Avoids converting a governance operating decision into Product scope |
+
+### Failure-derived success criteria
+
+| Guaranteed failure if left unresolved | Evidence of success |
+|---|---|
+| Judge must administer D-numbers and hashes before expressing business intent | Judge approves a plain-language decision card; Code generates collision-free IDs and audit evidence |
+| Cowork owns meaning but cannot persist it, so handoffs accumulate without source promotion | Code owns and commits canonical governance/docs; Cowork responses point to the resulting source commit |
+| Shared rules still say Cowork owns `docs/` | All three shared-core hashes match the new ruling and Build Spec/Phase Closure agree |
+| Old tool-crossing checks reject or misreport Code editing docs | Negative and positive fixtures prove the revised ownership map while lane-crossing controls still work |
+| B/C consume scratch prose | Both lanes cite committed work-order/spec clauses and return bounded verification evidence |
+| Graphify claims currency before the new intent exists in canonical sources | Governed sources commit first; Graphify's `lastAnalyzedHead` then equals that commit |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Lane A Code ownership of canonical governance/docs and Git | Phase 1 — parent Register act and same-pass propagation |
+| Approve | Cowork as Lane A analyst/answerer for Lane B/C handoffs | Phase 1 — preserve `D-90` unmapped channel and raiser attribution |
+| Reject | Requiring the Judge to select IDs, inspect hashes or administer literal patches | Governance system performs and exposes those mechanics |
+| Reject | Earlier Cowork-owner / Code-transport-exception model | Superseded by this Judge ruling |
+| Approve-with-conditions | Existing B/C evidence and Product/config child packets | Apply after the parent ownership rule and control map agree |
+| Defer | Application/schema/workflow construction and deployment | Governed-docs promotion, consumer review and separate build authorization |
+| Defer | Graphify synchronization | Immediately after the governed-source commit, not after this handoff-only record |
