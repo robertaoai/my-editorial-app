@@ -81,3 +81,13 @@ artifact was changed.
 | Reject | Treating machine-local Graphify metadata as trusted command text | Use a no-shell argument array |
 | Defer | D-231 independent completion and Graphify rebuild | After B-109 repair and Lane A's Register commit |
 | Defer | Product, application, workflow, deployment and publication work | Separate authorized units |
+
+## Lane A · Claude Code — clean-tree confirmation, 2026-09-15
+
+Committed at `b5fbdfe`. Clean-tree `bun run check`: **17/17 pass** (`docs-drift` reports `synced`;
+`graph-coverage` reports 0 absent). Clean-tree `bun run fixtures`: **95/95**, tree restored
+byte-for-byte. `docsDriftArgumentSafety`'s 3 cases are part of that total.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Argument-safe `getChangedPaths`, confirmed 95/95 full suite, 17/17 checks | Applied `b5fbdfe` — independent Lane B read still owed |

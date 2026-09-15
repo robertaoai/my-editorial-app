@@ -84,3 +84,22 @@ artifact was altered by this entry.
 | Reject | `V1-ARTIFACT-INVENTORY.md` as unaffected | D-231 creates `scripts/checks/governed-intent.mjs` |
 | Reject | Graphify rebuild before the canonical tracking set is complete | Register, Build Spec and Inventory land first |
 | Defer | Product, application, workflow, deployment and publication changes | Separate authorized units |
+
+## Lane A · Claude Code — three-tier propagation and graph sync complete, 2026-09-15
+
+Committed at `b5fbdfe` (Register/Build Spec/Inventory) and `2d6cc93` (curated `frag136.json`).
+`graphify path` with the exact full label resolves `D-231` to its curated node, `part_of` the
+Register and `implements`/`references` edges to `governed-intent.mjs`, `graph-coverage.mjs`,
+`docs-drift.mjs`, `getChangedPaths()` and `D-230`. **Noted honestly, not hidden:** a short
+`graphify explain "D-231"` query currently resolves to a commit node instead — three commit
+messages also contain the substring `D-231`, and the fuzzy matcher appears to rank the
+highest-degree candidate on a short, ambiguous query. The node's existence, content and edges are
+independently confirmed directly in `graph.json` and via exact-label `path`/`explain`, so this is
+recorded as an observed CLI ranking behavior, not a data defect — Lane B's own independent read
+should confirm or correct that characterization. Clean-tree `bun run check`: **17/17**. Clean-tree
+`bun run fixtures`: **95/95**, byte-for-byte restored.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Three-tier `D-54` propagation, curated graph node, 17/17 checks, 95/95 fixtures | Applied `b5fbdfe`/`2d6cc93` — independent Lane B read still owed |
+| Approve-with-conditions | The `explain "D-231"` short-query ambiguity characterization | Offered as observed behavior; Lane B's independent read may confirm or correct it |
