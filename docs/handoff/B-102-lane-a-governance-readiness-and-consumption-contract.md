@@ -657,3 +657,83 @@ Append to `.github/WORKFLOWS-SPEC.md` as `## 7. Evidence contract with Lane B`:
 | Reject | Current packet as immediately Code-applicable | Placeholder, authority, dependency and propagation defects remain |
 | Reject | Reopening P0/P1 business choices | Standing planning decisions already exist; application authority is the missing act |
 | Defer | Checker implementation and Graphify | Separate authorization; governed intent applied and independently verified respectively |
+
+## Judge clarification — placeholders are anti-duplication references, 2026-09-15
+
+The earlier application-readiness review incorrectly treated every placeholder as missing content.
+The Judge has clarified that Lane A used placeholders to avoid copying the same normative clause
+into several planning records. That intent is valid. The remaining defect is narrower: a
+placeholder must resolve to one canonical file, one exact heading and one committed revision before
+Claude Code can apply it without interpretation.
+
+The **Corrected Part 2 destination text** above remains useful as review evidence, but it is not a
+second semantic owner. Until promotion, B-103 `### P2 — accept the two-way B/C evidence contract`
+and its two child headings are the canonical source. After an authorized application, each
+destination work order owns its executable half; B-103 remains the transaction and decision
+evidence. No third copy is created here.
+
+### Canonical record map — one fact, one owner
+
+| Record | Canonical location | What Lane A records there | What must not be copied there |
+|---|---|---|---|
+| Evidence | Original `docs/handoff/B-NNN-*.md` or `C-NNN-*.md`: `Evidence`, `Verified-By`, `Verified-At-Commit`, and the dated response body | Observed fact, source commit, applied commit, independent read and child disposition | A second closure ledger or a copied backlog tally |
+| Decision / authorization | `docs/v1/V1-DECISION-REGISTER.md` | Judge act, conditions, authority and named source revision | Full handoff narrative or duplicated implementation instructions |
+| Product changelog | `docs/Modular_PRD.md` §0.1, only when Product requirements change | Product revision and owning decision | Governance-only transport changes; those remain in the Register and Git history |
+| Historical rationale | `docs/journal/` | Dated context after the canonical decision exists | Live status, authorization or the only copy of a requirement |
+| Takeover / lane selection | `docs/v1/V1-PHASE-CLOSURE.md` §5 and §5.0a `Report` column | Active/Eligible/Blocked state and the Lane A boundary-report reference | A duplicate lane-state table in a handoff or rule file |
+| Handoff transaction | Original entry under `docs/handoff/`, governed by `docs/handoff/README.md` | Raiser, answer, dependencies, lifecycle and terminal disposition | A new review-of-review entry for the same owner and scope |
+| QA and verification | Acceptance in Product/Fn Specs; technical proof in `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; Phase 1 critic evidence in `V1-PHASE-CLOSURE.md` §6; result linked from the original handoff | Expected behavior, deliberate failure proof, observed result and independent reviewer | A claim that `Acknowledged` or `Applied` equals `Verified` |
+| Scope / sequence / file tracking | `V1-DECISION-REGISTER.md`, `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`, plus `Modular_PRD.md` §8 when its trigger applies | Decision, order/DoD, artifact lifecycle, sprint/tier effect | Restated counts or a parallel status register |
+
+### Resolvable-reference format for Lane A placeholders
+
+Every anti-duplication placeholder must carry these five fields:
+
+1. **Source file:** repository-relative canonical path.
+2. **Source heading:** exact Markdown heading, not a line number that moves.
+3. **Source revision:** full committed SHA accepted by the Judge.
+4. **Destination file and heading:** exact insertion point and destination owner.
+5. **Application rule:** `copy verbatim`, `link only`, or `derive named fields`; no implied
+   paraphrase.
+
+For this packet the two references are:
+
+| Destination | Normative source before promotion | Application rule |
+|---|---|---|
+| `docs/LANE-B-WORK-ORDER.md` new `## 6. Evidence contract with Lane C` | B-103 `### P2` → `#### Lane B → Lane C: minimum allowlisted evidence`, at the Judge-accepted commit | Copy the complete child section verbatim, then treat the work-order section as the executable owner |
+| `.github/WORKFLOWS-SPEC.md` new `## 7. Evidence contract with Lane B` | B-103 `### P2` → `#### Lane C → Lane B: bounded deficiency feedback`, at the same commit | Copy the complete child section verbatim, then treat the workflow-spec section as the executable owner |
+
+### Lane A follow-up — parent first
+
+1. Commit the B-103 source and record its full SHA; do not authorize a moving working-tree block.
+2. Cowork validates the two P2 child headings and replaces each bracket placeholder in the
+   application packet with the five-field reference above. B-102 does not repeat the clauses.
+3. The Judge/Register act names B-102, B-103, their commits, Parts 1–2, the ten insertion points,
+   exclusions and Definition of Done.
+4. In the same governed pass, update Build Spec sequence/DoD. Record Inventory as unaffected
+   because no file is created or retired. Record Phase Closure as no lane-state change. Do not
+   touch Modular PRD §0.1 or §8 because no Product revision, sprint closure or tier opening occurs.
+5. Claude Code verifies the source SHA and headings, applies Part 1 literally and promotes each P2
+   child to its named destination. A source or anchor mismatch stops the unit.
+6. Record the application commit and check results in B-102/B-103. Lane B reviews its work-order
+   half; Lane C reviews its workflow-spec half; each records the exact independent read commit.
+7. Promote each original handoff child to `Verified`, `Deferred`, `Withdrawn` or `Superseded` only
+   when its own completion rule is met. The lane takeover record remains in Phase Closure §5.
+8. Graphify remains unchanged for this handoff worklog. Rebuild/re-merge only after verified
+   governed-source promotion, then prove `lastAnalyzedHead` equals the final Git HEAD.
+
+### Cross-artifact review
+
+`Modular_PRD`, storyboard, story panels, UML, data flow, requirements traceability, Encyclopedia
+and their cross-references are unaffected by this transport-and-evidence clarification. Their
+editorial actors, gates, data meanings and acceptance behavior do not change. If a later packet
+changes Product behavior, it must start from the owning Modular PRD feature group and follow the
+normal Product/Fn Spec/SPECS propagation; this packet is not that change.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Placeholders as anti-duplication references | Phase 1 — convert each to the five-field resolvable form |
+| Approve-with-conditions | B-103 P2 as the pre-promotion normative source | Phase 1 — pin the accepted commit and exact child headings |
+| Approve-with-conditions | Lane A Part 1/P2 application packet | Phase 1 — Register act, exact propagation, checks and independent B/C reads |
+| Reject | Treating bracket prose alone as executable or maintaining B-102 as a second semantic owner | Phase 1 — source reference must resolve without interpretation |
+| Defer | Product artifacts, implementation, deployment and Graphify synchronization | Separate authorized units after governed-source verification |
