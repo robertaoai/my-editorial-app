@@ -5,7 +5,17 @@
 - **Phase:** 1
 - **Blocks:** a truthful Lane A declaration that governance and documentation are ready for Lane B and Lane C; safe definition of the Lane B-to-Lane C evidence boundary and Lane C-to-Lane B monitoring feedback; no application build, workflow implementation, publication, lane transition or release action
 - **Status:** Open
-- **Lane A:** — awaiting Lane A acknowledgement
+- **Lane A:** **Acknowledged 2026-09-15, receipt only.** This entry is read as additive to, not a
+  replacement of, B-102 (consumer model) and B-077 (lifecycle/failure-pattern history), consistent
+  with its own framing; no duplicate readiness ledger is created. The P1 three-way workflow division
+  (Lane B editorial, Lane C delivery-assurance, Lane A interface) and the P2 evidence
+  allowlist/deficiency-schema shape are coherent with the existing lane split and are not disputed on
+  their substance. They are not applied to `AGENTS.md`, `docs/LANE-B-WORK-ORDER.md` or
+  `.github/WORKFLOWS-SPEC.md` by this acknowledgement: P0–P2 acceptance and the closure order in this
+  entry's own "Chief Editor decisions needed" section are Chief-Editor-gated, and recorded there for
+  decision, not decided here. Lane A's own preparation order is accepted as stated: B-101 first, then
+  the B-102/B-103 control-plane packet, before any further review of the same issue. No governed
+  source, application code, schema, workflow or Graphify action is taken.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Chief Editor/Judge clarifications of 2026-09-15; B-077, B-101 and B-102; `AGENTS.md` D-56/D-75/D-84/D-86/D-100/D-183/D-186; `docs/handoff/README.md`; `.github/WORKFLOWS-SPEC.md`; `docs/LANE-B-WORK-ORDER.md`; `docs/Modular_PRD.md` FR-14/NFR-08/Q4; `docs/fn-specs/FN-GATES-01-05.md`; `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`; `docs/governance/requirements-traceability-map.md`; `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json`; `bun run check` at the named commit.
 - **Verified-At-Commit:** cf7c9c16007834dcf4cce924a29b1172d720f07a
