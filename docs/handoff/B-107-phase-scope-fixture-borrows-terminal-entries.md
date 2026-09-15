@@ -5,7 +5,20 @@
 - **Phase:** 1
 - **Blocks:** treating the complete fixture suite as trustworthy; does not block D-228's independently passing five targeted cases or P2 document review
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged and answered, 2026-09-15.** `phaseScope()` in `scripts/fixtures/suites.mjs`
+  is rewritten per this entry's exact five-point guide: both real controls (`B-016`, `B-017`) are
+  manufactured to a non-terminal state from their own saved bytes via a stripped `Resolution:` line,
+  never read from live status; a third synthetic-only entry, `B-999-fixture-phase-scope-blocker.md`,
+  is created and removed within the fixture to prove "the gate stays live for other Phase 1 entries"
+  without depending on which real entries happen to be open; every assertion now names its target
+  entry (`B-017` must be named when Phase 1 closes, `B-016` must not be, `B-999` must remain named
+  after `B-017` turns `Withdrawn`) instead of a generic phrase any open Phase-1 entry could satisfy.
+  Regression evidence: the prior version, run against this same repository state, reported exactly
+  the failure this entry describes — case 2 `MISS`, "the gate did not fire at all" — confirmed before
+  this rewrite (see `B-102`'s `laneBoundaryToolCrossing` closure note citing the same `bun run
+  fixtures` run). All three `phaseScope` cases now pass on their own manufactured evidence; the tree
+  restores byte-for-byte, verified by `git status --porcelain` returning empty immediately after an
+  isolated run. `closure-readiness.mjs` is unchanged — the repaired fixture did not prove it wrong.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `scripts/fixtures/suites.mjs` `phaseScope()`; B-016 and B-017 headers; independently reproduced `bun run fixtures` result 86/87 at read commit `0db245e09a9eedd9558480db434a423d5702b1b7`
 - **Verified-At-Commit:** 0db245e09a9eedd9558480db434a423d5702b1b7

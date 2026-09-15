@@ -349,11 +349,33 @@ export async function handoffFields(results) {
 }
 
 /** `D-102`, `B-013` item 6 — closure gating is phase-scoped, both halves. */
+/**
+ * `D-102`, `B-013` item 6 — closure gating is phase-scoped, both halves.
+ *
+ * `B-107`: this used to borrow B-017 (Phase 1) and B-016 (Phase 3) exactly as
+ * they stood live, on the assumption that B-017 was Open and B-016 was a
+ * live Phase-3 blocker. Both are long since terminal, so the isolation case
+ * could no longer manufacture the Phase-3 finding it needed to prove
+ * exclusion — reporting `MISS` — and the terminal-entry case could pass
+ * without ever observing a transition, because B-017 was already terminal
+ * before the fixture mutated it. Every case below now manufactures its own
+ * non-terminal state from the real entries' saved bytes (never a live
+ * value), and each assertion names the specific entry it is proving
+ * something about, not a generic phrase any open Phase-1 entry could satisfy.
+ */
 export async function phaseScope(results) {
   const orig = read(CLOSURE);
-  const p1 = "docs/handoff/B-017-handoff-closure-parser-false-green.md"; // Phase 1, Open
+  const p1 = "docs/handoff/B-017-handoff-closure-parser-false-green.md"; // real Phase 1 entry, terminal today
+  const p3 = "docs/handoff/B-016-lane-c-required-check-transition-defects.md"; // real Phase 3 entry, terminal today
+  const blocker = "docs/handoff/B-999-fixture-phase-scope-blocker.md"; // synthetic-only; never a real ID
   const p1Orig = read(p1);
-  const restore = () => { write(CLOSURE, orig); write(p1, p1Orig); };
+  const p3Orig = read(p3);
+  const restore = () => {
+    write(CLOSURE, orig);
+    write(p1, p1Orig);
+    write(p3, p3Orig);
+    if (existsSync(blocker)) rmSync(blocker);
+  };
 
   // Close Phase 1 by filling its `Closed` cell.
   const closePhase1 = (text) => {
@@ -370,18 +392,46 @@ export async function phaseScope(results) {
     return lines.join("\n");
   };
 
+  // Manufacture a non-terminal control from a real entry's own saved bytes:
+  // drop the `Resolution:` line entirely, which is exactly the `!resolution`
+  // shape `closure-readiness.mjs` names by PATH in its own finding — so
+  // asserting on the entry's ID is asserting on the manufactured state, not
+  // on whichever real entries happen to be open the day this fixture runs.
+  const stripResolution = (text) => text.replace(/^- \*\*Resolution:\*\*.*\n/m, "");
+
+  const blockerText = [
+    "# B-999 — fixture-only synthetic Phase 1 blocker",
+    "",
+    "- **Raised:** fixture",
+    "- **Kind:** finding",
+    "- **Phase:** 1",
+    "- **Status:** Open",
+    "- **Lane A:**",
+    "",
+    "Synthetic entry, created and removed by `phaseScope()` in `scripts/fixtures/suites.mjs` (`B-107`).",
+    "It exists only so \"the gate stays live for other Phase 1 entries\" does not depend on which real",
+    "handoff entries happen to be open when this fixture runs.",
+    "",
+  ].join("\n");
+
   await fixture(results, {
     name: "phase scope: an OPEN Phase 1 entry fails Phase 1 closure",
     modulePath: CHECK("closure-readiness.mjs"),
-    mutate: () => write(CLOSURE, closePhase1(orig)),
+    mutate: () => {
+      write(CLOSURE, closePhase1(orig));
+      write(p1, stripResolution(p1Orig));
+    },
     restore,
-    expect: "phase 1 claims closure",
+    expect: "B-017",
   });
 
-  // The other half: a Phase 3 entry must NOT fail Phase 1's boundary. Asserted
-  // by name, because "no findings" would also be satisfied by a disabled gate.
+  // The other half: a Phase 3 entry must NOT fail Phase 1's boundary. Both
+  // controls are manufactured non-terminal so the finding can only come from
+  // the phase-scoping logic itself, never from incidental live state.
   {
     write(CLOSURE, closePhase1(orig));
+    write(p1, stripResolution(p1Orig));
+    write(p3, stripResolution(p3Orig));
     try {
       const mod = await import(`${CHECK("closure-readiness.mjs")}?t=${Date.now()}`);
       const out = mod.run();
@@ -397,26 +447,26 @@ export async function phaseScope(results) {
     }
   }
 
-  // Making the entry terminal must silence the gate FOR THAT ENTRY. Other
-  // Phase 1 entries are still open and still fail, so "no findings at all" is
-  // the wrong assertion — and asserting it that way is how this fixture was
-  // first written, which is why it missed (`D-106`). The claim is narrow:
-  // B-017 specifically stops being named.
+  // Making the entry terminal must silence the gate FOR THAT ENTRY. A
+  // separately manufactured Phase 1 blocker (never B-017 itself) proves the
+  // gate has not simply gone silent for everyone — the claim this fixture
+  // makes is narrow: B-017 specifically stops being named, nothing broader.
   {
     write(CLOSURE, closePhase1(orig));
-    write(p1, p1Orig.replace(/^- \*\*Resolution:\*\*.*$/m, "- **Resolution:** Withdrawn"));
+    write(p1, stripResolution(p1Orig).replace(/^(- \*\*Status:\*\*.*)$/m, "$1\n- **Resolution:** Withdrawn"));
+    write(blocker, blockerText);
     try {
       const mod = await import(`${CHECK("closure-readiness.mjs")}?t=${Date.now()}`);
       const out = mod.run();
       const stillNamed = out.findings.some((f) => f.includes("B-017"));
-      const gateStillLive = out.findings.some((f) => f.includes("claims closure"));
+      const otherBlockerNamed = out.findings.some((f) => f.includes("B-999"));
       results.push({
         name: "phase scope: a terminal Phase 1 entry stops blocking",
-        ok: !stillNamed && gateStillLive,
+        ok: !stillNamed && otherBlockerNamed,
         detail: stillNamed
           ? "B-017 is terminal and the gate still names it"
-          : gateStillLive
-            ? "B-017 silenced while the gate stays live for the others"
+          : otherBlockerNamed
+            ? "B-017 silenced while the manufactured B-999 blocker keeps the gate live"
             : "the gate went silent entirely — that is a disabled gate, not a satisfied one",
       });
     } finally {
