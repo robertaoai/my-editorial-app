@@ -15,6 +15,20 @@
   Editor instead, and Lane A follows that section. Relayed to the Chief Editor, not decided by this
   acknowledgement: the Choice A/B/C consumer model, B-084 capacity and A4 acceptance, and B-088 P1.
   No governed source, Product, Fn_Spec, storyboard, schema, workflow or Graphify action is taken.
+
+  **Acknowledged, continued, 2026-09-15 (at read commit `efab1a4`, then `7256d89`, per Lane B's
+  report; not independently git-verified from this session).** Two later sections accepted as
+  stated: the intent-promotion/Graphify-activation rule (worklog is not the governed-intent graph;
+  Graphify runs only after promoted intent is committed and independently verified; codebase/KB
+  Graphify and Swagger/OpenAPI generation wait for successful deployment evidence), and the
+  control-drift finding. **The control-drift finding is independently confirmed by this session**,
+  not merely relayed: this session read `docs/graph-fragments/missing.js` directly and it walks all
+  of `docs` recursively with no `docs/handoff` exclusion, and read `scripts/checks/docs-drift.mjs`
+  directly and it compares `lastAnalyzedHead` to Git `HEAD` with no distinction for a handoff-only
+  change. `.graphify/manifest.json` and the sync-docs `SKILL.md` were not independently re-read this
+  pass; treated as consistent with the two confirmed files. This session performs no code change
+  here; `missing.js`, `docs-drift.mjs` and the sync-docs procedure are Lane A · Code's surface, and
+  this acknowledgement proposes the fix rather than applying it.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Chief Editor/Judge clarification of 2026-09-15; `AGENTS.md` D-84/D-86/D-183/D-186 and lane surfaces; `docs/README.md` request-to-execution flow; `docs/LANE-B-WORK-ORDER.md`; `.github/WORKFLOWS-SPEC.md`; live B-071/B-084/B-088/B-094–B-101 lifecycle records; `docs/Modular_PRD.md`; storyboard, embedded UML/data-flow views, traceability and `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json` at the named commit.
 - **Verified-At-Commit:** 865d1f6f5e35443a411674a47121e61e5196b708
