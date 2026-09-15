@@ -1,0 +1,73 @@
+{
+  "nodes": [
+    {
+      "id": "d231_governed_intent_exclusion_matcher",
+      "label": "D-231: graph-coverage and docs-drift Share a Governed-Intent Exclusion Matcher",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e56",
+      "description": "Lane A Code control implementation, 2026-09-15, closing the control drift docs/handoff/B-102 identified and named again in every parent-first queue since (B-102, B-107, B-108): graph-coverage and docs-drift each independently decided what counts as governed content, and neither excluded docs/handoff/ despite the Judge's clarification that the handoff worklog is not the governed-intent graph source. New scripts/checks/governed-intent.mjs supplies one matcher (docs/handoff/**, docs/.graphify/**) used by both checks, plus a pure classifyChangedPaths() for direct fixture testing. graph-coverage now enumerates only included governed-intent Markdown and names the excluded class rather than a bare count (result: 0 absent, was 14). docs-drift now inspects the actual paths changed between lastAnalyzedHead and HEAD via git diff, passing when every changed path is excluded and failing when at least one governed-intent path changed -- a mixed governed/handoff commit still fails, since the exclusion is per-path, not per-commit. Corrected by B-109 the same day: the range lookup first shipped as a shell string built from unvalidated .graphify/branch.json content; getChangedPaths() now calls execFileSync with an argument array instead, the same fix D-106 already applied once to lane-gate.mjs. Propagated per D-54 by B-110's review: V1-BUILD-SPEC.md section 7 gains standing invariant 11 (current behaviour and DoD) and V1-ARTIFACT-INVENTORY.md gains a dedicated row for the new file -- the implementation commit (c53412b) preceded this Register propagation act rather than landing atomically with it, recorded honestly rather than implied otherwise. Eight fixture cases (five exclusion, three argument-safety) pass from a clean tree.",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "graph-coverage and query/explain need this governing decision queryable and linked to the code it authorizes and the tracking documents it propagated into -- Lane B's independent review (B-109, B-110) found the control correct in substance but initially unsafe in its Git invocation and incomplete in its D-54 propagation; this node records the corrected, complete state."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d231_governed_intent_exclusion_matcher",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e56",
+      "weight": 1
+    },
+    {
+      "source": "d231_governed_intent_exclusion_matcher",
+      "target": "checks_governed_intent",
+      "relation": "implements",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e56",
+      "weight": 1
+    },
+    {
+      "source": "d231_governed_intent_exclusion_matcher",
+      "target": "checks_graph_coverage",
+      "relation": "implements",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e56",
+      "weight": 1
+    },
+    {
+      "source": "d231_governed_intent_exclusion_matcher",
+      "target": "checks_docs_drift",
+      "relation": "implements",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e56",
+      "weight": 1
+    },
+    {
+      "source": "d231_governed_intent_exclusion_matcher",
+      "target": "checks_docs_drift_getchangedpaths",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e56",
+      "weight": 1
+    },
+    {
+      "source": "d231_governed_intent_exclusion_matcher",
+      "target": "d230_d229_completion_boundary_two_stage",
+      "relation": "references",
+      "confidence": "CURATED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e56",
+      "weight": 1
+    }
+  ]
+}
