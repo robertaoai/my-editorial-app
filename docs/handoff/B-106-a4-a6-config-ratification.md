@@ -5,7 +5,25 @@
 - **Phase:** 1
 - **Blocks:** truthful configuration readiness for the two named values; no unrelated planning or build work
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-09-15 at read commit `ebd3c29`** (per Lane B's report; not
+  independently git-verified from this session). The Chief Editor's direct decision-tree act is
+  accepted as recorded: `SCORING_REVIEW_THRESHOLD_ARTICLES = 50` (A4) and
+  `DATA_RETENTION_ARCHIVE_DAYS = 90` (A6) are approval-of-the-presented-row events, not runtime
+  activation, scoring execution or archival authority. The already-appended Judge clarification
+  resolving the A6 collision is also accepted as stated: the 90-day value is the first UI-visible
+  operational/PDPA boundary; the five-year TAX/ACRA rule is a later, external, financial-record-only
+  workflow that the application never displays as a competing editable value; the external system
+  supplies only the fact needed for honest UI/audit behavior. This supersedes the earlier three-way
+  retire/rename/third-clock framing in this same entry's own first section.
+
+  **Sources-checked gate, not yet cleared for drafting the exact packet:** this session has not yet
+  read `D-134`, `D-135`, `D-198` or `B-085` in this pass, which this entry's own Lane A follow-up
+  step 1 requires before either configuration row is edited. No Register arbitration act, ledger
+  correction, or artifact-impact packet is drafted by this acknowledgement. That drafting is the
+  next bounded Lane A task, gated on those four reads.
+
+  No governed source, Product, Fn_Spec, storyboard, schema, workflow, runtime configuration
+  metadata or Graphify action is taken by this acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** ae5548c4a6f51dc3b5b1df9343769fa47f33cc00
 - **Evidence:** Chief Editor's 2026-09-15 direct act; `CONFIG_LOG.md` §2; `DECISION_LOG.md` §§1–3; `lib/config/build-config.ts`; Register `D-134`, `D-135`, `D-198`; `B-085` G-3 disposition.
@@ -155,3 +173,85 @@ same bounded propagation that makes those meanings consistent.
 | Approve-with-conditions | Product/UI archive or absence display | Phase 1 specification — externally supplied fact, no inferred act and no external-workflow execution |
 | Defer | Runtime metadata update | Lane B unit after the governed packet is committed and independently verified |
 | Reject | Treating 90 days as deletion, treating five years as the first UI clock, or showing both as competing editable values | Contradicts the Judge's ordered workflow |
+
+## Lane B independent source review — ready-to-apply Lane A arbitration draft, 2026-09-15
+
+Lane B read the four required sources at Git baseline `68e85d9`: Register `D-134`, `D-135`,
+`D-198`, and B-085's G-3 review. This clears the read gate for drafting; it does not authorize Lane
+B to edit the Register.
+
+### What those sources establish
+
+| Source | Preserved fact | Fact amended by the later Judge clarification |
+|---|---|---|
+| `D-134` | `RET-POC-90`, `REUSE-WINDOW-90` and financial retention are distinct; archive/disposal operations are external | Five-year financial-policy default must not appear as the first UI-visible A6 value |
+| `D-135` | Product owns explainable absence, while the external process owns archive/restoration/disposal | Product text currently uses five-year rejected-editorial archival as its concrete UI case and needs re-evaluation |
+| `D-198` | Old 90/unratified configuration declarations are inconsistent with the then-current governed policy; no audit alone authorizes a forced change | The later direct Judge act now supplies the missing decision event, subject to correct semantics |
+| `B-085` | Reconcile the source and ledger rather than invent a day conversion or runtime job | The reconciliation now has a supplied sequential UI/external model |
+
+The current source also calls `RET-POC-90` a PDPA deletion period. Applying deletion at day 90 and
+then retaining the same financial record for five years is impossible. The new ruling therefore
+requires one explicit precedence rule: **the day-90 application event is a current-view removal and
+external handoff, never proof of deletion. An applicable external financial or legal hold overrides
+disposal.** The external system decides later disposal under its own record-class policy.
+
+### Proposed Register wording — specified, not applied
+
+> **A4/A6 configuration and ordered retention visibility — Chief Editor ruling, 2026-09-15.**
+> `SCORING_REVIEW_THRESHOLD_ARTICLES = 50` is ratified as the point at which the scoring proposal is
+> reviewed; it does not establish scoring readiness, activate an algorithm or advance an editorial
+> gate. `DATA_RETENTION_ARCHIVE_DAYS = 90` is ratified as the first my-editorial-app UI boundary for
+> records governed by the operational/PDPA retention workflow. At that boundary the application may
+> consume a supplied external handoff/archive fact and remove the record from its current view. It
+> neither performs nor infers archival, disposal or deletion from elapsed time.
+>
+> Where the externally held record is classified as a TAX/ACRA financial record, the external
+> records system then applies the five-year financial-retention rule. A financial/legal retention
+> duty prevents disposal at day 90. The editorial UI does not display the five-year value as a
+> competing clock or editable state; it displays only its 90-day boundary and the externally
+> supplied status needed for explainable absence. Non-financial external retention follows its
+> applicable external record-class policy and is not invented by this application.
+>
+> This act amends `D-134`/`D-135` only where their five-year financial-policy default was presented
+> as the first Product/UI archival value. It preserves the distinction from `REUSE-WINDOW-90`,
+> preserves external ownership of archive/restoration/disposal, and authorizes no job, migration,
+> deletion, scoring engine, sprint or release.
+
+### Exact Lane A source packet
+
+1. **Register:** append the ruling above and add a dated correction pointer at `D-134`, `D-135` and
+   `D-198`; preserve their historical text.
+2. **Business Case / Blueprint:** separate the UI-visible 90-day operational boundary from later
+   external record-class retention. Replace any statement that makes a financial-policy default the
+   first editorial UI clock. Preserve the independent reuse window.
+3. **Product / FN audit:** make `AC-12a` depend on a supplied external fact. Show current, externally
+   handed-off/archived, and unknown-not-established outcomes. Do not show the later five-year
+   financial countdown.
+4. **Decision and Config logs:** record the dated ratification events; change the two current
+   “unratified/never put” declarations only after the Register wording is accepted and applied.
+5. **Build Spec / V1 propagation:** correct current ratification statements. Inventory is
+   unaffected unless a file is created or retired; Product §8 is unaffected because no sprint
+   closes and no tier opens.
+6. **Storyboard/UML/data flow/traceability/Encyclopedia:** use the artifact treatment already in
+   this entry. One external fact flows into the UI; no application command flows out to operate
+   retention. Hosted Encyclopedia verification remains separate.
+7. **Lane B code metadata:** later bounded unit only. The value `90` remains; status/citation and any
+   misleading symbol treatment follow the accepted source packet. No schema is inferred.
+
+### Success criteria derived from failure
+
+| Guaranteed failure | Required evidence of success |
+|---|---|
+| Day-90 deletion destroys a record still under five-year financial retention | Test example shows view removal/external handoff at 90 and continuing external financial retention; no deletion fact is inferred |
+| Product displays both 90 days and five years as competing A6 settings | UI acceptance shows only the 90-day boundary plus supplied external status |
+| Every editorial record is called a financial record to borrow five years | Record classification determines the external policy; non-financial retention is not invented by the app |
+| A missing external event is rendered as “archived” | Missing/invalid fact yields unknown/not established and preserves the last proved state |
+| Configuration flags become `RATIFIED` before sources agree | Register, ledgers and Product semantics commit first; Lane B independently verifies before a code unit opens |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | The proposed Register arbitration as Lane A's reviewable draft | Phase 1 — Cowork validates exact wording against the Judge act |
+| Approve-with-conditions | Ratifying `DATA_RETENTION_ARCHIVE_DAYS = 90` | Phase 1 — current-view/external-handoff meaning and retention-hold precedence propagate together |
+| Approve | Ratifying `SCORING_REVIEW_THRESHOLD_ARTICLES = 50` | Phase 1 — review threshold only; TC3 and no-auto-advance remain |
+| Reject | Day-90 deletion where an external retention duty applies | Contradicts the ordered workflow and destroys later evidence |
+| Defer | Governed-source application, code metadata and Graphify | Exact Judge act; application; independent verification; graph last |
