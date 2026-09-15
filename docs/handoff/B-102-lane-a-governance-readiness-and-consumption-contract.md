@@ -737,3 +737,191 @@ normal Product/Fn Spec/SPECS propagation; this packet is not that change.
 | Approve-with-conditions | Lane A Part 1/P2 application packet | Phase 1 — Register act, exact propagation, checks and independent B/C reads |
 | Reject | Treating bracket prose alone as executable or maintaining B-102 as a second semantic owner | Phase 1 — source reference must resolve without interpretation |
 | Defer | Product artifacts, implementation, deployment and Graphify synchronization | Separate authorized units after governed-source verification |
+
+## Lane A — Register read and corrected packet, 2026-09-15
+
+**Judge approved-with-conditions, 2026-09-15: Part 1 conditioned on "committed packet, Register
+read/act, correct seven-file propagation"; Part 2 conditioned on "full clauses above, dependency
+recorded, three insertion points."** This section clears the Register-read condition and folds in
+the remaining corrections. Still specified only; still not applied to any governed file.
+
+**Targeted Register read, not the full 1.26MB file:** `D-200`, `D-201`, `D-202`, `D-203`, `D-209`
+and `D-214`, grepped and read directly. This session has still not read `V1-DECISION-REGISTER.md`
+in full and does not claim to.
+
+**What that read changes about the proposed wording:**
+
+1. **Entry format.** Every act uses the heading `## 5.14eNN \`D-NNN\` — <Title>`, opens with a bold
+   **"Judge ruling, [date]"** line naming what was decided and on what question, and closes with an
+   explicit **"### Applied in this act, and NOT applied — stated separately"** split (`D-56`) — never
+   a single undifferentiated paragraph. My earlier proposed wording was a single paragraph. Corrected
+   shape below.
+2. **A `### Tier applicability (\`D-54\`)` table is mandatory**, not optional — this is blocker 6 from
+   the application-readiness review, now sourced to the actual convention (`D-200`'s own §5.14e25 has
+   one). Columns, exactly as used at `D-200`/`D-201`/`D-202`: `Item | Register | Agent files |
+   SPECS-VERIFICATION | Inventory | Build spec | Modular_PRD`, each cell either the section anchor
+   that applies it or **"— unaffected"** with the one-clause reason.
+3. **No new commit-referent machinery.** `D-214` is a direct, on-point precedent against exactly the
+   kind of addition my original "dual author/applicator provenance" phrasing risked: it withdrew
+   `D-213`'s pin/sentinel/lifecycle-state machinery and ruled `Verified-At-Commit` means only "the
+   commit whose content the record was written against — the commit the writer READ," with **no
+   second field, no new state**. Author/applicator provenance therefore belongs in the **commit
+   message prose**, not a new Register field — `Verified-At-Commit` keeps exactly `D-214`'s meaning,
+   unchanged, everywhere this packet touches it.
+
+### Corrected Part 1 Register act — specified, not applied
+
+> **`D-2NN` — Cowork Semantic-Author / Claude Code Commit-Applicator Transport Exception**
+>
+> **Judge ruling, [date at acceptance].** Lane A · Cowork owns governance/documentation meaning under
+> the existing tool split (`D-200`–`D-202`). Where Cowork lacks Git commit access, Lane A · Claude
+> Code may apply and commit Cowork's immutable, Judge-accepted governance/documentation packet as a
+> transport act: no semantic conflict resolution, no added path, no rewritten wording. An
+> inexact-application conflict returns to Cowork and the Judge without repair. **The commit message**
+> states Cowork as semantic author and Claude Code as applicator; `Verified-At-Commit` keeps `D-214`'s
+> meaning unchanged — the commit whose content was read, no second field. This creates no `A-`series
+> handoff, transfers no documentation ownership to Code, and narrows nothing in `D-184`'s existing
+> one-entry handoff-commit exception, which remains separate and unchanged.
+>
+> ### Applied in this act, and NOT applied — stated separately
+>
+> **Applied (Cowork surfaces):** this section; the shared-core paragraph in `AGENTS.md`, `CLAUDE.md`
+> and `.agents/rules/graphify.md`; `docs/README.md`'s Execution row; `V1-BUILD-SPEC.md` §2;
+> `V1-PHASE-CLOSURE.md` §5.0a.
+>
+> **Specified, NOT applied (`D-56`):** none — this act is entirely Cowork's surface; no Claude Code
+> implementation item is owed by this ruling.
+>
+> ### Tier applicability (`D-54`)
+>
+> | Item | Register | Agent files | SPECS-VERIFICATION | Inventory | Build spec | Modular_PRD |
+> |---|---|---|---|---|---|---|
+> | Transport exception | ✅ this section | ✅ shared core, all three | — unaffected: no verification-apparatus change | — unaffected: no file created or retired | ✅ §2 | — unaffected: a development-lane fact, never a product one |
+>
+> ### What this act does NOT do
+>
+> Opens no phase, closes none. Authorizes no build, sprint, migration, deployment or Graphify run.
+> Changes no product tier, no lane state, no `Modular_PRD` §0.1 or §8 entry.
+
+### Corrected Part 2 Register act — specified, not applied
+
+> **`D-2NN` — B-103 P2 Two-Way Lane B/C Evidence Contract**
+>
+> **Judge ruling, [date at acceptance].** B-103's `### P2 — accept the two-way B/C evidence contract`
+> and its two child headings, at the Judge-accepted commit, are ratified as the bounded evidence
+> interface. Lane B exposes only the allowlisted class; Lane C consumes only that class and returns a
+> named deficiency, never an invented endpoint, event schema or Product requirement. This carries
+> forward B-094's already-standing P0-A/P1/P2 planning directions as dependencies, not as a business
+> choice reopened here (B-103's "Lane B packet cross-reference" section, B-094 line 815 area).
+>
+> ### Applied in this act, and NOT applied — stated separately
+>
+> **Applied (Cowork surfaces):** this section, citing B-103 `### P2` verbatim by reference, not by
+> copy.
+>
+> **Specified, NOT applied (`D-56`) — Claude Code's surface:** promote the cited P2 children into
+> `docs/LANE-B-WORK-ORDER.md` new `## 6. Evidence contract with Lane C` and `.github/WORKFLOWS-SPEC.md`
+> new `## 7. Evidence contract with Lane B`, exactly per B-102's "Resolvable-reference format" table
+> above — copy verbatim, no paraphrase.
+>
+> ### Tier applicability (`D-54`)
+>
+> | Item | Register | Agent files | SPECS-VERIFICATION | Inventory | Build spec | Modular_PRD |
+> |---|---|---|---|---|---|---|
+> | B/C evidence contract | ✅ this section | — unaffected: not a lane/tool-split fact | — unaffected: no verification-apparatus change | — unaffected: no file created or retired | — unaffected: no sequence or DoD moves | — unaffected: a development-lane fact, never a product one |
+>
+> ### What this act does NOT do
+>
+> Opens no phase, closes none. Reopens no P0/P1 business choice. Authorizes no application code,
+> workflow YAML content beyond the cited allowlist, or Graphify run.
+
+### Still not cleared, stated plainly
+
+- **Blocker 2 (commit this handoff entry as immutable) is Lane A · Claude Code's to clear** — this
+  session has no Git commit access; it can only keep the working-tree text stable.
+- **The two `D-2NN` numbers above are placeholders for the Judge/Register to assign at acceptance**,
+  not a claim that this session read ahead to the next free number.
+- **B-106's own Lane A validation is separately being restored this pass** (see B-106) after this
+  session found its own prior addition missing from the current file; noted here because B-094
+  correctly flagged it as not yet established.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Register-convention correction (entry format, `D-54` table, no new commit-referent field) | Phase 1 — matches `D-200`/`D-201`/`D-202`/`D-214` as read |
+| Approve | Both corrected Register acts above | Phase 1 — Judge assigns `D`-numbers at acceptance |
+| Approve | P0/P1 carried as dependency, not reopened | Phase 1 — per B-103's cross-reference and B-094's standing record |
+| Defer | Commit of this handoff entry, and both Register acts' actual filing | Lane A · Claude Code and Judge/Register respectively |
+
+## Lane B independent review — Register precedent exists; application authority does not, 2026-09-15
+
+Lane B verified the Git and source claims directly. The three preceding Lane B handoff commits exist:
+`73b4ce28e2dafeb3137ecb78eecb6f35619bdf27`,
+`c55dfee90cbdc72a1ebc353798ee5d5f88e7d952` and
+`14b608622f33c8fa23d2f128a845e93e574b0056`. Lane A's four later additions were present only as
+working-tree edits at this review; the phrase “four files committed this pass via the file bridge”
+therefore meant written to disk, not committed to Git. This review commits each original entry under
+the existing one-entry exception so the packet can be cited immutably.
+
+The existing Register provides the **format and precedent** for a new act. It does not yet contain
+either proposed `D-2NN` act. “The Register is in place” is therefore true only of the governing
+machinery; the application authorization remains absent until the Judge accepts exact text and Lane A
+records real decision identifiers.
+
+### Parent-first decision table
+
+| Order | Parent / child | Verified state | Judge choice and recommended disposition | Completion evidence |
+|---:|---|---|---|---|
+| 1 | P0 — immutable source packet | The B-103 P2 source already exists at `73b4ce2`; Lane A's response additions were uncommitted at review | **Accept** committing the four original entries separately | Full Git hashes exist and working tree is clean |
+| 2 | P1 — semantic ownership | Both `docs/LANE-B-WORK-ORDER.md` and `.github/WORKFLOWS-SPEC.md` are Cowork-owned documentation surfaces under `D-200`/`D-201` | **Reject** “Claude Code's surface”; **accept** Cowork semantic owner with Code as bounded commit-applicator | Proposed act states the owner and transport role separately |
+| 3 | P2 — Judge/Register act | Two structurally corrected drafts exist; no assigned decision IDs exist in the Register | **Accept-with-conditions** only after final literal diff and real IDs are presented | Register commit contains the accepted acts and no placeholder ID |
+| 4 | P3 — propagation | B-102 earlier requires Build Spec sequence/DoD for both parts; Lane A's later Part 2 draft says Build Spec unaffected | **Accept** one consistent rule: Part 2 updates Build Spec readiness/DoD because its outputs govern both construction and verification | Register tier table, Build Spec and both work orders cite the same contract; Inventory and Product tier are explicitly unaffected |
+| 5 | P4 — application | No governed source has been edited by this handoff work | **Defer** until P0–P3 complete | Accepted source SHA and headings match; Cowork-owned destinations receive verbatim text through the authorized applicator path |
+| 6 | P5 — verification and graph | No independent destination review or governed-source Graphify update exists | **Defer** until application commit | Lane B and Lane C record independent reads; checks pass; Graphify runs only when the verified governed-intent trigger is met |
+
+### Exact fixes Lane A must make before Code applies the packet
+
+1. In the proposed Part 2 act replace **“Claude Code's surface”** with **“Cowork-owned semantic
+   destinations; Claude Code is the bounded commit-applicator under the accepted transport
+   exception.”** The applicator does not acquire documentation ownership.
+2. Replace the floating B-103 source reference with the full source commit
+   `73b4ce28e2dafeb3137ecb78eecb6f35619bdf27` and the exact two P2 child headings. A later
+   acknowledgement commit does not change the P2 text and need not become its source anchor.
+3. Reconcile the Part 2 D-54 table with B-102's earlier propagation boundary. Recommended: Build
+   Spec records the evidence contract as a readiness prerequisite and DoD because the contract
+   controls construction inputs and verification outputs. Inventory stays unaffected; Modular PRD
+   §0.1/§8 stays unaffected; Phase Closure records no lane-state change.
+4. Keep `SPECS-VERIFICATION` unchanged in this act only if the work-order contract merely selects
+   evidence already governed there. If the act adds a new negative probe, signal type or proof rule,
+   name the exact verification-spec section in the same packet. Do not label a new verification
+   obligation “unaffected.”
+5. Present the literal Register and governed-file diff to the Judge. After acceptance, assign real
+   decision IDs, apply the Cowork-owned edits, run the checks, and record the exact application
+   commit in B-102 and B-103.
+
+### Remaining blockers after the handoff commits
+
+| Blocker | Owner | Exit condition |
+|---|---|---|
+| Part 2 ownership sentence is wrong | Lane A · Cowork | Corrected proposed act names Cowork as semantic owner and Code only as applicator |
+| Part 2 propagation contradicts the earlier packet | Lane A · Cowork, then Judge | One accepted tier table and matching Build Spec treatment |
+| Proposed acts still use `D-2NN` | Judge / Register owner | Real IDs assigned in the accepted Register commit |
+| No exact governed-source application authorization | Judge | Accepted literal write set, source hashes, destinations, exclusions and DoD |
+| No application or independent destination review | Lane A applicator, then Lanes B/C | Governed-source commit followed by two bounded read records |
+
+### Graphify and cross-artifact disposition
+
+`.graphify/branch.json` still reports `lastAnalyzedHead = f63d6eb`, while Git HEAD is later. The
+flag `stale: false` is not reliable because the project has no Graphify Git hook. The committed diff
+since that anchor contains handoff worklog files plus `.gitignore`'s exclusion of `Claude outputs/`;
+it contains no governed Product, storyboard, story panel, UML, data-flow, traceability or
+Encyclopedia change. Under the Judge's recorded trigger, no semantic Graphify synchronization is due
+yet. It becomes due after the accepted governed-source packet is applied and independently verified.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Register conventions and the two reviewable act drafts as planning inputs | Phase 1 — correct ownership, propagation and IDs before acceptance |
+| Approve | Commit of Lane A's four handoff responses as immutable transaction evidence | Current handoff phase — one entry per commit |
+| Reject | Claim that the new Register acts already exist or authorize Code | They remain unfiled drafts |
+| Reject | Part 2 destinations described as Claude Code-owned | Cowork owns their meaning; Code may only apply/commit an accepted packet |
+| Approve-with-conditions | Part 2 construction/verification evidence contract | Phase 1 — consistent Build Spec DoD and verification-spec applicability |
+| Defer | Governed-source edits, software/workflow construction, deployment and Graphify | Exact Judge act, application and independent verification first |
