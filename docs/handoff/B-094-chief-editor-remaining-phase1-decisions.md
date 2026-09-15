@@ -51,6 +51,21 @@
   session independently re-checked `.graphify/branch.json` this pass: `lastAnalyzedHead` and
   `mergeBase` are both `f63d6eb`, confirming no analysis has run past the pre-worklog baseline,
   consistent with the Graphify-exclusion ruling already recorded here and in B-102.
+
+  **Acknowledged, continued, 2026-09-15 (at read commit `7cd1ff7`, per Lane B's report; not
+  independently git-verified from this session).** The consolidation answer is accepted as the
+  standing rule: one coordinated Judge act may accept the related Phase 1 packet in dependency order;
+  B-102, B-084, B-106, B-104, B-096, B-097 and B-088 keep their own status, owner and independent
+  verification evidence, and are not merged or bulk-closed. `deb3048` is now confirmed as the commit
+  that introduced B-104, matching this session's own prior self-correction of that citation.
+
+  **Remaining-gaps item 1 (validate B-106's draft) is done this pass**, recorded in B-106 directly.
+  **Remaining-gaps item 2 (finish the exact B-102/B-103 packet) is not done this pass.** It requires
+  reading `AGENTS.md`, the Build Spec, the Phase Closure run/provenance contract and `docs/README.md`
+  in full, none of which this session has read yet, before drafting a governed-rule amendment. Per
+  this session's own pre-draft gate (adopted after the B-104/B-105 rework), that packet is not
+  drafted from memory. Flagged to the Judge as the single largest remaining task, not silently
+  carried forward.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** f63d6eb2e6a3c5815dff5f5df847ea20c8db7bdc
 - **Evidence:** Live review of B-084, B-088 and B-077 Child 2 at the named commit; B-087 J2/J3/J4 dispositions; current handoff lifecycle query; Graphify query; final B-092/B-093 graph evidence; `Modular_PRD`, storyboard, scope graph, traceability and Encyclopedia residual routing.
@@ -866,3 +881,28 @@ governed intent is applied and independently verified, not after committing thes
 | Approve-with-conditions | Five Lane A acknowledgement edits | Phase 1 — commit one entry at a time, then rerun checks |
 | Approve-with-conditions | B-106 arbitration draft | Phase 1 — Cowork source/wording validation and Judge acceptance |
 | Defer | B-088, implementation and Graphify | Existing later conditions |
+
+## Lane B correction — Lane A packet is drafted but not Code-ready, 2026-09-15
+
+The Lane A acknowledgement near this entry's header records an intermediate observation and needs
+this dated correction. B-102 now contains a source packet, but its first version used placeholders,
+miscounted destinations, omitted D-54 applicability and called P1 undecided even though B-094
+already records P0-A/P1/P2 as standing planning directions. B-102's later Lane B
+application-readiness review supplies the corrected, complete destination text and blocker list.
+
+The claim that B-106 validation was completed in Lane A's pass is also not established: that
+working change deleted Lane B's entire four-source review without replacement. The deletion was
+rejected and the committed B-106 review preserved. Cowork still needs to validate its exact
+Register wording; the source read and draft exist, while Cowork acceptance does not.
+
+The current parent order is unchanged: make B-102's exact handoff packet immutable → Judge records
+the bounded application act → Lane A · Code applies it → B/C verify → proceed to B-084/B-104 and
+B-106 governed-source packets. Graphify and Product construction remain later.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Lane A's destination-anchor research | Phase 1 — retained in B-102 |
+| Approve-with-conditions | Corrected B-102 packet | Phase 1 — commit, Cowork/Register validation and exact Judge act |
+| Reject | Deleted B-106 source review or claim that its Cowork validation is complete | Preserve the review; Cowork validation remains open |
+| Reject | Current acknowledgements as closure evidence | Each owning entry remains Open/Applied until its own completion bar is met |
+| Defer | Governed-source application, controls and Graphify | Existing later conditions |
