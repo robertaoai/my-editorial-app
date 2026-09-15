@@ -17020,3 +17020,61 @@ later-authorized Lane B/Lane C construction units. Does not touch `B-103`'s own 
 `B-103`'s Status — that requires the independent Lane B/Lane C reads named above. Does not run
 Graphify — owed in the same pass, tracked as the next step. **Lane A's own application of a
 Judge-accepted text, not independently reviewed.**
+
+## 5.14e55 `D-230` — D-229's Completion Boundary Corrected to Two Stages
+
+**Lane A Code correction, 2026-09-15, raised by Lane B's independent document review of `e715cc7`/
+`c6f7b21`** (recorded in `docs/handoff/B-103`, "Lane B independent review — P2 document contract
+passes; closure boundary must separate build proof"). `D-229` itself is not wrong about the
+contract text — Lane B's review confirms the Lane B→Lane C allowlist, exclusions and cross-references
+are faithful. One defect in `D-229`'s own completion boundary is corrected here, by reference,
+without reopening the contract.
+
+### The defect
+
+`D-229` and `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §16 said `B-103` P2 becomes `Verified` only
+after Lane B and Lane C **each exercise the contract against a real workflow run** — while `D-229`
+itself authorizes no application signal or workflow YAML. That makes a Phase 1 documentation
+handoff depend on construction its own act refuses to authorize, so the specification could be
+complete and correct and `B-103` would still never close. The same conflation `D-228` corrected
+for "untested versus unimplemented" recurs here as "unread versus unbuilt."
+
+### The correction — two stages, two owners
+
+> **Stage 1, contract verification — now.** Lane B and Lane C independently read the committed
+> `docs/LANE-B-WORK-ORDER.md` §6 and `.github/WORKFLOWS-SPEC.md` §7, confirm ownership, usable
+> fields, exclusions, failure vocabulary and that `SPECS-VERIFICATION-APPARATUS.md` §16's table maps
+> onto real cases, and cite the read commit. `B-103` P2 may become `Verified` when both reads pass —
+> no workflow run required.
+>
+> **Stage 2, implementation verification — later.** Lane B emits an authorized signal; Lane C
+> consumes it in an authorized workflow; a deliberately missing or malformed signal turns that
+> workflow red for the named reason. This is a later, separately authorized Lane B/Lane C
+> construction unit and its own acceptance evidence — not `B-103`'s documentation lifecycle.
+
+Applied in this pass: `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §16 replaces its single-stage
+`Applied`/`Verified` paragraph with the two-stage table and the corrected distinction above.
+`V1-BUILD-SPEC.md` §7 invariant 10 needed no change — it already scoped its "workflow green is not
+done" clause to a later B/C construction unit's own DoD, not to `B-103`'s closure.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e55 |
+| **`docs/specs/SPECS-VERIFICATION-APPARATUS.md`** | ✅ §16 corrected to the two-stage model |
+| **`V1-BUILD-SPEC.md`** | — unaffected: §7 invariant 10 already scoped Stage 2 to later construction, not `B-103`'s own closure |
+| **`docs/LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md`** | — unaffected: the applied contract text itself is not in question |
+| **`docs/handoff/B-103`** | — unaffected as a record; this act is its own next step, not a rewrite of it |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file created or retired |
+| **Product-facing tiers** | — unaffected: a verification-lifecycle correction, not an editorial one |
+| **Graphify curated graph** | ✅ owed in this same pass — `D-229`'s curated description corrected so query/explain does not preserve the impossible real-run prerequisite as `B-103`'s own closure rule |
+
+### What this act does NOT do
+
+Does not reopen `D-229`'s contract text — Lane B's review found it faithful. Does not authorize any
+application signal, workflow YAML or telemetry — Stage 2 remains a later, separately authorized
+unit. Does not itself close `B-103` P2 — that still needs Lane C's independent Stage 1 document
+read, which this act does not supply. **Lane A's own correction of its own error, not independently
+reviewed** — offered as falsifiable (the two-stage table is now the literal graph and document
+text) rather than as a substitute for that review.

@@ -416,15 +416,25 @@ to a code control.
 | Missing signal | Lane C raises one C-series deficiency with acceptance case, missing shape, sensitivity and positive/negative proof | Lane C invents an endpoint, schema or Product requirement in workflow YAML |
 | Test of the tester | Deliberately absent or malformed required signal makes the verification fail for the named reason | Green workflow whose failure path was never exercised |
 
-**Applied means the two work-order sections and this section exist and cross-reference each other.
-Verified means Lane B and Lane C have each independently exercised their own row above against a
-real workflow run** — Lane B by confirming its allowlist is what a real CI job actually receives,
-Lane C by confirming a deliberately missing or malformed signal actually turns its job the intended
-red, not merely by reading the table and agreeing with it. Neither lane's own agreement with this
-table substitutes for that exercise, for the same reason `D-101` created `Applied` short of
-`Verified`: the answering/implementing side does not self-certify.
+**Two-stage success model (`D-230`, correcting this section and `D-229`'s completion boundary).**
+The paragraph this replaces made `B-103`'s own document closure depend on a real workflow run that
+`D-229` never authorized — a Phase 1 documentation handoff cannot be gated on construction evidence
+its own act refuses to authorize. The two stages have different evidence and different owners:
+
+| Stage | Evidence | Lifecycle owner |
+|---|---|---|
+| **Contract verification — now** | Lane B and Lane C independently read the committed `docs/LANE-B-WORK-ORDER.md` §6 and `.github/WORKFLOWS-SPEC.md` §7; confirm ownership, usable fields, exclusions, failure vocabulary and that the table above maps onto real cases; cite the read commit | `B-103` P2 may become `Verified` when both reads pass — no workflow run required |
+| **Implementation verification — later** | Lane B emits an authorized signal; Lane C consumes it in an authorized workflow; a deliberately missing or malformed signal turns that workflow red for the named reason | A later, separately authorized Lane B/Lane C construction unit and its own acceptance evidence — not `B-103`'s documentation lifecycle |
+
+**`Applied` means the two work-order sections and this section exist and cross-reference each
+other. `Verified` (Stage 1 only) means Lane B and Lane C have each independently read those
+sections against this table and confirmed the mapping — not that either has run a workflow.**
+Neither lane's own agreement with this table substitutes for that independent read, for the same
+reason `D-101` created `Applied` short of `Verified`: the answering/implementing side does not
+self-certify. Stage 2 is real and required before any Lane B/Lane C construction unit built on this
+contract may itself close — it is simply not what closes `B-103`.
 
 **Scope limit, unaffected here:** this section documents the evidence contract's proof obligation.
 It does not itself authorize implementing the workflow YAML, the application signal, or any
-telemetry — those remain separate, later-authorized Lane B/Lane C construction units per `D-229`'s
-own completion boundary.
+telemetry — those remain separate, later-authorized Lane B/Lane C construction units, evaluated
+against Stage 2 above when they are opened.
