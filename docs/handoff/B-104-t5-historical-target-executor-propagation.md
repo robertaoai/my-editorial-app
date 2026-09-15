@@ -5,7 +5,15 @@
 - **Phase:** 1
 - **Blocks:** acceptance of B-084 A4's same-article journey and any implementation or verification packet derived from it; no build, publication, lane transition or release action
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-09-15 at read commit `f170fb297fe39ead5fee903945bed1885e20a579`**
+  (per Lane B's report; not independently git-verified from this session). Accepted in full: this
+  supersedes and corrects Lane A's own A4 step 5 draft, which asked the Chief Editor to choose among
+  three T5-executor readings without having read `V1-DECISION-REGISTER.md`'s D-175/D-181 (a 1.26MB
+  file this session has never read in full — see this project's standing "Method and limits"
+  caveat). D-181 already decides the target model; the open item was propagation, not a new business
+  choice. The two-view wording (target `ROUTE-PROD-1` plus labelled historical view) will be folded
+  into A4 step 5 when that packet is next prepared. No governed source, storyboard, or A4 write set
+  is edited by this acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `V1-DECISION-REGISTER.md` D-175/D-181; `Modular_PRD.md` historical and `decided_target_held` acceptance rows; `FN-GATES-01-05.md`; `raci-involvement-matrix.md`; storyboard Panel A5 and role table; ignored `A4-step5-same-article-journey-DRAFT.md`; Graphify branch metadata checked at the named commit
 - **Verified-At-Commit:** f170fb297fe39ead5fee903945bed1885e20a579
