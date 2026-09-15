@@ -3,8 +3,8 @@
 - **Raised:** 2026-09-15 by Lane B
 - **Kind:** spec-defect
 - **Phase:** 1
-- **Blocks:** independent verification of B-098, B-099 and B-100; final Graphify synchronization; no build, governed-source edit, publication, lane transition or release action
-- **Status:** Open
+- **Blocks:** nothing further within B-101; B-096/B-097/B-102–B-104 retain their own open children; no build, governed-source edit, publication, lane transition or release action
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-15, receipt only; this session's own read is not independently
   git-verified (`device_bash` re-checked this turn, still unreachable — same Windows-update mount
   issue).** Applied now, hash-independent: repair item 3 (B-098/B-099/B-100 Lane A fields reworded
@@ -19,9 +19,10 @@
   this session for the same shell-access reason. Items 7–8 (independent review, Graphify) stay
   sequenced after a commit this session cannot make. B-084/B-088 Chief Editor inputs are relayed to
   the Chief Editor in the consolidated report, not decided here.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-09-15
 - **Evidence:** Committed B-071/B-096–B-100 chain `19f1b89` through `4e37c93`; upstream and local HEAD both `4e37c93`; `git cat-file` failure proving B-100 is absent at its claimed `e0e1c85` read anchor; current lifecycle headers and B-096 body; `docs/handoff/README.md` D-204/D-205; `bun run check`; `.graphify/branch.json`.
-- **Verified-At-Commit:** 4e37c93f48675486fa22088eee008ad5f050c863
+- **Verified-At-Commit:** 9dd75fef0679be53367e82cd13cc13b82b0b0d00
 
 ## What happened
 
@@ -260,3 +261,47 @@ roles. Graphify synchronization remains last and cannot substitute for applying 
 | Approve-with-conditions | One Chief Editor decision pass for B-084/B-088/B-102/B-103 | Phase 1 — one Judge act referenced by the existing entries; no copied answers |
 | Defer | Governed-source application and Lane B/C implementation | Exact authorized write set, capacity and active-lane work orders |
 | Defer | Graphify synchronization | B-100 correction and accepted B-102/B-103 source application first |
+
+## Final independent disposition — direct Git and clarified graph boundary, 2026-09-15
+
+Lane B re-read the applied records and Git history at
+`9dd75fef0679be53367e82cd13cc13b82b0b0d00`. Every B-101 correction is now satisfied:
+
+1. `B-100` names `79a4450cc09c1dcb01d0d7acad8dd318008b6674`, the first commit containing
+   B-100, as Lane A's response-read baseline. Direct `git cat-file` confirms B-100 is absent at
+   `e0e1c85…` and present at `79a4450…`.
+2. B-098 and B-099 are `Answered / Applied` with the correct dispositioning-side audit form.
+3. B-096 distinguishes two-actor corroboration from independent verification; GA1 is answered only
+   for planning; S15/S16 remain open and S17 remains held for A4.
+4. The older durable chain is present at the configured upstream through `7256d89`. The four later
+   Lane A acknowledgement commits (`98312ca`, `08f53cf`, `2522b5e`, `9dd75fe`) are local and
+   unpushed at this read. Thus “pushed” and “ahead of upstream” described different commit ranges;
+   neither is a repository-wide binary fact.
+5. Graphify is removed from B-101's closure conditions under the Chief Editor's later clarification:
+   these were handoff/worklog corrections, not promoted governed intent. B-102 owns the separate
+   control change needed before a future governed-intent graph update.
+
+### Pre-draft control disposition
+
+Lane A proposed a mandatory new “sources checked” line before any new handoff draft. Reject that as
+a new metadata field: B-series entries are raised by Lane B, Lane A raises no entry, and the existing
+`Evidence` field already carries the sources examined. The smaller correction is a preflight step in
+the existing handoff procedure:
+
+1. search existing handoff titles and bodies for the same condition;
+2. read the current Register anchor for any governed decision involved;
+3. cite both results in the existing `Evidence` field or body;
+4. append to the existing owner when the scope matches; create a new entry only when the correction
+   owner or blocking boundary differs.
+
+B-104/B-097 show that this review control worked before a duplicate B-105 was filed. A new mandatory
+field and checker are not justified by the evidence.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-101 complete and independently verified | Phase 1 — terminal in this entry |
+| Approve | Push evidence split by exact commit range | Phase 1 — four latest Lane A commits remain local |
+| Approve | Existing Evidence field plus duplicate/Register preflight | Phase 1 — B-102 procedure packet |
+| Reject | Mandatory new “sources checked” metadata field | It duplicates Evidence and assigns the control to the non-raiser |
+| Reject | Graphify as a B-101 closure condition | Current changes are handoff worklog only |
+| Defer | B-096/B-097/B-102–B-104 children | Their existing owners and completion evidence |
