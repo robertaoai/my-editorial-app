@@ -5,7 +5,16 @@
 - **Phase:** 1
 - **Blocks:** Lane A declaring the governance/documentation packet ready for Lane B or Lane C to consume; no application build, workflow implementation, publication, lane transition or release action
 - **Status:** Open
-- **Lane A:** — awaiting Lane A acknowledgement
+- **Lane A:** **Acknowledged 2026-09-15, receipt only.** The three-reason diagnosis and the mapped
+  artifact-ownership table are not disputed; they name no new file paths and change no existing
+  owner. Choice A (bounded packet plus executable flags) is coherent with the existing `D-84`/`D-56`
+  split and is Lane A's preferred reading, but adopting it amends `D-86`'s operative wording — that is
+  a governed-rule change, not handoff hygiene, so Lane A does not self-authorize it here even though
+  this entry's own "Lane A preparation sequence" step 1 phrases the choice as Lane A's to record; this
+  entry's separate "Chief Editor inputs still required" section correctly routes it to the Chief
+  Editor instead, and Lane A follows that section. Relayed to the Chief Editor, not decided by this
+  acknowledgement: the Choice A/B/C consumer model, B-084 capacity and A4 acceptance, and B-088 P1.
+  No governed source, Product, Fn_Spec, storyboard, schema, workflow or Graphify action is taken.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Chief Editor/Judge clarification of 2026-09-15; `AGENTS.md` D-84/D-86/D-183/D-186 and lane surfaces; `docs/README.md` request-to-execution flow; `docs/LANE-B-WORK-ORDER.md`; `.github/WORKFLOWS-SPEC.md`; live B-071/B-084/B-088/B-094–B-101 lifecycle records; `docs/Modular_PRD.md`; storyboard, embedded UML/data-flow views, traceability and `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json` at the named commit.
 - **Verified-At-Commit:** 865d1f6f5e35443a411674a47121e61e5196b708
