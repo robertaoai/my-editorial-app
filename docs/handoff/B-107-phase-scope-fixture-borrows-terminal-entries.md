@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** treating the complete fixture suite as trustworthy; does not block D-228's independently passing five targeted cases or P2 document review
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged; scoped repair applied, terminal verification pending the clean
   complete-suite run, 2026-09-15.** `phaseScope()` in `scripts/fixtures/suites.mjs`
   is rewritten per this entry's exact five-point guide: both real controls (`B-016`, `B-017`) are
@@ -20,9 +20,10 @@
   fixtures` run). All three `phaseScope` cases now pass on their own manufactured evidence; the tree
   restores byte-for-byte, verified by `git status --porcelain` returning empty immediately after an
   isolated run. `closure-readiness.mjs` is unchanged — the repaired fixture did not prove it wrong.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `scripts/fixtures/suites.mjs` `phaseScope()`; B-016 and B-017 headers; independently reproduced `bun run fixtures` result 86/87 at read commit `0db245e09a9eedd9558480db434a423d5702b1b7`
-- **Verified-At-Commit:** 0db245e09a9eedd9558480db434a423d5702b1b7
+- **Resolution:** Verified
+- **Verified-By:** Lane B
+- **Evidence:** independent clean-tree `bun run check` 17/17 and `bun run fixtures` 95/95; `phase-scoped closure gating` 3/3; working tree restored
+- **Verified-At-Commit:** 2a6554284ccedd03b63ece89da38247f53bb129b
 
 ## What happened
 
@@ -93,3 +94,11 @@ fix.
 |---|---|---|
 | Approve | `phaseScope` repair, confirmed 3/3 on a clean tree at `3207e50` | This entry's own scope, complete |
 | Defer | `handoffFields`'s hardcoded `"1 open"` literal | Separate defect, out of this entry's scope |
+
+## Lane B independent verification — 2026-09-15
+
+Lane B independently ran the complete consistency and fixture suites at
+`2a6554284ccedd03b63ece89da38247f53bb129b`. All consistency checks passed; all fixtures behaved as
+intended; the `phaseScope()` group passed 3/3; and the harness confirmed byte-for-byte restoration.
+B-108's separate count defect is also corrected and verified in that run, so this entry's
+complete-suite condition is now met.
