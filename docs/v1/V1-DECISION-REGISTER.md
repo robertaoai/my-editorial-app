@@ -16884,3 +16884,77 @@ config arbitration — each still needs its own explicit Judge accept naming its
 Graphify — owed immediately after this act's six files land, tracked as the next step, not performed
 in this act. Does not change Product, schema, application or workflow behaviour. **Lane A's own work,
 not independently reviewed.**
+
+## 5.14e53 `D-228` — `D-227` Corrected: a Restated Tally, a False Retirement Claim, and a Missing Graph Node
+
+**Lane A Code correction, 2026-09-15, raised by Lane B's independent review of `46d3598` and
+`d8bd5a8`** (recorded in `docs/handoff/B-102`). `D-227` itself is not wrong about the ownership
+decision — Lane B's review confirms the Register act exists, is unique, and the three shared rule
+files, Build Spec, Inventory and handoff SOP all agree. Three things `D-227`'s own text got wrong
+about itself are corrected here, parent-first, matching Lane B's review order.
+
+### 1. The restated tally
+
+`D-227` and its propagation described "this act's own six files." `46d3598` changed **seven**:
+`V1-DECISION-REGISTER.md` (`D-227` itself), `AGENTS.md`, `CLAUDE.md`, `.agents/rules/graphify.md`,
+`V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md` and `docs/handoff/README.md`. A restated count is the
+drift mechanism `G55`/`G56`/`G58` already name in this file's own preamble section. **Corrected
+reference, not a fixed number**: the affected artifacts are named by role in `D-227`'s own tables
+above; a future reader derives the exact set from `git show --stat 46d3598`, never from a count
+copied into prose.
+
+### 2. The false "retired before implementation" claim
+
+`D-227` said `C-35`'s Cowork/Code tool-crossing family was "retired before implementation" with
+"zero cases exist in the harness." The **zero cases** half was true — confirmed again this pass, no
+`A-cowork`/`A-code`/`subOf` reference exists anywhere under `scripts/fixtures/`. The **before
+implementation** half was false: `scripts/checks/lane-boundary.mjs` carried a live `A_SUB` array, an
+exported `subOf()`, and a `bySub` crossing report wired into `classify()` and `run()`, imported by
+`.githooks/commit-msg`. **Untested and unimplemented are different facts, and `D-227` conflated
+them** — the same class of error `D-226` corrected one act earlier, now recurring in the act that
+named it.
+
+**Applied in this pass**, not merely re-described: `scripts/checks/lane-boundary.mjs` has `A_SUB`,
+`subOf` and every `bySub` branch of `classify()`/`run()` removed. `.githooks/commit-msg` needed no
+change — it destructures only `byLane`/`label` from `classify()`, confirmed by direct read, never
+`bySub`. A new fixture suite, `laneBoundaryToolCrossing` in `scripts/fixtures/suites.mjs`, proves
+five cases: `docs/`-only and `app/`-only classify to their single lane (positive controls); `docs/`+
+`app/` still reports an A+B lane crossing (lane-crossing family preserved); `docs/`+`scripts/` — the
+exact shape the removed classifier used to flag as an A-cowork/A-code crossing — now classifies as
+Lane A only with no `bySub` key present at all; and the two former exact-file exceptions
+(`.agents/rules/graphify.md`, `docs/graph-fragments/*.json`) carry no sub-classification either.
+`bun run check`'s `lane-boundary` line on this act's own commit reads `lane surfaces touched — A`
+with no `[A-cowork]`/`[A-code]` tail, confirming the live behaviour matches the corrected claim.
+
+### 3. The missing Graphify semantic node
+
+Lane B's review found `graphify query`/`explain` return the `46d3598` Git-commit node but no
+semantic `D-227`/"Lane A Single Ownership" concept node with supersession edges to `D-200`/`D-201`/
+`D-202`. Matching `lastAnalyzedHead` to `HEAD` proves the graph is mechanically current; it does not
+prove the new decision is navigable by meaning, and `D-227` conflated the two the same way it
+conflated untested with unimplemented. **This act's own six-file description is corrected above,
+and this defect is corrected by adding a curated concept for `D-227`** to `docs/graph-fragments/`
+(merged via `merge7.js`, per the standing `docs/graph-fragments/README.md` procedure) and rebuilding
+after this commit, so `graphify query "D-227"` returns the decision and its supersession
+relationships. Tracked as the completion step below, applied in the same pass as this act.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e53, correcting `D-227` by reference — `D-227`'s own text stays as written |
+| **`scripts/checks/lane-boundary.mjs`, `scripts/fixtures/suites.mjs`** | ✅ tool-crossing classifier removed; five-case fixture added |
+| **`CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md`, `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`** | ✅ "retired before implementation" corrected to the actual removal fact, same pass |
+| **`.githooks/commit-msg`** | — unaffected, confirmed by direct read: destructures `byLane`/`label` only |
+| **Graphify curated graph** | ✅ owed in this same pass — curated `D-227` concept plus supersession edges, then rebuild |
+| **`docs/handoff/B-102`** | — unaffected as a record; its own next step (Applied → Verified) is unblocked, not performed, by this act |
+| **Product-facing tiers** | — unaffected: this corrects a governance-process claim about itself, not Product behaviour |
+
+### What this act does NOT do
+
+Does not reopen the ownership decision itself — `D-227`'s substance is confirmed correct by Lane B's
+review. Does not touch `docs/handoff/B-102`'s or `B-103`'s own text (append-only history, `D-93` rule
+4). Does not apply `B-103` P2 or any other deferred child packet — those remain gated on this
+correction landing first, per Lane B's own stated order. **Lane A's own correction of its own error,
+not independently reviewed** — the fixture and code changes above are offered as falsifiable
+evidence for that review, not a substitute for it.

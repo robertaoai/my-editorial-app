@@ -228,6 +228,20 @@ implementation** — zero tool-crossing cases were ever added to the harness, so
 remove. The **lane-crossing dimension** of both files (`D-88`, Lane A/B/C) is unaffected and stands.
 The two `C-42`/`C-39` future-fixture rows above are unaffected — neither was scoped to the tool split.
 
+**Correction, 2026-09-15 (`D-228`, raised by Lane B independent review of `46d3598`).** The paragraph
+above originally claimed the tool-crossing family was "retired before implementation" with "no code
+… to remove." **False**: `scripts/checks/lane-boundary.mjs` carried a live `A_SUB`/`subOf`
+classifier and a `bySub` crossing report, imported by `.githooks/commit-msg` via `classify()`.
+**Zero test coverage** (confirmed: no `A-cowork`/`A-code`/`subOf` reference anywhere under
+`scripts/fixtures/`) is not the same fact as **zero implementation**, and this row conflated them.
+Corrected disposition: the classifier is **removed** in the same pass as this correction — `A_SUB`,
+`subOf` and the `bySub` branches of `classify()`/`run()` are deleted from `lane-boundary.mjs`, and a
+new fixture suite (`laneBoundaryToolCrossing`, `scripts/fixtures/suites.mjs`) proves a `docs/`+
+`scripts/` change — the exact shape the removed classifier used to flag — now classifies as Lane A
+only with no sub-classification signal, while ordinary A/B/C lane-crossing detection (positive and
+negative cases) is unaffected. `.githooks/commit-msg` needed no change: it only ever destructured
+`byLane`/`label`, never `bySub`.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

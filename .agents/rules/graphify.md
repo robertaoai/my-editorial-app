@@ -126,9 +126,11 @@ two tools with a hard content boundary produced a stall this corpus documented r
 (`B-094`, `B-101`, `B-106`'s restoration note, `B-102`) — accepted intent sitting in scratch space
 because the drafting tool had no commit path, and the committing tool could not act on it without a
 second ceremony. `D-227` removes the boundary instead of adding another transport exception across
-it. `C-35`'s tool-crossing family (Cowork/Code sub-surface crossing) is retired before
-implementation — zero cases exist in the harness — and the **lane-crossing family** (`D-88`, Lane
-A/B/C) is unaffected and stands.
+it. `C-35`'s tool-crossing family (Cowork/Code sub-surface crossing) was a live classifier in
+`scripts/checks/lane-boundary.mjs` (`A_SUB`/`subOf`/`bySub`) with zero test coverage — untested is
+not unimplemented, and `D-227` originally said otherwise (`D-228` corrects it). The classifier is
+now **removed**, not merely retired-on-paper: there is no second Lane A surface left to classify.
+The **lane-crossing family** (`D-88`, Lane A/B/C) is unaffected and stands.
 
 **Freeze — two rules, three levels (`D-203`, Judge ruling). This completes `D-36`, which is right
 about sprints and silent about the other two.**

@@ -9,6 +9,7 @@ import { execFileSync } from "node:child_process";
 import { fixture, read, write, withRetry, TRANSIENT_CODES, existsSync, rmSync, mkdirSync } from "./harness.mjs";
 import { readdirSync, readFileSync } from "node:fs";
 import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
+import { classify } from "../checks/lane-boundary.mjs";
 
 const CHECK = (n) => new URL(`../checks/${n}`, import.meta.url).href;
 
@@ -620,6 +621,58 @@ export async function channelDocs(results) {
   });
 }
 
+/**
+ * `D-227` — the retired Cowork/Code tool-crossing classifier stays retired.
+ *
+ * `classify()` is a pure function of a path list; no file mutation or restore
+ * is needed. The positive control proves ordinary single-lane and
+ * multi-lane behaviour is unaffected; the negative-shaped cases prove the
+ * specific regression this suite exists to catch: a `docs/` + `scripts/`
+ * change — the exact shape the removed `A_SUB` classifier used to flag as an
+ * "A-cowork + A-code" surface crossing — must classify as Lane A only, with
+ * no sub-classification signal anywhere in the returned shape.
+ */
+export async function laneBoundaryToolCrossing(results) {
+  const cases = [
+    {
+      name: "lane-boundary: docs/ only classifies as Lane A (positive control)",
+      files: ["docs/Modular_PRD.md"],
+      check: (r) => r.byLane.size === 1 && r.byLane.has("A"),
+      detail: (r) => `byLane=${[...r.byLane.keys()].join(",")}`,
+    },
+    {
+      name: "lane-boundary: app/ only classifies as Lane B (positive control)",
+      files: ["app/page.tsx"],
+      check: (r) => r.byLane.size === 1 && r.byLane.has("B"),
+      detail: (r) => `byLane=${[...r.byLane.keys()].join(",")}`,
+    },
+    {
+      name: "lane-boundary: docs/ + app/ still reports an A+B lane crossing",
+      files: ["docs/Modular_PRD.md", "app/page.tsx"],
+      check: (r) => r.byLane.size === 2 && r.byLane.has("A") && r.byLane.has("B"),
+      detail: (r) => `byLane=${[...r.byLane.keys()].sort().join("+")}`,
+    },
+    {
+      name: "lane-boundary: docs/ + scripts/ — the former A-cowork+A-code shape — is Lane A only, no sub-classification",
+      files: ["docs/Modular_PRD.md", "scripts/check-consistency.mjs"],
+      check: (r) => r.byLane.size === 1 && r.byLane.has("A") && !("bySub" in r),
+      detail: (r) => `byLane=${[...r.byLane.keys()].join(",")}, bySub present=${"bySub" in r}`,
+    },
+    {
+      name: "lane-boundary: .agents/rules/graphify.md + docs/graph-fragments/*.json — the former exact-file exceptions — carry no sub-classification either",
+      files: [".agents/rules/graphify.md", "docs/graph-fragments/frag131.json"],
+      check: (r) => r.byLane.size === 1 && r.byLane.has("A") && !("bySub" in r),
+      detail: (r) => `byLane=${[...r.byLane.keys()].join(",")}, bySub present=${"bySub" in r}`,
+    },
+  ];
+
+  for (const c of cases) {
+    const r = classify(c.files);
+    const ok = c.check(r);
+    results.push({ name: c.name, ok, detail: c.detail(r) });
+  }
+}
+
 /** `D-105` — the crossing declaration must be what git parses as a trailer. */
 export async function laneGate(results) {
   const CI = ".github/workflows/ci.yml";
@@ -1025,6 +1078,7 @@ export const SUITES = [
   ["lane state (`D-103`)", laneState],
   ["channel documentation (`D-104`)", channelDocs],
   ["lane crossing declaration (`D-105`)", laneGate],
+  ["lane-boundary tool-crossing retirement (`D-227`)", laneBoundaryToolCrossing],
   ["config coupling (`C-17`, raised as `B-024`)", configCoupling],
   ["reopens-phase (`C-19`, raised as `B-025`)", reopensPhase],
   ["fixture retry resilience (`D-139`, raised against this session's own run)", retryResilience],
