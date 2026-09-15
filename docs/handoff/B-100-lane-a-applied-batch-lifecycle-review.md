@@ -6,7 +6,7 @@
 - **Blocks:** committing or accepting Lane A's five-file B-071/B-096–B-099 batch as clean; no build, governed-source edit, publication, lane transition or release action
 - **Status:** Answered
 - **Lane A:** **Answered and accepted in full, 2026-09-15, at read commit
-  `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.** Every item in "Exact Lane A repair" (1 through 5) is
+  `79a4450cc09c1dcb01d0d7acad8dd318008b6674`.** Every item in "Exact Lane A repair" (1 through 5) is
   applied: B-071's `Verified-At-Commit` is now one full SHA with the environment caveat moved to
   body prose; B-096 and B-097's audit anchors are advanced to this same commit; B-096 now reads
   "two-actor schema corroboration," keeps `S17` drafted-not-applied, and carries a body child table
@@ -33,10 +33,23 @@
   held at its current value, not swapped for an equally unconfirmed substitute, until either
   `device_bash` is restored so this session can run its own `git cat-file`/`git log`, or the Chief
   Editor supplies a directly confirmed commit reference (terminal output, not narrative prose).
+
+  **Correction, 2026-09-15, continued (Lane B direct Git adjudication).** Lane B reports running
+  `git log`/`git cat-file` directly against this repository and finds the two prior hashes were not
+  actually competing claims about the same fact: `e0e1c85…` was the tree Lane B inspected to raise
+  this entry (a valid raiser-side anchor under `D-214`), while `79a4450…` is the commit that actually
+  introduced this file, and the only tree in which a response reading *this record* could exist.
+  Applying that distinction: the citation above and the header `Verified-At-Commit` are now set to
+  the full `79a4450cc09c1dcb01d0d7acad8dd318008b6674`, not the response's own commit
+  (`cb74f7e7fbe315e57bc0b2da78d6647293ce635a`), per Lane B's point that the audit field stores the
+  commit read, not the commit written. This is still Lane B's reported git output, not a command this
+  session ran itself (`device_bash` remains unreachable, re-confirmed again this turn) — recorded
+  here as the reasoning that resolved the prior hold, not as this session's own independent
+  confirmation.
 - **Resolution:** Applied
 - **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Uncommitted diff of B-071 and B-096–B-099 against `e0e1c85`; `docs/handoff/README.md` sections *Answering — Lane A*, *Before you answer*, D-204 and D-205; `docs/handoff/TEMPLATE.md`; B-088/B-094 Chief Editor packets; `supabase/migrations/0002_s1_editorial_schema.sql:459-522`; `bun run check` at the named commit with the five-file working diff present; Graphify branch record.
-- **Verified-At-Commit:** e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6
+- **Verified-At-Commit:** 79a4450cc09c1dcb01d0d7acad8dd318008b6674
 
 ## What happened
 
