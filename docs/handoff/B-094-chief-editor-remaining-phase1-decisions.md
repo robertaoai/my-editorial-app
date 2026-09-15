@@ -174,3 +174,127 @@ Reviewed the current graph and source handoffs, normalized their separate decisi
 | Approve-with-conditions | B-077 Child 2 reconciliation | Phase 1 — originating-entry classification, targeted Judge acts, independent review |
 | Reject | One bulk authorization or promotion across B-084, B-088 and B-077 Child 2 | Separate owners, evidence and completion criteria |
 | Defer | Application construction, publishing and release readiness | Later authorized phases after the selected packet is verified |
+
+## Judge clarification — A4 remains first; B-088 P1 is capacity-conditional, 2026-09-15
+
+### Ruling already supplied
+
+The Chief Editor has selected the dependency order:
+
+1. **B-102/B-103 source packet first** — Lane A prepares the governed consumption, promotion and
+   Lane B/Lane C interface contract already recommended in those entries.
+2. **B-084 A4 remains the Product-readiness unit** — it produces the exact manual-intake field,
+   gate, example and cross-artifact write set needed by later construction and verification.
+3. **B-088 P1 is deferred unless capacity remains after 1 and 2** — it does not displace A4 merely
+   because its checker change is smaller.
+
+This decides priority and dependency order. It does not supply the four availability values, adopt
+quarterly goals, promise a delivery date, authorize source application or authorize a build.
+
+### Highest-parent decision table
+
+| Order | Judge decision | Accept means | Reject/stop condition | Current result |
+|---:|---|---|---|---|
+| 1 | Source packet precedes A4 application | B-102 Choice A and B-103 P0–P2 are consolidated into one exact Lane A write proposal; B/C receive bounded read sets | The packet still says both “flags only” and “read governance,” lacks the evidence allowlist, or invents a shared implementation surface | **Selected; exact write set still required** |
+| 2 | B-084 A4 remains the Product-readiness unit | Lane A completes the field matrix, current gate semantics, normal/revision LinkedIn ManualReady examples and exact source/view write set | A4 omits a mandatory/optional decision, exactly-one subject, supplier/executor split, no-scraping boundary or acceptance evidence | **Selected; capacity and final A4 acceptance remain** |
+| 3 | Capacity envelope | The four values below cover preparation, Chief Editor decision, independent review and bounded uncertainty | Any required role has zero/unavailable capacity, dates do not overlap dependencies, or contingency silently expands scope | **Open — Chief Editor must supply values** |
+| 4 | B-088 P1 after A4 | P1 enters the same iteration only if the committed capacity remainder covers its complete bounded unit and independent review | P1 consumes A4 capacity, begins without its negative-test contract, or is treated as Product readiness | **Deferred by default; conditional remainder only** |
+| 5 | Implementation/release | Later work consumes a verified A4 packet under a new active-lane authorization | An `Applied` document, estimate or green syntax check is presented as working or release-ready software | **Deferred** |
+
+### The four capacity values the Chief Editor must provide
+
+All four are **available capacity**, not Lane A's effort estimate. Use hours plus an availability
+window so dependency order can be tested.
+
+| ID | Capacity value | Chief Editor supplies | What it pays for | Acceptance boundary |
+|---|---|---|---|---|
+| **CAP-1** | Operator drafting capacity | Available person-hours and dates for the named Lane A Cowork operator | B-102/B-103 exact source packet; A4 field/gate matrix, literal clauses, same-article examples and cross-reference proposal | Draft is complete and reviewable; no governed source is yet applied |
+| **CAP-2** | Chief Editor decision capacity | Available review hours and decision window | Review of source-packet choices and A4's exact mandatory/optional fields, semantics and write set | Each presented choice has Accept/Reject and no unanswered blocking business meaning |
+| **CAP-3** | Independent verification capacity | Named eligible reviewer, available hours and review window | Review of the committed source packet and later A4 application against the normal/revision examples and cross-artifact consistency | Reviewer is not the answering/applying side and records the commit actually read |
+| **CAP-4** | Contingency ceiling | Maximum additional person-hours and latest permissible stop time | One evidenced contradiction discovered while preparing or reviewing the bounded packet | Work stops at the ceiling; new scope returns as a separately owned decision rather than silently consuming more capacity |
+
+Copyable decision values:
+
+```text
+CAP-1 Operator drafting: ___ person-hours, available from ___ to ___
+CAP-2 Chief Editor review: ___ person-hours, decision window ___
+CAP-3 Independent review: reviewer ___; ___ person-hours; window ___
+CAP-4 Contingency: maximum ___ additional person-hours; stop no later than ___
+```
+
+If CAP-3 has no named independent reviewer, the documents may reach `Applied` but cannot reach
+`Verified`. If CAP-4 is zero, the first material contradiction stops the packet and returns to the
+Judge. Neither case authorizes Lane A to manufacture a verifier or extend scope.
+
+### How Lane A turns the four values into one bounded iteration
+
+1. **Read the four values without converting them into commitments.** Confirm the same people are
+   not double-booked and the windows respect source packet → A4 application → independent review.
+2. **Estimate the two selected work packages separately.** Package S is B-102/B-103 source
+   preparation and application; Package A is B-084 A4 preparation, decision, application and
+   verification. Show optimistic/expected/pessimistic ranges and the evidence behind them.
+3. **Fit parent work first.** Reserve CAP-2 and CAP-3 before assigning operator capacity; a draft
+   that nobody can decide or independently review is not an iteration outcome.
+4. **Present the bounded proposal.** Name selected clauses/files, owners, dependencies, effort
+   ranges, intended outcome and completion evidence. Mark quarterly goals and delivery dates
+   unconfirmed.
+5. **Apply only after the Judge accepts the exact write set.** Preserve the frozen Project PRD and
+   Charter; apply D-54 only where the decision creates, sequences or retires artifacts.
+6. **Run the Chief Editor walkthrough.** Use the supplied LinkedIn manual-ready article and both
+   paths: normal approval and return for “observation versus observability” conflation. Confirm the
+   manual URL/Markdown intake and no-scraping boundary.
+7. **Obtain independent review at the committed revision.** Review business meaning as well as
+   syntax: Product, functional clauses, current storyboard panels/UML/data-flow annotations,
+   traceability and Encyclopedia impact must agree.
+8. **Calculate capacity remainder only after A4 evidence exists.** Include unspent CAP-1, CAP-2,
+   CAP-3 and CAP-4; do not treat unused operator hours alone as capacity for B-088.
+9. **Admit B-088 P1 only if the remainder covers the whole unit.** The whole unit includes token
+   termination, three labelled negative probes, preserved positive cases, intended-error evidence
+   and independent review. Otherwise retain its deferral without partial implementation.
+10. **Synchronize Graphify last.** Rebuild/remerge after final tracked edits, require analyzed-HEAD
+    equality and coverage, then rerun the consistency suite.
+
+### A4 completion evidence that later construction can consume
+
+| Artifact/result | Evidence required before A4 is called ready |
+|---|---|
+| Manual intake contract | One required/optional matrix covering manual URL and manual Markdown/other reference, source information, trend description, exactly one subject topic and optional analytical tags |
+| Authority and audit | Chief Editor is recorded as supplier; Reporter remains T1 executor; later T2/T3 verification remains separate |
+| Normal journey | The sample article proceeds through the governed gates to LinkedIn `ManualReady` without scraping or automated LinkedIn publication |
+| Revision journey | Chief Editor returns it with the two distinct reasons already supplied, including observation versus observability; immutable reason evidence remains and the article re-enters the governed path |
+| Product and functional sources | `Modular_PRD` and applicable FN-GATES/Addendum clauses express one input predicate and gate meaning without changing frozen sources |
+| Storyboard/story panels/UML/data flow | Current-use annotations show supplier, executor, gate/event/state effects and the revision loop; historical panels remain provenance |
+| Traceability and Encyclopedia | CR-14/FB-05 and Entry 06 impact point to the accepted source; hosted Encyclopedia parity is claimed only after direct inspection |
+| Verification packet | Positive and counterexample cases trace to the same clauses; an independent actor records the exact commit reviewed |
+
+### Failure-derived success criteria
+
+| Guaranteed failure | Success criterion |
+|---|---|
+| Hours are provided as one undifferentiated total | CAP-1 through CAP-4 are separate, dated and assigned to eligible roles |
+| Lane A fills missing availability with its own effort estimate | Estimates and available capacity remain separate columns; only the Chief Editor supplies capacity |
+| Drafting consumes all capacity and leaves no decision/review time | CAP-2 and CAP-3 are reserved before Package S/A scope is accepted |
+| A4 is declared ready because its documents exist | Both article paths pass against exact clauses and an independent reader verifies the committed packet |
+| B-088 starts from leftover operator hours while no reviewer is available | Remainder covers every P1 role and proof, or P1 stays deferred |
+| Contingency becomes unbounded scope | CAP-4 ceiling causes a recorded stop and named follow-up decision |
+| Easy checker work outranks Product readiness | P1 remains after source packet and A4 unless a demonstrated consuming closure gate changes the priority |
+| Graphify is rebuilt before the accepted application is final | Final graph revision equals final Git HEAD and the post-sync suite is the evidence used |
+
+### Cross-artifact disposition
+
+This clarification changes planning priority and capacity inputs only. It does not itself edit
+`Modular_PRD`, FN-GATES, the storyboard/story panels/UML/data flow, traceability, Encyclopedia or
+the V1 tracking trio. Lane A's later accepted application packet names their exact sections. A D-54
+pass is required only for a decision that creates, sequences or retires an artifact; no new
+artifact family is created here.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-084 A4 retained as the Product-readiness unit | Phase 1 — after the B-102/B-103 source packet |
+| Approve | B-088 P1 deferred by default | Phase 1 — admit only from verified remaining capacity after A4 |
+| Approve-with-conditions | Four-value capacity envelope | Phase 1 — Chief Editor supplies CAP-1 through CAP-4; Lane A validates dependency fit |
+| Approve-with-conditions | A4 exact write set and acceptance packet | Phase 1 — Judge acceptance, committed application and independent review |
+| Reject | Invented capacity, unnamed reviewer or undifferentiated total hours | Phase 1 — capacity must be role-specific and dated |
+| Reject | Partial B-088 P1 from operator-only remainder | Phase 1 — the complete correction and independent review must fit |
+| Defer | Application construction, publication and release readiness | Later authorized implementation phases |
+| Defer | Graphify synchronization | Final accepted source and lifecycle edits first |
