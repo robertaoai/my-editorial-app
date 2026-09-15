@@ -29,6 +29,17 @@
   pass; treated as consistent with the two confirmed files. This session performs no code change
   here; `missing.js`, `docs-drift.mjs` and the sync-docs procedure are Lane A · Code's surface, and
   this acknowledgement proposes the fix rather than applying it.
+
+  **Acknowledged, continued, 2026-09-15 (at read commit `50feb1a`, per Lane B's report; not
+  independently git-verified from this session).** The Lane B clarification splitting exact Cowork
+  and Claude Code actions is accepted as stated: Cowork classifies each issue and drafts the exact
+  semantic packet (literal edits, anchors, exclusions, dependencies, negative examples, DoD,
+  independent reviewer); Claude Code reviews only for mechanical applicability, applies the accepted
+  packet verbatim, and commits with dual provenance; Cowork remains semantic author and answers any
+  returned conflict. The bounded Lane B/C evidence interface requirement (producing/consuming lane,
+  record identity, permitted fields, sensitivity, result and failure vocabulary, freshness, return
+  owner) is accepted as the shape Cowork's B-102/B-103 packet must supply; that packet is not yet
+  drafted. No governed source is edited by this acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Chief Editor/Judge clarification of 2026-09-15; `AGENTS.md` D-84/D-86/D-183/D-186 and lane surfaces; `docs/README.md` request-to-execution flow; `docs/LANE-B-WORK-ORDER.md`; `.github/WORKFLOWS-SPEC.md`; live B-071/B-084/B-088/B-094–B-101 lifecycle records; `docs/Modular_PRD.md`; storyboard, embedded UML/data-flow views, traceability and `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json` at the named commit.
 - **Verified-At-Commit:** 865d1f6f5e35443a411674a47121e61e5196b708
