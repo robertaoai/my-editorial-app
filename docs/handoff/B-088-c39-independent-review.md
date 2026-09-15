@@ -88,3 +88,59 @@ Read and tested the installed checker without modifying it, the fixture harness,
 | Defer | Phase 1 C-35 start and whole-C-39 closure | Phase 1 — existing prerequisite and P2/P3 evidence |
 | Reject | Phase 1 claim that acknowledgement clears graph coverage or metadata proves semantic completeness | Phase 1 — separate receipt, coverage and semantic evidence |
 | Approve-with-conditions | Product / derived views alignment retained in B-087 | Phase 1 — its existing parent-first J1–J4 follow-up; guard does not close it |
+
+## Judge clarification — what currently blocks P1, 2026-09-15
+
+The Chief Editor has retained B-088 P1 as **deferred unless complete residual capacity remains**.
+This is a sequencing and capacity hold, not uncertainty about the defect and not a Graphify hold.
+
+### Blocking decision tree
+
+| Order | Condition | Current state | Evidence needed to pass |
+|---:|---|---|---|
+| 1 | B-102/B-103 source packet completes its planned allocation | Precedes A4 and B-088 | Accepted packet and actual CAP-1/CAP-2 usage recorded |
+| 2 | B-084 A4 completes its planned allocation | Selected Product-readiness unit; B-104 correction is part of its journey | Accepted/applied packet, independent review result and actual CAP-1..4 usage |
+| 3 | Residual capacity is measured across all required roles | **Blocked:** M1 deliberately allocated no initial capacity to B-088 | Remaining Lane A Code time, Judge decision window and independent-review time are all available in compatible windows |
+| 4 | The whole P1 unit fits | Not yet demonstrated | The accepted scope covers token termination, labelled synthetic negative probes, positive regression preservation, intended error assertion and independent review; no partial start |
+| 5 | Separate P1 authorization is recorded | Not yet granted by retaining a conditional defer | Judge act names P1, exact owned files/tests, exclusions and DoD |
+
+**Complete residual capacity** means capacity for the whole accepted P1 unit, not unused CAP-1
+drafting hours alone. B-088's current planning range is `1–3` Lane A Code hours plus `1–2`
+independent-review hours, with a bounded Judge/recording window. Lane A must replace that range with
+an exact estimate once it names the literal files and fixtures. P2 fill/anchor work, C-35, Product
+changes and graph work are excluded from P1.
+
+Under the Chief Editor's Graphify clarification, B-088 handoff or checker work does not require a
+governance graph synchronization. Graphify runs when a completed, independently verified intent is
+promoted into governed documentation. B-088 therefore cannot be promoted merely to repair graph
+staleness, and Graphify is not counted inside its residual-capacity test.
+
+### Guaranteed failures and success criteria
+
+| Guaranteed failure | Evidence of success |
+|---|---|
+| Starting P1 because one operator has a spare hour | Every required role and the complete accepted scope fit before work starts |
+| Taking time from unfinished A4 | Actual A4 completion and usage are recorded before residual capacity is calculated |
+| Treating this conditional defer as P1 authorization | A separate durable Judge act names the exact P1 unit and DoD |
+| Combining P1 with P2 or C-35 | Commit and verification evidence contain only P1 token-boundary scope |
+| Running Graphify to make B-088 appear ready | Readiness is proven by the failing probes, corrected behavior and independent review |
+
+### Lane A follow-up
+
+1. Leave B-088 `Open`; the demonstrated defect remains valid and acknowledged.
+2. Complete the B-102/B-103 and B-084 sequence first and record actual capacity used by role.
+3. Calculate residual capacity only after A4 evidence is immutable.
+4. If the complete P1 unit fits, present one exact P1 authorization card. If any required role or
+   window does not fit, keep P1 deferred without starting a partial repair.
+5. After an authorized correction, Lane B independently reruns the named positive and negative
+   cases at the exact commit. P1 may become `Verified`; whole C-39 remains open until its other
+   children close.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-088 defect evidence and bounded P1 scope | Phase 1 — preserve for conditional admission |
+| Approve-with-conditions | Admit P1 after A4 | Phase 1 — whole-unit capacity plus separate Judge authorization |
+| Reject | Partial P1 from unused operator time | Phase 1 — implementation and independent review must both fit |
+| Reject | Graphify as a prerequisite or reason to promote P1 | Graph activation follows verified intent promotion, not handoff activity |
+| Defer | P1 now | Phase 1 — measure actual residual capacity after B-102/B-103 and B-084 |
+| Defer | P2, C-35 and whole C-39 closure | Their existing separate dependencies remain |
