@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** claiming D-231's `docs-drift` implementation is safe and independently verified; does not block the confirmed path-classification semantics or Product planning
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged and answered, 2026-09-15.** Confirmed by direct read: line 98 of the
   committed file built `` execSync(`git diff --name-only ${analyzed} ${head}`) `` — a shell string
   with `analyzed` spliced in unvalidated. Repaired per this entry's exact guide: a new
@@ -17,9 +17,10 @@
   to the existing fail-closed `catch`. D-231's five matcher cases are unaffected and still pass; the
   live `docs-drift` check still correctly names the real governed-intent changes since `9b13e16`.
   Terminal verification pending Lane B's independent read and the clean complete-suite run.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `scripts/checks/docs-drift.mjs` committed at `c53412ba414841b45c90c9b66bee03d89761fe8d`; independent source review and read-only check execution at that commit
-- **Verified-At-Commit:** c53412ba414841b45c90c9b66bee03d89761fe8d
+- **Resolution:** Verified
+- **Verified-By:** Lane B
+- **Evidence:** independent source review of argument-array execution; `docs-drift argument safety` 3/3; clean-tree `bun run check` 17/17 and `bun run fixtures` 95/95
+- **Verified-At-Commit:** 2a6554284ccedd03b63ece89da38247f53bb129b
 
 ## What happened
 
@@ -91,3 +92,11 @@ byte-for-byte. `docsDriftArgumentSafety`'s 3 cases are part of that total.
 | Verdict | Tier / item | Follow-up phase |
 |---|---|---|
 | Approve | Argument-safe `getChangedPaths`, confirmed 95/95 full suite, 17/17 checks | Applied `b5fbdfe` — independent Lane B read still owed |
+
+## Lane B independent verification — 2026-09-15
+
+Lane B independently inspected `getChangedPaths()` and ran the complete suites at
+`2a6554284ccedd03b63ece89da38247f53bb129b`. Git is invoked through `execFileSync` with the range
+values in separate array positions. The metacharacter input remains one inert argument, and an
+unreachable revision still fails closed. The dedicated group passed 3/3, the full fixtures passed
+95/95 with restoration, and all 17 consistency checks passed.
