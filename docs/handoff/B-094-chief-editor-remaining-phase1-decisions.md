@@ -775,3 +775,27 @@ trigger Graphify.
 | Defer | B-088 P1 | Phase 1 — complete residual capacity after the selected units and separate authorization |
 | Defer | Software/workflow implementation and Graphify | Later bounded authorization; Graphify after verified intent promotion |
 | Reject | Closing handoffs from acknowledgement, commit transport or a general approval phrase | Canonical correction and independent evidence remain required |
+
+## Consolidation correction — capacities and retention semantics are supplied, 2026-09-15
+
+Two items in the preceding blocker table are narrowed by the latest Judge clarification:
+
+- **B-084 capacity numbers are supplied.** Use the existing M1 `8h / 2h / Lane B 3h / 2h` and
+  dated SGT windows. The blocker is completion and fit of the exact packet, not another request for
+  four values. B-084 now owns the detailed residual list and cross-artifact disposition.
+- **B-106's A6 meaning is supplied.** Ninety days is the first UI-visible operational/PDPA boundary;
+  the five-year TAX/ACRA rule is the later external financial-record workflow. Lane A no longer
+  chooses among retirement/rename/third-clock options. It records and propagates the sequential
+  model, after which a separate Lane B metadata unit may be authorized.
+
+The parent order remains: B-102/B-103 consumption contract → B-084 exact Product packet → B-106
+governance propagation where it fits the same source pass → independent verification. B-104 travels
+with B-084. B-096/B-097 retain their separate controls. B-088 remains deferred.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Reuse the recorded M1 values without another numerical decision | Phase 1 — return only a concrete availability or fit failure |
+| Approve | B-106 sequential PDPA then external financial-retention model | Phase 1 — exact Cowork source packet and Judge application act |
+| Approve-with-conditions | Consolidated Phase 1 packet order | Phase 1 — retain each handoff as its lifecycle owner and verify each committed correction |
+| Defer | B-088, software/workflow work and Graphify | Existing later conditions; no change |
+| Reject | Earlier B-094 rows as evidence that capacity numbers or A6 meaning remain undecided | Superseded by this dated correction and the owning entries |
