@@ -1546,3 +1546,154 @@ Applied handoff Verified. Graphify remains unchanged in this handoff-only pass.
 | Reject | Reusing bare `S5`/`S6` or changing their existing meanings | Qualified labels resolve the collision |
 | Reject | Treating the traceability map as a replacement Product specification | It owns links and migration destinations, not behavior |
 | Reject | Starting construction from this handoff decision | Canonical propagation, DoR satisfaction, lane selection and bounded authorization remain required |
+
+## Lane B review of Lane A propagation proposal — correct direction, inconsistent write set, 2026-09-16
+
+### Review result
+
+Lane A correctly identified the live gap: the `V1-SM05`/`V1-SM06` Judge decision exists only in
+this handoff and has not reached the canonical owners. The proposed write set cannot be applied as
+written. It contradicts the accepted parent model, omits required migration content and reopens two
+artifact-placement questions already settled in this handoff chain.
+
+This is a return of the proposed packet, not a rejection of canonical propagation. Lane A should
+correct the packet and apply the accepted decision without requesting the Judge to decide the same
+scope again. Construction remains unauthorized.
+
+### Parent-first decision table
+
+| Order | Proposal item | Lane B finding | Accept / Reject | Required correction |
+|---:|---|---|---|---|
+| 1 | Separate `SETUP-SPIKE-000` and V1 namespaces | Contradicts the accepted model immediately above: `SETUP-SPIKE-000` remains the V1 child that prepares the two MMF packets | **Reject** | Record one V1 parent: setup child plus qualified delivery slots; setup evidence does not count as completion of either slot |
+| 2 | “V1 has no functional Sprint 3/4” in D-232 | Consistent with the Judge's two-increment functional milestone | **Accept** | Preserve this statement in the corrected Register act |
+| 3 | “V1 is a separate four-sprint sequence, V1/S1…S4” in the Build Spec patch | Contradicts item 2 in the same proposal and reintroduces labels the Judge replaced | **Reject** | V1 delivery sequence for this decision is `V1-SM05` then `V1-SM06`; create no V1/S1–S4 rows |
+| 4 | Preserve existing bare `S5`/`S6` meanings | Correct; the qualified identifiers avoid those collisions | **Accept** | Keep bare `S5`/`S6` as existing historical/future planning labels; do not equate them with the qualified slots |
+| 5 | Artifact Inventory unaffected | Contradicts B-117's accepted application guide and D-54: the decision sequences existing artifacts into two qualified slots even if no file is created | **Reject** | Update the existing inventory mappings; explicitly say no file is created or retired |
+| 6 | Modular PRD changelog row only | Insufficient; B-117 requires the status/sequence references and mixed V1/V2 requirement limbs to agree, not merely a changelog note | **Reject** | Update the owning §8 rows and affected requirement/status references, then add the changelog row |
+| 7 | Add a destination column to traceability §6 | Direction accepted, shape incorrect: §6 is an ASCII chain, not the row-level migration table the Judge selected | **Approve with conditions** | Update §6's chain and extend the existing forward/backward trace with row-level MMF, slot, BDD, artifact and handoff links |
+| 8 | Defer storyboard placement | Already decided by B-087 and B-096 S17 | **Reject deferral** | Repair the existing storyboard in place; its panels are the story panels and its Mermaid views are the UML/data-flow views |
+| 9 | Defer UML/data-flow owner | Same settled owner; absence of standalone files is deliberate | **Reject deferral** | Do not create standalone UML/data-flow files unless a future Register act creates them |
+| 10 | Encyclopedia unaffected | Not demonstrated by checking only present sprint-number dependencies; stable MMF and lifecycle vocabulary are part of the accepted cross-artifact review | **Return for bounded review** | Re-check Entries 01, 04, 05 and 06; update dependencies/stale notes where their gate, publication or intake meanings change; otherwise record exact unaffected evidence |
+| 11 | Graph is stale before canonical edits | False under D-231: `docs-drift` passes because HEAD advanced only through excluded `docs/handoff/**` commits | **Reject** | Trust the governed-intent baseline for current canonical sources; rebuild once after the canonical propagation commit |
+| 12 | Ask the Judge to confirm the same propagation scope again | The Judge already supplied and approved the four parent answers recorded above | **Reject** | Lane A corrects and applies within the accepted bounded decision; ask only if the correction exposes a genuinely new business choice |
+
+### Specific internal contradictions in the proposal
+
+1. The Register draft says **V1 has no functional Sprint 3 or 4**, while the proposed Build Spec
+   replacement says **V1 is a four-sprint sequence `V1/S1…S4`**. Both cannot be current.
+2. The proposal says the setup programme and V1 are separate planning namespaces, while the accepted
+   B-117 model says **`SETUP-SPIKE-000` remains a V1 child**. “Its work does not complete a V1
+   delivery MMF” is true; “it is outside V1” is not.
+3. The proposal says DoR and DoD “remain to be written.” The Judge has decided the timing: the DoR
+   is already written for admission, and DoD-ready is the written BDD-linked checklist that may be
+   completed/refined during sprint opening. The canonical packet must assess and carry those
+   artifacts, not reset them to absent without evidence.
+4. The proposal calls the graph stale solely because `lastAnalyzedHead != HEAD`. D-231 deliberately
+   replaced that rule. `docs-drift` currently reports the governed intent as synced and identifies
+   the later range as excluded-only handoff commits.
+
+### Settled artifact ownership — no further Judge placement choice
+
+`B-087` §4 already records:
+
+> Story panels are sections of the storyboard, and its Mermaid sequences and flowcharts are the
+> inspected UML-style interaction/data-flow views; no standalone UML or UX artifact is required
+> merely to duplicate them.
+
+`B-096` child `S17` then confirms the same inventory boundary: repair the existing views in place;
+create no new artifact unless a future Register act creates and propagates one under D-54.
+
+The existing owner is therefore:
+
+`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`
+
+Its journal location does not make it authoritative over the Product or Fn_Spec. It is a governed
+derived view whose current-use panels must cite the authoritative requirement and traceability
+anchors. Lane A should update the view after the sources in the same bounded propagation unit,
+rather than promote or duplicate it.
+
+### Corrected `D-232` semantic core
+
+Lane A may reserve `D-232` if it remains free at application time. The decision text should carry
+this meaning without the four-sprint or separate-namespace additions:
+
+> **Judge decision, 2026-09-16, recorded in B-117.** V1 retains two functional delivery increments:
+> `V1-SM05` maps to `MMF-V1-CORE`, and `V1-SM06` maps to `MMF-V1-USABLE`. `V1-SM06` follows
+> `V1-SM05`; neither is started or selected by this act. `SETUP-SPIKE-000` remains V1's historical
+> zero-to-one setup child and prepares the packets; its completed setup evidence does not satisfy
+> either delivery increment. The qualified identifiers are distinct from the existing bare `S5`
+> (Line-3/degraded-mode scope) and `S6` (authentication-lockdown scope), whose meanings are not
+> changed by this act. The requirements traceability map is the canonical join for assigning each
+> requirement limb to one stable MMF/version destination. DoR, DoD-ready, DoD satisfaction,
+> construction authorization and lane selection remain separate states.
+
+The Register act must then include the real affected-tier table. It must not call the Artifact
+Inventory unaffected while sequencing its existing files, or call the storyboard/UML/data flow
+open placement questions.
+
+### Corrected Lane A application sequence
+
+1. Re-read this section and the preceding Judge decision; remove the separate-V1-namespace and
+   four-sprint claims from the draft.
+2. Confirm `D-232` and §5.14e57 remain free immediately before application. If either is occupied,
+   use the next available identifier; do not overwrite.
+3. Apply the corrected Register act with the exact four Judge answers and the semantic core above.
+4. Update the Build Spec with only two qualified delivery slots, their order, their stable MMFs,
+   their not-started state, and their DoR/DoD-ready references. Preserve bare `S5`/`S6` meanings.
+5. Update the Artifact Inventory to map existing required artifacts to `V1-SM05` or `V1-SM06` and
+   state that this pass creates or retires no file.
+6. Extend the traceability map as the canonical join. Update §6's prose chain and the forward/
+   backward rows with requirement limb, stable MMF, qualified slot, BDD, artifact and blocking
+   handoff links. Do not redefine Product behavior there.
+7. Update `Modular_PRD` owning status/sequence and mixed-requirement rows, not only its changelog.
+   Retain V1 minimum limbs and mark advanced limbs as V2 candidates without opening V2.
+8. Update the existing storyboard in place: `V1-SM05` normal/revision target panels,
+   `V1-SM06` board/ManualReady finish, explicit historical labels and V2-candidate labels. Its
+   embedded Mermaid sequences/flowcharts are the UML/data-flow views.
+9. Apply B-096's state/event/metadata/report separation to the affected data-flow view only after
+   S15/S16 and the exact write set are satisfied; do not imply physical schema authorization.
+10. Re-check Encyclopedia Entries 01/04/05/06 and record exact affected or unaffected evidence in
+    `ENCYCLOPEDIA-SYNC.md`; do not advance hosted verification without reading the hosted content.
+11. Derive the `V1-SM05` blocker/read set from the completed traceability rows and update the Lane B
+    work order with that minimum set and its BDD-linked DoD-ready checklist.
+12. Run the consistency suite and consumer review. Correct source-owner contradictions rather than
+    masking them in the traceability map.
+13. Commit the canonical packet, then rebuild/re-merge Graphify once. Verify CR → requirement limb
+    → stable MMF → qualified slot → BDD/evidence paths and confirm V1-SM05 does not traverse
+    V1-SM06 or V2.
+14. Return the committed revision for Lane B independent review before terminally dispositioning
+    B-117 or any dependent handoff.
+
+### Failure-derived acceptance evidence
+
+| Failure in the proposal | Required evidence before acceptance |
+|---|---|
+| Two different V1 sprint models in one packet | Register, Build Spec, Product and traceability show only the qualified two-increment delivery sequence |
+| Setup work treated as outside V1 or as completed delivery | Setup remains a V1 child and neither qualified MMF is marked complete from setup evidence |
+| Inventory omitted because no file is created | Existing artifacts are mapped to the qualified slots; create/retire count remains zero |
+| Changelog substitutes for Product correction | Owning Product rows and the changelog agree |
+| Traceability parent carries only a §6 label | Row-level bidirectional paths include MMF, slot, BDD, artifacts and blockers |
+| Storyboard/UML/data flow wait for a new placement decision | Existing single storyboard owner is updated in place with no duplicate artifacts |
+| Encyclopedia impact inferred from its old dependencies | Named entries are re-read against changed intake/gate/publication semantics |
+| Graph rebuilt for excluded-only commits | `docs-drift` passes before canonical edits; one rebuild occurs after the canonical commit |
+| Applied packet called complete without consumer proof | Lane B/C review the bounded read sets and an independent reviewer verifies the final revision |
+
+This review changes only B-117. It authorizes no Product construction, schema change, workflow,
+publication, deployment or V2 opening. The current governed-intent graph remains synchronized for
+the unchanged canonical sources; no Graphify action is due from this handoff-only correction.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Need for canonical `V1-SM05`/`V1-SM06` propagation | Lane A corrected source packet |
+| Approve | Preserve existing bare `S5`/`S6` meanings | Same propagation pass |
+| Approve | `D-232` semantic core, if the identifier remains free | Register application |
+| Approve-with-conditions | Traceability-map parent and migration content | Row-level bidirectional mapping, not §6 label only |
+| Approve-with-conditions | Encyclopedia review | Re-check named entries; update only evidenced impacts |
+| Reject | Lane A draft as written | Contains conflicting V1 models and incomplete tier propagation |
+| Reject | Separate `SETUP-SPIKE-000` from V1 | It remains V1's setup child; it does not complete the delivery MMFs |
+| Reject | Four-sprint `V1/S1…S4` sequence | Judge selected two qualified delivery increments |
+| Reject | Artifact Inventory unaffected | Existing artifacts are sequenced by this act |
+| Reject | Deferring storyboard/UML/data-flow placement | Existing handoffs already settle the single-owner model |
+| Reject | Graph-stale claim for excluded-only handoff commits | D-231 and `docs-drift` say governed intent is synchronized |
+| Defer | DoD satisfaction and implementation evidence | V1-SM05/V1-SM06 execution phases |
+| Defer | V2 construction and sprint assignment | V2 remains unopened |
