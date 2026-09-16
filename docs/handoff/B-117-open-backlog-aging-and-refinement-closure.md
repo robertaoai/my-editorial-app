@@ -2873,3 +2873,119 @@ deployment or lane transition is authorized by this review.
 | Defer | B-117 closure and Graphify rebuild | After canonical source commit, target normal/revision visuals and independent verification |
 | Reject | One-`R`/one-`A` cardinality as Sheet 2 verification, any backfill of source blanks, or a virtual Chief Editor node | Lane A must remove the conflation before readiness can pass |
 | Reject | Treating this planning decision as build authorization or lifting `D-171` | Fresh bounded build authorization remains required |
+
+## Judge correction — user/principal separation and `T6` moved beyond V1 (2026-09-17)
+
+### Correction to the preceding Lane B return
+
+The immediately preceding section correctly separates Sheet 2 source fidelity from application
+readiness, but its P2 wording still assigns the natural person to a transition and incorrectly places
+`T6` inside V1. The Judge has corrected both points:
+
+1. **Chief Editor / “the user” is the sole access and request principal, not the default workflow
+   actor.** Because one person can access the whole application, using that identity as the executor
+   of each transition, node or interaction destroys causal traceability. Application behavior must
+   name the agent, component or service that actually performs or triggers the work. Security may
+   separately record the requesting principal.
+2. **`T6` is beyond V1.** V1 behavior, visuals, DoR/DoD and verification must end before T6. A later
+   version may refine T6; this decision does not open that version, authorize T6, or freeze V1.
+
+The previous section's P2.2 row, `B117-R19`/`R21`/`R22` remedies insofar as they place a human T6 in
+V1, and its normal/refusal/revision T6 examples are **withdrawn and replaced below**. The Sheet 2
+decision and `B117-R17`/`R18` stand unchanged.
+
+### Parent-first decision tree
+
+| Order | Parent / child | Accept when | Reject when |
+|---:|---|---|---|
+| 1 | **P1 — V1 boundary** | `V1-SM05`/`V1-SM06` contain no T6 behavior, UI, node, transition test or completion claim | V1 is still described as implementing the full frozen success scenario through approval/publication |
+| 2 | P1.1 — V1 outcome | V1 ends on a named T5-complete/manual-ready delivery artifact and an explicit handoff boundary; no T6 state change is implied | “ManualReady” or “approved” is asserted without distinguishing the delivery artifact from the later persisted publication status/transition |
+| 3 | P1.2 — later scope | T6 requirements are transferred to a V2-target backlog/migration matrix without opening V2 or selecting a sprint | T6 is silently deleted, remains a V1 acceptance criterion, or V2 is declared active by implication |
+| 4 | **P2 — identity and causality** | Access principal, effective actor, trigger source, component and transition/event are separate fields/concepts | “Chief Editor” is assigned as a virtual node, transition node, blanket executor or cause of every authenticated action |
+| 5 | P2.1 — V1 UI boundary | Where V1 requires input, the UI records a request/supply act; downstream behavior identifies the responsible agent/component | The sole user account is repeated as the operational actor for agent/component work |
+| 6 | P2.2 — audit | Security attribution records who requested an action; behavioral audit records what agent/component executed it and what event resulted | One `actor=Chief Editor` field is used to answer access, causation, role assignment and execution simultaneously |
+| 7 | **P3 — source requirements** | Frozen `PRD.md`/Charter wording stays unchanged and traceability shows V1 partial coverage plus later-version ownership | Lane A edits frozen source or continues claiming V1 fully satisfies `CR-19` |
+
+No further Judge choice is required for this boundary. Lane A must correct the canonical scope and
+show the remaining V1 outcome as a concrete acceptance packet. If the exact persisted name for the
+T5-complete delivery artifact is not already decided, it remains a named DoR gap; Lane A must not
+borrow `ManualReady` from the later publication state to close it by wording.
+
+### Findings and required fixes
+
+| ID | Finding | Failure if unchanged | Required Lane A correction |
+|---|---|---|---|
+| `B117-R24` | The preceding B-117 return says “human Chief Editor at target T6 through UI” and specifies T6 V1 tests | It repeats the user/transition conflation and creates unauthorized V1 scope | Record this correction as the controlling return; withdraw those T6 examples from the V1 packet |
+| `B117-R25` | `V1-BUILD-SPEC.md` says `V1-SM06` makes the full PRD success scenario usable, while its operative sequence and DoD include T6, board return metrics, publication and fallback | V1 cannot both exclude T6 and claim end-to-end approval/publication completion | Re-scope `V1-SM05`/`V1-SM06` around the pre-T6 MMFs; keep the frozen success scenario as upstream traceability and transfer uncovered T6-dependent requirements to the V2 target |
+| `B117-R26` | Requirements traceability §6.1 assigns Chief Editor to step 7/T6 inside `V1-SM05`; §6.2 binds technical gates to virtual-node executors | The matrix makes the sole access identity both universal principal and workflow node, and puts later scope in the first V1 increment | End the V1 row-level journey before T6; separate `requesting_principal`, `effective_actor`, `trigger_source`, `component_id` and resulting event/transition; add a later-version trace for T6 |
+| `B117-R27` | `Modular_PRD.md` still places target T6 rows, T6 metrics and T6 user stories in the active V1 scope map | Derived Product scope will reintroduce T6 even if Build Spec is fixed | Retain historical provenance, but mark the target T6 requirement family as V2-target/not-open and remove it from V1 MMF completion evidence; do not edit frozen customer text |
+| `B117-R28` | `FN-GATES-01-05.md`, storyboard Panels A5/A6, UML/data flow and Transition Enforcement all describe T6 execution inside the shared V1 flow | Construction and verification will build or test a gate outside the version | Make the V1 view stop at the T5-complete handoff artifact. Move T6 behavior, principal rules and tests to a clearly later-version candidate section; do not draw the user as a transition node |
+| `B117-R29` | V1's post-T5 deliverable/status is not cleanly separated from later `ManualReady`, Approved/Published and T6/T10/T11 semantics | A “manual-ready” phrase can silently smuggle publication states and later transitions back into V1 | Define one V1 delivery artifact and its evidence without asserting a later state transition. Trace LinkedIn manual-ready delivery to that artifact; keep publication status mechanics outside V1 |
+| `B117-R30` | Encyclopedia/Graph fragments still explain the prior T5/T6 actor order and sometimes collapse all human accountability to Chief Editor | Public explanation and semantic search will return the model just rejected | Review Encyclopedia Entries 01/05/06 and all curated fragments affected by the V1/T6 or universal-Chief-Editor claims; supersede or annotate them during the governed Graphify pass |
+
+### Step-by-step Lane A follow-up
+
+1. **Register the correction first.** Assign one new decision ID that (a) separates the sole access
+   principal from effective behavioral actors/components, (b) places T6 beyond V1, and (c) supersedes
+   the affected V1/full-success and T6-in-V1 claims. Preserve `D-233`'s operation contracts and the
+   Sheet 2 source-fidelity correction.
+2. **Build the requirement migration matrix.** Use `requirements-traceability-map.md` as parent.
+   For every T6-dependent FR/AC/US/metric/test, state: current owner, V1 disposition, V2-target
+   disposition, dependency and acceptance evidence. A transfer is not deletion and does not open V2.
+3. **Rewrite the two V1 MMFs.** `V1-SM05` establishes the bounded core through its pre-T6 editorial
+   evidence; `V1-SM06` makes that bounded journey usable, including the agreed LinkedIn manual-ready
+   delivery artifact. Neither claims T6, approval, automated publication or full `CR-19` completion.
+4. **Normalize behavioral identity.** In Product/Fn Spec and traceability, use separate concepts for
+   request principal, effective actor, agent/component trigger and resulting event. Mention Chief
+   Editor only where a V1 human input/decision is explicitly required; never as a blanket executor.
+5. **Correct storyboard, story panels, UML and data flow.** The V1 normal and revision views stop at
+   the T5-complete delivery/handoff boundary. Show UI request → application component → selected
+   agent(s) → evidence/event. Put the T6 continuation in a later-version, non-operative view or omit
+   it from the V1 artifact.
+6. **Correct verification ownership.** V1 BDD proves causal attribution and the absence of a T6 path;
+   later-version candidates may describe T6 but are not part of V1 DoR/DoD or tests.
+7. **Propagate under D-54.** Update Register, Build Spec and Artifact Inventory in one pass; update
+   `Modular_PRD.md` §8 for the version/MMF scope change. State frozen PRD/Charter, schema and application
+   code unaffected.
+8. **Review Encyclopedia and Graphify last.** Update local/hosted sync disposition, rebuild the
+   extracted graph, re-merge curated fragments, run the complete checks, and return the exact source
+   commit for Lane B/C verification.
+
+### Construction and verification evidence produced by this correction
+
+- **V1 normal path:** a UI-supplied request is accepted; the named application component and selected
+  agents execute the bounded workflow; required T5 evidence is sealed; one version-scoped delivery
+  artifact is available without T6, Approved, Published or later publication-state claims.
+- **V1 revision path:** the responsible component routes only affected work back, preserves prior
+  evidence append-only, and regenerates the delivery artifact after required T5 evidence is complete.
+- **Causality test:** every audit record can distinguish the requesting principal from the effective
+  agent/component and the resulting event. Authentication alone never supplies the effective actor.
+- **Scope test:** no V1 UI control, API/RPC, acceptance case, sprint DoD or diagram invokes T6. A
+  T6-dependent requirement traces to the later-version target instead of appearing uncovered or done.
+- **Source-fidelity test:** Sheet 2 multiple-`R` and blank-`A` rows still verify exactly as decided in
+  the preceding return; this scope correction does not reopen that decision.
+
+### Cross-artifact disposition
+
+| Artifact | Disposition |
+|---|---|
+| Frozen `PRD.md` / Charter | Unaffected text; traceability now records that V1 does not complete the full success scenario |
+| `V1-DECISION-REGISTER.md` | Affected — new decision and explicit supersession/cross-references |
+| `V1-BUILD-SPEC.md` | Affected — V1 MMF meanings, DoR/DoD and T6-dependent sequence/metrics |
+| `V1-ARTIFACT-INVENTORY.md` | Affected only if a V2 tracking artifact is created; otherwise record no artifact creation/retirement and point to the migration matrix |
+| `Modular_PRD.md` | Affected — V1/V2 requirement disposition and §8 MMF tracking; historical rows retained |
+| `FN-GATES-01-05.md` / technical specs | Affected — V1 boundary and causal-actor model; later-version T6 candidates clearly separated |
+| Storyboard / story panels / UML / data flow | Affected — V1 ends at the delivery handoff; user is not a transition node |
+| Encyclopedia / curated graph | Affected after canonical source correction; review Entries 01/05/06 and impacted fragments |
+| Application/schema/deployment | Unaffected — planning correction only |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Sheet 2 source-fidelity decision from the preceding return | Retain and propagate with this correction |
+| Approve | Chief Editor/user as access/request principal, separate from effective agent/component behavior | Lane A identity and audit normalization |
+| Approve | T6 beyond V1 | Requirement migration and V1 MMF re-scope |
+| Approve-with-conditions | LinkedIn manual-ready V1 outcome | Lane A defines the pre-T6 delivery artifact without borrowing later publication state semantics |
+| Defer | T6 behavior, actor rules and tests | V2-target backlog; no V2 opening or sprint selection implied |
+| Defer | B-117 closure and Graphify rebuild | Canonical propagation, visual correction and independent verification |
+| Reject | Prior B-117 P2.2 and V1 human-T6 acceptance examples | Withdrawn by this Judge correction |
+| Reject | Any claim that V1 completes the full PRD success scenario while T6 is excluded | Lane A must state partial coverage and later-version ownership |
