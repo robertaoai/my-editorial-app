@@ -2557,3 +2557,75 @@ an acceptance. `factory-route-operation-crosswalk.md` §4 item 4's standing "no 
 exception" note is unchanged until the Chief Editor explicitly accepts or rejects it. Target Route-1
 Mermaid sequence/data-flow view and Encyclopedia Entries 01/06 review remain undone. `B-117` remains
 `Open`.
+
+## Lane B independent review of `136c875` — propagation accepted; readiness and traceability defects remain (2026-09-17)
+
+### Evidence reviewed
+
+Lane B read the complete ten-file diff at `136c875`, the current B-071 `B071-R204` section, the
+crosswalk §§2–5, the requirements map §§6.1–6.2, both changed technical specs, and current Graphify
+metadata/summary. The commit exists locally and remotely, the worktree is clean, and Graphify names
+`136c875` as `lastAnalyzedHead` with `stale=false` (1816 nodes, 3641 edges). These repository and
+Graphify claims are accepted.
+
+The core propagation is also accepted: contextual Pitch/Draft executor selection, preserved Sheet 2
+provenance, Copy-edit RACI, the T3 candidate correction, planning-T1 qualification and the proposed
+A-only Final Sign-Off shape all match the reviewed evidence. The following defects prevent calling
+the affected DoR/cross-reference packet complete.
+
+### Findings, parent first
+
+| ID | Finding | Why it fails | Required correction / success evidence |
+|---|---|---|---|
+| `B117-R7` | `V1-BUILD-SPEC.md`'s DoR introduction still says Pitch, Draft and Final Sign-Off **each** have an unresolved contract | The same section now declares Pitch and Draft resolved | Update the parent sentence to identify only the remaining implementation-detail work and proposed Final Sign-Off decision; no stale three-open summary remains |
+| `B117-R8` | `DOR-R4`, titled “required Route-1 operation contracts,” says Draft is resolved as **Journalist at business:T3** | The clarified normal Route-1 execution is Reporter Pitch/Draft at business:T1. Journalist at business:T3 is the contextual PROD-2 candidate stage, not the sole Route-1 Draft executor | For the Route-1 DoR, name Reporter at business:T1. If DOR-R4 intends the reusable cross-route rule, state both contextual mappings and stop calling that clause Route-1-only. Normal-path BDD must dispatch Route-1 Draft to Reporter |
+| `B117-R9` | Requirements map §6.1 row 2b still says OP-PITCH's executor is unresolved and cites B071-R204 open | A later paragraph says Pitch/Draft are resolved. The same current section carries both values | Correct row 2b itself to the contextual Reporter decision and link §6.2; a later override paragraph is not a substitute for correcting the queried row |
+| `B117-R10` | `FN-GATES-01-05.md` says Pitch/Draft are “resolved there,” referring to B-071, but B-071's current R204 text still presents all three as unanswered | The cited record does not contain the asserted resolution | Append a bounded outcome/cross-reference to B-071 or change the wording to cite the actual Register/crosswalk record. Preserve R204's historical proposal; do not rewrite it in place |
+| `B117-R11` | Storyboard prose says “Reporter selects at business judgment stage 1” | The judgment stage selects Reporter; Reporter then executes Pitch/Draft. The sentence reverses selector and executor | Replace with “Reporter is selected at business:T1 and executes OP-PITCH” (and Draft where the panel covers it). Diagram and prose must show the same direction |
+| `B117-R12` | Substantive operation-selection, accountability and terminology decisions were appended inside `D-232`, whose identity is the V1-SM05/06 sprint-slot assignment | One canonical record per fact is lost: an operation contract cannot be retrieved by its own Register act and D-232's title no longer describes its full content | Lane A assigns a fresh Register ID for the 2026-09-17 operation/terminology decision and leaves D-232 with a cross-reference. Propagate that ID to the changed owners; do not change the Judge's accepted content |
+| `B117-R13` | Transition Enforcement keeps the misleading `Gate` display header and explains the collision in a note | A qualification makes the defect understandable but leaves the normalized UI/document vocabulary unchanged | Rename the documentary column to `Transition rule`/`Rule ID`; keep stored `gate_id` unchanged until implementation impact review. Success is no display label calling T10 a gate |
+| `B117-R14` | Requirements map §6.2 groups `transition:T1–T11` and `EG1–EG5` in one namespace row | The map was required to prevent equivalence-by-number; grouping state/publication rules with judgment gates preserves ambiguity and provides no semantic relation | Use separate rows for transition rules and judgment gates, then state their actual one-to-one/one-to-many relation where decided. Do not infer mapping from equal digits |
+
+`V1-ARTIFACT-INVENTORY.md` is correctly unaffected: this pass creates, retires or resequences no
+artifact. `Modular_PRD.md`'s pointer-only treatment is acceptable once the canonical references above
+are corrected. The actual Mermaid/data-flow and Encyclopedia work remains openly deferred and is not
+misreported as complete by `136c875`.
+
+### `OP-FINAL-SIGNOFF` decision readiness
+
+The A-only proposal is coherent and is ready for a bounded Judge verdict, with two completion clauses
+that should be included in the accepted contract rather than left for implementation inference:
+
+1. **Replay/revision:** one idempotent attestation per workflow revision/scope; a revision affecting
+   an operation requires a fresh applicable attestation while preserving the prior signed-off package
+   as append-only audit evidence.
+2. **Boundary:** successful Final Sign-Off produces the signed-off-package event and opens the human
+   publication-review flow. It does not itself approve, publish, mark LinkedIn-ready or change article
+   state unless a separately authorized transition consumes that event.
+
+Recommended decision: **Accept with those two conditions** — Desk Editor is the acting principal for
+the A-only control; no synthetic `R` and no `R=A` record are created. Refuse and return to the earliest
+incomplete applicable operation if accountability/completion evidence is missing. The priority changes
+only if the Chief Editor requires separation between the operation's accountable party and its acting
+principal; in that case reject A-only and name an R explicitly.
+
+### Lane A follow-up
+
+1. Correct R7–R11 current-value contradictions first; they determine what the Route-1 tests would
+   assert.
+2. Give the accepted operation/terminology decision its own Register identity (R12), then update
+   references without duplicating its content.
+3. Finish vocabulary separation R13–R14; preserve persisted identifiers and enforcement behavior.
+4. Present the Final Sign-Off proposal with the replay/revision and no-transition/no-publication
+   clauses for Judge Accept/Reject.
+5. After that verdict, update DOR-R4 and the target normal/revision Mermaid/data flow, review
+   Encyclopedia Entries 01/06, run checks, rebuild/re-merge Graphify, and return the exact commit for
+   independent verification.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `136c875` push, Graphify synchronization, T3→PROD-2 correction, contextual selection and source-RACI separation | Applied; independent review complete for these facts |
+| Approve-with-conditions | `OP-FINAL-SIGNOFF` A-only Desk Editor proposal | Judge decision: add replay/revision and no-transition/no-publication clauses |
+| Approve-with-conditions | Ten-file propagation packet | Lane A corrects `B117-R7`–`B117-R14` before claiming DoR/cross-reference completion |
+| Defer | Target Mermaid/data flow, Encyclopedia Entries 01/06 and B-117 terminal closure | After Final Sign-Off verdict and corrected canonical packet |
+| Reject | Current DOR-R4 Journalist-only Route-1 Draft statement, stale “all three open” references, and D-232 as the permanent owner of unrelated operation decisions | Lane A canonical repair |
