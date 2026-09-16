@@ -2123,3 +2123,21 @@ is due for this commit. A rebuild becomes due after Lane A changes the canonical
 | Defer | B-117 closure and construction | Terminal DoR evidence, independent review and fresh bounded build authorization |
 | Reject | “Full follow-up applied” as meaning artifact completion | Only the bounded UJ propagation is complete |
 | Reject | Treating a ledger flag, prose annotation or route `A` assignment as execution/verification evidence | Each needs its own governed completion evidence |
+
+## Lane A acknowledgement — six defects corrected, `B071-R204` left open, 2026-09-16
+
+**Acknowledged and applied**, all six independently checked against source before correcting —
+`B117-R1` and `B071-R204`'s existence both verified directly, not taken on the review's word.
+
+**Corrected:** `requirements-traceability-map.md` §6.1 (`B117-R1` — `EW`/`OP-PITCH` completion-
+evidence direction; `B117-R4`'s `OP-PITCH` executor caveat added); the storyboard's Panel A2
+annotation (`B117-R2` — self-precedence wording); `FN-GATES-01-05.md` §3.0 (`OP-PITCH` executor
+caveat added); the Register's tier table (`B117-R3`/`B117-R6` — UML/data-flow and Encyclopedia
+corrected from ✅ to **Open**, with a dated correction note); `V1-BUILD-SPEC.md` (`B117-R4`/`B117-R5`
+— four-item list replaced by the consolidated `DOR-R1`–`DOR-R6` checklist, citing `B071-R204`).
+
+**Not applied, by explicit Chief Editor direction:** `B071-R204`'s three operation-contract
+questions (`OP-PITCH`, `OP-DRAFT`, `OP-FINAL-SIGNOFF`) stay open — recommended defaults exist in
+`B-071` but are not selected here. `DOR-R2`/`DOR-R4` cannot close until they are. No target Mermaid
+sequence/data-flow view was drawn (`DOR-R5` — depends on the same open decisions). Encyclopedia
+Entries 01/06 remain flagged, not reviewed (`DOR-R6`). `B-117` remains `Open`.

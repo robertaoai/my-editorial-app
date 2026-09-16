@@ -225,7 +225,7 @@ here.
 |---:|---|---|---|---|---|
 | 1 | Chief Editor prepares the source package outside the system | No transition | `CR-09`, `FR-01`, `AC-01`/`AC-02` | `V1-SM05` | Manual record accepted by the UI — precondition for step 2 |
 | 2a | `ROUTE-PROD-1` fixed for `V1-SM05` (no route chooser); Sheet 1 records Reporter `R`, Desk Editor `A` | Senior Journalist emits `EW`-start; no gate advances (`B-071` Round 56) | `CR-10` (route context, not itself an FR) | `V1-SM05` | **`UJ1` resolved** — order is: accepted manual record → Senior Journalist `EW` → `OP-PITCH` route classification → T1. Chief Editor does not execute `EW`/T1; Senior Journalist trigger does not complete T1 |
-| 2b | `OP-PITCH` records and completes the Route-1 classification | `EW`'s completion evidence, per `factory-route-operation-crosswalk.md` line 156 | `CR-10` | `V1-SM05` | Logged pitch: topic, trend signal, route classification — precedes T1 |
+| 2b | `OP-PITCH` records and completes the Route-1 classification | `OP-PITCH`'s own completion evidence; `EW` is its **entry trigger**, not the other way round (`factory-route-operation-crosswalk.md` §3.2 stage table) | `CR-10` | `V1-SM05` | Logged pitch: topic, trend signal, route classification — precedes T1. **`OP-PITCH`'s own executor is unresolved** — Sheet 2 marks it `UNVERIFIED` with two candidate `R`s (Reporter, Journalist); see `B071-R204`, open |
 | 3 | Reporter performs the responsible intake work | Reporter executes T1 | `FR-01`, `AC-01`/`AC-02` | `V1-SM05` | — |
 | 4 | Desk Editor remains route-accountable; not a gate executor | Investigator executes T2/T3 | `FR-02` | `V1-SM05` | — |
 | 5 | Route accountability unchanged | Journalist executes T4 | `FR-03` | `V1-SM05` | — |
@@ -235,13 +235,11 @@ here.
 | 9 | Route completion visible on the board | Board reads state/topic/category/audit | `CR-13`, `FR-08`, `AC-13` | `V1-SM06` | — |
 | 10 | Publication delivery does not redefine editorial accountability | Approved content becomes `ManualReady` | `CR-12`, `FR-09`/`FR-10`, `AC-14`–`AC-16` | `V1-SM06` | — |
 
-**What this table does not do:** authorize construction or satisfy DoR. Four implementation-readiness
-details remain as specification work (not a further business decision): the canonical record for
-route identity/R/A; the exact validation event admitting `EW`; the UI projection separating route
-accountability from gate executor/article state; and the refusal/retry rule for `EW` without a valid
-intake record or on replay. Sheet 2 operations other than `OP-PITCH` (`OP-DRAFT`, `OP-FINAL-SIGNOFF`)
-remain business-process context, not separate V1-SM05 UI actions, per `factory-route-operation-
-crosswalk.md`'s own `UNVERIFIED` marks on their R/A shape.
+**What this table does not do:** authorize construction or satisfy DoR. The consolidated DoR
+checklist (`docs/v1/V1-BUILD-SPEC.md`'s `DOR-R1`–`DOR-R6`, `D-232` follow-on) supersedes an earlier,
+incomplete four-item list here. **`B071-R204`'s three required-operation questions — `OP-PITCH`,
+`OP-DRAFT`, `OP-FINAL-SIGNOFF` — remain open Chief Editor decisions**, not resolved by this table or
+guessed at here. `OP-COPY-EDIT` is the one Sheet 2 operation already `VERIFIED` and unaffected.
 
 **Forward engineering:** a customer want becomes an objective, a story, a requirement, a sprint, a test.
 **Backward engineering:** a failing test resolves to a requirement, to a story, to a customer sentence with a verifiable hash — even years later, and even if nobody involved is still on the project.

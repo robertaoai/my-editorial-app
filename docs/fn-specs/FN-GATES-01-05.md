@@ -86,6 +86,11 @@ T5-style sign-off, and does not authorize or perform `T1`. Neither the Chief Edi
 the Senior Journalist's `EW` emission completes `T1` — only the Reporter's own T1 execution below
 does.
 
+**`OP-PITCH` (step 3 above) has its own unresolved executor contract, not settled by this
+precondition.** Sheet 2 marks it `UNVERIFIED` with two candidate `R`s (Reporter, Journalist) and no
+milestone marker. `docs/handoff/B-071`'s `B071-R204` names this as one of three open Chief Editor
+accept/reject questions (with `OP-DRAFT` and `OP-FINAL-SIGNOFF`) — open, not resolved here.
+
 ### 3.1 `FR-01` — T1 Intake *(Reporter, Line 1, Agent)*
 
 `Discovered → Logged`

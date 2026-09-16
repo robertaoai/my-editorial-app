@@ -37,14 +37,27 @@ derived `S2`/`S3`/`S4` rows in `Modular_PRD.md` §8.1 are **not** presumed to ma
 `V1-SM06` by number — that reconstruction is open work, not yet done (see `Modular_PRD.md` §8.0/§8.1
 cross-reference note).
 
-**DoR dependency, not construction authorization (`D-232` follow-on, 2026-09-16).** `V1-SM05`'s
-pre-`T1` boundary is settled — Judge clarification, `requirements-traceability-map.md` §6.1,
-`FN-GATES-01-05.md` §3.0 — but four implementation-readiness details remain unspecified and block
-`V1-SM05` DoR completion: (1) the canonical field/record storing route identity and R/A without
-copying it into every transition; (2) the exact validation event admitting the Chief Editor's manual
-package and permitting `EW`; (3) the UI projection separating route accountability from current gate
-executor and article state; (4) the refusal/retry rule for `EW` without a valid intake record or on
-replay. None of the four is resolved by this entry; none authorizes code, schema, or deployment.
+**DoR dependency, not construction authorization (`D-232` follow-on, corrected 2026-09-16 per Lane B
+independent review `B117-R4`/`B117-R5`).** `V1-SM05`'s pre-`T1` business boundary is settled — Judge
+clarification, `requirements-traceability-map.md` §6.1, `FN-GATES-01-05.md` §3.0. The earlier
+four-item list here omitted `docs/handoff/B-071`'s already-named `B071-R204` — three required
+Sheet 2 operations (`OP-PITCH`, `OP-DRAFT`, `OP-FINAL-SIGNOFF`) each with an unresolved executor/
+accountability contract. This is the consolidated parent checklist; it replaces, not duplicates, the
+earlier list:
+
+| Parent | Child contract | Completion evidence |
+|---|---|---|
+| `DOR-R1` — pre-T1 record and event contract | Canonical intake/work-order/route record; Chief Editor supplier identity; acceptance event permitting `EW`; stored route R/A; no copying into each transition | One schema-neutral contract names fields/events, authority and audit projection |
+| `DOR-R2` — `OP-PITCH` atomic contract | **Blocked on `B071-R204`** — decide atomic Reporter-only act vs. decomposed milestone; define inputs, output route classification, executor(s), failure and replay/idempotency | Positive case creates one completed pitch/classification; duplicate event creates no second completion |
+| `DOR-R3` — `EW` refusal/retry contract | Missing/unaccepted intake, duplicate `EW`, failed pitch, later legitimate new workflow | BDD cases show no gate/state advance, stable workflow identity and append-only failure/retry evidence |
+| `DOR-R4` — required Route-1 operation contracts | **Blocked on `B071-R204`** — `OP-DRAFT` executor/accountability and `OP-FINAL-SIGNOFF` acting-principal/completion evidence; `OP-COPY-EDIT` already `VERIFIED`, unchanged | Every required operation has one executable atomic/milestone shape before T5 readiness |
+| `DOR-R5` — UI and target visual contract | UI separates supplier, route R/A, current gate executor and article state; storyboard gets one target normal/revision sequence and matching data flow | Chief Editor walkthrough and Lane B/C review trace each visible fact to one authoritative record/event |
+| `DOR-R6` — Encyclopedia review | Entries 01/06 reviewed against the corrected text; sync disposition recorded | Hosted and local status agree, or an explicit opt-in deferral is recorded — not merely flagged |
+
+**`B071-R204`'s three operation-contract questions remain open Chief Editor decisions, by explicit
+direction** — recommended defaults exist in `docs/handoff/B-071` but are not applied here. `DOR-R2`
+and `DOR-R4` cannot close until they are answered. None of the six rows authorizes code, schema, or
+deployment.
 
 ## 2. Sequence
 

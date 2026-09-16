@@ -17294,10 +17294,30 @@ are named, not resolved, by this addendum.
 | **Register** | ✅ this addendum, updated 2026-09-16 with the `UJ1`/`UJ2` resolution |
 | **`requirements-traceability-map.md` §6.1** | ✅ row-level `V1-SM05`/`V1-SM06` journey table corrected — pre-T1 ordering split out, `UJ1`/`UJ2` open markers replaced with resolved evidence contracts |
 | **`Modular_PRD.md` §8** | ✅ changelog row; §8.1 note corrected — no longer claims `UJ1`/`UJ2` open |
-| **`FN-GATES-01-05.md`** | ✅ precondition note added ahead of §3.1 — accepted manual record → `EW` → Route-1 classification → T1; route `A` is context, not a gate executor |
-| **Storyboard** (`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`) | ✅ Panel A2 annotated in place with the resolved pre-T1 boundary, in this document's own "preserve dated history, annotate don't rewrite" convention |
-| **UML/data flow** | ✅ addressed via the same storyboard annotation — no standalone artifact created, per `B-087`/`B-096` |
-| **Encyclopedia** | ✅ `docs/ENCYCLOPEDIA-SYNC.md` updated — Entries 01 and 06 flagged affected, not yet republished (that remains a separate opt-in act) |
-| **`V1-BUILD-SPEC.md`** | ✅ DoR dependency note added — the four remaining specification details, no construction authorized |
+| **`FN-GATES-01-05.md`** | ✅ precondition note added ahead of §3.1 — accepted manual record → `EW` → Route-1 classification → T1; route `A` is context, not a gate executor; `OP-PITCH`'s own unresolved executor flagged (`B071-R204`) |
+| **Storyboard** (`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`) | ✅ Panel A2's prose annotation corrected — self-precedence wording fixed (`B117-R2`, Lane B independent review) |
+| **UML/data flow** | **Open** — the corrected prose annotation describes the target ordering; the panel's own Mermaid diagram is not yet redrawn to show it (`B117-R3`, Lane B independent review). Not claimed complete |
+| **Encyclopedia** | **Open** — `docs/ENCYCLOPEDIA-SYNC.md` flags Entries 01/06 as affected; neither has been reviewed against the corrected text, and the hosted Artifact is untouched (`B117-R6`, Lane B independent review) |
+| **`V1-BUILD-SPEC.md`** | ✅ four-item list replaced with the consolidated `DOR-R1`–`DOR-R6` checklist, explicitly citing `B071-R204`'s three open operation-contract questions rather than presenting them as covered |
 | **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no artifact created, retired, or resequenced by this addendum |
 | **Graphify** | Rebuild owed after this commit — governed-intent doc content |
+
+#### Correction — Lane B independent review, 2026-09-16 (`docs/handoff/B-117`, commit `e8c08da`)
+
+The business resolution of `UJ1`/`UJ2` stands, independently confirmed. Six defects in the applied
+text above are corrected in this pass, all citation/wording/status-marker errors, none a reversal of
+the underlying business decision:
+
+- **`B117-R1`** — the traceability map reversed which side owns "completion evidence": it is
+  `OP-PITCH`'s, with `EW` as its entry trigger, not the other way round. Corrected.
+- **`B117-R2`** — the storyboard annotation listed the Chief Editor's UI supply act as "preceding"
+  Panel A2's own first arrow, which already depicts that same act. Corrected to describe only the two
+  events that actually follow it and precede T1.
+- **`B117-R3`, `B117-R6`** — this table marked UML/data-flow and Encyclopedia propagation ✅ complete
+  on the strength of a prose annotation and a sync-ledger flag respectively. Neither is execution or
+  publication evidence. Both corrected to **Open** above.
+- **`B117-R4`, `B117-R5`** — `OP-PITCH` was used as a settled pre-T1 precondition, and the Build Spec's
+  four-item DoR list omitted `OP-DRAFT`/`OP-FINAL-SIGNOFF`, without connecting to the existing,
+  already-named `B071-R204` (`docs/handoff/B-071`, three required-operation Chief Editor questions).
+  `FN-GATES-01-05.md` §3.0 and this table now cite `B071-R204` explicitly. **By explicit Chief Editor
+  direction, none of `B071-R204`'s three questions is answered in this pass — they remain open.**

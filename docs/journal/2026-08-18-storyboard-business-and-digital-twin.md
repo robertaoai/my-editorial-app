@@ -92,17 +92,21 @@ sequenceDiagram
 > unresolved producer dependency. **The Reporter is an agent, as this panel and `FN-GATES` both
 > state**; there has never been a human/agent disagreement here, and any claim of one is withdrawn.
 
-> **Pre-`T1` boundary added — 2026-09-16 (`D-232` follow-on, Judge clarification via `docs/handoff/B-117`).**
-> This panel's diagram starts at "Chief Editor paste source URL." Three events actually precede it,
-> none of them a gate: (1) the Chief Editor supplies the source package through the UI — the same
-> supply act shown above; (2) a Senior Journalist agent action emits the `EW`-start event (`B-071`
-> Round 56); (3) `OP-PITCH` records and completes the Route-1 classification — logged pitch: topic,
-> trend signal, route classification (`factory-route-operation-crosswalk.md` line 156). **`V1-SM05`
-> fixes the route to `ROUTE-PROD-1`** — no route-selection UI exists in V1. Sheet 1 assigns
-> `ROLE-REPORTER` = R and `ROLE-DESK-EDITOR` = A on that route; this is an observable work-order
-> record, not a gate, button, or T5-style sign-off, and authorizes no transition. See
-> `FN-GATES-01-05.md` §3.0 for the governed version of this boundary; this panel is annotated, not
-> redrawn, per this document's own convention.
+> **Pre-`T1` boundary corrected — 2026-09-16 (`D-232` follow-on, Lane B independent review
+> `B117-R2`).** This panel's own first arrow (`CE->>R: paste source URL`) already **is** the Chief
+> Editor's UI supply act — it does not precede itself. **Two events follow that arrow and precede
+> the Reporter's T1 execution**, neither a gate: a Senior Journalist agent action emits the
+> `EW`-start event (`B-071` Round 56), whose entry trigger it is; then `OP-PITCH` records and
+> completes the Route-1 classification — logged pitch: topic, trend signal, route classification
+> (`factory-route-operation-crosswalk.md` §3.2 stage table). **`OP-PITCH`'s own executor remains
+> unresolved** — Sheet 2 marks it `UNVERIFIED` with two candidate `R`s; see `B071-R204`, an open
+> Chief Editor decision, not resolved by this annotation. **`V1-SM05` fixes the route to
+> `ROUTE-PROD-1`** — no route-selection UI exists in V1. Sheet 1 assigns `ROLE-REPORTER` = R and
+> `ROLE-DESK-EDITOR` = A on that route; this is an observable work-order record, not a gate, button,
+> or T5-style sign-off, and authorizes no transition. **This diagram's own sequence is not yet
+> redrawn to show the two intervening events** — that remains open (see `B-117`'s DoR checklist);
+> this note describes the target ordering in prose only. See `FN-GATES-01-05.md` §3.0 for the
+> governed version of this boundary.
 
 ### Panel A3 — T2/T3 Validation and investigation *(Investigator, Line 1, Agent)*
 
