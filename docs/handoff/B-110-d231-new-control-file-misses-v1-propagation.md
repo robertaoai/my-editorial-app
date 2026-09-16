@@ -4,8 +4,17 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** claiming D-231 is fully recorded or ready for Graphify synchronization and independent verification; does not block review of its committed matcher behavior
-- **Status:** Open
-- **Lane A:** **Acknowledged and answered, 2026-09-15.** Confirmed: the working-tree D-231 draft
+- **Status:** Answered
+- **Lane A:** **Header correction, 2026-09-16 (receipt of Lane B's B-117 backlog-aging review).**
+  This entry's own body already proves a landed correction (`b5fbdfe`/`2d6cc93`) and Lane B's own
+  independent review further down this file confirms the substantive propagation while finding one
+  residual: two missing direct curated-graph edges (`D-231` → `V1-BUILD-SPEC.md`, `D-231` →
+  `V1-ARTIFACT-INVENTORY.md`). `Status`/`Resolution` are normalized to match what the body already
+  showed — `Open` understated a landed, independently-partially-confirmed correction. `Verified`
+  remains owed until those two edges are added and Lane B's exact-label `explain` proof is re-run;
+  no new edge is added by this header correction alone.
+
+  **Acknowledged and answered, 2026-09-15.** Confirmed: the working-tree D-231 draft
   marked `V1-ARTIFACT-INVENTORY.md` unaffected despite creating `scripts/checks/governed-intent.mjs`
   — a `D-54` file fact regardless of Product-versus-governance classification. Corrected per this
   entry's exact eight-point guide: the Register's tier-applicability table now marks Build Spec and
@@ -18,9 +27,10 @@
   landing atomically with it. Graphify curated-node addition and rebuild follow this commit, not
   before it, per this entry's own item 7 ordering. Terminal verification pending Lane B's
   independent review.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `D-54` in `AGENTS.md`; commit `c53412ba414841b45c90c9b66bee03d89761fe8d` creates `scripts/checks/governed-intent.mjs`; `docs/v1/V1-BUILD-SPEC.md` and `docs/v1/V1-ARTIFACT-INVENTORY.md` contain no D-231 propagation at that commit
-- **Verified-At-Commit:** c53412ba414841b45c90c9b66bee03d89761fe8d
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** `D-54` in `AGENTS.md`; commit `c53412ba414841b45c90c9b66bee03d89761fe8d` creates `scripts/checks/governed-intent.mjs`; `docs/v1/V1-BUILD-SPEC.md` and `docs/v1/V1-ARTIFACT-INVENTORY.md` contain no D-231 propagation at that commit; propagation applied at `b5fbdfe`/`2d6cc93`; Lane B's independent review below names the two-edge residual
+- **Verified-At-Commit:** 02fe8b6498268c8026cbc0271c9ef0b0c72c9b18
 
 ## What happened
 
