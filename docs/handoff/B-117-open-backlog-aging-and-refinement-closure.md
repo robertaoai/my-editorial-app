@@ -1150,3 +1150,62 @@ question. Only then are V2 tracking files created and the candidate rows promote
 | Reject | Moving all Line/four-eyes, Board/audit and Publication/fallback to V2 | Would make V1's frozen success scenario impossible |
 | Reject | Creating `docs/v2/` from this refinement decision | Candidate tracking is not version opening |
 | Reject | Starting V1 construction from this split | S5 still needs complete DoR, capacity, Judge selection and bounded authorization |
+
+## Lane A response — second numbering collision found; propagation withheld again, 2026-09-16
+
+**Receipt only; still no Register/Build Spec/Inventory/Modular_PRD edit.** The two preceding
+sections resolve the first `D-58` escalation well — `SETUP-SPIKE-000` keeps its name and reuses the
+existing `S0…S4` labels rather than aliasing them, and the minimum/expansion split avoids silently
+discarding S2–S4's real requirements. Before applying either section's "Lane A follow-up," Lane A
+read `V1-BUILD-SPEC.md` for the `S5`/`S6` labels both sections now propose to reuse for "V1's
+application build" and "V1's functional completion."
+
+### The second collision, with exact citations
+
+**`V1-BUILD-SPEC.md:16`**: *"v1 = sprints S0 through S4. `S5` (Line 3, degraded mode) and `S6`
+(auth lockdown) are beyond v1."* This is not a placeholder — both have real, cited requirements:
+
+- **`S5`** (`V1-BUILD-SPEC.md:357`): Line 3 degraded-mode roster, `FR-11`, `D-57`/`D-167`/`D-168`,
+  condition `C-13`'s BCP observability surface. Explicitly: *"`FR-11` is not built in v1."*
+- **`S6`** (`:358`): auth and scoped RLS, `SEC-03`, gated on `OD1`–`OD3`, *"cannot be called done
+  while they are open."*
+
+Both preceding sections propose `V1/S5` = first application increment and `V1/S6` = V1's complete
+success-scenario milestone — the opposite of "beyond v1," reusing labels that already name different,
+real, currently-undone work. This is the same collision class as the first escalation, one index
+step later: a numbering proposal made without reading `V1-BUILD-SPEC.md`'s current content.
+
+### An alternative worth naming before any relabeling: no new numbers may be needed
+
+The "V1 minimum" content the second section derives independently — `ROUTE-PROD-1` (one required
+T5 reviewer, sealed review, human T6), a basic board with state/topic/category filters, and LinkedIn
+`ManualReady` — maps closely onto the **existing** `S2` (Line assignment/four-eyes), `S3`
+(Board/filters/audit) and `S4` (Publication/fallback) sprint definitions already in
+`V1-BUILD-SPEC.md`. If that mapping holds, the actual correction may be narrower than introducing
+`S5`/`S6` at all: **narrow S2/S3/S4's existing acceptance scope to the stated V1 minimum, move the
+named advanced ACs (fallout/GRC, multi-target publishing, retry scheduler, etc.) to `V2 candidate`
+tracking, and keep the existing sprint identities.** This would avoid inventing any label that must
+be checked against six-and-counting already-occupied slots. Lane A does not decide this; it is
+offered as a materially smaller-risk option for the Judge to weigh against the `S5`/`S6` proposal.
+
+### What Lane A did and did not do
+
+Did not touch `docs/v1/V1-DECISION-REGISTER.md`, `docs/v1/V1-BUILD-SPEC.md`,
+`docs/v1/V1-ARTIFACT-INVENTORY.md`, or `docs/Modular_PRD.md`. No Register ID assigned. This entry's
+header is unchanged.
+
+### What would resolve this
+
+At the next round in this entry, one explicit choice:
+
+- **Reuse `S2`/`S3`/`S4`** for the V1-minimum/V2-candidate split (no new sprint numbers), or
+- **Confirm `S5`/`S6` are being deliberately repurposed**, explicitly stating that their current
+  Line-3/auth-RLS content is retargeted to different slots (name which ones) or demoted to
+  candidate/backlog status itself — not inferred from silence.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Minimum/expansion split principle (V1 keeps the frozen-scenario minimum; advanced limbs become V2 candidates) | Phase 1 — sound regardless of which labels carry it |
+| Reject | Applying `V1/S5`/`V1/S6` as written | Collides with `V1-BUILD-SPEC.md:16/357/358`'s existing Line-3/auth-RLS content |
+| Defer | Which sprint identities carry the V1 minimum | Judge choice: reuse existing `S2`–`S4`, or deliberately repurpose `S5`/`S6` with their current content explicitly relocated |
+| Reject | Treating this as rejecting the minimum/expansion split itself | Only the label choice is unresolved; the split logic is accepted |
