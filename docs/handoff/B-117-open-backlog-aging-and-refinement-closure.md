@@ -2702,3 +2702,62 @@ not reopen the already-settled Pitch/Draft, T3 or namespace decisions.
 | Defer | `OP-FINAL-SIGNOFF` acceptance | Explicit Judge Accept/Reject required |
 | Reject | Claim that Lane B's Approve-with-conditions recommendation was a Chief Editor decision | Lane A removes unsupported status/attribution or records a later genuine Judge act |
 | Defer | B-117 closure, target diagrams and Encyclopedia review | After valid Final Sign-Off verdict and remaining evidence |
+
+## Judge evidence received — `B117-R15` withdrawn; Final Sign-Off acceptance confirmed (2026-09-17)
+
+### Correction to the immediately preceding review
+
+The Chief Editor supplied screenshot evidence
+(`codex-clipboard-28ef415b-909d-4bc5-b1fb-dfa66b2e7e21.png`) of Lane A's actual two-part decision
+prompt and the selected answers:
+
+1. fix all eight defects and split the RACI/terminology decisions away from D-232 — **“Yes to both
+   (Recommended)”**; and
+2. Final Sign-Off's A-only proposal — **“Accept as proposed (Recommended)”**.
+
+The prompt itself includes the material terms: Desk Editor attestation, no synthetic R, idempotent
+replay, fresh attestation per revision, opens human review only, and no publish/approve/state change.
+This is explicit Judge acceptance of the same five-condition contract recorded by D-233.
+
+`B117-R15` is therefore **withdrawn as an evidence-late finding**. Lane A did not promote Lane B's
+recommendation without authorization; the approval existed in the decision UI and was missing only
+from the text record Lane B inspected. `f4b0d28`'s D-233 acceptance, crosswalk contract, Build Spec,
+Fn Spec, Modular PRD row 1.36 and storyboard annotation stand. The following historical records also
+stand without rewriting: Modular PRD row 1.35 and D-232's dated addenda describe the proposal before
+acceptance.
+
+### Consolidated cross-artifact review after the Judge decision
+
+| Artifact | Status | Remaining action / completion evidence |
+|---|---|---|
+| `Modular_PRD.md` | **Aligned** | Row 1.36 correctly records D-233 and acceptance; no FR/AC/NFR change was required |
+| Crosswalk §4.1 | **Aligned** | Accepted A-only control carries all selected conditions and preserves Sheet 2 source rows |
+| `V1-BUILD-SPEC.md` | **Aligned for the decision** | DOR-R4 reflects Reporter on Route-1 and accepted Sign-Off. DoR still needs its named UI/visual and Encyclopedia evidence; no construction authorization follows |
+| `FN-GATES-01-05.md` | **Aligned** | Points to D-233/current owners and preserves B-071 as historical rather than pretending it was edited |
+| Requirements traceability §6.1/§6.2 | **One current-value defect remains (`B117-R16`)** | Step 6 still says `OP-FINAL-SIGNOFF` is “separately unresolved,” while the same section's closing paragraph records D-233 acceptance. Replace the stale clause with the accepted A-only contract and preserve the statement that it does not backfill route-accountability evidence |
+| Storyboard / story panel | **Prose aligned; target visual incomplete** | Panel A2 annotation records acceptance, but its Mermaid sequence is explicitly not redrawn. Add the target normal/revision sequence rather than another prose note |
+| UML / data flow | **Open in the existing storyboard owner** | Per `FN-GATES` §4.1, these are Mermaid views in the storyboard, not separate artifacts. Show selection → task evidence → A-only sign-off → human review, plus revision invalidation/fresh attestation and no direct publication/state change |
+| Encyclopedia | **Open** | Review Entries 01/06 against D-233 and record local/hosted sync evidence or an explicit allowed deferral |
+| Technical specs | **Aligned for vocabulary** | Transition table uses display header `ID`; planning T1 is qualified. Stored/API identifiers and enforcement behavior remain unchanged |
+| B-071 | **Historical, acceptable** | R204 may retain the original open questions; current readers must be routed to D-233. No historical rewrite required |
+| Graphify | **Governed intent synchronized at `f4b0d28`** | HEAD's later `1654082` is handoff-only and excluded. Rebuild after Lane A fixes R16 and the target governed visuals/Encyclopedia, not for this correction alone |
+
+### Lane A follow-up, parent first
+
+1. Acknowledge the screenshot as the missing Judge evidence and mark `B117-R15` withdrawn; do not
+   revert any accepted D-233 contract text.
+2. Fix `B117-R16` in requirements traceability step 6 so the current row and its closing paragraph
+   agree.
+3. Complete the existing storyboard's target normal/revision Mermaid and matching data-flow view,
+   including the accepted Sign-Off boundary and revision behavior.
+4. Review Encyclopedia Entries 01/06, then update DOR-R5/R6 only from actual evidence.
+5. Run checks, rebuild/re-merge Graphify after the governed edits, and return the commit for
+   independent review. B-117 closes only after those remaining children have terminal evidence.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Judge acceptance of D-233 Final Sign-Off A-only contract | Decided; retain `f4b0d28` canonical text |
+| Withdraw | `B117-R15` unsupported-acceptance finding | Closed by screenshot evidence supplied 2026-09-17 |
+| Approve-with-conditions | Requirements traceability cross-reference | Lane A fixes `B117-R16` current-value contradiction |
+| Defer | Target storyboard/story panel/UML/data flow and Encyclopedia Entries 01/06 | Lane A completion evidence, then Lane B/C review |
+| Defer | B-117 terminal closure | R16, DOR-R5 and DOR-R6 complete and independently verified |
