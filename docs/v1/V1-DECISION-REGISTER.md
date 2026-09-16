@@ -17441,3 +17441,80 @@ SIGNOFF` "stays separately unresolved" after this entry accepted it. Corrected i
 cite the accepted A-only contract, preserving the underlying point that route-accountability evidence
 and Final Sign-Off's own contract are separate facts. No other tier affected — this row was the only
 place the stale wording survived.
+
+## 5.14e59 `D-234` — Phase-Gate/Task-Execution Model, Accepted Intent Only, Propagation Deferred
+
+**Judge decision, 2026-09-17, recorded in `docs/handoff/B-117`** (commits `747023d`, `585dd81`,
+`d427727`, `425a7b9`, `05e703f`). This entry records the accepted application-workflow model as
+**decided intent**. By the Chief Editor's explicit scoping for this pass, **no propagation to
+`requirements-traceability-map.md`, `factory-route-operation-crosswalk.md`, `FN-GATES-01-05.md`, the
+storyboard, `V1-BUILD-SPEC.md`, or any `docs/specs/` file happens in this act** — that is deferred to
+a dedicated follow-on. `D-176`, `D-233` and their retained facts (route-operation applicability;
+Reporter as Route-1's `OP-PITCH`/`OP-DRAFT` executor; `OP-DRAFT`'s blank source `A` with Chief
+Editorial Desk as application default; the accepted Final Sign-Off A-only contract) are unaffected and
+not restated here.
+
+### Decided intent
+
+1. **Two-part phase-gate lifecycle, not a single close.** "Judgment gate is done first" means
+   judgment/selection happens as its own step *inside* the phase-gate lifecycle, not that the whole
+   gate closes before its tasks run. Seven-step cycle: enter the `T` phase-gate node → perform route/
+   rank judgment → record the selected role as an append-only selection event → dispatch the selected
+   role's `EG`/task-workflow bundle → collect task and RACI evidence → mark the phase gate complete
+   only once its required bundle is satisfied → advance, or return only the affected scope on
+   revision. Closing the whole gate at the judgment step is rejected as circular — it would advance
+   before the evidence that justifies advancing exists.
+2. **`T1`–`T5` role-selection/task-workflow matrix**, business-namespace-scoped (not renaming any
+   stored `transition:T`/`EG` identifier): `T1` selects Reporter (`OP-PITCH`→`OP-DRAFT`, baseline
+   `ROUTE-PROD-1`); `T2` selects Investigator, comparing `ROUTE-PROD-3` against baseline
+   `ROUTE-PROD-1`; `T3` selects Journalist, comparing `ROUTE-PROD-2` against baseline `ROUTE-PROD-1`;
+   `T4` selects Senior Journalist, comparing `ROUTE-FALLOUT-1` against baseline `ROUTE-PROD-1`; `T5`
+   is Chief Editorial Desk's accountability/readiness judgment — review Pitch/Research evidence,
+   perform source `OP-COPY-EDIT` responsibility, confirm `OP-DRAFT`'s application `A`, then
+   `OP-FINAL-SIGNOFF` checks complete `A`-coverage. `T5` success opens the UI publication-review flow;
+   there is no `T6` in this model, and no operation type is assumed to run only once — the same
+   operation type may recur across phase gates as distinct, immutable scoped executions.
+3. **`T5` RACI normalization** — four facts stay distinct and none overwrites another: operation
+   source RACI (Sheet 2, unedited), route accountability (Sheet 1, unedited), `T5` phase-level
+   accountability (Chief Editorial Desk, a new application-layer fact), and application-level defaults
+   (e.g. `OP-DRAFT`'s Chief Editorial Desk default `A`, already decided under `D-233`). `OP-COPY-EDIT`
+   already has Chief Editorial Desk as source `R` — no missing `R` exists there. If a Chief Journalist
+   precursor to Copy Edit is retained, it must become a separately identified child-task contract with
+   its own trigger/executor/input-output/failure/revision terms; it must never overwrite
+   `OP-COPY-EDIT`'s source `R`.
+4. **`OP-FINAL-SIGNOFF`'s accepted contract (`D-233`) is extended, not replaced**: it now also verifies
+   every applicable task instance has explicit `A`-coverage, refusing and returning on any gap rather
+   than backfilling a missing `A`.
+5. **Ontology boundary**: `T`-numbered phase-gate nodes (business/product namespace) and `EG`-numbered
+   V1 editorial-workflow nodes are a distinct family from this project's existing technical
+   `transition:T`/`EG` identifiers (`D-233`'s namespace map) — reusing technical-spec `T` rules as the
+   product phase-node namespace is rejected. An assurance workflow (Line 3 / independent review) is
+   confirmed **absent from V1** as its own separate family, not merely an unfilled role — this V1
+   absence is unchanged from existing decisions and is not newly created here.
+
+### What remains open (`B117-R44`–`B117-R51`, not resolved by this entry)
+
+Scoped task-execution instance identity; the exact phase-lifecycle event names (`phase_entered`,
+`judgment_recorded`, `role_selected`, task dispatch/completion, `phase_completed` — candidates, not
+chosen); the `T5` RACI table's propagation into visible artifacts; the Chief-Journalist-precursor
+child-task contract's concrete terms; `OP-FINAL-SIGNOFF`'s `A`-coverage check's concrete evidence
+shape; a `docs/specs/` technical-namespace relabel/migration matrix (`SPECS-TRANSITION-ENFORCEMENT.md`
+rated high impact, `SPECS-VERIFICATION-APPARATUS.md` low, `SPECS-PUBLICATION.md` no direct collision,
+`docs/specs/README.md` unaffected unless its index wording changes); target storyboard/UML/data-flow
+redraw; Encyclopedia Entries 01/05/06 review. All eight remain named gaps for a dedicated follow-on
+pass, not guessed at here.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e59 |
+| **`requirements-traceability-map.md`, `factory-route-operation-crosswalk.md`, `FN-GATES-01-05.md`, storyboard, `V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`, `docs/specs/*`, Encyclopedia** | — **deliberately unaffected this pass** — intent recorded, propagation explicitly deferred by Chief Editor direction to a dedicated follow-on round |
+| **`Modular_PRD.md`** | — unaffected: no FR/AC/NFR requirement text changed |
+| **Graphify** | Rebuild owed after this commit — governed-intent doc content |
+
+### What this act does NOT do
+
+Does not authorize construction. Does not edit any file other than this Register entry. Does not
+close any of the eight named gaps, and does not change `D-176`/`D-233`'s already-decided facts.
+`B-117` remains `Open`.

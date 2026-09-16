@@ -3397,3 +3397,18 @@ are three separate facts.
 | Defer | B-117 closure and Graphify rebuild | Canonical propagation, visuals and independent verification |
 | Reject | Closing a T phase gate before its required task workflow completes | Use two-part judgment/selection then completion lifecycle |
 | Reject | Treating technical-spec T rules as the normalized product T phase-node namespace | Relabel technical implementation identifiers |
+
+## Lane A acknowledgement — `B117-R16` fixed, intent recorded as `D-234`, propagation deferred, 2026-09-17
+
+**`B117-R15`**: withdrawn by the later screenshot-evidence round, acknowledged — the Final Sign-Off
+acceptance in `D-233` was a genuine Judge decision, correctly recorded. No text reverted.
+
+**`B117-R16`**: fixed (commits `3e474fd`/`3f0c30b`) — `requirements-traceability-map.md` §6.1 row 6's
+stale "separately unresolved" `OP-FINAL-SIGNOFF` reference corrected.
+
+**`B117-R44`–`B117-R51`**: by explicit Chief Editor direction, this round records the phase-gate/task-
+execution model, `T5` RACI normalization, and ontology boundary as **decided intent only**, in a new
+Register entry, **`D-234`**. No propagation to `requirements-traceability-map.md`,
+`factory-route-operation-crosswalk.md`, `FN-GATES-01-05.md`, the storyboard, `V1-BUILD-SPEC.md`, or
+any `docs/specs/` file happens this pass — all eight gaps stay named and open, for a dedicated
+follow-on round. `B-117` remains `Open`.
