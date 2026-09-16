@@ -1721,3 +1721,160 @@ or is not independently checkable here:** the `SETUP-SPIKE-000`-remains-a-`V1`-c
 Artifact Inventory disposition, and the row-level traceability migration table. These stay open
 pending a review round that reads the draft's actual text. This is a factual correction, not a
 rejection of Lane B's reviewing role in this channel.
+
+## Lane B review of applied `D-232` — Sheet 1 Reporter/Desk Editor journey is the missing DoR join, 2026-09-16
+
+### Review boundary and evidence state
+
+Lane B reviewed applied commit `a77a75e`, including `D-232`, Build Spec §1, Product §8, the new
+`FN-GATES` §4.1 reference table, the traceability §6 note, the existing storyboard, the RACI role
+catalog and `factory-route-operation-crosswalk.md` Sheet 1 route master. Graphify has been rebuilt:
+`.graphify/branch.json.lastAnalyzedHead` equals `a77a75e`, `stale: false`, and `docs-drift` passes.
+
+`D-232` successfully records the two qualified slot identities and preserves bare `S5`/`S6`. It
+explicitly leaves requirement, panel and blocker assignment open. The Chief Editor's clarification
+now supplies the historical journey anchor for that next DoR unit: **Sheet 1 starts
+`ROUTE-PROD-1` with `ROLE-REPORTER` Responsible and `ROLE-DESK-EDITOR` Accountable.**
+
+One provenance correction to the immediately preceding Lane A note: the four-sprint sentence was
+quoted from the user-attached Lane A proposal reviewed in that round, not from applied `D-232` or a
+tracked working-tree draft. The attachment did contain: *“V1 is a separate four-sprint sequence,
+`V1/S1…S4`; all four are `Not started`.”* Applied `D-232` correctly omits it. The current source is
+therefore consistent on two functional increments; the historical proposal criticism remains an
+accurate review of the supplied proposal and is not a defect in `a77a75e`.
+
+### Parent decision — preserve three different workflow layers
+
+| Choice | Meaning | Accept / Reject | Reason |
+|---|---|---|---|
+| **A — layered journey** | Sheet 1 defines the route-level R/A envelope; the T/EG specification defines state-changing gate executors; UI/UX exposes the human user's inputs, decisions and audit visibility | **Accept — required** | Preserves the historical business journey and the governed target without aliasing roles |
+| B — direct Reporter → Desk Editor state transition | Treat Sheet 1's `R` and `A` as two sequential executable gates | **Reject** | A RACI relationship does not define temporal order or a state transition |
+| C — gate sequence only | Ignore Reporter/Desk Editor because T1–T6 already exist | **Reject** | Loses the source route accountability the Chief Editor says defines the journey |
+| D — Desk Editor performs T5 | Alias `ROLE-DESK-EDITOR` to `ROLE-CHIEF-EDITORIAL-DESK` | **Reject** | The RACI catalog and D-175 explicitly define them as distinct roles |
+
+The implementation contract must therefore carry all three layers without collapsing them:
+
+1. **Route/accountability layer — Sheet 1.** `ROUTE-PROD-1` has
+   `ROLE-REPORTER = R` and `ROLE-DESK-EDITOR = A`. This identifies responsibility and ultimate
+   route accountability. It does not itself authorize either role to execute an unspecified gate.
+2. **Editorial state-machine layer — T/EG target.** Senior Journalist emits the `EW` start trigger
+   but executes no gate by that act; Reporter executes T1; Investigator T2/T3; Journalist T4;
+   Chief Editorial Desk executes the one required T5 review; human Chief Editor executes T6.
+3. **User/UI layer.** The Chief Editor supplies the manual intake package and makes the final human
+   judgment. The UI must show route, state, responsible role, accountable role, current/next gate
+   executor, revision reason and audit evidence as separate facts. It must not display “Desk Editor”
+   as if that role were the Chief Editor or Chief Editorial Desk.
+
+### What is still unclear after `D-232`
+
+| ID | Open contract | Why it matters | Smallest acceptable disposition |
+|---|---|---|---|
+| `UJ1` | Who selects `ROUTE-PROD-1`, and at what event relative to `EW` start and T1? | The route R/A pair cannot be persisted or displayed without a selection event | Cite an existing decision if one exists; otherwise ask one bounded choice and keep construction held |
+| `UJ2` | What executable act, if any, satisfies Desk Editor's route accountability? | Sheet 1 assigns `A`, but `A` alone is not a button, gate or transition | Define oversight/acceptance evidence without inventing a state change; if no system act is needed, say so explicitly |
+| `UJ3` | Are required Sheet 2 operations separate application actions in V1-SM05? | `OP-PITCH`, `OP-DRAFT` and `OP-FINAL-SIGNOFF` have unresolved row shapes | Exclude them as separate UI actions unless their atomic executor contracts are resolved; preserve them as business-process context |
+| `UJ4` | Which storyboard panels belong to each qualified slot? | `FN-GATES` §4.1 and traceability §6 deliberately leave this open | Map core intake-through-approval plus revision to V1-SM05; board/ManualReady completion to V1-SM06, subject to row-level trace review |
+| `UJ5` | Which existing handoffs block those mapped rows? | B-117 requires trace-derived blockers; the map still contains no slot rows | Add handoff dependency links per requirement limb, then derive the read set |
+
+### Draft V1 user journey — Sheet 1 joined to the target gates
+
+This is the minimum normal path for Chief Editor review. It is a DoR/BDD draft, not construction
+authorization:
+
+| Step | Business route/accountability | State-machine action | User/UI evidence | Proposed slot |
+|---:|---|---|---|---|
+| 1 | Chief Editor prepares the source package outside the system | No transition | Manual URL or supplied Markdown reference, source information, exactly one subject topic and trend-signal description; analytical tags optional | V1-SM05 |
+| 2 | `ROUTE-PROD-1` selected; Sheet 1 records Reporter `R`, Desk Editor `A` | Senior Journalist action emits `EW` start; trigger cannot advance T1–T4 | Route ID, R/A assignments, trigger actor/time and no article-state change from the trigger | V1-SM05 |
+| 3 | Reporter performs the responsible intake work | Reporter agent executes T1; audit evidence precedes the `Logged` state effect | Supplier and executor shown separately; named validation failures leave T1 incomplete | V1-SM05 |
+| 4 | Desk Editor remains route-accountable; not inferred as a gate executor | Investigator executes T2 and T3 | Source validation, investigation evidence and next executor visible | V1-SM05 |
+| 5 | Route accountability remains unchanged | Journalist executes T4 and assigns the LinkedIn target | Draft, meaning-invariance evidence and target visible | V1-SM05 |
+| 6 | Desk Editor `A` remains distinct from the reviewer | Chief Editorial Desk executes the single ROUTE-PROD-1 T5 review; non-judgment join seals it | T5 reviewer identity, sealed evidence and no false second-review requirement | V1-SM05 |
+| 7 | Human Chief Editor is the final judgment owner, not Sheet 1's Desk Editor alias | Chief Editor executes T6 after sealed T5 evidence | Approve, Hold or return decision; prior judgment hidden until required; attributable reason | V1-SM05 |
+| 8 | Same route/accountability record persists through correction | Revision returns only the affected scope, retains prior evidence and reruns required gates | Revision reason, target state, retained/replaced evidence and next actor are clear | V1-SM05 |
+| 9 | Route completion is visible on the board | Basic board reads state/topic/category and audit trail | Normal and no-match views; route R/A and current executor remain distinguishable | V1-SM06 |
+| 10 | Publication delivery does not redefine editorial accountability | Approved immutable content becomes one LinkedIn target in `ManualReady` | Formatted content, immutable approval anchor and `ManualReady`; no Published claim without a live URL | V1-SM06 |
+
+### BDD examples required before V1-SM05 construction
+
+| Example | Given | When | Then |
+|---|---|---|---|
+| Normal route | Complete manual package and selected `ROUTE-PROD-1` | EW starts and T1–T6 complete in order | Reporter remains route `R`, Desk Editor remains route `A`, each gate records its own executor, and Chief Editor completes T6 |
+| Missing intake | Package lacks its subject topic or trend-signal description | Reporter attempts T1 | Named validation fails; no completed T1 transition and no false `Logged` state |
+| RACI non-transition | Reporter/Desk Editor R/A assignment is recorded | Assignment is persisted or displayed | No article state changes merely because R/A exists |
+| Role distinction | ROUTE-PROD-1 reaches T5 | Reviewer is resolved | Chief Editorial Desk executes T5; Desk Editor does not gain T5 authority through title similarity |
+| Trigger boundary | Senior Journalist emits EW start | Trigger is processed | Trigger is logged and linked; it does not replace or advance T1–T4 |
+| Revision | Chief Editor or authorized reviewer returns the article with a reason | Corrected content re-enters the route | Prior evidence is retained; only affected checks rerun; no ManualReady state appears before T6 approval |
+| Route accountability | Any gate advances | Board/detail is refreshed | Route `A`, route `R`, current state and transition executor remain separately visible |
+
+### Cross-artifact gaps and draft fixes
+
+| Artifact | Current gap at `a77a75e` | Lane A draft fix | Verification evidence |
+|---|---|---|---|
+| `requirements-traceability-map.md` | §6 only says qualified mapping is open; no row connects CR/FR/AC/RACI/BDD/handoff to a slot | Add the row-level migration join, beginning with the journey above | Every V1-SM05 step traces backward to demand/project scope and forward to one BDD example |
+| `Modular_PRD.md` | Qualified slots are indexed, but route R/A and target gate execution are not joined into one current journey | Add Product-level journey/acceptance references without duplicating RACI tables | No Product row aliases Desk Editor, Chief Editorial Desk or Chief Editor |
+| `FN-GATES-01-05.md` | §4.1 locates panels but explicitly refuses slot mapping; §4/§5 still foreground the historical T5/T6 flow | Add a target-held V1-SM05 cross-reference and point historical criteria to the current `FR-04a`/`AC-05a`/`AC-06a` set | Consumer read finds one target path; historical path is visibly non-build input |
+| Storyboard/story panels | A2 has stale topic, producer and transaction ordering; A5/A6 show the historical T5-human/T6-agent model | Repair existing panels in place with Sheet 1 route R/A plus target gate executors; preserve dated history under explicit label | Chief Editor walkthrough completes normal and revision paths without choosing between rival roles |
+| UML/data flow | Embedded diagrams do not show route R/A separately from transition executor; A2 arrows contradict audit-before-state | Add separate route-assignment and transition-execution records; correct transaction order | R/A persistence causes no state mutation; transition/audit is atomic and ordered |
+| Encyclopedia | Entry 06 is stale for manual intake; Entries 01/05 depend on gate/role semantics and Entry 04 on ManualReady | Update the sync ledger's impact/stale reasons; publish only after source parity can be checked | Hosted/local comparison cites the exact source revision; no verification SHA is advanced blindly |
+| Cross-references | Factory Sheet 1, RACI role catalog, gate target and storyboard are currently discoverable only by separate searches | Link them once through the traceability row and existing feature cross-reference | One path resolves Reporter R, Desk Editor A, T1 executor, T5 executor and T6 human without name matching |
+| Artifact Inventory | D-232 called it unaffected while the detailed mapping was deferred | When the journey mapping is applied, map existing artifacts to V1-SM05/V1-SM06; create no duplicate diagram | Inventory names each existing required artifact and its slot; create/retire remains zero |
+
+### Lane A follow-up — highest parent first
+
+1. Treat applied `D-232` as the completed qualified-index unit, not completion of B-117 or either
+   MMF's DoR.
+2. Record the Sheet 1 clarification in the Register or the existing D-232 follow-on: ROUTE-PROD-1
+   begins with Reporter `R` and Desk Editor `A`; R/A is route accountability, not gate order.
+3. Resolve `UJ1` and `UJ2` from existing sources if possible. Ask the Judge only if no source states
+   route-selection authority or the observable Desk Editor accountability act.
+4. Define V1-SM05's journey rows in the traceability map using the normal and revision path above.
+   Mark Sheet 2 operations as contextual unless a verified atomic contract makes them build scope.
+5. Map V1-SM05 to intake, EW, T1–T6 and revision BDD; map V1-SM06 to the basic board and LinkedIn
+   ManualReady. Confirm no V2 candidate is a prerequisite.
+6. Update Product and Fn_Spec references from the accepted row-level mapping. Keep RACI tables in
+   their owners and link rather than copy them.
+7. Repair storyboard A2, A5 and A6 in place and add route-accountability annotations across the
+   normal/revision panels. Its Mermaid sequences/flowcharts remain the UML/data-flow owner.
+8. Apply B-096's state/event/metadata/report distinctions to the diagrams and acceptance examples;
+   do not authorize physical schema changes from this documentation pass.
+9. Re-check Encyclopedia Entries 01/04/05/06 and update `ENCYCLOPEDIA-SYNC.md` with exact impact
+   and stale reasons.
+10. Derive V1-SM05's Open/Applied blocker list from the completed rows and update the Lane B work
+    order with the minimum read set and BDD-linked DoD-ready checklist.
+11. Obtain Lane B application/test feasibility and Lane C workflow/monitoring/security dependency
+    review. A lane returns executable, blocked by a named dependency, or contradicted by a source.
+12. Commit the canonical journey packet, rebuild/re-merge Graphify once, and query the full CR →
+    route R/A → gate executor → MMF slot → BDD/evidence path.
+13. Return the final revision for independent verification, then disposition the contributing
+    handoffs. B-117 remains Open until the row-level mapping and consumer review complete.
+
+### Guaranteed failures and success evidence
+
+| Guaranteed failure | Required success evidence |
+|---|---|
+| Reporter `R` and Desk Editor `A` are drawn as sequential gates | RACI assignment persists with zero state effect; T1 owns the first article transition |
+| Desk Editor is aliased to Chief Editorial Desk or Chief Editor | Canonical role IDs remain distinct in Product, view, data and BDD evidence |
+| Sheet 1 is treated as the complete state machine | The route envelope links to, but does not replace, T1–T6 executors |
+| Historical A5/A6 becomes build input | Target-held T5/T6 path is primary and D-171 remains visible until release |
+| Slot mapping stops at an index note | Row-level trace reaches CR/FR/AC/RACI/BDD/artifact/handoff for every V1-SM05 step |
+| Ambiguous Sheet 2 operations become UI actions | Only verified/decided atomic actions enter build scope; contextual operations remain non-executable |
+| Manual intake still carries stale AI/≥1-topic semantics | A2 and Entry 06 use manual supplier, Reporter executor, exactly one subject topic and optional analytical tags |
+| Audit arrow follows state mutation | BDD and data-flow view require transition evidence and state effect in one atomic contract with governed ordering |
+| Basic board or ManualReady blocks the core engine | They map to V1-SM06; V1-SM05 proves the editorial engine and revision path independently |
+| Green checks are treated as journey acceptance | Chief Editor walkthrough plus Lane B/C consumer review and independent revision evidence are present |
+
+This review records the Chief Editor's historical-journey clarification and the gaps in applied
+`D-232`. It edits no canonical Product source, app, schema, workflow or external Encyclopedia.
+Graphify is synchronized at `a77a75e`; this handoff-only addition requires no rebuild.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Applied `D-232` as the qualified-slot index unit | Preserve; independently verified only for that bounded purpose |
+| Approve | Sheet 1 `ROUTE-PROD-1`: Reporter `R`, Desk Editor `A` | V1-SM05 DoR journey mapping |
+| Approve | Layered route/accountability, state-machine and UI model | Product/Fn_Spec/storyboard propagation |
+| Approve-with-conditions | V1-SM05 normal/revision journey draft | Resolve route selection and observable Desk Editor accountability; complete row-level trace |
+| Approve-with-conditions | V1-SM06 board/ManualReady boundary | Must remain independent of V2 automation and advanced analytics |
+| Defer | Separate Sheet 2 operation UI/actions | Resolve atomic executors only if selected into V1 scope |
+| Defer | Construction and DoD satisfaction | DoR mapping, consumer review, lane selection and bounded authorization remain required |
+| Reject | Reporter → Desk Editor as a direct state transition | RACI R/A is not temporal execution |
+| Reject | Desk Editor = Chief Editorial Desk or Chief Editor | Three distinct canonical roles |
+| Reject | Treating D-232 index propagation as B-117/MMF readiness completion | Requirement/panel/blocker mapping remains open by D-232's own text |
