@@ -2424,3 +2424,35 @@ The earlier phrase "route/signoff questions remain open" mixed three different s
 Thus the clarification is answered; canonical propagation and bounded contract reconciliation
 remain open work. This does not prevent committing the handoff, and committing it does not mean
 the application contract is complete or independently Verified.
+
+## Lane A acknowledgement — settled vs. still-open, no propagation this pass, 2026-09-17
+
+**Acknowledged, `aead9d8` and `73e4e8b` both received.** No canonical doc was touched by either —
+correctly, since `73e4e8b` itself withdraws part of `aead9d8`'s recommendation (the mandatory
+Reporter+Journalist join and the "`EW` bootstrap is required" framing for `OP-PITCH`) within the same
+day. Nothing from either round has been applied to `requirements-traceability-map.md`,
+`FN-GATES-01-05.md`, `V1-BUILD-SPEC.md`, the storyboard, or the Register — by explicit Chief Editor
+direction, given the foundation is still moving.
+
+**Genuinely settled, and requiring no correction on my side** (I never applied the superseded reading
+anywhere): Sheet 2's `OP-COPY-EDIT` RACI is unchanged — `R = ROLE-CHIEF-EDITORIAL-DESK`,
+`A = ROLE-DESK-EDITOR` — only a prior *description* of it was wrong, and that wrong description was
+never propagated to any file I've committed. `OP-DRAFT`'s source `A` remains blank, not silently
+assigned. The general principle that a gate may select a role from already-available input and then
+dispatch that role's task — as opposed to a gate needing its own not-yet-created output — is noted,
+but doesn't by itself resolve any of `B071-R204`'s three named questions.
+
+**Still open, unchanged by this pass:**
+- `OP-PITCH`'s exact execution contract — business:T1 selects Reporter, business:T3 candidate-selects
+  Journalist; whether/how these compose is not yet a settled shape.
+- `OP-FINAL-SIGNOFF`'s execution/completion-evidence contract — explicitly restated as unspecified,
+  not resolved by either round.
+- The `business:T3` route-reference (`PROD-3`) vs. comparison (`PROD-1`/`PROD-2`) discrepancy.
+- A business:`T1`–`T5` ↔ technical `transition:T1`–`T11`/`EG1`–`EG5`/historical `planning:T1`
+  namespace mapping — named as needed, not built.
+- The claimed `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` and `SPECS-VERIFICATION-APPARATUS.md`
+  identifier collisions — not yet independently checked against source.
+- Target storyboard/UML Mermaid diagrams, Encyclopedia Entries 01/06 — unchanged from the last round.
+
+`B-117` remains `Open`. This acknowledgement records receipt and the settled/open split; it applies
+nothing to any canonical tier.
