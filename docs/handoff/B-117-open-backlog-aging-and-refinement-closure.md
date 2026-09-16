@@ -970,3 +970,183 @@ defined at that point and are satisfied only by later Lane B construction and in
 | Reject | Spike containing S5/S6 implementation | Preserve setup DoD versus application DoD |
 | Reject | Retaining proposed S7–S9 slots | One global index for this scope ends at S6 |
 | Reject | Starting application construction from this clarification | S5 still needs DoR, capacity, selection and bounded authorization |
+
+## Judge clarification — retain the V1 minimum and transfer advanced scope to V2 tracking, 2026-09-16
+
+The three named families cannot move to V2 wholesale. The frozen V1 Project PRD requires a full
+review sequence, a visible/filterable board with transition evidence, and **WordPress publication
+or LinkedIn-ready delivery**. Removing Line/four-eyes, Board/audit and Publication/fallback in full
+would leave no testable V1 success scenario.
+
+The safe alignment is a **minimum/expansion split**:
+
+- V1/S5–S6 retains the smallest behavior that satisfies the frozen customer outcome;
+- advanced route, visibility and publishing capabilities become V2 candidates; and
+- V2 tracking is recorded in the living Product backlog until V2 is formally opened. No
+  `docs/v2/` operative set is created by this refinement act.
+
+### Parent-first decision tree
+
+| Order | Choice | Accept means | Guaranteed failure | Recommendation |
+|---:|---|---|---|---|
+| 1 | **A — split each requirement family** | Keep the customer-anchored V1 minimum; transfer advanced derived behavior to V2 candidates | None if every requirement and acceptance case has exactly one live target | **Accept** |
+| 1 | B — transfer all three families to V2 | V1 has intake/drafting but no governed approval, usable board/audit or delivery outcome | CR-19 and the frozen MVP checkboxes cannot pass | Reject |
+| 1 | C — keep every current S2–S4 detail in V1 | V1/S5–S6 absorbs production, fallout/GRC, advanced observability and automated multi-channel publishing | Two-sprint V1 becomes unbounded and remains blocked on optional/external dependencies | Reject |
+| 2 | **A1 — LinkedIn `ManualReady` is the V1 delivery channel** | Approved content is formatted and recorded as ready for manual LinkedIn delivery | Satisfies the frozen “WordPress **or** LinkedIn-ready” outcome and the Judge's selected first channel | **Accept** |
+| 2 | A2 — WordPress automation is mandatory in V1 | V1 waits for credentials, privileged deployment, retry scheduling and recovery mechanics | External access blocks the manual-ready M-MVP learning path | Reject |
+| 3 | **A3 — V2 candidate tracking, not V2 opening** | Transferred items live in the Product backlog with target `V2 candidate`, owner and Ready-when condition | None; V1 remains active and V2 remains unopened | **Accept** |
+| 3 | A4 — create `docs/v2/` now | The transfer itself opens V2 and freezes V1 tracking before V1 is built | Violates the version succession/freeze rule | Reject |
+
+### Cross-reference disposition matrix
+
+#### Line/four-eyes
+
+| Requirement/evidence | V1/S5–S6 minimum | V2 candidate transfer | Reason |
+|---|---|---|---|
+| Five sequential editorial gates; `FR-01…FR-03`, `FR-06`, `FR-07`; `AC-01…AC-04`, `AC-09…AC-12` | **Keep** | — | Frozen V1 requires every gate and transition to be completed and logged; revision is a required user journey |
+| `ROUTE-PROD-1` one required T5 reviewer, sealed review, human Chief Editor at T6; structural no-bypass/refusal proof | **Keep as the one V1 route** | — | Smallest route that passes every judgment node and produces an approvable record |
+| `AC-05a` production-route single-reviewer case and `AC-06a` refusal of an agent at T6 | **Keep, subject to `D-171` resolution and fresh authorization** | — | Minimum enforceable four-eyes boundary for the selected route |
+| Fallout/GRC parallel T5 reviewers and bundle join (`AC-05b`) | — | **Transfer** | Additional route/cardinality, not needed for the first normal production journey |
+| Blind preliminary disposition, disagreement preservation (`AC-07a`, `AC-07b`) | — | **Transfer** | Higher assurance mechanism beyond the minimum sequential route |
+| Route-scoped partial/full T5 rerun (`AC-08a`) | Keep basic revision through `FR-06`/`AC-09`/`AC-10` | **Transfer advanced scoped rerun** | V1 must revise; it need not optimize parallel-review reruns |
+| `D-171` hold | **Follows the retained V1 route until its exact minimum contract is accepted** | Advanced limbs retain their own V2 return conditions | Renumbering or scope split cannot silently release a safety hold |
+
+#### Board/audit
+
+| Requirement/evidence | V1/S5–S6 minimum | V2 candidate transfer | Reason |
+|---|---|---|---|
+| Board lists all articles and current state | **Keep** | — | Frozen V1 success scenario requires the team to see the board |
+| Filters for state, topic and category | **Keep** | — | These three dimensions are named by the frozen Project PRD |
+| Basic transition view showing who, when, why; append-only evidence (`FR-07`, `AC-11`, `AC-12`) | **Keep** | — | Frozen V1 says every transition is visible and zero bypass must be evidenced |
+| Current `FR-08`/`AC-13` Line filter, where it exceeds the three customer-named dimensions | — | **Transfer the Line-filter expansion** | Line filtering is derived scope; it cannot hold the base board hostage |
+| T6→T5 return-rate view, intent-code analytics and advanced reviewer-performance views | — | **Transfer** | Operational learning/analytics beyond the first usable board |
+| Business-continuity observability surface and advanced absence/archival presentation | Retain only any disclosure needed to avoid false current evidence | **Transfer the richer dashboard/monitoring surface** | Monitoring expansion is distinct from the basic article audit trail |
+
+Lane A must split `FR-08`/`AC-13`; it cannot mark the whole pair V2 because the frozen board and
+three filters remain V1. The V1 acceptance example needs a new governed row covering precisely
+state/topic/category and an explicit no-match state.
+
+#### Publication/fallback
+
+| Requirement/evidence | V1/S5–S6 minimum | V2 candidate transfer | Reason |
+|---|---|---|---|
+| `FR-09` LinkedIn branch: generate formatted content and set one LinkedIn target `ManualReady` on approval | **Keep** | — | Meets the frozen OR-condition and the Judge's selected manual-ready channel |
+| Per-target evidence for the selected LinkedIn target; delivery cannot mutate editorial judgment (`AC-14a`) | **Keep** | — | Manual-ready output must be attributable and must consume the approved record unchanged |
+| WordPress automated publication (`AC-14`) | — | **Transfer** | Requires credentials and privileged integration that the manual-ready V1 path avoids |
+| Simultaneous multi-target partial outcome (`AC-15`) | — | **Transfer** | Depends on WordPress plus LinkedIn and is unnecessary for a single selected V1 channel |
+| Bounded retry/auto-fallback scheduler (`NFR-05`) | — | **Transfer with automated WordPress** | No automation attempt exists in the V1 manual-ready route |
+| Manual-publish live-URL confirmation (`FR-10`, `AC-16`) | — | **Transfer** | V1 ends at `ManualReady`; confirming external publication is a later operational capability |
+| Publication credentials and isolation (`NFR-07`, `SEC-02`) | Keep the universal rule that no secret enters client code | **Transfer the WordPress credential mechanism and its tests** | The V1 LinkedIn manual-ready path holds no external publishing credential |
+| Fallout/GRC external-acceptance delivery block (`AC-16a`) | — | **Transfer with the advanced route family** | Not part of `ROUTE-PROD-1` |
+
+Current `FR-09` has two branches in one row. Lane A must retain and test the `ManualReady` branch in
+V1 and mark the WordPress branch `[V1→V2]` or split it into a V2 candidate requirement according to
+the existing version-marker rule. V1 also needs an explicit acceptance example for “approval sets
+the LinkedIn target to `ManualReady` with formatted content”; `AC-14` currently tests WordPress and
+does not cover that outcome.
+
+### V2 transfer-record contract
+
+Do not create a V2 sprint number or `docs/v2/` file yet. For every transferred unit, the living
+Product backlog must record:
+
+| Field | Required value |
+|---|---|
+| Stable identity | Existing requirement/AC identity or a new non-colliding candidate ID assigned by Lane A |
+| Source version | V1 refinement |
+| Target | `V2 candidate` — not `V2 selected`, `V2 Ready` or an invented sprint |
+| Business outcome | What additional value the capability provides beyond V1's minimum route |
+| Dependency | V1 evidence or external access required before refinement |
+| Ready-when | Observable condition that permits V2 refinement |
+| Return owner | Actor who re-enters it through the governed promotion path |
+| V1 non-dependency | Explicit proof V1/S6 can satisfy CR-19 without it |
+| Traceability | Source FR/AC/story/model element and the V1 replacement or retained minimum |
+
+When V2 formally opens, Lane A must first settle `Modular_PRD` §8's existing freeze/supersession
+question. Only then are V2 tracking files created and the candidate rows promoted.
+
+### Definitions of Ready and Done after the split
+
+| Unit | Definition of Ready | Definition of Done |
+|---|---|---|
+| V1 retained minimum | Each retained requirement has a customer anchor, S5/S6 owner, normal/revision acceptance example, data/state contract, capacity and test method; every transferred limb has a V2 candidate record | `ROUTE-PROD-1` completes every required gate; basic board and state/topic/category filters work; who/when/why audit is visible; approved content becomes LinkedIn `ManualReady`; revision and negative/bypass proofs pass |
+| V2 candidate packet | Stable identity, additional outcome, dependency, Ready-when, return owner and V1 non-dependency recorded | **Planning DoD only:** candidate is traceable and cannot be mistaken for authorized V2 work; implementation DoD is defined when V2 opens |
+| Alignment/handoff unit | All mixed requirements are split without loss; canonical owners and version markers agree | Lane B consumer read finds every old S2–S4 obligation exactly once in V1 retained scope, V2 candidate scope or explicit retirement; Lane C dependencies are separated by version |
+
+### Lane A step-by-step follow-up
+
+1. Record the parent decision: V1 retains the minimum normal route, basic board/audit and LinkedIn
+   `ManualReady`; advanced capabilities transfer to `V2 candidate` tracking.
+2. Freeze the customer anchor before moving details: CR-19 and the frozen MVP checkboxes do not
+   change. Document that LinkedIn-ready satisfies the publication OR-condition for V1.
+3. Build a requirement-by-requirement migration sheet using the three matrices above. Include FR,
+   AC, NFR, SEC, story, UI panel, UML/data-flow element, dependency and test IDs.
+4. Narrow the V1 Line contract to `ROUTE-PROD-1`. Keep `D-171` on the retained minimum until the
+   exact role/executor contract receives fresh authorization. Transfer advanced route mechanics
+   with separate return conditions.
+5. Split `FR-08`/`AC-13` into the V1 board with state/topic/category filters and the V2 Line/
+   analytics expansion. Add a precise V1 no-match acceptance example.
+6. Split `FR-09`: retain LinkedIn `ManualReady` with formatted content and immutable approved input;
+   transfer WordPress, multi-target, retry/fallback and external confirmation. Add the missing V1
+   ManualReady acceptance example.
+7. Keep the basic `FR-07` transition audit in V1. Separate richer operational dashboards from the
+   audit record itself so deferring a dashboard cannot defer evidence integrity.
+8. Mark changed living-spec sections with the required version transition marker. Do not modify the
+   frozen Project PRD or Charter and do not create `docs/v2/` yet.
+9. Propagate the scope/sequence facts through the Register, Build Spec and Artifact Inventory in one
+   pass. Update `Modular_PRD` requirements, §7.4 and §8; update Phase Closure only for a real state
+   transition.
+10. Update storyboard and story panels: one V1 normal path, one V1 revision path, LinkedIn
+    ManualReady finish; move fallout/GRC and automated/multi-target publication panels to V2
+    candidate references.
+11. Update UML/data flow and traceability so the V1 diagram contains only required actors, states
+    and integrations while V2 candidate edges remain visibly future. Preserve database fields that
+    already exist; scope transfer does not authorize destructive schema rollback.
+12. Update Encyclopedia and cross-references with “V1 minimum,” “V2 candidate,” “version opening,”
+    and “manual-ready delivery.” Link to the canonical migration sheet rather than restating lists.
+13. Have Lane B verify one buildable S5/S6 packet, the new minimum acceptance examples and the
+    one-target data path. Have Lane C verify that V1 has no WordPress credential/deployment
+    dependency and that V2 automation dependencies remain isolated.
+14. Run consistency checks, rebuild Graphify after the canonical commit, and query every moved
+    requirement for exactly one live version destination.
+15. Terminally disposition the related setup handoffs once canonical promotion and independent
+    consumer review are complete; future V2 work remains in the Product backlog, not `docs/handoff/`.
+
+### Critical artifact impact
+
+| Artifact | V1 correction | V2 candidate tracking | Verification |
+|---|---|---|---|
+| `Modular_PRD.md` | Narrow mixed FR/AC rows while preserving CR anchors; S5/S6 milestones own the retained minimum | Living backlog rows with Ready-when; V2 remains unopened | No CR-19 limb is lost; each transferred limb has V1 non-dependency evidence |
+| Storyboard | Normal and revision `ROUTE-PROD-1` ending at LinkedIn `ManualReady` | Fallout/GRC and automated/multi-target journeys linked as future | Chief Editor walkthrough completes V1 without a V2 dependency |
+| Story panels | V1 panels for one T5 review, T6 decision, basic board/audit and manual-ready output | Advanced review, dashboard and publication panels carry V2-candidate links | Every action panel maps to one version destination |
+| UML | V1 nodes/edges for the minimum route and manual-ready delivery | Future route/integration edges visually separated | No future node is required for a V1 transition to complete |
+| Data flow | V1 one-target manual-ready record, transition audit and basic board query | WordPress credentials/jobs, retries, multi-target and advanced analytics | Data contract and negative tests prove no hidden external dependency in V1 |
+| Requirements traceability | CR → retained V1 requirement → S5/S6 → test | Advanced derived requirement → V2 candidate → Ready-when | Exactly-one destination; no orphan and no duplicate live obligation |
+| Encyclopedia | Define V1 minimum, V2 candidate and ManualReady | Define that candidate tracking does not open V2 | Vocabulary review finds no “deferred = authorized” reading |
+| Cross-references | New Register act, B-117 and canonical migration sheet | Backlog candidate IDs and future promotion path | One canonical list; other artifacts link rather than recount |
+| Graphify | Rebuild after canonical edits | V2 candidates represented as future/backlog nodes, not operative sprint nodes | Queries show V1 path reaches CR-19 without traversing V2 |
+
+### Failure-derived success criteria
+
+| Guaranteed failure | Required success evidence |
+|---|---|
+| Whole families move to V2 | V1 still has one enforceable review route, basic board/audit and LinkedIn ManualReady acceptance tests |
+| Optional advanced behavior blocks V1 | S5/S6 dependency list contains no fallout/GRC, WordPress credential, retry scheduler or multi-target requirement |
+| Scope is duplicated across versions | Migration sheet gives every limb exactly one live destination and one version marker |
+| V2 is opened by backlog transfer | No `docs/v2/`; `Modular_PRD` still says V2 not opened; candidates have no sprint or authorization |
+| ManualReady is claimed but untested | A dedicated V1 AC asserts formatted LinkedIn content and target status `ManualReady` after approval |
+| Audit is mistaken for an advanced dashboard | FR-07/AC-11/AC-12 remain V1 even when analytics and monitoring move |
+| `D-171` is bypassed by narrowing scope | Retained production-route contract cites the hold and requires fresh authorization |
+| Graph looks clean while requirements vanished | Graph query plus traceability audit finds every source requirement in V1, V2 candidate or explicit retirement |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Minimum/expansion split rather than wholesale V2 transfer | Phase 1 — canonical migration matrix |
+| Approve | V1 retains `ROUTE-PROD-1`, basic board/audit and LinkedIn `ManualReady` | V1/S5–S6 readiness packet |
+| Approve | Advanced route, analytics and automated publishing become V2 candidates | Living Product backlog — V2 unopened |
+| Approve-with-conditions | Narrow `FR-08`/`AC-13` and `FR-09` | Add explicit V1 three-filter and LinkedIn ManualReady acceptance examples |
+| Approve-with-conditions | Retained Line/four-eyes minimum | `D-171` continues until the narrowed contract receives fresh authorization |
+| Defer | V2 sprint assignment and implementation DoDs | V2 opening and freeze/supersession decision |
+| Reject | Moving all Line/four-eyes, Board/audit and Publication/fallback to V2 | Would make V1's frozen success scenario impossible |
+| Reject | Creating `docs/v2/` from this refinement decision | Candidate tracking is not version opening |
+| Reject | Starting V1 construction from this split | S5 still needs complete DoR, capacity, Judge selection and bounded authorization |
