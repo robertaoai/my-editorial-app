@@ -17518,3 +17518,65 @@ pass, not guessed at here.
 Does not authorize construction. Does not edit any file other than this Register entry. Does not
 close any of the eight named gaps, and does not change `D-176`/`D-233`'s already-decided facts.
 `B-117` remains `Open`.
+
+## 5.14e60 `D-235` — `T1`–`T5` Phase-Gate/Task-Execution Model Propagated to Specs and Governance
+Tiers, `B117-R44`–`R51` Applied
+
+**Chief Editor direction, 2026-09-17, recorded in `docs/handoff/B-117`.** Following `D-234`'s
+accepted-intent-only entry, the Chief Editor authorized the dedicated follow-on propagation round
+`D-234` itself deferred. This entry records that round's actual textual propagation — **applied, not
+yet independently Judge-verified** (`D-101`/`D-102`: applied ≠ verified). `D-176`, `D-233` and `D-234`
+are unaffected and not restated here.
+
+### What was propagated, and where
+
+| Gap | Disposition | Landed at |
+|---|---|---|
+| `B117-R44` — global-operation-sequence assumption | **Applied.** §3.2's `stage_order` reframed as default intra-bundle ordering only; each `business:T` node opens its own scoped execution instance | `factory-route-operation-crosswalk.md` §4.2 |
+| `B117-R45` — phase-selection/completion event naming | **Partially applied.** Seven-step lifecycle stated as governed behaviour; candidate event names carried over, **canonical naming still open** | `FN-GATES-01-05.md` §3.0a; `requirements-traceability-map.md` §6.3 |
+| `B117-R46` — `T5` RACI normalization | **Applied.** Four-fact table (phase accountability, route `A`, operation source RACI, application overlay) | `factory-route-operation-crosswalk.md` §4.2 |
+| `B117-R47` — Chief Journalist child-task contract | **Drafted, not Judge-confirmed.** Bounded trigger/executor/input-output/failure/revision/evidence-link shape proposed; retaining the precursor at all remains open | `factory-route-operation-crosswalk.md` §4.2 |
+| `B117-R48` — Final Sign-Off `A`-coverage invariant | **Applied** (extends `D-233`, does not replace it) | `factory-route-operation-crosswalk.md` §4.2 |
+| `B117-R49` — `docs/specs` technical-namespace relabel matrix | **Applied as a documentary KEEP matrix** — no stored/API/persisted identifier renamed; resolution mechanism is prefix discipline (`business:`/`transition:`/`planning:`), not relabeling | `SPECS-TRANSITION-ENFORCEMENT.md` §3.2 (matrix); `SPECS-VERIFICATION-APPARATUS.md` (deferred-cleanup note); `SPECS-PUBLICATION.md` — reviewed, **no direct `T`-series collision, no edit**; `docs/specs/README.md` — reviewed, **index wording unchanged, no edit** |
+| `B117-R50` — storyboard role-selection/scoped-instance visualization | **Applied as an overlay, not a redraw of Panels A2–A6.** New Panel A9 shows the seven-step lifecycle and revision path using `business:T` labels only; **exact `business:T2`–`T5` interleaving with Panels A3–A6 beyond the generic pattern remains unresolved future work**, stated as such in the panel rather than guessed at | `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` Panel A9 |
+| `B117-R51` — assurance-boundary explicit statement | **Applied.** No Line 3/independent-assurance step exists anywhere in the overlay; same absence already on record at Panel A5's `GA6`, now also stated at the traceability map and cross-referenced for Encyclopedia Entry 05 | `requirements-traceability-map.md` §6.3; storyboard Panel A9; `docs/ENCYCLOPEDIA-SYNC.md` Entry 05 row (flagged, not republished) |
+
+### What remains explicitly deferred (not this act)
+
+1. **No schema, code, persisted field, or API change** — every relabel/matrix/contract above is
+   documentary. Construction requires a separate, distinct Chief Editor work order (`V1-BUILD-SPEC.md`
+   §6 new row).
+2. **Canonical phase-lifecycle event vocabulary** (`B117-R45`) — candidates only.
+3. **Chief Journalist child-task contract** (`B117-R47`) — drafted shape, not confirmed; whether the
+   precursor is retained at all is still open.
+4. **Full storyboard normal/revision redraw** beyond the Panel A9 overlay, and any UML/data-flow
+   diagram — not touched this act.
+5. **Encyclopedia republish** — Entry 05's ledger row is flagged with new citations; the artifact
+   itself is unread and unrepublished this act, per `CLAUDE.md`'s "distinct, opt-in act" rule.
+6. **`T6`, automated publication, and any assurance workflow** — confirmed absent from V1, unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e60 |
+| **`requirements-traceability-map.md`** | ✅ new §6.3 — `T1`–`T5` matrix, lifecycle events, assurance-boundary reaffirmation |
+| **`factory-route-operation-crosswalk.md`** | ✅ new §4.2 — scoped executions, `T5` RACI table, Final Sign-Off `A`-coverage extension, Chief Journalist draft contract |
+| **`FN-GATES-01-05.md`** | ✅ new §3.0a — phase-gate lifecycle, applies to all `business:T1`–`T5` nodes |
+| **Storyboard** (`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`) | ✅ new Panel A9 — overlay, not a redraw of Panels A2–A6 |
+| **`V1-BUILD-SPEC.md`** | ✅ new §6 row — spec propagated, construction explicitly not authorized |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected, stated explicitly: no new file created, only sections added to existing tracked files |
+| **`docs/specs/SPECS-TRANSITION-ENFORCEMENT.md`** | ✅ new §3.2 — documentary relabel matrix, all rows KEEP |
+| **`docs/specs/SPECS-VERIFICATION-APPARATUS.md`** | ✅ deferred-cleanup note added, no rename |
+| **`docs/specs/SPECS-PUBLICATION.md`, `docs/specs/README.md`** | — reviewed, unaffected, no edit (no `T`-series collision; index wording unchanged) |
+| **Encyclopedia** | Entry 05's ledger row flagged with new citations (`docs/ENCYCLOPEDIA-SYNC.md`); artifact itself not republished |
+| **`Modular_PRD.md`** | — unaffected: no FR/AC/NFR requirement text changed |
+| **Graphify** | Rebuild owed after this commit — governed-intent doc content across seven files |
+
+### What this act does NOT do
+
+Does not authorize construction, schema, code, persisted-field, or API change. Does not choose
+canonical lifecycle-event names. Does not confirm the Chief Journalist child-task contract. Does not
+redraw the storyboard beyond the Panel A9 overlay. Does not republish the Encyclopedia artifact. Does
+not close `B-117` — Judge verification of this propagation is still owed, and the six items listed
+above remain named, open follow-on work.

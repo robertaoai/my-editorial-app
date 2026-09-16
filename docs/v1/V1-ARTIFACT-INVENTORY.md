@@ -243,6 +243,15 @@ only with no sub-classification signal, while ordinary A/B/C lane-crossing detec
 negative cases) is unaffected. `.githooks/commit-msg` needed no change: it only ever destructured
 `byLane`/`label`, never `bySub`.
 
+## `T1`–`T5` phase-gate/task-execution model — UNAFFECTED, stated explicitly (`D-234`/`D-235`)
+
+**This inventory is UNAFFECTED.** `D-54` scopes this document to files — created, retired, present or
+absent. The phase-gate/task-execution model's propagation (`requirements-traceability-map.md` §6.3,
+`factory-route-operation-crosswalk.md` §4.2, `FN-GATES-01-05.md` §3.0a, storyboard Panel A9,
+`SPECS-TRANSITION-ENFORCEMENT.md` §3.2) **added sections to files that already exist in this
+inventory; it created no new file.** Stated explicitly rather than left silent, per the same `D-54`
+discipline `B-086` established above for `D-200`/`D-201`.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

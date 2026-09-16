@@ -94,6 +94,30 @@ labelling them together. **Only this column's display label changes; the stored/
 3. **T10 changes no state.** It is a publication-status event. Forcing it through a state-change guard means either inventing a self-transition or exempting it — and an exemption is a bypass route.
 4. **T11 is conditional on external outcome** — whether this is the *first live target*. The database cannot evaluate that from the article row alone.
 
+### 3.2 Technical-namespace relabel/migration matrix — documentary only `[V1]` (`D-234`, propagated
+2026-09-17, `B117-R49`)
+
+**Disposition for every occurrence of `T` + digit this document stores, exposes, or names.** This is
+a **documentary** matrix only — it authorizes no code, schema, or persisted-field change. Any future
+rename requires a separate, explicitly authorized compatibility plan to Lane B; until then every row
+below is **KEEP**.
+
+| Identifier | Where it lives | Currently means | Disposition | Note |
+|---|---|---|---|---|
+| `gate_id` column, values `T1`–`T11` | `workflow_transitions`/rule table (planned schema), this doc §3–§4 | `transition:T1`–`T11` — state-change rules and publication events | **KEEP** | Never was the product phase-node namespace; no collision to resolve by renaming it |
+| `T1`–`T6` (subset of the above) | §3 table, `required_line`/`human_only` columns | `transition:T1`–`T6`, `EG1`–`EG5` — judgment gates | **KEEP** | Documentary label already qualified `ID` not `Gate` (§3, `D-233`) |
+| `T7`–`T11` (subset of the above) | §3 table | Non-gate transition mechanics (wildcard source, dynamic target, non-transition, conditional) | **KEEP** | Already split from `T1`–`T6` at `requirements-traceability-map.md` §6.2 |
+| `business:T1`–`T5` | Not stored here — lives in `requirements-traceability-map.md` §6.3, `factory-route-operation-crosswalk.md` §4.2 | Newsroom judgment-stage role selection | **N/A to this document** | Deliberately a separate identifier family; this spec must not adopt it as a second meaning of its own `T` column |
+| `planning:T1` | `SPECS-VERIFICATION-APPARATUS.md` | Alpha-Portfolio sprint-readiness item | **N/A to this document** | Already disambiguated by its own qualifier |
+
+**Resolution mechanism going forward: prefix discipline in prose, not renaming stored values.**
+Because `gate_id`'s `T1`–`T11` and `business:T1`–`T5` are independently-sourced, non-overlapping
+identifier sets (`D-234`'s ontology boundary — reusing this spec's `T` rules as the product
+phase-node namespace is rejected, and the converse is equally rejected), the collision is fully
+resolved by **always writing the qualified form (`transition:`/`business:`/`planning:`) in any
+document where both families could appear**, per `requirements-traceability-map.md` §6.2. No stored
+identifier, column name, or code symbol changes as a result of this matrix.
+
 ## 4. Allowed-transitions table shape `[V1]`
 
 **A four-kind classification, not a pair list.**

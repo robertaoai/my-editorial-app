@@ -96,6 +96,29 @@ all three as open** — the resolution lives in `D-233` and the crosswalk/tracea
 just cited, not in `B-071`. `OP-PITCH`/`OP-DRAFT` are resolved; `OP-FINAL-SIGNOFF` is accepted, same
 locations.
 
+### 3.0a Phase-gate lifecycle — judgment, dispatch and completion are distinct events `[V1]`
+(`D-234`, propagated 2026-09-17, `B117-R44`/`R45`)
+
+**This section governs every `business:T1`–`T5` node** (`requirements-traceability-map.md` §6.3),
+not only the `T1` precondition above — §3.0's three pre-`T1` events are one concrete instance of the
+general rule stated here. A phase gate does not close in one step:
+
+1. **Enter** the phase-gate node.
+2. **Judgment** — perform the route/rank comparison for that node.
+3. **Selection** — record the selected role as an append-only event; this is not gate completion.
+4. **Dispatch** — the selected role's `EG`/task-workflow bundle opens as a **scoped execution
+   instance** (`factory-route-operation-crosswalk.md` §4.2) — the same operation type may recur across
+   `T1`–`T5` without overwriting a prior node's evidence.
+5. **Evidence** — task and RACI evidence is collected against that instance.
+6. **Completion** — the phase gate is marked complete only once its required bundle is satisfied.
+7. **Advance**, or on revision **return only the affected scope**, not the whole gate.
+
+Closing a `T` node at step 3 (selection) before its step 4–5 task evidence exists is **rejected** —
+it would advance before the evidence that justifies advancing exists. Candidate event names for steps
+1–3 and 6 (`phase_entered`, `judgment_recorded`, `role_selected`, `phase_completed`) and the task
+dispatch/completion events at step 4–5 remain **candidates, not chosen** — canonical vocabulary
+selection is `B117-R45`, still open.
+
 ### 3.1 `FR-01` — T1 Intake *(Reporter, Line 1, Agent)*
 
 `Discovered → Logged`

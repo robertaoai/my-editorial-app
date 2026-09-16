@@ -274,6 +274,45 @@ independently sourced fact, so: **`business:T3` evaluates candidate `ROUTE-PROD-
 `ROUTE-PROD-3`-vs-`ROUTE-PROD-1` comparison. Candidate evaluation does not itself change the
 effective route — only an authorized route-selection/reclassification event does, per `D-176`.
 
+### 6.3 `T1`–`T5` role-selection/task-workflow matrix and phase-lifecycle events — accepted intent,
+propagated `[V1]` (`D-234`, `B117-R44`/`R45`/`R46`)
+
+**Two-part phase-gate lifecycle, not a single close.** Judgment/selection happens as its own step
+*inside* the phase-gate lifecycle, not as the whole gate closing before its tasks run: enter the `T`
+phase-gate node → perform route/rank judgment → record the selected role as an append-only selection
+event → dispatch the selected role's `EG`/task-workflow bundle → collect task and RACI evidence → mark
+the phase gate complete only once its required bundle is satisfied → advance, or return only the
+affected scope on revision. Candidate event names (not yet chosen as canonical vocabulary —
+`B117-R45` stays open on naming only): `phase_entered`, `judgment_recorded`, `role_selected`, task
+dispatch/completion, `phase_completed`.
+
+| `business:T` node | Judgment/route comparison | Selected role | Task-workflow bundle after selection | Completion boundary |
+|---|---|---|---|---|
+| Pre-`T1` | UI request supplied; Senior Journalist processes and emits the entry output | `ROLE-SENIOR-JOURNALIST` (pre-gate processor, not `T1`'s selected role) | Intake/entry evidence only | `T1` may open; no phase gate has completed |
+| `T1` | Establish `ROUTE-PROD-1` baseline/default | `ROLE-REPORTER` | `OP-PITCH`, then `OP-DRAFT` for the selected Reporter application context | Reporter task evidence complete; Final Sign-Off is not a Reporter task |
+| `T2` | Compare `ROUTE-PROD-3` against baseline `ROUTE-PROD-1` | `ROLE-INVESTIGATOR` | `OP-RESEARCH`; `OP-COMPLEX-SERIES` when its condition/children are satisfied | Both applicable task instances complete; route comparison recorded |
+| `T3` | Compare `ROUTE-PROD-2` against baseline `ROUTE-PROD-1` | `ROLE-JOURNALIST` | `OP-PITCH`, `OP-DRAFT` in the Journalist context | New scoped task instances complete; prior `T1` evidence remains history |
+| `T4` | Compare `ROUTE-FALLOUT-1` against baseline `ROUTE-PROD-1` | `ROLE-SENIOR-JOURNALIST` | `OP-RESEARCH`, `OP-COMPLEX-SERIES`, `OP-LEGAL-RISK` as applicable | Required/triggered task instances and evidence complete |
+| `T5` | Final editorial accountability/readiness judgment | `ROLE-CHIEF-EDITORIAL-DESK` (phase/accountability layer) | Review Pitch/Research evidence; perform source `OP-COPY-EDIT` responsibility; confirm `OP-DRAFT`'s decided application `A`; then `OP-FINAL-SIGNOFF` checks complete `A`-coverage | Signed-off pre-publication package opens the UI publication-review flow; there is no `T6` in this namespace |
+
+This matrix is the **application workflow overlay** — it does not rewrite Sheet 1/Sheet 2
+(`factory-route-operation-crosswalk.md` §4.2) and does not rename any `transition:T`/`EG` identifier
+(§6.2 above). The `T5` RACI normalization table and the `OP-FINAL-SIGNOFF` `A`-coverage extension are
+recorded once, at `factory-route-operation-crosswalk.md` §4.2, and referenced here rather than
+restated (`B117-R46`).
+
+**Assurance boundary — reaffirmed, not newly created (`B117-R51`).** No independent assurance
+workflow (Line 3 / independent review) exists anywhere in this matrix or in V1 — `T5`'s Chief
+Editorial Desk accountability is a management/readiness judgment, opening the UI publication-review
+flow, not an independent audit opinion. This is the same absence already recorded at Panel A5's `GA6`
+gap (`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` §1) and is not a new V1 node or
+task.
+
+**Status:** accepted Judge intent (`D-234`), propagated into this map, the crosswalk (§4.2) and
+`FN-GATES-01-05.md` (§3.0a) in this pass. Not yet propagated: canonical lifecycle-event naming
+(`B117-R45`, candidates only), the storyboard full redraw beyond the overlay panel (`B117-R50`), and
+any persisted/API/code change (explicitly deferred, `D-234`/`D-235`).
+
 ---
 
 ## 7. Customer feedback register

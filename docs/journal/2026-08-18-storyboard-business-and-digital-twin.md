@@ -179,6 +179,55 @@ Requires all prior gate criteria confirmed, `publication_targets` confirmed, `pu
 
 ---
 
+### Panel A9 — Business role-selection overlay (`business:T1`–`T5`), layered on Panels A2–A6, 2026-09-17
+(`D-234`, propagated, `B117-R50`)
+
+**This panel is an overlay, not a redraw of Panels A2–A6.** The `transition:T1`–`T11`/`EG1`–`EG5`
+gate numbers in Panels A2–A8 are the existing technical state-transition namespace and are
+**unchanged** by this panel. `business:T1`–`T5` (below) is the separate newsroom judgment-stage
+namespace confirmed at §6.2's namespace map — reusing the technical gate numbers for it is rejected
+(`D-234`). Only `business:T1`'s relationship to `transition:T1` is precisely fixed today (Panel A2's
+pre-`T1` boundary note); `business:T2`–`T5`'s exact interleaving with Panels A3–A6 is not claimed
+beyond the generic lifecycle pattern below — precise interleaving is unresolved future work, not
+guessed at here.
+
+```mermaid
+sequenceDiagram
+    participant CE as Chief Editor (human)
+    participant SJ as Senior Journalist (agent)
+    participant DB as Postgres
+    participant EG as Selected role's EG/task bundle
+    Note over CE,DB: business:T1 — concretely fixed today (Panel A2 pre-T1 boundary)
+    CE->>SJ: supply source package (UI)
+    SJ->>DB: EW-start event
+    DB->>DB: OP-PITCH judgment: route classification (ROUTE-PROD-1 fixed, V1-SM05)
+    DB->>DB: role_selected — ROLE-REPORTER
+    DB->>EG: dispatch OP-PITCH, then OP-DRAFT (Reporter context)
+    EG->>DB: task + RACI evidence
+    DB->>DB: business:T1 phase_completed
+    Note over CE,DB: transition:T1 (Panel A2) executes inside/after this bundle — same generic pattern repeats for business:T2 (Investigator), T3 (Journalist), T4 (Senior Journalist, fallout comparison)
+    Note over CE,DB: business:T5 — Chief Editorial Desk accountability/readiness judgment
+    DB->>DB: role_selected — ROLE-CHIEF-EDITORIAL-DESK
+    DB->>EG: review Pitch/Research evidence; perform source OP-COPY-EDIT responsibility; confirm OP-DRAFT application A
+    EG->>DB: OP-FINAL-SIGNOFF — checks complete A-coverage across all applicable instances
+    DB->>CE: signed-off package opens UI publication-review flow
+    Note over CE,DB: no business:T6 — V1 editorial work ends at business:T5 handoff
+```
+
+**Revision path.** A return re-enters only the affected `business:T` node's judgment/selection step
+and re-dispatches only that node's task bundle as a **new scoped execution instance**; prior nodes'
+evidence is retained as history, not overwritten — same rule as the technical revision path (Panel
+A8, `T8`).
+
+**Assurance boundary (`B117-R51`, reaffirmed here, not newly created).** No independent assurance
+step (Line 3) appears in this overlay. `business:T5`'s Chief Editorial Desk judgment is a
+management/readiness accountability, not an independent audit opinion — the same absence already
+disclosed at Panel A5's `GA6` gap. See `requirements-traceability-map.md` §6.3 for the full matrix
+and `factory-route-operation-crosswalk.md` §4.2 for the `T5` RACI normalization and Final Sign-Off
+`A`-coverage extension this panel summarizes; not restated here.
+
+---
+
 ## 2. Lane B — POC: client-commissioned research
 
 Identical pipeline. Different origin, different entitlement, different delivery.

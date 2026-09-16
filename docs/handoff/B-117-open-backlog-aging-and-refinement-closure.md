@@ -3412,3 +3412,34 @@ Register entry, **`D-234`**. No propagation to `requirements-traceability-map.md
 `factory-route-operation-crosswalk.md`, `FN-GATES-01-05.md`, the storyboard, `V1-BUILD-SPEC.md`, or
 any `docs/specs/` file happens this pass — all eight gaps stay named and open, for a dedicated
 follow-on round. `B-117` remains `Open`.
+
+## Lane A acknowledgement — `B117-R44`–`B117-R51` propagated, `D-235`, 2026-09-17
+
+**Chief Editor authorized the dedicated follow-on round** named above; this entry applies it. Full
+disposition per gap is recorded at `V1-DECISION-REGISTER.md` §5.14e60 (`D-235`), not restated in full
+here. Summary:
+
+- **Applied**: `B117-R44` (scoped execution instances), `B117-R46` (`T5` RACI normalization),
+  `B117-R48` (Final Sign-Off `A`-coverage invariant), `B117-R49` (documentary relabel matrix, all
+  rows KEEP — no stored/API identifier renamed), `B117-R51` (assurance-boundary explicit statement,
+  traceability + storyboard; Encyclopedia Entry 05 flagged, not republished).
+- **Partially applied**: `B117-R45` (lifecycle stated as governed behaviour; canonical event naming
+  still open), `B117-R50` (storyboard **overlay** added as Panel A9, not a redraw of Panels A2–A6;
+  precise `business:T2`–`T5` interleaving beyond the generic pattern stays unresolved, named as such).
+- **Drafted, not Judge-confirmed**: `B117-R47` (Chief Journalist child-task contract) — a bounded
+  shape is proposed so construction cannot invent one silently, but retaining the precursor at all,
+  and this contract's exact terms, remain open.
+
+**Landed at**: `requirements-traceability-map.md` §6.3, `factory-route-operation-crosswalk.md` §4.2,
+`FN-GATES-01-05.md` §3.0a, storyboard Panel A9, `V1-BUILD-SPEC.md` §6 (new row), `V1-ARTIFACT-
+INVENTORY.md` (unaffected note), `SPECS-TRANSITION-ENFORCEMENT.md` §3.2, `SPECS-VERIFICATION-
+APPARATUS.md` (deferred-cleanup note), `docs/ENCYCLOPEDIA-SYNC.md` Entry 05 row.
+
+**Still deferred, named explicitly, not guessed at**: any schema/code/persisted-field/API change;
+canonical lifecycle-event vocabulary; the child-task contract's confirmation; the full storyboard/UML/
+data-flow redraw beyond the overlay; Encyclopedia artifact republish; `T6`/assurance (confirmed absent
+from V1, unchanged).
+
+**`B-117` remains `Open`** — this act is Applied, not yet independently Judge-verified
+(`D-101`/`D-102`). Verification and the six deferred items above are the next work, whenever the
+Chief Editor takes them up.

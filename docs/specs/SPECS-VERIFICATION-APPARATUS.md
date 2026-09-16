@@ -9,6 +9,13 @@
 2026-09-17 (`D-233`)** — this `T1` is unrelated to editorial `transition:T1`/Intake; see
 `requirements-traceability-map.md` §6.2's namespace map. No identifier renamed.
 
+**Terminology cleanup — deferred, not this pass (`D-234`, `B117-R49`).** The `docs/specs/`
+relabel-matrix review (`SPECS-TRANSITION-ENFORCEMENT.md` §3.2) rated this label low-impact-but-real:
+the `planning:` qualifier already avoids editorial equivalence, but the overloaded bare name `T1`
+should eventually become a named planning-phase label rather than a second `T`+digit family. That
+rename is bundled with the broader canonical-terminology pass, not done piecemeal here — no change
+in this document this pass.
+
 ---
 
 ## 0. Section origin — `D-36`

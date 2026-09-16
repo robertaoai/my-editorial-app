@@ -227,6 +227,56 @@ identity is the `V1-SM05`/`V1-SM06` slot assignment (`B117-R6`/similar correctio
    - **Sign-Off only opens human publication review.** It does not itself approve, publish, mark
      `ManualReady`, or change article state.
 
+### 4.2 `T1`–`T5` phase-gate overlay — scoped executions, `T5` RACI normalization, Final Sign-Off
+`A`-coverage extension, Chief Journalist child-task draft (`D-234`, propagated 2026-09-17,
+`B117-R44`/`R46`/`R47`/`R48`)
+
+**Relationship to §3.2.** §3.2's `stage_order` column is **not** a single global occurrence per
+operation — it is the **default ordering inside one selected task bundle**. Each `business:T1`–`T5`
+judgment stage (`requirements-traceability-map.md` §6.3) opens its own **scoped execution instance**
+of the applicable §3.1 operations for that stage's selected role and route comparison; the same
+`operation_id` (e.g. `OP-PITCH`, `OP-DRAFT`) recurs across stages as **distinct, immutable executions**,
+never overwriting a prior stage's row. §3.2's `entry_trigger`/`completion_evidence`/`reroute_target`
+columns still govern ordering *within* a bundle; they do not claim the operation runs only once across
+the whole route. This corrects the earlier reading that produced `B117-R44`.
+
+**`T5` RACI normalization** — four facts stay distinct and none overwrites another:
+
+| Concern | Source fact (§2, unedited) | Application interpretation |
+|---|---|---|
+| Phase-level accountability | Not a Sheet 2 field | `business:T5` selects Chief Editorial Desk for the phase/accountability context only |
+| `OP-PITCH` | `R`: Reporter + Journalist; `A`: Desk Editor | `T5` reviews/validates its evidence; Chief Editorial Desk does not replace the source `A` |
+| `OP-RESEARCH` | `R`: Investigator + Senior Journalist; `A`: Desk Editor | `T5` reviews/validates its evidence; Chief Editorial Desk does not replace the source `A` |
+| `OP-DRAFT` | `R`: Reporter + Journalist; source `A`: blank | §4.1 item 2's application overlay supplies Chief Editorial Desk as default `A`; source `A` remains blank |
+| `OP-COPY-EDIT` | `R`: Chief Editorial Desk; `A`: Desk Editor | No missing source `R` exists. A Chief Journalist precursor, if retained, is the separate child-task contract below — it must never overwrite this row's source `R` |
+| `OP-FINAL-SIGNOFF` | source `R`: blank; `A`: Desk Editor | Extended below with the `A`-coverage invariant. Does not backfill `A` and does not create a synthetic `R` |
+
+**`OP-FINAL-SIGNOFF` — `A`-coverage extension (decided, extends §4.1 item 3, not a replacement).**
+In addition to §4.1 item 3's five accepted conditions, the attestation also verifies that **every
+applicable task-execution instance for the route has an explicit accountable party (`A`) and
+completion evidence recorded** — a task instance with a blank `A` or missing completion evidence
+**refuses the attestation and returns to that instance**, per §3.2's existing `reroute_target`
+mechanics, rather than being backfilled or silently skipped. This closes `B117-R48`.
+
+**Chief Journalist Copy Edit precursor — draft child-task contract, proposed, not yet Judge-confirmed
+(`B117-R47`).** If a Chief Journalist precursor step to `OP-COPY-EDIT` is retained, it is bound by
+this draft contract until confirmed or rejected:
+
+| Term | Draft value |
+|---|---|
+| Trigger | `OP-DRAFT` (or `OP-COMPLEX-SERIES`) completion evidence exists for the current scoped execution |
+| Executor | `ROLE-CHIEF-JOURNALIST` |
+| Input | The completed draft instance and its prior evidence chain |
+| Output | A precursor-review record (pass/return disposition), distinct from `OP-COPY-EDIT`'s own record |
+| Failure/return | Returns to `OP-DRAFT`'s scoped instance; does not reroute to `OP-COPY-EDIT` on failure |
+| Revision/replay | Idempotent per revision, same rule as `OP-FINAL-SIGNOFF` §4.1 item 3's replay clause |
+| Evidence link | Child record cites the parent `OP-COPY-EDIT` execution instance it precedes; `OP-COPY-EDIT`'s
+source `R` (Chief Editorial Desk, §2) is never overwritten or reassigned by this precursor |
+
+This table is a **draft** — it names a bounded shape so construction cannot invent one silently, but
+retaining the precursor at all, and this contract's exact terms, remain open for Judge confirmation
+before any build work references it.
+
 ## 5. `F4` status
 
 **Route-operation applicability (§3.1) and per-operation sequencing (§3.2) are decided.** Operation
