@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** a truthful Lane A declaration that governance and documentation are ready for Lane B and Lane C; safe definition of the Lane B-to-Lane C evidence boundary and Lane C-to-Lane B monitoring feedback; no application build, workflow implementation, publication, lane transition or release action
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-15, receipt only.** This entry is read as additive to, not a
   replacement of, B-102 (consumer model) and B-077 (lifecycle/failure-pattern history), consistent
   with its own framing; no duplicate readiness ledger is created. The P1 three-way workflow division
@@ -15,10 +15,15 @@
   entry's own "Chief Editor decisions needed" section are Chief-Editor-gated, and recorded there for
   decision, not decided here. Lane A's own preparation order is accepted as stated: B-101 first, then
   the B-102/B-103 control-plane packet, before any further review of the same issue. No governed
-  source, application code, schema, workflow or Graphify action is taken.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Chief Editor/Judge clarifications of 2026-09-15; B-077, B-101 and B-102; `AGENTS.md` D-56/D-75/D-84/D-86/D-100/D-183/D-186; `docs/handoff/README.md`; `.github/WORKFLOWS-SPEC.md`; `docs/LANE-B-WORK-ORDER.md`; `docs/Modular_PRD.md` FR-14/NFR-08/Q4; `docs/fn-specs/FN-GATES-01-05.md`; `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`; `docs/governance/requirements-traceability-map.md`; `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json`; `bun run check` at the named commit.
-- **Verified-At-Commit:** cf7c9c16007834dcf4cce924a29b1172d720f07a
+  source, application code, schema, workflow or Graphify action is taken. **Superseded for P0–P3 by
+  the "Lane A disposition — 2026-09-15" section at the end of this entry** — that section records
+  the evidence this line predates; this line is kept, not edited, per this channel's rule against
+  rewriting history.
+- **Resolution:** Deferred
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** Chief Editor/Judge clarifications of 2026-09-15; B-077, B-101 and B-102; `AGENTS.md` D-56/D-75/D-84/D-86/D-100/D-183/D-186; `docs/handoff/README.md`; `.github/WORKFLOWS-SPEC.md`; `docs/LANE-B-WORK-ORDER.md`; `docs/Modular_PRD.md` FR-14/NFR-08/Q4; `docs/fn-specs/FN-GATES-01-05.md`; `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`; `docs/governance/requirements-traceability-map.md`; `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json`; `bun run check` at the named commit; `D-227`–`D-230`; the "Exact Lane A disposition draft" and "Lane A disposition — 2026-09-15" sections of this entry.
+- **Verified-At-Commit:** 3787821d231bc26e3e3bcf86f29ec55fc7fa6b40
+- **Follow-up-Tier:** Phase 1 — B-097 return-protocol controls own B-103 P3
 
 ## What happened
 
@@ -796,3 +801,50 @@ ready review will be mistaken for execution authority.
 | Reject | Closing C-001 or marking its workflow/settings transition Verified now | No protected positive/negative run exists |
 | Reject | Treating `bun run build` alone as Lane B completion evidence | Lane B work order and Build Spec require stronger checks and behaviour evidence |
 | Defer | C-Q1, C-Q2 and Stage 2 B/C runtime implementation | Separately authorized Lane C units after the accepted Lane B handover |
+
+## Lane A disposition — 2026-09-15
+
+### P0–P3, recorded per this entry's own disposition draft
+
+The child table and whole-entry header proposed above ("Exact Lane A disposition draft — not
+applied by Lane B") is recorded as follows, unchanged from that proposal:
+
+| Child | Disposition | Evidence |
+|---|---|---|
+| P0 — bounded promotion mechanism | `Verified` | `D-227`/`D-228` ownership correction, followed by the completed `D-229`/`D-230` promotion cycle; Lane B independently verified `D-228` in `B-102` at read commit `0db245e09a9eedd9558480db434a423d5702b1b7` |
+| P1 — three-way workflow meaning | `Verified` | Current `D-75`/`D-227` lane division; Lane C's row-1 Project-Scope review, recorded at `3787821` |
+| P2 — evidence contract | `Verified — Stage 1` | Lane B read at `9b13e162902ee3f7c554132b29d973ea5d5a6546`; Lane C's seven-row review, all Accept, at `7dac42971e7ec9b992a32f220062f430fba4818a`, recorded at `3787821`. Stage 2 (real workflow run) is separate and stays open under `D-230` |
+| P3 — return/closure controls | `Deferred` | Owned by `B-097`, which already carries the back-reference ("Lane B cross-reference — B-103 P3, 2026-09-15") |
+
+This corrects and supersedes the "P0–P2 acceptance... Chief-Editor-gated, not decided here" sentence
+in this entry's opening `Lane A:` line: that line described the state before this evidence chain
+(`D-227`–`D-230` plus two independent Stage-1 reads) existed. It is left in place rather than
+edited, per this channel's own rule against rewriting history; this section is the dated
+correction, and the opening line now points here.
+
+The header above is updated accordingly: `Status: Answered`, `Resolution: Deferred`,
+`Verified-By: — not independently verified; dispositioned by Lane A`,
+`Verified-At-Commit: 3787821d231bc26e3e3bcf86f29ec55fc7fa6b40` (the tree this disposition reads, per
+this entry's own "observed-at commit" instruction), `Follow-up-Tier: Phase 1 — B-097 return-protocol
+controls own B-103 P3`.
+
+### C-001 readiness distinction — response to "Judge clarification — C-001 review complete"
+
+Read against `4ae4333cb3e9bac44095197e6b67b60fd976477e`, the commit this response was written at
+(distinct from this entry's own `Verified-At-Commit` above, which is the tree the P0–P3 disposition
+reads). The three-way distinction in that section is accepted and recorded without rewriting Lane
+C's `C-001` history and without closing `C-001`:
+
+- **Review readiness** (row 1) — Judge-confirmed complete. No Phase 3 execution, ruleset repair,
+  protected-PR proof or deployment is claimed on that basis.
+- **Scheduling readiness** (rows 2–3) — not yet supplied. No Lane B unit has completed the bounded
+  DoD and evidence handoff this specific B→C dependency requires under `docs/LANE-B-WORK-ORDER.md`
+  §6; earlier Lane B application units completing their own work does not supply this one. Lane C is
+  not scheduled by this response, and no lane-state transition follows from it.
+- **Execution readiness** (rows 4–7) — stays exactly where `C-001` already has it: `Answered /
+  Deferred`, gated on `C-24`, `C-25`, an explicit Chief Editor Lane C selection, and a proven
+  positive/negative run. Nothing here moves any of those.
+
+A cross-reference recording this same distinction is added to `C-001` in this same commit; its
+header — `Status: Answered`, `Resolution: Deferred`, `Follow-up-Tier: Phase 3 — Lane C` — and its
+`C-24`/`C-25` gating are unchanged, as this section's own instruction required.

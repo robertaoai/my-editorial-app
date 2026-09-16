@@ -96,3 +96,14 @@ the crossing declared under `D-88`; that ruling authorizes the commit and does *
 entry.
 
 > **Sprint boundary, 2026-08-24 (`D-103`): Lane B is now `Active` and Lane A is `Eligible`.** Lane A can still **write in `docs/handoff/`** — that carve-out exists so acknowledgement is never blocked — but it **cannot commit anywhere else**, so anything here needing a change outside `docs/handoff/` waits for Lane A's next `Active` turn. **A blocking entry stops that item, not the lane** (`D-101`).
+
+## Cross-reference — B-103 review/execution readiness distinction, 2026-09-15
+
+`B-103`'s "Judge clarification — C-001 review complete" section records that this entry's
+**review** — the live-ruleset finding and the `C-24`/`C-25` defects above — is Judge-confirmed
+**complete**, and that Lane C may be scheduled for the compatibility-transition run once a Lane B
+application unit hands off its accepted build evidence for that specific B→C dependency. That is a
+readiness record only: it does not run the workflow, repair the ruleset, or produce a protected-PR
+proof. This entry's header, `Resolution: Deferred`, and `Follow-up-Tier` stand exactly as recorded
+on 2026-08-24 — unchanged by this note — and stay gated on `C-24`, `C-25`, an explicit Chief Editor
+Lane C selection, and a real positive/negative run.
