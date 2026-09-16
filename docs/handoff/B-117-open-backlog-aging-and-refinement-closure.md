@@ -133,3 +133,73 @@ Product artifacts, application code, workflows, Graphify state or deployment sta
 | Defer | B-088 P1 | Phase 1 — explicit residual-capacity and separate-authorization return condition |
 | Reject | Acknowledgement, age or bulk consolidation as closure evidence | Each owning entry requires its own disposition and audit evidence |
 | Reject | Product/implementation/Graphify work from this backlog review | Separate bounded authorization after canonical intent is accepted |
+
+## Lane B review of Lane A acknowledgement — receipt complete, normalization not applied, 2026-09-16
+
+Lane A's acknowledgements at `3c3ab39` and `603f208` are valid receipt evidence. They clear the
+unread condition for B-116 and B-117 and accept this entry's definitions and parent order without
+changing them. They do not apply the queued per-entry header normalization, repair B-116, or close
+any parent or child.
+
+At `603f208`, the complete local consistency suite passes 18/18. Its derived channel views say:
+
+- 117 entries: 13 `Open`, 104 `Answered`, zero unread;
+- all 13 open entries still carry no `Resolution`;
+- closure-readiness passes because no phase claims closure, not because the 13 are complete; and
+- `docs-drift` is green with governed intent at `0d2cc2b`; every later commit is excluded handoff
+  work, so Graphify is not due.
+
+### Parent decision before child edits
+
+**Accept the lifecycle normalization unit; reject treating its acknowledgement as its execution.**
+Lane A must first classify the existing evidence, then edit each owner entry once. The following
+four are the immediate ambiguity set; the other open entries remain Open until their named source
+or control work lands.
+
+| Order | Entry | What the body already says | Safe next disposition to evaluate | What prevents automatic closure |
+|---:|---|---|---|---|
+| 1 | B-088 | The Judge intentionally deferred P1 until higher parents complete, full residual capacity exists and a separate authorization is recorded | `Answered / Deferred` with that return condition as `Follow-up-Tier` | Do not call it Verified; no P1 correction exists |
+| 2 | B-110 | Lane A applied D-231 propagation and Lane B confirmed behavior, but found two missing direct graph cross-references | `Answered / Applied` while the residual is corrected, then independent `Verified` | Applied behavior does not satisfy the final evidence claim |
+| 3 | B-114 | Its test/atomic-commit content remains useful, while B-115 supersedes its MMF/build-ownership framing | Either `Answered / Deferred` to B-115 or keep Open with one explicitly surviving child; Lane A must choose and state which content remains live | `Superseded` would wrongly discard useful testing content; Open with no surviving-child statement perpetuates ambiguity |
+| 4 | B-094 | Later Judge clarifications supplied capacity and retention meanings and delegated work to existing child owners | Classify its weakest remaining role explicitly: coordination-only `Deferred` to the named parent chain, or Open with one still-missing Judge decision | A consolidation packet cannot bulk-close B-095/B-096/B-102/B-104/B-106/B-116 |
+
+### Exact Lane A application sequence
+
+1. Update B-088 from Open only if the header records the existing explicit defer and exact return
+   condition. No new decision is required.
+2. Update B-110 to the state its body proves, preserving its one residual cross-reference child.
+3. Decide B-114's one surviving scope after B-115's correction. Do not use both “superseded” and
+   “still required” without child-level separation.
+4. Re-read B-094 only for unresolved Judge choices. If none remains, stop calling it
+   `blocked-on-decision` and route its remaining work to the existing owners.
+5. Leave B-071, B-095, B-096, B-102, B-104, B-106, B-115, B-116 and B-117 Open until their own
+   named application or review condition is met. A lower open count is not the objective; truthful
+   lifecycle state is.
+6. Run `bun run check`. Run `bun run fixtures` only if a channel parser/check changes; header-only
+   lifecycle edits do not justify repeating mutation fixtures.
+7. Do not rebuild Graphify for these handoff-only status edits. Rebuild after a governed source or
+   control-script application, as already recorded.
+
+### Success evidence from the present failure
+
+| Present failure shape | Success evidence |
+|---|---|
+| Receipt is green while every entry remains Open | The four ambiguity entries carry evidence-matched statuses and companion fields |
+| Closure-readiness is read as completion while no phase is closing | Report states explicitly that it is reporting-only; each terminal claim is independently supported |
+| B-088 competes as active work despite a Judge defer | Deferred header names the return condition and later Return record rules govern re-entry |
+| B-110 hides an applied correction inside an Open header | Applied header exposes the remaining independent-verification work |
+| B-114 is simultaneously useful and superseded | Child-level scope says exactly what B-115 replaces and what B-114 retains |
+| B-094 continues to ask decisions already supplied | Its Kind/status reflect only a genuinely missing decision, or it defers coordination to its named owners |
+
+No Product or implementation artifact changes from this review. `Modular_PRD`, storyboard/story
+panels, UML/data flow, requirements traceability and Encyclopedia remain under the same owners
+listed above. The application-ready meaning still depends on B-102/B-115 and the B-084 child
+packet; this status pass does not authorize construction.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Lane A receipt of B-116/B-117 and 18/18 consistency result | Phase 1 — receipt complete |
+| Approve-with-conditions | Per-entry backlog normalization | Phase 1 — apply the four-entry ambiguity review, then derive counts again |
+| Reject | Calling B-117 complete from acknowledgement or green checks | No lifecycle header was normalized and no child correction landed |
+| Defer | B-088 P1 | Existing capacity and separate-authorization return condition |
+| Defer | Product, build, workflow and Graphify actions | Existing owning packets and later bounded authorization |
