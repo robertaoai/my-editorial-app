@@ -3114,3 +3114,134 @@ caused by the human.
 | Defer | B-117 closure and Graphify rebuild | Canonical propagation and independent verification |
 | Reject | Six `T` transitions as the meaning of `PIPELINE_GATE_COUNT` | Superseded semantic model |
 | Reject | `EG5` mapped to the Chief Editor login or treated as implemented in V1 | Catalog and version-scope correction required |
+
+## Judge correction — `T` phase-gate nodes, `EG` V1 editorial workflow, assurance absent (2026-09-17)
+
+### Correction to the preceding gate-count return
+
+The immediately preceding return correctly rejects human/login identity as a node and correctly
+separates counts, but it still calls `EG1`–`EG5` the canonical phase gates and treats `T1`–`T6` as
+transition IDs. The Judge has now supplied the controlling ontology:
+
+1. **`T*` is the original phase-gate-node series.** A `T` identifier names a phase-gate node; it is
+   not, merely by its prefix, a transition event.
+2. **`EG*` is the newer editorial-workflow series for V1.** It models editorial work and must not be
+   collapsed into the phase-gate-node series by matching digits.
+3. **The assurance workflow is a third workflow family and is absent from V1.** Line separation,
+   identity provenance, a dashboard, a Chief Editor disposition, or a field named `identity_assurance`
+   does not create that missing workflow.
+
+Accordingly, the prior return's P1.1/P1.2 language, `B117-R31`–`R36`, and the proposed `EG→T`
+cardinality test are corrected below. Its approved five-value decision for the editorial-workflow
+count still stands in substance: the five values are **V1 editorial-workflow nodes**, not phase-gate
+nodes. The symbol name `PIPELINE_GATE_COUNT` remains semantically dangerous because “gate” now belongs
+to the `T` family.
+
+### Parent-first decision tree
+
+| Order | Parent / child | Accepted definition | Accept evidence | Reject condition |
+|---:|---|---|---|---|
+| 1 | **P1 — workflow-family ontology** | Phase-gate, editorial and assurance workflows are three distinct families | One canonical table defines each family, scope and ID namespace | `T`, `EG` and assurance concepts share one “gate/node” series |
+| 2 | P1.1 — phase-gate family | `T*` identifies original phase-gate nodes | Documents say node; state-transition events are represented separately | `T*` is defined as a transition merely because transition records cite it |
+| 3 | P1.2 — editorial family | `EG1`–`EG5` identifies the V1 editorial workflow | V1 normal/revision journey and MMF trace through EG nodes | EG numbers are treated as aliases for same-numbered T nodes |
+| 4 | P1.3 — assurance family | Assurance is a separate, missing workflow and is explicitly out of V1 | Scope/traceability records absence and later ownership without fabricated nodes | Line separation, management review, observability or identity metadata is labelled assurance |
+| 5 | **P2 — relations** | Any `T↔EG` relationship is a typed, evidence-backed mapping between families | Mapping names relation, provenance, version and cardinality | Positional or equal-number mapping is assumed |
+| 6 | **P3 — counts/config** | The previously approved value five refers to V1 editorial-workflow nodes; its symbol/citation must say so | Authoritative config cites the EG catalog and cannot be read as T-node count | `PIPELINE_GATE_COUNT` silently means both T phase gates and EG workflow nodes |
+| 7 | P3.1 — published-path count | A count derived from `T1–T7` cannot be called a transition count until actual transition events are separately defined | Retained symbol is renamed/re-sourced or deferred with explicit limitation | Node identifiers are counted as database/workflow transitions |
+| 8 | **P4 — V1 boundary** | V1 contains the EG editorial workflow; T6 is beyond V1; assurance workflow is absent | V1 DoR/DoD, diagrams and tests state all three boundaries | T6 or an assurance workflow re-enters V1 through a count, mapping, role or dashboard |
+
+The Judge has decided P1–P4. Lane A must not return another abstract terminology question. It must
+first produce the concrete three-family table and evidence-backed mapping matrix. Only a genuinely
+missing relationship in that reviewable matrix requires a later Judge choice.
+
+### Canonical three-family model Lane A must record
+
+| Family | Canonical IDs | Meaning | V1 disposition | What it is not |
+|---|---|---|---|---|
+| Phase-gate nodes | `T*` | Original structural phase-gate nodes | Only the explicitly migrated subset may be referenced; T6 is beyond V1 | Not a database transition-event count; not an EG alias |
+| Editorial workflow | `EG1`–`EG5` | New editorial workflow used by V1 | In V1; owns the five editorial-workflow-node count | Not the original T phase-gate series; not assurance |
+| Assurance workflow | Identifier series **not yet assigned here** | Independent assurance process, mandate, evidence and reporting path | Missing and out of V1 (`D-57`/`FR-11`/`SEC-06` remain relevant boundaries) | Not Chief Editor management review, four-eyes, Line separation, BCP observability or `identity_assurance` metadata |
+
+No assurance identifier prefix, node count, executor or implementation sequence is invented by this
+handoff. Those belong to later-version refinement if the capability is opened.
+
+### Findings and guaranteed failures
+
+| ID | Finding | Guaranteed failure | Required Lane A correction |
+|---|---|---|---|
+| `B117-R37` | `D-170`/`D-171` define phase gate as `T1–T11/EG1–EG5` and build a single T/EG executor matrix | Register precedence will restore the conflation after derived docs are corrected | New Register act supersedes only the collapsed namespace/mapping claims; preserve historical provenance and unaffected editorial decisions |
+| `B117-R38` | `FN-GATES-01-05.md` §11 calls EG a separate logical-node catalog but makes `Transition mapping` (`EG1→T1`, `EG2→T2+T3`, etc.) part of each canonical row | The current table asserts the very equivalence the Judge rejected and makes EG5/T6/user identity travel together | Recast §11 as the V1 editorial-workflow catalog. Move any T relationship to a separate typed mapping matrix, verified from historical evidence rather than row position |
+| `B117-R39` | `requirements-traceability-map.md` §6.2 groups `transition:T1–T6` and `EG1–EG5` as one judgment-gate namespace | Requirement migration cannot distinguish original structure from V1 editorial behavior | Use separate family rows and typed cross-reference edges; stop calling T nodes transitions until event semantics are separately named |
+| `B117-R40` | `PIPELINE_GATE_COUNT=6` counts T items, while the prior correction would make the same “gate” symbol count five EG items | Either value leaves one symbol with two valid readers and guarantees another drift cycle | Replace the overloaded business name with an editorial-workflow-node name in the governed config plan, or explicitly deprecate it with a single compatibility mapping. A distinct T phase-gate count is added only if a consumer exists |
+| `B117-R41` | `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED=7` treats `T1–T7` node IDs as transitions | Tests can pass a node count while never validating a transition event, replay, return or revision | Derive any transition metric from defined events/edges, not T identifiers. Exclude the existing symbol from V1 readiness until normalized |
+| `B117-R42` | Storyboard, story panels, UML/data flow and Modular PRD use T numbers as the editorial journey and have no separate assurance-workflow boundary | Visual construction input cannot show which layer performs work, which layer gates it, or that assurance is absent | Draw three lanes/families: V1 EG workflow; related T phase-gate nodes via typed edges; assurance boundary explicitly absent/deferred. V1 ends before T6 |
+| `B117-R43` | Encyclopedia Entry 05 discusses an assurance cluster, while other entries/fragments equate four-eyes, successor review or Chief Editor evidence with assurance-adjacent language | Public explanation may imply V1 contains assurance when it only contains editorial controls and metadata | Update Entries 01/05/06 and affected curated fragments: editorial control is not independent assurance; the assurance workflow is missing from V1 |
+
+### Step-by-step Lane A follow-up
+
+1. **Register the ontology correction.** Assign one decision ID that supersedes the combined
+   `T/EG` namespace and executor matrix, reaffirms T as phase-gate nodes, EG as V1 editorial workflow,
+   and assurance as a separate absent workflow. Do not alter frozen PRD/Charter text.
+2. **Create the canonical family table in the existing owner.** Prefer the requirements traceability
+   map or the Fn Spec section already owning the catalogs; do not create a duplicate artifact unless
+   the Inventory/Build Spec/Register are updated together under D-54.
+3. **Rebuild the editorial catalog.** `FN-GATES` §11 lists `EG1`–`EG5` as V1 editorial-workflow
+   nodes with editorial behavior/evidence. It does not define a Chief Editor system user as a node.
+4. **Extract the T relationship.** Build a separate T-phase-gate ↔ EG-editorial-workflow mapping
+   table with relation type, provenance, cardinality, version and confidence/status. Do not infer an
+   edge from equal suffixes. Mark unsupported edges unresolved rather than manufacturing them.
+5. **Represent assurance absence.** Add a boundary row/panel showing the assurance workflow is not
+   present in V1. Link to `D-57`, `FR-11`, `SEC-06` and Encyclopedia Entry 05 as appropriate; do not
+   assign IDs or an executor for an unopened capability.
+6. **Normalize configuration.** The value five belongs to an editorial-workflow-node symbol sourced
+   from EG1–EG5. Retire/deprecate or narrowly alias `PIPELINE_GATE_COUNT`; do not introduce a T-node
+   count without a consumer. Hold the published-path transition count until event semantics exist.
+7. **Propagate construction artifacts.** Update Modular PRD scope/traceability, V1 Build Spec DoR/DoD,
+   storyboard/story panels, UML, data flow and technical-spec candidates. V1 follows EG and stops
+   before T6; no assurance workflow is built.
+8. **Prepare verification.** BDD covers EG normal and revision paths; mapping tests validate only
+   explicit T↔EG edges; negative tests prove no V1 assurance-workflow claim and no T6 invocation;
+   config tests derive the EG count from the catalog.
+9. **Route implementation correctly.** Lane A changes governed docs/config and work order. Lane B
+   changes code/tests later under a bounded, authorized MMF. Lane C reviews workflow/monitoring gaps;
+   monitoring remains evidence infrastructure, not assurance.
+10. **Sync last.** Review Encyclopedia Entries 01/05/06, update affected curated fragments, rebuild
+    Graphify, merge fragments, run the complete suite, and return the exact source commit for Lane
+    B/C independent verification.
+
+### Critical artifacts and completion evidence
+
+| Artifact | Construction use | Verification evidence |
+|---|---|---|
+| Three-family ontology table | Prevents one class/model from representing gates, editorial work and assurance | Every ID belongs to exactly one family; terms have no overlapping definitions |
+| Typed T↔EG mapping matrix | Defines how V1 editorial work relates to structural phase gates without aliasing | Every edge has provenance/cardinality/version; unsupported mappings remain explicit gaps |
+| V1 EG normal/revision storyboard + UML/data flow | Drives UI, orchestration and audit implementation | Normal and revision examples traverse EG nodes, stop before T6 and identify effective agents/components |
+| Assurance-absence boundary | Prevents Line separation/dashboard/metadata from being implemented or marketed as assurance | No V1 node, executor, report or acceptance test claims independent assurance |
+| Normalized config contract | Gives Lane B unambiguous symbols and sources | Editorial workflow count derives from EG catalog; no T-node-as-transition arithmetic |
+| Requirement migration matrix | Preserves frozen wants while assigning V1 and later ownership | T6 and assurance-dependent requirements are not marked V1 done and are not lost |
+
+### Artifact disposition
+
+| Artifact | Disposition |
+|---|---|
+| `V1-DECISION-REGISTER.md` | Affected — supersede combined T/EG ontology and mappings |
+| `V1-BUILD-SPEC.md` / `V1-ARTIFACT-INVENTORY.md` | Affected under D-54 — V1 EG scope, mapping/assurance evidence and any artifact creation |
+| `FN-GATES-01-05.md` | Affected — EG editorial-workflow catalog; T mapping extracted |
+| `CONFIG_LOG.md` | Affected — remove ambiguous gate/transition arithmetic before Lane B code change |
+| `Modular_PRD.md` / requirements traceability | Affected — three families, V1/later scope and user/actor separation |
+| Storyboard, story panels, UML, data flow | Affected — EG workflow, typed T relations, assurance absent |
+| Encyclopedia / Graphify | Affected after canonical source changes; Entries 01/05/06 and relevant fragments |
+| Application/config code/tests | Specified only; Lane B later, after governed work order and authorization |
+| Frozen PRD/Charter, schema, deployment | Unaffected |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `T*` as original phase-gate-node family | Lane A ontology/Register correction |
+| Approve | `EG1`–`EG5` as the V1 editorial-workflow family | Fn Spec, MMF, visual and config propagation |
+| Approve | Assurance as a separate workflow absent from V1 | Scope disclosure and later-version trace only |
+| Approve-with-conditions | Value five previously assigned to `PIPELINE_GATE_COUNT` | Preserve as EG workflow-node count under an unambiguous governed symbol/citation |
+| Defer | Exact T↔EG mapping edges not proven by historical evidence | Lane A concrete mapping matrix, then Judge decision only for genuine gaps |
+| Defer | Assurance workflow IDs, nodes, executor and implementation | Later-version capability opening |
+| Defer | Lane B code/tests and B-117 closure | Governed packet, authorization and independent verification |
+| Reject | Treating T identifiers as transition events or EG identifiers as T aliases | Superseded ontology |
+| Reject | Treating four-eyes, Chief Editor review, observability or identity metadata as the missing assurance workflow | Preserve explicit V1 assurance absence |
