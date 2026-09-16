@@ -2989,3 +2989,128 @@ borrow `ManualReady` from the later publication state to close it by wording.
 | Defer | B-117 closure and Graphify rebuild | Canonical propagation, visual correction and independent verification |
 | Reject | Prior B-117 P2.2 and V1 human-T6 acceptance examples | Withdrawn by this Judge correction |
 | Reject | Any claim that V1 completes the full PRD success scenario while T6 is excluded | Lane A must state partial coverage and later-version ownership |
+
+## Judge correction — `PIPELINE_GATE_COUNT` counts `EG` nodes, not `T` transitions (2026-09-17)
+
+### Confirmed source of the conflation
+
+The current configuration names one object and counts another:
+
+| Symbol | Current value/source | Actual object counted | Judge disposition |
+|---|---|---|---|
+| `PIPELINE_GATE_COUNT` | `6`, Addendum `T1`–`T6` executor transitions | Transition IDs | **Wrong semantic source.** It must refer to the `Node` column in `FN-GATES-01-05.md`'s editorial node catalog: `EG1`–`EG5` |
+| `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED` | `7`, `T1`–`T7` | Full-path transitions through system publication | A transition count, not a gate/node count; because T6 and the following publication path are beyond V1, it must not be used as V1 scope or DoD evidence |
+
+The catalog itself proves why the values cannot be aliases: `EG2` maps to `T2` **and** `T3`. Five
+editorial nodes therefore map to six forward editorial transitions. Equal numbering is not identity.
+The prior A4 resolution (“six gates at a different granularity”) preserved the collision instead of
+resolving it.
+
+### Parent-first decision tree
+
+| Order | Parent / child | Accepted definition | Accept evidence | Reject condition |
+|---:|---|---|---|---|
+| 1 | **P1 — ontology** | Editorial node, transition, effective actor/component, access principal and version scope are separate axes | Each has its own field/column and definition | A `T` transition, login identity or role is called a virtual node |
+| 2 | P1.1 — editorial node | `EG1`–`EG5` are the canonical editorial-node series and the object counted by `PIPELINE_GATE_COUNT` | Count is derived from the catalog's `Node` column | Count is derived from `T1`–`T6` |
+| 3 | P1.2 — transition mapping | A node maps to one or more transitions; mapping does not change node cardinality | `EG2 → T2+T3` is represented without creating an extra gate | Equal digits or row position are used to infer identity |
+| 4 | P1.3 — actor/component | The operational agent/component is assigned separately from node identity and transition outcome | Behavior and audit name the effective executor/trigger | `ROLE-CHIEF-EDITOR` or the sole login is treated as a virtual node |
+| 5 | **P2 — configuration** | `PIPELINE_GATE_COUNT` means the five catalog nodes `EG1`–`EG5` | `CONFIG_LOG` cites `FN-GATES-01-05.md` §11 `Node`; dependent code/test follows the governed row | Value/source remains six/`T1–T6` |
+| 6 | P2.1 — transition count | A transition-count symbol, if retained, is explicitly a full-path/cross-version transition measure | Its name, citation and limitation say it is not V1 gate count or readiness | `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED=7` is used to prove V1 completion |
+| 7 | **P3 — version coverage** | The global catalog may describe `EG1`–`EG5`; V1 implements only the bounded pre-T6 subset. `EG5↔T6` belongs to later-version refinement | Catalog carries separate lifecycle/version disposition per node/mapping | Catalog header or DoD implies every global node is V1 scope |
+
+The Judge has decided P1–P3. Lane A does not need another value choice for
+`PIPELINE_GATE_COUNT`: its governed meaning is the five `EG` rows. A separate V1-implemented-node
+count must not be invented unless a real consumer requires it; V1 scope is proven by its MMF
+requirement set, not by overloading the global catalog count.
+
+### Catalog correction required
+
+`FN-GATES-01-05.md` §11 is the canonical source for the gate/node count, but its present row shape is
+not current enough to serve that role safely:
+
+| Current catalog defect | Required normalized shape |
+|---|---|
+| Section header marks the whole catalog `[V1]` | Catalog identity is cross-version; each node and mapping carries its own introduced/target version and lifecycle |
+| `Node` and `Transition mapping` are present, but prose still calls both “gates” | `Node` owns `EG*`; `Transition mapping` owns `T*`; one-to-many mappings are explicit |
+| `Target executor role` is embedded beside node identity | Rename/separate as `effective actor/agent eligibility`; it is behavior metadata, not node identity |
+| `EG5 → T6 → ROLE-CHIEF-EDITOR` | `EG5` remains a catalog node; its T6 mapping is beyond V1, and its later effective actor/component contract is not the Chief Editor login or a virtualized human. Mark later-version refinement rather than inventing an executor |
+| Every row is `decided_target_held` without a version-coverage field | Add distinct ontology lifecycle and version-scope/implementation disposition so “defined globally” cannot mean “built in V1” |
+
+The Chief Editor may still appear in Project/security scope as the sole user/request principal. That
+identity is not a Node value, not an executor-role default, and not evidence that a transition was
+caused by the human.
+
+### Findings and downstream failure modes
+
+| ID | Finding | Guaranteed failure | Required correction |
+|---|---|---|---|
+| `B117-R31` | `CONFIG_LOG.md` and `lib/config/build-config.ts` define `PIPELINE_GATE_COUNT=6` from transitions | Any feature/test using “gate count” will expect six nodes while the governed catalog has five; UI progress and readiness can be off by one | Lane A changes the authoritative row to five and cites the `Node` column; Lane B changes code only after the governed flag/work order arrives |
+| `B117-R32` | `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED=7` is unqualified success-scenario config while T6/T7 are beyond V1 | A V1 test can require later-version approval/publication and contradict the version boundary | Qualify/rename or transfer this row as full-path/later-version scope; remove it from V1 completion evidence. Do not silently change code in Lane A |
+| `B117-R33` | The §11 catalog maps `EG5` to Chief Editor and labels all nodes V1 | It virtualizes the sole user and returns T6 to V1 through the ontology source | Apply the normalized catalog shape above and mark the EG5/T6 mapping later-version; effective actor/component remains separately owned |
+| `B117-R34` | Requirements traceability §6.2 still groups `transition:T1–T6` with `EG1–EG5` as judgment gates and “virtual-node executors” | Traceability cannot express EG2's two-transition mapping or the V1/V2 split, and again turns the user into a node | Create separate Node, Transition Mapping, Effective Actor/Component and Version Coverage columns/rows; trace V1 only through its pre-T6 subset |
+| `B117-R35` | Modular PRD, storyboard/story panels, UML/data flow and Encyclopedia reuse T-number order as the pipeline/gate model | Visual and acceptance artifacts will regenerate six “gates,” human T6 and incorrect progress denominators | Make EG nodes the visual/editorial stages; show T mappings as event/state-change annotations; stop the V1 view before T6 and review Encyclopedia Entries 01/05/06 |
+| `B117-R36` | Existing tests/config coupling verify declaration parity but not semantic object identity | A wrong value can stay green as long as docs and code repeat it | Add a governed verification that derives gate count from catalog Node rows and separately verifies transition mapping; no literal duplicate count in business logic |
+
+### Step-by-step Lane A follow-up
+
+1. **Record one Register act** joining this correction to the preceding V1/T6 and user/principal
+   correction. State that the old A4 “six gates/different granularity” resolution is superseded, not
+   that the Addendum's transitions disappeared.
+2. **Repair the editorial-node catalog first.** Normalize §11's columns and lifecycle/version fields;
+   retain `EG1`–`EG5`; preserve `EG2 → T2+T3`; place `EG5↔T6` beyond V1; remove Chief Editor as a
+   virtual/effective node assignment.
+3. **Update `CONFIG_LOG.md`.** `PIPELINE_GATE_COUNT` derives from the five `Node` rows. Give the
+   transition-to-published value a full-path/later-version limitation or a better name. State whether
+   the symbol is retained for future work, without using it in V1 DoR/DoD.
+4. **Propagate scope and traceability.** Update the requirements migration matrix, `Modular_PRD.md`,
+   V1 Build Spec and Artifact Inventory in the same D-54 pass. Frozen PRD/Charter text stays
+   unchanged. The V1 MMFs remain pre-T6.
+5. **Correct behavior and visuals.** Fn Spec, storyboard panels, UML and data flow use EG nodes for
+   editorial stages and T IDs for transition/event mapping. They identify actual agents/components,
+   not the sole login, and the V1 diagram stops before T6.
+6. **Prepare the Lane B control change.** Lane A updates the governed config row and work order;
+   Lane B later changes `lib/config/build-config.ts` and the required tests as one bounded MMF/TDD
+   unit. No application-code edit belongs in this planning pass.
+7. **Review Encyclopedia and graph fragments.** Correct or supersede the six-transition-as-gates,
+   human-EG5 and V1-T6 explanations. Then rebuild Graphify, merge curated fragments and run the full
+   consistency suite.
+8. **Return evidence.** Provide the Register ID, exact changed paths, catalog-to-config derivation,
+   V1/V2 trace rows, test plan and committed Graphify state for Lane B/C independent review.
+
+### Implementation-phase acceptance evidence
+
+- `PIPELINE_GATE_COUNT` equals the number of canonical `Node` rows (`EG1`–`EG5`) and is not computed
+  from transition IDs.
+- The transition mapping contains six forward editorial transitions because `EG2` maps to two; this
+  does not create a sixth editorial node.
+- V1 progress, DoR and DoD do not require EG5/T6 or the seven-transition publication path.
+- Audit examples distinguish request principal, effective agent/component, node and transition.
+- No UI, diagram, test or report labels the Chief Editor login as `EG5`, a virtual node or the
+  executor of every authenticated action.
+- A later-version trace owns EG5/T6 refinement without declaring V2 open or implemented.
+
+### Artifact disposition
+
+| Artifact | Disposition |
+|---|---|
+| `V1-DECISION-REGISTER.md` | Affected — supersede the old gate-count interpretation and record node/transition/version semantics |
+| `V1-BUILD-SPEC.md` | Affected — V1 scope must not consume T6/T7 or full-path transition count |
+| `V1-ARTIFACT-INVENTORY.md` | D-54 pass required; likely no new artifact unless Lane A creates separate V2 tracking |
+| `CONFIG_LOG.md` | Affected and authoritative for the later Lane B code change |
+| `lib/config/build-config.ts` | **Specified, not applied** — Lane B implementation after governed work order |
+| `FN-GATES-01-05.md` | Affected — canonical catalog correction and count source |
+| `Modular_PRD.md`, requirements traceability | Affected — node/transition separation and V1/V2 requirement disposition |
+| Storyboard, story panels, UML, data flow | Affected — EG stage visualization, T mapping annotations, pre-T6 V1 boundary |
+| Encyclopedia / Graphify | Affected after canonical edits; Entries 01/05/06 and impacted curated fragments reviewed last |
+| Frozen PRD/Charter, schema, deployed application | Unaffected |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `PIPELINE_GATE_COUNT` as the five `EG1`–`EG5` Node rows | Lane A catalog/config propagation, then Lane B bounded code unit |
+| Approve | Node, transition mapping, effective actor/component and access principal as separate axes | Cross-artifact semantic normalization |
+| Approve | T6/EG5 implementation beyond V1 | Requirement migration; later-version refinement remains unopened |
+| Approve-with-conditions | `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED` | Retain only as explicitly full-path/later-version transition metadata; exclude from V1 readiness |
+| Defer | Lane B config/test implementation | After Lane A governed config row, work order and lane authorization |
+| Defer | B-117 closure and Graphify rebuild | Canonical propagation and independent verification |
+| Reject | Six `T` transitions as the meaning of `PIPELINE_GATE_COUNT` | Superseded semantic model |
+| Reject | `EG5` mapped to the Chief Editor login or treated as implemented in V1 | Catalog and version-scope correction required |
