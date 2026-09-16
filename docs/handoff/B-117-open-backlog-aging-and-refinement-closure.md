@@ -1365,3 +1365,184 @@ governed source, open V2, authorize construction, change lane state or require a
 | Reject | Solving the second collision by choosing another unexamined sprint number | Repeats the label-before-scope failure |
 | Reject | Bulk-closing the ten Open or 27 Applied entries | Each entry needs a source-backed terminal disposition |
 | Reject | Any application, workflow, publication or deployment work from this analysis | Planning and handoff correction only |
+
+## Judge decision — `V1-SM05`/`V1-SM06`, traceability parent and DoD-ready meaning, 2026-09-16
+
+### Decisions received
+
+The Judge supplied the four missing parent answers:
+
+1. The two collision-free V1 sprint slots are **`V1-SM05`** and **`V1-SM06`**.
+2. The canonical parent for the requirement-by-requirement migration matrix is
+   **`docs/governance/requirements-traceability-map.md`**.
+3. The Open and Applied handoffs that block the first V1 MMF are determined by tracing from that
+   map, not by age, entry number or lifecycle state alone.
+4. **“DoD ready” means the completion checklist is written with its BDD references.** It may still
+   be completed or refined during the opening of the sprint when the DoR has already been written.
+
+Direct repository search at the reviewed commit finds no existing `V1-SM05`, `V1-SM06`, `SM05` or
+`SM06` use. The labels therefore do not collide with the current `S5`/`S6` meanings. This is label
+availability evidence, not canonical application; Lane A must still record and propagate the
+Judge act.
+
+### Parent-first decision table
+
+| Order | Parent / child | Judge decision | Lane A Accept evidence | Reject / return condition |
+|---:|---|---|---|---|
+| 1 | V1 outcome boundary | Two V1 MMFs remain the core journey and usable manual-ready journey | Both outcomes remain complete against frozen CR-19 | A label change drops a review, audit, board or LinkedIn-ready limb |
+| 2 | Sprint identity | `MMF-V1-CORE` maps to `V1-SM05`; `MMF-V1-USABLE` maps to `V1-SM06` | Exact qualified labels appear once in the version index and point to stable MMF identities | Reuse bare `S5`/`S6`, reinterpret their current scope or copy conflicting definitions |
+| 3 | Migration parent | `requirements-traceability-map.md` owns the bidirectional mapping and migration destinations | Every CR/FR/AC/BDD/handoff dependency reaches exactly one version/MMF destination | The map changes Product meaning, becomes a second status authority or leaves an orphan |
+| 4 | First-MMF blockers | Derive them from the traceability path to `V1-SM05` | Each blocker cites the exact required row and unresolved condition; non-blockers are classified separately | Treat all Open/Applied entries as blockers, or exclude one only because it is old |
+| 5 | Readiness timing | DoR is written before sprint selection; DoD-ready is a written BDD-linked completion checklist that may be completed/refined at sprint opening | The initial checklist protects the outcome and negative behavior before dependent construction proceeds | Start a dependent build with no BDD path, or change the MMF outcome inside sprint refinement |
+| 6 | Completion | DoD is satisfied only by construction and verification evidence | Passing BDD/acceptance evidence, persisted behavior, audit evidence and consumer confirmation | Call the checklist itself “Done” or close the MMF from documentation alone |
+
+The identifiers are treated as exact opaque project labels. Lane A must not invent an expansion of
+`SM` unless the Judge supplies one; an expansion is unnecessary for unambiguous tracking.
+
+### Authority boundary for the migration parent
+
+`requirements-traceability-map.md` is the correct parent because it already owns forward and
+backward demand-to-supply links and its maintenance rule already requires a CR citation when a
+sprint DoD is written. Its authority is bounded:
+
+| Fact | Canonical owner | What the migration parent records |
+|---|---|---|
+| Customer demand | Frozen `docs/PRD.md` CR anchors | Link and current coverage; never rewrite the demand |
+| Product behavior and acceptance | `Modular_PRD.md` and the owning `fn-specs` section | Requirement/AC identity and version marker; never redefine behavior |
+| V1 sequence, DoR and DoD | V1 Register and Build Spec | `V1-SM05`/`V1-SM06` destination and sprint evidence link |
+| Required files | V1 Artifact Inventory | Artifact identity and existence link |
+| Story, UML and data flow evidence | Existing storyboard and owned specification sections | Exact panel/view/flow anchor |
+| Handoff dependency | Originating B/C entry | Link, lifecycle state and the requirement limb it blocks; no copied narrative |
+| V2 candidate | Living Product backlog until V2 opens | Candidate identity and Ready-when condition; no V2 sprint assignment |
+
+The traceability map becomes the canonical **join**, not a higher-precedence replacement for these
+owners. If a row exposes contradictory meaning, Lane A corrects the tier that owns the meaning and
+then refreshes the link.
+
+### Required migration-matrix row
+
+Lane A should extend the existing forward/backward trace rather than create a second matrix. Each
+indivisible row needs:
+
+| Field | Required content |
+|---|---|
+| Demand anchor | `CR-*` or named Project-scope key with its current source anchor |
+| Supply anchor | `FR-*`/`AC-*`/NFR/SEC and owning file section |
+| Requirement limb | The smallest behavior that can be retained or transferred independently |
+| Stable MMF | `MMF-V1-CORE`, `MMF-V1-USABLE` or a named V2 candidate |
+| Sprint slot | `V1-SM05`, `V1-SM06`, or `none — V2 unopened` |
+| BDD reference | Normal example plus negative/revision/recovery example as applicable |
+| Artifact anchors | Story panel, UML node/edge, data-flow record and Encyclopedia entry |
+| Handoff dependencies | Only entries whose unresolved condition blocks this row |
+| Readiness | DoR criterion, current evidence and owner |
+| Completion | DoD-ready checklist reference and later DoD evidence location |
+| Return condition | The evidence that changes a deferred/candidate row's priority |
+
+Do not hand-maintain aggregate counts in the map. Derive coverage and blocker lists from the rows;
+the map's own changelog records that copied totals have drifted before.
+
+### How to derive the real `V1-SM05` blockers
+
+1. Start at the frozen CR limbs assigned to `MMF-V1-CORE`.
+2. Follow each forward link to its Product requirement and acceptance example.
+3. Follow the requirement to its data, story, role, route and test dependencies.
+4. Link only handoffs that name an unresolved contradiction or missing dependency on that path.
+5. Classify each linked entry:
+   - **Direct blocker** — `V1-SM05` cannot meet DoR or its BDD path without the correction.
+   - **Readiness support** — improves the packet or control but does not stop the core journey.
+   - **Later MMF** — belongs to `V1-SM06`.
+   - **V2 candidate** — advanced scope with no V1 dependency.
+   - **Separate control** — governance/tooling correction with its own terminal path.
+6. For an `Applied` entry, inspect the remaining acceptance boundary. It blocks only when
+   `V1-SM05` consumes that unverified correction; `Applied` alone does not make every entry a
+   Product blocker.
+7. Publish the derived `V1-SM05` read set in the Lane B work order and ask Lane B to confirm the
+   path as executable, blocked or contradicted.
+
+The current entries provide likely trace candidates, not a substitute for the matrix:
+
+| Candidate family | Initial classification to prove from the map |
+|---|---|
+| B-095 manual-intake contradictions | Direct blocker if the V1-SM05 intake package still consumes the contradictory fields |
+| B-071 and B-104 T5/T6 route/executor contract | Direct blocker for the minimum editorial-route BDD path while D-171 holds |
+| B-096 state/metadata/report separation | Direct blocker where the V1-SM05 transition and audit contract consumes it; client-artifact children may belong later |
+| B-102 and B-115 consumption/governance boundary | Readiness support unless their missing packet prevents Lane B from receiving a bounded unit |
+| B-106 configuration rows | Later/candidate unless a traced V1-SM05 acceptance example consumes the value |
+| B-088 optional guard work | Separate deferred control unless a selected V1-SM05 check depends on it |
+| B-116 terminal audit control | Separate control; blocks truthful handoff verification, not Product behavior by default |
+| B-117 | Parent alignment owner; closes after the matrix, propagation and consumer review |
+
+### DoR, DoD-ready and DoD-satisfied — exact timing
+
+| State | Meaning | Latest safe point | Evidence |
+|---|---|---|---|
+| **DoR written** | The admission checklist exists for the backlog item | Before sprint selection | Outcome, dependencies, owner, initial examples and stop conditions are stated |
+| **DoR satisfied** | The selected item demonstrates the admission conditions | At sprint entry | Required sources and access exist; no unresolved parent decision prevents the MMF path |
+| **DoD ready** | A completion checklist exists and cites the initial BDD examples | At sprint entry; permitted refinement during the opening of the sprint | Normal and critical negative path are identifiable and tied to the MMF outcome |
+| **DoD completed as a checklist** | Remaining BDD detail is made executable without changing the accepted outcome | During sprint opening, before the first dependent construction step relies on it | All build children have observable pass/fail conditions and evidence locations |
+| **DoD satisfied** | The built MMF passes the checklist | Sprint completion | Tests/examples, persisted behavior, audit evidence and independent/consumer verification |
+
+If early-sprint refinement changes the MMF outcome, introduces a new external dependency or moves a
+requirement between V1 and V2, it is not DoD completion. Return the affected item to readiness and
+record the scope decision before continuing.
+
+### Lane A application guide
+
+1. Append one Register act recording the four Judge answers exactly: `V1-SM05`, `V1-SM06`, the
+   traceability-map parent, trace-derived blocker classification and DoD-ready timing.
+2. Add the two qualified slots to the Build Spec without renaming or repurposing existing bare
+   `S5`/`S6`. Point each slot to its stable MMF identity and state that neither is started.
+3. Propagate the slot/artifact facts to the Artifact Inventory in the same D-54 pass. Do not invent
+   new files merely to satisfy propagation; list existing and explicitly required artifacts.
+4. Extend `requirements-traceability-map.md` with the migration fields above and update its §6 chain
+   from the stale generic `S0–S6` wording to qualified destinations. Preserve CR anchors and the
+   demand/supply boundary.
+5. Split mixed Product/Fn_Spec requirements into V1-retained limbs and V2 candidates using required
+   version markers. Do not open `docs/v2/`.
+6. Update `Modular_PRD` status and sequence references to `V1-SM05`/`V1-SM06`; retain Product
+   requirement ownership there rather than moving prose into the traceability map.
+7. Update storyboard and story panels so the V1-SM05 target normal/revision journey and V1-SM06
+   board/ManualReady finish are primary; mark historical and V2 panels visibly.
+8. Align UML and data flow with the same split, including the B-096 state/event/metadata/report
+   boundaries and the one-target ManualReady artifact.
+9. Update Encyclopedia entries and cross-references by linking to stable MMF and requirement rows;
+   do not copy mutable blocker lists.
+10. Derive the first-MMF blocker view from the completed rows and update the Lane B work order with
+    only that minimum read set, its DoR and its BDD-linked DoD-ready checklist.
+11. Obtain Lane B and Lane C consumer responses. Correct the owning source for any contradiction;
+    do not patch the traceability join to hide it.
+12. Commit the accepted canonical packet, run consistency and BDD/trace checks, rebuild/re-merge
+    Graphify, and verify that V1-SM05 reaches its outcome without traversing V1-SM06 or V2.
+13. Terminally disposition the contributing handoffs from the committed evidence. Close B-117 only
+    after independent review confirms the matrix, qualified index and consumer packet.
+
+### Critical artifact and verification impact
+
+| Artifact | Required change | Construction use | Verification use |
+|---|---|---|---|
+| `requirements-traceability-map.md` | Parent join, qualified sprint destinations, BDD and handoff dependency links | Selects the bounded build path | Proves every demand/supply limb has one destination |
+| `Modular_PRD.md` | Stable MMF outcomes, sequence/status and split mixed requirements | Defines behavior Lane B must deliver | Supplies Product-level acceptance ownership |
+| Storyboard/story panels | V1-SM05 core journey and V1-SM06 usable finish | Defines operator-visible flow | Chief Editor normal/revision walkthrough |
+| UML | Qualified MMF boundary and versioned future edges | Defines required actors, states and services | Detects a hidden V2 or later-MMF dependency |
+| Data flow | State/event/metadata/report/publication-artifact separation | Guides schema and transaction design | Proves atomic transition, immutable audit and reproducible projection |
+| Encyclopedia | Exact vocabulary for MMF, sprint slot, lifecycle view and candidate | Prevents implementation label substitution | Provides semantic review terms |
+| Cross-references | Stable links into the trace parent | Gives Lane B/C a minimum read set | Detects orphan and duplicated obligations |
+| Graphify | Rebuilt after the canonical commit only | Navigation for impact review | Path query from CR to MMF, sprint, BDD and evidence |
+
+This decision resolves the four unknowns recorded in the preceding section. It does not itself edit
+the canonical owners, satisfy DoR, start `V1-SM05`, open V2, authorize construction or make an
+Applied handoff Verified. Graphify remains unchanged in this handoff-only pass.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `V1-SM05` for `MMF-V1-CORE` | Phase 1 canonical propagation and DoR evidence |
+| Approve | `V1-SM06` for `MMF-V1-USABLE` | Phase 1 canonical propagation; follows V1-SM05 |
+| Approve | `requirements-traceability-map.md` as the migration parent/join | Lane A matrix application and bidirectional verification |
+| Approve | Trace-derived handoff blocker classification | V1-SM05 bounded consumer packet |
+| Approve | DoD-ready as a written BDD-linked checklist, refinable at sprint opening | Complete before dependent construction relies on it |
+| Approve-with-conditions | Early-sprint DoD refinement | Must preserve the accepted MMF outcome and V1/V2 boundary |
+| Defer | Satisfaction of V1-SM05/V1-SM06 DoD | Implementation and verification phases |
+| Defer | V2 candidate sprint assignment | V2 remains unopened |
+| Reject | Reusing bare `S5`/`S6` or changing their existing meanings | Qualified labels resolve the collision |
+| Reject | Treating the traceability map as a replacement Product specification | It owns links and migration destinations, not behavior |
+| Reject | Starting construction from this handoff decision | Canonical propagation, DoR satisfaction, lane selection and bounded authorization remain required |
