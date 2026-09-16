@@ -17433,3 +17433,11 @@ reverse); and the namespace-map conflation named in item 4 above.
 Does not authorize construction, satisfy the remaining `DOR-R1`/`DOR-R3`/`DOR-R5`/`DOR-R6` items, or
 change any FR/AC/NFR requirement text. Does not touch `V1-ARTIFACT-INVENTORY.md` or the Encyclopedia
 beyond the existing flag. `B-117` remains `Open`.
+
+#### Addendum — one-row propagation gap (`B117-R16`), 2026-09-17
+
+`requirements-traceability-map.md` §6.1 row 6 (`UJ2`'s evidence contract) still said `OP-FINAL-
+SIGNOFF` "stays separately unresolved" after this entry accepted it. Corrected in commit `3e474fd` to
+cite the accepted A-only contract, preserving the underlying point that route-accountability evidence
+and Final Sign-Off's own contract are separate facts. No other tier affected — this row was the only
+place the stale wording survived.
