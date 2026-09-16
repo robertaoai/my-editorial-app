@@ -5,8 +5,12 @@
 - **Phase:** 1
 - **Blocks:** Lane A applying B-114 without assigning MMF and xDD responsibilities to the wrong layer; defining the first executable Lane B/C unit
 - **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Lane A:** **Acknowledged, receipt only, 2026-09-16.** Not yet substantively answered — the
+  B-097/B-112/B-113 terminal-return-protocol thread was Active this session and is now complete.
+  This entry's Intent/Build/DevOps separation, and the correction it makes to `B-114`, are read but
+  not yet applied to `docs/README.md`, the Register, or any lane instruction document. No
+  construction, register act, or lane-instruction change made from this acknowledgement.
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Chief Editor/Judge clarification of 2026-09-16; B-114; B-103 P1/P2 and D-229/D-230; `docs/README.md` request-to-execution map; `docs/v1/V1-BUILD-SPEC.md` lane surfaces; `docs/LANE-B-WORK-ORDER.md`; `.github/WORKFLOWS-SPEC.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/Modular_PRD.md`; storyboard/story panels, embedded data flow and requirements traceability map
 - **Verified-At-Commit:** 2cb039fd787183a29ade0b34d500352ff0ec9f9e
 

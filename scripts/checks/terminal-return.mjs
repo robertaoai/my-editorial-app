@@ -106,6 +106,69 @@ export function isAuditOnlyDiff(diffText) {
   return sawContentLine;
 }
 
+const RECORD_HEADING_LINE = /^##\s+(Return record|Terminal annotation record)\s*$/;
+const ANY_OTHER_HEADING_LINE = /^##[ \t]/;
+const KNOWN_FIELD_LINE =
+  /^-\s*\*\*(Previous-Resolution|Return-Trigger|Return-Act|Returned-At-Commit|Current-Resolution|Annotation-Type|Annotation-Act|No-Scope-Reopened|Annotated-At-Commit):\*\*/;
+const ATTEMPTS_A_FIELD_LINE = /^-\s*\*\*/;
+
+/**
+ * `true` when a diff ADDS ONLY a complete `## Return record` and/or
+ * `## Terminal annotation record` block — headings, their field lines, and
+ * removes nothing. Pure — takes plain diff text, no git — same metadata-line
+ * handling as `isAuditOnlyDiff`.
+ *
+ * A field VALUE MAY WRAP ONTO CONTINUATION LINES — this corpus's own
+ * established style for a long `Annotation-Act`/`Return-Act` citation, the
+ * same way every other multi-line field in this channel wraps. This function
+ * does not re-validate field names or count them (`handoff-response`'s
+ * `checkTerminalAnnotations`/`checkReturnRecord` already do, at the FORM
+ * level); it only needs to recognize "this commit adds record content", so
+ * once a record heading has been seen, any further added line is accepted
+ * UNTIL a *different* `## ` heading appears — that is scope creep, not a
+ * continuation, and rejects the whole diff.
+ *
+ * A line that DOES attempt a bullet field (`- **Name:**`) must use one of
+ * the nine known field names, or the diff is rejected — unrelated content
+ * dressed up as a field does not pass as a continuation. Plain prose that
+ * makes no such attempt is accepted as continuing whatever field most
+ * recently started; unrelated content that ALSO avoids that shape is a
+ * residual, stated gap (see the module header's "WHAT IT STILL CANNOT DO"),
+ * the same class of limit `handoff-response` already accepts for itself.
+ *
+ * WHY THIS EXISTS: citing a commit's own annotation is itself a NEW commit
+ * touching an already-terminal file. Without this, satisfying one violation
+ * with a Terminal annotation record creates a second violation — the commit
+ * that added the record — in infinite regress. Demonstrated the first time
+ * this mechanism was used in practice: adding six annotation records in one
+ * commit made that commit fail against the six files it had just annotated,
+ * and the initial fix (matching only single-line field values) still failed
+ * on the first real multi-line `Annotation-Act`. A record-only addition is
+ * the safe case this whole mechanism exists to enable, not a new instance
+ * of the problem it is checking for.
+ */
+export function isRecordOnlyDiff(diffText) {
+  let sawHeading = false;
+  let sawContentLine = false;
+  for (const line of String(diffText).split("\n")) {
+    if (/^(diff --git|index |---|\+\+\+|@@)/.test(line)) continue; // same metadata skip as isAuditOnlyDiff
+    if (!/^[+-]/.test(line)) continue; // context line
+    if (/^-/.test(line)) return false; // a record-only commit adds; it does not remove
+    sawContentLine = true;
+    const body = line.slice(1).trim();
+    if (body === "") continue; // blank line — fine anywhere
+    if (RECORD_HEADING_LINE.test(body)) {
+      sawHeading = true;
+      continue;
+    }
+    if (ANY_OTHER_HEADING_LINE.test(body)) return false; // a different heading is scope creep, not a continuation
+    if (!sawHeading) return false; // content before any record heading is not part of a record
+    if (ATTEMPTS_A_FIELD_LINE.test(body) && !KNOWN_FIELD_LINE.test(body)) return false; // an unrecognized field name
+    // else: a known field line, or plain-prose continuation of one
+  }
+  return sawContentLine && sawHeading;
+}
+
 /**
  * The Resolution value after applying `diffText`, given what it was before.
  * Pure — reads only the diff's ADDED lines, via the shared line-bounded
@@ -283,7 +346,14 @@ export function run() {
         break; // a diff in the walk failed — not this check's job to guess past that
       }
       const resolutionAfter = resolutionAfterDiff(diff, priorResolution);
-      steps.push({ commit: history[i + 1], resolutionAfter, isAuditOnly: isAuditOnlyDiff(diff) });
+      // A record-only addition (the act of citing a PAST commit's coverage)
+      // is exempt for the same reason an audit-only edit is: neither is the
+      // "substantive work resumed" case this whole check exists to catch.
+      steps.push({
+        commit: history[i + 1],
+        resolutionAfter,
+        isAuditOnly: isAuditOnlyDiff(diff) || isRecordOnlyDiff(diff),
+      });
       priorResolution = resolutionAfter;
     }
     if (!ok) continue;

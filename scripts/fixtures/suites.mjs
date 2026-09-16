@@ -14,6 +14,7 @@ import { classifyChangedPaths } from "../checks/governed-intent.mjs";
 import { getChangedPaths } from "../checks/docs-drift.mjs";
 import {
   isAuditOnlyDiff,
+  isRecordOnlyDiff,
   resolutionAfterDiff,
   coveredCommits,
   currentEpisodeStart,
@@ -1585,6 +1586,65 @@ export async function terminalReturnDecision(results) {
     const got = isAuditOnlyDiff(c.diff);
     const ok = got === c.expect;
     results.push({ name: c.name, ok, detail: ok ? `isAuditOnlyDiff=${got}` : `expected ${c.expect}, got ${got}` });
+  }
+
+  // --- isRecordOnlyDiff ------------------------------------------------------
+  // The infinite-regress bug, caught the first time this mechanism was used
+  // for real: the commit that ADDS a Terminal annotation record is itself a
+  // touch to an already-terminal file, so satisfying one violation created a
+  // second — the annotating commit itself. `isRecordOnlyDiff` is what makes
+  // a record-only addition self-exempting, the same way audit-only already is.
+  const recordOnlyCases = [
+    {
+      name: "isRecordOnlyDiff: adding a complete Terminal annotation record, nothing else — record-only (the real B-004 shape)",
+      diff:
+        "diff --git a/x b/x\nindex 1..2 100644\n--- a/x\n+++ b/x\n@@ -54,3 +55,11 @@\n context\n \n ---\n+\n+## Terminal annotation record\n+\n+- **Current-Resolution:** Superseded\n+- **Annotation-Type:** metadata-normalization\n+- **Annotation-Act:** test act\n+- **No-Scope-Reopened:** true\n+- **Annotated-At-Commit:** d6d406ae1d4045a6c3db9d85856120e6c65a5fa6\n",
+      expect: true,
+    },
+    {
+      name: "isRecordOnlyDiff: adding a Return record, nothing else — also record-only",
+      diff:
+        "diff --git a/x b/x\nindex 1..2 100644\n--- a/x\n+++ b/x\n@@ -1,0 +2,5 @@\n+## Return record\n+\n+- **Previous-Resolution:** Deferred\n+- **Return-Trigger:** test\n+- **Returned-At-Commit:** abc1234\n",
+      expect: true,
+    },
+    {
+      name: "isRecordOnlyDiff: a field value wraps onto continuation lines (the real B-017 shape) — still record-only",
+      diff:
+        "diff --git a/x b/x\nindex 1..2 100644\n--- a/x\n+++ b/x\n@@ -1,0 +2,4 @@\n+## Terminal annotation record\n+\n+- **Annotation-Act:** a long citation that wraps\n+  onto a continuation line without its own field marker\n",
+      expect: true,
+    },
+    {
+      name: "isRecordOnlyDiff: content BEFORE any record heading — NOT record-only",
+      diff: "diff --git a/x b/x\nindex 1..2 100644\n--- a/x\n+++ b/x\n@@ -1,0 +2,2 @@\n+Some unrelated line first.\n+## Terminal annotation record\n",
+      expect: false,
+    },
+    {
+      name: "isRecordOnlyDiff: a DIFFERENT heading after the record — scope creep, NOT record-only",
+      diff:
+        "diff --git a/x b/x\nindex 1..2 100644\n--- a/x\n+++ b/x\n@@ -1,0 +2,3 @@\n+## Terminal annotation record\n+\n+## Unrelated new section\n",
+      expect: false,
+    },
+    {
+      name: "isRecordOnlyDiff: an unrecognized bullet-field name inside the block — NOT record-only",
+      diff:
+        "diff --git a/x b/x\nindex 1..2 100644\n--- a/x\n+++ b/x\n@@ -1,0 +2,2 @@\n+## Terminal annotation record\n+- **New-Work-Item:** this is not one of the nine known fields\n",
+      expect: false,
+    },
+    {
+      name: "isRecordOnlyDiff: removes a line — a record-only commit adds, it does not remove",
+      diff: "diff --git a/x b/x\nindex 1..2 100644\n--- a/x\n+++ b/x\n@@ -1,3 +1,0 @@\n-## Terminal annotation record\n-\n-- **Current-Resolution:** Superseded\n",
+      expect: false,
+    },
+    {
+      name: "isRecordOnlyDiff: an empty diff is NOT trusted as record-only (nothing to classify)",
+      diff: "",
+      expect: false,
+    },
+  ];
+  for (const c of recordOnlyCases) {
+    const got = isRecordOnlyDiff(c.diff);
+    const ok = got === c.expect;
+    results.push({ name: c.name, ok, detail: ok ? `isRecordOnlyDiff=${got}` : `expected ${c.expect}, got ${got}` });
   }
 
   // --- resolutionAfterDiff --------------------------------------------------
