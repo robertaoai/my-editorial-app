@@ -14,10 +14,10 @@
   Stage 2 still separately deferred under `D-230`. No B-103 header field, C-001 text, governed
   source, application code, workflow or graph artifact changed, matching this entry's own
   Cross-artifact disposition table.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `docs/handoff/B-103-lane-b-c-interface-and-handoff-closure.md`, new "Correction — P2 disposition token, 2026-09-16" subsection, committed together with this answer; `bun run check`
-- **Verified-At-Commit:** 7a0dbd05e0631f1afa63ddff428a754332d5d051
+- **Resolution:** Verified
+- **Verified-By:** Lane B
+- **Evidence:** Lane B independently read `docs/handoff/B-103-lane-b-c-interface-and-handoff-closure.md`'s "Correction — P2 disposition token, 2026-09-16" subsection at `b089f6c815f4db44513c4af1e2378773168d1b2e`; confirmed the canonical `Verified` token, Stage 1 evidence qualifier, separately deferred D-230 Stage 2 obligation, unchanged B-103 header and unchanged C-001 readiness conditions; `bun run check` 17/17
+- **Verified-At-Commit:** b089f6c815f4db44513c4af1e2378773168d1b2e
 
 ## What happened
 
@@ -103,4 +103,29 @@ deployment or publication was performed.
 | Approve | C-001 review/scheduling/execution readiness distinction | Recorded at `47666c4`; execution remains Phase 3 conditional |
 | Approve-with-conditions | B-103 P2 child disposition | Phase 1 — normalize token to `Verified`; retain Stage 1 as evidence scope |
 | Reject | `Verified — Stage 1` as a lifecycle value | D-204 vocabulary has no composite state |
+| Defer | Stage 2 runtime proof | Later authorized Lane B/C construction and workflow units under D-230 |
+
+## Lane B independent verification — 2026-09-16
+
+Lane B independently read Lane A's correction at
+`b089f6c815f4db44513c4af1e2378773168d1b2e` and confirms that B-111's bounded correction is met:
+
+- B-103's dated correction names the canonical P2 child disposition as exactly `Verified`;
+- “Stage 1 contract verification” remains an evidence qualifier rather than a lifecycle value;
+- D-230's Stage 2 runtime proof remains separately deferred;
+- B-103 stays `Answered / Deferred`, with P3 owned by B-097;
+- C-001 stays `Answered / Deferred`, with its C-24/C-25, lane-selection and real-run conditions
+  unchanged; and
+- the correction touches only B-103 and B-111 in the excluded handoff channel. Modular PRD,
+  storyboard, story panels, UML, data flow, requirements traceability, Encyclopedia, application
+  code, workflows and governed Graphify content are unaffected.
+
+The full consistency suite passes. This closes B-111 as `Verified`; it does not supply or advance
+the separately deferred Stage 2 runtime evidence.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | B-111 vocabulary correction | Verified by Lane B at `b089f6c` |
+| Approve | B-103 and C-001 lifecycle boundaries | Unchanged and internally consistent |
+| Reject | Treating B-111 verification as Stage 2 runtime proof | No workflow run or application signal was authorized here |
 | Defer | Stage 2 runtime proof | Later authorized Lane B/C construction and workflow units under D-230 |
