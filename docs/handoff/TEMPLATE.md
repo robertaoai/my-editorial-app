@@ -16,6 +16,19 @@
 - **Follow-up-Tier:** <required if Resolution is Deferred: the sprint, phase or tier that owns it>
 - **Superseded-By:** <required if Resolution is Superseded: the decision that overtook it>
 
+<!-- OPTIONAL — only when RETURNING a terminal entry to active work (`B-097`).
+Not a new lifecycle status: change Status back to Open above, OMIT Resolution
+and Follow-up-Tier above (a returned entry has no current terminal
+disposition), and append this block. All four facts are required.
+
+## Return record
+
+- **Previous-Resolution:** <the terminal Resolution this entry carried, e.g. Deferred>
+- **Return-Trigger:** <the one exact condition previously named by Follow-up-Tier>
+- **Return-Act:** <the decision/Judge act, date and source locus that satisfied it>
+- **Returned-At-Commit:** <the existing commit whose state was read>
+-->
+
 ## What happened
 
 <What you were doing, and what you hit. Name the file, spec section, or requirement ID.>

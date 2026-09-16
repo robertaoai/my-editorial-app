@@ -266,6 +266,48 @@ merely `Open`, `Answered` or `Applied`. **An open entry filed against a differen
 fail this one** (`B-013`). A full backlog during a sprint is still healthy; an unverified blocker
 at a Judge boundary is not.
 
+### Returning a terminal entry — `B-097`
+
+A `Deferred` entry remains terminal until one exact condition in its `Follow-up-Tier` is satisfied
+by a named act — `Verified`, `Withdrawn` and `Superseded` are terminal the same way. **The SOP
+always said a deferred concern may return; nothing defined the fields, evidence or check behaviour
+for that return**, and a terminal header can go on accumulating live rounds underneath it while
+every field-level check stays green. `B-071` was the first demonstrated case: Rounds 54–56 added
+real planning direction while the header still read `Answered` / `Deferred`.
+
+**Before substantive work resumes in that file:** change `Status` to `Open`; omit `Resolution` and
+`Follow-up-Tier`; use the raised-not-yet-dispositioned `Verified-By` form (`D-215`); pin
+`Verified-At-Commit` to the commit read; and append one `Return record` naming the previous
+resolution, the triggering condition, the governing act and the commit read:
+
+```markdown
+## Return record
+
+- **Previous-Resolution:** Deferred
+- **Return-Trigger:** <one exact condition previously named by Follow-up-Tier>
+- **Return-Act:** <decision/Judge act, date and source locus>
+- **Returned-At-Commit:** <existing commit whose state was read>
+```
+
+**If no recorded condition was satisfied, leave the terminal entry unchanged** and raise a new
+entry only for genuinely new scope. A clarification, an analysis approval, or an appended round is
+not itself a return act unless it explicitly satisfies a condition the entry already named. `B-071`
+is the positive example: its header is `Open`, its terminal fields are gone, and its `## Return
+record` names the act that returned it.
+
+These facts belong in one body record rather than explanatory prose folded into `Verified-By` or
+`Verified-At-Commit`. The old terminal disposition stays visible in Git history and in the explicit
+return record; the active header describes only the entry's current state.
+
+**`handoff-response` and `terminal-return` enforce this, in different ways, and neither
+substitutes for the other:** `handoff-response` (check 10) validates a `## Return record`'s FORM — all four facts present, the
+commit hexadecimal, and no terminal `Resolution`/`Follow-up-Tier` surviving next to it. It needs no
+git history, so it runs in CI. `terminal-return` (check 18) is the other half: it needs per-file
+git history to tell whether a *currently* terminal entry was touched again after it was already
+terminal with no `## Return record` ever added — the case a form check cannot see because there is
+no form to be missing. It SKIPS on a shallow CI checkout, exactly like `source-sweep`/`docs-drift`/
+`graph-coverage`, and must be run locally before a closure claim relies on it.
+
 ## Answering — Lane A
 
 Fill the `Lane A` line. The dispositions are `Acknowledged`, `Answered` and `Withdrawn`:

@@ -62,7 +62,9 @@ import { ENTRY_FILE, field, phaseSets } from "./handoff-fields.mjs";
 
 const DIR = "docs/handoff";
 
-const TERMINAL = new Set(["verified", "deferred", "withdrawn", "superseded"]);
+// Exported so `terminal-return.mjs` (`B-097`) shares this exact vocabulary
+// rather than keeping a second copy that can drift from it.
+export const TERMINAL = new Set(["verified", "deferred", "withdrawn", "superseded"]);
 
 // `B-013` repair 3, and the honest half of this mechanism.
 //

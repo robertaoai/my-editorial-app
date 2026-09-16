@@ -130,3 +130,17 @@ export function phaseSets() {
 export const ENTRY_FILE = /^[BC]-\d+.*\.md$/;
 
 export const CLOSURE_PATH = CLOSURE;
+
+/**
+ * Strip fenced code blocks (```...```), non-greedy, so a heading or field
+ * pattern INSIDE an illustrative example is not read as a live one.
+ *
+ * `B-097`'s own draft shows an EXAMPLE `## Return record` block inside a
+ * ```markdown fence — the shape a reader should copy, not an applied one.
+ * Without this, `terminal-return` and `handoff-response`'s Return-record
+ * validation both read that example as real, which is a false positive
+ * against the very entry that proposed the feature.
+ */
+export function stripFences(text) {
+  return text.replace(/```[\s\S]*?```/g, "");
+}

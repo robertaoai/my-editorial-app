@@ -28,6 +28,7 @@ import { run as syncDocsUnique } from "./checks/sync-docs-uniqueness.mjs";
 import { run as laneState } from "./checks/lane-state.mjs";
 import { run as channelDocs } from "./checks/channel-docs.mjs";
 import { run as retentionPolicyCoupling } from "./checks/retention-policy-coupling.mjs";
+import { run as terminalReturn } from "./checks/terminal-return.mjs";
 
 const CHECKS = [
   sharedCoreHash,
@@ -47,6 +48,7 @@ const CHECKS = [
   laneState, // `D-103` — exactly one lane is `Active`; a half-applied handover fails
   channelDocs, // `D-104` — the channel README/template coupled to the checks that enforce them
   retentionPolicyCoupling, // `D-134` — RET-EDITORIAL coupled across the four tiers that cite it
+  terminalReturn, // `B-097` — a terminal entry that kept accumulating rounds with no return record
 ];
 
 let failed = 0;

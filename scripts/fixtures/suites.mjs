@@ -6,12 +6,13 @@
 // useless as one that fails on nothing.
 
 import { execFileSync } from "node:child_process";
-import { fixture, read, write, withRetry, TRANSIENT_CODES, existsSync, rmSync, mkdirSync } from "./harness.mjs";
+import { fixture, read, write, withRetry, TRANSIENT_CODES, existsSync, rmSync, mkdirSync, runCheck } from "./harness.mjs";
 import { readdirSync, readFileSync } from "node:fs";
 import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
 import { classify } from "../checks/lane-boundary.mjs";
 import { classifyChangedPaths } from "../checks/governed-intent.mjs";
 import { getChangedPaths } from "../checks/docs-drift.mjs";
+import { decideTerminalReturn, fileHistory, contentAt } from "../checks/terminal-return.mjs";
 
 const CHECK = (n) => new URL(`../checks/${n}`, import.meta.url).href;
 
@@ -1256,8 +1257,210 @@ function retryResilience(results) {
   }
 }
 
+/** `B-097` — the `## Return record` shape, validated by `handoff-response`. */
+export async function returnRecordForm(results) {
+  const orig = read(ENTRY);
+  const restore = () => write(ENTRY, orig);
+
+  // Builds a returned variant of the live scratch entry: Status forced to
+  // `Open`, `Resolution` removed unless `keepResolution`, `Verified-By` set
+  // to the raised-not-dispositioned form, and a `## Return record` appended
+  // with all four facts filled — except whichever `fields` overrides supply,
+  // where `null` OMITS the line entirely (missing) and `""` leaves it BLANK
+  // (present but empty) — the same distinction `fieldPresent()` exists for.
+  const returned = ({ status = "Open", keepResolution = false, fields = {} } = {}) => {
+    let s = orig
+      .replace(/^- \*\*Status:\*\*.*$/m, `- **Status:** ${status}`)
+      .replace(/^- \*\*Verified-By:\*\*.*$/m, "- **Verified-By:** — not yet dispositioned; raised by Lane B");
+    if (!keepResolution) s = s.replace(/^- \*\*Resolution:\*\*.*$\n?/m, "");
+    const f = {
+      "Previous-Resolution": "Verified",
+      "Return-Trigger": "test condition satisfied",
+      "Return-Act": "test act, Chief Editor/Judge, 2026-09-16",
+      "Returned-At-Commit": "67706ca",
+      ...fields,
+    };
+    const block = Object.entries(f)
+      .filter(([, v]) => v !== null)
+      .map(([k, v]) => `- **${k}:** ${v}`)
+      .join("\n");
+    return `${s}\n\n## Return record\n\n${block}\n`;
+  };
+
+  await fixture(results, {
+    name: "return record: complete shape, terminal header cleared — passes",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, returned()),
+    restore,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "return record: an illustrative fenced EXAMPLE is not a live return",
+    modulePath: CHECK("handoff-response.mjs"),
+    // Mirrors `B-097`'s own draft: a ```markdown fence showing the shape,
+    // with no un-fenced return record anywhere. The header stays terminal,
+    // which would fail on its own if this fixture's fence were read as live.
+    mutate: () =>
+      write(
+        ENTRY,
+        `${orig}\n\n### Draft fix\n\n\`\`\`markdown\n## Return record\n\n- **Previous-Resolution:** Deferred\n- **Return-Trigger:** <condition>\n- **Return-Act:** <act>\n- **Returned-At-Commit:** <commit>\n\`\`\`\n`,
+      ),
+    restore,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "return record: missing Return-Trigger (field absent, not merely blank)",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, returned({ fields: { "Return-Trigger": null } })),
+    restore,
+    expect: "no **Return-Trigger:**",
+  });
+  await fixture(results, {
+    name: "return record: blank Return-Act",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, returned({ fields: { "Return-Act": "" } })),
+    restore,
+    expect: "**Return-Act:** is present but BLANK",
+  });
+  await fixture(results, {
+    name: "return record: blank Previous-Resolution",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, returned({ fields: { "Previous-Resolution": "" } })),
+    restore,
+    expect: "**Previous-Resolution:** is present but BLANK",
+  });
+  await fixture(results, {
+    name: "return record: Returned-At-Commit is not hexadecimal",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, returned({ fields: { "Returned-At-Commit": "not-a-commit" } })),
+    restore,
+    expect: "is not a hexadecimal commit SHA",
+  });
+  await fixture(results, {
+    name: "return record: retained terminal Resolution beside an active return",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, returned({ keepResolution: true })),
+    restore,
+    expect: "still carries **Resolution:**",
+  });
+  await fixture(results, {
+    name: "return record: invented `Returned` status instead of `Open`",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, returned({ status: "Returned" })),
+    restore,
+    expect: "is not `Open`",
+  });
+}
+
+/**
+ * `B-097` — `terminal-return`'s history-aware half. Two kinds of case:
+ *
+ *   1. The PURE decision (`decideTerminalReturn`) against synthetic values —
+ *      no git, no file mutation, same separation `governed-intent.mjs`'s
+ *      `classifyChangedPaths()` fixtures already use.
+ *   2. The git plumbing (`fileHistory`/`contentAt`) against a MOCKED exec —
+ *      proves the argument shape is safe, the same way
+ *      `docsDriftArgumentSafety` proves it for `getChangedPaths()`, since
+ *      this check is the newest thing in the apparatus doing per-file
+ *      subprocess calls and `B-109` is the reason that is not assumed safe
+ *      by default.
+ */
+export async function terminalReturnDecision(results) {
+  const cases = [
+    {
+      name: "terminal-return: already terminal a commit back, touched again, no Return record — FLAGS",
+      input: { currentResolution: "Deferred", priorResolution: "Deferred", hasReturnRecord: false, historyCount: 3 },
+      check: (r) => r.flag === true,
+    },
+    {
+      name: "terminal-return: this commit is what MADE it terminal — does not flag",
+      input: { currentResolution: "Deferred", priorResolution: "Open", hasReturnRecord: false, historyCount: 2 },
+      check: (r) => r.flag === false,
+    },
+    {
+      name: "terminal-return: Applied is not in the terminal set — does not flag (an independent Verified upgrade stays healthy)",
+      input: { currentResolution: "Applied", priorResolution: "Applied", hasReturnRecord: false, historyCount: 3 },
+      check: (r) => r.flag === false,
+    },
+    {
+      name: "terminal-return: a Return record present — does not flag, regardless of history",
+      input: { currentResolution: "Deferred", priorResolution: "Deferred", hasReturnRecord: true, historyCount: 5 },
+      check: (r) => r.flag === false,
+    },
+    {
+      name: "terminal-return: born terminal in its first commit — does not flag",
+      input: { currentResolution: "Withdrawn", priorResolution: null, hasReturnRecord: false, historyCount: 1 },
+      check: (r) => r.flag === false,
+    },
+  ];
+  for (const c of cases) {
+    const r = decideTerminalReturn(c.input);
+    const ok = c.check(r);
+    results.push({ name: c.name, ok, detail: ok ? `flag=${r.flag}` : `unexpected: ${JSON.stringify(r)}` });
+  }
+
+  {
+    const calls = [];
+    const mockExec = (cmd, args, opts) => {
+      calls.push({ cmd, args, opts });
+      return "abc1234\ndef5678\n";
+    };
+    const out = fileHistory("docs\\handoff\\B-999 (evil) & whoami.md", mockExec);
+    const ok =
+      calls.length === 1 &&
+      calls[0].cmd === "git" &&
+      Array.isArray(calls[0].args) &&
+      calls[0].args[calls[0].args.length - 1] === "docs/handoff/B-999 (evil) & whoami.md" &&
+      JSON.stringify(out) === JSON.stringify(["abc1234", "def5678"]);
+    results.push({
+      name: "terminal-return: fileHistory normalizes backslashes and passes the path as ONE inert argument",
+      ok,
+      detail: ok ? "argument array confirmed, path normalized" : `calls=${JSON.stringify(calls)}`,
+    });
+  }
+  {
+    const calls = [];
+    const mockExec = (cmd, args) => {
+      calls.push({ cmd, args });
+      return "file content\n";
+    };
+    contentAt("docs\\handoff\\B-999.md", "deadbeef", mockExec);
+    const ok = calls.length === 1 && calls[0].args[calls[0].args.length - 1] === "deadbeef:docs/handoff/B-999.md";
+    results.push({
+      name: "terminal-return: contentAt builds a forward-slash tree path, not a backslash one",
+      ok,
+      detail: ok ? "sha:path built with forward slashes" : `calls=${JSON.stringify(calls)}`,
+    });
+  }
+
+  // Not a positive control in the usual sense: the live corpus is NOT
+  // expected to be clean right now — `B-097`'s whole reason to exist is that
+  // it presently is not, and that count will keep changing as entries get
+  // returned. Asserting `findings.length === 0` here would be exactly the
+  // stale-literal mistake `G91`/`G93` already named; asserting a specific
+  // count would be worse. What stays true regardless is the SHAPE of the
+  // result and that it actually runs against real history rather than
+  // silently skipping.
+  {
+    const out = await runCheck(CHECK("terminal-return.mjs"));
+    const ok =
+      out.name === "terminal-return" &&
+      Array.isArray(out.findings) &&
+      typeof out.detail === "string" &&
+      !out.skipped &&
+      /\d+ terminal entr/.test(out.detail);
+    results.push({
+      name: "terminal-return: the live repository, unmutated — runs against real history, does not skip",
+      ok,
+      detail: ok ? out.detail : `unexpected shape: ${JSON.stringify(out)}`,
+    });
+  }
+}
+
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
+  ["return record form (`B-097`)", returnRecordForm],
+  ["terminal-return history-aware detection (`B-097`)", terminalReturnDecision],
   ["tier sweep fallback (`G98`, raised as `B-054`)", tierSweep],
   ["retention policy coupling (`D-134`)", retentionPolicyCoupling],
   ["phase-scoped closure gating (`D-102`)", phaseScope],

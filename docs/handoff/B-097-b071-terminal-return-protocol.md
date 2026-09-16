@@ -4,7 +4,8 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** treating B-071 Rounds 54–56 as an active implementation-readiness packet; changing B-071's terminal header; any consuming authorization that relies on those rounds
-- **Status:** Open
+- **Status:** Answered
+- **Resolution:** Applied
 - **Lane A:** **Acknowledged 2026-09-15 at read commit `e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6`.**
   Choice B is accepted for the recorded return only: the Chief Editor/Judge's 2026-09-14
   `Judge Approved: decision-tree decision` act separately authorized B-071 planning and handoff
@@ -14,8 +15,8 @@
   B-071 (lacking trigger and act) stays withdrawn, superseded by this application. The whole entry
   stays `Open`: its return-protocol prevention controls (the SOP/template/check additions this
   entry itself drafted) are not yet applied. See *Child dispositions* below.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** 389d22a373c2004cb1ec1fe6693eff6c550900c0
 - **Evidence:** B-071 header and Rounds 54–56; Chief Editor/Judge's 2026-09-14 `Judge Approved: decision-tree decision` instruction and present direction to name the return condition and act; `docs/handoff/README.md` sections *Response is not closure* and *Worked scenarios*; `docs/handoff/TEMPLATE.md`; `handoff-response`, `closure-readiness` and `channel-docs`; storyboard Paths A/B; Route-1 crosswalk and B-071 `B071-R197`, `R204`–`R208`; Graphify query read with the stale-revision qualification below.
 
 ## What happened
@@ -254,7 +255,7 @@ Per `D-204`, header fields describe the whole entry; child state lives here. The
 |---|---|---|
 | Choice B return decision | **Answered** — Chief Editor/Judge named the act, 2026-09-14 | This entry's *Judge resolution* section |
 | B-071 return record | **Applied** — header changed to `Open`, terminal fields removed, exact block appended | B-071's `## Return record` section, applied 2026-09-15 |
-| SOP/Template/check return-protocol contract (proposed `Draft fix` above) | **Open** — not yet applied to `README.md`, `TEMPLATE.md`, or the checks | — |
+| SOP/Template/check return-protocol contract (proposed `Draft fix` above) | **Applied** — see *Lane A application — 2026-09-16* below | `docs/handoff/README.md` §"Returning a terminal entry"; `TEMPLATE.md`'s optional block; `handoff-response.mjs`; `scripts/checks/terminal-return.mjs`; fixtures in `scripts/fixtures/suites.mjs` |
 
 ## Independent duplicate check — proposed B-105 belongs here, 2026-09-15
 
@@ -293,3 +294,76 @@ contract remains unapplied.
 `B-103` P3 (close the feedback loop without creating another ledger) is deferred to this entry's
 still-open SOP/template/check return-protocol child. This cross-reference records ownership only: it
 does not authorize the control changes, change this entry's `Open` state, or close either entry.
+
+## Lane A application — 2026-09-16
+
+Judge-approved and applied the "Minimum complete correction packet" this entry drafted:
+
+1. `docs/handoff/README.md` — the "Returning a terminal entry" section, essentially the proposed
+   text verbatim: the return conditions, the `## Return record` shape, and which check enforces
+   which half.
+2. `docs/handoff/TEMPLATE.md` — the `## Return record` block, added as an optional, commented-out
+   guide (mandatory only when returning a terminal entry), not a new lifecycle status.
+3. `handoff-response.mjs` (check 10) — validates a `## Return record`'s FORM: all four facts
+   present and non-blank, `Returned-At-Commit` hexadecimal, and no terminal `Resolution`/
+   `Follow-up-Tier` surviving next to an `Open` return. Stays tracked-files-only, so it still runs
+   in CI.
+4. `scripts/checks/terminal-return.mjs` (new, check 18) — the history-aware half: is a *currently*
+   terminal entry's Resolution value already what it was one commit back, with no `## Return
+   record` anywhere? If so, at least one commit touched the file after it was already terminal.
+   SKIPS on a shallow clone, matching `source-sweep`/`docs-drift`/`graph-coverage` — this entry's
+   own open question, answered the same way.
+5. Fixtures in `scripts/fixtures/suites.mjs`: the Return-record form (complete case, missing/blank
+   each of the four facts, non-hex commit, retained terminal `Resolution`, an invented `Returned`
+   status, and — a regression test this development earned — an illustrative fenced example is
+   NOT read as a live return) and the history-aware decision (pure-function cases mirroring
+   `governed-intent.mjs`'s pattern, plus argument-safety cases for the new git-reading functions,
+   mirroring `docs-drift.mjs`'s).
+
+### Two defects found and fixed while building this, kept rather than smoothed over
+
+- **A Windows path separator broke every git tree lookup, silently.** `path.join(DIR, file)`
+  produces a backslash-separated path; `git show <sha>:<path>` resolves `<path>` as a tree path,
+  which Git always stores forward-slash-separated and does not accept a backslash for. The first
+  working version of `terminal-return` therefore threw on every call, was caught by its own
+  `catch { continue }`, and reported **0 findings** against a repository that — once fixed —
+  reported 12. A check that fails silently and reports green is exactly the defect this whole
+  entry exists to prevent, discovered inside the fix for it.
+- **This entry's own draft was the first false positive.** Its "Required body shape on return"
+  section shows an example `## Return record` inside a ```markdown fence. Before fence-stripping
+  was added, both new checks read that illustration as a live, applied return and flagged its
+  placeholder `<...>` values as blank facts. Fixed with a shared `stripFences()` in
+  `handoff-fields.mjs`, used by both checks; a fixture now asserts the fenced example specifically
+  stays green.
+
+### What building the check actually found — larger than this entry's own B-071/B-103 scope
+
+`terminal-return` does not only see `B-103` and `C-001`. Run against the full corpus, it currently
+reports **12** entries whose Resolution was already terminal one commit back, touched again with no
+`## Return record`: `B-004`, `B-008`, `B-016`, `B-017`, `B-019`, `B-023`, `B-034`, `B-043`, `B-046`,
+`B-077`, `B-103`, `C-001`. Spot-checked `B-004` by hand: its own `Evidence` line already says *"the
+phase-start rule this entry established was corrected twice after it was answered"* — the pattern
+is real, not a false positive repeated by coincidence.
+
+**This is bigger than B-103's own closure and is not resolved by this application.** `bun run
+check` will FAIL on `terminal-return` until each of the 12 either receives a genuine `## Return
+record` or is otherwise established as not needing one — a per-entry historical judgement this
+application does not make. `B-071` remains the one entry already carrying a complete, valid record,
+and is `terminal-return`'s own positive proof it does not flag a correctly-returned entry.
+
+### Failure-derived completion evidence
+
+| Guaranteed failure if left as-is | Evidence of success |
+|---|---|
+| A terminal entry keeps accumulating rounds and nothing local notices | `terminal-return` FAILS on exactly that shape, proven against 12 live instances |
+| An illustrative example in this very entry is read as an applied return | Fence-stripped before either check reads it; a fixture asserts the fenced case stays green |
+| A returned entry keeps a terminal `Resolution` beside its `Return record` | `handoff-response` FAILS that shape; a fixture asserts it |
+| `bun run check` goes red and nobody knows the new check exists to blame | This section, `README.md`'s new section, and both checks' own header comments name it plainly |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | SOP/template/check/fixture packet, applied | Phase 1 — this application |
+| Approve-with-conditions | This child's `Applied` disposition | Independent Lane B verification still required before `Verified` (`D-102`) — not self-recorded here |
+| Reject | Treating `bun run check`'s new red as a regression in this packet | It is the check correctly finding 12 pre-existing, real cases |
+| Defer | Returning the 12 flagged entries (including `B-103`) | Separate, per-entry Lane A/Judge acts — this application builds the control, not the 12 returns |
+| Defer | `B-103` P3 and whole-entry closure | Unchanged: still waits on this child reaching independent `Verified`, per this entry's own sequencing |

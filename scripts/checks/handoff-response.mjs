@@ -18,6 +18,11 @@
 //   * `Status: Answered` with an empty `Lane A` line — a claim with nothing
 //     behind it
 //   * `Status: Open` with NO acknowledgement — the "feedback sits unread" case
+//   * a `## Return record` (`B-097`) missing or blanking any of its four
+//     facts, or coexisting with a still-terminal header — see
+//     `checkReturnRecord()` below. This is FORM only; the companion
+//     history-aware check lives in `terminal-return.mjs` because it needs
+//     git history and this check deliberately does not (stays CI-safe)
 //   * a `Kind: turn-report` with a missing, blank, unregistered, or duplicate
 //     `Run:` (`D-123`, `D-124`) — see `runRegistry()` below
 //   * a `Kind: turn-report` carrying `Resolution`, `Verified-By`, or
@@ -58,7 +63,7 @@
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { CLOSURE_PATH as CLOSURE, ENTRY_FILE, field, fieldPresent, phaseSets } from "./handoff-fields.mjs";
+import { CLOSURE_PATH as CLOSURE, ENTRY_FILE, field, fieldPresent, phaseSets, stripFences } from "./handoff-fields.mjs";
 
 const DIR = "docs/handoff";
 
@@ -96,6 +101,83 @@ const CLOSURE_ONLY = ["Resolution", "Verified-By", "Verified-At-Commit"];
 // `handoff-fields.mjs`, and a header-driven table here would break on a column
 // being added exactly as that one did.
 const RUN_ID = /^L[A-C]-[A-Z]\d+-\d+$/;
+
+// `B-097`'s return-protocol contract, applied to `README.md`/`TEMPLATE.md` in
+// the same pass as this function. Validates the SHAPE of a return only — form,
+// not substance, matching every other rule in this file. The companion
+// history-aware detection (did substantive work land after a terminal
+// disposition with no return record at all) is `terminal-return.mjs`, kept
+// separate because it needs git history and this file is tracked-files-only
+// so it can run in CI.
+const RETURN_HEADING = /^##\s+Return record\s*$/m;
+
+// Written as four explicit calls rather than a loop over a field-name array
+// on purpose: `channel-docs` (check 16) discovers which fields a check reads
+// by grepping check source for quoted field names passed as the second
+// argument, matched against the literal parameter identifier this function
+// reassigns `text` to hold. A name reached only through an array variable is
+// invisible to that grep, so a loop here would read these fields at runtime
+// and still fail the coupling check that exists to prove they are read.
+function checkReturnRecord(text, path, findings) {
+  text = stripFences(text); // an illustrative example fence is not a live return
+  if (!RETURN_HEADING.test(text)) return false;
+
+  if (!field(text, "Previous-Resolution")) {
+    findings.push(
+      fieldPresent(text, "Previous-Resolution")
+        ? `${path}: Return record **Previous-Resolution:** is present but BLANK — a return names all four facts (\`B-097\`), or it is not a return`
+        : `${path}: Return record has no **Previous-Resolution:** — a return names all four facts (\`B-097\`), or it is not a return`,
+    );
+  }
+  if (!field(text, "Return-Trigger")) {
+    findings.push(
+      fieldPresent(text, "Return-Trigger")
+        ? `${path}: Return record **Return-Trigger:** is present but BLANK — a return names all four facts (\`B-097\`), or it is not a return`
+        : `${path}: Return record has no **Return-Trigger:** — a return names all four facts (\`B-097\`), or it is not a return`,
+    );
+  }
+  if (!field(text, "Return-Act")) {
+    findings.push(
+      fieldPresent(text, "Return-Act")
+        ? `${path}: Return record **Return-Act:** is present but BLANK — a return names all four facts (\`B-097\`), or it is not a return`
+        : `${path}: Return record has no **Return-Act:** — a return names all four facts (\`B-097\`), or it is not a return`,
+    );
+  }
+  const returnedAt = field(text, "Returned-At-Commit");
+  if (!returnedAt) {
+    findings.push(
+      fieldPresent(text, "Returned-At-Commit")
+        ? `${path}: Return record **Returned-At-Commit:** is present but BLANK — a return names all four facts (\`B-097\`), or it is not a return`
+        : `${path}: Return record has no **Returned-At-Commit:** — a return names all four facts (\`B-097\`), or it is not a return`,
+    );
+  } else if (!/^[0-9a-f]{7,40}$/i.test(returnedAt)) {
+    findings.push(
+      `${path}: Return record **Returned-At-Commit:** "${returnedAt}" is not a hexadecimal commit SHA. Existence is proven separately by \`terminal-return\`, which has git history; this check does not`,
+    );
+  }
+
+  // A return record marks the whole entry ACTIVE again. Header fields
+  // describe the whole entry (`D-204`), so a terminal field surviving next to
+  // an active return record is the exact header/body mismatch `B-097` exists
+  // to prevent — the return record would be true and the header would lie.
+  const status = field(text, "Status");
+  if (!status || !/^Open\b/i.test(status)) {
+    findings.push(
+      `${path}: has a Return record but **Status:** is not \`Open\` — a returned entry is active again, not still terminal`,
+    );
+  }
+  if (fieldPresent(text, "Resolution")) {
+    findings.push(
+      `${path}: has a Return record but still carries **Resolution:** — a returned entry has no current terminal disposition, only the history the return record preserves`,
+    );
+  }
+  if (fieldPresent(text, "Follow-up-Tier")) {
+    findings.push(
+      `${path}: has a Return record but still carries **Follow-up-Tier:** — that belonged to the terminal disposition this return record supersedes`,
+    );
+  }
+  return true;
+}
 
 function runRegistry() {
   let text;
@@ -136,6 +218,7 @@ export function run() {
   let withdrawn = 0;
   let unresolved = 0;
   let reports = 0;
+  let returned = 0;
   // `D-123`, raised as `B-053`: two turn reports for one run (`B-043`/`B-047`,
   // both committed at `d826b53` for `LB-S1-01`) read as two turns when nothing
   // named the run they shared. `Run:` is optional — legacy reports predate it —
@@ -258,6 +341,8 @@ export function run() {
       }
     }
 
+    if (checkReturnRecord(text, path, findings)) returned++;
+
     if (!kind) {
       findings.push(
         fieldPresent(text, "Kind")
@@ -343,7 +428,7 @@ export function run() {
   const detail =
     entries.length === 0
       ? "channel installed, no entries yet"
-      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn; ${unresolved} still carry NO resolution${reports ? `; ${reports} turn report(s) excluded from that count (G84)` : ""}${reopening ? `, ${reopening} reopening a closed phase` : ""}`;
+      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn; ${unresolved} still carry NO resolution${reports ? `; ${reports} turn report(s) excluded from that count (G84)` : ""}${reopening ? `, ${reopening} reopening a closed phase` : ""}${returned ? `; ${returned} return record(s) (B-097)` : ""}`;
 
   return { name: "handoff-response", findings, detail };
 }
