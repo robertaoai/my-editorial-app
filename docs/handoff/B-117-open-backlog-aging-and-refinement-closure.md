@@ -2269,3 +2269,158 @@ owners above.
 | Defer | B-117 closure and construction | Terminal `DOR-R1`–`DOR-R6`, independent review and fresh build authorization |
 | Reject | Same-gate “complete judgment, then produce the evidence it judged” ordering | Circular and unverifiable |
 | Reject | Inferring one executor from multiple `R`s, an `A` from route scope, or `R=A` from a blank cell | Requires an explicit accepted operation contract |
+
+## Lane B follow-up — business judgment stages and role-selected operations (2026-09-17)
+
+### What happened
+
+Source: Chief Editor attachment `73798c21-9652-432d-a05e-c3d6674eabb6/pasted-text.txt`.
+Reviewed at `aead9d8`; this is a continuation of this Open entry, not a new handoff or
+Lane A answer. Planning only. No application, canonical governance or graph changes applied.
+
+**Rewritten request:** reconcile the Chief Editor's business judgment stages and role-selected
+Sheet 2 operations with the existing route matrix and technical transition identifiers;
+record the remaining decisions, draft acceptance examples, and specify Lane A's canonical
+corrections before construction.
+
+**Correction to the preceding Lane B proposal:** mandatory Reporter-plus-Journalist joins and
+an EW bootstrap assignment for OP-PITCH were recommendations, not established requirements.
+Withdraw them as prerequisites. The new explanation selects Reporter at business T1 and
+Journalist at business T3, each running the applicable operations. Likewise, withdraw the
+claim that the user's gate-before-task sequence is necessarily circular: a gate can select a
+role using existing input, then dispatch that role's work. Only a gate requiring its own
+not-yet-created output would be circular. Do not conflate selection with assessment of the
+result. This correction does not settle the source-marked Complex Series/Legal Risk milestone
+decomposition or silently amend D-176.
+
+### What is established, and what still needs an answer
+
+Temporary qualified labels below distinguish concepts; they are not new persisted IDs.
+
+| Parent-first item | Evidence / gap | Lane A action and acceptance condition |
+|---|---|---|
+| 1. Intent and namespace | User's business:T1–T5 are not proven identical to transition:T1–T11 or EG1–EG5. Verification apparatus also uses historical planning:T1 | Record business stage purpose, input, role-selection result, dispatched tasks and result consumer; map each to existing identifiers, allowing one-to-many mappings. Accept only when no mapping is justified by matching numbers alone |
+| 2. Entry and Reporter | User specifies manual UI input → Senior Journalist processing → business:T1 selects Reporter → OP-PITCH → OP-DRAFT. Reporter does not execute OP-SIGNOFF | Reconcile traceability §6.1 rows 2a/2b and crosswalk §3.2, which currently place OP-PITCH before technical T1. State whether these are different events or a changed ordering; do not require the user to invent technical IDs |
+| 3. Investigator / Journalist / Senior Journalist | User describes role-selected operations and candidate-route comparisons. Business:T3 names PROD-3 but compares PROD-2 with PROD-1. D-176 makes Complex Series conditional on PROD-3 and not applicable on PROD-1/FALLOUT-1 | Distinguish candidate evaluation from effective route change. Resolve the T3 route reference and whether D-176 applicability is amended. Define comparison inputs, outcome, tie/insufficient-evidence behavior and who may change the effective route; no automatic rerouting inferred |
+| 4. T5 accountability | Chief Editor answered on 2026-09-17: "Preserve Sheet 2; correct the description" | Keep OP-COPY-EDIT R = ROLE-CHIEF-EDITORIAL-DESK and A = ROLE-DESK-EDITOR. Remove the proposed Chief Journalist copy-edit subtask and the assertion that copy-edit lacks R. OP-PITCH and OP-RESEARCH A remain ROLE-DESK-EDITOR. This is description correction, not replacement RACI |
+| 5. Draft/signoff contract | User explicitly supplies Chief Editorial Desk A for Draft, and describes signoff as completing accountability before human publication review | Record this intent, map OP-DRAFTING to OP-DRAFT and confirm OP-SIGNOFF's relationship to OP-FINAL-SIGNOFF. Specify the signoff actor and evidence. Having an A assigned is distinct from that actor completing a review; neither alone is human publication approval |
+| 6. Propagation and closure | Earlier textual fixes exist, but this new mapping is not yet canonical | Apply the accepted parent decisions in the owning tiers, independently review the resulting journey, and then disposition the affected B-117 child. DoD checklist written does not mean software DoD satisfied |
+
+Normalize `ROUTE-PROD-001/002/003` to the existing `ROUTE-PROD-1/2/3` references and
+`ROUTE-FALOUT-001` to `ROUTE-FALLOUT-1` in the proposed mapping. This spelling normalization
+does not change applicability or authority. Never alias Desk Editor, Chief Editorial Desk and
+Chief Journalist to each other.
+
+**Corrected T5 description (Chief Editor clarification, 2026-09-17):** Chief Editorial Desk
+performs the Responsible copy-edit operation; Desk Editor retains its Sheet 2 Accountable role
+for copy-edit, pitch and research. Chief Journalist is not introduced as a substitute copy-edit
+Responsible actor. OP-FINAL-SIGNOFF retains Desk Editor A and its source blank R; the execution
+and completion-evidence contract still needs specification. Gate role selection does not overwrite
+these operation assignments. OP-DRAFT's source A remains blank: the earlier proposed application
+default must be recorded separately if adopted, not portrayed as a Sheet 2 fact or silently assigned
+to Desk Editor by this correction.
+
+### Cross-artifact impact and bounded write-set proposal
+
+| Owner / artifact | Finding and proposed correction |
+|---|---|
+| Register, V1 Build Spec, V1 Artifact Inventory | Lane A records accepted decisions and the exact affected sections under D-54. Retain SETUP-SPIKE-000 and V1-SM05/06 planning context; no new sprint or build authorization |
+| `governance/requirements-traceability-map.md` §6.1 | Canonical parent mapping. Replace ambiguous bare stage references with qualified meanings; link business stage → role → OP → requirement → acceptance example → target sprint |
+| `governance/factory-route-operation-crosswalk.md` §§1–4 | Preserve CSV evidence; add decided role-selection semantics and resolve applicability/operation authority differences before changing the join |
+| `Modular_PRD.md` §8.1 / relevant feature groups | Existing pre-T1 ordering note requires reconciliation. Behavior changes land in their owning feature groups; tracking changes alone cannot silently change FR/AC meaning |
+| Relevant `fn-specs/` | Specify input, role assignment, task dispatch, completion and human review behavior after the parent decisions. Keep database/UI implementation details downstream |
+| Storyboard journal, panels A2–A7/B3–B6, embedded sequence/UML and data-flow diagrams | Current annotations and diagrams use historical transition labels. Show separate selection, task execution and human actions with mapped identifiers. Update actual diagram edges as well as prose; preserve historical views as such |
+| `ENCYCLOPEDIA-SYNC.md` and linked entries | Verify role/gate descriptions against the accepted mapping. No claim of full Encyclopedia consistency follows from checking the sync ledger alone; record entry-specific evidence or explicit deferral |
+| `specs/SPECS-TRANSITION-ENFORCEMENT.md` §§3–4, §8 | Confirmed collision: table says Gate but includes state transitions and non-transition publication events. Draft display qualification `transition:T1`, etc.; retain existing stored/API identifiers until impact is mapped. Reconcile historical human-only T5 with the accepted business mapping before changing enforcement/tests |
+| `specs/SPECS-VERIFICATION-APPARATUS.md` | T1 refers to a historical setup/runbook stage, not editorial judgment. Qualify that reference as historical planning stage; do not relabel it as an editorial transition |
+| `specs/SPECS-PUBLICATION.md` | No T-series collision found in the identifier scan. Preserve manual-ready versus automated publication separation; trace its historical S4/[V1] scope through the canonical migration matrix rather than assuming it belongs to the new first MMF |
+| `specs/README.md` | Retain D-29 tier-4 ownership and D-30 redundancy rule. Technical specs remain downstream implementation decisions; link them to intent instead of copying them into intent documents |
+
+The specs inventory inspected contains these three technical documents and README. This is an
+impact review and draft write set, not verification that every proposed correction is already
+applied. Frozen PRD/Charter/schema remain unaffected by this handoff.
+
+### Lane A follow-up, in dependency order
+
+1. Record the new intent and the withdrawal of Lane B's earlier inferred join/bootstrap requirements.
+2. Build the namespace/semantic mapping under the traceability parent; supply technical IDs itself.
+3. Apply the settled Sheet 2 description correction. Resolve the remaining business choices: T3 route reference,
+   candidate comparison versus rerouting, and signoff completion meaning. Do not reopen manual intake.
+4. Apply accepted mappings to the crosswalk and behavior tier; then update tracking and all affected
+   visual/spec references using the bounded write set. Record unaffected sections explicitly.
+5. Review one normal and one revision journey. Lane B checks the application evidence contract;
+   Lane C checks workflow consumption and operational evidence needs without adding app behavior.
+6. Record source commit, QA evidence and independent review in the existing lifecycle fields.
+   Close only the resolved children; retain named unresolved children or transfer later scope to
+   the canonical backlog. Acknowledged/Applied is not independent Verified.
+7. Run governed-doc Graphify synchronization after completed, verified canonical intent changes.
+
+### Failure-derived acceptance examples (draft BDD, not executed tests)
+
+- Given business:T1 selects Reporter, when tasks dispatch, then Reporter receives Pitch and Draft
+  under that stage's assignment; no mandatory Journalist join is inferred from the multi-R source row.
+- Given business:T3 later selects Journalist, when Pitch/Draft run, then their evidence is distinct
+  from Reporter's earlier work; replay of the same dispatch produces no duplicate effective task.
+- Given Reporter has no signoff task, when its task pass ends, then no signoff approval is fabricated.
+- Given a candidate route is evaluated, when no authorized reclassification occurs, then effective
+  route and its applicability rules remain unchanged. A conflicting task is held with a reason.
+- Given all applicable operations have named A roles but required review evidence is missing,
+  then the UI does not claim those reviews completed or the article approved for publication.
+- Given the agent workflow completes, then the user can review in the publication UI; agent-stage
+  completion alone does not publish or claim that manual LinkedIn publication occurred.
+- Given an article returns for revision, then new task/decision evidence refers to that revision
+  and earlier evidence remains identifiable; which prior approvals must be renewed is specified.
+- Given a label business:T5 appears, then its mapping never silently invokes historical
+  transition:T5's human-only behavior merely because both share a number.
+
+These are deterministic failure conditions if the stated mistakes are implemented, not a prediction
+that the project will fail. Missing comparison rules or mappings are readiness gaps, not test results.
+
+### What Lane B did instead / graph currency
+
+Drafted this correction in the existing B-117 only. No Lane A answer, closed status, Register ID,
+role replacement or application code was fabricated. The T5 role clarification is answered above;
+canonical propagation and the separate signoff contract remain outstanding.
+Graph metadata names `9f6b712` as last analyzed with `stale=false`; the difference through
+`aead9d8` is B-117 alone. Under the handoff exclusion this is not governed-source graph drift.
+No rebuild is due for this appendix. Reassess after Lane A's canonical source changes, not simply
+because another handoff was written. The cached upstream is behind by one local commit; this
+review does not assert that the latest handoff is pushed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Intent clarification: judgment selects role before its task workflow; withdraw inferred mandatory Pitch/Draft joins | Phase 1 Lane A mapping |
+| Approve-with-conditions | Traceability/crosswalk and Product/Fn Spec correction packet | Phase 1 resolve named role/route/signoff differences, then propagate |
+| Approve | Preserve Sheet 2 RACI; correct the T5 description | Phase 1 Lane A propagation; no replacement RACI authorized |
+| Defer | B-117 affected-child closure and independent verification | Canonical corrections and normal/revision evidence |
+| Reject | Bare T-number equivalence, automatic publication, or claiming this draft is applied governance | Product/SPECS review before build readiness |
+
+### Troubleshooting follow-up — commit versus closure (2026-09-17)
+
+The uncommitted handoff was Lane B's workflow omission, not missing Chief Editor approval.
+README's D-184 permits Eligible Lane B to commit its single declared handoff path; its
+one-outgoing-commit proof constrains pushing, not committing an entry containing open questions.
+Declared commit path: `docs/handoff/B-117-open-backlog-aging-and-refinement-closure.md` only.
+
+The earlier phrase "route/signoff questions remain open" mixed three different states:
+
+- **Answered intent:** roles are selected before their task workflows; preserve Sheet 2;
+  signoff ensures accountability coverage before the user's publication review. Do not ask the
+  Chief Editor to restate these purposes.
+- **Lane A specification work:** translate that intent into operation completion evidence and
+  UI behavior. Crosswalk §3.2 already defines Final Sign-Off's input (completed required/triggered
+  operations), output (signed-off package), and return target (earliest incomplete required
+  operation). Reuse those facts. Its §4 still prohibits inferring an R=A execution exception;
+  the remaining execution mechanism must be proposed explicitly, not confused with missing purpose.
+  Preserve OP-DRAFT's blank source A while separately recording the earlier explicit application
+  default proposed by the Chief Editor. No new default is inferred from the copy-edit correction.
+- **Narrow reconciliation defects:** T3's PROD-3 reference differs from its PROD-2/PROD-1 comparison;
+  Complex Series applicability differs from D-176. Lane A should first map candidate-route
+  evaluation separately from executing an operation under the effective route. That may remove
+  the apparent conflict. Escalate only a residual choice that actually changes route applicability;
+  do not treat every comparison as a requested route change or require all comparison detail as
+  a prerequisite to this documentation commit.
+
+Thus the clarification is answered; canonical propagation and bounded contract reconciliation
+remain open work. This does not prevent committing the handoff, and committing it does not mean
+the application contract is complete or independently Verified.
