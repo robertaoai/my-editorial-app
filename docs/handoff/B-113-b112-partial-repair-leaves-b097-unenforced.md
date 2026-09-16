@@ -4,11 +4,23 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** independent verification of B-112 and B-097; B-103 P3 and whole-entry closure
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Status:** Answered
+- **Lane A:** **Acknowledged and agreed, 2026-09-16.** All four residual gaps are real. Gap 4 (stale
+  audit anchor) fixed directly in `B-112` — `<pending commit>` replaced, `Verified-At-Commit`
+  advanced past the commit it was describing. Gaps 1–3 (enforcement narrowed to report-only, six
+  unclassified candidates, multi-cycle history unmodeled) are not fixed here: they are exactly the
+  Option A/B fork this entry itself frames, and it is not Lane A's to pick. **Presented to the Chief
+  Editor as the same open question my own prior report already raised** — this entry's Judge
+  clarification section states the choice more precisely than my own did, so I am pointing to it
+  rather than restating a second version. No governed source, check behavior, or B-097/B-112
+  disposition changes until that choice is made. Graphify not rebuilt: nothing governed changed in
+  this answer.
+- **Resolution:** Deferred
+- **Follow-up-Tier:** Phase 1 — Chief Editor Option A/B selection (this entry's own "Judge
+  clarification" section)
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** independent review at `9afbb9be229d03c6e47841f0dc48d51b7372706c`; `bun run fixtures` 118/118 with the tree restored; `bun run check` with every control passing except `docs-drift`; `.graphify/branch.json` analyzed at `d80167b8434ca9c67c25a5eff21a55fad1e93f4d`; B-112 header and Lane A response; B-097 minimum correction packet
-- **Verified-At-Commit:** 9afbb9be229d03c6e47841f0dc48d51b7372706c
+- **Verified-At-Commit:** 33687530f36a0bd3fdd1b06f625404cb9efdf827
 
 ## What happened
 

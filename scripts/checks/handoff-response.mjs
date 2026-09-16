@@ -23,6 +23,13 @@
 //     `checkReturnRecord()` below. This is FORM only; the companion
 //     history-aware check lives in `terminal-return.mjs` because it needs
 //     git history and this check deliberately does not (stays CI-safe)
+//   * a `## Terminal annotation record` (`B-113`) missing or blanking any of
+//     its five facts, an `Annotation-Type` outside the four governed values,
+//     a `No-Scope-Reopened` that isn't literally `true`, or a non-hex
+//     `Annotated-At-Commit` — see `checkTerminalAnnotations()` below. A file
+//     may carry several; each is validated independently. Also FORM only —
+//     whether the citation actually covers the episode it claims to is
+//     `terminal-return.mjs`'s job
 //   * a `Kind: turn-report` with a missing, blank, unregistered, or duplicate
 //     `Run:` (`D-123`, `D-124`) — see `runRegistry()` below
 //   * a `Kind: turn-report` carrying `Resolution`, `Verified-By`, or
@@ -179,6 +186,92 @@ function checkReturnRecord(text, path, findings) {
   return true;
 }
 
+// `B-113` (Chief Editor Option A, 2026-09-16) — the other governed record
+// `terminal-return`'s history walk can cite: a correction, cross-reference or
+// normalization that touched an already-terminal entry WITHOUT reopening its
+// scope. Unlike a Return record, a file may carry several of these — one per
+// historically annotated commit — so this splits on every heading and
+// validates each block independently rather than reading only the first.
+const ANNOTATION_HEADING = /^##\s+Terminal annotation record\s*$/gm;
+const ANY_HEADING = /^##[ \t]/m;
+const ANNOTATION_TYPES = new Set(["metadata-normalization", "verification-evidence", "cross-reference", "correction"]);
+
+function annotationBlocks(text) {
+  const matches = [...text.matchAll(ANNOTATION_HEADING)];
+  return matches.map((m, i) => {
+    const start = m.index + m[0].length;
+    const rest = text.slice(start);
+    const nextHeading = rest.search(ANY_HEADING);
+    return rest.slice(0, nextHeading < 0 ? rest.length : nextHeading);
+  });
+}
+
+function checkTerminalAnnotations(outerText, path, findings) {
+  const blocks = annotationBlocks(stripFences(outerText)); // an illustrative example fence is not a live annotation
+  if (blocks.length === 0) return 0;
+
+  // Each iteration reassigns a local named `text` (not `block`), for the
+  // same reason `checkReturnRecord` reassigns its own parameter: `channel-
+  // docs` (check 16) discovers which fields a check reads by grepping check
+  // source for a literal `text` as the first argument to `field()`/
+  // `fieldPresent()`. A differently-named variable reads correctly at
+  // runtime and is invisible to that grep — this file has hit that exact
+  // gap twice now.
+  for (const text of blocks) {
+    if (!field(text, "Current-Resolution")) {
+      findings.push(
+        fieldPresent(text, "Current-Resolution")
+          ? `${path}: Terminal annotation record **Current-Resolution:** is present but BLANK — an annotation names all five facts (\`B-113\`), or it is not an annotation`
+          : `${path}: Terminal annotation record has no **Current-Resolution:** — an annotation names all five facts (\`B-113\`), or it is not an annotation`,
+      );
+    }
+    const annotationType = field(text, "Annotation-Type");
+    if (!annotationType) {
+      findings.push(
+        fieldPresent(text, "Annotation-Type")
+          ? `${path}: Terminal annotation record **Annotation-Type:** is present but BLANK — an annotation names all five facts (\`B-113\`), or it is not an annotation`
+          : `${path}: Terminal annotation record has no **Annotation-Type:** — an annotation names all five facts (\`B-113\`), or it is not an annotation`,
+      );
+    } else if (!ANNOTATION_TYPES.has(annotationType.trim())) {
+      findings.push(
+        `${path}: Terminal annotation record **Annotation-Type:** "${annotationType}" is not one of metadata-normalization | verification-evidence | cross-reference | correction — inventing a fifth type is how this vocabulary drifts from what \`B-113\` adopted`,
+      );
+    }
+    if (!field(text, "Annotation-Act")) {
+      findings.push(
+        fieldPresent(text, "Annotation-Act")
+          ? `${path}: Terminal annotation record **Annotation-Act:** is present but BLANK — an annotation names all five facts (\`B-113\`), or it is not an annotation`
+          : `${path}: Terminal annotation record has no **Annotation-Act:** — an annotation names all five facts (\`B-113\`), or it is not an annotation`,
+      );
+    }
+    const noScopeReopened = field(text, "No-Scope-Reopened");
+    if (!noScopeReopened) {
+      findings.push(
+        fieldPresent(text, "No-Scope-Reopened")
+          ? `${path}: Terminal annotation record **No-Scope-Reopened:** is present but BLANK — an annotation names all five facts (\`B-113\`), or it is not an annotation`
+          : `${path}: Terminal annotation record has no **No-Scope-Reopened:** — an annotation names all five facts (\`B-113\`), or it is not an annotation`,
+      );
+    } else if (noScopeReopened.trim().toLowerCase() !== "true") {
+      findings.push(
+        `${path}: Terminal annotation record **No-Scope-Reopened:** "${noScopeReopened}" is not \`true\` — an annotation exists to assert that scope did NOT reopen; a record saying otherwise is a Return, not an annotation, and belongs in \`## Return record\` instead`,
+      );
+    }
+    const annotatedAt = field(text, "Annotated-At-Commit");
+    if (!annotatedAt) {
+      findings.push(
+        fieldPresent(text, "Annotated-At-Commit")
+          ? `${path}: Terminal annotation record **Annotated-At-Commit:** is present but BLANK — an annotation names all five facts (\`B-113\`), or it is not an annotation`
+          : `${path}: Terminal annotation record has no **Annotated-At-Commit:** — an annotation names all five facts (\`B-113\`), or it is not an annotation`,
+      );
+    } else if (!/^[0-9a-f]{7,40}$/i.test(annotatedAt)) {
+      findings.push(
+        `${path}: Terminal annotation record **Annotated-At-Commit:** "${annotatedAt}" is not a hexadecimal commit SHA. Existence and episode coverage are proven separately by \`terminal-return\`, which has git history; this check does not`,
+      );
+    }
+  }
+  return blocks.length;
+}
+
 function runRegistry() {
   let text;
   try {
@@ -219,6 +312,7 @@ export function run() {
   let unresolved = 0;
   let reports = 0;
   let returned = 0;
+  let annotated = 0;
   // `D-123`, raised as `B-053`: two turn reports for one run (`B-043`/`B-047`,
   // both committed at `d826b53` for `LB-S1-01`) read as two turns when nothing
   // named the run they shared. `Run:` is optional — legacy reports predate it —
@@ -342,6 +436,7 @@ export function run() {
     }
 
     if (checkReturnRecord(text, path, findings)) returned++;
+    annotated += checkTerminalAnnotations(text, path, findings);
 
     if (!kind) {
       findings.push(
@@ -428,7 +523,7 @@ export function run() {
   const detail =
     entries.length === 0
       ? "channel installed, no entries yet"
-      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn; ${unresolved} still carry NO resolution${reports ? `; ${reports} turn report(s) excluded from that count (G84)` : ""}${reopening ? `, ${reopening} reopening a closed phase` : ""}${returned ? `; ${returned} return record(s) (B-097)` : ""}`;
+      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn; ${unresolved} still carry NO resolution${reports ? `; ${reports} turn report(s) excluded from that count (G84)` : ""}${reopening ? `, ${reopening} reopening a closed phase` : ""}${returned ? `; ${returned} return record(s) (B-097)` : ""}${annotated ? `; ${annotated} terminal annotation record(s) (B-113)` : ""}`;
 
   return { name: "handoff-response", findings, detail };
 }

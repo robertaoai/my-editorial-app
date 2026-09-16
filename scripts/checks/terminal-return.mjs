@@ -1,71 +1,64 @@
-// `C-14` check 18 — `B-097`, corrected by `B-112`: does a terminal entry
-// conceal live work?
+// `C-14` check 18 — `B-097`, corrected by `B-112`, completed by `B-113`
+// (Chief Editor Option A, 2026-09-16): does a CURRENTLY terminal entry
+// conceal live work — including a second, later, unreturned episode that an
+// older Return/annotation citation does not actually cover?
 //
-// `handoff-response` validates a `## Return record`'s FORM. It cannot see the
-// other half: an entry can carry Resolution: Deferred/Verified/Withdrawn/
-// Superseded, receive a later commit that adds real content to the same
-// file, and never gain a return record at all. `B-071` was the first
-// demonstrated case of that; `B-097` is B-071's own defect, raised against
-// B-071 itself.
+// `handoff-response` validates a `## Return record`'s FORM and (as of this
+// pass) a `## Terminal annotation record`'s FORM. Neither can see whether a
+// file's HISTORY actually matches what it now claims. This check walks that
+// history to find where the file's CURRENT terminal episode began, then
+// checks only what happened from there to HEAD.
 //
-// THIS CHECK'S FIRST VERSION WAS WRONG, AND `B-112` PROVED IT WITH THE
-// REPOSITORY'S OWN HISTORY, NOT ASSERTION.
+// THE MODEL, IN ONE SENTENCE: a file enters a "terminal episode" the moment
+// its Resolution becomes `Verified`/`Deferred`/`Withdrawn`/`Superseded`. This
+// check finds the MOST RECENT such moment (`currentEpisodeStart`) — not the
+// first ever — and requires every commit from there to HEAD to be either
+// audit-only, or covered by a Return record (episode ends) or a Terminal
+// annotation record (episode continues) whose own commit citation names
+// that exact commit.
 //
-// It flagged every commit after a terminal disposition alike, on the theory
-// that a script cannot safely guess which edits are "substantive". Run
-// against the live corpus it reported 12 entries. Independently verified,
-// nine of them (`B-004`, `B-008`, `B-016`, `B-019`, `B-023`, `B-034`,
-// `B-043`, `B-046`, `B-077`) were touched by exactly one commit
-// (`0f43476`), a `D-205` bulk pass that added or normalized ONLY the
-// `Verified-By:`/`Verified-At-Commit:` audit lines — no body content, no
-// scope, nothing a Return record could meaningfully describe. A seventh,
-// `B-017`, added a note whose own first sentence reads *"This does not
-// reopen the parser repair."* Treating either as a concealed return would
-// have meant fabricating a `Return-Trigger`/`Return-Act` for something that
-// never happened — exactly the corrupted-record outcome `B-097` exists to
-// prevent, one layer up.
+// WHY "MOST RECENT", NOT "EVERY EPISODE EVER": an earlier version of this
+// check walked the file's ENTIRE history and flagged every terminal episode
+// it ever passed through. Run against the live corpus, it flagged `B-001`
+// for a `Verified` -> `Applied` -> `Verified` dip that happened on
+// 2026-08-21 — weeks before `B-097` was even raised, immediately followed by
+// nothing (the file was never touched again). Retroactively demanding an
+// annotation for that is not "fixing the multi-cycle gap", it is punishing
+// unrelated ancient history for existing. Scoping to the CURRENT episode
+// still fixes `B-113`'s actual Row 4 finding — an old citation belongs to
+// whichever episode it was written for, and a NEW episode starting later
+// needs its own, which `currentEpisodeStart` is what makes computable — a
+// stale record can no longer exempt a file forever, it can only exempt the
+// episode it was actually written against.
 //
-// TWO CORRECTIONS, KEPT SEPARATE BECAUSE THEY ARE PROVEN TO DIFFERENT
-// DEGREES:
-//
-//   1. AUDIT-ONLY COMMITS DO NOT COUNT, AND THIS IS MECHANICALLY PROVABLE.
-//      Walking a file's history, a commit whose entire diff is confined to
-//      `Verified-By:`/`Verified-At-Commit:` lines is skipped when looking
-//      for "the last commit that actually touched this entry" — verified
-//      against all nine live cases before being trusted. This is a
-//      correctness fix, not a policy call.
-//   2. WHETHER A SUBSTANTIVE POST-TERMINAL EDIT IS A RETURN OR A BOUNDED
-//      "TERMINAL ANNOTATION" IS NOT MECHANICALLY PROVABLE YET. `B-017`,
-//      `B-103` and `C-001`'s later edits are real body content, added after
-//      an already-terminal disposition, that each explicitly say they do
-//      not reopen it. `B-112` proposed a governed distinction between
-//      "return" and "terminal annotation"; that distinction has not been
-//      adopted as SOP, so this check cannot enforce it. Per `B-112`'s own
-//      recommendation, remaining candidates are REPORTED, not FAILED —
-//      `findings` stays empty and the names go in `detail` only. Reinstate
-//      blocking once a checkable annotation convention exists to tell the
-//      two apart; until then a permanently-red gate whose only escape is a
-//      fabricated Return record is worse than a quiet report.
+// WHY `terminal-return` CAN BE BLOCKING AGAIN: `B-112` made it report-only
+// because the check could not tell a genuine reopening from a bounded
+// correction. The Terminal annotation record (drafted by `B-112`'s Row 3,
+// adopted by the Chief Editor's Option A choice) is the governed vocabulary
+// that removes the guess — a human names the act and asserts
+// `No-Scope-Reopened: true`; the check only verifies the record's FORM and
+// that its citation names the exact commit in question, which is exactly the
+// "form, not substance" limit every other check in this apparatus already
+// accepts.
 //
 // WHAT IT STILL CANNOT DO — stated, not buried:
-//   * It cannot tell a genuinely new B-071-style reopening from a bounded
-//     correction by content alone — that is exactly the open question above.
-//   * A prior Return record exempts a file from this run permanently, even
-//     if a second, later, unreturned close-then-edit cycle occurs. Multiple
-//     terminal/return cycles are not modelled. Noted, not fixed, under the
-//     same time-pressure-vs-correctness trade this file already makes once
-//     below for performance.
+//   * It cannot tell whether `No-Scope-Reopened: true` is TRUE. A human
+//     asserting it wrongly still passes. Reading the entries is still a
+//     person's job, the same limit `handoff-response` states for itself.
+//   * A file whose CURRENT Resolution is not terminal is not checked at
+//     all, even if it passed through a terminal state earlier and back out
+//     without a Return record. That silent exit is real, arguably its own
+//     defect class, and is explicitly out of scope here — this check
+//     protects a live terminal header, not every historical transition.
 //   * Renames are not handled — `docs/handoff/` entries are one file per
 //     item for their whole life (`D-100`), so this has never been needed.
-//   * COST: roughly one `git diff` per historical step walked back, per
-//     currently-terminal entry, not amortized across files. On a machine
-//     where process spawn is slow (observed ~1.2s/spawn on this Windows
-//     host), this check alone can take minutes. A single directory-wide
-//     `git log --name-only` plus `git cat-file --batch` would cut this
-//     sharply; not built here for the same reason stated when this file was
-//     first written — a stateful stdin/stdout protocol parser is a bad trade
-//     under review time pressure. This check SKIPS in CI, so nothing there
-//     pays it.
+//   * COST: it still fetches the file's FULL history to locate
+//     `currentEpisodeStart`, and diffs every step of it — one `git diff` per
+//     historical step, per currently-terminal entry. On a machine where
+//     process spawn is slow (observed ~1.2s/spawn on this Windows host),
+//     this check can take several minutes. It SKIPS in CI, so nothing there
+//     pays it; not optimized further under the same time-pressure-vs-
+//     correctness trade this file already stated once.
 //
 // Needs per-file git history; SKIPS on a shallow clone, matching
 // `source-sweep`/`docs-drift`/`graph-coverage`.
@@ -77,16 +70,12 @@ import { ENTRY_FILE, field, stripFences } from "./handoff-fields.mjs";
 import { TERMINAL } from "./closure-readiness.mjs";
 
 const DIR = "docs/handoff";
-const RETURN_HEADING = /^##\s+Return record\s*$/m;
 
-// `git show <sha>:<path>` resolves `<path>` as a TREE path, which Git always
-// stores forward-slash-separated — unlike a pathspec (used by `git log --`),
-// it does not accept a backslash as a separator. `path.join(DIR, file)` on
-// Windows produces one, so `contentAt()` failed on every call, was caught by
-// `run()`'s own `catch { continue }`, and silently skipped every entry —
-// this check reported 0 findings against a live repository that (at the time
-// this comment was written) had at least one real, demonstrated case.
-// Normalized once, here, rather than trusting every caller to remember.
+// `git show <sha>:<path>` and `git diff`/`git log --` both resolve `<path>`
+// differently underneath, but neither accepts a Windows backslash — Git
+// always stores tree paths forward-slash-separated. `path.join(DIR, file)`
+// on Windows produces one, so every plumbing call here normalizes first.
+// (`B-112`: this exact gap silently zeroed the first version's output.)
 const toGitPath = (p) => p.replace(/\\/g, "/");
 
 // Only these two header lines are "audit", per `D-205`: an actor and a
@@ -97,8 +86,7 @@ const AUDIT_FIELD_LINE = /^-\s*\*\*(Verified-By|Verified-At-Commit):\*\*/;
 /**
  * `true` when every added/removed line in a unified diff's body is an
  * audit-field line (or blank). Pure — takes plain diff text, no git — so a
- * fixture can assert it directly against a synthetic diff, the same
- * separation `governed-intent.mjs`'s `classifyChangedPaths()` uses.
+ * fixture can assert it directly against a synthetic diff.
  *
  * Diff metadata lines (`diff --git`, `index`, `---`, `+++`, `@@`) are
  * ignored; only real content lines (a single leading `+`/`-`, not `+++`/
@@ -119,70 +107,111 @@ export function isAuditOnlyDiff(diffText) {
 }
 
 /**
- * The pure decision, apart from any git plumbing — so a fixture can assert
- * it directly against synthetic values instead of fabricating real commits.
+ * The Resolution value after applying `diffText`, given what it was before.
+ * Pure — reads only the diff's ADDED lines, via the shared line-bounded
+ * `field()` parser, so a placeholder or blank added line is correctly not a
+ * value (same rule `handoff-fields.mjs` applies everywhere else).
  *
- * `priorResolution` is the Resolution value as of the commit BEFORE the
- * last commit that was not audit-only (`walkToLastSubstantive` finds that
- * commit) — not merely "one commit back", which is what `B-112` showed was
- * wrong.
+ * If the diff does not touch the `Resolution:` line at all, `priorResolution`
+ * is returned unchanged — the common case for every non-disposition edit.
  */
-export function decideTerminalReturn({ currentResolution, priorResolution, hasReturnRecord, historyCount }) {
-  const current = String(currentResolution || "").toLowerCase();
-  if (!TERMINAL.has(current)) return { flag: false, reason: "not terminal" };
-  if (hasReturnRecord) return { flag: false, reason: "has a Return record" };
-  if (historyCount < 2) return { flag: false, reason: "born terminal, nothing after it" };
-  const prior = String(priorResolution || "").toLowerCase();
-  if (!TERMINAL.has(prior)) return { flag: false, reason: "this commit is what made it terminal" };
-  return { flag: true, reason: "already terminal before the last substantive commit, and touched again with no Return record" };
+export function resolutionAfterDiff(diffText, priorResolution) {
+  const added = String(diffText)
+    .split("\n")
+    .filter((l) => /^\+/.test(l) && !/^\+\+\+/.test(l))
+    .map((l) => l.slice(1))
+    .join("\n");
+  const next = field(added, "Resolution");
+  return next !== null ? next : priorResolution;
 }
 
-/** Commit hashes touching `path`, newest first. Injectable `exec` so a
- * fixture can prove the argument shape without a real subprocess, matching
- * `docs-drift.mjs`'s `getChangedPaths()`. */
-export function fileHistory(path, exec = execFileSync) {
-  return exec("git", ["log", "--format=%H", "--", toGitPath(path)], {
-    encoding: "utf8",
-    stdio: ["ignore", "pipe", "ignore"],
-  })
+/**
+ * Every commit cited by a `Returned-At-Commit:` or `Annotated-At-Commit:`
+ * line anywhere in `text` (fences stripped, so an illustrative example never
+ * counts — the exact false positive `B-112` found in `B-097`'s own draft).
+ * A file may carry several Terminal annotation records, one per historically
+ * annotated commit; this collects all of them, not just the first — `field()`
+ * alone would only see the first occurrence in the document.
+ */
+export function coveredCommits(text) {
+  const real = stripFences(text);
+  const out = new Set();
+  for (const m of real.matchAll(/^-\s*\*\*(?:Returned-At-Commit|Annotated-At-Commit):\*\*[ \t]*(.*)$/gm)) {
+    const v = m[1].trim();
+    if (v && !/^(<.*>|[—–-]+|\?+|n\/a|tbd|pending.*)$/i.test(v)) out.add(v);
+  }
+  return out;
+}
+
+/**
+ * The index of `steps` where the file's CURRENT (most recent) terminal
+ * episode began — the newest commit whose resolution-after is terminal
+ * while the one before it was not. `-1` if the file has never entered a
+ * terminal episode. `steps` is `[{resolutionAfter}]` oldest first.
+ *
+ * DELIBERATELY THE MOST RECENT SUCH TRANSITION, NOT THE FIRST EVER. A file
+ * can dip into a terminal state and back out long before this mechanism
+ * existed (`B-001`: `Verified` -> `Applied` -> `Verified`, all in
+ * 2026-08-21, weeks before `B-097` was raised) — re-litigating every such
+ * ancient, unrelated fluctuation is not what "fix the multi-cycle gap"
+ * means. Scoping to the CURRENT episode still fixes `B-113`'s actual
+ * finding: an old Return/Terminal-annotation citation belongs to whichever
+ * episode it was written for, and a NEW episode starting later needs its
+ * own — this function is what makes "later" computable at all.
+ */
+export function currentEpisodeStart(steps) {
+  let prior = null;
+  let start = -1;
+  for (let i = 0; i < steps.length; i++) {
+    const wasTerminal = TERMINAL.has(String(prior || "").toLowerCase());
+    const isTerminal = TERMINAL.has(String(steps[i].resolutionAfter || "").toLowerCase());
+    if (!wasTerminal && isTerminal) start = i;
+    prior = steps[i].resolutionAfter;
+  }
+  return start;
+}
+
+/**
+ * Walk one file's history, chronologically (oldest first), across only its
+ * CURRENT terminal episode (see `currentEpisodeStart`). `steps` is
+ * `[{commit, resolutionAfter, isAuditOnly}]` in that order. `covered` is the
+ * `coveredCommits()` set from the file's CURRENT content. Pure — no git —
+ * so a fixture can assert it directly against a synthetic sequence.
+ *
+ * Returns the commit hashes that are violations: a commit inside the
+ * current episode that is neither audit-only nor named by a Return/Terminal
+ * annotation record's own commit citation.
+ */
+export function walkEpisodes(steps, covered) {
+  const start = currentEpisodeStart(steps);
+  if (start < 0) return [];
+  const violations = [];
+  for (let i = start + 1; i < steps.length; i++) {
+    const step = steps[i];
+    if (!step.isAuditOnly && !covered.has(step.commit)) violations.push(step.commit);
+  }
+  return violations;
+}
+
+/** Commit hashes touching `path`. `reverse: true` returns oldest first. */
+export function fileHistory(path, { reverse = false, exec = execFileSync } = {}) {
+  const args = ["log", "--format=%H"];
+  if (reverse) args.push("--reverse");
+  args.push("--", toGitPath(path));
+  return exec("git", args, { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] })
     .trim()
     .split("\n")
     .filter(Boolean);
 }
 
-/** The file's content as of `sha`. Injectable for the same reason. */
-export function contentAt(path, sha, exec = execFileSync) {
-  return exec("git", ["show", `${sha}:${toGitPath(path)}`], {
-    encoding: "utf8",
-    stdio: ["ignore", "pipe", "ignore"],
-  });
-}
-
-/** The diff for `path` between two commits. Injectable for the same reason. */
+/** The diff for `path` between two commits. Injectable for the same reason
+ * `docs-drift.mjs`'s `getChangedPaths()` is — a fixture can prove the
+ * argument shape without a real subprocess. */
 export function diffAt(path, shaOld, shaNew, exec = execFileSync) {
   return exec("git", ["diff", shaOld, shaNew, "--", toGitPath(path)], {
     encoding: "utf8",
     stdio: ["ignore", "pipe", "ignore"],
   });
-}
-
-/**
- * Walk `history` (newest first, length >= 2) past any leading run of
- * audit-only commits. Returns the index of the newest commit that is NOT
- * audit-only relative to its predecessor, or `history.length - 1` (the
- * oldest commit fetched) if every step so far was audit-only.
- *
- * `B-112`'s finding: comparing only `history[0]` vs `history[1]` reads a
- * `D-205` bulk audit-normalization commit as if it were the substantive
- * touch. This walks back until it finds a real one, or runs out of the
- * history this run fetched.
- */
-export function walkToLastSubstantive(path, history, exec = execFileSync) {
-  for (let i = 0; i < history.length - 1; i++) {
-    const diff = diffAt(path, history[i + 1], history[i], exec);
-    if (!isAuditOnlyDiff(diff)) return i;
-  }
-  return history.length - 1;
 }
 
 function isShallow() {
@@ -216,69 +245,64 @@ export function run() {
   }
 
   const entries = readdirSync(DIR).filter((f) => ENTRY_FILE.test(f));
-  let checked = 0;
-  let cleared = 0;
-  const candidates = [];
+  const findings = [];
+  let filesChecked = 0;
 
   for (const file of entries) {
     const path = join(DIR, file);
     const text = readFileSync(path, "utf8");
+
+    // Scoped to files whose CURRENT Resolution is terminal — this check
+    // protects a live terminal header, not every ancient fluctuation
+    // through a terminal value on the way to somewhere else. `B-001`
+    // (`Verified` -> `Applied` -> `Verified`, all in 2026-08-21, weeks
+    // before `B-097` existed) is exactly the case this gate excludes; its
+    // dip through `Applied` is unrelated history, not a live concealment.
     const currentResolution = field(text, "Resolution");
     if (!currentResolution || !TERMINAL.has(currentResolution.toLowerCase())) continue;
 
-    checked++;
-    const hasReturnRecord = RETURN_HEADING.test(stripFences(text)); // an illustrative fence is not a live return
-
     let history;
     try {
-      history = fileHistory(path);
+      history = fileHistory(path, { reverse: true });
     } catch {
       continue; // history unreadable for this one file — not a finding
     }
-    if (history.length < 2) continue;
+    if (history.length < 2) continue; // born once, nothing "after" to walk
 
-    let substantiveIdx;
-    try {
-      substantiveIdx = walkToLastSubstantive(path, history);
-    } catch {
-      continue; // a diff in the walk failed — not this check's job to guess past that
-    }
+    const covered = coveredCommits(text);
 
-    // Every step to the oldest fetched commit was audit-only: nothing
-    // substantive has touched this file since it became terminal.
-    if (substantiveIdx >= history.length - 1) {
-      cleared++;
-      continue;
-    }
-
+    const steps = [];
     let priorResolution = null;
-    try {
-      priorResolution = field(contentAt(path, history[substantiveIdx + 1]), "Resolution");
-    } catch {
-      continue; // the path did not exist at that commit — not this check's job
+    let ok = true;
+    for (let i = 0; i < history.length - 1; i++) {
+      let diff;
+      try {
+        diff = diffAt(path, history[i], history[i + 1]);
+      } catch {
+        ok = false;
+        break; // a diff in the walk failed — not this check's job to guess past that
+      }
+      const resolutionAfter = resolutionAfterDiff(diff, priorResolution);
+      steps.push({ commit: history[i + 1], resolutionAfter, isAuditOnly: isAuditOnlyDiff(diff) });
+      priorResolution = resolutionAfter;
     }
+    if (!ok) continue;
 
-    const { flag } = decideTerminalReturn({
-      currentResolution,
-      priorResolution,
-      hasReturnRecord,
-      historyCount: history.length,
-    });
+    filesChecked++;
 
-    if (flag) candidates.push(file);
-    else cleared++;
+    const violations = walkEpisodes(steps, covered);
+    for (const commit of violations) {
+      findings.push(
+        `${path}: ${commit.slice(0, 7)} touched this file inside a terminal episode with no audit-only diff and no Return/Terminal-annotation record citing it (\`B-113\`). Add a \`## Terminal annotation record\` citing \`${commit}\` if the episode's terminal state was preserved, or a \`## Return record\` if it genuinely returned.`,
+      );
+    }
   }
 
-  // `B-112`, Row 1: this check cannot prove a candidate is a concealed
-  // return rather than a bounded terminal annotation — that distinction is
-  // not yet governed SOP. `findings` therefore stays empty (never fails the
-  // suite); the candidates are named in `detail` for a human to classify,
-  // the same way `lane-boundary` reports an unmapped path without failing
-  // on it. Reinstate `findings` here once an annotation convention exists.
+  const violatingFiles = new Set(findings.map((f) => f.split(":")[0]));
   const detail =
-    checked === 0
-      ? "no terminal entries to check"
-      : `${checked} terminal entr${checked === 1 ? "y" : "ies"} checked, ${cleared} cleared (audit-only or returned), ${candidates.length} candidate(s) for human classification (report-only, B-112)${candidates.length ? `: ${candidates.join(", ")}` : ""}`;
+    filesChecked === 0
+      ? "no file has ever entered a terminal episode"
+      : `${filesChecked} file(s) with at least one terminal episode walked in full; ${filesChecked - violatingFiles.size} clean, ${violatingFiles.size} with an uncovered step`;
 
-  return { name: "terminal-return", findings: [], detail };
+  return { name: "terminal-return", findings, detail };
 }

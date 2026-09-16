@@ -34,8 +34,8 @@
   separately from this application.
 - **Resolution:** Applied
 - **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** independent review of `4f3bb95e2e78a9efdfb0ff09f994cf17bc2a748f`; per-file history and diffs for all 12 originally reported entries, confirming `B-008`/`B-017`'s cited shapes exactly; `scripts/checks/terminal-return.mjs`'s corrected `isAuditOnlyDiff`/`walkToLastSubstantive`; `bun run check` and `bun run fixtures` at the corrected commit
-- **Verified-At-Commit:** 980d8d1fdf60b7eda9ca6e83e28b06f636c22e49
+- **Evidence:** independent review of `4f3bb95e2e78a9efdfb0ff09f994cf17bc2a748f`; per-file history and diffs for all 12 originally reported entries, confirming `B-008`/`B-017`'s cited shapes exactly; `scripts/checks/terminal-return.mjs`'s corrected `isAuditOnlyDiff`/`walkToLastSubstantive`; `bun run check` 18/18 and `bun run fixtures` 118/118 at `9afbb9b`; `B-113`'s independent catch of this entry's own stale audit anchor
+- **Verified-At-Commit:** 33687530f36a0bd3fdd1b06f625404cb9efdf827
 
 ## What happened
 
@@ -124,3 +124,13 @@ did not modify Lane A's SOP, template or checks.
 | Approve-with-conditions | B-097 independent verification | Phase 1 — correct B-112, obtain a green full suite, then Lane B re-verifies |
 | Defer | B-103 P3 and whole-entry closure | After B-097 is independently Verified |
 | Defer | Stage 2 runtime evidence and C-001 execution | Their existing separately authorized Lane B/C and Phase 3 units |
+
+## Correction — audit anchor repaired, 2026-09-16
+
+`B-113` caught, correctly, that this entry's own Lane A answer left `<pending commit>` unfilled
+and its `Verified-At-Commit` at `980d8d1` — the commit *before* the correction it describes, not
+after. The correction itself landed at `d80167b` (the behavioral fix: `isAuditOnlyDiff`,
+`walkToLastSubstantive`, report-only `run()`); a separate fixture-mock defect in that same change
+(wrong `exec` call signature, caught by `bun run fixtures` itself) was fixed at `9afbb9b`.
+`Verified-At-Commit` above now reads the commit this correction note was written against. No
+finding, disposition or evidence changes — only the citation was stale.

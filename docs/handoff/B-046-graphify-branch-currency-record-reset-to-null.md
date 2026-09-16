@@ -51,3 +51,16 @@ properties and leave `docs-drift` correctly red.
 
 Rebuilt extraction, confirmed the migration is queryable, recorded the null currency state, and
 did not edit or commit gitignored Graphify runtime artifacts.
+
+## Terminal annotation record
+
+- **Current-Resolution:** Superseded
+- **Annotation-Type:** correction
+- **Annotation-Act:** `D-122`, 2026-08-25 (raised as `B-050`) — the `Withdrawn` disposition above
+  was premature. A single later observation that the null-currency state had recovered could not
+  distinguish "repaired" from "intermittent," and `B-050` reproduced the condition live again.
+  `Resolution` was corrected from `Withdrawn` to `Superseded` in the same commit; the entry never
+  passed through `Open` and no investigative scope reopened — only which terminal label applies
+  changed
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 5f86ef12ccf0fb60acf6098742f453ef775c6f41

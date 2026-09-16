@@ -29,6 +29,22 @@ disposition), and append this block. All four facts are required.
 - **Returned-At-Commit:** <the existing commit whose state was read>
 -->
 
+<!-- OPTIONAL — only when a commit touches an already-terminal entry WITHOUT
+reopening it (`B-113`): audit normalization, a correction to the terminal
+disposition, verification evidence, or a cross-reference. Status/Resolution/
+Follow-up-Tier stay exactly as they are — this does not return the entry.
+A file may carry several; add one per annotated commit. All five facts are
+required, and No-Scope-Reopened must read exactly `true`.
+
+## Terminal annotation record
+
+- **Current-Resolution:** <the terminal resolution as of this commit>
+- **Annotation-Type:** metadata-normalization | verification-evidence | cross-reference | correction
+- **Annotation-Act:** <decision, finding or correction act; date and source locus>
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** <the existing commit whose state was read>
+-->
+
 ## What happened
 
 <What you were doing, and what you hit. Name the file, spec section, or requirement ID.>

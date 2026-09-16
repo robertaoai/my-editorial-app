@@ -299,14 +299,47 @@ These facts belong in one body record rather than explanatory prose folded into 
 `Verified-At-Commit`. The old terminal disposition stays visible in Git history and in the explicit
 return record; the active header describes only the entry's current state.
 
-**`handoff-response` and `terminal-return` enforce this, in different ways, and neither
-substitutes for the other:** `handoff-response` (check 10) validates a `## Return record`'s FORM — all four facts present, the
-commit hexadecimal, and no terminal `Resolution`/`Follow-up-Tier` surviving next to it. It needs no
-git history, so it runs in CI. `terminal-return` (check 18) is the other half: it needs per-file
-git history to tell whether a *currently* terminal entry was touched again after it was already
-terminal with no `## Return record` ever added — the case a form check cannot see because there is
-no form to be missing. It SKIPS on a shallow CI checkout, exactly like `source-sweep`/`docs-drift`/
-`graph-coverage`, and must be run locally before a closure claim relies on it.
+### Terminal annotation record — a correction that does NOT reopen scope — `B-113`
+
+Not every post-terminal edit is a return. Audit-field normalization (`D-205`), a correction to the
+terminal disposition itself, verification evidence, or a cross-reference that expressly preserves
+the entry's deferred/verified/withdrawn/superseded state are real, legitimate edits that do not
+resume active work. Forcing these through the Return record — `Status: Open`, a fabricated
+trigger and act — would corrupt the record to satisfy a form it does not fit (`B-112`'s finding
+against this check's own first version).
+
+A **Terminal annotation record** certifies the opposite of a return: this commit touched an
+already-terminal entry, and no scope reopened.
+
+```markdown
+## Terminal annotation record
+
+- **Current-Resolution:** <the terminal resolution as of this commit>
+- **Annotation-Type:** metadata-normalization | verification-evidence | cross-reference | correction
+- **Annotation-Act:** <decision, finding or correction act; date and source locus>
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** <existing commit whose state was read>
+```
+
+A file may carry several — one per historically annotated commit. `Current-Resolution` is the
+value as of that commit, not necessarily unchanged from before it: a correction may itself change
+*which* terminal disposition applies (`Withdrawn` → `Superseded` is still terminal throughout,
+never passing through `Open`), and that is still an annotation, not a return, because no active
+work resumed. `No-Scope-Reopened` must read exactly `true` — a record asserting otherwise belongs
+in `## Return record` instead, not here with the opposite claim.
+
+**`handoff-response`, `terminal-return` and `channel-docs` enforce this together, and none
+substitutes for the others:** `handoff-response` (check 10) validates a `## Return record`'s and
+every `## Terminal annotation record`'s FORM — all facts present, commits hexadecimal, `Annotation-
+Type` one of the four governed values, `No-Scope-Reopened` literally `true`. It needs no git
+history, so it runs in CI. `terminal-return` (check 18) is the history-aware half: it walks a
+file's FULL commit history, one terminal episode at a time — a file enters an episode the moment
+its Resolution first becomes terminal, and every commit inside that episode must be audit-only, or
+named by a Return record (episode ends) or a Terminal annotation record (episode continues) whose
+own commit citation matches that exact commit. A LATER terminal episode is a NEW episode: an older
+citation does not cover it (`B-113`'s fix to `B-112`'s remaining gap — a stale Return record used
+to exempt a file forever). It SKIPS on a shallow CI checkout, exactly like `source-sweep`/
+`docs-drift`/`graph-coverage`, and must be run locally before a closure claim relies on it.
 
 ## Answering — Lane A
 

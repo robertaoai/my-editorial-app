@@ -903,3 +903,16 @@ Judge ruling, read fresh rather than assumed unchanged:
 | Approve | Independent cross-artifact review — no drift in Modular PRD, storyboard/panels, UML/data flow, traceability map, Graphify | Complete this pass |
 | Approve-with-conditions | Encyclopedia Entry 05 | Phase 1 — pre-existing `D-168` staleness, unrelated to this entry; carried forward on its own ledger, not closed here |
 | Defer | C-001 Phase 3 execution (`C-24`, `C-25`, Lane C selection, positive/negative run) | Phase 2→3 — unchanged by this ruling |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Deferred
+- **Annotation-Type:** correction
+- **Annotation-Act:** Chief Editor/Judge, 2026-09-16 (`Judge Approved: decision-tree decision`)
+  approved the P0–P3 disposition recorded above. The same commit (`b089f6c`) corrected the P2
+  child's disposition token from the noncanonical `Verified — Stage 1` to the governed `Verified`
+  per `B-111`'s independent finding, and answered the "Judge clarification — C-001 review complete"
+  sub-topic. No P0–P3 child disposition, the whole-entry header, or C-001's own lifecycle changed
+  as a result
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** b089f6c815f4db44513c4af1e2378773168d1b2e

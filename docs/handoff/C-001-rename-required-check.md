@@ -107,3 +107,14 @@ readiness record only: it does not run the workflow, repair the ruleset, or prod
 proof. This entry's header, `Resolution: Deferred`, and `Follow-up-Tier` stand exactly as recorded
 on 2026-08-24 — unchanged by this note — and stay gated on `C-24`, `C-25`, an explicit Chief Editor
 Lane C selection, and a real positive/negative run.
+
+## Terminal annotation record
+
+- **Current-Resolution:** Deferred
+- **Annotation-Type:** cross-reference
+- **Annotation-Act:** `B-103`'s "Judge clarification — C-001 review complete" section, 2026-09-15,
+  recorded the review-ready/scheduling-conditional/execution-deferred distinction; the cross-
+  reference above was added here in the same commit (`47666c4`) to record it on this side too.
+  `C-24`, `C-25`, and the Phase 3 execution conditions are unchanged
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 47666c46b06a082a12ef18101ecb53d82a58af7a

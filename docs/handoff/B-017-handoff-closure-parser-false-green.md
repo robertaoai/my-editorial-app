@@ -99,3 +99,15 @@ handoff metadata group remains 22/22. It is a Lane A fixture defect.
 is explicitly `Applied`, write that copy before the first two scoping assertions, and restore the
 original bytes afterward. The fixture must manufacture the non-terminal precondition it claims
 to test rather than borrowing mutable backlog state. Then rerun all 66 fixtures.
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** correction
+- **Annotation-Act:** Lane A's own post-verification review, 2026-08-29, found a distinct fixture
+  defect — the `phaseScope` suite borrowed this entry's own live `Resolution` as its non-terminal
+  precondition instead of manufacturing one, so promoting this entry to `Verified` silently broke
+  that unrelated fixture. Recorded as its own owner in the section above rather than a duplicate
+  ledger; the parser repair this entry `Verified` is explicitly not reopened
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 650e2f5bc7ad52cdaf2cee37f2025c05c07db506

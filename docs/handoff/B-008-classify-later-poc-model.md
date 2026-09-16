@@ -49,3 +49,11 @@ conversation, and do not place POC commercial fields in AP-01's Q11/0002.
 Performed no POC payment, cart, account, schema, portal, or provider implementation.
 
 ---
+
+## Terminal annotation record
+
+- **Current-Resolution:** Superseded
+- **Annotation-Type:** metadata-normalization
+- **Annotation-Act:** `D-102` (raised as `B-017`) required every entry to carry a `Phase:` value for phase-scoped closure gating; backfilled here without touching the `Superseded` disposition, its evidence, or the `D-99` supersession it records
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** d6d406ae1d4045a6c3db9d85856120e6c65a5fa6

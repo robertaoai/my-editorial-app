@@ -12,7 +12,15 @@ import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
 import { classify } from "../checks/lane-boundary.mjs";
 import { classifyChangedPaths } from "../checks/governed-intent.mjs";
 import { getChangedPaths } from "../checks/docs-drift.mjs";
-import { decideTerminalReturn, fileHistory, contentAt, isAuditOnlyDiff, diffAt, walkToLastSubstantive } from "../checks/terminal-return.mjs";
+import {
+  isAuditOnlyDiff,
+  resolutionAfterDiff,
+  coveredCommits,
+  currentEpisodeStart,
+  walkEpisodes,
+  fileHistory,
+  diffAt,
+} from "../checks/terminal-return.mjs";
 
 const CHECK = (n) => new URL(`../checks/${n}`, import.meta.url).href;
 
@@ -1352,53 +1360,199 @@ export async function returnRecordForm(results) {
   });
 }
 
+/** `B-113` — the Terminal annotation record's FORM, validated by
+ * `handoff-response`. Unlike a Return record, this does NOT touch
+ * Status/Resolution — an annotation preserves the terminal header. */
+export async function terminalAnnotationForm(results) {
+  const orig = read(ENTRY);
+  const restore = () => write(ENTRY, orig);
+
+  const annotated = (fields = {}) => {
+    const f = {
+      "Current-Resolution": "Verified",
+      "Annotation-Type": "correction",
+      "Annotation-Act": "test act, Chief Editor/Judge, 2026-09-16",
+      "No-Scope-Reopened": "true",
+      "Annotated-At-Commit": "67706ca",
+      ...fields,
+    };
+    const block = Object.entries(f)
+      .filter(([, v]) => v !== null)
+      .map(([k, v]) => `- **${k}:** ${v}`)
+      .join("\n");
+    return `${orig}\n\n## Terminal annotation record\n\n${block}\n`;
+  };
+
+  await fixture(results, {
+    name: "terminal annotation: complete shape, terminal header untouched — passes",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, annotated()),
+    restore,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "terminal annotation: an illustrative fenced EXAMPLE is not a live annotation",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () =>
+      write(
+        ENTRY,
+        `${orig}\n\n\`\`\`markdown\n## Terminal annotation record\n\n- **Current-Resolution:** Deferred\n- **Annotation-Type:** <type>\n- **Annotation-Act:** <act>\n- **No-Scope-Reopened:** true\n- **Annotated-At-Commit:** <commit>\n\`\`\`\n`,
+      ),
+    restore,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "terminal annotation: missing Annotation-Act (field absent, not merely blank)",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, annotated({ "Annotation-Act": null })),
+    restore,
+    expect: "no **Annotation-Act:**",
+  });
+  await fixture(results, {
+    name: "terminal annotation: blank Current-Resolution",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, annotated({ "Current-Resolution": "" })),
+    restore,
+    expect: "**Current-Resolution:** is present but BLANK",
+  });
+  await fixture(results, {
+    name: "terminal annotation: Annotation-Type outside the four governed values",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, annotated({ "Annotation-Type": "reopening" })),
+    restore,
+    expect: "is not one of metadata-normalization",
+  });
+  await fixture(results, {
+    name: "terminal annotation: No-Scope-Reopened is false — belongs in a Return record instead",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, annotated({ "No-Scope-Reopened": "false" })),
+    restore,
+    expect: "is not `true`",
+  });
+  await fixture(results, {
+    name: "terminal annotation: Annotated-At-Commit is not hexadecimal",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(ENTRY, annotated({ "Annotated-At-Commit": "not-a-commit" })),
+    restore,
+    expect: "is not a hexadecimal commit SHA",
+  });
+  await fixture(results, {
+    name: "terminal annotation: two records on one file are each validated independently",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () =>
+      write(
+        ENTRY,
+        `${annotated()}\n\n## Terminal annotation record\n\n- **Current-Resolution:** Verified\n- **Annotation-Type:** cross-reference\n- **Annotation-Act:**\n- **No-Scope-Reopened:** true\n- **Annotated-At-Commit:** 58072b5\n`,
+      ),
+    restore,
+    expect: "**Annotation-Act:** is present but BLANK",
+  });
+}
+
 /**
- * `B-097` — `terminal-return`'s history-aware half. Two kinds of case:
+ * `B-097`/`B-113` — `terminal-return`'s history-aware half, three kinds of case:
  *
- *   1. The PURE decision (`decideTerminalReturn`) against synthetic values —
- *      no git, no file mutation, same separation `governed-intent.mjs`'s
- *      `classifyChangedPaths()` fixtures already use.
- *   2. The git plumbing (`fileHistory`/`contentAt`) against a MOCKED exec —
- *      proves the argument shape is safe, the same way
- *      `docsDriftArgumentSafety` proves it for `getChangedPaths()`, since
- *      this check is the newest thing in the apparatus doing per-file
- *      subprocess calls and `B-109` is the reason that is not assumed safe
- *      by default.
+ *   1. PURE decisions (`currentEpisodeStart`, `walkEpisodes`) against
+ *      synthetic step sequences — no git, no file mutation, same separation
+ *      `governed-intent.mjs`'s `classifyChangedPaths()` fixtures use.
+ *   2. PURE classifiers (`isAuditOnlyDiff`, `resolutionAfterDiff`,
+ *      `coveredCommits`) against synthetic diff/text — same reason.
+ *   3. Git plumbing (`fileHistory`/`diffAt`) against a MOCKED exec — proves
+ *      the argument shape is safe, the same way `docsDriftArgumentSafety`
+ *      proves it for `getChangedPaths()`.
  */
 export async function terminalReturnDecision(results) {
-  const cases = [
+  // --- currentEpisodeStart: which transition counts as "current" ----------
+  const episodeStartCases = [
     {
-      name: "terminal-return: already terminal a commit back, touched again, no Return record — FLAGS",
-      input: { currentResolution: "Deferred", priorResolution: "Deferred", hasReturnRecord: false, historyCount: 3 },
-      check: (r) => r.flag === true,
+      name: "currentEpisodeStart: never terminal — -1",
+      steps: [{ resolutionAfter: "Open" }, { resolutionAfter: "Answered" }],
+      expect: -1,
     },
     {
-      name: "terminal-return: this commit is what MADE it terminal — does not flag",
-      input: { currentResolution: "Deferred", priorResolution: "Open", hasReturnRecord: false, historyCount: 2 },
-      check: (r) => r.flag === false,
+      name: "currentEpisodeStart: one transition into terminal — finds it",
+      steps: [{ resolutionAfter: "Open" }, { resolutionAfter: "Deferred" }],
+      expect: 1,
     },
     {
-      name: "terminal-return: Applied is not in the terminal set — does not flag (an independent Verified upgrade stays healthy)",
-      input: { currentResolution: "Applied", priorResolution: "Applied", hasReturnRecord: false, historyCount: 3 },
-      check: (r) => r.flag === false,
+      name: "currentEpisodeStart: terminal from the very first step (prior is null, not Open)",
+      steps: [{ resolutionAfter: "Withdrawn" }],
+      expect: 0,
     },
     {
-      name: "terminal-return: a Return record present — does not flag, regardless of history",
-      input: { currentResolution: "Deferred", priorResolution: "Deferred", hasReturnRecord: true, historyCount: 5 },
-      check: (r) => r.flag === false,
-    },
-    {
-      name: "terminal-return: born terminal in its first commit — does not flag",
-      input: { currentResolution: "Withdrawn", priorResolution: null, hasReturnRecord: false, historyCount: 1 },
-      check: (r) => r.flag === false,
+      // `B-001`'s real shape: Verified -> Applied -> Verified. The CURRENT
+      // episode starts at the LAST such transition (index 2), not the first
+      // (index 0) — re-litigating the first would punish the 2026-08-21 dip
+      // that happened weeks before `B-097` existed and was never touched again.
+      name: "currentEpisodeStart: Verified -> Applied -> Verified — finds the MOST RECENT entry, not the first",
+      steps: [{ resolutionAfter: "Verified" }, { resolutionAfter: "Applied" }, { resolutionAfter: "Verified" }],
+      expect: 2,
     },
   ];
-  for (const c of cases) {
-    const r = decideTerminalReturn(c.input);
-    const ok = c.check(r);
-    results.push({ name: c.name, ok, detail: ok ? `flag=${r.flag}` : `unexpected: ${JSON.stringify(r)}` });
+  for (const c of episodeStartCases) {
+    const got = currentEpisodeStart(c.steps);
+    const ok = got === c.expect;
+    results.push({ name: c.name, ok, detail: ok ? `start=${got}` : `expected ${c.expect}, got ${got}` });
   }
 
+  // --- walkEpisodes: violations within the CURRENT episode only -----------
+  const walkCases = [
+    {
+      name: "walkEpisodes: already terminal, touched again, not covered — FLAGS that commit",
+      steps: [
+        { commit: "c1", resolutionAfter: "Deferred", isAuditOnly: false },
+        { commit: "c2", resolutionAfter: "Deferred", isAuditOnly: false },
+      ],
+      covered: new Set(),
+      expect: ["c2"],
+    },
+    {
+      name: "walkEpisodes: the commit that MADE it terminal is not itself flagged",
+      steps: [{ commit: "c1", resolutionAfter: "Deferred", isAuditOnly: false }],
+      covered: new Set(),
+      expect: [],
+    },
+    {
+      name: "walkEpisodes: audit-only step — does not flag",
+      steps: [
+        { commit: "c1", resolutionAfter: "Deferred", isAuditOnly: false },
+        { commit: "c2", resolutionAfter: "Deferred", isAuditOnly: true },
+      ],
+      covered: new Set(),
+      expect: [],
+    },
+    {
+      name: "walkEpisodes: covered by a matching citation — does not flag",
+      steps: [
+        { commit: "c1", resolutionAfter: "Deferred", isAuditOnly: false },
+        { commit: "c2", resolutionAfter: "Deferred", isAuditOnly: false },
+      ],
+      covered: new Set(["c2"]),
+      expect: [],
+    },
+    {
+      // `B-113`'s actual Row 4 finding: a citation for the FIRST episode
+      // (c2) must not protect an uncovered step in a SECOND, later episode
+      // (c5) that starts after a genuine return (c3, non-terminal).
+      name: "walkEpisodes: multi-cycle — an old episode's citation does not cover a later, separate episode",
+      steps: [
+        { commit: "c1", resolutionAfter: "Deferred", isAuditOnly: false }, // episode 1 starts
+        { commit: "c2", resolutionAfter: "Deferred", isAuditOnly: false }, // covered — episode 1's own annotation
+        { commit: "c3", resolutionAfter: "Open", isAuditOnly: false }, // returns — episode 1 ends
+        { commit: "c4", resolutionAfter: "Deferred", isAuditOnly: false }, // episode 2 starts
+        { commit: "c5", resolutionAfter: "Deferred", isAuditOnly: false }, // NOT covered — episode 2's own violation
+      ],
+      covered: new Set(["c2"]), // only episode 1's citation exists
+      expect: ["c5"],
+    },
+  ];
+  for (const c of walkCases) {
+    const got = walkEpisodes(c.steps, c.covered);
+    const ok = JSON.stringify(got) === JSON.stringify(c.expect);
+    results.push({ name: c.name, ok, detail: ok ? `violations=${JSON.stringify(got)}` : `expected ${JSON.stringify(c.expect)}, got ${JSON.stringify(got)}` });
+  }
+
+  // --- isAuditOnlyDiff -----------------------------------------------------
   // `B-112`: nine live entries were flagged by a single `D-205` bulk commit
   // that touched ONLY `Verified-By`/`Verified-At-Commit`. `isAuditOnlyDiff`
   // is the pure classifier that must say so — synthetic diffs, no git.
@@ -1433,43 +1587,69 @@ export async function terminalReturnDecision(results) {
     results.push({ name: c.name, ok, detail: ok ? `isAuditOnlyDiff=${got}` : `expected ${c.expect}, got ${got}` });
   }
 
-  {
-    // `walkToLastSubstantive` over a mocked history: two trailing audit-only
-    // steps, then a substantive one. Must land on the substantive index (2),
-    // not the newest (0) — that is exactly `B-112`'s Row 4/newest-two-only defect.
-    const history = ["c0", "c1", "c2", "c3"];
-    // `walkToLastSubstantive` calls `diffAt(path, shaOld, shaNew, exec)`, and
-    // `diffAt` itself calls `exec("git", ["diff", shaOld, shaNew, "--", path],
-    // opts)` — so the mock passed AS `exec` receives (cmd, args, opts), not
-    // (path, shaOld, shaNew) directly. Matching that real shape is the point:
-    // a mock with the wrong signature would silently ignore every case below.
-    const mockDiffAt = (cmd, args) => {
-      const [, shaOld, shaNew] = args;
-      const pair = `${shaOld}..${shaNew}`;
-      if (pair === "c1..c0") return "+- **Verified-By:** x\n";
-      if (pair === "c2..c1") return "+- **Verified-At-Commit:** x\n";
-      if (pair === "c3..c2") return "+## Real new section\n+actual content\n";
-      throw new Error(`unexpected pair ${pair}`);
-    };
-    const idx = walkToLastSubstantive("docs/handoff/B-999.md", history, mockDiffAt);
-    const ok = idx === 2;
-    results.push({
-      name: "walkToLastSubstantive: skips two trailing audit-only steps, lands on the substantive one",
-      ok,
-      detail: ok ? `idx=${idx}` : `expected 2, got ${idx}`,
-    });
+  // --- resolutionAfterDiff --------------------------------------------------
+  const resolutionCases = [
+    {
+      name: "resolutionAfterDiff: an added Resolution line changes the value",
+      diff: "@@ -9,0 +10 @@\n+- **Resolution:** Superseded\n",
+      prior: "Deferred",
+      expect: "Superseded",
+    },
+    {
+      name: "resolutionAfterDiff: a diff that never touches Resolution carries the prior value forward",
+      diff: "@@ -9,0 +10 @@\n+- **Phase:** 1\n",
+      prior: "Deferred",
+      expect: "Deferred",
+    },
+    {
+      name: "resolutionAfterDiff: a removed-line-only diff (blanked, no replacement) is a stated gap — prior carries forward, not corrected to blank",
+      diff: "@@ -9 +9,0 @@\n-- **Resolution:** Deferred\n",
+      prior: "Deferred",
+      expect: "Deferred", // documents the known limitation, not a claim it is right
+    },
+  ];
+  for (const c of resolutionCases) {
+    const got = resolutionAfterDiff(c.diff, c.prior);
+    const ok = got === c.expect;
+    results.push({ name: c.name, ok, detail: ok ? `resolution=${got}` : `expected ${c.expect}, got ${got}` });
   }
-  {
-    const history = ["c0", "c1", "c2"];
-    const mockDiffAt = () => "+- **Verified-By:** x\n";
-    const idx = walkToLastSubstantive("docs/handoff/B-999.md", history, mockDiffAt);
-    const ok = idx === history.length - 1;
-    results.push({
-      name: "walkToLastSubstantive: every step audit-only — lands on the oldest fetched commit, not flagged as substantive",
-      ok,
-      detail: ok ? `idx=${idx}` : `expected ${history.length - 1}, got ${idx}`,
-    });
+
+  // --- coveredCommits --------------------------------------------------------
+  const coveredCases = [
+    {
+      name: "coveredCommits: a Return record's Returned-At-Commit is covered",
+      text: "## Return record\n\n- **Returned-At-Commit:** abc1234\n",
+      expect: ["abc1234"],
+    },
+    {
+      name: "coveredCommits: a Terminal annotation record's Annotated-At-Commit is covered",
+      text: "## Terminal annotation record\n\n- **Annotated-At-Commit:** def5678\n",
+      expect: ["def5678"],
+    },
+    {
+      name: "coveredCommits: several Terminal annotation records each contribute their own citation",
+      text:
+        "## Terminal annotation record\n\n- **Annotated-At-Commit:** aaa1111\n\n## Terminal annotation record\n\n- **Annotated-At-Commit:** bbb2222\n",
+      expect: ["aaa1111", "bbb2222"],
+    },
+    {
+      name: "coveredCommits: a fenced illustrative example contributes nothing",
+      text: "```markdown\n## Terminal annotation record\n\n- **Annotated-At-Commit:** <commit>\n```\n",
+      expect: [],
+    },
+    {
+      name: "coveredCommits: a placeholder value is not a citation",
+      text: "## Terminal annotation record\n\n- **Annotated-At-Commit:** <existing commit>\n",
+      expect: [],
+    },
+  ];
+  for (const c of coveredCases) {
+    const got = [...coveredCommits(c.text)].sort();
+    const ok = JSON.stringify(got) === JSON.stringify([...c.expect].sort());
+    results.push({ name: c.name, ok, detail: ok ? `covered=${JSON.stringify(got)}` : `expected ${JSON.stringify(c.expect)}, got ${JSON.stringify(got)}` });
   }
+
+  // --- git plumbing argument safety ------------------------------------------
   {
     const calls = [];
     const mockExec = (cmd, args) => {
@@ -1489,38 +1669,24 @@ export async function terminalReturnDecision(results) {
       detail: ok ? "argument array confirmed" : `calls=${JSON.stringify(calls)}`,
     });
   }
-
   {
     const calls = [];
     const mockExec = (cmd, args, opts) => {
       calls.push({ cmd, args, opts });
       return "abc1234\ndef5678\n";
     };
-    const out = fileHistory("docs\\handoff\\B-999 (evil) & whoami.md", mockExec);
+    const out = fileHistory("docs\\handoff\\B-999 (evil) & whoami.md", { reverse: true, exec: mockExec });
     const ok =
       calls.length === 1 &&
       calls[0].cmd === "git" &&
       Array.isArray(calls[0].args) &&
+      calls[0].args.includes("--reverse") &&
       calls[0].args[calls[0].args.length - 1] === "docs/handoff/B-999 (evil) & whoami.md" &&
       JSON.stringify(out) === JSON.stringify(["abc1234", "def5678"]);
     results.push({
-      name: "terminal-return: fileHistory normalizes backslashes and passes the path as ONE inert argument",
+      name: "terminal-return: fileHistory normalizes backslashes, requests --reverse, and passes the path as ONE inert argument",
       ok,
       detail: ok ? "argument array confirmed, path normalized" : `calls=${JSON.stringify(calls)}`,
-    });
-  }
-  {
-    const calls = [];
-    const mockExec = (cmd, args) => {
-      calls.push({ cmd, args });
-      return "file content\n";
-    };
-    contentAt("docs\\handoff\\B-999.md", "deadbeef", mockExec);
-    const ok = calls.length === 1 && calls[0].args[calls[0].args.length - 1] === "deadbeef:docs/handoff/B-999.md";
-    results.push({
-      name: "terminal-return: contentAt builds a forward-slash tree path, not a backslash one",
-      ok,
-      detail: ok ? "sha:path built with forward slashes" : `calls=${JSON.stringify(calls)}`,
     });
   }
 
@@ -1539,7 +1705,7 @@ export async function terminalReturnDecision(results) {
       Array.isArray(out.findings) &&
       typeof out.detail === "string" &&
       !out.skipped &&
-      /\d+ terminal entr/.test(out.detail);
+      /file\(s\) with at least one terminal episode|no file has ever entered/.test(out.detail);
     results.push({
       name: "terminal-return: the live repository, unmutated — runs against real history, does not skip",
       ok,
@@ -1551,6 +1717,7 @@ export async function terminalReturnDecision(results) {
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
   ["return record form (`B-097`)", returnRecordForm],
+  ["terminal annotation record form (`B-113`)", terminalAnnotationForm],
   ["terminal-return history-aware detection (`B-097`)", terminalReturnDecision],
   ["tier sweep fallback (`G98`, raised as `B-054`)", tierSweep],
   ["retention policy coupling (`D-134`)", retentionPolicyCoupling],

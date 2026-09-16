@@ -55,3 +55,11 @@ Stopped before any further Lane B implementation. Recorded the finding without e
 Lane A-owned phase document or changing the existing application artifacts.
 
 ---
+
+## Terminal annotation record
+
+- **Current-Resolution:** Superseded
+- **Annotation-Type:** metadata-normalization
+- **Annotation-Act:** `D-102` (raised as `B-017`) required every entry to carry a `Phase:` value for phase-scoped closure gating; backfilled here without touching the `Superseded` disposition, its evidence, or the `D-99`/`D-100` supersession it records
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** d6d406ae1d4045a6c3db9d85856120e6c65a5fa6
