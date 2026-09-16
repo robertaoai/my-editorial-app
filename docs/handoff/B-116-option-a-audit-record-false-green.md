@@ -5,7 +5,10 @@
 - **Phase:** 1
 - **Blocks:** independent verification of B-113, B-112 and B-097; B-103 P3 closure
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-09-16, receipt only.** The parent-first table and items 1–6 under
+  "What Lane A needs to do" are accepted as the next Lane A unit. `B-113`, `B-112` and `B-097` stay
+  `Applied` until that correction lands and Lane B independently verifies in the stated order
+  (`B-113` → `B-112` → `B-097` → `B-103` P3). No header field is edited by this acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** direct read of B-112/B-113/B-097 at `284b4ae`; `bun run check` 18/18; `bun run fixtures` 143/143 with the working tree restored; Graphify governed-intent baseline `0d2cc2b` and excluded-only handoff advance to `284b4ae`
 - **Verified-At-Commit:** 284b4ae87b7d80fc246d8832ecc038682f076c9a
