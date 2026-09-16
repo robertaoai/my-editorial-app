@@ -4,16 +4,32 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** defining the next Lane B/C construction packet; claiming strict TDD or unit-by-unit validation; deciding when an authorized implementation commit may be pushed
-- **Status:** Open
-- **Lane A:** **Acknowledged, receipt only, 2026-09-16.** Not yet substantively answered — the B-097/
+- **Status:** Answered
+- **Lane A:** **Surviving scope determined, 2026-09-16 (receipt of Lane B's B-117 backlog-aging
+  review).** `B-115` itself already names the split, rather than declaring this entry superseded
+  outright: "B-114 | Remains the testing-method source, corrected by B-115 on ownership and layer
+  order. Do not duplicate its test/commit details here in governed sources." Recording that
+  determination in this entry's own header rather than leaving it implicit only in B-115:
+
+  | Child | Disposition |
+  |---|---|
+  | Test-first units, atomic-commit and human-final-push method content | Live — remains this entry's content; not duplicated into governed sources per B-115 |
+  | MMF-as-construction-acceptance-boundary / build-ownership framing | Deferred — corrected by B-115's Intent/Build/DevOps-governance separation, pending B-115's own application to `docs/README.md`, the Register and lane-instruction documents |
+
+  Whole-entry `Resolution` takes the weaker child (`Deferred`), per `D-204`. No construction,
+  register act, or lane-instruction change is made by this header correction.
+
+  **Acknowledged, receipt only, 2026-09-16.** Not yet substantively answered — the B-097/
   B-112/B-113 terminal-return-protocol thread was Active this session and is now complete. `B-115`
   (raised the same day) states that this entry's MMF/build-ownership framing is superseded by its
   own Intent/Build/DevOps-governance separation; Lane A's actual answer belongs there, not
   duplicated here. No construction, register act, or lane-instruction change made from this
   acknowledgement.
+- **Resolution:** Deferred
 - **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** Chief Editor/Judge clarification of 2026-09-16; `docs/v1/V1-B071-CORRECTIVE-PLAN.md` `R76` and related no-operative-MMF criteria; `docs/v1/V1-BUILD-SPEC.md` bounded-unit and DoD rules; `docs/LANE-B-WORK-ORDER.md` §§1, 2 and 4; `.github/WORKFLOWS-SPEC.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/Modular_PRD.md` NFR-04/AC-NF-03; shared-core commit/push and lane rules
-- **Verified-At-Commit:** 70b60c3210bdb2fc14dca1155cd9074fff75810d
+- **Evidence:** Chief Editor/Judge clarification of 2026-09-16; `docs/v1/V1-B071-CORRECTIVE-PLAN.md` `R76` and related no-operative-MMF criteria; `docs/v1/V1-BUILD-SPEC.md` bounded-unit and DoD rules; `docs/LANE-B-WORK-ORDER.md` §§1, 2 and 4; `.github/WORKFLOWS-SPEC.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/Modular_PRD.md` NFR-04/AC-NF-03; shared-core commit/push and lane rules; B-115's explicit B-114 disposition line
+- **Verified-At-Commit:** 02fe8b6498268c8026cbc0271c9ef0b0c72c9b18
+- **Follow-up-Tier:** Phase 1 — closes when B-115's Intent/Build/DevOps separation is applied to governed sources and the ownership-framing child is corrected there
 
 ## Judge clarification received
 
