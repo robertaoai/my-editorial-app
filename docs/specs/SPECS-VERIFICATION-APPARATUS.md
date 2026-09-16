@@ -6,7 +6,7 @@
 **Authorized by:** `D-56`. **Not one of `D-52`'s four** — see §1.1.
 **Closes:** `R3` as a *specification*. Installation remains gated on the standing build guardrail.
 **Sprint:** `planning:T1` (Alpha-Portfolio sprint-readiness item) → precondition for S0. **Qualified
-2026-09-17 (`D-232` follow-on)** — this `T1` is unrelated to editorial `transition:T1`/Intake; see
+2026-09-17 (`D-233`)** — this `T1` is unrelated to editorial `transition:T1`/Intake; see
 `requirements-traceability-map.md` §6.2's namespace map. No identifier renamed.
 
 ---

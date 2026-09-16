@@ -37,27 +37,28 @@ derived `S2`/`S3`/`S4` rows in `Modular_PRD.md` §8.1 are **not** presumed to ma
 `V1-SM06` by number — that reconstruction is open work, not yet done (see `Modular_PRD.md` §8.0/§8.1
 cross-reference note).
 
-**DoR dependency, not construction authorization (`D-232` follow-on, corrected 2026-09-16 per Lane B
-independent review `B117-R4`/`B117-R5`).** `V1-SM05`'s pre-`T1` business boundary is settled — Judge
-clarification, `requirements-traceability-map.md` §6.1, `FN-GATES-01-05.md` §3.0. The earlier
-four-item list here omitted `docs/handoff/B-071`'s already-named `B071-R204` — three required
-Sheet 2 operations (`OP-PITCH`, `OP-DRAFT`, `OP-FINAL-SIGNOFF`) each with an unresolved executor/
-accountability contract. This is the consolidated parent checklist; it replaces, not duplicates, the
-earlier list:
+**DoR dependency, not construction authorization (`D-232` follow-on; operation contracts recorded
+under `D-233`, corrected 2026-09-17).** `V1-SM05`'s pre-`T1` business boundary is settled — Judge
+clarification, `requirements-traceability-map.md` §6.1, `FN-GATES-01-05.md` §3.0. `docs/handoff/
+B-071`'s `B071-R204` named three required Sheet 2 operations (`OP-PITCH`, `OP-DRAFT`,
+`OP-FINAL-SIGNOFF`); **all three now have a decided or accepted contract** (`D-233`,
+`factory-route-operation-crosswalk.md` §4.1) — `B-071` itself is unedited and still shows them as
+open; the resolution lives in `D-233` and the sections cited below. This is the consolidated parent
+checklist; it replaces, not duplicates, the earlier list:
 
 | Parent | Child contract | Completion evidence |
 |---|---|---|
 | `DOR-R1` — pre-T1 record and event contract | Canonical intake/work-order/route record; Chief Editor supplier identity; acceptance event permitting `EW`; stored route R/A; no copying into each transition | One schema-neutral contract names fields/events, authority and audit projection |
-| `DOR-R2` — `OP-PITCH` atomic contract | **Resolved 2026-09-17** — application-selection rule (Reporter at `business:T1`) consumes Sheet 2's preserved multi-`R` row without collapsing it; see `factory-route-operation-crosswalk.md` §4.1. Failure/replay/idempotency shape still to be drafted from this rule | Positive case creates one completed pitch/classification; duplicate event creates no second completion |
+| `DOR-R2` — `OP-PITCH` atomic contract | **Resolved 2026-09-17** — for `V1-SM05`'s fixed `ROUTE-PROD-1`, Reporter is the selected executor at business judgment stage 1, consuming Sheet 2's preserved multi-`R` row without collapsing it; see `factory-route-operation-crosswalk.md` §4.1. Failure/replay/idempotency shape still to be drafted from this rule | Positive case creates one completed pitch/classification; duplicate event creates no second completion |
 | `DOR-R3` — `EW` refusal/retry contract | Missing/unaccepted intake, duplicate `EW`, failed pitch, later legitimate new workflow | BDD cases show no gate/state advance, stable workflow identity and append-only failure/retry evidence |
-| `DOR-R4` — required Route-1 operation contracts | **`OP-DRAFT` resolved 2026-09-17** — Journalist at `business:T3`, Chief Editorial Desk as the recorded application-default `A` (crosswalk §4.1). **`OP-FINAL-SIGNOFF` has a PROPOSED, not accepted, A-only contract** (same §4.1) — still blocks this row until the Chief Editor accepts or rejects it. `OP-COPY-EDIT` already `VERIFIED`, unchanged | Every required operation has one executable atomic/milestone shape before T5 readiness |
+| `DOR-R4` — required Route-1 operation contracts | **`OP-DRAFT` resolved 2026-09-17** — Reporter is Route-1's executor (corrected: an earlier pass here wrongly named Journalist, who belongs to `ROUTE-PROD-2`); Chief Editorial Desk is the recorded application-default `A` (crosswalk §4.1). **`OP-FINAL-SIGNOFF` is ACCEPTED** — Desk Editor A-only attestation, no synthetic `R`, idempotent replay per revision, fresh attestation on relevant revision, opens human review only (same §4.1). `OP-COPY-EDIT` already `VERIFIED`, unchanged | Every required operation has one executable atomic/milestone shape before T5 readiness |
 | `DOR-R5` — UI and target visual contract | UI separates supplier, route R/A, current gate executor and article state; storyboard gets one target normal/revision sequence and matching data flow | Chief Editor walkthrough and Lane B/C review trace each visible fact to one authoritative record/event |
 | `DOR-R6` — Encyclopedia review | Entries 01/06 reviewed against the corrected text; sync disposition recorded | Hosted and local status agree, or an explicit opt-in deferral is recorded — not merely flagged |
 
-**`B071-R204`'s three operation-contract questions, updated 2026-09-17:** `OP-PITCH`/`OP-DRAFT` are
-resolved via the application-selection rule above. **`OP-FINAL-SIGNOFF` remains open** — a proposed
-A-only contract exists (crosswalk §4.1) but is not yet accepted; `DOR-R4` cannot fully close until it
-is. None of the six rows authorizes code, schema, or deployment.
+**`B071-R204`'s three operation-contract questions are now resolved or accepted** (`D-233`,
+2026-09-17): `OP-PITCH`/`OP-DRAFT` via the Route-1-scoped application-selection rule; `OP-FINAL-
+SIGNOFF` via the accepted A-only contract. `DOR-R2`/`DOR-R4` can proceed to drafting the remaining
+failure/replay detail; none of the six rows authorizes code, schema, or deployment.
 
 ## 2. Sequence
 

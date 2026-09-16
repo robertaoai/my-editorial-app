@@ -17370,3 +17370,66 @@ mapping; `factory-route-operation-crosswalk.md` §3.2's `OP-FINAL-SIGNOFF` input
 | **`docs/specs/SPECS-TRANSITION-ENFORCEMENT.md`, `SPECS-VERIFICATION-APPARATUS.md`** | ✅ qualifying notes added; no stored identifier, enforcement logic, or test behavior changed |
 | **Encyclopedia** | — unaffected by this addendum beyond the existing Entry 01/06 flag; still not reviewed |
 | **Graphify** | Rebuild owed after this commit — governed-intent doc content, not handoff-only |
+
+## 5.14e58 `D-233` — `OP-PITCH`/`OP-DRAFT` Application-Selection, `OP-FINAL-SIGNOFF` Acceptance, `T`-Namespace Correction
+
+**Judge/Chief Editor decision, 2026-09-17, recorded in `docs/handoff/B-117`.** Split out from `D-232`
+(whose own identity is the `V1-SM05`/`V1-SM06` MMF slot assignment) on independent-review finding that
+piling unrelated RACI/operation-execution and terminology decisions onto that ID was the same
+"two decisions, one entry" conflation this Register's own history (`B-095`'s split) already exists to
+prevent. This entry is the sole owner of the facts below; `D-232`'s prior addenda that stated them are
+corrected to point here rather than restated.
+
+**Decided:**
+1. **`OP-PITCH`/`OP-DRAFT` application-selection**, Route-1-scoped: `V1-SM05` fixes the route to
+   `ROUTE-PROD-1`, whose Sheet 1 `R` is Reporter — Reporter is Route-1's selected executor at business
+   judgment stage 1. (Journalist at business judgment stage 3 belongs to `ROUTE-PROD-2`, a different
+   route — an earlier applied pass conflated the two for Route-1's DoR; corrected here.)
+2. **`OP-DRAFT` accountability**: source `A` stays blank (Sheet 2 fact, unchanged); Chief Editorial
+   Desk is separately recorded as the Chief-Editor-supplied application-default `A`.
+3. **`OP-FINAL-SIGNOFF` — ACCEPTED**, five conditions: Desk Editor performs the A-only attestation
+   (no synthetic `R`, no general `R=A` precedent for other operations); the attestation records acting
+   principal, checked-complete required/triggered operations, and a timestamp, producing the
+   signed-off-package event already defined in `factory-route-operation-crosswalk.md` §3.2; replay is
+   idempotent per revision/scope; a relevant revision requires a fresh attestation while retaining
+   prior evidence; Sign-Off opens human publication review only — it does not itself approve, publish,
+   mark `ManualReady`, or change article state.
+4. **Business/technical/planning `T`-namespace**, corrected: three independently confirmed, unrelated
+   meanings (`business:T1`–`T5`; `transition:T1`–`T6`/`EG1`–`EG5` judgment gates; `transition:T7`–`T11`
+   non-gate mechanics; `planning:T1`) — display/documentation qualification only, no stored/API
+   identifier renamed. An earlier pass lumped the two technical rows together, re-creating part of the
+   conflation this decision exists to remove; corrected to split them.
+5. **`business:T3` route correction**: evaluates `ROUTE-PROD-2`, not `ROUTE-PROD-3`, against baseline
+   `ROUTE-PROD-1`, per Sheet 1's Journalist mapping.
+6. **Two `docs/specs/` vocabulary defects**, confirmed real and corrected: `SPECS-TRANSITION-
+   ENFORCEMENT.md`'s misleading `Gate` column header (renamed to `ID`, display-only — no stored
+   identifier changed); `SPECS-VERIFICATION-APPARATUS.md`'s unrelated `T1` (qualified as `planning:T1`).
+
+**Corrected in this same pass** (independent-review findings, all verified against the actual
+committed text before correcting): the `DOR-R4` Route-1/Journalist mix-up; a stale "unresolved"
+reference in `V1-BUILD-SPEC.md`'s intro and `requirements-traceability-map.md` §6.1 row 2b; `FN-GATES-
+01-05.md`'s "resolved there" wording, which misread as claiming `B-071` itself was edited (it wasn't);
+the storyboard's inverted "Reporter selects" phrasing (the business stage selects Reporter, not the
+reverse); and the namespace-map conflation named in item 4 above.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e58 |
+| **`factory-route-operation-crosswalk.md` §4.1** | ✅ corrected — Route-1/Reporter scoping fixed, `OP-FINAL-SIGNOFF` moved from proposed to accepted with its five conditions; §2/§4's source Sheet 2 rows unedited |
+| **`requirements-traceability-map.md` §6.1/§6.2** | ✅ row 2b's stale "unresolved" corrected; §6.2 namespace table split into gate/non-gate rows; closing paragraph corrected to cite `D-233` |
+| **`Modular_PRD.md`** | ✅ changelog row; no FR/AC/NFR text changed |
+| **`FN-GATES-01-05.md`** | ✅ "resolved there" wording corrected |
+| **Storyboard** | ✅ "Reporter selects" corrected to the stage selecting Reporter; `OP-FINAL-SIGNOFF` annotation updated to accepted |
+| **`V1-BUILD-SPEC.md`** | ✅ intro paragraph and `DOR-R2`/`DOR-R4` corrected |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no artifact created, retired, or resequenced |
+| **`docs/specs/SPECS-TRANSITION-ENFORCEMENT.md`** | ✅ `Gate` column header corrected to `ID` (display-only); `SPECS-VERIFICATION-APPARATUS.md` `D-232`→`D-233` citation corrected |
+| **Encyclopedia** | — unaffected beyond the existing Entry 01/06 flag |
+| **Graphify** | Rebuild owed after this commit |
+
+### What this act does NOT do
+
+Does not authorize construction, satisfy the remaining `DOR-R1`/`DOR-R3`/`DOR-R5`/`DOR-R6` items, or
+change any FR/AC/NFR requirement text. Does not touch `V1-ARTIFACT-INVENTORY.md` or the Encyclopedia
+beyond the existing flag. `B-117` remains `Open`.

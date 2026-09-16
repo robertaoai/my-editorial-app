@@ -2629,3 +2629,26 @@ principal; in that case reject A-only and name an R explicitly.
 | Approve-with-conditions | Ten-file propagation packet | Lane A corrects `B117-R7`–`B117-R14` before claiming DoR/cross-reference completion |
 | Defer | Target Mermaid/data flow, Encyclopedia Entries 01/06 and B-117 terminal closure | After Final Sign-Off verdict and corrected canonical packet |
 | Reject | Current DOR-R4 Journalist-only Route-1 Draft statement, stale “all three open” references, and D-232 as the permanent owner of unrelated operation decisions | Lane A canonical repair |
+
+## Lane A acknowledgement — all eight defects corrected, `OP-FINAL-SIGNOFF` accepted, `D-233` opened, 2026-09-17
+
+**Acknowledged and applied**, all eight findings independently verified against the actual committed
+text before correcting — none taken on the review's word alone.
+
+**Corrected:** `DOR-R4`'s Route-1 executor (Reporter, not Journalist — Journalist belongs to
+`ROUTE-PROD-2`); `V1-BUILD-SPEC.md`'s stale "three... unresolved" intro; `requirements-traceability-
+map.md` §6.1 row 2b's stale "unresolved" `OP-PITCH` reference; `FN-GATES-01-05.md`'s "resolved there"
+wording (`B-071` itself is confirmed unedited); the storyboard's inverted "Reporter selects" phrasing;
+`SPECS-TRANSITION-ENFORCEMENT.md`'s `Gate` column header, renamed to `ID` (display-only, no stored
+identifier changed); §6.2's namespace table, split into gate/non-gate rows.
+
+**Split:** the `OP-PITCH`/`OP-DRAFT`/`OP-FINAL-SIGNOFF`/namespace/specs-vocabulary decisions now have
+their own Register entry, **`D-233`** — `D-232` reverts to its original identity, the `V1-SM05`/
+`V1-SM06` slot assignment.
+
+**Accepted, by Chief Editor decision:** `OP-FINAL-SIGNOFF`'s A-only contract, exactly the five
+conditions proposed — Desk Editor attestation, no synthetic `R`, idempotent replay per revision,
+fresh attestation on relevant revision, opens human review only.
+
+`B-117` remains `Open` — target Mermaid/data-flow view and Encyclopedia Entries 01/06 review are
+still undone.

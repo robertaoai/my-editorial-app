@@ -87,12 +87,14 @@ the Senior Journalist's `EW` emission completes `T1` — only the Reporter's own
 does.
 
 **`OP-PITCH` (step 3 above) now has a decided application-selection rule, not settled by this
-precondition itself.** Sheet 2's multi-`R` row (Reporter, Journalist) stays preserved; the Chief
-Editor's business judgment stages select which one executes for a given instance — see
+precondition itself.** Sheet 2's multi-`R` row (Reporter, Journalist) stays preserved; for `V1-SM05`'s
+fixed route (`ROUTE-PROD-1`), Reporter is the selected executor — see
 `factory-route-operation-crosswalk.md` §4.1 and `requirements-traceability-map.md` §6.2 for the full
-contract; not restated here. `docs/handoff/B-071`'s `B071-R204` named this as one of three open
-questions (with `OP-DRAFT` and `OP-FINAL-SIGNOFF`); `OP-PITCH`/`OP-DRAFT` are now resolved there,
-`OP-FINAL-SIGNOFF` remains a proposal pending Chief Editor Accept/Reject.
+contract; not restated here. `docs/handoff/B-071`'s `B071-R204` originally named this as one of three
+open questions (with `OP-DRAFT` and `OP-FINAL-SIGNOFF`); **`B-071` itself is unedited and still shows
+all three as open** — the resolution lives in `D-233` and the crosswalk/traceability-map sections
+just cited, not in `B-071`. `OP-PITCH`/`OP-DRAFT` are resolved; `OP-FINAL-SIGNOFF` is accepted, same
+locations.
 
 ### 3.1 `FR-01` — T1 Intake *(Reporter, Line 1, Agent)*
 

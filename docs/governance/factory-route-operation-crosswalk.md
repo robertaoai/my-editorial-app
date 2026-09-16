@@ -188,35 +188,44 @@ approach rather than deciding each shape individually:
 4. `OP-COMPLEX-SERIES`/`OP-LEGAL-RISK` stay `milestone_pending_decomposition` until the Chief Editor
    enumerates their atomic children — no decomposition is guessed. **Confirmed.**
 
-### 4.1 Application-selection rule and proposed `OP-FINAL-SIGNOFF` contract (`D-232` follow-on, Chief Editor clarification 2026-09-17)
+### 4.1 Application-selection rule and `OP-FINAL-SIGNOFF` contract (`D-233`, corrected 2026-09-17)
 
 **These entries add a decided application-selection layer on top of §2's unchanged source R/A rows.
 No Sheet 2 cell is edited by this section; §4's "not individually decided" items are qualified, not
-reversed, below.**
+reversed, below. Recorded under `D-233` — a distinct Register decision, not `D-232`, whose own
+identity is the `V1-SM05`/`V1-SM06` slot assignment (`B117-R6`/similar correction, 2026-09-17).**
 
-1. **Application-selection rule for `OP-PITCH`/`OP-DRAFT` (decided, not a §4 row-shape decision).**
+1. **Application-selection rule for `OP-PITCH`/`OP-DRAFT` (decided, not a §4 row-shape decision), corrected 2026-09-17.**
    The business judgment stage selects the contextual executor from Sheet 2's preserved multi-`R` set
-   before dispatching that stage's applicable operations: Reporter executes at business judgment
-   stage 1, Journalist at business judgment stage 3 (see `requirements-traceability-map.md` §6.2 for
-   the business/technical namespace map). This does **not** collapse the source multi-`R` row, does
-   **not** mean both roles jointly execute every instance, and does **not** change §4 item 1's
-   standing "not individually decided" row-shape note — it is a separate, decided selection rule that
-   consumes that preserved shape.
+   before dispatching that stage's applicable operations. **`V1-SM05`'s fixed route is `ROUTE-PROD-1`,
+   whose Sheet 1 `R` is Reporter** — for Route-1, Reporter executes `OP-PITCH`/`OP-DRAFT` at business
+   judgment stage 1. Journalist executing at business judgment stage 3 applies to `ROUTE-PROD-2`, a
+   **different route**, not Route-1's DoR scope — an earlier pass here named Journalist for Route-1's
+   `OP-DRAFT`, which was wrong and is corrected. See `requirements-traceability-map.md` §6.2 for the
+   business/technical namespace map. This does **not** collapse the source multi-`R` row, and does
+   **not** change §4 item 1's standing "not individually decided" row-shape note — it is a separate,
+   decided selection rule that consumes that preserved shape, route by route.
 2. **`OP-DRAFT` accountability (decided, source unchanged).** §4 item 2's `A = unknown` **stands as
    the source fact** — no automatic route inheritance. **Separately, the Chief Editor supplied
    `ROLE-CHIEF-EDITORIAL-DESK` as the application-level default `A`** for `OP-DRAFT` at business
    judgment stage 5. This is recorded as a distinct application decision, not a CSV fact and not a
    silent inheritance from route `A`.
-3. **`OP-FINAL-SIGNOFF` — PROPOSED execution contract, pending Chief Editor Accept/Reject.** §4 item
-   4's "no `R` named, no `R = A` exception granted" **stands unchanged** until this proposal is
-   accepted. Using §3.2's already-settled input/output/reroute facts, the proposed contract is: Desk
-   Editor (the route/operation `A`) personally attests completion as an **A-only control** — no `R`
-   is invented; the attestation records the acting principal, the enumerated list of required/
-   triggered prior operations checked complete, a timestamp, and produces the "signed-off package"
-   event §3.2 already defines. A missing required prior operation refuses the attestation and returns
-   to the earliest incomplete one, per §3.2's existing `reroute_target`. **This is a proposal, not a
-   decision** — if rejected, §4 item 4's standing note continues to govern and a named `R` must be
-   supplied instead.
+3. **`OP-FINAL-SIGNOFF` — ACCEPTED execution contract, Chief Editor decision 2026-09-17.** §4 item
+   4's "no `R` named, no `R = A` exception granted" is now **qualified by this accepted exception**:
+   Desk Editor (the route/operation `A`) personally attests completion as an **A-only control**. Five
+   accepted conditions:
+   - Desk Editor performs the attestation; no synthetic `R` and no general `R = A` record is created
+     for any other operation by this exception.
+   - The attestation records the acting principal, the enumerated list of required/triggered prior
+     operations checked complete, a timestamp, and produces the "signed-off package" event §3.2
+     already defines. A missing required prior operation refuses the attestation and returns to the
+     earliest incomplete one, per §3.2's existing `reroute_target`.
+   - Replay is idempotent per revision and scope — replaying the same attestation for the same
+     revision produces no second effective sign-off event.
+   - A relevant revision requires a fresh attestation; prior attestation evidence is retained, not
+     overwritten.
+   - **Sign-Off only opens human publication review.** It does not itself approve, publish, mark
+     `ManualReady`, or change article state.
 
 ## 5. `F4` status
 

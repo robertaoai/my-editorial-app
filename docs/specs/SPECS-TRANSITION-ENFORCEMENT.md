@@ -63,13 +63,14 @@ Living document; no build-version prefix, does not freeze. **All sections `[V1]`
 
 Ten states (Addendum §4.1): `Discovered` · `Logged` · `Validated` · `Investigated` · `Drafted` · `Reviewed` · `Approved` · `Published` · `Needs Revision` · `Rejected`.
 
-**Qualification, 2026-09-17 (`D-232` follow-on).** "Gate" below is this table's column label for a
-**transition identifier**, not a claim that every row is a state-changing judgment gate — `T8`–`T11`
-explicitly aren't (§3.1). These are `transition:T1`–`T11` in this project's namespace map
-(`requirements-traceability-map.md` §6.2); the stored/API identifiers (`T1`…`T11`) are unchanged by
-this note.
+**Qualification, corrected 2026-09-17 (`D-233`).** This table's first column is labelled `ID` below,
+not `Gate` — not every row is a state-changing judgment gate, `T8`–`T11` explicitly aren't (§3.1).
+`T1`–`T6` are `transition:T1`–`T6` (judgment gates); `T7`–`T11` are non-gate transition mechanics —
+see `requirements-traceability-map.md` §6.2's namespace map, which splits the two rather than
+labelling them together. **Only this column's display label changes; the stored/API identifiers
+(`T1`…`T11`) are unchanged.**
 
-| Gate | From | To | Shape |
+| ID | From | To | Shape |
 |---|---|---|---|
 | T1 | Discovered | Logged | Fixed pair |
 | T2 | Logged | Validated | Fixed pair |
