@@ -229,7 +229,7 @@ here.
 | 3 | Reporter performs the responsible intake work | Reporter executes T1 | `FR-01`, `AC-01`/`AC-02` | `V1-SM05` | — |
 | 4 | Desk Editor remains route-accountable; not a gate executor | Investigator executes T2/T3 | `FR-02` | `V1-SM05` | — |
 | 5 | Route accountability unchanged | Journalist executes T4 | `FR-03` | `V1-SM05` | — |
-| 6 | Desk Editor `A` remains distinct from the T5 reviewer | Chief Editorial Desk executes T5 | `FR-04`/`FR-04a`, `AC-05a`/`AC-06a` | `V1-SM05` | **`UJ2` resolved** — observable evidence is the work-order/route record's audit projection (`route_id`, `raci_scope=factory_route`, route `R`, route `A`), append-only; not a gate, button, or T5-style sign-off. `OP-FINAL-SIGNOFF` (Sheet 2) stays separately unresolved and does not backfill this |
+| 6 | Desk Editor `A` remains distinct from the T5 reviewer | Chief Editorial Desk executes T5 | `FR-04`/`FR-04a`, `AC-05a`/`AC-06a` | `V1-SM05` | **`UJ2` resolved** — observable evidence is the work-order/route record's audit projection (`route_id`, `raci_scope=factory_route`, route `R`, route `A`), append-only; not a gate, button, or T5-style sign-off. `OP-FINAL-SIGNOFF`'s accepted A-only contract (`D-233`, `factory-route-operation-crosswalk.md` §4.1) is separate from this route-accountability evidence and does not backfill it |
 | 7 | Human Chief Editor is the final judgment owner, not Sheet 1's Desk Editor | Chief Editor executes T6 | `FR-04`, `CR-12` | `V1-SM05` | — |
 | 8 | Same route/accountability record persists through correction | Revision returns only the affected scope | `CR-11`, `FR-07`, `AC-11`/`AC-12` | `V1-SM05` | — |
 | 9 | Route completion visible on the board | Board reads state/topic/category/audit | `CR-13`, `FR-08`, `AC-13` | `V1-SM06` | — |
