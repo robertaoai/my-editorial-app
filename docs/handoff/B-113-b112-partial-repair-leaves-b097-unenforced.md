@@ -134,3 +134,146 @@ Product artifacts, rebuild Graphify out of lane, or close B-103 P3.
 | Reject | Independent verification of B-097 at `9afbb9b` | Its promised prevention boundary is not currently enforced |
 | Defer | Six candidate classifications and multi-cycle enforcement | Chief Editor Option A/B decision |
 | Defer | B-103 P3 and whole-entry closure | After B-112 and B-097 are independently Verified |
+
+## Judge clarification — decision support for Option A or B, 2026-09-16
+
+The Judge's `Judge Approved: decision-tree decision` instruction approves using the parent-first
+decision tree and requires a concrete Accept/Reject choice. It does not, by itself, identify
+Option A or Option B as the selected prevention boundary. Lane A must present and record the one
+binary choice below; it must not infer the choice from the word “approved.”
+
+### Highest-parent decision
+
+> **Must a terminal handoff entry be automatically prevented from accepting later substantive
+> work unless that same commit carries a valid Return record or a valid non-return annotation?**
+
+| Judge choice | Accept means | Reject means | Resulting boundary |
+|---|---|---|---|
+| **Option A — enforceable lifecycle control (recommended)** | Yes. Silent post-terminal work is a control failure. A bounded terminal-annotation form is adopted for corrections that preserve the terminal state, and repeated terminal/return cycles are checked independently. | Reject the current report-only detector as the final B-097 control; it remains an interim safety fallback only. | B-097 keeps its original prevention claim and can close only after the blocking check, multi-cycle fixtures and six classifications pass. |
+| **Option B — advisory lifecycle review** | Yes to the current SOP and Return-record form validation; accept that semantic reopening is identified by human review rather than rejected automatically. | Reject B-097's original claim that the channel prevents every terminal-plus-live-content case. | B-097 is narrowed to declaration/form enforcement plus advisory candidate reporting; annotation and multi-cycle enforcement move to a named backlog item. |
+
+**Recommendation: Accept Option A; reject Option B as the terminal solution.** Option A preserves
+the prevention outcome B-097 was opened to provide. Option B is acceptable only if the Judge
+explicitly values immediate closure over automatic prevention and accepts the recurring human-review
+dependency. Option A must remain bounded to this handoff lifecycle; it does not authorize wider
+historical cleanup or application construction.
+
+### Accept/Reject questions for the Chief Editor
+
+The Chief Editor needs to answer only these business-control questions; Lane A translates the
+answers into Register and implementation details:
+
+1. **Accept or reject automatic prevention?** If accepted, choose Option A. If rejected, choose
+   Option B and reduce B-097's stated guarantee.
+2. **Accept or reject non-return annotations as valid terminal evidence?** Under Option A, accept
+   them only when they name their act and state expressly that no scope reopened.
+3. **Accept or reject independent treatment of each lifecycle cycle?** Under Option A, accept it;
+   an old Return record cannot authorize a later cycle.
+4. **Accept or reject retrospective fabrication?** Reject it under both options. The six candidates
+   must be classified from their actual diffs and acts; no missing trigger or act may be invented.
+
+### Child decisions after the parent
+
+| Order | Child | Option A disposition | Option B disposition |
+|---:|---|---|---|
+| 1 | B-112 audit anchor | Replace `<pending commit>` and cite the final correction commit | Same |
+| 2 | Graphify currency | Rebuild after the final scripts edit; preserve curated fragments | Same |
+| 3 | Six candidates | Classify and record as metadata normalization, bounded terminal annotation, or genuine return | Human-classify in the report; no blocking disposition required |
+| 4 | Multi-cycle behavior | Implement and negative-test each terminal episode separately | Record as a backlog limitation |
+| 5 | `terminal-return` | Restore blocking findings after the annotation contract is executable | Keep `findings: []` and state that it is advisory |
+| 6 | B-112 verification | Lane B verifies the complete enforcement packet | Lane B verifies only the narrowed advisory packet |
+| 7 | B-097 verification | Verify against its original prevention outcome | Verify only after its completion claim is formally narrowed by the Judge act |
+| 8 | B-103 P3 | Resume only after B-097 is Verified | Same; the verified claim is narrower and must be cited as such |
+
+## Exact Lane A follow-up — Option A
+
+1. **Acknowledge B-113.** Record receipt without changing B-112/B-097 to `Verified`.
+2. **Record the Judge act.** Lane A assigns the Register identifier and states that Option A is the
+   selected Project-Scope lifecycle-control boundary. Update all required tracking tiers in the
+   same pass only if the act creates or sequences an artifact; state explicitly that Product tiers
+   are unaffected.
+3. **Repair B-112's audit evidence.** Replace `<pending commit>` and advance
+   `Verified-At-Commit` to the final commit containing the complete correction, not `980d8d1`.
+4. **Write the terminal-annotation contract once.** Add it to `docs/handoff/README.md`; expose an
+   optional commented example in `TEMPLATE.md`. Do not create a new lifecycle status.
+5. **Use a bounded annotation shape:**
+
+   ```markdown
+   ## Terminal annotation record
+
+   - **Current-Resolution:** <existing terminal resolution, unchanged>
+   - **Annotation-Type:** metadata-normalization | verification-evidence | cross-reference | correction
+   - **Annotation-Act:** <decision, finding or correction act; date and source locus>
+   - **No-Scope-Reopened:** true
+   - **Annotated-At-Commit:** <existing commit whose state was read>
+   ```
+
+6. **Implement lifecycle episodes.** Walk file history chronologically. For every terminal episode,
+   allow mechanically proven audit-only edits; require a Return record plus `Status: Open` for
+   resumed scope; require a Terminal annotation record for other body edits that preserve the
+   terminal state. A record from an earlier episode does not exempt a later one.
+7. **Classify the six candidates from evidence:**
+   - `B-004`, `B-008`, `B-046`: metadata/structural normalization unless their exact diffs show
+     new scope;
+   - `B-017`: correction or verification evidence, preserving its explicit non-reopening claim;
+   - `B-103`: correction to the same P0–P3 disposition, unless a distinct return act is found;
+   - `C-001`: cross-reference preserving deferred execution, unless a distinct execution act is
+     found.
+8. **Add construction and refusal fixtures.** At minimum: valid annotation; missing act; false or
+   missing `No-Scope-Reopened`; annotation that changes the terminal header; genuine B-071-style
+   return; and a second unreturned cycle despite an older Return record.
+9. **Restore enforcement.** Only after the fixtures pass, return candidate violations through
+   `findings`; keep human-readable detail but do not let detail substitute for the gate.
+10. **Synchronize Graphify last.** Run the governed rebuild after the final script change, preserve
+    curated fragments, require `lastAnalyzedHead == HEAD`, and run the portable check.
+11. **Verify at one commit.** Run `bun run check` and `bun run fixtures`; Lane B then independently
+    reviews the artifacts and records B-112 before B-097 as `Verified` if the evidence holds.
+12. **Resume B-103 P3.** Apply the now-governed return/annotation rule to B-103 before its final
+    whole-entry disposition. Stage 2 runtime proof and C-001 execution remain separately deferred.
+
+## Exact Lane A follow-up — Option B
+
+1. Acknowledge B-113 and record a Judge act explicitly selecting advisory detection.
+2. Replace B-112's placeholder and repair its commit anchor.
+3. Amend B-097 so its completion evidence promises only Return-record form validation and a
+   report-only candidate list; withdraw every statement claiming automatic rejection of all
+   terminal-plus-live-content cases.
+4. Record terminal annotations and multi-cycle enforcement as one named backlog item, without
+   copying the six-candidate list into another ledger.
+5. Keep `terminal-return` report-only and test that it cannot fail the suite.
+6. Synchronize Graphify after the final script/document correction and run both suites.
+7. Return the narrowed packet to Lane B for independent verification; cite the narrowed boundary
+   when B-103 P3 resumes.
+
+## Critical artifacts produced by either decision
+
+| Artifact | Option A | Option B | Construction/verification role |
+|---|---|---|---|
+| Judge/Register act | Selects enforceable prevention | Selects advisory detection and narrows B-097 | Prevents Lane A from inferring authority or completion scope |
+| Handoff SOP | Return plus terminal-annotation semantics | Return form plus human-review limitation | Defines the state transitions later checks implement |
+| Handoff template | Return and annotation examples | Return example; advisory limitation referenced | Gives Lane B/C the exact evidence shape |
+| `terminal-return` check | Blocking, lifecycle-cycle aware | Report-only | Detects or reports later content under a terminal header |
+| Fixtures | Positive/refusal cases including repeated cycle | Report-only non-failure and form cases | Prevents a false-green or permanently-red control |
+| Six classifications | Durable evidence for each current candidate | Human-review outcomes | Establishes the baseline against which future detection is judged |
+| Graphify state | Rebuilt after final control code | Rebuilt after final control code | Makes the code/document dependency graph current |
+| Independent Lane B review | Verifies original prevention outcome | Verifies narrowed advisory outcome | Separates application from verification |
+
+## Cross-artifact review for this Judge clarification
+
+| Artifact | Impact |
+|---|---|
+| `docs/Modular_PRD.md` | Unaffected. NFR-04 already owns delivery verifiability; neither option changes customer-visible Product behavior or editorial acceptance criteria. |
+| Storyboard and story panels | Unaffected. They describe article and commercial journeys, not repository handoff lifecycle records. |
+| UML and data flow | Unaffected. No application state, database entity, event or publication flow changes. |
+| Requirements traceability | Unaffected. The choice is Project-Scope verification control serving existing Product outcomes indirectly; it creates no Customer Request. |
+| Encyclopedia | Unaffected. No encyclopedia entry depends on B-097/B-112/B-113; Entry 05's D-168 staleness remains separate. |
+| Cross-references | B-113 remains the decision-support owner; B-112 records the failed detector correction; B-097 owns the return protocol; B-103 P3 depends on verified B-097. Do not create another ledger. |
+| Graphify | Sync is required after the final Lane A control-code change. It is not required merely for this handoff clarification. |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve-with-conditions | Option A — enforceable lifecycle control | Recommended Judge selection; Phase 1 Lane A implementation and independent Lane B verification |
+| Defer | Option B — advisory lifecycle review | Use only if the Judge explicitly accepts the reduced guarantee |
+| Reject | Treating `Judge Approved: decision-tree decision` as an implicit A/B selection | Lane A must record the explicit selected boundary |
+| Reject | Product, storyboard, UML/data-flow, traceability or Encyclopedia edits for this choice | Those tiers are unaffected |
+| Defer | B-103 P3, Stage 2 runtime evidence and C-001 execution | Their existing dependent phases remain in force |
