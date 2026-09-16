@@ -2029,3 +2029,97 @@ created, retired, or resequenced — stated in the Register addendum's tier tabl
 unresolved, by design — this round resolves the business journey, not the implementation contract.
 No application code, schema, workflow, or hosted Encyclopedia content changed. `B-117` remains `Open`
 — this closes the `UJ1`/`UJ2` child, not the entry.
+
+## Lane B independent review of `edbfe72` — UJ closure accepted; artifact and Route-1 DoR closure overstated, 2026-09-16
+
+### Review boundary and result
+
+Lane B reviewed the applied `D-232` follow-on at `edbfe72` against `B-071` Round 56,
+`factory-route-operation-crosswalk.md` §§2–4, the Product requirements, `FN-GATES`, the storyboard
+and its embedded Mermaid views, `ENCYCLOPEDIA-SYNC.md`, the V1 tracking set and the live Graphify
+state. The business result is sound: `UJ1` and `UJ2` are resolved and no new Chief Editor choice is
+required for them. The applied packet is not yet the complete construction/verification artifact
+set, and the four-item DoR list is incomplete.
+
+### Parent-first decision table
+
+| Order | Decision | Accept/Reject | Reason and dependent effect |
+|---:|---|---|---|
+| 1 | Accept the bounded `UJ1`/`UJ2` resolution | **Accept** | The Chief Editor supplies the record; Senior Journalist emits `EW`; Route 1 is fixed for the V1 slice; Desk Editor `A` is an observable route assignment, not a gate |
+| 2 | Treat `edbfe72` as complete propagation of that bounded business decision | **Accept with corrections** | Register, trace map, Product pointer, Fn Spec precondition and Build-Spec hold are present; two semantic defects below must be corrected |
+| 3 | Treat the storyboard/UML/data-flow requirement as completed by an annotation | **Reject** | The diagram remains deliberately stale and its new annotation contradicts the diagram boundary; implementation and verification still lack one coherent target view |
+| 4 | Treat the four named implementation details as the complete Route-1 DoR remainder | **Reject** | `B-071` Round 56's required `OP-PITCH`, `OP-DRAFT` and `OP-FINAL-SIGNOFF` execution contracts still block the route; `OP-PITCH` is now used by the target path while its source row remains `UNVERIFIED` |
+| 5 | Treat Encyclopedia propagation as complete | **Reject** | `ENCYCLOPEDIA-SYNC.md` explicitly says Entries 01 and 06 are not yet reviewed; no hosted entry was changed |
+| 6 | Close B-117 | **Defer** | The UJ child can close; the Route-1 DoR, target visual and Encyclopedia children remain open |
+
+### Specific defects in the applied packet
+
+| ID | Applied text/problem | Why it fails | Draft correction |
+|---|---|---|---|
+| `B117-R1` | Trace §6.1 step 2b calls the Route-1 classification **“`EW`'s completion evidence.”** | Crosswalk §3.2 says `EW` is `OP-PITCH`'s **entry trigger** and the logged pitch/route classification is **`OP-PITCH` completion evidence**. Reversing that relationship makes `EW` look like a multi-step operation rather than an event | Replace with: “`OP-PITCH` completion evidence; Senior Journalist `EW` is its entry trigger.” Use the stable §3.2 anchor, not mutable line 156 |
+| `B117-R2` | Storyboard says three events precede the diagram's “Chief Editor paste source URL,” but event 1 is the same Chief Editor supply act already shown by that first arrow | One event cannot precede itself. A reader cannot determine whether UI acceptance happens before or inside the shown sequence | Say the existing first arrow represents the supply act, then show the two additional pre-T1 events after UI acceptance: Senior Journalist `EW`, then `OP-PITCH` completion |
+| `B117-R3` | Register tier table marks UML/data flow complete through a prose annotation while the Mermaid diagram remains historical, stale and explicitly “not build input” | A prose note cannot verify message order, stored records, refusal paths or actor identity in the implementation-facing sequence. The packet claims completion while preserving the artifact defect | Mark UML/data flow **Open**. Add one clearly labelled target Route-1 sequence/data-flow view in the existing storyboard after the contracts below are specified; retain the historical panel unchanged |
+| `B117-R4` | `OP-PITCH` is made a required pre-T1 action without resolving its `UNVERIFIED` two-`R` source shape | No single executable actor or atomic boundary exists. A test cannot know who completes route classification, and an implementation will choose by accident | Restore `B071-R204`: decide atomic Reporter pitch/log or a named milestone with separate Reporter/Journalist child acts; name its input, executor, output, failure and idempotency rule |
+| `B117-R5` | Build Spec lists four details but omits required `OP-DRAFT` and `OP-FINAL-SIGNOFF` contracts | Route 1 cannot reach T5 with required operations whose executor/accountability/completion rules are unresolved. Calling them “business-process context” does not remove their `required` applicability | Add a second DoR group citing B-071 Round 56: decide `OP-DRAFT` executor/accountability and `OP-FINAL-SIGNOFF` acting principal/completion evidence; preserve verified `OP-COPY-EDIT` unchanged |
+| `B117-R6` | Register tier table marks Encyclopedia complete because the sync ledger was edited | The ledger says both entries are **not yet reviewed** and the hosted artifact was not changed. A flag is intake evidence, not propagation evidence | Record Encyclopedia as **Open / affected**, review Entries 01 and 06, then republish or explicitly defer under the Encyclopedia's own opt-in process |
+
+### Consolidated remaining DoR — no duplicate backlog
+
+The earlier four details and `B071-R204` should be one parent checklist, not parallel lists:
+
+| Parent | Child contract | Completion evidence |
+|---|---|---|
+| `DOR-R1` — pre-T1 record and event contract | Canonical intake/work-order/route record; Chief Editor supplier identity; acceptance event permitting `EW`; stored route R/A; no copying into each transition | One schema-neutral contract names fields/events, authority and audit projection; later Lane B maps it to persistence |
+| `DOR-R2` — `OP-PITCH` atomic contract | Decide Reporter-only atomic act or decomposed milestone; define inputs, output route classification, executor(s), failure and replay/idempotency | Positive case creates one completed pitch/classification; duplicate event creates no second completion; ambiguous executor is refused |
+| `DOR-R3` — `EW` refusal/retry contract | Missing/unaccepted intake, duplicate `EW`, failed pitch, later legitimate new workflow | BDD cases show no gate/state advance, stable workflow identity and append-only failure/retry evidence |
+| `DOR-R4` — required Route-1 operation contracts | `OP-DRAFT` executor/accountability and `OP-FINAL-SIGNOFF` acting principal/completion evidence; `OP-COPY-EDIT` unchanged | Every required operation has one executable atomic/milestone shape before T5 readiness; no blank `R` or silently inherited `A` |
+| `DOR-R5` — UI and target visual contract | UI separates supplier, route R/A, current gate executor and article state; storyboard contains one target normal/revision sequence and matching data flow | Chief Editor walkthrough and Lane B/C review can trace each visible fact to one authoritative record/event and one failure path |
+| `DOR-R6` — Encyclopedia review | Entries 01/06 reviewed against the final contracts and their sync dispositions recorded | Hosted and local status agree, or an explicit opt-in deferral remains visible without a completion claim |
+
+### Lane A follow-up — highest parent first
+
+1. Correct `B117-R1` and the self-precedence wording in `B117-R2`; record the correction under the
+   existing `D-232` follow-on rather than opening another business decision.
+2. Replace the Build Spec's four-item remainder with, or point it to, the consolidated `DOR-R1`–
+   `DOR-R6` checklist. Preserve `UJ1`/`UJ2` as resolved.
+3. Present the bounded `B071-R204` operation choices for `OP-PITCH`, `OP-DRAFT` and
+   `OP-FINAL-SIGNOFF`. These are the only remaining Judge choices in this child chain.
+4. After those choices, specify the record/event and refusal/replay contracts in the owning Fn Spec
+   and acceptance criteria; do not select schema fields in the storyboard.
+5. Add one target Route-1 normal/revision Mermaid sequence and matching data-flow view inside the
+   existing storyboard. Keep the historical A2/A5/A6 panels labelled as history.
+6. Change the Register's UML/data-flow and Encyclopedia tier dispositions from complete to their
+   truthful interim states, then complete or explicitly defer the Encyclopedia review.
+7. Obtain Lane B construction-interface review and Lane C observability/recovery review against the
+   same target view.
+8. Run the full consistency suite, commit the canonical correction, rebuild Graphify, then return
+   the commit and independent evidence to this entry. Close B-117 only after every `DOR-R*` row has a
+   terminal disposition.
+
+### Guaranteed failures and failure-derived success criteria
+
+| Guaranteed failure | Success criterion derived from it |
+|---|---|
+| `EW` is implemented as an operation with “completion evidence” | `EW` is one attributable entry-trigger event; `OP-PITCH` alone owns classification completion |
+| Chief Editor supply is shown both before and inside the same sequence | One target sequence shows the supply once, followed by acceptance, `EW`, pitch completion and T1 |
+| Two source `R` values silently become one executor | Accepted `OP-PITCH` contract names atomic/decomposed shape; tests refuse any unapproved executor combination |
+| Route reaches T5 while Draft or Final Sign-Off lacks an executable contract | Readiness test requires every applicable required operation complete with attributable evidence |
+| Desk Editor route `A` silently fills a blank operation `A`/`R` | Route and operation RACI scopes remain separate; inheritance requires an explicit decision |
+| A prose annotation is treated as executable UML/data flow | Target diagram and BDD agree on actors, event order, writes, refusal paths and revision behavior |
+| Encyclopedia ledger flag is counted as reviewed publication | Sync row remains open until the entry text is reviewed and hosted/local disposition is recorded |
+| B-117 closes because UJ1/UJ2 closed | Closure check requires terminal evidence for all six consolidated DoR parents, not one child decision |
+
+Graphify is synchronized at `edbfe72` (`lastAnalyzedHead` equals governed-source `HEAD`,
+`stale=false`). This independent-review addition is handoff-only and excluded by `D-231`; no rebuild
+is due for this commit. A rebuild becomes due after Lane A changes the canonical owners above.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `UJ1`/`UJ2` business resolution and its bounded Register/Product/Fn-Spec propagation | Preserve under `D-232` follow-on |
+| Approve-with-conditions | Traceability map §6.1 | Correct `EW` entry-trigger versus `OP-PITCH` completion semantics |
+| Approve-with-conditions | V1-SM05 DoR | Complete `DOR-R1`–`DOR-R6`, including the three required operation contracts |
+| Defer | Storyboard/UML/data-flow completion | Add a coherent target view after operation and event contracts are decided |
+| Defer | Encyclopedia Entries 01/06 | Review and republish, or record an explicit opt-in deferral |
+| Defer | B-117 closure and construction | Terminal DoR evidence, independent review and fresh bounded build authorization |
+| Reject | “Full follow-up applied” as meaning artifact completion | Only the bounded UJ propagation is complete |
+| Reject | Treating a ledger flag, prose annotation or route `A` assignment as execution/verification evidence | Each needs its own governed completion evidence |
