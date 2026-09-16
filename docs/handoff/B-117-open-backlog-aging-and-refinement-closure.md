@@ -1897,3 +1897,112 @@ direct Chief Editor instruction not to guess them** — neither is answered here
 `FN-GATES-01-05.md` target-path edit, storyboard panel repair, UML/data-flow diagram changes, the
 Encyclopedia update, and the Artifact Inventory mapping. `B-117` remains `Open` — this acknowledgement
 closes none of it.
+
+## Lane B review — Chief Editor resolves `UJ1`/`UJ2` at the journey boundary, 2026-09-16
+
+### Normalized clarification
+
+The Chief Editor has restated the historical V1 initiation chain: the human Chief Editor supplies
+the manual record through the UI; the Senior Journalist agent reacts to that accepted record and
+emits the `EW`-start event; the selected route then proceeds through the phase gates and editorial
+workflow; the UI projects the editorial state and evidence back to the Chief Editor. This is a
+clarification of the existing journey, not a new route, gate, role or build authorization.
+
+That clarification resolves the two questions only when their scopes remain separate:
+
+| Order | Question | Resolved V1 meaning | What it does not mean |
+|---:|---|---|---|
+| 1 | `UJ1` — who selects `ROUTE-PROD-1`, and when? | `V1-SM05` is already the Judge-selected `ROUTE-PROD-1` slice. The Chief Editor submits the manual source package in the UI; the Senior Journalist agent then emits `EW` start; `OP-PITCH` records/completes the Route-1 classification before T1 begins. V1 therefore needs no free-form route chooser. | The Chief Editor does not execute `EW` or T1. The Senior Journalist trigger does not choose editorial judgment, complete T1 or advance article state. This does not decide classification UX for later routes. |
+| 2 | `UJ2` — what observable act satisfies Desk Editor route accountability? | Sheet 1 creates **no additional Desk Editor act**. The observable V1 evidence is the work-order/route record naming `ROLE-DESK-EDITOR` as `raci_scope=factory_route`, `A`, plus its append-only audit projection in the editorial UI. | Route `A` is not a button, gate, transition or proof that a sign-off occurred. It does not make Desk Editor the T5 Chief Editorial Desk. `OP-FINAL-SIGNOFF` is a separate Sheet 2 control whose executor/approval contract remains unresolved and cannot be used to backfill route accountability. |
+
+This also reconciles two existing records that otherwise appear contradictory. `B-071` Round 56
+correctly places `EW` before route classification, while `factory-route-operation-crosswalk.md` §3.2
+defines the `EW` event as `OP-PITCH`'s entry trigger and the logged route classification as its
+completion evidence. The applied `requirements-traceability-map.md` §6.1 compresses both into one row;
+Lane A should expand the order when replacing its `UJ1 open` text rather than reverse the trigger.
+
+### Parent decision before child artifact edits
+
+| Order | Decision | Accept effect | Reject/change condition |
+|---:|---|---|---|
+| 1 | Preserve the fixed first slice: `V1-SM05` uses `ROUTE-PROD-1` | Removes a route-selection UI decision from the first MMF and keeps the shortest complete journey bounded | A later Judge act replaces the first route slice |
+| 2 | Preserve the initiation chain: Chief Editor UI record → Senior Journalist `EW` → `OP-PITCH` route classification → T1 | Gives construction and BDD one testable order without making the human an agent | A replacement trigger contract names equivalent audit and refusal evidence |
+| 3 | Treat Sheet 1 Desk Editor `A` as an observable assignment, not an execution node | Closes `UJ2` without inventing a gate or approval | A separate Judge act adds a Desk Editor operation and its atomic contract |
+| 4 | Keep Sheet 2 `OP-FINAL-SIGNOFF` open | Prevents an unverified A-only row from becoming an implied V1 button or approval | Its `R`, acting-principal rule and completion evidence are explicitly accepted |
+| 5 | Apply the resolution to existing artifact owners | Removes `UJ1`/`UJ2` placeholders and makes the journey testable | Any proposed edit creates a duplicate journey, UML, state machine or RACI source |
+
+### What remains unclear after the clarification
+
+The business journey is now clear. Four implementation-readiness details still need specification,
+not another business-direction question:
+
+1. the canonical work-order/route-record field that stores `route_id`, `raci_scope`, route `R` and
+   route `A` without copying them into every transition;
+2. the exact validation event that accepts the Chief Editor's manual package and permits the Senior
+   Journalist agent to emit `EW`;
+3. the UI projection that shows route accountability separately from current gate executor and
+   article state; and
+4. the refusal/retry rule when `EW` is requested without a valid intake record, or is replayed for
+   the same workflow instance.
+
+These are Lane A specification tasks and later Lane B verification inputs. They do not reopen who
+initiates the journey, the first V1 route, the Senior Journalist trigger, or the Desk Editor role.
+
+### Cross-artifact gap and draft fix
+
+| Artifact owner | Current gap | Lane A draft fix | Completion evidence |
+|---|---|---|---|
+| `V1-DECISION-REGISTER.md` | `D-232` follow-on still calls `UJ1`/`UJ2` open | Record the Judge clarification and the bounded resolutions above; keep `OP-FINAL-SIGNOFF` open | One decision act distinguishes UI supplier, trigger agent, route assignment and Sheet 2 sign-off |
+| `requirements-traceability-map.md` §6.1 | Step 2 compresses selection and `EW`; both questions remain marked open | Split the ordering into manual-record accepted → `EW` start → `OP-PITCH` route classification → T1; replace the two open cells with the resolved evidence contracts | Forward trace reaches BDD cases and backward trace returns to Sheet 1, §3.2 and the Judge act |
+| `Modular_PRD.md` | §8.1 points to the open placeholders | Keep the non-duplicating pointer, but remove the stale statement that `UJ1`/`UJ2` remain open after the trace map changes | No second journey table; changelog identifies the resolution |
+| `FN-GATES-01-05.md` | Target path does not yet expose the pre-T1 UI/trigger/route boundary | Add a precondition/interface note: accepted manual record, `EW` event, Route-1 classification, then T1; route `A` is context, not executor | Missing record blocks `EW`; `EW` cannot complete T1; route `A` never authorizes a gate transition |
+| Storyboard/story panels | Historical A2 starts at T1 and uses stale intake semantics; target route panel is absent | Repair A2 and add one target Route-1 normal/revision walk inside the existing storyboard | Chief Editor UI, Senior Journalist agent, route record, T1–T6, revision and LinkedIn `ManualReady` are visible in order |
+| UML/data-flow views | Existing embedded views do not show the pre-T1 boundary | Update the storyboard's existing Mermaid views; do not create standalone UML/data-flow artifacts | Sequence and data flow agree on actor, event, stored record, state effect and refusal path |
+| Encyclopedia | Entries 01/06 do not yet teach the resolved trigger/accountability separation | Update role/gate and manual-intake entries after the governed source commit | Desk Editor, Chief Editorial Desk and Chief Editor remain distinct; no scraping or AI intake trigger is introduced |
+| `V1-BUILD-SPEC.md` | Build readiness lacks the resolved pre-T1 acceptance boundary | Add the DoR/BDD dependency only; do not authorize construction | The first MMF packet names the four remaining specification details above |
+| `V1-ARTIFACT-INVENTORY.md` | No artifact is created or retired | Mark unaffected unless Lane A creates a new file, which this review rejects | Existing owners receive the edits; no duplicate artifact appears |
+
+### Lane A follow-up — highest parent first
+
+1. Record the Chief Editor's bounded `UJ1`/`UJ2` resolution in the Register.
+2. Correct §6.1's order and remove its two stale open markers.
+3. Specify the four remaining implementation details as acceptance/refusal contracts.
+4. Propagate the non-duplicating pointer and DoR effect to `Modular_PRD` and `V1-BUILD-SPEC`;
+   state explicitly that the Artifact Inventory is unaffected.
+5. Update `FN-GATES`, then repair the existing storyboard panels and their embedded UML/data-flow
+   views from that contract.
+6. Update the affected Encyclopedia entries and cross-references only after the canonical owners
+   agree.
+7. Have Lane B/C review the resulting construction and operational observability interfaces.
+8. Run the full consistency suite, commit the governed source packet, then rebuild Graphify and prove
+   `lastAnalyzedHead` equals that source commit.
+9. Return to B-117 with the decision ID, exact write set, verification evidence and residual open
+   items. Close this child only when no artifact still says `UJ1` or `UJ2` is open.
+
+### Guaranteed failures and failure-derived success criteria
+
+| Guaranteed failure | Required success evidence |
+|---|---|
+| The UI submission itself is logged as a Senior Journalist or Reporter agent act | Supplier identity is human Chief Editor; `EW` and T1 record their actual agent principals separately |
+| `EW` fires without an accepted manual record | Refusal test produces no workflow instance, gate completion or state transition |
+| `EW` or route assignment completes T1 | Test proves both are pre-T1 context/events and T1 requires its own Reporter evidence |
+| A free-form route picker silently changes the first V1 slice | V1-SM05 records fixed `ROUTE-PROD-1`; later-route classification remains separately governed |
+| Desk Editor route `A` is rendered as T5 executor or direct state transition | UI and stored evidence use separate route-accountability and gate-executor fields |
+| Assigned route `A` is treated as evidence of approval | Test distinguishes accountable assignment from an actual operation/sign-off record |
+| `OP-FINAL-SIGNOFF` is invented to close `UJ2` | DoR remains blocked on its existing executor/atomic-completion choice until separately decided |
+| The storyboard and trace table show different initiation order | Both show Chief Editor record → Senior Journalist `EW` → route classification → T1 |
+
+Graphify is synchronized at `9baaf41` (`lastAnalyzedHead` equals `HEAD`, `stale=false`). This
+handoff-only review is excluded from the governed-doc graph under `D-231`; no rebuild is due until
+Lane A applies the canonical source packet.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `UJ1` resolved for the bounded V1 Route-1 journey | Lane A Register and traceability propagation |
+| Approve | `UJ2` resolved as observable route assignment/audit evidence, with no new Desk Editor act | Lane A Product/Fn_Spec/storyboard propagation |
+| Approve-with-conditions | V1-SM05 pre-T1 journey readiness | Specify persisted record, acceptance event, UI projection and replay/refusal rules |
+| Approve-with-conditions | B-117 child closure | All canonical owners remove the stale `UJ1`/`UJ2` open markers and independent review passes |
+| Defer | `OP-FINAL-SIGNOFF` executor and approval contract | Separate Sheet 2 operation decision before any implementation |
+| Defer | Application construction | Fresh bounded work order after DoR and lane authorization |
+| Reject | Chief Editor directly executing `EW` or T1 | Human supply, Senior Journalist trigger and Reporter gate execution remain separate facts |
+| Reject | Treating Desk Editor route `A` as T5, a button, a transition or proof of approval | Preserve RACI scope and evidence distinctions |
