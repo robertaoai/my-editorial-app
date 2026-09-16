@@ -828,6 +828,22 @@ The header above is updated accordingly: `Status: Answered`, `Resolution: Deferr
 this entry's own "observed-at commit" instruction), `Follow-up-Tier: Phase 1 — B-097 return-protocol
 controls own B-103 P3`.
 
+### Correction — P2 disposition token, 2026-09-16
+
+Raised by Lane B as `B-111`. The P2 row of the table above reads `Verified — Stage 1` in its
+**Disposition** column; the original "Exact Lane A disposition draft" this section claimed to
+apply unchanged used the plain token `Verified`, with the Stage-1 limit stated only in the
+Evidence cell. `Verified — Stage 1` is not a value `D-204`'s lifecycle vocabulary defines, so that
+cell is left as published above (append, not rewrite) and corrected here:
+
+> **Correction to the P2 child row, 2026-09-16.** The canonical child disposition is `Verified`.
+> "Stage 1 contract verification" qualifies the evidence and is not part of the lifecycle value.
+> Stage 2 runtime proof remains separately deferred under `D-230`. No B-103 header or C-001
+> readiness condition changes.
+
+With this correction, "unchanged from that proposal" above is accurate for the disposition token;
+it was not for the interim wording, which is why this correction exists.
+
 ### C-001 readiness distinction — response to "Judge clarification — C-001 review complete"
 
 Read against `4ae4333cb3e9bac44095197e6b67b60fd976477e`, the commit this response was written at
@@ -848,3 +864,42 @@ C's `C-001` history and without closing `C-001`:
 A cross-reference recording this same distinction is added to `C-001` in this same commit; its
 header — `Status: Answered`, `Resolution: Deferred`, `Follow-up-Tier: Phase 3 — Lane C` — and its
 `C-24`/`C-25` gating are unchanged, as this section's own instruction required.
+
+## Judge ruling — decision-tree disposition approved, 2026-09-16
+
+**The Chief Editor/Judge approves the P0–P3 decision-tree disposition** recorded in "Lane A
+disposition — 2026-09-15" above, as corrected by the "Correction — P2 disposition token,
+2026-09-16" note responding to `B-111`: P0 `Verified`, P1 `Verified`, P2 `Verified` (Stage 1
+contract verification only; Stage 2 stays separately deferred under `D-230`), P3 `Deferred` to
+`B-097`, whole entry `Answered`/`Deferred` at `3787821`. This is approval of the
+disposition itself, not a change to `Verified-By` — that field continues to read "not
+independently verified; dispositioned by Lane A" because Judge approval of a governance decision
+and independent technical re-verification of applied evidence are different acts (`D-102`); this
+ruling is recorded as its own dated statement rather than folded into that field.
+
+**The commit carrying that disposition (`47666c4`) is confirmed pushed** to
+`origin/docs/journal-2026-08-16` and verified by the pre-push proof in `docs/handoff/README.md`
+("Committing and pushing your own entry"): upstream tip equalled `HEAD^` before the push and `HEAD`
+after it. No push to `main` was made or is in scope.
+
+### Independent cross-artifact review of this disposition (not a restatement of the earlier table)
+
+The "Cross-artifact review and drift disposition" table earlier in this entry covered the C-001
+readiness clarification. This is a separate, independent check of the P0–P3 disposition and this
+Judge ruling, read fresh rather than assumed unchanged:
+
+| Artifact | Checked | Result |
+|---|---|---|
+| `docs/Modular_PRD.md` | Searched for `C-001`/`B-103`/`D-227`–`D-230` and the general `NFR-04` delivery-assurance requirement it serves | No reference to these entry/decision numbers exists or is needed; `NFR-04` (§ "Non-functional — verifiability... does not change customer-visible product behaviour") already covers this Project-Scope work. No edit. |
+| Storyboard (`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`) and story panels (A1–A8, B1–B8 within it) | Searched for dev-lane/CI/delivery-assurance vocabulary (`Lane C`, `workflow`, `required check`, `C-001`, `B-103`) | No matches. The storyboard's own "Lane A"/"Lane B" labels name business workflows (MVP vs. POC), a distinct and pre-existing vocabulary from the dev-lane A/B/C system this entry belongs to — confirmed no cross-contamination between the two. No edit. |
+| UML and data flow | No standalone UML/data-flow file exists in this repo; the storyboard is the data-flow artifact ("the data flow at each panel," its own stated purpose) | Same result as the storyboard row above — editorial article-state data flow is untouched by a CI/delivery-assurance lifecycle disposition. No edit. |
+| `docs/governance/requirements-traceability-map.md` | Searched for the same identifiers | No rows reference them — consistent with "no unanchored requirement created," since P0–P3 record an already-existing `NFR-04` control's lifecycle, not a new one. No edit. |
+| `docs/ENCYCLOPEDIA-SYNC.md` | Read in full | No entry depends on `C-001`/`B-103`/`D-227`–`D-230`. **Unrelated pre-existing item, noted for completeness, not caused by or affected by this disposition:** Entry 05 is already flagged `stale: D-168 affects this entry, not yet republished` — carried forward, not touched here. |
+| Graphify | `bun run check` → `docs-drift`: synced at `7dac429`; this commit and the prior one are handoff-only | No rebuild due. |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | P0–P3 decision-tree disposition | Judge-approved 2026-09-16; complete, pushed at `47666c4` |
+| Approve | Independent cross-artifact review — no drift in Modular PRD, storyboard/panels, UML/data flow, traceability map, Graphify | Complete this pass |
+| Approve-with-conditions | Encyclopedia Entry 05 | Phase 1 — pre-existing `D-168` staleness, unrelated to this entry; carried forward on its own ledger, not closed here |
+| Defer | C-001 Phase 3 execution (`C-24`, `C-25`, Lane C selection, positive/negative run) | Phase 2→3 — unchanged by this ruling |

@@ -4,11 +4,20 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** treating B-103's P0–P3 body table as a reusable lifecycle example; does not block the accepted C-001 readiness distinction, Lane B planning, or later separately authorized Lane C work
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `docs/handoff/B-103-lane-b-c-interface-and-handoff-closure.md` at `47666c46b06a082a12ef18101ecb53d82a58af7a`; its proposed P2 row uses `Verified`, while Lane A's disposition row uses `Verified — Stage 1`; `docs/handoff/README.md` D-204 lifecycle vocabulary
-- **Verified-At-Commit:** 47666c46b06a082a12ef18101ecb53d82a58af7a
+- **Status:** Answered
+- **Lane A:** **Acknowledged and applied, 2026-09-16.** Correct: the P2 disposition token was
+  `Verified — Stage 1`, a composite value `D-204`'s vocabulary does not define, against a draft
+  that used the plain token `Verified` with the Stage-1 limit stated only in the Evidence cell. Per
+  this entry's own "Exact Lane A correction," the already-published table cell in `B-103` (from
+  `47666c4`) is left as-is (append, not rewrite) and a dated correction is appended immediately
+  after it restoring the `Verified` token and keeping the Stage-1 scope in prose/evidence, with
+  Stage 2 still separately deferred under `D-230`. No B-103 header field, C-001 text, governed
+  source, application code, workflow or graph artifact changed, matching this entry's own
+  Cross-artifact disposition table.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** `docs/handoff/B-103-lane-b-c-interface-and-handoff-closure.md`, new "Correction — P2 disposition token, 2026-09-16" subsection, committed together with this answer; `bun run check`
+- **Verified-At-Commit:** 7a0dbd05e0631f1afa63ddff428a754332d5d051
 
 ## What happened
 
