@@ -17173,3 +17173,71 @@ act's own `docs-drift` output names. Does not edit `docs/graph-fragments/missing
 change what counts as a lane crossing, a phase closure, or any Product/editorial meaning. **Lane A's
 own implementation, not independently reviewed** — the eight fixture cases and the measured
 before/after counts above are offered as falsifiable evidence for that review.
+
+## 5.14e57 `D-232` — Propagate `V1-SM05`/`V1-SM06` MMF Slot Assignment (`B-117`)
+
+**Judge decision, 2026-09-16, recorded in `docs/handoff/B-117`.** V1's functional milestone is two
+increments: `V1-SM05` (`MMF-V1-CORE`) and `V1-SM06` (`MMF-V1-USABLE`). V1 has no functional Sprint 3
+or Sprint 4. The setup programme (`SETUP-SPIKE-000/S0…S4`) and the delivery version (`V1`) are
+separate namespaces; no `V1` sprint has started. The existing bare `S5`/`S6` labels in
+`V1-BUILD-SPEC.md` and `Modular_PRD.md` §8.1 (Line 3 degraded mode; auth lockdown) are pre-existing
+and unrelated — the qualified `V1-SM05`/`V1-SM06` naming exists specifically to avoid colliding with
+them, per B-117's own flagged collision (`B-117` "second S5/S6 numbering collision").
+
+This entry performs the canonical propagation `B-117`'s Lane A application guide requires for the
+tiers a mechanical index fact touches. It does not itself start construction, satisfy any DoR, select
+a sprint, or reconstruct which existing `FR`/`AC`/`NFR`/storyboard content belongs to `V1-SM05` versus
+`V1-SM06` — that reconstruction is separate, open DoR/DoD work per `docs/handoff/B-117`'s own tables
+and is deliberately not guessed at here.
+
+**Canonical homes for storyboard and UML/data-flow, clarified by the Chief Editor (2026-09-16), not
+newly invented:** the overall storyboard/UML/data-flow narrative belongs in `Modular_PRD.md`; the
+per-feature-group behavioural detail belongs in `docs/fn-specs/` (matching this project's existing
+`D-34` tool-chain tier mapping — `prd.md` → `docs/fn-specs/`); `docs/specs/` and `docs/specs/ux/` are
+tech-stack/platform-UX tiers and are not in scope for this content. **Per the Chief Editor's explicit
+correction, `docs/fn-specs/` detail means a reference to the existing storyboard Mermaid diagrams,
+annotated, not a duplicate artifact** — `docs/handoff/B-087` §4 and `B-096`'s `S17` already settled
+that one storyboard artifact owns story panels, UML-style sequence views and data-flow views; a
+second document duplicating them fails `D-30`'s redundancy test. `FN-GATES-01-05.md` §4.1 now carries
+that reference/annotation for the core-flow feature group. Storyboard panel detail itself continues
+to live unedited at `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`, confirmed by
+the Chief Editor as its working location. **What is still not done:** assigning storyboard panels to
+`V1-SM05` versus `V1-SM06` specifically — that is `V1-SM05`/`V1-SM06`'s own DoR "user journey" work
+per `docs/handoff/B-117`, and §4.1 explicitly declines to guess it.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e57 |
+| **`V1-BUILD-SPEC.md`** | ✅ corrected §1 — stale "v1 = sprints S0 through S4" line replaced with the namespace-separation statement and a new `V1-SM05`/`V1-SM06` section; existing `S5`/`S6` (Line 3, auth) unchanged |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no artifact created or retired by this tracking/index decision |
+| **`Modular_PRD.md` §8** | ✅ changelog row 1.32; §8.0 `V1` row and §8.1 table header cross-reference the namespace separation; no `FR`/`AC`/`NFR`/sprint-mapping content rewritten |
+| **`requirements-traceability-map.md` §6** | ✅ cross-reference note added below the chain diagram; diagram itself and forward/backward tables not redrawn — the row-level mapping is open DoR work |
+| **Storyboard** (`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`) | — unaffected: confirmed as its working location; not edited, referenced only, per `B-087`/`B-096`'s no-duplicate-artifact finding |
+| **UML/data flow** (`docs/fn-specs/FN-GATES-01-05.md` §4.1) | ✅ new §4.1 — reference/annotation table pointing at the existing storyboard panels per feature group; explicitly does not assign panels to `V1-SM05`/`V1-SM06`, which stays open DoR work |
+| **Encyclopedia** | — unaffected: none of the 6 tracked entries in `docs/ENCYCLOPEDIA-SYNC.md` cite Build Spec sprint numbering, the traceability-map chain, or the storyboard file |
+| **Graphify** | Rebuild owed after this commit — this is governed-intent doc content, not a handoff-only commit excluded by `D-231` |
+
+### What this act does NOT do
+
+Does not author new storyboard panels or new UML/data-flow diagrams — `FN-GATES-01-05.md` §4.1 only
+references and annotates the existing storyboard views, per `B-087`/`B-096`'s settled no-duplicate-
+artifact finding. Does not assign storyboard panels or `FR`/`AC`/`NFR` rows to `V1-SM05` versus
+`V1-SM06` specifically — that mapping remains named, open DoR work for those two MMFs. Does not
+reopen `D-171`'s S2 hold, select a sprint, or authorize construction. Does not change
+`V1-ARTIFACT-INVENTORY.md` or the Encyclopedia.
+
+### Correction to `docs/handoff/B-117`'s 2026-09-16 review of this draft
+
+`B-117`'s "Lane B review of Lane A propagation proposal" round (commit `83f5fa9`) quotes this act's
+Build Spec text as asserting *"V1 is a separate four-sprint sequence, `V1/S1…S4`."* That phrase does
+not appear anywhere in this act's actual text, in either its draft or applied form — checked directly
+against the working tree before and after commit. This act states, consistently throughout, that
+`V1` has no functional Sprint 3 or 4. The reviewed round's other findings — preserving `S5`/`S6`,
+approving the traceability §6 direction, and citing `B-087`/`B-096`'s existing storyboard/UML
+ownership — are independently verified accurate and are incorporated above (the `docs/fn-specs/`
+reference/annotation, §4.1). The SETUP-SPIKE-000/V1 separation and the Artifact Inventory/Encyclopedia
+dispositions in that review round are not adopted without further Chief Editor direction — they are
+not self-evidently correct restatements of this act's actual text, and applying them from an
+inaccurate quotation would compound rather than correct the error.

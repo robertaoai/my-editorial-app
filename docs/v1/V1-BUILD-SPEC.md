@@ -13,7 +13,29 @@
 
 > Chief Editor pastes a URL → article enters pipeline → passes all five gates with logged transitions → Chief Journalist approves → article publishes to WordPress (or is marked LinkedIn-ready). Board shows 5+ articles/week, 2+ published, every transition visible, **zero bypasses**.
 
-**v1 = sprints S0 through S4.** S5 (Line 3, degraded mode) and S6 (auth lockdown) are beyond v1. S6 is gated on `OD1`–`OD3`; S5's Line 3/`FR-11` portion is governed directly by `D-57`, not `OD3` or `OD4` (`D-168`, `D-169`) — only its degraded-mode portion depends on `Q1`'s production half (`OD3`).
+**`SETUP-SPIKE-000` and `V1` are separate planning namespaces (`D-185`, `D-232`).**
+`SETUP-SPIKE-000/S0…S4` is the zero-to-one setup programme; its artifacts (`build-config.ts`/
+`flags.ts`; `0002_s1_editorial_schema.sql`) are preserved as completed setup evidence and do not by
+themselves count as `V1` sprint completions. **`V1` is a separate delivery sequence.** Its functional
+milestone is reached at the end of its second functional sprint — `V1-SM05` then `V1-SM06`, below —
+and V1 has no functional Sprint 3 or Sprint 4. The bare `S5` (Line 3, degraded mode) and `S6` (auth
+lockdown) labels immediately below are **unrelated to this sequence and keep their existing
+meaning unchanged** — they predate the namespace split and are not renumbered by it. S5 is gated on
+`OD1`–`OD3`; S5's Line 3/`FR-11` portion is governed directly by `D-57`, not `OD3` or `OD4`
+(`D-168`, `D-169`) — only its degraded-mode portion depends on `Q1`'s production half (`OD3`).
+
+### V1 functional increments — `V1-SM05` / `V1-SM06` (`D-232`)
+
+| Qualified ID | MMF | Status | Meaning |
+|---|---|---|---|
+| `V1-SM05` | `MMF-V1-CORE` | Not started; not selected | First working-software increment — core end-to-end editorial flow |
+| `V1-SM06` | `MMF-V1-USABLE` | Not started; not selected | Second increment — the full PRD success scenario becomes usable |
+
+Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and defined DoD remain to be
+written per `docs/handoff/B-117`'s DoR/DoD tables before either becomes a sprint candidate. The
+derived `S2`/`S3`/`S4` rows in `Modular_PRD.md` §8.1 are **not** presumed to map onto `V1-SM05`/
+`V1-SM06` by number — that reconstruction is open work, not yet done (see `Modular_PRD.md` §8.0/§8.1
+cross-reference note).
 
 ## 2. Sequence
 

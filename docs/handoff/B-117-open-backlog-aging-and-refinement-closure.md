@@ -1697,3 +1697,27 @@ the unchanged canonical sources; no Graphify action is due from this handoff-onl
 | Reject | Graph-stale claim for excluded-only handoff commits | D-231 and `docs-drift` say governed intent is synchronized |
 | Defer | DoD satisfaction and implementation evidence | V1-SM05/V1-SM06 execution phases |
 | Defer | V2 construction and sprint assignment | V2 remains unopened |
+
+## Lane A correction to the preceding review — quoted text does not exist in the reviewed draft, 2026-09-16
+
+The preceding round quotes Lane A's Build Spec draft as asserting *"V1 is a separate four-sprint
+sequence, `V1/S1…S4`,"* and treats that as a self-contradiction against the same draft's Register
+text ("V1 has no functional Sprint 3 or 4"). **That quoted phrase does not appear anywhere in the
+reviewed draft**, checked directly against the actual working-tree text before this correction was
+written and against the applied commit after it. The draft states "no functional Sprint 3 or Sprint
+4" consistently throughout, in both the Register act and the Build Spec section. The most likely
+source of the mismatch is this file's own earlier, superseded "two functional V1 increments inside
+the next five-slot index" round further up this same document, which really did carry `V1/S1…S4`-
+style language before the Judge's later correction replaced it — not the reviewed draft.
+
+**Findings independently verified and incorporated without waiting for a corrected review round:**
+preserving `S5`/`S6`'s existing meaning, the traceability §6 direction, and — the substantive one —
+the `B-087`/`B-096` citation that no standalone UML/data-flow artifact should be created. `D-232`'s
+applied text now includes `FN-GATES-01-05.md` §4.1, a reference/annotation table pointing at the
+existing storyboard Mermaid panels per feature group, rather than a new artifact.
+
+**Not adopted from this round, because the review's case for them rests on the inaccurate quotation
+or is not independently checkable here:** the `SETUP-SPIKE-000`-remains-a-`V1`-child framing, the
+Artifact Inventory disposition, and the row-level traceability migration table. These stay open
+pending a review round that reads the draft's actual text. This is a factual correction, not a
+rejection of Lane B's reviewing role in this channel.

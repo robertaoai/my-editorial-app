@@ -170,6 +170,39 @@ Chief Editor pastes URL
 
 Returns (T8) and rejections (T9) may occur at any active state and are specified in the exception features.
 
+### 4.1 Storyboard / UML / data-flow cross-reference — `V1-SM05`/`V1-SM06` `[V1]` (`D-232`)
+
+**No standalone UML or data-flow artifact is created here.** `B-087` §4 and `B-096`'s `S17` already
+settled this: story panels are sections of one storyboard, and its Mermaid sequences/flowcharts are
+the inspected UML-style interaction/data-flow views. Duplicating them into a second document would
+be the exact redundancy `D-30` tests against. This subsection instead **references and annotates**
+the existing views, per feature group, so Lane B/C have enough to implement from without Lane A
+inventing a `V1-SM05`/`V1-SM06`-to-panel mapping it has no authority to decide yet — that mapping is
+still open DoR "user journey" work per `docs/handoff/B-117`.
+
+**Source of record:** `docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`.
+
+| Panel | Kind (Mermaid) | Covers (this gate spec's own T-numbers) | Note |
+|---|---|---|---|
+| A2 — T1 Intake | Sequence | `FR-01` (§3.1 above) | Reporter/Line 1/Agent, as drafted in this spec |
+| A3 — T2/T3 Validation and investigation | Sequence | `FR-02` (§3.2 above) | Investigator/Line 1/Agent |
+| A4 — T4 Drafting | Sequence | `FR-03` (§3.3 above) | Journalist/Line 1/Agent |
+| A5 — T5 Independent review | Sequence | `FR-04` (§3.4 above) | Line 2, human-executed — the panel this file's own `⚠` markers concern |
+| A6 — T6 Approval | Sequence | — | Chief Journalist/Line 1/Agent |
+| A7 — T7/T10/T11 Publication; A8 — T8/T9 Exceptions | Flowchart | Returns/rejections referenced above | Out of this file's §3 scope; see `FN-PUBLICATION-09-10-13.md`, `FN-EXCEPTIONS-06-11-12.md` |
+| B1–B8 | Sequence/flowchart | — | **Not this file's scope.** Storyboard's own "Lane A (MVP)"/"Lane B (POC)" split is a business-engagement distinction, not this project's development-lane vocabulary (`B-083`) — B-panels track the separate POC/client-commissioned track, not `V1`. |
+
+**What this table does not do:** assign panels A2–A8 to `V1-SM05` (`MMF-V1-CORE`) versus `V1-SM06`
+(`MMF-V1-USABLE`) specifically. `docs/handoff/B-117` records that as the still-open reconstruction
+(`V1-SM05`/`V1-SM06`'s own DoR "user journey" row) — asserting it here, ahead of that DoR pass, would
+be exactly the "map by matching numbers" error `B-117` warns against.
+
+**Forward direction, recorded for later, not built now.** Once `V1-SM05`/`V1-SM06` are implemented,
+the intent behind this table is that the storyboard/UML/data-flow view for the built code becomes
+generated from the codebase itself (traceable implementation → knowledge base), rather than
+hand-maintained prose diverging from what shipped. Nothing here creates that generation pipeline;
+it is a direction, not a `D-54` artifact fact.
+
 ## 5. Acceptance criteria
 
 | ID | Given | When | Then |

@@ -208,6 +208,13 @@ Business Charter  ── NOT SUPPLIED (FB-07) ──▶ PRD.md  (customer, ancho
                                           Acceptance tests AT-xxx
 ```
 
+> **`S0`–`S6` above is the historical/derived scaffold sequence.** `SETUP-SPIKE-000` and `V1` are
+> separate namespaces (`D-232`, from `docs/handoff/B-117`); `V1`'s qualified functional increments
+> are `V1-SM05` (`MMF-V1-CORE`) and `V1-SM06` (`MMF-V1-USABLE`), both `Not started`. This diagram is
+> not redrawn here — the qualified destinations are recorded in `V1-BUILD-SPEC.md` §1 and
+> `Modular_PRD.md` §8.1 — because reconstructing which forward/backward trace rows land on which
+> qualified slot is open DoR work for `V1-SM05`/`V1-SM06`, not yet done.
+
 **Forward engineering:** a customer want becomes an objective, a story, a requirement, a sprint, a test.
 **Backward engineering:** a failing test resolves to a requirement, to a story, to a customer sentence with a verifiable hash — even years later, and even if nobody involved is still on the project.
 
