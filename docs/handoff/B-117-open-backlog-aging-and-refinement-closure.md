@@ -530,3 +530,114 @@ DoD is **satisfied**.
 | Reject | Treating derived `S0`/`S1` as proof original V1 Sprint 1/2 is Done | Namespace correction |
 | Reject | Renaming historical sprint citations in place | Preserve audit evidence through the alignment matrix |
 | Reject | Starting application work from this clarification | Build begins only after one restored V1 child is Ready, selected and authorized |
+
+## Judge selection — qualified sprint indices and zero-start V1 baseline, 2026-09-16
+
+The Judge accepts the namespace-separation branch and supplies the exact lifecycle interpretation:
+
+- `SETUP-SPIKE-000` is the programme/setup container. Its five internal scaffold iterations are
+  `SETUP-SPIKE-000/S0` through `SETUP-SPIKE-000/S4`.
+- delivery version `V1` is a separate four-sprint sequence: `V1/S1` through `V1/S4`.
+- **no `V1` sprint has started.** In particular, `V1/S1` and `V1/S2` are not started.
+- completed setup artifacts remain completed inside the setup namespace and may become inputs to a
+  V1 sprint only after the receiving MMF passes its own fit and readiness checks.
+
+The five-iteration spike shape is recorded here as this project's approved planning model from the
+historical dialogue. Lane A does not need to establish a general claim about Scaled Agile to apply
+it. The governing fact is the Judge's project-specific namespace decision.
+
+### Decision table — parent first
+
+| Order | Decision | Accept | Reject | Result |
+|---:|---|---|---|---|
+| 1 | Two namespaces | `SETUP-SPIKE-000/S0…S4` and `V1/S1…S4` have separate identities and lifecycles | Any bare `S1`/`S2` used as a current status without its namespace | **Accept** |
+| 2 | V1 start state | All four V1 sprints begin `Not started`; readiness and selection are recorded separately | Carrying `Done`, `Frozen`, `Current` or `Held` from the setup sequence into V1 | **Accept** |
+| 3 | Evidence reuse | Setup artifacts can satisfy named V1 dependencies after a fit check | Treating prior existence as automatic V1 DoD satisfaction | **Accept** |
+| 4 | Historical citations | Preserve old bare sprint labels as historical text and resolve them through the alignment matrix | Rewriting old decisions, commits or test names in place | **Accept** |
+| 5 | Current prose | Every live instruction uses a qualified sprint ID | Adding another explanatory paragraph while leaving live bare-ID instructions operative | **Accept** |
+| 6 | V1 scope | Reconstruct the four V1 sprint packets from the original MMF order and higher-authority scope | Copy the setup `S0…S4` contents into like-numbered V1 sprints | **Accept with conditions** |
+
+### Canonical index and initial state
+
+| Qualified ID | Lifecycle | Initial status after alignment | Meaning |
+|---|---|---|---|
+| `SETUP-SPIKE-000/S0` | Setup | Preserve evidence-matched historical status | First scaffold iteration; never aliases `V1/S1` |
+| `SETUP-SPIKE-000/S1` | Setup | Preserve evidence-matched historical status | Second scaffold iteration; never aliases `V1/S1` or `V1/S2` |
+| `SETUP-SPIKE-000/S2` | Setup | Derive from evidence; do not copy its old V1 interpretation | Setup refinement/control iteration |
+| `SETUP-SPIKE-000/S3` | Setup | Derive from evidence; do not copy its old V1 interpretation | Setup refinement/control iteration |
+| `SETUP-SPIKE-000/S4` | Setup | Derive from evidence; do not copy its old V1 interpretation | Setup completion/readiness iteration |
+| `V1/S1` | Delivery | **Not started; not selected** | First working-software increment; exact MMF packet still requires reconstruction and DoR |
+| `V1/S2` | Delivery | **Not started; not selected** | Second working-software/reuse increment; depends on accepted `V1/S1` output |
+| `V1/S3` | Delivery | **Not started; not selected** | Account-security increment; scope boundary remains a separate decision |
+| `V1/S4` | Delivery | **Not started; not selected** | Monetization increment in the historical vision; frozen-scope conflict remains a separate decision |
+
+`Not started` is not the same as `Not Ready`: the first is execution state; the second is a
+readiness verdict. Lane A must record both independently. A V1 item may become `Ready candidate`
+while its sprint remains `Not started`, and it still does not enter that sprint until selected.
+
+### Lane A application order
+
+1. **Register the parent decision.** Assign the next Register ID to the two namespaces, exact
+   qualified IDs and the rule that all `V1/S1…S4` are `Not started`.
+2. **Build the alignment matrix.** Resolve every current live `S0…S4` reference to a qualified setup
+   ID, a qualified V1 ID, or historical-only context. Do not decide by number alone.
+3. **Correct the sequence owner.** Replace the Build Spec's live `V1 = S0 through S4` declaration
+   with separate setup and V1 sequences. Preserve its old statement in history rather than silently
+   treating it as though it was always correct.
+4. **Correct Product tracking.** Update `Modular_PRD` §8 so its live status table shows the setup
+   container separately and all four V1 delivery sprints as not started. Product behavior remains
+   unchanged by indexing alone.
+5. **Propagate under `D-54`.** Update Register, Build Spec and Artifact Inventory in the same pass;
+   update Phase Closure only for an actual lifecycle transition. Record explicitly whether any file
+   is created or retired.
+6. **Reconstruct `V1/S1` and `V1/S2`.** Map original MMF outcomes, normal/revision journey,
+   dependencies, data/state contracts, item-specific DoR, defined DoD, owner, effort range and
+   completion evidence. Reuse setup artifacts only through an explicit fit row.
+7. **Keep `V1/S3` and `V1/S4` unselected.** Resolve their higher-authority account-security and
+   monetization scope conflict before declaring either Ready.
+8. **Close setup handoffs.** Once each handoff's accepted intent and defined DoD are promoted to its
+   canonical owner, terminally disposition it and carry later work outside `docs/handoff/` with a
+   return condition.
+9. **Verify consumption.** Lane B checks that `V1/S1` exposes one bounded build child and test/data
+   contract. Lane C checks only the workflow, security, deployment and monitoring dependencies that
+   child actually needs.
+10. **Synchronize last.** Run the consistency suite, rebuild Graphify from the governed-doc commit,
+    then independently review that no live bare sprint ID remains ambiguous.
+
+### Critical artifact and verification effects
+
+| Artifact | Construction effect | Verification effect |
+|---|---|---|
+| `Modular_PRD.md` | Supplies MMF and acceptance anchors to the new V1 sprint packets | Must no longer report setup completion as V1 progress |
+| Storyboard/story panels | Normal and revision panels map to `V1/S1` or `V1/S2` by behavior | Each selected panel becomes an acceptance example; no mapping by old sprint number |
+| UML/data flow | Existing state, metadata, report and exposure models become candidate inputs | Fit check identifies which setup assumptions remain valid for the selected V1 child |
+| Requirements traceability | Adds qualified setup-evidence → V1-candidate links | Proves reuse without implying inherited completion |
+| Encyclopedia | Defines qualified sprint vocabulary and the distinction between reuse and completion | Review finds no current ambiguous bare-ID definition |
+| Cross-references | `D-185`, B-117 and the new Register act anchor the correction | Every changed live sprint claim resolves to one namespace |
+
+### Acceptance evidence for the alignment unit
+
+The alignment unit is complete only when:
+
+- a search of live instructions finds no ambiguous bare `S0…S4` lifecycle statement;
+- the canonical matrix contains five setup rows and four V1 rows, without using restated counts as
+  a standing control;
+- `V1/S1…S4` all show `Not started`, with readiness and selection in separate fields;
+- every completed setup artifact retains its original commit/test evidence and names either a V1
+  reuse target or `None`;
+- `V1/S1` and `V1/S2` each have a distinct MMF boundary and dependency order before either can be
+  selected;
+- the frozen-source conflict for `V1/S3`/`V1/S4` remains explicit until its own decision; and
+- consistency checks, Graphify rebuild and independent Lane B/C consumer reads pass.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `SETUP-SPIKE-000/S0…S4` as the qualified setup sequence | Phase 1 — canonical alignment |
+| Approve | `V1/S1…S4` as the distinct delivery sequence, all Not started | Phase 1 — tracking correction |
+| Approve | Preserve setup evidence without inherited V1 completion | Phase 1 — per-artifact fit matrix |
+| Approve-with-conditions | `V1/S1` and `V1/S2` readiness packets | Backlog refinement — reconstruct exact MMFs, DoR and defined DoD |
+| Defer | `V1/S3` account-security scope | Chief Editor scope-boundary decision |
+| Defer | `V1/S4` monetization scope | Higher-authority scope decision |
+| Reject | Any new live use of bare `S1`/`S2` as a lifecycle status | Use qualified IDs |
+| Reject | Treating any V1 sprint as started or complete | No V1 sprint has been selected or executed |
+| Reject | Application construction from this indexing decision | First build requires a Ready, selected and authorized `V1/S1` child |
