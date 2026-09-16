@@ -641,3 +641,120 @@ The alignment unit is complete only when:
 | Reject | Any new live use of bare `S1`/`S2` as a lifecycle status | Use qualified IDs |
 | Reject | Treating any V1 sprint as started or complete | No V1 sprint has been selected or executed |
 | Reject | Application construction from this indexing decision | First build requires a Ready, selected and authorized `V1/S1` child |
+
+## Judge correction — two functional V1 increments inside the next five-slot index, 2026-09-16
+
+This decision supersedes the preceding section's statement that V1 has four delivery sprints. The
+Chief Editor confirms the product boundary:
+
+> **V1's functional milestone is reached at the end of its second functional sprint, when the full
+> success scenario is usable. V1 has no functional Sprint 3 or Sprint 4.**
+
+The separate indexing requirement remains: the setup programme already occupies global sprint
+slots `S0…S4`, so the next five-slot programme window is labelled `S5…S9`. The two approved V1
+functional increments map into its first two slots. The remaining three slots are **unallocated
+cadence capacity**, not implied V1 feature sprints.
+
+### Parent decision table
+
+| Order | Choice | Accept means | Risk/failure | Recommendation |
+|---:|---|---|---|---|
+| 1 | **A — continuous programme index** | Setup uses `S0…S4`; the next window uses `S5…S9`; V1 functional Sprint 1 maps to `V1/S5`, Sprint 2 to `V1/S6` | Requires an explicit `No scope allocated` state for `S7…S9` | **Accept — Judge selected** |
+| 1 | B — restart numbering inside V1 | Use `V1/S1` and `V1/S2` only | Qualified labels avoid collision, but this rejects the requested continuous five-slot programme format | Reject for this project |
+| 1 | C — treat `V1/S5…S9` as five functional sprints | Every cadence slot receives product scope | Reintroduces three sprints the Chief Editor explicitly excluded and delays the V1 milestone | Reject |
+| 2 | **A1 — milestone at `V1/S6`** | The complete success scenario is usable and evidenced at the end of the second functional increment | None if the DoD is end-to-end and not merely component-complete | **Accept** |
+| 2 | A2 — milestone at `V1/S9` | Empty cadence slots postpone V1 completion | Confuses programme cadence with product scope | Reject |
+| 3 | **A3 — reserve `S7…S9` without scope** | They are visible for cadence planning but carry no backlog, DoR, DoD or V1 completion dependency | Later work needs a new decision before allocation | **Accept** |
+| 3 | A4 — preload security/monetization into `S7…S9` | Old proposed S3/S4 work returns under new numbers | Violates the stated two-sprint V1 boundary and bypasses frozen-scope decisions | Reject |
+
+### Canonical label and state matrix
+
+| Programme slot | Functional identity | Initial state | Scope/exit meaning |
+|---|---|---|---|
+| `SETUP-SPIKE-000/S0…S4` | Setup/scaffold iterations | Preserve evidence-matched setup states | Prepare governance, controls, specifications and reusable scaffold; never counts as V1 completion |
+| `V1/S5` | Original V1 functional Sprint 1 | **Not Ready; not selected; not started** | First MMF-ordered working-software increment; exact vertical slice must be reconstructed |
+| `V1/S6` | Original V1 functional Sprint 2 | **Blocked on `V1/S5`; not selected; not started** | Completes the entire V1 success scenario and produces a fully usable application |
+| `V1/S7` | None | **Reserved — no scope allocated** | Cadence capacity only; no V1 backlog item, DoR, DoD or completion dependency |
+| `V1/S8` | None | **Reserved — no scope allocated** | Cadence capacity only; no V1 backlog item, DoR, DoD or completion dependency |
+| `V1/S9` | None | **Reserved — no scope allocated** | Cadence capacity only; no V1 backlog item, DoR, DoD or completion dependency |
+
+`V1/S7…S9` are labels in the requested five-slot tracking window, but they are not functional V1
+sprints. A later version, hardening unit or operational activity may use a reserved slot only after
+its own Judge decision assigns scope, owner, DoR and DoD. That later allocation cannot retroactively
+change V1's end-of-`S6` functional milestone.
+
+### Item-specific readiness and completion definition
+
+| Item | Definition of Ready | Defined Definition of Done | Selection/completion evidence |
+|---|---|---|---|
+| `V1/S5` | Smallest first MMF named; normal and revision slice identified; dependencies and reusable setup artifacts fit-checked; data/state boundary, failing test, owner, effort and capacity recorded | The selected vertical slice works through UI, persistence and audit; its failure/revision path is tested; no dead action; traceability reaches the reviewed commit | Judge selects one Ready child; Lane B provides test/build evidence; independent review confirms only the selected slice |
+| `V1/S6` | `V1/S5` accepted; every remaining success-scenario step, publication/manual-ready boundary, recovery path, credential dependency and Lane C need identified | Chief Editor can enter the manual URL/Markdown source, pass the article through every required judgment gate, return it for revision, approve it, and obtain WordPress publication or LinkedIn `ManualReady`; board/audit evidence is visible; zero bypasses; tests and independent review pass | End-to-end acceptance examples, persistence/audit records, negative transition/revision tests, publication recovery evidence and Judge acceptance at one reviewed commit |
+| `V1/S7…S9` | **N/A while reserved.** A scope-assignment decision is the prerequisite to creating a backlog item | **N/A while reserved.** Do not invent exit criteria for empty capacity | Matrix states `Reserved — no scope allocated`; checks reject accidental backlog or completion dependencies |
+
+The DoD above is defined for planning. It is not satisfied until Lane B builds the selected unit and
+the required independent evidence exists. Likewise, `V1/S5` becoming Ready does not select or start
+it.
+
+### Lane A step-by-step follow-up
+
+1. Record the superseding decision: V1 has two functional increments; its success milestone is the
+   end of `V1/S6`; the earlier four-functional-sprint proposal is withdrawn.
+2. Replace the previous proposed `V1/S1…S4` live index with the matrix above. Preserve that proposal
+   as handoff history; do not leave it as a second operative sequence.
+3. Correct the Build Spec's sequence owner to show setup `S0…S4`, V1 build `S5→S6`, and reserved
+   `S7…S9` with no scope. Remove every live dependency that makes V1 completion wait for `S7…S9`.
+4. Propagate the sequence fact through the Register, Build Spec and Artifact Inventory in one pass.
+   Update Phase Closure only when a real lifecycle state changes.
+5. Correct `Modular_PRD` §8 so M-MVP/V1 progress starts at `V1/S5`, the functional milestone is
+   `V1/S6`, and old scaffold completion does not appear as V1 progress.
+6. Reconstruct the exact `V1/S5` vertical slice from the original MMF dependency order. Apply its
+   DoR checklist; do not select it until scope, capacity and stop condition are evidenced.
+7. Construct `V1/S6` as the remaining end-to-end success-scenario packet, including normal,
+   revision, publication/manual-ready and recovery acceptance examples.
+8. Move account-security expansion, multi-account access and monetization out of V1 tracking. Keep
+   them in the governed future backlog with their higher-authority return conditions.
+9. Update storyboard, story panels, UML/data flow, traceability and Encyclopedia cross-references to
+   the functional identity-to-programme-slot mapping. Avoid copying the sequence into artifacts that
+   only need a link.
+10. Have Lane B test that `V1/S5` exposes one implementable child and that `V1/S6` owns every
+    remaining success-scenario obligation. Have Lane C verify only the deployment, security,
+    monitoring and recovery dependencies required by those two units.
+11. Run the consistency suite and a search for obsolete live `V1/S1…S4`/`V1/S7…S9` scope claims;
+    rebuild Graphify after the canonical commit and perform an independent consumer review.
+12. Close the related setup handoffs once their DoR/defined-DoD packets and canonical backlog
+    destinations are usable; no application build is needed to close those setup transactions.
+
+### Critical artifact map
+
+| Artifact | Construction input | Verification obligation |
+|---|---|---|
+| `docs/Modular_PRD.md` | MMF, functional requirements and CR-19 success outcome for `V1/S5` and `V1/S6` | §8 shows no V1 progress inherited from setup and no functional S3/S4 |
+| Storyboard | Assigns the normal and revision journey across the two functional increments | End-of-`S6` walkthrough covers the complete Chief Editor journey |
+| Story panels | Supply concrete UI/action acceptance examples | Each panel maps to `V1/S5`, `V1/S6`, or future backlog — never a reserved slot |
+| UML | Defines state, role, judgment-gate and return transitions | Positive and negative transition paths cover the two-sprint boundary |
+| Data flow | Defines manual intake, metadata, state, report, publication and recovery data | Persistence, audit integrity, credential and exposure boundaries are evidenced by end `S6` |
+| Requirements traceability | Maps setup evidence to reuse checks, then requirements to `V1/S5`/`V1/S6` tests | No requirement maps to reserved `S7…S9`; every success-scenario step reaches evidence |
+| Encyclopedia | Defines functional sprint, programme slot, reserved capacity and functional milestone | Readers cannot interpret the five-slot window as five V1 feature sprints |
+| Cross-references | Link `D-185`, B-117, the new Register act and canonical sequence | One operative sequence; superseded proposals remain historical only |
+
+### Failure-derived success evidence
+
+| Guaranteed failure | Required success evidence |
+|---|---|
+| Five tracking slots become five feature sprints | `S7…S9` explicitly carry `Reserved — no scope allocated` and no backlog links |
+| Old Sprint 3/4 scope returns under new numbers | Search finds no account-security expansion or monetization assigned to `V1/S7…S9` |
+| V1 completion waits until S9 | Register, Build Spec and Product tracker all place the functional milestone at end `V1/S6` |
+| Setup code makes V1/S5 appear complete | Reuse rows require fit checks; `V1/S5` remains not started until selected |
+| Sprint 2 is component-complete but the app is unusable | `V1/S6` DoD executes CR-19 normal, revision, audit, publication/manual-ready and recovery paths |
+| Two sprint identities drift from global numbering | Canonical matrix records original functional identity and programme slot in the same row |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Continuous programme index: setup `S0…S4`, next window `S5…S9` | Phase 1 — canonical sequence correction |
+| Approve | V1 functional Sprint 1 = `V1/S5`; Sprint 2 = `V1/S6` | Phase 1 — MMF packet reconstruction |
+| Approve | V1 fully usable milestone at end `V1/S6` | Implementation — end-to-end DoD and acceptance evidence |
+| Approve-with-conditions | `V1/S7…S9` retained as reserved cadence slots | Tracking only — no scope, backlog, DoR, DoD or V1 dependency |
+| Defer | Account-security expansion, multi-account access and monetization | Governed future backlog outside V1 |
+| Reject | Previous proposed four-functional-sprint V1 | Superseded by this Judge clarification |
+| Reject | Treating five cadence slots as five V1 feature sprints | Scope control |
+| Reject | Starting `V1/S5` from this planning decision | Requires Ready, selected, authorized child and confirmed capacity |
