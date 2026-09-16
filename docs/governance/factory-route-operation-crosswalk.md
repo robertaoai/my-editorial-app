@@ -188,6 +188,36 @@ approach rather than deciding each shape individually:
 4. `OP-COMPLEX-SERIES`/`OP-LEGAL-RISK` stay `milestone_pending_decomposition` until the Chief Editor
    enumerates their atomic children — no decomposition is guessed. **Confirmed.**
 
+### 4.1 Application-selection rule and proposed `OP-FINAL-SIGNOFF` contract (`D-232` follow-on, Chief Editor clarification 2026-09-17)
+
+**These entries add a decided application-selection layer on top of §2's unchanged source R/A rows.
+No Sheet 2 cell is edited by this section; §4's "not individually decided" items are qualified, not
+reversed, below.**
+
+1. **Application-selection rule for `OP-PITCH`/`OP-DRAFT` (decided, not a §4 row-shape decision).**
+   The business judgment stage selects the contextual executor from Sheet 2's preserved multi-`R` set
+   before dispatching that stage's applicable operations: Reporter executes at business judgment
+   stage 1, Journalist at business judgment stage 3 (see `requirements-traceability-map.md` §6.2 for
+   the business/technical namespace map). This does **not** collapse the source multi-`R` row, does
+   **not** mean both roles jointly execute every instance, and does **not** change §4 item 1's
+   standing "not individually decided" row-shape note — it is a separate, decided selection rule that
+   consumes that preserved shape.
+2. **`OP-DRAFT` accountability (decided, source unchanged).** §4 item 2's `A = unknown` **stands as
+   the source fact** — no automatic route inheritance. **Separately, the Chief Editor supplied
+   `ROLE-CHIEF-EDITORIAL-DESK` as the application-level default `A`** for `OP-DRAFT` at business
+   judgment stage 5. This is recorded as a distinct application decision, not a CSV fact and not a
+   silent inheritance from route `A`.
+3. **`OP-FINAL-SIGNOFF` — PROPOSED execution contract, pending Chief Editor Accept/Reject.** §4 item
+   4's "no `R` named, no `R = A` exception granted" **stands unchanged** until this proposal is
+   accepted. Using §3.2's already-settled input/output/reroute facts, the proposed contract is: Desk
+   Editor (the route/operation `A`) personally attests completion as an **A-only control** — no `R`
+   is invented; the attestation records the acting principal, the enumerated list of required/
+   triggered prior operations checked complete, a timestamp, and produces the "signed-off package"
+   event §3.2 already defines. A missing required prior operation refuses the attestation and returns
+   to the earliest incomplete one, per §3.2's existing `reroute_target`. **This is a proposal, not a
+   decision** — if rejected, §4 item 4's standing note continues to govern and a named `R` must be
+   supplied instead.
+
 ## 5. `F4` status
 
 **Route-operation applicability (§3.1) and per-operation sequencing (§3.2) are decided.** Operation

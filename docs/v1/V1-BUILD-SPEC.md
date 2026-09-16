@@ -48,16 +48,16 @@ earlier list:
 | Parent | Child contract | Completion evidence |
 |---|---|---|
 | `DOR-R1` — pre-T1 record and event contract | Canonical intake/work-order/route record; Chief Editor supplier identity; acceptance event permitting `EW`; stored route R/A; no copying into each transition | One schema-neutral contract names fields/events, authority and audit projection |
-| `DOR-R2` — `OP-PITCH` atomic contract | **Blocked on `B071-R204`** — decide atomic Reporter-only act vs. decomposed milestone; define inputs, output route classification, executor(s), failure and replay/idempotency | Positive case creates one completed pitch/classification; duplicate event creates no second completion |
+| `DOR-R2` — `OP-PITCH` atomic contract | **Resolved 2026-09-17** — application-selection rule (Reporter at `business:T1`) consumes Sheet 2's preserved multi-`R` row without collapsing it; see `factory-route-operation-crosswalk.md` §4.1. Failure/replay/idempotency shape still to be drafted from this rule | Positive case creates one completed pitch/classification; duplicate event creates no second completion |
 | `DOR-R3` — `EW` refusal/retry contract | Missing/unaccepted intake, duplicate `EW`, failed pitch, later legitimate new workflow | BDD cases show no gate/state advance, stable workflow identity and append-only failure/retry evidence |
-| `DOR-R4` — required Route-1 operation contracts | **Blocked on `B071-R204`** — `OP-DRAFT` executor/accountability and `OP-FINAL-SIGNOFF` acting-principal/completion evidence; `OP-COPY-EDIT` already `VERIFIED`, unchanged | Every required operation has one executable atomic/milestone shape before T5 readiness |
+| `DOR-R4` — required Route-1 operation contracts | **`OP-DRAFT` resolved 2026-09-17** — Journalist at `business:T3`, Chief Editorial Desk as the recorded application-default `A` (crosswalk §4.1). **`OP-FINAL-SIGNOFF` has a PROPOSED, not accepted, A-only contract** (same §4.1) — still blocks this row until the Chief Editor accepts or rejects it. `OP-COPY-EDIT` already `VERIFIED`, unchanged | Every required operation has one executable atomic/milestone shape before T5 readiness |
 | `DOR-R5` — UI and target visual contract | UI separates supplier, route R/A, current gate executor and article state; storyboard gets one target normal/revision sequence and matching data flow | Chief Editor walkthrough and Lane B/C review trace each visible fact to one authoritative record/event |
 | `DOR-R6` — Encyclopedia review | Entries 01/06 reviewed against the corrected text; sync disposition recorded | Hosted and local status agree, or an explicit opt-in deferral is recorded — not merely flagged |
 
-**`B071-R204`'s three operation-contract questions remain open Chief Editor decisions, by explicit
-direction** — recommended defaults exist in `docs/handoff/B-071` but are not applied here. `DOR-R2`
-and `DOR-R4` cannot close until they are answered. None of the six rows authorizes code, schema, or
-deployment.
+**`B071-R204`'s three operation-contract questions, updated 2026-09-17:** `OP-PITCH`/`OP-DRAFT` are
+resolved via the application-selection rule above. **`OP-FINAL-SIGNOFF` remains open** — a proposed
+A-only contract exists (crosswalk §4.1) but is not yet accepted; `DOR-R4` cannot fully close until it
+is. None of the six rows authorizes code, schema, or deployment.
 
 ## 2. Sequence
 

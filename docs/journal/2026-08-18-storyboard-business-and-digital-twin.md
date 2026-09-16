@@ -98,9 +98,12 @@ sequenceDiagram
 > the Reporter's T1 execution**, neither a gate: a Senior Journalist agent action emits the
 > `EW`-start event (`B-071` Round 56), whose entry trigger it is; then `OP-PITCH` records and
 > completes the Route-1 classification — logged pitch: topic, trend signal, route classification
-> (`factory-route-operation-crosswalk.md` §3.2 stage table). **`OP-PITCH`'s own executor remains
-> unresolved** — Sheet 2 marks it `UNVERIFIED` with two candidate `R`s; see `B071-R204`, an open
-> Chief Editor decision, not resolved by this annotation. **`V1-SM05` fixes the route to
+> (`factory-route-operation-crosswalk.md` §3.2 stage table). **`OP-PITCH`'s executor now has a
+> decided application-selection rule (2026-09-17)** — Reporter selects at business judgment stage 1;
+> Sheet 2's multi-`R` row (Reporter, Journalist) stays preserved, not collapsed. See
+> `factory-route-operation-crosswalk.md` §4.1 and `requirements-traceability-map.md` §6.2, not
+> restated here. **`OP-FINAL-SIGNOFF`'s execution contract is a drafted proposal, not yet accepted**
+> (same §4.1) — this panel does not depict it as settled. **`V1-SM05` fixes the route to
 > `ROUTE-PROD-1`** — no route-selection UI exists in V1. Sheet 1 assigns `ROLE-REPORTER` = R and
 > `ROLE-DESK-EDITOR` = A on that route; this is an observable work-order record, not a gate, button,
 > or T5-style sign-off, and authorizes no transition. **This diagram's own sequence is not yet

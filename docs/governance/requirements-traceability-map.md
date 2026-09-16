@@ -237,14 +237,38 @@ here.
 
 **What this table does not do:** authorize construction or satisfy DoR. The consolidated DoR
 checklist (`docs/v1/V1-BUILD-SPEC.md`'s `DOR-R1`–`DOR-R6`, `D-232` follow-on) supersedes an earlier,
-incomplete four-item list here. **`B071-R204`'s three required-operation questions — `OP-PITCH`,
-`OP-DRAFT`, `OP-FINAL-SIGNOFF` — remain open Chief Editor decisions**, not resolved by this table or
-guessed at here. `OP-COPY-EDIT` is the one Sheet 2 operation already `VERIFIED` and unaffected.
+incomplete four-item list here. **`B071-R204`'s three required-operation questions, updated
+2026-09-17:** `OP-PITCH`/`OP-DRAFT` now have a decided application-selection rule (§6.2,
+`factory-route-operation-crosswalk.md` §4.1) — resolved, not guessed at. `OP-FINAL-SIGNOFF` has a
+**proposed**, not yet accepted, A-only execution contract (same §4.1) — still open until the Chief
+Editor accepts or rejects it. `OP-COPY-EDIT` is the one Sheet 2 operation already `VERIFIED` and
+unaffected.
 
 **Forward engineering:** a customer want becomes an objective, a story, a requirement, a sprint, a test.
 **Backward engineering:** a failing test resolves to a requirement, to a story, to a customer sentence with a verifiable hash — even years later, and even if nobody involved is still on the project.
 
 That second direction is the reason this map exists. It is what makes the body of knowledge transferable.
+
+### 6.2 Business / technical / planning `T`-namespace map — independently confirmed, not a new business decision `[V1]` (`D-232` follow-on, 2026-09-17)
+
+**Three unrelated things share the label `T` plus a digit. None is renamed here** — stored/API
+identifiers are unaffected; this is a display/documentation qualification only.
+
+| Namespace | Meaning | Source | Example |
+|---|---|---|---|
+| `business:T1`–`T5` | The Chief Editor's newsroom judgment stages — each selects a contextual role, which then executes that stage's applicable Sheet 2 operations (§6.1 above; `factory-route-operation-crosswalk.md` §4.1) | Chief Editor's own business narrative | `business:T1` = Reporter stage |
+| `transition:T1`–`T11`, `EG1`–`EG5` | This project's editorial gate/state-transition identifiers | `FN-GATES-01-05.md`, `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` | `transition:T5` = Independent review |
+| `planning:T1` | An Alpha-Portfolio sprint-readiness item, unrelated to editorial gates | `docs/specs/SPECS-VERIFICATION-APPARATUS.md` | `planning:T1` = precondition for `S0` |
+
+**Correction — `business:T3`'s route reference.** The Chief Editor's business narrative names
+`business:T3` as evaluating candidate `ROUTE-PROD-3`, while also attributing that stage to the
+Journalist role and comparing against baseline `ROUTE-PROD-1`. Sheet 1
+(`factory-route-operation-crosswalk.md` §1) independently maps **Journalist `R` to `ROUTE-PROD-2`**,
+not `ROUTE-PROD-3` (whose `R` is Investigator). The Journalist/route mapping is the more specific,
+independently sourced fact, so: **`business:T3` evaluates candidate `ROUTE-PROD-2` against baseline
+`ROUTE-PROD-1`, through the Journalist role.** `business:T2` (Investigator) retains the
+`ROUTE-PROD-3`-vs-`ROUTE-PROD-1` comparison. Candidate evaluation does not itself change the
+effective route — only an authorized route-selection/reclassification event does, per `D-176`.
 
 ---
 

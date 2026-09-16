@@ -86,10 +86,13 @@ T5-style sign-off, and does not authorize or perform `T1`. Neither the Chief Edi
 the Senior Journalist's `EW` emission completes `T1` — only the Reporter's own T1 execution below
 does.
 
-**`OP-PITCH` (step 3 above) has its own unresolved executor contract, not settled by this
-precondition.** Sheet 2 marks it `UNVERIFIED` with two candidate `R`s (Reporter, Journalist) and no
-milestone marker. `docs/handoff/B-071`'s `B071-R204` names this as one of three open Chief Editor
-accept/reject questions (with `OP-DRAFT` and `OP-FINAL-SIGNOFF`) — open, not resolved here.
+**`OP-PITCH` (step 3 above) now has a decided application-selection rule, not settled by this
+precondition itself.** Sheet 2's multi-`R` row (Reporter, Journalist) stays preserved; the Chief
+Editor's business judgment stages select which one executes for a given instance — see
+`factory-route-operation-crosswalk.md` §4.1 and `requirements-traceability-map.md` §6.2 for the full
+contract; not restated here. `docs/handoff/B-071`'s `B071-R204` named this as one of three open
+questions (with `OP-DRAFT` and `OP-FINAL-SIGNOFF`); `OP-PITCH`/`OP-DRAFT` are now resolved there,
+`OP-FINAL-SIGNOFF` remains a proposal pending Chief Editor Accept/Reject.
 
 ### 3.1 `FR-01` — T1 Intake *(Reporter, Line 1, Agent)*
 

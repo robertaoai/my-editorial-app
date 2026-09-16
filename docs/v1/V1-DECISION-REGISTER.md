@@ -17321,3 +17321,52 @@ the underlying business decision:
   already-named `B071-R204` (`docs/handoff/B-071`, three required-operation Chief Editor questions).
   `FN-GATES-01-05.md` §3.0 and this table now cite `B071-R204` explicitly. **By explicit Chief Editor
   direction, none of `B071-R204`'s three questions is answered in this pass — they remain open.**
+
+### Second follow-on addendum — `B071-R204` partially resolved, namespace and specs-vocabulary corrections, 2026-09-17
+
+`docs/handoff/B-117`'s later rounds (`aead9d8`, `73e4e8b`, `e978c73`) clarified `B071-R204` further.
+Independent verification found `73e4e8b` **withdraws**, not merely supplements, `aead9d8`'s mandatory-
+join/`EW`-bootstrap recommendation for `OP-PITCH` — the earlier acknowledgement in this Register
+correctly deferred everything pending that clarification; it is not a correction of an error, just the
+next step once the foundation settled. Every citation below was independently checked against source
+before this addendum was written (Sheet 1's Journalist→`ROUTE-PROD-2`/Investigator→`ROUTE-PROD-3`
+mapping; `factory-route-operation-crosswalk.md` §3.2's `OP-FINAL-SIGNOFF` input/output; the `Gate`/
+`T10` label collision in `SPECS-TRANSITION-ENFORCEMENT.md`; the unrelated `T1` in
+`SPECS-VERIFICATION-APPARATUS.md`).
+
+**Now settled and propagated:**
+- **`OP-PITCH`/`OP-DRAFT` application-selection** — Reporter at `business:T1`, Journalist at
+  `business:T3`, consuming (not collapsing) Sheet 2's preserved multi-`R` rows
+  (`factory-route-operation-crosswalk.md` §4.1).
+- **`OP-DRAFT` accountability** — source `A` stays blank; the Chief Editor's `ROLE-CHIEF-EDITORIAL-
+  DESK` application default is recorded as a separate, explicit fact, not a CSV value (same §4.1).
+- **`OP-COPY-EDIT`** — confirmed unchanged; only a prior *description* (never applied to any canonical
+  file) was wrong.
+- **`business:T3` route correction** — evaluates `ROUTE-PROD-2`, not `ROUTE-PROD-3`, against baseline
+  `ROUTE-PROD-1`, per Sheet 1's Journalist mapping (`requirements-traceability-map.md` §6.2).
+- **Business/technical/planning `T`-namespace** — three independently confirmed, unrelated meanings,
+  qualified in documentation/display only; no stored/API identifier renamed (same §6.2).
+- **Two `docs/specs/` vocabulary defects** — confirmed real, corrected with a qualifying note each;
+  no identifier renamed, no enforcement behavior changed.
+
+**Still open, by design — not resolved by this addendum:**
+- **`OP-FINAL-SIGNOFF`'s execution contract is now a drafted PROPOSAL** (crosswalk §4.1), not a
+  decision. `factory-route-operation-crosswalk.md` §4 item 4's standing "no `R`, no `R=A` exception"
+  note is unchanged until the Chief Editor accepts or rejects the proposal.
+- Target Route-1 Mermaid sequence/data-flow view, Encyclopedia Entries 01/06 review — unchanged from
+  the prior addendum.
+
+#### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this addendum |
+| **`factory-route-operation-crosswalk.md` §4.1** | ✅ application-selection rule, `OP-DRAFT` accountability split, `OP-FINAL-SIGNOFF` proposed contract — source Sheet 2 rows in §2/§4 unedited |
+| **`requirements-traceability-map.md` §6.1/§6.2** | ✅ `B071-R204` status updated; new §6.2 namespace map and `business:T3`→`ROUTE-PROD-2` correction |
+| **`Modular_PRD.md`, `FN-GATES-01-05.md`** | ✅ pointer/cross-reference updates only — no FR/AC/NFR text changed |
+| **Storyboard** | ✅ annotation extended — role-selection principle and `T3` correction noted; Final-Sign-off still flagged proposed, not drawn as settled |
+| **`V1-BUILD-SPEC.md`** | ✅ `DOR-R2`/`DOR-R4` updated to reflect the partial resolution |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no artifact created, retired, or resequenced |
+| **`docs/specs/SPECS-TRANSITION-ENFORCEMENT.md`, `SPECS-VERIFICATION-APPARATUS.md`** | ✅ qualifying notes added; no stored identifier, enforcement logic, or test behavior changed |
+| **Encyclopedia** | — unaffected by this addendum beyond the existing Entry 01/06 flag; still not reviewed |
+| **Graphify** | Rebuild owed after this commit — governed-intent doc content, not handoff-only |

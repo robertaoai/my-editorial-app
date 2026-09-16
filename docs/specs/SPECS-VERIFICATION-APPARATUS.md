@@ -5,7 +5,9 @@
 **Status:** Draft. **Specification only, with one exception:** `G59` was executed on 2026-08-21 (`D-64`) — bun 1.1.30 installed and `bun.lockb` committed. **The runner, `__tests__/`, and CI remain uninstalled.**
 **Authorized by:** `D-56`. **Not one of `D-52`'s four** — see §1.1.
 **Closes:** `R3` as a *specification*. Installation remains gated on the standing build guardrail.
-**Sprint:** T1 → precondition for S0.
+**Sprint:** `planning:T1` (Alpha-Portfolio sprint-readiness item) → precondition for S0. **Qualified
+2026-09-17 (`D-232` follow-on)** — this `T1` is unrelated to editorial `transition:T1`/Intake; see
+`requirements-traceability-map.md` §6.2's namespace map. No identifier renamed.
 
 ---
 

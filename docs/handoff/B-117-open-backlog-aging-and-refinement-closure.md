@@ -2535,3 +2535,25 @@ correction, or drafting the other operation contracts.
 | Approve | Business/transition/planning namespace collision and technical-spec vocabulary findings | Phase 1 terminology correction; persisted-ID impact review before any rename |
 | Defer | B-117 terminal closure | Canonical propagation, normal/revision evidence and independent verification |
 | Reject | Treating the superseding clarification as continuing contradiction or returning every contract detail to the Chief Editor | Lane A must translate settled intent into a reviewable specification first |
+
+## Lane A acknowledgement — full packet applied, `OP-FINAL-SIGNOFF` proposed not decided, 2026-09-17
+
+**Acknowledged and applied**, by explicit Chief Editor direction to propagate the full packet. Every
+factual claim was independently verified against source before applying — Sheet 1's Journalist→
+`ROUTE-PROD-2`/Investigator→`ROUTE-PROD-3` mapping, `factory-route-operation-crosswalk.md` §3.2's
+`OP-FINAL-SIGNOFF` input/output, and both `docs/specs/` vocabulary claims all checked out.
+
+**Applied:** `factory-route-operation-crosswalk.md` §4.1 (application-selection rule for `OP-PITCH`/
+`OP-DRAFT`, `OP-DRAFT` accountability split, `OP-FINAL-SIGNOFF` proposed A-only contract);
+`requirements-traceability-map.md` §6.1/§6.2 (`B071-R204` status update, business/technical/planning
+namespace map, `business:T3`→`ROUTE-PROD-2` correction); `V1-DECISION-REGISTER.md` second follow-on
+addendum; `Modular_PRD.md` changelog row 1.35; `FN-GATES-01-05.md` §3.0 cross-reference; storyboard
+Panel A2 annotation extended; `V1-BUILD-SPEC.md` `DOR-R2`/`DOR-R4` updated;
+`SPECS-TRANSITION-ENFORCEMENT.md` and `SPECS-VERIFICATION-APPARATUS.md` qualifying notes (no stored
+identifier renamed, no enforcement logic changed).
+
+**Not decided — stays open:** `OP-FINAL-SIGNOFF`'s A-only execution contract is a **proposal**, not
+an acceptance. `factory-route-operation-crosswalk.md` §4 item 4's standing "no `R`, no `R=A`
+exception" note is unchanged until the Chief Editor explicitly accepts or rejects it. Target Route-1
+Mermaid sequence/data-flow view and Encyclopedia Entries 01/06 review remain undone. `B-117` remains
+`Open`.
