@@ -2761,3 +2761,115 @@ acceptance.
 | Approve-with-conditions | Requirements traceability cross-reference | Lane A fixes `B117-R16` current-value contradiction |
 | Defer | Target storyboard/story panel/UML/data flow and Encyclopedia Entries 01/06 | Lane A completion evidence, then Lane B/C review |
 | Defer | B-117 terminal closure | R16, DOR-R5 and DOR-R6 complete and independently verified |
+
+## Lane B return — Sheet 2 involvement semantics and the human `T6` boundary (2026-09-17)
+
+### Judge act and scope
+
+The Judge has supplied two bounded decisions. They correct the interpretation of existing evidence;
+they do not authorize construction and do not reopen the `D-171` hold.
+
+1. **Sheet 2 is an involvement matrix.** Its `R` marks involvement in responsibility; it is not a
+   work-breakdown/task-engine cardinality rule. A row may have multiple `R` values or no `A`. Those
+   shapes are source facts and must not be called unverified merely because they do not match a
+   platform's preferred one-`R`/one-`A` model. Missing assignments must not be backfilled.
+2. **Chief Editor is the natural person at the UI boundary.** In the decided target order, the human
+   Chief Editor performs the `T6` judgment through the UI. Chief Editor is not a virtual agent, an
+   editorial node, or a transition node. Virtual review work uses **Chief Editorial Desk** (and, where
+   the route requires it, Chief Journalist). A transition record may retain `ROLE-CHIEF-EDITOR` as
+   actor provenance with a human principal; that does not turn the role into a virtual node.
+
+The second decision confirms the existing target direction in `D-170`/`D-175`; it does not choose a
+new gate order. The first decision **supersedes the narrow `D-170` `F5` statement that RACI itself
+requires one role per task**, for Sheet 2 operation involvement. Sheet 1's currently single-`R`/
+single-`A` route rows remain copied as source facts, but that shape is no longer a verification test.
+
+### Parent-first decision table for Lane A
+
+| Order | Parent / child | Accepted meaning | Accept evidence | Reject condition |
+|---:|---|---|---|---|
+| 1 | **P1 — source fidelity versus application design** | Source fidelity answers only whether the Sheet 2 cells were transcribed faithfully | The crosswalk separates source fidelity, involvement shape and application-contract status | A row remains `UNVERIFIED` only because it has several `R`, no `R`, or no `A` |
+| 2 | P1.1 — source row | Preserve every Sheet 2 mark and blank exactly; no inferred `R`, `A`, inheritance or decomposition | A source comparison reproduces the CSV row exactly | Lane A normalizes the source to one `R`/one `A` |
+| 3 | P1.2 — application contract | Selection, acting principal, completion evidence and child decomposition are application decisions downstream of the source row | Each field cites its Judge/Register owner or remains explicitly pending | `source_fidelity` is used as a proxy for execution readiness |
+| 4 | **P2 — human/virtual identity boundary** | Chief Editor is the one natural-person V1 user; Chief Editorial Desk is a distinct virtual organizational/desk role | Actor, principal type, node type, UI action and transition ID are separately named | Any diagram or requirement depicts a virtual `Chief Editor` node |
+| 5 | P2.1 — target `T5` | Route-required Chief Editorial Desk/Chief Journalist virtual reviews produce sealed evidence | Target normal and revision examples show the required route-specific review set | T5 is assigned to the human Chief Editor in current target text |
+| 6 | P2.2 — target `T6` | Human Chief Editor submits the final judgment through UI; the system validates and records `T6` | Positive and negative acceptance examples prove human-only execution | An agent, virtual node, or transition node is named as Chief Editor or allowed to execute T6 |
+| 7 | **P3 — lifecycle boundary** | These are target-planning corrections under the existing `D-171` hold | Register and derived tiers say `decided_target_held`; no build packet changes state | The correction is presented as implementation authority or as lifting the hold |
+
+No further Chief Editor choice is required for P1–P3. Lane A must translate this Judge act into the
+canonical owners and present the resulting text for independent review; it must not return the same
+semantic question to the Judge.
+
+### What is unclear, and what will fail if left unchanged
+
+| ID | Current gap | Guaranteed failure | Required fix |
+|---|---|---|---|
+| `B117-R17` | `factory-route-operation-crosswalk.md` defines `UNVERIFIED` partly by R/A cardinality and marks six Sheet 2 rows that way | A faithful multi-`R` or blank-`A` source row can never pass its own verification rule; backlog refinement will keep trying to invent assignments | Replace the overloaded status with at least `source_fidelity`, `involvement_pattern`, and `application_contract_status`. Mark directly checked Sheet 2 rows source-verified; keep multi-`R`/blank values intact; reserve any pending state for the actual application contract |
+| `B117-R18` | `D-170`/later Register text and the crosswalk repeat the two-of-eight/six-unverified conclusion | The Register will outrank and reintroduce the rejected one-`R` ideology even if the crosswalk alone is fixed | Assign a new Register act that explicitly supersedes only the Sheet 2 cardinality premise and the derived tally; cross-reference rather than rewrite historical decisions |
+| `B117-R19` | Requirements traceability §6.2 says judgment gates have “virtual-node executors,” covering `T6`; §6.1 step 6 also retains the stale unresolved Final Sign-Off clause already raised as `B117-R16` | A generator or tester can infer a virtual Chief Editor at T6, while the same current section still contradicts accepted `D-233` | Split the namespace description: T1–T5 may resolve to virtual editorial nodes under the target; T6 is a human UI judgment with a human actor record. Apply `B117-R16` in the same bounded correction |
+| `B117-R20` | `FN-GATES-01-05.md` exposes old T5-human/T6-agent material before its target-held catalog | Readers and acceptance tests will select the first operative-looking contract and build the inverse of the decided target | Keep dated history, but label it unambiguously as historical-held and make one target section the current planning reference: virtual route-required T5 reviews, human-only UI T6 |
+| `B117-R21` | Storyboard Panels A5/A6 and their sequence diagram still draw human Chief Editor at T5 and Chief Journalist agent at T6 | The normal journey, story panels, UML and data flow will verify the superseded order | Redraw the target panels: T5 virtual review evidence → sealed bundle → Chief Editor UI → T6 validation/audit. Preserve the old drawing only as clearly dated history |
+| `B117-R22` | `SPECS-TRANSITION-ENFORCEMENT.md` still declares `human_only` for T5 and tests agent-at-T5 refusal | A later build would encode the historical canary and reject the required virtual target reviewer while permitting the wrong T6 principal | Label the existing table historical-held and add a target-held enforcement table/test candidate where T6 is human-only. Do not alter code or persisted identifiers before fresh build authorization |
+| `B117-R23` | Encyclopedia sync still carries earlier T5/T6/four-eyes language and Entries 01/06 remain impact candidates | Public explanation will disagree with the governed target and obscure who is human | Review Entries 01 and 06, plus Entry 05 only where its assurance wording depends on the actor boundary; record local/hosted sync or an explicit allowed deferral |
+
+### Single-source normalization
+
+The crosswalk owns the Sheet 2 source transcription and the separation below. Other documents link to
+it and state only the behavior they own; they must not repeat row counts or platform-specific RACI
+theory.
+
+| Field | Meaning |
+|---|---|
+| `source_fidelity` | `VERIFIED` when the recorded marks/blanks match Sheet 2; `UNVERIFIED` only for an unreadable, missing or conflicting source value, never for cardinality |
+| `involvement_pattern` | Descriptive only: e.g. `multiple_R`, `no_A`, `no_R`, `single_R_single_A`, `external_A_source_mark` |
+| `application_contract_status` | Whether my-editorial-app has enough decided behavior to dispatch and complete the operation: `decided`, `partially_decided`, or `pending` |
+| `selected_executor` / `acting_principal` | Application values, with a Register citation; never written back into the Sheet 2 source cells |
+| `completion_evidence` / `revision_rule` | Workflow contract used for construction and verification, separate from RACI involvement |
+
+This vocabulary is deliberately local to the application boundary. Reconciling competing RACI
+products, standards or task-management platforms is outside `my-editorial-app` scope.
+
+### Cross-artifact propagation and completion evidence
+
+| Artifact | Required Lane A action | Completion evidence |
+|---|---|---|
+| `V1-DECISION-REGISTER.md` | Record the new Judge act; supersede `D-170`'s Sheet 2 one-role premise and derived `UNVERIFIED` conclusion; reaffirm `D-171` hold and `D-175` target roles | One retrievable decision ID; no repeated count; exact affected/unaffected tier table |
+| `factory-route-operation-crosswalk.md` | Apply the three-field separation; preserve source rows; update §4/§4.1 references without reopening D-233 contracts | Every source row can be verified independently of application readiness |
+| `requirements-traceability-map.md` | Correct §6.1 step 6 and §6.2 actor/node wording; trace T5 evidence to human T6 UI act | Forward/backward trace distinguishes role, principal, node, UI action and transition |
+| `Modular_PRD.md` | Keep the existing target-held FR/AC set; add only the minimum pointer/terminology correction needed to prevent Chief Editor being read as a virtual executor | `FR-04a`/`FR-05a`, `US-04a`/`US-05a`, `AC-05a`–`AC-08a` stay behaviorally consistent; historical rows remain labeled |
+| `FN-GATES-01-05.md` | Normalize historical versus target sections and actor types | One target planning contract: route-required virtual T5 evidence, human-only T6 through UI |
+| Storyboard / story panels / UML / data flow | Redraw A5/A6 target normal and revision journeys | No virtual Chief Editor lifeline; T5 bundle precedes CE UI act; T6 audit records human principal; revision preserves prior evidence and requires fresh affected evidence |
+| `SPECS-TRANSITION-ENFORCEMENT.md` | Separate historical-held enforcement from target-held candidates | Positive human-T6 case and negative agent-T6 case exist as candidates; no code/build authority implied |
+| `V1-BUILD-SPEC.md` | Keep DoR/DoD planning language aligned; do not change lane/build authorization | DoR cites written BDD; DoD remains satisfiable during the sprint; `D-171` hold explicit |
+| `V1-ARTIFACT-INVENTORY.md` | No file creation/retirement is presently required | Explicitly recorded unaffected unless Lane A chooses to create a new artifact, which would trigger D-54 propagation |
+| `ENCYCLOPEDIA-SYNC.md` | Review Entries 01/06 and bounded Entry 05 impact | Sync/deferral evidence recorded without duplicating the governed contract |
+
+Acceptance examples Lane A must make testable in the specification:
+
+- **Normal:** all route-required T5 virtual review acts are sealed; the Chief Editor submits a
+  decision through the UI; the system validates the bundle and appends T6 with
+  `principal_type=human` and the Chief Editor actor role.
+- **Refusal:** an agent or virtual node attempts T6; the system refuses it and makes no effective
+  state change.
+- **Revision:** a scoped revision preserves the prior T5/T6 evidence, renews only affected required
+  review acts, then requires a fresh human T6 act against the new sealed bundle.
+- **Source fidelity:** a Sheet 2 row containing two `R` values and no `A` passes source comparison
+  when those are the actual cells; its application contract may still remain pending.
+
+### Graphify and closure
+
+At `d1961aa`, local and remote are equal and the later commits are handoff-only. Graphify remains
+synchronized to the last governed-source commit under the handoff exclusion; this does **not** mean
+the semantic defects above are resolved. Lane A must update canonical sources, run the full checks,
+rebuild Graphify, re-merge curated fragments, and return the source commit plus graph evidence. B-117
+stays `Open` until that packet is independently verified. No application build, schema change,
+deployment or lane transition is authorized by this review.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Judge definition of Sheet 2 as an involvement matrix; multiple `R` and blank `A` preserved | Lane A Register and crosswalk propagation |
+| Approve | Human Chief Editor at target T6 through UI; Chief Editorial Desk/Chief Journalist as virtual target T5 reviewers | Lane A Product/Fn Spec and visual propagation |
+| Approve-with-conditions | Existing D-233 operation contracts and D-170/D-175 target direction | Retain; correct only source-verification semantics, actor/node ontology and `B117-R16` |
+| Defer | B-117 closure and Graphify rebuild | After canonical source commit, target normal/revision visuals and independent verification |
+| Reject | One-`R`/one-`A` cardinality as Sheet 2 verification, any backfill of source blanks, or a virtual Chief Editor node | Lane A must remove the conflation before readiness can pass |
+| Reject | Treating this planning decision as build authorization or lifting `D-171` | Fresh bounded build authorization remains required |
