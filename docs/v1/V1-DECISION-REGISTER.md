@@ -17257,19 +17257,47 @@ reviewing round's full 7-file packet (`FN-GATES` target-path edit, storyboard re
 diagram changes, Encyclopedia update, and Artifact Inventory mapping remain a separate follow-up
 pass, by the Chief Editor's explicit scoping).
 
-**Two items stay explicitly open, by direct Chief Editor instruction not to guess them:**
-`UJ1` (who selects `ROUTE-PROD-1`, and when relative to the `EW` trigger and T1) and `UJ2` (what
-observable act, if any, satisfies Desk Editor's route accountability — Sheet 1's `A` is not itself a
-gate or button). Both are recorded as open in `requirements-traceability-map.md` §6.1's table, not
-answered here or anywhere else in this pass.
+**`UJ1` and `UJ2` were left explicitly open here, and are now resolved by Judge clarification
+(2026-09-14/16, recorded in `docs/handoff/B-117`, commit `e01b73e`):**
+
+- **`UJ1` — who selects `ROUTE-PROD-1`, and when.** `V1-SM05` is the already-selected `ROUTE-PROD-1`
+  slice — no free-form route chooser is needed in V1. The order is: the human Chief Editor supplies
+  the manual source package through the UI; a Senior Journalist agent action then emits the
+  `EW`-start event (`B-071` Round 56); `OP-PITCH` records and completes the Route-1 classification
+  (`factory-route-operation-crosswalk.md` line 156: `OP-PITCH`'s `entry_trigger` is the Senior
+  Journalist `EW`-start event, its `completion_evidence` is the logged route classification) — **all
+  before T1 begins.** The Chief Editor does not execute `EW` or T1; the Senior Journalist trigger
+  does not complete T1 or advance article state.
+- **`UJ2` — what observable act satisfies Desk Editor's route accountability.** None is invented.
+  Sheet 1's `ROLE-DESK-EDITOR` = `A` on `ROUTE-PROD-1` is an observable assignment — a work-order/
+  route record (`route_id`, `raci_scope=factory_route`, route `R`, route `A`) with an append-only
+  audit projection in the editorial UI — **not** a button, gate, transition, or evidence of a T5-style
+  sign-off. `OP-FINAL-SIGNOFF` (Sheet 2) is a **separate, still-unresolved** operation and must not be
+  used to backfill route accountability.
+
+**Both citations were independently verified before this addendum was written:** `B-071` Round 56
+(`docs/handoff/B-071-b070-options-and-desk-editor-ontology-require-correction.md:8247`) and
+`factory-route-operation-crosswalk.md:156`, checked directly against the source files, not taken on
+the reviewing round's word.
+
+**Four implementation-readiness details remain, as specification work, not a further business
+decision:** the canonical field/record that stores route identity and R/A without copying it into
+every transition; the exact validation event that accepts the Chief Editor's manual package and
+permits `EW`; the UI projection separating route accountability from current gate executor and
+article state; and the refusal/retry rule for `EW` without a valid intake record or on replay. These
+are named, not resolved, by this addendum.
 
 #### Tier applicability (`D-54`)
 
 | Tier | Disposition |
 |---|---|
-| **Register** | ✅ this addendum |
-| **`requirements-traceability-map.md` §6.1** | ✅ new row-level `V1-SM05`/`V1-SM06` journey table, joining Sheet 1 route/accountability to existing target gate executors and `CR`/`FR`/`AC` anchors; `UJ1`/`UJ2` recorded open |
-| **`Modular_PRD.md` §8** | ✅ changelog row 1.33; §8.1 note now points to §6.1 rather than duplicating it |
-| **`V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`** | — unaffected: no artifact created, retired, or resequenced by this addendum |
-| **`FN-GATES-01-05.md`, storyboard, UML/data flow, Encyclopedia** | — deferred to a later follow-up pass, by explicit Chief Editor scoping; not touched here |
+| **Register** | ✅ this addendum, updated 2026-09-16 with the `UJ1`/`UJ2` resolution |
+| **`requirements-traceability-map.md` §6.1** | ✅ row-level `V1-SM05`/`V1-SM06` journey table corrected — pre-T1 ordering split out, `UJ1`/`UJ2` open markers replaced with resolved evidence contracts |
+| **`Modular_PRD.md` §8** | ✅ changelog row; §8.1 note corrected — no longer claims `UJ1`/`UJ2` open |
+| **`FN-GATES-01-05.md`** | ✅ precondition note added ahead of §3.1 — accepted manual record → `EW` → Route-1 classification → T1; route `A` is context, not a gate executor |
+| **Storyboard** (`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`) | ✅ Panel A2 annotated in place with the resolved pre-T1 boundary, in this document's own "preserve dated history, annotate don't rewrite" convention |
+| **UML/data flow** | ✅ addressed via the same storyboard annotation — no standalone artifact created, per `B-087`/`B-096` |
+| **Encyclopedia** | ✅ `docs/ENCYCLOPEDIA-SYNC.md` updated — Entries 01 and 06 flagged affected, not yet republished (that remains a separate opt-in act) |
+| **`V1-BUILD-SPEC.md`** | ✅ DoR dependency note added — the four remaining specification details, no construction authorized |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no artifact created, retired, or resequenced by this addendum |
 | **Graphify** | Rebuild owed after this commit — governed-intent doc content |

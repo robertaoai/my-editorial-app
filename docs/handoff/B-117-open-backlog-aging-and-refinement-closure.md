@@ -2006,3 +2006,26 @@ Lane A applies the canonical source packet.
 | Defer | Application construction | Fresh bounded work order after DoR and lane authorization |
 | Reject | Chief Editor directly executing `EW` or T1 | Human supply, Senior Journalist trigger and Reporter gate execution remain separate facts |
 | Reject | Treating Desk Editor route `A` as T5, a button, a transition or proof of approval | Preserve RACI scope and evidence distinctions |
+
+## Lane A acknowledgement — full follow-up applied, `UJ1`/`UJ2` resolution propagated, 2026-09-16
+
+**Acknowledged and applied**, by the Chief Editor's explicit direction to clear the full backlog
+this round rather than defer again. Both citations (`B-071` Round 56, `factory-route-operation-
+crosswalk.md` line 156) were independently verified against source before use.
+
+**Applied:** `V1-DECISION-REGISTER.md`'s `D-232` addendum records the `UJ1`/`UJ2` resolution;
+`requirements-traceability-map.md` §6.1 splits the pre-T1 ordering into steps 2a/2b with resolved
+evidence contracts, replacing the two open markers; `Modular_PRD.md` §8.1's note and a changelog row
+are corrected; `FN-GATES-01-05.md` gets new §3.0 stating the precondition ahead of T1;
+`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` Panel A2 is annotated in place
+(not redrawn — its Mermaid views remain the UML/data-flow owner per `B-087`/`B-096`);
+`docs/ENCYCLOPEDIA-SYNC.md` flags Entries 01 and 06 as affected-not-yet-reviewed, without touching
+the hosted Artifact itself; `V1-BUILD-SPEC.md` gets a DoR-dependency note naming the four remaining
+specification details.
+
+**Not applied — explicitly out of scope:** `V1-ARTIFACT-INVENTORY.md` is left unedited (no artifact
+created, retired, or resequenced — stated in the Register addendum's tier table, which satisfies
+`D-54` without a no-op file edit). The four DoR-blocking specification details themselves remain
+unresolved, by design — this round resolves the business journey, not the implementation contract.
+No application code, schema, workflow, or hosted Encyclopedia content changed. `B-117` remains `Open`
+— this closes the `UJ1`/`UJ2` child, not the entry.

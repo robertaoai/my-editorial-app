@@ -37,6 +37,15 @@ derived `S2`/`S3`/`S4` rows in `Modular_PRD.md` §8.1 are **not** presumed to ma
 `V1-SM06` by number — that reconstruction is open work, not yet done (see `Modular_PRD.md` §8.0/§8.1
 cross-reference note).
 
+**DoR dependency, not construction authorization (`D-232` follow-on, 2026-09-16).** `V1-SM05`'s
+pre-`T1` boundary is settled — Judge clarification, `requirements-traceability-map.md` §6.1,
+`FN-GATES-01-05.md` §3.0 — but four implementation-readiness details remain unspecified and block
+`V1-SM05` DoR completion: (1) the canonical field/record storing route identity and R/A without
+copying it into every transition; (2) the exact validation event admitting the Chief Editor's manual
+package and permitting `EW`; (3) the UI projection separating route accountability from current gate
+executor and article state; (4) the refusal/retry rule for `EW` without a valid intake record or on
+replay. None of the four is resolved by this entry; none authorizes code, schema, or deployment.
+
 ## 2. Sequence
 
 ```

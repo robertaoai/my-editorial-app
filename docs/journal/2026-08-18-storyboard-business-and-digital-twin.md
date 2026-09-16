@@ -92,6 +92,18 @@ sequenceDiagram
 > unresolved producer dependency. **The Reporter is an agent, as this panel and `FN-GATES` both
 > state**; there has never been a human/agent disagreement here, and any claim of one is withdrawn.
 
+> **Pre-`T1` boundary added — 2026-09-16 (`D-232` follow-on, Judge clarification via `docs/handoff/B-117`).**
+> This panel's diagram starts at "Chief Editor paste source URL." Three events actually precede it,
+> none of them a gate: (1) the Chief Editor supplies the source package through the UI — the same
+> supply act shown above; (2) a Senior Journalist agent action emits the `EW`-start event (`B-071`
+> Round 56); (3) `OP-PITCH` records and completes the Route-1 classification — logged pitch: topic,
+> trend signal, route classification (`factory-route-operation-crosswalk.md` line 156). **`V1-SM05`
+> fixes the route to `ROUTE-PROD-1`** — no route-selection UI exists in V1. Sheet 1 assigns
+> `ROLE-REPORTER` = R and `ROLE-DESK-EDITOR` = A on that route; this is an observable work-order
+> record, not a gate, button, or T5-style sign-off, and authorizes no transition. See
+> `FN-GATES-01-05.md` §3.0 for the governed version of this boundary; this panel is annotated, not
+> redrawn, per this document's own convention.
+
 ### Panel A3 — T2/T3 Validation and investigation *(Investigator, Line 1, Agent)*
 
 `Logged → Validated → Investigated`

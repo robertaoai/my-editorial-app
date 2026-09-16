@@ -68,6 +68,24 @@ The five gates are the product. Everything else in the system exists to record, 
 
 ## 3. Gate behaviour
 
+### 3.0 Precondition — before `T1` begins `[V1]` (`D-232` follow-on, Judge clarification via `docs/handoff/B-117`)
+
+**Three events precede `T1`, in order, and none of them is a gate:**
+
+1. The human Chief Editor supplies the manual source package through the UI (§3.1's `FB-05`-answered
+   supply contract — unchanged, cited not restated).
+2. A Senior Journalist agent action emits the `EW`-start event (`docs/handoff/B-071` Round 56).
+3. `OP-PITCH` records and completes the Route-1 classification — logged pitch: topic, trend signal,
+   route classification (`docs/governance/factory-route-operation-crosswalk.md` line 156: `EW` is
+   `OP-PITCH`'s entry trigger, route classification is its completion evidence).
+
+**`V1-SM05` fixes the route to `ROUTE-PROD-1`** (`requirements-traceability-map.md` §6.1) — no
+free-form route chooser exists in V1. Sheet 1 records `ROLE-REPORTER` = R and `ROLE-DESK-EDITOR` = A
+on this route; that assignment is an **observable work-order/route record**, not a gate, button, or
+T5-style sign-off, and does not authorize or perform `T1`. Neither the Chief Editor's supply act nor
+the Senior Journalist's `EW` emission completes `T1` — only the Reporter's own T1 execution below
+does.
+
 ### 3.1 `FR-01` — T1 Intake *(Reporter, Line 1, Agent)*
 
 `Discovered → Logged`
