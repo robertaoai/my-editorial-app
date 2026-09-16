@@ -1209,3 +1209,159 @@ At the next round in this entry, one explicit choice:
 | Reject | Applying `V1/S5`/`V1/S6` as written | Collides with `V1-BUILD-SPEC.md:16/357/358`'s existing Line-3/auth-RLS content |
 | Defer | Which sprint identities carry the V1 minimum | Judge choice: reuse existing `S2`–`S4`, or deliberately repurpose `S5`/`S6` with their current content explicitly relocated |
 | Reject | Treating this as rejecting the minimum/expansion split itself | Only the label choice is unresolved; the split logic is accepted |
+
+## Lane B synthesis — what 117 handoffs reveal about the missing MMF control, 2026-09-16
+
+### Clarified task
+
+Review the complete handoff history as evidence of recurring failure, not as 117 separate Product
+requirements. Identify the smallest missing control that lets Lane A place the V1 and V2 MMFs once,
+propagate them to the construction and verification artifacts, and terminally disposition the
+handoffs that supplied the evidence. Do not build, open V2 or create another backlog.
+
+### What the ledger proves
+
+At this review point the channel contains **117 entries: 116 B-series and one C-series**. The live
+closure check classifies them as 63 `Verified`, seven `Superseded`, six `Deferred`, 27 `Applied`,
+ten `Open` and four `turn-report`. These are lifecycle classes, not Product priorities. In
+particular, `Applied` is deliberately non-terminal and a turn report is evidence rather than a
+defect.
+
+The history falls into five useful evidence waves:
+
+| Wave | Representative entries | What the project learned | Residual used by the MMF correction |
+|---|---|---|---|
+| Foundation and source authority | B-001–B-010 | A decision, source correction, check and phase claim are different facts | Every MMF fact needs one canonical owner and one propagation rule |
+| Lane, lifecycle and checker controls | B-011–B-060 | `Answered`, `Applied`, `Verified`, lane state, Graph currency and green checks are not interchangeable | Readiness and completion evidence must be typed and independently reviewed |
+| Editorial route and ontology | B-061–B-077 | Historical T5/T6, decided target roles, state, metadata, reports and route authorization were conflated | One target V1 journey must be separated from historical and future variants |
+| Manual intake and Product readiness | B-078–B-106 | Manual source intake, A4 fields, configuration meanings and consumer responsibilities were distributed across contradictory sources | One MMF packet must contain the exact journey, data contract, acceptance examples and source write set |
+| Promotion, return and version alignment | B-107–B-117 | A mechanically valid promotion can retain ambiguous audit fields; sprint labels can collide with occupied scope | Stable MMF identity must precede sprint assignment, and semantic review must precede promotion |
+
+The number of handoffs is therefore not evidence that the Product needs 117 features. It is
+evidence that the same small set of boundary questions was repeatedly answered at a lower level
+before its parent was fixed.
+
+### Root failure pattern — parent first
+
+| Order | Missing parent control | Repeated symptom | Guaranteed failure if unchanged | Draft fix |
+|---:|---|---|---|---|
+| 1 | **Stable MMF identity and outcome** | Sprint numbers and version labels carry both identity and schedule | Relabeling moves meaning, reuses an occupied slot or appears to reopen completed work | Assign stable MMF IDs and one-sentence outcomes before any sprint number |
+| 2 | **Requirement disposition by MMF** | A mixed FR/AC is moved or retained as a whole | V1 loses a frozen success-scenario limb or V2 becomes an undeclared dependency | Split each mixed requirement into `V1 retained`, `V2 candidate`, `retired` or `dependency`, exactly once |
+| 3 | **One target journey** | Historical, current-documented and decided-target routes appear in the same panel without lifecycle labels | Lane B builds the historical route or the Judge is asked to re-decide a settled role | Make the V1 target journey primary; label history and future variants explicitly |
+| 4 | **Typed readiness evidence** | A written DoD, an acknowledged handoff or a green form check is called complete | Work enters a sprint with no executable acceptance path, or a defect closes without a correction | Distinguish DoR written, DoR satisfied, build DoD and handoff terminality |
+| 5 | **Atomic propagation** | Register, Build Spec, inventory, Product, storyboard and traceability are reviewed in separate rounds | A later reader finds the old meaning and creates another handoff | Apply the accepted MMF packet to every affected owner in one bounded source unit |
+| 6 | **Consumer proof before promotion** | Lane A declares readiness before Lane B/C test the packet as consumers | The first implementation turn rediscovers a missing dependency or ambiguous interface | Lane B and Lane C return a bounded executable/blocked/contradicted result before sprint selection |
+| 7 | **Terminal return after evidence** | Parent responses stay Open or Applied while children move independently | The handoff directory grows even after the useful decision has moved into canonical sources | Disposition every contributing entry from committed source evidence and independent review |
+
+### Stable MMF layer — separate identity from sprint numbering
+
+The next correction should not solve the current `S5`/`S6` collision by choosing another unexamined
+number. Introduce stable planning identities first; the exact names below are draft identifiers for
+Lane A to ratify or replace without changing their meaning:
+
+| Stable planning identity | Outcome boundary | Current version disposition | Sprint assignment |
+|---|---|---|---|
+| `MMF-V1-CORE` | One article completes manual intake, the minimum enforceable editorial route, revision and append-only audit | V1 retained | **Unassigned until the collision-free index is decided** |
+| `MMF-V1-USABLE` | The approved article is visible on the basic board and ends as one LinkedIn target in `ManualReady` | V1 retained; V1 functional milestone completes when usable | **Unassigned until the collision-free index is decided** |
+| `MMF-V2-ASSURANCE` | Parallel/blind/fallout review and advanced rerun behavior | V2 candidate; V2 unopened | None |
+| `MMF-V2-OPERATIONS` | Advanced analytics, operational dashboards and observability beyond the basic audit | V2 candidate; V2 unopened | None |
+| `MMF-V2-PUBLISH` | WordPress automation, multiple targets, retry/fallback and publication confirmation | V2 candidate; V2 unopened | None |
+
+`SETUP-SPIKE-000` remains the V1 child that prepares these packets; it is not itself evidence that
+either V1 MMF has been constructed. A sprint slot may later point to one stable MMF identity. It
+must not become the identity or be reused to overwrite the existing Line-3/auth meanings already
+found under `S5`/`S6`.
+
+### What remains unclear and requires one Judge act
+
+1. **Sprint index only:** which collision-free sprint slots will execute `MMF-V1-CORE` and
+   `MMF-V1-USABLE`. The outcome and V1/V2 split can be accepted before this label choice.
+2. **Canonical migration record:** no committed requirement-by-requirement matrix yet proves that
+   every old S2–S6 limb has exactly one destination.
+3. **Handoff closure scope:** the ten Open and 27 Applied entries are not all first-V1-MMF blockers.
+   Each needs `blocks MMF`, `supports MMF`, or `separate deferred control` classification before
+   closure; age or file number cannot supply that classification.
+4. **Meaning of “DoD is ready”:** writing a build DoD makes an item eligible for readiness review;
+   it does not satisfy that DoD. A setup handoff can close when its planning correction is committed
+   and independently verified while the Product backlog item remains merely Ready.
+
+### Lane A step-by-step correction and closure guide
+
+1. Record one Judge act accepting the stable MMF outcomes and the V1-retained/V2-candidate split.
+   Keep sprint labels explicitly unresolved in that act.
+2. Build one canonical migration matrix from the frozen customer outcomes and current governed
+   requirements. One row per indivisible requirement limb; include source anchor, stable MMF,
+   version disposition, dependency, acceptance case and owning artifact.
+3. Run an occupied-label inventory over every current sprint name and meaning before presenting
+   sprint-index options. Reject any option that reuses an occupied label without an explicit
+   relocation decision for its current scope.
+4. Select the collision-free index in a separate Judge row. Point sprint slots to stable MMF IDs;
+   do not copy the MMF definitions into the index.
+5. Prepare the V1 target acceptance journey: manual URL/Markdown source package, exactly one subject
+   topic, trend signal, minimum `ROUTE-PROD-1`, revision return, append-only audit, basic board and
+   LinkedIn `ManualReady`. Label the older executor model as historical and the advanced variants as
+   V2 candidates.
+6. Add the missing acceptance examples: normal journey, returned-for-revision journey, board
+   no-match case, immutable approved input and one-target `ManualReady` result. Each must have a
+   failure case that prevents false completion.
+7. Resolve the data boundary from B-096: scalar state fields change atomically; append-only
+   transitions preserve history; versioned editorial metadata uses its metadata store; frozen
+   explainability snapshots are projections, not working state or client-artifact storage.
+8. Produce one literal write set covering the Register, Build Spec, Artifact Inventory and affected
+   Product/Fn_Spec/storyboard/traceability/Encyclopedia anchors. State every reviewed unaffected
+   tier. Do not edit the frozen Project PRD, Charter or migration `0001`.
+9. Give Lane B the minimum read set for application/schema/test feasibility and Lane C the minimum
+   read set for workflow, monitoring, security and recovery dependencies. Each returns exactly one
+   result: executable, blocked by a named dependency, or contradicted by a cited source.
+10. Apply the accepted source packet atomically. Run the consistency suite, then rebuild and merge
+    Graphify because canonical governed sources changed; query each migrated requirement for one
+    destination and confirm the V1 journey reaches its outcome without a V2 node.
+11. Update originating handoff headers rather than create a consolidation successor. Verify applied
+    source corrections independently; defer real later work to its named tier; supersede only where
+    an exact successor owns the full residual.
+12. Close B-117 after the migration matrix, index decision, consumer review and entry dispositions
+    are committed. The V1 Product items may then be Ready; construction still requires lane
+    selection and a bounded authorization.
+
+### Cross-artifact construction and verification map
+
+| Artifact | Required correction | Evidence of success |
+|---|---|---|
+| `Modular_PRD.md` | Stable MMF outcomes and one destination for each mixed requirement limb | V1 contains a complete success journey; V2 candidates are non-operative |
+| Storyboard | One primary V1 normal/revision journey; historical and future panels visibly labelled | Chief Editor can walk the journey without choosing between conflicting executor models |
+| Story panels | Actor, input, action, state effect, evidence and failure/recovery per step | Every visible action maps to one acceptance case and one stable MMF |
+| UML | V1 required nodes/edges separated from historical and V2 candidate edges | No V2 node is traversed by the V1 completion path |
+| Data flow | State, events, metadata, explainability report and publication artifact remain distinct | State transition cannot rewrite unrelated metadata; report is reproducible from its anchored snapshot |
+| Requirements traceability | Frozen customer outcome → requirement limb → stable MMF → sprint slot → acceptance evidence | Exactly one live destination per limb; no orphan, duplicate or silent retirement |
+| Encyclopedia | Define stable MMF, sprint assignment, historical route, decided target and V2 candidate | Vocabulary lookup cannot turn a candidate into authorization or history into current behavior |
+| Cross-references | Link to the canonical migration matrix and stable MMF IDs | No secondary file restates mutable status or membership lists |
+| Graphify | Rebuild only after the canonical source commit, then query the migrated anchors | Source HEAD, extracted layer and curated layer agree; handoff-only history remains excluded |
+
+### Failure-derived success criteria
+
+| Observed failure pattern | Minimum success evidence |
+|---|---|
+| A sprint label is selected before its current meaning is inventoried | Occupied-label report plus a separate Judge index decision |
+| Historical and target routes are both presented as current | One primary target journey and explicit lifecycle labels on every alternative |
+| A mixed requirement moves wholesale | Row-level split with exactly one V1/V2/retired/dependency destination |
+| “DoD ready” is read as “DoD met” | Separate readiness checklist, construction DoD and handoff terminal evidence |
+| A green suite proves only valid form | Chief Editor walkthrough plus Lane B/C consumer review and negative acceptance cases |
+| Canonical sources are corrected in separate rounds | One accepted literal write set and one atomic propagation commit |
+| Graph currency is mistaken for semantic completeness | Requirement-destination queries and curated parity after the final source commit |
+| The ledger grows after the correction is promoted | Every contributing Open/Applied entry receives a truthful terminal disposition or one named residual owner |
+
+This addition changes only the existing handoff analysis. It does not choose sprint labels, edit a
+governed source, open V2, authorize construction, change lane state or require a Graphify rebuild.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Treat the 117 entries as evidence waves rather than 117 Product features | Phase 1 MMF consolidation |
+| Approve | Stable MMF identity before sprint numbering | Lane A canonical migration packet |
+| Approve | `MMF-V1-CORE` and `MMF-V1-USABLE` outcome boundaries as the draft basis | Judge naming/wording review, then V1 readiness |
+| Approve-with-conditions | V1/V2 requirement split | Exactly-one migration matrix and consumer review required |
+| Approve-with-conditions | Setup-handoff closure | Committed correction plus independent verification; a written Product DoD remains only readiness evidence |
+| Defer | Exact sprint slots for the two V1 MMFs | Occupied-label inventory and separate Judge decision |
+| Defer | V2 MMF sprint assignment and build DoD | V2 remains unopened; keep candidate return conditions only |
+| Reject | Solving the second collision by choosing another unexamined sprint number | Repeats the label-before-scope failure |
+| Reject | Bulk-closing the ten Open or 27 Applied entries | Each entry needs a source-backed terminal disposition |
+| Reject | Any application, workflow, publication or deployment work from this analysis | Planning and handoff correction only |
