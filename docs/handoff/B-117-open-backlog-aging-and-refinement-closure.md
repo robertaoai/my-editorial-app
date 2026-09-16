@@ -758,3 +758,71 @@ it.
 | Reject | Previous proposed four-functional-sprint V1 | Superseded by this Judge clarification |
 | Reject | Treating five cadence slots as five V1 feature sprints | Scope control |
 | Reject | Starting `V1/S5` from this planning decision | Requires Ready, selected, authorized child and confirmed capacity |
+
+## Lane A response — sprint-namespace conflict escalated under `D-58`, 2026-09-16
+
+**Receipt only for the three preceding sections; propagation withheld.** Before applying the
+"Lane A step-by-step follow-up" lists above to the Register, `V1-BUILD-SPEC.md`,
+`V1-ARTIFACT-INVENTORY.md` and `Modular_PRD.md` §8, Lane A read those four canonical owners, as
+`D-54` propagation requires before writing to any of them. They do not agree with the premise these
+three sections are built on.
+
+### The conflict, with exact citations
+
+1. **`V1-BUILD-SPEC.md:16`** already reads: *"v1 = sprints S0 through S4."* This is the live,
+   actively-cited sequence — `D-231`, `B-110` and others in this same handoff channel cite
+   `V1-BUILD-SPEC.md` §7's standing invariants against it.
+2. **`V1-BUILD-SPEC.md:61`**: *"`S0` and `S1` are FROZEN — both completed with artifacts
+   (`build-config.ts`/`flags.ts`; `0002_s1_editorial_schema.sql`) and both were succeeded."* `S1` is
+   the real data-model migration — schema, triggers, `REVOKE UPDATE/DELETE` — not scaffold. `S2` is
+   *"the current scope,"* held under `D-171`, not unstarted. `S3` is Board/filters/audit log
+   (`V1-BUILD-SPEC.md:278`); `S4` is Publication and fallback (`:282`) — neither is account
+   security or monetization.
+3. **Register `D-185`** (§5.14e10, Chief Editor/Judge ruling, 2026-09-03) already named the
+   historical zero-to-one lineage root `SETUP-SPIKE-000` and gives its own reason for that exact
+   name: *"Not `R0`/`S0` — both already have governed meanings in the sprint plan; a reused label
+   would collide."* `D-185` explicitly refused the `S0` alias for this reason.
+
+The three preceding sections assert the opposite of all three: that `V1-BUILD-SPEC.md`'s `S0…S4` is
+"scaffold-era planning" outside V1, that `SETUP-SPIKE-000` has its own internal `S0…S4`
+sub-iterations, and that no V1 sprint has started. That reintroduces the exact `S0`/label collision
+`D-185` was written to avoid, and it recharacterizes `S1`'s already-applied, already-frozen database
+migration as non-V1 setup evidence.
+
+### What this is, and is not
+
+This is not a claim that the three sections are fabricated, or that the Chief Editor cannot revise
+V1's sprint plan. It is the narrower, falsifiable observation that **their premise does not match
+the current canonical Build Spec and Register**, and `D-54` requires reading those owners before
+writing to them — not after. Per this channel's own `D-58` rule: *"For a genuine derived-tier
+conflict... the Register decides, and if the Register is silent, escalate — that silence is itself
+the finding."* The Register is not silent here; `D-185` already speaks to the exact collision, in
+the opposite direction from these three sections.
+
+### What Lane A did and did not do
+
+Did not touch `docs/v1/V1-DECISION-REGISTER.md`, `docs/v1/V1-BUILD-SPEC.md`,
+`docs/v1/V1-ARTIFACT-INVENTORY.md`, or `docs/Modular_PRD.md`. No Register ID was assigned. No
+sprint-index alignment matrix was written. This entry's own header `Status`/`Resolution` are left
+unchanged, since resolving this is the Judge's act, not Lane A's.
+
+### What would resolve this
+
+One explicit Judge statement, at the next round in this same entry, doing one of:
+
+- **Confirm the existing Build Spec/Register are correct** and withdraw the sprint-renumbering
+  premise in the three preceding sections; the DoR/DoD vocabulary distinction they introduce can
+  still be adopted on its own, applied to the *existing* `S0…S4` sequence rather than a new one; or
+- **Confirm the three sections are the intended correction**, explicitly naming that `D-185` is
+  being amended (not merely reused) and that `S0`/`S1`'s existing Build Spec status is being
+  reclassified from V1-frozen to pre-V1 setup evidence — stating this as a deliberate revision, not
+  an inference from the word "spike."
+
+Either is a normal, resolvable Register act. Lane A does not pick between them.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | DoR-eligibility / DoD-defined / DoD-satisfied / sprint-selection vocabulary distinction, as a reusable framework | Phase 1 — adoptable independent of the sprint-renumbering question |
+| Reject | Applying the "Lane A step-by-step follow-up" lists above to Register/Build Spec/Inventory/Modular_PRD as written | Contradicts `D-185` and `V1-BUILD-SPEC.md:16/61/278/282` |
+| Defer | Whether `SETUP-SPIKE-000` subsumes the existing `S0…S4`, or the existing `S0…S4` remains V1's real sequence | Judge arbitration under `D-58`; Register is not silent and must be reconciled explicitly, not overwritten |
+| Reject | Treating this escalation as a rejection of the Chief Editor's authority to revise the sprint plan | Only the specific undocumented premise is flagged; the decision remains the Judge's |
