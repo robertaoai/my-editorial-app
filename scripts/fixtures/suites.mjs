@@ -1438,7 +1438,13 @@ export async function terminalReturnDecision(results) {
     // steps, then a substantive one. Must land on the substantive index (2),
     // not the newest (0) — that is exactly `B-112`'s Row 4/newest-two-only defect.
     const history = ["c0", "c1", "c2", "c3"];
-    const mockDiffAt = (path, shaOld, shaNew) => {
+    // `walkToLastSubstantive` calls `diffAt(path, shaOld, shaNew, exec)`, and
+    // `diffAt` itself calls `exec("git", ["diff", shaOld, shaNew, "--", path],
+    // opts)` — so the mock passed AS `exec` receives (cmd, args, opts), not
+    // (path, shaOld, shaNew) directly. Matching that real shape is the point:
+    // a mock with the wrong signature would silently ignore every case below.
+    const mockDiffAt = (cmd, args) => {
+      const [, shaOld, shaNew] = args;
       const pair = `${shaOld}..${shaNew}`;
       if (pair === "c1..c0") return "+- **Verified-By:** x\n";
       if (pair === "c2..c1") return "+- **Verified-At-Commit:** x\n";
