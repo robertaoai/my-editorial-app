@@ -5,7 +5,12 @@
 - **Phase:** 1
 - **Blocks:** truthful closure and prioritization of the Phase 1 handoff backlog; no application build, workflow, publication, lane transition or release action
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged 2026-09-16, receipt only.** The parent-first grouping (1. Intent/Build
+  consumption, 2. B-084 Product-readiness packet, 3. return-protocol chain via B-116, 4. B-071
+  umbrella, 5. B-110, 6. B-088) and the Open/Backlog-refinement-complete/Applied/Handoff-complete
+  definitions are accepted without change. Per-entry header normalization (§"Lane A follow-up"
+  items 2–5) is queued as the next Lane A unit, in this stated order; no other entry's header is
+  edited by this acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** direct read of all `B-*`/`C-*` handoff headers and their latest Git change at `8b3e68c`; `docs/handoff/README.md` D-100–D-102 lifecycle rules; `handoff-response`/`closure-readiness`; B-094 consolidation; B-116
 - **Verified-At-Commit:** 8b3e68c54c45a78f3263a4932d90126b5c353781
