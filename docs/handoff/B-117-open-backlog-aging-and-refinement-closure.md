@@ -2456,3 +2456,82 @@ but doesn't by itself resolve any of `B071-R204`'s three named questions.
 
 `B-117` remains `Open`. This acknowledgement records receipt and the settled/open split; it applies
 nothing to any canonical tier.
+
+## Lane B independent review — Lane A acknowledgement overstates instability (2026-09-17)
+
+### Review result
+
+Lane A's repository report is correct: `0cf52ea` is pushed, the tree is clean, the affected range is
+handoff-only, and no Graphify rebuild is due. Keeping B-117 Open is also correct because canonical
+propagation and independent verification have not occurred.
+
+The reason given for withholding the next Lane A correction is not supported. `73e4e8b` does not
+leave two competing recommendations beside `aead9d8`; it expressly withdraws the earlier inferred
+mandatory multi-role join and EW-bootstrap requirement. The later clarification is the controlling
+handoff input. A correction within the discussion is provenance, not an unresolved contradiction.
+
+### Settled facts Lane A can propagate without another Chief Editor round
+
+| Parent item | Settled fact | Required Lane A treatment |
+|---|---|---|
+| 1. Role-selected execution | A judgment stage selects the role before dispatching that role's applicable operations. Reporter performs Pitch/Draft at business:T1; Journalist performs Pitch/Draft at business:T3. This is not a mandatory Reporter-plus-Journalist join | Preserve Sheet 2's source multiple-R row, and add the decided application-selection rule separately. Do not overwrite source provenance |
+| 2. Copy-edit | Chief Editor answered: preserve Sheet 2. OP-COPY-EDIT R is Chief Editorial Desk and A is Desk Editor | Correct only the erroneous description; introduce no Chief Journalist substitute |
+| 3. Draft accountability | Sheet 2's source A remains blank. The Chief Editor separately supplied Chief Editorial Desk as the application default A at business:T5 | Record source fact and application decision as separate fields. Do not call the application default a CSV fact or silently inherit route A |
+| 4. Final Sign-Off purpose | It checks that applicable task accountability is complete before the user receives the publication-review flow. Sheet 2 retains Desk Editor A and blank R | The purpose is answered. Draft the bounded A-only control contract from existing §3.2 inputs/output: Desk Editor acting-principal attestation, list of applicable operations, missing-A refusal/return to earliest incomplete operation, signed-off-package event. Escalate only if this proposed execution conflicts with the intended A-only control; do not ask the Chief Editor to restate the purpose |
+| 5. Namespace collision | The source itself confirms three meanings: business judgment T1–T5, application transition T1–T11/EG1–EG5, and historical planning T1 | Qualify display/document labels and build a semantic mapping. Preserve stored/API IDs until migration impact is known; matching numbers never prove equivalence |
+| 6. Technical-spec wording | `SPECS-TRANSITION-ENFORCEMENT.md` calls every T row a Gate while its own text declares T10 a non-transition publication event. `SPECS-VERIFICATION-APPARATUS.md` uses T1 for a historical setup stage | Treat both as independently confirmed vocabulary defects, not unverified claims. Correct through the owning technical-spec tier with Register traceability; no new business choice is needed merely to qualify the terms |
+
+### Narrow item requiring reconciliation, not wholesale deferral
+
+The T3 sentence names `ROUTE-PROD-3` while its selected Journalist role and comparison identify
+`ROUTE-PROD-2` versus baseline `ROUTE-PROD-1`. Sheet 1 independently maps Journalist R to
+`ROUTE-PROD-2` and Investigator R to `ROUTE-PROD-3`. The parent-first proposed correction is:
+
+1. business:T2 evaluates candidate `ROUTE-PROD-3` against baseline `ROUTE-PROD-1` through the
+   Investigator;
+2. business:T3 evaluates candidate `ROUTE-PROD-2` against baseline `ROUTE-PROD-1` through the
+   Journalist;
+3. business:T4 evaluates candidate `ROUTE-FALLOUT-1` against baseline `ROUTE-PROD-1` through the
+   Senior Journalist;
+4. candidate evaluation does not change the effective route until the judgment result records an
+   authorized route-selection/reclassification event; only then do D-176 applicability rules change.
+
+Lane A should put this evidence-backed correction into the decision table as Accept/Reject. It
+should return to the Chief Editor only if the intended T3 candidate really is PROD-3 despite the
+Journalist/PROD-2 Sheet 1 mapping. The ambiguity does not block namespace qualification, Copy-edit
+correction, or drafting the other operation contracts.
+
+### Correct next Lane A unit
+
+1. Register the later clarification as superseding only the withdrawn Lane B recommendations; do
+   not describe the business foundation itself as shifting.
+2. Build the requirement-level business-stage/role/operation map in
+   `requirements-traceability-map.md`, using qualified display labels and the T3 correction above.
+3. Amend the crosswalk without erasing source truth: source R/A shape, selected application actor,
+   acting principal, completion evidence and return behavior remain distinct.
+4. Propagate behavior into the relevant Product/Fn Spec, then correct the storyboard sequence/UML,
+   data flow and Encyclopedia entries. Correct technical-spec vocabulary downstream; do not fold
+   technical implementation prose into Product intent.
+5. Apply D-54 to the Register, Build Spec and Artifact Inventory in the same pass; state every
+   unaffected tier. Run the full checks, rebuild Graphify after the canonical source commit, and
+   return commit/evidence for independent Lane B/C review.
+
+### Completion evidence
+
+- Normal path proves each business judgment stage selects one contextual executor, creates the
+  applicable task evidence and preserves the effective route until an authorized selection event.
+- Revision path proves prior evidence remains append-only and only affected tasks/attestations are
+  renewed.
+- Final Sign-Off refuses when any applicable operation lacks required accountability evidence and
+  cannot itself imply publication; successful completion only opens the human publication review.
+- UI and diagrams expose business-stage labels separately from persisted transition identifiers.
+- Tests distinguish source Sheet 2 assignments from decided application selection/default rules.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Lane A push, clean-tree report and no-Graphify-rebuild conclusion | Complete for handoff-only range |
+| Approve-with-conditions | T3 correction to PROD-2 candidate | Lane A decision table; return only if Chief Editor rejects the Sheet 1-derived correction |
+| Approve | Role-selected Pitch/Draft, preserved Copy-edit RACI and answered Sign-Off purpose | Phase 1 canonical propagation and contract drafting |
+| Approve | Business/transition/planning namespace collision and technical-spec vocabulary findings | Phase 1 terminology correction; persisted-ID impact review before any rename |
+| Defer | B-117 terminal closure | Canonical propagation, normal/revision evidence and independent verification |
+| Reject | Treating the superseding clarification as continuing contradiction or returning every contract detail to the Chief Editor | Lane A must translate settled intent into a reviewable specification first |
