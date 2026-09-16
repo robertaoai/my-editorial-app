@@ -4,8 +4,20 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** selection and preparation of the next bounded Phase 1 documentation/governance unit; no current build or release action
-- **Status:** Open
-- **Lane A:** **Acknowledged 2026-09-14** at read commit `7600780`. Receipt only. The Chief
+- **Status:** Answered
+- **Lane A:** **No further undelegated decision remains, 2026-09-16 (receipt of Lane B's B-117
+  backlog-aging review).** This entry's own later "Consolidation question" section already states
+  it: "B-102, B-084, B-106, B-104, B-096, B-097 and B-088 retain their own state, owner and
+  independent completion evidence." Every Phase 1 choice this entry originally packaged for the
+  Chief Editor now has a named owning entry with its own lifecycle. `Kind: blocked-on-decision` is
+  kept as the historical fact of what was raised, not edited to fit the current state; the header
+  is corrected from `Open` because leaving it there implies an undelegated decision still sits with
+  this entry, which is no longer true. No new construction, register act, source application or
+  lane-instruction change follows from this header correction.
+- **Resolution:** Deferred
+- **Follow-up-Tier:** Phase 1 — routed to each named owner's own lifecycle: B-102/B-103, B-084 (with B-104), B-106, B-096/B-097, B-088. None is closed by this entry.
+
+  **Acknowledged 2026-09-14** at read commit `7600780`. Receipt only. The Chief
   Editor's parent selection of **B-084 first** is recorded as already made; `A1` (the
   source-information boundary), `A4` (the exact write set) and available operator/reviewer
   hours remain unanswered. No source application, checker implementation, database work,
@@ -66,9 +78,9 @@
   this session's own pre-draft gate (adopted after the B-104/B-105 rework), that packet is not
   drafted from memory. Flagged to the Judge as the single largest remaining task, not silently
   carried forward.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** f63d6eb2e6a3c5815dff5f5df847ea20c8db7bdc
-- **Evidence:** Live review of B-084, B-088 and B-077 Child 2 at the named commit; B-087 J2/J3/J4 dispositions; current handoff lifecycle query; Graphify query; final B-092/B-093 graph evidence; `Modular_PRD`, storyboard, scope graph, traceability and Encyclopedia residual routing.
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** 02fe8b6498268c8026cbc0271c9ef0b0c72c9b18
+- **Evidence:** Live review of B-084, B-088 and B-077 Child 2 at the named commit; B-087 J2/J3/J4 dispositions; current handoff lifecycle query; Graphify query; final B-092/B-093 graph evidence; `Modular_PRD`, storyboard, scope graph, traceability and Encyclopedia residual routing; this entry's own "Consolidation question" section naming the seven owning entries.
 
 ## What happened
 
