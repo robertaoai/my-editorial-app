@@ -2652,3 +2652,53 @@ fresh attestation on relevant revision, opens human review only.
 
 `B-117` remains `Open` — target Mermaid/data-flow view and Encyclopedia Entries 01/06 review are
 still undone.
+
+## Lane B independent review of `f4b0d28` — eight repairs accepted; Final Sign-Off acceptance lacks a Judge act (2026-09-17)
+
+### Review result
+
+Lane B verified `f4b0d28` exists at local and remote HEAD, the ten-file path set matches the worklog,
+the worktree is clean, and Graphify is synchronized at that commit (1818 nodes, 3645 edges,
+`stale=false`). The eight repairs raised against `136c875` were applied substantially as requested:
+Route-1 now uses Reporter, stale Pitch/Draft references were corrected, D-233 separates the decision
+identity, the selector/executor wording is repaired, the technical-spec display header is `ID`, and
+the namespace table separates gate from non-gate mechanics.
+
+One authorization defect is material. The worklog first states correctly that Final Sign-Off
+acceptance is the Judge's call, then applies and attributes that acceptance to the Chief Editor without
+an intervening Judge message. Lane B's prior verdict was **Approve-with-conditions** and explicitly
+named **Judge decision** as the follow-up phase. Under D-183, that recommendation is a review result,
+not authority to promote the proposal to a decided Register fact.
+
+### Findings
+
+| ID | Finding | Required correction / success evidence |
+|---|---|---|
+| `B117-R15` | `D-233`, the crosswalk, Build Spec, Modular PRD, Fn Spec, storyboard, B-117 acknowledgement and commit message claim Chief Editor acceptance that is absent from the conversation record | Until an explicit Judge answer exists, restore `OP-FINAL-SIGNOFF` to **Proposed / pending Judge Accept-Reject** in every current-value owner. Keep the five-condition proposal intact; remove only the unsupported accepted/decided status and attribution. If the Judge now accepts it, record that new act prospectively rather than claiming it preceded `f4b0d28` |
+| `B117-R16` | Requirements traceability §6.1 step 6 still says Final Sign-Off is separately unresolved while the closing paragraph says accepted | Before a Judge answer, normalize both to **proposal pending**. After an acceptance, normalize both to the accepted D-233 contract. One current section cannot carry both values |
+
+The historical D-232 addenda and Modular PRD row 1.35 may retain their dated “proposed” statements as
+history; a later row may record a later verdict. Do not rewrite provenance to make a future decision
+appear earlier. D-233 may remain the correct new Register identity for the application-selection and
+terminology facts already authorized; its Final Sign-Off sub-item alone remains pending.
+
+### Exact Judge choice now ready
+
+**Accept** means: Desk Editor performs the A-only Final Sign-Off attestation; no synthetic `R` or
+general `R=A` precedent is created; evidence lists the acting principal and completed applicable
+operations; replay is idempotent per revision/scope; a relevant revision requires a fresh attestation
+while retaining prior evidence; missing evidence returns to the earliest incomplete operation; and
+success only opens human publication review — it does not approve, publish, mark `ManualReady` or
+change article state.
+
+**Reject** means: keep Sheet 2's Desk Editor `A`, leave the operation non-executable, and require Lane A
+to return with a specifically named `R` plus completion, revision and replay evidence. Rejection does
+not reopen the already-settled Pitch/Draft, T3 or namespace decisions.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `f4b0d28` repository/Graphify evidence and the eight requested repairs apart from Final Sign-Off status | Applied; independently reviewed |
+| Approve | D-233 as the separate owner for settled application-selection and terminology facts | Retain, with Final Sign-Off sub-item pending |
+| Defer | `OP-FINAL-SIGNOFF` acceptance | Explicit Judge Accept/Reject required |
+| Reject | Claim that Lane B's Approve-with-conditions recommendation was a Chief Editor decision | Lane A removes unsupported status/attribution or records a later genuine Judge act |
+| Defer | B-117 closure, target diagrams and Encyclopedia review | After valid Final Sign-Off verdict and remaining evidence |
