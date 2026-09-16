@@ -77,6 +77,7 @@
 | **1.30** | **2026-09-02** | Claude, `D-178`, `F7` propagation, `docs/handoff/B-068-*.md` §19 | **`F7` propagation pass — annotations, not rewrites, per this document's own established convention.** Two corrections: (1) §2.3.1 repeated the exact alias error `D-175` had already corrected — "Chief Journalist agent" was described as `ROLE-CHIEF-EDITORIAL-DESK`'s alias; it is `ROLE-CHIEF-JOURNALIST`, its own role. (2) §8's M2/S2 status row said "S2 Unit 1 authorized," stale since `D-171` held both the current and target order. Corrected. Added one consolidated note near FR-04/FR-05 (§0.4) — not eight per-row annotations — stating neither order is presently build-authorized regardless of Entry 007's Phase 0 provisional-acceptance path; `US-04`, `US-05`, `G-02`, `G-05`, `SEC-01`, `AC-05`–`AC-08` covered by reference, not restated. No FR/AC/NFR requirement text itself changed; `D-171`'s S2 hold is not reopened, and no build is authorized. |
 | **1.31** | **2026-09-02** | Claude, `D-179`, independent review of `D-178`, `docs/handoff/B-068-*.md` §20 | **A pointer is not propagation — `D-178`'s annotation-only approach left live `FR`/`AC`/`US` rows asserting the superseded order with no target row to query instead.** Corrected: `US-04`/`US-05`, `FR-04`/`FR-05`, `AC-05`–`AC-08` marked `[historical_current_documented_held]`/`[historical]` inline (not deleted); added `US-04a`/`US-05a`, `FR-04a`/`FR-05a`, `AC-05a`/`AC-05b`/`AC-06a`/`AC-07a`/`AC-07b`/`AC-08a` as the `[decided_target_held]` set covering route-dependent `T5` cardinality, the non-judgment bundle join, the canary moved to `T6`, blind order, disagreement, and scoped return. `AC-09` onward untouched — suffix IDs only. No `D-171` hold change; every target row states plainly it is not build-authorized. |
 | **1.32** | **2026-09-16** | Claude, `D-232` propagation from `docs/handoff/B-117` | **Tracking correction, no scope change.** §8.0's `V1` row and §8.1's table header now cross-reference the `SETUP-SPIKE-000`/`V1` namespace separation: the `S0`–`S6` rows there predate `D-232` and are not presumed to map onto `V1-SM05`(`MMF-V1-CORE`)/`V1-SM06`(`MMF-V1-USABLE`) by number. Both qualified IDs recorded as `Not started; not selected`. No FR/AC/NFR requirement text changed; no sprint reconstruction performed — that remains open DoR work per `docs/handoff/B-117`. |
+| **1.33** | **2026-09-16** | Claude, `D-232` follow-on from `docs/handoff/B-117`'s Sheet 1 journey round | **Tracking pointer, no scope change.** §8.1's qualifier note now cites `requirements-traceability-map.md` §6.1, the new row-level `V1-SM05`/`V1-SM06` journey joining Sheet 1 route/accountability to existing gate executors and `CR`/`FR`/`AC` anchors — not duplicated here. `UJ1` (route-selection authority/timing) and `UJ2` (Desk Editor's observable accountability act) are recorded as explicitly open in that table; this row does not resolve either. No FR/AC/NFR requirement text changed. |
 
 ### 0.2 Decision Log
 
@@ -930,6 +931,14 @@ rejected work (`D-134`) is its concrete v1 case.**
 > **setup** evidence. Its `S2`/`S3`/`S4` rows are **not** presumed to map onto `V1-SM05`/`V1-SM06`
 > by number — reconstructing that mapping from the original MMF outcome is open work, not yet done.
 > `S5`/`S6` (Assurance/resilience; Lock down) are unrelated post-v1 features and are unaffected.
+>
+> **`V1-SM05`/`V1-SM06` journey mapping now exists at `requirements-traceability-map.md` §6.1**
+> (`D-232` follow-on, from `docs/handoff/B-117`) — row-level, joining Sheet 1 route/accountability
+> (`factory-route-operation-crosswalk.md`, `ROUTE-PROD-1`: `ROLE-REPORTER`=R, `ROLE-DESK-EDITOR`=A)
+> to the existing target gate executors and to `CR`/`FR`/`AC` anchors already defined below. **Not
+> duplicated here** — cited so this table and §6.1 cannot silently disagree. Two questions remain
+> explicitly open there and are not answered by this row either: who selects `ROUTE-PROD-1` and
+> when (`UJ1`), and what observable act satisfies Desk Editor's route accountability (`UJ2`).
 
 | Sprint | Theme | Objective | FRs | TRs / NFRs | ACs | Priority | Status |
 |---|---|---|---|---|---|---|---|

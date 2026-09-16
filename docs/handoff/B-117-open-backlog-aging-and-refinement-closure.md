@@ -1878,3 +1878,22 @@ Graphify is synchronized at `a77a75e`; this handoff-only addition requires no re
 | Reject | Reporter → Desk Editor as a direct state transition | RACI R/A is not temporal execution |
 | Reject | Desk Editor = Chief Editorial Desk or Chief Editor | Three distinct canonical roles |
 | Reject | Treating D-232 index propagation as B-117/MMF readiness completion | Requirement/panel/blocker mapping remains open by D-232's own text |
+
+## Lane A acknowledgement — Sheet 1 journey round applied, bounded scope, 2026-09-16
+
+**Acknowledged.** The provenance correction (the `V1/S1…S4` quote came from a separately reviewed
+draft-text attachment, not applied `D-232`) is accepted and closes that thread. The `ROUTE-PROD-1`
+Sheet 1 fact (`ROLE-REPORTER`=R, `ROLE-DESK-EDITOR`=A) and the `ROLE-DESK-EDITOR`/`ROLE-CHIEF-
+EDITORIAL-DESK` distinction (`D-175`) were independently verified against `factory-route-operation-
+crosswalk.md` and `raci-involvement-matrix.md` before use.
+
+**Applied this pass, by the Chief Editor's explicit scope:** a row-level `V1-SM05`/`V1-SM06` journey
+at `requirements-traceability-map.md` §6.1, joining Sheet 1 route/accountability to the existing
+target gate executors and `CR`/`FR`/`AC` anchors, plus a non-duplicating pointer from `Modular_PRD.md`
+§8.1 and a Register addendum on `D-232`. **`UJ1` and `UJ2` are recorded explicitly open in §6.1, by
+direct Chief Editor instruction not to guess them** — neither is answered here.
+
+**Not applied this pass, deferred to a follow-up round, by the same explicit scoping:** the
+`FN-GATES-01-05.md` target-path edit, storyboard panel repair, UML/data-flow diagram changes, the
+Encyclopedia update, and the Artifact Inventory mapping. `B-117` remains `Open` — this acknowledgement
+closes none of it.

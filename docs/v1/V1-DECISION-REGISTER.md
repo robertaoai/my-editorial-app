@@ -17241,3 +17241,35 @@ reference/annotation, §4.1). The SETUP-SPIKE-000/V1 separation and the Artifact
 dispositions in that review round are not adopted without further Chief Editor direction — they are
 not self-evidently correct restatements of this act's actual text, and applying them from an
 inaccurate quotation would compound rather than correct the error.
+
+### Follow-on addendum — row-level `V1-SM05`/`V1-SM06` journey, 2026-09-16
+
+`docs/handoff/B-117`'s next round (commit `cade0be`) resolved the provenance question above: the
+`V1/S1…S4` quotation came from a separately reviewed draft-text attachment, not from applied `D-232`
+or this repository's tracked working tree — confirmed, no defect in `a77a75e`. That round also
+supplied a real, verified fact this act had not yet used: `docs/governance/factory-route-operation-crosswalk.md`
+Sheet 1 — `ROUTE-PROD-1` has `ROLE-REPORTER` as Responsible and `ROLE-DESK-EDITOR` as Accountable,
+and `ROLE-DESK-EDITOR` is confirmed distinct from `ROLE-CHIEF-EDITORIAL-DESK` (`D-175`).
+
+This addendum records the bounded application of that fact: a row-level `V1-SM05`/`V1-SM06` journey,
+scoped to `requirements-traceability-map.md` §6.1 and a `Modular_PRD.md` §8.1 pointer only — not the
+reviewing round's full 7-file packet (`FN-GATES` target-path edit, storyboard repair, UML/data-flow
+diagram changes, Encyclopedia update, and Artifact Inventory mapping remain a separate follow-up
+pass, by the Chief Editor's explicit scoping).
+
+**Two items stay explicitly open, by direct Chief Editor instruction not to guess them:**
+`UJ1` (who selects `ROUTE-PROD-1`, and when relative to the `EW` trigger and T1) and `UJ2` (what
+observable act, if any, satisfies Desk Editor's route accountability — Sheet 1's `A` is not itself a
+gate or button). Both are recorded as open in `requirements-traceability-map.md` §6.1's table, not
+answered here or anywhere else in this pass.
+
+#### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this addendum |
+| **`requirements-traceability-map.md` §6.1** | ✅ new row-level `V1-SM05`/`V1-SM06` journey table, joining Sheet 1 route/accountability to existing target gate executors and `CR`/`FR`/`AC` anchors; `UJ1`/`UJ2` recorded open |
+| **`Modular_PRD.md` §8** | ✅ changelog row 1.33; §8.1 note now points to §6.1 rather than duplicating it |
+| **`V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`** | — unaffected: no artifact created, retired, or resequenced by this addendum |
+| **`FN-GATES-01-05.md`, storyboard, UML/data flow, Encyclopedia** | — deferred to a later follow-up pass, by explicit Chief Editor scoping; not touched here |
+| **Graphify** | Rebuild owed after this commit — governed-intent doc content |

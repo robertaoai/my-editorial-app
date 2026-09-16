@@ -210,10 +210,35 @@ Business Charter  ── NOT SUPPLIED (FB-07) ──▶ PRD.md  (customer, ancho
 
 > **`S0`–`S6` above is the historical/derived scaffold sequence.** `SETUP-SPIKE-000` and `V1` are
 > separate namespaces (`D-232`, from `docs/handoff/B-117`); `V1`'s qualified functional increments
-> are `V1-SM05` (`MMF-V1-CORE`) and `V1-SM06` (`MMF-V1-USABLE`), both `Not started`. This diagram is
-> not redrawn here — the qualified destinations are recorded in `V1-BUILD-SPEC.md` §1 and
-> `Modular_PRD.md` §8.1 — because reconstructing which forward/backward trace rows land on which
-> qualified slot is open DoR work for `V1-SM05`/`V1-SM06`, not yet done.
+> are `V1-SM05` (`MMF-V1-CORE`) and `V1-SM06` (`MMF-V1-USABLE`), both `Not started`. The qualified
+> destinations are also recorded in `V1-BUILD-SPEC.md` §1 and `Modular_PRD.md` §8.1.
+
+### 6.1 `V1-SM05`/`V1-SM06` row-level journey — DoR draft, not construction authorization `[V1]` (`D-232`, `B-117`)
+
+**Source of record for the route/accountability facts below:** `docs/governance/factory-route-operation-crosswalk.md`
+Sheet 1 — `ROUTE-PROD-1`: `ROLE-REPORTER` = R, `ROLE-DESK-EDITOR` = A, verified. **`ROLE-DESK-EDITOR`
+is distinct from `ROLE-CHIEF-EDITORIAL-DESK`** (`D-175`, `raci-involvement-matrix.md`) — this table
+does not alias them. Gate executors (T1–T6) are this project's existing target model, not redrawn
+here.
+
+| Step | Business route/accountability | Gate executor (target) | CR/FR/AC anchor | Slot | Open item |
+|---:|---|---|---|---|---|
+| 1 | Chief Editor prepares the source package outside the system | No transition | `CR-09`, `FR-01`, `AC-01`/`AC-02` | `V1-SM05` | — |
+| 2 | `ROUTE-PROD-1` selected; Sheet 1 records Reporter `R`, Desk Editor `A` | Senior Journalist emits `EW` start; no gate advances | `CR-10`, `FR-02`–`FR-04` (route context, not itself an FR) | `V1-SM05` | **`UJ1` open — who selects `ROUTE-PROD-1` and when, relative to `EW`/T1, is not decided by any existing source. Not answered here; stays open.** |
+| 3 | Reporter performs the responsible intake work | Reporter executes T1 | `FR-01`, `AC-01`/`AC-02` | `V1-SM05` | — |
+| 4 | Desk Editor remains route-accountable; not a gate executor | Investigator executes T2/T3 | `FR-02` | `V1-SM05` | — |
+| 5 | Route accountability unchanged | Journalist executes T4 | `FR-03` | `V1-SM05` | — |
+| 6 | Desk Editor `A` remains distinct from the T5 reviewer | Chief Editorial Desk executes T5 | `FR-04`/`FR-04a`, `AC-05a`/`AC-06a` | `V1-SM05` | **`UJ2` open — what observable act, if any, satisfies Desk Editor's route accountability is not decided by any existing source. Sheet 1's `A` is not itself a gate or button. Not answered here; stays open.** |
+| 7 | Human Chief Editor is the final judgment owner, not Sheet 1's Desk Editor | Chief Editor executes T6 | `FR-04`, `CR-12` | `V1-SM05` | — |
+| 8 | Same route/accountability record persists through correction | Revision returns only the affected scope | `CR-11`, `FR-07`, `AC-11`/`AC-12` | `V1-SM05` | — |
+| 9 | Route completion visible on the board | Board reads state/topic/category/audit | `CR-13`, `FR-08`, `AC-13` | `V1-SM06` | — |
+| 10 | Publication delivery does not redefine editorial accountability | Approved content becomes `ManualReady` | `CR-12`, `FR-09`/`FR-10`, `AC-14`–`AC-16` | `V1-SM06` | — |
+
+**What this table does not do:** authorize construction, satisfy DoR, or resolve `UJ1`/`UJ2` —
+both are recorded here exactly as open, per the Chief Editor's instruction not to guess a product
+decision neither an existing source nor this pass settles. Sheet 2 operations (`OP-PITCH`,
+`OP-DRAFT`, `OP-FINAL-SIGNOFF`) remain business-process context, not separate V1-SM05 UI actions,
+per `factory-route-operation-crosswalk.md`'s own `UNVERIFIED` marks on their R/A shape.
 
 **Forward engineering:** a customer want becomes an objective, a story, a requirement, a sprint, a test.
 **Backward engineering:** a failing test resolves to a requirement, to a story, to a customer sentence with a verifiable hash — even years later, and even if nobody involved is still on the project.
