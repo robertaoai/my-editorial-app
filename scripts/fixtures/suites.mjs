@@ -12,7 +12,7 @@ import { field, ENTRY_FILE } from "../checks/handoff-fields.mjs";
 import { classify } from "../checks/lane-boundary.mjs";
 import { classifyChangedPaths } from "../checks/governed-intent.mjs";
 import { getChangedPaths } from "../checks/docs-drift.mjs";
-import { decideTerminalReturn, fileHistory, contentAt } from "../checks/terminal-return.mjs";
+import { decideTerminalReturn, fileHistory, contentAt, isAuditOnlyDiff, diffAt, walkToLastSubstantive } from "../checks/terminal-return.mjs";
 
 const CHECK = (n) => new URL(`../checks/${n}`, import.meta.url).href;
 
@@ -1397,6 +1397,91 @@ export async function terminalReturnDecision(results) {
     const r = decideTerminalReturn(c.input);
     const ok = c.check(r);
     results.push({ name: c.name, ok, detail: ok ? `flag=${r.flag}` : `unexpected: ${JSON.stringify(r)}` });
+  }
+
+  // `B-112`: nine live entries were flagged by a single `D-205` bulk commit
+  // that touched ONLY `Verified-By`/`Verified-At-Commit`. `isAuditOnlyDiff`
+  // is the pure classifier that must say so — synthetic diffs, no git.
+  const auditCases = [
+    {
+      name: "isAuditOnlyDiff: a bare Verified-By line, nothing else — audit-only",
+      diff:
+        "diff --git a/x b/x\nindex 1..2 100644\n--- a/x\n+++ b/x\n@@ -9,0 +10 @@\n+- **Verified-By:** — not independently verified; dispositioned by Lane A\n",
+      expect: true,
+    },
+    {
+      name: "isAuditOnlyDiff: Verified-By AND Verified-At-Commit both changed — still audit-only",
+      diff:
+        "diff --git a/x b/x\nindex 1..2 100644\n--- a/x\n+++ b/x\n@@ -9,2 +9,2 @@\n-- **Verified-By:**\n-- **Verified-At-Commit:**\n+- **Verified-By:** — not independently verified; dispositioned by Lane A\n+- **Verified-At-Commit:** 9f6047a\n",
+      expect: true,
+    },
+    {
+      name: "isAuditOnlyDiff: a real prose line beside an audit line — NOT audit-only (B-017 shape)",
+      diff:
+        "diff --git a/x b/x\nindex 1..2 100644\n--- a/x\n+++ b/x\n@@ -80,0 +81,4 @@\n+## Post-verification fixture gap\n+\n+This does not reopen the parser repair.\n+- **Verified-By:** — not independently verified; dispositioned by Lane A\n",
+      expect: false,
+    },
+    {
+      name: "isAuditOnlyDiff: an empty diff is NOT trusted as audit-only (nothing to classify)",
+      diff: "",
+      expect: false,
+    },
+  ];
+  for (const c of auditCases) {
+    const got = isAuditOnlyDiff(c.diff);
+    const ok = got === c.expect;
+    results.push({ name: c.name, ok, detail: ok ? `isAuditOnlyDiff=${got}` : `expected ${c.expect}, got ${got}` });
+  }
+
+  {
+    // `walkToLastSubstantive` over a mocked history: two trailing audit-only
+    // steps, then a substantive one. Must land on the substantive index (2),
+    // not the newest (0) — that is exactly `B-112`'s Row 4/newest-two-only defect.
+    const history = ["c0", "c1", "c2", "c3"];
+    const mockDiffAt = (path, shaOld, shaNew) => {
+      const pair = `${shaOld}..${shaNew}`;
+      if (pair === "c1..c0") return "+- **Verified-By:** x\n";
+      if (pair === "c2..c1") return "+- **Verified-At-Commit:** x\n";
+      if (pair === "c3..c2") return "+## Real new section\n+actual content\n";
+      throw new Error(`unexpected pair ${pair}`);
+    };
+    const idx = walkToLastSubstantive("docs/handoff/B-999.md", history, mockDiffAt);
+    const ok = idx === 2;
+    results.push({
+      name: "walkToLastSubstantive: skips two trailing audit-only steps, lands on the substantive one",
+      ok,
+      detail: ok ? `idx=${idx}` : `expected 2, got ${idx}`,
+    });
+  }
+  {
+    const history = ["c0", "c1", "c2"];
+    const mockDiffAt = () => "+- **Verified-By:** x\n";
+    const idx = walkToLastSubstantive("docs/handoff/B-999.md", history, mockDiffAt);
+    const ok = idx === history.length - 1;
+    results.push({
+      name: "walkToLastSubstantive: every step audit-only — lands on the oldest fetched commit, not flagged as substantive",
+      ok,
+      detail: ok ? `idx=${idx}` : `expected ${history.length - 1}, got ${idx}`,
+    });
+  }
+  {
+    const calls = [];
+    const mockExec = (cmd, args) => {
+      calls.push({ cmd, args });
+      return "";
+    };
+    diffAt("docs\\handoff\\B-999.md", "aaa", "bbb", mockExec);
+    const ok =
+      calls.length === 1 &&
+      calls[0].args[0] === "diff" &&
+      calls[0].args[1] === "aaa" &&
+      calls[0].args[2] === "bbb" &&
+      calls[0].args[calls[0].args.length - 1] === "docs/handoff/B-999.md";
+    results.push({
+      name: "terminal-return: diffAt passes shas and a forward-slash path as separate inert arguments",
+      ok,
+      detail: ok ? "argument array confirmed" : `calls=${JSON.stringify(calls)}`,
+    });
   }
 
   {

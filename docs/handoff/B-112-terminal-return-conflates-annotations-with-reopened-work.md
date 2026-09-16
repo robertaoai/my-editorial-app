@@ -4,11 +4,38 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** independent verification of B-097; treating `terminal-return` as a trustworthy consistency gate; B-103 P3 and whole-entry closure
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** independent review of `4f3bb95e2e78a9efdfb0ff09f994cf17bc2a748f`; `docs/handoff/README.md` §"Returning a terminal entry"; `scripts/checks/terminal-return.mjs`; per-file history and latest post-terminal diffs for all 12 reported entries
-- **Verified-At-Commit:** 4f3bb95e2e78a9efdfb0ff09f994cf17bc2a748f
+- **Status:** Answered
+- **Lane A:** **Acknowledged and substantially agreed, 2026-09-16.** Independently spot-checked before
+  accepting: `B-008`'s only post-terminal diff at the time was a bare `Verified-By:` line; `B-017`'s
+  addition literally opens *"This does not reopen the parser repair."* Both match this entry's
+  claim exactly, so the finding is accepted rather than merely trusted. Two corrections applied at
+  `<pending commit>`:
+  1. **The audit-only exemption is real, and its absence was a bug, not a policy gap.** `terminal-
+     return`'s walk-back skip used a field-line regex missing the markdown bullet prefix every
+     header field actually has (`- **Name:**`, not `**Name:**`), so it never matched anything and
+     silently exempted nothing. Fixed; re-verified against history, this clears `B-016`, `B-019`,
+     `B-023`, `B-034`, `B-043`, `B-077` — six of the nine this entry named as `D-205` audit-only.
+  2. **`terminal-return` is now report-only**, exactly this entry's Row 1 recommendation: `findings`
+     stays empty (never fails the suite); names go in `detail` for human classification. Applied
+     rather than merely proposed, because Option 1 needed no new governed vocabulary to apply safely
+     — Option 2 (a defined "terminal annotation" form) does, and is not decided here.
+  **Not fully resolved, stated rather than hidden:** three entries — `B-004`, `B-008`, `B-046` —
+  still report as candidates. Their post-terminal edit is not audit-only either: each also backfills
+  a then-newly-required structural field (e.g. `Phase:`) onto an already-terminal entry, a THIRD
+  category this entry did not name and the current audit-field regex does not cover. Left as a
+  reported candidate rather than a third special-cased exemption added under time pressure without
+  the same per-entry verification the first two categories got. Combined with `B-017`, `B-103` and
+  `C-001` (this entry's genuinely semantic cases), six candidates remain — down from twelve, still
+  non-blocking, still not proven violations.
+  **Row 4 (multi-cycle history) accepted as a real, separate limitation** and left unfixed by this
+  pass — noted in the check's own header rather than silently carried.
+  **Row 3 (a governed "terminal annotation" convention) is drafted, not applied.** New SOP vocabulary
+  is the Chief Editor's call, not Lane A's to adopt unilaterally mid-fix; offered to the Chief Editor
+  separately from this application.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** independent review of `4f3bb95e2e78a9efdfb0ff09f994cf17bc2a748f`; per-file history and diffs for all 12 originally reported entries, confirming `B-008`/`B-017`'s cited shapes exactly; `scripts/checks/terminal-return.mjs`'s corrected `isAuditOnlyDiff`/`walkToLastSubstantive`; `bun run check` and `bun run fixtures` at the corrected commit
+- **Verified-At-Commit:** 980d8d1fdf60b7eda9ca6e83e28b06f636c22e49
 
 ## What happened
 

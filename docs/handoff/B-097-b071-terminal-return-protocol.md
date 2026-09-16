@@ -367,3 +367,38 @@ and is `terminal-return`'s own positive proof it does not flag a correctly-retur
 | Reject | Treating `bun run check`'s new red as a regression in this packet | It is the check correctly finding 12 pre-existing, real cases |
 | Defer | Returning the 12 flagged entries (including `B-103`) | Separate, per-entry Lane A/Judge acts — this application builds the control, not the 12 returns |
 | Defer | `B-103` P3 and whole-entry closure | Unchanged: still waits on this child reaching independent `Verified`, per this entry's own sequencing |
+
+## Correction — `B-112` disproved "all 12 real", 2026-09-16
+
+**"12 pre-existing, real cases" above was an overclaim, and `B-112` proved it against this
+repository's own history, not by argument.** Independently spot-checked before accepting: `B-008`'s
+only post-terminal diff was a bare `Verified-By:` audit line; `B-017`'s addition opens, verbatim,
+*"This does not reopen the parser repair."* `terminal-return` could not distinguish either from a
+genuine reopening — it flagged every post-disposition edit alike, on the stated theory that a script
+cannot safely guess which are substantive. That theory produced a worse outcome than the guess it
+avoided: nine of twelve findings were an artifact of one `D-205` bulk audit-normalization commit
+(`0f43476`), and a tenth (`B-017`) was a self-declared non-reopening.
+
+**Two fixes applied at the corrected commit**, both answered in full at `B-112`:
+
+1. A regex bug (missing the markdown bullet prefix every header field has) meant the audit-only
+   exemption this file's own design intended had never actually matched anything. Fixed and
+   re-verified; six of the nine `D-205`-only entries now correctly clear.
+2. `terminal-return` no longer fails the suite. `findings` stays empty; remaining candidates are
+   named in `detail` only — report-only, per `B-112`'s own Row 1, until a governed distinction
+   between "return" and "terminal annotation" exists for the check to enforce.
+
+**Six candidates remain, none proven**: `B-004`, `B-008`, `B-046` (a third category — a then-newly-
+required structural field, e.g. `Phase:`, backfilled onto an already-terminal entry — not yet
+mechanically exempted, left honest rather than special-cased under time pressure), plus `B-017`,
+`B-103`, `C-001` (`B-112`'s genuinely semantic cases, unresolved pending Row 3). `bun run check` is
+green again; the count above is corrected, not restated, per this repository's own rule against
+propagating a tally instead of the fact (`G55`/`G56`/`G58`).
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | `B-112`'s finding and both of its Row-1/audit-exemption fixes | Applied — see `B-112`'s own Lane A answer |
+| Reject | The prior "12 real, pre-existing cases" claim | Nine were audit-only; a tenth self-declared non-reopening |
+| Defer | A governed "terminal annotation" convention (`B-112` Row 3) | Chief Editor decision — new SOP vocabulary, not Lane A's to adopt unilaterally |
+| Defer | The six remaining report-only candidates | Human classification, not this application's job to resolve by fiat |
+| Defer | `B-097` reaching `Verified` | Still requires independent Lane B verification of the corrected packet, not self-recorded here |
