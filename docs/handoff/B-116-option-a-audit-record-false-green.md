@@ -57,7 +57,9 @@ behavior, reopen its Judge choice, or change Product scope.
    Terminal annotation records remain repeatable by design; top-level lifecycle and audit fields do
    not. Add negative fixtures proving a duplicate cannot stay green.
 6. Run `bun run check` and `bun run fixtures`. Because this changes a Lane A control script, run the
-   governed Graphify update last, preserve curated fragments, and pass the portable check.
+   governed Graphify update last and preserve curated fragments. Apply `B-041`'s portability
+   boundary: require portable paths in any proposed tracked graph artifacts; do not require the
+   gitignored machine-local `.graphify` runtime to produce zero findings.
 7. Return the single final commit to Lane B. Lane B re-performs the suites and verifies in dependency
    order: B-113, B-112, B-097, then B-103 P3.
 
@@ -81,7 +83,7 @@ behavior, reopen its Judge choice, or change Product scope.
 | Requirements traceability | Unaffected — this is Project-Scope evidence integrity for an existing control |
 | Encyclopedia | Unaffected — Entry 05's D-168 staleness remains separate |
 | B-114 / B-115 | Still Open and acknowledged only; their Intent/Build/DevOps clarification is a separate parent chain and does not replace this correction |
-| Graphify | No rebuild for this handoff-only finding; rebuild after Lane A changes the governed check/parser source |
+| Graphify | No rebuild for this handoff-only finding; rebuild after Lane A changes the governed check/parser source. `docs-drift` confirms governed intent is current at `0d2cc2b`; full-runtime portability findings remain the existing B-041 standing limit because no `.graphify` artifact is tracked or proposed. |
 
 ## What you did instead
 
