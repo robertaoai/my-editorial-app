@@ -402,3 +402,54 @@ propagating a tally instead of the fact (`G55`/`G56`/`G58`).
 | Defer | A governed "terminal annotation" convention (`B-112` Row 3) | Chief Editor decision — new SOP vocabulary, not Lane A's to adopt unilaterally |
 | Defer | The six remaining report-only candidates | Human classification, not this application's job to resolve by fiat |
 | Defer | `B-097` reaching `Verified` | Still requires independent Lane B verification of the corrected packet, not self-recorded here |
+
+## Chief Editor Option A applied in full — 2026-09-16
+
+`B-113` (raised the same day) independently reached the same fork this entry's report-only state
+left open, and framed it as an explicit Chief Editor choice: Option A (build the governed
+distinction and restore blocking enforcement) or Option B (formally narrow this entry's claim to
+advisory). **The Chief Editor selected Option A.** Applied at `27efc2d` and `0d2cc2b`:
+
+1. **The Terminal annotation record** — the governed vocabulary `B-112`'s Row 3 drafted, now
+   adopted — certifies a commit touched an already-terminal entry without reopening it: five
+   facts, `Annotation-Type` one of four governed values, `No-Scope-Reopened` must read exactly
+   `true`. Validated by `handoff-response.mjs`.
+2. **`terminal-return.mjs` rewritten around episodes.** A file enters a terminal episode the
+   moment its Resolution first becomes terminal; every commit inside that episode must be
+   audit-only or covered by a Return/Terminal-annotation record citing that exact commit.
+   Deliberately scoped to the file's CURRENT episode only, not its entire history — an early
+   full-history version flagged `B-001`'s `Verified` → `Applied` → `Verified` dip from
+   2026-08-21, weeks before this entry existed and never touched again. Retroactively punishing
+   that is not what fixing the multi-cycle gap means; scoping to the current episode still fixes
+   `B-113`'s real finding, since an old citation can no longer exempt a NEW episode starting later.
+3. **The six candidates, classified from their actual diffs, not guessed.** `B-004`/`B-008`: the
+   same bulk `Phase:` backfill commit (`d6d406a`) while already `Superseded` —
+   metadata-normalization. `B-017`: a self-declared non-reopening fixture-gap note — correction.
+   `B-046`: turned out NOT to be metadata normalization on inspection — a `Withdrawn` →
+   `Superseded` redisposition per `D-122`/`B-050`, still terminal throughout — correction.
+   `B-103`: the `B-111` P2-token correction plus Judge-ruling — correction. `C-001`: the `B-103`
+   readiness cross-reference — cross-reference. Each cites its own exact violating commit,
+   independently re-derived against the corrected walker before writing.
+
+**Three more real bugs found and fixed while applying it, kept rather than smoothed over:** (a) the
+commit that adds a Terminal annotation record is itself a touch to an already-terminal file —
+without `isRecordOnlyDiff`, satisfying one violation created a second, in infinite regress,
+demonstrated the first time six records were committed at once; (b) the first cut of that fix
+required every added line to match a field pattern exactly and failed on the first real multi-line
+`Annotation-Act` (this corpus's normal prose-wrapping style) — corrected to accept continuation
+content while still rejecting a different heading or a smuggled unrecognized field name; (c) two
+more instances of the same `text`-vs-local-variable `channel-docs` coupling gap `B-112` already
+taught this file once.
+
+`bun run check`: **18/18**, `terminal-return` 75/75 clean, 0 findings — back on the blocking
+`CHECKS` list with real content, not merely restored to green by softening it. `bun run fixtures`:
+**143/143**, tree restored. Graphify synced at `0d2cc2b`.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Chief Editor Option A, fully implemented and verified green | Applied `27efc2d`/`0d2cc2b` |
+| Approve | All six candidates classified with cited evidence, none fabricated | Complete |
+| Approve | Three additional bugs found during application, fixed and fixture-tested | Complete |
+| Approve-with-conditions | `B-097`/`B-112`/`B-113` reaching `Verified` | Independent Lane B review still required — not self-recorded here |
+| Defer | Multi-cycle detection for episodes beyond the current one | Stated limitation, not built — no live case needs it yet |
+| Defer | `B-103` P3 and whole-entry closure | Resumes once this child reaches independent `Verified` |

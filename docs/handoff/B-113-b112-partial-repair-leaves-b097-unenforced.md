@@ -15,11 +15,13 @@
   rather than restating a second version. No governed source, check behavior, or B-097/B-112
   disposition changes until that choice is made. Graphify not rebuilt: nothing governed changed in
   this answer.
-- **Resolution:** Deferred
-- **Follow-up-Tier:** Phase 1 — Chief Editor Option A/B selection (this entry's own "Judge
-  clarification" section)
+- **Resolution:** Applied
 - **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** independent review at `9afbb9be229d03c6e47841f0dc48d51b7372706c`; `bun run fixtures` 118/118 with the tree restored; `bun run check` with every control passing except `docs-drift`; `.graphify/branch.json` analyzed at `d80167b8434ca9c67c25a5eff21a55fad1e93f4d`; B-112 header and Lane A response; B-097 minimum correction packet
+- **Evidence:** Chief Editor selected Option A (this entry's own "Judge clarification" section);
+  Option A fully implemented at `27efc2d`/`0d2cc2b` — see B-097's "Chief Editor Option A applied in
+  full, 2026-09-16"; `bun run check` 18/18, `terminal-return` 75/75 clean; `bun run fixtures`
+  143/143; Graphify synced at `0d2cc2b`
+- **Verified-At-Commit:** 0d2cc2bd5ea08097d055135337e08b82bda9f581
 - **Verified-At-Commit:** 33687530f36a0bd3fdd1b06f625404cb9efdf827
 
 ## What happened
@@ -289,3 +291,18 @@ answers into Register and implementation details:
 | Reject | Treating `Judge Approved: decision-tree decision` as an implicit A/B selection | Lane A must record the explicit selected boundary |
 | Reject | Product, storyboard, UML/data-flow, traceability or Encyclopedia edits for this choice | Those tiers are unaffected |
 | Defer | B-103 P3, Stage 2 runtime evidence and C-001 execution | Their existing dependent phases remain in force |
+
+## Lane A application — Option A selected and implemented, 2026-09-16
+
+**The Chief Editor selected Option A.** Implemented in full at `27efc2d`/`0d2cc2b` — the complete
+account is in `B-097`'s "Chief Editor Option A applied in full" section, not duplicated here: the
+Terminal annotation record, the episode-scoped history walk, all six candidates classified from
+their actual diffs, and three further bugs found and fixed while applying it (an infinite-regress
+self-reference in the annotation mechanism itself, a multi-line field-continuation gap, and two
+more `channel-docs` coupling naming gaps).
+
+The header above is updated accordingly: `Resolution: Applied` (no `Follow-up-Tier` — that field is
+for `Deferred`, and the Option A/B question it named is now answered), `Verified-At-Commit`
+advanced to the commit this update reads. This entry's own `Status: Answered` stands; `Applied` is
+deliberately not terminal until an independent reviewer confirms it (`D-102`) — that review, for
+this entry, `B-112`, and transitively `B-097`, remains outstanding and is not self-recorded here.
