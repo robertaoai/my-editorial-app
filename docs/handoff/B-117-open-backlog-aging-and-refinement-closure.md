@@ -826,3 +826,147 @@ Either is a normal, resolvable Register act. Lane A does not pick between them.
 | Reject | Applying the "Lane A step-by-step follow-up" lists above to Register/Build Spec/Inventory/Modular_PRD as written | Contradicts `D-185` and `V1-BUILD-SPEC.md:16/61/278/282` |
 | Defer | Whether `SETUP-SPIKE-000` subsumes the existing `S0…S4`, or the existing `S0…S4` remains V1's real sequence | Judge arbitration under `D-58`; Register is not silent and must be reconciled explicitly, not overwritten |
 | Reject | Treating this escalation as a rejection of the Chief Editor's authority to revise the sprint plan | Only the specific undocumented premise is flagged; the decision remains the Judge's |
+
+## Lane B review — V1 parent, setup-spike child and one global `S0…S6` index, 2026-09-16
+
+The Judge's latest clarification resolves Lane A's `D-58` escalation without discarding either the
+current V1 evidence or `D-185`'s no-alias rule:
+
+```text
+V1 — programme/version parent; first usable application is its functional outcome
+├─ SETUP-SPIKE-000 — setup/readiness child container
+│  └─ global sprint slots S0 → S1 → S2 → S3 → S4
+└─ M-MVP application build
+   └─ global sprint slots S5 → S6
+      └─ end S6: V1 success scenario fully usable
+```
+
+`SETUP-SPIKE-000` remains a named container and is **not renamed to `S0`**. Its child iterations use
+the existing global `S0…S4` labels. This preserves `D-185`'s collision safeguard while changing the
+relationship that was unclear: the spike is inside V1 because it prepares V1's first application
+build. Its objective is to make that build possible; its completion is not evidence that the
+application itself is built.
+
+The earlier proposed `V1/S7…S9` reserved slots are withdrawn. The accepted global index for this
+scope ends at `S6`: setup `S0…S4`, application `S5…S6`.
+
+### Parent-first decision table
+
+| Order | Choice | Accept means | Guaranteed failure | Recommendation |
+|---:|---|---|---|---|
+| 1 | **A — V1 parent with two child stages** | `SETUP-SPIKE-000/S0…S4` prepares `V1/S5…S6`; one global index, one V1 outcome | None if setup completion and application completion remain distinct | **Accept — matches Judge clarification** |
+| 1 | B — spike outside/parallel to V1 | Setup evidence has no owned relationship to the version it prepares | Reopens the lineage ambiguity and duplicates version tracking | Reject |
+| 1 | C — spike includes S5/S6 construction | The setup transaction stays open until the app is built | Re-conflates handoff readiness DoD with application DoD and prevents setup backlog closure | Reject |
+| 2 | **A1 — preserve S0/S1 facts** | Existing config/schema/test evidence stays Done/Frozen inside the V1 setup child, with its documented limitations | None; evidence is preserved without calling the application usable | **Accept** |
+| 2 | A2 — reset S0/S1 to Not started | Completed commits and tests are discarded as if they never occurred | Audit history and dependency reuse become false | Reject |
+| 3 | **A3 — atomic S2/S3/S4 scope migration** | Every current Product requirement, hold and acceptance obligation moves to S5 or S6 before the old allocation retires | None if the migration matrix is complete and independently checked | **Accept** |
+| 3 | A4 — simply relabel S2/S3/S4 as setup | Their current Line-assignment, Board and Publication work silently disappears or is duplicated | Missing requirements, double ownership and false closure | Reject |
+| 4 | **A5 — V1 functional completion at S6** | S5 is the first selected vertical increment; S6 completes the full success scenario | None if S6 has end-to-end acceptance evidence | **Accept** |
+| 4 | A6 — retain S7/S9 tracking | Empty slots remain after the accepted V1 outcome | A second sequence survives with no business purpose | Reject |
+
+### What remains unclear and must be answered in the alignment unit
+
+| Gap | Why it matters | Required Lane A answer |
+|---|---|---|
+| `S2…S4` setup content | Their current canonical contents are Product construction, not setup tasks | Name the actual remaining setup/refinement outcomes for each slot, or mark a slot unused; never invent work to fill a number |
+| Product-scope migration | Current S2 = Line/four-eyes, S3 = Board/audit, S4 = Publication/fallback | Map every FR/AC/NFR, hold and dependency to S5 or S6 with no duplicates or omissions |
+| `D-171` hold target | The hold is attached to old S2-sensitive T5/T6 work | State which S5/S6 child inherits the hold and its return condition; a renumbering cannot release it |
+| First-build boundary | “First build app” could mean first vertical slice or the complete usable app | Record S5 as first working increment and S6 as the complete CR-19 outcome, unless the Judge supplies a different split |
+| Spike closure | The spike goal supports the app, but its own worklog must close before construction | Define spike DoD as canonical readiness and handoff closure, not S5/S6 implementation |
+| Programme/ART terminology | External framework labels can imply roles and ceremonies not specified here | Treat it as this project's V1 programme container and global sprint index; import no additional framework behavior by name |
+
+### Required scope-migration matrix
+
+Lane A must write one canonical matrix in the Build Spec. Each source row needs an exact target or
+an explicit setup-only disposition:
+
+| Current source | Facts that must survive | Target decision required |
+|---|---|---|
+| `S0` Foundation/config | Config values, flags, toolchain and their evidence | `SETUP-SPIKE-000/S0`, completed/frozen; list reusable S5/S6 inputs |
+| `S1` Data model/sequence guard | `0002`, trigger tests, append-only/audit limits and `DEP-05` qualification | `SETUP-SPIKE-000/S1`, completed/frozen substrate; list revalidation needed by S5/S6 |
+| `S2` Line assignment/four-eyes | FR-04/FR-05, AC-05…AC-08, target order, `D-171` hold and return condition | One or more bounded S5/S6 children; keep held until fresh authorization |
+| `S3` Board/filter/audit | FR-08, NFR-06, AC-13 and visibility obligations | S5 or S6 by MMF dependency; no mapping by number |
+| `S4` Publication/fallback | FR-09/FR-10, NFR-05/NFR-07/SEC-02, AC-14…AC-16, credential and recovery dependencies | S6 unless a separately justified S5 vertical slice needs a bounded manual-ready outcome |
+| B-084 Product-readiness chain | Manual intake, normal/revision journey, state/metadata/report, roles and config semantics | DoR/defined-DoD inputs to S5/S6; handoffs close after canonical promotion and consumer confirmation |
+| B-102/B-115 | Intent→Build→DevOps ownership and evidence contract | Shared S5/S6 execution contract; no Product scope created |
+| B-116/B-117 | Return/audit integrity and backlog lifecycle controls | Setup-spike closure controls; not application functionality |
+
+This matrix is the critical anti-loss artifact. A heading change without it is guaranteed to pass
+prose review while dropping or duplicating construction obligations.
+
+### Definitions of Ready and Done at each boundary
+
+| Unit | Definition of Ready | Definition of Done |
+|---|---|---|
+| `SETUP-SPIKE-000` | Parent V1 and global index decided; canonical owners identified; open handoffs grouped parent-first | Governance sources aligned; S2–S4 migration matrix complete; S5/S6 DoR and DoD defined; future items promoted; setup handoffs terminally dispositioned; consistency and independent consumer review pass |
+| `V1/S5` | Exact first MMF vertical slice, acceptance examples, data/state contract, inherited hold status, capacity, owner and failing proof recorded | Selected slice works through UI, persistence and audit with its revision/failure proof; only authorized scope built; reviewed commit accepted |
+| `V1/S6` | S5 accepted; every remaining CR-19 journey step, Board/audit, publication/manual-ready, recovery, credential and Lane C dependency identified | Chief Editor performs the complete normal and revision journey; required gates and audit hold; WordPress or LinkedIn `ManualReady` outcome works; recovery and negative paths pass; Judge accepts V1 functional outcome |
+
+The setup DoD is **satisfied before application construction begins**. S5/S6 DoDs are merely
+defined at that point and are satisfied only by later Lane B construction and independent evidence.
+
+### Lane A follow-up — highest parent first
+
+1. Record one superseding Register act: V1 is the parent; `SETUP-SPIKE-000` is its setup/readiness
+   child over global S0–S4; application construction is S5–S6; functional V1 completes at S6.
+2. Amend `D-185` narrowly: preserve its name, Git lineage, evidence and no-`S0` alias; change the
+   relationship from an unplaced historical root to the named V1 setup child. State exactly which
+   earlier scope-limit sentence is superseded.
+3. Withdraw the earlier B-117 proposals that placed the spike outside V1, gave V1 four functional
+   sprints, or retained S7–S9. Preserve them as historical analysis, not operative alternatives.
+4. Create the scope-migration matrix above before changing live sprint headings. Move facts, holds
+   and dependencies; never copy them into both old and new live rows.
+5. Define the remaining setup outcomes for S2–S4 from accepted governance work. If no distinct
+   outcome exists for a slot, mark it unused rather than manufacture scope.
+6. Rewrite the Build Spec's live sequence and per-sprint sections around the global S0→S6 index.
+   Preserve S0/S1 evidence and move current S2–S4 Product packets into S5/S6.
+7. Propagate in the same pass to the Register, Build Spec and Artifact Inventory. Correct
+   `Modular_PRD` §7.4/§8 milestones and status rows; update Phase Closure only for real lifecycle
+   changes.
+8. Update storyboard/story panels, UML/data flow and traceability by requirement/MMF identity, not
+   by old sprint number. Add links rather than duplicate the sequence where a link is sufficient.
+9. Define Encyclopedia vocabulary for V1 parent, setup child, global sprint slot, readiness DoD and
+   application DoD. Retire the separate-namespace interpretation explicitly.
+10. Promote non-build and post-V1 items into their canonical Governance/docs backlog owner, then
+    close their handoffs with return conditions. Do not carry them into S5/S6 to empty the queue.
+11. Lane B independently confirms every old S2–S4 Product obligation has one S5/S6 target and that
+    S5 exposes one implementable child. Lane C confirms only the workflow/security/deployment/
+    monitoring dependencies those targets expose.
+12. Run the consistency suite, rebuild Graphify after the governed-doc commit, query the new parent
+    and migration paths, and independently confirm no live competing sprint sequence remains.
+
+### Cross-artifact construction and verification impact
+
+| Artifact | Required correction | Completion evidence |
+|---|---|---|
+| `Modular_PRD.md` | V1 parent; setup milestones S0/S1 evidence retained; Product milestones remapped to S5/S6 | §7.4 and §8 agree; no Product requirement disappears or maps twice |
+| Storyboard/story panels | Map normal/revision UI actions to S5/S6 MMFs | End-to-end S6 walkthrough covers every accepted panel and friction point |
+| UML/data flow | Preserve state, judgment, metadata/report and publication boundaries while changing scheduling | Model elements trace to requirements and tests, not retired sprint labels |
+| Requirements traceability | Old S2–S4 source → S5/S6 target → test/evidence, plus setup evidence → reuse check | Every source obligation has exactly one live target or explicit non-build disposition |
+| Encyclopedia | Normalize V1/programme, setup child, global slot and DoR/DoD meanings | No entry describes the spike as parallel to V1 or S0 as its alias |
+| Cross-references | Link `D-185`, the superseding Register act, B-117 and the canonical migration matrix | One operative sequence is reachable from every live owner |
+| Graphify | Rebuild after Lane A's governed-doc commit | Query/path shows `V1 → SETUP-SPIKE-000 → S0…S4` and `V1 → S5 → S6`; no competing live path |
+
+### Failure-derived success criteria
+
+| Guaranteed failure | Required success evidence |
+|---|---|
+| Spike placed under V1 only in prose | Register, Build Spec, Product tracker and graph expose the same parent edge |
+| S2–S4 headings become setup while their Product scope vanishes | Migration matrix gives every FR/AC/NFR/hold exactly one S5/S6 target |
+| Old and new sprint rows both remain operative | Old rows are historical/superseded; one live sequence drives work orders |
+| `D-171` disappears during renumbering | Its target and return condition survive on the receiving S5/S6 child |
+| Spike stays open until the app is built | Setup DoD closes on readiness artifacts and handoff disposition before S5 starts |
+| S5 starts because the hierarchy is approved | Separate DoR, capacity, Judge selection, lane state and bounded authorization exist |
+| Graphify is rebuilt from handoff text only | Rebuild occurs after canonical propagation and exposes the governed hierarchy |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | V1 as parent of `SETUP-SPIKE-000/S0…S4` and application `S5…S6` | Phase 1 — superseding Register act and canonical alignment |
+| Approve | Preserve S0/S1 completion as V1 setup evidence | Phase 1 — evidence/reuse mapping |
+| Approve-with-conditions | Reclassify S2–S4 as setup slots | Phase 1 — migrate every current Product obligation and hold to S5/S6 first |
+| Approve-with-conditions | Close the setup spike before construction | Phase 1 — canonical S5/S6 readiness packets and terminal handoff dispositions |
+| Defer | Exact S5/S6 split of old S2–S4 Product scope | Backlog refinement — MMF dependency and acceptance-path mapping |
+| Reject | Spike parallel to or outside V1 | Superseded hierarchy |
+| Reject | Spike containing S5/S6 implementation | Preserve setup DoD versus application DoD |
+| Reject | Retaining proposed S7–S9 slots | One global index for this scope ends at S6 |
+| Reject | Starting application construction from this clarification | S5 still needs DoR, capacity, selection and bounded authorization |
