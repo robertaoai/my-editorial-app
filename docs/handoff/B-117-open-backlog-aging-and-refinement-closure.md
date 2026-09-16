@@ -2141,3 +2141,131 @@ questions (`OP-PITCH`, `OP-DRAFT`, `OP-FINAL-SIGNOFF`) stay open — recommended
 `B-071` but are not selected here. `DOR-R2`/`DOR-R4` cannot close until they are. No target Mermaid
 sequence/data-flow view was drawn (`DOR-R5` — depends on the same open decisions). Encyclopedia
 Entries 01/06 remain flagged, not reviewed (`DOR-R6`). `B-117` remains `Open`.
+
+## Lane B review — judgment-gate assignment to Sheet 2 task workflows, 2026-09-16
+
+### Normalized clarification
+
+The Chief Editor has clarified the relationship between the two workflow layers:
+
+- Sheet 2 describes the newsroom's natural operational tasks; `my-editorial-app` represents them as
+  attributable task workflows.
+- Editorial phase/judgment gates and operational task workflows are separate. A completed gate may
+  assign the virtual-node role(s) for the **next** task workflow. The resulting assignment triggers
+  that task workflow; its completion evidence is then available to the next consuming gate.
+- The Chief Editor's UI remains the human initiation and control surface. The user does not impersonate
+  the assigned virtual-node role, and a displayed role name is not an executor identity.
+
+“The judgment gate is done first” must therefore mean **the preceding gate completes before it
+dispatches downstream work**. It cannot mean the consuming gate completes before the task evidence
+that gate is required to judge. That literal same-gate reading is circular and cannot be implemented
+or verified.
+
+`OP-PITCH` is the bounded bootstrap exception: no judgment gate precedes the first task. The accepted
+manual record permits the Senior Journalist `EW` event, and `EW` creates the first task assignment(s).
+After that bootstrap, the normal gate-completion → role-assignment → task-workflow pattern applies.
+
+### Parent-first decision table
+
+| Order | Parent decision | Accept effect | Reject/change condition | Recommendation |
+|---:|---|---|---|---|
+| 1 | Keep judgment gates and Sheet 2 task workflows as separate state machines joined by events | Prevents task progress from becoming article state and preserves audit truth | Reject only with a replacement model that separately proves editorial judgment and operational work | **Accept** |
+| 2 | A completed gate dispatches the **next** task, never the task whose evidence it just consumed | Removes the gate/task circular dependency | Reject only by supplying a complete non-circular event map | **Accept** |
+| 3 | `EW` dispatches the initial `OP-PITCH` task assignment(s) | Gives the first task a valid bootstrap without pretending `EW` is a judgment gate | Reject only with another named pre-T1 dispatcher | **Accept** |
+| 4 | A task starts from a persisted assignment naming operation, virtual role and actual executor principal | Makes role selection visible and testable without equating role with identity | Reject if assignments are intentionally ephemeral and equivalent audit evidence is supplied | **Accept** |
+| 5 | Multiple Sheet 2 `R` values mean one child assignment per `R`, joined into one operation completion | Preserves every source responsibility and avoids silently selecting a favourite role | Reject if the Chief Editor chooses a deterministic single-role rule for that operation | **Approve-with-conditions; recommended for source fidelity** |
+| 6 | Blank or `A`-only Sheet 2 cells are not filled by inference | Keeps the CSV evidence honest | Change only through the explicit choices below | **Accept** |
+
+### `B071-R204` — what this clarification answers and what still needs a choice
+
+| Operation | Trigger/assignment now clarified | Recommended executable shape | Remaining Chief Editor accept/reject choice |
+|---|---|---|---|
+| `OP-PITCH` | Bootstrap: accepted UI record → Senior Journalist `EW` → task assignments | Treat as a milestone with Reporter and Journalist child assignments, because Sheet 2 marks both `R`; Desk Editor remains operation `A`; one deterministic join records the logged pitch and Route-1 classification | **Accept milestone**, or explicitly select the earlier atomic Reporter-only alternative and explain why the Journalist `R` does not execute in Route 1 |
+| `OP-DRAFT` | The preceding investigation/judgment completion dispatches the draft assignment(s) | Treat as a milestone with Reporter and Journalist child assignments, joined into one immutable draft-package completion; do not inherit route `A` silently | Decide operation accountability: **explicit `A = ROLE-DESK-EDITOR`**, or **`A = none_by_design`** with the route-level Desk Editor `A` kept separate. A blank field is not a decision |
+| `OP-FINAL-SIGNOFF` | Completion of the preceding operational/gate prerequisites dispatches the sign-off control | Treat as an explicit A-only control performed by the assigned Desk Editor; record the acting principal, decision, reason, evidence versions and time; no invented `R` | **Accept the A-only control exception**, or name one real `R`. Without one choice, the task cannot complete |
+
+The milestone recommendations preserve Sheet 2 instead of collapsing two source `R` values into one
+unrecorded preference. They do not mean two article-state transitions: child task completions write
+task evidence; a deterministic join writes one operation completion; only the governed editorial gate
+may change article state.
+
+### Required assignment and event contract
+
+Lane A should specify the following schema-neutral contract before Lane B chooses persistence fields:
+
+| Record/event | Required meaning | Must not be used as |
+|---|---|---|
+| `task_assignment_created` | workflow instance, route, `operation_id`, assigned virtual-node `role_id`, actual/expected executor principal, assignment basis, source gate/event, timestamp | Article-state transition or proof the task completed |
+| `task_child_completed` | assignment ID, executor principal, evidence reference/version, result, timestamp | Operation completion when sibling assignments remain |
+| `task_operation_completed` | deterministic join over the required child set; one idempotency key and one immutable completion record | Editorial judgment, route R/A rewrite or human approval |
+| `task_assignment_refused` | unknown role, unapproved role substitution, missing prerequisite, duplicate/replayed assignment or invalid executor | Silent retry or mutation of the prior assignment |
+| `gate_completed` | editorial judgment/state event that may emit the next task assignment set | Evidence that downstream operational work already occurred |
+
+The assignment basis must say whether the role came from Sheet 2 `R`, an accepted A-only control,
+or a separately governed route/gate rule. The audit stores the actual executor principal separately
+from `role_id`; one role may have successive attempts, and an attempt never changes the role catalog.
+
+### Cross-artifact gap and draft fix
+
+| Artifact | Current gap after `9f6b712` | Lane A draft fix | Completion evidence |
+|---|---|---|---|
+| `V1-DECISION-REGISTER.md` | `B071-R204` remains open with no gate-to-task interpretation | Record the accepted parent model and the three operation choices; state what remains rejected/deferred | One Judge act distinguishes bootstrap, next-task dispatch, multi-role join and A-only control |
+| `factory-route-operation-crosswalk.md` | §3.2 is a linear operation sequence and does not name the assigning gate/event for each task | Add `assignment_source`, `assigned_role_set`, `completion_join` and `consuming_gate`; preserve the source R/A rows separately | Every required Route-1 task has a non-circular producer and consumer |
+| `raci-involvement-matrix.md` | Role eligibility exists, but task-assignment events are not defined | Add a reference to the operation-assignment contract without turning gate eligibility into operation responsibility | A role can be assigned only where Sheet 2 or an explicit exception permits it |
+| `Modular_PRD.md` | User stories cover gates and UI but not the task-assignment boundary | Add/refine requirements and ACs for assignment, multi-role completion, refusal, idempotency and visible task progress | BDD traces each task from gate/event through assignment and completion to the next gate |
+| `FN-GATES-01-05.md` | Pre-T1 `OP-PITCH` is named, but later gate-to-task dispatch and consuming-gate evidence are absent | Add an interface section, not task implementation details, defining what each gate consumes and what downstream assignments it may emit | A gate cannot consume future evidence or dispatch an unauthorized role |
+| Storyboard/story panels | Target Mermaid remains open and no task workflow appears between judgment nodes | Add one target Route-1 normal/revision sequence after the operation choices; show task child/join lifelines separately from article state | Chief Editor, dispatcher, virtual roles, task records, gates and UI projections appear once and in order |
+| UML/data flow | No authoritative gate → assignment → task → evidence → next-gate loop | Update the storyboard-owned Mermaid sequence/data-flow view; do not create a duplicate file | Every arrow names the event/record and its failure/replay path |
+| Encyclopedia | Entries 01/06 remain pending; operational task versus editorial gate is not taught | Review Entry 01 for role/identity separation and Entry 06 for pre-T1 bootstrap after the final contract | Hosted/local status agrees or an explicit deferral remains open |
+| Traceability and `V1-BUILD-SPEC.md` | `DOR-R2`/`DOR-R4` name the choices but do not yet express gate/task dispatch | Extend the existing rows; do not create another checklist | Each accepted operation choice maps to Product AC, Fn Spec interface, target panel and verification case |
+| `V1-ARTIFACT-INVENTORY.md` | No new artifact is required | Keep unaffected; all changes land in existing owners | Register tier table says unaffected and no duplicate workflow artifact appears |
+
+### Lane A follow-up — highest parent first
+
+1. Present the four parent choices together: next-task dispatch, `EW` bootstrap, multiple-`R`
+   milestone handling, and A-only control handling.
+2. Obtain the Chief Editor's explicit selections for the three `B071-R204` rows. The clarification
+   supplies orchestration but does not by itself select the multi-role/accountability exceptions.
+3. Record one Register act and update the existing Build-Spec `DOR-R2`/`DOR-R4` rows; do not open a
+   duplicate decision or readiness list.
+4. Update the crosswalk first. It owns the route-operation join and must name assignment source,
+   role set, completion join and consuming gate before Product/Fn Spec diagrams can be correct.
+5. Propagate behavior and acceptance cases to `Modular_PRD` and the owning Fn Specs, keeping UI
+   progress, task status and article state distinct.
+6. Draw the target Route-1 normal/revision storyboard and embedded UML/data-flow views from that
+   accepted contract. Preserve the dated historical panels.
+7. Complete or explicitly defer the Encyclopedia review, then obtain Lane B construction-interface
+   and Lane C observability/recovery reviews.
+8. Run the full suite, commit the canonical packet, rebuild Graphify, and return its decision ID,
+   exact write set and residual DoR state to B-117. Close the child only when all three operation
+   contracts and the target visual have terminal evidence.
+
+### Guaranteed failures and failure-derived success criteria
+
+| Guaranteed failure | Required success evidence |
+|---|---|
+| A consuming judgment gate must complete before the task evidence it judges exists | Event map proves the **preceding** gate dispatches work and the **next** gate consumes it |
+| `OP-PITCH` waits for a preceding judgment gate | `EW` bootstrap creates the initial assignment set without advancing T1 |
+| Multiple Sheet 2 `R`s collapse into whichever agent happens to run first | Required child-role set is persisted; deterministic join refuses completion while a required child is absent |
+| One child task changes article state | Task records remain operational evidence; only the authorized editorial gate writes the state transition |
+| Role label is logged as executor identity | Assignment records both `role_id` and actual executor principal; mismatched or unauthorized principals are refused |
+| Blank `OP-DRAFT` accountability silently inherits route `A` | Accepted contract records explicit Desk Editor `A` or explicit `none_by_design`; route RACI remains separate |
+| A-only Final Sign-Off is treated as implicitly executable | A specific accepted exception records Desk Editor acting principal and completion evidence, or the operation stays blocked |
+| Retry produces duplicate assignment, operation completion or downstream gate effect | Stable idempotency keys yield one effective child/join/gate effect with append-only attempt evidence |
+| UI shows Reporter → Desk Editor as a direct transition | UI separately shows current gate, operational task, assigned role/principal and route accountability |
+| Natural newsroom labels are copied into code without an event contract | Every Sheet 2 row used by V1 maps to trigger, assignment cardinality, completion evidence, consumer and refusal tests |
+
+Graphify is synchronized at `9f6b712` (`lastAnalyzedHead` equals `HEAD`, `stale=false`). This review
+changes only the Graphify-excluded handoff layer; no rebuild is due until Lane A changes the canonical
+owners above.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Separate editorial-gate and operational-task workflows joined by persisted events | Lane A Register/crosswalk propagation |
+| Approve | Preceding-gate → next-task dispatch and `EW` bootstrap for `OP-PITCH` | `B071-R204` parent decision packet |
+| Approve-with-conditions | Multiple-`R` milestone/join treatment for `OP-PITCH` and `OP-DRAFT` | Chief Editor accepts or replaces the recommended cardinality rule |
+| Approve-with-conditions | Desk Editor A-only `OP-FINAL-SIGNOFF` control | Chief Editor explicitly accepts the exception and evidence contract |
+| Defer | Target storyboard/UML/data flow and Encyclopedia review | Apply after the operation decisions and Fn Spec contract |
+| Defer | B-117 closure and construction | Terminal `DOR-R1`–`DOR-R6`, independent review and fresh build authorization |
+| Reject | Same-gate “complete judgment, then produce the evidence it judged” ordering | Circular and unverifiable |
+| Reject | Inferring one executor from multiple `R`s, an `A` from route scope, or `R=A` from a blank cell | Requires an explicit accepted operation contract |
