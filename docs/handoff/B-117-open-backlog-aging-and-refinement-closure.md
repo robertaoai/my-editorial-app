@@ -3245,3 +3245,155 @@ handoff. Those belong to later-version refinement if the capability is opened.
 | Defer | Lane B code/tests and B-117 closure | Governed packet, authorization and independent verification |
 | Reject | Treating T identifiers as transition events or EG identifiers as T aliases | Superseded ontology |
 | Reject | Treating four-eyes, Chief Editor review, observability or identity metadata as the missing assurance workflow | Preserve explicit V1 assurance absence |
+
+## Lane B return — role-selected task workflow and technical `T`-series relabel (2026-09-17)
+
+### Completion ledger from the existing handoff chain
+
+| Item | Current status | What is actually complete | What remains open |
+|---|---|---|---|
+| `D-176` route-operation applicability | **Decided** | Which operations may be required/conditional per route | It does not decide the new per-phase role-selected execution order |
+| `D-233` `OP-PITCH`/`OP-DRAFT` Route-1 selection | **Decided, retained** | Reporter is the Route-1 application executor for Pitch/Draft; Sheet 2 source rows remain unchanged | Generalization across T2–T5 and repeated operation instances is not propagated |
+| `D-233` `OP-DRAFT` accountability | **Decided, retained** | Source `A` remains blank; application-level default `A` is Chief Editorial Desk | Must be represented as an application overlay, never written into Sheet 2 provenance |
+| `D-233` Final Sign-Off | **Accepted, extended by this Judge clarification** | Desk Editor A-only attestation, no synthetic `R`, revision/idempotency rules, opens human review only | It must now verify all applicable operations have explicit `A` coverage; it does not assign missing `A` values |
+| Sheet 2 source fidelity | **Decided in B-117, not yet propagated** | Multiple `R` and blank `A` values are valid source facts | Crosswalk still labels them `UNVERIFIED` under the rejected cardinality test |
+| T/EG/assurance ontology | **Decided in B-117, not yet propagated** | `T*` phase-gate nodes; `EG*` V1 editorial workflow; assurance workflow absent from V1 | Canonical Register/Fn Spec/traceability/visual changes remain unapplied |
+| `B071-R204` | **Still Open** | The three original questions now have partial/accepted contracts | The newly supplied T1–T5 role/task sequence changes the execution model and must be propagated before closure |
+
+### Normalized Judge intent — parent flow first
+
+The phrase “judgment gate is done first” must be implemented as **the judgment/selection step inside
+the phase-gate lifecycle**, not as closing the whole phase gate before its tasks run. The normalized
+cycle is:
+
+1. Enter the T phase-gate node.
+2. Perform the route/rank judgment for that node.
+3. Record the selected role and route comparison as an append-only selection event.
+4. Dispatch the applicable EG/task-workflow bundle for that selected role.
+5. Collect task completion and `R`/`A` evidence.
+6. Mark the phase gate ready/complete only when its required bundle is satisfied.
+7. Move to the next T node, or return only the affected scope on revision.
+
+Closing the entire phase gate at step 3 is guaranteed to fail: the system would advance before the
+tasks whose evidence justifies advancement exist. This six-step split preserves the Judge's
+“judgment first, then known-role task workflow” direction without creating a gate-before-evidence
+cycle.
+
+### T1–T5 role-selection and task-workflow matrix
+
+Canonical IDs use existing unpadded names: `ROUTE-PROD-1`, `ROUTE-PROD-2`, `ROUTE-PROD-3`, and
+`ROUTE-FALLOUT-1`. `OP-DRAFTING` normalizes to `OP-DRAFT`; `OP-SIGNOFF` normalizes to
+`OP-FINAL-SIGNOFF`. Display aliases may be shown to users, but stored/governed identifiers do not
+fork.
+
+| Phase-gate node | Judgment/route comparison | Selected role | Task-workflow bundle after selection | Completion boundary |
+|---|---|---|---|---|
+| Pre-T1 | UI request supplied; Senior Journalist processes and emits the entry output | `ROLE-SENIOR-JOURNALIST` is the pre-gate processor, not T1's selected role | Intake/entry evidence only | T1 may open; no phase gate has completed |
+| `T1` | Establish `ROUTE-PROD-1` baseline/default | `ROLE-REPORTER` | `OP-PITCH`, then `OP-DRAFT` for the selected Reporter application context | Reporter task evidence complete; Final Sign-Off is not a Reporter task |
+| `T2` | Compare `ROUTE-PROD-3` against baseline `ROUTE-PROD-1` using the defined trigger | `ROLE-INVESTIGATOR` | `OP-RESEARCH`; `OP-COMPLEX-SERIES` when its condition/children are satisfied | Both applicable task instances complete; route comparison recorded |
+| `T3` | Compare `ROUTE-PROD-2` against baseline `ROUTE-PROD-1` | `ROLE-JOURNALIST` | `OP-PITCH`, `OP-DRAFT` in the Journalist context | New scoped task instances complete; prior T1 evidence remains history |
+| `T4` | Compare `ROUTE-FALLOUT-1` against baseline `ROUTE-PROD-1` | `ROLE-SENIOR-JOURNALIST` | `OP-RESEARCH`, `OP-COMPLEX-SERIES`, `OP-LEGAL-RISK` as applicable | Required/triggered task instances and evidence complete |
+| `T5` | Final editorial accountability/readiness judgment | `ROLE-CHIEF-EDITORIAL-DESK` at the phase/accountability layer | Review Pitch/Research evidence; perform source `OP-COPY-EDIT` responsibility; confirm `OP-DRAFT`'s decided application `A`; then `OP-FINAL-SIGNOFF` checks complete A-coverage | Signed-off pre-publication package opens the UI publication-review flow; no T6 |
+
+This matrix is the application workflow overlay. It does **not** rewrite Sheet 1 or Sheet 2 cells.
+The same operation type may now have multiple scoped executions across phase gates; therefore every
+execution requires its own instance identity, selected-role context, route comparison, revision and
+evidence links.
+
+### T5 RACI normalization
+
+The Judge's T5 outcome is preserved without overwriting the source rows:
+
+| Concern | Source fact | Application interpretation |
+|---|---|---|
+| Phase-level accountability | Not a Sheet 2 field | T5 selects Chief Editorial Desk for the phase/accountability context |
+| `OP-PITCH` | `R`: Reporter + Journalist; `A`: Desk Editor | T5 reviews/validates its evidence; Chief Editorial Desk does not replace the source `A` |
+| `OP-RESEARCH` | `R`: Investigator + Senior Journalist; `A`: Desk Editor | T5 reviews/validates its evidence; Chief Editorial Desk does not replace the source `A` |
+| `OP-DRAFT` | `R`: Reporter + Journalist; source `A`: blank | D-233 application overlay supplies Chief Editorial Desk as default `A`; source remains blank |
+| `OP-COPY-EDIT` | `R`: Chief Editorial Desk; `A`: Desk Editor | No missing source `R` exists. If Chief Journalist must perform a precursor subtask, Lane A creates a distinct child-task contract and evidence link; it must not rewrite `OP-COPY-EDIT`'s source `R` |
+| `OP-FINAL-SIGNOFF` | source `R`: blank; `A`: Desk Editor | Accepted A-only control. It verifies every applicable task instance has an explicit accountable party and completion evidence; missing coverage refuses/returns. It does not backfill A and does not create a synthetic R |
+
+This resolves the apparent contradiction between “T5 selected Chief Editorial Desk with A” and the
+Sheet 2 rows: T5 phase accountability, operation-level source RACI, and application-level overrides
+are three separate facts.
+
+### Parent-first decision table for Lane A
+
+| Order | Parent / child | Accept evidence | Reject condition |
+|---:|---|---|---|
+| 1 | **P1 — two-part phase-gate lifecycle** | Selection event precedes task dispatch; gate completion follows task evidence | Whole T node closes before required tasks run |
+| 2 | P1.1 — selection | Each T node records route comparison, selected role, trigger/reason and revision | Role is inferred later from the logged-in user or current state |
+| 3 | P1.2 — task execution | Each task execution records operation type, instance, T context, EG context, route, selected role, R/A evidence and completion | One global operation row is reused across T1–T5, overwriting history |
+| 4 | **P2 — RACI layers** | Sheet source, phase accountability and application overlay remain separate | Route A or phase A silently replaces operation A/R |
+| 5 | P2.1 — copy-edit child | Chief Journalist precursor, if retained, has a separate child-task ID/contract; source Copy Edit R remains Chief Editorial Desk | Chief Journalist is written into Sheet 2 as Copy Edit R |
+| 6 | P2.2 — final sign-off | A-only Desk Editor control verifies A coverage and opens UI review; no T6/state publication effect | Sign-Off invents missing A/R or directly publishes/approves |
+| 7 | **P3 — ontology/tech boundary** | Product intent uses T phase nodes and EG editorial workflow; technical transitions/events use separate normalized identifiers | `docs/specs` continues using T IDs as technical transition-rule IDs |
+| 8 | **P4 — V1/assurance boundary** | T5 output ends V1 editorial work and opens manual UI publication review; assurance remains absent | T6, automated publication, or an assurance workflow is implied by T5 completion |
+
+### Gaps and guaranteed failures
+
+| ID | Gap | Guaranteed failure | Draft fix |
+|---|---|---|---|
+| `B117-R44` | Crosswalk §3.2 says sequencing is a single property of each operation, with Pitch→Research→Draft→Copy Edit globally | The Judge now uses Pitch/Draft at T1 and T3, Research at T2 and T4, and evidence review at T5; a single non-repeatable operation record cannot represent that | Replace global occurrence assumptions with operation type + scoped execution instance; preserve a default ordering only inside each selected task bundle |
+| `B117-R45` | T phase selection and gate completion are not distinct events | Implementers will either dispatch tasks without a role or advance before task evidence | Specify `phase_entered`, `judgment_recorded`, `role_selected`, task dispatch/completion and `phase_completed` lifecycle events; names remain candidates until Lane A chooses canonical vocabulary |
+| `B117-R46` | T5 wording mixes phase A, route A, Sheet 2 A and application A | One role will overwrite several independently governed accountabilities | Apply the T5 normalization table above and expose each scope in audit/UI separately |
+| `B117-R47` | Proposed Chief Journalist Copy Edit precursor has no child operation, evidence or replay rule | It will either impersonate the Sheet 2 R or become an invisible untestable step | Draft a bounded child-task contract: trigger, executor, input/output, failure/return, revision/replay and parent `OP-COPY-EDIT` evidence link |
+| `B117-R48` | Final Sign-Off contract checks completion but does not yet state the new all-applicable-task A-coverage invariant | A package can be signed with a completed task whose accountability is still blank | Extend D-233 prospectively: enumerate applicable task instances and their accountable party; refuse missing A; retain source/application distinction and prior evidence |
+| `B117-R49` | `SPECS-TRANSITION-ENFORCEMENT.md` uses `T1`–`T11` as technical rule IDs, calls T1–T6 transition judgment gates and stores them in `gate_id` | Phase-gate ontology, technical state-change rules and publication events remain one namespace; construction will encode the semantic collision | Lane A drafts a migration/relabel matrix for documentary and stored/API identifiers. Do not rename persisted fields or code until Lane B receives an authorized compatibility plan |
+| `B117-R50` | Storyboard A2–A6 treats T numbers as the state-transition/editorial sequence and does not show role-selection events or scoped task instances | UI, UML and tests will implement the old linear pipeline and cannot represent repeated Pitch/Draft/Research | Redraw normal and revision paths with UI→Senior Journalist→T node judgment→role selection→EG task bundle→evidence→T completion; V1 ends after T5 handoff |
+| `B117-R51` | The assurance boundary is still expressed mainly as a missing Line 3 role rather than a missing workflow family | Monitoring or final review may be reported as assurance | Add an explicit absent assurance-workflow lane/boundary in traceability, storyboard and Encyclopedia Entry 05; no V1 nodes/tasks are created |
+
+### Review of all current `docs/specs/`
+
+| Technical specification | Impact | Required action |
+|---|---|---|
+| `SPECS-TRANSITION-ENFORCEMENT.md` | **High** | Relabel its T-based technical rule namespace; separate state-change rules, phase-gate nodes and publication events; preserve database enforcement behavior until an authorized compatibility migration exists |
+| `SPECS-VERIFICATION-APPARATUS.md` | **Low but real** | Its `planning:T1` qualifier already avoids editorial equivalence, but replace the overloaded label with a named planning phase when the canonical terminology pass occurs |
+| `SPECS-PUBLICATION.md` | **No direct T-series collision found** | Update only downstream links/scope language: V1 manual publication-review handoff, no T6/automated publication implication |
+| `docs/specs/README.md` | **Unaffected unless its index/terminology summary changes** | Keep as index; do not duplicate the mapping matrix here |
+
+### Step-by-step Lane A follow-up
+
+1. Record the Judge act in a new Register entry, preserving D-176/D-233 facts that remain valid and
+   naming the superseded global-operation-order and T-as-technical-transition assumptions.
+2. Put the normalized T1–T5 matrix in the requirements traceability parent, with canonical unpadded
+   route/operation IDs and explicit source-versus-application columns.
+3. Refactor the crosswalk model from one operation sequence to scoped operation executions. Extend
+   Final Sign-Off with the A-coverage invariant. Draft the Chief Journalist child-task contract.
+4. Update `FN-GATES` and Modular PRD so T phase-gate judgment/selection, EG editorial tasks and
+   phase completion are separate behaviors. Keep the assurance workflow absent and T6 outside V1.
+5. Redraw the storyboard/story panels, UML and data flow for both normal and revision journeys. UI
+   appears only at source supply and publication review boundaries; agents/components own intervening
+   behavior.
+6. Draft the technical namespace/relabel compatibility matrix across `docs/specs`, database fields,
+   config symbols, APIs and tests. Mark documentary-only changes separately from persisted changes.
+7. Propagate Register, Build Spec and Artifact Inventory together under D-54; update Modular PRD §8
+   for V1 MMF readiness. No code, schema or deployment change in this pass.
+8. Review Encyclopedia Entries 01/05/06, rebuild Graphify after canonical commits, re-merge curated
+   fragments, run the complete suite and return exact evidence for Lane B/C review.
+
+### Construction and verification artifacts
+
+| Artifact | Construction purpose | Completion evidence |
+|---|---|---|
+| T1–T5 role/task matrix | Drives orchestration and work-order generation | Every node has route comparison, selected role, task bundle and completion rule |
+| Phase lifecycle contract | Prevents gate-before-task and task-before-role races | Selection event precedes dispatch; completion follows evidence; retry is idempotent |
+| Scoped task-execution model | Supports repeated operation types without overwriting history | T1/T3 Pitch/Draft and T2/T4 Research create distinct immutable executions |
+| RACI-scope contract | Prevents source/route/phase/application overwrites | UI/audit can display each scope independently and reproduce Sheet 2 exactly |
+| Final Sign-Off A-coverage rule | Controls pre-publication handoff | Missing A or completion evidence refuses and returns; success opens UI review only |
+| Technical namespace migration matrix | Prevents phase nodes becoming implementation transition IDs | Every documentary/stored/API/test occurrence has keep/relabel/migrate disposition |
+| Normal/revision storyboard + UML/data flow | Drives UI and end-to-end verification | One article completes normal flow; a revision reruns only affected task instances and preserves history |
+| Assurance-absence boundary | Prevents false assurance claims | No V1 test, UI or report claims independent assurance |
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | UI→Senior Journalist→T1 boundary and T1–T5 role-selection sequence | Lane A canonical matrix and Fn Spec propagation |
+| Approve | Role-selected, scoped task-workflow model | Crosswalk/task-execution contract |
+| Approve | `OP-DRAFT` application A and Final Sign-Off A-coverage purpose | Extend D-233 without changing Sheet 2 source |
+| Approve-with-conditions | Chief Journalist precursor to Copy Edit | Separate child-task contract; do not replace source `OP-COPY-EDIT` R |
+| Approve-with-conditions | T5 Chief Editorial Desk accountability | Keep phase accountability separate from operation/route RACI |
+| Defer | Persisted/API relabel and Lane B code/tests | Compatibility matrix, governed work order and authorization |
+| Defer | Assurance workflow and T6 | Outside V1 |
+| Defer | B-117 closure and Graphify rebuild | Canonical propagation, visuals and independent verification |
+| Reject | Closing a T phase gate before its required task workflow completes | Use two-part judgment/selection then completion lifecycle |
+| Reject | Treating technical-spec T rules as the normalized product T phase-node namespace | Relabel technical implementation identifiers |
