@@ -3519,3 +3519,142 @@ There is no evidence supporting a prediction of bankruptcy or certain project fa
 | Defer | Storyboard/UML/data flow and Encyclopedia completion | Lane A complete normal/revision views and actual entry review |
 | Defer | B-117 closure and any application/CI build | Independent verification and Judge disposition of the relevant parent scope |
 | Reject | Treating additive propagation, graph currency or passing consistency checks as complete semantic closure | Lane A bounded specification repair, then Lane B independent review |
+
+## Lane A response — consolidated implementation plan, PLAN ONLY, no governed-doc edit, 2026-09-17
+
+**Reviewed:** `c2abf59`, Lane B's independent review of `D-235`/`f768a40`. **Scope of this entry:**
+plan only, per explicit Chief Editor guardrail this round — *"don't build yet; only implementation
+plan."* No governed document (`requirements-traceability-map.md`, `factory-route-operation-
+crosswalk.md`, `FN-GATES-01-05.md`, storyboard, `Modular_PRD.md`, `docs/specs/*`) is edited by this
+entry. `docs/handoff/` is unmapped and always-writable regardless of lane state (`D-90`); this act
+is excluded from `graph-coverage`/`docs-drift` (`D-231`) and requires no rebuild.
+
+### Independent verification, before trusting the review
+
+Three of `c2abf59`'s specific claims were checked against current file text, not taken on citation
+alone:
+
+1. **Confirmed** — the Chief Journalist child-task contract (`factory-route-operation-crosswalk.md`
+   §4.2) has a `Trigger`/`Executor`/`Input`/`Output`/`Failure`/`Revision`/`Evidence link` row set and
+   **no `A` (accountable party) row at all**. If retained, this child is an applicable task instance
+   with no accountable party — it would fail `OP-FINAL-SIGNOFF`'s own `A`-coverage invariant
+   (`B117-R48`) the moment it exists.
+2. **Confirmed** — `Modular_PRD.md` §8 (line 938) cites `requirements-traceability-map.md` **§6.1
+   only**; it does not mention the newer §6.3 the `T1`–`T5` matrix actually lives in. The pointer is
+   stale, not wrong — §6.1 still exists and is still accurate — but a reader following it stops one
+   section short of the current model.
+3. **Confirmed, and root-caused** — storyboard Panel A9 names `OP-PITCH` twice in incompatible
+   roles: once as the pre-selection route-classification event, once as a task the selected Reporter's
+   bundle dispatches. Tracing this against the **pre-existing** `FN-GATES-01-05.md` §3.0 (`D-232`
+   era, unedited by `D-235`) shows the source of the conflict: §3.0 already establishes `OP-PITCH` as
+   the classification event that **precedes** `T1`, with completion evidence "route classification."
+   `D-235`'s new §3.0a/§6.3 then re-described `OP-PITCH` as part of `T1`'s **dispatched** bundle,
+   contradicting §3.0 without noticing it superseded it. **This is a real defect introduced at the
+   `D-235` pass**, not a misreading by Lane B.
+
+Graphify: `.graphify/branch.json` confirmed `lastAnalyzedHead` = `f768a40` (the last governed commit),
+`stale: false` — matches the review's own finding. `c2abf59` and this entry are both handoff-only and
+change nothing that check reads.
+
+### What is unclear, what is guaranteed to fail, and how success is distinguished from failure
+
+*Direct answer to the framing this round's request used:* there is no bankruptcy-grade failure mode
+here — nothing in this review or verification implies the project is unrecoverable. What **is**
+guaranteed to fail, concretely, if left as-is:
+
+- **A reader or future builder following `FN-GATES` §3.0 and `requirements-traceability-map.md`
+  §6.3 side by side gets two different, incompatible orderings for `OP-PITCH`.** Guaranteed failure:
+  whichever one they don't read first, they build the other transition wrong.
+- **`ROUTE-PROD-1`'s `OP-RESEARCH` is `conditional` on `C1`** (`factory-route-operation-crosswalk.md`
+  §3.1) — "material facts disputed, confidence below threshold, or deep re-verification needed" —
+  **but `T1`'s bundle (§6.3) dispatches only `OP-PITCH`, then `OP-DRAFT`, no `OP-RESEARCH` at all.**
+  Guaranteed failure: if `C1` fires during `T1`, there is no named executor for the resulting
+  `OP-RESEARCH` — Investigator is Sheet 2's source `R`, but Investigator's own judgment stage is
+  `T2`, which is defined as *comparing* `ROUTE-PROD-3` against baseline, not as "handle Route-1's
+  overflow research."
+- **If the Chief Journalist Copy Edit precursor is ever retained without an `A`, `OP-FINAL-SIGNOFF`'s
+  own accepted refusal rule (`B117-R48`) makes every Route-1 package permanently unsignable** — a
+  self-inflicted deadlock, not a hypothetical.
+
+Success is distinguished from failure the same way the review already frames it, verified here as
+the right test: **walk one normal case and one conditional/revision case on paper, end to end,
+through every governed document that claims to describe it, and confirm they agree on order, actor
+and evidence at every step.** A document that is internally consistent but disagrees with a sibling
+document is not yet success — that is exactly what happened between §3.0 and §3.0a/§6.3.
+
+### Proposed reconciliations — for confirmation before being written into governed text
+
+Two fixes below are **drafted as proposals**, not yet applied, because writing them into governed
+docs is the "build" this round's guardrail defers. Both are constructed only from already-decided
+facts (`D-176`, `D-232`, `D-234`) — neither invents new business behavior — but are flagged rather
+than silently applied, per the review's own instruction to route any behavior-affecting delta to the
+Judge.
+
+**Fix 1 — `OP-PITCH`'s split role (resolves the §3.0/§3.0a contradiction).** `OP-PITCH` **is** the
+`business:T1` judgment/classification step itself (lifecycle steps "enter → judgment" in §3.0a's
+seven-step model) — this is what §3.0 already says and `D-235` should not have re-described it as a
+dispatched task. Only `OP-DRAFT` is the bundle `T1` dispatches after `ROLE-REPORTER` is selected.
+`T1`'s row becomes: judgment = `OP-PITCH` (route classification), selected role = Reporter, dispatched
+bundle = `OP-DRAFT` alone. This does not change any accepted fact — it corrects which lifecycle step
+`OP-PITCH` occupies.
+
+**Fix 2 — the `C1`/`T2` boundary (resolves the Research-prerequisite gap).** `C1` firing during
+Route-1 is the trigger that **opens `business:T2`**, not a sub-step Reporter's `T1` bundle must
+itself satisfy. `T2` is already defined as Investigator comparing `ROUTE-PROD-3` against baseline
+`ROUTE-PROD-1` — a `C1` condition (disputed facts, low confidence, re-verification) is a plausible,
+consistent reason that comparison would open. Under this reading, `OP-DRAFT`'s "`OP-RESEARCH`
+complete, or route-applicable skip when not required" trigger (§3.2) resolves as: skipped if `C1`
+never fires; satisfied by `T2`'s dispatched `OP-RESEARCH` if it does. No new operation, role, or
+route is invented — this only names who runs conditional Research and under which phase-gate it
+falls.
+
+**Not proposed here, left to the next round:** the execution-identity/revision-validity model (review
+step 2), the full RACI-provenance display and Sign-Off evidence-shape (step 3, blocked on the
+Chief Journalist `A` decision — retain, assign an `A`, or omit the precursor entirely), the
+three-column semantic map applied across all governed docs (step 4), and the normal/revision
+sequence-and-data-flow redraw plus an actual Encyclopedia Entries 01/05/06 text comparison (also
+step 4). These are correctly ordered *after* Fix 1/Fix 2 by the review's own dependency chain — steps
+2–4 all build on the boundary this entry resolves.
+
+### Language normalization convention (applies going forward, not yet swept across existing text)
+
+Per this round's request to normalize semantics with graphify's own extracted vocabulary: use the
+review's **three-column form** — `business phase → selected EG/task bundle → technical
+transition/evidence boundary` — whenever a sentence could be read as describing more than one `T`
+family at once. This is the same discipline `requirements-traceability-map.md` §6.2's namespace map
+and `SPECS-TRANSITION-ENFORCEMENT.md` §3.2's relabel matrix already establish; Fix 1/Fix 2 above are
+written in that form.
+
+### Approve/reject summary
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | Independent verification confirms 3/3 spot-checked review claims are real, not overstated | Proceed to Fix 1/Fix 2 on Judge confirmation |
+| Approve-with-conditions | Fix 1 (`OP-PITCH` split role) and Fix 2 (`C1`/`T2` boundary) | Confirm below, then apply to `FN-GATES` §3.0a, traceability §6.3, crosswalk §4.2 and Panel A9 in one governed pass |
+| Defer | Chief Journalist child — retain-with-`A`, or omit | Judge decision; blocks review step 3 |
+| Defer | Execution-identity model, full RACI display, semantic-map sweep, normal/revision redraw, Encyclopedia entry comparison | Review steps 2–4, after Fix 1/Fix 2 land |
+| Defer | `B-117` closure, any schema/code/API/build work | Unchanged — still not authorized |
+| Reject | Applying Fix 1/Fix 2 silently without Judge confirmation, since both touch text a Judge-approved decision (`D-234`) already described | This entry asks first |
+
+### What this act does NOT do
+
+Does not edit `FN-GATES-01-05.md`, `requirements-traceability-map.md`, `factory-route-operation-
+crosswalk.md`, the storyboard, `Modular_PRD.md`, or any `docs/specs/` file. Does not open a Register
+entry. Does not authorize construction. Does not close `B-117` or any of `B117-R44`–`R51`. Proposes
+Fix 1 and Fix 2 for confirmation; names the Chief Journalist child decision as the blocker for review
+step 3; does not decide it.
+
+## Chief Editor disposition on this entry's proposals, 2026-09-17
+
+**Fix 1 and Fix 2: accepted as proposed.** Both are confirmed Judge intent, constructed only from
+already-decided facts (`D-176`, `D-232`, `D-234`) — no new business behavior. **Not yet applied to
+any governed document** — see disposition below.
+
+**Chief Journalist `A`: no preference given, left open.** Neither retain-with-`A` nor omit is decided.
+This continues to block review step 3 (Sign-Off evidence shape) exactly as this entry named.
+
+**Execution: plan-only for now, explicit Chief Editor direction.** Fix 1/Fix 2 are confirmed but
+**deliberately not applied** to `FN-GATES-01-05.md`, `requirements-traceability-map.md`,
+`factory-route-operation-crosswalk.md`, or storyboard Panel A9 this round. That application — plus
+review steps 2–4 and the still-open Chief Journalist decision — is a **future round**, not scheduled
+here. `B-117` remains `Open`; this entry's status is **confirmed-plan, not-yet-applied**.
