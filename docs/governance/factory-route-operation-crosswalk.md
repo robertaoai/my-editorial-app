@@ -69,8 +69,9 @@ function are separate fields; neither is inferred from the other.
 | `OP-FINAL-SIGNOFF` | Final Publication Sign-Off | `control_point` (candidate) | **none** | `ROLE-CHIEF-EDITOR` (Editor-in-Chief; `ROLE-DESK-EDITOR` is `C`, not `A` — corrected `D-237`, `B-118`) | **`DECIDED`** — Chief Editor-confirmed re-read of the source cell, 2026-09-17; previously `UNVERIFIED`/misread as Desk Editor, not independently re-derived by Lane A |
 | `OP-CRISIS` | Crisis Management & Retractions | `atomic` | `ROLE-CHIEF-EDITOR` (one `R`) | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | **`VERIFIED`** — single `R`, single `A`, no ambiguity |
 
-Row-shape verification is unchanged by `D-176`: 2 of 8 (`OP-COPY-EDIT`, `OP-CRISIS`) `VERIFIED`; six
-remain `UNVERIFIED` at the row-shape level. Row shape and route applicability are separate questions
+Row-shape verification is unchanged by `D-176`: 2 of 8 (`OP-COPY-EDIT`, `OP-CRISIS`) `VERIFIED`, 1
+(`OP-FINAL-SIGNOFF`) `DECIDED` (`D-237`, 2026-09-17 — corrected from `UNVERIFIED`); five remain
+`UNVERIFIED` at the row-shape level. Row shape and route applicability are separate questions
 (`D-174`, `B068-R20`) — §3 now answers applicability for all eight regardless of row-shape status.
 
 > **Correction, 2026-09-17 (`D-236`, `docs/handoff/B-118`).** `OP-COMPLEX-SERIES`'s third `R`,

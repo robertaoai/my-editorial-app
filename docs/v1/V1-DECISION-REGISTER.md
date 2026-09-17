@@ -17689,3 +17689,19 @@ are unaffected and not restated here.
 Does not touch `D-233`'s recorded text. Does not evaluate or apply `B-118`'s V1-rescoping or
 `T5`-redefinition proposal — that remains a separately-authorized dedicated round. Does not authorize
 construction. Does not close `B-117` or `B-118`.
+
+### Addendum, 2026-09-17 — two stale current-value restatements corrected
+
+**Raised by Lane B's independent review of this entry** (`docs/handoff/B-118`, commit `2c89d1e`),
+verified before applying: two documents restated the pre-`D-237` Desk-Editor-attests fact as current
+value after this entry corrected it, which a green consistency suite does not detect (the check
+verifies a Register record exists, not that every derived-tier restatement agrees with it).
+
+1. `factory-route-operation-crosswalk.md` §2's row-shape summary still read "2 of 8 `VERIFIED`; six
+   remain `UNVERIFIED`" — `OP-FINAL-SIGNOFF` is now `DECIDED`, not `UNVERIFIED`. Corrected to "2
+   `VERIFIED`, 1 `DECIDED`, five remain `UNVERIFIED`."
+2. `V1-BUILD-SPEC.md`'s `DOR-R4` still named Desk Editor as the Final Sign-Off A-only attester.
+   Corrected to Chief Editor (Editor-in-Chief), Desk Editor as `C`, citing `D-237`.
+
+Both are corrections of restated fact only — this entry's own decision (§5.14e62 above) and `D-233`'s
+historical text are unchanged.

@@ -378,3 +378,32 @@ never silently omitted. Opening S3 freezes S2 under the existing succession rule
 | **Defer** | Construction, schema/API rename, Complex-Series execution and Encyclopedia republish | Separate work order; milestone decomposition; hosted-text review |
 | **Reject** | Nested `docs/handoff/v1/...`, delivery S5/S6 reuse, or silent namespace collapse | Controls are non-recursive; labels already carry different meanings |
 | **Reject** | Treating reminders, ranking or agent assistance as signatures, publication authority or Line 3 assurance | Preserve V1 exclusions and human accountability |
+
+## Lane A acknowledgement — two stale-text repairs applied, three items routed for decision, 2026-09-17
+
+**Verified, then applied (low-risk, mechanical, no Judge input needed — directly follows already-
+applied `D-237`):**
+1. `factory-route-operation-crosswalk.md` §2's row-shape summary corrected from "2 `VERIFIED`; six
+   `UNVERIFIED`" to "2 `VERIFIED`, 1 `DECIDED`, five `UNVERIFIED`."
+2. `V1-BUILD-SPEC.md`'s `DOR-R4` corrected from "Desk Editor A-only attestation" to "Chief Editor
+   (Editor-in-Chief) A-only attestation, Desk Editor is `C`."
+
+Recorded as an addendum to `D-237` (`V1-DECISION-REGISTER.md`), not a new decision — both are
+corrections of restated fact, not new judgment. Swept the rest of `docs/` for the same stale pattern;
+found no other occurrence (`requirements-traceability-map.md`'s row 6 already cites `D-233`'s contract
+generically, without naming an attester, so it was not stale).
+
+**Not applied — three items need explicit Chief Editor decision before Lane A starts the authorized
+V1-rescoping round:**
+1. **The three-way role-identity split** (P2: `ROLE-CHIEF-EDITOR` access-control / a new candidate
+   human editorial role / a new candidate virtual T5 agent role). This proposes minting two new
+   canonical role IDs not yet in `raci-involvement-matrix.md` §8's catalog — a business decision, not
+   a documentary relabel.
+2. **The `docs/v1/work-packets/` restructuring proposal**, including retiring/rolling-up `SETUP-
+   SPIKE-000` and preserving `V1-SM05`/`V1-SM06` against relabeling as S5/S6. This is itself a new
+   Register/Build-Spec/Inventory act per the review's own framing, not a continuation of an existing
+   one.
+3. **Whether to now start the full P1–P6 propagation packet** (confirmed authorized last round as "a
+   dedicated next round," not yet begun).
+
+See this round's chat response for the consolidated status and the questions routed for decision.
