@@ -3658,3 +3658,120 @@ This continues to block review step 3 (Sign-Off evidence shape) exactly as this 
 `factory-route-operation-crosswalk.md`, or storyboard Panel A9 this round. That application — plus
 review steps 2–4 and the still-open Chief Journalist decision — is a **future round**, not scheduled
 here. `B-117` remains `Open`; this entry's status is **confirmed-plan, not-yet-applied**.
+
+## Lane B review — Judge-supplied Route-1 `T2a`/`T2b` decision tree, plan only, 2026-09-17
+
+**Scope and evidence boundary.** The Chief Editor supplied the approved decision-tree text for this
+review. A fresh fetch confirms that the configured branch still ends at `80dec59`; the separate
+Judge-approved commit named in the supplied text is not present on this branch. The decision is
+therefore usable as Judge direction for this planning review, but it is **not yet a durable Register
+record or canonical propagation on this branch**. No duplicate gap IDs are opened: this is the next
+refinement of `B117-R44`–`R46`, `R48`, `R50` and `R51`. No canonical document or application artifact
+is changed by this entry.
+
+### What is settled
+
+The supplied decision establishes the following semantics:
+
+1. `business:Tn` is the parent route-comparison/judgment stage.
+2. A scoped operation's `R` performs the operation and produces evidence; its `A` accountably
+   confirms completion/evidence. This is internal RACI accountability, never independent Line 3
+   assurance.
+3. A phase join evaluates the applicable branch records and records the phase disposition. It creates
+   no synthetic operation `R` or `A`.
+4. In Route-1's `business:T2` comparison, `T2a` is the `C1` Research branch (Investigator `R`, Desk
+   Editor `A`) and `T2b` is the `C4` Complex-Series branch (Investigator selected as application `R`,
+   Chief Editor source `A`). Both compare candidate `ROUTE-PROD-3` against baseline
+   `ROUTE-PROD-1`; that baseline context does not make `OP-COMPLEX-SERIES` a Route-1 operation.
+5. The join may retain Route-1, select Route-3 through the existing append-only route-selection
+   mechanism, or return only affected work.
+
+These facts extend accepted Fix 1/Fix 2. They do not authorize code, schema, API or stored-ID work.
+
+### Parent-first repair plan
+
+**Parent 1 — make the Judge act durable before derived propagation.** Lane A should assign a Register
+ID (or an explicit D-235 addendum) to the exact supplied decision, recording that `T2a`/`T2b` are
+child branch identities under one `business:T2`, not two new product gates. The same pass must state
+the Build Spec unit/DoD, Inventory disposition (no new file if the storyboard remains the sole
+diagram source), and Modular_PRD tracking pointer per `D-54`. Historical Modular_PRD changelog row
+1.35 may continue to say “proposed” because row 1.36 already records the later acceptance; do not
+rewrite history as if it were a current-value conflict. The current §8.1 pointer must add
+traceability §6.3 and the new decision-tree anchor.
+
+**Parent 2 — finish the branch/join contract before diagrams.** Extend the scoped-execution model
+with `baseline_route`, `candidate_route`, parent phase, branch ID, condition evaluation, selected
+operation/executor, effective `A` with provenance, evidence reference, revision/supersession link and
+return target. Preserve Sheet 2's multi-`R` source row for `OP-COMPLEX-SERIES`; record Investigator
+as the selected application executor for `T2b`, not as a source rewrite.
+
+The branch protocol should make all four condition combinations executable:
+
+| `C1` | `C4` | Required T2 evidence before join |
+|---|---|---|
+| false | false | Explicit not-applicable results for both branches; no operation instance is fabricated |
+| true | false | Current `T2a` Research execution plus Desk Editor accountability evidence |
+| false | true | Current `T2b` Complex-Series execution plus Chief Editor accountability evidence; branch remains held until milestone children are defined and complete |
+| true | true | Distinct current `T2a` and `T2b` executions; the join waits for both and a return from one does not overwrite the sibling |
+
+The join has no operation RACI, but it still needs a recorded `decision_authority` and `recorded_by`
+provenance. The existing rule says an effective-route change requires an authorized append-only
+selection/reclassification event; the supplied packet does not identify that authority. Until Lane A
+can cite an already-decided authority, the join may record a recommendation/hold but must not change
+the effective route. This is the one remaining business-authority clarification in the T2 packet.
+
+**Parent 3 — propagate one semantic contract.** After Parents 1–2, apply the same contract to the
+traceability map, crosswalk, RACI explanation and FN-GATES. Keep four accountability layers visible:
+source route `A`, source operation `A`, effective application `A`, and T5 phase accountability. Use
+“gate assurance” only for the operation's internal `A` evidence; Line 3 assurance stays absent.
+Final Sign-Off consumes only current, applicable, accepted task instances and creates no backfilled
+`A` or synthetic `R`. The separate Chief Journalist precursor remains outside this T2 decision and
+must be omitted or given its own Judge-approved `A` before it can enter Sign-Off coverage.
+
+**Parent 4 — redraw, then review the external Encyclopedia.** Replace Panel A9's duplicate
+`OP-PITCH` use: Pitch is the T1 classification/judgment and only Draft is dispatched after Reporter
+selection. In the storyboard-owned normal and revision Mermaid views, show UI → Senior Journalist
+`EW` → T1 classification → Draft → T2 branch applicability → T2a/T2b executions and `A` evidence →
+join → T5 readiness → Desk Editor Final Sign-Off → human publication review. Show branch-specific
+returns and retained sibling evidence. FN-GATES §4.1 continues to point to these views; create no
+standalone UML/data-flow duplicate. Encyclopedia Entries 01/05/06 require actual hosted-text review
+or an explicit Judge-approved deferral; the local sync ledger alone cannot prove parity.
+
+**Parent 5 — independent verification and closure.** Lane A runs the consistency suite, commits the
+governed packet, then rebuilds Graphify and re-merges curated fragments in that order. Lane B verifies
+the cases below against committed text. Judge acceptance of the bounded packet is separate from
+closing the wider B-117 backlog.
+
+### Guaranteed failures and success evidence
+
+| If left unresolved | Guaranteed failure | Passing evidence |
+|---|---|---|
+| T2 branches share only `T2` + operation ID | C1/C4 executions or revisions overwrite/satisfy one another | Stable parent/branch/execution/revision identity keeps both evidence streams distinct |
+| A false branch is simply absent | A zero-branch join can pass vacuously, or a reviewer cannot tell “not applicable” from “not run” | Both C1 and C4 applicability evaluations are recorded before every join |
+| C4 fires before milestone children exist | `T2b` can never prove completion truthfully | Branch remains held with named missing children; no join success until decomposition is accepted and complete |
+| Join selects Route-3 without authority provenance | Candidate evaluation silently becomes an unauthorized route mutation | Append-only selection event cites the governing authority, decision-maker, prior route, candidate route and evidence set |
+| Investigator selection overwrites Sheet 2 | Other valid source executors disappear from provenance | Source multi-R row is unchanged; scoped application selection is a separate fact |
+| `A` is treated as Line 3 assurance | T5 internal accountability is falsely reported as independent audit | Every view labels operation `A` as internal; independent assurance remains explicitly absent |
+| Panel A9 keeps two Pitch executions | Sequence, tests and evidence counts implement incompatible T1 models | One classification Pitch; one dispatched Draft; identical order across FN-GATES, traceability and storyboard |
+
+Run one normal no-trigger case, C1-only, C4-only, C1+C4, one branch return, and one relevant revision.
+For each, Product Requirements tracking, traceability, crosswalk, RACI and storyboard must agree on
+condition, route context, operator, accountable party, evidence validity, join result and return
+scope. That agreement is the success criterion; document presence or a green drift check alone is not.
+
+### Drift / Graphify disposition
+
+`.graphify/branch.json` still records the last governed commit `f768a40` with `stale: false`; current
+HEAD `80dec59` adds only handoff-channel commits excluded by `D-231`. The installed Graphify query did
+not surface the supplied T2 branch concepts, which is expected because they are not yet in canonical
+docs. No rebuild is owed for this handoff-only review. A rebuild becomes mandatory after Lane A's
+future governed propagation.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Judge-supplied T2a/T2b split, branch R/A assignments, baseline/candidate separation and RACI-vs-assurance meaning | Lane A durable Register record and canonical propagation |
+| **Approve-with-conditions** | T2 join and scoped execution contract | Record false-branch disposition, simultaneous-branch behavior, identity/revision rules and route-change authority |
+| **Approve-with-conditions** | Modular_PRD / storyboard / FN-GATES alignment | Preserve changelog history; update current pointer; correct Pitch once; keep storyboard as sole UML/data-flow source |
+| **Defer** | Complex-Series completion | Define and accept milestone children before any C4 branch may pass |
+| **Defer** | Chief Journalist precursor, Encyclopedia publication and B-117 closure | Separate Judge disposition; hosted-text review; independent verification |
+| **Reject** | Treating baseline Route-1 as Complex-Series applicability, silently collapsing source multi-R, or treating gate `A` as Line 3 assurance | Preserve scoped comparison and provenance layers |
