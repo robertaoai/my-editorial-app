@@ -254,6 +254,28 @@ generated from the codebase itself (traceable implementation → knowledge base)
 hand-maintained prose diverging from what shipped. Nothing here creates that generation pipeline;
 it is a direction, not a `D-54` artifact fact.
 
+### 4.2 V1 UI states — newsworthiness ranking and routing `[V1]` (`D-239`, `docs/handoff/B-118`)
+
+**V1 UI states, spec-only — no build authorized by this section.** Every state below must
+distinguish three evidence tiers so a reminder is never confused with a completed control: `required
+externally` (the action itself happens outside V1), `recorded locally as reminder` (V1 stores that
+the user was told), and `verified complete` (**V1 never reaches this tier for any state below** —
+see the boundary at the end of this section).
+
+| UI state | Trigger | What it shows | Tier |
+|---|---|---|---|
+| Ranking evidence incomplete | `T5` opened before required `T1`–`T4` evidence/`T3` fields exist | Which fields are missing; blocks ranking submission | `recorded locally as reminder` |
+| Route-ranked recipient displayed | `T5` ranking recorded | The routing matrix's recipient for the article's current route (`requirements-traceability-map.md` §6.4) | `recorded locally as reminder` |
+| Final Sign-Off reminder displayed | `T5` ranking complete, `OP-FINAL-SIGNOFF` applicable | External-tracking-system requirement; **not** a signature control | `required externally` |
+| Draft additional-signatory reminder displayed | `OP-DRAFT` involved in the current route | A second signatory is required in the separate tracking system | `required externally` |
+| External-GRC context displayed | Route family `ROUTE-FALLOUT-3`/`ROUTE-GRC` | Route, trend update, `EDITORIAL-ROLE-EDITOR-IN-CHIEF` source `R`/`EXT-GRC` source `A` context only | `recorded locally as reminder` |
+
+**Boundary, restated because it is the one a UI can violate silently.** No V1 state above may render
+as validated-complete, refuse a package, mutate article/publication state, exchange an external
+package, or claim independent assurance. A reminder rendered as if it were a completed signature is
+the exact failure this boundary exists to prevent (`docs/handoff/B-118`'s failure-derived acceptance
+case "Ranking-only boundary").
+
 ## 5. Acceptance criteria
 
 | ID | Given | When | Then |

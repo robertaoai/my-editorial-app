@@ -943,6 +943,16 @@ rejected work (`D-134`) is its concrete v1 case.**
 > timing) and `UJ2` (Desk Editor's observable accountability act) are **resolved** by Judge
 > clarification, 2026-09-14/16 — see §6.1's evidence-contract column; four implementation-readiness
 > specification details remain, named there, not a further business decision.
+>
+> **V1's actual boundary is UI/UX assistance for newsworthiness ranking and routing, not workflow
+> execution — corrected 2026-09-17 (`D-239`, from `docs/handoff/B-118`).** §6.1's row-level journey
+> above is unaffected — it maps Sheet 1 route/accountability and target gate executors, which `D-239`
+> does not change. **§6.1's own pointer is one section short**: the `T1`–`T5` role-selection/ranking
+> model and its V1 boundary now live at `requirements-traceability-map.md` §6.3 (matrix, retained/
+> superseded disposition) and §6.4 (`T5` routing matrix, `T3` fields, explicit in/out-of-V1 table) —
+> read both, not §6.1 alone. `T5`'s function in V1 is a **newsworthiness ranking and routing record**,
+> not the "accountability/readiness judgment" `D-234` originally described; `OP-FINAL-SIGNOFF`
+> enforcement, external-GRC exchange, `T6`, and any Line 3 workflow remain outside V1, unchanged.
 
 | Sprint | Theme | Objective | FRs | TRs / NFRs | ACs | Priority | Status |
 |---|---|---|---|---|---|---|---|

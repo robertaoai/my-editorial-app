@@ -261,7 +261,8 @@ identity is the `V1-SM05`/`V1-SM06` slot assignment (`B117-R6`/similar correctio
 
 ### 4.2 `T1`–`T5` phase-gate overlay — scoped executions, `T5` RACI normalization, Final Sign-Off
 `A`-coverage extension (`D-234`, propagated 2026-09-17, `B117-R44`/`R46`/`R47`/`R48`; source-RACI
-corrected 2026-09-17, `D-236`/`D-237`, `B-118`)
+corrected 2026-09-17, `D-236`/`D-237`/`D-238`, `B-118`; `T5` reframed as newsworthiness ranking,
+`D-239`, `requirements-traceability-map.md` §6.3/§6.4)
 
 **Relationship to §3.2.** §3.2's `stage_order` column is **not** a single global occurrence per
 operation — it is the **default ordering inside one selected task bundle**. Each `business:T1`–`T5`
@@ -272,11 +273,36 @@ never overwriting a prior stage's row. §3.2's `entry_trigger`/`completion_evide
 columns still govern ordering *within* a bundle; they do not claim the operation runs only once across
 the whole route. This corrects the earlier reading that produced `B117-R44`.
 
+**`T2a`/`T2b` branch protocol (Judge-supplied decision tree, `docs/handoff/B-117`, `878da3a`, applied
+`D-239`).** `business:T2`'s route comparison (`ROUTE-PROD-3` vs. baseline `ROUTE-PROD-1`) splits into
+two independently-evaluated branches, both under `ROLE-INVESTIGATOR`'s judgment: `T2a` is the `C1`
+Research branch (`OP-RESEARCH`, source `R` Investigator/Senior Journalist, `A` Desk Editor); `T2b` is
+the `C4` Complex-Series branch (`OP-COMPLEX-SERIES`, Investigator selected as the application `R`,
+source `A` `EDITORIAL-ROLE-EDITOR-IN-CHIEF` per `D-238` — the source multi-`R` row in §2 is
+unchanged; this is a separate application-selection fact). Both compare the same candidate
+`ROUTE-PROD-3` against the same baseline; that shared baseline does not make `OP-COMPLEX-SERIES` a
+`ROUTE-PROD-1` operation.
+
+| `C1` | `C4` | Required `T2` evidence before join |
+|---|---|---|
+| false | false | Explicit not-applicable results recorded for both branches; no operation instance is fabricated |
+| true | false | Current `T2a` execution plus Desk Editor accountability evidence |
+| false | true | Current `T2b` execution plus `EDITORIAL-ROLE-EDITOR-IN-CHIEF` accountability evidence; branch stays held until `OP-COMPLEX-SERIES`'s milestone children are defined and complete (§4 item 3, unchanged) |
+| true | true | Distinct, simultaneous current `T2a` and `T2b` executions; the join waits for both, and a return from one never overwrites the sibling's evidence |
+
+**The join** has no operation-level RACI of its own, but records `decision_authority` and
+`recorded_by` provenance. It may retain `ROUTE-PROD-1` or select `ROUTE-PROD-3`, and does so **only**
+through the existing authorized append-only route-selection/reclassification event (§3.1, `D-176`) —
+never as a side effect of evaluating a branch. Each `T2a`/`T2b` execution carries the same identity
+fields as any scoped execution (§4.2 above): work item, route-selection event, phase, operation type,
+selected role, scope, revision, and a unique execution reference, so retries and revisions never
+overwrite or satisfy the sibling branch merely because their operation IDs match.
+
 **`T5` RACI normalization** — four facts stay distinct and none overwrites another:
 
 | Concern | Source fact (§2, unedited) | Application interpretation |
 |---|---|---|
-| Phase-level accountability | Not a Sheet 2 field | `business:T5` selects Chief Editorial Desk for the phase/accountability context only |
+| Phase-level ranking | Not a Sheet 2 field | `business:T5` selects Chief Editorial Desk for the phase/ranking context only — a newsworthiness-ranking judgment router, not an operation executor (reframed `D-239`, was "phase-level accountability") |
 | `OP-PITCH` | `R`: Reporter + Journalist; `A`: Desk Editor | `T5` reviews/validates its evidence; Chief Editorial Desk does not replace the source `A` |
 | `OP-RESEARCH` | `R`: Investigator + Senior Journalist; `A`: Desk Editor | `T5` reviews/validates its evidence; Chief Editorial Desk does not replace the source `A` |
 | `OP-DRAFT` | `R`: Reporter + Journalist; source `A`: blank | §4.1 item 2's application overlay supplies Chief Editorial Desk as default `A`; source `A` remains blank |

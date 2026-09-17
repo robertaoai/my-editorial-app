@@ -17765,3 +17765,77 @@ for any future persisted use remain a build-time decision, not fixed by this doc
 Does not rename any stored/API/code/schema value. Does not fix final canonical IDs for the two new
 roles — candidate only. Does not authorize construction. Does not touch gate-execution eligibility
 for `transition:T5`/`T6`/`EG5`. Does not close `B-117` or `B-118`.
+
+## 5.14e64 `D-239` — V1 Ranking/UI-Assistance Boundary: `T5` Reframed as Newsworthiness Ranking and
+Routing, `T2a`/`T2b` Branch Protocol Adopted, `T3` Newsworthiness Fields Approved
+
+**Chief Editor decision, 2026-09-17, answering `docs/handoff/B-118`'s Judge-approved draft and Lane
+B's independent review (`2c89d1e`), adopted as proposed.** This entry records V1's actual boundary as
+**UI/UX assistance for recording and reviewing the first- and second-lens newsworthiness
+assessment** — display, provenance, ranking, and routing context only. It revises `D-234`'s `T5`
+model, not merely propagates it.
+
+### Approved V1 boundary
+
+| In V1 | Explicitly outside V1 |
+|---|---|
+| `T1`–`T4` first-lens evidence display | Workflow execution inferred from multiple source `R` values |
+| `T5` Chief Editorial Desk newsworthiness ranking and routing record | Draft readiness-signature shape, validation, revision, and return rules |
+| Trend-signal update and score evidence | Final Sign-Off evidence validation, refusal reasons, or publication-state mutation |
+| Source-RACI provenance display | External-GRC outbound package and returned-report evidence |
+| UI assistance for the user to record Final Sign-Off in a separate tracking system | `T6` crisis assurance |
+| "No Line 3 assurance workflow" disclosure | Any independent Line 3 workflow or audit |
+
+### Retained, superseded, and newly added — relative to `D-175`, `D-177`, `D-234`, `D-235`
+
+**Retained unchanged:** `D-176`'s route-operation applicability; `D-233`/`D-237`'s `OP-FINAL-SIGNOFF`
+contract as an accepted **specification** (five conditions) — V1 does not build its enforcement, but
+the contract itself stands as the future target; the seven-step phase-gate lifecycle; the scoped-
+execution model (`B117-R44`); the assurance-absence boundary (`B117-R51`); all source-RACI facts
+(`D-236`/`D-237`/`D-238`); `T5`'s selected role, Chief Editorial Desk, as an application-layer
+judgment router, never a source-RACI column.
+
+**Superseded:** `D-234`'s `T5` description — "review Pitch/Research evidence, perform source
+`OP-COPY-EDIT` responsibility, confirm `OP-DRAFT`'s application `A`, then `OP-FINAL-SIGNOFF` checks
+complete `A`-coverage" — is replaced. In V1, `T5` **displays** `OP-COPY-EDIT`'s source provenance and
+an external-tracking reminder for Final Sign-Off; it does not perform or check either. `T5`'s output
+is reframed from "opens UI publication-review flow" (still true) to primarily a **newsworthiness
+ranking and routing record**.
+
+**New in V1, not in `D-234`/`D-235`:** the `T5` newsworthiness-routing matrix (route-dependent
+ranking recipient); the approved `T3` newsworthiness fields; the `T2a`/`T2b` branch protocol for
+`business:T2`'s route comparison (Judge-supplied decision tree, `docs/handoff/B-117`, `878da3a`).
+
+**Outside V1, unchanged:** `T6`, automated publication, external-GRC exchange, any Line 3 assurance
+workflow, Complex-Series execution (milestone children remain undefined — held, not executable).
+
+### Applied this entry
+
+`requirements-traceability-map.md` §6.3 (`T1`–`T5` matrix: `T1`/`T3`'s `OP-PITCH` judgment-step
+correction, `T2`'s `T2a`/`T2b` split, `T5`'s full reframe, retained/superseded disposition table) and
+new §6.4 (`T5` routing matrix, `T3` fields, V1 boundary table); `factory-route-operation-
+crosswalk.md` §4.2 (`T2a`/`T2b` branch protocol and four-condition evidence table, `T5` RACI table's
+"phase-level ranking" row).
+
+### Not applied this entry — remaining propagation
+
+`FN-GATES-01-05.md` (UI states), `Modular_PRD.md` (§8 pointer, V1 scope/No Goals), storyboard
+(Panel A9 redraw for the `T5` reframe and `T2a`/`T2b`), Encyclopedia Entries 01/05/06 (actual review).
+Named explicitly, not silently deferred — separate acts in this same round.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e64 |
+| **`requirements-traceability-map.md`** | ✅ §6.3, new §6.4 |
+| **`factory-route-operation-crosswalk.md`** | ✅ §4.2 |
+| **`FN-GATES-01-05.md`, `Modular_PRD.md`, storyboard, Encyclopedia** | Owed this round, tracked as separate acts below |
+| **`V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`** | Owed this round |
+| **Graphify** | Rebuild owed once this round's propagation completes |
+
+### What this act does NOT do
+
+Does not authorize construction, schema, code, persisted-field, or API change. Does not close
+`B-117` or `B-118`. Does not build `OP-FINAL-SIGNOFF` enforcement, Complex-Series execution, external-
+GRC exchange, or any Line 3 workflow — all remain explicitly outside V1.

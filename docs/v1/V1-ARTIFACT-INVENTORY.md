@@ -252,6 +252,13 @@ absent. The phase-gate/task-execution model's propagation (`requirements-traceab
 inventory; it created no new file.** Stated explicitly rather than left silent, per the same `D-54`
 discipline `B-086` established above for `D-200`/`D-201`.
 
+**`D-236`–`D-239`'s source-RACI corrections, role-identity split, and V1 ranking/UI-assistance
+reframe are likewise UNAFFECTED, stated explicitly (2026-09-17).** All landed as sections inside
+already-inventoried files (`raci-involvement-matrix.md`, `factory-route-operation-crosswalk.md`,
+`requirements-traceability-map.md`, `FN-GATES-01-05.md`, `V1-BUILD-SPEC.md`, `docs/handoff/B-118`).
+No file was created or retired. The one exception is `D-240`'s `docs/v1/work-packets/` structure,
+recorded in its own tier table below, not here.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

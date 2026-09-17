@@ -289,11 +289,21 @@ dispatch/completion, `phase_completed`.
 | `business:T` node | Judgment/route comparison | Selected role | Task-workflow bundle after selection | Completion boundary |
 |---|---|---|---|---|
 | Pre-`T1` | UI request supplied; Senior Journalist processes and emits the entry output | `ROLE-SENIOR-JOURNALIST` (pre-gate processor, not `T1`'s selected role) | Intake/entry evidence only | `T1` may open; no phase gate has completed |
-| `T1` | Establish `ROUTE-PROD-1` baseline/default | `ROLE-REPORTER` | `OP-PITCH`, then `OP-DRAFT` for the selected Reporter application context | Reporter task evidence complete; Final Sign-Off is not a Reporter task |
-| `T2` | Compare `ROUTE-PROD-3` against baseline `ROUTE-PROD-1` | `ROLE-INVESTIGATOR` | `OP-RESEARCH`; `OP-COMPLEX-SERIES` when its condition/children are satisfied | Both applicable task instances complete; route comparison recorded |
-| `T3` | Compare `ROUTE-PROD-2` against baseline `ROUTE-PROD-1` | `ROLE-JOURNALIST` | `OP-PITCH`, `OP-DRAFT` in the Journalist context | New scoped task instances complete; prior `T1` evidence remains history |
+| `T1` | Establish `ROUTE-PROD-1` baseline/default | `ROLE-REPORTER` | `OP-PITCH` **is** `T1`'s own judgment/classification step, corrected 2026-09-17 (`B-117`/`B-118` Fix 1) — it is not a separate dispatched task. Only `OP-DRAFT` is dispatched, for the selected Reporter application context | Reporter task evidence complete; Final Sign-Off is not a Reporter task |
+| `T2` | Compare `ROUTE-PROD-3` against baseline `ROUTE-PROD-1`, **split into branches `T2a`/`T2b`** (Judge-supplied decision tree, `docs/handoff/B-117`, `878da3a`) | `ROLE-INVESTIGATOR` | `T2a` (`C1` Research branch): `OP-RESEARCH`, Desk Editor `A`. `T2b` (`C4` Complex-Series branch): `OP-COMPLEX-SERIES`, Investigator selected as application `R`, `EDITORIAL-ROLE-EDITOR-IN-CHIEF` source `A` (`D-238`). Both branches are independently evaluated and recorded — a false branch is an explicit not-applicable result, never a silent absence. Full branch/join protocol: `factory-route-operation-crosswalk.md` §4.2 | Every applicable branch execution completes; the join records disposition and may retain `ROUTE-PROD-1` or select `ROUTE-PROD-3` only through the existing authorized append-only route-selection event — never silently |
+| `T3` | Compare `ROUTE-PROD-2` against baseline `ROUTE-PROD-1` | `ROLE-JOURNALIST` | `OP-PITCH` is `T3`'s judgment step in the Journalist context (same Fix 1 correction as `T1`); `OP-DRAFT` is the dispatched task. Capture the approved newsworthiness fields (§6.4 below) as part of this judgment | New scoped task instances complete; prior `T1` evidence remains history |
 | `T4` | Compare `ROUTE-FALLOUT-1` against baseline `ROUTE-PROD-1` | `ROLE-SENIOR-JOURNALIST` | `OP-RESEARCH`, `OP-COMPLEX-SERIES`, `OP-LEGAL-RISK` as applicable | Required/triggered task instances and evidence complete |
-| `T5` | Final editorial accountability/readiness judgment | `ROLE-CHIEF-EDITORIAL-DESK` (phase/accountability layer) | Review Pitch/Research evidence; perform source `OP-COPY-EDIT` responsibility; confirm `OP-DRAFT`'s decided application `A`; then `OP-FINAL-SIGNOFF` checks complete `A`-coverage | Signed-off pre-publication package opens the UI publication-review flow; there is no `T6` in this namespace |
+| `T5` | **Second-lens newsworthiness ranking**, corrected 2026-09-17 (`D-239`, `docs/handoff/B-118`) — supersedes the first-lens "accountability/readiness judgment" framing below | `ROLE-CHIEF-EDITORIAL-DESK` (phase/ranking layer — an application judgment router, never a source-RACI column) | Review `T1`–`T4` evidence; record the newsworthiness ranking (§6.4 below); route the ranking context to the route-ranked recipient (§6.4's routing matrix); display `OP-DRAFT`'s decided application `A` as readiness context only; display the `OP-FINAL-SIGNOFF` external-tracking reminder — **V1 does not itself validate, refuse, or execute Final Sign-Off** | Ranking/routing record complete; opens the UI publication-review flow; there is no `T6` in this namespace, and this record is never a task completion or publication approval |
+
+**Retained versus superseded, relative to `D-234`/`D-235` (`D-239` disposition).** `T5`'s selected
+role (Chief Editorial Desk, phase/ranking layer only), the seven-step phase-gate lifecycle (§6.3
+above this table), the scoped-execution model, and the assurance-absence boundary below are
+**retained unchanged**. **Superseded:** `T5` "performing source `OP-COPY-EDIT` responsibility" and
+"`OP-FINAL-SIGNOFF` checks complete `A`-coverage" as actions `T5` itself executes — in V1, `T5`
+**displays** `OP-COPY-EDIT`'s source provenance and an external-tracking reminder only; it does not
+execute or check either. `D-233`/`D-237`'s `OP-FINAL-SIGNOFF` **contract** (who attests, five
+conditions) remains the accepted specification — a future target, not something V1 builds. **New in
+V1:** the newsworthiness-ranking output and its routing matrix (§6.4), which `D-234` did not have.
 
 This matrix is the **application workflow overlay** — it does not rewrite Sheet 1/Sheet 2
 (`factory-route-operation-crosswalk.md` §4.2) and does not rename any `transition:T`/`EG` identifier
@@ -303,10 +313,46 @@ restated (`B117-R46`).
 
 **Assurance boundary — reaffirmed, not newly created (`B117-R51`).** No independent assurance
 workflow (Line 3 / independent review) exists anywhere in this matrix or in V1 — `T5`'s Chief
-Editorial Desk accountability is a management/readiness judgment, opening the UI publication-review
-flow, not an independent audit opinion. This is the same absence already recorded at Panel A5's `GA6`
+Editorial Desk ranking is a management/readiness judgment, opening the UI publication-review flow,
+not an independent audit opinion. This is the same absence already recorded at Panel A5's `GA6`
 gap (`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md` §1) and is not a new V1 node or
 task.
+
+### 6.4 `T5` newsworthiness-routing matrix and `T3` newsworthiness fields — V1 ranking/UI-assistance
+boundary `[V1]` (`D-239`, `docs/handoff/B-118`, 2026-09-17)
+
+**V1 boundary.** V1 provides UI/UX assistance for recording and reviewing the first- and second-lens
+newsworthiness assessment — ranking, provenance display, and routing context. **Explicitly outside
+V1:** workflow execution inferred from multiple source `R` values; Draft readiness-signature
+validation/revision/return rules; Final Sign-Off evidence validation, refusal reasons, or
+publication-state mutation; external-GRC outbound package/returned-report evidence; `T6` crisis
+assurance; any independent Line 3 workflow or audit.
+
+**`T5` newsworthiness-routing matrix** — the ranking recipient is route-dependent:
+
+| Route family | Second-lens ranking recipient | Meaning in V1 |
+|---|---|---|
+| `ROUTE-PROD-1` | Desk Editor | Second-lens role record for low-impact daily news; not a natural-person workflow in V1 |
+| `ROUTE-PROD-2` / `ROUTE-PROD-3` | Chief Journalist | Second-lens trending-versus-fade ranking record |
+| `ROUTE-FALLOUT-1` / `ROUTE-FALLOUT-2` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | Second-lens fallout-ranking record — the human editorial identity (`D-238`), distinct from access-control `ROLE-CHIEF-EDITOR` |
+| `ROUTE-FALLOUT-3` / `ROUTE-GRC` | `EXT-GRC` | External judicial/GRC institutional-record context; no external workflow is built in V1 |
+
+**Approved `T3` newsworthiness fields**, captured as part of `T3`'s judgment above:
+
+| Field | Required V1 meaning |
+|---|---|
+| Baseline period and current period | Shows the comparison window |
+| What held | Facts or projections that remain robust |
+| What accelerated or mutated | New data, velocity changes, or emerging concepts |
+| What weakened or was overstated | Claims later evidence undercut |
+| Newsworthiness score | Integer score from 1 to 10 with one-sentence justification |
+| Fresh sources | Three to five high-signal links or reports that changed the signal |
+| Scoped `T3` purpose | Identifies the Journalist's comparison/angle context, so it cannot duplicate `T1` Reporter classification |
+| Route and revision reference | Keeps `T3` evidence attributable to its route and current content revision |
+
+**A ranking or routing record is never a signature, publication approval, or Line 3 assurance** — the
+UI must distinguish `required externally`, `recorded locally as reminder`, and `verified complete`;
+V1 only owns the first two.
 
 **Status:** accepted Judge intent (`D-234`), propagated into this map, the crosswalk (§4.2) and
 `FN-GATES-01-05.md` (§3.0a) in this pass. Not yet propagated: canonical lifecycle-event naming
