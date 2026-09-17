@@ -63,15 +63,28 @@ function are separate fields; neither is inferred from the other.
 | `OP-PITCH` | Daily Story Pitch & Beat Tracking | `UNVERIFIED` | **Two `R`**: `ROLE-REPORTER`, `ROLE-JOURNALIST` | `ROLE-DESK-EDITOR` | `UNVERIFIED` — multiple `R`, no milestone marker in source |
 | `OP-RESEARCH` | Deep Fact-Checking & OSINT Research | `UNVERIFIED` | **Two `R`**: `ROLE-INVESTIGATOR`, `ROLE-SENIOR-JOURNALIST` | `ROLE-DESK-EDITOR` | `UNVERIFIED` — multiple `R`, no milestone marker in source |
 | `OP-DRAFT` | Drafting Standard News Copy | `UNVERIFIED` | **Two `R`**: `ROLE-REPORTER`, `ROLE-JOURNALIST` | **none** | `UNVERIFIED` — multiple `R` and no `A` at all in source |
-| `OP-COMPLEX-SERIES` | Executing Complex Investigative Series | `milestone` (source-marked "Mult task R") | **Three `R`**: `ROLE-INVESTIGATOR`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK` | `ROLE-CHIEF-EDITOR` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
-| `OP-COPY-EDIT` | First-Line Copy Editing & Formatting | `atomic` | `ROLE-CHIEF-EDITORIAL-DESK` (one `R`) | `ROLE-DESK-EDITOR` | **`VERIFIED`** — single `R`, single `A`, no ambiguity |
-| `OP-LEGAL-RISK` | Legal, Ethical & Risk Review | `milestone` (source-marked "Multi Task R") | **Two `R`**: `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK` | `ROLE-CHIEF-EDITOR` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
+| `OP-COMPLEX-SERIES` | Executing Complex Investigative Series | `milestone` (source-marked "Mult task R") | **Three `R`**: `ROLE-INVESTIGATOR`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `ROLE-CHIEF-EDITOR` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
+| `OP-COPY-EDIT` | First-Line Copy Editing & Formatting | `atomic` | `ROLE-CHIEF-JOURNALIST` (one `R`) | `ROLE-DESK-EDITOR` | **`VERIFIED`** — single `R`, single `A`, no ambiguity |
+| `OP-LEGAL-RISK` | Legal, Ethical & Risk Review | `milestone` (source-marked "Multi Task R") | **Two `R`**: `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `ROLE-CHIEF-EDITOR` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
 | `OP-FINAL-SIGNOFF` | Final Publication Sign-Off | `control_point` (candidate) | **none** | `ROLE-DESK-EDITOR` | `UNVERIFIED` — no `R` in source at all |
 | `OP-CRISIS` | Crisis Management & Retractions | `atomic` | `ROLE-CHIEF-EDITOR` (one `R`) | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | **`VERIFIED`** — single `R`, single `A`, no ambiguity |
 
 Row-shape verification is unchanged by `D-176`: 2 of 8 (`OP-COPY-EDIT`, `OP-CRISIS`) `VERIFIED`; six
 remain `UNVERIFIED` at the row-shape level. Row shape and route applicability are separate questions
 (`D-174`, `B068-R20`) — §3 now answers applicability for all eight regardless of row-shape status.
+
+> **Correction, 2026-09-17 (`D-236`, `docs/handoff/B-118`).** `OP-COMPLEX-SERIES`'s third `R`,
+> `OP-COPY-EDIT`'s sole `R`, and `OP-LEGAL-RISK`'s second `R` previously read `ROLE-CHIEF-EDITORIAL-
+> DESK`. **`ROLE-CHIEF-EDITORIAL-DESK` is not one of the eight source CSV columns** —
+> `raci-involvement-matrix.md` §8 (`D-175`, predating this correction) already records the actual
+> header row as *Reporter, Investigator, Journalist, Senior Journalist, **Chief Journalist**, Desk
+> Editor, Editor-in-Chief, Gov Institution (GRC)*, with Chief Journalist its own row, never an alias
+> of Chief Editorial Desk. The three cells above are corrected to `ROLE-CHIEF-JOURNALIST` accordingly.
+> `ROLE-CHIEF-EDITORIAL-DESK` remains a real, distinct role — the `T5`/`EG4`/`T6` gate role §8
+> describes — it was simply never a Sheet 2 source column, and should not have appeared as one here.
+> **Consequence:** `B117-R47`'s "Chief Journalist Copy Edit precursor, no child operation" framing
+> (§4.2 below) was chasing a phantom gap — Chief Journalist already **is** `OP-COPY-EDIT`'s source
+> `R`; no precursor child-task contract is needed.
 
 ## 3. Route-operation join — DECIDED (`D-176`, 2026-09-01)
 
@@ -228,8 +241,8 @@ identity is the `V1-SM05`/`V1-SM06` slot assignment (`B117-R6`/similar correctio
      `ManualReady`, or change article state.
 
 ### 4.2 `T1`–`T5` phase-gate overlay — scoped executions, `T5` RACI normalization, Final Sign-Off
-`A`-coverage extension, Chief Journalist child-task draft (`D-234`, propagated 2026-09-17,
-`B117-R44`/`R46`/`R47`/`R48`)
+`A`-coverage extension (`D-234`, propagated 2026-09-17, `B117-R44`/`R46`/`R47`/`R48`; source-RACI
+corrected 2026-09-17, `D-236`, `B-118`)
 
 **Relationship to §3.2.** §3.2's `stage_order` column is **not** a single global occurrence per
 operation — it is the **default ordering inside one selected task bundle**. Each `business:T1`–`T5`
@@ -248,8 +261,8 @@ the whole route. This corrects the earlier reading that produced `B117-R44`.
 | `OP-PITCH` | `R`: Reporter + Journalist; `A`: Desk Editor | `T5` reviews/validates its evidence; Chief Editorial Desk does not replace the source `A` |
 | `OP-RESEARCH` | `R`: Investigator + Senior Journalist; `A`: Desk Editor | `T5` reviews/validates its evidence; Chief Editorial Desk does not replace the source `A` |
 | `OP-DRAFT` | `R`: Reporter + Journalist; source `A`: blank | §4.1 item 2's application overlay supplies Chief Editorial Desk as default `A`; source `A` remains blank |
-| `OP-COPY-EDIT` | `R`: Chief Editorial Desk; `A`: Desk Editor | No missing source `R` exists. A Chief Journalist precursor, if retained, is the separate child-task contract below — it must never overwrite this row's source `R` |
-| `OP-FINAL-SIGNOFF` | source `R`: blank; `A`: Desk Editor | Extended below with the `A`-coverage invariant. Does not backfill `A` and does not create a synthetic `R` |
+| `OP-COPY-EDIT` | `R`: Chief Journalist; `A`: Desk Editor | Corrected 2026-09-17 (`D-236`, `B-118`) — source `R` was mislabeled Chief Editorial Desk; no missing `R` exists and no precursor child-task is needed (below) |
+| `OP-FINAL-SIGNOFF` | source `R`: blank; `A`: Desk Editor (flagged, not yet corrected — see below) | Extended below with the `A`-coverage invariant. Does not backfill `A` and does not create a synthetic `R` |
 
 **`OP-FINAL-SIGNOFF` — `A`-coverage extension (decided, extends §4.1 item 3, not a replacement).**
 In addition to §4.1 item 3's five accepted conditions, the attestation also verifies that **every
@@ -258,24 +271,20 @@ completion evidence recorded** — a task instance with a blank `A` or missing c
 **refuses the attestation and returns to that instance**, per §3.2's existing `reroute_target`
 mechanics, rather than being backfilled or silently skipped. This closes `B117-R48`.
 
-**Chief Journalist Copy Edit precursor — draft child-task contract, proposed, not yet Judge-confirmed
-(`B117-R47`).** If a Chief Journalist precursor step to `OP-COPY-EDIT` is retained, it is bound by
-this draft contract until confirmed or rejected:
+**`OP-FINAL-SIGNOFF`'s source `A` — flagged 2026-09-17 (`D-236`, `docs/handoff/B-118`), not yet
+corrected.** `docs/handoff/B-118` asserts the correct source `A` is Editor-in-Chief
+(`ROLE-CHIEF-EDITOR`), with Desk Editor as `C`, not `A` — but §2's row was always `UNVERIFIED` ("no
+`R` in source at all"), and Lane A cannot independently confirm this specific cell without the
+original CSV. **This table, and `§4.1`'s accepted contract above (Desk Editor attests), still read
+Desk Editor as `A` pending explicit Chief Editor confirmation** — reassigning it reverses `D-233`,
+so it is not applied silently. See `B-118`'s Lane A response section for the full flag.
 
-| Term | Draft value |
-|---|---|
-| Trigger | `OP-DRAFT` (or `OP-COMPLEX-SERIES`) completion evidence exists for the current scoped execution |
-| Executor | `ROLE-CHIEF-JOURNALIST` |
-| Input | The completed draft instance and its prior evidence chain |
-| Output | A precursor-review record (pass/return disposition), distinct from `OP-COPY-EDIT`'s own record |
-| Failure/return | Returns to `OP-DRAFT`'s scoped instance; does not reroute to `OP-COPY-EDIT` on failure |
-| Revision/replay | Idempotent per revision, same rule as `OP-FINAL-SIGNOFF` §4.1 item 3's replay clause |
-| Evidence link | Child record cites the parent `OP-COPY-EDIT` execution instance it precedes; `OP-COPY-EDIT`'s
-source `R` (Chief Editorial Desk, §2) is never overwritten or reassigned by this precursor |
-
-This table is a **draft** — it names a bounded shape so construction cannot invent one silently, but
-retaining the precursor at all, and this contract's exact terms, remain open for Judge confirmation
-before any build work references it.
+**Chief Journalist Copy Edit precursor — RETIRED, not built (`B117-R47` dissolved, `D-236`,
+2026-09-17).** The precursor question assumed `OP-COPY-EDIT`'s source `R` was missing or held by
+Chief Editorial Desk. Corrected above: **Chief Journalist already is `OP-COPY-EDIT`'s source `R`.**
+No precursor, no child-task contract, and no new role is needed — the operation this section
+previously proposed a bounded draft contract for does not exist as a gap. `B117-R47` closes by
+dissolution, not by construction.
 
 ## 5. `F4` status
 

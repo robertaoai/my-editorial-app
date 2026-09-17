@@ -3428,7 +3428,10 @@ here. Summary:
   precise `business:T2`–`T5` interleaving beyond the generic pattern stays unresolved, named as such).
 - **Drafted, not Judge-confirmed**: `B117-R47` (Chief Journalist child-task contract) — a bounded
   shape is proposed so construction cannot invent one silently, but retaining the precursor at all,
-  and this contract's exact terms, remain open.
+  and this contract's exact terms, remain open. **Superseded 2026-09-17 (`D-236`, `docs/handoff/
+  B-118`): the precursor question assumed `OP-COPY-EDIT`'s source `R` was missing. It is not —
+  `ROLE-CHIEF-EDITORIAL-DESK` was a mislabeling of `ROLE-CHIEF-JOURNALIST`, `OP-COPY-EDIT`'s actual
+  source `R`. `B117-R47` is DISSOLVED, not applied — no precursor, no child-task contract.**
 
 **Landed at**: `requirements-traceability-map.md` §6.3, `factory-route-operation-crosswalk.md` §4.2,
 `FN-GATES-01-05.md` §3.0a, storyboard Panel A9, `V1-BUILD-SPEC.md` §6 (new row), `V1-ARTIFACT-
@@ -3775,3 +3778,30 @@ future governed propagation.
 | **Defer** | Complex-Series completion | Define and accept milestone children before any C4 branch may pass |
 | **Defer** | Chief Journalist precursor, Encyclopedia publication and B-117 closure | Separate Judge disposition; hosted-text review; independent verification |
 | **Reject** | Treating baseline Route-1 as Complex-Series applicability, silently collapsing source multi-R, or treating gate `A` as Line 3 assurance | Preserve scoped comparison and provenance layers |
+
+## Lane A acknowledgement — T2a/T2b decision tree, and reconciliation with `B-118`'s RACI fix, 2026-09-17
+
+**Acknowledged, receipt only, not yet applied to any governed document** — three pending plans now
+sit in this file (Fix 1/Fix 2 confirmed-not-applied above; this T2a/T2b branch model; `B-118`'s
+V1-rescoping, flagged). None are duplicated below; this note reconciles one cross-reference and
+names the consolidated next step.
+
+**Reconciliation note — the "Chief Journalist precursor" reference above is now stale.** This
+entry's Parent 3 and its verdict table still describe "the separate Chief Journalist precursor" as
+an open question needing "its own Judge-approved `A`." **That question dissolved this same session**
+(`D-236`, `docs/handoff/B-118`): `OP-COPY-EDIT`'s source `R` was mislabeled `ROLE-CHIEF-EDITORIAL-
+DESK` in `factory-route-operation-crosswalk.md` §2; the actual CSV column is Chief Journalist, and
+`raci-involvement-matrix.md` §8 (`D-175`) already proves it independently of any new claim. Chief
+Journalist already **is** `OP-COPY-EDIT`'s source `R` — there is no precursor and no missing `A` to
+assign. This entry's own T2a/T2b branch content is unaffected by that correction; only its stale
+Chief-Journalist-precursor reference is superseded.
+
+**Consolidated status:** three parent-first plans (Fix 1/Fix 2; T2a/T2b branches; `B-118`'s
+V1-rescoping) all remain unapplied to `factory-route-operation-crosswalk.md` §4.2,
+`requirements-traceability-map.md` §6.3, `FN-GATES-01-05.md`, and storyboard Panel A9 beyond the one
+independently-provable RACI correction (`D-236`). They do not conflict with each other structurally
+— Fix 1/Fix 2 and T2a/T2b both correct the same `OP-PITCH` double-use defect the same way (Pitch is
+judgment, Draft is dispatched), and T2a/T2b's branch model is a refinement of Fix 2's `C1`/`T2`
+boundary, not a competing one. A single consolidated propagation pass can apply all three together;
+see this round's chat response for the parent-first plan and the items still routed to the Chief
+Editor before Lane A applies anything further.

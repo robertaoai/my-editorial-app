@@ -17580,3 +17580,69 @@ canonical lifecycle-event names. Does not confirm the Chief Journalist child-tas
 redraw the storyboard beyond the Panel A9 overlay. Does not republish the Encyclopedia artifact. Does
 not close `B-117` — Judge verification of this propagation is still owed, and the six items listed
 above remain named, open follow-on work.
+
+## 5.14e61 `D-236` — Source-RACI Mislabeling Corrected (`ROLE-CHIEF-EDITORIAL-DESK` →
+`ROLE-CHIEF-JOURNALIST`), `B117-R47` Dissolved, `OP-FINAL-SIGNOFF` Flagged
+
+**Raised 2026-09-17 by `docs/handoff/B-118`, verified by Lane A independently of that entry's own
+claims, before applying anything.**
+
+### What was found, and how it was verified without the raw CSV
+
+`raci-involvement-matrix.md` §8's role catalog — decided under `D-175`, committed well before
+`B-117`'s current thread and unrelated to it — already records the actual Sheet 1/2 CSV header row:
+*Reporter, Investigator, Journalist, Senior Journalist, **Chief Journalist**, Desk Editor,
+Editor-in-Chief, Gov Institution (GRC)*. That same section states plainly that `Chief Journalist`
+resolves to `ROLE-CHIEF-JOURNALIST`, **its own row, never an alias of Chief Editorial Desk**
+(`D-175` explicitly corrects an earlier `D-170` aliasing error on this exact point), and that
+`Editor-in-Chief` is `ROLE-CHIEF-EDITOR`'s CSV-side alias — the same role, not a different one.
+
+`factory-route-operation-crosswalk.md` §2 (Sheet 2 / Operation master), as committed, listed
+`ROLE-CHIEF-EDITORIAL-DESK` as a source `R` for `OP-COMPLEX-SERIES` (third `R`), `OP-COPY-EDIT`
+(sole `R`), and `OP-LEGAL-RISK` (second `R`). **`ROLE-CHIEF-EDITORIAL-DESK` is not one of the eight
+CSV columns at all** — it is a separately-decided `T5`/`EG4`/`T6` gate role. This mismatch is provable
+entirely from already-committed text (`§8` against `§2`), without needing the original CSV bytes —
+this is not a claim taken on `B-118`'s word.
+
+### Correction applied
+
+`factory-route-operation-crosswalk.md` §2 and §4.2: the three cells above corrected to
+`ROLE-CHIEF-JOURNALIST`. **Consequence:** `B117-R47`'s "Chief Journalist Copy Edit precursor, no
+child operation" framing (`D-234`/`D-235`) was chasing a phantom gap — Chief Journalist already is
+`OP-COPY-EDIT`'s source `R`. The draft child-task contract §4.2 previously proposed is **retired,
+not built**; `B117-R47` closes by dissolution.
+
+### Flagged, not applied — routed to the Chief Editor
+
+**`OP-FINAL-SIGNOFF`'s source `A`.** §2's row was always `UNVERIFIED` ("no `R` in source at all"),
+recorded as `A = ROLE-DESK-EDITOR`; `D-233`'s accepted Final Sign-Off contract (Desk Editor
+personally attests) was built on that reading. `B-118` asserts the correct source `A` is
+Editor-in-Chief (`ROLE-CHIEF-EDITOR`), with Desk Editor as `C`. **Unlike the correction above, this
+one reassigns which party is accountable, not merely a display alias, and it reverses an already-
+accepted Judge decision.** Lane A cannot independently confirm this specific cell without the
+original CSV, which is not a tracked repository artifact. **Not applied this entry** — `D-233`
+stands unchanged pending explicit Chief Editor confirmation.
+
+**`B-118`'s wider V1-rescoping and `T5`-as-newsworthiness-ranking/routing model.** This entry
+verifies and applies only the source-RACI mislabeling. `B-118`'s much larger reframing — V1 as
+UI-assistance-only, and `T5` redefined as a newsworthiness-ranking/routing judgment rather than
+`D-234`'s accountability/readiness-judgment-plus-`A`-coverage-check — would revise `D-234` itself,
+not merely propagate it. **Not evaluated or applied here** — routed to the Chief Editor for explicit
+authorization before Lane A begins that round.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e61 |
+| **`factory-route-operation-crosswalk.md`** | ✅ §2 (source table), §4.2 (`T5` RACI table, `OP-FINAL-SIGNOFF` flag, child-task contract retired) |
+| **`requirements-traceability-map.md`** | — unaffected: §6.3 references the crosswalk's `T5` RACI table rather than restating it; no duplicate to correct |
+| **`V1-DECISION-REGISTER.md` `D-233`, `D-234`, `D-235`** | — unaffected as recorded; `D-233`'s Desk-Editor-`A` reading is flagged, not reopened, pending confirmation |
+| **`docs/handoff/B-117`, `B-118`** | ✅ `B-118` filed and answered; `B-117`'s `B117-R47` row to be updated to dissolved on next `B-117` touch |
+| **Graphify** | Rebuild owed after this commit — governed-intent doc content |
+
+### What this act does NOT do
+
+Does not reassign `OP-FINAL-SIGNOFF`'s `A`. Does not reopen or amend `D-233`. Does not evaluate or
+apply `B-118`'s V1-rescoping or `T5`-redefinition proposal. Does not authorize construction. Does not
+close `B-117` or `B-118`.
