@@ -208,3 +208,15 @@ crosswalk.md` §4.2's `T5` RACI table and `B117-R47`'s framing corrected to matc
 
 `OP-FINAL-SIGNOFF`'s source `A` (Desk Editor vs. Editor-in-Chief, reverses `D-233`); the full
 newsworthiness-ranking/routing `T5` reframing and its nine-step propagation (revises `D-234`).
+
+## Chief Editor disposition, 2026-09-17
+
+**`OP-FINAL-SIGNOFF`'s source `A`: confirmed and applied (`D-237`).** The Chief Editor confirmed the
+correction directly. `factory-route-operation-crosswalk.md` §2/§4.1/§4.2 corrected: `A` = Chief
+Editor (Editor-in-Chief), `C` = Desk Editor. `D-233`'s accepted contract shape is unchanged; only the
+attesting party is corrected. See `V1-DECISION-REGISTER.md` §5.14e62.
+
+**V1-rescoping and `T5`-as-newsworthiness-ranking/routing: authorized as a dedicated next round.**
+Not applied this round. Also still to reconcile in that round: the Route-1 `T2a`/`T2b` branch
+decision tree (`docs/handoff/B-117`'s `878da3a` review), which extends the same `T1`–`T5` overlay
+this entry touches and does not conflict with it structurally.

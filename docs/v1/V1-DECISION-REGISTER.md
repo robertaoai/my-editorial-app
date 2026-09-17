@@ -17646,3 +17646,46 @@ authorization before Lane A begins that round.
 Does not reassign `OP-FINAL-SIGNOFF`'s `A`. Does not reopen or amend `D-233`. Does not evaluate or
 apply `B-118`'s V1-rescoping or `T5`-redefinition proposal. Does not authorize construction. Does not
 close `B-117` or `B-118`.
+
+## 5.14e62 `D-237` — `OP-FINAL-SIGNOFF` Attesting Party Corrected (Desk Editor → Chief Editor),
+Reverses `D-233`'s Original Reading, Chief Editor-Confirmed
+
+**Chief Editor decision, 2026-09-17, answering the flag `D-236` raised.** `D-236` identified that
+`OP-FINAL-SIGNOFF`'s source `A` was always `UNVERIFIED` in `factory-route-operation-crosswalk.md`
+§2 ("no `R` in source at all"), recorded as `ROLE-DESK-EDITOR`, and that `docs/handoff/B-118`
+asserted the correct source `A` is Editor-in-Chief (`ROLE-CHIEF-EDITOR`) with Desk Editor as `C`.
+Lane A could not independently confirm this cell without the raw CSV and routed it for explicit
+confirmation rather than applying it silently. **The Chief Editor confirmed the correction directly**
+(`AskUserQuestion`, "Apply as B-118 states"). Applied as Chief-Editor-supplied fact
+(`verification_status: DECIDED`, per the crosswalk's own §0 assignment shape), not as a Lane-A
+re-derivation from source.
+
+### What changed
+
+`factory-route-operation-crosswalk.md` §2: `OP-FINAL-SIGNOFF`'s `A` corrected from `ROLE-DESK-EDITOR`
+to `ROLE-CHIEF-EDITOR`; `ROLE-DESK-EDITOR` recorded as `C`. §4.1's accepted execution contract
+(`D-233`): the attesting party corrected from Desk Editor to Chief Editor throughout its five
+conditions — **the contract's shape (A-only control, no synthetic `R`, idempotent replay, fresh
+attestation per revision, opens human review only) is unchanged**, only who performs the attestation.
+§4.2's `T5` RACI table and its `OP-FINAL-SIGNOFF` row updated to match.
+
+**This reverses `D-233`'s original reading**, which built its accepted contract on the
+then-recorded `A = Desk Editor`. `D-233`'s other accepted facts (Route-1/Reporter application-
+selection rule for `OP-PITCH`/`OP-DRAFT`; `OP-DRAFT`'s Chief Editorial Desk application-`A` default)
+are unaffected and not restated here.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e62; `D-233` unchanged in place — this entry records the reversal rather than editing `D-233`'s own text, per this project's amendment discipline (later corrections are appended, not retroactively rewritten into earlier entries) |
+| **`factory-route-operation-crosswalk.md`** | ✅ §2, §4.1, §4.2 |
+| **`requirements-traceability-map.md`** | — unaffected: does not restate the attesting party, only cross-references the crosswalk |
+| **`docs/handoff/B-118`** | ✅ this item no longer flagged — applied |
+| **Graphify** | Rebuild owed after this commit |
+
+### What this act does NOT do
+
+Does not touch `D-233`'s recorded text. Does not evaluate or apply `B-118`'s V1-rescoping or
+`T5`-redefinition proposal — that remains a separately-authorized dedicated round. Does not authorize
+construction. Does not close `B-117` or `B-118`.

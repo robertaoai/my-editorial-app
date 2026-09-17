@@ -66,7 +66,7 @@ function are separate fields; neither is inferred from the other.
 | `OP-COMPLEX-SERIES` | Executing Complex Investigative Series | `milestone` (source-marked "Mult task R") | **Three `R`**: `ROLE-INVESTIGATOR`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `ROLE-CHIEF-EDITOR` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
 | `OP-COPY-EDIT` | First-Line Copy Editing & Formatting | `atomic` | `ROLE-CHIEF-JOURNALIST` (one `R`) | `ROLE-DESK-EDITOR` | **`VERIFIED`** — single `R`, single `A`, no ambiguity |
 | `OP-LEGAL-RISK` | Legal, Ethical & Risk Review | `milestone` (source-marked "Multi Task R") | **Two `R`**: `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `ROLE-CHIEF-EDITOR` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
-| `OP-FINAL-SIGNOFF` | Final Publication Sign-Off | `control_point` (candidate) | **none** | `ROLE-DESK-EDITOR` | `UNVERIFIED` — no `R` in source at all |
+| `OP-FINAL-SIGNOFF` | Final Publication Sign-Off | `control_point` (candidate) | **none** | `ROLE-CHIEF-EDITOR` (Editor-in-Chief; `ROLE-DESK-EDITOR` is `C`, not `A` — corrected `D-237`, `B-118`) | **`DECIDED`** — Chief Editor-confirmed re-read of the source cell, 2026-09-17; previously `UNVERIFIED`/misread as Desk Editor, not independently re-derived by Lane A |
 | `OP-CRISIS` | Crisis Management & Retractions | `atomic` | `ROLE-CHIEF-EDITOR` (one `R`) | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | **`VERIFIED`** — single `R`, single `A`, no ambiguity |
 
 Row-shape verification is unchanged by `D-176`: 2 of 8 (`OP-COPY-EDIT`, `OP-CRISIS`) `VERIFIED`; six
@@ -223,12 +223,15 @@ identity is the `V1-SM05`/`V1-SM06` slot assignment (`B117-R6`/similar correctio
    `ROLE-CHIEF-EDITORIAL-DESK` as the application-level default `A`** for `OP-DRAFT` at business
    judgment stage 5. This is recorded as a distinct application decision, not a CSV fact and not a
    silent inheritance from route `A`.
-3. **`OP-FINAL-SIGNOFF` — ACCEPTED execution contract, Chief Editor decision 2026-09-17.** §4 item
-   4's "no `R` named, no `R = A` exception granted" is now **qualified by this accepted exception**:
-   Desk Editor (the route/operation `A`) personally attests completion as an **A-only control**. Five
-   accepted conditions:
-   - Desk Editor performs the attestation; no synthetic `R` and no general `R = A` record is created
-     for any other operation by this exception.
+3. **`OP-FINAL-SIGNOFF` — ACCEPTED execution contract, Chief Editor decision 2026-09-17, attesting
+   party corrected 2026-09-17 (`D-237`, `B-118`).** §4 item 4's "no `R` named, no `R = A` exception
+   granted" is now **qualified by this accepted exception**: **Chief Editor (Editor-in-Chief, source
+   `A`)** personally attests completion as an **A-only control**. `ROLE-DESK-EDITOR` is source `C`
+   on this operation, not `A` — it was misread as `A` when this contract was first accepted; that
+   reading is corrected, the accepted contract's shape is unchanged. Five accepted conditions:
+   - Chief Editor performs the attestation; no synthetic `R` and no general `R = A` record is created
+     for any other operation by this exception. Desk Editor's `C` involvement is unaffected and does
+     not attest.
    - The attestation records the acting principal, the enumerated list of required/triggered prior
      operations checked complete, a timestamp, and produces the "signed-off package" event §3.2
      already defines. A missing required prior operation refuses the attestation and returns to the
@@ -242,7 +245,7 @@ identity is the `V1-SM05`/`V1-SM06` slot assignment (`B117-R6`/similar correctio
 
 ### 4.2 `T1`–`T5` phase-gate overlay — scoped executions, `T5` RACI normalization, Final Sign-Off
 `A`-coverage extension (`D-234`, propagated 2026-09-17, `B117-R44`/`R46`/`R47`/`R48`; source-RACI
-corrected 2026-09-17, `D-236`, `B-118`)
+corrected 2026-09-17, `D-236`/`D-237`, `B-118`)
 
 **Relationship to §3.2.** §3.2's `stage_order` column is **not** a single global occurrence per
 operation — it is the **default ordering inside one selected task bundle**. Each `business:T1`–`T5`
@@ -262,7 +265,7 @@ the whole route. This corrects the earlier reading that produced `B117-R44`.
 | `OP-RESEARCH` | `R`: Investigator + Senior Journalist; `A`: Desk Editor | `T5` reviews/validates its evidence; Chief Editorial Desk does not replace the source `A` |
 | `OP-DRAFT` | `R`: Reporter + Journalist; source `A`: blank | §4.1 item 2's application overlay supplies Chief Editorial Desk as default `A`; source `A` remains blank |
 | `OP-COPY-EDIT` | `R`: Chief Journalist; `A`: Desk Editor | Corrected 2026-09-17 (`D-236`, `B-118`) — source `R` was mislabeled Chief Editorial Desk; no missing `R` exists and no precursor child-task is needed (below) |
-| `OP-FINAL-SIGNOFF` | source `R`: blank; `A`: Desk Editor (flagged, not yet corrected — see below) | Extended below with the `A`-coverage invariant. Does not backfill `A` and does not create a synthetic `R` |
+| `OP-FINAL-SIGNOFF` | source `R`: blank; `A`: Chief Editor (Editor-in-Chief); `C`: Desk Editor — corrected `D-237` | Extended below with the `A`-coverage invariant. Does not backfill `A` and does not create a synthetic `R` |
 
 **`OP-FINAL-SIGNOFF` — `A`-coverage extension (decided, extends §4.1 item 3, not a replacement).**
 In addition to §4.1 item 3's five accepted conditions, the attestation also verifies that **every
@@ -271,13 +274,14 @@ completion evidence recorded** — a task instance with a blank `A` or missing c
 **refuses the attestation and returns to that instance**, per §3.2's existing `reroute_target`
 mechanics, rather than being backfilled or silently skipped. This closes `B117-R48`.
 
-**`OP-FINAL-SIGNOFF`'s source `A` — flagged 2026-09-17 (`D-236`, `docs/handoff/B-118`), not yet
-corrected.** `docs/handoff/B-118` asserts the correct source `A` is Editor-in-Chief
-(`ROLE-CHIEF-EDITOR`), with Desk Editor as `C`, not `A` — but §2's row was always `UNVERIFIED` ("no
-`R` in source at all"), and Lane A cannot independently confirm this specific cell without the
-original CSV. **This table, and `§4.1`'s accepted contract above (Desk Editor attests), still read
-Desk Editor as `A` pending explicit Chief Editor confirmation** — reassigning it reverses `D-233`,
-so it is not applied silently. See `B-118`'s Lane A response section for the full flag.
+**`OP-FINAL-SIGNOFF`'s source `A` — corrected 2026-09-17 (`D-237`, `docs/handoff/B-118`).**
+`docs/handoff/B-118` asserted the correct source `A` is Editor-in-Chief (`ROLE-CHIEF-EDITOR`), with
+Desk Editor as `C`, not `A`. §2's row was always `UNVERIFIED` ("no `R` in source at all") and Lane A
+could not independently re-derive this cell without the original CSV — **the Chief Editor confirmed
+the correction directly**, so it is applied as Chief-Editor-supplied fact (`verification_status:
+DECIDED`, §0), not re-derived by Lane A. This table and `§4.1`'s accepted contract above now both
+read Chief Editor as `A`; this reverses `D-233`'s original Desk-Editor-`A` reading — `D-237` records
+that reversal, `D-233`'s other four accepted conditions and its overall shape are unchanged.
 
 **Chief Journalist Copy Edit precursor — RETIRED, not built (`B117-R47` dissolved, `D-236`,
 2026-09-17).** The precursor question assumed `OP-COPY-EDIT`'s source `R` was missing or held by
