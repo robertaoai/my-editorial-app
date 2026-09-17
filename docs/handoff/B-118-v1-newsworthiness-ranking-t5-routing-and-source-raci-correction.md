@@ -220,3 +220,161 @@ attesting party is corrected. See `V1-DECISION-REGISTER.md` §5.14e62.
 Not applied this round. Also still to reconcile in that round: the Route-1 `T2a`/`T2b` branch
 decision tree (`docs/handoff/B-117`'s `878da3a` review), which extends the same `T1`–`T5` overlay
 this entry touches and does not conflict with it structurally.
+
+## Lane B independent review — applied corrections, ranking-rescope plan, work-packet and role-identity boundaries, 2026-09-17
+
+**Reviewed revision:** `dabd4c6` (`D-236` + `D-237`). **Scope:** documentation and implementation
+planning only. No canonical source, application code, schema, workflow, sprint state, lane state or
+publication behavior is changed by this review. The approved ranking rescope remains authorized for
+a dedicated Lane A round and is not self-executing.
+
+### Completion ledger — what is actually done
+
+| Item | Evidence-backed status | Remaining work |
+|---|---|---|
+| Source `R` correction | **Applied correctly (`D-236`).** Chief Journalist is source `R` for Complex Series, Copy Edit and Legal Risk. Chief Editorial Desk remains a separate application/gate role | Propagate only where a current derived tier still restates the old source fact |
+| `B117-R47` precursor | **Dissolved correctly.** The proposed child was based on a source transcription error; no child task is needed | Do not revive it under another name |
+| Final Sign-Off source party | **Applied (`D-237`).** Editor-in-Chief/Chief Editor is source `A`; Desk Editor is `C`; the five-condition A-only shape remains | Correct current derived tiers that still name Desk Editor as attester |
+| Graphify / consistency | **Current at `dabd4c6`; 18/18 checks pass** | Rebuild only after the future governed propagation |
+| V1 ranking/UI boundary and T5 routing | **Judge-authorized next round; not propagated** | Parent-first packet below |
+| T3 newsworthiness fields | **Approved in B-118; not propagated** | Traceability, functional/UI specs and storyboard |
+| Encyclopedia Entries 01/05/06 | **Not reviewed against hosted text** | Review or record explicit Judge-approved deferral before republishing |
+
+### Immediate factual repairs — before the larger rescope
+
+1. `V1-BUILD-SPEC.md` `DOR-R4` still says **Desk Editor** performs the Final Sign-Off A-only
+   attestation. `D-237` makes that current-value text false. Replace only the current DoR statement
+   with Editor-in-Chief/Chief Editor as source `A` and Desk Editor as `C`; retain the five accepted
+   conditions and the no-build boundary.
+2. `factory-route-operation-crosswalk.md` §2 now marks Final Sign-Off `DECIDED`, but its summary still
+   says “2 of 8 VERIFIED; six remain UNVERIFIED.” The accurate relationship is **two VERIFIED, one
+   DECIDED, five UNVERIFIED**. Express the categories, not a permanently copied total, if the document
+   can derive them mechanically.
+3. `D-233`'s historical Desk-Editor text remains historical and is correctly superseded by `D-237`;
+   do not rewrite the old decision. Current build/readiness text must cite `D-237`.
+
+Leaving item 1 unfixed guarantees the next implementation packet will assign the attestation to the
+wrong party while the source contract assigns it to Editor-in-Chief. A green consistency suite does
+not detect that semantic disagreement.
+
+### Parent-first Lane A packet
+
+**P1 — record the new V1 boundary and its supersessions.** Open one Register act for the authorized
+ranking/UI-assistance rescope. State explicitly which parts of `D-175`, `D-177`, `D-234`, `D-235`
+and the old T5/T6 target model are retained, superseded or outside V1. Propagate the same bounded unit
+to Build Spec and Artifact Inventory, then update Modular_PRD tracking/No Goals. Preserve frozen
+sources and the source-RACI table.
+
+**P2 — separate identity namespaces before changing role references.** The requested terminology
+change is not a display-only rename: current `D-175`/`D-236`/`D-237` map CSV “Editor-in-Chief” to
+`ROLE-CHIEF-EDITOR` as one editorial/human role. If `ROLE-CHIEF-EDITOR` is henceforth access-control
+only, record a compatibility decision and classify every current reference before replacement.
+Use three identities:
+
+| Namespace | Proposed canonical identity | Authority boundary |
+|---|---|---|
+| Access/security entitlement | `ROLE-CHIEF-EDITOR` | Authentication/authorization only; never a source-RACI fact by itself |
+| Human editorial accountability | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` *(candidate ID)* | Holds source `A`/`R` where Sheet 2 says Editor-in-Chief; natural-person attestation |
+| Virtual T5 assistant | `AGENT-T5-EDITOR-IN-CHIEF` *(candidate ID; display “T5 Editor-in-Chief Agent”)* | May calculate, summarize or recommend; cannot inherit human `A`, sign, publish or impersonate the acting principal |
+
+Preserve the source label “Editor-in-Chief” separately from normalized IDs. The virtual agent may
+carry an `assists`/`acts_for_context` link to the human editorial role, never an `is_same_party` link.
+Select final IDs in the Register before any stored/API rename; prepare a documentary-to-stored
+compatibility matrix if any existing persisted value uses `ROLE-CHIEF-EDITOR`.
+
+**P3 — reconcile one T1–T5 semantic model.** Combine B-117's approved T2a/T2b comparison branches
+with B-118's first-/second-lens model. `business:T1`–`T4` capture first-lens evidence; `business:T5`
+records Chief Editorial Desk ranking/routing context. The T5 output is a ranking/routing record, not
+operation completion, Final Sign-Off, publication approval or Line 3 assurance. Preserve the source
+RACI projection and record selected application roles separately from multi-`R` source provenance.
+
+The T2 join still needs explicit false-branch records, simultaneous C1/C4 behavior, execution/revision
+identity and route-change authority as recorded in B-117. Complex Series remains display/held status
+in V1 because its milestone children are undefined; do not claim executable completion.
+
+**P4 — specify V1 UI evidence without importing excluded workflows.** Define UI states for incomplete
+ranking evidence, ranked recipient, Final Sign-Off external-tracking reminder, Draft additional-
+signatory reminder and external-GRC context. The UI must distinguish `required externally`,
+`recorded locally as reminder`, and `verified complete`; V1 only owns the first two. Do not create a
+local success state that implies signature validation, package refusal/return, external exchange,
+T6 crisis assurance or publication-state mutation.
+
+**P5 — update the single diagram source and external knowledge copy.** Redraw the storyboard-owned
+normal/revision Mermaid sequence and data-flow views after P1–P4 agree. FN-GATES references those
+views; no standalone UML/data-flow duplicate is created. Review actual Encyclopedia Entries 01/05/06
+against the corrected roles, absent assurance and ranking-only scope before republishing.
+
+**P6 — verify, then authorize construction separately.** Run the cross-document cases below, the
+consistency suite and Graphify rebuild/re-merge after the governed commit. Lane B independently
+reviews the committed packet. A later Register work order must name exact application paths and DoD;
+this planning review authorizes none.
+
+### Tracking-scale proposal — keep handoff flat
+
+Do **not** create `docs/handoff/v1/...` sprint folders. The handoff checks use non-recursive
+`readdirSync("docs/handoff")` and accept only top-level `B-NNN-*.md`/`C-NNN-*.md` entries. Nested
+items would be invisible to acknowledgement, lifecycle and closure controls, and the D-184
+single-entry commit procedure authorizes only the top-level shape.
+
+Use a governed work-packet hierarchy instead, subject to a new Register/Build-Spec/Inventory act:
+
+```text
+docs/v1/work-packets/
+├─ SETUP-SPIKE-000/
+│  ├─ S2.md
+│  ├─ S3.md
+│  └─ S4.md
+└─ V1/
+   ├─ V1-SM05.md
+   └─ V1-SM06.md
+```
+
+`SETUP-SPIKE-000` may roll up into the **V1 release view** without losing its separate namespace.
+S0/S1 remain frozen historical evidence and receive no editable replacement packets. Preserve
+`V1-SM05`/`V1-SM06`; do not rename them S5/S6 because those bare labels already mean assurance/
+resilience and auth lockdown. If the Chief Editor intends to supersede `D-185`/`D-232` and collapse
+the namespaces rather than merely create a release roll-up, that must be stated as a separate Judge
+act with a migration table.
+
+One fact gets one owner:
+
+| Fact | Canonical owner |
+|---|---|
+| Release/sprint sequence and approved scope | `V1-BUILD-SPEC.md` |
+| Per-sprint ranked MMF checklist and evidence links | Its one work-packet file |
+| File creation/retirement | `V1-ARTIFACT-INVENTORY.md` |
+| Product requirement/module status | `Modular_PRD.md` §0.6.1/§8, by reference rather than duplicate checklist |
+| Cross-lane request/response | Existing top-level handoff entry |
+| Live lane state | `V1-PHASE-CLOSURE.md` §5 |
+
+Each MMF row in a work packet should contain requirement/decision anchors, rank, dependencies,
+explicit DoR checklist, accepted DoD checklist, owner/lane, exact artifact paths, test/evidence links,
+and terminal disposition. A sprint may start only when every selected MMF passes DoR. It closes only
+when every committed MMF passes DoD or has an explicit Judge-approved removal/return; a moved item is
+never silently omitted. Opening S3 freezes S2 under the existing succession rule.
+
+### Failure-derived acceptance cases
+
+| Case | Guaranteed failure if omitted | Passing evidence |
+|---|---|---|
+| Source projection | Chief Editorial Desk or Desk Editor is silently substituted into Sheet 2 | UI projection exactly matches corrected source rows and preserves source labels/provenance |
+| Identity split | Virtual assistant is logged as the human source `A` | Human editorial role, access entitlement and agent actor have distinct IDs; attestation requires human principal |
+| Ranking-only boundary | A reminder is reported as a completed signature or publication approval | UI labels external requirement/reminder without validated-complete or state-changing behavior |
+| T3 evidence | Journalist comparison duplicates T1 classification | Baseline/current windows, held/mutated/weakened, score/reason, 3–5 sources, route and revision are present with scoped T3 purpose |
+| T5 routing | Ranking recipient executes an operation implicitly | Routing record contains lens, recipient, reason and authority but no operation-completion/publication event |
+| T2 C1/C4 | Branches overwrite or a zero-branch join passes invisibly | Separate applicability and execution records; join waits for every applicable current branch |
+| Nested handoff | Open work is absent from handoff/closure checks | All transactions remain top-level B/C entries; sprint details live in governed work packets |
+| Sprint closure | “Done” is declared while a selected MMF lacks build/test evidence | Every committed MMF DoD has artifact and test evidence, or explicit Judge-approved removal |
+| Namespace collision | Delivery S5/S6 is confused with existing assurance/auth scope | Setup S2–S4 and delivery V1-SM05/06 remain qualified and unique |
+
+### Approve / reject summary
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | `D-236` source-R correction, `D-237` Final Sign-Off party correction, B117-R47 dissolution | Retain; repair stale current summaries/DoR |
+| **Approve** | Ranking/UI-assistance boundary, T3 fields and T5 routing as Judge-authorized plan | Lane A dedicated governed propagation |
+| **Approve-with-conditions** | Editor-in-Chief human role mirrored by a T5 virtual agent | Separate access, human business role and agent identity; agent receives no human `A` authority |
+| **Approve-with-conditions** | Scalable sprint/MMF work packets | Place under `docs/v1/work-packets`, retain one status owner, inventory new files, preserve qualified IDs |
+| **Defer** | Construction, schema/API rename, Complex-Series execution and Encyclopedia republish | Separate work order; milestone decomposition; hosted-text review |
+| **Reject** | Nested `docs/handoff/v1/...`, delivery S5/S6 reuse, or silent namespace collapse | Controls are non-recursive; labels already carry different meanings |
+| **Reject** | Treating reminders, ranking or agent assistance as signatures, publication authority or Line 3 assurance | Preserve V1 exclusions and human accountability |
