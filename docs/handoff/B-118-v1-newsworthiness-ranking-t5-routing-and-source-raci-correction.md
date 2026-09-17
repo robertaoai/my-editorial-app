@@ -440,3 +440,142 @@ explicitly: canonical phase-lifecycle event naming (`B117-R45`), the Chief Journ
 question (already dissolved for `OP-COPY-EDIT`, `D-236` — no further action needed unless a genuinely
 new precursor is proposed), final canonical IDs for the two `D-238` roles, Complex-Series milestone
 decomposition, and the Encyclopedia artifact's actual hosted-text republish.
+
+## Lane B review — recursive handoff partition and MMF-readiness closure plan, 2026-09-17
+
+**Effective clarified prompt.** Plan, but do not perform, a migration that partitions handoff
+transactions by qualified release/sprint, keeps every lifecycle and history control effective,
+states how much work remains before the V1 MMFs reach DoR, and derives success evidence from each
+known failure mode.
+
+**Reviewed revision:** `7fd16ba` (`D-238`–`D-240`). The five approved work packets already exist.
+This review creates no sixth packet, moves no handoff, edits no canonical specification, and
+authorizes no construction.
+
+### Current measured state
+
+- The channel has 118 entry files: 11 Open and 107 Answered; 13 exceed 50 KiB and eight exceed
+  100 KiB. The immediate pressure is repeated multi-subject growth in a small number of files, but
+  partitioning now prevents the eventual thousand-file accessibility problem the Judge identified.
+- `D-240` explicitly says `docs/handoff/` stays flat. The new Judge clarification therefore needs a
+  new Register act that supersedes only that clause; it must not be applied as an unrecorded folder
+  move.
+- Three live checks (`handoff-response`, `closure-readiness`, `terminal-return`) and their fixtures
+  enumerate only the root directory. `terminal-return` explicitly says renames are unsupported.
+- Seventy-six repository files contain handoff-path references, with 579 matching path citations.
+  Moving files without a citation manifest leaves durable evidence pointing at paths that no longer
+  exist.
+- Graphify metadata reports `lastAnalyzedHead = 7fd16ba` and `stale: false`, but the full consistency
+  run fails `graph-coverage`: 61 governed Markdown files are absent, including all five new work
+  packets. The manifest sees those files while `graph.json` does not. Metadata equality is therefore
+  not current evidence of graph completeness; Lane A must repair extraction/curated parity before
+  claiming synchronization.
+
+### Parent 1 — decide one stable partition key
+
+Use the entry's **qualified origin**, not its current status, owner, or latest blocker. A file never
+moves merely because it becomes terminal or is returned; otherwise every lifecycle change also
+becomes a rename-history event.
+
+```text
+docs/handoff/
+├─ README.md
+├─ TEMPLATE.md
+├─ shared/                         # channel-wide or genuinely cross-release items
+├─ SETUP-SPIKE-000/
+│  ├─ shared/
+│  ├─ S0/
+│  ├─ S1/
+│  ├─ S2/
+│  ├─ S3/
+│  └─ S4/
+└─ V1/
+   ├─ shared/
+   ├─ V1-SM05/
+   └─ V1-SM06/
+```
+
+Future versions repeat the `Vn/<qualified sprint>/` shape. Global `B-NNN` and `C-NNN` identifiers
+remain unique across the whole recursive tree. Reuse `D-205`'s already-specified `Originated-In:`
+concept as the immutable placement fact; do not add a competing sprint/status field. An entry that
+cannot be assigned from committed evidence lands in `shared/`, with no guessed sprint.
+
+### Parent 2 — make every control recursive before moving one entry
+
+1. Put one deterministic recursive entry walker in `handoff-fields.mjs`; return normalized repo-
+   relative paths sorted by global ID.
+2. Make `handoff-response`, `closure-readiness`, `terminal-return`, live-count fixtures and ID lookup
+   consume that one walker. Reject duplicate IDs anywhere in the tree.
+3. Extend `terminal-return` history traversal across Git renames and add must-pass/must-fail rename
+   fixtures. A recursive current-file scan without rename-aware history is still a false green.
+4. Amend D-184 and the channel README so the one-entry permission accepts one exact nested
+   `docs/handoff/**/B-NNN-*.md` or `C-NNN-*.md` path while retaining exact-path staging, one outgoing
+   commit, fetch proof and lane ownership.
+5. Keep README/TEMPLATE as the only root instruction files. `channel-docs` need not recursively treat
+   every directory as a second instruction channel.
+6. Add a path/identity fixture proving that directory placement agrees with `Originated-In:` and
+   that a new entry cannot reuse an existing global ID in another sprint.
+
+### Parent 3 — classify first, move second
+
+Generate a reviewable migration manifest containing `ID`, old path, proposed path, immutable origin,
+and every referencing file. It carries no copied Status or Resolution. Require all 118 entries to
+appear exactly once, with no missing, duplicate, or guessed placement. Judge-review `shared/`
+assignments before any `git mv`.
+
+Start new entries in the recursive layout only after Parent 2 passes. Move historical entries in
+bounded cohorts: channel/shared first, then `SETUP-SPIKE-000` by sprint, then `V1`. In each cohort,
+rewrite direct path citations in the same commit. Do not create top-level compatibility stubs; they
+preserve the file-count problem and create two apparent records for one ID.
+
+`C-37`'s separate terminal archive remains gated on its integrity check. This partition is an
+origin-based working layout, not an archive-by-status mechanism; the two acts must be reconciled in
+the new Register decision rather than silently combined.
+
+### Parent 4 — MMF readiness count and handoff closure
+
+No additional MMF tracking file is required. `V1-SM05.md` exists and currently has **one of six**
+DoR rows complete; five conditions remain:
+
+| Open DoR row | Complete in existing owner; no new file |
+|---|---|
+| `DOR-R2` | Draft Pitch failure/replay/idempotency in the existing crosswalk/Fn Spec |
+| `DOR-R3` | Draft `EW` refusal/retry cases in the existing Fn Spec/traceability surfaces |
+| `DOR-R4` | Finish Route-1 operation failure/replay detail in the existing crosswalk/Fn Spec |
+| `DOR-R5` | Make the existing storyboard normal/revision sequence and data flow the single visual source |
+| `DOR-R6` | Compare and, if approved, republish hosted Encyclopedia Entries 01/06; update the existing sync ledger |
+
+`V1-SM06` has three DoR dependencies and cannot become ready before `V1-SM05` reaches DoD. This is
+dependency depth, not a request for three more files.
+
+No new handoff file is needed merely to close `B-117` or `B-118`. Update those existing entries after
+their own residuals are dispositioned and independently verified. `B-117` still owns canonical
+phase-event naming, the remaining normal/revision visual contract, and the hosted Encyclopedia
+comparison; `B-118` can reach terminal disposition after the applied `D-236`–`D-240` packet and this
+new partition decision are independently checked. MMF DoR and handoff lifecycle are related evidence,
+not the same closure state.
+
+### Guaranteed failures and passing evidence
+
+| Failure if migration is performed naively | Required passing evidence |
+|---|---|
+| Nested entries remain invisible | Recursive pre/post entry count and all lifecycle tallies are identical |
+| Same ID appears in two sprint folders | Global recursive duplicate-ID check fails the injected duplicate fixture |
+| A move erases terminal history | Rename fixture proves `terminal-return` sees the complete pre/post-move episode |
+| Direct citations point to old paths | Migration manifest reports zero unresolved old-path citations after each cohort |
+| D-184 authorizes only the old root shape | Nested exact-path commit fixture passes; multi-entry and wrong-lane fixtures fail |
+| Folder placement duplicates mutable status | Placement uses immutable `Originated-In:`; Status/Resolution remain only in the entry |
+| Graph metadata says current while content is absent | `graph-coverage` reports zero absent governed docs, fragment parity passes, and `lastAnalyzedHead` equals HEAD |
+| Handoff closure is used to claim MMF readiness | Work-packet DoR/DoD evidence and entry Resolution are evaluated independently |
+
+### Approve / reject summary
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Judge direction to partition the handoff channel by qualified release/sprint | New Register act superseding D-240's flat-layout clause |
+| **Approve** | Five existing work packets; zero additional MMF tracking files | Complete five open `V1-SM05` DoR rows in existing owners |
+| **Approve-with-conditions** | Recursive handoff hierarchy above | Control-first implementation, migration manifest, bounded cohorts |
+| **Defer** | Historical moves and `C-37` terminal archive | Rename-aware history and integrity controls must pass first |
+| **Defer** | `B-117`/`B-118` terminal closure | Residual disposition plus independent verification |
+| **Reject** | Moving files before recursive readers, fixtures and citation repair | Guaranteed invisible entries and broken evidence paths |
+| **Reject** | Treating `stale: false` as Graphify success while coverage is red | Repair extraction/curated parity and rerun the full suite |
