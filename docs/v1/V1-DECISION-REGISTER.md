@@ -17839,3 +17839,89 @@ Named explicitly, not silently deferred — separate acts in this same round.
 Does not authorize construction, schema, code, persisted-field, or API change. Does not close
 `B-117` or `B-118`. Does not build `OP-FINAL-SIGNOFF` enforcement, Complex-Series execution, external-
 GRC exchange, or any Line 3 workflow — all remain explicitly outside V1.
+
+### Completion addendum, 2026-09-17
+
+All items named above as "owed this round" landed, same session: `FN-GATES-01-05.md` §4.2 (V1 UI
+states); `Modular_PRD.md` §8 pointer widened to §6.3/§6.4; storyboard Panel A9 redrawn for the `T5`
+reframe and `T2a`/`T2b`; `docs/ENCYCLOPEDIA-SYNC.md` Entries 01/05/06 flagged (not republished —
+actual hosted-text review remains a distinct, opt-in act); `V1-BUILD-SPEC.md`/`V1-ARTIFACT-
+INVENTORY.md` updated. Nothing named in this entry's tier table remains outstanding except the
+Encyclopedia artifact's actual republish, which was never this entry's scope.
+
+## 5.14e65 `D-240` — Sprint/MMF Tracking Restructured into `docs/v1/work-packets/`
+
+**Chief Editor decision, 2026-09-17, answering `docs/handoff/B-118`'s Lane B review (`2c89d1e`)
+proposal, adopted as proposed.** A governed work-packet hierarchy now carries per-sprint/per-MMF
+ranked checklists, separate from `V1-BUILD-SPEC.md`'s sequence/scope narrative.
+
+### Why not nested `docs/handoff/`
+
+**Rejected, explicitly.** The handoff checks use non-recursive `readdirSync("docs/handoff")` and
+accept only top-level `B-NNN-*.md`/`C-NNN-*.md` entries; nested items would be invisible to
+acknowledgement, lifecycle and closure controls, and `D-184`'s single-entry commit procedure
+authorizes only the top-level shape. `docs/handoff/` stays flat.
+
+### Structure adopted
+
+```text
+docs/v1/work-packets/
+├─ SETUP-SPIKE-000/
+│  ├─ S2.md
+│  ├─ S3.md
+│  └─ S4.md
+└─ V1/
+   ├─ V1-SM05.md
+   └─ V1-SM06.md
+```
+
+`SETUP-SPIKE-000` may roll up into the V1 release view without losing its separate namespace. `S0`/
+`S1` remain frozen historical evidence and receive **no** editable replacement packets — only `S2`–
+`S4` (not started or held) get one. `V1-SM05`/`V1-SM06` keep their existing qualified IDs; they are
+**not** renamed `S5`/`S6` — those bare labels already mean assurance/resilience and auth lockdown
+(`Modular_PRD.md` §8's `S5`/`S6` rows), and reusing them here would recreate exactly the namespace
+collision this project has already corrected once (`D-232`'s `S0`–`S6`-vs-`V1` split).
+
+### One fact, one owner
+
+| Fact | Canonical owner |
+|---|---|
+| Release/sprint sequence and approved scope | `V1-BUILD-SPEC.md` |
+| Per-sprint ranked MMF checklist and evidence links | Its one work-packet file |
+| File creation/retirement | `V1-ARTIFACT-INVENTORY.md` |
+| Product requirement/module status | `Modular_PRD.md` §0.6.1/§8, by reference rather than duplicate checklist |
+| Cross-lane request/response | Existing top-level handoff entry |
+| Live lane state | `V1-PHASE-CLOSURE.md` §5 |
+
+Each work-packet file carries: requirement/decision anchors, rank, dependencies, a DoR checklist, a
+DoD checklist, owner/lane, artifact paths, test/evidence links, and terminal disposition. A sprint
+may start only when every selected MMF passes DoR; it closes only when every committed MMF passes
+DoD or has an explicit Judge-approved removal/return — a moved item is never silently omitted.
+Opening a later sprint freezes its predecessor under the existing succession rule (`CLAUDE.md`'s
+Freeze section).
+
+### Applied this entry
+
+Created `docs/v1/work-packets/SETUP-SPIKE-000/{S2,S3,S4}.md` and `docs/v1/work-packets/V1/
+{V1-SM05,V1-SM06}.md` — five new files, each citing rather than restating `V1-BUILD-SPEC.md`'s
+authoritative sequence/scope text, per `D-30`'s redundancy rule. No sprint content was migrated
+wholesale; each packet's DoR/DoD checklist reflects what `V1-BUILD-SPEC.md` already records as
+settled or open, cited by section.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e65 |
+| **`docs/v1/work-packets/`** | ✅ five new files created |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ five new file rows |
+| **`V1-BUILD-SPEC.md`** | ✅ pointer to the new tracking mechanism added |
+| **`Modular_PRD.md`** | — unaffected: no FR/AC/NFR requirement text changed |
+| **`docs/handoff/`** | — unaffected: stays flat, non-recursive, per the rejection above |
+| **Graphify** | Rebuild owed after this commit |
+
+### What this act does NOT do
+
+Does not authorize construction for any of the five packets. Does not migrate `V1-BUILD-SPEC.md`'s
+full historical narrative into the packets — cited, not restated. Does not rename `V1-SM05`/`V1-SM06`
+or reuse `S5`/`S6`. Does not close `B-117` or `B-118`.

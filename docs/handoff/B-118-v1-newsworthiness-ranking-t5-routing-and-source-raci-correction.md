@@ -407,3 +407,36 @@ V1-rescoping round:**
    dedicated next round," not yet begun).
 
 See this round's chat response for the consolidated status and the questions routed for decision.
+
+## Lane A completion — dedicated round applied, 2026-09-17
+
+**Chief Editor authorized all three outstanding items** (role-identity split as proposed; `docs/v1/
+work-packets/` restructuring as proposed; start the full `P1`–`P6` packet now). Applied, same
+session, in parent-first order:
+
+- **`D-238`** — role-identity split: `ROLE-CHIEF-EDITOR` narrowed to access/gate-execution;
+  `EDITORIAL-ROLE-EDITOR-IN-CHIEF` (human) and `AGENT-T5-EDITOR-IN-CHIEF` (virtual) added as
+  candidate IDs. Reconciled across `raci-involvement-matrix.md` §8, `factory-route-operation-
+  crosswalk.md` §1/§2/§4.1/§4.2, and `V1-BUILD-SPEC.md`'s `DOR-R4` (a second correction, since `D-237`
+  had used the now-narrowed `ROLE-CHIEF-EDITOR`).
+- **`D-239`** — `T5` reframed from `D-234`'s "accountability/readiness judgment" to "newsworthiness
+  ranking and routing," with an explicit retained/superseded/new disposition table. `T2a`/`T2b`
+  branches (`docs/handoff/B-117`'s `878da3a` decision tree) adopted into the same `T1`–`T5` matrix and
+  the crosswalk's scoped-execution model — reconciling this entry with the parallel `B-117` thread, as
+  named in the earlier Lane A acknowledgement there. Propagated to `requirements-traceability-map.md`
+  §6.3/§6.4 (new), `factory-route-operation-crosswalk.md` §4.2, `FN-GATES-01-05.md` §4.2 (new V1 UI
+  states), `Modular_PRD.md` §8 pointer, storyboard Panel A9 (redrawn — both the `OP-PITCH`
+  double-role defect and the `T5` reframe fixed in the same pass), `V1-BUILD-SPEC.md`, `V1-ARTIFACT-
+  INVENTORY.md`, and `docs/ENCYCLOPEDIA-SYNC.md` (Entries 01/05/06 flagged, not republished).
+- **`D-240`** — `docs/v1/work-packets/{SETUP-SPIKE-000,V1}/*.md`, five new files, each citing rather
+  than restating `V1-BUILD-SPEC.md`'s authoritative sequence/scope. Nested `docs/handoff/` rejected
+  explicitly — the handoff checks are non-recursive.
+
+**Documentary only throughout** — no schema, code, persisted field, or API change anywhere in this
+round. `OP-FINAL-SIGNOFF` enforcement, Draft-signature validation, external-GRC exchange, `T6`, and
+any Line 3 workflow remain explicitly outside V1, unchanged. `B-117` and `B-118` both remain `Open` —
+this round is Applied, not yet independently Judge-verified (`D-101`/`D-102`). Still open, named
+explicitly: canonical phase-lifecycle event naming (`B117-R45`), the Chief Journalist child-task
+question (already dissolved for `OP-COPY-EDIT`, `D-236` — no further action needed unless a genuinely
+new precursor is proposed), final canonical IDs for the two `D-238` roles, Complex-Series milestone
+decomposition, and the Encyclopedia artifact's actual hosted-text republish.

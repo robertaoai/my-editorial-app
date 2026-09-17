@@ -37,6 +37,11 @@ derived `S2`/`S3`/`S4` rows in `Modular_PRD.md` §8.1 are **not** presumed to ma
 `V1-SM06` by number — that reconstruction is open work, not yet done (see `Modular_PRD.md` §8.0/§8.1
 cross-reference note).
 
+**Per-sprint/per-MMF ranked checklists live in `docs/v1/work-packets/` (`D-240`, 2026-09-17).** This
+section remains the **sequence and scope narrative** — the one owner of that fact; the DoR/DoD
+checklist, dependencies, artifact paths and evidence links for each of `V1-SM05`, `V1-SM06`, and
+`SETUP-SPIKE-000`'s `S2`–`S4` live in their own packet file, cited here rather than duplicated.
+
 **DoR dependency, not construction authorization (`D-232` follow-on; operation contracts recorded
 under `D-233`, corrected 2026-09-17).** `V1-SM05`'s pre-`T1` business boundary is settled — Judge
 clarification, `requirements-traceability-map.md` §6.1, `FN-GATES-01-05.md` §3.0. `docs/handoff/

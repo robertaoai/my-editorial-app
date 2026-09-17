@@ -3805,3 +3805,12 @@ judgment, Draft is dispatched), and T2a/T2b's branch model is a refinement of Fi
 boundary, not a competing one. A single consolidated propagation pass can apply all three together;
 see this round's chat response for the parent-first plan and the items still routed to the Chief
 Editor before Lane A applies anything further.
+
+## Lane A completion — consolidated pass applied, 2026-09-17
+
+**All three pending plans landed together, same session** (`D-238`/`D-239`/`D-240`, `docs/handoff/
+B-118`'s completion entry has the full breakdown, not restated here). Fix 1 (`OP-PITCH` judgment-vs-
+dispatch) and the `T2a`/`T2b` branch protocol both propagated into `requirements-traceability-map.md`
+§6.3, `factory-route-operation-crosswalk.md` §4.2, and storyboard Panel A9 in one pass, as this entry
+predicted they could. `B-117` remains `Open` — Judge verification of the applied propagation is still
+owed.

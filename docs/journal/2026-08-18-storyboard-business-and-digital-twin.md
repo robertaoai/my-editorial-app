@@ -179,8 +179,8 @@ Requires all prior gate criteria confirmed, `publication_targets` confirmed, `pu
 
 ---
 
-### Panel A9 — Business role-selection overlay (`business:T1`–`T5`), layered on Panels A2–A6, 2026-09-17
-(`D-234`, propagated, `B117-R50`)
+### Panel A9 — Business role-selection overlay (`business:T1`–`T5`), layered on Panels A2–A6,
+redrawn 2026-09-17 (`D-234`/`D-239`, `B117-R50`, `docs/handoff/B-117`'s `T2a`/`T2b` decision tree)
 
 **This panel is an overlay, not a redraw of Panels A2–A6.** The `transition:T1`–`T11`/`EG1`–`EG5`
 gate numbers in Panels A2–A8 are the existing technical state-transition namespace and are
@@ -191,6 +191,13 @@ pre-`T1` boundary note); `business:T2`–`T5`'s exact interleaving with Panels A
 beyond the generic lifecycle pattern below — precise interleaving is unresolved future work, not
 guessed at here.
 
+**Redraw corrections applied, 2026-09-17.** Two defects in the prior version of this panel are fixed
+below: `OP-PITCH` was named as both the pre-selection judgment step and a dispatched task — it is
+**only** the judgment step (Fix 1); only `OP-DRAFT` is dispatched. `business:T5` is redrawn as a
+**newsworthiness ranking and routing** judgment (`D-239`), not an accountability/readiness check
+that performs `OP-COPY-EDIT` or executes `OP-FINAL-SIGNOFF`'s `A`-coverage check — V1 **displays**
+both as provenance/reminders, it does not execute either.
+
 ```mermaid
 sequenceDiagram
     participant CE as Chief Editor (human)
@@ -200,31 +207,38 @@ sequenceDiagram
     Note over CE,DB: business:T1 — concretely fixed today (Panel A2 pre-T1 boundary)
     CE->>SJ: supply source package (UI)
     SJ->>DB: EW-start event
-    DB->>DB: OP-PITCH judgment: route classification (ROUTE-PROD-1 fixed, V1-SM05)
+    DB->>DB: OP-PITCH — T1's own judgment/classification step (route ROUTE-PROD-1 fixed, V1-SM05)
     DB->>DB: role_selected — ROLE-REPORTER
-    DB->>EG: dispatch OP-PITCH, then OP-DRAFT (Reporter context)
+    DB->>EG: dispatch OP-DRAFT only (Reporter context) — OP-PITCH already completed above, not redispatched
     EG->>DB: task + RACI evidence
     DB->>DB: business:T1 phase_completed
-    Note over CE,DB: transition:T1 (Panel A2) executes inside/after this bundle — same generic pattern repeats for business:T2 (Investigator), T3 (Journalist), T4 (Senior Journalist, fallout comparison)
-    Note over CE,DB: business:T5 — Chief Editorial Desk accountability/readiness judgment
-    DB->>DB: role_selected — ROLE-CHIEF-EDITORIAL-DESK
-    DB->>EG: review Pitch/Research evidence; perform source OP-COPY-EDIT responsibility; confirm OP-DRAFT application A
-    EG->>DB: OP-FINAL-SIGNOFF — checks complete A-coverage across all applicable instances
-    DB->>CE: signed-off package opens UI publication-review flow
-    Note over CE,DB: no business:T6 — V1 editorial work ends at business:T5 handoff
+    Note over CE,DB: transition:T1 (Panel A2) executes inside/after this bundle
+    Note over CE,DB: business:T2 — Investigator judgment splits into T2a/T2b branches
+    DB->>DB: role_selected — ROLE-INVESTIGATOR
+    DB->>DB: evaluate C1 (Research) and C4 (Complex-Series) independently — false branch recorded explicitly, never silently absent
+    DB->>EG: dispatch T2a (OP-RESEARCH, Desk Editor A) if C1; dispatch T2b (OP-COMPLEX-SERIES, EDITORIAL-ROLE-EDITOR-IN-CHIEF A) if C4 — distinct simultaneous executions if both fire
+    EG->>DB: branch evidence, independently
+    DB->>DB: join — retains ROUTE-PROD-1 or selects ROUTE-PROD-3 only via the existing authorized route-selection event
+    Note over CE,DB: business:T3 (Journalist, same OP-PITCH/OP-DRAFT judgment/dispatch split as T1) and T4 (Senior Journalist, fallout comparison) follow the same generic pattern
+    Note over CE,DB: business:T5 — Chief Editorial Desk newsworthiness ranking (reframed D-239, was accountability/readiness)
+    DB->>DB: role_selected — ROLE-CHIEF-EDITORIAL-DESK (phase/ranking layer, never a source-RACI column)
+    DB->>EG: review T1-T4 evidence; record newsworthiness score/trend fields; display OP-COPY-EDIT provenance (not executed); display OP-DRAFT application A as readiness context
+    EG->>DB: T5 ranking/routing record — routes to the route-ranked recipient (Desk Editor / Chief Journalist / EDITORIAL-ROLE-EDITOR-IN-CHIEF / EXT-GRC, by route family)
+    DB->>CE: ranking/routing record opens UI publication-review flow; Final Sign-Off external-tracking reminder displayed, not executed
+    Note over CE,DB: no business:T6 — V1 editorial work ends at business:T5 handoff; this record is never a task completion or publication approval
 ```
 
 **Revision path.** A return re-enters only the affected `business:T` node's judgment/selection step
 and re-dispatches only that node's task bundle as a **new scoped execution instance**; prior nodes'
 evidence is retained as history, not overwritten — same rule as the technical revision path (Panel
-A8, `T8`).
+A8, `T8`). For `T2a`/`T2b`, a return from one branch never overwrites or satisfies its sibling.
 
 **Assurance boundary (`B117-R51`, reaffirmed here, not newly created).** No independent assurance
-step (Line 3) appears in this overlay. `business:T5`'s Chief Editorial Desk judgment is a
-management/readiness accountability, not an independent audit opinion — the same absence already
-disclosed at Panel A5's `GA6` gap. See `requirements-traceability-map.md` §6.3 for the full matrix
-and `factory-route-operation-crosswalk.md` §4.2 for the `T5` RACI normalization and Final Sign-Off
-`A`-coverage extension this panel summarizes; not restated here.
+step (Line 3) appears in this overlay. `business:T5`'s Chief Editorial Desk ranking is a
+management/readiness judgment, not an independent audit opinion — the same absence already
+disclosed at Panel A5's `GA6` gap. See `requirements-traceability-map.md` §6.3/§6.4 for the full
+matrix, routing matrix and disposition table, and `factory-route-operation-crosswalk.md` §4.2 for
+the `T2a`/`T2b` branch protocol and `T5` RACI normalization this panel summarizes; not restated here.
 
 ---
 
