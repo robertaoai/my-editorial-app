@@ -299,7 +299,9 @@ table is prohibited elsewhere in this project's documents.
 | `ROLE-CHIEF-EDITORIAL-DESK` | Chief Editorial Desk | Business alias: Desk Chief. **Not** Chief Journalist, and **not** Desk Editor — three distinct roles (`D-175` corrects `D-170`'s alias error) | Current `T6` role; target `T5`/`EG4`, route-dependent (`D-175` — see cardinality table below) |
 | `ROLE-CHIEF-JOURNALIST` | Chief Journalist | Distinct from Chief Editorial Desk (`D-175`, `B068-G2` — previously wrongly aliased to it by `D-170`) | Target `T5`/`EG4`, route-dependent (`D-175`) |
 | `ROLE-DESK-EDITOR` | Desk Editor | Distinct factory/CSV role; not an alias of Chief Editorial Desk/Desk Chief. Remains `ROUTE-PROD-1`'s accountable route `A` — unaffected by Chief Editorial Desk's `T5` review function (`D-175`, closes `B068-R22`) | Factory route/operation role only, unless separately governed |
-| `ROLE-CHIEF-EDITOR` | Chief Editor | CSV alias: Editor-in-Chief; human system user | Current `T5`/target `T6`/`EG5` |
+| `ROLE-CHIEF-EDITOR` | Chief Editor | **Narrowed `D-238`.** Access/security entitlement (authentication/authorization) and gate/transition **execution** authority only — never a source-RACI fact by itself as of `D-238`. Not the CSV "Editor-in-Chief" business identity; see `EDITORIAL-ROLE-EDITOR-IN-CHIEF` below | Current `T5`/target `T6`/`EG5` — gate-execution eligibility, unaffected by `D-238` |
+| `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | Editor-in-Chief (human editorial) | **Added `D-238`, candidate ID.** CSV alias: Editor-in-Chief. Holds source `A`/`R`/`C` wherever Sheet 1/2 name Editor-in-Chief — human natural-person accountability and attestation. Distinct from `ROLE-CHIEF-EDITOR` (access) and from the virtual `AGENT-T5-EDITOR-IN-CHIEF` below; the same real person may hold more than one of these identities, but the identities themselves are never merged | Factory route/operation source RACI; `OP-FINAL-SIGNOFF` A-only attestation (`D-233`/`D-237`, party corrected) |
+| `AGENT-T5-EDITOR-IN-CHIEF` | T5 Editor-in-Chief Agent (virtual) | **Added `D-238`, candidate ID.** May calculate, summarize or recommend at `business:T5`. **Never** inherits `EDITORIAL-ROLE-EDITOR-IN-CHIEF`'s human `A`, never signs, never publishes, never impersonates the human acting principal. Carries an `assists`/`acts_for_context` link to the human role, never an `is_same_party` link | No gate eligibility — assistive only, not an executor of record |
 | `ROLE-SYSTEM-DELIVERY` | System delivery executor | Not a persona or an editorial judge | Delivery only |
 
 **`T5`/`EG4` cardinality is route-dependent, not a single fixed role (`D-175`, correcting `D-170`'s `F2`
@@ -334,11 +336,15 @@ globally on this table; RACI is always scoped by relationship (`raci_scope`:
 
 Verified against both attached CSVs' full header rows (Reporter, Investigator, Journalist, Senior
 Journalist, Chief Journalist, Desk Editor, Editor-in-Chief, Gov Institution (GRC)): seven source
-columns resolve to their own internal `ROLE-*` row above (`Chief Journalist` → `ROLE-CHIEF-JOURNALIST`,
-its own row as of `D-175`, not an alias; `Editor-in-Chief` → `ROLE-CHIEF-EDITOR`'s alias); the eighth,
-"Gov Institution (GRC)", resolves to `Modular_PRD.md` §2.3.1's `EXT-GRC`, not to a row in this catalog.
-**Nine canonical internal `ROLE-*` rows** (`D-175` adds `ROLE-CHIEF-JOURNALIST`, previously wrongly
-aliased to `ROLE-CHIEF-EDITORIAL-DESK` by `D-170`; corrected from `D-174`'s "eight").
+columns resolve to their own internal identity row above (`Chief Journalist` → `ROLE-CHIEF-JOURNALIST`,
+its own row as of `D-175`, not an alias; **`Editor-in-Chief` → `EDITORIAL-ROLE-EDITOR-IN-CHIEF`'s
+alias, corrected `D-238` — previously misassigned to `ROLE-CHIEF-EDITOR`**, which `D-238` narrows to
+access/gate-execution only); the eighth, "Gov Institution (GRC)", resolves to `Modular_PRD.md` §2.3.1's
+`EXT-GRC`, not to a row in this catalog. **Eleven canonical internal identity rows** — nine `ROLE-*`
+(`D-175` adds `ROLE-CHIEF-JOURNALIST`; corrected from `D-174`'s "eight") plus two added `D-238`:
+`EDITORIAL-ROLE-EDITOR-IN-CHIEF` (human, deliberately not `ROLE-*`-prefixed, to keep the business-
+identity/access-identity split visible in the ID itself) and `AGENT-T5-EDITOR-IN-CHIEF` (virtual,
+assistive only).
 
 ---
 

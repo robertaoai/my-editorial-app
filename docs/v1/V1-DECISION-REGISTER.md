@@ -17705,3 +17705,63 @@ verifies a Register record exists, not that every derived-tier restatement agree
 
 Both are corrections of restated fact only — this entry's own decision (§5.14e62 above) and `D-233`'s
 historical text are unchanged.
+
+## 5.14e63 `D-238` — Role-Identity Split: `ROLE-CHIEF-EDITOR` Narrowed to Access/Gate-Execution,
+Business Identity Split into a Human Editorial Role and a Virtual `T5` Agent Role
+
+**Chief Editor decision, 2026-09-17, answering `docs/handoff/B-118`'s Lane B review (`2c89d1e`)
+proposal P2, adopted as proposed.** `D-175`/`D-236`/`D-237` mapped the Sheet 1/2 CSV's "Editor-in-
+Chief" column to `ROLE-CHIEF-EDITOR`, treating gate-execution authority and business editorial
+accountability as one identity. This entry splits them into three, per `raci-involvement-matrix.md`
+§8:
+
+| Identity | ID | Scope |
+|---|---|---|
+| Access/security entitlement | `ROLE-CHIEF-EDITOR` (unchanged ID, narrowed scope) | Authentication/authorization and gate/transition execution eligibility (`transition:T5`/`T6`/`EG5`) only — never a source-RACI fact by itself, as of this entry |
+| Human editorial accountability | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` (new, candidate ID) | Holds source `A`/`R`/`C` wherever Sheet 1/2 name Editor-in-Chief; natural-person attestation, including `OP-FINAL-SIGNOFF`'s A-only control (`D-233`/`D-237`) |
+| Virtual `T5` assistant | `AGENT-T5-EDITOR-IN-CHIEF` (new, candidate ID) | May calculate, summarize or recommend at `business:T5`; never inherits the human role's `A`, never signs, never publishes, never impersonates the acting principal; linked via `assists`/`acts_for_context`, never `is_same_party` |
+
+The same real person may hold more than one of these identities — the identities themselves are
+never merged, and no stored/API value is renamed by this entry (documentary only, per this project's
+standing discipline for identity decisions ahead of any persisted-field change).
+
+### Classification rule applied, and where it landed
+
+Every Sheet 1/Sheet 2 CSV-sourced route or operation `R`/`A`/`C`/`I` cell is business identity and
+is remapped to `EDITORIAL-ROLE-EDITOR-IN-CHIEF`. Gate/transition execution eligibility (who may
+perform `transition:T5`/`T6`/`EG5` in the system) is an authorization fact, not a Sheet-sourced
+accountability fact, and stays `ROLE-CHIEF-EDITOR`. `factory-route-operation-crosswalk.md` §3's
+"Chief Editor, `B-068` §14.4" provenance citations name the real decision-maker who approved that
+table, not a RACI party, and are unaffected.
+
+**Applied:** `raci-involvement-matrix.md` §8 (two new catalog rows, `ROLE-CHIEF-EDITOR`'s row
+narrowed); `factory-route-operation-crosswalk.md` §1 (every business-RACI `ROLE-CHIEF-EDITOR` cell
+across all seven routes), §2 (`OP-COMPLEX-SERIES`/`OP-LEGAL-RISK`'s `A`, `OP-FINAL-SIGNOFF`'s `A`,
+`OP-CRISIS`'s `R`), §4.1 (`D-233`/`D-237`'s attesting-party text), §4.2 (`T5` RACI table's
+`OP-FINAL-SIGNOFF` row); `V1-BUILD-SPEC.md`'s `DOR-R4` (attesting party, corrected a second time
+this session).
+
+**Not applied — explicitly out of scope for this entry:** `requirements-traceability-map.md` row 7
+("Human Chief Editor is the final judgment owner... Chief Editor executes `T6`") is **not** remapped
+— it describes gate-execution authority for the technical `transition:T6`, which the classification
+rule above keeps on `ROLE-CHIEF-EDITOR`. No stored/API/code/schema value is renamed. `EDITORIAL-
+ROLE-EDITOR-IN-CHIEF` and `AGENT-T5-EDITOR-IN-CHIEF` are recorded as **candidate IDs** — final IDs
+for any future persisted use remain a build-time decision, not fixed by this documentary entry.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e63 |
+| **`raci-involvement-matrix.md`** | ✅ §8 role catalog |
+| **`factory-route-operation-crosswalk.md`** | ✅ §1, §2, §4.1, §4.2 |
+| **`V1-BUILD-SPEC.md`** | ✅ `DOR-R4` |
+| **`requirements-traceability-map.md`** | — unaffected: row 7's `ROLE-CHIEF-EDITOR` reference is gate-execution authority, correctly out of scope per the classification rule |
+| **`Modular_PRD.md`** | — unaffected: no FR/AC/NFR requirement text changed |
+| **Graphify** | Rebuild owed after this commit |
+
+### What this act does NOT do
+
+Does not rename any stored/API/code/schema value. Does not fix final canonical IDs for the two new
+roles — candidate only. Does not authorize construction. Does not touch gate-execution eligibility
+for `transition:T5`/`T6`/`EG5`. Does not close `B-117` or `B-118`.

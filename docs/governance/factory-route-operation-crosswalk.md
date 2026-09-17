@@ -42,13 +42,13 @@ the seven rows carries exactly one `R` and one `A`, no blank cells, and no ambig
 
 | `route_id` | Source label | Route class | `R` (`party_id`) | `A` (`party_id`) | `C` | `I` | `verification_status` |
 |---|---|---|---|---|---|---|---|
-| `ROUTE-PROD-1` | Tier 1: Low-Impact Daily News Production | Production, Tier 1 | `ROLE-REPORTER` | `ROLE-DESK-EDITOR` | — | `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK`, `ROLE-CHIEF-EDITOR`, `EXT-GRC` | `VERIFIED` |
-| `ROUTE-PROD-2` | Tier 2: Mid-Impact Enterprise & Feature Writing | Production, Tier 2 | `ROLE-JOURNALIST` | `ROLE-CHIEF-EDITORIAL-DESK` | `ROLE-SENIOR-JOURNALIST` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-DESK-EDITOR`, `ROLE-CHIEF-EDITOR`, `EXT-GRC` | `VERIFIED` |
-| `ROUTE-PROD-3` | Tier 3: High-Impact Investigative Exploits | Production, Tier 3 | `ROLE-INVESTIGATOR` | `ROLE-CHIEF-EDITORIAL-DESK` | `ROLE-SENIOR-JOURNALIST` | `ROLE-REPORTER`, `ROLE-JOURNALIST`, `ROLE-DESK-EDITOR`, `ROLE-CHIEF-EDITOR`, `EXT-GRC` | `VERIFIED` |
-| `ROUTE-FALLOUT-1` | Tier 1 Fallout: Low-Risk Copy & Fact Editing | Fallout, Tier 1 | `ROLE-SENIOR-JOURNALIST` | `ROLE-CHIEF-EDITOR` | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK`, `EXT-GRC` | `VERIFIED` |
-| `ROUTE-FALLOUT-2` | Tier 2 Fallout: Mid-Risk Retractions & Corrections | Fallout, Tier 2 | `ROLE-CHIEF-EDITORIAL-DESK` | `ROLE-CHIEF-EDITOR` | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `EXT-GRC` | `VERIFIED` |
-| `ROUTE-FALLOUT-3` | Tier 3 Fallout: High-Risk Legal & Defamation Crises | Fallout, Tier 3 | `ROLE-CHIEF-EDITORIAL-DESK` | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | `ROLE-CHIEF-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-DESK-EDITOR` | `VERIFIED` |
-| `ROUTE-GRC` | Regulatory GRC Compliance & Licensing | Regulatory | `ROLE-CHIEF-EDITOR` | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK` | `VERIFIED` |
+| `ROUTE-PROD-1` | Tier 1: Low-Impact Daily News Production | Production, Tier 1 | `ROLE-REPORTER` | `ROLE-DESK-EDITOR` | — | `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK`, `EDITORIAL-ROLE-EDITOR-IN-CHIEF`, `EXT-GRC` | `VERIFIED` |
+| `ROUTE-PROD-2` | Tier 2: Mid-Impact Enterprise & Feature Writing | Production, Tier 2 | `ROLE-JOURNALIST` | `ROLE-CHIEF-EDITORIAL-DESK` | `ROLE-SENIOR-JOURNALIST` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-DESK-EDITOR`, `EDITORIAL-ROLE-EDITOR-IN-CHIEF`, `EXT-GRC` | `VERIFIED` |
+| `ROUTE-PROD-3` | Tier 3: High-Impact Investigative Exploits | Production, Tier 3 | `ROLE-INVESTIGATOR` | `ROLE-CHIEF-EDITORIAL-DESK` | `ROLE-SENIOR-JOURNALIST` | `ROLE-REPORTER`, `ROLE-JOURNALIST`, `ROLE-DESK-EDITOR`, `EDITORIAL-ROLE-EDITOR-IN-CHIEF`, `EXT-GRC` | `VERIFIED` |
+| `ROUTE-FALLOUT-1` | Tier 1 Fallout: Low-Risk Copy & Fact Editing | Fallout, Tier 1 | `ROLE-SENIOR-JOURNALIST` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK`, `EXT-GRC` | `VERIFIED` |
+| `ROUTE-FALLOUT-2` | Tier 2 Fallout: Mid-Risk Retractions & Corrections | Fallout, Tier 2 | `ROLE-CHIEF-EDITORIAL-DESK` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `EXT-GRC` | `VERIFIED` |
+| `ROUTE-FALLOUT-3` | Tier 3 Fallout: High-Risk Legal & Defamation Crises | Fallout, Tier 3 | `ROLE-CHIEF-EDITORIAL-DESK` | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-DESK-EDITOR` | `VERIFIED` |
+| `ROUTE-GRC` | Regulatory GRC Compliance & Licensing | Regulatory | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | `ROLE-DESK-EDITOR` | `ROLE-REPORTER`, `ROLE-INVESTIGATOR`, `ROLE-JOURNALIST`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-EDITORIAL-DESK` | `VERIFIED` |
 
 `ROUTE-PROD-1`'s `A` (`ROLE-DESK-EDITOR`) is **confirmed unaffected** by `T5`/`EG4`'s Chief Editorial
 Desk review function (`D-175`, closing `B068-R22`, 2026-09-01) — route accountability and gate-review
@@ -63,11 +63,11 @@ function are separate fields; neither is inferred from the other.
 | `OP-PITCH` | Daily Story Pitch & Beat Tracking | `UNVERIFIED` | **Two `R`**: `ROLE-REPORTER`, `ROLE-JOURNALIST` | `ROLE-DESK-EDITOR` | `UNVERIFIED` — multiple `R`, no milestone marker in source |
 | `OP-RESEARCH` | Deep Fact-Checking & OSINT Research | `UNVERIFIED` | **Two `R`**: `ROLE-INVESTIGATOR`, `ROLE-SENIOR-JOURNALIST` | `ROLE-DESK-EDITOR` | `UNVERIFIED` — multiple `R`, no milestone marker in source |
 | `OP-DRAFT` | Drafting Standard News Copy | `UNVERIFIED` | **Two `R`**: `ROLE-REPORTER`, `ROLE-JOURNALIST` | **none** | `UNVERIFIED` — multiple `R` and no `A` at all in source |
-| `OP-COMPLEX-SERIES` | Executing Complex Investigative Series | `milestone` (source-marked "Mult task R") | **Three `R`**: `ROLE-INVESTIGATOR`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `ROLE-CHIEF-EDITOR` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
+| `OP-COMPLEX-SERIES` | Executing Complex Investigative Series | `milestone` (source-marked "Mult task R") | **Three `R`**: `ROLE-INVESTIGATOR`, `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
 | `OP-COPY-EDIT` | First-Line Copy Editing & Formatting | `atomic` | `ROLE-CHIEF-JOURNALIST` (one `R`) | `ROLE-DESK-EDITOR` | **`VERIFIED`** — single `R`, single `A`, no ambiguity |
-| `OP-LEGAL-RISK` | Legal, Ethical & Risk Review | `milestone` (source-marked "Multi Task R") | **Two `R`**: `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `ROLE-CHIEF-EDITOR` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
-| `OP-FINAL-SIGNOFF` | Final Publication Sign-Off | `control_point` (candidate) | **none** | `ROLE-CHIEF-EDITOR` (Editor-in-Chief; `ROLE-DESK-EDITOR` is `C`, not `A` — corrected `D-237`, `B-118`) | **`DECIDED`** — Chief Editor-confirmed re-read of the source cell, 2026-09-17; previously `UNVERIFIED`/misread as Desk Editor, not independently re-derived by Lane A |
-| `OP-CRISIS` | Crisis Management & Retractions | `atomic` | `ROLE-CHIEF-EDITOR` (one `R`) | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | **`VERIFIED`** — single `R`, single `A`, no ambiguity |
+| `OP-LEGAL-RISK` | Legal, Ethical & Risk Review | `milestone` (source-marked "Multi Task R") | **Two `R`**: `ROLE-SENIOR-JOURNALIST`, `ROLE-CHIEF-JOURNALIST` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | `UNVERIFIED` — milestone shape known, atomic children not yet decomposed |
+| `OP-FINAL-SIGNOFF` | Final Publication Sign-Off | `control_point` (candidate) | **none** | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` (`ROLE-DESK-EDITOR` is `C`, not `A` — corrected `D-237`; party identity narrowed `D-238`) | **`DECIDED`** — Chief Editor-confirmed re-read of the source cell, 2026-09-17; previously `UNVERIFIED`/misread as Desk Editor, not independently re-derived by Lane A |
+| `OP-CRISIS` | Crisis Management & Retractions | `atomic` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` (one `R`) | **`EXT-GRC`** (`involvement_code = EA`; `source_code = A`) | **`VERIFIED`** — single `R`, single `A`, no ambiguity |
 
 Row-shape verification is unchanged by `D-176`: 2 of 8 (`OP-COPY-EDIT`, `OP-CRISIS`) `VERIFIED`, 1
 (`OP-FINAL-SIGNOFF`) `DECIDED` (`D-237`, 2026-09-17 — corrected from `UNVERIFIED`); five remain
@@ -86,6 +86,17 @@ Row-shape verification is unchanged by `D-176`: 2 of 8 (`OP-COPY-EDIT`, `OP-CRIS
 > **Consequence:** `B117-R47`'s "Chief Journalist Copy Edit precursor, no child operation" framing
 > (§4.2 below) was chasing a phantom gap — Chief Journalist already **is** `OP-COPY-EDIT`'s source
 > `R`; no precursor child-task contract is needed.
+
+> **Role-identity split, 2026-09-17 (`D-238`, `docs/handoff/B-118`).** §1/§2's every business-RACI
+> occurrence of `ROLE-CHIEF-EDITOR` is corrected to `EDITORIAL-ROLE-EDITOR-IN-CHIEF`
+> (`raci-involvement-matrix.md` §8) — `ROLE-CHIEF-EDITOR` is henceforth access/gate-execution
+> identity only, never a source-RACI fact. **Classification rule applied:** every Sheet 1/Sheet 2
+> CSV-sourced route or operation `R`/`A`/`C`/`I` cell is business identity and is remapped; gate/
+> transition execution eligibility (who may perform `transition:T5`/`T6`/`EG5` in the system,
+> `raci-involvement-matrix.md` §8's "Gate eligibility" column) stays `ROLE-CHIEF-EDITOR`, since it is
+> an authorization fact, not a Sheet-sourced accountability fact. §3's "Chief Editor, `B-068` §14.4"
+> provenance citations are unaffected — they name the real decision-maker who approved the table, not
+> a RACI party, and are not role references.
 
 ## 3. Route-operation join — DECIDED (`D-176`, 2026-09-01)
 
@@ -225,14 +236,18 @@ identity is the `V1-SM05`/`V1-SM06` slot assignment (`B117-R6`/similar correctio
    judgment stage 5. This is recorded as a distinct application decision, not a CSV fact and not a
    silent inheritance from route `A`.
 3. **`OP-FINAL-SIGNOFF` — ACCEPTED execution contract, Chief Editor decision 2026-09-17, attesting
-   party corrected 2026-09-17 (`D-237`, `B-118`).** §4 item 4's "no `R` named, no `R = A` exception
-   granted" is now **qualified by this accepted exception**: **Chief Editor (Editor-in-Chief, source
-   `A`)** personally attests completion as an **A-only control**. `ROLE-DESK-EDITOR` is source `C`
-   on this operation, not `A` — it was misread as `A` when this contract was first accepted; that
-   reading is corrected, the accepted contract's shape is unchanged. Five accepted conditions:
-   - Chief Editor performs the attestation; no synthetic `R` and no general `R = A` record is created
-     for any other operation by this exception. Desk Editor's `C` involvement is unaffected and does
-     not attest.
+   party corrected 2026-09-17 (`D-237`, `B-118`), party identity narrowed 2026-09-17 (`D-238`).** §4
+   item 4's "no `R` named, no `R = A` exception granted" is now **qualified by this accepted
+   exception**: **the human Editor-in-Chief (`EDITORIAL-ROLE-EDITOR-IN-CHIEF`, source `A`)**
+   personally attests completion as an **A-only control** — not `ROLE-CHIEF-EDITOR`, which `D-238`
+   narrows to access/gate-execution identity only. `ROLE-DESK-EDITOR` is source `C` on this
+   operation, not `A` — it was misread as `A` when this contract was first accepted; that reading is
+   corrected, the accepted contract's shape is unchanged. Five accepted conditions:
+   - `EDITORIAL-ROLE-EDITOR-IN-CHIEF` performs the attestation; no synthetic `R` and no general
+     `R = A` record is created for any other operation by this exception. Desk Editor's `C`
+     involvement is unaffected and does not attest. A `T5` virtual agent
+     (`AGENT-T5-EDITOR-IN-CHIEF`, `D-238`) may assist or recommend but never performs this
+     attestation itself.
    - The attestation records the acting principal, the enumerated list of required/triggered prior
      operations checked complete, a timestamp, and produces the "signed-off package" event §3.2
      already defines. A missing required prior operation refuses the attestation and returns to the
@@ -266,7 +281,7 @@ the whole route. This corrects the earlier reading that produced `B117-R44`.
 | `OP-RESEARCH` | `R`: Investigator + Senior Journalist; `A`: Desk Editor | `T5` reviews/validates its evidence; Chief Editorial Desk does not replace the source `A` |
 | `OP-DRAFT` | `R`: Reporter + Journalist; source `A`: blank | §4.1 item 2's application overlay supplies Chief Editorial Desk as default `A`; source `A` remains blank |
 | `OP-COPY-EDIT` | `R`: Chief Journalist; `A`: Desk Editor | Corrected 2026-09-17 (`D-236`, `B-118`) — source `R` was mislabeled Chief Editorial Desk; no missing `R` exists and no precursor child-task is needed (below) |
-| `OP-FINAL-SIGNOFF` | source `R`: blank; `A`: Chief Editor (Editor-in-Chief); `C`: Desk Editor — corrected `D-237` | Extended below with the `A`-coverage invariant. Does not backfill `A` and does not create a synthetic `R` |
+| `OP-FINAL-SIGNOFF` | source `R`: blank; `A`: `EDITORIAL-ROLE-EDITOR-IN-CHIEF`; `C`: Desk Editor — party corrected `D-237`, identity narrowed `D-238` | Extended below with the `A`-coverage invariant. Does not backfill `A` and does not create a synthetic `R` |
 
 **`OP-FINAL-SIGNOFF` — `A`-coverage extension (decided, extends §4.1 item 3, not a replacement).**
 In addition to §4.1 item 3's five accepted conditions, the attestation also verifies that **every
