@@ -3443,3 +3443,79 @@ from V1, unchanged).
 **`B-117` remains `Open`** — this act is Applied, not yet independently Judge-verified
 (`D-101`/`D-102`). Verification and the six deferred items above are the next work, whenever the
 Chief Editor takes them up.
+
+## Lane B independent review — D-235 propagation and remaining completion plan, 2026-09-17
+
+**Reviewed source:** `f768a40331094143d9fda11ba76d6cc198b21cc9`. **Scope:** planning and independent documentary review only. No canonical edit, build, schema/API rename, lane transition, publication, or closure is authorized by this review. Existing `B117-R44`–`B117-R51` remain the work identifiers; no duplicate backlog is opened.
+
+**Clarified request:** Review D-235 against D-234 and the eight existing gaps; distinguish applied text from complete contracts and verified closure; draft the remaining repairs in dependency order, with failure cases and observable success criteria. Preserve source RACI, qualify namespaces, and check graph currency separately from semantic correctness.
+
+### Parent outcome and completion ledger
+
+The parent outcome is one coherent, traceable specification of UI supply → Senior Journalist entry → business phase judgment → selected role's scoped tasks → evidence → phase completion → T5 human publication review. It is not an application build. Complete the parent contract before dependent diagrams or implementation work orders. `D-176` applicability and `D-233` accepted Sign-Off conditions remain authoritative; D-235 does not erase its own explicitly deferred work.
+
+| Existing gap | Independently observed disposition | Remaining completion evidence |
+|---|---|---|
+| R44 — scoped execution | Crosswalk §4.2 correctly distinguishes recurring operation types from immutable executions; incomplete contract | Define scope identity, prerequisite references, applicability decisions and replay versus revision. Reconcile §3.2 rather than leaving two operative readings |
+| R45 — lifecycle | Seven-step lifecycle is present in FN-GATES §3.0a and traceability §6.3; partial | Resolve the pre-T1 boundary conflict and select canonical event vocabulary with evidence/ordering rules |
+| R46 — T5 RACI | Source RACI and application default are correctly separated in crosswalk §4.2 | Add explicit route-A reference (the table currently covers phase and operations), and make each task's effective A and provenance independently inspectable |
+| R47 — Copy Edit precursor | Draft shape exists; not accepted or implementation-ready | Decide retain/omit; if retained identify the child, its A, scope, parent reservation/link, inputs, return target and revision invalidation |
+| R48 — Sign-Off A coverage | Refusal invariant is applied; evidence contract incomplete | Define current applicable-instance coverage, excluded/superseded evidence treatment and revision dependencies; retain Desk Editor A-only conditions |
+| R49 — namespaces | KEEP protects stored/API compatibility; documentary separation partial | Map business phase, EG task workflow and technical transition separately; qualify mixed-family references. KEEP does not resolve their behavioural relationship |
+| R50 — visuals | Panel A9 exists; explicitly an overlay, not full target UML/data-flow/normal-return coverage | Repair A9's ambiguous ordering and show all phase roles, human attestation, scoped evidence and revision invalidation |
+| R51 — assurance boundary | Explicit absence appears in traceability §6.3 and Panel A9 | Encyclopedia Entry 05 is only flagged; review actual Entries 01/05/06 before claiming parity. No assurance implementation is requested |
+
+### Evidence-backed failures and draft repairs, parent first
+
+**1. Settle the boundary and dependency contract first — R44/R45/R49.**
+
+- `FN-GATES` §3.0 puts completed OP-PITCH before unqualified T1. New §3.0a calls those events a concrete instance of its enter→select→dispatch lifecycle. Traceability §6.3 instead puts Pitch and Draft after business:T1 selects Reporter. These can coexist only if the old T1 is explicitly technical and mapped; treating them as the same phase guarantees contradictory ordering.
+- Crosswalk §3.2 retains OP-DRAFT's Research prerequisite and §4.2 explicitly preserves these triggers within bundles. Traceability §6.3 supplies only Pitch/Draft at T1 and T3. For Route-1 when C1 fires, an exclusively intra-bundle reading has no Research producer; Route-PROD-2 requires Research. This is a conditional deadlock/missing-evidence case, not a claim that every Route-1 run fails. Prior evidence reuse, task expansion or a changed prerequisite must be explicitly decided, never silently assumed.
+- Panel A9 calls T1 mapping precisely fixed but then says transition:T1 executes “inside/after” the bundle. It also labels the pre-selection judgment OP-PITCH, then dispatches OP-PITCH again. This fails a unique execution-order reading.
+
+**Draft replacement principle for Lane A:** “Pre-business:T1 work supplies entry evidence only. Business judgment records route/rank and selects a role; OP-PITCH execution follows that selection. Any reference to an earlier technical transition uses its qualified identifier and an explicit mapping. Each dispatched bundle declares its prerequisite evidence references and applicability result. A prerequisite is satisfied by a named valid current input, never by a future phase or an unrecorded skip.” Lane A must resolve the Research dependency against D-176/D-234 before finalizing this text; if the resolution changes accepted behaviour, submit that exact delta to the Judge.
+
+**Success:** walk a normal Route-1 case, C1-triggered Route-1 case, T3 Journalist case, and fallout comparison on paper. Each task has a reachable input producer and recorded applicability; no forward dependency on a phase that itself waits for that task. Route comparison alone never activates conditional or otherwise inapplicable operations.
+
+**2. Specify evidence identity and revision validity — R44/R45/R48, depends on step 1.**
+
+**Draft contract:** “An execution identifies the editorial work item, route-selection event, business phase, operation type, selected role, scope and content revision, with a unique execution reference. Retries of the same logical execution reuse its identity; a relevant revision creates a successor linked to retained prior evidence. Canonical event records identify actor/role, execution, revision, reason and input/output evidence. Phase completion requires the current required bundle's valid evidence.” These are conceptual requirements, not prescribed database columns or API names.
+
+**Success:** T1 and T3 Pitch/Draft records cannot overwrite or satisfy one another merely because operation IDs match. Duplicate delivery produces no duplicate attestation. Revising a source invalidates every dependent result that relied on it, without deleting history or unnecessarily restarting unrelated work. Candidate event names may be selected by Lane A as specification detail; a new business decision is needed only for changed meaning.
+
+**3. Complete accountability and Sign-Off — R46/R47/R48, depends on step 2.**
+
+**Draft contract:** “Display phase accountability, route A, source operation RACI and effective application A as distinct facts with provenance. Preserve Draft's blank source A and its Chief Editorial Desk application default. Before Desk Editor's A-only attestation, enumerate the current applicable task instances, their effective A, completion and dependency validity. Refuse missing A, incomplete or stale evidence; point to the affected instance. Never backfill source A or synthesize R. A relevant revision invalidates the affected attestation while preserving it as history. Success opens human publication review only.”
+
+For the proposed Chief Journalist child, the draft currently names an executor but no accountable party. If retained as an applicable task, leaving A unspecified makes it fail the very coverage invariant R48 imposes. Draft its A explicitly for acceptance, give it a stable child identity and reserve/reference the parent before execution. Do not copy a source-row A into a new child without recording that application decision. Replace “bound ... until confirmed” with “not executable until accepted.” Omission is also a Judge disposition, not a silent deletion.
+
+**Success:** reject missing-A, stale-evidence and incomplete-child cases; accept valid coverage including Draft's documented application A; retain source values unchanged. Confirm no approval, publication, LinkedIn-ready mark, article-state mutation or business:T6 follows Sign-Off automatically.
+
+**4. Propagate the resolved contract and visuals — R49/R50/R51, depends on steps 1–3.**
+
+Lane A owns the canonical pass: Register (amend D-235's residual disposition without erasing its historical application record), Build Spec (bounded remaining unit/DoD), Inventory (affected artifacts or explicit unaffected disposition), Modular_PRD §8 tracking, crosswalk, traceability, FN-GATES, storyboard and relevant technical-spec references. Modular_PRD currently points at §6.1's earlier journey; inspect and qualify that pointer against §6.3 instead of assuming unchanged FR wording proves all tracking unaffected. Frozen sources stay unchanged.
+
+Use a three-column semantic map: business phase → selected EG/task bundle → technical transition/evidence boundary. Preserve stored identifiers; propose documentary labels separately from any future migration. Technical T6 can remain a legacy/technical identifier without becoming business:T6; explicitly place its publication scope outside the business phase lifecycle. Do not claim all T6 occurrences are forbidden or that keeping identifiers is itself a defect.
+
+Update normal and revision sequence/data-flow views under the existing intent-document ownership: overall product overview in Modular_PRD, detailed behaviour in fn-specs, implementation mechanics in specs. Link rather than duplicate diagrams. Show UI, Senior Journalist, all T1–T5 selected roles, Desk Editor attestation and evidence stores. A generic “selected bundle” actor must not hide who attests. Link each diagram to the same execution/validity contract. Label independent assurance absent; do not substitute editorial review or monitoring for it.
+
+**Success:** a reviewer follows one normal case and one relevant revision across prose, sequence and data flow with identical ordering, roles and evidence. Encyclopedia Entries 01/05/06 have an actual text comparison and any proposed replacements before an opt-in republish; a flagged ledger row alone is not that evidence.
+
+**5. Verify and close only the bounded work — depends on step 4.**
+
+Lane B independently reviews the committed canonical packet against the cases above. Lane C consumes only any later authorized CI work; this documentation plan creates no CI or deployment assignment. Lane A runs consistency checks, commits the canonical changes, then rebuilds Graphify and re-merges curated fragments in that order. Verify source currency after the final governed commit. Record independent evidence per residual item; Judge accepts completion separately. These eight items do not automatically close B-117's broader parent backlog or other handoffs.
+
+### Drift and assurance limits
+
+At reviewed HEAD `f768a40`, `.graphify/branch.json` has matching `lastAnalyzedHead` and `stale: false`. No graphify skill was discoverable in the available skill locations or tools; the installed repository-documented CLI query was used. Its scoped query returned mostly governance/check nodes and did not establish the new lifecycle relationships. Graph currency is therefore supported; semantic completeness is not proved by that query. This review changes only the handoff channel, excluded by D-231, so it does not itself require a rebuild. Consistency-suite results are reported with the turn evidence, not used as a substitute for the failure cases above.
+
+There is no evidence supporting a prediction of bankruptcy or certain project failure. The deterministic failures are narrower: contradictory same-namespace ordering, unsatisfied mandatory prerequisites, a missing-A child refusing Sign-Off, or a claimed closure without its required artifacts/evidence.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| Approve | Canonical crosswalk: source RACI preservation; traceability: selected roles; assurance absence | Retain in Lane A repair |
+| Approve-with-conditions | Fn Spec / crosswalk scoped lifecycle and A-only Sign-Off | Resolve prerequisite, identity, current-evidence and child-A contracts before implementation readiness |
+| Approve-with-conditions | Technical specs KEEP compatibility position | Complete documentary namespace/boundary mapping; any stored/API migration separately authorized |
+| Defer | Storyboard/UML/data flow and Encyclopedia completion | Lane A complete normal/revision views and actual entry review |
+| Defer | B-117 closure and any application/CI build | Independent verification and Judge disposition of the relevant parent scope |
+| Reject | Treating additive propagation, graph currency or passing consistency checks as complete semantic closure | Lane A bounded specification repair, then Lane B independent review |
