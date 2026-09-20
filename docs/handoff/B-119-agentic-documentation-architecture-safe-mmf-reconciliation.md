@@ -1305,3 +1305,114 @@ A work-packet link may own future build work, but it does not itself make the or
 | **Approve-with-conditions** | PR as promotion evidence | DoD remains behaviour/test/evidence based and precedes successor opening |
 | **Defer** | Construction, new V1 sprint IDs, V2 opening and packet retirement | Canonical transition, readiness evidence and Judge authorization |
 | **Reject** | Bulk setup completion; bulk handoff closure; all exclusions to V2; premature `[V1→V2]`; checklist-as-DoR; PR-as-DoD; V1-SM06 before V1-SM05 | Use the transfer map and parent-first plan above |
+
+## Lane B final review — first-PR setup for one selected MMF, 2026-09-20
+
+### Clearer request
+
+Prepare, without opening a branch or building software, the governed setup that will let a later
+Judge-authorized pull request implement exactly one selected V1 MMF. Correct Lane A's setup-transfer
+draft, identify the canonical and visual artifacts affected, define failure/success evidence, and
+leave handoff closure dependent on per-entry disposition and independent verification.
+
+### What is now settled
+
+The supplied Lane A record reports Judge acceptance of Choice A and the six previously unmapped
+destinations. Those acts are ready for canonical application by Lane A but remain unapplied in the
+repository. S0/S1 remain completed evidence; S2 is held; S3/S4 and V1-SM05/06 have not earned DoD;
+V1-SM05/06 are not selected; and no construction work order exists. This review therefore creates
+no pull request, branch, work packet, template, canonical edit, Graphify change or implementation.
+
+### Corrections required before Lane A applies the draft
+
+| Gap in the supplied draft | Corrected planning rule | Success evidence |
+|---|---|---|
+| The publication entry says every retained exclusion is V2-target scope | Only automated WordPress and the Judge-selected `FR-10`/`T11` behaviour acquire the future-V2 target. External GRC, `T6`, Line 3 and full state-machine execution keep their current held/outside-V1 dispositions until a separate Judge act names a target. | The Register and every derived tier preserve one disposition per item; no blanket V2 sentence remains. |
+| The S2 display destination names `FR-05` alone | Anchor V1-SM05's non-enforcing display to `FR-04`/`FR-05` plus `SEC-01` and the applicable RACI source. `FR-05` owns independence classification; `FR-04` owns accountable review. D-239 permits display/provenance only and does not reopen enforcement. | The packet, Product Requirements Document and traceability row distinguish display from enforcement and cite both behaviour owners. |
+| The TC1 row says V1 uses no credentials or privileged write path | V1 `ManualReady` requires no external WordPress or LinkedIn channel credential. Do not pre-decide the application's database authorization/write mechanism. TC1, service-role isolation, `NFR-07` and `SEC-02` travel with the future automated publication path only to the extent their source scope does. | Fn/technical specs separate external-channel credentials from database authorization; the future build refines the latter without contradicting this decision. |
+| The Edge Function/route-handler mismatch is called only a SPECS reconciliation item | The Register's D-143/D-146 ruling already selects the Supabase Edge Function. `SPECS-PUBLICATION.md` agrees. `Modular_PRD.md` still contains a route-handler recommendation alongside its corrected Q3 row, so Lane A must repair that internal Product PRD technical-candidate inconsistency. No new business decision is required. | The stale route-handler recommendation is corrected or marked historical; Product PRD and SPECS cite D-143/D-146 consistently. |
+| Encyclopedia scope omits the actual review dependencies | Add Entry 05 to V1-SM05's review set with Entries 01/06, and Entry 04 to V1-SM06. The hosted artifact remains separately reviewed and republished. | Packet DoR cites 01/05/06 and 04 respectively; the sync ledger records affected status without claiming hosted publication. |
+| Two decisions are drafted as one undifferentiated change | The publication boundary and setup transfer may land in one Lane A commit, but each needs its own Register identity, tier-applicability table and completion evidence. Boundary precedes transfer because several S4 destinations depend on it. | Source-sweep sees the Register update; reviewers can accept or reject either decision without changing the other's identity. |
+
+### One-PR/one-MMF setup guide
+
+No pull-request template exists today. The only `.github` documents are Lane A's workflow
+specification and Lane C's CI workflow. The smallest reusable artifact is therefore a Lane A-owned
+template at `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`. Creating that artifact is itself governed:
+the Register, Build Spec and Artifact Inventory must create and sequence it in the same D-54 pass.
+
+The template should require:
+
+1. the selected MMF and work-packet ID, its Register authorization and current Active lane;
+2. one bounded scope statement, explicit exclusions and affected paths;
+3. links to every satisfied DoR item and the DoD agreed before construction;
+4. acceptance, refusal, replay/idempotency and persistence evidence relevant to that MMF;
+5. typecheck, lint, tests, consistency checks and any local-only Graphify evidence;
+6. schema/migration impact, rollback or safe-failure evidence, and secret-handling impact;
+7. handoff entries raised or closed, lane-crossing justification when applicable, and the
+   independent reviewer/Judge acceptance still required after merge.
+
+For this first setup, **one PR maps to one selected MMF packet**. If the packet cannot fit one
+reviewable PR, Lane A must split and re-authorize it before construction; a child PR cannot be
+reported as the whole MMF's DoD. The template must not hard-code check totals, omission counts,
+commit hashes or a current sprint ID. CI already runs on pull requests, but its skipped local-only
+checks mean a green hosted run does not replace the full local evidence contract.
+
+An automated PR-body validator or workflow is a separate enhancement. It would require a defined
+machine contract and Lane C work under `.github/workflows/`; the current setup should not imply that
+automation exists. The first safe step is the governed reusable template and evidence checklist.
+
+### Artifact and visual impact
+
+| Surface | Planned treatment |
+|---|---|
+| `Modular_PRD.md` | Update §8 tracking and affected scope notes; correct the stale route-handler recommendation under D-143/D-146; add the SM05 display anchors without enabling enforcement. |
+| Storyboard / story panels | Keep Panel A9 as the single publication-flow Mermaid source. Annotate `ManualReady`, article state and future `Published`; do not redraw duplicate diagrams. |
+| Fn Spec UML/data flow | Show the selected MMF's inputs, decisions, persistence, refusal and replay evidence. Keep physical keys and framework choices in SPECS. |
+| Technical SPECS | Preserve Edge Function as the standing future automated-publication choice; refine database authorization only when that build is authorized. |
+| Encyclopedia | Flag Entries 01/05/06 for SM05 and Entry 04 for SM06; hosted review/republish remains separate evidence. |
+| Cross-references | Reconcile Register, Build Spec, Inventory, packets, traceability, Fn Specs, Panel A9 and the new PR template by identity rather than copied counts. |
+
+### Parent-first implementation plan for Lane A — not executed here
+
+| Order | Parent or dependent unit | Completion criterion |
+|---:|---|---|
+| 1 | **Publication-boundary Register act** | Applies the narrow `ManualReady`/future-WordPress decision, preserves existing dispositions for all other exclusions, and assigns its own Register ID. |
+| 2 | **Setup-transfer Register act** | Transfers every S2-S4 behaviour to one named owner, uses the corrected FR-04/FR-05 and credential language, and assigns a separate Register ID. Depends on 1. |
+| 3 | **D-54 propagation** | Register, Build Spec, Inventory, Product Requirements Document §8, packets, traceability, Fn Specs, Panel A9 and Encyclopedia ledger agree; frozen sources remain unchanged. Depends on 1-2. |
+| 4 | **MMF readiness contracts** | V1-SM05/06 DoD is defined; SM05 DOR-R2-R6 carries current evidence; SM06 remains dependent on SM05 DoD; packet retirement uses D-240 rather than implied completion. Depends on 3. |
+| 5 | **First-PR template decision and artifact** | D-54 records the new `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`; the template contains the evidence fields above and selects nothing by itself. Depends on 3-4. |
+| 6 | **B-115 and D-231 units** | Intent/Build/DevOps ownership and exact graph-coverage controls are applied as their own governed units, including the reverse-reference fixture. Depends on the relevant canonical sources from 3. |
+| 7 | **Graph synchronization** | After the last governed commit in the uninterrupted run, rebuild extracted Graphify content, re-merge curated fragments, classify every remaining path and run the full local suite. Depends on 3 and 6. |
+| 8 | **Handoff lifecycle** | B-115/B-117/B-118/B-119 receive per-child D-204 dispositions and evidence; unrelated open entries remain outside this transition; B-119's header uses its computed weakest child. Depends on 3-7. |
+| 9 | **Independent review and later execution selection** | A reviewer verifies the canonical facts; the Judge then selects exactly one ready MMF, makes the construction lane Active and issues its bounded work order. Only then may the first PR be opened. |
+
+### Failure-to-success tests
+
+| Guaranteed failure | Observable success criterion |
+|---|---|
+| A PR template silently becomes build authorization | Template names a pre-existing Register act, selected packet, Active lane and work order; an empty template authorizes nothing. |
+| Merge is treated as MMF completion | DoD evidence proves behaviour, persistence, failure paths and tests; merge is recorded only as review/promotion evidence. |
+| Every held item is relabelled V2 | Only explicitly selected WordPress and `FR-10`/`T11` scope carries that target; all other source dispositions remain visible. |
+| V1 `ManualReady` is declared to need no privileged database mechanism | The plan excludes external channel credentials and leaves database authorization to technical refinement. |
+| The Product PRD continues to recommend a route handler while the Register selects Edge Function | D-143/D-146 is reflected consistently in the Product PRD technical candidate and publication SPECS. |
+| A child implementation is called the whole MMF | The selected packet fits one PR or is formally split before execution; each unit keeps its own DoD and status. |
+| Hosted CI is treated as full Graphify proof | The PR links the final local graph-coverage, docs-drift and source-sweep evidence after the governed rebuild. |
+| Handoffs are bulk-closed when setup closes | Each entry has its own promotion target, commit evidence, weakest-child Resolution and independent verification state. |
+
+There is no repository evidence that these documentation defects literally guarantee personal
+bankruptcy. The defensible high-stakes standard is deterministic: no unselected scope, no missing
+behaviour destination, no false DoD, no stale technical recommendation, no hidden graph source and
+no construction without a selected packet and evidence contract.
+
+### Final verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Choice A, all six destination decisions, S0/S1 evidence and one-PR/one-MMF intent | Lane A canonical decision application |
+| **Approve-with-conditions** | Publication and setup-transfer drafts | Narrow V2 scope; correct FR-04/FR-05, credentials and D-143/D-146 wording before D-54 propagation |
+| **Approve-with-conditions** | First-PR setup guide | Create it as a governed Lane A template; it selects no MMF and proves no DoD |
+| **Approve-with-conditions** | Storyboard/UML/data-flow/Encyclopedia propagation | Reuse Panel A9; update Entries 01/04/05/06; preserve Fn/SPECS separation |
+| **Approve-with-conditions** | Handoff closure and Graphify synchronization | Per-entry D-204 evidence, independent review, then final rebuild/re-merge and full local checks |
+| **Defer** | PR automation, branch creation, work order, construction, V2 opening and packet retirement | After canonical propagation, complete DoR/defined DoD and Judge selection |
+| **Reject** | Blanket V2 assignment; no-privileged-write claim; SPECS-only handling of the route-handler conflict; PR-as-authorization; merge-as-DoD; bulk handoff closure | Apply the corrected parent-first plan |
