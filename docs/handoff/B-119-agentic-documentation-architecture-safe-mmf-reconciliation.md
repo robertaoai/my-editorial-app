@@ -1662,3 +1662,101 @@ that artifact or immutable revision was itself approved.
 | **Approve-with-conditions** | Graph acceptance | Exact manifest; storyboard and traceability coverage required; final local drift green |
 | **Defer** | PR, work order, construction, V2 opening and packet retirement | Canonical acts, readiness evidence and Judge selection |
 | **Reject** | Generic approval slogan; mandatory duplicate approval when direct evidence exists; pre-registration verification; template before B-115; treating Panel A9 annotation as full visual closure | Apply the corrected sequence above |
+
+## Lane B review — decision content settled, application checkpoint still deferred, 2026-09-20
+
+### Clearer request
+
+Reconcile Lane A's report of fresh direct Judge messages with D-183 and the planning-only guardrail.
+State whether another business choice is needed, distinguish decision content from permission to
+apply it, and choose a Graphify sequence that does not claim one rebuild while depending on an
+earlier usable graph. Do not apply any header, Register, control, graph or construction change.
+
+### Authority conclusion
+
+Lane A reports that it now holds the Judge's direct, specific messages for the publication boundary,
+Choice-A setup transfer and exact graph-scope manifest. That resolves the **content/provenance
+question** for the current Lane A session. No additional business choice is needed.
+
+The same report states the checkpoint is **planning only** and that no Register/header/graph action
+is authorized. Therefore it does not yet authorize canonical application. The correct distinction is:
+
+| Fact | State now | Next evidence |
+|---|---|---|
+| Decision content | Judge-confirmed in Lane A's direct conversation | Preserve the exact messages and D-183 fields |
+| Durable authority record | Absent; newest Register entry remains D-241 | A later explicit Lane A application instruction, then assigned Register IDs |
+| Application | Not authorized by this planning-only round | D-54 commits and bounded control commit in an authorized Lane A run |
+| Independent verification | Cannot exist before application | Lane B compares the committed record/application with the direct Judge messages afterward |
+
+Merely pasting Lane B's summary into a later session is still second-hand evidence. A later Judge
+message may either quote the exact decisions and authorize their application, or instruct Lane A to
+apply the already-confirmed decisions from its retained conversation. Until then, use **“Judge
+decision content confirmed in the current conversation; canonical application not yet authorized.”**
+
+### Graph-order correction
+
+Lane A's proposed order moves D-231 ahead of Product propagation so later steps can read a usable
+graph, while retaining one rebuild at the end. Both cannot be true:
+
+- amending the matcher/control does not populate missing semantic sources;
+- storyboard and traceability become usable only after rebuild and curated re-merge; and
+- later Product/packet edits make that early graph stale again.
+
+Two coherent choices exist:
+
+| Sequence | Cost and consequence |
+|---|---|
+| **One final rebuild — recommended** | Use direct authoritative sources during propagation. Apply B-115, boundary/transfer, Product/MMF/template work, then the separate D-231 unit; rebuild and re-merge once after the last governed edit. |
+| **Semantic graph first** | Apply D-231, rebuild/re-merge/check immediately, use the repaired graph during later work, then rebuild/re-merge/check again after Product propagation. Two synchronization cycles are required. |
+
+The current plan does not show a need that justifies the extra cycle. Direct source review remains
+mandatory even after coverage passes, so the one-final-rebuild sequence is simpler and equally safe.
+At any pause after a governed edit, synchronize before handover; that pause converts the work into a
+new run boundary and ends the one-rebuild optimization.
+
+### Corrections retained from Lane A
+
+1. B-115 precedes DoD review and PR-template creation.
+2. B-088's planned terminal condition remains one exact conjunctive sentence, but its header stays
+   unchanged in this planning-only round.
+3. Storyboard and traceability remain coverage-required; the coverage-only manifest does not contain
+   them.
+4. Panel A9 may receive the publication annotation, while B-117 retains its distinct full normal/
+   revision storyboard, UML and data-flow child.
+5. A later Lane A session must receive durable direct Judge text or an explicit apply instruction;
+   B-119 cannot substitute for that provenance.
+
+### Final parent-first plan for the next authorized Lane A run
+
+| Order | Atomic unit | Success evidence |
+|---:|---|---|
+| 0 | Confirm the execution checkpoint | Judge explicitly authorizes Lane A to apply the already-settled decisions; exact D-183 source retained |
+| 1 | B-088 normalization, handoff-only | Answered/Deferred header, exact return condition and valid read-commit audit anchor |
+| 2 | B-115 governance act | Intent/Build/DevOps owners canonical before readiness artifacts consume them |
+| 3 | Publication boundary then setup transfer | Two Register IDs/tier tables and one dependency-ordered D-54 Product/setup pass |
+| 4 | Product/MMF propagation and DoD review | Product PRD, packets, traceability, storyboard and Encyclopedia agree; Lane B feasibility and Judge acceptance remain distinct |
+| 5 | One-MMF PR template | Governed artifact created after B-115 and DoD review; no work authorization implied |
+| 6 | D-231/B119 graph-scope unit | Separate atomic Register/control/fixture change using the exact manifest |
+| 7 | Final graph synchronization | Rebuild, curated re-merge and full local checks after the last governed edit; coverage, drift and source evidence pass |
+| 8 | Per-entry lifecycle and independent review | Each entry computes its own state; Lane B verifies application; only then may the Judge select one MMF and issue a work order |
+
+### Failure-to-success criteria
+
+| Guaranteed failure | Observable success |
+|---|---|
+| “Planning only” is treated as permission to mutate canonical files | A later message explicitly authorizes the Lane A application checkpoint |
+| Decision content is sent back for another business choice | Existing direct Judge choices are retained; only execution authorization remains |
+| D-231 moves early but graph rebuild remains late | Either keep D-231 late for one rebuild, or perform both required synchronization cycles |
+| Early graph is handed over after later Product edits | Every run boundary has green drift against the last governed commit |
+| Coverage PASS is treated as semantic correctness | Direct source review and independent verification remain required after path representation passes |
+
+### Final verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Publication, transfer and graph-scope decision content | Preserve as settled Judge content; no new business choice |
+| **Approve** | B-115 as readiness parent | First governed parent after execution authorization |
+| **Approve-with-conditions** | D-183 application | Explicit future apply checkpoint, durable Register record, then Lane B verification |
+| **Approve-with-conditions** | Graph repair | Keep D-231 late for one rebuild, or pay two complete sync cycles if moved early |
+| **Defer** | B-088 header, Register acts, template, graph changes, PR, work order and construction | Planning-only guardrail; next authorized Lane A run |
+| **Reject** | Treating planning confirmation as apply authority; asking the same business choices again; early graph scope with only a late rebuild | Use the coherent sequence above |
