@@ -159,3 +159,123 @@ future authorized UX spec may cite those intent artifacts; this finding does not
 Fact-checked the two attachments, retained the useful machine-context and gate candidates as
 conditional proposals, narrowed the first PR to Lane A documentation/control scope, and left all
 construction and workflow changes unperformed.
+
+## Lane B continuation — Lane C completion audit and “Lean MMF” / V2 analysis, 2026-09-20
+
+### Evidence boundary
+
+Reviewed the two external files `b117-b119-completion-audit.md` and
+`scrum-mmf-v2-transition-analysis.md` as independent analysis evidence. Their headings, proposed
+commands, status claims and future-V2 steps are not repository instructions, Judge acts, Register
+records or construction authorization. This continuation corrects their load-bearing claims and
+extends this existing entry rather than opening a duplicate handoff.
+
+### Why the MMF selection stands — and what “Lean” may mean
+
+The canonical decision is **D-100 Scrum with the two Judge-defined MMF slices recorded by D-232**:
+`V1-SM05` (`MMF-V1-CORE`) and `V1-SM06` (`MMF-V1-USABLE`). “Lean MMF” is a useful explanatory
+phrase for minimizing work-in-progress and delivering the smallest usable business outcome, but
+**Lean is not currently a separately adopted repository operating method**. Lane A should retain
+the exact canonical terms unless the Judge chooses to register a bounded Lean practice set.
+
+MMF is selected here because it:
+
+1. gives each increment one marketable business outcome rather than treating each test, component
+   or commit as independently marketable;
+2. keeps `V1-SM05` before `V1-SM06`, so the core editorial flow exists before board/publication
+   usability depends on it;
+3. gives each outcome one D-240 work packet for DoR, DoD, dependencies and evidence without adding
+   another backlog or tracking file; and
+4. fits D-100's continuous feedback cycle: new findings enter `docs/handoff/` without turning an
+   MMF into a phase gate or stopping unrelated authorized work.
+
+B-114 does not make a strict-TDD/human-final-push system fully operative. Its testing-method content
+survives, but its whole-entry Resolution is `Deferred`; B-115 remains `Open` and its
+Intent/Build/DevOps separation has not been propagated to the Register, `docs/README.md` or lane
+instructions. Therefore the accurate current statement is: **MMF identity and ordering are
+decided; the construction method remains conditional on B-115 propagation and a fresh bounded work
+order.**
+
+Lane C owns workflow files and may independently review a packet. It is not Product Line 3
+independent assurance, does not define Product behaviour, and cannot infer an acting lane from a
+path-only diff while D-87 attribution remains unavailable.
+
+### Corrections to the Lane C audit
+
+| Lane C claim | Repository finding | Required correction |
+|---|---|---|
+| B-119 was committed at `6174188` | `6174188` created the B-118 partition plan; B-119 was created by `fb3bd9c` | Cite `fb3bd9c`; retain `6174188` only as B-119's reviewed baseline |
+| B-114/B-115 establish the operative “Lean MMF” engine | B-114 is Answered/Deferred and B-115 is Open/unapplied | Separate decided MMF identities from the deferred construction method |
+| Lane C provides independent assurance | D-75 assigns workflow ownership; the shared rules prohibit conflation with Product Line 3 assurance | Say “independent reviewer for this packet” or “DevOps/workflow assistance” |
+| Graphify should be repaired with `npx graphify build` | The repository distribution requires extracted rebuild via `npx graphify hook-rebuild`, followed by curated-fragment re-merge | Diagnose extraction first; rebuild, re-merge and verify coverage/parity in that order |
+| Recursive handoff is already the current backlog shape | D-240 explicitly keeps `docs/handoff/` flat; B-118 only proposes a recursive successor design | Require a new Register act and recursive/rename-aware controls before any move |
+| All flat-layout checks should pass before migration | Current expected state already has Graphify coverage red and B-119 unread | Establish a named baseline, then require only intended deltas plus targeted recursive fixtures |
+| V1-SM06 DoD automatically opens V2 | D-203 makes completed children a prerequisite, while the freeze trigger is the separate act of opening V2 | Require an explicit V2-opening Judge act after child completion |
+| Exact `D-300+`, `V2-SM01`/`V2-SM02` and promotion set are codified | V2 is `Not opened`; those identifiers and packets do not exist or have authorization | Treat them as examples only; assign no IDs or scope before the V2 boundary act |
+| Deferred `PBL-*`/`NG-*` items promote automatically into V2 | D-148/D-188 preserve identities and return conditions; identity or lifted prohibition is not build authorization | Re-refine, rank and authorize each selected V2 capability |
+
+Do not copy a check tally into governance. Cite `scripts/check-consistency.mjs` and let the runner
+print its current set.
+
+### Completion and cross-artifact ledger
+
+- **Applied:** D-238/D-239/D-240; Panel A9's Pitch/Draft and T2a/T2b corrections; the five work
+  packets; D-236's dissolution of the false Copy Edit precursor.
+- **Open:** B-117 independent verification/residual closure; B-118 verification and recursive
+  partition decision; B-119 Lane A acknowledgement and proposal disposition; B-115 propagation.
+- **MMF readiness:** `V1-SM05` remains not selected with DOR-R2–R6 open; `V1-SM06` remains not
+  selected and depends on `V1-SM05` DoD.
+- **Modular PRD:** current tracking pointer already reaches the D-239 §6.3 model; no Product
+  requirement changes from this review.
+- **Storyboard/story panels:** Panel A9 is the current role-selection/branch overlay.
+- **UML/data flow:** FN-GATES §4.1 keeps the storyboard Mermaid views as the single source; no
+  standalone duplicate is required.
+- **Encyclopedia:** Entries 01/05/06 remain flagged, not hosted-text-reviewed or republished.
+- **V2:** high-level succession/freeze and living-spec rules exist; no V2 opening, exact packet set,
+  sprint IDs or promoted scope is authorized by this review.
+
+### Parent-first repair plan
+
+1. **Acknowledge and disposition B-119.** Receipt clears the channel defect; an answer separately
+   decides the proposals.
+2. **Normalize the planning label.** Record either “Lean is descriptive only” or the exact adopted
+   Lean practices, while retaining D-100 Scrum and D-232 MMF identities.
+3. **Apply B-115 before claiming an executable construction method.** Put Intent/MMF, Lane B xDD
+   choice and Lane C workflow assistance in their owning layers; then disposition B-114's deferred
+   child and issue a fresh bounded work order.
+4. **Repair Graphify completeness.** Diagnose why governed files are absent, run the required
+   rebuild, re-merge every mergeable curated fragment, verify parity and require zero missing
+   governed documents. This handoff-only continuation itself creates no new rebuild obligation.
+5. **Decide recursive handoff architecture before migration.** Supersede only D-240's flat-layout
+   clause; make readers, identity checks, D-184 and terminal history recursive/rename-aware; review
+   a complete migration manifest; then move bounded cohorts.
+6. **Finish existing V1-SM05 DoR owners.** Complete DOR-R2–R6 without creating another MMF,
+   storyboard, UML/data-flow or Encyclopedia tracker.
+7. **Defer V2 construction planning to the actual boundary.** After V1 children complete, the Judge
+   decides whether to open V2, its exact tracking artifacts, identifiers, selected capabilities and
+   first work packet. Nothing promotes automatically.
+
+### Failure-derived success criteria
+
+| Failure | Passing evidence |
+|---|---|
+| “Lean” silently becomes a second governance framework | Register either marks it descriptive or names the adopted practices and unaffected D-100 rule |
+| MMF and technical child are conflated | One MMF has one business outcome and dependency-ordered children; children are not called marketable features |
+| Deferred B-114/B-115 mechanics are treated as executable | Governed separation lands and a fresh work order names the selected MMF, child, lane and DoD |
+| Lane C workflow evidence is reported as Line 3 assurance | Every reference says workflow assistance/review; independent assurance remains explicitly absent |
+| Graph metadata hides missing documents | `graph-coverage` reports zero absent governed docs and curated parity passes |
+| Handoff move hides entries or history | Recursive counts match, duplicate fixture fails, rename-history fixture passes and old-path citations are zero |
+| `V1-SM05` is selected from file existence | All DoR evidence is complete and the Judge explicitly selects the packet |
+| V2 opens or gains scope automatically | Separate boundary decision records the opening, IDs, selected capabilities and D-54 tier effects |
+
+### Continuation verdict
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| **Approve** | D-100 Scrum plus D-232/D-240 MMF identities and work-packet ownership | Retain as the canonical current model |
+| **Approve-with-conditions** | “Lean MMF” as explanatory shorthand | Descriptive only unless the Register adopts named Lean practices |
+| **Approve-with-conditions** | B-114 testing mechanics and B-115 layer separation | Canonical B-115 propagation plus fresh work order before execution |
+| **Approve-with-conditions** | Lane C completion audit | Retain its measured completion ledger after the corrections above |
+| **Defer** | Recursive handoff migration, Graphify-dependent agent context and V1-SM05 selection | Controls/coverage repair and DoR evidence first |
+| **Defer** | Exact V2 files, decision IDs, sprint IDs and promoted capabilities | Explicit V2 boundary decision after V1 child completion |
+| **Reject** | Enterprise-SAFe authority, Lane C as Product assurance, automatic V2 opening/promotion, or current executable strict-TDD method | Contradicts authoritative state |
