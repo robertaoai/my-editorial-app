@@ -1972,3 +1972,153 @@ in bulk. The unrelated open entries were not touched.
 | **Approve-with-conditions** | Graph coverage green | Phase 1 — path representation only; direct source review; semantic description fill remains pending |
 | **Defer** | Three `ManualReady` children, hosted Encyclopedia review, B-117/B-118 child tables, MMF selection, Judge statement B, construction | Phase 1 — a Judge-named fact each, then per-entry evidence and a later bounded act |
 | **Reject** | Closing B-119 or any sibling from this application; treating coverage PASS as semantic correctness; inferring build authority from the template or from Lane B `Eligible` | Keep per-entry lifecycle and the two-checkpoint model |
+
+## Lane B independent review — Statement A is applied, but closure and MMF feasibility remain open, 2026-09-21
+
+### Clearer request and boundary
+
+Independently compare Lane A's `D-242`–`D-246` application with B-119, identify any fact that would
+make setup closure or the first MMF fail, and give Lane A a parent-first correction plan with observable
+success criteria. Review the Product PRD, Fn Specs, storyboard/UML/data-flow annotations, Encyclopedia
+ledger, work packets and Graphify representation without authorizing construction. This section is that
+planning-only review. It changes no canonical source, selects no MMF and grants no lane or build authority.
+
+### Completion and lifecycle ledger
+
+| Item | Independent finding | Lifecycle consequence |
+|---|---|---|
+| `D-242` / B-115 responsibility split | **Usable by Lane B.** Intent ownership, Build/xDD refinement and DevOps assistance are separated clearly enough for a future work order. | Lane B's consumer read is complete. B-115 remains `Applied`, not independently `Verified`, until its other required consumer review is recorded. |
+| `D-243` publication boundary | **Applied as a narrow V1 amendment.** LinkedIn `ManualReady` is a target-level publication event; WordPress automation and `FR-10`/`T11` are only V2 targets. | The parent boundary is reviewable. Trigger/precondition, invoking authority and revision behaviour remain open and block `V1-SM06` DoR. |
+| `D-244` destination table | **The behaviour destinations are explicit and avoid a blanket V2 move.** | The transfer map is usable, but the title's claim that `SETUP-SPIKE-000` “closes” is not accepted while `S2`–`S4` remain open/held and no packet is retired. |
+| `D-245` readiness contracts | **The PR template is usable and grants no authority.** The DoR state is honestly incomplete. | The two DoD contracts are defined but not yet feasible as written; they require the boundary corrections below before Judge acceptance. |
+| `D-246` graph scope/control | **Path representation is locally green.** The analyzed governed head is `d6a8477`, Graphify reports `stale: false`, and the repository consistency suite is green. | This proves source-path coverage, not semantic currency or portability. Those are separate open checks. |
+| Product/Fn/traceability/storyboard cross-references | `Modular_PRD`, publication Fn Spec, traceability and Panel A9 carry the new boundary by reference or annotation. | B-117's one authoritative normal/revision visual and matching data flow remain open; an annotation is not that missing diagram contract. |
+| Encyclopedia | The repository ledger flags the affected entries. | Hosted comparison and republish remain unperformed. The ledger is not publication evidence. |
+| Handoff closure | B-088 is `Answered/Deferred`; B-115 is `Answered/Applied`; Statement A's canonical units exist. | B-117, B-118 and B-119 remain open under their own child conditions. One green run cannot close them in bulk. |
+
+### Parent 1 — settle which V1 outcome is being promised
+
+The frozen Project PRD/Charter success path requires the five-gate path, Chief Journalist approval and
+then publication or LinkedIn readiness. `D-239` as amended by `D-243` permits the narrower
+`ManualReady` event after a `business:T5` Chief Editorial Desk ranking/routing record and still excludes
+workflow execution and Chief Journalist approval. Both statements can coexist only if the new event is
+described as a limited V1 readiness outcome rather than the full frozen success scenario.
+
+| Judge choice | Required wording and scope | Consequence | Lane B recommendation |
+|---|---|---|---|
+| **A — retain the accepted narrow V1 boundary** | `V1-SM05` records and displays the selected route, business-phase and operation evidence without claiming technical state-machine execution. `V1-SM06` adds board/audit visibility and the bounded LinkedIn `ManualReady` event. | `CR-19` and the full PRD success scenario remain only partially satisfied in V1; the work packets must say so. | **Accept.** It preserves `D-239`/`D-243`, avoids hidden scope growth and produces an honest first build. |
+| **B — make V1 deliver the full frozen success scenario** | Amend `D-239`/`D-243` expressly to admit the five-gate execution and Chief Journalist approval needed before readiness. | Requires a larger workflow, evidence, schema, authorization and verification packet before either MMF can be selected. | **Defer.** Choose only by a new direct Judge act; Statement A does not authorize it. |
+
+Until that choice is recorded, the phrases **“core end-to-end editorial flow”** in `V1-SM05` and
+**“the full PRD success scenario becomes usable”** in `V1-SM06` are unsafe acceptance claims. Under
+recommended Choice A, replace them with the bounded outcomes above; do not edit the frozen sources.
+
+### Parent 2 — make setup transfer and setup closure say the same thing
+
+`D-244` correctly says the transfer grants no DoD credit and retires no packet. Its title nevertheless
+says the setup programme closes. `S2` stays `HELD`, `S3`/`S4` stay open/not started, and residual `T6`,
+RPC, return-analytics and publication scope still has non-terminal ownership. A parent cannot close while
+those children remain non-terminal.
+
+| Judge choice | Required repair | Success criterion |
+|---|---|---|
+| **A — keep the setup root open while residual children remain** | Add a Register correction naming `D-244` a transfer map with closure pending; align its title, curated node and all closure statements. **Recommended.** | Every setup child remains visible with one current owner and disposition; no root or packet is called closed or retired. |
+| **B — externalize every residual before closing the root** | Create one explicitly authorized future-scope owner for each held residual, then terminally defer/retire `S2`–`S4` without DoD credit before closing the root. | No behaviour or citation is ownerless; each child is terminal; the root closes only after those records land. |
+
+Neither choice sends all exclusions to V2. Only the targets already named by `D-243`/`D-244` retain that
+future target.
+
+### Parent 3 — repair the SM05/SM06 readiness contracts before review
+
+1. **Normalize namespaces.** The SM05 Behaviour DoD currently says work is recorded through `T1`–`T5`
+   with append-only transitions. It must identify whether each item is a `business:T*` judgment record,
+   a V1 `EG*` task/evidence record or a technical `transition:T*` state. Under Parent-1 Choice A it may
+   display/record the former evidence; it may not silently promise technical transition execution.
+2. **Limit the packet outcomes.** Replace SM05's end-to-end claim and SM06's full-success claim with the
+   selected Parent-1 outcome. Keep SM06 dependent on SM05 DoD.
+3. **Keep B-117 children visible.** The one normal/revision sequence, matching data flow, source-RACI
+   separation and any Copy Edit precursor/accountability contract stay separate prerequisites. Panel A9's
+   annotation does not discharge them.
+4. **Add a data-feasibility refinement before a work order.** The existing append-only `publications`
+   row has target, event, optional `provider_event_id`, content and actor fields, but no required content,
+   routing or publication-scope revision identity. Its conditional provider-event key cannot by itself
+   prove “one effective `ManualReady` per target and revision.” The revised DoR must require a named
+   revision/scope identity, idempotency key, effective-event query and stale-revision refusal evidence.
+5. **Review in the right order.** Judge accepts the bounded business outcome; Lane B reviews technical
+   feasibility and evidence usability; Lane C reviews only a named delivery/operability contract. None of
+   those reviews selects a packet.
+
+### Parent 4 — draft answer for the three `ManualReady` children
+
+The following is proposed decision text for Judge Accept/Reject. It is not a decision merely because it
+appears here.
+
+| Child | Proposed answer | Required evidence before DoR completes |
+|---|---|---|
+| Trigger and precondition | A qualifying request names the applicable route, current business/content revision, LinkedIn target and formatted content, and cites the completed `business:T5` Chief Editorial Desk ranking/routing record. No article-state transition or publication approval is inferred under Parent-1 Choice A. | Acceptance and refusal examples for missing/stale T5 evidence, wrong route/target, missing content and stale revision. |
+| Acting authority | Keep the business source, human authorization and database executor separate. The application service performs the append; the Judge must name the product role allowed to request it. The T5 actor is not silently converted into publisher or approver. | Authorized and unauthorized actor cases, recorded actor provenance and least-privilege database path. |
+| Revision behaviour | Retain every prior event. A relevant content, route, target or formatted-content revision makes the old event ineffective for the current revision; the new revision requires a new idempotent event. | Persistent revision/scope identity, uniqueness/idempotency proof, effective-current query and replay test. |
+
+If the Judge instead requires Chief Journalist approval as a precondition, that is Parent-1 Choice B and
+must amend `D-239`/`D-243`; it cannot be smuggled into a child row while the parent excludes it.
+
+### Parent 5 — normalize Graphify semantics after the canonical repair
+
+The graph is structurally synchronized for the governed commit, but restored descriptions still contain
+older meanings. For example, the `FR-09` node still says approval triggers WordPress or `ManualReady`,
+and `FR-10` still describes current live-URL promotion without the V2-target boundary. The curated
+`D-243` node is current, so a query can return both old and new summaries.
+
+Lane A should perform one bounded semantic refresh only after Parents 1–4 land. `--fill-missing` alone is
+insufficient because the stale descriptions are populated. The refresh succeeds only when direct queries
+show all of the following:
+
+- `FR-09` distinguishes V1 LinkedIn `ManualReady` from future automated WordPress;
+- `FR-10` says V2 target without opening V2 or changing its `[V1]` origin;
+- the Build Spec result distinguishes business-phase, EG-task and technical-transition namespaces;
+- `D-244` does not say the setup root is closed while a child is open or held.
+
+The current portable-artifact check also fails on absolute paths and command-like labels. That does not
+make the gitignored local graph stale, but it forbids a claim that the graph is portable/shareable.
+Track local semantic currency and artifact portability as separate acceptance checks.
+
+### Guaranteed failures and observable success
+
+| Guaranteed failure | Why it fails | Observable success criterion |
+|---|---|---|
+| Close `SETUP-SPIKE-000` now | Non-terminal children and held residual scope contradict the parent closure rule. | Parent 2 choice is recorded and every child satisfies that choice. |
+| Select SM05 from the current packet | DoR remains incomplete; its DoD overstates the accepted execution boundary; Lane B is not Active and has no work order. | Revised DoD is independently accepted, every DoR row has evidence, one immutable packet is selected, Lane B becomes Active and a bounded work order exists. |
+| Treat business `T1`–`T5` records as technical transitions | It reintroduces the namespace conflation and promises excluded state-machine execution. | Every criterion names its namespace and storage/evidence meaning. |
+| Claim SM06 completes the full PRD success scenario under Parent-1 Choice A | Chief Journalist approval and the full gate execution needed by `CR-19` remain excluded. | The packet says “limited V1 readiness outcome,” or a new Judge act selects Choice B and funds its prerequisites. |
+| Implement replay/revision from the current publication row alone | No mandatory revision/scope identity establishes which event is current. | The data contract and tests prove current revision, idempotent replay, stale refusal and retained prior evidence. |
+| Treat graph coverage as semantic verification | Current source paths coexist with stale restored descriptions. | The named Graphify queries return only the current boundary, and portability is reported separately. |
+| Close B-119 from Statement A or a green consistency run | Three behaviour children, feasibility review, hosted Encyclopedia comparison and independent lifecycle evidence remain open. | Every child has a disposition and evidence; the weakest-child rule then permits a terminal header. |
+
+### Lane A follow-up sequence
+
+1. Present Parent-1 and Parent-2 choices to the Judge; do not infer either from this review.
+2. Register the selected outcome and the `D-244` closure correction before editing derived tiers.
+3. Propagate the selected facts once through the Build Spec, Artifact Inventory disposition, Product PRD
+   tracker, affected Fn Specs, traceability, work packets, the single storyboard/UML/data-flow source and
+   Encyclopedia ledger; state unaffected tiers explicitly.
+4. Present the three Parent-4 `ManualReady` rows for Judge Accept/Reject, then update the behavioural
+   contract without assigning the physical database design to the Judge.
+5. Return the revised SM05/SM06 DoD and data contract to Lane B for feasibility review. Keep both packets
+   unselected and keep Statement B unavailable until their DoR is complete.
+6. Complete B-117's separate visuals/RACI children and the hosted Encyclopedia comparison, or give each
+   an explicit accepted deferral; do not count an annotation or ledger flag as completion.
+7. After the last canonical edit, rebuild and re-merge Graphify once, run the semantic query criteria and
+   local checks, and report portability separately.
+8. Apply lifecycle changes per handoff. B-119 closes only after its own weakest child is terminal;
+   B-117/B-118 are not inherited closures.
+
+### Final verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | `D-242` Lane B consumer usability; `D-243` narrow event/V2-target separation; the one-MMF PR template; `D-246` path-coverage control | Preserve in the next canonical pass; obtain the remaining independent consumer/evidence reviews |
+| **Approve-with-conditions** | `D-244` destination map | Parent 2 — correct the false closure implication and keep every residual under one named owner |
+| **Approve-with-conditions** | SM05/SM06 readiness contracts | Parents 1, 3 and 4 — select the promised V1 outcome, repair namespaces/outcome claims, decide the three children and prove data feasibility |
+| **Defer** | Statement B, MMF selection, work order, branch/PR, construction, hosted Encyclopedia publication and B-117/B-118/B-119 closure | Complete the documentation, evidence and independent-review prerequisites above |
+| **Defer** | Graph semantic refresh and portability repair | Run after the final canonical correction; use separate semantic and portable acceptance checks |
+| **Reject** | Current setup-root “closed” label; full-PRD/end-to-end claims under the narrow D-239/D-243 boundary; current publication schema as sufficient revision proof; coverage PASS as semantic currency | Use the parent-first repair plan and observable criteria above |
