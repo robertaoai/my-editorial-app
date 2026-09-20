@@ -894,7 +894,7 @@ exclusive document classes.
    applicable Encyclopedia entries, reconcile every authoritative graph omission, and run the full
    consistency suite.
 9. **Answer B-119 in place and authorize last.** Record the substantive Lane A response here,
-   apply the correct non-terminal disposition while any child remains open, then let the Judge
+   apply the correct weakest-child Resolution after every child has a disposition, then let the Judge
    select one bounded V1-SM05 child and its Active lane through a fresh work order.
 
 ### Critical artifacts and success evidence
@@ -963,7 +963,7 @@ packet, lane state or construction authority.
 | Remove a false canonical `NG-04` citation | **Withdrawn correctly** | No such canonical citation exists. Do not introduce one. WordPress exclusion comes from D-239 as amended. |
 | Avoid preassigned Register IDs and physical replay keys | **Accept** | Lane A assigns the next ID at application. Functional intent states observable idempotency/replay; authorized Lane B later chooses persistence and key mechanics. |
 | Add Encyclopedia Entry 04 to the impact ledger | **Accept** | Entry 04 directly owns article-state versus publication-status semantics and is not currently flagged for this new decision. Entries 01/05/06 remain separate impact checks. |
-| Move B-119 to `Answered` after Lane A's substantive response | **Accept with conditions** | Use `Status: Answered` and a non-terminal weakest-child disposition such as `Resolution: Deferred`; `Applied` and `Verified` remain unavailable until their distinct evidence exists. |
+| Move B-119 to `Answered` after Lane A's substantive response | **Accept with conditions** | Use `Status: Answered` and compute the header from every child under D-204. `Applied` is provisional and weaker than terminal `Deferred`; `Verified` requires its distinct evidence. |
 
 ### Exact `B119-GRAPH-SCOPE` manifest received
 
@@ -1034,8 +1034,8 @@ in graph JSON; that does not prove the file was extracted into a useful semantic
    no-duplicate observable replay, revision and refusal evidence. Leave table/query/key/interface
    choices to an authorized Lane B child refinement.
 5. **Write Lane A's substantive answer in B-119.** Cite the canonical commit and stable `B119-*`
-   topics, set `Status: Answered`, and use the weakest unresolved child for a non-terminal
-   Resolution. Do not claim independent verification in the applying commit.
+   topics, set `Status: Answered`, and compute the Resolution from all child dispositions under
+   D-204. Do not claim independent verification in the applying commit.
 6. **Apply B-115 as its own governed unit.** The Judge clarification already exists in B-115;
    Lane A still must propagate Intent/Build/DevOps ownership without prescribing Lane B's xDD.
 7. **Amend D-231 and repair coverage in a separate unit.** Record the exact manifest paths and
@@ -1057,10 +1057,11 @@ in graph JSON; that does not prove the file was extracted into a useful semantic
 | `B119-ANSWER` | **Judge-selected A; unwritten by Lane A** | Substantive in-file answer, then `Status: Answered` with weakest-child Resolution. |
 
 The current Lane B review does not itself change the B-119 header. After Lane A answers, the
-correct intermediate shape is `Status: Answered` plus a non-terminal Resolution while graph scope,
-B-115 or independent verification remains open. `Resolution: Applied` describes canonical
-application, and `Resolution: Verified` requires a later independent act; neither is supplied by
-the answer alone.
+correct intermediate shape is `Status: Answered` plus the D-204 weakest-child Resolution. If any
+child is `Applied` and none is absent, the whole entry is `Applied`, because provisional is weaker
+than terminal `Deferred`. `Deferred` is valid only when the computed weakest child is terminal and
+requires `Follow-up-Tier`; `Verified` requires a later independent act. The answer alone supplies
+none of those child facts.
 
 ### Reconciliation verdict
 
@@ -1070,6 +1071,87 @@ the answer alone.
 | **Approve** | Encyclopedia Entry 04 impact and withdrawal of the NG-04 claim | D-54 applicability and ledger flag |
 | **Approve-with-conditions** | Exact coverage-only manifest | Amend D-231; use explicit paths; preserve docs-drift and referenced journals |
 | **Approve-with-conditions** | Coverage-required remainder | Classify path by path; command completion or an arithmetic tally is not extraction evidence |
-| **Approve-with-conditions** | B-119 `Answered` transition | Weakest-child non-terminal Resolution; later independent verification |
+| **Approve-with-conditions** | B-119 `Answered` transition | Disposition every child, compute D-204 weakest-child Resolution, then obtain independent verification |
 | **Defer** | B-115 propagation, graph repair, packet retirement, DoR, work order and construction | Separate governed units after the product-scope D-54 pass |
 | **Reject** | Premature `[V1→V2]`; calling all remainder files authoritative; treating `hook-rebuild`/merge as proof; shared-matcher edit without D-231 amendment; physical replay keys in Fn Specs; `Applied`/`Verified` on Lane A's answer commit | Apply the corrected plan above |
+
+## Lane B final planning delta — exact manifest confirmed, execution still deferred, 2026-09-20
+
+### Authority and scope update
+
+The supplied Lane A record now confirms that the Judge selected the exact manifest paths already
+listed above. `B119-GRAPH-SCOPE` is therefore **Judge-confirmed but unapplied**, rather than awaiting
+path confirmation. The current request remains planning-only: no Register, canonical document,
+script, fixture, graph artifact, work packet, lane state or construction file is changed here.
+
+The exact manifest is a fact; its changing numerical size is not the authority. Lane A should cite
+the paths or the Register identity that owns them, not restate a tally in derived tiers.
+
+### Final corrections to Lane A's draft
+
+1. **Do not send every retained exclusion to V2.** The Judge selected a V2-target backlog for
+   automated WordPress and `FR-10`/`T11`. D-239 keeps external GRC, `T6`, Line 3, full state-machine
+   execution and related held scope outside V1, but that alone does not assign every item to V2.
+   Preserve each existing held/deferred disposition unless a separate Judge act names its target.
+2. **Keep `[V1]` and add a current-scope note.** `FR-10`, `US-10`, `AC-16`, `AC-16a`,
+   `TR-API-04` and the publication Fn Spec retain their V1 origin. The new decision records that
+   their runtime delivery behaviour is outside the selected V1 slice and targeted to a future V2;
+   `[V1→V2]` remains unavailable until V2 exists and materially revises them.
+3. **Add the reverse-reference fixture.** A manifest path later cited by a live or canonical source
+   must cease qualifying for coverage exclusion. The test must fail closed and name the new incoming
+   reference; silently retaining the exclusion would make the manifest a future blind spot.
+4. **Treat the current remainder as provisional.** Replacing the basename-substring test with an
+   exact normalized source-path relationship may reveal more missing sources. Classify the resulting
+   paths after the stronger check runs; do not preserve the present remainder as a target count.
+5. **Use local evidence for the graph controls.** CI intentionally skips graph coverage and
+   docs-drift. Fixtures can run in CI, but only the full local graph plus full-history check proves
+   the manifest, extraction and drift behavior together.
+6. **Condition the one-rebuild optimization.** One final rebuild and curated re-merge is valid when
+   the product act, B-115 propagation and D-231 amendment finish in one uninterrupted authorized
+   Lane A run, as D-239's prior same-round propagation did. If work stops between turns, rebuild,
+   re-merge and verify at that turn boundary; do not hand the next consumer a knowingly stale graph.
+7. **Make the B-119 answer describe the actual final state.** If B-115 has landed before Lane A
+   writes the answer, do not call it open. Give every child a disposition and compute the header
+   under D-204: absent is weaker than provisional, and provisional `Applied` is weaker than terminal
+   `Deferred`. Do not preselect `Deferred`; it is terminal and requires `Follow-up-Tier`. A later
+   independent act may establish `Verified` when all applicable evidence exists.
+
+### Minimal parent-first implementation plan — for Lane A, not executed here
+
+| Order | Governed unit | Completion evidence |
+|---:|---|---|
+| 1 | **Product-scope act and D-54 propagation** | Register ID assigned at application; D-239 amended only for LinkedIn `ManualReady`; `FR-10`/T11 and automated WordPress targeted to future V2; other exclusions retain their prior dispositions; Build Spec, Inventory, V1-SM06, Product Requirements Document tracking, publication Fn Spec, traceability, Panel A9 and Encyclopedia Entry 04 agree. |
+| 2 | **B-115 Intent/Build/DevOps propagation** | Register and request-to-execution ownership sources agree; Lane B retains per-child xDD choice; no filesystem ownership or work order changes by implication. |
+| 3 | **D-231 amendment and graph-control implementation** | One base governed-intent classifier plus exact coverage-only layer; normalized source-path evidence; manifest paths drift-visible; seven fixture obligations, including reverse reference, pass. |
+| 4 | **Graph rebuild, curated re-merge and local verification** | Rebuild occurs after the last governed change in the run; curated fragments re-merge with no unexplained failure; every post-strengthening omission has a path-level disposition; docs-drift points to the final governed HEAD. |
+| 5 | **Lane A answer in B-119** | Stable `B119-*` crosswalk, every child disposition, canonical commit evidence, `Status: Answered`, and the D-204 weakest-child Resolution; no self-verification claim. |
+| 6 | **Independent review and authorization** | Reviewer verifies applied facts; DoR is complete; Judge selects one bounded V1-SM05 child and the Active lane through a fresh work order. |
+
+### Guaranteed failure conditions and success tests
+
+| Failure condition | Deterministic failure | Success test |
+|---|---|---|
+| Assign all D-239 exclusions to V2 | Creates target scope the Judge did not select | Only WordPress and `FR-10`/T11 carry the confirmed future-V2 target; every other item preserves its source disposition. |
+| Static manifest with no reverse-reference guard | A newly authoritative journal remains invisible | Fixture inserts a live/canonical citation and proves the path returns to coverage. |
+| Basename substring accepted as coverage | A mention can impersonate extraction | Coverage requires an exact normalized source-path relationship to a graph source/node. |
+| Rely on CI for Graphify completion | CI has no graph/full-history inputs for the skipped checks | Full local suite runs against the rebuilt graph and complete history. |
+| Delay one rebuild across separate turns | A later consumer reads stale governed intent | Rebuild at the final commit of one uninterrupted run or at every turn boundary. |
+| Freeze a missing-file count in docs | Stronger detection immediately makes the record stale | Record classifications and paths; let the check print current totals. |
+| Preselect `Deferred`, `Applied` or `Verified` before child disposition | Can close over provisional work or claim evidence that does not exist | Disposition every child, compute D-204's weakest state, and record independent verification separately. |
+
+No repository evidence supports a literal claim that these documentation defects guarantee
+bankruptcy. The operational high-stakes standard is narrower and testable: no unauthorized
+publication, no fabricated scope target, no hidden graph source, no self-verification and no stale
+intent handed to a construction lane.
+
+### Final planning verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Exact coverage-only manifest and A/A/A Judge choices | Lane A Register application and in-file answer |
+| **Approve** | Entry 04 impact, `[V1]` retention and NG-04 withdrawal | Product-scope D-54 pass |
+| **Approve-with-conditions** | D-231 coverage-only layer | Exact source-path evidence, reverse-reference fixture and local verification |
+| **Approve-with-conditions** | One final Graphify rebuild | Same uninterrupted Lane A run only; otherwise synchronize at each turn boundary |
+| **Approve-with-conditions** | B-119 `Answered` transition | Disposition every child and compute D-204; do not preselect `Deferred` |
+| **Defer** | All canonical edits, controls, graph rebuild, packet retirement, DoR, work order and construction | Lane A execution after this planning-only review |
+| **Reject** | Sending all exclusions to V2; premature `[V1→V2]`; static manifest; basename-only proof; CI-only proof; stale graph across turns; fixed omission count; preselected or unearned Resolution | Use the minimal plan and success tests above |
