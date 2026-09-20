@@ -18217,3 +18217,63 @@ tool.
 Does not credit DoD to any sprint or packet, retire `S2`–`S4`, select `V1-SM05`/`V1-SM06`, open `V2`,
 mark anything `[V1→V2]`, close `B-117`/`B-118`/`B-119`, or authorize a branch, pull request, work order
 or construction.
+
+---
+
+## 5.14e70 `D-245` — `V1-SM05`/`V1-SM06` Readiness Contracts Defined; Reusable One-MMF Pull-Request Template Created
+
+**Authority: the Judge's 2026-09-20 instruction quoted in `D-242`, statement A step (5) (`D-183`).**
+Depends on `D-242` (the responsibility split the contracts consume) and on `D-243`/`D-244` (the scope the
+contracts describe), in that order.
+
+### The decision
+
+1. **DoD is defined for both packets** in `docs/v1/work-packets/V1/V1-SM05.md` and `V1-SM06.md` as
+   evidence-based checklists. **Defined is not complete**, and it is not reviewed: Lane B's feasibility
+   and evidence-usability review, and the Judge's acceptance of the business outcome, are two **separate
+   pending acts** recorded elsewhere. Lane C reviews only a delivery or operability evidence contract that
+   a packet actually names, and none does yet. None of these reviews selects an MMF or authorizes
+   construction (`docs/handoff/B-119`'s DoD-review split).
+2. **DoR is defined, and each box is checked only against current evidence.** `V1-SM05` keeps `DOR-R1`
+   checked and records what each other row still needs; `V1-SM06` keeps every box unchecked, because its
+   first dependency is `V1-SM05`'s DoD and three `ManualReady` children remain open (`D-243`). **No packet
+   is DoR-complete.**
+3. **One reusable pull-request template is created** at `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`, after
+   `D-242` and after the DoD definition and before any work order. It requires the Register act, the one
+   selected packet, the `Active` lane, the work order, DoR evidence, DoD-to-evidence links, verification
+   evidence including the local-only checks, data/secret impact, lifecycle and independent-verification
+   requirements, and it lists the conditions under which the pull request is refused. **It selects nothing
+   and grants no authority.** One pull request maps to one MMF packet; a packet that cannot fit is split
+   and re-authorized before construction.
+4. **Merge is not DoD.** A pull request is transport and review evidence; DoD is met by working behaviour
+   and its evidence, and is then independently verified.
+
+### Vocabulary fixed here
+
+**DoR defined** = the checklist exists. **DoR complete** = every required row has current evidence; only
+then may the Judge select a packet. **DoD defined** = the completion criteria exist before build. **DoD
+complete** = working behaviour, tests and evidence satisfy them after implementation. "Programme
+Increment" is not a repository object — `D-241` retains Scrum and MMF.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e70 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 increments text: DoR/DoD defined, not complete; template named; `DOR-R6` review set widened |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ one file created: `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` |
+| **`docs/v1/work-packets/`** | ✅ `V1-SM05`/`V1-SM06` DoD and DoR evidence status |
+| **`.github/`** | ✅ the template (Lane A's surface; `workflows/` untouched) |
+| **`docs/Modular_PRD.md`** | — unaffected: no requirement, §8 row or module status changes; no sprint closes and no tier opens |
+| **Rule files** | — unaffected: the template is a governed artifact, not a rule agents follow, and it moves no lane surface |
+| **`V1-PHASE-CLOSURE.md`** | — unaffected: no lane state changes and no phase closes |
+| **`docs/LANE-B-WORK-ORDER.md`** | — unaffected: `D-242`'s §7 already states the method; the template cites it |
+| **Encyclopedia** | Unaffected — no entry depends on readiness contracts or the template |
+| **Graphify** | Owed once after the last governed edit of this run |
+
+### What this act does NOT do
+
+Does not claim DoD or DoR completion, record either review as done, select `V1-SM05` or `V1-SM06`, make
+Lane B `Active`, issue a work order, open a branch or pull request, or automate pull-request validation
+(that would be a separate Lane C unit against a defined machine contract). Does not create any further
+`V1` sprint ID.

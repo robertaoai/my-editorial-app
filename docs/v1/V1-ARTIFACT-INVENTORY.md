@@ -76,6 +76,7 @@
 | `docs/v1/work-packets/SETUP-SPIKE-000/S4.md` | `D-240` — sprint MMF checklist | ✅ **Created 2026-09-17** |
 | `docs/v1/work-packets/V1/V1-SM05.md` | `D-240` — MMF checklist, `MMF-V1-CORE` | ✅ **Created 2026-09-17** |
 | `docs/v1/work-packets/V1/V1-SM06.md` | `D-240` — MMF checklist, `MMF-V1-USABLE` | ✅ **Created 2026-09-17** |
+| `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` | `D-245` — reusable one-MMF pull-request template; selects nothing, grants no authority | ✅ **Created 2026-09-20** |
 
 **No broken internal document links** — the docs are self-consistent. The gaps are artifacts that were planned but never created, not references that dangle.
 
