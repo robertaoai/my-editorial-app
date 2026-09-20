@@ -281,3 +281,138 @@ print its current set.
 | **Defer** | Recursive handoff migration, Graphify-dependent agent context and V1-SM05 selection | Controls/coverage repair and DoR evidence first |
 | **Defer** | Exact V2 files, decision IDs, sprint IDs and promoted capabilities | Explicit V2 boundary decision after V1 child completion |
 | **Reject** | Enterprise-SAFe authority, Lane C as Product assurance, automatic V2 opening/promotion, or current executable strict-TDD method | Contradicts authoritative state |
+
+## Lane B independent review — `D-241` application and remaining implementation plan, 2026-09-20
+
+**Reviewed source:** `4a2519a47db0b90fd8ee267b0f9e9b8715fabdc6`. **Scope:** plan and
+independent documentary review only. No canonical source, check, graph fragment, application file,
+schema, workflow or work-packet state is changed by this review.
+
+### Clarified request and completion boundary
+
+Audit Lane A's B-119 acknowledgement and D-241 application; distinguish completed authority work
+from open method, control, graph, MMF-readiness and terminal-closure work; verify the Product/story/
+diagram/Encyclopedia impact; and draft one dependency-ordered implementation plan without building
+it or opening duplicate gaps.
+
+Lane A receipt is now recorded at `80e8fe8`, and D-241 landed at `4a2519a`. D-241 correctly keeps
+D-100 Scrum and D-232/D-240 MMF identities, makes SAFe/Lean analogy-only, states every D-54 tier's
+disposition, selects no work packet and authorizes no construction. That bounded authority decision
+is complete as an application act; it is not evidence that B-119 as a whole is closed.
+
+### Tracking defect — parent numbers are no longer stable
+
+B-119 now contains two numbered parent-first plans. The original plan calls the context manifest
+“Parent 2,” independent controls “Parent 4,” and Graphify “Parent 5.” The later continuation calls
+planning-label normalization “Parent 2,” B-115 propagation “Parent 3,” Graphify “Parent 4,” and
+recursive handoff controls “Parent 5.” D-241 says it answers “Parent 2” and that “Parents 3–5”
+remain, while B-119's acknowledgement says disposition is pending “Parents 2 and 4.” Those numbers
+no longer identify one unique obligation.
+
+Use the following **review aliases only** until Lane A records stable identifiers; these aliases do
+not create a second backlog:
+
+| Review alias | Existing owner | State at reviewed commit |
+|---|---|---|
+| `B119-AUTH` — Scrum/MMF and SAFe/Lean authority | D-241 | **Applied; independently reviewable** |
+| `B119-METHOD` — B-114/B-115 Intent/Build/DevOps method | B-114/B-115 | **Open/Deferred; not executable** |
+| `B119-CONTEXT` — derived system-context projection | B-119 original Parent 2 | **Conditional proposal; no named consumer accepted** |
+| `B119-CONTROLS` — SQL/typegen/PR/lane checks | B-119 original Parent 4 | **Deferred as separate units** |
+| `B119-GRAPH` — extraction/coverage correctness | B-119 original Parent 5 and later Parent 4 | **Open; current sole consistency failure** |
+| `B119-HANDOFF` — recursive channel partition | B-118's existing partition plan | **Open under B-118; cross-reference only here** |
+| `B119-MMF` — V1-SM05 readiness/selection | Existing V1-SM05 packet | **Not selected; DOR-R2–R6 open** |
+| `B119-V2` — future boundary | D-36/D-203 and living backlog | **Deferred; V2 not opened** |
+
+Lane A should replace numeric Parent references in B-119's acknowledgement/current-status note with
+these owning topics or equivalent durable labels. Historical prose can remain unchanged.
+
+### Drift, Graphify and the coverage-only boundary
+
+At `4a2519a`, `.graphify/branch.json` records `lastAnalyzedHead` equal to HEAD and `stale: false`;
+`docs-drift` passes. The full suite nevertheless fails `graph-coverage`: 61 governed Markdown files
+are absent, including the Register itself, Fn Specs, governance maps and all five work packets.
+Graphify query does not surface D-241 as a semantic document node. Metadata currency and a larger
+node/edge count therefore do not prove usable coverage.
+
+D-241 records that a separate Judge answer exists concerning **coverage-only** exclusions for the
+journal and plan pack, but it deliberately does not record that answer. Do not implement an
+unrecorded summary. When Lane A records the exact act, preserve this boundary:
+
+- an intentional `graph-coverage` exclusion says a document need not be represented in the graph;
+- it must not automatically exclude the same document from `docs-drift` or source governance; and
+- authoritative Product, Fn Spec, governance, Register and work-packet sources remain coverage
+  candidates unless the decision explicitly says otherwise.
+
+Because `graph-coverage` and `docs-drift` currently share `governed-intent.mjs`, adding journal/plan-
+pack paths to that shared matcher would silently weaken drift detection. The implementation plan
+needs a coverage-specific classifier or an explicit mode, with fixtures proving the two policies do
+not collapse back together.
+
+### Cross-artifact review
+
+| Artifact | Current disposition |
+|---|---|
+| `Modular_PRD.md` | Unaffected by D-241; no requirement, module, §8 status or MMF readiness changed |
+| Storyboard and story panels | Unaffected; Panel A9 remains the D-239 role/branch overlay |
+| UML/sequence and data flow | Unaffected; FN-GATES §4.1 still points to the storyboard Mermaid views as the single source |
+| Encyclopedia | Unaffected by planning labels; Entries 01/05/06 remain flagged and not hosted-text-reviewed/republished |
+| Work packets | Files exist, but existence is not selection; V1-SM05 remains not selected and V1-SM06 remains dependent |
+| B-117/B-118 | Both remain Open; D-241 does not verify or close their broader residuals |
+| B-119 | Acknowledged and partly answered by D-241; still Open with no terminal Resolution or independent verification |
+
+### Parent-first implementation plan — do not build in this round
+
+1. **Stabilize B-119 tracking.** Add one current-status crosswalk using durable topic labels; mark
+   `B119-AUTH` Applied at D-241 and leave the other owners unchanged. Do not rewrite historical
+   parent-number prose as if it never existed.
+2. **Record the exact Graphify-scope Judge act.** State which journal/plan-pack classes are excluded
+   from coverage, why, and which policies remain unaffected. Apply D-54 tier dispositions.
+3. **Separate coverage policy from drift policy.** Add a coverage-specific classification path and
+   negative fixtures proving a coverage-excluded changed document is still evaluated by
+   `docs-drift` when governance requires it.
+4. **Repair extraction for the remaining authoritative set.** Diagnose before rebuilding; then run
+   `npx graphify hook-rebuild`, re-merge every mergeable curated fragment in dependency order,
+   verify per-fragment parity and rerun the full suite. Do not hide canonical files merely to make
+   the count green.
+5. **Apply B-115 only as a separate governed unit.** Keep Judge/User plus Lane A on Intent/MMF,
+   Lane B on per-child xDD choice, and Lane C on workflow/DevOps assistance. Then disposition the
+   deferred B-114 ownership child. This still selects no MMF and issues no work order.
+6. **Keep optional architecture proposals separate.** Evaluate `B119-CONTEXT` only with a named
+   consumer and generated/validated sources. Keep SQL naming, typegen, PR authorization and actor-
+   aware lane enforcement as independent units with meaningful fixtures.
+7. **Execute B-118's recursive-channel plan only after its own decision and controls.** Do not move
+   entries from this B-119 plan. Make readers, global IDs, D-184 and terminal history recursive and
+   rename-aware first; then use a complete citation migration manifest.
+8. **Complete V1-SM05 DoR in existing owners.** DOR-R2–R6 and independent review precede explicit
+   Judge selection. V1-SM06 and V2 remain downstream; neither starts automatically.
+9. **Close only by evidence.** Lane B reviews each committed bounded unit, the Judge accepts the
+   relevant result, and the entry records terminal Resolution/Verified evidence. Closing B-119 does
+   not automatically close B-117/B-118 or make an MMF ready.
+
+### Guaranteed failures and observable success
+
+There is no evidence of inevitable financial loss. The deterministic specification/control
+failures are narrower and testable:
+
+| If left unresolved | Guaranteed failure | Passing evidence |
+|---|---|---|
+| Reuse numbered Parent references | A future disposition can close the wrong proposal | Current crosswalk names one stable topic and one existing owner per obligation |
+| Put coverage-only exclusions in the shared matcher | A document disappears from both coverage and drift checks | Fixtures prove coverage exclusion and drift inclusion can coexist |
+| Treat `stale: false` as graph completeness | Agents query a current graph that omits authoritative sources | Zero unexplained authoritative omissions, parity pass and analyzed head equals final governed commit |
+| Rebuild without diagnosis/re-merge | Curated knowledge is lost or omissions recur | Root cause recorded; extracted rebuild precedes complete curated re-merge; repeat run remains green |
+| Treat D-241 as B-115 application | Construction starts without an executable ownership/method contract | Separate governed B-115 act plus fresh work order and selected lane |
+| Treat a work-packet file as selection | Lane B starts five unresolved DoR conditions | Every DoR row has evidence and the Judge explicitly selects the packet |
+| Let handoff closure imply MMF readiness | Transaction status substitutes for Product/build evidence | Handoff Resolution and work-packet DoR/DoD are evaluated and reported independently |
+| Let V1-SM06 completion open V2 automatically | Unapproved IDs/scope appear in a new version | Separate V2 boundary act names status, artifacts, selected scope and D-54 effects |
+
+### Review verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | D-241 authority decision and its Register-only tier disposition | Independent review, then retain |
+| **Approve** | B-119 acknowledgement at `80e8fe8` | Receipt complete; substantive residuals remain |
+| **Approve-with-conditions** | Graph coverage-scope correction | Record exact Judge act; preserve drift coverage; repair remaining extraction |
+| **Approve-with-conditions** | B-115 method separation | Separate governed unit; no MMF selection or construction authorization |
+| **Defer** | Context manifest and independent control scripts | Named consumer, source contract and negative fixtures per unit |
+| **Defer** | Recursive migration, V1-SM05 selection, V2 opening and B-117/B-118/B-119 closure | Existing owners and dependency evidence first |
+| **Reject** | Numeric Parent references as closure identities, `stale: false` as semantic completion, or D-241 as an executable build method | Replace with stable topic/owner evidence |
