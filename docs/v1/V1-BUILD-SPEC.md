@@ -42,6 +42,11 @@ section remains the **sequence and scope narrative** — the one owner of that f
 checklist, dependencies, artifact paths and evidence links for each of `V1-SM05`, `V1-SM06`, and
 `SETUP-SPIKE-000`'s `S2`–`S4` live in their own packet file, cited here rather than duplicated.
 
+**Readiness consumes the layer split (`D-242`, 2026-09-20).** DoR/DoD and the work order treat the MMF
+as Intent governance's accepted input, the child unit and xDD choice as Lane B Build governance, and
+Lane C's assistance as following accepted Lane B evidence. `D-242` states each layer's canonical
+destination once; this file moves no scope, sequence or DoD by citing it.
+
 **DoR dependency, not construction authorization (`D-232` follow-on; operation contracts recorded
 under `D-233`, corrected 2026-09-17).** `V1-SM05`'s pre-`T1` business boundary is settled — Judge
 clarification, `requirements-traceability-map.md` §6.1, `FN-GATES-01-05.md` §3.0. `docs/handoff/

@@ -17969,3 +17969,98 @@ disposition `B-114`, or issue a work order. Does not select `V1-SM05` or authori
 not change `graph-coverage`, `governed-intent.mjs` or any other check. Does not record the Judge's
 separate 2026-09-20 answer on graph-coverage scope (coverage-only exclusions for journals and the plan
 pack); that lands with its own unit.
+
+---
+
+## 5.14e67 `D-242` — Intent, Build and DevOps Governance Separated; Meaning Ownership Is Not Filesystem Stewardship
+
+**Judge approval received in the current conversation, 2026-09-20, pending durable registration,
+now recorded by this entry (`D-183` rules 1 and 5):** *"Judge Approved … Apply the Lane A governance
+and documentation packet (details refer 'judge decision table')"* — object: `docs/handoff/B-119`'s
+Judge decision table row 1 and Draft Judge statement A; action: apply its parent-first Lane A
+sequence; exclusions and checkpoint: those of statement A (no `app/`, `lib/`, `components/`,
+`supabase/`, `__tests__/` or workflow change; no build branch, pull request, work order, Lane B
+activation, construction, V2 opening, packet retirement, earned DoD, deployment, hosted Encyclopedia
+publication or bulk handoff closure; stop for independent Lane B review). The Judge's underlying
+separation of the three governance layers is `docs/handoff/B-115`'s 2026-09-16 clarification, applied
+here as statement A's step (2). This act is the first governed parent of that sequence, because the
+readiness contracts and the pull-request template consume its ownership split.
+
+### The decision
+
+Four responsibilities are separated, each with **one canonical destination**. Lane letters below name
+the *meaning owner*; the `D-75`/`D-227` file-surface map is unchanged and still decides who edits
+what.
+
+| Layer | Meaning owner | Canonical destination | Success criterion |
+|---|---|---|---|
+| **Intent governance** — business outcome, MMF definition, acceptance boundary, change conditions | The user/Judge; Lane A assists and writes | Register, `Modular_PRD`, `docs/fn-specs/`, the `D-240` work packets | Outcome, boundary, acceptance and change conditions are explicit; ambiguity returns to the Judge, never guessed |
+| **Backlog refinement** — dependencies, questions, child candidates, evidence needs, risks | The lane that raises the item (Lane B or C) | The originating `docs/handoff/` entry; Lane A answers inside it and promotes accepted facts once | Each blocker and owner is named without duplication. A handoff is a transaction, never a second canonical plan |
+| **Build governance** — xDD selection, dependency order, tests/examples, application construction and its evidence | Lane B | `docs/LANE-B-WORK-ORDER.md` §7 (method) and the selected work order (the unit) | Each authorized child records why its method fits; child and regressions pass; MMF integration proves the accepted outcome |
+| **DevOps/DevSecOps assistance** — CI/CD, security, monitoring, recovery validation | Lane C | `.github/WORKFLOWS-SPEC.md` §8 and the `D-229`/`D-230` evidence contract | Positive path passes and a deliberate failure turns red for the intended reason; a missing signal returns as one bounded C-series deficiency |
+
+**Release/deployment is a fifth, separate gate** and remains held: a push, a green child test or a
+green workflow is transport or assurance evidence, never MMF acceptance or release readiness.
+
+### Meaning ownership versus filesystem stewardship
+
+"Lane B owns Build governance" is authority over the *method and execution evidence* of application
+construction. It does not move Lane A's canonical documents or build configuration to Lane B, and
+"Lane C owns DevOps assistance" does not let Lane C define editorial state or Product behaviour. Lane A
+records each canonical method rule and provisions tools and dependencies (`D-86`); Lane B edits only
+its surface; Lane C edits only `.github/workflows/`.
+
+### Order the layers apply (parent first)
+
+1. **Intent/MMF accepted** by the Judge → 2. **refinement complete** for that MMF (no unresolved
+blocking dependency) → 3. **Lane B bounded build unit** with xDD rationale → 4. **Lane C bounded
+assistance unit**, only after Lane B exposes accepted evidence → 5. **deficiency loop** through
+`D-229`/`D-230` → 6. **integration and human push**, then separate release evidence.
+
+An MMF contains several Lane B construction children and one business outcome; it is never a technical
+child or a test case, and no single xDD method is forced on every artifact. Lane A does not choose the
+xDD method of a specific Lane B child.
+
+### What this corrects and preserves
+
+- **`B-114`** stays the source of the test-first and atomic-commit *content*. Its MMF and build-ownership
+  language is corrected **by reference**, not duplicated: MMF belongs to Intent governance and is the
+  accepted input to construction; the child unit and xDD selection belong to Lane B; Lane C assists
+  after Lane B evidence exists; the human final push remains a boundary after accepted integration
+  evidence. `B-114`'s own `Deferred` status is unchanged.
+- **`B-103`** stays the B↔C interface owner; its P1 wording is read as Lane B application/Build
+  governance, Lane C delivery-assurance assistance and Lane A Intent/interface governance.
+- **Push language:** Lane B/C construction uses local atomic commits and the human-final-push boundary
+  selected in `B-114`; Lane A's canonical commits and `D-184`'s handoff exception stay distinct.
+- **Readiness checks that can fail meaningfully** (missing Intent/MMF outcome; build child with no MMF
+  anchor; Lane C workflow with no accepted Lane B artifact; Lane C signal outside `D-229`; Lane B unit
+  with no xDD rationale; push record with no accepted integration tip) are **specified as refusal
+  conditions of the governed pull-request template and DoR/DoD contracts**, not built as new checks
+  here. A check for any of them is a separate, separately authorized Lane A unit.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e67 |
+| **`docs/README.md`** | ✅ "How a request becomes execution" gains the layer order and the `D-242` pointer |
+| **`docs/LANE-B-WORK-ORDER.md`** | ✅ new §7 — Build governance and xDD selection, by reference to this entry |
+| **`.github/WORKFLOWS-SPEC.md`** | ✅ new §8 — DevOps/DevSecOps assistance follows accepted Lane B evidence |
+| **`docs/specs/SPECS-VERIFICATION-APPARATUS.md`** | ✅ new §17 — which layer owes which proof; the positive/negative rule stays in §16, cited not restated |
+| **`V1-BUILD-SPEC.md`** | ✅ pointer only: readiness consumes this split; no scope, sequence or DoD moves |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file created or retired; the packets already exist under `D-240` |
+| **`docs/Modular_PRD.md`** | — unaffected: Product behaviour unchanged; §8 changes only on a sprint close or tier opening |
+| **Rule files** (`CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md`) | — unaffected: the lane surface map and lane rules do not change; shared core untouched |
+| **`V1-PHASE-CLOSURE.md`** | — unaffected: no lane state, run or boundary changes |
+| **Storyboard, story panels, UML, data flow** | — unaffected: Intent/acceptance inputs; build-method vocabulary must not enter the editorial journey |
+| **`docs/handoff/B-115`** | Answered by this act (`Applied`, not independently `Verified`); Lane B and Lane C consumer reads remain owed |
+| **Encyclopedia** | Unaffected — no entry in `docs/ENCYCLOPEDIA-SYNC.md` depends on governance-layer vocabulary |
+| **Graphify** | Owed once, after the final governed edit of this run (B-119 one-final-rebuild sequence) |
+
+### What this act does NOT do
+
+Does not select `V1-SM05` or `V1-SM06`, issue a work order, make Lane B `Active`, or authorize a branch,
+pull request or construction. Does not select an xDD method for any named child. Does not define the DoD
+or DoR contracts or create the pull-request template (later units of the same run, which consume this
+split). Does not build any readiness check. Does not change a lane's file surface or a rule file.
+Does not close `B-114`, `B-117`, `B-118` or `B-119`.

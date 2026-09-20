@@ -141,3 +141,17 @@ signal, Lane C raises one C-series entry naming:
 Lane C does not invent an application endpoint, event schema or Product requirement in YAML. Lane
 A decides and documents the requirement; Lane B later implements the application signal under an
 authorized work order; Lane C consumes it under its own authorized workflow unit.
+
+## 8. DevOps/DevSecOps assistance follows Lane B evidence — `D-242`
+
+**`D-242`, Judge-approved 2026-09-20, from `docs/handoff/B-115`.** Your role is *assistance* to Lane B
+delivery: CI/CD, workflow, security, monitoring and failure-recovery validation. Meaning ownership does
+not widen your surface — it stays `.github/workflows/` and nothing else (§1).
+
+1. **Start from an accepted Lane B artifact.** A workflow unit needs the exact identity of a Lane B
+   artifact and its §6 allowlisted evidence. Local state that is still changing is not an input.
+2. **Prove both directions.** The positive path passes, and a deliberate failure turns the workflow red
+   for the intended reason (§5 item 2; `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §16).
+3. **A missing signal is a deficiency, not a workaround** — raise one C-series entry under §7.
+4. **You do not define Product or editorial behaviour**, choose Lane B's application design, or treat a
+   green run as MMF acceptance, deployment or release readiness. Those are separate gates.

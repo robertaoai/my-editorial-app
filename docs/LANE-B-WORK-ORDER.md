@@ -433,3 +433,28 @@ secret store and are never printed.
 When a required signal is missing, Lane C raises one C-series deficiency under `.github/
 WORKFLOWS-SPEC.md` §7; Lane B does not broaden this allowlist by inference from that entry alone —
 a broadened allowlist is a new authorized unit, not a reading of someone else's gap report.
+
+## 7. Build governance and choosing a method — `D-242`
+
+**`D-242`, Judge-approved 2026-09-20, from `docs/handoff/B-115`.** Build governance is yours: once a
+Register act, a work order and §5's `Active` state exist for one MMF, **you** choose the smallest xDD
+method that proves each authorized child and record why it fits. Lane A publishes this rule and
+provisions tools; it never picks the method for your child. Meaning ownership is not file stewardship —
+your surface is still only `app/`, `lib/`, `components/`, `supabase/` and `__tests__/`.
+
+| Method | Use it when | The first evidence you record |
+|---|---|---|
+| **TDD** | A deterministic function, domain rule, RPC, state transition or database constraint is added | The test fails because the behaviour is absent, then passes |
+| **BDD** | A user or role journey must be stated in business language | A Given/When/Then scenario, tied to an existing acceptance example, fails first |
+| **ATDD** | The MMF acceptance boundary needs an executable end-to-end contract | An acceptance test derived from the Judge-approved MMF fails before integration |
+| **Contract testing** | You produce an interface Lane C or another component consumes | Consumer/producer contract fails on the missing or malformed field |
+| **Security testing** | Authorization, secret exposure, RLS, dependency or abuse behaviour is in scope | A negative attempt shows the missing or refused control |
+| **Migration/database testing** | Schema, trigger, immutability or transaction semantics change | A disposable-database case fails before the correction |
+| **Characterization** | Behaviour already exists and you are proving it, not adding it | Observe it honestly; do not manufacture red evidence |
+
+**What stays outside this section.** The MMF is an *input* to your build, never a test case or a
+technical child: one MMF holds several children and one business outcome. Push language stays as
+`B-114` selected — local atomic commits, then the human final push after accepted integration
+evidence; a green child test is never release authority. Your evidence reaches Lane C only through §6.
+If the MMF you were handed has no outcome, acceptance boundary or DoR evidence, that is a
+`blocked-on-decision` entry, not a gap to fill by guessing.

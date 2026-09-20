@@ -106,6 +106,21 @@ record.
 | **Execution** | The authorized work-product paths | Performed by the `Active` lane. **Exception:** `D-184` permits an `Eligible` Lane B/C actor to commit and push **only its own single handoff entry**, under the canonical SOP in `handoff/README.md` |
 | **Evidence and lifecycle** | Lane B/C: the originating handoff entry or turn report. Lane A: its boundary decision section (`D-138`) | Git, the checks and Graphify are evidence **sources**, never the record. The author may record `Applied`; only an independent actor records `Verified` |
 
+**Layer order inside those stages (`D-242`).** The stages above are the *record* map; the
+*responsibility* order through them is fixed, and each layer's canonical destination is stated once
+in `D-242`:
+
+| Order | Layer | Meaning owner |
+|---:|---|---|
+| 1 | **Intent governance** — the MMF and its acceptance boundary | User/Judge, written by Lane A |
+| 2 | **Backlog refinement** — dependencies, questions, evidence needs | The raising lane (B or C), inside its handoff entry |
+| 3 | **Build governance** — xDD choice, tests, construction, evidence | Lane B, after a Register act, a work order and `Active` |
+| 4 | **DevOps/DevSecOps assistance** — CI/CD, security, monitoring | Lane C, only after Lane B exposes accepted evidence |
+| 5 | **Evidence and lifecycle** — then, separately, release | Per the last row of the table above |
+
+Meaning ownership is not filesystem stewardship: the `D-75`/`D-227` surface map still decides who
+edits what.
+
 **Promotion rule.** Outside `D-184`'s handoff-only exception, work-product execution begins only
 when the Register records the applicable Judge act, the execution packet identifies the exact
 bounded unit and DoD, and Phase Closure names the executing lane `Active`. A request, an answer, a

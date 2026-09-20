@@ -447,3 +447,19 @@ contract may itself close — it is simply not what closes `B-103`.
 It does not itself authorize implementing the workflow YAML, the application signal, or any
 telemetry — those remain separate, later-authorized Lane B/Lane C construction units, evaluated
 against Stage 2 above when they are opened.
+---
+
+## 17. Which layer owes which proof `[V1]` — `D-242`
+
+`D-242` separates Intent governance, Build governance and DevOps/DevSecOps assistance. This section
+records only the proof each layer owes; the positive/negative rule itself lives in §16 and is not
+restated.
+
+| Layer | Owes | Cannot substitute for |
+|---|---|---|
+| **Intent governance** | An explicit outcome, acceptance boundary and change condition the Judge accepted | Any build or workflow result |
+| **Build governance** (Lane B) | A method rationale per child, a failing-then-passing case (or an honest characterization), and MMF integration evidence | Judge acceptance of the business outcome |
+| **DevOps/DevSecOps assistance** (Lane C) | A workflow that passes on an accepted Lane B artifact **and** fails for the intended reason when broken | Product acceptance, deployment or release readiness |
+
+A green result at one layer is evidence for that layer only. **`[V1]` — new in this build; no earlier
+section changed.**
