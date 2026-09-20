@@ -240,6 +240,16 @@ disclosed at Panel A5's `GA6` gap. See `requirements-traceability-map.md` §6.3/
 matrix, routing matrix and disposition table, and `factory-route-operation-crosswalk.md` §4.2 for
 the `T2a`/`T2b` branch protocol and `T5` RACI normalization this panel summarizes; not restated here.
 
+**Publication-boundary annotation, 2026-09-20 (`D-243`) — an annotation, not a redraw.** After
+`business:T5`'s ranking/routing record completes, V1 may show one **conditional LinkedIn readiness
+path**: a target-level `ManualReady` event on the LinkedIn publication target, recorded as a publication
+event. It is **not** an article state, is **not** technical `transition:T5`, Final Sign-Off or publication
+approval, and shows no WordPress delivery and no `Published` outcome — live-URL confirmation (`FR-10`/
+`T11`) is a V2-target item. The three stay visually distinct: the LinkedIn readiness event, the article's
+workflow state, and a later `Published` outcome. Behaviour is in `FN-PUBLICATION-09-10-13.md` §12. This
+annotation does **not** discharge the separate normal/revision storyboard, sequence and data-flow
+completion owed under `docs/handoff/B-117`; the single Mermaid source above is unchanged.
+
 ---
 
 ## 2. Lane B — POC: client-commissioned research

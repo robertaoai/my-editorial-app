@@ -18064,3 +18064,156 @@ pull request or construction. Does not select an xDD method for any named child.
 or DoR contracts or create the pull-request template (later units of the same run, which consume this
 split). Does not build any readiness check. Does not change a lane's file surface or a rule file.
 Does not close `B-114`, `B-117`, `B-118` or `B-119`.
+
+---
+
+## 5.14e68 `D-243` — V1 Publication Boundary: LinkedIn `ManualReady` Enters `V1-SM06`; `FR-10`/`T11` Live-URL Confirmation Targeted to V2 (Amends `D-239`)
+
+**Judge decision content recorded in `docs/handoff/B-119` (Option B amendment to `D-239`; `B119-URL`
+Choice A); authority to apply it: the Judge's 2026-09-20 instruction quoted in `D-242`
+(`D-183` rules 1 and 5).** This session held B-119's record of those selections, not the original
+direct messages, and the Judge directed that B-119's recorded content be used (2026-09-20). Independent
+Lane B verification that this record and its application match the Judge's act is still owed
+(`D-183` rule 6); it is not claimed here.
+
+### The decision
+
+`D-239`'s V1 boundary is amended **only** as follows:
+
+| Amendment | Meaning |
+|---|---|
+| **In V1 (new row)** | After completion of the `business:T5` Chief Editorial Desk ranking/routing record, `V1-SM06` may append a target-level **`ManualReady`** publication event for the article's **LinkedIn** `publication_targets` row |
+| **What `ManualReady` is** | A `publication_event_type` value, appended to `publications` and never a mutable status column (`D-114`, `TR-DM-03`). It is **not** an article-state value and does not by itself change `articles.workflow_state` |
+| **What the trigger is not** | `business:T5` is the business ranking/routing record, never technical `transition:T5`, Final Sign-Off, Chief Journalist approval or publication approval. No technical gate transition is implied |
+| **`B119-URL` — Choice A** | `FR-10`/`T11` live-URL confirmation and promotion to `Published` are **not** in V1. They are a **V2-target backlog item**. V1 ends at an effective LinkedIn `ManualReady` event |
+
+### Exclusions retained, each with its own existing disposition
+
+Automated WordPress publication, its credentials, retries and scheduling stay **outside V1**, and
+**WordPress and `FR-10`/`T11` are the only items given a V2 target.** Every other `D-239` exclusion keeps
+the disposition it already had, and none is sent to V2 by this act: workflow execution inferred from
+source RACI; article-state mutation and any article `Published` state; Final Sign-Off enforcement;
+`T6`; external-GRC exchange; any Line 3 workflow; full state-machine execution; Complex-Series
+execution. `NG-04` is **not** the WordPress authority — it excludes automated Facebook publishing.
+This act cites `D-239` as amended here for WordPress and does not introduce an `NG-04` citation.
+
+### `[V1]` marker discipline (`D-36`, `D-178`)
+
+`FR-10`, `US-10`, `AC-16`, `AC-16a`, `TR-API-04` and the publication Fn Spec **keep their `[V1]`
+origin.** Each gains a decision-cited current-scope note. `[V1→V2]` stays unavailable until a `V2`
+build exists and materially revises the section (`D-178`); "targeted to V2" is a backlog target and
+opens no version, sprint, packet, work order or authorization.
+
+### Child contract — specified at intent level, not silently decided
+
+The parent boundary is decided. The `ManualReady` behaviour children below are recorded in
+`FN-PUBLICATION-09-10-13.md` §12 as required behaviour. **Any child that needs a Judge-named fact stays
+open and blocks `V1-SM06` DoR**; nothing is inferred to close it.
+
+| Child | State |
+|---|---|
+| Ordering — target row, then append-only event; no mutable status | **Specified** (`TR-DM-03`, `D-114`) |
+| Replay/idempotency — a duplicate request yields no second effective outcome and keeps its audit evidence | **Specified as observable behaviour**; the physical key is a later Lane B refinement |
+| Refusal — missing `business:T5` evidence, wrong route/target, missing formatted content, stale revision or unauthorized actor is refused with named evidence and no mutation | **Specified as observable behaviour** |
+| Observable acceptance — board/detail shows the effective LinkedIn readiness and its evidence, never calls the article `Published`, never claims WordPress delivery | **Specified** |
+| Trigger and precondition — the exact `business:T5` completion evidence, applicable route/revision, required formatted content, and whether any article state is required | **Open** — needs a Judge-named fact |
+| Acting authority — who may append `ManualReady`; supplier, approver and executor kept distinct; no role inferred from a similarly named `T` gate | **Open** — needs a Judge-named fact |
+| Revision behaviour — which revision invalidates readiness and what produces a fresh event | **Open** — needs a Judge-named fact |
+
+`ManualReady` alone does not prove `CR-19`: that also requires the five-gate path and Chief Journalist
+approval. `V1-SM06` DoR is **not** complete and no build is authorized.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e68 |
+| **`V1-BUILD-SPEC.md`** | ✅ V1 increments table and §4 `S4` note: `V1-SM06` carries the narrow `ManualReady` outcome; `S4` is split by `D-244` |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ stated explicitly: `0002_s1_editorial_schema.sql` already defines the `ManualReady` event type and `publications`; **no file created or retired** |
+| **`docs/Modular_PRD.md`** | ✅ §8.1 boundary pointer; `US-10`/`FR-09`/`FR-10`/`AC-16`/`AC-16a`/`TR-API-04` current-scope notes; frozen `CR-19` and every `[V1]` origin untouched |
+| **`docs/fn-specs/FN-PUBLICATION-09-10-13.md`** | ✅ new §12 (`[V1]`): the `ManualReady` behaviour and the `FR-10` deferral |
+| **`docs/governance/requirements-traceability-map.md`** | ✅ §6.1 step 10: `FR-10`/`AC-16` current scope; namespaces kept separate |
+| **Storyboard, Panel A9** | ✅ annotation only: the conditional LinkedIn readiness path after `business:T5`; not a redraw, and B-117's normal/revision visual child is untouched |
+| **`docs/v1/work-packets/`** | ✅ `V1-SM06` outcome and DoR; `S4` split (see `D-244`) |
+| **`docs/specs/SPECS-PUBLICATION.md`** | — unaffected: the Edge Function/`pg_cron` ruling (`D-143`) concerns the future automated path; `ManualReady` needs no external-channel credential |
+| **`docs/PRD.md`, Charter** | — frozen, unchanged |
+| **Rule files** | — unaffected: no rule agents must follow changes |
+| **`V1-PHASE-CLOSURE.md`** | — unaffected: no lane state change |
+| **Encyclopedia** | Entry 04 affected (article state versus publication status); Entries 01/05/06 stay flagged. Ledger updated; hosted review/republish is a separate act and is **not** claimed |
+| **Graphify** | Owed once after the last governed edit of this run |
+
+### What this act does NOT do
+
+Does not make `ManualReady` an article state, restore the full state machine, admit Final Sign-Off
+enforcement, `T6`, S2's held RPC or Chief Journalist approval, open `V2`, mark anything `[V1→V2]`,
+retire any packet, complete `V1-SM06` DoR, select an MMF, or authorize a branch, work order or
+construction.
+
+---
+
+## 5.14e69 `D-244` — Setup Transfer, Choice A: `SETUP-SPIKE-000` Closes by Explicit Behaviour Transfer; `S0`/`S1` Remain Completed Evidence
+
+**Judge decision content recorded in `docs/handoff/B-119` (Choice A and its destination decisions);
+authority to apply it: the 2026-09-20 instruction quoted in `D-242`.** Same provenance caveat as
+`D-243`, which this act depends on: the publication boundary precedes the transfer because several `S4`
+destinations rest on it.
+
+### The decision
+
+`SETUP-SPIKE-000` is not closed by declaring its unfinished sprints done. **`S0` and `S1` stay completed
+setup evidence. Each unfinished `S2`–`S4` behaviour moves to exactly one named destination**, below. The
+transfer changes *where future scope is owned*; it creates **no implementation, no DoD credit and no
+retirement of any packet.**
+
+| Setup behaviour | One destination | Disposition |
+|---|---|---|
+| `S2` Line/RACI and route-context **display** the core journey needs | `V1-SM05` | Added to that packet's outcome and DoR as **display/provenance only**, anchored to `FR-04`/`FR-05`, `SEC-01` and the applicable RACI source. `FR-05` owns independence classification and `FR-04` accountable review; `D-239` still excludes enforcement |
+| `S2` security-invoker RPC, `T6`, blind pass, `EmergencyBypass`, return evidence | Existing held owner (`D-171`) | **Stays `HELD`.** Not attached to `V1-SM05`, `V1-SM06` or `V2` by implication |
+| `S3` board/filter visibility | `V1-SM06` | Aligned to `FR-08`/`CR-13`/`AC-13` |
+| `S3` `T6`→`T5` return analytics | Held with the `T6`-dependent scope | Not in `V1-SM06` while `T6` stays outside V1 |
+| `S4` LinkedIn target-level `ManualReady` | `V1-SM06` | Per `D-243` |
+| `S4` automated WordPress, retry, privileged credentials, scheduler | Future V2-target backlog | Target only; no `V2` opening, `[V1→V2]` marker, packet or authorization |
+| `S4` `FR-10`/`T11` live-URL confirmation and `Published` promotion | Future V2-target backlog | Per `D-243`; `[V1]` origin retained |
+
+### Corrections to earlier drafts, applied
+
+- **No blanket V2.** Only automated WordPress and `FR-10`/`T11` acquire the V2 target; every other item
+  keeps its own held/outside-V1 disposition.
+- **Credentials.** V1 `ManualReady` needs **no external WordPress or LinkedIn channel credential.** It
+  does not decide the database authorization or write mechanism; `TC1`, `NFR-07` and `SEC-02` travel
+  with the future automated path to the extent their source scope does. A later authorized build refines
+  the database side without contradicting this act.
+- **Publish path.** `D-143`/`D-146` already select the Supabase Edge Function and `SPECS-PUBLICATION.md`
+  agrees. `Modular_PRD.md` §6.1 still carried a route-handler recommendation beside its corrected `Q3`
+  row; it is corrected here as an internal inconsistency, with no new business decision.
+- **Encyclopedia review set.** Entry 05 joins Entries 01/06 for `V1-SM05`, and Entry 04 joins
+  `V1-SM06`. Hosted review remains separate.
+
+### Standing rules
+
+No setup packet is retired until every remaining behaviour and citation has moved (`D-240`). `V1-SM06`
+remains dependent on `V1-SM05` reaching DoD or receiving a separate approved removal/return. No new `V1`
+sprint ID is created; the two existing slots hold the selected scope. `[V1→V2]` is not used as a closure
+tool.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e69 |
+| **`V1-BUILD-SPEC.md`** | ✅ `S2`–`S4` transfer and destinations by pointer to this entry; `S0`/`S1` preserved |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ stated explicitly: no file created or retired; the five `D-240` packets already exist |
+| **`docs/Modular_PRD.md`** | ✅ §8.1 pointer; §6.1 publish-path row corrected to `D-143`/`D-146`; `S0`/`S1` rows unchanged |
+| **`docs/v1/work-packets/`** | ✅ `S2`/`S3`/`S4` each gain a transfer-disposition block; `V1-SM05` anchors and review set; `V1-SM06` dependency and outcome |
+| **`docs/governance/requirements-traceability-map.md`** | ✅ §6.1 anchors `FR-04`/`FR-05`/`SEC-01` for the display row |
+| **`docs/fn-specs/`** | — unaffected beyond `D-243`'s §12: no other behaviour changes |
+| **`docs/specs/`** | — unaffected: `SPECS-PUBLICATION.md` already agrees with the Edge Function ruling |
+| **Rule files, Phase Closure, frozen sources** | — unaffected |
+| **Encyclopedia** | Entries 01/05/06 (`V1-SM05`) and 04 (`V1-SM06`) flagged in the ledger; hosted republish separate |
+| **Graphify** | Owed once after the last governed edit of this run |
+
+### What this act does NOT do
+
+Does not credit DoD to any sprint or packet, retire `S2`–`S4`, select `V1-SM05`/`V1-SM06`, open `V2`,
+mark anything `[V1→V2]`, close `B-117`/`B-118`/`B-119`, or authorize a branch, pull request, work order
+or construction.

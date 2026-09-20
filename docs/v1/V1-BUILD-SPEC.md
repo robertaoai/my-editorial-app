@@ -29,7 +29,14 @@ meaning unchanged** — they predate the namespace split and are not renumbered 
 | Qualified ID | MMF | Status | Meaning |
 |---|---|---|---|
 | `V1-SM05` | `MMF-V1-CORE` | Not started; not selected | First working-software increment — core end-to-end editorial flow |
-| `V1-SM06` | `MMF-V1-USABLE` | Not started; not selected | Second increment — the full PRD success scenario becomes usable |
+| `V1-SM06` | `MMF-V1-USABLE` | Not started; not selected | Second increment — the full PRD success scenario becomes usable, ending at an effective LinkedIn `ManualReady` event (`D-243`) |
+
+**Publication boundary and setup transfer (`D-243`, `D-244`, 2026-09-20).** `V1-SM06` carries the narrow
+LinkedIn `ManualReady` outcome — an event, not an article state; `FR-10`/`T11` live-URL confirmation and
+automated WordPress are a V2-target backlog item that opens no version. **`SETUP-SPIKE-000`'s `S0`/`S1`
+stay completed evidence, and each unfinished `S2`–`S4` behaviour has exactly one destination, recorded in
+`D-244`** and mirrored in that sprint's work packet rather than restated here. `V1-SM06` still depends on
+`V1-SM05` reaching DoD. Transfer creates no implementation, no DoD credit and retires no packet.
 
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and defined DoD remain to be
 written per `docs/handoff/B-117`'s DoR/DoD tables before either becomes a sprint candidate. The
@@ -330,9 +337,16 @@ Actor context on every action · four-eyes evaluator behind `FOUR_EYES_MODE` · 
 > `AC-08` — not `FR-06`, which is the separate S1 T8 return feature), blind first pass, the
 > `T6→T5` return-rate log, and `EmergencyBypass`. Neither unit alone earns M2 or production done.
 
+**Transfer (`D-244`, 2026-09-20).** The Line/RACI and route-context *display* the core journey needs moves to
+`V1-SM05` as display/provenance only; the security-invoker RPC, `T6`, blind pass, `EmergencyBypass` and return
+evidence stay `HELD` under `D-171`. This section is unchanged setup-era scope.
+
 ### S3 — Board, filters, audit log
 
 Filterable board (`FR-08`, `CR-13`) · audit view exposing the T6→T5 return rate · intent codes queryable (`D-12`).
+
+**Transfer (`D-244`, 2026-09-20).** Board/filter visibility moves to `V1-SM06`; the `T6`→`T5` return-rate
+audit view stays held with the `T6`-dependent scope while `T6` is outside V1.
 
 ### S4 — Publication and fallback
 
@@ -341,6 +355,11 @@ Filterable board (`FR-08`, `CR-13`) · audit view exposing the T6→T5 return ra
 **`Q3`/`Q5` ruled (`D-143`): Supabase Edge Function is the publish path; `pg_cron` is the retry scheduler.** `docs/specs/SPECS-PUBLICATION.md` specifies both. **Still open before S4 builds:** credential isolation design (`NFR-07`/`SEC-02`) and the `TC1` privileged-write-path amendment — `D-143` ruled the runtime, not these two.
 
 **Note:** `FR-09` automates WordPress, but the recommended first channel is LinkedIn (`ManualReady`, no automation) — see `G9` before specifying S4.
+
+**Transferred, not built (`D-243`, `D-244`, 2026-09-20).** This sprint's LinkedIn `ManualReady` behaviour is
+now owned by `V1-SM06`. Its automated WordPress publish, retry, privileged-credential and scheduler work,
+and `T11`/`FR-10` live-URL confirmation, are a V2-target backlog item — a target only. The text above is the
+setup-era scope and is preserved as history; the destination of each behaviour is in `D-244`.
 
 ## 5. Parallel track — T3, the POC lane
 

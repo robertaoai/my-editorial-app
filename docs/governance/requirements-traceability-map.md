@@ -235,6 +235,16 @@ here.
 | 9 | Route completion visible on the board | Board reads state/topic/category/audit | `CR-13`, `FR-08`, `AC-13` | `V1-SM06` | — |
 | 10 | Publication delivery does not redefine editorial accountability | Approved content becomes `ManualReady` | `CR-12`, `FR-09`/`FR-10`, `AC-14`–`AC-16` | `V1-SM06` | — |
 
+**Publication boundary and display anchors — added 2026-09-20 (`D-243`, `D-244`).**
+
+| Row | Current-scope note |
+|---|---|
+| Step 6 (`FR-04`/`FR-04a`) and the display of Line/RACI context in `V1-SM05` | The display is **non-enforcing** and is anchored to `FR-04` (accountable review) and `FR-05` (independence classification), with `SEC-01` and the applicable RACI source. `D-239` still excludes enforcement |
+| Step 10 (`FR-09`/`FR-10`, `AC-14`–`AC-16`) in `V1-SM06` | V1 delivers only the LinkedIn target-level `ManualReady` event after the `business:T5` record. **`FR-10`/`AC-16` runtime confirmation and `Published` promotion are a V2-target item**; both keep their `[V1]` origin and no `[V1→V2]` marker is used. `AC-14`/`AC-15` are unchanged and the automated-WordPress part of `FR-09` is a V2 target |
+| Namespaces | `business:T5` (newsroom judgment) is not technical `transition:T5`; `ManualReady` is a publication event, not an article state |
+
+Behaviour lives in `FN-PUBLICATION-09-10-13.md` §12; the decisions are in the Register, not restated here.
+
 **What this table does not do:** authorize construction or satisfy DoR. The consolidated DoR
 checklist (`docs/v1/V1-BUILD-SPEC.md`'s `DOR-R1`–`DOR-R6`, `D-232` follow-on) supersedes an earlier,
 incomplete four-item list here. **`B071-R204`'s three required-operation questions, resolved

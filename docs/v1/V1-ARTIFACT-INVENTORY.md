@@ -264,6 +264,14 @@ already-inventoried files (`raci-involvement-matrix.md`, `factory-route-operatio
 No file was created or retired. The one exception is `D-240`'s `docs/v1/work-packets/` structure,
 recorded in its own tier table below, not here.
 
+**`D-243`'s publication boundary and `D-244`'s setup transfer are UNAFFECTED here, stated explicitly
+(2026-09-20).** No file was created or retired. `supabase/migrations/0002_s1_editorial_schema.sql`
+already defines the `ManualReady` publication event type and the `publications` table, so the existing
+publication artifacts cover the V1 outcome; the edits landed as sections inside already-inventoried files
+(`Modular_PRD.md`, `FN-PUBLICATION-09-10-13.md`, `requirements-traceability-map.md`, the storyboard,
+`V1-BUILD-SPEC.md`, the five `D-240` packets and `ENCYCLOPEDIA-SYNC.md`). No packet is retired, so every
+`S2`–`S4` file remains in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

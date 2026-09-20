@@ -76,6 +76,9 @@ Publication is where the pipeline's work becomes public, and where its record be
 
 ### 4.1 `FR-09` — Publish or fall back *(T7 / T10, System)*
 
+> **Current-scope note (`D-243`, 2026-09-20; origin stays `[V1]`):** V1 delivers only the LinkedIn
+> target-level `ManualReady` event; automated WordPress publication and retry are a V2-target item. See §12.
+
 **On approval, for each assigned target:**
 
 1. Attempt publication where the target is automatable.
@@ -86,6 +89,10 @@ Publication is where the pipeline's work becomes public, and where its record be
 **Partial success is a normal outcome, not an error.** WordPress succeeding while LinkedIn does not is the expected shape, and each target carries its own status independently.
 
 ### 4.2 `FR-10` — Confirm a manual publish *(T11, Chief Editor, Line 2, human)*
+
+> **Current-scope note (`D-243`, 2026-09-20; origin stays `[V1]`):** runtime confirmation and `Published`
+> promotion are a V2-target item, outside V1's selected slice. §4.1's manual fallback and this section are
+> otherwise unchanged. See §12.
 
 The Chief Editor enters the live URL for a `ManualReady` target; that target becomes `Published`. If it is the first target with a live URL, the article transitions to `Published`.
 
@@ -183,3 +190,37 @@ them.
 
 Any editorial change discovered after Delivery starts is routed into a new governed return/workflow —
 never a direct Delivery-stage edit.
+
+## 12. V1 publication boundary — LinkedIn `ManualReady` and the `FR-10` deferral `[V1]` (`D-243`)
+
+**Added 2026-09-20 (`D-243`, from `docs/handoff/B-119`).** Behaviour only: no endpoint, table, key,
+component or framework choice belongs here (`SPECS` and an authorized Lane B refinement own those).
+This section is a **current-scope note** for §4.1 and §4.2, whose `[V1]` origin is unchanged.
+
+**What V1 delivers.** After the `business:T5` Chief Editorial Desk ranking/routing record completes,
+the system may record that the article's **LinkedIn** target is ready for a human to post manually, as a
+target-level **`ManualReady`** event. It is a publication event, not an article state: it never marks
+the article `Published`, never claims WordPress delivery, and does not itself change the article's
+workflow state.
+
+**What V1 does not deliver.** Confirming a live URL (`FR-10`/`T11`) and promoting a target or the
+article to `Published`; automated WordPress publication, retry and credentials. Both are a **V2-target
+backlog item** — a target only, opening no version.
+
+| Behaviour | Rule | Status |
+|---|---|---|
+| Ordering | The LinkedIn publication target exists first; the `ManualReady` event is appended after it. Readiness is never a mutable status value | Specified |
+| Replay | Repeating the same request for the same article, LinkedIn target and revision produces no second effective readiness outcome, and the repeat stays visible in the audit trail | Specified |
+| Refusal | Missing `business:T5` completion evidence, a wrong route or target, missing formatted content, a stale revision or an unauthorized actor is refused with a named reason and **no record is changed** | Specified |
+| Observable result | The board and detail view show the current effective LinkedIn readiness and its evidence, and never call the article `Published` | Specified |
+| Trigger and precondition | The exact completion evidence, the applicable route or revision, and whether any article state is required | **Open** — needs a Judge-named fact before `V1-SM06` DoR |
+| Acting authority | Who may record readiness; supplier, approver and executor stay distinct; no role is inferred from a similarly named gate | **Open** — needs a Judge-named fact before `V1-SM06` DoR |
+| Revision | Which content or routing revision invalidates readiness, and what produces a fresh event while prior evidence stays visible | **Open** — needs a Judge-named fact before `V1-SM06` DoR |
+
+**Namespaces stay separate.** `business:T5` is the newsroom judgment stage; the technical `transition:T5`
+is a different thing and is neither triggered nor implied. `ManualReady` alone does not satisfy `CR-19`,
+which also requires the five-gate path and Chief Journalist approval.
+
+**`SPECS` candidate filter (`D-30`).** Discarded as already determined here: nothing. Candidates for an
+authorized Lane B refinement, not decided: the physical replay key, the query shape and the actor
+authorization mechanism.
