@@ -1760,3 +1760,135 @@ new run boundary and ends the one-rebuild optimization.
 | **Approve-with-conditions** | Graph repair | Keep D-231 late for one rebuild, or pay two complete sync cycles if moved early |
 | **Defer** | B-088 header, Register acts, template, graph changes, PR, work order and construction | Planning-only guardrail; next authorized Lane A run |
 | **Reject** | Treating planning confirmation as apply authority; asking the same business choices again; early graph scope with only a late rebuild | Use the coherent sequence above |
+
+## Lane B decision packet — from setup completion to a first-MMF PR, 2026-09-20
+
+### Clearer request
+
+Give the Judge a parent-first Accept/Reject table and exact draft wording for the two acts that are
+still needed: first, authorize Lane A to update governance, specifications, readiness artifacts and
+Graphify controls; later, after independent review, select one MMF and authorize Lane B to construct
+it through a pull request. Identify the artifacts that construction and verification will consume,
+the lifecycle evidence needed to close each handoff, and the failure conditions. This section is a
+plan only. It changes no canonical tier, header, graph, lane state, work order, branch or pull
+request.
+
+### Current completion boundary
+
+| Topic | State | Consequence |
+|---|---|---|
+| Planning method and MMF identities | `D-241` is applied: Scrum and the existing MMF identities stand; SAFe/Lean remain explanatory analogies | No further methodology decision is needed |
+| Publication, setup-transfer and graph-scope content | The Judge's direct choices are reported as settled in Lane A's current conversation | Do not ask the business questions again; preserve the direct messages for `D-183` registration |
+| Canonical application | Not authorized by the planning-only checkpoint; the Register still ends at `D-241` | Lane A needs one explicit application instruction before editing the governed sources |
+| Build readiness | `V1-SM05` and `V1-SM06` remain not selected; DoR/DoD evidence and independent review are incomplete | No branch, pull request, Lane B work order or construction is authorized |
+| Handoff lifecycle | B-088, B-115, B-117, B-118 and B-119 remain independently governed records | Each closes or defers from its own evidence; no bulk closure |
+| Graph | Governed intent remains analyzed at `4a2519a`; later commits are handoff-only | No rebuild is needed for this review; the first governed edit starts the synchronization duty |
+
+The remaining uncertainty is therefore **authorization**, not business meaning. A generic
+"Judge Approved" line is insufficient because it does not name the action, exclusions or stopping
+checkpoint required by `D-183`.
+
+### Judge decision table — parent first
+
+| Order | Judge choice | Recommended disposition | What acceptance authorizes | What it does not authorize |
+|---:|---|---|---|---|
+| 1 | Apply the Lane A governance and documentation packet | **Accept** | B-088 normalization; B-115 promotion; durable registration of the settled publication, setup-transfer and graph-scope decisions; required `D-54` propagation | Application code, workflow code, a branch, pull request, work order, lane transition or build |
+| 2 | Define and review the MMF readiness contracts and create the reusable one-MMF PR template | **Accept-with-conditions** | Define SM05/SM06 DoD, complete evidence-backed DoR fields, and create the governed template after B-115 is canonical | Claiming DoD, selecting an MMF, or treating the empty template as authority |
+| 3 | Use the one-final-rebuild Graphify sequence | **Accept** | Apply the D-231/control unit after the Product/MMF updates, then rebuild, re-merge and run the full local checks once | Handing over stale governed docs; an interrupted run must synchronize before handover |
+| 4 | Close the related handoffs | **Defer** | Per-entry disposition after the applicable commits and independent review | Bulk closure from this plan or from one green consistency run |
+| 5 | Start the first construction PR | **Defer** | Nothing now; later select exactly one DoR-complete MMF, make Lane B Active and issue one bounded work order | Inferring build authority from setup completion, file existence, the PR template or Lane B eligibility |
+| 6 | Move unfinished scope to V2 or retire the setup packets | **Reject** | — | V2 opening, `[V1→V2]` marking, packet retirement and unearned DoD remain outside this transition |
+
+### Draft Judge statement A — authorize Lane A's documentation/control pass
+
+The following text is a **draft for the Judge to send directly to Lane A**. Its presence in B-119 is
+not itself authority.
+
+> Judge authorizes Lane A to apply the already-settled B-119 governance and documentation packet.
+> In parent-first order: (1) normalize B-088 as its own handoff-only lifecycle commit using the
+> exact conjunctive return condition; (2) apply B-115's Intent/Build/DevOps responsibility split;
+> (3) assign separate Register identities to the accepted publication boundary and Choice-A setup
+> transfer, then propagate each fact through every affected `D-54` tier; (4) align the Product PRD,
+> traceability, Fn Specs, storyboard/UML/data-flow references, Encyclopedia ledger, Build Spec,
+> Artifact Inventory and existing SM05/SM06 work packets without duplicating authority; (5) define
+> and review the SM05/SM06 DoD contracts, complete only DoR fields supported by evidence, and create
+> the governed reusable one-MMF pull-request template; (6) apply the accepted D-231 graph-scope
+> manifest as a separate control/fixture unit; and (7) after the final governed edit, rebuild
+> Graphify, re-merge curated fragments and run the complete local consistency suite. Lane A may
+> commit and push these bounded units and must stop for independent Lane B review.
+>
+> Exclusions: no change to `app/`, `lib/`, `components/`, `supabase/`, `__tests__/` or Lane C's
+> workflow surface; no build branch, pull request, work order, Lane B activation, application
+> construction, V2 opening, packet retirement, earned DoD, deployment, hosted Encyclopedia
+> publication, or bulk handoff closure. The application checkpoint ends when the documentation and
+> controls are committed, pushed, synchronized and presented for independent review.
+
+If the Judge accepts that statement, Lane A may record it using `D-183`'s pending-registration
+phrase and then replace that phrase with the resulting Register IDs and immutable commits. Lane B's
+later comparison verifies the application; it does not grant the authority.
+
+### Lane A follow-up sequence after statement A
+
+| Step | Lane A action | Required success evidence |
+|---:|---|---|
+| 1 | Normalize B-088 separately | Header/audit fields match its exact deferred return condition; terminal-return check passes |
+| 2 | Apply B-115 | Intent, Build and DevOps responsibilities exist in their canonical owners before DoD or template work consumes them |
+| 3 | Register publication boundary and setup transfer | Independent Register IDs, complete affected/unaffected tier tables and dependency-ordered `D-54` propagation |
+| 4 | Align critical Product/MMF artifacts | `Modular_PRD`, traceability, Fn Specs, storyboard/UML/data flow, Encyclopedia ledger, Build Spec, Inventory and work packets express one boundary by identity |
+| 5 | Establish readiness contracts | SM05/SM06 DoD is defined and reviewed; each DoR claim links to current evidence; SM06 remains dependent on SM05 DoD |
+| 6 | Create the one-MMF PR template | Template requires Register act, selected packet, Active lane, work order, DoR evidence, verification evidence and exclusions; it selects nothing itself |
+| 7 | Apply graph-scope control and synchronize | Exact accepted manifest and fixtures land atomically; final rebuild/re-merge leaves coverage, drift and source checks green |
+| 8 | Return evidence in B-119 | Commit identities, affected tiers and residuals are recorded here; B-117/B-118 retain their separate residual children |
+
+### Critical artifacts for construction and verification
+
+| Artifact family | Construction use | Verification use |
+|---|---|---|
+| Decision Register | Supplies the authorized outcome, exclusions and checkpoints | Proves the implemented packet did not inherit wider authority |
+| Build Spec and Artifact Inventory | Give build order, DoD and required file identities | Prove required artifacts exist and were not silently renamed or retired |
+| Product PRD, Fn Specs and traceability | Define observable behaviour and requirement anchors | Supply acceptance cases, refusal paths and source-to-evidence links |
+| Storyboard, UML and data flow | Define actor order, transitions and information movement | Expose reversed roles, missing revision paths and unsupported state changes |
+| Encyclopedia sync ledger | Records which knowledge views are affected | Prevents a local document edit being mistaken for hosted publication |
+| SM05/SM06 work packets | Hold per-MMF dependencies, DoR, DoD and evidence | Make readiness and completion evidence-based rather than filename-based |
+| PR template | Carries the selected packet's evidence into review | Refuses a PR that lacks authority, work order, tests, exclusions or local-only checks |
+| Graph controls and Graphify output | Provide navigable context after sources are authoritative | Detect missing representation and drift; they do not replace direct source review |
+| Phase Closure and Lane B work order | Select the executing lane and bounded implementation unit | Prove that a valid PR came from an authorized run |
+
+### Guaranteed failure and observable success
+
+| Guaranteed failure | Why it fails | Observable success |
+|---|---|---|
+| Send only "Judge Approved" | `D-183` cannot identify object, action, exclusions or checkpoint | The direct message uses statement A or equivalent complete fields |
+| Combine documentation authorization with build authorization | Construction can begin before readiness and independent review | Statement A stops at review; statement B below is a later act |
+| Treat completed S0/S1 as completion of S2-S4 or V1 | Historical setup evidence cannot satisfy unfinished Product behaviour | S0/S1 remain evidence; every moved behaviour has one named destination and its own DoR/DoD |
+| Create the template before B-115 and DoD definition | The template cannot name valid owners or completion evidence | B-115 and reviewed DoD precede template creation |
+| Treat PR merge as DoD | Integration evidence cannot prove the Product outcome | Packet DoD is independently evaluated from acceptance and verification evidence |
+| Close B-117/B-118/B-119 from one propagation commit | Their visual, RACI, lifecycle and review residuals are independent | Each entry has its own terminal disposition or explicit return condition |
+| Amend graph scope without the final rebuild/re-merge | Controls and semantic graph disagree | Final analyzed governed head matches the last governed commit and local checks pass |
+| Select SM05 while Lane A remains Active or no work order exists | Lane B has no commit authority or bounded unit | The later Judge act names the packet, immutable readiness commit, lane transition and work order |
+
+### Draft Judge statement B — later construction checkpoint
+
+This second statement is intentionally incomplete until the placeholders exist. It must not be sent
+or inferred during the planning/application pass.
+
+> Judge accepts the `V1-SM05` readiness packet at commit `<readiness-sha>`, including its defined
+> DoD and independently reviewed DoR evidence. Judge selects `V1-SM05` as the one executable MMF,
+> makes Lane B Active in the recorded phase boundary, and authorizes work order `<work-order-id>`
+> with its named paths, exclusions, tests and stopping checkpoint. Lane B may create the named build
+> branch and one pull request using the governed MMF template. This authorization does not include
+> `V1-SM06`, V2, deployment, unrelated handoffs, new dependencies or changes outside Lane B's
+> surface. Completion returns evidence for Judge acceptance; opening or merging the pull request
+> does not itself satisfy the MMF DoD.
+
+### Final verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Settled publication, setup-transfer and graph-scope content | Preserve direct Judge evidence; do not re-decide |
+| **Approve** | Draft statement A and the parent-first Lane A sequence | Judge sends it directly in a future application checkpoint |
+| **Approve-with-conditions** | Readiness contracts and one-MMF PR template | B-115 canonical, DoD reviewed, DoR evidence-linked; template grants no authority |
+| **Approve-with-conditions** | One-final-rebuild Graphify plan | Uninterrupted run; synchronize at any earlier handover |
+| **Defer** | Draft statement B, first PR and construction | Canonical application, green local checks, independent review and exact readiness commit |
+| **Defer** | B-117/B-118/B-119 closure | Per-entry residual evidence and independent verification |
+| **Reject** | Generic approval slogan, bulk closure, PR-as-DoD, setup completion as V1 completion, premature V2/packet retirement or implied build authority | Use the two-checkpoint model above |
