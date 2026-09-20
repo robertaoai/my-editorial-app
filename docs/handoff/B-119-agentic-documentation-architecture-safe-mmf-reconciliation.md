@@ -1493,3 +1493,89 @@ Register edit will create drift; rebuild only after the final governed edit in t
 | **Approve-with-conditions** | Graphify limitation and repair | Use the accepted manifest; canonicalize D-231 scope; rebuild after the final governed edit |
 | **Defer** | PR opening, MMF selection, construction, V2 opening and packet retirement | Independent review and bounded Judge work order |
 | **Reject** | Saying all four acknowledgements are receipt-only; making them close together; reopening the settled manifest choice; treating graph query output as complete; waiting until DoD completion to create the template | Apply the corrected delta above |
+
+## Lane B review — lifecycle audit anchors, DoD review authority and atomic sequencing, 2026-09-20
+
+### Clearer request
+
+Review Lane A's corrected completion ledger without repeating B-119. Decide the two proposed follow-
+ups from existing governance, correct lifecycle metadata and atomic-commit mistakes, restore the
+missing B-117 visual child, and leave a final parent-first plan. Planning only: no canonical source,
+handoff status, PR template, graph control or construction artifact is applied here.
+
+### Disposition of Lane A's six new gaps
+
+| Proposed gap | Lane B review | Draft fix / success test |
+|---|---|---|
+| B-088's existing defer is not reflected in its header | **Confirmed.** B-117 already records the exact safe transition and says no new decision is required. | Lane A gives B-088 its own handoff-only commit: `Status: Answered`, `Resolution: Deferred`, the dispositioned-not-independently-verified actor form, and a `Follow-up-Tier` that requires Parents 1–2 complete, full residual capacity for C-39 P1 plus independent review, and separate Judge authorization. No Graphify rebuild follows a handoff-only normalization. |
+| The unrelated open entries have no owner | **Rejected as stated.** B-117 already groups and sequences them, and each originating entry remains its lifecycle owner. They lack completed dispositions, not owners. | Schedule a later B-117 disposition sweep. Keep B-071/B-088/B-095/B-096/B-102/B-104/B-106/B-116 outside B-119 and update each only from its own evidence. |
+| B-117 residuals need an explicit child view | **Confirmed, but Lane A's draft omitted the normal/revision visual child.** | Add the corrected child table below inside B-117 when Lane A answers it; do not make B-119 a second status owner. |
+| `Verified-At-Commit` is stale on all four entries | **Rejected as a blanket claim.** D-214 says this field names the existing commit whose content was read when the record was written. It is historical audit evidence, not the disposition commit and not a pointer that follows HEAD. | Refresh it only when actually writing a new disposition or verification, to the then-existing commit that was read. Never cite the commit being authored; that commit is derived from history. Existing values remain valid for their recorded observations. |
+| The DoD reviewer is unnamed | **Resolvable from B-115; no new governance choice is needed.** | Lane A translates and records the DoD from accepted intent; Lane B reviews build feasibility, testability and evidence usability as the independent construction consumer; the Judge accepts the business outcome and acceptance boundary. Lane C reviews only any named delivery/operability evidence contract. None of these reviews selects the MMF or authorizes construction. |
+| Three Register acts should share one commit | **Reject the forced bundle.** Boundary and transfer are dependent Product/setup decisions; graph scope is an independent control unit touching D-231 and executable checks. | Boundary then transfer may share one D-54 commit while keeping separate IDs/tier tables. Land graph scope and its control implementation in a separate atomic commit. One Graphify rebuild may follow all governed commits only when they land in one uninterrupted Lane A run. |
+
+### Corrected B-117 child table
+
+The following belongs in B-117's own substantive answer. Child states shown here are planning
+candidates and do not change its header.
+
+| Child | Canonical owner / next action | Terminal evidence |
+|---|---|---|
+| `B117-R45` phase-event vocabulary | Register plus the crosswalk/Fn Spec/traceability owners that use the events | Canonical names propagated and independently checked against phase-selection behaviour |
+| Two D-238 candidate role IDs | Register and the role/RACI/crosswalk catalogs; add stored/API compatibility only if implementation identifiers are affected | Final IDs selected, every current reference classified, no silent identity collapse |
+| Complex-Series milestones | Build Spec/work packet after Judge acceptance; otherwise `Deferred` with its exact return tier | Milestone children and evidence defined, or terminal deferral with an owner and return condition |
+| Normal/revision storyboard, UML and data flow | Existing storyboard Mermaid owner, with Fn Spec references rather than duplicate diagrams | Normal and revision paths show selection, task/evidence, refusal/replay and no unauthorized publication/state change |
+| Hosted Encyclopedia comparison/republish | `ENCYCLOPEDIA-SYNC.md` ledger plus the separate hosted-artifact act | Entries 01/05/06 compared and republished, or explicitly deferred without claiming hosted sync |
+| Applied D-232-D-235 propagation | Independent reviewer | Review names the exact commit and distinguishes applied facts from the residual children above |
+
+B-118's D-236-D-240 application remains separately reviewable; do not restate it as merely
+“possibly Applied.” B-110 is already `Answered / Applied` and belongs to B-117's later verification
+sweep, not the B-119 setup transition.
+
+### Answers to Lane A's questions
+
+1. **DoD review:** Lane B reviews construction feasibility and evidence/testability; the Judge
+   accepts the business outcome and acceptance boundary; Lane A records both. The PR template is
+   created after these DoD reviews and before any work order. Lane C participates only for a named
+   delivery or operational evidence contract.
+2. **B-088 timing:** apply its already-decided header normalization early as its own handoff-only
+   commit. Do not mix it into the first governed D-54 commit or wait for B-119 closure.
+
+### Final parent-first plan — replaces only the affected ordering
+
+| Order | Atomic unit | Success evidence |
+|---:|---|---|
+| 0 | B-088 lifecycle normalization, handoff-only | Exact Deferred return condition; valid audit actor/read-commit fields; no canonical or Graphify change |
+| 1 | Publication boundary then setup transfer | Two Register IDs/tier tables; one dependency-ordered D-54 Product/setup pass |
+| 2 | Product/setup propagation and MMF contracts | Product PRD route-handler correction, SM05 anchors, Entries 01/05/06 and 04, defined/reviewed DoD, evidence-backed DoR |
+| 3 | One-MMF PR template | Governed artifact created after DoD review and before work-order selection; no authorization implied |
+| 4 | B-115 governance unit | Intent, Build and DevOps responsibilities promoted to their existing canonical owners |
+| 5 | D-231/B119 graph-scope control unit | Separate Register identity and atomic control/fixture change using the accepted manifest |
+| 6 | Graphify synchronization | Rebuild and curated re-merge after the last governed commit; local coverage/drift/source checks run against complete history |
+| 7 | Per-entry lifecycle sweep | B-117 child table applied in B-117; B-118 and B-110 independently reviewed; unrelated entries handled under B-117, not B-119 |
+| 8 | MMF selection and execution | Independent readiness review, Judge selection, Lane B Active and one bounded work order before a PR opens |
+
+### Drift and failure criteria
+
+The graph remains synchronized to governed intent because all commits since its analyzed head are
+handoff-only. This review does not trigger a rebuild. The first governed edit does.
+
+| Guaranteed failure | Success criterion |
+|---|---|
+| `Verified-At-Commit` is rewritten to the commit currently being authored | It names the existing commit actually read; the editing commit remains derivable from history |
+| B-088 is bundled into Product propagation | Its header-only lifecycle commit stands alone and changes no canonical tier |
+| Three unrelated decisions share one inseparable commit | Product boundary/transfer and graph-control units are independently reviewable and revertible |
+| B-117 closes without the normal/revision visual contract | Its child table includes storyboard/UML/data-flow evidence or an explicit terminal deferral |
+| Lane B feasibility review is treated as business acceptance | Judge acceptance and Lane B feasibility are separately recorded; neither starts construction |
+| Open entries are described as ownerless | B-117 provides the programme order while each entry remains the sole lifecycle record |
+
+### Final verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Early B-088 Answered/Deferred normalization | Lane A handoff-only commit with exact return condition |
+| **Approve** | DoD review split: Lane B feasibility, Judge acceptance, Lane A record | Before PR-template creation and work-order selection |
+| **Approve-with-conditions** | B-117 child table | Restore visual/data-flow child; update B-117 itself; independent verification required |
+| **Approve-with-conditions** | Register and Graphify sequence | Boundary/transfer first; D-231 graph control as a separate atomic unit; rebuild last |
+| **Defer** | Other open-entry dispositions, template creation, PR, construction and V2 opening | Their named B-117/B-119 owners and later authorization |
+| **Reject** | Blanket `Verified-At-Commit` refresh; ownerless-entry claim; three-ID forced commit; omitting the visual child; treating feasibility review as acceptance | Apply the corrected plan above |
