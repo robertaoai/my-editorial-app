@@ -937,3 +937,139 @@ the acceptance and refusal evidence above.
 | **Approve-with-conditions** | Behaviour/BDD and specs/UX technical-verification mapping | Treat methods as guidance; Lane B chooses per-child xDD after authorization |
 | **Defer** | Canonical propagation, packet retirement, Graphify repair, B-119 closure, MMF selection and construction | Judge choices, D-54 pass, DoR and independent verification |
 | **Reject** | Blanket journal exclusion; automatic 18/18 claim; preassigned Register ID; `ManualReady` as article state; new handoff as B-119 substitute; strict TDD/BDD mandate | Use the decision-ready boundaries and parent-first plan above |
+
+## Lane B reconciliation — reported A/A/A choices and Lane C correction review, 2026-09-20
+
+### Clarified task and authority boundary
+
+Review the supplied Lane C reconciliation against the repository, preserve its valid corrections,
+identify any remaining failure conditions, and give Lane A a parent-first application plan. The
+supplied Lane A worklog reports that the Judge selected `B119-URL` A, `B119-GRAPH-SCOPE` A and
+`B119-ANSWER` A. Lane B records those selections as received handoff evidence; Lane A remains the
+owner that assigns Register identities and applies them to canonical sources.
+
+This section is still planning and review only. It changes no canonical source, graph policy, work
+packet, lane state or construction authority.
+
+### Reconciliation findings
+
+| Lane C proposition | Lane B disposition | Corrected repository meaning |
+|---|---|---|
+| The manifest alone cannot produce a clean graph-coverage result | **Accept** | Removing selected exclusions leaves a coverage-required remainder. Every remaining path must be extracted, represented by a valid curated fragment, or separately dispositioned. |
+| The remainder is “44 authoritative files” | **Correct** | `44` is arithmetic, not a document class. The remainder includes governing sources and live specs, but also indexes, procedural documents and fragment documentation. Call it the **coverage-required remainder under the current policy** until every path is classified. |
+| Seven plan-pack files and ten journals form the coverage-only manifest | **Accept with conditions** | Use exact paths, not a count or wildcard. The journal criterion is “no incoming filename citation from a non-journal live/canonical source,” not “zero references”: several candidates cite one another. A human authority review remains part of the fixture evidence. |
+| Plain `hook-rebuild` plus `merge7.js` resolves the remainder | **Correct** | Those commands are required after governed changes, but success is the post-merge path evidence. The current graph was already rebuilt yet still omits the sources. Re-running commands is not proof that each path was extracted. |
+| Mark `FR-10`/`AC-16` `[V1→V2]` now | **Reject** | D-178 expressly says `[V1→V2]` is invalid while no V2 build exists. Keep the existing `[V1]` origin and add a D-36-compliant, decision-cited V1 scope/target-backlog note. Change to `[V1→V2]` only when V2 exists and materially revises the section. |
+| Remove a false canonical `NG-04` citation | **Withdrawn correctly** | No such canonical citation exists. Do not introduce one. WordPress exclusion comes from D-239 as amended. |
+| Avoid preassigned Register IDs and physical replay keys | **Accept** | Lane A assigns the next ID at application. Functional intent states observable idempotency/replay; authorized Lane B later chooses persistence and key mechanics. |
+| Add Encyclopedia Entry 04 to the impact ledger | **Accept** | Entry 04 directly owns article-state versus publication-status semantics and is not currently flagged for this new decision. Entries 01/05/06 remain separate impact checks. |
+| Move B-119 to `Answered` after Lane A's substantive response | **Accept with conditions** | Use `Status: Answered` and a non-terminal weakest-child disposition such as `Resolution: Deferred`; `Applied` and `Verified` remain unavailable until their distinct evidence exists. |
+
+### Exact `B119-GRAPH-SCOPE` manifest received
+
+The reported Judge choice is normalized as the following explicit coverage-only paths. This list
+does not remove any file from docs-drift and does not delete or de-authorize its content.
+
+**Non-authoritative plan-pack paths:**
+
+- `docs/ARCHITECTURE.md`
+- `docs/DATA_MODEL.md`
+- `docs/AGENTIC_LAYER.md`
+- `docs/INTELLIGENCE_LAYER.md`
+- `docs/SECURITY.md`
+- `docs/TASKS.md`
+- `docs/TEST_PLAN.md`
+
+**Historical-journal paths with no incoming exact-filename citation from a non-journal live or
+canonical source in the reviewed tree:**
+
+- `docs/journal/2026-08-18-audit-model-and-remediation-plan.md`
+- `docs/journal/2026-08-18-board-packet-checklist.md`
+- `docs/journal/2026-08-18-consolidated-gaps-and-open-questions.md`
+- `docs/journal/2026-08-18-first-engagement-lock-in.md`
+- `docs/journal/2026-08-18-poc-charter-separation-and-revenue-model.md`
+- `docs/journal/2026-08-18-publication-transaction-record.md`
+- `docs/journal/2026-08-18-retraction-as-publication.md`
+- `docs/journal/2026-08-18-sprint-readiness-consolidated.md`
+- `docs/journal/2026-08-18-transition-intent-vocabulary.md`
+- `docs/journal/2026-08-19-t1-execution-runbook.md`
+
+The seven missing journal paths that remain coverage-required are the three 2026-08-16 records,
+`2026-08-18-board-decision-sheet.md`, `2026-08-18-raci-human-vs-digital-twin.md`,
+`2026-08-18-storyboard-business-and-digital-twin.md` and
+`2026-08-18-t0-execution-runbook.md`. Their exact filenames are cited from non-journal canonical or
+live sources. The storyboard remains the canonical Mermaid source.
+
+### Graph-control dependency that Lane C omitted
+
+D-231 currently requires `graph-coverage` and `docs-drift` to share one exclusion matcher. A
+coverage-only manifest deliberately gives those checks different policies. Lane A must therefore
+record a bounded amendment to D-231 before changing the implementation. The safe design may retain
+one base governed-intent classifier and add an explicit coverage-only layer, but fixtures must prove:
+
+1. each manifest path is excluded from graph coverage;
+2. the same path remains visible to docs-drift;
+3. a referenced/canonical journal cannot enter the manifest through a broad glob;
+4. a mixed governed/handoff commit still marks the graph stale;
+5. every non-excluded missing path is reported; and
+6. the coverage test validates a source/path relationship stronger than the current
+   `graph.includes(path.basename(file))` substring check.
+
+The last item matters because the current check can pass when a basename merely appears somewhere
+in graph JSON; that does not prove the file was extracted into a useful semantic node.
+
+### Parent-first Lane A application plan
+
+1. **Apply the product-scope parent act now.** Assign the next Register ID and amend D-239 only for
+   the LinkedIn target-level `ManualReady` outcome. Record the selected `B119-URL` A deferral,
+   retained exclusions, setup-behaviour dispositions and all tier effects. Do not cite NG-04.
+2. **Perform the D-54 pass atomically.** Update the Register, Build Spec and Artifact Inventory,
+   then `Modular_PRD.md` §8, V1-SM06, the affected traceability/Fn Spec and storyboard Panel A9.
+   Preserve the single storyboard/UML/data-flow source and flag Encyclopedia Entry 04 in addition
+   to any still-applicable Entries 01/05/06.
+3. **Express the `FR-10` deferral without claiming V2 exists.** Keep `[V1]`; add the current
+   decision's V1 scope note and V2-target backlog destination across `FR-10`, `US-10`, `AC-16`,
+   `AC-16a`, `TR-API-04` and the publication Fn Spec. Restate no aggregate counts.
+4. **Keep behaviour above mechanism.** Specify actor, precondition, target-level outcome,
+   no-duplicate observable replay, revision and refusal evidence. Leave table/query/key/interface
+   choices to an authorized Lane B child refinement.
+5. **Write Lane A's substantive answer in B-119.** Cite the canonical commit and stable `B119-*`
+   topics, set `Status: Answered`, and use the weakest unresolved child for a non-terminal
+   Resolution. Do not claim independent verification in the applying commit.
+6. **Apply B-115 as its own governed unit.** The Judge clarification already exists in B-115;
+   Lane A still must propagate Intent/Build/DevOps ownership without prescribing Lane B's xDD.
+7. **Amend D-231 and repair coverage in a separate unit.** Record the exact manifest paths and
+   coverage-only semantics, strengthen path evidence, add fixtures, rebuild extracted content,
+   re-merge curated fragments and classify every remaining omission by path.
+8. **Authorize construction last.** Independent review, complete DoR and one bounded V1-SM05 child
+   work order precede any Lane B application construction. V1-SM06 and V2 do not open by inference.
+
+### Completion and closure tracking
+
+| Topic | State after the reported Judge choices | Evidence still required |
+|---|---|---|
+| `B119-AUTH` | **Applied** | Retain D-241. |
+| `B119-NS` | **Reviewed; canonical dispositions pending** | Product-scope Register/D-54 commit. |
+| `B119-MANUALREADY` | **Judge-selected; unapplied** | Register, D-54 propagation and independent review. |
+| `B119-URL` | **Judge-selected A; unapplied** | D-36-compliant V1 scope/backlog notes; no premature `[V1→V2]`. |
+| `B119-GRAPH-SCOPE` | **Judge-selected A; unapplied** | D-231 amendment, explicit manifest, stronger coverage evidence and graph repair. |
+| `B119-QA` | **Judge clarification exists in B-115; unapplied** | Separate canonical B-115 propagation. |
+| `B119-ANSWER` | **Judge-selected A; unwritten by Lane A** | Substantive in-file answer, then `Status: Answered` with weakest-child Resolution. |
+
+The current Lane B review does not itself change the B-119 header. After Lane A answers, the
+correct intermediate shape is `Status: Answered` plus a non-terminal Resolution while graph scope,
+B-115 or independent verification remains open. `Resolution: Applied` describes canonical
+application, and `Resolution: Verified` requires a later independent act; neither is supplied by
+the answer alone.
+
+### Reconciliation verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Reported Judge choices `B119-URL` A, `B119-GRAPH-SCOPE` A and `B119-ANSWER` A | Lane A canonical acts and substantive B-119 answer |
+| **Approve** | Encyclopedia Entry 04 impact and withdrawal of the NG-04 claim | D-54 applicability and ledger flag |
+| **Approve-with-conditions** | Exact coverage-only manifest | Amend D-231; use explicit paths; preserve docs-drift and referenced journals |
+| **Approve-with-conditions** | Coverage-required remainder | Classify path by path; command completion or an arithmetic tally is not extraction evidence |
+| **Approve-with-conditions** | B-119 `Answered` transition | Weakest-child non-terminal Resolution; later independent verification |
+| **Defer** | B-115 propagation, graph repair, packet retirement, DoR, work order and construction | Separate governed units after the product-scope D-54 pass |
+| **Reject** | Premature `[V1→V2]`; calling all remainder files authoritative; treating `hook-rebuild`/merge as proof; shared-matcher edit without D-231 amendment; physical replay keys in Fn Specs; `Applied`/`Verified` on Lane A's answer commit | Apply the corrected plan above |
