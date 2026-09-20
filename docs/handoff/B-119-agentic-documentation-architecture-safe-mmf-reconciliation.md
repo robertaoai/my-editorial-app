@@ -792,3 +792,148 @@ approval; the new `ManualReady` event settles only its permitted delivery outcom
 | **Approve-with-conditions** | WordPress targeted to V2 | Backlog target only; no NG-04 citation, V2 opening or construction authority |
 | **Defer** | Full state-machine restoration, S2 RPC, Chief Journalist approval path, packet retirement, MMF selection and construction | Separate decisions and evidence |
 | **Reject** | Treating `ManualReady` as an article state; using business T5 as technical transition authority; citing NG-04 for WordPress; inferring full pipeline/S2 absorption; preassigning `D-242`; treating Option B as a work order | Apply the normalized boundary above |
+
+## Lane B decision-ready clarification — publication boundary, Graphify scope, answer location and QA semantics, 2026-09-20
+
+### Clarified task
+
+Consolidate the existing B-119 evidence into three Judge choices without treating Lane C's
+recommendations as decisions. Keep the work parent-first, identify the critical construction and
+verification artifacts, normalize the behaviour/specification/testing vocabulary, and prepare a
+Lane A follow-up plan. This section is analysis only: it changes no canonical source, Graphify
+policy, work packet, lane state or construction authorization.
+
+### Completion and authority ledger
+
+| Stable topic | Current state | Meaning |
+|---|---|---|
+| `B119-AUTH` — planning labels | **Applied in D-241** | Scrum and MMF remain governing labels; SAFe and Lean remain explanatory analogies. |
+| `B119-NS` — setup/delivery namespaces | **Reviewed in B-119** | `SETUP-SPIKE-000/S2–S4`, `V1-SM05/06`, and historical bare sprint labels remain distinct. |
+| `B119-MANUALREADY` — Judge Option B | **Decided in conversation; not yet canonical** | V1-SM06 may append a LinkedIn target-level `ManualReady` event. Lane A must assign the Register ID and perform D-54 propagation. |
+| `B119-URL` — `FR-10`/`T11` live-URL confirmation | **Open** | Option B does not decide the later transition from `ManualReady` to `Published`. |
+| `B119-GRAPH-SCOPE` — coverage-only exclusions | **Open in the repository record** | D-241 says a separate Judge answer exists but does not preserve its exact path-level scope. It cannot be reconstructed as authority from Lane C's prose alone. |
+| `B119-QA` — intent/build/CI and xDD split | **Open** | B-115 remains the governing handoff question; B-114 does not authorize a mandatory test method. |
+| `B119-ANSWER` — this handoff lifecycle | **Open** | Lane A has acknowledged B-119. Canonical propagation, a substantive Lane A answer and independent verification remain outstanding. |
+
+### Judge choices — parent first
+
+No box below is selected by this review. A recommendation is not a Judge act.
+
+#### `B119-URL` — V1 publication boundary
+
+| Choice | Decision | Consequence |
+|---|---|---|
+| **A — Defer `FR-10`/`T11` (recommended)** | V1 ends at an effective LinkedIn `ManualReady` event. Live-URL confirmation and promotion to `Published` become a V2-target backlog item without opening V2. | Keeps the approved Option B carve-out narrow. `ManualReady` remains a `publication_event_type`; it does not change `articles.workflow_state`. |
+| **B — Add a separate V1 amendment** | Retain manual live-URL confirmation in V1 through a distinct Register act and child contract. | Must define acting authority, target and article-state effects, accepted URL/evidence rules, revision handling, idempotency, refusal/failure and observable acceptance before DoR. |
+
+Choice B does not automatically require live-page scraping, a regular-expression policy or a new
+schema field. Those are later technical refinements unless the accepted behavioural contract makes
+one necessary.
+
+#### `B119-GRAPH-SCOPE` — coverage-only Judge answer
+
+| Choice | Decision | Consequence |
+|---|---|---|
+| **A — Confirm an explicit reviewed manifest (recommended)** | Record the exact coverage-only exclusion paths. Candidate plan-pack files are `ARCHITECTURE.md`, `DATA_MODEL.md`, `AGENTIC_LAYER.md`, `INTELLIGENCE_LAYER.md`, `SECURITY.md`, `TASKS.md` and `TEST_PLAN.md`; historical journals qualify only when they are neither authoritative nor referenced by a live source. | Implement the exclusions only in graph coverage. Keep docs-drift unchanged. Add fixtures proving that an excluded file remains drift-visible and that every referenced/canonical file remains coverage-required. |
+| **B — Exclude `docs/journal/2026-08-*` as a glob** | Treat every matching journal as historical. | **Reject.** It would exclude `2026-08-18-storyboard-business-and-digital-twin.md`, the canonical Mermaid source referenced by `FN-GATES-01-05.md` and recorded by D-232. |
+
+The 61-file coverage failure also contains authoritative Register, governance, functional-spec and
+work-packet sources. Excluding the candidate plan pack and some historical journals therefore does
+not prove that the suite will pass. Success requires classifying every remaining omission as either
+covered or explicitly, narrowly excluded; a target tally is not the policy.
+
+#### `B119-ANSWER` — where the consolidated crosswalk belongs
+
+| Choice | Decision | Consequence |
+|---|---|---|
+| **A — Answer in this B-119 file (recommended)** | Lane A appends its substantive response here and cites stable `B119-*` topics. | Avoids a duplicate handoff and respects the withdrawn `A-NNN` series. Keep `Status: Open` until the answer is complete, or use `Status: Answered` with the weakest unresolved child disposition. Use `Resolution: Verified` only after independent verification of applied canonical work. |
+| **B — Create another handoff or use a turn report as the answer** | Move the crosswalk elsewhere. | **Reject.** A phase turn report may cite the result but does not replace the answer to the Lane B-raised item. |
+
+`Resolution: Applied` would be premature while the Option B Register act, D-54 propagation,
+coverage policy and DoR evidence remain open. The eventual B-119 disposition must follow its
+weakest unresolved child under the existing handoff rules.
+
+### Normalized documentation and QA semantics
+
+| Tier | Owns | Verification relationship |
+|---|---|---|
+| `Modular_PRD.md` | Product outcomes, requirements and acceptance anchors | Supplies the business outcome and acceptance source. |
+| `docs/fn-specs/` | Behaviour, actors, preconditions, outcomes, refusal and edge cases | BDD-style examples or Given/When/Then scenarios are suitable expressions, but the tier does not mandate one runner or test framework. |
+| `docs/specs/` | Implementation contracts and technical-system boundaries | May yield unit, integration, contract, security and operational checks. |
+| `docs/specs/ux/` | Stack-specific UI/UX implementation consequences | May yield component, accessibility, interaction and visual verification. It is not limited to unit tests. |
+| Lane B child refinement | Construction design and test-first method for an authorized child | TDD or another xDD method is a build choice after scope, acceptance, lane and work-order authorization. |
+| `SPECS-VERIFICATION-APPARATUS.md` | Reusable evidence and verification contracts | Connects technical evidence to the accepted behaviour without redefining product intent. |
+
+This preserves D-29's tier ownership. It rejects a one-to-one rule that all functional-spec tests
+are BDD or that all technical/UX checks are unit tests; those labels describe useful methods, not
+exclusive document classes.
+
+### Parent-first Lane A follow-up plan — no construction
+
+1. **Obtain and record the three Judge choices.** Record `B119-URL`, the exact path-level
+   `B119-GRAPH-SCOPE`, and `B119-ANSWER`; do not infer a selected option from this recommendation.
+2. **Canonicalize the already-selected Option B.** Lane A assigns the next available Register ID
+   at application time and records the narrow LinkedIn `ManualReady` carve-out, retained exclusions,
+   open child contract and explicit tier dispositions. Do not reserve `D-242` in advance.
+3. **Apply D-54 once.** Update the Register, Build Spec and Artifact Inventory in the same pass,
+   then `Modular_PRD.md` §8 and only the affected traceability, functional-spec and storyboard
+   sources. State every unaffected tier explicitly.
+4. **Disposition setup behaviours individually.** Map only supported S2/S3/S4 behaviours to
+   V1-SM05/06. Keep S2 RPC/T6, S3 return analytics, WordPress/retry/credential work and other
+   unselected behaviour held or in a target backlog. Retire no packet until all citations move.
+5. **Specify the behavioural children.** Complete the `ManualReady` trigger, actor, target/event
+   ordering, replay, revision, refusal and observability contract. If `B119-URL` choice B is selected,
+   specify its `Published` contract as a separate child.
+6. **Resolve B-115 before prescribing construction method.** Lane A defines outcomes and
+   acceptance; authorized Lane B refines interfaces, persistence and per-child xDD; Lane C consumes
+   immutable build evidence for workflow verification.
+7. **Repair Graphify as a separate control unit.** Apply the confirmed explicit manifest to the
+   coverage-specific classifier, retain drift monitoring, test positive and negative cases, rebuild
+   the extracted graph, then re-merge curated fragments.
+8. **Complete DoR and independent review.** Review the normal/revision storyboard paths and
+   applicable Encyclopedia entries, reconcile every authoritative graph omission, and run the full
+   consistency suite.
+9. **Answer B-119 in place and authorize last.** Record the substantive Lane A response here,
+   apply the correct non-terminal disposition while any child remains open, then let the Judge
+   select one bounded V1-SM05 child and its Active lane through a fresh work order.
+
+### Critical artifacts and success evidence
+
+| Artifact | Required planning result | Success evidence before construction |
+|---|---|---|
+| Decision Register | Option B plus selected `B119-URL`, graph-scope and B-115 acts, each with stable identity | No conversational recommendation is used as authority; every affected tier has a disposition. |
+| Build Spec and Artifact Inventory | Sequenced child units, DoR/DoD and evidence files | The same scope boundary appears in both tracking sources without duplicate counts. |
+| `Modular_PRD.md` | V1 tracking and requirement links; frozen customer intent preserved | `FR-09`, `FR-10`, `CR-19` and V1 scope no longer imply contradictory completion. |
+| Publication Fn Spec and traceability map | `ManualReady` behaviour and the selected `FR-10` disposition | Actor, trigger, revision, replay, refusal and acceptance are traceable without implementation design. |
+| Storyboard Panel A9 and referenced Mermaid UML/data flow | One canonical normal/revision path | LinkedIn target event, article workflow state and later `Published` outcome are visually distinct; no duplicate diagram source. |
+| Encyclopedia entries 01/05/06 | Review flags and citations where affected | Hosted review/republish is evidenced separately and never inferred from a local flag. |
+| Graph coverage classifier and fixtures | Explicit manifest with referenced-file exceptions | No unexplained authoritative omissions; coverage exclusions remain visible to docs-drift. |
+| V1 work packets and work order | One selected child with inputs, outputs, failures, tests and exclusions | DoR is independently reviewed before Lane B construction begins. |
+
+### Deterministic failure and success criteria
+
+| Failure condition | Why it fails | Required success criterion |
+|---|---|---|
+| Treat Option B as full `CR-19` or as construction authority | It authorizes one target-level event, not the complete editorial/publication journey or a lane handover. | Register scope, DoR, selected lane and bounded work order all exist. |
+| Treat `ManualReady` as article `Published` state | It conflates a publication event with `articles.workflow_state` and silently absorbs `FR-10`. | Event and state semantics remain separate; `FR-10` has an explicit disposition. |
+| Exclude every August journal from Graphify | It removes the live canonical storyboard from coverage. | Explicit reviewed exclusions preserve every referenced/canonical journal. |
+| Claim coverage repair from a smaller missing-file count | A count cannot explain whether an authoritative source disappeared. | Every omission has a path-level classification and fixture; no unexplained authoritative source is absent. |
+| Close B-119 after acknowledgement or canonical application alone | Answering, applying and independent verification are different lifecycle acts. | Substantive answer, weakest-child resolution and independent verification are recorded separately. |
+| Mandate strict TDD or BDD from a documentation tier | It converts an ownership/tier map into an unauthorized construction method. | Behaviour examples and technical evidence are specified; Lane B selects the child-level method after authorization. |
+
+There is no repository evidence that any one documentation defect by itself guarantees financial
+loss. The useful high-stakes interpretation is deterministic: prevent unauthorized publication,
+false completion, missing accountability, secret exposure and untraceable scope changes through
+the acceptance and refusal evidence above.
+
+### Decision-ready verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Existing Option B parent decision and the three-namespace separation | Lane A Register and D-54 application |
+| **Approve-with-conditions** | `B119-URL` choice A, deferring `FR-10`/`T11` | Judge selection; V2-target backlog only, with no V2 opening |
+| **Approve-with-conditions** | Explicit Graphify coverage manifest | Judge confirms exact paths; preserve canonical storyboard and docs-drift |
+| **Approve-with-conditions** | Consolidated Lane A answer inside B-119 | Use stable topic aliases and lifecycle state governed by the weakest unresolved child |
+| **Approve-with-conditions** | Behaviour/BDD and specs/UX technical-verification mapping | Treat methods as guidance; Lane B chooses per-child xDD after authorization |
+| **Defer** | Canonical propagation, packet retirement, Graphify repair, B-119 closure, MMF selection and construction | Judge choices, D-54 pass, DoR and independent verification |
+| **Reject** | Blanket journal exclusion; automatic 18/18 claim; preassigned Register ID; `ManualReady` as article state; new handoff as B-119 substitute; strict TDD/BDD mandate | Use the decision-ready boundaries and parent-first plan above |
