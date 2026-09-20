@@ -8,11 +8,13 @@
 - **Lane A:** **Acknowledged, 2026-09-20 (receipt).** Lane B's corrections are read and not
   disputed. Proposal disposition is pending Parents 2 and 4 below. No canonical file, check,
   workflow, dependency or graph artifact is changed by this acknowledgement.
+  **Substantive answer appended 2026-09-21** (final section, "Lane A answer"): statement A applied and
+  stopped for independent review; the header stays `Open` under the weakest-child rule.
 - **Evidence:** attached Lane C analysis dated 2026-09-20; attached B-119 proposal; `D-29`, `D-34`,
   `D-75`, `D-84`, `D-87`, `D-100`, `D-159`, `D-227`, `D-232`, `D-240`; `B-061`, `B-071`,
   `B-114`, `B-115`; `package.json`; `scripts/check-consistency.mjs`; `scripts/checks/lane-boundary.mjs`;
   `.github/workflows/ci.yml`; `docs/v1/work-packets/V1/V1-SM05.md`
-- **Verified-At-Commit:** 6174188d69c950c7af4447514fcd02b181a0015e
+- **Verified-At-Commit:** d6a84770fccba0e54f8454df2c9f65182c06546b
 
 ## Review boundary
 
@@ -1892,3 +1894,81 @@ or inferred during the planning/application pass.
 | **Defer** | Draft statement B, first PR and construction | Canonical application, green local checks, independent review and exact readiness commit |
 | **Defer** | B-117/B-118/B-119 closure | Per-entry residual evidence and independent verification |
 | **Reject** | Generic approval slogan, bulk closure, PR-as-DoD, setup completion as V1 completion, premature V2/packet retirement or implied build authority | Use the two-checkpoint model above |
+
+## Lane A answer — Judge statement A applied, stopped for independent review, 2026-09-21
+
+**Authority.** The Judge's 2026-09-20 instruction to apply the B-119 Lane A governance and documentation
+packet (decision-table row 1, statement A), recorded in `D-242` under `D-183`. This session held B-119's
+record of the settled publication, setup-transfer and graph-scope content, not the original direct
+messages; the Judge directed that B-119's recorded content be used. Lane B's comparison of the recorded
+acts with that content is still owed and is **not** claimed here.
+
+### What landed, in parent-first order
+
+| Order | Unit | Commit |
+|---:|---|---|
+| 0 | B-088 normalized to `Answered` / `Deferred`, handoff-only | `f511598545cdab55d60ca4f4344b0629aa9ed18e` |
+| 1 | `D-242` — B-115's Intent/Build/DevOps split promoted to its canonical owners | `4eb469f3ac8e356059675ad38663632553ebddfb` |
+| 2 | `D-243` publication boundary, then `D-244` setup transfer, with the `D-54` propagation | `92b871e8ab1a50b0cd185161b741ce73db562e5f` |
+| 3 | `D-245` — SM05/SM06 DoD and DoR contracts defined; one-MMF PR template created | `1212fb3dd1ae4d8fba8f2112c9aafbd8467a6c35` |
+| 4 | `D-246` — `D-231` amended: coverage-only manifest, exact source-path evidence, reverse-reference guard | `24e22df84c7e592362e9d931a9d711e44c6b1d1a` |
+| 5 | Curated fragment, docs-layer restore tool, README and Register/Inventory record | `d6a84770fccba0e54f8454df2c9f65182c06546b` |
+| 6 | B-115 answered `Applied` (handoff-only) | `6fa5ed0` |
+
+Graphify was rebuilt once at `d6a8477`, after the last governed edit, then every mergeable fragment was
+re-merged. `docs-drift` is synced at that head. The full local consistency run passes, and all negative
+fixtures pass on a clean tree.
+
+### Stable-topic dispositions
+
+| Topic | Disposition | What remains |
+|---|---|---|
+| `B119-AUTH` | Applied (`D-241`) | — |
+| `B119-NS` | Applied by `D-244`'s destination table | Independent verification |
+| `B119-MANUALREADY` / publication boundary | Applied (`D-243`) | Independent verification; **three children open** — trigger and precondition, acting authority, revision behaviour — each needs a Judge-named fact before `V1-SM06` DoR |
+| `B119-URL` | Applied (`D-243`, Choice A): `FR-10`/`T11` targeted to V2 with `[V1]` kept | Independent verification |
+| `B119-GRAPH-SCOPE` | Applied (`D-246`) | Independent verification; coverage passing is path representation, not semantic currency |
+| `B119-QA` | Applied (`D-242`; see B-115) | Lane B and Lane C consumer reads |
+| `B119-ANSWER` | This section | — |
+
+### The header stays `Open`, and why
+
+Under the weakest-child rule (`D-204`) the header cannot be `Answered`: the three `ManualReady` children
+above have no disposition, the independent verification of every applied topic is absent, and the hosted
+Encyclopedia comparison is not done. **`Applied` on a whole entry with absent children would be a false
+claim.**
+
+### A finding this application surfaced
+
+The graph had lost its docs layer at the 2026-09-17 rebuild (about 1800 nodes to about 480) and stayed
+that way unnoticed, which is why `graph-coverage` showed a large backlog. It was restored **by id from the
+2026-09-16 dated backup** with the new `docs/graph-fragments/restore-docs-layer.js`, not re-authored. The
+restored descriptions are the backup's and may predate the documents. The pending semantic description fill
+(`graphify update --fill-missing`) is unchanged and was not run: it needs an LLM backend and is not part
+of statement A.
+
+### Not done, by design
+
+No branch, pull request, work order, Lane B activation, MMF selection, construction, V2 opening, packet
+retirement, earned DoD, deployment or hosted Encyclopedia republish. **Judge statement B was not sent or
+inferred.** `V1-SM05` and `V1-SM06` are not DoR-complete. B-117 (its normal/revision visual child, phase
+events, role IDs, Complex-Series milestones, hosted Encyclopedia), B-118 and B-110 keep their own
+lifecycle: their child tables and verification are **specified, not applied** here, and no entry was closed
+in bulk. The unrelated open entries were not touched.
+
+### Next, for the independent reviewer
+
+1. Compare `D-242`–`D-246` and their application with the Judge's direct messages (`D-183` rule 6).
+2. Give the DoD feasibility review (Lane B) for `V1-SM05` and `V1-SM06`; the Judge accepts the business
+   outcome separately.
+3. Read B-115's consumer questions (Lane B and Lane C).
+4. Only then may the Judge, in a later act, select one DoR-complete MMF, make Lane B `Active` and issue a
+   bounded work order.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | `D-242`–`D-246` and their propagation, applied and locally green | Phase 1 — independent Lane B verification against the Judge's direct messages |
+| **Approve-with-conditions** | Readiness contracts and the PR template | Phase 1 — Lane B feasibility review and Judge acceptance; DoR still incomplete; template authorizes nothing |
+| **Approve-with-conditions** | Graph coverage green | Phase 1 — path representation only; direct source review; semantic description fill remains pending |
+| **Defer** | Three `ManualReady` children, hosted Encyclopedia review, B-117/B-118 child tables, MMF selection, Judge statement B, construction | Phase 1 — a Judge-named fact each, then per-entry evidence and a later bounded act |
+| **Reject** | Closing B-119 or any sibling from this application; treating coverage PASS as semantic correctness; inferring build authority from the template or from Lane B `Eligible` | Keep per-entry lifecycle and the two-checkpoint model |
