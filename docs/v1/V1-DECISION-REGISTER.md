@@ -18277,3 +18277,66 @@ Does not claim DoD or DoR completion, record either review as done, select `V1-S
 Lane B `Active`, issue a work order, open a branch or pull request, or automate pull-request validation
 (that would be a separate Lane C unit against a defined machine contract). Does not create any further
 `V1` sprint ID.
+
+---
+
+## 5.14e71 `D-246` — `D-231` Amended: a Coverage-Only Manifest and Exact Source-Path Evidence for `graph-coverage`
+
+**Judge decision content recorded in `docs/handoff/B-119` (`B119-GRAPH-SCOPE` Choice A and the exact
+manifest received there); authority to apply it: the 2026-09-20 instruction quoted in `D-242`
+(`D-183`).** Same provenance caveat as `D-243`: this session held B-119's record of the selection, and the
+Judge directed that it be used. Independent Lane B verification is still owed and is not claimed.
+
+### What `D-231` said, and what this amends
+
+`D-231` gave `graph-coverage` and `docs-drift` **one** matcher. This act deliberately gives them
+**different policies** for one bounded set of paths, layering a coverage-only exclusion on top of the
+base matcher instead of replacing it, so the shared base stays shared. `D-231`'s other content is
+unchanged.
+
+### The decision
+
+| Element | Rule |
+|---|---|
+| **Coverage-only manifest** | An **exact, glob-free** list in `scripts/checks/governed-intent.mjs`: the seven non-authoritative plan-pack documents and ten named historical journals, exactly as recorded in `docs/handoff/B-119`. The Register owns the manifest's identity by that record and by the file; **no count is restated in any derived tier** |
+| **Applies to coverage only** | `docs-drift` keeps the base matcher. Every manifest path stays visible to drift, so an edit to one still marks the graph stale. Nothing is deleted or de-authorized |
+| **Never a wildcard** | A journal glob was rejected: it would have excluded `2026-08-18-storyboard-business-and-digital-twin.md`, the canonical Mermaid source `FN-GATES-01-05.md` cites. Storyboard and the traceability map stay **coverage-required** |
+| **Reverse-reference guard** | A manifest journal qualifies only while no live or canonical source (not another journal, not the handoff worklog) cites its filename. If one later does, `graph-coverage` **fails and names the citation**, so the exclusion cannot become a silent blind spot |
+| **Exact source-path evidence** | A document is covered only when some node's `source_file` **equals** its normalized path. The old test (`graph.includes(basename)` in `missing.js`) passes when a filename merely appears anywhere in the graph, and proves nothing about the document having a node |
+| **`missing.js`** | Retained **unedited** as the reference report the Register names; it is no longer the evidence |
+| **The remainder is provisional** | The exact test may show more omissions than the basename test did. Each remaining omission is classified by path when the graph is synchronized — extracted, represented by a curated node, or separately dispositioned. **A tally is not the policy**, and passing coverage is path representation, **not** semantic correctness: direct source review and independent verification remain required |
+
+### Result, measured at authoring
+
+With the exact test, the live graph held **only a handful of the curated fragment nodes** before this run's
+synchronization (the curated layer had not been re-merged after a rebuild — `G51`'s silent shape). The
+rebuild and full curated re-merge are the final unit of this run; their outcome is recorded where they
+happen, not here. Eleven fixture cases pin the properties above; two deliberate breakages (adding the
+storyboard to the manifest, and loosening coverage back to a basename test) each made exactly the intended
+case fail and were reverted.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e71 |
+| **`scripts/checks/governed-intent.mjs`** | ✅ manifest, coverage-only matcher, normalizer, reverse-reference and coverage functions |
+| **`scripts/checks/graph-coverage.mjs`** | ✅ rewritten to use them |
+| **`scripts/fixtures/suites.mjs`** | ✅ one new suite registered |
+| **`V1-BUILD-SPEC.md`** | ✅ §7 standing invariant 11 amended by `D-246` |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ the `governed-intent.mjs` row extended; no file created or retired |
+| **`docs/graph-fragments/README.md`** | ✅ §5 step 1 corrected: `missing.js` is a reference report, not coverage evidence |
+| **`docs/graph-fragments/missing.js`** | — unaffected: retained unedited |
+| **`docs/Modular_PRD.md`, Fn Specs, storyboard, UML, data flow** | — unaffected: graph-control scope, not Product scope |
+| **Rule files** | — unaffected: `CLAUDE.md` names the same `graph-coverage` and `docs-drift` behaviour and restates no exclusion list |
+| **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Encyclopedia** | Unaffected — no entry depends on graph-control scope |
+| **Graphify** | ✅ rebuild and full curated re-merge follow the last governed edit of this run |
+
+### What this act does NOT do
+
+Does not exclude `docs-drift` for any path, remove or de-authorize any document, edit `missing.js`, change
+what counts as a lane crossing, or restate a tally. Does not claim CI runs the graph checks: `graph-coverage`
+and `docs-drift` still SKIP in a default CI checkout, and the fixtures can run there while the graph itself
+proves nothing without the local, full-history run. **Lane A's own implementation, not independently
+reviewed.**

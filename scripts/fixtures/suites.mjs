@@ -1774,6 +1774,123 @@ export async function terminalReturnDecision(results) {
   }
 }
 
+/**
+ * `D-246` — the coverage-only manifest and exact source-path evidence
+ * (`B119-GRAPH-SCOPE` Choice A, amending `D-231`). Every function under test
+ * is PURE, so these cases need no git commits, graph file, mutation or restore.
+ *
+ * They pin the six properties `docs/handoff/B-119` named, plus the reverse
+ * reference, so a future edit that loosens any of them fails here by name.
+ */
+export async function graphCoverageManifest(results) {
+  const {
+    COVERAGE_ONLY_MANIFEST,
+    HISTORICAL_JOURNAL_PATHS,
+    isCoverageExcludedPath,
+    isExcludedPath,
+    manifestViolations,
+    evaluateCoverage,
+    normalizeSourcePath,
+  } = await import("../checks/governed-intent.mjs");
+
+  const storyboard = "docs/journal/2026-08-18-storyboard-business-and-digital-twin.md";
+  const traceability = "docs/governance/requirements-traceability-map.md";
+  const journal = HISTORICAL_JOURNAL_PATHS[0];
+  const add = (name, ok, detail) => results.push({ name, ok, detail });
+
+  // 1. every manifest path is excluded from graph coverage
+  const notExcluded = COVERAGE_ONLY_MANIFEST.filter((p) => !isCoverageExcludedPath(p));
+  add(
+    "graph-coverage: every manifest path is excluded from coverage",
+    COVERAGE_ONLY_MANIFEST.length > 0 && notExcluded.length === 0,
+    `not excluded: ${JSON.stringify(notExcluded)}`,
+  );
+
+  // 2. the same paths stay visible to docs-drift — the base matcher does not exclude them
+  const driftHidden = COVERAGE_ONLY_MANIFEST.filter(
+    (p) => isExcludedPath(p) || classifyChangedPaths([p]).excludedOnly,
+  );
+  add(
+    "graph-coverage: every manifest path remains visible to docs-drift",
+    driftHidden.length === 0,
+    `hidden from drift: ${JSON.stringify(driftHidden)}`,
+  );
+
+  // 3. no broad glob: exact entries only, canonical sources stay coverage-required
+  const globby = COVERAGE_ONLY_MANIFEST.filter((p) => /[*?[\]{}]/.test(p));
+  add(
+    "graph-coverage: the manifest holds exact paths, never a glob",
+    globby.length === 0,
+    `glob characters in: ${JSON.stringify(globby)}`,
+  );
+  add(
+    "graph-coverage: the canonical storyboard and the traceability map stay coverage-required",
+    !isCoverageExcludedPath(storyboard) && !isCoverageExcludedPath(traceability),
+    `storyboard excluded=${isCoverageExcludedPath(storyboard)}, traceability excluded=${isCoverageExcludedPath(traceability)}`,
+  );
+  add(
+    "graph-coverage: a lookalike of a manifest journal is not excluded (no prefix or suffix matching)",
+    !isCoverageExcludedPath(`${journal}.bak`) &&
+      !isCoverageExcludedPath(journal.replace("2026-08-18", "2026-08-99")),
+    "a path that only resembles a manifest entry must stay coverage-required",
+  );
+
+  // 4. a mixed governed/handoff advance still marks the graph stale, including a manifest path
+  const mixed = classifyChangedPaths(["docs/handoff/B-999-example.md", journal]);
+  add(
+    "graph-coverage: a mixed handoff + manifest-journal advance still marks the graph stale",
+    mixed.excludedOnly === false && mixed.governed.length === 1,
+    `excludedOnly=${mixed.excludedOnly}, governed=${JSON.stringify(mixed.governed)}`,
+  );
+
+  // 5. reverse reference: a later live citation removes the exclusion by failing, and names it
+  const cited = manifestViolations(
+    new Map([["docs/Modular_PRD.md", `see ${journal.slice(journal.lastIndexOf("/") + 1)} for history`]]),
+  );
+  add(
+    "graph-coverage: a live source citing a manifest journal fails closed and names both paths",
+    cited.length === 1 && cited[0].path === journal && cited[0].citedBy === "docs/Modular_PRD.md",
+    JSON.stringify(cited),
+  );
+  const notLive = manifestViolations(
+    new Map([
+      ["docs/journal/2026-08-20-other.md", journal.slice(journal.lastIndexOf("/") + 1)],
+      ["docs/handoff/B-999-example.md", journal.slice(journal.lastIndexOf("/") + 1)],
+    ]),
+  );
+  add(
+    "graph-coverage: a citation from another journal or the handoff worklog is not a violation",
+    notLive.length === 0,
+    JSON.stringify(notLive),
+  );
+
+  // 6. every non-excluded missing path is reported; the test is EXACT source_file, not a basename
+  const docPaths = ["docs/Modular_PRD.md", "docs/README.md", "docs/handoff/B-999-example.md", journal];
+  const strong = evaluateCoverage({
+    docPaths,
+    nodes: [
+      { source_file: "docs\\Modular_PRD.md" }, // backslash form still normalizes to a match
+      // a node that merely MENTIONS README.md elsewhere must not cover docs/README.md
+      { source_file: "docs/v1/README.md", label: "README.md" },
+    ],
+  });
+  add(
+    "graph-coverage: a document is covered only by a node whose source_file equals its path",
+    JSON.stringify(strong.missing) === JSON.stringify(["docs/README.md"]),
+    `missing=${JSON.stringify(strong.missing)}`,
+  );
+  add(
+    "graph-coverage: excluded classes never appear as missing",
+    !strong.missing.includes("docs/handoff/B-999-example.md") && !strong.missing.includes(journal),
+    `missing=${JSON.stringify(strong.missing)}`,
+  );
+  add(
+    "graph-coverage: source paths normalize to forward slashes",
+    normalizeSourcePath(".\\docs\\a\\b.md") === "docs/a/b.md",
+    normalizeSourcePath(".\\docs\\a\\b.md"),
+  );
+}
+
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
   ["return record form (`B-097`)", returnRecordForm],
@@ -1788,6 +1905,7 @@ export const SUITES = [
   ["lane crossing declaration (`D-105`)", laneGate],
   ["lane-boundary tool-crossing retirement (`D-227`)", laneBoundaryToolCrossing],
   ["governed-intent exclusion matcher (`D-231`)", governedIntentExclusion],
+  ["graph-coverage manifest and exact source-path evidence (`D-246`)", graphCoverageManifest],
   ["docs-drift argument safety (`B-109`)", docsDriftArgumentSafety],
   ["config coupling (`C-17`, raised as `B-024`)", configCoupling],
   ["reopens-phase (`C-19`, raised as `B-025`)", reopensPhase],

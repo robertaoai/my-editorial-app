@@ -141,7 +141,7 @@ verification that costs one command is the cheapest possible evidence.
 
 Run all four. A merge is not done until each passes:
 
-1. `node docs/graph-fragments/missing.js` — every real doc indexed. One exclusion is expected and correct: `docs/.graphify/GRAPH_REPORT.md` is a graphify artifact, not a source doc.
+1. `bun run check`'s `graph-coverage` — every doc that requires a node has one whose `source_file` equals its path (`D-246`). `node docs/graph-fragments/missing.js` remains as a reference report, but it only tests whether a **basename appears anywhere** in the graph and is not evidence that a document has a node of its own — the older wording of this step relied on it. One exclusion is expected and correct: `docs/.graphify/GRAPH_REPORT.md` is a graphify artifact, not a source doc.
 2. `graphify path "<new node>" "<existing node>"` — the new nodes are **connected**, not orphaned. This is the check that catches the `edges`/`links` trap.
 3. `graphify explain "<new concept>"` — resolves, with the right community and a non-zero degree.
 4. `graphify portable-check .graphify` — commit-safe artifacts carry repo-relative paths.
