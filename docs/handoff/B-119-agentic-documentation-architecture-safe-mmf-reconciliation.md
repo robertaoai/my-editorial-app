@@ -1579,3 +1579,86 @@ handoff-only. This review does not trigger a rebuild. The first governed edit do
 | **Approve-with-conditions** | Register and Graphify sequence | Boundary/transfer first; D-231 graph control as a separate atomic unit; rebuild last |
 | **Defer** | Other open-entry dispositions, template creation, PR, construction and V2 opening | Their named B-117/B-119 owners and later authorization |
 | **Reject** | Blanket `Verified-At-Commit` refresh; ownerless-entry claim; three-ID forced commit; omitting the visual child; treating feasibility review as acceptance | Apply the corrected plan above |
+
+## Lane B review — D-183 provenance, B-115 parent order and named graph acceptance, 2026-09-20
+
+### Clearer request
+
+Check Lane A's latest planning audit against D-183 and the existing B-119 evidence. Separate a vague
+approval slogan from the explicit Judge choices already reported, put B-115 before the contracts
+that depend on it, preserve atomic decision units, and make the graph and visual acceptance criteria
+unambiguous. No canonical edit, lifecycle transition, graph rebuild, PR or construction occurs here.
+
+### Review of the five proposed gaps
+
+| Lane A claim | Lane B disposition | Corrected rule |
+|---|---|---|
+| The generic “Judge Approved: decision-tree decision” phrase satisfies D-183 | **Reject.** It names no object, action, scope, exclusions or checkpoint. | Never use that slogan as authority. Use the exact direct Judge option selections, if Lane A has them in its conversation, and record them in the Register immediately. |
+| A fresh Judge confirmation is always required before the Register acts | **Conditional, not automatic.** D-183 expressly recognizes direct chat authority during the pending-registration interval. B-119 records reported selections for `B119-URL`, `B119-GRAPH-SCOPE`, `B119-ANSWER`, Choice A and the six destinations. | If Lane A can cite the direct messages that made those exact selections, no duplicate approval ceremony is required. If it possesses only Lane B's handoff report, it must ask the Judge because a handoff cannot be sole proof. |
+| Independent Lane B verification must precede registration | **Incorrect sequence.** | Direct Judge act → Lane A Register record and propagation → independent Lane B verification that the record/application matches the act. Independent review cannot create authority retrospectively. |
+| B-115 must precede DoD review and the PR template | **Approve.** It owns the Intent/Build/DevOps responsibility split those artifacts consume. | Apply B-115 before defining/reviewing DoD and before creating the template. Product boundary/transfer decisions may be captured independently, but no execution-readiness artifact should consume the unpromoted B-115 draft. |
+| Drift and graph acceptance are missing | **Already partly present, but make the handover explicit.** B-119 already says the first governed edit creates drift and names the exact coverage manifest. | Permit red docs-drift only inside the uninterrupted governed run; handover requires final rebuild/re-merge and green drift. Storyboard and traceability remain coverage-required and must not enter the coverage-only manifest. |
+
+### D-183 capture matrix for Lane A
+
+This is a normalization aid, not a new Judge act. Lane A must populate it only from the direct Judge
+messages it actually received; it must not infer approval from this handoff.
+
+| Object | Authorized action to record | Scope | Exclusions | Checkpoint |
+|---|---|---|---|---|
+| V1 publication boundary | Record target-level LinkedIn `ManualReady` for V1-SM06 and the selected `FR-10`/`T11` future-target disposition | Event/state separation, actor/trigger/replay/revision/refusal evidence, D-54 propagation | No article `Published` state, automated WordPress, V2 opening, external GRC, T6, Line 3 or full state-machine expansion by implication | Durable Register entry before dependent propagation; independent Lane B review afterward |
+| Setup transfer | Record Choice A and every accepted S2-S4 destination under D-240 | S0/S1 retain completed evidence; unfinished behaviour moves to its named held, SM05, SM06 or explicitly approved future target | No DoD credit, packet retirement, PR, branch, lane transition, work order or construction | Separate Register identity after/with boundary parent; packet statuses change only from evidence |
+| Graph coverage scope | Amend D-231 with the exact B119-GRAPH-SCOPE path manifest and a coverage-only policy | Exact paths; docs-drift remains inclusive; referenced/canonical journals remain required; stronger normalized source-path evidence and reverse-reference fixture | No wildcard journal exclusion, deletion, de-authorization, basename-only proof or CI-only completion claim | Separate atomic control unit; rebuild after the last governed edit; independent review after application |
+| B-119 answer location | Lane A answers substantively inside this existing entry | Stable B119 topic aliases and per-child dispositions | No new A-series or substitute handoff; no self-verification | Header changes only when D-204 evidence supports the computed state |
+
+Until each direct message is durably recorded, the precise phrase is: **“Judge approval received in
+the current conversation for [the specific action], pending durable registration.”** After the
+Register commit, cite its decision ID and commit. Do not call the resulting artifact approved unless
+that artifact or immutable revision was itself approved.
+
+### Two additional corrections
+
+1. **B-088's compound return condition is valid only as one conjunctive condition.** Lane A's draft
+   sentence is acceptable if copied exactly into `Follow-up-Tier` and later quoted exactly in the
+   Return record. `Verified-At-Commit` should use the full existing SHA Lane A actually read and only
+   after confirming B-088 did not change since that read.
+2. **Panel A9 treatment is scope-dependent.** The publication-boundary propagation may annotate the
+   existing Panel A9. That does not discharge B-117's separate normal/revision storyboard, UML and
+   data-flow completion child. “Annotation, not a redraw” must not be generalized into cancelling
+   that residual.
+
+### Corrected parent-first order
+
+| Order | Unit | Success evidence |
+|---:|---|---|
+| 0 | B-088 handoff-only normalization | Exact conjunctive return condition, disposition audit fields, terminal-return check green |
+| 1 | D-183 provenance check, then B-115 governance act | Direct Judge messages cited or one bounded clarification requested; Intent/Build/DevOps ownership promoted before readiness artifacts consume it |
+| 2 | Publication boundary, then setup transfer | Separate Register IDs and tier tables; one dependency-ordered D-54 Product/setup pass |
+| 3 | Product propagation and SM05/SM06 DoD | Route-handler conflict, SM05 anchors and Encyclopedia flags corrected; Lane B feasibility review and Judge acceptance recorded separately |
+| 4 | One-MMF PR template | Created after B-115 and DoD review, before selection/work order; grants no authority |
+| 5 | D-231/B119 graph-scope control | Separate Register/control commit using the exact accepted manifest and required fixtures |
+| 6 | Final Graphify synchronization | Rebuild and curated re-merge after all governed edits; graph coverage, docs-drift and source-sweep pass locally; storyboard and traceability are represented |
+| 7 | Per-entry lifecycle sweep | B-117 visual child retained; each entry updated from its own evidence; no bulk closure |
+| 8 | Independent review and one-MMF authorization | Lane B verifies recorded acts, then Judge selects one DoR-complete MMF, makes Lane B Active and issues the work order |
+
+### Failure-to-success criteria
+
+| Guaranteed failure | Observable success |
+|---|---|
+| Generic “Judge Approved” text is cited as authority | Register cites an exact direct message satisfying all D-183 fields |
+| Lane B review is required before Lane A can record the Judge act | Registration happens first; Lane B independently compares the committed record with the act afterward |
+| DoD/template is authored against unpromoted B-115 ownership | B-115 is canonical before either readiness artifact is finalized |
+| Graph manifest removes the storyboard or traceability map | Both paths remain coverage-required and graph-coverage proves their source/path representation |
+| Mid-run red drift is handed to another consumer | Red exists only during one uninterrupted run; final handover has rebuilt/re-merged graph and green local drift |
+| Panel annotation is claimed as the complete normal/revision visual | B-117 retains separate completion evidence or an explicit terminal deferral for that child |
+
+### Final verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | B-115 before DoD review and PR-template creation | Lane A first governed parent unit |
+| **Approve** | B-088 conjunctive return condition | Early handoff-only normalization, exact wording preserved |
+| **Approve-with-conditions** | Existing reported Judge choices | D-183 direct-message evidence, immediate durable registration, then Lane B verification |
+| **Approve-with-conditions** | Graph acceptance | Exact manifest; storyboard and traceability coverage required; final local drift green |
+| **Defer** | PR, work order, construction, V2 opening and packet retirement | Canonical acts, readiness evidence and Judge selection |
+| **Reject** | Generic approval slogan; mandatory duplicate approval when direct evidence exists; pre-registration verification; template before B-115; treating Panel A9 annotation as full visual closure | Apply the corrected sequence above |
