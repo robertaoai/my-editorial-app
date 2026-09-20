@@ -530,3 +530,151 @@ do not call bare `S5`/`S6` current V1 build packets.
 | **Approve-with-conditions** | Bare `S5`/`S6` as deferred historical scope | Preserve provenance; never use as V1-MMF aliases or current authorization |
 | **Defer** | Setup `S2`–`S4` retirement/mapping, Graphify repair, V1 work order and handoff closure | Judge disposition, control repair and evidence in dependency order |
 | **Reject** | “No setup functionality,” “active V1 construction,” present V1 as an executable five-gate pipeline, unsupported SAFe causal history, or a blanket ban on historical `S5`/`S6` references | Replace with the corrected crosswalk above |
+
+## Lane B independent review — bridge from setup packets to qualified V1 MMFs, 2026-09-20
+
+**Evidence boundary:** the supplied Lane C bridge is analysis, not a Judge act or executable packet.
+This review checks it against the frozen `CR-19`, `D-239`, the current schema, `B-114`/`B-115`, the
+five work packets and the existing namespace review above. It remains plan-only under `B119-MMF`.
+No canonical source, work-packet state, interface, schema, graph policy or lane state changes here.
+
+### Clearer task
+
+Identify the missing decision and decomposition steps between the setup programme and the two
+qualified V1 MMFs; preserve the frozen customer outcome; disposition the useful parts of `S2`–`S4`
+without assuming whole-file absorption; define behaviour-level child boundaries without inventing
+implementation; and leave construction held until DoR, independent review, Judge selection and a
+bounded Lane B work order are all evidenced.
+
+### Completion audit
+
+- **Complete:** D-241's planning-method authority; the three-namespace crosswalk; Lane A's B-119
+  acknowledgement; Lane B's D-241 and namespace reviews; handoff-response and docs-drift checks.
+- **Open:** the V1 observable outcome, per-scope disposition of setup `S2`–`S4`, `B-115`, the
+  executable B-114 ownership/push boundary, V1-SM05 DoR, Graphify coverage and B-119 closure.
+- **Not authorized:** packet retirement, MMF selection, child-unit implementation, an API, schema
+  change, state mutation, strict-TDD execution, work order or V2 scope.
+
+### Finding 1 — the proposed outcome does not resolve `CR-19` versus `D-239`
+
+`CR-19` is the frozen customer success scenario: five sequential gates, logged transitions and
+publication to WordPress or LinkedIn-ready. `D-239` is the later V1 boundary: ranking, provenance
+display and routing assistance only; it explicitly excludes workflow execution inferred from source
+RACI, Final Sign-Off enforcement, publication-state mutation, automated publication, `T6`, external
+GRC and Line 3 assurance.
+
+Calling the result “Assisted Route-1 + LinkedIn `ManualReady`” does not bridge those rules.
+`ManualReady` is a publication status/event. Recording it inside the application is publication-
+state mutation, which `D-239` excludes. A reminder that the user must act in an external tracking
+system is within D-239; an internal `ManualReady` delivery record is not.
+
+The Judge must choose one branch before packet decomposition:
+
+| Branch | Consequence |
+|---|---|
+| **Retain D-239** | V1-SM05/06 become an assisted ranking/routing and visibility slice. They must stop claiming that the full `CR-19` scenario becomes usable; the frozen customer outcome remains explicitly unmet/deferred. No internal `ManualReady` or publication-state mutation is promised. |
+| **Amend D-239** | A new Register act names exactly which state transitions and delivery event return to V1, including whether LinkedIn `ManualReady` may be persisted. It must define roles, evidence, failure/replay and exclusions before DoR. |
+
+Neither branch silently edits `CR-19`, and neither automatically assigns excluded work to V2.
+
+### Finding 2 — `S2`–`S4` need per-scope disposition, not blanket absorption
+
+The setup packets are subordinate checklists pointing to the Build Spec; they are not equal or
+competing authorities. Their unresolved status creates ambiguity, but “supersede all three files and
+absorb them” would move incompatible scope into V1:
+
+| Setup scope | Evidence-compatible candidate disposition |
+|---|---|
+| `S2` line assignment/four-eyes, T5/T6 RPC and return evidence | **Split.** The old `T6` and transition-enforcement work conflicts with D-239's V1 boundary and remains retained historical/deferred unless that boundary is amended. A display-only Line/RACI projection may become a V1 child if separately specified. Do not absorb the held RPC wholesale. |
+| `S3` board and filters | **Candidate for V1-SM06.** Board/filter visibility aligns with `FR-08`/`CR-13`; the `T6→T5` return-rate audit does not, because D-239 excludes `T6`. Split the board from the historical return metric. |
+| `S4` publication/fallback | **Conditional split.** External-action reminder may fit D-239. Internal `ManualReady`, WordPress automation, retry jobs and privileged credential paths require an explicit scope amendment; do not label them V1 or V2 by inference. |
+
+The eventual decision should disposition each behaviour as `retain-history`, `map-to-named-child`,
+`defer-to-named-backlog` or `retire-after-migration-evidence`. Packet status follows the behaviours;
+file deletion or a single “absorbed” marker is not the decision.
+
+### Finding 3 — the three proposed child units are not implementation-ready
+
+| Proposal | Defect | Correct planning boundary |
+|---|---|---|
+| `SM05-U1: POST /api/articles`, state `Reported`, reject duplicates | Invents an endpoint; `Reported` is absent from `article_state_v2`; intake distinguishes record creation from the audit-before-`Logged` transition; blanket duplicate refusal was superseded and manual trigger creation must remain possible. | Specify valid manual intake package, supplier/executor separation, record-created evidence, accepted/refused outcomes and audit-before-state ordering. Lane B later chooses interface and storage mechanics. |
+| `SM05-U2: OP-PITCH and route to Desk Editor` | Treats a business judgment/application-selection contract as a complete interface and invents a routing destination. Replay/failure detail is still an open DoR item. | Specify the Route-1 classification outcome, required input/evidence, executor/application context, refusal and idempotent replay. Do not prescribe endpoint, table or recipient without authority. |
+| `SM05-U3: Chief Editor T5 review, valid attestation advances state` | Contradicts D-239. V1 T5 is the **Chief Editorial Desk** second-lens ranking/router; it does not perform Final Sign-Off, approve publication or advance article state. It also conflates business `T5` with technical `transition:T5`. | Specify ranking/routing record and UI projection only under retained D-239. Any state advance or attestation is a separate amendment branch. |
+
+The proposed blanket use of `workflow_transitions` for business `T1`–`T5` ranking is also undecided.
+That table currently carries technical state-transition evidence. The business-phase namespace is
+separate; a storage/event projection must preserve that separation and cannot be inferred from a
+shared `T` label. The existing database sequence trigger is already implemented and locally tested,
+so future verification of it is a characterization/regression proof, not a manufactured fail-first
+child.
+
+### Finding 4 — B-114/B-115 do not yet authorize “strict TDD under Lane A's child design”
+
+`B-114` is Answered with overall `Resolution: Deferred`: its test-first/atomic-commit method remains
+live, while its build-ownership framing waits on B-115. `B-115` is still Open and says Lane A owns
+Intent/MMF outcomes, Lane B owns per-child xDD selection after authorization, and Lane C assists the
+accepted build through DevOps evidence. Therefore:
+
+- Lane A may specify business outcome, included/excluded behaviour, dependencies, acceptance and DoD;
+- Lane B refines implementation children and selects the applicable xDD proof once it has an Active,
+  bounded work order; and
+- no current plan may call strict TDD, atomic child commits or human-final-push rules executable
+  until B-115 and the surviving B-114 method are applied to their owning governed sources.
+
+### Failure-derived success criteria
+
+| Guaranteed failure if accepted now | Passing evidence |
+|---|---|
+| `ManualReady` is promised while D-239 forbids publication-state mutation | Judge branch explicitly retains or amends D-239; MMF outcome uses the same boundary |
+| Whole setup packets are absorbed | Every S2/S3/S4 behaviour has one named disposition and no excluded T6/publication work enters V1 silently |
+| Business `T` judgments are written as technical transitions | Event/storage contract names the namespace and proves no state mutation or identifier conflation |
+| U1 implements `Reported` and blanket duplicate refusal | Intake uses the current state model, audit-before-state order and the scoped same-brief reuse rule |
+| U3 advances state from T5 | Under retained D-239, T5 evidence is ranking/routing only; amendment evidence is required for any state advance |
+| Lane A fixes endpoints and strict TDD in the Intent packet | Intent stays behaviour-level; authorized Lane B build refinement owns interface/xDD choices |
+| Packet files are treated as authorization | DoR evidence, independent review, explicit Judge selection, Active lane and work order all exist |
+
+### Cross-artifact impact
+
+| Artifact | Review result |
+|---|---|
+| `Modular_PRD.md` | Frozen requirements remain unchanged now. After the Judge branch, §8 records the qualified MMF outcome and setup-scope dispositions without rewriting `CR-19`. |
+| Storyboard/story panels | Current Panel A9 reflects D-239. Retaining D-239 needs clarification only; amending it to state mutation or `ManualReady` requires a behavioural redraw and independent review. Historical superseded panels remain provenance, not implementation authority. |
+| UML/sequence and data flow | Continue using the storyboard Mermaid views through `FN-GATES` §4.1. Add no duplicate diagram. Update only after event ordering, state mutation and namespace are decided. |
+| Encyclopedia | Entries 01/05/06 remain flagged review/republish work. Packet absorption or a handoff plan cannot mark them complete. |
+| Build Spec/work packets | Primary propagation surfaces after the Register decision. Reuse the existing two qualified MMF packets and add behaviour-level children only after scope reconciliation. |
+| Graphify | Query still does not surface the authoritative namespace sources reliably; the known 61-file coverage gap remains. This handoff-only review creates no rebuild obligation. |
+
+### Parent-first implementation plan — no build in this round
+
+1. **Judge the V1 outcome branch.** Retain or amend D-239. Record the exact observable outcome for
+   each qualified MMF, the relationship to frozen `CR-19`, included mutations and explicit deferrals.
+2. **Disposition setup scope behaviour by behaviour.** Split S2 line-display from T6/RPC enforcement,
+   S3 board/filter from T6-return analytics, and S4 reminder from publication mutation/automation.
+   Do not retire a packet until every behaviour has a destination and citations are migrated.
+3. **Apply B-115 and the surviving B-114 method.** Put business children/acceptance in Intent; leave
+   endpoint, persistence design and per-child xDD with the authorized Lane B build refinement; keep
+   Lane C on workflow evidence after an immutable Lane B artifact exists.
+4. **Propagate the decision once.** Register first, then Build Spec and Artifact Inventory in the
+   same D-54 pass, plus `Modular_PRD` §8 and only the affected traceability/Fn Spec/storyboard tiers.
+   State unaffected tiers explicitly.
+5. **Refine V1-SM05 at behaviour level.** Candidate order: accepted intake record; Route-1
+   classification/ranking evidence; T5 second-lens ranking/routing projection. Each child names
+   inputs, outputs, failure/replay, acceptance and exclusions without fixing endpoints or tables.
+6. **Complete DoR and independent review.** Resolve DOR-R2–R6, review the target normal/revision
+   visual and hosted Encyclopedia entries, and define the MMF DoD against the selected scope branch.
+7. **Repair Graphify separately.** Record coverage-only policy, preserve docs-drift, add negative
+   fixtures, rebuild extracted content, re-merge curated fragments and require zero unexplained
+   authoritative omissions.
+8. **Authorize last.** The Judge selects V1-SM05, Lane B becomes Active for one named child, and a
+   fresh work order carries the accepted outcome and DoD. V1-SM06 and any future version remain
+   downstream and do not open automatically.
+
+### Bridge-review verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Need for an explicit setup-to-V1 bridge and behaviour-level decomposition | Judge scope decision, then existing-packet refinement |
+| **Approve-with-conditions** | Reuse of S3 board/filter and selected S2/S4 behaviours | Per-behaviour disposition; preserve D-239 exclusions unless amended |
+| **Approve-with-conditions** | B-114 test-first method | Apply B-115 ownership split and authorize a Lane B child before xDD execution |
+| **Defer** | Child manifest, packet retirement, ManualReady, Graphify repair, MMF selection and construction | Governing decisions and DoR evidence first |
+| **Reject** | Blanket S2–S4 absorption; “ManualReady delivery” under retained D-239; `Reported` intake; blanket duplicate rejection; Chief Editor attestation/state advance at business T5; hard-coded endpoint/table choices; strict TDD as current Lane A intent | Replace with the parent-first plan above |
