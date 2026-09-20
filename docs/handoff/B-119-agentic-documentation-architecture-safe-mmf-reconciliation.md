@@ -1416,3 +1416,80 @@ no construction without a selected packet and evidence contract.
 | **Approve-with-conditions** | Handoff closure and Graphify synchronization | Per-entry D-204 evidence, independent review, then final rebuild/re-merge and full local checks |
 | **Defer** | PR automation, branch creation, work order, construction, V2 opening and packet retirement | After canonical propagation, complete DoR/defined DoD and Judge selection |
 | **Reject** | Blanket V2 assignment; no-privileged-write claim; SPECS-only handling of the route-handler conflict; PR-as-authorization; merge-as-DoD; bulk handoff closure | Apply the corrected parent-first plan |
+
+## Lane B review of Lane A worklog — canonicalize accepted intent, preserve per-entry closure, 2026-09-20
+
+### Clearer request
+
+Review Lane A's no-edit audit as a delta to the existing B-119 plan. Confirm which findings are
+correct, repair its handoff-lifecycle and authority wording, resolve questions already answered in
+B-119, and leave Lane A one dependency-ordered implementation plan. Do not open a PR, select an MMF,
+change canonical sources or rebuild Graphify in this review.
+
+### Findings accepted, corrected or narrowed
+
+| Lane A finding | Lane B disposition | Required wording or action |
+|---|---|---|
+| Publication-boundary and setup-transfer acts are absent from the Register | **Correct operational blocker, with one qualification.** The Judge acts exist as accepted conversation intent and are recorded in B-119; they are not yet canonical execution inputs. | Lane A assigns two Register identities, boundary first and transfer second, before derived propagation. Do not describe the Judge acts as nonexistent. |
+| “Decision-tree decision” is ambiguous | **Correct.** | Name the `publication-boundary act` and `setup-transfer act`; do not reuse the B-083 routing label. |
+| `Modular_PRD.md` contains conflicting route-handler and Edge Function statements | **Correct.** D-143/D-146 already decide Edge Function; SPECS already agrees. | Correct or mark the old route-handler recommendation historical in the Product PRD technical-candidate material. No new Judge choice is needed. |
+| V1-SM05 anchors and Encyclopedia review set are incomplete | **Correct.** | Add `FR-04`/`FR-05`, `SEC-01` and the applicable RACI source for display/provenance only; add Entry 05 beside Entries 01/06. |
+| SM05/SM06 DoD is not defined | **Correct.** | Define and review both DoD contracts before a work order. DoD need not be completed before the reusable PR template is created; it must be defined so the template can reference it. |
+| The four handoffs close together or not at all | **Reject.** D-101/D-102/D-204 lifecycle is per entry. A programme view may expose dependencies but cannot become a second status owner. | Update each entry in place. B-115, B-117, B-118 and B-119 may reach terminal disposition independently when their own weakest child and verification evidence permit. |
+| Every Lane A acknowledgement on the four entries is receipt-only | **Incorrect.** B-115 is receipt-only. B-117 contains several applied rounds. B-118 records D-236-D-240 as applied but not independently verified. B-119 has D-241 applied while its other parents remain open. | Preserve the child-level evidence; do not flatten all four entries to receipt-only or to Applied. |
+| Lane B `Eligible` means it may build | **Correct failure risk.** | `Eligible` remains nomination only. Construction requires a DoR-complete selected MMF, defined DoD, Lane B Active and a bounded work order. |
+| Graphify cannot answer operative-document questions | **Too broad.** It can answer covered portions, but the current semantic result is incomplete because operative sources are absent from coverage. | Treat graph queries as incomplete for this plan until D-231 is amended and local coverage passes; continue direct-source verification meanwhile. |
+
+### Questions already answered — do not reopen
+
+1. **PR-template order:** create the governed template after the MMF DoD contracts are **defined and
+   reviewed**, and before any work order or construction. Waiting until DoD is completed would make
+   the template arrive after the work it is meant to govern.
+2. **Graph scope:** use the already Judge-confirmed `B119-GRAPH-SCOPE` exact manifest recorded in this
+   entry. It remains unapplied and must be assigned a canonical Register identity; it does not need
+   another content choice. Refer to the manifest by identity and paths rather than copying its
+   changing count into derived documents.
+
+### Corrected handoff dependency ledger
+
+This is a commit-point planning view, not a second lifecycle record. Status and Resolution remain in
+each originating entry.
+
+| Entry | Evidence-backed state | Canonical promotion still required | Terminal condition |
+|---|---|---|---|
+| `B-115` | Open; Lane A receipt only | Register plus `docs/README.md` request-to-execution map; Build/work-order and Lane C assistance owners named in B-115; change shared lane instructions only where the accepted rule actually changes them | Substantive Lane A answer, applied commit evidence and independent verification or an explicit terminal deferral |
+| `B-117` | Open; multiple D-232-D-235 propagation rounds applied, with named residuals | Resolve its remaining phase-event, normal/revision visual and hosted-Encyclopedia children in their actual owners | Every child has a D-204 disposition; header Resolution is the weakest child; independent verification is separate |
+| `B-118` | Open; D-236-D-240 packet applied, not independently verified | Preserve applied ranking/RACI facts and disposition the entry's explicitly retained residuals | Independent review plus terminal disposition of each surviving child; “possibly Applied” is too weak and too vague |
+| `B-119` | Open; D-241 closes only its planning-label parent | Canonical publication boundary, setup transfer, exact graph-scope act, B-115 relationship, MMF readiness and PR-template creation | Each B119 child is dispositioned; header uses the computed weakest child; a separate actor verifies applicable evidence |
+
+### Parent-first Lane A plan — final delta, no execution here
+
+| Order | Unit | Depends on / success evidence |
+|---:|---|---|
+| 1 | Canonicalize the publication-boundary act, then the setup-transfer act | Two Register IDs and separate D-54 tier tables; accepted Judge intent preserved exactly |
+| 2 | Run the combined D-54 propagation | Build Spec, Inventory, Product PRD, packets, traceability, Fn Specs, Panel A9 and Encyclopedia ledger agree; stale route-handler text and SM05 anchors are corrected |
+| 3 | Define SM05/SM06 DoD and complete the applicable SM05 DoR evidence | DoD is reviewable before work; SM06 remains dependent on SM05 DoD; checkboxes cite evidence rather than existence |
+| 4 | Govern and create the one-MMF PR template | Created after DoD definition and before execution; template authorizes nothing and references one selected packet when instantiated |
+| 5 | Apply B-115 as its own governance unit | Intent/MMF, backlog refinement, Build governance and Lane C assistance have one canonical owner each; no filesystem authority moves by implication |
+| 6 | Canonicalize and implement the accepted D-231/B119 graph-scope unit | Exact normalized source-path relationship and reverse-reference fixture pass; no second scope question is raised |
+| 7 | Synchronize Graphify after the final governed edit | Extracted rebuild, curated re-merge and full local checks; coverage has no unexplained operative-source omission |
+| 8 | Disposition B-115/B-117/B-118/B-119 individually | Each entry's own child table and evidence determine its Resolution; unrelated open entries remain untouched |
+| 9 | Independently review, then authorize one MMF | Judge selects one DoR-complete packet, makes Lane B Active and issues one bounded work order before the first PR opens |
+
+### Drift and graph conclusion
+
+The current graph metadata is intentionally at governed intent `4a2519a`; later HEAD changes are
+handoff-only. `docs-drift` therefore remains synchronized and no rebuild is due for this review.
+The semantic query surfaces handoff and commit history but not the missing operative sources, which
+confirms the coverage limitation rather than proving architectural completeness. The first governed
+Register edit will create drift; rebuild only after the final governed edit in that Lane A run.
+
+### Final verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane A findings on missing canonical acts, decision naming, stale Product PRD text, MMF anchors/DoD and `Eligible` semantics | Lane A steps 1-4 |
+| **Approve-with-conditions** | Handoff dependency ledger | Keep lifecycle fields in each entry; preserve already-applied B-117/B-118 evidence |
+| **Approve-with-conditions** | Graphify limitation and repair | Use the accepted manifest; canonicalize D-231 scope; rebuild after the final governed edit |
+| **Defer** | PR opening, MMF selection, construction, V2 opening and packet retirement | Independent review and bounded Judge work order |
+| **Reject** | Saying all four acknowledgements are receipt-only; making them close together; reopening the settled manifest choice; treating graph query output as complete; waiting until DoD completion to create the template | Apply the corrected delta above |
