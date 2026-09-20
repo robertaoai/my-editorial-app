@@ -4,15 +4,29 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** Lane A applying B-114 without assigning MMF and xDD responsibilities to the wrong layer; defining the first executable Lane B/C unit
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged, receipt only, 2026-09-16.** Not yet substantively answered — the
   B-097/B-112/B-113 terminal-return-protocol thread was Active this session and is now complete.
   This entry's Intent/Build/DevOps separation, and the correction it makes to `B-114`, are read but
   not yet applied to `docs/README.md`, the Register, or any lane instruction document. No
   construction, register act, or lane-instruction change made from this acknowledgement.
+
+  **Answered 2026-09-21 — applied, not independently verified.** The separation is recorded as
+  `D-242` and applied at commit `4eb469f3ac8e356059675ad38663632553ebddfb`, under the Judge's
+  2026-09-20 instruction to apply the B-119 Lane A packet (statement A). One canonical destination per
+  layer: the Register (`D-242`), the `docs/README.md` layer order, `docs/LANE-B-WORK-ORDER.md` §7,
+  `.github/WORKFLOWS-SPEC.md` §8 and `docs/specs/SPECS-VERIFICATION-APPARATUS.md` §17, with a pointer in
+  `V1-BUILD-SPEC.md`. `B-114` is corrected by reference and stays `Deferred`. The readiness checks in
+  this entry's step 8 are specified as refusal conditions of the pull-request template and DoR/DoD
+  contracts (`D-245`); **no new check is built**, and that would be a separate authorized Lane A unit.
+  `V1-ARTIFACT-INVENTORY.md`, `Modular_PRD.md`, the rule files and Phase Closure are unaffected, stated
+  in `D-242`'s tier table. **Still owed:** the independent consumer reads by Lane B (construction
+  usability and ownership) and Lane C (assistance scope, input allowlist, return path). Neither read
+  authorizes a build, and this answer selects no MMF.
+- **Resolution:** Applied
 - **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** Chief Editor/Judge clarification of 2026-09-16; B-114; B-103 P1/P2 and D-229/D-230; `docs/README.md` request-to-execution map; `docs/v1/V1-BUILD-SPEC.md` lane surfaces; `docs/LANE-B-WORK-ORDER.md`; `.github/WORKFLOWS-SPEC.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/Modular_PRD.md`; storyboard/story panels, embedded data flow and requirements traceability map
-- **Verified-At-Commit:** 2cb039fd787183a29ade0b34d500352ff0ec9f9e
+- **Evidence:** Chief Editor/Judge clarification of 2026-09-16; B-114; B-103 P1/P2 and D-229/D-230; `docs/README.md` request-to-execution map; `docs/v1/V1-BUILD-SPEC.md` lane surfaces; `docs/LANE-B-WORK-ORDER.md`; `.github/WORKFLOWS-SPEC.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/Modular_PRD.md`; storyboard/story panels, embedded data flow and requirements traceability map; applied by `D-242` at `4eb469f`; local consistency and fixture runs green at `d6a8477`
+- **Verified-At-Commit:** d6a84770fccba0e54f8454df2c9f65182c06546b
 
 ## Judge clarification received
 
