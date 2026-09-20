@@ -5,7 +5,9 @@
 - **Phase:** 1
 - **Blocks:** treating the attached agentic-documentation proposal as commit-ready; no existing governed work or construction unit
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged, 2026-09-20 (receipt).** Lane B's corrections are read and not
+  disputed. Proposal disposition is pending Parents 2 and 4 below. No canonical file, check,
+  workflow, dependency or graph artifact is changed by this acknowledgement.
 - **Evidence:** attached Lane C analysis dated 2026-09-20; attached B-119 proposal; `D-29`, `D-34`,
   `D-75`, `D-84`, `D-87`, `D-100`, `D-159`, `D-227`, `D-232`, `D-240`; `B-061`, `B-071`,
   `B-114`, `B-115`; `package.json`; `scripts/check-consistency.mjs`; `scripts/checks/lane-boundary.mjs`;
