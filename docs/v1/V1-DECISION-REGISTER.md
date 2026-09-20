@@ -17925,3 +17925,47 @@ settled or open, cited by section.
 Does not authorize construction for any of the five packets. Does not migrate `V1-BUILD-SPEC.md`'s
 full historical narrative into the packets — cited, not restated. Does not rename `V1-SM05`/`V1-SM06`
 or reuse `S5`/`S6`. Does not close `B-117` or `B-118`.
+
+---
+
+## 5.14e66 `D-241` — Planning Labels: `D-100` Scrum and `D-232` MMF Stand; "SAFe" and "Lean" Are Explanatory Analogies Only
+
+**Chief Editor decision, 2026-09-20, answering Parent 2 of `docs/handoff/B-119`'s parent-first plan
+(Lane B review of two Lane C analyses).** Recorded so that a methodology label used in analysis cannot
+be read as adopted governance.
+
+### The decision
+
+`D-100`'s Scrum operating model and `D-232`'s MMF identities (`V1-SM05` `MMF-V1-CORE`, `V1-SM06`
+`MMF-V1-USABLE`, with their `D-240` work packets) stand unchanged. **"SAFe" and "Lean" are
+explanatory analogies only.** They create no lifecycle tier, freeze rule, lane authority, sprint state
+or work-packet identity. A named practice becomes binding only if a later decision lists it.
+
+### Evidence it corrects
+
+`docs/handoff/B-119` found that neither label is operative: `D-100` records Scrum; SAFe appears in the
+repository only as editorial subject matter and one non-load-bearing journal reference; "Lean MMF" is
+shorthand for `D-232`'s MMF slices and is not a separately adopted method. `B-114`'s test-first content
+is `Deferred` and `B-115`'s Intent/Build/DevOps separation is `Open`, so no construction method is
+made executable by either label.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e66 |
+| **`V1-BUILD-SPEC.md`** | — unaffected: no scope, sequence or DoD moves |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file created or retired |
+| **`docs/Modular_PRD.md`** | — unaffected: no product requirement, §8 row or module status changes |
+| **Rule files** (`CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md`) | — unaffected: no rule agents must follow changes; shared core untouched |
+| **`docs/handoff/B-119`** | — stays `Open`: this answers its Parent 2 only; Parents 3–5 remain |
+| **Encyclopedia** | Unaffected — no entry in `docs/ENCYCLOPEDIA-SYNC.md` depends on planning-method vocabulary |
+| **Graphify** | — unaffected by this act; extraction/coverage repair is a separate child |
+
+### What this act does NOT do
+
+Does not adopt any SAFe or Lean practice. Does not apply `B-115`'s Intent/Build/DevOps separation,
+disposition `B-114`, or issue a work order. Does not select `V1-SM05` or authorize construction. Does
+not change `graph-coverage`, `governed-intent.mjs` or any other check. Does not record the Judge's
+separate 2026-09-20 answer on graph-coverage scope (coverage-only exclusions for journals and the plan
+pack); that lands with its own unit.
