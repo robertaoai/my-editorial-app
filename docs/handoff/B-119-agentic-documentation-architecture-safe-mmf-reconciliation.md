@@ -416,3 +416,117 @@ failures are narrower and testable:
 | **Defer** | Context manifest and independent control scripts | Named consumer, source contract and negative fixtures per unit |
 | **Defer** | Recursive migration, V1-SM05 selection, V2 opening and B-117/B-118/B-119 closure | Existing owners and dependency evidence first |
 | **Reject** | Numeric Parent references as closure identities, `stale: false` as semantic completion, or D-241 as an executable build method | Replace with stable topic/owner evidence |
+
+## Lane B independent review — setup programme, qualified V1 MMFs and bare `S5`/`S6`, 2026-09-20
+
+**Evidence boundary:** the supplied Lane C analysis is review input, not authority. This section
+checks it against `Modular_PRD.md`, `V1-BUILD-SPEC.md`, `D-232`/`D-239`/`D-240`/`D-241` and the five
+work packets. It changes no canonical source, work-packet state, graph policy, code, schema or lane
+selection. It is a clarification under existing `B119-MMF`, not a new backlog item.
+
+### Clearer task and completion boundary
+
+Separate three similarly named planning families; identify which facts are settled and which claims
+would create wrong scope or false authorization; review Product/story/diagram/Encyclopedia impact;
+and provide a parent-first implementation plan. Do not select an MMF, issue a work order, retire a
+packet, change Graphify policy or begin construction in this round.
+
+### Corrected three-namespace crosswalk
+
+| Namespace | Canonical meaning | Current state | What it does **not** prove |
+|---|---|---|---|
+| `SETUP-SPIKE-000/S0…S4` | Zero-to-one setup programme. `S0`/`S1` produced real config/schema artifacts preserved as completed setup evidence. `S2` is `HELD`; `S3`/`S4` are not started and contain planned line-control, board/audit and publication work. | Historical setup evidence plus three open planning packets | It does not make any `V1` MMF complete, ready, selected or authorized. It is also inaccurate to say this namespace contains no application or technical work. |
+| `V1/V1-SM05` and `V1/V1-SM06` | Qualified identities for the two V1 functional increments: core before usable. They avoid colliding with the older bare sprint labels. | Both **Not started; not selected**. `V1-SM05` has open DoR items; `V1-SM06` depends on it. | File existence is not active construction, Judge selection, a work order, DoR or DoD. |
+| Bare `S5` and `S6` | Pre-existing scaffold rows. `S5` covers Line 3/degraded-mode concerns; `S6` covers later authentication/access lockdown. They retain their historical meanings and are unrelated to the qualified V1 sequence. | Deferred/post-V1 historical scope; no `S5.md` or `S6.md` work packet exists in the approved structure | They are not shorthand for `V1-SM05`/`V1-SM06` and cannot authorize those increments. Historical citations to them remain valid. |
+
+The safe wording is: **`V1-SM05` and `V1-SM06` are the only qualified V1 functional-increment
+identities currently recorded; neither is active or selected.** Do not call them “Sprint 5/6,” and
+do not call bare `S5`/`S6` current V1 build packets.
+
+### Corrections to the supplied Lane C analysis
+
+1. **“Setup does not build or deliver application functionality” is too absolute.** The completed
+   `S0`/`S1` evidence is real config and schema work, and the open `S2`–`S4` packets describe real
+   product/build scopes. The valid boundary is that setup evidence and setup-packet status do not
+   count as V1-MMF completion or authorization.
+2. **“The only active construction engine” is false.** The qualified V1 packet files are the proper
+   candidate identities, but both explicitly say `Not started; not selected`; there is no active
+   V1 construction work order.
+3. **“V1-SM05 delivers the five-gate pipeline” overstates the current boundary.** `D-239` limits V1
+   to newsworthiness-ranking, routing and UI assistance; it excludes workflow execution inferred
+   from source RACI, Final Sign-Off enforcement, publication-state mutation, external GRC, `T6` and
+   Line 3 assurance. The packet cites both “core end-to-end editorial flow” and `D-239`; that outcome
+   needs one reconciled, testable meaning before DoR can close.
+4. **A blanket ban on writing `S5`/`S6` would destroy valid provenance.** The enforceable rule is to
+   prohibit using those bare labels as aliases for qualified V1 MMFs or as current authorization.
+5. **The claimed SAFe “IP runway” causal history is unsupported.** `D-241` settles that SAFe/Lean
+   are analogies only; it does not establish that this particular analogy caused the collision.
+
+### What is still unclear
+
+- **Disposition of setup `S2`–`S4`:** `D-232` says they are not presumed to map by number onto the
+  two V1 MMFs. The corpus has not yet decided whether their unbuilt scope will be retained as setup
+  history, explicitly superseded, or reconciled into qualified MMF children.
+- **Meaning of “full PRD success scenario becomes usable”:** `CR-19` says the article passes five
+  gates and publishes or becomes LinkedIn-ready, while `D-239` excludes workflow execution, Final
+  Sign-Off enforcement and publication-state mutation from V1. `V1-SM06` cannot receive an honest
+  DoD until the Judge chooses the bounded observable outcome or changes that scope boundary.
+- **Graph coverage policy:** the exact coverage-only exclusion act still is not in the Register.
+  Current graph metadata is fresh, but `graph-coverage` remains red, so Graphify cannot prove this
+  namespace audit is complete.
+
+### Guaranteed specification failures and success criteria
+
+| Failure pattern | Guaranteed result | Passing evidence |
+|---|---|---|
+| Call `V1-SM05`/`V1-SM06` active because their files exist | Work begins without selection or work order | Packet remains candidate until DoR evidence is complete and the Judge explicitly selects it |
+| Treat setup completion as V1-MMF completion | Readiness/DoD is credited to the wrong namespace | Status report keeps setup evidence and V1 DoR/DoD in separate rows with separate evidence |
+| Auto-map setup `S2`–`S4` into two V1 MMFs | Duplicate or dropped requirements and contradictory sequencing | A Judge disposition lists each setup packet/scope as retain, supersede or map-to-named-child; no inference by number |
+| Promise the full `CR-19` scenario while retaining all `D-239` exclusions | Acceptance cannot be demonstrated from permitted behaviour | One Register act defines the observable V1-SM05/06 outcomes and aligns packet DoD, Build Spec and traceability anchors |
+| Replace historical bare `S5`/`S6` references | Provenance and deferred-scope meaning are lost | Historical rows remain; current work always uses fully qualified IDs |
+| Use `stale: false` as namespace-completeness evidence | A current graph can still omit governing sources | Coverage policy is recorded, authoritative omissions are zero or explicitly decided, curated parity passes |
+
+### Cross-artifact impact
+
+| Artifact | Review result |
+|---|---|
+| `Modular_PRD.md` | Already states that `S0`–`S6` predate `D-232`, are not presumed to map by number, and the qualified MMFs are not selected. Edit only after the setup-packet disposition or V1 outcome is decided. |
+| Storyboard/story panels | Namespace clarification alone changes no behaviour. Panel A9 remains the `D-239` overlay; review it only if the V1 outcome decision changes the user-visible boundary. |
+| UML/sequence and data flow | No duplicate diagram is needed. `FN-GATES` §4.1 continues to point to the storyboard Mermaid views as the single source. |
+| Encyclopedia | Namespace naming creates no hosted-artifact change. Entries 01/05/06 remain separate review/republish gaps and must not be marked complete by this audit. |
+| Build Spec/work packets | Primary follow-up surface after a Judge decision: reconcile the V1 outcome, then update each existing packet rather than creating another MMF or sprint family. |
+| B-117/B-118/B-119 | All remain Open. This clarification closes no terminal handoff state and supplies no independent verification of their other residuals. |
+
+### Parent-first implementation plan — do not build in this round
+
+1. **Keep the settled namespace rule.** Retain `SETUP-SPIKE-000`, qualified `V1-SM05`/`V1-SM06`
+   and bare historical `S5`/`S6` as three distinct families. Use fully qualified IDs in every current
+   status, selection and work-order field.
+2. **Decide the setup-packet disposition.** For each of `S2`, `S3` and `S4`, record retain-as-history,
+   supersede, or reconcile-to-a-named-V1-child. Preserve completed `S0`/`S1` evidence; do not infer a
+   numerical mapping and do not rename historical rows in place.
+3. **Resolve the V1 outcome boundary.** Reconcile “core end-to-end flow” and “full PRD success
+   scenario usable” with `D-239`'s UI-assistance exclusions. State observable outcomes and exclusions
+   separately for `V1-SM05` and `V1-SM06` before changing their DoR/DoD.
+4. **Propagate that one decision through existing owners.** Register first; then Build Spec,
+   Artifact Inventory and `Modular_PRD` §8 per `D-54`, plus affected traceability, Fn Spec and
+   storyboard sections only where behaviour actually changes. State every unaffected tier.
+5. **Complete the existing V1-SM05 DoR.** Finish failure/replay, refusal/retry, visual and
+   Encyclopedia evidence in `DOR-R2`–`DOR-R6`; do not mint another packet or call the file selected.
+6. **Repair Graphify as its own bounded control unit.** Record the coverage-only scope, separate it
+   from drift policy, add negative fixtures, rebuild extracted content, re-merge curated fragments
+   and require zero unexplained authoritative omissions. This handoff-only review needs no rebuild.
+7. **Authorize construction last.** After independent review of the reconciled packet, the Judge may
+   select `V1-SM05` and issue a bounded Lane B work order. `V1-SM06`, bare `S5`/`S6` and V2 do not
+   start automatically.
+
+### Namespace-review verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Three distinct families and fully qualified current labels | Retain in all status and work-order records |
+| **Approve** | Setup evidence does not satisfy V1-MMF readiness or completion | Preserve separate evidence ledgers |
+| **Approve-with-conditions** | `V1-SM05` core and `V1-SM06` usable ordering | Reconcile each outcome with `D-239`, complete DoR and obtain Judge selection |
+| **Approve-with-conditions** | Bare `S5`/`S6` as deferred historical scope | Preserve provenance; never use as V1-MMF aliases or current authorization |
+| **Defer** | Setup `S2`–`S4` retirement/mapping, Graphify repair, V1 work order and handoff closure | Judge disposition, control repair and evidence in dependency order |
+| **Reject** | “No setup functionality,” “active V1 construction,” present V1 as an executable five-gate pipeline, unsupported SAFe causal history, or a blanket ban on historical `S5`/`S6` references | Replace with the corrected crosswalk above |
