@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** acceptance of the complete C-39 leading-actor contract; no unrelated authorized work
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** **Acknowledged 2026-09-14** at read commit `495e4f8`. Receipt only, and a review
   result recorded separately from any correction, per `P0`. The demonstrated underscore-suffix
   defect is accepted as a failed verification; no actor-guard or `C-39` completion claim is
@@ -17,8 +17,19 @@
   defect, and not a Graphify hold. B-088's residual-capacity test explicitly excludes Graphify per
   the Chief Editor's clarification recorded here and in B-102/B-094. No P1 authorization, capacity
   commitment or code change is taken by this acknowledgement.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Verified-At-Commit:** 395ab8301ec7ee4bf1cb430d3b5739c8d1b1c22e
+
+  **Dispositioned 2026-09-20 — Deferred, at read commit `cc2540a`.** Lifecycle normalization only,
+  under the Judge's B-119 decision-table row 1 and the B-119 Lane B reviews of 2026-09-20; it adds
+  no scope and changes no finding. The 2026-09-15 conditional defer above already decided this
+  outcome, and B-117 already records the transition as needing no new decision. The exact return
+  condition is the single conjunctive sentence in `Follow-up-Tier`. **This is a header
+  normalization: no P1 authorization, capacity commitment, checker change, Register act or
+  Graphify synchronization results from it.** The demonstrated underscore-suffix defect and its
+  nine/six/live-corpus evidence stand unchanged.
+- **Resolution:** Deferred
+- **Follow-up-Tier:** **Phase 1 — C-39 P1 (token termination) returns to active work only when ALL of the following hold together:** the B-102/B-103 source packet and the B-084 A4 unit are both complete with actual capacity by role recorded; the whole P1 unit — token termination, labelled synthetic negative probes, positive-regression preservation, intended-error assertion and independent review — fits within the measured residual Lane A Code time, Judge decision window and independent-review time, with no partial start; and a separate durable Judge act names P1, its exact owned files and tests, its exclusions and its DoD. P2, C-35 and whole-C-39 closure keep their own separate dependencies.
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Verified-At-Commit:** cc2540a003e534045a2cf578d65dc706ffdd309b
 - **Evidence:** Read-only independent invocation of the installed leadingActor export and closure-readiness.run at the named commit; live nine accepts, six rejects, 52 Verified records; suffix probes below; bun run check; source and tracking-file review. No mutation harness rerun or implementation claimed.
 
 ## What happened
