@@ -678,3 +678,117 @@ accepted build through DevOps evidence. Therefore:
 | **Approve-with-conditions** | B-114 test-first method | Apply B-115 ownership split and authorize a Lane B child before xDD execution |
 | **Defer** | Child manifest, packet retirement, ManualReady, Graphify repair, MMF selection and construction | Governing decisions and DoR evidence first |
 | **Reject** | Blanket S2–S4 absorption; “ManualReady delivery” under retained D-239; `Reported` intake; blanket duplicate rejection; Chief Editor attestation/state advance at business T5; hard-coded endpoint/table choices; strict TDD as current Lane A intent | Replace with the parent-first plan above |
+
+## Lane B review — Judge-approved Option B amendment to D-239, 2026-09-20
+
+**Authority received:** the Chief Editor/Judge selected **Option B**: amend D-239 so V1 may record a
+LinkedIn `ManualReady` delivery outcome, keep automated WordPress outside V1, and map S4's
+`ManualReady` behaviour to `V1-SM06`. This section preserves that decision while separating it from
+extra claims in the supplied Lane C interpretation. At reviewed remote HEAD `5733311`, no canonical
+Register entry containing this decision exists yet; Lane A must assign the Register ID and apply it.
+
+This is still a handoff-only review. It changes no canonical source, work packet, schema, code,
+Graphify policy, lane state or construction authorization.
+
+### Normalized decision — what Option B does and does not decide
+
+| Decided by the Judge | Correct repository meaning |
+|---|---|
+| Permit minimal publication-state mutation in V1 | `V1-SM06` may append a `ManualReady` event to `publications` for the article's **LinkedIn** `publication_targets` row. `ManualReady` is a `publication_event_type`; it is not an `article_state_v2` value and does not by itself change `articles.workflow_state`. |
+| Trigger after Route-1 Gate T5 | Qualify this as completion of the `business:T5` Chief Editorial Desk ranking/routing record. It must not be recorded as, or inferred to be, technical `transition:T5`, Final Sign-Off or publication approval. Exact actor/authority and state preconditions remain child-contract work. |
+| Keep WordPress automation excluded | Automated WordPress, credentials, retries and background scheduling remain outside V1. The Judge named V2 as the target backlog; this does **not** open V2, select a V2 MMF or authorize V2 construction. |
+| Absorb S4 `ManualReady` behaviour | Map only the LinkedIn `ManualReady` behaviour to `V1-SM06`. Do not absorb the rest of S4, and do not retire `S4.md` until every remaining behaviour and citation has a destination. |
+
+### Corrections to Lane C's interpretation
+
+1. **`NG-04` is not the WordPress deferral.** `NG-04` says no automated **Facebook** publishing.
+   The WordPress exclusion comes from D-239 as amended by this Judge act. If targeted to V2, record
+   it as a V2 backlog target without treating NG-04 as its authority.
+2. **Option B does not automatically restore the full state machine.** The approved wording carves
+   out `ManualReady`; it does not expressly lift D-239's separate exclusion of workflow execution
+   inferred from source RACI, article-state mutation, Final Sign-Off enforcement or `T6`. Calling
+   this a “working end-to-end pipeline” remains premature until a further act names those mutations.
+3. **Business T5 is still not technical T5.** The trigger context is the Chief Editorial Desk's
+   second-lens ranking/routing completion. No Chief Editor attestation, Chief Journalist approval,
+   technical gate transition or article-state advance is implied.
+4. **S2 RPC absorption was not selected.** The Judge's quoted Option B mentions only S4
+   `ManualReady`. S2's held security-invoker/T6 scope remains held/deferred; Lane C cannot attach it
+   to V1-SM05 by implication.
+5. **V2 remains unopened.** “Deferred to V2” is a target-scope record, not a new version, sprint,
+   packet, work order or authorization. D-36/D-203 succession rules still apply.
+
+### Child contract still required before DoR or construction
+
+The parent boundary is decided. The following implementation-readiness facts remain open and must
+be specified without inventing them in this handoff:
+
+| Open child | Required evidence |
+|---|---|
+| Trigger and precondition | Exact `business:T5` completion evidence; applicable Route-1/revision; required formatted content; whether any article workflow state is required or changed |
+| Acting authority | The role/human/system permitted to append `ManualReady`; supplier, approver and executor kept distinct; no role inferred from a similarly named T gate |
+| Target/event ordering | Creation or selection of the LinkedIn `publication_targets` row, then append-only `publications(event_type='ManualReady')`; no mutable status column |
+| Replay/idempotency | Scope key for article, LinkedIn target and revision; duplicate request produces no second effective readiness outcome while preserving audit evidence |
+| Revision behaviour | Which content/routing revision invalidates readiness, how prior evidence remains visible, and what produces a fresh `ManualReady` event |
+| Refusal/failure | Missing T5 evidence, wrong route/target, missing formatted content, stale revision and unauthorized actor yield named refusal evidence without mutation |
+| Observable acceptance | Board/detail UI shows the current effective LinkedIn readiness and its evidence without calling the article `Published` or claiming WordPress delivery |
+
+Until those children are decided, Option B resolves the parent fork but does not close V1-SM06 DoR
+or prove full `CR-19`. In particular, `CR-19` also requires the five-gate path and Chief Journalist
+approval; the new `ManualReady` event settles only its permitted delivery outcome.
+
+### Behaviour disposition after Option B
+
+| Existing setup behaviour | State after this Judge decision |
+|---|---|
+| S2 Line/RACI context display | Candidate V1-SM05 projection; unchanged by Option B |
+| S2 T5/T6 security-invoker, EmergencyBypass and return evidence | Held/deferred; not absorbed |
+| S3 board/filter visibility | Existing V1-SM06 candidate; unchanged by Option B |
+| S3 T6→T5 return analytics | Deferred while T6 remains outside V1 |
+| S4 LinkedIn `ManualReady` | **Judge-selected mapping to V1-SM06**, pending the child contract above |
+| S4 WordPress, retries, privileged credentials and scheduler | Outside V1; target V2 backlog only, with no V2 opening or authorization |
+
+### Cross-artifact impact for Lane A's application pass
+
+| Artifact | Required disposition |
+|---|---|
+| Decision Register | Record the Option B parent act, exact amendment to D-239, retained exclusions, open child contract and every D-54 tier disposition. Lane A assigns the next ID; do not assume Lane C's proposed `D-242`. |
+| `V1-BUILD-SPEC.md` / work packets | Replace the D-239 contradiction in V1-SM06 with the narrow `ManualReady` outcome; retain V1-SM05 and S2/S3 statuses unless separately decided; split S4 behaviour instead of marking the entire packet absorbed. |
+| `V1-ARTIFACT-INVENTORY.md` | State whether existing publication artifacts cover the outcome and add only genuinely new evidence artifacts; do not infer new APIs or workers. |
+| `Modular_PRD.md` | Keep frozen `CR-19`; update the V1 scope/§8 tracking and D-239 cross-reference. `FR-09`/K-02 already distinguish target-level `ManualReady`; remove no historical provenance. `NG-04` remains Facebook-only. |
+| Fn Specs / traceability | Add the narrow V1-SM06 `ManualReady` behaviour, actor/precondition/refusal/revision evidence once decided. Keep business and technical T namespaces separate. |
+| Storyboard/story panel | Panel A9 is affected: after `business:T5` ranking/routing, show the conditional LinkedIn readiness path. Do not show Final Sign-Off, article-state advance, WordPress or technical T5 unless separately authorized. |
+| UML/data flow | Show `articles` → LinkedIn `publication_targets` → append-only `publications:ManualReady`; distinguish it from `articles.workflow_state` and `workflow_transitions`. Reuse the storyboard Mermaid single source rather than creating a duplicate diagram. |
+| Encyclopedia | Entries 01/05/06 require review flags/citations as applicable; hosted review and republish remain a distinct opt-in act and cannot be claimed complete here. |
+| Graphify | Rebuild only after Lane A's governed-source pass, then re-merge curated fragments. This handoff-only commit remains excluded under D-231. |
+
+### Parent-first application plan — no construction in this round
+
+1. **Record the Judge act.** Lane A assigns the Register ID, amends D-239 only for LinkedIn
+   `ManualReady`, removes the false NG-04 citation and states that full workflow execution remains
+   excluded unless separately decided.
+2. **Propagate the fact once under D-54.** Register, Build Spec and Artifact Inventory in the same
+   pass; `Modular_PRD` §8 and affected traceability/Fn Spec/storyboard tiers; explicit unaffected
+   dispositions for everything else.
+3. **Split S4 safely.** Map `ManualReady` to V1-SM06; retain/defer WordPress, retry, credentials and
+   scheduling to a V2-target backlog without opening V2; migrate citations before any packet status
+   changes.
+4. **Specify the child contract.** Trigger, actor, target/event ordering, replay, revision, refusal
+   and acceptance evidence. Do not select endpoints, components or query design in the Intent tier.
+5. **Apply B-115 and surviving B-114 method.** Lane A owns outcome/acceptance; authorized Lane B
+   refines persistence/interface and xDD; Lane C later consumes an immutable Lane B evidence packet.
+6. **Complete V1-SM05/06 DoR and independent review.** Do not claim `CR-19` or the full pipeline
+   complete merely because one `ManualReady` event is now in scope.
+7. **Repair and resynchronize Graphify.** Apply the separately decided coverage policy, rebuild,
+   re-merge curated fragments and require zero unexplained authoritative omissions.
+8. **Authorize construction last.** Judge selection, Active lane and a bounded work order remain
+   required. Option B is a scope decision, not a build authorization.
+
+### Option-B review verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Judge Option B: LinkedIn `ManualReady` event in V1-SM06 and S4 behaviour mapping | Lane A Register/D-54 application |
+| **Approve-with-conditions** | `ManualReady` persistence | Target-level append-only event; child trigger/actor/replay/revision/refusal contract before DoR |
+| **Approve-with-conditions** | WordPress targeted to V2 | Backlog target only; no NG-04 citation, V2 opening or construction authority |
+| **Defer** | Full state-machine restoration, S2 RPC, Chief Journalist approval path, packet retirement, MMF selection and construction | Separate decisions and evidence |
+| **Reject** | Treating `ManualReady` as an article state; using business T5 as technical transition authority; citing NG-04 for WordPress; inferring full pipeline/S2 absorption; preassigning `D-242`; treating Option B as a work order | Apply the normalized boundary above |
