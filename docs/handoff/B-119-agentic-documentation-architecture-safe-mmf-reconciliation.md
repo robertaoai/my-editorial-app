@@ -1155,3 +1155,153 @@ intent handed to a construction lane.
 | **Approve-with-conditions** | B-119 `Answered` transition | Disposition every child and compute D-204; do not preselect `Deferred` |
 | **Defer** | All canonical edits, controls, graph rebuild, packet retirement, DoR, work order and construction | Lane A execution after this planning-only review |
 | **Reject** | Sending all exclusions to V2; premature `[V1→V2]`; static manifest; basename-only proof; CI-only proof; stale graph across turns; fixed omission count; preselected or unearned Resolution | Use the minimal plan and success tests above |
+
+## Lane B bridge plan — close setup by explicit transfer, then ready the V1 MMFs, 2026-09-20
+
+### Clearer request
+
+Decide how to close the `SETUP-SPIKE-000` planning namespace without claiming that unbuilt S2–S4
+scope passed DoD; transfer every surviving behaviour to its one V1 or future owner; define and
+complete V1-SM05/06 DoR and define their DoD before construction; disposition each handoff under
+its own evidence; and state how branch/PR evidence relates to sprint completion. Keep Scrum plus MMF
+as the governing vocabulary, with no construction in this round.
+
+### Current evidence — what is and is not complete
+
+| Scope | Repository state | Consequence |
+|---|---|---|
+| `SETUP-SPIKE-000/S0` and `/S1` | Completed and frozen with configuration/schema evidence | Retain as historical setup completion evidence. |
+| `SETUP-SPIKE-000/S2` | `HELD` under D-171; fresh authorization absent | It has not met DoD and cannot be called completed. |
+| `SETUP-SPIKE-000/S3` and `/S4` | Not started; open DoR/dependency items; no artifacts or tests | They have not met DoD and cannot be closed as implemented. |
+| `V1-SM05` | Not selected; only DOR-R1 is checked; DOR-R2–R6 remain incomplete; implementation DoD is undefined | Build phase has not started for this MMF. |
+| `V1-SM06` | Not selected; depends on V1-SM05 DoD; board/publication DoR open; implementation DoD undefined | It cannot start or be called ready. |
+| Lane state | Lane A Active; Lane B Eligible | Lane B has no construction lock or work order. |
+| Handoff channel | B-119 and other blocking entries remain Open | A namespace transition cannot bulk-close unrelated records. |
+
+`D-240` already supplies the legal transition mechanism: a sprint closes when each committed MMF
+passes DoD **or** receives an explicit Judge-approved removal/return. The second route can close the
+setup namespace honestly, provided every unfinished behaviour has one named destination and no
+implementation credit is transferred with it.
+
+### Parent decision — how setup ends
+
+| Choice | Decision | Result |
+|---|---|---|
+| **A — Close by behaviour-level transfer/removal (recommended)** | Preserve S0/S1 as completed; split S2–S4 behaviour into V1-SM05, V1-SM06 or a named held/future owner; Judge approves removal of the original unstarted/held packet scope; retire the setup packets only after every citation and behaviour has a destination. | `SETUP-SPIKE-000` can close as a setup programme. Nothing transferred is represented as built, tested or DoD-complete. |
+| **B — Finish S2–S4 inside the setup namespace** | Keep S2 held and build S2, S3 and S4 before V1-SM05. | Delays the V1 MMFs and risks duplicating the same board/publication behaviours already selected for V1-SM06. Use only if the Judge wants the old scaffold sequence to remain executable. |
+| **Reject — declare setup complete or close all handoffs in bulk** | Treat packet creation, deferral or movement as completed work. | Violates D-240 DoD/removal evidence and D-204 per-entry handoff disposition. |
+
+### Normalized vocabulary
+
+- **Programme Increment / PI:** not a governing repository object. D-241 retains Scrum and MMF;
+  use **V1 release sequence**, **sprint/MMF work packet**, and **work order**. A future Judge act may
+  adopt a defined PI concept, but analysis shorthand creates no new hierarchy.
+- **DoR defined:** the checklist exists. **DoR complete:** every required row has current evidence.
+  Only complete DoR permits Judge selection and a work order.
+- **DoD defined:** completion and evidence criteria exist before build. **DoD complete:** the
+  working behaviour, tests and required evidence satisfy those criteria after implementation.
+- **PR/merge:** transport and review evidence. A pull request does not create DoR or DoD. If the
+  release uses one final PR, each MMF still earns DoD on the working branch before its successor
+  opens; the final merge proves release integration. If the Judge later selects MMF-sized PRs, each
+  PR must meet the MMF's already-defined DoD before merge.
+- **`[V1→V2]`:** a later-build revision marker, not a deferral or closure tool. V2 remains unopened.
+
+### Behaviour transfer map for Choice A
+
+| Setup behaviour | One destination | Required disposition |
+|---|---|---|
+| S2 Line/RACI and route context display needed by the core journey | V1-SM05 | Add to the existing packet's outcome, acceptance and evidence; do not import the held RPC/T6 implementation. |
+| S2 security-invoker RPC, `T6`, blind pass, EmergencyBypass and return evidence | Existing held owner or a separately Judge-named future scope | Preserve `HELD`; do not infer V1-SM05, V1-SM06 or V2. |
+| S3 board/filter visibility | V1-SM06 | Align with FR-08/CR-13 and the selected V1 boundary. |
+| S3 `T6→T5` return analytics | Held with T6-dependent scope | Do not place in V1-SM06 while T6 remains outside V1. |
+| S4 LinkedIn target-level `ManualReady` | V1-SM06 | Apply the Judge-selected carve-out and child behaviour contract. |
+| S4 automated WordPress, retry, credentials and scheduler | Future V2-target backlog | Target only; no V2 opening, `[V1→V2]` marker, packet or construction authorization. |
+| S4 `FR-10`/T11 live-URL confirm and `Published` promotion | Future V2-target backlog | Keep `[V1]` origin with a decision-cited current-scope note; no runtime inclusion in selected V1. |
+
+No setup packet is retired until this map is canonical in the Register, Build Spec, Artifact
+Inventory and affected work packets, with outgoing and incoming citations reconciled.
+
+### Parent-first Lane A follow-up
+
+1. **Record the transition act.** Select Choice A or B. For A, identify S0/S1 as completed,
+   approve removal/transfer of each S2–S4 behaviour, preserve the held items, and state that transfer
+   creates no implementation or DoD evidence.
+2. **Apply the product-scope and D-54 pass.** Combine the already-selected LinkedIn `ManualReady`
+   boundary and `FR-10` deferral with the setup transfer. Update Register, Build Spec and Artifact
+   Inventory together; then Product Requirements Document tracking, V1 work packets, affected
+   traceability/Fn Specs, Panel A9 and Encyclopedia Entry 04. Preserve the single Mermaid UML/data-
+   flow source.
+3. **Define the two MMF contracts without marking them ready.** Complete V1-SM05's outcome and DoD
+   definition; finish DOR-R2–R6 evidence. Define V1-SM06's outcome, DoR and DoD now, while retaining
+   its dependency on V1-SM05's completed DoD. Create no additional V1 sprint IDs unless a Judge act
+   proves the two existing slots cannot contain the selected release scope.
+4. **Apply B-115 separately.** Lane A owns intent, MMF and acceptance; Lane B owns authorized build
+   refinement and xDD choice; Lane C owns delivery/workflow verification. Do not turn PI shorthand
+   into a fourth governance layer.
+5. **Disposition handoffs one by one.** Promote each surviving fact to its canonical owner, then
+   apply the evidence-backed Resolution: `Applied` for canonical but independently unverified work;
+   `Deferred` only for real future work with `Follow-up-Tier`; `Superseded` only when a named act
+   overtakes it; `Withdrawn` only when the concern is false; `Verified` only after an independent
+   actor confirms it. Compute multi-topic entries using D-204's weakest-child rule.
+6. **Repair Graphify and verify locally.** Apply the confirmed manifest through the D-231 amendment,
+   strengthen exact source-path evidence and the reverse-reference guard, rebuild after the final
+   governed change in the run, re-merge curated fragments, and run the full local suite.
+7. **Answer B-119 in place.** Cite the canonical commits and actual child dispositions, set
+   `Status: Answered`, and compute its Resolution rather than preselecting one.
+8. **Authorize construction last.** After independent review and complete V1-SM05 DoR, the Judge
+   selects one bounded child, makes Lane B Active and issues a work order with defined DoD. The next
+   MMF opens only after its predecessor meets DoD or receives a separate approved removal/return.
+
+### Handoff closure layer
+
+The move from setup planning into V1 work packets changes **where future scope is owned**; it does
+not erase the transaction history. Open entries currently include unrelated verification,
+configuration, audit and source-correction matters as well as B-115/B-117/B-118/B-119. Therefore:
+
+1. build a per-entry child-disposition table from the existing files;
+2. name the canonical promotion target and commit for each surviving fact;
+3. name a `Follow-up-Tier` for each true deferral;
+4. keep unrelated open findings outside the setup-transition act;
+5. independently verify applied entries; and
+6. archive or partition only after the existing entry reaches its evidence-backed disposition.
+
+A work-packet link may own future build work, but it does not itself make the originating handoff
+`Applied`, `Deferred` or `Verified`.
+
+### Critical artifacts for construction and verification
+
+| Artifact | Construction boundary | Verification boundary |
+|---|---|---|
+| Decision Register | Owns setup transfer, V1 scope and future-target decisions | Proves Judge authority and tier dispositions. |
+| V1 Build Spec and Artifact Inventory | Own sequence, scope, files and defined DoD | Source-sweep and artifact/path review prove propagation. |
+| S2–S4 and V1-SM05/06 work packets | Own per-MMF dependencies, DoR, DoD and evidence links | Checkbox evidence and terminal disposition prove readiness/completion; file existence does not. |
+| Product Requirements Document and Fn Specs | Own outcome, behaviour, actors, refusal and acceptance | BDD-style examples and traceability show business intent without fixing implementation keys. |
+| Technical Specs and UX Specs | Own technical and stack-specific UI contracts | Unit, integration, contract, accessibility and visual evidence derive here after authorization. |
+| Storyboard Panel A9 / Mermaid UML and data flow | Own one visual source for normal, refusal and revision paths | Review proves `ManualReady`, article state and future `Published` remain distinct. |
+| Encyclopedia sync ledger | Tracks affected conceptual entries, including Entry 04 | Hosted review/republish remains separate evidence. |
+| Phase closure, work order and PR evidence | Own lane selection and bounded execution/promotion | Prove Active lane, accepted DoD and merge/release state separately. |
+
+### Failure-to-success criteria
+
+| Guaranteed failure | Why | Success criterion |
+|---|---|---|
+| Mark setup complete while S2–S4 stay held/not started with no removal act | Claims DoD without work or approved transfer | Every setup child is completed or explicitly removed/returned with one destination and evidence. |
+| Mark all handoffs closed because build begins | Replaces per-entry facts with a phase narrative | Every entry carries its own D-204-compliant disposition and audit fields. |
+| Move every loose end to V2 | Invents target scope and can hide V1 blockers | Only Judge-selected future items target V2; held/open items keep their actual owner. |
+| Mark V1 packets DoR-complete because checklists exist | Confuses definition with evidence | Every DoR checkbox cites current completion evidence before selection. |
+| Complete DoD on PR creation or merge alone | Git movement cannot prove working behaviour | DoD is defined before build and met by functionality, tests and evidence; PR/merge records review and promotion. |
+| Open V1-SM06 before V1-SM05 DoD | Breaks the approved core-before-usable dependency | SM05 earns DoD or receives a separate approved removal/return first. |
+| Use PI or `[V1→V2]` to force closure | Adds governance/version meaning without its creating act | Use existing Scrum/MMF packets and current-scope/future-target notes. |
+| Rebuild Graphify before the last governed edit and hand off | The next lane consumes stale or incomplete intent | Final rebuild, curated re-merge, path-level coverage and local full-history checks precede handoff. |
+
+### Setup-to-build verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Choice A: close setup through explicit behaviour transfer/removal | Judge transition act and D-54 propagation |
+| **Approve** | S0/S1 retained as completed setup evidence | Register and Build Spec preservation |
+| **Approve-with-conditions** | V1-SM05 then V1-SM06 | Complete/define DoR and DoD, independent review, selection and bounded work order |
+| **Approve-with-conditions** | Handoff closure programme | Per-entry promotion, D-204 weakest-child computation and independent verification |
+| **Approve-with-conditions** | PR as promotion evidence | DoD remains behaviour/test/evidence based and precedes successor opening |
+| **Defer** | Construction, new V1 sprint IDs, V2 opening and packet retirement | Canonical transition, readiness evidence and Judge authorization |
+| **Reject** | Bulk setup completion; bulk handoff closure; all exclusions to V2; premature `[V1→V2]`; checklist-as-DoR; PR-as-DoD; V1-SM06 before V1-SM05 | Use the transfer map and parent-first plan above |
