@@ -76,6 +76,8 @@
 | `docs/v1/work-packets/SETUP-SPIKE-000/S4.md` | `D-240` — sprint MMF checklist | ✅ **Created 2026-09-17** |
 | `docs/v1/work-packets/V1/V1-SM05.md` | `D-240` — MMF checklist, `MMF-V1-CORE` | ✅ **Created 2026-09-17** |
 | `docs/v1/work-packets/V1/V1-SM06.md` | `D-240` — MMF checklist, `MMF-V1-USABLE` | ✅ **Created 2026-09-17** |
+| `docs/graph-fragments/restore-docs-layer.js` | `D-246` — replays docs-layer nodes by id from a dated graph backup after a rebuild dropped them; overwrites nothing | ✅ **Created 2026-09-20** |
+| `docs/graph-fragments/frag137.json` | `D-246` — curated nodes for documents and decisions created after the last backup (work packets, SPECS index files, `D-242`–`D-246`) | ✅ **Created 2026-09-20** |
 | `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` | `D-245` — reusable one-MMF pull-request template; selects nothing, grants no authority | ✅ **Created 2026-09-20** |
 
 **No broken internal document links** — the docs are self-consistent. The gaps are artifacts that were planned but never created, not references that dangle.

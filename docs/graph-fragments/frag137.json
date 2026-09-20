@@ -1,0 +1,353 @@
+{
+  "nodes": [
+    {
+      "id": "specs_readme_technical_specifications_index",
+      "label": "docs/specs/ README: Technical Specifications (SPECS tier)",
+      "file_type": "concept",
+      "source_file": "docs/specs/README.md",
+      "source_location": "whole document",
+      "description": "Index of the SPECS tier, tier four of the D-29 hierarchy (PRD, Modular_PRD, Fn_Specs, SPECS). Living documents with no build-version prefix that never freeze; V1 tracking files freeze at sprint close but specs are edited by whichever build is active. Path-representation node added for exact source_file coverage under D-246; read the source for content."
+    },
+    {
+      "id": "specs_publication_publish_path_and_retry",
+      "label": "SPECS-PUBLICATION: publish path and retry scheduler",
+      "file_type": "concept",
+      "source_file": "docs/specs/SPECS-PUBLICATION.md",
+      "source_location": "whole document",
+      "description": "SPECS document authorized by D-143 (2026-08-28) ruling Q3 (Supabase Edge Function as the publish path) and Q5 (pg_cron as the retry scheduler). Planning only. Concerns the future automated publication path; V1 LinkedIn ManualReady (D-243) needs no external-channel credential. Path-representation node for D-246 coverage."
+    },
+    {
+      "id": "v1_readme_sprint_tracking_index",
+      "label": "docs/v1/ README: V1 sprint tracking index",
+      "file_type": "concept",
+      "source_file": "docs/v1/README.md",
+      "source_location": "whole document",
+      "description": "Index of the V1 tracking files (decision register, build spec, artifact inventory, phase closure). States these are tracking files, not specifications, and that they freeze when V1 closes. Path-representation node for D-246 coverage."
+    },
+    {
+      "id": "work_packet_s2_line_assignment_and_four_eyes",
+      "label": "Work packet SETUP-SPIKE-000/S2: line assignment and four-eyes",
+      "file_type": "concept",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/S2.md",
+      "source_location": "whole document",
+      "description": "D-240 MMF checklist for setup sprint S2, HELD under D-171. Under D-244 its Line/RACI display moves to V1-SM05 as display-only, while the security-invoker RPC, T6, blind pass and EmergencyBypass stay held. Not retired, earns no DoD."
+    },
+    {
+      "id": "work_packet_s3_board_filters_audit_log",
+      "label": "Work packet SETUP-SPIKE-000/S3: board, filters, audit log",
+      "file_type": "concept",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/S3.md",
+      "source_location": "whole document",
+      "description": "D-240 checklist for setup sprint S3. Under D-244 board and filter visibility moves to V1-SM06; the T6 to T5 return-rate audit view stays held with T6. Not retired, earns no DoD."
+    },
+    {
+      "id": "work_packet_s4_publication_and_fallback",
+      "label": "Work packet SETUP-SPIKE-000/S4: publication and fallback",
+      "file_type": "concept",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/S4.md",
+      "source_location": "whole document",
+      "description": "D-240 checklist for setup sprint S4. Under D-243 and D-244 LinkedIn ManualReady moves to V1-SM06, while automated WordPress, retry, privileged credentials and FR-10/T11 live-URL confirmation are a V2-target backlog with no V2 opened. Not retired until every behaviour and citation has moved."
+    },
+    {
+      "id": "work_packet_v1_sm05_mmf_v1_core",
+      "label": "Work packet V1-SM05 (MMF-V1-CORE)",
+      "file_type": "concept",
+      "source_file": "docs/v1/work-packets/V1/V1-SM05.md",
+      "source_location": "whole document",
+      "description": "First V1 MMF checklist: core end-to-end editorial flow on ROUTE-PROD-1. D-245 defines its DoD (not complete, not reviewed) and records DoR evidence status; D-244 adds non-enforcing Line/RACI display anchored to FR-04/FR-05 and SEC-01. Not started and not selected."
+    },
+    {
+      "id": "work_packet_v1_sm06_mmf_v1_usable",
+      "label": "Work packet V1-SM06 (MMF-V1-USABLE)",
+      "file_type": "concept",
+      "source_file": "docs/v1/work-packets/V1/V1-SM06.md",
+      "source_location": "whole document",
+      "description": "Second V1 MMF checklist: board visibility and the LinkedIn target-level ManualReady event (D-243). Depends on V1-SM05 reaching DoD. Three ManualReady children (trigger, acting authority, revision) stay open; FR-10 is a V2 target. DoD defined by D-245, not complete. Not started and not selected."
+    },
+    {
+      "id": "d242_intent_build_devops_governance_split",
+      "label": "D-242: Intent, Build and DevOps governance separated",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e67",
+      "description": "Separates Intent governance (Lane A with the Judge), backlog refinement (raising lane), Build governance and xDD selection (Lane B) and DevOps/DevSecOps assistance (Lane C), each with one canonical destination. Meaning ownership is not filesystem stewardship. Release is a separate gate. Corrects B-114 by reference."
+    },
+    {
+      "id": "d243_v1_publication_boundary_manualready",
+      "label": "D-243: V1 publication boundary, LinkedIn ManualReady",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e68",
+      "description": "Amends D-239: V1-SM06 may append a LinkedIn target-level ManualReady publication event after the business:T5 record; it is not an article state. FR-10/T11 live-URL confirmation and automated WordPress are a V2-target backlog; sections keep [V1] origin, no [V1 to V2] marker. Trigger, acting authority and revision children stay open."
+    },
+    {
+      "id": "d244_setup_transfer_choice_a",
+      "label": "D-244: setup transfer, Choice A",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e69",
+      "description": "SETUP-SPIKE-000 closes by explicit behaviour transfer: S0/S1 remain completed evidence and each unfinished S2-S4 behaviour has one destination. No DoD credit, no packet retirement, no blanket V2. Corrects the Modular_PRD publish-path row to D-143/D-146."
+    },
+    {
+      "id": "d245_readiness_contracts_and_pr_template",
+      "label": "D-245: SM05/SM06 readiness contracts and one-MMF PR template",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e70",
+      "description": "Defines DoD for both MMF packets (defined, not complete, not reviewed) with an evidence-based DoR status, and creates .github/PULL_REQUEST_TEMPLATE/v1-mmf.md, which selects nothing and grants no authority. Merge is not DoD."
+    },
+    {
+      "id": "d246_graph_coverage_manifest_amends_d231",
+      "label": "D-246: graph coverage-only manifest and exact source-path evidence",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e71",
+      "description": "Amends D-231: an exact glob-free coverage-only manifest (non-authoritative plan-pack documents and named historical journals) applies to graph-coverage only while docs-drift still sees every path; coverage evidence is a node whose source_file equals the document path; a live citation of a manifest journal fails the check."
+    }
+  ],
+  "edges": [
+    {
+      "source": "specs_publication_publish_path_and_retry",
+      "target": "specs_readme_technical_specifications_index",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/specs/SPECS-PUBLICATION.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "specs_readme_technical_specifications_index",
+      "target": "modular_prd",
+      "relation": "depends_on",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/specs/README.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "v1_readme_sprint_tracking_index",
+      "target": "v1_decision_register",
+      "relation": "indexes",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/README.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "v1_readme_sprint_tracking_index",
+      "target": "v1_build_spec",
+      "relation": "indexes",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/README.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "work_packet_s2_line_assignment_and_four_eyes",
+      "target": "v1_build_spec",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/S2.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "work_packet_s3_board_filters_audit_log",
+      "target": "v1_build_spec",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/S3.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "work_packet_s4_publication_and_fallback",
+      "target": "v1_build_spec",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/S4.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "work_packet_v1_sm05_mmf_v1_core",
+      "target": "v1_build_spec",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/work-packets/V1/V1-SM05.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "work_packet_v1_sm06_mmf_v1_usable",
+      "target": "v1_build_spec",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/work-packets/V1/V1-SM06.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "work_packet_v1_sm06_mmf_v1_usable",
+      "target": "work_packet_v1_sm05_mmf_v1_core",
+      "relation": "depends_on",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/work-packets/V1/V1-SM06.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "work_packet_s2_line_assignment_and_four_eyes",
+      "target": "d171_explicit_s2_hold_and_f6_draft",
+      "relation": "held_by",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/S2.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "work_packet_s4_publication_and_fallback",
+      "target": "specs_publication_publish_path_and_retry",
+      "relation": "related_to",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/work-packets/SETUP-SPIKE-000/S4.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d242_intent_build_devops_governance_split",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d243_v1_publication_boundary_manualready",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d244_setup_transfer_choice_a",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d245_readiness_contracts_and_pr_template",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d246_graph_coverage_manifest_amends_d231",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d246_graph_coverage_manifest_amends_d231",
+      "target": "d231_governed_intent_exclusion_matcher",
+      "relation": "amends",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d243_v1_publication_boundary_manualready",
+      "target": "work_packet_v1_sm06_mmf_v1_usable",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d244_setup_transfer_choice_a",
+      "target": "work_packet_s4_publication_and_fallback",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d244_setup_transfer_choice_a",
+      "target": "work_packet_s2_line_assignment_and_four_eyes",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d244_setup_transfer_choice_a",
+      "target": "work_packet_s3_board_filters_audit_log",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d244_setup_transfer_choice_a",
+      "target": "work_packet_v1_sm05_mmf_v1_core",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d245_readiness_contracts_and_pr_template",
+      "target": "work_packet_v1_sm05_mmf_v1_core",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d245_readiness_contracts_and_pr_template",
+      "target": "work_packet_v1_sm06_mmf_v1_usable",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d244_setup_transfer_choice_a",
+      "target": "d243_v1_publication_boundary_manualready",
+      "relation": "depends_on",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    },
+    {
+      "source": "d245_readiness_contracts_and_pr_template",
+      "target": "d242_intent_build_devops_governance_split",
+      "relation": "depends_on",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "whole document",
+      "weight": 1
+    }
+  ]
+}

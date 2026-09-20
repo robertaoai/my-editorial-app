@@ -18309,9 +18309,13 @@ unchanged.
 ### Result, measured at authoring
 
 With the exact test, the live graph held **only a handful of the curated fragment nodes** before this run's
-synchronization (the curated layer had not been re-merged after a rebuild — `G51`'s silent shape). The
-rebuild and full curated re-merge are the final unit of this run; their outcome is recorded where they
-happen, not here. Eleven fixture cases pin the properties above; two deliberate breakages (adding the
+synchronization. The cause, found while applying this act, is `G51`'s silent shape at a larger scale: the
+fast rebuild of 2026-09-17 took the graph from roughly 1800 nodes to roughly 480 and dropped the docs
+layer, so every curated fragment then failed to merge on a dangling edge. It was recovered by replaying the
+docs nodes **by id from the 2026-09-16 dated backup** with the new tool
+`docs/graph-fragments/restore-docs-layer.js` (documented in that directory's README), never re-authored,
+and one new fragment covers the documents created since. The restored descriptions are the backup's and may
+be older than the documents. The rebuild and re-merge outcome is recorded where they happen, not here. Eleven fixture cases pin the properties above; two deliberate breakages (adding the
 storyboard to the manifest, and loosening coverage back to a basename test) each made exactly the intended
 case fail and were reverted.
 
@@ -18327,6 +18331,7 @@ case fail and were reverted.
 | **`V1-ARTIFACT-INVENTORY.md`** | ✅ the `governed-intent.mjs` row extended; no file created or retired |
 | **`docs/graph-fragments/README.md`** | ✅ §5 step 1 corrected: `missing.js` is a reference report, not coverage evidence |
 | **`docs/graph-fragments/missing.js`** | — unaffected: retained unedited |
+| **`docs/graph-fragments/restore-docs-layer.js`, `frag137.json`** | ✅ new: the by-id restore tool, and one curated fragment covering documents and decisions created since the backup |
 | **`docs/Modular_PRD.md`, Fn Specs, storyboard, UML, data flow** | — unaffected: graph-control scope, not Product scope |
 | **Rule files** | — unaffected: `CLAUDE.md` names the same `graph-coverage` and `docs-drift` behaviour and restates no exclusion list |
 | **`V1-PHASE-CLOSURE.md`** | — unaffected |

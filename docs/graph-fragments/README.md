@@ -114,6 +114,24 @@ hidden behind the first; list every dangling endpoint before declaring a fragmen
 
 **`graphify build --fragment` cannot do this.** It builds; it does not merge. Every curated update in this project has gone through a merge script for that reason.
 
+**A rebuild can also drop the DOCS layer, not only curated nodes — measured 2026-09-20 (`D-246`).**
+The graph fell from roughly 1800 nodes to roughly 480 at the 2026-09-17 rebuild and stayed that way
+unnoticed for days: `graph-coverage` reported a backlog and no check said why. The fast rebuild keeps
+code and handoff nodes; the docs nodes are gone, and **every curated fragment then fails `merge7.js`
+on a dangling edge** because its endpoints were those docs nodes. Do not re-author them. Replay them by
+id from the newest dated backup that still has them:
+
+```bash
+npx graphify hook-rebuild
+node docs/graph-fragments/restore-docs-layer.js .graphify/<date>/graph.json   # newest backup with the docs layer
+# then merge every mergeable fragment in dependency order (section 4), naming each one
+```
+
+`restore-docs-layer.js` copies only docs-source nodes, fragment endpoints and the links between them,
+overwrites nothing, and reports any endpoint found in neither place. The restored descriptions are the
+backup's, so they may be older than the documents; coverage passing is path representation, not
+semantic currency.
+
 **Rebuild first, then merge — the destructive step goes first (`D-206`).** A rebuild regenerates the
 extracted layer and does not carry curated nodes; a merge writes them. **Merging before a rebuild
 puts the curated write on the wrong side of the destructive operation**, which is `G51`'s named
