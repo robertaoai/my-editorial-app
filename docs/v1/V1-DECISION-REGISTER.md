@@ -18724,3 +18724,27 @@ Judge confirmation of the independence limitation remain open. No query is run, 
 | **`docs/ENCYCLOPEDIA-SYNC.md`** | — unaffected |
 | **Rule files, Phase Closure, frozen sources** | — unaffected |
 | **Graphify** | ✅ the curated `D-251` node text is extended; rebuilt once after this pass |
+
+### Judge confirmation of `LB-1` and `LB-7` (`D-251`, 2026-09-21)
+
+The Judge directly approved `LB-1` and `LB-7` as recorded in `docs/handoff/B-119`.
+
+| Item | Recorded |
+|---|---|
+| `LB-7` | A **non-zero `C10` result is `unresolved`** and blocks `V1-SM05` until a separately approved, non-content-bearing aggregate can tell a governed identity path from prose. A zero result follows the ordinary no-match branch. A `snapshot` count cannot be classified as historical or living from counts alone, because the snapshot holds prose. The interim wording "classification pending" is retired |
+| `LB-1` | Not a Register decision: Lane B drafts the `V4` package uncommitted and Active Lane A reviews and commits it, which is `D-184` applied as written. `D-184` is unchanged |
+
+Nothing here runs a query, lifts `DEP-05`, accepts a draft for execution, closes `D-251`, selects `V1-SM05` or authorizes
+construction.
+
+**Tier applicability (`D-54`) for this confirmation.**
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this confirmation |
+| **`docs/v1/work-packets/V1/V1-SM05.md`, `V1-SM06.md`** | — unaffected: the `SM05` evidence box already requires an executed and reviewed result, and the `unresolved` branch keeps it unchecked; the closure branches are cited, not copied |
+| **`V1-BUILD-SPEC.md`, `V1-ARTIFACT-INVENTORY.md`** | — unaffected: no scope, sequence, DoD or file changes |
+| **`docs/Modular_PRD.md`, Fn Specs, traceability, storyboard, UML and data flow** | — unaffected: an evidence procedure, not behaviour |
+| **`docs/ENCYCLOPEDIA-SYNC.md`** | — unaffected |
+| **Rule files, Phase Closure, frozen sources** | — unaffected |
+| **Graphify** | ✅ the curated `D-251` node text is extended; rebuilt once after this pass |
