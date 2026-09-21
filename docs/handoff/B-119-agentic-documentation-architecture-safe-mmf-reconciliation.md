@@ -10,11 +10,13 @@
   workflow, dependency or graph artifact is changed by this acknowledgement.
   **Substantive answer appended 2026-09-21** (final section, "Lane A answer"): statement A applied and
   stopped for independent review; the header stays `Open` under the weakest-child rule.
+  **Statement C applied 2026-09-21** (last section, "Lane A answer — Judge statement C"): `D-247`–`D-251`
+  returned for Lane B and Lane C review; still `Open`.
 - **Evidence:** attached Lane C analysis dated 2026-09-20; attached B-119 proposal; `D-29`, `D-34`,
   `D-75`, `D-84`, `D-87`, `D-100`, `D-159`, `D-227`, `D-232`, `D-240`; `B-061`, `B-071`,
   `B-114`, `B-115`; `package.json`; `scripts/check-consistency.mjs`; `scripts/checks/lane-boundary.mjs`;
   `.github/workflows/ci.yml`; `docs/v1/work-packets/V1/V1-SM05.md`
-- **Verified-At-Commit:** d6a84770fccba0e54f8454df2c9f65182c06546b
+- **Verified-At-Commit:** e8adc4d3167829ca833dc6ade920c43b93c1d762
 
 ## Review boundary
 
@@ -2215,3 +2217,81 @@ migration may be rewritten.
 
 B-119 remains `Open` under the weakest-child rule until Lane A applies the accepted decisions and every
 remaining child obtains its own required disposition and evidence.
+
+## Lane A answer — Judge statement C applied, returned for Lane B and Lane C review, 2026-09-21
+
+**Authority.** Judge statement C, approved verbatim in the Lane A conversation on 2026-09-21 and recorded in
+`D-247` under `D-183`. It authorizes the five-part correction packet above, each decision under its own
+Register ID, steps 6–13 of the fourteen-step sequence, and a stop for independent review. The decision
+content is the packet Lane B recorded; the authority to apply it is the Judge's direct message, not this
+handoff. Lane B's comparison of the recorded acts with that message is still owed and is **not** claimed.
+
+### What landed
+
+| Unit | Commit |
+|---|---|
+| `D-247` V1 boundary · `D-248` `D-244` lifecycle correction · `D-249` bounded SM05/SM06 outcomes · `D-250` the five-dimension `ManualReady` contract · `D-251` `ACCESS-ROLE-CHIEF-EDITOR`, with the identity-migration ledger — one `D-54` pass | `911a51498119b6ceed03363dfa67415acbaf8105` |
+| Corrections to stale curated graph descriptions found by the semantic queries | `e8adc4d3167829ca833dc6ade920c43b93c1d762` |
+
+Graphify was backed up, rebuilt once at `e8adc4d`, and every mergeable fragment re-merged. `docs-drift` is
+synced, `graph-coverage` and the full local consistency run pass, and the negative fixtures pass on a clean
+tree. The pending description fill (`graphify update --fill-missing`) needs an LLM backend and was **not**
+run; it is recorded as deferred. Portability is reported **separately**: `portable-check` still reports
+absolute-path findings in gitignored local studio and scene files, so the graph is **not** claimed portable.
+
+### Where each decision now lives
+
+| Decision | Canonical owner | Cross-referenced from |
+|---|---|---|
+| 1 — V1 boundary | Register `D-247` | Build Spec §1, `Modular_PRD` §8.1, both packets |
+| 2 — `D-244` closure implication | Register `D-248` | Build Spec §1, `S2`/`S3`/`S4` packets, `Modular_PRD` §8.1, curated node text |
+| 3 — bounded outcomes, partial `CR-19` | Register `D-249` | Build Spec table, traceability §6.1, both packets |
+| 4 — `ManualReady` contract | Register `D-250` | `FN-PUBLICATION-09-10-13.md` §12, RACI catalog row, `V1-SM06` DoR/DoD, storyboard Panel A10 |
+| 5 — identifier namespace | Register `D-251` | RACI catalog §8, crosswalk, `FN-GATES` `EG5`, traceability §6.4, Build Spec `DOR-R4`, ledger |
+
+`FN-GATES-01-05.md` §4.3 now carries the `DOR-R2`–`DOR-R4` failure and replay contracts, each row labelled
+business (`business:T*`), task (`EG*`) or technical (`transition:T*`) — and no `V1-SM05` row is technical.
+Storyboard Panel A10 is the single visual owner of the `ManualReady` normal, refusal and replay sequence and
+data flow; it is **not** B-117's whole normal/revision path, which stays open.
+
+### Identity-migration ledger (from `D-251`)
+
+The repository search found the old identifier only in documents. It appears in **none** of `app/`, `lib/`,
+`components/`, `supabase/`, `__tests__/`, migrations, seeds or scripts. Living tiers were renamed;
+the Register, `V1-B071-CORRECTIVE-PLAN`, this directory's entries and the D-236–D-238 narratives keep the old
+name as history. **Persisted database rows cannot be checked from the repository.**
+
+### Requests to Lane B and Lane C (review only; neither selects a packet)
+
+**Lane B**
+1. Compare `D-247`–`D-251` and their application with the Judge's direct message (`D-183` rule 6).
+2. Confirm whether any **stored value** carries `ROLE-CHIEF-EDITOR`, and give the compatibility treatment
+   if one does; no existing migration may be rewritten.
+3. Feasibility and evidence-usability review of `V1-SM05` and `V1-SM06`, including `FN-GATES` §4.3 and the
+   `D-250` verification matrix. Name the physical revision or scope identity, idempotency key and
+   effective-current query the contract needs. That is **Lane B's design and is left open on purpose**.
+4. The B-115 consumer read (construction usability and ownership).
+
+**Lane C**
+1. The B-115 consumer read (assistance scope, input allowlist, return path).
+2. Review only a delivery or operability evidence contract that a packet actually names; none does yet.
+
+### Not done, by design
+
+No physical data contract, schema or migration, workflow, MMF selection, work order, Lane B activation,
+branch, pull request, construction, V2 opening, packet retirement, earned DoD, deployment, hosted Encyclopedia
+republish, or closing of B-117, B-118 or B-119. **Judge statement B was not sent or inferred.** The hosted
+Encyclopedia comparison for Entries 01, 04, 05 and 06 is **explicitly deferred** in the sync ledger with an
+owner and a follow-up; the ledger is not publication evidence. `V1-SM05` and `V1-SM06` are **not** DoR-complete:
+`DOR-R5` (the single normal/revision visual), `DOR-R6`, the Entry 04 review and the revision mechanism remain.
+Step 14 (per-entry lifecycle headers) was outside statement C: B-117, B-118 and B-119 keep their own child
+ledgers, and this header stays `Open` under the weakest-child rule.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | `D-247`–`D-251` and their propagation, applied and locally green | Phase 1 — Lane B verification against the Judge's direct message |
+| **Approve-with-conditions** | `ACCESS-ROLE-CHIEF-EDITOR` rename | Phase 1 — Lane B confirms persisted values; history preserved |
+| **Approve-with-conditions** | `V1-SM05`/`V1-SM06` revised contracts | Phase 1 — Lane B feasibility review; Judge acceptance of the business outcome; DoR still incomplete |
+| **Approve-with-conditions** | Graph sync | Phase 1 — coverage and curated descriptions checked; description fill deferred; portability reported separately |
+| **Defer** | Physical data contract, MMF selection, work order, construction, hosted Encyclopedia comparison, B-117/B-118/B-119 closure | A later bounded Judge act, and each entry's own evidence |
+| **Reject** | Build authority from this return, calling the setup programme closed, `transition:T*` claims for `V1-SM05`, full-`CR-19` claims, coverage PASS as semantic currency | Two-checkpoint model stands |
