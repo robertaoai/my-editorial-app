@@ -3425,3 +3425,62 @@ no Graphify rebuild is owed.
 | **Approve-with-conditions** | Provisional freeze | Judge confirms or lifts |
 | **Defer** | Syntax and resolution proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
 | **Reject** | Claiming `pg_temp` is searched for functions or operators; operator entries without operand types; schema-qualified SQL keyword aliases | Use the corrected rules above |
+
+## D251-V4-DRAFT-RETURN — Lane B static review return, 2026-09-21
+
+**Authority and boundary.** The Judge authorized Lane B to draft the three banner-bearing files, perform static review,
+and return them uncommitted through this durable section. Lane B created and reviewed the exact manifest below. No SQL
+was executed, no database was accessed, and no attachment was staged or committed. Static review found blocking defects,
+so the package is returned **not ready for Lane A acceptance or execution**. Under the versioning rule, these reviewed
+files are not patched in place; corrections require preflight `V3`, assessment `V5` and receipt `V3` as one newly
+reviewed package.
+
+### Returned manifest and draft hashes
+
+| Artifact | `Lane-B-Draft-SHA256` | Static result |
+|---|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V2.sql.md` | `4fc437982679b3fac83974ae8ce8c79145922b985da1867de9c6bd607f9dc43c` | Reject |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V4.sql.md` | `b27f9f14febbf34a51abb1796b60be8acecc445e0e6a69f6f65beed4c95b61d4` | Reject |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V2.md` | `9f9ab79cb55a0d65b2d4754ce4876fcd0145047ee1278de6fc2c7e7bb714faa7` | Reject |
+
+The two catalog blocks are byte-identical and hash to
+`8a331b7c51ca57442d62b589c0898ebae2d0d422c0c8e10eab5f381143b2ff54`. Each SQL file has exactly one start marker,
+one end marker and one of each manifest marker. All three files are LF-only with zero carriage-return bytes. The draft
+banner, read-only transaction, pinned `search_path`, `ROLLBACK`, candidate `total_rows`, per-`schema_version` C10 output
+and absence of write/DDL statements are present. These passing checks do not cure the defects below.
+
+### Blocking gaps, parent first
+
+| Order | Gap and guaranteed failure | Draft fix for the next package |
+|---:|---|---|
+| 1 | The supposedly complete catalog contains only `C01`–`C10` and no `E` rows. Catalog parity is therefore incomplete even though the two partial blocks match | Add every governed exclusion as a stable `E` row with full type identity and a specific exclusion reason; keep the complete block byte-identical in both SQL files |
+| 2 | The preflight labels every uncatalogued relevant column `EXCLUDED_NON_IDENTITY_FIELD`. Its `UNRECONCILED` failure state is unreachable, so the reconciliation can falsely pass by silently inventing exclusions | Join the real schema to the fixed complete catalog. A schema column absent from that catalog returns `UNRECONCILED`; a catalog row absent or type-mismatched in the schema returns `ARTIFACT-INVALID`. Success requires neither state |
+| 3 | The assessment's catalog CTE is unused. A wrong declared relation, column or type does not fail closed as required | Make every candidate query depend on its matching validated catalog row, or add an assessment guard that prevents results unless the declaration is validated |
+| 4 | The preflight calls `pg_get_userbyid` and `has_table_privilege` without `pg_catalog.` qualification, lists unused `pg_catalog.count` and `pg_catalog.format_type`, and does not inventory `current_user` as a special form | Qualify both calls; regenerate the function manifest from actual calls; remove unused entries; add one sorted special-form inventory |
+| 5 | Both operator and cast inventories are incomplete, so the required no-unused/no-undeclared review cannot pass | Regenerate sorted typed inventories from every expression and cast actually used, including boolean, null, membership, concatenation and ordering expressions where applicable |
+| 6 | Receipt `V2` omits the required attempt-bound `Local-Completed-Receipt-SHA256` and `Supabase-Completed-Receipt-SHA256` fields and has no explicit reconciliation return field | Receipt `V3` adds both completed-receipt fields with attempt identifiers and a dedicated unchanged reconciliation-output section |
+
+### Success criteria derived from these failures
+
+The replacement package is ready for Lane A review only when the complete `C` and `E` catalog blocks match byte for
+byte; an intentionally unlisted relevant column produces exactly one `UNRECONCILED` row; missing or mistyped catalog
+rows produce `ARTIFACT-INVALID`; every declared callable, relation, special form, operator and cast is both used and
+inventoried; each assessment candidate depends on the validated declaration; and the receipt can anchor both completed
+environment receipts without self-hashing.
+
+### Tracking, cross-artifact and drift
+
+B-119 remains `Open`; this return completes only Lane B drafting step 2 and does not satisfy `D-251`. Lane A acceptance,
+dry run, human execution, classification and `V1-SM05` selection remain deferred. `Modular_PRD.md`, storyboard, story
+panels, UML, data flow, the Encyclopedia, Register, Build Spec, Artifact Inventory, Fn Specs, work packets and
+traceability are unaffected because this is a rejected handoff draft, not accepted product or governance intent. The
+handoff channel remains Graphify-excluded; no governed document changed, so no Graphify rebuild is owed.
+
+None of the three attachments was staged, committed or executed; this section is the only staged and committed path.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane B drafting step 2 and durable static-review return | Phase 1 — completed by this section |
+| **Approve-with-conditions** | Byte hygiene, banner, transaction boundary, catalog-block parity and candidate aggregation shape | Lane A review — retain only as rejected-draft evidence |
+| **Defer** | Replacement package, dry run, human run, `D-251` satisfaction and `V1-SM05` selection | New bounded authorization, then later Judge acts |
+| **Reject** | Preflight `V2`, assessment `V4` and receipt `V2` for acceptance or execution | Replacement preflight `V3`, assessment `V5` and receipt `V3` |
