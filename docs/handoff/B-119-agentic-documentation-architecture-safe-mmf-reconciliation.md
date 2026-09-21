@@ -2596,3 +2596,69 @@ review, and Lane B/C's B-115 consumer reads.
 | **Approve-with-conditions** | Access path | Phase 1 — human-run or time-boxed read-only role; `DEP-05` intact; Lane A scope review before execution |
 | **Defer** | Query execution, any compatibility migration, MMF selection, work order, construction | The recorded scope review, then a later bounded Judge act |
 | **Reject** | Treating the query as an MMF, an agent-held credential, content-bearing output, historical rewrite or an edit to an existing migration | Preserve the bounded evidence contract |
+
+## Lane A consolidation — Judge selects the human-run read-only path; gap ledger and drafted fixes, 2026-09-21
+
+**Authority and boundary.** Judge selection, stated directly in the Lane A conversation on 2026-09-21: the
+stored-value assessment uses a **read-only query** through a **read-only access path**, and the path is the
+**human-run** one — a human runs the pinned aggregate query and supplies only counts. This is one of the two
+paths already listed in the `D-251` access-scope table; it **selects** between them and does not widen either.
+Read at commit `11e35712970c4e7672a10ec9be4600523f2a4a0f`. This is a Lane A handoff-only record. It executes no
+query, lifts no `DEP-05`, edits no Register, packet or migration, selects no MMF, activates no Lane B and
+authorizes no construction.
+
+### Normalized wording (use these terms; retire the shorthand)
+
+| Shorthand heard | Canonical term | Why |
+|---|---|---|
+| "Option A" | **human-run aggregate query** (access path) | `B-116` and this entry's "Option B amendment to `D-239`" already use A/B for unrelated choices; the `D-251` table labels no options, so a bare letter identifies nothing |
+| "read-only query" | **read-only aggregate stored-value assessment** (Judge statement D wording) | Read-only describes the transaction; *aggregate, counts and metadata only* is the output rule |
+| "read-only access path" | **human-run path**; the alternative is the **time-boxed read-only role**, not selected | Access path names who holds the credential, not what the query does |
+
+### Gap ledger — parent first, children depend on the parent
+
+| Order | Gap | Finding | Drafted fix (not applied) | Owner |
+|---:|---|---|---|---|
+| 1 | The path selection exists only in conversation | The Register's access-scope table lists two paths and records no choice; `D-183` needs the act recorded before it is relied on | One-line addendum under `D-251`'s access-scope table: "Selected path: human-run; time-boxed role not selected; revisit only by a new Judge act." Apply in the next authorized canonical pass with the `D-54` table below | Lane A |
+| 2 | Lane B's scope record and query are still owed | Nothing has been returned; execution stays gated (`D-251` gate row) | Lane B returns: environments (confirm the local disposable database and the one provisioned Supabase project, or name others), included/excluded schemas, identity-capable field types, the pinned query with digest, the evidence format, reviewer | Lane B (draft only) |
+| 3 | The human-run path needs a named executor and transport | With no agent credential, someone must run it and paste counts; the entry names neither | Scope record adds: named human executor, where each environment is queried, how counts return (pasted into this entry), and that the query digest the human ran equals the reviewed digest | Lane B drafts; Lane A reviews |
+| 4 | "Read-only" must be enforced, not asserted | A pasted query can contain a write | Scope record requires the query to declare a read-only transaction, and the evidence to state that no mutation occurred (already a `D-250` evidence item); Lane A checks the text for any write statement before it is handed to the human | Lane B drafts; Lane A reviews |
+| 5 | Classification of known look-alikes | Verified this turn: the code, migration, seed and test surfaces (`app/`, `lib/`, `supabase/`, `__tests__/`, `scripts/`) contain **no** `ROLE-CHIEF-EDITOR` and no `ACCESS-ROLE-CHIEF-EDITOR`. They do contain the principal value `'chief-editor'` (`0002_s1_editorial_schema.sql` lines 190, 191, 224; `s1-schema.test.ts:47`; the transition tests). Repository search proves nothing about provisioned data | Result form must list `'chief-editor'` as a separate, expected false-positive class, never a match. Live data remains unexamined until the human run returns | Lane B drafts the class; Lane A reviews |
+| 6 | SM05's DoR box | Unchecked, correctly: the box needs the executed and reviewed result | No change. `V1-SM06` keeps its cross-reference and duplicates nothing | Lane A (on result) |
+
+Independent open siblings, listed once and **not** duplicated here: `DOR-R5`'s single normal/revision storyboard
+view (`B-117`), hosted Encyclopedia Entries 01/05/06 and 04 (deferral with a return condition in
+`docs/ENCYCLOPEDIA-SYNC.md`), Lane B's feasibility review of `DOR-R2`–`DOR-R4`, and the physical `ManualReady`
+snapshot/idempotency design for `V1-SM06`.
+
+### Cross-artifact and drift check
+
+| Artifact | Disposition |
+|---|---|
+| `Modular_PRD.md` | Unaffected: no requirement, status or module changes |
+| Storyboard, story panels, UML/data flow | Unaffected: the path choice is an evidence procedure, not a user journey, state, route or event |
+| Encyclopedia | Unaffected: no vocabulary change beyond what statement D recorded; Entries 01/05/06 and 04 remain deferred |
+| Register, Build Spec, Artifact Inventory, packets | Register gets the gap-1 addendum in the next canonical pass; Build Spec and Inventory unaffected (no scope, sequence or file); packets unchanged |
+| Graphify | `docs-drift` reads synced at `8701961`; HEAD `11e3571` advanced by an excluded-only (handoff) commit. This append is also handoff-only, so **no rebuild is owed**. Rebuild once after the gap-1 canonical edit lands, then rerun the suite |
+
+### Success criteria for this child
+
+| Failure | Passing evidence |
+|---|---|
+| The path is used before it is recorded | The Register addendum exists before the human runs anything |
+| A write-capable statement reaches a human | Lane A's recorded text check plus the read-only declaration in the query |
+| Counts are trusted from an unreviewed query | Executed digest equals the reviewed digest |
+| `'chief-editor'` counted as the former entitlement | Result lists it as a separate class with zero effect on the match count |
+| One environment stands in for the other | One recorded result per applicable environment |
+
+### Result
+
+Selection is accepted for recording; the child is **not** advanced by it. B-119 stays `Open` under the weakest-child
+rule. Query not run; no result exists.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Human-run aggregate query as the selected access path | Phase 1 — record in the `D-251` addendum (gap 1) |
+| **Approve-with-conditions** | Lane B's scope record and query | Phase 1 — Lane B drafts; Lane A scope and least-privilege review before any run |
+| **Defer** | Query execution, result classification, compatibility migration, `V1-SM05` selection, work order, construction | The recorded review, then a later bounded Judge act |
+| **Reject** | Bare "Option A" as an identifier, an agent-held credential, a write-capable query, or counting `'chief-editor'` as the deprecated entitlement | Use the canonical terms above |
