@@ -3135,3 +3135,57 @@ remains the single tracking record and stays `Open`; `D-251` is not satisfied; n
 | **Approve** | Lane B's full banner-free re-review, with the fourth hash | Phase 1 — steps 6 to 9 |
 | **Defer** | Syntax proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
 | **Reject** | Mechanical-diff-only acceptance, committing bytes without Lane B's review hash, patching a reviewed version in place, `git add -A` while drafts exist, treating owner-role membership as an RLS bypass | Use the contract above |
+
+## Lane A answer — Lane B's review of the recorded contract: five defects corrected, one already covered, 2026-09-21
+
+**Authority and boundary.** Lane B's review of `dd118b1` (given in the Lane A conversation, unrecorded until now) found
+impossible or unsafe requirements in the ten-step contract. Lane A checked each against the recorded text. Read at
+commit `dd118b1`. Handoff-only: this amends rules 6, 7 and 11 and steps 9–10 of the section above and nothing else. No
+SQL is written, no query run, no attachment touched, and the Register is unaffected. Step 2, Lane B drafting the three
+banner-bearing files, was already authorized and is unchanged.
+
+### Lane A's check of Lane B's six points
+
+| # | Lane B point | Verdict against the record |
+|--:|---|---|
+| 1 | A receipt cannot contain its own accepted hash | **Real.** Step 9 says the hashes go "in B-119 and the receipts"; for the receipt itself that is a self-reference |
+| 2 | The receipt is never executed, so rule 7's three-way equality cannot hold for it | **Real** |
+| 3 | Not every failure has a SQLSTATE | **Real.** A static finding or a connection failure precedes any PostgreSQL reply |
+| 4 | Deleting rejected drafts loses the evidence | **Real.** A hash cannot reconstruct a deleted file |
+| 5 | The accepted-blob hashes exist only after the acceptance commit | **Real.** A second B-119 commit is unavoidable |
+| 6 | The allowlist must work on statements, not words | **Already covered.** Rule 3 allows named top-level statements and a named function list, and the success table says "not a keyword search". No change |
+
+### Amendments, parent first
+
+| Order | Amends | Corrected rule |
+|---:|---|---|
+| 1 | Rule 7 (hash equality) | The equality applies **per artifact kind**. For each SQL file: `Lane-B-Banner-Free-Review-SHA256` = `Lane-A-Accepted-Blob-SHA256` = `Executed-SHA256`. For the receipt template: review hash = accepted-blob hash, and `Executed-SHA256` is `NOT-APPLICABLE` |
+| 2 | Step 9 (receipt hashes) | The committed receipt template carries **blank** execution fields and **no hash of itself**. All three accepted-blob hashes are recorded only in B-119. The operator copies the two SQL hashes from B-119 into each completed receipt. A **completed** receipt is a later, separate attachment, outside the three-file manifest, one per environment, committed by Lane A and given its own `Completed-Receipt-SHA256`, recorded in B-119 and never inside itself |
+| 3 | Rule 6 (failure states) | Each failure records: state; **source** (`STATIC-REVIEW`, `CONNECTION` or `DATABASE`); SQLSTATE when PostgreSQL supplied one, otherwise `SQLSTATE: NOT-AVAILABLE`; a **sanitized** error summary (no connection string, credential or row content); owner; return condition. All four states still map to `unresolved` |
+| 4 | Rule 11 (rejected drafts) | Nothing is deleted. A rejected draft keeps its banner and its versioned path, its hashes and defect are recorded in a B-119 ledger row marked `REJECTED — not executable`, and Lane A commits it in a **separate** commit from any acceptance. Corrections use a new versioned filename. This matches how the historical `V1`/`V3` files are already held |
+| 5 | Steps 9–10 | Split into three. **9** Lane A commits the acceptance commit: the three artifacts plus B-119's acceptance statement. **10** Lane A hashes each committed blob. **11** Lane A makes a **B-119-only evidence-anchor commit** recording the acceptance commit SHA and the accepted-blob hashes. The anchor commit changes no artifact. Step 11 is followed by the stop; the dry run still needs its own Judge act |
+
+### Success criteria, derived from failure
+
+| Failure | Passing evidence |
+|---|---|
+| The receipt claims its own hash | The committed template contains no hash of itself; every accepted hash is in B-119 |
+| The receipt fails an equality it can never meet | `Executed-SHA256` is `NOT-APPLICABLE` for the receipt; the two SQL files meet the three-way equality |
+| A failure invents a SQLSTATE | Every failure row carries a source and either a real SQLSTATE or `NOT-AVAILABLE` |
+| A rejected draft cannot be reproduced | Its file is in the repository history with a `REJECTED` ledger row |
+| The anchor commit alters bytes | It changes exactly one path, B-119, and the blob hashes are unchanged |
+| A completed receipt is confused with the template | It is a separate file with its own recorded `Completed-Receipt-SHA256` |
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 remains the single tracking record and
+stays `Open`; `D-251` is not satisfied; no `V4` file exists. `docs-drift` reads synced at `a5bdcc7`, HEAD is handoff-only
+commits ahead of it, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Amendments 1–5 and Lane B drafting (step 2) | Phase 1 — Lane B drafts uncommitted |
+| **Approve** | Rule 3 as recorded | No change |
+| **Defer** | Syntax proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
+| **Reject** | A receipt containing its own hash, an execution hash required of the receipt, an invented SQLSTATE, deleting the only copy of a rejected draft | Use the amended rules above |
