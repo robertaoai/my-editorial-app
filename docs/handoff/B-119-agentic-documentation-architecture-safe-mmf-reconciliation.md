@@ -4068,3 +4068,74 @@ curated-fragment re-merge.
 | **Approve-with-conditions** | Syntax-proof run | Chief Editor accepts rows 3–8; exact candidate bytes and isolation boundary required |
 | **Defer** | Replacement drafting, syntax proof, environment runs, classification, D-251 satisfaction and `V1-SM05` selection | Follow the ordered acts above |
 | **Reject** | Exhaustive-manifest claims without a generator; syntax proof against bytes other than the acceptance candidate; treating syntax proof as environment evidence | Use this packet's boundaries |
+
+## Lane A answer — Lane B's advisory-inventory and syntax-proof packet: rows 1–8 reviewed, six amendments to the run, decision form finalized, 2026-09-21
+
+**Authority and boundary.** Lane A answers Lane B's packet (`9ac9ad4`). The Judge has **not yet answered** rows 1–8, so
+this section records Lane A's recommendations and amendments and prepares one decision message; it does not record a Judge
+act. Read at commit `9ac9ad4`. Handoff-only: no SQL is written, no query or container is run, nothing is accepted, the
+Register is unaffected, and `D-251` is not satisfied. Row 1 was already ruled provisionally by Lane A in the `6f52b5f`
+section; the Judge's answer would confirm or reverse it.
+
+### Lane A's check of the packet against the repository
+
+| Packet claim | Finding |
+|---|---|
+| Throwaway PostgreSQL "initialized from migrations `0001` and `0002`" is runnable as described | **Not as written.** `0002` revokes privileges from `anon`, `authenticated` and `service_role` (lines 162, 258, 449, 450, 518). Those roles do not exist in a plain PostgreSQL and the migration stops at the first `revoke`. `supabase/config.toml` pins `major_version = 17` |
+| "No application data" | **Inaccurate.** `0001` inserts seed rows into `articles`, `trend_signals` and `workflow_transitions`. The throwaway database holds migration seed data, which is not real data and not evidence |
+| Lane B "runs only the two SQL files" | **Too narrow.** The approved acceptance criteria require fixtures that prove exact nested-value match, substring rejection and key-name rejection, and a negative fixture for an unlisted column. Those need inserts and one `alter table` in the throwaway database |
+| Follow-up steps 6–9 | **Omit the banner-free full re-review** the Judge approved. The syntax-proof and the re-review use the same bytes and the same Lane B turn, and should be one step |
+| Isolation | **Unstated risk.** The local Supabase stack's database is the "local disposable database used by the migration tests", a current `D-251` environment. A syntax proof run there could reset or alter it before it is assessed |
+
+### Lane A recommendation on rows 1–8
+
+| Row | Recommendation | Note |
+|---:|---|---|
+| 1 Advisory inventories | **Accept** | As ruled at `6f52b5f` |
+| 2 Static resolution claim stated no stronger than it proves | **Accept** | |
+| 3 Syntax proof before acceptance | **Accept** | |
+| 4 Bounded run authorization | **Accept as amended** | Amendments A–D below |
+| 5 Byte identity: the tested bytes are the committed bytes | **Accept** | Amendment E |
+| 6 Evidence is not an environment result | **Accept as amended** | Amendment F |
+| 7 Failure path: new per-artifact versions | **Accept** | Matches rule 11 |
+| 8 Construction boundary | **Accept** | |
+
+### Amendments to the syntax-proof run (rows 4–6)
+
+| Ref | Amendment |
+|---|---|
+| A — isolation | The throwaway database is a **separate, named container or instance**, on its own port and never the local Supabase stack's database and never a current `D-251` environment. Nothing is run against either current environment |
+| B — build | PostgreSQL **17** to match `config.toml`, image tag pinned and its digest recorded. Lane B first creates the three roles the migration expects (`anon`, `authenticated`, `service_role`, no login) and then applies `0001` and `0002` in order. The migration hashes are recorded. The database holds **migration seed data only** and its superuser password is throwaway and unrecorded; it is not a credential in the `DEP-05` sense |
+| C — scope | Lane B may run the two banner-free SQL files **and** apply fixture statements to the throwaway database only: the `C10` exact-value, substring and key-name fixtures, and one unlisted-column fixture. Fixtures are separate files, never part of the artifacts, never run against anything else. Expected results: preflight `CATALOG-VALIDATION` 66 rows all `VERIFIED`, `RECONCILIATION` 0, `VISIBILITY` 9 rows, and after the unlisted-column fixture exactly one `UNRECONCILED` row; assessment 10 rows on unmodified seed data, and the `C10` fixtures counted as specified |
+| D — why fixtures matter | A wrong `C10` predicate would return a **false zero on real data**, the failure this whole procedure exists to prevent. Without fixtures, that is first tested on a real environment |
+| E — one step | The syntax proof is folded into Lane B's banner-free full re-review (`D251-…-FINAL-REVIEW-RETURN`): same bytes, same turn. Lane A removes the banners, records the banner-free hashes and hands them to Lane B; Lane B reviews, runs the proof, and returns both in one B-119 section. Lane A then verifies the tested hashes and commits those bytes unchanged |
+| F — naming | The proof records its hashes as `Syntax-Proof-Tested-SHA256`, never `Executed-SHA256`, which stays reserved for the human run. The evidence also records PostgreSQL version and image digest, migration hashes, fixture file hashes, exit state, result-set names, row counts and fixture outcomes. It makes no `D-251` classification |
+
+### Decision form for the Judge
+
+Replaces Lane B's form. One message:
+
+> **Accept rows 1–8 as amended by Lane A.** Operator, cast and special-form inventories are advisory; the blocking safety
+> controls remain as recorded. Authorize Lane B to run the exact banner-free candidate SQL bytes and the fixture
+> statements in a separate throwaway PostgreSQL 17 built from migrations `0001` and `0002` with the three Supabase roles
+> created first, with no credential and no real data. The run proves syntax, resolution and the `C10` and reconciliation
+> behavior only, and is not a `D-251` environment result, construction authorization or closure evidence.
+
+Alternative, if no execution is wanted yet: **Accept rows 1–3 and 8; defer rows 4–7.** Lane B drafts and returns
+`V4`/`V6`/`V4` statically; syntax and fixture behavior are first proved at the later dry run, and another correction loop
+is possible.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 stays `Open` and `D-251` is not
+satisfied. `docs-drift` reads synced at `a5bdcc7`; later commits are handoff-only and coverage-excluded, so no Graphify
+rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Rows 1–3, 5, 7 and 8 | Recorded |
+| **Approve-with-conditions** | Rows 4 and 6 | Amendments A–D and F |
+| **Approve** | Amendment E: one combined re-review and proof step | Recorded |
+| **Defer** | The run itself, replacement drafting, environment runs, classification, `D-251` satisfaction, `V1-SM05` selection | Judge answers the decision form |
+| **Reject** | Running the proof in the local Supabase stack database, describing the throwaway database as having no data, fixtures inside the artifacts, using `Executed-SHA256` for the proof | The amendments above |
