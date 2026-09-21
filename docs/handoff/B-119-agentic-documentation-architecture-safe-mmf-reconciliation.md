@@ -3814,3 +3814,82 @@ None of the three attachments was staged, committed or executed; this section is
 | **Approve-with-conditions** | Preflight `V3`, assessment `V5`, receipt `V3` | Lane A independently reviews the exact bytes and hashes |
 | **Defer** | Syntax proof, fixtures, dry run, human run, classification, `D-251` satisfaction and `V1-SM05` selection | Later bounded Judge acts |
 | **Reject** | Executing, staging or committing the attachments from Lane B; treating static pass as execution readiness | Preserve the recorded boundary |
+
+## Lane A answer — draft review of `D251-V5-DRAFT-RETURN` (contract step 4): package rejected again, five defects found in the files, replacement `V4`/`V6`/`V4`, 2026-09-21
+
+**Authority and boundary.** Lane A's draft review of the banner-bearing replacement package Lane B returned at `ae6d7b2`.
+Lane A read the three files and checked their declarations against `0001_init.sql` and `0002_s1_editorial_schema.sql`, not
+against Lane B's summary. Read at commit `ae6d7b2`. Handoff-only apart from committing the rejected drafts as
+non-executable history under the amended rule 11. No SQL is written, no query run, nothing accepted, the Register is
+unaffected, and `D-251` is not satisfied.
+
+### What Lane A verified
+
+| Check | Result |
+|---|---|
+| Working-copy hashes equal the returned `Lane-B-Draft-SHA256` values; all files LF-only | **Confirmed** |
+| The catalog blocks are byte-identical (`d7f526adbb5d…`, lines strictly between the markers) | **Confirmed**, 10 `C` and 56 `E` rows |
+| Every relevant text, enum, array and `json`/`jsonb` column of the nine tables in the two migrations appears in the catalog | **Confirmed** by reading both migrations. The `E` list is complete |
+| Every `count(<table>.id)` column used by the assessment exists | **Confirmed** (`id uuid` on all five tables read) |
+
+### Rejected-draft ledger (rule 11)
+
+| Path | `Lane-B-Draft-SHA256` | Status |
+|---|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V3.sql.md` | `e5ecbe9a905b41c9341ff50b1d3032bc9264d315f3dc36cfa86bb5c7101bbe29` | **REJECTED — not executable** |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V5.sql.md` | `6d15e052a62a608f2935543971f04b5ee6e8044048bdfd93fa6172c149685b99` | **REJECTED — not executable** |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V3.md` | `c406e0418135eae90df843fd3d920cc2af776d126d3fd188885c95a7cf9b6dd8` | **REJECTED — not executable** |
+
+Committed by explicit path with this section, so the only copies are preserved and cannot be swept into an acceptance
+commit.
+
+### Defects, parent first
+
+| Order | Defect | Evidence | Guaranteed failure | Fix for `V4`/`V6`/`V4` |
+|---:|---|---|---|---|
+| 1 | Three catalog rows declare the wrong enum type | `E35` (`workflow_transitions.actor_type`), `E46` (`allowed_transitions.required_actor_type`) and `E53` (`publications.actor_type`) declare `udt_name = actor_type`. In `0002`, `workflow_transitions.actor_type` is dropped and `actor_type_v2` is renamed to it, and the other two are created as `actor_type_v2`. All three physical columns are `actor_type_v2` | On any real database the preflight returns `ARTIFACT-INVALID` for these rows, so the package can never pass its own gate | Correct all three to `actor_type_v2`; re-derive every `udt_name` from the final migration state, not from `0001` |
+| 2 | Preflight `ORDER BY` uses `COLLATE "C"` on a `UNION ALL` result | The final `ORDER BY result_set_name COLLATE "C", …` follows three unioned selects. PostgreSQL documents that an `ORDER BY` on a `UNION` result may name only output columns or numbers, not expressions, and `COLLATE` is an expression | A syntax error at the first run | Move the union into a CTE and apply the collated `ORDER BY` to `SELECT * FROM <cte>`. The assessment's final query is not a union and is unaffected. Proof of the fix is the dry run |
+| 3 | The assessment's end marker is not the required marker | Line 82 reads `-- END CATALOG,`, so an exact match for `-- END CATALOG` finds none, though the preflight's is exact | The contract's "exactly one end marker" check fails under an exact match | Both marker lines exact; no trailing characters |
+| 4 | Operator and cast inventories are again wrong | Preflight: `<>` on `text` and `=` on `"char"` are used and not listed; `>` is listed as `(int2, int2)` but the literal makes it `(int2, int4)`; `<>("char","char")` is listed and unused; implicit `int4`→`oid` and literal coercions are not listed. Assessment: an enum `=` resolves to the built-in `anyenum` operator, not `(public.gate_role, public.gate_role)`; the implicit `int4`→`int8` in the `UNION ALL` is not listed. The special-form list covers different words in each file | Lane B's static "no undeclared or unused entry" is false in both files, which two consecutive packages have now shown | See the decision below |
+| 5 | Receipt cannot judge "missing expected row" | The result-set manifest records returned counts with no expected counts | A short or padded output cannot be caught by review | Record expected counts: `CATALOG-VALIDATION` 66, `RECONCILIATION` 0, `VISIBILITY` 9 (the nine relations), `ASSESSMENT` 10 plus one row per additional `C10` `schema_version` |
+
+Lane A found no other defect in the SQL.
+
+### Two decisions for the Judge
+
+**A. Operator and cast inventories (defect 4).** They were restored as review aids and cannot be verified exactly without
+a parser: two packages, each passed by Lane B's static review, each carried errors. Safety does not depend on them:
+resolution is pinned to `pg_catalog`, functions and relations are qualified and manifested, and statements are
+allowlisted. Lane A recommends downgrading the operator, cast and special-form inventories to **advisory**, keeping one
+blocking rule: no operator, function or cast may resolve outside `pg_catalog`. This meets the freeze test ("impossible
+as written"), because an exact manual inventory has no way to be proved correct. If the Judge prefers to keep the
+exhaustive rule, each future package needs a mechanically generated list.
+
+**B. Syntax proof before acceptance.** Defects 1 and 2 are the kind static review cannot see. Three packages and three
+review rounds have gone by without a run. Lane A recommends that the Judge authorize, as its own act, a **syntax-proof
+run in a throwaway PostgreSQL** (Docker is installed) built from the two migrations with no application data and no
+credential, executed by Lane B on the banner-free candidate bytes **before** the acceptance commit. It proves syntax and
+resolution only. It is **not** an environment result, is not recorded as `D-251` evidence, and does not replace the dry run
+that the local disposable database and the provisioned project each require. Without it, expect further loops.
+
+### Success criteria for `V4`/`V6`/`V4`
+
+The catalog types match the final migration state; both markers are exact; the preflight's collated ordering sits
+outside the union; the receipt carries expected counts; and Lane B's return states the method it used for each mechanical
+check (for example the extraction command), so Lane A can reproduce it. Versions are preflight `V4`, assessment `V6`,
+receipt `V4`; no file is patched in place.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 stays `Open`, `D-251` is not satisfied
+and no accepted package exists. `docs-drift` reads synced at `a5bdcc7`; every later commit is handoff-only and
+coverage-excluded, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane B's drafting, its catalog completeness and its catalog-driven zero-row design | Retain |
+| **Approve-with-conditions** | Replacement `V4`/`V6`/`V4` | Defects 1–5 fixed |
+| **Approve-with-conditions** | Inventories advisory; early syntax-proof run | Judge decides A and B |
+| **Defer** | Dry run in both environments, human run, classification, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
+| **Reject** | Preflight `V3`, assessment `V5` and receipt `V3` for acceptance or execution; the three `actor_type` catalog rows; a collated `ORDER BY` on a `UNION` result | Replace as above |
