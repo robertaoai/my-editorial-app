@@ -3566,3 +3566,103 @@ coverage-excluded, so no Graphify rebuild is owed.
 | **Approve** | Byte hygiene, banner, transaction boundary, catalog-block parity and candidate aggregation shape | Retain in the replacement |
 | **Defer** | Dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
 | **Reject** | Preflight `V2`, assessment `V4` and receipt `V2` for acceptance or execution; free-text exclusion reasons; collation-dependent ordering | Replace as above |
+
+## Lane B clarification packet — Judge authorizes replacement `V3`/`V5`/`V3` and gaps 1–11, 2026-09-21
+
+**Raiser and boundary.** Lane B raises this clarification for Lane A to answer in this existing entry. The Judge has
+approved (1) the replacement package — preflight `V3`, assessment `V5`, receipt `V3` — and (2) correction of gaps 1–11
+as setup-phase work. This removes the earlier question whether rule 11 permits another iteration. This section creates
+no SQL or application code, executes no query, accesses no database, accepts no artifact for execution and does not
+satisfy `D-251`.
+
+### Parent-first decision table for Lane A and the Judge
+
+Lane A should answer each row **Accept** or **Reject** in order. A rejected parent stops its dependent rows; no child is
+silently reinterpreted.
+
+| Order | Decision object | Lane B recommendation | Depends on | Consequence if accepted | Consequence if rejected |
+|---:|---|---|---|---|---|
+| 1 | **Setup boundary.** The present act fixes the specification for gaps 1–11; it does not create the three replacement files | **Accept** | — | Lane A records one executable drafting contract without claiming construction | Stop: the Judge must redefine whether this act authorizes specification, drafting or execution |
+| 2 | **Replacement manifest.** The next files are exactly preflight `V3`, assessment `V5`, receipt `V3`; rejected versions remain immutable history | **Accept** | 1 | One unambiguous package enters the correction loop | Stop: version identity remains ambiguous |
+| 3 | **Preflight owns validation.** Schema/catalog/type/visibility failure is returned visibly by preflight and prevents assessment; assessment is not required to convert a PostgreSQL parse failure into a result row | **Accept** | 1–2 | Gap 3 and A6 become implementable without dynamic SQL or forbidden procedural statements | Stop: the current requirement is not safely implementable as written |
+| 4 | **Complete fixed catalog.** Both SQL files carry one byte-identical complete `C`/`E` block; uncatalogued relevant columns are never auto-excluded | **Accept** | 3 | Gaps 1–2 obtain one authority and a reachable `UNRECONCILED` state | Stop: catalog parity remains capable of a false green |
+| 5 | **Typed inventories and name resolution.** Every callable/relation is qualified and used; special forms, typed operators and casts are complete, sorted and used | **Accept** | 3–4 | Gaps 4–5 gain a reviewable static safety contract | Stop: static acceptance remains non-reproducible |
+| 6 | **Deterministic evidence.** Catalog extraction, array identity, ordering, result-set naming and visible failures follow the rules below | **Accept** | 4–5 | A1–A3 and A6 become comparable across environments | Stop: local and Supabase evidence cannot be reliably compared |
+| 7 | **Receipt contract.** Receipt `V3` carries all environment, artifact, reconciliation, result and classification evidence without self-hashing | **Accept** | 2–6 | Gap 6 and A4 obtain one complete evidence carrier | Stop: execution cannot produce reviewable evidence |
+| 8 | **Exclusion vocabulary.** Every `E` row uses one fixed reason; an identity-like field must be a candidate | **Accept** | 4 | A5 cannot hide identity scope in prose | Stop: exclusion review remains subjective |
+| 9 | **Future implementation dependency.** Accepted artifacts become inputs to construction readiness and verification, but do not themselves authorize construction | **Accept** | 1–8 | `V1-SM05` can later consume the reviewed D-251 result without confusing setup with build authorization | Stop: setup evidence risks being misread as a work order |
+| 10 | **Return sequence.** Lane B drafts only after the live lane act permits it, performs static review, then returns all three uncommitted through B-119 | **Accept** | 1–9 | Existing lane and four-eyes controls remain intact | Stop: Lane A must supply a different lawful return path |
+| 11 | **Execution stays separate.** Syntax proof, fixtures, dry run, human run, classification, `D-251` satisfaction and `V1-SM05` selection each remain later bounded acts | **Accept** | 1–10 | No setup decision is promoted into execution evidence | Stop: the Judge must explicitly name which later act is being combined now |
+
+### Gaps 1–11 — normalized setup specification
+
+| Gap | Required rule | Passing evidence at Lane A review |
+|---:|---|---|
+| 1 | The complete catalog contains stable `C` candidates and stable `E` exclusions with schema, relation kind, column, full type identity, field classification and controlled exclusion reason | No relevant known column is absent; both SQL blocks are byte-identical |
+| 2 | A real relevant column absent from the fixed catalog returns `UNRECONCILED`; the query never invents an exclusion | A negative fixture later produces exactly one named `UNRECONCILED` row |
+| 3 | Preflight validates catalog existence and type identity and is the mandatory gate. `ARTIFACT-INVALID` stops before assessment. Assessment rows take their identifiers and classifications from the declared catalog | Static review proves the dependency; later dry run proves the stop behavior |
+| 4 | All functions and relations are schema-qualified; all callable manifest entries are used; `current_user` and any other SQL special form have a separate sorted inventory | No undeclared, duplicate or unused entry |
+| 5 | Operator and cast inventories cover every actual usage with resolved operand/source, target and result types | No undeclared, duplicate or unused entry |
+| 6 | Receipt `V3` has attempt-bound local and Supabase completed-receipt hashes plus an unchanged reconciliation-output section | Both environment attempts can be independently anchored |
+| 7 | Catalog hashing uses only the LF-terminated lines strictly between the two markers; marker lines are excluded | Two independent extractions produce the same SHA-256 |
+| 8 | Array element identity comes from PostgreSQL type metadata, not the array type name; if arrays remain unsupported, their appearance is `UNRECONCILED` | No `_text`-style array type is reported as an element type |
+| 9 | Every textual sort key uses explicit `COLLATE "C"`; null placement is explicit | Identical fixture data yields byte-comparable ordering across both environments |
+| 10 | Receipt `V3` records artifact commit, PostgreSQL version, applied migrations, execution role, result-set names and row counts, field classification and result classification | No execution fact needed for review is inferred from prose |
+| 11 | Exclusion reasons use exactly: `prose`, `url`, `label-or-taxonomy`, `version-or-id-token`, `non-role-enum`, or `uuid`; identity-like fields are candidates. Every validation failure is a visible preflight row and cannot be represented by missing output | Every `E` row has one allowed reason; empty/missing output is never classified clean |
+
+### Lane A follow-up guide
+
+1. **Record the Judge act.** State that replacement `V3`/`V5`/`V3` and gaps 1–11 are approved for setup
+   specification; retire the earlier pending-authorisation question.
+2. **Answer the table in order.** Record Accept or Reject for rows 1–11. If row 3 is rejected, supply an alternative
+   that does not require a query containing a missing static column reference to emit its own validation row.
+3. **Normalize the contract.** Replace earlier conflicting phrases with the rules in the normalized table; retain the
+   historical rejection ledger and hashes unchanged.
+4. **Check propagation.** Because this act defines evidence mechanics but creates or retires no canonical artifact,
+   record the Register, Build Spec, Inventory and `Modular_PRD.md` as unaffected now. Do not duplicate this table into
+   those tiers.
+5. **Record the future dependency.** State that an accepted package and later reviewed result are critical inputs to
+   `V1-SM05` readiness and implementation verification, but are not construction authorization or DoD evidence by
+   themselves.
+6. **Set the lane step.** Preserve Lane A as active until its answer is committed. When drafting is next, perform the
+   governed lane handover that permits Lane B to create the replacement files.
+7. **Issue one bounded drafting instruction.** Name the three literal replacement paths, the normalized rules, the
+   banner, the static-review checklist, the uncommitted return requirement and the prohibition on database access.
+8. **Review the return independently.** Lane A reads the exact bytes, recomputes hashes and either rejects immutable
+   versions or accepts them through the existing commit-and-evidence-anchor sequence.
+9. **Stop before execution.** Dry run and human execution require their later Judge acts.
+
+### Chief Editor requirements
+
+For this setup act, the Chief Editor must:
+
+- confirm Lane A's ordered Accept/Reject dispositions rather than approving an undifferentiated bundle;
+- keep the replacement manifest fixed at preflight `V3`, assessment `V5`, receipt `V3`;
+- select the lane transition before drafting starts; artifact authorization alone does not change live lane state;
+- reject any claim that setup artifacts constitute construction authorization, successful execution or `D-251`
+  satisfaction; and
+- later make separate decisions for dry run, human execution, result classification and any movement of
+  `V1-SM05`.
+
+No additional product choice is required now if Lane A accepts rows 1–11 exactly as written.
+
+### Cross-artifact review and Graphify
+
+`Modular_PRD.md` already records the `D-251` boundary and leaves the sprint tracker unchanged. The storyboard and story
+panels own user-visible journeys, UML/data flow owns product behavior and movement of product data, and the Encyclopedia
+owns domain concepts; none owns this SQL evidence procedure. The Register owns the accepted `D-251` decision and the
+`V1-SM05` work packet owns its unchecked evidence dependency. Build Spec, Artifact Inventory, Fn Specs and traceability
+already point to those authorities. Therefore all named tiers are **unaffected by this setup clarification**. They are
+revisited only if Lane A accepts a new canonical rule or a later result changes readiness. B-119 remains the sole owner
+of the compatibility evidence and classification.
+
+The governed graph remains synchronized at `a5bdcc7`; later changes are handoff-only and coverage-excluded. This section
+does not change governed intent, so no Graphify rebuild is owed. A rebuild becomes due only after a canonical governed
+edit, with curated fragments re-merged afterward.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Judge authorization for replacement `V3`/`V5`/`V3` and setup correction of gaps 1–11 | Lane A answer — record and normalize |
+| **Approve-with-conditions** | Replacement drafting | Setup phase — Lane A accepts rows 1–11 and completes the lane handover first |
+| **Defer** | SQL creation, static return, syntax proof, dry run, human run, classification, `D-251` satisfaction and `V1-SM05` selection | Later bounded steps named above |
+| **Reject** | Treating this clarification as code, execution evidence, construction authorization, lane activation or closure | Preserve the setup boundary |
