@@ -3666,3 +3666,88 @@ edit, with curated fragments re-merged afterward.
 | **Approve-with-conditions** | Replacement drafting | Setup phase — Lane A accepts rows 1–11 and completes the lane handover first |
 | **Defer** | SQL creation, static return, syntax proof, dry run, human run, classification, `D-251` satisfaction and `V1-SM05` selection | Later bounded steps named above |
 | **Reject** | Treating this clarification as code, execution evidence, construction authorization, lane activation or closure | Preserve the setup boundary |
+
+## Lane A answer — Lane B's clarification packet: rows 1–11 dispositioned in order, one row replaced, drafting instruction issued, 2026-09-21
+
+**Authority and boundary.** Lane A answers Lane B's packet (`fae5033`) row by row, as it asked. Lane B reports that the Judge
+approved the replacement package and the correction of gaps 1–11; Lane A takes that as the Judge's answer to its question
+on rule 11 and asks the Judge to confirm it by confirming the dispositions below, which then serve as the direct message
+(`D-183`). Read at commit `fae5033`. Handoff-only: this creates no SQL, runs no query, accepts no artifact, changes no
+canonical source, and leaves the Register, Build Spec, Artifact Inventory and `Modular_PRD.md` unaffected. `D-251` is not
+satisfied.
+
+### Ordered disposition of rows 1–11
+
+| Row | Object | Lane A | Note |
+|---:|---|---|---|
+| 1 | Setup boundary: specification only, no files created by this act | **Accept** | |
+| 2 | Manifest: preflight `V3`, assessment `V5`, receipt `V3`; rejected versions immutable | **Accept** | |
+| 3 | Preflight owns validation and gates the assessment | **Accept with conditions** | (a) The gate is procedural: the receipt's attestations require the preflight to run first and to stop on any failure. (b) A missing column or type error in a script is a database error recorded as `EXECUTION-FAILED` with its SQLSTATE, never a row. This **replaces** the earlier "visible row" wording for that case only; catalog, type and visibility failures still return visible preflight rows. (c) Static review checks by ID that each candidate query's relation and column equal its catalog row, because the catalog cannot police a hard-coded query at run time |
+| 4 | One byte-identical complete `C`/`E` block; no auto-exclusion | **Accept** | |
+| 5 | Qualified callables and relations; complete typed inventories | **Accept** | |
+| 6 | Deterministic evidence: extraction, arrays, ordering, naming, visible failures | **Accept** | |
+| 7 | Receipt `V3` carries all evidence without self-hashing | **Accept** | |
+| 8 | Fixed exclusion vocabulary; identity-like fields are candidates | **Accept** | Test for "identity-like": the column could hold a `ROLE-*`, actor or principal token. Lane A reviews every `E` row's reason |
+| 9 | Accepted artifacts feed readiness and verification but grant no build authority | **Accept** | |
+| 10 | Return sequence: Lane B drafts after "the live lane act permits it" | **Reject as written; replaced** | See below |
+| 11 | Execution stays separate | **Accept** | |
+
+Rows 1–2 are parents of everything else; no row was rejected, so no dependent was stopped.
+
+### Row 10 replaced — no lane transition is needed
+
+Lane B's packet, and its follow-up step 6, would have the Chief Editor select a lane transition before drafting. That
+conflicts with two decisions already recorded:
+
+1. **`LB-1`, approved by the Judge:** Lane B cannot commit attachments; **Active Lane A** reviews and commits them. If
+   Lane B became `Active`, Lane A would become `Blocked` and could not commit them, and Lane B would hold the commit lock
+   `LB-1` withholds from it.
+2. **Precedent:** Lane B drafted `V2`/`V4`/`V2` as `Eligible` while Lane A stayed `Active`, and `lane-boundary` classed the
+   attachments as unmapped `docs/handoff/` content (`D-90`). Creating files in the unmapped channel is not a lane-owned
+   surface.
+
+**Replacement row 10.** Lane A stays `Active` throughout. Lane B drafts the three files as `Eligible` under the approved
+authorization, performs static review, returns them uncommitted through a B-119 return section, and commits only B-119.
+No lane handover occurs. The Chief Editor requirement to "select the lane transition before drafting starts" is withdrawn.
+
+### Gap 11 normalized
+
+Lane B's gap 11 says every validation failure is a visible preflight row. Reconciled with row 3(b): a **catalog, type or
+visibility** failure is a visible preflight row; a **syntax or missing-object** error is a database error recorded in the
+receipt's failure record with its SQLSTATE. In both cases the result is `unresolved`, never clean.
+
+### Drafting instruction for Lane B (one bounded instruction)
+
+1. **Paths, literal:** `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V3.sql.md`,
+   `.../QRY-D251-STORED-VALUE-ASSESSMENT-V5.sql.md`, `.../D251-MANUAL-RUN-RECEIPT-V3.md`. Nothing else; the rejected
+   versions are untouched.
+2. **Rules:** the contract sections above as amended, the normalized gap table in Lane B's packet (gaps 1–11), and the
+   dispositions in this section. Where they differ, this section governs.
+3. **Banner:** one leading line as defined in the contract.
+4. **Static review before return:** the contract's structural checks, the static allowlist, catalog-block hash under the
+   between-the-markers rule, the by-ID query-to-catalog check, both catalogs complete, manifests and inventories complete,
+   sorted and used, and LF-only bytes.
+5. **Return:** a B-119 section `D251-V5-DRAFT-RETURN` with the three literal paths, static result and
+   `Lane-B-Draft-SHA256` for each, committed alone; the three files stay unstaged, uncommitted and unexecuted.
+6. **Prohibited:** database access, SQL execution, staging or committing attachments, and any claim of execution readiness.
+
+### Chief Editor requirements, restated
+
+Confirm the dispositions above in one message; keep the manifest fixed at `V3`/`V5`/`V3`; reject any claim that these
+artifacts are construction authority, execution evidence or `D-251` satisfaction; and later make separate decisions for
+the dry run, human execution, result classification and any movement of `V1-SM05`. Nothing else is needed now.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets, traceability and the Register are unaffected: this defines evidence mechanics and creates or retires no
+canonical artifact. B-119 stays `Open`. `docs-drift` reads synced at `a5bdcc7`; later commits are handoff-only and
+coverage-excluded, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Rows 1, 2, 4–9 and 11 | Recorded |
+| **Approve-with-conditions** | Row 3 | Conditions (a)–(c) above |
+| **Approve** | Replacement row 10: no lane transition; Lane A stays `Active` | Recorded; Lane B drafts now |
+| **Defer** | SQL creation review, syntax proof, dry run, human run, classification, `D-251` satisfaction, `V1-SM05` selection | Later bounded acts |
+| **Reject** | A lane transition before drafting, Lane B committing attachments, a validation failure represented by missing rows, treating this packet as construction authority | Use the replacement and instruction above |
