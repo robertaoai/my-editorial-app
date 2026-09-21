@@ -2295,3 +2295,142 @@ ledgers, and this header stays `Open` under the weakest-child rule.
 | **Approve-with-conditions** | Graph sync | Phase 1 — coverage and curated descriptions checked; description fill deferred; portability reported separately |
 | **Defer** | Physical data contract, MMF selection, work order, construction, hosted Encyclopedia comparison, B-117/B-118/B-119 closure | A later bounded Judge act, and each entry's own evidence |
 | **Reject** | Build authority from this return, calling the setup programme closed, `transition:T*` claims for `V1-SM05`, full-`CR-19` claims, coverage PASS as semantic currency | Two-checkpoint model stands |
+
+## Lane B consolidated review — Judge-authorized append after `D-247`–`D-251`, 2026-09-21
+
+### Authority and boundary
+
+The Judge authorized this consolidation to be appended to B-119 and requested an independent review of
+`D-247`–`D-251`. This is a handoff-only Lane B review returned to Lane A. It does not amend those
+decisions, assign the unallocated part of `CR-19`, create `V1-SM07`, select an MMF, activate Lane B,
+authorize construction, close the setup root, or close B-117, B-118, or B-119.
+
+### Parent-first decision ledger
+
+| Order | Parent or child | Independent finding | Disposition / next act |
+|---:|---|---|---|
+| 1 | `D-247` — current V1 boundary | Applied correctly: current V1 contains `V1-SM05` and `V1-SM06` and ends at bounded LinkedIn `ManualReady`. Only automated WordPress, retry/scheduler, and `FR-10`/`T11` live-URL confirmation have an explicit V2 target. The remaining five-gate execution and Chief Journalist approval needed for complete `CR-19` are **unassigned**, not shifted to V2. | **Approve.** Preserve the distinction between *V2-targeted* and *unassigned*. A later roadmap act must place the unassigned outcome. |
+| 2 | Why no `V1-SM07` | `D-247` accepted the bounded Choice A. Naming `V1-SM07` now would silently choose the rejected/deferred scope-expansion branch, invent an artifact before its business outcome, and contradict the rule that the parent outcome precedes child count, identity, and order. | **Defer.** If the Judge wants complete `CR-19` in V1, first amend `D-247` with the exact added business outcome and exclusions; only then may Lane A propose whether one or more new MMFs are needed. Do not assume the identifier `V1-SM07`. |
+| 3 | `D-248` — setup lifecycle | Correctly supersedes only `D-244`'s closure implication. Transfer is mapped; closure remains pending while residual children are non-terminal. | **Approve.** No closure or packet-retirement credit. |
+| 4 | `D-249` — bounded packet outcomes | SM05 is a Route-1 evidence slice; SM06 is board/audit plus bounded `ManualReady`; both disclose partial `CR-19`. Residual current-scope wording was corrected at `e60581e`. | **Approve.** Preserve the current-scope annotations and the single-owner cross-references. |
+| 5 | `D-250` — `ManualReady` contract | Eligibility, explicit requester authority, snapshot binding, refusal and replay are decided at business-behaviour level. The physical revision identity, replay key and effective-current query remain correctly assigned to a later Lane B refinement. | **Approve with conditions.** DoR remains incomplete until the physical design is reviewable and testable. |
+| 6 | `D-251` — identity namespace | Living documentation uses `ACCESS-ROLE-CHIEF-EDITOR`; virtual-agent identities retain `ROLE-*`; historical text is preserved. No repository code, migration, seed or test stores the old entitlement identifier. Provisioned data remains unexamined. | **Approve with conditions.** Perform a read-only stored-value check before construction and use a new migration if compatibility work is needed. |
+| 7 | SM05 readiness | `DOR-R5`, `DOR-R6`, and Lane B feasibility evidence remain open. | **Defer selection.** Complete the authoritative normal/revision visual and Encyclopedia disposition first. |
+| 8 | SM06 readiness | Entry 04 review and physical snapshot/idempotency design remain open. | **Defer selection.** Return a schema-neutral design to Lane B before any work order. |
+| 9 | Statement B | Lane A is still `Active`; Lane B is only `Eligible`; neither packet is DoR-complete. | **Defer.** A later Judge act must name the immutable packet, lane transition, and bounded work order. |
+
+### `CR-19`: what was and was not moved
+
+The phrase *"the rest of `CR-19` moved to V2"* is rejected because it is not what `D-247` says.
+
+| `CR-19` component | Current destination |
+|---|---|
+| Route-1 business-stage, role, task and evidence display | `V1-SM05` |
+| Board/audit visibility and LinkedIn target-level `ManualReady` | `V1-SM06` |
+| Automated WordPress delivery and retry/scheduler behavior | V2 target under `D-243`/`D-247` |
+| `FR-10`/`T11` live-URL confirmation and promotion to `Published` | V2 target under `D-243`/`D-247` |
+| Complete five-gate execution and Chief Journalist approval needed for the full frozen success scenario | **No destination assigned** |
+
+The unassigned outcome remains traceable to its `[V1]` source. It is not deleted, satisfied, or silently
+deferred to V2. There are three legitimate future Judge choices:
+
+1. keep it unassigned until roadmap planning;
+2. amend the current V1 boundary and define the additional business outcome before Lane A proposes MMFs;
+3. assign it expressly to V2 or another named scope.
+
+Only choice 2 could lead to another current-V1 packet, and even then the packet is not automatically
+called `V1-SM07`: dependency and feature-group analysis determines the count and identity after the
+outcome is accepted.
+
+### Methodology and identity separation
+
+The phrase *"Senior Journalist independence"* is withdrawn from current-language use. It conflates four
+different models:
+
+| Model | Subject | Current use here |
+|---|---|---|
+| Product Three Lines / IIA-inspired separation | Business risk, control and independent assurance | Numbered Lines 1/2/3. It does not assign development tools and does not make every reviewer a Line 2 assurance actor. |
+| Source RACI | Responsibility and accountability for factory-route operations | `R`, `A`, `C`, `I` facts from the source crosswalk. RACI does not itself grant application authorization. |
+| Product execution identities | Virtual agents, human access entitlements, human editorial identities and external actors | `ROLE-*`, `ACCESS-ROLE-*`, `EDITORIAL-ROLE-*`, `USR-*`, `AGENT-*`, and `EXT-*`; each prefix has a distinct meaning. |
+| Development lanes | Repository ownership and commit sequencing | Lane A/B/C. These must never be cross-referenced to Product Lines 1/2/3. |
+
+`ROLE-SENIOR-JOURNALIST` is currently a **virtual product agent**. It processes the pre-gate intake/EW
+boundary, participates where separately mapped, and may request LinkedIn `ManualReady` solely because
+`D-250` grants that request authority. It is **not** thereby:
+
+- an IIA Line 2 independent-assurance function;
+- the `business:T5` reviewer;
+- a human Final Sign-Off actor;
+- Route-1 accountable;
+- a WordPress publisher;
+- authorized to create `Published` or assert a live URL.
+
+The storyboard's earlier description of Senior Journalist as a Line 2 reviewer is dated history and is
+now explicitly marked superseded. The current requirement is **requester/reviewer separation**, not
+"Senior Journalist independence": Chief Editorial Desk supplies the qualifying `business:T5` record;
+Senior Journalist requests the bounded readiness event; the application performs the append; none gains
+the other's authority.
+
+### Critical artifacts and their construction/verification use
+
+| Artifact | Construction input | Verification evidence |
+|---|---|---|
+| Register `D-247`–`D-251` | Scope, exclusions, behavior and identity authority | Proves implementation follows explicit decisions rather than inferred roles |
+| `V1-SM05.md` | Route-1 evidence slice and namespace boundaries | DOR-R1–R6 and real-database acceptance/refusal cases |
+| `V1-SM06.md` | Board/readiness behavior and prohibited outcomes | Authorization, snapshot, replay, refusal and never-`Published` matrix |
+| `FN-GATES-01-05.md` §4.3 | Failure/replay behavior for SM05 operations | Positive, refusal and idempotency cases per operation |
+| `FN-PUBLICATION-09-10-13.md` §12 | Sole `ManualReady` behavior owner | Current-effective event, stale refusal and audit-visible replay |
+| Storyboard Panel A10 | `ManualReady` normal/refusal/replay visual and data flow | Confirms the implementation sequence matches the behavior owner |
+| B-117 normal/revision visual, still owed | Complete SM05 journey and return path | Satisfies DOR-R5 without overloading Panel A10 |
+| Encyclopedia ledger and hosted comparison | Vocabulary consumed by UI and documentation | Satisfies DOR-R6/Entry 04 only after hosted review or accepted deferral |
+| `D-251` identity-migration ledger | Rename boundary and compatibility scope | Proves living identities changed while history and accountability did not |
+
+### Lane A follow-up, in dependency order
+
+1. Preserve `D-247`–`D-251`; do not create another decision packet for settled content.
+2. Record this Lane B review as the independent response to Lane A's statement-C return.
+3. Complete B-117's one normal/revision storyboard view and matching data flow; Panel A10 remains the
+   separate `ManualReady` visual owner.
+4. Review hosted Encyclopedia Entries 01/05/06 and 04, or obtain one explicit Judge deferral naming the
+   affected packet and return condition.
+5. Return SM05's DOR-R2–R4 contracts to Lane B for technical feasibility and evidence-usability review.
+6. Ask Lane B to propose the schema-neutral SM06 physical contract: snapshot/scope identity, idempotency
+   key, current-effective query, stale refusal and retained history.
+7. Perform the read-only stored-value check for the former access entitlement before any compatibility
+   design; never rewrite an existing migration.
+8. Package the SM05/SM06 business outcomes for Judge accept/reject only after the Lane B review.
+9. Rebuild Graphify once after the last governed edit, not after handoff-only entries; rerun semantic
+   queries, portability separately, and the full consistency suite.
+10. Compute B-117, B-118 and B-119 lifecycle independently from their child ledgers.
+11. Ask for statement B only when one immutable packet is DoR-complete.
+
+### Guaranteed failures and observable success
+
+| Guaranteed failure | Observable success criterion |
+|---|---|
+| Say all remaining `CR-19` moved to V2 | The destination table distinguishes explicit V2 targets from the unassigned full-gate/Chief-Journalist outcome |
+| Create `V1-SM07` from the requirement label alone | A prior Judge act defines the added V1 business outcome; feature-group analysis then determines packet count and identity |
+| Call Senior Journalist an independent Line 2 reviewer | Current diagrams and role catalogs call it a virtual requester and point historical panels to the superseding model |
+| Infer request authority from intake, T4, RACI or symmetry | Tests and documentation cite the explicit `D-250` grant |
+| Select SM05 with DOR-R5/R6 open | One immutable packet has evidence for every DoR row and independent feasibility review |
+| Build SM06 without revision identity | Design proves one effective readiness per article/target/snapshot, idempotent replay and stale refusal |
+| Assume repository search proves live data has no old role value | A read-only provisioned-data result records the finding and compatibility treatment |
+| Treat an Encyclopedia ledger flag as hosted review | Hosted comparison/republish evidence or an explicit Judge deferral exists |
+| Close B-119 from green checks | Every child has a terminal disposition; the header follows the weakest child |
+| Rebuild Graphify after this handoff-only append | `docs-drift` remains synced; rebuild occurs only after the next governed source change |
+
+### Review result and lifecycle
+
+`D-247`–`D-251` match the Judge-approved five-part packet and the current derived tiers. The remaining
+work is child evidence and technical refinement, not another parent decision. Documentation and Graphify
+were synchronized at `e60581e` before this handoff-only append. B-119 remains `Open` under the
+weakest-child rule.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | `D-247`–`D-251`, their propagation, and the corrected methodology separation | Preserve; use as the governing input |
+| **Approve-with-conditions** | SM05/SM06 packets | Complete visual, Encyclopedia, feasibility, revision/idempotency and persisted-value evidence |
+| **Defer** | Destination for complete five-gate execution and Chief Journalist approval | Later roadmap or explicit V1-amendment Judge act |
+| **Defer** | `V1-SM07` or any additional MMF | Define and accept the parent business outcome first |
+| **Defer** | Statement B, MMF selection, Lane B activation and construction | One packet must first be DoR-complete and independently reviewed |
+| **Reject** | Claiming the whole remainder of `CR-19` is V2; calling Senior Journalist an IIA/Line-2 reviewer; inferring authority; bulk closure | Preserve explicit destinations, methodology boundaries and per-child lifecycle |
