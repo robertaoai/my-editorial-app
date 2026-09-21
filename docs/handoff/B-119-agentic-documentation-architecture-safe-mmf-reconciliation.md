@@ -4742,3 +4742,67 @@ None of the three artifacts was staged or committed by Lane B; this section is t
 | **Approve-with-conditions** | Preflight `V5`, assessment `V7`, receipt `V5` | Lane A acceptance commit, blob hashes and evidence anchor |
 | **Defer** | Current-environment runs, classification, D-251 satisfaction and `V1-SM05` selection | Later Judge acts |
 | **Reject** | Treating seed/fixture controls as D-251 results, changing tested bytes, or Lane B committing artifacts | Preserve byte identity and ownership |
+
+## Lane A acceptance — preflight `V5`, assessment `V7` and receipt template `V5` accepted as artifacts; execution not authorized, 2026-09-22
+
+**Authority and boundary.** Step 5 of the sequence recorded at `8a64cb2`, after Lane B's `D251-V7-SUPPLEMENTAL-RETURN`
+(`209b382`). Read at commit `209b382`. This section is committed **together with the three files** in one acceptance
+commit, staged by explicit path. Its own commit identity and the committed-blob hashes are recorded in the evidence-anchor
+commit that follows (step 6), because they cannot exist until this commit does. Acceptance makes the three files the
+reviewed, byte-identified artifacts for the `D-251` assessment. It does **not** authorize running them in any current
+environment, classify any result, satisfy `D-251`, select `V1-SM05` or authorize construction.
+
+### Supplemental evidence — verified
+
+| Check | Result |
+|---|---|
+| The three working-copy hashes equal the banner-free hashes recorded at `5b2f17d`, Lane B's tested hashes and Lane B's post-run hashes | **Confirmed** |
+| The supplemental fixture hash reproduces from the recorded fixture text (`cfc91e82…`) | **Confirmed** |
+| Baseline values against an independent derivation from `0002`'s conversion of the nine seed transitions | **Confirmed.** `C01` principal look-alike 3 (two human rows and the `journaled` to `senior_reviewed` row); `C04` 7 (the seven agent rows); `C06` and `C08` legacy enum 2 each; totals 9, 9, 9, 9, 9, 9, 0, 13, 5, 0 as expected; every deprecated-exact count 0 |
+| Exact array element counted once; two exact values in one report counted once; 11 rows equals `9 + 2` | **Accepted** as reported; fixtures rolled back |
+| No current environment touched | **Accepted** as reported |
+
+The non-zero look-alike controls prove the aggregates count real data, so an always-zero query is excluded.
+
+### Accepted manifest
+
+| Artifact | `Lane-A-Accepted-Blob-SHA256` (pre-commit; equals the banner-free hash) |
+|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V5.sql.md` | `0cc9c4e59e9139de84d5029729b72ab80558003e124ce4b46f3f1a0061aa7d1a` |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V7.sql.md` | `6264ed7fc4f436202cc1d698ea8d49416a6f366db7425d4342b6ae0a40cda1ed` |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V5.md` (`Receipt-Template-Accepted-Blob-SHA256`) | `06bf8e8a7aca33c292cb80794fc2ddc9f39e3d67714cd99d5dc21e097f1bca60` |
+
+The hashes are computed on the committed blob in step 6 and must equal these. A difference invalidates this commit. The
+executable content is the file content, read with `git show <acceptance-commit>:<path>`, never a copy from conversation.
+Earlier versions (`V1`–`V4`, `V6`, `V3`, `V5` assessment) remain immutable history marked not executable.
+
+**Reserved names for completed receipts** (follow the template version; created later, one per environment and attempt,
+outside the three-file manifest): `D251-MANUAL-RUN-RECEIPT-V5-LOCAL-A01.md` and `D251-MANUAL-RUN-RECEIPT-V5-SUPABASE-A01.md`.
+
+### What acceptance leaves for the next acts
+
+Each is a separate, bounded Judge act, and none happens by this section.
+
+1. **Run in each current environment,** the local disposable database used by the migration tests and the provisioned
+   Supabase project, by the named operator (the Chief Editor), preflight first, one receipt each. `DEP-05` is unchanged.
+2. **First-run rendering risk.** The proof ran under `psql`. The Supabase SQL editor may show only the last statement's
+   result, and both scripts end with `ROLLBACK`, which returns no rows. The operator's first action is therefore a rendering
+   check: run the accepted preflight and confirm the full result set is visible and copyable. The scripts are read-only, so
+   the check is safe. If the output is not visible, stop and record `EXECUTION-FAILED` with the failure record; the fix is
+   a new artifact version, not an edit.
+3. **Classification** of results by the recorded precedence; a non-zero `C10` is `unresolved` under `LB-7`.
+4. **`V1-SM05`.** Its evidence box stays unchecked until an accepted, reviewed result exists.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. The Artifact Inventory row already lists the
+attachments directory and defers current versions to this ledger. B-119 stays `Open`; `D-251` is not satisfied. `docs-drift`
+reads synced at `a5bdcc7`; the attachments directory is coverage-excluded, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Preflight `V5`, assessment `V7`, receipt template `V5` as accepted artifacts | Step 6 — blob hashes and evidence anchor |
+| **Approve** | Lane B's syntax proof and supplemental controls as verified | Complete |
+| **Defer** | Runs in both current environments, rendering check, classification, `D-251` satisfaction, `V1-SM05` selection | Separate Judge acts |
+| **Reject** | Treating acceptance as execution authority; any edit to an accepted byte; using the proof or seed values as `D-251` results | New version and full sequence |
