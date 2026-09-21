@@ -54,7 +54,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 5.14e76",
-      "description": "Renames the natural-person access entitlement ROLE-CHIEF-EDITOR to ACCESS-ROLE-CHIEF-EDITOR and reserves ROLE-* for virtual-agent identities. Identifier correction only; no accountability or authority moves and historical text is preserved. Carries the identity-migration ledger; no code, schema or stored value is renamed. A completion addendum records the read-only aggregate stored-value assessment as a compatibility child owned in B-119, with V1-SM05 as its first dependent packet, and reviews access scope: DEP-05 stays intact and no agent holds a write-capable credential. Adds the EXT-* prefix and the requester/reviewer separation wording."
+      "description": "Renames the natural-person access entitlement ROLE-CHIEF-EDITOR to ACCESS-ROLE-CHIEF-EDITOR and reserves ROLE-* for virtual-agent identities. Identifier correction only; no accountability or authority moves and historical text is preserved. Carries the identity-migration ledger; no code, schema or stored value is renamed. A completion addendum records the read-only aggregate stored-value assessment as a compatibility child owned in B-119, with V1-SM05 as its first dependent packet, and reviews access scope: DEP-05 stays intact and no agent holds a write-capable credential; the Judge selected the human-run path (a human runs the pinned read-only aggregate query and supplies counts), not the time-boxed read-only role. Adds the EXT-* prefix and the requester/reviewer separation wording."
     }
   ],
   "edges": [
