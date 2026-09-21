@@ -3364,3 +3364,64 @@ no Graphify rebuild is owed.
 | **Approve-with-conditions** | Contract freeze | Judge accepts or rejects |
 | **Defer** | Syntax and resolution proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
 | **Reject** | Removing `pg_temp` from the pinned path; claiming path pinning secures casts; claiming user-defined casts are impossible | Use the amended rules above |
+
+## Lane A answer — Lane B's review of `f113a61`: `pg_temp` rationale corrected, object-class model recorded, contract provisionally frozen, 2026-09-21
+
+**Authority and boundary.** Lane B's review of `f113a61` (given in the Lane A conversation, unrecorded until now)
+verified the retained `pg_temp` against PostgreSQL semantics and raised four further points. Lane A checked them against
+the PostgreSQL documentation for `search_path`. Read at commit `f113a61`. Handoff-only: this corrects one rationale and
+amends rule 3; the pinned statement and everything else are unchanged. No SQL is written, no query run, no attachment
+touched, and the Register is unaffected. Lane B's drafting (step 2) is still authorized and has not started.
+
+### Correction to Lane A's own record
+
+The `f113a61` section said temporary functions and operators in `pg_temp` can mask built-ins. **That was wrong.** The
+PostgreSQL documentation for `search_path` says that if `pg_temp` is not listed it is searched first, even before
+`pg_catalog`, but that the temporary schema is searched **only for relation and data-type names and never for function or
+operator names**. The behavior Lane A kept is right and the reason was overstated. The corrected rationale, which
+replaces the earlier one:
+
+> `pg_temp` stays explicitly last in `SET LOCAL search_path = pg_catalog, pg_temp;` because PostgreSQL otherwise searches
+> the temporary schema first for relation and data-type names. It is not searched for function or operator names.
+> Functions and relations are separately schema-qualified; operator and cast usage is inventoried.
+
+### Lane A's check
+
+| # | Lane B point | Disposition |
+|--:|---|---|
+| 1 | Cast type names in the SQL must match the inventory | **Adopt, adjusted** (below) |
+| 2 | Operator entries need exact identity | **Adopt** |
+| 3 | The threat model should distinguish object classes | **Adopt** |
+| 4 | The freeze is undecided | **Adopt as provisional** |
+
+### Amendments, parent first
+
+| Order | Amends | Corrected rule |
+|---:|---|---|
+| 1 | Threat model (rule 3) | One model by object class, replacing undifferentiated prose: **function** — schema-qualified and listed; **relation** — schema-qualified and listed; **operator** — `pg_catalog` first plus a typed usage inventory; **data type** — `pg_catalog` before `pg_temp`, and named in the cast inventory; **cast** — source and target inventory plus Lane A review; **temporary relation or type** — never referenced, `pg_temp` explicitly last |
+| 2 | Operator inventory | Each entry records the symbol, left operand type, right operand type and result type, for example `= (pg_catalog.text, pg_catalog.text) -> pg_catalog.bool`. A unary operator records the missing side explicitly |
+| 3 | Cast inventory | The source and target types a cast **resolves to** must equal its inventory entry. Because the pinned path resolves built-in names to `pg_catalog`, an unqualified `::text` or `::bigint` in the SQL is acceptable. If a type is written schema-qualified, it must use PostgreSQL's **internal** name (`pg_catalog.int8`, `pg_catalog.bool`, `pg_catalog.text`, `pg_catalog.name`), because the SQL keyword aliases such as `bigint` are not valid after a schema qualifier. Inventory entries use the internal names |
+| 4 | Freeze | The contract is **provisionally frozen** for the pre-draft stage: Lane B drafts now; a pre-draft change is accepted only for a rule that is impossible or unsafe as written; ordinary refinements wait for Lane A's review of the real files. The Judge may confirm or lift this; no Judge act is needed to begin drafting |
+
+### Success criteria, derived from failure
+
+| Failure | Passing evidence |
+|---|---|
+| The record cites a behavior PostgreSQL does not have | The rationale states the object-specific semantics above |
+| Two reviewers read an operator entry differently | Each entry carries operand and result types |
+| A qualified type name is a syntax error at run time | Qualified names use internal type names |
+| Review rounds continue with no file to review | The pre-draft freeze is in force; drafting is next |
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 stays `Open`, `D-251` is not satisfied
+and no `V4` file exists. `docs-drift` reads synced at `a5bdcc7`; later commits are handoff-only and coverage-excluded, so
+no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Points 1–4 and Lane B drafting (step 2) | Phase 1 — Lane B drafts uncommitted |
+| **Approve-with-conditions** | Provisional freeze | Judge confirms or lifts |
+| **Defer** | Syntax and resolution proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
+| **Reject** | Claiming `pg_temp` is searched for functions or operators; operator entries without operand types; schema-qualified SQL keyword aliases | Use the corrected rules above |
