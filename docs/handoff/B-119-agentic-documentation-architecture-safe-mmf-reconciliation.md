@@ -4397,3 +4397,64 @@ None of the three attachments was staged, committed or executed; this section is
 | **Approve-with-conditions** | Preflight `V5`, assessment `V7`, receipt `V5` | Lane A delta review, then banner removal and recorded hashes |
 | **Defer** | Full banner-free review, syntax proof, acceptance, environment runs, classification, D-251 satisfaction and `V1-SM05` selection | Steps 3–7 and later Judge acts |
 | **Reject** | Any change outside the authorized delta, running syntax proof before Lane A's hash handoff, or Lane B committing attachments | Preserve the sequence |
+
+## Lane A answer — delta review of `D251-V7-DRAFT-RETURN` passed; banner removed; banner-free hashes recorded (steps 2–3), 2026-09-22
+
+**Authority and boundary.** Steps 2 and 3 of the sequence recorded at `8a64cb2`, for the replacement preflight `V5`, assessment
+`V7` and receipt `V5` returned at `579efb1`. Read at commit `579efb1`. This section is committed alone: the three files are
+**not** staged or committed, and nothing is accepted. No SQL is written, no container or query is run, the Register is
+unaffected, and `D-251` is not satisfied.
+
+### Step 2 — delta review: passed
+
+Lane A diffed each replacement against the rejected `V4`/`V6`/`V4` committed at `891bc07`.
+
+| File | Differences from the rejected version | Authorized? |
+|---|---|---|
+| Preflight `V5` | The advisory-operator line corrected (`= ("char","char")` added, `<> (text,text)` added, `> (int2,int4)`, the unused `<> ("char","char")` removed); one added `Advisory-Coercion-Note` line | Yes — defect 2 |
+| Assessment `V7` | The leading blank line removed, so the banner is byte 0; the advisory-operator line corrected (built-in `anyenum` equality); one added `Advisory-Coercion-Note` line | Yes — defects 1 and 2 |
+| Receipt `V5` | The leading blank line removed, so the banner is byte 0; the three `V4`/`V6` names updated to `V5`/`V7` | Yes — defect 1 and version names |
+
+No other line differs. The catalog blocks remain byte-identical at `d7f526adbb5d…`, both markers are exact, all three files
+are LF-only, and the three returned `Lane-B-Draft-SHA256` values equal Lane A's recomputed values.
+
+**Waiver.** The amended attestation wording asked for a boundary sentence about `SET LOCAL search_path` in each SQL header.
+The drafts since `V3` carry it only in the receipt's attestations. Lane A **waives** the header comment: it is comment-only,
+the receipt states it, and requiring it would cost another version for no safety gain.
+
+### Step 3 — banner removed, banner-free hashes recorded
+
+Lane A deleted exactly the first physical line and its LF from each file, after confirming that line was the exact banner
+text, and changed no other byte. Proof: each resulting hash equals the hash of the draft minus its first line, computed
+before the edit. Zero CR bytes and no remaining banner text in all three. Banner-bearing copies are preserved outside the
+repository.
+
+| Artifact | `Lane-B-Draft-SHA256` (banner-bearing) | **Banner-free SHA256** (the bytes for step 4 and acceptance) |
+|---|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V5.sql.md` | `cba38707ce9501b06546b40565be61f723870d3b787682eb4ac4898ebf41ee23` | `0cc9c4e59e9139de84d5029729b72ab80558003e124ce4b46f3f1a0061aa7d1a` |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V7.sql.md` | `8bc03517516de074dc2a49990e527e879e565c2d0ee7ef9e348f3d33ddfd9791` | `6264ed7fc4f436202cc1d698ea8d49416a6f366db7425d4342b6ae0a40cda1ed` |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V5.md` | `8525bbb38d309785e52a122f7db6970ef99bf48cec8586da88d7e58439754ebf` | `06bf8e8a7aca33c292cb80794fc2ddc9f39e3d67714cd99d5dc21e097f1bca60` |
+
+The SQL files now begin with the `-- Allowed-Functions:` line; the receipt now begins with a blank line, as the removal rule
+produces.
+
+### Step 4 — Lane B's next act
+
+The working-tree files carry the banner-free bytes above. Lane B performs the combined step under the bounds recorded at
+`8a64cb2` and returns `D251-V7-FINAL-REVIEW-RETURN`: recompute the three hashes and confirm they equal the table; do the
+full banner-free review; run the syntax proof with `Syntax-Proof-Tested-SHA256` equal to the banner-free hashes for the two
+SQL files. Any change to a byte after this section restarts at step 1 under new version numbers. Lane B commits B-119
+alone and does not stage the attachments.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 stays `Open`. `docs-drift` reads synced at
+`a5bdcc7`; later commits are handoff-only and coverage-excluded, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Delta review of `V5`/`V7`/`V5`; banner removal and recorded banner-free hashes | Step 4 — Lane B final review and syntax proof |
+| **Approve** | Waiver of the SQL-header boundary sentence | Recorded |
+| **Defer** | Syntax proof, acceptance commit, evidence anchor, environment runs, classification, `D-251` satisfaction, `V1-SM05` selection | Steps 4–7 |
+| **Reject** | Any byte change after this section, running the proof on bytes other than those hashed above, staging or committing the attachments before step 5 | Restart at step 1 under new versions |
