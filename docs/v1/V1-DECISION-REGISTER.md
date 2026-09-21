@@ -18692,3 +18692,35 @@ stay separate vocabularies and are never cross-referenced.
 
 Does not run or authorize running the query, lift `DEP-05`, create an MMF, mutate or migrate a database, select
 `V1-SM05` or `V1-SM06`, activate Lane B or issue a work order. It supplies no assessment result.
+
+### Judge decisions on Lane B's manual-run submission (`D-251`, 2026-09-21)
+
+Lane B submitted a read-only preflight, a read-only aggregate assessment and a manual-run receipt
+(`docs/handoff/artifacts/B-119/`). Lane A's review found the candidate list hand-picked, `jsonb` excluded against the
+contract and no way to tell a clean zero from an empty table. The Judge decided:
+
+| Decision | Recorded |
+|---|---|
+| Current local environment | The **local disposable database used by the migration tests** (the row above governs). Lane B's "existing local database" wording is not adopted, and there is no separate reproducibility-only class. The provisioned Supabase project is the other current environment |
+| Operator | The **Chief Editor**, who is also the Judge (`D-158`). Independence rests on the digest match, unchanged pasted output and Lane A's review, not on a second person |
+| `jsonb` | `editorial_reports.snapshot` is **in scope**: exact scalar or collection-member equality, never substring or key-name matching, reported per `schema_version`; the assessment artifact's version number increments |
+| Completeness and false zero | Lane B's corrected version adds a metadata-only reconciliation of every text, enum, array and `json`/`jsonb` column in `public` against the candidate and exclusion lists (expected: zero unreconciled), and a `total_rows` figure on every candidate. Until it is accepted the submitted `V3` assessment is **not accepted for execution** |
+| Attachments | `docs/handoff/artifacts/<entry>/` holds **evidence attachments, not entries**; one directory per entry, listed in `V1-ARTIFACT-INVENTORY` |
+
+The corrections are specified to Lane B in `docs/handoff/B-119`, section "Lane A consolidation — Judge decisions on Lane B's
+D-251 submission". A dry run in the local disposable database, the four closure branches in the acceptance steps and
+Judge confirmation of the independence limitation remain open. No query is run, `DEP-05` is unchanged, and `D-251` is
+**not** satisfied.
+
+**Tier applicability (`D-54`) for this addendum.**
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this addendum |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ one directory row for the evidence attachments |
+| **`V1-BUILD-SPEC.md`** | — unaffected: no scope, sequence or DoD moves |
+| **`docs/Modular_PRD.md`, Fn Specs, traceability, storyboard, UML and data flow** | — unaffected: an evidence procedure, not behaviour |
+| **`docs/v1/work-packets/V1/V1-SM05.md`, `V1-SM06.md`** | — unaffected: the evidence box stays unchecked |
+| **`docs/ENCYCLOPEDIA-SYNC.md`** | — unaffected |
+| **Rule files, Phase Closure, frozen sources** | — unaffected |
+| **Graphify** | ✅ the curated `D-251` node text is extended; rebuilt once after this pass |
