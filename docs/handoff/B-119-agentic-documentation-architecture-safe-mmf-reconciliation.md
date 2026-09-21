@@ -2811,3 +2811,84 @@ Decisions recorded; corrections specified; `V3` not accepted for execution. `D-2
 | **Approve-with-conditions** | Lane B artifacts as history | Not accepted for execution; acceptance only after `V4`, the dry run and the digest recompute |
 | **Defer** | Human run, result classification, `D-251` satisfaction, `V1-SM05` selection | `V4` accepted, both receipts returned and classified |
 | **Reject** | Running `V3`, treating zero without `total_rows` as clean, a second local database class, `E04`'s exclusion of `snapshot` | Superseded by the corrections above |
+
+## Lane A answer — Lane B's independent review of `004d717`; eleven refinements dispositioned, 2026-09-21
+
+**Authority and boundary.** Lane B reviewed the state at `004d717` and returned eleven gaps; the review was given in
+the Lane A conversation and had no repository record, so it is recorded here. Read at commit
+`004d717` (`docs: D-251 addendum - record Judge decisions on Lane B's manual-run submission`). Handoff-only: this
+answer changes no canonical source, runs no query, lifts no `DEP-05`, edits neither SQL file and authorizes no
+construction. It **refines the `V4` specification already recorded above**; it adds no new Judge decision.
+
+**Numbering.** Lane B's gaps collide with Lane A's earlier 1–9, so they are cited here as `LB-1`…`LB-11`. The earlier
+Lane A gap numbers keep their meaning.
+
+### Lane A's check of Lane B's factual claims
+
+| Claim | Check |
+|---|---|
+| Lane B may commit only one exact `B-NNN` entry | Confirmed against `D-184`: the `Eligible` exception names `docs/handoff/B-NNN-*.md` only and authorizes no other path or mixed staging |
+| Snapshot content can be prose | Confirmed: `editorial_reports.snapshot` is the accepted formatted-content snapshot (`FN-PUBLICATION-09-10-13.md`), so a match cannot be classified from counts alone |
+| A root scalar cannot occur | Confirmed: the table carries `check (jsonb_typeof(snapshot) = 'object')`, so the root is always an object |
+| Views may appear in reconciliation | Precautionary: the migrations create no view today, but the provisioned project may hold objects the migrations do not, so the rule is still needed |
+
+### Disposition — parent first
+
+| Order | Ref | Lane A disposition | Relation to earlier work |
+|---:|---|---|---|
+| 1 | `LB-1` return path | **Adopted; Judge confirmation requested** (below). `V4` is drafted by Lane B **without committing**; Active Lane A reviews and commits the exact attachment set with its B-119 acceptance, then recomputes every digest from that commit | Extends gap 1 |
+| 2 | `LB-2` catalog parity | **Adopted.** Stable IDs in both files; acceptance compares the ID, relation, column and type catalogs of the preflight and assessment | New |
+| 3 | `LB-3` relation scope | **Adopted.** Reconciliation reports relation kind; application-owned base tables and views are in scope; each governed storage source is scanned once and a derived view that duplicates a base table is excluded with its reason | Refines gap 3 |
+| 4 | `LB-4` native type identity | **Adopted.** Compare `data_type`, `udt_schema`, `udt_name` and the array element type | Refines gap 3's enum-name check |
+| 5 | `LB-5` `C10` shape | **Adopted.** Receipt supports `C01`–`C10`; `C10` is one row per `schema_version`; order by `candidate_id`, then `schema_version` | Follows from gap 4 |
+| 6 | `LB-6` JSON semantics | **Adopted.** Target = any recursively nested JSON **string value** (object values and array elements); key names and substrings are excluded; each report row counts once (existence semantics). The root is always an object, so no root-scalar rule is needed | Refines gap 4 |
+| 7 | `LB-7` non-zero `C10` | **Adopted; Judge confirmation requested** (below). Any non-zero `C10` is `unresolved` unless a separately approved, non-content-bearing aggregate can separate a governed identity path from prose | New consequence of gap 4 |
+| 8 | `LB-8` visibility | **Adopted, with one addition.** The preflight records `current_user`, relation-level `SELECT` privilege, relation existence and whether the role bypasses row-level security; any missing item is `INACCESSIBLE/FAILED`, never zero. Lane A adds the bypass check because a privilege test alone does not show row filtering | Extends gap 5 |
+| 9 | `LB-9` two classifications | **Adopted.** SQL keeps `field_classification`; the receipt gains a separate result table: candidate, count, result classification (one of the four closure branches), treatment, owner, return condition | Refines gap 8 |
+| 10 | `LB-10` mixed outcomes | **Adopted.** Overall precedence: unresolved or inaccessible, then living operational, then historical only, then no matches. The stronger branch governs closure and keeps the weaker evidence | New |
+| 11 | `LB-11` dry-run evidence | **Adopted.** Record database version, applied migrations, execution role, each result-set name and row count, the negative-fixture results and the file hashes. A syntax-only run is not success | Refines gap 6 |
+
+### `V4` acceptance criteria — one consolidated list
+
+`V4` is ready for Lane A review only when all of these hold; nothing else is required beyond the earlier rows above.
+
+1. The committed-byte digests, recomputed from Lane A's commit, equal those in the receipt.
+2. The preflight and assessment catalogs match by stable ID, relation, column and type.
+3. Reconciliation returns zero unclassified columns and covers base tables and views once each.
+4. Type checks include native enum and array identity.
+5. `C10` orders deterministically per `schema_version`; the receipt supports `C01`–`C10`.
+6. JSON fixtures prove exact nested-value match, substring rejection and key-name rejection.
+7. Every candidate reports `total_rows`.
+8. Missing visibility, privilege or row-level-security bypass is `INACCESSIBLE/FAILED`.
+9. The receipt carries the field classification and the separate result classification, and states mixed-result
+   precedence.
+10. The local disposable database dry run returns every expected result set, in the recorded format.
+11. One completed receipt is returned per current environment.
+
+### Judge confirmation requested (two items)
+
+| Item | Consequence to confirm |
+|---|---|
+| `LB-1` | Lane B cannot commit `V4`. Attachments enter the repository only through Active Lane A. That keeps `D-184` unchanged and means `V4` waits for a Lane A turn |
+| `LB-7` | A non-zero `C10` blocks `V1-SM05` until a separately approved aggregate can classify it. A zero result is unaffected |
+
+### Gap ledger and lifecycle
+
+Earlier gaps 1, 6, 8 and 9 stay open and are now carried by `LB-1`, `LB-11`, `LB-9`/`LB-10` and the independence
+limitation. Gaps 2–5 and 7 are decided and specified. B-119 remains the single tracking record; no new entry is opened.
+B-119 stays `Open`, `D-251` is not satisfied, `V3` is history and must not run, and the `V1-SM05` evidence box stays
+unchecked.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, work
+packets, Fn Specs and traceability are unaffected: this refines an evidence procedure. The Register is unaffected
+because the two Judge confirmations are pending and `D-184` is unchanged. This append is handoff-only, so Graphify
+needs no rebuild; `docs-drift` is checked after the commit.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane B's `LB-2`–`LB-6` and `LB-8`–`LB-11` as `V4` refinements | Phase 1 — Lane B drafts `V4` uncommitted |
+| **Approve-with-conditions** | `LB-1` return path and `LB-7` non-zero `C10` rule | Judge confirms both |
+| **Defer** | Dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Lane A accepts committed `V4`; both receipts classified |
+| **Reject** | Running `V3`, treating zero as visibility, Lane B committing attachments under `D-184`, an unclassifiable non-zero `C10` closed as historical | Use the consolidated criteria above |
