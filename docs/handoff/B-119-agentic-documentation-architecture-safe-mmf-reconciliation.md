@@ -2122,3 +2122,96 @@ Track local semantic currency and artifact portability as separate acceptance ch
 | **Defer** | Statement B, MMF selection, work order, branch/PR, construction, hosted Encyclopedia publication and B-117/B-118/B-119 closure | Complete the documentation, evidence and independent-review prerequisites above |
 | **Defer** | Graph semantic refresh and portability repair | Run after the final canonical correction; use separate semantic and portable acceptance checks |
 | **Reject** | Current setup-root “closed” label; full-PRD/end-to-end claims under the narrow D-239/D-243 boundary; current publication schema as sufficient revision proof; coverage PASS as semantic currency | Use the parent-first repair plan and observable criteria above |
+
+## Lane B return to Lane A — Judge accepts the five-part correction packet, 2026-09-21
+
+### Authority and boundary
+
+The Judge accepts the parent-first correction packet below and directs Lane A to apply it to the
+canonical governance and documentation sources. This section completes Lane B's return to Lane A; it
+does **not** itself amend a canonical source, select an MMF, make Lane B `Active`, issue a work order,
+authorize construction, open V2, close `SETUP-SPIKE-000`, or close B-117, B-118, or B-119.
+
+Lane C independently endorsed the role-taxonomy correction and the bounded execution sequence. Its
+review is corroborating evidence, not the source of Judge authority. Lane B remains the raiser and Lane A
+is the answering/applying side.
+
+### Accepted decisions, parent first
+
+| Order | Accepted Judge decision | Required canonical effect |
+|---:|---|---|
+| 1 | Current V1 consists of `V1-SM05` and `V1-SM06` and ends at the bounded LinkedIn target-level `ManualReady` outcome. | Automated WordPress, retry/scheduler behaviour, and `FR-10`/`T11` live-URL confirmation remain V2 targets under `D-243`. No destination is inferred for any other unsatisfied `CR-19` component. |
+| 2 | Preserve `D-244` as historical transfer provenance and supersede only its closure implication. | `SETUP-SPIKE-000` remains open while `S2`–`S4` or their residual scopes are non-terminal. Transfer grants no DoD, terminal disposition, retirement, or closure credit. Derived tiers say `transfer mapped; closure pending`. |
+| 3 | `V1-SM05` is a limited Route-1 evidence slice; `V1-SM06` adds board/audit visibility and bounded LinkedIn `ManualReady`. | SM05 records/displays accepted business-stage, role, task, and evidence facts without claiming `transition:T*` execution. SM06 creates neither `Published`, automated WordPress delivery, nor live-URL confirmation. Both disclose partial, not complete, `CR-19` satisfaction. |
+| 4 | Adopt the five-dimensional `ManualReady` contract. | Eligibility requires an accepted final `business:T5` ranking/routing record; `ROLE-SENIOR-JOURNALIST` is the sole authorized virtual-agent requester by explicit Judge grant; readiness binds to the exact accepted formatted-content snapshot; invalid requests cause no readiness/article/publication mutation, though append-only refusal evidence may be recorded; identical replay creates no second effective outcome. Intake deduplication remains a separate rule. |
+| 5 | Reserve `ROLE-*` for virtual-agent identities and correct the natural-person access entitlement to `ACCESS-ROLE-CHIEF-EDITOR`. | This is an identifier correction, not a transfer of editorial accountability, gate judgment, or publication-readiness authority. Preserve historical decision text, including `D-238`, and record a prospective correcting act. `EDITORIAL-ROLE-EDITOR-IN-CHIEF`, `USR-*`, and `AGENT-*` retain their distinct meanings. |
+
+`ROLE-SENIOR-JOURNALIST` receives readiness-request authority only from the explicit Judge grant above.
+Its intake position, T4 participation, or pipeline symmetry is rationale, not authority. The grant does
+not authorize T5 impersonation, human Final Sign-Off, Route-1 accountability, WordPress publication,
+`Published`, or a live-URL assertion.
+
+### Required Lane A execution sequence
+
+Lane A applies the decisions in this order:
+
+1. Register the parent V1 boundary.
+2. Register the `D-244` lifecycle correction without rewriting historical text.
+3. Register the bounded SM05/SM06 outcomes and partial-`CR-19` disclosures.
+4. Register the five-dimensional `ManualReady` contract.
+5. Register the `ACCESS-ROLE-CHIEF-EDITOR` namespace correction.
+6. Before renaming derived references, inventory every canonical, derived, Graphify, code, test, seed,
+   and persisted-data occurrence of `ROLE-CHIEF-EDITOR`; classify each as access entitlement, human
+   editorial identity, virtual agent, or historical text.
+7. Apply `D-54` in one pass through `V1-DECISION-REGISTER.md`, `V1-BUILD-SPEC.md`, and
+   `V1-ARTIFACT-INVENTORY.md`; update `Modular_PRD.md` §8 only where a sprint closes or a tier opens,
+   and state unaffected tiers explicitly.
+8. Update `V1-SM05.md` and `V1-SM06.md` with exact dependencies, exclusions, DoR, DoD, failure cases,
+   evidence requirements, and identity references.
+9. Complete the applicable `DOR-R2`–`DOR-R4` failure/replay contracts before changing visuals.
+10. Make the storyboard the single visual owner for the normal, refusal, and replay sequence/UML/data
+    flow; Fn Specs and packets cross-reference those views rather than duplicating them.
+11. Normalize Fn Specs, traceability, data-flow/UML references, and Encyclopedia Entries 01, 04, 05,
+    and 06, or record an explicit accepted deferral for each unfinished hosted comparison.
+12. After the last canonical edit, execute the governed Graphify workflow: dated backup, extracted-layer
+    rebuild, conditional docs-layer restore, all-fragment audit, per-fragment merge and verification,
+    semantic-description refresh, targeted semantic queries, separate portability check, and
+    `bun run check`.
+13. Return the revised contracts through `docs/handoff/` for Lane B feasibility/evidence review and the
+    applicable Lane C workflow review. Neither review selects a packet.
+14. Compute B-117, B-118, and B-119 lifecycle headers from their own child ledgers. Only after SM05 is
+    DoR-complete may a later Judge act select it, make Lane B `Active`, and issue one bounded work order.
+
+### Construction and verification evidence required before a work order
+
+The canonical pass must add the Artifact Inventory disposition and an identity-migration ledger. The
+later Lane B verification matrix must prove all of the following:
+
+1. `ROLE-SENIOR-JOURNALIST` succeeds only with completed `business:T5` evidence, LinkedIn target, and
+   valid formatted content.
+2. `ROLE-CHIEF-EDITORIAL-DESK`, `ROLE-DESK-EDITOR`, `ROLE-REPORTER`,
+   `ACCESS-ROLE-CHIEF-EDITOR`, and an unauthenticated client are refused.
+3. Refusal appends only permitted audit evidence and mutates no readiness, article, or publication state.
+4. Identical replay creates no second effective readiness outcome.
+5. A different-day intake is a distinct brief, not readiness replay.
+6. Changed content cannot inherit an earlier snapshot's readiness.
+7. `ManualReady` never implies `Published`, WordPress delivery, a live URL, or complete `CR-19`.
+8. The access-role rename does not transfer source-RACI accountability or virtual-agent authority.
+
+The physical revision/scope identity, idempotency key, effective-current query, compatibility treatment,
+and any schema migration remain Lane B design questions for a later bounded work order. No existing
+migration may be rewritten.
+
+### Handoff disposition
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Judge Decisions 1–5 and Lane B's return packet | Phase 1 — Lane A canonical registration and propagation |
+| **Approve-with-conditions** | `ACCESS-ROLE-CHIEF-EDITOR` correction | Phase 1 — classify every occurrence before changing derived references; preserve historical acts |
+| **Approve-with-conditions** | Fourteen-step Lane A sequence | Phase 1 — execute parent-first, with one-pass `D-54` propagation and post-source Graphify verification |
+| **Defer** | Physical data contract, compatibility changes, schema/code/tests, MMF selection, work order, branch/PR, and construction | Phase 2 — only after revised packet review, complete DoR, lane activation, and a bounded work order |
+| **Defer** | B-117/B-118/B-119 terminal closure and hosted Encyclopedia completion | Phase 1 — each child requires its own disposition and evidence |
+| **Reject** | Natural-person entitlement `ROLE-CHIEF-EDITOR`, inferred requester authority, setup-root closure, full-PRD claims, or build authority from this handoff | Apply the accepted corrections; retain the two-checkpoint authorization boundary |
+
+B-119 remains `Open` under the weakest-child rule until Lane A applies the accepted decisions and every
+remaining child obtains its own required disposition and evidence.
