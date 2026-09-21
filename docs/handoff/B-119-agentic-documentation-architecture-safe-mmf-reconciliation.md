@@ -3064,3 +3064,74 @@ record and stays `Open`; `D-251` is not satisfied; no `V4` file exists yet.
 | **Approve** | Draft banner as acceptance item 12 | Phase 1 — Lane B includes it |
 | **Defer** | Dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
 | **Reject** | Running `V3`, executing any draft, Lane B committing attachments, classifying a non-zero `C10` from counts | Preserve the recorded boundary |
+
+## Lane A answer — amended `V4` drafting and acceptance contract; Judge approves Lane B's full banner-free re-review, 2026-09-21
+
+**Authority.** The Judge's answer, in the Lane A conversation on 2026-09-21, to Lane A's question on the banner workflow:
+Lane B performs a **full independent review of the complete banner-free files before Lane A commits them**, in place of a
+mechanical one-line diff alone (`D-183`: object = the acceptance sequence; scope = the `V4` package; exclusions = below).
+Read at commit `a5bdcc7`. This section **replaces acceptance item 12 only**; items 1–11 of the consolidated list stand.
+It folds in three rounds of Lane A and Lane B corrections that had not been recorded. It changes no canonical source,
+writes no SQL, runs no query, edits no attachment, lifts no `DEP-05` and authorizes no dry run, human run, closure,
+`V1-SM05` selection or construction. The Register is unaffected: no decision changes.
+
+### The contract, parent first
+
+| Order | Rule | Detail |
+|---:|---|---|
+| 1 | **Manifest** | Exactly `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V2.sql.md`, `.../QRY-D251-STORED-VALUE-ASSESSMENT-V4.sql.md` and `.../D251-MANUAL-RUN-RECEIPT-V2.md`. No historical file is renamed or overwritten. Acceptance records these three literal paths |
+| 2 | **Banner** | One leading line: `-- Draft for Lane A review. Not approved for execution. No database access authorized.` in each SQL file; the same sentence as a bold blockquote in the receipt. Removal deletes the first physical line and its LF and preserves every other byte; zero CR bytes before and after |
+| 3 | **Static safety (Lane B, before return)** | Top-level statements limited to the comment, `BEGIN TRANSACTION READ ONLY`, `SELECT`/`WITH` (with `UNION ALL`, `VALUES`, ordering) and `ROLLBACK`. Functions limited to a named list (identity and privilege inspection, aggregates, JSON path existence and type, string and null handling, catalog reads). Banned: any DDL or DML, `SET`, `COPY`, `DO`, `FOR UPDATE`/`FOR SHARE`, and side-effecting functions such as `set_config`, `pg_sleep`, `nextval`, `setval`, advisory locks and large-object calls. This is a **safety check, not syntax proof**; syntax is first proven at the dry run |
+| 4 | **Catalog parity** | The preflight owns the full catalog with complete type identity (`data_type`, `udt_schema`, `udt_name`, array element type). Two ordered sets are compared **separately**: `C` (ID, schema, relation, relation kind, column, type identity) and `E` (the same plus the exclusion reason). Both diffs must be empty. The assessment repeats the ID, schema, relation and column literally per candidate |
+| 5 | **Visibility, per relation** | Full visibility passes only if the session is superuser, has `rolbypassrls`, is the relation owner with `FORCE ROW LEVEL SECURITY` off, or the relation has row security disabled; and holds `SELECT`. Owner-role **membership** is reported but is not a bypass. Any application-owned view fails closed as `VISIBILITY-UNPROVEN`, unless it is a stated duplicate of an assessed base table with its exclusion reason |
+| 6 | **Failure states** | `ARTIFACT-INVALID`, `ENVIRONMENT-INACCESSIBLE`, `VISIBILITY-UNPROVEN`, `EXECUTION-FAILED`, each recorded with its SQLSTATE; all four map to the `unresolved` branch, never to zero. The earlier label "INACCESSIBLE/FAILED" maps onto these; historical text is unchanged |
+| 7 | **Four hash fields** | `Lane-B-Draft-SHA256` (banner-bearing draft), `Lane-B-Banner-Free-Review-SHA256` (the final files Lane B re-reviewed), `Lane-A-Accepted-Blob-SHA256` (committed Git blob, read with `git show <commit>:<path>`) and `Executed-SHA256`. The draft hash differs by design. Required: review = accepted blob = executed, for each of the three files |
+| 8 | **Two Lane B returns** | Durable sections in B-119, labelled `D251-V4-DRAFT-RETURN` and `D251-V4-FINAL-REVIEW-RETURN`. Neither is a new entry. Each Lane B commit changes **one path only**, B-119, staged by explicit path |
+| 9 | **B-119 has one writer at a time** | Lane A leaves no uncommitted B-119 edit at the start of a Lane B turn; Lane B checks that its diff of B-119 is only its own section before staging that path; Lane A commits every append immediately. Both agents share one working tree, so a whole-file commit would otherwise sweep the other's lines |
+| 10 | **Staging** | While unreviewed attachments are in the working tree, Lane A stages by explicit path only and reads `git status` before every commit. No `git add -A` |
+| 11 | **Correction loop** | A defect at any review stops acceptance. The next version gets a new number and a new file; a reviewed version is never patched in place. The rejected uncommitted files are removed from the working tree once their hashes and the defect are recorded, so they cannot be staged or run. Review restarts from the draft review |
+
+### Sequence — parent first, with the durable trace of each step
+
+| Step | Owner | Act | Durable record |
+|---:|---|---|---|
+| 1 | Lane A | Record this contract | This section |
+| 2 | Lane B | Draft the three files with banners; static review (rules 2–5); zero CR bytes | — |
+| 3 | Lane B | Return the drafts | `D251-V4-DRAFT-RETURN` in B-119: paths, checklist result, `Lane-B-Draft-SHA256`, and the sentence "none of the three attachments was staged, committed or executed; this section is the only staged and committed path" |
+| 4 | Lane A | Review the banner-bearing drafts against items 1–11 and the rules above; corrections return through B-119 | Lane A section in B-119 |
+| 5 | Lane A | Remove exactly the banner line and its LF; prove the transformation; compute the banner-free hashes | Same Lane A section: the banner-free hashes, committed by explicit path before Lane B's review |
+| 6 | Lane B | Full independent review of the complete banner-free files: manifest, both catalogs, ordering, visibility, read-only transaction, allowlist, no identifiers or content, `total_rows`, `C10` exact-value semantics, four closure branches, mixed-result precedence, receipt completeness, LF-only bytes. Lane B changes no file | — |
+| 7 | Lane B | Return the review | `D251-V4-FINAL-REVIEW-RETURN`: paths, the banner-free hash of each, checklist result, verdict ready or returned |
+| 8 | Lane A | Recompute each working-copy hash; each must equal Lane B's review hash and Lane A's own step-5 value; stage only the three literal paths and the B-119 acceptance; commit | Acceptance commit |
+| 9 | Lane A | Hash each committed blob; each must equal Lane B's review hash | `Lane-A-Accepted-Blob-SHA256` recorded in B-119 and the receipts. A mismatch invalidates the commit: corrected new commit, new review |
+| 10 | — | **Stop.** The dry run needs its own Judge act | — |
+
+Lane B's step-6 review is of its own authored files, so it is an exact-byte and transformation check by the author;
+independent judgement of the content is Lane A's step 4.
+
+### Success criteria, derived from failure
+
+| Failure | Passing evidence |
+|---|---|
+| Committed bytes differ from the bytes Lane B re-reviewed | Review hash = pre-stage hash = accepted-blob hash, for all three files |
+| Banner breaks SQL or leaves a blank first line | The banner is a `--` comment and removal is the first line plus LF; zero CR bytes |
+| A Lane B commit sweeps other content | Each Lane B return commit changes exactly one path, B-119 |
+| A draft is run or staged early | Banner present until the acceptance commit; explicit-path staging; rejected files removed |
+| A side-effecting function slips through | The function allowlist, not a keyword search |
+| Parity is judged by eye | Both the `C` and `E` diffs are empty |
+| A filtered or invisible table reads as clean | Per-relation visibility proven for the session, or `VISIBILITY-UNPROVEN` |
+| A failure reads as zero | State plus SQLSTATE on every failure |
+| A reviewed version is patched in place | New version number and restarted review |
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected: this is evidence-handling procedure. The Register is unaffected. B-119
+remains the single tracking record and stays `Open`; `D-251` is not satisfied; no `V4` file exists yet.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Rules 1–11 and the ten-step sequence | Phase 1 — Lane B drafts (step 2) |
+| **Approve** | Lane B's full banner-free re-review, with the fourth hash | Phase 1 — steps 6 to 9 |
+| **Defer** | Syntax proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
+| **Reject** | Mechanical-diff-only acceptance, committing bytes without Lane B's review hash, patching a reviewed version in place, `git add -A` while drafts exist, treating owner-role membership as an RLS bypass | Use the contract above |
