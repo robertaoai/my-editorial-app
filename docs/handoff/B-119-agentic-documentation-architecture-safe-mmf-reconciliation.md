@@ -16,7 +16,7 @@
   `D-75`, `D-84`, `D-87`, `D-100`, `D-159`, `D-227`, `D-232`, `D-240`; `B-061`, `B-071`,
   `B-114`, `B-115`; `package.json`; `scripts/check-consistency.mjs`; `scripts/checks/lane-boundary.mjs`;
   `.github/workflows/ci.yml`; `docs/v1/work-packets/V1/V1-SM05.md`
-- **Verified-At-Commit:** e8adc4d3167829ca833dc6ade920c43b93c1d762
+- **Verified-At-Commit:** 8701961cf030afd7f6d3b9ae7d2718cc708cdc5a
 
 ## Review boundary
 
@@ -2548,3 +2548,51 @@ Closure branches:
 | **Reject** | New MMF for the query, content-bearing output, historical rewrite, query duplication or existing-migration edit | Preserve the bounded evidence contract |
 
 B-119 remains `Open`; this decision authorizes the evidence path but does not supply the assessment result.
+
+## Lane A answer — Judge statement D recorded; scope and access reviewed; query not run, 2026-09-21
+
+**Authority.** Judge statement D, approved directly in the Lane A conversation on 2026-09-21, recorded as a
+completion addendum under `D-251` at commit `8701961cf030afd7f6d3b9ae7d2718cc708cdc5a` (`D-183`). It authorizes recording the read-only, aggregate
+stored-value assessment of `ROLE-CHIEF-EDITOR` under `D-251`, one `V1-SM05` DoR evidence reference, one `V1-SM06`
+cross-reference and a Lane A access-scope review. It excludes any mutation, migration, execution before scope and
+access are recorded, MMF selection, Lane B activation, work order and construction.
+
+### What landed
+
+| Item | Where |
+|---|---|
+| The assessment as a `D-251` compatibility child owned in B-119; it supersedes only the ledger's "when its work order exists" timing | Register `D-251` completion addendum |
+| One unchecked DoR evidence reference (first dependent packet) and one cross-reference; the query is not copied | `V1-SM05.md`, `V1-SM06.md` |
+| `EXT-*` added to the prefixes; "requester/reviewer separation" stated; "Senior Journalist independence" retired | RACI catalog §8, `D-251` addendum |
+| Encyclopedia deferral restated per packet with a return condition | `ENCYCLOPEDIA-SYNC.md` |
+
+Graphify was rebuilt once after this canonical edit; `docs-drift` is synced and the full local suite passes.
+
+### Access-scope review (Lane A)
+
+Recorded in the addendum. In short: the applicable environments are the local disposable database and the one
+provisioned Supabase project; `DEP-05` (credentials withheld) **is not lifted**; access is either a human running the
+pinned aggregate query and supplying counts, or a Judge-granted time-boxed read-only role limited to metadata and
+aggregates; **no agent holds a service-role or write-capable credential**; output is metadata and counts only.
+
+### Requests to Lane B (draft only — do not execute)
+
+1. The schema-neutral query and evidence format, following the nine-step contract in this entry, with the query
+   digest.
+2. A scope record: environments (confirm or correct the two named above), included and excluded schemas, identity-
+   capable field types, the access path requested, and the reviewer.
+3. Return both here for Lane A's scope and least-privilege review. **Nothing runs until that review is recorded.**
+
+### Not done, by design
+
+The query was **not** run and no result exists. No database mutation, migration, `DEP-05` change, MMF selection,
+Lane B activation, work order or construction. `V1-SM05` stays unselected and its new DoR box unchecked. B-119 stays
+`Open`. Also open: `DOR-R5`'s single normal/revision visual, the hosted Encyclopedia comparison, Lane B's feasibility
+review, and Lane B/C's B-115 consumer reads.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Recording the assessment as a `D-251` compatibility child, and the vocabulary corrections | Phase 1 — Lane B verifies against the Judge's direct message |
+| **Approve-with-conditions** | Access path | Phase 1 — human-run or time-boxed read-only role; `DEP-05` intact; Lane A scope review before execution |
+| **Defer** | Query execution, any compatibility migration, MMF selection, work order, construction | The recorded scope review, then a later bounded Judge act |
+| **Reject** | Treating the query as an MMF, an agent-held credential, content-bearing output, historical rewrite or an edit to an existing migration | Preserve the bounded evidence contract |
