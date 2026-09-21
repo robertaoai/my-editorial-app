@@ -4398,6 +4398,134 @@ None of the three attachments was staged, committed or executed; this section is
 | **Defer** | Full banner-free review, syntax proof, acceptance, environment runs, classification, D-251 satisfaction and `V1-SM05` selection | Steps 3–7 and later Judge acts |
 | **Reject** | Any change outside the authorized delta, running syntax proof before Lane A's hash handoff, or Lane B committing attachments | Preserve the sequence |
 
+## D251-V7-FINAL-REVIEW-RETURN — Lane B banner-free review and syntax proof, 2026-09-22
+
+**Authority and boundary.** Lane B completed step 4 against the exact banner-free hashes Lane A recorded at `5b2f17d`.
+The proof used a separate PostgreSQL 17 container on `127.0.0.1:55439`, never either current D-251 environment. It held
+migration seed data and throwaway fixture rows only. This is syntax, resolution and bounded fixture evidence, not a
+D-251 environment result, result classification, construction authorization or closure evidence.
+
+### Exact tested bytes
+
+| Artifact | Lane A banner-free SHA-256 | `Syntax-Proof-Tested-SHA256` | Match |
+|---|---|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V5.sql.md` | `0cc9c4e59e9139de84d5029729b72ab80558003e124ce4b46f3f1a0061aa7d1a` | `0cc9c4e59e9139de84d5029729b72ab80558003e124ce4b46f3f1a0061aa7d1a` | Yes |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V7.sql.md` | `6264ed7fc4f436202cc1d698ea8d49416a6f366db7425d4342b6ae0a40cda1ed` | `6264ed7fc4f436202cc1d698ea8d49416a6f366db7425d4342b6ae0a40cda1ed` | Yes |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V5.md` | `06bf8e8a7aca33c292cb80794fc2ddc9f39e3d67714cd99d5dc21e097f1bca60` | `06bf8e8a7aca33c292cb80794fc2ddc9f39e3d67714cd99d5dc21e097f1bca60` | Yes — reviewed only; not executable |
+
+Hashes were recomputed before container start and after all proof runs; they stayed equal. No artifact byte changed.
+
+### Isolated environment evidence
+
+| Evidence | Value |
+|---|---|
+| Container name | `d251-syntax-proof-20260922` |
+| Container ID | `bf62c33e605c2690f2dcce30a245e56599ff04a26ea8248b86bdcf84af6b9ddd` |
+| Bound host address | `127.0.0.1:55439` |
+| Image | `postgres:17` |
+| Image digest | `postgres@sha256:f4c66b820c6f974249089d3d16d86a3698eae11e8746eb6644b2271031e91232` |
+| PostgreSQL version | `17.11 (Debian 17.11-1.pgdg13+2)` |
+| Roles created before migrations | `anon`, `authenticated`, `service_role`; `NOLOGIN` |
+| `0001_init.sql` SHA-256 | `fbe644462c859a327fb9d953ff8062ddf266ad21d8971eea072ac96c9078f3e6` |
+| `0002_s1_editorial_schema.sql` SHA-256 | `5ef891146adac0afcdf8be1e77ecbd9f50434f1089d7a61ee015cde7251014ad` |
+| Migration result | Both applied in order with `ON_ERROR_STOP=1`; exit success |
+| Teardown | Fixture rollback verified; container force-removed; name absent and host port no longer bound |
+
+The superuser password was generated for the container, never printed or recorded, and disappeared with the container.
+
+### Full banner-free review
+
+| Check | Result |
+|---|---|
+| LF-only bytes | Pass — zero CR bytes in all three files |
+| Exact catalog markers | Pass — one start and one end per SQL file |
+| Catalog parity | Pass — 10 `C`, 56 `E`, byte-identical SHA-256 `d7f526adbb5dccb6a0bf274cb2da1959d881dfef36d8102631fb3fbac73f9d0c` |
+| Candidate branches | Pass — one each for `C01`–`C10` |
+| Blocking manifests and statement boundary | Pass — qualified external relations/callables; approved read-only transaction statements; prohibited-operation scan empty |
+| Advisory inventories | Reviewed as best effort, not represented as exhaustive; no known-wrong entry remains |
+| Receipt completeness | Pass — expected/returned counts separated; failure and environment fields retained |
+| Byte identity after proof | Pass — all three hashes equal Lane A's step-3 values |
+
+### Baseline syntax-proof results
+
+The two exact SQL files ran independently through `psql -v ON_ERROR_STOP=1` in the isolated database.
+
+| Result | Expected | Returned | Outcome |
+|---|---:|---:|---|
+| `CATALOG-VALIDATION` | 66, all `VERIFIED` | 66, all `VERIFIED` | Pass |
+| `RECONCILIATION` | 0 | 0 | Pass |
+| `VISIBILITY` | 9 | 9, all `VERIFIED` | Pass |
+| `ASSESSMENT` on unmodified migration seed data | 10 | 10 | Pass |
+
+Both scripts reached `ROLLBACK` with exit success. The baseline assessment is proof-shape output only; no D-251 result
+classification was made.
+
+### Fixture statements and hashes
+
+**Unlisted-column fixture** — SHA-256
+`f890b91e96a1fe750c4ccc11a29dc7d30baad3a6cd2b427beffbb03649316964`:
+
+```sql
+BEGIN;
+ALTER TABLE public.topics ADD COLUMN d251_unlisted_probe text;
+```
+
+The exact preflight bytes followed in the same session. Their `ROLLBACK` removed the fixture. Result: 66 verified catalog
+rows, exactly one `RECONCILIATION` row (`U-topics-d251_unlisted_probe`, `UNRECONCILED`), and 9 verified visibility rows.
+
+**C10 exactness fixture** — SHA-256
+`405b21231ff415420f616a3a960d0e5b0fb4213b5f103751c4aeb01063799505`:
+
+```sql
+BEGIN;
+WITH anchor AS (
+  SELECT a.id AS article_id, w.id AS transition_id
+  FROM public.articles a
+  JOIN public.workflow_transitions w ON w.article_id = a.id
+  ORDER BY a.created_at, w.created_at
+  LIMIT 1
+)
+INSERT INTO public.editorial_reports (
+  article_id, as_at_transition_id, template_version, template_effective_from,
+  judgment_rule_version, schema_version, snapshot
+)
+SELECT article_id, transition_id, 'd251-proof', '-infinity', 'd251-proof', fixture.schema_version, fixture.snapshot
+FROM anchor
+CROSS JOIN (VALUES
+  ('d251-exact', '{"nested":{"role":"ROLE-CHIEF-EDITOR"}}'::jsonb),
+  ('d251-substring', '{"nested":{"role":"prefix-ROLE-CHIEF-EDITOR-suffix"}}'::jsonb),
+  ('d251-key-name', '{"ROLE-CHIEF-EDITOR":"not-the-value"}'::jsonb)
+) AS fixture(schema_version, snapshot);
+```
+
+The exact assessment bytes followed in the same session. Their `ROLLBACK` removed the fixture. Result: 12 assessment
+rows total; `d251-exact` returned `count_deprecated_exact = 1`; `d251-substring` and `d251-key-name` each returned zero.
+Post-proof checks found no `d251_unlisted_probe` column and zero `editorial_reports` rows, confirming both fixture
+transactions were rolled back. The nested `BEGIN` warnings in fixture sessions were expected: the outer transaction
+made fixture writes visible to the exact artifact query, while the artifact's final `ROLLBACK` removed them. The
+standalone baseline runs separately proved the artifact's own read-only transaction boundary.
+
+### Final disposition and next owner
+
+Step 4 passes. Lane A can now perform step 5: independently recompute the three current hashes, require equality with
+the table above, verify this proof evidence, and commit the three unchanged files with its B-119 acceptance. Lane B does
+not stage or commit the attachments.
+
+### Tracking, cross-artifact and drift
+
+B-119 remains `Open`; `D-251` remains unsatisfied; and no current-environment result exists. `Modular_PRD.md`,
+storyboard, story panels, UML, data flow, the Encyclopedia, Register, Build Spec, Artifact Inventory, Fn Specs, work
+packets and traceability remain unaffected. This handoff-only evidence is Graphify-excluded; no rebuild is owed.
+
+None of the three attachments was staged or committed by Lane B; this section is the only staged and committed path.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Full banner-free review, isolated syntax/resolution proof, reconciliation fixture and C10 exactness fixtures | Step 4 complete |
+| **Approve-with-conditions** | Preflight `V5`, assessment `V7`, receipt `V5` | Step 5 — Lane A verifies hashes/evidence and commits unchanged bytes |
+| **Defer** | Current-environment runs, human run, classification, D-251 satisfaction and `V1-SM05` selection | After acceptance and later Judge acts |
+| **Reject** | Treating this proof as a D-251 environment result, rerunning against a current environment, or changing any tested byte | Preserve the recorded boundary |
+
 ## Lane A answer — delta review of `D251-V7-DRAFT-RETURN` passed; banner removed; banner-free hashes recorded (steps 2–3), 2026-09-22
 
 **Authority and boundary.** Steps 2 and 3 of the sequence recorded at `8a64cb2`, for the replacement preflight `V5`, assessment
