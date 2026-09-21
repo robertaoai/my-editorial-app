@@ -3893,3 +3893,79 @@ coverage-excluded, so no Graphify rebuild is owed.
 | **Approve-with-conditions** | Inventories advisory; early syntax-proof run | Judge decides A and B |
 | **Defer** | Dry run in both environments, human run, classification, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
 | **Reject** | Preflight `V3`, assessment `V5` and receipt `V3` for acceptance or execution; the three `actor_type` catalog rows; a collated `ORDER BY` on a `UNION` result | Replace as above |
+
+## Lane A answer — Lane B's review of `0549023`: Lane A's defect 1 is withdrawn as wrong; defects 2–5 stand; advisory inventories ruled provisionally, 2026-09-21
+
+**Authority and boundary.** Lane B's review of `0549023` (given in the Lane A conversation, unrecorded until now)
+disputed one of Lane A's five defects. Lane A re-read `0002_s1_editorial_schema.sql` to its end rather than relying on
+the part it had read. Read at commit `0549023`. Handoff-only: this corrects Lane A's own record and sets the contract
+for the replacement. No SQL is written, no query run, nothing accepted, the Register is unaffected, and `D-251` is not
+satisfied.
+
+### Correction to Lane A's record
+
+**Defect 1 of the `0549023` review is withdrawn. It was wrong, and Lane B is right.** Lane A had read only part of the
+migration. At its end, `0002` runs `drop type actor_type;` and then `alter type actor_type_v2 rename to actor_type;`
+(lines 526–527), so after `0002` the type behind `workflow_transitions.actor_type`, `allowed_transitions.required_actor_type`
+and `publications.actor_type` is named `actor_type`. The catalog rows `E35`, `E46` and `E53` **are correct as Lane B wrote
+them** and must not be changed. The same tail drops `article_state` but does **not** rename `article_state_v2`, so the
+catalog rows that use `article_state_v2` are also correct. The catalog Lane B returned is therefore accurate against
+the final migration state, and the "fix" Lane A specified would have made every real run return `ARTIFACT-INVALID`.
+
+Rule going forward: the final type identity of a column is derived **after every statement in every migration**,
+including `drop type` and `alter type … rename`, and a review record states which lines it read.
+
+### Disposition of the five defects
+
+| Defect | Status |
+|---|---|
+| 1 — `actor_type` rows | **Withdrawn.** Keep `actor_type`; keep `article_state_v2` |
+| 2 — collated `ORDER BY` on a `UNION ALL` result | **Stands.** Wrap the union in an output CTE and order the outer select |
+| 3 — end marker `-- END CATALOG,` | **Stands.** Exact marker; the separating comma belongs after the following CTE boundary or on the closing parenthesis line, never on the marker |
+| 4 — inventories inexact | **Stands; ruled below** |
+| 5 — receipt lacks expected counts | **Stands** |
+
+### Inventory policy — Lane A ruling, provisional
+
+Lane A adopts Lane B's split. This meets the freeze test ("impossible as written"): two packets have shown an exact
+manual operator and cast inventory cannot be proved correct without a parser.
+
+| Class | Rule |
+|---|---|
+| **Blocking** | Statement allowlist (`BEGIN TRANSACTION READ ONLY`, the one pinned `SET LOCAL search_path`, `SELECT`/`WITH`, `ROLLBACK`); every function call qualified; every relation read qualified; no callable or operator resolving outside `pg_catalog`; no write, DDL, locking, delay, sequence, advisory-lock or large-object operation |
+| **Advisory** | Operator, cast and special-form inventories. Kept as review aids, best effort, **never represented as mechanically complete** |
+
+The ruling is provisional: the Judge may reverse it and require mechanically generated inventories instead. It does not
+wait for the Judge, because drafting the replacement is otherwise blocked.
+
+### Replacement `V4`/`V6`/`V4` — requirements (deltas only)
+
+| Artifact | Requirement |
+|---|---|
+| Preflight `V4` | Copy the complete catalog unchanged, including the three `actor_type` rows; wrap the three validation result sets in a final CTE and apply `COLLATE "C"` only in the outer select; keep the explicit `ARTIFACT-INVALID`, `UNRECONCILED` and visibility failures |
+| Assessment `V6` | Exact catalog markers; one branch per `C01`–`C10`; catalog-driven zero-row output; deterministic `C10` grouping |
+| Receipt `V4` | Expected row counts kept separate from returned counts: `CATALOG-VALIDATION` 66, `RECONCILIATION` 0, `VISIBILITY` 9, `ASSESSMENT` 10 when `C10` has zero or one distinct `schema_version`, plus one row for each additional distinct version. A missing or extra row is `unresolved` |
+| Static review | The return records the exact method for each mechanical check: catalog extraction, marker counting, line-ending inspection, candidate-ID counting, hash calculation and prohibited-statement inspection. No syntax proof is claimed |
+| Return | `D251-V6-DRAFT-RETURN` in B-119, committed alone; the three files stay unstaged, uncommitted and unexecuted |
+
+### Decision still open for the Judge
+
+**Syntax-proof run.** Lane B's point stands that "draft the replacement" does not authorize it. It would run the
+banner-free candidate bytes in a throwaway PostgreSQL built from the two migrations, with no application data and no
+credential, and prove syntax and resolution only. It is not a `D-251` environment result. Lane A still recommends it as
+its own act before the acceptance commit, because the collation defect above is the kind static review cannot see.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 stays `Open`, `D-251` is not satisfied
+and no accepted package exists. `docs-drift` reads synced at `a5bdcc7`; every later commit is handoff-only and
+coverage-excluded, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane B's correction of defect 1; defects 2, 3 and 5 | Apply in `V4`/`V6`/`V4` |
+| **Approve-with-conditions** | Advisory inventories | Lane A's provisional ruling; Judge may reverse |
+| **Approve** | Lane B drafting `V4`/`V6`/`V4` under the requirements above | Phase 1 — draft uncommitted |
+| **Defer** | Syntax-proof run, dry runs, human run, classification, `D-251` satisfaction, `V1-SM05` selection | Separate Judge acts |
+| **Reject** | Changing `E35`, `E46` or `E53` to `actor_type_v2`; claiming an exhaustive operator or cast inventory | Retain `actor_type`; treat inventories as advisory |
