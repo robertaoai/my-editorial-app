@@ -3751,3 +3751,66 @@ coverage-excluded, so no Graphify rebuild is owed.
 | **Approve** | Replacement row 10: no lane transition; Lane A stays `Active` | Recorded; Lane B drafts now |
 | **Defer** | SQL creation review, syntax proof, dry run, human run, classification, `D-251` satisfaction, `V1-SM05` selection | Later bounded acts |
 | **Reject** | A lane transition before drafting, Lane B committing attachments, a validation failure represented by missing rows, treating this packet as construction authority | Use the replacement and instruction above |
+
+## D251-V5-DRAFT-RETURN — Lane B replacement package static return, 2026-09-21
+
+**Authority and boundary.** The Judge directly authorized Lane B to draft in the handoff channel under Lane A's bounded
+instruction above, with no lane transition. Lane A remains `Active`; Lane B remains `Eligible`. Lane B created the three
+literal replacement files, performed static review, and returns them uncommitted. No SQL was executed, no database was
+accessed, and no syntax, resolution or runtime behavior is claimed by this return.
+
+### Returned manifest and draft hashes
+
+| Artifact | `Lane-B-Draft-SHA256` | Static result |
+|---|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V3.sql.md` | `e5ecbe9a905b41c9341ff50b1d3032bc9264d315f3dc36cfa86bb5c7101bbe29` | Pass — ready for Lane A byte review |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V5.sql.md` | `6d15e052a62a608f2935543971f04b5ee6e8044048bdfd93fa6172c149685b99` | Pass — ready for Lane A byte review |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V3.md` | `c406e0418135eae90df843fd3d920cc2af776d126d3fd188885c95a7cf9b6dd8` | Pass — ready for Lane A byte review |
+
+### Static review result
+
+| Check | Result |
+|---|---|
+| Draft banner and literal paths | Pass |
+| LF-only bytes | Pass — zero carriage-return bytes in all three files |
+| Catalog markers and manifests | Pass — each SQL file contains exactly one of every required marker |
+| Complete fixed catalog | Pass — ten `C` rows and fifty-six explicit `E` rows; no generated exclusion |
+| Catalog parity | Pass — the lines strictly between the markers are byte-identical; SHA-256 `d7f526adbb5dccb6a0bf274cb2da1959d881dfef36d8102631fb3fbac73f9d0c` |
+| Candidate-query mapping | Pass — exactly one assessment branch references each `C01`–`C10`; each branch takes identity and field classification from its catalog row |
+| Empty-table evidence | Pass — every branch is driven from its catalog row and returns an explicit `total_rows = 0` aggregate when its table is empty |
+| Reconciliation and validation | Pass statically — uncatalogued relevant physical columns become `UNRECONCILED`; missing or type-mismatched catalog declarations become visible `ARTIFACT-INVALID` rows |
+| Arrays | Pass statically — element identity is derived from `pg_type.typelem`; an unlisted array becomes `UNRECONCILED` |
+| Ordering | Pass — textual output keys use `COLLATE "C"` and nullable keys state null placement |
+| Function, relation, special-form, operator and cast inventories | Pass static text review — one inventory of each class per SQL file, with qualified callables and relations and no unused function or relation entry found |
+| Read-only boundary | Pass — banner, `BEGIN TRANSACTION READ ONLY`, the sole permitted `SET LOCAL`, one read query and `ROLLBACK`; no write or DDL statement found |
+| `C10` | Pass statically — exact JSON string-value predicates, per-`schema_version` grouping, separate exact/look-alike counts; runtime fixtures remain deferred |
+| Receipt | Pass — attempt-bound environment hashes, artifact commit, PostgreSQL version, migrations, execution role, named result sets, row counts, unchanged outputs, field/result classifications and SQLSTATE failure record |
+
+During static review Lane B corrected one draft-only defect before this return: table-driven aggregate branches emitted no
+row for an empty table. The returned assessment is catalog-driven instead, so every candidate produces an explicit zero
+row. No previously returned or committed version was modified.
+
+### Failure-derived acceptance boundary
+
+Lane A should reject this package if its recomputed hashes differ; either catalog block differs; any relevant migration
+column is absent from both `C` and `E`; a candidate ID has zero or multiple executable branches; a manifest entry is
+undeclared or unused; an empty table can suppress its candidate row; or the receipt can represent missing output as
+clean. Static success is not syntax proof. Syntax, JSON fixtures, visible failure behavior and result-set rendering are
+proved only by the separately authorized disposable-database dry run.
+
+### Tracking, cross-artifact and drift
+
+This completes the authorized Lane B drafting return, not Lane A acceptance. B-119 remains `Open`; `D-251` remains
+unsatisfied; and `V1-SM05` remains unselected with its evidence dependency unchecked. `Modular_PRD.md`, storyboard,
+story panels, UML, data flow, the Encyclopedia, Register, Build Spec, Artifact Inventory, Fn Specs, work packets and
+traceability remain unaffected because the package is still unaccepted handoff evidence. The handoff channel is
+Graphify-excluded, so no rebuild is owed.
+
+None of the three attachments was staged, committed or executed; this section is the only staged and committed path.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane B replacement drafting and static return | Completed by this section |
+| **Approve-with-conditions** | Preflight `V3`, assessment `V5`, receipt `V3` | Lane A independently reviews the exact bytes and hashes |
+| **Defer** | Syntax proof, fixtures, dry run, human run, classification, `D-251` satisfaction and `V1-SM05` selection | Later bounded Judge acts |
+| **Reject** | Executing, staging or committing the attachments from Lane B; treating static pass as execution readiness | Preserve the recorded boundary |
