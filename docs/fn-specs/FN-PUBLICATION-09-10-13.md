@@ -40,7 +40,7 @@ Publication is where the pipeline's work becomes public, and where its record be
 
 | ID | As a | I want | So that |
 |---|---|---|---|
-| `US-09` | Chief Journalist agent | approval to trigger publication to WordPress or mark LinkedIn ready | approved work ships without manual re-entry |
+| `US-09` | Chief Journalist agent | approval to trigger publication to WordPress or mark LinkedIn ready | approved work ships without manual re-entry. **V1 current scope (`D-243`/`D-250`):** V1 has no approval trigger; the LinkedIn `ManualReady` event is requested by `ROLE-SENIOR-JOURNALIST` after the final `business:T5` record, and no article `Published` outcome exists. `[V1]` origin retained |
 | `US-10` | Chief Editor | to confirm a manual publish by entering the live URL | **manual targets are audited identically to automated ones** |
 | `US-13` | Chief Editor | a binding order to force retraction immediately | it is not queued behind internal review |
 
@@ -78,6 +78,10 @@ Publication is where the pipeline's work becomes public, and where its record be
 
 > **Current-scope note (`D-243`, 2026-09-20; origin stays `[V1]`):** V1 delivers only the LinkedIn
 > target-level `ManualReady` event; automated WordPress publication and retry are a V2-target item. See §12.
+>
+> **The "On approval" trigger below is not a V1 trigger (`D-250`, 2026-09-21):** V1 has no approval step. The
+> `ManualReady` event is requested by `ROLE-SENIOR-JOURNALIST` after the final `business:T5` record; `Published`
+> is not produced. The text below is preserved as the `[V1]`-origin intent.
 
 **On approval, for each assigned target:**
 

@@ -27,6 +27,8 @@ The structure that probably produced the "two families" impression is real, but 
 | **Chief Journalist** | **Line 1** — Operations | T6, T9 |
 | **Chief Editor** | **Line 2** — Risk & Compliance | T5 executor, T8 override, T11 confirm |
 
+> **Superseded for current use, 2026-09-21 (`D-175`, `D-250`):** the Senior Journalist row above is dated history; see the note at Panel A5. The current role model is `raci-involvement-matrix.md` §8.
+
 So "Senior Journalist" *sounds* like a Line 1 seniority step but is the Line 2 independent-review role, and "Chief Journalist" *sounds* senior to it but sits back in Line 1. That inversion is deliberate — Addendum §T5/T6: *"Line 2 provides independent review before Line 1 grants operational approval."*
 
 > **Decision needed:** if `editor` / `senior_editor` are intended as **new roles**, that is a scope change requiring a change request and a new `gate_role` value — irreversible after S1, since `workflow_transitions` is append-only. If it was loose phrasing for the existing roles, no action. **This storyboard assumes the latter.**
@@ -128,6 +130,13 @@ Requires `editorial_adaptation` non-empty, ≥1 `publication_targets` assigned, 
 
 ### Panel A5 — T5 Independent review *(Senior Journalist role, **Line 2**, human-primary)*
 
+> **SUPERSEDED FOR CURRENT USE, 2026-09-21 (`D-175`, `D-250`).** The Senior Journalist label here is preserved as
+> dated history. In the current model (`raci-involvement-matrix.md` §8) `ROLE-SENIOR-JOURNALIST` **starts a
+> route's `EW` — a trigger, not a gate** — and is not the T5 reviewer; `business:T5` is the Chief Editorial
+> Desk ranking record. `D-250` additionally grants it the **`ManualReady` request only**, with no `T5`
+> impersonation, Final Sign-Off, Route-1 accountability or publication. Do not read this panel as making it an
+> independent reviewer.
+
 `Drafted → Reviewed` · **four-eyes `satisfied` — Line 1 → Line 2 boundary**
 
 This is the load-bearing panel. Requires `fact_check` passed, `taxonomy_compliance` passed, `meaning_invariance` confirmed, `editorial_quality` meets standard.
@@ -160,6 +169,12 @@ Requires all prior gate criteria confirmed, `publication_targets` confirmed, `pu
 > **Successor-node review (`A17`).** T6's "all prior gate criteria confirmed" is what makes T6 the reviewer of T5's judgment — it must be a real validation against T5's recorded fields, not a rubber-stamped boolean. The residual risk is the authority gradient: will a Line 1 agent actually return work to the Line 2 human? A `T6→T5` return rate that never leaves zero means review is nominal.
 
 ### Panel A7 — T7/T10/T11 Publication
+
+> **Current-scope note, 2026-09-21 (`D-243`, `D-250`) — an annotation, not a redraw.** V1 delivers only the
+> LinkedIn target-level `ManualReady` event, requested by `ROLE-SENIOR-JOURNALIST` after the final `business:T5`
+> record; it has no approval trigger and produces no `Published` state. `T11` live-URL confirmation and
+> automated WordPress are V2 targets. The V1 sequence and data flow are **Panel A10**, the single visual owner;
+> this panel is preserved as the `[V1]`-origin technical model.
 
 | Transition | Actor | Effect |
 |---|---|---|

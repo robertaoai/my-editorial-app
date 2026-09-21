@@ -18540,6 +18540,15 @@ identity, so this contract states the observable rule and does not assume a mech
 Does not choose a table, column, key, query or migration, authorize `ManualReady` construction, or make
 `ManualReady` an article state. Does not extend `ROLE-SENIOR-JOURNALIST`'s authority beyond the request.
 
+### Completion addendum, 2026-09-21 — residual current-scope notes (`D-249`/`D-250` step 11)
+
+Audit after the first pass found three places that still described the pre-`D-250` picture. Notes only, no
+requirement text changed, and each keeps its `[V1]` origin: `Modular_PRD` `US-09`, `AC-14` and `AC-15` and the
+publication Fn Spec's `US-09` and §4.1 (V1 has no approval trigger; the requester is `ROLE-SENIOR-JOURNALIST`
+after the final `business:T5` record); storyboard Panel A7 (annotated, pointing to Panel A10); and storyboard §0
+and Panel A5 (the Senior Journalist label marked superseded for current use under `D-175`/`D-250`). Tiers
+unaffected: Build Spec, Inventory (no file created), traceability, rule files, Phase Closure.
+
 ---
 
 ## 5.14e76 `D-251` — `ACCESS-ROLE-CHIEF-EDITOR`: Identifier Namespace Correction
