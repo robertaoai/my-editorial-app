@@ -54,7 +54,7 @@
       "file_type": "concept",
       "source_file": "docs/v1/work-packets/V1/V1-SM05.md",
       "source_location": "whole document",
-      "description": "First V1 MMF checklist: core end-to-end editorial flow on ROUTE-PROD-1. D-245 defines its DoD (not complete, not reviewed) and records DoR evidence status; D-244 adds non-enforcing Line/RACI display anchored to FR-04/FR-05 and SEC-01. Not started and not selected."
+      "description": "First V1 MMF checklist: a limited Route-1 evidence slice on ROUTE-PROD-1 that records and displays business-stage, role, task and evidence facts and does not claim transition:T* execution (D-249). D-245 defines its DoD (not complete, not reviewed); DoR items DOR-R2 to DOR-R4 have drafted failure and replay contracts awaiting Lane B feasibility review, while DOR-R5 and DOR-R6 remain open. Satisfies CR-19 only partially. Not started and not selected."
     },
     {
       "id": "work_packet_v1_sm06_mmf_v1_usable",

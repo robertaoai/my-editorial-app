@@ -6,7 +6,7 @@
       "file_type": "document",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "",
-      "description": "Operative record of what is approved for v1: 53 decisions approved, 12 conditional with follow-up phases, 2 deferred, 0 rejected. Carries the D-01 to D-21 decision series, the C-01 to C-12 conditions register, the gap disposition table for all 40 IDs, and the supersession map.",
+      "description": "Operative record of what is decided for v1: decisions with their tier-applicability tables, the conditions register, the gap disposition table and the supersession map. Wins over any derived tier that contradicts it (D-58). No tally is restated here; the file itself is the count.",
       "community": 30,
       "community_name": "V1 Operative Set"
     },
@@ -16,7 +16,7 @@
       "file_type": "document",
       "source_file": "docs/v1/V1-BUILD-SPEC.md",
       "source_location": "",
-      "description": "Operative sequenced plan for v1: T0 and T1 pre-build, then sprints S0 through S4. Defines v1 as the CR-19 success scenario, names the eight-decision S1 migration window, the parallel POC track, what is out of scope, and eight standing invariants.",
+      "description": "Operative sequenced plan for v1. Quotes the customer's CR-19 scenario unchanged and states that V1 is V1-SM05 and V1-SM06, ending at the bounded LinkedIn ManualReady outcome, so it satisfies CR-19 only partially (D-247). V1-SM05 is a limited Route-1 evidence slice with no transition:T* execution claim; V1-SM06 adds board visibility and ManualReady (D-249, D-250). SETUP-SPIKE-000 is transfer mapped, closure pending (D-248). Also carries the pre-build sequence, the parallel POC track, the out-of-scope list and the standing invariants.",
       "community": 30,
       "community_name": "V1 Operative Set"
     },
