@@ -3189,3 +3189,62 @@ commits ahead of it, so no Graphify rebuild is owed.
 | **Approve** | Rule 3 as recorded | No change |
 | **Defer** | Syntax proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
 | **Reject** | A receipt containing its own hash, an execution hash required of the receipt, an invented SQLSTATE, deleting the only copy of a rejected draft | Use the amended rules above |
+
+## Lane A answer — Lane B's review of `0dd5e87`: five determinism defects corrected; contract freeze recommended, 2026-09-21
+
+**Authority and boundary.** Lane B's review of `0dd5e87` (given in the Lane A conversation, unrecorded until now)
+found five points that would stop two reviewers reaching the same verdict. Lane A checked each against the recorded text.
+Read at commit `0dd5e87`. Handoff-only: this replaces rule 4 and adds to rule 3, rule 7 and the manifest note of the
+contract above, and changes nothing else. No SQL is written, no query run, no attachment touched, and the Register is
+unaffected. Step 2, Lane B drafting the three banner-bearing files, remains authorized and is the next act.
+
+### Lane A's check
+
+| # | Lane B point | Verdict against the record |
+|--:|---|---|
+| 1 | Rule 4 compares complete `C` and `E` tuples but the assessment repeats only four fields | **Real.** Two files cannot produce an equal complete-tuple comparison if one holds fewer fields |
+| 2 | Rule 3's "named function allowlist" names no function | **Real.** Categories are not a list |
+| 3 | Completed receipt filenames are undefined | **Real** |
+| 4 | Rejection versioning is ambiguous | **Real** |
+| 5 | Receipt hash fields can be confused | **Real** |
+
+### Amendments, parent first
+
+| Order | Amends | Corrected rule |
+|---:|---|---|
+| 1 | Rule 4 (catalog parity) | Both SQL files carry the **same complete catalog block**, delimited by `-- BEGIN CATALOG` and `-- END CATALOG`. `C` rows: ID, schema, relation, relation kind, column, `data_type`, `udt_schema`, `udt_name`, array element type, field classification. `E` rows: the same fields plus the exclusion reason. Parity is a **byte-identical block** in both files, extracted by the markers and diffed; both the `C` and `E` diffs must be empty. Each `C` ID has exactly one executable candidate query, checked by ID. The preflight verifies the block against the real database at run time; the assessment's block is a declaration, so a type it assumed wrongly fails closed as `ARTIFACT-INVALID` |
+| 2 | Rule 3 (function safety) | Each SQL file carries a comment manifest `-- Allowed-Functions:` listing every called function by qualified name, and `-- Allowed-Relations-Read:` listing every relation read. Every called function and every read relation must appear; every manifest entry must be used; no user-defined function is permitted. The list is **produced from the actual draft**, not guessed in advance, and Lane A reviews each literal entry. Operators and casts are reviewed in the same pass |
+| 3 | Manifest note (completed receipts) | Reserved names, not created now: `D251-MANUAL-RUN-RECEIPT-V2-LOCAL-A01.md` and `D251-MANUAL-RUN-RECEIPT-V2-SUPABASE-A01.md`. A rerun increments the attempt (`-A02`); an earlier attempt is never overwritten. A failed attempt is evidence and is kept |
+| 4 | Rule 11 (versioning) | Versions are per artifact: a changed preflight, assessment or receipt template increments **its own** number. **Any** change to any artifact sends the complete three-file package back through both reviews. "`V4` package" stays shorthand for the assessment-led bundle and is not a shared version number. B-119 records the current manifest by literal path |
+| 5 | Rule 7 (hash fields) | Three receipt-related fields replace any generic "receipt hash": `Receipt-Template-Accepted-Blob-SHA256`, `Local-Completed-Receipt-SHA256` and `Supabase-Completed-Receipt-SHA256`, each tied to its attempt number in the B-119 ledger |
+
+### Recommendation: freeze the contract
+
+Four rounds of Lane A and Lane B review have produced eleven rules and no draft file. Further changes should be
+accepted only when a rule is **impossible or unsafe** as written; everything else is a refinement found in Lane A's
+draft review (step 4), where it can be tested against real text. This is a Lane A recommendation for the Judge, not a
+new rule.
+
+### Success criteria, derived from failure
+
+| Failure | Passing evidence |
+|---|---|
+| Parity is trivially true or always false | The delimited catalog blocks are byte-identical and both diffs are empty |
+| Two reviewers read "identity inspection" differently | The manifest names each function and relation; every entry is used and reviewed |
+| A result attempt overwrites an earlier one | Attempt-numbered filenames; earlier attempts unchanged |
+| One artifact is revised and the others are not rechecked | The whole three-file package restarts both reviews |
+| A template hash is mistaken for a result hash | Three distinctly named fields, tied to attempts |
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 stays `Open`, `D-251` is not
+satisfied and no `V4` file exists. `docs-drift` reads synced at `a5bdcc7`; every later commit is handoff-only and
+coverage-excluded, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Amendments 1–5 and Lane B drafting (step 2) | Phase 1 — Lane B drafts uncommitted |
+| **Approve-with-conditions** | Contract freeze | Judge accepts or rejects the recommendation |
+| **Defer** | Syntax proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
+| **Reject** | Comparing partial catalogs, an unnamed function list, overwriting a result attempt, a generic "receipt hash" | Use the amended rules above |
