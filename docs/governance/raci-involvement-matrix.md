@@ -349,8 +349,13 @@ assistive only). No row count is restated here (`G55`, `G56`, `G58`).
 **Identifier prefixes (`D-251`).** `ROLE-*` is reserved for virtual-agent identities (executors of
 record); `ACCESS-ROLE-*` is natural-person access entitlement; `EDITORIAL-ROLE-*` is human editorial
 identity and accountability; `AGENT-*` is an assistive virtual role, never an executor of record;
-`USR-*` is an individual user account. Existing `ROLE-*` rows whose holder class this catalog does not
-yet state (for example `ROLE-DESK-EDITOR`) are **not reclassified** by `D-251` — flagged as catalog work.
+`USR-*` is an individual user account; `EXT-*` is an external actor (for example `EXT-GRC`, `D-251` addendum). Existing
+`ROLE-*` rows whose holder class this catalog does not yet state (for example `ROLE-DESK-EDITOR`) are **not
+reclassified** by `D-251` — flagged as catalog work.
+
+**Requester/reviewer separation (`D-250`, `D-251` addendum).** The Chief Editorial Desk supplies the qualifying
+`business:T5` record; `ROLE-SENIOR-JOURNALIST` requests the bounded `ManualReady` event; the application performs the
+append; none gains another's authority. "Senior Journalist independence" is not current language.
 
 ---
 

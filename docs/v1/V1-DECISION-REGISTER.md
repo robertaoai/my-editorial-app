@@ -18624,3 +18624,70 @@ execution entitlement. The counts are a dated record of this search, not a runni
 
 Does not transfer any accountability or authority, rename a stored, API, code or schema value, rewrite
 history, or reclassify other `ROLE-*` rows.
+
+### Completion addendum, 2026-09-21 — stored-value compatibility child, vocabulary and access scope (Judge statement D)
+
+**Authority: Judge statement D, approved directly in the Lane A conversation on 2026-09-21 (`D-183` rules 1 and 5).**
+It authorizes Lane A to record a read-only, aggregate stored-value assessment of `ROLE-CHIEF-EDITOR` under this
+decision, to add one `V1-SM05` DoR evidence reference and one `V1-SM06` cross-reference, and to review access
+scope. The decision content is the one Lane B recorded in `docs/handoff/B-119` ("Judge decision — stored-value
+assessment and first dependent MMF"). **Excluded:** any database mutation, migration, execution of the query
+before scope and access are recorded, MMF selection, Lane B activation, work order or construction.
+
+**What this supersedes in the ledger above.** The ledger's "Persisted database rows" row said Lane B confirms
+"when its bounded work order exists". The check now happens **before the `V1-SM05` work order**, as the child
+below. No other row changes.
+
+**The child.** The assessment is a cross-cutting `D-251` **compatibility child**, owned in B-119. It is
+**readiness evidence, not a product feature and not an MMF**, and it does not change the occurrence counts or
+classes recorded above.
+
+| Consumer | Treatment |
+|---|---|
+| `V1-SM05` | **First dependent packet.** One DoR evidence reference (unchecked). The box is checked only when the assessment has been executed and its result reviewed |
+| `V1-SM06` | One cross-reference to the same record; the query is **not duplicated**. Its authorization matrix already separates `ACCESS-ROLE-CHIEF-EDITOR` from the sole requester `ROLE-SENIOR-JOURNALIST` |
+| B-119 / `D-251` | Owns the result, its classification, the compatibility disposition and cross-references |
+
+**Contract and closure branches are Lane B's recorded text, cited and not copied:** the nine-step discover,
+classify, decide, migrate-if-needed, verify contract (exact-value match on identity-capable fields only,
+aggregate output only, read-only, immutable history preserved through a documented alias, one result per
+applicable environment, and a new migration if a living value needs correction) and its four closure branches
+are in `docs/handoff/B-119`, section "Judge decision — stored-value assessment and first dependent MMF". One rule
+this ledger restates because it is a naming rule: a human principal value such as `chief-editor` is **not**
+automatically the deprecated entitlement identifier and is classified separately.
+
+**Access-scope review (Lane A, before any execution).**
+
+| Question | Finding |
+|---|---|
+| Applicable environments | The local disposable database used by the migration tests, and the one provisioned Supabase project. `Modular_PRD` records no staging environment. The scope record must confirm this list and name any other |
+| Credentials | `DEP-05` (Supabase credentials in `.env.local`) is **deliberately withheld** and this act **does not lift it** |
+| Acceptable access paths | Either a human runs the pinned aggregate query and supplies only the counts, or the Judge grants a **time-boxed read-only role** limited to metadata and aggregates. **No agent is given a service-role key or any write-capable credential** |
+| Output | Schema, table or view, column, storage type, match category and aggregate count only — no row identifiers or content |
+| Gate | The query is **not executed** until Lane B has recorded scope, environments, access path, query digest and evidence format in B-119 and Lane A has reviewed them against this table |
+
+**Vocabulary correction (a completion of the prefix table above, no history rewritten).** Add **`EXT-*`** —
+external actors, for example `EXT-GRC` — to the identifier prefixes; it was omitted. The phrase **"Senior Journalist
+independence"** is not current language: the model is **requester/reviewer separation** — the Chief Editorial Desk
+supplies the qualifying `business:T5` record, the Senior Journalist requests the bounded readiness event, the
+application performs the append, and none gains another's authority. Product Lines 1/2/3 and development Lanes A/B/C
+stay separate vocabularies and are never cross-referenced.
+
+### Tier applicability (`D-54`) for this addendum
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this addendum |
+| **`docs/v1/work-packets/V1/V1-SM05.md`, `V1-SM06.md`** | ✅ one DoR evidence reference; one cross-reference |
+| **`docs/governance/raci-involvement-matrix.md`** | ✅ the prefix paragraph gains `EXT-*` and the requester/reviewer sentence |
+| **`docs/ENCYCLOPEDIA-SYNC.md`** | ✅ the deferral is restated per packet with a return condition |
+| **`V1-BUILD-SPEC.md`** | — unaffected: no scope, sequence or DoD moves |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file created or retired |
+| **`docs/Modular_PRD.md`, Fn Specs, traceability, storyboard** | — unaffected |
+| **Rule files, Phase Closure, frozen sources** | — unaffected |
+| **Graphify** | ✅ the curated `D-251` node text is extended; rebuilt once after this pass |
+
+### What this addendum does NOT do
+
+Does not run or authorize running the query, lift `DEP-05`, create an MMF, mutate or migrate a database, select
+`V1-SM05` or `V1-SM06`, activate Lane B or issue a work order. It supplies no assessment result.

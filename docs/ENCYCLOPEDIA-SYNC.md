@@ -43,10 +43,10 @@ deferred**, entry by entry, rather than left implicit:
 
 | Entry | New trigger | Hosted comparison |
 |---|---|---|
-| **01** | `D-251`: the natural-person access role is now `ACCESS-ROLE-CHIEF-EDITOR`; `ROLE-*` is reserved for virtual-agent identities. If the entry names "Chief Editor" as a Line 2/`T5`/`T6` actor, check which identity it means | **Deferred** — owner Lane A with the Judge; follow-up: an opt-in act before `V1-SM05`'s `DOR-R6` is checked |
-| **04** | `D-243`/`D-250`: `ManualReady` is a publication event, never an article state; `Published` promotion is a V2 target | **Deferred** — same owner; follow-up: before `V1-SM06`'s Entry 04 DoR box is checked |
-| **05** | `D-247`/`D-249`: V1 satisfies `CR-19` only partially; `V1-SM05` claims no `transition:T*` execution | **Deferred** — same owner and follow-up as Entry 01 |
-| **06** | `D-249`: `V1-SM05` is a limited evidence slice; its review set includes this entry | **Deferred** — same owner and follow-up as Entry 01 |
+| **01** | `D-251`: the natural-person access role is now `ACCESS-ROLE-CHIEF-EDITOR`; `ROLE-*` is reserved for virtual-agent identities. If the entry names "Chief Editor" as a Line 2/`T5`/`T6` actor, check which identity it means | **Deferred** — packet `V1-SM05` (`DOR-R6`); return condition: a hosted read and a recorded comparison, or the Judge's explicit acceptance naming this entry; owner Lane A with the Judge |
+| **04** | `D-243`/`D-250`: `ManualReady` is a publication event, never an article state; `Published` promotion is a V2 target | **Deferred** — packet `V1-SM06` (Entry 04 DoR box); return condition and owner as Entry 01 |
+| **05** | `D-247`/`D-249`: V1 satisfies `CR-19` only partially; `V1-SM05` claims no `transition:T*` execution | **Deferred** — packet `V1-SM05` (`DOR-R6`); return condition and owner as Entry 01 |
+| **06** | `D-249`: `V1-SM05` is a limited evidence slice; its review set includes this entry | **Deferred** — packet `V1-SM05` (`DOR-R6`); return condition and owner as Entry 01 |
 
 **Findings section (`AF-01`…`AF-11`) and the Judge decision guide are reviewed opportunistically**
 alongside whichever entry they're attached to — they are not separately tracked here. `AF-01` was
