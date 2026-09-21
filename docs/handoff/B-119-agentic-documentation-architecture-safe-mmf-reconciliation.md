@@ -2892,3 +2892,118 @@ needs no rebuild; `docs-drift` is checked after the commit.
 | **Approve-with-conditions** | `LB-1` return path and `LB-7` non-zero `C10` rule | Judge confirms both |
 | **Defer** | Dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Lane A accepts committed `V4`; both receipts classified |
 | **Reject** | Running `V3`, treating zero as visibility, Lane B committing attachments under `D-184`, an unclassifiable non-zero `C10` closed as historical | Use the consolidated criteria above |
+
+## Lane A answer — Lane B's `V4` plan consolidated: decision table, follow-up steps and what the Chief Editor must confirm, 2026-09-21
+
+**Roles.** Lane B is the raiser; Lane A answers (`D-90`). This entry answers Lane B's review of `e6fdb3a` and the
+Judge's request for a breakdown. Read at commit `e6fdb3a`. Handoff-only: it changes no canonical source, runs no query,
+edits no SQL, lifts no `DEP-05` and authorizes no construction.
+
+### What the record now supports
+
+Lane B reports a Judge statement that Lane B drafts the `V4` package. That statement is **not** in the repository and
+Lane A has not received it as a direct message (`D-183`), so it is recorded as **reported, pending direct confirmation**
+below. Even if confirmed it authorizes **preparation only**: no commit of attachments, dry run, environment access,
+human execution, acceptance, `D-251` closure, `V1-SM05` selection or construction.
+
+### Normalized language
+
+| Term | Meaning here |
+|---|---|
+| **`V4` package** | The bundle Lane B drafts. Each artifact keeps its own version: preflight `V2`, assessment `V4`, receipt `V2`. The submitted preflight `V1`, assessment `V3` and unversioned receipt stay as history |
+| **`classification pending`** | The state of a non-zero `C10` result until `LB-7` is confirmed. Operationally it is `unresolved`; it is never called historical or living from counts alone |
+| **Chief Editor / Judge / operator** | One person (`D-158`), three roles: the Judge decides, the Chief Editor confirms and accepts evidence, the operator runs the queries and returns unchanged output |
+| **Raiser / answerer** | Lane B raises; Lane A answers in the same entry |
+
+The `LB-1`–`LB-11` refinements, the consolidated 11-point `V4` acceptance list and the earlier gap numbers are recorded
+above and are **cited, not repeated**, in what follows.
+
+### Decision table — parent first, for the Judge's Accept/Reject
+
+| Order | Decision | Depends on | Who decides | Lane A recommendation |
+|---:|---|---|---|---|
+| 1 | Authorization boundary: Lane B may **draft** `V4`; preparation only | none | Judge (direct message) | **Accept** |
+| 2 | `LB-1`: Lane B drafts uncommitted; Active Lane A reviews and commits the exact attachment set | 1 | Judge | **Accept** |
+| 3 | `LB-7`: a non-zero `C10` is `unresolved` and blocks `V1-SM05` until a separately approved aggregate can tell an identity path from prose | 1 | Judge | **Accept** |
+| 4 | File versions: preflight `V2`, assessment `V4`, receipt `V2` | 1 | Lane A | **Adopt** (no Judge act needed) |
+| 5 | Hash sequence: Lane B drafts, Lane A reviews bytes, Lane A commits, hashes are recomputed from the committed blobs, then the Chief Editor enters them in each receipt | 2 | Lane A | **Adopt** |
+| 6 | Shared catalog, reconciliation, visibility, deterministic output, classification split and receipt content | 1 | Lane A | **Adopt as already dispositioned** (`LB-2`–`LB-6`, `LB-8`–`LB-11`) |
+| 7 | Dry run, human execution, acceptance of results, `D-251` satisfaction, `V1-SM05` selection | 2–6 | Judge, each by a later bounded act | **Defer** |
+
+### What the Chief Editor is asked to do
+
+**`LB-1` — reply Accept or Reject to "Lane B cannot commit `V4`; attachments enter through Active Lane A".**
+
+| If | Effect |
+|---|---|
+| **Accept** (recommended) | `D-184` stays as written (Lane B commits only its own `B-NNN` entry). Lane B prepares three files and returns them; Lane A commits them in one commit with its acceptance. `V4` is not in the repository until a Lane A turn |
+| **Reject** | Nothing can be committed by Lane B. The alternative is a new Register act widening `D-184` to attachment paths for an `Eligible` lane. That changes a lane rule and needs its own decision; Lane A does not recommend it |
+
+**`LB-7` — reply Accept or Reject to "a non-zero `C10` is `unresolved`".**
+
+| If | Effect |
+|---|---|
+| **Accept** (recommended) | A zero result is unaffected. A non-zero result cannot be classified from counts, because the snapshot holds prose that could contain the exact text; it stays `unresolved` and blocks `V1-SM05` until a separately approved aggregate, returning no content, can separate a governed identity path from prose |
+| **Reject** | The Chief Editor must say how a non-zero count is to be classified without reading content. Without that, the assessment can be closed only by dropping `C10`, which contradicts the earlier decision that `snapshot` is in scope |
+
+**Later, and not asked now.** As operator the Chief Editor runs the preflight and the assessment in each current
+environment, pastes the unchanged output, and returns one receipt each. The Chief Editor also confirms the recorded
+independence limitation and accepts or rejects the final closure classification.
+
+Suggested wording for one direct message (`D-183`: object, action, scope, exclusions):
+"Accept `LB-1` and `LB-7` as recorded in `docs/handoff/B-119`. Lane B drafts the `D-251` `V4` package uncommitted.
+This authorizes preparation only: no commit by Lane B, dry run, database access, execution, acceptance, closure,
+`V1-SM05` selection or construction."
+
+### Step-by-step for Lane A
+
+1. **Record the Judge's answers** on `LB-1`, `LB-7` and the drafting boundary in B-119, quoting the direct message. If `LB-7`
+   is accepted, add one line to the `D-251` addendum, because it changes closure semantics, and state every `D-54` tier.
+2. **Wait for the uncommitted `V4` draft.** Do not stage Lane B's working-tree files mid-draft.
+3. **Review the exact bytes** against the 11-point acceptance list; check for writes and DDL, catalog parity,
+   deterministic ordering, JSON semantics, visibility checks and closure-branch handling.
+4. **Return corrections in B-119** (raiser Lane B, answerer Lane A); repeat 3–4 until accepted.
+5. **Commit once:** the exact attachment set plus B-119's acceptance, in one Lane A commit.
+6. **Recompute each digest from the committed blobs** and record them in B-119 and the receipts.
+7. **Dry run** in the local disposable database only after a separate Judge act names it, with the recorded evidence
+   format; a syntax-only run is not success.
+8. **Hand the accepted package to the operator**, one receipt per environment.
+9. **Validate the returned receipts**, classify by the fixed precedence, and record the result in B-119 and the `D-251`
+   ledger.
+10. **Update the `V1-SM05` evidence box** only after an accepted result; touch `V1-SM06` only through its existing
+    cross-reference.
+11. **Graphify, once, last:** after the final canonical edit, run the rebuild, merge `frag138.json`, then complete the
+    pending semantic descriptions, and run `bun run check`.
+12. **Lifecycle:** compute B-119 from its children; it stays `Open` until each has a terminal disposition.
+
+### Critical artifacts — what each drives
+
+| Artifact | Drives construction | Drives verification |
+|---|---|---|
+| `D-251` addendum in the Register | Whether identity compatibility work exists at all | The authority every result is checked against |
+| Preflight `V2` | — | Proves the environment matches the assumed schema and role |
+| Assessment `V4` | — | The evidence of whether the deprecated value is stored |
+| Receipt `V2` | — | The attributable record per environment |
+| `V1-SM05.md` DoR evidence box | Gate: no work order until it is checked | Records that the assessment was executed and reviewed |
+| `V1-SM06.md` cross-reference | Authorization matrix keeps `ACCESS-ROLE-CHIEF-EDITOR` apart from the sole requester | Regression cases for the separation |
+| A new migration, only if living matches exist | The compatibility change itself | Authorization regression tests |
+
+### Cross-artifact review
+
+`Modular_PRD.md`, the storyboard and story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn
+Specs and traceability are unaffected: this is an evidence procedure with no journey, state, route, event or
+persistence change. The Register is affected only if `LB-7` is confirmed (step 1). B-119 remains the single tracking
+record.
+
+### Drift and Graphify
+
+`docs-drift` reads synced at `004d717`; HEAD is one handoff-only commit later and this append adds another, both
+coverage-excluded, so no rebuild is owed now. The pending semantic descriptions are an older backlog and are completed
+last in step 11.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Drafting-only boundary, file versions and hash sequence | Phase 1 — Lane B drafts `V4` uncommitted |
+| **Approve-with-conditions** | `LB-1` return path | Judge Accept/Reject |
+| **Defer** | `LB-7` final rule; dry run, execution, `D-251` satisfaction, `V1-SM05` selection | Judge confirmation, then a later bounded act |
+| **Reject** | Running `V3`, Lane B committing attachments, a non-zero `C10` closed as classified from counts, treating the reported Judge statement as a direct message | Use the table and steps above |
