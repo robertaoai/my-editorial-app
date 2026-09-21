@@ -963,6 +963,13 @@ rejected work (`D-134`) is its concrete v1 case.**
 > destination under `D-244`; `S0`/`S1` stay completed setup evidence and the `S2`–`S4` rows below are
 > **not** re-labelled. Every other `D-239` exclusion keeps its own disposition. Full text lives in the
 > Register, not here.
+>
+> **Boundary, closure and partial `CR-19` — 2026-09-21 (`D-247`–`D-251`).** V1 ends at the bounded LinkedIn
+> `ManualReady` outcome and **satisfies `CR-19` only partially**; no destination is inferred for the five-gate
+> execution or Chief Journalist approval it names. The setup programme is **"transfer mapped; closure
+> pending"** (`D-248`): it stays open while `S2`–`S4` or their residuals are non-terminal, and the `S2`–`S4`
+> rows below are unchanged. The `ManualReady` contract is `D-250`. Natural-person access is
+> `ACCESS-ROLE-CHIEF-EDITOR` (`D-251`). No sprint closes and no tier opens, so §8's tracker is unchanged.
 
 | Sprint | Theme | Objective | FRs | TRs / NFRs | ACs | Priority | Status |
 |---|---|---|---|---|---|---|---|

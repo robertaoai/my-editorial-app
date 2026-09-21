@@ -82,11 +82,11 @@
     },
     {
       "id": "d244_setup_transfer_choice_a",
-      "label": "D-244: setup transfer, Choice A",
+      "label": "D-244: setup transfer, Choice A (transfer mapped; closure pending)",
       "file_type": "concept",
       "source_file": "docs/v1/V1-DECISION-REGISTER.md",
       "source_location": "section 5.14e69",
-      "description": "SETUP-SPIKE-000 closes by explicit behaviour transfer: S0/S1 remain completed evidence and each unfinished S2-S4 behaviour has one destination. No DoD credit, no packet retirement, no blanket V2. Corrects the Modular_PRD publish-path row to D-143/D-146."
+      "description": "Maps each unfinished SETUP-SPIKE-000 S2-S4 behaviour to exactly one destination while S0/S1 remain completed evidence. It is a transfer map, not a closure: under D-248 the setup programme stays open while S2-S4 or their residuals are non-terminal. No DoD credit, no terminal disposition, no packet retirement, no blanket V2. Corrects the Modular_PRD publish-path row to D-143/D-146."
     },
     {
       "id": "d245_readiness_contracts_and_pr_template",

@@ -245,6 +245,19 @@ here.
 
 Behaviour lives in `FN-PUBLICATION-09-10-13.md` §12; the decisions are in the Register, not restated here.
 
+**Slot outcomes and the requester — added 2026-09-21 (`D-247`–`D-251`).**
+
+| Slot | Outcome (`D-249`) | `CR-19` |
+|---|---|---|
+| `V1-SM05` | A **limited Route-1 evidence slice**: records and displays accepted business-stage, role, task and evidence facts; **no `transition:T*` execution claim** | Partial |
+| `V1-SM06` | Board/audit visibility plus the bounded LinkedIn `ManualReady` event; no `Published`, WordPress delivery or live-URL confirmation | Partial |
+
+V1 therefore satisfies `CR-19` **partially**; the five-gate execution and Chief Journalist approval it names
+are neither admitted nor assigned a destination (`D-247`). The sole authorized `ManualReady` requester is
+`ROLE-SENIOR-JOURNALIST` by explicit grant (`D-250`); step 9's "Approved content becomes `ManualReady`" above
+is read through that contract. Failure and replay behaviour for the core slice is `FN-GATES-01-05.md` §4.3, and
+the single visual owner of the `ManualReady` normal, refusal and replay sequence is storyboard Panel A10.
+
 **What this table does not do:** authorize construction or satisfy DoR. The consolidated DoR
 checklist (`docs/v1/V1-BUILD-SPEC.md`'s `DOR-R1`–`DOR-R6`, `D-232` follow-on) supersedes an earlier,
 incomplete four-item list here. **`B071-R204`'s three required-operation questions, resolved
@@ -344,7 +357,7 @@ assurance; any independent Line 3 workflow or audit.
 |---|---|---|
 | `ROUTE-PROD-1` | Desk Editor | Second-lens role record for low-impact daily news; not a natural-person workflow in V1 |
 | `ROUTE-PROD-2` / `ROUTE-PROD-3` | Chief Journalist | Second-lens trending-versus-fade ranking record |
-| `ROUTE-FALLOUT-1` / `ROUTE-FALLOUT-2` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | Second-lens fallout-ranking record — the human editorial identity (`D-238`), distinct from access-control `ROLE-CHIEF-EDITOR` |
+| `ROUTE-FALLOUT-1` / `ROUTE-FALLOUT-2` | `EDITORIAL-ROLE-EDITOR-IN-CHIEF` | Second-lens fallout-ranking record — the human editorial identity (`D-238`), distinct from access-control `ACCESS-ROLE-CHIEF-EDITOR` (renamed `D-251`) |
 | `ROUTE-FALLOUT-3` / `ROUTE-GRC` | `EXT-GRC` | External judicial/GRC institutional-record context; no external workflow is built in V1 |
 
 **Approved `T3` newsworthiness fields**, captured as part of `T3`'s judgment above:

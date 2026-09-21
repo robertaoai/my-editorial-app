@@ -193,7 +193,7 @@ never a direct Delivery-stage edit.
 
 ## 12. V1 publication boundary — LinkedIn `ManualReady` and the `FR-10` deferral `[V1]` (`D-243`)
 
-**Added 2026-09-20 (`D-243`, from `docs/handoff/B-119`).** Behaviour only: no endpoint, table, key,
+**Added 2026-09-20 (`D-243`, from `docs/handoff/B-119`); revised 2026-09-21 (`D-250`) — trigger, acting authority and content binding decided.** Behaviour only: no endpoint, table, key,
 component or framework choice belongs here (`SPECS` and an authorized Lane B refinement own those).
 This section is a **current-scope note** for §4.1 and §4.2, whose `[V1]` origin is unchanged.
 
@@ -211,11 +211,11 @@ backlog item** — a target only, opening no version.
 |---|---|---|
 | Ordering | The LinkedIn publication target exists first; the `ManualReady` event is appended after it. Readiness is never a mutable status value | Specified |
 | Replay | Repeating the same request for the same article, LinkedIn target and revision produces no second effective readiness outcome, and the repeat stays visible in the audit trail | Specified |
-| Refusal | Missing `business:T5` completion evidence, a wrong route or target, missing formatted content, a stale revision or an unauthorized actor is refused with a named reason and **no record is changed** | Specified |
+| Refusal | Missing `business:T5` completion evidence, a wrong route or target, missing formatted content, a stale snapshot or an unauthorized requester is refused with a named reason. **No readiness, article or publication record is changed**; append-only refusal evidence may be recorded | Specified (`D-250`) |
 | Observable result | The board and detail view show the current effective LinkedIn readiness and its evidence, and never call the article `Published` | Specified |
-| Trigger and precondition | The exact completion evidence, the applicable route or revision, and whether any article state is required | **Open** — needs a Judge-named fact before `V1-SM06` DoR |
-| Acting authority | Who may record readiness; supplier, approver and executor stay distinct; no role is inferred from a similarly named gate | **Open** — needs a Judge-named fact before `V1-SM06` DoR |
-| Revision | Which content or routing revision invalidates readiness, and what produces a fresh event while prior evidence stays visible | **Open** — needs a Judge-named fact before `V1-SM06` DoR |
+| Trigger and precondition | The article has an accepted **final** `business:T5` ranking/routing record, a LinkedIn publication target and valid formatted content. No article-state transition and no publication approval is inferred | **Decided** (`D-250`) |
+| Acting authority | **`ROLE-SENIOR-JOURNALIST` is the sole authorized virtual-agent requester, by explicit Judge grant.** The grant is for the request only: no `T5` impersonation, human Final Sign-Off, Route-1 accountability, WordPress publication, `Published` or live-URL assertion. Any other role, and an unauthenticated client, is refused | **Decided** (`D-250`) |
+| Content binding and revision | Readiness binds to the **exact accepted formatted-content snapshot**; changed content cannot inherit an earlier snapshot's readiness, and prior events stay visible. Intake deduplication is a **separate rule**: a different-day intake is a distinct brief, not a readiness replay | **Decided** at behaviour level (`D-250`); the physical revision or scope identity, idempotency key and effective-current query are **Lane B's, in a later bounded work order** |
 
 **Namespaces stay separate.** `business:T5` is the newsroom judgment stage; the technical `transition:T5`
 is a different thing and is neither triggered nor implied. `ManualReady` alone does not satisfy `CR-19`,

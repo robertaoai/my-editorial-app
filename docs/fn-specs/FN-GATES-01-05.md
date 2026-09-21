@@ -276,6 +276,28 @@ package, or claim independent assurance. A reminder rendered as if it were a com
 the exact failure this boundary exists to prevent (`docs/handoff/B-118`'s failure-derived acceptance
 case "Ranking-only boundary").
 
+### 4.3 `V1-SM05` failure and replay contracts `[V1]` (`D-249`; `DOR-R2`–`DOR-R4`)
+
+**Added 2026-09-21.** Observable behaviour only — no table, key, endpoint or framework choice (`SPECS` and a later
+authorized Lane B refinement own those). Each row names the namespace it means, because `V1-SM05` is a limited
+evidence slice and **does not claim `transition:T*` execution**: **B** = a `business:T*` judgment record, **EG** = a
+V1 task/evidence record, **TR** = a technical `transition:T*` state. **No `V1-SM05` criterion is a TR row.**
+
+| Contract | Given | When | Then | Ns |
+|---|---|---|---|---|
+| `DOR-R2` positive | An accepted manual record and an `EW`-start from the Senior Journalist | `OP-PITCH` runs on `ROUTE-PROD-1` | Exactly one completed pitch and route classification is recorded | B/EG |
+| `DOR-R2` duplicate | A completed pitch for that record | The same `EW`-start or pitch is repeated | **No second completion**; the repeat stays visible in the audit trail | EG |
+| `DOR-R2` failure | A pitch that cannot complete (for example, no classification) | It is attempted | Nothing advances; failure evidence is appended; a later valid attempt yields one completion | EG |
+| `DOR-R3` missing intake | No accepted manual record | An `EW`-start arrives | It is refused with a named reason; **no gate, state or workflow identity is created** | EG |
+| `DOR-R3` duplicate `EW` | An accepted record whose `EW` was already recorded | A second `EW` arrives | No second workflow; the workflow identity is stable | EG |
+| `DOR-R3` new work | An accepted record for a **different** brief, including one logged on a different day | Its `EW` arrives | A distinct workflow is created — a new intake is not a replay of the old one | EG |
+| `DOR-R4` executor | `ROUTE-PROD-1`, `OP-DRAFT` dispatched | It runs | The Reporter is the executor of record; the recorded application-default `A` is the Chief Editorial Desk; a repeat dispatch does not create a second execution | EG |
+| `DOR-R4` final sign-off | `OP-FINAL-SIGNOFF`'s accepted A-only contract | V1 reaches the Final Sign-Off point | The **external-tracking reminder is displayed and nothing is enforced or executed**; the contract stays the future target | B |
+
+Refusal reasons are named, and the exact vocabulary is Lane B's. These rows complete the failure and replay
+detail `DOR-R2`–`DOR-R4` still lacked; they do **not** make either work packet DoR-complete (`DOR-R5` and
+`DOR-R6` remain).
+
 ## 5. Acceptance criteria
 
 | ID | Given | When | Then |
@@ -377,7 +399,7 @@ current behaviour.
 | `EG2` | `T2`+`T3` | `ROLE-INVESTIGATOR` | `decided_target_held` |
 | `EG3` | `T4` | `ROLE-JOURNALIST` | `decided_target_held` |
 | `EG4` | `T5` | Route-dependent: `ROLE-CHIEF-EDITORIAL-DESK` and/or `ROLE-CHIEF-JOURNALIST`, singly or in parallel — never aliases (`D-175`; cardinality table `raci-involvement-matrix.md` §8) | `decided_target_held` |
-| `EG5` | `T6` | `ROLE-CHIEF-EDITOR` | `decided_target_held`; human executor required, refused otherwise |
+| `EG5` | `T6` | `ACCESS-ROLE-CHIEF-EDITOR` entitlement (renamed `D-251`); a human executor is required | `decided_target_held`; human executor required, refused otherwise |
 | Delivery | `T7`/publication actions | `ROLE-SYSTEM-DELIVERY` | no editorial authority; `not_applicable` Line |
 
 **Lifecycle values, used exactly as named — no bare `current` or `active` while `D-171`'s hold stands:**

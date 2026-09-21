@@ -1,0 +1,206 @@
+{
+  "nodes": [
+    {
+      "id": "fr09_publish_or_manualready",
+      "label": "FR-09 — Publish to WordPress or mark ManualReady on approval",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": null,
+      "description": "Functional requirement FR-09. In V1 only the LinkedIn target-level ManualReady publication event is in scope (D-243), requested by ROLE-SENIOR-JOURNALIST after an accepted final business:T5 record (D-250); ManualReady is an event, not an article state. Automated WordPress publication, retry and scheduling are a V2-target backlog with no V2 opened. [V1] origin retained."
+    },
+    {
+      "id": "fr10_confirm_manual_publish",
+      "label": "FR-10 — Confirm manual publish via live URL",
+      "file_type": "concept",
+      "source_file": "docs/Modular_PRD.md",
+      "source_location": null,
+      "description": "Functional requirement FR-10: confirm a manual publish by entering a live URL, promoting the target and then the article to Published. Under D-243 this runtime behaviour is a V2-target backlog item outside V1; the section keeps its [V1] origin and no [V1 to V2] marker is used while no V2 build exists."
+    },
+    {
+      "id": "d247_current_v1_boundary_manualready_outcome",
+      "label": "D-247: current V1 boundary",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e72",
+      "description": "V1 is V1-SM05 and V1-SM06 and ends at the bounded LinkedIn target-level ManualReady outcome. It satisfies the customer's CR-19 scenario only partially; the five-gate execution and Chief Journalist approval it names are neither admitted into V1 nor assigned a destination. WordPress, retry and FR-10/T11 remain V2 targets under D-243."
+    },
+    {
+      "id": "d248_d244_lifecycle_correction_closure_pending",
+      "label": "D-248: D-244 lifecycle correction, closure pending",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e73",
+      "description": "Supersedes only the closure implication of D-244, which stays as historical provenance. SETUP-SPIKE-000 stays open while S2-S4 or their residuals are non-terminal; derived tiers read transfer mapped, closure pending."
+    },
+    {
+      "id": "d249_bounded_outcomes_sm05_sm06_partial_cr19",
+      "label": "D-249: bounded SM05/SM06 outcomes, partial CR-19",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e74",
+      "description": "V1-SM05 is a limited Route-1 evidence slice that records and displays business-stage, role, task and evidence facts without claiming transition:T* execution. V1-SM06 adds board and audit visibility plus the bounded LinkedIn ManualReady event, with no Published state, WordPress delivery or live-URL confirmation. Both disclose partial CR-19 satisfaction."
+    },
+    {
+      "id": "d250_manualready_five_dimension_contract",
+      "label": "D-250: five-dimension ManualReady contract",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e75",
+      "description": "Eligibility needs an accepted final business:T5 record; ROLE-SENIOR-JOURNALIST is the sole authorized virtual-agent requester by explicit Judge grant; readiness binds to the exact accepted formatted-content snapshot; refusal mutates nothing but may append refusal evidence; identical replay creates no second effective outcome. Physical revision identity, idempotency key and query are Lane B's later work."
+    },
+    {
+      "id": "d251_access_role_chief_editor_namespace",
+      "label": "D-251: ACCESS-ROLE-CHIEF-EDITOR namespace correction",
+      "file_type": "concept",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e76",
+      "description": "Renames the natural-person access entitlement ROLE-CHIEF-EDITOR to ACCESS-ROLE-CHIEF-EDITOR and reserves ROLE-* for virtual-agent identities. Identifier correction only; no accountability or authority moves and historical text is preserved. Carries the identity-migration ledger; no code, schema or stored value is renamed."
+    }
+  ],
+  "edges": [
+    {
+      "source": "d247_current_v1_boundary_manualready_outcome",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e72",
+      "weight": 1
+    },
+    {
+      "source": "d248_d244_lifecycle_correction_closure_pending",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e73",
+      "weight": 1
+    },
+    {
+      "source": "d249_bounded_outcomes_sm05_sm06_partial_cr19",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e74",
+      "weight": 1
+    },
+    {
+      "source": "d250_manualready_five_dimension_contract",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e75",
+      "weight": 1
+    },
+    {
+      "source": "d251_access_role_chief_editor_namespace",
+      "target": "v1_decision_register",
+      "relation": "part_of",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e76",
+      "weight": 1
+    },
+    {
+      "source": "d247_current_v1_boundary_manualready_outcome",
+      "target": "d243_v1_publication_boundary_manualready",
+      "relation": "depends_on",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e72",
+      "weight": 1
+    },
+    {
+      "source": "d248_d244_lifecycle_correction_closure_pending",
+      "target": "d244_setup_transfer_choice_a",
+      "relation": "amends",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e73",
+      "weight": 1
+    },
+    {
+      "source": "d249_bounded_outcomes_sm05_sm06_partial_cr19",
+      "target": "d247_current_v1_boundary_manualready_outcome",
+      "relation": "depends_on",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e74",
+      "weight": 1
+    },
+    {
+      "source": "d249_bounded_outcomes_sm05_sm06_partial_cr19",
+      "target": "work_packet_v1_sm05_mmf_v1_core",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e74",
+      "weight": 1
+    },
+    {
+      "source": "d249_bounded_outcomes_sm05_sm06_partial_cr19",
+      "target": "work_packet_v1_sm06_mmf_v1_usable",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e74",
+      "weight": 1
+    },
+    {
+      "source": "d250_manualready_five_dimension_contract",
+      "target": "d243_v1_publication_boundary_manualready",
+      "relation": "amends",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e75",
+      "weight": 1
+    },
+    {
+      "source": "d250_manualready_five_dimension_contract",
+      "target": "fr09_publish_or_manualready",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e75",
+      "weight": 1
+    },
+    {
+      "source": "d250_manualready_five_dimension_contract",
+      "target": "work_packet_v1_sm06_mmf_v1_usable",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e75",
+      "weight": 1
+    },
+    {
+      "source": "d251_access_role_chief_editor_namespace",
+      "target": "d250_manualready_five_dimension_contract",
+      "relation": "depends_on",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e76",
+      "weight": 1
+    },
+    {
+      "source": "d243_v1_publication_boundary_manualready",
+      "target": "fr10_confirm_manual_publish",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e68",
+      "weight": 1
+    },
+    {
+      "source": "d243_v1_publication_boundary_manualready",
+      "target": "fr09_publish_or_manualready",
+      "relation": "governs",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/v1/V1-DECISION-REGISTER.md",
+      "source_location": "section 5.14e68",
+      "weight": 1
+    }
+  ]
+}

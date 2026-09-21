@@ -78,6 +78,7 @@
 | `docs/v1/work-packets/V1/V1-SM06.md` | `D-240` — MMF checklist, `MMF-V1-USABLE` | ✅ **Created 2026-09-17** |
 | `docs/graph-fragments/restore-docs-layer.js` | `D-246` — replays docs-layer nodes by id from a dated graph backup after a rebuild dropped them; overwrites nothing | ✅ **Created 2026-09-20** |
 | `docs/graph-fragments/frag137.json` | `D-246` — curated nodes for documents and decisions created after the last backup (work packets, SPECS index files, `D-242`–`D-246`) | ✅ **Created 2026-09-20** |
+| `docs/graph-fragments/frag138.json` | `D-247`–`D-251` — curated nodes for the five decisions, and corrected descriptions for `FR-09`, `FR-10` and `D-244` | ✅ **Created 2026-09-21** |
 | `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` | `D-245` — reusable one-MMF pull-request template; selects nothing, grants no authority | ✅ **Created 2026-09-20** |
 
 **No broken internal document links** — the docs are self-consistent. The gaps are artifacts that were planned but never created, not references that dangle.
@@ -274,6 +275,15 @@ publication artifacts cover the V1 outcome; the edits landed as sections inside 
 (`Modular_PRD.md`, `FN-PUBLICATION-09-10-13.md`, `requirements-traceability-map.md`, the storyboard,
 `V1-BUILD-SPEC.md`, the five `D-240` packets and `ENCYCLOPEDIA-SYNC.md`). No packet is retired, so every
 `S2`–`S4` file remains in place.
+
+**`D-247`–`D-251` (2026-09-21) — disposition, stated explicitly.** No packet or document is retired, and
+none of the five decisions creates a file other than the curated fragment recorded in the table above
+(`frag138.json`). Everything else landed as sections inside already-inventoried files: the Register,
+`V1-BUILD-SPEC.md`, `Modular_PRD.md`, `FN-PUBLICATION-09-10-13.md`, `FN-GATES-01-05.md`,
+`requirements-traceability-map.md`, `raci-involvement-matrix.md`, `factory-route-operation-crosswalk.md`,
+the storyboard (Panel A10), `ENCYCLOPEDIA-SYNC.md`, the five `D-240` work packets and this file. The
+identity-migration ledger lives in `D-251`; the `ACCESS-ROLE-CHIEF-EDITOR` rename touches no code, schema or
+migration artifact.
 
 ## Temporary / Draft Artifacts
 

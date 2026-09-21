@@ -88,12 +88,13 @@ Row-shape verification is unchanged by `D-176`: 2 of 8 (`OP-COPY-EDIT`, `OP-CRIS
 > `R`; no precursor child-task contract is needed.
 
 > **Role-identity split, 2026-09-17 (`D-238`, `docs/handoff/B-118`).** §1/§2's every business-RACI
-> occurrence of `ROLE-CHIEF-EDITOR` is corrected to `EDITORIAL-ROLE-EDITOR-IN-CHIEF`
+> occurrence of `ROLE-CHIEF-EDITOR` (since renamed `ACCESS-ROLE-CHIEF-EDITOR`, `D-251`; the historical narratives
+> in this file keep the old name) is corrected to `EDITORIAL-ROLE-EDITOR-IN-CHIEF`
 > (`raci-involvement-matrix.md` §8) — `ROLE-CHIEF-EDITOR` is henceforth access/gate-execution
 > identity only, never a source-RACI fact. **Classification rule applied:** every Sheet 1/Sheet 2
 > CSV-sourced route or operation `R`/`A`/`C`/`I` cell is business identity and is remapped; gate/
 > transition execution eligibility (who may perform `transition:T5`/`T6`/`EG5` in the system,
-> `raci-involvement-matrix.md` §8's "Gate eligibility" column) stays `ROLE-CHIEF-EDITOR`, since it is
+> `raci-involvement-matrix.md` §8's "Gate eligibility" column) stays the access entitlement `ACCESS-ROLE-CHIEF-EDITOR`, since it is
 > an authorization fact, not a Sheet-sourced accountability fact. §3's "Chief Editor, `B-068` §14.4"
 > provenance citations are unaffected — they name the real decision-maker who approved the table, not
 > a RACI party, and are not role references.

@@ -250,6 +250,50 @@ workflow state, and a later `Published` outcome. Behaviour is in `FN-PUBLICATION
 annotation does **not** discharge the separate normal/revision storyboard, sequence and data-flow
 completion owed under `docs/handoff/B-117`; the single Mermaid source above is unchanged.
 
+### Panel A10 — LinkedIn `ManualReady`: normal, refusal and replay (`D-250`), added 2026-09-21
+
+**The single visual owner of this sequence and its data flow.** `FN-PUBLICATION-09-10-13.md` §12, the
+`V1-SM06` packet and the traceability map cross-reference this panel and do not redraw it. It covers the
+`ManualReady` event **only**; it is **not** B-117's whole normal/revision editorial path, which stays a
+separate open child (`DOR-R5`). Namespaces stay distinct: `business:T5` is the newsroom judgment record,
+`ManualReady` is a publication event, and no technical `transition:T*` executes here.
+
+```mermaid
+sequenceDiagram
+    participant SJ as ROLE-SENIOR-JOURNALIST (virtual agent, sole requester)
+    participant APP as Application service
+    participant DB as Postgres (append-only)
+    Note over SJ,DB: Normal path
+    SJ->>APP: request ManualReady (article, LinkedIn target, accepted formatted-content snapshot)
+    APP->>DB: read accepted final business:T5 ranking/routing record
+    APP->>DB: read LinkedIn publication target and content snapshot
+    APP->>DB: append publications event ManualReady bound to that snapshot
+    APP-->>SJ: effective LinkedIn readiness (not Published)
+    Note over SJ,DB: Refusal path (missing T5 evidence, wrong route or target, missing or changed content, other requester)
+    SJ->>APP: invalid request
+    APP->>DB: append refusal evidence only (no readiness, article or publication change)
+    APP-->>SJ: refused with a named reason
+    Note over SJ,DB: Replay path (identical request)
+    SJ->>APP: same request again
+    APP->>DB: append audit evidence of the repeat
+    APP-->>SJ: existing effective outcome (no second readiness event)
+    Note over SJ,DB: Changed content is a new snapshot: it needs its own accepted content and its own event
+```
+
+```mermaid
+flowchart LR
+    T5[business:T5 ranking and routing record] --> E{eligible?}
+    S[accepted formatted-content snapshot] --> E
+    R[requester = ROLE-SENIOR-JOURNALIST] --> E
+    E -- yes --> P[publications: append ManualReady for the LinkedIn target]
+    E -- no --> F[append refusal evidence only]
+    P --> V[board and detail show effective readiness]
+    P -.never.-> X[article Published, WordPress delivery, live URL]
+```
+
+The physical revision or scope identity, idempotency key and effective-current query are Lane B's, in a later
+bounded work order; this panel shows behaviour, not mechanism.
+
 ---
 
 ## 2. Lane B — POC: client-commissioned research

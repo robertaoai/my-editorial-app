@@ -18345,3 +18345,273 @@ what counts as a lane crossing, or restate a tally. Does not claim CI runs the g
 and `docs-drift` still SKIP in a default CI checkout, and the fixtures can run there while the graph itself
 proves nothing without the local, full-history run. **Lane A's own implementation, not independently
 reviewed.**
+
+---
+
+## 5.14e72 `D-247` — Current V1 Boundary: `V1-SM05` and `V1-SM06`, Ending at the Bounded LinkedIn `ManualReady` Outcome
+
+**Authority: Judge statement C, approved verbatim in the current conversation on 2026-09-21
+(`D-183` rules 1 and 5).** Statement C authorizes Lane A to apply the five-part correction packet recorded
+in `docs/handoff/B-119` (section "Lane B return to Lane A — Judge accepts the five-part correction packet,
+2026-09-21", commit `13a4720`), each decision under its own Register ID, in order: `D-247`–`D-251`. Its
+exclusions and stop point govern all five: no application, schema, migration or workflow change; no
+physical data contract; no MMF selection, work order, Lane B activation, branch, pull request or
+construction; no V2 opening, packet retirement, earned DoD, deployment, hosted Encyclopedia republish or
+closing of B-117, B-118 or B-119. The Lane B/C review stop follows.
+
+### The decision (Judge decision 1)
+
+Current V1 consists of `V1-SM05` and `V1-SM06` and **ends at the bounded LinkedIn target-level
+`ManualReady` outcome** (`D-243`). Automated WordPress, retry and scheduler behaviour, and `FR-10`/`T11`
+live-URL confirmation remain **V2 targets under `D-243`** — targets only, opening no version. **No destination
+is inferred for any other unsatisfied `CR-19` component**: the five-gate execution and Chief Journalist
+approval the frozen success scenario names are neither admitted into V1 by this act nor sent to V2 by it.
+
+### What this settles
+
+The frozen Project PRD and Charter success scenario (`CR-19`) and this boundary coexist only because V1 is
+described as a **limited outcome, not the full scenario**. `V1-BUILD-SPEC.md` §1 keeps quoting `CR-19`
+unchanged as the customer's statement and now states, beside it, that V1 satisfies it partially. Frozen
+sources are not edited.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e72 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1: the boundary and the partial-`CR-19` disclosure beside the unchanged quote |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ stated explicitly in the `D-247`–`D-251` disposition paragraph |
+| **`docs/Modular_PRD.md`** | ✅ §8.1 boundary note extended; §8 tracker unchanged — no sprint closes and no tier opens |
+| **Work packets** | ✅ `V1-SM05`/`V1-SM06` (see `D-249`) |
+| **`docs/PRD.md`, Charter** | — frozen, unchanged |
+| **Rule files, Phase Closure** | — unaffected |
+| **Encyclopedia** | Entries 05 and 06 flagged: their `CR-19`/pipeline framing is touched; ledger updated, hosted comparison deferred |
+| **Graphify** | Owed once after the last governed edit of this run |
+
+### What this act does NOT do
+
+Does not amend `D-239` or `D-243` beyond fixing the overall boundary, admit five-gate execution or Chief
+Journalist approval into V1, or send any other exclusion to V2. Does not open V2 or authorize construction.
+
+---
+
+## 5.14e73 `D-248` — `D-244` Lifecycle Correction: Transfer Mapped, Closure Pending
+
+**Authority: Judge statement C (see `D-247`); decision 2.**
+
+### The decision
+
+`D-244` is **preserved as historical transfer provenance and is not rewritten.** Only its closure
+implication is **superseded**: its heading reads that `SETUP-SPIKE-000` "closes by explicit behaviour
+transfer", which no record supports. **`SETUP-SPIKE-000` stays open while `S2`–`S4` or their residual scopes
+are non-terminal.** The transfer grants no DoD, no terminal disposition, no retirement and no closure credit.
+
+Derived tiers read **"transfer mapped; closure pending"**. `S2` stays `HELD` (`D-171`), `S3` and `S4` stay
+open, and the held `T6`, RPC, return-analytics and publication residuals each keep one named owner under
+`D-244`'s destination table, which is unchanged.
+
+### When the setup root may close
+
+Only after every `S2`–`S4` child is terminal — each either completed with evidence, or terminally
+deferred/retired by its own act **without DoD credit** — and a Register act records that. No Lane A
+reading of a green check, a transfer table or a packet's existence closes it.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e73 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 states "transfer mapped; closure pending" |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ stated in the disposition paragraph: no file retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/`** | ✅ each of `S2`/`S3`/`S4` states closure pending |
+| **`docs/Modular_PRD.md`** | ✅ §8.1 note wording; the `S0`–`S6` rows are unchanged |
+| **Graphify** | ✅ the curated `D-244` node text is corrected; rebuilt once at the end |
+| **Rule files, Phase Closure, frozen sources** | — unaffected |
+| **Encyclopedia** | Unaffected — no entry depends on setup-programme lifecycle |
+
+### What this act does NOT do
+
+Does not edit `D-244`'s text, retire or terminally dispose any packet, or move any residual to V2.
+
+---
+
+## 5.14e74 `D-249` — Bounded Outcomes for `V1-SM05` and `V1-SM06`, With Partial-`CR-19` Disclosure
+
+**Authority: Judge statement C (see `D-247`); decision 3.**
+
+### The decision
+
+| Packet | Bounded outcome | Replaces |
+|---|---|---|
+| **`V1-SM05`** | A **limited Route-1 evidence slice**: it records and displays accepted business-stage, role, task and evidence facts. It **does not claim `transition:T*` execution**, and each acceptance criterion states which of three namespaces it means — a `business:T*` judgment record, a V1 `EG*` task/evidence record, or a technical `transition:T*` state | "core end-to-end editorial flow" |
+| **`V1-SM06`** | **Board/audit visibility** plus the **bounded LinkedIn `ManualReady`** event (`D-250`). It creates **no** `Published` state, no automated WordPress delivery and no live-URL confirmation | "the full PRD success scenario becomes usable" |
+
+Both packets **disclose partial, not complete, `CR-19` satisfaction.** `V1-SM06` still depends on `V1-SM05`
+reaching DoD (`D-244`, unchanged). The MMF identities (`D-232`) are unchanged; only the outcome claims are
+corrected. No new `V1` sprint ID is created.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e74 |
+| **`V1-BUILD-SPEC.md`** | ✅ increments table meaning column and the §1 disclosure |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ stated in the disposition paragraph |
+| **`docs/v1/work-packets/V1/`** | ✅ outcome, dependencies, exclusions, DoR, DoD, failure cases and evidence updated in both packets |
+| **`docs/governance/requirements-traceability-map.md`** | ✅ §6.1 slot-outcome and disclosure note |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ new §4.3 — the `DOR-R2`–`DOR-R4` failure and replay contracts |
+| **`docs/Modular_PRD.md`** | ✅ §8.1 note; no requirement text changes |
+| **Storyboard** | ✅ Panel A10 (see `D-250`) |
+| **Rule files, Phase Closure, frozen sources** | — unaffected |
+| **Encyclopedia** | Entries 01, 05, 06 (`V1-SM05`) and 04 (`V1-SM06`) flagged; hosted comparison deferred |
+| **Graphify** | Owed once after the last governed edit of this run |
+
+### What this act does NOT do
+
+Does not select either packet, complete DoR, accept either DoD, admit `transition:T*` execution, or make
+either MMF deliver the full `CR-19` scenario. Lane B's feasibility review and the Judge's acceptance of the
+business outcome remain separate pending acts.
+
+---
+
+## 5.14e75 `D-250` — The Five-Dimension `ManualReady` Contract
+
+**Authority: Judge statement C (see `D-247`); decision 4. Supersedes `D-243`'s "Open" status for its trigger
+and acting-authority children and settles its revision child at behaviour level.** `D-243` itself, and its
+boundary, are unchanged.
+
+### The contract
+
+| Dimension | Rule |
+|---|---|
+| **Eligibility** | Requires an accepted **final** `business:T5` ranking/routing record for the article. No article-state transition and no publication approval is inferred |
+| **Requester** | **`ROLE-SENIOR-JOURNALIST` is the sole authorized virtual-agent requester, by this explicit Judge grant.** Its intake position, `T4` participation or pipeline symmetry is rationale, not authority |
+| **Content binding** | Readiness binds to the **exact accepted formatted-content snapshot**. Changed content cannot inherit an earlier snapshot's readiness |
+| **Refusal** | An invalid request causes **no readiness, article or publication mutation**. Append-only refusal evidence may be recorded |
+| **Replay** | An identical request creates **no second effective readiness outcome**. Intake deduplication is a **separate rule**; a different-day intake is a distinct brief, not readiness replay |
+
+### What the grant does not confer
+
+`ROLE-SENIOR-JOURNALIST` receives readiness-request authority **only** from this grant. It does **not**
+authorize `T5` impersonation, human Final Sign-Off, Route-1 accountability, WordPress publication,
+`Published`, or a live-URL assertion. `raci-involvement-matrix.md` §8's condition for the role — "unless
+separately governed for a `T`/`EG` node" — is satisfied by this act, and the catalog row now records the
+grant and these limits.
+
+### Left to Lane B, deliberately
+
+The physical revision/scope identity, the idempotency key, the effective-current query, any compatibility
+treatment and any schema migration are **Lane B design questions for a later bounded work order.** No
+existing migration may be rewritten. Today's `publications` row has no mandatory revision or snapshot
+identity, so this contract states the observable rule and does not assume a mechanism.
+
+### Verification matrix owed before a work order (Lane B, later)
+
+1. `ROLE-SENIOR-JOURNALIST` succeeds only with completed `business:T5` evidence, a LinkedIn target and valid
+   formatted content.
+2. `ROLE-CHIEF-EDITORIAL-DESK`, `ROLE-DESK-EDITOR`, `ROLE-REPORTER`, `ACCESS-ROLE-CHIEF-EDITOR` and an
+   unauthenticated client are refused.
+3. Refusal appends only permitted audit evidence and mutates no readiness, article or publication state.
+4. Identical replay creates no second effective readiness outcome.
+5. A different-day intake is a distinct brief, not readiness replay.
+6. Changed content cannot inherit an earlier snapshot's readiness.
+7. `ManualReady` never implies `Published`, WordPress delivery, a live URL or complete `CR-19`.
+8. The access-role rename does not transfer source-RACI accountability or virtual-agent authority.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e75 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 pointer to this contract |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ stated in the disposition paragraph |
+| **`docs/fn-specs/FN-PUBLICATION-09-10-13.md`** | ✅ §12 revised: the trigger and authority children become decided |
+| **`docs/governance/raci-involvement-matrix.md`** | ✅ §8 `ROLE-SENIOR-JOURNALIST` row |
+| **`docs/governance/requirements-traceability-map.md`** | ✅ §6.1 note |
+| **Storyboard** | ✅ new Panel A10 — the single visual owner of the normal, refusal and replay sequence and its data flow; the Fn Specs and packets cross-reference it |
+| **`docs/v1/work-packets/V1/V1-SM06.md`** | ✅ DoR children, DoD and the verification matrix |
+| **`docs/specs/`** | — unaffected: mechanism choices are Lane B's, later |
+| **Rule files, Phase Closure, frozen sources** | — unaffected |
+| **Encyclopedia** | Entry 04 flagged (event versus article state); hosted comparison deferred |
+| **Graphify** | Owed once after the last governed edit of this run |
+
+### What this act does NOT do
+
+Does not choose a table, column, key, query or migration, authorize `ManualReady` construction, or make
+`ManualReady` an article state. Does not extend `ROLE-SENIOR-JOURNALIST`'s authority beyond the request.
+
+---
+
+## 5.14e76 `D-251` — `ACCESS-ROLE-CHIEF-EDITOR`: Identifier Namespace Correction
+
+**Authority: Judge statement C (see `D-247`); decision 5.**
+
+### The decision
+
+`ROLE-*` is **reserved for virtual-agent identities**, and the natural-person access entitlement that
+`D-238` narrowed is **renamed `ACCESS-ROLE-CHIEF-EDITOR`** (formerly `ROLE-CHIEF-EDITOR`). This is an
+**identifier correction only**. It transfers no editorial accountability, gate judgment or
+publication-readiness authority, and `D-238`'s split of meaning is unchanged: `ACCESS-ROLE-CHIEF-EDITOR` is
+access/security entitlement plus gate/transition **execution** eligibility (human executor required),
+never a source-RACI fact by itself.
+
+| Prefix | Meaning |
+|---|---|
+| `ROLE-*` | Virtual-agent role identities (executors of record) |
+| `ACCESS-ROLE-*` | Natural-person access entitlement |
+| `EDITORIAL-ROLE-*` | Human editorial identity and accountability (`EDITORIAL-ROLE-EDITOR-IN-CHIEF`) |
+| `AGENT-*` | Assistive virtual role, never an executor of record (`AGENT-T5-EDITOR-IN-CHIEF`) |
+| `USR-*` | An individual user account |
+
+**Historical text is preserved**, including `D-238` and every decision, handoff entry and draft plan that
+names `ROLE-CHIEF-EDITOR`. This act is prospective; living tiers use the new identifier and, where they
+narrate the history, say so.
+
+**Not reclassified here:** existing `ROLE-*` catalog rows whose holder class the catalog does not yet
+state (for example `ROLE-DESK-EDITOR`, whose route accountability is unchanged) are not reclassified by
+this act; that is flagged as catalog work, not decided.
+
+### Identity-migration ledger (every occurrence found before renaming)
+
+Repository-wide search, 2026-09-21. **Access entitlement** = the renamed identifier; **human editorial**,
+**virtual agent** and **historical text** classes are listed only where an occurrence falls in them.
+
+| Location | Occurrences | Class | Action |
+|---|---:|---|---|
+| `raci-involvement-matrix.md` §8 catalog row and the `EDITORIAL-ROLE-EDITOR-IN-CHIEF` row | 2 | Access entitlement | **Renamed** |
+| `raci-involvement-matrix.md` §8 verification narrative | 1 | Historical text | Kept, annotated with the new identifier |
+| `factory-route-operation-crosswalk.md` §1's gate-eligibility statement | 1 | Access entitlement | **Renamed** |
+| `factory-route-operation-crosswalk.md` D-238/D-237 correction narratives | 4 | Historical text | Kept, annotated |
+| `FN-GATES-01-05.md` §11 `EG5` row | 1 | Access entitlement | **Renamed**, reworded as entitlement plus human executor |
+| `requirements-traceability-map.md` §6.4 routing row | 1 | Access entitlement | **Renamed** |
+| `V1-BUILD-SPEC.md` `DOR-R4` row | 1 | Access entitlement | **Renamed** |
+| `ENCYCLOPEDIA-SYNC.md` Entry 01 flag text | 1 | Historical text | Kept, annotated |
+| `V1-DECISION-REGISTER.md` (`D-236`–`D-238` and earlier) | many | Historical text | **Preserved** |
+| `V1-B071-CORRECTIVE-PLAN.md` | many | Historical text (draft plan) | **Preserved** |
+| `docs/handoff/` entries | several | Historical text | **Preserved** |
+| `app/`, `lib/`, `components/`, `supabase/`, `__tests__/`, migrations, seeds, scripts | none found | — | Nothing to rename. **No stored, API, code or schema identifier is renamed by this act** |
+| Persisted database rows | **not determinable from the repository** | — | **Open:** Lane B confirms, when its bounded work order exists, whether any stored value carries the old identifier |
+
+No occurrence was classified as human editorial or virtual agent: every live use was the access/gate-
+execution entitlement. The counts are a dated record of this search, not a running total.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e76 |
+| **`V1-BUILD-SPEC.md`** | ✅ `DOR-R4` row renamed |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ stated in the disposition paragraph |
+| **`docs/governance/raci-involvement-matrix.md`** | ✅ §8 catalog, prefix note, changelog |
+| **`docs/governance/factory-route-operation-crosswalk.md`** | ✅ gate-eligibility statement and annotations |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ `EG5` row |
+| **`docs/governance/requirements-traceability-map.md`** | ✅ §6.4 row |
+| **`docs/ENCYCLOPEDIA-SYNC.md`** | ✅ Entry 01 flagged; hosted comparison deferred |
+| **`docs/Modular_PRD.md`** | — unaffected: no occurrence of the identifier |
+| **Rule files, Phase Closure, frozen sources, `0001_init.sql`** | — unaffected |
+| **Graphify** | Owed once after the last governed edit; restored graph descriptions naming the old identifier are checked in the semantic queries |
+
+### What this act does NOT do
+
+Does not transfer any accountability or authority, rename a stored, API, code or schema value, rewrite
+history, or reclassify other `ROLE-*` rows.

@@ -28,15 +28,25 @@ meaning unchanged** — they predate the namespace split and are not renumbered 
 
 | Qualified ID | MMF | Status | Meaning |
 |---|---|---|---|
-| `V1-SM05` | `MMF-V1-CORE` | Not started; not selected | First working-software increment — core end-to-end editorial flow |
-| `V1-SM06` | `MMF-V1-USABLE` | Not started; not selected | Second increment — the full PRD success scenario becomes usable, ending at an effective LinkedIn `ManualReady` event (`D-243`) |
+| `V1-SM05` | `MMF-V1-CORE` | Not started; not selected | First working-software increment — a **limited Route-1 evidence slice** (`D-249`): it records and displays accepted business-stage, role, task and evidence facts and does not claim `transition:T*` execution |
+| `V1-SM06` | `MMF-V1-USABLE` | Not started; not selected | Second increment — **board/audit visibility and the bounded LinkedIn `ManualReady` event** (`D-243`, `D-249`); it creates no `Published` state, no automated WordPress delivery and no live-URL confirmation |
+
+**Current boundary and partial `CR-19` (`D-247`–`D-251`, 2026-09-21).** V1 is `V1-SM05` and `V1-SM06` and
+**ends at the bounded LinkedIn target-level `ManualReady` outcome.** **It satisfies the customer's `CR-19` scenario
+above only partially**: the five-gate execution and Chief Journalist approval that scenario names are neither
+admitted into V1 nor sent to V2 by this boundary, and no destination is inferred for them. The quote above is the
+customer's statement and stays unchanged. The `ManualReady` contract — eligibility, the sole authorized
+requester `ROLE-SENIOR-JOURNALIST`, content binding, refusal and replay — is `D-250`; the physical mechanism is
+Lane B's, later. Natural-person access is `ACCESS-ROLE-CHIEF-EDITOR` (`D-251`).
 
 **Publication boundary and setup transfer (`D-243`, `D-244`, 2026-09-20).** `V1-SM06` carries the narrow
 LinkedIn `ManualReady` outcome — an event, not an article state; `FR-10`/`T11` live-URL confirmation and
 automated WordPress are a V2-target backlog item that opens no version. **`SETUP-SPIKE-000`'s `S0`/`S1`
 stay completed evidence, and each unfinished `S2`–`S4` behaviour has exactly one destination, recorded in
-`D-244`** and mirrored in that sprint's work packet rather than restated here. `V1-SM06` still depends on
-`V1-SM05` reaching DoD. Transfer creates no implementation, no DoD credit and retires no packet.
+`D-244`** and mirrored in that sprint's work packet rather than restated here. **The setup programme is
+"transfer mapped; closure pending" (`D-248`)** — it stays open while `S2`–`S4` or their residuals are
+non-terminal. `V1-SM06` still depends on `V1-SM05` reaching DoD. Transfer creates no implementation, no DoD
+credit, no terminal disposition and retires no packet.
 
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and DoD are **defined in their work packets (`D-245`, 2026-09-20)** and are not complete:
 each DoR box is checked only against current evidence, and Lane B's feasibility review and the Judge's
@@ -70,7 +80,7 @@ checklist; it replaces, not duplicates, the earlier list:
 | `DOR-R1` — pre-T1 record and event contract | Canonical intake/work-order/route record; Chief Editor supplier identity; acceptance event permitting `EW`; stored route R/A; no copying into each transition | One schema-neutral contract names fields/events, authority and audit projection |
 | `DOR-R2` — `OP-PITCH` atomic contract | **Resolved 2026-09-17** — for `V1-SM05`'s fixed `ROUTE-PROD-1`, Reporter is the selected executor at business judgment stage 1, consuming Sheet 2's preserved multi-`R` row without collapsing it; see `factory-route-operation-crosswalk.md` §4.1. Failure/replay/idempotency shape still to be drafted from this rule | Positive case creates one completed pitch/classification; duplicate event creates no second completion |
 | `DOR-R3` — `EW` refusal/retry contract | Missing/unaccepted intake, duplicate `EW`, failed pitch, later legitimate new workflow | BDD cases show no gate/state advance, stable workflow identity and append-only failure/retry evidence |
-| `DOR-R4` — required Route-1 operation contracts | **`OP-DRAFT` resolved 2026-09-17** — Reporter is Route-1's executor (corrected: an earlier pass here wrongly named Journalist, who belongs to `ROUTE-PROD-2`); Chief Editorial Desk is the recorded application-default `A` (crosswalk §4.1). **`OP-FINAL-SIGNOFF` is ACCEPTED, attesting party corrected 2026-09-17 (`D-237`), party identity narrowed 2026-09-17 (`D-238`)** — the human Editor-in-Chief (`EDITORIAL-ROLE-EDITOR-IN-CHIEF`, not access-control `ROLE-CHIEF-EDITOR`) performs the A-only attestation, Desk Editor is `C` not `A`, no synthetic `R`, idempotent replay per revision, fresh attestation on relevant revision, opens human review only (crosswalk §4.1/§4.2). `OP-COPY-EDIT`'s source `R` corrected to Chief Journalist (`D-236`), already `VERIFIED`, unchanged shape | Every required operation has one executable atomic/milestone shape before T5 readiness |
+| `DOR-R4` — required Route-1 operation contracts | **`OP-DRAFT` resolved 2026-09-17** — Reporter is Route-1's executor (corrected: an earlier pass here wrongly named Journalist, who belongs to `ROUTE-PROD-2`); Chief Editorial Desk is the recorded application-default `A` (crosswalk §4.1). **`OP-FINAL-SIGNOFF` is ACCEPTED, attesting party corrected 2026-09-17 (`D-237`), party identity narrowed 2026-09-17 (`D-238`)** — the human Editor-in-Chief (`EDITORIAL-ROLE-EDITOR-IN-CHIEF`, not access-control `ACCESS-ROLE-CHIEF-EDITOR`, renamed `D-251`) performs the A-only attestation, Desk Editor is `C` not `A`, no synthetic `R`, idempotent replay per revision, fresh attestation on relevant revision, opens human review only (crosswalk §4.1/§4.2). `OP-COPY-EDIT`'s source `R` corrected to Chief Journalist (`D-236`), already `VERIFIED`, unchanged shape | Every required operation has one executable atomic/milestone shape before T5 readiness |
 | `DOR-R5` — UI and target visual contract | UI separates supplier, route R/A, current gate executor and article state; storyboard gets one target normal/revision sequence and matching data flow | Chief Editor walkthrough and Lane B/C review trace each visible fact to one authoritative record/event |
 | `DOR-R6` — Encyclopedia review | Entries 01/05/06 (Entry 05 added `D-244`) reviewed against the corrected text; sync disposition recorded | Hosted and local status agree, or an explicit opt-in deferral is recorded — not merely flagged |
 
