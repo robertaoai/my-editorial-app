@@ -4274,3 +4274,73 @@ None of the three attachments was staged, committed or executed; this section is
 | **Approve-with-conditions** | Preflight `V4`, assessment `V6`, receipt `V4` | Step 2 — Lane A independently reviews exact bytes and methods |
 | **Defer** | Banner removal and hashes, final review, syntax proof, acceptance, current-environment runs, classification, D-251 satisfaction and `V1-SM05` selection | Steps 3–7 and later Judge acts |
 | **Reject** | Running step 4 now, staging or committing attachments from Lane B, or treating static review as syntax/environment evidence | Preserve the final sequence |
+
+## Lane A answer — step 2 draft review of `D251-V6-DRAFT-RETURN`: package rejected on one blocking byte defect; replacement `V5`/`V7`/`V5` is a delta review, 2026-09-22
+
+**Authority and boundary.** Step 2 of the sequence recorded at `8a64cb2`: Lane A's independent review of the exact bytes
+Lane B returned at `83eff52`. Lane A read all three files and reproduced the checks itself. Read at commit `83eff52`.
+Handoff-only apart from committing the rejected drafts as non-executable history under rule 11. No SQL is written, no
+container or query is run, nothing is accepted, the Register is unaffected, and `D-251` is not satisfied.
+
+### What Lane A verified
+
+| Check | Result |
+|---|---|
+| Working-copy hashes equal the returned `Lane-B-Draft-SHA256` values; zero CR bytes | **Confirmed** |
+| Exactly one line equal to `-- BEGIN CATALOG` and one equal to `-- END CATALOG` in each SQL file | **Confirmed**; the `,` that broke the marker in `V5` is gone |
+| The catalog blocks are byte-identical and equal to the `V3`/`V5` block (`d7f526adbb5d…`) | **Confirmed**, so the correct `actor_type` rows are unchanged |
+| The collated `ORDER BY` now sits outside the union | **Confirmed** (`output` CTE, then `SELECT * FROM output ORDER BY …`) |
+| Every assessment branch has the same eleven columns; one branch per `C01`–`C10` | **Confirmed** |
+| Receipt expected counts (66, 0, 9, `9 + max(1, N)`) match the design | **Confirmed**; nine relations are catalogued |
+| No write, DDL, locking, delay, sequence or large-object operation | **Confirmed** |
+
+### Rejected-draft ledger (rule 11)
+
+| Path | `Lane-B-Draft-SHA256` | Status |
+|---|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V4.sql.md` | `ae4cd498fd05dcdaa60ce0561ffe4c2141f782657678071f04933aabc8985695` | **REJECTED — not executable** |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V6.sql.md` | `ef69efe9de816030cdd571a6f4e424121445a37590e0a754ea1300e66f2661bc` | **REJECTED — not executable** |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V4.md` | `521d8a58917bc8c6366a2c5f1dd64d4cb250008df3b7155c4102f018e10c795b` | **REJECTED — not executable** |
+
+Committed by explicit path with this section.
+
+### Defects
+
+| Order | Defect | Evidence | Consequence | Fix |
+|---:|---|---|---|---|
+| 1 | **Blocking.** The banner is not the first physical line in two files | Assessment `V6` and receipt `V4` begin with an empty line and carry the banner on line 2; preflight `V4` is correct | The recorded removal rule is "delete the first physical line and its LF". Applied here it deletes the blank line and leaves the banner in the accepted bytes | Banner is byte 0 of the file in all three |
+| 2 | Non-blocking, but fix now | The advisory inventories still carry the entries Lane A showed to be wrong at `0549023`: preflight lists `> (int2, int2)` where the literal makes it `(int2, int4)`, lists `<> ("char","char")` which is unused, and omits `<> (text, text)` and `= ("char","char")`; assessment lists the enum `=` as `(public.gate_role, public.gate_role)` where it resolves to the built-in `(anyenum, anyenum)` | Advisory does not mean knowingly wrong. A misleading review aid in accepted bytes | Correct the known entries (guidance below) |
+
+Lane A found no other defect. **Bound:** from here Lane A rejects a version for an advisory-inventory entry only when it can
+show that entry is wrong, never for an omission.
+
+Guidance for defect 2, advisory and best effort. Preflight operators: `= (name,name)`, `= (oid,oid)`, `= (text,text)`,
+`= ("char","char")`, `<> (text,text)`, `<> (oid,oid)` with the literal coerced to `oid`, `> (int2,int4)`, `AND`, `OR`, `NOT`,
+`|| (text,text)`. Assessment operators: `= (text,text)`, and enum equality as `pg_catalog.=(anyenum,anyenum)`. Add one
+note line in each file: unknown-typed literals are coerced to the compared type, and the `UNION ALL` widens `int4` to
+`int8`.
+
+### Replacement — a delta review
+
+Versions are per artifact: preflight `V5`, assessment `V7`, receipt `V5`. To keep the loop short, the replacement must
+differ from `V4`/`V6`/`V4` **only** in these places, and Lane B's return states it with the check used:
+
+1. banner moved to byte 0 in assessment `V7` and receipt `V5` (the leading blank line removed);
+2. the advisory comment lines in the two SQL files;
+3. the version and artifact names inside the files and the receipt (`V4` to `V5`, `V6` to `V7`).
+
+Lane A then reviews a diff, not three whole files, and the catalog hash `d7f526adbb5d…` must be unchanged. Anything else
+that changes needs a stated reason.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 stays `Open` and `D-251` is not satisfied.
+`docs-drift` reads synced at `a5bdcc7`; later commits are handoff-only and coverage-excluded, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane B step 1 and the fixes to markers, ordering, expected counts and catalog | Retained unchanged |
+| **Approve-with-conditions** | Replacement preflight `V5`, assessment `V7`, receipt `V5` | Defects 1 and 2 only; delta review |
+| **Defer** | Banner removal, syntax proof, acceptance, environment runs, classification, `D-251` satisfaction, `V1-SM05` selection | Steps 3–7 |
+| **Reject** | Preflight `V4`, assessment `V6`, receipt `V4` for acceptance or execution; a banner that is not the first physical line | Replace as above |
