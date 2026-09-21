@@ -4586,3 +4586,60 @@ work packets and traceability are unaffected; the Register is unaffected. B-119 
 | **Approve** | Waiver of the SQL-header boundary sentence | Recorded |
 | **Defer** | Syntax proof, acceptance commit, evidence anchor, environment runs, classification, `D-251` satisfaction, `V1-SM05` selection | Steps 4–7 |
 | **Reject** | Any byte change after this section, running the proof on bytes other than those hashed above, staging or committing the attachments before step 5 | Restart at step 1 under new versions |
+
+## Lane A answer — step 5 verification of `D251-V7-FINAL-REVIEW-RETURN`: evidence verified; acceptance withheld pending a supplemental fixture run on the same bytes, 2026-09-22
+
+**Authority and boundary.** Step 5 of the sequence recorded at `8a64cb2`. Read at commit `fb89007`. Lane A verified Lane B's
+evidence itself. This section is committed alone: the three files are **not** staged or committed and nothing is accepted.
+No SQL is written or run by Lane A, the Register is unaffected, and `D-251` is not satisfied.
+
+### What Lane A verified independently
+
+| Check | Result |
+|---|---|
+| The three working-copy hashes equal the banner-free hashes recorded at `5b2f17d` and Lane B's `Syntax-Proof-Tested-SHA256` values | **Confirmed**; zero CR bytes |
+| The recorded migration hashes equal the repository's `0001` and `0002` | **Confirmed** |
+| Lane B's two fixture hashes reproduce from the fixture text as recorded (with the final LF) | **Confirmed** |
+| Each assessment branch queries the relation and the one column of its catalog row (mechanical by-ID check, all ten) | **Confirmed** |
+| Baseline result shapes: 66 `VERIFIED`, 0 `RECONCILIATION`, 9 `VISIBILITY`, 10 `ASSESSMENT` | **Accepted** as reported |
+| Unlisted-column fixture: exactly one `UNRECONCILED` row | **Accepted** as reported |
+| `C10` fixtures: exact nested value 1, substring 0, key name 0; 12 rows equals `9 + 3` | **Accepted** as reported |
+| The fixtures ran inside an outer transaction, so the artifact's own `BEGIN TRANSACTION READ ONLY` was a no-op warning there | **Accepted, disclosed.** The standalone baseline runs reached `ROLLBACK` under the read-only transaction, which would have failed on any write |
+| Container isolated, removed, port unbound; no current environment touched | **Accepted** as reported |
+
+### Two gaps that keep step 5 open
+
+The proof so far would still pass a script that **always counts zero**, which is the failure this procedure exists to
+prevent. Neither gap needs a change to any artifact byte, so no version changes.
+
+| # | Gap | Why it matters | Supplemental evidence required |
+|---:|---|---|---|
+| 1 | The `C10` contract counts "object values and array elements" and "each report row once". The fixtures ran only an object value, a substring and a key name | An array element or a repeated value could be missed or double-counted, and a wrong `C10` predicate returns a false zero on real data | Two more fixtures in the throwaway database: an exact **array element** (for example `{"roles":["x","ROLE-CHIEF-EDITOR"]}`) counts 1, and an exact value **repeated within one report** counts 1, not 2 |
+| 2 | The baseline reports only row counts of each result set. No counted value was shown, so nothing proves the `FILTER` counts non-zero when data exists | An always-zero query would still return 10 rows | Report every value of the 10 baseline assessment rows on the unmodified seed data. Expected from the migrations: `total_rows` 9 for `C01`–`C06`, 0 for `C07`, 13 for `C08`, 5 for `C09`, and a single `C10` row with `total_rows` 0; `count_legacy_enum_lookalike` 2 for `C06` (two `gate_role = 'chief_editor'` seed rows) and 2 for `C08` (two `T11` rules). These are seed-data controls, not `D-251` results |
+
+### Lane B's next act
+
+Lane B runs the supplemental fixtures and the baseline value report against the **same tested bytes** in a new throwaway
+PostgreSQL 17 built the same way, records them in `D251-V7-SUPPLEMENTAL-RETURN` with the fixture hashes, and commits B-119
+alone. If any control fails, that artifact version is rejected and the sequence restarts at step 1 under new versions. If all
+pass, Lane A proceeds to the acceptance commit, blob hashes and evidence anchor.
+
+### Tracking note
+
+Lane B's `D251-V7-FINAL-REVIEW-RETURN` sits in the file **before** Lane A's step-2/3 section, although it followed it in
+time, because it was inserted mid-file. The content is intact and nothing was lost; chronology is by commit, not position.
+Lane A will not reorder recorded sections. Going forward, Lane B appends at the end of the file and Lane A commits each
+append immediately, as recorded in the one-writer rule.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 stays `Open`. `docs-drift` reads synced at
+`a5bdcc7`; later commits are handoff-only and coverage-excluded, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Step 4 evidence as verified above | Retained |
+| **Approve-with-conditions** | Preflight `V5`, assessment `V7`, receipt `V5` | Supplemental array, repeat and positive-control evidence on the unchanged bytes |
+| **Defer** | Acceptance commit, blob hashes, evidence anchor, environment runs, classification, `D-251` satisfaction, `V1-SM05` selection | After the supplemental return |
+| **Reject** | Accepting on baseline row counts alone; changing any tested byte; treating the proof as a `D-251` result | Supplemental evidence first |
