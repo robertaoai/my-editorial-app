@@ -3007,3 +3007,60 @@ last in step 11.
 | **Approve-with-conditions** | `LB-1` return path | Judge Accept/Reject |
 | **Defer** | `LB-7` final rule; dry run, execution, `D-251` satisfaction, `V1-SM05` selection | Judge confirmation, then a later bounded act |
 | **Reject** | Running `V3`, Lane B committing attachments, a non-zero `C10` closed as classified from counts, treating the reported Judge statement as a direct message | Use the table and steps above |
+
+## Lane A answer — Judge approves `LB-1` and `LB-7`; drafting boundary confirmed; `V4` handed to Lane B, 2026-09-21
+
+**Authority.** Judge direct message in the Lane A conversation, 2026-09-21: "Judge Approved: 1. LB-1 2. LB-7". Read at
+commit `08d858d`. Object: `LB-1` and `LB-7` as worded in the two sections above. Scope: recorded below. Exclusions: no
+commit by Lane B, dry run, database access, human execution, acceptance of any draft, `D-251` closure, `V1-SM05`
+selection or construction (`D-183`). Lane B's review of `08d858d` reports the same drafting approval; `LB-1` as
+approved is what defines drafting, so no separate act is left pending.
+
+### What is now decided
+
+| Item | Decision |
+|---|---|
+| Drafting boundary | Lane B drafts the `V4` package: preflight `V2`, assessment `V4`, receipt `V2`. **Preparation only** |
+| `LB-1` | Lane B cannot commit attachments. Lane B returns the three files uncommitted; Active Lane A reviews the exact bytes, commits the accepted set, and recomputes each digest from the committed blobs. This is `D-184` applied as written, not an extension of Lane B's authority |
+| `LB-7` | A non-zero `C10` is `unresolved` and blocks `V1-SM05` until a separately approved, non-content-bearing aggregate can classify it; a zero result is unaffected. Recorded in the Register (`D-251` addendum) |
+
+### Language retired
+
+"Reported, pending direct confirmation" (drafting boundary) and "classification pending" (non-zero `C10`) are both
+superseded by the rows above. Historical text is unchanged.
+
+### One addition to the `V4` acceptance list
+
+Lane B proposed that each draft carry a banner. Adopted as item 12 of the consolidated list: **every file states "Draft
+for Lane A review. Not approved for execution. No database access authorized."** Lane A removes it only in the commit
+that accepts the file. Lane B's static review (parity, ordering, no write or DDL, no identifiers or content, all four
+closure branches, variable `C10` rows, explicit failures instead of zero) is file review, **not** a dry run. The rest of
+Lane B's plan restates `LB-2`–`LB-6` and `LB-8`–`LB-11` and is not repeated.
+
+### What happens next — parent first
+
+| Order | Act | Owner | State |
+|---:|---|---|---|
+| 1 | Record the Judge's answers (Lane A step 1) | Lane A | **Done** by this entry and the Register confirmation |
+| 2 | Draft the three files with the banner; static review; return uncommitted | Lane B | **Next** |
+| 3 | Review exact bytes against the 12-point list; corrections through B-119 | Lane A | After 2 |
+| 4 | Commit the accepted set once; recompute digests from the blobs; record acceptance | Lane A | After 3 |
+| 5 | Dry run in the local disposable database | Lane B | Needs its own Judge act |
+| 6 | Human run and one receipt per environment | Chief Editor (operator) | After 4 and 5 |
+| 7 | Classify by fixed precedence; update the `V1-SM05` box only on an accepted result | Lane A, Judge | After 6 |
+
+The Chief Editor has nothing further to confirm until step 5. The remaining Judge acts are the dry-run authorization
+and the final acceptance of the classified result.
+
+### Cross-artifact and drift
+
+Register affected (`LB-7` line, applied). `Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia,
+Build Spec, Artifact Inventory, work packets, Fn Specs and traceability unaffected. B-119 stays the single tracking
+record and stays `Open`; `D-251` is not satisfied; no `V4` file exists yet.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | `LB-1`, `LB-7` and the drafting boundary | Phase 1 — Lane B drafts `V4` uncommitted |
+| **Approve** | Draft banner as acceptance item 12 | Phase 1 — Lane B includes it |
+| **Defer** | Dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
+| **Reject** | Running `V3`, executing any draft, Lane B committing attachments, classifying a non-zero `C10` from counts | Preserve the recorded boundary |
