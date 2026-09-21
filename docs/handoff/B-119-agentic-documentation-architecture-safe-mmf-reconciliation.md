@@ -4139,3 +4139,69 @@ rebuild is owed.
 | **Approve** | Amendment E: one combined re-review and proof step | Recorded |
 | **Defer** | The run itself, replacement drafting, environment runs, classification, `D-251` satisfaction, `V1-SM05` selection | Judge answers the decision form |
 | **Reject** | Running the proof in the local Supabase stack database, describing the throwaway database as having no data, fixtures inside the artifacts, using `Executed-SHA256` for the proof | The amendments above |
+
+## Lane A answer — Judge accepts rows 1–8 as amended; syntax proof authorized within bounds; final sequence to acceptance, 2026-09-21
+
+**Authority (`D-183`).** The Judge's direct message in the Lane A conversation, 2026-09-21: "Accept rows 1–8 as amended by
+Lane A." **Object:** rows 1–8 of Lane B's packet (`9ac9ad4`) as amended by amendments A–F in the `44d2403` section.
+**Scope:** the advisory-inventory policy, and one bounded syntax-proof run of the exact banner-free candidate bytes and
+the fixture statements in a separate throwaway PostgreSQL 17 built from migrations `0001` and `0002` with the three
+Supabase roles created first. **Exclusions:** not a `D-251` environment result, not construction authorization, not
+closure evidence; no credential, no real data; nothing run against either current environment. Read at commit
+`44d2403`. This section is handoff-only: no SQL is written, no run has happened, nothing is accepted, the Register is
+unaffected, and `D-251` is not satisfied.
+
+### What is now decided
+
+| Item | Decision |
+|---|---|
+| Rows 1–2 | Operator, cast and special-form inventories are **advisory**, best effort, never represented as mechanically complete. Blocking: statement allowlist, qualified functions and relations, nothing resolving outside `pg_catalog`, no write, DDL, locking, delay, sequence, advisory-lock or large-object operation. Lane A's provisional ruling at `6f52b5f` is confirmed |
+| Rows 3–6 | The syntax proof precedes acceptance and is authorized as amended (A isolation, B build, C scope incl. fixtures, E one combined step, F naming). It proves syntax, resolution and the `C10` and reconciliation behavior only |
+| Rows 7–8 | A failure rejects that artifact version and creates new per-artifact versions; accepted artifacts are verification inputs, never a work order |
+
+### Final sequence to acceptance — parent first
+
+This replaces the scattered step lists for the replacement package. The literal paths are preflight `V4`, assessment
+`V6` and receipt `V4` (`docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V4.sql.md`,
+`.../QRY-D251-STORED-VALUE-ASSESSMENT-V6.sql.md`, `.../D251-MANUAL-RUN-RECEIPT-V4.md`).
+
+| Step | Owner | Act | Durable record |
+|---:|---|---|---|
+| 1 | Lane B | Draft the three files with banners under the requirements recorded at `6f52b5f`; static review with the exact method of each mechanical check; no execution | `D251-V6-DRAFT-RETURN` in B-119, committed alone; the three files stay unstaged and uncommitted |
+| 2 | Lane A | Draft review of the exact bytes; a defect rejects that version and restarts at step 1 with new per-artifact version numbers | Lane A section in B-119 |
+| 3 | Lane A | Remove exactly the first banner line and its LF; record the three banner-free hashes | B-119 section, committed by explicit path; the files stay uncommitted |
+| 4 | Lane B | One combined step: full banner-free review **and** the syntax proof, executed under amendments A–F, on the exact bytes whose hashes Lane A recorded | `D251-V6-FINAL-REVIEW-RETURN` in B-119, committed alone |
+| 5 | Lane A | Verify `Syntax-Proof-Tested-SHA256` equals Lane A's banner-free hashes, expected counts and fixture outcomes match, and no `D-251` classification was made; stage the three files by explicit path with the B-119 acceptance and commit | Acceptance commit |
+| 6 | Lane A | Hash each committed blob; make a B-119-only evidence-anchor commit | Anchor commit |
+| 7 | — | **Stop.** The dry run in each current environment, human run, classification, `D-251` satisfaction and `V1-SM05` selection each need their own Judge act | — |
+
+A failed proof, or any changed byte after step 3, restarts at step 1 under new version numbers; nothing is patched in
+place.
+
+### Bounded instruction for Lane B's run (step 4)
+
+1. **Environment:** a separate named PostgreSQL 17 container on its own port, never the local Supabase stack's database;
+   image tag pinned and digest recorded; `anon`, `authenticated` and `service_role` created first with no login; then `0001`
+   and `0002` applied in order. It holds migration seed data only.
+2. **What runs:** the two banner-free SQL files, and fixture statements applied to this throwaway database only. The
+   fixtures are reproduced in the return section, with their hashes; they are not attachments and are never run elsewhere.
+3. **Expected results:** preflight `CATALOG-VALIDATION` 66 rows all `VERIFIED`, `RECONCILIATION` 0 rows, `VISIBILITY` 9 rows;
+   one unlisted-column fixture yields exactly one `UNRECONCILED` row; the assessment returns 10 rows on unmodified seed data;
+   the `C10` fixtures show an exact nested value counted once and a substring or a key-name match counted zero.
+4. **Evidence recorded:** PostgreSQL version and image digest, migration hashes, fixture hashes, `Syntax-Proof-Tested-SHA256`
+   per SQL file, exit state, result-set names, returned row counts and fixture outcomes. No `D-251` classification.
+5. **If the container cannot be built** (for example Docker is unavailable to Lane B), Lane B records a `dependency` finding
+   and stops. It does not substitute another database and does not run anything against a current environment.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected. The Register is unaffected: the run is an evidence procedure owned by B-119,
+changes no closure semantics and produces no `D-251` evidence. B-119 stays `Open`. `docs-drift` reads synced at
+`a5bdcc7`; later commits are handoff-only and coverage-excluded, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Rows 1–8 as amended; the syntax proof within the recorded bounds | Step 1: Lane B drafts now |
+| **Defer** | The proof itself (step 4), dry runs in both environments, human run, classification, `D-251` satisfaction, `V1-SM05` selection | Later steps and Judge acts |
+| **Reject** | Treating the proof as a `D-251` result, running it in the local Supabase database or a current environment, fixtures inside the artifacts, any change to the tested bytes | Preserve the recorded bounds |
