@@ -3306,3 +3306,61 @@ no Graphify rebuild is owed.
 | **Approve-with-conditions** | Pinned `search_path` in place of operator and cast manifests | Lane B confirms it is feasible in the drafts |
 | **Defer** | Contract freeze; syntax and resolution proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Judge process decision; later bounded Judge acts |
 | **Reject** | Unqualified callables or relations, repeated markers, a runtime resolution query that duplicates execution | Use the amended rules above |
+
+## Lane A answer — Lane B's review of `0a900f5`: `pg_temp` retained, cast and operator inventories restored, threat model stated, 2026-09-21
+
+**Authority and boundary.** Lane B's review of `0a900f5` (given in the Lane A conversation, unrecorded until now) raised
+five points on the pinned `search_path`, casts and operators. Lane A checked each against the recorded text and, for
+point 1, against the PostgreSQL documentation. Read at commit `0a900f5`. Handoff-only: this amends rule 3 and the
+attestation wording and nothing else. No SQL is written, no query run, no attachment touched, and the Register is
+unaffected. Lane B's drafting (step 2) is still authorized and has not started.
+
+### Lane A's check
+
+| # | Lane B point | Disposition |
+|--:|---|---|
+| 1 | Remove `pg_temp` from the pinned path | **Reject.** PostgreSQL's guidance on writing `SECURITY DEFINER` functions safely says the temporary schema is searched **first** by default and that `pg_temp` should be written as the **last** entry of `search_path`, because objects in it, including functions and operators, can mask intended ones. Omitting it therefore broadens what is trusted; listing it last narrows it. The pinned statement stays `SET LOCAL search_path = pg_catalog, pg_temp;` |
+| 2 | The pinned path does not secure casts | **Adopt.** The earlier rationale overstated this. Cast selection uses the cast catalog for the source and target types, not name resolution |
+| 3 | "A user-defined cast between built-in types cannot exist" is too absolute | **Adopt.** A sufficiently privileged role can create casts. The assertion is withdrawn |
+| 4 | Operators need a usage inventory | **Adopt** |
+| 5 | `SET LOCAL` needs a boundary statement | **Adopt** |
+
+### Amendments, parent first
+
+| Order | Amends | Corrected rule |
+|---:|---|---|
+| 1 | Rule 3 (scope of the safety checks) | **Threat model.** These checks defend against accidental error and against masking by ordinary, non-privileged objects. They do not defend against a tampered system catalog or a superuser, and they do not need to: the operator is the Chief Editor running the scripts against the Chief Editor's own databases. Stating this bounds the contract; it is not a reason to skip a check |
+| 2 | Rule 3 (operators and casts) | Restore two **usage inventories**, both review aids and neither a security boundary: `-- Allowed-Operators:` (each operator with its operand types, for example `= (pg_catalog.text, pg_catalog.text)`) and `-- Allowed-Casts:` (each cast with source type, target type and whether it is binary, function-based or I/O-based). Only reviewed casts are used; no cast is assumed safe because its types are built-in. The same single-occurrence, sorted, no-duplicate, no-unused rule as the other manifests applies |
+| 3 | Rule 3 (`search_path`) | Unchanged: `SET LOCAL search_path = pg_catalog, pg_temp;`, directly after `BEGIN TRANSACTION READ ONLY`, is the only `SET` permitted |
+| 4 | Attestations and the no-mutation wording | State once, in each SQL file's header comment and in the receipt: "`SET LOCAL search_path` is the sole permitted transaction-local configuration change. It writes no database row or schema object and is rolled back with the transaction." The no-mutation attestation means no data or schema change |
+
+The runtime-resolution query stays rejected: the dry run proves existence, resolution and syntax together.
+
+### Success criteria, derived from failure
+
+| Failure | Passing evidence |
+|---|---|
+| A temporary object masks a built-in | `pg_temp` is listed last in the pinned path |
+| An unreviewed cast or operator is used | Every cast and operator use appears in its inventory, and every entry is used |
+| A reviewer reads `SET LOCAL` as a mutation | The boundary sentence appears in each SQL header and in the receipt |
+| Hardening continues past its purpose | The threat model is recorded once |
+
+### Freeze
+
+With these amendments Lane A proposes that the contract freeze. The Judge has not answered. If accepted, further
+changes are limited to rules that are impossible or unsafe as written; everything else is found in Lane A's draft review
+(step 4). A freeze does not block drafting.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 stays `Open`, `D-251` is not satisfied
+and no `V4` file exists. `docs-drift` reads synced at `a5bdcc7`; later commits are handoff-only and coverage-excluded, so
+no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Points 2–5 and Lane B drafting (step 2) | Phase 1 — Lane B drafts uncommitted |
+| **Approve-with-conditions** | Contract freeze | Judge accepts or rejects |
+| **Defer** | Syntax and resolution proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
+| **Reject** | Removing `pg_temp` from the pinned path; claiming path pinning secures casts; claiming user-defined casts are impossible | Use the amended rules above |
