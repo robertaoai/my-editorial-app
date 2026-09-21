@@ -2662,3 +2662,152 @@ rule. Query not run; no result exists.
 | **Approve-with-conditions** | Lane B's scope record and query | Phase 1 — Lane B drafts; Lane A scope and least-privilege review before any run |
 | **Defer** | Query execution, result classification, compatibility migration, `V1-SM05` selection, work order, construction | The recorded review, then a later bounded Judge act |
 | **Reject** | Bare "Option A" as an identifier, an agent-held credential, a write-capable query, or counting `'chief-editor'` as the deprecated entitlement | Use the canonical terms above |
+
+## Lane B submission — deterministic D-251 manual-run artifacts, 2026-09-21
+
+**Authority and boundary.** The Judge approved Lane B generating the artifact. This submission answers Lane A's
+request for the scope record, candidate preflight, aggregate assessment and evidence format. It does not approve
+the text on Lane A's behalf and does not authorize execution. No database was accessed or changed; no credential,
+reset, migration, MMF selection, work order or construction is included.
+
+### Submitted byte-exact artifacts
+
+The two `.sql.md` files contain SQL only. The compound suffix deliberately receives the repository's `*.md`
+UTF-8/LF text treatment, so checkout line-ending conversion does not alter the reviewed bytes. Execute the file
+contents, not a SQL block copied from conversation history.
+
+| Artifact | SHA-256 of submitted bytes |
+|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V1.sql.md` | `d2021679f66e633c7aacc2c4385540eaceff6ae9417e7e822e56f102f9347bbe` |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V3.sql.md` | `0e809a6899e41d3507510dba58c49d1438617705535dc3dcce18015d9d385cde` |
+
+`docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT.md` is the return form. Use one copy per current
+environment. It is not part of either executable digest.
+
+### Scope record submitted for Lane A review
+
+| Field | Submitted scope |
+|---|---|
+| Access path | Human-run aggregate query; `DEP-05` remains intact; no agent credential |
+| Current environments | Existing local database and the one provisioned Supabase project; a newly created disposable local database is reproducibility evidence only and cannot replace either current-environment result |
+| Included schema | Application-owned `public` schema |
+| Excluded schemas | Supabase platform schemas, including `auth`, `storage`, `realtime` and `vault`; the result makes no claim about their metadata |
+| Included fields | `C01`–`C09` in the preflight and assessment artifacts: actor/principal provenance, agent provenance, one run-ID negative control and two enum look-alike controls |
+| Excluded fields | `E01`–`E09` in the assessment artifact; content-bearing, UUID, JSON-without-governed-path, channel and taxonomy fields remain outside the exact identity assessment |
+| Match semantics | `ROLE-CHIEF-EDITOR` is the deprecated exact value; `chief-editor`, `legacy:chief_editor` and enum `chief_editor` are reported separately and are not exact matches |
+| Output | Schema, table, column, classification and aggregate counts only; no matching row content |
+| Mutation control | `BEGIN TRANSACTION READ ONLY`; `ROLLBACK` closes the transaction. No write statement, DDL or temporary object appears in either executable artifact |
+| Executor | Lane A must name the Chief Editor or designated human operator before execution |
+| Return path | Operator returns unchanged outputs and one receipt per environment to Lane A; Lane A alone records accepted evidence here |
+| Reviewer | Lane A performs scope, least-privilege, exact-byte and digest review before handing either script to the operator |
+
+### Determinism and failure contract
+
+- Candidate rows carry stable IDs `C01`–`C09` and are ordered by `candidate_id`.
+- Exclusion rows carry stable IDs `E01`–`E09` and are ordered by `exclusion_id`.
+- The preflight is a bounded candidate-column check, not a full-schema fingerprint.
+- A missing row, missing relation, type mismatch, permission denial, connection failure or partial result is
+  `INACCESSIBLE/FAILED`, never a zero match.
+- A current environment is assessed before any local reset. A separately authorized clean replay of `0001` then
+  `0002` tests reproducibility and cannot replace current-environment evidence.
+- The provisioned project is never reset or changed by ad-hoc object deletion; reviewed forward migrations are the
+  only schema-change path.
+
+### Lane A acceptance steps
+
+1. Review the candidate and exclusion classifications against the applied schema.
+2. Recompute both SHA-256 values from the submitted repository bytes and compare them with this submission.
+3. Record acceptance or requested corrections; do not execute while either artifact is unaccepted.
+4. Name the human operator and the non-secret local and provisioned Studio destinations.
+5. Give the accepted repository artifacts and one receipt per environment to the operator.
+6. Validate the returned preflight and aggregate outputs. Only complete, independently attributable zero exact-match
+   results in both current environments satisfy the `D-251` child.
+7. Keep B-119 `Open`; update the SM05 evidence reference only after the result is accepted. Do not infer MMF
+   selection, Lane B activation or construction authority.
+
+### Submission disposition
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane B generation of the two deterministic SQL artifacts and manual-return form | Phase 1 — submitted for Lane A review |
+| **Approve-with-conditions** | Scope, candidate and exclusion classifications | Phase 1 — Lane A exact-byte, schema and least-privilege review |
+| **Defer** | Human execution and `D-251` result classification | After Lane A acceptance, named operator and destination confirmation |
+| **Defer** | Compatibility migration, SM05 selection, work order and construction | Only through their separately governed gates |
+| **Reject** | Execution from chat text, agent-held credentials, reset-before-assessment, partial output treated as zero, or whole-entry closure from this submission | Preserve the bounded evidence contract |
+
+## Lane A consolidation — Judge decisions on Lane B's D-251 submission; corrections specified to Lane B, 2026-09-21
+
+**Authority and boundary.** Judge decisions given directly in the Lane A conversation on 2026-09-21, read at commit
+`6e0b85a8a8699de8331ea5efc24806eb3d3bb67e`. They answer the four decisions Lane A requested and approve fixing three
+gaps. This entry **specifies** the corrections to Lane B's SQL (`D-56`: the artifacts are Lane B's authorship) and
+records the decisions; it edits neither SQL file, runs no query, lifts no `DEP-05`, mutates no database, selects no MMF
+and authorizes no construction. Lane B's `V3` assessment and `V1` preflight are **not accepted for execution** and are
+superseded when Lane B returns the corrected version.
+
+### Decisions recorded (normalized)
+
+| # | Judge decision | Recorded meaning |
+|--:|---|---|
+| 1 | Gap 2: the `6e0b85a` Register row governs | The current local environment is **the local disposable database used by the migration tests**, plus the one provisioned Supabase project. Lane B's "existing local database" wording is **not adopted**; a clean replay of `0001` then `0002` into that database is the local environment's normal state, not a separate reproducibility-only class |
+| 2 | Gap 4: `jsonb` exact member match, with version number | `editorial_reports.snapshot` is **in scope**: exact scalar or collection-member equality, never substring, key-name or prose matching. Results are reported **per `schema_version`**, and the assessment artifact's own version number increments (`V3` to `V4`), so both readings of "version number" are met |
+| 3 | The operator is the Chief Editor (the user) | Named human operator for both environments. The Chief Editor and the Judge are the same person (`D-158`), so **independence rests on the digest match, unchanged pasted output and Lane A's review, not on a second person**. This limitation is recorded; the Judge confirms it by returning the receipt |
+| 4 | Labelled "gap 4" in the message, but it answers **gap 7** | `docs/handoff/artifacts/<entry>/` holds **evidence attachments, not entries**; the attachments are listed in `V1-ARTIFACT-INVENTORY` under `D-54`. Checks already treat the directory correctly (`handoff-response` counts entries non-recursively; `graph-coverage` excludes `docs/handoff/`) |
+| a | Fix gaps 3, 4 (`jsonb`) and 5 | Specified below for Lane B. Gaps 1, 6, 8 and 9 were not in the approval and stay open |
+
+### Corrections specified to Lane B (return as `V4`; nothing runs until Lane A accepts)
+
+| Gap | Required change | Acceptance evidence |
+|---|---|---|
+| **3 — hand-picked lists** | Add a metadata-only **reconciliation** step to the preflight: every column in the `public` schema whose type is text, character, array, enum, `json` or `jsonb`, and that is in neither `C01`–`C09` nor `E01`–`E09`, is returned as `UNRECONCILED`. The expected result is **zero rows**. Every column found (about 25 free-text columns are known to be absent today, among them `summary`, `category`, `reason`, `formatted_content`, `source_author`, `risk_tier_reason`) is either added as a candidate or listed as an exclusion **with a stated reason**. The preflight also compares enum **type names**, not only "USER-DEFINED", and verifies that each `E` row's column exists with the stated type. It runs as the project owner role, because `information_schema` shows only columns the role may see | Reconciliation returns zero rows in both environments; a deliberately unlisted column makes it return one (negative test) |
+| **4 — `snapshot` (`jsonb`)** | Remove `E04`. Add a candidate that tests member-value equality against `ROLE-CHIEF-EDITOR` anywhere in the document, reports the look-alike values separately, groups by `schema_version`, and returns counts only. No key name, value or fragment is returned | The candidate has stable ID `C10`; a fixture row containing the exact value counts once, one containing a substring or a key of that name counts zero |
+| **5 — false zero** | Add `total_rows` to every candidate row (and per `schema_version` for `C10`) | A candidate with zero matches and zero total rows is distinguishable from one with zero matches over real rows; the operator confirms row counts are plausible against the environment |
+| Receipt | Add: artifact commit SHA, operator (`Chief Editor`), environment (`local disposable` or `provisioned Supabase`), per-file digest **recomputed from the committed copy**, and the reconciliation return | One receipt per environment, all fields filled, digests equal to the reviewed ones |
+
+### Gap ledger after these decisions
+
+| Gap | State |
+|--:|---|
+| 1 acceptance and commit anchor | Acceptance withheld until `V4`; Lane B's `V3`/`V1` files and this record are committed as history only, marked not accepted for execution |
+| 2 environment definition | **Decided** (decision 1); Register addendum applied |
+| 3 reconciliation | **Specified to Lane B** |
+| 4 `jsonb` | **Decided and specified** |
+| 5 total rows | **Specified to Lane B** |
+| 6 dry run | **Open**: Lane B dry-runs `V4` in the local disposable database and confirms every result set is visible before any human run. No agent holds a credential; the dry run is Lane B's, on a disposable database it may create |
+| 7 attachments directory | **Decided** (decision 4); Inventory row applied |
+| 8 four closure branches | **Open**: the acceptance steps must cite all four branches of the closure table above and map `INACCESSIBLE/FAILED` to "unresolved" |
+| 9 operator independence | **Recorded as a limitation** (decision 3); Judge confirmation by returning the receipt |
+
+### Cross-artifact review
+
+| Artifact | Disposition |
+|---|---|
+| `Modular_PRD.md` | Unaffected: no requirement, status or module changes; the namespace rename it already carries stands |
+| Storyboard, story panels, UML, data flow | Unaffected: this is an evidence procedure, not a journey, state, route or event |
+| Encyclopedia | Unaffected: no vocabulary change beyond statement D; Entries 01/04/05/06 stay deferred with their return conditions |
+| Register | Affected: addendum recording decisions 1–4 |
+| `V1-ARTIFACT-INVENTORY.md` | Affected: one directory row |
+| `V1-BUILD-SPEC.md`, work packets, Fn Specs, traceability | Unaffected: no scope, sequence or DoD moves; the `V1-SM05` evidence box stays unchecked |
+| Graphify | Curated `D-251` node text extended; rebuild once after the canonical edit |
+
+### Success criteria for the child
+
+| Failure | Passing evidence |
+|---|---|
+| A column is never assessed | Reconciliation returns zero `UNRECONCILED` rows in both environments |
+| An empty or invisible table reads as clean | Every result carries `total_rows` |
+| `jsonb` content is matched loosely or leaked | Exact-member fixture passes, substring fixture counts zero, no content is returned |
+| The wrong local database is assessed | Receipt names the local disposable database used by the migration tests and its applied migrations |
+| Bytes differ from those reviewed | Digest recomputed from the committed copy equals the reviewed digest |
+| Zero is reported for an unclassified match | Every non-zero row carries a classification from the four closure branches |
+
+### Result
+
+Decisions recorded; corrections specified; `V3` not accepted for execution. `D-251` is **not** satisfied, B-119 stays
+`Open`, no result exists.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Decisions 1–4 and the specified fixes for gaps 3, 4 and 5 | Phase 1 — Lane B returns `V4` |
+| **Approve-with-conditions** | Lane B artifacts as history | Not accepted for execution; acceptance only after `V4`, the dry run and the digest recompute |
+| **Defer** | Human run, result classification, `D-251` satisfaction, `V1-SM05` selection | `V4` accepted, both receipts returned and classified |
+| **Reject** | Running `V3`, treating zero without `total_rows` as clean, a second local database class, `E04`'s exclusion of `snapshot` | Superseded by the corrections above |
