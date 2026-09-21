@@ -3969,3 +3969,102 @@ coverage-excluded, so no Graphify rebuild is owed.
 | **Approve** | Lane B drafting `V4`/`V6`/`V4` under the requirements above | Phase 1 — draft uncommitted |
 | **Defer** | Syntax-proof run, dry runs, human run, classification, `D-251` satisfaction, `V1-SM05` selection | Separate Judge acts |
 | **Reject** | Changing `E35`, `E46` or `E53` to `actor_type_v2`; claiming an exhaustive operator or cast inventory | Retain `actor_type`; treat inventories as advisory |
+
+## Lane B clarification packet — advisory inventories and syntax-proof decision, 2026-09-21
+
+**Raiser and boundary.** Lane B raises this packet for Lane A to answer in B-119. It consolidates the two remaining
+Judge choices before replacement `V4`/`V6`/`V4` is returned. It creates no SQL, performs no syntax proof or database
+access, accepts no artifact and grants no construction authority. The resulting artifacts are nevertheless critical
+inputs to later construction readiness and implementation verification: they determine whether the deprecated access
+identifier exists in stored values and whether `V1-SM05` may pass its D-251 evidence dependency.
+
+### Parent-first decision table for Lane A and the Judge
+
+Lane A should record **Accept** or **Reject** for each parent before applying its children. A rejected parent stops the
+dependent rows and requires Lane A to state the replacement rule.
+
+| Order | Decision | Lane B recommendation | Depends on | If accepted | If rejected |
+|---:|---|---|---|---|---|
+| 1 | **Inventory policy:** operator, cast and special-form inventories are advisory review aids; statement, function, relation and prohibited-operation checks remain blocking | **Accept** | — | Drafting can proceed under checks that can be reproduced without a SQL parser | Lane A must name and provision the parser or generator that produces and verifies exhaustive typed inventories before drafting |
+| 2 | **Static resolution claim:** static review proves the pinned `search_path`, qualified functions/relations and absence of explicit non-`pg_catalog` operator qualification; it does not claim PostgreSQL's resolved operator/cast identity | **Accept** | 1 | Static evidence is stated no more strongly than it can prove | Lane A must supply a mechanical resolver and its acceptance output |
+| 3 | **Syntax-proof principle:** syntax and name resolution must be proved against throwaway PostgreSQL before Lane A accepts the package | **Accept** | 1–2 | The recurring parse/resolution gap is caught before accepted blobs exist | Acceptance continues on static review alone; syntax risk moves to the later dry run and another correction loop remains possible |
+| 4 | **Syntax-proof authorization:** Lane B may execute only the banner-free candidate SQL bytes in throwaway PostgreSQL initialized from migrations `0001` and `0002`, with no credentials and no application data | **Accept** | 3 | A bounded syntax-proof run becomes authorized | Syntax proof is deferred; drafting and static return may continue, but Lane A cannot require the run before acceptance |
+| 5 | **Byte identity:** Lane A prepares the banner-free candidate bytes, records their hashes, and gives those exact files to Lane B; after a passing syntax proof Lane A commits those bytes unchanged | **Accept** | 4 | The tested object and accepted object are the same bytes | The syntax proof cannot support acceptance because it tests a different object |
+| 6 | **Evidence classification:** syntax-proof evidence records migration hashes, PostgreSQL version, SQL hashes, exit state, result-set names and row counts, but is not a D-251 environment receipt or result classification | **Accept** | 4–5 | Syntax proof cannot be mistaken for business evidence | The run risks falsely satisfying the environment gate |
+| 7 | **Failure path:** any syntax, resolution, row-count or marker failure rejects that artifact version; corrections receive new per-artifact versions and restart static review | **Accept** | 3–6 | Failure is durable and cannot be patched silently | Lane A must define another immutable correction path |
+| 8 | **Construction boundary:** accepted SQL and receipts are critical verification inputs, not a work order, implementation completion or permission to change application/database state | **Accept** | 1–7 | Later implementation can consume trustworthy evidence without collapsing setup into construction | Stop: the artifact lifecycle would conflict with the build authorization model |
+
+### Recommended Judge selections
+
+| Choice | Recommended answer | Reason |
+|---|---|---|
+| Advisory inventories | **Accept rows 1–2** | Two manual exhaustive inventories have already produced false passes. Blocking controls remain qualified and reproducible |
+| Syntax-proof run | **Accept rows 3–8** | The run is isolated, credential-free and read-only, and catches syntax/resolution defects before acceptance without becoming D-251 environment evidence |
+
+### Chief Editor decision form
+
+The Chief Editor can answer in one message:
+
+> **Accept rows 1–8.** Operator, cast and special-form inventories are advisory; the blocking safety controls remain as
+> recorded. Authorize the bounded syntax-proof run against the exact banner-free candidate bytes in throwaway
+> PostgreSQL initialized from migrations `0001` and `0002`, with no credentials or application data. The run proves
+> syntax and resolution only and is not a D-251 environment result, construction authorization or closure evidence.
+
+If the Chief Editor wants no execution yet, the alternative is:
+
+> **Accept rows 1–3 and 8; defer rows 4–7.** Advisory inventories are confirmed, but the syntax-proof run is not
+> authorized. Lane B may draft and statically return `V4`/`V6`/`V4`; Lane A must not require syntax-proof evidence before
+> its next review unless a later Judge act authorizes it.
+
+Rejecting rows 1–2 requires the Chief Editor to name a mechanically generated exhaustive-inventory method. Rejecting
+row 5 while accepting the run is not coherent: a run against different bytes cannot support acceptance.
+
+### Lane A follow-up guide
+
+1. **Record the direct Judge answer** against rows 1–8, preserving their dependency order.
+2. **Finalize the inventory rule.** If rows 1–2 are accepted, replace every claim of exhaustive completeness with
+   `advisory, best effort`; retain the blocking controls unchanged. If rejected, name the parser/generator and its DoD.
+3. **Issue the replacement drafting instruction** for the literal preflight `V4`, assessment `V6` and receipt `V4`
+   paths, defects 2/3/5, the corrected final-type rule and the exact mechanical-check methods.
+4. **Review Lane B's uncommitted return** by reading the exact bytes and independently reproducing its hashes and static
+   checks. Reject immutable versions on any defect.
+5. **If syntax proof is deferred, stop here.** Lane A records that acceptance still lacks syntax evidence and does not
+   silently perform or require a run.
+6. **If syntax proof is authorized, prepare the execution object.** Lane A removes only the draft banners, records the
+   three banner-free hashes, and changes no other byte.
+7. **Hand the exact candidate bytes to Lane B.** Lane B initializes throwaway PostgreSQL from the two migrations, uses
+   no credential or application data, runs only the two SQL files and returns the bounded syntax-proof evidence.
+8. **Reconcile the evidence.** Lane A verifies the tested hashes equal its candidate hashes, expected result-set counts
+   match, and no D-251 result classification was made.
+9. **Accept or reject.** A failure creates new per-artifact versions. A pass permits Lane A's existing acceptance and
+   evidence-anchor sequence; it still does not authorize either environment run.
+10. **Preserve downstream gates.** Dry runs, human execution, classification, D-251 satisfaction and `V1-SM05`
+    selection remain separately authorized acts.
+
+### Failure-derived success criteria
+
+The decision is complete when every row has an explicit disposition; the inventory policy states what is blocking and
+what is advisory; syntax proof is either expressly authorized or expressly deferred; an authorized run names the exact
+bytes, isolation boundary, evidence fields and failure path; and no setup artifact is treated as construction or D-251
+evidence.
+
+### Cross-artifact review and Graphify
+
+`Modular_PRD.md` already records the D-251 boundary and unchanged sprint tracker. Storyboard and story panels own the
+user journey; UML and data flow own product behavior and product-data movement; the Encyclopedia owns domain meaning;
+none owns this evidence procedure. The Register, Build Spec, Artifact Inventory, Fn Specs, work packets and traceability
+already identify D-251 and the unchecked `V1-SM05` dependency. They are therefore unaffected until an accepted result
+changes readiness or a new canonical artifact is created. B-119 remains the sole tracking owner for this decision and
+its evidence.
+
+The governed graph remains synchronized at `a5bdcc7`; later changes are handoff-only and coverage-excluded. No Graphify
+rebuild is owed for this clarification. A canonical governed edit would require the normal source update, rebuild and
+curated-fragment re-merge.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Parent-first decision packet and corrected final-type semantics | Lane A answer |
+| **Approve-with-conditions** | Advisory inventories | Chief Editor accepts rows 1–2 or names a mechanical alternative |
+| **Approve-with-conditions** | Syntax-proof run | Chief Editor accepts rows 3–8; exact candidate bytes and isolation boundary required |
+| **Defer** | Replacement drafting, syntax proof, environment runs, classification, D-251 satisfaction and `V1-SM05` selection | Follow the ordered acts above |
+| **Reject** | Exhaustive-manifest claims without a generator; syntax proof against bytes other than the acceptance candidate; treating syntax proof as environment evidence | Use this packet's boundaries |
