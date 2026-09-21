@@ -3484,3 +3484,85 @@ None of the three attachments was staged, committed or executed; this section is
 | **Approve-with-conditions** | Byte hygiene, banner, transaction boundary, catalog-block parity and candidate aggregation shape | Lane A review — retain only as rejected-draft evidence |
 | **Defer** | Replacement package, dry run, human run, `D-251` satisfaction and `V1-SM05` selection | New bounded authorization, then later Judge acts |
 | **Reject** | Preflight `V2`, assessment `V4` and receipt `V2` for acceptance or execution | Replacement preflight `V3`, assessment `V5` and receipt `V3` |
+
+## Lane A answer — draft review of `D251-V4-DRAFT-RETURN` (contract step 4): rejection confirmed, rejected drafts preserved, replacement requirements, 2026-09-21
+
+**Authority and boundary.** This is Lane A's draft review of the banner-bearing package Lane B returned at `d4c56f6`.
+Lane A read the three files themselves, not Lane B's summary. Read at commit `d4c56f6`. Handoff-only apart from
+committing the rejected drafts as non-executable history, which the amended rule 11 requires. No SQL is written, no
+query run, nothing accepted, the Register is unaffected, and `D-251` is not satisfied.
+
+### What Lane A verified in the files
+
+| Check | Result |
+|---|---|
+| The three working-copy hashes equal the returned `Lane-B-Draft-SHA256` values | **Confirmed** |
+| LF-only bytes | **Confirmed**, zero CR bytes in all three |
+| The two catalog blocks are byte-identical | **Confirmed**. Lane B's block hash reproduces only when the block is taken as the lines **strictly between** the markers, each with its LF. Including the marker lines gives a different value. See gap A1 |
+| Lane B's six gaps | **All confirmed** against the text (below) |
+
+### Rejected-draft ledger (rule 11)
+
+| Path | `Lane-B-Draft-SHA256` | Status |
+|---|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V2.sql.md` | `4fc437982679b3fac83974ae8ce8c79145922b985da1867de9c6bd607f9dc43c` | **REJECTED — not executable** |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V4.sql.md` | `b27f9f14febbf34a51abb1796b60be8acecc445e0e6a69f6f65beed4c95b61d4` | **REJECTED — not executable** |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V2.md` | `9f9ab79cb55a0d65b2d4754ce4876fcd0145047ee1278de6fc2c7e7bb714faa7` | **REJECTED — not executable** |
+
+They keep their banner and versioned paths and are committed by Lane A by explicit path, in the commit that records this
+section, so the only copies cannot be lost or swept into a later acceptance commit. The historical `V1`/`V3` files are
+held the same way.
+
+### Gaps, parent first
+
+**Lane B's six, verified**
+
+| Order | Gap | Evidence in the file | Fix for the replacement package |
+|---:|---|---|---|
+| 1 | The catalog has no `E` rows | Preflight and assessment catalogs hold `C01`–`C10` only | Add every governed exclusion as a stable `E` row with full type identity and a reason (see A5); keep the complete block byte-identical |
+| 2 | `UNRECONCILED` is unreachable | Preflight `mapping_status` is only `CANDIDATE` or `EXCLUDED_NON_IDENTITY_FIELD`, with an invented reason; the catalog join ignores type | Join the real schema to the fixed catalog: schema column absent from the catalog gives `UNRECONCILED`; catalog row absent or type-mismatched gives `ARTIFACT-INVALID`; success needs neither |
+| 3 | The assessment's catalog is unused | The `results` CTE never references `candidate_catalog` | Each candidate row takes its metadata from the validated catalog row, or a guard prevents results (see A6) |
+| 4 | Function qualification and manifest | `pg_get_userbyid` and `has_table_privilege` unqualified; `pg_catalog.count` and `format_type` listed but unused; `current_user` not inventoried | Qualify both calls, regenerate the manifest from actual calls, add one sorted special-form inventory |
+| 5 | Operator and cast inventories incomplete | Preflight uses `NOT`, `AND`, `IN` and `||`, none listed; assessment casts and comparisons are partly listed | Regenerate both inventories from every expression and cast actually used |
+| 6 | Receipt omissions | No `Local-Completed-Receipt-SHA256` or `Supabase-Completed-Receipt-SHA256`, no reconciliation return field | Add both, attempt-bound, and a reconciliation-output section |
+
+**Additional gaps found in Lane A's review**
+
+| Order | Gap | Guaranteed failure | Fix |
+|---:|---|---|---|
+| A1 | The block-hash extraction is undefined | Two reviewers compute different block hashes from identical files | Define it: the lines **strictly between** `-- BEGIN CATALOG` and `-- END CATALOG`, each with its LF, marker lines excluded, then SHA-256 |
+| A2 | Array element type is derived wrongly | For an array column `udt_name` is the array type name (for example `_text`), not the element type, so an array column can never match its catalog row. Latent today, since no array column exists in `public` | Derive the element type from the catalog (`pg_type.typelem`), or state that no array column exists and make its appearance a `UNRECONCILED` row |
+| A3 | Ordering depends on collation | `ORDER BY catalog_id, ... column_name` sorts differently under different database collations, so the local and Supabase outputs are not comparable and "deterministic" is false | Order by the fixed catalog ID with `COLLATE "C"` on every text sort key |
+| A4 | Receipt lacks fields the contract requires | No artifact commit SHA, PostgreSQL version, result-set names and row counts, or field-classification column | Add them to receipt `V3` |
+| A5 | The `E` reasons are unbounded free text | Reviewers cannot compare reasons, and an invented reason can hide an identity-like column | A short fixed vocabulary, for example free-text prose, URL, label or taxonomy, version or id token, non-role enum, UUID. Lane B proposes a reason per column from it; Lane A reviews each; any identity-like column is a candidate, not an exclusion |
+| A6 | A failed declaration could return an empty result | An empty result reads as clean | A declaration or validation failure appears as a visible row with `ARTIFACT-INVALID`, never as missing rows. This is proven only at the dry run, so the static requirement is that the row exists in the SQL |
+
+### Replacement package — success criteria
+
+The replacement is ready for Lane A review only when: the complete `C` and `E` blocks match under the A1 extraction; an
+unlisted relevant column gives exactly one `UNRECONCILED` row and a missing or mistyped catalog row gives
+`ARTIFACT-INVALID`; every function, relation, special form, operator and cast is used and listed; every candidate row
+depends on its validated declaration; the ordering is collation-independent; the array rule is resolved; the receipt
+carries every required field; and no file is patched in place. Versions are preflight `V3`, assessment `V5`, receipt `V3`.
+
+### Decision needed from the Judge
+
+Lane B reports the replacement package "requires new bounded authorization". Lane A's reading is that rule 11, the
+correction loop the Judge already approved, covers a replacement drafted after a rejected package, so no per-iteration
+act is needed. If the Judge wants an explicit act per iteration, that adds a round trip each time and Lane A does not
+recommend it.
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 stays `Open`, `D-251` is not satisfied
+and no accepted package exists. `docs-drift` reads synced at `a5bdcc7`; every later commit is handoff-only and
+coverage-excluded, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane B's static review and its rejection of its own package | Phase 1 — replacement `V3`/`V5`/`V3` |
+| **Approve-with-conditions** | Replacement drafting | Judge confirms rule 11 covers it; gaps 1–6 and A1–A6 addressed |
+| **Approve** | Byte hygiene, banner, transaction boundary, catalog-block parity and candidate aggregation shape | Retain in the replacement |
+| **Defer** | Dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
+| **Reject** | Preflight `V2`, assessment `V4` and receipt `V2` for acceptance or execution; free-text exclusion reasons; collation-dependent ordering | Replace as above |
