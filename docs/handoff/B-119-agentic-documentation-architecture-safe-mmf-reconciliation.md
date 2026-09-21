@@ -3248,3 +3248,61 @@ coverage-excluded, so no Graphify rebuild is owed.
 | **Approve-with-conditions** | Contract freeze | Judge accepts or rejects the recommendation |
 | **Defer** | Syntax proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Later bounded Judge acts |
 | **Reject** | Comparing partial catalogs, an unnamed function list, overwriting a result attempt, a generic "receipt hash" | Use the amended rules above |
+
+## Lane A answer — Lane B's review of `d2054c0`: name-resolution safety adopted with one simplification, one point rejected as redundant, 2026-09-21
+
+**Authority and boundary.** Lane B's review of `d2054c0` (given in the Lane A conversation, unrecorded until now)
+raised six points about how names resolve. Lane A applied the freeze recommendation's test, "impossible or unsafe as
+written", to each. Read at commit `d2054c0`. Handoff-only: this amends rule 3 and the manifest markers of the contract
+above and nothing else. No SQL is written, no query run, no attachment touched, and the Register is unaffected. Lane B's
+drafting (step 2) was already authorized and has still not started. The Judge has not yet answered the freeze
+recommendation; it does not block drafting.
+
+### Lane A's check
+
+| # | Lane B point | Test | Disposition |
+|--:|---|---|---|
+| 1 | Unqualified functions resolve through `search_path` | Unsafe | **Adopt** |
+| 2 | Operators and casts resolve indirectly | Unsafe | **Adopt, simplified** (below) |
+| 3 | Relation names need schema qualification | Unsafe | **Adopt** |
+| 4 | Catalog markers need structural checks | Impossible to compare reliably otherwise | **Adopt** |
+| 5 | Manifest markers need the same structural rule | Same | **Adopt** |
+| 6 | Runtime proof that every function, operator, cast and type resolves to a system namespace | Neither | **Reject as redundant** |
+
+### Amendments, parent first
+
+| Order | Amends | Corrected rule |
+|---:|---|---|
+| 1 | Rule 3 (allowed statements) | Each SQL file pins name resolution once: the second statement, directly after `BEGIN TRANSACTION READ ONLY`, is exactly `SET LOCAL search_path = pg_catalog, pg_temp;`. This is the **only** `SET` permitted. It lasts for the transaction only and writes nothing. Because operators are schema-scoped and cannot be qualified readably, one pinned path covers operators and replaces separate operator and cast manifests. A user-defined cast between built-in types cannot exist, because the source or target type must be owned by the creator. Operators and casts are still reviewed by Lane A in the same pass |
+| 2 | Rule 3 (functions and relations) | Every callable function is schema-qualified (`pg_catalog.<name>`) and appears in `-- Allowed-Functions:` by its qualified name; no function is accepted by short name. SQL special forms such as `current_user` are listed separately as non-function expressions. Every relation is schema-qualified (`public.`, `information_schema.` or `pg_catalog.`) and listed in `-- Allowed-Relations-Read:`. No temporary relation and no relation resolved through `search_path` is allowed |
+| 3 | Rule 4 and the manifests | Static review requires **exactly one** `-- BEGIN CATALOG`, **exactly one** `-- END CATALOG`, start before end, neither marker inside the extracted block, and equal SHA-256 of the two extracted blocks. Each manifest marker (`-- Allowed-Functions:`, `-- Allowed-Relations-Read:`) also appears exactly once, sorted, with no duplicate and no unused entry |
+
+### Why point 6 is rejected
+
+A function called as `pg_catalog.<name>` resolves in `pg_catalog` by construction, and a name that does not exist fails
+when the script runs, so the failure surfaces as `ARTIFACT-INVALID`. A separate metadata query would restate what
+execution already proves and would add code that itself needs review. Static review still does not claim runtime proof;
+the first run proves syntax and resolution together at the authorized dry run.
+
+### Success criteria, derived from failure
+
+| Failure | Passing evidence |
+|---|---|
+| A shadowing object in `public` changes what a function or operator does | The pinned `search_path`, plus qualified functions and relations |
+| Two reviewers extract different catalog blocks | One start marker, one end marker, correct order, equal block hashes |
+| A hidden manifest entry approves an undeclared call | Each manifest marker appears once; entries sorted; none unused |
+| `SET` becomes a general escape hatch | Exactly one `SET` form is allowed, and it is the pinned one |
+
+### Cross-artifact and drift
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected; the Register is unaffected. B-119 stays `Open`, `D-251` is not satisfied
+and no `V4` file exists. `docs-drift` reads synced at `a5bdcc7`; later commits are handoff-only and coverage-excluded, so
+no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Amendments 1–3 and Lane B drafting (step 2) | Phase 1 — Lane B drafts uncommitted |
+| **Approve-with-conditions** | Pinned `search_path` in place of operator and cast manifests | Lane B confirms it is feasible in the drafts |
+| **Defer** | Contract freeze; syntax and resolution proof, dry run, human run, `D-251` satisfaction, `V1-SM05` selection | Judge process decision; later bounded Judge acts |
+| **Reject** | Unqualified callables or relations, repeated markers, a runtime resolution query that duplicates execution | Use the amended rules above |
