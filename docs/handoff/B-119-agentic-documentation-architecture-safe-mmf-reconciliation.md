@@ -4806,3 +4806,32 @@ reads synced at `a5bdcc7`; the attachments directory is coverage-excluded, so no
 | **Approve** | Lane B's syntax proof and supplemental controls as verified | Complete |
 | **Defer** | Runs in both current environments, rendering check, classification, `D-251` satisfaction, `V1-SM05` selection | Separate Judge acts |
 | **Reject** | Treating acceptance as execution authority; any edit to an accepted byte; using the proof or seed values as `D-251` results | New version and full sequence |
+
+## D251 evidence anchor — accepted artifact commit and committed-blob hashes (step 6), 2026-09-22
+
+**Authority and boundary.** Step 6 of the sequence recorded at `8a64cb2`. This section is committed **alone** (B-119 only) and
+changes no artifact. It records the acceptance commit and the hashes Lane A computed **from the committed blobs**.
+
+| Field | Value |
+|---|---|
+| Acceptance commit | `d92887b5cd2041c4908686e9ab41cbec32821c4b` |
+| Artifact acceptance commit (for receipt field `Artifact acceptance commit`) | `d92887b5cd2041c4908686e9ab41cbec32821c4b` |
+
+| Artifact | `Lane-A-Accepted-Blob-SHA256` (`git show <acceptance-commit>:<path>`) | Equals Lane B review hash and pre-stage hash |
+|---|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V5.sql.md` | `0cc9c4e59e9139de84d5029729b72ab80558003e124ce4b46f3f1a0061aa7d1a` | Yes |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V7.sql.md` | `6264ed7fc4f436202cc1d698ea8d49416a6f366db7425d4342b6ae0a40cda1ed` | Yes |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V5.md` (`Receipt-Template-Accepted-Blob-SHA256`) | `06bf8e8a7aca33c292cb80794fc2ddc9f39e3d67714cd99d5dc21e097f1bca60` | Yes |
+
+For the two SQL files the required equality is review hash = accepted-blob hash = `Executed-SHA256`; the last term is filled by
+the operator at each later run. For the receipt template, `Executed-SHA256` is `NOT-APPLICABLE`. The completed receipts named in
+the acceptance section are separate later attachments and will be hashed separately.
+
+**Sequence status.** Steps 1–6 are complete. Step 7 is the stop: a run in either current environment, the operator's rendering
+check, classification, `D-251` satisfaction and `V1-SM05` selection each need their own Judge act. B-119 stays `Open`.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Evidence anchor for the accepted artifacts | Recorded |
+| **Defer** | Current-environment runs, classification, `D-251` satisfaction, `V1-SM05` selection | Separate Judge acts |
+| **Reject** | Any edit to an accepted byte; a hash taken from a working copy or from conversation | New version and full sequence |
