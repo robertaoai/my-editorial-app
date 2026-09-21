@@ -4643,3 +4643,102 @@ work packets and traceability are unaffected; the Register is unaffected. B-119 
 | **Approve-with-conditions** | Preflight `V5`, assessment `V7`, receipt `V5` | Supplemental array, repeat and positive-control evidence on the unchanged bytes |
 | **Defer** | Acceptance commit, blob hashes, evidence anchor, environment runs, classification, `D-251` satisfaction, `V1-SM05` selection | After the supplemental return |
 | **Reject** | Accepting on baseline row counts alone; changing any tested byte; treating the proof as a `D-251` result | Supplemental evidence first |
+
+## D251-V7-SUPPLEMENTAL-RETURN — baseline values, array element and repeated-value controls, 2026-09-22
+
+**Authority and boundary.** Lane B ran the supplemental controls requested by Lane A at `b824e73`, using the same
+banner-free artifact bytes in a new, separately named PostgreSQL 17 container. Nothing ran against either current D-251
+environment. This section reports seed-data and fixture controls only; it makes no D-251 result classification.
+
+### Byte and isolation evidence
+
+| Evidence | Value |
+|---|---|
+| Preflight `Syntax-Proof-Tested-SHA256` | `0cc9c4e59e9139de84d5029729b72ab80558003e124ce4b46f3f1a0061aa7d1a` |
+| Assessment `Syntax-Proof-Tested-SHA256` | `6264ed7fc4f436202cc1d698ea8d49416a6f366db7425d4342b6ae0a40cda1ed` |
+| Receipt reviewed SHA-256 | `06bf8e8a7aca33c292cb80794fc2ddc9f39e3d67714cd99d5dc21e097f1bca60` |
+| Container | `d251-supplemental-20260922`, ID `81bd31ede97b92ef0c1c33f41e374b3ee3b031c113308390c3b8bb325888d164` |
+| Bound address | `127.0.0.1:55440` |
+| Image digest | `postgres@sha256:f4c66b820c6f974249089d3d16d86a3698eae11e8746eb6644b2271031e91232` |
+| PostgreSQL | `17.11 (Debian 17.11-1.pgdg13+2)` |
+| Migrations | Same repository `0001` then `0002`, after creating `anon`, `authenticated`, `service_role` as `NOLOGIN`; both applied with `ON_ERROR_STOP=1` |
+| Teardown | Fixture rollback left zero `editorial_reports` rows; container removed; temporary fixture file removed |
+
+All three artifact hashes were recomputed after the supplemental run and remained equal to Lane A's recorded values.
+
+### Baseline positive-control report
+
+The exact assessment bytes returned these ten rows on unmodified migration seed data. Columns abbreviated below are:
+deprecated exact (`D`), principal look-alike (`P`), legacy-agent look-alike (`A`) and legacy-enum look-alike (`E`).
+
+| ID | `schema_version` | `total_rows` | D | P | A | E |
+|---|---|---:|---:|---:|---:|---:|
+| `C01` | null | 9 | 0 | 3 | 0 | 0 |
+| `C02` | null | 9 | 0 | 0 | 0 | 0 |
+| `C03` | null | 9 | 0 | 0 | 0 | 0 |
+| `C04` | null | 9 | 0 | 7 | 0 | 0 |
+| `C05` | null | 9 | 0 | 0 | 0 | 0 |
+| `C06` | null | 9 | 0 | 0 | 0 | 2 |
+| `C07` | null | 0 | 0 | 0 | 0 | 0 |
+| `C08` | null | 13 | 0 | 0 | 0 | 2 |
+| `C09` | null | 5 | 0 | 0 | 0 | 0 |
+| `C10` | null | 0 | 0 | 0 | 0 | 0 |
+
+The non-zero `P` and `E` controls prove the aggregate does not always return zero. These values arise solely from
+migration seed data and are not D-251 environment evidence.
+
+### Supplemental fixture and result
+
+Fixture SHA-256: `cfc91e8290345ff6989b79b479bc8ffce2b1878d164710e8d1633c5fd3e0f90f`.
+
+```sql
+BEGIN;
+WITH anchor AS (
+  SELECT a.id AS article_id, w.id AS transition_id
+  FROM public.articles a
+  JOIN public.workflow_transitions w ON w.article_id = a.id
+  ORDER BY a.created_at, w.created_at
+  LIMIT 1
+)
+INSERT INTO public.editorial_reports (
+  article_id, as_at_transition_id, template_version, template_effective_from,
+  judgment_rule_version, schema_version, snapshot
+)
+SELECT article_id, transition_id, 'd251-supplemental', '-infinity', 'd251-supplemental', fixture.schema_version, fixture.snapshot
+FROM anchor
+CROSS JOIN (VALUES
+  ('d251-array-element', '{"roles":["ROLE-CHIEF-EDITOR","other"]}'::jsonb),
+  ('d251-repeated-value', '{"first":"ROLE-CHIEF-EDITOR","nested":{"second":"ROLE-CHIEF-EDITOR"}}'::jsonb)
+) AS fixture(schema_version, snapshot);
+```
+
+The exact unchanged assessment bytes followed in the same transaction and returned eleven rows total:
+
+| `C10 schema_version` | `total_rows` | `count_deprecated_exact` | Required result | Outcome |
+|---|---:|---:|---:|---|
+| `d251-array-element` | 1 | 1 | 1 | Pass — exact array element detected |
+| `d251-repeated-value` | 1 | 1 | 1 | Pass — one report counted once despite two exact occurrences |
+
+The artifact's final `ROLLBACK` removed both fixture reports. As in the earlier fixture proof, the outer transaction made
+fixture writes visible and caused an expected nested-`BEGIN` warning; the independent baseline run separately exercised
+the artifact's own read-only transaction.
+
+### Final disposition and next owner
+
+Both supplemental gaps pass on unchanged bytes. Lane A may now perform the acceptance commit, independently recompute
+the committed blob hashes, and make the B-119 evidence-anchor commit. Lane B does not stage or commit the artifacts.
+
+### Tracking, cross-artifact and drift
+
+B-119 remains `Open`; `D-251` remains unsatisfied; no current-environment result exists. `Modular_PRD.md`, storyboard,
+story panels, UML, data flow, the Encyclopedia, Register, Build Spec, Artifact Inventory, Fn Specs, work packets and
+traceability remain unaffected. This handoff-only return is Graphify-excluded; no rebuild is owed.
+
+None of the three artifacts was staged or committed by Lane B; this section is the only staged and committed path.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Baseline positive controls, exact array-element control and repeated-value row-cardinality control | Supplemental evidence complete |
+| **Approve-with-conditions** | Preflight `V5`, assessment `V7`, receipt `V5` | Lane A acceptance commit, blob hashes and evidence anchor |
+| **Defer** | Current-environment runs, classification, D-251 satisfaction and `V1-SM05` selection | Later Judge acts |
+| **Reject** | Treating seed/fixture controls as D-251 results, changing tested bytes, or Lane B committing artifacts | Preserve byte identity and ownership |
