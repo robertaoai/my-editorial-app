@@ -4205,3 +4205,72 @@ changes no closure semantics and produces no `D-251` evidence. B-119 stays `Open
 | **Approve** | Rows 1–8 as amended; the syntax proof within the recorded bounds | Step 1: Lane B drafts now |
 | **Defer** | The proof itself (step 4), dry runs in both environments, human run, classification, `D-251` satisfaction, `V1-SM05` selection | Later steps and Judge acts |
 | **Reject** | Treating the proof as a `D-251` result, running it in the local Supabase database or a current environment, fixtures inside the artifacts, any change to the tested bytes | Preserve the recorded bounds |
+
+## D251-V6-DRAFT-RETURN — Lane B replacement package static return, 2026-09-22
+
+**Authority and boundary.** Lane B completed step 1 of the final sequence authorized at `8a64cb2`. Lane A remains
+`Active`; Lane B remains `Eligible` and uses only the handoff-channel exception. The three banner-bearing files were
+created and statically reviewed. No banner was removed, no container or database was started, no SQL was executed, and
+no syntax or runtime result is claimed.
+
+### Returned manifest and draft hashes
+
+| Artifact | `Lane-B-Draft-SHA256` | Static result |
+|---|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V4.sql.md` | `ae4cd498fd05dcdaa60ce0561ffe4c2141f782657678071f04933aabc8985695` | Pass — ready for Lane A byte review |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V6.sql.md` | `ef69efe9de816030cdd571a6f4e424121445a37590e0a754ea1300e66f2661bc` | Pass — ready for Lane A byte review |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V4.md` | `521d8a58917bc8c6366a2c5f1dd64d4cb250008df3b7155c4102f018e10c795b` | Pass — ready for Lane A byte review |
+
+### Approved deltas applied
+
+| Requirement | Static finding |
+|---|---|
+| Final type identity | Catalog copied unchanged: `E35`, `E46` and `E53` remain `actor_type`; `article_state_v2` rows remain unchanged |
+| Preflight ordering | The three result sets are wrapped in `output`; `COLLATE "C"` appears only on the outer `SELECT * FROM output` ordering |
+| Exact markers | Each SQL file has exactly one line equal to `-- BEGIN CATALOG` and one equal to `-- END CATALOG`; no trailing punctuation |
+| Inventory policy | Functions and relations remain blocking manifests; operator, cast and special-form lists are renamed `Advisory-*` and make no completeness claim |
+| Expected counts | Receipt `V4` separates expected and returned counts: 66, 0, 9, and `9 + max(1, C10 distinct schema_version count)`; it records the observed version count and calculated assessment expectation |
+
+### Reproducible mechanical-check methods and results
+
+| Check | Method | Result |
+|---|---|---|
+| File hashes | PowerShell `Get-FileHash -Algorithm SHA256` on the three literal paths | Values in the manifest above |
+| LF-only bytes | `[IO.File]::ReadAllBytes(...)`; count bytes equal to decimal `13` | Zero in all three files |
+| Exact markers | PowerShell `Select-String -CaseSensitive` with `^-- BEGIN CATALOG$` and `^-- END CATALOG$` | One start and one end in each SQL file |
+| Catalog extraction | Multiline, single-line regex: content after exact start-marker LF and before the exact end-marker line; UTF-8 encode and SHA-256 | Blocks byte-identical; `d7f526adbb5dccb6a0bf274cb2da1959d881dfef36d8102631fb3fbac73f9d0c` |
+| Catalog cardinality | Regex counts of rows beginning `('Cdd'` and `('Edd'` inside the extracted block | 10 candidates; 56 exclusions |
+| Candidate branches | Regex count of `k.catalog_id='Cdd'` in assessment `V6`, followed by ID-by-ID text review | 10; one each for `C01`–`C10` |
+| Inventory markers | Exact text count of `Allowed-Functions`, `Allowed-Relations-Read`, `Advisory-Special-Forms`, `Advisory-Operators`, `Advisory-Casts` | One of each per SQL file |
+| Prohibited operations | Case-insensitive line/term scan for write/DDL, `FOR UPDATE`/`FOR SHARE`, configuration functions, delays, sequences, advisory locks and large-object calls; then statement-boundary review | None found; only the approved `BEGIN`, `SET LOCAL`, `WITH`/`SELECT` and `ROLLBACK` boundary |
+| Qualified reads | Text review of every `FROM`/`JOIN` and callable against the blocking manifests | External relations use `public.` or `pg_catalog.`; callables use `pg_catalog.`; CTE names are local |
+| Expected-count fields | Exact receipt-table and field inspection | Present separately from returned counts; missing or additional rows are unresolved |
+
+The catalog still contains all relevant columns from migrations `0001` and `0002`, as Lane A independently established
+at `0549023`. The assessment retains catalog-driven aggregates, including explicit zero rows for empty tables. This
+return intentionally does not repeat a false claim that advisory operator, cast or special-form inventories are
+mechanically exhaustive.
+
+### Failure-derived acceptance boundary
+
+Lane A should reject this version if any recomputed draft hash differs; either catalog block or marker differs; the
+outer-ordering structure differs; any candidate ID has zero or multiple branches; an advisory inventory is described as
+complete; expected and returned counts are conflated; or a prohibited operation appears. Passing this static review is
+not syntax proof. Step 4 remains authorized but cannot occur until Lane A completes steps 2 and 3 and supplies the exact
+banner-free hashes.
+
+### Tracking, cross-artifact and drift
+
+This completes step 1 only. B-119 remains `Open`; `D-251` remains unsatisfied; and the `V1-SM05` evidence dependency
+remains unchecked. `Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Register, Build Spec,
+Artifact Inventory, Fn Specs, work packets and traceability remain unaffected because no package has been accepted and
+no environment result exists. The handoff channel is Graphify-excluded, so no rebuild is owed.
+
+None of the three attachments was staged, committed or executed; this section is the only staged and committed path.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane B step-1 drafting and static return | Completed by this section |
+| **Approve-with-conditions** | Preflight `V4`, assessment `V6`, receipt `V4` | Step 2 — Lane A independently reviews exact bytes and methods |
+| **Defer** | Banner removal and hashes, final review, syntax proof, acceptance, current-environment runs, classification, D-251 satisfaction and `V1-SM05` selection | Steps 3–7 and later Judge acts |
+| **Reject** | Running step 4 now, staging or committing attachments from Lane B, or treating static review as syntax/environment evidence | Preserve the final sequence |
