@@ -4344,3 +4344,56 @@ work packets and traceability are unaffected; the Register is unaffected. B-119 
 | **Approve-with-conditions** | Replacement preflight `V5`, assessment `V7`, receipt `V5` | Defects 1 and 2 only; delta review |
 | **Defer** | Banner removal, syntax proof, acceptance, environment runs, classification, `D-251` satisfaction, `V1-SM05` selection | Steps 3–7 |
 | **Reject** | Preflight `V4`, assessment `V6`, receipt `V4` for acceptance or execution; a banner that is not the first physical line | Replace as above |
+
+## D251-V7-DRAFT-RETURN — Lane B delta replacement static return, 2026-09-22
+
+**Authority and boundary.** Lane B repeated step 1 under Lane A's delta instruction at `891bc07`. The replacement is
+limited to preflight `V5`, assessment `V7` and receipt `V5`. No banner was removed after drafting, no SQL was executed,
+no container or database was started, and no syntax or runtime claim is made.
+
+### Returned manifest and draft hashes
+
+| Artifact | `Lane-B-Draft-SHA256` | Static result |
+|---|---|---|
+| `docs/handoff/artifacts/B-119/PREFLIGHT-D251-CANDIDATE-COLUMNS-V5.sql.md` | `cba38707ce9501b06546b40565be61f723870d3b787682eb4ac4898ebf41ee23` | Pass — delta only |
+| `docs/handoff/artifacts/B-119/QRY-D251-STORED-VALUE-ASSESSMENT-V7.sql.md` | `8bc03517516de074dc2a49990e527e879e565c2d0ee7ef9e348f3d33ddfd9791` | Pass — delta only |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V5.md` | `8525bbb38d309785e52a122f7db6970ef99bf48cec8586da88d7e58439754ebf` | Pass — delta only |
+
+### Delta proof
+
+| Authorized difference | Check used | Result |
+|---|---|---|
+| Banner at byte 0 | `[IO.File]::ReadAllBytes` and inspect byte index 0; read the first physical line | All three begin at byte 0 with their draft banner; SQL first byte decimal `45`, receipt first byte decimal `62` |
+| Leading blank removed | `git diff --no-index` from `V4`→`V5`, `V6`→`V7`, receipt `V4`→`V5` | One initial blank line removed from assessment and receipt; preflight had none |
+| Known-wrong advisory entries corrected | Same three no-index diffs; compare the two SQL comment regions to Lane A's guidance | Preflight adds `=("char","char")`, `<>(text,text)`, corrects `>(int2,int4)`, removes unused `<>("char","char")`; assessment uses `pg_catalog.=(anyenum,anyenum)` |
+| Coercion note | No-index diff and exact-line inspection | Each SQL file states unknown-literal coercion and `UNION ALL` widening from `int4` to `int8` |
+| Version and artifact names | Receipt no-index diff | Receipt heading is `V5`; referenced SQL artifacts are preflight `V5` and assessment `V7` |
+| No unauthorized SQL/body change | Review every no-index diff hunk outside the leading line and advisory comment region | None; SQL bodies are byte-identical to their rejected predecessors |
+| Catalog unchanged | Extract lines strictly between exact catalog markers and SHA-256 the UTF-8 bytes | Both blocks remain byte-identical at `d7f526adbb5dccb6a0bf274cb2da1959d881dfef36d8102631fb3fbac73f9d0c` |
+| Line endings | Count byte value decimal `13` in each file | Zero CR bytes in all three |
+
+The advisory lists remain best effort and are not claimed mechanically complete. The blocking function, relation,
+statement and prohibited-operation controls are unchanged from the package Lane A reviewed at `891bc07`.
+
+### Failure-derived acceptance boundary
+
+Lane A should reject the replacement if any hash differs; any file has a byte before its banner; either catalog hash
+changes; any SQL-body diff appears outside the authorized comment region; or receipt changes extend beyond its leading
+blank removal and version/artifact names. A passing delta review advances only to Lane A's banner-removal step; it does
+not itself authorize Lane B to start the already-approved syntax proof before Lane A records the banner-free hashes.
+
+### Tracking, cross-artifact and drift
+
+This is the repeated step-1 return. B-119 remains `Open`; `D-251` remains unsatisfied; and `V1-SM05` remains unchecked.
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Register, Build Spec, Artifact Inventory,
+Fn Specs, work packets and traceability remain unaffected. The handoff channel is Graphify-excluded, so no rebuild is
+owed.
+
+None of the three attachments was staged, committed or executed; this section is the only staged and committed path.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Lane B delta drafting and static return | Completed by this section |
+| **Approve-with-conditions** | Preflight `V5`, assessment `V7`, receipt `V5` | Lane A delta review, then banner removal and recorded hashes |
+| **Defer** | Full banner-free review, syntax proof, acceptance, environment runs, classification, D-251 satisfaction and `V1-SM05` selection | Steps 3–7 and later Judge acts |
+| **Reject** | Any change outside the authorized delta, running syntax proof before Lane A's hash handoff, or Lane B committing attachments | Preserve the sequence |
