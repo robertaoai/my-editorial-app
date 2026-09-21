@@ -2434,3 +2434,117 @@ weakest-child rule.
 | **Defer** | `V1-SM07` or any additional MMF | Define and accept the parent business outcome first |
 | **Defer** | Statement B, MMF selection, Lane B activation and construction | One packet must first be DoR-complete and independently reviewed |
 | **Reject** | Claiming the whole remainder of `CR-19` is V2; calling Senior Journalist an IIA/Line-2 reviewer; inferring authority; bulk closure | Preserve explicit destinations, methodology boundaries and per-child lifecycle |
+
+## Judge decision — stored-value assessment and first dependent MMF, 2026-09-21
+
+### Accepted decisions
+
+The Judge approves:
+
+1. a **read-only, aggregate stored-value assessment** for the former natural-person entitlement identifier
+   `ROLE-CHIEF-EDITOR`; and
+2. **`V1-SM05` as the first dependent MMF** for that evidence.
+
+This is a bounded evidence authorization. It does not authorize a database mutation, compatibility
+migration, application construction, packet selection, Lane B activation, or a work order. The assessment
+must not run until its scope, access path and evidence format are recorded and the necessary database-access
+step is available to Lane B.
+
+### Placement and dependency
+
+The assessment is a cross-cutting `D-251` compatibility child owned in B-119, not a product feature and
+not a new MMF.
+
+| Consumer | Dependency treatment |
+|---|---|
+| `V1-SM05` | **First dependent packet.** Before its work order, the evidence must establish whether living or historical stored values still use the former access-entitlement identifier. SM05 is first because it records and displays role/gate evidence. |
+| `V1-SM06` | References the same evidence; does not duplicate the query. Its authorization matrix must distinguish `ACCESS-ROLE-CHIEF-EDITOR` from the sole requester `ROLE-SENIOR-JOURNALIST`. |
+| B-119 / `D-251` | Owns the result, classification, compatibility disposition and cross-references. |
+
+Lane A should add one cross-cutting identity-compatibility evidence reference to SM05's DoR and point
+SM06 to that same record. This does not check the DoR box by itself: the executed assessment and reviewed
+result are the evidence.
+
+### Assessment contract for Lane B to draft
+
+The assessment follows discover → classify → decide → migrate-if-needed → verify:
+
+1. restrict discovery to application-owned schemas and identity-capable text, enum, array and JSON/JSONB
+   fields;
+2. match the exact scalar or collection member `ROLE-CHIEF-EDITOR`, never an unrestricted substring scan;
+3. return only schema, table/view, column, storage type, match category and aggregate count;
+4. emit no row identifiers, row content, article text, personal data, secrets or credentials;
+5. execute read-only and record that no mutation occurred;
+6. classify each match as living operational entitlement, immutable historical/audit evidence, false
+   positive, or unresolved;
+7. preserve immutable history and interpret the former value through a documented historical alias;
+8. if a living value requires correction, propose a **new** migration and regression evidence — never edit
+   `0001_init.sql` or `0002_s1_editorial_schema.sql`;
+9. record one result per applicable environment rather than inferring database state from repository search
+   or from a different environment.
+
+Human actor/principal values such as `chief-editor` are not automatically the deprecated entitlement
+identifier and must be classified separately. Source-RACI identities, access entitlements, virtual-agent
+identities and historical prose remain separate namespaces throughout.
+
+### Evidence required to close this child
+
+The result records:
+
+- environment and non-secret database/schema identity;
+- assessed repository commit and migration version;
+- execution time and query version/digest;
+- included and excluded schemas;
+- matched schema/table/column/type and aggregate count;
+- classification and required treatment for every match;
+- reviewer;
+- confirmation that no row content was emitted; and
+- confirmation that no mutation occurred.
+
+Closure branches:
+
+| Result | Required disposition |
+|---|---|
+| No matches in every applicable environment | Record `no compatibility migration required`; retain the historical alias documentation |
+| Historical/audit matches only | Preserve rows; record the legacy interpretation and prove living authorization ignores the old identifier |
+| Living operational matches | Keep SM05 unselected; design a new migration, rollback/verification evidence and authorization regression tests |
+| Unresolved classification or inaccessible environment | Keep the child and SM05 dependency open; name the owner and exact return condition |
+
+### Lane A follow-up
+
+1. Record this Judge act as the authority for the B-119 stored-value child.
+2. Add one SM05 DoR evidence reference and one SM06 cross-reference in the next authorized canonical pass;
+   do not copy the query into either packet.
+3. Ask Lane B for the schema-neutral query and evidence format, not for construction.
+4. Review scope and least-privilege access before execution.
+5. After execution, record the result and compatibility branch in B-119/`D-251` evidence.
+6. Reassess SM05 readiness; do not select it while a living or unresolved match lacks treatment.
+7. Rebuild Graphify only if the canonical packet/reference edit lands; this handoff-only decision requires
+   no rebuild.
+
+### Failure and success criteria
+
+| Guaranteed failure | Observable success criterion |
+|---|---|
+| Treat the assessment as an MMF | It remains B-119/`D-251` readiness evidence linked first to SM05 |
+| Scan arbitrary content or use substring matching | Only identity-capable fields and exact values are aggregated |
+| Return matching rows | Output contains metadata and counts only |
+| Rewrite audit history | Historical rows remain immutable and use a documented interpretation rule |
+| Treat `actor_id = chief-editor` as `ROLE-CHIEF-EDITOR` | Principal and entitlement identifiers are classified separately |
+| Infer live data from repository search or one environment | Every applicable environment has its own recorded result |
+| Duplicate the query in SM05 and SM06 | One evidence record is referenced by both packets |
+| Edit an existing migration | Any compatibility correction is a new migration with regression evidence |
+| Select SM05 before the result is classified | SM05 selection waits for a reviewed no-migration, historical-only, or completed living-value treatment |
+
+### Verdict
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Read-only aggregate stored-value assessment | Phase 1 — Lane B drafts; execute only after scope/access review |
+| **Approve** | SM05 as first dependent MMF | Phase 1 — one cross-cutting DoR evidence reference |
+| **Approve-with-conditions** | SM06 compatibility | Reuse the same evidence and verify authorization separation |
+| **Defer** | Compatibility migration | Only if living matches exist |
+| **Defer** | MMF selection, lane activation and construction | All SM05 DoR evidence and a later bounded Judge act |
+| **Reject** | New MMF for the query, content-bearing output, historical rewrite, query duplication or existing-migration edit | Preserve the bounded evidence contract |
+
+B-119 remains `Open`; this decision authorizes the evidence path but does not supply the assessment result.
