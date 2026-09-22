@@ -63,6 +63,16 @@ and PR exist** — the Issue is external tracking, not a repository file. State 
 content-based, not commit-count-based: every State-1 commit contains only readiness/tracking
 changes, and correcting one may take more than a single commit.
 
+**DoR precedes Issue/branch creation; remediation is exceptional (`D-254`, 2026-09-22).** For
+`V1-SM05` and every later `V1` packet, an Issue or feature branch created before the packet's DoR is
+fully complete (every `DOR-R*` row checked or explicitly deferred by the Judge) grants **no**
+readiness, selection, work-order, lane-transfer or construction authority — its existence is a
+GitHub fact, not a governance fact. A DoD checklist is defined early, as part of DoR completeness,
+but is satisfied only by implementation, review and verification evidence produced during and after
+construction; neither substitutes for the other. Updating an Issue created out of order is an
+**exceptional remediation path**, not the normal one — costly relative to sequencing correctly the
+first time — and never a reason to open a duplicate Issue.
+
 **Publication boundary and setup transfer (`D-243`, `D-244`, 2026-09-20).** `V1-SM06` carries the narrow
 LinkedIn `ManualReady` outcome — an event, not an article state; `FR-10`/`T11` live-URL confirmation and
 automated WordPress are a V2-target backlog item that opens no version. **`SETUP-SPIKE-000`'s `S0`/`S1`

@@ -18849,3 +18849,48 @@ separate, later acts requiring their own explicit authorization. Does not comple
 select `V1-SM05`, issue a work order, or activate Lane B. Does not decide push authorization,
 integration mode, a dual-sign-off mandate, or the two untracked root console captures' disposition —
 those stay open, named items for the Chief Editor/Judge.
+
+## 5.14e79 `D-254` — DoR Precedes Issue/Branch Creation; Early-Creation Remediation Is Exceptional, Not the Normal Path
+
+**Authority: Judge Clarification 5.1, relayed 2026-09-22 via `docs/handoff/B-125` Parent 1.**
+`D-253` already sequenced the Issue before the branch/PR for `V1-SM05` specifically; this decision
+states the general rule `D-253` assumed but never named, so a future sprint packet does not have to
+rediscover it.
+
+### The decision
+
+1. **Accepted DoR precedes normal Issue and feature-branch creation.** A work packet's Definition of
+   Ready — every `DOR-R*` row checked or explicitly deferred by the Judge — is the gate for the
+   *normal* path into a GitHub Issue and feature branch, for `V1-SM05` and every later `V1` packet.
+2. **DoD is defined and testable before construction begins, but satisfied only by implementation,
+   review and verification evidence produced during and after construction.** Defining the DoD
+   checklist early is part of DoR completeness (a packet must state how it will be verified); meeting
+   it is a later, separate fact. Neither substitutes for the other.
+3. **An Issue or branch created before DoR is complete grants no readiness, selection, work-order,
+   lane-transfer or construction authority**, regardless of its existence. Its existence is a fact
+   about GitHub, not a governance fact about this repository.
+4. **Updating an Issue created out of order is an exceptional remediation path, not the normal path,
+   and is costly relative to sequencing correctly the first time.** It exists to avoid discarding
+   otherwise-valid Issue history, not to normalize skipping the DoR gate. A packet whose Issue was
+   created before its DoR closed is remediated by updating that Issue with the completed DoR
+   evidence, the defined DoD, scope and disclosure boundaries — never by opening a duplicate.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e79 |
+| **`V1-BUILD-SPEC.md`** | ✅ general DoR-precedes-Issue/branch rule and the exceptional-remediation note added after the `D-253` paragraph |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph stating this is a sequencing rule, no row added/retired |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ DoR-checklist preamble cross-references `D-254`; DoR rows `R2`–`R6`/compatibility stay open, unchanged |
+| **`docs/Modular_PRD.md`** | — unaffected: no §10/§8 status change; no sprint closes or opens by this entry |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane state change |
+| **Rule files, frozen sources, `0001_init.sql`** | — unaffected |
+| **Graphify** | Owed once after the last governed edit in this pass |
+
+### What this act does NOT do
+
+Does not remediate any specific Issue — no `V1-SM05` Issue number has been supplied to Lane A as of
+this entry (`docs/handoff/B-125` Parent 4). Does not complete `V1-SM05`'s own DoR rows, select it,
+issue a work order, or authorize any push, branch or PR. Does not retroactively invalidate a prior
+decision; `D-253`'s Issue-first sequencing for `V1-SM05` already matches this rule.

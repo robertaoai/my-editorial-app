@@ -5,7 +5,13 @@
 - **Phase:** 1
 - **Blocks:** completion of V1-SM05 pre-start readiness, remediation of the existing GitHub Issue, Pass-1 publication, the State-1 PR, selection and State-2 construction
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-09-22. Applied Parent 1 only: recorded Judge Clarification 5.1 as
+  `D-254` in `V1-DECISION-REGISTER.md` §5.14e79, and propagated it under `D-54` to `V1-BUILD-SPEC.md`,
+  `V1-ARTIFACT-INVENTORY.md` and `V1-SM05.md`'s DoR-checklist preamble, stating `Modular_PRD.md` and
+  `V1-PHASE-CLOSURE.md` unaffected. Parents 2–6 remain open: the five operator facts, `DOR-R5`,
+  `DOR-R6`, the Pass-1 base push, the existing Issue number/URL, feature-branch creation, the State-1
+  PR, and selection/construction all still require their own named inputs or authority, none of which
+  this disposition supplies. `Status` stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-252`, `D-253`; `docs/handoff/B-119`–`B-124`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Judge Clarification 5.1 relayed 2026-09-22
 - **Verified-At-Commit:** ef903b38989a9e0fc24806332ed9d86c1f6d27d3

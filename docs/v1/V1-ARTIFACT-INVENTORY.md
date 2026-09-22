@@ -305,6 +305,12 @@ repository — same treatment already given to `docs/handoff/artifacts/`'s exter
 `V1-SM05` work packet's own traceability field (`D-253`), not restated here — this inventory tracks
 repository files, and an Issue is not one.
 
+**`D-254` (2026-09-22) — DoR-precedes-Issue/branch is a sequencing rule, no new file, stated
+explicitly.** Generalizes `D-253`'s Issue-first sequencing (already specific to `V1-SM05`) into a
+standing rule for every `V1` packet. **No row is added, duplicated or retired.** It governs when an
+already-tracked Issue/branch may be treated as carrying readiness authority, not what artifacts
+exist.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
