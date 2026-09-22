@@ -4835,3 +4835,74 @@ check, classification, `D-251` satisfaction and `V1-SM05` selection each need th
 | **Approve** | Evidence anchor for the accepted artifacts | Recorded |
 | **Defer** | Current-environment runs, classification, `D-251` satisfaction, `V1-SM05` selection | Separate Judge acts |
 | **Reject** | Any edit to an accepted byte; a hash taken from a working copy or from conversation | New version and full sequence |
+
+## Lane A review — D-251 manual-run receipts, attempt A01: local no matches, Supabase unresolved (migration `0002` not applied there), 2026-09-22
+
+**Authority and boundary.** The Chief Editor, as the named operator, ran the accepted preflight `V5` and assessment `V7`
+in both current environments and returned two completed receipts. Lane A independently reviewed both, filled each
+receipt's "Lane A review" section, and commits them here as evidence attachments (`D-54`; not part of the three-file
+manifest). This section makes no `D-251` closure and selects no MMF. No SQL is run by Lane A, the accepted artifacts are
+unedited, and the Register decision content is unaffected — one `DEP-05` cross-reference is added under Tier applicability
+below.
+
+### What Lane A verified
+
+| Check | Result |
+|---|---|
+| Both receipts' `Preflight`/`Assessment Lane-A-Accepted-Blob-SHA256` equal the values in the evidence anchor (`123bc34`) | **Confirmed**, case-insensitive; the operator's `Executed-SHA256` values are uppercase hex, equal in value |
+| Local: all 66 catalog rows and all 9 visibility rows `VERIFIED`; 0 `RECONCILIATION` rows; 10 assessment rows | **Confirmed** against the pasted output |
+| Local baseline values equal the seed-data controls established at acceptance (`C01` P=3, `C04` P=7, `C06`/`C08` E=2, all `D`=0) | **Confirmed** |
+| Supabase: preflight failed closed: 47 `ARTIFACT-INVALID` rows, 5 of 9 visibility rows, assessment correctly not run | **Confirmed**; the failure/return path recorded at `8a64cb2` worked as designed — no false zero |
+| The `ARTIFACT-INVALID` pattern | **Every column native to `0001_init.sql` alone is `VERIFIED`; every column or type added by `0002_s1_editorial_schema.sql` is `ARTIFACT-INVALID` or missing from `VISIBILITY`** (`allowed_transitions`, `editorial_reports`, `publication_targets`, `publications` absent; `E15`/`E33`/`E34` fail on type identity because `0002`'s `article_state_v2` rename never reached this environment) |
+
+### Finding: the provisioned Supabase project does not have migration `0002` applied
+
+This is independent, first-hand confirmation of the exposure `CLAUDE.md` already names under `D-121`/`DEP-05`: *"local-
+PostgreSQL-tested; live Supabase anon-key behaviour remains unverified."* This receipt shows it is not merely
+*unverified* — the schema itself is one migration behind. It is a **`DEP-05` deployment finding, not a `D-251` defect**:
+the accepted artifacts behaved exactly as specified, stopping before assessment and returning no false zero.
+
+### Two decisions still needed
+
+| # | Item | Owner |
+|--:|---|---|
+| 1 | Confirm three fields left `OPERATOR TO CONFIRM`: the assessed repository commit for both attempts, `Executed at (UTC)` precision for the local attempt, and the non-secret Supabase project identifier and executed-at time for the Supabase attempt | Chief Editor |
+| 2 | Authorize applying `0002_s1_editorial_schema.sql` to the provisioned Supabase project as its own reviewed deployment step, never as a byproduct of this evidence procedure. Only after that does attempt `A02` rerun the unchanged accepted preflight there | Judge |
+
+The two attestation boxes left unchecked on the Supabase receipt (read-only transaction; sole `SET LOCAL` change) are
+recorded as an honest gap, not a violation: the Supabase SQL editor's pasted output carries no command-tag echoes the way
+`psql`'s local output does, so the operator could not visually confirm them. No mutation attestation is checked, and the
+preflight's own text enforces both properties regardless of what the console echoes.
+
+### Result and closure state
+
+`D-251` requires a classified result in **both** current environments. Local is `no matches`; Supabase is `unresolved`.
+Under the recorded precedence (unresolved → living operational → historical only → no matches), the **overall** `D-251`
+state is `unresolved`, and it stays that way until Supabase returns a passing preflight and its own classified assessment.
+`V1-SM05`'s evidence box stays unchecked. B-119 stays `Open`.
+
+### Stray files (not committed)
+
+`D251-LOCAL-A01-PREFLIGHT.txt` and `D251-LOCAL-A01-ASSESSMENT.txt` are present at the repository root, untracked,
+UTF-16-encoded raw console captures. Their content matches what is already pasted into the local receipt. They sit
+outside the governed `docs/handoff/artifacts/B-119/` location and are not part of the accepted evidence trail. Lane A does
+not commit them; the Chief Editor should delete them or move them out of the repository.
+
+### Cross-artifact review
+
+`Modular_PRD.md`, storyboard, story panels, UML, data flow, the Encyclopedia, Build Spec, Artifact Inventory, Fn Specs,
+work packets and traceability are unaffected: no requirement, journey, state, route, scope or DoD changes. The Register's
+`D-251` decision content is unaffected; this finding is cross-referenced under `DEP-05`, which already names the
+exposure. `V1-SM05.md`'s evidence box remains unchecked, consistent with its existing DoR row.
+
+### Drift and Graphify
+
+`docs-drift` reads synced at `a5bdcc7`; every commit since is handoff-only and the attachments directory is
+coverage-excluded, so no Graphify rebuild is owed.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Local receipt A01 — no matches, evidence complete | Recorded; awaits the Supabase-side result to close `D-251` |
+| **Approve-with-conditions** | Supabase receipt A01 — correctly stopped, unresolved | Owner: Lane A specifies the deployment step; Judge authorizes it |
+| **Defer** | `D-251` satisfaction, `V1-SM05` selection, attempt `A02` on Supabase | After `0002` is applied there under its own authorization |
+| **Reject** | Treating the local "no matches" result as `D-251` satisfaction on its own; committing the stray root-level capture files; inferring the three unconfirmed fields instead of asking the operator | Preserve the two-environment requirement and the recorded fields |
