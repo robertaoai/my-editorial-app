@@ -1046,6 +1046,30 @@ export async function reopensPhase(results) {
  */
 const REGISTER = "docs/v1/V1-DECISION-REGISTER.md";
 
+// `G114`, found while drafting and negative-testing `D-252`'s own tier table:
+// `tier-sweep.mjs` only ever parsed the `Item | <tier columns>` shape. 66 of
+// the register's applicability tables use `Tier | Disposition`/`Applicability`
+// instead — rows ARE tiers — and were never read at all. Extending the parser
+// to that shape surfaces nine ALREADY-EXISTING, unrelated findings
+// (`D-210`/`D-213`/`D-228`/`D-232`/`D-233`/`D-235`/`D-248`/`D-249`/`D-250`),
+// recorded as open backlog in `G114` rather than fixed in this pass. The
+// positive control below neutralizes exactly those known rows' ✅ so it still
+// proves the NEW parsing path is clean against the other 65+ live tables,
+// without asserting a backlog this pass did not touch is resolved.
+const KNOWN_BACKLOG_ROWS = [
+  15573, 15726, 16947, 17371, 17425, 17428, 17565, 17566, 17567, 17570, 17571,
+  18426, 18460, 18464, 18528,
+];
+
+function neutralizeKnownBacklog(text) {
+  const lines = text.split("\n");
+  for (const row of KNOWN_BACKLOG_ROWS) {
+    const idx = row - 1;
+    if (lines[idx]?.includes("✅")) lines[idx] = lines[idx].replace("✅", "🟡 (`G114` known backlog, not this pass)");
+  }
+  return lines.join("\n");
+}
+
 export async function tierSweep(results) {
   const orig = read(CLOSURE);
   const restore = () => write(CLOSURE, orig);
@@ -1053,11 +1077,40 @@ export async function tierSweep(results) {
   const restoreReg = () => write(REGISTER, origReg);
 
   await fixture(results, {
-    name: "tier-sweep: the live register, unmutated",
+    name: "tier-sweep: the live register, unmutated (G114 known backlog neutralized)",
     modulePath: CHECK("tier-sweep.mjs"),
-    mutate: () => {},
-    restore,
+    mutate: () => write(REGISTER, neutralizeKnownBacklog(origReg)),
+    restore: restoreReg,
     shouldPass: true,
+  });
+  // Proves the shape-2 branch is actually reached: a `Tier | Disposition`
+  // table whose ✅ claim for `V1-BUILD-SPEC.md` cites an ID absent from it.
+  // Before this fix, this table shape was invisible to the check and this
+  // fixture would have found nothing to fail on.
+  await fixture(results, {
+    name: "tier-sweep: Tier | Disposition shape now parsed (shape 2)",
+    modulePath: CHECK("tier-sweep.mjs"),
+    mutate: () => {
+      const table =
+        "\n## 5.99z `D-999` — fixture-only probe\n\n| Tier | Disposition |\n|---|---|\n| **Build spec** | ✅ `G00` nowhere real |\n";
+      write(REGISTER, neutralizeKnownBacklog(origReg) + table);
+    },
+    restore: restoreReg,
+    expect: 'marked ✅ for "**Build spec**" but absent',
+  });
+  // The other shape-2 branch: a tier row naming something with neither a
+  // known synonym nor a resolvable repository path stays a hard "unmapped"
+  // finding rather than silently passing.
+  await fixture(results, {
+    name: "tier-sweep: Tier | Applicability unmapped label still flagged (shape 2)",
+    modulePath: CHECK("tier-sweep.mjs"),
+    mutate: () => {
+      const table =
+        "\n## 5.99y `D-998` — fixture-only probe\n\n| Tier | Applicability |\n|---|---|\n| Nonexistent Tier `G00` | ✅ nowhere real |\n";
+      write(REGISTER, neutralizeKnownBacklog(origReg) + table);
+    },
+    restore: restoreReg,
+    expect: "is not mapped to a document",
   });
   // The `B-054` shape exactly: the decision's own citation is removed from the
   // TARGET tier's own file (`D-124` mapped to "Phase closure" is

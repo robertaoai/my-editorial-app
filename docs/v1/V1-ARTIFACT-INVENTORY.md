@@ -286,6 +286,17 @@ the storyboard (Panel A10), `ENCYCLOPEDIA-SYNC.md`, the five `D-240` work packet
 identity-migration ledger lives in `D-251`; the `ACCESS-ROLE-CHIEF-EDITOR` rename touches no code, schema or
 migration artifact.
 
+**`D-252` (2026-09-22) — no new file, but a sequencing disposition, stated explicitly.** `D-54`
+requires a decision that **sequences** an artifact to reach this inventory even when it creates or
+retires none. `D-252` sequences the already-listed `supabase/migrations/0002_s1_editorial_
+schema.sql` (row above, `D-161`) and the A01/A02 evidence artifacts under
+`docs/handoff/artifacts/B-119/` (recorded via `D-251`): **candidate `0002` → local `V1-SM05`
+construction (disposable local-replay verification only) → accepted `V1-SM05` DoD → accepted
+baseline-promotion PR → hosted `0002` migration → Supabase A02 receipt.** No row is added,
+duplicated or retired by this sequencing; the existing `0002` row's historical "written and
+applied" language describes the local-replay proof already recorded there and is not rewritten —
+`D-252` governs how that language is read going forward, not the row itself.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
