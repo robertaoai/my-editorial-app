@@ -1046,30 +1046,16 @@ export async function reopensPhase(results) {
  */
 const REGISTER = "docs/v1/V1-DECISION-REGISTER.md";
 
-// `G114`, found while drafting and negative-testing `D-252`'s own tier table:
-// `tier-sweep.mjs` only ever parsed the `Item | <tier columns>` shape. 66 of
-// the register's applicability tables use `Tier | Disposition`/`Applicability`
-// instead — rows ARE tiers — and were never read at all. Extending the parser
-// to that shape surfaces nine ALREADY-EXISTING, unrelated findings
-// (`D-210`/`D-213`/`D-228`/`D-232`/`D-233`/`D-235`/`D-248`/`D-249`/`D-250`),
-// recorded as open backlog in `G114` rather than fixed in this pass. The
-// positive control below neutralizes exactly those known rows' ✅ so it still
-// proves the NEW parsing path is clean against the other 65+ live tables,
-// without asserting a backlog this pass did not touch is resolved.
-const KNOWN_BACKLOG_ROWS = [
-  15573, 15726, 16947, 17371, 17425, 17428, 17565, 17566, 17567, 17570, 17571,
-  18426, 18460, 18464, 18528,
-];
-
-function neutralizeKnownBacklog(text) {
-  const lines = text.split("\n");
-  for (const row of KNOWN_BACKLOG_ROWS) {
-    const idx = row - 1;
-    if (lines[idx]?.includes("✅")) lines[idx] = lines[idx].replace("✅", "🟡 (`G114` known backlog, not this pass)");
-  }
-  return lines.join("\n");
-}
-
+// `G114`, found while drafting and negative-testing `D-252`'s own tier table
+// and CLOSED in the same pass, not allowlisted: `tier-sweep.mjs` only ever
+// parsed the `Item | <tier columns>` shape. 66 of the register's
+// applicability tables use `Tier | Disposition`/`Applicability` instead —
+// rows ARE tiers — and were never read at all. Extending the parser surfaced
+// nine findings (`D-210`/`D-211`, `D-213`, `D-228`, `D-232`/`D-233`, `D-235`,
+// `D-249`/`D-250`), each individually reviewed and corrected — a missing
+// citation added where the content already lived, or the claim corrected to
+// point at the decision that actually owns it. None were suppressed, so the
+// positive control below is the plain live register, no neutralization.
 export async function tierSweep(results) {
   const orig = read(CLOSURE);
   const restore = () => write(CLOSURE, orig);
@@ -1077,10 +1063,10 @@ export async function tierSweep(results) {
   const restoreReg = () => write(REGISTER, origReg);
 
   await fixture(results, {
-    name: "tier-sweep: the live register, unmutated (G114 known backlog neutralized)",
+    name: "tier-sweep: the live register, unmutated",
     modulePath: CHECK("tier-sweep.mjs"),
-    mutate: () => write(REGISTER, neutralizeKnownBacklog(origReg)),
-    restore: restoreReg,
+    mutate: () => {},
+    restore,
     shouldPass: true,
   });
   // Proves the shape-2 branch is actually reached: a `Tier | Disposition`
@@ -1093,7 +1079,7 @@ export async function tierSweep(results) {
     mutate: () => {
       const table =
         "\n## 5.99z `D-999` — fixture-only probe\n\n| Tier | Disposition |\n|---|---|\n| **Build spec** | ✅ `G00` nowhere real |\n";
-      write(REGISTER, neutralizeKnownBacklog(origReg) + table);
+      write(REGISTER, origReg + table);
     },
     restore: restoreReg,
     expect: 'marked ✅ for "**Build spec**" but absent',
@@ -1107,10 +1093,48 @@ export async function tierSweep(results) {
     mutate: () => {
       const table =
         "\n## 5.99y `D-998` — fixture-only probe\n\n| Tier | Applicability |\n|---|---|\n| Nonexistent Tier `G00` | ✅ nowhere real |\n";
-      write(REGISTER, neutralizeKnownBacklog(origReg) + table);
+      write(REGISTER, origReg + table);
     },
     restore: restoreReg,
     expect: "is not mapped to a document",
+  });
+  // `preferSection` regression (`D-210`/`D-211`'s exact shape): a `Tier |
+  // Disposition` row's free-prose disposition cell can mention an UNRELATED
+  // decision in passing ("the file `D-999` failed to open"). Before this
+  // correction the ID-scrape picked that mention over the section's own
+  // decision (`D-998` here) and checked the wrong, absent ID — this fixture
+  // proves the section's own decision is required, not the incidental one.
+  await fixture(results, {
+    name: "tier-sweep: Tier | Disposition prefers its own section's decision over an incidental ID (preferSection)",
+    modulePath: CHECK("tier-sweep.mjs"),
+    mutate: () => {
+      const table =
+        "\n## 5.99x `D-998` — fixture-only probe\n\n| Tier | Disposition |\n|---|---|\n| **Build spec** | ✅ the file `D-999` failed to open |\n";
+      write(REGISTER, origReg + table);
+    },
+    restore: restoreReg,
+    expect: 'D-998 marked ✅ for "**Build spec**" but absent',
+  });
+  // Range-citation regression (`D-248`/`D-249`/`D-250`'s exact shape): the
+  // TARGET file can cite a decision as part of a range (`` `D-996`–`D-998` ``)
+  // rather than spelling out every member. Before `bodyContainsId`'s range
+  // check, `D-997` — never spelled out literally, only inside the range —
+  // read as absent even though the citation genuinely reached the file.
+  const buildSpecOrigForRange = read("docs/v1/V1-BUILD-SPEC.md");
+  await fixture(results, {
+    name: "tier-sweep: a decision cited only as part of a range is not treated as absent",
+    modulePath: CHECK("tier-sweep.mjs"),
+    mutate: () => {
+      write("docs/v1/V1-BUILD-SPEC.md", buildSpecOrigForRange + "\nFixture-only range probe (`D-996`–`D-998`).\n");
+      const table =
+        "\n## 5.99w `D-997` — fixture-only probe\n\n| Tier | Disposition |\n|---|---|\n| **Build spec** | ✅ covered by the range above |\n";
+      write(REGISTER, origReg + table);
+    },
+    restore: () => {
+      write("docs/v1/V1-BUILD-SPEC.md", buildSpecOrigForRange);
+      restoreReg();
+    },
+    shouldPass: true,
   });
   // The `B-054` shape exactly: the decision's own citation is removed from the
   // TARGET tier's own file (`D-124` mapped to "Phase closure" is
@@ -1956,7 +1980,7 @@ export const SUITES = [
   ["lane state (`D-103`)", laneState],
   ["channel documentation (`D-104`)", channelDocs],
   ["lane crossing declaration (`D-105`)", laneGate],
-  ["lane-boundary tool-crossing retirement (`D-227`)", laneBoundaryToolCrossing],
+  ["lane-boundary tool-crossing retirement (`D-227`, applied by `D-228`)", laneBoundaryToolCrossing],
   ["governed-intent exclusion matcher (`D-231`)", governedIntentExclusion],
   ["graph-coverage manifest and exact source-path evidence (`D-246`)", graphCoverageManifest],
   ["docs-drift argument safety (`B-109`)", docsDriftArgumentSafety],

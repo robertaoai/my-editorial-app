@@ -101,12 +101,12 @@ sequenceDiagram
 > `EW`-start event (`B-071` Round 56), whose entry trigger it is; then `OP-PITCH` records and
 > completes the Route-1 classification — logged pitch: topic, trend signal, route classification
 > (`factory-route-operation-crosswalk.md` §3.2 stage table). **`OP-PITCH`'s executor now has a
-> decided application-selection rule (corrected 2026-09-17)** — business judgment stage 1 selects
-> Reporter as executor, for Route-1 (`ROUTE-PROD-1`); Sheet 2's multi-`R` row (Reporter, Journalist)
-> stays preserved, not collapsed. See `factory-route-operation-crosswalk.md` §4.1 and
+> decided application-selection rule (corrected 2026-09-17, `D-233`)** — business judgment stage 1
+> selects Reporter as executor, for Route-1 (`ROUTE-PROD-1`); Sheet 2's multi-`R` row (Reporter,
+> Journalist) stays preserved, not collapsed. See `factory-route-operation-crosswalk.md` §4.1 and
 > `requirements-traceability-map.md` §6.2, not restated here. **`OP-FINAL-SIGNOFF`'s A-only execution
-> contract is accepted** (same §4.1) — Sign-Off opens human publication review only; it does not
-> itself approve, publish, or change article state. **`V1-SM05` fixes the route to
+> contract is accepted** (same §4.1, `D-233`) — Sign-Off opens human publication review only; it does
+> not itself approve, publish, or change article state. **`V1-SM05` fixes the route to
 > `ROUTE-PROD-1`** — no route-selection UI exists in V1. Sheet 1 assigns `ROLE-REPORTER` = R and
 > `ROLE-DESK-EDITOR` = A on that route; this is an observable work-order record, not a gate, button,
 > or T5-style sign-off, and authorizes no transition. **This diagram's own sequence is not yet
@@ -195,7 +195,8 @@ Requires all prior gate criteria confirmed, `publication_targets` confirmed, `pu
 ---
 
 ### Panel A9 — Business role-selection overlay (`business:T1`–`T5`), layered on Panels A2–A6,
-redrawn 2026-09-17 (`D-234`/`D-239`, `B117-R50`, `docs/handoff/B-117`'s `T2a`/`T2b` decision tree)
+redrawn 2026-09-17 (`D-234`'s accepted intent, applied by `D-235`; `D-239`, `B117-R50`,
+`docs/handoff/B-117`'s `T2a`/`T2b` decision tree)
 
 **This panel is an overlay, not a redraw of Panels A2–A6.** The `transition:T1`–`T11`/`EG1`–`EG5`
 gate numbers in Panels A2–A8 are the existing technical state-transition namespace and are

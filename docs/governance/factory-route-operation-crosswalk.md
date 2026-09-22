@@ -261,7 +261,8 @@ identity is the `V1-SM05`/`V1-SM06` slot assignment (`B117-R6`/similar correctio
      `ManualReady`, or change article state.
 
 ### 4.2 `T1`–`T5` phase-gate overlay — scoped executions, `T5` RACI normalization, Final Sign-Off
-`A`-coverage extension (`D-234`, propagated 2026-09-17, `B117-R44`/`R46`/`R47`/`R48`; source-RACI
+`A`-coverage extension (`D-234`'s accepted intent, applied by `D-235`, propagated 2026-09-17,
+`B117-R44`/`R46`/`R47`/`R48`; source-RACI
 corrected 2026-09-17, `D-236`/`D-237`/`D-238`, `B-118`; `T5` reframed as newsworthiness ranking,
 `D-239`, `requirements-traceability-map.md` §6.3/§6.4)
 

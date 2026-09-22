@@ -75,8 +75,9 @@ const LANES = [
 // `D-227`'s own Register/Inventory entries once claimed this family was
 // "retired before implementation" — false: `A_SUB`, `subOf` and the `bySub`
 // reporting below were a real, live implementation with zero test coverage,
-// not a spec with none. Untested is not unimplemented. This edit is the
-// correction, not a restatement of the wrong claim.
+// not a spec with none. Untested is not unimplemented. `D-228` corrected that
+// claim and applied this removal; this edit is the correction, not a
+// restatement of the wrong claim.
 //
 // Nothing else changes: `byLane` still keys on A/B/C only, and the lane
 // crossing report and `.githooks/commit-msg` gate below are unaffected.

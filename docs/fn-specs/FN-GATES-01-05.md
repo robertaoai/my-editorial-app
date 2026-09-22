@@ -97,7 +97,7 @@ just cited, not in `B-071`. `OP-PITCH`/`OP-DRAFT` are resolved; `OP-FINAL-SIGNOF
 locations.
 
 ### 3.0a Phase-gate lifecycle — judgment, dispatch and completion are distinct events `[V1]`
-(`D-234`, propagated 2026-09-17, `B117-R44`/`R45`)
+(`D-234`'s accepted intent, applied by `D-235`, propagated 2026-09-17, `B117-R44`/`R45`)
 
 **This section governs every `business:T1`–`T5` node** (`requirements-traceability-map.md` §6.3),
 not only the `T1` precondition above — §3.0's three pre-`T1` events are one concrete instance of the

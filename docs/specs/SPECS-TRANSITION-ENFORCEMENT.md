@@ -94,8 +94,8 @@ labelling them together. **Only this column's display label changes; the stored/
 3. **T10 changes no state.** It is a publication-status event. Forcing it through a state-change guard means either inventing a self-transition or exempting it — and an exemption is a bypass route.
 4. **T11 is conditional on external outcome** — whether this is the *first live target*. The database cannot evaluate that from the article row alone.
 
-### 3.2 Technical-namespace relabel/migration matrix — documentary only `[V1]` (`D-234`, propagated
-2026-09-17, `B117-R49`)
+### 3.2 Technical-namespace relabel/migration matrix — documentary only `[V1]` (`D-234`'s accepted
+intent, applied by `D-235`, propagated 2026-09-17, `B117-R49`)
 
 **Disposition for every occurrence of `T` + digit this document stores, exposes, or names.** This is
 a **documentary** matrix only — it authorizes no code, schema, or persisted-field change. Any future

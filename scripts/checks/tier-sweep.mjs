@@ -130,6 +130,25 @@ function resolveByPath(label) {
   return sawAny ? { match: label, files } : null;
 }
 
+// A target file can cite a decision as part of a range (`` `D-247`–`D-251` ``)
+// rather than spelling out every ID in it — found while resolving `D-248`/
+// `D-249`/`D-250`: `V1-ARTIFACT-INVENTORY.md`'s disposition paragraph cites
+// exactly that range, and `body.includes("D-249")` cannot see a member the
+// text never spells out literally. A checker-resolution gap, not a real one:
+// the ID genuinely reached the file, just inside a range notation.
+function bodyContainsId(body, id) {
+  if (body.includes(id)) return true;
+  const n = Number(/^D-(\d+)$/.exec(id)?.[1]);
+  if (!Number.isFinite(n)) return false;
+  const rangeRe = /`D-(\d+)`\s*[–—-]\s*`D-(\d+)`/g;
+  for (const m of body.matchAll(rangeRe)) {
+    const lo = Number(m[1]);
+    const hi = Number(m[2]);
+    if (n >= Math.min(lo, hi) && n <= Math.max(lo, hi)) return true;
+  }
+  return false;
+}
+
 const cache = new Map();
 function contents(path) {
   if (!cache.has(path)) {
@@ -146,15 +165,22 @@ function contents(path) {
 // claim, a tier config and a row/column label for messages, verify at least
 // one required ID appears in each of the tier's mapped files. Mutates
 // `findings` and returns the number of tier-file checks it performed.
-function checkClaim({ ids, sectionDecision, tier, label, rowNum, findings, checked }) {
+function checkClaim({ ids, sectionDecision, tier, label, rowNum, findings, checked, preferSection = false }) {
   // `D-54` requires the DECISION to be traceable into the tier. When the
   // cell names one, demand that ID specifically — accepting any ID in the
   // cell lets a gap reference mask a decision that never propagated, which
   // is the exact shape of `G58`.
   // `G98`: prefer the cell's own decision, else the SECTION's — and fall
-  // back to the row's other IDs only when neither exists.
-  const decision = ids.find((id) => /^D-\d+$/.test(id));
-  const required = decision ? [decision] : sectionDecision ? [sectionDecision] : ids;
+  // back to the row's other IDs only when neither exists. `preferSection`
+  // inverts that for Shape 2 (`Tier | Disposition`): one such table belongs
+  // to exactly one decision, its enclosing heading, and its free-prose cell
+  // can mention an UNRELATED decision in passing (`D-210` found this: `D-211`'s
+  // own row read "the file `D-210` failed to open", and the ID-scrape picked
+  // the wrong one) — Shape 1's Item cell has no such narrative prose and the
+  // cell-first preference is correct there.
+  const cellId = ids.find((id) => /^D-\d+$/.test(id));
+  const decision = preferSection ? sectionDecision ?? cellId : cellId;
+  const required = decision ? [decision] : preferSection ? ids : sectionDecision ? [sectionDecision] : ids;
   if (required.length === 0) {
     findings.push(`row ${rowNum}: ✅ for "${label}" has no attributable decision ID`);
     return;
@@ -166,7 +192,7 @@ function checkClaim({ ids, sectionDecision, tier, label, rowNum, findings, check
       continue;
     }
     checked.n++;
-    const present = required.some((id) => body.includes(id));
+    const present = required.some((id) => bodyContainsId(body, id));
     if (!present) {
       findings.push(
         `row ${rowNum}: ${required.join("/")} marked ✅ for "${label}" but absent from ${file}`,
@@ -250,7 +276,7 @@ export function run() {
           continue;
         }
         const ids = [...disposition.matchAll(/`([A-Z]+-?\d+[a-z]?)`/g)].map((m) => m[1]);
-        checkClaim({ ids, sectionDecision, tier, label: tierName, rowNum: j + 1, findings, checked });
+        checkClaim({ ids, sectionDecision, tier, label: tierName, rowNum: j + 1, findings, checked, preferSection: true });
       }
     }
   }
