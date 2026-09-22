@@ -4836,6 +4836,78 @@ check, classification, `D-251` satisfaction and `V1-SM05` selection each need th
 | **Defer** | Current-environment runs, classification, `D-251` satisfaction, `V1-SM05` selection | Separate Judge acts |
 | **Reject** | Any edit to an accepted byte; a hash taken from a working copy or from conversation | New version and full sequence |
 
+## D251-SM05-STACKED-HANDOFF-RETURN — Judge-approved stacked PR boundary, 2026-09-22
+
+**Judge acts and boundary.** The Judge approved the stacked `V1-SM05` PR strategy and declared this Lane B
+handoff ready for Lane A. This return records the resulting implementation-plan boundary only. It changes no
+canonical governance source, application code, workflow, database or remote branch; it does not authorize a push,
+Issue, branch, PR, hosted migration, deletion or construction.
+
+### Parent-first dispositions
+
+| Parent | Approved or required rule | Lane A follow-up |
+|---:|---|---|
+| 1 | **Stacked PR.** The SM05 branch starts from and targets `docs/journal-2026-08-16`; baseline promotion to `main` stays pending until SM05 development DoD is accepted | Record the branch/base rule and keep the release-promotion act separate from the one-MMF PR |
+| 2 | **Environment semantics.** Local PostgreSQL is a fresh disposable replay of ordered scripts for mechanical verification. `migration` means application to the persistent hosted Supabase environment | Amend the ambiguous historical word `applied` without deleting the local proof |
+| 3 | **Candidate allocation.** `0002_s1_editorial_schema.sql` is an existing setup-prepared candidate allocated to SM05; setup earns no V1 feature-construction credit | Record candidate provenance and SM05 ownership of review, integration and eventual hosted use |
+| 4 | **D-251 placement.** Local A01 is mechanical evidence and Supabase A01 is hosted-baseline absence evidence. They support readiness but do not satisfy final production classification | Remove hosted A02 from pre-selection/SM05 execution; keep D-251 open until post-release A02 |
+| 5 | **DoR before the readiness PR.** R1 stands; R2–R4 still need Lane B feasibility evidence; R5 still needs the canonical normal/revision wireflow and Chief Editor walkthrough; R6 still needs hosted comparison or explicit Judge deferral | Do not check R2–R6 without the named evidence |
+| 6 | **Two-state PR.** State 1 presents readiness only. Judge selection, the work order and Lane B activation precede State 2 implementation | Amend the current PR-after-selection rule and retain the explicit authority boundary |
+| 7 | **Local-only SM05 construction.** Fresh local replay, child-appropriate xDD, real local persistence and packet-specific DoD; no hosted mutation | Keep hosted credentials out of the SM05 development PR |
+| 8 | **Post-SM05 release.** After accepted SM05 DoD and stacked integration, a separate baseline-promotion PR may target `main`; only after approved promotion may the Chief Editor migrate hosted Supabase and run A02 | Treat promotion, migration and A02 as separate release evidence, not SM05 Milestone 1 |
+| 9 | **SM06 gate.** Accepted SM05 DoD, accepted hosted migration evidence, accepted A02/D-251 disposition and SM06's own DoR precede SM06 selection | Add the dependency only when the Judge confirms it in the Register |
+
+### What is complete
+
+- Preflight V5, assessment V7 and receipt template V5 are accepted and hash-anchored.
+- Local A01 is committed mechanical-replay evidence.
+- Supabase A01 is committed fail-closed hosted-baseline evidence; assessment correctly did not run.
+- The stacked SM05 strategy and Lane B-to-Lane A handoff boundary are Judge-approved.
+- No hosted migration beyond the external `0001` baseline is evidenced.
+
+### What remains open
+
+- Chief Editor confirmation of the remaining A01 operator metadata.
+- Canonical D-54 propagation by Lane A across the Register, Build Spec, Artifact Inventory and SM05 packet.
+- R2–R4 feasibility review, R5 visual/data-flow contract and R6 Encyclopedia disposition.
+- Exact branch name, governance-branch push authorization and stacked integration method.
+- The State-1 readiness PR, Judge selection, work order, Lane B activation and SM05 construction.
+- Baseline promotion, hosted `0002` migration, Supabase A02, final D-251 classification and SM06 readiness.
+- The two untracked root console captures remain untouched; deletion requires the Chief Editor's explicit authorization.
+
+### Failure conditions and semantic corrections
+
+- Creating the SM05 branch from stale `main`, or merging the governance branch into it, destroys the one-MMF diff
+  and violates the zero-merge discipline.
+- Deploying hosted `0002` before SM05 completion contradicts the Judge ruling.
+- A01 readiness evidence is not final D-251 satisfaction; A02 production data may classify as any recorded closure
+  branch and must not be presumed `no matches`.
+- Panel A9 alone does not close R5, and a sync-ledger flag alone does not close R6.
+- SM05 must not claim technical `transition:T*` execution, Final Sign-Off enforcement, T6, article `Published`,
+  automated WordPress, Line 3 workflow or external-GRC exchange.
+- Child xDD method remains Lane B's recorded mechanism choice; no strict method is imposed globally.
+- Verification cites the complete runner, never a fixed check or graph-node count.
+
+### Cross-artifact and graph impact
+
+Lane A's accepted amendment affects the Decision Register, Build Spec, Artifact Inventory, SM05 packet, PR template,
+phase/lane transition record and D-251 cross-references. R5 affects the storyboard target sequence and matching data
+flow; R6 affects Encyclopedia Entries 01/05/06. `Modular_PRD.md` changes only when its tracker formally opens or
+closes SM05. UML and functional specifications change only if the remaining review finds a real interaction or
+behaviour defect.
+
+At this return's source state, governed intent remains synchronized at `a5bdcc7`; later commits through `8488f63`
+are handoff-only. No Graphify rebuild is owed by this handoff append. After Lane A changes canonical documents, it
+must run the complete consistency suite, rebuild Graphify once at final canonical HEAD and re-merge curated fragments.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Judge-approved stacked SM05 PR strategy and local-only implementation boundary | Lane A canonical propagation |
+| **Approve-with-conditions** | A01 receipts as pre-selection readiness evidence | Operator metadata confirmation; final D-251 remains open |
+| **Approve-with-conditions** | Two-state PR and child-appropriate xDD | Complete R2–R6, Judge selection, work order and Lane B activation |
+| **Defer** | Push, Issue, branch, PR, SM05 construction, baseline promotion, hosted migration, A02 and SM06 | Separate bounded Judge acts in the parent order above |
+| **Reject** | Hosted migration as pre-feature Milestone 1; stale-main branch merge; presumed A02 `no matches`; unsupported R5/R6 closure; fixed verification tallies | Preserve the corrected boundary |
+
 ## Lane A review — D-251 manual-run receipts, attempt A01: local no matches, Supabase unresolved (migration `0002` not applied there), 2026-09-22
 
 **Authority and boundary.** The Chief Editor, as the named operator, ran the accepted preflight `V5` and assessment `V7`
