@@ -13,12 +13,12 @@
   reflect all three as feasibility-resolved. `DOR-R5`, `DOR-R6`, identity-compatibility evidence,
   and Chief Editor Parent-1 attestation remain open and untouched by this disposition. No Issue,
   branch, PR, migration, or application construction was performed.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-09-22
 - **Evidence:** `docs/fn-specs/FN-GATES-01-05.md` §4.3 and `docs/v1/work-packets/V1/V1-SM05.md` DoR
   checklist (`DOR-R2`–`DOR-R4` re-checked) at the commit below; `docs/handoff/B-120` Parent 3 table
   updated to match; corrections originally returned through `B-121`
-- **Verified-At-Commit:** 3d9bed0fbd494d09eb963e6d15011076cdbbbcb9
+- **Verified-At-Commit:** e5f333630c3ef991c4b5dd32278acf6d52e3366a
 
 ## What happened
 
@@ -53,6 +53,16 @@ Lane B.
 
 Lane B stopped at feasibility acceptance. No application code, migration, canonical Lane A source,
 branch, remote, Issue, PR or environment was changed.
+
+## Independent verification — 2026-09-22
+
+Lane B independently reviewed Lane A's application at `e5f333630c3ef991c4b5dd32278acf6d52e3366a`.
+`V1-SM05.md` checks `DOR-R2`, `DOR-R3` and bounded `DOR-R4`, replaces each pending-review marker
+with this entry's acceptance evidence, and preserves the deferred execution boundary. `B-120`
+records the same result by citation without duplicating the contracts. The complete consistency
+suite passes and Graphify's analyzed HEAD equals the reviewed commit. This verifies B-123 only;
+`DOR-R5`, `DOR-R6`, identity-compatibility evidence, the B-119 operator attestation and every
+external lifecycle or implementation act remain open.
 
 ---
 
