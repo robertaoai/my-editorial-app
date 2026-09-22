@@ -5,7 +5,14 @@
 - **Phase:** 1
 - **Blocks:** truthful completion of the V1-SM05 DoR, GitHub Issue creation and State-1 readiness presentation
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-09-22. Applied the non-blocked half of the parent-first correction:
+  appended a dated `D-252` supersession note to `docs/handoff/B-119` (historical A01 review text and
+  receipt bytes unchanged) and corrected `docs/handoff/B-120` Parent 3's narrative to remove the
+  circular-gate framing. Did **not** edit `V1-SM05.md`'s identity-compatibility row or checkbox — the
+  draft canonical correction in this entry is explicit that the checkbox is set only in the same pass
+  that records the five `OPERATOR TO CONFIRM` facts (`B-120` Parent 1), and those remain unsupplied.
+  `Status` stays `Open` pending that supplemental attestation; this is a partial disposition, not a
+  closure.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `V1-DECISION-REGISTER.md` §5.14e77 (`D-252`) items 4–6; `V1-BUILD-SPEC.md` stacked-PR boundary; `docs/v1/work-packets/V1/V1-SM05.md` identity-compatibility evidence row; `docs/handoff/B-119` A01 review and `docs/handoff/B-120` Parent 1
 - **Verified-At-Commit:** 5c5236988f8d871f5dd0da432bb646f264163eb5

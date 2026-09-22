@@ -88,8 +88,19 @@ closed. Superseded by the closures above, not deleted — see `docs/handoff/B-12
 **`R2`–`R4` closed 2026-09-22 (`docs/handoff/B-123`), corrected in place, not restated.** Lane B's
 feasibility review accepted the identity model and `DOR-R2`/`DOR-R3` unconditionally, and `DOR-R4`
 within the recorded contract-review boundary (`OP-COPY-EDIT`/`OP-FINAL-SIGNOFF` execution stays
-deferred). Lane A re-checked all three in `V1-SM05.md`, citing `B-123`. `R5`, `R6` and
-identity-compatibility evidence remain open with their named owners.
+deferred). Lane A re-checked all three in `V1-SM05.md`, citing `B-123`. `R5` and `R6` remain open
+with their named owners.
+
+**Identity-compatibility readiness — corrected 2026-09-22 (`docs/handoff/B-124`), not a new DoR row.**
+The prior framing (`V1-SM05`'s evidence box stays unchecked until Supabase resolves — `B-119`) read
+as a circular gate under `D-252`: Supabase `A02` cannot run before accepted `V1-SM05` DoD and baseline
+promotion, so a gate that waits on it can never open before `V1-SM05` itself completes. `D-252`
+separates **pre-selection readiness** (the two accepted A01 receipts — local `no matches`, Supabase
+fail-closed-unresolved) from **final `D-251` production classification** (post-release, gated on hosted
+`0002` and `A02`). Pre-selection readiness is not blocked by the open final classification. It still
+requires B-120 Parent 1's supplemental operator metadata (the five `OPERATOR TO CONFIRM` facts,
+currently unsupplied) before `V1-SM05.md`'s compatibility row can be marked complete — that dependency
+is unchanged and is not satisfied by this correction alone.
 
 | DoR item | Owner | Required evidence |
 |---|---|---|

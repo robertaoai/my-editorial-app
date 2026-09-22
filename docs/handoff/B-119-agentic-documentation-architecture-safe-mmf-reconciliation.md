@@ -4953,6 +4953,16 @@ Under the recorded precedence (unresolved → living operational → historical 
 state is `unresolved`, and it stays that way until Supabase returns a passing preflight and its own classified assessment.
 `V1-SM05`'s evidence box stays unchecked. B-119 stays `Open`.
 
+#### `D-252` supersession note, 2026-09-22 (`docs/handoff/B-124`)
+
+The statement immediately above — that `V1-SM05`'s evidence box stays unchecked until Supabase resolves — is preserved
+as the historical record of this review and is **not rewritten**. It is superseded, not retracted, by `D-252`
+(`V1-DECISION-REGISTER.md` §5.14e77), which separates **pre-selection readiness** from **final `D-251` production
+classification**: the two accepted, hash-anchored A01 receipts (local `no matches`, Supabase fail-closed-unresolved)
+satisfy `V1-SM05` pre-selection readiness once B-120 Parent 1's supplemental operator metadata is recorded. Final
+`D-251` classification, hosted `0002`, and Supabase `A02` remain **post-SM05-release** work under `D-252` and are not
+a selection gate. Neither accepted receipt is altered by this note.
+
 ### Stray files (not committed)
 
 `D251-LOCAL-A01-PREFLIGHT.txt` and `D251-LOCAL-A01-ASSESSMENT.txt` are present at the repository root, untracked,
