@@ -12,6 +12,22 @@
   Lane A is not: Chief Editor attestation (Parent 1), Judge boundary decisions (Parent 2), Lane B
   feasibility evidence (Parent 3 `R2`–`R4`), and explicit push/Issue/branch authorization (Parent 4)
   precede any Lane A action there.
+
+  **Dated correction, 2026-09-22 (`docs/handoff/B-122`), not a rewrite of the above.** The above was
+  accurate when written; the repository state has since moved. `git rev-list --left-right --count`
+  confirms `docs/journal-2026-08-16` and `origin/docs/journal-2026-08-16` resolve with no commits
+  unique to either side — **baseline push is complete**, observed at commit `f94695b`. Push
+  authorization is removed from Parent 4's later-operations list; Issue, branch and PR creation stay
+  deferred there. Parent 2's docket is **fully closed**, not four open rows: integration mode is
+  **Squash and Merge**; dual sign-off is **advisory**, because Chief Editor and Judge are the same
+  user under `D-158` — no fictitious second natural-person approval is required; raw-capture
+  disposition is **disposed after incorporation** — their relevant content was copied into the
+  committed, hash-anchored `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V5-LOCAL-A01.md` and
+  `…-V5-SUPABASE-A01.md` receipts before the two root UTF-16 console exports were removed; the
+  receipts and their hash anchors are the accepted evidence, and the absent raw files must not be
+  recreated or committed. **There are now no open boundary decisions.** Parents 1, 3 and 5 are
+  otherwise unchanged; completing the baseline push does not itself authorize Issue, branch or PR
+  creation.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-252`, `D-253`; `docs/handoff/B-119-agentic-documentation-architecture-safe-mmf-reconciliation.md`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/V1-ARTIFACT-INVENTORY.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Lane C independent review dated 2026-09-22
 - **Verified-At-Commit:** a6368a36225504eadd24f391337de68e7b76f11f
@@ -53,17 +69,19 @@ either accepted receipt.
 
 ### Parent 2 — boundary docket
 
-The docket has five rows, but one is already closed:
+**Closed in full, 2026-09-22 (`docs/handoff/B-122`) — table corrected in place, original rows kept
+in the annotation below for record.**
 
 | Decision | State | Required Lane A / Judge action |
 |---|---|---|
 | Feature-branch name | **Closed by `D-253`** | Use `features/feature-V1-SM05`; do not reopen |
-| Push authorization | **Open** | Authorize or reject pushing the verified `docs/journal-2026-08-16` range |
-| Integration mode | **Open** | Select squash, rebase, or merge-commit integration |
-| Dual-sign-off mandate | **Open** | Decide whether technical plus business sign-off is mandatory or advisory |
-| Raw-capture disposition | **Open** | Retain outside Git, archive through a reviewed evidence artifact, or delete |
+| Push authorization | **Closed — baseline push complete**, observed at `f94695b` | None; Issue/branch/PR creation stay separately gated |
+| Integration mode | **Closed — Squash and Merge** | Use for the State-1 PR and later merges |
+| Dual-sign-off mandate | **Closed — advisory**, not mandatory (`D-158`: Chief Editor and Judge are the same user) | Technical/business review evidence remains useful, not required |
+| Raw-capture disposition | **Closed — disposed after incorporation** into the committed `docs/handoff/artifacts/B-119/…-V5-LOCAL-A01.md`/`…-V5-SUPABASE-A01.md` receipts | Do not recreate or commit the absent root files; the hash-anchored receipts are the accepted evidence |
 
-The raw captures are not a branch prerequisite. No deletion occurs without the Chief Editor's choice.
+*(Original raising text: all five rows read "Open" except the feature-branch name, which `D-253`
+closed. Superseded by the closures above, not deleted — see `docs/handoff/B-122`.)*
 
 ### Parent 3 — complete the V1-SM05 DoR
 
@@ -115,7 +133,8 @@ documents, create the Issue or branch, open the PR, migrate Supabase, or begin S
 | **Approve** | `D-253` governance, branch/base and Issue-first boundary | Complete in Phase 1 |
 | **Approve** | `SETUP-SPIKE-000` to V1-SM05 planning bridge | Complete; no V1 construction credit |
 | **Approve-with-conditions** | Final GitHub Issue and State-1 PR | After operator attestation, four open boundary decisions and `R2`–`R6` disposition |
-| **Defer** | Push, Issue, branch and PR operations | Explicit authority after DoR |
+| **Approve** | Baseline push | Complete, observed at `f94695b` (`docs/handoff/B-122`) |
+| **Defer** | Issue, branch and PR operations | Explicit authority after DoR |
 | **Defer** | V1-SM05 construction | After selection, work order and Lane B activation |
 | **Reject** | ZIP-based branch initialization; rewriting anchored receipts; deleting raw captures without authority | Preserve native Git history and evidence boundaries |
 

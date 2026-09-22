@@ -283,20 +283,49 @@ authorized Lane B refinement own those). Each row names the namespace it means, 
 evidence slice and **does not claim `transition:T*` execution**: **B** = a `business:T*` judgment record, **EG** = a
 V1 task/evidence record, **TR** = a technical `transition:T*` state. **No `V1-SM05` criterion is a TR row.**
 
+**Replay/attempt identity, added 2026-09-22 (`docs/handoff/B-121` Parent 2).** Schema-neutral —
+Lane B chooses the physical key later, under a bounded work order; this section owns the behaviour
+only.
+
+- **Commission identity** — same submitter + same brief hash + same business day. Two attempts
+  sharing this identity are the same commission; the duplicate/new-work classification (`AC-02`,
+  `D-121`) is decided on it.
+- **Workflow identity** — created once, from one accepted commission's `EW`-start. It does not
+  change for the life of that commission.
+- **Operation-attempt identity** — workflow identity + the specific operation (`OP-PITCH`,
+  `OP-DRAFT`, …) + the applicable revision or scope of that operation.
+- **Replay** — a repeat of an existing operation-attempt identity. It creates no second effective
+  outcome; the repeat stays visible in the audit trail.
+- **Legitimate new work** — a different commission (any element of commission identity differs,
+  including the same brief on a different business day) or a new applicable revision/scope inside
+  an existing commission. It creates a new workflow or operation-attempt identity, never a replay.
+
 | Contract | Given | When | Then | Ns |
 |---|---|---|---|---|
 | `DOR-R2` positive | An accepted manual record and an `EW`-start from the Senior Journalist | `OP-PITCH` runs on `ROUTE-PROD-1` | Exactly one completed pitch and route classification is recorded | B/EG |
-| `DOR-R2` duplicate | A completed pitch for that record | The same `EW`-start or pitch is repeated | **No second completion**; the repeat stays visible in the audit trail | EG |
+| `DOR-R2` duplicate | A completed pitch for that record | The same operation-attempt identity (`OP-PITCH` on that workflow) is repeated — a replay | **No second completion**; the repeat stays visible in the audit trail | EG |
 | `DOR-R2` failure | A pitch that cannot complete (for example, no classification) | It is attempted | Nothing advances; failure evidence is appended; a later valid attempt yields one completion | EG |
 | `DOR-R3` missing intake | No accepted manual record | An `EW`-start arrives | It is refused with a named reason; **no gate, state or workflow identity is created** | EG |
 | `DOR-R3` duplicate `EW` | An accepted record whose `EW` was already recorded | A second `EW` arrives | No second workflow; the workflow identity is stable | EG |
-| `DOR-R3` new work | An accepted record for a **different** brief, including one logged on a different day | Its `EW` arrives | A distinct workflow is created — a new intake is not a replay of the old one | EG |
+| `DOR-R3` new work | An accepted record whose commission identity differs (a different brief, or the same brief on a different business day) | Its `EW` arrives | A distinct workflow identity is created — legitimate new work, not a replay of the old one | EG |
 | `DOR-R4` executor | `ROUTE-PROD-1`, `OP-DRAFT` dispatched | It runs | The Reporter is the executor of record; the recorded application-default `A` is the Chief Editorial Desk; a repeat dispatch does not create a second execution | EG |
 | `DOR-R4` final sign-off | `OP-FINAL-SIGNOFF`'s accepted A-only contract | V1 reaches the Final Sign-Off point | The **external-tracking reminder is displayed and nothing is enforced or executed**; the contract stays the future target | B |
 
-Refusal reasons are named, and the exact vocabulary is Lane B's. These rows complete the failure and replay
-detail `DOR-R2`–`DOR-R4` still lacked; they do **not** make either work packet DoR-complete (`DOR-R5` and
-`DOR-R6` remain).
+Refusal reasons are named, and the exact vocabulary is Lane B's. These rows complete `DOR-R2`/`DOR-R3`'s
+failure and replay detail; they do **not** make either work packet DoR-complete (`DOR-R5` and `DOR-R6`
+remain).
+
+**`DOR-R4` coverage — contract-review boundary, corrected 2026-09-22 (`docs/handoff/B-121` Parent 3,
+recommended option).** This table does **not** carry per-operation failure/replay evidence for every
+required Route-1 operation — an earlier claim to that effect was wrong. `V1-SM05` implements/displays
+no `OP-FINAL-SIGNOFF` execution and constructs no `OP-COPY-EDIT` failure/replay behaviour; `DOR-R4`
+feasibility instead verifies that the accepted target contracts (`OP-COPY-EDIT`'s source `R`, and
+`OP-FINAL-SIGNOFF`'s five-condition A-only contract, `D-233`/`D-236`–`D-238`) are representable and
+traceable from what this table and the crosswalk already state. **Explicitly deferred, not covered
+here:** `OP-COPY-EDIT` failure/replay cases, and `OP-FINAL-SIGNOFF`'s refusal, same-revision replay,
+relevant-revision re-attestation and retained-prior-evidence rules (`factory-route-operation-
+crosswalk.md` §4.1/§4.2). Executing any of these is a scope expansion requiring its own Judge act, not
+a `DOR-R4` feasibility clarification.
 
 ## 5. Acceptance criteria
 
