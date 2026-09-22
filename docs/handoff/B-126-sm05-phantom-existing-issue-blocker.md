@@ -4,9 +4,17 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** truthful B-125 disposition and selection of the correct Parent-4 GitHub Issue workflow
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-23. Corrected `docs/handoff/B-125` in place per
+  Parent 1: removed existing-Issue remediation from `Blocks`, replaced Parent 4 with normal post-DoR
+  Issue creation, updated the Parent 5 lead-in and the Verdict table, and preserved `D-254`'s
+  exceptional-remediation rule as a general rule not currently applied to `V1-SM05`. Independent
+  verification via `gh` CLI was attempted and unavailable in this environment (`gh: command not
+  found`); this disposition relies on the user-supplied screenshot dated 2026-09-23 as the available
+  evidence, stated as a limitation rather than an independent API confirmation. Parents 2–6 of
+  B-125/B-126 remain open and untouched by this entry.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** user-supplied GitHub Issues screenshot dated 2026-09-23; `D-254`; `docs/handoff/B-125`; repository HEAD `4f0751c`
 - **Verified-At-Commit:** 4f0751c57dca2e77ce32ec0cb58bd499b4d48658
 

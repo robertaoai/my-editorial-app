@@ -3,15 +3,25 @@
 - **Raised:** 2026-09-22 by Lane B
 - **Kind:** blocked-on-decision
 - **Phase:** 1
-- **Blocks:** completion of V1-SM05 pre-start readiness, remediation of the existing GitHub Issue, Pass-1 publication, the State-1 PR, selection and State-2 construction
+- **Blocks:** completion of V1-SM05 pre-start readiness, normal GitHub Issue creation, Pass-1 publication, the State-1 PR, selection and State-2 construction
 - **Status:** Open
 - **Lane A:** Acknowledged 2026-09-22. Applied Parent 1 only: recorded Judge Clarification 5.1 as
   `D-254` in `V1-DECISION-REGISTER.md` §5.14e79, and propagated it under `D-54` to `V1-BUILD-SPEC.md`,
   `V1-ARTIFACT-INVENTORY.md` and `V1-SM05.md`'s DoR-checklist preamble, stating `Modular_PRD.md` and
   `V1-PHASE-CLOSURE.md` unaffected. Parents 2–6 remain open: the five operator facts, `DOR-R5`,
-  `DOR-R6`, the Pass-1 base push, the existing Issue number/URL, feature-branch creation, the State-1
-  PR, and selection/construction all still require their own named inputs or authority, none of which
-  this disposition supplies. `Status` stays `Open`.
+  `DOR-R6`, the Pass-1 base push, feature-branch creation, the State-1 PR, and selection/construction
+  all still require their own named inputs or authority, none of which this disposition supplies.
+  `Status` stays `Open`.
+
+  **Correction, 2026-09-23 (`docs/handoff/B-126`).** This entry's original Parent 4 assumed an
+  existing V1-SM05 GitHub Issue that the Judge needed to identify for remediation. A user-supplied
+  screenshot of the repository's Issues page (dated 2026-09-23) shows zero open and zero closed
+  Issues; `gh` CLI is unavailable in this environment to query the API independently, so this
+  correction rests on that screenshot as the available evidence, not on an independent API check.
+  The phantom existing-Issue premise is removed below: `Blocks`, Parent 4 and the Verdict table are
+  corrected to normal post-DoR Issue creation. `D-254`'s exceptional-remediation rule is preserved
+  as a general rule and simply does not currently apply to `V1-SM05`. If a real Issue later turns up,
+  return to the remediation path rather than creating a duplicate.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-252`, `D-253`; `docs/handoff/B-119`–`B-124`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Judge Clarification 5.1 relayed 2026-09-22
 - **Verified-At-Commit:** ef903b38989a9e0fc24806332ed9d86c1f6d27d3
@@ -82,20 +92,22 @@ remains unchecked.
 3. Run the complete consistency suite to completion in the normal repository environment.
 4. Obtain explicit Judge authority to push the Pass-1 range, push it, and verify the remote tip.
 
-### Parent 4 — remediate the existing Issue
+### Parent 4 — normal Issue creation (`docs/handoff/B-126`, 2026-09-23)
 
-The Judge must provide the existing V1-SM05 GitHub Issue number or URL. This is a parallel external
-input and does not block Parents 1 or 2. Once supplied, update that Issue with accepted DoR evidence,
-the defined DoD, scope and partial-`CR-19` disclosure, test and migration boundaries, and the
-early-creation remediation notice. Do not create a duplicate Issue.
+No existing V1-SM05 Issue was found (Issues page shows zero open, zero closed, 2026-09-23). Create
+the Issue only after Parents 1–3 close, from the accepted DoR package and the defined-but-unchecked
+DoD, scope and partial-`CR-19` disclosure, and test/migration boundaries. Record the exact number and
+URL GitHub assigns — do not predict it. This is the normal path, not remediation; if independent
+verification later finds a real prior Issue, stop and return to `D-254`'s exceptional-remediation
+path instead of creating a duplicate.
 
 ### Parent 5 — create a non-empty State-1 branch
 
-After Pass 1 is pushed and the Issue is remediated:
+After Pass 1 is pushed and the Issue is created:
 
 1. Create `features/feature-V1-SM05` from the verified pushed remote base tip.
-2. On that branch, propagate the Issue number/URL to the Register, Artifact Inventory and V1-SM05
-   packet and add the documentation-only State-1 readiness presentation.
+2. On that branch, propagate the assigned Issue number/URL to the Register, Artifact Inventory and
+   V1-SM05 packet and add the documentation-only State-1 readiness presentation.
 3. Commit this Pass-2 delta, rebuild/re-merge Graphify, and run the complete consistency suite.
 4. Obtain the required external authority, push the feature branch, and open the State-1 draft PR
    against `docs/journal-2026-08-16`.
@@ -126,9 +138,10 @@ changed. No Graphify rebuild was required for this handoff-only addition.
 | **Approve-with-conditions** | Operator attestation and B-124 closure | Evidence supplied, or explicit Judge exception for each unrecoverable gap |
 | **Approve-with-conditions** | `DOR-R5` and `DOR-R6` closure | Walkthrough/review evidence; hosted comparison or explicit deferral |
 | **Defer** | Base push | Completed Pass 1, Graphify synchronization, suite pass and explicit authority |
-| **Defer** | Existing-Issue remediation | Judge supplies Issue number or URL |
+| **Defer** | Normal V1-SM05 Issue creation | After accepted DoR (Parents 1–3); not a remediation |
 | **Defer** | Feature branch, State-1 PR and State-2 construction | Complete the named parents in order and obtain their separate authorities |
 | **Reject** | Treating `UNRECOVERABLE` as readiness evidence without a Judge exception | Preserve the evidence boundary |
 | **Reject** | Relabelling B-121 as `Superseded` or B-122 as independently verified | Preserve recorded lifecycle states |
 | **Reject** | Claiming a suite pass from Lane C's stopped run | Require completed normal-environment evidence |
-| **Reject** | Creating a duplicate Issue or moving Pass-2 identity propagation onto the base | Preserve fallback remediation and a non-empty State-1 delta |
+| **Reject** | Requiring an existing-Issue URL on the present evidence, or predicting the future Issue number | Corrected 2026-09-23 (`B-126`) — use normal creation and GitHub's assigned identifier |
+| **Reject** | Creating a duplicate Issue or moving Pass-2 identity propagation onto the base | Preserve one-Issue sequencing and a non-empty State-1 delta |
