@@ -4906,3 +4906,20 @@ coverage-excluded, so no Graphify rebuild is owed.
 | **Approve-with-conditions** | Supabase receipt A01 — correctly stopped, unresolved | Owner: Lane A specifies the deployment step; Judge authorizes it |
 | **Defer** | `D-251` satisfaction, `V1-SM05` selection, attempt `A02` on Supabase | After `0002` is applied there under its own authorization |
 | **Reject** | Treating the local "no matches" result as `D-251` satisfaction on its own; committing the stray root-level capture files; inferring the three unconfirmed fields instead of asking the operator | Preserve the two-environment requirement and the recorded fields |
+
+## D-251 receipt evidence anchor — attempt A01 committed-blob hashes, 2026-09-22
+
+**Authority and boundary.** B-119-only; changes no file. Records the commit and the SHA-256 of each completed receipt's
+committed blob, verified equal in byte length to `git cat-file -s`.
+
+| Field | Value |
+|---|---|
+| Receipts commit | `be5d285732b9b072cdfa4e8b6c418a2bcc2b88cf` |
+
+| Artifact | Committed-blob SHA-256 |
+|---|---|
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V5-LOCAL-A01.md` (`Local-Completed-Receipt-SHA256`) | `e4266e57e68c3be2de54b8750d6e5863c75fec7f545f241a6ef002e3075836f0` |
+| `docs/handoff/artifacts/B-119/D251-MANUAL-RUN-RECEIPT-V5-SUPABASE-A01.md` (`Supabase-Completed-Receipt-SHA256`) | `37e167f1c463aa103ccaba197f7b2b3bddd9eb3c6f18bf495fad9c17e738344c` |
+
+These are historical record hashes for the completed receipts themselves; they do not stand in for `Executed-SHA256`,
+which the operator already recorded per SQL file inside each receipt.
