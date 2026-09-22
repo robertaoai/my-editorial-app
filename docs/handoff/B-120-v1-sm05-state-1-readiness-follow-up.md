@@ -85,13 +85,19 @@ closed. Superseded by the closures above, not deleted — see `docs/handoff/B-12
 
 ### Parent 3 — complete the V1-SM05 DoR
 
+**`R2`–`R4` closed 2026-09-22 (`docs/handoff/B-123`), corrected in place, not restated.** Lane B's
+feasibility review accepted the identity model and `DOR-R2`/`DOR-R3` unconditionally, and `DOR-R4`
+within the recorded contract-review boundary (`OP-COPY-EDIT`/`OP-FINAL-SIGNOFF` execution stays
+deferred). Lane A re-checked all three in `V1-SM05.md`, citing `B-123`. `R5`, `R6` and
+identity-compatibility evidence remain open with their named owners.
+
 | DoR item | Owner | Required evidence |
 |---|---|---|
-| `DOR-R2` | Lane B raises; Lane A dispositions defects | Feasibility review of the `OP-PITCH` atomic, failure, replay and idempotency contract |
-| `DOR-R3` | Lane B raises; Lane A dispositions defects | Feasibility review of the `EW` refusal/retry contract |
-| `DOR-R4` | Lane B raises; Lane A dispositions defects | Feasibility review of the Route-1 operation contracts |
-| `DOR-R5` | Lane A, with Chief Editor walkthrough and Lane B/C feedback | One canonical normal/revision wireflow and matching data flow |
-| `DOR-R6` | Lane A review; Judge disposition | Encyclopedia Entries 01, 05 and 06 compared with hosted text, or explicitly deferred |
+| `DOR-R2` | Lane B raised; Lane A dispositioned | **Closed** — feasibility accepted, `docs/handoff/B-123` |
+| `DOR-R3` | Lane B raised; Lane A dispositioned | **Closed** — feasibility accepted, `docs/handoff/B-123` |
+| `DOR-R4` | Lane B raised; Lane A dispositioned | **Closed, bounded** — contract-review scope accepted, `docs/handoff/B-123`; `OP-COPY-EDIT`/`OP-FINAL-SIGNOFF` execution stays out of `V1-SM05` |
+| `DOR-R5` | Lane A, with Chief Editor walkthrough and Lane B/C feedback | Open — one canonical normal/revision wireflow and matching data flow |
+| `DOR-R6` | Lane A review; Judge disposition | Open — Encyclopedia Entries 01, 05 and 06 compared with hosted text, or explicitly deferred |
 
 DoR means the work is sufficiently valuable, bounded, testable, feasible and sized **before** it is
 selected. DoD is the quality contract used during and after construction; it is defined before work
