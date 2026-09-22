@@ -297,6 +297,14 @@ duplicated or retired by this sequencing; the existing `0002` row's historical "
 applied" language describes the local-replay proof already recorded there and is not rewritten —
 `D-252` governs how that language is read going forward, not the row itself.
 
+**`D-253` (2026-09-22) — the `V1-SM05` GitHub Issue is external tracking, no repository file, stated
+explicitly.** The Issue created from completed `V1-SM05` DoR evidence, and the feature branch
+`features/feature-V1-SM05` it precedes, are GitHub-side objects with no corresponding file in this
+repository — same treatment already given to `docs/handoff/artifacts/`'s external-channel status.
+**No row is added, duplicated or retired.** Once the Issue exists, its number/URL is recorded in the
+`V1-SM05` work packet's own traceability field (`D-253`), not restated here — this inventory tracks
+repository files, and an Issue is not one.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

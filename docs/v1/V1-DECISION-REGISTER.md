@@ -18801,3 +18801,51 @@ construction.
 | **`docs/ENCYCLOPEDIA-SYNC.md`** | — unaffected |
 | **Rule files, Phase Closure, frozen sources** | — unaffected |
 | **Graphify** | ✅ the curated `D-251` node text is extended; rebuilt once after this pass |
+
+## 5.14e78 `D-253` — `V1-SM05` State-1 Lifecycle: Approved Branch Name, Issue-First Sequencing, Native Git Branching
+
+**Authority: Judge-approved Option A lifecycle, branch name and base, relayed to Lane A 2026-09-22.**
+Fills the naming gap `D-252` explicitly left open ("does not name the exact `V1-SM05` branch name,
+authorize a push, [or] choose the stacked-integration method").
+
+### The decision
+
+1. **Lifecycle — Option A.** The `V1-SM05` readiness pull request is **documentation-only at State
+   1**: no implementation change. **DoD gates acceptance and merge** — State 1 does not merge on
+   review approval alone; it merges once its own readiness DoD is met.
+2. **Feature branch name, approved:** `features/feature-V1-SM05`.
+3. **Base and PR target, approved:** `docs/journal-2026-08-16` — consistent with `D-252`'s stacked-PR
+   rule; baseline promotion to `main` remains a separate, later act, unchanged.
+4. **Branch creation method — native Git branching.** The branch is created by Git from the verified
+   pushed remote tip of `docs/journal-2026-08-16`, **not** by packaging the existing working tree into
+   a ZIP and committing it as the new branch's first commit. **The ZIP-as-initialization proposal is
+   rejected** — it would discard Git's own history/blame chain for no benefit native branching does not
+   already provide.
+5. **Issue-first sequencing.** A GitHub Issue is created from completed `V1-SM05` DoR evidence
+   (`R2`–`R6`, an accepted `R6` deferral counting as complete for this purpose) **before** the feature
+   branch and State-1 PR exist. The Issue is **external tracking, not a repository file** — no file is
+   created or retired in this repository by its existence.
+6. **State 1's boundary is content-based, not commit-count-based.** State 1 may span more than one
+   commit if a correction is needed; what is fixed is that **every State-1 commit contains only
+   readiness and tracking changes, never an implementation change** — never "exactly one commit."
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e78 |
+| **`V1-BUILD-SPEC.md`** | ✅ branch name, Issue-first sequencing and the State-1 content boundary added to the existing `D-252` stacked-PR paragraph |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph stating the GitHub Issue's external-tracking treatment — no repository file created or retired |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ Issue/branch/PR traceability fields added to the branch-and-migration-boundary note; DoR rows `R2`–`R6` stay open, unchanged |
+| **`docs/Modular_PRD.md`** | — unaffected: `V1-SM05` has not formally opened, no §10/§8 status change |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no Judge selection has changed lane state |
+| **Rule files, frozen sources, `0001_init.sql`** | — unaffected |
+| **Graphify** | Owed once after the last governed edit in this pass |
+
+### What this act does NOT do
+
+Does not authorize a push, create the GitHub Issue, create the branch, or open the PR — those remain
+separate, later acts requiring their own explicit authorization. Does not complete DoR rows `R2`–`R6`,
+select `V1-SM05`, issue a work order, or activate Lane B. Does not decide push authorization,
+integration mode, a dual-sign-off mandate, or the two untracked root console captures' disposition —
+those stay open, named items for the Chief Editor/Judge.

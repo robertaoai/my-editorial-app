@@ -53,6 +53,16 @@ and Judge selection, the work order and Lane B activation precede State 2 (imple
 and Supabase A01 receipts are readiness evidence and do not by themselves satisfy final `D-251`
 production classification.
 
+**State-1 lifecycle, branch name and sequencing (`D-253`, 2026-09-22).** The State-1 readiness PR is
+**documentation-only**: no implementation change, and DoD gates acceptance and merge rather than
+review approval alone. The approved feature branch is `features/feature-V1-SM05`, created by
+**native Git branching** from the verified pushed remote tip of `docs/journal-2026-08-16` — a
+ZIP-packaged branch initialization was proposed and **rejected**. A **GitHub Issue is created from
+completed DoR evidence (`R2`–`R6`, an accepted `R6` deferral counting as complete) before the branch
+and PR exist** — the Issue is external tracking, not a repository file. State 1's boundary is
+content-based, not commit-count-based: every State-1 commit contains only readiness/tracking
+changes, and correcting one may take more than a single commit.
+
 **Publication boundary and setup transfer (`D-243`, `D-244`, 2026-09-20).** `V1-SM06` carries the narrow
 LinkedIn `ManualReady` outcome — an event, not an article state; `FR-10`/`T11` live-URL confirmation and
 automated WordPress are a V2-target backlog item that opens no version. **`SETUP-SPIKE-000`'s `S0`/`S1`
