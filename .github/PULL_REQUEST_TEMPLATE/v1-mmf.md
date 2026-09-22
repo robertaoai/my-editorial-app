@@ -15,6 +15,12 @@ from another document. Cite the record that owns each fact.
 
 - [ ] **Register act:** decision ID that selected this MMF and authorized this run: `D-___`
 - [ ] **Selected packet:** `docs/v1/work-packets/V1/V1-SM0_.md` — the ONE packet this PR builds
+- [ ] **Base branch:** name it, and the promotion status of the branch this PR stacks on (a stacked
+      MMF branch targets that branch, never `main` directly; baseline promotion to `main` is a
+      separate, later PR — `D-252`)
+- [ ] **PR state (two-state boundary, `D-252`):** `State 1 — readiness` (presents DoR evidence only;
+      authorizes no construction) or `State 2 — implementation` (opens only after Judge selection,
+      the work order and Lane B activation follow State 1)
 - [ ] **Active lane:** `docs/v1/V1-PHASE-CLOSURE.md` §5 names the executing lane `Active` (a lane that
       is only `Eligible` may not build)
 - [ ] **Work order:** the bounded unit, named paths, exclusions, tests and stopping checkpoint: `___`

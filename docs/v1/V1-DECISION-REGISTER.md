@@ -18725,6 +18725,58 @@ Judge confirmation of the independence limitation remain open. No query is run, 
 | **Rule files, Phase Closure, frozen sources** | — unaffected |
 | **Graphify** | ✅ the curated `D-251` node text is extended; rebuilt once after this pass |
 
+## 5.14e77 `D-252` — `V1-SM05` Stacked-PR Boundary and Migration-Semantics Correction
+
+**Authority: Judge-approved stacked-PR strategy recorded in `docs/handoff/B-119`, section
+"`D251-SM05-STACKED-HANDOFF-RETURN`" (commit `5375e93`, 2026-09-22).**
+
+### The decision
+
+1. The `V1-SM05` branch and pull request are **stacked**: based on and targeting
+   `docs/journal-2026-08-16`, not `main`. Baseline promotion to `main` **remains pending** until
+   `V1-SM05` development DoD is accepted; promotion is a separate, later act.
+2. **Migration-semantics correction.** "Migration" means application to the persistent hosted
+   Supabase environment only. Running the ordered scripts against a fresh, disposable local
+   PostgreSQL instance is **mechanical verification (a replay)**, not a migration. Historical text
+   using "applied" for the local run is not rewritten; living tiers use the corrected terms.
+3. `supabase/migrations/0002_s1_editorial_schema.sql` is an **existing setup-prepared candidate**,
+   now **allocated to `V1-SM05`**. Setup work earns no `V1` feature-construction credit; review,
+   integration and eventual hosted use belong to `V1-SM05`.
+4. `V1-SM05` construction is **local-only**: fresh local replay, child-appropriate xDD, real local
+   persistence, packet-specific DoD. No hosted-database mutation occurs inside `V1-SM05`
+   construction.
+5. Hosted `0002` migration and Supabase A02 occur **only after** `V1-SM05` development DoD is
+   accepted **and** a separate baseline-promotion PR targeting `main` is itself accepted.
+6. Local A01 and Supabase A01 receipts are **readiness evidence**; they establish pre-selection
+   readiness but do **not** by themselves satisfy final `D-251` production classification, which
+   remains open.
+7. The `V1-SM05` readiness PR is **two-state**: State 1 presents readiness only. Judge selection,
+   the work order and Lane B activation precede State 2 (implementation).
+
+### Tier applicability (`D-54`)
+
+`tier-sweep.mjs`'s `TIERS` map has no entry for a work packet or the PR template, so a table row
+naming either is rejected as unmapped rather than verified (`G68`'s shape) — they are stated below
+in prose, not claimed as a checked ✅ here.
+
+| Item | Register | Build spec | Inventory | `Modular_PRD` | Phase closure |
+|---|---|---|---|---|---|
+| `D-252` | ✅ §5.14e77 | ✅ stacked-branch/base rule and migration-semantics note | — unaffected: no file created or retired; `0002` was already listed | — unaffected: `V1-SM05` has not formally opened, no §10/§8 status change | — unaffected: no Judge selection has changed lane state |
+
+**Unmapped tiers, stated in prose.** `docs/v1/work-packets/V1/V1-SM05.md` carries the
+migration-semantics, candidate-allocation and two-state-PR facts, with DoR rows `R2`–`R6` left open
+and unchanged. `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` carries the base-branch and two-state
+(readiness/implementation) fields. Rule files, frozen sources and `0001_init.sql` are unaffected.
+Graphify is owed once after the last governed edit in this pass, with curated fragments re-merged.
+
+### What this act does NOT do
+
+Does not name the exact `V1-SM05` branch name, authorize a push, choose the stacked-integration
+method, authorize deletion of the two untracked root console captures, close DoR rows `R5` or `R6`,
+confirm A01 operator metadata, presume Supabase A02 returns "no matches", or make A02 a precondition
+of `V1-SM06` selection — that dependency is added only if and when the Judge confirms it separately.
+It does not select `V1-SM05`, issue a work order, or activate Lane B.
+
 ### Judge confirmation of `LB-1` and `LB-7` (`D-251`, 2026-09-21)
 
 The Judge directly approved `LB-1` and `LB-7` as recorded in `docs/handoff/B-119`.

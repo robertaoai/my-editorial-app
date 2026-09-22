@@ -39,6 +39,20 @@ customer's statement and stays unchanged. The `ManualReady` contract — eligibi
 requester `ROLE-SENIOR-JOURNALIST`, content binding, refusal and replay — is `D-250`; the physical mechanism is
 Lane B's, later. Natural-person access is `ACCESS-ROLE-CHIEF-EDITOR` (`D-251`).
 
+**Stacked-PR boundary and migration semantics (`D-252`, 2026-09-22).** The `V1-SM05` branch and
+pull request are **stacked**: based on and targeting `docs/journal-2026-08-16`, not `main`;
+baseline promotion to `main` remains pending until `V1-SM05` development DoD is accepted, as its
+own later act. **"Migration" means application to the persistent hosted Supabase environment
+only** — the ordered-script run against a fresh, disposable local PostgreSQL instance is
+mechanical verification (a replay), not a migration. `supabase/migrations/0002_s1_editorial_
+schema.sql` is an existing setup-prepared candidate, now allocated to `V1-SM05`; setup work earns
+it no `V1` feature-construction credit. `V1-SM05` construction is local-only; hosted `0002`
+migration and Supabase A02 follow only after accepted `V1-SM05` DoD **and** an accepted, separate
+baseline-promotion PR. The readiness pull request is two-state: State 1 presents readiness only,
+and Judge selection, the work order and Lane B activation precede State 2 (implementation). Local
+and Supabase A01 receipts are readiness evidence and do not by themselves satisfy final `D-251`
+production classification.
+
 **Publication boundary and setup transfer (`D-243`, `D-244`, 2026-09-20).** `V1-SM06` carries the narrow
 LinkedIn `ManualReady` outcome — an event, not an article state; `FR-10`/`T11` live-URL confirmation and
 automated WordPress are a V2-target backlog item that opens no version. **`SETUP-SPIKE-000`'s `S0`/`S1`
