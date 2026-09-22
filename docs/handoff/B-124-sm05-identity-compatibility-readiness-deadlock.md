@@ -47,6 +47,55 @@ run A02 or presume its result.
    reversal from the stale checkbox.
 6. After the canonical correction, run the governed Graphify workflow and complete consistency suite.
 
+## Consolidated Lane A review packet
+
+### Facts to preserve
+
+- Local A01 completed its assessment and returned `no matches`.
+- Supabase A01 stopped fail-closed during preflight because hosted `0002` was absent; its aggregate
+  assessment **did not run**.
+- Both accepted, hash-anchored A01 receipts are pre-selection readiness evidence under `D-252` once
+  B-120 Parent 1's supplemental operator metadata is recorded.
+- Neither receipt satisfies final `D-251` production classification. Hosted `0002`, Supabase A02
+  and final classification remain post-SM05 release work.
+
+### Draft canonical correction
+
+After the Chief Editor supplies the five operator facts, replace the stale compatibility row in
+`docs/v1/work-packets/V1/V1-SM05.md` with the following governed meaning:
+
+> **Identity-compatibility readiness:** accepted Local A01 and Supabase A01 receipts have been
+> reviewed. Local A01 produced `no matches`; Supabase A01 is accepted fail-closed hosted-baseline
+> evidence and its assessment did not run. Together with the supplemental operator metadata, these
+> receipts satisfy pre-selection readiness under `D-252`. Final `D-251` classification, hosted
+> `0002`, and Supabase A02 remain post-SM05 release work and do not gate selection.
+
+The checkbox becomes `[x]` only in the same pass that records the five supplied facts; do not infer
+or fabricate missing metadata.
+
+### Required propagation without duplication
+
+1. **B-119:** preserve its historical A01 review text and receipt bytes, then append a dated
+   `D-252` supersession note. The note must say that the earlier statement keeping SM05 unselected
+   until Supabase resolves was overtaken by `D-252`; A01 plus supplemental metadata satisfies
+   pre-selection readiness, while final D-251/A02 remains post-release.
+2. **B-120 Parent 1:** record the supplied five facts as complete by citation to the B-119
+   supplemental attestation.
+3. **B-120 Parent 3 narrative:** record compatibility readiness as satisfied via B-124. Do not add
+   compatibility as a new row in the R2–R6 table.
+4. **V1-SM05 evidence table:** cite the two A01 receipts, the B-119 supplemental attestation,
+   `D-252` and B-124; do not claim the Supabase assessment ran.
+5. **B-124 lifecycle:** acknowledge while `Open`; after the corrections exist, set `Status:
+   Answered`, `Resolution: Applied`, and `Verified-By: — not independently verified; dispositioned
+   by Lane A`. Independent verification remains a later Lane B/C act.
+
+### Dependent sequence
+
+After this correction, Lane A still completes `DOR-R5` and `DOR-R6`, commits the pre-Issue canonical
+state, performs the full governed Graphify workflow, and obtains explicit Judge authority before
+any push, Issue, branch or PR operation. State-2 construction remains prohibited until the State-1
+PR, Judge selection, bounded work order and lane transfer.
+
 ## What Lane B did instead
 
 Lane B stopped at the specification defect. No receipt, canonical Lane A source, application code,
