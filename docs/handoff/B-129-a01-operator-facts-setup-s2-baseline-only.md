@@ -7,7 +7,7 @@
 - **Status:** Open
 - **Lane A:**
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge clarification 2026-09-23; `D-252`; `docs/handoff/B-119`, `B-124`, `B-125`, `B-127`, `B-128`; `docs/v1/work-packets/SETUP-SPIKE-000/S2.md`; `docs/v1/work-packets/V1/V1-SM05.md`
+- **Evidence:** Judge clarification and Option-A approval 2026-09-23; `D-252`; `docs/handoff/B-119`, `B-124`, `B-125`, `B-127`, `B-128`; `docs/v1/work-packets/SETUP-SPIKE-000/S2.md`; `docs/v1/work-packets/V1/V1-SM05.md`
 - **Verified-At-Commit:** 5284bbac19440609c3eec7273a78125b802c7f3e
 
 ## What happened
@@ -65,7 +65,7 @@ Append dated supersession/correction notes rather than altering historical evide
 ### Parent 3 — correct `V1-SM05` readiness
 
 Remove the current identity-compatibility row's dependence on A01/five-fact evidence. Lane A must
-not silently substitute a new gate. The Judge must choose one of these explicit outcomes:
+not silently substitute a new gate. The Judge considered these explicit outcomes:
 
 | Option | Meaning | Lane B assessment |
 |---|---|---|
@@ -73,8 +73,16 @@ not silently substitute a new gate. The Judge must choose one of these explicit 
 | **B — define a new SM05-specific identity-readiness check** | New purpose, procedure, owner, environment, acceptance result and non-reuse boundary | **Approve-with-conditions**; requires a separate Judge decision and must not reuse A01 |
 | **C — keep using A01/five facts for SM05** | Reuses the one-time S2 baseline | **Reject** under this clarification |
 
-Until Parent 3 is decided and propagated, the SM05 DoR must not be presented as complete and no
-Issue or feature branch may be created.
+#### Judge selection — Option A approved, 2026-09-23
+
+The Judge selected **Option A**: there is no replacement identity gate for `V1-SM05`. A01 remains
+setup-baseline evidence only at `SETUP-SPIKE-000/S2`; SM05 readiness is strictly `DOR-R1` through
+`DOR-R6`. Options B and C are rejected for this packet.
+
+The decision is complete; its canonical application is not. Until Lane A records the Register
+amendment, propagates it under `D-54`, removes the stale SM05 identity row and applies the handoff
+supersession notes, the SM05 DoR must not be presented as complete and no Issue or feature branch
+may be created.
 
 ### Parent 4 — preserve later database evidence boundaries
 
@@ -100,8 +108,9 @@ database, migration, Issue, branch, PR, remote, environment or Graphify state wa
 | Verdict | Tier / item | Follow-up phase |
 |---|---|---|
 | **Approve** | Judge clarification: five facts are one-time `SETUP-SPIKE-000/S2` baseline provenance | Phase 1 Register amendment and `D-54` propagation |
+| **Approve** | Option A: no replacement identity gate; SM05 readiness is exactly `DOR-R1`–`DOR-R6` | Phase 1 canonical propagation by Lane A |
 | **Approve** | Preserve A01 receipts unchanged as historical S2 evidence | Phase 1 handoff corrections |
-| **Approve-with-conditions** | A new SM05-specific identity-readiness gate | Phase 1 only if separately defined and authorized; no A01 reuse |
-| **Defer** | Final SM05 readiness and Issue creation | After Parents 1–3 close, plus R5/R6 completion |
+| **Defer** | Final SM05 readiness and Issue creation | After Option-A propagation plus R5/R6 completion |
+| **Reject** | A replacement SM05 identity-readiness gate | Judge selected Option A for this packet |
 | **Reject** | Reusing A01/five-fact evidence for SM05 or any later linked activity | Preserve the one-time independent-baseline boundary |
 | **Reject** | Rewriting or deleting hash-anchored receipt history | Add dated supersession notes only |
