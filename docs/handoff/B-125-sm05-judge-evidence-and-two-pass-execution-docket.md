@@ -84,6 +84,11 @@ After those conditions are met, Lane A may correct the V1-SM05 compatibility row
 B-120 by citation, and answer B-124 as `Applied`. All DoR evidence must be accepted; the defined DoD
 remains unchecked.
 
+**Corrected 2026-09-23 (`D-255`, `docs/handoff/B-129`), not deleted.** Item 1 above is no longer a
+`V1-SM05` input: the Judge scoped A01 and its five facts to `SETUP-SPIKE-000/S2` only, the compatibility
+row was removed with no replacement, and B-124 closed as `Superseded`. **Parent 2 is now `DOR-R5` and
+`DOR-R6` only.**
+
 ### Parent 3 — complete Pass 1 on the base branch
 
 1. Commit the governing and readiness changes on `docs/journal-2026-08-16`.

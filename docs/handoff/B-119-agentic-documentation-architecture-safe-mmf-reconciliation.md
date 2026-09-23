@@ -4963,6 +4963,15 @@ satisfy `V1-SM05` pre-selection readiness once B-120 Parent 1's supplemental ope
 `D-251` classification, hosted `0002`, and Supabase `A02` remain **post-SM05-release** work under `D-252` and are not
 a selection gate. Neither accepted receipt is altered by this note.
 
+#### `D-255` supersession note, 2026-09-23 (`docs/handoff/B-129`)
+
+The `D-252` note immediately above is itself superseded, not deleted. The Judge ruled (Option A) that both A01
+receipts and their five operator facts are **`SETUP-SPIKE-000/S2` baseline evidence only**, non-transferable:
+they are **not** `V1-SM05` pre-selection readiness evidence, gate no V1 packet, and satisfy no later environment act.
+`V1-SM05` readiness is exactly `DOR-R1`–`DOR-R6`, with no replacement identity gate. The five-fact request above is
+kept as S2-baseline provenance; supplying it is no longer an SM05 prerequisite. Both hash-anchored receipts are
+unchanged.
+
 ### Stray files (not committed)
 
 `D251-LOCAL-A01-PREFLIGHT.txt` and `D251-LOCAL-A01-ASSESSMENT.txt` are present at the repository root, untracked,

@@ -311,6 +311,12 @@ standing rule for every `V1` packet. **No row is added, duplicated or retired.**
 already-tracked Issue/branch may be treated as carrying readiness authority, not what artifacts
 exist.
 
+**`D-255` (2026-09-23) — A01 evidence rescoped, no new file, stated explicitly.** The A01 receipts
+under `docs/handoff/artifacts/B-119/` (row above) are `SETUP-SPIKE-000/S2` baseline provenance only
+and gate no V1 packet. **No row is added, duplicated or retired**, and no receipt byte changes. The
+`D-252` sequencing paragraph above still holds for candidate `0002` and the later A02 receipt; only
+its implied use of A01 as `V1-SM05` readiness evidence is withdrawn.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

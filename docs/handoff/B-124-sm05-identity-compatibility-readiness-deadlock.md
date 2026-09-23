@@ -4,7 +4,7 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** truthful completion of the V1-SM05 DoR, GitHub Issue creation and State-1 readiness presentation
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-22. Applied the non-blocked half of the parent-first correction:
   appended a dated `D-252` supersession note to `docs/handoff/B-119` (historical A01 review text and
   receipt bytes unchanged) and corrected `docs/handoff/B-120` Parent 3's narrative to remove the
@@ -13,9 +13,17 @@
   that records the five `OPERATOR TO CONFIRM` facts (`B-120` Parent 1), and those remain unsupplied.
   `Status` stays `Open` pending that supplemental attestation; this is a partial disposition, not a
   closure.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `V1-DECISION-REGISTER.md` §5.14e77 (`D-252`) items 4–6; `V1-BUILD-SPEC.md` stacked-PR boundary; `docs/v1/work-packets/V1/V1-SM05.md` identity-compatibility evidence row; `docs/handoff/B-119` A01 review and `docs/handoff/B-120` Parent 1
-- **Verified-At-Commit:** 5c5236988f8d871f5dd0da432bb646f264163eb5
+
+  **Closed as superseded, 2026-09-23.** The Judge's Option-A ruling (`D-255`, `docs/handoff/B-129`)
+  removed the identity-compatibility row from `V1-SM05` outright with no replacement gate, and scoped
+  A01 and its five facts to `SETUP-SPIKE-000/S2` only. This entry's draft correction — checking the
+  row once the facts arrive — therefore has nothing left to apply. The deadlock it identified is
+  resolved by removal rather than by evidence.
+- **Resolution:** Superseded
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** `V1-DECISION-REGISTER.md` §5.14e77 (`D-252`) items 4–6 and §5.14e80 (`D-255`); `docs/v1/work-packets/V1/V1-SM05.md` DoR checklist (identity row removed); `docs/handoff/B-119` and `B-120` supersession notes; `docs/handoff/B-129`
+- **Verified-At-Commit:** c249f7d3d45fc812a25bc3cfa54fb415512245a1
+- **Superseded-By:** `D-255`
 
 ## What happened
 

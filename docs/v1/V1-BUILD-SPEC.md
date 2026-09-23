@@ -49,9 +49,11 @@ schema.sql` is an existing setup-prepared candidate, now allocated to `V1-SM05`;
 it no `V1` feature-construction credit. `V1-SM05` construction is local-only; hosted `0002`
 migration and Supabase A02 follow only after accepted `V1-SM05` DoD **and** an accepted, separate
 baseline-promotion PR. The readiness pull request is two-state: State 1 presents readiness only,
-and Judge selection, the work order and Lane B activation precede State 2 (implementation). Local
-and Supabase A01 receipts are readiness evidence and do not by themselves satisfy final `D-251`
-production classification.
+and Judge selection, the work order and Lane B activation precede State 2 (implementation). **Local
+and Supabase A01 receipts are `SETUP-SPIKE-000/S2` baseline evidence only (amended by `D-255`,
+2026-09-23)**: they are not `V1-SM05` readiness evidence, gate no V1 packet, and do not satisfy final
+`D-251` production classification. `V1-SM05` readiness is exactly `DOR-R1`–`DOR-R6`, with no
+replacement identity gate.
 
 **State-1 lifecycle, branch name and sequencing (`D-253`, 2026-09-22).** The State-1 readiness PR is
 **documentation-only**: no implementation change, and DoD gates acceptance and merge rather than

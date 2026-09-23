@@ -67,6 +67,10 @@ for the five facts represented by its three `OPERATOR TO CONFIRM` field groups:
 If a value cannot be recovered, record `UNRECOVERABLE — <reason>`; do not infer it and do not rewrite
 either accepted receipt.
 
+**Removed as a `V1-SM05` gate, 2026-09-23 (`D-255`, `docs/handoff/B-129`), not deleted.** The Judge ruled
+A01 and these five facts `SETUP-SPIKE-000/S2` baseline evidence only. This parent no longer blocks
+`V1-SM05` Issue creation, the State-1 PR or selection; the request above is kept as S2 provenance.
+
 ### Parent 2 — boundary docket
 
 **Closed in full, 2026-09-22 (`docs/handoff/B-122`) — table corrected in place, original rows kept
@@ -101,6 +105,11 @@ fail-closed-unresolved) from **final `D-251` production classification** (post-r
 requires B-120 Parent 1's supplemental operator metadata (the five `OPERATOR TO CONFIRM` facts,
 currently unsupplied) before `V1-SM05.md`'s compatibility row can be marked complete — that dependency
 is unchanged and is not satisfied by this correction alone.
+
+**Superseded 2026-09-23 (`D-255`, `docs/handoff/B-129`), preserved above as history.** The compatibility
+row no longer exists: A01 is `SETUP-SPIKE-000/S2` baseline evidence only, and `V1-SM05` readiness is
+exactly `DOR-R1`–`DOR-R6` with no replacement gate. **Remaining Parent 3 work is `DOR-R5` and `DOR-R6`
+only.**
 
 | DoR item | Owner | Required evidence |
 |---|---|---|

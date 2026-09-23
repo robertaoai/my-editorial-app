@@ -5,7 +5,13 @@
 - **Phase:** 1
 - **Blocks:** accurate closure instructions for `DOR-R5`, `DOR-R6` and identity-readiness evidence; no application construction
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-09-23. **Correction (`D-255`, `docs/handoff/B-129`):** Parent 3's
+  framing of the five operator facts as "DoR evidence metadata", the Verdict's "Defer — five operator
+  facts" row, and Parent 4's "identity-readiness evidence" alignment row no longer apply to `V1-SM05`:
+  the facts are `SETUP-SPIKE-000/S2` baseline provenance only, gate nothing in V1, and need no DoD
+  counterpart. The R5 and R6 guides (Parents 1–2) and the two-step database guide stand and are the
+  working instructions for the remaining DoR; their options still need the Judge's R5/R6 selections,
+  so this entry stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-252`, `D-254`; `docs/handoff/B-119`, `B-124`, `B-127`; `docs/v1/V1-BUILD-SPEC.md` §1; `docs/v1/work-packets/V1/V1-SM05.md`; storyboard Panels A9/A10; `docs/fn-specs/FN-GATES-01-05.md` §4.1; `docs/ENCYCLOPEDIA-SYNC.md`
 - **Verified-At-Commit:** f545e0633133fa1213b3c65f4cfb3f26fcfc4402

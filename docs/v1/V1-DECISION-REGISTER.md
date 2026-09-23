@@ -18894,3 +18894,52 @@ Does not remediate any specific Issue — no `V1-SM05` Issue number has been sup
 this entry (`docs/handoff/B-125` Parent 4). Does not complete `V1-SM05`'s own DoR rows, select it,
 issue a work order, or authorize any push, branch or PR. Does not retroactively invalidate a prior
 decision; `D-253`'s Issue-first sequencing for `V1-SM05` already matches this rule.
+
+## 5.14e80 `D-255` — A01 Is `SETUP-SPIKE-000/S2` Baseline Evidence Only; No Replacement Identity Gate for `V1-SM05` (Amends `D-251`, `D-252`)
+
+**Authority: Judge ruling, Option A, 2026-09-23 — relayed to Lane A directly and recorded by Lane B in
+`docs/handoff/B-129`.** *"No replacement identity gate for V1-SM05. A01 was setup-baseline evidence
+only at SETUP-SPIKE-000/S2; V1-SM05 readiness is strictly DOR-R1 through DOR-R6."*
+
+### The decision
+
+1. **A01 is a one-time, independent `SETUP-SPIKE-000/S2` baseline.** The local and Supabase A01
+   receipts and their five operator facts (local assessed commit, local execution UTC window,
+   Supabase project reference, Supabase execution UTC, Supabase-side assessed commit) are retained
+   unchanged as historical provenance for that setup checkpoint.
+2. **Its evidentiary scope is non-transferable.** `D-244`'s behaviour transfer from S2 to `V1-SM05`
+   does not carry this baseline's evidentiary credit. A01 cannot satisfy, or partially satisfy, any
+   `V1-SM05` or `V1-SM06` DoR/DoD row, nor any later environment act (hosted `0002`, A02, final
+   `D-251` classification). Each later activity produces its own contemporaneous evidence.
+3. **`V1-SM05` readiness is exactly `DOR-R1`–`DOR-R6`.** The identity-compatibility DoR row is
+   removed, and **no replacement gate is substituted** (Option B, a new SM05-specific identity check,
+   and Option C, reuse of A01, are both rejected for this packet).
+4. **Amends `D-252` item 6.** Its sentence that A01 receipts "establish pre-selection readiness" no
+   longer applies to `V1-SM05`; the rest of `D-252` — stacked PR, migration semantics, local-only
+   construction, hosted `0002` and A02 only after accepted DoD and baseline promotion — stands.
+5. **Amends the `D-251` completion addendum's consumer table.** `V1-SM05` is no longer the "first
+   dependent packet" and `V1-SM06`'s cross-reference no longer applies the A01 result to it. The
+   compatibility child itself, its B-119 ownership, and final `D-251` classification via a
+   post-promotion A02 are unchanged.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e80 |
+| **`V1-BUILD-SPEC.md`** | ✅ `D-252` paragraph's A01 sentence amended in place, marked `D-255` |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no row added or retired; the `B-119` artifacts row's A01 receipts are S2 baseline provenance |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ identity-compatibility DoR row removed, no replacement; branch/PR boundary sentence amended |
+| **`docs/v1/work-packets/V1/V1-SM06.md`** | ✅ `D-251` cross-reference corrected — A01 does not apply |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/S2.md`** | ✅ baseline-provenance note added; packet stays `HELD`, earns no DoD |
+| **`docs/Modular_PRD.md`** | — unaffected: no §10/§8 status change |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane state change |
+| **Encyclopedia** | — unaffected: Entries 01/05/06 describe identity and assurance vocabulary, not readiness-evidence gating |
+| **Rule files, frozen sources, `0001_init.sql`** | — unaffected |
+| **Graphify** | Owed once after the last governed edit in this pass |
+
+### What this act does NOT do
+
+Does not alter either hash-anchored A01 receipt, delete the five-fact request, or require the facts
+to be supplied for any V1 packet. Does not close `DOR-R5` or `DOR-R6`, select `V1-SM05`, create an
+Issue or branch, or authorize a push, hosted migration or A02.

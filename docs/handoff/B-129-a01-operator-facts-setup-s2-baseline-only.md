@@ -4,9 +4,19 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** truthful identity-evidence wording in `V1-SM05` and the B-124–B-128 readiness chain; no application construction
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-23; the Judge's Option-A ruling was also relayed to
+  Lane A directly. Parent 1: recorded `D-255` (`V1-DECISION-REGISTER.md` §5.14e80), amending `D-252`
+  item 6 and the `D-251` addendum's consumer table, propagated under `D-54` to `V1-BUILD-SPEC.md`,
+  `V1-ARTIFACT-INVENTORY.md`, `V1-SM05.md`, `V1-SM06.md` and `SETUP-SPIKE-000/S2.md`; `Modular_PRD.md`,
+  Phase Closure and the Encyclopedia stated unaffected. Parent 2: dated supersession notes appended to
+  B-119, B-120, B-125, B-127 and B-128; B-124 closed `Superseded` by `D-255`; no receipt byte changed.
+  Parent 3: the identity-compatibility row removed from `V1-SM05.md` with no replacement gate.
+  `V1-SM06.md`'s "applies here too" cross-reference was corrected in the same pass, since the ruling
+  scopes A01 to S2 *only*. Parent 4 needs no edit: `D-252`'s later database stages already produce
+  their own evidence.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Judge clarification and Option-A approval 2026-09-23; `D-252`; `docs/handoff/B-119`, `B-124`, `B-125`, `B-127`, `B-128`; `docs/v1/work-packets/SETUP-SPIKE-000/S2.md`; `docs/v1/work-packets/V1/V1-SM05.md`
 - **Verified-At-Commit:** 5284bbac19440609c3eec7273a78125b802c7f3e
 
