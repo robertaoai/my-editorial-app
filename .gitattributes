@@ -52,6 +52,11 @@ AGENTS.md            merge=text
 *.woff2 binary
 *.lockb binary
 
+# Handoff evidence attachments are stored BYTE-EXACT (`D-259`). A recorded
+# SHA-256 (e.g. B-131's v15 export) must reproduce on any checkout; `text=auto`
+# would rewrite CRLF to LF in the blob and silently break the hash.
+docs/handoff/artifacts/** -text
+
 # ---------------------------------------------------------------------
 # 4. Large File Storage (Git LFS) tracking
 # ---------------------------------------------------------------------

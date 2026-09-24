@@ -19142,7 +19142,8 @@ independent verification. Answers `docs/handoff/B-131` and `B-132` Parents 2–7
 12. **Corpus corrections in the same pass:** the Encyclopedia ledger's Entries 01/05/06 deferral cells marked
     discharged, and Entry 05's `Modular_PRD` anchors corrected to §4 (`US-11`) / §9 (`AC-17`); the phase
     register's Lane B `Selected` cell reconciled with `D-159`/`D-161`; `B-127`/`B-128` given their applying
-    commit; `B-130`'s superseded "stays `Open`" prose normalized.
+    commit; `B-130`'s superseded "stays `Open`" prose normalized. **`.gitattributes`:** `docs/handoff/artifacts/**` is stored byte-exact (`-text`), because
+    `text=auto` rewrote the v15 export's CRLF endings in the first commit of this pass and broke its recorded hash.
 
 ### Tier applicability (`D-54`)
 
