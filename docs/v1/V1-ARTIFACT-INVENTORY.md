@@ -325,6 +325,11 @@ duplicated or retired.** `D-257` records the loader-characterization spike as wa
 uncommissioned; its packet file is created only when the Judge selects it, so nothing is inventoried
 now.
 
+**`D-258` (2026-09-24) — setup root closed, no file added or retired, stated explicitly.**
+`docs/v1/work-packets/SETUP-SPIKE-000/S2.md`, `S3.md` and `S4.md` record `Deferred — closed without DoD
+credit` and **stay in the repository as history** (`D-244`'s no-retirement rule). **No row is added,
+duplicated or retired.**
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

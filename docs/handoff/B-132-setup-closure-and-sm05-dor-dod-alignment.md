@@ -6,6 +6,8 @@
 - **Blocks:** the governed `SETUP-SPIKE-000` closure act and the `V1-SM05` Issue/branch/State-1 PR sequence; `B-131` separately owns the remaining `DOR-R5`/`DOR-R6` evidence decision
 - **Status:** Open
 - **Lane A:** Acknowledged 2026-09-24, receipt only. The parent-first order (setup closure, then the behaviour-to-proof map, then the Issue template, then native branch/PR) is queued for the Judge decision table; no setup closure, template or checkbox change is made by this acknowledgement.
+
+  **Parent 1 applied 2026-09-24 (`D-258`), Judge Q4 = Accept as drafted.** `S2`–`S4` are terminally `Deferred — closed without DoD credit`; each residual keeps its single `D-244` owner; the setup root is closed under `D-248`. Propagated to the Build Spec, the Inventory, the three setup packets and `Modular_PRD` §8.1 (changelog 1.37). Parents 2–5 (behaviour-to-proof map, Issue template, branch/PR sequence, QA disposition) and `B-131`'s `DOR-R5`/`DOR-R6` act remain open, pending the Judge's Q1–Q3 answers. `Status` stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge clarification supplied 2026-09-24; `D-156`, `D-242`, `D-244`, `D-248`, `D-252`–`D-256`; `V1-BUILD-SPEC.md` §1; `V1-PHASE-CLOSURE.md` §5; `docs/v1/work-packets/SETUP-SPIKE-000/S2.md`–`S4.md`; `docs/v1/work-packets/V1/V1-SM05.md`; `docs/LANE-B-WORK-ORDER.md` §7; `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`; `.github/workflows/ci.yml`; `docs/handoff/B-131-sm05-r5-r6-independent-review.md`; Graphify query at the commit below
 - **Verified-At-Commit:** 17523ceb70c742b13b05e7b05c366af0fd0b30be

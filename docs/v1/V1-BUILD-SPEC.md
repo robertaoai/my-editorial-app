@@ -82,7 +82,10 @@ stay completed evidence, and each unfinished `S2`–`S4` behaviour has exactly o
 `D-244`** and mirrored in that sprint's work packet rather than restated here. **The setup programme is
 "transfer mapped; closure pending" (`D-248`)** — it stays open while `S2`–`S4` or their residuals are
 non-terminal. `V1-SM06` still depends on `V1-SM05` reaching DoD. Transfer creates no implementation, no DoD
-credit, no terminal disposition and retires no packet.
+credit, no terminal disposition and retires no packet. **Closed 2026-09-24 (`D-258`):** `S2`–`S4` are each
+terminally `Deferred — closed without DoD credit`, every residual keeps its single `D-244` owner (the
+`D-171` held scope or the V2-target backlog), and the setup root is closed under `D-248`'s condition.
+No DoD is credited, no V2 opens and no construction is authorized.
 
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and DoD are **defined in their work packets (`D-245`, 2026-09-20)** and are not complete:
 each DoR box is checked only against current evidence, and Lane B's feasibility review and the Judge's

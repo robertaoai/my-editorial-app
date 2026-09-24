@@ -81,6 +81,7 @@
 | **1.34** | **2026-09-16** | Claude, Judge clarification via `docs/handoff/B-117` (commit `e01b73e`) | **Tracking correction, no scope change.** §8.1's note corrected — `UJ1`/`UJ2` are resolved, not open; see `requirements-traceability-map.md` §6.1's evidence-contract column for the pre-T1 ordering (accepted manual record → Senior Journalist `EW` → `OP-PITCH` route classification → T1) and Desk Editor's observable-assignment evidence. No FR/AC/NFR requirement text changed; no construction authorized. |
 | **1.35** | **2026-09-17** | Claude, `D-232` second follow-on via `docs/handoff/B-117` (commits `aead9d8`/`73e4e8b`/`e978c73`) | **Tracking pointer, no scope change.** `B071-R204`'s `OP-PITCH`/`OP-DRAFT` application-selection now resolved (`factory-route-operation-crosswalk.md` §4.1); `business:T3` corrected to `ROUTE-PROD-2` (`requirements-traceability-map.md` §6.2, new business/technical/planning `T`-namespace map). `OP-FINAL-SIGNOFF` remains a **proposed**, not accepted, execution contract. No FR/AC/NFR requirement text changed; no construction authorized. |
 | **1.36** | **2026-09-17** | Claude, `D-233` (split from `D-232`), independent-review corrections | **Tracking correction, no scope change.** These facts are now recorded under **`D-233`**, not `D-232` — filing them under the slot-assignment decision was itself a defect, corrected. `OP-DRAFT`'s Route-1 executor is **Reporter**, not Journalist (row 1.35 above named the wrong role for Route-1's DoR scope — Journalist belongs to `ROUTE-PROD-2`). `OP-FINAL-SIGNOFF` is now **accepted**, not proposed — five conditions in `D-233`. No FR/AC/NFR requirement text changed; no construction authorized. |
+| **1.37** | **2026-09-24** | Claude, `D-258`, Judge approval via `docs/handoff/B-132` Parent 1 | **Tracking change, no scope change.** §8.1: `SETUP-SPIKE-000` closed — `S2`–`S4` terminally `Deferred — closed without DoD credit`, residual owners unchanged (`D-244`). Status cells annotated, not relabelled. No FR/AC/NFR text changed; `D-171`'s hold is not lifted; no V2 opens. |
 
 ### 0.2 Decision Log
 
@@ -970,14 +971,19 @@ rejected work (`D-134`) is its concrete v1 case.**
 > pending"** (`D-248`): it stays open while `S2`–`S4` or their residuals are non-terminal, and the `S2`–`S4`
 > rows below are unchanged. The `ManualReady` contract is `D-250`. Natural-person access is
 > `ACCESS-ROLE-CHIEF-EDITOR` (`D-251`). No sprint closes and no tier opens, so §8's tracker is unchanged.
+>
+> **Setup closed — 2026-09-24 (`D-258`).** `S2`–`S4` are each terminally **`Deferred — closed without DoD
+> credit`**, and the `SETUP-SPIKE-000` root is closed under `D-248`'s condition. Every residual keeps its one
+> `D-244` owner: the `D-171` held scope, or the V2-target backlog. The rows below keep their history and gain
+> a closure annotation only, with no relabelling. No DoD is credited, no V2 opens and no build is authorized.
 
 | Sprint | Theme | Objective | FRs | TRs / NFRs | ACs | Priority | Status |
 |---|---|---|---|---|---|---|---|
 | S0 | Foundation and config spine | All | — | SHARED-01, SHARED-02, **NFR-04** | — | P0 | **Done** *(corrected 2026-08-30, `D-161`/`B-061`)* |
 | S1 | Data model and sequence guard | O-01, O-02 | FR-01, FR-02, FR-03, FR-06, FR-07 | TR-DM-01…06, NFR-01, NFR-02, NFR-08 | AC-01…AC-04, AC-09…AC-12 | P0 | **Done — narrow claim, see M1** *(corrected 2026-08-30, `D-161`/`B-061`)* |
-| S2 | Line assignment and independence | O-03 ⚠ | FR-04, FR-05 | NFR-03, SEC-01 | AC-05…AC-08 | P0 | `Q12`/`Q1` Phase-0 closed (`D-163`). **Held under `D-171` for both the historical and the target order** (extended `D-172`/`D-175`/`D-177`): `D-164`/`D-165`'s Unit 1 authorization is **not executable**, and Unit 2 was never authorized. A target DoD exists, but **a fresh, separate authorization is required** before either unit resumes. The current boundary is `V1-BUILD-SPEC.md` §4 and `LANE-B-WORK-ORDER.md` §2.2d, not this row. *(Corrected 2026-09-08, `B-082`: this had read "Unit 1 authorized … not started" — the exact phrase §7.4's `M2` row had already recorded as stale since `D-178`. Two tables in one document disagreed.)* |
-| S3 | Board, filters, audit view | O-05 | FR-08 | NFR-06 | AC-13 | P0 | Not started |
-| S4 | Publication and fallback | O-04 | FR-09, FR-10 | NFR-05, NFR-07, SEC-02 | AC-14…AC-16 | P0 | Not started |
+| S2 | Line assignment and independence | O-03 ⚠ | FR-04, FR-05 | NFR-03, SEC-01 | AC-05…AC-08 | P0 | `Q12`/`Q1` Phase-0 closed (`D-163`). **Held under `D-171` for both the historical and the target order** (extended `D-172`/`D-175`/`D-177`): `D-164`/`D-165`'s Unit 1 authorization is **not executable**, and Unit 2 was never authorized. A target DoD exists, but **a fresh, separate authorization is required** before either unit resumes. The current boundary is `V1-BUILD-SPEC.md` §4 and `LANE-B-WORK-ORDER.md` §2.2d, not this row. *(Corrected 2026-09-08, `B-082`: this had read "Unit 1 authorized … not started" — the exact phrase §7.4's `M2` row had already recorded as stale since `D-178`. Two tables in one document disagreed.)* **Closed 2026-09-24 (`D-258`): `Deferred — closed without DoD credit`; the held residual stays under `D-171`.** |
+| S3 | Board, filters, audit view | O-05 | FR-08 | NFR-06 | AC-13 | P0 | Not started. **Closed 2026-09-24 (`D-258`): `Deferred — closed without DoD credit`; behaviour owned by `V1-SM06`** |
+| S4 | Publication and fallback | O-04 | FR-09, FR-10 | NFR-05, NFR-07, SEC-02 | AC-14…AC-16 | P0 | Not started. **Closed 2026-09-24 (`D-258`): `Deferred — closed without DoD credit`; `ManualReady` owned by `V1-SM06`, the remainder is a V2 target** |
 | S5 | Assurance and resilience | O-01, O-03 | FR-11 ⚠, FR-12, FR-13 | NFR-08, SEC-05 | AC-17…AC-19 | P1 | Not started |
 | S6 | Lock down | O-02, O-03 | — | SEC-03 | AC-20 | P0 | **Blocked on DEP-01…03** |
 

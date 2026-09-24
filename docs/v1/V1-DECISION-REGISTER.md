@@ -19041,3 +19041,53 @@ determination at any boundary.
 | **`V1-BUILD-SPEC.md`** | — unaffected: nothing is scoped or sequenced until commissioned |
 | **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file created or retired |
 | **`docs/Modular_PRD.md`**, **`V1-PHASE-CLOSURE.md`**, **Encyclopedia**, rule files, frozen sources | — unaffected (`B-130`'s cross-artifact review) |
+
+## 5.14e83 `D-258` — `SETUP-SPIKE-000` Closed: `S2`–`S4` Terminally Deferred Without DoD Credit (Satisfies `D-248`'s Closure Condition)
+
+**Authority: Judge approval, 2026-09-24, to Lane A directly.** *"Q4 is Accept the Parent 1 package as
+drafted, closing S2–S4 as deferred with no DoD credit."* Applies `docs/handoff/B-132` Parent 1 as drafted.
+
+### The decision
+
+1. **Each child is terminally deferred by this act, without DoD credit.** Every residual keeps exactly
+   one owner under `D-244`'s destination table, which is unchanged and is not duplicated in any V1
+   packet:
+
+   | Child | Behaviour already transferred (no setup credit) | Residual and its one owner |
+   |---|---|---|
+   | **`S2`** | Line/RACI and route-context display → `V1-SM05` | Security-invoker RPC, `T6`, blind pass, `EmergencyBypass`, return evidence → the existing held scope, `D-171`, still `HELD` there |
+   | **`S3`** | Board/filter visibility → `V1-SM06` | `T6`→`T5` return analytics → the same `T6`-dependent held scope |
+   | **`S4`** | LinkedIn target-level `ManualReady` → `V1-SM06` | Automated WordPress, retry, privileged credentials, scheduler, and `FR-10`/`T11` live-URL confirmation / `Published` promotion → the future V2-target backlog (a target only) |
+
+   The terminal state is **`Deferred — closed without DoD credit`**. It is not `Done`, not `Retired` and
+   not `Superseded`.
+2. **The setup root is closed.** Every `S2`–`S4` child is now terminal by its own recorded disposition,
+   which is `D-248`'s stated condition. `S0` and `S1` stay completed setup evidence, unchanged.
+3. **Packet files are kept as history.** `D-244`'s rule that no setup packet is retired until every
+   behaviour has moved is respected, and no file is deleted. The three packets record the terminal state
+   in their own `Terminal disposition` sections.
+4. **A residual returns only through its own owner.** `D-171`'s held scope returns by a fresh build
+   authorization; V2-target items return when a V2 is opened. Neither returns through `SETUP-SPIKE-000`,
+   which does not reopen.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e83 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 setup-transfer paragraph: dated closure note, marked `D-258` |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no file added or retired; the three packets remain as history |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/`** | ✅ `S2`/`S3`/`S4` status line and `Terminal disposition` sections record the closure |
+| **`docs/Modular_PRD.md`** | ✅ §8.1 note and the `S2`–`S4` status cells annotate the closure, rows not relabelled; changelog 1.37 |
+| **`docs/v1/work-packets/V1/V1-SM05.md`**, **`V1-SM06.md`** | — unaffected: they already own the transferred behaviour (`D-244`) |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: setup closure is not a phase closure or lane change |
+| **Storyboard, traceability map, Fn_Specs, `docs/specs/`** | — unaffected: no behaviour changes |
+| **Encyclopedia** | — unaffected: no entry depends on setup-programme lifecycle (`D-248`) |
+| **Rule files, frozen sources, `0001_init.sql`** | — unaffected |
+| **Graphify** | Owed once after this pass |
+
+### What this act does NOT do
+
+Does not credit DoD to any setup sprint or to `V1-SM05`/`V1-SM06`, open `V2`, lift `D-171`'s hold, select an
+MMF, authorize construction, or change any DoR box. It does not touch `B-131` or the rest of `B-132`
+(Parents 2–5).
