@@ -43,6 +43,7 @@ const row = SOURCE.split("\n")[2].trim();
 const MANIFEST = (over = {}) => ({
   packet: "P-1",
   packetPath: "packet.md",
+  acceptanceObligation: "Acceptance cases",
   dorRows: ["DOR-R1"],
   behaviours: [{ id: "AC-01", source: "source.md", dod: "Acceptance cases", rowHash: sha256(row) }],
   negativeRequired: ["Refusal and replay"],
@@ -114,6 +115,11 @@ withRepo(
 );
 withRepo(base({ "packet.md": PACKET(GOOD_MAP).replace("`AC-01` passes", "`AC-01`, `AC-02` pass") }), ({ root }) =>
   expect("ID listed in DoD but never pinned", readiness(root, "m.json"), "scope-covered"));
+// `D-260` (`B-133`): parity must hold for every ID shape, not only `AC-*`, and across a wrapped item.
+withRepo(base({ "packet.md": PACKET(GOOD_MAP).replace("`AC-01` passes", "`AC-01` and\n      `SM05-N1` pass") }), ({ root }) =>
+  expect("non-AC scenario ID on a wrapped DoD line, never pinned", readiness(root, "m.json"), "scope-covered"));
+withRepo(base({ "packet.md": PACKET(GOOD_MAP).replace("`AC-01` passes", "`AC-01` passes (`D-242`, `DOR-R1`)") }), ({ root }) =>
+  expect("decision/DoR references are not behaviours", readiness(root, "m.json"), null));
 
 console.log("completion");
 function completionRepo(itemsFor, mutate) {

@@ -324,8 +324,10 @@ lifecycle §3.0a, UI states §4.2, failure and replay §4.3; node matrix and rou
 (**EG**). **No technical `transition:T*` executes and none is claimed** (`D-249`). Route is fixed to
 `ROUTE-PROD-1` (`D-232`).
 
-**Status: authored, not accepted.** `DOR-R5` closes only after the Chief Editor walkthrough and the Lane
-B/C feasibility review below are recorded in `V1-SM05.md`'s evidence row.
+**Status: accepted 2026-09-24 (`D-259`)** — Chief Editor walkthrough and Lane B/C review recorded in A11.5;
+`DOR-R5` checked. *(Was: authored, not accepted.)* **Scenario IDs (`D-260`):** this panel's journey is
+numbered `SM05-N1`–`N6`, `SM05-RV1`/`RV2`, `SM05-F1` and `SM05-X1` in `FN-GATES-01-05.md` §4.4 — the behaviour
+tier owns those rows; this panel stays the visual owner and is not redrawn.
 
 #### A11.1 Normal path
 

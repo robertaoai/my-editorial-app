@@ -223,23 +223,28 @@ here.
 
 | Step | Business route/accountability | Gate executor (target) | CR/FR/AC anchor | Slot | Evidence contract |
 |---:|---|---|---|---|---|
-| 1 | Chief Editor prepares the source package outside the system | No transition | `CR-09`, `FR-01`, `AC-01`/`AC-02` | `V1-SM05` | Manual record accepted by the UI — precondition for step 2 |
+| 1 | Chief Editor prepares the source package outside the system | No transition | `CR-09`, `FR-01`, `AC-01`/`AC-02`, `SM05-N1` | `V1-SM05` | Manual record accepted by the UI — precondition for step 2 |
 | 2a | `ROUTE-PROD-1` fixed for `V1-SM05` (no route chooser); Sheet 1 records Reporter `R`, Desk Editor `A` | Senior Journalist emits `EW`-start; no gate advances (`B-071` Round 56) | `CR-10` (route context, not itself an FR) | `V1-SM05` | **`UJ1` resolved** — order is: accepted manual record → Senior Journalist `EW` → `OP-PITCH` route classification → T1. Chief Editor does not execute `EW`/T1; Senior Journalist trigger does not complete T1 |
 | 2b | `OP-PITCH` records and completes the Route-1 classification | `OP-PITCH`'s own completion evidence; `EW` is its **entry trigger**, not the other way round (`factory-route-operation-crosswalk.md` §3.2 stage table) | `CR-10` | `V1-SM05` | Logged pitch: topic, trend signal, route classification — precedes T1. **`OP-PITCH`'s executor is resolved for Route-1**: Reporter, per the business judgment stage that selects it (`factory-route-operation-crosswalk.md` §4.1, `D-233`) — Sheet 2's source multi-`R` row is preserved, not overwritten |
-| 3 | Reporter performs the responsible intake work | Reporter executes T1 | `FR-01`, `AC-01`/`AC-02` | `V1-SM05` | — |
-| 4 | Desk Editor remains route-accountable; not a gate executor | Investigator executes T2/T3 | `FR-02` | `V1-SM05` | — |
-| 5 | Route accountability unchanged | Journalist executes T4 | `FR-03` | `V1-SM05` | — |
-| 6 | Desk Editor `A` remains distinct from the T5 reviewer | Chief Editorial Desk executes T5 | `FR-04`/`FR-04a`, `AC-05a`/`AC-06a` | `V1-SM05` | **`UJ2` resolved** — observable evidence is the work-order/route record's audit projection (`route_id`, `raci_scope=factory_route`, route `R`, route `A`), append-only; not a gate, button, or T5-style sign-off. `OP-FINAL-SIGNOFF`'s accepted A-only contract (`D-233`, `factory-route-operation-crosswalk.md` §4.1) is separate from this route-accountability evidence and does not backfill it |
-| 7 | Human Chief Editor is the final judgment owner, not Sheet 1's Desk Editor | Chief Editor executes T6 | `FR-04`, `CR-12` | `V1-SM05` | — |
-| 8 | Same route/accountability record persists through correction | Revision returns only the affected scope | `CR-11`, `FR-07`, `AC-11`/`AC-12` | `V1-SM05` | — |
+| 3 | Reporter performs the responsible intake work | Reporter executes `transition:T1` (target); `V1-SM05` records `business:T1` only | `FR-01`, `AC-01` (`FN-GATES` §5 `[V1]`)/`AC-02`, `SM05-N2` | `V1-SM05` (business record) | — |
+| 4 | Desk Editor remains route-accountable; not a gate executor | Investigator executes `transition:T2`/`T3` (target); `V1-SM05` records `business:T2`/`T3` only | `FR-02`, `SM05-N3`/`SM05-N4` | `V1-SM05` (business record) | — |
+| 5 | Route accountability unchanged | Journalist executes `transition:T4` (target); `V1-SM05` records `business:T4` only | `FR-03`, `SM05-N5` | `V1-SM05` (business record) | — |
+| 6 | Desk Editor `A` remains distinct from the T5 reviewer | Chief Editorial Desk executes `transition:T5` (target, held `D-171`); `V1-SM05` records the `business:T5` ranking and routing record only | `FR-04`, `SM05-N6` — `FR-04a`/`AC-05a`/`AC-06a` held (`D-260`) | `V1-SM05` (business record) | **`UJ2` resolved** — observable evidence is the work-order/route record's audit projection (`route_id`, `raci_scope=factory_route`, route `R`, route `A`), append-only; not a gate, button, or T5-style sign-off. `OP-FINAL-SIGNOFF`'s accepted A-only contract (`D-233`, `factory-route-operation-crosswalk.md` §4.1) is separate from this route-accountability evidence and does not backfill it |
+| 7 | Human Chief Editor is the final judgment owner, not Sheet 1's Desk Editor | Chief Editor executes `transition:T6` (target) | `FR-04`, `CR-12` | **Held — `D-171`** (`D-260`); no packet named | — |
+| 8 | Same route/accountability record persists through correction | Revision returns only the affected `business:T*` scope | `CR-11`, `SM05-RV1`/`SM05-RV2` — `FR-07`/`AC-11`/`AC-12` (transition-row audit) move with the transition increment (`D-260`) | `V1-SM05` (business record) | — |
 | 9 | Route completion visible on the board | Board reads state/topic/category/audit | `CR-13`, `FR-08`, `AC-13` | `V1-SM06` | — |
 | 10 | Publication delivery does not redefine editorial accountability | Approved content becomes `ManualReady` | `CR-12`, `FR-09`/`FR-10`, `AC-14`–`AC-16` | `V1-SM06` | — |
+
+**Option A — `D-260`, 2026-09-24 (Judge).** Rows 3–8 previously assigned technical gate execution to `V1-SM05`,
+contradicting §6.3's statement that the slice claims no `transition:T*` execution. They now say what `V1-SM05`
+records (`business:T*` only, `FN-GATES-01-05.md` §4.4 scenarios) and route technical `transition:T5`/`T6`
+execution to the existing `D-171` hold, naming no later packet. `Modular_PRD.md` §9 is unchanged.
 
 **Publication boundary and display anchors — added 2026-09-20 (`D-243`, `D-244`).**
 
 | Row | Current-scope note |
 |---|---|
-| Step 6 (`FR-04`/`FR-04a`) and the display of Line/RACI context in `V1-SM05` | The display is **non-enforcing** and is anchored to `FR-04` (accountable review) and `FR-05` (independence classification), with `SEC-01` and the applicable RACI source. `D-239` still excludes enforcement |
+| Step 6 (`FR-04`; `FR-04a` held, `D-260`) and the display of Line/RACI context in `V1-SM05` | The display is **non-enforcing** and is anchored to `FR-04` (accountable review) and `FR-05` (independence classification), with `SEC-01` and the applicable RACI source. `D-239` still excludes enforcement |
 | Step 10 (`FR-09`/`FR-10`, `AC-14`–`AC-16`) in `V1-SM06` | V1 delivers only the LinkedIn target-level `ManualReady` event after the `business:T5` record. **`FR-10`/`AC-16` runtime confirmation and `Published` promotion are a V2-target item**; both keep their `[V1]` origin and no `[V1→V2]` marker is used. `AC-14`/`AC-15` are unchanged and the automated-WordPress part of `FR-09` is a V2 target |
 | Namespaces | `business:T5` (newsroom judgment) is not technical `transition:T5`; `ManualReady` is a publication event, not an article state |
 

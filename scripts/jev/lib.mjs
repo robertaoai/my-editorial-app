@@ -54,7 +54,7 @@ export function findRows(markdown, id) {
     if (!lines[i].startsWith("|")) continue;
     const first = bare(cells(lines[i])[0] ?? "")
       .replace(/\s*⚠\s*/g, " ")
-      .replace(/\s*\[[a-z_]+\]\s*/g, " ")
+      .replace(/\s*\[[A-Za-z0-9_→]+\]\s*/g, " ")
       .trim();
     if (first === id) rows.push({ line: lines[i], lineNo: i + 1, header: headerFor(lines, i) });
   }
@@ -199,10 +199,18 @@ export function readiness(root, manifestPath) {
     note("behaviour-maps-to-dod", subject, labels.includes(b.dod), b.dod);
   }
 
-  // 3. Scope is exactly the packet's own acceptance list — nothing silently added or dropped.
-  const acLine = packet.split("\n").find((l) => /\*\*Acceptance cases/.test(l)) ?? "";
-  const listed = [...acLine.matchAll(/`(AC-[0-9a-z]+)`/g)].map((x) => x[1]);
-  const pinned = m.behaviours.map((b) => b.id).filter((id) => id.startsWith("AC-"));
+  // 3. Scope parity: the packet DoD's acceptance line and the behaviours pinned to that obligation are
+  //    the SAME set — nothing silently added or dropped. Any ID shape counts (`AC-01`, `SM05-N1`), not
+  //    only `AC-*`; decision and DoR references on the line are not behaviours (`D-260`, closing `B-133`).
+  const acceptance = m.acceptanceObligation ?? "Acceptance cases pass against the real database";
+  const lines = packet.split("\n");
+  const at = lines.findIndex((l) => l.includes(`**${acceptance}`));
+  let end = at + 1;
+  while (at >= 0 && end < lines.length && /^\s+\S/.test(lines[end])) end++;
+  const acLine = at < 0 ? "" : lines.slice(at, end).join(" "); // the whole checklist item, wrapped lines included
+  const listed = [...new Set([...acLine.matchAll(/`([A-Z][A-Z0-9]*-[A-Za-z0-9-]+)`/g)].map((x) => x[1]))]
+    .filter((id) => !/^(D-\d+|DOR-R\d+|G\d+|B-\d+)$/.test(id));
+  const pinned = m.behaviours.filter((b) => b.dod === acceptance).map((b) => b.id);
   for (const id of listed) note("scope-covered", id, pinned.includes(id), pinned.includes(id) ? "" : "listed in DoD, not in manifest");
   for (const id of pinned) note("scope-authorized", id, listed.includes(id), listed.includes(id) ? "" : "in manifest, not listed in DoD");
 

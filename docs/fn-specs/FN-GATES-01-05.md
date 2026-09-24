@@ -332,6 +332,33 @@ relevant-revision re-attestation and retained-prior-evidence rules (`factory-rou
 crosswalk.md` §4.1/§4.2). Executing any of these is a scope expansion requiring its own Judge act, not
 a `DOR-R4` feasibility clarification.
 
+### 4.4 `V1-SM05` business-stage journey scenarios `[V1]` (`D-260`; Judge Option A)
+
+**Added 2026-09-24.** The accepted `DOR-R5` journey (storyboard Panel A11, accepted by `D-259`) given stable
+scenario IDs so the packet DoD and Jev System One can cite it. **No new behaviour:** each row restates what
+Panel A11.1/A11.2/A11.4 already show. Under the Judge's Option A, `V1-SM05` is the evidence slice of
+`business:T1`–`T5` stage, task and evidence records; technical `transition:T5` review bundles and
+`transition:T6` approval gates stay held under `D-171` and appear here only as exclusions. Namespaces as
+§4.3: **B** = `business:T*` judgment record, **EG** = V1 task/evidence record. Failure and replay stay in §4.3,
+not repeated here.
+
+| Scenario | Stage | Given | When | Then | Ns |
+|---|---|---|---|---|---|
+| `SM05-N1` | pre-`T1` | The Chief Editor has submitted a manual trigger package (topic, source, trend-signal description) | It is accepted and the Senior Journalist's `EW`-start arrives | The intake record with its acceptance event and supplier, one `EW` event, one workflow identity and a `ROUTE-PROD-1` route record (route `R` Reporter, route `A` Desk Editor) are appended; no gate advances | EG |
+| `SM05-N2` | `business:T1` | A workflow with its `ROUTE-PROD-1` route record | `business:T1` runs | An `OP-PITCH` Route-1 classification judgment, a `ROLE-REPORTER` selection, one scoped `OP-DRAFT` task instance (Reporter executor, Chief Editorial Desk application `A`) and its task and RACI evidence are recorded, each labelled with its namespace; `business:T1` is complete | B/EG |
+| `SM05-N3` | `business:T2` | `business:T1` is complete | `business:T2` runs | A judgment, the selected role, each `T2a`/`T2b` branch applicability (a false branch recorded explicitly) and the join disposition are recorded; the route stays `ROUTE-PROD-1`; no research or complex-series operation executes | B |
+| `SM05-N4` | `business:T3` | `business:T2` is complete | `business:T3` runs | An `OP-PITCH` judgment in the Journalist context, the newsworthiness fields (score 1–10, periods, fresh sources, revision reference), one scoped `OP-DRAFT` task instance and its evidence are recorded; `business:T3` is complete | B/EG |
+| `SM05-N5` | `business:T4` | `business:T3` is complete | `business:T4` runs | The Senior Journalist fallout-comparison judgment, the selected role and applicable-task evidence are recorded; no legal-risk operation executes; `business:T4` is complete | B/EG |
+| `SM05-N6` | `business:T5` | `business:T1`–`T4` evidence is complete | The Chief Editorial Desk ranks the article | One ranking and routing record naming the Desk Editor as recipient on `ROUTE-PROD-1` is appended, and the UI shows the handoff; nothing is signed, approved or published, and the article state does not change | B |
+| `SM05-RV1` | return | `business:T5` is opened while `business:T3` newsworthiness fields are incomplete | Ranking is attempted | Ranking is blocked and names the missing fields; a return event naming the affected scope `business:T3` only is appended; a new scoped `business:T3` execution opens with a new operation-attempt identity and the next revision reference | B/EG |
+| `SM05-RV2` | revision reach (`W2`) | A return to `business:T3` has opened a new `T3` execution | The new `T3` execution completes and `business:T5` ranks again | The prior `T3` execution is retained as history, marked not-current, never overwritten; `T1`/`T2` evidence is untouched; existing `T4` evidence stays current; the new ranking combines the current `T3` with the existing `T4`; the UI shows both `T3` executions, the return reason and which one is current | B/EG |
+| `SM05-F1` | visible facts | A workflow with recorded `business:T1`–`T5` evidence | The V1 UI is opened for it | Every fact in Panel A11.4 is shown and traces to its one recorded source; source-RACI/Line context, `OP-COPY-EDIT` provenance and the Final Sign-Off and Draft-signatory reminders are labelled display-only and enforce nothing; the article state is shown read-only | B |
+| `SM05-X1` | exclusions | Any `V1-SM05` workflow | Any `V1-SM05` action runs | No `transition:T*` row, `T6` gate, article-state change, Line 3 workflow, `OP-FINAL-SIGNOFF` enforcement, `OP-COPY-EDIT` execution, WordPress path, `ManualReady` or `Published` is created, offered or shown as available | — |
+
+**`AC-01` for `V1-SM05` is §5's `[V1]` row** (article created at its entry state), not `Modular_PRD` §9's
+fuller row, whose *"a transition row records executor"* clause is technical `transition:T*` behaviour
+held with the later transition increment (`D-260`). The two rows' difference is recorded, not edited.
+
 ## 5. Acceptance criteria
 
 | ID | Given | When | Then |

@@ -19169,3 +19169,61 @@ Does not complete the DoR (`DOR-R7` is open), dispose of `AC-05a`/`AC-06a`, push
 the branch, open the PR, select `V1-SM05`, issue a work order or change lane state. Does not build the
 customer-acceptance harness or specify the deployed-instance receipt. Does not record any handoff as
 `Verified` — only an independent actor may.
+
+---
+
+## 5.14e85 `D-260` — Option A: `V1-SM05` Is the `business:T1`–`T5` Evidence Slice; Held `T5`/`T6` Execution Removed From the Packet; §4.4 Journey Scenarios; `DOR-R7` Closed
+
+**Authority: Judge ruling, 2026-09-24, relayed through `docs/handoff/B-133`:** *"Accept Option A. V1-SM05 is an
+evidence slice of business stage/task records (business:T1–T5). transition:T5 review bundles and transition:T6
+approval gates belong to subsequent delivery increments."* Further Judge answers to Lane A the same day: journey
+scenario IDs live in `FN-GATES-01-05.md` §4.4; `AC-11`/`AC-12` leave `V1-SM05`; `AC-01` is pinned to
+`FN-GATES-01-05.md` §5's `[V1]` row; "apply D-260". Answers `B-133`; resolves the scope finding `D-259` left open.
+
+### The decision
+
+1. **Option A boundary.** `V1-SM05` builds and verifies `business:T1`–`T5` stage, task and evidence records only.
+   Technical `transition:T5` review-bundle execution and `transition:T6` approval-gate execution are outside it
+   and stay in the existing `D-171` held scope. **No later packet is named** for them.
+2. **Held Product intent unchanged.** `FR-04a`/`FR-05a` and `AC-05a`/`AC-06a` stay as written in `Modular_PRD.md`
+   §9 (`[decided_target_held]`). They leave every `V1-SM05` consumer: the packet anchors and acceptance DoD row,
+   the Jev manifest, and the requirements traceability map §6.1 rows 6–7.
+3. **`AC-11`/`AC-12` leave `V1-SM05`.** They test technical transition rows. This packet's append-only history is
+   proven by `SM05-RV1`/`SM05-RV2`; traceability row 8 is re-pointed.
+4. **`AC-01` for `V1-SM05` is `FN-GATES-01-05.md` §5's `[V1]` row** (article created at its entry state).
+   `Modular_PRD.md` §9's fuller `AC-01` carries a *"transition row records executor"* clause — technical
+   behaviour that stays with the transition increment. The difference between the two tiers is **recorded, not
+   edited**.
+5. **Journey scenarios.** `FN-GATES-01-05.md` §4.4 `[V1]` numbers the accepted Panel A11 journey: `SM05-N1`–`N6`
+   (pre-`T1` through `business:T5`), `SM05-RV1`/`RV2` (return and the `W2` revision reach), `SM05-F1` (visible
+   facts) and `SM05-X1` (exclusions). **No new behaviour**; Panel A11 remains the visual owner.
+6. **Namespace normalization.** Traceability rows 3–8 now say `transition:T*` for the target gate executor and
+   `business:T*` for what `V1-SM05` records.
+7. **Jev scope parity widened** to every ID shape and to wrapped DoD items, with two new self-test cases
+   (`B-133` Child 2B). `B-133`'s `repositorySha: null` observation is corrected: the receipt field is
+   `evaluatedAt`, and the first receipt already named clean commit `b7992f5`.
+8. **`DOR-R7` checked** on a passing readiness receipt evaluated at a clean commit and committed at the same path
+   as the first, failing receipt, which stays in git history. **Every `V1-SM05` DoR row is now checked.**
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e85 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-260` paragraph: Option A, removed IDs, §4.4 scenarios, `DOR-R7` closed |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ manifest and receipts rows updated; disposition paragraph — no file added or retired |
+| **`SPECS-VERIFICATION-APPARATUS.md`** | ✅ §18.2 scope-parity note |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ new §4.4 `[V1]`; `AC-01` tier-difference note. No existing row edited |
+| **`docs/governance/requirements-traceability-map.md`** | ✅ §6.1 rows 1 and 3–8, the step-6 display note, and a dated Option A note |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ anchors, Option A boundary, acceptance DoD row, `DOR-R7` checked with its evidence |
+| **`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`** | ✅ Panel A11 status line (accepted, `D-259`) and §4.4 scenario cross-reference; journey not redrawn |
+| **`docs/Modular_PRD.md`** | — unaffected: held rows stay future intent; no §8 change because `V1-SM05` is not selected |
+| **Phase closure** (`docs/v1/V1-PHASE-CLOSURE.md`) | — unaffected: no lane-state change |
+| **Encyclopedia, rule files, frozen sources, `0001_init.sql`, application code** | — unaffected |
+| **Graphify** | Owed once after the last governed edit in this pass |
+
+### What this act does NOT do
+
+It does not edit any held Product or Fn_Spec row, name a later packet for held `T5`/`T6` execution, or lift `D-171`.
+It does not push, create the Issue, create the branch, open the State-1 PR, select `V1-SM05`, issue a work order or
+change lane state. Readiness is complete; those acts each still need their own authorization (`D-253`/`D-254`).

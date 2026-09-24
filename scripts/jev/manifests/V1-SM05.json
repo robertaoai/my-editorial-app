@@ -1,7 +1,7 @@
 {
   "packet": "V1-SM05",
   "packetPath": "docs/v1/work-packets/V1/V1-SM05.md",
-  "authority": "D-259",
+  "authority": "D-259, D-260",
   "dorRows": [
     "DOR-R1",
     "DOR-R2",
@@ -14,9 +14,9 @@
   "behaviours": [
     {
       "id": "AC-01",
-      "source": "docs/Modular_PRD.md",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "35d1a5935c8ee0749f044c5edc7d5572cc70390545fec1f54908790b1a8048e9"
+      "rowHash": "462a65f0f660641bfdc25312b8adca4b2570f61fe1d7fcd6d19bb87ff966a45d"
     },
     {
       "id": "AC-02",
@@ -25,16 +25,64 @@
       "rowHash": "c624d057fbc579f5cfb2541213d1370bc5ccb62defbfac58e4d9cdabae8efa60"
     },
     {
-      "id": "AC-05a",
-      "source": "docs/Modular_PRD.md",
+      "id": "SM05-N1",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "68f97aea99a14bc80689299a247ea34aa209245e8c3bb783c4e3e240747cb33e"
+      "rowHash": "8dd5c2a30d47314ecf4f5543edb32688e9c34b07f9c4bf7be9e7eb3162185de2"
     },
     {
-      "id": "AC-06a",
-      "source": "docs/Modular_PRD.md",
+      "id": "SM05-N2",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "23f91f6d5244fd20812f174f068454bbc640856f5e50e371745eb98a3f733083"
+      "rowHash": "cad7d038f321c5790f03641538e54c4be1e476b16ecf9b949a5db37ea3ede9f4"
+    },
+    {
+      "id": "SM05-N3",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "f0cb32e566076b6449f8d31da2b7f08e32ee3f0b690421ef60a7751bf00ef775"
+    },
+    {
+      "id": "SM05-N4",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "3186c6018350972ad4e8162a85e5cf69fdff1d571793ce84022d8ed726efd900"
+    },
+    {
+      "id": "SM05-N5",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "a6e5fc860d1870605f75ce36c6f20ebb4807be43e2bae4b3ffffcf33b357967e"
+    },
+    {
+      "id": "SM05-N6",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "f661e2d6e06758b4a7724192b20f704eade7c170bee6669c3f30b595d7aa0bc7"
+    },
+    {
+      "id": "SM05-RV1",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "47f05be7138656d609eba87bd28daf7308993bac58477a32c5444861522c821c"
+    },
+    {
+      "id": "SM05-RV2",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "5cd57fb6a3e9f9dcd76eea8cbd930da0bdc39aa516b19d64885f7f34c086af70"
+    },
+    {
+      "id": "SM05-F1",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "febbb4deb813ea52b5401147ddd4e8c9043f92e459cd7db9251cfab214d41b8d"
+    },
+    {
+      "id": "SM05-X1",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "4073309f7b95e9e5e262b71f8d5a0c0e5a66d9293a84da60dbcd6d6f9ea1944d"
     },
     {
       "id": "DOR-R2 positive",
@@ -94,5 +142,6 @@
   ],
   "completionExempt": [
     "Independent verification"
-  ]
+  ],
+  "acceptanceObligation": "Acceptance cases pass against the real database"
 }

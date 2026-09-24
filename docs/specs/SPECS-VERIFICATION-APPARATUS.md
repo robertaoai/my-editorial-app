@@ -499,6 +499,11 @@ names.
 | **`readiness`** | Before the GitHub Issue (`DOR-R7`) | Each DoR row exists and maps exactly once, in the packet's DoR→DoD table, to existing DoD obligations with a named evidence class; each behaviour row exists once, has non-empty Given/When/Then, still matches its pinned hash, and is not `[historical]`/`[decided_target_held]` without a recorded Judge disposition; the pinned acceptance IDs equal the packet DoD's own list | `pass` |
 | **`completion`** | Lane B runs it while `Active`, before handover; Lane A re-runs it after the lock returns | A passing readiness receipt for the same manifest hash; evidence for every non-exempt DoD obligation; each item's artifact exists, passed, is unchanged since its recorded revision, and cites only pinned IDs; negative evidence where required; failing-first evidence or an honest characterization for acceptance cases | `ready-for-independent-review` |
 
+**Scope parity, widened 2026-09-24 (`D-260`, raised by `B-133`).** Parity compares the packet DoD's whole
+acceptance item — wrapped lines included — with the behaviours pinned to that obligation, for **every** ID
+shape (`AC-01`, `SM05-N1`), not only `AC-*`; decision, DoR, gap and handoff references on the line are not
+behaviours. The self-test gained a case for each. Row matching also strips build-origin tags such as `[V1]`.
+
 **Receipt.** JSON: tool/version, mode, packet, evaluated commit and clean-tree flag, generation time,
 manifest and source hashes, every rule result, `advisories` (empty — no model output reaches the
 gate), outcome, and the fixed statement that it grants no authority. Readiness receipts for `V1` packets

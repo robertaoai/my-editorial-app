@@ -151,6 +151,16 @@ completion before handover → Lane A re-runs Jev and runs the customer-acceptan
 (`scripts/acceptance/`, contract only, §18.3) as the non-builder verification → Judge accepts the DoD →
 merge. The deployed-instance receipt is deferred to V2 (§18.1).
 
+**`D-260` — Option A, `DOR-R7` closed (2026-09-24).** The Judge ruled `V1-SM05` is the evidence slice of
+`business:T1`–`T5` stage, task and evidence records. `FR-04a`/`FR-05a` and `AC-05a`/`AC-06a` (technical
+`transition:T5` review bundle, `transition:T6` gate) leave the packet and stay held under `D-171`, unchanged in
+`Modular_PRD.md` §9, with no later packet named; `AC-11`/`AC-12` (transition-row audit) leave with them. The
+packet now cites `FN-GATES-01-05.md` §5's `[V1]` `AC-01`, `AC-02` and the new §4.4 journey scenarios
+(`SM05-N1`–`N6`, `SM05-RV1`/`RV2`, `SM05-F1`, `SM05-X1`), restated from the accepted Panel A11 with no new
+behaviour. Jev's scope parity now covers every ID shape. `DOR-R7` is checked on a passing readiness
+receipt evaluated at a clean commit; **every `V1-SM05` DoR row is now checked.** Issue, push, branch and
+State-1 PR remain separately authorized acts (`D-253`).
+
 ## 2. Sequence
 
 ```
