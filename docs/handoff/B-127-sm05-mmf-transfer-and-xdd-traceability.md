@@ -13,6 +13,11 @@
   approve-with-conditions pending Judge review, and stays open here until that review.
 
   **Answered 2026-09-24 (`D-256`).** The Judge accepted Parent 3. Its "Accepted-contract traceability" criterion is applied verbatim to `V1-SM05.md`'s DoD, after the display criterion, with no standalone `DoD-R5`/`DoD-R6` item. The Parent 1 map stands unchanged. Parent 2's pre-Issue readiness is now `DOR-R5` (authored as storyboard Panel A11, awaiting walkthrough and review) and `DOR-R6` (comparison done, awaiting Lane B confirmation). Parent 4's sequence is unchanged and still gated on full DoR acceptance.
+
+  **Resolution recorded 2026-09-24 (`D-259`).** Parent 3's criterion was applied at `17523ce` (`D-256`); it is
+  now also a row of `V1-SM05.md`'s DoR→DoD map (`DOR-R5`/`DOR-R6` → Accepted-contract traceability). `Applied`
+  is non-terminal until an independent actor verifies it.
+- **Resolution:** Applied
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `docs/v1/V1-BUILD-SPEC.md` §§1/4; `docs/v1/work-packets/SETUP-SPIKE-000/S2.md`–`S4.md`; `docs/v1/work-packets/V1/V1-SM05.md`; `docs/v1/work-packets/V1/V1-SM06.md`; storyboard Panels A9/A10; `docs/ENCYCLOPEDIA-SYNC.md`; `D-244`, `D-245`, `D-248`, `D-254`; `docs/handoff/B-124`–`B-126`
 - **Verified-At-Commit:** 967e685cbed78f9ee56a0f9f0f8861cde9f64a02

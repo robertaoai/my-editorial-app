@@ -1,0 +1,430 @@
+System Encyclopedia ·
+my-editorial-app
+What the pipeline means and where it drifts
+Six concepts in this project's requirements corpus carry the highest risk of quietly meaning something different to the editor, the spec, and the code. Each is anchored below with a plain definition, the rules that must never bend, and the exact wording changes that would signal drift.
+
+Scope docs/ — 22 files, ~8,900 lines read in full
+Excluded docs/handoff/ (except where cited by ID for this update)
+Method Graphify-free — direct source + migration read
+Prepared 2026-08-28 · Updated 2026-09-24
+Revision v15 — Entries 01, 05, 06 compared for V1-SM05 DOR-R6 and annotated (D-256)
+Contents
+01 · Risk map
+02 · Encyclopedia
+Four-eyes independence
+Resolved vs. ratified
+Newsworthiness
+Article vs. publication state
+The assurance cluster
+CR-14 — the uncovered want
+03 · Contradiction audit
+04 · Judge decision guide
+Drafted fixes P1–P4
+05 · Disposition
+Step 1
+High-risk alignment map
+Ranked by how much the corpus has already had to correct itself on each concept — repeat overclaims, retired field names, and withdrawn claims are the signal, not guesswork.
+
+Rank	Concept	Why it's here
+01	Four-eyes independence	Renamed field, retired enum values twice, an entire naming decision (Q11) that took four documents to close, and the one metric (G-05) the corpus calls its own most consequential row.
+02	Resolved vs. ratified	The project's self-named recurring failure mode — caught five separate times, once after surviving three review passes.
+03	Newsworthiness vs. trend vs. priority	Three distinct scores for three distinct questions, and a live, unresolved disagreement between two governing-tier documents about whether one of them is even in scope.
+04	Article state vs. publication status	Two enums on two entities that must never collapse into one — the corpus states this explicitly and repeatedly, which is usually a sign it has already happened once.
+05	The assurance cluster	Three different "someone double-checks this" mechanisms, one of which (OD4) has already been mislabeled once in a governance draft and corrected — and its Line 3 member had its own OD misattributed (OD3 instead of OD4 branch ②) across six-plus documents, corrected D-167.
+06	CR-14 — the gap that mostly wasn't	Ruled this pass, and it inverts. Recorded as uncovered for months, then found already specified at Charter level — the drift was the corpus over-reporting a gap, not under-reporting one. Four of its seven chained blockers collapse; three small items survive.
+Method & scope note
+Verification pass & namespace note
+This audit's findings are AF-01…AF-09, renumbered in v7 from a bare F series. The original numbering collided outright with FN-POC-ENGAGEMENT-01-13.md §3.1, whose functional rows are also F1–F10 — so "F9" meant this audit's FR-14 collision in one document and the Chief-Editor two-folder UI requirement in another. Caught by the Chief Editor reading across both. AF- was checked against Modular_PRD §0.5's namespace register, the M-POC prefixes (PO/PR/PU/PA/PX/PB), and the fn-spec F/N series; it collides with none. A fitting defect for this particular document to have committed.
+Graph currency: .graphify/branch.json.lastAnalyzedHead matched git rev-parse HEAD exactly (1e072fa) before this pass — not stale. After the one doc edit below (Finding F2), the graph was rebuilt (npx graphify hook-rebuild): 1187 nodes / 2295 edges before and after, curated layer backed up automatically, no node-count drop.
+Terminology cross-check (requested in place of a broader normalization pass): queried the graph's decision history for every field name and ID cited across the five entries. OD2, OD4, CR-06, Q11, and the D-111 → D-112 rename chain that produced line_separation_status all resolved to nodes consistent with what each entry states. No entry was found to cite a term the decision register has since superseded.
+v5 ruling: CR-14's scope ruled by the Chief Editor — the tag is v1, automated inference is backlog. Verified before recording, not after: the frozen Charter line 52, Blueprint §2.3, and AT-075 all name the Reporter agent as tagger, so FB-05's "no defined producer" was overstated. Four of the seven chained blockers collapse; the three that survive are drafted as P1–P3 in entry 06 and are not yet applied to the governed docs.
+v4 addition: CR-14 added as entry 06 on request. Its chain was traced through FB-05, Q9, FR-01, AC-01, FN-GATES-01-05 §6/§7, and TC9/G105; the FR-14 collision (finding AF-09) was found in that trace and confirmed three ways — both source files, and a graphify lookup returning a "Planned FR-14 Newsworthiness Inputs" node distinct from the governed FR-14.
+Caveat on that cross-check: the graph's extraction is built almost entirely from decision/process nodes (V1-DECISION-REGISTER.md entries, git commits, check scripts) rather than clean nodes for editorial-business terms — line_separation_status and MockPublished as literal strings returned no direct node match, and had to be traced through their owning decision (Q11, D-111) instead. Treat this as a real but partial check, not a guarantee.
+Step 2
+The encyclopedia
+Same structure for all five: a definition an editor, an engineer, and the Chief Editor would each read the same way; the rules that don't bend; where the concept's authority stops; and what "still healthy" versus "starting to drift" actually looks like in this corpus.
+
+RISK 01 / 05
+📖 Four-Eyes Independence (Line Separation)
+Feynman definition
+Risky work needs two different pairs of eyes on it before it goes out — one pair that does the work, another that checks it — and those two pairs must belong to genuinely different parties, never the same party wearing two hats. Here that's enforced by which Line of the Three Lines Model executed a step, not by which literal agent instance ran it.
+
+Immutable business rules
+The same person or agent may never hold both a Line 1 and a Line 2 role. Re-sourced 2026-08-30 (D-163), corrected 2026-08-31 (D-165): this is a hard rule from the project's own editorial RACI — not an IIA Three Lines Model citation — but the rule is successor-node separation across the boundary, R(prior task) ≠ R(this task) (e.g. R(T4) ≠ R(T5)), not "R never equals A within one task." At T5, R = A by design — the Acting Chief Editor is both — and that is the expected shape, not a violation; four-eyes holds because R(T4), the Journalist agent, differs from R(T5). D-163's original register rationale stated the rule backwards on its own cited source; D-165 corrected it after Lane B verified it directly against the RACI matrix. The Three Lines Model still governs a separate, real concern (organizational assurance, Line 3), split into its own requirement SEC-06 — now anchored to the 2024 Global Internal Audit Standards (issued 9 Jan 2024, effective 9 Jan 2025), not a "2026 Statement of Position" that does not exist as a distinct edition (D-166). Modular_PRD §6.5 SEC-01/SEC-06 · docs/governance/raci-involvement-matrix.md §2, §4
+Four-eyes applies only at Line-boundary crossings — T5 (1→2) and T6 (2→1). Within a Line, the same agent may run adjacent gates; that is the standard rule, not an exception. Blueprint §4.7
+T5 must be executed by a human. An agent that attempts it is refused outright — this is AC-06, named in the fn-spec as "the canary" for the whole feature. FN-GATES-01-05 §3.4
+Every transition classifies into exactly three outcomes — satisfied, not_applicable, override_not_four_eyes — never a silent fourth state. FR-05, Modular_PRD §5
+An override is permitted but must be logged as an override (event_type = HumanOverride) — never silently recorded as compliant.
+Emergency bypass skips the independence check only — never phase gates, required fields, audit logging, or publication confirmation.
+The Line 2 reviewer records a disposition before seeing the Line 1 recommendation — the blind first pass. This ordering is the requirement: without it, the one pre-launch detector this concept has (G-05) cannot distinguish real agreement from anchoring. FN-GATES-01-05 §3.4
+Data & system boundaries
+Feeds from workflow_transitions.line_separation_status (renamed from judgment_independence_status by decision D-111), plus line_assignment, identity_assurance (self_asserted | authenticated), and assisting_agent_id.
+
+Computed purely by comparing the executor's Line to the gate's required Line — a structural fact. It does not and cannot answer whether the agent actually reasoned independently; that cognitive question is OD2, and it stays genuinely Open at Charter level regardless of what this field reads.
+
+Success drift baseline
+Now
+G-01 and G-02 both hold at 0, verified against a direct anon-key write — not merely through the UI. AC-06 passes.
+
+Drift signal
+Anything that reads this field as proof of independent thought rather than a Line crossing — that reopens OD2 by stealth.
+A report that counts override_not_four_eyes transitions toward compliance.
+The blind-pass ordering quietly dropped in a UI pass, which would make G-05 unmeasurable without anyone noticing.
+Update, 2026-08-30 (D-164) — the database enforcement already exists. supabase/migrations/0002_s1_editorial_schema.sql's enforce_article_state_transition trigger already refuses an agent-executed T5 unconditionally — allowed_transitions names it required_role: senior_journalist, required_line: Line2, required_actor_type: human, human_only: true. This was built during S1 for the sequence-guard requirement (C-33); nobody had verified it also satisfies AC-05/AC-06 until that's independently proven — the authorized next step is a database-executed test against the existing trigger, not new enforcement code. line_separation_status is written by whoever inserts the workflow_transitions row; the trigger checks a matching row exists, it does not compute the classification itself.
+
+Update, 2026-08-31 (D-165) — the re-sourcing itself drifted, and it was caught on its own cited source. A separate review of D-163/D-164 (raised as three Lane B handoffs) found the register's own derivation sentence — "R never equals A at a Line boundary" — contradicted the RACI matrix it cited, which states plainly that R = A at T5 by design. This entry's rule bullet above is corrected to the successor-node reading; two other current-value locations the same review missed on its first pass (a Modular_PRD footnote and a stale Q12/Q1 status row) were also found and fixed one turn later (D-166). The lesson for this entry specifically: a citation being present and specific is not the same as it being checked against what it actually says — the exact gap this encyclopedia exists to close, now demonstrated on its own anchor concept.
+
+Update, 2026-09-24 (D-256, V1-SM05 DOR-R6) — three statements above are now stale, and are corrected here rather than rewritten.
+
+1. "The Acting Chief Editor is both" R and A at T5. One word, "Chief Editor", now names three identities that are never merged (D-238, renamed D-251): ACCESS-ROLE-CHIEF-EDITOR — the natural-person access and gate-execution entitlement, eligible for technical transition:T5; EDITORIAL-ROLE-EDITOR-IN-CHIEF — the human editorial identity that holds source A/R wherever the RACI names Editor-in-Chief; and AGENT-T5-EDITOR-IN-CHIEF — a virtual assistant that may calculate or recommend at business:T5 and never inherits the human A. The successor-node rule above stands; read "R = A at T5" as the editorial identity's R and A, and the executor of record as the access identity. raci-involvement-matrix.md §8
+
+2. Which T5. The rules above concern technical transition:T5, the Line 1→2 independent-review gate. business:T5 is a different thing sharing the label — the Chief Editorial Desk's newsworthiness ranking and routing record (D-239) — and it is not a four-eyes crossing. V1-SM05 records business:T* judgments and claims no transition:T* execution (D-249); its Line/RACI context is displayed, never enforced (D-244). requirements-traceability-map.md §6.2–§6.4
+
+3. The "Now" box overstates. "Verified against a direct anon-key write" is not current evidence: live hosted anon-key behaviour stays unverified under DEP-05, and the 0002 trigger is proven against local PostgreSQL only. Read G-01/G-02/AC-06 as locally tested and hosted-unverified until a post-promotion A02 reports otherwise (D-252, D-255). V1-BUILD-SPEC.md "S1 — Data model and sequence guard" DoD
+
+RISK 02 / 05
+📖 Resolved vs. Ratified
+Feynman definition
+"Resolved" means someone found a defensible answer to an open question. "Ratified" means the one person with real authority — the Chief Editor — formally signed off on that answer, on a specific date, in a specific place. A resolved-but-unratified decision may be built against provisionally; it may not be reported as settled.
+
+Immutable business rules
+A structural resolution (e.g. "OD1 is resolved by the Three Lines Model mapping") is a model of a decision, not the decision itself. Addendum §11
+Ratification is a discrete, dated Chief Editor act, recorded with an approval-artifact reference in the Addendum §2.4 Ratification Log — never inferred from age, repetition, or silence.
+No document other than that log may ratify anything. Modular_PRD §0.2 — "a decision recorded only in this PRD is not a decision"
+OD1–OD3 remain Open at Charter level even after Three Lines Model resolution and Entry 007's Phase-0 acceptance. "Provisional-for-PoC" is a third state — distinct from both unratified and ratified.
+Every OD-dependent requirement carries its own ⚠ marker naming the OD; an ordinary (non-Charter) decision like Q11 carries a different, non-interchangeable marker. A doubled ⚠⚠ is never valid. Modular_PRD §0.4
+Data & system boundaries
+Lives entirely in the Addendum §2.4 Ratification Log table — columns Resolved?, Ratified?, Ratified Date, Approval Artifact. The Provisional Deviation Register can close a deviation-from-Charter-text row without that act being a ratification of anything — closing and ratifying are different verbs with different owners.
+
+Success drift baseline
+Now
+A standing per-sprint ritual: re-check every ⚠ marker — has its OD actually moved? Output is "no silent upgrade from provisional to settled." Modular_PRD §12
+
+Drift signal — already fired five times
+D1–D4 once relabelled "Ratified" without sign-off.
+OD3 called "Resolved" in two separate document versions.
+The independence success criterion was silently upgraded to "unconditional" and survived three review passes — it hid inside a success-criterion sentence rather than a status table.
+The corpus names its own likeliest next occurrence: a requirement's own Outputs line, "because FRs read as commitments and qualifiers look like clutter."
+RISK 03 / 05
+📖 Newsworthiness vs. Trend Score vs. Editorial Priority
+Feynman definition
+Three different questions get asked about the same article, and they must never collapse into one number: Trend Score — is this popular right now? Editorial Priority — does this fit our strategy and audience? And Newsworthiness — is this worth chasing and safe to pursue at all, independent of whether it's popular?
+
+Immutable business rules
+Trend Score and Editorial Priority are separate v0 formulas with separate weights, each independently visible on the article card — never merged into one field. Blueprint §11.3
+Newsworthiness is not truth, and popularity is not safety: "popular but unreliable content scores high on trend and fails verification" is a named required test case. SOP Fallback Plan §Phase P3
+No confidence or trend score may ever auto-advance a gate — a fixed non-goal (NG-10), because every gate has a named executor and auto-advancing past one is a bypass by definition.
+The v0 formula weights are explicit unvalidated starting assumptions — reviewable only after 50+ scored articles, never treated as tuned.
+CR-06 (trend signals) is not computable on the shipped schema today (TC3) — a disclosed gap (FB-06), not a silent omission.
+Data & system boundaries
+Trend Score reads source_published_date, source.reliability_tier, engagement_metrics, ShareVelocity. Editorial Priority reads topic-lineage depth, reviewer confidence, source/topic authority match, category balance, evidence quality.
+
+A proposed Newsworthiness Profile — audience fit, timeliness, impact, novelty, source authority, corroboration, mission fit, each independently visible with a rationale — exists only in docs/governance/media-industry-sop-fallback-implementation-plan.md §6.1 and has not propagated into Modular_PRD.md. None of the three may write back to current_state.
+
+Success drift baseline
+Now
+display_priority is a dashboard sort order only. NG-10 holds. CR-06's honest status is disclosed, not hidden.
+
+Drift signal — live and unresolved
+A high trend score read as evidence a story is verified — the corpus's own named "guaranteed failure mode."
+The three terms used interchangeably in a future spec or conversation.
+Ruled 2026-08-28 — CR-06's scoring is backlog, not a v1 gap. FB-06 ("not deliverable in v1", blocked by TC3) is dispositioned to Modular_PRD §2.5.1's backlog-refinement path, the same treatment as CR-14's deferred inference half. It needs a "Ready when" row — a deferral with no return path is the defect D-148 built that section to prevent. The SOP Fallback Plan's competing "promote to core Product Scope" framing (AF-03) is superseded by this disposition.
+RISK 04 / 05
+📖 Article State vs. Publication Status
+Feynman definition
+An article's path through the newsroom (Discovered → … → Published) is one clock. Whether it actually made it out to WordPress, or LinkedIn, or a guest platform is a separate clock — one per destination — because an article can succeed on one platform while failing on another at the same instant.
+
+Immutable business rules
+ManualReady is a PUBLICATION.status value, per target — never an ARTICLE.current_state value. Two enums, two entities. Blueprint §4.5
+current_state becomes Published the moment at least one target holds a live URL — not when every target does.
+MockPublished is fixed and non-configurable, and never satisfies Published — "what stops demo data becoming false evidence." It now has a second legitimate trigger (a completed M-POC evidence-review engagement) sharing the same enum value, asserted to need no schema change. FN-PUBLICATION §3.3.2 · FN-POC-ENGAGEMENT §4.4
+publications rows are append-only status events, never a mutable status column — overwriting in place would destroy retry and partial-failure history. D-114
+Partial success across targets is the expected shape, not an error condition.
+Data & system boundaries
+ARTICLE.current_state — ten-value enum, one value per article. PUBLICATION.status — seven values (Pending, Published, Failed, Scheduled, Cancelled, ManualReady, MockPublished), one row-history per article × target. The article-level "Published" reading is always a read-time derivation over the publications table — the publish function never writes it directly. SPECS-PUBLICATION §3
+
+Success drift baseline
+Now
+AC-15's target state: WordPress Published and LinkedIn ManualReady held simultaneously, article reads Published. (Currently disclosed as not yet representable — TC2, S1 work.)
+
+Drift signal
+Any code path setting article.current_state directly from inside the publish job instead of deriving it.
+A metric that treats a MockPublished target as evidence of real reach.
+The two distinct reasons for MockPublished — test mode vs. a paid client engagement — silently merging in a future report.
+RISK 05 / 05
+📖 The Independent-Assurance Cluster
+Successor-node review · Line 3 · OD4
+
+Feynman definition
+Three different "someone else double-checks this" mechanisms exist, and they are not interchangeable. The next gate routinely re-checks the previous gate's work as a side effect of doing its own job (always on, free). A special outside auditor, Line 3, is called in only when risk crosses a threshold (occasional, independent). And a possible future system, OD4 ("Proposer → Critics → Judge"), is not a reviewer of other gates at all — it is a smarter way to produce one gate's own answer, which then still passes through the ordinary chain.
+
+Immutable business rules
+Successor-node review is already specified, not a new proposal — it is implicit in each gate's required-fields list. T6's required field is literally "all prior gate criteria confirmed," meaning T6 already reviews T5. RACI matrix §2.1
+Because of that, Line 3 is additional risk-triggered assurance over the whole chain — never "the only control" covering a task where Responsible = Accountable. An earlier draft claimed exactly that and was explicitly withdrawn once found. RACI matrix changelog v1.1
+Line 3 must share no data path and no reporting line back into Line 1 or Line 2's self-assessment — "if it did, it would stop being Line 3 and become a rubber stamp." (Stated near-verbatim in four separate documents.)
+OD4 means exactly Proposer → Critics → Judge — never a synonym for house SOP, rule-version control, Chief Editor authority, or ordinary phase-gate review. An earlier governance draft used it to mean judgment-rule governance generally; this was found to be a category error and corrected. poc-feedback-approval-crosswalk §7.4
+OD4 is intra-node (changes how one gate reaches its answer); the phase gates are inter-node (review the handoff between gates). Adopting OD4 never replaces or weakens the gate chain. RACI matrix §6.1
+The system applying a judgment rule may never be the sole authority approving the rule governing itself — rule governance sits outside both the ordinary pipeline and any future OD4 system.
+Corrected 2026-08-31 (D-167): Line 3's build status is governed by the Three Lines Model's OD4 branch ② (the Charter's pre-launch-blocker branch, triggered if OD2 resolves negatively) — never OD3, which is the Charter's separate, still-open question of agent headcount and roster shape and was never about whether Line 3 exists. Q2 ("supply a Line 3 executor, or state Line 3 is human/external for v1") was answered on 2026-08-20 (D-57): v1 discloses no independent assurance; FR-11 is not built in v1, conditional on C-13's business-continuity surface as a compensating control, never Line 3 itself. Six-plus current-value locations in the governed corpus still called this "open" or "blocked" after D-57 decided it — the same staleness class as Entry 01's own drift, at wider scope.
+Data & system boundaries
+Successor review carries no field of its own — it's implicit in each gate's required-fields list. Line 3 findings: event_type = Line3Audit, line_assignment = Line3; triggers are risk-threshold, novel/controversial flag, emergency-bypass-used, 3+ repeated returns, or HumanOverride-used. OD4: no schema exists; would require a wholly separate, newly-chartered portfolio project (AP-OD4) if its trigger ever fires.
+
+Success drift baseline
+Now
+The falsifiable metric that replaced two untestable framings ("do agents think alike?", "is the human diligent?"): the T6→T5 return rate. A rate that never leaves zero means successor review is nominal at that boundary — RACI-03. Line 3 itself: decided, not open — no independent assurance in v1 (D-57, D-167), C-13's BCP surface standing in as the disclosed compensating control, never as Line 3.
+
+Drift signal
+"OD4" used loosely for "the rule-approval process" or "an AI that checks other AI" generally — already happened once, already caught.
+Treating Line 3 as the sole safety net for a Responsible = Accountable gate, forgetting successor review already covers it — also already happened once.
+Wiring a hypothetical OD4 output directly into publication, skipping the ordinary successor chain.
+OD3 (headcount/roster) cited as the reason Line 3 has no executor, when the governing decision is OD4 branch ② and Q2 is already answered (D-57) — happened across six-plus locations in the governed corpus, caught and corrected D-167.
+Update, 2026-09-24 (D-256, V1-SM05 DOR-R6) — the no-Line-3 conclusion is unchanged; three surrounding facts moved.
+
+1. business:T5 is ranking, not assurance. D-239 reframed it from an accountability/readiness judgment to newsworthiness ranking and routing by the Chief Editorial Desk. It is a management judgment that opens the publication-review flow — never an independent audit opinion and never a successor review of T4. The successor-node review described above belongs to the technical gate chain. requirements-traceability-map.md §6.3/§6.4
+
+2. The "Now" metric is not a V1 measure. The T6→T5 return rate needs T6, and V1 builds none: V1-SM05 ends at the business:T5 handoff and the return-rate residual is held outside V1. RACI-03 stays the right future metric; it produces no V1 reading.
+
+3. What V1 discloses. V1 satisfies CR-19 only partially (D-247): the five-gate execution and Chief Journalist approval it names are neither admitted nor assigned a destination. V1-SM05 is a limited Route-1 evidence slice with no transition:T* execution claim (D-249), and its Line/RACI display is non-enforcing (D-244). A reviewer who reads a displayed Line label as an assurance step is reading this entry's drift signal.
+
+RISK 06 / 06 · ruled this pass
+📖 CR-14 — Reporter-Gate Tagging (the gap that mostly wasn't)
+Feynman definition
+When an article first enters the pipeline, somebody has to say what it is about, where it came from, and whether it is trending. The customer asked for that in one line. The corpus then recorded it as completely unbuilt for months — but the tagging step was specified all along, at the highest tier there is. What was never specified is how clever the tagging has to be: no accuracy target, no extraction method, no automation threshold. The step is v1. The cleverness is not.
+
+The ruling — Chief Editor, 2026-08-28
+1. CR-14 never specified automation depth. It names a gate and an executor. It sets no accuracy target, no inference mechanism, and no threshold at which tagging counts as done.
+
+2. The already-specified tagging path therefore satisfies it. The frozen Charter settles the executor: "Tagging is agent-executed at the Reporter stage; the Chief Editor is the sole human reviewer, not the sole tagger." Blueprint §2.3 repeats it and AT-075 tests it.
+
+3. Q9 answered — the tag itself is v1; everything past it is backlog. US-01 already carries the flow, so the tag is in scope. Automated inference quality is out, and returns through Modular_PRD §2.5.1's backlog path like any other deferred item.
+
+One precision on wording: read "manual" as without automated inference, not as human-tagged. The Charter forbids the second reading — the agent applies the tags either way; only the sophistication behind them changes.
+
+The chain — what collapses, what survives
+CR-14  "AI tags topics, sources, trend signals at Reporter gate"
+        docs/PRD.md:23 · anchor baa5c3c1 · customer statement, frozen
+   │
+   ├── COLLAPSED by the ruling ────────────────────────────────────────
+   │    ├── FB-05  "CR-14 has no functional requirement"      overstated
+   │    ├── FR-01  "trend signal has no defined producer"     Charter line 52
+   │    ├── AC-01  untestable while unsourced                 AT-075 tests it
+   │    └── Q9     "in or out of v1?"                         IN, at tag level
+   │
+   └── STILL OPEN ─────────────────────────────────────────────────────
+        ├── P1  Stale text in 6 places still says UNCOVERED — propagation job
+        ├── P2  FN-GATES §6  "trend signal unavailable at T1" = still Undefined
+        ├── P3  Backlog home  automated inference has no §2.5.1 row yet
+        ├── —   CR-06 / FB-06  scoring not computable on schema (TC3) — SEPARATE
+        └── —   AF-09  duplicate FR-14 identifier — SEPARATE, unaffected
+Four of seven collapse; three small items remain. None of the three is a missing requirement — they are a propagation job, one edge-case rule, and a backlog row.
+
+Draft fixes — parent first
+P0 · Record the ruling. A D- entry in V1-DECISION-REGISTER.md closing Q9 and narrowing FB-05. Everything below is propagation from it (D-54), so it lands first or not at all.
+P1 · Correct six stale assertions. requirements-traceability-map §4 (CR-14 → "— none —" becomes FR-01, partial) and §7 (FB-05 reclassified Gap → Disclosure); Modular_PRD §7.1 product-scope gaps and §10 Q9 row; FN-GATES-01-05 §3.1 and §7. Each currently asserts a gap the ruling dissolves — the G65 staleness class, six copies.
+P2 · Define one edge case. FN-GATES-01-05 §6: what happens when a trend signal cannot be produced at T1. Reject the intake, or accept with the field flagged for Investigator review? Still a genuine decision — the ruling does not answer it.
+P3 · Give the deferred half a home. Automated inference quality needs a Modular_PRD §2.5.1 backlog row with a "Ready when" — otherwise the out-of-v1 half is excluded with no return path, the exact defect D-148 created that section to prevent.
+Not in scope of this ruling: CR-06/FB-06 (schema cannot compute scoring — TC3) and AF-09 (duplicate FR-14). Both survive untouched and need their own passes.
+Immutable business rules
+CR-14 is a customer statement, content-anchored at baa5c3c1. The project team may not edit or retire it — this ruling interprets its scope, which is the sponsor's to do, and does not touch the frozen text.
+Tagging is Line 1, agent-executed at the Reporter gate — Charter-level, and not reopenable by a lower tier. Charter line 52; Blueprint §2.3; AT-075
+The executor is fixed; the sophistication is not. An agent applying deterministic or rule-based tags satisfies v1. Trained inference is a later increment, not a different requirement.
+A required field may still not ship without a producer. The rule stands — it is simply already satisfied here, by US-01's Reporter agent. FN-GATES-01-05 §3.1
+Whatever is built, NG-10 still binds — no confidence score may auto-advance a gate, at any threshold. Tagging proposes; it never transitions state.
+Data & system boundaries
+Produces: exactly one subject topic_id (per G39 — one subject topic, many analytical tags), source identification, and trend_signals rows carrying signal_type, evidence_url, and reviewer_confidence.
+
+Consumed by: FR-01/AC-01 at T1, and CR-06's trend scoring downstream.
+
+Authority stops at proposing labels. It never advances a state and never decides publishability — those belong to the gates.
+
+The v1 boundary now has a name: the tag exists and is attributable is in; the tag is inferred well is out. Everything on the far side of that line routes through §2.5.1.
+
+Success drift baseline
+What success looks like
+An article leaves T1 with one subject topic, a source, and a trend signal — each attributable to the Reporter agent in the transition record, and each testable by AT-075. No accuracy claim is made or implied.
+
+Warning signs of drift
+The deferred half quietly re-entering v1 as "improving the tagging" — scope creep wearing a maintenance label.
+A tag produced with no attributable executor — a default or a stub — which breaks AT-075 whatever the field contains.
+INTELLIGENCE_LAYER.md's auto-advance line read as the specification for the deferred half, reintroducing the NG-10 violation through the back door.
+The reverse of the old failure: this ruling cited to close CR-06/FB-06 too, which it does not touch.
+Update, 2026-09-24 (D-256, V1-SM05 DOR-R6) — the 2026-08-28 ruling was overtaken, and this entry's wording precision no longer holds.
+
+1. The values are human-supplied. D-194 ratified the intake unit as one manually assembled editorial trigger package — topic, source and trend-signal description supplied by the Chief Editor — and D-197 (A1) kept the Reporter agent as the T1 executor of record, with the Chief Editor recorded as supplier. The note above ("read 'manual' as without automated inference, not as human-tagged") is therefore superseded: in V1 a human supplies the values and the agent executes and attributes T1. FB-05 is answered. Future application-generated tagging and scoring is backlog item PBL-11, unranked. FN-GATES-01-05 §3.1 · Modular_PRD §2.5 PBL-11
+
+2. Three events now precede T1, and none is a gate. The Chief Editor supplies the package through the UI; a Senior Journalist agent action emits the EW-start event; OP-PITCH records the Route-1 classification. Neither the supply act nor EW completes T1. FN-GATES-01-05 §3.0
+
+3. The V1 slice is narrow. V1-SM05 fixes the route to ROUTE-PROD-1 and is a limited evidence slice (D-249): it records business:T* judgments and EG* task evidence, and claims no transition:T* execution. The chain above (P1–P3) is historical; D-150 applied it.
+
+Step 3
+Consistency & contradiction audit
+Where a term is used inconsistently across the corpus, or a document contradicts one of the five entries above. AF-03, AF-04, and AF-08 are grouped under the one unratified decision that actually gates all three, rather than tracked as separate items.
+
+AF-01
+Resolved — 0002, verified 2026-08-30
+Seed data executed a human-only gate with an agent — now retroactively corrected
+The original scaffolding (supabase/migrations/0001_init.sql:131) ran T5 (journaled → senior_reviewed) with actor_type: 'agent' — a direct violation of the Entry 01 rule, exactly as first recorded. Tracked as Deviation Register row D5 and gap X4.
+
+Fixed by 0002_s1_editorial_schema.sql, and verified against the migration text this pass — not assumed from its comment. The migration's data-conversion step ("Convert the legacy audit rows and correct the T5 seed executor under X4") rewrites the historical journaled → senior_reviewed row: actor_type flips to human, actor_id becomes chief-editor, and assisting_agent_id is set to legacy:senior_journalist — correctly distinguishing agent assistance from agent execution, per US-04's own field. line_separation_status is set to satisfied. This closes the violation without deleting the historical record of what actually ran — the append-only discipline in Entry 04 applies here too.
+
+AF-02
+Fixed — v2
+INTELLIGENCE_LAYER.md specified the exact behavior Entry 03 forbids
+It documented "0.6 minimum confidence to auto-advance" — precisely what NG-10 exists to forbid ("added to prevent a specified behaviour from being built"). The plan pack is non-governing, so this carried no build risk, but was a landmine for anyone rebuilding intelligence logic from that file instead of the governing set.
+
+Resolved: a corrective annotation was added directly under the offending line in docs/INTELLIGENCE_LAYER.md, naming NG-10 and stating the rule plainly. The original line was left in place — not rewritten — per docs/README.md's "reconciling the plan pack is Sprint 0 work," and per the standing house rule (surgical edits, no document rewrites).
+
+Parent · gates AF-03, AF-04 & AF-08 below
+One unratified packet, not three separate gaps
+AF-03, AF-04, and AF-08 are not independent findings — they are three consequences of a single not-yet-ratified decision: whether the Chief Editor approves any part of the Media-Industry SOP Fallback Plan's own drafted Board packet, MFB-01…MFB-10 (docs/governance/poc-feedback-approval-crosswalk.md §8), which sits on top of the underlying B-P0-01…B-P0-18 resolutions in docs/governance/board-proposal-professional-evidence-review-poc.md.
+
+Per direction this turn, no edit was made to Modular_PRD.md or any governance document to resolve this — that would mean this audit ratifying a decision only the Chief Editor may ratify (Entry 02, D-93). The three children below map to their exact packet item so the decision, when made, propagates without re-deriving it.
+
+AF-03
+Awaiting MFB-03
+↳ child of the parent above
+Two documents disagree about whether newsworthiness is core or deferred
+docs/governance/media-industry-sop-fallback-implementation-plan.md explicitly rejects Modular_PRD.md's own disposition for CR-06: "Reject the 'optional scoring feature' framing … Promote to core Product Scope capability." But Modular_PRD.md — read through its latest revision, v1.28 — still carries the original framing (FB-06, "confirm this v1 limitation is acceptable") and has not absorbed the reframing.
+
+Maps exactly to MFB-03 — "Approve FR-14 direction and CR-06/CR-14 as core Product Scope activities with manual fallback." Approving, approving-with-conditions, or rejecting MFB-03 settles this finding directly; nothing further needs to be invented.
+
+AF-04
+Awaiting MFB-02
+↳ child of the parent above
+Project Scope keys (PSK-*) propagated unevenly
+Modular_PRD.md §7.2's Project Scope Matrix carries no PSK-* row at all — those labels live only in requirements-traceability-map.md's backward trace (PSK-01…06) and the SOP Fallback Plan (PSK-07…09, none yet adopted anywhere else). Yet Modular_PRD.md §6.3 already cites PSK-10 as fully adopted ("Report Immutability (PSK-10)"). One key reached the requirement spec; nine did not. Confirmed still current: a graphify lookup for PSK-07 returned no matching decision node.
+
+Maps exactly to MFB-02 — "Approve the Project Scope classification and PSK-01 through PSK-09 definitions." No new key or table is needed; this is pure propagation once MFB-02 is decided.
+
+AF-09
+Live · blocks MFB-03
+↳ found this pass, while tracing CR-14's chain
+Two different requirements are both numbered FR-14
+In the governed tier: Modular_PRD.md §5 defines FR-14 as the business-continuity observability surface — landed 2026-08-20 by D-62 closing G60, with US-14, AC-21, and its own §7.2 Project Scope row.
+
+In the governance tier: media-industry-sop-fallback-implementation-plan.md §6.2 defines FR-14 as "Produce the newsworthiness inputs" — the proposed answer to CR-14. Two unrelated requirements, one identifier.
+
+This is not cosmetic, because a Board item would ratify it. MFB-03 reads "Approve FR-14 direction and CR-06/CR-14 as core Product Scope activities" — approving it as written would ratify a number already occupied in the tier below. The collision has already propagated into the knowledge graph, which carries a node named "Planned FR-14 Newsworthiness Inputs" distinct from the BCP FR-14.
+
+And it is unregistered. Modular_PRD §0.5 exists precisely to record ID collisions — it lists the A1, D1, S1, G1 and Q0 ones — and declares FR-xx as a namespace "chosen to avoid every prefix above." This collision is in neither list.
+
+The sharper reading — it is a scope-class collision, not just a number clash. The governed FR-14 is Global Project Scope (D-40): no Customer Request origin, the compensating control that condition C-13 attaches to D-57, disclosed in §7.2. The proposed one traces to CR-06/CR-14 — Product Scope, customer-anchored, §7.1. Modular_PRD's §7.1/§7.2 split exists to keep exactly those two apart, and the graph's own curated edge on D-40 states the principle: "Team-Added Scope Is Disclosed, Never Absorbed." One identifier spanning both classes defeats the split — which is why renumbering the Product-Scope proposal, not the landed Project-Scope requirement, is the fix.
+
+AF-05
+Self-corrected · pattern to watch
+Two terms already misused once each, both caught
+"OD4" was once used in an earlier SOP-fallback draft to mean judgment-rule governance generally (Entry 05) — corrected. "Digital twin" was once used in an earlier Alpha Portfolio plan draft to mean "many employees" instead of its established "virtual agents serving one natural person" sense — corrected by D-79. No action needed; both terms are now flagged as historically drift-prone.
+
+AF-06
+Definitional overlap
+One enum value, two different real-world meanings
+MockPublished now fires for "credentials not configured, this is a test" and for "this was a completed, paid evidence-review engagement deliberately never sent to a live target" — see Entry 04. The spec asserts this needs no schema change; it does need a disclosure note the first time either status is surfaced in a report or dashboard.
+
+Progressive build order, once S3/S4 UI work starts (advisory sequencing only — authorizes nothing, doesn't touch FN-AUDIT-VISIBILITY-07-08.md or FN-PUBLICATION-09-10-13.md, which remain the actual specs):
+
+Public explainable content + report first — the POC-folder surface: Explainable Draft, Client Decision Report, evidence ledger (FN-POC-ENGAGEMENT-01-13.md §4.2). Building this first forces "reviewed and delivered to a paying client, but never sent to a real target" to exist as a first-class state before any real-publish UI exists to confuse it with.
+Publishable article second — the MVP-folder surface, including the real WordPress/LinkedIn publish path and its ordinary MockPublished (credentials-not-configured) test mode.
+Building the real-publish path first risks writing "MockPublished = just a test row" logic before the POC-engagement use of the same status exists to contradict it — exactly this finding's drift signal. Building POC-first forces that contradiction to be resolved rather than silently assumed away.
+
+The requirement rows behind this UI are FN-POC-ENGAGEMENT-01-13.md §3.1 F9/F10 — "at full pipeline completion, the Chief-Editor UI shows both folders for the engagement together, under one identifier" and the MockPublished trigger — anchored upstream as PR-14/PR-15 and accepted as PA-07/PA-08 (all added by D-145). Those are the fn-spec's own F series, not this audit's — see the namespace note in §01.
+
+Sequencing — the POC lane does not wait for v1, and the docs say so twice. V1-BUILD-SPEC.md §2 branches T3 off the sprint track — "runs parallel, no build dependency" — and §5 states the reason: "Deferring this behind S0/S1 would stall commercial evidence for no technical reason — the manual PoC exists precisely to gather that evidence before the build justifies itself." The manual lane needs no client access because nothing client-facing is built: PR-03, PA-05 and PX-02 forbid client accounts outright, and the Board proposal §8 sets "Application access: Chief Editor only" — the folder is handed over outside the application. What actually gates T3 is G7a (charter the lane, still Open) and B-P0-06's ten boundaries, all currently unset — plus C-15 before real client data. None of those is v1 completion.
+
+The distinction that resolves the sequencing question: a built, client-facing delivery portal genuinely is gated — by NG-02 at Charter level, excluded by D-96, backlogged by D-145. But that is not the POC lane; it is an optional future replacement for a handover that already works by hand. Conflating the two makes a manual process wait on a Charter amendment it never needed. And there is no "after v1" to schedule it into — Modular_PRD §8.0 records V2 as Not opened, with no docs/v2/; naming a version would be inventing one.
+
+Access model — design intent, deliberately not built. The eventual shape is one UI, two access levels: client access scoped to the commissioning professional's own engagement package, and Chief-Editor access to everything. NG-02 gates the client half — Charter-level, one Chief Editor account, confirmed standing at D-79 — and D-145 evaluated exactly this and backlogged it rather than lifting NG-02. So v1 ships Chief-Editor access only (PR-14, N2); the two-level design is recorded here as the intended future shape and returns through Modular_PRD §2.5.1's backlog path, attached to NG-02's existing row. Nothing about this note authorizes a client account.
+
+AF-07
+Boundary respected
+"Client-First Exclusivity Window" correctly quarantined
+Explicitly scoped as "a P0-EVR concept only" that "must not leak into the shared AP-01 core." No violation found in what was read — named here only because it is exactly the kind of boundary this encyclopedia exists to keep visible.
+
+AF-10
+Found by widening scope
+The cart-and-portal POC model was logged, ruled, and superseded — outside this audit's scope
+It exists. docs/handoff/B-008-classify-later-poc-model.md, raised 2026-08-22 by Lane B, names the model precisely: cart_id, DEFAULT_POC_PAYMENT_PROVIDER, PAYMENT_EVENT_DRAIN, POC_OBLIGATION_DRAIN, FLAG_POC_PAYMENT_ACCEPTANCE, asynchronous account claiming, a delivery portal, and a provider-ID/editorial-ID split — an external buyer triggering payment, with a cart tracking what is owed.
+
+Why this audit never saw it: docs/handoff/ was excluded from scope at the outset. That exclusion has a cost, and this is it — the directory is where Lane B and Lane C raise decision requests, so decision history lives there while decision outcomes live in the register. Excluding it hides the question that produced a ruling.
+
+Ruled, and one part of the ruling matters for any revisit. D-96 did not adopt the elaborate model — no cart, no payment provider, no portal. But it also corrected Lane A's framing in a way that cuts the other way: "the POC commercial flow is original project scope, present from scaffolding — Stripe shipped in package.json from the start… NG-03 is a simplification for the current stage, practical rather than permanent, not evidence that the POC lies outside the project." The entry is now Superseded-By: D-99, which authorized M-POC as the manual lane.
+
+So the path is already named, and it is not a sprint. B-008's own option 2: "Create the separate POC Charter and Product Requirements, then requirements traceability, functional specifications, technical specifications, UX, configuration rows, and a later migration/build authorization" — explicitly a Charter-level act requiring a separately chartered Alpha Portfolio project. Not S5, not V2. That is the answer to "what comes after v1" for a built POC flow.
+
+One genuine gap survives. "Publicly-expandable content with a report" (PR-05, F3) is specified as a deliverable, but no public link or hosted URL for it is specified anywhere — the Board proposal §16.3 has the Chief Editor share the folder, a handover, not a link. A linkable public artifact is unlogged, and it belongs to the deferred POC Charter scope, not to v1.
+
+AF-11
+Live · G106/G107
+Why the handoff's content didn't survive refinement — one row, two items, one condition
+The channel worked; the landing did not. B-008 was raised, escalated, ruled (D-96), and superseded (D-99) — the handoff flow did its job. What failed is where the rejected content came to rest.
+
+The defect (G106). V1-BUILD-SPEC.md §6's "POC commercial flow — deferred scope" row covers two deferred things — the manual P0-EVR lane, and B-008's built model (cart, payment provider, drains, portal) — under one condition: "Ready when G7a charters the manual lane and B-P0-06's ten boundaries carry real values." Those gate the manual lane only. The built model needs "a separate POC Charter and Product Requirements" — a Charter-level act. When G7a and B-P0-06 resolve, the row reads ready and the built half rides along on a condition that was never about it.
+
+Same defect at the second landing site. M-POC-REQUIREMENTS.md §8 lists the identical items with no return condition at all. D-145 noticed the asymmetry without closing it: "Left here unchanged because the gate is Charter-level, not because this exclusion list was re-affirmed on its own terms."
+
+Root cause — a correct test applied to the wrong scope. D-148 asked "does this condition need to be checkable after v1 freezes?" and answered no for M-POC readiness, because that is sequenced within v1 at T3. True of the manual lane; false of the built model, which needs a new Charter and is past-v1 by construction.
+
+And the QA half has no control (G107). This passed 17/17 consistency checks. Nothing in C-14 reads backlog rows — tier-sweep checks that a decision arrived, decision-status cross-references statuses, neither asks whether a deferred row says how it returns. A deferral with no return path is a drop, which is exactly what D-147/D-148 built the discipline to prevent — and the discipline is prose-only.
+
+Why the obvious check can't be written, and what can. A rule demanding every excluded row carries a "Ready when" would fire on NG-10, which correctly has none — a permanent behavioural constraint, not a deferred feature. Applicability is judgment. So check the marker, never the judgment: require each governed backlog row to carry either a Ready when or an explicit "no Ready when — <reason>" — the same shape as handoff-response demanding a disposition without judging its correctness. That turns the NG-10 case into a declared state rather than an absence indistinguishable from an oversight.
+
+AF-08
+Consistent, not contradictory
+↳ same parent above — currently correct as-is
+Proposed FR-04/FR-05 rewrites correctly unadopted
+The SOP Fallback Plan's proposed rewrites of FR-04/FR-05 are marked "planned … for later approval," and Modular_PRD.md's actual rows still show the pre-Fallback-Plan text. Flagged only so the proposal isn't mistaken for adopted requirement text.
+
+Maps to MFB-04 (interim Chief-Editor/virtual-Chief-Journalist authority boundary, routes a dated OD1 decision plus an FR-04 update) and MFB-05 (provisional OD2 evidence/challenge ladder). Needs no fix today — only flip this if the parent decision above approves either one, at which point FR-04/FR-05 propagate together with AF-03 and AF-04.
+
+Step 4
+Judge decision guide
+This section rules on nothing. It exists so the one open parent item — ratifying MFB-01…10 — can be judged quickly: what actually needs a ruling, what to read to rule on it, and what each ruling would cost to carry out. The ruling itself is a dated act in V1-DECISION-REGISTER.md or the Addendum's Ratification Log, not a row in this document.
+
+Only 4 of the 10 packet items are load-bearing here. The rest are independent and can be ruled on separately, on their own schedule, without blocking AF-03, AF-04, or AF-08: MFB-01 (state/phase glossary), MFB-06 (OD4 retained + external rule governance), MFB-07 (house-SOP precedence), MFB-08 (Business Charter risk treatment), MFB-09 (atomic drafting, defer OD3), MFB-10 (documentation-phase authorization only).
+Item	What it actually asks	Read this to rule	Closes
+MFB-02	Approve the Project Scope classification and PSK-01 through PSK-09 definitions	poc-feedback-approval-crosswalk.md §5 (FB-03/FB-04 rows) + media-industry-sop-fallback-implementation-plan.md §8 (the nine PSK definitions)	AF-04
+MFB-03	Approve FR-14 direction and CR-06/CR-14 as core Product Scope activities with manual fallback	poc-feedback-approval-crosswalk.md §5 (FB-05/FB-06 rows) + media-industry-sop-fallback-implementation-plan.md §6 (the newsworthiness profile + draft FR-14 text)	AF-03
+MFB-04	Approve the interim Chief Editor final-authority / virtual Chief Journalist advisory boundary; route a dated OD1 decision plus an FR-04 update	media-industry-sop-fallback-implementation-plan.md §7.1	AF-08 (half)
+MFB-05	While OD2 is unknown, approve a provisional evidence/challenge ladder and item isolation; retain the negative-OD2 hard stop	media-industry-sop-fallback-implementation-plan.md §7.2	AF-08 (half)
+What none of these four do, regardless of ruling
+None of MFB-02/03/04/05 closes OD1 or OD2 themselves. MFB-04/MFB-05 explicitly propose interim, provisional operating rules while OD1/OD2 stay Open at Charter level — approving them is not ratifying OD1/OD2, exactly as Entry 02 requires. None authorizes code, schema, or a build step — that is MFB-10's question alone, and even MFB-10 only reaches "the documentation and evidence-collection phase."
+
+Fixes — P1–P3 applied (D-150), P4 specified
+The insight that shapes both fixes: a prohibition being lifted is not the same act as scope being authorized. NG-02/NG-03 already carry Ready when conditions that would lift the prohibition on accounts and monetization — neither authorizes anyone to build a cart. That is B-008 option 2's separate POC Charter, a distinct Charter-level act. D-145 named only the first, D-96 only the second; each alone leaves the other invisible.
+
+Status — applied 2026-08-29 as D-150, closing G106. Five files touched, 17/17 consistency checks pass, duplicate-ids clean at 117 distinct, lane-boundary confirms Lane A surfaces only. No scope was authorized and no exclusion lifted — B-008's model remains not-adopted, NG-02 and NG-03 stand; only the conditions under which they would return are now stated completely. G107 stays open: the convention is now concrete enough to build a check against, and the check is not built.
+
+P1 ✓ Modular_PRD §2.5.1 — the rule, living tier. Add a fifth step to the backlog path: a deferred item may need two conditions — its prohibition lifted (the Non-Goal's own "Ready when") and its scope authorized (a Charter act). State both, or the unnamed one is invisible. Parent because it generalises and because §2.5.1 is the tier that survives v1's freeze.
+P2 ✓ V1-BUILD-SPEC.md §6 — split the row. Row A, manual P0-EVR lane: keeps Ready when G7a + B-P0-06, unchanged and correct. Row B, B-008's built commercial model: Ready when both — §2.5's NG-02/NG-03 conditions resolve (the lift) and a separate POC Charter + PRD is authorized at Alpha Portfolio level (the authorization, B-008 option 2).
+P3 ✓ M-POC-REQUIREMENTS.md §8 — cite, don't restate. The "Also excluded, by D-96" line gains a pointer to P2's row B. A pointer, not a copy — a second copy of a condition is the G55 drift mechanism, which is what put this item in a dead-end list to begin with.
+P4 — G107's marker convention. Every row in a governed backlog table carries one of two markers: Ready when: <condition>, or No Ready when — <reason>. Tables in scope: Modular_PRD §2.5, V1-BUILD-SPEC.md §6, M-POC §8. First application: NG-10 takes "No Ready when — permanent constraint on behaviour, protects O-01" (G105). The check asserts presence of a marker, never which one is right — judging applicability is the thing it must not attempt.
+What each ruling costs to carry out, per item
+Approve → a Modular_PRD.md version bump + changelog entry (matching its own v1.0–v1.28 discipline), the named FB-03/04/05/06 disposition rows rewritten to drop their hedge, and one V1-DECISION-REGISTER.md entry per D-54's propagation rule.
+Reject → the current disposition (deferred newsworthiness, no PSK-07…09 rows, unchanged FR-04/FR-05 text) is confirmed correct, with one V1-DECISION-REGISTER.md entry recording that the proposal was read and declined — so it doesn't get silently re-raised later as an unnoticed gap.
+Defer → parked with an explicit review trigger, the same pattern already used for NG-02's backlog path (D-148) — not left as silent openness.
+Output contract
+Disposition
+Per house vocabulary. This is an analysis artifact — nothing here edits a governed document or closes an Open Decision; each condition names the phase where a real change would land.
+
+Item	Verdict	Condition / follow-up phase
+The encyclopedia itself (6 entries)	Approve	Descriptive only. Keep as a living reference; re-audit whenever a cited source document changes.
+CR-14 / Q9 — tag is v1, inference is backlog	Ruled	Chief Editor, 2026-08-28. Verified against the frozen Charter line 52, Blueprint §2.3, and AT-075. Four chained blockers collapse; P1–P3 below remain.
+↳ P1 — six stale "UNCOVERED" assertions	Approve-with-conditions	Propagation only (D-54), no new decision. Lands with the D- entry that records the ruling — drafted in entry 06, not yet applied.
+↳ P2 — trend signal unavailable at T1	Defer	A genuine open edge case the ruling does not answer: reject the intake, or accept with the field flagged for Investigator review. FN-GATES-01-05 §6, before S1.
+↳ P3 — backlog home for automated inference	Approve-with-conditions	Needs a Modular_PRD §2.5.1 row with a "Ready when", or the deferred half is excluded with no return path — the defect D-148 created that section to prevent.
+AF-01 — seed data violated T5 human-only rule	Resolved	0002_s1_editorial_schema.sql retroactively corrects the historical seed row (actor_type → human, assisting_agent_id set). Verified against migration text 2026-08-30, not assumed. D5/X4 can close.
+AF-02 — INTELLIGENCE_LAYER.md vs NG-10	Done	Corrective annotation added this pass — see finding card. No further action.
+Parent — rule on MFB-02/03/04/05	Defer	Genuinely the Judge's ruling, not this audit's. See Step 4's decision guide for exactly what to read and what each ruling costs. Gates the three rows below.
+↳ AF-03 / FB-06 — CR-06 scoring is backlog	Ruled	Chief Editor, 2026-08-28: not a v1 gap — routes to §2.5.1's backlog path, same as CR-14's inference half. Needs a "Ready when" row (pairs with P3). Supersedes the SOP plan's "promote to core Product Scope" framing, and narrows what MFB-03 still has to rule on.
+↳ AF-04 — PSK-* propagation gap	Defer	Resolves automatically once MFB-02 is decided — no separate action.
+↳ AF-09 — FR-14 spans two scope classes	Approve-with-conditions	Governed FR-14 is Global Project Scope (D-40, C-13/BCP); the proposal traces to CR-06/CR-14, Product Scope. Renumber the proposal, register it in §0.5 — before MFB-03 is ruled, or the ruling ratifies a collision across the §7.1/§7.2 split.
+AF-05 — "OD4" / "digital twin" reuse risk	Approve	Already self-corrected. No action beyond standing vocabulary discipline.
+AF-06 — MockPublished / POC–MVP UI	Approve-with-conditions	Build order recorded: POC-folder view first, MVP second. Requirement rows are the fn-spec's own F9/F10 (PR-14/PR-15). Two-level access is design intent only — NG-02 gates the client half and D-145 backlogged it; v1 is Chief-Editor access only.
+Manual POC lane sequenced after v1	Reject	T3 runs parallel with no build dependency (V1-BUILD-SPEC.md §2, §5) and needs no client access. Actually gated by G7a (Open) and B-P0-06's ten unset boundaries — decisions and numbers, no build.
+AF-10 — built POC flow (cart, payment, portal)	Approve-with-conditions	Already ruled: B-008 → D-96 (not adopted) → superseded by D-99. To revisit, the named route is B-008 option 2 — a separate POC Charter + PRD, a Charter-level act via a newly chartered Alpha Portfolio project. Not a sprint and not a version. D-96's own words help the case: NG-03 is "practical rather than permanent."
+↳ Public link to the explainable-content artifact	Defer	Genuinely unlogged — PR-05 specifies the deliverable, nothing specifies a hosted URL for it. Belongs to the deferred POC Charter scope above, not v1.
+AF-11 / G106 — one row, two deferred items	Applied	D-150, 2026-08-29 — closed. §2.5.1 gains the two-condition rule; §6's row split in two; M-POC §8 cites rather than restates. 17/17 checks pass. No exclusion lifted, no scope authorized.
+↳ G107 — "Ready when" discipline is unenforced	Approve-with-conditions	Add a check requiring each governed backlog row to carry a Ready when or an explicit "no Ready when — reason". Marker-presence only, never the judgment — otherwise it fires on NG-10, which correctly has none. Needs the convention agreed before building.
+docs/handoff/ excluded from audit scope	Approve-with-conditions	The exclusion hid B-008 for eleven passes. Recommend widening scope to include it in any future audit — decision history lives there while outcomes live in the register.
+AF-07 — exclusivity-window scope boundary	Approve	Correctly respected today. No action.
+↳ AF-08 — unadopted FR-04/FR-05 rewrites	Approve	Correctly marked provisional on both sides today. Same parent as F3/F4 (MFB-04/MFB-05) — only becomes actionable if that's ratified.
+Prepared as a read-only audit of docs/ (excluding docs/handoff/), through two fix passes. v2: AF-02 corrected directly; graphify confirmed current, then rebuilt; the five entries cross-checked against decision history with no drift found. v3: added the Step 4 Judge decision guide, narrowing MFB-01…10 to the four items that actually gate F3/F4/F8, and a progressive build-order note on F6. AF-03, AF-04, and AF-08 remain deliberately unedited in the governed docs themselves — resolving them is a dated Chief Editor act, not an encyclopedia entry. v13, 2026-08-30: Entry 01 updated against two rulings landed since v12 — D-163 re-sourced SEC-01 from the IIA Three Lines Model citation to the project's own editorial RACI, splitting the Three Lines Model into a new requirement, SEC-06; D-164 found 0002's trigger already enforces the T5 human-only rule, unverified against AC-05/AC-06 until that pass. AF-01 reclassified Resolved — verified directly against 0002's migration text, which retroactively corrects the historical seed violation. v14, 2026-08-31, Judge-approved: a Lane B docs-only review of D-163/D-164 found the register's own re-sourcing rationale contradicted its cited RACI source — Entry 01's rule bullet stated "R never equals A at a Line boundary" when the RACI actually requires successor-node separation, R(T4) ≠ R(T5), with R = A at T5 itself being the expected, correct shape. Corrected as D-165, verified directly against docs/governance/raci-involvement-matrix.md §2 before editing. The same review found SEC-06's tracked "2026 IIA re-anchor" named a document edition that does not exist; the operative source is the 2024 Global Internal Audit Standards (issued 9 Jan 2024, effective 9 Jan 2025), corrected as D-166 and reflected in Entry 01's SEC-06 citation. A Chief Editor clarification the same day — "Line 3 assurance is OD4 under the Three Lines Model, not OD3" — surfaced that Q2 (Line 3's executor question) was already answered by D-57 on 2026-08-20, yet six-plus governed-corpus locations still called it open or blocked, misattributed to OD3 instead of the Charter's OD4 branch ②; corrected as D-167 and reflected in Entry 05. No other entry or finding was touched; Entries 02–04, 06, and AF-02 through AF-11 are unchanged from v13. v15, 2026-09-24 (D-256): the V1-SM05 DOR-R6 review. Entries 01, 05 and 06 were read in full against the current sources and each was found Update required. Each gains one dated note and no earlier text is rewritten: Entry 01, the three-way Chief Editor identity split (D-238/D-251), the business:T5/transition:T5 distinction and the DEP-05 overstatement in its "Now" box; Entry 05, the business:T5 ranking reframe (D-239), the non-V1 T6→T5 metric and partial CR-19; Entry 06, the D-194/D-197 manual trigger package, the pre-T1 sequence and the V1-SM05 slice boundary. Entries 02–04, the findings and the Judge guide were not compared in this pass and are unchanged; Entry 04 stays deferred to V1-SM06.

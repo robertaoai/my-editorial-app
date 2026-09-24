@@ -1,0 +1,98 @@
+{
+  "packet": "V1-SM05",
+  "packetPath": "docs/v1/work-packets/V1/V1-SM05.md",
+  "authority": "D-259",
+  "dorRows": [
+    "DOR-R1",
+    "DOR-R2",
+    "DOR-R3",
+    "DOR-R4",
+    "DOR-R5",
+    "DOR-R6",
+    "DOR-R7"
+  ],
+  "behaviours": [
+    {
+      "id": "AC-01",
+      "source": "docs/Modular_PRD.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "35d1a5935c8ee0749f044c5edc7d5572cc70390545fec1f54908790b1a8048e9"
+    },
+    {
+      "id": "AC-02",
+      "source": "docs/Modular_PRD.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "c624d057fbc579f5cfb2541213d1370bc5ccb62defbfac58e4d9cdabae8efa60"
+    },
+    {
+      "id": "AC-05a",
+      "source": "docs/Modular_PRD.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "68f97aea99a14bc80689299a247ea34aa209245e8c3bb783c4e3e240747cb33e"
+    },
+    {
+      "id": "AC-06a",
+      "source": "docs/Modular_PRD.md",
+      "dod": "Acceptance cases pass against the real database",
+      "rowHash": "23f91f6d5244fd20812f174f068454bbc640856f5e50e371745eb98a3f733083"
+    },
+    {
+      "id": "DOR-R2 positive",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Refusal and replay",
+      "rowHash": "6eb1221af70bd064360656eae565168014494a6616e44f1e3113e0e5be6f2f33"
+    },
+    {
+      "id": "DOR-R2 duplicate",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Refusal and replay",
+      "rowHash": "01b655fa6efaaf099c2e72778067d67f21f8e0085f49acc6c6f96e59b4466bb5"
+    },
+    {
+      "id": "DOR-R2 failure",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Refusal and replay",
+      "rowHash": "1325d6bdead3617c3e96f0b6a0cf7d3df4e48a50bbed6fdc1236bde194764f7b"
+    },
+    {
+      "id": "DOR-R3 missing intake",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Refusal and replay",
+      "rowHash": "d5d58dabd2195e6186c051675f1465ed1f1d9fcc9e2d20b4e82a8436a49981f5"
+    },
+    {
+      "id": "DOR-R3 duplicate EW",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Refusal and replay",
+      "rowHash": "d072b4ea79bee413e6d2f9f055f5b2316b625958c449940b677913feb68b9b09"
+    },
+    {
+      "id": "DOR-R3 new work",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Refusal and replay",
+      "rowHash": "5308331fc8302e7c31c4e7e677e2d17b240a1a46ec5d47d46c8780176965d659"
+    },
+    {
+      "id": "DOR-R4 executor",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Refusal and replay",
+      "rowHash": "08b70932b71f0f6f1cdb568dc74db3a523ae103898bec6e4206bb0e318153369"
+    },
+    {
+      "id": "DOR-R4 final sign-off",
+      "source": "docs/fn-specs/FN-GATES-01-05.md",
+      "dod": "Display, not enforcement",
+      "rowHash": "8423f8477bf3a4018b36b310453cbb0ade7596d50f2e8de976c939e03b5e0248"
+    }
+  ],
+  "negativeRequired": [
+    "Refusal and replay",
+    "Exclusions verified absent"
+  ],
+  "failingFirstRequired": [
+    "Acceptance cases pass against the real database"
+  ],
+  "completionExempt": [
+    "Independent verification"
+  ]
+}

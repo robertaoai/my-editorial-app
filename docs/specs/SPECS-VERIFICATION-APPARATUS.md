@@ -463,3 +463,65 @@ restated.
 
 A green result at one layer is evidence for that layer only. **`[V1]` — new in this build; no earlier
 section changed.**
+
+---
+
+## 18. Truth layers, Jev System One and the customer-acceptance harness `[V1]` — `D-259`
+
+**`[V1]` — new in this build; no earlier section changed.** Raised as `docs/handoff/B-132` Parents 2,
+3A and 7; the Judge's rulings are recorded in `D-259`.
+
+### 18.1 Four truth layers — which record answers which question `[V1]`
+
+| Layer | Canonical record | Answers | Never proves |
+|---|---|---|---|
+| **Normative intent** | The `D-29` hierarchy, arbitrated by the Register (`D-58`) | What the system is required and authorized to do | That anything was built |
+| **Implemented revision** | An immutable Git commit: source, migrations, configuration, executable evidence | What one repository revision implements | That it was deployed, or what live data holds |
+| **Deployed instance** | A deployment and applied-migration receipt per environment | What actually reached a named environment, and when | — **receipt contract deferred to V2** (`D-259`; owner Lane A; returns when the first V2 deployment unit opens) |
+| **Searchable projection** | Graphify (`lastAnalyzedHead`) and the Encyclopedia (`ENCYCLOPEDIA-SYNC.md`) | Where a fact lives and how it relates to others | Anything the three layers above do not already record (`D-186`) |
+
+A higher row is never overridden by a lower one. `Applied` is not `Verified`; a GitHub object is not
+readiness (`D-254`); code is not deployment proof; a projection is not canonical.
+
+### 18.2 Jev System One — two-checkpoint evidence evaluator `[V1]`
+
+**Path and commands.** `scripts/jev/` — `bun run jev readiness|completion|pins --manifest <path>`;
+`bun run jev:selftest` proves it can fail. It sits outside `bun run check`: the consistency suite
+checks governance, Jev checks one MMF's evidence.
+
+**Inputs.** A per-packet scope manifest (`scripts/jev/manifests/<packet>.json`) naming the packet, its
+DoR rows, and each in-scope behaviour as *source path + canonical ID + SHA-256 of that one row* — it
+cites, it never copies. Completion mode also reads a Lane B evidence manifest, whose path the work order
+names.
+
+| Mode | When | Deterministic rules | Passing outcome |
+|---|---|---|---|
+| **`readiness`** | Before the GitHub Issue (`DOR-R7`) | Each DoR row exists and maps exactly once, in the packet's DoR→DoD table, to existing DoD obligations with a named evidence class; each behaviour row exists once, has non-empty Given/When/Then, still matches its pinned hash, and is not `[historical]`/`[decided_target_held]` without a recorded Judge disposition; the pinned acceptance IDs equal the packet DoD's own list | `pass` |
+| **`completion`** | Lane B runs it while `Active`, before handover; Lane A re-runs it after the lock returns | A passing readiness receipt for the same manifest hash; evidence for every non-exempt DoD obligation; each item's artifact exists, passed, is unchanged since its recorded revision, and cites only pinned IDs; negative evidence where required; failing-first evidence or an honest characterization for acceptance cases | `ready-for-independent-review` |
+
+**Receipt.** JSON: tool/version, mode, packet, evaluated commit and clean-tree flag, generation time,
+manifest and source hashes, every rule result, `advisories` (empty — no model output reaches the
+gate), outcome, and the fixed statement that it grants no authority. Readiness receipts for `V1` packets
+are kept at `docs/v1/work-packets/V1/receipts/`.
+
+**Authority boundary.** A receipt is evidence. It does not check a DoR box, create an Issue, close a
+lane, accept a DoD or authorize a merge. A readiness receipt is never reused as a completion receipt.
+
+**Definition of done (this apparatus).** Both modes run; the self-test's positive fixtures pass and
+every negative fixture fires its named rule; the `V1-SM05` manifest is pinned. **Met 2026-09-24.**
+
+### 18.3 Customer-acceptance harness — contract only `[V1]`
+
+**Path:** `scripts/acceptance/` — **not built.** Lane A writes and runs it only in a later `Active`
+turn, after Lane B's handover carries a passing Jev completion receipt. It sits outside `bun run check`.
+
+| Element | Contract |
+|---|---|
+| Command | One command, one result schema, reused across MMFs |
+| Scenarios | One adapter per MMF, keyed to canonical Given/When/Then acceptance IDs — no second scenario corpus |
+| Runner | `bun:test` (already provisioned). Cucumber is deferred |
+| Fixtures | Deterministic; local-only data (`D-252`) |
+| Negative control | One deliberately broken journey that must fail |
+| Output | Completed customer journeys, not a count of green checks |
+| Role | With Lane A's Jev re-run, this is the DoD's non-builder independent verification (`D-259`). The Judge still accepts the business outcome; merge follows and is not DoD (`D-245`) |
+| Defects found | Returned through a handoff and a newly authorized Lane B unit — Lane A does not repair application code |

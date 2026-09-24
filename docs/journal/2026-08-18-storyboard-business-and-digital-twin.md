@@ -376,11 +376,17 @@ sequenceDiagram
     APP->>DB: append return event naming the affected scope = business:T3 only [B]
     APP->>DB: open a NEW business:T3 scoped execution (new operation-attempt identity, next revision ref) [B/EG]
     Note over APP,DB: prior T3 evidence retained as history, marked not-current — never overwritten or deleted
-    Note over APP,DB: T1, T2 and T4 evidence untouched — a return never re-runs a sibling or prior node
+    Note over APP,DB: T1 and T2 evidence untouched — prior nodes are not re-run
+    Note over APP,DB: T4 evidence stays current (Judge rule W2, D-259) — its evaluated inputs remain valid unless explicitly invalidated
     APP->>DB: new T3 judgment + newsworthiness fields + OP-DRAFT evidence; T3 complete
     APP->>DB: T5 ranking re-attempted against current T3 evidence; ranking + routing record appended
     APP-->>UI: history shows both T3 executions, the return reason, and which one is current
 ```
+
+**`W2` downstream-evidence rule (Judge `Accept`, recorded `D-259`, 2026-09-24).** A return to `business:T3`
+opens a new scoped `T3` execution and leaves existing `business:T4` evidence current: `T4` is downstream of
+`T3`, not a sibling or prior node, and its evaluated input facts remain valid unless explicitly invalidated.
+`business:T5` combines the new current `T3` execution with the existing `T4` evidence.
 
 A replay of an identical request (same operation-attempt identity) creates no second outcome and is
 visible in the audit trail (`FN-GATES-01-05.md` §4.3); a return is **new work**, not a replay.
@@ -443,8 +449,10 @@ them would be new scope:
 
 | Walk | Chief Editor result | Lane B/C review | Date |
 |---|---|---|---|
-| Normal (A11.1, A11.3, A11.4) | *pending* | *pending* | — |
-| Revision (A11.2) | *pending* | *pending* | — |
+| Normal (A11.1, A11.3, A11.4) | `Accept` — `W1` Accept, `W3` Accept | Lane B `Accept` (`docs/handoff/B-131` Parent 1); Lane C `Accept` (C-003, user-supplied) | 2026-09-24 |
+| Revision (A11.2) | `Accept` — `W2` Accept; the downstream-evidence rule is written into A11.2 | Lane B `Accept` (`docs/handoff/B-131` Parent 1); Lane C `Accept` (C-003, user-supplied) | 2026-09-24 |
+
+Recorded by `D-259`, 2026-09-24. `DOR-R5` is checked on this row pair.
 
 ---
 

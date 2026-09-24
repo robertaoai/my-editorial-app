@@ -11,9 +11,14 @@
   and unfiled; Lane C's concurrence is noted as evidence, not as acknowledgement. Whether to
   commission a bounded instruction-loader correction is a Judge decision and is not yet taken —
   no loader, rule-file, check or skill change is authorized by this acknowledgement (`D-183`).
-  Entry stays `Open` pending that ruling.
+  *(Superseded the same day: the entry was answered by `D-257` below; normalized 2026-09-24, `D-259`.)*
 
   **Answered 2026-09-24 (`D-257`).** At the Judge's delegation, Lane A determined that the finding **warrants** a bounded loader-characterization spike: measurement only (loaded file set, per-file or total limits and their source, visible rule text); Antigravity first; no rule-file, check, skill or workflow change. It is **recorded, not commissioned**: it does not block `V1-SM05`, and the Judge selects it at a Sprint boundary, when its packet is created. Instruction-architecture redesign stays deferred until that report exists.
+
+  **Resolution recorded 2026-09-24 (`D-259`).** `D-257` found the loader-characterization spike warranted and
+  did not commission it; the finding is therefore deferred, not applied.
+- **Resolution:** Deferred
+- **Follow-up-Tier:** Judge commission of `D-257`'s bounded loader-characterization spike — its work packet is created on selection
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** read `docs/handoff/TEMPLATE.md` and `README.md`; `V1-PHASE-CLOSURE.md` §5; `V1-BUILD-SPEC.md` §1; `shared-core-hash.mjs`; `sync-docs-uniqueness.mjs`; the three current rule files; `Modular_PRD.md` §8; storyboard Panels A9/A10; `FN-GATES-01-05.md` §4.1; `requirements-traceability-map.md` §1; `ENCYCLOPEDIA-SYNC.md` against the commit below. External C-002 draft and Lane C's subsequent reconciliation read from the user-supplied Antigravity brain path; neither is in this repository.
 - **Verified-At-Commit:** c82eb5e9154ef722a8ec333c38b1e110f99a8555

@@ -53,7 +53,8 @@ and Judge selection, the work order and Lane B activation precede State 2 (imple
 and Supabase A01 receipts are `SETUP-SPIKE-000/S2` baseline evidence only (amended by `D-255`,
 2026-09-23)**: they are not `V1-SM05` readiness evidence, gate no V1 packet, and do not satisfy final
 `D-251` production classification. `V1-SM05` readiness is exactly `DOR-R1`–`DOR-R6`, with no
-replacement identity gate.
+replacement identity gate — **amended 2026-09-24 (`D-259`): exactly `DOR-R1`–`DOR-R7`**, `DOR-R7` being
+the Jev System One readiness receipt.
 
 **State-1 lifecycle, branch name and sequencing (`D-253`, 2026-09-22).** The State-1 readiness PR is
 **documentation-only**: no implementation change, and DoD gates acceptance and merge rather than
@@ -122,6 +123,7 @@ checklist; it replaces, not duplicates, the earlier list:
 | `DOR-R4` — required Route-1 operation contracts | **`OP-DRAFT` resolved 2026-09-17** — Reporter is Route-1's executor (corrected: an earlier pass here wrongly named Journalist, who belongs to `ROUTE-PROD-2`); Chief Editorial Desk is the recorded application-default `A` (crosswalk §4.1). **`OP-FINAL-SIGNOFF` is ACCEPTED, attesting party corrected 2026-09-17 (`D-237`), party identity narrowed 2026-09-17 (`D-238`)** — the human Editor-in-Chief (`EDITORIAL-ROLE-EDITOR-IN-CHIEF`, not access-control `ACCESS-ROLE-CHIEF-EDITOR`, renamed `D-251`) performs the A-only attestation, Desk Editor is `C` not `A`, no synthetic `R`, idempotent replay per revision, fresh attestation on relevant revision, opens human review only (crosswalk §4.1/§4.2). `OP-COPY-EDIT`'s source `R` corrected to Chief Journalist (`D-236`), already `VERIFIED`, unchanged shape | Every required operation has one executable atomic/milestone shape before T5 readiness |
 | `DOR-R5` — UI and target visual contract | UI separates supplier, route R/A, current gate executor and article state; storyboard gets one target normal/revision sequence and matching data flow | Chief Editor walkthrough and Lane B/C review trace each visible fact to one authoritative record/event |
 | `DOR-R6` — Encyclopedia review | Entries 01/05/06 (Entry 05 added `D-244`) reviewed against the corrected text; sync disposition recorded | Hosted and local status agree, or an explicit opt-in deferral is recorded — not merely flagged |
+| `DOR-R7` — Jev readiness receipt (`D-259`) | Every in-scope behaviour pinned by source, ID and row hash; the packet's DoR→DoD map complete; scope equal to the packet DoD's own acceptance list | A passing `jev readiness` receipt for the packet's manifest, evaluated at a clean commit |
 
 **`B071-R204`'s three operation-contract questions are now resolved or accepted** (`D-233`,
 2026-09-17): `OP-PITCH`/`OP-DRAFT` via the Route-1-scoped application-selection rule; `OP-FINAL-
@@ -135,6 +137,19 @@ done: Entries 01/05/06 each needed an update, and v15 is republished. The box wa
 confirmation under `V1-SM05.md`'s checkbox rule. `V1-SM05`'s DoD gains one accepted-contract
 traceability criterion (`docs/handoff/B-127` Parent 3). No sequence changes: Issue, branch and State-1
 PR still follow full DoR acceptance (`D-253`/`D-254`).
+
+**`D-259` readiness pass (2026-09-24).** `DOR-R5` and `DOR-R6` are **checked**: the Judge accepted
+`W1`–`W3` (recorded in Panel A11.5, with the `W2` downstream-evidence rule written into A11.2),
+Lane B/C reviewed Panel A11, and Lane B read the v15 export directly under Option 2 (`docs/handoff/B-131`).
+`DOR-R7` is **added and open**: Jev System One (`SPECS-VERIFICATION-APPARATUS.md` §18.2) is built,
+and its first `V1-SM05` run fails `row-in-scope` on `AC-05a`/`AC-06a` — both `[decided_target_held]`
+rows describing `transition:T5`/`T6` execution this slice does not claim (`D-249`). That is a Judge
+disposition, not an edit. The packet's DoR→DoD map is recorded once in `V1-SM05.md`; the Issue template
+is `.github/ISSUE_TEMPLATE/v1-mmf.md`. **Sequence after the DoR completes:** Issue → native branch →
+State-1 PR (each separately authorized) → Judge selection and work order → Lane B `Active`, which runs Jev
+completion before handover → Lane A re-runs Jev and runs the customer-acceptance harness
+(`scripts/acceptance/`, contract only, §18.3) as the non-builder verification → Judge accepts the DoD →
+merge. The deployed-instance receipt is deferred to V2 (§18.1).
 
 ## 2. Sequence
 

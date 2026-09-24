@@ -19091,3 +19091,80 @@ drafted, closing S2–S4 as deferred with no DoD credit."* Applies `docs/handoff
 Does not credit DoD to any setup sprint or to `V1-SM05`/`V1-SM06`, open `V2`, lift `D-171`'s hold, select an
 MMF, authorize construction, or change any DoR box. It does not touch `B-131` or the rest of `B-132`
 (Parents 2–5).
+
+---
+
+## 5.14e84 `D-259` — `V1-SM05` Readiness Pass: `W1`–`W3` Recorded, `DOR-R5`/`DOR-R6` Checked, `DOR-R7` Jev Readiness Added; Truth Layers Named; DoR→DoD Map, Issue Template, Jev System One and the Acceptance-Harness Contract
+
+**Authority: Judge rulings, 2026-09-24, to Lane A directly — "apply D-259".** `W1`/`W2`/`W3` Accept
+(`docs/handoff/B-131`); `DOR-R6` evidence standard **Option 2** (Lane B reads the hosted text directly),
+satisfied by the Chief Editor-supplied v15 export; live-lineage receipt **deferred to V2**; harness path
+**`scripts/acceptance/`**; Jev readiness **required** for `V1-SM05` (**`DOR-R7`**); Lane B runs Jev
+completion **before** its handover; Lane A's Jev re-run plus the harness **is** the DoD's non-builder
+independent verification. Answers `docs/handoff/B-131` and `B-132` Parents 2–7 and Child 3A. Builds on
+`D-245`, `D-253`, `D-254`, `D-256`, `D-258`.
+
+### The decision
+
+1. **`W1`–`W3` are decided behaviour.** The `W2` rule, stated once: *a return to `business:T3` opens a new
+   scoped `T3` execution; existing `business:T4` evidence stays current, because `T4` is downstream of `T3`
+   and its evaluated input facts remain valid unless explicitly invalidated; `business:T5` combines the new
+   current `T3` with the existing `T4`.* Panel A11.2's "sibling or prior node" rationale is replaced by it.
+2. **`DOR-R5` checked** — Chief Editor Accept on both walks, Lane B (`B-131` Parent 1) and Lane C (C-003)
+   Accept, recorded in Panel A11.5.
+3. **`DOR-R6` checked under Option 2** — Lane B read the v15 export directly (`B-131`). The export is kept at
+   `docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt`; its SHA-256
+   `bc97bebac0f3ac2d3f3d8fed32c3a9cb93684b60f829fee3604b08faf34ace9f` matches the value `B-131` recorded.
+4. **`DOR-R7` added — Jev System One readiness receipt passes.** Required for `V1-SM05`; the Issue waits
+   on it. **It is open:** Jev's first run fails `row-in-scope` on `AC-05a` and `AC-06a` — both source rows
+   are `[decided_target_held]` and describe `transition:T5`/`T6` execution, which `V1-SM05` does not claim
+   (`D-249`). **This act does not dispose of them**; that is a separate Judge decision (drop from the
+   packet, or carry them as characterization-only with a named rationale).
+5. **Four truth layers named** — normative intent, implemented revision, deployed instance, searchable
+   projection (`SPECS-VERIFICATION-APPARATUS.md` §18.1). **The deployed-instance receipt contract is deferred
+   to V2**, owner Lane A, returning when the first V2 deployment unit opens. No deployment or hosted-migration
+   authority is granted.
+6. **DoR→DoD map recorded once** in `V1-SM05.md`, adding no DoD row. Lane B keeps the xDD method (`D-242`).
+7. **Issue template created:** `.github/ISSUE_TEMPLATE/v1-mmf.md`. The Issue itself still follows a complete
+   DoR (`D-254`) and is separately authorized (`D-253`).
+8. **Jev System One built** — `scripts/jev/`, `readiness` and `completion` modes, deterministic rules, a
+   provenance receipt, and a self-test whose every negative fixture fires its named rule (§18.2). **Both
+   modes are built now**, because Lane A cannot write scripts while Lane B holds the lock. A receipt is
+   evidence only: it checks no box, creates no Issue, closes no lane, accepts no DoD and authorizes no merge.
+9. **Completion route.** Lane B runs Jev completion while `Active` and attaches a
+   `ready-for-independent-review` receipt to its handover. Lane A, after the lock returns, re-runs Jev and
+   runs the customer-acceptance harness — together the non-builder independent verification. The Judge then
+   accepts the business outcome and DoD; the PR merges after that. Merge is not DoD (`D-245`).
+10. **Customer-acceptance harness: contract only** at `scripts/acceptance/` (§18.3), built in a later Lane A
+    `Active` turn.
+11. **Deferred:** automated branch creation (native Git stands, `D-253`); Cucumber (`bun:test` stands); any
+    model-assisted Jev review (`advisories` only, never the gate).
+12. **Corpus corrections in the same pass:** the Encyclopedia ledger's Entries 01/05/06 deferral cells marked
+    discharged, and Entry 05's `Modular_PRD` anchors corrected to §4 (`US-11`) / §9 (`AC-17`); the phase
+    register's Lane B `Selected` cell reconciled with `D-159`/`D-161`; `B-127`/`B-128` given their applying
+    commit; `B-130`'s superseded "stays `Open`" prose normalized.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e84 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1: readiness is `DOR-R1`–`DOR-R7`; `DOR-R7` row; dated `D-259` readiness-pass paragraph with the completion route |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ rows for the Issue template, `scripts/jev/`, its manifest, the receipts directory and the v15 export; `scripts/acceptance/` as contract only; disposition paragraph |
+| **`SPECS-VERIFICATION-APPARATUS.md`** | ✅ new §18 `[V1]`: truth layers, Jev System One, harness contract |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ `DOR-R5`/`DOR-R6` checked, `DOR-R7` added, evidence rows, DoR→DoD map, `Evidence recorded` and `Independent verification` DoD wording |
+| **`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`** | ✅ Panel A11.2 `W2` rule; A11.5 walkthrough record |
+| **`docs/ENCYCLOPEDIA-SYNC.md`** | ✅ deferral cells for Entries 01/05/06; Entry 05 anchors |
+| **Phase closure** (`docs/v1/V1-PHASE-CLOSURE.md`) | ✅ Lane B `Selected` cell reconciled; **no lane-state change** |
+| **`docs/Modular_PRD.md`** | — unaffected: no product requirement changes and `V1-SM05` is not selected, so no §8 change; `AC-05a`/`AC-06a` are untouched pending the Judge |
+| **`docs/fn-specs/`** | — unaffected: behaviour is unchanged; Jev pins its rows by hash without editing them |
+| **Rule files, frozen sources, `0001_init.sql`** | — unaffected |
+| **Encyclopedia (hosted)** | — unaffected: no republication; Entries 01/05/06 v15 confirmed, Entry 04 still deferred to `V1-SM06` |
+| **Graphify** | Owed once after the last governed edit in this pass |
+
+### What this act does NOT do
+
+Does not complete the DoR (`DOR-R7` is open), dispose of `AC-05a`/`AC-06a`, push, create the Issue, create
+the branch, open the PR, select `V1-SM05`, issue a work order or change lane state. Does not build the
+customer-acceptance harness or specify the deployed-instance receipt. Does not record any handoff as
+`Verified` — only an independent actor may.

@@ -81,6 +81,12 @@
 | `docs/graph-fragments/frag137.json` | `D-246` — curated nodes for documents and decisions created after the last backup (work packets, SPECS index files, `D-242`–`D-246`) | ✅ **Created 2026-09-20** |
 | `docs/graph-fragments/frag138.json` | `D-247`–`D-251` — curated nodes for the five decisions, and corrected descriptions for `FR-09`, `FR-10` and `D-244` | ✅ **Created 2026-09-21** |
 | `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` | `D-245` — reusable one-MMF pull-request template; selects nothing, grants no authority | ✅ **Created 2026-09-20** |
+| `.github/ISSUE_TEMPLATE/v1-mmf.md` | `D-259` — post-DoR Issue template for one V1 MMF; records a complete DoR, never creates one (`D-254`); grants no authority | ✅ **Created 2026-09-24** |
+| `scripts/jev/lib.mjs`, `scripts/jev/jev.mjs`, `scripts/jev/selftest.mjs` | `D-259` — Jev System One, two-checkpoint evidence evaluator (`SPECS-VERIFICATION-APPARATUS.md` §18.2); outside `bun run check`; `bun run jev` / `bun run jev:selftest` | ✅ **Created 2026-09-24.** Self-test runs in throwaway temp repositories; every negative fixture fires its named rule |
+| `scripts/jev/manifests/V1-SM05.json` | `D-259` — `V1-SM05` scope manifest: DoR rows and row-hash-pinned behaviours | ✅ **Created 2026-09-24** |
+| `docs/v1/work-packets/V1/receipts/` | `D-259` — Jev readiness receipts for V1 packets; evidence only | ✅ **Created 2026-09-24** with `V1-SM05-jev-readiness.json` (first run: `fail`, the `AC-05a`/`AC-06a` scope finding) |
+| `docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt` | `D-259`, `B-131` — Chief Editor-supplied export of hosted Encyclopedia v15; SHA-256 `bc97bebac0f3ac2d3f3d8fed32c3a9cb93684b60f829fee3604b08faf34ace9f`, matching `B-131` | ✅ **Added 2026-09-24.** Evidence attachment, not an entry — same treatment as `artifacts/B-119/` |
+| `scripts/acceptance/` | `D-259` — cross-MMF customer-acceptance harness (§18.3) | ⏳ **Contract only — not created.** Built and run in a later Lane A `Active` turn after Lane B's handover |
 
 **No broken internal document links** — the docs are self-consistent. The gaps are artifacts that were planned but never created, not references that dangle.
 
@@ -329,6 +335,11 @@ now.
 `docs/v1/work-packets/SETUP-SPIKE-000/S2.md`, `S3.md` and `S4.md` record `Deferred — closed without DoD
 credit` and **stay in the repository as history** (`D-244`'s no-retirement rule). **No row is added,
 duplicated or retired.**
+
+**`D-259` (2026-09-24) — files added, stated explicitly.** The Issue template, the `scripts/jev/`
+apparatus and its `V1-SM05` manifest, the receipts directory and the `B-131` v15 export are added as
+rows above. `scripts/acceptance/` is recorded as a contract, **not** a file. **The deployed-instance
+receipt is deferred to V2** — no V1 file is created or claimed for it. No file is retired.
 
 ## Temporary / Draft Artifacts
 

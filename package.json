@@ -13,6 +13,8 @@
     "hooks:install": "git config core.hooksPath .githooks",
     "prepare": "git config core.hooksPath .githooks",
     "fixtures": "node scripts/fixtures/run.mjs",
+    "jev": "node scripts/jev/jev.mjs",
+    "jev:selftest": "node scripts/jev/selftest.mjs",
     "db:start": "supabase start",
     "db:stop": "supabase stop",
     "db:reset": "supabase db reset"
