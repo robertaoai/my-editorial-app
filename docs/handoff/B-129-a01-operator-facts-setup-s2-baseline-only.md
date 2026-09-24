@@ -15,10 +15,18 @@
   `V1-SM06.md`'s "applies here too" cross-reference was corrected in the same pass, since the ruling
   scopes A01 to S2 *only*. Parent 4 needs no edit: `D-252`'s later database stages already produce
   their own evidence.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** Judge clarification and Option-A approval 2026-09-23; `D-252`; `docs/handoff/B-119`, `B-124`, `B-125`, `B-127`, `B-128`; `docs/v1/work-packets/SETUP-SPIKE-000/S2.md`; `docs/v1/work-packets/V1/V1-SM05.md`
-- **Verified-At-Commit:** 5284bbac19440609c3eec7273a78125b802c7f3e
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent review 2026-09-24
+- **Evidence:** `D-255` at `af95563`; Judge clarification and Option-A approval 2026-09-23; `D-252`; `docs/handoff/B-119`, `B-124`, `B-125`, `B-127`, `B-128`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/V1-ARTIFACT-INVENTORY.md`; `docs/v1/work-packets/SETUP-SPIKE-000/S2.md`; `docs/v1/work-packets/V1/V1-SM05.md`; `docs/v1/work-packets/V1/V1-SM06.md`; full consistency suite passed 2026-09-24
+- **Verified-At-Commit:** af9556334ed045cb397d71181e674b835a8bdce7
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Lane B independently verified Lane A's `D-255` propagation and B-129 disposition on 2026-09-24; no scope reopened
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** af9556334ed045cb397d71181e674b835a8bdce7
 
 ## What happened
 
