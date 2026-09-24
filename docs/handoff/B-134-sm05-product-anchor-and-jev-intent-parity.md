@@ -4,13 +4,23 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** treating the full SM05 DoR as independently verified and creating its GitHub Issue
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-24, receipt only. Lane A accepts the finding: `D-260` placed the SM05 scenarios in
   `FN-GATES` §4.4 before a `Modular_PRD` owner existed, reversing `D-29`. Judge answers the same day: a new `[V1]`
   Product group `US-15`/`FR-15`/`AC-23`–`AC-26`; SM05 intake anchored to `AC-23`, keeping `AC-02`; Jev completion
   to require each test file to name its scenario ID. **`D-261` is drafted, not recorded or applied** — no
   Product, spec, packet, manifest, receipt or `DOR-R7` change is made by this acknowledgement. `Status` stays `Open`.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+
+  **Answered and applied 2026-09-24 (`D-261`).** Parent 1 kept. Parent 2: `US-15`/`FR-15`/`AC-23`–`AC-26` added to
+  `Modular_PRD.md` (1.38) with no existing row changed; `CR-11` joins `CR-01`/`CR-10` as context only. Child 2A: every
+  `FN-GATES` §4.3/§4.4 row names its Product anchor; `V1-SM05` drops `AC-01`, keeps `AC-02` under a recorded
+  cross-tier mapping, and labels `FR-04`/`FR-05` display provenance; the traceability map is re-anchored. Child 2B:
+  Jev readiness gains Product-intent parity and completion requires each test file to name its scenario ID, each
+  rule with self-test cases. Child 2C: `DOR-R7` reopened in Commit A (`719e72b`) and re-checked in Commit B on a
+  receipt that passes at that clean commit. `B-131`–`B-133` `Verified-By` normalized; `B-130` left untouched.
+  `Verified` is Lane B's to record.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A under `D-261`
 - **Evidence:** `D-29`; `D-54`; `D-260`; `docs/Modular_PRD.md` §§5/9; `docs/fn-specs/FN-GATES-01-05.md` §§4.4/5; `docs/governance/requirements-traceability-map.md` §6.1; `docs/v1/work-packets/V1/V1-SM05.md`; `scripts/jev/lib.mjs`; passing Jev receipt at the commit below
 - **Verified-At-Commit:** edc64d7f9b9371be810b7b79c2b66d0b16c7f359
 

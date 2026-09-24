@@ -19,7 +19,7 @@
   and describe `transition:T5`/`T6` execution `V1-SM05` does not claim, so `DOR-R7` stays open for a Judge
   disposition. `Verified` remains Lane B's to record.
 - **Resolution:** Applied
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Verified-By:** — not independently verified; dispositioned by Lane A (normalized 2026-09-24, `D-261`)
 - **Evidence:** Judge clarification supplied 2026-09-24; `D-156`, `D-242`, `D-244`, `D-248`, `D-252`–`D-258`; `V1-BUILD-SPEC.md` §1; `V1-PHASE-CLOSURE.md` §5; `docs/v1/work-packets/SETUP-SPIKE-000/S2.md`–`S4.md`; `docs/v1/work-packets/V1/V1-SM05.md`; `docs/LANE-B-WORK-ORDER.md` §7; `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md`; `.github/workflows/ci.yml`; `docs/handoff/B-131-sm05-r5-r6-independent-review.md`; Graphify query at the commit below
 - **Verified-At-Commit:** d17f9ea1bf9da75d3d6e0b95bd8dbde510ea74a4
 

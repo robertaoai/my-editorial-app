@@ -3,29 +3,29 @@
   "version": "1.0.0",
   "mode": "readiness",
   "packet": "V1-SM05",
-  "evaluatedAt": "9be84bbefc24b8b017f2d2189d431c0807837ca1",
+  "evaluatedAt": "719e72b17b14b5ebc66e1c777ab9df409521ed33",
   "treeClean": true,
-  "generatedAt": "2026-09-24T13:14:33.999Z",
+  "generatedAt": "2026-09-24T15:42:18.561Z",
   "manifest": {
     "path": "scripts/jev/manifests/V1-SM05.json",
-    "sha256": "23e8796cd6ebe05f09b2272758da93ba499168e30d3938155a5fca0f72747889"
+    "sha256": "03053a1647d9a1aaf79a00c6e754a41dd9a5c1b5878c500ec6a71653d4f86f69"
   },
   "sources": [
     {
       "path": "docs/Modular_PRD.md",
-      "sha256": "e1bf0c7eaa7c83a16d72e2fa2246f8fc97657447ee1c8ffdda8c8981884a1b14"
+      "sha256": "bf295c407a55678d167524609fd9dad1b163f09f361804086e7699437d80746a"
     },
     {
       "path": "docs/fn-specs/FN-GATES-01-05.md",
-      "sha256": "63a087fc7f8123aebf85ce5b857169e2a9484d9f95090edb6bf9e79476357c68"
+      "sha256": "1d6bbc013f714b180e1b68d01ab5cd22adaa27aa457162c033643b772866d485"
     },
     {
       "path": "docs/v1/work-packets/V1/V1-SM05.md",
-      "sha256": "7a79f665e662762896a70d11967d99c5063ceeb6bb8ebfeca82bba0a0c1ecb05"
+      "sha256": "c237706be36242a714caef26df99de5c8c01c0755a1e86f865739b655549667f"
     },
     {
       "path": "scripts/jev/manifests/V1-SM05.json",
-      "sha256": "23e8796cd6ebe05f09b2272758da93ba499168e30d3938155a5fca0f72747889"
+      "sha256": "03053a1647d9a1aaf79a00c6e754a41dd9a5c1b5878c500ec6a71653d4f86f69"
     }
   ],
   "results": [
@@ -199,33 +199,9 @@
     },
     {
       "rule": "gwt-complete",
-      "subject": "AC-01 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": "line 366"
-    },
-    {
-      "rule": "row-pinned",
-      "subject": "AC-01 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "rule": "row-in-scope",
-      "subject": "AC-01 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "rule": "behaviour-maps-to-dod",
-      "subject": "AC-01 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": "Acceptance cases pass against the real database"
-    },
-    {
-      "rule": "gwt-complete",
       "subject": "AC-02 @ docs/Modular_PRD.md",
       "ok": true,
-      "detail": "line 1017"
+      "detail": "line 1020"
     },
     {
       "rule": "row-pinned",
@@ -246,205 +222,601 @@
       "detail": "Acceptance cases pass against the real database"
     },
     {
-      "rule": "gwt-complete",
-      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": "line 347"
-    },
-    {
-      "rule": "row-pinned",
-      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "rule": "product-anchor-present",
+      "subject": "AC-02 @ docs/Modular_PRD.md",
       "ok": true,
       "detail": ""
     },
     {
-      "rule": "row-in-scope",
-      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "rule": "one-id-one-meaning",
+      "subject": "AC-02 @ docs/Modular_PRD.md",
       "ok": true,
-      "detail": ""
-    },
-    {
-      "rule": "behaviour-maps-to-dod",
-      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": "Acceptance cases pass against the real database"
+      "detail": "rows in docs/Modular_PRD.md, docs/fn-specs/FN-GATES-01-05.md; canonical docs/Modular_PRD.md (D-261)"
     },
     {
       "rule": "gwt-complete",
-      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": "line 348"
-    },
-    {
-      "rule": "row-pinned",
-      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "rule": "row-in-scope",
-      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "rule": "behaviour-maps-to-dod",
-      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": "Acceptance cases pass against the real database"
-    },
-    {
-      "rule": "gwt-complete",
-      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": "line 349"
-    },
-    {
-      "rule": "row-pinned",
-      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "rule": "row-in-scope",
-      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "rule": "behaviour-maps-to-dod",
-      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": "Acceptance cases pass against the real database"
-    },
-    {
-      "rule": "gwt-complete",
-      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": "line 350"
-    },
-    {
-      "rule": "row-pinned",
-      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "rule": "row-in-scope",
-      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "rule": "behaviour-maps-to-dod",
-      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
-      "ok": true,
-      "detail": "Acceptance cases pass against the real database"
-    },
-    {
-      "rule": "gwt-complete",
-      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "line 351"
     },
     {
       "rule": "row-pinned",
-      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "row-in-scope",
-      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "behaviour-maps-to-dod",
-      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "Acceptance cases pass against the real database"
     },
     {
+      "rule": "product-anchor-present",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-23"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "rule": "gwt-complete",
-      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "line 352"
     },
     {
       "rule": "row-pinned",
-      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "row-in-scope",
-      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "behaviour-maps-to-dod",
-      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "Acceptance cases pass against the real database"
     },
     {
+      "rule": "product-anchor-present",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-23"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "rule": "gwt-complete",
-      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "line 353"
     },
     {
       "rule": "row-pinned",
-      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "row-in-scope",
-      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "behaviour-maps-to-dod",
-      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "Acceptance cases pass against the real database"
     },
     {
+      "rule": "product-anchor-present",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-23"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "rule": "gwt-complete",
-      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "line 354"
     },
     {
       "rule": "row-pinned",
-      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "row-in-scope",
-      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "behaviour-maps-to-dod",
-      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "Acceptance cases pass against the real database"
     },
     {
+      "rule": "product-anchor-present",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-23"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "rule": "gwt-complete",
-      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "line 355"
     },
     {
       "rule": "row-pinned",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-23"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 356"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-23"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 357"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-24"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md → AC-24",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md → AC-24",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md → AC-24",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md → AC-24",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 358"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-24"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md → AC-24",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md → AC-24",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md → AC-24",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md → AC-24",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 359"
+    },
+    {
+      "rule": "row-pinned",
       "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
@@ -462,10 +834,58 @@
       "detail": "Acceptance cases pass against the real database"
     },
     {
+      "rule": "product-anchor-present",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-25"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md → AC-25",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md → AC-25",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md → AC-25",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md → AC-25",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "rule": "gwt-complete",
       "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 356"
+      "detail": "line 360"
     },
     {
       "rule": "row-pinned",
@@ -484,6 +904,54 @@
       "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-26"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
     },
     {
       "rule": "gwt-complete",
@@ -510,6 +978,54 @@
       "detail": "Refusal and replay"
     },
     {
+      "rule": "product-anchor-present",
+      "subject": "DOR-R2 positive @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-23"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "DOR-R2 positive @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "DOR-R2 positive @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "DOR-R2 positive @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "DOR-R2 positive @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "DOR-R2 positive @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "DOR-R2 positive @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "DOR-R2 positive @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "rule": "gwt-complete",
       "subject": "DOR-R2 duplicate @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
@@ -532,6 +1048,54 @@
       "subject": "DOR-R2 duplicate @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "Refusal and replay"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "DOR-R2 duplicate @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-26"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "DOR-R2 duplicate @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "DOR-R2 duplicate @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "DOR-R2 duplicate @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "DOR-R2 duplicate @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "DOR-R2 duplicate @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "DOR-R2 duplicate @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "DOR-R2 duplicate @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
     },
     {
       "rule": "gwt-complete",
@@ -558,6 +1122,54 @@
       "detail": "Refusal and replay"
     },
     {
+      "rule": "product-anchor-present",
+      "subject": "DOR-R2 failure @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-26"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "DOR-R2 failure @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "DOR-R2 failure @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "DOR-R2 failure @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "DOR-R2 failure @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "DOR-R2 failure @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "DOR-R2 failure @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "DOR-R2 failure @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "rule": "gwt-complete",
       "subject": "DOR-R3 missing intake @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
@@ -580,6 +1192,54 @@
       "subject": "DOR-R3 missing intake @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "Refusal and replay"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "DOR-R3 missing intake @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-26"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "DOR-R3 missing intake @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "DOR-R3 missing intake @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "DOR-R3 missing intake @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "DOR-R3 missing intake @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "DOR-R3 missing intake @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "DOR-R3 missing intake @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "DOR-R3 missing intake @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
     },
     {
       "rule": "gwt-complete",
@@ -606,6 +1266,54 @@
       "detail": "Refusal and replay"
     },
     {
+      "rule": "product-anchor-present",
+      "subject": "DOR-R3 duplicate EW @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-26"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "DOR-R3 duplicate EW @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "DOR-R3 duplicate EW @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "DOR-R3 duplicate EW @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "DOR-R3 duplicate EW @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "DOR-R3 duplicate EW @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "DOR-R3 duplicate EW @ docs/fn-specs/FN-GATES-01-05.md → AC-26",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "DOR-R3 duplicate EW @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "rule": "gwt-complete",
       "subject": "DOR-R3 new work @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
@@ -628,6 +1336,54 @@
       "subject": "DOR-R3 new work @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "Refusal and replay"
+    },
+    {
+      "rule": "product-anchor-present",
+      "subject": "DOR-R3 new work @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-23"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "DOR-R3 new work @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "DOR-R3 new work @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "DOR-R3 new work @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "DOR-R3 new work @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "DOR-R3 new work @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "DOR-R3 new work @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "DOR-R3 new work @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
     },
     {
       "rule": "gwt-complete",
@@ -654,6 +1410,54 @@
       "detail": "Refusal and replay"
     },
     {
+      "rule": "product-anchor-present",
+      "subject": "DOR-R4 executor @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-23"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "DOR-R4 executor @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "DOR-R4 executor @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "DOR-R4 executor @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "DOR-R4 executor @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "DOR-R4 executor @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "DOR-R4 executor @ docs/fn-specs/FN-GATES-01-05.md → AC-23",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "DOR-R4 executor @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "rule": "gwt-complete",
       "subject": "DOR-R4 final sign-off @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
@@ -678,8 +1482,50 @@
       "detail": "Display, not enforcement"
     },
     {
-      "rule": "scope-covered",
-      "subject": "AC-01",
+      "rule": "product-anchor-present",
+      "subject": "DOR-R4 final sign-off @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "FR-15 / AC-25"
+    },
+    {
+      "rule": "product-requirement-live",
+      "subject": "DOR-R4 final sign-off @ docs/fn-specs/FN-GATES-01-05.md → FR-15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "anchor-disposition-active",
+      "subject": "DOR-R4 final sign-off @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "active"
+    },
+    {
+      "rule": "product-acceptance-live",
+      "subject": "DOR-R4 final sign-off @ docs/fn-specs/FN-GATES-01-05.md → AC-25",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "acceptance-owned-by-requirement",
+      "subject": "DOR-R4 final sign-off @ docs/fn-specs/FN-GATES-01-05.md → AC-25",
+      "ok": true,
+      "detail": "FR column: FR-15"
+    },
+    {
+      "rule": "product-row-pinned",
+      "subject": "DOR-R4 final sign-off @ docs/fn-specs/FN-GATES-01-05.md → AC-25",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scenario-cites-anchor",
+      "subject": "DOR-R4 final sign-off @ docs/fn-specs/FN-GATES-01-05.md → AC-25",
+      "ok": true,
+      "detail": "the scenario row must name its Product acceptance ID"
+    },
+    {
+      "rule": "one-id-one-meaning",
+      "subject": "DOR-R4 final sign-off @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
@@ -746,12 +1592,6 @@
     {
       "rule": "scope-covered",
       "subject": "SM05-X1",
-      "ok": true,
-      "detail": ""
-    },
-    {
-      "rule": "scope-authorized",
-      "subject": "AC-01",
       "ok": true,
       "detail": ""
     },

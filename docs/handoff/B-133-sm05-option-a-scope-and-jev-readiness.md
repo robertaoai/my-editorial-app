@@ -17,7 +17,7 @@
   `repositorySha: null` — the receipt field is `evaluatedAt`, and the first receipt already named clean commit
   `b7992f5` (`treeClean: true`). `Verified` remains Lane B's to record.
 - **Resolution:** Applied
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Verified-By:** — not independently verified; dispositioned by Lane A (normalized 2026-09-24, `D-261`)
 - **Evidence:** Judge Option-A ruling supplied 2026-09-24; `D-249`; `D-259`; `docs/Modular_PRD.md` §9; `docs/v1/work-packets/V1/V1-SM05.md`; `docs/governance/requirements-traceability-map.md` §6.1; `scripts/jev/manifests/V1-SM05.json`; `docs/v1/work-packets/V1/receipts/V1-SM05-jev-readiness.json`
 - **Verified-At-Commit:** e805fb973c61796a6e2681633c3a4994e2114167
 
