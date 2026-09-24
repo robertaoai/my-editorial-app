@@ -125,6 +125,14 @@ checklist; it replaces, not duplicates, the earlier list:
 SIGNOFF` via the accepted A-only contract. `DOR-R2`/`DOR-R4` can proceed to drafting the remaining
 failure/replay detail; none of the six rows authorizes code, schema, or deployment.
 
+**`DOR-R5`/`DOR-R6` status (`D-256`, 2026-09-24).** `DOR-R5`'s storyboard owner now exists as **Panel
+A11** (normal and revision sequences, data flow, one-source visible-fact table). It is authored, not
+accepted, and closes on the completion evidence in the table above. `DOR-R6`'s hosted comparison is
+done: Entries 01/05/06 each needed an update, and v15 is republished. The box waits on Lane B's
+confirmation under `V1-SM05.md`'s checkbox rule. `V1-SM05`'s DoD gains one accepted-contract
+traceability criterion (`docs/handoff/B-127` Parent 3). No sequence changes: Issue, branch and State-1
+PR still follow full DoR acceptance (`D-253`/`D-254`).
+
 ## 2. Sequence
 
 ```

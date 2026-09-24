@@ -248,6 +248,11 @@ still open DoR "user journey" work per `docs/handoff/B-117`.
 (`V1-SM05`/`V1-SM06`'s own DoR "user journey" row) — asserting it here, ahead of that DoR pass, would
 be exactly the "map by matching numbers" error `B-117` warns against.
 
+**`[V1]` Pointer added 2026-09-24 (`D-256`).** `V1-SM05`'s normal/revision journey and data flow now have
+one owner: storyboard **Panel A11** (`DOR-R5`). It is a panel in the same storyboard, not a standalone UML
+or data-flow artifact, so this subsection's rule stands. It is authored, not yet accepted. The
+A2–A8-to-slot mapping above is still not asserted here.
+
 **Forward direction, recorded for later, not built now.** Once `V1-SM05`/`V1-SM06` are implemented,
 the intent behind this table is that the storyboard/UML/data-flow view for the built code becomes
 generated from the codebase itself (traceable implementation → knowledge base), rather than

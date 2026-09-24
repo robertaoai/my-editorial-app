@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** accurate closure instructions for `DOR-R5`, `DOR-R6` and identity-readiness evidence; no application construction
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-23. **Correction (`D-255`, `docs/handoff/B-129`):** Parent 3's
   framing of the five operator facts as "DoR evidence metadata", the Verdict's "Defer — five operator
   facts" row, and Parent 4's "identity-readiness evidence" alignment row no longer apply to `V1-SM05`:
@@ -12,6 +12,8 @@
   counterpart. The R5 and R6 guides (Parents 1–2) and the two-step database guide stand and are the
   working instructions for the remaining DoR; their options still need the Judge's R5/R6 selections,
   so this entry stays `Open`.
+
+  **Answered 2026-09-24 (`D-256`).** The Judge selected Option A for both parents. **R5:** steps 1–5 were performed. Storyboard Panel A11 is the single `V1-SM05` normal/revision owner, with normal and revision sequences, data flow, a one-source table for every visible fact and the exclusions. Panels A9/A10 are not redrawn. Steps 6–8 (Chief Editor walkthrough, Lane B/C review, closure evidence) are **pending**, and the record table is at Panel A11.5 with questions `W1`–`W3`. **R6:** steps 1–6 were performed. The hosted v14 was read in full, and Entries 01/05/06 were each found `Update required`, annotated and republished as v15 to the same URL; the ledger rows were re-verified. Step 7 (checking the box) waits on Lane B's confirmation under `V1-SM05.md`'s checkbox rule. The two-step database guide and the Parent 4 table stand, as corrected by `D-255`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-252`, `D-254`; `docs/handoff/B-119`, `B-124`, `B-127`; `docs/v1/V1-BUILD-SPEC.md` §1; `docs/v1/work-packets/V1/V1-SM05.md`; storyboard Panels A9/A10; `docs/fn-specs/FN-GATES-01-05.md` §4.1; `docs/ENCYCLOPEDIA-SYNC.md`
 - **Verified-At-Commit:** f545e0633133fa1213b3c65f4cfb3f26fcfc4402

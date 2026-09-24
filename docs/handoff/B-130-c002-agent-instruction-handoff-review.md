@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** nothing, reporting only; Lane A should review this before treating the external C-002 draft as a repository handoff
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-24. Rule-file sizes re-read at `c82eb5e` and match item 1
   (`AGENTS.md` 31,920 B, `CLAUDE.md` 29,709 B, `.agents/rules/graphify.md` 21,750 B). B-130 is
   accepted as the canonical repository record of the external C-002 draft, which stays advisory
@@ -12,6 +12,8 @@
   commission a bounded instruction-loader correction is a Judge decision and is not yet taken —
   no loader, rule-file, check or skill change is authorized by this acknowledgement (`D-183`).
   Entry stays `Open` pending that ruling.
+
+  **Answered 2026-09-24 (`D-257`).** At the Judge's delegation, Lane A determined that the finding **warrants** a bounded loader-characterization spike: measurement only (loaded file set, per-file or total limits and their source, visible rule text); Antigravity first; no rule-file, check, skill or workflow change. It is **recorded, not commissioned**: it does not block `V1-SM05`, and the Judge selects it at a Sprint boundary, when its packet is created. Instruction-architecture redesign stays deferred until that report exists.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** read `docs/handoff/TEMPLATE.md` and `README.md`; `V1-PHASE-CLOSURE.md` §5; `V1-BUILD-SPEC.md` §1; `shared-core-hash.mjs`; `sync-docs-uniqueness.mjs`; the three current rule files; `Modular_PRD.md` §8; storyboard Panels A9/A10; `FN-GATES-01-05.md` §4.1; `requirements-traceability-map.md` §1; `ENCYCLOPEDIA-SYNC.md` against the commit below. External C-002 draft and Lane C's subsequent reconciliation read from the user-supplied Antigravity brain path; neither is in this repository.
 - **Verified-At-Commit:** c82eb5e9154ef722a8ec333c38b1e110f99a8555

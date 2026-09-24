@@ -317,6 +317,14 @@ and gate no V1 packet. **No row is added, duplicated or retired**, and no receip
 `D-252` sequencing paragraph above still holds for candidate `0002` and the later A02 receipt; only
 its implied use of A01 as `V1-SM05` readiness evidence is withdrawn.
 
+**`D-256` / `D-257` (2026-09-24) — no file added or retired, stated explicitly.** `D-256`'s `DOR-R5`
+artifact is **Panel A11**, a new section inside the already-inventoried storyboard
+(`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`). Its `DOR-R6` update lands in the
+hosted Encyclopedia (external, v15) and in `ENCYCLOPEDIA-SYNC.md`'s existing rows. **No row is added,
+duplicated or retired.** `D-257` records the loader-characterization spike as warranted but
+uncommissioned; its packet file is created only when the Judge selects it, so nothing is inventoried
+now.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

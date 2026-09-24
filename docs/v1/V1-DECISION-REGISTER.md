@@ -18943,3 +18943,101 @@ only at SETUP-SPIKE-000/S2; V1-SM05 readiness is strictly DOR-R1 through DOR-R6.
 Does not alter either hash-anchored A01 receipt, delete the five-fact request, or require the facts
 to be supplied for any V1 packet. Does not close `DOR-R5` or `DOR-R6`, select `V1-SM05`, create an
 Issue or branch, or authorize a push, hosted migration or A02.
+
+## 5.14e81 `D-256` — `V1-SM05` DoR Completion Pass: `DOR-R5` Artifact Authored, `DOR-R6` Compared and Updated, `B-127` Traceability Criterion Applied
+
+**Authority: Judge instruction, 2026-09-24, to Lane A directly.** *"Complete V1-SM05 readiness by
+producing and accepting DOR-R5, then completing or explicitly deferring each DOR-R6 Encyclopedia
+comparison. Apply the accepted B-127 traceability criterion and disposition the dependent readiness
+handoffs."* Performs the `docs/handoff/B-128` Parent 1 and Parent 2 guides (Option A for each) and
+accepts `docs/handoff/B-127` Parent 3.
+
+### The decision
+
+1. **`DOR-R5` — the missing artifact now exists; acceptance is still pending.** The single `V1-SM05`
+   normal/revision owner is storyboard **Panel A11**
+   (`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`): normal sequence, revision
+   sequence, data flow, a one-source table for every visible fact, the exclusion list, and three
+   walkthrough questions (`W1`–`W3`) that it deliberately leaves unanswered. Panels A9 and A10 are not
+   redrawn. **Authoring is not acceptance.** `DOR-R5` stays unchecked until the Chief Editor's
+   walkthrough (`B-128` Parent 1 step 6) and the Lane B/C feasibility review (step 7) are recorded in
+   Panel A11.5 and `V1-SM05.md`'s evidence row. This entry does not claim either.
+2. **`DOR-R6` — comparison completed for all three entries; every one needed an update.** The hosted
+   Encyclopedia was read in full (version `1788148622-2bf7`, v14) and compared against the current
+   sources:
+
+   | Entry | Verdict | What was stale |
+   |---|---|---|
+   | **01** | **Update required, applied** | "Acting Chief Editor is both `R` and `A`" merged three identities (`D-238`/`D-251`); no `business:T5`/`transition:T5` distinction; "Now" box claimed hosted anon-key verification that `DEP-05` withholds |
+   | **05** | **Update required, applied** | `business:T5` not yet reframed as ranking (`D-239`); `T6→T5` return-rate metric presented as current though V1 has no `T6`; partial `CR-19` (`D-247`) and the non-enforcing display (`D-244`) absent |
+   | **06** | **Update required, applied** | The "agent tags, not human-tagged" precision superseded by `D-194`/`D-197`'s human-supplied trigger package; pre-`T1` sequence (`FN-GATES` §3.0) and the `V1-SM05` slice boundary absent |
+
+   Each entry gains one dated note in v15 and no earlier text is rewritten. The artifact is republished to the same URL,
+   and `ENCYCLOPEDIA-SYNC.md`'s rows for Entries 01/05/06 move to this pass's commit. **Hosted and local
+   status now agree; `DOR-R6`'s evidence is complete.** The box is checked only when Lane B confirms it,
+   under `V1-SM05.md`'s checkbox rule (`B-121` Parent 1), in the same review pass as `DOR-R5`. Lane A does
+   not check its own comparison. Entry 04 is not part of this set and stays deferred to
+   `V1-SM06`.
+3. **`B-127` Parent 3 is accepted and applied verbatim.** `V1-SM05.md`'s DoD gains the single
+   "Accepted-contract traceability" criterion after the display criterion. No standalone `DoD-R5` or
+   `DoD-R6` item is created.
+4. **Dependent handoffs.** `B-127` and `B-128` are answered by this entry. `B-120` and `B-125` stay
+   `Open`: their remaining parents (Issue, branch, State-1 PR, selection) are sequenced behind `DOR-R5`
+   acceptance and are not satisfied by authoring.
+5. **Sequence from here, unchanged by this entry (`D-253`/`D-254`):** Chief Editor walkthrough → Lane
+   B/C review → `DOR-R5` checked → single GitHub Issue → `features/feature-V1-SM05` from the verified
+   remote tip → documentation-only State-1 PR → Judge selection, work order and Lane B `Eligible` →
+   `Active`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e81 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 dated status note after the `DOR-R1`–`DOR-R6` table: R5 artifact location, R6 comparison done, both awaiting review |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no file added or retired — Panel A11 is a section of the inventoried storyboard; the Encyclopedia is external |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ R5/R6 checklist and evidence rows (both unchecked, evidence recorded); dependency line; `B-127` DoD criterion |
+| **Storyboard** | ✅ Panel A11 added; Panels A9/A10 unchanged |
+| **`FN-GATES-01-05.md`** | ✅ §4.1 dated `[V1]` pointer to Panel A11; no behaviour changes |
+| **`docs/ENCYCLOPEDIA-SYNC.md`** | ✅ Entries 01/05/06 re-verified; version history row v15 |
+| **Encyclopedia** | **Entries 01, 05, 06 affected, updated and republished (v15)**; Entries 02–04 unaffected |
+| **`docs/Modular_PRD.md`** | — unaffected: no sprint closes, no tier opens, no FR/AC changes |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane state change |
+| **Rule files, frozen sources, `0001_init.sql`** | — unaffected |
+| **Graphify** | Owed once after the last governed edit in this pass |
+
+### What this act does NOT do
+
+Does not check `DOR-R5`, create the Issue or branch, open a PR, select `V1-SM05`, issue a work order or
+change any lane state. Does not answer `W1`–`W3`. Does not rewrite any v14 Encyclopedia text.
+
+## 5.14e82 `D-257` — `B-130` Warrants a Bounded Loader-Characterization Spike; Recorded, Not Commissioned
+
+**Authority: Judge instruction, 2026-09-24, delegating the determination to Lane A.** *"Separately,
+decide whether B-130 warrants a bounded loader-characterization spike."* The Judge can overrule this
+determination at any boundary.
+
+### The decision
+
+1. **Yes, it is warranted.** `B-130` reports that an Antigravity session truncated `AGENTS.md` at
+   7,920 bytes. If Lane C's loader cuts rule files, Lane C may be working without part of the shared
+   governance core, and `shared-core-hash` cannot detect that because it checks files on disk, not what
+   an agent loaded. Measuring this costs little and changes nothing. Redesigning the rule files without
+   measuring first is exactly what `B-130` items 2–3 warn against.
+2. **Bounded scope.** The spike only measures. It records the loaded file set, any per-file or total
+   limit and its source, and exactly which rule-file text is visible after loading. It covers the
+   Antigravity loader first, and optionally Codex and Claude Code. **No rule-file, check, skill or
+   workflow change** is made. Output is one report, and a redesign is a separate later decision.
+3. **Not commissioned now.** It does not block `V1-SM05`. It needs the desktop app, which runs one
+   lane at a time. The Judge selects it at a Sprint boundary. Its packet file is created at that point,
+   not before.
+4. **`B-130` is answered** with this determination; `Status: Answered`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e82 |
+| **`V1-BUILD-SPEC.md`** | — unaffected: nothing is scoped or sequenced until commissioned |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file created or retired |
+| **`docs/Modular_PRD.md`**, **`V1-PHASE-CLOSURE.md`**, **Encyclopedia**, rule files, frozen sources | — unaffected (`B-130`'s cross-artifact review) |

@@ -310,6 +310,142 @@ flowchart LR
 The physical revision or scope identity, idempotency key and effective-current query are Lane B's, in a later
 bounded work order; this panel shows behaviour, not mechanism.
 
+### Panel A11 — `V1-SM05` Route-1 evidence slice: normal and revision (`DOR-R5`, `D-256`), added 2026-09-24
+
+**The single visual owner of `V1-SM05`'s normal and revision journey and its data flow** — the artifact
+Panel A9's annotation and `docs/handoff/B-117` left open, and `docs/handoff/B-128` Parent 1 specified. Panel
+A9 stays the generic `business:T1`–`T5` overlay and Panel A10 stays `V1-SM06`'s `ManualReady` owner; neither
+is redrawn here. `FN-GATES-01-05.md` §4.1/§4.3, `V1-SM05.md` and the traceability map cross-reference this
+panel and do not redraw it. Behaviour is cited, not restated: pre-`T1` events `FN-GATES-01-05.md` §3.0,
+lifecycle §3.0a, UI states §4.2, failure and replay §4.3; node matrix and routing
+`requirements-traceability-map.md` §6.3/§6.4.
+
+**Namespaces.** Every step is a `business:T*` judgment record (**B**) or an `EG*` task/evidence record
+(**EG**). **No technical `transition:T*` executes and none is claimed** (`D-249`). Route is fixed to
+`ROUTE-PROD-1` (`D-232`).
+
+**Status: authored, not accepted.** `DOR-R5` closes only after the Chief Editor walkthrough and the Lane
+B/C feasibility review below are recorded in `V1-SM05.md`'s evidence row.
+
+#### A11.1 Normal path
+
+```mermaid
+sequenceDiagram
+    participant CE as Chief Editor (human, supplier)
+    participant UI as V1 UI
+    participant SJ as ROLE-SENIOR-JOURNALIST (agent)
+    participant APP as Application service
+    participant DB as Postgres (append-only)
+    Note over CE,DB: Pre-T1 — three events, none is a gate (FN-GATES §3.0)
+    CE->>UI: submit manual trigger package (topic, source, trend-signal description)
+    UI->>APP: create intake record
+    APP->>DB: append manual intake record + acceptance event (supplier = Chief Editor)
+    SJ->>APP: EW-start for the accepted record
+    APP->>DB: append EW event; create workflow identity (once per commission)
+    APP->>DB: append route record ROUTE-PROD-1 (route R = Reporter, route A = Desk Editor) — audit projection, not a gate
+    Note over CE,DB: business:T1 — Reporter
+    APP->>DB: phase entered; OP-PITCH judgment = Route-1 classification (topic, trend signal, route) [B]
+    APP->>DB: role selected = ROLE-REPORTER [B]
+    APP->>DB: dispatch OP-DRAFT scoped instance (Reporter executor, Chief Editorial Desk application A) [EG]
+    APP->>DB: task + RACI evidence; business:T1 complete [EG then B]
+    Note over CE,DB: business:T2 — Investigator (T2a C1 / T2b C4 each recorded; a false branch is explicit)
+    APP->>DB: judgment, role selected, branch applicability, join disposition (route stays ROUTE-PROD-1) [B]
+    Note over CE,DB: business:T3 — Journalist
+    APP->>DB: OP-PITCH judgment in Journalist context + T3 newsworthiness fields (score 1–10, periods, fresh sources, revision ref) [B]
+    APP->>DB: dispatch OP-DRAFT scoped instance; evidence; business:T3 complete [EG then B]
+    Note over CE,DB: business:T4 — Senior Journalist fallout comparison
+    APP->>DB: judgment, role selected, applicable task evidence; business:T4 complete [B/EG]
+    Note over CE,DB: business:T5 — Chief Editorial Desk newsworthiness ranking and routing
+    APP->>DB: read T1–T4 evidence; append ranking + routing record → recipient Desk Editor (ROUTE-PROD-1) [B]
+    APP-->>UI: ranking/routing record; display-only provenance and reminders
+    UI-->>CE: handoff shown — NOT a signature, approval, publication or Line 3 assurance
+    Note over CE,DB: end of V1-SM05 — no T6, no article state change, no ManualReady (that is V1-SM06, Panel A10)
+```
+
+#### A11.2 Revision path
+
+Example: at `business:T5` the ranking cannot proceed because `business:T3`'s newsworthiness fields are
+incomplete (`FN-GATES-01-05.md` §4.2 "Ranking evidence incomplete").
+
+```mermaid
+sequenceDiagram
+    participant UI as V1 UI
+    participant APP as Application service
+    participant DB as Postgres (append-only)
+    APP->>DB: T5 records "ranking evidence incomplete" with the missing fields named [B]
+    APP->>DB: append return event naming the affected scope = business:T3 only [B]
+    APP->>DB: open a NEW business:T3 scoped execution (new operation-attempt identity, next revision ref) [B/EG]
+    Note over APP,DB: prior T3 evidence retained as history, marked not-current — never overwritten or deleted
+    Note over APP,DB: T1, T2 and T4 evidence untouched — a return never re-runs a sibling or prior node
+    APP->>DB: new T3 judgment + newsworthiness fields + OP-DRAFT evidence; T3 complete
+    APP->>DB: T5 ranking re-attempted against current T3 evidence; ranking + routing record appended
+    APP-->>UI: history shows both T3 executions, the return reason, and which one is current
+```
+
+A replay of an identical request (same operation-attempt identity) creates no second outcome and is
+visible in the audit trail (`FN-GATES-01-05.md` §4.3); a return is **new work**, not a replay.
+
+#### A11.3 Data flow
+
+```mermaid
+flowchart LR
+    MI[manual intake record + acceptance] --> EW[EW event]
+    EW --> WF[workflow identity]
+    WF --> RR[route record ROUTE-PROD-1: route R, route A]
+    WF --> PH[business:T1–T5 phase / judgment / role-selection records]
+    PH --> TK[EG task instances: OP-DRAFT and applicable tasks, each scoped]
+    TK --> EV[task + RACI evidence]
+    PH --> NF[T3 newsworthiness fields]
+    EV --> RK[T5 ranking + routing record]
+    NF --> RK
+    RK --> UI[V1 UI handoff view]
+    RR --> UI
+    SRC[source RACI / Line provenance - display only] -.-> UI
+    REM[Final Sign-Off and Draft signatory reminders - display only] -.-> UI
+    RK -.never.-> X[transition:T*, T6, article state change, ManualReady, Published, WordPress]
+```
+
+#### A11.4 Every visible fact and its one source
+
+| UI fact | Authoritative record/event | Kind |
+|---|---|---|
+| Supplier (Chief Editor) | Manual intake record's supplier field + acceptance event | Recorded |
+| Route and route `R`/`A` (Reporter / Desk Editor) | Route record's audit projection (`route_id`, `raci_scope=factory_route`) | Recorded |
+| Current business node and selected role | Latest `business:T*` role-selection record for the workflow | Recorded |
+| Executor of record per task | The `EG` task instance's executor field | Recorded |
+| Article state | The article record's stored state, read-only — **no `V1-SM05` action changes it** | Recorded, read-only |
+| Pitch / route classification | `OP-PITCH` judgment record | Recorded |
+| `T3` newsworthiness fields | `business:T3` judgment record | Recorded |
+| Ranking and routed recipient | `business:T5` ranking/routing record | Recorded |
+| Return reason and current-versus-history marker | Return event + scoped-execution records | Recorded |
+| Source-RACI / Line context | RACI source (`raci-involvement-matrix.md`) — `FR-04`/`FR-05`, `SEC-01` | **Display only** — never enforcement |
+| `OP-COPY-EDIT` provenance | Crosswalk §4.1 source `R` | **Display only** — not executed |
+| Final Sign-Off reminder | `FN-GATES-01-05.md` §4.2, `required externally` | **Display only** — not a signature control |
+| Draft additional-signatory reminder | `FN-GATES-01-05.md` §4.2, `required externally` | **Display only** |
+
+**Exclusions — each must be visibly absent:** `transition:T*` execution, `T6`, Line 3 workflow,
+`OP-FINAL-SIGNOFF` enforcement, `OP-COPY-EDIT` execution, WordPress, `ManualReady`, `Published`.
+
+#### A11.5 Walkthrough record — Chief Editor, then Lane B/C
+
+Per `docs/handoff/B-128` Parent 1 steps 6–8: for each step, `Accept`, `Correct` or `Reject`, naming the exact
+source mismatch when not accepted. Three questions the panel deliberately does not answer, because answering
+them would be new scope:
+
+- **W1 — `T2`/`T3` candidate routes.** The effective route stays `ROUTE-PROD-1` throughout. The panel
+  records the candidate comparisons and the join disposition but offers no reclassification. Is that the
+  intended `V1-SM05` reading of `D-232`?
+- **W2 — revision reach.** A return to `business:T3` leaves `T4` evidence current. Is that right, or must a
+  `T3` revision also re-open `T4`?
+- **W3 — `T2`/`T4` tasks.** `DOR-R4` bounds only `OP-DRAFT`, `OP-COPY-EDIT` and `OP-FINAL-SIGNOFF`. The panel
+  shows `T2`/`T4` as judgment plus applicability evidence, with no constructed execution of `OP-RESEARCH`,
+  `OP-COMPLEX-SERIES` or `OP-LEGAL-RISK`. Is that the intended slice?
+
+| Walk | Chief Editor result | Lane B/C review | Date |
+|---|---|---|---|
+| Normal (A11.1, A11.3, A11.4) | *pending* | *pending* | — |
+| Revision (A11.2) | *pending* | *pending* | — |
+
 ---
 
 ## 2. Lane B — POC: client-commissioned research
