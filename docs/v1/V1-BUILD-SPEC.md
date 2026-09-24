@@ -171,6 +171,14 @@ name the scenario ID it proves. **Method:** Commit A lands the specs, manifest a
 unchecked; a readiness receipt is generated at that clean commit; Commit B records the receipt and re-checks
 `DOR-R7`. Push, Issue, branch and State-1 PR remain separately authorized acts (`D-253`).
 
+**`D-262` — Issue and branch recorded; State-1 delta opened (2026-09-25).** GitHub Issue #1 now tracks `V1-SM05`. It
+was created after every DoR row was checked, which is the normal `D-254` path; its URL is recorded once, in the
+packet's traceability field. `features/feature-V1-SM05` was created by native Git branching at `9b2ddf3`, the
+pushed journal tip. This pass is the branch's first documentation-only commit. Pushing it and opening the draft
+State-1 PR against `docs/journal-2026-08-16` remain separately authorized acts. In State 1, the PR template's
+selection, `Active`-lane and work-order items are recorded as *not yet*, not invented. Selection, the `D-242` work
+order and Lane B activation still come before State 2.
+
 ## 2. Sequence
 
 ```

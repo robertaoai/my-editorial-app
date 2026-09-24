@@ -349,6 +349,11 @@ scenarios are a new section inside the already-tracked `FN-GATES-01-05.md`.
 the Jev engine, self-test and `V1-SM05` manifest change in place; the receipt at the same path is regenerated, with
 every earlier receipt kept in git history.
 
+**`D-262` (2026-09-25) — no file added or retired, stated explicitly.** GitHub Issue #1 and
+`features/feature-V1-SM05` are GitHub and Git objects. Per `D-253`, the Issue is recorded in the `V1-SM05`
+packet's traceability field and not restated here. The State-1 pull-request text is GitHub-side and
+has no repository file.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

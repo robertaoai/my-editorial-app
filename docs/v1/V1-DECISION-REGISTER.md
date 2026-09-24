@@ -19281,3 +19281,53 @@ test file to name its scenario ID; then, after an external review of the draft, 
 It does not change any existing Product row, lift `D-171`, or name a later packet for held `T5`/`T6` execution. It does
 not push, create the Issue, create the branch, open the State-1 PR, select `V1-SM05`, issue a work order or change lane
 state — each still needs its own authorization (`D-253`).
+
+## 5.14e87 `D-262` — `V1-SM05` Issue and Feature Branch Recorded; State-1 Documentation Delta Opened
+
+**Authority: Chief Editor acts, 2026-09-25, reported to Lane A directly** — the `V1-SM05` GitHub Issue was created from
+`.github/ISSUE_TEMPLATE/v1-mmf.md` after every DoR row was checked (`D-261`), and `features/feature-V1-SM05` was created;
+Lane A is instructed to consolidate both facts before handing over the State-1 pull-request text. This executes
+`docs/handoff/B-126` Parents 4 and 5 on the normal post-DoR path (`D-254`); **no remediation path applies.**
+
+### The decision
+
+1. **Issue identity.** `V1-SM05` is tracked by GitHub Issue **#1** (URL in the packet's traceability field), titled *"V1-SM05: business:T1–T5 evidence slice on
+   ROUTE-PROD-1"*. It was created after `DOR-R1`–`DOR-R7` were all checked, so it follows `D-254`'s normal path. It is
+   external tracking and adds no repository file (`D-253`). **It is recorded once, in the packet's traceability field.**
+   Other tiers point to that field and do not repeat the URL.
+2. **Branch provenance, verified by Lane A.** `features/feature-V1-SM05` was created by native Git branching (`D-253`). At
+   the time it was read, the local branch, `origin/features/feature-V1-SM05` and `origin/docs/journal-2026-08-16` all
+   resolve to `9b2ddf3`, the `D-261` Commit B tip. The Issue's condition *"`9b2ddf3` or later"* is met, and no
+   ZIP-packaged initialization occurred.
+3. **The State-1 delta.** This entry and its propagation are the first documentation-only commit on the branch, which
+   gives the State-1 pull request a non-empty diff against its base (`D-253` item 6). **The pull request is not
+   opened by this act**: pushing this commit and opening the draft pull request against `docs/journal-2026-08-16`,
+   linked to Issue #1, still need their own authorization.
+4. **What the Issue's own checklist still leaves open, stated so the Issue is not read as further along than it is.**
+   Issue §5 box 1 (branch) is met by item 2. Box 2 (State-1 PR) stays open. Issue §6 (work order, xDD method,
+   completion-manifest path) stays unissued (`D-242`).
+5. **The pull-request template is read by state.** `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §1 asks for a selecting
+   Register act, an `Active` executing lane and a work order. In State 1 those are **not yet applicable**, so the State-1
+   body records them as `State 1 — not yet` and does not invent them. Its §8 refusal rules apply in full at State 2.
+   This reads the existing template and does not amend it.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e87 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-262` paragraph: Issue exists, branch verified, State-1 PR pending authorization |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph — no file added or retired; the Issue is external tracking |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ traceability field carries Issue #1 and branch provenance; the `D-254` gate note is dated forward; `Status` unchanged — not started, not selected |
+| **`docs/Modular_PRD.md`** | — unaffected: no sprint closes, no tier opens, §8/§10 unchanged |
+| **Phase closure** (`docs/v1/V1-PHASE-CLOSURE.md`) | — unaffected: no lane-state change; Lane A stays `Active`, Lane B `Eligible` |
+| **`.github/` templates** | — unaffected: read by state (item 5), not edited |
+| **Fn-specs, Jev manifest/receipt, handoff entries, frozen sources, rule files, `0001_init.sql`, application code** | — unaffected |
+| **Encyclopedia** | — unaffected: no mapped entry depends on Issue or branch identity |
+| **Graphify** | Owed once after the last governed edit in this pass |
+
+### What this act does NOT do
+
+It does not push, open the State-1 pull request, select `V1-SM05`, issue the `D-242` work order, move Lane B from
+`Eligible` to `Active` or change any DoR or DoD row. An Issue or branch **records** readiness that already exists and
+grants no selection, work-order, lane-transfer or construction authority (`D-254` item 3).
