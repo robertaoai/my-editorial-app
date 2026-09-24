@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "mode": "readiness",
   "packet": "V1-SM05",
-  "evaluatedAt": "b7992f5fee95e50f5576d844f4f75d5fda34375b",
+  "evaluatedAt": "9be84bbefc24b8b017f2d2189d431c0807837ca1",
   "treeClean": true,
-  "generatedAt": "2026-09-24T12:14:31.377Z",
+  "generatedAt": "2026-09-24T13:14:33.999Z",
   "manifest": {
     "path": "scripts/jev/manifests/V1-SM05.json",
-    "sha256": "3f6d0d7e817267af70badb943f428ccda0854ba0186586700865abeb05a85843"
+    "sha256": "23e8796cd6ebe05f09b2272758da93ba499168e30d3938155a5fca0f72747889"
   },
   "sources": [
     {
@@ -17,15 +17,15 @@
     },
     {
       "path": "docs/fn-specs/FN-GATES-01-05.md",
-      "sha256": "7fb6aae79af26a0e5b5089ef9f39b7ef331bd883c180074084d4fbff5f1fa864"
+      "sha256": "63a087fc7f8123aebf85ce5b857169e2a9484d9f95090edb6bf9e79476357c68"
     },
     {
       "path": "docs/v1/work-packets/V1/V1-SM05.md",
-      "sha256": "26f817347a4f7792915cdfb21fd4f114fd92dee9ca168e4d494e610374d42cb0"
+      "sha256": "7a79f665e662762896a70d11967d99c5063ceeb6bb8ebfeca82bba0a0c1ecb05"
     },
     {
       "path": "scripts/jev/manifests/V1-SM05.json",
-      "sha256": "3f6d0d7e817267af70badb943f428ccda0854ba0186586700865abeb05a85843"
+      "sha256": "23e8796cd6ebe05f09b2272758da93ba499168e30d3938155a5fca0f72747889"
     }
   ],
   "results": [
@@ -199,25 +199,25 @@
     },
     {
       "rule": "gwt-complete",
-      "subject": "AC-01 @ docs/Modular_PRD.md",
+      "subject": "AC-01 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 1016"
+      "detail": "line 366"
     },
     {
       "rule": "row-pinned",
-      "subject": "AC-01 @ docs/Modular_PRD.md",
+      "subject": "AC-01 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "row-in-scope",
-      "subject": "AC-01 @ docs/Modular_PRD.md",
+      "subject": "AC-01 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "behaviour-maps-to-dod",
-      "subject": "AC-01 @ docs/Modular_PRD.md",
+      "subject": "AC-01 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "Acceptance cases pass against the real database"
     },
@@ -247,49 +247,241 @@
     },
     {
       "rule": "gwt-complete",
-      "subject": "AC-05a @ docs/Modular_PRD.md",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 1026"
+      "detail": "line 347"
     },
     {
       "rule": "row-pinned",
-      "subject": "AC-05a @ docs/Modular_PRD.md",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "row-in-scope",
-      "subject": "AC-05a @ docs/Modular_PRD.md",
-      "ok": false,
-      "detail": "source row is [decided_target_held]; needs a recorded Judge disposition"
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
     },
     {
       "rule": "behaviour-maps-to-dod",
-      "subject": "AC-05a @ docs/Modular_PRD.md",
+      "subject": "SM05-N1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "Acceptance cases pass against the real database"
     },
     {
       "rule": "gwt-complete",
-      "subject": "AC-06a @ docs/Modular_PRD.md",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
-      "detail": "line 1028"
+      "detail": "line 348"
     },
     {
       "rule": "row-pinned",
-      "subject": "AC-06a @ docs/Modular_PRD.md",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "row-in-scope",
-      "subject": "AC-06a @ docs/Modular_PRD.md",
-      "ok": false,
-      "detail": "source row is [decided_target_held]; needs a recorded Judge disposition"
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
     },
     {
       "rule": "behaviour-maps-to-dod",
-      "subject": "AC-06a @ docs/Modular_PRD.md",
+      "subject": "SM05-N2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 349"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-N3 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 350"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-N4 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 351"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-N5 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 352"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-N6 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 353"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-RV1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 354"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-RV2 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 355"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-F1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "Acceptance cases pass against the real database"
+    },
+    {
+      "rule": "gwt-complete",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": "line 356"
+    },
+    {
+      "rule": "row-pinned",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "row-in-scope",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "behaviour-maps-to-dod",
+      "subject": "SM05-X1 @ docs/fn-specs/FN-GATES-01-05.md",
       "ok": true,
       "detail": "Acceptance cases pass against the real database"
     },
@@ -499,13 +691,61 @@
     },
     {
       "rule": "scope-covered",
-      "subject": "AC-05a",
+      "subject": "SM05-N1",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "scope-covered",
-      "subject": "AC-06a",
+      "subject": "SM05-N2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-covered",
+      "subject": "SM05-N3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-covered",
+      "subject": "SM05-N4",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-covered",
+      "subject": "SM05-N5",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-covered",
+      "subject": "SM05-N6",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-covered",
+      "subject": "SM05-RV1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-covered",
+      "subject": "SM05-RV2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-covered",
+      "subject": "SM05-F1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-covered",
+      "subject": "SM05-X1",
       "ok": true,
       "detail": ""
     },
@@ -523,18 +763,66 @@
     },
     {
       "rule": "scope-authorized",
-      "subject": "AC-05a",
+      "subject": "SM05-N1",
       "ok": true,
       "detail": ""
     },
     {
       "rule": "scope-authorized",
-      "subject": "AC-06a",
+      "subject": "SM05-N2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-authorized",
+      "subject": "SM05-N3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-authorized",
+      "subject": "SM05-N4",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-authorized",
+      "subject": "SM05-N5",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-authorized",
+      "subject": "SM05-N6",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-authorized",
+      "subject": "SM05-RV1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-authorized",
+      "subject": "SM05-RV2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-authorized",
+      "subject": "SM05-F1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "rule": "scope-authorized",
+      "subject": "SM05-X1",
       "ok": true,
       "detail": ""
     }
   ],
   "advisories": [],
-  "outcome": "fail",
+  "outcome": "pass",
   "meaning": "Evidence only (D-259). Does not check a DoR box, create an Issue, close a lane, accept a DoD or authorize a merge."
 }
