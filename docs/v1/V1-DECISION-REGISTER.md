@@ -19302,7 +19302,8 @@ Lane A is instructed to consolidate both facts before handing over the State-1 p
 3. **The State-1 delta.** This entry and its propagation are the first documentation-only commit on the branch, which
    gives the State-1 pull request a non-empty diff against its base (`D-253` item 6). **The pull request is not
    opened by this act**: pushing this commit and opening the draft pull request against `docs/journal-2026-08-16`,
-   linked to Issue #1, still need their own authorization.
+   linked to Issue #1, still need their own authorization. **Authorized and performed 2026-09-25 (Judge, under
+   `D-253`):** `221c9d4` pushed; the Chief Editor opened draft PR #2 (URL in the packet's traceability field).
 4. **What the Issue's own checklist still leaves open, stated so the Issue is not read as further along than it is.**
    Issue §5 box 1 (branch) is met by item 2. Box 2 (State-1 PR) stays open. Issue §6 (work order, xDD method,
    completion-manifest path) stays unissued (`D-242`).
@@ -19328,6 +19329,6 @@ Lane A is instructed to consolidate both facts before handing over the State-1 p
 
 ### What this act does NOT do
 
-It does not push, open the State-1 pull request, select `V1-SM05`, issue the `D-242` work order, move Lane B from
+Apart from the push and draft PR #2, which were authorized separately (item 3), it does not select `V1-SM05`, issue the `D-242` work order, move Lane B from
 `Eligible` to `Active` or change any DoR or DoD row. An Issue or branch **records** readiness that already exists and
 grants no selection, work-order, lane-transfer or construction authority (`D-254` item 3).
