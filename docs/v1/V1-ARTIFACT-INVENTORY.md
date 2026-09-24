@@ -345,6 +345,10 @@ receipt is deferred to V2** — no V1 file is created or claimed for it. No file
 receipt at the same path is replaced by a passing one (the failing receipt stays in git history). The §4.4
 scenarios are a new section inside the already-tracked `FN-GATES-01-05.md`.
 
+**`D-261` (2026-09-24) — no file added or retired, stated explicitly.** `Modular_PRD.md` gains rows, not a file;
+the Jev engine, self-test and `V1-SM05` manifest change in place; the receipt at the same path is regenerated, with
+every earlier receipt kept in git history.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

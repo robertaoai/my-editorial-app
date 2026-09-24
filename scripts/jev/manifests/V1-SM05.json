@@ -1,7 +1,7 @@
 {
   "packet": "V1-SM05",
   "packetPath": "docs/v1/work-packets/V1/V1-SM05.md",
-  "authority": "D-259, D-260",
+  "authority": "D-259, D-260, D-261",
   "dorRows": [
     "DOR-R1",
     "DOR-R2",
@@ -13,124 +13,317 @@
   ],
   "behaviours": [
     {
-      "id": "AC-01",
-      "source": "docs/fn-specs/FN-GATES-01-05.md",
-      "dod": "Acceptance cases pass against the real database",
-      "rowHash": "462a65f0f660641bfdc25312b8adca4b2570f61fe1d7fcd6d19bb87ff966a45d"
-    },
-    {
       "id": "AC-02",
       "source": "docs/Modular_PRD.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "c624d057fbc579f5cfb2541213d1370bc5ccb62defbfac58e4d9cdabae8efa60"
+      "rowHash": "c624d057fbc579f5cfb2541213d1370bc5ccb62defbfac58e4d9cdabae8efa60",
+      "productAnchor": "self"
     },
     {
       "id": "SM05-N1",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "8dd5c2a30d47314ecf4f5543edb32688e9c34b07f9c4bf7be9e7eb3162185de2"
+      "rowHash": "4f664921f68f38fa5899f4bd8818ef6c7dd916b24765640f8de773e0f9d193fd",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-23"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-23": "e9a493c201d99cdd5f0005d66e9937f7b832459f00113e9cb10b1408ef2eab44"
+        }
+      }
     },
     {
       "id": "SM05-N2",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "cad7d038f321c5790f03641538e54c4be1e476b16ecf9b949a5db37ea3ede9f4"
+      "rowHash": "79e8db5c682c99c13d680e758115f47ae1155cf78376e5b3d3d139dfbccec5de",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-23"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-23": "e9a493c201d99cdd5f0005d66e9937f7b832459f00113e9cb10b1408ef2eab44"
+        }
+      }
     },
     {
       "id": "SM05-N3",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "f0cb32e566076b6449f8d31da2b7f08e32ee3f0b690421ef60a7751bf00ef775"
+      "rowHash": "fcc05751f8031f134a1dd65df4e5b41a28c47eb40548cc8bf66a473eac52d684",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-23"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-23": "e9a493c201d99cdd5f0005d66e9937f7b832459f00113e9cb10b1408ef2eab44"
+        }
+      }
     },
     {
       "id": "SM05-N4",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "3186c6018350972ad4e8162a85e5cf69fdff1d571793ce84022d8ed726efd900"
+      "rowHash": "51a0c3eeab8f8381cbd238ca3d43dd24ecbefd9ac521372e358518d9c3a15d31",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-23"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-23": "e9a493c201d99cdd5f0005d66e9937f7b832459f00113e9cb10b1408ef2eab44"
+        }
+      }
     },
     {
       "id": "SM05-N5",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "a6e5fc860d1870605f75ce36c6f20ebb4807be43e2bae4b3ffffcf33b357967e"
+      "rowHash": "7b25eb8220d296a4a486dd4759c23ee8f8f9533c7e78084d9b043111e4f5b6f6",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-23"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-23": "e9a493c201d99cdd5f0005d66e9937f7b832459f00113e9cb10b1408ef2eab44"
+        }
+      }
     },
     {
       "id": "SM05-N6",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "f661e2d6e06758b4a7724192b20f704eade7c170bee6669c3f30b595d7aa0bc7"
+      "rowHash": "9f884cb29390bd05982f39e174ad7229b4f1bad044cfa8a5546073a959c89b2e",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-23"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-23": "e9a493c201d99cdd5f0005d66e9937f7b832459f00113e9cb10b1408ef2eab44"
+        }
+      }
     },
     {
       "id": "SM05-RV1",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "47f05be7138656d609eba87bd28daf7308993bac58477a32c5444861522c821c"
+      "rowHash": "c16b8f9389b7f4dc5c582beb5303ab9b3f774159b263bb9a5ce6aa8f95e9f8e5",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-24"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-24": "7e20d44b0a62c5965a6a5c03433749996e84baedec0dddcb8724f9d22b191f30"
+        }
+      }
     },
     {
       "id": "SM05-RV2",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "5cd57fb6a3e9f9dcd76eea8cbd930da0bdc39aa516b19d64885f7f34c086af70"
+      "rowHash": "02bd99b46ffe1854cf479702f27b1ef951c782fc5442b6d5cc53b8e69ee96f85",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-24"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-24": "7e20d44b0a62c5965a6a5c03433749996e84baedec0dddcb8724f9d22b191f30"
+        }
+      }
     },
     {
       "id": "SM05-F1",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "febbb4deb813ea52b5401147ddd4e8c9043f92e459cd7db9251cfab214d41b8d"
+      "rowHash": "32c7458a670182ca7b76d323beaead05dcbd016c959d3cd8921c93315edfdc9a",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-25"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-25": "3028b369086953857edfab58510f4717a11a718bd94841d6aa7287a9b8e0457e"
+        }
+      }
     },
     {
       "id": "SM05-X1",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Acceptance cases pass against the real database",
-      "rowHash": "4073309f7b95e9e5e262b71f8d5a0c0e5a66d9293a84da60dbcd6d6f9ea1944d"
+      "rowHash": "f12abfd157025ce378d573cc85ef263764d504eae1b64c49016e79481741a950",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-26"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-26": "144a66bebcafa0844a87122d3b9a648c61ec694b394e2adef86c8b46fc81b05f"
+        }
+      }
     },
     {
       "id": "DOR-R2 positive",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Refusal and replay",
-      "rowHash": "6eb1221af70bd064360656eae565168014494a6616e44f1e3113e0e5be6f2f33"
+      "rowHash": "1d401f3f0d36ec4e5a1858e98a15b1ad034f386610d0756989ebbc2928b1da9a",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-23"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-23": "e9a493c201d99cdd5f0005d66e9937f7b832459f00113e9cb10b1408ef2eab44"
+        }
+      }
     },
     {
       "id": "DOR-R2 duplicate",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Refusal and replay",
-      "rowHash": "01b655fa6efaaf099c2e72778067d67f21f8e0085f49acc6c6f96e59b4466bb5"
+      "rowHash": "89636edffcb26f0346ab66432a5a2836babe80084b842f8e189fcbbeacb57561",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-26"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-26": "144a66bebcafa0844a87122d3b9a648c61ec694b394e2adef86c8b46fc81b05f"
+        }
+      }
     },
     {
       "id": "DOR-R2 failure",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Refusal and replay",
-      "rowHash": "1325d6bdead3617c3e96f0b6a0cf7d3df4e48a50bbed6fdc1236bde194764f7b"
+      "rowHash": "28eec84c924373bbb1af3db1c0aabc16b8df19687727d5a1ce7ac57630a76c1c",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-26"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-26": "144a66bebcafa0844a87122d3b9a648c61ec694b394e2adef86c8b46fc81b05f"
+        }
+      }
     },
     {
       "id": "DOR-R3 missing intake",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Refusal and replay",
-      "rowHash": "d5d58dabd2195e6186c051675f1465ed1f1d9fcc9e2d20b4e82a8436a49981f5"
+      "rowHash": "89115e5375e2dafc9e6f3d5e047087d4c299376a29c5c8f6c585f7b5143ff6d2",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-26"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-26": "144a66bebcafa0844a87122d3b9a648c61ec694b394e2adef86c8b46fc81b05f"
+        }
+      }
     },
     {
       "id": "DOR-R3 duplicate EW",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Refusal and replay",
-      "rowHash": "d072b4ea79bee413e6d2f9f055f5b2316b625958c449940b677913feb68b9b09"
+      "rowHash": "2969c8427f21bcfa32780519f556cfc954e773e5d07370d1f1a8e7fd575d0e27",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-26"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-26": "144a66bebcafa0844a87122d3b9a648c61ec694b394e2adef86c8b46fc81b05f"
+        }
+      }
     },
     {
       "id": "DOR-R3 new work",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Refusal and replay",
-      "rowHash": "5308331fc8302e7c31c4e7e677e2d17b240a1a46ec5d47d46c8780176965d659"
+      "rowHash": "4c188e88042320b1467f19d8e94b15687f67b0d729f7f91f300fa6d916d33602",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-23"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-23": "e9a493c201d99cdd5f0005d66e9937f7b832459f00113e9cb10b1408ef2eab44"
+        }
+      }
     },
     {
       "id": "DOR-R4 executor",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Refusal and replay",
-      "rowHash": "08b70932b71f0f6f1cdb568dc74db3a523ae103898bec6e4206bb0e318153369"
+      "rowHash": "91504801ccdd610f359d2b102afc7879e3657d66da31180a0d347661fce95328",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-23"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-23": "e9a493c201d99cdd5f0005d66e9937f7b832459f00113e9cb10b1408ef2eab44"
+        }
+      }
     },
     {
       "id": "DOR-R4 final sign-off",
       "source": "docs/fn-specs/FN-GATES-01-05.md",
       "dod": "Display, not enforcement",
-      "rowHash": "8423f8477bf3a4018b36b310453cbb0ade7596d50f2e8de976c939e03b5e0248"
+      "rowHash": "499ee00870cb6ae27c36290e19821a9fcd1a559d2f3a93e7c8d2db68eae5fa40",
+      "productAnchor": {
+        "source": "docs/Modular_PRD.md",
+        "requirement": "FR-15",
+        "acceptance": [
+          "AC-25"
+        ],
+        "disposition": "active",
+        "rowHashes": {
+          "AC-25": "3028b369086953857edfab58510f4717a11a718bd94841d6aa7287a9b8e0457e"
+        }
+      }
     }
   ],
   "negativeRequired": [
@@ -143,5 +336,16 @@
   "completionExempt": [
     "Independent verification"
   ],
-  "acceptanceObligation": "Acceptance cases pass against the real database"
+  "acceptanceObligation": "Acceptance cases pass against the real database",
+  "productSource": "docs/Modular_PRD.md",
+  "chainDirs": [
+    "docs/fn-specs"
+  ],
+  "crossTierMappings": {
+    "AC-02": {
+      "canonical": "docs/Modular_PRD.md",
+      "decision": "D-261",
+      "reason": "FN-GATES-01-05.md §5's AC-02 row records the D-121 retirement of the URL-X criterion; Modular_PRD §9's row is the re-keyed criterion SM05 cites"
+    }
+  }
 }

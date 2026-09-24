@@ -23,7 +23,7 @@
 
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 export const TOOL = "jev-system-one";
@@ -197,6 +197,7 @@ export function readiness(root, manifestPath) {
     note("row-in-scope", subject, !tag || Boolean(excused),
       tag ? (excused ? `${tag} carried under ${b.disposition.decision}` : `source row is ${tag}; needs a recorded Judge disposition`) : "");
     note("behaviour-maps-to-dod", subject, labels.includes(b.dod), b.dod);
+    intentParity(root, m, b, row, subject, note, sources);
   }
 
   // 3. Scope parity: the packet DoD's acceptance line and the behaviours pinned to that obligation are
@@ -215,6 +216,57 @@ export function readiness(root, manifestPath) {
   for (const id of pinned) note("scope-authorized", id, listed.includes(id), listed.includes(id) ? "" : "in manifest, not listed in DoD");
 
   return receipt("readiness", root, manifestPath, manifestText, results, sources);
+}
+
+/**
+ * Product-intent parity (`D-261`, raised as `B-134`). Scope parity proves the packet, its scenarios and
+ * the manifest agree with EACH OTHER; this proves every behaviour descends from a live Product row
+ * (`D-29`: `Modular_PRD` → Fn_Specs → packet), and that no ID carries two meanings across the chain.
+ */
+function intentParity(root, m, b, row, subject, note, sources) {
+  const product = m.productSource;
+  if (!product) return; // a manifest written before `D-261` declares no Product source
+  sources.add(product);
+  const productText = read(root, product);
+  const anchor = b.productAnchor;
+
+  if (b.source === product) {
+    // The behaviour IS a Product row: it must name itself, not a lower tier.
+    note("product-anchor-present", subject, anchor === "self", anchor === "self" ? "" : "a Product row anchors as \"self\"");
+  } else if (!anchor || typeof anchor !== "object") {
+    note("product-anchor-present", subject, false, "no Product anchor — a lower tier cannot stand in for Product intent");
+  } else {
+    note("product-anchor-present", subject, true, `${anchor.requirement} / ${(anchor.acceptance ?? []).join(", ")}`);
+    const req = findRows(productText, anchor.requirement);
+    const reqTag = req.length === 1 && OUT_OF_SCOPE_TAGS.find((t) => req[0].line.includes(t));
+    note("product-requirement-live", `${subject} → ${anchor.requirement}`, req.length === 1 && !reqTag,
+      req.length !== 1 ? `${req.length} rows` : reqTag ? `requirement is ${reqTag}` : "");
+    note("anchor-disposition-active", subject, anchor.disposition === "active", String(anchor.disposition));
+    for (const ac of anchor.acceptance ?? []) {
+      const rows = findRows(productText, ac);
+      if (rows.length !== 1) {
+        note("product-acceptance-live", `${subject} → ${ac}`, false, `${rows.length} rows`);
+        continue;
+      }
+      const tag = OUT_OF_SCOPE_TAGS.find((t) => rows[0].line.includes(t));
+      const cellsFr = cells(rows[0].line)[1] ?? "";
+      note("product-acceptance-live", `${subject} → ${ac}`, !tag, tag ? `held/historical acceptance used as build acceptance (${tag})` : "");
+      note("acceptance-owned-by-requirement", `${subject} → ${ac}`, cellsFr.includes(anchor.requirement), `FR column: ${bare(cellsFr)}`);
+      const hash = sha256(rows[0].line.trim());
+      const pinned = anchor.rowHashes?.[ac];
+      note("product-row-pinned", `${subject} → ${ac}`, hash === pinned, hash === pinned ? "" : `Product row changed since pinned (now ${hash.slice(0, 12)})`);
+      note("scenario-cites-anchor", `${subject} → ${ac}`, row.line.includes(`\`${ac}\``), "the scenario row must name its Product acceptance ID");
+    }
+  }
+
+  // One ID, one meaning: the same row ID in more than one chain document needs a recorded mapping.
+  const chain = [product, ...(m.chainDirs ?? []).flatMap((d) =>
+    readdirSync(join(root, d)).filter((f) => f.endsWith(".md")).map((f) => `${d.replace(/\/$/, "")}/${f}`))];
+  const homes = [...new Set(chain)].filter((f) => findRows(read(root, f), b.id).length > 0);
+  const mapping = m.crossTierMappings?.[b.id];
+  const ok = homes.length <= 1 || (mapping?.canonical === b.source && Boolean(mapping?.decision) && homes.includes(mapping.canonical));
+  note("one-id-one-meaning", subject, ok,
+    homes.length <= 1 ? "" : ok ? `rows in ${homes.join(", ")}; canonical ${mapping.canonical} (${mapping.decision})` : `rows in ${homes.join(", ")} with no recorded mapping`);
 }
 
 /** Post-build checkpoint. `evidencePath` is the Lane B evidence manifest named in the work order. */
@@ -267,6 +319,9 @@ export function completion(root, manifestPath, evidencePath) {
     note("result-pass", subject, i.result === "pass", String(i.result));
     for (const id of i.ids ?? []) {
       note("id-in-scope", `${subject} ${id}`, ids.has(id));
+      // `D-261`: the test file itself must name the scenario it proves — the manifest's `ids` field alone
+      // is a claim about the file, not evidence in it.
+      if (exists) note("test-names-scenario", `${subject} ${id}`, read(root, i.artifact).includes(id), i.artifact);
       covered.add(id);
     }
     if (exists && i.revision && head) {

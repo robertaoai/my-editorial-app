@@ -19227,3 +19227,57 @@ scenario IDs live in `FN-GATES-01-05.md` §4.4; `AC-11`/`AC-12` leave `V1-SM05`;
 It does not edit any held Product or Fn_Spec row, name a later packet for held `T5`/`T6` execution, or lift `D-171`.
 It does not push, create the Issue, create the branch, open the State-1 PR, select `V1-SM05`, issue a work order or
 change lane state. Readiness is complete; those acts each still need their own authorization (`D-253`/`D-254`).
+
+---
+
+## 5.14e86 `D-261` — Product Owner for the `V1-SM05` Slice (`US-15`/`FR-15`/`AC-23`–`AC-26`); Jev Product-Intent Parity; `DOR-R7` Reopened and Re-Closed
+
+**Authority: Judge rulings, 2026-09-24, to Lane A directly** — on `docs/handoff/B-134`: a new `[V1]` Product group
+`US-15`/`FR-15`/`AC-23`–`AC-26`; `V1-SM05` intake anchored to `AC-23`, keeping `AC-02`; Jev completion to require each
+test file to name its scenario ID; then, after an external review of the draft, "Apply D-261". Amends `D-260`, whose
+§4.4 scenarios stood in for Product intent they had no owner for (`D-29`).
+
+### The decision
+
+1. **Product owner.** `Modular_PRD.md` gains `US-15` (§4), `FR-15` (§5) and `AC-23` (normal path), `AC-24` (revision,
+   `W2`), `AC-25` (visible facts, display-only) and `AC-26` (refusals, duplicates, failures and exclusions) in §9.1, all
+   `[V1]`, with changelog 1.38. **No existing Product row changes.** `AC-23` requires the *stage-appropriate* selected role
+   (Reporter, Investigator, Journalist, Senior Journalist, Chief Editorial Desk), not one fixed role.
+2. **Customer anchors.** Direct: `CR-09` (intake) and `CR-19` (partially, `D-247`). **Context only:** `CR-01`, `CR-10` and
+   `CR-11` — `CR-11` ("every transition logged") as a direct anchor would re-import the transition logging Option A
+   excludes.
+3. **Every `FN-GATES-01-05.md` §4.3/§4.4 row names its Product anchor** in a new Product column (dated, `[V1]` marking
+   kept; no Given/When/Then text changed).
+4. **`V1-SM05` stops citing `AC-01`** (superseding `D-260`'s pin to `FN-GATES` §5's `[V1]` row) and keeps `AC-02`, whose
+   two tier rows agree in substance and are recorded as a `crossTierMappings` entry with `Modular_PRD` canonical.
+   `FR-01`–`FR-04` stay technical-transition targets; `FR-04`/`FR-05` appear in `V1-SM05` only as **display provenance**.
+5. **Jev Product-intent parity** (readiness) and the **test-names-scenario** rule (completion), specified in
+   `SPECS-VERIFICATION-APPARATUS.md` §18.2 and covered by self-test cases that each fail for their named reason. Jev
+   compares IDs and hashes; whether a scenario *means* its Product row stays a human review.
+6. **`DOR-R7` reopened, then re-closed** by the two-commit method: Commit A lands this pass with `DOR-R7` unchecked; a
+   readiness receipt is generated at that clean commit; Commit B records the receipt and re-checks the row.
+7. **Handoffs.** `B-134` → Answered / Applied. `Verified-By` on `B-131`–`B-133` normalized to the dispositioned form.
+   `B-130` is terminally `Deferred` and is not edited.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e86 |
+| **`docs/Modular_PRD.md`** | ✅ `US-15`, `FR-15`, `AC-23`–`AC-26`; changelog 1.38. §8 unaffected — no sprint closes, no tier opens |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ Product column on §4.3/§4.4; source line; `AC-01` note superseded |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-261` paragraph: scope, the two-commit method, `DOR-R7` state |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph — no file added or retired |
+| **`SPECS-VERIFICATION-APPARATUS.md`** | ✅ §18.2 Product-intent parity and the completion test-ID rule |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ Product anchors, display-provenance label, acceptance DoD row, `DOR-R7` reopened and re-closed |
+| **`docs/governance/requirements-traceability-map.md`** | ✅ §6.1 rows re-anchored to `FR-15`; `CR-09`/`CR-19` coverage rows; dated note |
+| **Storyboard Panel A11** | — unaffected: behaviour and scenario IDs unchanged, so no pointer changes |
+| **Phase closure** (`docs/v1/V1-PHASE-CLOSURE.md`) | — unaffected: no lane-state change |
+| **Frozen `docs/PRD.md`, Charter, Encyclopedia, rule files, `0001_init.sql`, application code** | — unaffected |
+| **Graphify** | Owed once after the last governed edit in this pass |
+
+### What this act does NOT do
+
+It does not change any existing Product row, lift `D-171`, or name a later packet for held `T5`/`T6` execution. It does
+not push, create the Issue, create the branch, open the State-1 PR, select `V1-SM05`, issue a work order or change lane
+state — each still needs its own authorization (`D-253`).

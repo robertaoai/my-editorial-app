@@ -504,6 +504,18 @@ acceptance item — wrapped lines included — with the behaviours pinned to tha
 shape (`AC-01`, `SM05-N1`), not only `AC-*`; decision, DoR, gap and handoff references on the line are not
 behaviours. The self-test gained a case for each. Row matching also strips build-origin tags such as `[V1]`.
 
+**Product-intent parity, added 2026-09-24 (`D-261`, raised by `B-134`).** Scope parity proves the packet, its
+scenarios and the manifest agree with each other; intent parity proves each behaviour descends from a live
+`Modular_PRD` row (`D-29`). A manifest that declares `productSource` gives every behaviour a `productAnchor`
+— `"self"` for a Product row, otherwise `{ requirement, acceptance[], disposition, rowHashes }` — and readiness
+fails when: the anchor is missing; the requirement or an acceptance row is absent, `[historical]` or
+`[decided_target_held]`; the acceptance row is owned by a different requirement; the disposition is not
+`active`; a pinned Product row has changed; the scenario row does not name its acceptance ID; or the same ID
+has rows in more than one chain document with no recorded `crossTierMappings` entry. These are hash- and
+ID-based comparisons, not semantic ones: whether a scenario *means* its Product row stays a human review.
+**Completion** additionally fails an evidence item whose test file does not contain each scenario ID it
+claims (`test-names-scenario`). The self-test covers every rule.
+
 **Receipt.** JSON: tool/version, mode, packet, evaluated commit and clean-tree flag, generation time,
 manifest and source hashes, every rule result, `advisories` (empty — no model output reaches the
 gate), outcome, and the fixed statement that it grants no authority. Readiness receipts for `V1` packets

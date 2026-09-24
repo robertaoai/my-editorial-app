@@ -133,7 +133,7 @@ Read this direction to answer: *"the customer asked for X — where did it go?"*
 | `CR-06` | TR-DM-01 (fields) | ⚠ **Partially covered.** The scoring the customer implied by "AI-detected signals" is **not computable on the current schema** (TC3), and Modular_PRD defers AT-030…032. → **FB-06** |
 | `CR-07` | FR-07, TR-DM-02, AC-11 | Covered. Customer's "who/when/why" is the exact phrase the team adopted |
 | `CR-08` | TR-DM-03 | Covered, **materially extended**: customer implies one target per article; the team specifies a per-target record with seven statuses, because "WordPress **OR** LinkedIn-ready" (CR-12) plus partial failure requires it (TC2). Elaboration → **FB-04** |
-| `CR-09` | FR-01, AC-01, AC-02 | Covered |
+| `CR-09` | FR-01, AC-01, AC-02; **FR-15/AC-23** for the `V1-SM05` business-record intake (`D-261`) | Covered |
 | `CR-10` | FR-02, FR-03, FR-04, FR-06 | Covered, **renamed**. Customer's five state names differ from the governing set's ten states. → **FB-01** |
 | `CR-11` | FR-07, AC-11, AC-12 | Covered, extended with Line assignment and independence status |
 | `CR-12` | FR-09, FR-10, AC-14…AC-16 | Covered |
@@ -143,7 +143,7 @@ Read this direction to answer: *"the customer asked for X — where did it go?"*
 | `CR-16` | NG-01, NG-02, NG-03 | Covered. NG-03 is reinforced at Charter level |
 | `CR-17` | NG-04, NG-05, NG-06, NG-07 | Covered |
 | `CR-18` | NG-08, NG-09 | Covered |
-| `CR-19` | O-01, K-01, K-02, `SC1`–`SC6`, AC-13 | Covered, **split**: the customer's single phrase "zero bypasses" becomes two criteria — sequence (unconditional) and independence (**provisional pending OD2**). The customer has not been told the second is conditional. → **FB-02** |
+| `CR-19` | O-01, K-01, K-02, `SC1`–`SC6`, AC-13; **FR-15/AC-23–AC-26** cover `V1-SM05`'s partial share (`D-247`, `D-261`) | Covered, **split**: the customer's single phrase "zero bypasses" becomes two criteria — sequence (unconditional) and independence (**provisional pending OD2**). The customer has not been told the second is conditional. → **FB-02** |
 
 ### Forward coverage
 
@@ -223,15 +223,15 @@ here.
 
 | Step | Business route/accountability | Gate executor (target) | CR/FR/AC anchor | Slot | Evidence contract |
 |---:|---|---|---|---|---|
-| 1 | Chief Editor prepares the source package outside the system | No transition | `CR-09`, `FR-01`, `AC-01`/`AC-02`, `SM05-N1` | `V1-SM05` | Manual record accepted by the UI — precondition for step 2 |
+| 1 | Chief Editor prepares the source package outside the system | No transition | `CR-09`; `FR-15`/`AC-23` (`SM05-N1`); `AC-02` | `V1-SM05` | Manual record accepted by the UI — precondition for step 2 |
 | 2a | `ROUTE-PROD-1` fixed for `V1-SM05` (no route chooser); Sheet 1 records Reporter `R`, Desk Editor `A` | Senior Journalist emits `EW`-start; no gate advances (`B-071` Round 56) | `CR-10` (route context, not itself an FR) | `V1-SM05` | **`UJ1` resolved** — order is: accepted manual record → Senior Journalist `EW` → `OP-PITCH` route classification → T1. Chief Editor does not execute `EW`/T1; Senior Journalist trigger does not complete T1 |
 | 2b | `OP-PITCH` records and completes the Route-1 classification | `OP-PITCH`'s own completion evidence; `EW` is its **entry trigger**, not the other way round (`factory-route-operation-crosswalk.md` §3.2 stage table) | `CR-10` | `V1-SM05` | Logged pitch: topic, trend signal, route classification — precedes T1. **`OP-PITCH`'s executor is resolved for Route-1**: Reporter, per the business judgment stage that selects it (`factory-route-operation-crosswalk.md` §4.1, `D-233`) — Sheet 2's source multi-`R` row is preserved, not overwritten |
-| 3 | Reporter performs the responsible intake work | Reporter executes `transition:T1` (target); `V1-SM05` records `business:T1` only | `FR-01`, `AC-01` (`FN-GATES` §5 `[V1]`)/`AC-02`, `SM05-N2` | `V1-SM05` (business record) | — |
-| 4 | Desk Editor remains route-accountable; not a gate executor | Investigator executes `transition:T2`/`T3` (target); `V1-SM05` records `business:T2`/`T3` only | `FR-02`, `SM05-N3`/`SM05-N4` | `V1-SM05` (business record) | — |
-| 5 | Route accountability unchanged | Journalist executes `transition:T4` (target); `V1-SM05` records `business:T4` only | `FR-03`, `SM05-N5` | `V1-SM05` (business record) | — |
-| 6 | Desk Editor `A` remains distinct from the T5 reviewer | Chief Editorial Desk executes `transition:T5` (target, held `D-171`); `V1-SM05` records the `business:T5` ranking and routing record only | `FR-04`, `SM05-N6` — `FR-04a`/`AC-05a`/`AC-06a` held (`D-260`) | `V1-SM05` (business record) | **`UJ2` resolved** — observable evidence is the work-order/route record's audit projection (`route_id`, `raci_scope=factory_route`, route `R`, route `A`), append-only; not a gate, button, or T5-style sign-off. `OP-FINAL-SIGNOFF`'s accepted A-only contract (`D-233`, `factory-route-operation-crosswalk.md` §4.1) is separate from this route-accountability evidence and does not backfill it |
+| 3 | Reporter performs the responsible intake work | Reporter executes `transition:T1` (target); `V1-SM05` records `business:T1` only | `FR-15`/`AC-23` (`SM05-N2`); `FR-01` is the transition target, not this slice's acceptance (`D-261`) | `V1-SM05` (business record) | — |
+| 4 | Desk Editor remains route-accountable; not a gate executor | Investigator executes `transition:T2`/`T3` (target); `V1-SM05` records `business:T2`/`T3` only | `FR-15`/`AC-23` (`SM05-N3`/`SM05-N4`); `FR-02` is the transition target only (`D-261`) | `V1-SM05` (business record) | — |
+| 5 | Route accountability unchanged | Journalist executes `transition:T4` (target); `V1-SM05` records `business:T4` only | `FR-15`/`AC-23` (`SM05-N5`); `FR-03` is the transition target only (`D-261`) | `V1-SM05` (business record) | — |
+| 6 | Desk Editor `A` remains distinct from the T5 reviewer | Chief Editorial Desk executes `transition:T5` (target, held `D-171`); `V1-SM05` records the `business:T5` ranking and routing record only | `FR-15`/`AC-23` (`SM05-N6`), `AC-25` for the display; `FR-04` display provenance only (`D-261`); `FR-04a`/`AC-05a`/`AC-06a` held (`D-260`) | `V1-SM05` (business record) | **`UJ2` resolved** — observable evidence is the work-order/route record's audit projection (`route_id`, `raci_scope=factory_route`, route `R`, route `A`), append-only; not a gate, button, or T5-style sign-off. `OP-FINAL-SIGNOFF`'s accepted A-only contract (`D-233`, `factory-route-operation-crosswalk.md` §4.1) is separate from this route-accountability evidence and does not backfill it |
 | 7 | Human Chief Editor is the final judgment owner, not Sheet 1's Desk Editor | Chief Editor executes `transition:T6` (target) | `FR-04`, `CR-12` | **Held — `D-171`** (`D-260`); no packet named | — |
-| 8 | Same route/accountability record persists through correction | Revision returns only the affected `business:T*` scope | `CR-11`, `SM05-RV1`/`SM05-RV2` — `FR-07`/`AC-11`/`AC-12` (transition-row audit) move with the transition increment (`D-260`) | `V1-SM05` (business record) | — |
+| 8 | Same route/accountability record persists through correction | Revision returns only the affected `business:T*` scope | `FR-15`/`AC-24` (`SM05-RV1`/`SM05-RV2`); `CR-11` context only (`D-261`) — `FR-07`/`AC-11`/`AC-12` (transition-row audit) move with the transition increment (`D-260`) | `V1-SM05` (business record) | — |
 | 9 | Route completion visible on the board | Board reads state/topic/category/audit | `CR-13`, `FR-08`, `AC-13` | `V1-SM06` | — |
 | 10 | Publication delivery does not redefine editorial accountability | Approved content becomes `ManualReady` | `CR-12`, `FR-09`/`FR-10`, `AC-14`–`AC-16` | `V1-SM06` | — |
 
@@ -239,6 +239,11 @@ here.
 contradicting §6.3's statement that the slice claims no `transition:T*` execution. They now say what `V1-SM05`
 records (`business:T*` only, `FN-GATES-01-05.md` §4.4 scenarios) and route technical `transition:T5`/`T6`
 execution to the existing `D-171` hold, naming no later packet. `Modular_PRD.md` §9 is unchanged.
+
+**Product owner — `D-261`, 2026-09-24 (`docs/handoff/B-134`).** The `V1-SM05` rows above now anchor to the new
+`[V1]` Product group `US-15`/`FR-15`/`AC-23`–`AC-26`. `FR-01`–`FR-04` remain the technical-transition targets they
+describe; `FR-04`/`FR-05` appear in `V1-SM05` only as display provenance; `CR-01`, `CR-10` and `CR-11` are context,
+not direct anchors.
 
 **Publication boundary and display anchors — added 2026-09-20 (`D-243`, `D-244`).**
 

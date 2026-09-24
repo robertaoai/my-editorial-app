@@ -121,9 +121,63 @@ withRepo(base({ "packet.md": PACKET(GOOD_MAP).replace("`AC-01` passes", "`AC-01`
 withRepo(base({ "packet.md": PACKET(GOOD_MAP).replace("`AC-01` passes", "`AC-01` passes (`D-242`, `DOR-R1`)") }), ({ root }) =>
   expect("decision/DoR references are not behaviours", readiness(root, "m.json"), null));
 
+// `D-261` (`B-134`): Product-intent parity — a separate fixture set that declares a Product source.
+console.log("intent parity");
+const PRODUCT = [
+  "| ID | Requirement | Priority |",
+  "|---|---|---|",
+  "| `FR-15` `[V1]` | Record business evidence | P0 |",
+  "| `FR-04a` `[decided_target_held]` | Held target | P0 |",
+  "",
+  "| ID | FR | AT source | Given | When | Then |",
+  "|---|---|---|---|---|---|",
+  "| `AC-23` `[V1]` | FR-15 | — | A commission | It runs | Records are appended |",
+  "| `AC-30` `[V1]` | FR-99 | — | Other | Other | Other |",
+  "| `AC-05a` `[decided_target_held]` | FR-04a | — | Held | Held | Held |",
+  "",
+].join("\n");
+const FN_ROW = "| `SM-N1` | A commission | It runs | Records are appended | `FR-15` / `AC-23` |";
+const fnDoc = (rowLine) => ["| Scenario | Given | When | Then | Product |", "|---|---|---|---|---|", rowLine, ""].join("\n");
+const acRow = (id) => PRODUCT.split("\n").find((l) => l.startsWith(`| \`${id}\``)).trim();
+const ANCHOR = (over = {}) => ({
+  source: "product.md", requirement: "FR-15", acceptance: ["AC-23"], disposition: "active",
+  rowHashes: { "AC-23": sha256(acRow("AC-23")) }, ...over,
+});
+const IM = (anchor = ANCHOR(), over = {}, rowLine = FN_ROW) => ({
+  ...MANIFEST(), productSource: "product.md", chainDirs: ["fn"],
+  behaviours: [{ id: "SM-N1", source: "fn/spec.md", dod: "Acceptance cases", rowHash: sha256(rowLine), productAnchor: anchor }],
+  ...over,
+});
+const ipacket = PACKET(GOOD_MAP).replace("`AC-01` passes", "`SM-N1` passes");
+const ibase = (over = {}) => ({ "product.md": PRODUCT, "fn/spec.md": fnDoc(FN_ROW), "packet.md": ipacket, "m.json": IM(), ...over });
+const held = ANCHOR({ requirement: "FR-04a", acceptance: ["AC-05a"], rowHashes: { "AC-05a": sha256(acRow("AC-05a")) } });
+const bare = FN_ROW.replace(" / `AC-23`", "");
+const dual = PRODUCT + "| `SM-N1` | FR-15 | — | Different | Different | Different |\n";
+
+withRepo(ibase(), ({ root }) => expect("positive intent fixture passes", readiness(root, "m.json"), null));
+withRepo(ibase({ "m.json": IM(null) }), ({ root }) =>
+  expect("scenario with no Product anchor", readiness(root, "m.json"), "product-anchor-present"));
+withRepo(ibase({ "m.json": IM(held) }), ({ root }) => {
+  const r = readiness(root, "m.json");
+  expect("held Product acceptance used as build acceptance", r, "product-acceptance-live");
+  expect("held Product requirement used as owner", r, "product-requirement-live");
+});
+withRepo(ibase({ "m.json": IM(ANCHOR({ acceptance: ["AC-30"], rowHashes: { "AC-30": sha256(acRow("AC-30")) } })) }), ({ root }) =>
+  expect("acceptance row owned by a different requirement", readiness(root, "m.json"), "acceptance-owned-by-requirement"));
+withRepo(ibase({ "m.json": IM(ANCHOR({ disposition: "held" })) }), ({ root }) =>
+  expect("anchor disposition not active", readiness(root, "m.json"), "anchor-disposition-active"));
+withRepo(ibase({ "product.md": PRODUCT.replace("Records are appended |", "Records are appended and more |") }), ({ root }) =>
+  expect("Product row edited after pinning", readiness(root, "m.json"), "product-row-pinned"));
+withRepo(ibase({ "fn/spec.md": fnDoc(bare), "m.json": IM(ANCHOR(), {}, bare) }), ({ root }) =>
+  expect("scenario row does not name its Product acceptance", readiness(root, "m.json"), "scenario-cites-anchor"));
+withRepo(ibase({ "product.md": dual }), ({ root }) =>
+  expect("one ID with two rows and no mapping", readiness(root, "m.json"), "one-id-one-meaning"));
+withRepo(ibase({ "product.md": dual, "m.json": IM(ANCHOR(), { crossTierMappings: { "SM-N1": { canonical: "fn/spec.md", decision: "D-999" } } }) }), ({ root }) =>
+  expect("one ID with two rows and a recorded mapping passes", readiness(root, "m.json"), null));
+
 console.log("completion");
 function completionRepo(itemsFor, mutate) {
-  const r = repo(base({ "__tests__/ac01.test.ts": "// test", "__tests__/refusal.test.ts": "// test" }));
+  const r = repo(base({ "__tests__/ac01.test.ts": "// AC-01 — failing-first, then passing", "__tests__/refusal.test.ts": "// test" }));
   const rr = readiness(r.root, "m.json");
   const rrText = JSON.stringify(rr, null, 2);
   writeFileSync(join(r.root, "readiness.json"), rrText);
@@ -143,6 +197,11 @@ const cases = [
   ["acceptance case with no failing-first run", (h) => goodItems(h).map((i) => ({ ...i, failingFirst: undefined })), null, "failing-first"],
   ["a result that is not pass", (h) => goodItems(h).map((i, n) => (n ? { ...i, result: "fail" } : i)), null, "result-pass"],
   ["an ID outside the pinned scope", (h) => goodItems(h).map((i, n) => (n ? i : { ...i, ids: ["AC-99"] })), null, "id-in-scope"],
+  ["a test file that does not name the scenario it proves", goodItems, ({ root, run }) => {
+    writeFileSync(join(root, "__tests__/ac01.test.ts"), "// unnamed test");
+    run("add", "-A");
+    run("commit", "-q", "-m", "drop id");
+  }, "test-names-scenario"],
   ["an artifact that does not exist", (h) => goodItems(h).map((i, n) => (n ? i : { ...i, artifact: "__tests__/gone.test.ts" })), null, "artifact-exists"],
   ["artifact edited after its recorded revision", goodItems, ({ root, run }) => {
     writeFileSync(join(root, "__tests__/ac01.test.ts"), "// changed");

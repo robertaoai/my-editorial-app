@@ -161,6 +161,16 @@ behaviour. Jev's scope parity now covers every ID shape. `DOR-R7` is checked on 
 receipt evaluated at a clean commit; **every `V1-SM05` DoR row is now checked.** Issue, push, branch and
 State-1 PR remain separately authorized acts (`D-253`).
 
+**`D-261` — Product owner for the slice; `DOR-R7` reopened, then re-closed (2026-09-24).** `docs/handoff/B-134`
+showed the `D-260` receipt proved only that the lower tiers agree with each other: the §4.4 scenarios had no
+`Modular_PRD` owner, and `AC-01` carried two meanings. `Modular_PRD.md` now owns the slice as `US-15`/`FR-15`
+with `AC-23`–`AC-26`; every `FN-GATES-01-05.md` §4.3/§4.4 row names its Product anchor; `V1-SM05` stops citing
+`AC-01` and keeps `AC-02`; `FR-01`–`FR-04` stay technical-transition targets and `FR-04`/`FR-05` appear only
+as display provenance. Jev readiness adds **Product-intent parity** and Jev completion requires each test file to
+name the scenario ID it proves. **Method:** Commit A lands the specs, manifest and engine with `DOR-R7`
+unchecked; a readiness receipt is generated at that clean commit; Commit B records the receipt and re-checks
+`DOR-R7`. Push, Issue, branch and State-1 PR remain separately authorized acts (`D-253`).
+
 ## 2. Sequence
 
 ```
