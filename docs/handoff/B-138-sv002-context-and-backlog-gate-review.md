@@ -7,27 +7,31 @@
 - **Status:** Open
 - **Lane A:**
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge clarifications supplied directly, 2026-09-25; repository comparison at the commit below against `D-75`, `D-227`, `D-264`, `SV-002.md` §§2–7, `SV2-U03-code-navigation-evaluation.md`, `B-130`, `B-136`, `B-137`, the three instruction files, `shared-core-hash.mjs`, the Phase Closure lane table, the Open handoff headers and the cross-artifact sources below; Lane C's supplied reviews are supporting analysis, not Lane A receipt
-- **Verified-At-Commit:** c15a907f849ff9fa166dec38f9ef5e4783cc4b71
+- **Evidence:** Judge clarifications supplied directly, 2026-09-25; repository comparison at the commit below against `D-75`, `D-227`, `D-264`, `SV-002.md` §§2–7, `SV2-U03-code-navigation-evaluation.md`, `B-130`, `B-136`, `B-137`, the three instruction files, `shared-core-hash.mjs`, the Phase Closure lane table, the Open handoff headers and the cross-artifact sources below; Lane C's supplied Level 2 reviews are supporting analysis, not Lane A receipt
+- **Verified-At-Commit:** 294dbc86f8f0ecdd3120039e48203c475269e3da
 
 ## What happened
 
-The Judge has now clarified three points that supersede the caution in Lane B's uncommitted
-first draft of this entry. **First**, the lanes should be optimized for conversational handoff
-and execution: Claude Cowork handles Lane A handoff dialogue while Claude Code owns Lane A
-sources; ChatGPT Chat/Work raises and reviews Lane B handoffs while ChatGPT Code/Codex owns
-Lane B code; Antigravity Chat reviews handoffs while Antigravity IDE owns Lane C workflows.
+The Judge has clarified the lanes' conversational and execution roles. Claude Cowork handles
+Lane A handoff dialogue while Claude Code owns Lane A governance and docs; ChatGPT Chat/Work
+raises Lane B handoffs and provides Level 1 review to Lane A/C while ChatGPT Code/Codex owns
+Lane B code and scripting; Antigravity Chat provides Level 2 review to Lane A/B while
+Antigravity IDE owns Lane C DevOps workflows.
 These are roles **inside the existing three lanes**, not six independent owners, six commit
 locks or new directory rights. `D-227`'s single Lane A canonical owner remains Claude Code.
+Level 1 and Level 2 describe review sequence; a change to the handoff's single
+`Verified-By` audit rule would need a separate governed change.
 
-The Judge also clarifies that `AGENTS.md` is a cross-platform instruction file, not a
-Codex-only silo: a non-Gemini model in Antigravity may consume it. Lane A should evaluate
-`CLAUDE.md` referencing `@AGENTS.md` and a Gemini-specific instruction path for Antigravity.
-The Judge wrote `GEMINI.ini`; the existing setup records instead discuss `GEMINI.md`. The
-exact intended filename and its discovery behaviour are unresolved, so this handoff
-authorizes neither filename nor a root-file edit. The loader protocol must test which
-file each actual tool/model combination reads and whether a reference expands, while
-preserving each platform's distinct operational tail.
+`AGENTS.md` is the cross-platform base for Codex and non-Gemini Antigravity models,
+with a Judge target of **strictly fewer than 6,000 characters**. `CLAUDE.md` is to
+inherit that base using `@AGENTS.md` references and remain **under the 300-line soft
+limit**, retaining Claude-specific instructions. The Judge has resolved the filename
+to **`GEMINI.md`**, dedicated to Gemini models in Antigravity for long-context reviews.
+These are approved design targets, but actual discovery, import expansion and effective
+loaded text still need the `SV2-U02` consumer measurements. The target also needs a
+governed rewrite of the shared-core/preamble checker and fixtures in the same pass as
+any rule-file edit; shortening one physical file does not by itself reduce loaded text
+or preserve parity.
 
 At this read state, `AGENTS.md` measures **31,649 characters / 31,920 UTF-8 bytes**,
 `CLAUDE.md` **29,449 characters / 29,709 bytes**, and `.agents/rules/graphify.md`
@@ -41,7 +45,7 @@ into two sub-12,000-character files, breaks that contract unless Lane A redesign
 the source boundaries and checker together. A shorter `CLAUDE.md` also does not prove
 a shorter *loaded* instruction set if `@AGENTS.md` expands in full.
 
-**Second**, the Judge requests `ripwire` review **and setup for ChatGPT and Antigravity** because
+The Judge requests `ripwire` review **and setup for ChatGPT and Antigravity** because
 of a stated 12,000-size constraint on skill files. That instruction changes the planned
 `SV2-U03` work: Lane A should prepare a bounded setup for both consumers, not merely repeat
 its prior waiver recommendation. The **12,000-character skill-file constraint** is the
@@ -53,10 +57,21 @@ the actual loaded text and failure mode. `ripwire` can reduce code-navigation ou
 cannot itself restore governance instructions that a loader failed to load, and it does
 not shrink the Graphify skill file. Skill decomposition needs its own measured,
 cross-consumer remediation and a reproducible source for the external installed skill.
+The Judge now specifies **co-existence**: trim Graphify's skill to semantic summaries
+under 12,000 characters and use Ripwire for structural code navigation. The upstream
+Ripwire project's **74.7% fewer bytes** figure compares packed signatures against full
+function bodies at top-50 on its benchmark tree; it does not predict this repository's
+output, shrink the Graphify skill automatically or prove a loader fix. An Antigravity
+skill must be a directory containing `SKILL.md`, so Lane C's proposed
+`mkdir -p ~/.gemini/config/skills/ripwire.md` is an invalid install recipe. The
+ChatGPT MCP bridge is a candidate integration to test for the actual ChatGPT/Codex
+consumer; an MCP-capable Ripwire binary alone does not establish that connection.
+Primary tool-format sources: [Google's Antigravity skill codelab](https://codelabs.developers.google.com/getting-started-with-antigravity-skills)
+and [Ripwire's upstream README](https://github.com/redhat-et/ripwire).
 The first SM05 slice is SQL-heavy. The current `SV2-U03` evaluation says `ripwire`
 does not parse SQL or PL/pgSQL; setup needs an SQL navigation fallback and measured benefit.
 
-**Third**, the Judge wants Lane A to stop compressing Open issues into a generic remainder or
+The Judge wants Lane A to stop compressing Open issues into a generic remainder or
 speaking of lifting the SM05 block as the immediate next step. `D-264` requires four separate
 `SV2-U*` returns, Judge acceptance of `SV-002`, and a **separate** block-lifting act. The
 Open handoffs must remain visible with their own owners and return conditions. A priority
@@ -88,23 +103,33 @@ then a **separate** block decision; selection, work order and lane transition re
 own governing acts. The runner prints its check count (`G75`); a fixed “18/18” is not a
 handoff acceptance condition.
 
-Lane C's newest architectural challenge usefully exposed the missing cross-platform
-instruction-file route and the much larger installed Graphify skill. It also conflates
+Lane C's earlier architectural challenge exposed the missing cross-platform
+instruction-file route and the much larger installed Graphify skill. It also conflated
 **readiness for Lane A review and specification** with **readiness to execute `SV2-U*`**:
 the former is this handoff's purpose; all six `SV2-DOR-*` rows remain unchecked, so the
-latter is barred. Its proposed immediate `@AGENTS.md` and root `GEMINI.md` edits would
-precede the loader result and fail the present shared-core check without a parallel
-checker redesign. Its suggested
+latter is barred. The Judge has since supplied the rulebook targets and resolved
+`GEMINI.md`, but applying them before loader characterization would still fail the present
+shared-core check without a parallel checker redesign. Lane C's suggested
 fixed decision number is unassigned at this read state. Its claim that a blank Lane A
 receipt makes the handoff impermissible to file reverses the channel: `D-184` allows the
 one-entry handoff commit; `handoff-response` deliberately remains red until Lane A
 acknowledges. Lane A should receive this entry promptly, then restore the check without
 inventing its acknowledgement in Lane B's text.
 
+The latest Level 2 review correctly repeats the Judge's new pruning targets and
+Ripwire/Graphify division. Its suggested `ripwire.md` directory is not a valid
+Antigravity skill package; the target must be a skill directory with `SKILL.md` and
+the installed consumer must discover it. The review's “top five plus remaining nine”
+mixes work groups with handoff IDs: the live header scan at this read state has
+**15 Open entries**, including B-138. Keep the priority groups and all 15 IDs visible
+without turning either snapshot into a second status authority. The proposed dual
+Level 1/Level 2 sign-off and fixed check count also need a Register/SOP decision,
+not a silent change to the current single independent `Verified-By` field or `G75`.
+
 ### Lane C's readiness challenge — disposition before handoff
 
 Lane C correctly identifies a closure risk if B-138 is treated as the work packet for every
-setup unit. **B-138 is one routing transaction for the Judge's three clarifications.** Lane A
+setup unit. **B-138 is one routing transaction for the Judge's clarifications.** Lane A
 can answer it once it records the parent decision, places the loader protocol with `SV2-U02`,
 the two-consumer tool setup with `SV2-U03`, and the item-level backlog review with `SV-002`
 §§2/4. Lane B can verify that routing independently. The measurements, tool trial and
@@ -150,11 +175,11 @@ consumer trials under `SV2-U03`.
 
 1. **Record the Judge's parent clarification and receive this entry.** Lane A acknowledges
    B-138 in its own field, then records the tool-role descriptions, cross-platform
-   instruction architecture to be evaluated, the 12,000-character skill-file constraint,
-   and the bounded `ripwire` setup direction in the Register. Resolve the intended
-   Gemini instruction filename before specifying an edit. Route each child concern to
-   its existing
-   `SV-002` owner and record the destination; this is the bounded B-138 return proof.
+   instruction architecture and its `<6,000`-character `AGENTS.md`, `<300`-line
+   `CLAUDE.md`, `GEMINI.md` and `<12,000`-character skill targets, and the bounded
+   Ripwire/Graphify co-existence direction in the Register. Route each child concern
+   to its existing `SV-002` owner and record the destination; this is the bounded
+   B-138 return proof.
    Preserve one `Active` lane, existing surfaces,
    `D-227` single ownership and the live Phase Closure state. Apply `D-54`: Build Spec
    sequence/DoD and Inventory paths in the same pass if setup creates or changes artifacts;
@@ -174,7 +199,9 @@ consumer trials under `SV2-U03`.
    provisioning. Specify pinned version and source, Windows installation path, binary integrity check, security and
    removal procedure, exact commands, output-size measurement, and which results each
    consumer can obtain. Lane A provisions dependencies under `D-86`; Lane B and Lane C test
-   their own use when selected. Compare one named first-child navigation task with `rg`/tests
+   their own use when selected. Specify an Antigravity skill directory containing
+   `SKILL.md`, and verify whether the ChatGPT/Codex consumer can actually connect to
+   Ripwire's MCP server. Compare one named first-child navigation task with `rg`/tests
    and one negative control; include the SQL path that `ripwire` cannot parse. Record what
    the setup improves and what loader problem, if any, remains. Permanent instruction
    redesign, a Gemini-specific file or shared-core parity changes require their own governed proof.
@@ -183,10 +210,11 @@ consumer trials under `SV2-U03`.
    `SV2-U01` independent review; (2) `SV2-U02`/B-130 loader protocol and Lane B/C runs;
    (3) `SV2-U03` two-consumer `ripwire` review/setup; (4) `SV2-U04` matrix consuming
    B-071, B-095, B-104 and B-137 R1; (5) item-level transfer and remaining-backlog
-   audit before any `SV-002` closure claim. This is a **dependency view at this read
-   commit**, not a new fixed queue or permission for a `Blocked` lane to execute.
+   audit before any `SV-002` closure claim. These are work groups, **not five handoff
+   entries**. This is a dependency view at this read commit, not a new fixed queue or
+   permission for a `Blocked` lane to execute.
 
-   | Remaining Open handoffs at the read commit | Existing route to keep visible |
+   | All Open handoffs at the read commit | Existing route to keep visible |
    |---|---|
    | `B-138`, `B-136`, `B-130` | Parent setup docket and loader unit; dispositions in their own entries |
    | `B-071`, `B-095`, `B-104` | `SV2-U04` contract inputs; each child keeps its owner and proof |
@@ -212,9 +240,11 @@ consumer trials under `SV2-U03`.
   are in the owning records;
   Lane B independently compares that routing at an existing commit. The downstream
   `SV2-U*` results are not prerequisites to verifying this handoff.
-- The Register and affected tracking tiers state the Judge's operational roles and
-  `ripwire` review/setup direction without multiplying lane owners or commit locks.
-- The Judge's 12,000-character skill-file constraint is recorded as a design input.
+- The Register and affected tracking tiers state the Judge's Level 1/Level 2 review
+  roles, instruction-file targets and Ripwire/Graphify co-existence direction without
+  multiplying lane owners or commit locks.
+- The Judge's `<6,000`-character `AGENTS.md`, `<300`-line `CLAUDE.md` and
+  `<12,000`-character skill targets are recorded as design inputs.
   `SV2-U02` measures enforcement and affected loaders before any broader
   rule-file or prompt-cap claim; any rewrite preserves governance reach and updates
   the parity check and its tests in the same governed pass.
@@ -224,7 +254,7 @@ consumer trials under `SV2-U03`.
 - `SV2-U03` has a bounded, reproducible ChatGPT and Antigravity setup receipt, a SQL
   fallback, output-size comparison, negative control and consumer feedback; any inability
   to run under current lane state is recorded as a return condition, not silently waived.
-- The top-five work view and every remaining Open handoff above have a live source and a
+- The top-five work view and every Open handoff above have a live source and a
   relevance or exclusion decision before transfer completeness is claimed.
 - `V1-SM05` stays `BLOCKED` until all four unit returns, Judge acceptance of `SV-002`, and
   a separate unblocking act are recorded.
@@ -238,9 +268,9 @@ state or claim a setup-unit result.
 
 | Verdict | Tier / item | Follow-up phase |
 |---|---|---|
-| **Approve** | Judge's tool roles, cross-platform `AGENTS.md` purpose, skill-file constraint and visible Open-item tracking | Phase 1 — Lane A records and propagates the bounded clarification |
-| **Approve-with-conditions** | B-138 routing and `ripwire` review/setup direction for both consumers | Phase 1 — Lane A records the Judge act and routes the work; Lane B verifies that bounded handoff |
-| **Defer** | `@AGENTS.md` transclusion, Gemini-specific file and Graphify skill decomposition | Phase 1 — measure the real loader paths under `SV2-U02`, identify the external skill's source, then decide and verify a bounded correction |
+| **Approve** | Judge's tool/review roles, cross-platform `AGENTS.md`, `GEMINI.md`, rulebook targets, skill-file constraint and visible Open-item tracking | Phase 1 — Lane A records and propagates the bounded clarification |
+| **Approve-with-conditions** | B-138 routing and Ripwire/Graphify co-existence direction for both consumers | Phase 1 — Lane A records the Judge act and routes the work; Lane B reviews the routing independently |
+| **Approve-with-conditions** | `@AGENTS.md` inheritance, Gemini-specific file and Graphify skill decomposition | Phase 1 — measure actual loader paths under `SV2-U02`, identify the external skill's source, then apply a governed correction with updated parity checks and consumer proof |
 | **Defer** | Physical `ripwire` provisioning and consumer acceptance | Phase 1 — evidenced `SV-002` DoR, `SV2-U02` measurement, then pinned Windows setup and selected-lane tests under `SV2-U03` |
 | **Defer** | `SV2-U01`–`U04` completion and `V1-SM05` unblock | Phase 1 — each unit's proof, Judge acceptance of `SV-002`, then a separate block decision |
-| **Reject** | Treating `Applied` as terminal, treating byte counts as character counts, extending the skill-file constraint to unmeasured rule-file or prompt limits, using `ripwire` as a loader repair, executing units before DoR, making the snapshot a second backlog, or treating B-137 verification as setup closure | All phases — the owning evidence and gates remain necessary |
+| **Reject** | Treating `Applied` as terminal; byte counts as character counts; Ripwire's 74.7% benchmark as this repo's measured saving; `ripwire.md` as a skill directory; the skill-file constraint as a universal prompt limit; tool setup as a loader repair; executing units before DoR; top-five groups plus nine IDs as the Open count; or B-137 verification as setup closure | All phases — the owning evidence and gates remain necessary |
