@@ -19442,6 +19442,11 @@ Does not reopen or credit `S2`–`S4`, select `V1-SM05`, issue a work order, cha
 feature tests, hosted migration or deployment, install `ripwire`, adopt a root `GEMINI.md` or any size cap, or bulk-close
 any handoff. It does not re-check or copy `SV-001`'s rows.
 
+### Completion note, 2026-09-25 (Lane A consolidation review)
+
+The Build Spec tier row above says §1 records SM05 `BLOCKED`. The §1 paragraph did, but the §1 status table still read
+"Not started; not selected". The table cell now carries the `BLOCKED` status as well. Nothing else changes.
+
 ## 5.14e90 `D-265` — `B-137` Source-Correction Packet (R1–R5, R7); R1 Is a Blocking Input to `SV2-U04`; Improvement C Deferred
 
 **Authority: Judge approval, 2026-09-25, to Lane A directly.** Q1: *"yes proceed B-137 correction packet"*; Q2: R1 is a

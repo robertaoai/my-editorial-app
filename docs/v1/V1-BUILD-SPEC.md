@@ -28,7 +28,7 @@ meaning unchanged** — they predate the namespace split and are not renumbered 
 
 | Qualified ID | MMF | Status | Meaning |
 |---|---|---|---|
-| `V1-SM05` | `MMF-V1-CORE` | Not started; not selected | First working-software increment — a **limited Route-1 evidence slice** (`D-249`): it records and displays accepted business-stage, role, task and evidence facts and does not claim `transition:T*` execution |
+| `V1-SM05` | `MMF-V1-CORE` | Not started; not selected. **`BLOCKED`** (packet status, `D-264`): `SETUP-SPIKE-000` attempt `SV-002` open | First working-software increment — a **limited Route-1 evidence slice** (`D-249`): it records and displays accepted business-stage, role, task and evidence facts and does not claim `transition:T*` execution |
 | `V1-SM06` | `MMF-V1-USABLE` | Not started; not selected | Second increment — **board/audit visibility and the bounded LinkedIn `ManualReady` event** (`D-243`, `D-249`); it creates no `Published` state, no automated WordPress delivery and no live-URL confirmation |
 
 **Current boundary and partial `CR-19` (`D-247`–`D-251`, 2026-09-21).** V1 is `V1-SM05` and `V1-SM06` and
