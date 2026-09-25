@@ -755,7 +755,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 | Aspect | Detail |
 |---|---|
 | **Platforms** | Web only, desktop-first. WordPress REST; LinkedIn manual until OAuth review; Facebook manual in v1 |
-| **Migration** | `0001_init.sql` is never edited. `0002_three_lines.sql` is additive: new state enum alongside the old, backfill, cut over, drop later. **Written but not applied under this plan** **Corrected 2026-09-25 (`D-265`):** no `0002_three_lines.sql` exists; the delivered candidate is `supabase/migrations/0002_s1_editorial_schema.sql`, replayed on disposable local PostgreSQL only; **not applied to hosted Supabase** (`D-252`; live behaviour unverified under `DEP-05`). It is allocated to `V1-SM05` |
+| **Migration** | `0001_init.sql` is never edited. ~~`0002_three_lines.sql` is additive: new state enum alongside the old, backfill, cut over, drop later. **Written but not applied under this plan**~~ **Corrected 2026-09-25 (`D-265`):** no `0002_three_lines.sql` exists; the delivered candidate is `supabase/migrations/0002_s1_editorial_schema.sql`, replayed on disposable local PostgreSQL only; **not applied to hosted Supabase** (`D-252`; live behaviour unverified under `DEP-05`). It is allocated to `V1-SM05` |
 | **Backward compatibility** | Seed data must survive migration with corrected states. The seed rows encoding an agent-executed T5 are **corrected, not preserved** (X4) |
 | **Rollback** | Git revert plus a down-migration per `0002` step. **Untested — no staging environment exists** |
 

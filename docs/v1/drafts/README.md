@@ -1,5 +1,11 @@
 # `docs/v1/drafts/` — the hold location for migrations that must not be applied
 
+> **Historical — superseded 2026-09-25 (`D-265`).** This directory holds nothing and never will: the
+> `0002_three_lines.sql.draft` it was made for will not be written. The delivered candidate is
+> `supabase/migrations/0002_s1_editorial_schema.sql`, replayed on disposable local PostgreSQL only and not applied to
+> hosted Supabase (`D-252`; `DEP-05`). Every instruction below about writing, holding or promoting that draft is
+> history, not a current instruction. The standing rule at the end still holds.
+
 **Named by `D-91`, closing `G27`. The location was already asserted here** in the register's
 `D-68` rationale (§5.14, *"`G27` holds its draft outside the apply path at `docs/v1/drafts/`"*)
 **and never decided anywhere.** `D-91` records the decision so the directory exists rather than
@@ -16,13 +22,13 @@ until every S1 window decision has settled.
 
 | File | Status |
 |---|---|
-| `0002_three_lines.sql.draft` | **Not yet written.** `G64` and `Q11` are both resolved (`D-112`, `D-111`) and the S1 window's `C-30` closed with authorization unconditional (`D-114`) — the naming/schema blockers are gone. **Not written because Lane B, who owns this artifact, is `Blocked`** (`D-156`), not because of `Q11`/`G64` **Corrected 2026-09-25 (`D-265`):** **superseded — this draft will not be written.** The delivered candidate is `supabase/migrations/0002_s1_editorial_schema.sql`, replayed on disposable local PostgreSQL only; **not applied to hosted Supabase** (`D-252`; live behaviour unverified under `DEP-05`) |
+| ~~`0002_three_lines.sql.draft`~~ | ~~**Not yet written.** `G64` and `Q11` are both resolved (`D-112`, `D-111`) and the S1 window's `C-30` closed with authorization unconditional (`D-114`) — the naming/schema blockers are gone. **Not written because Lane B, who owns this artifact, is `Blocked`** (`D-156`), not because of `Q11`/`G64`~~ **Corrected 2026-09-25 (`D-265`):** **superseded — this draft will not be written.** The delivered candidate is `supabase/migrations/0002_s1_editorial_schema.sql`, replayed on disposable local PostgreSQL only; **not applied to hosted Supabase** (`D-252`; live behaviour unverified under `DEP-05`) |
 
 **The extension is `.sql.draft`, not `.sql`.** A `.sql` file is something a tool will
 eventually run; the double extension makes the file inert to every runner and to editor
 tooling that auto-detects migrations.
 
-## The blocker — do not write the draft yet
+## ~~The blocker — do not write the draft yet~~ *(historical, `D-265`: `G64`/`Q11` resolved by `D-111`/`D-112`; no draft will be written)*
 
 **Irreversibility begins when the draft is written, not when S1 opens.** That is the first
 moment a field name is committed to text an executor will apply.
@@ -44,8 +50,8 @@ draft here is a declared crossing** — `.githooks/commit-msg` will require a
 `Lane-Crossing:` trailer (`D-88`), and that is correct: this file's whole purpose is to keep a
 Lane B artifact out of the Lane B directory that would execute it.
 
-**When the draft is promoted**, it moves to `supabase/migrations/0002_three_lines.sql` as a
-single-lane Lane B commit, and the move is what "applied" means. **Corrected 2026-09-25 (`D-265`):** historical — no draft is held here. Under `D-252`, "migration" means application to the persistent hosted Supabase environment, not a move into `supabase/migrations/`.
+~~**When the draft is promoted**, it moves to `supabase/migrations/0002_three_lines.sql` as a
+single-lane Lane B commit, and the move is what "applied" means.~~ **Corrected 2026-09-25 (`D-265`):** historical — no draft is held here. Under `D-252`, "migration" means application to the persistent hosted Supabase environment, not a move into `supabase/migrations/`.
 
 ## Standing rule
 

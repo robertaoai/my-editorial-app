@@ -90,7 +90,7 @@ stated in a sentence is not an authoritative row, and an abbreviated name is not
 **`TC3` blocks this section.** The scoring inputs do not exist in `0001_init.sql` —
 `sources.reliability_tier`, `articles.source_id`, `trend_signals.engagement_metrics`,
 `evidence_url`, `reviewer_confidence`, `topics.evolves_from` are all absent. These variables are
-**declarable now and not computable until `0002`.** Declaring them is not a claim that they work.
+**declarable now and** ~~**not computable until `0002`.**~~ *(superseded: `0002` is not sufficient — see the `D-265` note below)* Declaring them is not a claim that they work.
 
 **Corrected 2026-09-25 (`D-265`):** `0002_s1_editorial_schema.sql` adds five of these inputs — `sources.reliability_tier` (line 132), `articles.source_id` (94), `trend_signals.evidence_url`/`reviewer_confidence` (144–145) and `topics.evolves_from` (137) — replayed locally only (`D-252`). `trend_signals.engagement_metrics` is **still absent**, and **no scoring engine consumes `TREND_WEIGHTS`**, so the score is still not computable. The weights are unchanged.
 

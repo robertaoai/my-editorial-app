@@ -19492,3 +19492,12 @@ blocking input to `SV2-U04` and R2–R5/R7 are non-blocking; Q3: Improvement C i
 
 Does not decide A6 or touch `B-106`, build a scheduler, score or check, rename any code symbol, apply `0002` to hosted
 Supabase, reopen `B-085`/`B-061`, add a fifth `SV-002` blocker, or lift the `V1-SM05` block.
+
+### Correction to item 1, 2026-09-25 (Lane B independent review, `docs/handoff/B-137`)
+
+Item 1's claim that every stale clause was struck through was **not true at `0d4fc73`**. For R1 (the `Modular_PRD`
+Migration row, the Inventory drafts row, the drafts README's status, blocker section and promotion sentence, and
+`FN-PUBLICATION` §7 `TR-DM-03`), R4 (`CONFIG_LOG.md`'s "not computable until `0002`") and R5 (`FN-PUBLICATION`
+§10's "remain open and both gate S4", plus the adjacent §8 pointer), the successor was appended but the old
+instruction was left operative. The follow-up commit strikes each of them at the point of use and adds a historical
+banner to the drafts README, applying item 1's rule as written. No other part of `D-265` changes.
