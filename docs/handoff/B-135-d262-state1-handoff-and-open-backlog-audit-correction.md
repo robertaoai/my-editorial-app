@@ -8,10 +8,10 @@
 - **Lane A:** Acknowledged 2026-09-25, receipt only. The three stale State-1 records are confirmed at `9dba71c`: `D-262` item 4, `D-262`'s Build Spec tier row, and `V1-SM05.md`'s "defined, not complete" sentence. Graphify also lags (`9b2ddf3`). Correction waits on the Judge's Pass-1 act (`D-183`); the Issue #1 checkbox is an external mutation, raised separately.
 
   **Answered 2026-09-25 (`D-263`), Judge Pass-1 approval.** Item 1: `D-262` item 4 and its tier row carry dated corrections (PR #2 exists), and the DoR-status sentence in `V1-SM05.md` carries a dated current-fact note; the external Issue checkbox is left to the Chief Editor. Item 2: Graphify rebuilt after the commit. Item 3: `B-120`/`B-125` progress notes. Items 4–6 (boundary, construction, older-entry audit) remain with `B-136` Parent 3 and per-entry review. `Verified` is Lane B's to record.
-- **Resolution:** Applied
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), 2026-09-25
 - **Evidence:** `D-253`; `D-254`; `D-261`; `D-262`; commits `719e72b`, `9b2ddf3`, `221c9d4`, `9dba71c`; `docs/handoff/B-071`, `B-117`–`B-120`, `B-125`, `B-134`; `docs/v1/V1-DECISION-REGISTER.md` §5.14e87; `docs/v1/work-packets/V1/V1-SM05.md`; Jev readiness and self-test runs; full consistency run at the commit below
-- **Verified-At-Commit:** 9dba71c6db4510e31a51ad7f5ae9dba99fcd0b56
+- **Verified-At-Commit:** 3973e73a0e32d42f2ebaa2b5843d5d768497c84e
 
 ## What happened
 
@@ -103,6 +103,25 @@ Lane B independently verified `D-261`, corrected `B-134` to `Verified`, compared
 recommended dispositions with the current entry headers and latest child text, detected the concurrent
 `D-262` advance and its stale PR rows, and stopped at the Lane A governance boundary. No application
 file, migration, Issue, branch, PR, lane state, work order or Graphify artifact was changed.
+
+## Independent verification of `D-263` — 2026-09-25
+
+Lane B read the applied Pass-1 state at `3973e73` and verified the bounded correction set:
+
+1. `D-262` item 4 and its tier-applicability row now carry dated corrections recording draft PR #2
+   as created.
+2. `V1-SM05.md` now states the current fact that `DOR-R1`–`DOR-R7` are complete while selection,
+   the work order and construction remain open.
+3. `B-120` and `B-125` carry progress notes distinguishing completed State-1 acts from the remaining
+   selection, activation and construction gates.
+4. `.graphify/branch.json.lastAnalyzedHead` equals `3973e73` and its stale flag is false.
+5. The repository consistency suite passes at that commit.
+
+The external Issue checkbox remains outside repository verification. Parent 3 selection and the
+State-2 boundary remain open in `B-136`; neither is part of this Verified resolution. The local
+`.graphify/` portability scan still reports absolute paths in ignored machine-local material. Under
+`D-118` that is a standing limit rather than a blocker because no `.graphify` artifact is proposed
+or committed in this pass; graph currency and docs drift are independently green.
 
 ## Verdict
 
