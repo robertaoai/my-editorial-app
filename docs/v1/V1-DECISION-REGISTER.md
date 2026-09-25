@@ -19366,3 +19366,78 @@ grants no selection, work-order, lane-transfer or construction authority (`D-254
 
 Does not select `V1-SM05`, issue a work order, change lane state, change any DoR or DoD box, or create or repeat any
 Issue, branch or PR. Pass 2 (`B-136` Parent 3) requires its own selection act.
+
+## 5.14e89 `D-264` — `SETUP-SPIKE-000` Continues as the Container for Attempt `SV-002`; `V1-SM05` `BLOCKED`; `SV-001` Tagged; Reusable DoR/DoD Template (Supersedes `D-257` Item 3, `D-258` Items 2 and 4)
+
+**Authority: Judge rulings, 2026-09-25, to Lane A directly.** *"Still SETUP-SPIKE-000: Lane A records exactly which
+D-257/D-258 clauses change and identifies every blocker, owner, acceptance proof, and return condition … set new
+verdict increase status to 'BLOCKED' for V1-SM05"*; *"tag the historical first attempt as SV-001 to measure success
+drift between historical attempt and next attempts"*. Clarifications the same day: Q1 (the reusable template and its
+coverage chain are included), Q2 (the template lives at `docs/templates/dor-dod-validation/v1.md`), Q3 (separate
+`SV2-U02` trackers for Lane B and Lane C, with Lane B's as the parent), Q4 (evaluate `SV2-U03` now, read-only).
+Consolidated by Lane B in `docs/handoff/B-136`, verified and corrected by Lane A.
+
+### The decision
+
+1. **The setup programme continues.** During validation before `V1-SM05` selection, the Judge found setup gaps that
+   `D-258` had not transferred. `SETUP-SPIKE-000` is the Phase-1 container for attempt `SV-002`.
+
+   | Clause | Effect |
+   |---|---|
+   | `D-258` item 1 — `S2`–`S4` terminally `Deferred — closed without DoD credit`; residual owners | **Retained.** No child is reopened or credited |
+   | `D-258` item 2 — "the setup root is closed" | **Superseded.** Terminal children were not enough closure proof without item-level transfer |
+   | `D-258` item 3 — packet files kept as history | **Retained** |
+   | `D-258` item 4 — residuals return only through their own owner; "`SETUP-SPIKE-000`, which does not reopen" | **Residual-return rule retained; the "does not reopen" clause superseded** for the root |
+   | `D-257` items 1–2 — spike warranted; measurement-only scope | **Retained**; the spike becomes `SV2-U02` |
+   | `D-257` item 3 — not commissioned; does not block `V1-SM05` | **Superseded.** Commissioned now; its accepted report is a prerequisite to lifting the SM05 block |
+   | `D-257` item 4 — `B-130` answered | **History retained; lifecycle advanced.** `B-130`'s Deferred trigger ("Judge commission of the spike") is met, so it returns to `Open` under the `B-097` protocol |
+
+2. **Closure transfer invariant, for this and every later setup closure.** A container closes only when its children
+   are terminal **and** every unresolved item has an accepted disposition, or a named destination, owner, acceptance
+   proof and return condition, with a destination receipt recorded before the transfer is claimed.
+3. **`V1-SM05` packet status:** `BLOCKED — SETUP-SPIKE-000 validation attempt SV-002 open; not selected; feature DoR/DoD
+   not yet run; construction not authorized.` This is a **packet status, not a lane state**. Lanes stay A `Active`,
+   B `Eligible`, C `Blocked`. Issue #1 and draft PR #2 stay open and are not invalidated.
+4. **Attempt lineage.** `SV-001` (`SETUP-SPIKE-000/SV-001.md`) is the retrospective wrapper over the completed
+   `DOR-R1`–`DOR-R7` pre-selection **handoff validation**. It was complete at the time, it is the success-drift
+   baseline, it is never called a feature DoR/DoD, and its rows do not change. `SV-002` (`SV-002.md`) is the first run
+   of the v1 template, with status `DoR open`. `V1-SM05-FV-001`, the first feature DoR/DoD run, is created as an unrun
+   shell only after selection and before lane transfer. It first runs when active Lane B creates behavioural test
+   code: feature DoR passes, and feature DoD records the expected Red.
+5. **Reusable template.** `docs/templates/dor-dod-validation/v1.md` (`dor-dod-validation/v1`) holds no results and is
+   immutable once used; a material change creates `v2`. It sits outside `docs/v1/` because it serves every version
+   (`D-36`). Every attempt pins its SHA-256; `SV-002` pins
+   `ca605cd6d477ad9d3e9919569fe655d1ba98df3ee8c86dfe57945aec0587be90`.
+6. **Blockers.** `SV2-U01` (governance application), `SV2-U02` (loader characterization), `SV2-U03` (code navigation)
+   and `SV2-U04` (the `B-071`/`B-095`/`B-104` dependency map). Owners, acceptance proofs and return conditions are in
+   `SV-002.md` §3, the single owner of that table. The block lifts only when all four meet their return conditions, the
+   Judge accepts `SV-002`, and the Judge separately lifts the block. Passing checks alone never lifts it.
+7. **`SV2-U02` run tracking (Q3).** Lane B's tracker (`SV2-U02-B`, Codex loader) is the parent of Lane C's
+   (`SV2-U02-C`, Antigravity loader). If Lane B reruns, a new Lane B run tracks both lanes. If only Lane C gaps appear
+   after Lane B's run has passed, only a new Lane C run opens, under that passed Lane B run.
+8. **`SV2-U03` (Q4).** Evaluated now, read-only, with nothing installed:
+   `SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md`. Lane A recommends the existing path and no `ripwire` for
+   `V1-SM05`. The outcome awaits Lane B's consumer evidence and the Judge.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e89 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1: dated correction to the `D-258` closure note, plus a `D-264` paragraph (setup continues, SM05 `BLOCKED`, attempt lineage, template rule) |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ rows for the template, `SV-001.md`, `SV-002.md` and the `SV2-U03` evaluation; disposition paragraph |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ status `BLOCKED`; `SV-001`/`SV-002` pointers; checked rows relabelled as handoff-validation history |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/`** | ✅ `S2`/`S3`/`S4`: dated correction that the root continues; `SV-001.md`, `SV-002.md` and the `SV2-U03` evaluation created |
+| **`docs/Modular_PRD.md`** | ✅ §8.1: setup continues and SM05 is `BLOCKED`; changelog 1.38; no FR/AC/NFR text changes |
+| **`docs/handoff/B-130`** | ✅ returned to `Open` with a Return record |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change (A `Active`, B `Eligible`, C `Blocked`) |
+| **Storyboard, traceability map, Fn_Specs, `docs/specs/`** | — unaffected unless `SV2-U04` later proves a contract change |
+| **Encyclopedia** | — unaffected: no entry covers setup lifecycle or packet status |
+| **Rule files, frozen sources, `0001_init.sql`, application code, workflows** | — unaffected |
+| **Graphify** | ✅ curated `frag139.json` merged (5 nodes, 7 links); rebuild after the commit |
+
+### What this act does NOT do
+
+Does not reopen or credit `S2`–`S4`, select `V1-SM05`, issue a work order, change lane state, authorize construction,
+feature tests, hosted migration or deployment, install `ripwire`, adopt a root `GEMINI.md` or any size cap, or bulk-close
+any handoff. It does not re-check or copy `SV-001`'s rows.

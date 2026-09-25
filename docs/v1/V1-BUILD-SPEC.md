@@ -86,7 +86,13 @@ non-terminal. `V1-SM06` still depends on `V1-SM05` reaching DoD. Transfer create
 credit, no terminal disposition and retires no packet. **Closed 2026-09-24 (`D-258`):** `S2`–`S4` are each
 terminally `Deferred — closed without DoD credit`, every residual keeps its single `D-244` owner (the
 `D-171` held scope or the V2-target backlog), and the setup root is closed under `D-248`'s condition.
-No DoD is credited, no V2 opens and no construction is authorized.
+No DoD is credited, no V2 opens and no construction is authorized. **Superseded in part 2026-09-25 (`D-264`) — the
+sentence above is history:** the setup root is **not** closed. `SETUP-SPIKE-000` continues as the container for
+validation attempt `SV-002` (`work-packets/SETUP-SPIKE-000/SV-002.md`); `S2`–`S4` stay terminally deferred with no
+DoD credit. `V1-SM05` is **`BLOCKED`** as a packet status (not a lane state) until `SV2-U01`–`SV2-U04` meet their return
+conditions and the Judge lifts the block. `SV-001` is the completed pre-selection handoff-validation history and
+success-drift baseline, not a feature DoR/DoD run. Every validation attempt pins the reusable, result-free template
+`docs/templates/dor-dod-validation/v1.md` by SHA-256, and future setup closure follows `D-264`'s transfer invariant.
 
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and DoD are **defined in their work packets (`D-245`, 2026-09-20)** and are not complete:
 each DoR box is checked only against current evidence, and Lane B's feasibility review and the Judge's

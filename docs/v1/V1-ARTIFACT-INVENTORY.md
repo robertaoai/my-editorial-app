@@ -86,6 +86,11 @@
 | `scripts/jev/manifests/V1-SM05.json` | `D-259` — `V1-SM05` scope manifest: DoR rows and row-hash-pinned behaviours | ✅ **Created 2026-09-24**; re-pinned by `D-260` to the Option A scope (held `T5`/`T6` rows out, `FN-GATES` §4.4 scenarios in) |
 | `docs/v1/work-packets/V1/receipts/` | `D-259` — Jev readiness receipts for V1 packets; evidence only | ✅ **Created 2026-09-24** with `V1-SM05-jev-readiness.json` — first receipt `fail` (the `AC-05a`/`AC-06a` scope finding, kept in git history at `e805fb9`); **replaced 2026-09-24 by a passing receipt after `D-260`**, same path |
 | `docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt` | `D-259`, `B-131` — Chief Editor-supplied export of hosted Encyclopedia v15; SHA-256 `bc97bebac0f3ac2d3f3d8fed32c3a9cb93684b60f829fee3604b08faf34ace9f`, matching `B-131` | ✅ **Added 2026-09-24.** Evidence attachment, not an entry — same treatment as `artifacts/B-119/` |
+| `docs/graph-fragments/frag139.json` | `D-264` — curated nodes for `D-264`, the v1 template, `SV-001`, `SV-002` and the `SV2-U03` evaluation | ✅ **Created 2026-09-25** |
+| `docs/templates/dor-dod-validation/v1.md` | `D-264` — reusable DoR/DoD validation template `dor-dod-validation/v1`; result-free, immutable once used (a change creates `v2`), outside `docs/v1/` per `D-36` | ✅ **Created 2026-09-25**; SHA-256 `ca605cd6d477ad9d3e9919569fe655d1ba98df3ee8c86dfe57945aec0587be90` |
+| `docs/v1/work-packets/SETUP-SPIKE-000/SV-001.md` | `D-264` — retrospective wrapper over the completed `V1-SM05` pre-selection handoff validation; success-drift baseline | ✅ **Created 2026-09-25**, historical — never re-run |
+| `docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md` | `D-264` — setup-validation attempt, first run of `dor-dod-validation/v1`; units `SV2-U01`–`SV2-U04` | ✅ **Created 2026-09-25**, `DoR open` |
+| `docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md` | `D-264` — read-only `SV2-U03` evaluation (`ripwire` as candidate) | ✅ **Drafted 2026-09-25**; awaits Lane B evidence and the Judge's outcome |
 | `scripts/acceptance/` | `D-259` — cross-MMF customer-acceptance harness (§18.3) | ⏳ **Contract only — not created.** Built and run in a later Lane A `Active` turn after Lane B's handover |
 
 **No broken internal document links** — the docs are self-consistent. The gaps are artifacts that were planned but never created, not references that dangle.
@@ -353,6 +358,10 @@ every earlier receipt kept in git history.
 `features/feature-V1-SM05` are GitHub and Git objects. Per `D-253`, the Issue is recorded in the `V1-SM05`
 packet's traceability field and not restated here. The State-1 pull-request text is GitHub-side and
 has no repository file.
+
+**`D-264` (2026-09-25) — five files added, none retired, stated explicitly.** The reusable template, curated fragment `frag139.json` and three
+`SETUP-SPIKE-000` attempt files (rows above). `S2`–`S4` stay as history. `V1-SM05-FV-001` is **not** created yet: it is
+made only after selection. No row is retired.
 
 ## Temporary / Draft Artifacts
 

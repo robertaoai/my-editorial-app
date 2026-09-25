@@ -82,6 +82,7 @@
 | **1.35** | **2026-09-17** | Claude, `D-232` second follow-on via `docs/handoff/B-117` (commits `aead9d8`/`73e4e8b`/`e978c73`) | **Tracking pointer, no scope change.** `B071-R204`'s `OP-PITCH`/`OP-DRAFT` application-selection now resolved (`factory-route-operation-crosswalk.md` §4.1); `business:T3` corrected to `ROUTE-PROD-2` (`requirements-traceability-map.md` §6.2, new business/technical/planning `T`-namespace map). `OP-FINAL-SIGNOFF` remains a **proposed**, not accepted, execution contract. No FR/AC/NFR requirement text changed; no construction authorized. |
 | **1.36** | **2026-09-17** | Claude, `D-233` (split from `D-232`), independent-review corrections | **Tracking correction, no scope change.** These facts are now recorded under **`D-233`**, not `D-232` — filing them under the slot-assignment decision was itself a defect, corrected. `OP-DRAFT`'s Route-1 executor is **Reporter**, not Journalist (row 1.35 above named the wrong role for Route-1's DoR scope — Journalist belongs to `ROUTE-PROD-2`). `OP-FINAL-SIGNOFF` is now **accepted**, not proposed — five conditions in `D-233`. No FR/AC/NFR requirement text changed; no construction authorized. |
 | **1.37** | **2026-09-24** | Claude, `D-258`, Judge approval via `docs/handoff/B-132` Parent 1 | **Tracking change, no scope change.** §8.1: `SETUP-SPIKE-000` closed — `S2`–`S4` terminally `Deferred — closed without DoD credit`, residual owners unchanged (`D-244`). Status cells annotated, not relabelled. No FR/AC/NFR text changed; `D-171`'s hold is not lifted; no V2 opens. |
+| **1.38** | **2026-09-25** | Claude, `D-264`, Judge rulings via `docs/handoff/B-136` | **Tracking change, no scope change.** §8.1: `SETUP-SPIKE-000` root continues (supersedes 1.37's root closure) as the container for attempt `SV-002`; `S2`–`S4` stay terminally deferred; `V1-SM05` packet status `BLOCKED`. No FR/AC/NFR text changed; no tier opens. |
 | **1.38** | **2026-09-24** | Claude, `D-261`, Judge approval via `docs/handoff/B-134` | **Scope addition, `[V1]`.** New Product feature group owning `V1-SM05`'s `business:T1`–`T5` evidence slice (Judge Option A, `D-260`): `US-15` (§4), `FR-15` (§5), `AC-23`–`AC-26` (§9.1). Closes the `D-29` inversion `B-134` found — `FN-GATES-01-05.md` §4.3/§4.4 scenarios now elaborate these rows instead of standing in for them. **No existing row changed**: `FR-01`–`FR-05`, `FR-04a`/`FR-05a`, `AC-01`, `AC-03`–`AC-06a`, `AC-11`/`AC-12` keep their text and tags; the held `transition:T5`/`T6` rows stay under `D-171`. §8 unaffected (no sprint closes, no tier opens). |
 
 ### 0.2 Decision Log
@@ -979,6 +980,10 @@ rejected work (`D-134`) is its concrete v1 case.**
 > credit`**, and the `SETUP-SPIKE-000` root is closed under `D-248`'s condition. Every residual keeps its one
 > `D-244` owner: the `D-171` held scope, or the V2-target backlog. The rows below keep their history and gain
 > a closure annotation only, with no relabelling. No DoD is credited, no V2 opens and no build is authorized.
+>
+> **Setup continues — 2026-09-25 (`D-264`), superseding the root closure above.** `SETUP-SPIKE-000` remains open as the
+> container for validation attempt `SV-002`, while `S2`–`S4` stay terminally deferred. `V1-SM05` is **`BLOCKED`** (a
+> packet status) until `SV-002` is accepted and the Judge lifts the block. No FR/AC/NFR changes and no tier opens.
 
 | Sprint | Theme | Objective | FRs | TRs / NFRs | ACs | Priority | Status |
 |---|---|---|---|---|---|---|---|
