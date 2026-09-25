@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** the Lane A routing of the Judge's tool-role and instruction-architecture clarifications, `ripwire` review/setup and visible Open-item tracking into their canonical owners. This entry's verification requires that routing, not completion of `SV2-U01`–`U04`; `V1-SM05` remains `BLOCKED` under `D-264`, with no construction or lane transition authorized
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-09-25, receipt only. Read state re-measured at `6dfea83`: 15 Open entries (`B-071`, `B-095`, `B-096`, `B-102`, `B-104`, `B-106`, `B-116`–`B-120`, `B-125`, `B-130`, `B-136`, `B-138`); `AGENTS.md` 31,649 chars / 31,920 B, `CLAUDE.md` 29,449 chars / 402 lines, `.agents/rules/graphify.md` 21,593 chars; the installed Antigravity Graphify skill is external at `~/.gemini/config/skills/graphify/SKILL.md`; `ripwire` is not installed. Recording the Judge clarification (new Register act) waits on the Judge's answers to Lane A's clarification questions; nothing is applied by this acknowledgement.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge clarifications supplied directly, 2026-09-25; repository comparison at the commit below against `D-75`, `D-227`, `D-264`, `SV-002.md` §§2–7, `SV2-U03-code-navigation-evaluation.md`, `B-130`, `B-136`, `B-137`, the three instruction files, `shared-core-hash.mjs`, the Phase Closure lane table, the Open handoff headers and the cross-artifact sources below; Lane C's supplied Level 2 reviews are supporting analysis, not Lane A receipt
 - **Verified-At-Commit:** 682a09c7203864525e3aeaa359e3c25b5de29dec
