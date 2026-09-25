@@ -30,6 +30,8 @@
   creation.
 
   **Progress note, 2026-09-24 (`D-256`), not an answer.** `DOR-R5` is authored (Panel A11) and `DOR-R6` is compared and republished; both await review. Issue, branch, State-1 PR and selection stay sequenced behind full DoR acceptance (`D-254`). `Status` stays `Open`.
+
+  **Progress note, 2026-09-25 (`D-263`), not an answer.** DoR `R1`–`R7` complete; Issue #1, `features/feature-V1-SM05` and draft State-1 PR #2 exist (`D-262`). Selection, the `D-242` work order, Lane B activation and construction remain open. `Status` stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-252`, `D-253`; `docs/handoff/B-119-agentic-documentation-architecture-safe-mmf-reconciliation.md`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/V1-ARTIFACT-INVENTORY.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Lane C independent review dated 2026-09-22
 - **Verified-At-Commit:** a6368a36225504eadd24f391337de68e7b76f11f

@@ -19305,7 +19305,9 @@ Lane A is instructed to consolidate both facts before handing over the State-1 p
    linked to Issue #1, still need their own authorization. **Authorized and performed 2026-09-25 (Judge, under
    `D-253`):** `221c9d4` pushed; the Chief Editor opened draft PR #2 (URL in the packet's traceability field).
 4. **What the Issue's own checklist still leaves open, stated so the Issue is not read as further along than it is.**
-   Issue §5 box 1 (branch) is met by item 2. Box 2 (State-1 PR) stays open. Issue §6 (work order, xDD method,
+   Issue §5 box 1 (branch) is met by item 2. Box 2 (State-1 PR) stays open. **Corrected 2026-09-25 (`D-263`):** box 2
+   is met, because draft PR #2 exists (item 3). Whether the checkbox on the Issue itself is ticked is an external fact
+   that Lane A has not read. Issue §6 (work order, xDD method,
    completion-manifest path) stays unissued (`D-242`).
 5. **The pull-request template is read by state.** `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §1 asks for a selecting
    Register act, an `Active` executing lane and a work order. In State 1 those are **not yet applicable**, so the State-1
@@ -19317,7 +19319,7 @@ Lane A is instructed to consolidate both facts before handing over the State-1 p
 | Tier | Disposition |
 |---|---|
 | **Register** | ✅ this entry, §5.14e87 |
-| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-262` paragraph: Issue exists, branch verified, State-1 PR pending authorization |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-262` paragraph: Issue exists, branch verified, State-1 PR pending authorization. **Corrected 2026-09-25 (`D-263`):** the PR is no longer pending; draft PR #2 is open, as the Build Spec paragraph already records |
 | **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph — no file added or retired; the Issue is external tracking |
 | **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ traceability field carries Issue #1 and branch provenance; the `D-254` gate note is dated forward; `Status` unchanged — not started, not selected |
 | **`docs/Modular_PRD.md`** | — unaffected: no sprint closes, no tier opens, §8/§10 unchanged |
@@ -19332,3 +19334,35 @@ Lane A is instructed to consolidate both facts before handing over the State-1 p
 Apart from the push and draft PR #2, which were authorized separately (item 3), it does not select `V1-SM05`, issue the `D-242` work order, move Lane B from
 `Eligible` to `Active` or change any DoR or DoD row. An Issue or branch **records** readiness that already exists and
 grants no selection, work-order, lane-transfer or construction authority (`D-254` item 3).
+
+## 5.14e88 `D-263` — State-1 Record Repair (Pass 1): `D-262` PR Wording and `V1-SM05` DoR-Status Sentence Corrected
+
+**Authority: Judge approval, 2026-09-25, to Lane A directly.** *"Q1 Accept Pass 1 as drafted."* Applies
+`docs/handoff/B-136` Parent 2 and `docs/handoff/B-135` "What you need" items 1–3.
+
+### The decision
+
+1. **`D-262` item 4 and its Build Spec tier row are corrected in place by dated notes, with the original words kept.**
+   Draft State-1 PR #2 exists, so Issue §5 box 2 is met. The Build Spec paragraph already said so and does not change.
+2. **The "DoR is defined, not complete" sentence in `V1-SM05.md` gains a dated current-fact note.** `DOR-R1`–`DOR-R7`
+   are all checked (`D-259`–`D-261`), and Issue #1 was created after that.
+3. **`B-120`/`B-125` receive progress notes and stay `Open`.** DoR, Issue #1, the branch and draft PR #2 are complete;
+   selection, the `D-242` work order, Lane B activation and construction are not.
+4. **The external Issue #1 checkbox is not edited by this act.** It is outside the repository and Lane A has not read
+   it. Updating it is a separate Chief Editor act.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e88, and the dated notes in `D-262` |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ DoR-status sentence: dated current-fact note |
+| **`V1-BUILD-SPEC.md`** | — unaffected: its `D-262` paragraph already records draft PR #2 |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file added or retired |
+| **`docs/Modular_PRD.md`**, **`V1-PHASE-CLOSURE.md`**, storyboard, Fn_Specs, Encyclopedia, rule files, frozen sources | — unaffected: no scope, sprint, lane or behaviour change |
+| **Graphify** | Owed once after this pass |
+
+### What this act does NOT do
+
+Does not select `V1-SM05`, issue a work order, change lane state, change any DoR or DoD box, or create or repeat any
+Issue, branch or PR. Pass 2 (`B-136` Parent 3) requires its own selection act.

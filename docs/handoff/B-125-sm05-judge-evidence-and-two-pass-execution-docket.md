@@ -24,6 +24,8 @@
   return to the remediation path rather than creating a duplicate.
 
   **Progress note, 2026-09-24 (`D-256`), not an answer.** The `DOR-R5`/`DOR-R6` row of Parents 2–6 now has its evidence: Panel A11, and the hosted v15 comparison. Walkthrough and review acceptance are still owed. No Issue, branch, PR or selection act has occurred. `Status` stays `Open`.
+
+  **Progress note, 2026-09-25 (`D-263`), not an answer.** The Pass-1 base, the Issue, the branch and the State-1 PR are complete (`D-259`–`D-262`). Selection, the work order and State-2 construction remain open. `Status` stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-252`, `D-253`; `docs/handoff/B-119`–`B-124`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Judge Clarification 5.1 relayed 2026-09-22
 - **Verified-At-Commit:** ef903b38989a9e0fc24806332ed9d86c1f6d27d3

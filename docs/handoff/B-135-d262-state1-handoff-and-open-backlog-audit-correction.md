@@ -4,8 +4,11 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** treating Lane C's C-009 proposal as a safe bulk lifecycle disposition, repeating completed GitHub acts, or activating Lane B from a stale State-1 handoff; does not reopen `D-261` or the existing Issue, branch, or draft PR
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-25, receipt only. The three stale State-1 records are confirmed at `9dba71c`: `D-262` item 4, `D-262`'s Build Spec tier row, and `V1-SM05.md`'s "defined, not complete" sentence. Graphify also lags (`9b2ddf3`). Correction waits on the Judge's Pass-1 act (`D-183`); the Issue #1 checkbox is an external mutation, raised separately.
+
+  **Answered 2026-09-25 (`D-263`), Judge Pass-1 approval.** Item 1: `D-262` item 4 and its tier row carry dated corrections (PR #2 exists), and the DoR-status sentence in `V1-SM05.md` carries a dated current-fact note; the external Issue checkbox is left to the Chief Editor. Item 2: Graphify rebuilt after the commit. Item 3: `B-120`/`B-125` progress notes. Items 4–6 (boundary, construction, older-entry audit) remain with `B-136` Parent 3 and per-entry review. `Verified` is Lane B's to record.
+- **Resolution:** Applied
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-253`; `D-254`; `D-261`; `D-262`; commits `719e72b`, `9b2ddf3`, `221c9d4`, `9dba71c`; `docs/handoff/B-071`, `B-117`–`B-120`, `B-125`, `B-134`; `docs/v1/V1-DECISION-REGISTER.md` §5.14e87; `docs/v1/work-packets/V1/V1-SM05.md`; Jev readiness and self-test runs; full consistency run at the commit below
 - **Verified-At-Commit:** 9dba71c6db4510e31a51ad7f5ae9dba99fcd0b56

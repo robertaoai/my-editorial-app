@@ -6,6 +6,8 @@
 - **Blocks:** treating the review package as application authority; treating checked DoR, Issue #1, branch or draft PR #2 as construction authority; creating a duplicate governance ledger; or activating Lane B without a selected packet, bounded work order, complete propagation and verified boundary
 - **Status:** Open
 - **Lane A:** Acknowledged 2026-09-25, receipt only. Accepted as the Lane A review docket. Pass 1 needs an explicit Judge act and Pass 2 needs actual selection (`D-183`); neither is given by this acknowledgement.
+
+  **Parent 2 (Pass 1) applied 2026-09-25 (`D-263`).** The State-1 record is repaired (see `B-135`). Hard stop: Parent 3 (selection, work order, lane change) awaits the Judge's selection act. `Status` stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-29`; `D-54`; `D-58`; `D-75`; `D-90`; `D-123`; `D-156`; `D-158`; `D-183`; `D-184`; `D-186`; `D-227`; `D-240`; `D-242`; `D-244`; `D-248`; `D-253`; `D-254`; `D-258`; `D-261`; `D-262`; `docs/README.md` §"How a request becomes execution"; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`; `docs/v1/V1-PHASE-CLOSURE.md` §5/§5.0a; `docs/LANE-B-WORK-ORDER.md` §§1, 6–7; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/V1-ARTIFACT-INVENTORY.md`; `docs/v1/work-packets/SETUP-SPIKE-000/`; `docs/v1/work-packets/V1/V1-SM05.md`; `docs/handoff/B-120`, `B-125`, `B-134`, `B-135`; current tree at the commit below
 - **Verified-At-Commit:** 9dba71c6db4510e31a51ad7f5ae9dba99fcd0b56
