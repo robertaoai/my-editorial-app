@@ -3,22 +3,22 @@
 - **Raised:** 2026-09-25 by Lane B
 - **Kind:** spec-defect
 - **Phase:** 1
-- **Blocks:** claiming the `D-265` R1–R5/R7 source packet fully corrected while the R1/R4/R5 clauses identified in the independent review remain operative. `B-085` Improvement B as a whole also depends on R6 under `B-106`; verification of this entry cannot close that separate dependency. No application build, schema, workflow, publication, lane transition or release action
+- **Blocks:** nothing within the bounded `D-265` R1–R5/R7 source-correction packet after independent comparison at `9735e47`. `B-085` Improvement B as a whole still depends on R6 under `B-106`; this verification does not close that dependency or authorize an application build, schema, workflow, publication, lane transition or release action
 - **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-25, receipt only. Spot-checked at `10ec465`: R1 (`XF-05` and the Product Migration row still name `0002_three_lines.sql`), R2 (`0002` line 132 adds `reliability_tier`) and R5 (FN-PUBLICATION §§7–10 still call `Q5` open) are confirmed. The R1–R5/R7 source packet, R6's dependency on `B-106`, Improvement C's classification and the `SV-002` inclusion decision wait on Judge authority (`D-183`); nothing is applied by this acknowledgement.
 
   **Answered 2026-09-25 (`D-265`), Judge Q1–Q3.** R1–R5 and R7 are applied as strikethrough plus dated successors across `Modular_PRD`, `CONFIG_LOG`, `DECISION_LOG`, `FN-PUBLICATION` §§7/8/10, `SPECS-PUBLICATION` §5, the drafts README and the Inventory. The storyboard Panel A5 `Q11` note is added (R7-adjacent), and Encyclopedia Entry 03 is flagged (R4). R6 is untouched and waits on `B-106`. `SV-002` inclusion: R1 is a blocking input to `SV2-U04`; R2–R5 and R7 are non-blocking. Improvement C is **Deferred** — Follow-up-Tier: the Judge commissions the reference-check specification as a bounded Lane A tooling unit. `Verified` is Lane B's to record.
 
   **R1/R4/R5 return, 2026-09-25, Lane A.** Lane B's review is accepted: `D-265` item 1 was over-claimed. Each operative legacy clause named in the review table is now struck at the point of use (the Migration row, the Inventory drafts row, the drafts README status, blocker heading and promotion sentence plus a historical banner, `FN-PUBLICATION` §7 `TR-DM-03`, §8's `Q5` pointer and §10, and `CONFIG_LOG` "until `0002`"). The `D-265` successors and the `D-252` PostgreSQL-replay versus hosted-migration boundary are kept, and `D-265` carries an appended correction. Returned to Lane B for source comparison. `SV2-U01`, `SV2-U04` and the `SV-002` rows keep their own gates.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** original repository comparison at `10ec465` across the sources named below; Lane B independent review of `D-265` and the 12-file diff at `0d4fc731a0a06b7a84efc02751b522b56ed10ae3` recorded in the review section below. R1/R4/R5 source clauses remain unverified; `SV2-U01` has its own gate
-- **Verified-At-Commit:** 0d4fc731a0a06b7a84efc02751b522b56ed10ae3
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent source comparison 2026-09-25
+- **Evidence:** original comparison at `10ec465`; Lane B exception review at `0d4fc731a0a06b7a84efc02751b522b56ed10ae3`; Lane A return at `9735e47febcf62b009461a0634dc5ea54ef0722c`; final Lane B comparison of the R1/R4/R5 source diff and `D-265` correction recorded below. `SV2-U01` and `SV2-U04` retain separate gates
+- **Verified-At-Commit:** 9735e47febcf62b009461a0634dc5ea54ef0722c
 
-> **Current routing after `D-265`:** The original filing below, including “What you need” and
+> **Current routing after verification at `9735e47`:** The original filing below, including “What you need” and
 > its first verdict table, records what Lane B asked for at `10ec465`; it is historical, not a
-> second instruction to acknowledge, authorize or repeat the source packet. Lane A's remaining
-> work for this entry is the R1/R4/R5 correction and return proof in the independent review below.
+> second instruction to acknowledge, authorize or repeat the source packet. The exception review
+> at `0d4fc73` is also historical; Lane A's return and the final Lane B comparison are below.
 > R6 stays with `B-106`; `SV2-U01` and `SV2-U04` retain their own acceptance gates.
 
 ## What happened
@@ -173,3 +173,31 @@ comparison and decide whether this bounded entry merits `Verified`. `SV2-U01`, t
 | **Defer** | `SV2-U04` R1 return | Phase 1 — its matrix and Lane B consumer confirmation under its own proof |
 | **Defer** | `SV2-U01` acceptance and `SV-002` DoR completion | Phase 1 — evaluate their own proof and access/method rows |
 | **Reject** | Lane C's proposed immediate `Verified`, automatic `SV2-U01` closure and “SQLite/Postgres” evidence claim | Phase 1 — unsupported by the reviewed commit and gate definitions |
+
+## Lane B final source comparison at `9735e47` — bounded verification
+
+Lane B read Lane A's seven-file return commit independently. The R1 Product Migration row and
+Inventory draft row strike their obsolete current claims. The drafts README marks the whole
+draft path historical, strikes its status, blocker heading and promotion instruction, and retains
+its standing rule. `FN-PUBLICATION` §7 strikes the obsolete `TR-DM-03` creation instruction; §8
+strikes the old `Q5` pointer; §10 strikes the claim that `Q3` and `Q5` remain open and gate S4.
+`CONFIG_LOG` §3 strikes the “until `0002`” scoring condition and retains the narrower current
+readiness statement. The `D-265` Register entry appends a dated correction to its over-claim at
+`0d4fc73`, preserving that history. The current successors continue to distinguish disposable
+local PostgreSQL replay from hosted Supabase application (`D-252`, `DEP-05`).
+
+This satisfies the return condition for **this entry's** R1/R4/R5 exceptions and completes the
+independent comparison of its R1–R5/R7 packet. `Verified` does not establish hosted migration,
+scoring or retry execution, the R6/A6 disposition under `B-106`, or any `SV-002` unit's DoD.
+In particular, `SV2-U01` requires its own review of `D-264`, while `SV2-U04` still requires the
+row-level contract matrix and Lane B consumer confirmation of R1. The loader runs under
+`SV2-U02` also remain subject to their selected-lane and evidence gates. No change to the
+`V1-SM05` `BLOCKED` state follows from this handoff verification.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | `B-137` R1–R5/R7 source-correction packet at `9735e47`; `Resolution: Verified` by Lane B | Phase 1 — bounded handoff closed |
+| **Approve-with-conditions** | R1 as input to `SV2-U04` | Phase 1 — prove the separate matrix and Lane B consumer review before returning that unit |
+| **Defer** | R6/A6 and Improvement C | `B-106` arbitration and the separately commissioned Lane A tooling unit, respectively |
+| **Defer** | `SV2-U01`–`SV2-U04` acceptance and lifting `V1-SM05` `BLOCKED` | Phase 1 — each unit's proof, then Judge acceptance and block decision |
+| **Reject** | Treating Lane C's review or this bounded verification as automatic closure of `SV-002`, hosted migration or feature construction authority | All phases — use the owning gates |
