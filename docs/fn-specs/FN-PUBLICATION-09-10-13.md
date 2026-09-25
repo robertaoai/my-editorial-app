@@ -143,9 +143,9 @@ A binding regulatory or court order forces retraction **immediately**, bypassing
 
 | Dependency | Nature | Status |
 |---|---|---|
-| `TR-DM-03` `publication_targets` / `publications` | **Blocking** — per-target status is impossible without it | Create in S1 |
-| `Q3` publish path | Route handler vs Edge Function | **Open** — T1 |
-| `Q5` retry scheduler | `NFR-05`'s bounded retry has nothing to fire it (`TC7`) | **Open** — T1 |
+| `TR-DM-03` `publication_targets` / `publications` | **Blocking** — per-target status is impossible without it | Create in S1. `[V1]` **Corrected 2026-09-25 (`D-265`):** both tables exist in `0002_s1_editorial_schema.sql`, replayed on disposable local PostgreSQL only; **not applied to hosted Supabase** (`D-252`; live behaviour unverified under `DEP-05`) |
+| `Q3` publish path | Route handler vs Edge Function | ~~**Open** — T1~~ `[V1]` **Corrected 2026-09-25 (`D-265`):** **decided** — Supabase Edge Function (`D-143`/`D-146`); not built |
+| `Q5` retry scheduler | `NFR-05`'s bounded retry has nothing to fire it (`TC7`) | ~~**Open** — T1~~ `[V1]` **Corrected 2026-09-25 (`D-265`):** **decided** — `pg_cron` invoking the publication Edge Function (`D-143`/`D-146`); **no scheduler runs and no retry executes** |
 | `SUPABASE_SERVICE_ROLE_KEY` | S4 is the architecture's **first** privileged path (`TC1`) | Declared, unused |
 | Notice-as-article model | `FR-13` depends on it | `D-06`, S1 design |
 
@@ -156,7 +156,7 @@ A binding regulatory or court order forces retraction **immediately**, bypassing
 | Manual path recorded more thinly than automated | Mirror scope has a hole exactly where humans acted; GRC evidence fails | `US-10`'s equal-fidelity requirement, tested by `AC-16` |
 | `MockPublished` treated as `Published` | Demo data becomes false publication evidence | Fixed non-configurable rule |
 | Per-target status deferred | Success scenario unreachable; `AC-15` cannot pass | `TC2` raised to S1 blocking |
-| Retry with no scheduler | `NFR-05`'s bounded retry is prose, not behaviour | `Q5`, T1 |
+| Retry with no scheduler | `NFR-05`'s bounded retry is prose, not behaviour | `Q5`, T1. `[V1]` **Corrected 2026-09-25 (`D-265`):** `Q5` is decided (`D-143`/`D-146`); the risk stays until the scheduler is built |
 | First privileged path introduced without review | `TC1`'s authority model changes silently | Record as a `TC1` amendment, not drift |
 
 ## 9. `SPECS` candidate filter — `D-30`
@@ -178,7 +178,7 @@ per-target independence · first-live-target promotion rule · partial success a
 
 ## 10. Scope limits
 
-Closes no Open Decision. Authorizes no code, schema, migration, or credential configuration. `Q3` and `Q5` remain open and both gate S4. `FR-13` is Project Scope, unanchored, and carries `PSK-04`.
+Closes no Open Decision. Authorizes no code, schema, migration, or credential configuration. `Q3` and `Q5` remain open and both gate S4. `[V1]` **Corrected 2026-09-25 (`D-265`):** `Q3` and `Q5` are decided (`D-143`/`D-146`) and not yet built. `S4` is terminally deferred (`D-258`); automated WordPress publication and retry are a V2-target backlog (`D-243`/`D-244`), and V1 delivers only the LinkedIn `ManualReady` event (`V1-SM06`). `FR-13` is Project Scope, unanchored, and carries `PSK-04`.
 
 ## 11. Delivery target behavior — mutation refusal and external-acceptance prerequisite, `[decided_target_held]` (`D-179`)
 

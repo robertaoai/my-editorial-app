@@ -16,7 +16,7 @@ until every S1 window decision has settled.
 
 | File | Status |
 |---|---|
-| `0002_three_lines.sql.draft` | **Not yet written.** `G64` and `Q11` are both resolved (`D-112`, `D-111`) and the S1 window's `C-30` closed with authorization unconditional (`D-114`) — the naming/schema blockers are gone. **Not written because Lane B, who owns this artifact, is `Blocked`** (`D-156`), not because of `Q11`/`G64` |
+| `0002_three_lines.sql.draft` | **Not yet written.** `G64` and `Q11` are both resolved (`D-112`, `D-111`) and the S1 window's `C-30` closed with authorization unconditional (`D-114`) — the naming/schema blockers are gone. **Not written because Lane B, who owns this artifact, is `Blocked`** (`D-156`), not because of `Q11`/`G64` **Corrected 2026-09-25 (`D-265`):** **superseded — this draft will not be written.** The delivered candidate is `supabase/migrations/0002_s1_editorial_schema.sql`, replayed on disposable local PostgreSQL only; **not applied to hosted Supabase** (`D-252`; live behaviour unverified under `DEP-05`) |
 
 **The extension is `.sql.draft`, not `.sql`.** A `.sql` file is something a tool will
 eventually run; the double extension makes the file inert to every runner and to editor
@@ -45,7 +45,7 @@ draft here is a declared crossing** — `.githooks/commit-msg` will require a
 Lane B artifact out of the Lane B directory that would execute it.
 
 **When the draft is promoted**, it moves to `supabase/migrations/0002_three_lines.sql` as a
-single-lane Lane B commit, and the move is what "applied" means.
+single-lane Lane B commit, and the move is what "applied" means. **Corrected 2026-09-25 (`D-265`):** historical — no draft is held here. Under `D-252`, "migration" means application to the persistent hosted Supabase environment, not a move into `supabase/migrations/`.
 
 ## Standing rule
 

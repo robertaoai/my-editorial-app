@@ -19441,3 +19441,54 @@ Consolidated by Lane B in `docs/handoff/B-136`, verified and corrected by Lane A
 Does not reopen or credit `S2`–`S4`, select `V1-SM05`, issue a work order, change lane state, authorize construction,
 feature tests, hosted migration or deployment, install `ripwire`, adopt a root `GEMINI.md` or any size cap, or bulk-close
 any handoff. It does not re-check or copy `SV-001`'s rows.
+
+## 5.14e90 `D-265` — `B-137` Source-Correction Packet (R1–R5, R7); R1 Is a Blocking Input to `SV2-U04`; Improvement C Deferred
+
+**Authority: Judge approval, 2026-09-25, to Lane A directly.** Q1: *"yes proceed B-137 correction packet"*; Q2: R1 is a
+blocking input to `SV2-U04` and R2–R5/R7 are non-blocking; Q3: Improvement C is deferred. Applies `docs/handoff/B-137`.
+
+### The decision
+
+1. **Corrections, not rewrites.** Each stale current-state clause is struck through and gets a dated `D-265` successor,
+   so a present-day reader cannot act on it and the history stays visible:
+
+   | Row | Clause (location) | Current fact now stated |
+   |---|---|---|
+   | **R1** | `Modular_PRD` Migration row; `XF-05`; `docs/v1/drafts/README.md` (two places); the Inventory's drafts row; `SPECS-PUBLICATION.md` §5; `FN-PUBLICATION` §7 `TR-DM-03` | No `0002_three_lines.sql` exists. The delivered candidate is `0002_s1_editorial_schema.sql`, replayed on disposable local PostgreSQL only and not applied to hosted Supabase (`D-252`, `DEP-05`) |
+   | **R2** | `Modular_PRD` Investigator actor, `US-02`, `TR-DM-04`, `AC-03` | The `reliability_tier` column exists in `0002`; T2 behaviour is not built and the acceptance case is not run |
+   | **R3** | `XF-03`, `XF-04` | Both Done on evidence (`CLAUDE.md` warning and identity; `bun test` plus `ci.yml`) |
+   | **R4** | `CONFIG_LOG.md` `TC3` | Five inputs exist; `engagement_metrics` is absent; no scoring engine exists; weights unchanged |
+   | **R5** | `CONFIG_LOG.md` retry row; `DECISION_LOG.md` `Q5`; `FN-PUBLICATION` §§7, 8, 10 | `Q3`/`Q5` are decided (`D-143`/`D-146`) and not built. `S4` is deferred; automated publication is a V2 target; V1 is `ManualReady` only |
+   | **R7** | `CONFIG_LOG.md` `LINE2_MAY_EXECUTE_LINE1_GATES` row | The stored column is `line_separation_status`. Prose only; any code-symbol rename stays on its code-touching path |
+   | **R7-adjacent** | Storyboard Panel A5 `Q11` note | Historical; `Q11` is decided (`line_separation_status`) |
+
+2. **R6 is untouched.** The A6 ledger text waits on `B-106`'s Register arbitration.
+3. **`SV-002` inclusion (Q2).** R1 is a **blocking input to `SV2-U04`**: the existing unit, owner, proof and return
+   condition, recorded as a drift-ledger row. It is not a fifth blocker. R2–R5 and R7 are non-blocking.
+4. **Improvement C (Q3) is deferred.** `Follow-up-Tier`: the Judge commissions the reference-validation check's
+   specification as a bounded Lane A tooling unit, with positive and negative examples. Nothing is built.
+5. **Encyclopedia Entry 03** is flagged in the ledger (R4); the hosted text is not compared or republished in this pass.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e90 |
+| **`docs/Modular_PRD.md`** | ✅ R1–R3 corrections; changelog 1.39; no FR/AC/NFR requirement text changed |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ drafts row corrected (R1); disposition paragraph: no file added or retired |
+| **`V1-BUILD-SPEC.md`** | — unaffected: no scope, sequence or DoD change; `SV2-U04`'s input set lives in `SV-002.md` |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ coverage index, `SV2-U04` unit and drift ledger include R1 |
+| **`docs/fn-specs/FN-PUBLICATION-09-10-13.md`** | ✅ §§7, 8, 10, marked `[V1]` |
+| **`docs/specs/SPECS-PUBLICATION.md`** | ✅ §5 `TR-DM-03` row, marked `[V1]` |
+| **`docs/CONFIG_LOG.md`**, **`docs/DECISION_LOG.md`** | ✅ R4, R5, R7 |
+| **`docs/v1/drafts/README.md`** | ✅ R1 |
+| **Storyboard** | ✅ Panel A5 `Q11` note; Panels A9–A11 unchanged |
+| **`docs/ENCYCLOPEDIA-SYNC.md`** | ✅ Entry 03 flagged |
+| **Encyclopedia** | **Entry 03 affected** (flagged, not republished); other entries unaffected |
+| **Traceability map, `V1-PHASE-CLOSURE.md`, rule files, frozen sources, `0001_init.sql`, application code, `lib/config/` metadata** | — unaffected |
+| **Graphify** | Rebuild after this commit |
+
+### What this act does NOT do
+
+Does not decide A6 or touch `B-106`, build a scheduler, score or check, rename any code symbol, apply `0002` to hosted
+Supabase, reopen `B-085`/`B-061`, add a fifth `SV-002` blocker, or lift the `V1-SM05` block.

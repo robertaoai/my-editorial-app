@@ -56,7 +56,7 @@ granularity, roles versus transitions. This has been mistaken for a contradictio
 |---|---|---|---|
 | `RETURN_LIMIT_BEFORE_ESCALATION` | 3 | Addendum §3.3 | Yes |
 | `PUBLISH_RETRY_MAX` | 3 | Addendum §7.2 | Yes |
-| `PUBLISH_RETRY_BACKOFF_MINUTES` | 5 | Addendum §7.2 | Yes — **but nothing fires it** (`TC7`: no scheduler; `Q5`) |
+| `PUBLISH_RETRY_BACKOFF_MINUTES` | 5 | Addendum §7.2 | Yes — **but nothing fires it** (`TC7`: no scheduler; `Q5`). **Corrected 2026-09-25 (`D-265`):** `Q5` is decided — `pg_cron` invoking the publication Edge Function (`D-143`/`D-146`) — but no scheduler is built, so nothing fires it yet |
 | `DATA_RETENTION_ARCHIVE_DAYS` | 90 | `A6` | **No — unratified** |
 | `SCORING_REVIEW_THRESHOLD_ARTICLES` | 50 | `A4` | **No — unratified** |
 | `CHIEF_EDITOR_ABSENCE_DEGRADED_HOURS` | 48 | Addendum §6.4 — the boundary `S7` was corrected to | Yes |
@@ -92,6 +92,8 @@ stated in a sentence is not an authoritative row, and an abbreviated name is not
 `evidence_url`, `reviewer_confidence`, `topics.evolves_from` are all absent. These variables are
 **declarable now and not computable until `0002`.** Declaring them is not a claim that they work.
 
+**Corrected 2026-09-25 (`D-265`):** `0002_s1_editorial_schema.sql` adds five of these inputs — `sources.reliability_tier` (line 132), `articles.source_id` (94), `trend_signals.evidence_url`/`reviewer_confidence` (144–145) and `topics.evolves_from` (137) — replayed locally only (`D-252`). `trend_signals.engagement_metrics` is **still absent**, and **no scoring engine consumes `TREND_WEIGHTS`**, so the score is still not computable. The weights are unchanged.
+
 ## 4. OD-derived values — flagged, never literals — §4.4
 
 **Every row here is provisional by construction.** The value is what Phase 0 runs on; the OD is
@@ -100,7 +102,7 @@ what could change it. Ratification lands in `DECISION_LOG.md`, not here.
 | Variable | Phase 0 value | OD | Rule |
 |---|---|---|---|
 | `LINE2_EXECUTOR_TYPE` | `"human_primary"` | `OD1` | Provisional per Entry 007 |
-| `LINE2_MAY_EXECUTE_LINE1_GATES` | `true` — via `HumanOverride` only | `OD1` | Every use writes `event_type=HumanOverride` and `judgment_independence_status=override_not_four_eyes` |
+| `LINE2_MAY_EXECUTE_LINE1_GATES` | `true` — via `HumanOverride` only | `OD1` | Every use writes `event_type=HumanOverride` and `line_separation_status=override_not_four_eyes` (the stored column, renamed from `judgment_independence_status` by `D-111`; prose corrected by `D-265`) |
 | `FOUR_EYES_MODE` | `"line_separation"` | `OD2` | Provisional per Entry 007. **No valid replacement exists if `OD2` resolves negatively** — sprint plan §8 |
 | `JUDGMENT_INDEPENDENCE_STATUS_VALUES` | `["satisfied","not_applicable","override_not_four_eyes"]` | `OD2` | Addendum §4.1. `contingent_on_OD2` and `blocked` stay **retired**. **`G64`/`Q11` decided the shape and name** (`D-97`, `D-111` — stored column `line_separation_status`); `0002` is written and applied, no longer blocked *(corrected 2026-08-30, `D-161`/`B-061`)*. This config constant's own name is unchanged pending a separate symbol-rename pass |
 | `AGENT_HEADCOUNT` | **UNSET** | `OD3` | No number exists at any level. **Not defaulted, not rounded, not back-derived from "four review gates"** |

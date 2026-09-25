@@ -4,8 +4,11 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** claiming `B-085` Improvement B complete or relying on the current-state clauses below as accurate; no application build, schema, workflow, publication, lane transition or release action
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-25, receipt only. Spot-checked at `10ec465`: R1 (`XF-05` and the Product Migration row still name `0002_three_lines.sql`), R2 (`0002` line 132 adds `reliability_tier`) and R5 (FN-PUBLICATION §§7–10 still call `Q5` open) are confirmed. The R1–R5/R7 source packet, R6's dependency on `B-106`, Improvement C's classification and the `SV-002` inclusion decision wait on Judge authority (`D-183`); nothing is applied by this acknowledgement.
+
+  **Answered 2026-09-25 (`D-265`), Judge Q1–Q3.** R1–R5 and R7 are applied as strikethrough plus dated successors across `Modular_PRD`, `CONFIG_LOG`, `DECISION_LOG`, `FN-PUBLICATION` §§7/8/10, `SPECS-PUBLICATION` §5, the drafts README and the Inventory. The storyboard Panel A5 `Q11` note is added (R7-adjacent), and Encyclopedia Entry 03 is flagged (R4). R6 is untouched and waits on `B-106`. `SV-002` inclusion: R1 is a blocking input to `SV2-U04`; R2–R5 and R7 are non-blocking. Improvement C is **Deferred** — Follow-up-Tier: the Judge commissions the reference-check specification as a bounded Lane A tooling unit. `Verified` is Lane B's to record.
+- **Resolution:** Applied
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** repository comparison at the commit below across `B-085`, `B-061`, `B-106`, `D-134`, `D-143`, `D-146`, `D-198`, `docs/Modular_PRD.md`, `docs/CONFIG_LOG.md`, `docs/DECISION_LOG.md`, `docs/fn-specs/FN-PUBLICATION-09-10-13.md`, `docs/specs/SPECS-PUBLICATION.md`, `docs/v1/V1-ARTIFACT-INVENTORY.md`, `docs/v1/drafts/README.md`, `lib/config/build-config.ts` and `supabase/migrations/0002_s1_editorial_schema.sql`
 - **Verified-At-Commit:** 10ec465110c068257cfaf3781cd2e1810378cf1e
