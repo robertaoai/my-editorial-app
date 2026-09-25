@@ -8,9 +8,13 @@
 - **Lane A:**
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge clarifications supplied directly, 2026-09-25; repository comparison at the commit below against `D-75`, `D-227`, `D-264`, `SV-002.md` §§2–7, `SV2-U03-code-navigation-evaluation.md`, `B-130`, `B-136`, `B-137`, the three instruction files, `shared-core-hash.mjs`, the Phase Closure lane table, the Open handoff headers and the cross-artifact sources below; Lane C's supplied Level 2 reviews are supporting analysis, not Lane A receipt
-- **Verified-At-Commit:** 294dbc86f8f0ecdd3120039e48203c475269e3da
+- **Verified-At-Commit:** 682a09c7203864525e3aeaa359e3c25b5de29dec
 
 ## What happened
+
+**Handoff readiness:** Lane A may acknowledge, review and write the `SV-002` readiness
+specification. All six `SV2-DOR-*` rows are unchecked, so no loader run, dependency
+installation, skill rewrite or `V1-SM05` unblock follows from this handoff.
 
 The Judge has clarified the lanes' conversational and execution roles. Claude Cowork handles
 Lane A handoff dialogue while Claude Code owns Lane A governance and docs; ChatGPT Chat/Work
@@ -118,8 +122,12 @@ inventing its acknowledgement in Lane B's text.
 
 The latest Level 2 review correctly repeats the Judge's new pruning targets and
 Ripwire/Graphify division. Its suggested `ripwire.md` directory is not a valid
-Antigravity skill package; the target must be a skill directory with `SKILL.md` and
-the installed consumer must discover it. The review's “top five plus remaining nine”
+Antigravity skill package; a candidate global package path is
+`~/.gemini/config/skills/ripwire/SKILL.md`, with the directory and frontmatter tested
+for discovery by the installed consumer. Its proposed `--blast-radius`, `--call-tree`,
+`get_call_graph` and `find_affected_tests` names must be checked against the pinned
+binary's `--help` and MCP tool listing before appearing in a runnable packet. The
+review's “top five plus remaining nine”
 mixes work groups with handoff IDs: the live header scan at this read state has
 **15 Open entries**, including B-138. Keep the priority groups and all 15 IDs visible
 without turning either snapshot into a second status authority. The proposed dual
@@ -199,9 +207,11 @@ consumer trials under `SV2-U03`.
    provisioning. Specify pinned version and source, Windows installation path, binary integrity check, security and
    removal procedure, exact commands, output-size measurement, and which results each
    consumer can obtain. Lane A provisions dependencies under `D-86`; Lane B and Lane C test
-   their own use when selected. Specify an Antigravity skill directory containing
-   `SKILL.md`, and verify whether the ChatGPT/Codex consumer can actually connect to
-   Ripwire's MCP server. Compare one named first-child navigation task with `rg`/tests
+   their own use when selected. Specify an Antigravity skill directory such as
+   `~/.gemini/config/skills/ripwire/SKILL.md`, verify discovery, and verify whether
+   the ChatGPT/Codex consumer can actually connect to Ripwire's MCP server. Use
+   command names from the pinned binary's help and MCP listing. Compare one named
+   first-child navigation task with `rg`/tests
    and one negative control; include the SQL path that `ripwire` cannot parse. Record what
    the setup improves and what loader problem, if any, remains. Permanent instruction
    redesign, a Gemini-specific file or shared-core parity changes require their own governed proof.
