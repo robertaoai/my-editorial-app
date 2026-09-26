@@ -153,3 +153,24 @@ The attached Lane C review correctly observes that the consistency suite and Gra
 | **Approve-with-conditions** | `D-268` return path and B-series closure before Lane B activation | Gate 1B → Gate 2 — show a legal return and re-disposition sequence, or obtain a successor Judge decision |
 | **Defer** | Whole-entry verification, Gate 1B DoD and SM05 construction handover | Gate 1B → Gate 2 — complete the child evidence and Judge gates |
 | **Reject** | Treating a green consistency suite, Graphify currency, or source-side receipts alone as proof that the named destination accepted the transfer | Phase 1 — inspect the receiving record |
+
+### Judge ruling after the `d0555ff` review — Option A, canonical absorption
+
+**Authority:** the Judge's direct 2026-09-26 message to Lane B: *"Option A (Canonical Absorption): Clarify that B-120 and B-125 are permanently superseded by D-268 and the receiving receipt in B-136 Parent 3 (and downstream packet V1-SM05), making their closure terminal without a return-to-open trigger."* This is a new ruling after the review above. It resolves the authority question and selects permanent absorption; the earlier challenge remains as the dated reason for the correction, not as the current requested disposition.
+
+**What Lane A needs, in order:**
+
+1. Record the Judge's dated correction to `D-268` in the Register, explicitly replacing its item 1 statement that `Superseded` is not used and its item 4 Gate-2 `B-097` return trigger for these two entries. Preserve the original `D-268` text as decision history. If Lane A uses a successor decision number under Register practice, that act must explicitly identify `D-268` **as corrected** as the Judge's requested supersession authority; do not leave an unqualified contradiction or cite an unrecorded decision. Propagate the disposition under `D-54` to the Build Spec and Artifact Inventory, stating affected and unaffected tiers.
+2. Record a dated receiving receipt for `B-120` Parent 5 and `B-125` Parent 6 in `B-136` Parent 3. The durable downstream owner is the governed `V1-SM05` packet and its future `V1-SM05-FV-001` evidence; `B-136` is the transition handoff, not the sole long-term owner. Each receipt names its owner, destination, future acceptance proof and the feature-gate condition. Superseding the **source handoff** removes its `B-097` return; it does not mark selection, construction, feature DoD or Judge acceptance complete.
+3. After the destination records receipt, update `B-120` and `B-125` to `Resolution: Superseded`, cite the corrected `D-268` authority in `Superseded-By`, remove their `Follow-up-Tier` fields, and append dated lifecycle corrections without erasing the former `Deferred` history. Align `SV-002` §2.1/§2.2 `P14a`/`P14b` with that terminal source disposition. Preserve `V1-SM05` as `BLOCKED`; do not create or run `V1-SM05-FV-001` early.
+4. Keep the separate Gate 1B evidence sequence. The §3.3 matrix has 25 seeded child keys; its `unclassified` outcomes are decided by the bounded `SV2-U04` mapping and Lane B feasibility review, not by this approval. Check each `SV2-DOR-*` or `SV2-DOD-*` row only from its own proof. The Judge has approved this absorption disposition, not selected the Gate 1B execution turn or the SM05 construction turn.
+
+**What Lane B did instead.** Recorded the Judge's direct clarification in the existing B-139 handoff for Lane A's governed pass. No Lane A source, B-120/B-125 header, lane state, feature packet or gate checklist was changed by Lane B. Whole-entry verification remains pending after application.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Judge's Option A absorption of `B-120`/`B-125` source obligations | Phase 1 — direct ruling recorded here; Lane A records the governed correction |
+| **Approve-with-conditions** | Corrected `D-268`, `B-136` receiving receipts and durable `V1-SM05` destination | Phase 1 / Gate 1B — record authority and each destination before changing source closure fields |
+| **Approve-with-conditions** | `B-120`/`B-125` terminal `Superseded` resolution | Phase 1 / Gate 1B — apply after the governed correction and two-sided receipts; remove the `B-097` trigger |
+| **Defer** | Independent verification, `SV2-U04` classification, Gate 1B DoD and SM05 construction | Gate 1B → Gate 2 — follow their separate evidence and Judge gates |
+| **Reject** | Treating absorption as completion of future selection, feature work or `V1-SM05-FV-001` | Gate 2 — preserve the downstream obligation |
