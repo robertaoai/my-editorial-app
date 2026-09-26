@@ -395,6 +395,18 @@ corrected commit, with `Verified-At-Commit` set to that existing read commit.
 The review does not file a duplicate `C-011`, authorize a loader run or lift the
 `V1-SM05` block.
 
+**Graph currency correction to Lane C's final runbook (2026-09-26).** `D-266`
+requires a rebuild *after* the governed-source commit. `docs-drift.mjs` compares
+`.graphify/branch.json` with committed `HEAD`, so a rebuild before committing
+`docs/v1/` edits cannot establish currency at the resulting commit. `.graphify/`
+is gitignored; do not stage it. Lane A should commit the bounded source pass,
+run `npx graphify hook-rebuild`, confirm `lastAnalyzedHead` equals the new `HEAD`
+and `stale` is false, verify curated-fragment parity after the rebuild, then
+run the full local consistency suite and portability check before
+claiming the graph is current. A pre-commit check is useful but does not replace
+this post-commit proof. The runner's check count is reported by the runner, not
+fixed as an acceptance criterion in this handoff (`G75`).
+
 ## What you did instead
 
 Lane B reconciled the Judge's direct clarifications and Lane C's advisory analysis with
