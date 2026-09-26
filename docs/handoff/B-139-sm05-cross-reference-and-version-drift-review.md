@@ -11,8 +11,8 @@
 
   **Lane B follow-up R1–R4 applied 2026-09-26 (`D-268`, commit `947e4e7`; handoff commits `dbe953b`, `4f784b1`), on the Judge's answers to Q1–Q3.** R2: transfer is separated from completion — `B-120` and `B-125` now carry per-parent receipts and `Answered` / `Resolution: Deferred` with `Follow-up-Tier` "Gate 2 — the Judge selects `V1-SM05` and issues the `D-242` work order (`B-136` Parent 3); completion evidence is `V1-SM05-FV-001`", returned under `B-097`; neither is independently verified. R1: `SV-002` §2.2 `P11` is split into `P11-G1`–`G4` and `P14` into `P14a`/`P14b`; the new §3.3 `SV2-U04` child matrix keys the children of `B-071` (`B071-R202`–`R208`), `B-095` (`D1`, `D2a`, `D2b`, `D3`, `D4`, `S5`), `B-096` (`GA1`, `S15`, `S16`, `TR-DM-01`), `B-104` (`O1`–`O4`) and `B-118` (`P1`–`P4`), each with *Blocking?* `unclassified` until the mapping runs. R4: `SV-002` §2.1 is re-derived from the live headers at `6c28a6f`, with `B-139` added, `B-120`/`B-125` in a transferred list and `B-138` in a verification list. R3: `Modular_PRD.md` §0 `Status` has a dated current-state statement with the old clause struck through; changelog 1.42. Not done: `SV2-U04` classification, children 4–7's remaining transfers, the Gate 1B run and independent verification. `Status` stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** repository comparison at the commit below against `D-259`–`D-261`, `D-263`–`D-267`, `FN-GATES-01-05.md` §§4.1/4.4, `requirements-traceability-map.md` §6.1, `Modular_PRD.md` §§0/0.1/9.1, `ENCYCLOPEDIA-SYNC.md` Entry 03, `V1-SM05.md`, `B-120`, `B-125`, `B-138`, and `SV-002.md` §§2.1–2.2; Lane C's 2026-09-26 external review is supporting analysis
-- **Verified-At-Commit:** 7c05ca8ee1a8cd7ab9e510934e0896ab7502461d
+- **Evidence:** repository comparison at the commit below against `D-259`–`D-261`, `D-263`–`D-268`, `FN-GATES-01-05.md` §§4.1/4.4, `requirements-traceability-map.md` §6.1, `Modular_PRD.md` §§0/0.1/9.1, `ENCYCLOPEDIA-SYNC.md` Entry 03, `V1-SM05.md`, `B-120`, `B-125`, `B-136`, `B-138`, `SV-002.md` §§2.1–2.2/3.3, and the handoff return SOP; Lane C's 2026-09-26 external review is supporting analysis
+- **Verified-At-Commit:** 7830f1d392cf99a896d8f58b0fb609804b3a6ef0
 
 ## What happened
 
@@ -133,3 +133,23 @@ The attached Lane C review correctly observes that the consistency suite and Gra
 | **Approve-with-conditions** | `SV2-DOR-02` coverage claim | Gate 1B — re-derive the Open audit and prove R4; check the row only on its full evidence |
 | **Defer** | Whole-entry `B-139` verification, PR #2 comment, `SV-002` execution and Lane B construction | Gate 1B → Gate 2 — finish child work, obtain the separate Judge acts and satisfy DoD before construction |
 | **Reject** | Calling the §2.2 index a completed per-child contract, calling G4 fully verified, or treating a proposed push statement as authorization | Phase 1 — use the live record and evidence for each act |
+
+### Lane B follow-up at `7830f1d` — D-268 transfer and return challenge
+
+**What happened.** Lane A applied `D-268` and answered R1–R4. The live `SV-002` record now separates `P14a`/`P14b`, seeds the child matrix, re-derives the Open audit, and the Product status line is corrected. These are applied corrections, not whole-entry verification: the matrix remains unclassified and Gate 1B run evidence remains pending. Lane C's later external review reports a green consistency suite and current graph; neither check proves that a receiving handoff accepted the two future obligations.
+
+**What Lane A needs, parent before child:**
+
+1. **Complete the receiving record before accepting the transfer.** `B-120` Parent 5 and `B-125` Parent 6 each say the remaining obligation was transferred to `B-136` Parent 3, then `V1-SM05-FV-001`. `SV-002` §2.2 `P14a`/`P14b` repeats that destination. But `B-136` Parent 3 does not name either child or record its own receipt; its earlier text still says those entries track State-1 progress. `B-136` itself requires the destination to record receipt before the source claims transfer. Lane A should add a dated Parent-3 receipt for each child, with owner, future acceptance proof and return condition, or record a Judge-approved correction to the named canonical destination. Preserve the `Deferred` history and do not claim the feature work complete.
+2. **Resolve the return timing before the construction lock changes.** The `D-268` `Follow-up-Tier` says both deferred entries return when the Judge selects `V1-SM05` **and** issues the `D-242` work order. Under the handoff README's `B-097` procedure, that exact act returns each entry to `Open` before substantive work continues. `B-136` Parent 4 puts the selection and work order before Lane B becomes `Active`, while the named completion proof `V1-SM05-FV-001` occurs after Lane B begins. The Judge also wants the B-series closed before Lane B takes the lock. Lane A must show the intermediate return and supported terminal disposition, with the Gate-2 obligation durably received, **before** activation; otherwise ask the Judge to amend the trigger or closure ordering in a successor Register act. Do not silently leave a triggered `Deferred` header or treat an unrun feature attempt as completion proof.
+3. **Then continue Gate 1B.** Classify the §3.3 child matrix from requirement evidence, complete the per-item receipts and DoR proof, run `SV2-U02`/`U03`/`U04` after the Judge's bounded selection, and obtain independent review and Judge acceptance before any SM05 selection or Lane B construction handover. A documentation-complete PR comment records preparation only.
+
+**What Lane B did instead.** Reviewed the four applied commits and the live receiving/return rules; kept `B-120`, `B-125` and this whole entry unverified. This follow-up changes only the existing B-139 handoff. It does not edit Lane A's governed sources or request a new B-series number.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | Register `D-268`, Product status correction and `SV-002` audit/key preparation | Phase 1 — applied; retain item-level review |
+| **Approve-with-conditions** | `B-120`/`B-125` Deferred transfer to `B-136` Parent 3 | Phase 1 / Gate 1B — record both receiving receipts before independent verification |
+| **Approve-with-conditions** | `D-268` return path and B-series closure before Lane B activation | Gate 1B → Gate 2 — show a legal return and re-disposition sequence, or obtain a successor Judge decision |
+| **Defer** | Whole-entry verification, Gate 1B DoD and SM05 construction handover | Gate 1B → Gate 2 — complete the child evidence and Judge gates |
+| **Reject** | Treating a green consistency suite, Graphify currency, or source-side receipts alone as proof that the named destination accepted the transfer | Phase 1 — inspect the receiving record |
