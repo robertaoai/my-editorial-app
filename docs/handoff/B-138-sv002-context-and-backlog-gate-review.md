@@ -356,6 +356,45 @@ before the owning sources have actually changed.
 - `V1-SM05` stays `BLOCKED` until all four unit returns, Judge acceptance of `SV-002`, and
   a separate unblocking act are recorded.
 
+### Independent review hold after `D-266` (`f467533`, 2026-09-26)
+
+`D-266` and the `Answered`/`Applied` routing are in the tree. This entry remains
+**Applied, not Verified** pending Lane A's correction of the following derived text
+and Lane B's subsequent independent comparison. The current graph and passing
+consistency checks do not test these prose relationships.
+
+1. **Normalize B-138 at the operative clauses.** Its earlier statements that all
+   six DoR rows are unchecked and that `D-266` is only a candidate describe the
+   earlier read state. `SV2-DOR-01` is now checked by `D-266`; rows 02–06 remain
+   open. Its old `SV2-U03` order placed the provision decision before any download;
+   `D-266` item 7 instead authorizes one isolated *trial* after DoR closes, followed
+   by the Judge's permanent provision/existing-path/waiver decision. Add dated
+   successor notes beside the old operative instructions; keep historical evidence.
+2. **Align the owning setup packet.** `D-266` item 8 and `SV-002` §2.1 add `B-096`
+   and `B-118` as `SV2-U04` screening inputs, but the §3 unit row still omits them.
+   Retain `B-137` R1 and distinguish the new screening inputs from decided blockers.
+   Account for their prior-attempt relationship in §4. The template permits only
+   `Carried`, `Changed`, `New`, `Retired` or `Previously omitted` as a drift class;
+   Lane A must choose from those after checking `SV-001` provenance, not use Lane C's
+   proposed `New screening candidate` label. Reassess `SV2-DOR-02`/`03` against
+   the completed coverage, ledger, unit inputs and proofs; do not check them from
+   the edits alone.
+3. **Update the earlier tool evaluation at its point of use.** The waiver
+   recommendation in `SV2-U03-code-navigation-evaluation.md` is historical. A
+   dated successor note should direct readers to `D-266` item 7 and `SV-002` §3.2.
+4. **Advance readiness while doing this pass.** Publish the `SV2-U02-A/B/C`
+   loader sentinel and capture protocol, the code-navigation comparison criteria
+   and `SV2-U04` matrix columns required by `SV2-DOR-05`. Assess `SV2-DOR-04`
+   separately: it needs evidence of authorized Lane B and Lane C measurement
+   turns or authenticated Judge-supplied runs. Lane C's current `Blocked` state
+   is not access proof. Check each row only when its own required evidence exists.
+
+Lane A owns these source edits and their governed validation. Lane B's later
+handoff-only review may change this entry to `Verified` only after reading the
+corrected commit, with `Verified-At-Commit` set to that existing read commit.
+The review does not file a duplicate `C-011`, authorize a loader run or lift the
+`V1-SM05` block.
+
 ## What you did instead
 
 Lane B reconciled the Judge's direct clarifications and Lane C's advisory analysis with
