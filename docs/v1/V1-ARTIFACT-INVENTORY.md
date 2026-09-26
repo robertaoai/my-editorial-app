@@ -375,6 +375,9 @@ repository and are not inventoried here; their evidence (sizes, SHA-256, removal
 external `dor-dod-lineage-model-consolidated.md` and *Ecosystem Context-Optimization Review* stay **outside** the
 repository; `D-267` is the governed statement of the tracking model, and no template `v2` is created.
 
+**`D-268` (2026-09-26) — no repository file added or retired, stated explicitly.** `SV-002.md` gains §3.3 in place and
+re-derives §2.1; `Modular_PRD.md` §0 gains a dated status note; `B-120`/`B-125` change disposition in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

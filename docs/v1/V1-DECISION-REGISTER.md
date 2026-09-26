@@ -19679,3 +19679,88 @@ option (a), and C1 (per-handoff items live in `SV-002`; tracking follows the lin
 Does not close, supersede or resolve any handoff; check `SV2-DOR-02`–`06` or any DoD row; run any `SV2-U*` unit;
 select Lane A's `SV-002` run or add the PR #2 comment (both are the Judge's acts); edit a rule file or the template;
 commit either external guide; reopen `DOR-R6`; change lane state; lift the `V1-SM05` block; or push.
+
+## 5.14e93 `D-268` — `B-139` Follow-up R1–R4: Transfer Receipts and `Deferred` for `B-120`/`B-125`, Keyed Per-Child Rows and the `SV2-U04` Matrix, Re-Derived Open Audit, Product Status Correction
+
+**Authority: the Judge's answers of 2026-09-26 to Lane A, directly** — on Lane B's partial application review of
+`D-267` in `docs/handoff/B-139` (`6c28a6f`, findings R1–R4): **Q1** yes, close `B-120`/`B-125` as `Deferred` with
+per-parent receipts, *per backlog tracking*; **Q2** yes, key the `B-071`/`B-095`/`B-096`/`B-104`/`B-118` children in
+a new `SV2-U04` matrix section, *per non-duplication*; **Q3** yes, one Register act with a governed commit, a `B-139`
+answer commit, a graph sync and a push, *per current governance*.
+
+### The decision
+
+1. **R2 — transfer now, completion later.** `D-267` item 1 made a checked transfer receipt the precondition for any
+   terminal resolution; Lane B found that `SV-002` §2.2 `P14` then waited on the very future acts being transferred.
+   The two are separated. **Transfer acceptance** is recorded now: a dated Lane A receipt per parent, then
+   `Resolution: Deferred` with a `Follow-up-Tier`. **Work completion** is the later satisfaction of that
+   `Follow-up-Tier` condition, handled by the `B-097` return protocol. This is the channel's existing meaning of
+   `Deferred` — *real, not now*, terminal without an implementation (`docs/handoff/README.md`) — so no new field,
+   state or resolution is created. `Superseded` is not used: no decision overtook either entry.
+2. **`B-120` — per-parent receipts.**
+   - **Parent 1** (Chief Editor operator attestation): removed as a `V1-SM05` gate and kept as `SETUP-SPIKE-000/S2`
+     baseline provenance (`D-255`, `B-129`). Transferred there; no `V1-SM05` work remains.
+   - **Parent 2** (boundary docket): closed — integration mode, advisory dual sign-off and raw-capture disposition
+     decided (`D-253`; dated correction via `B-122`, observed at `f94695b`).
+   - **Parent 3** (complete the `V1-SM05` DoR): complete — `DOR-R1`–`DOR-R7` checked (`D-259`–`D-261`), now the
+     Gate 1A attempt `SV-001` (`D-264`).
+   - **Parent 4** (external GitHub lifecycle): complete — Issue #1, `features/feature-V1-SM05`, draft PR #2
+     (`D-262`, `D-263`).
+   - **Parent 5** (selection and construction): **transferred** to `B-136` Parent 3, then `V1-SM05-FV-001` (Gate 2).
+3. **`B-125` — per-parent receipts.**
+   - **Parent 1** (governing rule): applied as `D-254`.
+   - **Parent 2** (pre-start readiness): complete — the five operator facts are `S2` baseline only (`D-255`);
+     `DOR-R5`/`DOR-R6` checked (`D-259`).
+   - **Parent 3** (Pass 1 on the base branch): complete — baseline push observed at `f94695b` (`B-122`).
+   - **Parent 4** (normal Issue creation): complete — Issue #1 (`D-262`; phantom-Issue premise removed by `B-126`).
+   - **Parent 5** (non-empty State-1 branch and PR): complete — draft PR #2 (`D-262`, `D-263`).
+   - **Parent 6** (selection and construction): **transferred**, as `B-120` Parent 5.
+4. **`Follow-up-Tier` for both:** *Gate 2 — returns when the Judge selects `V1-SM05` and issues the `D-242` State-2
+   work order (`B-136` Parent 3); completion evidence is `V1-SM05-FV-001`.* `Verified-By` stays unfilled:
+   dispositioned by Lane A, not independently verified. Lane B's review of the receipts still applies.
+5. **R1 — one keyed row per child, without duplication.**
+   - `SV-002` §2.2 `P11` splits into `P11-G1`–`P11-G4`, and `P14` into `P14a` (`B-120` Parent 5) and `P14b`
+     (`B-125` Parent 6), each with its own receipt.
+   - **New `SV-002` §3.3 — the `SV2-U04` child matrix.** Each child of `B-071`, `B-095`, `B-096`, `B-104` and
+     `B-118` gets a stable key reusing the entry's own label: `B071-R202`–`R208` (its latest open round);
+     `B-095.D1`, `.D2a`, `.D2b`, `.D3`, `.D4`, `.S5`; `B-096.GA1`, `.S15`, `.S16`, `.TR-DM-01`; `B-104.O1`–`.O4` (its
+     four ordered corrections); `B-118.P1`–`.P4`. `§2.2` rows `P4`–`P6`, `P8` and `P9` point to §3.3 instead of
+     restating the children.
+   - **The matrix is seeded, not decided.** Every "blocking?" cell reads `unclassified` until `SV2-U04` runs; the
+     controlling clause and anchor are filled only from the mapping itself. Earlier `B-071` rounds are covered by
+     their own recorded dispositions; if the mapping finds an unresolved earlier child, it adds a row under that
+     child's own `B071-R*` key.
+6. **R4 — the Open audit is re-derived.** `SV-002` §2.1 is re-derived from the live headers at `6c28a6f`, with the
+   `D-268` effect stated: `B-139` gains a row; `B-120`/`B-125` move to a transferred-and-`Deferred` list;
+   `B-138` moves to a verification list outside the Open set. `SV2-DOR-02` is still checked only on its full evidence.
+7. **R3 — Product Document Control status.** `Modular_PRD.md` §0 `Status` keeps its original clause struck
+   through and gains a dated current-state statement: application scaffolding exists; `0002_s1_editorial_schema.sql`
+   is applied and tested on local PostgreSQL (`D-114`, `D-121`); hosted Supabase behaviour is unverified (`DEP-05`);
+   `V1-SM05` construction is `BLOCKED` (`D-264`); the working branch is pushed. It makes no claim about environment
+   files. Changelog **1.42**; header 1.42.
+8. **Gating invariant.** `V1-SM05` stays `BLOCKED` under `D-264`. No construction, lane transition, `SV2-DOR-*` or
+   `SV2-DOD-*` check, `SV2-U*` run, template change or rule-file edit is authorized. The push is authorized by the
+   Judge's Q3 answer for this pass only.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e93 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-268` paragraph: transfer-now/complete-later; keyed rows and the §3.3 matrix |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no repository file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.1 re-derived; §2.2 `P11`/`P14` split and matrix pointers; new §3.3 |
+| **`docs/Modular_PRD.md`** | ✅ §0 `Status` dated current-state note; §0 version and date; changelog 1.42. No FR/AC/NFR text changes. **§8 unaffected** — no sprint closes, no tier opens |
+| **`docs/handoff/B-120`** | ✅ per-parent receipts; `Answered`, `Resolution: Deferred`, `Follow-up-Tier` as item 4 |
+| **`docs/handoff/B-125`** | ✅ as `B-120` |
+| **`docs/handoff/B-139`** | ✅ R1–R4 answered; `Status` stays `Open` |
+| **`FN-GATES-01-05.md`**, `requirements-traceability-map.md`, storyboard, `V1-SM05.md`, `V1-PHASE-CLOSURE.md` | — unaffected: no behaviour, journey, packet-status or lane change |
+| **Agent files**, `TEMPLATE.md`, `docs/templates/dor-dod-validation/v1.md`, frozen sources, application code | — unaffected |
+| **Encyclopedia** | — unaffected: `Modular_PRD` §0 `Status` is not in any entry's dependency cell (Entry 02 cites §0.2/§0.4/§12) |
+| **Graphify** | Rebuild after the final commit of this pass |
+
+### What this act does NOT do
+
+Does not verify any entry; classify any §3.3 row as blocking or non-blocking; close `B-136`, `B-139` or any other
+entry; check any `SV2-DOR-*`/`SV2-DOD-*` row; select Lane A's `SV-002` run or add the PR #2 comment; change lane
+state; or lift the `V1-SM05` block.

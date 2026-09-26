@@ -112,6 +112,13 @@ executes `SV2-U01`–`U04`, with the A/B/C loader runs covering how each consume
 template, and template v1 stays hash-pinned. B-series children are transferred item by item with receipts before any
 terminal resolution; `B-120`/`B-125` stay `Open`.
 
+**`D-268` (2026-09-26) — transfer now, complete later; keyed children.** A handoff's remaining work is **transferred**
+by a dated per-parent receipt and `Resolution: Deferred` with a `Follow-up-Tier`; it is **completed** later, when that
+condition is met, through the `B-097` return protocol. `B-120` and `B-125` are handled this way; both return at Gate 2,
+when the Judge selects `V1-SM05` and issues the `D-242` work order. `SV-002` §2.2 carries one keyed row per child, and
+the new §3.3 seeds the `SV2-U04` child matrix (`B071-R*`, `B-095.*`, `B-096.*`, `B-104.O*`, `B-118.P*`) with every
+blocking cell `unclassified` until the mapping runs. `SV-002` §2.1 is re-derived. `V1-SM05` stays `BLOCKED`.
+
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and DoD are **defined in their work packets (`D-245`, 2026-09-20)** and are not complete:
 each DoR box is checked only against current evidence, and Lane B's feasibility review and the Judge's
 acceptance of the business outcome are pending. The reusable one-MMF pull-request template
