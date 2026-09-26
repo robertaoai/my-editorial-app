@@ -171,3 +171,11 @@ changed. No Graphify rebuild was required for this handoff-only addition.
 | **Reject** | Claiming a suite pass from Lane C's stopped run | Require completed normal-environment evidence |
 | **Reject** | Requiring an existing-Issue URL on the present evidence, or predicting the future Issue number | Corrected 2026-09-23 (`B-126`) — use normal creation and GitHub's assigned identifier |
 | **Reject** | Creating a duplicate Issue or moving Pass-2 identity propagation onto the base | Preserve one-Issue sequencing and a non-empty State-1 delta |
+
+## Terminal annotation record
+
+- **Current-Resolution:** Superseded
+- **Annotation-Type:** correction
+- **Annotation-Act:** `D-269` (Judge Option A, canonical absorption, 2026-09-26) — `Deferred` corrected to `Superseded`, `Follow-up-Tier` removed; `V1-DECISION-REGISTER.md` §5.14e94
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 38e3669ed66ad264e7e45ff558cccdf2d1603e0d
