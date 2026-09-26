@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** a clean Lane A source-consistency, B-series closure, multi-lane instruction-governance and `SV2-U03` code-navigation review plan before the later Lane B construction handover; this entry does not itself block `SV-002` work, select `V1-SM05`, or authorize construction
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-09-26, receipt only. Read at `970ac9a`: 15 Open entries (`B-071`, `B-095`, `B-096`, `B-102`, `B-104`, `B-106`, `B-116`–`B-120`, `B-125`, `B-130`, `B-136`, `B-139`). Accepted as the consolidation parent for Lane A's G1–G6 review; no duplicate entry is filed. Lane A's earlier G1/G2/G4/G6 drafts are withdrawn in favour of this entry's corrections. The Judge answered Lane A's four questions on 2026-09-26: record the successor act (What you need, item 1); G4 option (a), renumber in commit order with the header set to the new last version; per-handoff DoR→DoD preparation lives in `SV-002`; lineage and attempt tracking follow the lineage/attempt/run model. Those land in the next Register act, not in this field. `Status` stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** repository comparison at the commit below against `D-259`–`D-261`, `D-263`–`D-266`, `FN-GATES-01-05.md` §§4.1/4.4, `requirements-traceability-map.md` §6.1, `Modular_PRD.md` §§0/0.1/9.1, `ENCYCLOPEDIA-SYNC.md` Entry 03, `V1-SM05.md`, `B-120`, `B-125`, `B-138`, and `SV-002.md` §2.1; Lane C's 2026-09-26 external review is supporting analysis
 - **Verified-At-Commit:** e26effc63aa0466c494c7d76af866f997a6ee3d1
