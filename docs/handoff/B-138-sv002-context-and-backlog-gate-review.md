@@ -235,6 +235,36 @@ checks does not supply a DoR proof or a `SV2-U03` selection.
 
 ## What you need
 
+### Reconciliation of Lane C's C-011 draft and external lineage guide (2026-09-26)
+
+The external `dor-dod-lineage-model-consolidated.md` is advisory vocabulary, not a
+new Register act or an execution packet. Its proposed Gate 1A / Gate 1B / Gate 2
+labels map respectively to the completed `SV-001` handoff-validation history, the
+open `SV-002` setup attempt, and the future `V1-SM05-FV-001` feature attempt.
+Keep the existing identities and gates in `D-264`, `SV-002` and `V1-SM05.md` as the
+source; do not make the new labels a second status system. `SV-001` has legacy
+embedded-checklist provenance, not a retroactive v1 template hash. The feature
+attempt has not been created. Jev's readiness check evaluates the named manifest's
+pinned Product/Functional Spec rows and packet map; the passing historical SM05
+receipt does not certify `SV-002`, close its DoR or authorize State 2. `docs-drift`
+checks graph currency, not semantic parity. The guide's absence of an automated
+foundational-dependency graph is a current limitation: `SV-002`'s `Blocks` field,
+coverage index and transfer receipts are the manual control. A new graph or check
+would require a separate decision and owner.
+
+Lane C's C-011 text is a proposal, not a filed handoff. Its Q1–Q9 assertions must
+be separated into the Judge's stated design targets, existing B-138 routes and
+unapproved proposals. In particular, two reviewer levels do not yet change the
+single independent `Verified-By` rule; an `SV2-U02-A` tracker and a new mandatory
+decision ID need Lane A/Judge disposition; and `SV2-DOR-02` requires item-level
+coverage with evidence, not a copied fixed list of 15 Open handoffs. The proposed
+physical Ripwire validation before the Judge's `SV2-U03` choice reverses the
+sequence already corrected in this handoff: readiness specification, permitted
+loader runs, Judge choice, then any selected installation and consumer tests.
+Use the next free Register identity only when Lane A records a Judge act. Reuse
+B-138 and `SV-002`; do not file duplicate C-011 or mark B-138 `Answered`/`Applied`
+before the owning sources have actually changed.
+
 1. **Record the Judge's parent clarification and receive this entry.** Lane A acknowledges
    B-138 in its own field, then records the tool-role descriptions, cross-platform
    instruction architecture and its `<6,000`-character `AGENTS.md`, `<300`-line
