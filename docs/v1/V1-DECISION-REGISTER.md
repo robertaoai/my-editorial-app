@@ -19828,3 +19828,74 @@ by Lane B in `docs/handoff/B-139` (`8600043`), after Lane B's challenge to `D-26
 Does not verify any entry; close `B-136` or `B-139`; classify any §3.3 row; check any `SV2-DOR-*`/`SV2-DOD-*` row;
 select Lane A's `SV-002` run or the SM05 construction turn; create `V1-SM05-FV-001`; change lane state; lift the
 `V1-SM05` block; or push.
+
+## 5.14e95 `D-270` — `SV-002` Readiness: Unit Bounds (`SV2-DOR-03`), Evaluation Methods (`SV2-DOR-05`), `SV2-DOR-06` Checked, Lane B/C Measurement Turns Authorized (`SV2-DOR-04`)
+
+**Authority: the Judge's answers of 2026-09-27 to Lane A, directly** — **Q1** yes: apply the `SV2-DOR-03` and
+`SV2-DOR-05` drafts and check `SV2-DOR-06`, as one Register act; **Q2** yes: authorize a Lane B measurement turn
+(Lane B is `Eligible`) and a Lane C one (Lane C is `Blocked`); **Q3** yes: push `d9b9a86` and `763446a` (done, remote
+at `763446a`). The drafts answer Lane B's `B-139` review at `28be9e5`, item 2.
+
+### The decision
+
+1. **`SV2-DOR-03` — unit bounds written.** `SV-002` §3 gains a unit-bounds table naming each unit's **inputs**,
+   **output** and **stop condition**, beside the existing owner, acceptance proof and return condition. **The row
+   stays unchecked** until Lane B's Level 1 review of the table: this act applies the draft and does not check it.
+2. **`SV2-DOR-05` — evaluation methods fixed before any result.** `SV-002` gains §3.4, written before any run:
+   - **Loader (`SV2-U02`)** — *natural sentinels*: for each in-scope file, an existing, unique line at its start,
+     middle and end, pinned by line number and SHA-256 at the read commit, so **no rule file is edited** (`D-266`
+     item 2, measure first). The agent under test quotes each sentinel; a missing or altered quote means that region
+     is not visible. Each run records the file inventory, the three quotes per file, byte/character counts and
+     `/context` tokens where the tool shows them, and classifies the result as complete loading, discovery failure,
+     per-file truncation or total-context truncation. Duplicated text (for example `AGENTS.md` loaded twice) is
+     recorded when a sentinel is quoted from two sources.
+   - **Code navigation (`SV2-U03`)** — against one named task with an `rg` baseline: **pass** only if the candidate
+     finds the same callers/files as the baseline with no false result, returns nothing on a negative control, stays
+     within the stated output budget, and the SQL fallback (`rg` over `supabase/migrations/*.sql`) answers the SQL part.
+     The Judge's provision/existing-path/waive outcome follows (`D-266` item 7).
+   - **Mapping (`SV2-U04`)** — the §3.3 columns stand. A row is **blocking** only if the `V1-SM05` slice consumes the
+     child's contract through `FR-15`, `AC-23`–`AC-26`, the `SM05-*` scenarios, a data write or the first work-order
+     child; otherwise **non-blocking**, keeping its owner and return condition. A row that would need a new business
+     decision is escalated to the Judge (`D-58`), never decided by the mapping.
+
+   **The row stays unchecked** until Lane B's Level 1 review of §3.4, as for item 1.
+3. **`SV2-DOR-06` — checked.** Evidence: `D-264` §5.14e89 *"What this act does NOT do"* (no construction, feature
+   tests, hosted migration or deployment, `ripwire` install, root `GEMINI.md`, size cap or bulk handoff closure);
+   `D-266` §5.14e91 (no skill trim, rule-file edit or `GEMINI.md`); `D-267` item 9, `D-268` item 8, `D-269` item 5 and
+   this entry's own exclusions. Every act since `D-264` has held the boundary. It remains a standing condition: any
+   later act that crosses it returns the row to unchecked.
+4. **`SV2-DOR-04` — measurement turns authorized; row not yet checked.** The Judge authorizes one bounded,
+   **read-only measurement turn** each for Lane B (`SV2-U02-B-R1`) and Lane C (`SV2-U02-C-R1`, filed under `-B-R1`),
+   for the `SV-002` execution phase — effective when the Judge selects Lane A's `SV-002` run (`D-267` item 2), not
+   before. Conditions:
+   - **No lock transfer and no lane-state change.** Lane A stays `Active`; Lane B stays `Eligible`; Lane C stays
+     `Blocked`. A measurement turn is not the construction handover (`B-139`).
+   - **Read-only.** No edit to any rule file, skill, dependency or application file; no secret or hosted mutation.
+   - **Receipts.** Lane B files its run receipt as its own `B-` entry under `D-184`. Lane C, being `Blocked`, may draft
+     a `C-` entry but not commit it (`D-184`); its receipt enters `SV-002` as **Judge-supplied evidence**, which
+     `SV2-DOR-04` already admits.
+
+   The row is checked when the turns start and each tool is confirmed available; a failed start returns it to
+   unchecked. **The `SV2-U02-A` run is Lane A's own and needs no extra authorization.**
+5. **Unchanged.** `SV2-DOR-02` waits for Lane B's independent review of the re-derived §2.1; `SV2-DOD-01` waits for an
+   independent review of `SV2-U01` (`10ec465`). No `SV2-DOD-*` row is checked. `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e95 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-270` paragraph: readiness rows and measurement-turn authorization |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no repository file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3 unit bounds; §3.1 dated note on the Lane C run; §3.4 methods; §6 `SV2-DOR-06` checked, `-03`/`-04`/`-05` state notes |
+| **`docs/handoff/B-139`** | ✅ answered in a follow-up handoff commit |
+| **`V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change; the measurement turns transfer no lock |
+| **`docs/Modular_PRD.md`**, Fn Specs, traceability map, storyboard, `V1-SM05.md` | — unaffected: no requirement, behaviour, journey or packet-status change |
+| **Agent files**, `TEMPLATE.md`, `docs/templates/dor-dod-validation/v1.md`, frozen sources, application code | — unaffected (natural sentinels need no rule-file edit) |
+| **Encyclopedia** | — unaffected: no entry cites `SV-002`'s readiness rows |
+| **Graphify** | Rebuild after the final commit of this pass |
+
+### What this act does NOT do
+
+Does not check `SV2-DOR-02`/`03`/`04`/`05` or any `SV2-DOD-*` row; select Lane A's `SV-002` run; start any run;
+classify any §3.3 row; edit a rule file, skill or template; change lane state; lift the `V1-SM05` block; or push.

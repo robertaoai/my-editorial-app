@@ -381,6 +381,9 @@ re-derives §2.1; `Modular_PRD.md` §0 gains a dated status note; `B-120`/`B-125
 **`D-269` (2026-09-26) — no repository file added or retired, stated explicitly.** `V1-SM05.md`, `SV-002.md`, `B-136`,
 `B-120` and `B-125` change in place.
 
+**`D-270` (2026-09-27) — no repository file added or retired, stated explicitly.** `SV-002.md` gains a unit-bounds
+table and §3.4 in place; the natural-sentinel method adds no file and edits no rule file.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

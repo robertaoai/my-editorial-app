@@ -125,6 +125,13 @@ Their remaining obligation — selection, work order, Lane B activation and cons
 Parent 3 and owned durably by the `V1-SM05` packet and its future `V1-SM05-FV-001`. Absorption completes none of
 those acts; `V1-SM05` stays `BLOCKED` and gated by `SV-002`.
 
+**`D-270` (2026-09-27) — `SV-002` readiness rows.** `SV2-DOR-06` (governance boundary) is **checked** on the recorded
+exclusions of `D-264` and `D-266`–`D-270`. `SV2-DOR-03` (unit bounds: inputs, output, stop) and `SV2-DOR-05` (natural-
+sentinel loader method, navigation pass criteria, blocking rule) are written in `SV-002` §3/§3.4 and stay unchecked
+until Lane B's Level 1 review. `SV2-DOR-04`: the Judge authorizes one read-only measurement turn each for Lane B and
+Lane C, effective when Lane A's `SV-002` run is selected — no lock transfer, no lane-state change; Lane C's receipt
+enters as Judge-supplied evidence. `SV2-DOR-02` and every `SV2-DOD-*` row stay open. `V1-SM05` stays `BLOCKED`.
+
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and DoD are **defined in their work packets (`D-245`, 2026-09-20)** and are not complete:
 each DoR box is checked only against current evidence, and Lane B's feasibility review and the Judge's
 acceptance of the business outcome are pending. The reusable one-MMF pull-request template
