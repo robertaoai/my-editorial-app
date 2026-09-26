@@ -184,3 +184,11 @@ documents, create the Issue or branch, open the PR, migrate Supabase, or begin S
 | **Defer** | V1-SM05 construction | After selection, work order and Lane B activation |
 | **Reject** | ZIP-based branch initialization; rewriting anchored receipts; deleting raw captures without authority | Preserve native Git history and evidence boundaries |
 
+
+## Terminal annotation record
+
+- **Current-Resolution:** Superseded
+- **Annotation-Type:** correction
+- **Annotation-Act:** `D-269` (Judge Option A, canonical absorption, 2026-09-26) — `Deferred` corrected to `Superseded`, `Follow-up-Tier` removed; `V1-DECISION-REGISTER.md` §5.14e94
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** adce86146aa46ae17946ac48b93c483c72225568
