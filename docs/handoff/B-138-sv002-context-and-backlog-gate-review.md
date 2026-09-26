@@ -169,6 +169,41 @@ run access (`DOR-04`) and fixed methods (`DOR-05`) need their own proof. After D
 passes, selected-lane `SV2-U02` measurements precede physical `ripwire` setup and
 consumer trials under `SV2-U03`.
 
+### Lane C Q1–Q7 follow-on — residual for Lane A, 2026-09-26
+
+Lane C's new review adds **one concrete coverage gap** to this parent handoff. `SV-002` §3.1
+tracks `SV2-U02-B` as parent of `SV2-U02-C`, but has no explicit Claude Code measurement.
+Lane A owns the loader protocol and its own consumer is relevant to the Judge's
+`CLAUDE.md`/`@AGENTS.md` design. During readiness, Lane A should specify a Claude Code
+baseline run (candidate `SV2-U02-A`) with tool/version, loaded-file inventory, visible
+start/middle/end sentinels and available `/context` token evidence. Preserve the Judge's
+existing **B-parent/C-child** run relationship. Assess Lane A run access under
+`SV2-DOR-04`; execute no run until the attempt's DoR and lane gates allow it. The current
+`CLAUDE.md` does **not** contain `@AGENTS.md`, so a present-state run cannot prove that
+future import's expansion or any double load. Test those claims after a separately
+authorized rewrite, with a before/after comparison rather than calling the baseline a
+remediation result.
+
+The other Q1–Q7 responses mostly restate this entry's Judge targets and return gates:
+sequential Level 1/Level 2 **review roles** stand; making both sign-offs mandatory for
+every terminal handoff is a proposed lifecycle change. Measure before rule-file and
+shared-core-checker rewrites. Reduce the Graphify skill under the Judge's size target,
+while treating `.agents/skills/graphify/SKILL.md` vendoring and the asserted truncation
+cause as choices to prove. Draft the two-consumer `ripwire` setup during DoR; installation
+and trials wait for the governed gate. Character/line targets remain binding and token
+counts are supporting evidence. The external context review stays advisory. Neither
+Lane C's “binding determinations” nor its draft `C-011` is a Judge decision or a filed
+handoff; `D-266` is only a candidate identifier at this read state.
+
+**Current-state correction to earlier paragraphs:** Lane A acknowledged B-138 at
+`c07467a` as receipt only. Earlier sentences describing its blank Lane A field refer to
+the pre-acknowledgement read state, not the current gate. The 15 Open IDs above are a
+dated routing snapshot. `SV-002` §2 still lists selected intersections and a generic
+remainder; it does not yet carry a relevance/exclusion receipt for each Open item.
+Lane A should derive that audit from live headers, without treating every Open handoff as
+an `SV-002` blocker or persisting the count as a second authority. `V1-SM05` remains
+`BLOCKED` under `D-264`.
+
 | Tier / view | Disposition for this handoff |
 |---|---|
 | Register, Build Spec, Inventory, `SV-002` and `SV2-U03` evaluation | Affected by the Judge's role, instruction-file, setup and tracking direction; Lane A determines the exact `D-54` changes and any setup artifact paths |
