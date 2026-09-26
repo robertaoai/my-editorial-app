@@ -4,11 +4,14 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** the Lane A routing of the Judge's tool-role and instruction-architecture clarifications, `ripwire` review/setup and visible Open-item tracking into their canonical owners. This entry's verification requires that routing, not completion of `SV2-U01`–`U04`; `V1-SM05` remains `BLOCKED` under `D-264`, with no construction or lane transition authorized
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-25, receipt only. Read state re-measured at `6dfea83`: 15 Open entries (`B-071`, `B-095`, `B-096`, `B-102`, `B-104`, `B-106`, `B-116`–`B-120`, `B-125`, `B-130`, `B-136`, `B-138`); `AGENTS.md` 31,649 chars / 31,920 B, `CLAUDE.md` 29,449 chars / 402 lines, `.agents/rules/graphify.md` 21,593 chars; the installed Antigravity Graphify skill is external at `~/.gemini/config/skills/graphify/SKILL.md`; `ripwire` is not installed. Recording the Judge clarification (new Register act) waits on the Judge's answers to Lane A's clarification questions; nothing is applied by this acknowledgement.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+
+  **Answered 2026-09-26 (`D-266`), Judge rulings Q1–Q3 and Q5–Q9.** Routed to their owners: tool roles and the two-tier sequential review (Level 1 operational, Level 2 architectural; the single `Verified-By` stands) and the measure-first rule-file order are in the Register; `SV2-U02-A` (independent Claude Code tracker), the post-measurement external Graphify skill trim (not vendored) and the §3.2 `ripwire` trial parameters (specification only while DoR is open; one isolated trial after DoR closes) are in `SV-002` §3; the itemized Open-handoff audit is `SV-002` §2.1. Gate labels 1A/1B/2 are recorded. `SV2-DOR-01` is checked; the other rows await their own evidence. `V1-SM05` stays `BLOCKED`. Applying commit `563755e`.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Judge clarifications supplied directly, 2026-09-25; repository comparison at the commit below against `D-75`, `D-227`, `D-264`, `SV-002.md` §§2–7, `SV2-U03-code-navigation-evaluation.md`, `B-130`, `B-136`, `B-137`, the three instruction files, `shared-core-hash.mjs`, the Phase Closure lane table, the Open handoff headers and the cross-artifact sources below; Lane C's supplied Level 2 reviews are supporting analysis, not Lane A receipt
-- **Verified-At-Commit:** 682a09c7203864525e3aeaa359e3c25b5de29dec
+- **Verified-At-Commit:** 563755ed8e7b3a6e8f39043e23f5d26e6860250b
 
 ## What happened
 
