@@ -370,6 +370,11 @@ drafts row above gains a successor note (`0002_three_lines.sql.draft` will not b
 Graphify skill at `~/.gemini/config/skills/graphify/SKILL.md` and any trial `ripwire` binary live **outside** the
 repository and are not inventoried here; their evidence (sizes, SHA-256, removal) is recorded in `SV-002`.
 
+**`D-267` (2026-09-26) — no repository file added or retired, stated explicitly.** `SV-002.md` gains §2.2 in place;
+`Modular_PRD.md`, `FN-GATES-01-05.md` and `requirements-traceability-map.md` receive dated corrections in place. The
+external `dor-dod-lineage-model-consolidated.md` and *Ecosystem Context-Optimization Review* stay **outside** the
+repository; `D-267` is the governed statement of the tracking model, and no template `v2` is created.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

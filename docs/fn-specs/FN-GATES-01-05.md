@@ -3,7 +3,7 @@
 **Date:** 2026-08-19
 **Tier:** `Fn_Specs` — functional specification. Third tier of `D-29`: `PRD` → `Modular_PRD` → **`Fn_Specs`** → `SPECS`.
 **Status:** Draft. Planning only — no build authorized.
-**Source:** `docs/Modular_PRD.md` §5 (`FR-01`–`FR-05`), §6 (`AC-01`–`AC-08`), Addendum §3.1 (T1–T6). **§4.3/§4.4 also elaborate `FR-15` and `AC-23`–`AC-26`** (`V1-SM05`'s `business:T1`–`T5` evidence slice; added 2026-09-24, `D-261`).
+**Source:** `docs/Modular_PRD.md` §5 (`FR-01`–`FR-05`), ~~§6~~ §9.1 (`AC-01`–`AC-08`; anchor corrected 2026-09-26, `D-267` — §6 is Technical Requirements; each AC row keeps its own held/current status), Addendum §3.1 (T1–T6). **§4.3/§4.4 also elaborate `FR-15` and `AC-23`–`AC-26`** (`V1-SM05`'s `business:T1`–`T5` evidence slice; added 2026-09-24, `D-261`).
 **Scope:** the five gate features. Board, publication, and exception features follow in separate documents.
 
 > **`D-30` redundancy rule applies.** Behaviour is stated here to be **sufficient**. A `SPECS` document is written only where functional definition alone cannot determine implementation — §9 names exactly which parts qualify and why.
@@ -252,6 +252,12 @@ be exactly the "map by matching numbers" error `B-117` warns against.
 one owner: storyboard **Panel A11** (`DOR-R5`). It is a panel in the same storyboard, not a standalone UML
 or data-flow artifact, so this subsection's rule stands. It is authored, not yet accepted. The
 A2–A8-to-slot mapping above is still not asserted here.
+
+**`[V1]` Dated successor note, 2026-09-26 (`D-267`, from `docs/handoff/B-139` G1).** The sentence *"It is authored,
+not yet accepted"* above was true on 2026-09-24 and is now history: Panel A11 was accepted the same day by `D-259`
+(Chief Editor walkthrough and Lane B/C review, recorded in A11.5), and §4.4 already treats it as accepted. That
+acceptance covers `V1-SM05`'s `business:T1`–`T5` evidence journey (Option A, `D-260`) only. It does **not** assert the
+A2–A8-to-slot mapping, which stays unasserted here, and it does not extend Panel A10 beyond its `ManualReady` sequence.
 
 **Forward direction, recorded for later, not built now.** Once `V1-SM05`/`V1-SM06` are implemented,
 the intent behind this table is that the storyboard/UML/data-flow view for the built code becomes

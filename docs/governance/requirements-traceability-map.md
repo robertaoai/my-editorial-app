@@ -277,6 +277,13 @@ assignment): `OP-PITCH`/`OP-DRAFT` have a decided, Route-1-scoped application-se
 SIGNOFF` has an **accepted** A-only execution contract (same §4.1). `OP-COPY-EDIT` is the one Sheet 2
 operation already `VERIFIED` and unaffected.
 
+**`[V1]` Dated current-state pointer, 2026-09-26 (`D-267`, from `docs/handoff/B-139` G2).** The `DOR-R1`–`DOR-R6`
+reference above is history. `D-259` added `DOR-R7` (the Jev System One readiness receipt), so `V1-SM05`'s pre-selection
+readiness is `DOR-R1`–`DOR-R7`, all checked (`D-259`–`D-261`). That completed handoff validation is now the Gate 1A
+attempt `SV-001` (`D-264`, `D-266`), not a feature DoR/DoD. `V1-SM05`'s normal/revision journey and data flow have one
+visual owner: storyboard Panel A11, accepted by `D-259`. Panel A10 keeps its stated scope, the `ManualReady` normal,
+refusal and replay sequence; it is not the whole `V1-SM06` journey.
+
 **Forward engineering:** a customer want becomes an objective, a story, a requirement, a sprint, a test.
 **Backward engineering:** a failing test resolves to a requirement, to a story, to a customer sentence with a verifiable hash — even years later, and even if nobody involved is still on the project.
 

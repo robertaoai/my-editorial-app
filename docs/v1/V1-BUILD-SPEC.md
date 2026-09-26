@@ -100,6 +100,18 @@ binding targets (`AGENTS.md` < 6,000 characters; `CLAUDE.md` < 300 lines; skills
 DoR is open, specification only; after DoR closes, one isolated Windows trial; then the Judge's provisioning decision.
 Gate labels: 1A = `SV-001`, 1B = `SV-002`, 2 = `V1-SM05-FV-001`. `V1-SM05` stays `BLOCKED`.
 
+**`D-267` (2026-09-26) — `SV-002` preparation, then execution; construction order.** `SV-002` is the Gate 1B attempt
+record with preparation underway and no executed run result. Sequence: **(1)** Lane A prepares — coverage index,
+per-handoff DoR→DoD items (`SV-002` §2.2) and DoR rows checked only on their own evidence; **(2)** the Judge selects
+Lane A to execute `SV-002` (bounded-attempt authorization, not a lane transition) and comments on draft PR #2 that the
+documentation is complete — an attestation of the prepared contract, not a result or an unblock; **(3)** Lane A
+executes `SV2-U01`–`U04`, with the A/B/C loader runs covering how each consumer loads the cross-tool root `AGENTS.md`;
+**(4)** `SV2-U03` outcome → `SV2-DOD-04` → `SV2-DOD-06` → the Judge accepts `SV-002`, lifts the block, selects
+`V1-SM05` and issues the `D-242` work order → only then Lane B's state-change construction, under `V1-SM05-FV-001`
+(Gate 2). Tracking follows lineage → attempt → unit → run; each attempt's own DoR/DoD sections are the instantiated
+template, and template v1 stays hash-pinned. B-series children are transferred item by item with receipts before any
+terminal resolution; `B-120`/`B-125` stay `Open`.
+
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and DoD are **defined in their work packets (`D-245`, 2026-09-20)** and are not complete:
 each DoR box is checked only against current evidence, and Lane B's feasibility review and the Judge's
 acceptance of the business outcome are pending. The reusable one-MMF pull-request template
