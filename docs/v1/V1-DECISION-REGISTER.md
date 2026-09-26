@@ -19764,3 +19764,67 @@ answer commit, a graph sync and a push, *per current governance*.
 Does not verify any entry; classify any §3.3 row as blocking or non-blocking; close `B-136`, `B-139` or any other
 entry; check any `SV2-DOR-*`/`SV2-DOD-*` row; select Lane A's `SV-002` run or add the PR #2 comment; change lane
 state; or lift the `V1-SM05` block.
+
+## 5.14e94 `D-269` — Judge Option A (Canonical Absorption): `D-268` Corrected — `B-120`/`B-125` Superseded, Terminal, No Return Trigger
+
+**Authority: the Judge's direct ruling of 2026-09-26, given to Lane B and to Lane A** — *"Option A (Canonical
+Absorption): Clarify that B-120 and B-125 are permanently superseded by D-268 and the receiving receipt in B-136
+Parent 3 (and downstream packet V1-SM05), making their closure terminal without a return-to-open trigger."* Recorded
+by Lane B in `docs/handoff/B-139` (`8600043`), after Lane B's challenge to `D-268`'s return path (`d0555ff`).
+
+### The decision
+
+1. **`D-268` is corrected, not rewritten.** Its text stays as decision history. For `B-120` and `B-125` only:
+   - `D-268` item 1's sentence *"`Superseded` is not used: no decision overtook either entry"* is **replaced**: both
+     entries are **superseded by `D-268` as corrected by this entry**. The supersession authority cited in their
+     `Superseded-By` field is *"`D-268` as corrected by `D-269`"* — never `D-268` unqualified.
+   - `D-268` item 4's `Follow-up-Tier` and its `B-097` Gate-2 return trigger are **withdrawn** for these two entries.
+     Their closure is terminal, with no return-to-open trigger.
+   - `D-268` items 2–3's per-parent receipts stand unchanged as the evidence of what each entry delivered.
+2. **Why the correction is needed (Lane B, `d0555ff`).** The `D-268` trigger would have returned both entries to
+   `Open` at the Judge's selection and work order — **before** Lane B's activation, while their named completion proof
+   (`V1-SM05-FV-001`) comes **after** it. That contradicted the Judge's aim of closing the B-series before Lane B takes
+   the construction lock. Absorption removes the return instead of scheduling it.
+3. **Receiving side first — two-sided receipts.** Before the source entries change, the obligations are received:
+   - **`B-136` Parent 3** records a dated receiving receipt for `B-120` Parent 5 and `B-125` Parent 6, each naming
+     owner, destination, future acceptance proof and the feature-gate condition. *Label note:* the Judge and Lane A's
+     `D-263` note in `B-136` use "Parent 3" for selection, work order and lane change; `B-136`'s current body numbers
+     those acts **Parents 4–5** (lift the block, select, work order; then `V1-SM05-FV-001` and construction). The
+     receipt is recorded under Parent 3 as named and states that mapping.
+   - **The durable owner is the governed `V1-SM05` packet** and its future `V1-SM05-FV-001` evidence; `B-136` is the
+     transition handoff, not the long-term owner. `V1-SM05.md` records the receipt.
+4. **Source disposition.** After the receipts, `B-120` and `B-125` move to `Resolution: Superseded` with
+   `Superseded-By` as item 1, their `Follow-up-Tier` fields are removed, and a dated lifecycle correction is appended
+   without erasing the `Deferred` history. The change stays terminal throughout (`Deferred` → `Superseded`), so each is
+   recorded as a **Terminal annotation record** (`B-113`, `Annotation-Type: correction`), never a Return record.
+5. **What absorption does not complete.** Superseding the source handoffs removes their return; it does **not** mark
+   selection, the work order, Lane B activation, construction, feature DoD or Judge acceptance complete. Those stay
+   owed by `V1-SM05` and gated by `SV-002` (`D-264`, `D-267` item 6). `V1-SM05` stays `BLOCKED`;
+   `V1-SM05-FV-001` is not created or run early.
+6. **Unchanged.** `D-268` items 5–8 (keyed rows, the §3.3 matrix with every blocking cell `unclassified`, the
+   re-derived audit, the Product status correction) stand. The Judge approved this absorption only; the Gate 1B
+   execution turn and the SM05 construction turn are not selected.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e94 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-269` paragraph: absorption replaces `D-268`'s return path for `B-120`/`B-125` |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no repository file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.1 transferred list becomes a superseded list; §2.2 `P14a`/`P14b` return condition and receipt |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ durable-owner receipt for the absorbed obligations; status stays `BLOCKED` |
+| **`docs/handoff/B-136`** | ✅ Parent 3 receiving receipts, in the Lane A field |
+| **`docs/handoff/B-120`**, **`docs/handoff/B-125`** | ✅ `Superseded`, `Superseded-By`, `Follow-up-Tier` removed, Terminal annotation record |
+| **`docs/handoff/B-139`** | ✅ answered in a follow-up handoff commit |
+| **`docs/Modular_PRD.md`** | — unaffected: no requirement, §0 or §8 change |
+| **`FN-GATES-01-05.md`**, `requirements-traceability-map.md`, storyboard, `V1-PHASE-CLOSURE.md` | — unaffected: no behaviour, journey or lane change |
+| **Agent files**, `TEMPLATE.md`, `docs/templates/dor-dod-validation/v1.md`, frozen sources, application code | — unaffected |
+| **Encyclopedia** | — unaffected: no entry cites `B-120`, `B-125` or `D-268` |
+| **Graphify** | Rebuild after the final commit of this pass |
+
+### What this act does NOT do
+
+Does not verify any entry; close `B-136` or `B-139`; classify any §3.3 row; check any `SV2-DOR-*`/`SV2-DOD-*` row;
+select Lane A's `SV-002` run or the SM05 construction turn; create `V1-SM05-FV-001`; change lane state; lift the
+`V1-SM05` block; or push.

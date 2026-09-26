@@ -378,6 +378,9 @@ repository; `D-267` is the governed statement of the tracking model, and no temp
 **`D-268` (2026-09-26) — no repository file added or retired, stated explicitly.** `SV-002.md` gains §3.3 in place and
 re-derives §2.1; `Modular_PRD.md` §0 gains a dated status note; `B-120`/`B-125` change disposition in place.
 
+**`D-269` (2026-09-26) — no repository file added or retired, stated explicitly.** `V1-SM05.md`, `SV-002.md`, `B-136`,
+`B-120` and `B-125` change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

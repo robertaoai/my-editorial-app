@@ -119,6 +119,12 @@ when the Judge selects `V1-SM05` and issues the `D-242` work order. `SV-002` §2
 the new §3.3 seeds the `SV2-U04` child matrix (`B071-R*`, `B-095.*`, `B-096.*`, `B-104.O*`, `B-118.P*`) with every
 blocking cell `unclassified` until the mapping runs. `SV-002` §2.1 is re-derived. `V1-SM05` stays `BLOCKED`.
 
+**`D-269` (2026-09-26) — Judge Option A, canonical absorption.** For `B-120` and `B-125`, the `D-268` return path above
+is corrected: both are **`Superseded`** by *"`D-268` as corrected by `D-269`"*, terminal, with **no return trigger**.
+Their remaining obligation — selection, work order, Lane B activation and construction — is received by `B-136`
+Parent 3 and owned durably by the `V1-SM05` packet and its future `V1-SM05-FV-001`. Absorption completes none of
+those acts; `V1-SM05` stays `BLOCKED` and gated by `SV-002`.
+
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and DoD are **defined in their work packets (`D-245`, 2026-09-20)** and are not complete:
 each DoR box is checked only against current evidence, and Lane B's feasibility review and the Judge's
 acceptance of the business outcome are pending. The reusable one-MMF pull-request template
