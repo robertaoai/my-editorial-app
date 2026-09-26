@@ -16,6 +16,15 @@
   **Lane A review, 2026-09-25.** The docket is received and reviewed against the repository. `D-264` is not yet applied: its authority boundary and four gaps are being confirmed with the Judge first (template scope and path, the omitted `D-258` item-4 and derived "root closed" statements, the `SV2-U02` execution route, and `SV2-U03`'s standing as the `ripwire` feasibility exercise). `Status` stays `Open`.
 
   **Parent 2 applied 2026-09-25 (`D-264`), after Judge Q1–Q4.** Corrections to the docket, applied: (a) `D-258` item 4's "does not reopen" clause and the derived "root closed" statements (Build Spec, `Modular_PRD` §8.1 and changelog 1.37, `S2`–`S4`) are also superseded, by dated notes; (b) the template lives at `docs/templates/dor-dod-validation/v1.md`, not under `docs/v1/` (`D-36`); (c) `SV2-U02` has separate Lane B (parent) and Lane C (child) run trackers (Q3); (d) `SV2-U03` was evaluated now, read-only (Q4). `SV2-U01` bootstrap is done and awaits independent review; `SV2-U02`–`U04` remain. `Status` stays `Open`.
+
+  **Parent 3 receiving receipt, 2026-09-26 (`D-269`, commit `4e513fd`; Judge Option A, canonical absorption).** This entry receives, as transition owner, two obligations absorbed from source entries that are now `Superseded` with no return trigger. *Label mapping:* the Judge and Lane A's `D-263` note call these acts Parent 3; this entry's current body numbers them **Parent 4** (lift the block, select, work order) and **Parent 5** (`V1-SM05-FV-001`, then construction). The durable owner is `docs/v1/work-packets/V1/V1-SM05.md`.
+
+  | Received from | Obligation | Owner | Destination | Future acceptance proof | Gate condition |
+  |---|---|---|---|---|---|
+  | `B-120` Parent 5 | Selection, `D-242` work order, Lane B activation, construction | Judge (selection, work order); Lane B (construction) | This entry's Parents 4–5, then `V1-SM05` / `V1-SM05-FV-001` | Recorded selection and work order; `V1-SM05-FV-001` feature DoD and Judge acceptance | Only after `SV-002` is accepted and the `V1-SM05` block is lifted |
+  | `B-125` Parent 6 | As above | As above | As above | As above | As above |
+
+  Receipt only: none of these acts is complete, and `Status` stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge ruling in the current conversation, 2026-09-25; `D-29`; `D-54`; `D-58`; `D-75`; `D-86`; `D-90`; `D-97`; `D-118`; `D-156`; `D-183`; `D-184`; `D-186`; `D-203`; `D-227`; `D-240`; `D-242`; `D-253`–`D-263`; `docs/README.md` §"How a request becomes execution"; `docs/handoff/README.md`; `docs/handoff/TEMPLATE.md`; `docs/v1/V1-PHASE-CLOSURE.md` §5/§5.0a; `docs/LANE-B-WORK-ORDER.md`; `docs/v1/work-packets/V1/V1-SM05.md`; `docs/handoff/B-071`; `B-095`; `B-104`; `B-130`; `B-135`; GitHub Issue #1; current tree at the commit below
 - **Verified-At-Commit:** 3973e73a0e32d42f2ebaa2b5843d5d768497c84e
