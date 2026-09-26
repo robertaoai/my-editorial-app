@@ -44,11 +44,13 @@
   | 5 — selection and construction | **Transferred** to `B-136` Parent 3, then `V1-SM05-FV-001` (Gate 2); `SV-002` §2.2 `P14a` |
 
   `Status` moves to `Answered` with `Resolution: Deferred` and the `Follow-up-Tier` below; the entry returns under `B-097` when that condition is met. Not independently verified; Lane B's review of these receipts still applies.
-- **Resolution:** Deferred
+
+  **Lifecycle correction, 2026-09-26 (`D-269`, commit `4e513fd`; Judge Option A, canonical absorption).** The `Deferred` disposition above, with its Gate-2 `B-097` return, is history. This entry is now **`Superseded`** by `D-268` as corrected by `D-269` — terminal, **no return trigger**. The per-parent receipts above stand. Parent 5 (selection and construction) is received by `B-136` Parent 3 (receipt at `ee2e232`) and owned durably by `V1-SM05.md`; `SV-002` §2.2 `P14a`. Absorption completes none of those acts. Not independently verified.
+- **Resolution:** Superseded
 - **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `D-268` per-parent receipts above; previously: `D-252`, `D-253`; `docs/handoff/B-119-agentic-documentation-architecture-safe-mmf-reconciliation.md`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/V1-ARTIFACT-INVENTORY.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Lane C independent review dated 2026-09-22
-- **Verified-At-Commit:** 947e4e79d55518ab348645aac15ce1a83b38495e
-- **Follow-up-Tier:** Gate 2 — returns when the Judge selects `V1-SM05` and issues the `D-242` State-2 work order (`B-136` Parent 3); completion evidence is `V1-SM05-FV-001`
+- **Verified-At-Commit:** 4e513fd92316da9bae6b903d221103cf655737a5
+- **Superseded-By:** `D-268` as corrected by `D-269` (Judge Option A, canonical absorption, 2026-09-26)
 
 ## What happened
 
