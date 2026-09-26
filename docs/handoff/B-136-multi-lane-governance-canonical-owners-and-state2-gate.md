@@ -235,6 +235,12 @@ finds stronger repository evidence:
 are neither closed nor promoted into SM05 blockers by a tally; each is transferred only when the
 row-level dependency audit proves that this bounded selection consumes it.
 
+> **Lane A dated current-state note, 2026-09-26 (`D-269`), added at Lane B's request in `B-139` (`28be9e5`); the
+> sentence above is Lane B's original text, kept as history.** `B-120` and `B-125` no longer track State-1 progress:
+> both are `Superseded`, terminal, with no return trigger (`D-268` as corrected by `D-269`). Their remaining
+> obligation — selection, work order, Lane B activation, construction — is received by this entry's Parent 3 receipt
+> (Lane A field, `ee2e232`) and owned durably by `V1-SM05.md`. The rest of the paragraph stands.
+
 ### Required success-drift comparison
 
 The historical tag does not convert `SV-001` from Complete to Failed. It records two truths together:
