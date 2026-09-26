@@ -19,10 +19,10 @@
   rule with self-test cases. Child 2C: `DOR-R7` reopened in Commit A (`719e72b`) and re-checked in Commit B on a
   receipt that passes at that clean commit. `B-131`–`B-133` `Verified-By` normalized; `B-130` left untouched.
   `Verified` is Lane B's to record.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A under `D-261`
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), 2026-09-25
 - **Evidence:** `D-29`; `D-54`; `D-260`; `docs/Modular_PRD.md` §§5/9; `docs/fn-specs/FN-GATES-01-05.md` §§4.4/5; `docs/governance/requirements-traceability-map.md` §6.1; `docs/v1/work-packets/V1/V1-SM05.md`; `scripts/jev/lib.mjs`; passing Jev receipt at the commit below
-- **Verified-At-Commit:** edc64d7f9b9371be810b7b79c2b66d0b16c7f359
+- **Verified-At-Commit:** 9b2ddf3b0aa8b813712b2b594d87916231841d6a
 
 ## What happened
 
@@ -148,6 +148,13 @@ Lane B independently reviewed `9be84bb` and `edc64d7`, reran the consistency sui
 Jev's negative self-test, checked the pushed branch and Graphify currency, and stopped at the new
 Product/Fn_Spec boundary. No canonical document, script, manifest, receipt, application file, Issue,
 branch, PR or lane state was changed.
+
+## Independent verification — 2026-09-25
+
+Lane B independently read the `D-261` specification commit `719e72b` and clean receipt commit
+`9b2ddf3`, reran Jev readiness and every named Jev self-test, and confirmed that the Product-anchor
+chain and receipt satisfy the correction requested above. This verifies Lane A's applied correction;
+it does not authorize selection, a work order, lane activation or construction.
 
 ## Verdict
 

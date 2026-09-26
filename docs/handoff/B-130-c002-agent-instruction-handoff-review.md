@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** nothing, reporting only; Lane A should review this before treating the external C-002 draft as a repository handoff
-- **Status:** Answered
+- **Status:** Open
 - **Lane A:** Acknowledged 2026-09-24. Rule-file sizes re-read at `c82eb5e` and match item 1
   (`AGENTS.md` 31,920 B, `CLAUDE.md` 29,709 B, `.agents/rules/graphify.md` 21,750 B). B-130 is
   accepted as the canonical repository record of the external C-002 draft, which stays advisory
@@ -17,11 +17,11 @@
 
   **Resolution recorded 2026-09-24 (`D-259`).** `D-257` found the loader-characterization spike warranted and
   did not commission it; the finding is therefore deferred, not applied.
-- **Resolution:** Deferred
-- **Follow-up-Tier:** Judge commission of `D-257`'s bounded loader-characterization spike — its work packet is created on selection
+
+  **Returned 2026-09-25 (`D-264`).** The Judge commissioned the loader spike inside continued `SETUP-SPIKE-000`; it is `SV2-U02` in `SV-002.md`, with separate Lane B (parent) and Lane C (child) run trackers. This entry stays `Open` until `SV2-U02` is accepted.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** read `docs/handoff/TEMPLATE.md` and `README.md`; `V1-PHASE-CLOSURE.md` §5; `V1-BUILD-SPEC.md` §1; `shared-core-hash.mjs`; `sync-docs-uniqueness.mjs`; the three current rule files; `Modular_PRD.md` §8; storyboard Panels A9/A10; `FN-GATES-01-05.md` §4.1; `requirements-traceability-map.md` §1; `ENCYCLOPEDIA-SYNC.md` against the commit below. External C-002 draft and Lane C's subsequent reconciliation read from the user-supplied Antigravity brain path; neither is in this repository.
-- **Verified-At-Commit:** c82eb5e9154ef722a8ec333c38b1e110f99a8555
+- **Verified-At-Commit:** ee5cdfdc28a49120342a74a01ab2ca100d5fdadd
 
 ## What happened
 
@@ -60,3 +60,10 @@ This concurrence strengthens the evidence but does not acknowledge, answer, inde
 ## What you did instead
 
 Lane B reviewed the supplied C-002 text and current repository evidence, recorded corrections in its own handoff channel, and made no changes to Lane A's rule files, scripts or governed documents, or to Lane C's workflows. Lane B did not represent the external C-002 draft as a filed or accepted repository entry.
+
+## Return record
+
+- **Previous-Resolution:** Deferred
+- **Return-Trigger:** Judge commission of `D-257`'s bounded loader-characterization spike
+- **Return-Act:** `D-264`, Judge ruling 2026-09-25 (`V1-DECISION-REGISTER.md` §5.14e89)
+- **Returned-At-Commit:** ee5cdfdc28a49120342a74a01ab2ca100d5fdadd

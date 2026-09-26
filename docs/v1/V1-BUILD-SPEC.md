@@ -28,7 +28,7 @@ meaning unchanged** — they predate the namespace split and are not renumbered 
 
 | Qualified ID | MMF | Status | Meaning |
 |---|---|---|---|
-| `V1-SM05` | `MMF-V1-CORE` | Not started; not selected | First working-software increment — a **limited Route-1 evidence slice** (`D-249`): it records and displays accepted business-stage, role, task and evidence facts and does not claim `transition:T*` execution |
+| `V1-SM05` | `MMF-V1-CORE` | Not started; not selected. **`BLOCKED`** (packet status, `D-264`): `SETUP-SPIKE-000` attempt `SV-002` open | First working-software increment — a **limited Route-1 evidence slice** (`D-249`): it records and displays accepted business-stage, role, task and evidence facts and does not claim `transition:T*` execution |
 | `V1-SM06` | `MMF-V1-USABLE` | Not started; not selected | Second increment — **board/audit visibility and the bounded LinkedIn `ManualReady` event** (`D-243`, `D-249`); it creates no `Published` state, no automated WordPress delivery and no live-URL confirmation |
 
 **Current boundary and partial `CR-19` (`D-247`–`D-251`, 2026-09-21).** V1 is `V1-SM05` and `V1-SM06` and
@@ -86,7 +86,44 @@ non-terminal. `V1-SM06` still depends on `V1-SM05` reaching DoD. Transfer create
 credit, no terminal disposition and retires no packet. **Closed 2026-09-24 (`D-258`):** `S2`–`S4` are each
 terminally `Deferred — closed without DoD credit`, every residual keeps its single `D-244` owner (the
 `D-171` held scope or the V2-target backlog), and the setup root is closed under `D-248`'s condition.
-No DoD is credited, no V2 opens and no construction is authorized.
+No DoD is credited, no V2 opens and no construction is authorized. **Superseded in part 2026-09-25 (`D-264`) — the
+sentence above is history:** the setup root is **not** closed. `SETUP-SPIKE-000` continues as the container for
+validation attempt `SV-002` (`work-packets/SETUP-SPIKE-000/SV-002.md`); `S2`–`S4` stay terminally deferred with no
+DoD credit. `V1-SM05` is **`BLOCKED`** as a packet status (not a lane state) until `SV2-U01`–`SV2-U04` meet their return
+conditions and the Judge lifts the block. `SV-001` is the completed pre-selection handoff-validation history and
+success-drift baseline, not a feature DoR/DoD run. Every validation attempt pins the reusable, result-free template
+`docs/templates/dor-dod-validation/v1.md` by SHA-256, and future setup closure follows `D-264`'s transfer invariant.
+
+**`D-266` (2026-09-26) — `SV-002` sequence.** Loader runs `SV2-U02-A` (Claude Code, independent), `-B` (parent) and
+`-C` (child) come **before** any rule-file or parity-check edit. The rule files are then refactored atomically to the
+binding targets (`AGENTS.md` < 6,000 characters; `CLAUDE.md` < 300 lines; skills < 12,000 characters). `ripwire`: while
+DoR is open, specification only; after DoR closes, one isolated Windows trial; then the Judge's provisioning decision.
+Gate labels: 1A = `SV-001`, 1B = `SV-002`, 2 = `V1-SM05-FV-001`. `V1-SM05` stays `BLOCKED`.
+
+**`D-267` (2026-09-26) — `SV-002` preparation, then execution; construction order.** `SV-002` is the Gate 1B attempt
+record with preparation underway and no executed run result. Sequence: **(1)** Lane A prepares — coverage index,
+per-handoff DoR→DoD items (`SV-002` §2.2) and DoR rows checked only on their own evidence; **(2)** the Judge selects
+Lane A to execute `SV-002` (bounded-attempt authorization, not a lane transition) and comments on draft PR #2 that the
+documentation is complete — an attestation of the prepared contract, not a result or an unblock; **(3)** Lane A
+executes `SV2-U01`–`U04`, with the A/B/C loader runs covering how each consumer loads the cross-tool root `AGENTS.md`;
+**(4)** `SV2-U03` outcome → `SV2-DOD-04` → `SV2-DOD-06` → the Judge accepts `SV-002`, lifts the block, selects
+`V1-SM05` and issues the `D-242` work order → only then Lane B's state-change construction, under `V1-SM05-FV-001`
+(Gate 2). Tracking follows lineage → attempt → unit → run; each attempt's own DoR/DoD sections are the instantiated
+template, and template v1 stays hash-pinned. B-series children are transferred item by item with receipts before any
+terminal resolution; `B-120`/`B-125` stay `Open`.
+
+**`D-268` (2026-09-26) — transfer now, complete later; keyed children.** A handoff's remaining work is **transferred**
+by a dated per-parent receipt and `Resolution: Deferred` with a `Follow-up-Tier`; it is **completed** later, when that
+condition is met, through the `B-097` return protocol. `B-120` and `B-125` are handled this way; both return at Gate 2,
+when the Judge selects `V1-SM05` and issues the `D-242` work order. `SV-002` §2.2 carries one keyed row per child, and
+the new §3.3 seeds the `SV2-U04` child matrix (`B071-R*`, `B-095.*`, `B-096.*`, `B-104.O*`, `B-118.P*`) with every
+blocking cell `unclassified` until the mapping runs. `SV-002` §2.1 is re-derived. `V1-SM05` stays `BLOCKED`.
+
+**`D-269` (2026-09-26) — Judge Option A, canonical absorption.** For `B-120` and `B-125`, the `D-268` return path above
+is corrected: both are **`Superseded`** by *"`D-268` as corrected by `D-269`"*, terminal, with **no return trigger**.
+Their remaining obligation — selection, work order, Lane B activation and construction — is received by `B-136`
+Parent 3 and owned durably by the `V1-SM05` packet and its future `V1-SM05-FV-001`. Absorption completes none of
+those acts; `V1-SM05` stays `BLOCKED` and gated by `SV-002`.
 
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and DoD are **defined in their work packets (`D-245`, 2026-09-20)** and are not complete:
 each DoR box is checked only against current evidence, and Lane B's feasibility review and the Judge's
@@ -170,6 +207,14 @@ as display provenance. Jev readiness adds **Product-intent parity** and Jev comp
 name the scenario ID it proves. **Method:** Commit A lands the specs, manifest and engine with `DOR-R7`
 unchecked; a readiness receipt is generated at that clean commit; Commit B records the receipt and re-checks
 `DOR-R7`. Push, Issue, branch and State-1 PR remain separately authorized acts (`D-253`).
+
+**`D-262` — Issue and branch recorded; State-1 delta opened (2026-09-25).** GitHub Issue #1 now tracks `V1-SM05`. It
+was created after every DoR row was checked, which is the normal `D-254` path; its URL is recorded once, in the
+packet's traceability field. `features/feature-V1-SM05` was created by native Git branching at `9b2ddf3`, the
+pushed journal tip. This pass is the branch's first documentation-only commit. After Judge authorization under
+`D-253`, it was pushed and opened as draft State-1 PR #2 against `docs/journal-2026-08-16`. In State 1, the PR template's
+selection, `Active`-lane and work-order items are recorded as *not yet*, not invented. Selection, the `D-242` work
+order and Lane B activation still come before State 2.
 
 ## 2. Sequence
 

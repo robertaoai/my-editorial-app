@@ -19281,3 +19281,550 @@ test file to name its scenario ID; then, after an external review of the draft, 
 It does not change any existing Product row, lift `D-171`, or name a later packet for held `T5`/`T6` execution. It does
 not push, create the Issue, create the branch, open the State-1 PR, select `V1-SM05`, issue a work order or change lane
 state — each still needs its own authorization (`D-253`).
+
+## 5.14e87 `D-262` — `V1-SM05` Issue and Feature Branch Recorded; State-1 Documentation Delta Opened
+
+**Authority: Chief Editor acts, 2026-09-25, reported to Lane A directly** — the `V1-SM05` GitHub Issue was created from
+`.github/ISSUE_TEMPLATE/v1-mmf.md` after every DoR row was checked (`D-261`), and `features/feature-V1-SM05` was created;
+Lane A is instructed to consolidate both facts before handing over the State-1 pull-request text. This executes
+`docs/handoff/B-126` Parents 4 and 5 on the normal post-DoR path (`D-254`); **no remediation path applies.**
+
+### The decision
+
+1. **Issue identity.** `V1-SM05` is tracked by GitHub Issue **#1** (URL in the packet's traceability field), titled *"V1-SM05: business:T1–T5 evidence slice on
+   ROUTE-PROD-1"*. It was created after `DOR-R1`–`DOR-R7` were all checked, so it follows `D-254`'s normal path. It is
+   external tracking and adds no repository file (`D-253`). **It is recorded once, in the packet's traceability field.**
+   Other tiers point to that field and do not repeat the URL.
+2. **Branch provenance, verified by Lane A.** `features/feature-V1-SM05` was created by native Git branching (`D-253`). At
+   the time it was read, the local branch, `origin/features/feature-V1-SM05` and `origin/docs/journal-2026-08-16` all
+   resolve to `9b2ddf3`, the `D-261` Commit B tip. The Issue's condition *"`9b2ddf3` or later"* is met, and no
+   ZIP-packaged initialization occurred.
+3. **The State-1 delta.** This entry and its propagation are the first documentation-only commit on the branch, which
+   gives the State-1 pull request a non-empty diff against its base (`D-253` item 6). **The pull request is not
+   opened by this act**: pushing this commit and opening the draft pull request against `docs/journal-2026-08-16`,
+   linked to Issue #1, still need their own authorization. **Authorized and performed 2026-09-25 (Judge, under
+   `D-253`):** `221c9d4` pushed; the Chief Editor opened draft PR #2 (URL in the packet's traceability field).
+4. **What the Issue's own checklist still leaves open, stated so the Issue is not read as further along than it is.**
+   Issue §5 box 1 (branch) is met by item 2. Box 2 (State-1 PR) stays open. **Corrected 2026-09-25 (`D-263`):** box 2
+   is met, because draft PR #2 exists (item 3). Whether the checkbox on the Issue itself is ticked is an external fact
+   that Lane A has not read. Issue §6 (work order, xDD method,
+   completion-manifest path) stays unissued (`D-242`).
+5. **The pull-request template is read by state.** `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §1 asks for a selecting
+   Register act, an `Active` executing lane and a work order. In State 1 those are **not yet applicable**, so the State-1
+   body records them as `State 1 — not yet` and does not invent them. Its §8 refusal rules apply in full at State 2.
+   This reads the existing template and does not amend it.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e87 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-262` paragraph: Issue exists, branch verified, State-1 PR pending authorization. **Corrected 2026-09-25 (`D-263`):** the PR is no longer pending; draft PR #2 is open, as the Build Spec paragraph already records |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph — no file added or retired; the Issue is external tracking |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ traceability field carries Issue #1 and branch provenance; the `D-254` gate note is dated forward; `Status` unchanged — not started, not selected |
+| **`docs/Modular_PRD.md`** | — unaffected: no sprint closes, no tier opens, §8/§10 unchanged |
+| **Phase closure** (`docs/v1/V1-PHASE-CLOSURE.md`) | — unaffected: no lane-state change; Lane A stays `Active`, Lane B `Eligible` |
+| **`.github/` templates** | — unaffected: read by state (item 5), not edited |
+| **Fn-specs, Jev manifest/receipt, handoff entries, frozen sources, rule files, `0001_init.sql`, application code** | — unaffected |
+| **Encyclopedia** | — unaffected: no mapped entry depends on Issue or branch identity |
+| **Graphify** | Owed once after the last governed edit in this pass |
+
+### What this act does NOT do
+
+Apart from the push and draft PR #2, which were authorized separately (item 3), it does not select `V1-SM05`, issue the `D-242` work order, move Lane B from
+`Eligible` to `Active` or change any DoR or DoD row. An Issue or branch **records** readiness that already exists and
+grants no selection, work-order, lane-transfer or construction authority (`D-254` item 3).
+
+## 5.14e88 `D-263` — State-1 Record Repair (Pass 1): `D-262` PR Wording and `V1-SM05` DoR-Status Sentence Corrected
+
+**Authority: Judge approval, 2026-09-25, to Lane A directly.** *"Q1 Accept Pass 1 as drafted."* Applies
+`docs/handoff/B-136` Parent 2 and `docs/handoff/B-135` "What you need" items 1–3.
+
+### The decision
+
+1. **`D-262` item 4 and its Build Spec tier row are corrected in place by dated notes, with the original words kept.**
+   Draft State-1 PR #2 exists, so Issue §5 box 2 is met. The Build Spec paragraph already said so and does not change.
+2. **The "DoR is defined, not complete" sentence in `V1-SM05.md` gains a dated current-fact note.** `DOR-R1`–`DOR-R7`
+   are all checked (`D-259`–`D-261`), and Issue #1 was created after that.
+3. **`B-120`/`B-125` receive progress notes and stay `Open`.** DoR, Issue #1, the branch and draft PR #2 are complete;
+   selection, the `D-242` work order, Lane B activation and construction are not.
+4. **The external Issue #1 checkbox is not edited by this act.** It is outside the repository and Lane A has not read
+   it. Updating it is a separate Chief Editor act.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e88, and the dated notes in `D-262` |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ DoR-status sentence: dated current-fact note |
+| **`V1-BUILD-SPEC.md`** | — unaffected: its `D-262` paragraph already records draft PR #2 |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file added or retired |
+| **`docs/Modular_PRD.md`**, **`V1-PHASE-CLOSURE.md`**, storyboard, Fn_Specs, Encyclopedia, rule files, frozen sources | — unaffected: no scope, sprint, lane or behaviour change |
+| **Graphify** | Owed once after this pass |
+
+### What this act does NOT do
+
+Does not select `V1-SM05`, issue a work order, change lane state, change any DoR or DoD box, or create or repeat any
+Issue, branch or PR. Pass 2 (`B-136` Parent 3) requires its own selection act.
+
+## 5.14e89 `D-264` — `SETUP-SPIKE-000` Continues as the Container for Attempt `SV-002`; `V1-SM05` `BLOCKED`; `SV-001` Tagged; Reusable DoR/DoD Template (Supersedes `D-257` Item 3, `D-258` Items 2 and 4)
+
+**Authority: Judge rulings, 2026-09-25, to Lane A directly.** *"Still SETUP-SPIKE-000: Lane A records exactly which
+D-257/D-258 clauses change and identifies every blocker, owner, acceptance proof, and return condition … set new
+verdict increase status to 'BLOCKED' for V1-SM05"*; *"tag the historical first attempt as SV-001 to measure success
+drift between historical attempt and next attempts"*. Clarifications the same day: Q1 (the reusable template and its
+coverage chain are included), Q2 (the template lives at `docs/templates/dor-dod-validation/v1.md`), Q3 (separate
+`SV2-U02` trackers for Lane B and Lane C, with Lane B's as the parent), Q4 (evaluate `SV2-U03` now, read-only).
+Consolidated by Lane B in `docs/handoff/B-136`, verified and corrected by Lane A.
+
+### The decision
+
+1. **The setup programme continues.** During validation before `V1-SM05` selection, the Judge found setup gaps that
+   `D-258` had not transferred. `SETUP-SPIKE-000` is the Phase-1 container for attempt `SV-002`.
+
+   | Clause | Effect |
+   |---|---|
+   | `D-258` item 1 — `S2`–`S4` terminally `Deferred — closed without DoD credit`; residual owners | **Retained.** No child is reopened or credited |
+   | `D-258` item 2 — "the setup root is closed" | **Superseded.** Terminal children were not enough closure proof without item-level transfer |
+   | `D-258` item 3 — packet files kept as history | **Retained** |
+   | `D-258` item 4 — residuals return only through their own owner; "`SETUP-SPIKE-000`, which does not reopen" | **Residual-return rule retained; the "does not reopen" clause superseded** for the root |
+   | `D-257` items 1–2 — spike warranted; measurement-only scope | **Retained**; the spike becomes `SV2-U02` |
+   | `D-257` item 3 — not commissioned; does not block `V1-SM05` | **Superseded.** Commissioned now; its accepted report is a prerequisite to lifting the SM05 block |
+   | `D-257` item 4 — `B-130` answered | **History retained; lifecycle advanced.** `B-130`'s Deferred trigger ("Judge commission of the spike") is met, so it returns to `Open` under the `B-097` protocol |
+
+2. **Closure transfer invariant, for this and every later setup closure.** A container closes only when its children
+   are terminal **and** every unresolved item has an accepted disposition, or a named destination, owner, acceptance
+   proof and return condition, with a destination receipt recorded before the transfer is claimed.
+3. **`V1-SM05` packet status:** `BLOCKED — SETUP-SPIKE-000 validation attempt SV-002 open; not selected; feature DoR/DoD
+   not yet run; construction not authorized.` This is a **packet status, not a lane state**. Lanes stay A `Active`,
+   B `Eligible`, C `Blocked`. Issue #1 and draft PR #2 stay open and are not invalidated.
+4. **Attempt lineage.** `SV-001` (`SETUP-SPIKE-000/SV-001.md`) is the retrospective wrapper over the completed
+   `DOR-R1`–`DOR-R7` pre-selection **handoff validation**. It was complete at the time, it is the success-drift
+   baseline, it is never called a feature DoR/DoD, and its rows do not change. `SV-002` (`SV-002.md`) is the first run
+   of the v1 template, with status `DoR open`. `V1-SM05-FV-001`, the first feature DoR/DoD run, is created as an unrun
+   shell only after selection and before lane transfer. It first runs when active Lane B creates behavioural test
+   code: feature DoR passes, and feature DoD records the expected Red.
+5. **Reusable template.** `docs/templates/dor-dod-validation/v1.md` (`dor-dod-validation/v1`) holds no results and is
+   immutable once used; a material change creates `v2`. It sits outside `docs/v1/` because it serves every version
+   (`D-36`). Every attempt pins its SHA-256; `SV-002` pins
+   `ca605cd6d477ad9d3e9919569fe655d1ba98df3ee8c86dfe57945aec0587be90`.
+6. **Blockers.** `SV2-U01` (governance application), `SV2-U02` (loader characterization), `SV2-U03` (code navigation)
+   and `SV2-U04` (the `B-071`/`B-095`/`B-104` dependency map). Owners, acceptance proofs and return conditions are in
+   `SV-002.md` §3, the single owner of that table. The block lifts only when all four meet their return conditions, the
+   Judge accepts `SV-002`, and the Judge separately lifts the block. Passing checks alone never lifts it.
+7. **`SV2-U02` run tracking (Q3).** Lane B's tracker (`SV2-U02-B`, Codex loader) is the parent of Lane C's
+   (`SV2-U02-C`, Antigravity loader). If Lane B reruns, a new Lane B run tracks both lanes. If only Lane C gaps appear
+   after Lane B's run has passed, only a new Lane C run opens, under that passed Lane B run.
+8. **`SV2-U03` (Q4).** Evaluated now, read-only, with nothing installed:
+   `SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md`. Lane A recommends the existing path and no `ripwire` for
+   `V1-SM05`. The outcome awaits Lane B's consumer evidence and the Judge.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e89 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1: dated correction to the `D-258` closure note, plus a `D-264` paragraph (setup continues, SM05 `BLOCKED`, attempt lineage, template rule) |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ rows for the template, `SV-001.md`, `SV-002.md` and the `SV2-U03` evaluation; disposition paragraph |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ status `BLOCKED`; `SV-001`/`SV-002` pointers; checked rows relabelled as handoff-validation history |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/`** | ✅ `S2`/`S3`/`S4`: dated correction that the root continues; `SV-001.md`, `SV-002.md` and the `SV2-U03` evaluation created |
+| **`docs/Modular_PRD.md`** | ✅ §8.1: setup continues and SM05 is `BLOCKED`; changelog 1.38; no FR/AC/NFR text changes |
+| **`docs/handoff/B-130`** | ✅ returned to `Open` with a Return record |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change (A `Active`, B `Eligible`, C `Blocked`) |
+| **Storyboard, traceability map, Fn_Specs, `docs/specs/`** | — unaffected unless `SV2-U04` later proves a contract change |
+| **Encyclopedia** | — unaffected: no entry covers setup lifecycle or packet status |
+| **Rule files, frozen sources, `0001_init.sql`, application code, workflows** | — unaffected |
+| **Graphify** | ✅ curated `frag139.json` merged (5 nodes, 7 links); rebuild after the commit |
+
+### What this act does NOT do
+
+Does not reopen or credit `S2`–`S4`, select `V1-SM05`, issue a work order, change lane state, authorize construction,
+feature tests, hosted migration or deployment, install `ripwire`, adopt a root `GEMINI.md` or any size cap, or bulk-close
+any handoff. It does not re-check or copy `SV-001`'s rows.
+
+### Completion note, 2026-09-25 (Lane A consolidation review)
+
+The Build Spec tier row above says §1 records SM05 `BLOCKED`. The §1 paragraph did, but the §1 status table still read
+"Not started; not selected". The table cell now carries the `BLOCKED` status as well. Nothing else changes.
+
+## 5.14e90 `D-265` — `B-137` Source-Correction Packet (R1–R5, R7); R1 Is a Blocking Input to `SV2-U04`; Improvement C Deferred
+
+**Authority: Judge approval, 2026-09-25, to Lane A directly.** Q1: *"yes proceed B-137 correction packet"*; Q2: R1 is a
+blocking input to `SV2-U04` and R2–R5/R7 are non-blocking; Q3: Improvement C is deferred. Applies `docs/handoff/B-137`.
+
+### The decision
+
+1. **Corrections, not rewrites.** Each stale current-state clause is struck through and gets a dated `D-265` successor,
+   so a present-day reader cannot act on it and the history stays visible:
+
+   | Row | Clause (location) | Current fact now stated |
+   |---|---|---|
+   | **R1** | `Modular_PRD` Migration row; `XF-05`; `docs/v1/drafts/README.md` (two places); the Inventory's drafts row; `SPECS-PUBLICATION.md` §5; `FN-PUBLICATION` §7 `TR-DM-03` | No `0002_three_lines.sql` exists. The delivered candidate is `0002_s1_editorial_schema.sql`, replayed on disposable local PostgreSQL only and not applied to hosted Supabase (`D-252`, `DEP-05`) |
+   | **R2** | `Modular_PRD` Investigator actor, `US-02`, `TR-DM-04`, `AC-03` | The `reliability_tier` column exists in `0002`; T2 behaviour is not built and the acceptance case is not run |
+   | **R3** | `XF-03`, `XF-04` | Both Done on evidence (`CLAUDE.md` warning and identity; `bun test` plus `ci.yml`) |
+   | **R4** | `CONFIG_LOG.md` `TC3` | Five inputs exist; `engagement_metrics` is absent; no scoring engine exists; weights unchanged |
+   | **R5** | `CONFIG_LOG.md` retry row; `DECISION_LOG.md` `Q5`; `FN-PUBLICATION` §§7, 8, 10 | `Q3`/`Q5` are decided (`D-143`/`D-146`) and not built. `S4` is deferred; automated publication is a V2 target; V1 is `ManualReady` only |
+   | **R7** | `CONFIG_LOG.md` `LINE2_MAY_EXECUTE_LINE1_GATES` row | The stored column is `line_separation_status`. Prose only; any code-symbol rename stays on its code-touching path |
+   | **R7-adjacent** | Storyboard Panel A5 `Q11` note | Historical; `Q11` is decided (`line_separation_status`) |
+
+2. **R6 is untouched.** The A6 ledger text waits on `B-106`'s Register arbitration.
+3. **`SV-002` inclusion (Q2).** R1 is a **blocking input to `SV2-U04`**: the existing unit, owner, proof and return
+   condition, recorded as a drift-ledger row. It is not a fifth blocker. R2–R5 and R7 are non-blocking.
+4. **Improvement C (Q3) is deferred.** `Follow-up-Tier`: the Judge commissions the reference-validation check's
+   specification as a bounded Lane A tooling unit, with positive and negative examples. Nothing is built.
+5. **Encyclopedia Entry 03** is flagged in the ledger (R4); the hosted text is not compared or republished in this pass.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e90 |
+| **`docs/Modular_PRD.md`** | ✅ R1–R3 corrections; changelog 1.39; no FR/AC/NFR requirement text changed |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ drafts row corrected (R1); disposition paragraph: no file added or retired |
+| **`V1-BUILD-SPEC.md`** | — unaffected: no scope, sequence or DoD change; `SV2-U04`'s input set lives in `SV-002.md` |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ coverage index, `SV2-U04` unit and drift ledger include R1 |
+| **`docs/fn-specs/FN-PUBLICATION-09-10-13.md`** | ✅ §§7, 8, 10, marked `[V1]` |
+| **`docs/specs/SPECS-PUBLICATION.md`** | ✅ §5 `TR-DM-03` row, marked `[V1]` |
+| **`docs/CONFIG_LOG.md`**, **`docs/DECISION_LOG.md`** | ✅ R4, R5, R7 |
+| **`docs/v1/drafts/README.md`** | ✅ R1 |
+| **Storyboard** | ✅ Panel A5 `Q11` note; Panels A9–A11 unchanged |
+| **`docs/ENCYCLOPEDIA-SYNC.md`** | ✅ Entry 03 flagged |
+| **Encyclopedia** | **Entry 03 affected** (flagged, not republished); other entries unaffected |
+| **Traceability map, `V1-PHASE-CLOSURE.md`, rule files, frozen sources, `0001_init.sql`, application code, `lib/config/` metadata** | — unaffected |
+| **Graphify** | Rebuild after this commit |
+
+### What this act does NOT do
+
+Does not decide A6 or touch `B-106`, build a scheduler, score or check, rename any code symbol, apply `0002` to hosted
+Supabase, reopen `B-085`/`B-061`, add a fifth `SV-002` blocker, or lift the `V1-SM05` block.
+
+### Correction to item 1, 2026-09-25 (Lane B independent review, `docs/handoff/B-137`)
+
+Item 1's claim that every stale clause was struck through was **not true at `0d4fc73`**. For R1 (the `Modular_PRD`
+Migration row, the Inventory drafts row, the drafts README's status, blocker section and promotion sentence, and
+`FN-PUBLICATION` §7 `TR-DM-03`), R4 (`CONFIG_LOG.md`'s "not computable until `0002`") and R5 (`FN-PUBLICATION`
+§10's "remain open and both gate S4", plus the adjacent §8 pointer), the successor was appended but the old
+instruction was left operative. The follow-up commit strikes each of them at the point of use and adds a historical
+banner to the drafts README, applying item 1's rule as written. No other part of `D-265` changes.
+
+## 5.14e91 `D-266` — `B-138` Rulings: Two-Tier Review Order, Measure-First Rule Files, Graphify Skill Target, `SV2-U02-A`, `ripwire` Trial Staging, Itemized `SV-002` Audit; Gate 1A/1B/2 Labels
+
+**Authority: Judge rulings, 2026-09-26, to Lane A directly** — answers to Lane A's Q1–Q3 and Q5–Q9 on
+`docs/handoff/B-138`, with execution directives. Q4 was replaced by Q8.
+
+### The decision
+
+1. **Tool roles inside the existing three lanes; two-tier review order (Q1).** The lanes pair each tool with a role:
+   - **Lane A:** Claude Code owns governance and docs; Claude Cowork handles handoff dialogue.
+   - **Lane B:** Codex owns code and scripting; ChatGPT Chat/Work raises handoffs and gives **Level 1** (operational) review.
+   - **Lane C:** Antigravity IDE owns DevOps; Antigravity chat gives **Level 2** (architectural) review.
+
+   Review is sequential, Level 1 then Level 2. **The single `Verified-By` field in `TEMPLATE.md` stands.** No new
+   owner, commit lock or directory right is created, and `D-227`'s single Lane A owner is unchanged.
+2. **Measure first (Q2).** Loader runs `SV2-U02-A`/`B`/`C` precede any edit to `AGENTS.md`, `CLAUDE.md`,
+   `.agents/rules/graphify.md` or `shared-core-hash.mjs`. The in-repo rule files are then refactored **atomically**,
+   together with the parity check and its fixtures.
+3. **Design targets are binding; tokens are evidence (Q6).** `AGENTS.md` stays below 6,000 characters and `CLAUDE.md`
+   below 300 lines, inheriting `@AGENTS.md`. Skill files stay below 12,000 characters. `GEMINI.md` is for Gemini models
+   in Antigravity. `/context` token counts are supporting evidence. `@AGENTS.md` is recorded as a drift-prevention
+   mechanism, not a token saving, because the import loads the whole file.
+4. **Graphify skill (Q3).** The external user-profile skill `~/.gemini/config/skills/graphify/SKILL.md` is trimmed below
+   12,000 characters, keeping semantic summaries only. It is **not vendored** into the repository. The trim follows
+   `SV2-U02-C`'s measurement of it, with its before/after size and SHA-256 recorded in `SV-002`.
+5. **`SV2-U02-A` (Q5).** Claude Code gets an **independent** tracker, outside the Lane B → Lane C parent/child chain.
+6. **External context review (Q7).** Advisory only; it is not committed.
+7. **`ripwire` (Q8).** It is the directed candidate under Ripwire/Graphify co-existence. While `SV-002`'s DoR is open,
+   only the specification is recorded (`SV-002` §3.2: `v0.6.3`, the Windows asset's expected SHA-256, the skill path,
+   candidate flags, the `rg` SQL fallback), with **zero downloads**. After DoR closes, one temporary, isolated Windows
+   trial is authorized under `SV2-U03` to produce consumer evidence. The Judge then decides provisioning. This
+   supersedes `B-138`'s proposed order, in which the trial waited on the `SV2-U02` outcome.
+8. **Itemized audit (Q9).** `SV-002` §2's catch-all line is replaced by §2.1, an itemized audit of every Open handoff.
+   The live headers stay authoritative, and the table is re-derived at each review; it is evidence toward `SV2-DOR-02`.
+   `B-096` and `B-118` are added as screening candidates to `SV2-U04`, not as blockers by default.
+9. **Gate labels.** **Gate 1A** = `SV-001` (completed handoff validation), **Gate 1B** = `SV-002` (open setup attempt),
+   **Gate 2** = `V1-SM05-FV-001` (the future feature run, not yet created). These are names for existing gates; the
+   `D-264` identities and statuses remain the source.
+10. **`SV2-DOR-01` is checked** on the evidence of `D-264` and this entry. The other five readiness rows are checked
+    only as their own evidence exists.
+11. **Gating invariant.** `V1-SM05` stays `BLOCKED` under `D-264`. No construction is authorized.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e91 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-266` paragraph: measure-first sequence, trial staging, gate labels |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no repository file added or retired; the external skill and trial binary are outside the repository |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ gate label; §2.1 audit; `SV2-U02-A`; measure-first note; §3.2 trial parameters; `SV2-DOR-01` checked |
+| **`docs/handoff/B-138`** | ✅ `Answered`/`Applied` in a follow-up handoff commit that names this pass's commit |
+| **`docs/Modular_PRD.md`**, **`V1-PHASE-CLOSURE.md`**, storyboard, Fn_Specs, traceability map, Encyclopedia | — unaffected: no product behaviour, sprint, tier or lane change |
+| **Rule files, `shared-core-hash.mjs`, `TEMPLATE.md`, frozen sources, application code** | — unaffected in this pass (measure first) |
+| **Graphify** | Rebuild after this commit |
+
+### What this act does NOT do
+
+Does not download or install `ripwire`, trim any skill, edit any rule file or the parity check, create `GEMINI.md`,
+change `Verified-By`, run any loader measurement, change lane state, or lift the `V1-SM05` block.
+
+## 5.14e92 `D-267` — `B-139` Successor Act: `SV-002` Preparation Separated From Execution, Lineage/Attempt/Run Tracking, Per-Handoff DoR→DoD Items, Multi-Lane `AGENTS.md` Review, `SV2-U03` Before State-Change Construction; G1–G4 Source Corrections
+
+**Authority: Judge clarifications 1–3 of 2026-09-26, relayed in `docs/handoff/B-139`, and the Judge's answers to
+Lane A's four questions on the same day, to Lane A directly** — P0 (acknowledge `B-139`), P1 (record this act), G4
+option (a), and C1 (per-handoff items live in `SV-002`; tracking follows the lineage/attempt/run model).
+
+### The decision
+
+1. **Successor to `D-263` item 3 — B-series closure is planned, item by item.** `D-263` kept `B-120`/`B-125` `Open`
+   after recording State-1 progress; that was correct then. The Judge now directs traceable closure of the B-series
+   before Lane B takes the construction lock. Each live child receives an owner, a destination, an acceptance proof,
+   a return condition and a transfer receipt (`SV-002` §2.2); only then may a supported terminal resolution be
+   applied, with its own metadata. **`D-264` alone is not a `Superseded-By` citation** for `B-120`/`B-125`, and
+   `SV2-DOR-06`'s bar on bulk closure from readiness alone stands. The objective is traceable closure of the work,
+   not an Open-count reduction; `D-100` still holds that a full backlog is not itself a defect. Answered/Applied
+   entries such as `B-138` are checked for independent verification, not only Open headers. `B-120`/`B-125` stay
+   `Open` in this pass.
+2. **Clarifies `D-264` item 4 — `SV-002` preparation versus execution.** `SV-002` is the existing **Gate 1B** attempt
+   record. Its coverage index, per-item contracts and evidenced DoR rows are **preparation**; `SV2-U*` run results
+   and DoD evidence are **execution**, recorded separately. `SV-002` has **no executed run result yet**. When the
+   preparation is complete, the Judge selects Lane A to execute `SV-002` — an authorization for the bounded attempt,
+   not a second lane-state transition, since Lane A is already `Active` — and adds a documentation-complete comment
+   to draft PR #2. That comment attests the prepared contract only: it is not a run result, a behavioural test, a
+   claim that every B-series item is terminal, or an unblock. `SV-001` stays completed-at-the-time history (Gate 1A)
+   with a retrospective success-drift failure; its rows are not re-checked. `V1-SM05-FV-001` stays **Gate 2**,
+   created after feature selection and first run with Lane B's behavioural test code, as `D-264` item 4 says.
+3. **Tracking model — lineage → attempt → unit → run (Judge, C1).** Lineage and attempt tracking follow the model in
+   the external `dor-dod-lineage-model-consolidated.md` (v2.0, advisory text outside the repository; **this entry is
+   the governed statement of it**):
+   - **Lineage** — the permanent container: a setup root (`SETUP-SPIKE-000`) or a work packet (`V1-SM05`).
+   - **Attempt** — one versioned record against a lineage (`SV-001`, `SV-002`, `V1-SM05-FV-001`), pinning
+     `Template-ID`, `Template-Version` and `Template-SHA-256`. A gap found after an attempt closes opens the next
+     attempt with a drift ledger from the prior one.
+   - **Unit** — a bounded work item inside an attempt (`SV2-U01`–`SV2-U04`).
+   - **Run** — one execution of a unit (`SV2-U02-A-R1`, `SV2-U02-B-R1`, `SV2-U02-C-R1`).
+   - **The DoR and DoD sections inside each attempt's own file are the instantiated template.** The reusable
+     `docs/templates/dor-dod-validation/v1.md` stays results-free and hash-pinned; `D-264` item 5 is unchanged, and no
+     `v2` is created by this act.
+
+   The guide is adopted **with five corrections**, which govern where it differs: **(a)** a container closure may
+   be superseded by a later decision under `D-264` item 2's closure-transfer invariant — as `D-264` superseded
+   `D-258`'s premature root closure — so "never closed and reopened" is not the rule; **(b)** a feature attempt is
+   named `<packet>-FV-NNN`, not `<sprint>-FV-NNN`, because `V1-SM05` is a work packet and `D-232` keeps packet and
+   sprint namespaces apart; **(c)** `SV2-U02-B-R1` is a setup-attempt run under `SV-002`, not a feature-lineage example;
+   **(d)** the Register's supersession practice rests on `D-58` and its own dated-correction convention, not `D-14`,
+   which is the product rule that an issued report is never edited; **(e)** `SV-002`'s `Blocks` is a row in its
+   Identity table, not frontmatter. The guide's accepted limitation stands: no automated dependency graph links a
+   foundational lineage to the feature lineages it blocks; `Blocks` rows, the coverage index and transfer receipts
+   are the manual control, and any new check needs its own decision and owner.
+4. **Per-handoff DoR→DoD items live in `SV-002` (Judge, C1).** `SV-002` gains §2.2: one row per relevant handoff child
+   naming its Product/behaviour anchor, DoR condition, matching DoD proof, evidence class, owner, destination, return
+   condition and transfer receipt. Setup-transfer and readiness proof belong to Gate 1B; feature code-dependent DoD
+   belongs to Gate 2 and stays pending until Lane B builds and tests. A row's receipt is filled only from its own
+   proof; `SV2-DOR-02`–`05` are not checked by plan alone.
+5. **Multi-lane instruction review sits inside `SV2-U02` (Judge clarification 3).** Lane B constructs under the
+   existing root `AGENTS.md`, which is the intended **cross-tool shared base**, not a Codex-only framework. How each
+   consumer actually loads it — Claude Code (`CLAUDE.md`, and whether `AGENTS.md` also loads), Codex (`AGENTS.md`),
+   Antigravity (root rules, `.agents/rules/`, skills) — is proven by the A/B/C runs, including precedence, omission,
+   truncation and duplicated text. This is a prerequisite within `SV2-U02` and its `SV2-DOD-03`/`SV2-DOD-06` proof,
+   not a new unit. `D-266` items 2–3 stand: measure first, and the character/line targets stay binding, with
+   `/context` token counts recorded **alongside** them, not in place of them. The external *Ecosystem
+   Context-Optimization Review* stays advisory and uncommitted (`D-266` item 6); its diagnose-silence-first table
+   (dead, discovery failure, wrong owner, wrong tier) may be used as `SV2-U02` method input. Two of its claims do not
+   hold here: Claude Cowork is not a reviewer — it handles Lane A handoff dialogue (`D-227`), and the two review levels
+   are ChatGPT Chat/Work (Level 1) and Antigravity chat (Level 2) (`D-266` item 1); and `GEMINI.md` is a configuration
+   file for Gemini models in Antigravity (`D-266` item 3), not a review role. No size or usage statistic alone
+   establishes that a rule is removable.
+6. **`SV2-U03` before state-change construction (Judge clarification 3, continued).** Order: `SV2-U03` outcome →
+   `SV2-DOD-04` → `SV2-DOD-06` → the Judge's acceptance of `SV-002`, unblock, feature selection and `D-242` work
+   order → Lane B's product state-change code. This gates the **construction handover**, not DoR preparation or the
+   start of the Gate 1B attempt. `SV2-U03-code-navigation-evaluation.md` is a draft recommendation, not a completed
+   unit; `D-266` item 7's trial staging is unchanged. Navigation evidence shows how Lane B finds code; it does not
+   prove that product state transitions behave correctly — the Gate 2 feature attempt proves that.
+7. **G1–G4 source corrections (`B-139`), by dated notes.**
+   - **G1** — `FN-GATES-01-05.md` §4.1: a dated successor note records that Panel A11 was accepted by `D-259`. The
+     `D-256` sentence stays as history. Panel A11's acceptance does **not** assert the A2–A8-to-slot mapping.
+   - **G2** — `requirements-traceability-map.md` §6.1: a dated pointer to `DOR-R1`–`DOR-R7` and to Panel A11. Panel
+     A10 keeps its stated `ManualReady` scope and is not promoted to the whole `V1-SM06` journey.
+   - **G3** — `FN-GATES-01-05.md` source line: the Product AC anchor is `Modular_PRD` §9.1, not §6.
+   - **G4** — `Modular_PRD.md` §0.1 changelog, option (a): renumbered in commit order. `D-261` (`719e72b`) keeps
+     **1.38** and moves above `D-264`; `D-264` (`10ec465`) is relabelled **1.39** (was 1.38); `D-265` (`0d4fc73`) is
+     relabelled **1.40** (was 1.39); this correction is **1.41**. Decision dates and commit order are kept as separate
+     facts. The §0 header moves to version 1.41, last updated 2026-09-26. **Register citations read through this
+     item:** `D-264`'s tier row *"changelog 1.38"* now means 1.39, and `D-265`'s *"changelog 1.39"* now means 1.40;
+     those rows are not edited.
+8. **Encyclopedia Entry 03 keeps its own path.** `DOR-R6` is not reopened; `D-256`/`D-259` deliberately reviewed
+   Entries 01/05/06. Entry 03's `D-265` flag stays, with its hosted comparison still owed; its possible intersection
+   with the slice is screened in `SV2-U04` (`SV-002` §2.2).
+9. **Gating invariant.** `V1-SM05` stays `BLOCKED` under `D-264`. No construction, lane transition, rule-file edit,
+   template change, handoff terminal resolution or push is authorized by this act.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e92 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-267` paragraph: preparation → Judge selection of Lane A's `SV-002` run → execution; `SV2-U03` before state-change construction; the tracking model |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no repository file added or retired; `SV-002.md` changes in place; both external guides stay outside the repository |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §1 status clarified as preparation; new §2.2 per-handoff DoR→DoD items; §3 note on the construction order |
+| **`docs/Modular_PRD.md`** | ✅ §0 header version and date; §0.1 changelog renumbered (G4), row 1.41. No FR/AC/NFR text changes. **§8 unaffected** — no sprint closes, no tier opens |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ source-line anchor (G3); §4.1 dated successor note (G1). No behaviour changes |
+| **`docs/governance/requirements-traceability-map.md`** | ✅ §6.1 dated pointer (G2) |
+| **Storyboard**, `V1-SM05.md`, `V1-PHASE-CLOSURE.md` | — unaffected: Panel A11/A10 text is already correct; packet status stays `BLOCKED`; no lane change |
+| **Agent files**, `shared-core-hash.mjs`, `TEMPLATE.md`, `docs/templates/dor-dod-validation/v1.md`, frozen sources, application code | — unaffected (measure first; template v1 pin unchanged) |
+| **Encyclopedia** | — unaffected: no dependency cell changes. Entry 02 depends on `Modular_PRD` §0.2/§0.4/§12, not §0.1; Entry 05 on the map's §6.3/§6.4, not §6.1; Entry 06 on `FN-GATES` §3.1/§6/§7, not §4.1. Entry 03's `D-265` flag is unchanged |
+| **`docs/handoff/B-139`** | ✅ answered in a follow-up handoff commit that names this pass's commit; `Status` stays `Open` pending the §2.2 transfers and Lane B's review |
+| **Graphify** | Rebuild after this commit |
+
+### What this act does NOT do
+
+Does not close, supersede or resolve any handoff; check `SV2-DOR-02`–`06` or any DoD row; run any `SV2-U*` unit;
+select Lane A's `SV-002` run or add the PR #2 comment (both are the Judge's acts); edit a rule file or the template;
+commit either external guide; reopen `DOR-R6`; change lane state; lift the `V1-SM05` block; or push.
+
+## 5.14e93 `D-268` — `B-139` Follow-up R1–R4: Transfer Receipts and `Deferred` for `B-120`/`B-125`, Keyed Per-Child Rows and the `SV2-U04` Matrix, Re-Derived Open Audit, Product Status Correction
+
+**Authority: the Judge's answers of 2026-09-26 to Lane A, directly** — on Lane B's partial application review of
+`D-267` in `docs/handoff/B-139` (`6c28a6f`, findings R1–R4): **Q1** yes, close `B-120`/`B-125` as `Deferred` with
+per-parent receipts, *per backlog tracking*; **Q2** yes, key the `B-071`/`B-095`/`B-096`/`B-104`/`B-118` children in
+a new `SV2-U04` matrix section, *per non-duplication*; **Q3** yes, one Register act with a governed commit, a `B-139`
+answer commit, a graph sync and a push, *per current governance*.
+
+### The decision
+
+1. **R2 — transfer now, completion later.** `D-267` item 1 made a checked transfer receipt the precondition for any
+   terminal resolution; Lane B found that `SV-002` §2.2 `P14` then waited on the very future acts being transferred.
+   The two are separated. **Transfer acceptance** is recorded now: a dated Lane A receipt per parent, then
+   `Resolution: Deferred` with a `Follow-up-Tier`. **Work completion** is the later satisfaction of that
+   `Follow-up-Tier` condition, handled by the `B-097` return protocol. This is the channel's existing meaning of
+   `Deferred` — *real, not now*, terminal without an implementation (`docs/handoff/README.md`) — so no new field,
+   state or resolution is created. `Superseded` is not used: no decision overtook either entry.
+2. **`B-120` — per-parent receipts.**
+   - **Parent 1** (Chief Editor operator attestation): removed as a `V1-SM05` gate and kept as `SETUP-SPIKE-000/S2`
+     baseline provenance (`D-255`, `B-129`). Transferred there; no `V1-SM05` work remains.
+   - **Parent 2** (boundary docket): closed — integration mode, advisory dual sign-off and raw-capture disposition
+     decided (`D-253`; dated correction via `B-122`, observed at `f94695b`).
+   - **Parent 3** (complete the `V1-SM05` DoR): complete — `DOR-R1`–`DOR-R7` checked (`D-259`–`D-261`), now the
+     Gate 1A attempt `SV-001` (`D-264`).
+   - **Parent 4** (external GitHub lifecycle): complete — Issue #1, `features/feature-V1-SM05`, draft PR #2
+     (`D-262`, `D-263`).
+   - **Parent 5** (selection and construction): **transferred** to `B-136` Parent 3, then `V1-SM05-FV-001` (Gate 2).
+3. **`B-125` — per-parent receipts.**
+   - **Parent 1** (governing rule): applied as `D-254`.
+   - **Parent 2** (pre-start readiness): complete — the five operator facts are `S2` baseline only (`D-255`);
+     `DOR-R5`/`DOR-R6` checked (`D-259`).
+   - **Parent 3** (Pass 1 on the base branch): complete — baseline push observed at `f94695b` (`B-122`).
+   - **Parent 4** (normal Issue creation): complete — Issue #1 (`D-262`; phantom-Issue premise removed by `B-126`).
+   - **Parent 5** (non-empty State-1 branch and PR): complete — draft PR #2 (`D-262`, `D-263`).
+   - **Parent 6** (selection and construction): **transferred**, as `B-120` Parent 5.
+4. **`Follow-up-Tier` for both:** *Gate 2 — returns when the Judge selects `V1-SM05` and issues the `D-242` State-2
+   work order (`B-136` Parent 3); completion evidence is `V1-SM05-FV-001`.* `Verified-By` stays unfilled:
+   dispositioned by Lane A, not independently verified. Lane B's review of the receipts still applies.
+5. **R1 — one keyed row per child, without duplication.**
+   - `SV-002` §2.2 `P11` splits into `P11-G1`–`P11-G4`, and `P14` into `P14a` (`B-120` Parent 5) and `P14b`
+     (`B-125` Parent 6), each with its own receipt.
+   - **New `SV-002` §3.3 — the `SV2-U04` child matrix.** Each child of `B-071`, `B-095`, `B-096`, `B-104` and
+     `B-118` gets a stable key reusing the entry's own label: `B071-R202`–`R208` (its latest open round);
+     `B-095.D1`, `.D2a`, `.D2b`, `.D3`, `.D4`, `.S5`; `B-096.GA1`, `.S15`, `.S16`, `.TR-DM-01`; `B-104.O1`–`.O4` (its
+     four ordered corrections); `B-118.P1`–`.P4`. `§2.2` rows `P4`–`P6`, `P8` and `P9` point to §3.3 instead of
+     restating the children.
+   - **The matrix is seeded, not decided.** Every "blocking?" cell reads `unclassified` until `SV2-U04` runs; the
+     controlling clause and anchor are filled only from the mapping itself. Earlier `B-071` rounds are covered by
+     their own recorded dispositions; if the mapping finds an unresolved earlier child, it adds a row under that
+     child's own `B071-R*` key.
+6. **R4 — the Open audit is re-derived.** `SV-002` §2.1 is re-derived from the live headers at `6c28a6f`, with the
+   `D-268` effect stated: `B-139` gains a row; `B-120`/`B-125` move to a transferred-and-`Deferred` list;
+   `B-138` moves to a verification list outside the Open set. `SV2-DOR-02` is still checked only on its full evidence.
+7. **R3 — Product Document Control status.** `Modular_PRD.md` §0 `Status` keeps its original clause struck
+   through and gains a dated current-state statement: application scaffolding exists; `0002_s1_editorial_schema.sql`
+   is applied and tested on local PostgreSQL (`D-114`, `D-121`); hosted Supabase behaviour is unverified (`DEP-05`);
+   `V1-SM05` construction is `BLOCKED` (`D-264`); the working branch is pushed. It makes no claim about environment
+   files. Changelog **1.42**; header 1.42.
+8. **Gating invariant.** `V1-SM05` stays `BLOCKED` under `D-264`. No construction, lane transition, `SV2-DOR-*` or
+   `SV2-DOD-*` check, `SV2-U*` run, template change or rule-file edit is authorized. The push is authorized by the
+   Judge's Q3 answer for this pass only.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e93 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-268` paragraph: transfer-now/complete-later; keyed rows and the §3.3 matrix |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no repository file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.1 re-derived; §2.2 `P11`/`P14` split and matrix pointers; new §3.3 |
+| **`docs/Modular_PRD.md`** | ✅ §0 `Status` dated current-state note; §0 version and date; changelog 1.42. No FR/AC/NFR text changes. **§8 unaffected** — no sprint closes, no tier opens |
+| **`docs/handoff/B-120`** | ✅ per-parent receipts; `Answered`, `Resolution: Deferred`, `Follow-up-Tier` as item 4 |
+| **`docs/handoff/B-125`** | ✅ as `B-120` |
+| **`docs/handoff/B-139`** | ✅ R1–R4 answered; `Status` stays `Open` |
+| **`FN-GATES-01-05.md`**, `requirements-traceability-map.md`, storyboard, `V1-SM05.md`, `V1-PHASE-CLOSURE.md` | — unaffected: no behaviour, journey, packet-status or lane change |
+| **Agent files**, `TEMPLATE.md`, `docs/templates/dor-dod-validation/v1.md`, frozen sources, application code | — unaffected |
+| **Encyclopedia** | — unaffected: `Modular_PRD` §0 `Status` is not in any entry's dependency cell (Entry 02 cites §0.2/§0.4/§12) |
+| **Graphify** | Rebuild after the final commit of this pass |
+
+### What this act does NOT do
+
+Does not verify any entry; classify any §3.3 row as blocking or non-blocking; close `B-136`, `B-139` or any other
+entry; check any `SV2-DOR-*`/`SV2-DOD-*` row; select Lane A's `SV-002` run or add the PR #2 comment; change lane
+state; or lift the `V1-SM05` block.
+
+## 5.14e94 `D-269` — Judge Option A (Canonical Absorption): `D-268` Corrected — `B-120`/`B-125` Superseded, Terminal, No Return Trigger
+
+**Authority: the Judge's direct ruling of 2026-09-26, given to Lane B and to Lane A** — *"Option A (Canonical
+Absorption): Clarify that B-120 and B-125 are permanently superseded by D-268 and the receiving receipt in B-136
+Parent 3 (and downstream packet V1-SM05), making their closure terminal without a return-to-open trigger."* Recorded
+by Lane B in `docs/handoff/B-139` (`8600043`), after Lane B's challenge to `D-268`'s return path (`d0555ff`).
+
+### The decision
+
+1. **`D-268` is corrected, not rewritten.** Its text stays as decision history. For `B-120` and `B-125` only:
+   - `D-268` item 1's sentence *"`Superseded` is not used: no decision overtook either entry"* is **replaced**: both
+     entries are **superseded by `D-268` as corrected by this entry**. The supersession authority cited in their
+     `Superseded-By` field is *"`D-268` as corrected by `D-269`"* — never `D-268` unqualified.
+   - `D-268` item 4's `Follow-up-Tier` and its `B-097` Gate-2 return trigger are **withdrawn** for these two entries.
+     Their closure is terminal, with no return-to-open trigger.
+   - `D-268` items 2–3's per-parent receipts stand unchanged as the evidence of what each entry delivered.
+2. **Why the correction is needed (Lane B, `d0555ff`).** The `D-268` trigger would have returned both entries to
+   `Open` at the Judge's selection and work order — **before** Lane B's activation, while their named completion proof
+   (`V1-SM05-FV-001`) comes **after** it. That contradicted the Judge's aim of closing the B-series before Lane B takes
+   the construction lock. Absorption removes the return instead of scheduling it.
+3. **Receiving side first — two-sided receipts.** Before the source entries change, the obligations are received:
+   - **`B-136` Parent 3** records a dated receiving receipt for `B-120` Parent 5 and `B-125` Parent 6, each naming
+     owner, destination, future acceptance proof and the feature-gate condition. *Label note:* the Judge and Lane A's
+     `D-263` note in `B-136` use "Parent 3" for selection, work order and lane change; `B-136`'s current body numbers
+     those acts **Parents 4–5** (lift the block, select, work order; then `V1-SM05-FV-001` and construction). The
+     receipt is recorded under Parent 3 as named and states that mapping.
+   - **The durable owner is the governed `V1-SM05` packet** and its future `V1-SM05-FV-001` evidence; `B-136` is the
+     transition handoff, not the long-term owner. `V1-SM05.md` records the receipt.
+4. **Source disposition.** After the receipts, `B-120` and `B-125` move to `Resolution: Superseded` with
+   `Superseded-By` as item 1, their `Follow-up-Tier` fields are removed, and a dated lifecycle correction is appended
+   without erasing the `Deferred` history. The change stays terminal throughout (`Deferred` → `Superseded`), so each is
+   recorded as a **Terminal annotation record** (`B-113`, `Annotation-Type: correction`), never a Return record.
+5. **What absorption does not complete.** Superseding the source handoffs removes their return; it does **not** mark
+   selection, the work order, Lane B activation, construction, feature DoD or Judge acceptance complete. Those stay
+   owed by `V1-SM05` and gated by `SV-002` (`D-264`, `D-267` item 6). `V1-SM05` stays `BLOCKED`;
+   `V1-SM05-FV-001` is not created or run early.
+6. **Unchanged.** `D-268` items 5–8 (keyed rows, the §3.3 matrix with every blocking cell `unclassified`, the
+   re-derived audit, the Product status correction) stand. The Judge approved this absorption only; the Gate 1B
+   execution turn and the SM05 construction turn are not selected.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e94 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-269` paragraph: absorption replaces `D-268`'s return path for `B-120`/`B-125` |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no repository file added or retired |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.1 transferred list becomes a superseded list; §2.2 `P14a`/`P14b` return condition and receipt |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ durable-owner receipt for the absorbed obligations; status stays `BLOCKED` |
+| **`docs/handoff/B-136`** | ✅ Parent 3 receiving receipts, in the Lane A field |
+| **`docs/handoff/B-120`**, **`docs/handoff/B-125`** | ✅ `Superseded`, `Superseded-By`, `Follow-up-Tier` removed, Terminal annotation record |
+| **`docs/handoff/B-139`** | ✅ answered in a follow-up handoff commit |
+| **`docs/Modular_PRD.md`** | — unaffected: no requirement, §0 or §8 change |
+| **`FN-GATES-01-05.md`**, `requirements-traceability-map.md`, storyboard, `V1-PHASE-CLOSURE.md` | — unaffected: no behaviour, journey or lane change |
+| **Agent files**, `TEMPLATE.md`, `docs/templates/dor-dod-validation/v1.md`, frozen sources, application code | — unaffected |
+| **Encyclopedia** | — unaffected: no entry cites `B-120`, `B-125` or `D-268` |
+| **Graphify** | Rebuild after the final commit of this pass |
+
+### What this act does NOT do
+
+Does not verify any entry; close `B-136` or `B-139`; classify any §3.3 row; check any `SV2-DOR-*`/`SV2-DOD-*` row;
+select Lane A's `SV-002` run or the SM05 construction turn; create `V1-SM05-FV-001`; change lane state; lift the
+`V1-SM05` block; or push.

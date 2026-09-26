@@ -31,7 +31,7 @@
 | `scripts/checks/phase-manifest.mjs` | `D-94`, `D-95` | ✅ **Created 2026-08-22.** `C-14` check 11 — every manifest path exists and is tracked. **Negative-tested four ways**; a scope exclusion deliberately does not fire on presence |
 | `.agents/skills/sync-docs/SKILL.md` | `B-005` | ❌ **Removed 2026-08-22.** A divergent Codex-adapted duplicate of the tracked skill. Two copies of one procedure is the drift mechanism, and `D-54` propagation is Lane A work Lane B never performs (`D-86`) |
 | `.github/WORKFLOWS-SPEC.md` | `D-92`, `D-84` | ✅ **Created 2026-08-21.** Lane C's work order — the surface it owns, what Lane A guarantees CI can call, the SKIP contract, and two queued items. **`.github/` minus workflows is Lane A's**, so the spec sits one directory above what it governs |
-| `docs/v1/drafts/README.md` | `D-91`, `G27`, `D-17` | ✅ **Created 2026-08-21.** The hold location for migrations that must not be applied. **The path was asserted in `D-68`'s rationale and never decided**; `D-91` records it. `0002_three_lines.sql.draft` is **not yet written** — `G64`/`Q11` gate it |
+| `docs/v1/drafts/README.md` | `D-91`, `G27`, `D-17` | ✅ **Created 2026-08-21.** The hold location for migrations that must not be applied. **The path was asserted in `D-68`'s rationale and never decided**; `D-91` records it. ~~`0002_three_lines.sql.draft` is **not yet written** — `G64`/`Q11` gate it.~~ **Corrected 2026-09-25 (`D-265`):** superseded — no draft will be written; the delivered candidate is `supabase/migrations/0002_s1_editorial_schema.sql` |
 | `docs/handoff/README.md` | `D-90`, `D-75` | ✅ **Created 2026-08-21.** The handoff location `D-75` required and never named. **Unmapped by design** — Lane B raises, Lane A answers. |
 | `docs/handoff/TEMPLATE.md` | `D-90` | ✅ **Created 2026-08-21.** Entry template. One file per item, not a shared log — a log would mix append-only content with current-value status (`G63`). |
 | `docs/handoff/artifacts/B-119/` | `D-251`, `B-119` | ✅ **Created 2026-09-21 by Lane B; listed here by Lane A.** Evidence attachments for one handoff entry, **not entries**: a read-only preflight, a read-only aggregate assessment and a manual-run receipt. One directory per entry; unmapped like the channel. Not read by `handoff-response` and excluded from `graph-coverage` as `docs/handoff/`. **Current versions are named in `B-119`'s ledger, not here**, because a version bump would otherwise leave this row stale. The first submitted versions are history only and are not accepted for execution |
@@ -86,6 +86,11 @@
 | `scripts/jev/manifests/V1-SM05.json` | `D-259` — `V1-SM05` scope manifest: DoR rows and row-hash-pinned behaviours | ✅ **Created 2026-09-24**; re-pinned by `D-260` to the Option A scope (held `T5`/`T6` rows out, `FN-GATES` §4.4 scenarios in) |
 | `docs/v1/work-packets/V1/receipts/` | `D-259` — Jev readiness receipts for V1 packets; evidence only | ✅ **Created 2026-09-24** with `V1-SM05-jev-readiness.json` — first receipt `fail` (the `AC-05a`/`AC-06a` scope finding, kept in git history at `e805fb9`); **replaced 2026-09-24 by a passing receipt after `D-260`**, same path |
 | `docs/handoff/artifacts/B-131/System_Encyclopedia_V15.txt` | `D-259`, `B-131` — Chief Editor-supplied export of hosted Encyclopedia v15; SHA-256 `bc97bebac0f3ac2d3f3d8fed32c3a9cb93684b60f829fee3604b08faf34ace9f`, matching `B-131` | ✅ **Added 2026-09-24.** Evidence attachment, not an entry — same treatment as `artifacts/B-119/` |
+| `docs/graph-fragments/frag139.json` | `D-264` — curated nodes for `D-264`, the v1 template, `SV-001`, `SV-002` and the `SV2-U03` evaluation | ✅ **Created 2026-09-25** |
+| `docs/templates/dor-dod-validation/v1.md` | `D-264` — reusable DoR/DoD validation template `dor-dod-validation/v1`; result-free, immutable once used (a change creates `v2`), outside `docs/v1/` per `D-36` | ✅ **Created 2026-09-25**; SHA-256 `ca605cd6d477ad9d3e9919569fe655d1ba98df3ee8c86dfe57945aec0587be90` |
+| `docs/v1/work-packets/SETUP-SPIKE-000/SV-001.md` | `D-264` — retrospective wrapper over the completed `V1-SM05` pre-selection handoff validation; success-drift baseline | ✅ **Created 2026-09-25**, historical — never re-run |
+| `docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md` | `D-264` — setup-validation attempt, first run of `dor-dod-validation/v1`; units `SV2-U01`–`SV2-U04` | ✅ **Created 2026-09-25**, `DoR open` |
+| `docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md` | `D-264` — read-only `SV2-U03` evaluation (`ripwire` as candidate) | ✅ **Drafted 2026-09-25**; awaits Lane B evidence and the Judge's outcome |
 | `scripts/acceptance/` | `D-259` — cross-MMF customer-acceptance harness (§18.3) | ⏳ **Contract only — not created.** Built and run in a later Lane A `Active` turn after Lane B's handover |
 
 **No broken internal document links** — the docs are self-consistent. The gaps are artifacts that were planned but never created, not references that dangle.
@@ -348,6 +353,33 @@ scenarios are a new section inside the already-tracked `FN-GATES-01-05.md`.
 **`D-261` (2026-09-24) — no file added or retired, stated explicitly.** `Modular_PRD.md` gains rows, not a file;
 the Jev engine, self-test and `V1-SM05` manifest change in place; the receipt at the same path is regenerated, with
 every earlier receipt kept in git history.
+
+**`D-262` (2026-09-25) — no file added or retired, stated explicitly.** GitHub Issue #1 and
+`features/feature-V1-SM05` are GitHub and Git objects. Per `D-253`, the Issue is recorded in the `V1-SM05`
+packet's traceability field and not restated here. The State-1 pull-request text is GitHub-side and
+has no repository file.
+
+**`D-264` (2026-09-25) — five files added, none retired, stated explicitly.** The reusable template, curated fragment `frag139.json` and three
+`SETUP-SPIKE-000` attempt files (rows above). `S2`–`S4` stay as history. `V1-SM05-FV-001` is **not** created yet: it is
+made only after selection. No row is retired.
+
+**`D-265` (2026-09-25) — no file added or retired, stated explicitly.** The `B-137` packet corrects clauses in place; the
+drafts row above gains a successor note (`0002_three_lines.sql.draft` will not be written).
+
+**`D-266` (2026-09-26) — no repository file added or retired, stated explicitly.** `SV-002.md` changes in place. The
+Graphify skill at `~/.gemini/config/skills/graphify/SKILL.md` and any trial `ripwire` binary live **outside** the
+repository and are not inventoried here; their evidence (sizes, SHA-256, removal) is recorded in `SV-002`.
+
+**`D-267` (2026-09-26) — no repository file added or retired, stated explicitly.** `SV-002.md` gains §2.2 in place;
+`Modular_PRD.md`, `FN-GATES-01-05.md` and `requirements-traceability-map.md` receive dated corrections in place. The
+external `dor-dod-lineage-model-consolidated.md` and *Ecosystem Context-Optimization Review* stay **outside** the
+repository; `D-267` is the governed statement of the tracking model, and no template `v2` is created.
+
+**`D-268` (2026-09-26) — no repository file added or retired, stated explicitly.** `SV-002.md` gains §3.3 in place and
+re-derives §2.1; `Modular_PRD.md` §0 gains a dated status note; `B-120`/`B-125` change disposition in place.
+
+**`D-269` (2026-09-26) — no repository file added or retired, stated explicitly.** `V1-SM05.md`, `SV-002.md`, `B-136`,
+`B-120` and `B-125` change in place.
 
 ## Temporary / Draft Artifacts
 

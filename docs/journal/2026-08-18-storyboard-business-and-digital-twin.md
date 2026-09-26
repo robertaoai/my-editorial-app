@@ -157,6 +157,7 @@ sequenceDiagram
 
 > **Three gaps converge on this panel.**
 > `Q11` — the field recording independence is currently named `judgment_independence_status`, asserting a cognitive fact the system can only prove structurally. Append-only makes the wrong name permanent.
+> **Corrected 2026-09-25 (`D-265`):** historical — `Q11` is decided. The stored column is `line_separation_status` (`D-97`/`D-111`), implemented in `0002`, and no `judgment_independence` field exists.
 > `OD2` — whether Line separation actually produces independent judgment is unresolved; a negative answer voids this panel's model entirely.
 > `GA6` — the Chief Editor executes T5 *and* is accountable for the outcome. That is a **management assertion**, not an independent audit opinion. No panel anywhere in this storyboard contains an independent assurance step.
 
