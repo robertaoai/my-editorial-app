@@ -366,6 +366,10 @@ made only after selection. No row is retired.
 **`D-265` (2026-09-25) — no file added or retired, stated explicitly.** The `B-137` packet corrects clauses in place; the
 drafts row above gains a successor note (`0002_three_lines.sql.draft` will not be written).
 
+**`D-266` (2026-09-26) — no repository file added or retired, stated explicitly.** `SV-002.md` changes in place. The
+Graphify skill at `~/.gemini/config/skills/graphify/SKILL.md` and any trial `ripwire` binary live **outside** the
+repository and are not inventoried here; their evidence (sizes, SHA-256, removal) is recorded in `SV-002`.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

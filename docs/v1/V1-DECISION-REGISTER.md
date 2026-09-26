@@ -19506,3 +19506,62 @@ Migration row, the Inventory drafts row, the drafts README's status, blocker sec
 §10's "remain open and both gate S4", plus the adjacent §8 pointer), the successor was appended but the old
 instruction was left operative. The follow-up commit strikes each of them at the point of use and adds a historical
 banner to the drafts README, applying item 1's rule as written. No other part of `D-265` changes.
+
+## 5.14e91 `D-266` — `B-138` Rulings: Two-Tier Review Order, Measure-First Rule Files, Graphify Skill Target, `SV2-U02-A`, `ripwire` Trial Staging, Itemized `SV-002` Audit; Gate 1A/1B/2 Labels
+
+**Authority: Judge rulings, 2026-09-26, to Lane A directly** — answers to Lane A's Q1–Q3 and Q5–Q9 on
+`docs/handoff/B-138`, with execution directives. Q4 was replaced by Q8.
+
+### The decision
+
+1. **Tool roles inside the existing three lanes; two-tier review order (Q1).** The lanes pair each tool with a role:
+   - **Lane A:** Claude Code owns governance and docs; Claude Cowork handles handoff dialogue.
+   - **Lane B:** Codex owns code and scripting; ChatGPT Chat/Work raises handoffs and gives **Level 1** (operational) review.
+   - **Lane C:** Antigravity IDE owns DevOps; Antigravity chat gives **Level 2** (architectural) review.
+
+   Review is sequential, Level 1 then Level 2. **The single `Verified-By` field in `TEMPLATE.md` stands.** No new
+   owner, commit lock or directory right is created, and `D-227`'s single Lane A owner is unchanged.
+2. **Measure first (Q2).** Loader runs `SV2-U02-A`/`B`/`C` precede any edit to `AGENTS.md`, `CLAUDE.md`,
+   `.agents/rules/graphify.md` or `shared-core-hash.mjs`. The in-repo rule files are then refactored **atomically**,
+   together with the parity check and its fixtures.
+3. **Design targets are binding; tokens are evidence (Q6).** `AGENTS.md` stays below 6,000 characters and `CLAUDE.md`
+   below 300 lines, inheriting `@AGENTS.md`. Skill files stay below 12,000 characters. `GEMINI.md` is for Gemini models
+   in Antigravity. `/context` token counts are supporting evidence. `@AGENTS.md` is recorded as a drift-prevention
+   mechanism, not a token saving, because the import loads the whole file.
+4. **Graphify skill (Q3).** The external user-profile skill `~/.gemini/config/skills/graphify/SKILL.md` is trimmed below
+   12,000 characters, keeping semantic summaries only. It is **not vendored** into the repository. The trim follows
+   `SV2-U02-C`'s measurement of it, with its before/after size and SHA-256 recorded in `SV-002`.
+5. **`SV2-U02-A` (Q5).** Claude Code gets an **independent** tracker, outside the Lane B → Lane C parent/child chain.
+6. **External context review (Q7).** Advisory only; it is not committed.
+7. **`ripwire` (Q8).** It is the directed candidate under Ripwire/Graphify co-existence. While `SV-002`'s DoR is open,
+   only the specification is recorded (`SV-002` §3.2: `v0.6.3`, the Windows asset's expected SHA-256, the skill path,
+   candidate flags, the `rg` SQL fallback), with **zero downloads**. After DoR closes, one temporary, isolated Windows
+   trial is authorized under `SV2-U03` to produce consumer evidence. The Judge then decides provisioning. This
+   supersedes `B-138`'s proposed order, in which the trial waited on the `SV2-U02` outcome.
+8. **Itemized audit (Q9).** `SV-002` §2's catch-all line is replaced by §2.1, an itemized audit of every Open handoff.
+   The live headers stay authoritative, and the table is re-derived at each review; it is evidence toward `SV2-DOR-02`.
+   `B-096` and `B-118` are added as screening candidates to `SV2-U04`, not as blockers by default.
+9. **Gate labels.** **Gate 1A** = `SV-001` (completed handoff validation), **Gate 1B** = `SV-002` (open setup attempt),
+   **Gate 2** = `V1-SM05-FV-001` (the future feature run, not yet created). These are names for existing gates; the
+   `D-264` identities and statuses remain the source.
+10. **`SV2-DOR-01` is checked** on the evidence of `D-264` and this entry. The other five readiness rows are checked
+    only as their own evidence exists.
+11. **Gating invariant.** `V1-SM05` stays `BLOCKED` under `D-264`. No construction is authorized.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e91 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-266` paragraph: measure-first sequence, trial staging, gate labels |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no repository file added or retired; the external skill and trial binary are outside the repository |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ gate label; §2.1 audit; `SV2-U02-A`; measure-first note; §3.2 trial parameters; `SV2-DOR-01` checked |
+| **`docs/handoff/B-138`** | ✅ `Answered`/`Applied` in a follow-up handoff commit that names this pass's commit |
+| **`docs/Modular_PRD.md`**, **`V1-PHASE-CLOSURE.md`**, storyboard, Fn_Specs, traceability map, Encyclopedia | — unaffected: no product behaviour, sprint, tier or lane change |
+| **Rule files, `shared-core-hash.mjs`, `TEMPLATE.md`, frozen sources, application code** | — unaffected in this pass (measure first) |
+| **Graphify** | Rebuild after this commit |
+
+### What this act does NOT do
+
+Does not download or install `ripwire`, trim any skill, edit any rule file or the parity check, create `GEMINI.md`,
+change `Verified-By`, run any loader measurement, change lane state, or lift the `V1-SM05` block.

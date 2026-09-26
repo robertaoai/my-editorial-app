@@ -94,6 +94,12 @@ conditions and the Judge lifts the block. `SV-001` is the completed pre-selectio
 success-drift baseline, not a feature DoR/DoD run. Every validation attempt pins the reusable, result-free template
 `docs/templates/dor-dod-validation/v1.md` by SHA-256, and future setup closure follows `D-264`'s transfer invariant.
 
+**`D-266` (2026-09-26) — `SV-002` sequence.** Loader runs `SV2-U02-A` (Claude Code, independent), `-B` (parent) and
+`-C` (child) come **before** any rule-file or parity-check edit. The rule files are then refactored atomically to the
+binding targets (`AGENTS.md` < 6,000 characters; `CLAUDE.md` < 300 lines; skills < 12,000 characters). `ripwire`: while
+DoR is open, specification only; after DoR closes, one isolated Windows trial; then the Judge's provisioning decision.
+Gate labels: 1A = `SV-001`, 1B = `SV-002`, 2 = `V1-SM05-FV-001`. `V1-SM05` stays `BLOCKED`.
+
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and DoD are **defined in their work packets (`D-245`, 2026-09-20)** and are not complete:
 each DoR box is checked only against current evidence, and Lane B's feasibility review and the Judge's
 acceptance of the business outcome are pending. The reusable one-MMF pull-request template
