@@ -4,7 +4,7 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** completion of V1-SM05 pre-start readiness, normal GitHub Issue creation, Pass-1 publication, the State-1 PR, selection and State-2 construction
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-22. Applied Parent 1 only: recorded Judge Clarification 5.1 as
   `D-254` in `V1-DECISION-REGISTER.md` §5.14e79, and propagated it under `D-54` to `V1-BUILD-SPEC.md`,
   `V1-ARTIFACT-INVENTORY.md` and `V1-SM05.md`'s DoR-checklist preamble, stating `Modular_PRD.md` and
@@ -26,9 +26,24 @@
   **Progress note, 2026-09-24 (`D-256`), not an answer.** The `DOR-R5`/`DOR-R6` row of Parents 2–6 now has its evidence: Panel A11, and the hosted v15 comparison. Walkthrough and review acceptance are still owed. No Issue, branch, PR or selection act has occurred. `Status` stays `Open`.
 
   **Progress note, 2026-09-25 (`D-263`), not an answer.** The Pass-1 base, the Issue, the branch and the State-1 PR are complete (`D-259`–`D-262`). Selection, the work order and State-2 construction remain open. `Status` stays `Open`.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `D-252`, `D-253`; `docs/handoff/B-119`–`B-124`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Judge Clarification 5.1 relayed 2026-09-22
-- **Verified-At-Commit:** ef903b38989a9e0fc24806332ed9d86c1f6d27d3
+
+  **Transferred and `Deferred`, 2026-09-26 (`D-268`, commit `947e4e7`; Judge answer Q1, *per backlog tracking*).** Per-parent receipts:
+
+  | Parent | Receipt |
+  |---|---|
+  | 1 — record the governing rule | Applied as `D-254` |
+  | 2 — complete pre-start readiness | Complete: the five operator facts are `S2` baseline only (`D-255`); `DOR-R5`/`DOR-R6` checked (`D-259`) |
+  | 3 — complete Pass 1 on the base branch | Complete: baseline push observed at `f94695b` (`B-122`) |
+  | 4 — normal Issue creation | Complete: Issue #1 (`D-262`; phantom-Issue premise removed by `B-126`) |
+  | 5 — non-empty State-1 branch and PR | Complete: draft PR #2 (`D-262`, `D-263`) |
+  | 6 — selection and construction | **Transferred** to `B-136` Parent 3, then `V1-SM05-FV-001` (Gate 2); `SV-002` §2.2 `P14b` |
+
+  `Status` moves to `Answered` with `Resolution: Deferred` and the `Follow-up-Tier` below; the entry returns under `B-097` when that condition is met. Not independently verified; Lane B's review of these receipts still applies.
+- **Resolution:** Deferred
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** `D-268` per-parent receipts above; previously: `D-252`, `D-253`; `docs/handoff/B-119`–`B-124`; `docs/v1/V1-BUILD-SPEC.md`; `docs/v1/work-packets/V1/V1-SM05.md`; Judge Clarification 5.1 relayed 2026-09-22
+- **Verified-At-Commit:** 947e4e79d55518ab348645aac15ce1a83b38495e
+- **Follow-up-Tier:** Gate 2 — returns when the Judge selects `V1-SM05` and issues the `D-242` State-2 work order (`B-136` Parent 3); completion evidence is `V1-SM05-FV-001`
 
 ## What happened
 
