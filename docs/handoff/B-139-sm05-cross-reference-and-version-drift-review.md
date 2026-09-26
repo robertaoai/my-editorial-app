@@ -13,8 +13,8 @@
 
   **Judge Option A applied 2026-09-26 (`D-269`, commit `4e513fd`), in Lane B's stated order (`8600043`).** (1) Register: `D-268` corrected for `B-120`/`B-125` only — item 1's "`Superseded` is not used" replaced, item 4's `Follow-up-Tier` and `B-097` return withdrawn; the `D-268` text stays as history; the cited authority is "`D-268` as corrected by `D-269`"; Build Spec and Inventory propagated; Modular_PRD, Fn Specs, traceability map, storyboard, Phase Closure and Encyclopedia unaffected. (2) Receiving side first: `B-136` Parent 3 receipt at `ee2e232`, naming owner, destination, future acceptance proof and gate condition for each child. It records the label drift you raised: the Judge's "Parent 3" corresponds to that entry's current Parents 4–5. `V1-SM05.md` holds the durable-owner receipt. (3) Source: `B-120` (`adce861`) and `B-125` (`38e3669`) are `Superseded`, with `Superseded-By` as above and `Follow-up-Tier` removed; dated lifecycle corrections keep the `Deferred` history; Terminal annotation records at `49951f6`/`0a78f1d` (`Annotation-Type: correction`). `SV-002` §2.1/§2.2 `P14a`/`P14b` are aligned. (4) Unchanged: the §3.3 matrix stays `unclassified`; no `SV2-DOR-*`/`SV2-DOD-*` row checked; Gate 1B and SM05 construction turns not selected; `V1-SM05` stays `BLOCKED`. None of the above is independently verified. `Status` stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** repository comparison at the commit below against `D-259`–`D-261`, `D-263`–`D-268`, `FN-GATES-01-05.md` §§4.1/4.4, `requirements-traceability-map.md` §6.1, `Modular_PRD.md` §§0/0.1/9.1, `ENCYCLOPEDIA-SYNC.md` Entry 03, `V1-SM05.md`, `B-120`, `B-125`, `B-136`, `B-138`, `SV-002.md` §§2.1–2.2/3.3, and the handoff return SOP; Lane C's 2026-09-26 external review is supporting analysis
-- **Verified-At-Commit:** 7830f1d392cf99a896d8f58b0fb609804b3a6ef0
+- **Evidence:** repository comparison at the commit below against `D-259`–`D-261`, `D-263`–`D-269`, `FN-GATES-01-05.md` §§4.1/4.4, `requirements-traceability-map.md` §6.1, `Modular_PRD.md` §§0/0.1/9.1, `ENCYCLOPEDIA-SYNC.md` Entry 03, `V1-SM05.md`, `B-120`, `B-125`, `B-136`, `B-138`, `SV-002.md` §§2.1–2.2/3.3/6–7, and the handoff return SOP; Lane C's 2026-09-26 external review is supporting analysis
+- **Verified-At-Commit:** f276e3305e55546279f538356f917fb57d42cf38
 
 ## What happened
 
@@ -176,3 +176,23 @@ The attached Lane C review correctly observes that the consistency suite and Gra
 | **Approve-with-conditions** | `B-120`/`B-125` terminal `Superseded` resolution | Phase 1 / Gate 1B — apply after the governed correction and two-sided receipts; remove the `B-097` trigger |
 | **Defer** | Independent verification, `SV2-U04` classification, Gate 1B DoD and SM05 construction | Gate 1B → Gate 2 — follow their separate evidence and Judge gates |
 | **Reject** | Treating absorption as completion of future selection, feature work or `V1-SM05-FV-001` | Gate 2 — preserve the downstream obligation |
+
+### Lane B review at `f276e33` — D-269 applied; Gate 1B work remains
+
+**What happened.** Lane A recorded `D-269` in the Register and propagated it to the Build Spec and Inventory (`4e513fd`), put a receiving receipt for both children in `B-136` and a durable receipt in `V1-SM05.md`, changed `B-120`/`B-125` from terminal `Deferred` to terminal `Superseded`, added the required terminal annotations, and aligned `SV-002` `P14a`/`P14b`. The current `Superseded-By` wording is `D-268` **as corrected by** `D-269`. I compared the live headers, receipts, packet status and decision text at `f276e33`: this bounded Option A application follows the Judge's ruling, and `V1-SM05` remains `BLOCKED`. Lane C reports that the full consistency suite and terminal-history check pass. This is **independent review of that bounded correction**, not whole-entry `B-139` verification or Gate 1B acceptance.
+
+**What Lane A needs, parent before child:**
+
+1. **Close the local source contradiction in `B-136`.** Its dated Parent-3 receiving receipt correctly says `B-120`/`B-125` are now terminal and owned downstream, but its later unqualified sentence still says they “continue to track State-1 progress in their existing entries.” Add a dated current-state note beside that sentence, citing `D-269` and the packet receipt. Keep the former sentence as history if needed; make the operative reading unambiguous before B-136 closure.
+2. **Complete the Gate 1B preparation evidence, then obtain its run authority.** The §3.3 matrix has 25 *seeded* `unclassified` rows. Fix the evaluation method and access evidence for `SV2-DOR-*` on each row's stated condition; do not pre-mark `SV2-DOR-02`/`03`/`05` or reserve `SV2-DOR-06` until execution merely by plan. `SV2-DOR-06` is a readiness boundary condition and can be evaluated during preparation. `SV2-U01` bootstrap has already run; review its existing evidence for `SV2-DOD-01`. After the Judge accepts the complete DoR and selects Lane A's bounded attempt turn, execute `SV2-U02`/`U03`/`U04`, including the 25-row classification and Lane B feasibility review. Each DoD row remains unchecked until its own proof is accepted.
+3. **Do not infer B-series closure from the two supersessions.** `B-120`/`B-125` will not return at SM05 selection, but `B-136`, this entry and other B-series entries remain Open. Re-derive the live handoff audit and disposition each item by its own proof before claiming the Judge's “all B-series” boundary is met. Whole-entry `B-139` verification waits for its remaining children; a green consistency suite is not that evidence.
+
+**What Lane B did instead.** Reviewed the D-269 correction and identified the remaining B-136 text drift and Gate 1B sequencing risk in this existing handoff. No canonical Lane A source, checklist row, lane state or remote branch was changed by Lane B. The outgoing branch already contains multiple local commits, so this review grants no push authority for the accumulated range.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|
+| **Approve** | `D-269` correction, `B-120`/`B-125` terminal absorption and `V1-SM05` durable receipt | Phase 1 — bounded application independently reviewed at `f276e33`; feature obligation remains open |
+| **Approve-with-conditions** | `B-136` current-state prose | Phase 1 / Gate 1B — add a dated `D-269` note beside the stale State-1 sentence |
+| **Approve-with-conditions** | `SV-002` DoR preparation and §3.3 method | Gate 1B preparation — prove each DoR condition, then obtain Judge run authority before classifying outcomes |
+| **Defer** | Whole-entry `B-136`/`B-139` verification, all-B-series closure, Gate 1B DoD and Lane B activation | Gate 1B → Gate 2 — satisfy each entry and gate on its own evidence |
+| **Reject** | Treating two supersessions as closure of every B-series handoff, or treating seeded matrix keys as executed `SV2-U04` decisions | Gate 1B — preserve the live lifecycle and unit boundary |
