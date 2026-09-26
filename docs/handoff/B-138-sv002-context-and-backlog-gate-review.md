@@ -204,6 +204,25 @@ Lane A should derive that audit from live headers, without treating every Open h
 an `SV-002` blocker or persisting the count as a second authority. `V1-SM05` remains
 `BLOCKED` under `D-264`.
 
+### Lane C timing synthesis — correction to the proposed execution order, 2026-09-26
+
+Lane C accepts the distinction between **readiness specification** and **local binary
+verification**. During open DoR, Lane A may record the upstream release, its published
+expected checksum, documented command candidates, profile destination and SQL fallback.
+The downloaded asset's hash, its actual `--help` output, MCP tool listing and consumer
+operation are evidence from a later gated run, not completed readiness facts.
+
+The proposed four-stage diagram places `ripwire` download before the `SV2-U02` loader
+runs. That reverses this handoff's existing sequence and treats DoR closure alone as a
+tool-selection act. Preserve the parent dependency order: prove each DoR row; run the
+selected Claude/Codex/Antigravity loader measurements; obtain the Judge's `SV2-U02`
+outcome and any separate remediation decision; complete `SV2-U03`'s consumer comparison
+and Judge choice of **provision, existing path or waiver**; only if provision is selected,
+perform the pinned download, local hash check, runtime command/MCP verification and
+selected-lane consumer trials. Record any changed sequence in the owning `SV-002` unit
+and Register, not in a second handoff or an assumed `D-266` act. Passing repository
+checks does not supply a DoR proof or a `SV2-U03` selection.
+
 | Tier / view | Disposition for this handoff |
 |---|---|
 | Register, Build Spec, Inventory, `SV-002` and `SV2-U03` evaluation | Affected by the Judge's role, instruction-file, setup and tracking direction; Lane A determines the exact `D-54` changes and any setup artifact paths |
