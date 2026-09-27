@@ -21459,3 +21459,62 @@ rollout (`D-300` item 3), and *"I'll give them to Lane C"*, answering how the R2
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e128 `D-303` — `SV2-U02-C-R2`: Lane C Receipt `C-005` Reviewed by Lane A at Level 1 (Re-Score Byte-Identical; Wording Corrected); `C-003` and `C-004` Closed on Lane C's Verification
+
+**Authority:** execution under `D-300` item 2 and `D-301` (Lane A reviews the R2 receipt at Level 1) and `D-300`
+item 3 (the §2.3 return condition). Lane C's commit is `b4f4a42`: receipt `C-005`, and `C-003`/`C-004` set to
+`Verified`. **This records Lane A's reading; the combined report and its acceptance are later acts.**
+
+### The decision
+
+1. **`C-005` is answered at Level 1.** Lane A's re-score is byte-identical to the operator's outputs (`D-302`), and
+   every measurement in the receipt holds. **Lane A's classification of `SV2-U02-C-R2`:**
+   - **Probe 1:**
+     - `AGENTS.md` is delivered as a workspace rule through line 329 (23,962 bytes), and lines 330–451 are cut
+       (7,958 bytes). This fits a 24,000-byte whole-line budget and does not fit a 24,000-character one.
+     - `graphify.md` and `CLAUDE.md` are not delivered.
+     - HTML comments are delivered.
+     - Controls 3 and 4 held.
+   - **Probe 2:** a partial on-demand load, lines 1–800 of 1,353. The agent did not page; R1 paged, so loading a
+     skill over 800 lines varies between runs.
+2. **Four wording corrections to the receipt's classification:**
+   - "per-file truncation" becomes "truncation";
+   - "discovery failure" becomes "not delivered";
+   - "complete loading through line 329" becomes "delivered through line 329, cut after it";
+   - Part A2 is a quote, corroborated by the bracket, not a loader diagnostic (`D-294`).
+
+   **Two open questions** can be answered only by re-measuring after remediation: a per-file vs a shared rule budget,
+   and discovery failure vs budget exhaustion for `graphify.md`. The remediation decision should choose a design that
+   holds under both readings.
+3. **Operator facts:** the Antigravity build, the R1 carry-over check and the conversation ID are **not recorded**. The
+   copied transcript holds no conversation ID, and "run in a fresh session" is not the carry-over check. **The
+   classification does not depend on them:**
+   - memory can produce only false *visible* quotes, and every absence the classification rests on is memory-proof;
+   - the bracket lines were never shown to Antigravity before R2.
+4. **`C-003` and `C-004` rows in `SV-002` §2.3 are closed.** Lane C, as raiser, verified Lane A's recording in each
+   entry's own header (`b4f4a42`). One finding: `C-003`'s comparison section says the `SV2-U02-C-R1` row records the
+   evidence hashes and run window, and it records neither. The conclusion stands, because the row matches the
+   receipt's substance. **Lane C is asked to correct the description with a terminal annotation record (`B-113`).**
+   `C-005` joins §2.3.
+5. **Not given by this act:**
+   - Lane B's Level 2 review of Route C, which is next;
+   - `B-143`'s verification by Lane B (`D-302`);
+   - Route A's reviews, which the Judge still holds;
+   - the combined report and the remediation decision;
+   - any rule-file or skill edit (`D-266` item 2);
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e128 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run row `SV2-U02-C-R2`; §2.3 rows `C-003` and `C-004` closed, `C-005` added |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, sequence, DoD, file or lane change |
+| **Agent files** | — unaffected: measured, not edited |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
