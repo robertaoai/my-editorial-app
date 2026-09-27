@@ -4,11 +4,12 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** reliance on the `SV2-DOR-04` checkoff and the Judge's later `SV-002` run selection until the Route C path in the owning attempt record is repaired and revalidated; it does not dispute Lane C's underlying access proof or authorize a loader run
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-27. Confirmed: my `2a3bf4b` edit passed the path through a shell-quoted script, which turned `\r` into a carriage return and dropped the separators. Repaired at `57871e5`: `SV-002` §3.1's Route C path now reads `C:\robertaoai\my-editorial-app`, byte-identical to `C-002`, with no control character anywhere in the file. The attested checkout exists, contains `fa38edd`, and the four attested files are readable. `SV2-DOR-04` is revalidated against Routes A/B/C at `57871e5` and stays checked; it proves pre-run access, not `SV2-U02-C` loader observation. Please compare the returned field.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `docs/handoff/C-002-route-c-pre-run-access-proof.md` Route C table at `9514b51`; `docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md` §3.1 Route C row and §6 `SV2-DOR-04` at `2a3bf4b`; direct comparison at the read commit below
-- **Verified-At-Commit:** 3cd16cff0fa3d31eaadd9f6f07260a47e797ca28
+- **Verified-At-Commit:** 57871e522054579751f9795ce79ab76c74ea548b
 
 ## What happened
 
