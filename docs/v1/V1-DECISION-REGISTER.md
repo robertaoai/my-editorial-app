@@ -20793,3 +20793,51 @@ keep Jev"*. The act answers Lane B's E4 verification, `docs/handoff/B-142` (at `
 | **`docs/Modular_PRD.md`**, SPECS, storyboard | — unaffected |
 | **Encyclopedia** | **Entry 06 re-verified, no update required**; not republished. Other entries unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e114 `D-289` — `SV2-DOD-05` Checked by the Judge (the `SV2-U04` Contract Dependency Is Resolved for Gate 1B), After Lane B's Four Label Corrections
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: Checking off SV2-DOD-05"*. The act was
+given together with Lane B's second-pass E4 review (`docs/handoff/B-142`, `b290c9c`, read at `1489c3c`), which
+conditioned a clean checkoff on four current-state label corrections.
+
+### The decision
+
+1. **Lane B's four corrections are applied first, in this act. They change labels only; no meaning changes.**
+   - (1) `SV-002` §1 `Status`: `D-280`'s "three blocking rows still open" is struck and dated, and the current state
+     is stated.
+   - (2) The §3.3 heading now cites `B-141`/`B-142` instead of "awaiting Lane B's review".
+   - (3) `V1-SM05.md`'s DoD introduction reads "four intake source cases": the three §4.6 fixtures plus the `D-288`
+     refusal. The DoD label "Intake source fixtures" is unchanged, and Jev readiness re-run passes 272/272.
+   - (4) §3.3 `D-219.R1`'s *Known pointer* marks `D-222`'s "no URL passes" fixture as historical and superseded by
+     `D-285`. `B-095.D2a`'s *Consumed via* labels the URL-only text as the historical defect, corrected by `D-280`.
+2. **`SV2-DOD-05` is checked.** Evidence:
+   - the §3.3 matrix: no `unclassified` cell, every row citing its clause and *Consumed via*, and every §2.2 row
+     `P4`–`P10` keyed;
+   - Lane B receipts in `B-141` and `B-142`;
+   - every blocking row decided, propagated, applied and independently verified for Gate 1B (`D-280`–`D-288`).
+
+   The §2.2 `P4`–`P10` receipts are filled. `P7` and `P10` are received for Gate 1B only: `P7`'s work-order-child
+   confirmation is re-screened at `D-242`, and Entry 03's hosted comparison keeps its own path.
+3. **Stated so it can be challenged: E5 was performed by Lane A alone.** `B-095.D4`'s currency against the new §3.1
+   rests on Lane A's hosted comparison of Entry 06 (`D-288` item 4), and Lane B did not repeat it (`B-142`, second
+   pass). The row's own return allows "a hosted comparison, or the Judge's acceptance naming Entry 06". **This checkoff
+   is recorded as the Judge's explicit acceptance of that E5 result naming Entry 06.** If the Judge requires a second
+   actor instead, that is a later act, and this row would return to unchecked.
+4. **What the checkoff is not.** It is not Gate 2 proof. `B-096.TR-DM-01`'s physical store and migration, `B-137.R1`'s
+   first work-order child, and the four real-database intake cases stay at §2.2 `P13`/`P14`. It checks no other
+   `SV2-DOD-*` row, does not accept `SV-002`, and does not lift the `V1-SM05` block. A green structural suite and
+   Jev readiness are not DoD proof (`B-142`).
+5. **Unchanged:** there is no lane-state change, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e114 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-289` paragraph: `SV2-DOD-05` checked |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §1 status; §2.2 `P4`–`P10` receipts; §3.3 heading and two cells; §7 `SV2-DOD-05` checked |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ DoD introduction reworded (label unchanged) |
+| **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no file or lane change |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS, storyboard | — unaffected |
+| **Encyclopedia** | — unaffected: Entry 06's E5 result is accepted (item 3); no republish |
+| **Graphify** | Rebuild after this commit |

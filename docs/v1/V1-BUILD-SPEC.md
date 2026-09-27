@@ -130,6 +130,10 @@ attempt (not a lane transition). The Lane B/C read-only measurement authorizatio
 take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
 PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
 
+**`D-289` (2026-09-27) — `SV2-DOD-05` checked by the Judge.** The `SV2-U04` contract dependency is resolved for Gate
+1B, after Lane B's four label corrections (`B-142` second pass) were applied. The remaining `SV-002` DoD rows (`01`–`04`
+and `06`) and the Gate 2 obligations are unchanged. `V1-SM05` stays `BLOCKED`.
+
 **`D-288` (2026-09-27) — the "Intake source fixtures" DoD item gains a fourth case.** A Markdown representation with
 no original URL is refused. Each case needs its own distinct artifact, because Jev's label-level check alone cannot
 prove the refusals, and the Judge kept the Jev manifest unchanged. Every `SV2-U04` blocking row now meets its Gate 1B
