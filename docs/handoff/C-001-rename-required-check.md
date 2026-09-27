@@ -119,3 +119,11 @@ Lane C selection, and a real positive/negative run.
   `C-24`, `C-25`, and the Phase 3 execution conditions are unchanged
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 47666c46b06a082a12ef18101ecb53d82a58af7a
+
+## Terminal annotation record
+
+- **Current-Resolution:** Deferred
+- **Annotation-Type:** metadata-normalization
+- **Annotation-Act:** `D-272` (Judge, 2026-09-27) — `Receiver: Lane A` added; `C-` entries now name their receiver; `V1-DECISION-REGISTER.md` §5.14e97
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 079f27b6d65f40abe917153e593e6ffe3ec9bd05
