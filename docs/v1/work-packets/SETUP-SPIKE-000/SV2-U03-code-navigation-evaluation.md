@@ -30,6 +30,11 @@ The codebase is small, and **most of the logic `V1-SM05` touches is SQL**.
 
 ## 3. Lane A recommendation (for the Judge's outcome)
 
+> **Dated note, 2026-09-27 — this recommendation is historical.** It predates `D-266` item 7, which directs
+> `ripwire` as the candidate and authorizes one **isolated trial after `SV-002`'s DoR closes**. The trial
+> parameters are in `SV-002` §3.2 and the pass criteria in §3.4 (`D-270`, `D-271`). The Judge's provision /
+> existing-path / waive outcome follows the trial record; this section does not pre-empt it.
+
 **Use the existing path with evidence, and do not provision `ripwire` for `V1-SM05`.** Reasons:
 
 - It cannot parse the SQL where the slice's logic lives.
