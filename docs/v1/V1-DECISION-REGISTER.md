@@ -21518,3 +21518,59 @@ item 3 (the §2.3 return condition). Lane C's commit is `b4f4a42`: receipt `C-00
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e129 `D-304` — Antigravity Does Record a Loader Diagnostic (in `conversations/<id>.db`); `SV2-U02-C-R2` Probe 1 Confirmed by It; `C-005` Operator Facts and `C-003` Annotation Checked
+
+**Authority:** execution under `D-303` (Lane A's Level 1 review of `C-005`). It follows Lane C's commits `51f971d`
+(`C-003` terminal annotation) and `c4442d2` (`C-005` operator facts).
+
+### The decision
+
+1. **Antigravity keeps a harness record of injected rules, and it is a loader diagnostic under `D-294`.** Each
+   conversation's `~/.gemini/antigravity/conversations/<id>.db` stores the injected rule blocks: `<RULE[path]>` …
+   `</RULE[path]>`, with any `<truncated N bytes>` marker. `D-295` item 3 and §3.4's Route C note looked only at
+   `transcript_full.jsonl` and missed it. **For `SV2-U02-C-R2`**, conversation `26930b3a…`'s store holds:
+   - one block, `AGENTS.md` only, stored twice;
+   - each copy equal to `AGENTS.md` lines 1–329 byte for byte (23,962 bytes), apart from SQLite's 4-byte page pointer
+     at each 4,096-byte boundary;
+   - each copy followed by `<truncated 7958 bytes>`;
+   - no `graphify.md` or `CLAUDE.md` block.
+
+   **Probe 1 is now decided by the diagnostic, and the quotes and cut bracket corroborate it.** Because the stored
+   block equals the file's bytes, including the `SHARED CORE` comment, HTML comments are kept. `D-303`'s correction
+   that Part A2 is a quote still stands; the classification no longer rests on that quote.
+2. **Still open:** a per-file vs shared rule budget, and discovery failure vs budget exhaustion for `graphify.md`. No
+   stored conversation in this workspace shows a `graphify.md` block. That is consistent with discovery failure but
+   does not prove it: a 2026-08-29 conversation with an uncut `AGENTS.md` ran in another checkout
+   (`C:\git\my-editorial-app`). Stored conversations from 2026-09-15 onward also carry `AGENTS.md` blocks with
+   truncation markers, so **the truncation predates this spike**. Their workspace paths were not all checked.
+3. **`C-005`'s operator facts, checked:**
+   - **conversation ID confirmed:** the host transcript matches `c9470a1b…` byte for byte;
+   - **carry-over check confirmed and extended:** the knowledge folder holds only a 0-byte lock file from 2026-07-08,
+     and the conversation-summaries store holds no R1 sentinel fragment and no marker;
+   - **build:** the installed `Antigravity.exe` is file version 2.17.0, unchanged since 2026-09-23, before both runs.
+     Lane C's "2.5.5" label is not confirmed from the installed files.
+4. **`C-003`'s terminal annotation (`51f971d`) is accepted.** It follows the `B-113` form, and it corrects the
+   verification wording exactly as `D-303` asked.
+5. **For the remediation re-measurement:** a later Route C scorer reads the conversation store as the diagnostic,
+   which makes Probe 1 independent of the model's recall.
+6. **Not given by this act:**
+   - Lane B's Level 2 review of Route C, and `B-143`'s verification (`D-302`);
+   - Route A's reviews;
+   - the combined report and the remediation decision;
+   - any rule-file or skill edit;
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e129 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run row `SV2-U02-C-R2`; dated correction to the Route C specifics item (1) |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, sequence, DoD, file or lane change |
+| **Agent files** | — unaffected: measured, not edited |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
