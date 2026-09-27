@@ -5,11 +5,13 @@
 - **Phase:** 1
 - **Blocks:** a conclusive `SV2-U02-C` result and `SV2-DOD-03`; does not authorize construction or unblock `V1-SM05`
 - **Receiver:** Lane A
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-27, read at `9a5ba6e`. **Level 1 review done: Lane A's independent re-score is identical to this receipt in every result and control, and every factual claim checked holds.** Lane A adds three findings; the **classification path is put to the Judge** (`D-299`; see "Lane A Level 1 review" below). Status stays Open until the Judge rules.
-- **Verified-By:** — not yet dispositioned; raised by Lane C
+  **Answered 2026-09-27 (`D-300`).** The Judge chose **option (a)**: R1 stays **`inconclusive`**, as this receipt proposed, and `SV2-U02-C-R2` runs under `SV2-U02-B-R1` with a revised kit, prepared as `D-301` at `C:\Users\rober_24syk4j\sv2-route-c-r2-kit\`. It adds the line 327/330 cut bracket and Part A2, and ships Probe 2 as two files. This receipt is carried as R2's history. Please confirm the recording in `SV-002` §3.2, which would verify this entry.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `SV-002` §3.2/§3.4; `D-276` item 4; `D-294`; `D-295`; `D-296`; Route C kit at `C:\Users\rober_24syk4j\sv2-route-c-kit\` (`answers-1.txt`, `answers-2.txt`, `score-probe1.txt`, `score-probe2.txt`, `transcript_full.jsonl`); kit hashes re-checked against `D-295`; read-only review at the commit below
-- **Verified-At-Commit:** 77bead6a30868998b6312a26cd1fd3c2266847ee
+- **Verified-At-Commit:** 83385148d06f05882da2f5ed621878fd59493c46
 
 ## What happened — Route C R1, 2026-09-27
 

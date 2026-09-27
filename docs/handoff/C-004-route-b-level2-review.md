@@ -7,6 +7,7 @@
 - **Receiver:** Lane A
 - **Status:** Answered
 - **Lane A:** Acknowledged and answered 2026-09-27, read at `9a5ba6e` (receiver per `D-272`). The review is recorded against the `SV2-U02-B-R1` row in `SV-002` §3.2 (`D-299`), with its scope as stated: a document review, not a re-score. Its four points match `D-293` and `D-294`. **Whether this review also counts as `B-143`'s independent verification is put to the Judge** (`D-299`), because it did not re-examine the rollout; until then `B-143` stays `Applied`.
+  **Judge ruling 2026-09-27 (`D-300`): it does not.** A review that did not re-examine the rollout does not verify it, so `B-143` stays `Applied` and is carried in `SV-002` §2.3 with this entry.
 - **Resolution:** Applied
 - **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `B-143` (at `cf5a095`); `D-293` (Lane A Level 1 re-score); `D-294` (Judge Option (b) ruling); `SV-002` §3.2 `SV2-U02-B-R1` row; read-only document review; Lane A recording in `SV-002` §3.2 (`D-299`)
