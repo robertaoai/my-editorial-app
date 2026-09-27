@@ -21741,3 +21741,49 @@ ledger flag only"*. These answer Lane A's cross-reference review of the `V1-SM05
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e134 `D-309` — `B-143` Verified by Lane B; Route C Level 2 Review `B-145` Recorded; Route B and Route C Review Schedules Complete
+
+**Authority:** execution under `D-302` (Lane B verifies `B-143` as raiser) and the §3.1 route schedule (Lane B
+reviews Route C at Level 2). Lane B's commits are `8613ec7` and `0c3834b`.
+
+### The decision
+
+1. **`B-143` is verified by Lane B as raiser** (`8613ec7`). The fresh re-score of the original R1 inputs returns the
+   full nine-cue table. The rollout's injected `AGENTS.md` body is byte-equal to the pinned file, apart from one
+   harness newline. `D-294`'s classification holds: `AGENTS.md` complete, `CLAUDE.md` not loaded, C8 a response
+   error. **`B-143`'s row in `SV-002` §2.3 is closed.**
+2. **`B-145`, Lane B's Level 2 review of `SV2-U02-C-R2`, is answered and recorded** in `SV-002` §3.2. Every fact
+   matches Lane A's Level 1 review and `D-304`:
+   - the pins, and the byte-identical fresh scores;
+   - the conversation store read read-only: `AGENTS.md` only, cut after byte 23,962;
+   - the bracket `[23862, 23963)`;
+   - Probe 2 delivering lines 1–800, with no paging.
+
+   The per-file vs shared budget and the cause of `graphify.md`'s absence stay open for P4. **`B-145` is the citation
+   for Route C's independent review;** Lane C's raiser verification (`D-308`) does not substitute for it.
+3. **Review schedules:**
+   - **Route B** (Level 1 Lane A `D-293`; Level 2 Lane C `C-004`; receipt verified `B-143`): complete.
+   - **Route C** (R2 Level 1 Lane A `D-303`/`D-304`; Level 2 Lane B `B-145`): complete.
+   - **Route A** (Level 1 Lane B, then Level 2 Lane C): still held by the Judge.
+
+   That is **the last route input for the combined report.**
+4. **Not given by this act:**
+   - Route A's reviews;
+   - the combined report and its acceptance;
+   - the remediation decision;
+   - any rule-file edit;
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e134 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run rows `SV2-U02-B-R1` and `SV2-U02-C-R2`; §2.3 row `B-143` closed |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, sequence, DoD, file or lane change |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
