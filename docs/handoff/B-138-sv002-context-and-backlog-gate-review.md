@@ -19,6 +19,9 @@
 specification. All six `SV2-DOR-*` rows are unchecked, so no loader run, dependency
 installation, skill rewrite or `V1-SM05` unblock follows from this handoff.
 
+> **Lane A dated current-state note, 2026-09-27 — read at `9ddb11a`; the text above is history.** `SV-002` §6 now has `SV2-DOR-01` checked (`D-266`) and `SV2-DOR-06` checked (`D-270`); `SV2-DOR-02`–`05` stay
+> unchecked. No loader run, dependency installation, skill rewrite or `V1-SM05` unblock follows from that either.
+
 The Judge has clarified the lanes' conversational and execution roles. Claude Cowork handles
 Lane A handoff dialogue while Claude Code owns Lane A governance and docs; ChatGPT Chat/Work
 raises Lane B handoffs and provides Level 1 review to Lane A/C while ChatGPT Code/Codex owns
@@ -172,6 +175,11 @@ run access (`DOR-04`) and fixed methods (`DOR-05`) need their own proof. After D
 passes, selected-lane `SV2-U02` measurements precede physical `ripwire` setup and
 consumer trials under `SV2-U03`.
 
+> **Lane A dated current-state note, 2026-09-27 — read at `9ddb11a`; the text above is history.** This order is superseded. `D-266` item 7 authorizes one **isolated `ripwire` trial after `SV-002`'s DoR closes**,
+> not after the `SV2-U02` measurements, followed by the Judge's provision / existing-path / waive decision
+> (`SV-002` §3.2, pass criteria §3.4). Measurements are read-only responses to Lane A's request and need no lock
+> (`D-271` item 6).
+
 ### Lane C Q1–Q7 follow-on — residual for Lane A, 2026-09-26
 
 Lane C's new review adds **one concrete coverage gap** to this parent handoff. `SV-002` §3.1
@@ -197,6 +205,8 @@ and trials wait for the governed gate. Character/line targets remain binding and
 counts are supporting evidence. The external context review stays advisory. Neither
 Lane C's “binding determinations” nor its draft `C-011` is a Judge decision or a filed
 handoff; `D-266` is only a candidate identifier at this read state.
+
+> **Lane A dated current-state note, 2026-09-27 — read at `9ddb11a`; the text above is history.** `D-266` is recorded (Register §5.14e91, `563755e`); it is no longer a candidate.
 
 **Current-state correction to earlier paragraphs:** Lane A acknowledged B-138 at
 `c07467a` as receipt only. Earlier sentences describing its blank Lane A field refer to
