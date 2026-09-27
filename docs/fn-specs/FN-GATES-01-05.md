@@ -377,8 +377,8 @@ anchored to `AC-23` through `SM05-N1`. `AC-01` keeps one meaning per tier as wri
 
 ### 4.5 Working editorial-metadata versions — bounded `S15` contract `[V1]` (`D-281`; `docs/handoff/B-096`)
 
-**Added 2026-09-27. Status: drafted and applied; awaiting the Judge's acceptance of this text, then Lane B's
-verification.** This section describes observable behaviour only. As in §4.3, it names no table, key, column or JSON
+**Added 2026-09-27. Status: text accepted by the Judge (`D-282`), awaiting Lane B's verification.**
+*(Read "drafted and applied; awaiting the Judge's acceptance" until 2026-09-27; `D-282`.)* This section describes observable behaviour only. As in §4.3, it names no table, key, column or JSON
 layout: the physical design belongs to Lane B (`D-56`), and the data requirement is a separate `Modular_PRD` act
 (`SV-002` §3.3 `B-096.TR-DM-01`).
 

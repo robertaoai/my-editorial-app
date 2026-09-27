@@ -20516,3 +20516,34 @@ came from Lane A's clarification questions, asked after Lane B's `B-141` review:
 | **`docs/Modular_PRD.md`**, SPECS, storyboard, `V1-SM05.md` | — unaffected by this act. The `TR-DM` row is the next, separate act |
 | **Encyclopedia** | — unaffected: no entry depends on `FN-GATES` §4 (the ledger cites §3.1, §3.4, §6 and §7) |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e107 `D-282` — `FN-GATES` §4.5 (Bounded `S15` Contract) Text Accepted by the Judge
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: accept §4.5 text"*. The text was
+accepted as applied by `D-281` at `c2ac10c`, **without revision**. That includes the two choices Lane A flagged:
+rule 2 (versions numbered consecutively and ordered by number, never by timestamp) and rule 1 (no package without an
+accepted intake).
+
+### The decision
+
+1. **`docs/fn-specs/FN-GATES-01-05.md` §4.5 is accepted.** Its status line now reads "accepted", with a dated
+   revision note. `SV-002` §3.3 row `B-096.S15` is **decided**; Lane B's independent verification is the only step
+   still open.
+2. **Now unblocked for drafting, each as its own act:**
+   - `B-096.TR-DM-01`'s Gate 1B data requirement: a `Modular_PRD` `TR-DM` row for the append-only
+     editorial-metadata version store, parented to §4.5;
+   - then `D-219.R1`: how a `.md` source is referenced and retained.
+3. **Unchanged:** acceptance is not verification (`D-183`); `SV2-DOD-05` is unchecked; `V1-SM05` stays `BLOCKED`;
+   there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e107 |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ §4.5 status line: accepted (`D-282`) |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.3 rows `B-096.S15` and `B-096.TR-DM-01` |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, file or lane change |
+| **`docs/Modular_PRD.md`**, SPECS, storyboard, `V1-SM05.md` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
