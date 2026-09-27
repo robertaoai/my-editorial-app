@@ -116,7 +116,7 @@ terminal resolution; `B-120`/`B-125` stay `Open`.
 by a dated per-parent receipt and `Resolution: Deferred` with a `Follow-up-Tier`; it is **completed** later, when that
 condition is met, through the `B-097` return protocol. `B-120` and `B-125` are handled this way; both return at Gate 2,
 when the Judge selects `V1-SM05` and issues the `D-242` work order. `SV-002` §2.2 carries one keyed row per child, and
-the new §3.3 seeds the `SV2-U04` child matrix (`B071-R*`, `B-095.*`, `B-096.*`, `B-104.O*`, `B-118.P*`) with every
+the new §3.3 seeds the `SV2-U04` child matrix (`B071-R*`, `B-095.*`, `B-096.*`, `B-104.O*`, `B-118.P*` — read **`B-118.RH*`** since 2026-09-27, the later review's Parents 1–4) with every
 blocking cell `unclassified` until the mapping runs. `SV-002` §2.1 is re-derived. `V1-SM05` stays `BLOCKED`.
 
 **`D-269` (2026-09-26) — Judge Option A, canonical absorption.** For `B-120` and `B-125`, the `D-268` return path above

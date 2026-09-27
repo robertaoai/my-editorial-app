@@ -19724,7 +19724,9 @@ answer commit, a graph sync and a push, *per current governance*.
    - **New `SV-002` §3.3 — the `SV2-U04` child matrix.** Each child of `B-071`, `B-095`, `B-096`, `B-104` and
      `B-118` gets a stable key reusing the entry's own label: `B071-R202`–`R208` (its latest open round);
      `B-095.D1`, `.D2a`, `.D2b`, `.D3`, `.D4`, `.S5`; `B-096.GA1`, `.S15`, `.S16`, `.TR-DM-01`; `B-104.O1`–`.O4` (its
-     four ordered corrections); `B-118.P1`–`.P4`. `§2.2` rows `P4`–`P6`, `P8` and `P9` point to §3.3 instead of
+     four ordered corrections); `B-118.P1`–`.P4`. **Corrected 2026-09-27 (Lane B Level 1, `B-138` at `c0eb1d2`):**
+     `B-118` has two unrelated `P1`–`P4` sets; the keys mean the later review's `Parent 1`–`Parent 4` and now read
+     **`B-118.RH1`–`.RH4`**. The earlier review table's `P1`–`P4` are the decided V1 scope, `Carried` in `SV-002` §4. `§2.2` rows `P4`–`P6`, `P8` and `P9` point to §3.3 instead of
      restating the children.
    - **The matrix is seeded, not decided.** Every "blocking?" cell reads `unclassified` until `SV2-U04` runs; the
      controlling clause and anchor are filled only from the mapping itself. Earlier `B-071` rounds are covered by
