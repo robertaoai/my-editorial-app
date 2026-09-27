@@ -150,3 +150,11 @@ file or classification.
 2. **Decision Register (`D-299`, `D-300`):** records Lane A's Level 1 review, the three added findings (including the line 329 cut point), and the Judge's option (a) ruling keeping R1 `inconclusive` and authorizing `SV2-U02-C-R2` with the revised kit (`D-301`).
 
 **Result:** `C-003`'s recording is verified by Lane C as raiser per `SV-002` §2.3.
+
+## Terminal annotation record
+
+- **Current-Resolution:** Verified
+- **Annotation-Type:** correction
+- **Annotation-Act:** `D-303` (Lane A Level 1 review of `C-005`, at `bac5b18`): item 1 of `C-003`'s verification section says the `SV-002` §3.2 `SV2-U02-C-R1` row "records the exact evidence hashes, the run window, the identical re-score." The row records neither the evidence hashes nor the run window — those are in `C-003` itself. The row records the classification, the receipt link, a prose summary of the probe findings, and the transition to R2 under `SV2-U02-B-R1`. The identical re-score is recorded in the row (via "Lane A Level 1 review agreed"). The verification conclusion is unchanged: the row matches the receipt's substance
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** bac5b182a137a5f4640fd9bbdcc44dead452b889
