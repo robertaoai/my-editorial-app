@@ -21082,3 +21082,51 @@ Level 1 review follows the §3.1 route schedule. **No classification is decided 
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e120 `D-295` — Route C Verifier Kit Prepared for `SV2-U02-C-R1` (Antigravity; Filed Under B-R1; Outside the Repository)
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: prepare the Route C kit"*. The act is under
+`D-275`, `D-276` items 4–5, `D-290`–`D-294`, using the §3.4 method as amended by `D-294`.
+
+### The decision
+
+1. **The kit is prepared at `C:\Users\rober_24syk4j\sv2-route-c-kit\`.** It holds two cue-only probes, the verifier
+   key, the instructions, and `score.mjs` for Antigravity's `transcript_full.jsonl`. The scorer carries the `D-291`
+   fixes and was self-tested on five cases: a clean run, a quoted negative control (INVALID), a tool call
+   (INCONCLUSIVE), the permitted skill read, and a deviation. `SV-002` §3.2 records the file hashes and sentinel pins,
+   never the sentinel text. **The run is filed under `SV2-U02-B-R1` (§3.1).**
+2. **The external skill was measured before any trim (§3.1):** `~/.gemini/config/skills/graphify/SKILL.md` is 70,300
+   characters, 70,373 bytes and 1,353 lines, SHA-256 `7696b1c4…`. No `~/.gemini/GEMINI.md` exists.
+3. **Route C has no loader diagnostic for Probe 1.** Antigravity's log records no injected rule text, so **the quotes
+   govern** (`D-294`). The log does record `tool_calls`, so control 3 applies. **For Probe 2**, the skill is loaded by
+   a `view_file` read. Step 1 permits exactly that read, and its output is Probe 2's diagnostic.
+4. **Sentinels are classed by membership:**
+   - `graphify.md`: its unique tail, lines 250–296 (expected);
+   - `core3`: shared by all three files (no attribution);
+   - `pre2`: in `AGENTS.md` and `CLAUDE.md` only (a visible quote means a tested file loaded);
+   - the `AGENTS.md` and `CLAUDE.md` tails;
+   - the `docs/PRD.md` negative control;
+   - a separately labelled **HTML-comment test**, the only way to learn Antigravity's comment handling without a
+     diagnostic.
+
+   **Correction made during preparation:** the first generation put `core3#start` inside the `SHARED CORE` comment,
+   because only lines *starting* with `<!--` were excluded. Comment lines are now excluded from the loading
+   sentinels, and comment handling is tested separately. Every cue→sentinel gap was checked blank (the `D-293`
+   lesson).
+5. **Receipt and review:** Lane C's own committed `C-` entry, with `Receiver: Lane A`, written in a separate
+   conversation. Lane A reviews at Level 1, then Lane B at Level 2.
+6. **Not given by this act:** running the probe, trimming the skill (which comes after measurement and its own
+   decision) and any rule-file edit. `SV2-DOD-03` is unchecked, `V1-SM05` stays `BLOCKED`, and there is no
+   lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e120 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run row `SV2-U02-C-R1`; the Route C kit record, pins and specifics |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: the kit is outside the repository by design; no scope or lane change |
+| **Agent files** | — unaffected: read only (`D-266` item 2) |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
