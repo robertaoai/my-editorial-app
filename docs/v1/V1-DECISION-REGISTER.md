@@ -20087,7 +20087,7 @@ to allow Lane C to update the docs/handoff to supply the proof."*
 | Tier | Disposition |
 |---|---|
 | **Register** | ✅ this entry, §5.14e98 |
-| **`V1-PHASE-CLOSURE.md`** | ✅ §5 lane table: Lane B `Blocked`, Lane C `Eligible`; Lane B history note |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | ✅ §5 lane table: Lane B `Blocked`, Lane C `Eligible`; Lane B history note |
 | **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no scope, sequence, DoD or file change; live lane state lives only in §5 |
 | **Agent files**, `LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md` | — unaffected: they define the vocabulary, not the live state |
 | **Encyclopedia** | — unaffected |
