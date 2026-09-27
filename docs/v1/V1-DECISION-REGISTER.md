@@ -20328,3 +20328,56 @@ item 6 for `U4-G7`. The Judge had already chosen to screen this layer inside `SV
 | **Handoff entries** | — unaffected: no header changed |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e104 `D-279` — `SV2-U04` Classification Recorded (`E1`): Seven Blocking Rows, Two Still Open; No Escalation
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: apply E1"*. This runs `SV2-U04` under
+`D-276` (order) and `D-277` (schema). The classification was read against sources at `ed82ae3`.
+
+### The decision
+
+1. **Every `SV-002` §3.3 row is classified** under the §3.4 blocking rule. Each row cites its *Consumed via* target
+   and its controlling clause. **This is a Lane A mapping, not a decision on any row.** Lane B reviews it next, in its
+   own `B-` entry (`D-272`).
+2. **Blocking rows:**
+
+   | Row | Consumed via | State |
+   |---|---|---|
+   | `B071-R204` | `SM05-N2`/`N4`, `SM05-F1`/`X1` | Decided (`D-233`, `D-237`), applied, verified (`B-123`) |
+   | `B071-R205` | `SM05-N1`, `SM05-N6` | Decided (`D-236`, `D-238`), applied; verification closes with §2.3 row `B-131` |
+   | `B-095.D4` | `V1-SM05` DoD "Accepted-contract traceability" | Decided, applied (`D-256`, `D-259`); verification closes with §2.3 row `B-131` |
+   | `B-104.O1` | `SM05-N6` | Decided (`D-181`, `D-239`), applied; verification closes with §2.3 row `B-131` |
+   | `B-137.R1` | Data writes (delivered `0002`) | Decided, applied (`D-265`), verified by Lane B; the work-order-child confirmation is re-screened at `D-242` |
+   | **`B-095.D2a`** | `AC-02`; the `SM05-N1` intake write | **Still open.** Decided (`D-121`, `D-133`), but `FN-GATES-01-05.md` §2 `FR-01` still says "from a URL" and §3.1 still requires `source_url` |
+   | **`B-096.S15`** | The `SM05-N1` intake write (working editorial metadata) | **Still open.** The parent, `B-096` Choice A, was accepted by the Chief Editor on 2026-09-14 but was **never recorded in this Register**; the `S15` logical contract is not drafted |
+
+3. **Non-blocking rows** keep their source entry as owner, with that entry's own return condition. `B-096.TR-DM-01` is
+   `non-blocking — re-screen at the D-242 work order`, because its physical data requirement follows `S15` and belongs
+   to Lane B (`D-56`).
+4. **No row is `escalated`, and that is itself a finding.** No classification needed a new business decision.
+   `B-096.S15` needs an **existing** Chief Editor decision to be recorded, not a new one. The critic pass should test
+   whether that reading is right.
+5. **Consequence for `SV2-DOD-05`.** It cannot be checked until all of these are true:
+   - `B-095.D2a` is applied to `FN-GATES` §2/§3.1 (a marked change to `[V1]` sections) and independently verified;
+   - Choice A is recorded, and `S15` is drafted, accepted, applied and verified, at minimum for the intake write the
+     slice consumes;
+   - the three rows resting on `B-131` are closed through §2.3;
+   - Lane B's review receipt exists.
+
+   Each open step needs its own Judge act (`D-183`). None is authorized here.
+6. **Unchanged:** `SV2-DOD-05` is unchecked; no source outside `SV-002` is edited; `V1-SM05` stays `BLOCKED`; there is
+   no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e104 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §1 status; §3.3 heading and dated note; every row's classification cells |
+| **`V1-BUILD-SPEC.md`** | — unaffected: no scope, sequence or DoD change |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file added or retired |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS, storyboard, `V1-SM05.md` | — unaffected by this act. `FN-GATES` §2/§3.1 (`D2a`) and a new `S15` contract are **specified, not applied**; each needs its own act |
+| **Handoff entries** | — unaffected: no header changed |
+| **Encyclopedia** | `ENC-03` classified `non-blocking`; its flag keeps its own path. All other entries unaffected |
+| **Graphify** | Rebuild after this commit |
