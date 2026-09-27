@@ -21612,3 +21612,55 @@ item 3 (the §2.3 return condition). Lane C's commit is `b4f4a42`: receipt `C-00
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e131 `D-306` — `V1-SM05` Cross-Reference Review: Reused `C-003` Citation Corrected; Encyclopedia Entry 03 Flagged (Ledger Only)
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Gap 1: C-003 citation, Gap 2: flag Entry 03"* and *"No,
+ledger flag only"*. These answer Lane A's cross-reference review of the `V1-SM05` slice. The review compared
+`Modular_PRD`, storyboard Panel A11 (sequence, data flow, fact sources), the Encyclopedia and the `B-139`/`B-141`/
+`B-142` reviews against the `V1-SM05` packet.
+
+### The decision
+
+1. **The review found the core documents consistent.**
+   - `US-15`/`FR-15`/`AC-23`–`AC-26` match the packet, and `FR-15` states the `D-260` boundary.
+   - Panel A11 matches `FR-15` and `FN-GATES` §4.4 `SM05-N1`…`X1`, with one source per visible fact and every
+     exclusion shown absent.
+   - Encyclopedia v15 Entries 01, 05 and 06 match the slice boundary.
+2. **Reused citation corrected.** Lane C's 2026-09-24 acceptance of Panel A11 was supplied by the Judge and recorded in
+   `D-259` item 2 as "C-003". **It was never a handoff entry.** On 2026-09-27 the number went to an unrelated entry,
+   `docs/handoff/C-003` (the Route C R1 loader receipt). Corrections:
+   - storyboard A11.5, both walk rows, plus a dated note;
+   - the `V1-SM05` `DOR-R5` row.
+
+   **Read `D-259` item 2's "C-003" as this Judge-supplied review.** `B-131`'s evidence line carries the same token;
+   `B-131` is Lane B's file and is left untouched. `DOR-R5`'s acceptance is unchanged. **Rule from here:** a review
+   supplied by the Judge, not filed, gets no `B-`/`C-` number, and is cited by the decision that records it.
+3. **Encyclopedia Entry 03 is flagged in `ENCYCLOPEDIA-SYNC.md`, the ledger only.** `V1-SM05` records a manual
+   `business:T3` newsworthiness score and a `business:T5` newsworthiness ranking (`D-239`, `D-261`). Entry 03 still
+   calls newsworthiness disputed and deferred, and its row now lists both decisions. `D-261`'s "Encyclopedia
+   unaffected" missed this entry. **The Judge ruled that Entry 03 does not join `V1-SM05`'s `DOR-R6` review set.** The
+   hosted artifact is not read or changed by this act.
+4. **Not applied:** answering `B-141` and `B-142` (the review's gap 3, not selected). Both stay `Open`, acknowledged
+   only, although `D-289` checked `SV2-DOD-05` on their evidence. **Proposed, not built:** a check that flags a
+   handoff ID cited in a governed document before that entry's file existed.
+5. **Not given by this act:**
+   - any `DOR`/`DoD` change;
+   - any change to Panel A11's diagrams or the hosted Encyclopedia;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e131 |
+| **`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`** | ✅ Panel A11.5: both rows and a dated correction note |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ `DOR-R5` row: corrected citation |
+| **`docs/ENCYCLOPEDIA-SYNC.md`** | ✅ Entry 03 row: `D-239`/`D-261` triggers and flag |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, sequence, DoD, file or lane change |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected: found consistent |
+| **Agent files** | — unaffected |
+| **Encyclopedia** | Entry 03 affected: flagged in the ledger, not republished (Judge: ledger only) |
+| **Graphify** | Rebuild after this commit |

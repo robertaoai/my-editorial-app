@@ -452,10 +452,14 @@ them would be new scope:
 
 | Walk | Chief Editor result | Lane B/C review | Date |
 |---|---|---|---|
-| Normal (A11.1, A11.3, A11.4) | `Accept` — `W1` Accept, `W3` Accept | Lane B `Accept` (`docs/handoff/B-131` Parent 1); Lane C `Accept` (C-003, user-supplied) | 2026-09-24 |
-| Revision (A11.2) | `Accept` — `W2` Accept; the downstream-evidence rule is written into A11.2 | Lane B `Accept` (`docs/handoff/B-131` Parent 1); Lane C `Accept` (C-003, user-supplied) | 2026-09-24 |
+| Normal (A11.1, A11.3, A11.4) | `Accept` — `W1` Accept, `W3` Accept | Lane B `Accept` (`docs/handoff/B-131` Parent 1); Lane C `Accept` (supplied by the Judge; see the note below) | 2026-09-24 |
+| Revision (A11.2) | `Accept` — `W2` Accept; the downstream-evidence rule is written into A11.2 | Lane B `Accept` (`docs/handoff/B-131` Parent 1); Lane C `Accept` (supplied by the Judge; see the note below) | 2026-09-24 |
 
 Recorded by `D-259`, 2026-09-24. `DOR-R5` is checked on this row pair.
+
+*Corrected 2026-09-28 (`D-306`):* both rows cited Lane C's review as "C-003". **It was never a handoff entry.** The
+Judge supplied it on 2026-09-24, and `D-259` records it. The number `C-003` was later given to an unrelated entry,
+`docs/handoff/C-003` (the Route C R1 loader receipt, 2026-09-27). The acceptance itself is unchanged.
 
 ---
 
