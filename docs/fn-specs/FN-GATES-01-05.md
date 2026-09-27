@@ -131,6 +131,8 @@ selection is `B117-R45`, still open.
 
 **Required on entry:** a **source reference** — `source_url`, or a supplied `.md` representation when the content cannot be reached by URL; **exactly one subject topic**; a trend-signal description. **Analytical tags remain optional and many.**
 
+*(Pointer, 2026-09-27, `D-288`: for a `.md` representation, §4.6 governs, and it is accepted (`D-286`). The Markdown is always paired with the original article's URL; "cannot be reached by URL" means the original site blocks automated retrieval; a `.md` with no original URL is refused (`D-285`). The short wording above is read through §4.6 and authorizes nothing beyond it.)*
+
 > **`G39` — two concepts, one word.** In an editorial business the **topic is the subject**: what the article *is about*. Exactly one, held as `articles.topic_id`. **Analytical tags are separate and many** — `trend_signals` with `signal_type = 'topic_tag'` — and serve trending and different-angle analysis, not subject identity. The original wording *"≥1 topic tag"* read as cardinality on one concept when there are two. **The schema is correct as applied; only the wording was imprecise** (`D-38`). Author and publication date are auto-extracted where possible and flagged for Investigator review when extraction fails.
 
 **Behaviour:**
@@ -404,7 +406,7 @@ reassessment) is **not** defined here, and `V1-SM05` offers no such edit. That r
 | 7 | **Not the report.** A frozen explainable-report snapshot (`0002`'s `editorial_reports`) is never used as the working package, and never edited in its place | — | A report snapshot read or written as working metadata |
 
 **Open, and not decided here:**
-- how a supplied `.md` representation is referenced and retained (`SV-002` §3.3 `D-219.R1`);
+- ~~how a supplied `.md` representation is referenced and retained (`SV-002` §3.3 `D-219.R1`);~~ *settled by §4.6, which is accepted (`D-286`). Dated 2026-09-27, `D-288`; no change of meaning*
 - what triggers a later version (the remainder above);
 - the physical store and its migration (Lane B, at the `D-242` work order).
 

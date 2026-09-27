@@ -20741,3 +20741,55 @@ This lands `D-280` item 6's fixtures now that §4.6 is accepted (`D-286`).
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS, storyboard | — unaffected: §4.6 already owns the behaviour |
 | **Encyclopedia** | — unaffected beyond Entry 06's existing `D-280` flag |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e113 `D-288` — `B-142` (E4) Received: Pointer Fixes, a Fourth Intake Fixture, `B-131` Disposition Accepted, E5 Passes, Jev Manifest Kept
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: apply fixes 1–2, accept B-131, run E5,
+keep Jev"*. The act answers Lane B's E4 verification, `docs/handoff/B-142` (at `7acac90`).
+
+### The decision
+
+1. **Fix 1: two pointers, no change of meaning.**
+   - `docs/fn-specs/FN-GATES-01-05.md` §3.1 gains a dated note under *Required on entry*: for a `.md` representation,
+     §4.6 governs (the pair model, `D-285`), and the short wording authorizes nothing beyond it.
+   - §4.5's "Open" bullet on `.md` reference and retention is struck, with a dated note that §4.6 settled it
+     (`D-286`).
+2. **Fix 2: a fourth fixture.** `docs/v1/work-packets/V1/V1-SM05.md` "Intake source fixtures" adds case (4): a Markdown
+   representation with **no original URL** is refused at admission (§4.6 rule 2). The item now requires a
+   **distinct artifact for each case**, so one generic passing item does not satisfy it. Jev readiness re-run:
+   **pass, 272/272**.
+3. **`B-131`'s disposition is accepted by the Judge.** This closes its `SV-002` §2.3 return, which accepts either
+   verification or explicit acceptance. The acceptance rests on Lane B's independent evidence in `B-142` item 5: Panel
+   A11.2/A11.5, the recorded `W1`–`W3` and Option-2 answers, and the v15 export hash `bc97beba…`. `B-131`'s header
+   still reads `Applied`, and no `Verified-By` is forged. The one acceptance serves §3.3 rows `B071-R205`,
+   `B-095.D4` and `B-104.O1`.
+4. **E5 passed: Lane A compared the hosted Encyclopedia Entry 06.** Lane A read the live Artifact (v15, updated
+   2026-09-24), Entry 06 in full plus a search of the whole page, and compared it with the current `FN-GATES` §3.1 and
+   §4.6. **No update is required.** The entry makes no URL-only claim; its "source identification" fits the pair
+   model, and its one URL term is `evidence_url`, which is trend-signal evidence (`D-222`). The Artifact is **not**
+   republished. `ENCYCLOPEDIA-SYNC.md` row 06 records the re-verification, and `D-280`'s flag is closed.
+5. **Jev is kept as it is (Judge's choice).** The manifest's `negativeRequired` and `failingFirstRequired` lists stay
+   unchanged, so the pinned readiness scope and the `DOR-R7` receipt stand. **Stated limit:** a green Jev completion
+   receipt alone does not prove the refusal or failing-first cases. Fix 2's distinct-artifact wording and Lane A's
+   independent Gate 2 check (`D-259`) carry that proof.
+6. **`B-142`'s receipts are recorded** on §3.3 rows `B-095.D2a`, `B-096.S15`, `B-096.TR-DM-01` (Gate 1B part),
+   `D-219.R1`, `B071-R205`, `B-104.O1` and `B-095.D4`. **Result: every blocking row meets its Gate 1B condition.**
+   Its Gate 2 obligations remain at §2.2 `P13`/`P14`. **`SV2-DOD-05` is reviewable, not checked**; the checkoff is a
+   separate Judge act.
+7. **Unchanged:** no Jev manifest, schema, migration or Artifact is changed; `V1-SM05` stays `BLOCKED`; there is no
+   lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e113 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-288` paragraph: fourth fixture; `SV2-DOD-05` reviewable |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ §3.1 pointer; §4.5 stale bullet dated |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ "Intake source fixtures" case (4) and the distinct-artifact rule |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3 `B-131` row closed; §3.3 rows and `B-142` receipts; dated note |
+| **`docs/ENCYCLOPEDIA-SYNC.md`** | ✅ Entry 06 re-verified (E5); `D-280` flag closed |
+| **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no file or lane change |
+| **`docs/Modular_PRD.md`**, SPECS, storyboard | — unaffected |
+| **Encyclopedia** | **Entry 06 re-verified, no update required**; not republished. Other entries unaffected |
+| **Graphify** | Rebuild after this commit |
