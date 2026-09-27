@@ -20092,3 +20092,30 @@ to allow Lane C to update the docs/handoff to supply the proof."*
 | **Agent files**, `LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md` | — unaffected: they define the vocabulary, not the live state |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e99 `D-274` — Eligible Nomination Returns From Lane C to Lane B (Level 1 Review)
+
+**Authority: the Chief Editor/Judge, directly to Lane A, 2026-09-27** — *"change from Lane C eligible to Lane B
+eligible to allow Lane B review and update handoff."*
+
+### The decision
+
+1. **Lane B is `Eligible`; Lane C is `Blocked` on the Lane A run.** Lane A stays `Active` (`D-156`). `D-273`'s purpose is
+   complete: Lane C delivered the Route C access proof in `C-002` (`9514b51`), recorded in `SV-002` §3.1, and
+   `SV2-DOR-04` is checked (`2a3bf4b`).
+2. **Purpose:** Lane B carries out its Level 1 review of Lane A's readiness corrections (`SV-002` at `1b8c5e5` and
+   `2a3bf4b`, returned in `B-138`) and updates its handoff entries. That review is what `SV2-DOR-03`/`05` wait on, and
+   `SV2-DOR-02` follows it.
+3. **Not granted:** no lock transfer and no construction — `Eligible` is the selection step only. Lane C keeps its
+   own-series commit right (`D-272`). `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e99 |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | ✅ §5 lane table: Lane B `Eligible`, Lane C `Blocked` |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no scope, sequence, DoD or file change; live lane state lives only in §5 |
+| **Agent files**, `LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md` | — unaffected: vocabulary, not live state |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
