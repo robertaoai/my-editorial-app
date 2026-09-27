@@ -21244,3 +21244,62 @@ defect was found by the full `bun run fixtures` run that verified `D-297`. Lane 
 | **Agent files**, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e124 `D-299` — `SV2-U02-C-R1`: Lane C Receipt `C-003` (`inconclusive`) Re-Scored by Lane A at Level 1; Classification Path Put to the Judge; Route B Level 2 Review `C-004` Recorded
+
+**Authority:** execution under `D-295` item 5 (Lane A reviews the Route C receipt at Level 1) and `D-296` (Lane C files
+its receipt and Level 2 reviews). Lane C's entries are `docs/handoff/C-003` and `C-004` (`9a5ba6e`). **No
+classification is decided by this entry.**
+
+### The decision
+
+1. **Lane A's independent re-score of `C-003` is identical in every result and control.** The pinned `score.mjs` was
+   re-run outside the repository; the outputs differ from Lane C's only in character encoding (the originals were
+   saved as UTF-16). Every factual claim in `C-003` holds:
+   - the kit and evidence hashes;
+   - the checkout at run time (`9986b4d`; the probe started before `D-296` was committed);
+   - no tool call in Probe 1, and exactly two `SKILL.md` reads in Probe 2, both reporting the pinned 70,373 bytes and
+     together covering the whole file;
+   - no rule wrapper and no truncation marker anywhere in the transcript.
+2. **Lane A adds three findings** (recorded in `C-003`'s Level 1 review):
+   - The 7,958-byte lead is consistent to the line: byte 23,962 is the newline ending `AGENTS.md` line 329, so the
+     reported cut removes whole lines from line 330 on. **It remains a lead, not evidence.**
+   - Quotes can never separate `AGENTS.md` from `CLAUDE.md` here: their lines 1–381 are byte-identical, and both unique
+     tails lie beyond the cut. **A quote test can measure the cut point** with sentinels on lines 329 and 330.
+   - The Probe 2 deviation traces partly to the kit: one file held both steps.
+3. **Put to the Judge (`D-58`):**
+   - **(a)** R1 stays `inconclusive`, and `SV2-U02-C-R2` runs under `SV2-U02-B-R1` with a revised kit: the line-329/330
+     bracket, a cue to quote each rule wrapper and any truncation marker verbatim, and Probe 2 as two files sent as two
+     messages; or
+   - **(b)** R1 is classified now: Probe 2 from its diagnostic (the permitted reads ruled not a control-3 breach), and
+     Probe 1 by accepting the agent's Part A claim as evidence, which leaves the truncation size unmeasured.
+
+   Lane A recommends **(a)**: the remediation decision must know whether Antigravity loses the `AGENTS.md` tail, and
+   only (a) measures it. The ruling becomes its own Register act. Under (a), the revised kit is a further act, as
+   `D-295` was.
+4. **`C-004`, Lane C's Level 2 review of Route B, is answered.** It is recorded against the `SV2-U02-B-R1` row with
+   its declared scope: a document review that agrees with `D-293` and `D-294` and does not re-score the rollout.
+   `B-143`'s stale "Level 2 review still pending" note is replaced with a pointer to `C-004`, and its `Verified-By` is
+   normalized to the exact dispositioned form (`D-205`).
+5. **A second question for the Judge:** does `C-004`'s document review count as `B-143`'s independent verification?
+   Lane A does not promote `B-143` itself, because the reviewer did not re-examine the rollout. `B-143` stays
+   `Applied` until the Judge rules.
+6. **Not given by this act:**
+   - Lane B's Level 2 review of Route C, which follows the ruling (§3.1);
+   - Route A's Level 1 and Level 2 reviews, which the Judge is holding (`D-297` item 6);
+   - any kit, key, scorer or rule-file edit (`D-266` item 2);
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e124 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run rows `SV2-U02-B-R1` (Level 2 review) and `SV2-U02-C-R1` (receipt and Level 1 review) |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, sequence, DoD, file or lane change; the re-score outputs are outside the repository (`D-276`) |
+| **Agent files** | — unaffected: measured, not edited |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
