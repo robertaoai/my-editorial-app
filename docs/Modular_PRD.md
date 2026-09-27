@@ -31,8 +31,8 @@
 | **PRD Owner** | Chief Editor (robertaoai) — Line 2, Risk & Compliance |
 | **Reviewers / Approvers** | Chief Editor is the sole human approver. **No Eng Lead, Design Lead, Data Lead, or Legal function exists on this project.** Not an omission — see §0.3 |
 | **Status** | `Draft` — planning only. ~~No application code, no migration applied, no env pulled, no push~~ **Current, 2026-09-26 (`D-268`):** application scaffolding exists; `supabase/migrations/0002_s1_editorial_schema.sql` is applied and tested on local PostgreSQL (`D-114`, `D-121`); hosted Supabase behaviour is unverified (`DEP-05`); `V1-SM05` construction is `BLOCKED` (`D-264`); the working branch is pushed. No claim is made here about environment files |
-| **Version** | 1.42 *(was stated as 1.8 until 2026-09-26, `D-267`)* — this document's own lineage; it does not continue `docs/PRD.md`'s version history, and it is **not** a build version — see §8.0 |
-| **Last Updated** | 2026-09-26 (`D-268`) |
+| **Version** | 1.43 *(was stated as 1.8 until 2026-09-26, `D-267`)* — this document's own lineage; it does not continue `docs/PRD.md`'s version history, and it is **not** a build version — see §8.0 |
+| **Last Updated** | 2026-09-27 (`D-271`) |
 | **Jira Project Key** | **Not provisioned.** **Current execution tracking is `docs/v1/V1-BUILD-SPEC.md` §4 for sprint scope and holds, `docs/LANE-B-WORK-ORDER.md` §2.2d for the executable unit, and `docs/v1/V1-PHASE-CLOSURE.md` §5 for lane state.** `docs/journal/2026-08-16-sprint-plan.md` §6 is **historical lineage**, not current tracking *(corrected 2026-09-08, `B-084`; it had been named as the execution tracker)* |
 | **Confluence / Wiki Link** | **Not provisioned.** This repo's `docs/` is the wiki |
 | **Design Figma Link** | **Not provisioned.** No design function on this project |
@@ -87,6 +87,7 @@
 | **1.40** *(was 1.39; relabelled 2026-09-26, `D-267`)* | **2026-09-25** | Claude, `D-265`, `docs/handoff/B-137` | **Correction, no scope change.** Current-state clauses corrected in place with strikethrough and a dated successor: the Migration row and `XF-05` (`0002_s1_editorial_schema.sql` is the delivered candidate, local replay only); `XF-03`/`XF-04` Done on evidence; the Investigator actor, `US-02`, `TR-DM-04` and `AC-03` (`reliability_tier` exists in schema, while T2 behaviour is not built). No FR/AC/NFR requirement text changed. |
 | **1.41** | **2026-09-26** | Claude, `D-267`, Judge answer G4 option (a) via `docs/handoff/B-139` | **Document-control correction, no scope change.** Two rows carried 1.38: `D-261` (`719e72b`) and `D-264` (`10ec465`), and `D-261`'s row sat after 1.39. Renumbered in commit order: `D-261` keeps 1.38 and moves above `D-264`; `D-264` is relabelled 1.39 and `D-265` (`0d4fc73`) 1.40. Decision dates and commit order are separate facts; each row keeps its own date. Register citations *"changelog 1.38"* in `D-264` and *"changelog 1.39"* in `D-265` read as 1.39 and 1.40 (`D-267` item 7). §0 header set to 1.41, 2026-09-26. No FR/AC/NFR text changed; §8 unaffected. |
 | **1.42** | **2026-09-26** | Claude, `D-268`, Judge answers via `docs/handoff/B-139` (Lane B finding R3) | **Document-control correction, no scope change.** §0 `Status` said *"No application code, no migration applied, no env pulled, no push"*; that clause is kept struck through and a dated current-state statement follows it: scaffolding exists, `0002` is applied and tested locally, hosted behaviour is unverified, `V1-SM05` is `BLOCKED`, the branch is pushed. Header set to 1.42. No FR/AC/NFR text changed; §8 unaffected. |
+| **1.43** | **2026-09-27** | Claude, `D-271`, Judge confirmation in chat of the clarifications Lane B recorded in `docs/handoff/B-139` | **Project-scope addition, no Product scope change.** §0.5 registers the `AIG-` prefix (global Project-scope AI governance; `AIG-NN.Rn`/`.Cn`). §0.6 records this document as the live overall Project/Product tracker, refining `D-203`; tracking is not owning. New §7.2a: a non-feature global Project-scope index, `AIG-01`–`AIG-06`, with no Sprint column. No `US`/`FR`/`AC`/`NFR` text changed; §0.6.1 and `docs/modules/` unchanged; §8 unaffected. |
 
 ### 0.2 Decision Log
 
@@ -161,6 +162,7 @@ Project Charter v1            ← source of truth; frozen; OD1–OD3 Open
 | `AT-xxx` | Acceptance tests | Addendum §8, Blueprint §14.8 | — |
 | `SC1`–`SC6` | Success criteria | Sprint plan §7 | — |
 | `Q0`–`Q6` | Decision requests | Sprint plan §8 | `Q-01`… below — **this PRD uses `Q0`–`Q6` directly rather than minting new ids** |
+| `AIG-01`… | **Global Project-scope AI-governance keys** — the AI tools that build the codebase (`D-271`). Requirements `AIG-NN.Rn`, governance checks `AIG-NN.Cn` | this document §7.2a (index); `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` (behaviour) | — *added 2026-09-27. Distinct from the editorial-business `PSK-*` keys; never a Product `US-*`/`FR-*`/`AC-*`* |
 
 **New in this PRD, chosen to avoid every prefix above:** `O-xx` objectives · `NG-xx` non-goals · `K-xx` KPIs · `G-0x` guardrails *(hyphenated, distinct from Addendum `G1`–`G10`)* · `US-xx` user stories · `FR-xx` functional requirements · `NFR-xx` non-functional requirements · `SEC-xx` security · `TR-DM-xx` data model · `AC-xx` acceptance criteria · `DEP-xx` dependencies · `AS-xx` assumptions · `RK-xx` risks · `XF-xx` cross-functional tasks.
 
@@ -185,6 +187,13 @@ own documents**; only the index row lives in this file.
 | **Portfolio** | Cross-project continuity, closure, business case | `docs/governance/alpha-portfolio-business-continuity-implementation-plan.md` *(Tier 1, `D-74`)* | Product behaviour |
 | **Project** | All scopes — commercial, operational, product | `docs/PRD.md` *(**frozen**)* + `docs/source/project-charter-v1.md` *(**frozen**)* | Edited by any agent |
 | **Product** | Behaviour of **one** product module | this document, per module below | Portfolio or project scope |
+
+> **Tracker role, corrected 2026-09-27 (`D-271`, Judge).** This document is the **live overall Project/Product
+> tracker**, refining `D-203`'s *"product-level tracker"*. **Tracking is not owning:** the Product row above still
+> never owns Project scope, and `docs/PRD.md` and the Charter stay frozen. What this adds is a **global Project-scope
+> index** at §7.2a for work that serves every module and has no customer story — first, the AI tools that build the
+> codebase (`AIG-*`). §0.6.1 keeps module status authority; `docs/modules/M-*` keep module tracking; `M-MVP`'s
+> requirements stay where they are (`D-203`'s positional checks).
 
 #### 0.6.1 Module register
 
@@ -824,6 +833,22 @@ rejected work (`D-134`) is its concrete v1 case.**
 | NG-11 | Scope control | No fundraising tied to editorial events | Team-added legal/compliance boundary | Customer Request indirectly | S0 |
 
 > Data contracts `TR-DM-01…06` remain in Product Scope because the Customer Request explicitly names the tracked objects and workflow semantics. Writing and applying migration `0002` is Project Scope execution work; it does not move those data requirements out of Product Scope.
+
+### 7.2a Global Project-scope index — non-feature (`D-271`) `[V1]`
+
+**Added 2026-09-27.** Work that serves **every module** and has **no customer story**. It is not a Product feature: no
+`US-*`, `FR-*` or `AC-*`, no module, and **no Sprint column**, because it takes no Product sprint slot. It is still
+real, scheduled work: its sequence and gates live in `docs/v1/V1-BUILD-SPEC.md` §1 and attempt `SV-002`
+(`SETUP-SPIKE-000`). Behaviour: `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`.
+
+| Key | Concern | Governing decisions | Evidence path |
+|---|---|---|---|
+| `AIG-01` | Lane ownership, the commit lock, and request/response between lanes | `D-75`, `D-156`, `D-227`, `D-271` | `lane-state`, `lane-boundary`; `SV-002` §3.1 |
+| `AIG-02` | The handoff channel and its lifecycle | `D-90`, `D-184`; `B-097`, `B-113` | `handoff-response`, `terminal-return` |
+| `AIG-03` | What each AI tool actually loads, and silence diagnosis before removal | `D-266` items 2–3, `D-270`, `D-271` | `SV2-U02` (`SV2-DOD-03`) |
+| `AIG-04` | Code navigation for construction | `D-266` item 7, `D-270` | `SV2-U03` (`SV2-DOD-04`) |
+| `AIG-05` | Review levels and independent verification | `D-266` item 1, `D-102`, `D-183` | `closure-readiness`; `Verified-By` |
+| `AIG-06` | Rule-file size targets and the measured refactor | `D-266` items 2–4 | After the `SV2-U02` report; `shared-core-hash` |
 
 ### 7.3 Functional-to-Quality/Technical Cross-Reference
 

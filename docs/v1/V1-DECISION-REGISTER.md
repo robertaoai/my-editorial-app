@@ -19899,3 +19899,90 @@ at `763446a`). The drafts answer Lane B's `B-139` review at `28be9e5`, item 2.
 
 Does not check `SV2-DOR-02`/`03`/`04`/`05` or any `SV2-DOD-*` row; select Lane A's `SV-002` run; start any run;
 classify any §3.3 row; edit a rule file, skill or template; change lane state; lift the `V1-SM05` block; or push.
+
+## 5.14e96 `D-271` — Global Project Scope for AI Governance (`AIG-*`); Overall Project/Product Tracker; Three Control Files; Requester/Responder; `D-270` Item 4 Amended
+
+**Authority: the Judge's answers of 2026-09-27 to Lane A, directly.** **Q1** yes — confirms, as authority for this act,
+the three clarifications Lane B recorded in `docs/handoff/B-139` (`e5d1429`, `fb445d3`; reviewed with Lane C at
+`20a459e`, `21170aa`): the triad measurement route, the governance control files as project scope, and AI build tooling
+as global Project scope with `Modular_PRD.md` as the overall Project/Product tracker; and the `D-270` item 4 amendment.
+**Q2** — the `AIG-` prefix. **Q3** — the existing `SPECS-*.md` convention; fix the README. **Q4** — *"this is conflation
+to who is the requester and who gets the work done due to the request; Lane A is coordinating the request and Lane B/C
+responds with the work; the lock is for the owner files in respective Lane A/B/C."* **Q5** — push the seven commits
+then ahead (done, remote at `21170aa`).
+
+### The decision
+
+1. **AI build tooling is global Project scope.** The AI tools that build this codebase have no customer story. They
+   are not a Product feature or module and carry no `US-*`, `FR-*`, `AC-*` or feature sprint entitlement. They support
+   development across every module.
+2. **`Modular_PRD.md` is the live overall Project/Product tracker**, refining `D-203`'s *"product-level tracker"*.
+   **Tracking is not owning:** its Product tier still never owns Project scope; `docs/PRD.md` and the Charter stay
+   frozen. §0.6.1 keeps module status authority, `docs/modules/M-*` keep module tracking, and `M-MVP`'s requirements
+   are not moved (`D-203`'s positional checks). A new §7.2a holds a **non-feature global Project-scope index** with no
+   Sprint column. Its work is still scheduled — by the Build Spec and `SV-002`. Reconsidering the frozen PRD at `V2` is
+   a future Judge decision, not a condition of this act.
+3. **Scoped application of `D-29`/`D-33`.** For this family the intent anchor is the `Modular_PRD.md` §7.2a index rows
+   `AIG-01`–`AIG-06`, each citing its governing decisions. `CLAUDE.md`'s guardrail 1 — *input is a `Modular_PRD` feature
+   group, never a prose description* — is met by that governed Project-scope group in the same tracker, so anchors
+   travel with the input. No Product ID is minted and no frozen source is edited.
+4. **The `AIG-` prefix**, registered in `Modular_PRD.md` §0.5: `AIG-NN` keys, `AIG-NN.Rn` requirements, `AIG-NN.Cn`
+   governance checks. It is distinct from the editorial-business `PSK-*` keys (`D-40`), which cover the editorial
+   process, not development tooling.
+5. **Three control files.** `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` (platform-independent behaviour);
+   `docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md` (the selected platforms, loader surfaces and measurement channels,
+   each claim marked **measured**, **planned** or **unknown**); `docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md`
+   (platform interaction only). The new directory `docs/specs/ux/` is created. Each file links to the SOP, template,
+   rule files and Register rather than copying them, marks its sections `[V1]` (`D-36`), and the Fn_Spec ends with a
+   `D-30` candidate filter. `docs/specs/README.md` is corrected from `SPEC-*.md` to the actual `SPECS-*.md` convention,
+   applying `B071-R63` (`V1-B071-CORRECTIVE-PLAN.md`).
+6. **Requester and responder are distinct (Judge, Q4).** Lane A coordinates a request; the owning lane responds with the
+   work. **The commit lock governs writes to each lane's owned files** (`D-75`, `D-156`). A read-only response — a
+   measurement, a review, a feasibility read — writes no owned file, so it needs no lock and changes no lane state,
+   whatever the responder's state. This replaces the reading of `D-270` item 4 as a *"measurement turn"* tied to lane
+   state. **`D-184` is unchanged:** it governs the durable commit of a handoff entry, so while Lane C is `Blocked` its
+   receipt is drafted by Lane C and enters as Judge-supplied evidence.
+7. **Silence diagnosis before removal** is adopted as a governance rule (`AIG-03.R2`): an unused rule is classified as
+   dead, discovery failure, wrong owner or wrong tier; only **dead** permits removal. Source: the external *Ecosystem
+   Context-Optimization Review* §3, which stays advisory and uncommitted (`D-266` item 6).
+8. **`SV-002` method and route repairs.**
+   - **`D-270` item 4 amended:** `SV2-DOR-04` is checked on **pre-run access proof** — for Routes A, B and C, the named
+     operator, tool and version, the read-only access path and a confirmed-available environment — **before** the Judge
+     selects the run. Turn starts and loader observations are execution evidence. This removes the cycle Lane B found
+     (the row waited for turns that waited for the run selection that waited for the row). The Lane B/C authorizations
+     and their effective-on-selection condition stand.
+   - **§3.4 made falsifiable:** fresh isolated sessions, verifier-held expected lines, file and search tools withheld
+     during the automatic-loading probe, positive and negative controls, recorded diagnostics, and an `inconclusive`
+     result when evidence cannot separate route from truncation. A quoted negative control invalidates the run.
+   - **§3.1 one route schedule** for A, B and C: requester, responder and tool, operator, access path, baseline, controls,
+     receipt, reviewer, stop/return. A stays independent; C stays under a named B run.
+   - **§3 `SV2-U02` stop condition** reworded to request/response.
+9. **Unchanged.** `D-266` items 2–3 (measure first; binding targets) stand, so no rule file or parity check is edited.
+   `SV2-DOR-02`/`03`/`04`/`05` and every `SV2-DOD-*` row stay unchecked, each awaiting its own proof and Lane B's review.
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e96 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-271` paragraph: global Project scope, the three control files, request/response, the `SV2-DOR-04` amendment |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ three new files and the `docs/specs/ux/` directory, with a disposition paragraph |
+| **`docs/Modular_PRD.md`** | ✅ §0.5 `AIG-` row; §0.6 tracker correction; new §7.2a; header and changelog 1.43. No `US`/`FR`/`AC`/`NFR` text changes. **§8 unaffected** — no sprint closes, no tier opens |
+| **`docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`** | ✅ created |
+| **`docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md`** | ✅ created |
+| **`docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md`** | ✅ created |
+| **`docs/specs/README.md`** | ✅ filename convention corrected |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3 stop condition; §3.1 note and route schedule; §3.4 controls; §6 `SV2-DOR-04` checkoff |
+| **`docs/handoff/B-139`** | ✅ answered in a follow-up handoff commit |
+| **`docs/modules/`**, `FN-GATES-01-05.md` and other Product Fn_Specs, traceability map, storyboard, `V1-SM05.md` | — unaffected: no Product requirement, behaviour, journey or packet-status change |
+| **`V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change (read-only responses change none) |
+| **Agent files**, `shared-core-hash.mjs`, `TEMPLATE.md`, handoff `README.md`, `docs/templates/dor-dod-validation/v1.md`, frozen sources, application code | — unaffected: measure first (`D-266` item 2); `D-184` unchanged |
+| **Encyclopedia** | — unaffected: Entry 02 depends on `Modular_PRD` §0.2/§0.4/§12, not §0.5/§0.6/§7.2a; no entry covers development tooling |
+| **Graphify** | Rebuild, then merge a curated fragment giving each new file its own node (`graph-coverage`) |
+
+### What this act does NOT do
+
+Does not check any `SV2-DOR-*`/`SV2-DOD-*` row; start any measurement or trial; edit a rule file, skill, the parity
+check, the template or the handoff SOP; create a root `GEMINI.md`; change lane state; add a Product feature, module or
+ID; edit a frozen source; lift the `V1-SM05` block; or push.

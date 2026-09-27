@@ -132,6 +132,16 @@ until Lane B's Level 1 review. `SV2-DOR-04`: the Judge authorizes one read-only 
 Lane C, effective when Lane A's `SV-002` run is selected — no lock transfer, no lane-state change; Lane C's receipt
 enters as Judge-supplied evidence. `SV2-DOR-02` and every `SV2-DOD-*` row stay open. `V1-SM05` stays `BLOCKED`.
 
+**`D-271` (2026-09-27) — global Project scope for AI governance.** The AI tools that build the codebase are **global
+Project scope** (`AIG-01`–`AIG-06`, `Modular_PRD.md` §7.2a): no Product feature, module or sprint slot, but real work
+sequenced here and in `SV-002`. Control files: `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` →
+`docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md` → `docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md`. **Requester and
+responder are distinct:** Lane A coordinates each request, the owning lane does the work, and the lock governs only
+writes to owned files, so read-only measurements need no lock. **`SV2-DOR-04` checkoff amended:** pre-run access proof
+for Routes A, B and C before run selection. §3.4 gains blind positive/negative controls and an `inconclusive` outcome.
+**DoD for this pass:** the three files exist, are tied to `AIG-*` and reviewed by Lane B; no rule file is edited before
+the `SV2-U02` report (`D-266` item 2).
+
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and DoD are **defined in their work packets (`D-245`, 2026-09-20)** and are not complete:
 each DoR box is checked only against current evidence, and Lane B's feasibility review and the Judge's
 acceptance of the business outcome are pending. The reusable one-MMF pull-request template

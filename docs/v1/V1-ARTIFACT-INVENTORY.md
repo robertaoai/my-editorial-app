@@ -67,6 +67,9 @@
 | `docs/fn-specs/FN-AUDIT-VISIBILITY-07-08.md` | `G33a`, `FR-07`/`FR-08` | ✅ |
 | `docs/fn-specs/FN-EXCEPTIONS-06-11-12.md` | `G33a`, `FR-06`/`FR-11`/`FR-12` | ✅ |
 | `docs/specs/SPECS-TRANSITION-ENFORCEMENT.md` | `D-52`/`D-53` — **S1 precondition** | ✅ |
+| `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md` | `D-271` — global Project scope `AIG-01`–`AIG-06`; platform-independent behaviour | ✅ **Created 2026-09-27** |
+| `docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md` | `D-271` — selected platforms, loader surfaces, measurement channels | ✅ **Created 2026-09-27** |
+| `docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md` | `D-271` — platform interaction; **first file in `docs/specs/ux/`**, which it creates. The separate `/editorial` route UX row above stays ❌ | ✅ **Created 2026-09-27** |
 | `docs/specs/SPECS-BOARD-QUERY.md` | `D-52`, S3 | ❌ |
 | `docs/specs/SPECS-PUBLICATION.md` | `D-52`, S4 *(five components)* | ✅ **Created 2026-08-28 (`D-143`).** Two of the five: publish path (Edge Function) and retry scheduler (`pg_cron`). **Three remain unwritten**: credential isolation (`NFR-07`/`SEC-02`), the `TC1` privileged-write-path amendment, and `TR-DM-03`'s schema shape — the last already substantially answered by `0002_s1_editorial_schema.sql`, not restated here |
 | `docs/specs/SPECS-EXCEPTIONS.md` | `D-52`, S5 | ❌ |
@@ -383,6 +386,10 @@ re-derives §2.1; `Modular_PRD.md` §0 gains a dated status note; `B-120`/`B-125
 
 **`D-270` (2026-09-27) — no repository file added or retired, stated explicitly.** `SV-002.md` gains a unit-bounds
 table and §3.4 in place; the natural-sentinel method adds no file and edits no rule file.
+
+**`D-271` (2026-09-27) — three files added, none retired.** `FN-MULTI-LANE-AI-GOVERNANCE.md`, `SPECS-MULTI-LANE-AI-GOVERNANCE.md`
+and `ux/UX-MULTI-LANE-AI-GOVERNANCE.md` (rows above), creating `docs/specs/ux/`. `Modular_PRD.md`, `docs/specs/README.md`
+and `SV-002.md` change in place. Each new file has its own curated graph node.
 
 ## Temporary / Draft Artifacts
 
