@@ -18,6 +18,11 @@
   separated state, versioned metadata, frozen report) is recorded as Chief Editor direction,
   2026-09-14, in conversation, with B, C and D rejected as B-096 states. No migration, application
   or publication act is authorized by this acknowledgement.
+  **Update, 2026-09-27 (`D-281`, `c2ac10c`).** "What you need" step 1 is done: Choice A is now in the Register, with
+  its 2026-09-14 locus and B, C and D rejected. Step 3 is **partly** done: a bounded `S15` contract, covering only the
+  first version `V1-SM05` writes, is applied at `FN-GATES-01-05.md` §4.5. It awaits the Judge's acceptance of the
+  text and independent verification. The later-version trigger, `S16`, `S17` and step 4's data requirement are
+  still open. The entry stays Open.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** e0e1c857d4750f2b3fb0ba7b6f4e17526fee37f6
 
