@@ -11,7 +11,7 @@
 - **Resolution:** Applied
 - **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Judge clarifications supplied directly, 2026-09-25; repository comparison at the commit below against `D-75`, `D-227`, `D-264`, `SV-002.md` §§2–7, `SV2-U03-code-navigation-evaluation.md`, `B-130`, `B-136`, `B-137`, the three instruction files, `shared-core-hash.mjs`, the Phase Closure lane table, the Open handoff headers and the cross-artifact sources below; Lane C's supplied Level 2 reviews are supporting analysis, not Lane A receipt
-- **Verified-At-Commit:** 563755ed8e7b3a6e8f39043e23f5d26e6860250b
+- **Verified-At-Commit:** 3cb72918851ebbe10af2646427df7e0178f62c86
 
 ## What happened
 
@@ -406,6 +406,25 @@ run the full local consistency suite and portability check before
 claiming the graph is current. A pre-commit check is useful but does not replace
 this post-commit proof. The runner's check count is reported by the runner, not
 fixed as an acceptance criterion in this handoff (`G75`).
+
+### Lane B Level 1 follow-up for Lane A — 2026-09-27, read at `3cb7291`
+
+**What happened.** `B-138` is `Answered` / `Applied` under `D-266`, with the independent-review hold above still open. The recent Lane B and Lane C discussion remained in chat; this dated note makes the remaining review request available in the existing handoff. It does not verify the entry, complete `SV-002` readiness, or create a second handoff.
+
+Three source relationships still need a current-state correction:
+
+1. Earlier operative prose in this entry says all six `SV2-DOR-*` rows are unchecked and calls `D-266` a candidate. In `SV-002` §6, `SV2-DOR-01` and `-06` are checked; `-02`–`-05` remain unchecked. Its earlier Ripwire order predates `D-266` item 7's isolated post-DoR trial and subsequent Judge choice.
+2. `SV-002` §3's `SV2-U04` unit summary omits `B-096` and `B-118`, while §2.1, §2.2 and §3.3 already screen their children. Keep `B-137` R1 and distinguish screening inputs from decided blockers.
+3. `SV2-U03-code-navigation-evaluation.md` still recommends the existing path at its point of use without a dated pointer to `D-266` item 7 and `SV-002` §3.2. That recommendation is historical until the trial and Judge outcome are recorded.
+
+**What Lane A needs, parent first.** These corrections may be prepared in one bounded governed pass; no separate prose-only turn is required.
+
+1. Add dated current-state notes beside the old B-138 instructions; align the `SV2-U04` summary with its matrix; and add the dated navigation-evaluation pointer. Preserve historical text as history.
+2. Compare the `B-096` and `B-118` children with `SV-001` before adding their §4 drift-ledger classification. Both entries predate `SV-001` (`B-096` raised 2026-09-14; `B-118` raised 2026-09-17), but dates alone do not prove that every current child was previously omitted. Use an allowed template class for each supported item, with a prior-attempt citation. Re-derive §2.1 from the live headers at the checkoff commit and review §2, §4 and §5 together; an Open-entry count alone is not `SV2-DOR-02` proof.
+3. For `SV2-DOR-03` and `-05`, obtain Lane B's Level 1 review of the corrected unit bounds and fixed methods. For `SV2-DOR-04`, record pre-run proof for each A/B/C route: named operator, actual tool and version, read-only path and confirmed-available environment. The §3.1 schedule currently says versions will be recorded; it is not itself that confirmation. Check each of `SV2-DOR-02`–`05` only when its own evidence and required review exist. A single final checkoff commit is possible if those facts are established in time; do not check a row merely because its draft was edited.
+4. Commit and validate the Lane A source pass, rebuild Graphify after the governed-source commit as the hold above requires, and return this entry to Lane B for independent comparison at an existing commit. Keep `B-138` `Applied` until that comparison earns `Verified`. The Judge's `SV-002` run selection, PR #2 documentation attestation and the later `V1-SM05` unblock remain separate acts.
+
+**What Lane B did instead.** Compared the live sources and supplied this review in B-138, its existing routing handoff. Lane B did not edit a Lane A-owned source, check a DoR/DoD row, run a setup unit, or change lane state. No `C-002` is needed for the same review scope.
 
 ## What you did instead
 
