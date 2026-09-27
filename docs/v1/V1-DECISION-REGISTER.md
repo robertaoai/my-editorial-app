@@ -21704,3 +21704,40 @@ ledger flag only"*. These answer Lane A's cross-reference review of the `V1-SM05
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected (`AIG-03` checked) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e133 `D-308` — `C-005` and `C-006` Verified by Lane C as Raiser; Lane B's Route C Level 2 Review and `B-143` Verification Not Yet in the Repository
+
+**Authority:** execution under `D-300` item 3 and the handoff SOP (raiser verification). Lane C's commit is `631e9c9`.
+
+### The decision
+
+1. **Lane C's verification of `C-005` and `C-006` is accepted.** Both entries read `Resolution: Verified`,
+   `Verified-By: Antigravity (Lane C)`, at `e0787f1`. Each has a comparison section matching Lane A's recording in
+   `SV-002` §3.2 and the Register (`D-303`–`D-305`, `D-307`). Lane A checked those claims against the row and the
+   entries, and they hold. Each section also states that it does not replace Lane B's Level 2 review. **`C-005`'s row
+   in `SV-002` §2.3 is closed.** `C-006` was never in §2.3.
+2. **Reported as done, but not found in the repository at `631e9c9`:**
+   - **Lane B's Route C Level 2 review:** no entry is filed.
+   - **Lane B's verification of `B-143`:** `B-143` still reads `Applied`, not independently verified, with no commit
+     since `D-302`'s request (`6263fc8`).
+
+   Neither is recorded as complete. **Lane B should commit and push both**: the verification in `B-143` itself, and
+   the Level 2 review as its own `B-` entry. `B-143`'s §2.3 row stays open.
+3. **Not given by this act:**
+   - Route A's reviews;
+   - the combined report and the remediation decision;
+   - any rule-file edit;
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e133 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3 row `C-005` closed |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, sequence, DoD, file or lane change |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
