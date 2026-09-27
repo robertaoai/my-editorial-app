@@ -8,10 +8,10 @@
 - **Status:** Answered
 - **Lane A:** Acknowledged and answered 2026-09-27, read at `9a5ba6e` (receiver per `D-272`). The review is recorded against the `SV2-U02-B-R1` row in `SV-002` §3.2 (`D-299`), with its scope as stated: a document review, not a re-score. Its four points match `D-293` and `D-294`. **Whether this review also counts as `B-143`'s independent verification is put to the Judge** (`D-299`), because it did not re-examine the rollout; until then `B-143` stays `Applied`.
   **Judge ruling 2026-09-27 (`D-300`): it does not.** A review that did not re-examine the rollout does not verify it, so `B-143` stays `Applied` and is carried in `SV-002` §2.3 with this entry.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Antigravity (Lane C)
 - **Evidence:** `B-143` (at `cf5a095`); `D-293` (Lane A Level 1 re-score); `D-294` (Judge Option (b) ruling); `SV-002` §3.2 `SV2-U02-B-R1` row; read-only document review; Lane A recording in `SV-002` §3.2 (`D-299`)
-- **Verified-At-Commit:** 9a5ba6eb9c1ab4fd1d6daa673eb8ad72ea65875d
+- **Verified-At-Commit:** 6263fc810f2feb99879ad35c71813a60fade4da0
 
 ## What happened
 
@@ -45,3 +45,12 @@ Reviewed the Route B receipt documentation read-only and filed this entry. No ru
 | Lane A Level 1 re-score (`D-293`) | **Approve** | Concur with the independent re-score findings (Gate 1B) |
 | Scope limitation of this review | **Approve** | Honest: document review, no re-score of the Codex rollout (Gate 1B) |
 | Checking `SV2-DOD-03` or lifting the `V1-SM05` block | **Reject** | Needs all route receipts and the combined report (Gate 1B → Gate 2) |
+
+### Lane C independent comparison of Lane A's recording — 2026-09-28
+
+**Read commit:** `6263fc810f2feb99879ad35c71813a60fade4da0`. Lane A answered and applied the review (`D-299`, `D-300`); Lane C independently compared the recorded fields in `SV-002` §3.2 and the Decision Register against the review as filed.
+
+1. **`SV-002` §3.2 `SV2-U02-B-R1` row:** records Lane C's Level 2 review with its declared document-only scope (no re-score of Codex rollout).
+2. **Decision Register (`D-299`, `D-300`, `D-302`):** accurately records that `C-004` does not verify `B-143`, which stays `Applied` in `SV-002` §2.3 and is assigned to Lane B as raiser to re-examine (`D-302`).
+
+**Result:** `C-004`'s recording is verified by Lane C as raiser per `SV-002` §2.3.

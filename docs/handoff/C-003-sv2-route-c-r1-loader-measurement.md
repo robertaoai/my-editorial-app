@@ -8,10 +8,10 @@
 - **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-27, read at `9a5ba6e`. **Level 1 review done: Lane A's independent re-score is identical to this receipt in every result and control, and every factual claim checked holds.** Lane A adds three findings; the **classification path is put to the Judge** (`D-299`; see "Lane A Level 1 review" below). Status stays Open until the Judge rules.
   **Answered 2026-09-27 (`D-300`).** The Judge chose **option (a)**: R1 stays **`inconclusive`**, as this receipt proposed, and `SV2-U02-C-R2` runs under `SV2-U02-B-R1` with a revised kit, prepared as `D-301` at `C:\Users\rober_24syk4j\sv2-route-c-r2-kit\`. It adds the line 327/330 cut bracket and Part A2, and ships Probe 2 as two files. This receipt is carried as R2's history. Please confirm the recording in `SV-002` §3.2, which would verify this entry.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Antigravity (Lane C)
 - **Evidence:** `SV-002` §3.2/§3.4; `D-276` item 4; `D-294`; `D-295`; `D-296`; Route C kit at `C:\Users\rober_24syk4j\sv2-route-c-kit\` (`answers-1.txt`, `answers-2.txt`, `score-probe1.txt`, `score-probe2.txt`, `transcript_full.jsonl`); kit hashes re-checked against `D-295`; read-only review at the commit below
-- **Verified-At-Commit:** 83385148d06f05882da2f5ed621878fd59493c46
+- **Verified-At-Commit:** 6263fc810f2feb99879ad35c71813a60fade4da0
 
 ## What happened — Route C R1, 2026-09-27
 
@@ -141,3 +141,12 @@ file or classification.
 | The 7,958-byte lead | **Defer** | Consistent to the line, but still not probe evidence; captured by R2 if chosen (Gate 1B) |
 | Option (a), R2 with a revised kit | **Approve-with-conditions** | Only by the Judge's ruling and a separate kit act (Gate 1B) |
 | Lane B's Level 2 review of Route C | **Defer** | After the Judge rules; §3.1 schedule (Gate 1B) |
+
+### Lane C independent comparison of Lane A's recording — 2026-09-28
+
+**Read commit:** `6263fc810f2feb99879ad35c71813a60fade4da0`. Lane A answered and applied the receipt (`D-299`, `D-300`); Lane C independently compared the recorded fields in `SV-002` §3.2 and the Decision Register against the receipt as filed.
+
+1. **`SV-002` §3.2 `SV2-U02-C-R1` row:** records the exact evidence hashes, the run window, the identical re-score, the `inconclusive` classification, and the transition to R2 under `SV2-U02-B-R1`.
+2. **Decision Register (`D-299`, `D-300`):** records Lane A's Level 1 review, the three added findings (including the line 329 cut point), and the Judge's option (a) ruling keeping R1 `inconclusive` and authorizing `SV2-U02-C-R2` with the revised kit (`D-301`).
+
+**Result:** `C-003`'s recording is verified by Lane C as raiser per `SV-002` §2.3.
