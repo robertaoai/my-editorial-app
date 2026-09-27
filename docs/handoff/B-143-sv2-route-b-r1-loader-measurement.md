@@ -9,10 +9,10 @@
   **Answered 2026-09-27 (`D-294`).** The Judge chose **option (b)**. `SV-002` §3.4 is amended: a loader diagnostic decides the loader outcome, and quotations corroborate it. R1 is classified as `AGENTS.md` complete loading, `CLAUDE.md` not loaded, and one response error (C8). **No R2 is needed.** Route C runs under `SV2-U02-B-R1`. Lane C's Level 2 review of this route follows §3.1.
   **Lane C's Level 2 review filed 2026-09-27 as `C-004`** (a document review that agrees with `D-293` and `D-294`; the rollout was not re-scored). Whether it verifies this entry was put to the Judge (`D-299`). **The Judge ruled it does not (`D-300`)**: this entry stays `Applied` and is carried in `SV-002` §2.3, verified only by an independent re-examination of the rollout.
   **Request to Lane B, 2026-09-28 (`D-302`, the Judge's choice).** Please verify this entry yourself, as raiser, as you did for `B-140`. Re-run the pinned Route B `score.mjs` on the kit evidence, outside the repository. Compare the `# AGENTS.md instructions for …` body with the pinned `AGENTS.md`, byte for byte. Confirm or dispute `D-294`'s classification. If it holds, set `Resolution: Verified`, `Verified-By: Codex (Lane B)` and the commit you read, and append a "Lane B independent re-examination" section. This is read-only: no lock and no lane-state change (`D-271`). Your own-series commit right covers the edit (`D-272`).
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `SV-002` §3.1/§3.4; `D-276` item 4; `D-292`; Route B kit `answers-1.txt`, rollout `01a0e2f8-c427-7500-9756-87b19ff5dd05`, `score.mjs` and `score-probe1.txt`; read-only rescore and pin comparison at the commit below
-- **Verified-At-Commit:** d4a2af8c7ec9e8938f8c45b3b37579ebb37b3def
+- **Resolution:** Verified
+- **Verified-By:** Codex (Lane B)
+- **Evidence:** `SV-002` §3.1/§3.4; `D-276` item 4; `D-292`; `D-294`; `D-302`; Route B kit `answers-1.txt`, rollout `01a0e2f8-c427-7500-9756-87b19ff5dd05`, pinned `score.mjs`; Lane B's fresh re-score and byte comparison in the independent re-examination below, read at the commit below
+- **Verified-At-Commit:** 0e247d3d8798cf999c979e4a4c9a4937fc386fbf
 
 ## What happened — Route B R1, 2026-09-27
 
@@ -89,3 +89,20 @@ Lane A recorded this review and the receipt state in `SV-002` §3.2 (`D-293`), a
 | **Approve-with-conditions** | Option (b): classify R1 from the harness record | Gate 1B, only by the Judge's ruling and a `D-54` amendment to §3.4 |
 | **Defer** | `SV2-U02-B-R2` (option a) and the Route C run | Gate 1B, per the Judge's choice |
 | **Reject** | `SV2-DOD-03`, `SV-002` acceptance or unblocking `V1-SM05` from this receipt | Gate 1B → Gate 2 |
+
+## Lane B independent re-examination — 2026-09-28, read at `0e247d3` (`D-302`)
+
+Lane B re-examined the **original R1** outside the probe session, using the pinned Route B kit. The input is `answers-1.txt` (`ac458de2b112c1471f0c008664ede97e31aa6e5df553a927e98f34ff17d83f3e`) and the **163,546-byte rollout** ending `01a0e2f8-c427-7500-9756-87b19ff5dd05` (`2baa0734c94a97d01194987a29c16c49d9a53047be2d6cdefd2f2d81b2ebb8f2`). The other rollout in the kit was not substituted. `score.mjs` hashes to `d66faa4cc5434d9b01c5f0fe10de241461802494b4e6434163e29863c6dfef9f`, the `D-292` pin. The supplied 168-byte `score-probe1.txt` remains incomplete and was **not** used as a result.
+
+Running the pinned scorer afresh on those exact inputs returned the complete nine-cue table: C1–C3 exact; C4–C7 and C9 not visible; C8 not visible **although present in the harness injection**. There were no tool calls before or inside Probe 1, no sentinel in tool output, and no quoted negative-control line. The window reports 39,022 input tokens. The scorer reports `codex-cli 0.158.0-alpha.2.1` in this checkout.
+
+Lane B separately parsed the rollout's `# AGENTS.md instructions for …` user-role record. Its `<INSTRUCTIONS>` body is 31,921 bytes after the opening wrapper newline is removed: the pinned 31,920-byte `AGENTS.md` plus one harness newline. Removing that extra newline gives a **byte-equal** body with SHA-256 `f2bd6dae9f17a91eb6ab733c5a136769041aaf0cce6c19e90a6ed2e3b9557b0d`, matching `D-276` item 4 and the checked-out file at this read commit. The record contains the C8 line; no separate `CLAUDE.md` injection is present.
+
+**Conclusion:** `D-294`'s Judge-approved classification holds: `AGENTS.md` loaded completely; `CLAUDE.md` was not loaded; C8 is one response error, not loader truncation. This verifies Lane A's applied disposition in this `B-143` entry as its raiser under `D-302`. It does not verify the separate Route C receipt or complete `SV2-DOD-03`.
+
+| Item | Verdict | Condition and follow-up phase |
+|---|---|---|
+| Original R1 inputs, fresh score and harness body | **Approve** | Exact pinned artifacts and byte comparison support `D-294` (Gate 1B, P1) |
+| `B-143` applied classification | **Approve** | `Resolution: Verified` by Lane B as raiser, at `0e247d3` (Gate 1B, P1) |
+| Treating C8 as a loader gap or the 168-byte saved score as complete | **Reject** | Harness delivery and fresh score contradict both claims (Gate 1B, P1) |
+| Route C Level 2 or `SV2-DOD-03` from this entry | **Reject** | Separate review and remaining setup evidence are required (Gate 1B → Gate 2) |
