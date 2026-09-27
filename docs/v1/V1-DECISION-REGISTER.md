@@ -21664,3 +21664,43 @@ ledger flag only"*. These answer Lane A's cross-reference review of the `V1-SM05
 | **Agent files** | — unaffected |
 | **Encyclopedia** | Entry 03 affected: flagged in the ledger, not republished (Judge: ledger only) |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e132 `D-307` — `B-144` Answered: `C-005`'s Stale "2.5.5 Not Confirmed" Note Corrected (a `D-305` Propagation Miss)
+
+**Authority:** execution under `D-305` (the run-time build finding), answering Lane B's `B-144` (`89d0169`).
+
+### The decision
+
+1. **`B-144`'s finding is accepted, and the miss was Lane A's.** `D-305` established that Antigravity IDE 2.5.5 and
+   `Antigravity.exe` 2.17.0 were installed before both Route C runs. It updated `SV-002` §3.2, but left Lane A's own
+   operator-facts note in `C-005` saying 2.5.5 was "not confirmed from the installed files". A dated correction, in
+   the text `B-144` proposed, is added beneath that note; the original stays as history. The Register already
+   decided the fact (`D-305` item 1 replaced `D-304` item 3), so no Register fact changes.
+2. **`B-144`'s other items are agreed as written:**
+   - Lane C verifies `C-005` and `C-006` as raiser, which is distinct from Lane B's Level 2 review;
+   - Lane B's Route C Level 2 review stays open, against the pinned R2 evidence and the harness record;
+   - the P4 budget and discovery alternatives stay open for the remediation decision.
+
+   `Modular_PRD` `AIG-03` was checked and is unaffected. No Product, storyboard, data-flow or Encyclopedia edit
+   follows; `D-306` covered those.
+3. **`B-144` is answered** (`Resolution: Applied`).
+4. **Not given by this act:**
+   - Lane B's Route C Level 2 review;
+   - Lane C's verification of `C-005`/`C-006`;
+   - `B-143`'s verification (`D-302`);
+   - Route A's reviews;
+   - the combined report and the remediation decision;
+   - any rule-file edit;
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e132 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`**, **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: `SV-002` §3.2 already records the build (`D-305`); no scope, sequence, DoD, file or lane change |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected (`AIG-03` checked) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
