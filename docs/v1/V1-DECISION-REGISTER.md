@@ -20594,3 +20594,45 @@ accepted (`D-282`).
 | Fn Specs, SPECS, storyboard, `V1-SM05.md` | — unaffected: `FN-GATES` §4.5 already owns the behaviour |
 | **Encyclopedia** | — unaffected: no entry cites §6.3 or `TR-DM` |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e109 `D-284` — `D-219.R1`: Supplied `.md` Representation — Admission, Reference and Retention Rule Applied at `FN-GATES` §4.6
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: apply D-219.R1"*. This defines the
+residual that `D-219` routed. `D-221` requires it to be defined before any readiness claim.
+
+### The decision
+
+1. **The rule is applied at `docs/fn-specs/FN-GATES-01-05.md` §4.6**, as behaviour only. It uses the existing
+   record, the working editorial-metadata package (§4.5, `TR-DM-07`), and chooses no file service, upload interface,
+   converter, OCR or new table, as `D-219` required. It has six rules:
+   - **text only**, manually prepared and supplied through the UI; embedded binaries are not retained;
+   - **admission** needs non-empty text, a recorded fact that the content cannot be reached by URL, identification
+     of the original, and the supplier recorded; otherwise §3.1's named validation failure applies;
+   - the **reference** is the SHA-256 digest of the exact text, and a filename is never the reference or evidence;
+   - **retention** is inside the append-only version payload, so a correction is a new version; the period follows
+     `RET-EDITORIAL`, cited;
+   - **no authenticity claim**; `T2` examines it under §3.2;
+   - **`D-222`'s three fixtures** are carried into `V1-SM05` acceptance at Gate 2.
+2. **Choices Lane A made that need the Judge's review before acceptance:**
+   - **rule 3:** the `.md` digest takes the place of the URL as the commission-identity anchor under
+     `G95`/`D-133`, which is a derivation, not an existing statement;
+   - **rule 1:** embedded images and binaries are not retained, and links stay as text;
+   - **rule 2:** the no-URL reason is recorded as the supplier's claim and is not verified by the system.
+3. **Status: drafted and applied, not accepted.** Row `D-219.R1` closes when the Judge accepts §4.6's text and Lane B
+   verifies it. `V1-SM05.md`'s DoD gains the three fixtures only after acceptance (`D-280` item 6).
+4. **Still open:** a maximum text size, which is Lane B's physical limit (`D-56`) and belongs in the `D-242` work
+   order. Addendum §8.1 `:528–529` and `D-222`'s other children stay proposed. `SV2-DOD-05` is unchecked, `V1-SM05`
+   stays `BLOCKED`, and there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e109 |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ new §4.6 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.3 row `D-219.R1` |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope sequence, file or lane change |
+| **`docs/Modular_PRD.md`** | — unaffected: `TR-DM-07`'s version payload already carries the source reference |
+| SPECS, storyboard, Addendum, `V1-SM05.md` | — unaffected by this act. The fixtures reach `V1-SM05.md` only after acceptance |
+| **Encyclopedia** | — unaffected beyond Entry 06's existing `D-280` flag: no entry cites `FN-GATES` §4 |
+| **Graphify** | Rebuild after this commit |
