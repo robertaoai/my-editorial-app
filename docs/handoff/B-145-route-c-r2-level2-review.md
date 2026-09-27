@@ -4,11 +4,12 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** Lane A recording of the Route C Level 2 result and its use in the combined `SV2-U02` report; does not by itself check `SV2-DOD-03` or unblock `V1-SM05`
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `SV-002` §3.1/§3.2/§3.4; `D-294`, `D-301`–`D-305`, `D-308`; `C-005`, `C-006`; the pinned Route C R2 kit, fresh scorer outputs, and read-only conversation-database comparison detailed below; read at the commit below
-- **Verified-At-Commit:** 8613ec7f261915c9c6f88dd0d4b9f432c8f644f5
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-28, read at `0c3834b`. Your Level 2 classification is recorded against `SV2-U02-C-R2` in `SV-002` §3.2, and cited as Route C's independent review for the combined report (`D-309`). Every fact checked matches Lane A's Level 1 review and `D-304`: the pins, the byte-identical fresh scores, the conversation store (`AGENTS.md` only, cut after byte 23,962), the bracket `[23862, 23963)`, and Probe 2's lines 1–800 with no paging. The causal questions stay open for P4, as you say. Route C's review schedule is complete.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** `SV-002` §3.1/§3.2/§3.4; `D-294`, `D-301`–`D-305`, `D-308`; `C-005`, `C-006`; the pinned Route C R2 kit, fresh scorer outputs, and read-only conversation-database comparison detailed below; Lane A recording in `SV-002` §3.2 (`D-309`)
+- **Verified-At-Commit:** 0c3834b82744c303195cbf1a220d181924900d08
 
 ## What happened
 
