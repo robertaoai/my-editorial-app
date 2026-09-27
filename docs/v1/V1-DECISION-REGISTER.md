@@ -20705,3 +20705,39 @@ accepted as revised by `D-285` at `06859c4`, without further change.
 | **`docs/Modular_PRD.md`**, SPECS, storyboard, Addendum, `V1-SM05.md` | — unaffected by this act |
 | **Encyclopedia** | — unaffected beyond Entry 06's existing `D-280` flag |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e112 `D-287` — `V1-SM05` DoD: "Intake Source Fixtures" Added (`FN-GATES` §4.6 Rule 6)
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: add the three fixtures to V1-SM05 DoD"*.
+This lands `D-280` item 6's fixtures now that §4.6 is accepted (`D-286`).
+
+### The decision
+
+1. **`docs/v1/work-packets/V1/V1-SM05.md`'s DoD checklist gains one item, "Intake source fixtures".** It requires the
+   three §4.6 rule 6 fixtures to pass against the real database, each with failing-first evidence:
+   - a valid URL passes;
+   - admitted Markdown with its original URL recorded but unreachable passes (the pair model, `D-285`);
+   - no source reference of any kind fails with the named validation failure.
+2. **Its DoR→DoD map entry** is under `DOR-R1`, the pre-`T1` record and event contract. It is one mapping, and it adds
+   no DoR row.
+3. **Jev.** The manifest `scripts/jev/manifests/V1-SM05.json` is **unchanged**, so the pinned readiness scope and the
+   `DOR-R7` receipt at `719e72b` stay the same scope. Readiness re-run after the edit: **pass, 272/272**. Completion
+   mode requires evidence for every DoD label, so this item is enforced at Gate 2 without a manifest change.
+   **Limitation, stated:** the manifest's `negativeRequired` list does not name this item, so Jev does not
+   mechanically require fixture 3's refusal to be marked negative. The item's text requires it, and Lane A's
+   independent verification (`D-259`) checks it.
+4. **Unchanged:** no DoR row is added or unchecked, `SV2-DOD-05` is unchecked, `V1-SM05` stays `BLOCKED`, and there is
+   no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e112 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-287` paragraph: DoD item added |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ DoD item "Intake source fixtures"; `DOR-R1` map entry |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.3 row `D-219.R1` evidence cell |
+| **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no file or lane change |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS, storyboard | — unaffected: §4.6 already owns the behaviour |
+| **Encyclopedia** | — unaffected beyond Entry 06's existing `D-280` flag |
+| **Graphify** | Rebuild after this commit |
