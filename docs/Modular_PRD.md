@@ -31,7 +31,7 @@
 | **PRD Owner** | Chief Editor (robertaoai) — Line 2, Risk & Compliance |
 | **Reviewers / Approvers** | Chief Editor is the sole human approver. **No Eng Lead, Design Lead, Data Lead, or Legal function exists on this project.** Not an omission — see §0.3 |
 | **Status** | `Draft` — planning only. ~~No application code, no migration applied, no env pulled, no push~~ **Current, 2026-09-26 (`D-268`):** application scaffolding exists; `supabase/migrations/0002_s1_editorial_schema.sql` is applied and tested on local PostgreSQL (`D-114`, `D-121`); hosted Supabase behaviour is unverified (`DEP-05`); `V1-SM05` construction is `BLOCKED` (`D-264`); the working branch is pushed. No claim is made here about environment files |
-| **Version** | 1.43 *(was stated as 1.8 until 2026-09-26, `D-267`)* — this document's own lineage; it does not continue `docs/PRD.md`'s version history, and it is **not** a build version — see §8.0 |
+| **Version** | 1.44 *(was stated as 1.8 until 2026-09-26, `D-267`)* — this document's own lineage; it does not continue `docs/PRD.md`'s version history, and it is **not** a build version — see §8.0 |
 | **Last Updated** | 2026-09-27 (`D-271`) |
 | **Jira Project Key** | **Not provisioned.** **Current execution tracking is `docs/v1/V1-BUILD-SPEC.md` §4 for sprint scope and holds, `docs/LANE-B-WORK-ORDER.md` §2.2d for the executable unit, and `docs/v1/V1-PHASE-CLOSURE.md` §5 for lane state.** `docs/journal/2026-08-16-sprint-plan.md` §6 is **historical lineage**, not current tracking *(corrected 2026-09-08, `B-084`; it had been named as the execution tracker)* |
 | **Confluence / Wiki Link** | **Not provisioned.** This repo's `docs/` is the wiki |
@@ -88,6 +88,7 @@
 | **1.41** | **2026-09-26** | Claude, `D-267`, Judge answer G4 option (a) via `docs/handoff/B-139` | **Document-control correction, no scope change.** Two rows carried 1.38: `D-261` (`719e72b`) and `D-264` (`10ec465`), and `D-261`'s row sat after 1.39. Renumbered in commit order: `D-261` keeps 1.38 and moves above `D-264`; `D-264` is relabelled 1.39 and `D-265` (`0d4fc73`) 1.40. Decision dates and commit order are separate facts; each row keeps its own date. Register citations *"changelog 1.38"* in `D-264` and *"changelog 1.39"* in `D-265` read as 1.39 and 1.40 (`D-267` item 7). §0 header set to 1.41, 2026-09-26. No FR/AC/NFR text changed; §8 unaffected. |
 | **1.42** | **2026-09-26** | Claude, `D-268`, Judge answers via `docs/handoff/B-139` (Lane B finding R3) | **Document-control correction, no scope change.** §0 `Status` said *"No application code, no migration applied, no env pulled, no push"*; that clause is kept struck through and a dated current-state statement follows it: scaffolding exists, `0002` is applied and tested locally, hosted behaviour is unverified, `V1-SM05` is `BLOCKED`, the branch is pushed. Header set to 1.42. No FR/AC/NFR text changed; §8 unaffected. |
 | **1.43** | **2026-09-27** | Claude, `D-271`, Judge confirmation in chat of the clarifications Lane B recorded in `docs/handoff/B-139` | **Project-scope addition, no Product scope change.** §0.5 registers the `AIG-` prefix (global Project-scope AI governance; `AIG-NN.Rn`/`.Cn`). §0.6 records this document as the live overall Project/Product tracker, refining `D-203`; tracking is not owning. New §7.2a: a non-feature global Project-scope index, `AIG-01`–`AIG-06`, with no Sprint column. No `US`/`FR`/`AC`/`NFR` text changed; §0.6.1 and `docs/modules/` unchanged; §8 unaffected. |
+| **1.44** | **2026-09-27** | Claude, `D-283`, Judge approval "apply TR-DM data requirement" | **Product data-requirement addition.** It adds `TR-DM-07`, the working editorial-metadata package, to §6.3, the immutability table, §7.1 and §7.3's `FR-01` row. It is logical only; the physical store is Lane B's, at the `D-242` work order. The contract is `FN-GATES` §4.5 (`D-281`/`D-282`). It closes the Gate 1B limb of `SV-002` §3.3 `B-096.TR-DM-01`, pending Lane B verification |
 
 ### 0.2 Decision Log
 
@@ -650,6 +651,7 @@ The most consequential requirement, and the one most at risk of being quietly ov
 | `TR-DM-04` | `sources` | + `reliability_tier`, `ingestion_method`; unique on name | **Extend — S1.** ~~Absence blocks T2's required fields and the trend-score tier weight (TC3)~~ **Corrected 2026-09-25 (`D-265`):** both columns exist in `0002` (lines 132–133, local replay only); schema presence is not T2 behaviour or a working score | FR-02 |
 | `TR-DM-05` | `topics` | + `evolves_from`, `evolution_notes`, `scope_boundary` | **Extend — S1.** Absence blocks editorial-priority lineage depth (TC3) | FR-01 |
 | `TR-DM-06` | `allowed_transitions` | from_state, to_state, gate_role, line | **Create — S1.** Backs the NFR-01 trigger; makes the sequence data-driven rather than hard-coded | FR-02, FR-06 |
+| `TR-DM-07` `[V1]` | **Working editorial-metadata package** *(logical; the physical entity and its name are Lane B's, `D-56`)* | Package identity, one per commission (`FN-GATES-01-05.md` §4.3 commission identity); version identity and a version number increasing by one; the version payload, which for version 1 is the `FR-01` entry set (source reference, exactly one subject topic, trend-signal description) plus source information; supplier and entry time as separate facts. **No workflow or publication state** | **Required — `V1-SM05` (`D-283`).** The logical contract is `FN-GATES-01-05.md` §4.5 (accepted `D-282`), and its parent is Choice A (`D-281`). **Append-only**: versions are never updated or deleted. Absent from `0001` and `0002`; `0002`'s `editorial_reports` is the frozen report, **not** this store. The physical store, its migration and the real-database proof are named in the `D-242` work order (Gate 2) | FR-01, FR-15 |
 
 #### Table classification — immutability and retention *(adopted `D-114`, closing `GA2` and `C-11`)*
 
@@ -667,6 +669,7 @@ and still be lawfully disposed of at end of life under policy.
 | `allowed_transitions` | **Effective-dated** | An audit must show which rules were in force *then*, not now (`PSK-09`) |
 | `articles` | **Mutable by design** | `revision_reason`, `return_count`, changing state. **This is *why* reports carry frozen snapshots rather than references** |
 | `topics`, `sources` | Mutable master data | Resolved values are **frozen into the report snapshot** — a renamed topic or re-tiered source must not silently rewrite historical reports |
+| **Working editorial-metadata package** (`TR-DM-07`) | **Append-only versions** | A change appends a new version, and earlier versions stay readable. It never carries state, and it is never the report (`FN-GATES-01-05.md` §4.5, Choice A `D-281`). Added `D-283` |
 
 **Enforcement:** `REVOKE UPDATE, DELETE` **and** a `BEFORE UPDATE OR DELETE` trigger. `REVOKE`
 is the declaration; the trigger is what survives a privileged session, since `REVOKE` does not bind
@@ -801,6 +804,7 @@ rejected work (`D-134`) is its concrete v1 case.**
 | TR-DM-04 | Data requirement | Represent article sources | CR-05 | Direct | S1 |
 | TR-DM-05 | Data requirement | Represent topic taxonomy | CR-04 | Direct | S1 |
 | TR-DM-06 | Data/integrity requirement | Represent the allowed sequential transitions | CR-10, CR-19 | Derived quality | S1 |
+| TR-DM-07 | Data requirement | Represent each commission's working editorial metadata as a versioned, append-only package, separate from state and from the report | CR-09 | Derived: Choice A (`D-281`), with the bounded contract at `FN-GATES` §4.5 (`D-282`) | `V1-SM05` |
 
 #### Product-scope gaps
 
@@ -854,7 +858,7 @@ real, scheduled work: its sequence and gates live in `docs/v1/V1-BUILD-SPEC.md` 
 
 | Functional requirement | Served or constrained by | Coverage |
 |---|---|---|
-| FR-01 | NFR-04, NFR-08, TR-DM-01, TR-DM-05, SHARED-01 | Covered |
+| FR-01 | NFR-04, NFR-08, TR-DM-01, TR-DM-05, TR-DM-07, SHARED-01 | Covered |
 | FR-02 | **NFR-01**, NFR-04, TR-DM-04, TR-DM-06 | Covered |
 | FR-03 | NFR-04, TR-DM-01 | Covered |
 | FR-04 ⚠ | NFR-03, SEC-01, NFR-04 | Covered — **pending OD1** |

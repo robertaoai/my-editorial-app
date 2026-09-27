@@ -20547,3 +20547,50 @@ accepted intake).
 | **`docs/Modular_PRD.md`**, SPECS, storyboard, `V1-SM05.md` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e108 `D-283` — `TR-DM-07`: Working Editorial-Metadata Package Added as a Product Data Requirement (Gate 1B Part of `B-096.TR-DM-01`)
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: apply TR-DM data requirement"*. This is
+the Gate 1B part of `SV-002` §3.3 row `B-096.TR-DM-01` (`D-280` split proof). Its parent, `FN-GATES` §4.5, is
+accepted (`D-282`).
+
+### The decision
+
+1. **`docs/Modular_PRD.md` gains `TR-DM-07` `[V1]`, the working editorial-metadata package.** It is a logical
+   requirement: package identity (one per commission), version identity and number, the version payload (version 1
+   is the `FR-01` entry set plus source information), and supplier and entry time as separate facts. It carries no
+   state and is append-only. The physical entity, its name and its migration are Lane B's (`D-56`).
+2. **Where it lands in `Modular_PRD`:**
+   - a §6.3 Data Model row;
+   - a row in the §6.3 immutability table: append-only versions, never the report, no retention period stated
+     (`RET-EDITORIAL` stays the single source);
+   - a §7.1 scope-matrix row (`CR-09`, derived from Choice A, assigned to `V1-SM05`);
+   - `TR-DM-07` added to §7.3's `FR-01` coverage;
+   - version 1.44, with a changelog row.
+
+   **`FR-15` has no row in §7.1 or §7.3.** That gap predates this act, is recorded here, and is not fixed.
+3. **`B-096.TR-DM-01`:** the Gate 1B part is decided and applied, and awaits Lane B verification. The **Gate 2
+   part** (the physical store, the migration and the real-database proof, named in the `D-242` work order) stays
+   open at §2.2 `P13`/`P14`.
+4. **Not changed:** three roll-ups cite `TR-DM-01…06`:
+   - the §7.2 note, which explains why those six are customer-named;
+   - §7.4 milestone `M1`;
+   - §8.1's S1 row.
+
+   Each describes S1's own scope or its customer basis, and `TR-DM-07` is `V1-SM05`'s derived requirement, so all
+   three are left as they are. No schema is changed. `SV2-DOD-05` is unchecked,
+   `V1-SM05` stays `BLOCKED`, and there is no lane-state change.
+5. **Next step this unlocks:** `D-219.R1`, how a supplied `.md` source is referenced and retained. It may use this
+   package's version payload.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e108 |
+| **`Modular_PRD`** | ✅ `TR-DM-07` in §6.3, the immutability table, §7.1 and §7.3; version 1.44; changelog |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.3 row `B-096.TR-DM-01` |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope sequence, file or lane change |
+| Fn Specs, SPECS, storyboard, `V1-SM05.md` | — unaffected: `FN-GATES` §4.5 already owns the behaviour |
+| **Encyclopedia** | — unaffected: no entry cites §6.3 or `TR-DM` |
+| **Graphify** | Rebuild after this commit |
