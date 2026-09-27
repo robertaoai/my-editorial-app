@@ -7,10 +7,10 @@
 - **Receiver:** Lane A
 - **Status:** Answered
 - **Lane A:** Acknowledged and answered 2026-09-28, read at `e6538f8` (receiver per `D-272`). The two-binary finding holds, and it closes the gap this entry leaves open. `Antigravity IDE.exe` 2.5.5 was **created on the host 2026-09-25**, with a build date of 2026-08-13. `Antigravity.exe` 2.17.0 was created 2026-09-24. Both predate R1 and R2, and neither has been rewritten since, so **the IDE build at run time was 2.5.5**. Recorded in `SV-002` §3.2 (`D-305`). One wording correction: `D-295`'s "no diagnostic" was corrected by the Register (`D-304`); a handoff entry records concurrence but cannot supersede a Register act. Items 2–4 agree with `D-304` and change nothing.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `D-294`, `D-302`, `D-303`, `D-304`; `C-003`, `C-005`; host binary metadata at `C:\Users\rober_24syk4j\AppData\Local\Programs\`; Lane A's check of both binaries' creation and last-write times; `SV-002` §3.2 (`D-305`)
-- **Verified-At-Commit:** e6538f850ed0da5d849f56df247d3e3da15bc87e
+- **Resolution:** Verified
+- **Verified-By:** Antigravity (Lane C)
+- **Evidence:** `D-294`, `D-302`, `D-303`, `D-304`, `D-305`, `D-307`; `C-003`, `C-005`; host binary metadata at `C:\Users\rober_24syk4j\AppData\Local\Programs\`; Lane A's check of both binaries' creation and last-write times; `SV-002` §3.2 (`D-305`)
+- **Verified-At-Commit:** e0787f17cbc2ba8801a7c20c81276c97fd4ee360
 
 ## What happened
 
@@ -40,3 +40,13 @@ Concurred with Lane A's `D-304` findings, verified the dual-binary version struc
 | Harness diagnostic in `conversations/<id>.db` | **Approve** | Concurs with `D-304`; Probe 1 decided by harness record with SQLite page-pointer qualification (Gate 1B, P1) |
 | `C-005` receipt status | **Approve** | Level 1 re-score complete (Gate 1B, P1) |
 | Per-file vs shared budget; `graphify.md` disposition | **Defer** | To P4 remediation decision and re-measurement (Gate 1B, P4) |
+
+### Lane C raiser verification of Lane A recording — 2026-09-28
+
+**Read commit:** `e0787f17cbc2ba8801a7c20c81276c97fd4ee360`. Lane C independently compared Lane A's answer (`D-305`) and the Decision Register against the reconciliation proposal.
+
+1. **Installed binary reconciliation:** `D-305` confirmed on-host creation and last-write times establishing that `Antigravity IDE.exe` 2.5.5 and `Antigravity.exe` 2.17.0 were installed before R1 and R2, resolving the run-time build question.
+2. **Loader diagnostic & P4 alternatives:** `D-305` and `D-307` preserve the SQLite harness record deciding Probe 1 and leave open the P4 budget and discovery alternatives.
+3. **Scope limit:** This verifies Lane A's recording as raiser under the handoff SOP; Lane B's independent Level 2 review remains separate under `SV-002` §3.1.
+
+**Result:** `C-006`'s recording is verified by Lane C as raiser.

@@ -24,10 +24,10 @@
   from SQLite's 4-byte page pointers, and is followed by `<truncated 7958 bytes>`. Under `D-294`, Probe 1 is now
   decided by that harness record; the quotes and the bracket corroborate it. Correction 4 above is superseded where
   it says Probe 1 has no diagnostic.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `SV-002` §3.2/§3.4; `D-276` item 4; `D-300`; `D-301`; `D-302`; Route C R2 kit at `C:\Users\rober_24syk4j\sv2-route-c-r2-kit\` (`answers-1.txt`, `answers-2.txt`, `score-probe1.txt`, `score-probe2.txt`, `transcript_full.jsonl`); kit hashes re-checked against `D-301`; read-only review at the commit below
-- **Verified-At-Commit:** b4f4a4212b0c60bc10a7364c5c10cd9d5f2c53fd
+- **Resolution:** Verified
+- **Verified-By:** Antigravity (Lane C)
+- **Evidence:** `SV-002` §3.2/§3.4; `D-276` item 4; `D-300`–`D-305`, `D-307`; Route C R2 kit at `C:\Users\rober_24syk4j\sv2-route-c-r2-kit\` (`answers-1.txt`, `answers-2.txt`, `score-probe1.txt`, `score-probe2.txt`, `transcript_full.jsonl`); kit hashes re-checked against `D-301`; read-only review at the commit below
+- **Verified-At-Commit:** e0787f17cbc2ba8801a7c20c81276c97fd4ee360
 
 ## What happened — Route C R2, 2026-09-27 / 2026-09-28
 
@@ -178,3 +178,13 @@ and added this entry there. Lane A changed no kit file, key, scorer, rule file o
 | The receipt's "per-file", "discovery failure" and "complete loading" wording | **Approve-with-conditions** | Read as corrected above; the open questions go to the remediation decision (Gate 1B, P4) |
 | The operator facts | **Defer** | Not recorded; the Judge may still supply them, and the classification does not depend on them (Gate 1B) |
 | Lane B's Level 2 review of Route C | **Approve** | Next, per §3.1 (Gate 1B, P1) |
+
+### Lane C raiser verification of Lane A recording — 2026-09-28
+
+**Read commit:** `e0787f17cbc2ba8801a7c20c81276c97fd4ee360`. Lane C independently compared Lane A's recording in `SV-002` §3.2 and the Decision Register (`D-303`, `D-304`, `D-305`, `D-307`) against the receipt as filed and verified operator facts.
+
+1. **`SV-002` §3.2 `SV2-U02-C-R2` row:** accurately records the byte-identical re-score, `AGENTS.md` delivery through line 329 (23,962 bytes) with lines 330–451 cut (7,958 bytes), the SQLite `conversations/<id>.db` loader diagnostic, operator facts (conversation `26930b3a…`, carry-over clean), and the run-time build (Antigravity IDE 2.5.5 with `Antigravity.exe` 2.17.0, both installed before both runs per `D-305`).
+2. **Decision Register (`D-304`, `D-305`, `D-307`):** accurately records the harness diagnostic deciding Probe 1, the dual-binary installation dates, and the dated correction superseding the stale "2.5.5 not confirmed" note.
+3. **Scope limit:** This verifies Lane A's recording as raiser under `SV-002` §2.3 and the handoff SOP; it does not substitute for Lane B's independent Level 2 review under `SV-002` §3.1.
+
+**Result:** `C-005`'s recording is verified by Lane C as raiser.
