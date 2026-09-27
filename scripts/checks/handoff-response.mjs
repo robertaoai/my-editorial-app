@@ -302,6 +302,12 @@ export function run() {
 
   // `B-` is Lane B (`D-90`), `C-` is Lane C (`D-92`). Lane A does not raise
   // entries here — it answers them; a Lane A concern goes in the register.
+  //
+  // `D-272`: each series has a RECEIVER, the lane that answers it. `B-` is
+  // always Lane A. `C-` names its receiver in `Receiver:` — Lane B by default,
+  // Lane A when the dependency sits on a Lane A surface — and the receiver
+  // writes its own answer field. Reading `Lane A` for every entry would
+  // report a Lane B answer as "sitting unread" and pass an unread one.
   const entries = readdirSync(DIR).filter((f) => ENTRY_FILE.test(f));
   const findings = [];
   const phases = phaseSets();
@@ -414,7 +420,25 @@ export function run() {
     // answered and UNRESOLVED, which is the state `D-101` separated out.
     if (!field(text, "Resolution") && !isTurnReport) unresolved++;
     const status = field(text, "Status");
-    const response = field(text, "Lane A");
+    // Both lane fields are read LITERALLY, so `channel-docs` sees each
+    // template field as read by a check (`fieldsRead` matches literals only).
+    let receiver = "Lane A";
+    if (/^C-/.test(file)) {
+      const r = field(text, "Receiver");
+      if (!r) {
+        findings.push(
+          fieldPresent(text, "Receiver")
+            ? `${path}: **Receiver:** is present but BLANK — a \`C-\` entry must name the lane that answers it (\`Lane A\` or \`Lane B\`, \`D-272\`)`
+            : `${path}: no **Receiver:** field — a \`C-\` entry must name the lane that answers it (\`Lane A\` or \`Lane B\`, \`D-272\`)`,
+        );
+      } else if (/^Lane B\b/i.test(r.replace(/^[*_`\s]+/, ""))) {
+        receiver = "Lane B";
+      } else if (!/^Lane A\b/i.test(r.replace(/^[*_`\s]+/, ""))) {
+        findings.push(`${path}: **Receiver:** "${r}" is not \`Lane A\` or \`Lane B\` — only those lanes answer \`C-\` entries (\`D-272\`)`);
+      }
+    }
+    const response = receiver === "Lane B" ? field(text, "Lane B") : field(text, "Lane A");
+    const responsePresent = receiver === "Lane B" ? fieldPresent(text, "Lane B") : fieldPresent(text, "Lane A");
     const reopens = field(text, "Reopens-Phase");
 
     // `C-19`. A missing field is the normal case and never a finding.
@@ -485,9 +509,9 @@ export function run() {
       else if (/^Withdrawn\b/i.test(status)) withdrawn++;
 
       findings.push(
-        fieldPresent(text, "Lane A")
-          ? `${path}: **Lane A:** is present but BLANK — ${status} with no disposition. Add \`Acknowledged\` at minimum; answering can wait, seeing it cannot.`
-          : `${path}: no **Lane A:** field — nowhere to record a disposition`,
+        responsePresent
+          ? `${path}: **${receiver}:** is present but BLANK — ${status} with no disposition. Add \`Acknowledged\` at minimum; answering can wait, seeing it cannot.`
+          : `${path}: no **${receiver}:** field — nowhere to record a disposition`,
       );
       continue;
     }
@@ -500,13 +524,13 @@ export function run() {
       open++;
       if (!acknowledged) {
         findings.push(
-          `${path}: Open with no Lane A disposition — feedback is sitting unread. Add \`Acknowledged\` at minimum; answering can wait, seeing it cannot.`,
+          `${path}: Open with no ${receiver} disposition — feedback is sitting unread. Add \`Acknowledged\` at minimum; answering can wait, seeing it cannot.`,
         );
       }
     } else if (/^Answered\b/i.test(status)) {
       answered++;
       if (!response) {
-        findings.push(`${path}: Status is Answered but the **Lane A:** line is empty`);
+        findings.push(`${path}: Status is Answered but the **${receiver}:** line is empty`);
       }
     } else if (/^Withdrawn\b/i.test(status)) {
       withdrawn++;

@@ -142,6 +142,13 @@ for Routes A, B and C before run selection. §3.4 gains blind positive/negative 
 **DoD for this pass:** the three files exist, are tied to `AIG-*` and reviewed by Lane B; no rule file is edited before
 the `SV2-U02` report (`D-266` item 2).
 
+**`D-272` (2026-09-27) — handoff series ownership.** `B-` entries: Lane B raises, owns and commits; **Lane A** answers
+and commits. `C-` entries: Lane C raises, owns and commits, naming its receiver in `Receiver:` — **Lane B** by default,
+**Lane A** for Lane A surfaces or Lane A requests; the receiver answers and commits. Each lane commits its own series
+**whatever its lane state**; the one-entry procedure is unchanged. `handoff-response` enforces the receiver field. The
+rule files still say Lane A answers every entry; that wording is **queued for the `AIG-06` refactor** after the
+`SV2-U02` report, and the Register wins meanwhile (`D-58`).
+
 Neither slot reuses or renames the `S5`/`S6` labels above. Their DoR and DoD are **defined in their work packets (`D-245`, 2026-09-20)** and are not complete:
 each DoR box is checked only against current evidence, and Lane B's feasibility review and the Judge's
 acceptance of the business outcome are pending. The reusable one-MMF pull-request template

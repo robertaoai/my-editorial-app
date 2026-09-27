@@ -6,8 +6,10 @@
 - **Phase:** <1 | 2 | 3 — REQUIRED. The phase that owns the CORRECTION, not the one you work in and not the one you are blocked on; `Blocks:` already carries that. See `README.md` (`D-104`)>
 - **Blocks:** <what you cannot do until this is answered — or `nothing, reporting only`>
 - **Reopens-Phase:** <1 | 2 | 3, only if the work this needs belongs to a phase already closed — otherwise omit the line entirely>
+- **Receiver:** <`C-` entries ONLY: `Lane A` or `Lane B` — the lane that answers (`D-272`). `Lane B` by default; `Lane A` when the dependency sits on a Lane A surface or answers a Lane A request. Omit for `B-` entries, which Lane A always answers>
 - **Status:** Open
-- **Lane A:** <empty until acknowledged>
+- **Lane A:** <empty until acknowledged — the answer field for `B-` entries and for `C-` entries whose Receiver is `Lane A`>
+- **Lane B:** <`C-` entries whose Receiver is `Lane B` ONLY: Lane B's answer field, same dispositions; omit otherwise>
 - **Resolution:** <Applied | Verified | Deferred | Withdrawn | Superseded — omit while Open or merely Answered>
 - **Examined-By:** <optional: an actor who examined this and REJECTED it, naming the entry that records the rejection. There is no `Rejected` resolution yet, so the link is the record (`D-108`)>
 - **Verified-By:** <REQUIRED for Verified: the actor who confirmed it, and NOT the lane that answered. `Acknowledged` is a receipt, not a verifier (`D-102`, `B-013` item 4)>

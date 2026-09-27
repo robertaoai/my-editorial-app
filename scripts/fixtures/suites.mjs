@@ -32,6 +32,8 @@ const LANESTATE = "scripts/checks/lane-state.mjs";
 const CHANNEL = "scripts/checks/channel-docs.mjs";
 
 const ENTRY = "docs/handoff/B-001-s0-completion-boundary.md";
+// `D-272`: a `C-` entry names its receiver. `C-001` is the live example (Receiver: Lane A).
+const C_ENTRY = "docs/handoff/C-001-rename-required-check.md";
 const CLOSURE = "docs/v1/V1-PHASE-CLOSURE.md";
 const README = "docs/handoff/README.md";
 const TEMPLATE = "docs/handoff/TEMPLATE.md";
@@ -204,6 +206,47 @@ export async function handoffFields(results) {
     mutate: () => write(ENTRY, orig.replace(/^- \*\*Lane A:\*\*.*$\n/m, "")),
     restore,
     expect: "no **Lane A:** field",
+  });
+  // `D-272`. Each series has a receiver: `B-` is always Lane A; a `C-` entry
+  // names Lane A or Lane B in `Receiver:` and the check reads THAT lane's field.
+  // Four cases: missing receiver, invalid receiver, a Lane B receiver with no
+  // Lane B field (fail), and a Lane B receiver that has answered (pass).
+  const cOrig = read(C_ENTRY);
+  const cRestore = () => write(C_ENTRY, cOrig);
+  await fixture(results, {
+    name: "handoff: a C- entry with no Receiver is malformed (D-272)",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(C_ENTRY, cOrig.replace(/^- \*\*Receiver:\*\*.*$\n/m, "")),
+    restore: cRestore,
+    expect: "no **Receiver:** field",
+  });
+  await fixture(results, {
+    name: "handoff: a C- entry may only name Lane A or Lane B as Receiver (D-272)",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(C_ENTRY, cOrig.replace(/^- \*\*Receiver:\*\*.*$/m, "- **Receiver:** Lane C")),
+    restore: cRestore,
+    expect: "is not `Lane A` or `Lane B`",
+  });
+  await fixture(results, {
+    name: "handoff: a C- entry routed to Lane B is read from the Lane B field, not Lane A (D-272)",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () => write(C_ENTRY, cOrig.replace(/^- \*\*Receiver:\*\*.*$/m, "- **Receiver:** Lane B")),
+    restore: cRestore,
+    expect: "no **Lane B:** field",
+  });
+  await fixture(results, {
+    name: "handoff: a C- entry answered by its Lane B receiver passes (D-272)",
+    modulePath: CHECK("handoff-response.mjs"),
+    mutate: () =>
+      write(
+        C_ENTRY,
+        cOrig.replace(
+          /^- \*\*Receiver:\*\*.*$/m,
+          "- **Receiver:** Lane B\n- **Lane B:** Acknowledged and answered (fixture)",
+        ),
+      ),
+    restore: cRestore,
+    shouldPass: true,
   });
   // `G84`, `D-113`. A turn report can never carry a terminal `Resolution`, so
   // it must not be counted among the entries that lack one. Asserting the

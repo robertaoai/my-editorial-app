@@ -391,6 +391,10 @@ table and §3.4 in place; the natural-sentinel method adds no file and edits no 
 and `ux/UX-MULTI-LANE-AI-GOVERNANCE.md` (rows above), creating `docs/specs/ux/`. `Modular_PRD.md`, `docs/specs/README.md`
 and `SV-002.md` change in place. Each new file has its own curated graph node.
 
+**`D-272` (2026-09-27) — no file added or retired, stated explicitly.** The handoff `README.md`, `TEMPLATE.md`,
+`handoff-response.mjs`, `suites.mjs`, `LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md`, the three governance
+control files, `SV-002.md` and `C-001` change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

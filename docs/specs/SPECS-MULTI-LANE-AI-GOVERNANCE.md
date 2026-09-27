@@ -64,7 +64,7 @@ result that cannot separate route from truncation is `inconclusive` (`AIG-03.R3`
 |---|---|---|---|---|
 | A — `SV2-U02-A` | Lane A | Lane A (Claude Code) | The Judge opens a fresh session | `SV-002` §3.1, recorded by Lane A |
 | B — `SV2-U02-B` | Lane A | Lane B (Codex) | The Judge opens a fresh session | Lane B's own `B-` entry (`D-184`) |
-| C — `SV2-U02-C`, under a named `-B` run | Lane A | Lane C (Antigravity) | The Judge opens a fresh session | Lane C drafts a `C-` entry; it becomes durable only as `D-184` allows, otherwise the Judge supplies it |
+| C — `SV2-U02-C`, under a named `-B` run | Lane A | Lane C (Antigravity) | The Judge opens a fresh session | Lane C commits its own `C-` entry with `Receiver: Lane A` — Lane A requested the run *(amended `[V1]`, `D-272`)* |
 
 All three are **read-only responses**: no owned file is written, so no lock is needed and no lane state changes
 (`AIG-01.R2`, `D-271` item 6).

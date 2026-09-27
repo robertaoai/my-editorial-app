@@ -41,6 +41,19 @@ fight the gate on its own intended purpose. `G63` and `D-85` both settled the sa
 **a genuinely joint surface should not be attributed to one owner.** `lane-boundary` reports
 unmapped paths in its detail line, so nothing here is invisible.
 
+> **Series ownership — `D-272`, Judge, 2026-09-27.** The directory stays unmapped for crossing detection
+> (`lane-boundary`): an answer written by the receiving lane is never a crossing. Each **series** now has an owner
+> and a receiver:
+>
+> | Series | Raised and owned by | Answered ("taken over") and committed by |
+> |---|---|---|
+> | `B-NNN` | Lane B | **Lane A** — always |
+> | `C-NNN` | Lane C | **Lane B** by default (DevOps depends on the codebase); **Lane A** when the dependency sits on a Lane A surface (`scripts/`, build config, global Project-scope DevOps) or answers a Lane A request |
+>
+> A `C-` entry names its receiver in **`Receiver:`**, and the receiver writes its answer in its own field
+> (`Lane A:` or `Lane B:`). The raiser commits its own entry; the receiver commits its answer. Earlier text in this
+> file that says *Lane A answers every entry* reads through this table.
+
 ## This directory stays writable when your lane is not `Active` — `D-103`
 
 **Exactly one lane is `Active` at a time and only that lane may commit** (`D-101`; the live state
@@ -114,6 +127,12 @@ commit and push **only its own explicit `B-NNN-*.md` or `C-NNN-*.md` entry**:
 
 `Blocked`-lane commit authority is not granted by this section — a `Blocked` lane may still draft
 under the writable-channel rule above, but durable commit/push requires `Eligible` or `Active`.
+
+> **Amended by `D-272`, 2026-09-27 (Judge).** The lane-state condition above is lifted for a lane's **own series**:
+> Lane B commits its own `B-` entries and Lane C its own `C-` entries **whatever their lane state**, including
+> `Blocked`. The **receiving** lane commits its answer in the same way. Everything else in steps 1–6 stands: bind one
+> exact path, stage only it, prove the commit's path set, and run the pre-push proof. The work-product lock outside
+> this directory is unchanged — it governs writes to each lane's owned files (`D-271`).
 
 ## Raising an entry — Lane B and Lane C
 
@@ -342,6 +361,10 @@ to exempt a file forever). It SKIPS on a shallow CI checkout, exactly like `sour
 `docs-drift`/`graph-coverage`, and must be run locally before a closure claim relies on it.
 
 ## Answering — Lane A
+
+> **Receiver per series — `D-272`.** For a `B-` entry, and for a `C-` entry whose `Receiver:` is `Lane A`, Lane A
+> fills the `Lane A` line as below. For a `C-` entry whose `Receiver:` is `Lane B`, **Lane B** fills a `Lane B` line
+> with the same dispositions and the same rules. `handoff-response` reads the receiver's field.
 
 Fill the `Lane A` line. The dispositions are `Acknowledged`, `Answered` and `Withdrawn`:
 

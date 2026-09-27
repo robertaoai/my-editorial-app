@@ -19986,3 +19986,78 @@ then ahead (done, remote at `21170aa`).
 Does not check any `SV2-DOR-*`/`SV2-DOD-*` row; start any measurement or trial; edit a rule file, skill, the parity
 check, the template or the handoff SOP; create a root `GEMINI.md`; change lane state; add a Product feature, module or
 ID; edit a frozen source; lift the `V1-SM05` block; or push.
+
+## 5.14e97 `D-272` — Handoff Series Ownership: Raiser Owns and Commits Its Series; Receiver Answers and Commits; `C-` Receiver Named; `D-90`/`D-184` Amended
+
+**Authority: the Judge's answers of 2026-09-27 to Lane A, directly.** On whether *"the lock is for the owner files"*
+(`D-271` item 6) also reaches `D-184`: *"docs/handoff has B\* series files and C\* series files; B\* series files are B
+raising feedback to Lane A (Lane B is the owner and commits its own series files); C\* series files are C raising
+feedback to Lane B (since DevOps require codebase dependencies, no code no DevOps; Lane C is the owner and commits its
+own series files); Lane A that receives the B\* series files updates the takeover and commits; Lane B that receives the
+C\* series files updates the takeover and commits."* Follow-ups: **Q1 (b)** — `C-` goes to Lane B by default and to
+Lane A when the dependency sits on a Lane A surface; **Q2** yes — each lane commits its own series whatever its lane
+state, with the one-entry staging and pre-push proof unchanged; **Q3** — `C-001` concerns a Lane A surface (DevOps on
+the global Project scope), so Lane C raised it to Lane A, which answers it; **Q4** yes — record now in the Register,
+README, template and check, and correct the rule-file wording only in the post-measurement refactor; **Q5** yes — push
+`3d926a6` and `e79e9d4` (done, remote at `e79e9d4`).
+
+### The decision
+
+1. **Each series has an owner and a receiver.**
+
+   | Series | Raised, owned and committed by | Received — answered ("taken over") and committed by |
+   |---|---|---|
+   | `B-NNN` | Lane B | **Lane A**, always |
+   | `C-NNN` | Lane C | **Lane B** by default; **Lane A** when the dependency sits on a Lane A surface (`scripts/`, build config, global Project-scope DevOps) or the entry answers a Lane A request |
+
+2. **`C-` entries name their receiver** in a new header field, **`Receiver:`** (`Lane A` or `Lane B`). The receiver
+   writes its answer in its own field — `Lane A:` or `Lane B:` — with the existing dispositions and rules. `B-` entries
+   need no `Receiver:`; Lane A always answers them.
+3. **`D-184` amended — commit rights follow series ownership, not lane state.** A lane commits and pushes its own
+   series **whatever its lane state**, including `Blocked`; the receiver commits its answer the same way. Steps 1–6 of
+   the procedure are unchanged: bind one exact path, stage only it, prove the commit's path set, and run the pre-push
+   proof. The work-product lock outside `docs/handoff/` is unchanged: it governs writes to each lane's owned files
+   (`D-271` item 6).
+4. **`D-90` refined.** Lane A no longer answers every entry; each entry's receiver does. **`docs/handoff/` stays
+   unmapped for crossing detection** (`lane-boundary`): series ownership decides who may commit which entry, and a
+   receiver's answer inside another lane's entry is never a crossing.
+5. **`C-001`** gains `Receiver: Lane A` as metadata normalization, recorded by a Terminal annotation record, since it
+   is terminal (`Deferred`). Its history is unchanged: Lane A answered it as the receiver of a Lane A-surface request.
+6. **Measurement receipts** (`SV2-U02`): Lane B and Lane C each commit their own entry naming **Lane A** as receiver,
+   since Lane A made the request. This supersedes `D-270` item 4's and `D-271` item 6's route of Lane C's receipt as
+   Judge-supplied evidence.
+7. **Rule files — specified, not applied (Judge Q4).** `CLAUDE.md`, `AGENTS.md` and `.agents/rules/graphify.md` still
+   say, inside the hash-locked shared core, that Lane A answers every entry and must acknowledge each one. `D-266` item 2
+   bars editing them before the `SV2-U02` report. The wording is queued for the `AIG-06` atomic refactor; until then
+   **this entry wins over that text** (`D-58`).
+8. **Enforcement.** `handoff-response` reads the receiver's field per series and fails on a `C-` entry with no, blank
+   or invalid `Receiver:`. Four new fixtures prove it: missing, invalid, a Lane B receiver without a `Lane B:` field
+   (each must fail), and a Lane B receiver that has answered (must pass).
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e97 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-272` paragraph: series ownership, commit rights, the queued rule-file wording |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ disposition paragraph: no file added or retired |
+| **`docs/handoff/README.md`** | ✅ series-ownership table; `D-184` amendment note; receiver note in "Answering" |
+| **`docs/handoff/TEMPLATE.md`** | ✅ `Receiver:` and `Lane B:` fields |
+| **`scripts/checks/handoff-response.mjs`** | ✅ receiver-aware answer field; `Receiver:` validation for `C-` entries |
+| **`scripts/fixtures/suites.mjs`** | ✅ four `D-272` fixtures |
+| **`docs/LANE-B-WORK-ORDER.md`** | ✅ dated note: own-series commits; Lane B as receiver of `C-` entries |
+| **`.github/WORKFLOWS-SPEC.md`** | ✅ dated note in §6: own-series commits and the `Receiver:` rule |
+| **`docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`** | ✅ `AIG-02.R3`, §4.1 receipt, §4.2, one edge case — each marked `[V1]`, `D-272` |
+| **`docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md`**, **`docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md`** | ✅ Route C receipt path |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.1 Route C receipt and dated note |
+| **`docs/handoff/C-001`** | ✅ `Receiver: Lane A`, with its Terminal annotation record |
+| **Agent files** (`CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md`) | — **specified, not applied**: queued for the `AIG-06` refactor (`D-266` item 2); this entry governs meanwhile (`D-58`) |
+| **`lane-boundary`**, `V1-PHASE-CLOSURE.md` | — unaffected: `docs/handoff/` stays unmapped; no lane-state change |
+| **`docs/Modular_PRD.md`**, Product Fn_Specs, storyboard, traceability map, `V1-SM05.md` | — unaffected: no Product requirement or behaviour change |
+| **Encyclopedia** | — unaffected: no entry covers the handoff channel |
+| **Graphify** | Rebuild after the final commit of this pass |
+
+### What this act does NOT do
+
+Does not edit a rule file or the shared core; map `docs/handoff/` to a lane; change lane state; reopen, verify or close
+any entry; start any measurement; or lift the `V1-SM05` block.

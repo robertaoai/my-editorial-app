@@ -5,7 +5,7 @@
 of `D-29`/`D-33`). Not a Product feature group.
 **Status:** Draft. Planning and measurement design only — no rule-file refactor, loader run or construction authorized.
 **Source:** `Modular_PRD.md` §7.2a (`AIG-01`–`AIG-06`, the governed intent anchor for this family); decisions `D-56`,
-`D-75`, `D-88`, `D-90`, `D-102`, `D-156`, `D-183`, `D-184`, `D-227`, `D-266`, `D-270`, `D-271`; the handoff SOP
+`D-75`, `D-88`, `D-90`, `D-102`, `D-156`, `D-183`, `D-184`, `D-227`, `D-266`, `D-270`, `D-271`, `D-272`; the handoff SOP
 (`docs/handoff/README.md`, `TEMPLATE.md`); attempt `SV-002` (`SV2-U02`–`SV2-U04`).
 **Structure:** merged per `D-33`. Technical Stack omitted (`D-30`). Platform realization lives in
 `docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md`; platform interaction in `docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md`.
@@ -63,7 +63,7 @@ Project-actor stories, not customer stories; they carry `AIG` keys and never `US
 | `AIG-01.R3` | Work outside one's lane is specified, not applied, and crosses by handoff; a multi-lane commit declares the crossing | `D-56`, `D-88` |
 | `AIG-02.R1` | Every cross-lane message is a handoff entry; Lane A acknowledges every open entry; an answer is append-only | `D-90`, handoff SOP |
 | `AIG-02.R2` | A terminal entry changes only by a Return record (it reopens) or a Terminal annotation record (it does not) | `B-097`, `B-113` |
-| `AIG-02.R3` | Durable handoff commits follow the one-entry procedure | `D-184` |
+| `AIG-02.R3` | Each series is raised and committed by its owner **whatever its lane state**; the receiver answers and commits its answer — `B-` → Lane A; `C-` → Lane B, or Lane A when the dependency sits on a Lane A surface or answers a Lane A request. Every commit follows the one-entry procedure *(amended `[V1]`, `D-272`)* | `D-184`, `D-272` |
 | `AIG-03.R1` | What a tool loads is a **measured** fact per tool; a design target is not a measurement | `D-266` items 2–3 |
 | `AIG-03.R2` | Silence is diagnosed before removal: dead, discovery failure, wrong owner or wrong loading tier | `D-271` item 7; external review §3, advisory |
 | `AIG-03.R3` | A probe that cannot separate loader route from truncation or response error reports `inconclusive` | `D-271` item 8 |
@@ -82,14 +82,16 @@ Project-actor stories, not customer stories; they carry `AIG` keys and never `US
 2. **Response.** The owning lane does the work inside its own surface. If the work writes owned files, that lane must
    hold the lock. If it is **read-only** — a measurement, a review, a feasibility read — it writes no owned file and runs
    without the lock, whatever that lane's state (`Active`, `Eligible` or `Blocked`).
-3. **Receipt.** The responder's result returns as a handoff entry or as evidence the Judge supplies. Committing that
-   entry follows `AIG-02.R3`: the lane's state governs whether it may commit durably, not whether it may do read-only work.
+3. **Receipt.** The responder's result returns as a handoff entry in its own series, which it commits whatever its
+   lane state, naming the requesting lane as receiver (`AIG-02.R3`). *(Amended `[V1]`, `D-272`: lane state no longer
+   bars committing one's own entry.)*
 4. **Failure.** A response that writes another lane's surface is a crossing: declare it (`D-88`) or withdraw it.
 
 ### 4.2 `AIG-02` — the handoff channel
 
 The lifecycle, dispositions, resolutions and fields are owned by `docs/handoff/README.md` and `TEMPLATE.md`. This
-family adds no field and no state. Behaviourally: an entry is raised by one lane, acknowledged and answered by Lane A,
+family adds no field and no state. Behaviourally: an entry is raised by one lane, acknowledged and answered by its
+receiver (`AIG-02.R3`; *amended `[V1]`, `D-272`* — it read "by Lane A"),
 and verified by an actor who did not answer it; a terminal entry stays terminal unless a Return record names its one
 trigger.
 
@@ -145,7 +147,7 @@ Named `AIG-NN.Cn` (registered in `Modular_PRD.md` §0.5). They are Project gover
 
 | Case | Behaviour |
 |---|---|
-| A `Blocked` lane is asked for a read-only measurement | It responds; no lock is needed. Its receipt is committed only as `D-184` allows, otherwise the Judge supplies it |
+| A `Blocked` lane is asked for a read-only measurement | It responds; no lock is needed. It commits its receipt in its own series, naming the requesting lane as receiver *(amended `[V1]`, `D-272`)* |
 | A tool quotes a sentinel correctly but the verifier cannot tell which loader supplied it | `inconclusive` — never counted as proof of a loading route |
 | A rule is unused because its trigger never matches | Discovery failure: rewrite the trigger, keep the content |
 | The same text loads twice (native plus import) | `duplicated loading`, recorded with both sources |

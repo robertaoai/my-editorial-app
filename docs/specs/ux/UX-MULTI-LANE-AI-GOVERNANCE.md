@@ -27,7 +27,7 @@ until observed in use.
 | ChatGPT Chat/Work | The Judge's conversation, with repository context supplied | A drafted `B-` entry or review text |
 | Codex | The Judge's instruction in its session against the checkout | Code commits in Lane B's surfaces; its own `B-` entry (`D-184`) |
 | Antigravity chat | The Judge's conversation | Level 2 review text |
-| Antigravity IDE | The Judge's instruction against the checkout | Workflow changes in `.github/workflows/`; a drafted `C-` entry |
+| Antigravity IDE | The Judge's instruction against the checkout | Workflow changes in `.github/workflows/`; its own committed `C-` entry, naming its receiver *(amended `[V1]`, `D-272`)* |
 
 **The Judge is the relay between surfaces.** No surface messages another directly; each request and each receipt
 passes through the Judge or through a committed handoff entry.
@@ -39,7 +39,7 @@ passes through the Judge or through a committed handoff entry.
 | Opening a **fresh session** for an `SV2-U02` probe | New Code-tab session; no prior transcript | New session | New session |
 | **Withholding file and search tools** during the automatic-loading probe | The operator asks before any tool call and rejects a tool request | **unknown** — measured by `SV2-U02-B` | **unknown** — measured by `SV2-U02-C` |
 | Reading the context readout | `/context` | **unknown** | **unknown** |
-| Where the receipt is typed | Lane A records it in `SV-002` | Lane B's `B-` entry | Lane C's drafted `C-` entry, relayed by the Judge if it cannot be committed |
+| Where the receipt is typed | Lane A records it in `SV-002` | Lane B's `B-` entry | Lane C's own committed `C-` entry, `Receiver: Lane A` *(amended `[V1]`, `D-272`)* |
 
 ## 3. Review hand-offs `[V1]`
 

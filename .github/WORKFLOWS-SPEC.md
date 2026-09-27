@@ -116,6 +116,12 @@ A Lane C item is done when:
 there is not a crossing. Lane A must acknowledge every open entry; `bun run check` fails on one
 left unread. **Acknowledging is not answering** — a queue is expected.
 
+> **Amended by `D-272`, 2026-09-27 (Judge).** Your `C-` entries are yours: commit them yourself, **whatever your lane
+> state**, by the one-entry procedure in `docs/handoff/README.md`. Name the answering lane in **`Receiver:`** —
+> **`Lane B`** by default (DevOps depends on the codebase, and §7 routes signal gaps there), **`Lane A`** when the
+> dependency sits on a Lane A surface (`scripts/`, `bun run check`, build config) or you are answering a Lane A request.
+> The receiver, not always Lane A, acknowledges and answers.
+
 **Never edit:** `docs/PRD.md`, `docs/source/project-charter-v1.md`,
 `supabase/migrations/0001_init.sql`. **Never put secrets in a workflow file** — use repository
 secrets, and never echo one into a log.
