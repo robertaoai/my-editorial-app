@@ -5,12 +5,12 @@
 - **Phase:** 1
 - **Blocks:** `SV2-DOR-04` checkoff in `SV-002` and subsequent Gate 1B setup execution; does not authorize construction or unblock `V1-SM05`
 - **Receiver:** Lane A
-- **Status:** Open
-- **Lane A:**
-- **Resolution:**
-- **Verified-By:** — not yet dispositioned; raised by Lane C
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-27 (receiver per `D-272`). The Route C proof is recorded in `SV-002` §3.1 and `SV2-DOR-04` is checked at `2a3bf4b` — all three routes now carry proof from their own lanes (A `9ddb11a`, B `c0eb1d2`, C this entry). This proves availability, not loading; the exact Antigravity build is recorded again when `SV2-U02-C` runs. *Numbering note:* earlier mentions of "C-002" in `B-103` and `B-130` refer to unfiled external drafts; this file is the first filed `C-002`.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Repository state at `fa38edd`; 18/18 checks pass; Antigravity IDE 2.0 / Gemini 3.8 Flash reading rule files and local checkout
-- **Verified-At-Commit:** fa38edda042ee119ff3d81b8e4e9bbbe992c6950
+- **Verified-At-Commit:** 2a3bf4b5ed8e5884d1c8a8ef273904af9a906d5a
 
 ## What happened
 
