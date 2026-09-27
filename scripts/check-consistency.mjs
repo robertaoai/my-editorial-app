@@ -29,6 +29,7 @@ import { run as laneState } from "./checks/lane-state.mjs";
 import { run as channelDocs } from "./checks/channel-docs.mjs";
 import { run as retentionPolicyCoupling } from "./checks/retention-policy-coupling.mjs";
 import { run as terminalReturn } from "./checks/terminal-return.mjs";
+import { run as textIntegrity } from "./checks/text-integrity.mjs";
 
 const CHECKS = [
   sharedCoreHash,
@@ -49,6 +50,7 @@ const CHECKS = [
   channelDocs, // `D-104` — the channel README/template coupled to the checks that enforce them
   retentionPolicyCoupling, // `D-134` — RET-EDITORIAL coupled across the four tiers that cite it
   terminalReturn, // `B-097` — a terminal entry that kept accumulating rounds with no return record
+  textIntegrity, // `D-297` — the `B-140` path corruption, recurred after a manual repair
 ];
 
 let failed = 0;

@@ -2011,6 +2011,82 @@ export async function graphCoverageManifest(results) {
   );
 }
 
+const DOCS_README = "docs/README.md";
+const B140 = "docs/handoff/B-140-sv002-route-c-access-path-corruption.md";
+
+/**
+ * `D-297` — the `B-140` path corruption, which recurred after a manual repair.
+ *
+ * Built by `String.raw` and explicit `\r`, never through a shell, because a
+ * shell layer is exactly how the defect was produced both times.
+ */
+export async function textIntegrity(results) {
+  const readmeOrig = read(DOCS_README);
+  const b140Orig = read(B140);
+  const restoreAll = () => {
+    write(DOCS_README, readmeOrig);
+    write(B140, b140Orig);
+  };
+  const good = "`" + String.raw`C:\Users\example\kit\ `.trimEnd() + "`";
+
+  await fixture(results, {
+    name: "text-integrity: the live corpus, unmutated",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => {},
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "text-integrity: CRLF line endings are not a finding",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig.replace(/\r?\n/g, "\r\n")),
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "text-integrity: an intact drive path is not a finding",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig + `\nThe kit lives at ${good}.\n`),
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "text-integrity: a bare carriage return inside a path (the B-140 shape)",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig + "\nThe kit lives at `C:Users\robertkit`.\n"),
+    restore: restoreAll,
+    expect: "a bare carriage return",
+  });
+  await fixture(results, {
+    name: "text-integrity: another control character",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig + "\nA form feed \f here.\n"),
+    restore: restoreAll,
+    expect: "control character U+000C",
+  });
+  await fixture(results, {
+    name: "text-integrity: a drive path that lost its separators, no control character",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig + "\nThe checkout is `C:gitmy-editorial-app`.\n"),
+    restore: restoreAll,
+    expect: "has no separator after the colon",
+  });
+  await fixture(results, {
+    name: "text-integrity: docs/handoff/ may quote a lost-separator path as evidence",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(B140, b140Orig + "\nQuoted evidence: `C:gitmy-editorial-app`.\n"),
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "text-integrity: docs/handoff/ is NOT exempt from the control-character rule",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(B140, b140Orig + "\nQuoted evidence: `C:\robertaoai`.\n"),
+    restore: restoreAll,
+    expect: "a bare carriage return",
+  });
+}
+
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
   ["return record form (`B-097`)", returnRecordForm],
@@ -2030,4 +2106,5 @@ export const SUITES = [
   ["config coupling (`C-17`, raised as `B-024`)", configCoupling],
   ["reopens-phase (`C-19`, raised as `B-025`)", reopensPhase],
   ["fixture retry resilience (`D-139`, raised against this session's own run)", retryResilience],
+  ["text integrity (`D-297`, the `B-140` recurrence)", textIntegrity],
 ];

@@ -19,6 +19,10 @@ Claude outputs/
 #   CURATED layer   — hand-authored concept nodes. Extraction does NOT regenerate these.
 #                     They rebuild ONLY from docs/graph-fragments/ (tracked). See G51.
 .graphify/
+# `D-297`: `.graphify` may be a SYMLINK to a shared graph folder. Git stores a
+# symlink as a file, so the directory-only pattern above does not match it and
+# `git add -A` would commit the link. This line covers that form.
+.graphify
 ast.js
 b3.js
 cache.js

@@ -21160,3 +21160,55 @@ Lane C eligible for Lane C receipt to Lane A"*.
 | **Agent files**, `LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md` | — unaffected: they define the vocabulary, not the live state |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e122 `D-297` — `B-140` Recurrence Repaired in `SV-002`; `text-integrity` Check Added; `.graphify` Symlink Ignored
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Apply + add check"*, on Lane A's review of Lane C's Route C
+handover analysis (a turn note, not a receipt). Lane A's own surfaces only (`D-84`, `D-227`).
+
+### The decision
+
+1. **The `B-140` defect recurred, and is repaired.** `D-290`, `D-292` and `D-295` wrote the kit and checkout paths
+   into `SV-002` through a shell layer: `\r` became a carriage return and the separators were lost. Five paths are
+   affected (the three kit folders, the Route A checkout and the Route B checkout). They now read as the Register
+   records them. `B-140`'s own repair was manual, and nothing detected the recurrence; every check was green.
+2. **`scripts/checks/text-integrity.mjs` is added to `bun run check`.** Over every tracked or untracked markdown file:
+   no control character (a carriage return is legal only as part of CRLF), and no drive path in a code span that lost
+   its separator. `docs/handoff/` is exempt from the path rule only, because an entry may quote the corrupted
+   rendering as evidence (`B-140` does). A discovery failure, or zero files found, is a failure. The
+   `bun run fixtures` suite covers a positive control, CRLF, an intact path, both defect shapes, and the handoff
+   exemption in both directions. It runs in CI.
+3. **`.gitignore` also ignores `.graphify` without the trailing slash.** Here `.graphify` is a symlink to a shared graph
+   folder. Git stores a symlink as a file, so `.graphify/` did not match it, and `git add -A` would have committed the
+   link.
+4. **`SV-002` §3.2's `SV2-U02-C-R1` row is corrected.** It said "run not started". The Judge operated the probe
+   session on 2026-09-27, and its evidence files are in the kit folder. **No receipt exists yet, and nothing is
+   classified by this act.**
+5. **Recorded for Lane A's Level 1 review of the Route C receipt, not decided here:**
+   - the probe transcript carries **no** rule-injection record or truncation marker, so the quotes govern (`D-294`);
+     a marker Lane C saw in its own analysis session is a lead, not probe evidence;
+   - the visible `pre2` and `core3` lines cannot attribute the load to `AGENTS.md` over `CLAUDE.md`, or separate
+     "`graphify.md` not loaded" from "truncated";
+   - the two Probe 2 steps were sent as one message, so the permitted `SKILL.md` reads fall inside the quote window
+     (control 3).
+6. **Not given by this act:**
+   - the request for Lane B's Level 1 review of Route A (the Judge said to wait);
+   - any rule-file or skill edit (`D-266` item 2);
+   - the Route C classification;
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e122 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ five paths repaired; dated note; §3.2 `SV2-U02-C-R1` row |
+| **`V1-ARTIFACT-INVENTORY.md`** | ✅ `scripts/checks/text-integrity.mjs` row; `scripts/fixtures/` row cites the suite |
+| **`V1-BUILD-SPEC.md`** | — unaffected: no scope, sequence or DoD moves; the `C-14` extension list there is illustrative and carries no total (`G75`) |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: §5A.5 is the Phase 1 manifest and does not list later checks; no lane change |
+| **Agent files** | — unaffected: no rule changes |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
