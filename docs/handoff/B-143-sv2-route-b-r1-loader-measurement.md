@@ -7,8 +7,9 @@
 - **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-27, read at `cf5a095`. **Level 1 review done: the independent re-score agrees with every result and control in this receipt.** Lane A adds three findings, and the **classification path is put to the Judge** (see "Lane A Level 1 review" below). Status stays Open until the Judge rules.
   **Answered 2026-09-27 (`D-294`).** The Judge chose **option (b)**. `SV-002` §3.4 is amended: a loader diagnostic decides the loader outcome, and quotations corroborate it. R1 is classified as `AGENTS.md` complete loading, `CLAUDE.md` not loaded, and one response error (C8). **No R2 is needed.** Route C runs under `SV2-U02-B-R1`. Lane C's Level 2 review of this route follows §3.1.
+  **Lane C's Level 2 review filed 2026-09-27 as `C-004`** (a document review that agrees with `D-293` and `D-294`; the rollout was not re-scored). Whether it verifies this entry is put to the Judge (`D-299`); until then this entry stays `Applied`.
 - **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A (`D-294`, Judge ruling). Lane C's Level 2 review is still pending
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `SV-002` §3.1/§3.4; `D-276` item 4; `D-292`; Route B kit `answers-1.txt`, rollout `01a0e2f8-c427-7500-9756-87b19ff5dd05`, `score.mjs` and `score-probe1.txt`; read-only rescore and pin comparison at the commit below
 - **Verified-At-Commit:** d4a2af8c7ec9e8938f8c45b3b37579ebb37b3def
 

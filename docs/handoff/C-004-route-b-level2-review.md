@@ -5,10 +5,12 @@
 - **Phase:** 1
 - **Blocks:** completion of the §3.1 route schedule Level 2 review for Route B
 - **Receiver:** Lane A
-- **Status:** Open
-- **Verified-By:** — not yet dispositioned; raised by Lane C
-- **Evidence:** `B-143` (at `cf5a095`); `D-293` (Lane A Level 1 re-score); `D-294` (Judge Option (b) ruling); `SV-002` §3.2 `SV2-U02-B-R1` row; read-only document review at the commit below
-- **Verified-At-Commit:** 77bead6a30868998b6312a26cd1fd3c2266847ee
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-27, read at `9a5ba6e` (receiver per `D-272`). The review is recorded against the `SV2-U02-B-R1` row in `SV-002` §3.2 (`D-299`), with its scope as stated: a document review, not a re-score. Its four points match `D-293` and `D-294`. **Whether this review also counts as `B-143`'s independent verification is put to the Judge** (`D-299`), because it did not re-examine the rollout; until then `B-143` stays `Applied`.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** `B-143` (at `cf5a095`); `D-293` (Lane A Level 1 re-score); `D-294` (Judge Option (b) ruling); `SV-002` §3.2 `SV2-U02-B-R1` row; read-only document review; Lane A recording in `SV-002` §3.2 (`D-299`)
+- **Verified-At-Commit:** 9a5ba6eb9c1ab4fd1d6daa673eb8ad72ea65875d
 
 ## What happened
 

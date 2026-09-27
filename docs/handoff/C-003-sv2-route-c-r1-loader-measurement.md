@@ -6,6 +6,7 @@
 - **Blocks:** a conclusive `SV2-U02-C` result and `SV2-DOD-03`; does not authorize construction or unblock `V1-SM05`
 - **Receiver:** Lane A
 - **Status:** Open
+- **Lane A:** Acknowledged 2026-09-27, read at `9a5ba6e`. **Level 1 review done: Lane A's independent re-score is identical to this receipt in every result and control, and every factual claim checked holds.** Lane A adds three findings; the **classification path is put to the Judge** (`D-299`; see "Lane A Level 1 review" below). Status stays Open until the Judge rules.
 - **Verified-By:** — not yet dispositioned; raised by Lane C
 - **Evidence:** `SV-002` §3.2/§3.4; `D-276` item 4; `D-294`; `D-295`; `D-296`; Route C kit at `C:\Users\rober_24syk4j\sv2-route-c-kit\` (`answers-1.txt`, `answers-2.txt`, `score-probe1.txt`, `score-probe2.txt`, `transcript_full.jsonl`); kit hashes re-checked against `D-295`; read-only review at the commit below
 - **Verified-At-Commit:** 77bead6a30868998b6312a26cd1fd3c2266847ee
@@ -82,3 +83,59 @@ of Route A waits for Lane B's Level 1 review.
 | Probe 2 complete on-demand load | **Approve-with-conditions** | Diagnostic shows complete delivery; control 3 waits for the ruling (Gate 1B) |
 | The 7,958-byte marker | **Defer** | A lead until captured in a probe conversation (Gate 1B, R2 if chosen) |
 | Checking `SV2-DOD-03` or lifting the `V1-SM05` block | **Reject** | Needs all route receipts reviewed and the combined report accepted (Gate 1B → Gate 2) |
+
+## Lane A Level 1 review — 2026-09-27, read at `9a5ba6e`
+
+### What happened
+
+Lane A re-ran the pinned Route C `score.mjs` (`5f39cadd…`, unchanged since `D-295`) on both answer files and the
+transcript, outside the repository. The outputs are saved in the kit folder as `score-laneA-L1-probe1.txt`
+(`43df5bdb…`) and `score-laneA-L1-probe2.txt` (`0634129e…`). **Their content is identical to `score-probe1.txt` and
+`score-probe2.txt`**; the only byte difference is that the originals were saved as UTF-16.
+
+Every factual claim in this receipt was checked against the evidence and holds:
+- **Kit and evidence hashes** match `D-295` and the table above.
+- **Checkout at run time:** HEAD was `9986b4d`. `D-295` was committed at 21:56 and `D-296` at 22:20 (+08:00), and the
+  probe started at 22:08:12 (+08:00).
+- **Windows and tool calls:** Probe 1 has no tool call. Probe 2 has exactly two `view_file` calls on `SKILL.md`: the
+  first with no range, the second with `StartLine` 801 and `EndLine` 1354. Both tool outputs report
+  **Total Bytes: 70373** and show lines 1–800 and 801–1354.
+- **No loader diagnostic for Probe 1:** the transcript contains no rule wrapper and no truncation marker. The agent's
+  Part A answer names only `c:\robertaoai\my-editorial-app\AGENTS.md`, as a workspace rule.
+
+**Three findings Lane A adds:**
+1. **The lead is internally consistent, down to the line.** 31,920 − 7,958 = 23,962 bytes, and in `AGENTS.md` at the
+   run commit, byte 23,962 is exactly the newline ending line 329. The reported cut would therefore remove whole lines,
+   from line 330 on. That makes the lead more plausible. It does not make it evidence.
+2. **Attribution between `AGENTS.md` and `CLAUDE.md` cannot come from quotes, in this run or any run.** Their lines
+   1–381 are byte-identical, and both unique tails start beyond byte 23,962. Only a harness record, or the agent
+   quoting the rule wrapper, can name the file. A quote test **can** measure the cut point: a sentinel on line 329
+   (predicted visible) and one on line 330 (predicted absent) bracket it, whichever file supplied them.
+3. **The Probe 2 deviation traces to the kit, not only the operator.** `PROBE-2-on-demand-skill.md` holds both steps in
+   one file, which invites pasting them together. An R2 kit should ship them as two files.
+
+### What you need (Lane A, to the Judge)
+
+**One classification question, which Lane A does not decide (`D-58`).**
+
+| Option | Consequence |
+|---|---|
+| **(a) R1 stays `inconclusive`; run `SV2-U02-C-R2` under `SV2-U02-B-R1`** with a revised kit: Probe 1 adds the line-329/330 bracket and a cue to quote each rule wrapper and any truncation marker verbatim; Probe 2 ships as two files, sent as two messages | One more Judge-operated session. It measures the cut point by the governing quote method, puts the wrapper on the probe record, and clears control 3. The kit revision is its own Register act, as `D-295` was |
+| **(b) Classify R1 now:** Probe 2 from its diagnostic (the permitted reads ruled not a control-3 breach), and Probe 1 by accepting the Part A claim as evidence | No R2. Probe 1 would record "`AGENTS.md` loaded as a workspace rule, tail absent; `graphify.md` not loaded" on self-report alone, and **the truncation size would stay unmeasured** |
+
+Lane A recommends **(a)**. The remediation decision after `SV2-U02` has to decide whether the `AGENTS.md` tail is lost
+to Antigravity, and only (a) measures that. Probe 2 could be classified today under (b)'s ruling, but the R2 session
+repeats it at no extra cost.
+
+### What Lane A did instead
+
+Recorded this review and the receipt state in `SV-002` §3.2 (`D-299`). Lane A changed no kit file, key, scorer, rule
+file or classification.
+
+| Item | Verdict | Condition and follow-up phase |
+|---|---|---|
+| `C-003` evidence, controls and reading; Lane A's re-score agrees | **Approve** | Gate 1B |
+| Proposed classification `inconclusive` | **Approve** | Stands until the Judge rules (Gate 1B) |
+| The 7,958-byte lead | **Defer** | Consistent to the line, but still not probe evidence; captured by R2 if chosen (Gate 1B) |
+| Option (a), R2 with a revised kit | **Approve-with-conditions** | Only by the Judge's ruling and a separate kit act (Gate 1B) |
+| Lane B's Level 2 review of Route C | **Defer** | After the Judge rules; §3.1 schedule (Gate 1B) |
