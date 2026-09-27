@@ -20278,3 +20278,53 @@ item 6 that covers `U4-G2`–`U4-G6`.
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS, `V1-SM05.md` | — unaffected: `SV-002` reads `V1-SM05.md`'s acceptance line and does not change it |
 | **Encyclopedia** | Entry 03 is screened as `ENC-03`; its flag and hosted comparison keep their own path (`D-265`) |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e103 `D-278` — `SV-002` §2.3: Lane A-Resolved Entries Without Independent Verification Screened (`C2`)
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: apply C2"*, the child of `D-276`
+item 6 for `U4-G7`. The Judge had already chosen to screen this layer inside `SV-002` rather than park it in `B-117`.
+
+### The decision
+
+1. **New `SV-002` §2.3, derived by rule.** It covers every handoff entry whose `Status` is not `Open`, whose kind is not
+   `turn-report`, which records a `Resolution`, and whose `Verified-By` names no independent verifier. It was derived
+   from live headers at `09060cc` and is re-derived at each review. The headers stay authoritative.
+2. **Screened by each entry's `Blocks` line.** An entry intersects if it blocks something that `V1-SM05`, its DoR
+   evidence or this attempt consumes. Intersecting entries fall into four classes:
+   - `SV2-U04` inputs: `B-084`, `B-097`, `B-100`, `B-112`, `B-113`.
+   - `SV-001` evidence behind `V1-SM05`'s DoR: `B-121`, `B-124`, `B-126`, `B-127`, `B-128`, `B-131`, `B-132`,
+     `B-133`.
+   - This attempt's own evidence: `C-002`, `B-046`, `B-050`.
+   - Gate 2 work-order items: `B-061`, `B-070`, `B-103`, `B-114`, `B-115`, plus `B-120`/`B-125`, which are already
+     tracked at §2.2 `P14a`/`P14b`.
+
+   Every other entry that matches the rule is itemized as excluded, each with its own reason. §2.3 holds the list;
+   this entry does not restate a count.
+3. **Return condition for each intersecting row:** either an independent `Verified-By` at an existing commit, or the
+   Judge's explicit acceptance of the Lane A disposition as it stands, with the reason recorded. Each row is due by its
+   *Needed before* point: `SV2-DOD-01`, `-02`, `-03` or `-05`, or the Gate 2 work order (§2.2 `P13`/`P14`). No entry's
+   own lifecycle is changed, and no entry is closed in bulk.
+4. **Propagated inside `SV-002`:**
+   - a new §2.2 row `P16`, pointing to §2.3;
+   - a §2.1 dated note (its earlier awaiting-verification list covered only `C-002`);
+   - a §4 drift-ledger row, class `Previously omitted`: the census read `Open` headers only.
+
+   **Closes `U4-G7`.** The screen is a Lane A classification and awaits Lane B's review.
+5. **Unchanged:**
+   - No verification is performed or claimed by this act.
+   - `U4-G8` (`B-127`/`B-128` headers) stays with `C3`, and `U4-G11` stays with `C4`/`C5`.
+   - `V1-SM05` stays `BLOCKED`, and there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e103 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.1 dated note; §2.2 `P16`; new §2.3; §4 drift row |
+| **`V1-BUILD-SPEC.md`** | — unaffected: no scope or sequence change. The added obligations sit under `SV-002`'s existing `SV2-DOD-*` rows and the existing Gate 2 point |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file added or retired |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS, `V1-SM05.md` | — unaffected |
+| **Handoff entries** | — unaffected: no header changed |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
