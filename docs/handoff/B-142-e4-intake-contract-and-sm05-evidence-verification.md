@@ -5,7 +5,10 @@
 - **Phase:** 1
 - **Blocks:** full `SV2-DOD-05` closure and a claim that the `V1-SM05` Gate 2 evidence is complete
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-09-27, receipt only, read at `9b32773`. All six results and the four gaps are
+  accepted as findings. Nothing is applied yet. Each correction (the §3.1/§4.5 pointers, the no-original-URL refusal
+  case, the `B-131` lifecycle return, the Jev enforcement choice and E5) waits for its own Judge act. The §3.3
+  receipts are recorded when that act lands.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-280`–`D-287`; `SV-002` §§2.3/3.3/3.4/7; `FN-GATES-01-05.md` §§2/3.1/4.5/4.6; `Modular_PRD.md` `FR-01`, `AC-02`, `TR-DM-07`; `V1-SM05.md` DoR→DoD map and DoD; `B-096`, `B-131`, Panel A11, `ENCYCLOPEDIA-SYNC.md` Entry 06; v15 export SHA-256; `scripts/jev/manifests/V1-SM05.json` and `scripts/jev/lib.mjs` completion rules; Graphify and Jev readiness reads at the commit below
 - **Verified-At-Commit:** 7acac90de3e9a88847558d41f2fbc95bd8a183a6
