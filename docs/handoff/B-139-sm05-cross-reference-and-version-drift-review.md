@@ -313,3 +313,22 @@ The attached Lane C review correctly observes that the consistency suite and Gra
 | **Approve-with-conditions** | `Modular_PRD` Project-scope index and governance ID scheme | Phase 1 — avoid false Product sprint entitlement and register any new persistent prefix |
 | **Defer** | DoR checkoff, loader runs, rulebook changes, push and `V1-SM05` handover | Gate 1B execution → Gate 2 — require distinct evidence and authorization |
 | **Reject** | Checking `-04` under the unamended turn-start clause, or mandating an unapproved §7.2.1/`GOV-*` design | Phase 1 — these would overwrite authority or pre-decide the design |
+
+### Lane B Level 1 review of `SV2-DOR-02` coverage — 2026-09-27
+
+**Read commit:** `14219ca0b5df1ff8c95454bb4f5149bd4c0f1281`. This is a readiness review of `SV-002` §§2, 4 and 5 against their cited handoff headers and template criteria, not a claim that transferred work or the setup run is complete. The §2.1 audit explicitly records its earlier derivation at `bcbf548`; its 14 Open entries were valid at that read point. B-140's Route C correction was subsequently independently verified by Lane B at `14219ca`, so the live Open set at this review has 13 entries: B-071, B-095, B-096, B-102, B-104, B-106, B-116, B-117, B-118, B-119, B-130, B-136 and B-139. The count is a dated comparison, not a standing tracker.
+
+**Level 1 result.** §2 has bounded coverage rows, separate Open, transferred and verification states, and per-handoff preparation items with owner, destination and return conditions. §4 retains the source-to-successor drift ledger; §5 retains the success-drift dimensions and correctly leaves outcome classification for DoD evidence. `B-120` and `B-125` remain transferred, not Open or completed. `C-002` remains Answered/Applied pending its own verification; `B-138` is Verified. These structures support a bounded `SV2-DOR-02` check once the two current-state corrections below are applied. They do not close the B-series children or any DoD row.
+
+**Lane A corrections, parent before checkoff:**
+
+1. Re-derive §2.1 from live handoff headers at the actual checkoff commit. Remove B-140 from the Open table and record its `14219ca` independent verification in the appropriate verified/current-state note; retain each other item's owner and return condition. Preserve the historical `bcbf548` snapshot as history rather than describing it as erroneous.
+2. Correct §2.2 preparation row P2: its `B-138` state still says “Already Answered/Applied” and its receipt says “pending,” while §2.1 and the B-138 header record Lane B verification at `3cd16cf`. Cite that receipt without equating verification of B-138 with completion of the later setup units.
+3. After those source edits, run the governed-docs Graphify sync and consistency checks, then check `SV2-DOR-02` only if §§2, 4 and 5 still account for the live coverage, drift and success baseline. Judge run selection, DoD acceptance and `V1-SM05` remain later gates.
+
+**Disposition:** B-139 stays Open for its other child obligations; this return supplies only the DOR-02 Level 1 review. Lane B changed no Lane A canonical source or checklist row.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve-with-conditions** | `SV-002` §§2/4/5 coverage for `SV2-DOR-02` | Gate 1B preparation — refresh §2.1 and P2 from current receipts, then check the row on that evidence |
+| **Defer** | Setup execution, DoD and `V1-SM05` selection | Gate 1B execution → Gate 2 — require the separate run, reviews and Judge acts |
