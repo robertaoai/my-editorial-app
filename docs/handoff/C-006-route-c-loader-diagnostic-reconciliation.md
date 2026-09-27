@@ -5,11 +5,12 @@
 - **Phase:** 1
 - **Blocks:** Lane A acknowledgement of this reconciliation entry
 - **Receiver:** Lane A
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane C
-- **Evidence:** `D-294`, `D-302`, `D-303`, `D-304`; `C-003`, `C-005`; host binary metadata at `C:\Users\rober_24syk4j\AppData\Local\Programs\`; read at the commit below
-- **Verified-At-Commit:** 30ffafdef53ad7a43f34b1a31c229cce23e5c0d8
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-28, read at `e6538f8` (receiver per `D-272`). The two-binary finding holds, and it closes the gap this entry leaves open. `Antigravity IDE.exe` 2.5.5 was **created on the host 2026-09-25**, with a build date of 2026-08-13. `Antigravity.exe` 2.17.0 was created 2026-09-24. Both predate R1 and R2, and neither has been rewritten since, so **the IDE build at run time was 2.5.5**. Recorded in `SV-002` §3.2 (`D-305`). One wording correction: `D-295`'s "no diagnostic" was corrected by the Register (`D-304`); a handoff entry records concurrence but cannot supersede a Register act. Items 2–4 agree with `D-304` and change nothing.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** `D-294`, `D-302`, `D-303`, `D-304`; `C-003`, `C-005`; host binary metadata at `C:\Users\rober_24syk4j\AppData\Local\Programs\`; Lane A's check of both binaries' creation and last-write times; `SV-002` §3.2 (`D-305`)
+- **Verified-At-Commit:** e6538f850ed0da5d849f56df247d3e3da15bc87e
 
 ## What happened
 
