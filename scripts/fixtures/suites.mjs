@@ -649,10 +649,21 @@ export async function laneState(results) {
   // `D-156` inverted three of these against `D-108` (`G110`). Kept as fixtures
   // rather than deleted: the pairs below are the proof the inversion took
   // effect, and a deleted negative test leaves no evidence either way.
+  // The third lane is set `Blocked` explicitly rather than inherited: when the
+  // live register already nominates it (`D-296` nominated C), inheriting its
+  // state made this "one Eligible" case two, and the fixture tested nothing.
   await fixture(results, {
     name: `lane-state: ONE Eligible beside Active is the nomination (${others[0]} offered while ${active} runs)`,
     modulePath: CHECK("lane-state.mjs"),
-    mutate: () => write(CLOSURE, setState(orig, others[0], "**`Eligible`**")),
+    mutate: () =>
+      write(
+        CLOSURE,
+        setState(
+          setState(orig, others[0], "**`Eligible`**"),
+          others[1],
+          `**\`Blocked\`** on the Lane ${active} run`,
+        ),
+      ),
     restore,
     shouldPass: true,
   });
@@ -681,7 +692,14 @@ export async function laneState(results) {
   await fixture(results, {
     name: `lane-state: NO lane is Active — ${active} steps out with others Blocked`,
     modulePath: CHECK("lane-state.mjs"),
-    mutate: () => write(CLOSURE, setState(orig, active, "**`Eligible`**")),
+    mutate: () =>
+      write(
+        CLOSURE,
+        others.reduce(
+          (t, L) => setState(t, L, `**\`Blocked\`** on the Lane ${active} run`),
+          setState(orig, active, "**`Eligible`**"),
+        ),
+      ),
     restore,
     expect: "NO lane is `Active`",
   });

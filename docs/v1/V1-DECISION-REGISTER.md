@@ -21212,3 +21212,35 @@ handover analysis (a turn note, not a receipt). Lane A's own surfaces only (`D-8
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e123 `D-298` — Lane-State Fixtures Pin the Non-Nominated Lane's State Instead of Inheriting It
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: apply the lane-state fixture fix"*. The
+defect was found by the full `bun run fixtures` run that verified `D-297`. Lane A's own surface (`D-84`).
+
+### The decision
+
+1. **The defect.** Two `lane-state` fixtures took the third lane's state from the live register and assumed it read
+   `Blocked`. Since `D-296` nominated Lane C `Eligible`, that assumption is false:
+   - "ONE Eligible beside Active" produced **two** `Eligible` lanes and failed;
+   - "`Active` lane steps out with others Blocked" still passed, but on a register where the others were not
+     `Blocked`, so it no longer tested what its name says.
+
+   The suite had claimed to be lane-agnostic since `G91`. It was agnostic about which lane is `Active`, **not about
+   whether another lane is nominated**.
+2. **The fix.** Both fixtures now set every lane they rely on explicitly, with `Blocked` naming the `Active` lane's
+   run, so the result no longer depends on the live nomination. The `lane-state` suite passes in full, and no check
+   changed.
+3. **Not given by this act:** no change to `scripts/checks/lane-state.mjs`, to the live §5 lane table, or to any
+   lane state.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e123 |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file created or retired (the `scripts/fixtures/` row already covers the suite), and no scope, sequence or DoD moves |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane change |
+| **Agent files**, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
