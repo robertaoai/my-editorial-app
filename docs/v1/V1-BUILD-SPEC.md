@@ -125,6 +125,11 @@ Their remaining obligation — selection, work order, Lane B activation and cons
 Parent 3 and owned durably by the `V1-SM05` packet and its future `V1-SM05-FV-001`. Absorption completes none of
 those acts; `V1-SM05` stays `BLOCKED` and gated by `SV-002`.
 
+**`D-275` (2026-09-27) — Lane A's `SV-002` run selected.** DoR is complete; the Judge selects the bounded Gate 1B
+attempt (not a lane transition). The Lane B/C read-only measurement authorizations and the isolated `ripwire` trial now
+take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
+PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
+
 **`D-270` (2026-09-27) — `SV-002` readiness rows.** `SV2-DOR-06` (governance boundary) is **checked** on the recorded
 exclusions of `D-264` and `D-266`–`D-270`. `SV2-DOR-03` (unit bounds: inputs, output, stop) and `SV2-DOR-05` (natural-
 sentinel loader method, navigation pass criteria, blocking rule) are written in `SV-002` §3/§3.4 and stay unchecked

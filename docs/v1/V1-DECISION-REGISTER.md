@@ -20119,3 +20119,33 @@ eligible to allow Lane B review and update handoff."*
 | **Agent files**, `LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md` | — unaffected: vocabulary, not live state |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e100 `D-275` — Judge Selects Lane A's `SV-002` Run (Gate 1B Execution Begins)
+
+**Authority: the Judge, directly to Lane A, 2026-09-27** — *"Judge Approved: select Lane A's SV-002 run."* Given after
+`SV-002` reached **DoR complete** (all six `SV2-DOR-*` rows checked; `3587562`, pushed at `9f45dd7`).
+
+### The decision
+
+1. **Lane A's `SV-002` run is selected** (`D-267` item 2). This authorizes the bounded Gate 1B attempt; it is **not a
+   lane-state transition**. Lane A stays `Active`, Lane B `Eligible`, Lane C `Blocked` (`D-274`).
+2. **Now effective:** the Lane B and Lane C read-only measurement authorizations of `D-270` item 4, which took effect
+   on this selection; and the one isolated `ripwire` trial of `D-266` item 7, since DoR has closed.
+3. **Execution order** (`SV-002` §3, `D-267` item 6): `SV2-U02` A/B/C loader runs per §3.1/§3.4; `SV2-U03` trial per
+   §3.2/§3.4; `SV2-U04` classification of the §3.3 rows with Lane B's feasibility review; independent review of
+   `SV2-U01` for `SV2-DOD-01`. Each `SV2-DOD-*` row is checked only on its own proof.
+4. **Not given by this act:** the PR #2 documentation-complete comment (the Judge's own act, `D-267` item 2); any
+   rule-file edit before the `SV2-U02` report (`D-266` item 2); acceptance of `SV-002`; lifting the `V1-SM05` block;
+   construction.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e100 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-275` paragraph: run selected, execution order |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §1 status: run selected |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file added or retired |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change |
+| **`docs/Modular_PRD.md`**, Fn Specs, storyboard, `V1-SM05.md`, Encyclopedia | — unaffected |
+| **Graphify** | Rebuild after this commit |
