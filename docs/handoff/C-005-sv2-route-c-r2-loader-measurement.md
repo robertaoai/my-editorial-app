@@ -17,8 +17,8 @@
 The Judge operated the `D-301` kit in a fresh Antigravity session. Lane C reviewed the evidence in a separate
 conversation; the verifier key never entered the probe conversation.
 
-- **Tool, version and backend:** Antigravity IDE 2.0, Gemini 3.8 Flash (High). The exact IDE build number was not captured at run time.
-- **Operator facts:** conversation ID isolated in `transcript_full.jsonl`; R1 carry-over check not recorded (run in a fresh session).
+- **Tool, version and backend:** Antigravity IDE 2.5.5 (ProductVersionRaw 1.107.0.0; CLI binary 2.17.0.0), Gemini 3.8 Flash (High).
+- **Operator facts:** conversation ID `26930b3a-4ee2-42dc-92c1-abbcf03d2870` (recovered from host storage `~/.gemini/antigravity/brain/26930b3a-4ee2-42dc-92c1-abbcf03d2870`, where `transcript_full.jsonl` matches SHA-256 `c9470a1b...` byte-for-byte; individual JSON step records in the transcript omit the field); R1 carry-over check confirmed via host storage inspection of `~/.gemini/antigravity/knowledge` (contains only `knowledge.lock`, 0 bytes, untouched since 2026-07-08; no persistent memory artifacts; furthermore, absent sentinels and new R2 bracket lines are memory-proof per `D-303`).
 - **Pins at run time:** checkout at HEAD `9c37602` (unchanged pins per `D-276` item 4 and `D-301`).
 - **Windows:** Probe 1 at 15:48:16Z. Probe 2 step 1 at 15:59:24Z; step 2 at 16:00:45Z.
 - **Kit integrity:** every kit file matches its `D-301` hash.
