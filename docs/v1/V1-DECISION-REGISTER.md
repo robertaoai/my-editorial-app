@@ -20841,3 +20841,55 @@ conditioned a clean checkoff on four current-state label corrections.
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS, storyboard | — unaffected |
 | **Encyclopedia** | — unaffected: Entry 06's E5 result is accepted (item 3); no republish |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e115 `D-290` — Route A Verifier Kit Prepared for `SV2-U02-A-R1` (Outside the Repository); Two Method Findings Recorded
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: prepare the Route A verifier kit"*. The
+act is under `D-275` (run selected) and `D-276` items 4–5 (run pin, kit isolation), using the `SV-002` §3.4 method.
+
+### The decision
+
+1. **The kit is prepared at `C:\Users\rober_24syk4j\sv2-route-a-kit\`.** That is outside both checkouts, outside
+   `~/.claude`, `~/.codex` and `~/.gemini`, and outside any directory the agent under test reads by default. It holds:
+   - two probe files, which contain cues only, in shuffled order, with no file names and no expected answers;
+   - the verifier-held key: sentinel lines, line numbers and SHA-256 hashes;
+   - the verifier instructions;
+   - `score.mjs`, which scores the answers and scans the session transcript for tool calls. It was self-tested: a
+     quoted negative control gives INVALID, and a tool call gives INCONCLUSIVE.
+
+   `SV-002` §3.2's run table and the kit record list each kit file's SHA-256 and each sentinel's pin (line number
+   and hash). **They never list the sentinel text.**
+2. **Sentinels (§3.4 natural sentinels).**
+   - Probe 1 (automatic loading) has **nine**: two shared-core, `CLAUDE.md` tail-start and end, `AGENTS.md` tail-start
+     and end, and the three negative controls from `docs/PRD.md`.
+   - Probe 2 (on demand, after invoking `sync-docs`) has **three**, taken from the skill body.
+   - Every sentinel and cue is an existing line that is unique across the in-scope files.
+   - Pins were taken at the Route A checkout `C:\git\my-editorial-app` (`d892067`). The five in-scope hashes match
+     `D-276` item 4.
+3. **Pre-run facts recorded:** there is no user-level `~/.claude/CLAUDE.md`; the Route A project-memory folder exists
+   and is empty. Both are re-checked at run time.
+4. **Finding (1): attribution limit.** `CLAUDE.md` and `AGENTS.md` lines 1–381 are byte-identical (the governed
+   shared core, `shared-core-hash`). Sentinels in that region prove the region is visible but cannot attribute the
+   file. So attribution, and truncation at the end of each file, rest on each file's **tail** sentinels. This is
+   §3.4's duplicated-text case, known before the run rather than discovered in it. **No method change:** §3.4 already
+   requires `inconclusive` where evidence does not separate the outcome.
+5. **Finding (2): tool withholding.** The user-level default permission mode is `auto`, so reads may run without a
+   prompt, and "deny the prompt" cannot enforce control 3. The kit makes the control **checkable after the fact**:
+   any `tool_use` in the probe session's transcript makes Probe 1 `inconclusive`. The instructions also require an
+   ask-before-tools mode. The skill's frontmatter is visible in the startup skill list, so the on-demand sentinels
+   are drawn from the skill body.
+6. **Not given by this act:** running the probe (the Judge opens the fresh session), the Route B and C runs, any
+   rule-file edit (`D-266` item 2), and the `ripwire` download. `SV2-DOD-03` is unchecked, `V1-SM05` stays
+   `BLOCKED`, and there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e115 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run table (`SV2-U02-A-R1`: kit prepared), the kit record, the sentinel pins and the two findings |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: the kit is outside the repository by design (`D-276`); no scope, repository file or lane change |
+| **Agent files** (`CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md`) | — unaffected: read only, and not edited before the report (`D-266` item 2) |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
