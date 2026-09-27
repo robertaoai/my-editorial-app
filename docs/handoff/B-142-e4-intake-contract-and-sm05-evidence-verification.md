@@ -18,8 +18,8 @@
 
   Receipts are recorded on seven §3.3 rows. Every blocking row meets Gate 1B, and `SV2-DOD-05` is reviewable but not checked. Status stays Open: your Gate 2 conditions (items 3, 4 and 6) remain.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `D-280`–`D-287`; `SV-002` §§2.3/3.3/3.4/7; `FN-GATES-01-05.md` §§2/3.1/4.5/4.6; `Modular_PRD.md` `FR-01`, `AC-02`, `TR-DM-07`; `V1-SM05.md` DoR→DoD map and DoD; `B-096`, `B-131`, Panel A11, `ENCYCLOPEDIA-SYNC.md` Entry 06; v15 export SHA-256; `scripts/jev/manifests/V1-SM05.json` and `scripts/jev/lib.mjs` completion rules; Graphify and Jev readiness reads at the commit below
-- **Verified-At-Commit:** 7acac90de3e9a88847558d41f2fbc95bd8a183a6
+- **Evidence:** `D-280`–`D-288`; `SV-002` §§1/2.3/3.3/3.4/7; `FN-GATES-01-05.md` §§2/3.1/4.5/4.6; `Modular_PRD.md` `FR-01`, `AC-02`, `TR-DM-07`; `V1-SM05.md` DoR→DoD map and DoD; `B-096`, `B-131`, Panel A11, `ENCYCLOPEDIA-SYNC.md` Entry 06; v15 export SHA-256; `scripts/jev/manifests/V1-SM05.json` and `scripts/jev/lib.mjs` completion rules; Graphify, Jev readiness and local consistency reads at the commit below
+- **Verified-At-Commit:** 1489c3c1386a3f2eba23387d6c6ab4bf7a865415
 
 ## What happened and the governing boundary
 
@@ -56,3 +56,30 @@ Lane B compared the six E4 surfaces and drafted the return conditions here. No c
 | **Approve-with-conditions** | `D-287` DoD wording and `DOR-R1` map | Gate 2 — require each real-database fixture and failing-first/refusal evidence beyond Jev's current label check |
 | **Defer** | E5, the migration, live fixture runs and `V1-SM05` construction | Gate 1B → Gate 2 — each has its own evidence and Judge gate |
 | **Reject** | Treating `SV2-DOD-05`, the current Entry 06 or the new DoD item as complete from E4 or a green Jev readiness receipt | Gate 1B → Gate 2 — their specific verification and execution evidence is still absent |
+
+### Lane B E4 re-verification after `D-288` — 2026-09-27
+
+**Read commit:** `1489c3c1386a3f2eba23387d6c6ab4bf7a865415`. This is the second pass in this **same** E4 entry, requested after the first pass's failed consistency status. Lane A acknowledged B-142 at `f959770`, then applied `D-288` at `f377424` and recorded its handoff answer at `1489c3c`. The prior `handoff-response` failure was solely the then-blank Lane A field; it now passes. The full local `bun run check` passes **18/18**, including `docs-drift` synced at `1489c3c`. Graphify's analyzed HEAD equals that commit with `stale: false`. Jev readiness independently rerun on the unchanged manifest reports `pass 272/272`; these checks do not execute the intake fixtures.
+
+| E4 return | Second-pass source result | Boundary |
+|---|---|---|
+| `D2a` and §4.5 | **Verified at the new read commit.** `FN-GATES` §3.1 now directs Markdown readers to §4.6's URL/text pair, and §4.5 dates the supersession of its old Markdown-reference “Open” bullet. The original first-version rules and `TR-DM-07` logical requirement remain intact. | The later-version trigger and physical store remain for their stated owners; no Gate 2 proof is inferred. |
+| §4.6 and `V1-SM05` DoD | **Verified as a written four-case obligation.** The packet adds refusal of Markdown with no original URL and requires a distinct artifact and failing-first evidence for *each* case. `DOR-R1` still maps to the same DoD label. | Jev's manifest still omits this label from `negativeRequired` and `failingFirstRequired`; `D-288` expressly assigns the four-case review to Lane A at Gate 2. A green Jev receipt by itself remains insufficient. |
+| `B-131` and §2.3 | **Judge acceptance recorded, not falsely promoted to `Verified`.** `D-288` explicitly accepts B-131's historical Lane A disposition on this entry's independent source comparison. §2.3 uses its allowed Judge-acceptance route and marks the return closed while retaining the `Applied` header. | The old v15 export is still the 2026-09-24 Option-2 artifact; it is not the fresh hosted Entry 06 comparison. |
+| E5 and `B-095.D4` | **Register/ledger disposition confirmed.** `D-288` and `ENCYCLOPEDIA-SYNC.md` record Lane A's 2026-09-27 hosted Entry 06 comparison as “No update required”; the §3.3 row points to that act. | Lane B did not independently access the hosted page in this turn and does not claim a second direct comparison. Any rule requiring a second actor for E5 must use that actor's own receipt or explicit Judge acceptance of the result. |
+| `SV2-U04` | Seven §3.3 blocking rows cite B-142's corresponding review and `D-288`'s dispositions; the split Gate 1B/Gate 2 proof for `TR-DM-01` remains visible. `SV2-DOD-05` is correctly unchecked. | The Gate 2 physical store, work order and real-database evidence are still future work. |
+
+**Current-state text still needs Lane A normalization before a clean checkoff claim:**
+
+1. `SV-002` §1's lead `Status` row still says three blocking rows are open after `D-280`, although the dated `D-288` §3.3 note says every blocking row meets its **Gate 1B** condition. Date or strike the older clause in that lead row; keep the Gate 2 obligations and unchecked `SV2-DOD-05` explicit.
+2. §3.3's heading still ends “awaiting Lane B's review,” although B-141 and B-142 are recorded below it. Update that heading to point to the reviews without changing the historical dated notes.
+3. `V1-SM05.md`'s DoD line introduces “the three fixtures of §4.6 rule 6” and immediately lists **four** cases after `D-288`. Say “the three §4.6 fixtures plus the `D-288` refusal case,” or use a neutral “intake source cases.” The Build Spec's dated `D-287` paragraph is historical; the packet's current checklist must be unambiguous.
+4. In §3.3's `D-219.R1` *Known pointer* cell, “authorized Markdown with no URL passes” is the superseded `D-222` fixture, contradicted by the accepted `D-285` pair model. Mark it historical and cite its replacement. Likewise `B-095.D2a`'s *Consumed via* cell describes `FN-GATES` as still URL-only although its decision/evidence cells say `D-280` applied. Preserve the original defect as history, labelled as such, rather than presenting it as live source state.
+
+**Result:** the old check failure is resolved and E4's bounded source corrections are reviewable in this one entry. The stale labels above are a Lane A documentation cleanup, not permission to build. Do not check `SV2-DOD-05` from a green structural suite or Jev readiness; its separate Judge checkoff and the remaining setup units still govern the `V1-SM05` block.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve-with-conditions** | E4 source corrections, B-131 Judge-acceptance route and E5 record | Gate 1B — normalize the four current-state labels, then review `SV2-DOD-05` on its own evidence |
+| **Defer** | Gate 2 intake fixtures, physical store, work order and build | Gate 2 — four distinct real-database cases and the remaining setup acceptance are required |
+| **Reject** | Treating 18/18 checks or Jev 272/272 as execution or DoD proof | Gate 1B → Gate 2 — those results validate structure and readiness only |
