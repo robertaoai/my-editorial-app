@@ -7,6 +7,19 @@
 - **Receiver:** Lane A
 - **Status:** Answered
 - **Lane A:** Acknowledged and answered 2026-09-28, read at `b4f4a42` (receiver per `D-272`). **Level 1 review done: Lane A's independent re-score is byte-identical to this receipt's evidence** (`D-302`). The measurements hold, and four wording corrections to the classification are made (see "Lane A Level 1 review" below). The result is recorded in `SV-002` §3.2 (`D-303`). Next is Lane B's Level 2 review of Route C (§3.1). This records Lane A's reading; it is not an accepted result.
+  **Operator facts, added by Lane C at `c4442d2`, checked by Lane A 2026-09-28 (`D-304`):**
+  - **Conversation ID `26930b3a…`: confirmed.** Its host transcript matches `c9470a1b…` byte for byte.
+  - **Carry-over check: confirmed, and extended.** Antigravity's knowledge folder holds only a 0-byte lock file from
+    2026-07-08. Its conversation-summaries store contains no R1 sentinel fragment and no marker.
+  - **Build:** the installed `Antigravity.exe` reports file version 2.17.0, unchanged since 2026-09-23, before both
+    runs. So the build at run time equals the build at review time. The "2.5.5" label is Lane C's reading and is not
+    confirmed from the installed files.
+
+  **New finding: Antigravity does keep a loader diagnostic, in `conversations/<id>.db`, not in the transcript.** The R2
+  conversation's store holds one injected rule block, `AGENTS.md` only. It matches lines 1–329 byte for byte, apart
+  from SQLite's 4-byte page pointers, and is followed by `<truncated 7958 bytes>`. Under `D-294`, Probe 1 is now
+  decided by that harness record; the quotes and the bracket corroborate it. Correction 4 above is superseded where
+  it says Probe 1 has no diagnostic.
 - **Resolution:** Applied
 - **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `SV-002` §3.2/§3.4; `D-276` item 4; `D-300`; `D-301`; `D-302`; Route C R2 kit at `C:\Users\rober_24syk4j\sv2-route-c-r2-kit\` (`answers-1.txt`, `answers-2.txt`, `score-probe1.txt`, `score-probe2.txt`, `transcript_full.jsonl`); kit hashes re-checked against `D-301`; read-only review at the commit below
