@@ -20063,3 +20063,32 @@ README, template and check, and correct the rule-file wording only in the post-m
 
 Does not edit a rule file or the shared core; map `docs/handoff/` to a lane; change lane state; reopen, verify or close
 any entry; start any measurement; or lift the `V1-SM05` block.
+
+## 5.14e98 `D-273` — Eligible Nomination Moves From Lane B to Lane C (Route C Access Proof)
+
+**Authority: the Chief Editor/Judge, directly to Lane A, 2026-09-27** — *"change from Lane B eligible to Lane C eligible
+to allow Lane C to update the docs/handoff to supply the proof."*
+
+### The decision
+
+1. **Lane C is `Eligible`; Lane B is `Blocked` on the Lane A run.** Lane A stays `Active` (`D-156`: exactly one
+   `Active`, at most one `Eligible`). This supersedes Lane B's `Eligible` nomination (`D-159`, `D-161`) as the current
+   state; that history is kept in `V1-PHASE-CLOSURE.md` §5 below the lane table.
+2. **Purpose:** Lane C updates `docs/handoff/` with its own `C-` entry (`Receiver: Lane A`, since Lane A requested the
+   run) supplying the Route C pre-run access proof for `SV2-DOR-04` — tool and version, read-only path, confirmed
+   environment. `D-272` already lets a lane commit its own series whatever its state; this nomination is the Judge's
+   explicit selection of Lane C as next holder.
+3. **Not granted:** no lock transfer and no `.github/workflows/` change — `Eligible` is the selection step only. Lane B
+   keeps its own-series commit right (`D-272`) and may still answer read-only requests (`D-271` item 6). `V1-SM05`
+   stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e98 |
+| **`V1-PHASE-CLOSURE.md`** | ✅ §5 lane table: Lane B `Blocked`, Lane C `Eligible`; Lane B history note |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no scope, sequence, DoD or file change; live lane state lives only in §5 |
+| **Agent files**, `LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md` | — unaffected: they define the vocabulary, not the live state |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
