@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** a conclusive `SV2-U02-B` result, its dependent Route C run and `SV2-DOD-03`
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-09-27, read at `cf5a095`. **Level 1 review done: the independent re-score agrees with every result and control in this receipt.** Lane A adds three findings, and the **classification path is put to the Judge** (see "Lane A Level 1 review" below). Status stays Open until the Judge rules.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `SV-002` §3.1/§3.4; `D-276` item 4; `D-292`; Route B kit `answers-1.txt`, rollout `01a0e2f8-c427-7500-9756-87b19ff5dd05`, `score.mjs` and `score-probe1.txt`; read-only rescore and pin comparison at the commit below
 - **Verified-At-Commit:** d4a2af8c7ec9e8938f8c45b3b37579ebb37b3def
@@ -37,3 +37,51 @@ Lane A should independently rerun the pinned scorer on the supplied answer and r
 | **Defer** | Route B complete-loading classification and dependent Route C run | Gate 1B — run `SV2-U02-B-R2`, then its Route C child |
 | **Reject** | Treating the truncated saved score or the missed C8 answer as proof of a conclusive Route B pass or truncation | Gate 1B — use the complete rollout and fresh score |
 | **Reject** | `SV2-DOD-03` closure, `SV-002` acceptance or `V1-SM05` unblock from this receipt | Gate 2 — require the remaining route receipts and Judge acceptance |
+
+## Lane A Level 1 review — 2026-09-27, read at `cf5a095`
+
+### What happened
+
+Lane A re-ran the pinned Route B `score.mjs` (`d66faa4c…`, unchanged since `D-292`) on the supplied `answers-1.txt` (`ac458de2…`) and rollout (`2baa0734…`, 163,546 bytes). The output is saved in the kit folder as `score-probe1-laneA-rescore.txt`. **The results are identical to this entry's table:**
+- C1 and C2 (shared core) and C3 (`AGENTS.md#end`) are **visible, exact**.
+- C8 (`AGENTS.md#tail-start`) is **not visible**, although its line is present in the injection.
+- The `CLAUDE.md` tail sentinels are not visible, and `CLAUDE.md` was not injected.
+- The `docs/PRD.md` negative control is not quoted.
+- There is no tool call before or inside the window, and no sentinel text in any tool output.
+- The window reports 39,022 input tokens.
+
+Lane A agrees that the supplied `score-probe1.txt` (168 bytes) is incomplete and superseded.
+
+**Three findings Lane A adds:**
+1. **The key is not at fault.** Every cue→sentinel gap in both the Route A and Route B keys is blank lines only, so "the next non-empty line" is the keyed sentinel in every case. C8's cue is `**You are Lane B. Start here.**`, and its sentinel follows it after exactly two newlines in the injected text.
+2. **Codex injects `AGENTS.md` complete and byte-exact, keeps HTML comments, and injects it as a user-role message.** The injection has **two parts**:
+   - the `# AGENTS.md instructions for …` block, whose `<INSTRUCTIONS>` body is **31,921 bytes: the 31,920-byte file plus one newline**, equal to the file;
+   - a separate 1,839-byte `<environment_context>` block.
+
+   That second block accounts for the scorer's 33,852-byte total. **There is no truncation** under Codex's 32 KiB default. **The `SHARED CORE` HTML comment is kept**, unlike Claude Code, which strips it (`D-291`). The user-role delivery explains Part A's "pasted in your message".
+3. **The C8 miss is a response error, not a loading gap.** The line reached the model; the model did not reproduce it. The missed line is the one addressed to the responder's own role (`You are Lane B`).
+
+### What you need (Lane A, to the Judge)
+
+**One interpretation question, which Lane A does not decide (`D-58`).** `SV-002` §3.4 control 5 says a tool's loader diagnostic *"is recorded with the result"*, and that *"a specific loader outcome is recorded only when this evidence separates it"*.
+- **Lane B's reading:** complete loading needs the behavioural quotation test to pass, so R1 is `inconclusive` and an R2 is needed.
+- **Lane A's reading:** the Codex rollout injection record *is* that diagnostic. It separates the outcome (the file was complete; C8 was a response error), so R1 can be classified without R2.
+
+| Option | Consequence |
+|---|---|
+| **(a) R1 stays `inconclusive`**; run `SV2-U02-B-R2` with the same kit in a fresh session | This is §3.4's default. The cost is one session. **Risk:** a model can miss a line again, in particular the role-addressed `You are Lane B` line, so R2 may need a rule for this case anyway |
+| **(b) The Judge rules that the loader diagnostic separates the outcome.** R1 is classified "`AGENTS.md` complete loading (per the harness record); `CLAUDE.md` not loaded; one response error (C8)" | No R2, and Route C runs under B-R1. It sets the rule for all routes: quotes are corroboration, and the harness record decides the loader outcome where one exists. Route A (`D-291`) already met both tests |
+
+Lane A recommends **(b)**, because the harness record answers exactly the question §3.4 asks (was it loaded, and was it truncated), and **(a)** tests the model's recall rather than the loader. Either way, the Judge's ruling is recorded as a Register act and applied to §3.4.
+
+### What Lane A did instead
+
+Lane A recorded this review and the receipt state in `SV-002` §3.2 (`D-293`), and changed no kit file, key, scorer, rule file or classification. Route C waits for the Judge's choice.
+
+| Verdict | Tier / item | Follow-up phase |
+|---|---|---|
+| **Approve** | `B-143` evidence, controls and the incomplete-score finding; Lane A's re-score agrees | Gate 1B |
+| **Approve** | Codex loads `AGENTS.md` byte-exact, keeps HTML comments and injects it as a user-role message (a loader characterization) | Gate 1B, to the `SV2-U02` remediation decision |
+| **Approve-with-conditions** | Option (b): classify R1 from the harness record | Gate 1B, only by the Judge's ruling and a `D-54` amendment to §3.4 |
+| **Defer** | `SV2-U02-B-R2` (option a) and the Route C run | Gate 1B, per the Judge's choice |
+| **Reject** | `SV2-DOD-03`, `SV-002` acceptance or unblocking `V1-SM05` from this receipt | Gate 1B → Gate 2 |
