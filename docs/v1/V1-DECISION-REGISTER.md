@@ -20995,3 +20995,47 @@ the evidence to Lane A on 2026-09-27. **This is a Lane A receipt, not an accepte
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e118 `D-293` — `SV2-U02-B-R1`: Lane B Receipt `B-143` (`inconclusive`) Re-Scored by Lane A at Level 1; Codex Loader Characterized; Classification Path Put to the Judge
+
+**Authority:** execution under `D-275` and `D-292`. Lane B's receipt is `docs/handoff/B-143` (`cf5a095`). Lane A's
+Level 1 review follows the §3.1 route schedule. **No classification is decided by this entry.**
+
+### The decision
+
+1. **Lane A's independent re-score agrees with `B-143` in every result and control.**
+   - Four positive-control sentinels were probed. Three were quoted exactly: the two shared-core lines and
+     `AGENTS.md#end`. **C8 (`AGENTS.md#tail-start`) was missed.**
+   - `CLAUDE.md` was not loaded.
+   - The negative control held, and no tool call was made.
+   - The window reports 39,022 input tokens.
+
+   The supplied `score-probe1.txt` is incomplete and superseded. Lane A's re-score is saved in the kit folder.
+2. **The kit is not at fault.** Every cue→sentinel gap in both keys is blank lines only.
+3. **Codex loader characterization (recorded, not remediated; `D-266` item 2).** Codex injects `AGENTS.md` **complete
+   and byte-exact**: the 31,921-byte body is the 31,920-byte file plus one newline. There is **no truncation** under
+   the 32 KiB default. Codex **keeps HTML comments**, unlike Claude Code (`D-291`), and delivers `AGENTS.md` **as a
+   user-role message**, alongside a separate 1,839-byte `<environment_context>` block. **`CLAUDE.md` is not loaded.**
+4. **The C8 miss is a response error.** The line reached the model; it is the line addressed to the responder's own
+   role (`You are Lane B`).
+5. **Put to the Judge (`D-58`: an interpretation of `SV-002` §3.4 control 5):**
+   - **(a)** R1 stays `inconclusive`, and `SV2-U02-B-R2` runs; or
+   - **(b)** the loader diagnostic (the harness injection record) separates the outcome, so R1 is classified
+     "`AGENTS.md` complete loading; `CLAUDE.md` not loaded; one response error (C8)" and Route C runs under B-R1.
+
+   Lane A recommends (b). Lane B's reading is (a). The ruling becomes its own Register act, with a `D-54` amendment
+   to §3.4.
+6. **Unchanged:** no kit file, key or scorer is edited; there is no Route C run and no rule-file edit; `SV2-DOD-03` is
+   unchecked; `V1-SM05` stays `BLOCKED`; there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e118 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run row `SV2-U02-B-R1` |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files** | — unaffected: measured, not edited |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
