@@ -21405,3 +21405,57 @@ under `D-275`, `D-276` items 4–5 and `D-294`–`D-299`, using the §3.4 method
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e127 `D-302` — Lane A Review of Lane C's Route C R2 Worklog; `B-143` Verification Assigned to Lane B
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Lane B, in B-143"*, answering who re-examines the Route B
+rollout (`D-300` item 3), and *"I'll give them to Lane C"*, answering how the R2 operator facts reach the receipt.
+
+### The decision
+
+1. **`B-143` is verified by Lane B as raiser**, in `B-143` itself, as Lane B did for `B-140`:
+   - a read-only re-run of the pinned Route B `score.mjs`, outside the repository;
+   - a byte comparison of the `# AGENTS.md instructions for …` body against the pinned `AGENTS.md`.
+
+   If `D-294`'s classification holds, Lane B sets `Resolution: Verified`, `Verified-By: Codex (Lane B)` and the commit
+   it read. This needs no lock and changes no lane state (`D-271`); Lane B's own-series commit right covers the edit
+   (`D-272`). The request is carried in `B-143`'s Lane A field, the channel Lane B reads, and in `SV-002` §2.3.
+2. **The R2 operator facts go from the Judge to Lane C directly**, for its `C-005` receipt: the Antigravity build, the
+   R1 carry-over check and the conversation ID. Lane A records nothing for them now.
+3. **Lane A's review of Lane C's worklog, recorded for the Route C R2 Level 1 review.** Lane C filed nothing. It
+   declined to verify `C-003` and `C-004`, and filed no R2 receipt. What was checked:
+   - **R2 evidence:** Lane A's re-score is byte-identical to the operator's outputs.
+   - **Probe 1 cut:** 23,962 bytes of `AGENTS.md` delivered; lines 330–451 absent.
+   - **Probe 2:** lines 1–800 delivered; the agent did not page.
+
+   Corrections to Lane C's analysis:
+   - **The lost rules** are the rest of `D-88`, "what is gated", the lane-model note, the command table, the
+     current-state note, `D-186` and the Codex tail. **Not** the lane table, arbitration, commit identity or deploy
+     rules, which lie before the cut.
+   - **The larger finding is that `graphify.md` is never delivered to Antigravity.** Lane C's own rule tail never
+     reaches it.
+   - **On-demand loading of a skill over 800 lines varies between runs:** R1 paged and got the whole file; R2 did not.
+   - **The cut fits a 24,000-byte whole-line budget, not a 24,000-character one.** Whether the budget applies per file
+     or across all rule files is **unmeasured**, so splitting `AGENTS.md` is not yet shown to help.
+   - **Remediation succeeds only when re-measured**, not on a byte count alone.
+   - **A verification must fit its claim.** A claim that something was recorded is checked by comparing records; a
+     measurement claim needs the evidence re-examined.
+4. **Not given by this act:**
+   - `C-005` (Lane C's to file), and Lane C's verification of `C-003` and `C-004` in their own headers (`D-300`);
+   - Route A's reviews, which the Judge still holds;
+   - any rule-file or skill edit (`D-266` item 2);
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e127 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3 row `B-143`: verifier Lane B as raiser |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, sequence, DoD, file or lane change |
+| **Agent files** | — unaffected: measured, not edited |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
