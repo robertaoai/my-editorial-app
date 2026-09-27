@@ -20893,3 +20893,55 @@ act is under `D-275` (run selected) and `D-276` items 4–5 (run pin, kit isolat
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e116 `D-291` — `SV2-U02-A-R1` Receipt Recorded: `CLAUDE.md` Complete (HTML Comments Stripped), `AGENTS.md` Not Loaded, Skill Loaded on Demand; Scorer v2
+
+**Authority:** execution under `D-275` (run selected) and `D-290` (kit). The Judge ran the probe session and supplied
+the evidence to Lane A on 2026-09-27. **This is a Lane A receipt, not an accepted result.**
+
+### The decision
+
+1. **The receipt is recorded in `SV-002` §3.2's `SV2-U02-A-R1` block.** The findings:
+   - **`CLAUDE.md`: complete loading.** All four Probe 1 sentinels were quoted exactly.
+   - **`AGENTS.md`: not loaded, neither natively nor by import.** Two independent signs separate this from
+     truncation: both of its unique tail sentinels are absent, and the harness's own `attachment:instructions`
+     record lists only `CLAUDE.md`.
+   - **The negative control held**, and no tool ran inside either probe window.
+   - **`sync-docs` loads on demand completely:** all three body sentinels were quoted exactly and are present in the
+     harness's skill-load message.
+   - Claude Code was **2.1.281**. **Duplicated text:** none from the loader; the skill body appears twice because the
+     skill was invoked twice.
+2. **Loader finding, recorded and not remediated (measure first, `D-266` item 2): Claude Code strips HTML comments
+   from `CLAUDE.md`.** The injected text is 29,521 bytes against 29,709 on disk. The only lines missing are the
+   `SHARED CORE` marker comment (lines 139–140), which carries the "change all three together (`G53`)" rule. That
+   rule therefore **does not reach the Claude Code agent**. Whether to move it into visible text is a question for
+   the remediation decision after all three routes report (`SV2-U02` return condition).
+3. **Protocol deviations, recorded:**
+   - Invoking `/sync-docs` **ran its workflow**: 11 tool calls between the probes, including a read of `D-290` (pins,
+     no sentinel text). None fell inside a probe window, no sentinel text appears in any tool output, and no file
+     changed.
+   - The skill was invoked twice.
+   - The probe-2 score was run with probe number `1`, and those outputs are superseded.
+
+   **None affects the classification.** For the Route B and C kits, the instructions should say to load the skill
+   **without running its workflow**, or to run the on-demand probe in a session where tool use is denied.
+4. **Scorer v2 replaces v1** in the kit (`SV-002` records both hashes). v1 had three defects: `- ` bullets not
+   parsed, CRLF line endings breaking the parser, and tool calls counted over the whole session. All three produced
+   **false** negatives or inconclusives; none produced a false pass. v2 also searches tool outputs for sentinel text.
+   The self-tests were re-run: a quoted negative control gives INVALID, and a tool call in the window gives
+   INCONCLUSIVE.
+5. **Not given by this act:** Lane B's Level 1 and Lane C's Level 2 reviews, which come next (§3.1); the Route B and
+   C runs; any rule-file edit; and `SV2-DOD-03`, which needs all three routes and the Judge's acceptance of the
+   combined report. `V1-SM05` stays `BLOCKED`, and there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e116 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run row; scorer v2 hash; the `SV2-U02-A-R1` receipt |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: the evidence is outside the repository (`D-276`); no scope or lane change |
+| **Agent files** | — unaffected: measured, not edited (`D-266` item 2). The HTML-comment finding is for the later remediation decision |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
