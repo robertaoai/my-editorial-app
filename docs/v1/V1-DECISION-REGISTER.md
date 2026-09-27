@@ -21574,3 +21574,41 @@ item 3 (the §2.3 return condition). Lane C's commit is `b4f4a42`: receipt `C-00
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e130 `D-305` — `C-006` Answered: Antigravity IDE 2.5.5 Was the Run-Time Build (Both Binaries Installed Before R1 and R2)
+
+**Authority:** execution under `D-303`/`D-304` (Lane A's Level 1 review of Route C). Lane C's entry is `C-006`
+(`e6538f8`).
+
+### The decision
+
+1. **The run-time build is established.** `C-006` reports two installed binaries: `Antigravity IDE.exe`
+   (ProductVersion 2.5.5, the desktop shell) and `Antigravity.exe` (2.17.0). It leaves the IDE build at run time
+   unproven. Lane A checked both files:
+   - `Antigravity IDE.exe` 2.5.5 was **created on the host 2026-09-25**, with a build date of 2026-08-13;
+   - `Antigravity.exe` 2.17.0 was created 2026-09-24, with a build date of 2026-09-23.
+
+   Both predate R1 and R2 (2026-09-27), and neither has been rewritten since. **The Route C runs used Antigravity IDE
+   2.5.5 with `Antigravity.exe` 2.17.0.** This replaces `D-304` item 3's "2.5.5 not confirmed".
+2. **`C-006`'s other items agree with `D-304` and change nothing.** One wording correction: `D-295`'s "no diagnostic"
+   was corrected by the Register (`D-304`), and a handoff entry cannot itself supersede a Register act.
+3. **`C-006` is answered** (`Resolution: Applied`).
+4. **Not given by this act:**
+   - Lane B's Level 2 review of Route C, and `B-143`'s verification (`D-302`);
+   - Route A's reviews;
+   - the combined report and the remediation decision;
+   - any rule-file or skill edit;
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e130 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run row `SV2-U02-C-R2`: the run-time build |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, sequence, DoD, file or lane change |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
