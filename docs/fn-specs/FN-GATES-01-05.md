@@ -26,13 +26,19 @@ edits. A section revised by a later build keeps its origin and gains a revision 
 must mark their additions and revisions rather than editing silently, which is what makes per-section
 content hashing meaningful: an unmarked change to a `[V1]` section is a defect, not an update.
 
+**Revision note, 2026-09-27 (`D-280`, applying `D-222`'s Fn_Spec child verbatim).** Still within build `V1`, so no
+marker changes. The eight intake-source statements — §1 strategic alignment, §2.1 `FR-01`, §2.3 item 1, §3.1
+*Required on entry* and *Supply*, §3.2 *T2 requires*, the §4 flow label and §5 `AC-01` — now carry `D-222`'s
+canonical phrase: **a source reference — a URL, or a manually prepared `.md` representation when the content cannot
+be reached by URL** (`D-121`, `D-219`). Each previously read URL-only (`D-219`–`D-222` enumerate the prior text).
+
 ## 1. Overview
 
 The five gates are the product. Everything else in the system exists to record, display, or publish what they decide.
 
 **User value:** the Chief Editor gets a pipeline where an article cannot skip a step, every transition answers *who, when, and why*, and the review that matters is performed by a human rather than asserted by an agent.
 
-**Strategic alignment:** this is `CR-19`'s success scenario end to end — *paste a URL → five gates with logged transitions → approve → publish, with zero bypasses.* `FR-01`–`FR-05` cover intake through independent review; `FR-06`–`FR-13` handle the rest.
+**Strategic alignment:** this is `CR-19`'s success scenario end to end — *supply a source reference → five gates with logged transitions → approve → publish, with zero bypasses.* **The illustrative path is a pasted URL; a manually prepared `.md` representation is equally valid when the content cannot be reached by URL** (`D-121`, `D-219`). `FR-01`–`FR-05` cover intake through independent review; `FR-06`–`FR-13` handle the rest.
 
 **Boundary:** these features define **behaviour at each gate**. They do not define storage, field names, or interfaces — see §9.
 
@@ -42,7 +48,7 @@ The five gates are the product. Everything else in the system exists to record, 
 
 | ID | Requirement | Gate | Line | Executor |
 |---|---|---|---|---|
-| `FR-01` `[V1]` | Log an article from a URL with **exactly one subject topic** and a trend signal; the article enters at the pipeline entry state. *(`G39` — restated from "≥1 topic tag", which conflated two concepts; see §3.1)* | T1 | 1 | Agent |
+| `FR-01` `[V1]` | Log an article from **a source reference — a URL, or a manually prepared `.md` representation when the content cannot be reached by URL** (`D-121`, `D-219`) with **exactly one subject topic** and a trend signal; **analytical tags are separate, optional and many**; the article enters at the pipeline entry state. *(`G39` — restated from "≥1 topic tag", which conflated two concepts; see §3.1)* | T1 | 1 | Agent |
 | `FR-02` | Validate source and confirm trend evidence as **two distinct transitions** (T2, T3), never one | T2, T3 | 1 | Agent |
 | `FR-03` | Draft the editorial adaptation with a completed meaning-invariance checklist and ≥1 publication target | T4 | 1 | Agent |
 | `FR-04` ⚠ | T5 review is executed by a **Line 2 human**; agent contribution is metadata, never the executor | T5 | **2** | **Human** |
@@ -60,7 +66,7 @@ The five gates are the product. Everything else in the system exists to record, 
 
 ### 2.3 Constraints and assumptions
 
-1. **The entry boundary is a URL.** Nothing enters as a bare topic. Commissioned POC work resolves to a URL *before* intake (`B2` in the storyboard).
+1. **The entry boundary is a source reference** — a URL, or a manually prepared `.md` representation when the content cannot be reached by URL (`D-121`, `D-219`). **Nothing enters as a bare topic.** Commissioned POC work resolves to one *before* intake (`B2` in the storyboard).
 2. **Same-agent adjacency is permitted within Line 1.** T1→T2→T3→T4 may share an executor. This is the standard rule under the Three Lines Model, not an exception.
 3. **Four-eyes is satisfied at Line boundaries only** — T5 (1→2) and T6 (2→1).
 4. **No auto-advance.** `NG-10`/`TC9`: no confidence score advances a gate, ever. Not configurable.
@@ -123,7 +129,7 @@ selection is `B117-R45`, still open.
 
 `Discovered → Logged`
 
-**Required on entry:** `source_url`; **exactly one subject topic**; a trend-signal description.
+**Required on entry:** a **source reference** — `source_url`, or a supplied `.md` representation when the content cannot be reached by URL; **exactly one subject topic**; a trend-signal description. **Analytical tags remain optional and many.**
 
 > **`G39` — two concepts, one word.** In an editorial business the **topic is the subject**: what the article *is about*. Exactly one, held as `articles.topic_id`. **Analytical tags are separate and many** — `trend_signals` with `signal_type = 'topic_tag'` — and serve trending and different-angle analysis, not subject identity. The original wording *"≥1 topic tag"* read as cardinality on one concept when there are two. **The schema is correct as applied; only the wording was imprecise** (`D-38`). Author and publication date are auto-extracted where possible and flagged for Investigator review when extraction fails.
 
@@ -142,7 +148,7 @@ selection is `B117-R45`, still open.
 
 > **`FB-05` answered — the producer is defined `[V1]`.** `D-194` ratified the intake unit as **one
 > manually assembled editorial trigger package**, and `D-197` selected the two remaining choices.
-> **Supply:** the Chief Editor supplies `source_url`, the one subject topic, source information and
+> **Supply:** the Chief Editor supplies the **source reference** (`source_url`, or a manually prepared `.md` representation when the content cannot be reached by URL), the one subject topic, source information and
 > the trend-signal description **through the UI**. **The application does not generate these values
 > and must not claim it did**; where a value came from an upstream article, unknown upstream
 > authorship **stays unknown**.
@@ -167,7 +173,7 @@ selection is `B117-R45`, still open.
 
 **Two transitions, never collapsed into one.** That separation is the requirement, not an implementation detail: T2 establishes *the source is real and characterised*; T3 establishes *the story is worth pursuing and not duplicated*. Merging them loses the distinction between a bad source and a weak angle.
 
-- **T2 requires:** URL confirmed live; platform identified; source reliability tier set; author and publication date confirmed or entered.
+- **T2 requires:** the **source reference validated** — `source_url` confirmed live, **or** the supplied representation available and readable with its source information examinable (**never labelled *URL confirmed live***); platform identified; source reliability tier set; author and publication date confirmed or entered.
 - **T3 requires:** duplicate check passed; trend-signal evidence and reviewer confidence recorded; topic confirmed against the scope boundary; editorial angle identified.
 
 **Four-eyes:** `not_applicable` for both — within Line 1.
@@ -210,7 +216,7 @@ Every transition carries an independence classification. Three outcomes, and **n
 ## 4. User flow
 
 ```
-Chief Editor pastes URL
+Chief Editor supplies source reference (URL or .md)
   → T1 Reporter        logged, tagged, trend-signalled
   → T2 Investigator    source validated
   → T3 Investigator    evidence confirmed, angle identified
@@ -373,7 +379,7 @@ anchored to `AC-23` through `SM05-N1`. `AC-01` keeps one meaning per tier as wri
 
 | ID | Given | When | Then |
 |---|---|---|---|
-| `AC-01` `[V1]` | A Reporter agent is active | It logs a valid URL with **exactly one subject topic** and a trend signal | The article is created at the entry state |
+| `AC-01` `[V1]` | A Reporter agent is active | It logs **a valid source reference — a URL, or a supplied `.md` representation when the content cannot be reached by URL** — with **exactly one subject topic** and a trend signal; **analytical tags optional and many** | The article is created at the entry state |
 | `AC-01a` `[V1]` | An article exists with a subject topic | Analytical tags are added via `trend_signals` | **Many** are permitted; the subject topic is unchanged. *(`G39` — the two are distinct)* |
 | `AC-02` | An article with URL X exists | A second log of URL X is attempted | **Corrected 2026-08-30 (`D-121`, closing `B-061`'s finding) — the original criterion is retired, not merely unmet.** The article row **is** the editorial commission (`D-111`); two commissions on one source are two rows, so **the second log is ACCEPTED**, not rejected. The duplicate guard moved to same submitter + same brief hash + same day, refused at the surface (`G95`, `D-121`, `D-133`) — a different key than this row originally named |
 | `AC-03` | An article is at `Logged` | The Investigator validates, then investigates | **Two distinct transitions** are recorded |

@@ -20381,3 +20381,77 @@ item 6 for `U4-G7`. The Judge had already chosen to screen this layer inside `SV
 | **Handoff entries** | — unaffected: no header changed |
 | **Encyclopedia** | `ENC-03` classified `non-blocking`; its flag keeps its own path. All other entries unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e105 `D-280` — E3a Applied: `D-222`'s Fn_Spec Child Verbatim; `B-141` Received; `TR-DM-01` Reclassified Blocking; New Row `D-219.R1`
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: apply E3a"*. Three follow-on rulings
+came from Lane A's clarification questions, asked after Lane B's `B-141` review:
+- **Q1:** apply all eight lines verbatim.
+- **Q2:** add a new blocking row.
+- **Q3:** make `TR-DM-01` blocking with a split proof.
+
+### The decision
+
+1. **E3a is `D-222`'s Fn_Spec child, applied verbatim to `docs/fn-specs/FN-GATES-01-05.md`.** `D-279` scoped E3a
+   as "§2/§3.1", but `D-219`–`D-222` had already decided this correction (2026-09-09) and recorded complete replacement
+   text for **eight** statements. Applying a subset would repeat the partial scoping `D-220` named. The eight lines
+   are the §1 strategic alignment, §2.1 `FR-01`, §2.3 item 1, §3.1 *Required on entry* and *Supply*, §3.2 *T2
+   requires*, the §4 flow label and §5 `AC-01`. A single §0 revision note records the change; everything is still
+   within build `V1`, so no marker changes.
+2. **Completeness, both directions (`D-220`), with a stated domain (`D-221`).**
+   - **Domain:** `grep -n -i "url"` over `FN-GATES-01-05.md`, case-insensitive, untruncated.
+   - **Every hit** either carries the canonical phrase, or is one of three stated exclusions: the §0 revision note,
+     and `AC-02`'s duplicate rule at §3.1 step 1 and §5 (already corrected by `D-121` and excluded by `D-220`).
+   - **List → file:** each of the eight replaced lines was checked against its expected prior text before
+     replacement.
+3. **Finding recorded, not fixed: `D-222`'s own text varies.** It promised "one form, no variants", yet its
+   replacement lines use *"a manually prepared `.md` representation"*, *"a supplied `.md` representation"* and
+   *"(URL or .md)"*. The text was applied verbatim ("apply proposed text in full"); Lane B's verification judges
+   whether the variance is material.
+4. **Still proposed, not applied:** `D-222`'s `Modular_PRD` child (`:272`, `AC-01`), the Addendum child (a governing
+   source) and the derived-view child. Each needs its own act. `Modular_PRD` `FR-01` already carries `D-121`'s
+   parent wording (`D-220`: correct as is).
+5. **`B-141` is received as Lane B's review of `SV2-U04`.** Each §3.3 row's *Lane B receipt* cell records its result.
+   The findings are accepted:
+   - **`B-096.TR-DM-01` → `blocking` (Q3).** `SM05-N1`'s intake write stores the first editorial-metadata version,
+     so §3.4's future-child exception does not apply. **Split proof:**
+     - **Gate 1B:** a `Modular_PRD` `TR-DM` data requirement naming the append-only editorial-metadata version
+       store, parented to `S15`, is decided, applied and independently verified.
+     - **Gate 2:** the `D-242` work order names the physical migration and its real-database intake and
+       reassessment proof (§2.2 `P13`/`P14`).
+
+     The §3.4 rule is **not** amended.
+   - **§2.3 `B-131` row:** now names both points it is needed before, `SV2-DOD-02` and `SV2-DOD-05` (for `B071-R205`,
+     `B-095.D4` and `B-104.O1`). One verification serves all of them.
+6. **New blocking row `D-219.R1` (Q2).** After this act, the intake source reference may be a `.md`
+   representation, but `D-219`'s residual (how it is referenced and retained) is undefined. `D-221` says readiness
+   requires it **defined**, and routing does not count. Lane A drafts from existing records, the Judge accepts, and
+   Lane B verifies. `D-222`'s three fixtures (valid URL passes · authorized Markdown with no URL passes · no source of
+   any kind fails) become `V1-SM05` acceptance obligations, checked at Gate 2.
+7. **Knock-on effect: Encyclopedia Entry 06 is flagged.** Entry 06 depends on `FN-GATES` §3.1 and is in
+   `V1-SM05`'s `DOR-R6` set, so §3.3 row `B-095.D4` is reopened. It needs a hosted comparison, or the Judge's
+   acceptance naming Entry 06.
+8. **Matrix state after this act:**
+   - `B-095.D2a`: applied, verification pending.
+   - Still open: `B-096.S15`, `B-096.TR-DM-01`, `D-219.R1`.
+   - `B-095.D4`: reopened.
+   - Escalations: none.
+
+   `D-279` item 4's "zero escalations" stands, and it now rests on Q2/Q3 having been answered as decisions.
+9. **Unchanged:** `SV2-DOD-05` is unchecked; no `V1-SM05.md` DoD row is edited (the fixtures land there once
+   `D-219.R1` is accepted); no schema or migration; `V1-SM05` stays `BLOCKED`; there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e105 |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ eight lines replaced with `D-222`'s text; §0 revision note |
+| **`docs/ENCYCLOPEDIA-SYNC.md`** | ✅ Entry 06 flagged (not republished) |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §1 status; §2.3 `B-131` row; §3.3 dated note, rows `B-095.D2a`/`D4`/`B-096.TR-DM-01`, new row `D-219.R1`, `B-141` receipts |
+| **`V1-BUILD-SPEC.md`** | — unaffected: no scope, sequence or DoD change. The work-order obligations stay at §2.2 `P13`/`P14` |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file added or retired |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change |
+| **`docs/Modular_PRD.md`**, SPECS, storyboard, Addendum | — unaffected by this act. `D-222`'s other children and the `TR-DM` requirement are proposed or specified, not applied |
+| **Encyclopedia** | **Entry 06 affected** (flagged above). Entry 03's flag is unchanged; all other entries unaffected |
+| **Graphify** | Rebuild after this commit |
