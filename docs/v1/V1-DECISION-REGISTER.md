@@ -20636,3 +20636,45 @@ residual that `D-219` routed. `D-221` requires it to be defined before any readi
 | SPECS, storyboard, Addendum, `V1-SM05.md` | — unaffected by this act. The fixtures reach `V1-SM05.md` only after acceptance |
 | **Encyclopedia** | — unaffected beyond Entry 06's existing `D-280` flag: no entry cites `FN-GATES` §4 |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e110 `D-285` — Judge Rulings on `FN-GATES` §4.6: URL and Markdown Are a Pair; the Duplicate Check Stays on the Source URL; Resources by Link; "Unreachable" Means Retrieval Is Blocked
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**, answering the three choices `D-284` item 2 flagged:
+- **Rule 3:** *"URL and markdown are a pair; the markdown has the URL reference for the original source article;
+  source URL duplicate-check decision thus remain also for dot md files."*
+- **Rule 1:** *"the markdown will have the link to the resources."*
+- **Rule 2:** *"websites preventing scraping results can't be reached by URL."*
+
+### The decision
+
+1. **Pair model.** A `.md` representation always travels with its original article's URL, which the Markdown
+   carries. "Cannot be reached by URL" (`D-219`, `D-222`'s canonical phrase) means the **original site prevents
+   automated retrieval**, for example by blocking scraping. It never means the article has no URL. A source with no
+   URL at all is not a `.md` intake; it stays with `D-219`'s separately backlogged physical-source workflow.
+2. **Duplicate check.** The anchor of `G95`/`D-133` stays the **source URL**, for `.md` intakes as for URL intakes. The
+   SHA-256 digest identifies the stored text and is **not** the duplicate anchor. This replaces Lane A's `D-284`
+   derivation.
+3. **Resources.** The Markdown references resources such as images **by link**. They are not embedded, fetched or
+   retained.
+4. **Admission** now also requires the original URL to be recorded, and the retrieval reason means "the site prevents
+   automated retrieval".
+5. **`D-222`'s second fixture is re-worded under the pair model.** It no longer reads "authorized Markdown, **no URL**
+   → pass"; it reads "admitted Markdown whose original URL is recorded but **cannot be reached** → pass". `D-222`'s
+   record is history and is not edited (`D-93` rule 4). A `.md` with no original URL fails admission.
+6. **Applied at `docs/fn-specs/FN-GATES-01-05.md` §4.6:** a pair-model preface and rows 1, 2, 3 and 6 revised in place
+   with a note. §3.1's canonical-phrase lines are **unchanged**; they are read through the pair model. **§4.6 still
+   awaits the Judge's acceptance of the revised text**, then Lane B's verification.
+7. **Unchanged:** `SV2-DOD-05` is unchecked, `V1-SM05` stays `BLOCKED`, and there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e110 |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ §4.6 pair-model preface; rows 1, 2, 3 and 6 revised |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.3 row `D-219.R1` |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **`docs/Modular_PRD.md`** | — unaffected: `TR-DM-07`'s payload carries the source reference, which is now the pair |
+| SPECS, storyboard, Addendum, `V1-SM05.md` | — unaffected by this act. `D-222`'s Addendum child should read "unreachable" through the pair model when it is applied |
+| **Encyclopedia** | — unaffected beyond Entry 06's existing `D-280` flag |
+| **Graphify** | Rebuild after this commit |

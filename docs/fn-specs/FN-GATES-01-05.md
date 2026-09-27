@@ -412,20 +412,26 @@ reassessment) is **not** defined here, and `V1-SM05` offers no such edit. That r
 
 ### 4.6 Supplied `.md` representation — admission, reference and retention `[V1]` (`D-284`; `D-219`–`D-222`)
 
-**Added 2026-09-27. Status: drafted and applied; awaiting the Judge's acceptance of this text, then Lane B's
+**Added 2026-09-27. Status: revised under the Judge's rulings (`D-285`); awaiting the Judge's acceptance of this text, then Lane B's
 verification.** This section defines `D-219`'s routed residual (`SV-002` §3.3 `D-219.R1`). `D-221` requires it to be
 defined before any readiness claim, and routing it does not count. It is behaviour only, and it uses the existing
 record: the working editorial-metadata package (§4.5, `TR-DM-07`). **No file service, upload interface, converter,
 OCR or new table is chosen** (`D-219`).
 
+**The pair model (Judge ruling, `D-285`).** A `.md` representation and its original article's URL are **a pair**:
+the Markdown carries the URL of the original source article. **"Cannot be reached by URL"** means the original site
+prevents automated retrieval, for example by blocking scraping. It never means the article has no URL. A source with
+no URL at all (print or offline) is not a `.md` intake; it stays with the separately backlogged physical-source
+workflow (`D-219`). Rows 1, 2, 3 and 6 were revised on 2026-09-27 (`D-285`).
+
 | # | Rule | Refused or never observed |
 |---|---|---|
-| 1 | **Form.** The representation is Markdown **text**, prepared manually by the Chief Editor (a human step, `D-219`) and supplied through the UI as text. Embedded images or other binary content are not retained; any link inside the text stays as text and is never fetched | A converted, OCR'd, uploaded-binary or application-fetched representation |
-| 2 | **Admission.** A `.md` source is admitted only if **all** of these hold: the text is non-empty; the supplier records, as a fact, that the content cannot be reached by URL; the source information identifies the original (what it is and where it appeared, with author and date nullable under `D-197` `B1`); and the supplier is recorded. If any part is missing, §3.1's named validation failure applies and `T1` does not complete | A `.md` intake with empty text, no stated no-URL reason or no identification of the original |
-| 3 | **Reference.** The source reference of a `.md` intake is the representation itself, identified by the **SHA-256 digest of its exact text**. **A filename is never the reference and never evidence** (`D-219`). The commission identity's source anchor (`G95`, `D-133`) uses this digest where a URL intake uses the URL | A filename or path recorded as the reference; two different texts sharing one reference |
+| 1 | **Form.** The representation is Markdown **text**, prepared manually by the Chief Editor (a human step, `D-219`) and supplied through the UI as text. **Resources such as images are referenced by link inside the Markdown** (Judge ruling, `D-285`). They are not embedded, fetched or retained; the links stay as text | A converted, OCR'd, uploaded-binary or application-fetched representation; embedded resources retained in place of their links |
+| 2 | **Admission.** A `.md` source is admitted only if **all** of these hold: the text is non-empty; **the original article's URL is recorded**; the supplier records, as a fact, that the original site prevents automated retrieval, so the content cannot be reached by URL (`D-285`); the source information identifies the original (what it is and where it appeared, with author and date nullable under `D-197` `B1`); and the supplier is recorded. If any part is missing, §3.1's named validation failure applies and `T1` does not complete | A `.md` intake with empty text, **no original URL**, no stated retrieval reason, or no identification of the original |
+| 3 | **Reference.** The source reference of a `.md` intake is **the pair**: the original article's URL, plus the representation identified by the **SHA-256 digest of its exact text**. **The duplicate check stays anchored on the source URL, for `.md` intakes as for URL intakes** (`G95`, `D-133`; Judge ruling `D-285`). The digest identifies the stored text; it is not the duplicate anchor. **A filename is never the reference and never evidence** (`D-219`) | A filename or path recorded as the reference; a duplicate check keyed on the digest instead of the source URL; two different texts sharing one digest |
 | 4 | **Retention.** The full text is retained inside the version payload of the commission's working editorial-metadata package (§4.5 rules 2–3). It is append-only: a correction is a new version with a new digest, and the earlier text stays readable. How long it is kept follows `RET-EDITORIAL`, cited, not restated | The text edited in place; a reference whose text is no longer retrievable |
 | 5 | **No authenticity claim.** The representation does not show that the original was online, authentic or reliable. No URL, network check, metadata or authorship is invented to fill a field (`D-219`). At `T2` it is examined under §3.2 ("available and readable, source information examinable"), never labelled *URL confirmed live* | A `.md` intake shown or recorded as URL-verified |
-| 6 | **Three fixtures** (`D-222`), carried into `V1-SM05`'s acceptance at Gate 2: a valid URL **passes**; an admitted Markdown representation with no URL **passes**; no source reference of any kind **fails** with the named validation failure | — |
+| 6 | **Three fixtures** (`D-222`, the second worded under the pair model by `D-285`), carried into `V1-SM05`'s acceptance at Gate 2: a valid URL **passes**; an admitted Markdown representation whose original URL is recorded but cannot be reached **passes**; no source reference of any kind **fails** with the named validation failure | — |
 
 **Open, and not decided here:**
 - a maximum text size (a physical limit, Lane B's under `D-56`, to be stated in the `D-242` work order);
