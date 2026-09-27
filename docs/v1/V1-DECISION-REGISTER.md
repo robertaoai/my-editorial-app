@@ -21130,3 +21130,33 @@ Level 1 review follows the §3.1 route schedule. **No classification is decided 
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e121 `D-296` — Eligible Nomination Moves From Lane B to Lane C (Route C Receipt to Lane A)
+
+**Authority: the Chief Editor/Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: switch from Lane B eligible to
+Lane C eligible for Lane C receipt to Lane A"*.
+
+### The decision
+
+1. **Lane C is `Eligible`, and Lane B is `Blocked` on the Lane A run.** Lane A stays `Active` (`D-156`: exactly one
+   `Active`, at most one `Eligible`). This supersedes Lane B's `D-274` nomination, which is complete. That history
+   is kept in `V1-PHASE-CLOSURE.md` §5 below the lane table.
+2. **Purpose:**
+   - Lane C runs its side of `SV2-U02-C-R1` (the Judge operates the probe; the kit is `D-295`);
+   - it files the receipt as **its own committed `C-` entry with `Receiver: Lane A`** (`D-272`), for Lane A's Level 1
+     review;
+   - it performs its Level 2 reviews of Routes A (`D-291`) and B (`D-294`) under the §3.1 route schedule.
+3. **Not granted:** no lock transfer and no `.github/workflows/` change. `Eligible` is the selection step only. Lane B
+   keeps its own-series commit right (`D-272`) and its read-only answer right (`D-271` item 6); its Level 2 review of
+   Route C still follows the schedule. `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e121 |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | ✅ §5 lane table: Lane B `Blocked`, Lane C `Eligible`; Lane B history note |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no scope, sequence, DoD or file change; live lane state lives only in §5 |
+| **Agent files**, `LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md` | — unaffected: they define the vocabulary, not the live state |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
