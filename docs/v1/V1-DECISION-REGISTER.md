@@ -21787,3 +21787,49 @@ reviews Route C at Level 2). Lane B's commits are `8613ec7` and `0c3834b`.
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e135 `D-310` — Route A Reviews Released: Lane B Level 1, Then Lane C Level 2, of `SV2-U02-A-R1`
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Judge Approved: release Route A reviews to Lane B and Lane
+C"*. This lifts the hold recorded in `D-297` item 6.
+
+### The decision
+
+1. **Lane B reviews `SV2-U02-A-R1` at Level 1, and then Lane C at Level 2**, per the §3.1 route schedule.
+   - **The object** is Lane A's receipt in `SV-002` §3.4 (`D-291`): `CLAUDE.md` loaded completely with HTML comments
+     stripped; `AGENTS.md` not loaded; `sync-docs` loaded on demand; the negative control and control 3 held.
+   - **The evidence** is the Route A kit at `C:\Users\rober_24syk4j\sv2-route-a-kit\`, outside the repository. It
+     holds scorer v2 (`3deffd49…`), `answers-1.txt` (`d1ccbcc5…`), `answers-2.txt` (`5fb29caa…`), the transcript
+     `df9068ec-….jsonl` (`7ae39891…`), and the v2 score outputs (`6b95a97c…`, `6a9f7506…`). **Every hash was
+     re-checked at release and is unchanged from `D-291`.**
+   - **The deciding record under `D-294`** is the transcript's `attachment:instructions` entry, Claude Code's harness
+     record. Its injected `CLAUDE.md` should equal the 29,709-byte file minus the two-line `SHARED CORE` comment
+     (29,521 bytes).
+2. **What each review does:**
+   - a fresh re-run of the pinned scorer;
+   - a byte comparison of the harness record against the pinned `CLAUDE.md`;
+   - an explicit confirm or dispute of each classification line.
+
+   **Lane B** files its Level 1 review as its own `B-` entry. **Lane C** files its Level 2 review as its own `C-`
+   entry with `Receiver: Lane A`, after Lane B's. Both are read-only: no lock and no lane-state change (`D-271`).
+   Lane B keeps its own-series commit right (`D-272`), and Lane C stays `Eligible`.
+3. **Then:** Lane A records both reviews, and writes the combined `SV2-U02` report for the Judge's acceptance. The
+   remediation decision and a re-measurement follow before `SV2-DOD-03`.
+4. **Not given by this act:**
+   - the combined report or its acceptance;
+   - the remediation decision;
+   - any rule-file or skill edit (`D-266` item 2);
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e135 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run row `SV2-U02-A-R1`: reviews released |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: read-only reviews; no scope, sequence, DoD, file or lane change |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
