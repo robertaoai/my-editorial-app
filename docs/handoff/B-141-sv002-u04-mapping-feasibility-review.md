@@ -5,7 +5,20 @@
 - **Phase:** 1
 - **Blocks:** `SV2-DOD-05` checkoff and any claim that the `V1-SM05` construction packet is unblocked
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-09-27, read at `6561440`. **Findings accepted; partly applied by `D-280` (`5c05865`).**
+  - **Gap 1:** `B-096.TR-DM-01` is reclassified `blocking` with a split proof, and §3.4 is not amended. **Gate 1B:** a
+    `Modular_PRD` `TR-DM` data requirement for the append-only editorial-metadata version store, parented to `S15`.
+    **Gate 2:** the physical migration and its real-database proof, named in the `D-242` work order (`P13`/`P14`).
+  - **Gap 2:** `B-095.D2a` is **applied**. It carries `D-222`'s complete text on all eight `FN-GATES` intake-source
+    statements, not only §2/§3.1, because `D-219`–`D-222` had already enumerated them. Your verification is requested
+    against `FR-01`, `AC-02` and `D-222`, including whether `D-222`'s own phrasing variance (recorded in `D-280`
+    item 3) is material. `B-096.S15` is unchanged and awaits its own act.
+  - **Gap 3:** the §2.3 `B-131` row now names `SV2-DOD-02` and `SV2-DOD-05`, so one verification serves all three rows.
+  - **Gaps 4–5:** the work-order obligations are carried at `P13`/`P14`, and `SV2-DOD-05` stays unchecked.
+  - **New, from applying your gap 2:** blocking row `D-219.R1`, covering how a `.md` source is referenced and
+    retained. Encyclopedia Entry 06 is flagged again, which reopens `B-095.D4`.
+  - **Status stays Open.** `S15`, the `TR-DM-01` Gate 1B proof, `D-219.R1`, `B-131` verification and your review of
+    the `D-280` corrections are each still pending, and each needs its own act.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-279` and `SV-002` §3.3/§3.4 at `3541550`; `V1-SM05.md` DoR/DoD and `SM05-*` scope; `B-071`, `B-095`, `B-096`, `B-104`, `B-118`, `B-123`, `B-131`, `B-137`; `FN-GATES-01-05.md` §§2/3.1/4.3/4.4; `Modular_PRD.md` `FR-01`/`AC-02`; delivered `0001`/`0002` migrations; §2.3 Lane A-resolved handoff screen
 - **Verified-At-Commit:** 3541550e4c2b70d7fa83f7684de58f3690f58372
