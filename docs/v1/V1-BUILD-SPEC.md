@@ -130,6 +130,12 @@ attempt (not a lane transition). The Lane B/C read-only measurement authorizatio
 take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
 PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
 
+**`D-276` (2026-09-27) — `SV2-U04` mapping approved; order amended.** The `D-275` order above is superseded:
+`SV2-U02` A/B/C runs **and** `SV2-U04` classification run in parallel → `SV2-U03` trial → DoD, each row on its own proof.
+Classification starts only after the §3.3 schema correction has its own Judge act and is applied. Loader runs are
+pinned to `0e33683` by SHA-256 of their in-scope files. The PR #2 comment is recorded as Judge-authorized and executed
+by Lane A. `D-267`'s construction order is unchanged, and `V1-SM05` stays `BLOCKED`.
+
 **`D-270` (2026-09-27) — `SV-002` readiness rows.** `SV2-DOR-06` (governance boundary) is **checked** on the recorded
 exclusions of `D-264` and `D-266`–`D-270`. `SV2-DOR-03` (unit bounds: inputs, output, stop) and `SV2-DOR-05` (natural-
 sentinel loader method, navigation pass criteria, blocking rule) are written in `SV-002` §3/§3.4 and stay unchecked

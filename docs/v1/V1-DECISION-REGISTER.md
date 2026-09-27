@@ -20149,3 +20149,80 @@ eligible to allow Lane B review and update handoff."*
 | **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change |
 | **`docs/Modular_PRD.md`**, Fn Specs, storyboard, `V1-SM05.md`, Encyclopedia | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e101 `D-276` — `SV2-U04` Mapping Approved; `D-275` Item 3 Order Amended (`U02` ∥ `U04`); PR #2 Comment Recorded; `SV2-U02` Run Pin and Kit Isolation
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: first *"Judge Approved: SV2-U04 mapping"*, then, after
+Lane A's gap review of that approval, *"Judge Approved: apply P0"*. This entry is P0. On the review's clarification
+questions the Judge chose to **run `SV2-U04` now** and to **screen the Lane A-closed layer inside `SV-002`**.
+
+### The decision
+
+1. **`SV2-U04` mapping approved.** Lane A maps the `SV-002` §3.3 rows; Lane B reviews afterwards. **Classification
+   does not start until the §3.3 schema correction (item 6, `C1`) has its own Judge act and is applied.** This act
+   decides no row, and seeded keys are still not decisions (`B-139`).
+2. **`D-275` item 3 order amended.** `SV2-U02` A/B/C loader runs **and** `SV2-U04` classification run in parallel,
+   then the `SV2-U03` trial, then the DoD. Each `SV2-DOD-*` row is still checked only on its own proof. **Reason:**
+   `SV2-U04` uses no `SV2-U02` or `SV2-U03` output. `D-267` item 6's construction order (`SV2-U03` outcome →
+   `SV2-DOD-04` → `SV2-DOD-06` → Judge acts → `V1-SM05-FV-001`) is **unaffected**.
+3. **PR #2 comment recorded.** [robertaoai/my-editorial-app#2 comment](https://github.com/robertaoai/my-editorial-app/pull/2#issuecomment-5854151496),
+   posted 2026-09-27. **Provenance:** Lane A (Claude Code) posted it under the Judge's GitHub account, on the Judge's
+   explicit instruction. `D-275` item 4's "the Judge's own act" therefore reads as *Judge-authorized, Lane A-executed*.
+   The comment confirms preparation only. It is not a run result, not a DoD receipt (`SV-002` §2.2's receipt rule),
+   not acceptance of `SV-002`, and it does not lift the `V1-SM05` block.
+4. **`SV2-U02` run pin.** Every loader run reads the in-scope files at **`0e33683`**, pinned by SHA-256 of the file
+   bytes:
+
+   | File | Role (§3.4) | Bytes | SHA-256 |
+   |---|---|---|---|
+   | `AGENTS.md` | Route B expected; Routes A/C tested | 31,920 | `f2bd6dae9f17a91eb6ab733c5a136769041aaf0cce6c19e90a6ed2e3b9557b0d` |
+   | `CLAUDE.md` | Route A expected; Routes B/C tested | 29,709 | `6a6a82d6754b0953688392e3e2305bc9f44ee568d084bfe19d8a6c39003d3977` |
+   | `.agents/rules/graphify.md` | Route C expected | 21,750 | `3baf8c53889b5e9f321adfafdb3c4f46972e4da643a26dc9b773825dd1d659bc` |
+   | `.claude/skills/sync-docs/SKILL.md` | Route A on-demand probe | 7,453 | `5568dac5f8e9d09d89f29b1e0e8410b5d1d913a1daa27e2558262f57a45e75ae` |
+   | `docs/PRD.md` | Negative control, all routes | 1,813 | `294d8e891ce5e5898fa7fb54338f8e194822db84d688638278e2e622594fd2d2` |
+
+   A route's checkout may sit at a later commit **only if all five hashes match** at run time. The run records the
+   hashes it saw. **Any mismatch invalidates the run**; that is not an `inconclusive` result. On 2026-09-27 both local
+   clones, `C:\git\my-editorial-app` (Route A) and `C:\robertaoai\my-editorial-app` (Routes B/C), were at `0e33683`, and
+   the first three hashes matched in both. The access-proof commits in §3.1 (`9ddb11a`, `8515bc6`, `fa38edd`) remain
+   access evidence only, never the run pin. The external skill `~/.gemini/config/skills/graphify/SKILL.md` is not in
+   the repository; Route C records its size and SHA-256 at run time (§3.1, unchanged).
+5. **Verifier kit isolation.** The verifier-held sentinels (§3.4 control 2) are stored **outside both checkouts, outside
+   every agent profile directory (`~/.claude`, `~/.codex`, `~/.gemini`) and outside any directory the agent under test
+   reads by default**. Before each run, the route records how file and search tools are withheld (control 3). If the
+   tool offers no way to withhold them, the probe says tools are not to be used, and **any tool request makes the
+   automatic-loading probe `inconclusive`**, per §3.4 as written. **Not given by this act:** preparing the Route A
+   kit, and the `ripwire` download. Each still needs the Judge's separate go-ahead.
+6. **Gaps from Lane A's review of the `SV2-U04` approval.** The labels below are scoped to this entry; they are not
+   Register `G`-series IDs. Each open gap is **specified, not applied**, and needs its own Judge act.
+
+   | Label | Gap | Disposition |
+   |---|---|---|
+   | `U4-G1` | `D-275` item 3 sequenced `SV2-U04` after `U02`/`U03` | **Closed by item 2** |
+   | `U4-G2` | §3.3 has no row for `B-137` R1 (§2.2 `P7`) or Encyclopedia Entry 03 (`P10`), though §2.2 routes both to `SV2-U04`; "every row" in `SV2-DOD-05` cannot be met | Open → `C1`: add both rows |
+   | `U4-G3` | The "first work-order child" mapping target does not exist: `V1-SM05.md` names none, and `B-115` blocks defining the first executable unit | Open → `C1`: a row consumable only through it is `non-blocking — re-screen at the D-242 work order`, destination `P13`/`P14` |
+   | `U4-G4` | The target set omits `AC-02` (in `V1-SM05`'s DoD acceptance list); "`SM05-N1`–`SM05-X1`" is not a range | Open → `C1`: add `AC-02`; enumerate `SM05-N1`–`N6`, `SM05-RV1`/`RV2`, `SM05-F1`, `SM05-X1` |
+   | `U4-G5` | *Blocking?* is binary although the stop condition needs `escalated` (`D-58`); there are no columns for consumption path, decision state, evidence commit or Lane B receipt | Open → `C1` |
+   | `U4-G6` | The Lane B review channel is unnamed | Open → `C1`: Lane B's own new `B-` entry (`D-272`), kind `finding`, linked from the receipt column |
+   | `U4-G7` | Entries Lane A resolved without independent verification sit outside §2.1, which counts only `Open` headers; `SV-001`'s `DOR-R2`–`R7` rest on several of them | Open → `C2`: `SV-002` §2.3 screen by each entry's `Blocks` line, plus a §4 drift row |
+   | `U4-G8` | `B-127`/`B-128` carry `Resolution: Applied` beside a pre-disposition `Verified-By` value, and no check detects it | Open → `C3`: header correction plus a check rule with a negative test |
+   | `U4-G9` | The PR #2 comment was unrecorded and its provenance unstated | **Closed by item 3** |
+   | `U4-G10` | The three route access proofs were at three commits with no run pin; kit isolation and tool withholding were unspecified | **Closed by items 4–5** |
+   | `U4-G11` | `.graphify` in `C:\robertaoai\my-editorial-app` is a symlink that `.gitignore`'s `.graphify/` pattern does not ignore; the curated graph layer has no nodes for `D-265`–`D-276` except `D-271` | Open → `C4` (`.gitignore`) and `C5` (fragment merge; `docs-drift` compares only the extracted layer's head) |
+
+7. **Unchanged:** `V1-SM05` stays `BLOCKED`. There is no lane-state change (Lane A `Active`, Lane B `Eligible`,
+   Lane C `Blocked`; `D-274`), no rule-file edit before the `SV2-U02` report (`D-266` item 2), no acceptance of
+   `SV-002`, and no construction.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e101 |
+| **`V1-BUILD-SPEC.md`** | ✅ §1 `D-276` paragraph: order amended, `SV2-U04` approved |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §1 status and PR #2 row; §3 order note; §3.4 run pin and kit isolation |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file added or retired |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS, storyboard, `V1-SM05.md` | — unaffected unless `SV2-U04` later proves a contract change |
+| **Encyclopedia** | Entry 03 still flagged (`D-265`), and its screen is routed to `C1`; all other entries unaffected |
+| **Graphify** | Rebuild after this commit; curated nodes wait for `C5` |
