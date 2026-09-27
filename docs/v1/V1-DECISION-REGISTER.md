@@ -20945,3 +20945,53 @@ the evidence to Lane A on 2026-09-27. **This is a Lane A receipt, not an accepte
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e117 `D-292` — Route B Verifier Kit Prepared for `SV2-U02-B-R1` (Codex; Outside the Repository)
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: prepare the Route B kit"*. The act is under
+`D-275`, `D-276` items 4–5 and `D-290`/`D-291`, using the `SV-002` §3.4 method.
+
+### The decision
+
+1. **The kit is prepared at `C:\Users\rober_24syk4j\sv2-route-b-kit\`**, outside both checkouts and every agent
+   profile directory. It holds:
+   - one cue-only probe, since Codex has no repository skill (§3.4 Route B row);
+   - the verifier key, which is never opened in the probe session;
+   - the instructions;
+   - `score.mjs` for Codex rollout logs. It carries `D-291`'s v2 fixes and reads Codex's own `# AGENTS.md
+     instructions for …` injection as the harness record. It was self-tested on synthetic rollouts: a clean run
+     passes, a quoted negative control gives INVALID, and a tool call gives INCONCLUSIVE.
+
+   `SV-002` §3.2 records the file hashes and sentinel pins, never the sentinel text.
+2. **Scope:** `AGENTS.md` is expected, `CLAUDE.md` is tested, and `docs/PRD.md` is the negative control. The
+   sentinels are the same lines as Route A, because selection is deterministic, which keeps the routes comparable;
+   the cue order is reshuffled.
+3. **Recorded facts:**
+   - No `~/.codex/AGENTS.md` exists.
+   - `.codex/hooks.json` holds a `PreToolUse`/`Bash` hook, which is configuration, not instructions.
+   - `codex-cli` is `0.158.0-alpha.2.1`, and `project_doc_max_bytes` is not overridden.
+   - `AGENTS.md` is 31,920 bytes, under Codex's 32 KiB default, so `AGENTS.md#end` is also the truncation test.
+4. **The `D-291` lessons are applied:**
+   - no skill invocation, since there is no on-demand probe;
+   - one message only in the probe session;
+   - tool calls are scoped to the probe window;
+   - tool outputs are searched for sentinel text;
+   - a byte comparison against the file, because `AGENTS.md` carries the same `SHARED CORE` HTML comment that Claude
+     Code strips.
+5. **Receipt and review (§3.1):** the receipt is Lane B's own `B-` entry (`D-184`). Lane B writes it in a **separate**
+   session after the probe, so the key never reaches the probe session. Lane A re-scores independently (Level 1),
+   then Lane C reviews (Level 2).
+6. **Not given by this act:** running the probe (the Judge operates it), the Route C kit, any rule-file edit and
+   `SV2-DOD-03`. `V1-SM05` stays `BLOCKED`, and there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e117 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run row `SV2-U02-B-R1`; the Route B kit record and pins |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: the kit is outside the repository by design (`D-276`); no scope or lane change |
+| **Agent files** | — unaffected: read only (`D-266` item 2) |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
