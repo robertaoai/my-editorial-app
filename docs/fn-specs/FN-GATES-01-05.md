@@ -412,8 +412,8 @@ reassessment) is **not** defined here, and `V1-SM05` offers no such edit. That r
 
 ### 4.6 Supplied `.md` representation — admission, reference and retention `[V1]` (`D-284`; `D-219`–`D-222`)
 
-**Added 2026-09-27. Status: revised under the Judge's rulings (`D-285`); awaiting the Judge's acceptance of this text, then Lane B's
-verification.** This section defines `D-219`'s routed residual (`SV-002` §3.3 `D-219.R1`). `D-221` requires it to be
+**Added 2026-09-27. Status: text accepted by the Judge (`D-286`), as revised under the rulings in `D-285`; awaiting
+Lane B's verification.** *(Read "awaiting the Judge's acceptance" until 2026-09-27; `D-286`.)* This section defines `D-219`'s routed residual (`SV-002` §3.3 `D-219.R1`). `D-221` requires it to be
 defined before any readiness claim, and routing it does not count. It is behaviour only, and it uses the existing
 record: the working editorial-metadata package (§4.5, `TR-DM-07`). **No file service, upload interface, converter,
 OCR or new table is chosen** (`D-219`).

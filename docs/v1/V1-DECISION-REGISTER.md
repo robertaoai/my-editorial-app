@@ -20678,3 +20678,30 @@ residual that `D-219` routed. `D-221` requires it to be defined before any readi
 | SPECS, storyboard, Addendum, `V1-SM05.md` | — unaffected by this act. `D-222`'s Addendum child should read "unreachable" through the pair model when it is applied |
 | **Encyclopedia** | — unaffected beyond Entry 06's existing `D-280` flag |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e111 `D-286` — `FN-GATES` §4.6 (Supplied `.md` Representation, Pair Model) Text Accepted by the Judge
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: accept §4.6 text"*. The text was
+accepted as revised by `D-285` at `06859c4`, without further change.
+
+### The decision
+
+1. **`docs/fn-specs/FN-GATES-01-05.md` §4.6 is accepted.** Its status line now reads "accepted", with a dated note.
+   This includes rule 2's consequence: **a source with no URL at all is not admitted as a `.md` intake**, and stays
+   with `D-219`'s separately backlogged physical-source workflow.
+2. **`SV-002` §3.3 row `D-219.R1` is decided.** Lane B's verification is the only step still open.
+3. **The next step is separate and not taken here:** adding §4.6 rule 6's three fixtures to `V1-SM05.md`'s DoD
+   (`D-280` item 6). A DoD change needs its own act under `D-54`.
+4. **Unchanged:** `SV2-DOD-05` is unchecked, `V1-SM05` stays `BLOCKED`, and there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e111 |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ §4.6 status line: accepted (`D-286`) |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.3 row `D-219.R1` |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **`docs/Modular_PRD.md`**, SPECS, storyboard, Addendum, `V1-SM05.md` | — unaffected by this act |
+| **Encyclopedia** | — unaffected beyond Entry 06's existing `D-280` flag |
+| **Graphify** | Rebuild after this commit |
