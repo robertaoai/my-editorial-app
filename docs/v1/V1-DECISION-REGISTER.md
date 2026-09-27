@@ -20226,3 +20226,55 @@ questions the Judge chose to **run `SV2-U04` now** and to **screen the Lane A-cl
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS, storyboard, `V1-SM05.md` | — unaffected unless `SV2-U04` later proves a contract change |
 | **Encyclopedia** | Entry 03 still flagged (`D-265`), and its screen is routed to `C1`; all other entries unaffected |
 | **Graphify** | Rebuild after this commit; curated nodes wait for `C5` |
+
+## 5.14e102 `D-277` — `SV2-U04` Matrix Schema Corrected (`C1`): One Target List, Three Values, Re-Screen Rule, Two Added Rows, Lane B Channel
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: apply C1"*, the child of `D-276`
+item 6 that covers `U4-G2`–`U4-G6`.
+
+### The decision
+
+1. **One target list.** `SV-002` §3.4 "Mapping (`SV2-U04`)" is now the only statement of the mapping targets:
+   - `FR-15`;
+   - **`AC-02`**, added because `V1-SM05.md`'s DoD acceptance line lists it and `FR-01` reaches the packet only
+     through it;
+   - `AC-23`–`AC-26`;
+   - the **enumerated** scenarios `SM05-N1`–`N6`, `SM05-RV1`/`RV2`, `SM05-F1` and `SM05-X1`, replacing the false range
+     "`SM05-N1`–`SM05-X1`";
+   - a data write;
+   - a `V1-SM05.md` DoD checklist row, which replaces "the first work-order child".
+
+   If this list and `V1-SM05.md` disagree, `V1-SM05.md` wins. Every other statement of the list in `SV-002`
+   (§2 Product, §2.2 `P4`/`P7`, both §3 `SV2-U04` rows, the §3.3 preamble) is struck and points to §3.4.
+   **Closes `U4-G4`.**
+2. **Three values.** *Blocking?* is `blocking`, `non-blocking` or `escalated`. An `escalated` row goes to the Judge
+   (`D-58`) and is classified again after the ruling. `unclassified` is a seeded state only, never a result.
+   **Closes the value half of `U4-G5`.**
+3. **Re-screen rule.** A child that only the not-yet-existing first work-order child could consume is recorded as
+   `non-blocking — re-screen at the D-242 work order`, with destination §2.2 `P13`/`P14`. It is never blocking against
+   a target that does not exist. **Closes `U4-G3`.**
+4. **Four added columns:** *Consumed via*, *Decision state*, *Evidence commit* and *Lane B receipt*. The existing 25
+   rows keep their cells verbatim; the new cells read `—`. The row-done and unit-done tests (`SV2-DOD-05`) are written
+   in §3.4. **Closes the column half of `U4-G5`.**
+5. **Two added rows.** `B-137.R1` (§2.2 `P7`) and `ENC-03` (`P10`) are keyed in §3.3, `unclassified`, with known
+   pointers only (`D-265`; `B-137` Lane B-`Verified` at `9735e47`; `D-267` item 8). **Closes `U4-G2`.**
+6. **Lane B channel.** Lane B reviews in its own new `B-` entry (`D-272`), kind `finding`, citing the mapping commit
+   and linked from the *Lane B receipt* column. **Closes `U4-G6`.**
+7. **Unchanged:**
+   - No row is classified, and seeded keys are still not decisions (`B-139`).
+   - `SV2-U04` classification may now start under `D-276`'s order.
+   - `U4-G7`, `G8` and `G11` stay open under `C2`–`C5`.
+   - `V1-SM05` stays `BLOCKED`, and there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e102 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §1 status; §2 Product; §2.2 `P4`/`P7`; §3 `SV2-U04` rows; §3.3 columns, preamble and rows `B-137.R1`/`ENC-03`; §3.4 mapping rule |
+| **`V1-BUILD-SPEC.md`** | — unaffected: no scope, sequence or DoD change. `D-276`'s paragraph already makes classification wait for this correction, and the unit's input set lives in `SV-002.md` (as with `D-265`) |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no file added or retired |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS, `V1-SM05.md` | — unaffected: `SV-002` reads `V1-SM05.md`'s acceptance line and does not change it |
+| **Encyclopedia** | Entry 03 is screened as `ENC-03`; its flag and hosted comparison keep their own path (`D-265`) |
+| **Graphify** | Rebuild after this commit |
