@@ -375,6 +375,41 @@ anchor in the Product column; this section elaborates them and does not stand in
 anchored to `AC-23` through `SM05-N1`. `AC-01` keeps one meaning per tier as written; `Modular_PRD` §9's
 *"a transition row records executor"* clause stays with the later transition increment.
 
+### 4.5 Working editorial-metadata versions — bounded `S15` contract `[V1]` (`D-281`; `docs/handoff/B-096`)
+
+**Added 2026-09-27. Status: drafted and applied; awaiting the Judge's acceptance of this text, then Lane B's
+verification.** This section describes observable behaviour only. As in §4.3, it names no table, key, column or JSON
+layout: the physical design belongs to Lane B (`D-56`), and the data requirement is a separate `Modular_PRD` act
+(`SV-002` §3.3 `B-096.TR-DM-01`).
+
+**Parent: Choice A** (the Chief Editor, 2026-09-14; recorded by `D-281`). There are four kinds of fact, and each has
+exactly one authoritative place:
+- **current workflow state:** one typed field;
+- **state and publication history:** append-only typed events;
+- **working editorial metadata:** a versioned, append-only package, covered by this section;
+- **frozen explainable report:** insert-only snapshots.
+
+**Bound.** This covers what `V1-SM05` consumes: the first version, written by `SM05-N1`'s intake. Rules 2–4 hold for
+any later version. When and why a later version is triggered (a pre-gate correction under `G95`/`D-133`, or a
+reassessment) is **not** defined here, and `V1-SM05` offers no such edit. That remainder stays with `B-096`'s `S15`.
+
+| # | Rule | Observable when | Refused or never observed |
+|---|---|---|---|
+| 1 | **One package per commission.** Accepting a manual intake (`SM05-N1`) creates exactly one working editorial-metadata package for that commission (commission identity, §4.3). The package's identity never changes | The intake acceptance event is appended | A second package for the same commission; a package with no accepted intake |
+| 2 | **Versions are identified and ordered.** Each version has its own identity and a version number that increases by one within its package. **Version 1 is the intake as accepted.** Order comes from the version number, never from a timestamp | A package is read | Two versions with the same number; a gap in the numbering |
+| 3 | **Append-only.** A later version is a new version. No version is updated or deleted, and earlier versions stay readable. A change never overwrites an earlier version | Any version exists | An update or delete of any version is refused, and the version is unchanged afterwards |
+| 4 | **Separate from state (Choice A, both directions).** Writing a version never changes article or workflow state. A state change never writes, edits or requires a metadata version. The package carries no authoritative state | A version is written, or a state change occurs | State held or changed through the package; a state transition that rewrites metadata |
+| 5 | **Version 1 content.** The `FR-01` entry set: the **source reference** (§3.1, the `D-222` phrase), **exactly one subject topic** and the trend-signal description, plus source information. It also records the supplier (the Chief Editor) and the entry time, **as separate facts** from the executor (§3.1 `FB-05`, `D-197`). The application generates none of these values | `SM05-N1` completes | Any value claimed as application-generated; the `B-084` A4 template fields (`S2`, `S4`, `S6`–`S8`), unless a separate decision adds them (`B-141`) |
+| 6 | **Traceable.** Every visible metadata fact (`SM05-F1`) traces to one specific version of one package | The V1 UI shows a metadata fact | A displayed fact with no version source |
+| 7 | **Not the report.** A frozen explainable-report snapshot (`0002`'s `editorial_reports`) is never used as the working package, and never edited in its place | — | A report snapshot read or written as working metadata |
+
+**Open, and not decided here:**
+- how a supplied `.md` representation is referenced and retained (`SV-002` §3.3 `D-219.R1`);
+- what triggers a later version (the remainder above);
+- the physical store and its migration (Lane B, at the `D-242` work order).
+
+`S16` (the report projection) is unaffected.
+
 ## 5. Acceptance criteria
 
 | ID | Given | When | Then |

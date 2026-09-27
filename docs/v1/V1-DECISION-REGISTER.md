@@ -20455,3 +20455,64 @@ came from Lane A's clarification questions, asked after Lane B's `B-141` review:
 | **`docs/Modular_PRD.md`**, SPECS, storyboard, Addendum | — unaffected by this act. `D-222`'s other children and the `TR-DM` requirement are proposed or specified, not applied |
 | **Encyclopedia** | **Entry 06 affected** (flagged above). Entry 03's flag is unchanged; all other entries unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e106 `D-281` — E3b: `B-096` Choice A Recorded; Bounded `S15` Working-Metadata Contract Applied at `FN-GATES` §4.5
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: apply E3b"*. This is `SV-002` §3.3 row
+`B-096.S15` (`D-279`, `D-280`). It answers `B-141` gap 2's second limb.
+
+### The decision
+
+1. **Choice A is recorded as the Chief Editor's decision of 2026-09-14.** It was given in conversation, carried in
+   `docs/handoff/B-096` (§"The parent decision"), and acknowledged by Lane A on 2026-09-15. It was **not recorded in
+   this Register until now**. It stands from 2026-09-14 forward and is not retroactive (`B-096`).
+
+   | Kind of fact | Its one authoritative place |
+   |---|---|
+   | Current workflow state | One typed scalar field on the article, changed only through the governed transition transaction |
+   | State history and publication recovery | Append-only typed events; no authoritative state inside JSON metadata |
+   | Working editorial metadata | A separately identified, versioned, append-only package with a structured payload |
+   | Frozen explainable report | An insert-only record with schema and template version, a transition anchor and a snapshot. It is evidence, never the working store |
+
+   **Rejected:**
+   - **B:** one mutable JSON object on `articles`. A generic update can change unrelated facts, and reassessment
+     overwrites intake.
+   - **C:** the report snapshot as the working record. It conflates an editable commission with frozen evidence.
+   - **D:** state duplicated in a scalar and in JSON. That gives two answers to one question.
+
+   **Physical direction:** PostgreSQL JSONB (the provisioned stack), chosen by Lane B (`D-56`).
+2. **The bounded `S15` contract is applied at `docs/fn-specs/FN-GATES-01-05.md` §4.5**, as behaviour only and
+   schema-neutral, following §4.3's precedent. It has seven rules:
+   - one package per commission;
+   - identified versions in a numbered order, where version 1 is the accepted intake;
+   - append-only, with no update or delete;
+   - separation from state, in both directions;
+   - version 1's content, which is the `FR-01` entry set plus supplier and time, has no application-generated values
+     and adds no A4 template fields;
+   - every visible fact traces to a version;
+   - the report is never the working package.
+
+   **Bound:** only what `V1-SM05` consumes (version 1, written by `SM05-N1`). **Not decided here:** what triggers a
+   later version (a pre-gate correction under `G95`/`D-133`, or a reassessment), `.md` retention (`D-219.R1`) and
+   the physical store.
+3. **Status of the text: drafted and applied, not yet accepted.** Row `B-096.S15` is decided at the parent level. It
+   is complete only when the **Judge accepts §4.5's text** and **Lane B independently verifies** it against
+   `B-096`, `SM05-N1`/`F1` and §3.1. If acceptance requires changes, the section is revised in place, with a note.
+4. **Next steps that depend on this:** `TR-DM-01`'s Gate 1B data requirement (a `Modular_PRD` `TR-DM` row parented to
+   §4.5) and the `D-219.R1` retention rule are drafted **after** §4.5 is accepted. Each needs its own act.
+5. **Unchanged:** `S16`, `S17` and `GA1` keep their `B-096` dispositions. No schema or migration is changed.
+   `SV2-DOD-05` is unchecked, `V1-SM05` stays `BLOCKED`, and there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e106: Choice A recorded |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ new §4.5, the bounded `S15` contract (`[V1]`) |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.3 rows `B-096.S15` and `B-096.TR-DM-01`, and a dated note |
+| **`V1-BUILD-SPEC.md`** | — unaffected: no scope, sequence or DoD change |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: a section added to an existing file; no file added or retired |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no lane-state change |
+| **`docs/Modular_PRD.md`**, SPECS, storyboard, `V1-SM05.md` | — unaffected by this act. The `TR-DM` row is the next, separate act |
+| **Encyclopedia** | — unaffected: no entry depends on `FN-GATES` §4 (the ledger cites §3.1, §3.4, §6 and §7) |
+| **Graphify** | Rebuild after this commit |
