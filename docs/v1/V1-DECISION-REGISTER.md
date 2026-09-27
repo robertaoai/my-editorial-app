@@ -21303,3 +21303,105 @@ classification is decided by this entry.**
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e125 `D-300` — Judge Ruling on `SV2-U02-C-R1`: Option (a), R1 Stays `inconclusive` and R2 Runs; `C-004` Is Not `B-143`'s Verification
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**, answering the two questions `D-299` put: *"(a) R2, revised
+kit"* and *"No, leave it Applied"* (`D-58`).
+
+### The decision
+
+1. **`SV2-U02-C-R1` stays `inconclusive`**, as `C-003` proposed and Lane A's Level 1 review agreed:
+   - **Probe 1** has no loader diagnostic, so the quotes cannot attribute the load or separate truncation from
+     non-loading;
+   - **Probe 2** is inconclusive on control 3 because both steps went in one message.
+
+   R1 is carried as history under the next run. §3.4 is unchanged: this ruling applies the method and does not amend it.
+2. **`SV2-U02-C-R2` runs under `SV2-U02-B-R1`, with a revised kit.** Lane A prepares it (`D-301`) from `D-299`'s
+   findings:
+   - the line 327/330 cut bracket;
+   - Part A2 (the rule wrapper and any truncation marker, quoted);
+   - Probe 2 as two files, sent as two messages.
+
+   The Judge operates the session. The receipt is Lane C's own `C-` entry. Lane A reviews at Level 1, then Lane B at
+   Level 2.
+3. **`C-004`'s document review does not verify `B-143`.** It did not re-examine the rollout. `B-143` stays `Applied`.
+   It, `C-003` and `C-004` are added to `SV-002` §2.3, each needing an independent actor before `SV2-DOD-03`. For
+   `B-143`, that is a re-examination of the Route B rollout by Lane B as raiser, or by Lane C.
+4. **`C-003` is answered** (`Resolution: Applied`). Its raiser may verify the recording.
+   **Caught before commit:** Lane A's first write of this answer passed the R2 kit path through a shell heredoc. That
+   produced the `B-140` defect a third time: a carriage return, and lost separators. `text-integrity` (`D-297`) failed on
+   it, and the path was rewritten without a shell layer. This is the check's first catch.
+5. **Not given by this act:**
+   - Route A's reviews, which the Judge still holds (`D-297` item 6);
+   - any rule-file or skill edit (`D-266` item 2);
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e125 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run rows `SV2-U02-B-R1`, `SV2-U02-C-R1` and new `SV2-U02-C-R2`; §2.3 addendum rows `B-143`, `C-003`, `C-004` |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, sequence, DoD, file or lane change |
+| **Agent files** | — unaffected: measured, not edited |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
+
+## 5.14e126 `D-301` — Route C R2 Verifier Kit Prepared for `SV2-U02-C-R2` (Antigravity; Filed Under B-R1; Outside the Repository)
+
+**Authority:** the Judge's ruling `D-300` item 2, whose chosen option included Lane A preparing the R2 kit. The act is
+under `D-275`, `D-276` items 4–5 and `D-294`–`D-299`, using the §3.4 method as amended by `D-294`.
+
+### The decision
+
+1. **The kit is prepared at `C:\Users\rober_24syk4j\sv2-route-c-r2-kit\`.** The R1 kit and its evidence stay
+   untouched. It holds:
+   - the Probe 1 file;
+   - two Probe 2 files;
+   - the verifier key;
+   - the instructions;
+   - `score.mjs`;
+   - `selftest.mjs`.
+
+   `SV-002` §3.2 records every file hash and the new sentinel pins, never the sentinel text.
+2. **The design follows `D-299`:**
+   - **Four cut-bracket sentinels** (lines 321, 327, 330 and 337) sit either side of `AGENTS.md` byte 23,962. They are
+     shared by all three rule files, so an absent one bounds every loaded file and a visible one may be `graphify.md`'s
+     copy.
+   - **Part A2** asks for the rule wrapper and any truncation marker verbatim. The scorer checks a quoted byte count
+     against every applicable quote, and searches the transcript for a harness rule record.
+   - **Probe 2 ships as two files.** The scorer reports a combined message as a `DEVIATION`.
+   - **R1's seventeen sentinels are reused**, reshuffled, for a line-for-line comparison. The operator records whether
+     Antigravity holds anything from the R1 conversation.
+3. **Checks made:**
+   - The pins are unchanged since R1.
+   - Every bracket line is non-blank, unique, outside HTML comments, and follows its cue across blank lines only.
+   - No sentinel text appears in any probe file.
+   - The nine self-tests pass: a clean run with a consistent marker; a quoted negative control (INVALID); a tool in the
+     window (INCONCLUSIVE); an inconsistent marker; a non-monotonic bracket; a harness record present; and three
+     Probe 2 cases (clean, combined message, other tool). Both clean cases also assert that no failure line appears.
+4. **Found and fixed during preparation:** the first bracket design used line 329 as `cut#330`'s cue, which would have
+   printed `cut#329`'s answer in the question. The visible-side bracket moved to line 327, and the generator now
+   rejects any cue that contains a sentinel.
+5. **Not given by this act:**
+   - running the probe (the Judge operates it);
+   - trimming the skill;
+   - any rule-file edit.
+
+   `SV2-DOD-03` is unchecked, `V1-SM05` stays `BLOCKED`, and there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e126 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run row `SV2-U02-C-R2`; the Route C R2 kit record, pins and specifics |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: the kit is outside the repository by design (`D-276`); no scope or lane change |
+| **Agent files** | — unaffected: read only (`D-266` item 2) |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
