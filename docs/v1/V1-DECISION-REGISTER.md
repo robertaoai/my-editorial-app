@@ -21039,3 +21039,46 @@ Level 1 review follows the §3.1 route schedule. **No classification is decided 
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e119 `D-294` — Judge Ruling on `SV-002` §3.4 Control 5: A Loader Diagnostic Decides the Loader Outcome; `SV2-U02-B-R1` Classified
+
+**Authority: the Judge, directly to Lane A, 2026-09-27**: *"Judge Approved: option (b)"*. The question was put in
+`docs/handoff/B-143`'s Lane A review and in `D-293` item 5 (`D-58`).
+
+### The decision
+
+1. **§3.4 is amended by a dated note.** Where the tool offers a **loader diagnostic**, it decides the loader outcome:
+   which files were delivered, and whether each arrived complete compared byte for byte with the pinned file. A
+   loader diagnostic is a harness-recorded injection: Claude Code's `attachment:instructions`, or Codex's
+   `# AGENTS.md instructions for …` rollout item. **The quotations corroborate it.**
+   - A quote miss on a line the diagnostic shows was delivered is a **response error**. It is not a loading gap, and
+     it is not by itself `inconclusive`.
+   - The negative control, control 3 (tools) and the pin check are unchanged.
+   - Without a diagnostic, the quotation test alone governs.
+2. **`SV2-U02-B-R1` is classified:**
+   - **`AGENTS.md`: complete loading**, byte-exact, no truncation under the 32 KiB default, HTML comments kept,
+     delivered as a user-role message;
+   - **`CLAUDE.md`: not loaded**;
+   - **one response error (C8)**, on the role-addressed line;
+   - the negative control and control 3 held.
+
+   **No R2 is needed.** Route C runs under B-R1 (§3.1).
+3. **Consistency with Route A:** `SV2-U02-A-R1` (`D-291`) meets the amended rule unchanged. Its harness record and
+   all its quotations agree.
+4. **`B-143`** is `Answered`, with `Resolution: Applied`; no independent verifier is claimed. **Still to come:** Lane
+   C's Level 2 review of Routes A and B (§3.1 route schedule), the Route C kit and run, the combined report, and the
+   Judge's acceptance for `SV2-DOD-03`. No rule file is edited (`D-266` item 2). `V1-SM05` stays `BLOCKED`, and
+   there is no lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e119 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.4 dated amendment (control 5); §3.2 run row `SV2-U02-B-R1` classified |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: a method interpretation inside `SV-002`; no scope, file or lane change |
+| **`docs/templates/dor-dod-validation/v1.md`** | — unaffected: the template is results-free and hash-pinned, and this ruling lives in the attempt record |
+| **Agent files** | — unaffected: measured, not edited |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
