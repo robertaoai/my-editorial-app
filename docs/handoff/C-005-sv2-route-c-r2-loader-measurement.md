@@ -5,11 +5,12 @@
 - **Phase:** 1
 - **Blocks:** a conclusive `SV2-U02-C` result, `SV2-DOD-03`, and the remediation decision; does not authorize construction or unblock `V1-SM05`
 - **Receiver:** Lane A
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane C
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-28, read at `b4f4a42` (receiver per `D-272`). **Level 1 review done: Lane A's independent re-score is byte-identical to this receipt's evidence** (`D-302`). The measurements hold, and four wording corrections to the classification are made (see "Lane A Level 1 review" below). The result is recorded in `SV-002` §3.2 (`D-303`). Next is Lane B's Level 2 review of Route C (§3.1). This records Lane A's reading; it is not an accepted result.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `SV-002` §3.2/§3.4; `D-276` item 4; `D-300`; `D-301`; `D-302`; Route C R2 kit at `C:\Users\rober_24syk4j\sv2-route-c-r2-kit\` (`answers-1.txt`, `answers-2.txt`, `score-probe1.txt`, `score-probe2.txt`, `transcript_full.jsonl`); kit hashes re-checked against `D-301`; read-only review at the commit below
-- **Verified-At-Commit:** 6263fc810f2feb99879ad35c71813a60fade4da0
+- **Verified-At-Commit:** b4f4a4212b0c60bc10a7364c5c10cd9d5f2c53fd
 
 ## What happened — Route C R2, 2026-09-27 / 2026-09-28
 
@@ -91,3 +92,72 @@ Reviewed the R2 kit evidence read-only, verified `C-003` and `C-004` in their ow
 | Probe 2: partial load (agent did not page) | **Approve** | Tool line cap; justifies <12,000 char / 800 line trim (Gate 1B, P1) |
 | `SV2-U02-C-R2` conclusive classification | **Approve** | Ready for Level 1 recording (Gate 1B, P1) |
 | Checking `SV2-DOD-03` or lifting `V1-SM05` block | **Reject** | Needs P1–P4, then `SV2-DOD-06` and separate Judge decision (Gate 1B → Gate 2) |
+
+## Lane A Level 1 review — 2026-09-28, read at `b4f4a42`
+
+### What happened
+
+Lane A re-ran the pinned R2 `score.mjs` (`47e32c79…`) on both answer files and the transcript, outside the repository.
+The outputs, `score-laneA-L1-probe1.txt` and `score-laneA-L1-probe2.txt`, are **byte-identical** to the operator's
+(`378c8523…`, `3cacba4a…`). The self-tests pass 9/9. Every measurement in this receipt was checked and holds:
+- the evidence and kit hashes;
+- HEAD `9c37602` at run time;
+- the three windows;
+- the cut in `[23862, 23963)`, and the Part A2 wrapper and marker consistent with every quote;
+- exactly one `view_file` call, showing lines 1–800 with the tool's notice to call again;
+- controls 3 and 4.
+
+**Four wording corrections to the proposed classification** (the measurements are unchanged):
+1. **"Per-file truncation" → "truncation".** Only one rule file was delivered, so a per-file budget cannot be told
+   apart from one shared across rule files. "What you need" item 3 already says so; the classification should agree.
+2. **"`graphify.md`: discovery failure" → "not delivered".** A file never discovered and a file crowded out by a
+   shared budget look the same here: no wrapper and no tail. Item 1 is the same open question.
+3. **"Complete loading through line 329" → "delivered through line 329, cut after it".** In §3.4, "complete loading"
+   means the whole file.
+4. **Part A2 is a quote, not a loader diagnostic.** `D-294` defines a diagnostic as a harness-recorded injection, and
+   the transcript has none. Part A2 governs as a quote, and the cut bracket corroborates it.
+
+**Two factual corrections:**
+- **"Conversation ID isolated in `transcript_full.jsonl`" is not so:** the copied transcript contains no conversation
+  ID.
+- **"Run in a fresh session" is not the R1 carry-over check.** The check was to look in Antigravity's knowledge or
+  memory panel. The build, the carry-over check and the conversation ID are therefore **not recorded**.
+
+**The classification holds without the carry-over check.** Memory can only produce a false *visible* quote, never a
+false absence. Every absence here (all three tails, `cut#330`, `cut#337`) is memory-proof. The bracket lines were
+never shown to Antigravity before R2, and `cut#327` being visible while `cut#330` is absent fixes the cut by itself.
+
+**One note on `C-003`'s verification section (item 1):** it says the `SV-002` §3.2 `SV2-U02-C-R1` row "records the
+exact evidence hashes, the run window". The row records neither; they are in `C-003` itself. The conclusion stands,
+because the row matches the receipt's substance. Lane C should correct the description with a terminal annotation
+record (`B-113`).
+
+### Lane A's Level 1 classification of `SV2-U02-C-R2` (not an accepted result)
+
+- **Probe 1:**
+  - `AGENTS.md` is delivered as a workspace rule through line 329 (23,962 bytes), and lines 330–451 are cut
+    (7,958 bytes). This fits a 24,000-byte whole-line budget and does not fit a 24,000-character one.
+  - `graphify.md` and `CLAUDE.md` are **not delivered**.
+  - HTML comments are delivered.
+  - Controls 3 and 4 held.
+- **Probe 2:** a **partial on-demand load**, lines 1–800 of 1,353. The agent did not page despite the tool's notice.
+  R1 paged, so loading a skill over 800 lines varies between runs.
+- **Left open, and answerable only by re-measuring after remediation:**
+  - per-file vs shared rule budget;
+  - discovery failure vs budget exhaustion for `graphify.md`.
+
+  A remediation that holds under **both** readings: keep the total rule text Antigravity loads under 24,000 bytes,
+  and put Lane C's rules in the file it actually loads.
+
+### What Lane A did instead
+
+Recorded this review in `SV-002` §3.2 (`D-303`). Closed the `C-003` and `C-004` rows in §2.3 on Lane C's verification,
+and added this entry there. Lane A changed no kit file, key, scorer, rule file or classification decision.
+
+| Item | Verdict | Condition and follow-up phase |
+|---|---|---|
+| R2 evidence, re-score and controls | **Approve** | Byte-identical (Gate 1B, P1) |
+| Probe 1 and Probe 2 measurements | **Approve** | As classified above (Gate 1B, P1) |
+| The receipt's "per-file", "discovery failure" and "complete loading" wording | **Approve-with-conditions** | Read as corrected above; the open questions go to the remediation decision (Gate 1B, P4) |
+| The operator facts | **Defer** | Not recorded; the Judge may still supply them, and the classification does not depend on them (Gate 1B) |
+| Lane B's Level 2 review of Route C | **Approve** | Next, per §3.1 (Gate 1B, P1) |
