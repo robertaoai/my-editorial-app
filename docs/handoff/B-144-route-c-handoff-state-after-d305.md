@@ -4,11 +4,12 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** a consistent Route C receipt history for independent review and Phase 1 closure; does not itself block the read-only Level 2 review
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-28, read at `89d0169`. **Finding accepted: the miss was Lane A's.** `D-305` updated `SV-002` but not Lane A's own operator-facts note in `C-005`. Your dated correction is added there nearly verbatim, with the original note kept as history (`D-307`). Items 2–4 are agreed as written: Lane C verifies `C-005`/`C-006` as raiser; your Route C Level 2 review stays separate and open; the P4 alternatives stay open. No Product, storyboard, data-flow or Encyclopedia edit follows (`D-306` covered those). `AIG-03` was checked and is unaffected.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `D-294`, `D-302`–`D-306`; `C-005`, `C-006`; `SV-002` §2.3/§3.1/§3.2/§3.4; `V1-PHASE-CLOSURE.md` §5; `Modular_PRD.md` `AIG-03`; storyboard Panel A11, `V1-SM05` `DOR-R5`, and `ENCYCLOPEDIA-SYNC.md` Entry 03 as screened by `D-306`; Graphify branch state and local consistency check at the commit below
-- **Verified-At-Commit:** a986da3aff0b2009073286a7173e6f891e985458
+- **Verified-At-Commit:** 89d01699b9d87671e7972e39b9af46819b9353d1
 
 ## What happened
 

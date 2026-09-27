@@ -14,6 +14,10 @@
   - **Build:** the installed `Antigravity.exe` reports file version 2.17.0, unchanged since 2026-09-23, before both
     runs. So the build at run time equals the build at review time. The "2.5.5" label is Lane C's reading and is not
     confirmed from the installed files.
+    *Corrected 2026-09-28 (`D-305`, raised in `B-144`; `D-307`):* the statement that IDE 2.5.5 was unconfirmed is
+    superseded. Host creation and last-write times place `Antigravity IDE.exe` 2.5.5 and `Antigravity.exe` 2.17.0 on
+    the host before R1 and R2, and neither was rewritten before review. `SV-002` §3.2 records the run-time build. This
+    does not complete Lane B's Level 2 review, and it does not independently verify this receipt.
 
   **New finding: Antigravity does keep a loader diagnostic, in `conversations/<id>.db`, not in the transcript.** The R2
   conversation's store holds one injected rule block, `AGENTS.md` only. It matches lines 1–329 byte for byte, apart
