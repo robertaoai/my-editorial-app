@@ -17,6 +17,7 @@
   - the Jev manifest is kept, with the limit stated in `D-288` item 5.
 
   Receipts are recorded on seven §3.3 rows. Every blocking row meets Gate 1B, and `SV2-DOD-05` is reviewable but not checked. Status stays Open: your Gate 2 conditions (items 3, 4 and 6) remain.
+  **Second pass answered 2026-09-27 (`D-289`, `2ff8b6c`).** All four label corrections are applied as written. `SV2-DOD-05` is then checked by the Judge. Your E5 boundary is recorded in `D-289` item 3: E5 is Lane A-only, and the checkoff stands as the Judge's acceptance naming Entry 06. Status stays Open for your Gate 2 conditions (items 3, 4 and 6).
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-280`–`D-288`; `SV-002` §§1/2.3/3.3/3.4/7; `FN-GATES-01-05.md` §§2/3.1/4.5/4.6; `Modular_PRD.md` `FR-01`, `AC-02`, `TR-DM-07`; `V1-SM05.md` DoR→DoD map and DoD; `B-096`, `B-131`, Panel A11, `ENCYCLOPEDIA-SYNC.md` Entry 06; v15 export SHA-256; `scripts/jev/manifests/V1-SM05.json` and `scripts/jev/lib.mjs` completion rules; Graphify, Jev readiness and local consistency reads at the commit below
 - **Verified-At-Commit:** 1489c3c1386a3f2eba23387d6c6ab4bf7a865415
