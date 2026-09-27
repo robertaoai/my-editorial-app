@@ -9,6 +9,14 @@
   accepted as findings. Nothing is applied yet. Each correction (the §3.1/§4.5 pointers, the no-original-URL refusal
   case, the `B-131` lifecycle return, the Jev enforcement choice and E5) waits for its own Judge act. The §3.3
   receipts are recorded when that act lands.
+  **Applied 2026-09-27 (`D-288`, `f377424`).** The Judge approved fixes 1–2, accepted `B-131`, ran E5 and kept Jev:
+  - the §3.1 pointer and the §4.5 dated note are added;
+  - the no-original-URL refusal is the DoD's case (4), with a distinct artifact per case;
+  - `B-131`'s disposition is accepted on your item 5;
+  - E5 compared the hosted Entry 06: no update required;
+  - the Jev manifest is kept, with the limit stated in `D-288` item 5.
+
+  Receipts are recorded on seven §3.3 rows. Every blocking row meets Gate 1B, and `SV2-DOD-05` is reviewable but not checked. Status stays Open: your Gate 2 conditions (items 3, 4 and 6) remain.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-280`–`D-287`; `SV-002` §§2.3/3.3/3.4/7; `FN-GATES-01-05.md` §§2/3.1/4.5/4.6; `Modular_PRD.md` `FR-01`, `AC-02`, `TR-DM-07`; `V1-SM05.md` DoR→DoD map and DoD; `B-096`, `B-131`, Panel A11, `ENCYCLOPEDIA-SYNC.md` Entry 06; v15 export SHA-256; `scripts/jev/manifests/V1-SM05.json` and `scripts/jev/lib.mjs` completion rules; Graphify and Jev readiness reads at the commit below
 - **Verified-At-Commit:** 7acac90de3e9a88847558d41f2fbc95bd8a183a6
