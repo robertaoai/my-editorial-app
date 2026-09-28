@@ -21947,3 +21947,54 @@ receipt"*, under `D-310`. Lane C's entry is `C-007` (`b3ad627`).
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e139 `D-314` — Combined `SV2-U02` Loader Report Written (`SV-002` §3.5) and Submitted for the Judge's Acceptance
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Judge Approved: Lane A write the combined SV2-U02
+report"*. It follows `D-313`, which completed all three route review schedules.
+
+### The decision
+
+1. **The combined report is `SV-002` §3.5.** It joins the reviewed results of Routes A, B and C, each decided by its
+   tool's harness record under `D-294`:
+   - **Claude Code** delivers `CLAUDE.md` only, complete in substance with HTML comments stripped (`D-312`'s two
+     omissions).
+   - **Codex** delivers `AGENTS.md` only, byte-exact, with comments kept, 848 bytes below its 32 KiB default.
+   - **Antigravity** delivers `AGENTS.md` only, truncated after line 329 (23,962 bytes), with comments kept.
+   - **No tool delivers `.agents/rules/graphify.md`.**
+   - **The external Graphify skill** loads fully or only lines 1–800, depending on whether the agent pages.
+2. **Kept separate from the outcomes, as open causes:**
+   - Antigravity's per-file vs shared budget;
+   - why `graphify.md` is absent (discovery failure vs budget exhaustion).
+
+   Both are answered only by re-measuring after a fix.
+3. **Remediation inputs are listed, not decided:**
+   - route lane rules into the file each agent loads;
+   - keep the rule text Antigravity loads under 24,000 bytes;
+   - move the `G53` rule out of the HTML comment;
+   - keep a margin under Codex's default;
+   - trim the external skill below 12,000 characters;
+   - judge success by re-measurement.
+4. **Submitted for the Judge's acceptance.** The Judge records either "no remediation" or a separately bounded
+   remediation as its own Register act. **Acceptance does not check `SV2-DOD-03`.** That needs the remediation
+   decision, and if a fix is chosen, the fix applied and re-measured. `SV-002` §7 carries a dated pointer; the row is
+   unchecked.
+5. **Not given by this act:**
+   - acceptance of the report;
+   - the remediation decision;
+   - any rule-file or skill edit (`D-266` item 2);
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e139 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ new §3.5 combined report; §7 `SV2-DOD-03` dated pointer (row unchecked) |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: a report inside an existing file; no scope, sequence, DoD state, file or lane change |
+| **Agent files** | — unaffected: measured, not edited. The report names remediation inputs for them |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected: `AIG-03` points to `SV2-U02`/`SV2-DOD-03` and is satisfied only at `SV2-DOD-03` |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
