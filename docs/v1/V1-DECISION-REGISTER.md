@@ -22722,3 +22722,58 @@ Judge operated the run.
 | **`docs/Modular_PRD.md`** | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e154 `D-329` — Route B Surface Corrected: It Measured ChatGPT Work (Desktop, on the Codex Runtime), Not the Codex Build Surface
+
+**Authority:** a factual correction the Judge raised on 2026-09-28: *"ChatGPT Codex has never been used; only ChatGPT
+Chat/work is used"*. Lane A verified it against the evidence.
+
+### The decision
+
+1. **The Route B rollout's own metadata** (kit `sv2-route-b-kit`, rollout `01a0e2f8…`) reads:
+   - `"originator":"codex_work_desktop"`;
+   - `"source":"vscode"`;
+   - `cli_version` `0.158.0-alpha.2.1`;
+   - `cwd` `C:\robertaoai\my-editorial-app`.
+
+   **The surface was ChatGPT's Work surface in the desktop app, which runs on the Codex runtime.** `D-292`–`D-294`,
+   `B-138`, `B-143`, `SV-002` §3.1/§3.2/§3.5 and `SPECS-MULTI-LANE-AI-GOVERNANCE.md` §2 labelled it "Codex" or
+   "Codex Desktop". **That conflated Lane B's handoff and Level 1 surface with its code-build surface.**
+2. **The measured facts stand, for ChatGPT Work:** `AGENTS.md` delivered complete and byte-exact as a user-role
+   message; `CLAUDE.md` not delivered; HTML comments kept; 848 bytes below the runtime's 32 KiB default.
+   **The Codex build surface** (Lane B's owner for code) **is unmeasured.** It is presumed to share the runtime's
+   `AGENTS.md` loading, but that is unproven, because the originator and harness can differ.
+3. **Surfaces now measured:**
+   - Claude Code;
+   - ChatGPT Work;
+   - Antigravity Agent Manager/chat.
+
+   **Unmeasured:**
+   - the **Codex build surface** (Lane B owner);
+   - the **Antigravity IDE agent** (Lane C owner): every Route C run and preflight arm used Agent Manager/chat;
+   - **Claude Cowork** (Lane A handoff answers).
+4. **A reviewer-checkout finding.** Cowork and ChatGPT Chat/Work are also set up on `C:\git\my-editorial-app`, which
+   stood at `b5bf0b8` (`D-316`) while the branch was at `9027a07` (`D-328`), 23 commits behind. Its remote-tracking
+   ref had not been fetched. A reviewer must pull and name the commit it read.
+5. **Corrections applied:**
+   - `SV-002` §3.1 Route B access row and §3.5 evidence-table row, as dated notes;
+   - `SPECS` §2 loading line.
+
+   The accepted report `D-318` stands with this label correction; its measured outcomes are unchanged.
+6. **Next, pending the Judge:** measurement arms for the three unmeasured surfaces, run in the preflight worktree.
+7. **Not given by this act:**
+   - any live rule-file edit;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e154 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.1 Route B access row and §3.5 Route B row: surface label corrected (`D-329`) |
+| **`docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md`** | ✅ §2 loading line corrected (`D-329`) |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |

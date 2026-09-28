@@ -34,7 +34,7 @@ The surfaces the Judge selected (`D-266` item 1). Replacing one is a `SPECS` cha
 Sizes are **measured** at `21170aa` (characters counted as Unicode code points; bytes as UTF-8). Whether and how each
 file loads is the `SV2-U02` question and stays **unknown** here. *Superseded for loading `[V1]`, `D-324`:* loading is now **measured and accepted** (`D-318`, `SV-002` §3.5):
 - **Claude Code** delivers `CLAUDE.md` only, with HTML comments stripped.
-- **Codex** delivers `AGENTS.md` only, byte-exact.
+- **ChatGPT Work (desktop app, on the Codex runtime)** delivers `AGENTS.md` only, byte-exact. *Corrected `[V1]`, `D-329`: this was earlier labelled "Codex". The Codex build surface is unmeasured.*
 - **Antigravity (Gemini 3.8 Flash)** delivers `AGENTS.md` only, cut after line 329 (23,962 bytes).
 - **No tool delivers `.agents/rules/graphify.md`.**
 
