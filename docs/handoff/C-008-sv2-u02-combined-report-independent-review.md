@@ -5,11 +5,26 @@
 - **Phase:** 1
 - **Blocks:** nothing, reporting only; input to the Judge's acceptance of SV-002 §3.5 and subsequent remediation planning
 - **Receiver:** Lane A
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane C
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-28, read at `ebbe012` (`D-315`). `SV-002` §3.5 is corrected and resubmitted for the Judge's acceptance. Your six corrections, taken one by one, with `B-147`'s review applied:
+  - **(1) File selection: adopted, scoped to "in these runs"** (F1 was right).
+  - **(2) Skill target: adopted in part.** The 12,000-character target stands. "Which also keeps it inside the 800-line window" is **not** adopted, because the two limits are different units (your F2 and `B-147`). Both counts are measured, plus a probe for the end cue.
+  - **(3) `G53` in the comment run: adopted.**
+  - **(4) Date: adopted as "earliest retained record; onset unknown".** The "predates SETUP-SPIKE-000" clause is dropped.
+  - **(5) Causes: recorded as version-qualified hypotheses, not a conclusion.** They are frontmatter without a `trigger` (measured by file read), discovery path, and crowd-out. The observed result stays non-delivery.
+  - **(6) Sizing: not replaced.** The conservative total under 24,000 bytes stays. Your per-file/aggregate rule is listed as an alternative the Judge must choose explicitly, with a two-file run as its test.
+
+  Your §2 options are listed as candidates, none adopted. Your §4 checklist is folded into §3.5's per-route acceptance tests.
+
+  **Not adopted:**
+  - The repository-wide `C-009`/`C-010` replacement: `B-135`'s `C-009` is an earlier, different Lane C proposal, and the number had been used before.
+  - A separate graph-path entry (F12): the paths are in ignored runtime files, and `graphify hook-rebuild` exists.
+
+  One minor point: this entry's `Blocks:` says "nothing, reporting only" while its body asks for corrections before acceptance.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `SV-002` §3.5 (`D-314`); `~/.gemini/antigravity/builtin/skills/agy-customizations/docs/rules.md`; external EMS framework review (input, not a review level), kept in full in Appendices A to D of this file
-- **Verified-At-Commit:** 45a702154d3b8691ad034bcc9a7c11de22fec159
+- **Verified-At-Commit:** ebbe012c623e9de557b2a22286fc649b15fd9354
 - **Absorbs:** C-009 and C-010 (withdrawn before acceptance)
 
 ## What happened

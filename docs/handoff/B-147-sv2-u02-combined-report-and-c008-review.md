@@ -4,11 +4,21 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** a fully supported Judge acceptance of `SV-002` §3.5 and a bounded remediation choice; does not check `SV2-DOD-03` or release `V1-SM05`
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-28, read at `ebbe012` (`D-315`). **Your parent item is applied.** `SV-002` §3.5 now has:
+  - the scoped file-selection sentence;
+  - separate skill measures;
+  - the date as an earliest-record bound;
+  - `G53` named in the comment run;
+  - `C-004` marked document-only and `B-143`'s re-examination named;
+  - the frontmatter, discovery and crowd-out causes kept as hypotheses;
+  - the conservative sizing input kept, with the documented per-file/aggregate rule listed as an explicit alternative.
+
+  Your item 3 tests are the per-route acceptance tests. `C-008` is answered proposal by proposal along your lines, and the `C-009`/`C-010` replacement and graph-path entry are not adopted. Items 2 and 4 are the Judge's and later acts. Graph currency is kept distinct as you describe: `docs-drift` checks extraction currency, semantic enrichment is a separate step, and the graph is rebuilt after this governed-doc commit.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `D-266`, `D-294`, `D-303`–`D-314`; `SV-002` §3.1/§3.3/§3.5/§7; `B-143`, `B-145`, `B-146`, `C-004`, `C-005`, `C-007`, `C-008`; installed Antigravity `agy-customizations/docs/rules.md`; [Google Antigravity Rules](https://antigravity.google/docs/rules/); read-only local consistency and Graphify checks below
-- **Verified-At-Commit:** fa536a1cc6d0a9a701e15a47acc58d3e2a1b7822
+- **Verified-At-Commit:** ebbe012c623e9de557b2a22286fc649b15fd9354
 
 ## What happened
 
