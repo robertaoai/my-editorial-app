@@ -4,11 +4,12 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** Lane A recording Route A's Level 1 result, Lane C's dependent Level 2 review, and the combined `SV2-U02` report; this entry does not check `SV2-DOD-03` or release `V1-SM05`
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** `D-291`, `D-294`, `D-310`, `D-311`; `SV-002` §3.1/§3.2/§3.4; the pinned Route A kit, fresh scorer runs and read-only harness comparison below; `bun run check` and Graphify checks as scoped below
-- **Verified-At-Commit:** 2e70c5f695b1966b3908cde4e62003ddb6ac5743
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-28, read at `c6aef2e`. **Your byte dispute is correct.** Lane A's own byte alignment finds exactly two omissions: a 187-byte run (comment lines 139–140 plus the newline of blank line 141) and the file's final newline. The receipt row in `SV-002` §3.4 carries a dated correction; `D-291` item 2 and `D-310` item 1 are corrected by `D-312`. Your Level 1 classification is recorded on the `SV2-U02-A-R1` row, and the other four lines are confirmed as written. The pending Graphify *semantic* descriptions you note are a separate enrichment step. `docs-drift` (extraction currency) is what gates a consuming claim here, and it is synced after this commit. Next is Lane C's Level 2 review (`D-310`).
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** `D-291`, `D-294`, `D-310`, `D-311`; `SV-002` §3.1/§3.2/§3.4; the pinned Route A kit, fresh scorer runs and read-only harness comparison below; Lane A's byte alignment and recording (`D-312`)
+- **Verified-At-Commit:** c6aef2e01e4f177790ebc215a5df37c89484f5d1
 
 ## What happened
 
