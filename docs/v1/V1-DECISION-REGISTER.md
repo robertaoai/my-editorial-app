@@ -23039,3 +23039,70 @@ supplied the rollout readout.
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e161 `D-336` — Measured Draft and Exact-Partition Coverage Ledger Prepared (Worktree `5ddf17c`); Every Gate Passes
+
+**Authority: the Judge, directly to Lane A, 2026-09-29**: *"Judge Approved: Lane A prepare the ledger and measured
+draft"* (`D-324` step 2).
+
+### The decision
+
+1. **The draft and ledger are in the local worktree** at `5ddf17c` (`preflight-draft/`), built by `ledger.mjs` from
+   the originals at the adopted commit `c06ddc3`:
+   - the Claude, Lane C and reference drafts are assembled mechanically, so the moved text is verbatim by
+     construction;
+   - `AGENTS.md` and the Lane A head of `CLAUDE.md` are hand-compressed.
+2. **The partition is exact for all three originals:** every line is placed once, and the covered bytes equal each
+   file's total (31,920, 29,709 and 21,750).
+   - **Nothing is deleted**, except four frontmatter lines of `graphify.md`, retired because `GEMINI.md` takes no
+     frontmatter.
+   - Every other line is verbatim in the new `CLAUDE.md`, the new `GEMINI.md`, or the on-demand reference (the
+     original `AGENTS.md` word for word).
+3. **The measurements pass every adopted gate:**
+
+   | File | Measured | Gate |
+   |---|---|---|
+   | `AGENTS.md` | **3,445 characters**, 3,454 bytes | under the 5,400-character working ceiling and 24,000 bytes |
+   | `CLAUDE.md` | 45 lines | under 300 lines |
+   | `GEMINI.md` | 3,457 bytes | under 24,000 bytes |
+
+   Also passing:
+   - the import line is present;
+   - the core has a single copy;
+   - no HTML comment remains in any automatic file;
+   - lane state appears only as the §5 pointer;
+   - the pointer index is one line.
+
+   **The consolidated document's contradiction C10 is resolved by measurement**, not by raising the ceiling.
+4. **Critic notes, recorded:**
+   - the verbatim tails keep possibly stale statements, which is a separate currency review;
+   - the compressed shared rules are new wording and carry the highest drift risk, which the adherence probes test;
+   - the reference file needs a curated graph node at the atomic change.
+5. **Next, needing the Judge's go-ahead: the atomic change** (§3.6.6 step 3). It rewrites the live rule files,
+   including the one that governs Lane A's own sessions, on the working branch, together with:
+   - the reference file;
+   - the rule-budget check replacing `shared-core-hash.mjs`, with its fixtures;
+   - `D-54` propagation;
+   - the graph node.
+
+   Then comes the proof: re-measurement of every surface, activation and adherence probes, and Level 1 and Level 2
+   review.
+6. **Not given by this act:**
+   - any live rule-file edit;
+   - the atomic change;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e161 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 measured draft and ledger record |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected until the atomic change |
+| **Agent files** | — unaffected: the live files are unchanged |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
