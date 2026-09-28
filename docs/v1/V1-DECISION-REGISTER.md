@@ -22190,3 +22190,69 @@ Lane A applies it and re-measures all routes against the pinned baselines and ro
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected (`AIG-03` is satisfied only at `SV2-DOD-03`) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e144 `D-319` — Judge Chooses One Bounded Remediation for `SV2-U02` (Scope to Be Defined); `B-148` and `C-009` Answered
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Judge Approved: one bounded fix (Gate 1B, P4)"*. This is the
+separate act `D-318` called for. The inputs are Lane B's `B-148` (`b2abadf`, `ebde015`) and Lane C's `C-009`
+(`ead012a`), both prepared with the user.
+
+### The decision
+
+1. **Option B is chosen: one bounded remediation.** "No remediation" is not chosen. **The bound is not yet defined.**
+   Files, owner, implementation boundary, size targets, diagnostic conditions and stop criteria are set by a further
+   Judge scope act, on Lane A's proposal. **The rule-file freeze of `D-266` item 2 holds until that act.** Nothing is
+   applied now.
+2. **The proposal Lane A prepares, read-only (`B-148` parent item):**
+   - a triage of every rule unit across `AGENTS.md`, `CLAUDE.md` and `graphify.md`: its governing decision, owner,
+     current delivery, consequence if absent, proposed loading class (shared automatic, lane-specific automatic, or on
+     demand), its projected characters, lines and bytes per loader, and an observable test;
+   - a ranked automatic floor, and where Lane B's essential automatic rules will live;
+   - an activation test for every rule demoted from automatic loading;
+   - a cost comparison of composition (`@AGENTS.md` inheritance, which `D-266` already specifies), folding or
+     activation, and generation. **It selects none.**
+3. **`D-266` item 3's binding targets govern the bound**, unless the Judge amends them:
+   - `AGENTS.md` under 6,000 **characters** (it has 31,649 today);
+   - `CLAUDE.md` under 300 **lines**, inheriting `@AGENTS.md` (it has 402);
+   - skills under 12,000 **characters**.
+
+   **The accepted report's under-24,000-byte cost discussion did not address these targets.** It stays an accurate
+   record of delivery limits, but it is not the sizing basis for the fix. `D-266` also requires the rule refactor,
+   parity check and fixtures to land **atomically**. `B-148` adds an enforced character, line and delivered-byte
+   budget check in `bun run check` in the same unit; this is adopted as a proposal input.
+4. **`B-148`'s figures are verified by Lane A's own byte count:**
+   - the map: shared block 18,460 bytes in each file, preambles 8,915 bytes in `AGENTS.md` and `CLAUDE.md`, and
+     unique parts of 4,545, 2,334, 68 and 3,222 bytes;
+   - 45,835 redundant bytes in total;
+   - the Antigravity cut: 3,412 bytes of shared-core text (lines 330–381) plus the 4,545-byte Codex tail plus one
+     newline, making 7,958. **Some shared rules, not only the tail, fail to reach Lane C.**
+5. **Handoff hygiene:**
+   - `B-148` and `C-009` arrived with the raiser-written line `Lane A: Acknowledged`. **Only the receiver writes that
+     field.** Both now carry Lane A's real answer.
+   - `C-009` concurs without showing its checks, so Lane A's byte count is the independent verification.
+   - `C-009` reuses a number that `C-008` had declared retired, and that `B-135` cites for an earlier, unrelated Lane
+     C proposal. From now on it denotes this file (the `D-306` rule: do not reuse numbers).
+   - Lane C's commit `ead012a` was not pushed; it is pushed with this act.
+6. **Next:** Lane A prepares the scope proposal (item 2), read-only, for the Judge's scope act. After that act,
+   Lane A applies the fix atomically, re-measures all three routes against the pinned baselines and the `SV-002` §3.5
+   delivery tests, and obtains independent review before `SV2-DOD-03` is assessed.
+7. **Not given by this act:**
+   - the bound or scope;
+   - any rule-file, skill or check edit;
+   - any design selection;
+   - `SV2-DOD-03`/`SV2-DOD-06`;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e144 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §7 `SV2-DOD-03` pointer: remediation chosen, scope pending |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected now: the scope act will decide which files and checks change |
+| **Agent files** | — unaffected: still frozen until the scope act |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
