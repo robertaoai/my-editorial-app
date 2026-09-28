@@ -22901,3 +22901,43 @@ decided"*.
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected now; the draft carries the consequence |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e158 `D-333` — Codex Build Surfaces Chosen: the ChatGPT Desktop App's Codex Mode and the Codex CLI (Not Installed)
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Codex build test - ChatGPT desktop app and codex cli"*,
+answering `D-330`'s deferred choice.
+
+### The decision
+
+1. **Lane B's Codex build surfaces are:**
+   - **the ChatGPT desktop app's Codex mode**, which is distinct from its Work mode (Route B R1, originator
+     `codex_work_desktop`, `D-329`);
+   - **the Codex CLI.**
+
+   Each gets its own arm in the preflight worktree. Both are scored from the rollout log under `~/.codex/sessions/`,
+   whose `originator` field identifies the app, so neither can be confused with Route B's Work run.
+2. **The Codex CLI is not installed on this machine:** there is no `codex` on the `PATH`, and no executable or npm
+   shim was found. Installing it downloads and runs a package, so it is **the Judge's act**, or needs the Judge's
+   explicit permission for Lane A to run it. The desktop app bundles its own runtime (`codex-cli 0.158.0-alpha.2.1`),
+   which is not the standalone CLI.
+3. **What each arm checks:**
+   - that the originator names the surface;
+   - that `cwd` is the worktree;
+   - that `AGENTS.md` is delivered complete and byte-equal;
+   - that `CLAUDE.md` and `GEMINI.md` are absent.
+4. **Not given by this act:**
+   - installing the CLI;
+   - any live rule-file edit;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e158 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 preflight record: two Codex arms |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
