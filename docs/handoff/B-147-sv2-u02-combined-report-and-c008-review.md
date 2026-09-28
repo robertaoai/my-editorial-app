@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** a fully supported Judge acceptance of `SV-002` §3.5 and a bounded remediation choice; does not check `SV2-DOD-03` or release `V1-SM05`
-- **Status:** Answered
+- **Status:** Open
 - **Lane A:** Acknowledged and answered 2026-09-28, read at `ebbe012` (`D-315`). **Your parent item is applied.** `SV-002` §3.5 now has:
   - the scoped file-selection sentence;
   - separate skill measures;
@@ -19,10 +19,9 @@
   - **Installed documentation:** the frontmatter hypothesis now cites the installed `SKILL.md` (line 49 `.agents/rules/*.md`; lines 88–89 "Only `always_on` rules are loaded unconditionally"). The discovery hypothesis is weakened accordingly. `D-315` item 2's "the installed documentation is silent" was false, and `D-316` corrects it.
   - **Receipt column:** now "Raiser checked Lane A's recording (not a review level)". Route A's cell says there is no raiser check because Lane A wrote the receipt, and names Level 1 plus Level 2 as the substantive review.
   - **Cost note:** strict "under 24,000" needs at least 7,921 bytes cut from `AGENTS.md`, or 29,671 if `graphify.md` shares the total. The per-file alternative needs 7,921 from `AGENTS.md` only. `C-008`'s figures are one byte short.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `D-266`, `D-294`, `D-303`–`D-315`; `SV-002` §3.1/§3.3/§3.5/§7; `B-143`, `B-145`, `B-146`, `C-004`, `C-005`, `C-007`, revised `C-008`; installed Antigravity `agy-customizations/docs/rules.md` and `SKILL.md`; [Google Antigravity Rules](https://antigravity.google/docs/rules/); read-only local consistency and Graphify checks below
-- **Verified-At-Commit:** 8a5e84e54f0337d9e4fa8697532e3199b356fd5f
+- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Evidence:** `D-266`, `D-294`, `D-303`–`D-316`; `SV-002` §3.1/§3.3/§3.5/§7; `B-143`, `B-145`, `B-146`, `C-004`, `C-005`, `C-007`, revised `C-008` F15/F20/F21; installed Antigravity `agy-customizations/docs/rules.md` and `SKILL.md`; [Google Antigravity Rules](https://antigravity.google/docs/rules/); read-only local consistency and Graphify checks below
+- **Verified-At-Commit:** d0daaf64790244fd8a87b33046f195f9c00b3b99
 
 ## What happened
 
@@ -91,3 +90,25 @@ The answer above is a historical record: Lane A applied the original corrections
 | Reviewed route outcomes and settled outside-review claims | **Approve** | Keep the declared evidence scopes; no duplicate handoff or new route classification (Gate 1B, P4) |
 | Judge submission of `SV-002` §3.5 | **Approve-with-conditions** | Lane A corrects the Register wording, receipt label and cost note, records tier applicability and checks graph currency (Gate 1B, P4) |
 | Report acceptance, remediation, `SV2-DOD-03` or `V1-SM05` release from this supplement | **Defer** | Judge decision first, then any authorized fix, re-measurement and separate closure acts (Gate 1B → Gate 2) |
+
+## Dated supplement — review of `D-316` and revised `C-008` (2026-09-28)
+
+Lane A's `D-316` answer above remains the record of the prior three corrections. This supplement keeps the same parent question, Judge readiness of `SV-002` §3.5, open for the token-basis and formatting edits already identified as `C-008` F20/F21. The external review is input, not an instruction or review level. No route is reclassified.
+
+| Current question | Lane B finding | Small correction and proof |
+|---|---|---|
+| **Does Antigravity see `SHARED CORE`?** | Yes. `AGENTS.md` lines 139–140 fall within delivered lines 1–329; `C-005` line 70 scores the comment cue `VISIBLE (exact)`. The outside request to reword this as unverified is stale. | No classification change. Lane A may add these anchors to consequence 3 for a self-contained Judge report (`C-008` F15). |
+| **What do the token figures describe?** | `C-008` F20 correctly identifies two arithmetic bases, but its term **“delivered pair” is false as a delivery claim**: only cut `AGENTS.md` was delivered; `graphify.md` was absent. A *hypothetical* pairing of cut `AGENTS.md` (23,962 bytes) and `graphify.md` (21,750) totals 45,712 bytes, about 11,428 tokens at an assumed 4 bytes/token. The pinned full-file pair totals 53,670 bytes, about 13,418 by the same estimate. Neither is a tokenizer measurement or an observed two-file injection; both omit global rules. | In §3.5's crowd-out and per-file-alternative sentences, name the hypothetical cut-size and pinned-full-size scenarios, the 4-byte assumption, and the unmeasured global rules. Keep crowd-out *unlikely but unexcluded*, pending the controlled installed-IDE two-file run. Do not call either scenario “delivered”. |
+| **Is the cost list parseable?** | `SV-002` §3.5 joins the `C-008` candidate-design sentence to the third cost sub-bullet. Its parenthesis is closed, contrary to the outside review's “unbalanced” claim, but the stand-alone parenthetical after a full stop is awkward (`C-008` F21). | Separate the designs into their own top-level bullet and tidy the punctuation; read the rendered list before resubmission. |
+
+**Tracking:** revised `C-008` already carries F20/F21 and asks for these edits, so no second entry is requested. Its header still says `Answered` / `Applied` even though those new requests are not applied; Lane C should align that entry's lifecycle before a closure claim. This B-147 header is `Open` for this supplement; the earlier `D-315` and `D-316` answers remain dated above. The downloaded review's appended AI framework and its unsupplied-file citation remain non-evidence.
+
+**Order:** Lane A corrects the existing §3.5 wording/list and records `D-54` tier applicability (Gate 1B, P4); then the Judge may accept the report and choose no remediation or a separately bounded fix. Any chosen fix and re-measurement precede `SV2-DOD-03`; `SV2-DOD-06` and a separate Judge act precede `V1-SM05` release. Build Spec, Inventory, Product Requirements Document, Fn Specs and SPECS are unaffected by these report-wording corrections unless a later decision changes scope or an artifact.
+
+**Graph check at the pinned commit:** `.graphify/branch.json` analyzed `b5bf0b8`; HEAD `d0daaf6` changed only the excluded `C-008` handoff file. Governed-doc extraction needs no rebuild for that commit. Lane A must sync Graphify after correcting the governed report and check the affected graph claims. No implementation or canonical source was changed by this review.
+
+| Item | Verdict | Condition and follow-up phase |
+|---|:---:|---|
+| Comment delivery and `D-316` receipt, documentation and strict-under corrections | **Approve** | Preserve the measured scopes; optional line anchors in §3.5 (Gate 1B, P4) |
+| Judge-ready §3.5 | **Approve-with-conditions** | State both token-estimate bases without implying two-file delivery, and repair the list; Lane A records tier applicability and graph currency (Gate 1B, P4) |
+| Cause, remediation, `SV2-DOD-03` or `V1-SM05` release | **Defer** | Controlled run and separate Judge acts remain required (Gate 1B → Gate 2) |
