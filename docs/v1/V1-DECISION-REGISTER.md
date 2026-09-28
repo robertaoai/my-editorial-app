@@ -21833,3 +21833,33 @@ C"*. This lifts the hold recorded in `D-297` item 6.
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e136 `D-311` — Eligible Nomination Moves From Lane C to Lane B (Route A Level 1 Review)
+
+**Authority: the Chief Editor/Judge, directly to Lane A, 2026-09-28**: *"Judge Approve: switch from Lane C eligible to
+Lane B eligible"*.
+
+### The decision
+
+1. **Lane B is `Eligible`, and Lane C is `Blocked` on the Lane A run.** Lane A stays `Active` (`D-156`: exactly one
+   `Active`, at most one `Eligible`). This supersedes Lane C's `D-296` nomination, which is complete: receipts
+   `C-003`, `C-005` and `C-006`, and Level 2 review `C-004`. That history is kept in `V1-PHASE-CLOSURE.md` §5 below
+   the lane table.
+2. **Purpose:** Lane B files its Level 1 review of `SV2-U02-A-R1` (`D-310`) as its own `B-` entry.
+3. **Not granted:**
+   - no lock transfer;
+   - no code change, because construction stays unauthorized and `V1-SM05` stays `BLOCKED`.
+
+   `Eligible` is the selection step only. Lane C keeps its own-series commit right (`D-272`), so its Route A Level 2
+   review (`D-310`) is still filed as its own `C-` entry after Lane B's.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e136 |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | ✅ §5 lane table: Lane B `Eligible`, Lane C `Blocked`; Lane C history note |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no scope, sequence, DoD or file change; live lane state lives only in §5 |
+| **Agent files**, `LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md` | — unaffected: they define the vocabulary, not the live state |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
