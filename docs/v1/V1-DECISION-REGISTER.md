@@ -22622,3 +22622,51 @@ supplied the readout.
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e152 `D-327` — Preflight Arm 3b: A Missing `@` Import Fails Silently in Claude Code; Import Integrity Must Be Checked
+
+**Authority:** execution under `D-324` J3. The Judge operated the run.
+
+### The decision
+
+1. **The fixture and the run.**
+   - **Fixture:** worktree commit `998027a`, with the import line changed to `@AGENTS-missing.md`, a path that does
+     not exist.
+   - **Run:** the Judge opened a fresh Claude Code session `c20559f0…` on the worktree, with Opus 5.5 and prompt
+     "Reply OK only".
+2. **Result, from the harness record.** Only `CLAUDE.md` (29,283 characters) is attached. The unresolved line is
+   passed through as literal text. **No `AGENTS.md` content is delivered, and no error or warning appears.** The
+   session reply is indistinguishable from a working one.
+3. **What it settles:**
+   - **a broken import drops the whole shared core from Claude Code, silently.** This confirms the critique's
+     single-silent-point risk (`D-321` item 2);
+   - **the budget check that replaces `shared-core-hash.mjs` must assert that the import line exists and its path
+     resolves**, and each re-measurement carries a delivery canary.
+4. **Preflight status:**
+   - arm 1 passed (`D-325`: `GEMINI.md` is the Lane C file, and the byte limit is per file);
+   - arm 3a passed (`D-326`: the import expands);
+   - arm 3b is recorded;
+   - arm 2 is optional (to settle `graphify.md`'s cause only);
+   - arm 4 is partly answered and re-checked after the atomic change;
+   - **the non-Gemini arm awaits the Judge:** run it, or waive it if Lane C will run only Gemini models.
+5. **Next:** the Judge's non-Gemini decision; then the ledger-backed measured draft, built in the worktree.
+6. **Not given by this act:**
+   - any live rule-file edit;
+   - the atomic change;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e152 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 preflight record, arm 3b |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files** | — unaffected: the live files are unchanged |
+| **`docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md`** | — unaffected: §4a already requires import integrity |
+| **`docs/Modular_PRD.md`**, Fn Specs | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
