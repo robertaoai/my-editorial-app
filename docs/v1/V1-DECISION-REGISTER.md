@@ -22857,3 +22857,47 @@ decided"*.
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected (SPECS §4a's design already covers it) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e157 `D-332` — Cowork Arm: An Attached Folder Delivers No Rule File to Claude Cowork; Its Rules Must Be Read on Demand
+
+**Authority:** execution under `D-330`. The Judge operated the run and supplied Cowork's reply.
+
+### The decision
+
+1. **The run:** a fresh Claude Cowork task with the worktree folder `C:\robertaoai\my-editorial-app-preflight`
+   attached, answering a tool-free quote probe.
+2. **The result.** No harness record is available, since Cowork runs in its own environment, so the quotes govern
+   (`D-294`):
+   - **Part A:** no path-bearing instruction file is in context, only Cowork's global instructions and the user's
+     preferences. The attached folder's name is visible, not its contents.
+   - **B1** (`CLAUDE.md` tail) and **B2** (`AGENTS.md` Codex tail, through the import) are **NOT VISIBLE**.
+   - **B3** (`docs/PRD.md`, the negative control) is **NOT VISIBLE**, so the probe is valid.
+3. **What it settles:**
+   - **Claude Cowork does not load `CLAUDE.md` or `AGENTS.md` from an attached folder.** Rule files reach it only
+     when it reads them with a tool.
+   - For Lane A's handoff-answer role, the rules Cowork needs must therefore be **reachable on demand** (the shared
+     core, `docs/handoff/README.md` and the template), and **something must point it to them**: a Cowork project
+     instruction set by the Judge, which lies outside the repository, or the handoff SOP it is told to read.
+   - That pointer's activation is proved by a probe after the change (§3.6.6 proof, activation class).
+4. **Carried into the ledger-backed draft:**
+   - the on-demand reference (`docs/governance/agent-rules-reference.md`) must also serve reviewers who load no rule
+     file;
+   - the handoff SOP must state the rules reviewers need, not only point at `AGENTS.md`.
+5. **Status of the added arms:** the IDE agent passed (`D-331`); Cowork is recorded; Codex build is deferred until
+   the Codex product is chosen. ChatGPT Work is measured by Route B R1 (`D-329`).
+6. **Not given by this act:**
+   - any live rule-file edit;
+   - any change to Cowork's settings (that is the Judge's);
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e157 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 preflight record, Cowork arm |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected now; the draft carries the consequence |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
