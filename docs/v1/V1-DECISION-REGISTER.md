@@ -22532,3 +22532,54 @@ preflight worklog. Also: *"Move it to the worktree"*, for the untracked `scratch
 | **`docs/Modular_PRD.md`** | — unaffected: `AIG-03`/`AIG-06` already point to the Fn and SPECS tiers |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e150 `D-325` — Preflight Arm 1 PASS: Antigravity Delivers a Standalone `GEMINI.md` Beside the Cut `AGENTS.md`; the 24,000-Byte Limit Is Per File
+
+**Authority:** execution under `D-324` J3 (preflight permitted in a local worktree). The Judge operated the run and
+supplied the readout.
+
+### The decision
+
+1. **The fixture and the run.**
+   - **Fixture:** worktree `C:\robertaoai\my-editorial-app-preflight`, local branch `preflight/sv2-u02`, commit
+     `bc197c5`: a 247-byte standalone `GEMINI.md` with a random marker. The live checkout was untouched, and the
+     worktree's `AGENTS.md` is unchanged (pinned `f2bd6dae…`).
+   - **Run:** the Judge opened a fresh Antigravity conversation on the worktree (`3d12fa98…`), with model Gemini 3.8
+     Flash (Medium) and prompt "Reply OK only".
+2. **Result, from the conversation store's harness record (`D-294`, `D-304`):** two rule blocks,
+   - `AGENTS.md`, truncated by 7,958 bytes exactly as in R2;
+   - `GEMINI.md`, complete, with the marker present and no truncation marker.
+
+   **Arm 1 passes.**
+3. **What it settles:**
+   - **`GEMINI.md` is the primary Lane C file.** Arm 2 is not needed to choose it.
+   - **Antigravity's 24,000-byte limit is per file:** `AGENTS.md` already uses 23,962 of it, and a second file still
+     arrived. This closes the accepted report's per-file vs shared-budget question at the byte level. The documented
+     20,000-token aggregate is not exercised by this run.
+   - **Byte-level crowd-out is excluded as the cause of `graphify.md`'s absence.** Activation (its frontmatter has no
+     `trigger`) or discovery remain. Arm 2 would separate them, and runs only if the Judge wants that cause settled,
+     since it no longer blocks the design.
+   - **Arm 4 is partly answered:** the core-carrying `AGENTS.md` still arrived beside the Lane C file. The core-only
+     `AGENTS.md` is re-checked after the atomic change.
+4. **Next:** arm 3, whether Claude Code expands `@AGENTS.md`, and what happens when the path is missing, on a worktree
+   fixture. The non-Gemini arm follows if Lane C may run a non-Gemini model.
+5. **Not given by this act:**
+   - any live rule-file edit;
+   - the atomic change;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e150 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 preflight record, arm 1 |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files** | — unaffected: the live files are unchanged; the fixture lives in the local worktree only |
+| **`docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md`** | — unaffected until the design is applied (§4a already names `GEMINI.md` as the preflight-decided option) |
+| **`docs/Modular_PRD.md`**, Fn Specs | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
