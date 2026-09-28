@@ -22583,3 +22583,42 @@ supplied the readout.
 | **`docs/Modular_PRD.md`**, Fn Specs | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e151 `D-326` — Preflight Arm 3a PASS: Claude Code Expands `@AGENTS.md`; Composition Confirmed for Route A
+
+**Authority:** execution under `D-324` J3. The Judge operated the run.
+
+### The decision
+
+1. **The fixture and the run.**
+   - **Fixture:** worktree commit `e685251`, one line `@AGENTS.md` appended to the otherwise unchanged `CLAUDE.md`.
+   - **Run:** the Judge opened a fresh Claude Code session `ac588ad4…` on `C:\robertaoai\my-editorial-app-preflight`
+     (branch `preflight/sv2-u02`), with model Opus 5.5 and prompt "Reply OK only".
+2. **Result, from the harness record (`D-294`).** The transcript's `attachment:instructions` lists `CLAUDE.md`
+   (29,275 characters) **and `AGENTS.md` (31,463 characters)**. `AGENTS.md`'s Codex-only tail, which `CLAUDE.md` does
+   not contain, is present. **The import expanded.** The 186 characters fewer than the file's 31,649 match Claude
+   Code's HTML-comment stripping (`D-291`, `D-312`). In Route A R1, without the import, `AGENTS.md` was not delivered.
+3. **What it settles:**
+   - **composition works for Claude Code;**
+   - **the generation fallback and its `D-266` amendment are not needed** for this reason.
+
+   Arm 3b, the missing-path behaviour, follows, so the budget check can guard against a silent failed import.
+4. **Not given by this act:**
+   - any live rule-file edit;
+   - the atomic change;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+   The preflight branch is never pushed and no pull request is opened from it. `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e151 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 preflight record, arm 3a |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files** | — unaffected: the live files are unchanged |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
