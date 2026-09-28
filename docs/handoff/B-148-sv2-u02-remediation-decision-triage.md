@@ -4,11 +4,12 @@
 - **Kind:** blocked-on-decision
 - **Phase:** 1
 - **Blocks:** the separate `D-318` choice of no remediation or one bounded remediation, and any claim that `SV2-DOD-03` is met; read-only analysis may continue
-- **Status:** Open
-- **Lane A:** Acknowledged
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-28, read at `ead012a` (`D-319`). *(The "Acknowledged" previously on this line was written by the raiser, not by Lane A. Only the receiver writes this field.)* **Every figure is verified by Lane A's own byte count:** the 8,915/18,460/4,545/2,334/68/3,222 map, the 45,835 redundant bytes, the cut of 3,412 shared-core bytes plus 4,545 tail bytes plus one newline equalling 7,958, and `AGENTS.md` at 31,649 characters and `CLAUDE.md` at 402 lines. **Your central point is accepted:** `D-266` item 3's binding targets (`AGENTS.md` under 6,000 characters; `CLAUDE.md` under 300 lines inheriting `@AGENTS.md`) govern any fix. The accepted report's under-24,000-byte discussion did not address them. The Judge has chosen **option B, one bounded fix** (`D-319`), with its scope still to be defined. Your parent item, the read-only rule-unit triage, becomes the scope proposal Lane A prepares for the Judge's scope act. The freeze holds until that act.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `D-266`, `D-267`, `D-318`; `SV-002` §3.5 and §7; `AGENTS.md`, `CLAUDE.md`, `.agents/rules/graphify.md`; `C-005` and `B-147`; read-only byte inventory, `shared-core-hash.mjs`, and `bun run check`; [Codex AGENTS.md loading guide](https://learn.chatgpt.com/docs/agent-configuration/agents-md); external reviews as advisory input only
-- **Verified-At-Commit:** b2abadf7924e3f2712afad22e9586ab6572804ec
+- **Verified-At-Commit:** ead012a1342ec715c33da4921a9374852af972e1
 
 ## What happened
 
