@@ -2105,6 +2105,35 @@ export async function textIntegrity(results) {
   });
 }
 
+/**
+ * `rule-budget` (`D-324`, applied by `D-337`) — replaces `shared-core-hash`. The one-core design fails
+ * in ways parity never saw: an over-budget `AGENTS.md`, an import Claude Code drops SILENTLY
+ * (`D-327`), a second copy of the core, a rule hidden in a stripped HTML comment.
+ */
+export async function ruleBudget(results) {
+  const A = "AGENTS.md", C = "CLAUDE.md", G = "GEMINI.md";
+  const a = read(A), c = read(C), g = read(G);
+  const restoreAll = () => { write(A, a); write(C, c); write(G, g); };
+  const core = a.split("\n").find((l) => l.trim().length >= 60);
+  const cases = [
+    ["the live rule files, unmutated", () => {}, null],
+    ["AGENTS.md over the 5,400-character working ceiling", () => write(A, a + "x".repeat(3000) + "\n"), "over the 5400-character working ceiling"],
+    ["CLAUDE.md without its @AGENTS.md line", () => write(C, c.replace(/^@AGENTS\.md\n/m, "")), "has no `@AGENTS.md` import line"],
+    ["CLAUDE.md importing a file that does not exist (the silent D-327 drop)", () => write(C, "@docs/no-such-rules.md\n" + c), "drops it SILENTLY"],
+    ["a copy of the shared core in GEMINI.md", () => write(G, g + "\n" + core + "\n"), "repeats 1 line(s) of the shared core"],
+    ["a rule inside an HTML comment", () => write(C, c + "\n<!-- a rule nobody receives -->\n"), "contains an HTML comment"],
+  ];
+  for (const [label, mutate, expect] of cases) {
+    await fixture(results, {
+      name: `rule-budget: ${label}`,
+      modulePath: CHECK("rule-budget.mjs"),
+      mutate,
+      restore: restoreAll,
+      ...(expect ? { expect } : { shouldPass: true }),
+    });
+  }
+}
+
 export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
   ["return record form (`B-097`)", returnRecordForm],
@@ -2125,4 +2154,5 @@ export const SUITES = [
   ["reopens-phase (`C-19`, raised as `B-025`)", reopensPhase],
   ["fixture retry resilience (`D-139`, raised against this session's own run)", retryResilience],
   ["text integrity (`D-297`, the `B-140` recurrence)", textIntegrity],
+  ["rule budget and single core (`D-324`, applied by `D-337`)", ruleBudget],
 ];

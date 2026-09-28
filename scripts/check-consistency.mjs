@@ -11,7 +11,7 @@
 // Exit 1 on any finding, so CI fails rather than reporting into a log nobody
 // reads.
 
-import { run as sharedCoreHash } from "./checks/shared-core-hash.mjs";
+import { run as ruleBudget } from "./checks/rule-budget.mjs";
 import { run as tierSweep } from "./checks/tier-sweep.mjs";
 import { run as duplicateIds } from "./checks/duplicate-ids.mjs";
 import { run as graphCoverage } from "./checks/graph-coverage.mjs";
@@ -32,7 +32,7 @@ import { run as terminalReturn } from "./checks/terminal-return.mjs";
 import { run as textIntegrity } from "./checks/text-integrity.mjs";
 
 const CHECKS = [
-  sharedCoreHash,
+  ruleBudget, // `D-324`/`D-337` — replaces shared-core-hash: sizes, import integrity, one core copy
   tierSweep,
   duplicateIds,
   graphCoverage,

@@ -75,7 +75,7 @@ result that cannot separate route from truncation is `inconclusive` (`AIG-03.R3`
 All three are **read-only responses**: no owned file is written, so no lock is needed and no lane state changes
 (`AIG-01.R2`, `D-271` item 6).
 
-## 4a. Selected rule-file design `[V1]` (`D-324`, the Judge's scope act on `SV-002` §3.6.6)
+## 4a. Selected rule-file design `[V1]` (`D-324`, the Judge's scope act on `SV-002` §3.6.6) — **applied `D-337`**
 
 - **Design: composition.**
   - One hand-maintained shared core in `AGENTS.md`: the invariants every agent needs, plus a section worded "if you

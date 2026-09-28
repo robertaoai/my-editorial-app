@@ -73,15 +73,18 @@ grep -rn "<the old claim's distinctive phrase>" docs/
 `tier-sweep.mjs`'s `TIERS` map before naming a tier column — an unmapped name is
 rejected, not verified (`G68`).
 
-## 5. Shared-core edits are a triple edit
+## 5. Rule files: one shared core, imported (`D-324`, applied `D-337`)
 
-`CLAUDE.md`, `AGENTS.md`, `.agents/rules/graphify.md` — byte-identical between the
-`<!-- SHARED CORE` marker and each file's own tail. Edit all three programmatically in
-one pass, never by hand, then confirm the re-hash.
+The shared core lives **once**, in `AGENTS.md` (under 5,400 characters). `CLAUDE.md` imports it
+with `@AGENTS.md` and adds only Claude Code's rules; `GEMINI.md` carries only Lane C's rules. There
+is no triple edit and no HTML-comment marker: a rule that every agent needs is edited in
+`AGENTS.md` alone. The full pre-refactor text, and anything demoted, lives verbatim in
+`docs/governance/agent-rules-reference.md` (on demand).
 
-Per-agent tails (`Claude Code specifics:` / `Codex specifics:` /
-`Gemini / Antigravity specifics:`) are deliberately **not** compared and may be edited
-alone.
+`bun run check`'s `rule-budget` check fails on an over-budget file, a missing or unresolved
+`@AGENTS.md` import (a missing import fails **silently** in Claude Code, `D-327`), a second copy of
+the core, an HTML comment, or a lane-state row in a rule file. Delivery is proved by
+re-measurement, never by the file existing (`D-318`).
 
 ## 6. Propagate the fact, never the tally
 

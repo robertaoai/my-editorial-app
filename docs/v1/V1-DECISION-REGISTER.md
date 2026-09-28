@@ -23106,3 +23106,52 @@ draft"* (`D-324` step 2).
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e162 `D-337` — Atomic Rule-File Change Applied: One Shared Core in `AGENTS.md`, `CLAUDE.md` Imports It, `GEMINI.md` for Lane C, `rule-budget` Replaces `shared-core-hash`
+
+**Authority: the Judge, directly to Lane A, 2026-09-29**: *"Judge Approved: Lane A apply the atomic change"*
+(`D-324` step 3, on `D-336`'s measured draft).
+
+### The decision
+
+1. **The measured draft is now live**, in one gated commit on `features/feature-V1-SM05`. Each draft was copied from
+   the worktree only after its SHA-256 matched `D-336`'s ledger:
+   - `AGENTS.md` — the single shared core plus the "If you are Codex (Lane B)" section (3,445 characters);
+   - `CLAUDE.md` — `@AGENTS.md`, the Lane A head and the verbatim Claude tail (45 lines);
+   - `GEMINI.md` — Lane C's head and the verbatim Lane C tail (3,457 bytes);
+   - `docs/governance/agent-rules-reference.md` — the original `AGENTS.md` word for word, on demand.
+2. **Retired:** `.agents/rules/graphify.md` (its content is fully placed by the `D-336` partition) and
+   `scripts/checks/shared-core-hash.mjs`.
+3. **The check is replaced, not dropped.** `scripts/checks/rule-budget.mjs` enforces the adopted bound: the 5,400-
+   character working ceiling, the 24,000-byte Antigravity cut, `CLAUDE.md` under 300 lines, a resolving `@AGENTS.md`
+   import (`D-327`: a missing one is silent), one copy of the core, no HTML comment, and no live lane-state row. A
+   fixture suite proves it fails on each of those. Dependent checks follow: `lane-boundary` classifies `GEMINI.md`
+   as Lane A's; `tier-sweep`'s "Agent files" claims are verified against the reference, which holds the text those
+   historical claims describe.
+4. **This file governs Lane A's own sessions from the next session on.** `CLAUDE.md` now reaches Claude Code only
+   through its import; the `rule-budget` check is the guard.
+5. **Not given by this act:**
+   - proof of delivery — the next step re-measures every surface against these files (A; B on ChatGPT Work, Codex
+     Desktop and Codex CLI; C on Agent Manager and the IDE), then Cowork's on-demand activation, the activation (4/5)
+     and adherence probes, and Level 1 and Level 2 review;
+   - `SV2-DOD-03`;
+   - the currency review of the verbatim tails, or the separate skill-trim packet;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e162 |
+| **`docs/v1/V1-BUILD-SPEC.md`** | ✅ `D-337` sequence note in the `SV-002` section |
+| **`docs/v1/V1-ARTIFACT-INVENTORY.md`** | ✅ four rows added, two retired, and the `D-337` file note |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | ✅ §5A.4 and §5A.5 manifest rows repointed |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 application record |
+| **Rule files** (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`) | Replaced by the measured draft. They cite no decision number by design (the character budget), so this row is recorded here, not swept |
+| **`docs/Modular_PRD.md`**, Fn Specs | — unaffected: no product behaviour changes |
+| **`docs/specs/SPECS-VERIFICATION-APPARATUS.md`** | ✅ Check 1 marked retired (`D-337`) |
+| **`docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md`** | ✅ §4a marked applied (`D-337`) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit, then merge `frag141.json` |

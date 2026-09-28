@@ -130,6 +130,12 @@ attempt (not a lane transition). The Lane B/C read-only measurement authorizatio
 take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
 PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
 
+**`D-337` (2026-09-29) — the `SV2-U02` rule-file change applied (`SV-002` §3.6.6 step 3).** The shared core now lives
+once, in `AGENTS.md`; `CLAUDE.md` imports it with `@AGENTS.md`; `GEMINI.md` is Lane C's file; the pre-refactor text is
+kept verbatim in `docs/governance/agent-rules-reference.md`; the `rule-budget` check replaces `shared-core-hash`. Next
+in sequence: re-measure every surface against the new files, the activation and adherence probes, Level 1 and Level 2
+review, and only then `SV2-DOD-03`. The `D-267` construction order is unchanged, and `V1-SM05` stays `BLOCKED`.
+
 **`D-289` (2026-09-27) — `SV2-DOD-05` checked by the Judge.** The `SV2-U04` contract dependency is resolved for Gate
 1B, after Lane B's four label corrections (`B-142` second pass) were applied. The remaining `SV-002` DoD rows (`01`–`04`
 and `06`) and the Gate 2 obligations are unchanged. `V1-SM05` stays `BLOCKED`.

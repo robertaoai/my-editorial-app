@@ -699,9 +699,10 @@ rather than claimed.
 
 | Path | Delivers |
 |---|---|
-| `CLAUDE.md` | Lane A rule file + shared core + critic discipline |
-| `AGENTS.md` | Lane B rule file + shared core + Lane B entry point |
-| `.agents/rules/graphify.md` | Lane C rule file + shared core + Lane C entry point |
+| `CLAUDE.md` | Lane A rule file: imports `@AGENTS.md`, adds critic discipline *(`D-337`)* |
+| `AGENTS.md` | The single shared core, plus the Codex (Lane B) section *(`D-337`)* |
+| `GEMINI.md` | Lane C rule file, delivered to both Antigravity surfaces *(`D-337`; replaces the retired `.agents/rules/graphify.md`)* |
+| `docs/governance/agent-rules-reference.md` | Verbatim pre-refactor rule text, on demand *(`D-337`)* |
 | `.github/WORKFLOWS-SPEC.md` | Lane C's work order |
 | `.claude/skills/sync-docs/SKILL.md` | The `D-54` propagation procedure |
 | `.claude/settings.json` | Session hooks (`D-81`) |
@@ -712,7 +713,7 @@ rather than claimed.
 | Path | Delivers |
 |---|---|
 | `scripts/check-consistency.mjs` | The runner |
-| `scripts/checks/shared-core-hash.mjs` | Rule-file core + preamble identity |
+| `scripts/checks/rule-budget.mjs` | Rule-file sizes, import integrity, one core copy *(`D-337`; replaces `shared-core-hash.mjs`)* |
 | `scripts/checks/tier-sweep.mjs` | `D-54` arrival, register → tiers |
 | `scripts/checks/source-sweep.mjs` | The inverse — governing docs → tiers (`G70`) |
 | `scripts/checks/duplicate-ids.mjs` | §5.1 ID collisions |
