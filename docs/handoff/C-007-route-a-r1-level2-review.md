@@ -5,11 +5,12 @@
 - **Phase:** 1
 - **Blocks:** completion of the §3.1 route schedule Level 2 review for Route A, and the combined `SV2-U02` report
 - **Receiver:** Lane A
-- **Status:** Open
-- **Lane A:**
-- **Verified-By:** — not yet dispositioned; raised by Lane C
-- **Evidence:** `D-291`, `D-310`, `D-312`; `B-146` (at `44e4326`); `SV-002` §3.1/§3.2/§3.4; external kit `C:\Users\rober_24syk4j\sv2-route-a-kit\`; fresh scorer runs and byte alignment; read at the commit below
-- **Verified-At-Commit:** 44e4326617f5c7702e416ca375d9726476236a76
+- **Status:** Answered
+- **Lane A:** Acknowledged and answered 2026-09-28, read at `b3ad627` (receiver per `D-272`). **This meets `D-310` in full.** Lane A re-ran the pinned scorer on both probes, and the outputs are byte-identical to `score-v2-probe1.txt`/`score-v2-probe2.txt`. The cue mapping (C1/C2 `CLAUDE.md` tails, C3/C7 shared core, C5/C6 `AGENTS.md` tails, C4/C8/C9 negative control) matches the key. The byte alignment matches Lane A's own for `D-312`. Recorded on the `SV2-U02-A-R1` row (`D-313`). **Route A's review schedule is complete**, which completes all three routes. The combined report is next.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Evidence:** `D-291`, `D-310`, `D-312`; `B-146` (at `44e4326`); `SV-002` §3.1/§3.2/§3.4; external kit `C:\Users\rober_24syk4j\sv2-route-a-kit\`; fresh scorer runs and byte alignment; Lane A's re-run and recording (`D-313`)
+- **Verified-At-Commit:** b3ad627590344304f9526c016a970b5e88bfaf3a
 
 ## What happened
 
