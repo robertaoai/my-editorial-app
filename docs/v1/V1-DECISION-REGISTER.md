@@ -22056,3 +22056,52 @@ report"*. It follows `D-313`, which completed all three route review schedules.
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected (`AIG-03` is satisfied only at `SV2-DOD-03`) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e141 `D-316` — Combined Report: Three Residual Corrections From `B-147`'s Supplement and Revised `C-008`; Resubmitted
+
+**Authority:** execution under `D-314`/`D-315`. The inputs are Lane B's `B-147` supplement (`8a5e84e`) and Lane C's
+revised `C-008` (`214aa3b`), both prepared with the user.
+
+### The decision
+
+1. **`D-315` item 2 is corrected.** It said the installed Antigravity documentation "is silent" on modular-rule
+   activation. That is false. The installed `agy-customizations/SKILL.md`:
+   - lists `.agents/rules/*.md` as a project rule path (line 49);
+   - says "Only `always_on` rules are loaded unconditionally" (lines 88–89).
+
+   Its `docs/rules.md` carries the size limits and is silent on activation. `SV-002` §3.5's frontmatter hypothesis
+   now cites this, and the discovery-path hypothesis is marked weakened, not excluded. **Both remain hypotheses**
+   until a run on the installed IDE.
+2. **The evidence table's last column is renamed** "Raiser checked Lane A's recording (not a review level)". Route A's
+   cell states there is no raiser check, because Lane A wrote that receipt; its substantive review is Level 1 plus
+   Level 2 (`D-313`).
+3. **A cost note is added for the Judge**, for strictly "under" 24,000 bytes:
+   - **Conservative total:** at least 7,921 bytes cut from `AGENTS.md`, or at least 29,671 bytes (about 55%) if
+     `graphify.md` shares the total.
+   - **Per-file/aggregate alternative:** at least 7,921 bytes from `AGENTS.md` only.
+
+   `C-008`'s 7,920/29,670 reach exactly 24,000 bytes, one byte short of strictly under.
+4. **Revised `C-008` is consistent with §3.5.** Its line check for consequence 3 (F15), its reconciliation of the
+   installed documentation (F16) and its receipt-column reading (F17) agree with this act. It stays `Answered`/
+   `Applied` from `D-315`. **`B-147` is answered again** (`Applied`).
+5. **Resubmitted for the Judge's acceptance.** The Judge then records "no remediation" or one bounded fix.
+   **Acceptance does not check `SV2-DOD-03`.**
+6. **Not given by this act:**
+   - acceptance of the report;
+   - the remediation decision;
+   - any rule-file or skill edit (`D-266` item 2);
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e141 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.5: evidence-table column and Route A cell; installed-documentation citation; discovery hypothesis; cost note |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: wording corrections inside an existing report; no scope, sequence, DoD state, file or lane change |
+| **Agent files** | — unaffected: measured, not edited |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
