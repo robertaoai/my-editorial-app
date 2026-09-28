@@ -118,11 +118,24 @@ Level 1 (operational) review precedes Level 2 (architectural). Either may reject
 `Applied`; only an independent actor records `Verified`, citing an existing commit. A green consistency suite supports
 review; it never substitutes for it.
 
+*Added `[V1]`, `D-324` (the Judge's review-chain rule):* **Level 1 is ChatGPT Chat/Work (Lane B)** for Lane A's and
+Lane C's work. **Level 2 is Antigravity chat (Lane C)** for Lane A's and Lane B's work. **Lane A fills the two slots a
+lane cannot fill for itself:** Level 1 for Lane B's work, and Level 2 for Lane C's work. Claude Cowork drafts Lane A's
+handoff answers, and Claude Code owns and commits them (`D-227`).
+
 ### 4.6 `AIG-06` — rule-file refactor
 
 After the `SV2-U02` report is accepted, the three rule files are refactored **atomically**, with the shared-core parity
 check and its fixtures, toward the `AIG-06.R1` targets. Every rule leaving a root file is classified under `AIG-03`
 first and lands in a named owner: a lane's file, a skill, or its governed source.
+
+*Added `[V1]`, `D-324` (the Judge's platform clarification):* **Each platform gets the framework built for it.**
+- `AGENTS.md` is the open, cross-tool base that every tool can read.
+- `CLAUDE.md` inherits it through `@AGENTS.md` and keeps Claude-specific rules, using pointers to stay under its line
+  target.
+- `GEMINI.md` is for **Gemini models** in Antigravity (long-context review). **Other models in Antigravity read
+  `AGENTS.md` only**, so every rule Lane C must always have reaches each model Lane C runs, not only Gemini.
+- A rule is proved by what the tool received (its harness record), never by the file existing (`D-294`, `D-318`).
 
 ## 5. Acceptance checks `[V1]`
 

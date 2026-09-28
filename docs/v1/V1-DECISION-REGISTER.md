@@ -22466,3 +22466,69 @@ supplied to Lane A on 2026-09-28.
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e149 `D-324` — Judge Scope Act: `SV-002` §3.6.6 Adopted (Composition, 5,400-Character Ceiling, Worktree Preflight, 4/5–0/3 Activation Rate, Review Chain)
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Adopt as recommended"*, on Lane A's review of the
+consolidated `multi-lane-ai-governance-consolidated.md`, the Judge's platform clarification, and another agent's
+preflight worklog. Also: *"Move it to the worktree"*, for the untracked `scratch/` folder.
+
+### The decision
+
+1. **§3.6.6 is adopted as the bound of the one remediation `D-319` chose.** Its terms:
+   - **J1, working ceiling:** `AGENTS.md` at 5,400 characters (hard cap 6,000), and also under 24,000 bytes. A
+     ledger-backed measured draft must show the fit. **If it does not fit, the Judge revisits; the ceiling is not
+     raised in advance.** This resolves the consolidated document's contradiction C10: the earlier ~5,800 figure was
+     a projection, not a measurement.
+   - **J2, design: composition**, with `CLAUDE.md` importing `@AGENTS.md`. Generation is the fallback, only through a
+     `D-266` amendment.
+   - **J3, preflight permitted, in a local git worktree only** (not in the live checkout), one variable at a time,
+     recording the model. It includes a non-Gemini arm if Lane C may run a non-Gemini model.
+   - **J4, activation rate:** at least 4 of 5 paraphrased prompts and 0 of 3 near-miss prompts, per class and tool.
+   - **J5, review chain:** Level 1 is ChatGPT Chat/Work (Lane B) for Lane A's and Lane C's work; Level 2 is
+     Antigravity chat (Lane C) for Lane A's and Lane B's work. **Lane A fills Level 1 for Lane B's work and Level 2
+     for Lane C's work.**
+2. **The Judge's platform clarification is recorded in the intent tiers** (`D-29`):
+   - **behaviour** (`FN-MULTI-LANE-AI-GOVERNANCE.md` §4.5–4.6): the review chain, and each platform's framework —
+     `AGENTS.md` as the open base; `CLAUDE.md` inheriting it; `GEMINI.md` for Gemini models only, so Lane C's
+     always-needed rules must reach every model Lane C runs;
+   - **implementation** (`SPECS-MULTI-LANE-AI-GOVERNANCE.md`): §2's loading facts are superseded by the measured
+     results, and new §4a records the selected design.
+
+   `Modular_PRD`'s `AIG-03`/`AIG-06` rows already point to these, so they are unchanged. `CLAUDE.md`'s 300 lines stay
+   **binding** (`D-266`), although the clarification calls them a soft limit.
+3. **Another agent's draft (`scratch/preflight`) is not accepted as the measured draft.** Its files total about 23,100
+   characters against about 37,200 characters of unique original text, so about 14,000 characters are unaccounted
+   for, and it has no ledger. It is preserved as input in the preflight worktree. `scratch/` is added to `.gitignore`.
+4. **Order from here:**
+   - (1) the local worktree `preflight/sv2-u02`, never pushed;
+   - (2) the preflight arms there, operated by the Judge in fresh sessions opened on the worktree path, starting with
+     the `GEMINI.md` sentinel;
+   - (3) the ledger-backed draft;
+   - (4) the atomic change on the working branch;
+   - (5) re-measurement, activation and adherence probes, and Level 1 and Level 2 review;
+   - then `SV2-DOD-03` is assessed.
+
+   **The live rule files stay unchanged until step (4).**
+5. **Not given by this act:**
+   - the atomic change;
+   - any live rule-file edit;
+   - `SV2-DOD-03`/`SV2-DOD-06`;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e149 |
+| **`docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`** | ✅ §4.5 review chain and §4.6 platform frameworks, both marked `[V1]`, `D-324` |
+| **`docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md`** | ✅ §2 loading superseded by the measured results; new §4a selected design (`D-324`) |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 marked adopted; §7 `SV2-DOD-03` pointer |
+| **`.gitignore`** (build config, Lane A) | ✅ `scratch/` ignored (`D-324`) |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected now. The reference file and the replaced check are created at the atomic change, which propagates them |
+| **Agent files** | — unaffected: the live files stay unchanged until the atomic change |
+| **`docs/Modular_PRD.md`** | — unaffected: `AIG-03`/`AIG-06` already point to the Fn and SPECS tiers |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |

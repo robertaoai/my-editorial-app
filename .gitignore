@@ -30,6 +30,9 @@ detect.js
 partc.js
 step*.js
 
+# `D-324`: local scratch drafts never belong in the repository; preflight fixtures live in a separate worktree.
+scratch/
+
 # Supabase CLI local development stack (`D-120`).
 # `supabase init` and `supabase start` write these; they are machine-local
 # runtime state for the DISPOSABLE dev database and never describe the

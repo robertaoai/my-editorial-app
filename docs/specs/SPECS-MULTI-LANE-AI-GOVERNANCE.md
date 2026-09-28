@@ -32,7 +32,13 @@ The surfaces the Judge selected (`D-266` item 1). Replacing one is a `SPECS` cha
 ## 2. Loader surfaces `[V1]`
 
 Sizes are **measured** at `21170aa` (characters counted as Unicode code points; bytes as UTF-8). Whether and how each
-file loads is the `SV2-U02` question and stays **unknown** here.
+file loads is the `SV2-U02` question and stays **unknown** here. *Superseded for loading `[V1]`, `D-324`:* loading is now **measured and accepted** (`D-318`, `SV-002` §3.5):
+- **Claude Code** delivers `CLAUDE.md` only, with HTML comments stripped.
+- **Codex** delivers `AGENTS.md` only, byte-exact.
+- **Antigravity (Gemini 3.8 Flash)** delivers `AGENTS.md` only, cut after line 329 (23,962 bytes).
+- **No tool delivers `.agents/rules/graphify.md`.**
+
+The "Loading" column below is kept as history.
 
 | File | Characters / bytes / lines | Target (`D-266` item 3) | Intended consumer | Loading |
 |---|---|---|---|---|
@@ -68,6 +74,32 @@ result that cannot separate route from truncation is `inconclusive` (`AIG-03.R3`
 
 All three are **read-only responses**: no owned file is written, so no lock is needed and no lane state changes
 (`AIG-01.R2`, `D-271` item 6).
+
+## 4a. Selected rule-file design `[V1]` (`D-324`, the Judge's scope act on `SV-002` §3.6.6)
+
+- **Design: composition.**
+  - One hand-maintained shared core in `AGENTS.md`: the invariants every agent needs, plus a section worded "if you
+    are Codex (Lane B)".
+  - `CLAUDE.md` = `@AGENTS.md` plus the Claude Code tail.
+  - One Lane C file with **no copy of the core**: `GEMINI.md` for Gemini models, or `.agents/rules/*.md` with a
+    proven key, whichever the preflight proves.
+  - The demoted rules kept verbatim in `docs/governance/agent-rules-reference.md`.
+- **Fallback:** generation, only through a `D-266` amendment, if Claude Code does not expand `@AGENTS.md`.
+- **Sizes:**
+  - `AGENTS.md`: under 6,000 characters (hard), with a **working ceiling of 5,400**; also under 24,000 bytes.
+  - `CLAUDE.md`: under 300 lines.
+  - Each file measured in both characters and bytes.
+- **The check that replaces `shared-core-hash.mjs`** asserts both units per file, import integrity, a single copy of
+  the core, and live lane state only in `V1-PHASE-CLOSURE.md` §5.
+- **Proof:**
+  - a preflight in a **local git worktree**, one variable at a time, with the model recorded (and a non-Gemini arm if
+    Lane C may run one);
+  - a ledger-backed measured draft;
+  - the atomic change;
+  - re-measurement of all three routes;
+  - activation probes passing **at least 4 of 5 paraphrased prompts and 0 of 3 near-miss prompts** per class and tool;
+  - adherence probes;
+  - Level 1 and Level 2 review.
 
 ## 5. Implementation pointers `[V1]`
 
