@@ -22407,3 +22407,62 @@ supplied to Lane A on 2026-09-28.
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e148 `D-323` — Scope Proposal: §3.6.6 Restated as One Complete Bound; Preflight Outcome Matrix With a Sentinel Arm First; Crowd-Out Softened
+
+**Authority:** execution under `D-320` (preparing the scope proposal). The input is a third critique the Judge
+supplied to Lane A on 2026-09-28.
+
+### The decision
+
+1. **§3.6.6 is restated as one complete bound.** Superseding §3.6.4 had dropped content, so §3.6.6 now carries it
+   forward:
+   - the owner (Lane A, as one atomic unit);
+   - the files in bound;
+   - an out-of-bound list: application code, workflows, `PRD`/Charter/`0001`, lane state, the external skill, and
+     any new identity or deploy gates;
+   - sizes in both units;
+   - stop criteria at every step;
+   - the proof order and the physical limit.
+2. **A working ceiling is proposed:** `AGENTS.md` at **5,400 characters**, against the 6,000 hard cap, so the next
+   legitimate edit does not fail the gate. The figure is the critique's judgment, and **the Judge confirms or sets
+   it** in the scope act. The file must also stay under 24,000 bytes.
+3. **The budget check also asserts that live lane state appears only in `V1-PHASE-CLOSURE.md` §5**, so the "nowhere
+   else" invariant is checked, not just stated.
+4. **The preflight becomes an outcome matrix, sentinel first:**
+   - **arm 1:** a tiny frontmatter-free `GEMINI.md` beside the untouched `AGENTS.md`, which already uses 23,962 of
+     24,000 bytes. If delivered, there is no shared 24,000-byte budget, and `GEMINI.md` becomes the primary Lane C
+     file;
+   - **arm 2:** a `.agents/rules` key;
+   - **arm 3:** `@AGENTS.md` import expansion and its missing-path behaviour. A failure returns to the Judge for a
+     `D-266` amendment;
+   - **arm 4:** the core still arrives beside the chosen Lane C file.
+
+   Each result maps to a next path; "stop" applies only where no path remains.
+5. **"Crowd-out effectively excluded" (`D-322` item 4) is softened** to **"unlikely, but unproven"**: demotion has
+   never been observed on this install. Arm 1 settles it. `SV-002` §3.6.7 item 6 is corrected in place.
+6. **The critic's own earlier ecosystem review is stale** by its author's account. It is not an input to this
+   proposal. No copy is in the repository.
+7. **Next:** the scripted partition ledger and measured draft (§3.6.6 step 2), outside the rule paths. Then the
+   Judge's scope act, which sets the working ceiling and the activation pass rate, and permits the preflight.
+   **The freeze holds.**
+8. **Not given by this act:**
+   - the scope act;
+   - the preflight;
+   - any rule-file, skill or check edit;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e148 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 restated in full; §3.6.7 item 6 softened |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected until the scope act |
+| **Agent files** | — unaffected: frozen |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
