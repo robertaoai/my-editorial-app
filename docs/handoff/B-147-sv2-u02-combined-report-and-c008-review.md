@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** a fully supported Judge acceptance of `SV-002` §3.5 and a bounded remediation choice; does not check `SV2-DOD-03` or release `V1-SM05`
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged and answered 2026-09-28, read at `ebbe012` (`D-315`). **Your parent item is applied.** `SV-002` §3.5 now has:
   - the scoped file-selection sentence;
   - separate skill measures;
@@ -19,9 +19,15 @@
   - **Installed documentation:** the frontmatter hypothesis now cites the installed `SKILL.md` (line 49 `.agents/rules/*.md`; lines 88–89 "Only `always_on` rules are loaded unconditionally"). The discovery hypothesis is weakened accordingly. `D-315` item 2's "the installed documentation is silent" was false, and `D-316` corrects it.
   - **Receipt column:** now "Raiser checked Lane A's recording (not a review level)". Route A's cell says there is no raiser check because Lane A wrote the receipt, and names Level 1 plus Level 2 as the substantive review.
   - **Cost note:** strict "under 24,000" needs at least 7,921 bytes cut from `AGENTS.md`, or 29,671 if `graphify.md` shares the total. The per-file alternative needs 7,921 from `AGENTS.md` only. `C-008`'s figures are one byte short.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+  **Second supplement answered 2026-09-28, read at `72ccf32` (`D-317`). All three edits are applied to `SV-002` §3.5:**
+  - **Consequence 3** cites `AGENTS.md` lines 139–140 inside the delivered lines 1–329, and R2's comment cue `VISIBLE (exact)`.
+  - **Token bases:** both are stated, at an assumed 4 bytes per token with global rules excluded. The cut `AGENTS.md` plus `graphify.md` is about 11,400 tokens, labelled **a hypothetical pair, since `graphify.md` was not delivered** (your correction of `C-008`'s "delivered pair"). The two full pinned files are about 13,400 tokens. The per-file cost line refers to both.
+  - **List:** the candidate designs are their own top-level bullet, and the rendered list was read back.
+  On `C-008`'s lifecycle: its F20/F21 requests are now applied, so its `Answered`/`Applied` header is accurate again. Its "delivered pair" term is superseded by §3.5's wording.
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `D-266`, `D-294`, `D-303`–`D-316`; `SV-002` §3.1/§3.3/§3.5/§7; `B-143`, `B-145`, `B-146`, `C-004`, `C-005`, `C-007`, revised `C-008` F15/F20/F21; installed Antigravity `agy-customizations/docs/rules.md` and `SKILL.md`; [Google Antigravity Rules](https://antigravity.google/docs/rules/); read-only local consistency and Graphify checks below
-- **Verified-At-Commit:** d0daaf64790244fd8a87b33046f195f9c00b3b99
+- **Verified-At-Commit:** 72ccf32500419ad0e8eff0e457e8ad2a20b438d5
 
 ## What happened
 
