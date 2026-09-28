@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** a fully supported Judge acceptance of `SV-002` §3.5 and a bounded remediation choice; does not check `SV2-DOD-03` or release `V1-SM05`
-- **Status:** Answered
+- **Status:** Open
 - **Lane A:** Acknowledged and answered 2026-09-28, read at `ebbe012` (`D-315`). **Your parent item is applied.** `SV-002` §3.5 now has:
   - the scoped file-selection sentence;
   - separate skill measures;
@@ -15,10 +15,9 @@
   - the conservative sizing input kept, with the documented per-file/aggregate rule listed as an explicit alternative.
 
   Your item 3 tests are the per-route acceptance tests. `C-008` is answered proposal by proposal along your lines, and the `C-009`/`C-010` replacement and graph-path entry are not adopted. Items 2 and 4 are the Judge's and later acts. Graph currency is kept distinct as you describe: `docs-drift` checks extraction currency, semantic enrichment is a separate step, and the graph is rebuilt after this governed-doc commit.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** `D-266`, `D-294`, `D-303`–`D-314`; `SV-002` §3.1/§3.3/§3.5/§7; `B-143`, `B-145`, `B-146`, `C-004`, `C-005`, `C-007`, `C-008`; installed Antigravity `agy-customizations/docs/rules.md`; [Google Antigravity Rules](https://antigravity.google/docs/rules/); read-only local consistency and Graphify checks below
-- **Verified-At-Commit:** ebbe012c623e9de557b2a22286fc649b15fd9354
+- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Evidence:** `D-266`, `D-294`, `D-303`–`D-315`; `SV-002` §3.1/§3.3/§3.5/§7; `B-143`, `B-145`, `B-146`, `C-004`, `C-005`, `C-007`, revised `C-008`; installed Antigravity `agy-customizations/docs/rules.md` and `SKILL.md`; [Google Antigravity Rules](https://antigravity.google/docs/rules/); read-only local consistency and Graphify checks below
+- **Verified-At-Commit:** 214aa3b46174031ba5efde1a902475057409d7e2
 
 ## What happened
 
@@ -61,3 +60,29 @@ Reviewed the current repository records, the attached EMS analysis, `C-008`, the
 | `C-008` frontmatter/crowd-out conclusion and relaxed sizing rewrite | **Reject** | Treat as hypotheses or a separately decided design until an installed-version two-file run proves them (Gate 1B, P4) |
 | Repository-wide `C-009`/`C-010` replacement and separate graph-path handoff | **Reject** | Preserve historical provenance; assess only exact current references and tracked graph artifacts (Gate 1B, P1) |
 | `SV2-DOD-03` or `V1-SM05` release from this review | **Reject** | Requires the remediation decision, re-measurement, independent evidence and later Judge acts (Gate 1B → Gate 2) |
+
+## Dated supplement — review of the applied `D-315` answer (2026-09-28)
+
+The answer above is a historical record: Lane A applied the original corrections under `D-315`. This supplement keeps the same bounded parent question — whether the combined report is ready for the Judge — open for three residual corrections. It does not undo those corrections, reopen the measured route results, or authorize a rule-file edit. The outside EMS review is a source of questions, not an instruction or an additional review level; its downloaded copy of §3.5 predates `D-315`. The revised `C-008` at the commit pinned above resolves several of its own earlier questions.
+
+| Residual gap | Evidence and smallest Lane A correction | Completion proof |
+|---|---|---|
+| **Installed-doc wording conflicts across tiers.** | `SV-002` §3.5 narrowly says installed `agy-customizations/docs/rules.md` does not document modular activation; that is true. `D-315` item 2 broadly says *the installed documentation is silent*; that is false. The installed root `SKILL.md` line 49 lists `.agents/rules/*.md`, and lines 88–89 document `always_on` activation. Correct the Register's broad sentence and, for the Judge's reading, distinguish documented activation from the still-unverified cause of this run's non-delivery. | Register and §3.5 agree: limits are documented in `docs/rules.md`; modular activation is documented in `SKILL.md`; installed-IDE behaviour remains a hypothesis until a controlled run. |
+| **Receipt column invites a false self-review reading.** | `C-008` F17 establishes that Lane B/C checked Lane A's *recording* of their receipts; Level 1/2 are the separate substantive reviews. In `SV-002` §3.5, rename `Receipt verified` to say what was checked, and make Route A's cell explicit because Lane A wrote its own receipt. | A reader can distinguish raiser-side recording checks from cross-lane Level 1/2 reviews without consulting `C-008`; no extra review level is implied. |
+| **The conservative design cost is missing from the Judge-facing report.** | §3.5 offers total rule text **under** 24,000 bytes versus a per-file/aggregate alternative, but omits the cost. Revised `C-008` F19 gives cuts to exactly 24,000, one byte too few for strict *under*: from 31,920 bytes, `AGENTS.md` needs at least **7,921** bytes cut; if its 21,750-byte companion must share that total, at least **29,671** bytes must be cut in aggregate. The alternative still needs a two-file run; its ~11,400-token figure is an estimate that excludes unknown global rules. Put the corrected cost next to both choices. | The Judge sees the measured file sizes, strict-threshold arithmetic and the alternative's verification condition before choosing; the estimate is not presented as a guarantee. |
+
+**Already settled, no new fix requested:** `AGENTS.md`'s `SHARED CORE` comment is at lines 139–140, inside Antigravity's delivered lines 1–329, and `C-005` line 70 scored its cue `VISIBLE (exact)` (`C-008` F15). The appended "Independent References review" and empty heading existed in scratch material, not committed §3.5 (`C-008` F18). The 2026-09-15 retained cut predates the 2026-09-25 spike, while onset remains unknown; restoring that clause is optional. A later disposition-commit pin is not required: the handoff SOP (`D-214`) pins the commit read and derives the disposition commit from history.
+
+### What Lane A needs now — parent before children
+
+1. **Parent: correct and resubmit the existing report (Gate 1B, P4).** Apply only the three residual corrections above in Lane A's canonical sources. Record `D-54` applicability in the Register: `SV-002` and the Register change; Build Spec, Inventory, Product Requirements Document, Fn Specs and SPECS remain unaffected unless a later bounded decision changes scope or an artifact. After the governed-doc commit, run the Graphify workflow with curated fragments preserved, then check drift and the affected graph claims.
+2. **Child: Judge acceptance and remediation choice (Gate 1B, P4).** The Judge accepts the corrected report or returns a specific unmet criterion, then records either no remediation or one bounded owner-assigned fix. The existing route-specific harness/store checks, end cue and negative controls are the proposed re-measurement criteria, not permission to implement a fix now.
+3. **Child: only earned closure (Gate 1B → Gate 2).** If a fix is chosen, the authorized owner applies it, the routes are re-measured, and an independent reviewer checks the evidence before `SV2-DOD-03`. `SV2-DOD-06` and a separate Judge act govern any `V1-SM05` release. This loader report does not substitute for the separate business-to-system requirements mapping in `SV-002` §3.3.
+
+**Check at the pinned commit:** the full local `bun run check` passed 19/19. `docs-drift` reports governed intent synced at `73ce1ff`; HEAD `214aa3b` changed only an excluded handoff entry. `graph-coverage` found no missing governed docs. This is extraction/coverage evidence, not proof of every semantic description. No Graphify rebuild is needed for this handoff-only edit; a later governed-doc correction requires Lane A's sync.
+
+| Item | Verdict | Condition and follow-up phase |
+|---|:---:|---|
+| Reviewed route outcomes and settled outside-review claims | **Approve** | Keep the declared evidence scopes; no duplicate handoff or new route classification (Gate 1B, P4) |
+| Judge submission of `SV-002` §3.5 | **Approve-with-conditions** | Lane A corrects the Register wording, receipt label and cost note, records tier applicability and checks graph currency (Gate 1B, P4) |
+| Report acceptance, remediation, `SV2-DOD-03` or `V1-SM05` release from this supplement | **Defer** | Judge decision first, then any authorized fix, re-measurement and separate closure acts (Gate 1B → Gate 2) |
