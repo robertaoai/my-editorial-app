@@ -22777,3 +22777,37 @@ Chat/work is used"*. Lane A verified it against the evidence.
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e155 `D-330` — Measurement Arms Added for the Three Unmeasured Surfaces (Antigravity IDE Agent, Claude Cowork, Codex Build)
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Approve all three"* and, for the Codex product, *"Not
+decided"*.
+
+### The decision
+
+1. **Three arms are added to the preflight** (`D-324` J3), each run in the local worktree against the current
+   fixture (`GEMINI.md` marker, unchanged `AGENTS.md`), in a fresh session operated by the Judge:
+   - **Antigravity IDE agent** (Lane C owner), opened in the IDE editor, not Agent Manager. Scored from the
+     conversation store's rule blocks, like arm 1.
+   - **Claude Cowork** (Lane A handoff answers), with the worktree folder attached. Scored from an on-disk transcript
+     if Cowork keeps one; otherwise by a tool-free quote probe with a `docs/PRD.md` negative control.
+   - **Codex build** (Lane B owner). **Deferred until the Judge chooses the Codex product** (CLI, IDE extension or
+     cloud). Scored from its rollout log, including the originator it reports.
+2. **Why before the draft:** where each reviewing or owning surface actually receives its rules decides which rules
+   must sit in the shared core. For example, whether Cowork receives `CLAUDE.md`, and through it `AGENTS.md`.
+3. **Not given by this act:**
+   - any live rule-file edit;
+   - the atomic change;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e155 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 preflight record: three pending arms |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
