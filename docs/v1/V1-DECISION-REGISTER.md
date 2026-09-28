@@ -22993,3 +22993,49 @@ supplied the rollout readout.
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e160 `D-335` — Codex Desktop Arm PASS: `AGENTS.md` Delivered Byte-Exact, Nothing Else; Every Surface Now Measured
+
+**Authority:** execution under `D-330`/`D-333`. The Judge operated the run.
+
+### The decision
+
+1. **The run:** a fresh chat in the ChatGPT desktop app's **Codex mode**, in the project `my-editorial-app-preflight`
+   (the worktree), with model `gpt-6-luna`, prompt "Reply OK only", reply "OK". Rollout `01a0e933…`.
+2. **The result, from the rollout's harness record:**
+   - `originator: Codex Desktop`, distinct from Work's `codex_work_desktop` (`D-329`);
+   - runtime `0.158.0-alpha.2.1`, `cwd` the worktree;
+   - **the `AGENTS.md` block equals the pinned file byte for byte** (31,920 bytes) once the wrapper's leading newline
+     and one harness newline are removed, the shape Route B found;
+   - no `CLAUDE.md` content and no `GEMINI.md`.
+
+   **PASS.** Lane A's first readout reported "not byte-equal" because its comparison also stripped the file's final
+   newline. The aligned comparison is the record.
+3. **Every surface is now measured against the pre-change rule files:**
+
+   | Lane | Surface | Receives |
+   |---|---|---|
+   | A | Claude Code | `CLAUDE.md`, plus `AGENTS.md` through `@AGENTS.md` (`D-326`); a missing import fails silently (`D-327`) |
+   | A | Claude Cowork | no rule file automatically; it reads on demand (`D-332`) |
+   | B | ChatGPT Work | `AGENTS.md` byte-exact (`D-294`, `D-329`) |
+   | B | Codex, desktop app | `AGENTS.md` byte-exact (this entry) |
+   | B | Codex CLI, in Docker | `AGENTS.md` assembled; delivery pending the API quota (`D-334`) |
+   | C | Antigravity Agent Manager | `AGENTS.md` cut at the last whole line (23,962 bytes), plus `GEMINI.md` (`D-325`, `D-328`) |
+   | C | Antigravity IDE agent | `AGENTS.md` cut mid-line at 24,000 bytes, plus `GEMINI.md` (`D-331`) |
+4. **Next:** the ledger-backed measured draft (§3.6.6 step 2), built in the worktree.
+5. **Not given by this act:**
+   - any live rule-file edit;
+   - the atomic change;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e160 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 preflight record, Codex desktop arm |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
