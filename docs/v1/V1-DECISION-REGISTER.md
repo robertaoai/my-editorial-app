@@ -22300,3 +22300,59 @@ separate act `D-318` called for. The inputs are Lane B's `B-148` (`b2abadf`, `eb
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e146 `D-321` — Scope Proposal Amended After the Judge-Supplied Critique (`SV-002` §3.6.5–§3.6.6)
+
+**Authority:** execution under `D-320` (preparing the scope proposal). The input is a critique the Judge supplied to
+Lane A on 2026-09-28. Lane A checked its claims against the installed Antigravity package and the repository.
+
+### The decision
+
+1. **Composition remains Lane A's recommendation. The bound is amended**, and the amended order is in `SV-002`
+   §3.6.6:
+   - (1) a one-variable **preflight on a fixture copy**, which needs the scope act's explicit permission;
+   - (2) a **measured draft plus a mechanical coverage ledger**, attached before the scope act;
+   - (3) the **atomic change**, with an import-integrity plus two-unit (characters and bytes) size check replacing
+     `shared-core-hash.mjs`;
+   - (4) **proof:** re-measurement, activation probes, **adherence probes for each shortened critical rule**, a
+     negative control for the conditional Codex section, and independent review;
+   - (5) **the skill trim as a separate packet**.
+2. **Verified against the installed `agy-customizations` package:**
+   - standalone `GEMINI.md` and `AGENTS.md` "do not support frontmatter and are always active";
+   - `.agents/rules/*.md` needs an activation key, and the installed documentation only implies it;
+   - the 24,000-byte cap counts text expanded from `@[label](path)` includes;
+   - rules over the aggregate budget are demoted to file pointers, not dropped;
+   - no replace semantics between `GEMINI.md` and `AGENTS.md` is documented.
+
+   **So `GEMINI.md` becomes the primary candidate for Lane C's file**, with `.agents/rules` plus `trigger: always_on`
+   as the alternative. The preflight proves whichever is chosen.
+3. **Mechanization, the critique's triage column:**
+   - never-edit is enforced by `source-sweep`'s frozen list (locally; it skips in CI);
+   - crossings are enforced by the `commit-msg` hook and `lane-boundary`;
+   - **commit identity and deploy-by-git are not mechanized in the repository.** New gates would be a separate
+     decision.
+4. **Accepted in full:** the import is a single silent point of failure (its missing-path behaviour is a preflight
+   item); feasibility must be measured before the scope act; the pointer index counts inside the 5,800-character
+   floor; and the skill trim is split out.
+5. **Next:** the measured draft and coverage ledger (step 2), which is proposal preparation already covered by
+   `D-320`'s approval. Then the Judge's scope act, which also permits the preflight (step 1). **The freeze holds.**
+6. **Not given by this act:**
+   - the scope act;
+   - the preflight;
+   - any rule-file, skill or check edit;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e146 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.5 amendments and §3.6.6 amended bound |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected until the scope act |
+| **Agent files** | — unaffected: frozen |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
