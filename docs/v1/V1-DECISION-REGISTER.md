@@ -22941,3 +22941,55 @@ answering `D-330`'s deferred choice.
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e159 `D-334` — Codex CLI Arm: `AGENTS.md` Assembled by `codex_exec` in Docker; Not Delivered (Quota), Not Byte-Compared
+
+**Authority:** execution under `D-330`/`D-333`. The Judge operated the run in the Docker container `dev_agent_1` and
+supplied the rollout readout.
+
+### The decision
+
+1. **The surface, recorded exactly:**
+   - the Codex CLI `0.158.0`, **in a Docker container** with API-key authentication;
+   - the Windows worktree bind-mounted at `/workspace/my-editorial-app-preflight`, confirmed inside the container:
+     `AGENTS.md` `f2bd6dae…`, and `GEMINI.md` present;
+   - model `gpt-6-astra`, sandbox read-only.
+
+   This is a different harness from the desktop app (originator, sandbox and paths), and future runs name it this
+   way.
+2. **The result, from the rollout `01a0e929…`:**
+   - `originator: codex_exec`, the standalone CLI and not `codex_work_desktop`;
+   - `cwd` the worktree mount;
+   - **one `# AGENTS.md instructions for …` block**;
+   - **no `CLAUDE.md` content.**
+3. **Caveats, recorded rather than resolved:**
+   - the request was refused with "Quota exceeded" on the API account, so **the model never received the
+     instructions**;
+   - the block's presence was **counted, not byte-compared**;
+   - earlier attempts failed on authentication (401 until `codex login --with-api-key` registered the key) and on
+     shell quoting (the prompt arrived as "Reply").
+
+   **Classification: `AGENTS.md` assembled; delivery pending.** This is consistent with Route B's byte-exact result
+   on the same runtime line (`D-294`, `D-329`). A completed run after the billing fix, with a byte comparison,
+   upgrades it to delivered.
+4. **Surface status:**
+   - measured: Claude Code, ChatGPT Work, Antigravity Agent Manager, Antigravity IDE agent;
+   - Claude Cowork recorded (no automatic rule files);
+   - Codex CLI assembled;
+   - **the ChatGPT desktop app's Codex mode is still pending.**
+5. **Not given by this act:**
+   - any live rule-file edit;
+   - any change to the Docker environment or the OpenAI account (both the Judge's);
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e159 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 preflight record, Codex CLI arm |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
