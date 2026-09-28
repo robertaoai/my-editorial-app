@@ -22146,3 +22146,47 @@ C's revised `C-008` F15/F20/F21 (`d0daaf6`), both prepared with the user.
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e143 `D-318` — Judge Accepts the Combined `SV2-U02` Loader Report (`D-314`, Corrected by `D-315`–`D-317`)
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Judge Approved: accept the combined SV2-U02 report"*, with
+these details: *"The Judge accepts `D-314`, including corrections `D-315` through `D-317`, as the combined `SV2-U02`
+loader report. The Judge records either 'no remediation' or a separately bounded remediation as a new Register act.
+This acceptance does not establish why `.agents/rules/graphify.md` was not delivered, does not select among
+activation, discovery, folding, or generation designs, and does not assess `SV2-DOD-03`. If remediation is selected,
+Lane A applies it and re-measures all routes against the pinned baselines and route-specific delivery tests."*
+
+### The decision
+
+1. **`SV-002` §3.5 is accepted** as the combined `SV2-U02` loader report, in the form corrected by `D-315`, `D-316`
+   and `D-317`. Its measured outcomes, consequences, open causes, cost note and per-route acceptance tests are the
+   accepted record. This meets the first half of the `SV2-U02` return condition, "the Judge accepts the combined
+   report".
+2. **Not decided by this acceptance, by the Judge's own terms:**
+   - why `graphify.md` was not delivered; its frontmatter, discovery and crowd-out causes stay hypotheses;
+   - which design, if any: activation (`always_on`/trigger), discovery, folding into `AGENTS.md`, or single-source
+     generation;
+   - `SV2-DOD-03`, which stays **unchecked** and **not assessed**.
+3. **Next Judge act, separate:** "no remediation", or one bounded remediation with its owner and scope. **If a
+   remediation is selected, Lane A applies it and re-measures all three routes** against the pinned baselines and the
+   §3.5 per-route delivery tests, and an independent reviewer checks that evidence before `SV2-DOD-03` is assessed.
+   The rule-file freeze of `D-266` item 2 holds until that act.
+4. **Not given by this act:**
+   - any remediation;
+   - any rule-file or skill edit;
+   - `SV2-DOD-03`/`SV2-DOD-06`;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e143 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.5 heading and acceptance note; §7 `SV2-DOD-03` pointer (row unchecked, not assessed) |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, sequence, DoD state, file or lane change |
+| **Agent files** | — unaffected: still frozen (`D-266` item 2) pending the remediation act |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected (`AIG-03` is satisfied only at `SV2-DOD-03`) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
