@@ -21863,3 +21863,48 @@ Lane B eligible"*.
 | **Agent files**, `LANE-B-WORK-ORDER.md`, `.github/WORKFLOWS-SPEC.md` | — unaffected: they define the vocabulary, not the live state |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e137 `D-312` — Route A Level 1 Review `B-146` Recorded; the 188-Byte Explanation Corrected (Comment Run Plus Final Newline)
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Judge Approved: Lane A review on Lane B's Level 1
+receipt"*, under `D-310`. Lane B's entry is `B-146` (`c6aef2e`).
+
+### The decision
+
+1. **`B-146` is answered and recorded** against `SV2-U02-A-R1` in `SV-002` §3.2. Lane B's fresh scores match the
+   saved v2 outputs, and the evidence hashes match `D-310`. Four classification lines are confirmed as written:
+   - `CLAUDE.md` loaded completely, with HTML comments stripped;
+   - `AGENTS.md` not loaded;
+   - `sync-docs` loaded on demand;
+   - both controls held.
+2. **The byte explanation is corrected.** `D-291` item 2, `SV-002` §3.4's receipt row and `D-310` item 1 said the
+   29,709 → 29,521-byte difference is "only" the two-line `SHARED CORE` comment. **Lane A's byte alignment confirms
+   Lane B's dispute.** The harness omits exactly:
+   - a 187-byte run: comment lines 139–140 plus the newline of the blank line 141;
+   - the file's final newline (1 byte).
+
+   No other byte differs. **The classification is unchanged**: comment stripping, not truncation. `SV-002` §3.4
+   carries a dated correction; `D-291` item 2 and `D-310` item 1 are read as corrected here.
+3. **On `B-146`'s Graphify note:** the pending *semantic* descriptions reported by `graphify check-update` are a
+   separate enrichment step. Extraction currency (`docs-drift`) is what a consuming claim relies on here, and it is
+   re-synced after this commit.
+4. **Next:** Lane C's Level 2 review of Route A (`D-310`), filed as its own `C-` entry after this one. Then the
+   combined report.
+5. **Not given by this act:**
+   - the combined report or its acceptance;
+   - the remediation decision;
+   - any rule-file edit;
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e137 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run row `SV2-U02-A-R1` (Level 1 recorded); §3.4 receipt row "The 188-byte difference" (dated correction) |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: a factual correction; no scope, sequence, DoD, file or lane change |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
