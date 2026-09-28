@@ -5,7 +5,7 @@
 - **Phase:** 1
 - **Blocks:** the separate `D-318` choice of no remediation or one bounded remediation, and any claim that `SV2-DOD-03` is met; read-only analysis may continue
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** `D-266`, `D-267`, `D-318`; `SV-002` §3.5 and §7; `AGENTS.md`, `CLAUDE.md`, `.agents/rules/graphify.md`; `C-005` and `B-147`; read-only byte inventory, `shared-core-hash.mjs`, and `bun run check`; [Codex AGENTS.md loading guide](https://learn.chatgpt.com/docs/agent-configuration/agents-md); external reviews as advisory input only
 - **Verified-At-Commit:** b2abadf7924e3f2712afad22e9586ab6572804ec
