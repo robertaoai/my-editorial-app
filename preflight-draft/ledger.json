@@ -1,0 +1,8128 @@
+{
+ "pin": "c06ddc3",
+ "originals": {
+  "AGENTS.md": {
+   "sha256": "f2bd6dae9f17a91eb6ab733c5a136769041aaf0cce6c19e90a6ed2e3b9557b0d",
+   "bytes": 31920
+  },
+  "CLAUDE.md": {
+   "sha256": "6a6a82d6754b0953688392e3e2305bc9f44ee568d084bfe19d8a6c39003d3977",
+   "bytes": 29709
+  },
+  ".agents/rules/graphify.md": {
+   "sha256": "3baf8c53889b5e9f321adfafdb3c4f46972e4da643a26dc9b773825dd1d659bc",
+   "bytes": 21750
+  }
+ },
+ "partition": {
+  "AGENTS.md": {
+   "lines": 451,
+   "rows": 451,
+   "unique": 451,
+   "bytesCovered": 31920,
+   "fileBytes": 31920,
+   "exact": true
+  },
+  "CLAUDE.md": {
+   "lines": 402,
+   "rows": 402,
+   "unique": 402,
+   "bytesCovered": 29709,
+   "fileBytes": 29709,
+   "exact": true
+  },
+  ".agents/rules/graphify.md": {
+   "lines": 296,
+   "rows": 296,
+   "unique": 296,
+   "bytesCovered": 21750,
+   "fileBytes": 21750,
+   "exact": true
+  }
+ },
+ "measurements": {
+  "AGENTS.draft": {
+   "chars": 3445,
+   "bytes": 3454,
+   "lines": 57,
+   "sha256": "5e975e0ff639341015cb479e159ca703d4fe3b541f74509d02bb743400584f15"
+  },
+  "CLAUDE.draft": {
+   "chars": 3818,
+   "bytes": 3837,
+   "lines": 45,
+   "sha256": "d4198c2dd8e5a42a8209b6bcc9a576dad6317cdf2cd6b2185d3e6ddd4b37db20"
+  },
+  "GEMINI.draft": {
+   "chars": 3438,
+   "bytes": 3457,
+   "lines": 52,
+   "sha256": "93af19ae35c98ff1eb2e4627d2a367f893f11e74cef00aa40b99d47153f0b6be"
+  },
+  "reference.draft": {
+   "chars": 32520,
+   "bytes": 32794,
+   "lines": 465,
+   "sha256": "561739d17a4fd7ad16cf7c98ef7c508ec39ee5ce14f9adbd74b5e7dd63466b73"
+  }
+ },
+ "gates": {
+  "AGENTS chars <= 5,400 (working ceiling)": true,
+  "AGENTS chars < 6,000 (hard cap)": true,
+  "AGENTS bytes < 24,000": true,
+  "CLAUDE lines < 300": true,
+  "GEMINI bytes < 24,000": true,
+  "CLAUDE imports @AGENTS.md on its own line": true,
+  "single copy of core: CLAUDE.draft has no shared-core text": true,
+  "single copy of core: GEMINI.draft has no shared-core text": true,
+  "no HTML comment in automatic files": true,
+  "lane state appears only as the §5 pointer": true,
+  "pointer index: one line to the reference": true,
+  "partition exact for all three originals": true
+ },
+ "ledger": [
+  {
+   "file": "AGENTS.md",
+   "line": 1,
+   "dest": "reference",
+   "destLine": 15,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 2,
+   "dest": "reference",
+   "destLine": 16,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 3,
+   "dest": "reference",
+   "destLine": 17,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 4,
+   "dest": "reference",
+   "destLine": 18,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 5,
+   "dest": "reference",
+   "destLine": 19,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 6,
+   "dest": "reference",
+   "destLine": 20,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 7,
+   "dest": "reference",
+   "destLine": 21,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 8,
+   "dest": "reference",
+   "destLine": 22,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 9,
+   "dest": "reference",
+   "destLine": 23,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 10,
+   "dest": "reference",
+   "destLine": 24,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 11,
+   "dest": "reference",
+   "destLine": 25,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 12,
+   "dest": "reference",
+   "destLine": 26,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 13,
+   "dest": "reference",
+   "destLine": 27,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 14,
+   "dest": "reference",
+   "destLine": 28,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 15,
+   "dest": "reference",
+   "destLine": 29,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 16,
+   "dest": "reference",
+   "destLine": 30,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 17,
+   "dest": "reference",
+   "destLine": 31,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 18,
+   "dest": "reference",
+   "destLine": 32,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 19,
+   "dest": "reference",
+   "destLine": 33,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 20,
+   "dest": "reference",
+   "destLine": 34,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 21,
+   "dest": "reference",
+   "destLine": 35,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 22,
+   "dest": "reference",
+   "destLine": 36,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 23,
+   "dest": "reference",
+   "destLine": 37,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 24,
+   "dest": "reference",
+   "destLine": 38,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 25,
+   "dest": "reference",
+   "destLine": 39,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 26,
+   "dest": "reference",
+   "destLine": 40,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 27,
+   "dest": "reference",
+   "destLine": 41,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 28,
+   "dest": "reference",
+   "destLine": 42,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 29,
+   "dest": "reference",
+   "destLine": 43,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 30,
+   "dest": "reference",
+   "destLine": 44,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 31,
+   "dest": "reference",
+   "destLine": 45,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 32,
+   "dest": "reference",
+   "destLine": 46,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 33,
+   "dest": "reference",
+   "destLine": 47,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 34,
+   "dest": "reference",
+   "destLine": 48,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 35,
+   "dest": "reference",
+   "destLine": 49,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 36,
+   "dest": "reference",
+   "destLine": 50,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 37,
+   "dest": "reference",
+   "destLine": 51,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 38,
+   "dest": "reference",
+   "destLine": 52,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 39,
+   "dest": "reference",
+   "destLine": 53,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 40,
+   "dest": "reference",
+   "destLine": 54,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 41,
+   "dest": "reference",
+   "destLine": 55,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 42,
+   "dest": "reference",
+   "destLine": 56,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 43,
+   "dest": "reference",
+   "destLine": 57,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 44,
+   "dest": "reference",
+   "destLine": 58,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 45,
+   "dest": "reference",
+   "destLine": 59,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 46,
+   "dest": "reference",
+   "destLine": 60,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 47,
+   "dest": "reference",
+   "destLine": 61,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 48,
+   "dest": "reference",
+   "destLine": 62,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 49,
+   "dest": "reference",
+   "destLine": 63,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 50,
+   "dest": "reference",
+   "destLine": 64,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 51,
+   "dest": "reference",
+   "destLine": 65,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 52,
+   "dest": "reference",
+   "destLine": 66,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 53,
+   "dest": "reference",
+   "destLine": 67,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 54,
+   "dest": "reference",
+   "destLine": 68,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 55,
+   "dest": "reference",
+   "destLine": 69,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 56,
+   "dest": "reference",
+   "destLine": 70,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 57,
+   "dest": "reference",
+   "destLine": 71,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 58,
+   "dest": "reference",
+   "destLine": 72,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 59,
+   "dest": "reference",
+   "destLine": 73,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 60,
+   "dest": "reference",
+   "destLine": 74,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 61,
+   "dest": "reference",
+   "destLine": 75,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 62,
+   "dest": "reference",
+   "destLine": 76,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 63,
+   "dest": "reference",
+   "destLine": 77,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 64,
+   "dest": "reference",
+   "destLine": 78,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 65,
+   "dest": "reference",
+   "destLine": 79,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 66,
+   "dest": "reference",
+   "destLine": 80,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 67,
+   "dest": "reference",
+   "destLine": 81,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 68,
+   "dest": "reference",
+   "destLine": 82,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 69,
+   "dest": "reference",
+   "destLine": 83,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 70,
+   "dest": "reference",
+   "destLine": 84,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 71,
+   "dest": "reference",
+   "destLine": 85,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 72,
+   "dest": "reference",
+   "destLine": 86,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 73,
+   "dest": "reference",
+   "destLine": 87,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 74,
+   "dest": "reference",
+   "destLine": 88,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 75,
+   "dest": "reference",
+   "destLine": 89,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 76,
+   "dest": "reference",
+   "destLine": 90,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 77,
+   "dest": "reference",
+   "destLine": 91,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 78,
+   "dest": "reference",
+   "destLine": 92,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 79,
+   "dest": "reference",
+   "destLine": 93,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 80,
+   "dest": "reference",
+   "destLine": 94,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 81,
+   "dest": "reference",
+   "destLine": 95,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 82,
+   "dest": "reference",
+   "destLine": 96,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 83,
+   "dest": "reference",
+   "destLine": 97,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 84,
+   "dest": "reference",
+   "destLine": 98,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 85,
+   "dest": "reference",
+   "destLine": 99,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 86,
+   "dest": "reference",
+   "destLine": 100,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 87,
+   "dest": "reference",
+   "destLine": 101,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 88,
+   "dest": "reference",
+   "destLine": 102,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 89,
+   "dest": "reference",
+   "destLine": 103,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 90,
+   "dest": "reference",
+   "destLine": 104,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 91,
+   "dest": "reference",
+   "destLine": 105,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 92,
+   "dest": "reference",
+   "destLine": 106,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 93,
+   "dest": "reference",
+   "destLine": 107,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 94,
+   "dest": "reference",
+   "destLine": 108,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 95,
+   "dest": "reference",
+   "destLine": 109,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 96,
+   "dest": "reference",
+   "destLine": 110,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 97,
+   "dest": "reference",
+   "destLine": 111,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 98,
+   "dest": "reference",
+   "destLine": 112,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 99,
+   "dest": "reference",
+   "destLine": 113,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 100,
+   "dest": "reference",
+   "destLine": 114,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 101,
+   "dest": "reference",
+   "destLine": 115,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 102,
+   "dest": "reference",
+   "destLine": 116,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 103,
+   "dest": "reference",
+   "destLine": 117,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 104,
+   "dest": "reference",
+   "destLine": 118,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 105,
+   "dest": "reference",
+   "destLine": 119,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 106,
+   "dest": "reference",
+   "destLine": 120,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 107,
+   "dest": "reference",
+   "destLine": 121,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 108,
+   "dest": "reference",
+   "destLine": 122,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 109,
+   "dest": "reference",
+   "destLine": 123,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 110,
+   "dest": "reference",
+   "destLine": 124,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 111,
+   "dest": "reference",
+   "destLine": 125,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 112,
+   "dest": "reference",
+   "destLine": 126,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 113,
+   "dest": "reference",
+   "destLine": 127,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 114,
+   "dest": "reference",
+   "destLine": 128,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 115,
+   "dest": "reference",
+   "destLine": 129,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 116,
+   "dest": "reference",
+   "destLine": 130,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 117,
+   "dest": "reference",
+   "destLine": 131,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 118,
+   "dest": "reference",
+   "destLine": 132,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 119,
+   "dest": "reference",
+   "destLine": 133,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 120,
+   "dest": "reference",
+   "destLine": 134,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 121,
+   "dest": "reference",
+   "destLine": 135,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 122,
+   "dest": "reference",
+   "destLine": 136,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 123,
+   "dest": "reference",
+   "destLine": 137,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 124,
+   "dest": "reference",
+   "destLine": 138,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 125,
+   "dest": "reference",
+   "destLine": 139,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 126,
+   "dest": "reference",
+   "destLine": 140,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 127,
+   "dest": "reference",
+   "destLine": 141,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 128,
+   "dest": "reference",
+   "destLine": 142,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 129,
+   "dest": "reference",
+   "destLine": 143,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 130,
+   "dest": "reference",
+   "destLine": 144,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 131,
+   "dest": "reference",
+   "destLine": 145,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 132,
+   "dest": "reference",
+   "destLine": 146,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 133,
+   "dest": "reference",
+   "destLine": 147,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 134,
+   "dest": "reference",
+   "destLine": 148,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 135,
+   "dest": "reference",
+   "destLine": 149,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 136,
+   "dest": "reference",
+   "destLine": 150,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 137,
+   "dest": "reference",
+   "destLine": 151,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 138,
+   "dest": "reference",
+   "destLine": 152,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 139,
+   "dest": "reference",
+   "destLine": 153,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 140,
+   "dest": "reference",
+   "destLine": 154,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 141,
+   "dest": "reference",
+   "destLine": 155,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 142,
+   "dest": "reference",
+   "destLine": 156,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 143,
+   "dest": "reference",
+   "destLine": 157,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 144,
+   "dest": "reference",
+   "destLine": 158,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 145,
+   "dest": "reference",
+   "destLine": 159,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 146,
+   "dest": "reference",
+   "destLine": 160,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 147,
+   "dest": "reference",
+   "destLine": 161,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 148,
+   "dest": "reference",
+   "destLine": 162,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 149,
+   "dest": "reference",
+   "destLine": 163,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 150,
+   "dest": "reference",
+   "destLine": 164,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 151,
+   "dest": "reference",
+   "destLine": 165,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 152,
+   "dest": "reference",
+   "destLine": 166,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 153,
+   "dest": "reference",
+   "destLine": 167,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 154,
+   "dest": "reference",
+   "destLine": 168,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 155,
+   "dest": "reference",
+   "destLine": 169,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 156,
+   "dest": "reference",
+   "destLine": 170,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 157,
+   "dest": "reference",
+   "destLine": 171,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 158,
+   "dest": "reference",
+   "destLine": 172,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 159,
+   "dest": "reference",
+   "destLine": 173,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 160,
+   "dest": "reference",
+   "destLine": 174,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 161,
+   "dest": "reference",
+   "destLine": 175,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 162,
+   "dest": "reference",
+   "destLine": 176,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 163,
+   "dest": "reference",
+   "destLine": 177,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 164,
+   "dest": "reference",
+   "destLine": 178,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 165,
+   "dest": "reference",
+   "destLine": 179,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 166,
+   "dest": "reference",
+   "destLine": 180,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 167,
+   "dest": "reference",
+   "destLine": 181,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 168,
+   "dest": "reference",
+   "destLine": 182,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 169,
+   "dest": "reference",
+   "destLine": 183,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 170,
+   "dest": "reference",
+   "destLine": 184,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 171,
+   "dest": "reference",
+   "destLine": 185,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 172,
+   "dest": "reference",
+   "destLine": 186,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 173,
+   "dest": "reference",
+   "destLine": 187,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 174,
+   "dest": "reference",
+   "destLine": 188,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 175,
+   "dest": "reference",
+   "destLine": 189,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 176,
+   "dest": "reference",
+   "destLine": 190,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 177,
+   "dest": "reference",
+   "destLine": 191,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 178,
+   "dest": "reference",
+   "destLine": 192,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 179,
+   "dest": "reference",
+   "destLine": 193,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 180,
+   "dest": "reference",
+   "destLine": 194,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 181,
+   "dest": "reference",
+   "destLine": 195,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 182,
+   "dest": "reference",
+   "destLine": 196,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 183,
+   "dest": "reference",
+   "destLine": 197,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 184,
+   "dest": "reference",
+   "destLine": 198,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 185,
+   "dest": "reference",
+   "destLine": 199,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 186,
+   "dest": "reference",
+   "destLine": 200,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 187,
+   "dest": "reference",
+   "destLine": 201,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 188,
+   "dest": "reference",
+   "destLine": 202,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 189,
+   "dest": "reference",
+   "destLine": 203,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 190,
+   "dest": "reference",
+   "destLine": 204,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 191,
+   "dest": "reference",
+   "destLine": 205,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 192,
+   "dest": "reference",
+   "destLine": 206,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 193,
+   "dest": "reference",
+   "destLine": 207,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 194,
+   "dest": "reference",
+   "destLine": 208,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 195,
+   "dest": "reference",
+   "destLine": 209,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 196,
+   "dest": "reference",
+   "destLine": 210,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 197,
+   "dest": "reference",
+   "destLine": 211,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 198,
+   "dest": "reference",
+   "destLine": 212,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 199,
+   "dest": "reference",
+   "destLine": 213,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 200,
+   "dest": "reference",
+   "destLine": 214,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 201,
+   "dest": "reference",
+   "destLine": 215,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 202,
+   "dest": "reference",
+   "destLine": 216,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 203,
+   "dest": "reference",
+   "destLine": 217,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 204,
+   "dest": "reference",
+   "destLine": 218,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 205,
+   "dest": "reference",
+   "destLine": 219,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 206,
+   "dest": "reference",
+   "destLine": 220,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 207,
+   "dest": "reference",
+   "destLine": 221,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 208,
+   "dest": "reference",
+   "destLine": 222,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 209,
+   "dest": "reference",
+   "destLine": 223,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 210,
+   "dest": "reference",
+   "destLine": 224,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 211,
+   "dest": "reference",
+   "destLine": 225,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 212,
+   "dest": "reference",
+   "destLine": 226,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 213,
+   "dest": "reference",
+   "destLine": 227,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 214,
+   "dest": "reference",
+   "destLine": 228,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 215,
+   "dest": "reference",
+   "destLine": 229,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 216,
+   "dest": "reference",
+   "destLine": 230,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 217,
+   "dest": "reference",
+   "destLine": 231,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 218,
+   "dest": "reference",
+   "destLine": 232,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 219,
+   "dest": "reference",
+   "destLine": 233,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 220,
+   "dest": "reference",
+   "destLine": 234,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 221,
+   "dest": "reference",
+   "destLine": 235,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 222,
+   "dest": "reference",
+   "destLine": 236,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 223,
+   "dest": "reference",
+   "destLine": 237,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 224,
+   "dest": "reference",
+   "destLine": 238,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 225,
+   "dest": "reference",
+   "destLine": 239,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 226,
+   "dest": "reference",
+   "destLine": 240,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 227,
+   "dest": "reference",
+   "destLine": 241,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 228,
+   "dest": "reference",
+   "destLine": 242,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 229,
+   "dest": "reference",
+   "destLine": 243,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 230,
+   "dest": "reference",
+   "destLine": 244,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 231,
+   "dest": "reference",
+   "destLine": 245,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 232,
+   "dest": "reference",
+   "destLine": 246,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 233,
+   "dest": "reference",
+   "destLine": 247,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 234,
+   "dest": "reference",
+   "destLine": 248,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 235,
+   "dest": "reference",
+   "destLine": 249,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 236,
+   "dest": "reference",
+   "destLine": 250,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 237,
+   "dest": "reference",
+   "destLine": 251,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 238,
+   "dest": "reference",
+   "destLine": 252,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 239,
+   "dest": "reference",
+   "destLine": 253,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 240,
+   "dest": "reference",
+   "destLine": 254,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 241,
+   "dest": "reference",
+   "destLine": 255,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 242,
+   "dest": "reference",
+   "destLine": 256,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 243,
+   "dest": "reference",
+   "destLine": 257,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 244,
+   "dest": "reference",
+   "destLine": 258,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 245,
+   "dest": "reference",
+   "destLine": 259,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 246,
+   "dest": "reference",
+   "destLine": 260,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 247,
+   "dest": "reference",
+   "destLine": 261,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 248,
+   "dest": "reference",
+   "destLine": 262,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 249,
+   "dest": "reference",
+   "destLine": 263,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 250,
+   "dest": "reference",
+   "destLine": 264,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 251,
+   "dest": "reference",
+   "destLine": 265,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 252,
+   "dest": "reference",
+   "destLine": 266,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 253,
+   "dest": "reference",
+   "destLine": 267,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 254,
+   "dest": "reference",
+   "destLine": 268,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 255,
+   "dest": "reference",
+   "destLine": 269,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 256,
+   "dest": "reference",
+   "destLine": 270,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 257,
+   "dest": "reference",
+   "destLine": 271,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 258,
+   "dest": "reference",
+   "destLine": 272,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 259,
+   "dest": "reference",
+   "destLine": 273,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 260,
+   "dest": "reference",
+   "destLine": 274,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 261,
+   "dest": "reference",
+   "destLine": 275,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 262,
+   "dest": "reference",
+   "destLine": 276,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 263,
+   "dest": "reference",
+   "destLine": 277,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 264,
+   "dest": "reference",
+   "destLine": 278,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 265,
+   "dest": "reference",
+   "destLine": 279,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 266,
+   "dest": "reference",
+   "destLine": 280,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 267,
+   "dest": "reference",
+   "destLine": 281,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 268,
+   "dest": "reference",
+   "destLine": 282,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 269,
+   "dest": "reference",
+   "destLine": 283,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 270,
+   "dest": "reference",
+   "destLine": 284,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 271,
+   "dest": "reference",
+   "destLine": 285,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 272,
+   "dest": "reference",
+   "destLine": 286,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 273,
+   "dest": "reference",
+   "destLine": 287,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 274,
+   "dest": "reference",
+   "destLine": 288,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 275,
+   "dest": "reference",
+   "destLine": 289,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 276,
+   "dest": "reference",
+   "destLine": 290,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 277,
+   "dest": "reference",
+   "destLine": 291,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 278,
+   "dest": "reference",
+   "destLine": 292,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 279,
+   "dest": "reference",
+   "destLine": 293,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 280,
+   "dest": "reference",
+   "destLine": 294,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 281,
+   "dest": "reference",
+   "destLine": 295,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 282,
+   "dest": "reference",
+   "destLine": 296,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 283,
+   "dest": "reference",
+   "destLine": 297,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 284,
+   "dest": "reference",
+   "destLine": 298,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 285,
+   "dest": "reference",
+   "destLine": 299,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 286,
+   "dest": "reference",
+   "destLine": 300,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 287,
+   "dest": "reference",
+   "destLine": 301,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 288,
+   "dest": "reference",
+   "destLine": 302,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 289,
+   "dest": "reference",
+   "destLine": 303,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 290,
+   "dest": "reference",
+   "destLine": 304,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 291,
+   "dest": "reference",
+   "destLine": 305,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 292,
+   "dest": "reference",
+   "destLine": 306,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 293,
+   "dest": "reference",
+   "destLine": 307,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 294,
+   "dest": "reference",
+   "destLine": 308,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 295,
+   "dest": "reference",
+   "destLine": 309,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 296,
+   "dest": "reference",
+   "destLine": 310,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 297,
+   "dest": "reference",
+   "destLine": 311,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 298,
+   "dest": "reference",
+   "destLine": 312,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 299,
+   "dest": "reference",
+   "destLine": 313,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 300,
+   "dest": "reference",
+   "destLine": 314,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 301,
+   "dest": "reference",
+   "destLine": 315,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 302,
+   "dest": "reference",
+   "destLine": 316,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 303,
+   "dest": "reference",
+   "destLine": 317,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 304,
+   "dest": "reference",
+   "destLine": 318,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 305,
+   "dest": "reference",
+   "destLine": 319,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 306,
+   "dest": "reference",
+   "destLine": 320,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 307,
+   "dest": "reference",
+   "destLine": 321,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 308,
+   "dest": "reference",
+   "destLine": 322,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 309,
+   "dest": "reference",
+   "destLine": 323,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 310,
+   "dest": "reference",
+   "destLine": 324,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 311,
+   "dest": "reference",
+   "destLine": 325,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 312,
+   "dest": "reference",
+   "destLine": 326,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 313,
+   "dest": "reference",
+   "destLine": 327,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 314,
+   "dest": "reference",
+   "destLine": 328,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 315,
+   "dest": "reference",
+   "destLine": 329,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 316,
+   "dest": "reference",
+   "destLine": 330,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 317,
+   "dest": "reference",
+   "destLine": 331,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 318,
+   "dest": "reference",
+   "destLine": 332,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 319,
+   "dest": "reference",
+   "destLine": 333,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 320,
+   "dest": "reference",
+   "destLine": 334,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 321,
+   "dest": "reference",
+   "destLine": 335,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 322,
+   "dest": "reference",
+   "destLine": 336,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 323,
+   "dest": "reference",
+   "destLine": 337,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 324,
+   "dest": "reference",
+   "destLine": 338,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 325,
+   "dest": "reference",
+   "destLine": 339,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 326,
+   "dest": "reference",
+   "destLine": 340,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 327,
+   "dest": "reference",
+   "destLine": 341,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 328,
+   "dest": "reference",
+   "destLine": 342,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 329,
+   "dest": "reference",
+   "destLine": 343,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 330,
+   "dest": "reference",
+   "destLine": 344,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 331,
+   "dest": "reference",
+   "destLine": 345,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 332,
+   "dest": "reference",
+   "destLine": 346,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 333,
+   "dest": "reference",
+   "destLine": 347,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 334,
+   "dest": "reference",
+   "destLine": 348,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 335,
+   "dest": "reference",
+   "destLine": 349,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 336,
+   "dest": "reference",
+   "destLine": 350,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 337,
+   "dest": "reference",
+   "destLine": 351,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 338,
+   "dest": "reference",
+   "destLine": 352,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 339,
+   "dest": "reference",
+   "destLine": 353,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 340,
+   "dest": "reference",
+   "destLine": 354,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 341,
+   "dest": "reference",
+   "destLine": 355,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 342,
+   "dest": "reference",
+   "destLine": 356,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 343,
+   "dest": "reference",
+   "destLine": 357,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 344,
+   "dest": "reference",
+   "destLine": 358,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 345,
+   "dest": "reference",
+   "destLine": 359,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 346,
+   "dest": "reference",
+   "destLine": 360,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 347,
+   "dest": "reference",
+   "destLine": 361,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 348,
+   "dest": "reference",
+   "destLine": 362,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 349,
+   "dest": "reference",
+   "destLine": 363,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 350,
+   "dest": "reference",
+   "destLine": 364,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 351,
+   "dest": "reference",
+   "destLine": 365,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 352,
+   "dest": "reference",
+   "destLine": 366,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 353,
+   "dest": "reference",
+   "destLine": 367,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 354,
+   "dest": "reference",
+   "destLine": 368,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 355,
+   "dest": "reference",
+   "destLine": 369,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 356,
+   "dest": "reference",
+   "destLine": 370,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 357,
+   "dest": "reference",
+   "destLine": 371,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 358,
+   "dest": "reference",
+   "destLine": 372,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 359,
+   "dest": "reference",
+   "destLine": 373,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 360,
+   "dest": "reference",
+   "destLine": 374,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 361,
+   "dest": "reference",
+   "destLine": 375,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 362,
+   "dest": "reference",
+   "destLine": 376,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 363,
+   "dest": "reference",
+   "destLine": 377,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 364,
+   "dest": "reference",
+   "destLine": 378,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 365,
+   "dest": "reference",
+   "destLine": 379,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 366,
+   "dest": "reference",
+   "destLine": 380,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 367,
+   "dest": "reference",
+   "destLine": 381,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 368,
+   "dest": "reference",
+   "destLine": 382,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 369,
+   "dest": "reference",
+   "destLine": 383,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 370,
+   "dest": "reference",
+   "destLine": 384,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 371,
+   "dest": "reference",
+   "destLine": 385,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 372,
+   "dest": "reference",
+   "destLine": 386,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 373,
+   "dest": "reference",
+   "destLine": 387,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 374,
+   "dest": "reference",
+   "destLine": 388,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 375,
+   "dest": "reference",
+   "destLine": 389,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 376,
+   "dest": "reference",
+   "destLine": 390,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 377,
+   "dest": "reference",
+   "destLine": 391,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 378,
+   "dest": "reference",
+   "destLine": 392,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 379,
+   "dest": "reference",
+   "destLine": 393,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 380,
+   "dest": "reference",
+   "destLine": 394,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 381,
+   "dest": "reference",
+   "destLine": 395,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 382,
+   "dest": "reference",
+   "destLine": 396,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 383,
+   "dest": "reference",
+   "destLine": 397,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 384,
+   "dest": "reference",
+   "destLine": 398,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 385,
+   "dest": "reference",
+   "destLine": 399,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 386,
+   "dest": "reference",
+   "destLine": 400,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 387,
+   "dest": "reference",
+   "destLine": 401,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 388,
+   "dest": "reference",
+   "destLine": 402,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 389,
+   "dest": "reference",
+   "destLine": 403,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 390,
+   "dest": "reference",
+   "destLine": 404,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 391,
+   "dest": "reference",
+   "destLine": 405,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 392,
+   "dest": "reference",
+   "destLine": 406,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 393,
+   "dest": "reference",
+   "destLine": 407,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 394,
+   "dest": "reference",
+   "destLine": 408,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 395,
+   "dest": "reference",
+   "destLine": 409,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 396,
+   "dest": "reference",
+   "destLine": 410,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 397,
+   "dest": "reference",
+   "destLine": 411,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 398,
+   "dest": "reference",
+   "destLine": 412,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 399,
+   "dest": "reference",
+   "destLine": 413,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 400,
+   "dest": "reference",
+   "destLine": 414,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 401,
+   "dest": "reference",
+   "destLine": 415,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 402,
+   "dest": "reference",
+   "destLine": 416,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 403,
+   "dest": "reference",
+   "destLine": 417,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 404,
+   "dest": "reference",
+   "destLine": 418,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 405,
+   "dest": "reference",
+   "destLine": 419,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 406,
+   "dest": "reference",
+   "destLine": 420,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 407,
+   "dest": "reference",
+   "destLine": 421,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 408,
+   "dest": "reference",
+   "destLine": 422,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 409,
+   "dest": "reference",
+   "destLine": 423,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 410,
+   "dest": "reference",
+   "destLine": 424,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 411,
+   "dest": "reference",
+   "destLine": 425,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 412,
+   "dest": "reference",
+   "destLine": 426,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 413,
+   "dest": "reference",
+   "destLine": 427,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 414,
+   "dest": "reference",
+   "destLine": 428,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 415,
+   "dest": "reference",
+   "destLine": 429,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 416,
+   "dest": "reference",
+   "destLine": 430,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 417,
+   "dest": "reference",
+   "destLine": 431,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 418,
+   "dest": "reference",
+   "destLine": 432,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 419,
+   "dest": "reference",
+   "destLine": 433,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 420,
+   "dest": "reference",
+   "destLine": 434,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 421,
+   "dest": "reference",
+   "destLine": 435,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 422,
+   "dest": "reference",
+   "destLine": 436,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 423,
+   "dest": "reference",
+   "destLine": 437,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 424,
+   "dest": "reference",
+   "destLine": 438,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 425,
+   "dest": "reference",
+   "destLine": 439,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 426,
+   "dest": "reference",
+   "destLine": 440,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 427,
+   "dest": "reference",
+   "destLine": 441,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 428,
+   "dest": "reference",
+   "destLine": 442,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 429,
+   "dest": "reference",
+   "destLine": 443,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 430,
+   "dest": "reference",
+   "destLine": 444,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 431,
+   "dest": "reference",
+   "destLine": 445,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 432,
+   "dest": "reference",
+   "destLine": 446,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 433,
+   "dest": "reference",
+   "destLine": 447,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 434,
+   "dest": "reference",
+   "destLine": 448,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 435,
+   "dest": "reference",
+   "destLine": 449,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 436,
+   "dest": "reference",
+   "destLine": 450,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 437,
+   "dest": "reference",
+   "destLine": 451,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 438,
+   "dest": "reference",
+   "destLine": 452,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 439,
+   "dest": "reference",
+   "destLine": 453,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 440,
+   "dest": "reference",
+   "destLine": 454,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 441,
+   "dest": "reference",
+   "destLine": 455,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 442,
+   "dest": "reference",
+   "destLine": 456,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 443,
+   "dest": "reference",
+   "destLine": 457,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 444,
+   "dest": "reference",
+   "destLine": 458,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 445,
+   "dest": "reference",
+   "destLine": 459,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 446,
+   "dest": "reference",
+   "destLine": 460,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 447,
+   "dest": "reference",
+   "destLine": 461,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 448,
+   "dest": "reference",
+   "destLine": 462,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 449,
+   "dest": "reference",
+   "destLine": 463,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 450,
+   "dest": "reference",
+   "destLine": 464,
+   "cls": "verbatim"
+  },
+  {
+   "file": "AGENTS.md",
+   "line": 451,
+   "dest": "reference",
+   "destLine": 465,
+   "cls": "verbatim"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 1,
+   "dest": "reference",
+   "destLine": 15,
+   "cls": "duplicate of AGENTS.md line 1"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 2,
+   "dest": "reference",
+   "destLine": 16,
+   "cls": "duplicate of AGENTS.md line 2"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 3,
+   "dest": "reference",
+   "destLine": 17,
+   "cls": "duplicate of AGENTS.md line 3"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 4,
+   "dest": "reference",
+   "destLine": 18,
+   "cls": "duplicate of AGENTS.md line 4"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 5,
+   "dest": "reference",
+   "destLine": 19,
+   "cls": "duplicate of AGENTS.md line 5"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 6,
+   "dest": "reference",
+   "destLine": 20,
+   "cls": "duplicate of AGENTS.md line 6"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 7,
+   "dest": "reference",
+   "destLine": 21,
+   "cls": "duplicate of AGENTS.md line 7"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 8,
+   "dest": "reference",
+   "destLine": 22,
+   "cls": "duplicate of AGENTS.md line 8"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 9,
+   "dest": "reference",
+   "destLine": 23,
+   "cls": "duplicate of AGENTS.md line 9"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 10,
+   "dest": "reference",
+   "destLine": 24,
+   "cls": "duplicate of AGENTS.md line 10"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 11,
+   "dest": "reference",
+   "destLine": 25,
+   "cls": "duplicate of AGENTS.md line 11"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 12,
+   "dest": "reference",
+   "destLine": 26,
+   "cls": "duplicate of AGENTS.md line 12"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 13,
+   "dest": "reference",
+   "destLine": 27,
+   "cls": "duplicate of AGENTS.md line 13"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 14,
+   "dest": "reference",
+   "destLine": 28,
+   "cls": "duplicate of AGENTS.md line 14"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 15,
+   "dest": "reference",
+   "destLine": 29,
+   "cls": "duplicate of AGENTS.md line 15"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 16,
+   "dest": "reference",
+   "destLine": 30,
+   "cls": "duplicate of AGENTS.md line 16"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 17,
+   "dest": "reference",
+   "destLine": 31,
+   "cls": "duplicate of AGENTS.md line 17"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 18,
+   "dest": "reference",
+   "destLine": 32,
+   "cls": "duplicate of AGENTS.md line 18"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 19,
+   "dest": "reference",
+   "destLine": 33,
+   "cls": "duplicate of AGENTS.md line 19"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 20,
+   "dest": "reference",
+   "destLine": 34,
+   "cls": "duplicate of AGENTS.md line 20"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 21,
+   "dest": "reference",
+   "destLine": 35,
+   "cls": "duplicate of AGENTS.md line 21"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 22,
+   "dest": "reference",
+   "destLine": 36,
+   "cls": "duplicate of AGENTS.md line 22"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 23,
+   "dest": "reference",
+   "destLine": 37,
+   "cls": "duplicate of AGENTS.md line 23"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 24,
+   "dest": "reference",
+   "destLine": 38,
+   "cls": "duplicate of AGENTS.md line 24"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 25,
+   "dest": "reference",
+   "destLine": 39,
+   "cls": "duplicate of AGENTS.md line 25"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 26,
+   "dest": "reference",
+   "destLine": 40,
+   "cls": "duplicate of AGENTS.md line 26"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 27,
+   "dest": "reference",
+   "destLine": 41,
+   "cls": "duplicate of AGENTS.md line 27"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 28,
+   "dest": "reference",
+   "destLine": 42,
+   "cls": "duplicate of AGENTS.md line 28"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 29,
+   "dest": "reference",
+   "destLine": 43,
+   "cls": "duplicate of AGENTS.md line 29"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 30,
+   "dest": "reference",
+   "destLine": 44,
+   "cls": "duplicate of AGENTS.md line 30"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 31,
+   "dest": "reference",
+   "destLine": 45,
+   "cls": "duplicate of AGENTS.md line 31"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 32,
+   "dest": "reference",
+   "destLine": 46,
+   "cls": "duplicate of AGENTS.md line 32"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 33,
+   "dest": "reference",
+   "destLine": 47,
+   "cls": "duplicate of AGENTS.md line 33"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 34,
+   "dest": "reference",
+   "destLine": 48,
+   "cls": "duplicate of AGENTS.md line 34"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 35,
+   "dest": "reference",
+   "destLine": 49,
+   "cls": "duplicate of AGENTS.md line 35"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 36,
+   "dest": "reference",
+   "destLine": 50,
+   "cls": "duplicate of AGENTS.md line 36"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 37,
+   "dest": "reference",
+   "destLine": 51,
+   "cls": "duplicate of AGENTS.md line 37"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 38,
+   "dest": "reference",
+   "destLine": 52,
+   "cls": "duplicate of AGENTS.md line 38"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 39,
+   "dest": "reference",
+   "destLine": 53,
+   "cls": "duplicate of AGENTS.md line 39"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 40,
+   "dest": "reference",
+   "destLine": 54,
+   "cls": "duplicate of AGENTS.md line 40"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 41,
+   "dest": "reference",
+   "destLine": 55,
+   "cls": "duplicate of AGENTS.md line 41"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 42,
+   "dest": "reference",
+   "destLine": 56,
+   "cls": "duplicate of AGENTS.md line 42"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 43,
+   "dest": "reference",
+   "destLine": 57,
+   "cls": "duplicate of AGENTS.md line 43"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 44,
+   "dest": "reference",
+   "destLine": 58,
+   "cls": "duplicate of AGENTS.md line 44"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 45,
+   "dest": "reference",
+   "destLine": 59,
+   "cls": "duplicate of AGENTS.md line 45"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 46,
+   "dest": "reference",
+   "destLine": 60,
+   "cls": "duplicate of AGENTS.md line 46"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 47,
+   "dest": "reference",
+   "destLine": 61,
+   "cls": "duplicate of AGENTS.md line 47"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 48,
+   "dest": "reference",
+   "destLine": 62,
+   "cls": "duplicate of AGENTS.md line 48"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 49,
+   "dest": "reference",
+   "destLine": 63,
+   "cls": "duplicate of AGENTS.md line 49"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 50,
+   "dest": "reference",
+   "destLine": 64,
+   "cls": "duplicate of AGENTS.md line 50"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 51,
+   "dest": "reference",
+   "destLine": 65,
+   "cls": "duplicate of AGENTS.md line 51"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 52,
+   "dest": "reference",
+   "destLine": 66,
+   "cls": "duplicate of AGENTS.md line 52"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 53,
+   "dest": "reference",
+   "destLine": 67,
+   "cls": "duplicate of AGENTS.md line 53"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 54,
+   "dest": "reference",
+   "destLine": 68,
+   "cls": "duplicate of AGENTS.md line 54"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 55,
+   "dest": "reference",
+   "destLine": 69,
+   "cls": "duplicate of AGENTS.md line 55"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 56,
+   "dest": "reference",
+   "destLine": 70,
+   "cls": "duplicate of AGENTS.md line 56"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 57,
+   "dest": "reference",
+   "destLine": 71,
+   "cls": "duplicate of AGENTS.md line 57"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 58,
+   "dest": "reference",
+   "destLine": 72,
+   "cls": "duplicate of AGENTS.md line 58"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 59,
+   "dest": "reference",
+   "destLine": 73,
+   "cls": "duplicate of AGENTS.md line 59"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 60,
+   "dest": "reference",
+   "destLine": 74,
+   "cls": "duplicate of AGENTS.md line 60"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 61,
+   "dest": "reference",
+   "destLine": 75,
+   "cls": "duplicate of AGENTS.md line 61"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 62,
+   "dest": "reference",
+   "destLine": 76,
+   "cls": "duplicate of AGENTS.md line 62"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 63,
+   "dest": "reference",
+   "destLine": 77,
+   "cls": "duplicate of AGENTS.md line 63"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 64,
+   "dest": "reference",
+   "destLine": 78,
+   "cls": "duplicate of AGENTS.md line 64"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 65,
+   "dest": "reference",
+   "destLine": 79,
+   "cls": "duplicate of AGENTS.md line 65"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 66,
+   "dest": "reference",
+   "destLine": 80,
+   "cls": "duplicate of AGENTS.md line 66"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 67,
+   "dest": "reference",
+   "destLine": 81,
+   "cls": "duplicate of AGENTS.md line 67"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 68,
+   "dest": "reference",
+   "destLine": 82,
+   "cls": "duplicate of AGENTS.md line 68"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 69,
+   "dest": "reference",
+   "destLine": 83,
+   "cls": "duplicate of AGENTS.md line 69"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 70,
+   "dest": "reference",
+   "destLine": 84,
+   "cls": "duplicate of AGENTS.md line 70"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 71,
+   "dest": "reference",
+   "destLine": 85,
+   "cls": "duplicate of AGENTS.md line 71"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 72,
+   "dest": "reference",
+   "destLine": 86,
+   "cls": "duplicate of AGENTS.md line 72"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 73,
+   "dest": "reference",
+   "destLine": 87,
+   "cls": "duplicate of AGENTS.md line 73"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 74,
+   "dest": "reference",
+   "destLine": 88,
+   "cls": "duplicate of AGENTS.md line 74"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 75,
+   "dest": "reference",
+   "destLine": 89,
+   "cls": "duplicate of AGENTS.md line 75"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 76,
+   "dest": "reference",
+   "destLine": 90,
+   "cls": "duplicate of AGENTS.md line 76"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 77,
+   "dest": "reference",
+   "destLine": 91,
+   "cls": "duplicate of AGENTS.md line 77"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 78,
+   "dest": "reference",
+   "destLine": 92,
+   "cls": "duplicate of AGENTS.md line 78"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 79,
+   "dest": "reference",
+   "destLine": 93,
+   "cls": "duplicate of AGENTS.md line 79"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 80,
+   "dest": "reference",
+   "destLine": 94,
+   "cls": "duplicate of AGENTS.md line 80"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 81,
+   "dest": "reference",
+   "destLine": 95,
+   "cls": "duplicate of AGENTS.md line 81"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 82,
+   "dest": "reference",
+   "destLine": 96,
+   "cls": "duplicate of AGENTS.md line 82"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 83,
+   "dest": "reference",
+   "destLine": 97,
+   "cls": "duplicate of AGENTS.md line 83"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 84,
+   "dest": "reference",
+   "destLine": 98,
+   "cls": "duplicate of AGENTS.md line 84"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 85,
+   "dest": "reference",
+   "destLine": 99,
+   "cls": "duplicate of AGENTS.md line 85"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 86,
+   "dest": "reference",
+   "destLine": 100,
+   "cls": "duplicate of AGENTS.md line 86"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 87,
+   "dest": "reference",
+   "destLine": 101,
+   "cls": "duplicate of AGENTS.md line 87"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 88,
+   "dest": "reference",
+   "destLine": 102,
+   "cls": "duplicate of AGENTS.md line 88"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 89,
+   "dest": "reference",
+   "destLine": 103,
+   "cls": "duplicate of AGENTS.md line 89"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 90,
+   "dest": "reference",
+   "destLine": 104,
+   "cls": "duplicate of AGENTS.md line 90"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 91,
+   "dest": "reference",
+   "destLine": 105,
+   "cls": "duplicate of AGENTS.md line 91"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 92,
+   "dest": "reference",
+   "destLine": 106,
+   "cls": "duplicate of AGENTS.md line 92"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 93,
+   "dest": "reference",
+   "destLine": 107,
+   "cls": "duplicate of AGENTS.md line 93"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 94,
+   "dest": "reference",
+   "destLine": 108,
+   "cls": "duplicate of AGENTS.md line 94"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 95,
+   "dest": "reference",
+   "destLine": 109,
+   "cls": "duplicate of AGENTS.md line 95"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 96,
+   "dest": "reference",
+   "destLine": 110,
+   "cls": "duplicate of AGENTS.md line 96"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 97,
+   "dest": "reference",
+   "destLine": 111,
+   "cls": "duplicate of AGENTS.md line 97"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 98,
+   "dest": "reference",
+   "destLine": 112,
+   "cls": "duplicate of AGENTS.md line 98"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 99,
+   "dest": "reference",
+   "destLine": 113,
+   "cls": "duplicate of AGENTS.md line 99"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 100,
+   "dest": "reference",
+   "destLine": 114,
+   "cls": "duplicate of AGENTS.md line 100"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 101,
+   "dest": "reference",
+   "destLine": 115,
+   "cls": "duplicate of AGENTS.md line 101"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 102,
+   "dest": "reference",
+   "destLine": 116,
+   "cls": "duplicate of AGENTS.md line 102"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 103,
+   "dest": "reference",
+   "destLine": 117,
+   "cls": "duplicate of AGENTS.md line 103"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 104,
+   "dest": "reference",
+   "destLine": 118,
+   "cls": "duplicate of AGENTS.md line 104"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 105,
+   "dest": "reference",
+   "destLine": 119,
+   "cls": "duplicate of AGENTS.md line 105"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 106,
+   "dest": "reference",
+   "destLine": 120,
+   "cls": "duplicate of AGENTS.md line 106"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 107,
+   "dest": "reference",
+   "destLine": 121,
+   "cls": "duplicate of AGENTS.md line 107"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 108,
+   "dest": "reference",
+   "destLine": 122,
+   "cls": "duplicate of AGENTS.md line 108"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 109,
+   "dest": "reference",
+   "destLine": 123,
+   "cls": "duplicate of AGENTS.md line 109"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 110,
+   "dest": "reference",
+   "destLine": 124,
+   "cls": "duplicate of AGENTS.md line 110"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 111,
+   "dest": "reference",
+   "destLine": 125,
+   "cls": "duplicate of AGENTS.md line 111"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 112,
+   "dest": "reference",
+   "destLine": 126,
+   "cls": "duplicate of AGENTS.md line 112"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 113,
+   "dest": "reference",
+   "destLine": 127,
+   "cls": "duplicate of AGENTS.md line 113"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 114,
+   "dest": "reference",
+   "destLine": 128,
+   "cls": "duplicate of AGENTS.md line 114"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 115,
+   "dest": "reference",
+   "destLine": 129,
+   "cls": "duplicate of AGENTS.md line 115"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 116,
+   "dest": "reference",
+   "destLine": 130,
+   "cls": "duplicate of AGENTS.md line 116"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 117,
+   "dest": "reference",
+   "destLine": 131,
+   "cls": "duplicate of AGENTS.md line 117"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 118,
+   "dest": "reference",
+   "destLine": 132,
+   "cls": "duplicate of AGENTS.md line 118"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 119,
+   "dest": "reference",
+   "destLine": 133,
+   "cls": "duplicate of AGENTS.md line 119"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 120,
+   "dest": "reference",
+   "destLine": 134,
+   "cls": "duplicate of AGENTS.md line 120"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 121,
+   "dest": "reference",
+   "destLine": 135,
+   "cls": "duplicate of AGENTS.md line 121"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 122,
+   "dest": "reference",
+   "destLine": 136,
+   "cls": "duplicate of AGENTS.md line 122"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 123,
+   "dest": "reference",
+   "destLine": 137,
+   "cls": "duplicate of AGENTS.md line 123"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 124,
+   "dest": "reference",
+   "destLine": 138,
+   "cls": "duplicate of AGENTS.md line 124"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 125,
+   "dest": "reference",
+   "destLine": 139,
+   "cls": "duplicate of AGENTS.md line 125"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 126,
+   "dest": "reference",
+   "destLine": 140,
+   "cls": "duplicate of AGENTS.md line 126"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 127,
+   "dest": "reference",
+   "destLine": 141,
+   "cls": "duplicate of AGENTS.md line 127"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 128,
+   "dest": "reference",
+   "destLine": 142,
+   "cls": "duplicate of AGENTS.md line 128"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 129,
+   "dest": "reference",
+   "destLine": 143,
+   "cls": "duplicate of AGENTS.md line 129"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 130,
+   "dest": "reference",
+   "destLine": 144,
+   "cls": "duplicate of AGENTS.md line 130"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 131,
+   "dest": "reference",
+   "destLine": 145,
+   "cls": "duplicate of AGENTS.md line 131"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 132,
+   "dest": "reference",
+   "destLine": 146,
+   "cls": "duplicate of AGENTS.md line 132"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 133,
+   "dest": "reference",
+   "destLine": 147,
+   "cls": "duplicate of AGENTS.md line 133"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 134,
+   "dest": "reference",
+   "destLine": 148,
+   "cls": "duplicate of AGENTS.md line 134"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 135,
+   "dest": "reference",
+   "destLine": 149,
+   "cls": "duplicate of AGENTS.md line 135"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 136,
+   "dest": "reference",
+   "destLine": 150,
+   "cls": "duplicate of AGENTS.md line 136"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 137,
+   "dest": "reference",
+   "destLine": 151,
+   "cls": "duplicate of AGENTS.md line 137"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 138,
+   "dest": "reference",
+   "destLine": 152,
+   "cls": "duplicate of AGENTS.md line 138"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 139,
+   "dest": "reference",
+   "destLine": 153,
+   "cls": "duplicate of AGENTS.md line 139"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 140,
+   "dest": "reference",
+   "destLine": 154,
+   "cls": "duplicate of AGENTS.md line 140"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 141,
+   "dest": "reference",
+   "destLine": 155,
+   "cls": "duplicate of AGENTS.md line 141"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 142,
+   "dest": "reference",
+   "destLine": 156,
+   "cls": "duplicate of AGENTS.md line 142"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 143,
+   "dest": "reference",
+   "destLine": 157,
+   "cls": "duplicate of AGENTS.md line 143"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 144,
+   "dest": "reference",
+   "destLine": 158,
+   "cls": "duplicate of AGENTS.md line 144"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 145,
+   "dest": "reference",
+   "destLine": 159,
+   "cls": "duplicate of AGENTS.md line 145"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 146,
+   "dest": "reference",
+   "destLine": 160,
+   "cls": "duplicate of AGENTS.md line 146"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 147,
+   "dest": "reference",
+   "destLine": 161,
+   "cls": "duplicate of AGENTS.md line 147"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 148,
+   "dest": "reference",
+   "destLine": 162,
+   "cls": "duplicate of AGENTS.md line 148"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 149,
+   "dest": "reference",
+   "destLine": 163,
+   "cls": "duplicate of AGENTS.md line 149"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 150,
+   "dest": "reference",
+   "destLine": 164,
+   "cls": "duplicate of AGENTS.md line 150"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 151,
+   "dest": "reference",
+   "destLine": 165,
+   "cls": "duplicate of AGENTS.md line 151"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 152,
+   "dest": "reference",
+   "destLine": 166,
+   "cls": "duplicate of AGENTS.md line 152"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 153,
+   "dest": "reference",
+   "destLine": 167,
+   "cls": "duplicate of AGENTS.md line 153"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 154,
+   "dest": "reference",
+   "destLine": 168,
+   "cls": "duplicate of AGENTS.md line 154"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 155,
+   "dest": "reference",
+   "destLine": 169,
+   "cls": "duplicate of AGENTS.md line 155"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 156,
+   "dest": "reference",
+   "destLine": 170,
+   "cls": "duplicate of AGENTS.md line 156"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 157,
+   "dest": "reference",
+   "destLine": 171,
+   "cls": "duplicate of AGENTS.md line 157"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 158,
+   "dest": "reference",
+   "destLine": 172,
+   "cls": "duplicate of AGENTS.md line 158"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 159,
+   "dest": "reference",
+   "destLine": 173,
+   "cls": "duplicate of AGENTS.md line 159"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 160,
+   "dest": "reference",
+   "destLine": 174,
+   "cls": "duplicate of AGENTS.md line 160"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 161,
+   "dest": "reference",
+   "destLine": 175,
+   "cls": "duplicate of AGENTS.md line 161"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 162,
+   "dest": "reference",
+   "destLine": 176,
+   "cls": "duplicate of AGENTS.md line 162"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 163,
+   "dest": "reference",
+   "destLine": 177,
+   "cls": "duplicate of AGENTS.md line 163"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 164,
+   "dest": "reference",
+   "destLine": 178,
+   "cls": "duplicate of AGENTS.md line 164"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 165,
+   "dest": "reference",
+   "destLine": 179,
+   "cls": "duplicate of AGENTS.md line 165"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 166,
+   "dest": "reference",
+   "destLine": 180,
+   "cls": "duplicate of AGENTS.md line 166"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 167,
+   "dest": "reference",
+   "destLine": 181,
+   "cls": "duplicate of AGENTS.md line 167"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 168,
+   "dest": "reference",
+   "destLine": 182,
+   "cls": "duplicate of AGENTS.md line 168"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 169,
+   "dest": "reference",
+   "destLine": 183,
+   "cls": "duplicate of AGENTS.md line 169"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 170,
+   "dest": "reference",
+   "destLine": 184,
+   "cls": "duplicate of AGENTS.md line 170"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 171,
+   "dest": "reference",
+   "destLine": 185,
+   "cls": "duplicate of AGENTS.md line 171"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 172,
+   "dest": "reference",
+   "destLine": 186,
+   "cls": "duplicate of AGENTS.md line 172"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 173,
+   "dest": "reference",
+   "destLine": 187,
+   "cls": "duplicate of AGENTS.md line 173"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 174,
+   "dest": "reference",
+   "destLine": 188,
+   "cls": "duplicate of AGENTS.md line 174"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 175,
+   "dest": "reference",
+   "destLine": 189,
+   "cls": "duplicate of AGENTS.md line 175"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 176,
+   "dest": "reference",
+   "destLine": 190,
+   "cls": "duplicate of AGENTS.md line 176"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 177,
+   "dest": "reference",
+   "destLine": 191,
+   "cls": "duplicate of AGENTS.md line 177"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 178,
+   "dest": "reference",
+   "destLine": 192,
+   "cls": "duplicate of AGENTS.md line 178"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 179,
+   "dest": "reference",
+   "destLine": 193,
+   "cls": "duplicate of AGENTS.md line 179"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 180,
+   "dest": "reference",
+   "destLine": 194,
+   "cls": "duplicate of AGENTS.md line 180"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 181,
+   "dest": "reference",
+   "destLine": 195,
+   "cls": "duplicate of AGENTS.md line 181"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 182,
+   "dest": "reference",
+   "destLine": 196,
+   "cls": "duplicate of AGENTS.md line 182"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 183,
+   "dest": "reference",
+   "destLine": 197,
+   "cls": "duplicate of AGENTS.md line 183"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 184,
+   "dest": "reference",
+   "destLine": 198,
+   "cls": "duplicate of AGENTS.md line 184"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 185,
+   "dest": "reference",
+   "destLine": 199,
+   "cls": "duplicate of AGENTS.md line 185"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 186,
+   "dest": "reference",
+   "destLine": 200,
+   "cls": "duplicate of AGENTS.md line 186"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 187,
+   "dest": "reference",
+   "destLine": 201,
+   "cls": "duplicate of AGENTS.md line 187"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 188,
+   "dest": "reference",
+   "destLine": 202,
+   "cls": "duplicate of AGENTS.md line 188"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 189,
+   "dest": "reference",
+   "destLine": 203,
+   "cls": "duplicate of AGENTS.md line 189"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 190,
+   "dest": "reference",
+   "destLine": 204,
+   "cls": "duplicate of AGENTS.md line 190"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 191,
+   "dest": "reference",
+   "destLine": 205,
+   "cls": "duplicate of AGENTS.md line 191"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 192,
+   "dest": "reference",
+   "destLine": 206,
+   "cls": "duplicate of AGENTS.md line 192"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 193,
+   "dest": "reference",
+   "destLine": 207,
+   "cls": "duplicate of AGENTS.md line 193"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 194,
+   "dest": "reference",
+   "destLine": 208,
+   "cls": "duplicate of AGENTS.md line 194"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 195,
+   "dest": "reference",
+   "destLine": 209,
+   "cls": "duplicate of AGENTS.md line 195"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 196,
+   "dest": "reference",
+   "destLine": 210,
+   "cls": "duplicate of AGENTS.md line 196"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 197,
+   "dest": "reference",
+   "destLine": 211,
+   "cls": "duplicate of AGENTS.md line 197"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 198,
+   "dest": "reference",
+   "destLine": 212,
+   "cls": "duplicate of AGENTS.md line 198"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 199,
+   "dest": "reference",
+   "destLine": 213,
+   "cls": "duplicate of AGENTS.md line 199"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 200,
+   "dest": "reference",
+   "destLine": 214,
+   "cls": "duplicate of AGENTS.md line 200"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 201,
+   "dest": "reference",
+   "destLine": 215,
+   "cls": "duplicate of AGENTS.md line 201"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 202,
+   "dest": "reference",
+   "destLine": 216,
+   "cls": "duplicate of AGENTS.md line 202"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 203,
+   "dest": "reference",
+   "destLine": 217,
+   "cls": "duplicate of AGENTS.md line 203"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 204,
+   "dest": "reference",
+   "destLine": 218,
+   "cls": "duplicate of AGENTS.md line 204"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 205,
+   "dest": "reference",
+   "destLine": 219,
+   "cls": "duplicate of AGENTS.md line 205"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 206,
+   "dest": "reference",
+   "destLine": 220,
+   "cls": "duplicate of AGENTS.md line 206"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 207,
+   "dest": "reference",
+   "destLine": 221,
+   "cls": "duplicate of AGENTS.md line 207"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 208,
+   "dest": "reference",
+   "destLine": 222,
+   "cls": "duplicate of AGENTS.md line 208"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 209,
+   "dest": "reference",
+   "destLine": 223,
+   "cls": "duplicate of AGENTS.md line 209"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 210,
+   "dest": "reference",
+   "destLine": 224,
+   "cls": "duplicate of AGENTS.md line 210"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 211,
+   "dest": "reference",
+   "destLine": 225,
+   "cls": "duplicate of AGENTS.md line 211"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 212,
+   "dest": "reference",
+   "destLine": 226,
+   "cls": "duplicate of AGENTS.md line 212"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 213,
+   "dest": "reference",
+   "destLine": 227,
+   "cls": "duplicate of AGENTS.md line 213"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 214,
+   "dest": "reference",
+   "destLine": 228,
+   "cls": "duplicate of AGENTS.md line 214"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 215,
+   "dest": "reference",
+   "destLine": 229,
+   "cls": "duplicate of AGENTS.md line 215"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 216,
+   "dest": "reference",
+   "destLine": 230,
+   "cls": "duplicate of AGENTS.md line 216"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 217,
+   "dest": "reference",
+   "destLine": 231,
+   "cls": "duplicate of AGENTS.md line 217"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 218,
+   "dest": "reference",
+   "destLine": 232,
+   "cls": "duplicate of AGENTS.md line 218"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 219,
+   "dest": "reference",
+   "destLine": 233,
+   "cls": "duplicate of AGENTS.md line 219"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 220,
+   "dest": "reference",
+   "destLine": 234,
+   "cls": "duplicate of AGENTS.md line 220"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 221,
+   "dest": "reference",
+   "destLine": 235,
+   "cls": "duplicate of AGENTS.md line 221"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 222,
+   "dest": "reference",
+   "destLine": 236,
+   "cls": "duplicate of AGENTS.md line 222"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 223,
+   "dest": "reference",
+   "destLine": 237,
+   "cls": "duplicate of AGENTS.md line 223"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 224,
+   "dest": "reference",
+   "destLine": 238,
+   "cls": "duplicate of AGENTS.md line 224"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 225,
+   "dest": "reference",
+   "destLine": 239,
+   "cls": "duplicate of AGENTS.md line 225"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 226,
+   "dest": "reference",
+   "destLine": 240,
+   "cls": "duplicate of AGENTS.md line 226"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 227,
+   "dest": "reference",
+   "destLine": 241,
+   "cls": "duplicate of AGENTS.md line 227"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 228,
+   "dest": "reference",
+   "destLine": 242,
+   "cls": "duplicate of AGENTS.md line 228"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 229,
+   "dest": "reference",
+   "destLine": 243,
+   "cls": "duplicate of AGENTS.md line 229"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 230,
+   "dest": "reference",
+   "destLine": 244,
+   "cls": "duplicate of AGENTS.md line 230"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 231,
+   "dest": "reference",
+   "destLine": 245,
+   "cls": "duplicate of AGENTS.md line 231"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 232,
+   "dest": "reference",
+   "destLine": 246,
+   "cls": "duplicate of AGENTS.md line 232"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 233,
+   "dest": "reference",
+   "destLine": 247,
+   "cls": "duplicate of AGENTS.md line 233"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 234,
+   "dest": "reference",
+   "destLine": 248,
+   "cls": "duplicate of AGENTS.md line 234"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 235,
+   "dest": "reference",
+   "destLine": 249,
+   "cls": "duplicate of AGENTS.md line 235"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 236,
+   "dest": "reference",
+   "destLine": 250,
+   "cls": "duplicate of AGENTS.md line 236"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 237,
+   "dest": "reference",
+   "destLine": 251,
+   "cls": "duplicate of AGENTS.md line 237"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 238,
+   "dest": "reference",
+   "destLine": 252,
+   "cls": "duplicate of AGENTS.md line 238"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 239,
+   "dest": "reference",
+   "destLine": 253,
+   "cls": "duplicate of AGENTS.md line 239"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 240,
+   "dest": "reference",
+   "destLine": 254,
+   "cls": "duplicate of AGENTS.md line 240"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 241,
+   "dest": "reference",
+   "destLine": 255,
+   "cls": "duplicate of AGENTS.md line 241"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 242,
+   "dest": "reference",
+   "destLine": 256,
+   "cls": "duplicate of AGENTS.md line 242"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 243,
+   "dest": "reference",
+   "destLine": 257,
+   "cls": "duplicate of AGENTS.md line 243"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 244,
+   "dest": "reference",
+   "destLine": 258,
+   "cls": "duplicate of AGENTS.md line 244"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 245,
+   "dest": "reference",
+   "destLine": 259,
+   "cls": "duplicate of AGENTS.md line 245"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 246,
+   "dest": "reference",
+   "destLine": 260,
+   "cls": "duplicate of AGENTS.md line 246"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 247,
+   "dest": "reference",
+   "destLine": 261,
+   "cls": "duplicate of AGENTS.md line 247"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 248,
+   "dest": "reference",
+   "destLine": 262,
+   "cls": "duplicate of AGENTS.md line 248"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 249,
+   "dest": "reference",
+   "destLine": 263,
+   "cls": "duplicate of AGENTS.md line 249"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 250,
+   "dest": "reference",
+   "destLine": 264,
+   "cls": "duplicate of AGENTS.md line 250"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 251,
+   "dest": "reference",
+   "destLine": 265,
+   "cls": "duplicate of AGENTS.md line 251"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 252,
+   "dest": "reference",
+   "destLine": 266,
+   "cls": "duplicate of AGENTS.md line 252"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 253,
+   "dest": "reference",
+   "destLine": 267,
+   "cls": "duplicate of AGENTS.md line 253"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 254,
+   "dest": "reference",
+   "destLine": 268,
+   "cls": "duplicate of AGENTS.md line 254"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 255,
+   "dest": "reference",
+   "destLine": 269,
+   "cls": "duplicate of AGENTS.md line 255"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 256,
+   "dest": "reference",
+   "destLine": 270,
+   "cls": "duplicate of AGENTS.md line 256"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 257,
+   "dest": "reference",
+   "destLine": 271,
+   "cls": "duplicate of AGENTS.md line 257"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 258,
+   "dest": "reference",
+   "destLine": 272,
+   "cls": "duplicate of AGENTS.md line 258"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 259,
+   "dest": "reference",
+   "destLine": 273,
+   "cls": "duplicate of AGENTS.md line 259"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 260,
+   "dest": "reference",
+   "destLine": 274,
+   "cls": "duplicate of AGENTS.md line 260"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 261,
+   "dest": "reference",
+   "destLine": 275,
+   "cls": "duplicate of AGENTS.md line 261"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 262,
+   "dest": "reference",
+   "destLine": 276,
+   "cls": "duplicate of AGENTS.md line 262"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 263,
+   "dest": "reference",
+   "destLine": 277,
+   "cls": "duplicate of AGENTS.md line 263"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 264,
+   "dest": "reference",
+   "destLine": 278,
+   "cls": "duplicate of AGENTS.md line 264"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 265,
+   "dest": "reference",
+   "destLine": 279,
+   "cls": "duplicate of AGENTS.md line 265"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 266,
+   "dest": "reference",
+   "destLine": 280,
+   "cls": "duplicate of AGENTS.md line 266"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 267,
+   "dest": "reference",
+   "destLine": 281,
+   "cls": "duplicate of AGENTS.md line 267"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 268,
+   "dest": "reference",
+   "destLine": 282,
+   "cls": "duplicate of AGENTS.md line 268"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 269,
+   "dest": "reference",
+   "destLine": 283,
+   "cls": "duplicate of AGENTS.md line 269"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 270,
+   "dest": "reference",
+   "destLine": 284,
+   "cls": "duplicate of AGENTS.md line 270"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 271,
+   "dest": "reference",
+   "destLine": 285,
+   "cls": "duplicate of AGENTS.md line 271"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 272,
+   "dest": "reference",
+   "destLine": 286,
+   "cls": "duplicate of AGENTS.md line 272"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 273,
+   "dest": "reference",
+   "destLine": 287,
+   "cls": "duplicate of AGENTS.md line 273"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 274,
+   "dest": "reference",
+   "destLine": 288,
+   "cls": "duplicate of AGENTS.md line 274"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 275,
+   "dest": "reference",
+   "destLine": 289,
+   "cls": "duplicate of AGENTS.md line 275"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 276,
+   "dest": "reference",
+   "destLine": 290,
+   "cls": "duplicate of AGENTS.md line 276"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 277,
+   "dest": "reference",
+   "destLine": 291,
+   "cls": "duplicate of AGENTS.md line 277"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 278,
+   "dest": "reference",
+   "destLine": 292,
+   "cls": "duplicate of AGENTS.md line 278"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 279,
+   "dest": "reference",
+   "destLine": 293,
+   "cls": "duplicate of AGENTS.md line 279"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 280,
+   "dest": "reference",
+   "destLine": 294,
+   "cls": "duplicate of AGENTS.md line 280"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 281,
+   "dest": "reference",
+   "destLine": 295,
+   "cls": "duplicate of AGENTS.md line 281"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 282,
+   "dest": "reference",
+   "destLine": 296,
+   "cls": "duplicate of AGENTS.md line 282"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 283,
+   "dest": "reference",
+   "destLine": 297,
+   "cls": "duplicate of AGENTS.md line 283"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 284,
+   "dest": "reference",
+   "destLine": 298,
+   "cls": "duplicate of AGENTS.md line 284"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 285,
+   "dest": "reference",
+   "destLine": 299,
+   "cls": "duplicate of AGENTS.md line 285"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 286,
+   "dest": "reference",
+   "destLine": 300,
+   "cls": "duplicate of AGENTS.md line 286"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 287,
+   "dest": "reference",
+   "destLine": 301,
+   "cls": "duplicate of AGENTS.md line 287"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 288,
+   "dest": "reference",
+   "destLine": 302,
+   "cls": "duplicate of AGENTS.md line 288"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 289,
+   "dest": "reference",
+   "destLine": 303,
+   "cls": "duplicate of AGENTS.md line 289"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 290,
+   "dest": "reference",
+   "destLine": 304,
+   "cls": "duplicate of AGENTS.md line 290"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 291,
+   "dest": "reference",
+   "destLine": 305,
+   "cls": "duplicate of AGENTS.md line 291"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 292,
+   "dest": "reference",
+   "destLine": 306,
+   "cls": "duplicate of AGENTS.md line 292"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 293,
+   "dest": "reference",
+   "destLine": 307,
+   "cls": "duplicate of AGENTS.md line 293"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 294,
+   "dest": "reference",
+   "destLine": 308,
+   "cls": "duplicate of AGENTS.md line 294"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 295,
+   "dest": "reference",
+   "destLine": 309,
+   "cls": "duplicate of AGENTS.md line 295"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 296,
+   "dest": "reference",
+   "destLine": 310,
+   "cls": "duplicate of AGENTS.md line 296"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 297,
+   "dest": "reference",
+   "destLine": 311,
+   "cls": "duplicate of AGENTS.md line 297"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 298,
+   "dest": "reference",
+   "destLine": 312,
+   "cls": "duplicate of AGENTS.md line 298"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 299,
+   "dest": "reference",
+   "destLine": 313,
+   "cls": "duplicate of AGENTS.md line 299"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 300,
+   "dest": "reference",
+   "destLine": 314,
+   "cls": "duplicate of AGENTS.md line 300"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 301,
+   "dest": "reference",
+   "destLine": 315,
+   "cls": "duplicate of AGENTS.md line 301"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 302,
+   "dest": "reference",
+   "destLine": 316,
+   "cls": "duplicate of AGENTS.md line 302"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 303,
+   "dest": "reference",
+   "destLine": 317,
+   "cls": "duplicate of AGENTS.md line 303"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 304,
+   "dest": "reference",
+   "destLine": 318,
+   "cls": "duplicate of AGENTS.md line 304"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 305,
+   "dest": "reference",
+   "destLine": 319,
+   "cls": "duplicate of AGENTS.md line 305"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 306,
+   "dest": "reference",
+   "destLine": 320,
+   "cls": "duplicate of AGENTS.md line 306"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 307,
+   "dest": "reference",
+   "destLine": 321,
+   "cls": "duplicate of AGENTS.md line 307"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 308,
+   "dest": "reference",
+   "destLine": 322,
+   "cls": "duplicate of AGENTS.md line 308"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 309,
+   "dest": "reference",
+   "destLine": 323,
+   "cls": "duplicate of AGENTS.md line 309"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 310,
+   "dest": "reference",
+   "destLine": 324,
+   "cls": "duplicate of AGENTS.md line 310"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 311,
+   "dest": "reference",
+   "destLine": 325,
+   "cls": "duplicate of AGENTS.md line 311"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 312,
+   "dest": "reference",
+   "destLine": 326,
+   "cls": "duplicate of AGENTS.md line 312"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 313,
+   "dest": "reference",
+   "destLine": 327,
+   "cls": "duplicate of AGENTS.md line 313"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 314,
+   "dest": "reference",
+   "destLine": 328,
+   "cls": "duplicate of AGENTS.md line 314"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 315,
+   "dest": "reference",
+   "destLine": 329,
+   "cls": "duplicate of AGENTS.md line 315"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 316,
+   "dest": "reference",
+   "destLine": 330,
+   "cls": "duplicate of AGENTS.md line 316"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 317,
+   "dest": "reference",
+   "destLine": 331,
+   "cls": "duplicate of AGENTS.md line 317"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 318,
+   "dest": "reference",
+   "destLine": 332,
+   "cls": "duplicate of AGENTS.md line 318"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 319,
+   "dest": "reference",
+   "destLine": 333,
+   "cls": "duplicate of AGENTS.md line 319"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 320,
+   "dest": "reference",
+   "destLine": 334,
+   "cls": "duplicate of AGENTS.md line 320"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 321,
+   "dest": "reference",
+   "destLine": 335,
+   "cls": "duplicate of AGENTS.md line 321"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 322,
+   "dest": "reference",
+   "destLine": 336,
+   "cls": "duplicate of AGENTS.md line 322"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 323,
+   "dest": "reference",
+   "destLine": 337,
+   "cls": "duplicate of AGENTS.md line 323"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 324,
+   "dest": "reference",
+   "destLine": 338,
+   "cls": "duplicate of AGENTS.md line 324"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 325,
+   "dest": "reference",
+   "destLine": 339,
+   "cls": "duplicate of AGENTS.md line 325"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 326,
+   "dest": "reference",
+   "destLine": 340,
+   "cls": "duplicate of AGENTS.md line 326"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 327,
+   "dest": "reference",
+   "destLine": 341,
+   "cls": "duplicate of AGENTS.md line 327"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 328,
+   "dest": "reference",
+   "destLine": 342,
+   "cls": "duplicate of AGENTS.md line 328"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 329,
+   "dest": "reference",
+   "destLine": 343,
+   "cls": "duplicate of AGENTS.md line 329"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 330,
+   "dest": "reference",
+   "destLine": 344,
+   "cls": "duplicate of AGENTS.md line 330"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 331,
+   "dest": "reference",
+   "destLine": 345,
+   "cls": "duplicate of AGENTS.md line 331"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 332,
+   "dest": "reference",
+   "destLine": 346,
+   "cls": "duplicate of AGENTS.md line 332"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 333,
+   "dest": "reference",
+   "destLine": 347,
+   "cls": "duplicate of AGENTS.md line 333"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 334,
+   "dest": "reference",
+   "destLine": 348,
+   "cls": "duplicate of AGENTS.md line 334"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 335,
+   "dest": "reference",
+   "destLine": 349,
+   "cls": "duplicate of AGENTS.md line 335"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 336,
+   "dest": "reference",
+   "destLine": 350,
+   "cls": "duplicate of AGENTS.md line 336"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 337,
+   "dest": "reference",
+   "destLine": 351,
+   "cls": "duplicate of AGENTS.md line 337"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 338,
+   "dest": "reference",
+   "destLine": 352,
+   "cls": "duplicate of AGENTS.md line 338"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 339,
+   "dest": "reference",
+   "destLine": 353,
+   "cls": "duplicate of AGENTS.md line 339"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 340,
+   "dest": "reference",
+   "destLine": 354,
+   "cls": "duplicate of AGENTS.md line 340"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 341,
+   "dest": "reference",
+   "destLine": 355,
+   "cls": "duplicate of AGENTS.md line 341"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 342,
+   "dest": "reference",
+   "destLine": 356,
+   "cls": "duplicate of AGENTS.md line 342"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 343,
+   "dest": "reference",
+   "destLine": 357,
+   "cls": "duplicate of AGENTS.md line 343"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 344,
+   "dest": "reference",
+   "destLine": 358,
+   "cls": "duplicate of AGENTS.md line 344"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 345,
+   "dest": "reference",
+   "destLine": 359,
+   "cls": "duplicate of AGENTS.md line 345"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 346,
+   "dest": "reference",
+   "destLine": 360,
+   "cls": "duplicate of AGENTS.md line 346"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 347,
+   "dest": "reference",
+   "destLine": 361,
+   "cls": "duplicate of AGENTS.md line 347"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 348,
+   "dest": "reference",
+   "destLine": 362,
+   "cls": "duplicate of AGENTS.md line 348"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 349,
+   "dest": "reference",
+   "destLine": 363,
+   "cls": "duplicate of AGENTS.md line 349"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 350,
+   "dest": "reference",
+   "destLine": 364,
+   "cls": "duplicate of AGENTS.md line 350"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 351,
+   "dest": "reference",
+   "destLine": 365,
+   "cls": "duplicate of AGENTS.md line 351"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 352,
+   "dest": "reference",
+   "destLine": 366,
+   "cls": "duplicate of AGENTS.md line 352"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 353,
+   "dest": "reference",
+   "destLine": 367,
+   "cls": "duplicate of AGENTS.md line 353"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 354,
+   "dest": "reference",
+   "destLine": 368,
+   "cls": "duplicate of AGENTS.md line 354"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 355,
+   "dest": "reference",
+   "destLine": 369,
+   "cls": "duplicate of AGENTS.md line 355"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 356,
+   "dest": "reference",
+   "destLine": 370,
+   "cls": "duplicate of AGENTS.md line 356"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 357,
+   "dest": "reference",
+   "destLine": 371,
+   "cls": "duplicate of AGENTS.md line 357"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 358,
+   "dest": "reference",
+   "destLine": 372,
+   "cls": "duplicate of AGENTS.md line 358"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 359,
+   "dest": "reference",
+   "destLine": 373,
+   "cls": "duplicate of AGENTS.md line 359"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 360,
+   "dest": "reference",
+   "destLine": 374,
+   "cls": "duplicate of AGENTS.md line 360"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 361,
+   "dest": "reference",
+   "destLine": 375,
+   "cls": "duplicate of AGENTS.md line 361"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 362,
+   "dest": "reference",
+   "destLine": 376,
+   "cls": "duplicate of AGENTS.md line 362"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 363,
+   "dest": "reference",
+   "destLine": 377,
+   "cls": "duplicate of AGENTS.md line 363"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 364,
+   "dest": "reference",
+   "destLine": 378,
+   "cls": "duplicate of AGENTS.md line 364"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 365,
+   "dest": "reference",
+   "destLine": 379,
+   "cls": "duplicate of AGENTS.md line 365"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 366,
+   "dest": "reference",
+   "destLine": 380,
+   "cls": "duplicate of AGENTS.md line 366"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 367,
+   "dest": "reference",
+   "destLine": 381,
+   "cls": "duplicate of AGENTS.md line 367"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 368,
+   "dest": "reference",
+   "destLine": 382,
+   "cls": "duplicate of AGENTS.md line 368"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 369,
+   "dest": "reference",
+   "destLine": 383,
+   "cls": "duplicate of AGENTS.md line 369"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 370,
+   "dest": "reference",
+   "destLine": 384,
+   "cls": "duplicate of AGENTS.md line 370"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 371,
+   "dest": "reference",
+   "destLine": 385,
+   "cls": "duplicate of AGENTS.md line 371"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 372,
+   "dest": "reference",
+   "destLine": 386,
+   "cls": "duplicate of AGENTS.md line 372"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 373,
+   "dest": "reference",
+   "destLine": 387,
+   "cls": "duplicate of AGENTS.md line 373"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 374,
+   "dest": "reference",
+   "destLine": 388,
+   "cls": "duplicate of AGENTS.md line 374"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 375,
+   "dest": "reference",
+   "destLine": 389,
+   "cls": "duplicate of AGENTS.md line 375"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 376,
+   "dest": "reference",
+   "destLine": 390,
+   "cls": "duplicate of AGENTS.md line 376"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 377,
+   "dest": "reference",
+   "destLine": 391,
+   "cls": "duplicate of AGENTS.md line 377"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 378,
+   "dest": "reference",
+   "destLine": 392,
+   "cls": "duplicate of AGENTS.md line 378"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 379,
+   "dest": "reference",
+   "destLine": 393,
+   "cls": "duplicate of AGENTS.md line 379"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 380,
+   "dest": "reference",
+   "destLine": 394,
+   "cls": "duplicate of AGENTS.md line 380"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 381,
+   "dest": "reference",
+   "destLine": 395,
+   "cls": "duplicate of AGENTS.md line 381"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 382,
+   "dest": "CLAUDE.draft",
+   "destLine": 25,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 383,
+   "dest": "CLAUDE.draft",
+   "destLine": 26,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 384,
+   "dest": "CLAUDE.draft",
+   "destLine": 27,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 385,
+   "dest": "CLAUDE.draft",
+   "destLine": 28,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 386,
+   "dest": "CLAUDE.draft",
+   "destLine": 29,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 387,
+   "dest": "CLAUDE.draft",
+   "destLine": 30,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 388,
+   "dest": "CLAUDE.draft",
+   "destLine": 31,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 389,
+   "dest": "CLAUDE.draft",
+   "destLine": 32,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 390,
+   "dest": "CLAUDE.draft",
+   "destLine": 33,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 391,
+   "dest": "CLAUDE.draft",
+   "destLine": 34,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 392,
+   "dest": "CLAUDE.draft",
+   "destLine": 35,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 393,
+   "dest": "CLAUDE.draft",
+   "destLine": 36,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 394,
+   "dest": "CLAUDE.draft",
+   "destLine": 37,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 395,
+   "dest": "CLAUDE.draft",
+   "destLine": 38,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 396,
+   "dest": "CLAUDE.draft",
+   "destLine": 39,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 397,
+   "dest": "CLAUDE.draft",
+   "destLine": 40,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 398,
+   "dest": "CLAUDE.draft",
+   "destLine": 41,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 399,
+   "dest": "CLAUDE.draft",
+   "destLine": 42,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 400,
+   "dest": "CLAUDE.draft",
+   "destLine": 43,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 401,
+   "dest": "CLAUDE.draft",
+   "destLine": 44,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": "CLAUDE.md",
+   "line": 402,
+   "dest": "CLAUDE.draft",
+   "destLine": 45,
+   "cls": "verbatim (Claude lane tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 1,
+   "dest": "retired",
+   "destLine": null,
+   "cls": "frontmatter metadata (GEMINI.md takes none; installed rules.md)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 2,
+   "dest": "retired",
+   "destLine": null,
+   "cls": "frontmatter metadata (GEMINI.md takes none; installed rules.md)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 3,
+   "dest": "retired",
+   "destLine": null,
+   "cls": "frontmatter metadata (GEMINI.md takes none; installed rules.md)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 4,
+   "dest": "retired",
+   "destLine": null,
+   "cls": "blank separator"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 5,
+   "dest": "reference",
+   "destLine": 151,
+   "cls": "duplicate of AGENTS.md line 137"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 6,
+   "dest": "reference",
+   "destLine": 152,
+   "cls": "duplicate of AGENTS.md line 138"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 7,
+   "dest": "reference",
+   "destLine": 153,
+   "cls": "duplicate of AGENTS.md line 139"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 8,
+   "dest": "reference",
+   "destLine": 154,
+   "cls": "duplicate of AGENTS.md line 140"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 9,
+   "dest": "reference",
+   "destLine": 155,
+   "cls": "duplicate of AGENTS.md line 141"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 10,
+   "dest": "reference",
+   "destLine": 156,
+   "cls": "duplicate of AGENTS.md line 142"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 11,
+   "dest": "reference",
+   "destLine": 157,
+   "cls": "duplicate of AGENTS.md line 143"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 12,
+   "dest": "reference",
+   "destLine": 158,
+   "cls": "duplicate of AGENTS.md line 144"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 13,
+   "dest": "reference",
+   "destLine": 159,
+   "cls": "duplicate of AGENTS.md line 145"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 14,
+   "dest": "reference",
+   "destLine": 160,
+   "cls": "duplicate of AGENTS.md line 146"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 15,
+   "dest": "reference",
+   "destLine": 161,
+   "cls": "duplicate of AGENTS.md line 147"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 16,
+   "dest": "reference",
+   "destLine": 162,
+   "cls": "duplicate of AGENTS.md line 148"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 17,
+   "dest": "reference",
+   "destLine": 163,
+   "cls": "duplicate of AGENTS.md line 149"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 18,
+   "dest": "reference",
+   "destLine": 164,
+   "cls": "duplicate of AGENTS.md line 150"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 19,
+   "dest": "reference",
+   "destLine": 165,
+   "cls": "duplicate of AGENTS.md line 151"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 20,
+   "dest": "reference",
+   "destLine": 166,
+   "cls": "duplicate of AGENTS.md line 152"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 21,
+   "dest": "reference",
+   "destLine": 167,
+   "cls": "duplicate of AGENTS.md line 153"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 22,
+   "dest": "reference",
+   "destLine": 168,
+   "cls": "duplicate of AGENTS.md line 154"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 23,
+   "dest": "reference",
+   "destLine": 169,
+   "cls": "duplicate of AGENTS.md line 155"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 24,
+   "dest": "reference",
+   "destLine": 170,
+   "cls": "duplicate of AGENTS.md line 156"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 25,
+   "dest": "reference",
+   "destLine": 171,
+   "cls": "duplicate of AGENTS.md line 157"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 26,
+   "dest": "reference",
+   "destLine": 172,
+   "cls": "duplicate of AGENTS.md line 158"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 27,
+   "dest": "reference",
+   "destLine": 173,
+   "cls": "duplicate of AGENTS.md line 159"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 28,
+   "dest": "reference",
+   "destLine": 174,
+   "cls": "duplicate of AGENTS.md line 160"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 29,
+   "dest": "reference",
+   "destLine": 175,
+   "cls": "duplicate of AGENTS.md line 161"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 30,
+   "dest": "reference",
+   "destLine": 176,
+   "cls": "duplicate of AGENTS.md line 162"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 31,
+   "dest": "reference",
+   "destLine": 177,
+   "cls": "duplicate of AGENTS.md line 163"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 32,
+   "dest": "reference",
+   "destLine": 178,
+   "cls": "duplicate of AGENTS.md line 164"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 33,
+   "dest": "reference",
+   "destLine": 179,
+   "cls": "duplicate of AGENTS.md line 165"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 34,
+   "dest": "reference",
+   "destLine": 180,
+   "cls": "duplicate of AGENTS.md line 166"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 35,
+   "dest": "reference",
+   "destLine": 181,
+   "cls": "duplicate of AGENTS.md line 167"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 36,
+   "dest": "reference",
+   "destLine": 182,
+   "cls": "duplicate of AGENTS.md line 168"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 37,
+   "dest": "reference",
+   "destLine": 183,
+   "cls": "duplicate of AGENTS.md line 169"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 38,
+   "dest": "reference",
+   "destLine": 184,
+   "cls": "duplicate of AGENTS.md line 170"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 39,
+   "dest": "reference",
+   "destLine": 185,
+   "cls": "duplicate of AGENTS.md line 171"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 40,
+   "dest": "reference",
+   "destLine": 186,
+   "cls": "duplicate of AGENTS.md line 172"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 41,
+   "dest": "reference",
+   "destLine": 187,
+   "cls": "duplicate of AGENTS.md line 173"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 42,
+   "dest": "reference",
+   "destLine": 188,
+   "cls": "duplicate of AGENTS.md line 174"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 43,
+   "dest": "reference",
+   "destLine": 189,
+   "cls": "duplicate of AGENTS.md line 175"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 44,
+   "dest": "reference",
+   "destLine": 190,
+   "cls": "duplicate of AGENTS.md line 176"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 45,
+   "dest": "reference",
+   "destLine": 191,
+   "cls": "duplicate of AGENTS.md line 177"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 46,
+   "dest": "reference",
+   "destLine": 192,
+   "cls": "duplicate of AGENTS.md line 178"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 47,
+   "dest": "reference",
+   "destLine": 193,
+   "cls": "duplicate of AGENTS.md line 179"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 48,
+   "dest": "reference",
+   "destLine": 194,
+   "cls": "duplicate of AGENTS.md line 180"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 49,
+   "dest": "reference",
+   "destLine": 195,
+   "cls": "duplicate of AGENTS.md line 181"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 50,
+   "dest": "reference",
+   "destLine": 196,
+   "cls": "duplicate of AGENTS.md line 182"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 51,
+   "dest": "reference",
+   "destLine": 197,
+   "cls": "duplicate of AGENTS.md line 183"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 52,
+   "dest": "reference",
+   "destLine": 198,
+   "cls": "duplicate of AGENTS.md line 184"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 53,
+   "dest": "reference",
+   "destLine": 199,
+   "cls": "duplicate of AGENTS.md line 185"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 54,
+   "dest": "reference",
+   "destLine": 200,
+   "cls": "duplicate of AGENTS.md line 186"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 55,
+   "dest": "reference",
+   "destLine": 201,
+   "cls": "duplicate of AGENTS.md line 187"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 56,
+   "dest": "reference",
+   "destLine": 202,
+   "cls": "duplicate of AGENTS.md line 188"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 57,
+   "dest": "reference",
+   "destLine": 203,
+   "cls": "duplicate of AGENTS.md line 189"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 58,
+   "dest": "reference",
+   "destLine": 204,
+   "cls": "duplicate of AGENTS.md line 190"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 59,
+   "dest": "reference",
+   "destLine": 205,
+   "cls": "duplicate of AGENTS.md line 191"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 60,
+   "dest": "reference",
+   "destLine": 206,
+   "cls": "duplicate of AGENTS.md line 192"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 61,
+   "dest": "reference",
+   "destLine": 207,
+   "cls": "duplicate of AGENTS.md line 193"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 62,
+   "dest": "reference",
+   "destLine": 208,
+   "cls": "duplicate of AGENTS.md line 194"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 63,
+   "dest": "reference",
+   "destLine": 209,
+   "cls": "duplicate of AGENTS.md line 195"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 64,
+   "dest": "reference",
+   "destLine": 210,
+   "cls": "duplicate of AGENTS.md line 196"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 65,
+   "dest": "reference",
+   "destLine": 211,
+   "cls": "duplicate of AGENTS.md line 197"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 66,
+   "dest": "reference",
+   "destLine": 212,
+   "cls": "duplicate of AGENTS.md line 198"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 67,
+   "dest": "reference",
+   "destLine": 213,
+   "cls": "duplicate of AGENTS.md line 199"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 68,
+   "dest": "reference",
+   "destLine": 214,
+   "cls": "duplicate of AGENTS.md line 200"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 69,
+   "dest": "reference",
+   "destLine": 215,
+   "cls": "duplicate of AGENTS.md line 201"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 70,
+   "dest": "reference",
+   "destLine": 216,
+   "cls": "duplicate of AGENTS.md line 202"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 71,
+   "dest": "reference",
+   "destLine": 217,
+   "cls": "duplicate of AGENTS.md line 203"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 72,
+   "dest": "reference",
+   "destLine": 218,
+   "cls": "duplicate of AGENTS.md line 204"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 73,
+   "dest": "reference",
+   "destLine": 219,
+   "cls": "duplicate of AGENTS.md line 205"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 74,
+   "dest": "reference",
+   "destLine": 220,
+   "cls": "duplicate of AGENTS.md line 206"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 75,
+   "dest": "reference",
+   "destLine": 221,
+   "cls": "duplicate of AGENTS.md line 207"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 76,
+   "dest": "reference",
+   "destLine": 222,
+   "cls": "duplicate of AGENTS.md line 208"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 77,
+   "dest": "reference",
+   "destLine": 223,
+   "cls": "duplicate of AGENTS.md line 209"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 78,
+   "dest": "reference",
+   "destLine": 224,
+   "cls": "duplicate of AGENTS.md line 210"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 79,
+   "dest": "reference",
+   "destLine": 225,
+   "cls": "duplicate of AGENTS.md line 211"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 80,
+   "dest": "reference",
+   "destLine": 226,
+   "cls": "duplicate of AGENTS.md line 212"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 81,
+   "dest": "reference",
+   "destLine": 227,
+   "cls": "duplicate of AGENTS.md line 213"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 82,
+   "dest": "reference",
+   "destLine": 228,
+   "cls": "duplicate of AGENTS.md line 214"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 83,
+   "dest": "reference",
+   "destLine": 229,
+   "cls": "duplicate of AGENTS.md line 215"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 84,
+   "dest": "reference",
+   "destLine": 230,
+   "cls": "duplicate of AGENTS.md line 216"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 85,
+   "dest": "reference",
+   "destLine": 231,
+   "cls": "duplicate of AGENTS.md line 217"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 86,
+   "dest": "reference",
+   "destLine": 232,
+   "cls": "duplicate of AGENTS.md line 218"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 87,
+   "dest": "reference",
+   "destLine": 233,
+   "cls": "duplicate of AGENTS.md line 219"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 88,
+   "dest": "reference",
+   "destLine": 234,
+   "cls": "duplicate of AGENTS.md line 220"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 89,
+   "dest": "reference",
+   "destLine": 235,
+   "cls": "duplicate of AGENTS.md line 221"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 90,
+   "dest": "reference",
+   "destLine": 236,
+   "cls": "duplicate of AGENTS.md line 222"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 91,
+   "dest": "reference",
+   "destLine": 237,
+   "cls": "duplicate of AGENTS.md line 223"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 92,
+   "dest": "reference",
+   "destLine": 238,
+   "cls": "duplicate of AGENTS.md line 224"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 93,
+   "dest": "reference",
+   "destLine": 239,
+   "cls": "duplicate of AGENTS.md line 225"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 94,
+   "dest": "reference",
+   "destLine": 240,
+   "cls": "duplicate of AGENTS.md line 226"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 95,
+   "dest": "reference",
+   "destLine": 241,
+   "cls": "duplicate of AGENTS.md line 227"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 96,
+   "dest": "reference",
+   "destLine": 242,
+   "cls": "duplicate of AGENTS.md line 228"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 97,
+   "dest": "reference",
+   "destLine": 243,
+   "cls": "duplicate of AGENTS.md line 229"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 98,
+   "dest": "reference",
+   "destLine": 244,
+   "cls": "duplicate of AGENTS.md line 230"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 99,
+   "dest": "reference",
+   "destLine": 245,
+   "cls": "duplicate of AGENTS.md line 231"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 100,
+   "dest": "reference",
+   "destLine": 246,
+   "cls": "duplicate of AGENTS.md line 232"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 101,
+   "dest": "reference",
+   "destLine": 247,
+   "cls": "duplicate of AGENTS.md line 233"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 102,
+   "dest": "reference",
+   "destLine": 248,
+   "cls": "duplicate of AGENTS.md line 234"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 103,
+   "dest": "reference",
+   "destLine": 249,
+   "cls": "duplicate of AGENTS.md line 235"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 104,
+   "dest": "reference",
+   "destLine": 250,
+   "cls": "duplicate of AGENTS.md line 236"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 105,
+   "dest": "reference",
+   "destLine": 251,
+   "cls": "duplicate of AGENTS.md line 237"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 106,
+   "dest": "reference",
+   "destLine": 252,
+   "cls": "duplicate of AGENTS.md line 238"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 107,
+   "dest": "reference",
+   "destLine": 253,
+   "cls": "duplicate of AGENTS.md line 239"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 108,
+   "dest": "reference",
+   "destLine": 254,
+   "cls": "duplicate of AGENTS.md line 240"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 109,
+   "dest": "reference",
+   "destLine": 255,
+   "cls": "duplicate of AGENTS.md line 241"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 110,
+   "dest": "reference",
+   "destLine": 256,
+   "cls": "duplicate of AGENTS.md line 242"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 111,
+   "dest": "reference",
+   "destLine": 257,
+   "cls": "duplicate of AGENTS.md line 243"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 112,
+   "dest": "reference",
+   "destLine": 258,
+   "cls": "duplicate of AGENTS.md line 244"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 113,
+   "dest": "reference",
+   "destLine": 259,
+   "cls": "duplicate of AGENTS.md line 245"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 114,
+   "dest": "reference",
+   "destLine": 260,
+   "cls": "duplicate of AGENTS.md line 246"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 115,
+   "dest": "reference",
+   "destLine": 261,
+   "cls": "duplicate of AGENTS.md line 247"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 116,
+   "dest": "reference",
+   "destLine": 262,
+   "cls": "duplicate of AGENTS.md line 248"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 117,
+   "dest": "reference",
+   "destLine": 263,
+   "cls": "duplicate of AGENTS.md line 249"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 118,
+   "dest": "reference",
+   "destLine": 264,
+   "cls": "duplicate of AGENTS.md line 250"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 119,
+   "dest": "reference",
+   "destLine": 265,
+   "cls": "duplicate of AGENTS.md line 251"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 120,
+   "dest": "reference",
+   "destLine": 266,
+   "cls": "duplicate of AGENTS.md line 252"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 121,
+   "dest": "reference",
+   "destLine": 267,
+   "cls": "duplicate of AGENTS.md line 253"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 122,
+   "dest": "reference",
+   "destLine": 268,
+   "cls": "duplicate of AGENTS.md line 254"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 123,
+   "dest": "reference",
+   "destLine": 269,
+   "cls": "duplicate of AGENTS.md line 255"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 124,
+   "dest": "reference",
+   "destLine": 270,
+   "cls": "duplicate of AGENTS.md line 256"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 125,
+   "dest": "reference",
+   "destLine": 271,
+   "cls": "duplicate of AGENTS.md line 257"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 126,
+   "dest": "reference",
+   "destLine": 272,
+   "cls": "duplicate of AGENTS.md line 258"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 127,
+   "dest": "reference",
+   "destLine": 273,
+   "cls": "duplicate of AGENTS.md line 259"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 128,
+   "dest": "reference",
+   "destLine": 274,
+   "cls": "duplicate of AGENTS.md line 260"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 129,
+   "dest": "reference",
+   "destLine": 275,
+   "cls": "duplicate of AGENTS.md line 261"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 130,
+   "dest": "reference",
+   "destLine": 276,
+   "cls": "duplicate of AGENTS.md line 262"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 131,
+   "dest": "reference",
+   "destLine": 277,
+   "cls": "duplicate of AGENTS.md line 263"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 132,
+   "dest": "reference",
+   "destLine": 278,
+   "cls": "duplicate of AGENTS.md line 264"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 133,
+   "dest": "reference",
+   "destLine": 279,
+   "cls": "duplicate of AGENTS.md line 265"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 134,
+   "dest": "reference",
+   "destLine": 280,
+   "cls": "duplicate of AGENTS.md line 266"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 135,
+   "dest": "reference",
+   "destLine": 281,
+   "cls": "duplicate of AGENTS.md line 267"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 136,
+   "dest": "reference",
+   "destLine": 282,
+   "cls": "duplicate of AGENTS.md line 268"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 137,
+   "dest": "reference",
+   "destLine": 283,
+   "cls": "duplicate of AGENTS.md line 269"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 138,
+   "dest": "reference",
+   "destLine": 284,
+   "cls": "duplicate of AGENTS.md line 270"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 139,
+   "dest": "reference",
+   "destLine": 285,
+   "cls": "duplicate of AGENTS.md line 271"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 140,
+   "dest": "reference",
+   "destLine": 286,
+   "cls": "duplicate of AGENTS.md line 272"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 141,
+   "dest": "reference",
+   "destLine": 287,
+   "cls": "duplicate of AGENTS.md line 273"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 142,
+   "dest": "reference",
+   "destLine": 288,
+   "cls": "duplicate of AGENTS.md line 274"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 143,
+   "dest": "reference",
+   "destLine": 289,
+   "cls": "duplicate of AGENTS.md line 275"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 144,
+   "dest": "reference",
+   "destLine": 290,
+   "cls": "duplicate of AGENTS.md line 276"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 145,
+   "dest": "reference",
+   "destLine": 291,
+   "cls": "duplicate of AGENTS.md line 277"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 146,
+   "dest": "reference",
+   "destLine": 292,
+   "cls": "duplicate of AGENTS.md line 278"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 147,
+   "dest": "reference",
+   "destLine": 293,
+   "cls": "duplicate of AGENTS.md line 279"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 148,
+   "dest": "reference",
+   "destLine": 294,
+   "cls": "duplicate of AGENTS.md line 280"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 149,
+   "dest": "reference",
+   "destLine": 295,
+   "cls": "duplicate of AGENTS.md line 281"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 150,
+   "dest": "reference",
+   "destLine": 296,
+   "cls": "duplicate of AGENTS.md line 282"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 151,
+   "dest": "reference",
+   "destLine": 297,
+   "cls": "duplicate of AGENTS.md line 283"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 152,
+   "dest": "reference",
+   "destLine": 298,
+   "cls": "duplicate of AGENTS.md line 284"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 153,
+   "dest": "reference",
+   "destLine": 299,
+   "cls": "duplicate of AGENTS.md line 285"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 154,
+   "dest": "reference",
+   "destLine": 300,
+   "cls": "duplicate of AGENTS.md line 286"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 155,
+   "dest": "reference",
+   "destLine": 301,
+   "cls": "duplicate of AGENTS.md line 287"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 156,
+   "dest": "reference",
+   "destLine": 302,
+   "cls": "duplicate of AGENTS.md line 288"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 157,
+   "dest": "reference",
+   "destLine": 303,
+   "cls": "duplicate of AGENTS.md line 289"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 158,
+   "dest": "reference",
+   "destLine": 304,
+   "cls": "duplicate of AGENTS.md line 290"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 159,
+   "dest": "reference",
+   "destLine": 305,
+   "cls": "duplicate of AGENTS.md line 291"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 160,
+   "dest": "reference",
+   "destLine": 306,
+   "cls": "duplicate of AGENTS.md line 292"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 161,
+   "dest": "reference",
+   "destLine": 307,
+   "cls": "duplicate of AGENTS.md line 293"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 162,
+   "dest": "reference",
+   "destLine": 308,
+   "cls": "duplicate of AGENTS.md line 294"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 163,
+   "dest": "reference",
+   "destLine": 309,
+   "cls": "duplicate of AGENTS.md line 295"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 164,
+   "dest": "reference",
+   "destLine": 310,
+   "cls": "duplicate of AGENTS.md line 296"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 165,
+   "dest": "reference",
+   "destLine": 311,
+   "cls": "duplicate of AGENTS.md line 297"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 166,
+   "dest": "reference",
+   "destLine": 312,
+   "cls": "duplicate of AGENTS.md line 298"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 167,
+   "dest": "reference",
+   "destLine": 313,
+   "cls": "duplicate of AGENTS.md line 299"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 168,
+   "dest": "reference",
+   "destLine": 314,
+   "cls": "duplicate of AGENTS.md line 300"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 169,
+   "dest": "reference",
+   "destLine": 315,
+   "cls": "duplicate of AGENTS.md line 301"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 170,
+   "dest": "reference",
+   "destLine": 316,
+   "cls": "duplicate of AGENTS.md line 302"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 171,
+   "dest": "reference",
+   "destLine": 317,
+   "cls": "duplicate of AGENTS.md line 303"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 172,
+   "dest": "reference",
+   "destLine": 318,
+   "cls": "duplicate of AGENTS.md line 304"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 173,
+   "dest": "reference",
+   "destLine": 319,
+   "cls": "duplicate of AGENTS.md line 305"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 174,
+   "dest": "reference",
+   "destLine": 320,
+   "cls": "duplicate of AGENTS.md line 306"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 175,
+   "dest": "reference",
+   "destLine": 321,
+   "cls": "duplicate of AGENTS.md line 307"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 176,
+   "dest": "reference",
+   "destLine": 322,
+   "cls": "duplicate of AGENTS.md line 308"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 177,
+   "dest": "reference",
+   "destLine": 323,
+   "cls": "duplicate of AGENTS.md line 309"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 178,
+   "dest": "reference",
+   "destLine": 324,
+   "cls": "duplicate of AGENTS.md line 310"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 179,
+   "dest": "reference",
+   "destLine": 325,
+   "cls": "duplicate of AGENTS.md line 311"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 180,
+   "dest": "reference",
+   "destLine": 326,
+   "cls": "duplicate of AGENTS.md line 312"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 181,
+   "dest": "reference",
+   "destLine": 327,
+   "cls": "duplicate of AGENTS.md line 313"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 182,
+   "dest": "reference",
+   "destLine": 328,
+   "cls": "duplicate of AGENTS.md line 314"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 183,
+   "dest": "reference",
+   "destLine": 329,
+   "cls": "duplicate of AGENTS.md line 315"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 184,
+   "dest": "reference",
+   "destLine": 330,
+   "cls": "duplicate of AGENTS.md line 316"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 185,
+   "dest": "reference",
+   "destLine": 331,
+   "cls": "duplicate of AGENTS.md line 317"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 186,
+   "dest": "reference",
+   "destLine": 332,
+   "cls": "duplicate of AGENTS.md line 318"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 187,
+   "dest": "reference",
+   "destLine": 333,
+   "cls": "duplicate of AGENTS.md line 319"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 188,
+   "dest": "reference",
+   "destLine": 334,
+   "cls": "duplicate of AGENTS.md line 320"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 189,
+   "dest": "reference",
+   "destLine": 335,
+   "cls": "duplicate of AGENTS.md line 321"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 190,
+   "dest": "reference",
+   "destLine": 336,
+   "cls": "duplicate of AGENTS.md line 322"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 191,
+   "dest": "reference",
+   "destLine": 337,
+   "cls": "duplicate of AGENTS.md line 323"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 192,
+   "dest": "reference",
+   "destLine": 338,
+   "cls": "duplicate of AGENTS.md line 324"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 193,
+   "dest": "reference",
+   "destLine": 339,
+   "cls": "duplicate of AGENTS.md line 325"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 194,
+   "dest": "reference",
+   "destLine": 340,
+   "cls": "duplicate of AGENTS.md line 326"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 195,
+   "dest": "reference",
+   "destLine": 341,
+   "cls": "duplicate of AGENTS.md line 327"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 196,
+   "dest": "reference",
+   "destLine": 342,
+   "cls": "duplicate of AGENTS.md line 328"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 197,
+   "dest": "reference",
+   "destLine": 343,
+   "cls": "duplicate of AGENTS.md line 329"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 198,
+   "dest": "reference",
+   "destLine": 344,
+   "cls": "duplicate of AGENTS.md line 330"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 199,
+   "dest": "reference",
+   "destLine": 345,
+   "cls": "duplicate of AGENTS.md line 331"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 200,
+   "dest": "reference",
+   "destLine": 346,
+   "cls": "duplicate of AGENTS.md line 332"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 201,
+   "dest": "reference",
+   "destLine": 347,
+   "cls": "duplicate of AGENTS.md line 333"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 202,
+   "dest": "reference",
+   "destLine": 348,
+   "cls": "duplicate of AGENTS.md line 334"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 203,
+   "dest": "reference",
+   "destLine": 349,
+   "cls": "duplicate of AGENTS.md line 335"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 204,
+   "dest": "reference",
+   "destLine": 350,
+   "cls": "duplicate of AGENTS.md line 336"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 205,
+   "dest": "reference",
+   "destLine": 351,
+   "cls": "duplicate of AGENTS.md line 337"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 206,
+   "dest": "reference",
+   "destLine": 352,
+   "cls": "duplicate of AGENTS.md line 338"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 207,
+   "dest": "reference",
+   "destLine": 353,
+   "cls": "duplicate of AGENTS.md line 339"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 208,
+   "dest": "reference",
+   "destLine": 354,
+   "cls": "duplicate of AGENTS.md line 340"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 209,
+   "dest": "reference",
+   "destLine": 355,
+   "cls": "duplicate of AGENTS.md line 341"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 210,
+   "dest": "reference",
+   "destLine": 356,
+   "cls": "duplicate of AGENTS.md line 342"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 211,
+   "dest": "reference",
+   "destLine": 357,
+   "cls": "duplicate of AGENTS.md line 343"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 212,
+   "dest": "reference",
+   "destLine": 358,
+   "cls": "duplicate of AGENTS.md line 344"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 213,
+   "dest": "reference",
+   "destLine": 359,
+   "cls": "duplicate of AGENTS.md line 345"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 214,
+   "dest": "reference",
+   "destLine": 360,
+   "cls": "duplicate of AGENTS.md line 346"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 215,
+   "dest": "reference",
+   "destLine": 361,
+   "cls": "duplicate of AGENTS.md line 347"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 216,
+   "dest": "reference",
+   "destLine": 362,
+   "cls": "duplicate of AGENTS.md line 348"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 217,
+   "dest": "reference",
+   "destLine": 363,
+   "cls": "duplicate of AGENTS.md line 349"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 218,
+   "dest": "reference",
+   "destLine": 364,
+   "cls": "duplicate of AGENTS.md line 350"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 219,
+   "dest": "reference",
+   "destLine": 365,
+   "cls": "duplicate of AGENTS.md line 351"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 220,
+   "dest": "reference",
+   "destLine": 366,
+   "cls": "duplicate of AGENTS.md line 352"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 221,
+   "dest": "reference",
+   "destLine": 367,
+   "cls": "duplicate of AGENTS.md line 353"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 222,
+   "dest": "reference",
+   "destLine": 368,
+   "cls": "duplicate of AGENTS.md line 354"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 223,
+   "dest": "reference",
+   "destLine": 369,
+   "cls": "duplicate of AGENTS.md line 355"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 224,
+   "dest": "reference",
+   "destLine": 370,
+   "cls": "duplicate of AGENTS.md line 356"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 225,
+   "dest": "reference",
+   "destLine": 371,
+   "cls": "duplicate of AGENTS.md line 357"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 226,
+   "dest": "reference",
+   "destLine": 372,
+   "cls": "duplicate of AGENTS.md line 358"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 227,
+   "dest": "reference",
+   "destLine": 373,
+   "cls": "duplicate of AGENTS.md line 359"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 228,
+   "dest": "reference",
+   "destLine": 374,
+   "cls": "duplicate of AGENTS.md line 360"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 229,
+   "dest": "reference",
+   "destLine": 375,
+   "cls": "duplicate of AGENTS.md line 361"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 230,
+   "dest": "reference",
+   "destLine": 376,
+   "cls": "duplicate of AGENTS.md line 362"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 231,
+   "dest": "reference",
+   "destLine": 377,
+   "cls": "duplicate of AGENTS.md line 363"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 232,
+   "dest": "reference",
+   "destLine": 378,
+   "cls": "duplicate of AGENTS.md line 364"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 233,
+   "dest": "reference",
+   "destLine": 379,
+   "cls": "duplicate of AGENTS.md line 365"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 234,
+   "dest": "reference",
+   "destLine": 380,
+   "cls": "duplicate of AGENTS.md line 366"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 235,
+   "dest": "reference",
+   "destLine": 381,
+   "cls": "duplicate of AGENTS.md line 367"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 236,
+   "dest": "reference",
+   "destLine": 382,
+   "cls": "duplicate of AGENTS.md line 368"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 237,
+   "dest": "reference",
+   "destLine": 383,
+   "cls": "duplicate of AGENTS.md line 369"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 238,
+   "dest": "reference",
+   "destLine": 384,
+   "cls": "duplicate of AGENTS.md line 370"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 239,
+   "dest": "reference",
+   "destLine": 385,
+   "cls": "duplicate of AGENTS.md line 371"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 240,
+   "dest": "reference",
+   "destLine": 386,
+   "cls": "duplicate of AGENTS.md line 372"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 241,
+   "dest": "reference",
+   "destLine": 387,
+   "cls": "duplicate of AGENTS.md line 373"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 242,
+   "dest": "reference",
+   "destLine": 388,
+   "cls": "duplicate of AGENTS.md line 374"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 243,
+   "dest": "reference",
+   "destLine": 389,
+   "cls": "duplicate of AGENTS.md line 375"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 244,
+   "dest": "reference",
+   "destLine": 390,
+   "cls": "duplicate of AGENTS.md line 376"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 245,
+   "dest": "reference",
+   "destLine": 391,
+   "cls": "duplicate of AGENTS.md line 377"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 246,
+   "dest": "reference",
+   "destLine": 392,
+   "cls": "duplicate of AGENTS.md line 378"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 247,
+   "dest": "reference",
+   "destLine": 393,
+   "cls": "duplicate of AGENTS.md line 379"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 248,
+   "dest": "reference",
+   "destLine": 394,
+   "cls": "duplicate of AGENTS.md line 380"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 249,
+   "dest": "reference",
+   "destLine": 395,
+   "cls": "duplicate of AGENTS.md line 381"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 250,
+   "dest": "GEMINI.draft",
+   "destLine": 6,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 251,
+   "dest": "GEMINI.draft",
+   "destLine": 7,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 252,
+   "dest": "GEMINI.draft",
+   "destLine": 8,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 253,
+   "dest": "GEMINI.draft",
+   "destLine": 9,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 254,
+   "dest": "GEMINI.draft",
+   "destLine": 10,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 255,
+   "dest": "GEMINI.draft",
+   "destLine": 11,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 256,
+   "dest": "GEMINI.draft",
+   "destLine": 12,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 257,
+   "dest": "GEMINI.draft",
+   "destLine": 13,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 258,
+   "dest": "GEMINI.draft",
+   "destLine": 14,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 259,
+   "dest": "GEMINI.draft",
+   "destLine": 15,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 260,
+   "dest": "GEMINI.draft",
+   "destLine": 16,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 261,
+   "dest": "GEMINI.draft",
+   "destLine": 17,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 262,
+   "dest": "GEMINI.draft",
+   "destLine": 18,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 263,
+   "dest": "GEMINI.draft",
+   "destLine": 19,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 264,
+   "dest": "GEMINI.draft",
+   "destLine": 20,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 265,
+   "dest": "GEMINI.draft",
+   "destLine": 21,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 266,
+   "dest": "GEMINI.draft",
+   "destLine": 22,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 267,
+   "dest": "GEMINI.draft",
+   "destLine": 23,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 268,
+   "dest": "GEMINI.draft",
+   "destLine": 24,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 269,
+   "dest": "GEMINI.draft",
+   "destLine": 25,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 270,
+   "dest": "GEMINI.draft",
+   "destLine": 26,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 271,
+   "dest": "GEMINI.draft",
+   "destLine": 27,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 272,
+   "dest": "GEMINI.draft",
+   "destLine": 28,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 273,
+   "dest": "GEMINI.draft",
+   "destLine": 29,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 274,
+   "dest": "GEMINI.draft",
+   "destLine": 30,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 275,
+   "dest": "GEMINI.draft",
+   "destLine": 31,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 276,
+   "dest": "GEMINI.draft",
+   "destLine": 32,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 277,
+   "dest": "GEMINI.draft",
+   "destLine": 33,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 278,
+   "dest": "GEMINI.draft",
+   "destLine": 34,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 279,
+   "dest": "GEMINI.draft",
+   "destLine": 35,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 280,
+   "dest": "GEMINI.draft",
+   "destLine": 36,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 281,
+   "dest": "GEMINI.draft",
+   "destLine": 37,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 282,
+   "dest": "GEMINI.draft",
+   "destLine": 38,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 283,
+   "dest": "GEMINI.draft",
+   "destLine": 39,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 284,
+   "dest": "GEMINI.draft",
+   "destLine": 40,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 285,
+   "dest": "GEMINI.draft",
+   "destLine": 41,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 286,
+   "dest": "GEMINI.draft",
+   "destLine": 42,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 287,
+   "dest": "GEMINI.draft",
+   "destLine": 43,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 288,
+   "dest": "GEMINI.draft",
+   "destLine": 44,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 289,
+   "dest": "GEMINI.draft",
+   "destLine": 45,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 290,
+   "dest": "GEMINI.draft",
+   "destLine": 46,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 291,
+   "dest": "GEMINI.draft",
+   "destLine": 47,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 292,
+   "dest": "GEMINI.draft",
+   "destLine": 48,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 293,
+   "dest": "GEMINI.draft",
+   "destLine": 49,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 294,
+   "dest": "GEMINI.draft",
+   "destLine": 50,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 295,
+   "dest": "GEMINI.draft",
+   "destLine": 51,
+   "cls": "verbatim (Lane C tail)"
+  },
+  {
+   "file": ".agents/rules/graphify.md",
+   "line": 296,
+   "dest": "GEMINI.draft",
+   "destLine": 52,
+   "cls": "verbatim (Lane C tail)"
+  }
+ ]
+}
