@@ -400,3 +400,5 @@ Claude Code specifics:
   decision, not a separate process. Actually updating the artifact is a distinct, opt-in act: read
   it in full first, update only the flagged entries, republish to the same URL, then update the
   ledger's `Last verified at`.
+
+@AGENTS.md
