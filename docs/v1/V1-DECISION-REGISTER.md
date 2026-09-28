@@ -21998,3 +21998,61 @@ report"*. It follows `D-313`, which completed all three route review schedules.
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected: `AIG-03` points to `SV2-U02`/`SV2-DOD-03` and is satisfied only at `SV2-DOD-03` |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e140 `D-315` — Combined Report Corrected From Lane C's `C-008` and Lane B's `B-147`; Resubmitted for the Judge's Acceptance
+
+**Authority:** execution under `D-314`, which submitted the combined report. The two independent reviews are Lane C's
+`C-008` and Lane B's `B-147` (the latter also reviews `C-008`), both prepared with the user.
+
+### The decision
+
+1. **`SV-002` §3.5 is corrected, and the measured outcomes are unchanged.**
+   - **Item 1 reworded, scoped to these runs:** Claude Code delivered `CLAUDE.md`; Codex and Antigravity delivered
+     `AGENTS.md`; none delivered `graphify.md`. The earlier "never the same one as both others" was false as written.
+   - **The comment run named:** Claude Code's 187-byte omission carries the `G53` rule.
+   - **The truncation date:** "earliest retained record 2026-09-15; onset unknown".
+   - **The skill:** the 12,000-character target (`D-266` item 3) and the observed 800-line first-read window are
+     stated as **different units**, both to be measured, plus an end-cue probe.
+   - **Route B's review scope:** `C-004` is marked document-only, and `B-143`'s fresh re-examination is named.
+2. **`graphify.md`'s absence stays an observed non-delivery**, with three version-qualified hypotheses:
+   - **frontmatter:** the file has a `description` only, with no `trigger`/`always_on`, measured by file read.
+     Google's rules documentation says such rules may be discarded; the installed documentation is silent;
+   - **discovery path:** `.agents/rules` vs `.agent/rules`;
+   - **crowd-out:** looks unlikely at the documented 24,000 bytes per file and 20,000-token aggregate, but is not
+     excluded.
+
+   `C-008`'s conclusion is **not** promoted to a cause (`B-147`).
+3. **Sizing:** the conservative "total rule text Antigravity loads under 24,000 bytes" input is kept. The documented
+   per-file/aggregate rule is listed as an alternative the Judge must choose explicitly, tested by a two-file run on
+   the pinned installed version. `C-008`'s three designs (`always_on`/trigger, fold into `AGENTS.md`, single-source
+   generation) are candidates; none is adopted.
+4. **Per-route re-measurement acceptance tests are added:**
+   - **Route C:** the IDE and rule location preflighted; the conversation store shows the intended rule blocks with no
+     truncation marker; the skill's end cue appears after a controlled load.
+   - **Route A:** the `G53` text is visible in the harness record.
+   - **Route B:** the unique tail is delivered, and the margin is recorded.
+5. **Not adopted:**
+   - `C-008`'s repository-wide `C-009`/`C-010` replacement: `B-135`'s `C-009` is an earlier, different object;
+   - a separate graph-path entry: the paths are in ignored runtime files, and `graphify hook-rebuild` exists.
+6. **`C-008` and `B-147` are answered** (`Resolution: Applied`).
+7. **Resubmitted for the Judge's acceptance.** Acceptance, and the remediation choice ("no remediation" or one bounded
+   fix), are the Judge's next acts. **Acceptance does not check `SV2-DOD-03`.**
+8. **Not given by this act:**
+   - acceptance of the report;
+   - the remediation decision;
+   - any rule-file or skill edit (`D-266` item 2);
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e140 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.5 corrected: item 1, the Route B scope, the Claude Code row, the date, the skill units, the causes, the sizing alternative and the acceptance tests |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: wording corrections inside an existing report; no scope, sequence, DoD state, file or lane change |
+| **Agent files** | — unaffected: measured, not edited |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected (`AIG-03` is satisfied only at `SV2-DOD-03`) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
