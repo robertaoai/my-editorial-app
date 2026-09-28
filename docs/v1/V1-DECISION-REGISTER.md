@@ -22811,3 +22811,49 @@ decided"*.
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e156 `D-331` — IDE-Agent Arm PASS on Delivery: Antigravity IDE Keeps Its Own Store and Cuts `AGENTS.md` Mid-Line at 24,000 Bytes
+
+**Authority:** execution under `D-330`. The Judge operated the run.
+
+### The decision
+
+1. **The run:** the arm 1 fixture, in the Antigravity IDE editor's agent panel on the worktree, with Gemini 3.8
+   Flash (Low). The conversation `98f6a25d…` is stored in **the IDE's own folder, `~/.gemini/antigravity-ide/`**,
+   separate from Agent Manager's `~/.gemini/antigravity/`. **Every earlier Route C reading, R1, R2 and the
+   preflight arms, covered the Agent Manager/chat surface only.**
+2. **The result, from the IDE store's harness record:**
+   - `GEMINI.md` complete, with the marker present;
+   - `AGENTS.md` truncated by 7,920 bytes. Aligned byte for byte, its stored copy equals the file's first **24,000
+     bytes exactly** and **stops mid-line 330**, in the sentence introducing the `Lane-Crossing:` trailer. Agent
+     Manager cut at the last whole line (23,962 bytes).
+
+   **The two Antigravity surfaces truncate differently.** The IDE's cut does not follow the installed
+   documentation's "truncated on line boundaries", and it can split a rule mid-sentence.
+3. **What it settles:**
+   - **`GEMINI.md` reaches the IDE agent too.** It serves Lane C on both Antigravity surfaces and on every model
+     measured (`D-328`);
+   - both truncation behaviours are removed by an `AGENTS.md` well under 24,000 bytes, as the adopted design
+     already requires;
+   - future Route C runs name the surface and read that surface's store.
+4. **A carry-over observation.** The IDE session injected CONVERSATION_HISTORY and KNOWLEDGE_ARTIFACTS steps.
+   `D-304`'s carry-over check covered only Agent Manager's knowledge and summary stores. The IDE's `knowledge/` and
+   history injection are unmeasured, and the post-change re-measurement records them.
+5. **Status of the added arms:** the IDE agent has passed; Cowork is pending; Codex build is deferred until the
+   Codex product is chosen.
+6. **Not given by this act:**
+   - any live rule-file edit;
+   - the atomic change;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e156 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 preflight record, IDE-agent arm |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected (SPECS §4a's design already covers it) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
