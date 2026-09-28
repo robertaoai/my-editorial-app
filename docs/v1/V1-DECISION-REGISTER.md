@@ -22256,3 +22256,47 @@ separate act `D-318` called for. The inputs are Lane B's `B-148` (`b2abadf`, `eb
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e145 `D-320` — `SV2-U02` Remediation Scope Proposal Prepared (`SV-002` §3.6), Read-Only, for the Judge's Scope Act
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Judge Approved: Lane A prepare the scope proposal"*, under
+`D-319` item 2.
+
+### The decision
+
+1. **The proposal is `SV-002` §3.6.** It is read-only: no rule file, skill or check is edited, and no design is
+   selected. It contains:
+   - **three loading classes:** shared automatic, lane automatic, and on demand, each with how it is proved. On-demand
+     units need an activation test, not only delivery;
+   - **a triage of every rule unit** across the three files, with its size, class, consequence if absent, and reason;
+   - **a projected automatic floor:** about 4,300 characters shared, plus about 1,500 for a conditional Codex section,
+     making about 5,800 in `AGENTS.md` against `D-266`'s 6,000. A Lane C section cannot also fit, so it needs a
+     file only Antigravity loads;
+   - **three designs compared:** composition, activation only, and generation. Activation only does not meet
+     `D-266` item 3;
+   - **a proposed bound:** owner, exact files, what is out of bounds, diagnostic order, stop criteria, and proof order.
+2. **Lane A's recommendation, not a selection:** composition, meaning one hand-maintained core, with `CLAUDE.md`
+   importing `@AGENTS.md` and a Lane C–only `always_on` file. Generation is the pre-named fallback if Claude Code does
+   not expand the import.
+3. **The Judge's scope act** adopts, amends or rejects the bound. **The rule-file freeze (`D-266` item 2) holds until
+   then.**
+4. **Not given by this act:**
+   - the scope act;
+   - any rule-file, skill, check or reference-file creation;
+   - any design selection;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e145 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ new §3.6 scope proposal |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected now. The proposal names the files a scope act would change, including a new reference file and a replaced check; those propagate only at that act |
+| **Agent files** | — unaffected: frozen |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
