@@ -22356,3 +22356,54 @@ Lane A on 2026-09-28. Lane A checked its claims against the installed Antigravit
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e147 `D-322` — Scope Proposal: Second Critique Absorbed; Pointer Re-Scan Excludes a Demoted `graphify.md`; One Bound (§3.6.6)
+
+**Authority:** execution under `D-320` (preparing the scope proposal). The input is a second critique the Judge
+supplied to Lane A on 2026-09-28.
+
+### The decision
+
+1. **§3.6.6 is the only bound.** §3.6.4 is marked superseded and kept as history. Its lane-sentinel proof criterion
+   is corrected in place: the Codex section sits in `AGENTS.md`, so it is delivered to all three tools by
+   construction. It passes if delivered everywhere and obeyed only by Codex; only the Claude and Antigravity lane
+   sentinels are tool-exclusive.
+2. **The generation fallback needs a `D-266` amendment** (`CLAUDE.md` inherits `@AGENTS.md`). A failed import
+   therefore returns to the Judge as a request for that amendment.
+3. **Conditions on the measured draft:**
+   - the pointer index is reported separately, with the chosen form (a single line or a per-class list) and its fit;
+   - the coverage ledger is a **script-generated exact partition**, with sizes summing to each file's total. The
+     §3.6.2 table double-counts lines 139–143 and 443–452 and is indicative only;
+   - only invariants go in the automatic channel, and mutable facts sit behind tracker pointers.
+4. **The pointer re-scan, run read-only by Lane A**, looked at the R2 conversation store:
+   - the system prompt's `<user_rules>` container lists exactly one entry, `AGENTS.md`;
+   - there is no pointer, demotion or rules-budget wording;
+   - every `graphify.md` reference outside the rule block is quoted comment text.
+
+   **`graphify.md` was not delivered even as a pointer.** If this version demotes over-budget rules to pointers as
+   documented, **crowd-out is effectively excluded**, leaving activation (the frontmatter key) and discovery for the
+   preflight to separate.
+5. **Activation proof uses repeat runs** per class and tool, with paraphrased (should trigger) and near-miss (should
+   not) prompts. **The pass criterion is a rate** set in the scope act.
+6. **Next:** the measured draft, meeting item 3, and the coverage-ledger script, both outside the rule paths. Then
+   the Judge's scope act, which permits the preflight. **The freeze holds.**
+7. **Not given by this act:**
+   - the scope act;
+   - the preflight;
+   - any rule-file, skill or check edit;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e147 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.4 marked superseded and its criterion corrected; new §3.6.7 |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected until the scope act |
+| **Agent files** | — unaffected: frozen |
+| **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
