@@ -23155,3 +23155,39 @@ draft"* (`D-324` step 2).
 | **`docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md`** | ✅ §4a marked applied (`D-337`) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit, then merge `frag141.json` |
+
+## 5.14e163 `D-338` — Proof Step Authorized; `SV2-U02-A-R2` Passes; Re-Measurement Kit and Push-Disabled Proof Worktree Prepared
+
+**Authority: the Judge, directly to Lane A, 2026-09-29**: *"Judge Aproved : Proof step"* (`D-324` step 4, on `D-337`).
+
+### The decision
+
+1. **`SV2-U02-A-R2` passes (Claude Code).** This session's `session_start` instruction record delivers `CLAUDE.md` and
+   the expanded `@AGENTS.md`, each byte-equal to `fd89ddc` apart from the final newline. No `GEMINI.md` content and
+   no retired shared-core text arrive. **Caveat:** the session was resumed, not fresh. A fresh headless run is part of
+   the Claude Code probe batch.
+2. **The kit is outside the repository** (`SV-002` §3.6.6, proof record). The scorer reads each tool's own record
+   (`D-294`). **It can fail:** it scores the pre-change Agent Manager and Codex Desktop records as not byte-equal.
+3. **The probes run in a proof worktree**, detached at `fd89ddc` with pushing disabled, because the adherence prompts
+   invite forbidden actions. Its rule files are the live ones, byte for byte.
+4. **The Claude Code probe batch is blocked on the CLI's login.** Headless `claude -p` reported an expired OAuth
+   session. Lane A does not handle credentials; the Judge logs the CLI in, and then Lane A runs the batch.
+5. **Remaining, in order:**
+   - Claude Code probes (Lane A, after the login);
+   - Codex Desktop, ChatGPT Work, Agent Manager, the IDE agent and Cowork, operated by the Judge;
+   - the Codex CLI, after the quota fix;
+   - then Level 1 and Level 2 review, and only then `SV2-DOD-03`.
+6. **Not given by this act:** `SV2-DOD-03`, any change to the J4 pass mark, or any lane-state change. `V1-SM05` stays
+   `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e163 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 proof record |
+| **`V1-BUILD-SPEC.md`** | — unaffected: the `D-337` note already sequences the proof; no scope or order changes |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no repository file is added or retired (the kit and the worktree are outside the repository) |
+| **`V1-PHASE-CLOSURE.md`**, rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
