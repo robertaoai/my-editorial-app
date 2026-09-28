@@ -21908,3 +21908,42 @@ receipt"*, under `D-310`. Lane B's entry is `B-146` (`c6aef2e`).
 | **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e138 `D-313` — Route A Level 2 Review `C-007` Recorded; All Three `SV2-U02` Route Review Schedules Complete
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Judge Approved: Lane A review on Lane C's Route A Level 2
+receipt"*, under `D-310`. Lane C's entry is `C-007` (`b3ad627`).
+
+### The decision
+
+1. **`C-007` meets `D-310` in full**, and is answered and recorded on the `SV2-U02-A-R1` row in `SV-002` §3.2.
+   - Lane A re-ran the pinned Route A scorer on both probes. The outputs are byte-identical to the saved v2 scores,
+     and `C-007`'s cue mapping matches the key.
+   - `C-007`'s byte alignment matches Lane A's own for `D-312`: a 187-byte comment run plus the final newline.
+   - Every classification line is confirmed.
+2. **All three route review schedules are complete:**
+   - **Route A**: receipt `D-291`; Level 1 `B-146`; Level 2 `C-007`.
+   - **Route B**: Level 1 `D-293`; Level 2 `C-004`; receipt verified `B-143`.
+   - **Route C**: R2 Level 1 `D-303`/`D-304`; Level 2 `B-145`; receipts verified `C-003`, `C-005`, `C-006`.
+
+   **The next act is the combined `SV2-U02` report**, written by Lane A as a new `SV-002` §3 subsection and submitted
+   through a Register entry for the Judge's acceptance. It must keep loader outcomes separate from the open causes:
+   per-file vs shared budget, and why `graphify.md` is not delivered.
+3. **Not given by this act:**
+   - the combined report or its acceptance;
+   - the remediation decision;
+   - any rule-file edit;
+   - any lane-state change.
+
+   `SV2-DOD-03` is unchecked, and `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e138 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.2 run row `SV2-U02-A-R1`: Level 2 recorded; schedule complete |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: no scope, sequence, DoD, file or lane change |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
