@@ -135,6 +135,11 @@ first and lands in a named owner: a lane's file, a skill, or its governed source
   target.
 - `GEMINI.md` is for **Gemini models** in Antigravity (long-context review). **Other models in Antigravity read
   `AGENTS.md` only**, so every rule Lane C must always have reaches each model Lane C runs, not only Gemini.
+  *Measured `[V1]`, `D-328`:* in the installed Antigravity IDE 2.5.5, a standalone `GEMINI.md` is **injected for a
+  non-Gemini model too** (Claude Sonnet 4.6 received it, as Gemini 3.8 Flash did). "For Gemini models" is the
+  intended **use**, not a loader restriction, so `GEMINI.md` alone delivers Lane C's rules to every model measured. The
+  requirement above, that Lane C's always-needed rules reach each model Lane C runs, is met this way and re-measured
+  after any Antigravity upgrade.
 - A rule is proved by what the tool received (its harness record), never by the file existing (`D-294`, `D-318`).
 
 ## 5. Acceptance checks `[V1]`

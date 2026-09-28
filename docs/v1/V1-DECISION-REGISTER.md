@@ -22670,3 +22670,55 @@ supplied the readout.
 | **`docs/Modular_PRD.md`**, Fn Specs | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e153 `D-328` — Preflight Non-Gemini Arm PASS: Antigravity Injects `GEMINI.md` for a Non-Gemini Model Too; Preflight Complete
+
+**Authority: the Judge, directly to Lane A, 2026-09-28**: *"Judge Approved: run non-Gemini arm"* (`D-324` J3). The
+Judge operated the run.
+
+### The decision
+
+1. **The run:** the arm 1 fixture unchanged (`GEMINI.md` marker beside the untouched `AGENTS.md`), in a fresh
+   Antigravity conversation `39fe30a5…` on the worktree. The model was Claude Sonnet 4.6 (Thinking), which the store
+   records as `claude-sonnet-4-6`. The prompt was "Reply OK only".
+2. **The result, from the conversation store's harness record:** the same two rule blocks as the Gemini run,
+   - `AGENTS.md`, truncated by 7,958 bytes;
+   - **`GEMINI.md`, complete, with the marker present.**
+
+   **In the installed Antigravity IDE 2.5.5, a standalone `GEMINI.md` is injected regardless of model.**
+3. **This corrects an expectation.** The Judge's clarification, recorded in `FN-MULTI-LANE-AI-GOVERNANCE.md` §4.6,
+   said other models in Antigravity read only `AGENTS.md`. For this version that is **not the loader's behaviour**.
+   "For Gemini models" stands as the intended *use* of `GEMINI.md`, not a loader restriction. The Fn spec carries a
+   dated `[V1]` measurement note. Its requirement, that Lane C's always-needed rules reach each model Lane C runs,
+   **is met by `GEMINI.md` alone**, so **no conditional Lane C section is needed in `AGENTS.md`**, and the 5,400
+   ceiling carries only the core and the Codex section. This is re-measured after any Antigravity upgrade.
+4. **The preflight is complete:**
+   - arm 1 passed (`GEMINI.md` is the Lane C file; the byte limit is per file);
+   - arm 3a passed (the import expands);
+   - arm 3b recorded (a missing import fails silently, so an integrity check is mandatory);
+   - the non-Gemini arm passed;
+   - arm 2 is optional;
+   - arm 4 is re-checked after the atomic change.
+5. **Next:** the ledger-backed measured draft (§3.6.6 step 2), built in the worktree against J1's 5,400-character
+   ceiling. Then the atomic change.
+6. **Not given by this act:**
+   - any live rule-file edit;
+   - the atomic change;
+   - `SV2-DOD-03`;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e153 |
+| **`docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`** | ✅ §4.6 dated `[V1]` measurement note (`D-328`) |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 preflight record, non-Gemini arm |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected |
+| **Agent files** | — unaffected: the live files are unchanged |
+| **`docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md`** | — unaffected: §4a already names `GEMINI.md` as the preflight-decided Lane C file |
+| **`docs/Modular_PRD.md`** | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
