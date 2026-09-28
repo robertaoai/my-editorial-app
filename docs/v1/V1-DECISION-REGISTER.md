@@ -22105,3 +22105,44 @@ revised `C-008` (`214aa3b`), both prepared with the user.
 | **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e142 `D-317` — Combined Report: Line Anchors, Token Bases and List Repair From `B-147`'s Second Supplement and `C-008` F15/F20/F21; Resubmitted
+
+**Authority:** execution under `D-314`–`D-316`. The inputs are Lane B's `B-147` second supplement (`72ccf32`) and Lane
+C's revised `C-008` F15/F20/F21 (`d0daaf6`), both prepared with the user.
+
+### The decision
+
+1. **Consequence 3 now cites its proof for Antigravity:** `AGENTS.md`'s `SHARED CORE` comment sits at lines 139–140,
+   inside the delivered lines 1–329, and R2's comment cue scored `VISIBLE (exact)` (`C-005`).
+2. **Two token bases are stated**, both at an assumed 4 bytes per token (an estimate, not a tokenizer measurement),
+   with global rules excluded:
+   - the cut `AGENTS.md` plus `graphify.md` is 45,712 bytes, about 11,400 tokens. It is labelled **a hypothetical
+     pair**, because `graphify.md` was not delivered. This follows `B-147`'s correction of `C-008`'s "delivered pair";
+   - the two full pinned files are 53,670 bytes, about 13,400 tokens.
+
+   Both are under the 20,000-token aggregate. The crowd-out hypothesis and the per-file cost line cite both.
+3. **The cost list is repaired:** the candidate designs are their own top-level bullet, and the rendered list was
+   read back.
+4. **`B-147` is answered again** (`Applied`). `C-008`'s F20/F21 requests are now applied, so its `Answered`/`Applied`
+   header is accurate again.
+5. **Resubmitted for the Judge's acceptance.** The measured outcomes are unchanged throughout `D-315`–`D-317`.
+   **Acceptance does not check `SV2-DOD-03`.**
+6. **Not given by this act:**
+   - acceptance of the report;
+   - the remediation decision;
+   - any rule-file or skill edit (`D-266` item 2);
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e142 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.5: consequence 3 anchors; crowd-out token bases; per-file cost line; candidate-designs bullet |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`docs/v1/V1-PHASE-CLOSURE.md`** | — unaffected: wording inside an existing report; no scope, sequence, DoD state, file or lane change |
+| **Agent files**, **`docs/Modular_PRD.md`**, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
