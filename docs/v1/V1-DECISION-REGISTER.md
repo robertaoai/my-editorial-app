@@ -23531,3 +23531,29 @@ reference file … also include the CLAUDE.md file"*), then reported *"Cowork re
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e173 `D-348` — Cowork's Project-Store Rule Copies Removed; P1 Re-Run Reads the Folder Copies and Still Activates
+
+**Authority:** the Judge, *"Project copies removed; P1 re-run done"* (`D-347` item 4, first option).
+
+### The decision
+
+1. **The `D-347` caveat is closed.** Cowork's `editorial-proof` project no longer holds `AGENTS.md` or `CLAUDE.md`
+   copies.
+2. **A fresh P1 re-run read all three rule sources from the attached folder** (`AGENTS.md`, `CLAUDE.md` and
+   `agent-rules-reference.md`, with `cat`), and nothing from a Project store. P1 activates, so the `D-347` J4 pass
+   (5 of 5, 0 of 3) stands with the folder as the only source.
+3. **Residual note:** the same task saw only truncated output for `TEMPLATE.md` and for its Register search. That
+   concerns the quality of its reading, not activation.
+4. **Not given by this act:** any rule-file edit, a J4 or adherence decision, `SV2-DOD-03`, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e173 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ note on the Cowork re-probe caveat |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
