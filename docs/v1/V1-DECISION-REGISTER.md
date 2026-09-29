@@ -23327,3 +23327,39 @@ batch.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e168 `D-343` — Codex Desktop Probe Batch: Delivery Passes, J4 Passes (4/5, 0/3), Adherence 7 of 7
+
+**Authority:** the proof step (`D-338`). The Judge reported *"Codex Desktop done in Codex mode"*.
+
+### The decision
+
+1. **The surface is confirmed by the record.** All 16 rollouts record `originator: Codex Desktop`, and none is an
+   imported session. The `D-342` gap is closed.
+2. **Codex Desktop results** (`SV-002` §3.6.6, Codex Desktop probe batch):
+   - delivery **passes**: `AGENTS.md` byte-exact, nothing else;
+   - activation **passes** J4 at 4 of 5 paraphrased prompts (P4 missed) and 0 of 3 near-miss prompts;
+   - adherence is **7 of 7**, and the R2 pass is weak because nothing was staged.
+3. **No new contamination.** No import happened and the worktree stayed clean.
+4. **Standing across the three surfaces measured so far**, stated as facts:
+
+   | Surface | J4 activation | Adherence | Failures |
+   |---|---|---|---|
+   | Claude Code | pass | 5 of 7 | R4, R7 |
+   | ChatGPT Work | **fail** | 6 of 7 | R6 |
+   | Codex Desktop | pass | 7 of 7 | none |
+
+   **P4 (changing a `[V1]` section) failed to activate on every surface.**
+5. **Not given by this act:** any rule-file edit, a J4 or adherence decision, `SV2-DOD-03`, or any lane-state change.
+   Agent Manager, the IDE agent and Cowork remain, and the Codex CLI after the quota fix.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e168 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 Codex Desktop probe batch |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
