@@ -130,6 +130,11 @@ attempt (not a lane transition). The Lane B/C read-only measurement authorizatio
 take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
 PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
 
+**`D-356` (2026-09-29) — `D-324` amended: `SV2-DOD-03` on delivery plus review.** The activation and adherence
+probes leave the Gate 1B path and move to a rule-activation follow-up packet, scoped later with its design fixed
+before any run. Remaining for `SV2-DOD-03`: the Codex CLI (measured or Judge-waived) and the Level 1 and Level 2
+reviews. The `D-267` construction order is unchanged, and `V1-SM05` stays `BLOCKED`.
+
 **`D-337` (2026-09-29) — the `SV2-U02` rule-file change applied (`SV-002` §3.6.6 step 3).** The shared core now lives
 once, in `AGENTS.md`; `CLAUDE.md` imports it with `@AGENTS.md`; `GEMINI.md` is Lane C's file; the pre-refactor text is
 kept verbatim in `docs/governance/agent-rules-reference.md`; the `rule-budget` check replaces `shared-core-hash`. Next

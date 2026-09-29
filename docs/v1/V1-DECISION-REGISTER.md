@@ -23781,3 +23781,47 @@ pointer"*.
 | `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e181 `D-356` — `D-324` Amended: `SV2-DOD-03` Assessed on Delivery Plus the Review Chain; Activation and Adherence Move to a Follow-Up Packet
+
+**Authority: the Judge, directly to Lane A, 2026-09-29**: *"Judge Approved: amend D-324 as proposed"*. It acts on
+Lane A's proposal after `D-355`, which the independent Codex Desktop review supported.
+
+### The decision
+
+1. **`SV2-DOD-03` is assessed on delivery plus the review chain.** It no longer depends on the activation mark J4 or
+   on the adherence probes. D-324 J4 and the step-4 activation and adherence bullets **cease to be `SV2-DOD-03`
+   conditions**; the rest of D-324 stands.
+2. **What still gates `SV2-DOD-03`:**
+   - **the Codex CLI**, measured after the API quota is fixed. It stays a condition unless the Judge waives it by a
+     separate act; this amendment does not waive it;
+   - **the Level 1 review** (ChatGPT Chat/Work) and **the Level 2 review** (Antigravity chat), both on the delivery
+     evidence;
+   - then the Judge's assessment.
+3. **A rule-activation follow-up packet is named, not scoped.** The activation and adherence results already recorded
+   become its baseline. Its design must be fixed in its scope act **before any run**:
+   - held-out prompts, with only a sealed hash on record;
+   - repeated fresh runs;
+   - a scorer frozen and fixture-tested before the run, checked by an independent actor against raw records;
+   - criteria set in advance;
+   - a disposition for each failure (R4, R6, R7).
+4. **Not given by this act:**
+   - a Codex CLI waiver;
+   - the packet's scope;
+   - any rule-file edit;
+   - `SV2-DOD-03`'s checkoff;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e181 |
+| **`docs/v1/V1-BUILD-SPEC.md`** | ✅ `D-356` sequence note in the `SV-002` section |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ `SV2-DOD-03` row and §3.6.6 amendment note |
+| **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: the follow-up packet is named but no file is created until it is scoped |
+| **`V1-PHASE-CLOSURE.md`**, rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
