@@ -23614,3 +23614,43 @@ line"*.
 | **`V1-PHASE-CLOSURE.md`**, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e176 `D-351` — Pointer Re-Probe Halted: ChatGPT Work Over-Fires on Near-Miss Prompts (5/5 but 2/3); Claude Code 5/5, Codex Desktop 4/5 Hold
+
+**Authority:** the `D-349` item 4 re-probe authorized by `D-350`. The Judge reported Codex Desktop and ChatGPT Work
+done.
+
+### The decision
+
+1. **`D-349` stop criterion 1 has fired.** On ChatGPT Work, N2 and N3 read the reference file in full alongside a
+   `package.json` lookup and an `app/` listing. The re-probe **stops here**; Agent Manager and the IDE agent are not
+   run.
+2. **What the change did achieve** (`SV-002` §3.6.6, round-2 record):
+   - Claude Code 4/5 → **5/5**;
+   - ChatGPT Work 3/5 → **5/5** on the paraphrased prompts;
+   - Codex Desktop holds at 4/5;
+   - near-miss prompts stay at 0 of 3 on Claude Code and Codex Desktop;
+   - delivery is byte-exact on all three surfaces.
+3. **The Judge chooses** (`D-349` item 5):
+   - **(a) Revert** `AGENTS.md` lines 3–4 to the `D-337` text;
+   - **(b) Rescope**, for example by moving the negative case first ("For application code or tooling lookups, do not
+     read it") or narrowing "in full";
+   - **(c) Accept an over-read cost** on ChatGPT Work. This needs a change to the J4 near-miss mark, which is itself a
+     scope act.
+4. **Scorer corrections, recorded:**
+   - the import filter now keys on structure, not text;
+   - an N3 run on Codex Desktop was not fresh;
+   - handoff `B-149` from a supplementary R5 probe was moved out of the proof worktree as evidence.
+5. **Not given by this act:** any rule-file edit (revert or rescope), a J4 change, `SV2-DOD-03`, or any lane-state
+   change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e176 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 round-2 record |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected (the `D-350` text stays live pending the Judge) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
