@@ -23191,3 +23191,37 @@ draft"* (`D-324` step 2).
 | **`V1-PHASE-CLOSURE.md`**, rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e164 `D-339` — Claude Code Probe Batch: Delivery Passes, J4 Activation Passes (4/5, 0/3), Adherence 4 of 7 with No Pass Mark Set
+
+**Authority:** the proof step, `D-338`. The Judge logged the CLI in (*"claude login completed"*), and Lane A ran the
+batch.
+
+### The decision
+
+1. **Recorded, not judged.** The results are in `SV-002` §3.6.6 (the Claude Code probe batch):
+   - fresh-session delivery **passes**, which clears `D-338`'s resumed-session caveat on `SV2-U02-A-R2`;
+   - activation **passes** J4 at 4 of 5 paraphrased prompts and 0 of 3 near-miss prompts;
+   - adherence is **4 of 7**: R1, R2, R3 and R5 pass; **R4, R6 and R7 fail**.
+2. **No adherence pass mark exists.** `D-324` J4 set a mark for activation only. Whether 4 of 7 is sufficient, and
+   whether a fix is required, is the Judge's decision; this act makes neither choice.
+3. **What the failures point at**, as options only:
+   - **R4.** The Approve-is-not-permission rule was known but not applied to the offer "paste it and I'll apply it".
+   - **R6.** `V1-PHASE-CLOSURE.md` §6.4b still carries a dated lane-state row, and the agent found it before §5.
+     This is a document defect independent of the rule files.
+   - **R7.** The output-contract line did not produce a verdict table on an analysis prompt.
+
+   **None of these has a pre-change baseline**, so none is shown to be a regression.
+4. **Not given by this act:** any rule-file edit, an adherence pass mark, `SV2-DOD-03`, or any lane-state change.
+   The other surfaces stay pending in the operator sheet's order.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e164 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 Claude Code probe batch |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no scope, order or file changes |
+| **`V1-PHASE-CLOSURE.md`**, rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected (the §6.4b defect is recorded, not fixed) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
