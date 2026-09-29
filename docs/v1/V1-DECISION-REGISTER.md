@@ -23225,3 +23225,34 @@ batch.
 | **`V1-PHASE-CLOSURE.md`**, rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected (the §6.4b defect is recorded, not fixed) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e165 `D-340` — Stale Lane-State Row Removed from `V1-PHASE-CLOSURE.md` §6.4b
+
+**Authority: the Judge, directly to Lane A, 2026-09-29**: *"Judge Approved: fix the §6.4b stale lane-state row"*
+(`D-339` item 3, R6).
+
+### The decision
+
+1. **The §6.4b snapshot's `Lane state` row no longer carries a lane-state value.** It points to §5, the only home of
+   live lane state (`D-156`). It records why the value was removed and where it is kept: git history, at `aac6675`
+   and earlier.
+2. **Why removal rather than a label:** a dated value is still a lane-state row an agent can quote. In `D-339` R6 the
+   agent found this row before §5 and answered from it.
+3. **Scope, held to the approved row.** A scan of `V1-PHASE-CLOSURE.md` found no other lane-state value outside §5.
+   Line 560 quotes `D-101`'s wording as history and states no current value.
+4. **Not given by this act:**
+   - a check that forbids lane-state rows outside §5 — possible as a separate act;
+   - re-running R6;
+   - any other adherence fix, an adherence pass mark, or `SV2-DOD-03`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e165 |
+| **`docs/v1/V1-PHASE-CLOSURE.md`** | ✅ §6.4b `Lane state` row (`D-340`) |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ note on the Claude Code probe batch's critic reading |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no scope, order or file changes |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |

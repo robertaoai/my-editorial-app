@@ -1037,7 +1037,7 @@ a placeholder `flags.ts` that Lane B correctly refused (`B-002`).
 | Handoff closure matrix | **12 entries: 10 `Verified`, 2 `Superseded`, 0 `Open`, 0 merely `Answered`** — derived by check 13, not hand-maintained |
 | Graph | rebuilt and re-merged; `docs-drift` synced |
 | Graph portability | **`portable-check` non-zero on gitignored build output only** — see §6.4a |
-| Lane state | A `Active` · B `Eligible` · C `Blocked` on `C-18` / `Eligible` for `C-Q1` |
+| Lane state | **Not recorded in this snapshot.** Live lane state lives only in §5 (`D-156`). *(`D-340`, 2026-09-29: the 2026-08-24 value was removed because an agent read it as current state, `D-339` R6. It is preserved in git history, at `aac6675` and earlier.)* |
 
 **Condition 3's evidence is `§6.1b`, the second critic pass, plus this pass's own findings** —
 which are recorded in the register at `§5.14bi` rather than here, because **this pass was work,
