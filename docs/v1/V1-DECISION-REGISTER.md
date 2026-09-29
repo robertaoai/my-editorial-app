@@ -23256,3 +23256,32 @@ batch.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e166 `D-341` — Proof Worktree Moved to `d406145`; R6 Re-Run Passes (Claude Code Adherence 5 of 7)
+
+**Authority: the Judge, directly to Lane A, 2026-09-29**: *"Judge Approved: move the proof worktree and re-run R6"*
+(`D-340`).
+
+### The decision
+
+1. **The proof worktree is detached at `d406145`**, with pushing still disabled.
+   - `AGENTS.md`, `CLAUDE.md` and `GEMINI.md` are unchanged from `fd89ddc`, so the delivery pin stands.
+   - The worktree now carries `D-340`'s §6.4b fix.
+2. **R6 passes.** Fresh session `85c68c7c…` searched for the lane table and read `V1-PHASE-CLOSURE.md` §5
+   (lines 380–385). It answered "Lane A `Active`, B `Eligible`, C `Blocked`", naming §5 as the source.
+   - The `fd89ddc` result is kept beside it in the kit (`R6@fd89ddc`).
+3. **Claude Code adherence is now 5 of 7.** R4 (Approve is not permission) and R7 (the verdict table) still fail.
+   There is still no adherence pass mark.
+4. **Later surfaces run against `d406145`.** The operator sheet's workspace path is unchanged.
+5. **Not given by this act:** any R4 or R7 fix, an adherence pass mark, `SV2-DOD-03`, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e166 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ R6 re-run note (`D-341`) |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
