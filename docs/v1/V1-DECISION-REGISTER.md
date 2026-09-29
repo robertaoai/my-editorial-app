@@ -23681,3 +23681,30 @@ first"* (`D-351` option (b)).
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected until applied |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e178 `D-353` — `D-352` Exception-First Pointer Applied to `AGENTS.md`
+
+**Authority: the Judge, directly to Lane A, 2026-09-29**: *"Judge Approved: apply the D-352 exception-first
+pointer"*.
+
+### The decision
+
+1. **The `D-350` pointer lines in `AGENTS.md` are replaced by the `D-352` text**, verbatim. No other line changes.
+2. **Measured:** 3,630 characters, with one pointer mention. `rule-budget`, `bun run check` and the fixtures pass.
+3. **Next: the `D-352` re-probe order.** The proof worktree and the kit's pin move to this commit.
+   - **ChatGPT Work goes first.**
+   - If it passes, Claude Code and Codex Desktop follow, then Agent Manager and the IDE agent.
+   - The `D-349` stop criteria apply, with a revert to `D-337` as the fallback.
+4. **Not given by this act:** a J4 change, `SV2-DOD-03`, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e178 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ applied note on the rescope proposal |
+| **Rule files** (`AGENTS.md`) | Pointer lines replaced. The rule files cite no decision number by design, so this row is recorded here, not swept |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no artifact is created or retired |
+| **`V1-PHASE-CLOSURE.md`**, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
