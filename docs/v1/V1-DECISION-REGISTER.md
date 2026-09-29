@@ -23871,3 +23871,37 @@ was written in Codex Desktop.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e183 `D-358` — IDE Agent Delivery Re-Established on the Live Text (Conversation `27840c0b…`), Raw Record Preserved; One Void Repeat Recorded
+
+**Authority:** `D-357` item 6. The Judge ran the repeated IDE D0 twice (*"IDE D0 done"*).
+
+### The decision
+
+1. **IDE agent delivery is re-established on replayable evidence.**
+   - Conversation `27840c0b…` holds `AGENTS.md` and `GEMINI.md` rule blocks, content-equal to `1945c19`/`fd89ddc`
+     after normalization, with no truncation marker.
+   - Its raw store and transcript are preserved in the kit.
+   - This replaces the `D-345` result, whose raw records were lost, as the IDE delivery evidence.
+2. **One void repeat, recorded rather than deleted.** Conversation `789a1e63…` ran against a proof worktree still at
+   `498141c`, because Lane A had not moved it after `D-355`. It shows whole delivery of that commit's text, not of the
+   live text.
+   - **Lane A's error:** a revert of a probed file must also move the proof worktree and the kit's pin. The kit's pin was
+     moved at `D-357`, but the worktree was not.
+3. **Still required for `SV2-DOD-03`:**
+   - the Codex CLI, measured or waived by a separate Judge act;
+   - the ChatGPT Chat/Work Level 1 review;
+   - the Antigravity chat Level 2 review;
+   - the Judge's assessment.
+4. **Not given by this act:** a Codex CLI waiver, `SV2-DOD-03`, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e183 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 IDE delivery re-established |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
