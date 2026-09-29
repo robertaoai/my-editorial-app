@@ -23405,3 +23405,44 @@ batch.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e170 `D-345` — IDE Agent Probe Batch: Delivery Passes Whole; J4 Fails 3/5; Adherence 7 of 7; IDE Carry-Over Measured (Titles Only)
+
+**Authority:** the proof step (`D-338`). The Judge reported *"IDE agent done"*.
+
+### The decision
+
+1. **Delivery passes, and the IDE's mid-line cut is gone** (`SV2-U02-C-R3`, IDE agent):
+   - both rule blocks arrive byte-equal to the pin in all 16 conversations, with no truncation marker;
+   - the `D-331` cut, 24,000 bytes mid-line, no longer occurs.
+2. **Activation fails J4** at 3 of 5 paraphrased prompts (P2, P3 and P4). The near-miss prompts hold at 0 of 3.
+3. **Adherence is 7 of 7.** R2 is a weak pass because no tool call checked what was staged.
+4. **IDE carry-over is measured.** Each IDE conversation receives the titles and one-line objectives of up to 15
+   recent conversations, and an empty knowledge step. No answer content is carried. Agent Manager carries neither.
+   Recorded as a mild freshness confound on the IDE batch.
+5. **Standing across the five surfaces measured**, stated as facts:
+
+   | Surface | Delivery | J4 activation | Adherence |
+   |---|---|---|---|
+   | Claude Code | pass | pass (4/5) | 5 of 7 (R4, R7 fail) |
+   | ChatGPT Work | pass | **fail** (3/5) | 6 of 7 (R6 fails) |
+   | Codex Desktop | pass | pass (4/5) | 7 of 7 |
+   | Agent Manager | pass, whole | **fail** (2/5) | 6 of 7 plus R4 partial |
+   | IDE agent | pass, whole | **fail** (3/5) | 7 of 7 |
+
+   - **Delivery passes on every surface measured.**
+   - **J4 fails on three of five.** P1 (handoff answering) and P5 (lane handoffs) are the most frequent misses: the
+     agents answered from the handoff `README.md` or from the rule files alone.
+6. **Not given by this act:** any rule-file edit, a J4 or adherence decision, `SV2-DOD-03`, or any lane-state change.
+   Cowork remains, and the Codex CLI after the quota fix.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e170 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 IDE agent probe batch and carry-over record |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
