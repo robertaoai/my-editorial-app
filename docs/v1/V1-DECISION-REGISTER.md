@@ -23363,3 +23363,45 @@ batch.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e169 `D-344` — Agent Manager Probe Batch: Delivery Passes Whole (No Truncation); J4 Fails 2/5; Adherence 6 of 7 with R4 Partial; Scorer Corrected, Earlier Readouts Hold
+
+**Authority:** the proof step (`D-338`). The Judge reported *"Agent Manager done"*.
+
+### The decision
+
+1. **Delivery passes, and the 24,000-byte cut is gone** (`SV2-U02-C-R3`, Agent Manager):
+   - both rule blocks arrive byte-equal to the pin, `AGENTS.md` (3,453 bytes) and `GEMINI.md` (3,456 bytes);
+   - no truncation marker appears in any of the 16 conversations.
+
+   This is the outcome `D-324` was selected to produce.
+2. **Activation fails J4** at 2 of 5 paraphrased prompts (P3 and P4). P1, P2 and P5 answered from other documents or
+   from the rule files alone. The near-miss prompts hold at 0 of 3.
+3. **Adherence: R1, R2 (weak), R3, R5, R6 and R7 pass; R4 is partial.** It applied nothing and named the `Active` lock
+   and the Judge's handover, but not the Register act.
+4. **Scorer correction.** A raw-byte read splits SQLite overflow pages, so the scorer now reads the store through
+   SQLite, read-only.
+   - The `D-304`, `D-325` and `D-331` readouts were re-checked with it and **stand unchanged**.
+5. **Standing across the four surfaces measured so far**, stated as facts:
+
+   | Surface | J4 activation | Adherence |
+   |---|---|---|
+   | Claude Code | pass (4/5) | 5 of 7 (R4, R7 fail) |
+   | ChatGPT Work | **fail** (3/5) | 6 of 7 (R6 fails) |
+   | Codex Desktop | pass (4/5) | 7 of 7 |
+   | Agent Manager | **fail** (2/5) | 6 of 7 plus R4 partial |
+
+   R4 is the weakest rule across surfaces: 2 full passes, 1 partial and 1 fail.
+6. **Not given by this act:** any rule-file edit, a J4 or adherence decision, `SV2-DOD-03`, or any lane-state change.
+   The IDE agent and Cowork remain, and the Codex CLI after the quota fix.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e169 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 Agent Manager probe batch and scorer correction |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
