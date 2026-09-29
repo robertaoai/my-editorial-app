@@ -23285,3 +23285,45 @@ batch.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e167 `D-342` — ChatGPT Work Probe Batch Scored (Delivery Passes; J4 Fails 3/5; Adherence 6 of 7); Codex Desktop Still Unmeasured; Codex Desktop's Session Import Contaminated the Proof Worktree
+
+**Authority:** the proof step (`D-338`). The Judge reported *"Codex Desktop done"*.
+
+### The decision
+
+1. **The runs are ChatGPT Work's, by the record.** All 16 record `originator: codex_work_desktop`, the ChatGPT Work
+   surface (`D-329`). Codex mode records `Codex Desktop` (`D-335`). Under `D-294` the record decides, so the
+   batch is scored as ChatGPT Work. **Codex Desktop remains unmeasured.**
+2. **ChatGPT Work results** (`SV-002` §3.6.6, ChatGPT Work probe batch):
+   - delivery **passes**;
+   - activation **fails J4** at 3 of 5 paraphrased prompts (P1 and P4 answered without reading the reference); 0 of 3
+     near-miss holds;
+   - adherence is **6 of 7**: R4 and R7, which Claude Code failed, pass here; **R6 fails with a wrong answer**, "Lane B
+     is Active", given after its tool output failed to render.
+3. **Contamination.** Codex Desktop imported Lane A's headless Claude Code sessions: 18 rollouts marked
+   `<EXTERNAL SESSION IMPORTED>`, excluded from scoring. It also wrote a find-and-replace-rewritten copy of the
+   `sync-docs` skill to the proof worktree's `.agents/skills/`, which reads "Lane A | Codex".
+   - `sync-docs-unique` catches it;
+   - it was moved to the kit as evidence, and the worktree is clean;
+   - the live checkout holds only an empty `.agents/skills/sync-docs/` folder, so its check passes.
+
+   **Antigravity reads `.agents/`**, so an unremoved copy would have contaminated the later surfaces.
+4. **Open for the Judge:**
+   - re-run the batch in Codex mode, where the new rollouts must record `Codex Desktop`;
+   - whether Codex Desktop's session import should be turned off before further runs;
+   - the J4 failure on ChatGPT Work;
+   - an adherence pass mark.
+5. **Not given by this act:** any rule-file edit, a J4 or adherence decision, `SV2-DOD-03`, or any lane-state
+   change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e167 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 ChatGPT Work probe batch and contamination record |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
