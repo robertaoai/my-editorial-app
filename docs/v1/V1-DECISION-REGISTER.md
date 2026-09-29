@@ -23587,3 +23587,30 @@ line"*.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected until a scope act |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e175 `D-350` — `D-349` Pointer Rewording Applied to `AGENTS.md`
+
+**Authority: the Judge, directly to Lane A, 2026-09-29**: *"Judge Approved: apply the D-349 pointer rewording"*.
+
+### The decision
+
+1. **`AGENTS.md` lines 3–4 are replaced by the `D-349` proposed text**, verbatim. No other line changes.
+2. **Measured:** 3,630 characters, under the 5,400 ceiling. The reference pointer appears once. `rule-budget` and
+   `bun run check` pass.
+3. **Next: the `D-349` item 4 re-probe**, under its stop criteria:
+   - the proof worktree moves to this commit, and the kit's pin moves with it;
+   - Lane A runs the Claude Code batch headless;
+   - the Judge runs ChatGPT Work, Codex Desktop, Agent Manager and the IDE agent.
+4. **Not given by this act:** the R4 wording, an adherence pass mark, `SV2-DOD-03`, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e175 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ applied note on the pointer rewording proposal |
+| **Rule files** (`AGENTS.md`) | Lines 3–4 reworded. The rule files cite no decision number by design (the character budget), so this row is recorded here, not swept |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`** | — unaffected: no artifact is created or retired |
+| **`V1-PHASE-CLOSURE.md`**, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
