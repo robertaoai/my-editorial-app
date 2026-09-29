@@ -23654,3 +23654,30 @@ done.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected (the `D-350` text stays live pending the Judge) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e177 `D-352` — Scope Proposal: Pointer Rescoped Exception-First (Read-Only)
+
+**Authority: the Judge, directly to Lane A, 2026-09-29**: *"Judge Approved: rescope the pointer with the exception
+first"* (`D-351` option (b)).
+
+### The decision
+
+1. **The rescoped text and its bound are in `SV-002` §3.6.6** (the pointer rescope proposal):
+   - the negative case comes first, as an instruction;
+   - the trigger list and the "even when" clause are kept;
+   - 3,630 characters, unchanged, with one pointer mention;
+   - ChatGPT Work is re-probed first, then the regression guards, then Agent Manager and the IDE agent;
+   - the `D-349` stop criteria apply, with a revert to `D-337` as the fallback.
+2. **A proposal, not the change** (`D-183`). The `D-350` text stays live until the Judge approves applying this.
+3. **Not given by this act:** the edit, the re-probe, a J4 change, `SV2-DOD-03`, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e177 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 pointer rescope proposal |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected until applied |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
