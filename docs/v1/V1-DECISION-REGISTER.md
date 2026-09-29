@@ -23708,3 +23708,36 @@ pointer"*.
 | **`V1-PHASE-CLOSURE.md`**, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e179 `D-354` — Round-3 Re-Probe Halted: ChatGPT Work Still Over-Reads With the Exception-First Pointer (4/5, 2/3); No Tested Wording Reaches J4 There
+
+**Authority:** the `D-352` re-probe order authorized by `D-353`. The Judge reported *"ChatGPT Work done"*.
+
+### The decision
+
+1. **The `D-349` stop criterion 1 has fired again.** ChatGPT Work's N1 and N3 read the reference file in full. The
+   re-probe stops, and no other surface is run on `498141c`.
+2. **Across three wordings, ChatGPT Work never reaches J4** (`SV-002` §3.6.6, round-3 record): 3/5 and 0/3, then 5/5
+   and 2/3, then 4/5 and 2/3. It treats a firm pointer as a precondition for every task.
+3. **Options for the Judge:**
+   - **(a) Revert** to the `D-337` text, per the `D-352` fallback. The round-1 state returns: J4 fails on ChatGPT Work,
+     Agent Manager and the IDE agent.
+   - **(b) Keep the firm pointer** (`D-350` or `D-353`), which gave Claude Code 5/5 at `d956619`, and **record
+     ChatGPT Work's over-read as a known surface limitation.** This requires a scope act that exempts ChatGPT Work's
+     near-miss mark, because stop criterion 1 is otherwise binding.
+   - **(c) Revert, and treat ChatGPT Work like Cowork:** a ChatGPT-side project instruction could carry the pointer
+     for that surface only. That is outside the repository and is the Judge's configuration.
+4. **Current state:** `AGENTS.md` carries the `D-353` text until the Judge chooses.
+5. **Not given by this act:** a revert, a J4 exemption, a ChatGPT-side instruction, `SV2-DOD-03`, or any lane-state
+   change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e179 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 round-3 record |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected pending the Judge |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
