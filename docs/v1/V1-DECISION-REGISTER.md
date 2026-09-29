@@ -23498,3 +23498,36 @@ batch.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e172 `D-347` — Cowork Project Instruction Set; Re-Probe Passes J4 (5/5, 0/3), R5 and R6 Pass; Project-Store Rule Copies Are Unchecked
+
+**Authority:** the Judge set the instruction on Cowork (*"Cowork project instruction pointing at AGENTS.md and the
+reference file … also include the CLAUDE.md file"*), then reported *"Cowork re-probe done"* with each task's file report.
+
+### The decision
+
+1. **The instruction text is recorded in `SV-002` §3.6.6** (the Cowork re-probe record). It is the only copy on record,
+   because Cowork's configuration lives outside the repository. It names `AGENTS.md`, `CLAUDE.md` and the reference
+   file, in that order.
+2. **Cowork now passes J4** at 5 of 5 paraphrased prompts and 0 of 3 near-miss prompts. It was 1 of 5 without the
+   instruction (`D-346`). The near-miss tasks correctly judged the instruction not to apply.
+3. **R5 and R6 now pass**, both with verdict tables.
+4. **Caveat: the rule files were read from the Project store**, as copies held in Cowork rather than the attached
+   folder. No check compares those copies with the repository, so they drift silently when `AGENTS.md` or
+   `CLAUDE.md` changes (`G55`). **Options for the Judge:** remove the Project copies so that Cowork reads the folder,
+   or keep them and re-sync them on every rule-file change.
+5. **Standing:** delivery passes on every surface that loads rule files. J4 passes on Claude Code, Codex Desktop and
+   Cowork (with the instruction), and fails on ChatGPT Work, Agent Manager and the IDE agent. The Codex CLI remains.
+6. **Not given by this act:** any rule-file edit, a decision on the Project copies, a J4 or adherence decision,
+   `SV2-DOD-03`, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e172 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 Cowork re-probe, including the instruction text |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
