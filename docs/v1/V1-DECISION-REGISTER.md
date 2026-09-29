@@ -23825,3 +23825,49 @@ Lane A's proposal after `D-355`, which the independent Codex Desktop review supp
 | **`V1-PHASE-CLOSURE.md`**, rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e182 `D-357` — Second Independent Review (Codex Desktop, Not Level 1): Delivery Holds on Five Surfaces; "Byte-Exact" Qualified; IDE Raw Records Lost; Kit Fixed and Raw Evidence Preserved
+
+**Authority:** the D-356 review chain. The Judge pasted a reply labelled *"Level 1 review done"*. The reply states it
+was written in Codex Desktop.
+
+### The decision
+
+1. **Attribution.** The review is independent but **is not the Level 1 review**: D-324 and D-356 assign Level 1 to
+   ChatGPT Chat/Work. **Level 1 and Level 2 both remain open.** A Level 1 run is recognisable in its rollout by
+   `originator: codex_work_desktop`, not `Codex Desktop`.
+2. **Findings accepted** (`SV-002` §3.6.6, evidence audit):
+   - delivery holds on Claude Code, ChatGPT Work, Codex Desktop, Agent Manager and the IDE agent;
+   - "every surface" cannot be claimed while the Codex CLI is unmeasured;
+   - `AGENTS.md`, `CLAUDE.md` and `GEMINI.md` are identical at `1945c19` and `fd89ddc`;
+   - Cowork's on-demand design is acceptable in scope.
+3. **Wording corrected.** Every "byte-exact" in `D-337`–`D-356` means **content-equal after documented transport
+   normalization**: line endings unified, and newlines trimmed at the wrapper's edges. No result changes.
+4. **Kit defects fixed:**
+   - the main script now reads Antigravity through SQLite;
+   - the pin is `1945c19`;
+   - the truncation regex is corrected;
+   - the Codex scorer searches `archived_sessions/` and records full paths.
+5. **Evidence:**
+   - the ChatGPT and Codex rollouts were archived by their app and are intact;
+   - **the IDE agent's raw records were deleted** from its store shortly after the batch. The IDE delivery result
+     rests on Lane A's scored summary alone and **must be repeated** with one fresh D0 run, then preserved;
+   - all surviving raw records are copied to `evidence/raw/` in the kit with a SHA-256 manifest.
+6. **Still required for `SV2-DOD-03`:**
+   - the repeated IDE D0;
+   - the Codex CLI, measured or waived by a separate Judge act;
+   - the ChatGPT Chat/Work Level 1 review;
+   - the Antigravity chat Level 2 review;
+   - the Judge's assessment.
+7. **Not given by this act:** a Codex CLI waiver, `SV2-DOD-03`, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e182 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 second review and evidence audit |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected: the kit and evidence are outside the repository |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
