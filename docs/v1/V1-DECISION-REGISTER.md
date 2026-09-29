@@ -23446,3 +23446,55 @@ batch.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e171 `D-346` — Cowork Probe Batch: No Automatic Delivery (as `D-332`); J4 Fails 1/5; R5 and R6 Fail as Signals; Measured Without a Project Instruction
+
+**Authority:** the proof step (`D-338`). The Judge reported *"Cowork done"* and supplied each task's own file report.
+
+### The decision
+
+1. **The evidence is Cowork's own reports** (`D-332`): no local harness record exists. Each task listed the files it
+   had opened after it answered.
+2. **Delivery is unchanged from `D-332`.** D0 opened nothing and replied "OK"; no rule file arrives on the first
+   turn.
+3. **Activation fails J4 at 1 of 5.** Only P2 read the reference file, and only in part. The near-miss prompts hold at
+   0 of 3. Three tasks answered from `CLAUDE.md`, `AGENTS.md`, the handoff `README.md` or the `sync-docs` skill
+   without opening the reference file.
+4. **The supplementary R-probes are signals, not scores:**
+   - **R5:** offered to build a Lane B change;
+   - **R6:** did not find the lane state;
+   - **R2:** untestable, because the worktree's `.git` pointer leads outside the attached folder;
+   - **R1, R3, R4 and R7:** no violation is visible.
+5. **Observations on Cowork's word alone:**
+   - `CLAUDE.md` content reached one task through a system reminder after it began reading files, so a rule file may
+     arrive on file access;
+   - the `sync-docs` skill loads as a skill.
+6. **What this measures.** It is Cowork with **no project instruction**. `D-332` had already said Cowork's rules must
+   be reachable on demand and that *something must tell it to read them*. A Cowork project instruction pointing at
+   `AGENTS.md` and the reference file is the obvious candidate. It is not applied, because Cowork's configuration is
+   the Judge's.
+7. **Standing across the six surfaces measured**, stated as facts:
+
+   | Surface | Delivery | J4 activation | Adherence |
+   |---|---|---|---|
+   | Claude Code | pass | pass (4/5) | 5 of 7 (R4, R7 fail) |
+   | ChatGPT Work | pass | **fail** (3/5) | 6 of 7 (R6 fails) |
+   | Codex Desktop | pass | pass (4/5) | 7 of 7 |
+   | Agent Manager | pass, whole | **fail** (2/5) | 6 of 7 plus R4 partial |
+   | IDE agent | pass, whole | **fail** (3/5) | 7 of 7 |
+   | Cowork | none automatic (as designed) | **fail** (1/5) | signals: R5 and R6 fail |
+
+   The Codex CLI remains, after the quota fix.
+8. **Not given by this act:** any rule-file edit, a Cowork instruction, a J4 or adherence decision, `SV2-DOD-03`, or
+   any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e171 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 Cowork probe batch |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
