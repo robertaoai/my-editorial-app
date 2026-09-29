@@ -23741,3 +23741,43 @@ pointer"*.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected pending the Judge |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e180 `D-355` — Pointer Reverted to the `D-337` Text (`D-354` Option (a)); Independent Codex Desktop Review Recorded, Not Level 1
+
+**Authority: the Judge, directly to Lane A, 2026-09-29**: *"Judge Approved: revert to the D-337 pointer"*.
+
+### The decision
+
+1. **`AGENTS.md` is reverted**, verified byte-identical to `fd89ddc` (3,445 characters). The `D-350` and `D-353`
+   wordings are withdrawn.
+   - Delivery of this exact text was measured byte-exact on every surface in round 1 (`D-339`–`D-345`), so no
+     delivery re-probe is required.
+   - The round-1 activation results stand as the current state.
+2. **Independent review recorded:**
+   - **Author:** it was written in **Codex Desktop**, as its author states.
+   - **What it found:** its raw-record re-score of ChatGPT Work round 3 matches Lane A's (4/5, 2/3).
+   - **What it recommended:**
+     - option (a);
+     - no retrospective exemption and no aggregate adherence mark;
+     - activation moved to a follow-up packet with sealed, repeated prompts and a frozen scorer, subject to a Judge
+       amendment of D-324.
+   - **Its status:** by its author's own correction, it is **not the D-324 Level 1 review** (that is ChatGPT
+     Chat/Work's role). No `B-NNN` entry was filed.
+3. **Still open, in order:**
+   - the D-324 amendment separating SV2-DOD-03 (delivery) from behavioural proof;
+   - the Codex CLI, measured or explicitly waived;
+   - the Level 1 review (ChatGPT Chat/Work) and the Level 2 review (Antigravity chat);
+   - per-failure dispositions for R4, R6 and R7.
+4. **Not given by this act:** the D-324 amendment, SV2-DOD-03, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e180 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 independent review and revert record |
+| **Rule files** (`AGENTS.md`) | Reverted to `fd89ddc`. The rule files cite no decision number by design, so this row is recorded here, not swept |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |

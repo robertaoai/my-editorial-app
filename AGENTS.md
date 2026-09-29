@@ -1,9 +1,7 @@
 # my-editorial-app — shared agent rules
 
 Rules every agent must follow before its first action. Full text, rationale and history:
-`docs/governance/agent-rules-reference.md`. For application-code or tooling lookups, do not read it.
-**Before you answer or act on handoffs, specs, decisions, lanes, freeze or `[V1]` markers, read it in
-full**, even when a README, skill or this file seems to cover the question.
+`docs/governance/agent-rules-reference.md` — read it before governance, spec or handoff work.
 Where anything conflicts, `docs/v1/V1-DECISION-REGISTER.md` decides (`D-58`).
 
 ## Before any work
