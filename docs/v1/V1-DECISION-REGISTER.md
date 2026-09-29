@@ -23557,3 +23557,33 @@ reference file … also include the CLAUDE.md file"*), then reported *"Cowork re
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e174 `D-349` — Scope Proposal: Reword the `AGENTS.md` Reference Pointer (Read-Only, for the Judge's Scope Act)
+
+**Authority:** the Judge, directly to Lane A, 2026-09-29: *"Judge Approved: scope a rewording of the AGENTS.md pointer
+line"*.
+
+### The decision
+
+1. **The proposal is in `SV-002` §3.6.6** (the pointer rewording scope proposal). It holds the miss analysis, the
+   current and proposed text, and the bound:
+   - one edit to `AGENTS.md` lines 3–4;
+   - 3,445 → 3,630 characters;
+   - a single pointer mention;
+   - a re-probe of five surfaces;
+   - stop criteria.
+2. **This is a proposal, not the change.** Per `D-183`, applying it needs the Judge's scope act on this bound. No rule
+   file is edited by this entry.
+3. **Not given by this act:** the edit, the re-probe, the R4 wording, an adherence pass mark, `SV2-DOD-03`, or any
+   lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e174 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 pointer rewording scope proposal |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected: nothing is applied |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected until a scope act |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
