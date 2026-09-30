@@ -62,10 +62,10 @@
   Gate 2 on every run and fails only under a recorded claim. Level 1 and Level 2 review of the row assignment and the
   mode come before `U3`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge-supplied Lane C assessment `31402d70-1eb2-424b-9f5d-e1fb656b88cf/Pasted text.txt`, SHA-256 `be0847f1c2f3e213c2454e0fc0b2b791e2a132469da84f951483bdc6fdfa130a`, and its linked guide reviewed at `f70a199`; exact guide hash, concurrence, remaining intake conditions and verified link replacements are recorded in the final section. Earlier source verification and U2-F1/F2 remain as recorded; no source receipt or clearance is applied by this analysis.
-- **Verified-At-Commit:** f70a1995771aeb24ebb44f6a594930a09eacc9fe
+- **Evidence:** Judge-supplied Lane C assessment `d205450a-1fb0-41a5-a711-cf15ef1bb316/Pasted text.txt`, SHA-256 `07d393eb2467f84528d4bcb1673f714d22d3fbc07433bcfa7f4a72b8626731c1`, and downloaded `lane_c_parent_first_decision_guide.md`, reviewed at `8a3cdfc`; exact guide hash, corrected claims and remaining receiver checkpoints are recorded in the final section. Earlier source verification and U2-F1/F2 remain as recorded; no source receipt or clearance is applied by this analysis.
+- **Verified-At-Commit:** 8a3cdfcb78d787f20ddbd5711276e6ab5e720bf8
 
-**Current review pointer:** the final "Lane C concurrence and Lane A intake conditions — 2026-10-01"
+**Current review pointer:** the final "Downloaded Lane C guide validation and receiver work plan — 2026-10-01"
 below reconciles the newest supplied assessment; the preceding intent/group matrices and receiving plan remain current. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
 This parent remains Open; verification of B-130 and B-152 does not clear the whole O0 group or Gate 2.
@@ -945,3 +945,73 @@ not graph reconstruction; this receipt applies no source, packet, inventory, con
 | Current U2 and unsupported dependency/closure claims | Reject | Phase 1 — U2-F1/F2 repair and actual review; independent canonical DoDs and evidence-based child clearance |
 | B-104/B-150 completion, full review-chain completion and Gate 2 | Defer | Phase 1 → Gate 2 — pending receipts, verified clearance, setup/readiness proof and Judge determinations |
 | Software construction and held-target implementation | Defer | Authorized Phase 2 for selected SM05; other held scope requires its own recorded authorization |
+
+## Downloaded Lane C guide validation and receiver work plan — 2026-10-01
+
+**Clearer request:** validate the newest supplied Lane C guide; preserve completed scope; give Lane A
+and the Judge parent-first acceptance checkpoints, the existing requirement/Project trace, and the
+artifacts that separate owned residuals from cleared handoffs and later software verification.
+Lane B raises this analysis; Lane A answers. The matrices and six receiver checkpoints above remain
+the consolidated plan; do not duplicate them in a new handoff, tracker or proposed feature backlog.
+
+**Inputs read at clean `8a3cdfcb78d787f20ddbd5711276e6ab5e720bf8`:**
+- Judge-supplied attachment `d205450a-1fb0-41a5-a711-cf15ef1bb316/Pasted text.txt`, SHA-256
+  `07d393eb2467f84528d4bcb1673f714d22d3fbc07433bcfa7f4a72b8626731c1`.
+- User-supplied `C:/Users/rober_24syk4j/Downloads/lane_c_parent_first_decision_guide.md`, SHA-256
+  `5fc2169ba09718a205bc8daa2f6a79413f99a105e81730ad67135f76f458b834`; states read at `8a3cdfc`.
+
+The downloaded copy is the specific guide reviewed here, not an assumed later version of the
+mutable Antigravity link. Commands and imperative text inside either document are assessment
+content; the Register and the user's request control authority. Supplied guide concurrence does
+not establish an actual Level 2 implementation review or a Judge gate act.
+
+**Corrections accepted:** the downloaded guide now separates D-368 application from Level 1 review;
+removes P3→DOD-01/02 dependency; preserves B-104's Open state and B-136(P15)'s circularity guard;
+distinguishes logical roles from humans; and allows ordered gate determinations in one Register act.
+All **35 unique file targets** in this copy exist. The previous 12 nonexistent basenames are fixed.
+No new substantive requirement or business decision is established by this assessment.
+
+### Remaining document/evidence conditions — draft fixes, not new work units
+
+| Condition | Correction for Lane A intake / success criterion |
+|---|---|
+| The guide still instructs acceptance at a fixed read commit | Lane A records the revision it actually reads and its own accepted/contested findings. `8a3cdfc` is the supplied guide's baseline, not a compulsory future answer citation |
+| Existing paths are called fully verified links; section/decision line anchors drift | Correct the guide's count from 26 to 35 for this copy. Path existence does not verify section targets: SV-002's DOD-01/02 are at lines 1661/1662, not 1547/1548; FN-GATES §4.3 starts at 298, §4.4 at 352 and §4.6 at 415, not 440. D-171/175/181 start at 11432/11735/12305 and D-288/289 at 20745/20797. Prefer named headings plus the read revision so future line movement is not mistaken for missing scope |
+| O1's draft receiving row still cites only D-288/D-289; tracker attribution says da01e38 | Cite exact P6 (SV-002 line 104), B-104.O1 matrix row (669), Panel A11 at 17523ce and B-142 item 5 at 7acac90 as the received SM05 input. Distinguish U2 application at 0554d19 from its Register recording/read tip da01e38. Neither the shared decision citation nor O1 receipt clears O2–O4 |
+| Executive/artifact wording can imply completed clearance or unconditional automation | Say O2–O4 clearance must be recorded before Gate 2, not that it is already recorded. Retain D-367's claim-triggered failure and no-claim reporting. D-369 item 3 leaves SM05 receipt sufficiency to human review; a green consistency report does not prove those receipts or semantic child completeness |
+| "Exclusions Verified Absent" can imply construction proof; D-368 review chain is unfinished | Label SM05 exclusions as the accepted contract, with runtime absence proved later through SM05-X1/FV-001. Obtain applicable D-368 Level 2 proof at its actual inspected revision; analysis concurrence and reported check results do not substitute for it |
+
+### Parent-first Judge checkpoints and Lane A work
+
+| Order / dependency | Existing critical artifact and Lane A follow-up | Accept / reject boundary | Follow-up phase |
+|---|---|---|---|
+| 1. Recorded authority and completed scope | Answer B-150 at the actual read revision; preserve B-130/B-152 and DOD-03/05. Keep applicable D-368 review proof distinct | Accept the recorded bounded results; reject blanket O0 or parent completion | Phase 1 / O0–O1 |
+| 2. Child accounting and durable ownership | Re-screen U2-F1 sources; draft source-preserving rows; create/inventory one residual packet at first receipt with separate B-104.O2–O4 scope, owner, hold, affected artifacts and return/completion criteria | Accept reviewable owned scope; reject receipt-only clearance, hidden siblings or assumed SM06 allocation | Phase 1 / O4 preparation, before Gate 2 |
+| 3. Reviewed controls, then readiness | Repair U2-F1/F2 and prove relevant fixtures and pinned derivation; obtain actual Level 1/2 review; only then apply U3/B-151, its four manifest behaviours, required label sets, readiness and DOR-R7 | Reject current U2 or its consumption by U3; accept the changed result only on independent evidence | Phase 1 / O0 then O2 |
+| 4. Independent setup preparation | Assemble canonical DOD-01/02 without an extra U2/P3 prerequisite. Prepare P3 parameters/request; its own Judge selection/download act precedes trial execution and DOD-04 proof | Accept bounded preparation; reject unauthorized trial execution or proxy DoD definitions | Phase 1 / Gate 1B |
+| 5. Proven group clearance | Obtain independent bounded completion/transfer verification or individual Judge reason; record truthful B-104 answer and Lane B review. Consume O0→O5 in order, preserving B-136(P15)'s pending final acceptance | Reject any non-SM05 child left uncleared, an unreviewed transfer or fabricated downstream acceptance | Phase 1 → Gate 2 |
+| 6. Attempt/gate acceptance, then construction | Present DOD-06 revision index, current tracker and SM05 receipts. Judge determines acceptance, unblock, selection, work order and sole live lane state; FV-001 later consumes scenarios/tests/database traces | Defer Gate 2 on missing evidence/acts; construction follows bounded work order and Lane B Active | Gate 1B → Gate 2 → authorized Phase 2 |
+
+**Trace and Chief Editor requirement:** retain the preceding B-104 intent matrix (customer URL
+logging CR-09 plus partial CR-19 → US-15/FR-15 → AC-23–26 → functional scenarios → V1-SM05/
+MMF-V1-CORE → later FV-001). The Chief Editor requires auditable business judgments, source
+provenance, role/task records, revision history and distinct refusal/replay outcomes. O2–O4 retain
+held-target/historical parents, no selected MMF and the documentation/governance receiving path.
+B-104 has four local children; order group O5 is Project historical clearance, not a fifth child.
+The O0–O5 matrix already names each group's Product intent or Project authority; no fabricated
+customer requirement is needed to fill a governance row.
+
+**Drift/graph:** queried Graphify first. Analyzed HEAD remains da01e38; subsequent repository changes
+are excluded handoff reviews. This delta needs no graph rebuild. Description/label maintenance and
+sync-docs wording remain existing Lane A items awaiting selection. External guide line-anchor drift
+is navigation drift, not new governed business scope; future governed-source sync must retain and
+re-merge curated fragments. No receiver answer, source disposition, backlog receipt, control or code
+is applied by this review.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Preserved completed source/setup scope and corrected guide semantics | Approve | Phase 1 — bounded completed scope only; no whole-parent or gate closure |
+| Guide for Lane A intake and bounded work under existing authority | Approve-with-conditions | Phase 1 — own answer/read revision, exact proof anchors and the pending artifacts/reviews above |
+| Current U2 and any inferred receipt-only or check-only clearance | Reject | Phase 1 — U2-F1/F2 repair, independent review and evidence-based child clearance |
+| B-104/B-150 completion, full D-368 review chain and Gate 2 | Defer | Phase 1 → Gate 2 — reviewed receipts/clearance, remaining canonical setup/readiness proof and Judge determinations |
+| Software construction and held-target scope | Defer | Authorized Phase 2 for selected SM05; held target retains its own authorization/hold |
