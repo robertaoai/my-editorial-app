@@ -23941,3 +23941,40 @@ was written in Codex Desktop.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e185 `D-360` — Level 1 Review Done (ChatGPT Work by Its Record, Rollout `01a0f072…`); Earlier Review Attributions Corrected; Its Two Conditions Met
+
+**Authority:** the D-356 review chain. The Judge pasted the reply as *"Level 1 review done"*. Attribution follows
+`D-294`: the harness record decides.
+
+### The decision
+
+1. **Level 1 is done.** The review sits in rollout `01a0f072…` with `originator: codex_work_desktop`, the ChatGPT
+   Work surface by `D-329`. The model's self-description, "Codex-mode review", is **overridden by the record**.
+2. **Earlier attributions are corrected.** The reviews recorded in `D-355` and `D-357` as "Codex Desktop" were also
+   ChatGPT Work, in rollouts `01a0ecda…` and `01a0ed00…`. Lane A had taken the model's self-label on trust instead
+   of checking the record. **From now on, a review's surface is taken from its rollout's `originator` before it is
+   recorded.**
+3. **The findings are accepted:**
+   - delivery is whole on all six automatic-loading surfaces;
+   - the normalization is acceptable as "content-equal";
+   - the 197-file manifest was verified by the reviewer;
+   - the rule-file blobs are identical at `fd89ddc`, `1945c19` and `db683c5`;
+   - Cowork is acceptable;
+   - no further gap.
+4. **Its two conditions are met:**
+   - the truncation regex in the kit's `remeasure.mjs` is corrected;
+   - the `SV2-DOD-03` row is reconciled to the "content-equal" wording and to the measured Codex CLI.
+5. **Still required for `SV2-DOD-03`:** the **Level 2** review (Antigravity chat), then the Judge's assessment.
+6. **Not given by this act:** `SV2-DOD-03`, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e185 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ `SV2-DOD-03` row reconciled; §3.6.6 Level 1 record |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
