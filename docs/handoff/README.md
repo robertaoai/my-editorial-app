@@ -341,11 +341,15 @@ independent actor; the re-close is the answering side's record and verifies noth
 ```
 
 - **One episode each.** A Re-close record completes the Return record immediately before it, and
-  `Reclosed-Return` must cite that record's `Returned-At-Commit`. A later reopening appends a
+  `Reclosed-Return` must cite **both** of that record's identity components: its
+  `Returned-At-Commit`, and its `Return-Act` — every decision ID (`D-NNN`) the act names, or its date
+  when it names no decision (`B-152`, `D-366`). A SHA alone, or the right SHA beside another act,
+  does not bind. A later reopening appends a
   new Return record and, when that work completes, a new Re-close record. An earlier record never
   covers a later episode.
 - **The latest episode governs the header.** A latest Return with no Re-close after it keeps the
-  entry `Open` with no `Resolution`; a completed one requires `Answered` and a `Resolution`.
+  entry `Open` with no `Resolution`; a completed one requires exactly `Answered` and a
+  `Resolution`. `Withdrawn` is not a re-close: a genuine withdrawal is its own disposition.
 - **`Reclosed-At-Commit` is a commit that was read** (`D-214`), not a prediction of the commit
   being written. It must exist and must come after the `Returned-At-Commit` it completes — a
   completion cannot predate its return.

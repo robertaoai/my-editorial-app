@@ -162,6 +162,36 @@ export function citesCommit(cited, sha) {
   });
 }
 
+/**
+ * A metadata field's value INCLUDING its wrapped continuation lines — the
+ * corpus wraps long act citations onto indented lines (`B-071`'s
+ * `Return-Act`), and `field()` reads only the first. Used only to compare
+ * identities; presence and blankness are still judged by `field()`.
+ */
+function wrappedValue(text, name) {
+  const m = new RegExp(`^-[ \\t]*\\*\\*${name}:\\*\\*[ \\t]*(.*)$`, "mi").exec(text);
+  if (!m) return null;
+  const parts = [m[1].trim()];
+  for (const line of text.slice(m.index + m[0].length).split("\n").slice(1)) {
+    if (!/^[ \t]+\S/.test(line) || /^[ \t]*-[ \t]*\*\*/.test(line)) break;
+    parts.push(line.trim());
+  }
+  return parts.join(" ").trim();
+}
+
+/**
+ * `B-152` F2, the Judge's token rule (2026-09-30, `D-366`). The identity of a
+ * Return-Act that a Re-close must cite: every decision ID (`D-NNN`) the act
+ * names, or — when it names none, as `B-071`'s Chief Editor ruling does — every
+ * date it names. An act naming neither cannot be bound. Exported for fixtures.
+ */
+export function actTokens(act) {
+  if (!act) return [];
+  const ids = [...new Set(act.match(/\bD-\d+\b/g) || [])];
+  if (ids.length) return ids;
+  return [...new Set(act.match(/\b\d{4}-\d{2}-\d{2}\b/g) || [])];
+}
+
 // Written as explicit calls rather than a loop over a field-name array on
 // purpose: `channel-docs` (check 16) discovers which fields a check reads by
 // grepping check source for quoted field names passed as the second argument,
@@ -264,7 +294,7 @@ function checkReturnRecord(text, path, findings) {
     if (block.kind === "return") {
       counts.returns++;
       checkReturnBlock(block.body, path, findings);
-      latest = { at: field(block.body, "Returned-At-Commit"), reclosed: false };
+      latest = { at: field(block.body, "Returned-At-Commit"), act: wrappedValue(block.body, "Return-Act"), reclosed: false };
       continue;
     }
     counts.recloses++;
@@ -278,11 +308,30 @@ function checkReturnRecord(text, path, findings) {
         `${path}: has a second Re-close record for the same return episode — a later reopening needs its own Return record first; a re-close never covers an episode twice (\`D-364\`)`,
       );
     } else {
-      const cited = field(block.body, "Reclosed-Return");
-      if (cited && latest.at && !citesCommit(cited, latest.at)) {
-        findings.push(
-          `${path}: Re-close record **Reclosed-Return:** "${cited}" does not cite \`${latest.at}\`, the Returned-At-Commit of the Return record it follows — a re-close binds to exactly one episode (\`D-364\`)`,
-        );
+      // `B-152` F2: BOTH identity components of the episode — its
+      // Returned-At-Commit and its Return-Act (`D-364` item 1). A citation
+      // naming only the right SHA, or the right SHA beside another act, is
+      // not a binding to this episode.
+      const cited = wrappedValue(block.body, "Reclosed-Return");
+      if (cited && field(block.body, "Reclosed-Return")) {
+        if (latest.at && !citesCommit(cited, latest.at)) {
+          findings.push(
+            `${path}: Re-close record **Reclosed-Return:** "${cited}" does not cite \`${latest.at}\`, the Returned-At-Commit of the Return record it follows — a re-close binds to exactly one episode (\`D-364\`)`,
+          );
+        }
+        const tokens = actTokens(latest.act);
+        if (latest.act && tokens.length === 0) {
+          findings.push(
+            `${path}: the Return record's **Return-Act:** names no decision ID and no date, so no Re-close can cite it — name the act's decision or date in the Return record (\`B-152\`, \`D-366\`)`,
+          );
+        } else {
+          const missing = tokens.filter((t) => !new RegExp(`\\b${t}\\b`).test(cited));
+          if (missing.length) {
+            findings.push(
+              `${path}: Re-close record **Reclosed-Return:** does not cite the Return-Act of the Return record it follows — missing ${missing.map((t) => `\`${t}\``).join(", ")}. It must name both the act and \`${latest.at ?? "its commit"}\` (\`B-152\`, \`D-364\` item 1)`,
+            );
+          }
+        }
       }
       latest.reclosed = true;
     }
@@ -312,9 +361,16 @@ function checkReturnRecord(text, path, findings) {
       );
     }
   } else {
+    // `B-152` F1: a completed episode reads exactly `Answered`. Testing only
+    // for `Open` let `Withdrawn` through, which the general status branch
+    // below accepts on its own.
     if (!status || /^Open\b/i.test(status)) {
       findings.push(
         `${path}: has a Re-close record completing its latest return, but **Status:** is still \`Open\` — record \`Answered\` with the disposition, or remove the Re-close record (\`D-364\`)`,
+      );
+    } else if (!/^Answered\b/i.test(status)) {
+      findings.push(
+        `${path}: has a Re-close record completing its latest return, but **Status:** is "${status}" — a completed return reads \`Answered\` (\`D-364\` item 2, \`B-152\`). A genuine withdrawal is not a re-close`,
       );
     }
     if (!field(text, "Resolution")) {

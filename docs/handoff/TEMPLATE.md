@@ -40,7 +40,7 @@ Every fact is required.
 
 ## Re-close record
 
-- **Reclosed-Return:** <the Return-Act and Returned-At-Commit of the episode this completes>
+- **Reclosed-Return:** <BOTH the Return-Act (every D-NNN it names, or its date if it names none) and the Returned-At-Commit of the episode this completes>
 - **Completion-Condition:** <the exact obligation whose completion permits the disposition>
 - **Completion-Evidence:** <the accepted act and the artifact/section proving each obligation>
 - **Reclose-Act:** <D-364 plus the receiver's dated disposition act and source locus>

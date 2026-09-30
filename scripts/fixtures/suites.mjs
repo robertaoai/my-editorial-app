@@ -1607,16 +1607,16 @@ export async function recloseRecordForm(results) {
       .filter(([, v]) => v !== null)
       .map(([k, v]) => `- **${k}:** ${v}`)
       .join("\n")}\n`;
-  const ret = (at = RET1) =>
+  const ret = (at = RET1, act = "`D-264`, test act, Judge, 2026-09-30") =>
     block("Return record", {
       "Previous-Resolution": "Deferred",
       "Return-Trigger": "test condition satisfied",
-      "Return-Act": "test act, Judge, 2026-09-30",
+      "Return-Act": act,
       "Returned-At-Commit": at,
     });
   const reclose = (fields = {}) =>
     block("Re-close record", {
-      "Reclosed-Return": `test act, Returned-At-Commit ${RET1}`,
+      "Reclosed-Return": `\`D-264\`, Returned-At-Commit ${RET1}`,
       "Completion-Condition": "test obligation",
       "Completion-Evidence": "test accepted act and artifact",
       "Reclose-Act": "D-364; test disposition act, 2026-09-30",
@@ -1641,9 +1641,30 @@ export async function recloseRecordForm(results) {
     { name: "re-close: return then complete re-close, Answered/Applied — passes", text: entry(header(), ret(), reclose()), shouldPass: true },
     {
       name: "re-close: two full cycles, each re-close citing its own return — passes",
-      text: entry(header(), ret(), reclose(), ret(RET2), reclose({ "Reclosed-Return": `second act, Returned-At-Commit ${RET2}` })),
+      text: entry(header(), ret(), reclose(), ret(RET2, "`D-300`, second act"), reclose({ "Reclosed-Return": `\`D-300\`, Returned-At-Commit ${RET2}` })),
       shouldPass: true,
     },
+    {
+      name: "re-close: completed and independently Verified by Lane B — passes (B-152 item 1)",
+      text: entry(header({ resolution: "Verified", verifiedBy: "Lane B (Codex), independent review 2026-09-30" }), ret(), reclose()),
+      shouldPass: true,
+    },
+    {
+      name: "re-close: date-only Return-Act (B-071's shape) cited by its date — passes",
+      text: entry(header(), ret(RET1, "Chief Editor/Judge, 2026-09-14 — `Judge Approved: decision-\n  planning and handoff correction only"), reclose({ "Reclosed-Return": `Chief Editor/Judge ruling 2026-09-14, Returned-At-Commit ${RET1}` })),
+      shouldPass: true,
+    },
+    {
+      name: "re-close: act token on a wrapped continuation line of Reclosed-Return — passes",
+      text: entry(header(), ret(), reclose({ "Reclosed-Return": `Returned-At-Commit ${RET1}, completing the return under\n  \`D-264\`` })),
+      shouldPass: true,
+    },
+    { name: "re-close F1: completed episode with Status Withdrawn (B-152)", text: entry(header({ status: "Withdrawn" }), ret(), reclose()), expect: "a completed return reads `Answered`" },
+    { name: "re-close F2: Reclosed-Return names only the SHA (B-152)", text: entry(header(), ret(), reclose({ "Reclosed-Return": `Returned-At-Commit ${RET1}` })), expect: "missing `D-264`" },
+    { name: "re-close F2: right SHA beside a different act (B-152)", text: entry(header(), ret(), reclose({ "Reclosed-Return": `\`D-999\`, Returned-At-Commit ${RET1}` })), expect: "missing `D-264`" },
+    { name: "re-close F2: right act, SHA missing (B-152)", text: entry(header(), ret(), reclose({ "Reclosed-Return": "`D-264` only" })), expect: "does not cite `67706ca`" },
+    { name: "re-close F2: date-only act not cited by its date", text: entry(header(), ret(RET1, "Chief Editor/Judge, 2026-09-14"), reclose({ "Reclosed-Return": `Chief Editor ruling, Returned-At-Commit ${RET1}` })), expect: "missing `2026-09-14`" },
+    { name: "re-close F2: Return-Act names no decision and no date", text: entry(header(), ret(RET1, "an act with no identifier"), reclose()), expect: "names no decision ID and no date" },
     { name: "re-close: open return, no re-close, Open header — still passes (B-130 today)", text: entry(openHeader, ret()), shouldPass: true },
     {
       name: "re-close: an illustrative fenced EXAMPLE is not a live re-close",
@@ -1657,7 +1678,7 @@ export async function recloseRecordForm(results) {
     },
     { name: "re-close: no Return record before it", text: entry(header(), reclose()), expect: "no Return record before it" },
     { name: "re-close: two re-closes for one return episode", text: entry(header(), ret(), reclose(), reclose()), expect: "second Re-close record for the same return episode" },
-    { name: "re-close: Reclosed-Return cites a different commit", text: entry(header(), ret(), reclose({ "Reclosed-Return": "test act, Returned-At-Commit abcdef0" })), expect: "does not cite `67706ca`" },
+    { name: "re-close: Reclosed-Return cites a different commit", text: entry(header(), ret(), reclose({ "Reclosed-Return": "`D-264`, Returned-At-Commit abcdef0" })), expect: "does not cite `67706ca`" },
     { name: "re-close: blank Completion-Evidence", text: entry(header(), ret(), reclose({ "Completion-Evidence": "" })), expect: "**Completion-Evidence:** is present but BLANK" },
     { name: "re-close: missing Reclose-Act (field absent, not merely blank)", text: entry(header(), ret(), reclose({ "Reclose-Act": null })), expect: "has no **Reclose-Act:**" },
     { name: "re-close: Reclosed-At-Commit is not hexadecimal", text: entry(header(), ret(), reclose({ "Reclosed-At-Commit": "not-a-commit" })), expect: "is not a hexadecimal commit SHA" },
