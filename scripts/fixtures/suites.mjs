@@ -22,6 +22,7 @@ import {
   fileHistory,
   diffAt,
   recloseHistoryFindings,
+  WORKTREE,
 } from "../checks/terminal-return.mjs";
 
 const CHECK = (n) => new URL(`../checks/${n}`, import.meta.url).href;
@@ -1756,6 +1757,63 @@ export async function recloseRecordForm(results) {
 }
 
 /**
+ * `D-368` — episode boundaries after a return, and the uncommitted preview
+ * (Lane B's `B-150` finding, 2026-10-01). Pure: synthetic diffs and steps.
+ */
+export async function terminalEpisodeBoundaries(results) {
+  const del = "diff --git a/x b/x\n--- a/x\n+++ b/x\n@@ -7,2 +7,1 @@\n-- **Resolution:** Deferred\n-- **Status:** Answered\n+- **Status:** Open\n";
+  const noTouch = "diff --git a/x b/x\n--- a/x\n+++ b/x\n@@ -9 +9 @@\n-some prose\n+other prose\n";
+  const s = (commit, resolutionAfter, isAuditOnly = false) => ({ commit, resolutionAfter, isAuditOnly });
+  const cases = [
+    { name: "resolutionAfterDiff: a diff deleting Resolution ends the disposition", got: () => resolutionAfterDiff(del, "Deferred"), want: null },
+    { name: "resolutionAfterDiff: diff metadata `--- a/x` is not a removed Resolution", got: () => resolutionAfterDiff(noTouch, "Deferred"), want: "Deferred" },
+    {
+      name: "episode: Deferred -> returned (deleted) -> Verified starts a NEW episode at the verification",
+      got: () => currentEpisodeStart([s("a", "Deferred"), s("b", resolutionAfterDiff(del, "Deferred")), s("c", "Verified")]),
+      want: 2,
+    },
+    {
+      name: "episode: the return and verification commits are not flagged as uncovered work",
+      got: () => walkEpisodes([s("a", "Deferred"), s("b", null), s("c", "Verified")], new Set()).join(","),
+      want: "",
+    },
+    {
+      name: "episode: genuine substantive work after the terminal disposition is still flagged",
+      got: () => walkEpisodes([s("a", "Deferred"), s("b", null), s("c", "Verified"), s("d", "Verified")], new Set()).join(","),
+      want: "d",
+    },
+    {
+      name: "preview: Open -> Applied -> pending Verified does not resurrect the old episode",
+      got: () => walkEpisodes([s("a", "Deferred"), s("b", null), s("c", "Applied"), s(WORKTREE, "Verified")], new Set()).join(","),
+      want: "",
+    },
+    {
+      name: "preview: the committed verification agrees with its preview",
+      got: () =>
+        String(currentEpisodeStart([s("a", "Deferred"), s("b", null), s("c", "Applied"), s("e", "Verified")])) ===
+        String(currentEpisodeStart([s("a", "Deferred"), s("b", null), s("c", "Applied"), s(WORKTREE, "Verified")])),
+      want: true,
+    },
+    {
+      name: "preview: an uncommitted substantive edit to a terminal entry is flagged as the WORKTREE step",
+      got: () => walkEpisodes([s("a", "Verified"), s(WORKTREE, "Verified")], new Set()).join(","),
+      want: WORKTREE,
+    },
+  ];
+  for (const c of cases) {
+    let got;
+    try {
+      got = c.got();
+    } catch (e) {
+      results.push({ name: c.name, ok: false, detail: `threw: ${e.message}` });
+      continue;
+    }
+    const ok = got === c.want;
+    results.push({ name: c.name, ok, detail: ok ? `= ${JSON.stringify(got)}` : `expected ${JSON.stringify(c.want)}, got ${JSON.stringify(got)}` });
+  }
+}
+
+/**
  * `B-097`/`B-113` — `terminal-return`'s history-aware half, three kinds of case:
  *
  *   1. PURE decisions (`currentEpisodeStart`, `walkEpisodes`) against
@@ -2307,6 +2365,7 @@ export const SUITES = [
   ["terminal annotation record form (`B-113`)", terminalAnnotationForm],
   ["re-close record and Verified-By header rule (`D-364` U1)", recloseRecordForm],
   ["terminal-return history-aware detection (`B-097`)", terminalReturnDecision],
+  ["terminal-return episode boundaries and preview (`D-368`)", terminalEpisodeBoundaries],
   ["tier sweep fallback (`G98`, raised as `B-054`)", tierSweep],
   ["retention policy coupling (`D-134`)", retentionPolicyCoupling],
   ["phase-scoped closure gating (`D-102`)", phaseScope],

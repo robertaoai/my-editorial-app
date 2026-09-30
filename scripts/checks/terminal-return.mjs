@@ -179,14 +179,34 @@ export function isRecordOnlyDiff(diffText) {
  * is returned unchanged — the common case for every non-disposition edit.
  */
 export function resolutionAfterDiff(diffText, priorResolution) {
-  const added = String(diffText)
-    .split("\n")
+  const lines = String(diffText).split("\n");
+  const added = lines
     .filter((l) => /^\+/.test(l) && !/^\+\+\+/.test(l))
     .map((l) => l.slice(1))
     .join("\n");
   const next = field(added, "Resolution");
-  return next !== null ? next : priorResolution;
+  if (next !== null) return next;
+  // `B-150` finding (Lane B, 2026-10-01; fixed under `D-368`). A diff that
+  // REMOVES the `Resolution` line and adds none — exactly what a return does
+  // (`B-097`: "omit Resolution") — ends the disposition. Returning the prior
+  // value here kept a returned entry inside its OLD terminal episode, so a
+  // later `Verified` never started a new one and the walk flagged the return
+  // and verification commits as uncovered work.
+  const removed = lines.some((l) => /^-(?!--)/.test(l) && /^-\s*\*\*Resolution:\*\*/.test(l.slice(1)));
+  return removed ? null : priorResolution;
 }
+
+/** The uncommitted working-copy diff of `path` against HEAD — empty when
+ * clean. Injectable like `diffAt`. */
+export function worktreeDiff(path, exec = execFileSync) {
+  return exec("git", ["diff", "HEAD", "--", toGitPath(path)], {
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "ignore"],
+  });
+}
+
+/** Marks the synthetic step that models an uncommitted change. */
+export const WORKTREE = "WORKTREE";
 
 /**
  * Every commit cited by a `Returned-At-Commit:` or `Annotated-At-Commit:`
@@ -389,6 +409,19 @@ export function run() {
   const findings = [];
   let filesChecked = 0;
   let episodeRecords = 0;
+  // One call for the whole channel: only files with an uncommitted change
+  // get a working-copy diff (`D-368`); process spawn is slow on this host.
+  let dirty = new Set();
+  try {
+    dirty = new Set(
+      execFileSync("git", ["diff", "HEAD", "--name-only", "--", DIR], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] })
+        .split("\n")
+        .map((s) => s.trim())
+        .filter(Boolean),
+    );
+  } catch {
+    /* no HEAD or no git — committed history alone is walked */
+  }
 
   for (const file of entries) {
     const path = join(DIR, file);
@@ -444,10 +477,35 @@ export function run() {
     }
     if (!ok) continue;
 
+    // `B-150` preview finding (`D-368`). The header above is read from the
+    // WORKING COPY, but the steps come from committed history. An uncommitted
+    // disposition (a pending `Verified`) was therefore invisible to the walk,
+    // which fell back to an older episode and alleged committed violations.
+    // The pending change is modelled as one final, labelled step instead.
+    try {
+      const pending = dirty.has(toGitPath(path)) ? worktreeDiff(path) : "";
+      if (pending.trim()) {
+        const resolutionAfter = resolutionAfterDiff(pending, priorResolution);
+        steps.push({
+          commit: WORKTREE,
+          resolutionAfter,
+          isAuditOnly: isAuditOnlyDiff(pending) || isRecordOnlyDiff(pending),
+        });
+      }
+    } catch {
+      /* no worktree diff available — committed history alone is walked */
+    }
+
     filesChecked++;
 
     const violations = walkEpisodes(steps, covered);
     for (const commit of violations) {
+      if (commit === WORKTREE) {
+        findings.push(
+          `${path}: the UNCOMMITTED working-copy change touches this file inside a terminal episode with no audit-only diff and no record covering it — a preview, not a committed violation. Commit it with the covering record, or keep it audit-only (\`B-113\`, \`D-368\`).`,
+        );
+        continue;
+      }
       findings.push(
         `${path}: ${commit.slice(0, 7)} touched this file inside a terminal episode with no audit-only diff and no Return/Terminal-annotation record citing it (\`B-113\`). Add a \`## Terminal annotation record\` citing \`${commit}\` if the episode's terminal state was preserved, or a \`## Return record\` if it genuinely returned.`,
       );
