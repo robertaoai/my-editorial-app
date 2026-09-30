@@ -189,10 +189,41 @@ export function parseTracker(text) {
     const c = line.split("|").slice(1, -1).map((x) => x.trim());
     if (c.length < 5 || !/^`?[BC]-\d+/.test(c[0])) continue;
     const key = c[0].replace(/`/g, "");
-    rows.push({ key, entry: key.split(/\s/)[0], order: c[1], scope: c[2], clearance: c[3].toLowerCase() });
+    const child = (/\(([^)]+)\)/.exec(key) || [])[1] ?? null;
+    rows.push({ key, entry: key.split(/\s/)[0], child, order: c[1], scope: c[2], clearance: c[3] });
   }
   return { derivedAt, claim, rows };
 }
+
+/**
+ * `U2-F1` (Lane B, `4164ce3`; repaired under `D-370`). The `SV-002` §3.3 child
+ * matrix: each keyed child, its parent handoff and its scope. A child whose
+ * "Consumed via" cell opens with `none` has no SM05 consumer (non-SM05);
+ * any other child is consumed by SM05. A whole-entry tracker row hid mixed
+ * children — receiving one SM05 child could make a sibling with open
+ * non-SM05 scope look settled. Pure.
+ */
+export function parseChildMatrix(text) {
+  const m = /^###\s+3\.3\s/m.exec(String(text));
+  if (!m) return [];
+  const rest = text.slice(m.index + m[0].length);
+  const end = rest.search(/^###?\s/m);
+  const body = end < 0 ? rest : rest.slice(0, end);
+  const out = [];
+  for (const line of body.split("\n")) {
+    const c = line.split("|").slice(1, -1).map((x) => x.trim());
+    const key = (/^`([^`]+)`$/.exec(c[0] ?? "") || [])[1];
+    if (!key || c.length < 4) continue;
+    const parent = /^B071-/.test(key)
+      ? "B-071"
+      : (/^([BC]-\d{3})\./.exec(key) || [])[1] ?? null;
+    out.push({ key, parent, scope: /^none\b/i.test(c[3]) ? "non-SM05" : "SM05", via: c[3] });
+  }
+  return out;
+}
+
+const SCOPES = new Set(["SM05", "non-SM05"]);
+const CLEARANCES = new Set(["open", "closed", "received"]);
 
 /** `true` while the SM05 packet's `**Status:**` paragraph still reads BLOCKED. Pure. */
 export function sm05Blocked(text) {
@@ -213,7 +244,7 @@ export function gate2Claimed(tracker, blocked) {
  * `live`: Map entryId → true when the header is independently Verified.
  * `stale`: true / false, or null when history could not answer.
  */
-export function gate2Evaluate({ tracker, live, claimed, stale }) {
+export function gate2Evaluate({ tracker, live, claimed, stale, children = [] }) {
   const findings = [];
   if (!tracker) {
     if (claimed) findings.push(`${TRACKER_PATH}: Gate 2 clearance is claimed (${claimed}) but §2.3.1 has no tracker (\`D-364\` item 6)`);
@@ -221,13 +252,51 @@ export function gate2Evaluate({ tracker, live, claimed, stale }) {
   }
   const listed = new Set(tracker.rows.map((r) => r.entry));
   const missing = [...live.entries()].filter(([id, verified]) => !verified && !listed.has(id)).map(([id]) => id);
+
+  // `U2-F2` (`D-370`). A Scope or Clearance outside the canonical vocabulary
+  // used to fall through both tallies, so a malformed open row read as
+  // cleared. An unclassifiable row is now INVALID: reported always, and under
+  // a claim it is not closed. `received` belongs to SM05 rows only.
+  const childScope = new Map(children.map((c) => [c.key, c]));
+  const invalid = [];
+  for (const r of tracker.rows) {
+    const why = !SCOPES.has(r.scope)
+      ? `Scope "${r.scope}" is not \`SM05\` or \`non-SM05\``
+      : !CLEARANCES.has(r.clearance)
+        ? `Clearance "${r.clearance}" is not \`open\`, \`closed\` or \`received\``
+        : r.clearance === "received" && r.scope !== "SM05"
+          ? "`received` is an SM05 receipt; a non-SM05 row closes by verification or Judge acceptance"
+          : r.child && childScope.has(r.child) && childScope.get(r.child).scope !== r.scope
+            ? `Scope "${r.scope}" disagrees with §3.3, where \`${r.child}\` is ${childScope.get(r.child).scope}`
+            : null;
+    if (why) invalid.push({ row: r, why });
+  }
+  const isInvalid = new Set(invalid.map((i) => i.row));
+
+  // `U2-F1` (`D-370`). Every §3.3 child of a tracked, unverified entry must be
+  // referenced by its own row — an unreferenced child is unclosed, exactly as
+  // an unlisted entry is.
+  const referenced = new Set(tracker.rows.map((r) => r.child).filter(Boolean));
+  const unreferenced = children.filter((c) => c.parent && live.get(c.parent) === false && !referenced.has(c.key));
+
   const unclosed = tracker.rows.filter(
-    (r) => r.scope.toLowerCase() === "non-sm05" && r.clearance !== "closed" && live.get(r.entry) !== true,
+    (r) => !isInvalid.has(r) && r.scope === "non-SM05" && r.clearance !== "closed" && live.get(r.entry) !== true,
   );
   const unreceived = tracker.rows.filter(
-    (r) => r.scope.toLowerCase() === "sm05" && !["received", "closed"].includes(r.clearance) && live.get(r.entry) !== true,
+    (r) => !isInvalid.has(r) && r.scope === "SM05" && !["received", "closed"].includes(r.clearance) && live.get(r.entry) !== true,
   );
   if (claimed) {
+    for (const { row, why } of invalid) {
+      if (live.get(row.entry) === true) continue; // header independently Verified: closed regardless
+      findings.push(
+        `${TRACKER_PATH}: Gate 2 clearance is claimed (${claimed}) but row \`${row.key}\` cannot be classified — ${why}. An unclassifiable row is not closed (\`D-364\` item 7, \`U2-F2\`)`,
+      );
+    }
+    for (const c of unreferenced) {
+      findings.push(
+        `${TRACKER_PATH}: Gate 2 clearance is claimed (${claimed}) but §3.3 child \`${c.key}\` (${c.scope}) of unverified \`${c.parent}\` has no tracker row — an unreferenced child cannot have been cleared or received (\`D-364\` item 7, \`U2-F1\`)`,
+      );
+    }
     for (const r of unclosed) {
       findings.push(
         `${TRACKER_PATH}: Gate 2 clearance is claimed (${claimed}) but non-SM05 row \`${r.key}\` (${r.order}) is not closed — close it by an independent \`Verified-By\` or the Judge's recorded acceptance with its reason (\`D-364\` items 4, 7)`,
@@ -247,7 +316,7 @@ export function gate2Evaluate({ tracker, live, claimed, stale }) {
     }
   }
   const age = stale === true ? "stale" : stale === false ? "current" : "currency unproven";
-  const report = `Gate 2 ${claimed ? `CLAIMED (${claimed})` : "not claimed — reporting only"}: tracker at ${tracker.derivedAt ?? "?"} (${age}), ${tracker.rows.length} row(s), ${unclosed.length} non-SM05 unclosed, ${unreceived.length} SM05 not received, ${missing.length} live entr${missing.length === 1 ? "y" : "ies"} unlisted`;
+  const report = `Gate 2 ${claimed ? `CLAIMED (${claimed})` : "not claimed — reporting only"}: tracker at ${tracker.derivedAt ?? "?"} (${age}), ${tracker.rows.length} row(s), ${unclosed.length} non-SM05 unclosed, ${unreceived.length} SM05 not received, ${missing.length} live entr${missing.length === 1 ? "y" : "ies"} unlisted, ${unreferenced.length} §3.3 child(ren) unreferenced, ${invalid.length} row(s) invalid${invalid.length ? ` [${invalid.map((i) => i.row.key).join(", ")}]` : ""}`;
   return { findings, report };
 }
 
@@ -420,7 +489,9 @@ export function run() {
     : "shallow history — commit existence NOT proven, form only";
 
   // Gate 2 mode (`D-364` U2).
-  const tracker = existsSync(TRACKER_PATH) ? parseTracker(readFileSync(TRACKER_PATH, "utf8")) : null;
+  const trackerText = existsSync(TRACKER_PATH) ? readFileSync(TRACKER_PATH, "utf8") : "";
+  const tracker = trackerText ? parseTracker(trackerText) : null;
+  const children = parseChildMatrix(trackerText);
   const blocked = existsSync(SM05_PATH) ? sm05Blocked(readFileSync(SM05_PATH, "utf8")) : true;
   const claimed = gate2Claimed(tracker, blocked);
   let stale = null;
@@ -428,7 +499,7 @@ export function run() {
     const newest = newestDisposition();
     stale = newest === null ? null : !contains(tracker.derivedAt, newest);
   }
-  const gate2 = gate2Evaluate({ tracker, live, claimed, stale });
+  const gate2 = gate2Evaluate({ tracker, live, claimed, stale, children });
   findings.push(...gate2.findings);
 
   return {
