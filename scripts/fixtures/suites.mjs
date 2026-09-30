@@ -2025,10 +2025,13 @@ export async function terminalReturnDecision(results) {
       expect: "Deferred",
     },
     {
-      name: "resolutionAfterDiff: a removed-line-only diff (blanked, no replacement) is a stated gap — prior carries forward, not corrected to blank",
+      // Was a stated gap ("prior carries forward"); `D-368` closes it. A return
+      // deletes Resolution (`B-097`), and carrying the old value kept the entry
+      // inside its old terminal episode (Lane B's `B-150` finding).
+      name: "resolutionAfterDiff: a removed-line-only diff ends the disposition — the former stated gap, closed by D-368",
       diff: "@@ -9 +9,0 @@\n-- **Resolution:** Deferred\n",
       prior: "Deferred",
-      expect: "Deferred", // documents the known limitation, not a claim it is right
+      expect: null,
     },
   ];
   for (const c of resolutionCases) {
