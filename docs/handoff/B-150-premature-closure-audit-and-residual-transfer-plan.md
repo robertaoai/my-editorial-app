@@ -32,8 +32,12 @@
   `terminal-return` changes, the `Verified-By` header rule (`U4-G8`) and the new fixtures all pass. Level 1 and
   Level 2 review of `U1` come before `B-130`'s re-close uses them.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-363; linked sources below; B-151 coverage child
-- **Verified-At-Commit:** 54a60d10b1ac8869bb46e9f992ac593266e13dfb
+- **Evidence:** Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-366; linked sources below; B-151 coverage child; current Lane B completion review below and B-152's bounded Level 1 verification
+- **Verified-At-Commit:** b2b1e871694c07d9be328754c7766cea1f7b2787
+
+**Current review pointer:** the final "Lane A completion review and remaining implementation plan" below
+updates the earlier dated U1 rejection and uncommitted/check-failure reports. This parent remains Open;
+verification of its B-152 child does not close the parent or clear Gate 2.
 
 ## What happened
 
@@ -255,3 +259,68 @@ This is a link/consumer map at the read revision, not a second maintained receip
 | Gate 2 and V1-SM05 construction | Defer | All current clearance/receipt conditions, remaining setup DoD and separate Judge acts. Gate 1B -> Gate 2 |
 
 **Verification after this challenge:** `bun run check` completed with 18/19 passing and no skips; the sole failure remains the blank Lane A acknowledgement on B-152. `git diff --check` found no whitespace defect in the tracked review additions. Graph currency/coverage pass at the same HEAD, while description/label completion remains pending. No new control, source status, canonical tracker or construction authority was applied; the review files remain uncommitted.
+
+## Lane A completion review and remaining implementation plan — 2026-09-30
+
+**Clearer request:** based on Lane A's completed D-366 work, independently verify B-152, then consolidate the
+remaining handoff-completion gaps for Lane A through this existing template-based parent. Show completed
+authority first, dependent actions next, and the proof that separates source closure, receiving readiness and
+future software completion. Review and implementation plan only; no application build.
+
+**Read baseline:** `b2b1e871694c07d9be328754c7766cea1f7b2787`. Lane A's earlier supplied worklog stopped before
+execution; the repository now contains its receipt (`b100acf`), repair (`4c5b750`) and D-366/application record
+(`b2b1e87`). Thus the earlier "written, not run" assessment and original U1 rejection are historical. Lane B
+independently re-ran **209/209 fixtures**, with the tree restored, and passed four isolated multi-ID/wrapping
+probes. B-152 now records Level 1 verification; repaired-U1 Level 2 acceptance is still outstanding. This is
+not renewed substantive verification of every historical handoff child or inspection of live GitHub content.
+
+### Parent first: completed facts and remaining dependencies
+
+| Order / existing owner | Completed or next bounded action | Exit proof and consuming phase |
+|---|---|---|
+| Parent authority — D-364 / D-366 | **Completed:** clearance/receipt/order contract adopted; U1 F1/F2 repaired under the Judge's token rule | Named Register acts and applied repair. Phase 1 |
+| Control prerequisite — B-152 / U1 | **Level 1 completed:** Lane B independently verifies the repair. **Next:** Lane C reviews that repaired revision, recording its own review through the existing channel | Actual repaired-control Level 2 receipt, not earlier concurrence with the defect. Before U1 consumption, Phase 1 / O0 |
+| Returned source — existing B-130 | After reviewed U1, Lane A appends the receiver Re-close using preserved Return history and D-362/D-363's accepted loader evidence; Lane B verifies that disposition | Exact return act + commit, completion condition/evidence and existing read commit. B-071 separately needs its own children. Phase 1 / O0 |
+| Audit/tracker — this parent, D-364 U2 | Re-derive SV-002 §2.3 from all B/C transactions and substantive children at a pinned snapshot; assign O0–O5 and dependencies; reconcile canonical P1–P16 receipts | One live tracker with per-obligation evidence, receiving anchor, independent review or individual Judge reason; freshness and fail-capable Gate 2 controls. Include B-152's latest state. Phase 1 |
+| Behavior planning — B-151, D-364 U3 | After accepted U2, amend Jev for all four named intake cases; reconcile requirement→DoR→DoD and re-issue DOR-R7 readiness evidence | Separate case/label requirements and negative fixtures; independent planning review. Runtime failing-first/database proof follows authorized SM05 execution. Phase 1 readiness |
+| Source clearance / setup — canonical sources and SV-002 | Clear groups O0→O1→O2→O3→O4→O5 in governed order; reconcile DOD-01/02, decide/run the P3 navigation path for DOD-04, prepare DOD-06's evidence index | Each weakest child satisfied or honestly transferred to a named owner/consumer; final setup attempt accepted by the Judge. Before Gate 2 |
+| Feature activation — Judge / SM05 / work order / §5 | Only after the above: accept setup, lift the packet block, select SM05, issue the bounded D-242 work order and record B Active/A-C Blocked | Distinct Judge acts and actual live-state transition. P13 ready before work order; P14 receipts already exist, while selection and construction happen at their own boundaries. Gate 2 -> Phase 2 |
+
+### Remaining gaps and failure-derived success criteria
+
+| Unclear or incomplete | Draft fix for Lane A | Reject / success criterion |
+|---|---|---|
+| §2.3 still uses the older screen; Order and current derivation are pending U2 | Audit every transaction/child, including mixed B-136 setup and future-SM05 obligations; preserve valid historical proof and individual Judge acceptance | Reject omitted children, unexplained exclusions, stale source states or future software proof demanded before its authorization. Pass only with current scoped clearance and receiving readiness |
+| P1 Receipt still says pending despite D-362's accepted loader DoD | Reconcile this derived cell to accepted evidence when updating SV-002; preserve B-130's separate lifecycle boundary | No repeated loader run solely to repair wording; no whole-entry closure inferred from DOD-03 |
+| Historical readiness does not yet satisfy D-364's amended Jev contract | Consume B-151 in U3; keep valid-URL, admitted Markdown/original-URL, no-source failure and no-original-URL refusal distinct | Omitting any required case or label must fail the readiness control. One passing case must not stand in for all four |
+| A transfer can hide unfinished scope or introduce a feature during construction | Receipt each source/child once: SM05 prerequisite -> SM05; feature residual -> Modular_PRD §2.5.2 intake; governance residual -> bounded Lane A packet | Pass when scope, owner, anchor, consumer/trigger and independent proof are explicit. Compatible SM06 allocation needs a separate Judge act; SM05 prerequisites cannot be moved past their consumer |
+| Graph semantic completion and sync-docs guidance remain incomplete | Lane A corrects stale single-core guidance and completes the separately scoped description/label update, preserving/re-merging curated graph fragments on any rebuild | Currency/coverage can pass while semantic descriptions remain pending. Do not claim full semantic synchronization from a matching HEAD or green checks |
+
+**The failure claim to retain:** creating Issue/PR records without changing handoff files is not itself guaranteed
+failure; valid unchanged proof may remain valid. A readiness claim fails when it consumes a missing, stale,
+unverified or unreceived obligation. Its success criterion is the corrected per-source evidence and receiving
+condition at the consuming gate, not a changed-file count or a blanket closure count.
+
+**Consolidating perspectives:** Lane A owns the business-to-requirement contract and canonical routing; Lane B
+checks whether the planned behavior and control failures can be proved; Lane C supplies independent Level 2
+challenge of the final revision. Reconcile disagreement at the exact requirement, source child and evidence
+boundary. Use Answered for the response, Applied for an unverified correction, Verified for independently
+confirmed scope, and clearance for permission to consume that scope. A reviewed transfer can clear its bounded
+transaction while future implementation remains in the receiving packet. Use qualified U1–U3, SV2-U01–U04,
+P1–P16 and O0–O5; Lane A's acknowledged chat-label collision does not require renaming the canonical records.
+
+**Drift check:** Graphify query navigates to the Register, Build Spec and coupled controls. At the read baseline,
+`lastAnalyzedHead` matches HEAD and `stale` is false. `graphify check-update` still reports pending
+descriptions/labels; no semantic batches are present to ingest. Handoff-only review edits are excluded from
+governed-intent coverage, so they do not require a structural rebuild. Pending semantics and stale sync-docs
+wording remain Lane A follow-ups; graph navigation is not substantive closure proof. With these review records
+in place, **19/19 consistency checks passed**, with no skips; 76 verification revisions exist, all 93 live
+terminal-file histories are clean, graph coverage/currency pass and A remains Active/B Eligible/C Blocked.
+`git diff --check` also passes. No application or control implementation changed in this review.
+
+| Scope | Verdict | Condition / follow-up phase |
+|---|---|---|
+| B-152 bounded F1/F2 repair / Level 1 verification | Approve | Completed independent review at the read revision. Phase 1 / O0 |
+| Remaining Lane A implementation plan | Approve-with-conditions | Repaired-U1 Level 2 -> B-130 Re-close/verification -> independently reviewed U2 -> U3 -> scoped source/setup clearance. Phase 1 |
+| Blanket closure, full semantic synchronization or build-ready claim now | Reject | Current evidence does not establish these claims; complete their named obligations. Phase 1 -> Gate 2 |
+| Gate 2 activation and application construction | Defer | Remaining evidence/clearance and separate Judge acts precede execution. Gate 2 -> Phase 2 |
