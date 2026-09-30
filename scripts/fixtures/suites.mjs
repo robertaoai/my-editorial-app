@@ -1757,6 +1757,69 @@ export async function recloseRecordForm(results) {
 }
 
 /**
+ * `D-364` U2 — the Gate 2 mode: reports always, fails only under a claim,
+ * and then fails on exactly item 7's conditions (`D-367` item 3).
+ */
+export async function gate2Mode(results) {
+  const { parseTracker, sm05Blocked, gate2Claimed, gate2Evaluate, TRACKER_PATH, SM05_PATH } = await import(CHECK("closure-readiness.mjs"));
+  const tOrig = read(TRACKER_PATH);
+  const sOrig = read(SM05_PATH);
+  const row = (entry, scope, clearance, order = "O1") => ({ key: entry, entry, order, scope, clearance });
+  const tr = (rows) => ({ derivedAt: "aa21f55", claim: "no", rows });
+  const live = (pairs) => new Map(pairs);
+  const n = (r) => r.findings.length;
+  const pure = [
+    { name: "gate2: the live tracker parses — rows, derivation commit, unclaimed", got: () => { const t = parseTracker(tOrig); return t && t.rows.length > 0 && /^[0-9a-f]{7}/.test(t.derivedAt) && t.claim === "no"; }, want: true },
+    { name: "gate2: the live SM05 packet still reads BLOCKED", got: () => sm05Blocked(sOrig), want: true },
+    { name: "gate2: unclaimed + BLOCKED is no claim", got: () => gate2Claimed(tr([]), true), want: null },
+    { name: "gate2: a claim line is a claim", got: () => typeof gate2Claimed({ ...tr([]), claim: "at `abc1234`" }, true), want: "string" },
+    { name: "gate2: SM05 leaving BLOCKED is a claim", got: () => typeof gate2Claimed(tr([]), false), want: "string" },
+    { name: "gate2: NO claim, unclosed non-SM05 row — report only, no failure", got: () => n(gate2Evaluate({ tracker: tr([row("B-1", "non-SM05", "open")]), live: live([["B-1", false]]), claimed: null, stale: true })), want: 0 },
+    { name: "gate2: claim + unclosed non-SM05 row FAILS", got: () => gate2Evaluate({ tracker: tr([row("B-1", "non-SM05", "open")]), live: live([["B-1", false]]), claimed: "x", stale: false }).findings.some((f) => f.includes("is not closed")), want: true },
+    { name: "gate2: claim + stale derivation FAILS even when every row is closed", got: () => gate2Evaluate({ tracker: tr([row("B-1", "non-SM05", "closed")]), live: live([["B-1", false]]), claimed: "x", stale: true }).findings.some((f) => f.includes("older than the newest")), want: true },
+    { name: "gate2: claim + all closed + current derivation passes", got: () => n(gate2Evaluate({ tracker: tr([row("B-1", "non-SM05", "closed"), row("B-2", "SM05", "received", "O2")]), live: live([["B-1", false], ["B-2", false]]), claimed: "x", stale: false })), want: 0 },
+    { name: "gate2: claim + a live unverified entry missing from the tracker FAILS", got: () => gate2Evaluate({ tracker: tr([]), live: live([["B-9", false]]), claimed: "x", stale: false }).findings.some((f) => f.includes("has no tracker row")), want: true },
+    { name: "gate2: claim + open row whose header is now independently Verified — closed, passes", got: () => n(gate2Evaluate({ tracker: tr([row("B-1", "non-SM05", "open")]), live: live([["B-1", true]]), claimed: "x", stale: false })), want: 0 },
+    { name: "gate2: claim + SM05 row not received — reported, not failed (item 7's bound)", got: () => n(gate2Evaluate({ tracker: tr([row("B-2", "SM05", "open", "O2")]), live: live([["B-2", false]]), claimed: "x", stale: false })), want: 0 },
+    { name: "gate2: claim + unprovable currency FAILS rather than passing silently", got: () => gate2Evaluate({ tracker: tr([]), live: live([]), claimed: "x", stale: null }).findings.some((f) => f.includes("cannot be proven")), want: true },
+  ];
+  for (const c of pure) {
+    let got;
+    try {
+      got = c.got();
+    } catch (e) {
+      results.push({ name: c.name, ok: false, detail: `threw: ${e.message}` });
+      continue;
+    }
+    const ok = got === c.want;
+    results.push({ name: c.name, ok, detail: ok ? `= ${JSON.stringify(got)}` : `expected ${JSON.stringify(c.want)}, got ${JSON.stringify(got)}` });
+  }
+
+  await fixture(results, {
+    name: "gate2: the live repository, unclaimed — closure-readiness stays green and reports",
+    modulePath: CHECK("closure-readiness.mjs"),
+    mutate: () => {},
+    restore: () => {},
+    shouldPass: true,
+    expectDetail: "Gate 2 not claimed — reporting only",
+  });
+  await fixture(results, {
+    name: "gate2: claim line recorded on the live tracker — unclosed rows fail",
+    modulePath: CHECK("closure-readiness.mjs"),
+    mutate: () => write(TRACKER_PATH, tOrig.replace("- **Gate 2 clearance claimed:** no", "- **Gate 2 clearance claimed:** at `aa21f55`")),
+    restore: () => write(TRACKER_PATH, tOrig),
+    expect: "is not closed",
+  });
+  await fixture(results, {
+    name: "gate2: SM05 status no longer BLOCKED — counts as a claim and fails",
+    modulePath: CHECK("closure-readiness.mjs"),
+    mutate: () => write(SM05_PATH, sOrig.replace(/`BLOCKED —/, "`SELECTED —")),
+    restore: () => write(SM05_PATH, sOrig),
+    expect: "no longer reads BLOCKED",
+  });
+}
+
+/**
  * `D-368` — episode boundaries after a return, and the uncommitted preview
  * (Lane B's `B-150` finding, 2026-10-01). Pure: synthetic diffs and steps.
  */
@@ -2369,6 +2432,7 @@ export const SUITES = [
   ["re-close record and Verified-By header rule (`D-364` U1)", recloseRecordForm],
   ["terminal-return history-aware detection (`B-097`)", terminalReturnDecision],
   ["terminal-return episode boundaries and preview (`D-368`)", terminalEpisodeBoundaries],
+  ["Gate 2 mode: report always, fail only under a claim (`D-364` U2, `D-367`)", gate2Mode],
   ["tier sweep fallback (`G98`, raised as `B-054`)", tierSweep],
   ["retention policy coupling (`D-134`)", retentionPolicyCoupling],
   ["phase-scoped closure gating (`D-102`)", phaseScope],
