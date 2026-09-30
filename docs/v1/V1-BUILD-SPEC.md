@@ -130,6 +130,15 @@ attempt (not a lane transition). The Lane B/C read-only measurement authorizatio
 take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
 PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
 
+**`D-364` (2026-09-30) — handoff clearance before Gate 2.** Gate 2 gains an entry condition. Every non-SM05 handoff
+must be closed, meaning an independent `Verified-By` or the Judge's recorded acceptance; this includes entries with no
+SM05 intersection. Every SM05-scoped obligation must also be received into the `V1-SM05` DoR→DoD with a receipt.
+`SV-002` §2.3, re-derived with an Order column (`O0`–`O5`), becomes the single Gate 2 tracker, and `closure-readiness`
+gains a Gate 2 mode that can fail. The re-close form for returned entries (`D-363` option (a)) and Jev enforcement of
+the four intake cases (superseding `D-288` item 5) are adopted. Lane A's order: `U1` re-close controls, then `U2`
+tracker, then `U3` Jev, then source closures, each independently reviewed. The rest of the `D-267` order is unchanged,
+and `V1-SM05` stays `BLOCKED`.
+
 **`D-362` (2026-09-30) — `SV2-DOD-03` checked by the Judge.** The loader question is resolved on delivery plus the review chain (`D-356`–`D-361`). The remaining `SV-002` DoD rows are `01`, `02`, `04` and `06`. The `D-267` construction order is unchanged, and `V1-SM05` stays `BLOCKED`.
 
 **`D-356` (2026-09-29) — `D-324` amended: `SV2-DOD-03` on delivery plus review.** The activation and adherence

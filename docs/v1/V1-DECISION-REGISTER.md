@@ -24110,3 +24110,141 @@ against the record first (`D-360` item 2): the review is in the Antigravity chat
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e189 `D-364` — Handoff Clearance Before Gate 2: the Re-close Form (P0a), the Gate 2 Tracker and Order Groups (P0b), Jev Intake Enforcement (P0c)
+
+**Authority: the Judge, directly to Lane A, 2026-09-30**: *"Judge Approved: record D-364"*. The act adopts the seven
+Judge clarifications given in chat that day, which were recorded as received in `docs/handoff/B-150`'s Lane A
+receipt. It answers `B-150`'s S1 and the escalation in `D-363` item 4. Inputs: Lane B's drafts `B-150` and `B-151`
+and its `B-130` addition, plus two Lane C Level 2 reviews supplied by the Judge (provenance as supplied, `D-360`).
+
+### Why
+
+- **Issue #1 and PR #2 were recorded without re-screening any handoff** (`221c9d4`, `9dba71c`, `D-262`). Those
+  commits changed no handoff file, and nothing required them to. A readiness step that consumes handoff clearance
+  without reading it is `a_check_that_cannot_fail`.
+- **The last screen of entries dispositioned without independent verification is `SV-002` §2.3 at `09060cc`.**
+  Entries dispositioned after it were never screened.
+- **`B-130` was `Deferred` when the Issue was recorded, and returned under `D-264`.** Without a re-close form
+  (`D-363`), it cannot become terminal again.
+- **The Jev manifest does not enforce the four "Intake source fixtures" cases** (`D-288` item 5). No `behaviours` row
+  carries that DoD label, and the label is in neither `negativeRequired` nor `failingFirstRequired`.
+
+### The decision
+
+**P0a — the re-close form (`D-363` option (a)).**
+
+1. **Form.** A returned entry becomes terminal again through an append-only `## Re-close record`. It is placed after
+   the `## Return record` it completes; the Return record is never removed or rewritten. Its fields are:
+   - `Reclosed-Return`: the Return-Act and Returned-At-Commit of the episode it completes;
+   - `Completion-Condition`;
+   - `Completion-Evidence`;
+   - `Reclose-Act`;
+   - `Reclosed-At-Commit`: a commit that exists and was read (`D-214`), not a prediction of the commit being written.
+2. **Behaviour.**
+   - A Return record with no later matching Re-close record keeps the entry `Open`, with no `Resolution`.
+   - A valid Re-close record permits `Answered` / `Applied`. `Verified` still needs an independent actor.
+   - A further reopening needs a new Return record and a new Re-close record. An earlier record never covers a later
+     episode.
+3. **No new `Status` or `Resolution` word.** It applies today to `B-130` and `B-071`.
+
+**P0b — clearance, Gate 2 and the tracker.**
+
+4. **Clearance rule (restates `D-278`).** A handoff row is closed for SM05 clearance by either:
+   - an independent `Verified-By` at an existing commit; or
+   - the Judge's recorded acceptance, with its reason.
+
+   Any other entry is open for clearance: `Open`, or `Applied`/`Deferred`/`Superseded` with no independent verifier.
+   The entry's own lifecycle and historical fields are unchanged.
+5. **Gate 2 entry condition (added to the `D-267` order, which is otherwise unchanged).** Two things must hold first:
+   - every non-SM05 entry is closed under item 4, including entries with no SM05 intersection (turn reports
+     excepted);
+   - every SM05-scoped obligation is received into the `V1-SM05` DoR→DoD, or into its `V1-SM05-FV-001` child, with a
+     receipt.
+
+   Nothing SM05 needs may be left to return after Gate 2, when Lane A is `Blocked`. Then the order runs as before: the
+   Judge accepts `SV-002`, lifts the block, selects `V1-SM05` and issues the `D-242` work order; Lane B becomes
+   `Active`, Lanes A and C `Blocked`, and Phase 2 begins.
+6. **The tracker.** `SV-002` §2.3 is re-derived at a pinned commit over every non-turn-report entry with no
+   independent `Verified-By`, open or dispositioned, and gains an **Order** column. It becomes the single Gate 2
+   tracker; each entry's header stays authoritative for its lifecycle. The order groups, closed in this order:
+   - `O0` — authority and controls: the SOP, return and re-close chain;
+   - `O1` — setup evidence: Gate 1B and the `SV2-DOD-*` rows;
+   - `O2` — SM05 DoD readiness: the behaviour-test inputs, SM05-scoped;
+   - `O3` — work-order inputs consumed by the Gate 2 act (`SV-002` §2.2 `P13`/`P14`);
+   - `O4` — non-SM05 residuals to transfer;
+   - `O5` — history with no SM05 intersection.
+
+   The re-derivation assigns the rows, and Lane B reviews them. The draft assignment in Lane A's turn report is not
+   the tracker.
+7. **`closure-readiness` gains a Gate 2 mode.** It fails in two cases:
+   - any non-SM05 row is unclosed;
+   - the tracker's derivation commit is older than the newest disposition change in `docs/handoff/`.
+
+   A negative fixture proves each failure.
+8. **Residual routing.**
+   - SM05 prerequisites stay in `V1-SM05`.
+   - Product-feature residuals get a dated receipt in `docs/Modular_PRD.md` §2.5.2. Allocating them to `V1-SM06`
+     needs a separate Judge act.
+   - Governance residuals go to one bounded Lane A packet, created and inventoried when its first receipt is recorded.
+
+   A receipt records that scope was received. It does not close the source entry, which still needs item 4.
+9. **`O5` entries close by one later Judge act** that lists each entry with its own reason. There is no blanket
+   closure.
+
+**P0c — Jev intake enforcement (supersedes `D-288` item 5).**
+
+10. **Lane A amends `scripts/jev/manifests/V1-SM05.json`.**
+    - It adds four `behaviours` rows under the "Intake source fixtures" DoD label, one per case:
+      - a valid URL passes;
+      - admitted Markdown whose recorded original URL cannot be reached passes;
+      - no source reference fails with the named validation failure;
+      - Markdown with no original URL is refused at admission.
+    - The label joins `failingFirstRequired` and `negativeRequired`.
+    - Jev readiness is re-run, and the `DOR-R7` receipt is re-issued.
+
+    The written DoD (`D-287`, `D-288`) is unchanged. `B-151` classifies its finding against this amendment.
+
+### Units authorized for Lane A (`Active`), in order
+
+- **`U1` (P0a).**
+  - Files: handoff `README.md` and `TEMPLATE.md`; `handoff-response.mjs` and `terminal-return.mjs`;
+    `channel-docs.mjs` and `handoff-fields.mjs` only where their coupling requires; `scripts/fixtures/suites.mjs`.
+  - Also in scope: a header-consistency rule that flags an `Answered` entry still carrying the raised-form
+    `Verified-By`, and an entry with no `Verified-By` field; and correcting the README answering-table word "Resolved".
+  - **Stop condition:** if a multi-episode parser limitation appears, return it for a scope decision rather than
+    treating the first Return record as current.
+- **`U2` (P0b items 6–7).** The `SV-002` §2.3 re-derivation, plus the `closure-readiness.mjs` Gate 2 mode and its
+  fixtures.
+- **`U3` (P0c).** The Jev manifest, the readiness re-run, the `DOR-R7` receipt and the `B-151` classification.
+- **Then:**
+  - `B-130`'s Re-close record, after `U1`;
+  - the closures, group by group, after `U2`, each independently verified.
+
+Each unit's result is independently reviewed (`D-324`) before the next unit consumes it.
+
+### Not given by this act
+
+- any `Verified` resolution, or any source entry's disposition;
+- the `O5` acceptance act;
+- `SV-002` acceptance, or `V1-SM05` selection or unblock;
+- any lane-state change;
+- any application or test construction;
+- any edit to GitHub Issue #1 or PR #2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e189 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ §1 `D-364` paragraph: the Gate 2 entry condition and the `U1`–`U3` order |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3 pointer: it becomes the Gate 2 tracker, re-derived in `U2` |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A receipt: S1 recorded |
+| **`docs/handoff/B-151-sm05-initial-behavior-test-coverage-reconciliation.md`** | ✅ Lane A receipt: P0c recorded |
+| **`docs/handoff/B-130-c002-agent-instruction-handoff-review.md`** | ✅ Lane A: re-close form selected; stays `Open` until `U1` |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: no file is created or retired; the governance residual packet is inventoried when it is created |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected: no lane-state change |
+| `V1-SM05.md` packet | — unaffected: the DoD text is unchanged; the Jev manifest is tooling |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected: no FR, AC or business behaviour changes |
+| **Encyclopedia** | — unaffected: no entry depends on the handoff SOP or on Jev |
+| **Graphify** | Rebuild after this commit |
