@@ -207,3 +207,46 @@ Reviewed the targeted sources and tracking controls, queried Graphify, ran the f
 | B-130 terminal closure | Defer | Lane A applies adopted procedure, then Lane B independently verifies. Phase 1 |
 | SV-002 completion and V1-SM05 construction | Defer | Remaining setup evidence and separate acceptance/unblock/selection/work-order/Active acts. Gate 1B → Gate 2 |
 | Bulk closure, self-verification, erasing return history or building from review approval | Reject | Preserve truthful per-entry lifecycle and existing authorization boundaries. Phase 1 / Gate 2 |
+
+## Lane B Level 1 boundary review — 2026-09-30, after D-365
+
+**Clarified request:** Review B-130 and its linked handoffs; distinguish accepted work, applied controls and verified closure; order remaining work by parent dependency; identify document/graph drift and draft fixes for the existing owners. Preserve the existing tracking and finish with a bounded verdict.
+
+**Read baseline:** `c0577e2a136ac8b77fbcbc154afc2749ce6760ad`, clean working tree before this addition. This reviews B-130's boundary and the D-364/D-365 dependency chain. It is not the complete independent U1 control review, a new loader run, or a disposition of another handoff. Lane A's answer and all header fields above remain unchanged.
+
+### Parent-first completion and remaining work
+
+The highest current consolidation parent is B-150. B-130 retains its own loader finding and closure; B-151 is B-150's behavior-coverage child. They are related obligations, not duplicate reports. The order groups below are D-364's dependency vocabulary, not a newly assigned tracker.
+
+| Dependency | Existing owner / task | Established completion | Remaining condition |
+|---|---|---|---|
+| O0 parent: authority | B-150 S1 / D-364 | Judge adopted P0a, P0b and P0c | S1 adoption completes no source closure; B-150 remains Open |
+| O0 child: lifecycle controls | Lane A U1 / D-365 | Re-close form and controls applied at `e15e7bb`; README's Answered/Resolved ambiguity corrected | Complete independent Level 1 and Level 2 control review before consumption; this boundary review does not substitute for those reviews |
+| O1: B-130 substantive work | B-130 / SV2-U02 | Loader delivery and review chain accepted in D-362; each requested item answered in D-363 | No repeat loader work required. Activation/adherence belongs to the separate D-356 follow-up, not B-130's accepted condition |
+| O0 -> B-130 disposition | Lane A, then independent Lane B | Re-close procedure selected and applied; B-130 still Open | After U1 reviews, Lane A appends the Re-close record preserving D-264's Return record, records Answered/Applied, then Lane B verifies that actual disposition |
+| U1 -> U2: clearance controls | B-150 / Lane A U2 | Authority exists in D-364; application is not recorded in D-365 | Re-derive SV-002 §2.3 at a pinned commit with Order O0–O5; implement and independently review Gate 2 failures for unclosed non-SM05 rows and stale derivation |
+| U2 -> U3 / O2: behavior inputs | B-151 / Lane A U3 | Four intake cases already specified; D-364 supersedes D-288 item 5's automation limit | Add four case-specific Jev rows, require negative/failing-first evidence, re-issue DOR-R7 and independently review classification. Software behavior proof remains Gate 2 work |
+| O1 and O3–O5 -> Gate 2 | SV-002 §2.3 and existing packets | DOD-03 and DOD-05 are checked | DOD-01/02/04/06 remain unchecked; receipts, source clearance and separate Judge acceptance/unblock/selection/work-order acts remain required. V1-SM05 stays BLOCKED |
+
+### Gaps and draft fixes for existing owners
+
+1. **B-130 procedural gap: applied, not yet verified.** D-365 supplies the form that D-363 lacked. Draft receiver action: after both U1 reviews, cite D-264 and its exact Returned-At-Commit in Reclosed-Return; name acceptance of SV2-U02 under D-362 as Completion-Condition/Evidence, with D-363's item-by-item answer; cite D-364 and the dated receiver disposition in Reclose-Act; use the existing commit actually read for Reclosed-At-Commit. Preserve the Return record. Lane A writes this record and the disposition; Lane B reviews it afterwards. No live Re-close record is added by this draft.
+2. **Historical proposal wording: clarify current authority without rewriting history.** The earlier B-130 addition calls option (a) unadopted and the decision undecided. Those statements describe its earlier read baseline; D-364 now adopts it and D-365 applies U1. Use this dated correction when reading that history. The remaining gap is review and disposition, not another procedure-selection decision. B-150 remains the broader parent; do not create another closure roll-up.
+3. **Instruction-description drift: still outstanding.** `.claude/skills/sync-docs/SKILL.md` frontmatter says "shared-core triple edit", while §5 correctly specifies the single shared core imported under D-324/D-337. Draft Lane A replacement phrase: "the single shared core and its importing entrypoints". Preserve the correct operative §5. README's separate "Resolved" issue was fixed by U1 and is not raised again.
+4. **Graph semantic completion: still outstanding.** `lastAnalyzedHead` equals the read baseline and `stale` is false; graph-coverage and docs-drift pass. Nevertheless `graphify check-update` reports `.graphify_describe_pending`: descriptions/labels were not completed by the fast rebuild. Draft Lane A action: complete the pending description/label inputs and ingest them using the installed Graphify update workflow; re-merge curated `docs/graph-fragments/` if extraction/rebuild occurs; verify named fragments afterwards and repeat currency, coverage and pending-update checks. No full rebuild is justified solely by the current commit/coverage evidence. Graph queries provide navigation, while source records decide current status.
+
+**Language normalization:** "Answered" records a response; "Applied" records a correction; "Verified" requires independent verification. A receipt records transfer, not completion. D-364 Gate 2 clearance additionally accepts a separately recorded Judge acceptance with an individual reason. Packet `BLOCKED` is not lane state: Lane A remains Active and Lane B Eligible. D-356's activation/adherence follow-up is not accepted loader-delivery evidence. No Product requirement, FR/AC, storyboard or hosted Encyclopedia edit follows from this review.
+
+### Verification and verdict
+
+`bun run check` passed **19/19** at the read baseline with Git subprocess access: commit existence, full terminal history, governed-doc coverage and docs-drift were checked. The initial sandbox run failed Git discovery and is not counted as consistency evidence. `graphify query` supplied navigation; `graphify check-update` exposed the pending semantic work. Read-only `merge7.js docs/graph-fragments/frag141.json --verify-only` passed for its one node and one edge; this says nothing about untested fragments. Handoff records are excluded from governed-intent graph coverage under D-231, so source reading is essential. This addition is a review record, not another authoritative tracker.
+
+| Item | Verdict | Condition / follow-up phase |
+|---|---|---|
+| Accepted B-130 loader evidence and D-364 parent authority | Approve | Retain D-362/D-363 acceptance and D-364 adoption. Phase 1 |
+| B-130 path to closure | Approve-with-conditions | U1 independent Level 1/2 reviews -> Lane A Re-close/Applied -> independent Lane B verification. Phase 1 |
+| Complete graph semantic synchronization and stale skill-description fix | Approve-with-conditions | Lane A completes named description/label workflow and corrects the frontmatter phrase; verify each claimed result. Phase 1 |
+| B-130 terminal closure, B-150/B-151 completion and Gate 2 entry | Defer | Actual receiver dispositions, U2/U3 evidence, receipts, clearance and remaining SV-002 acceptance conditions. Phase 1 -> Gate 2 |
+| Bulk closure, duplicate tracker, or construction from this review approval | Reject | Follow existing per-entry evidence and Judge work-order boundaries. Phase 1 / Gate 2 |
+
+**Later Lane B review, 2026-09-30:** the Judge's renewed clarification and supplied Lane C assessment are consolidated in B-150's section "Judge clarification consolidated for Lane A — 2026-09-30, after D-365". Independent U1 control review at `c0577e2` reproduced two enforcement gaps, now raised as **B-152**. Its repair and Level 1/2 acceptance precede this entry's receiver Re-close. This corrects the earlier review-pending statement with an actual review finding, and changes neither accepted SV2-U02 evidence nor this entry's Open header, Return record or Lane A answer.
