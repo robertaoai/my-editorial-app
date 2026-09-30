@@ -62,10 +62,10 @@
   Gate 2 on every run and fails only under a recorded claim. Level 1 and Level 2 review of the row assignment and the
   mode come before `U3`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge-supplied Lane C assessment `d205450a-1fb0-41a5-a711-cf15ef1bb316/Pasted text.txt`, SHA-256 `07d393eb2467f84528d4bcb1673f714d22d3fbc07433bcfa7f4a72b8626731c1`, and downloaded `lane_c_parent_first_decision_guide.md`, reviewed at `8a3cdfc`; exact guide hash, corrected claims and remaining receiver checkpoints are recorded in the final section. Earlier source verification and U2-F1/F2 remain as recorded; no source receipt or clearance is applied by this analysis.
-- **Verified-At-Commit:** 8a3cdfcb78d787f20ddbd5711276e6ab5e720bf8
+- **Evidence:** Judge-supplied Lane C assessment `6e434ef0-9ef9-47e4-98c1-ad5534fee1ce/Pasted text.txt`, SHA-256 `37bd851d1a122cd3265329e61fd5a3ecb7ddd072791b464734b5eb450db74f59`, and its linked guide reviewed at `245fc1e`; exact guide hash and two new broken-reference replacements are recorded in the final section. Earlier source verification, trace matrices, receiving plan and U2-F1/F2 remain as recorded; no source receipt or clearance is applied by this analysis.
+- **Verified-At-Commit:** 245fc1e561a08672fc472f2a624d5bdc6ba9b096
 
-**Current review pointer:** the final "Downloaded Lane C guide validation and receiver work plan — 2026-10-01"
+**Current review pointer:** the final "Lane C latest concurrence and reference correction — 2026-10-01"
 below reconciles the newest supplied assessment; the preceding intent/group matrices and receiving plan remain current. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
 This parent remains Open; verification of B-130 and B-152 does not clear the whole O0 group or Gate 2.
@@ -1015,3 +1015,55 @@ is applied by this review.
 | Current U2 and any inferred receipt-only or check-only clearance | Reject | Phase 1 — U2-F1/F2 repair, independent review and evidence-based child clearance |
 | B-104/B-150 completion, full D-368 review chain and Gate 2 | Defer | Phase 1 → Gate 2 — reviewed receipts/clearance, remaining canonical setup/readiness proof and Judge determinations |
 | Software construction and held-target scope | Defer | Authorized Phase 2 for selected SM05; held target retains its own authorization/hold |
+
+## Lane C latest concurrence and reference correction — 2026-10-01
+
+**Scope:** validate the new assessment against the existing parent-first guide, preserving completed
+scope and the receiver's own answer. The preceding requirement/group matrices, receiving plan and
+six Judge checkpoints remain current; this receipt records only the new evidence and reference fix.
+
+**Read at clean `245fc1e561a08672fc472f2a624d5bdc6ba9b096`:** attachment
+`6e434ef0-9ef9-47e4-98c1-ad5534fee1ce/Pasted text.txt`, SHA-256
+`37bd851d1a122cd3265329e61fd5a3ecb7ddd072791b464734b5eb450db74f59`, and its linked Antigravity
+guide under brain `02d3b108-5e90-433c-a4fc-36bc24977d79`, SHA-256
+`10eb4cfa70baf381ad2a1ae88e533ee0f8a5c54eac35976a325e5baf078bc1d1` (states read at `245fc1e`).
+Its title and imperative text do not make it governing authority, a Judge act or Lane A's answer.
+
+**Concurrence accepted:** the guide now includes the exact O1 receiving references and labels SM05
+exclusions as contract rather than runtime proof. It preserves U2 rejection, P3 permission, canonical
+DoDs, B-136(P15)'s circularity guard, four B-104 children and receipt-versus-clearance. This is ready
+for Lane A review and bounded Phase 1 follow-up, with the existing evidence conditions retained.
+
+**New reference correction:** the linked guide has **37 unique file targets: 35 exist, two do not**,
+so its “all 35” completeness claim is not true for this version. Replace the guessed filenames with
+[B-095](B-095-b084-a4-write-set-contradictions.md) and
+[B-096](B-096-state-metadata-report-separation.md). Both source entries exist and remain Open;
+broken links are not missing requirements and must not cause either source's child screen to be skipped.
+
+**Retained conditions, not additional units:** Lane A states its own read revision and disposition;
+changes “O2–O4 clearance recorded” to a future acceptance requirement; keeps Gate 2 failure explicitly
+claim-triggered; and supplies applicable D-368 Level 2 implementation-review proof. The executive
+summary still describes actual O1 receipt as having satisfied the parent; the live B-104 row remains
+Open, so retain the guide body's prospective child-accounting-bypass explanation. Reviewer concurrence
+does not discharge these conditions or prove receipts, control repair, source closure or Gate 2.
+
+**Follow-up:** Lane A answers B-150 → drafts child accounting and receives/inventories the one residual
+packet → repairs/reviews U2 before U3 → completes U3/readiness → obtains independent bounded-transfer
+proof or individual Judge reasons and consumes O0–O5 clearance → presents the DOD-06 index and gate
+evidence. Canonical DOD-01/02 and P3 preparation remain independent; trial execution waits for its own
+act. The existing Chief Editor requirement, CR/story/MMF trace, critical-artifact table and B-104.O2–O4
+receiving plan remain unchanged. No new tracker, backlog copy or assumed SM06 allocation is created.
+
+**Graph:** queried first; analyzed HEAD da01e38 precedes this read by excluded handoff-only reviews.
+No governed-source change requires a rebuild for this receipt. Existing semantic-label/description and
+sync-docs maintenance remain pending; future governed-source sync retains/re-merges curated fragments.
+Lane A's answer, source lifecycle fields, receiving artifacts, control implementation and app code are
+unchanged by this review.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Recorded completed B-130/B-152 and setup scope | Approve | Phase 1 — preserve their bounded evidence; no blanket O0 clearance |
+| Consolidated guide for Lane A receipt and bounded work | Approve-with-conditions | Phase 1 — correct B-095/B-096 links, retain the existing evidence conditions and record Lane A's own answer |
+| Current U2 or clearance inferred from receipt/check/reviewer concurrence | Reject | Phase 1 — U2-F1/F2 repair and actual review; independently proven child clearance |
+| B-104/B-150 completion, full D-368 review chain and Gate 2 | Defer | Phase 1 → Gate 2 — receiving/review/clearance and canonical setup/readiness evidence, then Judge determinations |
+| Software construction and held-target implementation | Defer | Authorized Phase 2 for selected SM05; held-target scope retains its own hold/authorization |
