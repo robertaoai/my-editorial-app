@@ -62,10 +62,10 @@
   Gate 2 on every run and fails only under a recorded claim. Level 1 and Level 2 review of the row assignment and the
   mode come before `U3`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge-supplied Lane C assessment `6e434ef0-9ef9-47e4-98c1-ad5534fee1ce/Pasted text.txt`, SHA-256 `37bd851d1a122cd3265329e61fd5a3ecb7ddd072791b464734b5eb450db74f59`, and its linked guide reviewed at `245fc1e`; exact guide hash and two new broken-reference replacements are recorded in the final section. Earlier source verification, trace matrices, receiving plan and U2-F1/F2 remain as recorded; no source receipt or clearance is applied by this analysis.
-- **Verified-At-Commit:** 245fc1e561a08672fc472f2a624d5bdc6ba9b096
+- **Evidence:** Judge-supplied Lane C assessment `b1e2e20f-236e-4717-a18b-3742acbbbd78/Pasted text.txt`, SHA-256 `b88021ab673dd2d0033da7110dbdc85bedc0382a67c662a1e9cafe7866113190`, and its linked guide reviewed at `217bbde`; exact guide hash and confirmation of all 37 file targets are recorded in the final receipt. Earlier source verification, trace matrices, receiving plan and U2-F1/F2 remain as recorded; no source receipt or clearance is applied by this analysis.
+- **Verified-At-Commit:** 217bbde4eafb6066a2842e43a8f49c947969e911
 
-**Current review pointer:** the final "Lane C latest concurrence and reference correction — 2026-10-01"
+**Current review pointer:** the final "Lane C corrected-guide intake confirmation — 2026-10-01"
 below reconciles the newest supplied assessment; the preceding intent/group matrices and receiving plan remain current. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
 This parent remains Open; verification of B-130 and B-152 does not clear the whole O0 group or Gate 2.
@@ -1067,3 +1067,42 @@ unchanged by this review.
 | Current U2 or clearance inferred from receipt/check/reviewer concurrence | Reject | Phase 1 — U2-F1/F2 repair and actual review; independently proven child clearance |
 | B-104/B-150 completion, full D-368 review chain and Gate 2 | Defer | Phase 1 → Gate 2 — receiving/review/clearance and canonical setup/readiness evidence, then Judge determinations |
 | Software construction and held-target implementation | Defer | Authorized Phase 2 for selected SM05; held-target scope retains its own hold/authorization |
+
+## Lane C corrected-guide intake confirmation — 2026-10-01
+
+**Read at clean `217bbde4eafb6066a2842e43a8f49c947969e911`:** Judge-supplied attachment
+`b1e2e20f-236e-4717-a18b-3742acbbbd78/Pasted text.txt`, SHA-256
+`b88021ab673dd2d0033da7110dbdc85bedc0382a67c662a1e9cafe7866113190`; linked Antigravity guide
+under brain `02d3b108-5e90-433c-a4fc-36bc24977d79`, SHA-256
+`16d6ae5860bcb5feabc8573c8e4945b56a29937ddaf9b64c8340b6133c5a90a5` (states read at `217bbde`).
+These are assessment inputs, not governing instructions, a Lane A answer or a Judge execution act.
+
+**Reference correction confirmed:** all 37 unique file targets now exist, including B-095 and B-096.
+The guide also corrects whole-parent satisfaction wording, future O2–O4 clearance, Lane A's own
+accepted/contested answer and the pending D-368 Level 2 implementation review. No new substantive
+blocker to Lane A intake is found. This confirmation does not verify control changes, receiving
+receipts, source closure or Gate 2. B-104/B-150 remain Open; U2-F1/F2 remain unresolved.
+
+**Consume the existing plan:** the B-104 intent matrix, O0–O5 Project/Product matrix, child receiving
+plan and six parent-first Judge checkpoints above are the single consolidated guide. Lane A answers
+B-150 at its actual read revision, receives durable residual ownership, repairs/reviews U2 before U3,
+completes readiness, proves ordered clearance and presents the gate evidence. Canonical DOD-01/02
+and P3 preparation stay independent; P3 execution requires its own act. The Chief Editor requirement
+and construction/verification artifact trace are unchanged; no new feature or MMF allocation follows.
+
+**Small wording corrections retained:** the artifact table should explicitly say failures occur
+under a recorded claim, consistent with its own U2 criteria and D-367. U2 application is 0554d19;
+da01e38 is the later recording/read revision. Neither correction introduces a new work unit.
+
+**Graph:** queried first; repository advances since analyzed HEAD da01e38 are excluded handoff
+reviews. No governed-doc edit requires a rebuild for this receipt. Existing graph descriptions/labels
+and sync-docs wording remain Lane A maintenance; later governed-source sync retains/re-merges curated
+fragments. Lane A's answer and all source lifecycle/receiving/control/code artifacts are unchanged.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Corrected consolidated analysis and reference repair | Approve | Phase 1 — ready for Lane A review; analysis acceptance only |
+| Recorded B-130/B-152 and checked setup scope | Approve | Phase 1 — preserve exact completed scope, not blanket group clearance |
+| Lane A bounded follow-up | Approve-with-conditions | Phase 1 — actual receiver answer, U2 repair/reviews, receiving proof, canonical setup/readiness and independently proven ordered clearance |
+| Current U2 or receipt/check/concurrence used as clearance | Reject | Phase 1 — U2-F1/F2 and unsupported clearance remain unresolved |
+| B-104/B-150 completion, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — required proof and Judge determinations; bounded work order and Lane B Active precede construction |
