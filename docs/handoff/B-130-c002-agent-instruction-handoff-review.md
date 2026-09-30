@@ -40,10 +40,15 @@
   `SV2-U02`'s acceptance (`D-362`) and this entry's item-by-item answer (`D-363`) as the completion evidence.
   Disposition: `Applied`, not verified. Lane B, as raiser, verifies independently. Out of scope, as before:
   activation and adherence (`D-356`).
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** read `docs/handoff/TEMPLATE.md` and `README.md`; `V1-PHASE-CLOSURE.md` §5; `V1-BUILD-SPEC.md` §1; `shared-core-hash.mjs`; `sync-docs-uniqueness.mjs`; the three current rule files; `Modular_PRD.md` §8; storyboard Panels A9/A10; `FN-GATES-01-05.md` §4.1; `requirements-traceability-map.md` §1; `ENCYCLOPEDIA-SYNC.md` against the commit below. **Answer (`D-363`):** `D-304`, `D-318`, `D-324`–`D-362`; `SV-002` §3.5, §3.6.6 and the `SV2-DOD-03` row; `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/governance/agent-rules-reference.md`, `scripts/checks/rule-budget.mjs` (the retired `shared-core-hash.mjs` and `.agents/rules/graphify.md` read at their last commits). External C-002 draft and Lane C's subsequent reconciliation read from the user-supplied Antigravity brain path; neither is in this repository.
-- **Verified-At-Commit:** 8b38e4637fd81c2b12975835741638fca0205fb4
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent re-close review 2026-10-01
+- **Evidence:** Independent re-close review 2026-10-01 at `80953aa`: D-367 applied at `d90f052`; preserved D-264 Return and exact episode binding; D-362/D-363 completion; reviewed U1/B-152 chain; full response/history checks required at the recorded verification commit. See the final verification section. Historical evidence follows: read `docs/handoff/TEMPLATE.md` and `README.md`; `V1-PHASE-CLOSURE.md` §5; `V1-BUILD-SPEC.md` §1; `shared-core-hash.mjs`; `sync-docs-uniqueness.mjs`; the three current rule files; `Modular_PRD.md` §8; storyboard Panels A9/A10; `FN-GATES-01-05.md` §4.1; `requirements-traceability-map.md` §1; `ENCYCLOPEDIA-SYNC.md` against the commit below. **Answer (`D-363`):** `D-304`, `D-318`, `D-324`–`D-362`; `SV-002` §3.5, §3.6.6 and the `SV2-DOD-03` row; `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/governance/agent-rules-reference.md`, `scripts/checks/rule-budget.mjs` (the retired `shared-core-hash.mjs` and `.agents/rules/graphify.md` read at their last commits). External C-002 draft and Lane C's subsequent reconciliation read from the user-supplied Antigravity brain path; neither is in this repository.
+- **Verified-At-Commit:** 80953aa71e3fa230bd20d7518ea317b2212d831c
+
+**Current verification pointer:** the final "Lane B independent re-close verification — 2026-10-01"
+records the current disposition. Earlier Open, procedure-pending and review-pending statements below
+describe their dated baselines. B-150 remains the consolidation parent; this verification completes
+only B-130's D-264 return episode.
 
 ## What happened
 
@@ -268,3 +273,31 @@ The highest current consolidation parent is B-150. B-130 retains its own loader 
 | Bulk closure, duplicate tracker, or construction from this review approval | Reject | Follow existing per-entry evidence and Judge work-order boundaries. Phase 1 / Gate 2 |
 
 **Later Lane B review, 2026-09-30:** the Judge's renewed clarification and supplied Lane C assessment are consolidated in B-150's section "Judge clarification consolidated for Lane A — 2026-09-30, after D-365". Independent U1 control review at `c0577e2` reproduced two enforcement gaps, now raised as **B-152**. Its repair and Level 1/2 acceptance precede this entry's receiver Re-close. This corrects the earlier review-pending statement with an actual review finding, and changes neither accepted SV2-U02 evidence nor this entry's Open header, Return record or Lane A answer.
+
+## Lane B independent re-close verification — 2026-10-01
+
+The Judge authorized Lane B to verify this re-close (Phase 1 / O0). Read at
+`80953aa71e3fa230bd20d7518ea317b2212d831c`, after Lane A applied D-367 at `d90f052`.
+Lane A's answer, Return record and Re-close record are preserved; Lane B records the independent
+verification in its own entry's audit fields. This is not a new loader measurement or new scope.
+
+| Obligation | Independently checked evidence / result |
+|---|---|
+| Preserve and bind the actual episode | The Return record is unchanged from `8b38e46`; Reclosed-Return cites both D-264 and `ee5cdfdc28a49120342a74a01ab2ca100d5fdadd`, as D-366 requires |
+| Prove completion before disposition | D-362 checks SV2-DOD-03; D-363 answers each original What you need item. D-367 records the receiver's Re-close, and its read commit `8b38e46` exists after the Return commit |
+| Consume reviewed controls | B-152's independent Lane B verification and the Judge-supplied repaired-U1 Lane C assessment are recorded at `3dba8c0` and `c475965`; D-367 item 1 accepts their consumption |
+| Keep an honest current header | Status remains Answered; Lane A's Applied disposition is independently confirmed as Verified, with a named non-answering actor and the existing read commit |
+| Preserve scope boundaries | D-356 activation/adherence remains separate. No hosted Encyclopedia verification, fresh raw loader re-score, B-071 closure, B-150/B-151 completion, whole-O0 clearance or Gate 2 authority is claimed |
+
+The full local consistency check, including response form, full-history Return/Re-close checks,
+commit existence and docs-drift, is required at the actual verification commit. The uncommitted
+Verified preview reports old-episode violations because the history walker has not yet read the
+new terminal transition; it is not counted as a passing result. The separate preview-control gap
+is reported in B-150, without fabricating historical annotations here. The verification
+commit and the consolidated remaining plan are linked from B-150; that parent stays Open.
+
+| Decision | Verdict | Condition / follow-up phase |
+|---|---|---|
+| B-130's D-367 Re-close and accepted loader answer | Approve | Independently verified against D-362/D-363 and the preserved D-264 episode. Phase 1 / O0 |
+| B-150 clearance plan and B-151 behaviour coverage | Defer | U2/U3, per-obligation receipts, independent review and remaining setup evidence. Phase 1 |
+| Whole O0 clearance, SV-002 acceptance and SM05 construction | Defer | The live tracker and actual per-row evidence decide clearance; later Judge gate/work-order/lane acts remain required. Gate 1B -> Gate 2 |
