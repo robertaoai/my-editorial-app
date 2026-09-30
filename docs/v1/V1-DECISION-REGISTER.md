@@ -24248,3 +24248,75 @@ Each unit's result is independently reviewed (`D-324`) before the next unit cons
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected: no FR, AC or business behaviour changes |
 | **Encyclopedia** | — unaffected: no entry depends on the handoff SOP or on Jev |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e190 `D-365` — `D-364` Unit `U1` Applied: the Re-close Record Form and Its Controls; the `Verified-By` Header Rule (`U4-G8` Discharged)
+
+**Authority: the Judge, directly to Lane A, 2026-09-30**: *"Judge Approved: proceed with U1"*, under the bound set by
+`D-364`. Applied at `e15e7bb`.
+
+### What was applied
+
+1. **The form.** `docs/handoff/README.md` gains the section "Re-closing a returned entry — `D-364`", and
+   `TEMPLATE.md` gains the optional `## Re-close record` block with the fields `D-364` item 1 fixed. README's
+   answering table now reads `Answered` as "Responded; the disposition is recorded separately in `Resolution`",
+   replacing "Resolved".
+2. **`handoff-response` (form, no git).**
+   - Return and Re-close records are split into blocks and each is validated on its own. Before this, `field()` read
+     only the first matching line in a file, so a second Return record could never be validated: this was the
+     multi-episode limit `D-364` named as a stop condition. It is removed rather than hit.
+   - Each Re-close record binds to the Return record immediately before it, and must cite that record's
+     `Returned-At-Commit`.
+   - The latest episode governs the header: while it is open, the header must read `Open` with no terminal field;
+     once it is completed, the header must read `Answered` and carry a `Resolution`.
+3. **`terminal-return` (history).**
+   - Every `Returned-At-Commit` and every `Reclosed-At-Commit` must exist. The SOP had claimed the former was already
+     checked; no code did it.
+   - A re-close must be read strictly after the return it completes.
+   - Re-close records are deliberately not accepted as record-only diffs, so one appended to a terminal file cannot
+     exempt itself.
+4. **The header rule (`U4-G8`, planned as `C3`).**
+   - An `Answered` entry whose `Verified-By` still reads the raised form now fails, and so does any non-report entry
+     with no `Verified-By` line.
+   - Corrected: `B-127` and `B-128` now carry the dispositioned form (`D-215`); `B-118` and `B-119` gain the raised
+     form. These are audit-field edits only.
+   - **`U4-G8` is discharged**: the header correction plus a check rule with a negative test.
+5. **Fixtures.** The new suite `recloseRecordForm` covers:
+   - positive shapes, including two full cycles and `B-130`'s current open state;
+   - a missing or blank fact, a non-hexadecimal commit, a record with no return before it, and a second re-close for
+     one episode;
+   - a wrong citation, and an old re-close meeting a later reopening;
+   - an `Open` header, or no `Resolution`, beside a completed episode;
+   - both header-rule failures;
+   - a re-closed entry self-marked `Verified` by Lane A, which `closure-readiness` still rejects;
+   - with a mocked git: a missing commit, a completion that predates or equals its return, and binding to the latest
+     return.
+
+### Evidence
+
+- `bun run check`: 19/19 at `e15e7bb`. `terminal-return` proved the live Return records of `B-071` and `B-130` against
+  history.
+- `bun run fixtures` on a clean tree at `e15e7bb`: every fixture behaved as intended, the new suite included, and the
+  working tree was restored.
+
+### Next, and not given by this act
+
+- **Independent review of `U1`** (`D-324`) comes before anything consumes it: Level 1 (ChatGPT, Lane B) and Level 2
+  (Antigravity chat, Lane C).
+- **After that review:** `B-130`'s Re-close record (Lane A), then Lane B's verification of it. `B-130` stays `Open`
+  until then.
+- **Not given:** `B-071`'s disposition, which needs its own completion evidence for its distinct children; units `U2`
+  and `U3`; any `Verified`; any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e190 |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A receipt: S5 control progress |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | — unaffected: `D-364`'s paragraph already fixes the `U1`–`U3` order, and this act changes no sequence |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: existing files edited, none created or retired |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected: no lane-state change |
+| `SV-002.md` | — unaffected: its `U4-G8` mentions are dated `09060cc` history, and `U2` re-derives §2.3 |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected: no entry depends on the handoff SOP |
+| **Graphify** | Rebuild after this commit |

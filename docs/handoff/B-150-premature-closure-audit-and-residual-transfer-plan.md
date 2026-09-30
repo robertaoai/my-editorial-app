@@ -28,6 +28,9 @@
   clearance rule, the Gate 2 entry condition, the `SV-002` §2.3 tracker with `O0`–`O5`, residual routing) and P0c
   (Jev). Units `U1`–`U3` are authorized in that order. This entry stays `Open`: S2–S6 are still to be done, and it
   closes only after independent verification.
+  **S5 controls: `U1` applied 2026-09-30 (`D-365`, `e15e7bb`).** The Re-close record form, `handoff-response` and
+  `terminal-return` changes, the `Verified-By` header rule (`U4-G8`) and the new fixtures all pass. Level 1 and
+  Level 2 review of `U1` come before `B-130`'s re-close uses them.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-363; linked sources below; B-151 coverage child
 - **Verified-At-Commit:** 54a60d10b1ac8869bb46e9f992ac593266e13dfb
