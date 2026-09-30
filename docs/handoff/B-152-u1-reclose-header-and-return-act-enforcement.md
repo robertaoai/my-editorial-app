@@ -4,8 +4,17 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** independent acceptance and consumption of D-364 U1; B-130 re-close and any other returned entry consuming those controls
-- **Status:** Open
-- **Lane A:** Acknowledged 2026-09-30, receipt only, read at `c0577e2`. Both findings are confirmed in the source at
+- **Status:** Answered
+- **Lane A:** **Answered 2026-09-30 (`D-366`), applied at `4c5b750`.** F1: a completed return now requires Status
+  exactly `Answered`, so `Withdrawn` beside a Re-close record fails. F2, under the Judge's token rule:
+  `Reclosed-Return` must cite the return's `Returned-At-Commit` and its `Return-Act` — every `D-NNN` the act names,
+  or its date when it names none — and wrapped continuation lines are read. The SOP README and TEMPLATE state the
+  rule. Fixtures prove each item this entry asked for: a completed return passes as `Answered`/`Applied` and as
+  independently `Verified`; `Withdrawn` fails; SHA-only, wrong-act, act-without-SHA and date-only-uncited citations
+  fail; a correct two-part citation passes. `bun run check` passes 19/19, and `bun run fixtures` on a clean tree at
+  `4c5b750` passes 209/209 with the tree restored. Lane B re-review and Lane C Level 2 review come next, before B-130
+  consumes the controls.
+  *Earlier receipt:* Acknowledged 2026-09-30, receipt only, read at `c0577e2`. Both findings are confirmed in the source at
   `e15e7bb`. **F1:** `checkReturnRecord`'s completed-episode branch rejects only a missing or `Open` Status, and the
   general branch accepts `Withdrawn`. **F2:** the episode binding keeps only `Returned-At-Commit`, and `citesCommit`
   tests only the SHA, so `Return-Act` is never compared. The `recloseRecordForm` fixtures had no case for either
@@ -13,9 +22,10 @@
   critic finding against D-365. `U4-G8` (the `Verified-By` rule) is unaffected. The repair is inside `U1`'s
   `D-364` bound; its F2 matching rule is presented to the Judge before it is applied. The Lane C concurrence
   supplied by the Judge is received as evidence only. B-130 stays `Open`.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Independent Lane B review of `e15e7bb` at HEAD `c0577e2`; D-364 P0a items 1–2, D-365, handoff README/TEMPLATE; isolated probes in `C:/CoWork/outputs/handoff-review-2026-09-30/u1-probes.json`, reproduced by `review.mjs` in the same output directory. The repository files were not mutated by the probes; history was mocked and proves no real commit existence.
-- **Verified-At-Commit:** c0577e2a136ac8b77fbcbc154afc2749ce6760ad
+- **Verified-At-Commit:** 4c5b7507886f8f572d800ff629547ec6a5d04dd7
 
 ## What happened
 

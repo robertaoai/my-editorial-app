@@ -24320,3 +24320,65 @@ Each unit's result is independently reviewed (`D-324`) before the next unit cons
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected: no entry depends on the handoff SOP |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e191 `D-366` — `U1` Repaired for `B-152`: a Completed Return Reads `Answered`; `Reclosed-Return` Binds Both the Return-Act and the SHA (the Judge's Token Rule)
+
+**Authority: the Judge, directly to Lane A, 2026-09-30.** The Judge chose the F2 matching rule, "Token match", and
+the U1 repair scope in chat. The repair stays inside `D-364`'s `U1` bound and enforces `D-364` items 1–2 as adopted;
+it adds no new syntax. Applied at `4c5b750`.
+
+### Why
+
+Lane B's independent review of `e15e7bb` (`B-152`) reproduced two gaps, and the Lane C concurrence supplied by the
+Judge agreed.
+
+- **F1:** a completed return with `Status: Withdrawn` passed.
+- **F2:** `Reclosed-Return` was checked only for the SHA, so the `Return-Act` required by `D-364` item 1 was never
+  compared.
+
+**Critic finding against `D-365`:** its fixtures had no case for either shape. "Every fixture behaved as intended"
+was true and still missed both, which is the `a_check_that_cannot_fail` risk in a narrower form. This is recorded
+here together with its fix, not removed. `U4-G8` (the `Verified-By` header rule) was not affected.
+
+### The decision
+
+1. **F1.** A completed return episode requires Status exactly `Answered`. `Withdrawn` beside a Re-close record
+   fails. A genuine withdrawal stays in the general vocabulary as its own disposition.
+2. **F2, the token rule.** `Reclosed-Return` must cite both identity components of the return it completes:
+   - its `Returned-At-Commit` (abbreviations allowed, as before);
+   - its `Return-Act`: every decision ID (`D-NNN`) the act names, or, when it names none, its date.
+
+   Wrapped continuation lines are read in full. An act that names neither an ID nor a date cannot be re-closed
+   until its Return record names one. The rule checks that the citation is present; it does not prove the act is
+   true.
+3. **Documentation.** The SOP README and the TEMPLATE state the rule.
+4. **`B-152`** is `Answered` / `Applied`, not verified.
+
+### Evidence
+
+- `bun run check`: 19/19.
+- `bun run fixtures` on a clean tree at `4c5b750`: every fixture behaved as intended and the tree was restored. The
+  new cases are:
+  - **positive:** a completed return `Verified` independently by Lane B; a date-only act (`B-071`'s shape); an act ID
+    on a wrapped line;
+  - **negative:** `Withdrawn`; SHA only; the right SHA beside a different act; the right act without the SHA; a
+    date-only act not cited by its date; an act with neither an ID nor a date.
+
+### Next, and not given by this act
+
+- **Before `B-130` consumes these controls:** Lane B re-reviews the repaired `U1`, which verifies `B-152`, and Lane C
+  performs the Level 2 review.
+- **Not given:** any `Verified`, `B-130`'s or `B-071`'s disposition, `U2`/`U3`, and any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e191 |
+| **`docs/handoff/B-152-u1-reclose-header-and-return-act-enforcement.md`** | ✅ `Answered` / `Applied` at `4c5b750` |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | — unaffected: no sequence change |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: no file created or retired |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected: no lane-state change |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `SV-002.md` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
