@@ -53,12 +53,13 @@
     - Gate 2's determinations are recorded distinctly and in order; no fixed number of Register entries is
       required.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-366; linked sources below; B-151 coverage child; B-152 Level 1 verification and Judge-supplied Lane C repaired-U1 Level 2 assessment; current Lane C guide reconciliation below
-- **Verified-At-Commit:** 561696d9ff0e478111e98b71e8121978d2a088a8
+- **Evidence:** Completion review 2026-10-01 at `1de58a9`: D-367 and Lane A delta at `80953aa`; B-130 independent verification at `1de58a9`, full check 19/19 at that clean commit; terminal-history preview failure and remaining draft fixes in the final section. Historical inputs: Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-366; linked sources below; B-151 coverage child; B-152 Level 1 verification and Judge-supplied Lane C repaired-U1 Level 2 assessment; current Lane C guide reconciliation below
+- **Verified-At-Commit:** 1de58a96bd6f7d75d06a2ebaec47c70cd00aa7ca
 
-**Current review pointer:** the final "Lane C ratification and remaining decision defects" below
-updates the earlier dated U1 rejection and uncommitted/check-failure reports. This parent remains Open;
-verification of its B-152 child does not close the parent or clear Gate 2.
+**Current review pointer:** the final "Lane B completion review and remaining plan — 2026-10-01"
+below consumes Lane A's dated Delta consolidated receipt and D-367. B-130 is now independently
+Verified at `1de58a9`; older re-close-pending and already-authorized-P3 statements are historical.
+This parent remains Open; verification of B-130 and B-152 does not clear the whole O0 group or Gate 2.
 
 ## What happened
 
@@ -465,3 +466,74 @@ Graphify descriptions/labels still await a separately scoped semantic update.
 | Lane A receives the reconciled guide and continues authorized work | Approve-with-conditions | Use the corrected freshness, clearance and DoD criteria above; no new decision for already adopted U2/U3. Phase 1 |
 | Lane C's full guide as a literal work order | Reject | It would produce incorrect U2, DoD and verifier gates. Correct those claims before use. Phase 1 |
 | SV-002 acceptance, Gate 2 and construction | Defer | Actual per-source clearance, setup DoD proof and separate Judge acts. Gate 1B → Gate 2 → Phase 2 |
+
+## Lane B completion review and remaining plan — 2026-10-01
+
+Based on Lane A's Delta consolidated receipt at `80953aa` and its D-367 re-close at `d90f052`,
+Lane B consolidates the remaining analysis in this existing parent. Read at
+`1de58a96bd6f7d75d06a2ebaec47c70cd00aa7ca`, clean tree. Lane B remains the raiser and independent
+reviewer; Lane A alone answers this entry. No new tracker, Judge act, source disposition or build
+authorization is created by this plan. The supplied Lane C guide retains the provenance recorded
+in Lane A's receipt, and D-367 item 4 settles its corrected authority and clearance language.
+
+| Parent-first task | Completed evidence or required next result | Follow-up phase |
+|---|---|---|
+| Parent authority / B-150 S1 | D-364 adoption and D-367 claim-trigger clarification are recorded. This completes authority, not this parent's audit/receipt/clearance work | Phase 1 |
+| U1 / B-152 control child | D-366 repair independently verified; supplied repaired-U1 Level 2 recorded at `c475965`; consumable under D-367 item 1 | Phase 1 / O0 |
+| B-130 returned source | Independently Verified by Lane B at `1de58a9`, on the state read at `80953aa`. Actual D-264 act and `ee5cdfdc...` Return commit are bound; Return and Re-close records and Lane A's answer are unchanged. Full local check at the verification commit: 19/19 | Phase 1 / O0, this source only |
+| U2 / this parent | Re-derive SV-002 §2.3 over every non-report entry lacking independent verification, with substantive-child proof and O0–O5 assignment. Under D-367 report every run; fail only on a recorded tracker clearance claim or SM05 leaving BLOCKED. Prove both unclosed-row and stale-disposition failures under a claim, and the no-claim case; obtain both review levels | Phase 1, before U3 consumes U2 |
+| U3 / B-151 coverage child | Four distinct Intake source fixtures behaviour rows; shared label in both required sets; case-level governed anchors; passing readiness and reissued DOR-R7; Lane A classification and independent reviews. Written SM05 cases already exist | Phase 1 / O2 |
+| Setup evidence and O0–O5 clearance | DOD-03/05 checked. Prove DOD-01/02 on canonical criteria; obtain P3's own Judge selection/download permission before trial and DOD-04 outcome. Clear each source by independent evidence or individual Judge acceptance; receipts alone do not close sources, and B-071 is not closed by B-130's verification | Phase 1 / Gate 1B |
+| Consuming Gate 2 decision | Current clearance tracker, every SM05 prerequisite received, DOD-01–05 revision index and DOD-06 acceptance. Judge determines unblock, selection, bounded D-242 work order and lane transition; first feature-run/database traces follow Lane B Active | Gate 1B -> Gate 2 -> Phase 2 |
+
+**New review finding — terminal-history preview differs from recorded verification.** At `80953aa`,
+changing only the working copy to Verified caused terminal-return to flag `10ec465`, `54a60d1`,
+`d455af6`, `425ca27` and `d90f052` as uncovered steps. Its run reads the current header but builds
+episode steps only from committed history; resolutionAfterDiff also retains a prior resolution when
+a diff merely deletes it. The pending Verified transition is absent from those steps, so the walk
+uses the older Deferred episode. At the actual verification commit `1de58a9`, the new transition is
+present: terminal-return checks 94 files clean, and the full suite passes 19/19. Do not add fictitious
+Return/annotation records or rewrite the preserved D-264 commit to silence the preview.
+
+**Draft Lane A fix, requiring a bounded scope decision before application:** make the preview model
+include the current pending transition, or explicitly label an uncommitted transition as unverified
+instead of alleging committed violations. Prove a returned Open -> Applied -> pending Verified chain
+does not resurrect its old terminal episode; prove deleting Resolution ends that episode; prove real
+substantive work after a terminal disposition still fails without coverage; and prove the actual
+committed verification agrees with its preview. This finding does not revoke B-130's accepted loader
+evidence or silently enlarge U2/U3. Lane A records its disposition here before routing any separate
+control correction into a bounded packet.
+
+**Existing drift, still not corrected:** sync-docs frontmatter and its introduction describe a
+hash-locked triple core, while its operative section 5 correctly states one core in AGENTS.md with
+importing entrypoints. Draft Lane A fix: normalize those descriptions to section 5 without redesigning
+the loaders. Graph currency is at `d90f052` and intervening changes are excluded handoff paths;
+docs-drift and graph coverage pass. Graphify still reports pending semantic descriptions/labels.
+Complete the owned semantic update before claiming those descriptions complete; any extraction or
+rebuild must re-merge and verify curated docs/graph-fragments. Handoff lifecycle is read from the
+entries, not inferred from graph nodes.
+
+**Failure-derived success criteria:** reject a claimed Gate 2 clearance that leaves a non-SM05 row
+unclosed or uses a derivation older than its newest disposition; reject omitted child obligations,
+missing SM05 receipts, or a receipt represented as feature completion. Do not infer wholesale failure
+from Issue/PR commits with no handoff edits. Product features go to Modular_PRD intake, and SM06
+allocation requires its own act; governance residuals go to one bounded Lane A packet. For the Chief
+Editor, retain the existing FR-15 business judgments/tasks/evidence and the four source outcomes;
+Markdown provenance is its original URL plus exact-text digest, never a claim that the URL was live.
+Source admission, persistence, refusal/replay and visible provenance need their own accepted DoD
+proof. Jev readiness is planning evidence; runtime proof and independent business acceptance follow
+authorized construction. No Product, Fn Spec, SPECS, storyboard or hosted Encyclopedia edit is made.
+
+**Lane A follow-up:** consume B-130's source verification; complete/review U2; complete/review U3 and
+B-151; prepare P3 separately and execute only after its act; clear groups in order from per-row proof
+and received scope; assemble the DOD index and put the remaining gate determinations to the Judge.
+Record a response to the preview-control finding and the two maintenance gaps without reopening
+completed loader work or duplicating this parent.
+
+| Decision | Verdict | Condition / follow-up phase |
+|---|---|---|
+| B-130 D-367 re-close | Approve | Independently Verified at `1de58a9`; full response/history checks pass. Phase 1 / O0 source |
+| Lane A's consolidated next work | Approve-with-conditions | Apply U2/U3 only within adopted bounds; independent review and actual per-row receipts/clearance. Phase 1 |
+| Preview-control and description/semantic corrections | Defer | Lane A answers the findings; any control repair receives a bounded scope act, and each maintenance result is verified. Phase 1 |
+| B-150/B-151 completion, whole O0 and Gate 2 | Defer | Remaining source/child proof, current tracker, setup DoD, SM05 receipts and Judge gate acts. Phase 1 -> Gate 2 |
+| Bulk closure, fabricated historical annotations, or software construction from review approval | Reject | Use truthful lifecycle, evidence and the recorded work-order/lane boundary. Phase 1 / Gate 2 |
