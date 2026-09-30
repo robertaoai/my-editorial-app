@@ -23905,3 +23905,39 @@ was written in Codex Desktop.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e184 `D-359` — Codex CLI Delivery Measured: `AGENTS.md` Content-Equal in 16 of 16 Rollouts; Every Rule-Loading Surface Now Measured
+
+**Authority:** the `D-356` condition. The Judge ran the Codex CLI and reported *"Codex CLI done"*.
+
+### The decision
+
+1. **Codex CLI delivery passes** (`SV-002` §3.6.6, Codex CLI record):
+   - 16 of 16 `codex_exec` rollouts each hold one `AGENTS.md` instruction block, content-equal to `1945c19` after
+     normalization;
+   - no `CLAUDE.md` or `GEMINI.md` content;
+   - the container's rule files hash-match the pin.
+
+   This completes the `D-334` "assembled, not delivered" result.
+2. **Every rule-loading surface is now measured:** Claude Code, Codex Desktop, ChatGPT Work, the Codex CLI, Agent
+   Manager and the IDE agent. Cowork receives no file automatically, by design. The `D-357` qualification of
+   "every surface" is resolved.
+3. **Recorded defect outside the repository:** the container lacks `codex-code-mode-host`, so the model could call
+   no tool. The Codex CLI's activation and adherence answers are non-evaluable. That affects the follow-up packet,
+   not `SV2-DOD-03`.
+4. **Still required for `SV2-DOD-03`:**
+   - the ChatGPT Chat/Work **Level 1** review;
+   - the Antigravity chat **Level 2** review;
+   - the Judge's assessment.
+5. **Not given by this act:** `SV2-DOD-03`, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e184 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §3.6.6 Codex CLI record |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
