@@ -24489,3 +24489,69 @@ Lane B verifies the fix. No change to `U2` or `U3` scope.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `SV-002.md` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e194 `D-369` — `D-364` Unit `U2` Applied: the `SV-002` §2.3.1 Gate 2 Tracker and the Claim-Triggered Gate 2 Mode
+
+**Authority: the Judge, directly to Lane A, 2026-10-01**: *"… then proceed with U2"*, under `D-364` items 5–7 and
+`D-367` item 3. Applied at `0554d19`.
+
+### What was applied
+
+1. **The tracker, `SV-002` §2.3.1, derived at `aa21f55`.** It has one row per non-turn-report entry whose header
+   carries no independent `Verified-By`, open or dispositioned. `B-136` is split into its `P15` and `P14`
+   obligations.
+   - The generating script proved the row set equals that live set exactly, with no duplicates.
+   - Each row carries an **Order** (`O0`–`O5`), a **Scope** (`SM05` | `non-SM05`) and a **Clearance** (`open` |
+     `closed` | `received`).
+   - Order is carried from the reviewed `09060cc` screen where an entry appears there, and from each later entry's
+     `Blocks` line otherwise.
+   - Clearance is recorded only where the record exists: `closed` for `B-131` (Judge acceptance `D-288`), `received`
+     for `B-120`, `B-125` and `B-136 (P14)` (the SM05 durable-owner receipt, `D-269`), and `open` everywhere else.
+   - The `09060cc` tables below it are kept as history.
+2. **The `closure-readiness` Gate 2 mode.** It **reports** on every run: whether a claim is recorded, the tracker's
+   currency, the unclosed non-SM05 rows, the SM05 rows not received, and any unlisted live entries.
+   - It **fails only under a claim**: a §2.3.1 claim line reading other than `no`, or `V1-SM05` no longer reading
+     `BLOCKED`.
+   - Under a claim it fails on an unclosed non-SM05 row, a live unverified entry with no row, or a derivation older
+     than the newest handoff disposition change, found by `git log -G` over the disposition lines. It also fails
+     when currency cannot be proven.
+   - A row whose header becomes independently `Verified` counts as closed without a tracker edit.
+3. **Bound kept.** SM05 rows not yet `received` are reported, not failed. `D-364` item 7 authorizes the two
+   failures only, and item 5's receipts are checked by review. Enforcing receipts mechanically would need a
+   separate Judge extension.
+4. **Fixtures (new suite `gate2Mode`).** They cover:
+   - no claim means no failure;
+   - both kinds of claim;
+   - each failure under a claim;
+   - passing when everything is closed and current;
+   - an unlisted entry;
+   - a header that has become `Verified`;
+   - SM05 rows reported only;
+   - unprovable currency;
+   - the live repository staying green.
+
+### Evidence
+
+- `bun run check`: 19/19. The live report reads: not claimed; tracker current at `aa21f55`; 62 non-SM05 unclosed; 13
+  SM05 not received; 0 unlisted.
+- `bun run fixtures` on a clean tree at `0554d19`: every fixture behaved as intended, and the tree was restored.
+
+### Next, and not given by this act
+
+- **Review first:** Lane B's Level 1 and Lane C's Level 2 review of the row assignment and the mode, before `U3`
+  consumes `U2`.
+- **Not given:** any row's clearance; any receipt; any `Verified`; `U3`; `P3` execution; any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e194 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 tracker (applied `D-369`) |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A: S2/S5 progress |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | — unaffected: `D-364`'s paragraph already carries the Gate 2 condition and order |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: existing files edited |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected: no lane-state change |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `V1-SM05.md` | — unaffected (the mode reads SM05's status line; it does not write it) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
