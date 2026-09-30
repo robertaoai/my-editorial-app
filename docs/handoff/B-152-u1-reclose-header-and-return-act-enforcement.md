@@ -22,10 +22,10 @@
   critic finding against D-365. `U4-G8` (the `Verified-By` rule) is unaffected. The repair is inside `U1`'s
   `D-364` bound; its F2 matching rule is presented to the Judge before it is applied. The Lane C concurrence
   supplied by the Judge is received as evidence only. B-130 stays `Open`.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** Independent Lane B review of `e15e7bb` at HEAD `c0577e2`; D-364 P0a items 1–2, D-365, handoff README/TEMPLATE; isolated probes in `C:/CoWork/outputs/handoff-review-2026-09-30/u1-probes.json`, reproduced by `review.mjs` in the same output directory. The repository files were not mutated by the probes; history was mocked and proves no real commit existence.
-- **Verified-At-Commit:** 4c5b7507886f8f572d800ff629547ec6a5d04dd7
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent re-review 2026-09-30
+- **Evidence:** D-366 repair at `4c5b750`, independently read at `b2b1e87`; response/history controls, README/TEMPLATE and fixtures reviewed together; 209/209 fixtures independently re-run on the clean tree, restored afterward; four additional isolated token/wrapping probes passed (`C:/CoWork/outputs/handoff-review-2026-09-30/u1-re-review-probes.json`). Original defect evidence at `c0577e2` remains below. Current Level 1 verification is bounded to the B-152 correction; Lane C Level 2 acceptance of the repaired U1 remains required before B-130 consumes it.
+- **Verified-At-Commit:** b2b1e871694c07d9be328754c7766cea1f7b2787
 
 ## What happened
 
@@ -60,3 +60,30 @@ Ran five isolated probes with the real form checker: a valid completed pair pass
 | B-130 terminal closure | Defer | Reviewed controls -> receiver Re-close/Applied -> independent verification. Phase 1 |
 
 **Supplied Lane C concurrence, received 2026-09-30:** the Judge supplied attachment `906608b5-a1ff-4bd9-9747-d12e09b432e3/Pasted text.txt` (SHA-256 `06926b1a3599abc235a38d1a0b631de26063394a5bb5bdbd300717e1fdb19e08`). It reports an independent source inspection at `c0577e2` and concurs with F1/F2 and rejection of current U1 consumption. This is supplied review evidence, not a Lane A acknowledgement, disposition of B-152, actual repair or Level 2 acceptance of a repaired control. F1's condition is in `checkReturnRecord`'s completed-episode branch (the attachment calls it `checkRecloseBlock`); F2 is the commit-only binding in the same episode validator. The receiver field and Open status remain unchanged.
+
+## Independent Lane B re-review — 2026-09-30
+
+**Current result:** the Judge authorized this re-review after Lane A completed its work. The D-366 repair at
+`4c5b750` satisfies B-152 F1/F2 and its failure-derived control criteria, independently read at `b2b1e87`.
+The historical rejection above describes `e15e7bb`; it does not describe the repaired control.
+Lane A's answer is preserved. This entry now records `Answered` / `Verified` for that bounded correction.
+
+| Criterion | Independent evidence / result |
+|---|---|
+| F1 — completed episode requires Answered | Source requires the Answered state; fixtures accept Answered/Applied and independently Verified, reject Withdrawn and Open beside a completed episode, and keep the latest uncompleted return Open |
+| F2 — citation binds act and commit | Source compares every D-NNN in the Return-Act, or dates when no decision ID exists, plus the existing abbreviated-SHA rule. Fixtures reject SHA-only, wrong-act, act-without-SHA, uncited date and unidentifiable act; valid date-only and wrapped citations pass |
+| Multiple IDs and both wrapped fields | Four additional isolated probes pass: both IDs in a wrapped Return-Act are required; omitting the second or substituting D-3000 for D-300 fails; an abbreviated SHA with a wrapped Reclosed-Return passes. These are form probes, not history proof |
+| Coupled controls and actual history | README/TEMPLATE agree with the adopted token rule. Independently re-run existing fixtures: **209/209**, working tree restored. Live-history fixture walks 92 terminal-file histories with no uncovered step and proves B-071/B-130's two Return records. Mocked completion-history fixtures retain their stated limits |
+
+**Acceptance boundary:** these controls prove citation/header form, existing revisions and episode ordering;
+they do not prove Completion-Evidence truth or close another source's children. The earlier Lane C concurrence
+was about the defect at `c0577e2`. It is not Level 2 acceptance of the repair. Lane C's repaired-U1 review still
+precedes B-130's receiver Re-close; B-130 then requires its own independent verification. B-071's distinct
+obligations, B-150 U2 and B-151 U3 remain with their existing owners. No application construction or lane change
+is authorized by this verification.
+
+| Item | Verdict | Condition / follow-up phase |
+|---|---|---|
+| B-152 F1/F2 repair and Level 1 verification | Approve | Independently verified at the read revision. Phase 1 / O0 |
+| Repaired U1 consumption | Approve-with-conditions | Lane C Level 2 review of the actual repair before use. Phase 1 / O0 |
+| B-130 closure and Gate 2 | Defer | Reviewed U1 -> receiver Re-close -> source verification; existing U2/U3, source clearance, setup evidence and Judge acts remain required. Phase 1 -> Gate 2 |
