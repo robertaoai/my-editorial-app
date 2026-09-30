@@ -62,10 +62,10 @@
   Gate 2 on every run and fails only under a recorded claim. Level 1 and Level 2 review of the row assignment and the
   mode come before `U3`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge-supplied Lane C assessment `6dd3545f-6a55-4e3e-8736-5d77a76f6714/Pasted text.txt`, SHA-256 `45cf2b460621f0913ad824dceefe568ffae257c764f13255dcab177d29a2318d`, reconciled at `4164ce3` in the final section. It preserves the preceding D-368 Level 1 approval and U2-F1/F2 rejection, and adds corrected decision criteria, Lane A steps and B-104 customer/story/MMF trace links. Prior check 19/19 and fixtures 233/233 belong to the dated verification section, not a new Lane C test run.
-- **Verified-At-Commit:** 4164ce33a662745519cc82de7f0cac0ec7c5c78d
+- **Evidence:** Judge-supplied Lane C assessment `9e82a197-e5ac-41ff-9949-c7682238de84/Pasted text.txt`, SHA-256 `bb11bc6490550a5acaab87b518cc3198e13518aebb1734beccd79ebb3f44ba8c`, and its linked guide read at `c76896f`; exact guide hash and the new O1–O5 Project/Product trace and residual-receipt correction are recorded in the final section. Earlier source verification and U2-F1/F2 remain as recorded; no source receipt or clearance is applied by this analysis.
+- **Verified-At-Commit:** c76896f8e6e0ba9f48c4ba18060c47549960568e
 
-**Current review pointer:** the final "Lane C assessment challenge and B-104 trace guide — 2026-10-01"
+**Current review pointer:** the final "Order-group trace and residual backlog receipt review — 2026-10-01"
 below reconciles the newest supplied assessment with the preceding D-368/U2 verification. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
 This parent remains Open; verification of B-130 and B-152 does not clear the whole O0 group or Gate 2.
@@ -746,3 +746,122 @@ Graphify rebuild requirement; a later governed-source update must retain/re-merg
 | Corrected guide for Lane A receipt and bounded follow-up | Approve-with-conditions | Phase 1 — Lane A answers; repair/re-review U2-F1/F2, retain the child trace and proof, and follow authorized bounds |
 | B-104 whole-entry completion, U3/B-151, SV-002 acceptance and Gate 2 | Defer | Phase 1 → Gate 2 — source child clearance/receipts, readiness, setup DoD/index and Judge determinations remain |
 | Software construction / held-target or advanced-routing execution | Defer | Authorized Phase 2 for SM05 only; other target work needs its own recorded scope/hold/allocation decision |
+
+## Order-group trace and residual backlog receipt review — 2026-10-01
+
+**Clearer request:** assess Lane C's updated guide, supply missing Project/Product trace for order
+groups O1–O5, and explain how B-104.O2–O4 retain a durable owner outside the handoff channel while
+only B-104.O1 supplies the SM05 requirement. Draft the receiver steps and Judge criteria; apply no
+backlog receipt, source answer, control repair, gate transition or construction.
+
+**Provenance:** the Judge supplied attachment `9e82a197-e5ac-41ff-9949-c7682238de84/Pasted text.txt`
+(SHA-256 `bb11bc6490550a5acaab87b518cc3198e13518aebb1734beccd79ebb3f44ba8c`). Lane B also read its
+linked `lane_c_parent_first_decision_guide.md` under Antigravity brain `02d3b108-5e90-433c-a4fc-36bc24977d79`
+(SHA-256 `1c85ed71d8d16f2b64e174524bf6024712844de86125de7add37d147eff49d68`). That guide states
+read commit `c76896f`. Lane B reviews at clean `c76896f8e6e0ba9f48c4ba18060c47549960568e`.
+The guide is supplied assessment content, not a Judge act or a Lane A answer.
+
+**Concurrence received:** Lane C now agrees on B-130/B-152 completion, U2-F1/F2, P3's permission,
+canonical DOD-01/02, pre-Gate 2 residual clearance, role IDs and partial CR-19. Preserve those
+corrections and the existing B-104 intent/held-target trace in the preceding guide. B-104 has four
+local children, O1–O4; **no B-104.O5 exists**. Order-group O5 is a different namespace. The added
+matrix below covers the five order groups without inventing a fifth child or a new Product feature.
+
+### Remaining defects in the supplied resolution mechanism
+
+| Claim or instruction | Review finding / draft correction |
+|---|---|
+| Once O2–O4 receipts are recorded, change their clearance to closed | Reject this automatic transition. D-364 items 4/8 and D-367 item 4 say receipt alone does not close a source. First record the receiving scope; then obtain independent confirmation at an existing revision or the Judge's recorded individual acceptance/reason; only then record the proven child clearance. Do not use the later source-header review to justify earlier unsupported closed rows |
+| O2/O4 must enter the Product capability backlog | Their actual §3.3 obligations are A4/target documentation propagation, not new software construction. Classify the remaining work, not its subject's name. Those governance/documentation residuals belong in the one bounded Lane A packet. Only a separately identified Product-feature residual receives a dated §2.5.2 intake receipt; link the existing held US/FR/AC instead of inventing a duplicate capability or declaring demand/rank/MMF allocation (D-187/D-188; D-364 item 8) |
+| Children disappeared completely; O1 receipt made B-104 satisfied | The live parent row still says open. §3.3 already retains O2–O4 with Lane A, B-104 and their own return conditions. The proven gap is no separate non-SM05 Gate 2 row and no durable receiving receipt established in the inspected Product/packet/inventory sources, not loss of every trace or actual completed parent clearance |
+| Reject every malformed scope; diagram makes U2/P3 prerequisites of DOD-01/02 | Preserve D-367's claim-triggered failure and report-only no-claim behavior in the U2 repair. The linked diagram's P1→P4 and P2→P4 contradict its own independence text: canonical DOD-01/02 proof can be prepared independently; P3 execution feeds DOD-04. U2 review gates U3 and reliable group clearance, not those canonical evidence definitions |
+| D-368 Level 1 verification occurred at d2e7401; all missing tracking is resolved | d2e7401 is an application revision. Lane B approved the repair read at da01e38 and recorded that review in 4164ce3. The new guide establishes concurrence with the analysis, not completed residual receipts, repaired controls or the full independent review chain. Lane A must cite what it actually read, rather than being instructed to copy c76896f after further changes |
+
+### O0 parent and O1–O5 trace matrix — draft references, not applied row clearance
+
+Every row needs **either its Product intent chain or its Project/governance scope**. A governance
+task does not need a fabricated customer CR, user story or MMF. Do not mint a PSK/PBL identifier to
+make the columns uniform. This group view explains the parent contract; Lane A still proves each
+source/child in the single SV-002 §2.3.1 tracker, with §3.3 carrying its existing behaviour mapping.
+
+| Group | Intent parent or Project scope | Existing source/consumer anchors and critical artifact | Missing proof / success criterion |
+|---|---|---|---|
+| O0 — authority/controls, parent first | Project governance: D-272, D-324, D-364 and D-367/368; return/re-close and independent review, not a customer Product feature | B-150, B-071's own returned episode, B-097/112/113/116; SOP/template and history/clearance controls. Completed B-130/B-152 results retain their scope | Preserve completed sources; resolve U2-F1/F2 and applicable D-368 Level 2 review. Authority, response and source closure remain distinct |
+| O1 — setup evidence | Project setup SETUP-SPIKE-000/SV-002; Build Spec; D-362 and SV-002 §7 DOD-01–06. No direct US-15/MMF implementation credit | B-046/050 graph currency; B-141/142 matrix review; B-144–148/C-002/007–009 loader/review records; B-136(P15) docket. Setup trial and DoD revision index feed gate readiness | DOD-03/05 checked, DOD-01/02/04/06 pending. P3 needs its own act. B-136(P15)'s later DOD-06 acceptance cannot be fabricated to clear an earlier row; propose truthful bounded docket/transfer proof or an individual Judge clearance reason while final attempt acceptance remains owned and pending |
+| O2 — SM05 readiness | CR-09 and partial CR-19 → US-15/FR-15 → AC-23–26; FN-GATES §§4.3–4.6; V1-SM05/MMF-V1-CORE delivery, currently unselected | B-151/U3, B-104.O1/SM05-N6, SM05 prerequisites from B-071/095/096/118; P4/P5/P6/P9 receipts; Jev manifest and DOR-R7 | Every SM05-scoped obligation has its own received DoR→DoD/FV-001 anchor. Preserve accepted Gate 1B mapping. Prove readiness here; real normal/revision/refusal/persistence database behavior follows authorized Phase 2 |
+| O3 — work-order inputs | Project execution authority D-242 and D-364 item 5; Product FR-15/AC-23–26 is the consuming scope, not authority to build | SV-002 §2.2 P13 (B-102 and governance-ready inputs), P14a/P14b (B-120/125), B-136(P14); LANE-B-WORK-ORDER and V1-SM05's durable-owner receipt | P14 receipts already exist; future work-order/build acceptance is not complete. Resolve P13 and each non-SM05 transaction by reviewed proof/Judge reason; receipt/citation alone does not clear the group |
+| O4 — residual ownership | Project routing D-364 item 8 and D-54 for governance/documentation; existing Product US/FR/AC parent only when the remaining work is genuinely a Product feature | Current B-077/106/117/119 rows; proposed B-104.O2–O4 child residual rows. One bounded Lane A packet, created/inventoried at first receipt; Product §2.5.2 for classified feature residuals only | Receiving anchor records scope, owner, hold, return and eventual completion proof. Independent transfer verification or individual Judge acceptance then proves clearance. No automatic SM06 allocation, feature demand or retirement of D-171 |
+| O5 — historical non-intersection | Project audit/closure D-278 and D-364 item 9, plus each entry's original Product/Project provenance; no common SM05 story/MMF parent | Historical B/C dispositions and preserved fields; §2.3.1 and one later Judge act listing individual entry reasons | Explain each entry's no-SM05 intersection, surviving children/returns and historical scope. One individually reasoned act, not blanket acceptance. Original trace is retained; no invented feature or lifecycle rewrite |
+
+The Chief Editor's Product requirement remains the auditable US-15 business record, including source
+provenance and refusal/replay/revision history. The user's Judge role additionally governs truthful
+setup/control/transfer acceptance under Project rules. These two demands explain why O1/O3/O4/O5
+can require closure evidence without being new customer features. Existing role IDs, four distinct
+intake cases, partial CR-19 disclosure and the held technical target remain as already traced above.
+
+### Main tracking for B-104: draft receiving plan
+
+**Observed:** B-104 and §3.3 retain O2–O4; §2.3.1 groups the whole entry as SM05. The inspected
+Product capability table and work-packet/inventory sources establish no separate dated O2–O4
+receiving receipt. Therefore both child-level Gate 2 accounting and durable residual ownership need
+Lane A's action. A trace link alone is neither that receipt nor completed scope.
+
+| Local child | Remaining work and existing parent | Draft destination / receipt, pending Lane A's classification | Gate 2 proof |
+|---|---|---|---|
+| B-104.O1 | SM05-N6; US-15/FR-15/AC-23, with accompanying AC-24–26 scenarios | V1-SM05 DoR→DoD; reference existing P6/§3.3 Gate 1B proof from D-288/D-289; propose Order O2, Scope SM05 | Confirm the exact received SM05 input, not merely a shared decision number. Phase 2 verifies runtime; this receipt never clears sibling children |
+| B-104.O2 | Propagate decided target A4 journey; B-084, held US-04a/US-05a → FR-04a/FR-05a family | As currently written, governance/documentation residual in the one bounded Lane A packet; propose Order O4, non-SM05. Reference held Product anchors as context | Exact affected artifacts, owner, hold, receiving section, remaining work and completion/return; independent bounded-transfer verification or individual Judge reason |
+| B-104.O3 | Label historical US-04/US-05 and target-held models accurately | Same Lane A packet, separately keyed child receipt; propose Order O4, non-SM05 | Show the preserved historical/target distinction and verified completed labelling or independently accepted transfer, without asserting code completion |
+| B-104.O4 | Propagate separate fallout/GRC target variant; US-04a/FR-04a/AC-05b and US-05a/FR-05a/AC-07b | Same Lane A packet for current documentation residual; propose Order O4, non-SM05. A genuine additional feature, if later identified, gets its own classified Product intake receipt | Retain D-171's hold and no selected MMF; prove owned transfer/closure now, without promising implementation or merging this route into SM05 |
+
+Use a source-preserving tracker key such as `B-104 (O2)` with the canonical child reference
+`B-104.O2` in its evidence. The current evaluator obtains the source ID by splitting the key on
+whitespace; bare dotted keys require an explicit parent-ID parser change or would leave live B-104
+unlisted. Prove this actual parser/evaluator path in the U2 repair, along with malformed Scope.
+Lane B reproduced the parent-ID behavior through the actual exports using the read-only probe
+`C:/CoWork/outputs/handoff-review-2026-10-01/review-u2-parent-key.mjs`: the source-preserving key
+has no missing-parent finding; the dotted key reports live B-104 unlisted under a claim. This is one
+live gate tracker referencing one execution owner, not competing backlog copies.
+
+### Lane A follow-up, parent first
+
+1. Answer this delta in B-150, naming the actual read revision and accepted/contested corrections.
+   Preserve completed authority, B-130/B-152 and checked DOD-03/05; keep this parent open.
+2. Re-screen U2 children and draft the source-preserving rows. Obtain substantive classification of
+   each residual: completed documentation, pending governance propagation, or an actual new Product
+   feature. Keep O2–O4 uncleared until their relevant proof is recorded; do not set closed from receipt alone.
+3. Under existing authority/bounded scope, Lane A creates and inventories the one residual packet
+   at its first receipt (D-364 item 8), with exact child scope, owner, affected artifacts, hold, return
+   and completion evidence. Link already held stories; record dated Product intake only for genuine
+   feature residuals. Do not invent a packet filename, PBL number, rank or sprint allocation here.
+4. Repair U2-F1/F2, pin derivation and prove parent-ID coverage, each child's non-SM05 failure,
+   valid receipt/clearance evidence, malformed-scope handling under a claim and report-only behavior
+   without one. Obtain actual Level 1/2 reviews before U3 consumes it. Receipt proof beyond U2's
+   authorized mechanical conditions remains a human gate review unless separately extended.
+5. Obtain independent verification of bounded completed/transfer scope or the Judge's individual
+   acceptance/reason. Record child clearance from that evidence, then Lane A answers B-104 truthfully
+   with Applied/Deferred or other authorized disposition as appropriate. Lane B independently reviews;
+   neither a transfer nor a review claims held-target software completion.
+6. In parallel prepare canonical DOD-01/02 and P3's permission request; trial execution feeds DOD-04
+   only after its act. After reviewed U2, finish U3/B-151 and DOR-R7. Consume O0→O5 proof in order;
+   assemble DOD-06, current tracker and SM05 receipts for the Judge's gate determinations. Construction
+   and feature database verification remain after the bounded work order and Lane B Active.
+
+**Failure-derived success criteria:** a claimed gate must fail or be rejected when a non-SM05 child
+is hidden, classified incorrectly or declared closed solely from a receipt; the reverse trace must
+locate its surviving execution owner and hold. Group-level Project trace must remain distinguishable
+from Product acceptance. New receipts are reviewable facts at existing revisions, not predictions.
+The proposed mechanism is ready for Lane A response/repair; the receipts and clearance are not done.
+
+**Docs/graph:** Graphify was queried first for the governance and backlog scope. Analyzed HEAD
+da01e38 precedes the read revision only by handoff reviews; governed-intent drift/coverage is checked
+by the consistency suite. Semantic descriptions/labels and sync-docs wording remain pending Lane A
+maintenance. No graph rebuild is caused by this handoff-only delta; later governed-source work must
+re-merge/verify curated fragments. No Product, packet, inventory, source answer or code is changed here.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Preserved authority, source verifications and accepted setup scope | Approve | Phase 1 — same bounded completed scope; D-368 Level 2 is not established by this guide |
+| Lane C concurrence and corrected O1–O5 trace / receiving plan | Approve-with-conditions | Phase 1 — Lane A answers, classifies residual kind and supplies exact receiving/proof anchors |
+| Automatic receipt→closed and compulsory new Product-feature routing of O2/O4 | Reject | Phase 1 / O4 — independent proof or individual Judge reason; route by remaining work, preserving D-171 and capability-identity limits |
+| Current U2 and assertion that missing tracking is already resolved | Reject | Phase 1 — U2-F1/F2 repair, source/child accounting and actual Level 1/2 review before U3 |
+| B-104/B-150 completion, Gate 2 and feature construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — receipts, verified clearance, remaining setup/readiness proof and Judge determinations |
