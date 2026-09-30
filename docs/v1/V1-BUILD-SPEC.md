@@ -130,6 +130,8 @@ attempt (not a lane transition). The Lane B/C read-only measurement authorizatio
 take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
 PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
 
+**`D-362` (2026-09-30) — `SV2-DOD-03` checked by the Judge.** The loader question is resolved on delivery plus the review chain (`D-356`–`D-361`). The remaining `SV-002` DoD rows are `01`, `02`, `04` and `06`. The `D-267` construction order is unchanged, and `V1-SM05` stays `BLOCKED`.
+
 **`D-356` (2026-09-29) — `D-324` amended: `SV2-DOD-03` on delivery plus review.** The activation and adherence
 probes leave the Gate 1B path and move to a rule-activation follow-up packet, scoped later with its design fixed
 before any run. Remaining for `SV2-DOD-03`: the Codex CLI (measured or Judge-waived) and the Level 1 and Level 2

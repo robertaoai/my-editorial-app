@@ -24016,3 +24016,52 @@ against the record first (`D-360` item 2): the review is in the Antigravity chat
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e187 `D-362` — `SV2-DOD-03` Checked by the Judge (Loader Question Resolved); `SV-002` Status Line Contradiction Fixed
+
+**Authority: the Judge, directly to Lane A, 2026-09-30**: *"Judge Approved: check SV2-DOD-03 and fix line 17"*.
+
+### The decision
+
+1. **`SV2-DOD-03` is checked.** It is assessed on the `D-356` basis, delivery plus the review chain:
+   - content-equal delivery on all six rule-loading surfaces (`D-339`–`D-348`, `D-358`, `D-359`; the `D-357`
+     normalization);
+   - rule files identical at `fd89ddc`, `1945c19` and `db683c5`;
+   - the raw records preserved under a manifest;
+   - the Level 1 review (`D-360`), with its conditions met;
+   - the Level 2 review (`D-361`), with no conditions.
+
+   The `SV-002` row records the check and keeps its earlier notes.
+2. **The `SV-002` status line is fixed:**
+   - the sentence "`SV2-DOD-05` is not checked" contradicted `D-289`. It is struck through and marked withdrawn;
+   - "`SV2-U02`/`U03`: no run result yet" is struck through and replaced: `SV2-U02` is complete, and `SV2-U03`
+     has no run yet.
+
+   This was raised in Lane C's consolidated advisory.
+3. **Remaining for Gate 1B:**
+   - `SV2-DOD-01` (governance applied);
+   - `SV2-DOD-02` (drift closed);
+   - `SV2-DOD-04` (the `SV2-U03` `ripwire` trial, which needs its own Judge selection and download permission);
+   - then `SV2-DOD-06` (the attempt accepted).
+4. **Now unblocked for Lane A:** answering `B-130`, whose completion condition is `SV2-U02`'s acceptance. That
+   answer is a separate act.
+5. **Not given by this act:**
+   - the `B-130` answer;
+   - the `SV2-U03` trial;
+   - `SV-002` acceptance;
+   - the follow-up packet's scope;
+   - any lane-state change.
+
+   `V1-SM05` stays `BLOCKED`.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e187 |
+| **`docs/v1/V1-BUILD-SPEC.md`** | ✅ `D-362` sequence note in the `SV-002` section |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ `SV2-DOD-03` row checked; status line corrected |
+| **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`** | — unaffected: no file added or retired; no lane change |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
