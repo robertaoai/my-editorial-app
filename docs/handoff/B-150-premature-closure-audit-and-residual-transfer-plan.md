@@ -32,10 +32,10 @@
   `terminal-return` changes, the `Verified-By` header rule (`U4-G8`) and the new fixtures all pass. Level 1 and
   Level 2 review of `U1` come before `B-130`'s re-close uses them.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-366; linked sources below; B-151 coverage child; current Lane B completion review below and B-152's bounded Level 1 verification
-- **Verified-At-Commit:** b2b1e871694c07d9be328754c7766cea1f7b2787
+- **Evidence:** Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-366; linked sources below; B-151 coverage child; B-152 Level 1 verification and Judge-supplied Lane C repaired-U1 Level 2 assessment reconciled below
+- **Verified-At-Commit:** d1ffc04c6278d19815e11ce37db35d594c492c85
 
-**Current review pointer:** the final "Lane A completion review and remaining implementation plan" below
+**Current review pointer:** the final "Lane C repaired-U1 assessment received" below
 updates the earlier dated U1 rejection and uncommitted/check-failure reports. This parent remains Open;
 verification of its B-152 child does not close the parent or clear Gate 2.
 
@@ -324,3 +324,37 @@ terminal-file histories are clean, graph coverage/currency pass and A remains Ac
 | Remaining Lane A implementation plan | Approve-with-conditions | Repaired-U1 Level 2 -> B-130 Re-close/verification -> independently reviewed U2 -> U3 -> scoped source/setup clearance. Phase 1 |
 | Blanket closure, full semantic synchronization or build-ready claim now | Reject | Current evidence does not establish these claims; complete their named obligations. Phase 1 -> Gate 2 |
 | Gate 2 activation and application construction | Defer | Remaining evidence/clearance and separate Judge acts precede execution. Gate 2 -> Phase 2 |
+
+## Lane C repaired-U1 assessment received — 2026-09-30
+
+**Supplied evidence:** the Judge forwarded Lane C's Level 2 assessment in
+`3b6304a4-c4a9-4c2f-8026-8cb13aa0111f/Pasted text.txt` (SHA-256
+`1d82d84d9150c1cb84053a0d46ce4ac7f26872afc6378869c70625fd22048947`). It independently inspects
+the D-366 repaired U1 at `4c5b750`, names the F1/F2 source, coupling and fixtures, and gives **Approve without
+conditions** for the repaired controls. B-152's Level 1 verification is at `3dba8c0`. The attachment is
+Judge-supplied reviewer evidence; its claims about running fixtures were still polling in the pasted worklog.
+Lane B's separate clean-tree run already established **209/209**. The two review levels now support U1
+consumption for the form-control scope. They do not themselves re-close B-130 or accept its completion evidence.
+
+**Planning claims in the same assessment need correction before use:** canonical P3 navigation is still in
+SV-002 and B-150; P14a/P14b have D-269 receipts, while P13 readiness and later execution still need their own
+proof. The earlier 79-header set was a candidate screen, not 79 proved invalid closures or the current U2
+tracker. The assessment's O4/O5-before-O0 diagram conflicts with D-364's O0→O5 closure order. Deferred is a
+terminal lifecycle disposition; a bounded transfer may be independently verified or individually
+Judge-accepted for clearance without claiming future work completed. Its grouped "OPEN" labels are not
+source-header statuses or a substitute for SV-002 §2.3's re-derivation. The Issue/PR commits did not edit
+handoffs, but that alone does not invalidate unchanged proof. Graph currency for governed intent passes;
+descriptions/labels are still pending, as the preceding review records.
+
+**Next dependency:** Lane A, as B-130's receiver and current Active lane, can use the reviewed U1 to append
+its Re-close record against the preserved D-264 Return and accepted D-362/D-363 loader evidence. Lane B then
+reviews that source disposition independently. U2 owns the current per-child clearance tracker; U3 owns the
+four Jev cases; SV2-U03/P3 still needs its Judge path for DOD-04. Product residuals enter capability intake,
+with any SM06 allocation requiring a separate Judge act.
+
+| Scope | Verdict | Condition / follow-up phase |
+|---|---|---|
+| Lane C repaired-U1 Level 2 review | Approve | Supplied independent assessment accepts F1/F2 repair; U1 form controls may be consumed. Phase 1 / O0 |
+| B-130 source closure | Approve-with-conditions | Lane A receiver Re-close with source evidence, then Lane B independent verification. Phase 1 / O0 |
+| Attachment's historical counts, receipt omissions and reordered group clearance | Reject | Re-derive from canonical sources under U2, preserving proven receipts and D-364 order. Phase 1 / U2 |
+| Gate 2 or application construction | Defer | Source/setup clearance and separate Judge acts. Gate 1B → Gate 2 |
