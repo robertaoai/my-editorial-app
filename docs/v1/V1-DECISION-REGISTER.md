@@ -24065,3 +24065,48 @@ against the record first (`D-360` item 2): the review is in the Antigravity chat
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e188 `D-363` — `B-130` Answered in Substance; Terminal Disposition Blocked by an SOP Gap (No Form for Re-Closing a Returned Entry) — Escalated to the Judge
+
+**Authority: the Judge, directly to Lane A, 2026-09-30**: *"Judge Approved: answer B-130"* (`D-362` item 4).
+
+### The decision
+
+1. **`B-130` is answered in substance** (read at `d23a276`). Its completion condition, `SV2-U02` accepted, is met by
+   `D-362`. The answer covers each item the entry asked for:
+   - reproduction with the real loaders: a per-file 24,000-byte cut, whole-line or mid-line by surface;
+   - the architecture (`D-324`/`D-337`) and the exact-partition ledger (`D-336`);
+   - `rule-budget` replacing the retired `shared-core-hash`;
+   - delivery on every rule-loading surface, with the Level 1 and Level 2 reviews;
+   - propagation;
+   - the activation boundary (`D-356`).
+2. **The terminal disposition is blocked, and escalated under `D-58`.**
+   - `B-130` carries a `## Return record` (`D-264`).
+   - The handoff SOP defines a **return** (`B-097`) and a **terminal annotation** (`B-113`), but **no form for
+     re-closing a returned entry**.
+   - `handoff-response` requires any entry with a Return record to be `Open` with no `Resolution`, so setting
+     `Answered`/`Applied` failed the check.
+   - **No precedent exists:** `B-071`, the only other returned entry, is still `Open`.
+   - The Register is silent, so the ruling belongs to the Judge.
+3. **Current state:** `B-130` stays `Open`, with the answer text, a pending-disposition note, the raised-form
+   `Verified-By`, and `Verified-At-Commit` pinned to the commit read. The intended disposition, once the form exists,
+   is `Applied`; Lane B, as raiser, can verify afterwards.
+4. **Options for the Judge:**
+   - **(a)** A "Re-close record" form beside the Return record, naming the closing act and commit. This needs an SOP
+     amendment, a `handoff-response` change and fixtures, all Lane A's.
+   - **(b)** Rule that a met completion condition converts the Return record into a Terminal annotation record
+     (`Annotation-Type: correction`). This reuses `B-113`, but still needs the check to accept it.
+   - **(c)** Leave `B-130` `Open` as answered-not-closed until a later SOP revision.
+5. **Not given by this act:** any SOP or check change, `Verified`, any other handoff's disposition, or any lane-state
+   change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e188 |
+| **`docs/handoff/B-130-c002-agent-instruction-handoff-review.md`** | ✅ answer text; `Open`, disposition pending |
+| **`V1-BUILD-SPEC.md`**, **`V1-ARTIFACT-INVENTORY.md`**, **`V1-PHASE-CLOSURE.md`**, **`SV-002.md`** | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
