@@ -24555,3 +24555,77 @@ Lane B verifies the fix. No change to `U2` or `U3` scope.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `V1-SM05.md` | — unaffected (the mode reads SM05's status line; it does not write it) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e195 `D-370` — `U2` Repaired for Lane B's `U2-F1`/`U2-F2`: One Tracker Row per §3.3 Child; Canonical Scope and Clearance Validation
+
+**Authority: the Judge, directly to Lane A, 2026-10-01.** In chat the Judge chose "U2 repair (F1 + F2)", "One row per
+child", and a mechanical child-coverage check that reports always and fails under a claim. The repair stays inside
+`D-364` item 7: an unreferenced child and an invalid row each count as a row that is not closed. Applied at
+`6f61b46`.
+
+### Why
+
+Lane B's Level 1 review of `D-369` (`B-150`, `4164ce3`) rejected `U2` for consumption.
+- **`U2-F1`.** Whole-entry rows hid mixed children. `B-104`'s O1 is SM05 while O2–O4 are not; `B-095` and `B-096`
+  mix both scopes; `B-071` carries the SM05 children R204/R205.
+- **`U2-F2`.** A Scope written `nonSM05`, or left blank, fell through both tallies. An open row then read as
+  cleared, even under a claim.
+
+Lane A reproduced both. The repaired coverage check also exposed one mis-scoping Lane B had not listed: every §3.3
+child of `B-118` (RH1–RH4, handoff-channel matters) is non-SM05, while its entry row stays SM05.
+
+### The decision
+
+1. **One row per child.** `SV-002` §2.3.1 was re-derived at `a598c28`, and every §3.3 child of a tracked entry now
+   has its own row:
+   - the row is keyed `<entry> (<exact §3.3 key>)`;
+   - its Scope comes from §3.3's "Consumed via": a cell opening with "none" means non-SM05;
+   - SM05 children are `O2`/`received` on their `D-289`-checked anchors; non-SM05 children are `O4`/`open`;
+   - entry rows are unchanged.
+
+   The generating script proved the entry set equals the live unverified set and that every child is referenced.
+   The table now has 104 rows.
+2. **Validation.** An invalid row is reported always and, under a claim, is not closed. A row is invalid when:
+   - its Scope is outside `SM05` / `non-SM05`;
+   - its Clearance is outside `open` / `closed` / `received`;
+   - it is non-SM05 but marked `received`;
+   - it is a child row whose Scope disagrees with §3.3.
+
+   A §3.3 child with no row is reported, and fails under a claim.
+3. **Report at `6f61b46`.** Not claimed; current; 104 rows; 80 non-SM05 unclosed, rising from 62 because the
+   non-SM05 children are now visible; 13 SM05 not received; 0 unlisted; 0 unreferenced; 0 invalid.
+4. **Fixtures (`gate2Mode`).** The added cases cover:
+   - both malformed Scopes, parsed and then evaluated;
+   - an invalid row while unclaimed being reported only;
+   - `received` on a non-SM05 row;
+   - an SM05 child received beside an open non-SM05 sibling, where the sibling fails;
+   - an unreferenced child;
+   - a child whose Scope disagrees with §3.3;
+   - the children of a Verified entry, which need no row;
+   - the live matrix and the live tracker.
+
+   `bun run check` passes 19/19. `bun run fixtures` on a clean tree at `6f61b46` behaved as intended and restored
+   the tree.
+5. **Advisory input received.** The Lane C "Fully Reconciled Parent-First Decision Guide" (SHA-256 `5fc2169b…`, read
+   at `8a3cdfc`) is received as advisory, as recorded in `B-150`.
+6. **`P3` request prepared, not authorized.** The `SV2-U03` selection and download request under `SV-002` §3.2 is
+   presented to the Judge in chat. `D-362` still requires the Judge's own act.
+
+### Not given by this act
+
+Any row's clearance or receipt beyond the records cited; any `Verified`; `U3`; `P3` execution or download; the
+governance residual packet, which is created at its first receipt (`D-364` item 8); any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e195 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 re-derived with child rows (`D-370`) |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A answer to `U2-F1`/`U2-F2` and to the guide |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | — unaffected |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: existing files edited |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `V1-SM05.md` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |

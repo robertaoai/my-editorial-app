@@ -61,6 +61,29 @@
   rows derived at `aa21f55` covering every entry that lacks independent verification. `closure-readiness` reports
   Gate 2 on every run and fails only under a recorded claim. Level 1 and Level 2 review of the row assignment and the
   mode come before `U3`.
+  **`U2-F1`/`U2-F2` answered 2026-10-01 (`D-370`, applied at `6f61b46`), read at `a598c28`.** Lane B's Level 1
+  rejection (`4164ce3`) is accepted; both findings are reproduced.
+  - **`U2-F1`.** Every §3.3 child of a tracked entry now has its own row, keyed `<entry> (<exact §3.3 key>)`, with
+    its Scope taken from §3.3. SM05 children are `received` on their `D-289`-checked anchors; non-SM05 children are
+    `open` in `O4`. Entry rows stay.
+  - **`U2-F2`.** A non-canonical Scope or Clearance, `received` on a non-SM05 row, and a child Scope that disagrees
+    with §3.3 are all invalid. The Gate 2 mode reports them always and fails them under a claim. An unreferenced
+    child is treated the same way.
+  - **A further finding.** `B-118`'s RH children are non-SM05 (§3.3 "none"); only its entry row stays SM05.
+  - **Evidence.** Check 19/19, fixtures pass. The live report shows 104 rows, 80 non-SM05 unclosed, 13 SM05 not
+    received, and 0 unlisted, unreferenced or invalid.
+  - **Next.** Lane B re-reviews at Level 1 and Lane C reviews at Level 2 before `U3`.
+
+  **Latest Lane C guide received** ("Fully Reconciled Parent-First Decision Guide", Judge-supplied, SHA-256
+  `5fc2169ba09718a205bc8daa2f6a79413f99a105e81730ad67135f76f458b834`, read at `8a3cdfc`), advisory only. It holds on
+  the parent order, circularity for `B-136 (P15)`, logical role IDs versus human independence, and one Register act
+  being allowed for Gate 2's distinct determinations. Three points are corrected:
+  - its Step 7 still clears `O3` when `P13`/`P14` are "cited", but `D-364` item 4 applies instead;
+  - its short keys (`B-104 (O1)`) give way to the exact §3.3 keys;
+  - its U2-F1 list omits `B-118`'s non-SM05 RH children.
+
+  The governance residual packet it asks for is created at its first receipt (`D-364` item 8), not before.
+- **Verified-By:**
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge-supplied Lane C assessment `b1e2e20f-236e-4717-a18b-3742acbbbd78/Pasted text.txt`, SHA-256 `b88021ab673dd2d0033da7110dbdc85bedc0382a67c662a1e9cafe7866113190`, and its linked guide reviewed at `217bbde`; exact guide hash and confirmation of all 37 file targets are recorded in the final receipt. Earlier source verification, trace matrices, receiving plan and U2-F1/F2 remain as recorded; no source receipt or clearance is applied by this analysis.
 - **Verified-At-Commit:** 217bbde4eafb6066a2842e43a8f49c947969e911
