@@ -32,10 +32,10 @@
   `terminal-return` changes, the `Verified-By` header rule (`U4-G8`) and the new fixtures all pass. Level 1 and
   Level 2 review of `U1` come before `B-130`'s re-close uses them.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-366; linked sources below; B-151 coverage child; B-152 Level 1 verification and Judge-supplied Lane C repaired-U1 Level 2 assessment; current decision challenge below
-- **Verified-At-Commit:** c47596516f97630473cdae84f9356b3b5a6e69fc
+- **Evidence:** Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-366; linked sources below; B-151 coverage child; B-152 Level 1 verification and Judge-supplied Lane C repaired-U1 Level 2 assessment; current Lane C guide reconciliation below
+- **Verified-At-Commit:** 561696d9ff0e478111e98b71e8121978d2a088a8
 
-**Current review pointer:** the final "Decision challenge for Lane A and the Judge" below
+**Current review pointer:** the final "Lane C ratification and remaining decision defects" below
 updates the earlier dated U1 rejection and uncommitted/check-failure reports. This parent remains Open;
 verification of its B-152 child does not close the parent or clear Gate 2.
 
@@ -410,3 +410,37 @@ descriptions/labels. The operative single-core rule is also still misdescribed i
 | Lane A intake and already authorized next work | Approve-with-conditions | Use corrected B-130 Return identity, then U2/U3 under existing D-364 bounds with independent review. Phase 1 |
 | Lane C's proposed decision table as written | Reject | Fix the SHA, reused P labels, case-level timing, forced Deferred dispositions and circular setup order before adoption. Phase 1 review |
 | SV-002 acceptance and Gate 2 | Defer | Actual source/setup evidence, current tracker, SM05 receipts and distinct Judge acts. Gate 1B → Gate 2 |
+
+## Lane C ratification and remaining decision defects — 2026-09-30
+
+The Judge supplied `7116a353-8e84-4b80-a9f7-4649dcf46701/Pasted text.txt` (SHA-256
+`99c6b622330d144f5c6c44669c4aa2b0c62d26a940306abedce04b0b95044177`) and its linked
+Lane C guide, read at `561696d`. Lane C now accepts the six corrections above: B-130's actual Return
+SHA, qualified P/U/O names, Phase 2 runtime proof, early P3 navigation, existing P14 receipts and
+non-coercive residual disposition. The corrected parent decision table and Lane A steps above remain
+the handoff; this addendum records only the remaining defects in the new guide.
+
+| New guide claim | Required correction / failure test |
+|---|---|
+| U2 tracker freshness means derivation SHA equals HEAD | D-364 item 7 says fail when the derivation is **older than the newest disposition change in docs/handoff/**, not whenever HEAD moves for an unrelated commit. Pin the source screen and prove both an omitted non-SM05 row and a newer disposition make Gate 2 fail |
+| All O0–O5 rows must be `Verified` | D-364 item 4 also permits each row's **recorded Judge acceptance with an individual reason**. Preserve its historical header; do not promote a transfer or force every O4 item to Deferred. O5's one Judge act must enumerate individual reasons |
+| DOD-01 is Issue/PR alignment; DOD-02 is evidence indexing | SV-002 §7 defines **DOD-01 governance applied** (SV2-U01, checks, graph currency, independent review) and **DOD-02 coverage, item drift and success drift closed** (scope/ledger proof or owned receipt and return). DOD-06 owns the evidence index linking DOD-01–05 to exact revisions. Issue/PR presence supplies no row by itself |
+| P3 trial must wait for U2, and U2 must wait for B-130 verification | D-364 orders control units U1→U2→U3 and permits B-130's Re-close after reviewed U1; it does not make U2 depend on B-130's final verifier or P3 depend on U2. Lane A may prepare/run the already-selected SV2-U03 trial under its own §3.2 bound while U2 proceeds. **O1 clearance** still waits for P3/DOD-04 evidence |
+| U3 puts four case identifiers in both required sets; fixtures stay 209/209 | D-364 item 10 adds four `behaviours` rows under the DoD label **Intake source fixtures**, then adds that **label** to `failingFirstRequired` and `negativeRequired`. New fixtures change the total; verify every new positive/negative case actually ran, without copying an old count. Real database traces are Phase 2 proof |
+| `OD4` is the product's Three Lines model; a bad B-130 citation rejects a commit | D-75 keeps development lanes, Product Three Lines and OD4 distinct. The B-130 wrong-SHA form must fail `handoff-response`; a check failure is not itself proof a local Git commit hook rejected the commit |
+
+**Decision order for Lane A and the Judge:** Lane A, as receiver, writes B-130's Answered/Applied
+Re-close using its preserved `ee5cdfdc…` Return and D-264 act; Lane B independently verifies it.
+Lane A applies U2 and U3 under existing D-364 authority, each with the prescribed independent reviews;
+P3 setup proof can advance in parallel. Lane A then consumes the U2 tracker in O0→O5 closure order,
+checks DOD-01/02/04 on their real criteria, and prepares the DOD-06 evidence index. The Judge
+separately accepts SV-002, assesses D-364 clearance and SM05 receipts, and then decides unblock,
+selection, D-242 work order and B Active. The first software test/database traces follow that
+transition. The current graph remains current for governed intent after handoff-only commits, while
+Graphify descriptions/labels still await a separately scoped semantic update.
+
+| Decision | Verdict | Condition / follow-up phase |
+|---|---|---|
+| Lane A receives the reconciled guide and continues authorized work | Approve-with-conditions | Use the corrected freshness, clearance and DoD criteria above; no new decision for already adopted U2/U3. Phase 1 |
+| Lane C's full guide as a literal work order | Reject | It would produce incorrect U2, DoD and verifier gates. Correct those claims before use. Phase 1 |
+| SV-002 acceptance, Gate 2 and construction | Defer | Actual per-source clearance, setup DoD proof and separate Judge acts. Gate 1B → Gate 2 → Phase 2 |
