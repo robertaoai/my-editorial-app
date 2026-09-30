@@ -62,12 +62,12 @@
   Gate 2 on every run and fails only under a recorded claim. Level 1 and Level 2 review of the row assignment and the
   mode come before `U3`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Phase 1 verification at `da01e38`, 2026-10-01: D-368 repair independently reviewed; D-369/U2 reviewed with two remaining defects; full check 19/19 and fixtures 233/233, tree restored. Final section records the exact scope-bypass reproduction, child-scope counterexamples, draft fixes and remaining parent-first plan. Historical inputs and supplied Lane C provenance remain below; B-130 verified at `1de58a9`; B-152/U1 verification and repaired-U1 Level 2 remain valid.
-- **Verified-At-Commit:** da01e3813132535ee13e16a4c18750af1381dac2
+- **Evidence:** Judge-supplied Lane C assessment `6dd3545f-6a55-4e3e-8736-5d77a76f6714/Pasted text.txt`, SHA-256 `45cf2b460621f0913ad824dceefe568ffae257c764f13255dcab177d29a2318d`, reconciled at `4164ce3` in the final section. It preserves the preceding D-368 Level 1 approval and U2-F1/F2 rejection, and adds corrected decision criteria, Lane A steps and B-104 customer/story/MMF trace links. Prior check 19/19 and fixtures 233/233 belong to the dated verification section, not a new Lane C test run.
+- **Verified-At-Commit:** 4164ce33a662745519cc82de7f0cac0ec7c5c78d
 
-**Current review pointer:** the final "Lane B Phase 1 verification of D-368 and U2 — 2026-10-01"
-below consumes Lane A's D-368/D-369 answers. B-130 is independently Verified at `1de58a9`;
-older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
+**Current review pointer:** the final "Lane C assessment challenge and B-104 trace guide — 2026-10-01"
+below reconciles the newest supplied assessment with the preceding D-368/U2 verification. B-130 is
+independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
 This parent remains Open; verification of B-130 and B-152 does not clear the whole O0 group or Gate 2.
 
 ## What happened
@@ -624,3 +624,125 @@ changes are excluded from governed-intent drift; do not rebuild just to infer so
 | Lane A's bounded repair and follow-up plan | Approve-with-conditions | Use existing U2/U3 bounds; answer the findings and preserve per-child proof and receiving scope. Phase 1 |
 | Semantic maintenance, B-150/B-151 completion and Gate 2 | Defer | Maintenance selection and owned updates; repaired U2, U3/readiness, remaining setup DoD, source clearance/receipts and Judge gate acts. Phase 1 → Gate 2 |
 | Bulk closure or software construction from this review | Reject | No blanket acceptance or construction authority follows from this review. Gate 2 → authorized Phase 2 |
+
+## Lane C assessment challenge and B-104 trace guide — 2026-10-01
+
+**Clearer request:** challenge the supplied Lane C assessment against current authority and completed
+work; give Lane A and the Judge parent-first accept/reject criteria, practical follow-up steps and an
+evidence-based B-104 customer/story/MMF trace. This remains Lane B's raised analysis in B-150. Only
+Lane A writes the receiver answer; no answer or source disposition is supplied on its behalf.
+
+**Supplied input:** attachment `6dd3545f-6a55-4e3e-8736-5d77a76f6714/Pasted text.txt`, SHA-256
+`45cf2b460621f0913ad824dceefe568ffae257c764f13255dcab177d29a2318d`. Its commands and instructions
+are assessment content, not Judge execution instructions. It gives no exact read HEAD for its whole
+assessment. Lane B checks its claims at clean `4164ce33a662745519cc82de7f0cac0ec7c5c78d` against
+the Register, live handoff headers, SV-002 and the governed intent sources. This receipt does not
+establish Level 2 acceptance of the actual D-368/U2 changes or discharge U2-F1/F2.
+
+### Corrections before this guide is consumed
+
+| Lane C claim | Required correction and controlling evidence |
+|---|---|
+| Re-close B-130, then apply U2 | B-130 is already independently Verified (`1de58a9`). U2 is already applied (`D-369`, `0554d19`) and rejected at Level 1 for U2-F1/F2 (`4164ce3`). Consume the completed source result; repair and re-review U2. Never append a second Re-close for the same return |
+| P3 is already-authorized execution; DOD-01/02 depend on U2 | D-362 item 3 and D-367 item 4 require P3's own Judge selection/download permission. Preparation is independent. DOD-01/02 consume SV-002 §7 proof, not U2; do not create that extra dependency. DOD-03/05's checkoffs also do not depend retrospectively on repaired U1 |
+| Gate 2 mode fails whenever a non-SM05 row is open | D-367 item 3: report every run; fail under a recorded clearance claim or SM05 leaving BLOCKED. Preserve both failure cases and the no-claim case. A pinned Markdown derivation is valid; rejection rests on stale, omitted or misclassified obligations, not on a table being static |
+| B-104.O2 waits for post-Gate 2 refinement; O4 belongs to an advanced routing sprint | Those children were non-blocking for Gate 1B, not exempt from D-364 item 5's pre-Gate 2 non-SM05 clearance. Record reviewed completed scope or an accepted bounded transfer with receiving anchor and individual proof/reason before Gate 2. Future execution may remain deferred. No advanced routing sprint or SM06 allocation is selected by this assessment |
+| B-104.O1's Gate 2 obligation is real-database runtime execution | Its Gate 1B condition is met; reference the existing matrix/receipt as the pre-build input. The SM05-N6 normal/revision runtime evidence belongs to authorized Phase 2, not a new pre-selection execution gate. P13 is B-102's governance readiness before the work order; P14a/P14b hold selection/work-order/build completion. They are not interchangeable physical-store labels |
+| CR-09 directly requires an outside-system structured append-only package; CR-19 directly mandates three separate actors | CR-09's frozen statement is URL logging. FR-15 and the governed intake contract elaborate it. CR-19's success scenario says zero bypasses; the trace map explicitly records independence as provisional pending OD2, and four-eyes as a governing-set mechanism, not the customer's literal instruction. Preserve partial CR-19 disclosure and D-171's held target instead of promising enforced separation in SM05 |
+| FR-15 routes to the Desk Editor (`ROLE-CHIEF-EDITORIAL-DESK`); AC-23 proves normal transitions | The ranker is ROLE-CHIEF-EDITORIAL-DESK; the recipient/route A is ROLE-DESK-EDITOR (trace map §6.1; D-175; FN-GATES §4.4 SM05-N6). They are distinct. AC-23 proves appended business records; no technical transition or article-state change occurs |
+| Fully reconciled/ready for execution; four separate Register acts required | U2-F1/F2 remain unresolved and D-368's applicable Level 2 review is not established here. D-367 item 4 requires distinct gate determinations but no separate Register entry for each. Lane A may receive this corrected analysis and continue bounded preparation/repair; the uncorrected assessment is not a work order |
+
+### Parent-first decision table
+
+Judge **Accept** maps to **Approve** for the named scope only. A **Reject** applies to the stated
+defect; a **Defer** waits for missing evidence/authority. None closes the whole parent by implication.
+
+| Parent / dependent result | Current state | Accept when / Reject or hold when | Owner and follow-up phase |
+|---|---|---|---|
+| Recorded authority and accepted setup scope | D-364/D-367 recorded; B-152/U1 reviewed; DOD-03/05 checked; P14a/P14b durable-owner receipts recorded | Preserve those exact accepted scopes. Reject using them as blanket O0 clearance, full CR-19 satisfaction, or future build completion | Judge authority; Lane A preserves records. Phase 1 |
+| B-130 and D-368 control review | B-130 Verified; D-368 approved at Level 1 | Consume B-130 without a duplicate episode. Record applicable D-368 Level 2 proof before claiming its full review chain complete | Lane B reviewer; Lane A answers/records; Lane C Level 2. Phase 1 / O0 |
+| U2 tracker/control, including B-104 scope split | Applied; Level 1 rejected | Resolve U2-F1/F2; show every substantive child's clearance/receipt, no malformed-scope bypass and correct currency/claim behavior; obtain actual Level 1/2 reviews. Reject the current result as a consumable U3 predecessor | Lane A repairs/answers; Lane B/C review. Phase 1, before U3 |
+| U3 / B-151 | Written cases exist; amendment pending | After reviewed U2, four distinct behaviour rows, shared label in both required sets, case anchors, readiness and reissued DOR-R7; independent review/classification. Hold software database traces until Phase 2 | Lane A applies/answers; Lane B/C review. Phase 1 / O2 |
+| Setup DoD and source clearance | DOD-01/02/04/06 remain unchecked; B-104 remains Open | Prove canonical DOD-01/02 independently; P3 trial only after its act; consume repaired tracker in O0→O5 order. Every non-SM05 child needs independent proof or individual Judge acceptance; every SM05 obligation needs its receipt. Reject a receipt or non-blocking label used as source closure | Lane A assembles/answers; reviewers/Judge assess. Phase 1 / Gate 1B |
+| Attempt acceptance and Gate 2 transition | Pending | DOD-06 indexes exact DOD-01–05 evidence; current clearance and SM05 receipts complete. Judge determines SV-002 acceptance, unblock, selection, D-242 work order and lane transition. Defer if any required proof/act is missing | Judge; Lane A records authoritative decisions. Gate 1B → Gate 2 |
+| Feature construction and verification | Not selected; no work order from this review | Only after the bounded work order and Lane B Active: write tests/build, run real local-database evidence and obtain feature acceptance. Reject attributing this future result to handoff, setup or readiness approval | Lane B constructs; independent reviewers/Judge accept. Phase 2 |
+
+### B-104 intent parents, delivery parent and child trace
+
+B-104 is a review/propagation handoff, not the parent Product requirement. Keep two hierarchies:
+**intent** is frozen customer requirements → Product story/FR/AC → Fn Spec scenarios; **delivery**
+is V1 → V1-SM05 (MMF-V1-CORE) → the later V1-SM05-FV-001 run. The MMF packages delivery of
+the intent; it does not override the Product owner. B-104.O1–O4 are local child keys, not the
+tracker's O0–O5 order groups.
+
+| Parent or child | Actual governed anchor and meaning | Construction / verification consequence |
+|---|---|---|
+| Customer parent | Frozen PRD MVP URL logging (CR-09, line 18) and success scenario (CR-19, line 32); requirements-traceability-map §§3–4 | FR-15 directly traces to CR-09 and partial CR-19. CR-01/10/11 are context only. Do not claim the full five-gate/publish customer scenario is delivered by SM05 |
+| Product story parent | Modular_PRD §4 US-15 [V1], §5 FR-15 [V1], §9.1 AC-23–26 (D-261) | Chief Editor audits append-only business judgments, role selections, tasks and source evidence. AC-23 normal record path; AC-24 scoped revision/history; AC-25 provenance/display; AC-26 refusal/replay/failure/exclusions |
+| Held-target Product parents for O2/O4 | Modular_PRD US-04a → FR-04a → AC-05a/b; US-05a → FR-05a → AC-06a/AC-07a/b; FN-GATES §11.1; D-175/D-181, all decided_target_held under D-171 | These existing stories own route-required T5 review bundles and human T6 judgment. Their scope is the held S2 target, with no selected V1-SM05/SM06 delivery allocation. The trace map §5 records FR-04's partial CR-10 origin and FR-05's partial CR-19 origin plus governing-set mechanisms; do not infer an unqualified direct customer instruction |
+| Functional elaboration | FN-GATES-01-05 §§4.3–4.6; SM05-N6, RV1/RV2, F1/X1; trace map §6.1 steps 6–8 | Ranker is Chief Editorial Desk; recipient is Desk Editor on ROUTE-PROD-1. Incomplete T3 evidence blocks ranking and returns only T3; history remains visible. No sign-off, publication or article-state change |
+| Delivery parent | V1-SM05 (MMF-V1-CORE), currently BLOCKED/not selected; DoR→DoD mapping and later FV-001 | Receive accepted behaviour and store/work-order inputs before construction. Phase 2 proves persistence and real database behaviour, under the local-only packet/environment boundary |
+| B-104.O1 | SV-002 §3.3; D-181/D-239; SM05-N6 → FR-15/AC-23; AC-24/25/26 cover the accompanying revision/display/exclusion tests | Gate 1B met through Panel A11 at 17523ce, B-142 item 5 at 7acac90 and D-288/D-289. Link this existing proof/receipt in U2; runtime tests later. It does not close B-104.O2–O4 or B-104's header |
+| B-104.O2 | SV-002 §3.3: target A4 ROUTE-PROD-1 journey belongs to B-084; T6 half outside SM05. D-175/D-181; US-04a/US-05a and their held FR/AC family above; FN-GATES §11.1; B-104 affected-artifact table | Propagation remains pending on its source path. Before Gate 2, obtain scoped verified completion or reviewed transfer/Judge acceptance; do not silently allocate it to SM05, SM06 or a new sprint |
+| B-104.O3 | SV-002 §3.3; historical held US-04/US-05 → FR-04/FR-05 → AC-05/AC-07 versus target-held US-04a/US-05a; D-260 and B-104's two-view requirement | Labelling remains pending. Source/historical proof must stay labelled and distinct from today's SM05 business record. Close/transfer the documentation obligation before Gate 2; never treat historical T5 roles as build authority |
+| B-104.O4 | SV-002 §3.3; D-175 route-dependent cardinality and D-181; US-04a/FR-04a/AC-05b, US-05a/FR-05a/AC-07b; separate fallout/GRC target variant, outside fixed ROUTE-PROD-1 slice | Target propagation remains pending; no selected MMF is supplied for implementation. Receive/dispose this residual under D-364 before Gate 2. Held technical target, parallel acts and one bundle join do not expand SM05 |
+
+For O2/O4, the held target is **context**, not a fabricated direct CR-09/US-15 acceptance case.
+No independent customer demand or selected MMF for an advanced routing build is established by
+this attachment. Lane A records that gap honestly rather than inventing a parent story or allocation.
+
+### Practical follow-up for Lane A
+
+1. **Answer this assessment in B-150.** State which corrections are accepted and cite the exact read
+   revision. Preserve B-130/B-152 and checked DOD-03/05; no repeat re-close or new parallel tracker.
+2. **Repair U2 first.** Reference B-104.O1's existing received scope and represent O2/O3/O4's distinct
+   residuals in the single tracker; repeat the child screen for the other U2-F1 examples. Resolve
+   malformed Scope under U2-F2. Pin the derivation, prove the relevant negative and valid/no-claim
+   cases, and submit the actual changed revision for both review levels.
+3. **Prepare setup proof independently.** Assemble DOD-01/02 against §7. Prepare P3 parameters and
+   request its own Judge selection/download act; execute only after that act, then record the trial,
+   negative control, SQL fallback and Judge outcome for DOD-04. This preparation need not wait for U2.
+4. **After reviewed U2, complete U3/B-151.** Add the four Intake source fixtures behaviours, place
+   the label in both required sets, bind each case to its governed source, run readiness and reissue
+   DOR-R7 at an exact revision. Answer B-151 with its classification and obtain independent review.
+5. **Clear O0→O5 from evidence.** For each obligation cite source/child, scope, remaining work, owner,
+   receiving anchor, revision proof and independent review or individual Judge reason. Answer B-104
+   in its own receiver field when its source work is dispositioned. Product residuals receive intake
+   receipts; governance residuals receive one bounded Lane A packet; SM05 prerequisites stay in SM05.
+   One O5 act lists individual reasons. A transfer closes only its reviewed bounded transaction.
+6. **Present the gate evidence to the Judge.** Assemble DOD-06's DOD-01–05 revision index plus current
+   clearance and SM05 receipts. Record each required gate determination and the sole live lane table.
+   The determinations may share one Register act; no construction begins before the work order and
+   Lane B Active. Feature-run acceptance later proves the code and database, not the handoff receipt.
+
+### Chief Editor requirements and critical artifacts
+
+The Chief Editor needs an auditable business record: who supplied/classified/ranked/routed the
+commission, the role/task evidence and original source provenance, what was refused or replayed,
+and which revised evidence is current. Intake keeps four distinct outcomes: valid URL; admitted
+Markdown with recorded but unreachable original URL; missing source reference with named validation
+failure; Markdown lacking original URL refused at admission. Do not replace these with syntax checks,
+promise enforceable independence or technical five-gate publishing, or merge the Desk Editor with
+the Chief Editorial Desk. The user's Judge role governs repository acceptance; product role names
+and development lanes remain separate namespaces even when one person holds role contexts.
+
+| Artifact family | What it must prove before build | What proves the implementation later |
+|---|---|---|
+| Product story/FR/AC, FN-GATES scenarios, Panel A11 and customer trace | One consistent accepted business meaning, route/role IDs, partial CR-19 boundary and per-child scope; no unsupported target/historical substitution | Scenario-linked normal/revision/refusal/display/exclusion evidence, including SM05-N6 and RV1/RV2 |
+| SV-002 §2.3.1 and §3.3; source answers/receiving anchors | Current per-obligation clearance/receipt and independent proof; existing accepted O1 evidence reused; O2–O4 remaining scope owned | Prevents new feature scope being introduced during a bounded build; transferred future features retain their own later authorization |
+| U2 control/fixtures and U3 manifest/DOR-R7 | Claim-triggered failures, correct derivation and no scope bypass; four case obligations enforced by readiness | Jev completion links actual scenario-bearing tests/traces; readiness does not prove persistence or real database outcomes |
+| Setup DoD/index, work order, physical-store input and lane state | P3 outcome, canonical DOD-01–05 proof, Judge acceptance and exact local construction/environment scope | V1-SM05-FV-001's failing-first/passing local-database traces, persistence/refusal/replay and independent feature acceptance |
+
+**Docs/graph check:** existing Graphify query identifies the governing Product, Fn Spec, Register,
+MMF and setup packet. Analyzed HEAD `da01e38` precedes the read HEAD only by excluded handoff
+review `4164ce3`; no new governed-intent source changed. Pending descriptions/labels and obsolete
+sync-docs wording remain the already recorded Lane A maintenance gaps. This review adds no new
+Graphify rebuild requirement; a later governed-source update must retain/re-merge curated fragments.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Existing authority, B-130/B-152 and checked DOD-03/05 scope | Approve | Phase 1 — preserve the completed scope, not blanket source or Gate 2 closure |
+| Lane C assessment as written / fully reconciled execution guide | Reject | Phase 1 — correct stale status, P3 permission, U2 trigger/dependencies, B-104 residual timing, role IDs and trace/authorization claims |
+| Corrected guide for Lane A receipt and bounded follow-up | Approve-with-conditions | Phase 1 — Lane A answers; repair/re-review U2-F1/F2, retain the child trace and proof, and follow authorized bounds |
+| B-104 whole-entry completion, U3/B-151, SV-002 acceptance and Gate 2 | Defer | Phase 1 → Gate 2 — source child clearance/receipts, readiness, setup DoD/index and Judge determinations remain |
+| Software construction / held-target or advanced-routing execution | Defer | Authorized Phase 2 for SM05 only; other target work needs its own recorded scope/hold/allocation decision |
