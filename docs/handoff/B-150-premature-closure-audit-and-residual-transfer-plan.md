@@ -31,6 +31,27 @@
   **S5 controls: `U1` applied 2026-09-30 (`D-365`, `e15e7bb`).** The Re-close record form, `handoff-response` and
   `terminal-return` changes, the `Verified-By` header rule (`U4-G8`) and the new fixtures all pass. Level 1 and
   Level 2 review of `U1` come before `B-130`'s re-close uses them.
+  **Delta consolidated 2026-10-01 (Judge approved), read at `d90f052`.** This entry stays the single parent, with
+  no second tracker; `SV-002` §2.3 becomes the live Gate 2 tracker in `U2`.
+  - **Children.** `B-151` stays the coverage child and is still `Open`; it is classified in `U3`. `B-152` is the
+    completed control child: `U1` was repaired under `D-366`, Lane B verified it at `b2b1e87` (`3dba8c0`), and
+    Lane C's Level 2 assessment is recorded here at `c475965`. `B-130` is re-closed as `Answered`/`Applied`
+    (`D-367`) and awaits Lane B's verification.
+  - **Supplied guide provenance.** The "Lane C Level 2 — Final Corrected Parent-First Decision Guide" was supplied by
+    the Judge in chat as the file `lane_c_parent_first_decision_guide.md`, SHA-256
+    `da2a6e0ac7cfec0969a598211383e06a594726cde5a587daf700ffe7a31f1a7f`, and states it was read at `8b38e46`. It is
+    received as advisory input only; `D-364` remains the work order.
+  - **Corrected P3 authority claim.** The guide's Step 4 and "Category A" list `P3` (`SV2-U03`, the navigation trial
+    for `SV2-DOD-04`) as already-authorized Lane A work, and Lane B's earlier reply said the same. Both are wrong.
+    `D-362` states that the `SV2-U03` trial "needs its own Judge selection and download permission". `P3` may be
+    prepared independently of `U2`/`U3`, and is executed only after that act.
+  - **The guide's other corrections, adopted from Lane B's challenge (`D-367` item 4):**
+    - `SV2-DOD-01`/`02` consume their canonical `SV-002` §7 evidence and do not depend on `U2`.
+    - An `O3`/`O4` row clears only under `D-364` item 4. A citation or a transfer receipt does not clear it; `P13`
+      needs its recorded pre-work-order resolution, and `P14` needs verified receiving traceability.
+    - The `U2` Gate 2 mode fails only under a recorded clearance claim (`D-367` item 3), not on every commit.
+    - Gate 2's determinations are recorded distinctly and in order; no fixed number of Register entries is
+      required.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-366; linked sources below; B-151 coverage child; B-152 Level 1 verification and Judge-supplied Lane C repaired-U1 Level 2 assessment; current Lane C guide reconciliation below
 - **Verified-At-Commit:** 561696d9ff0e478111e98b71e8121978d2a088a8
