@@ -24435,3 +24435,57 @@ here together with its fix, not removed. `U4-G8` (the `Verified-By` header rule)
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `SV-002.md` | — unaffected (`SV-002` §2.3 changes in `U2`) |
 | **Encyclopedia** | — unaffected: Entry 05's loader dependency is unchanged, because this act only disposes of the handoff record |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e193 `D-368` — `terminal-return` Episode Boundaries: a Deleted `Resolution` Ends the Episode; an Uncommitted Change Is a Labelled Preview
+
+**Authority: the Judge, directly to Lane A, 2026-10-01**: *"Judge Approved: fix the terminal-return episode defect,
+then proceed with U2"*. It answers the Lane B finding recorded in `B-150` (2026-10-01, `f0356a6`). Applied at
+`d2e7401`; the fixture expectation was corrected at `189bc2a`.
+
+### Why
+
+`resolutionAfterDiff` kept the prior `Resolution` when a diff only deleted the line, which is exactly what a return
+does (`B-097`). Lane A reproduced the consequence with the pure functions:
+- an entry going `Deferred` → returned → `Verified` directly never began a new episode;
+- the walk then flagged the return and verification commits as uncovered work.
+
+`B-130` escaped only because it passed through `Applied`.
+
+Separately, `run()` read the working-copy header but built its steps from committed history alone. A pending
+`Verified` was therefore invisible, and the walk fell back to an old episode. An existing fixture had recorded the
+first behaviour as "a stated gap"; it is now closed and the fixture's expectation corrected, not deleted.
+
+### The decision
+
+1. **A diff that removes the `Resolution` line and adds none ends the disposition.** Diff metadata such as
+   `--- a/x` is not read as a removal.
+2. **An uncommitted change becomes one final `WORKTREE` step.** Its findings say "preview", not "committed
+   violation". Dirty paths are listed once, so each check run adds one git call.
+3. **Proven by the new suite `terminalEpisodeBoundaries`:**
+   - a deletion ends the episode;
+   - a `Verified` after a return starts a new episode, with no false flags;
+   - genuine work after a terminal disposition is still flagged;
+   - a pending `Verified` does not revive the old episode;
+   - the committed result agrees with the preview;
+   - an uncommitted substantive edit to a terminal entry is flagged as the preview step.
+
+   `bun run check` passes 19/19; the live walk is unchanged, with every terminal file clean. `bun run fixtures` on a
+   clean tree behaved as intended and restored the tree.
+
+### Not given by this act
+
+No historical Return or annotation record was added, and no preserved commit was rewritten. There is no `Verified`:
+Lane B verifies the fix. No change to `U2` or `U3` scope.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e193 |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A answer to the preview finding |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | — unaffected |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: existing files edited |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `SV-002.md` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |

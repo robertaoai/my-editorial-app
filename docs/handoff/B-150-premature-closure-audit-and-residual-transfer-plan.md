@@ -52,6 +52,11 @@
     - The `U2` Gate 2 mode fails only under a recorded clearance claim (`D-367` item 3), not on every commit.
     - Gate 2's determinations are recorded distinctly and in order; no fixed number of Register entries is
       required.
+  **Preview-control finding answered 2026-10-01 (`D-368`, applied at `d2e7401` and `189bc2a`).** The finding is
+  confirmed and is broader than a preview: in committed history too, a deleted `Resolution` did not end the episode.
+  `terminal-return` now ends the episode on that deletion and models an uncommitted change as a labelled `WORKTREE`
+  preview step. The new fixtures prove each case this entry asked for. No fictitious record was added. Lane B
+  verifies. The sync-docs wording and the Graphify node descriptions/labels stay open until the Judge selects them.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Completion review 2026-10-01 at `1de58a9`: D-367 and Lane A delta at `80953aa`; B-130 independent verification at `1de58a9`, full check 19/19 at that clean commit; terminal-history preview failure and remaining draft fixes in the final section. Historical inputs: Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-366; linked sources below; B-151 coverage child; B-152 Level 1 verification and Judge-supplied Lane C repaired-U1 Level 2 assessment; current Lane C guide reconciliation below
 - **Verified-At-Commit:** 1de58a96bd6f7d75d06a2ebaec47c70cd00aa7ca
