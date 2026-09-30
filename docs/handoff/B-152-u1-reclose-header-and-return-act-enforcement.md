@@ -5,7 +5,14 @@
 - **Phase:** 1
 - **Blocks:** independent acceptance and consumption of D-364 U1; B-130 re-close and any other returned entry consuming those controls
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** Acknowledged 2026-09-30, receipt only, read at `c0577e2`. Both findings are confirmed in the source at
+  `e15e7bb`. **F1:** `checkReturnRecord`'s completed-episode branch rejects only a missing or `Open` Status, and the
+  general branch accepts `Withdrawn`. **F2:** the episode binding keeps only `Returned-At-Commit`, and `citesCommit`
+  tests only the SHA, so `Return-Act` is never compared. The `recloseRecordForm` fixtures had no case for either
+  shape, so D-365's "every fixture behaved as intended" was true and still missed both; this is recorded as a
+  critic finding against D-365. `U4-G8` (the `Verified-By` rule) is unaffected. The repair is inside `U1`'s
+  `D-364` bound; its F2 matching rule is presented to the Judge before it is applied. The Lane C concurrence
+  supplied by the Judge is received as evidence only. B-130 stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Independent Lane B review of `e15e7bb` at HEAD `c0577e2`; D-364 P0a items 1–2, D-365, handoff README/TEMPLATE; isolated probes in `C:/CoWork/outputs/handoff-review-2026-09-30/u1-probes.json`, reproduced by `review.mjs` in the same output directory. The repository files were not mutated by the probes; history was mocked and proves no real commit existence.
 - **Verified-At-Commit:** c0577e2a136ac8b77fbcbc154afc2749ce6760ad
