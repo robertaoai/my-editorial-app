@@ -318,6 +318,39 @@ These facts belong in one body record rather than explanatory prose folded into 
 `Verified-At-Commit`. The old terminal disposition stays visible in Git history and in the explicit
 return record; the active header describes only the entry's current state.
 
+### Re-closing a returned entry — `D-364`
+
+A return defined how an entry leaves a terminal state, **not how it takes a disposition again**.
+`B-130` showed the cost: its answer was complete (`D-363`), and the entry could not leave `Open`,
+because a Return record held the header open with nothing to end it. The Judge adopted a
+Re-close record (`D-364` P0a, `D-363` option (a)).
+
+**When the returned work is complete:** keep the `## Return record` exactly as it is, and append
+one `## Re-close record` after it. Then set `Status` to `Answered` and record `Resolution` —
+normally `Applied`, with the dispositioned `Verified-By` form (`D-215`). `Verified` still needs an
+independent actor; the re-close is the answering side's record and verifies nothing.
+
+```markdown
+## Re-close record
+
+- **Reclosed-Return:** <Return-Act and Returned-At-Commit of the episode this completes>
+- **Completion-Condition:** <exact obligation whose completion permits the disposition>
+- **Completion-Evidence:** <accepted act and artifact/section proving each obligation>
+- **Reclose-Act:** <D-364 plus the receiver's dated disposition act and source locus>
+- **Reclosed-At-Commit:** <existing commit read when recording the disposition>
+```
+
+- **One episode each.** A Re-close record completes the Return record immediately before it, and
+  `Reclosed-Return` must cite that record's `Returned-At-Commit`. A later reopening appends a
+  new Return record and, when that work completes, a new Re-close record. An earlier record never
+  covers a later episode.
+- **The latest episode governs the header.** A latest Return with no Re-close after it keeps the
+  entry `Open` with no `Resolution`; a completed one requires `Answered` and a `Resolution`.
+- **`Reclosed-At-Commit` is a commit that was read** (`D-214`), not a prediction of the commit
+  being written. It must exist and must come after the `Returned-At-Commit` it completes — a
+  completion cannot predate its return.
+- **Not a new status.** No `Status` or `Resolution` word is added; the header uses the words above.
+
 ### Terminal annotation record — a correction that does NOT reopen scope — `B-113`
 
 Not every post-terminal edit is a return. Audit-field normalization (`D-205`), a correction to the
@@ -348,10 +381,12 @@ work resumed. `No-Scope-Reopened` must read exactly `true` — a record assertin
 in `## Return record` instead, not here with the opposite claim.
 
 **`handoff-response`, `terminal-return` and `channel-docs` enforce this together, and none
-substitutes for the others:** `handoff-response` (check 10) validates a `## Return record`'s and
-every `## Terminal annotation record`'s FORM — all facts present, commits hexadecimal, `Annotation-
-Type` one of the four governed values, `No-Scope-Reopened` literally `true`. It needs no git
-history, so it runs in CI. `terminal-return` (check 18) is the history-aware half: it walks a
+substitutes for the others:** `handoff-response` (check 10) validates every `## Return record`'s,
+`## Re-close record`'s and `## Terminal annotation record`'s FORM, each as its own block — all
+facts present, commits hexadecimal, `Annotation-Type` one of the four governed values,
+`No-Scope-Reopened` literally `true`, each Re-close bound to the Return before it, and the header
+agreeing with the latest episode (`D-364`). It needs no git history, so it runs in CI.
+`terminal-return` also proves each `Reclosed-At-Commit` exists and follows its return. `terminal-return` (check 18) is the history-aware half: it walks a
 file's FULL commit history, one terminal episode at a time — a file enters an episode the moment
 its Resolution first becomes terminal, and every commit inside that episode must be audit-only, or
 named by a Return record (episode ends) or a Terminal annotation record (episode continues) whose
@@ -371,7 +406,7 @@ Fill the `Lane A` line. The dispositions are `Acknowledged`, `Answered` and `Wit
 | Disposition | Means |
 |---|---|
 | `Acknowledged` | Seen and queued. **Required immediately** — an unacknowledged entry fails `bun run check`. |
-| `Answered` | Resolved. Say what changed and cite the decision or commit. |
+| `Answered` | Responded; the disposition is recorded separately in `Resolution`. Say what changed and cite the decision or commit. |
 | `Withdrawn` | Not a defect. Say why — a withdrawal with no reason is not a disposition. |
 
 **Acknowledging is not answering.** The check requires acknowledgement so nothing sits unread;

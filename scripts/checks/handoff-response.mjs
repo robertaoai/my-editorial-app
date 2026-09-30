@@ -23,6 +23,13 @@
 //     `checkReturnRecord()` below. This is FORM only; the companion
 //     history-aware check lives in `terminal-return.mjs` because it needs
 //     git history and this check deliberately does not (stays CI-safe)
+//   * a `## Re-close record` (`D-364`) missing or blanking any of its facts,
+//     with no Return record before it, repeated for one episode, or not
+//     citing the Returned-At-Commit it completes; and a header that disagrees
+//     with the CURRENT episode — `Open` beside a completed return, or
+//     terminal beside an open one. Each record is validated as its own block
+//   * a non-report entry with no `Verified-By` line, or an `Answered` entry
+//     whose `Verified-By` still reads the raised form (`D-364`, `U4-G8`)
 //   * a `## Terminal annotation record` (`B-113`) missing or blanking any of
 //     its five facts, an `Annotation-Type` outside the four governed values,
 //     a `No-Scope-Reopened` that isn't literally `true`, or a non-hex
@@ -116,19 +123,53 @@ const RUN_ID = /^L[A-C]-[A-Z]\d+-\d+$/;
 // disposition with no return record at all) is `terminal-return.mjs`, kept
 // separate because it needs git history and this file is tracked-files-only
 // so it can run in CI.
-const RETURN_HEADING = /^##\s+Return record\s*$/m;
+//
+// `D-364` (P0a, `D-363` option (a)) — the Re-close record. The SOP defined how
+// an entry RETURNS and how a terminal entry is ANNOTATED, but not how a
+// returned entry becomes terminal again: `B-130`'s answer was complete and
+// the entry could not leave `Open`, because every Return record held the
+// header open forever. A `## Re-close record`, appended after the Return
+// record it completes, ends that return episode. The Return record stays —
+// history is never rewritten.
+//
+// EPISODES, NOT THE FIRST MATCH. `field()` reads the first matching line in
+// the whole text, so it could only ever see a file's FIRST Return record.
+// Return and Re-close records are therefore split into blocks, in document
+// order, and each is validated on its own. A Re-close record binds to the
+// Return record immediately before it; the episode that governs the header is
+// the LAST Return record. A later reopening needs a new Return record and a
+// new Re-close record — an earlier Re-close never covers it.
+const EPISODE_HEADING = /^##\s+(Return record|Re-close record)\s*$/gm;
 
-// Written as four explicit calls rather than a loop over a field-name array
-// on purpose: `channel-docs` (check 16) discovers which fields a check reads
-// by grepping check source for quoted field names passed as the second
-// argument, matched against the literal parameter identifier this function
-// reassigns `text` to hold. A name reached only through an array variable is
-// invisible to that grep, so a loop here would read these fields at runtime
-// and still fail the coupling check that exists to prove they are read.
-function checkReturnRecord(text, path, findings) {
-  text = stripFences(text); // an illustrative example fence is not a live return
-  if (!RETURN_HEADING.test(text)) return false;
+function episodeBlocks(text) {
+  const matches = [...text.matchAll(EPISODE_HEADING)];
+  return matches.map((m) => {
+    const rest = text.slice(m.index + m[0].length);
+    const nextHeading = rest.search(ANY_HEADING);
+    return { kind: m[1] === "Return record" ? "return" : "reclose", body: rest.slice(0, nextHeading < 0 ? rest.length : nextHeading) };
+  });
+}
 
+/** `true` when `cited` names `sha`: some hexadecimal token of at least seven
+ * characters in it is a prefix of `sha`, or `sha` of it. Either may be
+ * abbreviated. Exported so the fixture suite can assert it directly. */
+export function citesCommit(cited, sha) {
+  if (!cited || !sha) return false;
+  const want = sha.toLowerCase();
+  return [...String(cited).matchAll(/\b[0-9a-f]{7,40}\b/gi)].some(([t]) => {
+    const tok = t.toLowerCase();
+    return want.startsWith(tok) || tok.startsWith(want);
+  });
+}
+
+// Written as explicit calls rather than a loop over a field-name array on
+// purpose: `channel-docs` (check 16) discovers which fields a check reads by
+// grepping check source for quoted field names passed as the second argument,
+// matched against the literal parameter identifier `text`. A name reached
+// only through an array variable is invisible to that grep, so a loop here
+// would read these fields at runtime and still fail the coupling check that
+// exists to prove they are read. Each validator takes ONE block as `text`.
+function checkReturnBlock(text, path, findings) {
   if (!field(text, "Previous-Resolution")) {
     findings.push(
       fieldPresent(text, "Previous-Resolution")
@@ -162,28 +203,127 @@ function checkReturnRecord(text, path, findings) {
       `${path}: Return record **Returned-At-Commit:** "${returnedAt}" is not a hexadecimal commit SHA. Existence is proven separately by \`terminal-return\`, which has git history; this check does not`,
     );
   }
+}
 
-  // A return record marks the whole entry ACTIVE again. Header fields
-  // describe the whole entry (`D-204`), so a terminal field surviving next to
-  // an active return record is the exact header/body mismatch `B-097` exists
-  // to prevent — the return record would be true and the header would lie.
+function checkRecloseBlock(text, path, findings) {
+  if (!field(text, "Reclosed-Return")) {
+    findings.push(
+      fieldPresent(text, "Reclosed-Return")
+        ? `${path}: Re-close record **Reclosed-Return:** is present but BLANK — a re-close names the return episode it completes (\`D-364\`)`
+        : `${path}: Re-close record has no **Reclosed-Return:** — a re-close names the return episode it completes (\`D-364\`)`,
+    );
+  }
+  if (!field(text, "Completion-Condition")) {
+    findings.push(
+      fieldPresent(text, "Completion-Condition")
+        ? `${path}: Re-close record **Completion-Condition:** is present but BLANK — name the obligation whose completion permits the disposition (\`D-364\`)`
+        : `${path}: Re-close record has no **Completion-Condition:** — name the obligation whose completion permits the disposition (\`D-364\`)`,
+    );
+  }
+  if (!field(text, "Completion-Evidence")) {
+    findings.push(
+      fieldPresent(text, "Completion-Evidence")
+        ? `${path}: Re-close record **Completion-Evidence:** is present but BLANK — a re-close without the accepted act and artifact behind it is a claim, not a completion (\`D-364\`)`
+        : `${path}: Re-close record has no **Completion-Evidence:** — a re-close without the accepted act and artifact behind it is a claim, not a completion (\`D-364\`)`,
+    );
+  }
+  if (!field(text, "Reclose-Act")) {
+    findings.push(
+      fieldPresent(text, "Reclose-Act")
+        ? `${path}: Re-close record **Reclose-Act:** is present but BLANK — name the adopted rule and the receiver's dated disposition act (\`D-364\`)`
+        : `${path}: Re-close record has no **Reclose-Act:** — name the adopted rule and the receiver's dated disposition act (\`D-364\`)`,
+    );
+  }
+  const reclosedAt = field(text, "Reclosed-At-Commit");
+  if (!reclosedAt) {
+    findings.push(
+      fieldPresent(text, "Reclosed-At-Commit")
+        ? `${path}: Re-close record **Reclosed-At-Commit:** is present but BLANK — the commit read when recording the disposition (\`D-214\`, \`D-364\`)`
+        : `${path}: Re-close record has no **Reclosed-At-Commit:** — the commit read when recording the disposition (\`D-214\`, \`D-364\`)`,
+    );
+  } else if (!/^[0-9a-f]{7,40}$/i.test(reclosedAt)) {
+    findings.push(
+      `${path}: Re-close record **Reclosed-At-Commit:** "${reclosedAt}" is not a hexadecimal commit SHA. Existence, and that it follows the return, are proven separately by \`terminal-return\`, which has git history; this check does not`,
+    );
+  }
+}
+
+/**
+ * Validates every Return and Re-close record in `text`, binds each Re-close
+ * to the Return before it, and checks the header against the CURRENT episode.
+ * Returns `{ returns, recloses }` counts for the detail line.
+ */
+function checkReturnRecord(text, path, findings) {
+  text = stripFences(text); // an illustrative example fence is not a live return
+  const blocks = episodeBlocks(text);
+  const counts = { returns: 0, recloses: 0 };
+  if (blocks.length === 0) return counts;
+
+  let latest = null; // { at, reclosed } for the most recent Return record
+  for (const block of blocks) {
+    if (block.kind === "return") {
+      counts.returns++;
+      checkReturnBlock(block.body, path, findings);
+      latest = { at: field(block.body, "Returned-At-Commit"), reclosed: false };
+      continue;
+    }
+    counts.recloses++;
+    checkRecloseBlock(block.body, path, findings);
+    if (!latest) {
+      findings.push(
+        `${path}: has a Re-close record with no Return record before it — a re-close completes a return episode, and there is none to complete (\`D-364\`)`,
+      );
+    } else if (latest.reclosed) {
+      findings.push(
+        `${path}: has a second Re-close record for the same return episode — a later reopening needs its own Return record first; a re-close never covers an episode twice (\`D-364\`)`,
+      );
+    } else {
+      const cited = field(block.body, "Reclosed-Return");
+      if (cited && latest.at && !citesCommit(cited, latest.at)) {
+        findings.push(
+          `${path}: Re-close record **Reclosed-Return:** "${cited}" does not cite \`${latest.at}\`, the Returned-At-Commit of the Return record it follows — a re-close binds to exactly one episode (\`D-364\`)`,
+        );
+      }
+      latest.reclosed = true;
+    }
+  }
+  if (!latest) return counts;
+
+  // Header fields describe the whole entry (`D-204`). While the LATEST return
+  // is open, a terminal field beside it is the header/body mismatch `B-097`
+  // exists to prevent. Once a Re-close record completes it, the header must
+  // carry the disposition — an `Open` header beside a completed episode is the
+  // same mismatch in the other direction.
   const status = field(text, "Status");
-  if (!status || !/^Open\b/i.test(status)) {
-    findings.push(
-      `${path}: has a Return record but **Status:** is not \`Open\` — a returned entry is active again, not still terminal`,
-    );
+  if (!latest.reclosed) {
+    if (!status || !/^Open\b/i.test(status)) {
+      findings.push(
+        `${path}: has a Return record but **Status:** is not \`Open\` — a returned entry is active again, not still terminal. To complete the return, append a \`## Re-close record\` (\`D-364\`)`,
+      );
+    }
+    if (fieldPresent(text, "Resolution")) {
+      findings.push(
+        `${path}: has a Return record but still carries **Resolution:** — a returned entry has no current terminal disposition, only the history the return record preserves, until a \`## Re-close record\` completes it (\`D-364\`)`,
+      );
+    }
+    if (fieldPresent(text, "Follow-up-Tier")) {
+      findings.push(
+        `${path}: has a Return record but still carries **Follow-up-Tier:** — that belonged to the terminal disposition this return record supersedes`,
+      );
+    }
+  } else {
+    if (!status || /^Open\b/i.test(status)) {
+      findings.push(
+        `${path}: has a Re-close record completing its latest return, but **Status:** is still \`Open\` — record \`Answered\` with the disposition, or remove the Re-close record (\`D-364\`)`,
+      );
+    }
+    if (!field(text, "Resolution")) {
+      findings.push(
+        `${path}: has a Re-close record completing its latest return, but no **Resolution:** — a re-close is a disposition, and the header carries it (\`D-364\`)`,
+      );
+    }
   }
-  if (fieldPresent(text, "Resolution")) {
-    findings.push(
-      `${path}: has a Return record but still carries **Resolution:** — a returned entry has no current terminal disposition, only the history the return record preserves`,
-    );
-  }
-  if (fieldPresent(text, "Follow-up-Tier")) {
-    findings.push(
-      `${path}: has a Return record but still carries **Follow-up-Tier:** — that belonged to the terminal disposition this return record supersedes`,
-    );
-  }
-  return true;
+  return counts;
 }
 
 // `B-113` (Chief Editor Option A, 2026-09-16) — the other governed record
@@ -318,6 +458,7 @@ export function run() {
   let unresolved = 0;
   let reports = 0;
   let returned = 0;
+  let reclosed = 0;
   let annotated = 0;
   // `D-123`, raised as `B-053`: two turn reports for one run (`B-043`/`B-047`,
   // both committed at `d826b53` for `LB-S1-01`) read as two turns when nothing
@@ -459,8 +600,29 @@ export function run() {
       }
     }
 
-    if (checkReturnRecord(text, path, findings)) returned++;
+    const episodes = checkReturnRecord(text, path, findings);
+    returned += episodes.returns;
+    reclosed += episodes.recloses;
     annotated += checkTerminalAnnotations(text, path, findings);
+
+    // `D-364` (`U4-G8`). Header consistency the lifecycle fields rely on.
+    // `B-127`/`B-128` carried `Resolution: Applied` beside the raised,
+    // pre-disposition `Verified-By` for days and no check saw it; `B-118`/
+    // `B-119` carried no `Verified-By` line at all. Every non-report entry
+    // carries the field: the raised form while undispositioned, the
+    // dispositioned form or a named verifier once answered (`D-215`).
+    if (!isTurnReport) {
+      const verifiedBy = field(text, "Verified-By");
+      if (!fieldPresent(text, "Verified-By")) {
+        findings.push(
+          `${path}: no **Verified-By:** field — every entry carries it: \`— not yet dispositioned; raised by Lane <X>\` while open, \`— not independently verified; dispositioned by Lane <X>\` or the named verifier once answered (\`D-215\`, \`D-364\`)`,
+        );
+      } else if (/^Answered\b/i.test(field(text, "Status") || "") && verifiedBy && /not yet dispositioned/i.test(verifiedBy)) {
+        findings.push(
+          `${path}: Status is Answered but **Verified-By:** still reads the raised, pre-disposition form — use \`— not independently verified; dispositioned by Lane <X>\`, or name the independent verifier (\`D-215\`, \`U4-G8\`, \`D-364\`)`,
+        );
+      }
+    }
 
     if (!kind) {
       findings.push(
@@ -547,7 +709,7 @@ export function run() {
   const detail =
     entries.length === 0
       ? "channel installed, no entries yet"
-      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn; ${unresolved} still carry NO resolution${reports ? `; ${reports} turn report(s) excluded from that count (G84)` : ""}${reopening ? `, ${reopening} reopening a closed phase` : ""}${returned ? `; ${returned} return record(s) (B-097)` : ""}${annotated ? `; ${annotated} terminal annotation record(s) (B-113)` : ""}`;
+      : `${entries.length} entr${entries.length === 1 ? "y" : "ies"}: ${open} open, ${answered} answered, ${withdrawn} withdrawn; ${unresolved} still carry NO resolution${reports ? `; ${reports} turn report(s) excluded from that count (G84)` : ""}${reopening ? `, ${reopening} reopening a closed phase` : ""}${returned ? `; ${returned} return record(s) (B-097)` : ""}${reclosed ? `; ${reclosed} re-close record(s) (D-364)` : ""}${annotated ? `; ${annotated} terminal annotation record(s) (B-113)` : ""}`;
 
   return { name: "handoff-response", findings, detail };
 }

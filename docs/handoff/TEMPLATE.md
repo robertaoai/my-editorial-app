@@ -31,6 +31,22 @@ disposition), and append this block. All four facts are required.
 - **Returned-At-Commit:** <the existing commit whose state was read>
 -->
 
+<!-- OPTIONAL — only when a RETURNED entry's work is complete and it takes a
+disposition again (`D-364`). Append AFTER the Return record it completes;
+never remove or rewrite that Return record. Then set Status to Answered and
+record Resolution (normally Applied; Verified only by an independent actor).
+One per return episode: a later reopening needs a new Return record first.
+Every fact is required.
+
+## Re-close record
+
+- **Reclosed-Return:** <the Return-Act and Returned-At-Commit of the episode this completes>
+- **Completion-Condition:** <the exact obligation whose completion permits the disposition>
+- **Completion-Evidence:** <the accepted act and the artifact/section proving each obligation>
+- **Reclose-Act:** <D-364 plus the receiver's dated disposition act and source locus>
+- **Reclosed-At-Commit:** <the existing commit read when recording the disposition — not the commit being written>
+-->
+
 <!-- OPTIONAL — only when a commit touches an already-terminal entry WITHOUT
 reopening it (`B-113`): audit normalization, a correction to the terminal
 disposition, verification evidence, or a cross-reference. Status/Resolution/

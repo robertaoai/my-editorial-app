@@ -21,6 +21,7 @@ import {
   walkEpisodes,
   fileHistory,
   diffAt,
+  recloseHistoryFindings,
 } from "../checks/terminal-return.mjs";
 
 const CHECK = (n) => new URL(`../checks/${n}`, import.meta.url).href;
@@ -1589,6 +1590,151 @@ export async function terminalAnnotationForm(results) {
 }
 
 /**
+ * `D-364` (P0a) — the Re-close record, its binding to exactly one return
+ * episode, the header it permits, and the `Verified-By` header rule
+ * (`U4-G8`). FORM cases run `handoff-response` against a mutated scratch
+ * entry; the history half runs `recloseHistoryFindings` against a mocked
+ * `exec`, so no fixture depends on which commits this clone happens to hold.
+ */
+export async function recloseRecordForm(results) {
+  const orig = read(ENTRY);
+  const restore = () => write(ENTRY, orig);
+  const RET1 = "67706ca";
+  const RET2 = "58072b5";
+
+  const block = (heading, f) =>
+    `## ${heading}\n\n${Object.entries(f)
+      .filter(([, v]) => v !== null)
+      .map(([k, v]) => `- **${k}:** ${v}`)
+      .join("\n")}\n`;
+  const ret = (at = RET1) =>
+    block("Return record", {
+      "Previous-Resolution": "Deferred",
+      "Return-Trigger": "test condition satisfied",
+      "Return-Act": "test act, Judge, 2026-09-30",
+      "Returned-At-Commit": at,
+    });
+  const reclose = (fields = {}) =>
+    block("Re-close record", {
+      "Reclosed-Return": `test act, Returned-At-Commit ${RET1}`,
+      "Completion-Condition": "test obligation",
+      "Completion-Evidence": "test accepted act and artifact",
+      "Reclose-Act": "D-364; test disposition act, 2026-09-30",
+      "Reclosed-At-Commit": "d455af6",
+      ...fields,
+    });
+  // `resolution: null` removes the line; `verifiedBy: null` removes that line.
+  const header = ({ status = "Answered", resolution = "Applied", verifiedBy = "— not independently verified; dispositioned by Lane A" } = {}) => {
+    let s = orig.replace(/^- \*\*Status:\*\*.*$/m, `- **Status:** ${status}`);
+    s = verifiedBy === null
+      ? s.replace(/^- \*\*Verified-By:\*\*.*$\n?/m, "")
+      : s.replace(/^- \*\*Verified-By:\*\*.*$/m, `- **Verified-By:** ${verifiedBy}`);
+    s = resolution === null
+      ? s.replace(/^- \*\*Resolution:\*\*.*$\n?/m, "")
+      : s.replace(/^- \*\*Resolution:\*\*.*$/m, `- **Resolution:** ${resolution}`);
+    return s;
+  };
+  const entry = (h, ...blocks) => `${h}\n\n${blocks.join("\n")}`;
+  const openHeader = header({ status: "Open", resolution: null, verifiedBy: "— not yet dispositioned; raised by Lane B" });
+
+  const cases = [
+    { name: "re-close: return then complete re-close, Answered/Applied — passes", text: entry(header(), ret(), reclose()), shouldPass: true },
+    {
+      name: "re-close: two full cycles, each re-close citing its own return — passes",
+      text: entry(header(), ret(), reclose(), ret(RET2), reclose({ "Reclosed-Return": `second act, Returned-At-Commit ${RET2}` })),
+      shouldPass: true,
+    },
+    { name: "re-close: open return, no re-close, Open header — still passes (B-130 today)", text: entry(openHeader, ret()), shouldPass: true },
+    {
+      name: "re-close: an illustrative fenced EXAMPLE is not a live re-close",
+      text: `${orig}\n\n\`\`\`markdown\n## Re-close record\n\n- **Reclosed-Return:** <episode>\n- **Completion-Condition:** <c>\n- **Completion-Evidence:** <e>\n- **Reclose-Act:** <act>\n- **Reclosed-At-Commit:** <commit>\n\`\`\`\n`,
+      shouldPass: true,
+    },
+    {
+      name: "re-close: an old re-close does not cover a later reopening — Answered header fails",
+      text: entry(header(), ret(), reclose(), ret(RET2)),
+      expect: "is not `Open`",
+    },
+    { name: "re-close: no Return record before it", text: entry(header(), reclose()), expect: "no Return record before it" },
+    { name: "re-close: two re-closes for one return episode", text: entry(header(), ret(), reclose(), reclose()), expect: "second Re-close record for the same return episode" },
+    { name: "re-close: Reclosed-Return cites a different commit", text: entry(header(), ret(), reclose({ "Reclosed-Return": "test act, Returned-At-Commit abcdef0" })), expect: "does not cite `67706ca`" },
+    { name: "re-close: blank Completion-Evidence", text: entry(header(), ret(), reclose({ "Completion-Evidence": "" })), expect: "**Completion-Evidence:** is present but BLANK" },
+    { name: "re-close: missing Reclose-Act (field absent, not merely blank)", text: entry(header(), ret(), reclose({ "Reclose-Act": null })), expect: "has no **Reclose-Act:**" },
+    { name: "re-close: Reclosed-At-Commit is not hexadecimal", text: entry(header(), ret(), reclose({ "Reclosed-At-Commit": "not-a-commit" })), expect: "is not a hexadecimal commit SHA" },
+    { name: "re-close: completed episode but Status still Open", text: entry(header({ status: "Open" }), ret(), reclose()), expect: "is still `Open`" },
+    { name: "re-close: completed episode but no Resolution", text: entry(header({ resolution: null }), ret(), reclose()), expect: "no **Resolution:**" },
+    { name: "header rule: an entry with no Verified-By line", text: header({ verifiedBy: null }), expect: "no **Verified-By:** field" },
+    { name: "header rule: Answered beside the raised pre-disposition Verified-By (U4-G8)", text: header({ verifiedBy: "— not yet dispositioned; raised by Lane B" }), expect: "still reads the raised" },
+  ];
+  for (const c of cases) {
+    await fixture(results, {
+      name: c.name,
+      modulePath: CHECK("handoff-response.mjs"),
+      mutate: () => write(ENTRY, c.text),
+      restore,
+      shouldPass: c.shouldPass ?? false,
+      expect: c.expect,
+    });
+  }
+
+  // A re-close is the answering side's record. It opens no path to a
+  // self-recorded `Verified`: `closure-readiness` still rejects it.
+  await fixture(results, {
+    name: "re-close: re-closed entry marked Verified by Lane A — closure-readiness rejects it",
+    modulePath: CHECK("closure-readiness.mjs"),
+    mutate: () => write(ENTRY, entry(header({ resolution: "Verified", verifiedBy: "Lane A" }), ret(), reclose())),
+    restore,
+    expect: "is the answering side",
+  });
+
+  // History half — mocked git. `graph` maps each commit to its ancestors.
+  const FULL = { a1: "a".repeat(40), b2: "b".repeat(40), c3: "c".repeat(40), d4: "d".repeat(40) };
+  const graph = { [FULL.a1]: [], [FULL.b2]: [FULL.a1], [FULL.c3]: [FULL.a1, FULL.b2], [FULL.d4]: [FULL.a1, FULL.b2, FULL.c3] };
+  const exec = (_cmd, args) => {
+    if (args[0] === "rev-parse") {
+      const short = args[3].replace("^{commit}", "");
+      const full = Object.values(FULL).find((f) => f.startsWith(short));
+      if (!full) throw new Error("unknown revision");
+      return `${full}\n`;
+    }
+    if (args[0] === "merge-base") {
+      const [, , anc, desc] = args;
+      if (anc === desc || graph[desc]?.includes(anc)) return "";
+      throw new Error("not ancestor");
+    }
+    throw new Error(`unexpected git ${args[0]}`);
+  };
+  const hist = (...blocks) => blocks.join("\n");
+  const r = (at) => block("Return record", { "Previous-Resolution": "Deferred", "Return-Trigger": "t", "Return-Act": "a", "Returned-At-Commit": at });
+  const c = (at) => block("Re-close record", { "Reclosed-Return": "x", "Completion-Condition": "c", "Completion-Evidence": "e", "Reclose-Act": "D-364", "Reclosed-At-Commit": at });
+  const A = "aaaaaaa";
+  const B = "bbbbbbb";
+  const C = "ccccccc";
+  const D = "ddddddd";
+  const history = [
+    { name: "re-close history: completion read after its return — no finding", text: hist(r(A), c(B)), expect: null },
+    { name: "re-close history: Reclosed-At-Commit is not a commit", text: hist(r(A), c("eeeeeee")), expect: "Reclosed-At-Commit:** `eeeeeee` is not a commit" },
+    { name: "re-close history: Returned-At-Commit is not a commit", text: hist(r("eeeeeee")), expect: "Returned-At-Commit:** `eeeeeee` is not a commit" },
+    { name: "re-close history: completion predates its return", text: hist(r(C), c(B)), expect: "does not come after" },
+    { name: "re-close history: completion read at the return commit itself", text: hist(r(B), c(B)), expect: "does not come after" },
+    { name: "re-close history: second episode binds to the LATEST return, not the first", text: hist(r(A), c(B), r(D), c(C)), expect: "does not come after" },
+    { name: "re-close history: two ordered episodes — no finding", text: hist(r(A), c(B), r(C), c(D)), expect: null },
+    { name: "re-close history: fenced example is not a live record", text: `\`\`\`markdown\n${hist(r("eeeeeee"), c("fffffff"))}\`\`\`\n`, expect: null },
+  ];
+  for (const h of history) {
+    let got;
+    try {
+      got = recloseHistoryFindings(h.text, "X.md", exec).findings;
+    } catch (e) {
+      results.push({ name: h.name, ok: false, detail: `threw: ${e.message}` });
+      continue;
+    }
+    const ok = h.expect === null ? got.length === 0 : got.some((f) => f.includes(h.expect));
+    results.push({ name: h.name, ok, detail: ok ? (h.expect === null ? "no finding" : "fails as intended") : `got: ${got[0] ?? "no finding"}` });
+  }
+}
+
+/**
  * `B-097`/`B-113` — `terminal-return`'s history-aware half, three kinds of case:
  *
  *   1. PURE decisions (`currentEpisodeStart`, `walkEpisodes`) against
@@ -2138,6 +2284,7 @@ export const SUITES = [
   ["handoff metadata and closure fields (`D-102`)", handoffFields],
   ["return record form (`B-097`)", returnRecordForm],
   ["terminal annotation record form (`B-113`)", terminalAnnotationForm],
+  ["re-close record and Verified-By header rule (`D-364` U1)", recloseRecordForm],
   ["terminal-return history-aware detection (`B-097`)", terminalReturnDecision],
   ["tier sweep fallback (`G98`, raised as `B-054`)", tierSweep],
   ["retention policy coupling (`D-134`)", retentionPolicyCoupling],

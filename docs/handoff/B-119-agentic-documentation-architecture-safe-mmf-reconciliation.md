@@ -12,6 +12,7 @@
   stopped for independent review; the header stays `Open` under the weakest-child rule.
   **Statement C applied 2026-09-21** (last section, "Lane A answer — Judge statement C"): `D-247`–`D-251`
   returned for Lane B and Lane C review; still `Open`.
+- **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** attached Lane C analysis dated 2026-09-20; attached B-119 proposal; `D-29`, `D-34`,
   `D-75`, `D-84`, `D-87`, `D-100`, `D-159`, `D-227`, `D-232`, `D-240`; `B-061`, `B-071`,
   `B-114`, `B-115`; `package.json`; `scripts/check-consistency.mjs`; `scripts/checks/lane-boundary.mjs`;
