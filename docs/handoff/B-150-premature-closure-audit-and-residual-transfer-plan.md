@@ -32,10 +32,10 @@
   `terminal-return` changes, the `Verified-By` header rule (`U4-G8`) and the new fixtures all pass. Level 1 and
   Level 2 review of `U1` come before `B-130`'s re-close uses them.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-366; linked sources below; B-151 coverage child; B-152 Level 1 verification and Judge-supplied Lane C repaired-U1 Level 2 assessment reconciled below
-- **Verified-At-Commit:** d1ffc04c6278d19815e11ce37db35d594c492c85
+- **Evidence:** Judge clarifications, 2026-09-30; D-195, D-242, D-259, D-262–D-264, D-269, D-272, D-276–D-289, D-324, D-356–D-366; linked sources below; B-151 coverage child; B-152 Level 1 verification and Judge-supplied Lane C repaired-U1 Level 2 assessment; current decision challenge below
+- **Verified-At-Commit:** c47596516f97630473cdae84f9356b3b5a6e69fc
 
-**Current review pointer:** the final "Lane C repaired-U1 assessment received" below
+**Current review pointer:** the final "Decision challenge for Lane A and the Judge" below
 updates the earlier dated U1 rejection and uncommitted/check-failure reports. This parent remains Open;
 verification of its B-152 child does not close the parent or clear Gate 2.
 
@@ -358,3 +358,55 @@ with any SM06 allocation requiring a separate Judge act.
 | B-130 source closure | Approve-with-conditions | Lane A receiver Re-close with source evidence, then Lane B independent verification. Phase 1 / O0 |
 | Attachment's historical counts, receipt omissions and reordered group clearance | Reject | Re-derive from canonical sources under U2, preserving proven receipts and D-364 order. Phase 1 / U2 |
 | Gate 2 or application construction | Defer | Source/setup clearance and separate Judge acts. Gate 1B → Gate 2 |
+
+## Decision challenge for Lane A and the Judge — 2026-09-30
+
+**Input:** Judge-supplied Lane C follow-up `38b0cda0-4159-4e6e-8c96-28fd7593e970/Pasted text.txt`
+(SHA-256 `4b820c86d58f943d78779c75864e3be9397c412a68f744cd7beebdb48bbb3622`), read against
+`c475965`. It accepts Lane B's earlier corrections but its proposed steps still mix completed setup,
+pre-selection planning and future software proof. This section is a decision aid for the existing B-150 parent,
+not a second tracker or a new Register act. Use D-364/D-366 for authority and SV-002 §2.3 after U2 for live rows.
+
+**Chief Editor need and scope:** SM05's chosen business slice is the Route-1 editorial judgment, task and
+evidence record under FR-15/AC-23–26, with the four source-intake cases and traceable DoR→DoD proof.
+Lane A prepares that contract and its receiving evidence; Lane B later builds and tests it; Lane C reviews
+Lane A/B work at Level 2. `FN-AUDIT-VISIBILITY-07-08.md` also expresses the Chief Editor's distinct
+append-only transition-log and filterable-board requirements (FR-07/FR-08). They are valid Product scope,
+but their broad transition execution is not silently added to this bounded SM05 slice. Development Lanes
+A/B/C are not the product's numbered Lines. The critical artifacts are SV-002's setup/tracker evidence,
+SM05's accepted behavior contract and later FV-001 proof, U2's failure checks, U3's Jev manifest, the
+bounded D-242 work order and Product intake. Each has its own consumer and acceptance time.
+
+| Parent decision / owner | Accept when | Reject or defer when / follow-up phase |
+|---|---|---|
+| Existing authority: D-364/D-366 and U1 reviews | Retain recorded acts, B-152 Level 1 and supplied Lane C Level 2; U1 form control may be used | Reject re-deciding U1 from the new plan. Phase 1 / O0 complete |
+| Returned source: B-130 receiver Lane A, verifier Lane B | Preserve its Return; cite its **actual** `Returned-At-Commit: ee5cdfdc28a49120342a74a01ab2ca100d5fdadd` and Return-Act `D-264`; cite D-362/D-363's accepted loader answer and a real read commit; Answered/Applied first, then independent verification | **Reject the attachment's `10ec465` as the Reclosed-Return SHA**: it is not this Return field and would fail U1 binding. No receiver answer or verification yet. Phase 1 / O0 |
+| U2: Lane A controls, Lane B/C independent reviews | Re-derive every non-report, unverified transaction and substantive child at a pinned revision into the **single** SV-002 §2.3 tracker; assign O0–O5; prove both Gate 2 negative cases (unclosed non-SM05 row, stale derivation) | Reject a copied candidate list, blanket 79-defect claim, missing child or passing control that cannot fail. Phase 1, before U3 consumes U2 |
+| U3: Lane A Jev/readiness, Lane B/C independent reviews | Add four distinct behavior rows and the Intake source fixtures **label** to both required sets; re-run readiness, re-issue DOR-R7, classify B-151 | Reject putting four case IDs into both sets, or demanding real database/failing-first logs before SM05 construction is authorized. Runtime proof belongs to FV-001 after Gate 2. Phase 1 / O2 |
+| Source and setup evidence, Lane A with source reviewers | Prepare receipts/children under U2; close O0→O5 by their actual dependencies; run canonical P3/SV2-U03 trial and Judge outcome before DOD-04; substantiate DOD-01/02 and the DOD-06 evidence index | Reject the attachment's sequence that closes all groups before running P3: O1 includes setup evidence and would depend on that trial. DOD-03/05 already checked; P14a/b receipts already exist; P13 readiness still needs proof. Phase 1 / Gate 1B |
+| Gate 2 Judge decision | Accept SV-002 on its DOD-01–05 index; separately decide unblock, selection, D-242 work order and §5 lane transition after D-364 clearance/SM05 receipts | Defer while any prerequisite is missing. Future construction and database traces follow Lane B Active. Gate 1B → Gate 2 → Phase 2 |
+
+**Lane A follow-up sequence:** (1) Re-close B-130 using its live Return fields; send its Applied answer to
+Lane B for verification. (2) Apply U2 under D-364; have Lane B and Lane C review the actual tracker/control
+revision. Preparation for P3 and other setup rows may proceed while U2 is built. (3) Apply U3 and obtain the
+two review levels on planning/readiness; keep the four actual database tests with authorized SM05 execution.
+(4) Consume U2's per-child rows in O0→O5 closure order; for each, record source, remaining scope, owner,
+receiving anchor, proof and independent reviewer or individual Judge reason. Do not force every O4 row to
+Deferred or rewrite a valid historical disposition; Product features enter Modular_PRD §2.5.2, governance
+residuals enter one bounded Lane A packet, and SM05 prerequisites stay in SM05. (5) Prove P3/DOD-04 and
+DOD-01/02, assemble DOD-06's exact evidence index, then put acceptance and the Gate 2 transition to the
+Judge. Do not use `P-1`–`P-6` as new task IDs: they collide with canonical SV-002 P1–P16.
+
+**Guaranteed rejection conditions, rather than speculative loss claims:** a B-130 re-close with the wrong
+Return SHA; U2 that omits an unclosed non-SM05 row or accepts a stale derivation; a missing SM05 prerequisite
+receipt; a claim that U3 readiness proves future database behavior; O1 claimed clear before its needed
+navigation/setup proof; or a Gate 2 decision without the DOD/clearance evidence. Issue/PR commits that did
+not edit handoffs are historical facts, not proof that every unchanged handoff failed review. Graph currency
+and coverage were checked at the read revision; `graphify check-update` still reports pending semantic
+descriptions/labels. The operative single-core rule is also still misdescribed in sync-docs frontmatter.
+
+| Decision | Verdict | Condition / follow-up phase |
+|---|---|---|
+| Lane A intake and already authorized next work | Approve-with-conditions | Use corrected B-130 Return identity, then U2/U3 under existing D-364 bounds with independent review. Phase 1 |
+| Lane C's proposed decision table as written | Reject | Fix the SHA, reused P labels, case-level timing, forced Deferred dispositions and circular setup order before adoption. Phase 1 review |
+| SV-002 acceptance and Gate 2 | Defer | Actual source/setup evidence, current tracker, SM05 receipts and distinct Judge acts. Gate 1B → Gate 2 |
