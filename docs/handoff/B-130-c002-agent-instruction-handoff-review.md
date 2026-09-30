@@ -4,7 +4,7 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** nothing, reporting only; Lane A should review this before treating the external C-002 draft as a repository handoff
-- **Status:** Open
+- **Status:** Answered
 - **Lane A:** Acknowledged 2026-09-24. Rule-file sizes re-read at `c82eb5e` and match item 1
   (`AGENTS.md` 31,920 B, `CLAUDE.md` 29,709 B, `.agents/rules/graphify.md` 21,750 B). B-130 is
   accepted as the canonical repository record of the external C-002 draft, which stays advisory
@@ -33,9 +33,17 @@
   **Re-close form selected 2026-09-30 (`D-364` P0a, `D-363` option (a)).** The entry stays `Open` until unit `U1`
   lands the `## Re-close record` form and its controls. Lane A then appends the record after the `D-264` Return
   record, which is preserved, and records `Answered` / `Applied`. Lane B verifies independently.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+
+  **Re-closed 2026-09-30 (`D-367`), read at `8b38e46`.** `U1` is now consumable: Lane B verified the `B-152` repair
+  at `b2b1e87`, and Lane C's Level 2 assessment of the repaired `U1` is recorded in `B-150` (`c475965`). The
+  `## Re-close record` below completes the `D-264` return episode, which is preserved unchanged. It cites
+  `SV2-U02`'s acceptance (`D-362`) and this entry's item-by-item answer (`D-363`) as the completion evidence.
+  Disposition: `Applied`, not verified. Lane B, as raiser, verifies independently. Out of scope, as before:
+  activation and adherence (`D-356`).
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** read `docs/handoff/TEMPLATE.md` and `README.md`; `V1-PHASE-CLOSURE.md` §5; `V1-BUILD-SPEC.md` §1; `shared-core-hash.mjs`; `sync-docs-uniqueness.mjs`; the three current rule files; `Modular_PRD.md` §8; storyboard Panels A9/A10; `FN-GATES-01-05.md` §4.1; `requirements-traceability-map.md` §1; `ENCYCLOPEDIA-SYNC.md` against the commit below. **Answer (`D-363`):** `D-304`, `D-318`, `D-324`–`D-362`; `SV-002` §3.5, §3.6.6 and the `SV2-DOD-03` row; `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `docs/governance/agent-rules-reference.md`, `scripts/checks/rule-budget.mjs` (the retired `shared-core-hash.mjs` and `.agents/rules/graphify.md` read at their last commits). External C-002 draft and Lane C's subsequent reconciliation read from the user-supplied Antigravity brain path; neither is in this repository.
-- **Verified-At-Commit:** d23a27665e7cb2a93eaf7b50f5e156a6183f8a8d
+- **Verified-At-Commit:** 8b38e4637fd81c2b12975835741638fca0205fb4
 
 ## What happened
 
@@ -81,6 +89,16 @@ Lane B reviewed the supplied C-002 text and current repository evidence, recorde
 - **Return-Trigger:** Judge commission of `D-257`'s bounded loader-characterization spike
 - **Return-Act:** `D-264`, Judge ruling 2026-09-25 (`V1-DECISION-REGISTER.md` §5.14e89)
 - **Returned-At-Commit:** ee5cdfdc28a49120342a74a01ab2ca100d5fdadd
+
+## Re-close record
+
+- **Reclosed-Return:** Return-Act `D-264` (Judge ruling 2026-09-25), Returned-At-Commit `ee5cdfdc28a49120342a74a01ab2ca100d5fdadd`
+- **Completion-Condition:** `SV2-U02` accepted, the condition the `D-264` return named ("stays `Open` until `SV2-U02` is accepted")
+- **Completion-Evidence:** `D-362` (the Judge checked `SV2-DOD-03`, 2026-09-30) and `D-363` (each "What you need" item
+  answered: reproduction, architecture `D-324`/`D-337`, `rule-budget`, delivery on every surface with Level 1 `D-360`
+  and Level 2 `D-361`, propagation); `SV-002` §3.5, §3.6.6 and the `SV2-DOD-03` row
+- **Reclose-Act:** `D-364` P0a (the re-close form), with controls verified in `B-152`; Lane A disposition `D-367`, 2026-09-30, `V1-DECISION-REGISTER.md`
+- **Reclosed-At-Commit:** 8b38e4637fd81c2b12975835741638fca0205fb4
 
 ## Lane B consolidation for Lane A review — 2026-09-30
 

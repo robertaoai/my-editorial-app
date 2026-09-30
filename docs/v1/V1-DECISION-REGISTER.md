@@ -24382,3 +24382,56 @@ here together with its fix, not removed. `U4-G8` (the `Verified-By` header rule)
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `SV-002.md` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e192 `D-367` — `B-130` Re-closed (the First Re-close Record); the `U2` Gate 2 Mode Fails Only When a Gate 2 Clearance Is Claimed
+
+**Authority: the Judge, directly to Lane A, 2026-09-30.** In chat the Judge chose "B-130 Re-close (Step 1)" and, for
+`U2`, "Only when claimed". Read at `8b38e46`.
+
+### The decision
+
+1. **`U1` is consumable.** Lane B independently verified `B-152` at `b2b1e87` (`3dba8c0`). Lane C's Level 2
+   assessment of the repaired `U1` is recorded in `B-150` (`c475965`). `D-364`'s condition that `B-130` re-close only
+   after `U1` is reviewed is therefore met.
+2. **`B-130` is re-closed.** A `## Re-close record` follows its `D-264` Return record, which is preserved unchanged.
+   The record:
+   - cites Return-Act `D-264` and Returned-At-Commit `ee5cdfd` (the `D-366` token rule);
+   - names the return's own condition, `SV2-U02` accepted, as the Completion-Condition;
+   - cites `D-362` and `D-363` as the Completion-Evidence;
+   - was read at `8b38e46`.
+
+   The header reads `Answered` / `Applied`, with the dispositioned `Verified-By`. **Lane B, as raiser, verifies
+   independently.** This is the first live use of the form: `handoff-response` accepts it, and `terminal-return`
+   proves `ee5cdfd` precedes `8b38e46`.
+3. **The `U2` Gate 2 mode trigger (the Judge's ruling).** `D-364` item 7 names two failures, not when they fire. On
+   every run the mode **reports** the unclosed non-SM05 rows and the tracker's derivation commit. It **fails** only
+   once a Gate 2 clearance claim is recorded, in one of two ways:
+   - a claim line in `SV-002` §2.3;
+   - `V1-SM05` leaving `BLOCKED`.
+
+   This mirrors `closure-readiness`'s existing rule that it stays silent until a phase claims closure. A mode that
+   failed unconditionally would turn every Lane A commit red until Gate 2; a report-only mode could never fail.
+   `U2`'s fixtures must prove both failures under a claim, and that no claim means no failure.
+4. **Advisory inputs received, not adopted as work orders.** The Lane C "parent-first decision guide" (read at
+   `8b38e46`) and Lane B's challenge of it are both received. Lane B's corrections stand against the sources:
+   - `P3` (`SV2-U03`) still needs its own Judge selection and download permission (`D-362`);
+   - `SV2-DOD-01` and `SV2-DOD-02` consume their canonical `SV-002` §7 evidence, not `U2`;
+   - `O3` and `O4` rows clear only by item 4, not by citation or receipt alone;
+   - no rule requires Gate 2's determinations to be separate Register entries.
+
+### Not given by this act
+
+`Verified` on `B-130`; `B-071`'s disposition; any `U2` or `U3` work; `P3` execution; any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e192 |
+| **`docs/handoff/B-130-c002-agent-instruction-handoff-review.md`** | ✅ Re-close record; `Answered` / `Applied` |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | — unaffected: the trigger refines `U2` inside `D-364`'s order; no sequence change |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected: no lane-state change |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `SV-002.md` | — unaffected (`SV-002` §2.3 changes in `U2`) |
+| **Encyclopedia** | — unaffected: Entry 05's loader dependency is unchanged, because this act only disposes of the handoff record |
+| **Graphify** | Rebuild after this commit |
