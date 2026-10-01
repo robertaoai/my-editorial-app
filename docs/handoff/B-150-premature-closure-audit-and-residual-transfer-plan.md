@@ -2552,3 +2552,82 @@ updates before claiming complete graph sync.
 | B-116 whole repair / whole O0 completion claim | Reject | Phase 1 — reader-equivalent singleton refusal proof required |
 | B-071/B-150 closure, full residual acceptance and Gate 2 | Defer | Phase 1 → Gate 2 — actual child/ledger/receiving/readiness proof and Judge acts |
 | Software construction/runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active |
+
+## Lane C O0 assessment — challenged and corrected for Lane A intake — 2026-10-01
+
+**Clarified request:** compare the supplied Level 2 assessment with the committed O0 evidence and Batch 3 ledger;
+retain supported conclusions, correct gaps in its proposed follow-up, and give Lane A one usable Phase 1 plan.
+**Read:** clean `eb577428aa6706ba7b4040bf44ec87a6102dc444`. Advisory inputs: Downloads `lane_c_level2_o0_verification_review.md`, SHA-256
+`1e6c60eb9e8a4616016ce3874d659fc1b032c6dd92bba033b1912bb762359822`; Judge-supplied worklog attachment
+`6c06c06e-6fb2-480c-8e86-a381ff316435/Pasted text.txt`, SHA-256
+`aa136fc17ce7946aa774f7282a27b88640818c8533eb8ca9ee64783aaef40567`.
+Their runbooks are recommendations; the user's request is review/consolidation. They create no Register act,
+execution authorization, new mandatory subsection, review gate or feature. Lane B owns this review text;
+Lane A alone owns its answer and canonical source edits.
+
+**Supported:** Lane C's supplied Level 2 approval of B-100/B-139's bounded verification, concurrence with B-116's
+whole-closure rejection, and Batch 3 screening progress. The B-116 correction remains within its existing owner;
+no duplicate handoff or rerun of the already reproduced false-green probe is needed. This review adds no new
+implementation authority. The advisory report's Jev 320/320 claim remains attributed readiness evidence;
+it is not an independent rerun here or database runtime proof.
+
+### Corrections required when Lane A consumes the assessment
+
+| Parent / affected artifact | Gap in the supplied guide | Corrected acceptance criterion |
+|---|---|---|
+| Ledger coverage, SV-002 §2.3.2 | Says 25/130 after adding 13 Batch 3 rows; its seed/batch arithmetic omits earlier O0 work | At this read, 38 unique ledger rows / 155 transactions, 117 remaining. This supersedes the earlier 25/130 snapshot. Derive from keys and directory; missing row means unrecorded, not proof that no review occurred |
+| SM05 receiving contract | All links omit the `V1/` directory; the proposed five-entry list excludes B-095/B-096 mixed-source SM05 obligations explicitly identified by Batch 3 | Use `docs/v1/work-packets/V1/V1-SM05.md`, or its FV-001 child under D-364 item 5; cover every SM05 obligation, with exact receiving DoR/DoD/child anchors. Existing adequate receipts can be cited; a literal new heading is optional |
+| Receipt completeness and clearance | Applies D-364 item 4 to all 90 pending obligations and treats adding receipt text as sufficient closure | Keep 78 non-SM05 unclosed rows (item 4 independent verification or individual Judge reason) distinct from 12 SM05 unreceived rows (item 5 evidenced receipt). Receiving, independent acceptance, source lifecycle and execution are separate measures |
+| O0 correction verification | Runbook adds negative cases but only explicitly runs the healthy-tree check | Run the added refusal fixtures as well as `bun run check`, on a clean supported checkout. Mixed case, reversed order and differing values must fail for all nine names; fence/body controls stay green. Then independent B-116 review → B-113 → B-112 → B-097 → B-103 P3 |
+| Business contract and intake | AC-23 says “Desk Editor ranking”; IN2 summary omits rule 2 admission conditions | AC-23 ends in a ranking/routing record **to** Desk Editor; keep Chief Editorial Desk as the recorded stage role. IN2 requires non-empty Markdown, original URL, recorded prevention of automated retrieval, original identity and supplier, plus URL/exact-text digest reference; never claim the URL confirmed live. IN3/IN4 admit nothing |
+| Graph and construction evidence | Calls `cbcfe76` the governed-source baseline although the canonical ledger changed later; calls the graph current without pending semantics; hosted migration merely “deferred to Phase 2” | Governed graph baseline is `eb57742` at this read. Query/check-update still reports pending descriptions/labels despite `stale: false`. Existing 0002 is setup-prepared/local-replayed, not newly built SM05 software; hosted migration follows accepted SM05 DoD **and** accepted separate baseline-promotion PR, under the packet's explicit order |
+
+### One global top three — follow-up steps and completion proof
+
+1. **B-116 control repair and ordered verification.** Lane A establishes the applicable bounded Judge/Register
+   act, applies the existing matcher-equivalence repair and all refusal/positive controls, records a real read
+   commit, and returns proof for independent verification. Keep B-100/B-139 Verified. Record their existing P11/
+   tracker receipts without completing their receiving owners' work. The known linked-worktree fixture scratch
+   limitation must not be misreported as a passed full-suite invocation.
+2. **Complete review accounting.** Continue keyed source/children/returns screening across all transactions,
+   including Verified history and O5. O3/O4 batch labels are proposals, not an exhaustive population or new
+   serialization rule. Independent accounting/refinement/setup preparation may continue while the control unit
+   is pending; closure honors the Register's group/dependency order. Full required/received/accepted/remaining-
+   execution backlog totals remain unestablished until surviving obligations are refined and deduplicated.
+3. **Complete receiving proof and residual clearance.** Use the receipt matrix below, independently review
+   resulting transfers/receipts, refresh tracker rows and currency, and surface B-106 A6 arbitration separately.
+   GR-001/GR-003 retain target holds; GR-002's labelling is unheld, while historical transition execution remains
+   held. The O4 subtraction of three receipts from 22 rows is a screening queue, not 19 unreceived backlog items.
+   Product residuals keep dated Product custody; no automatic SM06 assignment or new construction feature.
+
+| Receipt scope to reconcile | Existing owning obligation / proposed receiver |
+|---|---|
+| B-084 | AC-02 obligation via B-095.D2a / SM05-N1; explicit packet receipt missing |
+| B-095 SM05 children only | D2a/D4; SV-002 §3.3 existing Consumed-via evidence does not establish a packet receipt; keep D1/D2b/D3/S5 in their non-SM05 owners |
+| B-096 SM05 obligations only | S15 → FN-GATES §4.5; TR-DM-01 Gate 1B scope applied under D-283, physical/database Gate 2 proof → D-242/FV-001; retain GA1/S16 held report scope separately |
+| B-124 | Superseded readiness wording → D-255 / current DOR-R1–R7; verify supersession separately |
+| B-128 | DOR-R5/R6 closure contract; the B-131 citation alone does not name B-128's receipt |
+| B-132 | Accepted DoR→DoD/Issue–PR decisions under D-259/D-260/D-262; trace to actual consuming rows |
+| B-133 | DOR-R7 Product-parity contract, superseded/re-issued by D-261/D-373; use current receipt |
+| Existing adequate candidates | B-118 packet-header origin, B-121 DOR-R4, B-126 Issue-workflow citation, B-127 accepted-contract traceability; verify their existing anchors rather than duplicate sections. B-131 retains its recorded Judge acceptance |
+
+This is obligation receipt work; do not reopen every historical source, add customer scope or turn all mixed
+parents into received/Verified. The earlier Chief Editor/B-104 customer → story → requirement → MMF trace
+matrix remains the single plan. No B-104.O5 exists; global O0–O5 have Project/Product ordering meanings.
+Unsupported catastrophe, regulatory or deployment conclusions in the guide are hypothetical consequences,
+not additional requirements or demonstrated failures; the actual proven failure is checker/parser mismatch.
+
+**Validation:** `bun run check` independently passes 19/19 at this read, including the full terminal-history
+walk; tracker currency is reported current at `24aa1c9`, with 78 non-SM05 unclosed / 12 SM05 unreceived.
+The external census adapter's forced `stale: true` is not a repository finding; currency comes from the real
+check. Graphify query/check-update used: descriptions/labels still pending. This excluded handoff-only receipt
+requires no rebuild; the next Lane A governed-source sync retains/re-merges curated fragments under G51.
+No receiver answer, canonical source, software, schema, hosted environment or lane state is changed.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Supplied Level 2 bounded conclusions and Batch 3 progress | Approve | Phase 1 — retain attributed scope and direct O0 proof |
+| Corrected consolidated plan for Lane A intake | Approve-with-conditions | Phase 1 — consume this top-three queue, corrected totals/path/receipt matrix and actual authorization boundaries |
+| Unamended guide as an exhaustive execution plan / full semantic-sync claim | Reject | Phase 1 — correct the documented omissions and semantics before relying on it |
+| Whole B-116/O0, B-071/B-150, complete residual acceptance and Gate 2 | Defer | Phase 1 → Gate 2 — bounded repair, independent child/receipt/readiness proof and Judge acts |
+| Software construction/runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active; hosted ordering unchanged |
