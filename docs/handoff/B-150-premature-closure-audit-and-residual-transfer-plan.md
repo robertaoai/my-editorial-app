@@ -215,6 +215,15 @@
 
   Check 19/19; fixtures exit 0 on a clean tree. `B-116` is `Answered`/`Applied`. Lane B verifies `B-113`, then
   `B-112`, then `B-097`, then `B-103` P3.
+
+  **`B-139` disposition recorded 2026-10-01 (`D-376`; Judge approved).** It is `Applied` for its own scope (items
+  1–3), with items 4–6 transferred by receipt:
+  - item 4 to this parent's tracker and ledger;
+  - item 5 to the open `SV-002` DoD rows;
+  - item 6 to Gate 2.
+
+  Lane B verifies `P11-G1`–`G4` and the disposition. The `O0` Lane A lifecycle records are now complete. `B-100`
+  awaits Lane B, citing `B-101`, or the Judge.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f

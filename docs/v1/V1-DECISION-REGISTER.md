@@ -24914,3 +24914,41 @@ Any `Verified`; `B-103` P3; the `B-071` re-close; tracker clearance; any lane-st
 | `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files | — unaffected (`B-116`'s cross-artifact review) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e201 `D-376` — `B-139` Disposition Recorded: `Applied` for Its Own Scope, Items 4–6 Transferred by Receipt
+
+**Authority: the Judge, directly to Lane A, 2026-10-01**: *"Judge Approved: record B-139's disposition"*. The
+`B-150` ledger's `O0` batch (`87aa3f5`) found `B-139`'s header still `Open`, although its Lane A field recorded
+answers under `D-267`–`D-271`.
+
+### The decision
+
+1. **Items 1–3 are applied.** Item 1 is the successor act and construction order, and item 2 the per-child
+   preparation (`D-267`, `5b302dc`; R1–R4 under `D-268`/`D-269`). Item 3, the G1–G4 corrections, is tracked as
+   `SV-002` §2.2 `P11-G1`–`G4`, all still "verification pending".
+2. **Items 4–6 are transferred, not completed.** Each carries a receipt naming its owner:
+   - **item 4**, the B-series disposition, goes to `B-150` (`D-364`), meaning the §2.3.1 tracker and §2.3.2 ledger;
+   - **item 5**, documentation and then the Gate 1B attempt, goes to `SV-002` §7, where `SV2-DOD-01`/`02`/`04`/`06`
+     are open;
+   - **item 6**, the construction handover, goes to Gate 2 (`D-364` item 5; the `D-267` order).
+3. **Header.** `Answered` / `Applied`, with the dispositioned `Verified-By`. `Verified-At-Commit` is the read commit
+   `cc45d8f`; the raise-time anchor `20a459e` is replaced, as `D-215`'s convention allows.
+4. **Clearance.** Lane B verifies `P11-G1`–`G4` and this disposition (item 7) before `B-139`'s `O0` row closes under
+   `D-364` item 4. No transfer completes its receiving owner's work.
+
+### Not given by this act
+
+`Verified`; completion of items 4–6; tracker clearance; any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e201 |
+| **`docs/handoff/B-139-sm05-cross-reference-and-version-drift-review.md`** | ✅ disposition and receipts; `Answered` / `Applied` |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A: disposition recorded |
+| **Build Spec** (`V1-BUILD-SPEC.md`), **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: a lifecycle record only |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files, `SV-002.md` | — unaffected: the receipts cite existing rows (`SV-002` is re-pinned separately) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild before and after this commit |
