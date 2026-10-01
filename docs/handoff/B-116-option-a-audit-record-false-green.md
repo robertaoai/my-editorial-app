@@ -119,3 +119,48 @@ Graphify state or deployment state.
 | Reject | Independent verification at `284b4ae` | Audit record is internally contradictory despite green suites |
 | Defer | B-103 P3 and whole-entry closure | After B-113, B-112 and B-097 are independently Verified in order |
 | Defer | B-114/B-115 governed propagation | Separate Lane A Intent/Build/DevOps chain; do not combine it with this evidence repair |
+
+## Independent O0 review — D-375 is applied but not complete — Lane B — 2026-10-01
+
+**Read:** `62bc0cfa327e8d168708d44f6b224603a1715805`; executable probe baseline `20b4e0bb0d9bbfd75afb86e39e8e6d81e87612de`.
+Judge authorization: "Lane B verifies O0. Phase 1". No receiver answer or owned checker is edited here.
+
+**Completed:** the four concrete record repairs reproduce correctly: B-113 has one header anchor;
+B-112 has no live placeholder; B-097 uses the Option A read point; B-071's obsolete audit pair is prose.
+The five new exact-case/fenced/body cardinality fixtures pass. Those accomplishments are retained.
+
+**Blocking gap — item 5 still produces a false green.** `handoff-fields.mjs` reads names with `mi`
+(case-insensitive), while `handoff-response.mjs` counts singleton names with `gm` (case-sensitive).
+The independent probe against B-001's real header confirms: unchanged baseline is green; adding
+a second exact-case Status fails; adding a second lowercase `status` is green; adding a second
+lowercase `verified-at-commit` is green. In each case the reader still accepts the field vocabulary.
+Files were restored. This is a parser-equivalence defect, not an assertion that any existing live
+handoff actually contains these mixed-case duplicates.
+
+**Evidence:** external `C:/CoWork/outputs/handoff-review-2026-10-01/o0-case-probe.json`
+and `o0-case-probe.mjs`; real checker lines 681–683 and shared field reader lines 43–54.
+The full existing fixture run in an isolated linked worktree restored its tree and passed 258/259;
+the one suite exception was ENOTDIR for `.git/lane-gate-fixture`, before its lane-gate cases ran.
+That portability limitation is separate from the deterministic false-green probe; it is not evidence
+that lane-crossing refusal semantics fail. No whole-suite pass is claimed from that run.
+
+### Draft repair for Lane A — existing correction owner, no duplicate handoff
+
+1. Count the nine header singleton names with the same case-insensitive semantics as `field()`;
+   the smallest change is `gm` → `gmi` in the cardinality matcher. Preserve horizontal whitespace,
+   fence exclusion, first-heading boundary and repeatable body records.
+2. Add refusal cases for mixed-case duplicates of all nine names, including reversed order and
+   differing values. Keep exact-case refusal and fenced/body positive controls. Success means
+   every reader-recognized duplicate is refused, regardless of order or casing.
+3. Apply as a bounded Phase 1 Lane A unit after the Judge's Register act; run the corrected fixtures
+   and consistency suite on a suitable clean checkout. If using linked worktrees, resolve Git's
+   administrative directory for the fixture scratch area rather than assuming `.git` is a directory.
+4. Return evidence here. Lane B verifies B-116's repair, then B-113 → B-112 → B-097 → B-103 P3.
+   Do not set those downstream entries Verified from the unchanged green suite.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| D-375 concrete record corrections and existing five cardinality fixtures | Approve | Phase 1 — retain proof and chronology |
+| B-116 item 5 / whole correction-unit independent closure | Reject | Phase 1 — matcher/reader equivalence and mixed-case refusal proof required |
+| Downstream B-113 → B-112 → B-097 → B-103 P3 verification | Defer | Phase 1 — after the bounded B-116 repair is independently verified |
+| Software construction | Defer | Authorized Phase 2 — Gate 2, work order and Lane B Active |
