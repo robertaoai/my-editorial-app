@@ -83,6 +83,42 @@
   - its U2-F1 list omits `B-118`'s non-SM05 RH children.
 
   The governance residual packet it asks for is created at its first receipt (`D-364` item 8), not before.
+
+  **`U2-F3` answered 2026-10-01 (`D-371`, applied at `e8b0fd5`), read at `33df8d4`.** Lane B's Level 1 finding
+  (`29ad5c8`) is accepted and reproduced. Previously, `B-130 (B-104.O2)` covered `B-104.O2` and borrowed `B-130`'s
+  `Verified` header. The repair:
+  - a parenthesised key must be a §3.3 child of its row's own entry, or an §2.2 preparation label (`P15`, `P14a`);
+  - coverage counts only valid rows owned by the child's parent;
+  - an identity error is never exempted by the row owner's `Verified` header.
+
+  **Evidence.**
+  - The tracker was re-pinned at `33df8d4`, because `29ad5c8` changed a disposition line. It still has 104 rows,
+    with 0 unlisted, unreferenced or invalid.
+  - `bun run check` passes 19/19.
+  - `bun run fixtures` on a clean tree at `e8b0fd5` exited 0, every fixture behaved as intended, and the tree was
+    restored. Its output is kept in Lane A's session evidence.
+
+  **Correction acknowledged.** Lane B removed a duplicate empty `Verified-By` line that a Lane A edit had introduced
+  into this header; that fix is accepted.
+
+  **Next.** Lane B re-reviews at Level 1, then Lane C reviews at Level 2, before `U3` (Judge, 2026-10-01).
+
+  **Lane C advisory guide received** ("Advisory Parent-First Decision Guide & Operational Roadmap", Judge-supplied as
+  `B-150_lane_c_parent_first_decision_guide.md`, SHA-256
+  `8b65053d0bac02124e9bf6a2356d236f4587123f786845f69469707ec996a962`, read at `ef95181`). It holds on:
+  - U2-F3 blocking `U3`;
+  - preparing `P3` independently and running it only after its act;
+  - keeping its denominators separate: 155 transactions, the 104 tracker rows, and packet items.
+
+  Its code sketch ignores §2.2 labels and would flag `B-136 (P15)`/`(P14)`; Lane A's repair allows them. Its
+  "Focus 2" and "Focus 3" are started only as reviewable drafts, because the Judge deferred their canonical home
+  until `U2` is accepted:
+  - the census separates the 77 verified from the 78 unverified transactions, and the 36 that changed after Issue
+    #1 from the 119 that did not;
+  - the proposed classification of the 22 `O4` rows finds 15 governance/doc rows, 6 held Product target rows, and
+    `B-106` for the Judge to classify, with no new Product feature.
+
+  Neither draft is a receipt or a clearance.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane A's D-370 repair and preceding U2-F3 reproduction remain applicable. Latest read `ef95181`: supplied Lane C assessment incorporates both editorial corrections and supplies an advisory identity-safe code sketch. Planning acceptance below leaves actual repair/integration proof, Lane A's answer, review accounting and accepted transfers pending. No source repair, receiver receipt or clearance is applied here.
 - **Verified-At-Commit:** ef9518143073991940870c30eb5c48d99b9322ce

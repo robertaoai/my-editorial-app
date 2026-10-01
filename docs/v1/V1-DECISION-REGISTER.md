@@ -24629,3 +24629,64 @@ governance residual packet, which is created at its first receipt (`D-364` item 
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `V1-SM05.md` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e196 `D-371` — `U2` Repaired for Lane B's `U2-F3`: a Tracker Child Is Bound to Its Own Parent
+
+**Authority: the Judge, directly to Lane A, 2026-10-01.** In chat the Judge chose "U2-F3 repair" and "B-150 receipt".
+The Judge also ruled that Lane B re-reviews at Level 1 and Lane C reviews at Level 2 before `U3`. Review accounting and
+`O4` refinement start as drafts only, because the Judge deferred their home until `U2` is accepted. The repair stays
+inside `D-364` item 7: a child row bound to the wrong parent covers nothing, so the real parent's child remains
+unclosed. Applied at `e8b0fd5`.
+
+### Why
+
+Lane B reproduced the gap through the parser and evaluator (`B-150`, `29ad5c8`). Coverage was a global set of child
+keys, and the `Verified` exemption followed the row's own entry. So `B-130 (B-104.O2)` both covered `B-104.O2` and
+borrowed `B-130`'s verification, closing an open non-SM05 obligation. The live rows were correctly assigned, and no
+claim existed; this was a control bypass, not a false gate act.
+
+### The decision
+
+1. **Identity is checked apart from vocabulary.** A parenthesised key must be either a §3.3 child of the row's own
+   entry or an `SV-002` §2.2 preparation label (`P15`, `P14a`/`P14b`). An unknown child, or a child belonging to
+   another entry, makes the row invalid.
+2. **Coverage counts only valid rows owned by the child's parent.** A wrong-parent row leaves the real child
+   unreferenced.
+3. **The Verified exemption applies only to a row's own entry, and never to an identity error.**
+4. **The tracker was re-pinned at `33df8d4`.** Lane B's `29ad5c8` changed a disposition line. The entry set and child
+   coverage are unchanged: 104 rows, with 0 unlisted, unreferenced or invalid. The `SV-002` §2.3.1 prose states the
+   rule.
+5. **Fixtures.** Parser-to-evaluator cases cover:
+   - a wrong parent with an unrelated `Verified` owner, and with an unverified owner, each failing under a claim and
+     leaving the child unreferenced;
+   - a valid parent/child row passing;
+   - an unknown child under a `Verified` owner;
+   - a §2.2 label being accepted;
+   - a wrong parent while unclaimed being reported only.
+
+### Evidence
+
+- `bun run check`: 19/19.
+- `bun run fixtures` on a clean tree at `e8b0fd5`: exit 0, every fixture behaved as intended, and the tree was
+  restored.
+
+### Not given by this act
+
+- any row's clearance or receipt;
+- the review-accounting record's home, or any `O4` classification as a receipt (both stay drafts);
+- the governance residual packet;
+- `U3`, `P3` execution, any `Verified`, or any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e196 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 identity rule and pin (`D-371`) |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A answer to `U2-F3` and to the guide |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | — unaffected |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: existing files edited |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `V1-SM05.md` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
