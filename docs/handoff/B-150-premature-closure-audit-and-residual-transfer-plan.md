@@ -158,6 +158,17 @@
     - `B-151` is classified and `Answered`/`Applied`.
   - **Next.** Lane B verifies `B-151`; Lane B and Lane C review `U3` at Level 1 and Level 2. The review-accounting
     ledger, the residual packet and `B-106`'s Product intake follow under the Judge's selected homes.
+
+  **Homes established 2026-10-01 (`D-374`), as the Judge selected.**
+  - **S2 accounting.** `SV-002` §2.3.2 is the review-accounting ledger: one keyed row per screened transaction,
+    accounting only, never clearance. It is seeded with the two independently verified reviews (`B-130`, `B-152`),
+    and the remaining count is derived, never restated.
+  - **S4 residuals.** `SETUP-SPIKE-000/GOV-RES-001.md` is created at its first receipt: `B-104.O2`–`O4`, as `GR-001`
+    to `GR-003`.
+  - **`B-106`.** It is Product, receipted beside the owning `Modular_PRD.md` rows with no new capability and no value
+    change. Its `A6` collision awaits arbitration.
+
+  None of these clears a tracker row. The §2.3.1 tracker is re-pinned at `4baafc8`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f

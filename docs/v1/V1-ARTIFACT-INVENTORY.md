@@ -100,6 +100,8 @@
 | `docs/templates/dor-dod-validation/v1.md` | `D-264` — reusable DoR/DoD validation template `dor-dod-validation/v1`; result-free, immutable once used (a change creates `v2`), outside `docs/v1/` per `D-36` | ✅ **Created 2026-09-25**; SHA-256 `ca605cd6d477ad9d3e9919569fe655d1ba98df3ee8c86dfe57945aec0587be90` |
 | `docs/v1/work-packets/SETUP-SPIKE-000/SV-001.md` | `D-264` — retrospective wrapper over the completed `V1-SM05` pre-selection handoff validation; success-drift baseline | ✅ **Created 2026-09-25**, historical — never re-run |
 | `docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md` | `D-264` — setup-validation attempt, first run of `dor-dod-validation/v1`; units `SV2-U01`–`SV2-U04` | ✅ **Created 2026-09-25**, `DoR open` |
+| `docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md` | `D-374` (`D-364` item 8) — the one bounded Lane A governance residual packet; custody of non-SM05 governance/documentation residuals, never clearance | ✅ **Created 2026-10-01** at its first receipt (`B-104.O2`–`O4`) |
+| `docs/graph-fragments/frag142.json` | `D-374` — curated node for `GOV-RES-001` | ✅ **Created 2026-10-01** |
 | `docs/v1/work-packets/SETUP-SPIKE-000/SV2-U03-code-navigation-evaluation.md` | `D-264` — read-only `SV2-U03` evaluation (`ripwire` as candidate) | ✅ **Drafted 2026-09-25**; awaits Lane B evidence and the Judge's outcome |
 | `scripts/acceptance/` | `D-259` — cross-MMF customer-acceptance harness (§18.3) | ⏳ **Contract only — not created.** Built and run in a later Lane A `Active` turn after Lane B's handover |
 
@@ -407,6 +409,10 @@ control files, `SV-002.md` and `C-001` change in place.
 `scripts/checks/shared-core-hash.mjs` (rows above). `AGENTS.md`, `CLAUDE.md`, `check-consistency.mjs`,
 `lane-boundary.mjs`, `tier-sweep.mjs`, `suites.mjs`, the `sync-docs` skill, `V1-PHASE-CLOSURE.md`, two SPECS and
 `SV-002.md` change in place.
+
+**`D-374` (2026-10-01) — two files added, none retired, stated explicitly.** `GOV-RES-001.md` and its curated
+fragment `frag142.json`. `SV-002.md` (§2.3.2 ledger), `Modular_PRD.md` (a `B-106` intake receipt) and `B-150` change in
+place.
 
 ## Temporary / Draft Artifacts
 

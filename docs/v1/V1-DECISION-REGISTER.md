@@ -24799,3 +24799,67 @@ separate acts; `P3`; any lane-state change.
 | `docs/Modular_PRD.md`, SPECS, rule files | — unaffected: the anchors cite existing `AC-23`/`AC-26` rows unchanged |
 | **Encyclopedia** | — unaffected: no entry depends on FN-GATES §4.6 (`ENCYCLOPEDIA-SYNC.md` maps §3.1, §3.4, §6 and §7) |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e199 `D-374` — Homes for `B-150`'s Review Accounting and Residuals: the `SV-002` §2.3.2 Ledger, `GOV-RES-001` and `B-106`'s Product Receipt
+
+**Authority: the Judge, directly to Lane A, 2026-10-01.** In chat the Judge chose:
+- the `SV-002` §2.3.2 ledger as the home of review accounting;
+- `SETUP-SPIKE-000/GOV-RES-001.md` as the governance residual packet;
+- **Product** for `B-106`, then a receipt at its owning `Modular_PRD` rows rather than a new `PBL-*` identity.
+
+`D-371` had deferred these homes until `U2` was accepted, and `D-373` records that acceptance.
+
+### The decision
+
+1. **The review-accounting ledger, `SV-002` §2.3.2.**
+   - **Population:** every non-turn-report handoff, Verified or not.
+   - **A valid row names:** the reviewer, the read revision, the scope checked (source, children, returns), the
+     finding, and a receiving anchor or a reasoned "no residual".
+   - **Accounting, never clearance.** The remaining count is derived, never restated (`G55`), and a commit census or
+     an unchanged file is not a review.
+   - **Seeded** with `B-130` and `B-152`, the two independently verified reviews this audit produced.
+2. **`GOV-RES-001`, created at its first receipt (`D-364` item 8).**
+   - **First receipts:** `GR-001`–`GR-003` take `B-104.O2`–`O4`, each with its scope, hold, return condition and
+     completion criterion.
+   - **Custody, not clearance.** The `SV-002` §2.3.1 rows for `B-104.O2`–`O4` stay `open` and now name their
+     receipts.
+   - **Inventoried,** with curated graph fragment `frag142.json`, merged with `merge7.js` (semantic equality check
+     passed).
+3. **`B-106` is Product, receipted at its owning rows.** Its two values are configuration ratifications, not a
+   capability; §2.5.2 itself says "not every excluded object is a capability". The receipt sits in the
+   `Modular_PRD` retention section, citing `RK-05`, and **changes no value**.
+   - **The conflict it records.** The Chief Editor's act sets `A6` = 90 days, while the section reads `A6` as
+     ratified at 5 years (`D-134`).
+   - **What resolves it:** a Register arbitration act, after the reads `B-106` requires (`D-134`, `D-135`, `D-198`,
+     `B-085`).
+   - **Who owns the runtime values:** `lib/config/build-config.ts` is Lane B's surface.
+4. **Tracker re-pinned at `4baafc8`**, because `B-151`'s disposition changed. It still has 104 rows, with 0
+   unlisted, unreferenced or invalid.
+
+### Not given by this act
+
+- the `A6` arbitration;
+- any tracker clearance;
+- any further receipts into `GOV-RES-001`;
+- any ledger row beyond the two seeded;
+- `U3`'s review;
+- `P3`;
+- any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e199 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ §1 `D-374` paragraph |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `GOV-RES-001.md` and `frag142.json` created, with the dated `D-374` statement |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ created with `GR-001`–`GR-003` |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.2 ledger; §2.3.1 Basis text for `B-104.O2`–`O4` and `B-106`; re-pin |
+| **`docs/Modular_PRD.md`** | ✅ `B-106` Product intake receipt in the retention section, `[V1]`; no value changed |
+| **`docs/handoff/B-104-t5-historical-target-executor-propagation.md`** | ✅ Lane A receipt note |
+| **`docs/handoff/B-106-a4-a6-config-ratification.md`** | ✅ Lane A receipt note |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A: homes established |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| Fn Specs, SPECS, rule files | — unaffected |
+| **Encyclopedia** | — unaffected: `ENCYCLOPEDIA-SYNC.md` maps no entry to the retention section or `RK-05`, and no value changed |
+| **Graphify** | `frag142.json` merged; rebuild after this commit and re-merge it if the rebuild drops the node |

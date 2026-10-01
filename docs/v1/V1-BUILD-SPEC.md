@@ -130,6 +130,12 @@ attempt (not a lane transition). The Lane B/C read-only measurement authorizatio
 take effect. Order: `SV2-U02` A/B/C → `SV2-U03` trial → `SV2-U04` classification → DoD, each row on its own proof. The
 PR #2 comment, `SV-002` acceptance and the `V1-SM05` unblock remain separate Judge acts.
 
+**`D-374` (2026-10-01) — homes for `B-150`'s accounting and residuals.** `SV-002` §2.3.2 is the review-accounting
+ledger (accounting, never clearance). `GOV-RES-001` is created at its first receipt (`B-104.O2`–`O4`) as the one
+governance residual packet. `B-106` is receipted as Product beside its owning `Modular_PRD` rows, with its `A6`
+collision awaiting arbitration. Gate 2 still needs every non-SM05 row closed under `D-364` item 4. The `D-267`
+order is unchanged, and `V1-SM05` stays `BLOCKED`.
+
 **`D-373` (2026-10-01) — `U3` applied: Jev enforces the four intake cases.** FN-GATES §4.6 gains `SM05-IN1`–`IN4`,
 anchored to `FR-15`. The `V1-SM05` Jev manifest pins them, and "Intake source fixtures" joins `failingFirstRequired`
 and `negativeRequired`. The `DOR-R7` receipt was re-issued as `pass` at `31bcf3a`. This supersedes `D-288` item 5's

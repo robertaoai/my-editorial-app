@@ -24,6 +24,10 @@
 
   No governed source, Product, Fn_Spec, storyboard, schema, workflow, runtime configuration
   metadata or Graphify action is taken by this acknowledgement.
+  **Product intake receipt 2026-10-01 (`D-374`).** The Judge classified this entry as Product. Its receipt sits beside
+  the owning `Modular_PRD.md` rows (the retention section, and `RK-05`), with no new capability and no value change.
+  The `A6` collision (90 days versus `D-134`'s 5 years) awaits the Register arbitration act this entry already
+  requires. This entry stays `Open`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Verified-At-Commit:** ae5548c4a6f51dc3b5b1df9343769fa47f33cc00
 - **Evidence:** Chief Editor's 2026-09-15 direct act; `CONFIG_LOG.md` §2; `DECISION_LOG.md` §§1–3; `lib/config/build-config.ts`; Register `D-134`, `D-135`, `D-198`; `B-085` G-3 disposition.

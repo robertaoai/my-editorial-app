@@ -695,6 +695,16 @@ editorial work (`D-134`, house-policy placeholder, amendable — `A6`). **Confir
 the workflow's `REUSE-WINDOW-90`** (90 days) — not the same clock, `D-134` correcting `D-128`'s
 earlier guess.
 
+> **Product intake receipt `[V1]`, 2026-10-01 (`D-374`, from `docs/handoff/B-106`).** This section, and `RK-05`
+> in §7.6, receive `B-106`'s configuration ratification as Product scope; the Judge classified it as Product. **No
+> value changes here.** The Chief Editor's 2026-09-15 act approved `DATA_RETENTION_ARCHIVE_DAYS = 90` (`A6`) and
+> `SCORING_REVIEW_THRESHOLD_ARTICLES = 50` (`A4`). The paragraph above still reads `A6` as ratified at 5 years
+> (`D-134`). `B-106` records a Judge clarification: 90 days is the first UI-visible operational boundary, and the
+> 5-year tax rule is an external, financial-record-only workflow. **That collision awaits a Register arbitration
+> act** after the reads `B-106` requires (`D-134`, `D-135`, `D-198`, `B-085`). Until then, the text above governs.
+> The runtime values in `lib/config/build-config.ts` sit on Lane B's surface (`D-56`). This receipt establishes
+> ownership; it does not clear `B-106` (`D-364` item 4).
+
 **Rejected work archives; published work does not — and that is two regimes, not an inconsistency**
 *(resolved `D-115`)*. **GRC on retraction binds data while it is in the CURRENT set**, so:
 
