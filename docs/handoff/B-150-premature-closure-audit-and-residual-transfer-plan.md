@@ -3144,3 +3144,100 @@ only the dated differences in B-150; no source lifecycle, build, hosted setting 
 | Whole selected-cohort, O0 or Gate 2 closure from classification alone | Reject | Phase 1 → Gate 2 — missing custody/disposition and circular future proof cannot be inferred |
 | Remaining historical sources / full backlog acceptance | Defer | Phase 1 / O0–O5 — complete the keyed census and receiving totals |
 | Held Product work, Phase 2 construction and Phase 3 CI execution | Defer | Their existing holds and separately authorized later phases; no automatic sprint allocation |
+
+## Lane B challenge — Phase 3 CI, V1-SM06 and V1-SM05 Gate 2 — 2026-10-01
+
+Based on Lane A's analysis: refer `docs/handoff`; consolidate the analysis before Lane A reviews
+the handoff under the existing template. This is a dated difference to the existing B-150/G3 plan,
+not a second tracker or receiver answer. **Read:** `73771ad48fd6b069f7561275cfcaee32a512f6a7`.
+
+**Clarified request:** test whether allocating Phase 3 CI to V1-SM06 makes V1-SM05's Gate 2 invalid;
+identify the actual source authority, any circular prerequisite and the exact correction Lane A
+must record before relying on that conclusion. The incoming statement is reviewed as a scope/
+dependency challenge; it is not treated as authorization to select SM06, alter checks or execute CI.
+
+| Template aspect | Consolidated Lane B handoff content |
+|---|---|
+| Raiser / receiver | Lane B raises this analysis; Lane A answers and owns canonical application |
+| Kind / correction phase | Existing B-150 finding; Phase 1 governance/sequence clarification |
+| Blocks | An unsupported claim that SM06 owns C-001 or that later CI execution must precede SM05 entry; no new block, lane transition or scope allocation is applied |
+| Evidence | V1-SM06 packet, Build Spec §1, Register D-278/D-364, C-001/B-016, WORKFLOWS-SPEC, closure-readiness source and full consistency run |
+| Requested answer | Record whether CI allocation is already governed or newly proposed; separate execution destination, handoff clearance and any actual pre-construction safety prerequisite |
+
+### Highest parent first — findings and decision table
+
+| Parent → child question | Finding at this read | Judge Accept / Reject criterion | Follow-up phase |
+|---|---|---|---|
+| Scope authority: is Phase 3 CI already inside V1-SM06? | The current SM06 packet admits board/audit visibility and LinkedIn ManualReady; it neither receives C-001/B-016 nor assigns C-24/C-25. Those sources remain Phase 3 delivery-assurance work | Reject this as an established governed allocation. If intended as a new allocation, Lane A drafts the explicit Project-scope receipt/sequence and obtains its bounded Judge act | Phase 1 planning; later Phase 3 execution only under its work order |
+| Namespace: delivery phase versus functional increment | Phase 3 identifies delivery-assurance work/owner; SM06 identifies MMF-V1-USABLE's functional increment. A phase number alone determines no sprint membership | Accept explicit mapping only; do not map Phase 3 to SM06 merely because both come later | Phase 1 clarification |
+| Gate 2 authority: what must close before SM05? | D-364 items 4–5 require non-SM05 handoff clearance and SM05 receiving receipts. Clearance may be independent verification or individual reasoned Judge acceptance; it does not require execution of all later residuals | Retain the current gate unless a specific Judge amendment supersedes it. Deferred ownership alone is insufficient clearance, but accepted deferral/custody is not CI execution | Phase 1 → Gate 2 |
+| Dependency: would completing SM06 CI before Gate 2 be coherent? | SM06 already depends on SM05 DoD. Adding SM06 CI completion as a prerequisite to SM05 entry would create a cycle | Reject that cycle. Record pre-entry custody/clearance separately from later runtime/required-check proof | Phase 1 correction; later authorized execution |
+| Actual CI safety boundary | C-001's C-24/C-25 block the required-context/settings transition, not every source commit. Existing local/CI typecheck, lint and test obligations remain; moving the repair cannot waive them | If a particular CI proof really is necessary before a named SM05 act, identify the exact act/source and resolve or amend that prerequisite explicitly; do not infer it from the broad label CI | Phase 1 decision; specific later merge/settings/release act |
+
+**Conclusion:** the challenge exposes a valid failure mode if "all handoffs cleared" is misread
+as "all deferred Phase 3 work implemented." It does **not** establish that Gate 2 is invalid.
+Even an approved later SM06 allocation would change execution scheduling, not automatically
+supersede D-364's entry rule. There is currently no governed SM06 CI receipt to use as that proof.
+
+The impossible interpretation is:
+`SM05 Gate 2 → SM05 construction/DoD → SM06 CI completion → SM05 Gate 2`.
+The supported separation is:
+`reasoned handoff clearance + SM05 receipts → Gate 2/selection/work order → SM05 DoD → later selected work`.
+The later CI unit still needs its own owner, C-24/C-25 evidence and lane/settings authorization.
+Source clearance provides no protected-PR, runtime, merge or deployment completion credit.
+
+**Policy proof:** a read-only synthetic evaluation of closure-readiness produced two findings for
+uncleared B-016/C-001 rows and zero after hypothetical reasoned clearance, with the live verification
+flags still false. This demonstrates that the implemented gate can separate clearance from future
+execution. It is not a live clearance claim or Judge acceptance: the real tracker was not changed.
+Evidence is stored in `C:/CoWork/outputs/handoff-review-2026-10-01/ci-clearance-policy-probe.json`.
+The full repository consistency run at this read passed **19/19**, with no Gate 2 claim.
+
+### Draft Lane A correction — preserve gate meaning and residual scope
+
+Proposed receiving/sequence wording for the existing canonical records:
+
+> B-016/C-001 retain their Phase 3 CI execution obligations and C-24/C-25 conditions. They are
+> non-SM05 for V1-SM05 entry screening. Gate 2 requires their documented handoff clearance under
+> D-364, including an individual reasoned Judge acceptance where applicable; it does not claim
+> CI implementation or require V1-SM06 completion. Any allocation of that CI unit to V1-SM06
+> needs an explicit receiving scope and Judge decision. Existing verification, settings, merge
+> and release prerequisites remain separately binding.
+
+This is a draft, not a canonical amendment or recorded acceptance. If the Judge instead wants
+Gate 2's broad non-SM05 clearance requirement reduced to only direct SM05 prerequisites, that
+is a **different policy change**: Lane A must name the exact D-364 clauses superseded, define
+which unrelated histories remain in backlog and preserve every genuine prerequisite. It cannot
+be implemented by silently removing O5 rows or labelling them SM06/received (received is SM05-only
+in this tracker). Reuse existing source/custody records and preserve C-001/B-016 as linked obligations.
+
+### One global top three — Lane A follow-up
+
+1. **Settle the scope/sequence parent.** State whether CI-to-SM06 is a proposed scheduling change
+   or a governed allocation with a cited act. For a new allocation, draft exact CI children,
+   receiving owner/anchor, return/completion conditions and applicable propagation; keep Project
+   delivery assurance separate from SM06's Product ACs. Success: one explicit mapping with no cycle.
+2. **Clear the source obligations under the chosen policy.** Retain Phase 3 execution holds;
+   record each B-016/C-001 disposition/receiving link and independent clearance or individual Judge
+   reason. Keep B-103's Stage 1/P3 contract proof separate from D-230 Stage 2 runtime. Success:
+   later execution remains visible without being presented as pre-entry completion.
+3. **Reconcile and test the existing Gate 2 tracker.** Apply the already accepted SM05 receipt
+   facts and remaining G3 refinement; re-derive at the actual revision. If the Judge amends the
+   gate policy, propagate the amended fact to Register, Build Spec, Inventory applicability,
+   phase/workflow/work-order sources and checks/negative controls before claiming clearance.
+   Success: intended prerequisites fail when missing, later deferred execution is not a circular
+   entry condition, and Gate 2 receives its separate Judge act.
+
+**Drift / scope:** the governed baseline remains ba03794; later changes are excluded handoff-only
+reviews. The raw Graphify HEAD reminder does not establish a governed-source mismatch. No rebuild
+is required for this receipt; Lane A synchronizes any future adopted scope/gate amendment with
+curated fragments preserved/re-merged under G51. No CI setting, workflow, packet scope, tracker
+cell, receiver answer, build or lane state is changed by Lane B.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Separate future CI execution from pre-SM05 handoff clearance | Approve | Phase 1 — use explicit custody and individual clearance evidence |
+| Phase 3 CI already governed inside SM06 | Reject | Phase 1 — no receiving allocation exists in the checked governed scope |
+| Gate 2 invalid merely because CI is scheduled later | Reject | Phase 1 — scheduling does not supersede D-364; reject the circular-completion interpretation |
+| Lane A consolidation / proposed CI allocation or gate amendment | Approve-with-conditions | Phase 1 — exact scope, authority, no-cycle sequence and propagation before application |
+| Gate 2 clearance and CI execution | Defer | Actual remaining Gate 2 evidence / separately selected Phase 3 unit respectively |
