@@ -222,6 +222,23 @@ export function parseChildMatrix(text) {
   return out;
 }
 
+/**
+ * Lane B's label finding (`b6ac8f1`; repaired under `D-372`). The `SV-002` §2.2
+ * preparation keys — `P1` … `P16`, `P11-G1` … `P14a`, `P14b` — read from the
+ * table itself. A shape-only test (`P<number>`) admitted invented `P999` and
+ * `P14a/P999`, which `D-371` item 1 never allowed: a label must BE an §2.2
+ * label. Read from the source, not hard-coded, so a new §2.2 row is known the
+ * moment it exists. Pure.
+ */
+export function parsePrepLabels(text) {
+  const m = /^###\s+2\.2\s/m.exec(String(text));
+  if (!m) return new Set();
+  const rest = text.slice(m.index + m[0].length);
+  const end = rest.search(/^###?\s/m);
+  const body = end < 0 ? rest : rest.slice(0, end);
+  return new Set([...body.matchAll(/^\|\s*\*\*(P\d+[A-Za-z0-9-]*)\*\*\s*\|/gm)].map((x) => x[1]));
+}
+
 const SCOPES = new Set(["SM05", "non-SM05"]);
 const CLEARANCES = new Set(["open", "closed", "received"]);
 
@@ -244,7 +261,7 @@ export function gate2Claimed(tracker, blocked) {
  * `live`: Map entryId → true when the header is independently Verified.
  * `stale`: true / false, or null when history could not answer.
  */
-export function gate2Evaluate({ tracker, live, claimed, stale, children = [] }) {
+export function gate2Evaluate({ tracker, live, claimed, stale, children = [], labels = new Set() }) {
   const findings = [];
   if (!tracker) {
     if (claimed) findings.push(`${TRACKER_PATH}: Gate 2 clearance is claimed (${claimed}) but §2.3.1 has no tracker (\`D-364\` item 6)`);
@@ -267,14 +284,21 @@ export function gate2Evaluate({ tracker, live, claimed, stale, children = [] }) 
     // `B-104.O2` and borrowed `B-130`'s Verified header, closing an open
     // obligation.
     const known = r.child ? childScope.get(r.child) : null;
-    const isLabel = r.child !== null && /^P\d+[a-z]?(\/P\d+[a-z]?)*$/.test(r.child);
-    const identity = !r.child || isLabel
+    // A label-shaped key (`P…`, `/`-composite) is validated part by part against
+    // the §2.2 keys; anything else must be a §3.3 child of this entry (`D-372`).
+    const labelShaped = r.child !== null && /^P\d/.test(r.child);
+    const unknownParts = labelShaped ? r.child.split("/").filter((p) => !labels.has(p)) : [];
+    const identity = !r.child
       ? null
-      : !known
-        ? `\`${r.child}\` is not a §3.3 child`
-        : known.parent !== r.entry
-          ? `\`${r.child}\` belongs to \`${known.parent}\`, not \`${r.entry}\``
-          : null;
+      : labelShaped
+        ? unknownParts.length
+          ? `${unknownParts.map((p) => `\`${p}\``).join(", ")} ${unknownParts.length === 1 ? "is not an" : "are not"} §2.2 preparation label${unknownParts.length === 1 ? "" : "s"}`
+          : null
+        : !known
+          ? `\`${r.child}\` is not a §3.3 child`
+          : known.parent !== r.entry
+            ? `\`${r.child}\` belongs to \`${known.parent}\`, not \`${r.entry}\``
+            : null;
     const reasons = [];
     if (identity) reasons.push(identity);
     if (!SCOPES.has(r.scope)) reasons.push(`Scope "${r.scope}" is not \`SM05\` or \`non-SM05\``);
@@ -521,7 +545,7 @@ export function run() {
     const newest = newestDisposition();
     stale = newest === null ? null : !contains(tracker.derivedAt, newest);
   }
-  const gate2 = gate2Evaluate({ tracker, live, claimed, stale, children });
+  const gate2 = gate2Evaluate({ tracker, live, claimed, stale, children, labels: parsePrepLabels(trackerText) });
   findings.push(...gate2.findings);
 
   return {
