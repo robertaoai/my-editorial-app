@@ -25,10 +25,15 @@
   "What Lane A needs to do" are accepted as the next Lane A unit. `B-113`, `B-112` and `B-097` stay
   `Applied` until that correction lands and Lane B independently verifies in the stated order
   (`B-113` → `B-112` → `B-097` → `B-103` P3). No header field is edited by this acknowledgement.
+  **Repair for Lane B's `38c1cb4` finding, 2026-10-01 (`D-378`, `fc99842`).** The singleton matcher was case-sensitive
+  while `field()` is not, so a mixed-case duplicate passed. It now uses `gmi`. Fixtures add a mixed-case, reversed-order,
+  differing-value duplicate for each of the nine singletons. No live duplicate was newly flagged. Check 19/19; fixtures
+  exit 0 on a clean tree. `Verified-At-Commit` moves from `e1e3b29` to `fc99842`, the one review point for Lane B.
+  Order unchanged: `B-116`, then `B-113` → `B-112` → `B-097` → `B-103` P3.
 - **Resolution:** Applied
 - **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** direct read of B-112/B-113/B-097 at `284b4ae`; `bun run check` 18/18; `bun run fixtures` 143/143 with the working tree restored; Graphify governed-intent baseline `0d2cc2b` and excluded-only handoff advance to `284b4ae`
-- **Verified-At-Commit:** e1e3b2925e0a22ab202479f7e32fb7db05959521
+- **Verified-At-Commit:** fc998420c5a423caf5953e527277a5ffb183c247
 
 ## What happened
 

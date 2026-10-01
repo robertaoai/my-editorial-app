@@ -267,6 +267,9 @@
   - **Lane B's `38c1cb4` finding on `D-375` is accepted.** The cardinality matcher is case-sensitive while `field()` is
     not, so a mixed-case duplicate could pass. The repair (`gmi`, plus mixed-case fixtures) awaits the Judge's
     Register act, as Lane B asked.
+    **Repaired 2026-10-01 (`D-378`, `fc99842`; Judge approved).** The matcher is now `gmi`, with mixed-case fixtures for
+    all nine singletons. Check 19/19; fixtures exit 0 on a clean tree; no live duplicate newly flagged. `B-116`'s
+    anchor is now `fc99842`. Lane B verifies `B-116`, then `B-113` → `B-112` → `B-097` → `B-103` P3.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f

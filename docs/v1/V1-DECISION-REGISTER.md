@@ -24996,3 +24996,43 @@ fed `SV2-DOD-05`, which the Judge checked under `D-289`.
 | `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files, `SV-002.md` | — unaffected: the receipts cite existing rows (`SV-002` is re-pinned separately) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild before and after this commit |
+
+## 5.14e203 `D-378` — `D-375` Repaired: Singleton Cardinality Matches the Case-Insensitive Field Reader
+
+**Authority: the Judge, directly to Lane A, 2026-10-01**: *"Judge Approved: apply the D-375 case-insensitivity
+repair"*. It answers Lane B's `B-116` review (`38c1cb4`), with Lane C's Level 2 concurrence (Judge-supplied). Applied
+at `fc99842`.
+
+### Why
+
+`D-375`'s matcher counted the nine header singletons with `gm`, but `field()` reads them with `mi`. A mixed-case
+duplicate (`- **status:**` beside `- **Status:**`) was therefore read by the parser and missed by the rule: the
+same first-match false green `B-116` exists to prevent, recurring through case.
+
+### The decision
+
+1. **The matcher is now `gmi`.** Horizontal-whitespace handling, fence exclusion, the first-heading boundary and
+   repeatable body records are unchanged. The SOP states the case rule.
+2. **Fixtures.** Each of the nine singletons gets a mixed-case duplicate, in reversed order and with a differing
+   value, and each is refused. The exact-case, fenced and below-heading cases are kept.
+3. **Evidence.** The live corpus has no newly flagged duplicate. `bun run check` passes 19/19. `bun run fixtures` on
+   a clean tree at `fc99842` exits 0, every fixture behaves as intended, and the tree is restored.
+4. **`B-116`.** It stays `Applied`, and its `Verified-At-Commit` moves to `fc99842`, one review point. Lane B
+   verifies `B-116`, then `B-113` → `B-112` → `B-097` → `B-103` P3.
+
+### Not given by this act
+
+Any `Verified`; tracker clearance; any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e203 |
+| **`docs/handoff/B-116-option-a-audit-record-false-green.md`** | ✅ repair note; anchor `fc99842` |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A: repaired |
+| **Build Spec** (`V1-BUILD-SPEC.md`), **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: existing control edited |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild before and after this commit |
