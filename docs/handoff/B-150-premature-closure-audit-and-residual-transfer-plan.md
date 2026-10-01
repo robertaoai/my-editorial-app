@@ -173,8 +173,8 @@
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f
 
-**Current review pointer:** the final "D-373/D-374 — Lane B review and B-151 verification — 2026-10-01"
-below controls current progress. Earlier planning and rejected-repair receipts remain historical;
+**Current review pointer:** the final "Lane B receipt of U3/D-374 Level 2 approval — 2026-10-01"
+below controls current progress and qualifies the preceding Level 1 review. Earlier planning and rejected-repair receipts remain historical;
 the original parent-binding and preparation-label findings are repaired in the tested scope. D-372's exact keys/no-alias decision supersedes earlier P14-alias proposals.
 The same three pending parents and full trace matrices remain. Exact child keys follow D-370. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
@@ -2120,3 +2120,53 @@ these own-handoff receipts introduce no additional source/control rebuild requir
 | D-374 homes, seeded ledger and bounded custody/Product receipts | Approve | Phase 1 — applied scope accepted; no blanket source clearance or A6 arbitration |
 | U3 consumption and remaining accounting/transfers | Approve-with-conditions | Phase 1 — current Level 2 review, tracker re-pin after verification, ledger/transfer proof and A6 decision |
 | Complete B-150, Gate 2 and application construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — remaining clearance/setup evidence and Judge acts |
+
+## Lane B receipt of U3/D-374 Level 2 approval — 2026-10-01
+
+Based on Lane A's recorded answer, read `cb2d0dad66cc8dab184b1cf2d72fb9f118580810` and the
+Judge-supplied `8e9a13d9-5467-472e-bcf7-2abd47e5046e/Pasted text.txt`, SHA-256
+`19b479732ba49f942121395263e32b0ab5aef209ad4b733b17cfb78070c01c20`, and Downloads
+`lane_c_level2_u2_repair_review.md`, SHA-256
+`06e694e165a39a4c5c42229c07f30755f73e0807c024b5938b999e322eada66d`.
+The supplied Lane C review explicitly approves U3 at 31bcf3a, D-374 at a825260 and B-151's
+bounded independent verification at 17008c8. Current Level 1/2 review prerequisites are satisfied
+for these applied units. Lane C ran readiness/self-tests and inspected Lane B's 20/20 result;
+that inspected result is not a new independently rerun probe. No source/control change occurred.
+
+**Lane A is ready for the existing follow-up, with these draft corrections:**
+
+| Global parent / Lane A steps | Required correction to the supplied guide | Success evidence |
+|---|---|---|
+| 1. Record completed reviews and reconcile live tracking | Record Level 1/2 receipts and B-151's actual a825260 read in §2.3.2. Re-derive §2.3.1 from an existing read commit containing 17008c8 or later; the guide's option to re-pin to 4baafc8 repeats the stale pin and cannot work. Do not predict a not-yet-existing commit | Ledger row cites the named planning scope and SM05 execution owner/receiving anchor; no-residual means no residual in the tooling finding, not completed runtime behavior. Tracker currency proved against the newest actual disposition |
+| 2. Complete historical review accounting | Keep the current ledger measure 2 recorded / 153 not yet recorded. Once Lane A adds one valid B-151 row, derive 3 / 152 at the same 155-transaction population; do not keep repeating 153 after adding it. Missing ledger entries are not proof that reviews never happened | Unique keyed source/child/return reviews with actor, read revision, finding and receiving anchor or reasoned no-residual; derive counts from the actual directory/table |
+| 3. Refine residual scope and verify custody/clearance | Do not send all "19 remaining O4 rows" to GOV-RES-001. That is merely 22 minus the three GR receipts; it includes held Product targets and B-106, whose separate Product receipt already exists. Route governance/documentation only to GOV-RES-001; preserve held Product ownership and B-106's arbitration | Full surviving-obligation accounting with keyed required/received/accepted/remaining counts, no duplicate B-106 receipt, and separate item-4 clearance evidence for B-104.O2–O4. A6 decision precedes runtime metadata change |
+
+**Count and scope reconciliation:** after B-151 verification, the live clearance evaluator reports
+80 non-SM05 unclosed plus 12 SM05 not received = **92 pending**, not the guide's 93. The source
+table still has 10 received and 1 explicitly closed; B-151's independent header verification adds
+one discharged SM05 obligation. Distinguish those fields from semantic-review and receiving counts.
+The header population is now 78 Verified plus 77 candidates, not the older 77/78 split. The 119
+unchanged paths remain census only, not 119 proven premature closures. Claims of inevitable data
+corruption, legal breach or collapse are hypothetical consequences, not observed outcomes or Judge acts.
+
+**Governed intake semantics:** SM05-IN3 comes from §4.6 rule 6's third fixture, not rule 5; it fails
+with the named §3.1 validation failure, T1 does not complete and nothing is admitted. SM05-IN4's
+missing original URL is refused at admission, likewise with no admitted intake. Do not narrow these
+to merely "no second workflow" or infer a new failure-artifact implementation from advisory text.
+Preserve the source rows and FR-15/AC-23/AC-26 anchors. Runtime artifacts/failing-first evidence
+remain in authorized Phase 2. GR-002 has no target hold; GR-001 and GR-003 carry the held target
+scope. Their three receipts are custody, not completion or automatic source clearance.
+
+The preceding Chief Editor, B-104 and O0–O5 matrices remain. Maintain one global top three;
+re-pin/review accounting/refinement may progress concurrently where evidence permits, while
+group clearance remains ordered. Graph/document currency is separate from tracker currency:
+governed sources are at a825260 with frag142, while the tracker remains stale at 4baafc8.
+Graphify query/check-update reports pending semantic descriptions/labels; no rebuild is caused by
+this excluded handoff receipt. Lane A alone answers and applies source corrections. B-150 remains Open.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| U3, B-151 bounded verification and D-374 homes/receipts, current Level 1/2 scope | Approve | Phase 1 — preserve completed proof and supplied review provenance |
+| Lane A follow-up / supplied guide | Approve-with-conditions | Phase 1 — correct pin choice, count/routing and source semantics as above; record actual receipt/read revision |
+| Whole historical review, transfers, B-150 closure and Gate 2 | Defer | Phase 1 → Gate 2 — full keyed ledger, separate clearance proof, setup evidence and Judge acts remain |
+| Software construction/runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active still required |
