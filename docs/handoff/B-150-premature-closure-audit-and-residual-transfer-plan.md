@@ -173,7 +173,7 @@
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f
 
-**Current review pointer:** the final "Lane C follow-up assessment receipt — ready for Lane A with retained conditions — 2026-10-01"
+**Current review pointer:** the final "Lane C corrected assessment — existing Lane A plan ready for intake — 2026-10-01"
 below controls current progress and qualifies the preceding reviews. Earlier planning and rejected-repair receipts remain historical;
 the original parent-binding and preparation-label findings are repaired in the tested scope. D-372's exact keys/no-alias decision supersedes earlier P14-alias proposals.
 The same three pending parents and full trace matrices remain. Exact child keys follow D-370. B-130 is
@@ -2322,3 +2322,48 @@ value change is applied here.
 | Lane A intake and existing consolidated follow-up plan | Approve-with-conditions | Phase 1 — correct full read SHA/count/dependency/ownership wording and apply the preceding top-three acceptance criteria |
 | Whole review accounting, residual acceptance and B-104/B-150/Gate 2 completion | Defer | Phase 1 → Gate 2 — keyed coverage, independent clearance/setup evidence and Judge determinations |
 | Software construction/runtime proof | Defer | Authorized Phase 2 — bounded work order and Lane B Active; held scope keeps its own authorization |
+
+## Lane C corrected assessment — existing Lane A plan ready for intake — 2026-10-01
+
+**Read:** clean `5bd667c14f06d0af734111079b0e34562efcce56`. Judge-supplied attachment
+`a0592a71-9960-4e74-844e-c2353397ad86/Pasted text.txt`, SHA-256
+`055d636aab8de64cbc9fd9845c0cfaeac115175645d5aa2ba1f3ade6df05dd3a`, and Downloads
+`lane_c_level2_u2_repair_review.md`, SHA-256
+`a20fe5143d8374a82803335cd913efe3f9be1f1ad4cd593a68a3936f0c120e9f`, are advisory evidence.
+The corrected guide now uses valid read SHAs, conditional 2/153 → 3/152 accounting, the series/
+receiver ownership distinction and concurrent incremental preparation/refinement. **The existing
+plan is ready for Lane A's intake.** No new repair, handoff, feature, review prerequisite or selected
+sprint is created. Preserve completed bounded U1/U2/U3, B-130/B-152/B-151 and D-374 proof.
+
+Consume the preceding top-three acceptance table and trace matrix; do not recreate them:
+**1)** Lane A answers B-150 at its actual read, records B-151's ledger entry and refreshes tracker
+currency; **2)** records valid historical source/child/return review evidence across the full
+transaction population; **3)** refines each surviving obligation and independently verifies its
+receiving transfer/clearance, with separate B-106 arbitration. These remain uncompleted tasks.
+
+Keep the following source-bound qualifications in Lane A's answer: "19" is a screening subtraction,
+not an exhaustive unreceived-backlog count; B-106 already has Product custody. Refine all surviving
+obligations, including those with receipts, because receiving is not independent acceptance or
+completion. Receiving-backlog required/received/accepted/remaining-execution totals stay unestablished.
+GR-002's labelling task is unheld while the historical transition contract remains held. Both IN3
+and IN4 fail/refuse completion and admit nothing. The Chief Editor's business:T5 record ranks and
+routes **to** Desk Editor; it does not make Desk Editor the ranking executor. The preceding B-104
+matrix retains partial customer origins, story/requirement parents and no selected MMF for O2–O4;
+no B-104.O5 exists. Global O0–O5 instead supply explicit Project/Product authority and consuming artifacts.
+
+The guide's reported checks/probe retain their attributed scopes; its summary is not new runtime
+proof or evidence that Lane C independently reran Lane B's 20/20 probe. Jev's 320/320 readiness
+proves obligations, not construction. Historical Issue/PR-era entries require individual evidence,
+not automatic reopening or a presumption of false closure. Current ledger remains two seed rows;
+source dispositions and the 92 pending clearance obligations are unchanged. B-104/B-150 remain Open.
+
+Graphify query/check-update still reports pending semantic descriptions/labels. Governed baseline
+a825260/frag142 is unaffected; no rebuild is required by this receipt. Lane A's future source
+sync must retain/re-merge curated fragments. No receiver answer, canonical source or software is edited.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Corrected consolidated analysis for Lane A intake | Approve | Phase 1 — use the existing acceptance/trace plan and the source qualifications above |
+| Lane A's accounting, refinement and transfer execution | Approve-with-conditions | Phase 1 — authorized bounded scope, actual evidence, independent acceptance and derived counts |
+| Whole B-104/B-150 closure, complete receiving backlog and Gate 2 | Defer | Phase 1 → Gate 2 — complete ledger/clearance/setup evidence and Judge determinations |
+| Software construction/runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active; held target requires separate authorization |
