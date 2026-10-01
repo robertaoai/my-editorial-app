@@ -25036,3 +25036,49 @@ Any `Verified`; tracker clearance; any lane-state change.
 | `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild before and after this commit |
+
+## 5.14e204 `D-379` — `V1-SM05` "Received from Handoffs": an Explicit Receipt for Each Unreceived SM05 Obligation
+
+**Authority: the Judge, directly to Lane A, 2026-10-01**: *"Judge Approved: add the SM05 receipt list"*. It answers
+the `B-150` ledger batch 3 finding (`eb57742`), and Lane C's Level 2 concurrence (Judge-supplied). The readiness
+handoffs dispositioned before Issue #1 mostly reached `V1-SM05` only through rows citing other entries, while
+`D-364` item 5 requires each SM05 obligation to be received with a receipt.
+
+### The decision
+
+1. **`V1-SM05.md` gains a "Received from handoffs" section.** It sits between the DoD checklist and "Owner / lane",
+   outside Jev's DoD parse. There is one receipt per SM05 obligation not yet received, and each names an anchor
+   already in the packet:
+   - `B-084`: `AC-02` and "Intake source fixtures";
+   - the SM05 children of `B-095` (`D2a`, `D4`), `B-096` (`S15`, `TR-DM-01`'s Gate 1B part) and `B-104` (`O1`);
+   - `B-118`: the packet's origin, `D-240`;
+   - `B-121`: `DOR-R4`;
+   - `B-124`: `D-255`'s `DOR-R1`–`R7`;
+   - `B-126` and `B-132`: the Issue/PR traceability;
+   - `B-127`: the DoR→DoD map;
+   - `B-128`: `DOR-R5`/`R6`;
+   - `B-133`: `DOR-R7`.
+
+   Receipts already held elsewhere are cited. Non-SM05 children are named as not received here.
+2. **No scope change.** No DoR row, DoD obligation or scope changes, and `jev readiness` still passes 320/320. A
+   receipt records where an obligation lives, not that it is built or verified.
+3. **Tracker.** The 12 SM05 rows in `SV-002` §2.3.1 now cite the receipt and stay not-received. They move to
+   `received` only after Lane B independently verifies the list (`D-364` items 4–5).
+
+### Not given by this act
+
+`received` status; any `Verified`; any change to SM05 scope or Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e204 |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ the "Received from handoffs" section |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 Basis text of the 12 SM05 rows (`D-379`) |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A: receipt list added |
+| **Build Spec** (`V1-BUILD-SPEC.md`), **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: a section in an existing packet; no sequence change |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files | — unaffected: receipts cite existing anchors |
+| **Encyclopedia** | — unaffected: no scope or claim changes for Entries 05/06 |
+| **Graphify** | Rebuild before and after this commit |

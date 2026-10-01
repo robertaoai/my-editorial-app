@@ -270,6 +270,13 @@
     **Repaired 2026-10-01 (`D-378`, `fc99842`; Judge approved).** The matcher is now `gmi`, with mixed-case fixtures for
     all nine singletons. Check 19/19; fixtures exit 0 on a clean tree; no live duplicate newly flagged. `B-116`'s
     anchor is now `fc99842`. Lane B verifies `B-116`, then `B-113` → `B-112` → `B-097` → `B-103` P3.
+  - **SM05 receipt list added 2026-10-01 (`D-379`; Judge approved).** `V1-SM05.md` gains "Received from handoffs".
+    - **What it records:** one receipt per unreceived SM05 obligation, for `B-084`, `B-095`/`B-096`/`B-104` (SM05
+      children only), `B-118`, `B-121`, `B-124`, `B-126`, `B-127`, `B-128`, `B-132` and `B-133`. Each names an anchor
+      already in the packet, and the receipts already held elsewhere are cited.
+    - **What it changes:** no DoR row, no DoD obligation, no scope. Jev readiness still passes 320/320.
+    - **The tracker:** the 12 rows cite the receipt but stay not-received until Lane B verifies the list (`D-364`
+      item 5).
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f
