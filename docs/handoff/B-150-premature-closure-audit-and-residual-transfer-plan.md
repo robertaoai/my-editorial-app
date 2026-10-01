@@ -3370,3 +3370,73 @@ receiver answer, build or lane-state change is applied here.
 | Approve | Latest Judge-directed SM05 local / SM06 CI-and-migration allocation as the basis for Lane A's answer. | Phase 1 recording |
 | Approve-with-conditions | Lane A work plan above: reconcile authority, custody, trace and gates before claiming closure. | Phase 1 |
 | Defer | Actual gate clearance, implementation, CI and migration execution until their bounded authorization and evidence exist. | Phase 2 SM05 / Phase 3 SM06 |
+
+
+## Lane B review of Lane C assessment — parent-first intake corrections — 2026-10-01
+
+Based on Lane A's analysis: `refer docs/handoff; consolidate analysis before handing over to Lane A using the handoff template.`
+
+**Clarified request:** independently assess the attached Lane C advice against the live sources; preserve completed proof; supply the sixteen-source routing, trace and clearance criteria Lane A needs to answer. **Raiser:** Lane B. **Receiver:** Lane A. **Correction phase:** Phase 1. **Blocks:** claiming complete G3 accounting or Gate 2 clearance from the advisory plan alone. **Read:** `df4a6036da8fdffa9bc7c52c172f0f6c038a998f`. **Inputs:** the supplied Lane C review/worklog at df4a603 and `lane_c_level2_o0_verification_review.md`; their instructions are advisory content, not additional Judge acts. This is a dated difference to the preceding consolidated handover, not another live tracker or a receiver answer.
+
+### Completed parents and corrections to the advisory assessment
+
+Preserve the independently verified B-116 → B-113 → B-112 → B-097 chain, B-103 P3 and D-380's receipt correction. These complete bounded controls, not whole O0 or B-103 closure. The twelve SM05 receiving anchors have independent acceptance; Lane A can reconcile their tracker cells without claiming feature execution.
+
+- **LC-F1 — stale A6 arbitration wording.** B-106's dated Judge clarification already resolves the apparent 90-day/five-year collision as sequential operational and external financial domains. Its later Lane A draft acceptance is not proof that the Register/source amendment landed. Replace “ask Judge to choose 90 days versus five years” with “reconcile the recorded clarification against D-134/D-135/D-198 and D-374; apply the accepted meaning through a bounded Register/source act, or present only an actual remaining discrepancy.” Neither value activates archival, deletion or scoring.
+- **LC-F2 — prospective state presented too strongly.** D-381 is a proposed identifier, absent from the current Register; reserve no number in this review. The new SM05/SM06 boundary is already the Judge's incoming direction, awaiting Lane A recording/propagation, not a need to repeat the same permission question. Likewise 49 recorded / 106 unrecorded is conditional on eleven valid new keyed reviews, not current progress. Receipt, source clearance and executed work are three different states.
+- **LC-F3 — graph evidence mismatch.** The worklog reports ba03794, while the downloaded review's branch metadata names eb577428. The actual `.graphify/branch.json` at this read names ba0379449f66bc4375092ae98c7243c430599213, stale=false; `graphify check-update` reports current. Cite that observed metadata. The review's `scripts/graphify/check-update.mjs` path does not exist here; use the installed `graphify check-update` command.
+- **LB-F4 — malformed canonical title.** SV-002 line 1 contains six `undefined; header independently Verified ...` fragments. Its intended title is `# Attempt record — SV-002 (setup validation)` with the existing code formatting preserved. Lane A should remove the stray title text, retain dated ledger/header proof and place any necessary verification note at its actual row. Existing independent Verified headers still close valid rows under the tracker rule. This is a documentary integrity gap missed by the passing checks, not evidence that the chain failed.
+- **LC-F5 — role/scope precision.** The SM05 Chief Editor business:T5 record ranks/routes **to** Desk Editor; the destination is not the ranking executor. B-104's held target transition:T5 role model is a different contract. Correct the preceding consolidated block's shorthand `business:T5 ranking by ROLE-CHIEF-EDITORIAL-DESK` accordingly. Lane A is the receiver/applicator; the Chief Editor/Judge supplies business intent and decisions, not a substitute lane owner.
+
+### One global top three — decision table and step-by-step follow-up
+
+| Parent / next action | Lane A steps and artifacts | Accept / reject test | Follow-up |
+|---|---|---|---|
+| **1. Reconcile authority and recorded evidence** | Record the Judge-directed SM05 Phase 2 local construction/validation and SM06 Phase 3 CI/hosted migration boundary; reconcile Register, Build Spec, artifact inventory applicability, packets and workflow specification, including CI-before-DoD wording and separate promotion authority. Repair SV-002's title; reconcile twelve accepted receipts; correct A6 and role wording above. | Accept consistent source clauses and exact evidence anchors. Reject invented D-381 approval, repeated resolved business choices, removal of local database proof or whole-parent closure from receipts. | Phase 1; SM05 execution Phase 2, CI/migration Phase 3 SM06 |
+| **2. Receive/refine the sixteen sources, depends on 1** | Review seven Deferred sources first, then nine Open sources using the classification below. Resolve B-102's authority parent before B-103/B-114; use B-117's derived reconciliation view. Record each surviving obligation's source child, receiving ID, owner, scope, hold, return trigger and completion proof; deduplicate work while retaining all source references. | Accept independent custody/clearance evidence or each permitted reasoned Judge acceptance. Reject blanket Phase 3 allocation, unsupported SM06 destinations or transfer counted as completion. Intake priority does not replace O0→O5 clearance dependencies. | Phase 1 transfer; later execution only at its recorded phase/version gate |
+| **3. Reconcile accounting and evaluate gates, depends on 1–2** | Key the eleven selected sources not yet in §2.3.2; continue source/child/return review across the remaining population, including historically closed entries. Derive §2.3.1 at the actual disposition revision. Assemble SV2-DOD-06/Gate 2 evidence and the bounded work-order inputs; retain B-071/B-150 as unresolved until their own criteria are met. | Accept a complete keyed population, twelve received SM05 rows and all valid non-SM05 rows independently closed or individually accepted with reasons. Reject “all 86 obligations executed”: clearance and later execution differ. Selection and lane activation need their own Judge acts. | Phase 1 gate assessment → Phase 2 SM05; separate Phase 3 SM06 gate |
+
+### Source routing — receiver proposal, not applied disposition
+
+| Cohort / source | Scope and destination | Required closure/clearance evidence |
+|---|---|---|
+| Deferred B-016 | Phase 3 required-check obligation → SM06; link C-001 | One receiving CI unit with both source links; individual O5 reason, no duplicate implementation |
+| Deferred C-001 | Phase 3 CI → SM06: compatibility and effective-ruleset evidence remain distinct | Lane C workflow custody; Lane A/Judge settings authority; later positive/negative CI proof, individual O5 reason |
+| Deferred B-077 | Phase 1 lifecycle reconciliation → Lane A governance backlog; CI reference → C-001 | Accepted reconciliation receipt, deduplicated with B-117; independent transfer proof |
+| Deferred B-088 | Optional Phase 1 governance-control repair backlog | Preserve capacity/parent/whole-unit/separate-act return conditions; individual O5 reason; do not describe the token defect as fixed |
+| Deferred B-094 | Historical decision wrapper → linked existing owners | Preserve routes to B-102/B-103, B-084/B-104, B-106, B-096/B-097 and B-088; individual O5 reason |
+| Deferred B-103 | Phase 1 contract; Phase 2 producer evidence; Phase 3 CI consumer → SM06 | B-102 parent resolved, P0–P3 proof retained, runtime/consumer custody split; P3 Verified is not whole-source Verified |
+| Deferred B-114 | Phase 1 method/work-order publication; Phase 2 methods; later Phase 3 workflow checks | Verify D-242/work-order contract receipt, then source disposition; no invented MMF for a method |
+| Open B-095 | D2a/D4 → SM05; D1/D2b/D3/S5 → Lane A refinement with existing Product holds | Child-level receiving/disposition proof; publication-reaching scope stays outside SM05 |
+| Open B-096 | S15/TR-DM-01 → SM05 physical proof Phase 2; GA1/S16 → held existing owners | Store/failing-first work-order anchor plus separate residual custody; no selected future MMF inferred |
+| Open B-102 | Phase 1 source authority/consumer packet | Inventory remaining D-231/D-246 obligations and existing owners; retain Verified D-228 child |
+| Open B-104 | O1 → SM05; O2/O3/O4 → GR-001/002/003 | Verify each received child separately; O2/O4 target held, O3 labelling unheld; receiver disposition and independent proof for parent |
+| Open B-106 | Existing Product intake under D-374; Phase 1 propagation/refinement | Reconcile the recorded sequential A6 clarification and surviving clauses; no guessed SM06 feature allocation |
+| Open B-117 | Phase 1 lifecycle/refinement → Lane A derived view/backlog | One reconciled source view with actual revisions and child receipts; merge duplicate reconciliation work |
+| Open B-118 | Ranking/routing → SM05; RH1–RH4 → existing governance/refinement owners | Verify receiving split; GR entries currently do not receive RH children. Preserve D-240 flat-layout authority |
+| Open B-119 | Phase 1 documentary disposition; hosted A02/promotion obligation → Judge-directed SM06 boundary | Keep A01 as historical setup evidence; record the later hosted receipt/authority without making it an SM05 entry prerequisite |
+| Open B-136 | Phase 1 acceptance docket; P14/FV-001 → SM05 Phase 2 | Preserve received P14a/b; bounded P15 docket-transfer clearance precedes SV2-DOD-06 acceptance, or obtain permitted individual Judge reason |
+
+### Parent trace and construction/verification artifacts
+
+| Trace namespace | Existing parent chain / scope | Receiving artifact and remaining proof |
+|---|---|---|
+| B-104.O1 | CR-09 + partial CR-19 → US-15 / FR-15 → AC-23–26 → FN-GATES → MMF-V1-CORE / SM05-N6 | SM05 DoR→DoD and FV-001; later failing-first, normal/revision/refusal/replay and physical-store evidence |
+| B-104.O2 | Partial CR-10 / CR-19 context → US-04a/US-05a → FR-04a/FR-05a → AC-05a/06a/07a; D-181 target | GR-001 documentation propagation; held D-171, no selected implementation MMF |
+| B-104.O3 | Historical US-04/US-05 → FR-04/FR-05 → AC-05–08, labelled provenance | GR-002 labelling, unheld; historical transition implementation held; no selected MMF |
+| B-104.O4 | O2 target parents plus fallout/GRC AC-05b/07b, D-181/D-232 | GR-003 route-variant propagation, held; no selected implementation MMF; B-104.O5 does not exist |
+| Global O0–O5 | O0 controls D-364/U1/U2; O1 setup SV2-DOD-01–06; O2 Product SM05 chain above; O3 Project work-order D-242/P13/P14; O4 Project residual custody D-364 item 8; O5 historical individual reasons D-278/D-364 item 9 | §2.3.1 is the clearance matrix; §2.3.2 the keyed review ledger. These groups need Project authority/consumers, not invented Product stories |
+| Phase 3 assurance | NFR-04 → AC-NF-03, cross-cutting Project delivery assurance | SM06 CI/migration allocation and version gate must be propagated; retain SM06's existing MMF-V1-USABLE Product scope separately |
+
+**Accounting at this read:** 159 handoff files = 155 transactions + 4 turn reports; 38 keyed / 117 unrecorded; 84 Verified headers / 71 other headers. Selected cohort = 16, not the full remainder. Eleven valid new keyed rows would make 49 / 106. Gate tracker = 104 rows, 74 non-SM05 unclosed + 12 SM05 not-received = 86 pending clearance/receipt rows. These are not 86 unbuilt features. Receiving-backlog required/received/independently-accepted/execution-remaining totals are still unestablished: derive by unique obligation after refinement, including false-early-closure cases only where historical evidence supports that finding. Do not copy these baseline totals into a new live tracker. Lane C's claim that RH1–RH4 are already received in GOV-RES-001 is unsupported by its three current GR rows; they remain proposed receipts.
+
+**Failure → success test:** Issue/PR recording without handoff edits proves no file transition, not valid closure or automatic false closure. Require dated source/child/return evidence and receiving receipts. Moving CI to SM06 must not create the cycle “SM06 completion before SM05 entry”; SM05 local database and failing-first evidence remains mandatory. Neither a green check nor Jev readiness proves runtime or live CI enforcement. Graphify query/check-update is current at ba03794; this excluded handoff-only review requires no rebuild. Lane A's canonical amendments require drift validation and graph synchronization with curated fragments retained/re-merged under G51.
+
+**Lane A answer requested:** cite the corrected authoritative clauses, keyed reviews, receiving IDs and independent clearance evidence; distinguish unresolved work from completed controls. Lane B has applied no canonical-source, receiver-answer, feature, workflow or deployment change.
+
+| Verdict | Subject / condition | Follow-up phase |
+|---|---|---|
+| Approve | Completed bounded O0 chain, D-380 and accepted SM05 receipt anchors remain valid | Phase 1 preservation/reconciliation |
+| Approve-with-conditions | Lane C plan ready for Lane A intake with LC-F1/2/3/5 and LB-F4 corrections above | Phase 1 |
+| Reject | Treating proposed decision IDs, projected counts, RH custody or green checks as completed acts | Phase 1 correction |
+| Defer | Whole-source closure, Gate 2 clearance and construction/CI/migration execution | Phase 1 gate acts; Phase 2 SM05; Phase 3 SM06 |
