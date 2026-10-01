@@ -3029,3 +3029,118 @@ any lane-state change.
 | G1 + G2 + graph update as applied | Approve-with-conditions | Phase 1 — Lane B re-review of the `B-104` receipt row |
 | G3 ledger reviews, O0 → O5 | Defer | Phase 1 — next bounded unit after the Judge's act |
 | Gate 2 / whole `O0` closure | Reject | Phase 1 → Gate 2 — remaining custody, clearance and Judge acts |
+
+## Lane B independent review — D-380 and G3's selected sixteen sources — 2026-10-01
+
+Based on Lane A's analysis:
+```markdown
+refer docs/handoff;
+consolidate analysis before handing over to Lane A review using the handoff template;
+```
+
+**Clarified request:** review the seven Deferred and nine Open sources first as a G3 intake cohort;
+classify each surviving obligation by receiver, Phase 1 prerequisite, later execution or typed backlog;
+draft closure criteria without building or changing receiver answers. G3 here means D-380's remaining
+source-keyed review/refinement work, not editorial Gate 3. Intake priority does not replace D-364's
+O0→O5 dependency/clearance order. **Read:** `ba0379449f66bc4375092ae98c7243c430599213` (D-380 at ba03794).
+
+### Completed parent work — consume the evidence before creating more work
+
+| Parent / dependent artifact | Independent result | Decision / follow-up phase |
+|---|---|---|
+| fc99842 / B-116 → B-113 → B-112 → B-097 | Existing independent verification retained; B-103 P3's control evidence is also independently recorded | Approve — Phase 1 / O0 bounded controls complete; B-071/B-150 whole closure remains separate |
+| D-380 → D379-F1 receiving correction | SM05 B-104 row now agrees with GR-001–003; GR-002 labelling is unheld, historical transition execution held; dated ledger correction preserves history | Approve — Phase 1 correction complete; previous conditional twelve-source SM05 list acceptance is now discharged for receiving scope only |
+| D-380 → ledger/tracker/B-103 P3 | Reconciliation cites the chain; tracker d47443e is current by the check; receiver disposition of P3 is recorded while whole B-103 remains Deferred | Approve — Phase 1 reconciliation complete; Lane A can record the twelve SM05 entry receipts as received using this independent acceptance, not promote their whole handoffs to Verified |
+| D-380 → Graphify | Query resolves the lineage; check-update reports current semantic state; governed intent synced at ba03794 | Approve — Phase 1 drift correction complete; retain fragment-preserving sync for future governed changes |
+
+The live full consistency run passes **19/19**, including 101 clean terminal histories. Prior exact-source
+readiness proof remains 320/320 at 8bd159f; the D-380 change corrects receipt wording outside Jev's DoD
+parse and was independently compared with the governed GR rows. No new runtime or completion receipt
+is claimed. The former outstanding D379-F1 wording condition is resolved, not carried forward as a blocker.
+
+### Cohort A — seven Deferred headers: verify disposition/custody, not deferred execution
+
+| Source / current order | Classify surviving scope and receiver | Draft closure/clearance criterion; dependencies first |
+|---|---|---|
+| C-001 / O5 | Phase 3 delivery-assurance backlog: C-24 compatibility proof and C-25 live-ruleset evidence. Lane C owns workflow implementation; Lane A/Chief Editor retain Project settings/selection acts | Preserve Phase 3 hold and exact old/new check names. Effective ruleset/evidence is parent to rename. Obtain a receiving owner/return/completion receipt and individual reasoned Judge O5 clearance; do not claim settings or positive/negative protected-PR proof completed |
+| B-016 / O5 | Same Phase 3 required-check residual, already owned by C-001/C-18 | Link the same receiving obligation rather than create another CI task; preserve this source's independent review/individual O5 reason. B-016's recorded disposition does not prove C-001 runtime completion |
+| B-077 / O4 | Phase 1 legacy lifecycle reconciliation → B-117/P12 and originating sources; B-061/B-070/B-071 held corrective work retains its owners; CI residual → B-016/C-001 Phase 3 | Verify the parent disposition and every surviving child route. Receive documentary reconciliation in GOV-RES-001 without importing held approval/report implementation. Preserve D-171/AUTH-DOC/runtime conditions and later R159/R160 scope; no bulk legacy Applied→Verified promotion |
+| B-094 / O5 | Historical Phase 1 decision wrapper routed to B-102/B-103, B-084/B-104, B-106, B-096/B-097 and B-088; no new MMF or unallocated decision here | Verify the owner links and retain their open work; request this entry's individual O5 reasoned clearance. Its archival disposition must not close the receiving owners |
+| B-088 / O5 | Optional Phase 1 C-39 P1 governance-control backlog, conditional capacity/authorization hold; not a Phase 2 feature | Preserve the conjunctive return: B-102/B-103 and B-084 A4 complete, actual capacity by role, whole P1 fits, separate Judge act. Receive that bounded scope/condition and obtain individual O5 reason; do not mark the token defect fixed |
+| B-103 / O3 | Phase 1 contract/closure reconciliation; P0–P3 dispositions exist, P3 now independently/receiver verified. D-230 Stage 2 runtime → later B→C implementation evidence; C-001 → Phase 3 | Resolve B-102's source-packet parent first. Verify bounded contract and residual custody before dispositioning the whole source. Do not make Phase 1 clearance wait for unselected runtime; do not erase the separate Stage 2 / CI obligations |
+| B-114 / O3 | Phase 1 publication/reconciliation of build-governance ownership through B-115/D-242; xDD, atomic child commits and human-final-push contract consumed in authorized Phase 2 (Lane C workflow later Phase 3) | D-242 and work-order §7 already publish method ownership and the MMF/child distinction: check those applied facts rather than seek a duplicate rule decision. Resolve any remaining source wording/disposition and verify its work-order custody before closing; method contract acceptance is not red→green runtime proof |
+
+**Known B-088 failure remains real:** a read-only probe of current leadingActor accepts `Lane B_test`
+as `lane b`, accepts `Lane B (Codex)` and refuses `Lane Bx`. This confirms its existing underscore-
+termination finding, not a new handoff or authorization. A received deferred repair may clear the source
+under the governed rule; it must never be described as a passing full actor-token contract.
+
+### Cohort B — nine Open headers: split admitted inputs from non-SM05 residuals
+
+| Source / order | Classify surviving scope and receiver | Draft closure/clearance criterion; dependencies first |
+|---|---|---|
+| B-102 / O3 | Phase 1 authority/consumer/source packet; verified D-228 child retained. D-230 runtime belongs to later units | Independently inventory remaining source-exclusion/phaseScope/readiness obligations against D-231/D-246 and existing B-107/B-109/B-110 owners; record applied versus remaining proof. Do not copy old failed graph/fixture counts as current or defer the whole contract to Phase 2 |
+| B-117 / O4 | Phase 1 G3 lifecycle/refinement parent, GOV-RES-001 receiving candidate; later narrative/visual concerns already have named owners | One derived SV-002 source view, dated events, actual revisions and surviving-child receipts. Merge duplicate B-077/B-094/RH4 reconciliation obligations with all source links. Classification alone is not backlog-refinement completion |
+| B-095 / O2 + O4 children | D2a/D4 → SM05 AC-02/SM05-N1 and DOR-R6; D1/D2b/D3/S5 → Lane A documentation refinement in GOV-RES-001, with existing Product scope/holds retained | Accept the supported SM05 receipt. Record separate residual custody, especially publication-reaching S5 outside SM05; decide/apply documentary correction or transfer each child, then independently verify source disposition. No whole-parent closure from D2a alone |
+| B-096 / O2 + O4 | S15 / TR-DM-01 Gate 1B → SM05; physical store and database proof → D-242 Phase 2 work order. GA1/S16 and later metadata/report scope → held existing-owner backlog, no selected MMF | Receive documentation/refinement in Lane A's packet while linking held Product scope back to B-096/B-071 authorities. Preserve the logical-state/metadata/report distinction and later-version trigger; verify child custody and future physical-proof anchor rather than require implementation before Phase 1 closure |
+| B-104 / O2 + O4 | O1 → SM05-N6; O2/O3/O4 → GR-001/002/003. O2/O4 target held, O3 documentary labelling unheld; historical execution held | Receiving anchors now valid. Independently verify transfer/clearance for each non-SM05 child or obtain an individual Judge reason; label provenance wherever required. Whole Open header needs receiver disposition and its own independent proof |
+| B-106 / O4 | Product intake already received under D-374 beside Modular PRD retention/RK-05; Phase 1 A4/A6 semantic arbitration, later runtime unscheduled | Read D-134/D-135/D-198/B-085 and record the precise retention-domain arbitration. Approval of 50/90 is not activation. Keep operational versus external financial-record scope distinct; independently verify intake/disposition without silently overwriting values or allocating SM06 |
+| B-118 / O2 + O4 RH1–RH4 | Ranking/routing → existing SM05 packet. RH1–3 partition/recursive controls/migration → optional Lane A governance backlog; RH4 readiness count historical, closure half → B-117 | Verify the receiving split and existing D-236–D-240 source corrections. D-240 flat layout remains authoritative: a later handoff proposal is not a Register supersession. No file moves before authorized recursive controls/citation/history proof; no new build feature |
+| B-119 / O4 | Phase 1 proposal/compatibility disposition; A01 receipts → historical S2 baseline only. Remaining D-251 A02 environment classification → separate post-SM05/promotion act, not pre-selection readiness | Review latest D-255 supersession rather than the earlier A01-as-SM05 gate. Receive documentary residual in GOV-RES-001 and keep A02 with its canonical environment owner/dependency; no guessed V1 phase/sprint allocation, hosted action or fresh live classification from old counts |
+| B-136 / O1 P15 + O3 P14a/P14b | Phase 1 SV-002 acceptance docket; P14 selection/work order → Judge gate acts; FV-001/construction → authorized Phase 2 SM05, already durably received D-269 | Preserve existing P14 receipts. For P15, draft a bounded docket-transfer receipt with independent clearance before the later SV2-DOD-06 acceptance, or seek the explicit individual Judge reason required by D-364. Never use future acceptance as evidence of prior clearance; source closure gives no acceptance or build credit |
+
+Each candidate transfer needs source child, exact received scope, receiver, hold, return condition,
+completion proof and read revision. The current three GR receipts do not cover the other proposed
+GOV-RES-001 rows. No blanket destination of V1-SM06 or Phase 2 is supported. Existing held Product
+execution stays in its existing owner; genuinely new capability takes dated Modular PRD intake.
+
+### One global top three — Lane A steps, not three per entry
+
+1. **Record accepted receiving facts and prepare Cohort A's custody/clearance decisions.** Consume this
+   D-380 acceptance to reconcile the twelve SM05 receipts; retain the verified O0 chain. Classify the
+   seven Deferred sources first, preserve their conditions, deduplicate C-001/B-016 and reconciliation
+   siblings, and record individual O5 reasons through the Judge's later act. Resolve B-102 source
+   authority before dependent B-103/B-114 dispositions. Success: every source has a reasoned route and
+   exact independent custody/clearance evidence, without claiming deferred runtime complete.
+2. **Refine Cohort B by dependency and child scope.** Complete the B-117-derived view, split the mixed
+   SM05/non-SM05 children, receive remaining governance/documentation obligations, and retain B-106
+   Product arbitration. Resolve B-136's docket/acceptance sequencing explicitly. Success: no surviving
+   child is lost or assigned a guessed sprint; receiver answers and independent review match the matrix.
+3. **Publish keyed review progress, then evaluate the whole O0→O5 gate.** Add these dated source reviews
+   to SV-002 §2.3.2, independently disposition changed entries, refresh §2.3.1 at the actual revision,
+   and continue the full census. Keep B-071/B-150 and all other sources visible. Success: separate
+   review, clearance, custody and execution totals reconcile; Gate 2 follows its complete Judge acts.
+
+**Accounting:** current 155 transactions + 4 turn reports; 38 keyed reviews / 117 unrecorded;
+84 Verified headers / 71 not Verified. This selected cohort is **16 sources (7 Deferred + 9 Open)**,
+not all remaining transactions: Open B-071 and B-150 are also present. Five selected sources already
+have keyed ledger rows (B-095/B-096/B-104/B-118/B-136); eleven need new keyed receipts. If Lane A
+adds all eleven valid rows, the ledger becomes 49/155 reviewed and 106 unrecorded — conditional,
+not the current tally. Tracker remains 104 rows / 78 sources, current at d47443e by the check,
+74 non-SM05 unclosed + 12 SM05 unreceived = 86 pending until canonical receiving reconciliation.
+Full backlog required/received/accepted/remaining-execution totals are still unestablished; derive
+them after obligation-level refinement, not by subtracting three GR rows from a screening subset.
+
+**Trace/critical artifacts:** retain the existing B-104 customer/story/AC/MMF matrix above. O1's
+CR-09 / partial CR-19 → US-15/FR-15 → AC-23–26 → FN-GATES → MMF-V1-CORE/SM05-N6 is the admitted
+slice; O2–O4 retain target/historical parents and GR custody without selected MMFs; no B-104.O5
+exists. Global O0–O5 need Project authority/consuming artifacts, not invented Product stories.
+Chief Editor ranking/routing to Desk Editor and business T1–T5 evidence remain distinct from
+transition execution. Governed cases, SM05 DoR→DoD, Jev obligations and the bounded work order
+drive construction and later failing-first/database verification; phase classification is not that proof.
+
+**Failure criteria:** Deferred is a terminal lifecycle value but not independently cleared under D-364;
+Open may contain valid applied/received children but is not whole-source completion. A destination
+label alone cannot guarantee closure; a receipt cannot prove execution; unchanged Issue/PR commits
+prove no edit only, not which sources closed prematurely. Success requires source/child evidence,
+receiver disposition, independent clearance or individual Judge reason, and no circular future proof.
+Lane B raises/reviews; Lane A alone writes receiver answers/canonical trackers. This review writes
+only the dated differences in B-150; no source lifecycle, build, hosted setting or lane state changes.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| D-380 correction/reconciliation/graph and bounded SM05 receiving list | Approve | Phase 1 — independent acceptance recorded; Lane A reconciles receiving cells |
+| Seven Deferred and nine Open classification plan | Approve-with-conditions | Phase 1 — obligation-level receipts, existing holds, source authority and independent clearance / individual Judge reasons |
+| Whole selected-cohort, O0 or Gate 2 closure from classification alone | Reject | Phase 1 → Gate 2 — missing custody/disposition and circular future proof cannot be inferred |
+| Remaining historical sources / full backlog acceptance | Defer | Phase 1 / O0–O5 — complete the keyed census and receiving totals |
+| Held Product work, Phase 2 construction and Phase 3 CI execution | Defer | Their existing holds and separately authorized later phases; no automatic sprint allocation |
