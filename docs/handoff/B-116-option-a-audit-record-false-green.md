@@ -30,8 +30,8 @@
   differing-value duplicate for each of the nine singletons. No live duplicate was newly flagged. Check 19/19; fixtures
   exit 0 on a clean tree. `Verified-At-Commit` moves from `e1e3b29` to `fc99842`, the one review point for Lane B.
   Order unchanged: `B-116`, then `B-113` → `B-112` → `B-097` → `B-103` P3.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent Phase 1 O0 review, 2026-10-01
 - **Evidence:** direct read of B-112/B-113/B-097 at `284b4ae`; `bun run check` 18/18; `bun run fixtures` 143/143 with the working tree restored; Graphify governed-intent baseline `0d2cc2b` and excluded-only handoff advance to `284b4ae`
 - **Verified-At-Commit:** fc998420c5a423caf5953e527277a5ffb183c247
 
@@ -169,3 +169,25 @@ that lane-crossing refusal semantics fail. No whole-suite pass is claimed from t
 | B-116 item 5 / whole correction-unit independent closure | Reject | Phase 1 — matcher/reader equivalence and mixed-case refusal proof required |
 | Downstream B-113 → B-112 → B-097 → B-103 P3 verification | Defer | Phase 1 — after the bounded B-116 repair is independently verified |
 | Software construction | Defer | Authorized Phase 2 — Gate 2, work order and Lane B Active |
+
+## Independent Lane B verification — D-378 repair — 2026-10-01
+
+Judge authorization: "Lane B verifies B-116 at fc99842, then the chain. Phase 1 / O0".
+Main-tree read: `8bd159fda6814425823328def3e52f01d69ddb2f`; independently tested source: `fc998420c5a423caf5953e527277a5ffb183c247`.
+The source anchor in the header names that tested repair, not this recording commit.
+
+The singleton cardinality matcher now uses the same case-insensitive field semantics as the reader.
+All nine singleton fields reject a mixed-case duplicate in reversed order with differing values.
+Fenced examples and repeated body fields remain valid. This resolves the previously recorded
+false-green finding within D-378's bounded repair; historical rejection text remains historical.
+
+Independent disposable-clone evidence: 70/70 focused cases passed (14 singleton, 8 return form,
+8 annotation form, 8 episode boundaries, 32 terminal-return decisions), restored tree confirmed.
+Main-tree consistency: 19/19 checks passed at the read above. Negative cases proved refusal,
+not just acceptance of an already healthy tree. No application build or runtime proof is claimed.
+
+| Decision | Verdict | Follow-up phase |
+|---|---|---|
+| B-116 bounded repair and independent closure | Approve | Phase 1 / O0 — Verified at the tested source |
+| Dependent B-113 → B-112 → B-097 → B-103 P3 | Defer | Phase 1 / O0 — independently record each dependency in that order |
+| Whole O0, tracker reconciliation and Gate 2 | Defer | Phase 1 — separate ledger, receiving and Judge evidence required |
