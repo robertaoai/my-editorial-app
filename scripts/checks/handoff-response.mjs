@@ -679,7 +679,9 @@ export function run() {
       const cut = plain.search(/^## /m);
       const head = cut < 0 ? plain : plain.slice(0, cut);
       for (const name of SINGLETONS) {
-        const n = (head.match(new RegExp(`^-[ \\t]*\\*\\*${name}:\\*\\*`, "gm")) || []).length;
+        // `gmi`, matching `field()`'s own case-insensitive reader (Lane B, `38c1cb4`; `D-378`):
+        // a duplicate the reader would see must not hide behind a different case.
+        const n = (head.match(new RegExp(`^-[ \\t]*\\*\\*${name}:\\*\\*`, "gmi")) || []).length;
         if (n > 1) {
           findings.push(
             `${path}: **${name}:** appears ${n} times in the header — a lifecycle or audit field is a singleton, and the first-match reader silently ignores the rest. Keep one; move history into prose (\`B-116\`, \`D-375\`)`,

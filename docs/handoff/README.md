@@ -277,8 +277,9 @@ second backlog file** — that would restate the entries, and restatements drift
 
 **Each header field is a singleton** (`B-116`, `D-375`). `Kind`, `Phase`, `Receiver`, `Status`, `Resolution`,
 `Verified-By`, `Verified-At-Commit`, `Follow-up-Tier` and `Superseded-By` each appear at most once before the first
-`## ` heading. The shared reader takes the first match, so a second copy is silently ignored while a different reader
-may review it. Put superseded values in prose. `handoff-response` enforces this. Records below a heading (Return,
+`## ` heading, in any letter case (`D-378`): the shared reader is case-insensitive, so `- **status:**` is a duplicate
+of `- **Status:**`. It takes the first match, so a second copy is silently ignored while a different reader may review
+it. Put superseded values in prose. `handoff-response` enforces this. Records below a heading (Return,
 Re-close, Terminal annotation) stay repeatable.
 
 **`Verified-At-Commit` must be a commit that exists.** Hexadecimal, and proven with `git cat-file`

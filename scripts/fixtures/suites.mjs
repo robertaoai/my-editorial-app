@@ -1776,6 +1776,21 @@ export async function singletonCardinality(results) {
     { name: "cardinality: a fenced example repeating header fields stays green", text: `${head.trimEnd()}\n\n\`\`\`markdown\n${vac}\n${status}\n\`\`\`\n\n${body}`, shouldPass: true },
     { name: "cardinality: the same field repeated BELOW a ## heading stays green", text: `${orig}\n\n## Example record\n\n${vac}\n`, shouldPass: true },
   ];
+  // `D-378` (Lane B, `38c1cb4`): the reader is case-insensitive, so the rule must be. For each of the nine
+  // singletons, a lower-case copy with a DIFFERENT value is placed BEFORE the canonical line (reversed order);
+  // a name the scratch header lacks gets both copies, so every case is a real duplicate.
+  const NINE = ["Kind", "Phase", "Receiver", "Status", "Resolution", "Verified-By", "Verified-At-Commit", "Follow-up-Tier", "Superseded-By"];
+  const titleEnd = head.indexOf("\n") + 1;
+  for (const name of NINE) {
+    const present = new RegExp(`^- \\*\\*${name}:\\*\\*`, "m").test(head);
+    const lower = `- **${name.toLowerCase()}:** mixed-case value that differs\n`;
+    const added = present ? lower : `${lower}- **${name}:** canonical value\n`;
+    cases.push({
+      name: `cardinality: a mixed-case duplicate of ${name}, reversed order and differing value, FAILS (D-378)`,
+      text: `${head.slice(0, titleEnd)}${added}${head.slice(titleEnd)}${body}`,
+      expect: `**${name}:** appears 2 times in the header`,
+    });
+  }
   for (const c of cases) {
     await fixture(results, {
       name: c.name,
