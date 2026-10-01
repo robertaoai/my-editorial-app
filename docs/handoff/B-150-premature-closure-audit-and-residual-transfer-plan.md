@@ -3241,3 +3241,105 @@ cell, receiver answer, build or lane state is changed by Lane B.
 | Gate 2 invalid merely because CI is scheduled later | Reject | Phase 1 — scheduling does not supersede D-364; reject the circular-completion interpretation |
 | Lane A consolidation / proposed CI allocation or gate amendment | Approve-with-conditions | Phase 1 — exact scope, authority, no-cycle sequence and propagation before application |
 | Gate 2 clearance and CI execution | Defer | Actual remaining Gate 2 evidence / separately selected Phase 3 unit respectively |
+
+## Consolidated Lane B challenge — Phase 3 parents and O0–O5 trace — 2026-10-01
+
+Based on Lane A's analysis: refer `docs/handoff`; consolidate before Lane A answers the handoff
+under the existing template. **Read:** `e80ebb28db7782c07d16379d73c09b97b776fb66`. This adds the missing parent/consumer distinctions
+to the preceding G3 classification and CI/SM06 challenge; it does not repeat their closure plans.
+
+**Clarified request:** identify the actual Phase 3 obligations, their Customer or Project requirement
+parents, story/MMF applicability and consuming evidence; challenge missing links without inventing
+Product parents for Project work or reallocating CI to SM06. Lane B raises/reviews; Lane A alone
+answers and applies canonical tracing. Correction phase: Phase 1; later execution remains separately
+authorized. The requested evidence is a trace/sequence plan, not a build or live CI/settings result.
+
+### Parent first — what the sources actually require
+
+`Modular_PRD.md` §6 (`NFR-04`, line 750) requires a test runner and CI before any sprint claims DoD.
+Its Project-scope table (line 836) explicitly calls this delivery assurance, serving all Product Scope
+without changing customer-visible behaviour. §9.2 (`AC-NF-03`, line 1109) requires typecheck, lint
+and tests to execute and pass when CI runs on a pushed change. The frozen customer PRD contains
+no direct CI/required-check request. This is a governed Project requirement parent, not an absent
+customer story. Customer outcomes such as CR-19 benefit indirectly; they do not establish an exact
+CI acceptance rule or an automatic MMF allocation.
+
+**Existing CI versus deferred CI repairs:** `ci.yml` already names separate typecheck, lint, test
+and consistency steps. The compatibility job remains an echo-only dependent job, matching C-24's
+known weakness. File inspection is configuration evidence only, not proof of a current remote run
+or live ruleset. Phase 3 deferral of the required-check/history repairs does not defer NFR-04 itself,
+waive passing CI at SM05 DoD or prove effective branch protection. Neither NFR-04 nor the current
+SM06 packet allocates C-001 to MMF-V1-USABLE.
+
+### Phase 3 trace matrix — deduplicate sources, preserve independent obligations
+
+Only **B-016 and C-001** have current `Phase: 3` handoff headers in the inspected directory.
+B-077/B-103/B-114 carry cross-references or mixed later obligations; their whole entries must not
+be relabelled Phase 3. The workflow docket also contains the separate C-Q1 unit.
+
+| Parent → source/child | Customer requirement / story | Requirement and Project authority | MMF / receiving owner and consuming artifact | Independent completion proof / remaining gap |
+|---|---|---|---|---|
+| Delivery assurance → C-001 / C-Q2 / C-18; B-016 is linked defect provenance | No direct CR or dedicated US; CR-19 is indirect benefit only | NFR-04 → AC-NF-03; D-75/D-84/D-92/D-102; WORKFLOWS-SPEC §4 | No selected Product MMF. Phase 3 CI unit; Lane C workflow, Lane A/Chief Editor settings/selection. C-001 owns the residual; B-016 must link it without creating duplicate execution work | Effective ruleset is parent to context transition; exact old `Typecheck · Lint · Test` and new `verify`, positive/negative protected-PR proof and settings evidence. Review readiness is not execution completion |
+| C-001 → C-25 ruleset/evidence prerequisite | Same Project parent; no customer/story invention | NFR-04/AC-NF-03 and D-102's ruleset finding | Live ruleset evidence retained through C-001; settings are global Project acts, not owned by Lane C's YAML surface | Retained evidence of correct branch targets, required-status-check rule and source/context identity. Historical user-confirmed finding is not a fresh live verification |
+| C-001 → C-24 compatibility reporting | Same Project parent | AC-NF-03; D-102; WORKFLOWS-SPEC §5 and apparatus §16 | Lane C compatibility workflow child; no separate Product MMF | Intended real failure must yield failure rather than a skipped/echo-only apparent pass; preserve positive proof as well. Do not close it on YAML existence |
+| Delivery assurance → C-Q1 full-history checkout | Same Project parent | NFR-04 plus D-54 propagation verification; D-92/WORKFLOWS-SPEC §3–4 | Separate authorized Phase 3 workflow unit; no selected Product MMF | Prove source-sweep runs with full history, preserves intended failures and distinguishes legitimate graph-dependent SKIPs; do not bundle with C-Q2 |
+| B-103 → D-229/D-230 Stage 2 B→C evidence | No new CR/US: interface proves the selected producer's existing Product cases | NFR-04/AC-NF-03; D-229/D-230; B work order §6, WORKFLOWS-SPEC §7 | Mixed-phase dependency: Phase 2 Lane B produces a bounded artifact/evidence packet; Phase 3 Lane C consumes it. Stage 1 contract/P3 control proof already retained; runtime allocation follows the actual selected unit | Immutable artifact identity, allowlisted/sanitized signals, missing/malformed-signal refusal and real execution proof. Do not call all B-103 deferred work Phase 3 or assign SM06 by inference |
+| B-077 / B-094 / B-114 references to CI | Retain their existing source parents; no new CI story | B-077 lifecycle provenance, B-094 routed decisions, B-114/D-242 method contract | Phase 1 source reconciliation; link the same C-001/Stage 2 obligations. B-114's methods also serve authorized Phase 2 children | Source review/disposition/custody proof, not duplicate CI implementation. Later CI execution cannot substitute for their own Phase 1 closure evidence |
+
+**Trace gap:** Phase 3 ownership is supported; a specific sprint allocation/receiving execution packet
+is not established merely by that phase label. NFR-04's legacy S0 foundation attribution is provenance
+for the existing assurance apparatus, not a current authorization to rebuild it or proof that residuals
+are complete. No CI-specific Customer story/MMF exists in these checked sources; record N/A with this
+Project rationale, rather than "missing" or fabricated CR/US/MMF IDs.
+
+### O0–O5 trace matrix — closing order is not a Product hierarchy
+
+| Group | Actual parent / scope | Story/MMF applicability | Consuming artifact and closure evidence |
+|---|---|---|---|
+| O0 authority/controls | Project D-364 P0a/P0b and governed handoff SOP; return/re-close/control defects | No direct customer story or Product MMF required | SOP/checks/fixtures → independently verified control chain, source audit and lifecycle evidence; B-071/B-150 parent residuals remain |
+| O1 setup evidence | Project D-267/D-280–D-289; SV-002's SV2-DOD-01–06 and their units/receipts | Enables SM05; enabling relationship is not allocation of a Product feature | SV-002 docket and source receipts → actual run/review/acceptance evidence; P15 future acceptance cannot prove earlier clearance |
+| O2 SM05 readiness | Product CR-09 / partial CR-19 → US-15/FR-15 → AC-23–26; bounded intake AC-02 and admitted FN-GATES cases | MMF-V1-CORE / V1-SM05 | Product/Fn contracts → packet DoR→DoD / Jev manifest / explicit receipts; later failing-first and database proof remains Phase 2 |
+| O3 work-order inputs | Project D-242/D-364; SV-002 P13/P14; requirements of the selected Product consumer | Consumer is SM05/FV-001 where already received; source governance is not another MMF | B work order / immutable evidence interface / physical-proof obligations → pre-entry contracts and custody separated from later implementation |
+| O4 residual routing | Project D-364 item 8/D-374, plus each actual residual's own Product or Project parent | Governance → GOV-RES-001; genuine Product capability → dated Modular PRD intake. No blanket SM06 assignment | Source-child scope, receiver, hold, return and completion anchor → independent transfer/clearance or individual Judge reason; execution tracked separately |
+| O5 historical reasons | Project D-278 screen widened by D-364 items 4/5/9; each source's own governing disposition | No direct SM05 story/MMF required; CI sources retain NFR-04 and later Phase 3 ownership | Per-entry reasoned Judge clearance; preserve linked residuals. No blanket archive, deletion or invented received status |
+
+There is **no single customer parent for all O1–O5**. Their explicit Project authorities and
+consumer relationships satisfy the appropriate trace; only Product-bearing children need the
+existing CR→US/FR→AC→FN→MMF chain. Keep B-104's earlier child matrix: O1 is SM05-N6; O2/O3/O4
+are GR-001/002/003 with their target/historical parents and holds; B-104.O5 does not exist.
+Global O1–O5 and B-104.O1–O4 are different namespaces. A gate-order label is not a story or scope ID.
+
+### One global top three — draft Lane A fixes and success criteria
+
+1. **Make the parent/type trace explicit in existing records.** Add precise NFR-04/AC-NF-03 and
+   Project decision/workflow anchors to the relevant SV-002 Basis/ledger and source dispositions;
+   reuse the Product traceability map for Product rows. Distinguish direct customer parent, indirect
+   benefit and Project authority. Success: no unanchored obligation and no fabricated CI customer story.
+2. **Finish receiving/scheduling trace at child level.** Link B-016 to C-001, retain C-24/C-25 and
+   separate C-Q1, and split B-103's Phase 2 producer/Phase 3 consumer evidence. If CI-to-SM06 is
+   desired, draft an explicit bounded Project receiving allocation for Judge decision and applicable
+   propagation. Success: one owner/receipt/return/completion criterion per obligation, no duplicated
+   MMF promise and no SM05→SM06→SM05 circular prerequisite.
+3. **Verify closure trace before Gate 2.** Continue the existing G3 ledger, accepted receiving
+   reconciliation and individual O5 reasons. Record independent clearance separately from runtime
+   execution and required-check/settings proof. Success: each tracker source/child cites the appropriate
+   proof, no later CI execution is falsely claimed complete, and no sprint DoD waives NFR-04.
+
+A phase label alone or a green baseline check cannot prove complete trace or live CI enforcement.
+Conversely, no dedicated Product story for Project assurance is not by itself a defect. The real
+gaps are missing explicit parent/consumer links, unallocated future execution scope and unsupported
+completion claims. The existing source-owned backlog and SV-002 remain the canonical tracking layer.
+
+**Checks / drift:** full consistency passes 19/19 at this read; scoped Graphify query resolves NFR/
+delivery-assurance lineage and check-update reports current state. Later handoff-only receipts are
+excluded from governed-intent drift; any adopted canonical tracing/allocation change is Lane A's
+fragment-preserving sync under G51. No new CR/story/MMF, canonical source, workflow, live setting,
+receiver answer, build or lane-state change is applied here.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| NFR-04 → AC-NF-03 as Phase 3 CI's Project parent; O0–O5 authority/consumer distinctions | Approve | Phase 1 — preserve existing governed parents and bounded Phase 3 sources |
+| Phase 3 classification as complete sprint/MMF/receiving trace | Reject | Phase 1 — phase ownership does not establish execution allocation or completion |
+| CI inside SM06 or all O1–O5 requiring invented customer stories | Reject | Phase 1 — no governed allocation; Project rows require their actual authorities |
+| Consolidated trace/receiving fixes ready for Lane A | Approve-with-conditions | Phase 1 — exact existing-record links and child receipts; new allocation needs Judge act |
+| Gate 2, later CI execution and runtime/DoD completion | Defer | Their independent clearance, authorized later units and execution evidence respectively |
