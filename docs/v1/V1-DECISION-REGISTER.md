@@ -24952,3 +24952,47 @@ answers under `D-267`–`D-271`.
 | `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files, `SV-002.md` | — unaffected: the receipts cite existing rows (`SV-002` is re-pinned separately) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild before and after this commit |
+
+## 5.14e202 `D-377` — `B-141` and `B-142` Dispositions Recorded: `Applied` for Their Gate 1B Scope, Gate 2 Parts Transferred by Receipt
+
+**Authority: the Judge, directly to Lane A, 2026-10-01**: *"Judge Approved: record B-141 and B-142 dispositions"*.
+The `B-150` ledger's `O1` batch (`91cc511`) found both headers still `Open` after their answers were applied. They
+fed `SV2-DOD-05`, which the Judge checked under `D-289`.
+
+### The decision
+
+1. **`B-141` is `Applied`.** Each item its `D-280` answer left pending was resolved:
+   - `B-096.S15` (`D-281`/`D-282`);
+   - `TR-DM-01`'s Gate 1B part (`D-283`);
+   - `D-219.R1` (`D-286`);
+   - `B-131` (`D-288`);
+   - the review of the `D-280` corrections (`B-142`, `D-288`/`D-289`);
+   - `SV2-DOD-05` (`D-289`).
+
+   `TR-DM-01`'s Gate 2 part, the physical migration and its real-database proof, is transferred to the `D-242` work
+   order (`SV-002` §2.2 `P13`/`P14`).
+2. **`B-142` is `Applied`.** Fixes 1–2, the fourth intake case and `B-131`'s acceptance (`D-288`), and the four label
+   corrections (`D-289`) are applied. Item 6 is discharged by `D-373`. Items 3–4, its Gate 2 conditions, are
+   transferred to the `V1-SM05` DoD "Intake source fixtures", enforced by Jev and proven by `V1-SM05-FV-001` after
+   Gate 2.
+3. **Headers.** Both read `Answered` / `Applied`, with the dispositioned `Verified-By`. `Verified-At-Commit` is the
+   read commit `91cc511`; the raise-time anchors (`3541550`, `1489c3c`) are replaced, per `D-215`. A transfer is not
+   completion: Lane B verifies both before their `O1` rows close (`D-364` item 4).
+
+### Not given by this act
+
+`Verified`; the Gate 2 work; tracker clearance; any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e202 |
+| **`docs/handoff/B-141-sv002-u04-mapping-feasibility-review.md`** | ✅ disposition; `Answered` / `Applied` |
+| **`docs/handoff/B-142-e4-intake-contract-and-sm05-evidence-verification.md`** | ✅ disposition; `Answered` / `Applied` |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A: dispositions recorded |
+| **Build Spec** (`V1-BUILD-SPEC.md`), **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: lifecycle records only |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files, `SV-002.md` | — unaffected: the receipts cite existing rows (`SV-002` is re-pinned separately) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild before and after this commit |

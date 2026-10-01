@@ -240,6 +240,15 @@
 
   **Proposed next acts:** record the `B-141` and `B-142` dispositions (Lane A). Then either one Judge act accepting
   the eight `D-362`-consumed entries, each with its own reason, or Lane B and Lane C verifications.
+
+  **`B-141` and `B-142` dispositions recorded 2026-10-01 (`D-377`; Judge approved).** Both are `Applied` for their Gate
+  1B scope.
+  - **`B-141`.** Every item left pending by `D-280` was resolved under `D-281`–`D-289`. `TR-DM-01`'s Gate 2 part is
+    transferred to the `D-242` work order (`P13`/`P14`).
+  - **`B-142`.** Item 6 is discharged by `D-373`. Items 3–4 (a distinct artifact and failing-first proof per intake
+    case) are transferred to the `V1-SM05` DoD, enforced by Jev.
+
+  Lane B verifies both. The Lane A lifecycle records for `O1` are now complete.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f

@@ -4,8 +4,20 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** full `SV2-DOD-05` closure and a claim that the `V1-SM05` Gate 2 evidence is complete
-- **Status:** Open
-- **Lane A:** Acknowledged 2026-09-27, receipt only, read at `9b32773`. All six results and the four gaps are
+- **Status:** Answered
+- **Lane A:** **Disposition recorded 2026-10-01 (`D-377`), read at `91cc511`: `Applied` for its Gate 1B scope, with the Gate 2
+  conditions transferred.** The `B-150` ledger's `O1` batch (`91cc511`) found the header still `Open` after its
+  application.
+  - **Applied:** fixes 1–2, the fourth intake case and `B-131`'s acceptance (`D-288`, `f377424`); the four label
+    corrections (`D-289`, `2ff8b6c`); and `SV2-DOD-05`, which the Judge checked.
+  - **Item 6, the Jev limit, is discharged:** `D-373` (`31bcf3a`) pinned `SM05-IN1`–`IN4`, put "Intake source
+    fixtures" in both required sets, and superseded `D-288` item 5.
+  - **Items 3 and 4 are transferred by receipt.** They are this entry's Gate 2 conditions: a distinct artifact and
+    failing-first proof for each intake case. They now sit in the `V1-SM05` DoD "Intake source fixtures", enforced by
+    Jev, and the proof comes from `V1-SM05-FV-001` under the `D-242` work order.
+
+  A transfer is not completion. Lane B verifies before the `O1` row closes (`D-364` item 4).
+  *Earlier answer:* Acknowledged 2026-09-27, receipt only, read at `9b32773`. All six results and the four gaps are
   accepted as findings. Nothing is applied yet. Each correction (the §3.1/§4.5 pointers, the no-original-URL refusal
   case, the `B-131` lifecycle return, the Jev enforcement choice and E5) waits for its own Judge act. The §3.3
   receipts are recorded when that act lands.
@@ -18,9 +30,10 @@
 
   Receipts are recorded on seven §3.3 rows. Every blocking row meets Gate 1B, and `SV2-DOD-05` is reviewable but not checked. Status stays Open: your Gate 2 conditions (items 3, 4 and 6) remain.
   **Second pass answered 2026-09-27 (`D-289`, `2ff8b6c`).** All four label corrections are applied as written. `SV2-DOD-05` is then checked by the Judge. Your E5 boundary is recorded in `D-289` item 3: E5 is Lane A-only, and the checkoff stands as the Judge's acceptance naming Entry 06. Status stays Open for your Gate 2 conditions (items 3, 4 and 6).
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `D-280`–`D-288`; `SV-002` §§1/2.3/3.3/3.4/7; `FN-GATES-01-05.md` §§2/3.1/4.5/4.6; `Modular_PRD.md` `FR-01`, `AC-02`, `TR-DM-07`; `V1-SM05.md` DoR→DoD map and DoD; `B-096`, `B-131`, Panel A11, `ENCYCLOPEDIA-SYNC.md` Entry 06; v15 export SHA-256; `scripts/jev/manifests/V1-SM05.json` and `scripts/jev/lib.mjs` completion rules; Graphify, Jev readiness and local consistency reads at the commit below
-- **Verified-At-Commit:** 1489c3c1386a3f2eba23387d6c6ab4bf7a865415
+- **Verified-At-Commit:** 91cc511950f3e9a10eae2f68d202b1e2b8ea2e53
 
 ## What happened and the governing boundary
 

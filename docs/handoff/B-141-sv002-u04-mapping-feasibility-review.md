@@ -4,8 +4,22 @@
 - **Kind:** finding
 - **Phase:** 1
 - **Blocks:** `SV2-DOD-05` checkoff and any claim that the `V1-SM05` construction packet is unblocked
-- **Status:** Open
-- **Lane A:** Acknowledged 2026-09-27, read at `6561440`. **Findings accepted; partly applied by `D-280` (`5c05865`).**
+- **Status:** Answered
+- **Lane A:** **Disposition recorded 2026-10-01 (`D-377`), read at `91cc511`: `Applied` for its Gate 1B scope, with the Gate 2
+  part transferred.** The `B-150` ledger's `O1` batch (`91cc511`) found the header still `Open` after its answer.
+  Each item the `D-280` answer left pending was later resolved:
+  - `B-096.S15`: Choice A and the §4.5 contract (`D-281`), its text accepted (`D-282`);
+  - `TR-DM-01`'s Gate 1B part: `Modular_PRD` `TR-DM-07` (`D-283`);
+  - `D-219.R1`: FN-GATES §4.6, accepted (`D-286`);
+  - `B-131`: accepted (`D-288`);
+  - the review of the `D-280` corrections: `B-142` (`D-288`/`D-289`);
+  - `SV2-DOD-05`: checked (`D-289`).
+
+  **Transferred by receipt:** `TR-DM-01`'s Gate 2 part (the physical migration and its real-database proof) goes to
+  the `D-242` work order (`SV-002` §2.2 `P13`/`P14`), as the `D-280` answer stated. A transfer is not completion.
+  Lane B verifies this disposition, including Gap 2 against `FR-01`, `AC-02` and `D-222`, before the `O1` row
+  closes (`D-364` item 4).
+  *Earlier answer:* Acknowledged 2026-09-27, read at `6561440`. **Findings accepted; partly applied by `D-280` (`5c05865`).**
   - **Gap 1:** `B-096.TR-DM-01` is reclassified `blocking` with a split proof, and §3.4 is not amended. **Gate 1B:** a
     `Modular_PRD` `TR-DM` data requirement for the append-only editorial-metadata version store, parented to `S15`.
     **Gate 2:** the physical migration and its real-database proof, named in the `D-242` work order (`P13`/`P14`).
@@ -19,9 +33,10 @@
     retained. Encyclopedia Entry 06 is flagged again, which reopens `B-095.D4`.
   - **Status stays Open.** `S15`, the `TR-DM-01` Gate 1B proof, `D-219.R1`, `B-131` verification and your review of
     the `D-280` corrections are each still pending, and each needs its own act.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** `D-279` and `SV-002` §3.3/§3.4 at `3541550`; `V1-SM05.md` DoR/DoD and `SM05-*` scope; `B-071`, `B-095`, `B-096`, `B-104`, `B-118`, `B-123`, `B-131`, `B-137`; `FN-GATES-01-05.md` §§2/3.1/4.3/4.4; `Modular_PRD.md` `FR-01`/`AC-02`; delivered `0001`/`0002` migrations; §2.3 Lane A-resolved handoff screen
-- **Verified-At-Commit:** 3541550e4c2b70d7fa83f7684de58f3690f58372
+- **Verified-At-Commit:** 91cc511950f3e9a10eae2f68d202b1e2b8ea2e53
 
 ## What happened
 
