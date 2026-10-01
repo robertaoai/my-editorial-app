@@ -144,12 +144,12 @@
   deferred. Its hard-coded label list is not adopted, because the labels are read from §2.2. Its "G6" (hosted
   Supabase) is outside this repair.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Lane B consolidation read `b6ac8f1`: Lane C's supplied Level 2 worklog concurs with the original bounded child-binding repair and the remaining unknown-label finding. Overall targeted evidence remains 24/26; Lane C inspected that result, not a separately evidenced full probe rerun. Its proposed allowlist must preserve the live P14 alias. Full U2 acceptance, review accounting and transfer proof remain pending; no source clearance or receiving receipt is applied here.
-- **Verified-At-Commit:** b6ac8f1b79e06e11d542129547d22a787da32639
+- **Evidence:** Lane B Level 1 read `0c24f59`: D-372 control repair at `b7bc79d`, with fixture correction `e576add`, passes 35/35 targeted checks. Unknown labels are rejected; exact §2.2 keys and composites pass. The Judge chose no P14 alias and renamed the live row to P14a/P14b. Level 1 accepts this bounded repair; current Level 2 acceptance, U3, exhaustive review and transfers remain separate. This parent stays Open.
+- **Verified-At-Commit:** 0c24f595135a1a5c08133e9c82bae03816f83d61
 
-**Current review pointer:** the final "Lane B acceptance of reconciled Lane C planning input — 2026-10-01"
-below preserves the preceding qualifications and D-370/D-371 Level 1 repair verdict. Earlier planning and rejected-repair receipts remain historical;
-the original U2-F3 parent-binding bypass is repaired, with a remaining preparation-label contract finding.
+**Current review pointer:** the final "D-372 — Lane B Level 1 exact-label repair review — 2026-10-01"
+below controls the current repair verdict. Earlier planning and rejected-repair receipts remain historical;
+the original parent-binding and preparation-label findings are repaired in the tested scope. D-372's exact keys/no-alias decision supersedes earlier P14-alias proposals.
 The same three pending parents and full trace matrices remain. Exact child keys follow D-370. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
 This parent remains Open; verification of B-130 and B-152 does not clear the whole O0 group or Gate 2.
@@ -1907,3 +1907,70 @@ Source/control baseline and accounting denominators are unchanged; the earlier g
 | Lane A bounded follow-up | Approve-with-conditions | Phase 1 — existing Register authority/Active lane; actual repair proof, selected homes and per-obligation receipt/clearance evidence |
 | Full U2 identity contract / U3 consumption | Reject | Phase 1 — actual label repair and accepted Level 1/2 reviews still required |
 | Complete review/transfers, B-150 closure, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — outstanding evidence and required Judge acts remain |
+
+## D-372 — Lane B Level 1 exact-label repair review — 2026-10-01
+
+Based on Lane A's recorded answer, refer to this handoff and consolidate the Judge-requested
+Level 1 review before Lane A's next answer. Read `0c24f595135a1a5c08133e9c82bae03816f83d61`;
+control repair `b7bc79de0982b1277470a4833b2d473ed9ea5c8d`; fixture correction `e576add`.
+Lane B raises/records this review; only Lane A answers. No application construction, source
+clearance, transfer receipt, whole-parent Verified status or U3 execution is applied here.
+
+**Completed bounded repair:** §2.2 labels are read from the governed source, rather than matched
+by shape or maintained in a second hard-coded list. Every composite component must be known.
+Invented P999 and P14a/P999 now fail under a claim even with a Verified owner; identity errors
+remain when vocabulary also fails. Known exact singles/composites and P11-G1–G4 pass.
+Wrong-parent child rejection/coverage, missing rows, stale/unproven derivation and no-claim reporting
+remain. D-372 records the Judge's exact-key/no-alias choice: bare P14 is invalid, and the live
+B-136 row is renamed P14a/P14b. This resolves the former alias-regression concern by source-row
+normalization; the earlier instruction to retain P14 is historical, not a current requirement.
+
+**Independent proof:** read-only parser/evaluator probe
+`C:/CoWork/outputs/handoff-review-2026-10-01/review-u2-d372.mjs`, result
+`review-u2-d372-results.json`, SHA-256
+`2343e89c6eb83b7d0ea92880dcf9a91173103d30518eb1972f9e899153b6f422`: **35/35** expected outcomes pass.
+This includes the original 26 cases with the newly required source-label input, plus four hyphenated
+keys, no-alias rejection, unknown-label reporting, combined label/vocabulary error, empty composite
+component and dynamic source parsing/section boundary. It is targeted independent proof, not a
+full fixture-suite rerun. D-372/Lane A records the first fixture miss and e576add's corrected clean-tree
+exit/restoration; retain that attributed full-run evidence. A green unclaimed live report is not
+negative-case proof or Gate 2 clearance.
+
+### Only three pending parents — decision and Lane A steps
+
+| Priority | Lane A follow-up, parent before dependent child | Success artifact / Judge criterion |
+|---|---|---|
+| 1. Finish U2 acceptance, then U3/B-151 | Answer this Level 1 result at actual read revision; obtain actual Level 2 review of b7bc79d with e576add fixture evidence. Only accepted U2 feeds U3's four manifest behaviours, required labels and reissued DOR-R7 | This Level 1 accepts the exact-label repair. The received Lane C artifact reviewed e8b0fd5 and cannot be reused as review of b7bc79d. Record accepted current reviews, then the U3 classification/readiness evidence; later runtime proof stays in authorized Phase 2 |
+| 2. Complete historical review accounting | Continue drafts concurrently; after accepted U2 obtain the Judge-selected canonical home. Account for all 155 transactions, prior verified evidence, children and returns, including Issue/PR-era candidates | Keyed reviewer/read revision/scope/result/residual or no-residual reason; derive total/reviewed/remaining. Unknown completion totals are neither zero reviewed nor 155 proven false closures. Cite the sole SV-002 tracker |
+| 3. Refine residuals and accept transfers | Continue incremental draft refinement across surviving obligations; after accepted U2 obtain its selected home/B-106 decision. Create/inventory the single packet at first receipt; separately receive B-104.O2–O4 and independently clear each transfer | Required/received/accepted/remaining counts keyed to source/child, with durable owner, artifacts, completion, hold and return conditions. D-364 items 8/4 separate custody from clearance; genuine features alone use dated Product intake. No automatic SM06 allocation |
+
+**Preserved business trace and scope:** the preceding B-104/Chief Editor matrices remain:
+CR-09 + partial CR-19 → US-15/FR-15 → AC-23–26 → FN scenarios → SM05/MMF-V1-CORE → later FV-001.
+AC-23 covers normal business judgments/roles/tasks/evidence; AC-24 returns only affected T3 scope,
+retains history and current downstream T4 evidence; AC-25 requires display provenance without
+RACI/Line enforcement; AC-26 covers named refusal, replay/failure evidence and exclusions.
+B-104.O1 is received SM05-N6 input; O2 held A4 target, O3 historical provenance and O4 held fallout
+documentation have no selected implementation MMF and no established receiving receipts. B-104.O5
+does not exist. Global O0–O5 are authority, setup, Product readiness, work-order inputs, routing and
+historical clearance, not B-104 children; Project scope needs no fabricated customer story.
+
+**Remaining failure conditions:** obsolete P14 input should fail under D-372; a caller omitting
+source labels cannot prove valid label acceptance (the fixed fixture miss demonstrates this).
+Old-review reuse, citation-only clearance, census-as-review, receipt-as-closure and a 22-row subset
+treated as the entire backlog fail the evidence contract. No false live gate act is established.
+Directory: 159 files = 155 transactions + 4 reports; 77 Verified headers and 78 candidates. Tracker:
+104 obligations = 10 received + 1 closed + 93 pending (80 non-SM05, 13 SM05). Semantic-review and
+accepted transfer completion totals remain unestablished. DOD-01/02 and P3 preparation remain
+independent; P3 execution needs its own act. Whole B-150/O0/Gate 2 clearance is not implied by U2.
+
+**Graph/drift:** queried before review; D-372 source/control changes require the governed-source
+sync to include 0c24f59, not the former 79b6800 baseline. Graphify reports pending semantic
+descriptions/labels. Lane A owns synchronization with curated fragments retained/re-merged;
+this own-handoff receipt adds no source/control rebuild requirement.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| D-372 exact-label control repair with e576add fixture correction, Level 1 tested scope | Approve | Phase 1 — 35/35 targeted proof; preserve original completed repairs and attributed full-fixture evidence |
+| U2 consumption by U3 | Approve-with-conditions | Phase 1 — actual Level 2 acceptance of this repair, not the prior e8b0fd5 assessment, before U3 |
+| Lane A accounting/refinement plan | Approve-with-conditions | Phase 1 — selected homes and keyed review/transfer evidence under the same three parents |
+| B-150 closure, exhaustive transfers, Gate 2 and software construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — remaining source/child clearance, setup proof and Judge acts required |
