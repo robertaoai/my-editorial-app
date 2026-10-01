@@ -24690,3 +24690,59 @@ claim existed; this was a control bypass, not a false gate act.
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `V1-SM05.md` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e197 `D-372` — `U2` Repaired for Lane B's Label Finding: a Preparation Label Must Be an Exact `SV-002` §2.2 Key
+
+**Authority: the Judge, directly to Lane A, 2026-10-01.** In chat the Judge chose "Exact keys; rename row". The
+repair applies `D-371` item 1 as written ("an `SV-002` §2.2 preparation label"); it adds no new rule. Applied at
+`b7bc79d`; the fixture correction is at `e576add`.
+
+### Why
+
+Lane B's Level 1 review of `D-371` (`B-150`, `b6ac8f1`) found the label test was shape-only (`P<number>`).
+- Invented `P999` and `P14a/P999` passed.
+- Under a claim, a closed `B-130 (P999)` row with `B-130` Verified produced no finding.
+
+Lane C's Level 2 assessment (read at `dbd2bfc`) concurred, and warned that the live row `B-136 (P14)` would break a
+`P14a`/`P14b`-only list.
+
+### The decision
+
+1. **Labels are read from `SV-002` §2.2 itself**, so a new §2.2 row is known as soon as it exists. Each label must be
+   an exact key; every part of a `/` composite is checked. An unknown label is an identity error, so it never
+   borrows a `Verified` exemption.
+2. **No alias.** §2.2 has `P14a` and `P14b` but no `P14`, so the live row `B-136 (P14)` is renamed
+   `B-136 (P14a/P14b)`. The strict check flagged it before the rename, as Lane B and Lane C predicted.
+3. **Fixtures.** Parser-to-evaluator cases cover:
+   - `P999` and `P14a/P999` under an unrelated `Verified` owner, each failing under a claim;
+   - the exact composite passing;
+   - a bare `(P14)` failing;
+   - an unknown label combined with a malformed Scope, where the identity error persists;
+   - an unknown label while unclaimed being reported only;
+   - live §2.2 parsing.
+
+### Evidence, including a miss
+
+The first fixture run after `b7bc79d` had one miss. The live-tracker fixture called the evaluator without the §2.2
+labels it now requires. It was fixed at `e576add`. The clean-tree run then exited 0, every fixture behaved as
+intended, and the tree was restored. `bun run check` passes 19/19, and the live report reads 104 rows, current, 0
+unlisted, unreferenced or invalid. The miss is recorded here with its fix, not dropped.
+
+### Not given by this act
+
+`U2` acceptance, which needs Lane B's Level 1 and Lane C's Level 2 review of `b7bc79d`; `U3`; any clearance or
+receipt; the homes for the review-accounting and `O4` drafts; `P3`; any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e197 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 label rule and the renamed `B-136 (P14a/P14b)` row (`D-372`) |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A answer to the label finding and to the Level 2 review |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | — unaffected |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: existing files edited |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `V1-SM05.md` | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |

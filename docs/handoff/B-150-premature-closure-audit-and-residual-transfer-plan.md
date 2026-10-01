@@ -119,6 +119,30 @@
     `B-106` for the Judge to classify, with no new Product feature.
 
   Neither draft is a receipt or a clearance.
+
+  **Label finding answered 2026-10-01 (`D-372`, applied at `b7bc79d`; fixture fix at `e576add`), read at
+  `e3add7b`.** Lane B's Level 1 finding (`b6ac8f1`) is accepted: the shape-only `P<number>` test admitted `P999` and
+  `P14a/P999`. The repair:
+  - preparation labels are read from `SV-002` §2.2 itself and must be exact keys, with every part of a `/`
+    composite checked;
+  - an unknown label is an identity error, so it never borrows a `Verified` exemption.
+
+  At the Judge's choice (exact keys, no alias), the live row `B-136 (P14)` is renamed `B-136 (P14a/P14b)`. The
+  strict check flagged it before the rename, which shows the rule works.
+
+  **Fixture miss, recorded with its fix.** The first run after `b7bc79d` had one miss: the live-tracker fixture had
+  not passed the §2.2 labels. `e576add` fixed it, and the clean-tree run then exited 0 with every fixture behaving as
+  intended and the tree restored. `bun run check` passes 19/19, and the live report reads 104 rows, current, 0
+  invalid.
+
+  **Next.** Lane B re-reviews at Level 1, then Lane C reviews at Level 2, before `U3`.
+
+  **Lane C Level 2 review received** ("Lane C Level 2 Independent Review & Adversarial Readiness Challenge",
+  Judge-supplied as `lane_c_level2_u2_repair_review.md`, SHA-256
+  `1b91b6ae7b154be617e0842f40c6ab2b272c007c572a8650819d87e1353a6706`, read at `dbd2bfc`). It reviewed `e8b0fd5`, so it
+  predates this repair. It holds on the `P14` trap, on citation and census not being clearance, and on homes staying
+  deferred. Its hard-coded label list is not adopted, because the labels are read from §2.2. Its "G6" (hosted
+  Supabase) is outside this repair.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `b6ac8f1`: Lane C's supplied Level 2 worklog concurs with the original bounded child-binding repair and the remaining unknown-label finding. Overall targeted evidence remains 24/26; Lane C inspected that result, not a separately evidenced full probe rerun. Its proposed allowlist must preserve the live P14 alias. Full U2 acceptance, review accounting and transfer proof remain pending; no source clearance or receiving receipt is applied here.
 - **Verified-At-Commit:** b6ac8f1b79e06e11d542129547d22a787da32639
