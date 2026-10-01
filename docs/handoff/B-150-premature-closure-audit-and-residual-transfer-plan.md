@@ -120,11 +120,13 @@
 
   Neither draft is a receipt or a clearance.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Lane A's D-370 repair and preceding U2-F3 reproduction remain applicable. Latest read `ef95181`: supplied Lane C assessment incorporates both editorial corrections and supplies an advisory identity-safe code sketch. Planning acceptance below leaves actual repair/integration proof, Lane A's answer, review accounting and accepted transfers pending. No source repair, receiver receipt or clearance is applied here.
-- **Verified-At-Commit:** ef9518143073991940870c30eb5c48d99b9322ce
+- **Evidence:** Lane B Level 1 read `79b6800`: D-370/D-371's original child-parent bypass and combined-error cases pass independent targeted review, but invented preparation labels are admitted by a shape-only exemption. Final D-371 review records 24/26 probe cases and the label-contract finding; U2 consumption still awaits resolution and Level 2 review. Review-accounting/refinement remain drafts under D-371; no source clearance or receiving receipt is applied here.
+- **Verified-At-Commit:** 79b6800f7953380eb81ed557eb62c9bb51706159
 
-**Current review pointer:** the final "Latest Lane C reconciliation received — ready for Lane A follow-up — 2026-10-01"
-below accepts the corrected planning direction. The preceding global top three, complete review/transfer accounting and intent/group matrices retain full coverage; D-370 Level 1 findings still control U2-F3. Exact child keys follow D-370. B-130 is
+**Current review pointer:** the final "D-370/D-371 — Lane B Level 1 repair review — 2026-10-01"
+below controls the current repair verdict. Earlier planning and rejected-repair receipts remain historical;
+the original U2-F3 parent-binding bypass is repaired, with a remaining preparation-label contract finding.
+The same three pending parents and full trace matrices remain. Exact child keys follow D-370. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
 This parent remains Open; verification of B-130 and B-152 does not clear the whole O0 group or Gate 2.
 
@@ -1652,3 +1654,81 @@ source answer, closure/transfer act, software construction or graph mutation is 
 | Lane A bounded follow-up | Approve-with-conditions | Phase 1 — Lane A answers at actual read revision; confirm authority and prove the same three pending parents with completed repair/review and accepted transfer evidence |
 | Current U2 consumption by U3 | Reject | Phase 1 — actual repair and Level 1/2 acceptance still required |
 | Complete review/transfers, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — complete evidence and Judge acts still required |
+
+## D-370/D-371 — Lane B Level 1 repair review — 2026-10-01
+
+Based on Lane A's answer in this handoff and the D-370/D-371 Register acts, consolidate
+the repair result before Lane A's next answer. This is the Judge-requested Level 1 review,
+read at `79b6800f7953380eb81ed557eb62c9bb51706159`; applied control revision is
+`e8b0fd5ee2a88207491f3e44c242679117ff219f`. Lane B raises/records the review; Lane A
+alone answers. No application/test construction, receiver receipt or lifecycle change is applied.
+
+**Completed bounded repair:** D-370's child rows and canonical Scope/Clearance checks remain.
+D-371 now rejects `B-130 (B-104.O2)` under a claim, preserves the missing real child's finding,
+and retains that rejection when vocabulary errors coexist. Valid closed parent/child rows and
+known preparation labels pass; no-claim reporting, missing-source/child and stale/unproven-pin
+behavior remain. The live tracker pin `33df8d4` is current, with 104 rows and no invalid,
+unlisted or unreferenced rows. This accepts the original child-binding repair in tested scope.
+
+**Remaining identity-contract gap — within the same U2 parent:** D-371 item 1 admits an
+actual §2.2 preparation label, not any string matching `P<number>`. The implementation's
+`isLabel` regular expression accepts invented `P999` and `P14a/P999`. A parsed closed
+`B-130 (P999)` row, with B-130 independently Verified and a recorded claim, produces
+zero findings and reports zero invalid rows despite that label being absent from §2.2.
+The mixed unknown label also passes. These are isolated in-memory inputs; they establish
+no false live clearance, and do not recreate the repaired B-104 child-coverage bypass.
+
+**Draft fix for Lane A:** distinguish known §3.3 child IDs from actual §2.2 preparation
+labels. Validate each preparation-label component against the canonical §2.2 label set,
+preserving existing P14/P14a/P14b/P15 and supported composite references. Unknown labels
+are identity errors and cannot inherit a Verified-header exemption. Prove known single/composite,
+unknown single/composite, combined-vocabulary and no-claim cases through the real parser/evaluator.
+Retain current child coverage, missing/stale findings and claim-only failure. If a shape-only
+annotation was intended instead, the Judge must reconcile that meaning with D-371 before
+consumption; a regex match alone cannot prove the presently recorded identity contract.
+
+**Independent evidence:** read-only probe
+`C:/CoWork/outputs/handoff-review-2026-10-01/review-u2-d371.mjs` and results JSON,
+SHA-256 `f74e2fb83d8ee2e5bb85b38df40fc8acbd58fedc07bf73c9ec46e24022d75e92`:
+24/26 expected outcomes pass; the two unknown-preparation-label rejection cases fail.
+This is targeted independent proof, not a full fixture-suite rerun. Lane A's full clean-tree
+fixture exit/restoration result at e8b0fd5 remains attributed to D-371 and its answer.
+
+### Only three pending parents — receiver steps and Judge criteria
+
+| Priority | Lane A follow-up, in order | Completion evidence / critical artifact |
+|---|---|---|
+| 1. Finish U2 identity-contract repair and review | Answer this finding at actual read revision; resolve unknown preparation labels within bounded authority; prove fixtures and consistency; obtain Level 1 then Level 2 review before U3 | Actual control/fixture revision and accepted review scope. The original parent-binding fix is preserved; regex-only label admission is resolved. U3/B-151 then receives four manifest behaviours, required labels and reissued DOR-R7 |
+| 2. Complete historical review accounting | Retain census as a draft; after accepted U2 obtain the Judge-selected canonical home under D-371, then record keyed source/child/return review results | Coverage view references the sole SV-002 clearance tracker. Total/reviewed/remaining derive from evidence across all 155 transactions; census and file changes do not prove semantic review completion |
+| 3. Refine residual scope and accept transfers | Retain classification as a draft; after accepted U2 obtain its selected home and decide B-106's classification; separately receive each surviving obligation, including B-104.O2–O4; independently verify transfer or obtain individual Judge reason | One bounded governance packet created/inventoried at first receipt, or dated Product intake only for genuine features. Required/received/accepted/remaining counts and held receiver execution remain separate; receipt never auto-closes |
+
+**Accounting:** 159 handoff files = 155 transactions + 4 reports; 77 Verified headers and
+78 unverified candidates. Independent file-history census confirms 36 transaction paths
+changed after Issue-recording commit `221c9d4`, and 119 did not. Neither set is a reviewed/
+unreviewed tally. Tracker: 10 received + 1 closed + 93 pending (80 non-SM05, 13 SM05).
+Lane A's 22-row O4 classification draft proposes 15 governance/doc rows, 6 held Product
+target rows and one B-106 decision; this is attributed draft classification, not established
+receipt, selected feature or 22 refined backlog items. Semantic-review completion and refined
+receiving totals remain unestablished. Draft homes are deferred by D-371, not invented here.
+
+**Trace and Chief Editor requirements:** retain the preceding matrices: CR-09 + partial
+CR-19 → US-15/FR-15 → AC-23–26 → FN-GATES scenarios → V1-SM05/MMF-V1-CORE → later FV-001.
+The Chief Editor needs auditable role/task facts, original URL/text digest, revision history
+and distinct refusal/replay outcomes; logical roles do not prove separate humans. B-104.O1
+is received SM05-N6 input; O2 carries held A4 US-04a/US-05a, O3 labelled historical US-04/US-05,
+and O4 held fallout/GRC AC-05b/AC-07b documentation scope. O2–O4 have no selected implementation
+MMF and still need durable receiving ownership. There is no B-104.O5. Order-group O0 is
+authority, O1 setup, O2 Product readiness, O3 work-order inputs, O4 routing and O5 historical
+clearance; Project tasks need no fabricated customer story/MMF. P3 and canonical DOD-01/02
+preparation stay independent; P3 execution still requires its own act and proves DOD-04 only.
+
+**Graph/drift:** query first; governed-source drift is synchronized at 79b6800. Graphify still
+reports pending descriptions/labels; source/control synchronization remains Lane A's workflow
+with curated fragments retained/re-merged. This own-handoff review introduces no graph rebuild.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| D-370 F1/F2 and D-371 original §3.3 child-binding repair, tested scope | Approve | Phase 1 — retain independent targeted evidence and completed bounded repair |
+| U2's full identity contract / consumption by U3 | Reject | Phase 1 — resolve unknown preparation-label acceptance and obtain actual Level 1/2 acceptance before U3 |
+| Lane A follow-up plan and existing trace | Approve-with-conditions | Phase 1 — answer current finding; keep Focus 2/3 as drafts until accepted U2 and the Judge-selected homes |
+| Complete review/transfers, B-150 closure, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — per-obligation proof, setup index and Judge acts remain |
