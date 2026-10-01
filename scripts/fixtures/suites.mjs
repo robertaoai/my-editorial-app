@@ -1806,6 +1806,23 @@ export async function gate2Mode(results) {
     { name: "gate2 U2-F1: a §3.3 child with no tracker row FAILS under a claim", got: () => gate2Evaluate({ tracker: tr([row("B-9", "SM05", "received", "O2")]), live: live([["B-9", false]]), claimed: "x", stale: false, children: [{ key: "B-9.O2", parent: "B-9", scope: "non-SM05" }] }).findings.some((f) => f.includes("has no tracker row")), want: true },
     { name: "gate2 U2-F1: a child row whose Scope disagrees with §3.3 is invalid", got: () => gate2Evaluate({ tracker: tr([{ key: "B-9 (B-9.O2)", entry: "B-9", child: "B-9.O2", order: "O2", scope: "SM05", clearance: "received" }]), live: live([["B-9", false]]), claimed: "x", stale: false, children: [{ key: "B-9.O2", parent: "B-9", scope: "non-SM05" }] }).findings.some((f) => f.includes("disagrees with §3.3")), want: true },
     { name: "gate2 U2-F1: children of a Verified entry need no row", got: () => n(gate2Evaluate({ tracker: tr([]), live: live([["B-9", true]]), claimed: "x", stale: false, children: [{ key: "B-9.O2", parent: "B-9", scope: "non-SM05" }] })), want: 0 },
+    // `D-371` — Lane B's U2-F3: a child is bound to its own parent. Parser to evaluator.
+    ...[
+      ["unrelated Verified owner", true],
+      ["unverified owner", false],
+    ].map(([label, ownerVerified]) => ({
+      name: `gate2 U2-F3: \`B-130 (B-104.O2)\` with an ${label} FAILS under a claim and leaves B-104.O2 unreferenced`,
+      got: () => {
+        const t = parseTracker(`#### 2.3.1 Gate 2 tracker\n\n- **Derived at:** \`aa21f55\`\n- **Gate 2 clearance claimed:** no\n\n| Entry | Order | Scope | Clearance | Basis |\n|---|---|---|---|---|\n| \`B-104\` | O2 | SM05 | received | x |\n| \`B-130 (B-104.O2)\` | O4 | non-SM05 | open | x |\n`);
+        const r = gate2Evaluate({ tracker: t, live: live([["B-104", false], ["B-130", ownerVerified]]), claimed: "x", stale: false, children: [{ key: "B-104.O2", parent: "B-104", scope: "non-SM05" }] });
+        return r.findings.some((f) => f.includes("belongs to `B-104`, not `B-130`")) && r.findings.some((f) => f.includes("`B-104.O2`") && f.includes("has no tracker row"));
+      },
+      want: true,
+    })),
+    { name: "gate2 U2-F3: the valid parent/child row passes when closed", got: () => n(gate2Evaluate({ tracker: tr([{ key: "B-104 (B-104.O2)", entry: "B-104", child: "B-104.O2", order: "O4", scope: "non-SM05", clearance: "closed" }]), live: live([["B-104", false]]), claimed: "x", stale: false, children: [{ key: "B-104.O2", parent: "B-104", scope: "non-SM05" }] })), want: 0 },
+    { name: "gate2 U2-F3: an unknown child key is invalid even under a Verified owner", got: () => gate2Evaluate({ tracker: tr([{ key: "B-130 (B-999.X1)", entry: "B-130", child: "B-999.X1", order: "O4", scope: "non-SM05", clearance: "open" }]), live: live([["B-130", true]]), claimed: "x", stale: false, children: [] }).findings.some((f) => f.includes("is not a §3.3 child")), want: true },
+    { name: "gate2 U2-F3: an §2.2 preparation label such as `(P15)` is not a child identity error", got: () => n(gate2Evaluate({ tracker: tr([{ key: "B-136 (P15)", entry: "B-136", child: "P15", order: "O1", scope: "non-SM05", clearance: "closed" }]), live: live([["B-136", false]]), claimed: "x", stale: false, children: [] })), want: 0 },
+    { name: "gate2 U2-F3: a wrong-parent row while UNCLAIMED is reported, not failed", got: () => { const r = gate2Evaluate({ tracker: tr([{ key: "B-130 (B-104.O2)", entry: "B-130", child: "B-104.O2", order: "O4", scope: "non-SM05", clearance: "open" }]), live: live([["B-104", false], ["B-130", true]]), claimed: null, stale: false, children: [{ key: "B-104.O2", parent: "B-104", scope: "non-SM05" }] }); return r.findings.length === 0 && r.report.includes("1 row(s) invalid") && r.report.includes("1 §3.3 child(ren) unreferenced"); }, want: true },
     { name: "gate2: the live §3.3 matrix parses with parents and scopes", got: () => { const c = parseChildMatrix(tOrig); const f = (k) => c.find((x) => x.key === k); return c.length > 0 && f("B071-R204")?.parent === "B-071" && f("B071-R204")?.scope === "SM05" && f("B-104.O2")?.scope === "non-SM05"; }, want: true },
     { name: "gate2: the live tracker has no invalid row and no unreferenced child", got: () => { const t = parseTracker(tOrig); const r = gate2Evaluate({ tracker: t, live: new Map(t.rows.map((x) => [x.entry, false])), claimed: null, stale: false, children: parseChildMatrix(tOrig) }); return r.report.includes("0 §3.3 child(ren) unreferenced, 0 row(s) invalid"); }, want: true },
   ];

@@ -260,23 +260,42 @@ export function gate2Evaluate({ tracker, live, claimed, stale, children = [] }) 
   const childScope = new Map(children.map((c) => [c.key, c]));
   const invalid = [];
   for (const r of tracker.rows) {
-    const why = !SCOPES.has(r.scope)
-      ? `Scope "${r.scope}" is not \`SM05\` or \`non-SM05\``
-      : !CLEARANCES.has(r.clearance)
-        ? `Clearance "${r.clearance}" is not \`open\`, \`closed\` or \`received\``
-        : r.clearance === "received" && r.scope !== "SM05"
-          ? "`received` is an SM05 receipt; a non-SM05 row closes by verification or Judge acceptance"
-          : r.child && childScope.has(r.child) && childScope.get(r.child).scope !== r.scope
-            ? `Scope "${r.scope}" disagrees with §3.3, where \`${r.child}\` is ${childScope.get(r.child).scope}`
-            : null;
-    if (why) invalid.push({ row: r, why });
+    // `U2-F3` (Lane B, `29ad5c8`; repaired under `D-371`). A child's IDENTITY
+    // is checked on its own, apart from vocabulary: the parenthesised key must
+    // be a §3.3 child of THIS row's entry, or an `SV-002` §2.2 preparation
+    // label (`P15`, `P14a`). Before, `B-130 (B-104.O2)` both "covered"
+    // `B-104.O2` and borrowed `B-130`'s Verified header, closing an open
+    // obligation.
+    const known = r.child ? childScope.get(r.child) : null;
+    const isLabel = r.child !== null && /^P\d+[a-z]?(\/P\d+[a-z]?)*$/.test(r.child);
+    const identity = !r.child || isLabel
+      ? null
+      : !known
+        ? `\`${r.child}\` is not a §3.3 child`
+        : known.parent !== r.entry
+          ? `\`${r.child}\` belongs to \`${known.parent}\`, not \`${r.entry}\``
+          : null;
+    const reasons = [];
+    if (identity) reasons.push(identity);
+    if (!SCOPES.has(r.scope)) reasons.push(`Scope "${r.scope}" is not \`SM05\` or \`non-SM05\``);
+    if (!CLEARANCES.has(r.clearance)) reasons.push(`Clearance "${r.clearance}" is not \`open\`, \`closed\` or \`received\``);
+    if (r.clearance === "received" && r.scope !== "SM05") {
+      reasons.push("`received` is an SM05 receipt; a non-SM05 row closes by verification or Judge acceptance");
+    }
+    if (known && SCOPES.has(r.scope) && known.scope !== r.scope) {
+      reasons.push(`Scope "${r.scope}" disagrees with §3.3, where \`${r.child}\` is ${known.scope}`);
+    }
+    if (reasons.length) invalid.push({ row: r, why: reasons.join("; "), identityError: identity !== null });
   }
   const isInvalid = new Set(invalid.map((i) => i.row));
 
-  // `U2-F1` (`D-370`). Every §3.3 child of a tracked, unverified entry must be
-  // referenced by its own row — an unreferenced child is unclosed, exactly as
-  // an unlisted entry is.
-  const referenced = new Set(tracker.rows.map((r) => r.child).filter(Boolean));
+  // `U2-F1` (`D-370`), bound to the parent by `U2-F3` (`D-371`). Every §3.3
+  // child of a tracked, unverified entry must be referenced by a VALID row
+  // owned by that child's own parent. An unreferenced child is unclosed,
+  // exactly as an unlisted entry is.
+  const referenced = new Set(
+    tracker.rows.filter((r) => !isInvalid.has(r) && r.child && childScope.get(r.child)?.parent === r.entry).map((r) => r.child),
+  );
   const unreferenced = children.filter((c) => c.parent && live.get(c.parent) === false && !referenced.has(c.key));
 
   const unclosed = tracker.rows.filter(
@@ -286,8 +305,11 @@ export function gate2Evaluate({ tracker, live, claimed, stale, children = [] }) 
     (r) => !isInvalid.has(r) && r.scope === "SM05" && !["received", "closed"].includes(r.clearance) && live.get(r.entry) !== true,
   );
   if (claimed) {
-    for (const { row, why } of invalid) {
-      if (live.get(row.entry) === true) continue; // header independently Verified: closed regardless
+    for (const { row, why, identityError } of invalid) {
+      // A Verified header closes only its OWN entry's rows. An identity error
+      // is never exempted: the row owner's verification says nothing about a
+      // child that belongs elsewhere (`U2-F3`).
+      if (!identityError && live.get(row.entry) === true) continue;
       findings.push(
         `${TRACKER_PATH}: Gate 2 clearance is claimed (${claimed}) but row \`${row.key}\` cannot be classified — ${why}. An unclassifiable row is not closed (\`D-364\` item 7, \`U2-F2\`)`,
       );
