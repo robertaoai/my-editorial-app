@@ -916,3 +916,23 @@ Judge ruling, read fresh rather than assumed unchanged:
   as a result
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** b089f6c815f4db44513c4af1e2378773168d1b2e
+
+## Terminal annotation record
+
+- **Current-Resolution:** Deferred
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Lane B independent Phase 1 / O0 review, 2026-10-01, under Judge authorization
+  "Lane B verifies B-116 at fc99842, then the chain". Read `48aa96401a8c8581983bd4d2635423d321e55c6a` after independently verified
+  B-116 → B-113 → B-112 → B-097. B-103 P3's deferred return-protocol control evidence is now
+  independently Verified through B-097: Option A is blocking, the all-episode history walk and
+  annotation/return/re-close provenance checks are implemented. Exact repaired source
+  `fc998420c5a423caf5953e527277a5ffb183c247` passed 70/70 independent focused cases with restored
+  tree, including negative refusal, multi-episode and live-history cases; pre-chain main-tree
+  consistency passed 19/19. Approve P3 control evidence (Phase 1 / O0). Approve-with-conditions
+  Lane A's child-disposition/tracker reconciliation (Phase 1): receiver records the resulting
+  disposition with the applicable lifecycle act. Defer whole B-103 closure (Phase 1) and Stage 2
+  runtime proof (separately authorized later phase, D-230). The original receiver P0–P3 table and
+  whole-entry Answered/Deferred header remain historical/current as published; this independent
+  evidence annotation does not itself perform a receiver return/re-close or change C-001 readiness.
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** 48aa96401a8c8581983bd4d2635423d321e55c6a
