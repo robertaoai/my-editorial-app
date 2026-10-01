@@ -435,6 +435,19 @@ workflow (`D-219`). Rows 1, 2, 3 and 6 were revised on 2026-09-27 (`D-285`).
 | 5 | **No authenticity claim.** The representation does not show that the original was online, authentic or reliable. No URL, network check, metadata or authorship is invented to fill a field (`D-219`). At `T2` it is examined under §3.2 ("available and readable, source information examinable"), never labelled *URL confirmed live* | A `.md` intake shown or recorded as URL-verified |
 | 6 | **Three fixtures** (`D-222`, the second worded under the pair model by `D-285`), carried into `V1-SM05`'s acceptance at Gate 2: a valid URL **passes**; an admitted Markdown representation whose original URL is recorded but cannot be reached **passes**; no source reference of any kind **fails** with the named validation failure | — |
 
+**Intake source scenarios `[V1]`** (added 2026-10-01, `D-373`; the Judge chose this home and the `FR-15` anchors).
+These rows give rule 6's three fixtures and rule 2's refusal one ID each, so readiness tooling can pin them. They
+carry `V1-SM05`'s DoD item "Intake source fixtures" (`D-287`, `D-288`) and add no rule. Cases 1–2 anchor to
+`AC-23` (accepted manual intake), and cases 3–4 to `AC-26` (missing prerequisites refused with a named reason).
+`V1-SM05` reaches `FR-01` only through `AC-02` (`D-261`), so `AC-01` is not an anchor.
+
+| ID | Given | When | Then |
+|---|---|---|---|
+| `SM05-IN1` `[V1]` | A manual intake whose source reference is a valid URL (rule 6) | It is submitted at `T1` | It **passes** source-reference validation; the accepted manual intake may then follow `AC-23` (`D-222`) |
+| `SM05-IN2` `[V1]` | A Markdown representation that meets rule 2: non-empty text, the original article's URL recorded, the recorded fact that the original site prevents automated retrieval, the original identified and the supplier recorded | It is submitted at `T1` | It **passes**. Its reference is the pair: the URL plus the SHA-256 digest of its exact text (rule 3). It is never shown as *URL confirmed live* (rule 5), and the accepted manual intake may then follow `AC-23` (`D-222`, `D-285`) |
+| `SM05-IN3` `[V1]` | An intake with no source reference of any kind (rule 6) | It is submitted at `T1` | It **fails** with §3.1's named validation failure; `T1` does not complete and nothing is admitted (`AC-26`; `D-222`) |
+| `SM05-IN4` `[V1]` | A Markdown representation with **no original URL** recorded (rule 2) | It is submitted at `T1` | It is **refused at admission** with the named validation failure; `T1` does not complete and nothing is admitted (`AC-26`; `D-285`, `D-288`) |
+
 **Open, and not decided here:**
 - a maximum text size (a physical limit, Lane B's under `D-56`, to be stated in the `D-242` work order);
 - what triggers a later version (§4.5's remainder, `B-096`).
