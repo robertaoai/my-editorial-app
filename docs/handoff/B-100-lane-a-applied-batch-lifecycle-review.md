@@ -46,10 +46,10 @@
   session ran itself (`device_bash` remains unreachable, re-confirmed again this turn) — recorded
   here as the reasoning that resolved the prior hold, not as this session's own independent
   confirmation.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent Phase 1 O0 review, 2026-10-01
 - **Evidence:** Uncommitted diff of B-071 and B-096–B-099 against `e0e1c85`; `docs/handoff/README.md` sections *Answering — Lane A*, *Before you answer*, D-204 and D-205; `docs/handoff/TEMPLATE.md`; B-088/B-094 Chief Editor packets; `supabase/migrations/0002_s1_editorial_schema.sql:459-522`; `bun run check` at the named commit with the five-file working diff present; Graphify branch record.
-- **Verified-At-Commit:** 79a4450cc09c1dcb01d0d7acad8dd318008b6674
+- **Verified-At-Commit:** ca518f92d44b166008cf160940870a1fcf7b72c6
 
 ## What happened
 
@@ -202,3 +202,23 @@ governed sources, run Graphify, publish or change lane state.
 | Approve-with-conditions | B-088 P1 | Chief Editor explicitly authorizes the named 1–3 hour token-boundary unit and 1–2 hour independent review |
 | Defer | Product/source application, implementation, publication and release | Separate bounded authorization and completed dependencies |
 | Defer | Graphify synchronization | Corrected committed batch first; final rebuild/remerge/coverage/full checks |
+
+
+## Independent O0 completion review — Lane B — 2026-10-01
+
+**Read:** `ca518f92d44b166008cf160940870a1fcf7b72c6`. Judge authorization: "Lane B verifies O0. Phase 1".
+The bounded lifecycle repair is independently Verified. The current Lane A answer begins Answered;
+the impossible raise-time read anchor was corrected under B-101; the dated durability correction
+preserves the original pre-commit statement as history. B-101's independently verified review at
+`9dd75fef0679be53367e82cd13cc13b82b0b0d00` proves the committed repair chain. Current B-096 retains
+two-actor corroboration and separate child dispositions; B-097's later Option A work is separately
+owned by B-116 and is not completed by this verification. The current B-071 return remains Open.
+No historical push claim is restated as current upstream currency.
+
+Lane A may refresh the existing B-100 O0 clearance row from this independent header; no new backlog
+item is needed. This verifies the repair, not B-071/B-096/B-097 children or Gate 2. Receiver text is unchanged.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| B-100 bounded lifecycle repair | Approve | Phase 1 — independently Verified here; Lane A refreshes its tracker |
+| Other parent/child closure and construction | Defer | Their existing Phase 1 owners; Phase 2 requires Gate 2 and a bounded work order |
