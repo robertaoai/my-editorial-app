@@ -84,8 +84,8 @@
 
   The governance residual packet it asks for is created at its first receipt (`D-364` item 8), not before.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Lane A's D-370 repair and preceding U2-F3 reproduction remain applicable. Latest read `995075c`: supplied Lane C formal challenge preserves the global top three but introduces artifact/execution-sequence inaccuracies. The final correction receipt specifies fixture-command, independent-setup, evidence-authority and residual-classification fixes within the existing plan. No source repair, receiver receipt or clearance is applied here.
-- **Verified-At-Commit:** 995075c80d8d847c58e39eb9bb6b4b9c07e73b9c
+- **Evidence:** Lane A's D-370 repair and preceding U2-F3 reproduction remain applicable. Latest read `5111524`: supplied Lane C assessment reconciles the preceding corrections; final receipt qualifies interrupted fixture evidence, actual receiver read revision and advisory authority. The same three pending parents and existing trace/counts remain. No source repair, receiver receipt or clearance is applied here.
+- **Verified-At-Commit:** 51115244ab1534b39dc3ce518bf3b82cf5ca0212
 
 **Current review pointer:** the final "Latest Lane C reconciliation received — ready for Lane A follow-up — 2026-10-01"
 below accepts the corrected planning direction. The preceding global top three, complete review/transfer accounting and intent/group matrices retain full coverage; D-370 Level 1 findings still control U2-F3. Exact child keys follow D-370. B-130 is
@@ -1553,10 +1553,36 @@ The latest attachment is not fully reconciled as an exact runbook until the corr
 incorporated. Existing totals and unknown completion counts remain unchanged. Governed sources,
 control code, source lifecycle, Product scope and the graph remain untouched by this correction receipt.
 
+**Latest Lane C concurrence and proof qualification — read `51115244ab1534b39dc3ce518bf3b82cf5ca0212`.**
+The Judge supplied `584b09f5-6b70-46da-9f95-9a8cb0b1a0d4/Pasted text.txt`, SHA-256
+`13a2cd29478756022e9ae497d95e225911e53cb72238515c3215a3e247ef0a46`.
+Its assessment accepts the preceding corrections and preserves one global top three, independent
+setup/P3 preparation, U2-before-U3, partial customer scope, exact child keys and separate accounting
+domains. The supplied text is reviewed; its linked external full guide is not independently read
+in this review. Concurrence is advisory evidence, not a new Judge work order or completed repair.
+
+| Existing pending parent | Qualification / draft correction for Lane A | Acceptance evidence |
+|---|---|---|
+| 1. U2-F3 repair and independent acceptance | The supplied activity records a stopped fixture run and restoration of B-001; it supplies no completed fixture result. In the artifact table, change "Verified via" to "To be proved via bun run fixtures at the applied repair revision". No current workflow invocation of that command was found; name the runner/review evidence rather than implying CI coverage. Run fixtures on a clean tree without concurrent edits, retain exit/result/restoration evidence, and inspect any interruption before further work | Completed fixture proof and healthy-tree checks at the actual repaired revision, plus Level 1/2 reviews. A stopped run and later clean tree/check pass do not supply negative proof; prior bounded D-370 fixture evidence is preserved |
+| 2. Complete historical review accounting | Replace instructions to answer "at read commit 5111524" with "cite the actual revision and, if applicable, uncommitted content read; include the supplied assessment provenance". Call the external guide advisory, not authoritative. Treat the diagram's arrows into sequential group clearance as completion prerequisites, not a new rule delaying independent proof preparation or incremental review | Lane A's own answer with actual provenance; keyed review results across all 155 transactions plus children/returns; derivable reviewed/remaining counts. Existing Register/SOP requirements decide clearance |
+| 3. Refined and independently accepted residual transfers | Retain the reconciled B-104/O0–O5 matrices. A known trace or agreement between lanes establishes neither a receiving receipt nor accepted transfer. Refine each surviving obligation and record its receiving anchor; preserve held scope and eventual receiver execution | Separate required/received/accepted/remaining measures with evidence for each B-104.O2–O4 receipt and each reviewed residual; independent transfer verification or individual Judge reason before clearance |
+
+The existing customer trace remains CR-09 + partial CR-19 → US-15/FR-15 → AC-23–26 →
+V1-SM05/MMF-V1-CORE → later FV-001. B-104.O1 supplies the received SM05 input; O2–O4
+retain held target/historical documentation scope with no selected implementation MMF.
+There is no B-104.O5. Order groups O1/O3/O4/O5 have Project/setup/authority/routing/audit
+parents; O2 carries SM05 Product intent. Their full matrices above remain the receiver reference.
+
+Counts are unchanged: 159 files = 155 transactions + 4 reports; 77 Verified headers and 78
+unverified candidates; 104 tracker rows = 10 received + 1 closed + 93 pending. Full semantic-review
+completion and refined receiving totals remain unestablished; 22 O4 rows are a screening queue,
+not 22 established backlog items. This receipt adds no fourth priority, applied source answer,
+fixture execution, lifecycle change, construction or graph mutation.
+
 | Decision | Verdict | Follow-up phase / condition |
 |---|---|---|
 | Preserved completed bounded scope | Approve | Phase 1 — retain original evidence |
-| Latest attachment's artifact claims and exact execution sequence | Reject | Phase 1 — correct pending-control status, fixture proof command, independent setup/P3, source authority and classified receiving details above |
-| Latest reconciliation and Lane A follow-up plan | Approve-with-conditions | Phase 1 — Lane A answers at actual read revision; proposed logic/unknown counts/per-item receipts retain the qualifications above |
+| Earlier attachment's artifact claims and exact execution sequence | Reject | Phase 1 — historical finding; latest supplied assessment incorporates the corrections, subject to the proof/provenance qualifications above |
+| Latest supplied Lane C assessment and Lane A follow-up plan | Approve-with-conditions | Phase 1 — Lane A answers at actual read revision; correct prospective fixture status, retain advisory authority and prove complete review accounting and accepted transfers |
 | Current U2 consumption by U3 | Reject | Phase 1 — actual repair and Level 1/2 acceptance still required |
 | Complete review/transfers, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — complete evidence and Judge acts still required |
