@@ -24746,3 +24746,56 @@ receipt; the homes for the review-accounting and `O4` drafts; `P3`; any lane-sta
 | Rule files, `docs/Modular_PRD.md`, Fn Specs, SPECS, `V1-SM05.md` | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild after this commit |
+
+## 5.14e198 `D-373` — `U2` Accepted at Level 1 and Level 2; `U3` Applied: Four Intake-Source Behaviours Enforced by Jev; `B-151` Classified
+
+**Authority: the Judge, directly to Lane A, 2026-10-01**: *"Judge Approved: completed — Lane B's Level 1, then Lane
+C's Level 2, on b7bc79d before U3."* In chat the Judge then chose to run `U3` now, chose FN-GATES §4.6 as the home of
+the four scenario rows, and chose `FR-15` (`AC-23`/`AC-26`) as their Product anchors. `U3` is applied at `31bcf3a`
+under `D-364` item 10.
+
+### The decision
+
+1. **`U2` is accepted.** Lane B's Level 1 (`773df96`) and Lane C's Level 2 (Judge-supplied, probe 35/35) approve
+   `b7bc79d`/`e576add`. `U3` may now consume the tracker and its Gate 2 mode. Lane B's qualifications stand: 119
+   unchanged files are not 119 proven premature closures, and the assessment's consequences are risks, not observed
+   outcomes.
+2. **A gap in `U3` as `D-364` item 10 wrote it.** Jev can pin a behaviour only to an ID'd Given/When/Then row, and
+   FN-GATES §4.6 stated the four cases only as prose (rule 6's three fixtures and rule 2's refusal). The Judge chose
+   §4.6 as the home for those rows.
+   - **The rows.** `SM05-IN1`–`IN4` are added as `[V1]` rows (URL pass, admitted-Markdown pass, no-reference fail,
+     no-URL Markdown refused). They transcribe rules 2, 3, 5 and 6 and add no rule.
+   - **Anchors.** `AC-23` for the pass cases and `AC-26` for the refusals, consistent with every existing SM05
+     behaviour. `AC-01` stays dropped (`D-261`), and `V1-SM05` reaches `FR-01` only through `AC-02`.
+3. **The manifest.** It pins the four rows under "Intake source fixtures", and that label joins
+   `failingFirstRequired` and `negativeRequired`. This supersedes `D-288` item 5 ("Jev kept"), as `D-364` item 10
+   ruled. `jev:selftest` passes.
+4. **`DOR-R7` re-issued.** The readiness receipt is `pass`, 320/320 rules (up from 272), evaluated at clean commit
+   `31bcf3a` and written to `docs/v1/work-packets/V1/receipts/V1-SM05-jev-readiness.json`. The SM05 `DOR-R7` row
+   records it.
+5. **`B-151` classified, `Answered`/`Applied`.** The named finding is "confirmed missing in tooling; now corrected"; the
+   written DoD already covered the cases. No SM05 prerequisite moves to SM06. Each case still needs its own
+   database artifact and failing-first evidence under the `D-242` work order after Gate 2. Readiness enforces that
+   the obligation exists; it does not prove the behaviour.
+
+### Not given by this act
+
+Any test, application or schema change; `B-151`'s verification, which is Lane B's; `U3`'s Level 1 and Level 2
+review; any tracker clearance; the review-accounting ledger, the residual packet or `B-106`'s intake, which are
+separate acts; `P3`; any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e198 |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ §1 `D-373` paragraph |
+| **`docs/fn-specs/FN-GATES-01-05.md`** | ✅ §4.6 intake source scenarios `SM05-IN1`–`IN4` `[V1]` |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ `DOR-R7` re-issued receipt; the DoD text is unchanged |
+| **`docs/handoff/B-151-sm05-initial-behavior-test-coverage-reconciliation.md`** | ✅ classification; `Answered` / `Applied` |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A: `U2` accepted, `U3` applied |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: the receipt file already exists and is overwritten in place; no file created |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| `docs/Modular_PRD.md`, SPECS, rule files | — unaffected: the anchors cite existing `AC-23`/`AC-26` rows unchanged |
+| **Encyclopedia** | — unaffected: no entry depends on FN-GATES §4.6 (`ENCYCLOPEDIA-SYNC.md` maps §3.1, §3.4, §6 and §7) |
+| **Graphify** | Rebuild after this commit |

@@ -143,6 +143,21 @@
   predates this repair. It holds on the `P14` trap, on citation and census not being clearance, and on homes staying
   deferred. Its hard-coded label list is not adopted, because the labels are read from §2.2. Its "G6" (hosted
   Supabase) is outside this repair.
+
+  **`U2` accepted; `U3` applied (`D-373`, 2026-10-01), read at `5a30b6c`.**
+  - **Reviews received.** Lane B's Level 1 approves `b7bc79d`/`e576add` (`773df96`). Lane C's Level 2 (Judge-supplied,
+    `lane_c_level2_u2_repair_review.md`, read at `773df96`, independent probe 35/35) approves the same revision. The
+    Judge confirmed both are complete.
+  - **Lane B's two qualifications are accepted.** 119 unchanged files are not 119 proven premature closures. The
+    assessment's production and data-loss consequences are risks, not observed outcomes.
+  - **`U3` (`D-364` item 10), at `31bcf3a`.**
+    - FN-GATES §4.6 gains the `[V1]` scenario rows `SM05-IN1`–`IN4`, anchored to `FR-15` (`AC-23`/`AC-26`), by the
+      Judge's choice.
+    - The manifest pins them and adds "Intake source fixtures" to both required sets.
+    - The `DOR-R7` receipt was re-issued as `pass`, 320/320, at a clean tree.
+    - `B-151` is classified and `Answered`/`Applied`.
+  - **Next.** Lane B verifies `B-151`; Lane B and Lane C review `U3` at Level 1 and Level 2. The review-accounting
+    ledger, the residual packet and `B-106`'s Product intake follow under the Judge's selected homes.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f

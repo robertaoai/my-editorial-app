@@ -4,8 +4,21 @@
 - **Kind:** dependency
 - **Phase:** 1
 - **Blocks:** declaring corrected SM05 build inputs complete or closing the reported omission solely on historical setup validation
-- **Status:** Open
-- **Lane A:** Acknowledged 2026-09-30, receipt only, read at `54a60d1` (received blob `60a2e0f`). The Judge
+- **Status:** Answered
+- **Lane A:** **Answered 2026-10-01 (`D-373`, applied at `31bcf3a`), read at `5a30b6c`.** `U2` was accepted at Level 1
+  (Lane B, `773df96`) and Level 2 (Lane C, supplied by the Judge; recorded in `B-150`, `5a30b6c`), and `U3` then
+  ran. The classification below covers the one finding the Judge named. Each intake case now has an explicit input,
+  proof and gate:
+
+  | Allegation | Classification | Evidence |
+  |---|---|---|
+  | The four intake cases were written in the SM05 DoD but not enforced by readiness tooling (`D-288` item 5) | **Confirmed missing in tooling; now corrected.** The written DoD already covered them (`D-287`, `D-288`) | FN-GATES §4.6 gains `SM05-IN1`–`IN4` as `[V1]` Given/When/Then rows: URL pass, admitted-Markdown pass, no-reference fail, no-URL Markdown refused. The rows are anchored to `FR-15` (`AC-23` for the pass cases, `AC-26` for the refusals), by the Judge's choice. The manifest pins all four under "Intake source fixtures", and the label is now in `failingFirstRequired` and `negativeRequired`. The `DOR-R7` receipt was re-issued as `pass`, 320/320, at clean `31bcf3a` |
+
+  **Gate and owner.** No SM05 prerequisite moves to SM06. Each case still needs its own database artifact and
+  failing-first evidence, built under the `D-242` work order after Gate 2 (Lane B). Readiness enforces that the
+  obligation exists; it does not prove the behaviour. No test, application or schema changed. Disposition: `Applied`;
+  Lane B, as raiser, verifies.
+  *Earlier receipt:* Acknowledged 2026-09-30, receipt only, read at `54a60d1` (received blob `60a2e0f`). The Judge
   names the historical finding in chat: the Jev manifest limit kept by `D-288` item 5 (from `B-142` item 6). Lane A's
   first reading at `54a60d1`: `scripts/jev/manifests/V1-SM05.json` has no `behaviours` row for the DoD label "Intake
   source fixtures", and the label is absent from `negativeRequired` and `failingFirstRequired`. The four cases are
@@ -13,9 +26,10 @@
   `B-150` S1 act; no manifest, packet or test changes.
   **P0c recorded 2026-09-30 (`D-364` item 10).** The Jev amendment supersedes `D-288` item 5. It is executed in unit
   `U3`, after `U1` and `U2`, and this entry's classification is recorded then. The entry stays `Open`.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** Judge clarifications, 2026-09-30; B-150 parent; D-242, D-264, D-276/D-277, D-287–D-289; linked coverage owners below
-- **Verified-At-Commit:** 54a60d10b1ac8869bb46e9f992ac593266e13dfb
+- **Verified-At-Commit:** 31bcf3a2038e29edf0d05c47f32fe60dceebacaf
 
 ## What happened
 
