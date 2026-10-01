@@ -414,6 +414,12 @@ control files, `SV-002.md` and `C-001` change in place.
 fragment `frag142.json`. `SV-002.md` (§2.3.2 ledger), `Modular_PRD.md` (a `B-106` intake receipt) and `B-150` change in
 place.
 
+**`D-381` (2026-10-02) — no file added or retired, but a sequencing disposition, stated explicitly.** It keeps `D-252`'s
+sequence above unchanged and names its receiver: the hosted `0002` migration and the A02 receipt move from "follow
+after `V1-SM05`" to `V1-SM06` (`SM06-P3-01`), and the queued Phase 3 CI items (`C-001`/`B-016`, `C-24`, `C-25`, `C-Q1`)
+are received there as `SM06-P3-02`–`05`. `V1-SM06.md`, `V1-SM05.md`, `SV-002.md`, `V1-BUILD-SPEC.md`,
+`.github/WORKFLOWS-SPEC.md`, `CONFIG_LOG.md`, `GOV-RES-001.md` and `scripts/checks/text-integrity.mjs` change in place.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

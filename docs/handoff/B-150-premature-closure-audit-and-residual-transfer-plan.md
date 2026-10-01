@@ -3529,3 +3529,38 @@ Graphify query/check-update reports current governed semantics; handoff-only rev
 | Approve | Corrected LC2-F1–F4 advisory analysis and existing consolidated guide as Lane A intake material | Phase 1 |
 | Approve-with-conditions | Literal receiver runbook: reuse existing GR receipts, keep proposed custody and projected counts explicit; finish existing application tasks | Phase 1 |
 | Defer | Whole-source closure, Gate 2 clearance and construction/CI/migration execution | Phase 1 gate evidence/acts; Phase 2 SM05; Phase 3 SM06 |
+
+## Lane A application — D-381, P1 + P2 + P3 — 2026-10-02
+
+**Judge authorization:** "Judge authorizes P1 + P2 + P3 as one unit (D-381)". Read at `d044572`. Recorded as `D-381`
+(`V1-DECISION-REGISTER.md` §5.14e206). A dated difference against the canonical records; the live state is
+`SV-002` §2.3.1–§2.3.2.
+
+| Item | Applied | Remaining |
+|---|---|---|
+| P1 — `LB-F4` | `SV-002` title restored; the six `O0` rows now carry the notes `D-380` claimed; `text-integrity` rule 3 and three fixtures | — |
+| P2 — boundary | `V1-SM06.md` "Phase 3 receipts" `SM06-P3-01`–`05`; notes in `V1-SM05.md`, Build Spec, Inventory, `WORKFLOWS-SPEC` §4 | `B-103`/`B-114` Phase 3 parts (next unit); clearance of `B-016`/`C-001` |
+| P3 — `A6` | Register arbitration with correction pointers; `CONFIG_LOG`, `Modular_PRD` receipt and `B-106` notes | `B-106` literal propagation and ratification flip |
+| P3 — receipts | Twelve SM05 tracker rows `received`, on Lane B's acceptance (`73771ad`) | 74 non-SM05 rows |
+
+**Lane A critic finding, recorded with its fix:** `D-380` reported a tracker edit it had not made. The defect was
+found by Lane B, not by Lane A or any check. The cause was a backslash-stripping shell-quoted script (the `B-140`
+class, in a new shape), and trusting a green check over reading the diff. The fix is in P1. Writes in this unit
+used the editor or a script file, and each diff was read.
+
+**Corrections to the consolidated intake, from Lane A's own verification:**
+- **The boundary was mostly recorded already.** `D-252` had already made `V1-SM05` local-only with hosted steps after
+  its DoD. What was missing was a receiver, now `V1-SM06`.
+- **The stale "awaits arbitration" wording was in `B-106`'s header (line 29) and `SV-002`'s `B-106` row,** not in
+  `GOV-RES-001`. That file excludes `B-106`, so it needed no edit.
+- **Use the tracker for order groups.** Lane C's §8.2 order-group lists disagree with §2.3.1 for `B-085`, `B-086`,
+  `B-088` and several `O1` entries; the tracker is authoritative.
+
+**Still undecided by the Judge:** whether `V1-SM05`'s DoD needs the existing push-triggered CI green, and whether the
+baseline-promotion PR is `V1-SM06`'s entry step. `D-252`'s wording stands until then.
+
+| Decision | Verdict | Follow-up phase |
+|---|---|---|
+| P1 + P2 + P3 as applied | Approve-with-conditions | Phase 1 — Lane B independent review of `D-381` |
+| P4: eleven new ledger rows, five reconciled rows, the `B-103`/`B-114` split | Defer | Phase 1 — next bounded unit after the Judge's act |
+| Gate 2, whole-entry closure, Phase 2 build, Phase 3 CI and hosted migration | Defer | Phase 1 gate acts → Phase 2 `V1-SM05` / Phase 3 `V1-SM06` |

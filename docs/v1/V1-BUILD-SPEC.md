@@ -29,7 +29,7 @@ meaning unchanged** — they predate the namespace split and are not renumbered 
 | Qualified ID | MMF | Status | Meaning |
 |---|---|---|---|
 | `V1-SM05` | `MMF-V1-CORE` | Not started; not selected. **`BLOCKED`** (packet status, `D-264`): `SETUP-SPIKE-000` attempt `SV-002` open | First working-software increment — a **limited Route-1 evidence slice** (`D-249`): it records and displays accepted business-stage, role, task and evidence facts and does not claim `transition:T*` execution |
-| `V1-SM06` | `MMF-V1-USABLE` | Not started; not selected | Second increment — **board/audit visibility and the bounded LinkedIn `ManualReady` event** (`D-243`, `D-249`); it creates no `Published` state, no automated WordPress delivery and no live-URL confirmation |
+| `V1-SM06` | `MMF-V1-USABLE` | Not started; not selected | Second increment — **board/audit visibility and the bounded LinkedIn `ManualReady` event** (`D-243`, `D-249`); it creates no `Published` state, no automated WordPress delivery and no live-URL confirmation. Also the first increment to receive Phase 3 CI work and the hosted migration, as a separate Project allocation (`D-381`) |
 
 **Current boundary and partial `CR-19` (`D-247`–`D-251`, 2026-09-21).** V1 is `V1-SM05` and `V1-SM06` and
 **ends at the bounded LinkedIn target-level `ManualReady` outcome.** **It satisfies the customer's `CR-19` scenario
@@ -55,6 +55,14 @@ and Supabase A01 receipts are `SETUP-SPIKE-000/S2` baseline evidence only (amend
 `D-251` production classification. `V1-SM05` readiness is exactly `DOR-R1`–`DOR-R6`, with no
 replacement identity gate — **amended 2026-09-24 (`D-259`): exactly `DOR-R1`–`DOR-R7`**, `DOR-R7` being
 the Jev System One readiness receipt.
+
+**Version boundary (`D-381`, 2026-10-02).** `V1-SM05` is Phase 2 code construction with local validation and
+no hosted migration. `V1-SM06` is the first increment to receive Phase 3 CI work and the hosted migration:
+`V1-SM06.md` "Phase 3 receipts" holds the hosted `0002` migration and A02 (`SM06-P3-01`, still in `D-252`'s order
+above) and the `C-001`/`B-016` required-check work, `C-24`, `C-25` and `C-Q1` (`SM06-P3-02`–`05`). This is a
+Project allocation under `NFR-04` → `AC-NF-03`, separate from `MMF-V1-USABLE`'s Product scope. **The local
+`0002` replay and `V1-SM05-FV-001`'s failing-first evidence stay `V1-SM05` obligations**, Gate 2 stays a
+pre-entry clearance check that cannot require `V1-SM06` execution, and existing repository CI is unchanged.
 
 **State-1 lifecycle, branch name and sequencing (`D-253`, 2026-09-22).** The State-1 readiness PR is
 **documentation-only**: no implementation change, and DoD gates acceptance and merge rather than
@@ -333,7 +341,8 @@ Work outside the active lane is **specified, never applied** (`D-56`). **Lane A 
 lane rule; they do not confer authority. The commit-message control records declared crossings and
 can refuse an undeclared multi-lane commit; it does not prevent every unauthorized file edit. `D-88` records the commit-message crossing control and `D-89`
 records the main-branch PR/status gate. Live Phase 3 settings and compatibility evidence remain
-with `B-016`/`C-001`; a documentation statement here is not verification of those settings.
+with `B-016`/`C-001`, received by `V1-SM06` as `SM06-P3-02`–`04` (`D-381`); a documentation statement here
+is not verification of those settings.
 Deployment is Lane C and GitHub — **`main` lagging this branch is expected until Phase 3 and is not
 a defect.** The development lane model is **not** the product Three Lines (`OD1`–`OD3`) and **not**
 `OD4`; `D-75` records why the vocabularies are kept apart.

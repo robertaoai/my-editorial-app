@@ -9109,6 +9109,10 @@ but **not executed in this pass** — that is its own substantial piece of work.
 migration applied — only the partition column is specified, and only to Lane B's work order. No
 lane selected, no phase closed.
 
+> **Correction pointer, 2026-10-02 (`D-381`).** The five-year editorial archival value above is no longer the first
+> UI-visible archival boundary: 90 days is (`A6`), and five years continues only as external record-class and
+> TAX/ACRA financial retention. The text above is kept as history. See §5.14e206.
+
 ---
 
 ## 5.14cp `D-135` — `B-040`'s Runbook Applied in Full: Documents Written, Check Installed
@@ -9212,6 +9216,10 @@ this pass): ✅ §6.5 added, obligation and owner only.
 to Lane B (`D-134` §2.2c), not applied here. `C-32`'s external archival job, restoration process,
 and disposal process remain deferred, Project Scope, post-launch. `AC-12a`, `G88`, `G41` remain
 open pending built/tested behavior. No lane selected, no phase closed.
+
+> **Correction pointer, 2026-10-02 (`D-381`).** Where this act's wording used the five-year value as the Product's
+> first archival case, the first UI boundary is now 90 days (`A6`); external ownership of archive, restoration and
+> disposal is unchanged. See §5.14e206.
 
 ## 5.14cq `D-136` — The Handoff Backlog Read End to End: `B-040` Classified, `B-057` Answered, and a Count Found Inside the Condition That Governs Counting
 
@@ -14480,6 +14488,10 @@ Neither is authorized here.
 **Adds warnings; changes no requirement and authorizes nothing.** No build, sprint, lane transition
 or configuration change. The external audit remains an **input**, its unsupported claims recorded
 above. **This act is Lane A's own work and is not independently reviewed.**
+
+> **Correction pointer, 2026-10-02 (`D-381`).** The 90-day `A6` declaration this act found inconsistent now has its
+> decision event: the Chief Editor's 2026-09-15 act and Judge clarification, arbitrated in §5.14e206. Its
+> configuration status still changes only with the remaining `B-106` propagation.
 
 ## 5.14e24 `D-199` — The `AT-001` Application Defect: `D-198` Applied a Row Its Act Did Not Authorize
 
@@ -25126,3 +25138,88 @@ closure of `B-071`, `B-150` or `B-103`; the remaining ledger reviews; any lane-s
 | `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files | — unaffected |
 | **Encyclopedia** | — unaffected: no scope or claim changes for Entries 05/06 |
 | **Graphify** | Semantic update and fragment re-merge in this unit |
+
+## 5.14e206 `D-381` — `D-380` Integrity Repaired; the `V1-SM05`/`V1-SM06` Version Boundary Recorded; `A6` Arbitrated; Twelve SM05 Receipts Received
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"Judge authorizes P1 + P2 + P3 as one unit (D-381)"*. It
+answers Lane B's consolidated intake in `B-150` (findings `LB-F4`, `LC-F1`, `LC-F5`, `LC2-F1`–`F4`) and the Lane C
+Level 2 review supplied by the Judge. Read at `d044572`. Two questions put to the Judge stay unanswered and are
+**not decided here**: whether `V1-SM05`'s DoD needs the existing push-triggered CI green (`AC-NF-03`), and whether
+the baseline-promotion PR is `V1-SM06`'s entry step. Both keep `D-252`'s current wording.
+
+### The decision
+
+**P1 — `D-380`'s application was defective, and is repaired.**
+1. `D-380` decision item 3 said the six `O0` tracker rows cite their verification evidence. **They did not.** The
+   script that applied it passed a regex through a shell-quoted `node -e`. The shell stripped its backslashes, the
+   pattern matched an empty string, and six notes, each prefixed with a stringified `undefined`, were spliced onto
+   `SV-002`'s title line. `bun run check` passed 19/19, because the title is not a tracker row and the rows still
+   counted closed through their live Verified headers. Lane A read the green check, not the diff. Lane B found it
+   (`LB-F4`).
+2. `SV-002` line 1 is restored, and the six `O0` rows (`B-097`, `B-100`, `B-112`, `B-113`, `B-116`, `B-139`) now
+   carry their notes. `D-380`'s text is kept as history; this item corrects it.
+3. **The check that missed it now fails on it.** `text-integrity` gains rule 3, no stringified `undefined` glued
+   to the preceding character. At the defective tree it reported exactly one finding, `SV-002.md:1`, across 265
+   files. Three fixtures cover the shape, legitimate prose, and the `docs/handoff/` evidence exemption.
+
+**P2 — the version boundary.**
+4. **`V1-SM05` is Phase 2 code construction with local validation, and no hosted migration. `V1-SM06` is the first
+   increment to receive Phase 3 CI work and the hosted migration.** `D-252` already made `V1-SM05` local-only; this
+   act names the receiver of what follows it.
+5. `V1-SM06.md` gains "Phase 3 receipts": `SM06-P3-01` hosted `0002` migration and A02 (still in `D-252`'s order:
+   accepted `V1-SM05` DoD, then an accepted baseline-promotion PR); `SM06-P3-02` the `C-001`/`B-016` required-check
+   transition as one unit; `SM06-P3-03` `C-24`; `SM06-P3-04` `C-25`; `SM06-P3-05` `C-Q1`. This is a Project
+   allocation under `NFR-04` → `AC-NF-03`, kept apart from `MMF-V1-USABLE`'s Product scope. No DoR or DoD box changes.
+6. **Retained in `V1-SM05`:** the disposable local PostgreSQL replay of `0002` and `V1-SM05-FV-001`'s failing-first
+   and passing evidence. Gate 2 stays a pre-entry clearance check and cannot require `V1-SM06` execution.
+   Existing repository CI is unchanged and not disabled.
+7. A receipt is custody. `B-016` and `C-001` still need their own clearance (`D-364` item 4). The Phase 3 parts of
+   `B-103` and `B-114` are not received here; they wait for the obligation-level split in the next unit.
+
+**P3 — `A6`, and the twelve SM05 receipts.**
+8. **`A6` arbitration.** Recording the Chief Editor's 2026-09-15 act and Judge clarification (`B-106`): 90 days
+   (`DATA_RETENTION_ARCHIVE_DAYS`) is the first my-editorial-app UI boundary for records under the
+   operational/PDPA workflow. At that boundary the application may consume a supplied external handoff or archive
+   fact and remove the record from its current view. It neither performs nor infers archival, disposal or deletion
+   from elapsed time. Where the external record is a TAX/ACRA financial record, the external records system then
+   applies the five-year rule, and a financial or legal retention duty prevents disposal at day 90. The editorial
+   UI does not display five years as a competing clock. Other external retention follows its own record-class
+   policy and is not invented here. This amends `D-134`/`D-135` only where five years was presented as the first
+   Product/UI archival value. It keeps `REUSE-WINDOW-90` separate and external ownership of archive, restoration
+   and disposal, and it authorizes no job, migration, deletion, scoring engine, sprint or release.
+9. `CONFIG_LOG.md` keeps the `A6` row `No — unratified`: `B-106` lets it become ratified only in the propagation
+   that also rewrites `Modular_PRD.md`'s retention paragraph, `AC-12a` and the Business Case. Those stay open under
+   `B-106`; until then this act governs where they conflict (`D-58`). `A4` is unchanged by this act.
+10. **The twelve SM05 tracker rows read `received`**: `B-084`, `B-095`, `B-096`, `B-104`, `B-118`, `B-121`,
+    `B-124`, `B-126`, `B-127`, `B-128`, `B-132`, `B-133`, on Lane B's independent acceptance (`B-150`, read
+    `ba03794`, recorded `73771ad`). Receipt only: no whole-entry closure and no execution credit.
+11. `LC-F5` needs no edit: `V1-SM05`'s `B-104` row already names the Chief Editorial Desk as the ranking role, and
+    Desk Editor is the destination of that routing, not its executor.
+
+### Not given by this act
+
+Gate 2 clearance; any non-SM05 clearance; closure of `B-071`, `B-103`, `B-106`, `B-150` or any whole entry; the
+eleven new ledger reviews; the `B-103`/`B-114` split; any Phase 3 work order, hosted action or lane-state change;
+an answer to the two open questions above.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e206; correction pointers at `D-134`, `D-135`, `D-198` |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `V1-SM06` row; version-boundary paragraph; Phase 3 settings pointer |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-381` sequencing paragraph; no file added or retired |
+| **`docs/v1/work-packets/V1/V1-SM06.md`** | ✅ "Phase 3 receipts" section |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ version-boundary note under `D-252` |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ title repaired; six `O0` rows; twelve SM05 rows `received`; `B-106` row |
+| **`.github/WORKFLOWS-SPEC.md`** | ✅ §4 receiving-packet note |
+| **`docs/Modular_PRD.md`** | ✅ `[V1]` arbitration note in the `B-106` receipt; retention paragraph and `AC-12a` rewrite pending (`B-106`) |
+| **`docs/CONFIG_LOG.md`** | ✅ `A6` row note; status unchanged |
+| **`scripts/checks/text-integrity.mjs`**, **`scripts/fixtures/suites.mjs`** | ✅ rule 3 and three fixtures |
+| **`docs/handoff/B-106-a4-a6-config-ratification.md`** | ✅ Lane A application note; entry stays `Open` |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected: no lane or phase state changes |
+| **`GOV-RES-001.md`** | — unaffected: it excludes `B-106`, and no new governance receipt is added |
+| **Business Case, Blueprint, Fn Specs, SPECS, rule files** | — unaffected here; the Business Case `A6` wording is `B-106`'s remaining propagation |
+| **Encyclopedia** | — unaffected: no file mapped to Entries 01–06 changed |
+| **Graphify** | Rebuild at this commit, re-merge fragments, then the semantic fill as the last act |

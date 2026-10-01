@@ -2488,6 +2488,28 @@ export async function textIntegrity(results) {
     expect: "has no separator after the colon",
   });
   await fixture(results, {
+    name: "text-integrity: a spliced undefined after a heading (the D-380 shape, rule 3 from D-381)",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(DOCS_README, readmeOrig + "\n# Attempt record (setup validation)undefined; a note |\n"),
+    restore: restoreAll,
+    expect: 'spliced "undefined"',
+  });
+  await fixture(results, {
+    name: "text-integrity: prose that says undefined is not a finding",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () =>
+      write(DOCS_README, readmeOrig + '\nThe domain is **undefined**, the fallback "undefined" is gone, and x is undefined.\n'),
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
+    name: "text-integrity: docs/handoff/ may quote a spliced undefined as evidence",
+    modulePath: CHECK("text-integrity.mjs"),
+    mutate: () => write(B140, b140Orig + "\nQuoted evidence: (setup validation)undefined; a note\n"),
+    restore: restoreAll,
+    shouldPass: true,
+  });
+  await fixture(results, {
     name: "text-integrity: docs/handoff/ may quote a lost-separator path as evidence",
     modulePath: CHECK("text-integrity.mjs"),
     mutate: () => write(B140, b140Orig + "\nQuoted evidence: `C:gitmy-editorial-app`.\n"),

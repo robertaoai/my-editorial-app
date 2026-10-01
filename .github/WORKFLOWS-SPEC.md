@@ -62,6 +62,11 @@ tallies from four documents after they drifted; `bun run check` prints the total
 
 ## 4. Queued items
 
+**Receiving packet (`D-381`, 2026-10-02).** These items, with `C-001`/`B-016`'s `C-24` and `C-25`, are received by
+`V1-SM06` as `SM06-P3-02`–`05` — the first increment to carry Phase 3 CI work. Receipt is custody, not a work
+order: nothing below runs before a separately authorized Phase 3 work order and lane act. The existing `ci.yml`
+job is unchanged.
+
 ### `C-Q1` — `fetch-depth: 0`, so `source-sweep` runs in CI
 
 **Change:** add `with: fetch-depth: 0` to the `Checkout` step in `ci.yml`.

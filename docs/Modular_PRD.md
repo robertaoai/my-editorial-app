@@ -704,6 +704,14 @@ earlier guess.
 > act** after the reads `B-106` requires (`D-134`, `D-135`, `D-198`, `B-085`). Until then, the text above governs.
 > The runtime values in `lib/config/build-config.ts` sit on Lane B's surface (`D-56`). This receipt establishes
 > ownership; it does not clear `B-106` (`D-364` item 4).
+>
+> **Arbitrated `[V1]`, 2026-10-02 (`D-381`).** The Register now records the sequential model: 90 days is the first
+> UI-visible operational/PDPA boundary, where the record leaves the current view and is handed to the external
+> workflow (never deletion, never inferred from elapsed time); where the external record is a TAX/ACRA financial
+> record, the external system then applies five-year retention, and a financial or legal hold prevents disposal.
+> The editorial UI shows no five-year value. **The paragraph above and `AC-12a` are not yet rewritten**: that
+> literal correction is `B-106`'s remaining propagation. Until it lands, `D-381` governs where they conflict
+> (`D-58`).
 
 **Rejected work archives; published work does not — and that is two regimes, not an inconsistency**
 *(resolved `D-115`)*. **GRC on retraction binds data while it is in the CURRENT set**, so:

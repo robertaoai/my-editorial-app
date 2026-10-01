@@ -17,6 +17,12 @@
 //      `C:Users…` instead of `C:\Users…`. **`docs/handoff/` is excluded from
 //      this rule only**, because an entry may quote the corrupted rendering as
 //      evidence (`B-140` does), and those entries belong to the raising lane.
+//   3. No stringified JavaScript `undefined` glued to the preceding character,
+//      e.g. `(setup validation)undefined;` (`D-381`). A regex whose backslashes a
+//      shell stripped matched an empty string and spliced a callback's undefined
+//      capture into `SV-002`'s title (`D-380`), every check green. Prose such as
+//      `is **undefined**` or `"undefined"` is preceded by a space, `*`, a quote or
+//      a bracket and stays legal. Same `docs/handoff/` exemption as rule 2.
 //
 // Discovery failing is a failure, never a pass (`B-018` defect 1), and finding
 // zero markdown files is a failure too (`B-018` defect 2).
@@ -32,6 +38,9 @@ const NAME = "text-integrity";
 const CONTROL = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]|\r(?!\n)/;
 // A backtick, a drive letter and a colon, then anything but a separator.
 const LOST_SEPARATOR = /`[A-Za-z]:(?![\\/])[^`\s]/;
+
+// A lowercase `undefined` with no space, emphasis, quote or bracket before it.
+const SPLICED_UNDEFINED = /[^\s"'`(\[*_\/-]undefined\b/;
 
 const QUOTES_EVIDENCE = /^docs\/handoff\//;
 
@@ -93,6 +102,12 @@ export function run() {
             `${p}:${i + 1}: drive path ${JSON.stringify(m[0] + "…")} has no separator after the colon — backslashes were lost in transit (\`B-140\`, \`D-297\`)`,
           );
         }
+        const u = raw.match(SPLICED_UNDEFINED);
+        if (u) {
+          findings.push(
+            `${p}:${i + 1}: spliced "undefined" after ${JSON.stringify(u[0][0])} — a script wrote an undefined value into the text (\`D-380\`, \`D-381\`); rewrite the line from its source`,
+          );
+        }
       }
     });
   }
@@ -102,7 +117,7 @@ export function run() {
     findings,
     detail:
       findings.length === 0
-        ? `${paths.length} markdown file(s): no control character; no drive path missing its separator (docs/handoff/ exempt from the path rule only)`
+        ? `${paths.length} markdown file(s): no control character; no drive path missing its separator; no spliced "undefined" (docs/handoff/ exempt from the path and splice rules only)`
         : `${findings.length} finding(s) across ${paths.length} markdown file(s)`,
   };
 }
