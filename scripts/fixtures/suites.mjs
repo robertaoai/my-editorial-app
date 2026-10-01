@@ -1757,6 +1757,38 @@ export async function recloseRecordForm(results) {
 }
 
 /**
+ * `B-116` item 5 (`D-375`) — singleton cardinality. A lifecycle or audit field
+ * appears at most once in the header; fenced examples and records below a
+ * `## ` heading stay repeatable.
+ */
+export async function singletonCardinality(results) {
+  const orig = read(ENTRY);
+  const restore = () => write(ENTRY, orig);
+  const firstHeading = orig.search(/^## /m);
+  const head = orig.slice(0, firstHeading);
+  const body = orig.slice(firstHeading);
+  const vac = (/^- \*\*Verified-At-Commit:\*\*.*$/m.exec(orig) || [])[0];
+  const status = (/^- \*\*Status:\*\*.*$/m.exec(orig) || [])[0];
+  const cases = [
+    { name: "cardinality: a second header Verified-At-Commit (the B-113 shape) FAILS", text: `${head.trimEnd()}\n- **Verified-At-Commit:** 33687530f36a0bd3fdd1b06f625404cb9efdf827\n\n${body}`, expect: "**Verified-At-Commit:** appears 2 times in the header" },
+    { name: "cardinality: a second header Status FAILS", text: `${head.trimEnd()}\n${status}\n\n${body}`, expect: "**Status:** appears 2 times in the header" },
+    { name: "cardinality: a stale Verified-By pair in the header (the B-071 shape) FAILS", text: `${head.trimEnd()}\n- **Verified-By:** — not independently verified; dispositioned by Lane A\n\n${body}`, expect: "**Verified-By:** appears 2 times in the header" },
+    { name: "cardinality: a fenced example repeating header fields stays green", text: `${head.trimEnd()}\n\n\`\`\`markdown\n${vac}\n${status}\n\`\`\`\n\n${body}`, shouldPass: true },
+    { name: "cardinality: the same field repeated BELOW a ## heading stays green", text: `${orig}\n\n## Example record\n\n${vac}\n`, shouldPass: true },
+  ];
+  for (const c of cases) {
+    await fixture(results, {
+      name: c.name,
+      modulePath: CHECK("handoff-response.mjs"),
+      mutate: () => write(ENTRY, c.text),
+      restore,
+      shouldPass: c.shouldPass ?? false,
+      expect: c.expect,
+    });
+  }
+}
+
+/**
  * `D-364` U2 — the Gate 2 mode: reports always, fails only under a claim,
  * and then fails on exactly item 7's conditions (`D-367` item 3).
  */
@@ -2490,6 +2522,7 @@ export const SUITES = [
   ["return record form (`B-097`)", returnRecordForm],
   ["terminal annotation record form (`B-113`)", terminalAnnotationForm],
   ["re-close record and Verified-By header rule (`D-364` U1)", recloseRecordForm],
+  ["singleton header cardinality (`B-116` item 5, `D-375`)", singletonCardinality],
   ["terminal-return history-aware detection (`B-097`)", terminalReturnDecision],
   ["terminal-return episode boundaries and preview (`D-368`)", terminalEpisodeBoundaries],
   ["Gate 2 mode: report always, fail only under a claim (`D-364` U2, `D-367`)", gate2Mode],

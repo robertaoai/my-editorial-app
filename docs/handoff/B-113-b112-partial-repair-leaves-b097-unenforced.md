@@ -20,9 +20,11 @@
 - **Evidence:** Chief Editor selected Option A (this entry's own "Judge clarification" section);
   Option A fully implemented at `27efc2d`/`0d2cc2b` — see B-097's "Chief Editor Option A applied in
   full, 2026-09-16"; `bun run check` 18/18, `terminal-return` 75/75 clean; `bun run fixtures`
-  143/143; Graphify synced at `0d2cc2b`
-- **Verified-At-Commit:** 0d2cc2bd5ea08097d055135337e08b82bda9f581
-- **Verified-At-Commit:** 33687530f36a0bd3fdd1b06f625404cb9efdf827
+  143/143; Graphify synced at `0d2cc2b`. *Audit anchor made single on 2026-10-01 (`B-116` item 2, `D-375`). The
+  header had carried two `Verified-At-Commit` fields: `0d2cc2b` (the Option A implementation) and `3368753` (an
+  unrelated `B-115` commit read at the time). The one review point is now `284b4ae`, the commit that records the
+  complete Option A packet (`27efc2d`, `0d2cc2b`, and the recorded answers in `B-097` and this entry).*
+- **Verified-At-Commit:** 284b4ae87b7d80fc246d8832ecc038682f076c9a
 
 ## What happened
 

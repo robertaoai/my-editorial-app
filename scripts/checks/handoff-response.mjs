@@ -108,6 +108,12 @@ const DISPOSITIONS = /^(Acknowledged|Answered|Withdrawn)\b/i;
 // blank, which was `B-051`'s actual complaint.
 const CLOSURE_ONLY = ["Resolution", "Verified-By", "Verified-At-Commit"];
 
+// `B-116` item 5 (`D-375`): header fields that may appear at most once.
+const SINGLETONS = [
+  "Kind", "Phase", "Receiver", "Status", "Resolution",
+  "Verified-By", "Verified-At-Commit", "Follow-up-Tier", "Superseded-By",
+];
+
 // `D-124`, raised as `B-055`. The run identifiers are ASSIGNED in the live phase
 // record (`§5.0a`) and copied into a report — a report does not mint its own.
 // Parsed by matching backticked identifiers inside that section rather than by
@@ -660,6 +666,27 @@ export function run() {
     returned += episodes.returns;
     reclosed += episodes.recloses;
     annotated += checkTerminalAnnotations(text, path, findings);
+
+    // `B-116` item 5 (`D-375`). SINGLETON CARDINALITY. `field()` reads the first
+    // match, so a second `Verified-At-Commit` (`B-113`) or a stale pre-return
+    // `Verified-By` pair (`B-071`) stayed green while different readers could
+    // review different states. Each top-level lifecycle or audit field appears
+    // at most once in the header — everything before the first `## ` heading,
+    // fences stripped. Records below a heading (Return, Re-close, Terminal
+    // annotation) stay repeatable by design.
+    {
+      const plain = stripFences(text);
+      const cut = plain.search(/^## /m);
+      const head = cut < 0 ? plain : plain.slice(0, cut);
+      for (const name of SINGLETONS) {
+        const n = (head.match(new RegExp(`^-[ \\t]*\\*\\*${name}:\\*\\*`, "gm")) || []).length;
+        if (n > 1) {
+          findings.push(
+            `${path}: **${name}:** appears ${n} times in the header — a lifecycle or audit field is a singleton, and the first-match reader silently ignores the rest. Keep one; move history into prose (\`B-116\`, \`D-375\`)`,
+          );
+        }
+      }
+    }
 
     // `D-364` (`U4-G8`). Header consistency the lifecycle fields rely on.
     // `B-127`/`B-128` carried `Resolution: Applied` beside the raised,

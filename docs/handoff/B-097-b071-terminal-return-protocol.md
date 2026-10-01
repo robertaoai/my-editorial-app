@@ -16,8 +16,12 @@
   stays `Open`: its return-protocol prevention controls (the SOP/template/check additions this
   entry itself drafted) are not yet applied. See *Child dispositions* below.
 - **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Verified-At-Commit:** 389d22a373c2004cb1ec1fe6693eff6c550900c0
+- **Verified-At-Commit:** 284b4ae87b7d80fc246d8832ecc038682f076c9a
 - **Evidence:** B-071 header and Rounds 54–56; Chief Editor/Judge's 2026-09-14 `Judge Approved: decision-tree decision` instruction and present direction to name the return condition and act; `docs/handoff/README.md` sections *Response is not closure* and *Worked scenarios*; `docs/handoff/TEMPLATE.md`; `handoff-response`, `closure-readiness` and `channel-docs`; storyboard Paths A/B; Route-1 crosswalk and B-071 `B071-R197`, `R204`–`R208`; Graphify query read with the stale-revision qualification below.
+  *Header evidence aligned on 2026-10-01 (`B-116` item 4, `D-375`).* `Verified-At-Commit` read `389d22a`, which
+  predates the Option A application. It now reads `284b4ae`, the commit that records the complete packet: the
+  implementation at `27efc2d`/`0d2cc2b`, and the "Chief Editor Option A applied in full" section below. The header
+  and body now name one review point. `Applied` is unchanged; Lane B verifies after `B-113` and `B-112`.
 
 ## What happened
 

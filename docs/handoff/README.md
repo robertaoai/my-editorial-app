@@ -275,6 +275,12 @@ costs a red condition; recording an unearned `Verified` costs the meaning of the
 `closure-readiness` (`C-14` check 13) reads those fields and reports the matrix. **There is no
 second backlog file** — that would restate the entries, and restatements drift (`G55`).
 
+**Each header field is a singleton** (`B-116`, `D-375`). `Kind`, `Phase`, `Receiver`, `Status`, `Resolution`,
+`Verified-By`, `Verified-At-Commit`, `Follow-up-Tier` and `Superseded-By` each appear at most once before the first
+`## ` heading. The shared reader takes the first match, so a second copy is silently ignored while a different reader
+may review it. Put superseded values in prose. `handoff-response` enforces this. Records below a heading (Return,
+Re-close, Terminal annotation) stay repeatable.
+
 **`Verified-At-Commit` must be a commit that exists.** Hexadecimal, and proven with `git cat-file`
 on a full-history run; `pending` is not a commit. On a shallow CI checkout the check reports a
 **clearly labelled limited** result rather than claiming it verified existence.
