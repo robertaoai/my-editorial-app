@@ -173,7 +173,7 @@
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f
 
-**Current review pointer:** the final "Lane C revised guide — Lane B acceptance criteria and trace consolidation — 2026-10-01"
+**Current review pointer:** the final "Lane C follow-up assessment receipt — ready for Lane A with retained conditions — 2026-10-01"
 below controls current progress and qualifies the preceding reviews. Earlier planning and rejected-repair receipts remain historical;
 the original parent-binding and preparation-label findings are repaired in the tested scope. D-372's exact keys/no-alias decision supersedes earlier P14-alias proposals.
 The same three pending parents and full trace matrices remain. Exact child keys follow D-370. B-130 is
@@ -2276,3 +2276,49 @@ was finalized; its earlier invalid-label report was an adapter omission, not a r
 | Census as false-closure proof, strict new serialization, or receipt as completion | Reject | Phase 1 — replace inference with individual evidence and existing Register dependencies |
 | B-150/B-104 closure, exhaustive transfers and Gate 2 | Defer | Phase 1 → Gate 2 — complete accounting, clearance/setup evidence and Judge determinations |
 | Software construction and runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active; held target retains its separate authorization |
+
+## Lane C follow-up assessment receipt — ready for Lane A with retained conditions — 2026-10-01
+
+**Read:** clean `f276b9ee2ff07d4ee5b48d720aa6097921b4a16a`. Judge-supplied attachment
+`e6c005dd-9c4f-4e60-bf1a-639bb17d2911/Pasted text.txt`, SHA-256
+`8dfae7f2c198193468d22da15e643d22f36990d26a7f6c799efa09ea8904066b`, and Downloads
+`lane_c_level2_u2_repair_review.md`, SHA-256
+`af1c0d43c7542a4481001d3e4d008dd98e5f1269da2512ac7805789cc3fb0376`, are advisory inputs.
+The latest guide removes the categorical 119-premature-closures assertion and corrects its preceding
+cf00d6f baseline. Completed U3/B-151/D-374 review scope is retained. No new source/control blocker
+to Lane A's existing Phase 1 follow-up is established; no new repair, review gate or handoff is requested.
+
+**Corrections retained before consuming the guide:** its new full SHA
+`f276b9ec1287c897f26d36e2f125a0a3821035a9` is a bad object. Use the actual read SHA above,
+or Lane A's later actual read, wherever an answer/ledger pin is recorded. Its §8.4 still calls 152
+remaining before B-151's row exists; retain 153 now and derive 152 only after the valid third row.
+Its "each child depends strictly" sentence/sequence diagram does not prohibit concurrent incremental
+review/refinement or independent setup preparation. Its worklog still assigns B-150 exclusively to
+Lane A: B-series raising/review text is Lane B's; Lane A alone writes its answer/canonical sources.
+Its description of all O2–O4 as held needs GR-002's documentation-action exception; the historical
+transition contract itself remains held. The source matrix above supplies the distinction.
+
+**One global top three, consume the preceding acceptance table:** (1) Lane A records review
+receipts/B-151's bounded ledger entry and refreshes §2.3.1 currency; (2) populates valid historical
+review records across all transactions/children/returns; (3) refines surviving obligations, preserves
+their receiving scope and verifies transfer/clearance, including separate A6 arbitration. Reject
+missing-input/runtime proof inferred from Jev, or closed sources inferred from custody/census.
+These remain tasks for Lane A's answer, not work already completed by this assessment.
+
+The preceding Chief Editor/customer/story/MMF and B-104/global-O0–O5 matrices, critical-artifact
+chain and accounting are the single consolidated plan; do not duplicate them. Current source
+population/ledger/clearance dispositions have not changed. Receiving-backlog totals remain
+unestablished pending full refinement; three GR receipts and B-106's Product receipt do not establish
+complete accepted transfers or zero execution remaining. B-104/B-150 stay Open.
+
+Graphify query/check-update confirms pending semantic descriptions/labels. Governed baseline
+a825260 and frag142 are unaffected by this excluded receipt; no rebuild follows. Future Lane A
+source changes retain/re-merge curated fragments under G51. No build, source answer or runtime
+value change is applied here.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Existing completed bounded reviews, including current U3 Level 1/2 scope | Approve | Phase 1 — retain exact proof; no whole-parent clearance |
+| Lane A intake and existing consolidated follow-up plan | Approve-with-conditions | Phase 1 — correct full read SHA/count/dependency/ownership wording and apply the preceding top-three acceptance criteria |
+| Whole review accounting, residual acceptance and B-104/B-150/Gate 2 completion | Defer | Phase 1 → Gate 2 — keyed coverage, independent clearance/setup evidence and Judge determinations |
+| Software construction/runtime proof | Defer | Authorized Phase 2 — bounded work order and Lane B Active; held scope keeps its own authorization |
