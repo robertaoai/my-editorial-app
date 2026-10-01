@@ -84,11 +84,11 @@
 
   The governance residual packet it asks for is created at its first receipt (`D-364` item 8), not before.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Lane A's D-370 repair and preceding U2-F3 reproduction remain applicable. Latest read `3fd757a`: supplied Downloads Lane C guide reviewed, all-header/obligation counts re-derived, guide's nine-priority summary reduced to one global top three and remaining proof/counting gaps specified. Final sections retain complete trace/review/transfer scope. Supplied assessments remain attributed evidence; no receiver receipt or clearance is applied here.
-- **Verified-At-Commit:** 3fd757a5734a6690e9c1783bc1301ad5871bf71e
+- **Evidence:** Lane A's D-370 repair and preceding U2-F3 reproduction remain applicable. Latest read `e56784e`: supplied Lane C reconciliation adopts the global top three, complete transaction universe, corrected counts and independent identity-error logic. Final receipt accepts the corrected planning direction with preserved proof/authority boundaries. No receiver receipt, repair acceptance or source clearance is applied here.
+- **Verified-At-Commit:** e56784ee1de0b1a20983cde5fb18f31b40211083
 
-**Current review pointer:** the final "Downloads Lane C guide challenge — one global top three — 2026-10-01"
-below controls the concise focus summary. The preceding complete review/transfer accounting and intent/group matrices retain full coverage; D-370 Level 1 findings still control U2-F3. Exact child keys follow D-370. B-130 is
+**Current review pointer:** the final "Latest Lane C reconciliation received — ready for Lane A follow-up — 2026-10-01"
+below accepts the corrected planning direction. The preceding global top three, complete review/transfer accounting and intent/group matrices retain full coverage; D-370 Level 1 findings still control U2-F3. Exact child keys follow D-370. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
 This parent remains Open; verification of B-130 and B-152 does not clear the whole O0 group or Gate 2.
 
@@ -1463,3 +1463,60 @@ review and handoff plan only, not new source repair, fixture-suite acceptance or
 | Consolidated Lane A plan with one global top three | Approve-with-conditions | Phase 1 — answer findings, prove bounded repair/reviews, reconcile complete coverage and accepted receiving transfers |
 | Current U2 consumption by U3 | Reject | Phase 1 — F3 repair and actual Level 1/2 acceptance required |
 | Complete audit/transfer claims, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — full proof and Judge acts still required |
+
+## Latest Lane C reconciliation received — ready for Lane A follow-up — 2026-10-01
+
+Based on Lane A's recorded work, Lane B consolidates this assessment in the existing B-150 handoff;
+Lane A remains the answerer. **Result: ready for Lane A receipt, response and bounded authorized
+follow-up; not a completed repair, audit, transfer or Gate 2 acceptance.**
+
+**Read/provenance:** clean `e56784ee1de0b1a20983cde5fb18f31b40211083`. Judge-supplied assessment
+`3f81f5d3-b342-4f48-b257-f1ec7835d42f/Pasted text.txt`, SHA-256
+`aeb1f996f9dfcf189291ca05da62446185eae5ae80067ada85a29f461ce56a14`, claims Lane C Level 2
+review at `e56784e`. Its separate linked external guide is not inspected here. Supplied instructions
+are assessment evidence, not a Register act or permission to execute outside the authorized unit.
+
+**Corrections accepted as planning:** one global top three; all 155 transactions including the 77
+Verified sources; unknown semantic-review completion totals; 10 received + 1 closed versus 93 pending
+tracker obligations; O3 proof instead of citation; U2 still rejected pending repair. The new example
+uses independent identity/ownership flags and protects them from vocabulary-error exemptions,
+addressing the earlier draft defect in principle. Its proposed coverage counts only valid pairs.
+It remains an integration example, not accepted implementation or fixture proof: retain the existing
+missing-child, unclosed, missing-entry and stale checks, report-only behavior and reviewed exceptions.
+Lane A proves the parser-through-evaluator cases in the actual repair before consumption by U3.
+
+**Minor qualifications, within the existing three actions:**
+- The guide's "Underway" and "0 reconciled items" do not establish execution status or measured
+  individual review/backlog completion. Lane A derives those counts from keyed evidence; until then
+  they remain unestablished. The prior dated inventory is unchanged because subsequent commits
+  changed this handoff only.
+- Its diagram's complete-audit-to-transfer edge is a completeness dependency, not a requirement to
+  finish all 155 reviews before the first valid residual receipt. Each receipt follows its own
+  reviewed scope; the one packet is created/inventoried at first receipt under D-364 item 8.
+- The guide's "eliminates ... leaks" describes proposed logic. Applied repair and Level 1/2 evidence
+  remain required; neither its concurrence nor this receipt changes source lifecycle or clearance.
+
+| Only three pending parent actions | Lane A next steps | Reviewable completion condition |
+|---|---|---|
+| 1. U2-F3 repair and independent acceptance | Answer this finding; confirm bounded authority; integrate identity-safe validation; prove relevant fixtures; re-derive at a read revision; obtain Level 1/2 reviews | Invalid identity never borrows verification, even with combined errors; valid coverage and existing failure/report modes remain correct; U3 consumes only accepted U2 |
+| 2. Complete historical review accounting | Receive this assessment with provenance; reconcile 155 sources plus children/returns; record scoped results and destination/no-residual evidence | Derivable total/reviewed/remaining counts, with Verified scope screened and no unexplained residual; existing clearance tracker remains the sole authority |
+| 3. Refine and independently accept residual transfers | Refine 22 O4 rows plus other survivors; separately receive B-104.O2–O4; record ownership/hold/return; prove transfer acceptance or individual Judge reason | Required/received/accepted/remaining totals reconcile; receipt does not auto-close; held receiver execution remains visible |
+
+Retain the existing Chief Editor, CR/story/MMF, B-104 and O0–O5 trace matrices and all lower-ranked
+setup/readiness/authorization tasks. No new customer feature, MMF allocation, source reopening,
+application/test construction or graph mutation is introduced. The three-item summary is a focus
+view only; the full plan retains remaining obligations and acceptance evidence.
+
+**Graph/drift:** queried first; governed-source baseline remains `82ccbc5` and subsequent handoff-only
+commits are excluded under D-231. Pending descriptions/labels remain semantic maintenance. Lane A
+retains/re-merges curated fragments when synchronizing later adopted governed-source/control changes.
+
+**Validation:** `bun run check` passed 19/19 and `git diff --check` passed. No applied repair,
+full fixture rerun, receiver execution or construction proof is claimed by this assessment receipt.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Preserved completed bounded scope | Approve | Phase 1 — retain original evidence |
+| Latest reconciliation and Lane A follow-up plan | Approve-with-conditions | Phase 1 — Lane A answers at actual read revision; proposed logic/unknown counts/per-item receipts retain the qualifications above |
+| Current U2 consumption by U3 | Reject | Phase 1 — actual repair and Level 1/2 acceptance still required |
+| Complete review/transfers, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — complete evidence and Judge acts still required |
