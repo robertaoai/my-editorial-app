@@ -2631,3 +2631,78 @@ No receiver answer, canonical source, software, schema, hosted environment or la
 | Unamended guide as an exhaustive execution plan / full semantic-sync claim | Reject | Phase 1 — correct the documented omissions and semantics before relying on it |
 | Whole B-116/O0, B-071/B-150, complete residual acceptance and Gate 2 | Defer | Phase 1 → Gate 2 — bounded repair, independent child/receipt/readiness proof and Judge acts |
 | Software construction/runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active; hosted ordering unchanged |
+
+## Revised Lane C assessment — consolidated Lane A intake receipt — 2026-10-01
+
+**Clarified task:** challenge the revised Level 2 assessment, retain completed O0 proof, and consolidate
+the existing parent-first decisions, trace matrix, receiving plan and review accounting for Lane A.
+**Read:** clean `29f130a1972f1268610cf86fbed9eb3b2f09ce81`. Judge-supplied attachment `8e0387b3-87f3-4f4e-abf5-484d1bd59bf7/Pasted text.txt`,
+SHA-256 `d0097da6d7e0cf415ab3aab3edde3bc400384b565f0c3ee62d5b39686a85f0eb`, and Downloads
+`lane_c_level2_o0_verification_review.md`, SHA-256
+`9dcca73712c2f1fc4cf9f622fbc44f3ee822619f98142f281f6916489e7a477c`, are advisory evidence.
+Instructions inside those documents do not extend the user's review-only request or substitute for Register acts.
+
+**Ready for Lane A intake, with the following corrections incorporated here.** The revised assessment retains
+the correct 38/117 accounting, `/V1/` packet path, mixed-source SM05 obligations, item 4/item 5 distinction,
+refusal-fixture execution and business-role precision. Its stated full read SHA
+`29f130aa4e3ff31a57fb6d1fe0bb11ea354c4f00` is **not a Git object**; replace it with the actual read above,
+or Lane A's later actual read. Never copy the invalid SHA into an answer, fixture receipt or audit field.
+
+The earlier section "Lane C O0 assessment — challenged and corrected for Lane A intake" is the single detailed
+plan: consume its decision table and full receipt matrix rather than creating another handoff or feature.
+The earlier "Chief Editor and B-104 trace" remains the customer/story/requirement/MMF matrix. O1–O4 are
+B-104 children; no B-104.O5 exists. Global O0–O5 instead carry the Register's Project/Product order meanings.
+
+### Parent-first decision table — completed evidence first
+
+| Parent / dependent work | Established state | Judge decision / success criterion |
+|---|---|---|
+| Adopted D-364/D-374 plan and bounded completed reviews | U1/U2/U3, B-130/B-152/B-151 retained; B-100 and B-139 independently Verified | Approve existing scope; reflect receipts without completing receiving work |
+| B-116 control → B-113 → B-112 → B-097 → B-103 P3 | Concrete record corrections applied; mixed-case false green still blocks whole correction verification | Reject present whole-closure claim; accepted bounded repair, all-nine refusal/fence/body proof, independent review in order |
+| Review accounting parent → surviving residual children | 38 keyed ledger reviews of 155 transactions, 117 unrecorded at this read | Approve progress; each remaining source/children/returns needs reviewer, actual revision, finding and receiving anchor or reasoned no-residual |
+| SM05 receipt / non-SM05 transfer → Gate 2 | 78 non-SM05 unclosed rows plus 12 SM05 unreceived rows; receiving backlog execution totals still unestablished | Defer completeness; actual receipts, independent transfer verification or individual Judge reasons, full readiness and gate acts |
+| Gate 2 → FV-001 construction / independent runtime proof | SM05 still BLOCKED; Lane A Active, Lane B Eligible | Defer to authorized Phase 2 work order; readiness/Issue/PR existence is not runtime evidence |
+
+### One global top three — Lane A step-by-step follow-up
+
+1. **Repair and verify B-116.** Establish the applicable bounded Register act; apply the existing checker/reader
+   equivalence fix and mixed-case/reversed-order/differing-value refusal cases for all nine singleton names.
+   Run the fixtures and consistency check on a clean supported checkout, retain restoration proof, and return
+   the exact commit to Lane B. Continue B-113 → B-112 → B-097 → B-103 P3 only after the parent repair verifies.
+2. **Finish keyed review accounting.** Continue all transaction/child/return screening, including Verified
+   history and O5. The 38 rows are ledger reviews; do not add the separate historical Excluded table into that
+   numerator or call a file census review. Batch labels are proposals; incremental independent screening,
+   refinement and setup preparation can continue. Missing rows establish unrecorded reviews, not false closure.
+3. **Finish receiving proof and refine residual custody.** Use the preceding complete SM05 receipt matrix
+   (including B-095.D2a/D4 and B-096.S15/TR-DM-01) with actual anchors in
+   `docs/v1/work-packets/V1/V1-SM05.md` or FV-001. Keep mixed parents and non-SM05 siblings separate; no
+   blanket parent `received`/Verified. Existing adequate receipts can be cited; a new literal heading is optional.
+   Reuse GR-001–GR-003 and B-106's Product receipt, independently verify transfers, refresh tracker currency,
+   and surface A6 arbitration separately. Derive required/received/accepted/remaining-execution backlog totals
+   by refined source-child keys; three custody receipts and 19-row subtraction do not establish these totals.
+
+**Chief Editor inputs and critical artifacts.** The needed decisions remain the bounded B-116 repair act,
+individual reasoned historical clearance where needed, A6 retention arbitration and later Gate 2/work-order
+acts. Do not invent customer origins or selected MMFs for held target work. B-104.O1 traces CR-09/partial
+CR-19 → US-15/FR-15 → AC-23–26 → FN-GATES → MMF-V1-CORE/SM05; its O2–O4 keep the existing partial customer,
+target/historical story/requirement parents and GR receipts, with no selected implementation MMF.
+GR-002's labelling is unheld; historical transition execution remains held. Exact source rules and provenance
+remain binding even where the revised guide abbreviates them. There is no automatic SM06 allocation.
+Construction consumes the governed requirements/ACs, FN-GATES cases, SM05 DoR→DoD receipts, Jev obligation
+manifest and bounded work order; each case's failing-first/database proof is produced later in FV-001.
+Lane B raises/reviews; Lane A alone answers and owns canonical trackers. No source answer is edited here.
+
+**Checks / drift:** independently `bun run check` passes 19/19 at this read; the earlier false-green probe
+remains distinct from healthy-tree consistency. The guide's Jev 320/320 remains attributed readiness evidence,
+not a new runtime test. Graphify query/check-update still reports pending semantic descriptions/labels at
+governed baseline eb57742 despite `stale: false`. This excluded handoff-only receipt needs no rebuild;
+future governed-source sync retains/re-merges curated fragments under G51. No build, canonical repair,
+schema/hosted action or lane change is performed.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Existing bounded reviews and revised assessment's supported corrections | Approve | Phase 1 — retain exact proof and advisory scope |
+| Consolidated plan ready for Lane A intake | Approve-with-conditions | Phase 1 — actual read SHA, complete receiving matrix, separate child states and evidence measures above |
+| Invalid SHA / whole B-116 or O0 completion claim | Reject | Phase 1 — correct audit reference and independently prove the bounded repair |
+| Whole B-071/B-150, exhaustive residual acceptance and Gate 2 | Defer | Phase 1 → Gate 2 — complete child/ledger/receiving/readiness proof and Judge acts |
+| Construction/runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active |
