@@ -187,6 +187,24 @@
     targets stay with Product intake, and `B-106` stays at its owning rows.
   - **Still open.** Parent 2 (the ledger for every remaining transaction) and Parent 3 (refining residuals, verifying
     transfers and the `A6` arbitration) proceed incrementally. Ordered clearance stays `O0` → `O5`.
+
+  **Ledger batch 1: `O0` entries (Judge approved, 2026-10-01), read at `8c0f20c`.** `SV-002` §2.3.2 gains Lane A
+  screens of `B-071`, `B-097`, `B-100`, `B-112`, `B-113`, `B-116`, `B-139` and `B-150`. They are accounting, not
+  independent verification.
+  - **Main finding.** `B-116`'s six-item correction unit, accepted "as the next Lane A unit" on 2026-09-16, was never
+    applied. Its items still reproduce:
+    - `B-113` keeps two header `Verified-At-Commit` fields;
+    - `B-112` keeps a live `<pending commit>`;
+    - `B-097`'s header anchor `389d22a` predates its Option A packet.
+
+    That blocks the ordered verification `B-113` → `B-112` → `B-097`.
+  - **New instance of the same class.** `B-071` carries a second `Verified-By`/`Verified-At-Commit` pair from before
+    its return (lines 172–173), which the first-match reader ignores.
+  - **Lifecycle lag.** `B-100`'s corrections were independently reviewed inside Verified `B-101`, but `B-100`'s
+    header was never moved. `B-139` is still `Open`, although its parent and children 2–3 were applied (`D-267`); its
+    `P11-G1`–`G4` verifications are pending.
+  - **Proposed next act.** Apply `B-116`'s unit as a bounded Lane A unit, with the Judge's go, since it is an `O0`
+    blocker. Lane B then verifies in `B-116`'s stated order.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f
