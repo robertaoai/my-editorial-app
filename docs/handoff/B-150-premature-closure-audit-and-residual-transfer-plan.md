@@ -249,6 +249,24 @@
     case) are transferred to the `V1-SM05` DoD, enforced by Jev.
 
   Lane B verifies both. The Lane A lifecycle records for `O1` are now complete.
+
+  **Ledger batch 3: `O2` entries (Judge approved, 2026-10-01), read at `38c1cb4`.** `SV-002` §2.3.2 gains Lane A
+  screens of `B-084`, `B-095`, `B-096`, `B-104`, `B-118`, `B-121`, `B-124`, `B-126`, `B-127`, `B-128`, `B-131`, `B-132`
+  and `B-133` (`B-151` was recorded earlier). The tracker is re-pinned and current.
+  - **Main finding, the Judge's original concern confirmed.** The SM05 readiness handoffs `B-121`–`B-133` were
+    dispositioned `Applied` on 2026-09-22 to 2026-09-24, on the pre-selection validation (`SV-001`), before Issue #1.
+    D-364 item 5 needs each SM05 obligation received into the SM05 DoR→DoD with a receipt.
+    - **Direct receipts in `V1-SM05.md`:** `B-118` (the packet's origin), `B-121` (`DOR-R4`), `B-126` (the Issue
+      path), `B-127` (the DoD traceability note) and `B-131` (`DOR-R5`/`R6`).
+    - **No receipt:** `B-084`, `B-124`, `B-128`, `B-132` and `B-133`. They reach SM05 only through decisions or rows
+      that cite other entries.
+    - **Reach SM05 only through §3.3:** `B-095`, `B-096` and `B-104`.
+  - **Draft fix (needs the Judge's go).** Add one dated "received from handoffs" receipt list to `V1-SM05.md`: one
+    line per SM05 obligation, naming its `DOR`/DoD anchor. Then set those tracker rows to `received`, and Lane B
+    verifies.
+  - **Lane B's `38c1cb4` finding on `D-375` is accepted.** The cardinality matcher is case-sensitive while `field()` is
+    not, so a mixed-case duplicate could pass. The repair (`gmi`, plus mixed-case fixtures) awaits the Judge's
+    Register act, as Lane B asked.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f
