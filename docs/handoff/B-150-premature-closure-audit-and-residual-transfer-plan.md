@@ -169,6 +169,24 @@
     change. Its `A6` collision awaits arbitration.
 
   None of these clears a tracker row. The §2.3.1 tracker is re-pinned at `4baafc8`.
+
+  **Review receipts recorded 2026-10-01, read at `b588977`.**
+  - **Lane B.** It independently verified `B-151` (`17008c8`), for the planning reconciliation only. It reviewed
+    `D-374` and the follow-up at Level 1 (`cb2d0da`, `f276b9e`, `5bd667c`, `b588977`).
+  - **Lane C.** Its Level 2 assessment (Judge-supplied, `lane_c_level2_u2_repair_review.md`, SHA-256
+    `a20fe5143d8374a82803335cd913efe3f9be1f1ad4cd593a68a3936f0c120e9f`, read at `5bd667c`) approves `U3`
+    (`31bcf3a`), `B-151`'s verification and `D-374`'s homes (`a825260`). Its readiness re-run shows 320/320, and
+    `jev:selftest` passes. The Judge confirmed both reviews are complete.
+  - **Parent 1, done by Lane A.**
+    - The §2.3.1 tracker is re-pinned at `b588977`, which contains `17008c8`. The report is current: 104 rows, 80
+      non-SM05 unclosed, 12 SM05 not received, 0 unlisted, unreferenced or invalid.
+    - `B-151`'s §2.3.2 ledger row is added. It states no planning residual, with each case's database proof staying
+      with `V1-SM05-FV-001` after Gate 2.
+  - **Lane C's qualifications are accepted.** `GR-002` carries no target hold, while `GR-001`/`GR-003` carry
+    `D-171`'s. Of the remaining `O4` rows, only governance and documentation rows enter `GOV-RES-001`: held Product
+    targets stay with Product intake, and `B-106` stays at its owning rows.
+  - **Still open.** Parent 2 (the ledger for every remaining transaction) and Parent 3 (refining residuals, verifying
+    transfers and the `A6` arbitration) proceed incrementally. Ordered clearance stays `O0` → `O5`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f
