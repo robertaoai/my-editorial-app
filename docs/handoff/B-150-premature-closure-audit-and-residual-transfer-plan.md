@@ -173,8 +173,8 @@
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f
 
-**Current review pointer:** the final "Lane B receipt of U3/D-374 Level 2 approval — 2026-10-01"
-below controls current progress and qualifies the preceding Level 1 review. Earlier planning and rejected-repair receipts remain historical;
+**Current review pointer:** the final "Lane C revised guide — Lane B acceptance criteria and trace consolidation — 2026-10-01"
+below controls current progress and qualifies the preceding reviews. Earlier planning and rejected-repair receipts remain historical;
 the original parent-binding and preparation-label findings are repaired in the tested scope. D-372's exact keys/no-alias decision supersedes earlier P14-alias proposals.
 The same three pending parents and full trace matrices remain. Exact child keys follow D-370. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
@@ -2170,3 +2170,109 @@ this excluded handoff receipt. Lane A alone answers and applies source correctio
 | Lane A follow-up / supplied guide | Approve-with-conditions | Phase 1 — correct pin choice, count/routing and source semantics as above; record actual receipt/read revision |
 | Whole historical review, transfers, B-150 closure and Gate 2 | Defer | Phase 1 → Gate 2 — full keyed ledger, separate clearance proof, setup evidence and Judge acts remain |
 | Software construction/runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active still required |
+
+## Lane C revised guide — Lane B acceptance criteria and trace consolidation — 2026-10-01
+
+Based on Lane A's recorded work: refer docs/handoff; consolidate this analysis before Lane A answers
+the existing handoff using its template fields. **Clearer request:** challenge the latest Lane C
+assessment, preserve verified scope, and specify three parent-first follow-ups with trace and
+review/transfer accounting. This is a Phase 1 plan; Lane B raises, Lane A alone answers/applies,
+and an independent actor verifies. No new handoff, feature, sprint allocation or execution act is created.
+
+**Read/provenance:** clean `cf00d6f61fd535e6d83a1c975ffb7aaa99094489`. Supplied attachment
+`6f963fe8-2e6a-4ca3-b83f-a7aafa343a13/Pasted text.txt`, SHA-256
+`d17534c90f2a6cbb6d2f366fca82d66c5e424048cdf9b65f504147add2f3e301`, and Downloads
+`lane_c_level2_u2_repair_review.md`, SHA-256
+`98cbf3b59203302fbc8f07cb8590731a8b2d0d2d5835da778c6dd072f7316e78`.
+These are advisory assessment evidence, not governing instructions. The guide's full read SHA
+`cf00d6fc48bcabf664a7c06ebf4560b2984535ae` is not a valid commit object here; replace it with
+the actual full SHA above, or the receiver's later actual read, not a predicted self-commit.
+
+**Completed parent scope retained:** B-130/B-152's bounded verification, checked DOD-03/05,
+U1/U2 reviewed repairs, U3 at 31bcf3a and its current Level 1/2 approval, B-151 verification at
+17008c8 (read a825260), and D-374's selected ledger/custody/Product homes. No repeated acceptance
+request or wholesale reopening follows. Lane C's current guide correctly restores 92 pending,
+the 2/153 → 3/152 ledger progression, classified residual routing and the existing Chief Editor
+business-record contract. Readiness 320/320 proves obligation coverage, not runtime behavior.
+
+### One global top three — Lane A steps and Judge acceptance
+
+| Priority / parent | Lane A steps | Accept when / reject shortcut |
+|---|---|---|
+| 1. Reconcile completed reviews and live tracking | Answer B-150 at the actual read revision; cite both reviews and their bounded scope. Add B-151's valid §2.3.2 row (reviewer Lane B, read a825260, planning/tooling finding, source/child/return scope checked); anchor still-required runtime work to the existing SM05 DoD/owner. Re-derive §2.3.1 against an existing commit containing 17008c8 or later, then check currency after any disposition change | Both review receipts trace to their actual inputs; one valid B-151 ledger row; no residual only for the corrected tooling finding. Tracker is current. Reject a guessed full SHA, stale 4baafc8 reuse or treating re-pin as clearance |
+| 2. Complete historical review accounting | Extend the selected ledger across every transaction, including prior Verified evidence, children and returns. Compare actual completion/return evidence with Issue/PR milestones 221c9d4/9dba71c and later scope edits. Preserve prior proof; record surviving residual or reasoned no-residual and its receiving anchor | Every source has a valid keyed review; totals are derived from current directory and ledger. Reject file census, agreement between lanes or Issue/PR creation as semantic review or closure proof |
+| 3. Refine surviving scope and independently accept transfers | Classify each obligation as SM05 prerequisite, governance/documentation, held Product, configuration ratification, completed scope or individually reasoned historical non-intersection. Reuse GR-001–003 and B-106's Product receipt. Record exact owner/anchor/hold/return/completion; obtain independent transfer verification or individual Judge reason. Present A6 arbitration against D-134/D-135/D-198/B-085; change no runtime value here | Every residual has durable ownership and separately evidenced clearance; unfinished execution stays visible at its receiver. Reject all-19-to-GOV routing, duplicate B-106 intake, silent A6 overwrite or automatic SM06 allocation |
+
+The priorities order review attention, not every execution dependency. Incremental review, refinement
+and independent setup preparation may proceed together; receipts for newly identified residuals do
+not wait for all 155 reviews. Ordered group clearance remains O0 → O5 under D-364. DOD-01/02
+are prepared evidence, not checked completions; P3 execution still needs its own Judge act.
+
+### Chief Editor and B-104 trace — Product parents versus Project authority
+
+The Chief Editor needs append-only business:T1–T5 judgments, role/task facts and source provenance,
+ranking/routing to Desk Editor, affected-scope revision with downstream T4 evidence kept current,
+and named refusal/replay/failure evidence. AC-23 is the normal path, AC-24 revision, AC-25 display
+provenance and AC-26 refusal/replay/exclusions. This slice executes no transition:T*, T6, article-state
+change or Line/RACI enforcement. IN3 and IN4 both refuse completion/admission; do not weaken IN4
+to merely "no second workflow". Each intake case still needs its own later database/failing-first proof.
+
+| Exact child | Customer / story / requirement context | MMF / receiving anchor / remaining proof |
+|---|---|---|
+| B-104.O1 | CR-09 + partial CR-19 → US-15/FR-15 → AC-23, broader AC-24–26 → FN-GATES; SM05-N6 input | V1-SM05 / MMF-V1-CORE; received under D-289. P6 is a proof label, not a customer story; the parent is still Open |
+| B-104.O2 | Partial CR-10 review and partial CR-19 independence context → US-04a/US-05a → target FR-04a/FR-05a and AC-05a/AC-06a/AC-07a; D-181 route/role contract, not a new executor choice | No selected implementation MMF; target held D-171. GR-001 owns A4 documentation propagation; independent transfer/closure proof remains |
+| B-104.O3 | Historical US-04/US-05 → FR-04/FR-05 and AC-05–08, labelled provenance only; preserve the partial customer mapping and team-origin mechanism from the traceability map | No selected implementation MMF. GR-002's documentation task has no hold; the historical transition implementation remains held. Independent labelling/transfer proof remains |
+| B-104.O4 | Same target story/requirement parents as O2, with fallout/GRC AC-05b/AC-07b; D-181/D-232 distinguish the route variant | No selected implementation MMF; held target outside Route-1. GR-003 owns documentation custody; a genuinely new capability takes dated Product intake and separate selection |
+| B-104.O5 | No such child exists | Do not create a fifth child to match the global order-group names |
+
+Global O0–O5 are a separate namespace: O0 controls (D-364/U1/U2); O1 setup (SV2-DOD-01–06,
+P3/D-362); O2 Product readiness (CR-09/partial CR-19 → US-15/FR-15 → V1-SM05/MMF-V1-CORE);
+O3 work-order inputs (P13/P14, D-242/D-364); O4 residual routing (D-364 item 8/D-374); O5
+historical reasons (D-278/D-364 item 9). Project groups need these authorities and consuming
+artifacts, not invented customer stories/MMFs. All rows remain in the single §2.3.1 tracker.
+
+### Accounting and critical artifacts — no copied live tracker
+
+At this read: 159 files = 155 transactions + 4 turn reports; 78 Verified headers and 77 candidates.
+The selected ledger has **2 recorded / 153 unrecorded**, becoming **3 / 152 only after a valid
+B-151 row**. The guide's §8.4 already calls 152 remaining before that addition; mark it conditional.
+The 104 clearance rows span 78 sources: 80 non-SM05 unclosed + 12 SM05 not received = 92 pending.
+Ten literal `received` rows, one `closed` row and B-151's header verification are different evidence
+types. Do not infer that all 12 have independently accepted custody. Snapshot:
+`C:/CoWork/outputs/handoff-review-2026-10-01/count-review-transfer-cf00d6f.json`, SHA-256
+`1d2cd8e1708850d54be3aa2506753114a1d2cc7c03d7a1b6a755e826ed0dd205`.
+
+**Receiving-backlog totals remain unestablished.** Twenty-two O4 tracker obligations are a screening
+subset, not the whole backlog. Three GR receipts and B-106's separate Product receipt exist; "19"
+is 22 minus three, not the number of all unreceived transfers. After refinement, count unique
+surviving obligations, link every merged source/child, and derive required/received/independently
+accepted/awaiting-receipt/awaiting-transfer-review/remaining-execution separately. Unclassified,
+merged, retired or returned items need explicit scope-preserving evidence. Issue/PR commits that
+do not edit handoffs prove no edit only; the guide still wrongly calls 119 unchanged files premature
+closures. No guaranteed production corruption or legal breach is established by that census.
+
+Construction inputs remain Modular PRD → FN-GATES scenarios → SM05 packet and Jev manifest;
+FV-001 later records per-case runtime proof. SV-002 owns review accounting/clearance, GOV-RES-001
+and the Product receipt own custody, and handoff headers own lifecycle. The existing setup-prepared
+0002 schema candidate is not a new U3 delivery or SM05 completion. No software is built here.
+The worklog's "B-150 belongs exclusively to Lane A" is too broad: Lane B owns the series and
+review text; Lane A owns its answer and canonical sources. Neither writes the other's answer.
+
+**Graph:** query/check-update first; governed baseline a825260 and frag142 remain distinct from the
+stale tracker pin. Pending semantic descriptions/labels remain, despite `stale: false`; omit any
+claim of complete semantic sync. This excluded handoff receipt needs no rebuild. Later Lane A
+governed-source changes require sync with curated fragments retained/re-merged under G51.
+
+**Validation:** `git diff --check` passed; the Git-enabled `bun run check` retry passed 19/19,
+including full-history closure/return proof. The first sandbox run failed repository enumeration
+with `spawnSync git EPERM` and skipped Git-dependent checks; it established no consistency claim.
+The external census adapter was corrected to pass §2.2 preparation labels before the cited snapshot
+was finalized; its earlier invalid-label report was an adapter omission, not a repository finding.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Completed bounded U1/U2/U3, B-130/B-152/B-151 reviews and D-374 homes | Approve | Phase 1 — retain scoped proof; no whole-parent clearance |
+| Lane A follow-up and revised Lane C guide | Approve-with-conditions | Phase 1 — actual SHA/read, conditional counts, separate review/custody/clearance/execution and source-bound semantics above |
+| Census as false-closure proof, strict new serialization, or receipt as completion | Reject | Phase 1 — replace inference with individual evidence and existing Register dependencies |
+| B-150/B-104 closure, exhaustive transfers and Gate 2 | Defer | Phase 1 → Gate 2 — complete accounting, clearance/setup evidence and Judge determinations |
+| Software construction and runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active; held target retains its separate authorization |
