@@ -224,6 +224,22 @@
 
   Lane B verifies `P11-G1`–`G4` and the disposition. The `O0` Lane A lifecycle records are now complete. `B-100`
   awaits Lane B, citing `B-101`, or the Judge.
+
+  **Ledger batch 2: `O1` entries (Judge approved, 2026-10-01), read at `20b4e0b`.** `SV-002` §2.3.2 gains Lane A
+  screens of the 14 `O1` entries. Their setup work is already accepted; what lags is each entry's own lifecycle:
+  - **Loader-route records.** `B-144`–`B-148` and `C-007`–`C-009` are consumed by `SV2-DOD-03`, which the Judge checked
+    (`D-362`) after Level 1 and Level 2 review. `C-002` fed the checked `SV2-DOR-04`. Each needs only independent
+    verification, or a Judge acceptance with its own reason citing `D-362`.
+  - **Headers lagging their bodies.** `B-141` and `B-142` are still `Open`, although their findings were applied
+    (`D-280`, `D-288`) and fed the checked `SV2-DOD-05`. Lane A should record their dispositions, as it did for
+    `B-139`.
+  - **`B-050`'s defect no longer reproduces.** Every rebuild this audit ran left `branch.json` current. Lane B can
+    verify it with a fresh rebuild, and `B-046` follows it.
+  - **`B-136` stays `Open`, legitimately.** `P14a`/`P14b` are received, and the `P15` docket clears at `SV2-DOD-06`
+    without using that acceptance as its own proof.
+
+  **Proposed next acts:** record the `B-141` and `B-142` dispositions (Lane A). Then either one Judge act accepting
+  the eight `D-362`-consumed entries, each with its own reason, or Lane B and Lane C verifications.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f
