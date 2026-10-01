@@ -205,6 +205,16 @@
     `P11-G1`–`G4` verifications are pending.
   - **Proposed next act.** Apply `B-116`'s unit as a bounded Lane A unit, with the Judge's go, since it is an `O0`
     blocker. Lane B then verifies in `B-116`'s stated order.
+
+  **`B-116`'s unit applied 2026-10-01 (`D-375`, `e1e3b29`; Judge approved).**
+  - The singleton-cardinality rule is enforced.
+  - `B-113` has one anchor.
+  - `B-112`'s placeholder is filled.
+  - `B-097` is aligned to `284b4ae`.
+  - `B-071`'s pre-return audit pair is moved to prose.
+
+  Check 19/19; fixtures exit 0 on a clean tree. `B-116` is `Answered`/`Applied`. Lane B verifies `B-113`, then
+  `B-112`, then `B-097`, then `B-103` P3.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Lane B consolidation read `773df96`: Level 1 acceptance of D-372's b7bc79d repair with e576add fixture correction is retained (35/35 targeted proof). The Judge-supplied current Lane C Level 2 assessment explicitly accepts the same repair. U2's review prerequisite is satisfied; Lane A records receipt and progresses the existing D-364 U3 unit. Exhaustive review, transfers and Gate 2 remain incomplete. This parent stays Open.
 - **Verified-At-Commit:** 773df96f8ab3ca014b7da2cc309fd39e3636fb6f

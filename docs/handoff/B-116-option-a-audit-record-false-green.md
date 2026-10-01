@@ -4,14 +4,31 @@
 - **Kind:** spec-defect
 - **Phase:** 1
 - **Blocks:** independent verification of B-113, B-112 and B-097; B-103 P3 closure
-- **Status:** Open
-- **Lane A:** **Acknowledged 2026-09-16, receipt only.** The parent-first table and items 1–6 under
+- **Status:** Answered
+- **Lane A:** **Answered 2026-10-01 (`D-375`, applied at `e1e3b29`), read at `87aa3f5`.** Items 2–6 were applied as one
+  bounded Lane A unit, after the `B-150` ledger found the unit had never been applied:
+  - **(2)** `B-113` keeps one `Verified-At-Commit`, `284b4ae`: the commit that records the complete Option A
+    packet (`27efc2d`, `0d2cc2b`). `0d2cc2b` and `3368753` are kept as prose history.
+  - **(3)** `B-112`'s placeholder is filled with `d80167b` and the fixture-mock follow-up `9afbb9b`, taken from its own
+    correction note. Its anchor moves from `3368753`, an unrelated `B-115` commit, to `284b4ae`.
+  - **(4)** `B-097`'s anchor moves from `389d22a`, which predated Option A, to `284b4ae`, so its header and body name
+    one review point.
+  - **(5)** `handoff-response` now fails when `Kind`, `Phase`, `Receiver`, `Status`, `Resolution`, `Verified-By`,
+    `Verified-At-Commit`, `Follow-up-Tier` or `Superseded-By` repeats before the first `## ` heading (fences
+    stripped). The SOP states the rule. It found a third live instance, `B-071`'s pre-return audit pair, which is
+    now prose.
+  - **(6)** `bun run check` passes 19/19. `bun run fixtures` on a clean tree at `e1e3b29` exits 0, with every
+    fixture behaving as intended, including the cardinality cases, and the tree restored.
+  `B-113`, `B-112` and `B-097` stay `Applied`. **Item 7:** Lane B verifies in order: `B-113`, then `B-112`, then `B-097`,
+  then `B-103` P3. Disposition: `Applied`.
+  *Earlier receipt:* **Acknowledged 2026-09-16, receipt only.** The parent-first table and items 1–6 under
   "What Lane A needs to do" are accepted as the next Lane A unit. `B-113`, `B-112` and `B-097` stay
   `Applied` until that correction lands and Lane B independently verifies in the stated order
   (`B-113` → `B-112` → `B-097` → `B-103` P3). No header field is edited by this acknowledgement.
-- **Verified-By:** — not yet dispositioned; raised by Lane B
+- **Resolution:** Applied
+- **Verified-By:** — not independently verified; dispositioned by Lane A
 - **Evidence:** direct read of B-112/B-113/B-097 at `284b4ae`; `bun run check` 18/18; `bun run fixtures` 143/143 with the working tree restored; Graphify governed-intent baseline `0d2cc2b` and excluded-only handoff advance to `284b4ae`
-- **Verified-At-Commit:** 284b4ae87b7d80fc246d8832ecc038682f076c9a
+- **Verified-At-Commit:** e1e3b2925e0a22ab202479f7e32fb7db05959521
 
 ## What happened
 

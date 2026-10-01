@@ -24863,3 +24863,54 @@ separate acts; `P3`; any lane-state change.
 | Fn Specs, SPECS, rule files | — unaffected |
 | **Encyclopedia** | — unaffected: `ENCYCLOPEDIA-SYNC.md` maps no entry to the retention section or `RK-05`, and no value changed |
 | **Graphify** | `frag142.json` merged; rebuild after this commit and re-merge it if the rebuild drops the node |
+
+## 5.14e200 `D-375` — `B-116`'s Correction Unit Applied: Singleton Header Cardinality Enforced; `B-113`/`B-112`/`B-097`/`B-071` Audit Records Corrected
+
+**Authority: the Judge, directly to Lane A, 2026-10-01**: *"Judge Approved: apply B-116's correction unit"*. Lane A
+accepted the unit on 2026-09-16 "as the next Lane A unit", and it was never applied. The `B-150` §2.3.2 ledger's `O0`
+batch found it (`87aa3f5`). Applied at `e1e3b29`; the scope is `B-116`'s own items 2–6, plus the live `B-071`
+instance that item 5's rule exposed.
+
+### The decision
+
+1. **Item 5: one rule against the whole defect class.** `handoff-response` fails when any of these fields repeats
+   before the first `## ` heading (fences stripped): `Kind`, `Phase`, `Receiver`, `Status`, `Resolution`,
+   `Verified-By`, `Verified-At-Commit`, `Follow-up-Tier`, `Superseded-By`. The first-match reader had kept every
+   duplicate green. Records below a heading stay repeatable. The SOP states the rule.
+
+   On the live corpus the rule found exactly three duplicates:
+   - `B-113`'s two `Verified-At-Commit`;
+   - `B-071`'s `Verified-By` and `Verified-At-Commit` pair from before its return.
+2. **Item 2.** `B-113` keeps one anchor, `284b4ae`: the commit that records the complete Option A packet
+   (`27efc2d`, `0d2cc2b`, and the recorded answers in `B-097` and `B-113`).
+3. **Item 3.** `B-112`'s live `<pending commit>` is filled with `d80167b` and its fixture-mock follow-up `9afbb9b`,
+   taken from the entry's own correction note. Its anchor moves from `3368753`, an unrelated `B-115` commit read at
+   the time, to `284b4ae`.
+4. **Item 4.** `B-097`'s anchor moves from `389d22a`, which predated Option A, to `284b4ae`. Its header and body now
+   name one review point, and it stays `Applied`.
+5. **`B-071`.** The pre-return pair becomes prose history. `B-071` stays `Open` and returned.
+6. **History is kept.** Every superseded value stays in prose. No `Status` or `Resolution` of `B-113`, `B-112`,
+   `B-097` or `B-071` changed, and none of them is terminal, so no Terminal annotation record is needed.
+7. **Evidence.** `bun run check` passes 19/19, with the terminal walk clean. `bun run fixtures` on a clean tree at
+   `e1e3b29` exits 0, every fixture behaves as intended (the new `singletonCardinality` suite included), and the tree
+   is restored.
+8. **`B-116` is `Answered`/`Applied`.** Item 7 stands: Lane B verifies `B-113`, then `B-112`, then `B-097`, then
+   `B-103` P3.
+
+### Not given by this act
+
+Any `Verified`; `B-103` P3; the `B-071` re-close; tracker clearance; any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e200 |
+| **`docs/handoff/B-116-option-a-audit-record-false-green.md`** | ✅ answer; `Answered` / `Applied` |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A: unit applied |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | — unaffected: a control and record correction inside Phase 1; no sequence change |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: existing files edited |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files | — unaffected (`B-116`'s cross-artifact review) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild after this commit |
