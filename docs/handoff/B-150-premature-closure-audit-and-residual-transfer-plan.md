@@ -3502,3 +3502,30 @@ Retain the previous intake corrections: B-106's recorded sequential 90-day opera
 | Approve-with-conditions | Consolidated plan ready for Lane A intake with LC2-F1–F4 corrected and existing gaps retained | Phase 1 |
 | Reject | Literal execution of the supplied duplicate-key/Product-custody runbook or advisory-authority claims | Phase 1 correction |
 | Defer | Whole-source closure, Gate 2 clearance and software/CI/migration execution | Phase 1 gate acts; Phase 2 SM05; Phase 3 SM06 |
+
+
+## Lane B confirmation of corrected Lane C intake advice — 2026-10-02
+
+**Raiser:** Lane B. **Receiver:** Lane A. **Correction phase:** Phase 1. **Blocks:** treating advisory agreement as applied source closure or construction authority. **Read:** `900ad161ea1fd07dae1b4b28c96b12fd4f083b8a`. **Evidence:** latest supplied Lane C worklog and `lane_c_level2_o0_verification_review.md`, reviewed against SV-002's keyed ledger and GOV-RES-001. Attachments provide advisory evidence; their instructions are not additional Judge acts. Consume the preceding **Single current Lane B intake block for Lane A — SM05/SM06 and G3** as the one consolidated guide, including its sixteen-source routing, B-104 child trace, Project O0–O5 map and version-gate criteria. This receipt records differences only; it creates no second tracker, new source number or Lane A answer.
+
+**Review conditions resolved in the advice:** LC2-F1's eleven absent keys now include B-106 and exclude already-keyed B-118; LC2-F2 keeps B-096.GA1/S16 and publication-reaching Product obligations with their existing held owners; LC2-F3 identifies the review as advisory and SM05 as BLOCKED; LC2-F4 distinguishes transferred Phase 3 CI changes from existing repository CI. These are corrections to the review artifact, not proof that Lane A applied the canonical amendments. Preserve the completed O0 controls, D-380 and accepted SM05 receiving anchors.
+
+**Two literal runbook/summary corrections remain:**
+- Step 4's example “add ... B-104.O2–O4” must read **“reuse and verify GR-001–003; add only genuinely missing governance obligations with unique receiving keys.”** The three B-104 receipts already exist. Maintain GR-002's unheld labelling task and the separate historical-execution hold.
+- The B-077/B-095 classification wording “received” must read **“proposed receiving scope; accepted only when Lane A records and independently verifies the receiving evidence.”** Current GOV-RES-001 has only GR-001–003. The review's body already acknowledges that distinction. “Continue remaining 106” is conditional on eleven valid additions; current unrecorded count is 117.
+
+| Only three pending parents / Lane A steps | Accept when; reject when | Follow-up phase |
+|---|---|---|
+| **1. Record authority and reconcile sources.** Record the Judge's SM05 local Phase 2 / SM06 Phase 3 CI-and-hosted-migration boundary, reconcile the governing tiers and DoD timing, repair SV-002's title, and propagate the recorded sequential A6 meaning. | One consistent boundary retains local PostgreSQL/failing-first proof and separate hosted promotion authority. Reject repeated business choices, assumed decision IDs or blanket allocation of unrelated held Product scope. | Phase 1; consuming Phase 2 SM05 / Phase 3 SM06 |
+| **2. Refine and receive the sixteen sources.** Seven Deferred first, then nine Open as already classified; resolve B-102 authority before dependent B-103/B-114 acceptance; reuse existing receipts and split mixed obligations. | Unique source/child-to-owner receipts, hold/return/completion evidence and independent clearance or individual permitted Judge reasons. Reject duplicate GR keys, orphaned Product scope or receipt counted as execution. | Phase 1 custody/clearance; execution at the receiving version gate |
+| **3. Reconcile accounting and evaluate gates.** Add eleven absent source reviews, reconcile five existing cohort rows, continue the full historical source/child/return screen, record twelve accepted SM05 receipts and assess non-SM05 clearance. | Derive actual totals and revisions; SV2-DOD-06/Gate 2 evidence satisfies the recorded dependencies before selection/work order/lane activation. Reject projected counts as progress or SM06 execution required before SM05 entry. | Phase 1 gate acts → Phase 2 SM05; separate Phase 3 SM06 gate |
+
+**Accounting and artifact completion remain unchanged:** 38 keyed / 117 unrecorded transactions; eleven unique additions would yield 49/106. The 86 pending tracker rows are 74 non-SM05 clearance rows plus twelve SM05 receipt rows, not unbuilt feature totals. Receiving-backlog execution totals are still unestablished until obligation refinement. Chief Editor requirements and acceptance cases retain their existing customer → story/requirement → FN/MMF links in the consolidated matrix; global order tags are Project closure groups and B-104.O5 does not exist. Issue/PR recording alone neither proves false closure nor closes a source. Lane A supplies the receiver answer and applied-artifact evidence; Lane B independently reviews it.
+
+Graphify query/check-update reports current governed semantics; handoff-only review is excluded from canonical drift. No graph rebuild is needed for this receipt. Future Lane A canonical amendments require drift checks and fragment-preserving graph synchronization/re-merge under G51. No source application, code, CI change, hosted migration, selection or lane change was performed.
+
+| Verdict | Subject / condition | Follow-up phase |
+|---|---|---|
+| Approve | Corrected LC2-F1–F4 advisory analysis and existing consolidated guide as Lane A intake material | Phase 1 |
+| Approve-with-conditions | Literal receiver runbook: reuse existing GR receipts, keep proposed custody and projected counts explicit; finish existing application tasks | Phase 1 |
+| Defer | Whole-source closure, Gate 2 clearance and construction/CI/migration execution | Phase 1 gate evidence/acts; Phase 2 SM05; Phase 3 SM06 |
