@@ -84,8 +84,8 @@
 
   The governance residual packet it asks for is created at its first receipt (`D-364` item 8), not before.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
-- **Evidence:** Lane A's D-370 repair and preceding U2-F3 reproduction remain applicable. Latest read `a8fcf4b`: supplied Lane C assessment incorporates the substantive proof/provenance qualifications; short concurrence below specifies two editorial authority/citation corrections. The same three pending parents and existing trace/counts remain. No source repair, receiver receipt or clearance is applied here.
-- **Verified-At-Commit:** a8fcf4b29819c7bba51856df70d320c929304341
+- **Evidence:** Lane A's D-370 repair and preceding U2-F3 reproduction remain applicable. Latest read `ef95181`: supplied Lane C assessment incorporates both editorial corrections and supplies an advisory identity-safe code sketch. Planning acceptance below leaves actual repair/integration proof, Lane A's answer, review accounting and accepted transfers pending. No source repair, receiver receipt or clearance is applied here.
+- **Verified-At-Commit:** ef9518143073991940870c30eb5c48d99b9322ce
 
 **Current review pointer:** the final "Latest Lane C reconciliation received — ready for Lane A follow-up — 2026-10-01"
 below accepts the corrected planning direction. The preceding global top three, complete review/transfer accounting and intent/group matrices retain full coverage; D-370 Level 1 findings still control U2-F3. Exact child keys follow D-370. B-130 is
@@ -1593,10 +1593,26 @@ Chief Editor/B-104/order-group matrices, dated totals and unknown review/transfe
 counts remain applicable. Concurrence does not accept U2-F3, establish receiver receipts,
 close B-150 or authorize construction. Lane B records this review; only Lane A writes its answer.
 
+**Latest planning acceptance — read `ef9518143073991940870c30eb5c48d99b9322ce`.**
+Judge-supplied `94de64cc-cdb8-4d16-852a-df1569b0827d/Pasted text.txt`, SHA-256
+`1cd448c02c4ab3852b0d5de9e0b17f757e97def6e4b9f290c8b683091a1a7a5e`, incorporates
+both editorial corrections: advisory guide authority and D-364 items 4/8/5's separate roles.
+No further planning blocker was found in the supplied assessment's scope. Its new §5 sketch
+uses independent identity flags, actual-parent validation and validated child coverage, matching
+the specified U2-F3 repair direction. This is static design concurrence, not execution/fixture
+proof or acceptance of an applied repair. Lane A integrates it with the existing missing-parent,
+unreferenced-child, unclosed-row and staleness findings and report-only no-claim behavior,
+then proves the parser-through-evaluator cases and obtains actual Level 1/2 acceptance before U3.
+The linked external guide is not independently inspected. The existing global top three and
+full trace/critical-artifact matrices remain; counts and unknown completion totals are unchanged.
+Both editorial clarifications are resolved for this supplied text. No new parent, tracker,
+source answer, closure/transfer act, software construction or graph mutation is introduced.
+
 | Decision | Verdict | Follow-up phase / condition |
 |---|---|---|
 | Preserved completed bounded scope | Approve | Phase 1 — retain original evidence |
 | Earlier attachment's artifact claims and exact execution sequence | Reject | Phase 1 — historical finding; latest supplied assessment incorporates the corrections, subject to the proof/provenance qualifications above |
-| Latest supplied Lane C assessment and Lane A follow-up plan | Approve-with-conditions | Phase 1 — apply the two editorial fixes; Lane A answers at actual read revision; prove the same three pending parents with completed repair/review and accepted transfer evidence |
+| Latest supplied Lane C assessment as a planning input | Approve | Phase 1 — both editorial corrections incorporated; preserve the advisory/proof boundaries above |
+| Lane A bounded follow-up | Approve-with-conditions | Phase 1 — Lane A answers at actual read revision; confirm authority and prove the same three pending parents with completed repair/review and accepted transfer evidence |
 | Current U2 consumption by U3 | Reject | Phase 1 — actual repair and Level 1/2 acceptance still required |
 | Complete review/transfers, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — complete evidence and Judge acts still required |
