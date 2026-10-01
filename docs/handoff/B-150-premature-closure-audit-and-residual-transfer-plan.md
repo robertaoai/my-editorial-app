@@ -2769,3 +2769,107 @@ re-merges curated fragments under G51. No receiver answer, canonical source, sof
 | Whole B-116/O0 completion or agreement as execution authority | Reject | Phase 1 — missing repair proof and unresolved obligations cannot be replaced by review agreement |
 | B-071/B-150, exhaustive residual acceptance and Gate 2 completion | Defer | Phase 1 → Gate 2 — complete the existing child/readiness/receiving evidence and Judge acts |
 | Construction/runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active |
+
+## Lane B verification completed — B-116 repair and dependent chain — 2026-10-01
+
+Based on the Lane A analysis: refer `docs/handoff`; consolidate the evidence before Lane A
+reviews the remaining handoff work using the governed template.
+
+**Clarified request:** independently verify B-116 at `fc99842`, then B-113 → B-112 → B-097 →
+B-103 P3; record only the authorized verification and identify remaining receiver, accounting,
+trace and transfer work. No software construction or automatic parent/Gate 2 closure.
+**Read:** `afd57abc57af54abb36cbba8a4f9ff733dbdbd6b`. This dated receipt supersedes the preceding B-116 repair-pending conclusions
+for this bounded chain; it preserves earlier findings and the existing consolidated plan.
+
+### Parent-first decision table — completed control, dependent records, remaining custody
+
+| Order / dependency | Evidence and current decision | Accept/reject criterion for Lane A and Judge | Follow-up phase |
+|---|---|---|---|
+| Control parent: B-116 / D-378 | Independently Verified at `fc998420c5a423caf5953e527277a5ffb183c247`; recording `8b6099f0d9011d594072f1815ed3c43fc51b0a0f` | Accept bounded case-insensitive cardinality repair: all nine duplicate fields refuse invalid inputs; examples/body repeats remain valid | Phase 1 / O0 — completed |
+| B-113 → B-112 → B-097 | Independently Verified in order at recording commits `fff73439c8557d4d6ca04c47c5c2271bac048f84`, `d7c62442f5f5035acd5b523c8d3bc34f57c120d8`, `48aa96401a8c8581983bd4d2635423d321e55c6a` | Accept implemented blocking Option A, annotation/return/re-close distinction and all-episode history enforcement; historical partial/report-only statements are superseded | Phase 1 / O0 — completed |
+| B-103 P3, dependent on B-097 | Independent child control evidence recorded at `afd57abc57af54abb36cbba8a4f9ff733dbdbd6b`; whole entry stays Answered/Deferred | Accept P3 control evidence. Lane A records resulting child disposition and applicable whole-entry lifecycle action; do not infer whole B-103 or C-001 readiness | Phase 1 — receiver follow-up; D-230 Stage 2 runtime remains separate |
+| Audit parent B-150 → ledger and surviving children | Chain complete is not whole O0 complete; B-071/B-150 retain their obligations | Reject exhaustive closure without keyed source reviews, surviving-child disposition and independently accepted custody/clearance | Phase 1 / O0–O5 — existing plan continues |
+| Receiving custody → Gate 2 | D-379 supplies the twelve-source SM05 receipt list; independent verification is still pending | Reject receipt-as-completion and blanket feature/sprint transfer. Verify each scope/anchor and non-SM05 transfer or individual Judge reason, then evaluate the gate | Phase 1 → Gate 2; Phase 2 requires its separate work order/lane act |
+
+**Proof:** exact-source disposable clone passed 70/70 focused cases: singleton 14, return form 8,
+annotation form 8, episode boundaries 8, terminal-return decisions 32, including real history;
+the clone was restored. Main-tree checks after the chain passed 19/19; 101 terminal-entry histories
+were walked, all clean, no uncovered step. This is governance/control proof, not behaviour-test
+construction or a database/runtime passing receipt. All receiver answer fields were preserved.
+
+### Accounting at this read — separate review, lifecycle, custody and execution
+
+| Measure | Total | Completed / remaining |
+|---|---|---|
+| Handoff files | 159 | 155 transactions + 4 excluded turn reports |
+| Keyed canonical review ledger | 155 transactions | 38 recorded / 117 unrecorded; new independent chain receipts still need Lane A ledger reconciliation, so do not increment by counting paragraphs |
+| Independent Verified transaction headers | 155 transactions | 84 Verified / 71 not Verified: 43 Applied, 7 Deferred, 10 Superseded, 11 Open; not a claim that each remaining state must become Verified |
+| O0 entry headers | 8 | 6 Verified (B-097/B-100/B-112/B-113/B-116/B-139); B-071 and B-150 not Verified; B-103 P3 is a child outside this header count |
+| Gate tracker | 104 rows / 78 source IDs | Derived 74 non-SM05 unclosed + 12 SM05 unreceived = 86 pending; 77 entry rows + 27 child rows, not 104 separate files |
+| Receiving backlog work | Not yet established exhaustively | Lane A must report required / received / independently accepted / remaining execution separately; three GR receipts and a twelve-source SM05 receipt list do not establish exhaustive acceptance or execution totals |
+
+The current check reports tracker `24aa1c9` **stale** after the lifecycle changes. Raw O0 cells still
+say open; derived results consult live Verified headers. Lane A must refresh the canonical tracker
+and ledger with these exact receipts, not conceal that difference by rewriting earlier reviews.
+
+### Lane A follow-up — one global top three, highest parent first
+
+1. **Reconcile the verified chain and B-103 P3 in the existing canonical records.** Update source-keyed
+   ledger findings/read revisions, reconcile the six O0 clearances and record B-103's receiver child
+   disposition/lifecycle action. Re-derive tracker currency and counts. Success: exact receipts agree
+   across handoffs and tracker; B-071/B-150 residuals and D-230 runtime stay separately visible.
+2. **Complete the audit parent before closing residual children.** Review the 117 unrecorded source
+   transactions, including prematurely closed B/C entries, their children and return episodes.
+   Each keyed row needs reviewer, actual read revision, finding, and receiving anchor or reasoned
+   no-residual. Deduplicate shared obligations by source child, not by repeated citation. Success:
+   recorded + remaining = 155 transactions; excluded turn reports remain a separate count; refinement
+   yields auditable receiving/acceptance/execution totals and preserves each hold/return/completion rule.
+3. **Validate receiving scope, resolve semantic drift and then test gate readiness.** D-379's twelve
+   sources are an explicit receipt list, not independently accepted yet. Correct its B-104 row's blanket
+   phrase "O2–O4 are held in GOV-RES-001": proposed wording, "O2–O4 are received in GOV-RES-001;
+   GR-001/GR-003 target scope is held under D-171; GR-002 provenance labelling is unheld, while historical
+   transition execution remains held." This follows the packet's existing GR-002 Hold = None.
+   Independently verify the receiving list and surviving non-SM05 custody/clearance; keep the separate
+   A6 retention arbitration visible. Success: required scopes have valid receipts and independent
+   acceptance or Judge reasons, no held runtime feature is introduced, and Gate 2 has its complete proof.
+
+These are three global priorities, not three per order group; carry all other work in the full existing
+ledger. Lane B raises the finding and supplies independent evidence; Lane A answers and owns canonical
+source/tracker edits. The new D-379 wording gap is a draft Lane A correction, not applied by Lane B.
+
+### Trace and Chief Editor boundary — retain the existing source matrix
+
+Use the existing **"Chief Editor and B-104 trace — Product parents versus Project authority"** matrix
+above rather than duplicate its customer/story/AC rows. B-104.O1 traces CR-09 / partial CR-19 →
+US-15/FR-15 → AC-23–26 → FN-GATES → MMF-V1-CORE/SM05, received as SM05-N6; runtime proof belongs
+to the later bounded FV-001 work. B-104.O2–O4 retain their target/historical parents and GR-001–003
+custody without a selected implementation MMF. There is no B-104.O5; global O0–O5 are Project closing
+order groups, not customer stories or Product children. New Product capability requires dated Modular
+PRD intake and its own selection; no automatic V1-SM06 allocation.
+
+Chief Editor's business T1–T5 judgment/ranking evidence and routing **to** Desk Editor remain distinct
+from technical transition execution. Construction and verification consume governed requirements/ACs,
+FN-GATES cases, SM05 DoR→DoD receipts, the Jev obligation manifest and the bounded work order; failing-first
+and real-database behaviour proof is later, not supplied by Issue/PR setup or this lifecycle chain.
+
+**Failure → success criteria:** recording an Issue/PR without changing handoff files is not by itself
+proof of premature closure. It guarantees failure of an exhaustive closure claim when surviving
+obligations lack reviewed dispositions, independently verified transfer/clearance or valid receiving
+anchors. A passing healthy-tree check alone also cannot prove refusal of invalid states. Success needs
+the negative control proof above plus source-keyed custody and gate evidence. Answered/Applied/Deferred
+must not be presented as independently Verified, and a verified child cannot silently close its parent.
+
+**Docs / Graphify:** `bun run check` passes 19/19 and reports governed intent synced at `8bd159f`, with
+these handoff-only commits excluded. Graphify query finds the repaired source/control lineage;
+`graphify check-update` still reports pending semantic descriptions/labels from the fast hook.
+No graph rebuild is required by this excluded receipt. Lane A should complete the pending semantic
+update during the next governed-source sync and preserve/re-merge `docs/graph-fragments/` under G51.
+The tracker currency and D-379 wording issues above are real follow-ups despite the graph baseline pass.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| B-116 at fc99842 → B-113 → B-112 → B-097, and B-103 P3 control evidence | Approve | Phase 1 / O0 — independent verification recorded |
+| Remaining consolidated plan ready for Lane A intake | Approve-with-conditions | Phase 1 — reconcile canonical lifecycle/accounting, correct D-379 wording and complete independent receiving proof |
+| Whole O0/B-071/B-150/B-103, exhaustive backlog acceptance and Gate 2 | Defer | Phase 1 → Gate 2 — remaining child, custody, gate and Judge acts |
+| Closure inferred from Issue/PR, receipt, child proof or review agreement alone | Reject | Phase 1 — replace inference with the distinct evidence measures above |
+| Software construction and runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active |
