@@ -26,10 +26,10 @@
   `B-150` S1 act; no manifest, packet or test changes.
   **P0c recorded 2026-09-30 (`D-364` item 10).** The Jev amendment supersedes `D-288` item 5. It is executed in unit
   `U3`, after `U1` and `U2`, and this entry's classification is recorded then. The entry stays `Open`.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
-- **Evidence:** Judge clarifications, 2026-09-30; B-150 parent; D-242, D-264, D-276/D-277, D-287–D-289; linked coverage owners below
-- **Verified-At-Commit:** 31bcf3a2038e29edf0d05c47f32fe60dceebacaf
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent of Lane A's answer, 2026-10-01; planning reconciliation only
+- **Evidence:** Level 1 read a825260: U3 at 31bcf3a has four exact pinned intake rows, FR-15/AC-23 or AC-26 anchors and both required labels. Independent current readiness passes 320/320; historical clean 31bcf3a receipt and source hashes verified. External review checks pass 20/20; Jev self-tests pass. Verification closes the named tooling/planning omission, not runtime behavior or Gate 2.
+- **Verified-At-Commit:** a825260ec24aac0bd217ed03a630d85eb7ce596e
 
 ## What happened
 
@@ -63,3 +63,30 @@ Lane B condensed the coverage investigation and linked it to B-150. No tests, ap
 | Planning-deliverable closure | Approve-with-conditions | Received obligations and independent Lane B coverage review; contract changes accepted by the Judge. Phase 1 |
 | Initial test construction | Defer | Bounded authorization and Active lane; xDD evidence then precedes new production behavior. Gate 2 |
 | Historical setup checks treated as behavior completion | Reject | Actual database/behavior/integration proof belongs to authorized implementation. Gate 2 |
+
+## Lane B independent verification — 2026-10-01
+
+Judge-requested review read `a825260ec24aac0bd217ed03a630d85eb7ce596e`; applied U3 revision
+`31bcf3a2038e29edf0d05c47f32fe60dceebacaf`, disposition/receipt recorded by D-373 at `4baafc8`.
+The four rows transcribe existing §4.6 rules without introducing a feature: SM05-IN1 URL pass;
+IN2 admitted Markdown pass with original URL/exact-text digest and no URL-live claim; IN3 missing
+reference fails with named validation failure; IN4 Markdown without original URL is refused at admission.
+Each has its own pin and FR-15 acceptance anchor; the intake label is in both required sets.
+
+Independent read-only review `C:/CoWork/outputs/handoff-review-2026-10-01/review-u3-d374.mjs`:
+20/20 checks pass, including source pins, acceptance anchors and the historical receipt/source hashes.
+Results SHA-256 `c082e79d6e0858493e884ab21d8fd8378cd96f492ad883bde3f317a2325ccba9`.
+Current readiness passes 320/320; the original receipt independently matches clean 31bcf3a and
+320 successful rules. Jev self-tests all behave as named. These are planning/tooling checks, not
+application/database tests; no runtime construction occurs. Lane A's answer is preserved.
+
+The named reconciliation deliverable is independently Verified. Each case's real database artifact,
+failing-first evidence and runtime acceptance remain in the authorized Phase 2 work order. Lane C's
+Level 2 review of U3 is separate; this header does not represent its result or whole B-150 clearance.
+Lane A includes this review in SV-002 §2.3.2 and checks/re-pins §2.3.1 after this new disposition commit.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| B-151 named planning/tooling reconciliation; U3 Level 1 scope | Approve | Phase 1 — independently Verified in this bounded scope |
+| U3 Level 2 acceptance and tracking consumption | Approve-with-conditions | Phase 1 — current Lane C review; ledger record and derivation currency checked after verification |
+| Intake runtime/database behavior and Gate 2 construction | Defer | Gate 2 → authorized Phase 2 — separate case artifacts and genuine failing-first/runtime proof |
