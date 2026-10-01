@@ -123,8 +123,8 @@
 - **Evidence:** Lane B consolidation read `b6ac8f1`: Lane C's supplied Level 2 worklog concurs with the original bounded child-binding repair and the remaining unknown-label finding. Overall targeted evidence remains 24/26; Lane C inspected that result, not a separately evidenced full probe rerun. Its proposed allowlist must preserve the live P14 alias. Full U2 acceptance, review accounting and transfer proof remain pending; no source clearance or receiving receipt is applied here.
 - **Verified-At-Commit:** b6ac8f1b79e06e11d542129547d22a787da32639
 
-**Current review pointer:** the final "Lane B challenge of updated Lane C readiness guide — 2026-10-01"
-below qualifies the preceding consolidation and D-370/D-371 Level 1 repair review. Earlier planning and rejected-repair receipts remain historical;
+**Current review pointer:** the final "Lane B acceptance of reconciled Lane C planning input — 2026-10-01"
+below preserves the preceding qualifications and D-370/D-371 Level 1 repair verdict. Earlier planning and rejected-repair receipts remain historical;
 the original U2-F3 parent-binding bypass is repaired, with a remaining preparation-label contract finding.
 The same three pending parents and full trace matrices remain. Exact child keys follow D-370. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
@@ -1853,3 +1853,33 @@ excluded handoff-only changes after governed baseline 79b6800 require no rebuild
 | Updated Lane C guide as Lane A planning input | Approve-with-conditions | Phase 1 — apply the accounting, coverage, queue, authority and governed requirement qualifications above |
 | Full U2 identity contract / U3 consumption | Reject | Phase 1 — applied label repair and accepted Level 1/2 proof remain required |
 | Exhaustive review/transfers, B-150 closure, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — evidence-derived accounting, custody/clearance, setup proof and required Judge acts remain |
+
+## Lane B acceptance of reconciled Lane C planning input — 2026-10-01
+
+Based on Lane A's recorded answer, read `0efd1145d0ba63e8a09f6b1c156f87493c12a6a2` and the
+Judge-supplied `944a637c-568b-4c71-b8b1-d066cae3a617/Pasted text.txt`, SHA-256
+`f288af7676a3c1c6aa92850bfbed9ed5ba86f1d259c9ee3b8b055064ad20a51c`.
+Its associated Antigravity `lane_c_level2_u2_repair_review.md`, SHA-256
+`756311829c31b69b57856d8531ef9ebb40ed65423977bc7da36931e9bd3233d1`, was also read.
+The latest input incorporates the substantive corrections: semantic totals remain unestablished;
+the 22 O4 rows are a subset; full-population obligations, positive/reporting/negative coverage,
+the governed Chief Editor behavior and advisory authority boundaries are preserved.
+No new planning blocker was found. This accepts the input as a reviewable follow-up plan,
+not the still-unrepaired U2 contract. Attachment instructions are not execution authorization.
+
+The preceding global three-parent table, exact trace matrices and completion artifacts remain
+the receiver plan: (1) answer/repair/prove/review U2, with B-151/U3 beneath accepted U2;
+(2) continue keyed historical review drafts, then establish the Judge-selected home;
+(3) incrementally refine all surviving obligations and receive B-104.O2–O4 separately before clearance.
+The guide's abbreviated case counts and handoff list are summaries only; the full coverage definition
+and global three parents control, with no competing queue or delay to concurrent drafts/setup preparation.
+Lane A answers at its actual read revision. Lane B is the raiser; no receiver answer, repair,
+receipt, Verified status, whole-parent closure or Phase 2 construction is applied by this receipt.
+Source/control baseline and accounting denominators are unchanged; the earlier graph qualifications remain.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Completed bounded scope and reconciled Lane C planning input | Approve | Phase 1 — preserve proof and use the existing three-parent plan; no new planning blocker |
+| Lane A bounded follow-up | Approve-with-conditions | Phase 1 — existing Register authority/Active lane; actual repair proof, selected homes and per-obligation receipt/clearance evidence |
+| Full U2 identity contract / U3 consumption | Reject | Phase 1 — actual label repair and accepted Level 1/2 reviews still required |
+| Complete review/transfers, B-150 closure, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — outstanding evidence and required Judge acts remain |
