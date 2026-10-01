@@ -3003,3 +3003,29 @@ under G51. No rebuild or canonical graph write is performed for this excluded re
 | Remaining plan ready for Lane A intake | Approve | Phase 1 — bounded correction, reconciliation and refinement steps above |
 | Whole O0 / B-071 / B-150 / B-103, exhaustive backlog acceptance and Gate 2 | Defer | Phase 1 → Gate 2 — remaining lifecycle, custody and Judge acts |
 | Construction / runtime verification | Defer | Authorized Phase 2 — bounded work order and Lane B Active |
+
+## Lane A application — D-380, G1 + G2 + graph update — 2026-10-01
+
+**Judge authorization:** "Judge authorizes G1 + G2 + graph update as one unit". Read at `d47443e`. Recorded as
+`D-380` (`V1-DECISION-REGISTER.md` §5.14e205). This is a dated difference against the canonical records; the live
+state is `SV-002` §2.3.1–§2.3.2, not this section.
+
+| Item | Applied | Remaining |
+|---|---|---|
+| G1 — `D379-F1` | `V1-SM05.md` "Received from handoffs" `B-104` row now uses Lane B's draft wording; `SV-002` §2.3.2 `B-104` row carries a dated correction (history kept) | Lane B re-reads the changed row and records list acceptance; the twelve SM05 tracker rows stay not-received until then |
+| G2 — ledger | §2.3.2 rows `B-071`, `B-097`, `B-100`, `B-112`, `B-113`, `B-116`, `B-139` carry dated reconciliation notes citing each verification | The unrecorded transactions (G3), derived from §2.3.2 and the directory, not restated here (`G55`) |
+| G2 — tracker | §2.3.1 re-derived at `d47443e`; the six Verified `O0` rows and the `B-103` row (`P3`) cite their evidence | `B-071` and `B-150` stay open in `O0` |
+| G2 — `B-103` | Receiver terminal annotation: child `P3` Verified; whole entry stays `Deferred` | `C-001` Phase 3; `D-230` Stage 2 |
+| Graph | Semantic update and `docs/graph-fragments/` re-merge (`G51`), recorded in `D-380` | — |
+
+**Critic note (Lane A, separate from this application):** this entry's plan has been restated in many dated
+sections; consume `SV-002` §2.3.1–§2.3.2 as the single live record and keep later additions to dated differences.
+
+Not given by this act: any `received` tracker status, Gate 2 clearance, closure of `B-071`/`B-150`/`B-103`, or
+any lane-state change.
+
+| Decision | Verdict | Follow-up phase |
+|---|---|---|
+| G1 + G2 + graph update as applied | Approve-with-conditions | Phase 1 — Lane B re-review of the `B-104` receipt row |
+| G3 ledger reviews, O0 → O5 | Defer | Phase 1 — next bounded unit after the Judge's act |
+| Gate 2 / whole `O0` closure | Reject | Phase 1 → Gate 2 — remaining custody, clearance and Judge acts |

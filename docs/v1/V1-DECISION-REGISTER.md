@@ -25082,3 +25082,47 @@ handoffs dispositioned before Issue #1 mostly reached `V1-SM05` only through row
 | `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files | — unaffected: receipts cite existing anchors |
 | **Encyclopedia** | — unaffected: no scope or claim changes for Entries 05/06 |
 | **Graphify** | Rebuild before and after this commit |
+
+## 5.14e205 `D-380` — `D379-F1` Corrected; Ledger, Tracker and `B-103` `P3` Reconciled After the Verified Chain; Graph Semantic Update
+
+**Authority: the Judge, directly to Lane A, 2026-10-01**: *"Judge authorizes G1 + G2 + graph update as one unit"*.
+It answers Lane B's `8bd159f` review in `B-150` (finding `D379-F1`) and its "Lane B verification completed — B-116
+repair and dependent chain" section. Read at `d47443e`.
+
+### The decision
+
+1. **G1 — `D379-F1`.** `V1-SM05.md`'s "Received from handoffs" `B-104` row said "`O2`–`O4` are held in
+   `GOV-RES-001`", but `GOV-RES-001`'s `GR-002` Hold reads "None". The row now says `O2`–`O4` are *received* there
+   as `GR-001`–`GR-003`; `GR-001`/`GR-003` target scope is held under `D-171`; `GR-002`'s provenance labelling has
+   no hold while historical transition implementation stays held; receipt is not clearance or execution. `SV-002`
+   §2.3.2's `B-104` row keeps its text and gains a dated correction. No SM05 consumer, DoR/DoD row or MMF changes.
+2. **G2 — ledger.** `SV-002` §2.3.2 rows `B-071`, `B-097`, `B-100`, `B-112`, `B-113`, `B-116` and `B-139` gain
+   dated reconciliation notes citing each independent verification. Earlier findings are kept, not rewritten.
+3. **G2 — tracker.** `SV-002` §2.3.1 is re-derived at `d47443e`. The six `O0` rows whose headers are now
+   independently Verified cite that evidence and count closed under the table's own rule; no Clearance cell is
+   edited. `B-071` and `B-150` stay open.
+4. **G2 — `B-103` `P3`.** Lane A, as receiver, appends a terminal annotation dispositioning child `P3` Verified on
+   Lane B's evidence (`48aa964`). The whole entry stays `Deferred` (`C-001` Phase 3; `D-230` Stage 2).
+5. **Graph.** The pending semantic descriptions/labels from the fast hook are refreshed and `docs/graph-fragments/`
+   is re-merged (`G51`).
+
+### Not given by this act
+
+`received` on any tracker row (that follows Lane B's re-review of the corrected `B-104` row); Gate 2 clearance;
+closure of `B-071`, `B-150` or `B-103`; the remaining ledger reviews; any lane-state change.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e205 |
+| **`docs/v1/work-packets/V1/V1-SM05.md`** | ✅ "Received from handoffs" `B-104` row |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.1 Derived at, `O0` and `B-103` Basis; §2.3.2 dated notes |
+| **`docs/handoff/B-103-lane-b-c-interface-and-handoff-closure.md`** | ✅ Lane A terminal annotation: child `P3` |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record |
+| **`GOV-RES-001.md`** | — unaffected: already correct; it is the source the fix aligns to |
+| **Build Spec** (`V1-BUILD-SPEC.md`), **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | — unaffected: no artifact created, sequenced or retired |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected: no lane or phase state changes |
+| `docs/Modular_PRD.md`, Fn Specs, SPECS, rule files | — unaffected |
+| **Encyclopedia** | — unaffected: no scope or claim changes for Entries 05/06 |
+| **Graphify** | Semantic update and fragment re-merge in this unit |

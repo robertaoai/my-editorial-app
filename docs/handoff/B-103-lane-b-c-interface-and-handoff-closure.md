@@ -936,3 +936,15 @@ Judge ruling, read fresh rather than assumed unchanged:
   evidence annotation does not itself perform a receiver return/re-close or change C-001 readiness.
 - **No-Scope-Reopened:** true
 - **Annotated-At-Commit:** 48aa96401a8c8581983bd4d2635423d321e55c6a
+
+## Terminal annotation record
+
+- **Current-Resolution:** Deferred
+- **Annotation-Type:** verification-evidence
+- **Annotation-Act:** Lane A receiver disposition of child `P3`, `D-380` (Judge-authorized unit "G1 + G2 +
+  graph update", 2026-10-01; `V1-DECISION-REGISTER.md` §5.14e205). Lane A accepts Lane B's independent `P3`
+  control evidence recorded at `48aa964` (through `B-097`, Verified at `d7c6244`): child `P3` is dispositioned
+  **Verified**, and `SV-002` §2.3.1's `B-103` row cites it. The whole entry stays `Deferred`: `C-001`'s Phase 3
+  execution and `D-230` Stage 2 runtime proof are unchanged, and no other P0–P3 child moves
+- **No-Scope-Reopened:** true
+- **Annotated-At-Commit:** d47443e135e869bb07a9fb8b44cb8c24334345ee
