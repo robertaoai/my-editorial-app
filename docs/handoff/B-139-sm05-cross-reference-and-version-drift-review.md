@@ -34,10 +34,10 @@
   **Reviews `0a70c1a`–`21170aa` answered 2026-09-27 (`D-271`, commit `3d926a6`), on the Judge's direct answers to Lane A's Q1–Q5.** Q1 confirmed, as `D-271`'s authority, the three clarifications you recorded (triad route; governance control files; global Project scope with the overall Project/Product tracker) and the `D-270` item 4 amendment. Applied: (1) **Authority and anchor** — AI build tooling is global Project scope with no `US`/`FR`/`AC`, module or sprint slot; `Modular_PRD.md` is the overall Project/Product tracker, refining `D-203` (tracking is not owning), with §0.5 registering the `AIG-` prefix (`AIG-NN`, `.Rn`, `.Cn`; distinct from editorial `PSK-*`, per Judge Q2), a §0.6 dated correction, and a non-feature §7.2a index `AIG-01`–`AIG-06` with no Sprint column; changelog 1.43; §0.6.1, `docs/modules/` and `M-MVP` prose unchanged. (2) **Control files** — `docs/fn-specs/FN-MULTI-LANE-AI-GOVERNANCE.md`, `docs/specs/SPECS-MULTI-LANE-AI-GOVERNANCE.md` (the existing plural convention, per Judge Q3; `docs/specs/README.md` corrected, applying `B071-R63`) and `docs/specs/ux/UX-MULTI-LANE-AI-GOVERNANCE.md`, each linking to its owners rather than copying them, `[V1]`-marked, with a `D-30` filter; inventoried; curated by `frag140`. (3) **Requester/responder (Judge Q4)** — Lane A coordinates, the owning lane responds; the lock governs writes to owned files, so read-only measurements need no lock and change no lane state; `D-184` is unchanged for durable receipts. This answers your item 3 at `0a70c1a` and replaces the "measurement exception" framing. (4) **`SV-002`** — `SV2-DOR-04` checkoff amended to pre-run access proof (cycle removed); §3.4 blind controls, verifier-held lines, tools withheld, positive/negative controls and `inconclusive`; §3.1 A/B/C route schedule; §3 stop condition reworded. Not done: `SV2-DOR-02`/`03`/`04`/`05` checkoff (each on its own proof, after your review), `SV2-DOD-01` review, all runs, rulebook refactor (`D-266` item 2) and `V1-SM05` selection. Lane C's proposed `C-007` is not a filed entry. `Status` stays `Open`.
 
   **Your `SV2-DOR-02` review (`cf627e5`) applied 2026-09-27 at `3587562`.** Both corrections made: §2.1 re-derived from live headers at `cf627e5` (`B-140` `Verified` at `14219ca` leaves the Open set; the `bcbf548` snapshot kept as history), and §2.2 `P2` now records `B-138` `Verified` at `3cd16cf` without equating it with the setup units. `SV2-DOR-02` is checked, so all six `SV2-DOR-*` rows are checked and `SV-002` reads **DoR complete**, with no run result. The next act is the Judge's selection of Lane A's run. `Status` stays `Open` for this entry's other children.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex), independent Phase 1 O0 review, 2026-10-01
 - **Evidence:** repository comparison at the commit below against `D-29`/`D-30`/`D-33`/`D-34`/`D-36`/`D-40`/`D-203`, `D-259`–`D-261`, `D-263`–`D-270`, `docs/specs/README.md`, `FN-GATES-01-05.md` §§4.1/4.4, `requirements-traceability-map.md` §6.1, `Modular_PRD.md` §§0/0.1/0.6/7.2/9.1, `docs/modules/M-MVP-REQUIREMENTS.md`, `ENCYCLOPEDIA-SYNC.md` Entry 03, `V1-SM05.md`, `B-120`, `B-125`, `B-136`, `B-138`, `SV-002.md` §§2.1–2.2/3–7, and the handoff return SOP; Lane C's 2026-09-27 external review is supporting analysis
-- **Verified-At-Commit:** cc45d8ff9e90e2f7605d10ce2143d02909cdc92e
+- **Verified-At-Commit:** 6eea2beff9b6e77afdb5c493e5a3aa77098dd618
 
 ## What happened
 
@@ -351,3 +351,28 @@ The attached Lane C review correctly observes that the consistency suite and Gra
 |---|---|---|
 | **Approve-with-conditions** | `SV-002` §§2/4/5 coverage for `SV2-DOR-02` | Gate 1B preparation — refresh §2.1 and P2 from current receipts, then check the row on that evidence |
 | **Defer** | Setup execution, DoD and `V1-SM05` selection | Gate 1B execution → Gate 2 — require the separate run, reviews and Judge acts |
+
+## Independent O0 completion review — Lane B — 2026-10-01
+
+**Read:** `6eea2beff9b6e77afdb5c493e5a3aa77098dd618`. Judge authorization: "Lane B verifies O0. Phase 1".
+Under D-376 this verifies items 1–3, P11-G1–G4 and the custody disposition; items 4–6 remain transferred,
+not complete. The receiver's answer and receiving obligations are preserved.
+
+| Child | Independent source evidence | Result |
+|---|---|---|
+| P11-G1 | FN-GATES §4.1 dated D-267 note preserves the old authored/not-accepted statement as history and cites D-259 acceptance for business:T1–T5 only; no A2–A8 slot or A10 expansion | Verified |
+| P11-G2 | requirements-traceability-map §6.1 dated D-267 note includes DOR-R7, labels prior validation Gate 1A/SV-001 rather than feature DoR/DoD, and identifies accepted A11 versus bounded A10 | Verified |
+| P11-G3 | FN-GATES source header names Product acceptance criteria §9.1, with later FR-15/AC-23–26 elaboration remaining separately anchored | Verified |
+| P11-G4 | Modular_PRD §0/§0.1 has sequential 1.38/D-261, 1.39/D-264, 1.40/D-265 and 1.41/D-267; D-268 corrects current status at 1.42; later 1.43/1.44 are preserved and header equals last version 1.44 | Verified |
+
+D-267's lineage → attempt → unit → run hierarchy and D-268/D-269 child preparation remain explicit in
+SV-002. D-376's receipts identify the surviving work: item 4 → B-150/SV-002 §2.3.1–2.3.2;
+item 5 → SV-002 §7 open DOD-01/02/04/06; item 6 → Gate 2/D-364/D-267. Receipt is not completion.
+Lane A follows up by recording this proof on the existing four P11 rows and refreshing B-139's O0
+clearance row. Source rows currently saying verification pending are lagging tracker text, not missing
+source corrections. No additional feature or duplicate handoff is introduced.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| B-139 own scope, P11-G1–G4 and D-376 transfer disposition | Approve | Phase 1 — independently Verified; Lane A records the existing row receipts |
+| Receiving items 4–6 and whole Gate 2 | Defer | Phase 1 → Gate 2 — existing owners complete their own evidence; no construction authorization |
