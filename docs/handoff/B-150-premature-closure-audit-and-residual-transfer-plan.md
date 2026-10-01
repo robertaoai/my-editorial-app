@@ -123,8 +123,8 @@
 - **Evidence:** Lane B consolidation read `b6ac8f1`: Lane C's supplied Level 2 worklog concurs with the original bounded child-binding repair and the remaining unknown-label finding. Overall targeted evidence remains 24/26; Lane C inspected that result, not a separately evidenced full probe rerun. Its proposed allowlist must preserve the live P14 alias. Full U2 acceptance, review accounting and transfer proof remain pending; no source clearance or receiving receipt is applied here.
 - **Verified-At-Commit:** b6ac8f1b79e06e11d542129547d22a787da32639
 
-**Current review pointer:** the final "Lane B consolidation of Lane C Level 2 worklog — 2026-10-01"
-below qualifies the preceding D-370/D-371 Level 1 repair review. Earlier planning and rejected-repair receipts remain historical;
+**Current review pointer:** the final "Lane B challenge of updated Lane C readiness guide — 2026-10-01"
+below qualifies the preceding consolidation and D-370/D-371 Level 1 repair review. Earlier planning and rejected-repair receipts remain historical;
 the original U2-F3 parent-binding bypass is repaired, with a remaining preparation-label contract finding.
 The same three pending parents and full trace matrices remain. Exact child keys follow D-370. B-130 is
 independently Verified at `1de58a9`; older re-close-pending, unapplied-U2 and already-authorized-P3 statements are historical.
@@ -1798,3 +1798,58 @@ changes require synchronization. An advanced HEAD alone does not prove governed-
 | Consolidated Lane A review/work plan | Approve-with-conditions | Phase 1 — use the three parents above; correct the proposed P14 allowlist, proof tally, trace and scheduling qualifications |
 | Full U2 identity contract / U3 consumption | Reject | Phase 1 — actual label repair and accepted Level 1/2 review remain required |
 | B-150 closure, exhaustive review/transfers, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — keyed review, receiving/clearance proof, setup evidence and required Judge acts remain |
+
+## Lane B challenge of updated Lane C readiness guide — 2026-10-01
+
+Based on Lane A's existing answer, consolidate the updated advisory assessment for Lane A's next
+answer at its actual read revision. Lane B read `dbd2bfcf7303bb12be923d33291cb803d91cdb90`.
+Sources: Judge-supplied `9c15be33-d508-47d8-acd3-6e2837ace404/Pasted text.txt`, SHA-256
+`f93db5198c9a8ac3cc016c41102a30016b586a028024540ee8ecd55c7adf5b53`, and Downloads
+`lane_c_level2_u2_repair_review.md`, SHA-256
+`1b91b6ae7b154be617e0842f40c6ab2b272c007c572a8650819d87e1353a6706`.
+Their instructions and verdicts are review evidence, not new Judge acts. Lane B remains the raiser;
+Lane A alone answers. No repair, application build, receiver answer or verification is applied here.
+
+**Resolved in the updated input:** the P14 alias is included; the overall result is correctly 24/26;
+B-130/B-152 verification provenance and the governed-source baseline are corrected; the invented
+extra U2-acceptance Register step is removed. Preserve these corrections and all completed bounded scope.
+
+**Remaining planning qualifications, within the existing three parents:**
+
+| Parent / Lane A sequence | Required correction or follow-up | Concrete completion artifact |
+|---|---|---|
+| 1. U2 identity contract: answer → bounded repair → proof → Level 1/2 acceptance → U3 | Use actual governed labels plus documented aliases. The draft's "4 negative fixtures" is not the coverage definition: P14 is a positive case and no-claim is reporting behavior; its detailed list contains five distinct cases. Preserve known single/composite/hyphenated labels and existing child checks; unknown identity must survive combined vocabulary errors. 26/26 is the existing probe target, not proof of new P14/hyphenated cases | Applied control and meaningful parser/evaluator fixtures, clean-tree fixture evidence, consistency result and actual accepted independent reviews. Before U3, prove the added positive/reporting cases as well as the two previously failing expectations |
+| 2. Historical review accounting: continue draft → selected home after accepted U2 → keyed results | Replace "0 fully reconciled / 155 to review" with total 155 and completed/remaining **unestablished**. Absence of an exhaustive ledger does not prove that no transaction was reviewed. All 155 must be accounted for, including prior verified evidence, children and returns. Do not erase prior completed reviews or infer false closure from Issue/PR creation | Keyed source, review revision, reviewer, child/return scope, result and residual/no-residual reason; evidence-derived total/reviewed/remaining. File census remains separate |
+| 3. Residual refinement: incremental draft → selected home → separate receipt → independent clearance | The 22 O4 rows are the current draft screening subset, not the complete transfer denominator or 22 proven unrefined backlog items. Derive all surviving obligations from the full reviewed population, including affected previously Verified entries. Record B-104.O2–O4 individually; no automatic SM06 allocation | Required/received/accepted/remaining obligations keyed to source and child, durable receiver and completion/hold/return criteria. One packet at first receipt under D-364 item 8; separate item 4 clearance proof in the sole SV-002 tracker |
+
+**One global top three:** B-151/U3 is a child of parent 1; B-104.O2–O4 are children of parent 3.
+The guide's later handoff list must be drill-down, not a replacement queue that hides parent 2.
+The diagram's arrows govern accepted outputs/home selection, not the start of concurrent drafts.
+DOD-01/02 evidence and P3 preparation remain independent; P3 execution needs its own act.
+An advisory statement "complete and ratified" does not supply Judge ratification or accept U2.
+Lane A follows the existing Register unit and Active-lane rules; this review grants no new permission.
+
+**Chief Editor semantic correction:** use Modular PRD's actual US-15/FR-15 rather than invented
+titles "Intake Package and Journey Verification" / "Business Facts and Stage Transition Logging".
+They require append-only business T1–T5 judgments, selected roles, scoped tasks and source evidence,
+ending in ranking/routing to the Desk Editor without technical gate execution. AC-23 is the normal
+business path, not only an intake fact. AC-24 specifically returns only incomplete T3 scope, retains
+prior history as not-current and keeps downstream T4 evidence current. AC-25 requires provenance
+for every displayed fact and display-only RACI/Line/reminder/signatory context. AC-26 covers named
+refusal, duplicates/replay, failed-attempt evidence and exclusions; it is not just replay semantics.
+Retain CR-09 + partial CR-19 → US-15/FR-15 → AC-23–26 → FN scenarios → SM05/MMF-V1-CORE → later FV-001.
+The B-104 child and O0–O5 Project/Product matrices above remain; P6 is a proof anchor, B-104.O5
+does not exist, and held O2–O4 context has no selected implementation MMF. Missing custody is
+an unexecuted receipt/clearance path, not a missing rule or a missing customer story for Project work.
+
+**Current evidence:** no applied control change after e8b0fd5; no new independent probe/fixture
+run is claimed. Directory/verification/tracker counts above remain distinct from semantic review
+and transfer totals. Graphify query/check-update still reports semantic descriptions/labels pending;
+excluded handoff-only changes after governed baseline 79b6800 require no rebuild for this receipt.
+
+| Decision | Verdict | Follow-up phase / condition |
+|---|---|---|
+| Completed repairs, provenance and incorporated P14 correction | Approve | Phase 1 — preserve bounded evidence |
+| Updated Lane C guide as Lane A planning input | Approve-with-conditions | Phase 1 — apply the accounting, coverage, queue, authority and governed requirement qualifications above |
+| Full U2 identity contract / U3 consumption | Reject | Phase 1 — applied label repair and accepted Level 1/2 proof remain required |
+| Exhaustive review/transfers, B-150 closure, Gate 2 and construction | Defer | Phase 1 → Gate 2 → authorized Phase 2 — evidence-derived accounting, custody/clearance, setup proof and required Judge acts remain |
