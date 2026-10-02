@@ -438,6 +438,11 @@ inside `SV-002.md` (§2.3.2) and `GOV-RES-001.md` (`GR-009`–`GR-011`).
 **`D-386` (2026-10-02) — no file added or retired, stated explicitly.** Changed in place: the storyboard journal
 (three provenance markers) and `GOV-RES-001.md`; `B-115`/`B-150` in their own one-path commits.
 
+**`D-387` (2026-10-02) — one evidence file added, none retired.** Added:
+`docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt`, a byte-identical copy of the
+Judge-supplied Lane C attachment, SHA-256 `6aebe93c197aa14f7db237fd13a926e43eddce642311e381866038fb2980a763`. It is
+evidence for `B-115`, like the `B-131` artifact. `SV-002.md` changes in place (§2.3.3 heading).
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

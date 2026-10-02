@@ -25508,3 +25508,47 @@ unit"*. Read at `e941de9`.
 | `Modular_PRD`, Fn Specs, SPECS, Build Spec, packets, rule files, Phase Closure | — unaffected |
 | **Encyclopedia** | — unaffected: the storyboard is not mapped to Entries 01–06 |
 | **Graphify** | Rebuild at the final commit, re-merge, replay descriptions, content-checked labels |
+
+## 5.14e212 `D-387` — Lane C's `B-115` Consumer Read Preserved Byte for Byte; the `D-278` Screen Given Its Own Heading
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"Judge authorizes push of 5 commits and D-387 corrected
+scope"*. The corrected scope is a byte-for-byte copy, not Lane C's reformatted file, whose hash could not match.
+Read at `544a014`, after pushing the named range `ecdd512`..`544a014` with the pre-push proof.
+
+### The decision
+
+1. **Evidence preserved.** The Judge-supplied Lane C attachment is copied unchanged to
+   `docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt`. Its SHA-256 is
+   `6aebe93c197aa14f7db237fd13a926e43eddce642311e381866038fb2980a763`, re-computed after the copy and equal to the hash
+   `B-154` recorded. The attachment is Lane C's whole `B-154` review. Its `B-115` part gives four CONFIRMED consumer
+   findings read at `07d931e`:
+   - WORKFLOWS-SPEC §8 acting window;
+   - the `D-229`/`D-230` failure-capable contract;
+   - no Intent or Build ownership;
+   - a usable deficiency return.
+
+   Its other classification claims carry no authority; `B-154` records their corrections (LC4–LC7). Lane C's later
+   reformatted restatement, pasted in the Judge's chat, is cited as a reaffirmation, not stored.
+2. **`B-115` cites the artifact.** `B-115`'s completion condition needs Lane B's and Lane C's consumer reads. Both now
+   exist: Lane B's in `B-153` (D-383 outcomes) and Lane C's in this artifact. An independent actor still assesses the
+   whole condition before any `Verified`; `B-114` follows.
+3. **The `D-278` screen gets its own heading**, `SV-002` §2.3.3, so it cannot be counted as review-ledger rows again.
+   Review accounting counts §2.3.2 ledger rows only.
+
+### Not given by this act
+
+`B-115` or `B-114` verification; any clearance; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e212 |
+| `docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt` | — added byte-identical, so it cannot carry this decision ID without breaking its SHA-256; the Inventory and `B-115` cite it |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.3 heading and note; §2.3.1 pointer |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ one evidence artifact added |
+| **`docs/handoff/B-115-separate-intent-build-and-devops-governance.md`** | ✅ citation, in its own commit |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record, in its own commit |
+| Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit and re-merge; the handoff artifact is excluded from coverage |
