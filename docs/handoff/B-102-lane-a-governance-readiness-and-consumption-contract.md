@@ -51,10 +51,10 @@
   accepted as the correct fix and is Code's surface to apply; this session proposes it, does not
   implement it. Rebuilding Graphify to satisfy these two failures is rejected, as stated: it would
   ingest the excluded transaction log and ratify the wrong checker contract instead of fixing it.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B
 - **Evidence:** Chief Editor/Judge clarification of 2026-09-15; `AGENTS.md` D-84/D-86/D-183/D-186 and lane surfaces; `docs/README.md` request-to-execution flow; `docs/LANE-B-WORK-ORDER.md`; `.github/WORKFLOWS-SPEC.md`; live B-071/B-084/B-088/B-094–B-101 lifecycle records; `docs/Modular_PRD.md`; storyboard, embedded UML/data-flow views, traceability and `docs/ENCYCLOPEDIA-SYNC.md`; Graphify query and `.graphify/branch.json` at the named commit.
-- **Verified-At-Commit:** 0feaa4588d97daaed4a5824da892ee6eef675313
+- **Verified-At-Commit:** 42dbbe6c94ad5c07f610390eeee215f566bb2288
 
 ## What happened
 
@@ -1346,3 +1346,16 @@ Child `D-228` is Verified (Lane B, `0db245e`). Nothing remains to transfer (`D-3
 
 **Applied, not Verified.** Unit 4's independent verification runs through `B-110`, which stays `Applied` until
 Lane B re-reviews the two curated graph references `D-383` adds. This entry's own `Verified` waits for that.
+
+## Independent Lane B verification — D-383 four-unit disposition — 2026-10-02
+
+Read `42dbbe6c94ad5c07f610390eeee215f566bb2288`. Reviewed B-110 first: its remaining direct-reference condition now passes in frag136, the merged graph and exact-label explain; its independent verification is recorded in this run before this dependent entry. Re-read D-230's two-stage contract boundary, B-103's P2 Stage-1 verification, B-107's Verified fixture-repair record, and D-231/D-246's exclusion/coverage contract and propagation. The focused exclusion/argument cases pass 8/8. D-228 remains the already-Verified child, not a new claimed result.
+
+D-383's Lane A answer correctly states all four queued units have landed and there is no surviving execution residual of this entry to transfer. Contract verification is Phase 1; D-230 Stage 2 is separately received in SM06-P3-06. The current request-to-execution layer map and the separate authorization conditions preserve the bounded-unit, work-order and Active-lane requirements. This verifies the four-unit disposition and its cleared B-110 dependency; it does not declare all governance ready, waive other source clearances or select construction.
+
+Lane B records Verified at the source commit read. The receiver answer and historical review chronology are preserved.
+
+| Verdict | Item | Follow-up phase |
+|---|---|---|
+| Approve | B-102 bounded four-unit disposition | Phase 1 — independently Verified after B-110 |
+| Defer | Other readiness rows, Gate 2 and State-2 work order | Phase 1 clearance, then separately authorized Phase 2 |
