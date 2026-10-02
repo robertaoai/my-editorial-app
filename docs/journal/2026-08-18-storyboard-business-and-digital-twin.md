@@ -181,7 +181,9 @@ Requires all prior gate criteria confirmed, `publication_targets` confirmed, `pu
 > **SUPERSEDED FOR CURRENT USE, 2026-10-02 (`D-386`, `GR-002`).** Preserved as dated provenance, not build input.
 > The Chief Journalist agent at `T6` is the historical order. `T6` is outside V1 (`D-239`). Its target node `EG5`
 > requires a human executor holding `ACCESS-ROLE-CHIEF-EDITOR` (`D-238`, `D-251`; `FN-GATES-01-05.md` §11), and it
-> is held target scope (`D-171`). The `T6`→`T5` return analytics stay held.
+> is held target scope (`D-171`). The `T6`→`T5` return analytics stay held. The current `V1-SM05` slice is Panel
+> A11: it records business-stage facts and executes no `transition:T*` (`D-249`, `D-260`). *(Sentence added
+> `D-388`.)*
 
 ### Panel A7 — T7/T10/T11 Publication
 

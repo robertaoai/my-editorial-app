@@ -25552,3 +25552,39 @@ Read at `544a014`, after pushing the named range `ecdd512`..`544a014` with the p
 | Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit and re-merge; the handoff artifact is excluded from coverage |
+
+## 5.14e213 `D-388` — A6 Marker Completed; B-117 Tracker Clause Corrected; Tracker Re-derived With `B-154`
+
+**Authority: the Judge, directly to Lane A, 2026-10-02.** Lane A asked whether the Judge authorized D-388 as
+G1 + G2 + G3 + G4. **Answer: "yes".** It answers Lane B's review in `B-154` (`341dd04`). Read at `341dd04`.
+
+### The decision
+
+1. **G1 — A6 completed.** Storyboard Panel A6's provenance marker gains the sentence Lane B specified, citing Panel A11
+   and `D-249`/`D-260`.
+   **Correction to `D-386` item 1:** it said each new marker cites Panel A11. At `0ea8390`, A6's did not; it does now.
+   `GR-002` awaits independent re-review at the repair revision.
+2. **G2 — B-117 tracker clause.** `SV-002` §2.3.1's `B-117` row no longer calls the Chief Journalist `A` decision
+   open. `D-236` dissolved it; `D-385` corrected the census but missed this row.
+3. **G3 — tracker.**
+   - `B-154` is listed in §2.3.1 (`O0`, non-SM05, open) and keyed in §2.3.2.
+   - The tracker is re-derived at `341dd04`.
+4. **G4 — answer.** Lane A answers `B-154` in its own one-path commit.
+
+### Not given by this act
+
+`GR-002` verification; `B-115`/`B-114` verification; any clearance; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e213 |
+| **`docs/journal/2026-08-18-storyboard-business-and-digital-twin.md`** | ✅ A6 sentence |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ `B-117` clause, `B-154` rows, re-derivation |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-388` paragraph; no file added or retired |
+| **`docs/handoff/B-154-consolidated-parent-first-artifact-and-closure-plan.md`** | ✅ Lane A answer, in its own commit |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record, in its own commit |
+| Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, re-merge, replay descriptions, content-checked labels |

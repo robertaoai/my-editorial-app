@@ -443,6 +443,9 @@ inside `SV-002.md` (§2.3.2) and `GOV-RES-001.md` (`GR-009`–`GR-011`).
 Judge-supplied Lane C attachment, SHA-256 `6aebe93c197aa14f7db237fd13a926e43eddce642311e381866038fb2980a763`. It is
 evidence for `B-115`, like the `B-131` artifact. `SV-002.md` changes in place (§2.3.3 heading).
 
+**`D-388` (2026-10-02) — no file added or retired, stated explicitly.** Changed in place: the storyboard journal (A6
+sentence) and `SV-002.md`; `B-154`/`B-150` in their own one-path commits.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |
