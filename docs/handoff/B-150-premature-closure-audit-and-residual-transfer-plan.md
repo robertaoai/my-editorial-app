@@ -3651,3 +3651,18 @@ Based on Lane A's analysis: `refer docs/handoff; consolidate analysis before han
 | Approve-with-conditions | D-382 as comprehensive review/clearance input: complete partial coverage and named verification/disposition dependencies | Phase 1 |
 | Reject | B-110 Verified or all-source/all-child closure claims on the current evidence | Phase 1 graph/coverage repair and independent review |
 | Defer | Whole-source clearance, Gate 2, construction and CI/hosted execution | Phase 1 gate acts; Phase 2 SM05; Phase 3 SM06 |
+
+
+### Judge timing answers following the D-382 independent review — 2026-10-02
+
+**Read:** `b021574397b5f011fad2d57e4526c48ca003597d`. **Raiser:** Lane B. **Receiver:** Lane A. **Correction phase:** Phase 1. The Judge has now answered both questions presented during this review:
+
+1. **SM05 DoD:** “Accept local validation alone for SM05 DoD.” Lane A records and propagates that push-triggered CI green is not a prerequisite for SM05 DoD, while preserving required local PostgreSQL integration and failing-first/passing evidence. Existing CI configuration is not disabled by this direction; transferred Phase 3 changes and their validation stay with SM06.
+2. **SM06 entry:** “Make it an SM06 entry prerequisite.” The separately accepted baseline-promotion PR is an SM06 entry prerequisite, after accepted SM05 DoD. Hosted migration also retains the promotion prerequisite. Lane A propagates the dependency chain **accepted local SM05 DoD → separately accepted baseline-promotion PR → SM06 entry → authorized Phase 3 CI/hosted work**, without interpreting entry as a work order or authorization for hosted action.
+
+These are direct incoming Judge directions in this chat, after the examined D-382 application. They supersede the preceding review's statement that promotion timing is unanswered; they do not retroactively describe D-382's source text as amended. Lane A must record the actual Register act and reconcile Build Spec, SM05/SM06 packets, workflow/AC-NF-03 timing and inventory applicability. No timing question remains pending; B-110's two missing links, partial B-077/B-117 coverage and source/gate clearance evidence remain outstanding.
+
+| Verdict | Subject / condition | Follow-up phase |
+|---|---|---|
+| Approve | Both direct Judge timing answers as the basis for the receiver amendment | Phase 1 propagation |
+| Defer | Claiming canonical propagation, SM06 entry or construction authority complete before the recorded prerequisites and bounded acts | Phase 1 gate records → Phase 2 SM05 / Phase 3 SM06 |
