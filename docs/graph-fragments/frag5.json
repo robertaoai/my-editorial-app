@@ -6,7 +6,7 @@
       "file_type": "document",
       "source_file": "docs/fn-specs/FN-GATES-01-05.md",
       "source_location": "",
-      "description": "Functional specification for the five editorial gates. Covers intake, validation and investigation as two distinct transitions, drafting with meaning-invariance, Line 2 human review at T5 with a blind first pass, and independence classification with three outcomes and no silent fourth state. Its section 9 applies the D-30 redundancy filter and names five components that require SPECS.",
+      "description": "Functional specification for the five editorial gates. Covers intake, validation and investigation as two distinct transitions, drafting with meaning-invariance, Line 2 human review at T5 with a blind first pass, and independence classification with three outcomes and no silent fourth state. Its section 9 applies the D-30 redundancy filter and names five components that require SPECS. (Qualified 2026-10-02, D-385: Sections 1-10 are the historical documented-and-held contract, including the Line 2 human T5 review; the decided target in section 11 (D-171, D-175, D-238, D-251) and the V1-SM05 slice in sections 4.4-4.6 govern current use.)",
       "community": 28,
       "community_name": "V1 Functional Specifications"
     },

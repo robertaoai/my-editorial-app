@@ -432,6 +432,9 @@ place: `frag136.json` (two curated edges), `V1-SM05.md`, `V1-SM06.md`, `V1-BUILD
 **`D-384` (2026-10-02) — no file added or retired, stated explicitly.** The `B-077`/`B-117` child census adds rows
 inside `SV-002.md` (§2.3.2) and `GOV-RES-001.md` (`GR-009`–`GR-011`).
 
+**`D-385` (2026-10-02) — no file added or retired, stated explicitly.** Changed in place: `docs/handoff/README.md`,
+`SV-002.md`, `docs/graph-fragments/frag5.json`, and `B-153`/`B-150` in their own one-path commits.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

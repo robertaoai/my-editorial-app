@@ -134,6 +134,15 @@ under the writable-channel rule above, but durable commit/push requires `Eligibl
 > exact path, stage only it, prove the commit's path set, and run the pre-push proof. The work-product lock outside
 > this directory is unchanged — it governs writes to each lane's owned files (`D-271`).
 
+> **Clarified by `D-385`, 2026-10-02 (Judge).** "The receiving lane commits its answer in the same way" binds
+> **Active Lane A** too. A Lane A answer, acknowledgement or application record in a `B-`/`C-` entry is its own
+> commit with exactly one bound path. It never shares a commit with canonical sources, another entry, or this
+> directory's control files; canonical edits that cite the answer land in their own commit. All lanes share one Git
+> identity and one worktree, so the bound path and the commit message are the only lane evidence a commit carries.
+> **Pushing a range that holds more than one lane's commits** needs the Judge to name that range, a fresh fetch, and
+> the post-push upstream equality check above. A lane-gate control enforcing this is a separate proposal, not part
+> of this clarification.
+
 ## Raising an entry — Lane B and Lane C
 
 Copy `TEMPLATE.md` to `B-NNN-<short-slug>.md` (Lane B) or `C-NNN-<short-slug>.md` (Lane C),

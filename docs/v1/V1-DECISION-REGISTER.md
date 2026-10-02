@@ -25419,3 +25419,55 @@ any Register act separating the namespaces (that is `GR-010`'s completion step);
 | **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
 | **Encyclopedia** | — unaffected: no file mapped to Entries 01–06 changed |
 | **Graphify** | Rebuild at this commit, re-merge `frag136`, then the semantic fill and the content-grounded labels as the last act |
+
+## 5.14e210 `D-385` — One-Path Commits Bind Active Lane A Too; Census Corrected After `B-153`
+
+**Authority: the Judge, directly to Lane A, 2026-10-02.** Lane A asked whether D-385 was authorized as described.
+**Answer: "Yes. follow above latest updated plan".** It answers Lane B's `B-153` review and Lane B's review of the
+proposal. Read at `799ad46`.
+
+### The decision
+
+1. **P1 — commit discipline.** `docs/handoff/README.md` now states that `D-272`'s one-path procedure binds receiving
+   Active Lane A. A Lane A answer, acknowledgement or application record in a `B-`/`C-` entry is its own commit with
+   exactly one bound path. Pushing a mixed-lane range needs the Judge to name the range.
+   **Finding recorded:** `ba03794`, `f51bc50`, `224528c`, `a82370b` and `42dbbe6` mixed handoff answers with
+   canonical sources, and `5177c03` held two entries in one commit. The content of those commits stands; their form
+   did not meet the rule. A lane-gate control enforcing the rule is deferred to its own proposal.
+2. **P2 — census corrections.**
+   - **`R33` is Superseded, not "confirmed fixed".** `D-238`, `D-251` and `D-171` replace its premise. The
+     `ACCESS-ROLE-CHIEF-EDITOR` token is the decided state, not a defect. The positional `EG5`→`T6` column is `R38`,
+     already in `GR-010`.
+   - **The Chief Journalist `A` question is dissolved** by `D-236`, not open. Lane A's `B-153` acknowledgement
+     overstated `R33` as "not fixed"; this act is the correction.
+   - **`R30`'s curated surface was compared.** Seven fragment descriptions match the old order. Six are dated
+     history and stay unchanged. `frag5` `fn_gates_01_05` is qualified as historical. No residual remains, and
+     `GR-010` is not extended.
+   - The `B-077`/`B-117` ledger rows gain current-scope notes.
+   - `B-103`'s tracker note points to its Verified header.
+   - `B-153` is keyed in §2.3.2 and listed in §2.3.1 (`O0`).
+   - The tracker is re-derived at `799ad46`.
+   - The remaining population is named "unkeyed historical transactions requiring screening".
+3. **A receipt never clears its source row.** Each row still needs independent verification or the Judge's
+   individual reason (`D-364`).
+
+### Not given by this act
+
+The lane-gate control; any Product, code or stored-ID change; `B-114`'s verification, which waits for Lane C's
+`B-115` consumer read; any clearance; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e210 |
+| **`docs/handoff/README.md`** | ✅ `D-385` clarification under `D-184`/`D-272` |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ census `R33`/`R30` rows, Chief Journalist correction, scope notes, `B-153` rows, re-derivation |
+| **`docs/graph-fragments/frag5.json`** | ✅ `fn_gates_01_05` description qualified |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-385` paragraph; no file added or retired |
+| **`docs/handoff/B-153-independent-census-review-and-parent-first-follow-up.md`** | ✅ Lane A answer, in its own commit |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record, in its own commit |
+| **`GOV-RES-001.md`** | — unaffected: `R30` needed no extension |
+| **Build Spec**, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
+| **Encyclopedia** | — unaffected: no file mapped to Entries 01–06 changed |
+| **Graphify** | Rebuild at the final commit, re-merge `frag5` and `frag136`, replay descriptions, then content-checked labels |
