@@ -3706,3 +3706,36 @@ Based on Lane A's analysis: `refer docs/handoff; consolidate analysis before han
 | Approve-with-conditions | Latest Lane C advice ready for Lane A intake with LC3-F1–F3 corrections | Phase 1 |
 | Reject | Optional-backlog gate exemption, convention-based defect waiver or impossible-to-test producer rationale | Phase 1 clearance/scope correction |
 | Defer | Whole-source closure, Gate 2 and actual construction/CI/hosted execution | Phase 1 gate acts; Phase 2 SM05; Phase 3 SM06 |
+
+
+## Lane B intake-ready confirmation of corrected Lane C guide — 2026-10-02
+
+Based on Lane A's analysis: `refer docs/handoff; consolidate analysis before handing over to Lane A using the handoff template.`
+
+**Raiser:** Lane B. **Receiver:** Lane A. **Correction phase:** Phase 1. **Blocks:** treating review agreement as applied source/gate clearance. **Read:** `baba95085ecd54d27dafff598ece0cac089796f0`. **Evidence:** latest supplied Lane C assessment/worklog at baba950, compared with SV-002/GOV-RES-001 and the recorded D-382/timing reviews. The attachments are advisory evidence; their “5.f” label is an organizational label, not a new Judge act. This is a review receipt against the existing single consolidated guide, not another plan or tracker. Lane A's answer is untouched.
+
+**The substantive LC3-F1–F3 advice defects are resolved:** optional backlog no longer exempts its source rows from Gate 2; the Stage 2 allocation is grounded in D-230/D-382 scope rather than an alleged technical impossibility; receiver application is distinguished from independent verification. The decision table, runbook, critical construction/verification artifacts, sixteen-source classification and existing B-104/Project trace can now be consumed by Lane A. Implementation and closure evidence remain separate pending work.
+
+**Use these two precise qualifications when answering:**
+- B-136 P15 is **O1**, not one of the O5 sources. Its individual-reason route is D-364 **item 4**, as D-382 records, at SV2-DOD-06; do not cite item 9 or use that future act as evidence of earlier clearance. The four named O5 sources remain B-016, C-001, B-088 and B-094, each with its own item-9 reason.
+- Only GR-006 and GR-008 have optional execution. Do not generalize the artifact table's “execution remains optional” to all eight governance receipts. GR-002/004/005 contain unheld documentary obligations; GR-007 has continuous reconciliation; GR-001/003 retain their recorded holds. Receive, clear and execute each under its own criterion. Literal answer/disposition drafting may proceed with explicit pending dependencies; B-110/B-115 evidence is required for the terminal verification/clearance that relies on it.
+
+### Only three pending parents — next Lane A steps and decisions
+
+| Order / dependency | Lane A follow-up and concrete acceptance evidence | Verdict / phase |
+|---|---|---|
+| **1. Finish control and coverage evidence; propagate the answered timing.** | Add B-110's two direct curated references, preserve/re-merge fragments and obtain exact-label proof plus independent verification. Complete B-077/B-117 child/return inventory. Record local-only SM05 DoD and separately accepted baseline promotion as SM06 entry in the governing sources. Accept exact links, honest coverage and one timing chain; reject freshness or keyed counts as semantic completion. | Approve-with-conditions — Phase 1 |
+| **2. Record receiver dispositions and reasoned source clearance, dependent on the evidence cited.** | B-102/B-103/B-114 receiver acts reference applied facts, met return conditions and receiving owners; retain named B-110/B-115 review dependencies. Apply proper episode/disposition rules, finish B-106 source propagation, verify optional transfers and record each required O5 reason plus the distinct P15 route. Accept source/child evidence; reject blanket terminal closure or optional-backlog exemption. | Approve-with-conditions — Phase 1; execution stays at its receiving gate |
+| **3. Complete historical accounting and evaluate Gate 2, after accepted prerequisite evidence.** | Continue the 106 unkeyed transactions and two partial keyed reviews; refine surviving obligations, including substantiated Issue/PR-era early closures. Derive review, custody, clearance and execution progress separately in the existing homes. Assemble SV2-DOD-06 and Judge gate/work-order/lane acts. Accept the full recorded prerequisites; reject review agreement, Issue/PR creation or an unchanged file as closure proof. | Defer actual clearance — Phase 1 → Phase 2 SM05; separate Phase 3 SM06 gate |
+
+**Scope/trace retained, no new feature:** Phase 3 receipts, including the shared D-230 Stage 2 signal/workflow unit, remain SM06 Project assurance under NFR-04/AC-NF-03, separately from MMF-V1-USABLE. SM05 retains its admitted child inputs, local physical-database/failing-first evidence and MMF-V1-CORE contract. B-104 O1 retains CR-09 + partial CR-19 → US-15/FR-15 → AC-23–26 → FN-GATES → SM05-N6; O2/O4 retain target story/AC parents and held GR-001/003; O3's provenance labelling is unheld in GR-002. There is no B-104.O5; global O0–O5 are closure groups with Project/Product authority and consuming artifacts. Reuse the existing matrix and source classifications; the seven Deferred/nine Open cohort does not replace the full census.
+
+**Progress unchanged:** 49 keyed / 106 unkeyed, including two partial reviews; 74 non-SM05 tracker rows still unclosed, zero SM05 unreceived. Eight GR and six Phase 3 receipts are bounded custody counts, not a complete backlog execution denominator. Complete required/received/accepted/remaining-execution totals still need unique-obligation refinement. B-110 stays Applied; no header or clearance is changed by this confirmation.
+
+**Checks/graph:** live handoff-response, closure-readiness and docs-drift pass; graph query/check-update is current at governed baseline 224528c. Prior full 19/19 and focused 8/8 evidence is preserved, not represented as freshly rerun here. A current graph still lacks B-110's required links. This handoff-only receipt requires no rebuild; Lane A's canonical corrections require fragment-preserving graph synchronization and exact-link verification. No build, receiver application, workflow, hosted migration or lane change was performed.
+
+| Verdict | Subject / condition | Follow-up phase |
+|---|---|---|
+| Approve | Corrected guide and substantive LC3-F1–F3 advice as ready for Lane A intake, using the two qualifications above | Phase 1 |
+| Approve-with-conditions | Lane A source application/disposition: provide the existing exact coverage, receiving and independent-clearance evidence | Phase 1 |
+| Defer | Whole-source closure, Gate 2 and construction/CI/hosted execution | Phase 1 gate acts → Phase 2 SM05 / Phase 3 SM06 |
