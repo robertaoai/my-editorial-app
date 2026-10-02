@@ -233,3 +233,9 @@ which it does not change.
 
 **Recommendation:** verifiable for its Re-close condition once `B-115` is Verified, with the residual transferred
 to `GR-015`. It does not wait for `GR-015` delivery.
+
+## Lane A request — Lane B verification, `D-395`, 2026-10-02
+
+The Judge names **Lane B** as the independent verifier (`D-324` Level 1). After `B-115` is Verified, verify this entry's Re-close condition against the `D-394` assessment above; its step 8–9 residual is now carried by `GR-015`. Record the result in this entry's
+header (`Verified-By`, `Verified-At-Commit`), or reject it with the failing item and its source text. Lane A writes
+no `Verified`. `GR-015`'s two refusal lines are now in `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §8.
