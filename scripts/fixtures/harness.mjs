@@ -23,7 +23,8 @@
 // Run with `bun run fixtures`.
 
 import { execFileSync } from "node:child_process";
-import { readFileSync, writeFileSync, existsSync, rmSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, rmSync, mkdirSync, lstatSync, readdirSync, rmdirSync } from "node:fs";
+import { resolve, sep } from "node:path";
 
 /**
  * `D-139`, raised against this session's own fixture run. **Not `B-021`'s
@@ -169,6 +170,58 @@ export function runScript(args, cwd = process.cwd()) {
   } catch (e) {
     return { code: e.status ?? 1, out: `${e.stdout ?? ""}${e.stderr ?? ""}` };
   }
+}
+
+/**
+ * `D-396` (`GR-013`) — baseline-aware restore. Snapshots each path BEFORE a
+ * fixture touches it and returns a restore that puts every path back to that
+ * baseline, and only that:
+ *
+ *   * a file that existed gets its original bytes back;
+ *   * a path that was absent is removed — a file directly, a directory only
+ *     if it is now EMPTY. A created directory holding anything the fixture did
+ *     not create is refused, with the path named, never deleted;
+ *   * a directory that already existed is left alone, empty or not.
+ *
+ * There is no recursive delete. Every path must resolve inside one of `roots`
+ * (default: the working directory) and must not be a link, so a restore cannot
+ * reach outside the disposable target. List parent directories too: a
+ * `mkdirSync(..., { recursive: true })` creates them.
+ *
+ * This replaces file-only restores such as the `syncDocs()` one, which removed
+ * `SKILL.md` but left `.agents/skills/sync-docs/` behind on every run.
+ */
+export function snapshot(paths, { roots = [process.cwd()] } = {}) {
+  const bases = roots.map((r) => resolve(r));
+  const inside = (abs) => bases.some((b) => abs === b || abs.startsWith(b + sep));
+  const entries = paths.map((p) => {
+    const abs = resolve(p);
+    if (!inside(abs)) throw new Error(`snapshot: ${p} is outside the fixture target`);
+    if (!existsSync(abs)) return { p, abs, kind: "absent" };
+    const st = lstatSync(abs);
+    if (st.isSymbolicLink()) throw new Error(`snapshot: ${p} is a link; refusing to manage it`);
+    if (st.isDirectory()) return { p, abs, kind: "dir" };
+    return { p, abs, kind: "file", bytes: readFileSync(abs) };
+  });
+  return () => {
+    const problems = [];
+    // Deepest first, so a created file goes before the directory holding it.
+    for (const e of [...entries].sort((a, b) => b.abs.length - a.abs.length)) {
+      const now = existsSync(e.abs) ? lstatSync(e.abs) : null;
+      if (e.kind === "file") {
+        if (now && now.isDirectory()) problems.push(`${e.p}: was a file, is now a directory; not restored`);
+        else withRetry(() => writeFileSync(e.abs, e.bytes));
+      } else if (e.kind === "dir") {
+        if (!now || !now.isDirectory()) problems.push(`${e.p}: pre-existing directory is gone`);
+      } else if (now) {
+        if (now.isSymbolicLink()) problems.push(`${e.p}: became a link; not removed`);
+        else if (!now.isDirectory()) withRetry(() => rmSync(e.abs));
+        else if (readdirSync(e.abs).length) problems.push(`${e.p}: created by the fixture but not empty; not removed`);
+        else withRetry(() => rmdirSync(e.abs));
+      }
+    }
+    if (problems.length) throw new Error(problems.join("; "));
+  };
 }
 
 export { existsSync, rmSync, mkdirSync };
