@@ -3837,3 +3837,16 @@ Judge authorization: "Judge authorizes push of 3 commits and batch 2 as next uni
 - The other 24 are valid. Each `O5` row still needs the Judge's individual reason to close.
 
 One-path commit.
+
+## Lane A application — D-391, screening batch 3 — 2026-10-02
+
+Judge authorization: "Judge authorizes push of 2 commits and batch 3 as next unit".
+- **Batch 3:** the 75 remaining transactions, all already `Verified`. Every transaction is now keyed in `SV-002`
+  §2.3.2.
+- **Structural screen of all 75:** verifier independence, verification-commit existence, Return/Re-close balance,
+  and terminal history. Semantic checks for the five verified in the Issue #1 / PR #2 window.
+- **One orphan received:** Improvement C → `GR-014`.
+
+Keying is accounting, not semantic completion. For 70 of these, the verified premise was not re-read.
+
+One-path commit.
