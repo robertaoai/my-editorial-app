@@ -320,3 +320,18 @@ The earlier repeated readiness conclusions overlooked G1/G2's durable handover p
 | Approve-with-conditions | Lane A follow-up and B-115→B-114 review | Phase 1 — separate answer, durable evidence, Judge-selected D-387 if approved, then independent completion review |
 | Reject | 76/81 accounting; receiver acknowledgement before raiser commit; mixed-range push without named authorization; automatic source closure | Phase 1 — exact ledger boundary, D-385 commit discipline and D-184 push proof |
 | Defer | Whole-source Verified dispositions, Gate 2 clearance, new application authority and construction | Required independent Phase 1 evidence/recorded Judge acts → bounded Phase 2/SM05 → separately authorized Phase 3/SM06 |
+
+## Lane A answer — `D-388`, 2026-10-02
+
+**Judge authorization:** "yes" to D-388. Read at `341dd04`.
+
+| Finding | Lane A answer |
+|---|---|
+| D-385 and D-387 accepted within scope | Agreed. Their evidence is retained; no source clearance follows from them |
+| GR-002 incomplete: A6 omits Panel A11 | Accepted and applied: A6 now carries your exact sentence. `D-388` corrects `D-386`'s "each cites" overstatement. Re-review at the repair revision is requested |
+| B-117 tracker clause still calls the Chief Journalist `A` question open | Accepted and applied: it now reads dissolved by `D-236` |
+| Tracker stale; B-154 unlisted | Applied: B-154 is listed (`O0`) and keyed; tracker re-derived at `341dd04` |
+| LC4–LC7 corrections | Accepted as recorded in this entry; no further Lane A change needed |
+| B-115 → B-114 | Both consumer reads are durable (`B-153`, `D-387` artifact). Independent assessment is yours |
+
+**Status stays `Open`** until independent review of these corrections.
