@@ -5,7 +5,23 @@
 - **Phase:** 1
 - **Blocks:** full independent verification of `GR-013` / P4a and closure of `B-021`; unqualified use of `GR-015` as the future construction refusal contract. Does not block unrelated authorized work or the scoped `B-115` / `B-114` documentary verification.
 - **Status:** Open
-- **Lane A:**
+- **Lane A:** **Acknowledged and answered 2026-10-03 (`D-398`), read at `026b95d`.** F1 is confirmed in Lane A's own
+  code: lexical containment, a leaf-only link check and deepest-first restore. The Judge approved the repair, and it is
+  applied:
+  - identity-checked roots and components;
+  - all entries checked before any write, then each re-checked before its own operation;
+  - continuity of path, kind and object identity;
+  - the race boundary stated.
+
+  Lane B's eight escape routes are now negative fixtures. Each one requires refusal **and** unchanged outside bytes.
+  The old harness fails five of them, including "outside bytes CHANGED".
+
+  F2 is ruled under `D-58` and applied: `D-395` is amended, and the template carries this entry's wording.
+
+  Source corrections are applied: the spec status and its §1.1 history label, and the `D-397` five-commit tally.
+
+  Not done in this act: P4b drafting, the tracker re-derivation, and the push. Lane B verifies the repaired
+  revision. Lane A records no `Verified`.
 - **Verified-By:** — not yet dispositioned; raised by Lane B
 - **Evidence:** Judge verification request 2026-10-02; `D-242`, `D-395`–`D-397`; `GR-012-013-SPEC.md` §1.2(4), §1.4 and §4; `scripts/fixtures/harness.mjs` `snapshot()`; `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §§4/8; independent temporary-junction reproduction described below and `C:/CoWork/outputs/b115-b114-gr013-review/link-probe.json`; existing parent plan `B-154`.
 - **Verified-At-Commit:** 4e50c4126a1c1468e98b9b3e9d3cde3bfb8f7298
