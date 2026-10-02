@@ -463,6 +463,9 @@ sentence) and `SV-002.md`; `B-154`/`B-150` in their own one-path commits.
 curated node `frag143.json`; `GOV-RES-001.md` rows `GR-002`, `GR-004`, `GR-012`, `GR-013` updated; `B-154` answered in
 its own one-path commit.
 
+**`D-394` (2026-10-02) — no file added or retired, stated explicitly.** `GR-015` in `GOV-RES-001.md`;
+`B-115` and `B-114` assessed, each in its own one-path commit.
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

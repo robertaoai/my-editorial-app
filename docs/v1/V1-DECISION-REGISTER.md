@@ -25798,3 +25798,63 @@ A work order for P4a or P4b; any change to `scripts/`, `.claude/skills/` or host
 | `Modular_PRD`, Fn Specs, SPECS, packets other than above, rule files, Phase Closure, `SV-002`, `.claude/skills/sync-docs/SKILL.md` | — unaffected (the skill's correction is drafted, not applied) |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, merge `frag143`, fill descriptions last |
+
+## 5.14e219 `D-394` — `B-115` and `B-114` Completion Assessed; the Push-and-Commit Refusal Orphan Received as `GR-015`
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"go ahead with B-115 then B-114 review"*. Read at
+`5747585`.
+
+### The decision
+
+1. **`B-115` assessed against its whole completion condition.** Lane A answered it, so this is a completeness
+   assessment for an independent verifier, not a verification (`D-102`).
+   - **Steps 1–7 and 9 are met.** `D-242` and its five homes carry the separation: `docs/README.md` layer order,
+     `LANE-B-WORK-ORDER.md` §7, `.github/WORKFLOWS-SPEC.md` §8, `SPECS-VERIFICATION-APPARATUS.md` §17 and the
+     `V1-BUILD-SPEC.md` pointer.
+   - **Step 10 is met.** Lane B's consumer read is in `B-153` (read `8e6ab54`). Lane C's four confirmed findings are
+     preserved under `D-387` (read `07d931e`). None of the five read surfaces, nor the pull-request template, has
+     changed since either read.
+   - **Step 8 is five of six.** Five of its readiness conditions are carried by the `v1-mmf` pull-request template,
+     the work order §7 or WORKFLOWS-SPEC §8. The sixth, *a push record with no accepted integration tip*, is stated
+     only as a rule in work order §7 and is not a refusal condition anywhere.
+2. **`B-114` assessed against its Re-close Completion-Condition** (`D-383`).
+   - **The condition is met.** The separation is applied and its ownership framing is corrected by reference.
+     The method content is received by work order §7. The B→C packet and Lane C workflow proof are received by
+     `SM06-P3-06`.
+   - **One residual has no receiver.** Two of step 9's five detection conditions, and step 8's remote-tip
+     record, are not received anywhere:
+     - a commit carrying more than one child ID;
+     - an agent push where the human final push was required;
+     - the human push record of actor and remote-tip equality with the accepted local MMF tip.
+     The other three are carried by the pull-request template: a packet named in §1, DoD evidence links, and
+     method rationale with failing-first evidence.
+3. **One orphan, received once, as `GR-015`.** The `B-115` step-8 gap and the `B-114` residual are the same
+   missing control, so they get one row, not two. `GR-015` is held until the Judge commissions or declines it. The
+   draft correction adds two refusal lines to `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §8:
+   - "A commit carries more than one child ID, or a child has no red evidence recorded before its implementation
+     diff";
+   - "The push to the remote was made by an agent, or the pull request does not record the human push actor and
+     that the remote tip equals the accepted local MMF tip".
+4. **Recommendation for the independent verifier.**
+   - **`B-115`:** verifiable for its separation scope now, with step 8's sixth condition transferred to `GR-015`.
+   - **`B-114`:** verifiable for its Re-close condition once `B-115` is Verified, with its residual transferred
+     to `GR-015`.
+   - Neither entry needs to wait for `GR-015` delivery, because the residual now has a receiver (`D-364` items
+     4–5).
+
+### Not given by this act
+
+`Verified` on either entry; any change to the pull-request template; execution of `GR-015`; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e219 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-015` |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-394` paragraph; no file added or retired |
+| **`docs/handoff/B-115-separate-intent-build-and-devops-governance.md`** | ✅ Lane A assessment, in its own commit |
+| **`docs/handoff/B-114-mmf-test-first-atomic-commit-and-human-push.md`** | ✅ Lane A assessment, in its own commit |
+| Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure, `SV-002`, `.github/` | — unaffected (the template change is drafted, not applied) |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, verify the curated layer, fill descriptions last |
