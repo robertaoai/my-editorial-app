@@ -23,10 +23,10 @@
   in `D-242`'s tier table. **Still owed:** the independent consumer reads by Lane B (construction
   usability and ownership) and Lane C (assistance scope, input allowlist, return path). Neither read
   authorizes a build, and this answer selects no MMF.
-- **Resolution:** Applied
-- **Verified-By:** — not independently verified; dispositioned by Lane A
+- **Resolution:** Verified
+- **Verified-By:** Lane B (Codex)
 - **Evidence:** Chief Editor/Judge clarification of 2026-09-16; B-114; B-103 P1/P2 and D-229/D-230; `docs/README.md` request-to-execution map; `docs/v1/V1-BUILD-SPEC.md` lane surfaces; `docs/LANE-B-WORK-ORDER.md`; `.github/WORKFLOWS-SPEC.md`; `docs/specs/SPECS-VERIFICATION-APPARATUS.md`; `docs/Modular_PRD.md`; storyboard/story panels, embedded data flow and requirements traceability map; applied by `D-242` at `4eb469f`; local consistency and fixture runs green at `d6a8477`
-- **Verified-At-Commit:** d6a84770fccba0e54f8454df2c9f65182c06546b
+- **Verified-At-Commit:** 4e50c4126a1c1468e98b9b3e9d3cde3bfb8f7298
 
 ## Judge clarification received
 
@@ -272,3 +272,34 @@ not a verification (`D-102`).
 The Judge names **Lane B** as the independent verifier (`D-324` Level 1). Verify this entry's separation scope against the `D-394` assessment above; step 8's sixth condition is now carried by `GR-015`. Record the result in this entry's
 header (`Verified-By`, `Verified-At-Commit`), or reject it with the failing item and its source text. Lane A writes
 no `Verified`. `GR-015`'s two refusal lines are now in `.github/PULL_REQUEST_TEMPLATE/v1-mmf.md` §8.
+
+## Lane B independent verification — separation scope, 2026-10-02
+
+**Authority:** `D-395` and the Judge's direct verification request. **Read:**
+`4e50c4126a1c1468e98b9b3e9d3cde3bfb8f7298`. Lane B neither answered nor applied this correction.
+
+**Verified within the commissioned separation scope.** Read `D-242` and the actual layer order in
+`docs/README.md`, work order §7, WORKFLOWS-SPEC §8, verification-apparatus §17 and the Build Spec pointer.
+Intent/MMF authority remains with the Judge and Lane A; construction methods remain Lane B's;
+Lane C consumes immutable allowlisted evidence and returns deficiencies. File stewardship is unchanged.
+Work order §7 preserves honest characterization and the construction human-final-push boundary;
+`D-242` preserves the distinct canonical and handoff transport procedures.
+
+Both required consumer reads exist. Recomputed the preserved Lane C artifact's SHA-256:
+`6aebe93c197aa14f7db237fd13a926e43eddce642311e381866038fb2980a763`, matching `D-387`; admitted only its four
+consumer findings. Lane B's read is preserved in `B-153`. Since those reads, the four instruction/proof
+surfaces are unchanged; the Build Spec adds `D-393`/`D-396`/`D-397` tooling pointers, and the template adds
+`D-395`'s refusal lines. Inspected those changes; none changes the ownership split. The old assessment's
+"no read surface or template changed" is a dated observation, not a current claim.
+
+Step 8's sixth condition has one receiver, `GR-015`; its two commissioned lines are present.
+Exact application is verified separately in the current `B-154` review. Their future-use wording needs
+the bounded reconciliation there; that does not undo this commissioned separation verification.
+The caller's `bun run check` passed 19/19 at the read revision while two isolated fixture runs were live.
+Graph revision currency is current; this does not certify all semantic descriptions or portability of
+ignored runtime files. No new check, workflow, signal producer, Gate 2 clearance or construction is claimed.
+
+| Verdict | Item | Condition / follow-up phase |
+|---|---|---|
+| **Approve** | B-115 separation scope under D-395 | **Phase 1 — independently Verified; B-114 may now be assessed** |
+| **Defer** | Future construction, workflow and readiness evidence | Separate **Phase 1** clearance/acts → authorized **Phase 2/SM05** and **Phase 3/SM06** |
