@@ -231,3 +231,21 @@ body.** Confirm:
 
 **Accept** when all four are confirmed at a named commit. **Reject** with the failing item and its source text. This
 read is evidence for `B-115`, and then for `B-114`'s verification; it authorizes no workflow change or Phase 3 work.
+
+## Lane A record — Lane C consumer read preserved, `D-387`, 2026-10-02
+
+Both consumer reads that this entry's completion condition names now exist:
+- **Lane B:** passed, recorded in `B-153` (D-383 outcomes, row 4).
+- **Lane C:** four CONFIRMED findings read at `07d931e`:
+  1. WORKFLOWS-SPEC §8 acting window;
+  2. the `D-229`/`D-230` failure-capable contract;
+  3. no Intent or Build ownership;
+  4. a usable deficiency return.
+
+  Preserved byte for byte as
+  `docs/handoff/artifacts/B-115/lane-c-b154-review-with-b115-consumer-read-07d931e.txt` (SHA-256
+  `6aebe93c197aa14f7db237fd13a926e43eddce642311e381866038fb2980a763`). Only those four findings are taken from it;
+  its other claims were corrected in `B-154`.
+
+**Next:** an independent actor assesses this entry's whole completion condition and records any `Verified`. Then
+`B-114` is assessed. Lane A records no verification here.
