@@ -25371,3 +25371,51 @@ Any `Verified`; Gate 2; `SM06` entry or any hosted or Phase 3 work order; G5, th
 | **Phase Closure** (`V1-PHASE-CLOSURE.md`), Fn Specs, SPECS, rule files | — unaffected |
 | **Encyclopedia** | — unaffected: no file mapped to Entries 01–06 changed |
 | **Graphify** | Rebuild at the final commit, re-merge `frag136`, then the semantic fill as the last act |
+
+## 5.14e209 `D-384` — G5: the `B-077`/`B-117` Child Census Completed; `GR-009`–`GR-011` Received
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"Judge authorizes G5 as the next unit"*. It completes the
+two `SV-002` §2.3.2 rows that `D-382` left partial, answering Lane C's Level 2 finding on partial coverage. Read at
+`5177c03`.
+
+### The decision
+
+1. **Every child is enumerated once.** All 10 `B-077` and all 51 `B-117` children are listed in a child census
+   under `SV-002` §2.3.2, grouped by result: confirmed fixed, superseded by a named act, received, held, or confirmed
+   live. A script check found each ID exactly once.
+2. **`B-077` leaves nothing beyond `GR-007`.**
+   - Its graph and header children (`R2`, `R4`, `R6`) are confirmed fixed in the live fragments and in `B-072`'s
+     header.
+   - The others are superseded, or were rejected by `B-077` itself.
+3. **`B-117`'s live residuals are received, not assumed.** Each was confirmed by reading the current source:
+   - Storyboard Panels A3, A4 and A6 still lack the supersession marker that A2 and A5 carry, so `R21`, `R35`,
+     `R42` and `R50` join the existing **`GR-002`** labelling task.
+   - **`GR-009`**: the configuration symbols `PIPELINE_GATE_COUNT = 6` and
+     `PIPELINE_TRANSITION_COUNT_TO_PUBLISHED = 7` mix transitions with gates and exceed V1 (`R31`, `R32`, `R36`,
+     `R40`, `R41`). The code side is Lane B's.
+   - **`GR-010`**: namespace separation of business phase, `EG` workflow and technical transition, across
+     traceability §6.2, `FN-GATES` §11 and `D-170`/`D-171` (`R14`, `R19`, `R34`, `R37`, `R38`, `R39`, `R49`).
+   - **`GR-011`**: the crosswalk's cardinality-based `UNVERIFIED` rule (`R17`, `R18`).
+   - `R22`, `R46` and `R48`, plus the general target parts of `R44`/`R45`, stay held under `D-171` with `B-071`.
+     The SM05 slice parts of `R44`/`R45` are already received in SM05.
+4. **Honest limit.** Superseded rows rely on the named later act, not on a re-read of every derived tier. `R30`'s
+   graph-fragment wording was not re-read. `B-117`'s open Chief Journalist `A` decision is unchanged.
+
+### Not given by this act
+
+Any header, Resolution or Clearance change; execution of `GR-002` or `GR-009`–`GR-011`; any `lib/config/` change;
+any Register act separating the namespaces (that is `GR-010`'s completion step); Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e209 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.2 child census; `B-077`/`B-117` ledger and tracker notes |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-009`–`GR-011`; `GR-002` and `GR-007` notes |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-384` paragraph; no file added or retired |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record |
+| **Build Spec**, `V1-SM05.md`, `V1-SM06.md`, `Modular_PRD`, Fn Specs, SPECS, `CONFIG_LOG.md`, rule files | — unaffected: residuals are received, not yet applied |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected |
+| **Encyclopedia** | — unaffected: no file mapped to Entries 01–06 changed |
+| **Graphify** | Rebuild at this commit, re-merge `frag136`, then the semantic fill and the content-grounded labels as the last act |

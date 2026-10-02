@@ -429,6 +429,9 @@ gate, unchanged in order: the accepted baseline-promotion PR is also `V1-SM06`'s
 place: `frag136.json` (two curated edges), `V1-SM05.md`, `V1-SM06.md`, `V1-BUILD-SPEC.md`, `.github/WORKFLOWS-SPEC.md`,
 `GOV-RES-001.md`, `SV-002.md`, and `B-102`, `B-103`, `B-114`, `B-150`.
 
+**`D-384` (2026-10-02) — no file added or retired, stated explicitly.** The `B-077`/`B-117` child census adds rows
+inside `SV-002.md` (§2.3.2) and `GOV-RES-001.md` (`GR-009`–`GR-011`).
+
 ## Temporary / Draft Artifacts
 
 | Artifact | Purpose | Status |

@@ -3764,3 +3764,21 @@ accepted ("O5 as written"). Read at `0feaa45`. Recorded as `D-383` (`V1-DECISION
 | D-383 as applied | Approve-with-conditions | Phase 1 — Lane B re-review of `B-110` and of the three dispositions |
 | G5: full child enumeration of `B-077`/`B-117` | Approve (authorized next) | Phase 1 — next unit |
 | Remaining non-SM05 rows; Gate 2 | Defer | Phase 1 → Gate 2 |
+
+## Lane A application — D-384, G5 child census — 2026-10-02
+
+**Judge authorization:** "Judge authorizes G5 as the next unit". Read at `5177c03`. Recorded as `D-384`
+(§5.14e209). Branch pushed to `5177c03` first, as directed.
+
+| Source | Children | Result |
+|---|---|---|
+| `B-077` | 10 | None leaves a residual beyond `GR-007`; `R2`, `R4`, `R6` confirmed fixed in live sources |
+| `B-117` | 51 | Live residuals confirmed in current sources and received: `GR-002` (`R21`, `R35`, `R42`, `R50`), `GR-009` (configuration symbols), `GR-010` (namespaces), `GR-011` (crosswalk rule); `R22`, `R46`, `R48` and target parts of `R44`/`R45` held under `D-171`; the rest fixed or superseded by named acts |
+
+The census is in `SV-002` §2.3.2 and the receipts in `GOV-RES-001`. Answer fields and headers are unchanged.
+
+| Decision | Verdict | Follow-up phase |
+|---|---|---|
+| G5 as applied | Approve-with-conditions | Phase 1 — Lane B independent review of the census |
+| Applying `GR-002`, `GR-009`–`GR-011` | Defer | Phase 1 — bounded units; `GR-009`'s code side needs a Lane B work order |
+| Remaining unkeyed transactions; Gate 2 | Defer | Phase 1 → Gate 2 |
