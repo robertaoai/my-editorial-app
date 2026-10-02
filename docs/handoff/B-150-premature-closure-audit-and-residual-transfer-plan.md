@@ -3564,3 +3564,45 @@ baseline-promotion PR is `V1-SM06`'s entry step. `D-252`'s wording stands until 
 | P1 + P2 + P3 as applied | Approve-with-conditions | Phase 1 — Lane B independent review of `D-381` |
 | P4: eleven new ledger rows, five reconciled rows, the `B-103`/`B-114` split | Defer | Phase 1 — next bounded unit after the Judge's act |
 | Gate 2, whole-entry closure, Phase 2 build, Phase 3 CI and hosted migration | Defer | Phase 1 gate acts → Phase 2 `V1-SM05` / Phase 3 `V1-SM06` |
+
+## Lane A application — D-382, P4 sixteen-source review — 2026-10-02
+
+**Judge authorization:** "Judge authorizes P4 as the next unit". Read at `f51bc50`. Recorded as `D-382`
+(`V1-DECISION-REGISTER.md` §5.14e207). This is a dated difference only; the live records are `SV-002` §2.3.1–§2.3.2
+and `GOV-RES-001`.
+
+| Order | Source → result | Receiving anchor |
+|---|---|---|
+| Deferred | `B-016`, `C-001` → Phase 3 | `SM06-P3-02`–`04` (one required-check unit); individual Judge `O5` reasons |
+| Deferred | `B-077` → backlog reconciliation | `GR-007` (with `B-117`, `B-118.RH4`) |
+| Deferred | `B-088` → optional token repair, defect still real | `GR-008` |
+| Deferred | `B-094` → routes only | No residual of its own |
+| Parent | `B-102` → all queued units landed | No transfer; disposition-ready |
+| Deferred | `B-103`, `B-114` → return conditions met; `D-230` Stage 2 survives | `SM06-P3-06`; `B-114` method in `LANE-B-WORK-ORDER.md` §7 |
+| Open | `B-095` → `D1`, `D3` documentary; `D2b`, `S5` Product | `GR-004`, `GR-005`; `D2b`/`S5` held with `B-084` `A4` |
+| Open | `B-096` → `GA1`, `S16` report scope | Held with `B-096` |
+| Open | `B-104` → unchanged | `GR-001`–`GR-003` |
+| Open | `B-106` → Product | `Modular_PRD` retention / `RK-05`; `D-381` |
+| Open | `B-117` → backlog scope; Chief Journalist `A` open | `GR-007`; decision at its own return |
+| Open | `B-118` → `RH1`–`RH3` optional; `RH4` historical + closure half | `GR-006`; `GR-007` |
+| Open | `B-119` → residuals already owned | `V1-SM06` DoR boxes, `SM06-P3-01` |
+| Open | `B-136` → `P15` | The Judge's act at `SV2-DOD-06` naming it with its reason |
+
+**Where this departs from the consolidated intake, after reading the sources:**
+- `B-103` and `B-114` both meet their own return conditions already. Their only surviving obligation is `D-230`
+  Stage 2, and it is one obligation, not one per source.
+- It is received whole in `V1-SM06`. Putting a producer half into `V1-SM05` would add a DoD obligation that `P4`
+  does not authorize.
+- `B-119` needs no `GOV-RES-001` receipt.
+
+**Honest scope limit:** `B-077` (4,140 lines) and `B-117` (3,816 lines) were reviewed through header, Follow-up-Tier
+and latest dispositions; their body child series are not enumerated, and their ledger rows say so.
+
+**Lane B review requested** of `D-382`. Answer fields and handoff headers are unchanged; no Clearance cell moved.
+
+| Decision | Verdict | Follow-up phase |
+|---|---|---|
+| P4 as applied | Approve-with-conditions | Phase 1 — Lane B independent review |
+| Dispositions for `B-102`, `B-103`, `B-114` | Defer | Phase 1 — a Lane A act, then independent verification |
+| Individual `O5` reasons for `B-016`, `C-001`, `B-088`, `B-094` | Defer | Phase 1 — Judge act |
+| Remaining 106 transactions; Gate 2 | Defer | Phase 1 → Gate 2 |

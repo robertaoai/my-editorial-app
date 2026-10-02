@@ -63,6 +63,8 @@ above) and the `C-001`/`B-016` required-check work, `C-24`, `C-25` and `C-Q1` (`
 Project allocation under `NFR-04` → `AC-NF-03`, separate from `MMF-V1-USABLE`'s Product scope. **The local
 `0002` replay and `V1-SM05-FV-001`'s failing-first evidence stay `V1-SM05` obligations**, Gate 2 stays a
 pre-entry clearance check that cannot require `V1-SM06` execution, and existing repository CI is unchanged.
+**Added 2026-10-02 (`D-382`):** `D-230` Stage 2, the B→C signal and its consuming workflow from `B-103`/`B-114`, is
+`SM06-P3-06`; `B-114`'s build-method content stays in `LANE-B-WORK-ORDER.md` §7 for `V1-SM05`'s work order.
 
 **State-1 lifecycle, branch name and sequencing (`D-253`, 2026-09-22).** The State-1 readiness PR is
 **documentation-only**: no implementation change, and DoD gates acceptance and merge rather than

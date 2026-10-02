@@ -25223,3 +25223,70 @@ an answer to the two open questions above.
 | **Business Case, Blueprint, Fn Specs, SPECS, rule files** | — unaffected here; the Business Case `A6` wording is `B-106`'s remaining propagation |
 | **Encyclopedia** | — unaffected: no file mapped to Entries 01–06 changed |
 | **Graphify** | Rebuild at this commit, re-merge fragments, then the semantic fill as the last act |
+
+## 5.14e207 `D-382` — The Sixteen-Source Review (`P4`): Eleven Keyed Reviews, Five Reconciled, Every Surviving Obligation Given an Owner
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"Judge authorizes P4 as the next unit"*. It is the unit
+that `D-381` deferred, and it answers the sixteen-source routing in `B-150`, reviewed against the sources rather than
+adopted from it. Read at `f51bc50`. Order: the seven `Deferred` sources first, then the nine `Open`, with `B-102`
+settled before `B-103`/`B-114`.
+
+### The decision
+
+1. **Review accounting.** `SV-002` §2.3.2 gains eleven keyed reviews: `B-016`, `C-001`, `B-077`, `B-088`, `B-094`,
+   `B-103`, `B-114`, `B-102`, `B-106`, `B-117`, `B-119`. The five already keyed (`B-095`, `B-096`, `B-104`, `B-118`,
+   `B-136`) each gain a dated reconciliation. Totals are derived from the table and the directory, not restated here.
+   **Two rows are honest about partial scope:** `B-077` and `B-117` were reviewed through their headers,
+   Follow-up-Tiers and latest dispositions. Their long bodies' child series are not enumerated, and each row says so.
+2. **Parent first: `B-102` is resolved as a parent.** All four units of its 2026-09-15 queue landed: `D-230`
+   corrected `D-229`; `B-103` `P2` Verified; `B-107` Verified; the `D-231`/`D-246` exclusion applied. It has no
+   residual to transfer. Its independent verification of the exclusion, via `B-110`, remains.
+3. **`B-103` and `B-114` meet their own return conditions.** `B-103`'s `P0`–`P3` are all Verified. `B-114`'s
+   condition, `B-115`'s separation applied to governed sources, is met by `D-242`. Both share one surviving Phase 3
+   obligation, `D-230` Stage 2: a Lane B signal consumed by a Lane C workflow that goes red on a missing or
+   malformed signal. **`V1-SM06` receives it as `SM06-P3-06`.** `B-114`'s method content stays in
+   `LANE-B-WORK-ORDER.md` §7 for `V1-SM05`'s work order. No producer obligation is added to `V1-SM05`.
+4. **`GOV-RES-001` receives five governance obligations,** each with a unique key, hold, return condition and
+   completion criterion:
+   - `GR-004` — `B-095.D1`, the decided `Modular_PRD` §7.1 `CR-14` correction. Verified still unapplied: line 832
+     still reads "Missing".
+   - `GR-005` — `B-095.D3`, the storyboard §4 roll-up supersession.
+   - `GR-006` — `B-118.RH1`–`RH3`, the optional recursive handoff partition. `D-240`'s flat layout stands.
+   - `GR-007` — `B-077` + `B-117` + `B-118.RH4`'s closure half: one backlog reconciliation, run in `SV-002`
+     §2.3.1–§2.3.2.
+   - `GR-008` — `B-088`'s optional token-termination repair, under its own conjunctive return condition. The
+     defect still reproduces.
+5. **Kept out of `GOV-RES-001`, by decision:** `B-095.D2b`/`S5` (undecided Product scope, with `B-084`'s `A4` unit
+   under `D-171`); `B-096.GA1`/`S16` (report scope excluded by `SM05-X1`, with `B-096`); `B-106` (Product, `D-374`,
+   `D-381`); `B-119` (residuals already owned by `V1-SM06`'s DoR boxes and `SM06-P3-01`). `B-094` routes only and
+   has no residual of its own. `B-071`'s non-SM05 children stay proposed until `B-071`'s own review.
+6. **`B-136` `P15`** clears by the Judge's act at `SV2-DOD-06` naming `B-136` `P15` with its own reason (`D-364`
+   item 4). That act is never evidence of an earlier clearance.
+7. **Tracker.** The §2.3.1 rows of these sources and their children cite their receiving anchor. **No Clearance
+   cell changes:** a receipt is custody, and each row still needs independent verification or the Judge's
+   individual reason. `B-016`, `C-001`, `B-088` and `B-094` are `O5` rows, so each needs an individual Judge reason
+   (`D-364` item 9).
+
+### Not given by this act
+
+Any handoff header change, Resolution or `Verified`; any Clearance change; Gate 2. Also not given: the dispositions
+this review calls disposition-ready (`B-102`, `B-103`, `B-114`), which need their own Lane A act and then
+independent verification. Any Phase 2 or Phase 3 work order, and any choice on the optional `GR-006`/`GR-008`, are
+likewise not given.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e207 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ §2.3.2 eleven new rows and five reconciliations; §2.3.1 receiving anchors |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/GOV-RES-001.md`** | ✅ `GR-004`–`GR-008`; "Not received here, by decision" list |
+| **`docs/v1/work-packets/V1/V1-SM06.md`** | ✅ `SM06-P3-06` |
+| **Build Spec** (`V1-BUILD-SPEC.md`) | ✅ `SM06-P3-06` sentence in the version-boundary paragraph |
+| **`.github/WORKFLOWS-SPEC.md`** | ✅ §4 note: `D-230` Stage 2 is `SM06-P3-06` |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-382` paragraph; no file added or retired |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record |
+| **`V1-SM05.md`**, `Modular_PRD`, Fn Specs, SPECS, rule files | — unaffected: no SM05 scope, Product meaning or rule changes |
+| **Phase Closure** (`V1-PHASE-CLOSURE.md`) | — unaffected: no lane or phase state changes |
+| **Encyclopedia** | — unaffected: no file mapped to Entries 01–06 changed |
+| **Graphify** | Rebuild at this commit, re-merge fragments, then the semantic fill as the last act |
