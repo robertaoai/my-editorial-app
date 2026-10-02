@@ -25588,3 +25588,44 @@ G1 + G2 + G3 + G4. **Answer: "yes".** It answers Lane B's review in `B-154` (`34
 | Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
 | **Encyclopedia** | — unaffected |
 | **Graphify** | Rebuild at the final commit, re-merge, replay descriptions, content-checked labels |
+
+## 5.14e214 `D-389` — First Historical Screening Batch: the Five Unkeyed `O3` Transactions
+
+**Authority: the Judge, directly to Lane A, 2026-10-02**: *"Judge authorizes first screening batch as next unit"*.
+Read at `6222c77`.
+
+### The decision
+
+1. **Batch chosen parent first, from the data.** Every unkeyed transaction in `O0`–`O2` was already keyed, so batch 1
+   is the five unkeyed `O3` transactions: `B-061`, `B-070` and `B-115` (open rows), and `B-120` and `B-125`
+   (received rows). The rest of the unkeyed population (`O5` and entries outside the tracker) stays for later
+   batches, derived from the tables each time.
+2. **Each is keyed in `SV-002` §2.3.2** with its read revision, scope, finding and receiving anchor. Each §2.3.1 row
+   gains a screening note; no Clearance cell changes.
+3. **One premature-closure finding, on premise only.** `B-061`'s header says `Applied`, but its own answer left
+   items 1 and 4 open, so the header overstates the entry (`D-204`).
+   - Item 1 is superseded: the next unit is the `V1-SM05` packet and `D-242` work order.
+   - Item 4 is held with S2 under `D-171`.
+
+   Nothing transferable remains. `B-061` gains a forward cross-reference, the same pattern `B-070` already uses.
+4. **Confirmed valid:**
+   - `B-070`: its fix is live, and its own cross-reference routes the open parts to `B-071`.
+   - `B-115`: applied, with both consumer reads present.
+   - `B-120` and `B-125`: superseded by `D-269`; `P14a`/`P14b` have their durable owner.
+
+### Not given by this act
+
+Any Resolution change or `Verified`; any clearance; later batches; Gate 2.
+
+### Tier applicability (`D-54`)
+
+| Tier | Disposition |
+|---|---|
+| **Register** | ✅ this entry, §5.14e214 |
+| **`docs/v1/work-packets/SETUP-SPIKE-000/SV-002.md`** | ✅ five ledger rows; five tracker notes |
+| **Inventory** (`V1-ARTIFACT-INVENTORY.md`) | ✅ `D-389` paragraph; no file added or retired |
+| **`docs/handoff/B-061-lane-b-code-build-readiness-inputs-have-drifted.md`** | ✅ forward cross-reference, in its own commit |
+| **`docs/handoff/B-150-premature-closure-audit-and-residual-transfer-plan.md`** | ✅ Lane A application record, in its own commit |
+| Build Spec, packets, `Modular_PRD`, Fn Specs, SPECS, rule files, Phase Closure | — unaffected |
+| **Encyclopedia** | — unaffected |
+| **Graphify** | Rebuild at the final commit, re-merge, replay descriptions, content-checked labels |
